@@ -57,55 +57,7 @@ class ClusterArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
-        :param pulumi.Input[_builtins.bool] allow_major_version_upgrade: A value that indicates whether major version upgrades are allowed. Constraints: You must allow major version upgrades when specifying a value for the EngineVersion parameter that is a different major version than the DB cluster's current version.
-        :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any cluster modifications
-               are applied immediately, or during the next maintenance window. Default is
-               `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of EC2 Availability Zones that instances in the DB cluster can be created in.
-               DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-               We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
-        :param pulumi.Input[_builtins.int] backup_retention_period: The days to retain backups for. Default `1`
-        :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier. If omitted, the provider will assign a random, unique identifier.
-        :param pulumi.Input[_builtins.str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cluster_members: List of DocumentDB Instances that are a part of this cluster
-        :param pulumi.Input[_builtins.str] db_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
-        :param pulumi.Input[_builtins.str] db_subnet_group_name: A DB subnet group to associate with this DB instance.
-        :param pulumi.Input[_builtins.bool] deletion_protection: A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_cloudwatch_logs_exports: List of log types to export to cloudwatch. If omitted, no logs will be exported.
-               The following log types are supported: `audit`, `profiler`.
-        :param pulumi.Input[_builtins.str] engine: The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
-        :param pulumi.Input[_builtins.str] engine_version: The database engine version. Updating this argument results in an outage.
-        :param pulumi.Input[_builtins.str] final_snapshot_identifier: The name of your final DB snapshot
-               when this DB cluster is deleted. If omitted, no final snapshot will be
-               made.
-        :param pulumi.Input[_builtins.str] global_cluster_identifier: The global cluster identifier specified on `docdb.GlobalCluster`.
-        :param pulumi.Input[_builtins.str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
-        :param pulumi.Input[_builtins.bool] manage_master_user_password: Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
-        :param pulumi.Input[_builtins.str] master_password: Password for the master DB user. Note that this may
-               show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
         :param pulumi.Input[_builtins.str] master_password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Password for the master DB user. Note that this may
-               show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password` and `manage_master_user_password`.
-        :param pulumi.Input[_builtins.int] master_password_wo_version: Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
-        :param pulumi.Input[_builtins.str] master_username: Username for the master DB user.
-        :param pulumi.Input[_builtins.str] network_type: The network type of the DB cluster (`IPV4` or `DUAL`).
-        :param pulumi.Input[_builtins.int] port: The port on which the DB accepts connections
-        :param pulumi.Input[_builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-               Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
-        :param pulumi.Input[_builtins.str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['ClusterRestoreToPointInTimeArgs'] restore_to_point_in_time: A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
-        :param pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs'] serverless_v2_scaling_configuration: Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
-        :param pulumi.Input[_builtins.bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
-        :param pulumi.Input[_builtins.str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
-        :param pulumi.Input[_builtins.bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false`.
-        :param pulumi.Input[_builtins.str] storage_type: The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate
-               with the Cluster
-               
-               For more detailed documentation about each argument, refer to
-               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
         """
         if allow_major_version_upgrade is not None:
             pulumi.set(__self__, "allow_major_version_upgrade", allow_major_version_upgrade)
@@ -179,9 +131,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="allowMajorVersionUpgrade")
     def allow_major_version_upgrade(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A value that indicates whether major version upgrades are allowed. Constraints: You must allow major version upgrades when specifying a value for the EngineVersion parameter that is a different major version than the DB cluster's current version.
-        """
         return pulumi.get(self, "allow_major_version_upgrade")
 
     @allow_major_version_upgrade.setter
@@ -191,11 +140,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="applyImmediately")
     def apply_immediately(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether any cluster modifications
-        are applied immediately, or during the next maintenance window. Default is
-        `false`.
-        """
         return pulumi.get(self, "apply_immediately")
 
     @apply_immediately.setter
@@ -205,11 +149,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of EC2 Availability Zones that instances in the DB cluster can be created in.
-        DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-        We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
-        """
         return pulumi.get(self, "availability_zones")
 
     @availability_zones.setter
@@ -219,9 +158,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="backupRetentionPeriod")
     def backup_retention_period(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The days to retain backups for. Default `1`
-        """
         return pulumi.get(self, "backup_retention_period")
 
     @backup_retention_period.setter
@@ -231,9 +167,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The cluster identifier. If omitted, the provider will assign a random, unique identifier.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -243,9 +176,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="clusterIdentifierPrefix")
     def cluster_identifier_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
-        """
         return pulumi.get(self, "cluster_identifier_prefix")
 
     @cluster_identifier_prefix.setter
@@ -255,9 +185,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="clusterMembers")
     def cluster_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of DocumentDB Instances that are a part of this cluster
-        """
         return pulumi.get(self, "cluster_members")
 
     @cluster_members.setter
@@ -267,9 +194,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="dbClusterParameterGroupName")
     def db_cluster_parameter_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A cluster parameter group to associate with the cluster.
-        """
         return pulumi.get(self, "db_cluster_parameter_group_name")
 
     @db_cluster_parameter_group_name.setter
@@ -279,9 +203,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="dbSubnetGroupName")
     def db_subnet_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A DB subnet group to associate with this DB instance.
-        """
         return pulumi.get(self, "db_subnet_group_name")
 
     @db_subnet_group_name.setter
@@ -291,9 +212,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `false`.
-        """
         return pulumi.get(self, "deletion_protection")
 
     @deletion_protection.setter
@@ -303,10 +221,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="enabledCloudwatchLogsExports")
     def enabled_cloudwatch_logs_exports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of log types to export to cloudwatch. If omitted, no logs will be exported.
-        The following log types are supported: `audit`, `profiler`.
-        """
         return pulumi.get(self, "enabled_cloudwatch_logs_exports")
 
     @enabled_cloudwatch_logs_exports.setter
@@ -316,9 +230,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
-        """
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -328,9 +239,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The database engine version. Updating this argument results in an outage.
-        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -340,11 +248,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="finalSnapshotIdentifier")
     def final_snapshot_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of your final DB snapshot
-        when this DB cluster is deleted. If omitted, no final snapshot will be
-        made.
-        """
         return pulumi.get(self, "final_snapshot_identifier")
 
     @final_snapshot_identifier.setter
@@ -354,9 +257,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="globalClusterIdentifier")
     def global_cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The global cluster identifier specified on `docdb.GlobalCluster`.
-        """
         return pulumi.get(self, "global_cluster_identifier")
 
     @global_cluster_identifier.setter
@@ -366,9 +266,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -378,9 +275,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="manageMasterUserPassword")
     def manage_master_user_password(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
-        """
         return pulumi.get(self, "manage_master_user_password")
 
     @manage_master_user_password.setter
@@ -390,10 +284,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="masterPassword")
     def master_password(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Password for the master DB user. Note that this may
-        show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
-        """
         return pulumi.get(self, "master_password")
 
     @master_password.setter
@@ -405,8 +295,6 @@ class ClusterArgs:
     def master_password_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Password for the master DB user. Note that this may
-        show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password` and `manage_master_user_password`.
         """
         return pulumi.get(self, "master_password_wo")
 
@@ -417,9 +305,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="masterPasswordWoVersion")
     def master_password_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
-        """
         return pulumi.get(self, "master_password_wo_version")
 
     @master_password_wo_version.setter
@@ -429,9 +314,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="masterUsername")
     def master_username(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Username for the master DB user.
-        """
         return pulumi.get(self, "master_username")
 
     @master_username.setter
@@ -441,9 +323,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="networkType")
     def network_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The network type of the DB cluster (`IPV4` or `DUAL`).
-        """
         return pulumi.get(self, "network_type")
 
     @network_type.setter
@@ -453,9 +332,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The port on which the DB accepts connections
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -465,10 +341,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-        Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
-        """
         return pulumi.get(self, "preferred_backup_window")
 
     @preferred_backup_window.setter
@@ -478,9 +350,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
-        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
@@ -490,9 +359,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -502,9 +368,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="restoreToPointInTime")
     def restore_to_point_in_time(self) -> Optional[pulumi.Input['ClusterRestoreToPointInTimeArgs']]:
-        """
-        A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
-        """
         return pulumi.get(self, "restore_to_point_in_time")
 
     @restore_to_point_in_time.setter
@@ -514,9 +377,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="serverlessV2ScalingConfiguration")
     def serverless_v2_scaling_configuration(self) -> Optional[pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs']]:
-        """
-        Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
-        """
         return pulumi.get(self, "serverless_v2_scaling_configuration")
 
     @serverless_v2_scaling_configuration.setter
@@ -526,9 +386,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="skipFinalSnapshot")
     def skip_final_snapshot(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
-        """
         return pulumi.get(self, "skip_final_snapshot")
 
     @skip_final_snapshot.setter
@@ -538,9 +395,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="snapshotIdentifier")
     def snapshot_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
-        """
         return pulumi.get(self, "snapshot_identifier")
 
     @snapshot_identifier.setter
@@ -550,9 +404,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether the DB cluster is encrypted. The default is `false`.
-        """
         return pulumi.get(self, "storage_encrypted")
 
     @storage_encrypted.setter
@@ -562,9 +413,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
-        """
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
@@ -574,9 +422,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -586,13 +431,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of VPC security groups to associate
-        with the Cluster
-
-        For more detailed documentation about each argument, refer to
-        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
-        """
         return pulumi.get(self, "vpc_security_group_ids")
 
     @vpc_security_group_ids.setter
@@ -646,61 +484,7 @@ class _ClusterState:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
-        :param pulumi.Input[_builtins.bool] allow_major_version_upgrade: A value that indicates whether major version upgrades are allowed. Constraints: You must allow major version upgrades when specifying a value for the EngineVersion parameter that is a different major version than the DB cluster's current version.
-        :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any cluster modifications
-               are applied immediately, or during the next maintenance window. Default is
-               `false`.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of cluster
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of EC2 Availability Zones that instances in the DB cluster can be created in.
-               DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-               We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
-        :param pulumi.Input[_builtins.int] backup_retention_period: The days to retain backups for. Default `1`
-        :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier. If omitted, the provider will assign a random, unique identifier.
-        :param pulumi.Input[_builtins.str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cluster_members: List of DocumentDB Instances that are a part of this cluster
-        :param pulumi.Input[_builtins.str] cluster_resource_id: The DocumentDB Cluster Resource ID
-        :param pulumi.Input[_builtins.str] db_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
-        :param pulumi.Input[_builtins.str] db_subnet_group_name: A DB subnet group to associate with this DB instance.
-        :param pulumi.Input[_builtins.bool] deletion_protection: A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_cloudwatch_logs_exports: List of log types to export to cloudwatch. If omitted, no logs will be exported.
-               The following log types are supported: `audit`, `profiler`.
-        :param pulumi.Input[_builtins.str] endpoint: The DNS address of the DocumentDB instance
-        :param pulumi.Input[_builtins.str] engine: The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
-        :param pulumi.Input[_builtins.str] engine_version: The database engine version. Updating this argument results in an outage.
-        :param pulumi.Input[_builtins.str] final_snapshot_identifier: The name of your final DB snapshot
-               when this DB cluster is deleted. If omitted, no final snapshot will be
-               made.
-        :param pulumi.Input[_builtins.str] global_cluster_identifier: The global cluster identifier specified on `docdb.GlobalCluster`.
-        :param pulumi.Input[_builtins.str] hosted_zone_id: The Route53 Hosted Zone ID of the endpoint
-        :param pulumi.Input[_builtins.str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
-        :param pulumi.Input[_builtins.bool] manage_master_user_password: Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
-        :param pulumi.Input[_builtins.str] master_password: Password for the master DB user. Note that this may
-               show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
         :param pulumi.Input[_builtins.str] master_password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Password for the master DB user. Note that this may
-               show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password` and `manage_master_user_password`.
-        :param pulumi.Input[_builtins.int] master_password_wo_version: Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
-        :param pulumi.Input[_builtins.str] master_username: Username for the master DB user.
-        :param pulumi.Input[_builtins.str] network_type: The network type of the DB cluster (`IPV4` or `DUAL`).
-        :param pulumi.Input[_builtins.int] port: The port on which the DB accepts connections
-        :param pulumi.Input[_builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-               Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
-        :param pulumi.Input[_builtins.str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
-        :param pulumi.Input[_builtins.str] reader_endpoint: A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['ClusterRestoreToPointInTimeArgs'] restore_to_point_in_time: A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
-        :param pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs'] serverless_v2_scaling_configuration: Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
-        :param pulumi.Input[_builtins.bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
-        :param pulumi.Input[_builtins.str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
-        :param pulumi.Input[_builtins.bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false`.
-        :param pulumi.Input[_builtins.str] storage_type: The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate
-               with the Cluster
-               
-               For more detailed documentation about each argument, refer to
-               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
         """
         if allow_major_version_upgrade is not None:
             pulumi.set(__self__, "allow_major_version_upgrade", allow_major_version_upgrade)
@@ -788,9 +572,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="allowMajorVersionUpgrade")
     def allow_major_version_upgrade(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A value that indicates whether major version upgrades are allowed. Constraints: You must allow major version upgrades when specifying a value for the EngineVersion parameter that is a different major version than the DB cluster's current version.
-        """
         return pulumi.get(self, "allow_major_version_upgrade")
 
     @allow_major_version_upgrade.setter
@@ -800,11 +581,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="applyImmediately")
     def apply_immediately(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether any cluster modifications
-        are applied immediately, or during the next maintenance window. Default is
-        `false`.
-        """
         return pulumi.get(self, "apply_immediately")
 
     @apply_immediately.setter
@@ -814,9 +590,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of cluster
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -826,11 +599,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of EC2 Availability Zones that instances in the DB cluster can be created in.
-        DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-        We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
-        """
         return pulumi.get(self, "availability_zones")
 
     @availability_zones.setter
@@ -840,9 +608,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="backupRetentionPeriod")
     def backup_retention_period(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The days to retain backups for. Default `1`
-        """
         return pulumi.get(self, "backup_retention_period")
 
     @backup_retention_period.setter
@@ -852,9 +617,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The cluster identifier. If omitted, the provider will assign a random, unique identifier.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -864,9 +626,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="clusterIdentifierPrefix")
     def cluster_identifier_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
-        """
         return pulumi.get(self, "cluster_identifier_prefix")
 
     @cluster_identifier_prefix.setter
@@ -876,9 +635,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="clusterMembers")
     def cluster_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of DocumentDB Instances that are a part of this cluster
-        """
         return pulumi.get(self, "cluster_members")
 
     @cluster_members.setter
@@ -888,9 +644,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="clusterResourceId")
     def cluster_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The DocumentDB Cluster Resource ID
-        """
         return pulumi.get(self, "cluster_resource_id")
 
     @cluster_resource_id.setter
@@ -900,9 +653,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="dbClusterParameterGroupName")
     def db_cluster_parameter_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A cluster parameter group to associate with the cluster.
-        """
         return pulumi.get(self, "db_cluster_parameter_group_name")
 
     @db_cluster_parameter_group_name.setter
@@ -912,9 +662,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="dbSubnetGroupName")
     def db_subnet_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A DB subnet group to associate with this DB instance.
-        """
         return pulumi.get(self, "db_subnet_group_name")
 
     @db_subnet_group_name.setter
@@ -924,9 +671,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `false`.
-        """
         return pulumi.get(self, "deletion_protection")
 
     @deletion_protection.setter
@@ -936,10 +680,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="enabledCloudwatchLogsExports")
     def enabled_cloudwatch_logs_exports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of log types to export to cloudwatch. If omitted, no logs will be exported.
-        The following log types are supported: `audit`, `profiler`.
-        """
         return pulumi.get(self, "enabled_cloudwatch_logs_exports")
 
     @enabled_cloudwatch_logs_exports.setter
@@ -949,9 +689,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The DNS address of the DocumentDB instance
-        """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
@@ -961,9 +698,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
-        """
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -973,9 +707,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The database engine version. Updating this argument results in an outage.
-        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -985,11 +716,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="finalSnapshotIdentifier")
     def final_snapshot_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of your final DB snapshot
-        when this DB cluster is deleted. If omitted, no final snapshot will be
-        made.
-        """
         return pulumi.get(self, "final_snapshot_identifier")
 
     @final_snapshot_identifier.setter
@@ -999,9 +725,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="globalClusterIdentifier")
     def global_cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The global cluster identifier specified on `docdb.GlobalCluster`.
-        """
         return pulumi.get(self, "global_cluster_identifier")
 
     @global_cluster_identifier.setter
@@ -1011,9 +734,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Route53 Hosted Zone ID of the endpoint
-        """
         return pulumi.get(self, "hosted_zone_id")
 
     @hosted_zone_id.setter
@@ -1023,9 +743,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -1035,9 +752,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="manageMasterUserPassword")
     def manage_master_user_password(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
-        """
         return pulumi.get(self, "manage_master_user_password")
 
     @manage_master_user_password.setter
@@ -1047,10 +761,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="masterPassword")
     def master_password(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Password for the master DB user. Note that this may
-        show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
-        """
         return pulumi.get(self, "master_password")
 
     @master_password.setter
@@ -1062,8 +772,6 @@ class _ClusterState:
     def master_password_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Password for the master DB user. Note that this may
-        show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password` and `manage_master_user_password`.
         """
         return pulumi.get(self, "master_password_wo")
 
@@ -1074,9 +782,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="masterPasswordWoVersion")
     def master_password_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
-        """
         return pulumi.get(self, "master_password_wo_version")
 
     @master_password_wo_version.setter
@@ -1095,9 +800,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="masterUsername")
     def master_username(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Username for the master DB user.
-        """
         return pulumi.get(self, "master_username")
 
     @master_username.setter
@@ -1107,9 +809,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="networkType")
     def network_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The network type of the DB cluster (`IPV4` or `DUAL`).
-        """
         return pulumi.get(self, "network_type")
 
     @network_type.setter
@@ -1119,9 +818,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The port on which the DB accepts connections
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -1131,10 +827,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-        Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
-        """
         return pulumi.get(self, "preferred_backup_window")
 
     @preferred_backup_window.setter
@@ -1144,9 +836,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
-        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
@@ -1156,9 +845,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="readerEndpoint")
     def reader_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
-        """
         return pulumi.get(self, "reader_endpoint")
 
     @reader_endpoint.setter
@@ -1168,9 +854,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -1180,9 +863,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="restoreToPointInTime")
     def restore_to_point_in_time(self) -> Optional[pulumi.Input['ClusterRestoreToPointInTimeArgs']]:
-        """
-        A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
-        """
         return pulumi.get(self, "restore_to_point_in_time")
 
     @restore_to_point_in_time.setter
@@ -1192,9 +872,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="serverlessV2ScalingConfiguration")
     def serverless_v2_scaling_configuration(self) -> Optional[pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs']]:
-        """
-        Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
-        """
         return pulumi.get(self, "serverless_v2_scaling_configuration")
 
     @serverless_v2_scaling_configuration.setter
@@ -1204,9 +881,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="skipFinalSnapshot")
     def skip_final_snapshot(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
-        """
         return pulumi.get(self, "skip_final_snapshot")
 
     @skip_final_snapshot.setter
@@ -1216,9 +890,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="snapshotIdentifier")
     def snapshot_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
-        """
         return pulumi.get(self, "snapshot_identifier")
 
     @snapshot_identifier.setter
@@ -1228,9 +899,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether the DB cluster is encrypted. The default is `false`.
-        """
         return pulumi.get(self, "storage_encrypted")
 
     @storage_encrypted.setter
@@ -1240,9 +908,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
-        """
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
@@ -1252,9 +917,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -1264,9 +926,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -1276,13 +935,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of VPC security groups to associate
-        with the Cluster
-
-        For more detailed documentation about each argument, refer to
-        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
-        """
         return pulumi.get(self, "vpc_security_group_ids")
 
     @vpc_security_group_ids.setter
@@ -1332,92 +984,10 @@ class Cluster(pulumi.CustomResource):
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Manages a DocumentDB Cluster.
-
-        Changes to a DocumentDB Cluster can occur when you manually change a
-        parameter, such as `port`, and are reflected in the next maintenance
-        window. Because of this, this provider may report a difference in its planning
-        phase because a modification has not yet taken place. You can use the
-        `apply_immediately` flag to instruct the service to apply the change immediately
-        (see documentation below).
-
-        > **Note:** using `apply_immediately` can result in a brief downtime as the server reboots.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        docdb = aws.docdb.Cluster("docdb",
-            cluster_identifier="my-docdb-cluster",
-            engine="docdb",
-            master_username="foo",
-            master_password="mustbeeightchars",
-            backup_retention_period=5,
-            preferred_backup_window="07:00-09:00",
-            skip_final_snapshot=True)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DocumentDB Clusters using the `cluster_identifier`. For example:
-
-        ```sh
-        $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
-        ```
-
+        Create a Cluster resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] allow_major_version_upgrade: A value that indicates whether major version upgrades are allowed. Constraints: You must allow major version upgrades when specifying a value for the EngineVersion parameter that is a different major version than the DB cluster's current version.
-        :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any cluster modifications
-               are applied immediately, or during the next maintenance window. Default is
-               `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of EC2 Availability Zones that instances in the DB cluster can be created in.
-               DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-               We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
-        :param pulumi.Input[_builtins.int] backup_retention_period: The days to retain backups for. Default `1`
-        :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier. If omitted, the provider will assign a random, unique identifier.
-        :param pulumi.Input[_builtins.str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cluster_members: List of DocumentDB Instances that are a part of this cluster
-        :param pulumi.Input[_builtins.str] db_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
-        :param pulumi.Input[_builtins.str] db_subnet_group_name: A DB subnet group to associate with this DB instance.
-        :param pulumi.Input[_builtins.bool] deletion_protection: A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_cloudwatch_logs_exports: List of log types to export to cloudwatch. If omitted, no logs will be exported.
-               The following log types are supported: `audit`, `profiler`.
-        :param pulumi.Input[_builtins.str] engine: The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
-        :param pulumi.Input[_builtins.str] engine_version: The database engine version. Updating this argument results in an outage.
-        :param pulumi.Input[_builtins.str] final_snapshot_identifier: The name of your final DB snapshot
-               when this DB cluster is deleted. If omitted, no final snapshot will be
-               made.
-        :param pulumi.Input[_builtins.str] global_cluster_identifier: The global cluster identifier specified on `docdb.GlobalCluster`.
-        :param pulumi.Input[_builtins.str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
-        :param pulumi.Input[_builtins.bool] manage_master_user_password: Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
-        :param pulumi.Input[_builtins.str] master_password: Password for the master DB user. Note that this may
-               show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
         :param pulumi.Input[_builtins.str] master_password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Password for the master DB user. Note that this may
-               show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password` and `manage_master_user_password`.
-        :param pulumi.Input[_builtins.int] master_password_wo_version: Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
-        :param pulumi.Input[_builtins.str] master_username: Username for the master DB user.
-        :param pulumi.Input[_builtins.str] network_type: The network type of the DB cluster (`IPV4` or `DUAL`).
-        :param pulumi.Input[_builtins.int] port: The port on which the DB accepts connections
-        :param pulumi.Input[_builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-               Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
-        :param pulumi.Input[_builtins.str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict']] restore_to_point_in_time: A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
-        :param pulumi.Input[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']] serverless_v2_scaling_configuration: Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
-        :param pulumi.Input[_builtins.bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
-        :param pulumi.Input[_builtins.str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
-        :param pulumi.Input[_builtins.bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false`.
-        :param pulumi.Input[_builtins.str] storage_type: The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate
-               with the Cluster
-               
-               For more detailed documentation about each argument, refer to
-               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
         """
         ...
     @overload
@@ -1426,41 +996,7 @@ class Cluster(pulumi.CustomResource):
                  args: Optional[ClusterArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a DocumentDB Cluster.
-
-        Changes to a DocumentDB Cluster can occur when you manually change a
-        parameter, such as `port`, and are reflected in the next maintenance
-        window. Because of this, this provider may report a difference in its planning
-        phase because a modification has not yet taken place. You can use the
-        `apply_immediately` flag to instruct the service to apply the change immediately
-        (see documentation below).
-
-        > **Note:** using `apply_immediately` can result in a brief downtime as the server reboots.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        docdb = aws.docdb.Cluster("docdb",
-            cluster_identifier="my-docdb-cluster",
-            engine="docdb",
-            master_username="foo",
-            master_password="mustbeeightchars",
-            backup_retention_period=5,
-            preferred_backup_window="07:00-09:00",
-            skip_final_snapshot=True)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DocumentDB Clusters using the `cluster_identifier`. For example:
-
-        ```sh
-        $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
-        ```
-
+        Create a Cluster resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1620,61 +1156,7 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] allow_major_version_upgrade: A value that indicates whether major version upgrades are allowed. Constraints: You must allow major version upgrades when specifying a value for the EngineVersion parameter that is a different major version than the DB cluster's current version.
-        :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any cluster modifications
-               are applied immediately, or during the next maintenance window. Default is
-               `false`.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of cluster
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of EC2 Availability Zones that instances in the DB cluster can be created in.
-               DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-               We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
-        :param pulumi.Input[_builtins.int] backup_retention_period: The days to retain backups for. Default `1`
-        :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier. If omitted, the provider will assign a random, unique identifier.
-        :param pulumi.Input[_builtins.str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cluster_members: List of DocumentDB Instances that are a part of this cluster
-        :param pulumi.Input[_builtins.str] cluster_resource_id: The DocumentDB Cluster Resource ID
-        :param pulumi.Input[_builtins.str] db_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
-        :param pulumi.Input[_builtins.str] db_subnet_group_name: A DB subnet group to associate with this DB instance.
-        :param pulumi.Input[_builtins.bool] deletion_protection: A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_cloudwatch_logs_exports: List of log types to export to cloudwatch. If omitted, no logs will be exported.
-               The following log types are supported: `audit`, `profiler`.
-        :param pulumi.Input[_builtins.str] endpoint: The DNS address of the DocumentDB instance
-        :param pulumi.Input[_builtins.str] engine: The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
-        :param pulumi.Input[_builtins.str] engine_version: The database engine version. Updating this argument results in an outage.
-        :param pulumi.Input[_builtins.str] final_snapshot_identifier: The name of your final DB snapshot
-               when this DB cluster is deleted. If omitted, no final snapshot will be
-               made.
-        :param pulumi.Input[_builtins.str] global_cluster_identifier: The global cluster identifier specified on `docdb.GlobalCluster`.
-        :param pulumi.Input[_builtins.str] hosted_zone_id: The Route53 Hosted Zone ID of the endpoint
-        :param pulumi.Input[_builtins.str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
-        :param pulumi.Input[_builtins.bool] manage_master_user_password: Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
-        :param pulumi.Input[_builtins.str] master_password: Password for the master DB user. Note that this may
-               show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
         :param pulumi.Input[_builtins.str] master_password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Password for the master DB user. Note that this may
-               show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password` and `manage_master_user_password`.
-        :param pulumi.Input[_builtins.int] master_password_wo_version: Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
-        :param pulumi.Input[_builtins.str] master_username: Username for the master DB user.
-        :param pulumi.Input[_builtins.str] network_type: The network type of the DB cluster (`IPV4` or `DUAL`).
-        :param pulumi.Input[_builtins.int] port: The port on which the DB accepts connections
-        :param pulumi.Input[_builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-               Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
-        :param pulumi.Input[_builtins.str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
-        :param pulumi.Input[_builtins.str] reader_endpoint: A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict']] restore_to_point_in_time: A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
-        :param pulumi.Input[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']] serverless_v2_scaling_configuration: Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
-        :param pulumi.Input[_builtins.bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
-        :param pulumi.Input[_builtins.str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
-        :param pulumi.Input[_builtins.bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false`.
-        :param pulumi.Input[_builtins.str] storage_type: The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate
-               with the Cluster
-               
-               For more detailed documentation about each argument, refer to
-               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1726,185 +1208,111 @@ class Cluster(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="allowMajorVersionUpgrade")
     def allow_major_version_upgrade(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        A value that indicates whether major version upgrades are allowed. Constraints: You must allow major version upgrades when specifying a value for the EngineVersion parameter that is a different major version than the DB cluster's current version.
-        """
         return pulumi.get(self, "allow_major_version_upgrade")
 
     @_builtins.property
     @pulumi.getter(name="applyImmediately")
     def apply_immediately(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Specifies whether any cluster modifications
-        are applied immediately, or during the next maintenance window. Default is
-        `false`.
-        """
         return pulumi.get(self, "apply_immediately")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of cluster
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        A list of EC2 Availability Zones that instances in the DB cluster can be created in.
-        DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-        We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
-        """
         return pulumi.get(self, "availability_zones")
 
     @_builtins.property
     @pulumi.getter(name="backupRetentionPeriod")
     def backup_retention_period(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The days to retain backups for. Default `1`
-        """
         return pulumi.get(self, "backup_retention_period")
 
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The cluster identifier. If omitted, the provider will assign a random, unique identifier.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @_builtins.property
     @pulumi.getter(name="clusterIdentifierPrefix")
     def cluster_identifier_prefix(self) -> pulumi.Output[_builtins.str]:
-        """
-        Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
-        """
         return pulumi.get(self, "cluster_identifier_prefix")
 
     @_builtins.property
     @pulumi.getter(name="clusterMembers")
     def cluster_members(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        List of DocumentDB Instances that are a part of this cluster
-        """
         return pulumi.get(self, "cluster_members")
 
     @_builtins.property
     @pulumi.getter(name="clusterResourceId")
     def cluster_resource_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The DocumentDB Cluster Resource ID
-        """
         return pulumi.get(self, "cluster_resource_id")
 
     @_builtins.property
     @pulumi.getter(name="dbClusterParameterGroupName")
     def db_cluster_parameter_group_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        A cluster parameter group to associate with the cluster.
-        """
         return pulumi.get(self, "db_cluster_parameter_group_name")
 
     @_builtins.property
     @pulumi.getter(name="dbSubnetGroupName")
     def db_subnet_group_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        A DB subnet group to associate with this DB instance.
-        """
         return pulumi.get(self, "db_subnet_group_name")
 
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `false`.
-        """
         return pulumi.get(self, "deletion_protection")
 
     @_builtins.property
     @pulumi.getter(name="enabledCloudwatchLogsExports")
     def enabled_cloudwatch_logs_exports(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        List of log types to export to cloudwatch. If omitted, no logs will be exported.
-        The following log types are supported: `audit`, `profiler`.
-        """
         return pulumi.get(self, "enabled_cloudwatch_logs_exports")
 
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[_builtins.str]:
-        """
-        The DNS address of the DocumentDB instance
-        """
         return pulumi.get(self, "endpoint")
 
     @_builtins.property
     @pulumi.getter
     def engine(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
-        """
         return pulumi.get(self, "engine")
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        The database engine version. Updating this argument results in an outage.
-        """
         return pulumi.get(self, "engine_version")
 
     @_builtins.property
     @pulumi.getter(name="finalSnapshotIdentifier")
     def final_snapshot_identifier(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The name of your final DB snapshot
-        when this DB cluster is deleted. If omitted, no final snapshot will be
-        made.
-        """
         return pulumi.get(self, "final_snapshot_identifier")
 
     @_builtins.property
     @pulumi.getter(name="globalClusterIdentifier")
     def global_cluster_identifier(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The global cluster identifier specified on `docdb.GlobalCluster`.
-        """
         return pulumi.get(self, "global_cluster_identifier")
 
     @_builtins.property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Route53 Hosted Zone ID of the endpoint
-        """
         return pulumi.get(self, "hosted_zone_id")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="manageMasterUserPassword")
     def manage_master_user_password(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
-        """
         return pulumi.get(self, "manage_master_user_password")
 
     @_builtins.property
     @pulumi.getter(name="masterPassword")
     def master_password(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Password for the master DB user. Note that this may
-        show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
-        """
         return pulumi.get(self, "master_password")
 
     @_builtins.property
@@ -1912,17 +1320,12 @@ class Cluster(pulumi.CustomResource):
     def master_password_wo(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Password for the master DB user. Note that this may
-        show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password` and `manage_master_user_password`.
         """
         return pulumi.get(self, "master_password_wo")
 
     @_builtins.property
     @pulumi.getter(name="masterPasswordWoVersion")
     def master_password_wo_version(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
-        """
         return pulumi.get(self, "master_password_wo_version")
 
     @_builtins.property
@@ -1933,133 +1336,80 @@ class Cluster(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="masterUsername")
     def master_username(self) -> pulumi.Output[_builtins.str]:
-        """
-        Username for the master DB user.
-        """
         return pulumi.get(self, "master_username")
 
     @_builtins.property
     @pulumi.getter(name="networkType")
     def network_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The network type of the DB cluster (`IPV4` or `DUAL`).
-        """
         return pulumi.get(self, "network_type")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The port on which the DB accepts connections
-        """
         return pulumi.get(self, "port")
 
     @_builtins.property
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> pulumi.Output[_builtins.str]:
-        """
-        The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-        Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
-        """
         return pulumi.get(self, "preferred_backup_window")
 
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> pulumi.Output[_builtins.str]:
-        """
-        The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
-        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @_builtins.property
     @pulumi.getter(name="readerEndpoint")
     def reader_endpoint(self) -> pulumi.Output[_builtins.str]:
-        """
-        A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
-        """
         return pulumi.get(self, "reader_endpoint")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="restoreToPointInTime")
     def restore_to_point_in_time(self) -> pulumi.Output[Optional['outputs.ClusterRestoreToPointInTime']]:
-        """
-        A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
-        """
         return pulumi.get(self, "restore_to_point_in_time")
 
     @_builtins.property
     @pulumi.getter(name="serverlessV2ScalingConfiguration")
     def serverless_v2_scaling_configuration(self) -> pulumi.Output[Optional['outputs.ClusterServerlessV2ScalingConfiguration']]:
-        """
-        Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
-        """
         return pulumi.get(self, "serverless_v2_scaling_configuration")
 
     @_builtins.property
     @pulumi.getter(name="skipFinalSnapshot")
     def skip_final_snapshot(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
-        """
         return pulumi.get(self, "skip_final_snapshot")
 
     @_builtins.property
     @pulumi.getter(name="snapshotIdentifier")
     def snapshot_identifier(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
-        """
         return pulumi.get(self, "snapshot_identifier")
 
     @_builtins.property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Specifies whether the DB cluster is encrypted. The default is `false`.
-        """
         return pulumi.get(self, "storage_encrypted")
 
     @_builtins.property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
-        """
         return pulumi.get(self, "storage_type")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        List of VPC security groups to associate
-        with the Cluster
-
-        For more detailed documentation about each argument, refer to
-        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
-        """
         return pulumi.get(self, "vpc_security_group_ids")
 

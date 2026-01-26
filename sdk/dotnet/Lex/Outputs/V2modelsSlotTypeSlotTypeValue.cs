@@ -13,15 +13,7 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsSlotTypeSlotTypeValue
     {
-        /// <summary>
-        /// Value of the slot type entry.
-        /// See `SampleValue` argument reference below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsSlotTypeSlotTypeValueSampleValue> SampleValues;
-        /// <summary>
-        /// A list of additional values related to the slot type entry.
-        /// See `Synonyms` argument reference below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsSlotTypeSlotTypeValueSynonym> Synonyms;
 
         [OutputConstructor]

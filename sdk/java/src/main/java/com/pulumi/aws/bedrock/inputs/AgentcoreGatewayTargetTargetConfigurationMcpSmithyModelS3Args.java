@@ -15,32 +15,16 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Args
 
     public static final AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Args Empty = new AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Args();
 
-    /**
-     * Account ID of the S3 bucket owner.
-     * 
-     */
     @Import(name="bucketOwnerAccountId")
     private @Nullable Output<String> bucketOwnerAccountId;
 
-    /**
-     * @return Account ID of the S3 bucket owner.
-     * 
-     */
     public Optional<Output<String>> bucketOwnerAccountId() {
         return Optional.ofNullable(this.bucketOwnerAccountId);
     }
 
-    /**
-     * S3 URI where the schema is stored.
-     * 
-     */
     @Import(name="uri")
     private @Nullable Output<String> uri;
 
-    /**
-     * @return S3 URI where the schema is stored.
-     * 
-     */
     public Optional<Output<String>> uri() {
         return Optional.ofNullable(this.uri);
     }
@@ -70,44 +54,20 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Args
             $ = new AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Args(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketOwnerAccountId Account ID of the S3 bucket owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketOwnerAccountId(@Nullable Output<String> bucketOwnerAccountId) {
             $.bucketOwnerAccountId = bucketOwnerAccountId;
             return this;
         }
 
-        /**
-         * @param bucketOwnerAccountId Account ID of the S3 bucket owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketOwnerAccountId(String bucketOwnerAccountId) {
             return bucketOwnerAccountId(Output.of(bucketOwnerAccountId));
         }
 
-        /**
-         * @param uri S3 URI where the schema is stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uri(@Nullable Output<String> uri) {
             $.uri = uri;
             return this;
         }
 
-        /**
-         * @param uri S3 URI where the schema is stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uri(String uri) {
             return uri(Output.of(uri));
         }

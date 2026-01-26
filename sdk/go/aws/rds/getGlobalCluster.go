@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS RDS (Relational Database) Global Cluster.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.LookupGlobalCluster(ctx, &rds.LookupGlobalClusterArgs{
-//				Identifier: test.GlobalClusterIdentifier,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupGlobalCluster(ctx *pulumi.Context, args *LookupGlobalClusterArgs, opts ...pulumi.InvokeOption) (*LookupGlobalClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGlobalClusterResult
@@ -52,42 +23,27 @@ func LookupGlobalCluster(ctx *pulumi.Context, args *LookupGlobalClusterArgs, opt
 
 // A collection of arguments for invoking getGlobalCluster.
 type LookupGlobalClusterArgs struct {
-	// The global cluster identifier of the RDS global cluster.
-	//
-	// The following arguments are optional:
-	Identifier string `pulumi:"identifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Identifier string  `pulumi:"identifier"`
+	Region     *string `pulumi:"region"`
 }
 
 // A collection of values returned by getGlobalCluster.
 type LookupGlobalClusterResult struct {
-	// RDS Global Cluster Amazon Resource Name (ARN)
-	Arn string `pulumi:"arn"`
-	// Name of the automatically created database on cluster creation.
-	DatabaseName string `pulumi:"databaseName"`
-	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`.
-	DeletionProtection bool `pulumi:"deletionProtection"`
-	// The endpoint for the Global Cluster.
-	Endpoint string `pulumi:"endpoint"`
-	// Name of the database engine.
-	Engine string `pulumi:"engine"`
-	// The current lifecycle support status of the database engine for this Global Cluster.
+	Arn                    string `pulumi:"arn"`
+	DatabaseName           string `pulumi:"databaseName"`
+	DeletionProtection     bool   `pulumi:"deletionProtection"`
+	Endpoint               string `pulumi:"endpoint"`
+	Engine                 string `pulumi:"engine"`
 	EngineLifecycleSupport string `pulumi:"engineLifecycleSupport"`
-	// Version of the database engine for this Global Cluster.
-	EngineVersion string `pulumi:"engineVersion"`
+	EngineVersion          string `pulumi:"engineVersion"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	Identifier string `pulumi:"identifier"`
-	// Set of objects containing Global Cluster members.
-	Members []GetGlobalClusterMember `pulumi:"members"`
-	Region  string                   `pulumi:"region"`
-	// AWS Region-unique, immutable identifier for the global database cluster.
-	ResourceId string `pulumi:"resourceId"`
-	// Whether the DB cluster is encrypted.
-	StorageEncrypted bool `pulumi:"storageEncrypted"`
-	// A map of tags to assigned to the Global Cluster.
-	Tags map[string]string `pulumi:"tags"`
+	Id               string                   `pulumi:"id"`
+	Identifier       string                   `pulumi:"identifier"`
+	Members          []GetGlobalClusterMember `pulumi:"members"`
+	Region           string                   `pulumi:"region"`
+	ResourceId       string                   `pulumi:"resourceId"`
+	StorageEncrypted bool                     `pulumi:"storageEncrypted"`
+	Tags             map[string]string        `pulumi:"tags"`
 }
 
 func LookupGlobalClusterOutput(ctx *pulumi.Context, args LookupGlobalClusterOutputArgs, opts ...pulumi.InvokeOption) LookupGlobalClusterResultOutput {
@@ -101,12 +57,8 @@ func LookupGlobalClusterOutput(ctx *pulumi.Context, args LookupGlobalClusterOutp
 
 // A collection of arguments for invoking getGlobalCluster.
 type LookupGlobalClusterOutputArgs struct {
-	// The global cluster identifier of the RDS global cluster.
-	//
-	// The following arguments are optional:
-	Identifier pulumi.StringInput `pulumi:"identifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Identifier pulumi.StringInput    `pulumi:"identifier"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupGlobalClusterOutputArgs) ElementType() reflect.Type {
@@ -128,37 +80,30 @@ func (o LookupGlobalClusterResultOutput) ToLookupGlobalClusterResultOutputWithCo
 	return o
 }
 
-// RDS Global Cluster Amazon Resource Name (ARN)
 func (o LookupGlobalClusterResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGlobalClusterResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name of the automatically created database on cluster creation.
 func (o LookupGlobalClusterResultOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGlobalClusterResult) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`.
 func (o LookupGlobalClusterResultOutput) DeletionProtection() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupGlobalClusterResult) bool { return v.DeletionProtection }).(pulumi.BoolOutput)
 }
 
-// The endpoint for the Global Cluster.
 func (o LookupGlobalClusterResultOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGlobalClusterResult) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// Name of the database engine.
 func (o LookupGlobalClusterResultOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGlobalClusterResult) string { return v.Engine }).(pulumi.StringOutput)
 }
 
-// The current lifecycle support status of the database engine for this Global Cluster.
 func (o LookupGlobalClusterResultOutput) EngineLifecycleSupport() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGlobalClusterResult) string { return v.EngineLifecycleSupport }).(pulumi.StringOutput)
 }
 
-// Version of the database engine for this Global Cluster.
 func (o LookupGlobalClusterResultOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGlobalClusterResult) string { return v.EngineVersion }).(pulumi.StringOutput)
 }
@@ -172,7 +117,6 @@ func (o LookupGlobalClusterResultOutput) Identifier() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGlobalClusterResult) string { return v.Identifier }).(pulumi.StringOutput)
 }
 
-// Set of objects containing Global Cluster members.
 func (o LookupGlobalClusterResultOutput) Members() GetGlobalClusterMemberArrayOutput {
 	return o.ApplyT(func(v LookupGlobalClusterResult) []GetGlobalClusterMember { return v.Members }).(GetGlobalClusterMemberArrayOutput)
 }
@@ -181,17 +125,14 @@ func (o LookupGlobalClusterResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGlobalClusterResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// AWS Region-unique, immutable identifier for the global database cluster.
 func (o LookupGlobalClusterResultOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGlobalClusterResult) string { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// Whether the DB cluster is encrypted.
 func (o LookupGlobalClusterResultOutput) StorageEncrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupGlobalClusterResult) bool { return v.StorageEncrypted }).(pulumi.BoolOutput)
 }
 
-// A map of tags to assigned to the Global Cluster.
 func (o LookupGlobalClusterResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupGlobalClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

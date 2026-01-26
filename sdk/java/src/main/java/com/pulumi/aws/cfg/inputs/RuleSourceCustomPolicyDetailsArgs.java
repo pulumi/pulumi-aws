@@ -17,47 +17,23 @@ public final class RuleSourceCustomPolicyDetailsArgs extends com.pulumi.resource
 
     public static final RuleSourceCustomPolicyDetailsArgs Empty = new RuleSourceCustomPolicyDetailsArgs();
 
-    /**
-     * The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is `false`.
-     * 
-     */
     @Import(name="enableDebugLogDelivery")
     private @Nullable Output<Boolean> enableDebugLogDelivery;
 
-    /**
-     * @return The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is `false`.
-     * 
-     */
     public Optional<Output<Boolean>> enableDebugLogDelivery() {
         return Optional.ofNullable(this.enableDebugLogDelivery);
     }
 
-    /**
-     * The runtime system for your Config Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://github.com/aws-cloudformation/cloudformation-guard).
-     * 
-     */
     @Import(name="policyRuntime", required=true)
     private Output<String> policyRuntime;
 
-    /**
-     * @return The runtime system for your Config Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://github.com/aws-cloudformation/cloudformation-guard).
-     * 
-     */
     public Output<String> policyRuntime() {
         return this.policyRuntime;
     }
 
-    /**
-     * The policy definition containing the logic for your Config Custom Policy rule.
-     * 
-     */
     @Import(name="policyText", required=true)
     private Output<String> policyText;
 
-    /**
-     * @return The policy definition containing the logic for your Config Custom Policy rule.
-     * 
-     */
     public Output<String> policyText() {
         return this.policyText;
     }
@@ -88,65 +64,29 @@ public final class RuleSourceCustomPolicyDetailsArgs extends com.pulumi.resource
             $ = new RuleSourceCustomPolicyDetailsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enableDebugLogDelivery The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableDebugLogDelivery(@Nullable Output<Boolean> enableDebugLogDelivery) {
             $.enableDebugLogDelivery = enableDebugLogDelivery;
             return this;
         }
 
-        /**
-         * @param enableDebugLogDelivery The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableDebugLogDelivery(Boolean enableDebugLogDelivery) {
             return enableDebugLogDelivery(Output.of(enableDebugLogDelivery));
         }
 
-        /**
-         * @param policyRuntime The runtime system for your Config Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://github.com/aws-cloudformation/cloudformation-guard).
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyRuntime(Output<String> policyRuntime) {
             $.policyRuntime = policyRuntime;
             return this;
         }
 
-        /**
-         * @param policyRuntime The runtime system for your Config Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://github.com/aws-cloudformation/cloudformation-guard).
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyRuntime(String policyRuntime) {
             return policyRuntime(Output.of(policyRuntime));
         }
 
-        /**
-         * @param policyText The policy definition containing the logic for your Config Custom Policy rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyText(Output<String> policyText) {
             $.policyText = policyText;
             return this;
         }
 
-        /**
-         * @param policyText The policy definition containing the logic for your Config Custom Policy rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyText(String policyText) {
             return policyText(Output.of(policyText));
         }

@@ -9,67 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Chime
 {
-    /// <summary>
-    /// Adds a logging configuration for the specified Amazon Chime Voice Connector. The logging configuration specifies whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @default = new Aws.Chime.VoiceConnector("default", new()
-    ///     {
-    ///         Name = "vc-name-test",
-    ///         RequireEncryption = true,
-    ///     });
-    /// 
-    ///     var defaultVoiceConnectorLogging = new Aws.Chime.VoiceConnectorLogging("default", new()
-    ///     {
-    ///         EnableSipLogs = true,
-    ///         EnableMediaMetricLogs = true,
-    ///         VoiceConnectorId = @default.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Chime Voice Connector Logging using the `voice_connector_id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:chime/voiceConnectorLogging:VoiceConnectorLogging default abcdef1ghij2klmno3pqr4
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:chime/voiceConnectorLogging:VoiceConnectorLogging")]
     public partial class VoiceConnectorLogging : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
-        /// </summary>
         [Output("enableMediaMetricLogs")]
         public Output<bool?> EnableMediaMetricLogs { get; private set; } = null!;
 
-        /// <summary>
-        /// When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
-        /// </summary>
         [Output("enableSipLogs")]
         public Output<bool?> EnableSipLogs { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Chime Voice Connector ID.
-        /// </summary>
         [Output("voiceConnectorId")]
         public Output<string> VoiceConnectorId { get; private set; } = null!;
 
@@ -119,27 +70,15 @@ namespace Pulumi.Aws.Chime
 
     public sealed class VoiceConnectorLoggingArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
-        /// </summary>
         [Input("enableMediaMetricLogs")]
         public Input<bool>? EnableMediaMetricLogs { get; set; }
 
-        /// <summary>
-        /// When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
-        /// </summary>
         [Input("enableSipLogs")]
         public Input<bool>? EnableSipLogs { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The Amazon Chime Voice Connector ID.
-        /// </summary>
         [Input("voiceConnectorId", required: true)]
         public Input<string> VoiceConnectorId { get; set; } = null!;
 
@@ -151,27 +90,15 @@ namespace Pulumi.Aws.Chime
 
     public sealed class VoiceConnectorLoggingState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
-        /// </summary>
         [Input("enableMediaMetricLogs")]
         public Input<bool>? EnableMediaMetricLogs { get; set; }
 
-        /// <summary>
-        /// When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
-        /// </summary>
         [Input("enableSipLogs")]
         public Input<bool>? EnableSipLogs { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The Amazon Chime Voice Connector ID.
-        /// </summary>
         [Input("voiceConnectorId")]
         public Input<string>? VoiceConnectorId { get; set; }
 

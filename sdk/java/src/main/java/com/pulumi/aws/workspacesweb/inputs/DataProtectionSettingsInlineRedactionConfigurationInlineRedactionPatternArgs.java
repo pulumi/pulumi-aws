@@ -19,92 +19,44 @@ public final class DataProtectionSettingsInlineRedactionConfigurationInlineRedac
 
     public static final DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs Empty = new DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs();
 
-    /**
-     * The built-in pattern from the list of preconfigured patterns. Either a `customPattern` or `builtInPatternId` is required.
-     * 
-     */
     @Import(name="builtInPatternId")
     private @Nullable Output<String> builtInPatternId;
 
-    /**
-     * @return The built-in pattern from the list of preconfigured patterns. Either a `customPattern` or `builtInPatternId` is required.
-     * 
-     */
     public Optional<Output<String>> builtInPatternId() {
         return Optional.ofNullable(this.builtInPatternId);
     }
 
-    /**
-     * The confidence level for inline redaction pattern. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
-     * 
-     */
     @Import(name="confidenceLevel")
     private @Nullable Output<Integer> confidenceLevel;
 
-    /**
-     * @return The confidence level for inline redaction pattern. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
-     * 
-     */
     public Optional<Output<Integer>> confidenceLevel() {
         return Optional.ofNullable(this.confidenceLevel);
     }
 
-    /**
-     * The configuration for a custom pattern. Either a `customPattern` or `builtInPatternId` is required. Detailed below.
-     * 
-     */
     @Import(name="customPattern")
     private @Nullable Output<DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs> customPattern;
 
-    /**
-     * @return The configuration for a custom pattern. Either a `customPattern` or `builtInPatternId` is required. Detailed below.
-     * 
-     */
     public Optional<Output<DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs>> customPattern() {
         return Optional.ofNullable(this.customPattern);
     }
 
-    /**
-     * The enforced URL configuration for the inline redaction pattern.
-     * 
-     */
     @Import(name="enforcedUrls")
     private @Nullable Output<List<String>> enforcedUrls;
 
-    /**
-     * @return The enforced URL configuration for the inline redaction pattern.
-     * 
-     */
     public Optional<Output<List<String>>> enforcedUrls() {
         return Optional.ofNullable(this.enforcedUrls);
     }
 
-    /**
-     * The exempt URL configuration for the inline redaction pattern.
-     * 
-     */
     @Import(name="exemptUrls")
     private @Nullable Output<List<String>> exemptUrls;
 
-    /**
-     * @return The exempt URL configuration for the inline redaction pattern.
-     * 
-     */
     public Optional<Output<List<String>>> exemptUrls() {
         return Optional.ofNullable(this.exemptUrls);
     }
 
-    /**
-     * The redaction placeholder that will replace the redacted text in session. Detailed below.
-     * 
-     */
     @Import(name="redactionPlaceHolders")
     private @Nullable Output<List<DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs>> redactionPlaceHolders;
 
-    /**
-     * @return The redaction placeholder that will replace the redacted text in session. Detailed below.
-     * 
-     */
     public Optional<Output<List<DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs>>> redactionPlaceHolders() {
         return Optional.ofNullable(this.redactionPlaceHolders);
     }
@@ -138,158 +90,68 @@ public final class DataProtectionSettingsInlineRedactionConfigurationInlineRedac
             $ = new DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param builtInPatternId The built-in pattern from the list of preconfigured patterns. Either a `customPattern` or `builtInPatternId` is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder builtInPatternId(@Nullable Output<String> builtInPatternId) {
             $.builtInPatternId = builtInPatternId;
             return this;
         }
 
-        /**
-         * @param builtInPatternId The built-in pattern from the list of preconfigured patterns. Either a `customPattern` or `builtInPatternId` is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder builtInPatternId(String builtInPatternId) {
             return builtInPatternId(Output.of(builtInPatternId));
         }
 
-        /**
-         * @param confidenceLevel The confidence level for inline redaction pattern. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
-         * 
-         * @return builder
-         * 
-         */
         public Builder confidenceLevel(@Nullable Output<Integer> confidenceLevel) {
             $.confidenceLevel = confidenceLevel;
             return this;
         }
 
-        /**
-         * @param confidenceLevel The confidence level for inline redaction pattern. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
-         * 
-         * @return builder
-         * 
-         */
         public Builder confidenceLevel(Integer confidenceLevel) {
             return confidenceLevel(Output.of(confidenceLevel));
         }
 
-        /**
-         * @param customPattern The configuration for a custom pattern. Either a `customPattern` or `builtInPatternId` is required. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customPattern(@Nullable Output<DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs> customPattern) {
             $.customPattern = customPattern;
             return this;
         }
 
-        /**
-         * @param customPattern The configuration for a custom pattern. Either a `customPattern` or `builtInPatternId` is required. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customPattern(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs customPattern) {
             return customPattern(Output.of(customPattern));
         }
 
-        /**
-         * @param enforcedUrls The enforced URL configuration for the inline redaction pattern.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enforcedUrls(@Nullable Output<List<String>> enforcedUrls) {
             $.enforcedUrls = enforcedUrls;
             return this;
         }
 
-        /**
-         * @param enforcedUrls The enforced URL configuration for the inline redaction pattern.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enforcedUrls(List<String> enforcedUrls) {
             return enforcedUrls(Output.of(enforcedUrls));
         }
 
-        /**
-         * @param enforcedUrls The enforced URL configuration for the inline redaction pattern.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enforcedUrls(String... enforcedUrls) {
             return enforcedUrls(List.of(enforcedUrls));
         }
 
-        /**
-         * @param exemptUrls The exempt URL configuration for the inline redaction pattern.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exemptUrls(@Nullable Output<List<String>> exemptUrls) {
             $.exemptUrls = exemptUrls;
             return this;
         }
 
-        /**
-         * @param exemptUrls The exempt URL configuration for the inline redaction pattern.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exemptUrls(List<String> exemptUrls) {
             return exemptUrls(Output.of(exemptUrls));
         }
 
-        /**
-         * @param exemptUrls The exempt URL configuration for the inline redaction pattern.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exemptUrls(String... exemptUrls) {
             return exemptUrls(List.of(exemptUrls));
         }
 
-        /**
-         * @param redactionPlaceHolders The redaction placeholder that will replace the redacted text in session. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redactionPlaceHolders(@Nullable Output<List<DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs>> redactionPlaceHolders) {
             $.redactionPlaceHolders = redactionPlaceHolders;
             return this;
         }
 
-        /**
-         * @param redactionPlaceHolders The redaction placeholder that will replace the redacted text in session. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redactionPlaceHolders(List<DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs> redactionPlaceHolders) {
             return redactionPlaceHolders(Output.of(redactionPlaceHolders));
         }
 
-        /**
-         * @param redactionPlaceHolders The redaction placeholder that will replace the redacted text in session. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redactionPlaceHolders(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs... redactionPlaceHolders) {
             return redactionPlaceHolders(List.of(redactionPlaceHolders));
         }

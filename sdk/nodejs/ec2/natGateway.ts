@@ -7,124 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to create a VPC NAT Gateway.
- *
- * !> **WARNING:** You should not use the `aws.ec2.NatGateway` resource that has `secondaryAllocationIds` in conjunction with an `aws.ec2.NatGatewayEipAssociation` resource. Doing so may cause perpetual differences, and result in associations being overwritten.
- *
- * ## Example Usage
- *
- * ### Public NAT
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.NatGateway("example", {
- *     allocationId: exampleAwsEip.id,
- *     subnetId: exampleAwsSubnet.id,
- *     tags: {
- *         Name: "gw NAT",
- *     },
- * }, {
- *     dependsOn: [exampleAwsInternetGateway],
- * });
- * ```
- *
- * ### Public NAT with Secondary Private IP Addresses
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.NatGateway("example", {
- *     allocationId: exampleAwsEip.id,
- *     subnetId: exampleAwsSubnet.id,
- *     secondaryAllocationIds: [secondary.id],
- *     secondaryPrivateIpAddresses: ["10.0.1.5"],
- * });
- * ```
- *
- * ### Private NAT
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.NatGateway("example", {
- *     connectivityType: "private",
- *     subnetId: exampleAwsSubnet.id,
- * });
- * ```
- *
- * ### Private NAT with Secondary Private IP Addresses
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.NatGateway("example", {
- *     connectivityType: "private",
- *     subnetId: exampleAwsSubnet.id,
- *     secondaryPrivateIpAddressCount: 7,
- * });
- * ```
- *
- * ### Regional NAT Gateway with auto mode
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const available = aws.getAvailabilityZones({});
- * const example = new aws.ec2.Vpc("example", {cidrBlock: "10.0.0.0/16"});
- * const exampleInternetGateway = new aws.ec2.InternetGateway("example", {vpcId: example.id});
- * const exampleNatGateway = new aws.ec2.NatGateway("example", {
- *     vpcId: example.id,
- *     availabilityMode: "regional",
- * });
- * ```
- *
- * ### Regional NAT Gateway with manual mode
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const available = aws.getAvailabilityZones({});
- * const example = new aws.ec2.Vpc("example", {cidrBlock: "10.0.0.0/16"});
- * const exampleInternetGateway = new aws.ec2.InternetGateway("example", {vpcId: example.id});
- * const exampleEip: aws.ec2.Eip[] = [];
- * for (const range = {value: 0}; range.value < 3; range.value++) {
- *     exampleEip.push(new aws.ec2.Eip(`example-${range.value}`, {domain: "vpc"}));
- * }
- * const exampleNatGateway = new aws.ec2.NatGateway("example", {
- *     vpcId: example.id,
- *     availabilityMode: "regional",
- *     availabilityZoneAddresses: [
- *         {
- *             allocationIds: [exampleEip[0].id],
- *             availabilityZone: available.then(available => available.names?.[0]),
- *         },
- *         {
- *             allocationIds: [
- *                 exampleEip[1].id,
- *                 exampleEip[2].id,
- *             ],
- *             availabilityZone: available.then(available => available.names?.[1]),
- *         },
- *     ],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import NAT Gateways using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
- * ```
- */
 export class NatGateway extends pulumi.CustomResource {
     /**
      * Get an existing NatGateway resource's state with the given name, ID, and optional extra
@@ -153,86 +35,26 @@ export class NatGateway extends pulumi.CustomResource {
         return obj['__pulumiType'] === NatGateway.__pulumiType;
     }
 
-    /**
-     * The Allocation ID of the Elastic IP address for the NAT Gateway. Required when `connectivityType` is set to `public` and `availabilityMode` is set to `zonal`. When `availabilityMode` is set to `regional`, this must not be set; instead, use the `availabilityZoneAddress` block to specify EIPs for each AZ.
-     */
     declare public readonly allocationId: pulumi.Output<string | undefined>;
-    /**
-     * Association ID of the Elastic IP address.
-     */
     declare public /*out*/ readonly associationId: pulumi.Output<string>;
-    /**
-     * (regional NAT gateways only) Indicates whether AWS automatically manages AZ coverage.
-     */
     declare public /*out*/ readonly autoProvisionZones: pulumi.Output<string>;
-    /**
-     * (regional NAT gateways only) Indicates whether AWS automatically allocates additional Elastic IP addresses (EIPs) in an AZ when the NAT gateway needs more ports due to increased concurrent connections to a single destination from that AZ.
-     */
     declare public /*out*/ readonly autoScalingIps: pulumi.Output<string>;
-    /**
-     * Specifies whether to create a zonal (single-AZ) or regional (multi-AZ) NAT gateway. Valid values are `zonal` and `regional`. Defaults to `zonal`.
-     */
     declare public readonly availabilityMode: pulumi.Output<string>;
-    /**
-     * Repeatable configuration block for the Elastic IP addresses (EIPs) and availability zones for the regional NAT gateway. When not specified, the regional NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface (auto mode). When specified, auto-expansion is disabled (manual mode). See `availabilityZoneAddress` below for details.
-     */
     declare public readonly availabilityZoneAddresses: pulumi.Output<outputs.ec2.NatGatewayAvailabilityZoneAddress[] | undefined>;
-    /**
-     * Connectivity type for the NAT Gateway. Valid values are `private` and `public`. When `availabilityMode` is set to `regional`, this must be set to `public`. Defaults to `public`.
-     */
     declare public readonly connectivityType: pulumi.Output<string | undefined>;
-    /**
-     * ID of the network interface.
-     */
     declare public /*out*/ readonly networkInterfaceId: pulumi.Output<string>;
-    /**
-     * The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
-     */
     declare public readonly privateIp: pulumi.Output<string>;
-    /**
-     * Public IP address.
-     */
     declare public /*out*/ readonly publicIp: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * (regional NAT gateways only) Repeatable blocks for information about the IP addresses and network interface associated with the regional NAT gateway.
-     */
     declare public /*out*/ readonly regionalNatGatewayAddresses: pulumi.Output<outputs.ec2.NatGatewayRegionalNatGatewayAddress[]>;
     declare public /*out*/ readonly regionalNatGatewayAutoMode: pulumi.Output<string>;
-    /**
-     * (regional NAT gateways only) ID of the automatically created route table.
-     */
     declare public /*out*/ readonly routeTableId: pulumi.Output<string>;
-    /**
-     * A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
-     */
     declare public readonly secondaryAllocationIds: pulumi.Output<string[]>;
-    /**
-     * The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
-     */
     declare public readonly secondaryPrivateIpAddressCount: pulumi.Output<number>;
-    /**
-     * A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
-     */
     declare public readonly secondaryPrivateIpAddresses: pulumi.Output<string[]>;
-    /**
-     * The Subnet ID of the subnet in which to place the NAT Gateway. Required when `availabilityMode` is set to `zonal`. Must not be set when `availabilityMode` is set to `regional`.
-     */
     declare public readonly subnetId: pulumi.Output<string | undefined>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * VPC ID where this NAT Gateway will be created. Required when `availabilityMode` is set to `regional`.
-     */
     declare public readonly vpcId: pulumi.Output<string>;
 
     /**
@@ -302,86 +124,26 @@ export class NatGateway extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NatGateway resources.
  */
 export interface NatGatewayState {
-    /**
-     * The Allocation ID of the Elastic IP address for the NAT Gateway. Required when `connectivityType` is set to `public` and `availabilityMode` is set to `zonal`. When `availabilityMode` is set to `regional`, this must not be set; instead, use the `availabilityZoneAddress` block to specify EIPs for each AZ.
-     */
     allocationId?: pulumi.Input<string>;
-    /**
-     * Association ID of the Elastic IP address.
-     */
     associationId?: pulumi.Input<string>;
-    /**
-     * (regional NAT gateways only) Indicates whether AWS automatically manages AZ coverage.
-     */
     autoProvisionZones?: pulumi.Input<string>;
-    /**
-     * (regional NAT gateways only) Indicates whether AWS automatically allocates additional Elastic IP addresses (EIPs) in an AZ when the NAT gateway needs more ports due to increased concurrent connections to a single destination from that AZ.
-     */
     autoScalingIps?: pulumi.Input<string>;
-    /**
-     * Specifies whether to create a zonal (single-AZ) or regional (multi-AZ) NAT gateway. Valid values are `zonal` and `regional`. Defaults to `zonal`.
-     */
     availabilityMode?: pulumi.Input<string>;
-    /**
-     * Repeatable configuration block for the Elastic IP addresses (EIPs) and availability zones for the regional NAT gateway. When not specified, the regional NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface (auto mode). When specified, auto-expansion is disabled (manual mode). See `availabilityZoneAddress` below for details.
-     */
     availabilityZoneAddresses?: pulumi.Input<pulumi.Input<inputs.ec2.NatGatewayAvailabilityZoneAddress>[]>;
-    /**
-     * Connectivity type for the NAT Gateway. Valid values are `private` and `public`. When `availabilityMode` is set to `regional`, this must be set to `public`. Defaults to `public`.
-     */
     connectivityType?: pulumi.Input<string>;
-    /**
-     * ID of the network interface.
-     */
     networkInterfaceId?: pulumi.Input<string>;
-    /**
-     * The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
-     */
     privateIp?: pulumi.Input<string>;
-    /**
-     * Public IP address.
-     */
     publicIp?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * (regional NAT gateways only) Repeatable blocks for information about the IP addresses and network interface associated with the regional NAT gateway.
-     */
     regionalNatGatewayAddresses?: pulumi.Input<pulumi.Input<inputs.ec2.NatGatewayRegionalNatGatewayAddress>[]>;
     regionalNatGatewayAutoMode?: pulumi.Input<string>;
-    /**
-     * (regional NAT gateways only) ID of the automatically created route table.
-     */
     routeTableId?: pulumi.Input<string>;
-    /**
-     * A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
-     */
     secondaryAllocationIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
-     */
     secondaryPrivateIpAddressCount?: pulumi.Input<number>;
-    /**
-     * A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
-     */
     secondaryPrivateIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The Subnet ID of the subnet in which to place the NAT Gateway. Required when `availabilityMode` is set to `zonal`. Must not be set when `availabilityMode` is set to `regional`.
-     */
     subnetId?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * VPC ID where this NAT Gateway will be created. Required when `availabilityMode` is set to `regional`.
-     */
     vpcId?: pulumi.Input<string>;
 }
 
@@ -389,52 +151,16 @@ export interface NatGatewayState {
  * The set of arguments for constructing a NatGateway resource.
  */
 export interface NatGatewayArgs {
-    /**
-     * The Allocation ID of the Elastic IP address for the NAT Gateway. Required when `connectivityType` is set to `public` and `availabilityMode` is set to `zonal`. When `availabilityMode` is set to `regional`, this must not be set; instead, use the `availabilityZoneAddress` block to specify EIPs for each AZ.
-     */
     allocationId?: pulumi.Input<string>;
-    /**
-     * Specifies whether to create a zonal (single-AZ) or regional (multi-AZ) NAT gateway. Valid values are `zonal` and `regional`. Defaults to `zonal`.
-     */
     availabilityMode?: pulumi.Input<string>;
-    /**
-     * Repeatable configuration block for the Elastic IP addresses (EIPs) and availability zones for the regional NAT gateway. When not specified, the regional NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface (auto mode). When specified, auto-expansion is disabled (manual mode). See `availabilityZoneAddress` below for details.
-     */
     availabilityZoneAddresses?: pulumi.Input<pulumi.Input<inputs.ec2.NatGatewayAvailabilityZoneAddress>[]>;
-    /**
-     * Connectivity type for the NAT Gateway. Valid values are `private` and `public`. When `availabilityMode` is set to `regional`, this must be set to `public`. Defaults to `public`.
-     */
     connectivityType?: pulumi.Input<string>;
-    /**
-     * The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
-     */
     privateIp?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
-     */
     secondaryAllocationIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
-     */
     secondaryPrivateIpAddressCount?: pulumi.Input<number>;
-    /**
-     * A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
-     */
     secondaryPrivateIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The Subnet ID of the subnet in which to place the NAT Gateway. Required when `availabilityMode` is set to `zonal`. Must not be set when `availabilityMode` is set to `regional`.
-     */
     subnetId?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * VPC ID where this NAT Gateway will be created. Required when `availabilityMode` is set to `regional`.
-     */
     vpcId?: pulumi.Input<string>;
 }

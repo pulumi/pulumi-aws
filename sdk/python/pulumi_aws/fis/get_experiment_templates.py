@@ -51,9 +51,6 @@ class GetExperimentTemplatesResult:
     @_builtins.property
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
-        """
-        List of all the experiment template ids found.
-        """
         return pulumi.get(self, "ids")
 
     @_builtins.property
@@ -83,45 +80,7 @@ def get_experiment_templates(region: Optional[_builtins.str] = None,
                              tags: Optional[Mapping[str, _builtins.str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExperimentTemplatesResult:
     """
-    This resource can be useful for getting back a set of FIS experiment template IDs.
-
-    ## Example Usage
-
-    The following shows outputting a list of all FIS experiment template IDs
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    all = aws.fis.get_experiment_templates()
-    pulumi.export("all", all.ids)
-    ```
-
-    The following shows filtering FIS experiment templates by tag
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.fis.get_experiment_templates(tags={
-        "Name": "example",
-        "Tier": "1",
-    })
-    example_get_policy_document = aws.iam.get_policy_document(statements=[{
-        "sid": "StartFISExperiment",
-        "effect": "Allow",
-        "actions": ["fis:StartExperiment"],
-        "resources": [
-            f"arn:aws:fis:*:*:experiment-template/{example.ids[0]}",
-            "arn:aws:fis:*:*:experiment/*",
-        ],
-    }])
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired experiment templates.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -138,45 +97,7 @@ def get_experiment_templates_output(region: Optional[pulumi.Input[Optional[_buil
                                     tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExperimentTemplatesResult]:
     """
-    This resource can be useful for getting back a set of FIS experiment template IDs.
-
-    ## Example Usage
-
-    The following shows outputting a list of all FIS experiment template IDs
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    all = aws.fis.get_experiment_templates()
-    pulumi.export("all", all.ids)
-    ```
-
-    The following shows filtering FIS experiment templates by tag
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.fis.get_experiment_templates(tags={
-        "Name": "example",
-        "Tier": "1",
-    })
-    example_get_policy_document = aws.iam.get_policy_document(statements=[{
-        "sid": "StartFISExperiment",
-        "effect": "Allow",
-        "actions": ["fis:StartExperiment"],
-        "resources": [
-            f"arn:aws:fis:*:*:experiment-template/{example.ids[0]}",
-            "arn:aws:fis:*:*:experiment/*",
-        ],
-    }])
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired experiment templates.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

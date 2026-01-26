@@ -26,11 +26,6 @@ class AccessGrantsLocationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AccessGrantsLocation resource.
-        :param pulumi.Input[_builtins.str] iam_role_arn: The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-               requests to the location.
-        :param pulumi.Input[_builtins.str] location_scope: The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "iam_role_arn", iam_role_arn)
         pulumi.set(__self__, "location_scope", location_scope)
@@ -44,10 +39,6 @@ class AccessGrantsLocationArgs:
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-        requests to the location.
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
@@ -57,9 +48,6 @@ class AccessGrantsLocationArgs:
     @_builtins.property
     @pulumi.getter(name="locationScope")
     def location_scope(self) -> pulumi.Input[_builtins.str]:
-        """
-        The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
-        """
         return pulumi.get(self, "location_scope")
 
     @location_scope.setter
@@ -78,9 +66,6 @@ class AccessGrantsLocationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -90,9 +75,6 @@ class AccessGrantsLocationArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -113,14 +95,6 @@ class _AccessGrantsLocationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AccessGrantsLocation resources.
-        :param pulumi.Input[_builtins.str] access_grants_location_arn: Amazon Resource Name (ARN) of the S3 Access Grants location.
-        :param pulumi.Input[_builtins.str] access_grants_location_id: Unique ID of the S3 Access Grants location.
-        :param pulumi.Input[_builtins.str] iam_role_arn: The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-               requests to the location.
-        :param pulumi.Input[_builtins.str] location_scope: The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if access_grants_location_arn is not None:
             pulumi.set(__self__, "access_grants_location_arn", access_grants_location_arn)
@@ -142,9 +116,6 @@ class _AccessGrantsLocationState:
     @_builtins.property
     @pulumi.getter(name="accessGrantsLocationArn")
     def access_grants_location_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the S3 Access Grants location.
-        """
         return pulumi.get(self, "access_grants_location_arn")
 
     @access_grants_location_arn.setter
@@ -154,9 +125,6 @@ class _AccessGrantsLocationState:
     @_builtins.property
     @pulumi.getter(name="accessGrantsLocationId")
     def access_grants_location_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique ID of the S3 Access Grants location.
-        """
         return pulumi.get(self, "access_grants_location_id")
 
     @access_grants_location_id.setter
@@ -175,10 +143,6 @@ class _AccessGrantsLocationState:
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-        requests to the location.
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
@@ -188,9 +152,6 @@ class _AccessGrantsLocationState:
     @_builtins.property
     @pulumi.getter(name="locationScope")
     def location_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
-        """
         return pulumi.get(self, "location_scope")
 
     @location_scope.setter
@@ -200,9 +161,6 @@ class _AccessGrantsLocationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -212,9 +170,6 @@ class _AccessGrantsLocationState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -224,9 +179,6 @@ class _AccessGrantsLocationState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -247,39 +199,9 @@ class AccessGrantsLocation(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a resource to manage an S3 Access Grants location.
-        A location is an S3 resource (bucket or prefix) in a permission grant that the grantee can access.
-        The S3 data must be in the same Region as your S3 Access Grants instance.
-        When you register a location, you must include the IAM role that has permission to manage the S3 location that you are registering.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3control.AccessGrantsInstance("example")
-        example_access_grants_location = aws.s3control.AccessGrantsLocation("example",
-            iam_role_arn=example_aws_iam_role["arn"],
-            location_scope="s3://",
-            opts = pulumi.ResourceOptions(depends_on=[example]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import S3 Access Grants locations using the `account_id` and `access_grants_location_id`, separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:s3control/accessGrantsLocation:AccessGrantsLocation example 123456789012,default
-        ```
-
+        Create a AccessGrantsLocation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] iam_role_arn: The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-               requests to the location.
-        :param pulumi.Input[_builtins.str] location_scope: The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -288,32 +210,7 @@ class AccessGrantsLocation(pulumi.CustomResource):
                  args: AccessGrantsLocationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage an S3 Access Grants location.
-        A location is an S3 resource (bucket or prefix) in a permission grant that the grantee can access.
-        The S3 data must be in the same Region as your S3 Access Grants instance.
-        When you register a location, you must include the IAM role that has permission to manage the S3 location that you are registering.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3control.AccessGrantsInstance("example")
-        example_access_grants_location = aws.s3control.AccessGrantsLocation("example",
-            iam_role_arn=example_aws_iam_role["arn"],
-            location_scope="s3://",
-            opts = pulumi.ResourceOptions(depends_on=[example]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import S3 Access Grants locations using the `account_id` and `access_grants_location_id`, separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:s3control/accessGrantsLocation:AccessGrantsLocation example 123456789012,default
-        ```
-
+        Create a AccessGrantsLocation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AccessGrantsLocationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -380,14 +277,6 @@ class AccessGrantsLocation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_grants_location_arn: Amazon Resource Name (ARN) of the S3 Access Grants location.
-        :param pulumi.Input[_builtins.str] access_grants_location_id: Unique ID of the S3 Access Grants location.
-        :param pulumi.Input[_builtins.str] iam_role_arn: The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-               requests to the location.
-        :param pulumi.Input[_builtins.str] location_scope: The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -406,17 +295,11 @@ class AccessGrantsLocation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accessGrantsLocationArn")
     def access_grants_location_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the S3 Access Grants location.
-        """
         return pulumi.get(self, "access_grants_location_arn")
 
     @_builtins.property
     @pulumi.getter(name="accessGrantsLocationId")
     def access_grants_location_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique ID of the S3 Access Grants location.
-        """
         return pulumi.get(self, "access_grants_location_id")
 
     @_builtins.property
@@ -427,41 +310,25 @@ class AccessGrantsLocation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-        requests to the location.
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="locationScope")
     def location_scope(self) -> pulumi.Output[_builtins.str]:
-        """
-        The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
-        """
         return pulumi.get(self, "location_scope")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

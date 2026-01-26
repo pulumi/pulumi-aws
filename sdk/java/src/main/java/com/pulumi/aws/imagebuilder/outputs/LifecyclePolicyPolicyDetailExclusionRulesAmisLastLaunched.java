@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunched {
-    /**
-     * @return Defines the unit of time that the lifecycle policy uses to calculate elapsed time since the last instance launched from the AMI. For example: days, weeks, months, or years. Valid values: `DAYS`, `WEEKS`, `MONTHS` or `YEARS`.
-     * 
-     */
     private String unit;
-    /**
-     * @return The integer number of units for the time period. For example 6 (months).
-     * 
-     */
     private Integer value;
 
     private LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunched() {}
-    /**
-     * @return Defines the unit of time that the lifecycle policy uses to calculate elapsed time since the last instance launched from the AMI. For example: days, weeks, months, or years. Valid values: `DAYS`, `WEEKS`, `MONTHS` or `YEARS`.
-     * 
-     */
     public String unit() {
         return this.unit;
     }
-    /**
-     * @return The integer number of units for the time period. For example 6 (months).
-     * 
-     */
     public Integer value() {
         return this.value;
     }

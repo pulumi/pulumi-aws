@@ -28,126 +28,58 @@ public final class V2modelsBotState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Provides information on additional privacy protections Amazon Lex should use with the bot&#39;s data. See `dataPrivacy`
-     * 
-     */
     @Import(name="dataPrivacies")
     private @Nullable Output<List<V2modelsBotDataPrivacyArgs>> dataPrivacies;
 
-    /**
-     * @return Provides information on additional privacy protections Amazon Lex should use with the bot&#39;s data. See `dataPrivacy`
-     * 
-     */
     public Optional<Output<List<V2modelsBotDataPrivacyArgs>>> dataPrivacies() {
         return Optional.ofNullable(this.dataPrivacies);
     }
 
-    /**
-     * Description of the bot. It appears in lists to help you identify a particular bot.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the bot. It appears in lists to help you identify a particular bot.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Time, in seconds, that Amazon Lex should keep information about a user&#39;s conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
-     * 
-     */
     @Import(name="idleSessionTtlInSeconds")
     private @Nullable Output<Integer> idleSessionTtlInSeconds;
 
-    /**
-     * @return Time, in seconds, that Amazon Lex should keep information about a user&#39;s conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
-     * 
-     */
     public Optional<Output<Integer>> idleSessionTtlInSeconds() {
         return Optional.ofNullable(this.idleSessionTtlInSeconds);
     }
 
-    /**
-     * List of bot members in a network to be created. See `botMembers`.
-     * 
-     */
     @Import(name="members")
     private @Nullable Output<List<V2modelsBotMemberArgs>> members;
 
-    /**
-     * @return List of bot members in a network to be created. See `botMembers`.
-     * 
-     */
     public Optional<Output<List<V2modelsBotMemberArgs>>> members() {
         return Optional.ofNullable(this.members);
     }
 
-    /**
-     * Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ARN of an IAM role that has permission to access the bot.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
-    /**
-     * @return ARN of an IAM role that has permission to access the bot.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
 
-    /**
-     * List of tags to add to the bot. You can only add tags when you create a bot.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return List of tags to add to the bot. You can only add tags when you create a bot.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -159,17 +91,9 @@ public final class V2modelsBotState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tagsAll);
     }
 
-    /**
-     * List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
-     * 
-     */
     @Import(name="testBotAliasTags")
     private @Nullable Output<Map<String,String>> testBotAliasTags;
 
-    /**
-     * @return List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
-     * 
-     */
     public Optional<Output<Map<String,String>>> testBotAliasTags() {
         return Optional.ofNullable(this.testBotAliasTags);
     }
@@ -181,17 +105,9 @@ public final class V2modelsBotState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.timeouts);
     }
 
-    /**
-     * Type of a bot to create. Possible values are `&#34;Bot&#34;` and `&#34;BotNetwork&#34;`.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return Type of a bot to create. Possible values are `&#34;Bot&#34;` and `&#34;BotNetwork&#34;`.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -241,194 +157,82 @@ public final class V2modelsBotState extends com.pulumi.resources.ResourceArgs {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param dataPrivacies Provides information on additional privacy protections Amazon Lex should use with the bot&#39;s data. See `dataPrivacy`
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataPrivacies(@Nullable Output<List<V2modelsBotDataPrivacyArgs>> dataPrivacies) {
             $.dataPrivacies = dataPrivacies;
             return this;
         }
 
-        /**
-         * @param dataPrivacies Provides information on additional privacy protections Amazon Lex should use with the bot&#39;s data. See `dataPrivacy`
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataPrivacies(List<V2modelsBotDataPrivacyArgs> dataPrivacies) {
             return dataPrivacies(Output.of(dataPrivacies));
         }
 
-        /**
-         * @param dataPrivacies Provides information on additional privacy protections Amazon Lex should use with the bot&#39;s data. See `dataPrivacy`
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataPrivacies(V2modelsBotDataPrivacyArgs... dataPrivacies) {
             return dataPrivacies(List.of(dataPrivacies));
         }
 
-        /**
-         * @param description Description of the bot. It appears in lists to help you identify a particular bot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the bot. It appears in lists to help you identify a particular bot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param idleSessionTtlInSeconds Time, in seconds, that Amazon Lex should keep information about a user&#39;s conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idleSessionTtlInSeconds(@Nullable Output<Integer> idleSessionTtlInSeconds) {
             $.idleSessionTtlInSeconds = idleSessionTtlInSeconds;
             return this;
         }
 
-        /**
-         * @param idleSessionTtlInSeconds Time, in seconds, that Amazon Lex should keep information about a user&#39;s conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idleSessionTtlInSeconds(Integer idleSessionTtlInSeconds) {
             return idleSessionTtlInSeconds(Output.of(idleSessionTtlInSeconds));
         }
 
-        /**
-         * @param members List of bot members in a network to be created. See `botMembers`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder members(@Nullable Output<List<V2modelsBotMemberArgs>> members) {
             $.members = members;
             return this;
         }
 
-        /**
-         * @param members List of bot members in a network to be created. See `botMembers`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder members(List<V2modelsBotMemberArgs> members) {
             return members(Output.of(members));
         }
 
-        /**
-         * @param members List of bot members in a network to be created. See `botMembers`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder members(V2modelsBotMemberArgs... members) {
             return members(List.of(members));
         }
 
-        /**
-         * @param name Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param roleArn ARN of an IAM role that has permission to access the bot.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(@Nullable Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn ARN of an IAM role that has permission to access the bot.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param tags List of tags to add to the bot. You can only add tags when you create a bot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags List of tags to add to the bot. You can only add tags when you create a bot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
@@ -442,23 +246,11 @@ public final class V2modelsBotState extends com.pulumi.resources.ResourceArgs {
             return tagsAll(Output.of(tagsAll));
         }
 
-        /**
-         * @param testBotAliasTags List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder testBotAliasTags(@Nullable Output<Map<String,String>> testBotAliasTags) {
             $.testBotAliasTags = testBotAliasTags;
             return this;
         }
 
-        /**
-         * @param testBotAliasTags List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder testBotAliasTags(Map<String,String> testBotAliasTags) {
             return testBotAliasTags(Output.of(testBotAliasTags));
         }
@@ -472,23 +264,11 @@ public final class V2modelsBotState extends com.pulumi.resources.ResourceArgs {
             return timeouts(Output.of(timeouts));
         }
 
-        /**
-         * @param type Type of a bot to create. Possible values are `&#34;Bot&#34;` and `&#34;BotNetwork&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of a bot to create. Possible values are `&#34;Bot&#34;` and `&#34;BotNetwork&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

@@ -41,9 +41,6 @@ class GetRuntimeVersionsResult:
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        Name of the AWS region from which runtime versions are fetched.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
@@ -54,9 +51,6 @@ class GetRuntimeVersionsResult:
     @_builtins.property
     @pulumi.getter(name="runtimeVersions")
     def runtime_versions(self) -> Sequence['outputs.GetRuntimeVersionsRuntimeVersionResult']:
-        """
-        List of runtime versions. See `runtime_versions` attribute reference.
-        """
         return pulumi.get(self, "runtime_versions")
 
 
@@ -74,21 +68,7 @@ class AwaitableGetRuntimeVersionsResult(GetRuntimeVersionsResult):
 def get_runtime_versions(region: Optional[_builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuntimeVersionsResult:
     """
-    Data source for managing an AWS CloudWatch Synthetics Runtime Versions.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.synthetics.get_runtime_versions()
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -102,21 +82,7 @@ def get_runtime_versions(region: Optional[_builtins.str] = None,
 def get_runtime_versions_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuntimeVersionsResult]:
     """
-    Data source for managing an AWS CloudWatch Synthetics Runtime Versions.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.synthetics.get_runtime_versions()
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

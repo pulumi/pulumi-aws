@@ -29,13 +29,6 @@ class VpcBlockPublicAccessExclusionArgs:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpcBlockPublicAccessExclusion resource.
-        :param pulumi.Input[_builtins.str] internet_gateway_exclusion_mode: Mode of exclusion from Block Public Access. The allowed values are `allow-egress` and `allow-bidirectional`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] subnet_id: Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vpc_id: Id of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
         """
         pulumi.set(__self__, "internet_gateway_exclusion_mode", internet_gateway_exclusion_mode)
         if region is not None:
@@ -52,11 +45,6 @@ class VpcBlockPublicAccessExclusionArgs:
     @_builtins.property
     @pulumi.getter(name="internetGatewayExclusionMode")
     def internet_gateway_exclusion_mode(self) -> pulumi.Input[_builtins.str]:
-        """
-        Mode of exclusion from Block Public Access. The allowed values are `allow-egress` and `allow-bidirectional`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "internet_gateway_exclusion_mode")
 
     @internet_gateway_exclusion_mode.setter
@@ -66,9 +54,6 @@ class VpcBlockPublicAccessExclusionArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -78,9 +63,6 @@ class VpcBlockPublicAccessExclusionArgs:
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -90,9 +72,6 @@ class VpcBlockPublicAccessExclusionArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -111,9 +90,6 @@ class VpcBlockPublicAccessExclusionArgs:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Id of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -134,15 +110,6 @@ class _VpcBlockPublicAccessExclusionState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcBlockPublicAccessExclusion resources.
-        :param pulumi.Input[_builtins.str] internet_gateway_exclusion_mode: Mode of exclusion from Block Public Access. The allowed values are `allow-egress` and `allow-bidirectional`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) the excluded resource.
-        :param pulumi.Input[_builtins.str] subnet_id: Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_id: Id of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
         """
         if internet_gateway_exclusion_mode is not None:
             pulumi.set(__self__, "internet_gateway_exclusion_mode", internet_gateway_exclusion_mode)
@@ -164,11 +131,6 @@ class _VpcBlockPublicAccessExclusionState:
     @_builtins.property
     @pulumi.getter(name="internetGatewayExclusionMode")
     def internet_gateway_exclusion_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Mode of exclusion from Block Public Access. The allowed values are `allow-egress` and `allow-bidirectional`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "internet_gateway_exclusion_mode")
 
     @internet_gateway_exclusion_mode.setter
@@ -178,9 +140,6 @@ class _VpcBlockPublicAccessExclusionState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -190,9 +149,6 @@ class _VpcBlockPublicAccessExclusionState:
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) the excluded resource.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -202,9 +158,6 @@ class _VpcBlockPublicAccessExclusionState:
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -214,9 +167,6 @@ class _VpcBlockPublicAccessExclusionState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -226,9 +176,6 @@ class _VpcBlockPublicAccessExclusionState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -247,9 +194,6 @@ class _VpcBlockPublicAccessExclusionState:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Id of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -271,54 +215,9 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS EC2 (Elastic Compute Cloud) VPC Block Public Access Exclusion.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.ec2.Vpc("test", cidr_block="10.1.0.0/16")
-        test_vpc_block_public_access_exclusion = aws.ec2.VpcBlockPublicAccessExclusion("test",
-            vpc_id=test.id,
-            internet_gateway_exclusion_mode="allow-bidirectional")
-        ```
-
-        ### Usage with subnet id
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.ec2.Vpc("test", cidr_block="10.1.0.0/16")
-        test_subnet = aws.ec2.Subnet("test",
-            cidr_block="10.1.1.0/24",
-            vpc_id=test.id)
-        test_vpc_block_public_access_exclusion = aws.ec2.VpcBlockPublicAccessExclusion("test",
-            subnet_id=test_subnet.id,
-            internet_gateway_exclusion_mode="allow-egress")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import EC2 (Elastic Compute Cloud) VPC Block Public Access Exclusion using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/vpcBlockPublicAccessExclusion:VpcBlockPublicAccessExclusion example vpcbpa-exclude-1234abcd
-        ```
-
+        Create a VpcBlockPublicAccessExclusion resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] internet_gateway_exclusion_mode: Mode of exclusion from Block Public Access. The allowed values are `allow-egress` and `allow-bidirectional`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] subnet_id: Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vpc_id: Id of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
         """
         ...
     @overload
@@ -327,45 +226,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
                  args: VpcBlockPublicAccessExclusionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS EC2 (Elastic Compute Cloud) VPC Block Public Access Exclusion.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.ec2.Vpc("test", cidr_block="10.1.0.0/16")
-        test_vpc_block_public_access_exclusion = aws.ec2.VpcBlockPublicAccessExclusion("test",
-            vpc_id=test.id,
-            internet_gateway_exclusion_mode="allow-bidirectional")
-        ```
-
-        ### Usage with subnet id
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.ec2.Vpc("test", cidr_block="10.1.0.0/16")
-        test_subnet = aws.ec2.Subnet("test",
-            cidr_block="10.1.1.0/24",
-            vpc_id=test.id)
-        test_vpc_block_public_access_exclusion = aws.ec2.VpcBlockPublicAccessExclusion("test",
-            subnet_id=test_subnet.id,
-            internet_gateway_exclusion_mode="allow-egress")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import EC2 (Elastic Compute Cloud) VPC Block Public Access Exclusion using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/vpcBlockPublicAccessExclusion:VpcBlockPublicAccessExclusion example vpcbpa-exclude-1234abcd
-        ```
-
+        Create a VpcBlockPublicAccessExclusion resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VpcBlockPublicAccessExclusionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -431,15 +292,6 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] internet_gateway_exclusion_mode: Mode of exclusion from Block Public Access. The allowed values are `allow-egress` and `allow-bidirectional`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) the excluded resource.
-        :param pulumi.Input[_builtins.str] subnet_id: Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_id: Id of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -458,51 +310,31 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="internetGatewayExclusionMode")
     def internet_gateway_exclusion_mode(self) -> pulumi.Output[_builtins.str]:
-        """
-        Mode of exclusion from Block Public Access. The allowed values are `allow-egress` and `allow-bidirectional`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "internet_gateway_exclusion_mode")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) the excluded resource.
-        """
         return pulumi.get(self, "resource_arn")
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
-        """
         return pulumi.get(self, "subnet_id")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
@@ -513,8 +345,5 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Id of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
-        """
         return pulumi.get(self, "vpc_id")
 

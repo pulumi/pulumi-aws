@@ -16,155 +16,35 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AWS Cognito Identity Principal Mapping.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cognito.UserPool;
- * import com.pulumi.aws.cognito.UserPoolArgs;
- * import com.pulumi.aws.cognito.UserPoolClient;
- * import com.pulumi.aws.cognito.UserPoolClientArgs;
- * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.CompactArgs;
- * import com.pulumi.aws.cognito.IdentityPool;
- * import com.pulumi.aws.cognito.IdentityPoolArgs;
- * import com.pulumi.aws.cognito.inputs.IdentityPoolCognitoIdentityProviderArgs;
- * import com.pulumi.aws.cognito.IdentityPoolProviderPrincipalTag;
- * import com.pulumi.aws.cognito.IdentityPoolProviderPrincipalTagArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new UserPool("example", UserPoolArgs.builder()
- *             .name("user pool")
- *             .autoVerifiedAttributes("email")
- *             .build());
- * 
- *         var exampleUserPoolClient = new UserPoolClient("exampleUserPoolClient", UserPoolClientArgs.builder()
- *             .name("client")
- *             .userPoolId(example.id())
- *             .supportedIdentityProviders(StdFunctions.compact(CompactArgs.builder()
- *                 .input("COGNITO")
- *                 .build()).result())
- *             .build());
- * 
- *         var exampleIdentityPool = new IdentityPool("exampleIdentityPool", IdentityPoolArgs.builder()
- *             .identityPoolName("identity pool")
- *             .allowUnauthenticatedIdentities(false)
- *             .cognitoIdentityProviders(IdentityPoolCognitoIdentityProviderArgs.builder()
- *                 .clientId(exampleUserPoolClient.id())
- *                 .providerName(example.endpoint())
- *                 .serverSideTokenCheck(false)
- *                 .build())
- *             .build());
- * 
- *         var exampleIdentityPoolProviderPrincipalTag = new IdentityPoolProviderPrincipalTag("exampleIdentityPoolProviderPrincipalTag", IdentityPoolProviderPrincipalTagArgs.builder()
- *             .identityPoolId(exampleIdentityPool.id())
- *             .identityProviderName(example.endpoint())
- *             .useDefaults(false)
- *             .principalTags(Map.of("test", "value"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID and provider name. For example:
- * 
- * ```sh
- * $ pulumi import aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag example us-west-2_abc123:CorpAD
- * ```
- * 
- */
 @ResourceType(type="aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag")
 public class IdentityPoolProviderPrincipalTag extends com.pulumi.resources.CustomResource {
-    /**
-     * An identity pool ID.
-     * 
-     */
     @Export(name="identityPoolId", refs={String.class}, tree="[0]")
     private Output<String> identityPoolId;
 
-    /**
-     * @return An identity pool ID.
-     * 
-     */
     public Output<String> identityPoolId() {
         return this.identityPoolId;
     }
-    /**
-     * The name of the identity provider.
-     * 
-     */
     @Export(name="identityProviderName", refs={String.class}, tree="[0]")
     private Output<String> identityProviderName;
 
-    /**
-     * @return The name of the identity provider.
-     * 
-     */
     public Output<String> identityProviderName() {
         return this.identityProviderName;
     }
-    /**
-     * String to string map of variables.
-     * 
-     */
     @Export(name="principalTags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> principalTags;
 
-    /**
-     * @return String to string map of variables.
-     * 
-     */
     public Output<Optional<Map<String,String>>> principalTags() {
         return Codegen.optional(this.principalTags);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * use default (username and clientID) attribute mappings.
-     * 
-     */
     @Export(name="useDefaults", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> useDefaults;
 
-    /**
-     * @return use default (username and clientID) attribute mappings.
-     * 
-     */
     public Output<Optional<Boolean>> useDefaults() {
         return Codegen.optional(this.useDefaults);
     }

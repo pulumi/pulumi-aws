@@ -12,83 +12,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Network Manager Direct Connect Gateway Attachment.
-//
-// Use this resource to create and manage a Direct Connect Gateway attachment to a Cloud WAN core network.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkmanager.NewDxGatewayAttachment(ctx, "test", &networkmanager.DxGatewayAttachmentArgs{
-//				CoreNetworkId:           pulumi.Any(testAwsNetworkmanagerCoreNetworkPolicyAttachment.CoreNetworkId),
-//				DirectConnectGatewayArn: pulumi.Sprintf("arn:aws:directconnect::%v:dx-gateway/%v", current.AccountId, testAwsDxGateway.Id),
-//				EdgeLocations: pulumi.StringArray{
-//					currentAwsRegion.Region,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Network Manager DX Gateway Attachment using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:networkmanager/dxGatewayAttachment:DxGatewayAttachment example attachment-1a2b3c4d5e6f7g
-// ```
 type DxGatewayAttachment struct {
 	pulumi.CustomResourceState
 
-	// ARN of the attachment.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Policy rule number associated with the attachment.
-	AttachmentPolicyRuleNumber pulumi.IntOutput `pulumi:"attachmentPolicyRuleNumber"`
-	// Type of attachment.
-	AttachmentType pulumi.StringOutput `pulumi:"attachmentType"`
-	// ARN of the core network for the attachment.
-	CoreNetworkArn pulumi.StringOutput `pulumi:"coreNetworkArn"`
-	// ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
-	CoreNetworkId pulumi.StringOutput `pulumi:"coreNetworkId"`
-	// ARN of the Direct Connect gateway attachment.
-	DirectConnectGatewayArn pulumi.StringOutput `pulumi:"directConnectGatewayArn"`
-	// One or more core network edge locations to associate with the Direct Connect gateway attachment.
-	//
-	// The following arguments are optional:
-	EdgeLocations pulumi.StringArrayOutput `pulumi:"edgeLocations"`
-	// ID of the attachment account owner.
-	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
-	// The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-	RoutingPolicyLabel pulumi.StringPtrOutput `pulumi:"routingPolicyLabel"`
-	// Name of the segment attachment.
-	SegmentName pulumi.StringOutput `pulumi:"segmentName"`
-	// State of the attachment.
-	State pulumi.StringOutput `pulumi:"state"`
-	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput               `pulumi:"tagsAll"`
-	Timeouts DxGatewayAttachmentTimeoutsPtrOutput `pulumi:"timeouts"`
+	Arn                        pulumi.StringOutput                  `pulumi:"arn"`
+	AttachmentPolicyRuleNumber pulumi.IntOutput                     `pulumi:"attachmentPolicyRuleNumber"`
+	AttachmentType             pulumi.StringOutput                  `pulumi:"attachmentType"`
+	CoreNetworkArn             pulumi.StringOutput                  `pulumi:"coreNetworkArn"`
+	CoreNetworkId              pulumi.StringOutput                  `pulumi:"coreNetworkId"`
+	DirectConnectGatewayArn    pulumi.StringOutput                  `pulumi:"directConnectGatewayArn"`
+	EdgeLocations              pulumi.StringArrayOutput             `pulumi:"edgeLocations"`
+	OwnerAccountId             pulumi.StringOutput                  `pulumi:"ownerAccountId"`
+	RoutingPolicyLabel         pulumi.StringPtrOutput               `pulumi:"routingPolicyLabel"`
+	SegmentName                pulumi.StringOutput                  `pulumi:"segmentName"`
+	State                      pulumi.StringOutput                  `pulumi:"state"`
+	Tags                       pulumi.StringMapOutput               `pulumi:"tags"`
+	TagsAll                    pulumi.StringMapOutput               `pulumi:"tagsAll"`
+	Timeouts                   DxGatewayAttachmentTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewDxGatewayAttachment registers a new resource with the given unique name, arguments, and options.
@@ -130,67 +70,37 @@ func GetDxGatewayAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DxGatewayAttachment resources.
 type dxGatewayAttachmentState struct {
-	// ARN of the attachment.
-	Arn *string `pulumi:"arn"`
-	// Policy rule number associated with the attachment.
-	AttachmentPolicyRuleNumber *int `pulumi:"attachmentPolicyRuleNumber"`
-	// Type of attachment.
-	AttachmentType *string `pulumi:"attachmentType"`
-	// ARN of the core network for the attachment.
-	CoreNetworkArn *string `pulumi:"coreNetworkArn"`
-	// ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
-	CoreNetworkId *string `pulumi:"coreNetworkId"`
-	// ARN of the Direct Connect gateway attachment.
-	DirectConnectGatewayArn *string `pulumi:"directConnectGatewayArn"`
-	// One or more core network edge locations to associate with the Direct Connect gateway attachment.
-	//
-	// The following arguments are optional:
-	EdgeLocations []string `pulumi:"edgeLocations"`
-	// ID of the attachment account owner.
-	OwnerAccountId *string `pulumi:"ownerAccountId"`
-	// The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-	RoutingPolicyLabel *string `pulumi:"routingPolicyLabel"`
-	// Name of the segment attachment.
-	SegmentName *string `pulumi:"segmentName"`
-	// State of the attachment.
-	State *string `pulumi:"state"`
-	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string            `pulumi:"tagsAll"`
-	Timeouts *DxGatewayAttachmentTimeouts `pulumi:"timeouts"`
+	Arn                        *string                      `pulumi:"arn"`
+	AttachmentPolicyRuleNumber *int                         `pulumi:"attachmentPolicyRuleNumber"`
+	AttachmentType             *string                      `pulumi:"attachmentType"`
+	CoreNetworkArn             *string                      `pulumi:"coreNetworkArn"`
+	CoreNetworkId              *string                      `pulumi:"coreNetworkId"`
+	DirectConnectGatewayArn    *string                      `pulumi:"directConnectGatewayArn"`
+	EdgeLocations              []string                     `pulumi:"edgeLocations"`
+	OwnerAccountId             *string                      `pulumi:"ownerAccountId"`
+	RoutingPolicyLabel         *string                      `pulumi:"routingPolicyLabel"`
+	SegmentName                *string                      `pulumi:"segmentName"`
+	State                      *string                      `pulumi:"state"`
+	Tags                       map[string]string            `pulumi:"tags"`
+	TagsAll                    map[string]string            `pulumi:"tagsAll"`
+	Timeouts                   *DxGatewayAttachmentTimeouts `pulumi:"timeouts"`
 }
 
 type DxGatewayAttachmentState struct {
-	// ARN of the attachment.
-	Arn pulumi.StringPtrInput
-	// Policy rule number associated with the attachment.
+	Arn                        pulumi.StringPtrInput
 	AttachmentPolicyRuleNumber pulumi.IntPtrInput
-	// Type of attachment.
-	AttachmentType pulumi.StringPtrInput
-	// ARN of the core network for the attachment.
-	CoreNetworkArn pulumi.StringPtrInput
-	// ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
-	CoreNetworkId pulumi.StringPtrInput
-	// ARN of the Direct Connect gateway attachment.
-	DirectConnectGatewayArn pulumi.StringPtrInput
-	// One or more core network edge locations to associate with the Direct Connect gateway attachment.
-	//
-	// The following arguments are optional:
-	EdgeLocations pulumi.StringArrayInput
-	// ID of the attachment account owner.
-	OwnerAccountId pulumi.StringPtrInput
-	// The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-	RoutingPolicyLabel pulumi.StringPtrInput
-	// Name of the segment attachment.
-	SegmentName pulumi.StringPtrInput
-	// State of the attachment.
-	State pulumi.StringPtrInput
-	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts DxGatewayAttachmentTimeoutsPtrInput
+	AttachmentType             pulumi.StringPtrInput
+	CoreNetworkArn             pulumi.StringPtrInput
+	CoreNetworkId              pulumi.StringPtrInput
+	DirectConnectGatewayArn    pulumi.StringPtrInput
+	EdgeLocations              pulumi.StringArrayInput
+	OwnerAccountId             pulumi.StringPtrInput
+	RoutingPolicyLabel         pulumi.StringPtrInput
+	SegmentName                pulumi.StringPtrInput
+	State                      pulumi.StringPtrInput
+	Tags                       pulumi.StringMapInput
+	TagsAll                    pulumi.StringMapInput
+	Timeouts                   DxGatewayAttachmentTimeoutsPtrInput
 }
 
 func (DxGatewayAttachmentState) ElementType() reflect.Type {
@@ -198,36 +108,22 @@ func (DxGatewayAttachmentState) ElementType() reflect.Type {
 }
 
 type dxGatewayAttachmentArgs struct {
-	// ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
-	CoreNetworkId string `pulumi:"coreNetworkId"`
-	// ARN of the Direct Connect gateway attachment.
-	DirectConnectGatewayArn string `pulumi:"directConnectGatewayArn"`
-	// One or more core network edge locations to associate with the Direct Connect gateway attachment.
-	//
-	// The following arguments are optional:
-	EdgeLocations []string `pulumi:"edgeLocations"`
-	// The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-	RoutingPolicyLabel *string `pulumi:"routingPolicyLabel"`
-	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string            `pulumi:"tags"`
-	Timeouts *DxGatewayAttachmentTimeouts `pulumi:"timeouts"`
+	CoreNetworkId           string                       `pulumi:"coreNetworkId"`
+	DirectConnectGatewayArn string                       `pulumi:"directConnectGatewayArn"`
+	EdgeLocations           []string                     `pulumi:"edgeLocations"`
+	RoutingPolicyLabel      *string                      `pulumi:"routingPolicyLabel"`
+	Tags                    map[string]string            `pulumi:"tags"`
+	Timeouts                *DxGatewayAttachmentTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a DxGatewayAttachment resource.
 type DxGatewayAttachmentArgs struct {
-	// ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
-	CoreNetworkId pulumi.StringInput
-	// ARN of the Direct Connect gateway attachment.
+	CoreNetworkId           pulumi.StringInput
 	DirectConnectGatewayArn pulumi.StringInput
-	// One or more core network edge locations to associate with the Direct Connect gateway attachment.
-	//
-	// The following arguments are optional:
-	EdgeLocations pulumi.StringArrayInput
-	// The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-	RoutingPolicyLabel pulumi.StringPtrInput
-	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts DxGatewayAttachmentTimeoutsPtrInput
+	EdgeLocations           pulumi.StringArrayInput
+	RoutingPolicyLabel      pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
+	Timeouts                DxGatewayAttachmentTimeoutsPtrInput
 }
 
 func (DxGatewayAttachmentArgs) ElementType() reflect.Type {
@@ -317,69 +213,54 @@ func (o DxGatewayAttachmentOutput) ToDxGatewayAttachmentOutputWithContext(ctx co
 	return o
 }
 
-// ARN of the attachment.
 func (o DxGatewayAttachmentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DxGatewayAttachment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Policy rule number associated with the attachment.
 func (o DxGatewayAttachmentOutput) AttachmentPolicyRuleNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v *DxGatewayAttachment) pulumi.IntOutput { return v.AttachmentPolicyRuleNumber }).(pulumi.IntOutput)
 }
 
-// Type of attachment.
 func (o DxGatewayAttachmentOutput) AttachmentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *DxGatewayAttachment) pulumi.StringOutput { return v.AttachmentType }).(pulumi.StringOutput)
 }
 
-// ARN of the core network for the attachment.
 func (o DxGatewayAttachmentOutput) CoreNetworkArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DxGatewayAttachment) pulumi.StringOutput { return v.CoreNetworkArn }).(pulumi.StringOutput)
 }
 
-// ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
 func (o DxGatewayAttachmentOutput) CoreNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DxGatewayAttachment) pulumi.StringOutput { return v.CoreNetworkId }).(pulumi.StringOutput)
 }
 
-// ARN of the Direct Connect gateway attachment.
 func (o DxGatewayAttachmentOutput) DirectConnectGatewayArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DxGatewayAttachment) pulumi.StringOutput { return v.DirectConnectGatewayArn }).(pulumi.StringOutput)
 }
 
-// One or more core network edge locations to associate with the Direct Connect gateway attachment.
-//
-// The following arguments are optional:
 func (o DxGatewayAttachmentOutput) EdgeLocations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DxGatewayAttachment) pulumi.StringArrayOutput { return v.EdgeLocations }).(pulumi.StringArrayOutput)
 }
 
-// ID of the attachment account owner.
 func (o DxGatewayAttachmentOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DxGatewayAttachment) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
 }
 
-// The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
 func (o DxGatewayAttachmentOutput) RoutingPolicyLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DxGatewayAttachment) pulumi.StringPtrOutput { return v.RoutingPolicyLabel }).(pulumi.StringPtrOutput)
 }
 
-// Name of the segment attachment.
 func (o DxGatewayAttachmentOutput) SegmentName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DxGatewayAttachment) pulumi.StringOutput { return v.SegmentName }).(pulumi.StringOutput)
 }
 
-// State of the attachment.
 func (o DxGatewayAttachmentOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *DxGatewayAttachment) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
-// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DxGatewayAttachmentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DxGatewayAttachment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DxGatewayAttachmentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DxGatewayAttachment) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

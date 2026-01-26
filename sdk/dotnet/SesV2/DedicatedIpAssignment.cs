@@ -9,58 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SesV2
 {
-    /// <summary>
-    /// Resource for managing an AWS SESv2 (Simple Email V2) Dedicated IP Assignment.
-    /// 
-    /// This resource is used with "Standard" dedicated IP addresses. This includes addresses [requested and relinquished manually](https://docs.aws.amazon.com/ses/latest/dg/dedicated-ip-case.html) via an AWS support case, or [Bring Your Own IP](https://docs.aws.amazon.com/ses/latest/dg/dedicated-ip-byo.html) addresses. Once no longer assigned, this resource returns the IP to the [`ses-default-dedicated-pool`](https://docs.aws.amazon.com/ses/latest/dg/managing-ip-pools.html), managed by AWS.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SesV2.DedicatedIpAssignment("example", new()
-    ///     {
-    ///         Ip = "0.0.0.0",
-    ///         DestinationPoolName = "my-pool",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import SESv2 (Simple Email V2) Dedicated IP Assignment using the `id`, which is a comma-separated string made up of `ip` and `destination_pool_name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment example "0.0.0.0,my-pool"
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment")]
     public partial class DedicatedIpAssignment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Dedicated IP address.
-        /// </summary>
         [Output("destinationPoolName")]
         public Output<string> DestinationPoolName { get; private set; } = null!;
 
-        /// <summary>
-        /// Dedicated IP address.
-        /// </summary>
         [Output("ip")]
         public Output<string> Ip { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -110,21 +67,12 @@ namespace Pulumi.Aws.SesV2
 
     public sealed class DedicatedIpAssignmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Dedicated IP address.
-        /// </summary>
         [Input("destinationPoolName", required: true)]
         public Input<string> DestinationPoolName { get; set; } = null!;
 
-        /// <summary>
-        /// Dedicated IP address.
-        /// </summary>
         [Input("ip", required: true)]
         public Input<string> Ip { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -136,21 +84,12 @@ namespace Pulumi.Aws.SesV2
 
     public sealed class DedicatedIpAssignmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Dedicated IP address.
-        /// </summary>
         [Input("destinationPoolName")]
         public Input<string>? DestinationPoolName { get; set; }
 
-        /// <summary>
-        /// Dedicated IP address.
-        /// </summary>
         [Input("ip")]
         public Input<string>? Ip { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

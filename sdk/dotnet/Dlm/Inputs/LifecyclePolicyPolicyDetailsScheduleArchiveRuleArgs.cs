@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Dlm.Inputs
 
     public sealed class LifecyclePolicyPolicyDetailsScheduleArchiveRuleArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Information about the retention period for the snapshot archiving rule. See the `ArchiveRetainRule` block.
-        /// </summary>
         [Input("archiveRetainRule", required: true)]
         public Input<Inputs.LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleArgs> ArchiveRetainRule { get; set; } = null!;
 

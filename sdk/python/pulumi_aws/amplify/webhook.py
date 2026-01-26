@@ -25,10 +25,6 @@ class WebhookArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Webhook resource.
-        :param pulumi.Input[_builtins.str] app_id: Unique ID for an Amplify app.
-        :param pulumi.Input[_builtins.str] branch_name: Name for a branch that is part of the Amplify app.
-        :param pulumi.Input[_builtins.str] description: Description for a webhook.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "branch_name", branch_name)
@@ -40,9 +36,6 @@ class WebhookArgs:
     @_builtins.property
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Unique ID for an Amplify app.
-        """
         return pulumi.get(self, "app_id")
 
     @app_id.setter
@@ -52,9 +45,6 @@ class WebhookArgs:
     @_builtins.property
     @pulumi.getter(name="branchName")
     def branch_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name for a branch that is part of the Amplify app.
-        """
         return pulumi.get(self, "branch_name")
 
     @branch_name.setter
@@ -64,9 +54,6 @@ class WebhookArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description for a webhook.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -76,9 +63,6 @@ class WebhookArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -97,12 +81,6 @@ class _WebhookState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Webhook resources.
-        :param pulumi.Input[_builtins.str] app_id: Unique ID for an Amplify app.
-        :param pulumi.Input[_builtins.str] arn: ARN for the webhook.
-        :param pulumi.Input[_builtins.str] branch_name: Name for a branch that is part of the Amplify app.
-        :param pulumi.Input[_builtins.str] description: Description for a webhook.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] url: URL of the webhook.
         """
         if app_id is not None:
             pulumi.set(__self__, "app_id", app_id)
@@ -120,9 +98,6 @@ class _WebhookState:
     @_builtins.property
     @pulumi.getter(name="appId")
     def app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique ID for an Amplify app.
-        """
         return pulumi.get(self, "app_id")
 
     @app_id.setter
@@ -132,9 +107,6 @@ class _WebhookState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN for the webhook.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -144,9 +116,6 @@ class _WebhookState:
     @_builtins.property
     @pulumi.getter(name="branchName")
     def branch_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name for a branch that is part of the Amplify app.
-        """
         return pulumi.get(self, "branch_name")
 
     @branch_name.setter
@@ -156,9 +125,6 @@ class _WebhookState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description for a webhook.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -168,9 +134,6 @@ class _WebhookState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -180,9 +143,6 @@ class _WebhookState:
     @_builtins.property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        URL of the webhook.
-        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -202,38 +162,9 @@ class Webhook(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an Amplify Webhook resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.amplify.App("example", name="app")
-        master = aws.amplify.Branch("master",
-            app_id=example.id,
-            branch_name="master")
-        master_webhook = aws.amplify.Webhook("master",
-            app_id=example.id,
-            branch_name=master.branch_name,
-            description="triggermaster")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Amplify webhook using a webhook ID. For example:
-
-        ```sh
-        $ pulumi import aws:amplify/webhook:Webhook master a26b22a0-748b-4b57-b9a0-ae7e601fe4b1
-        ```
-
+        Create a Webhook resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] app_id: Unique ID for an Amplify app.
-        :param pulumi.Input[_builtins.str] branch_name: Name for a branch that is part of the Amplify app.
-        :param pulumi.Input[_builtins.str] description: Description for a webhook.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -242,32 +173,7 @@ class Webhook(pulumi.CustomResource):
                  args: WebhookArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Amplify Webhook resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.amplify.App("example", name="app")
-        master = aws.amplify.Branch("master",
-            app_id=example.id,
-            branch_name="master")
-        master_webhook = aws.amplify.Webhook("master",
-            app_id=example.id,
-            branch_name=master.branch_name,
-            description="triggermaster")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Amplify webhook using a webhook ID. For example:
-
-        ```sh
-        $ pulumi import aws:amplify/webhook:Webhook master a26b22a0-748b-4b57-b9a0-ae7e601fe4b1
-        ```
-
+        Create a Webhook resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param WebhookArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -329,12 +235,6 @@ class Webhook(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] app_id: Unique ID for an Amplify app.
-        :param pulumi.Input[_builtins.str] arn: ARN for the webhook.
-        :param pulumi.Input[_builtins.str] branch_name: Name for a branch that is part of the Amplify app.
-        :param pulumi.Input[_builtins.str] description: Description for a webhook.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] url: URL of the webhook.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -351,48 +251,30 @@ class Webhook(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique ID for an Amplify app.
-        """
         return pulumi.get(self, "app_id")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN for the webhook.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="branchName")
     def branch_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name for a branch that is part of the Amplify app.
-        """
         return pulumi.get(self, "branch_name")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description for a webhook.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def url(self) -> pulumi.Output[_builtins.str]:
-        """
-        URL of the webhook.
-        """
         return pulumi.get(self, "url")
 

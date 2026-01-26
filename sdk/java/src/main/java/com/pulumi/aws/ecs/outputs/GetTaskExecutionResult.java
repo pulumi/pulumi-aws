@@ -44,10 +44,6 @@ public final class GetTaskExecutionResult {
     private String region;
     private @Nullable String startedBy;
     private @Nullable Map<String,String> tags;
-    /**
-     * @return A list of the provisioned task ARNs.
-     * 
-     */
     private List<String> taskArns;
     private String taskDefinition;
 
@@ -113,10 +109,6 @@ public final class GetTaskExecutionResult {
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }
-    /**
-     * @return A list of the provisioned task ARNs.
-     * 
-     */
     public List<String> taskArns() {
         return this.taskArns;
     }

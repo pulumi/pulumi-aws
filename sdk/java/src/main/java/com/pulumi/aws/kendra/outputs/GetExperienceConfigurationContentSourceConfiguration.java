@@ -12,41 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetExperienceConfigurationContentSourceConfiguration {
-    /**
-     * @return Identifiers of the data sources you want to use for your Amazon Kendra Experience.
-     * 
-     */
     private List<String> dataSourceIds;
-    /**
-     * @return Whether to use documents you indexed directly using the `BatchPutDocument API`.
-     * 
-     */
     private Boolean directPutContent;
-    /**
-     * @return Identifier of the FAQs that you want to use for your Amazon Kendra Experience.
-     * 
-     */
     private List<String> faqIds;
 
     private GetExperienceConfigurationContentSourceConfiguration() {}
-    /**
-     * @return Identifiers of the data sources you want to use for your Amazon Kendra Experience.
-     * 
-     */
     public List<String> dataSourceIds() {
         return this.dataSourceIds;
     }
-    /**
-     * @return Whether to use documents you indexed directly using the `BatchPutDocument API`.
-     * 
-     */
     public Boolean directPutContent() {
         return this.directPutContent;
     }
-    /**
-     * @return Identifier of the FAQs that you want to use for your Amazon Kendra Experience.
-     * 
-     */
     public List<String> faqIds() {
         return this.faqIds;
     }

@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CustomPluginLocationS3 {
-    /**
-     * @return The Amazon Resource Name (ARN) of an S3 bucket.
-     * 
-     */
     private String bucketArn;
-    /**
-     * @return The file key for an object in an S3 bucket.
-     * 
-     */
     private String fileKey;
-    /**
-     * @return The version of an object in an S3 bucket.
-     * 
-     */
     private @Nullable String objectVersion;
 
     private CustomPluginLocationS3() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of an S3 bucket.
-     * 
-     */
     public String bucketArn() {
         return this.bucketArn;
     }
-    /**
-     * @return The file key for an object in an S3 bucket.
-     * 
-     */
     public String fileKey() {
         return this.fileKey;
     }
-    /**
-     * @return The version of an object in an S3 bucket.
-     * 
-     */
     public Optional<String> objectVersion() {
         return Optional.ofNullable(this.objectVersion);
     }

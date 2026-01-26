@@ -33,18 +33,6 @@ class DeviceArgs:
                  vendor: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Device resource.
-        :param pulumi.Input[_builtins.str] global_network_id: ID of the global network.
-               
-               The following arguments are optional:
-        :param pulumi.Input['DeviceAwsLocationArgs'] aws_location: AWS location of the device. Documented below.
-        :param pulumi.Input[_builtins.str] description: Description of the device.
-        :param pulumi.Input['DeviceLocationArgs'] location: Location of the device. Documented below.
-        :param pulumi.Input[_builtins.str] model: Model of device.
-        :param pulumi.Input[_builtins.str] serial_number: Serial number of the device.
-        :param pulumi.Input[_builtins.str] site_id: ID of the site.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] type: Type of device.
-        :param pulumi.Input[_builtins.str] vendor: Vendor of the device.
         """
         pulumi.set(__self__, "global_network_id", global_network_id)
         if aws_location is not None:
@@ -69,11 +57,6 @@ class DeviceArgs:
     @_builtins.property
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the global network.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "global_network_id")
 
     @global_network_id.setter
@@ -83,9 +66,6 @@ class DeviceArgs:
     @_builtins.property
     @pulumi.getter(name="awsLocation")
     def aws_location(self) -> Optional[pulumi.Input['DeviceAwsLocationArgs']]:
-        """
-        AWS location of the device. Documented below.
-        """
         return pulumi.get(self, "aws_location")
 
     @aws_location.setter
@@ -95,9 +75,6 @@ class DeviceArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the device.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -107,9 +84,6 @@ class DeviceArgs:
     @_builtins.property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input['DeviceLocationArgs']]:
-        """
-        Location of the device. Documented below.
-        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -119,9 +93,6 @@ class DeviceArgs:
     @_builtins.property
     @pulumi.getter
     def model(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Model of device.
-        """
         return pulumi.get(self, "model")
 
     @model.setter
@@ -131,9 +102,6 @@ class DeviceArgs:
     @_builtins.property
     @pulumi.getter(name="serialNumber")
     def serial_number(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Serial number of the device.
-        """
         return pulumi.get(self, "serial_number")
 
     @serial_number.setter
@@ -143,9 +111,6 @@ class DeviceArgs:
     @_builtins.property
     @pulumi.getter(name="siteId")
     def site_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the site.
-        """
         return pulumi.get(self, "site_id")
 
     @site_id.setter
@@ -155,9 +120,6 @@ class DeviceArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value tags for the device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -167,9 +129,6 @@ class DeviceArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of device.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -179,9 +138,6 @@ class DeviceArgs:
     @_builtins.property
     @pulumi.getter
     def vendor(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Vendor of the device.
-        """
         return pulumi.get(self, "vendor")
 
     @vendor.setter
@@ -206,20 +162,6 @@ class _DeviceState:
                  vendor: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Device resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the device.
-        :param pulumi.Input['DeviceAwsLocationArgs'] aws_location: AWS location of the device. Documented below.
-        :param pulumi.Input[_builtins.str] description: Description of the device.
-        :param pulumi.Input[_builtins.str] global_network_id: ID of the global network.
-               
-               The following arguments are optional:
-        :param pulumi.Input['DeviceLocationArgs'] location: Location of the device. Documented below.
-        :param pulumi.Input[_builtins.str] model: Model of device.
-        :param pulumi.Input[_builtins.str] serial_number: Serial number of the device.
-        :param pulumi.Input[_builtins.str] site_id: ID of the site.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: Type of device.
-        :param pulumi.Input[_builtins.str] vendor: Vendor of the device.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -249,9 +191,6 @@ class _DeviceState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the device.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -261,9 +200,6 @@ class _DeviceState:
     @_builtins.property
     @pulumi.getter(name="awsLocation")
     def aws_location(self) -> Optional[pulumi.Input['DeviceAwsLocationArgs']]:
-        """
-        AWS location of the device. Documented below.
-        """
         return pulumi.get(self, "aws_location")
 
     @aws_location.setter
@@ -273,9 +209,6 @@ class _DeviceState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the device.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -285,11 +218,6 @@ class _DeviceState:
     @_builtins.property
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the global network.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "global_network_id")
 
     @global_network_id.setter
@@ -299,9 +227,6 @@ class _DeviceState:
     @_builtins.property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input['DeviceLocationArgs']]:
-        """
-        Location of the device. Documented below.
-        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -311,9 +236,6 @@ class _DeviceState:
     @_builtins.property
     @pulumi.getter
     def model(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Model of device.
-        """
         return pulumi.get(self, "model")
 
     @model.setter
@@ -323,9 +245,6 @@ class _DeviceState:
     @_builtins.property
     @pulumi.getter(name="serialNumber")
     def serial_number(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Serial number of the device.
-        """
         return pulumi.get(self, "serial_number")
 
     @serial_number.setter
@@ -335,9 +254,6 @@ class _DeviceState:
     @_builtins.property
     @pulumi.getter(name="siteId")
     def site_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the site.
-        """
         return pulumi.get(self, "site_id")
 
     @site_id.setter
@@ -347,9 +263,6 @@ class _DeviceState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value tags for the device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -359,9 +272,6 @@ class _DeviceState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -371,9 +281,6 @@ class _DeviceState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of device.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -383,9 +290,6 @@ class _DeviceState:
     @_builtins.property
     @pulumi.getter
     def vendor(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Vendor of the device.
-        """
         return pulumi.get(self, "vendor")
 
     @vendor.setter
@@ -411,43 +315,9 @@ class Device(pulumi.CustomResource):
                  vendor: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages a Network Manager Device.
-
-        Use this resource to create a device in a global network. If you specify both a site ID and a location, the location of the site is used for visualization in the Network Manager console.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.Device("example",
-            global_network_id=example_aws_networkmanager_global_network["id"],
-            site_id=example_aws_networkmanager_site["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_networkmanager_device` using the device ARN. For example:
-
-        ```sh
-        $ pulumi import aws:networkmanager/device:Device example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/device-07f6fd08867abc123
-        ```
-
+        Create a Device resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['DeviceAwsLocationArgs', 'DeviceAwsLocationArgsDict']] aws_location: AWS location of the device. Documented below.
-        :param pulumi.Input[_builtins.str] description: Description of the device.
-        :param pulumi.Input[_builtins.str] global_network_id: ID of the global network.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Union['DeviceLocationArgs', 'DeviceLocationArgsDict']] location: Location of the device. Documented below.
-        :param pulumi.Input[_builtins.str] model: Model of device.
-        :param pulumi.Input[_builtins.str] serial_number: Serial number of the device.
-        :param pulumi.Input[_builtins.str] site_id: ID of the site.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] type: Type of device.
-        :param pulumi.Input[_builtins.str] vendor: Vendor of the device.
         """
         ...
     @overload
@@ -456,29 +326,7 @@ class Device(pulumi.CustomResource):
                  args: DeviceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Network Manager Device.
-
-        Use this resource to create a device in a global network. If you specify both a site ID and a location, the location of the site is used for visualization in the Network Manager console.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.Device("example",
-            global_network_id=example_aws_networkmanager_global_network["id"],
-            site_id=example_aws_networkmanager_site["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_networkmanager_device` using the device ARN. For example:
-
-        ```sh
-        $ pulumi import aws:networkmanager/device:Device example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/device-07f6fd08867abc123
-        ```
-
+        Create a Device resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DeviceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -556,20 +404,6 @@ class Device(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the device.
-        :param pulumi.Input[Union['DeviceAwsLocationArgs', 'DeviceAwsLocationArgsDict']] aws_location: AWS location of the device. Documented below.
-        :param pulumi.Input[_builtins.str] description: Description of the device.
-        :param pulumi.Input[_builtins.str] global_network_id: ID of the global network.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Union['DeviceLocationArgs', 'DeviceLocationArgsDict']] location: Location of the device. Documented below.
-        :param pulumi.Input[_builtins.str] model: Model of device.
-        :param pulumi.Input[_builtins.str] serial_number: Serial number of the device.
-        :param pulumi.Input[_builtins.str] site_id: ID of the site.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: Type of device.
-        :param pulumi.Input[_builtins.str] vendor: Vendor of the device.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -592,98 +426,60 @@ class Device(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the device.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="awsLocation")
     def aws_location(self) -> pulumi.Output[Optional['outputs.DeviceAwsLocation']]:
-        """
-        AWS location of the device. Documented below.
-        """
         return pulumi.get(self, "aws_location")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the device.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the global network.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "global_network_id")
 
     @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Output[Optional['outputs.DeviceLocation']]:
-        """
-        Location of the device. Documented below.
-        """
         return pulumi.get(self, "location")
 
     @_builtins.property
     @pulumi.getter
     def model(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Model of device.
-        """
         return pulumi.get(self, "model")
 
     @_builtins.property
     @pulumi.getter(name="serialNumber")
     def serial_number(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Serial number of the device.
-        """
         return pulumi.get(self, "serial_number")
 
     @_builtins.property
     @pulumi.getter(name="siteId")
     def site_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ID of the site.
-        """
         return pulumi.get(self, "site_id")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value tags for the device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Type of device.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def vendor(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Vendor of the device.
-        """
         return pulumi.get(self, "vendor")
 

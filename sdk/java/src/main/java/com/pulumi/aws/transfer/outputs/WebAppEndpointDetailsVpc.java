@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAppEndpointDetailsVpc {
-    /**
-     * @return List of security group IDs that control access to the web app endpoint. If not specified, the VPC&#39;s default security group is used.
-     * 
-     */
     private @Nullable List<String> securityGroupIds;
-    /**
-     * @return List of subnet IDs within the VPC where the web app endpoint will be deployed. These subnets must be in the same VPC specified in the `vpcId` parameter.
-     * 
-     */
     private List<String> subnetIds;
-    /**
-     * @return ID of the VPC endpoint created for the web app.
-     * 
-     */
     private @Nullable String vpcEndpointId;
-    /**
-     * @return ID of the VPC where the web app endpoint will be hosted. The VPC must be dual-stack, meaning it supports both IPv4 and IPv6 addressing.
-     * 
-     */
     private String vpcId;
 
     private WebAppEndpointDetailsVpc() {}
-    /**
-     * @return List of security group IDs that control access to the web app endpoint. If not specified, the VPC&#39;s default security group is used.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds == null ? List.of() : this.securityGroupIds;
     }
-    /**
-     * @return List of subnet IDs within the VPC where the web app endpoint will be deployed. These subnets must be in the same VPC specified in the `vpcId` parameter.
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }
-    /**
-     * @return ID of the VPC endpoint created for the web app.
-     * 
-     */
     public Optional<String> vpcEndpointId() {
         return Optional.ofNullable(this.vpcEndpointId);
     }
-    /**
-     * @return ID of the VPC where the web app endpoint will be hosted. The VPC must be dual-stack, meaning it supports both IPv4 and IPv6 addressing.
-     * 
-     */
     public String vpcId() {
         return this.vpcId;
     }

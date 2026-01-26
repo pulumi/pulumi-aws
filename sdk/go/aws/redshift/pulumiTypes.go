@@ -14,12 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ClusterClusterNode struct {
-	// Whether the node is a leader node or a compute node
-	NodeRole *string `pulumi:"nodeRole"`
-	// The private IP address of a node within a cluster
+	NodeRole         *string `pulumi:"nodeRole"`
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
-	// The public IP address of a node within a cluster
-	PublicIpAddress *string `pulumi:"publicIpAddress"`
+	PublicIpAddress  *string `pulumi:"publicIpAddress"`
 }
 
 // ClusterClusterNodeInput is an input type that accepts ClusterClusterNodeArgs and ClusterClusterNodeOutput values.
@@ -34,12 +31,9 @@ type ClusterClusterNodeInput interface {
 }
 
 type ClusterClusterNodeArgs struct {
-	// Whether the node is a leader node or a compute node
-	NodeRole pulumi.StringPtrInput `pulumi:"nodeRole"`
-	// The private IP address of a node within a cluster
+	NodeRole         pulumi.StringPtrInput `pulumi:"nodeRole"`
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
-	// The public IP address of a node within a cluster
-	PublicIpAddress pulumi.StringPtrInput `pulumi:"publicIpAddress"`
+	PublicIpAddress  pulumi.StringPtrInput `pulumi:"publicIpAddress"`
 }
 
 func (ClusterClusterNodeArgs) ElementType() reflect.Type {
@@ -93,17 +87,14 @@ func (o ClusterClusterNodeOutput) ToClusterClusterNodeOutputWithContext(ctx cont
 	return o
 }
 
-// Whether the node is a leader node or a compute node
 func (o ClusterClusterNodeOutput) NodeRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterClusterNode) *string { return v.NodeRole }).(pulumi.StringPtrOutput)
 }
 
-// The private IP address of a node within a cluster
 func (o ClusterClusterNodeOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterClusterNode) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// The public IP address of a node within a cluster
 func (o ClusterClusterNodeOutput) PublicIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterClusterNode) *string { return v.PublicIpAddress }).(pulumi.StringPtrOutput)
 }
@@ -129,12 +120,9 @@ func (o ClusterClusterNodeArrayOutput) Index(i pulumi.IntInput) ClusterClusterNo
 }
 
 type EndpointAccessVpcEndpoint struct {
-	// One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
 	NetworkInterfaces []EndpointAccessVpcEndpointNetworkInterface `pulumi:"networkInterfaces"`
-	// The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
-	VpcEndpointId *string `pulumi:"vpcEndpointId"`
-	// The VPC identifier that the endpoint is associated.
-	VpcId *string `pulumi:"vpcId"`
+	VpcEndpointId     *string                                     `pulumi:"vpcEndpointId"`
+	VpcId             *string                                     `pulumi:"vpcId"`
 }
 
 // EndpointAccessVpcEndpointInput is an input type that accepts EndpointAccessVpcEndpointArgs and EndpointAccessVpcEndpointOutput values.
@@ -149,12 +137,9 @@ type EndpointAccessVpcEndpointInput interface {
 }
 
 type EndpointAccessVpcEndpointArgs struct {
-	// One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
 	NetworkInterfaces EndpointAccessVpcEndpointNetworkInterfaceArrayInput `pulumi:"networkInterfaces"`
-	// The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
-	VpcEndpointId pulumi.StringPtrInput `pulumi:"vpcEndpointId"`
-	// The VPC identifier that the endpoint is associated.
-	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
+	VpcEndpointId     pulumi.StringPtrInput                               `pulumi:"vpcEndpointId"`
+	VpcId             pulumi.StringPtrInput                               `pulumi:"vpcId"`
 }
 
 func (EndpointAccessVpcEndpointArgs) ElementType() reflect.Type {
@@ -208,19 +193,16 @@ func (o EndpointAccessVpcEndpointOutput) ToEndpointAccessVpcEndpointOutputWithCo
 	return o
 }
 
-// One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
 func (o EndpointAccessVpcEndpointOutput) NetworkInterfaces() EndpointAccessVpcEndpointNetworkInterfaceArrayOutput {
 	return o.ApplyT(func(v EndpointAccessVpcEndpoint) []EndpointAccessVpcEndpointNetworkInterface {
 		return v.NetworkInterfaces
 	}).(EndpointAccessVpcEndpointNetworkInterfaceArrayOutput)
 }
 
-// The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
 func (o EndpointAccessVpcEndpointOutput) VpcEndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointAccessVpcEndpoint) *string { return v.VpcEndpointId }).(pulumi.StringPtrOutput)
 }
 
-// The VPC identifier that the endpoint is associated.
 func (o EndpointAccessVpcEndpointOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointAccessVpcEndpoint) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
@@ -246,14 +228,10 @@ func (o EndpointAccessVpcEndpointArrayOutput) Index(i pulumi.IntInput) EndpointA
 }
 
 type EndpointAccessVpcEndpointNetworkInterface struct {
-	// The Availability Zone.
-	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// The network interface identifier.
+	AvailabilityZone   *string `pulumi:"availabilityZone"`
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
-	// The IPv4 address of the network interface within the subnet.
-	PrivateIpAddress *string `pulumi:"privateIpAddress"`
-	// The subnet identifier.
-	SubnetId *string `pulumi:"subnetId"`
+	PrivateIpAddress   *string `pulumi:"privateIpAddress"`
+	SubnetId           *string `pulumi:"subnetId"`
 }
 
 // EndpointAccessVpcEndpointNetworkInterfaceInput is an input type that accepts EndpointAccessVpcEndpointNetworkInterfaceArgs and EndpointAccessVpcEndpointNetworkInterfaceOutput values.
@@ -268,14 +246,10 @@ type EndpointAccessVpcEndpointNetworkInterfaceInput interface {
 }
 
 type EndpointAccessVpcEndpointNetworkInterfaceArgs struct {
-	// The Availability Zone.
-	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
-	// The network interface identifier.
+	AvailabilityZone   pulumi.StringPtrInput `pulumi:"availabilityZone"`
 	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
-	// The IPv4 address of the network interface within the subnet.
-	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
-	// The subnet identifier.
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+	PrivateIpAddress   pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	SubnetId           pulumi.StringPtrInput `pulumi:"subnetId"`
 }
 
 func (EndpointAccessVpcEndpointNetworkInterfaceArgs) ElementType() reflect.Type {
@@ -329,22 +303,18 @@ func (o EndpointAccessVpcEndpointNetworkInterfaceOutput) ToEndpointAccessVpcEndp
 	return o
 }
 
-// The Availability Zone.
 func (o EndpointAccessVpcEndpointNetworkInterfaceOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointAccessVpcEndpointNetworkInterface) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
-// The network interface identifier.
 func (o EndpointAccessVpcEndpointNetworkInterfaceOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointAccessVpcEndpointNetworkInterface) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
-// The IPv4 address of the network interface within the subnet.
 func (o EndpointAccessVpcEndpointNetworkInterfaceOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointAccessVpcEndpointNetworkInterface) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// The subnet identifier.
 func (o EndpointAccessVpcEndpointNetworkInterfaceOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointAccessVpcEndpointNetworkInterface) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -370,10 +340,8 @@ func (o EndpointAccessVpcEndpointNetworkInterfaceArrayOutput) Index(i pulumi.Int
 }
 
 type IdcApplicationAuthorizedTokenIssuer struct {
-	// List of audiences for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
 	AuthorizedAudiencesLists []string `pulumi:"authorizedAudiencesLists"`
-	// ARN for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
-	TrustedTokenIssuerArn *string `pulumi:"trustedTokenIssuerArn"`
+	TrustedTokenIssuerArn    *string  `pulumi:"trustedTokenIssuerArn"`
 }
 
 // IdcApplicationAuthorizedTokenIssuerInput is an input type that accepts IdcApplicationAuthorizedTokenIssuerArgs and IdcApplicationAuthorizedTokenIssuerOutput values.
@@ -388,10 +356,8 @@ type IdcApplicationAuthorizedTokenIssuerInput interface {
 }
 
 type IdcApplicationAuthorizedTokenIssuerArgs struct {
-	// List of audiences for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
 	AuthorizedAudiencesLists pulumi.StringArrayInput `pulumi:"authorizedAudiencesLists"`
-	// ARN for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
-	TrustedTokenIssuerArn pulumi.StringPtrInput `pulumi:"trustedTokenIssuerArn"`
+	TrustedTokenIssuerArn    pulumi.StringPtrInput   `pulumi:"trustedTokenIssuerArn"`
 }
 
 func (IdcApplicationAuthorizedTokenIssuerArgs) ElementType() reflect.Type {
@@ -471,12 +437,10 @@ func (o IdcApplicationAuthorizedTokenIssuerOutput) ToIdcApplicationAuthorizedTok
 	}).(IdcApplicationAuthorizedTokenIssuerPtrOutput)
 }
 
-// List of audiences for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
 func (o IdcApplicationAuthorizedTokenIssuerOutput) AuthorizedAudiencesLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IdcApplicationAuthorizedTokenIssuer) []string { return v.AuthorizedAudiencesLists }).(pulumi.StringArrayOutput)
 }
 
-// ARN for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
 func (o IdcApplicationAuthorizedTokenIssuerOutput) TrustedTokenIssuerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdcApplicationAuthorizedTokenIssuer) *string { return v.TrustedTokenIssuerArn }).(pulumi.StringPtrOutput)
 }
@@ -505,7 +469,6 @@ func (o IdcApplicationAuthorizedTokenIssuerPtrOutput) Elem() IdcApplicationAutho
 	}).(IdcApplicationAuthorizedTokenIssuerOutput)
 }
 
-// List of audiences for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
 func (o IdcApplicationAuthorizedTokenIssuerPtrOutput) AuthorizedAudiencesLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IdcApplicationAuthorizedTokenIssuer) []string {
 		if v == nil {
@@ -515,7 +478,6 @@ func (o IdcApplicationAuthorizedTokenIssuerPtrOutput) AuthorizedAudiencesLists()
 	}).(pulumi.StringArrayOutput)
 }
 
-// ARN for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
 func (o IdcApplicationAuthorizedTokenIssuerPtrOutput) TrustedTokenIssuerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdcApplicationAuthorizedTokenIssuer) *string {
 		if v == nil {
@@ -526,11 +488,8 @@ func (o IdcApplicationAuthorizedTokenIssuerPtrOutput) TrustedTokenIssuerArn() pu
 }
 
 type IdcApplicationServiceIntegration struct {
-	// List of scopes set up for Lake Formation integration. Refer to the lakeFormation documentation for more details.
-	LakeFormation *IdcApplicationServiceIntegrationLakeFormation `pulumi:"lakeFormation"`
-	// List of scopes set up for Redshift integration. Refer to the redshift documentation for more details.
-	Redshift *IdcApplicationServiceIntegrationRedshift `pulumi:"redshift"`
-	// List of scopes set up for S3 Access Grants integration. Refer to the s3AccessGrants documentation for more details.
+	LakeFormation  *IdcApplicationServiceIntegrationLakeFormation  `pulumi:"lakeFormation"`
+	Redshift       *IdcApplicationServiceIntegrationRedshift       `pulumi:"redshift"`
 	S3AccessGrants *IdcApplicationServiceIntegrationS3AccessGrants `pulumi:"s3AccessGrants"`
 }
 
@@ -546,11 +505,8 @@ type IdcApplicationServiceIntegrationInput interface {
 }
 
 type IdcApplicationServiceIntegrationArgs struct {
-	// List of scopes set up for Lake Formation integration. Refer to the lakeFormation documentation for more details.
-	LakeFormation IdcApplicationServiceIntegrationLakeFormationPtrInput `pulumi:"lakeFormation"`
-	// List of scopes set up for Redshift integration. Refer to the redshift documentation for more details.
-	Redshift IdcApplicationServiceIntegrationRedshiftPtrInput `pulumi:"redshift"`
-	// List of scopes set up for S3 Access Grants integration. Refer to the s3AccessGrants documentation for more details.
+	LakeFormation  IdcApplicationServiceIntegrationLakeFormationPtrInput  `pulumi:"lakeFormation"`
+	Redshift       IdcApplicationServiceIntegrationRedshiftPtrInput       `pulumi:"redshift"`
 	S3AccessGrants IdcApplicationServiceIntegrationS3AccessGrantsPtrInput `pulumi:"s3AccessGrants"`
 }
 
@@ -631,19 +587,16 @@ func (o IdcApplicationServiceIntegrationOutput) ToIdcApplicationServiceIntegrati
 	}).(IdcApplicationServiceIntegrationPtrOutput)
 }
 
-// List of scopes set up for Lake Formation integration. Refer to the lakeFormation documentation for more details.
 func (o IdcApplicationServiceIntegrationOutput) LakeFormation() IdcApplicationServiceIntegrationLakeFormationPtrOutput {
 	return o.ApplyT(func(v IdcApplicationServiceIntegration) *IdcApplicationServiceIntegrationLakeFormation {
 		return v.LakeFormation
 	}).(IdcApplicationServiceIntegrationLakeFormationPtrOutput)
 }
 
-// List of scopes set up for Redshift integration. Refer to the redshift documentation for more details.
 func (o IdcApplicationServiceIntegrationOutput) Redshift() IdcApplicationServiceIntegrationRedshiftPtrOutput {
 	return o.ApplyT(func(v IdcApplicationServiceIntegration) *IdcApplicationServiceIntegrationRedshift { return v.Redshift }).(IdcApplicationServiceIntegrationRedshiftPtrOutput)
 }
 
-// List of scopes set up for S3 Access Grants integration. Refer to the s3AccessGrants documentation for more details.
 func (o IdcApplicationServiceIntegrationOutput) S3AccessGrants() IdcApplicationServiceIntegrationS3AccessGrantsPtrOutput {
 	return o.ApplyT(func(v IdcApplicationServiceIntegration) *IdcApplicationServiceIntegrationS3AccessGrants {
 		return v.S3AccessGrants
@@ -674,7 +627,6 @@ func (o IdcApplicationServiceIntegrationPtrOutput) Elem() IdcApplicationServiceI
 	}).(IdcApplicationServiceIntegrationOutput)
 }
 
-// List of scopes set up for Lake Formation integration. Refer to the lakeFormation documentation for more details.
 func (o IdcApplicationServiceIntegrationPtrOutput) LakeFormation() IdcApplicationServiceIntegrationLakeFormationPtrOutput {
 	return o.ApplyT(func(v *IdcApplicationServiceIntegration) *IdcApplicationServiceIntegrationLakeFormation {
 		if v == nil {
@@ -684,7 +636,6 @@ func (o IdcApplicationServiceIntegrationPtrOutput) LakeFormation() IdcApplicatio
 	}).(IdcApplicationServiceIntegrationLakeFormationPtrOutput)
 }
 
-// List of scopes set up for Redshift integration. Refer to the redshift documentation for more details.
 func (o IdcApplicationServiceIntegrationPtrOutput) Redshift() IdcApplicationServiceIntegrationRedshiftPtrOutput {
 	return o.ApplyT(func(v *IdcApplicationServiceIntegration) *IdcApplicationServiceIntegrationRedshift {
 		if v == nil {
@@ -694,7 +645,6 @@ func (o IdcApplicationServiceIntegrationPtrOutput) Redshift() IdcApplicationServ
 	}).(IdcApplicationServiceIntegrationRedshiftPtrOutput)
 }
 
-// List of scopes set up for S3 Access Grants integration. Refer to the s3AccessGrants documentation for more details.
 func (o IdcApplicationServiceIntegrationPtrOutput) S3AccessGrants() IdcApplicationServiceIntegrationS3AccessGrantsPtrOutput {
 	return o.ApplyT(func(v *IdcApplicationServiceIntegration) *IdcApplicationServiceIntegrationS3AccessGrants {
 		if v == nil {
@@ -705,7 +655,6 @@ func (o IdcApplicationServiceIntegrationPtrOutput) S3AccessGrants() IdcApplicati
 }
 
 type IdcApplicationServiceIntegrationLakeFormation struct {
-	// Lake formation scope.
 	LakeFormationQuery *IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery `pulumi:"lakeFormationQuery"`
 }
 
@@ -721,7 +670,6 @@ type IdcApplicationServiceIntegrationLakeFormationInput interface {
 }
 
 type IdcApplicationServiceIntegrationLakeFormationArgs struct {
-	// Lake formation scope.
 	LakeFormationQuery IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrInput `pulumi:"lakeFormationQuery"`
 }
 
@@ -802,7 +750,6 @@ func (o IdcApplicationServiceIntegrationLakeFormationOutput) ToIdcApplicationSer
 	}).(IdcApplicationServiceIntegrationLakeFormationPtrOutput)
 }
 
-// Lake formation scope.
 func (o IdcApplicationServiceIntegrationLakeFormationOutput) LakeFormationQuery() IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput {
 	return o.ApplyT(func(v IdcApplicationServiceIntegrationLakeFormation) *IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery {
 		return v.LakeFormationQuery
@@ -833,7 +780,6 @@ func (o IdcApplicationServiceIntegrationLakeFormationPtrOutput) Elem() IdcApplic
 	}).(IdcApplicationServiceIntegrationLakeFormationOutput)
 }
 
-// Lake formation scope.
 func (o IdcApplicationServiceIntegrationLakeFormationPtrOutput) LakeFormationQuery() IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput {
 	return o.ApplyT(func(v *IdcApplicationServiceIntegrationLakeFormation) *IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery {
 		if v == nil {
@@ -844,7 +790,6 @@ func (o IdcApplicationServiceIntegrationLakeFormationPtrOutput) LakeFormationQue
 }
 
 type IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery struct {
-	// Determines whether the query scope is enabled or disabled.
 	Authorization string `pulumi:"authorization"`
 }
 
@@ -860,7 +805,6 @@ type IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryInput interf
 }
 
 type IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs struct {
-	// Determines whether the query scope is enabled or disabled.
 	Authorization pulumi.StringInput `pulumi:"authorization"`
 }
 
@@ -941,7 +885,6 @@ func (o IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryOutput) T
 	}).(IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput)
 }
 
-// Determines whether the query scope is enabled or disabled.
 func (o IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryOutput) Authorization() pulumi.StringOutput {
 	return o.ApplyT(func(v IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery) string { return v.Authorization }).(pulumi.StringOutput)
 }
@@ -970,7 +913,6 @@ func (o IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput
 	}).(IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryOutput)
 }
 
-// Determines whether the query scope is enabled or disabled.
 func (o IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput) Authorization() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery) *string {
 		if v == nil {
@@ -981,7 +923,6 @@ func (o IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryPtrOutput
 }
 
 type IdcApplicationServiceIntegrationRedshift struct {
-	// Amazon Redshift connect service integration scope.
 	Connect *IdcApplicationServiceIntegrationRedshiftConnect `pulumi:"connect"`
 }
 
@@ -997,7 +938,6 @@ type IdcApplicationServiceIntegrationRedshiftInput interface {
 }
 
 type IdcApplicationServiceIntegrationRedshiftArgs struct {
-	// Amazon Redshift connect service integration scope.
 	Connect IdcApplicationServiceIntegrationRedshiftConnectPtrInput `pulumi:"connect"`
 }
 
@@ -1078,7 +1018,6 @@ func (o IdcApplicationServiceIntegrationRedshiftOutput) ToIdcApplicationServiceI
 	}).(IdcApplicationServiceIntegrationRedshiftPtrOutput)
 }
 
-// Amazon Redshift connect service integration scope.
 func (o IdcApplicationServiceIntegrationRedshiftOutput) Connect() IdcApplicationServiceIntegrationRedshiftConnectPtrOutput {
 	return o.ApplyT(func(v IdcApplicationServiceIntegrationRedshift) *IdcApplicationServiceIntegrationRedshiftConnect {
 		return v.Connect
@@ -1109,7 +1048,6 @@ func (o IdcApplicationServiceIntegrationRedshiftPtrOutput) Elem() IdcApplication
 	}).(IdcApplicationServiceIntegrationRedshiftOutput)
 }
 
-// Amazon Redshift connect service integration scope.
 func (o IdcApplicationServiceIntegrationRedshiftPtrOutput) Connect() IdcApplicationServiceIntegrationRedshiftConnectPtrOutput {
 	return o.ApplyT(func(v *IdcApplicationServiceIntegrationRedshift) *IdcApplicationServiceIntegrationRedshiftConnect {
 		if v == nil {
@@ -1120,7 +1058,6 @@ func (o IdcApplicationServiceIntegrationRedshiftPtrOutput) Connect() IdcApplicat
 }
 
 type IdcApplicationServiceIntegrationRedshiftConnect struct {
-	// Determines whether the connect integration is enabled or disabled.
 	Authorization string `pulumi:"authorization"`
 }
 
@@ -1136,7 +1073,6 @@ type IdcApplicationServiceIntegrationRedshiftConnectInput interface {
 }
 
 type IdcApplicationServiceIntegrationRedshiftConnectArgs struct {
-	// Determines whether the connect integration is enabled or disabled.
 	Authorization pulumi.StringInput `pulumi:"authorization"`
 }
 
@@ -1217,7 +1153,6 @@ func (o IdcApplicationServiceIntegrationRedshiftConnectOutput) ToIdcApplicationS
 	}).(IdcApplicationServiceIntegrationRedshiftConnectPtrOutput)
 }
 
-// Determines whether the connect integration is enabled or disabled.
 func (o IdcApplicationServiceIntegrationRedshiftConnectOutput) Authorization() pulumi.StringOutput {
 	return o.ApplyT(func(v IdcApplicationServiceIntegrationRedshiftConnect) string { return v.Authorization }).(pulumi.StringOutput)
 }
@@ -1246,7 +1181,6 @@ func (o IdcApplicationServiceIntegrationRedshiftConnectPtrOutput) Elem() IdcAppl
 	}).(IdcApplicationServiceIntegrationRedshiftConnectOutput)
 }
 
-// Determines whether the connect integration is enabled or disabled.
 func (o IdcApplicationServiceIntegrationRedshiftConnectPtrOutput) Authorization() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdcApplicationServiceIntegrationRedshiftConnect) *string {
 		if v == nil {
@@ -1257,7 +1191,6 @@ func (o IdcApplicationServiceIntegrationRedshiftConnectPtrOutput) Authorization(
 }
 
 type IdcApplicationServiceIntegrationS3AccessGrants struct {
-	// S3 Access grants integration scope.
 	ReadWriteAccess *IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess `pulumi:"readWriteAccess"`
 }
 
@@ -1273,7 +1206,6 @@ type IdcApplicationServiceIntegrationS3AccessGrantsInput interface {
 }
 
 type IdcApplicationServiceIntegrationS3AccessGrantsArgs struct {
-	// S3 Access grants integration scope.
 	ReadWriteAccess IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrInput `pulumi:"readWriteAccess"`
 }
 
@@ -1354,7 +1286,6 @@ func (o IdcApplicationServiceIntegrationS3AccessGrantsOutput) ToIdcApplicationSe
 	}).(IdcApplicationServiceIntegrationS3AccessGrantsPtrOutput)
 }
 
-// S3 Access grants integration scope.
 func (o IdcApplicationServiceIntegrationS3AccessGrantsOutput) ReadWriteAccess() IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput {
 	return o.ApplyT(func(v IdcApplicationServiceIntegrationS3AccessGrants) *IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess {
 		return v.ReadWriteAccess
@@ -1385,7 +1316,6 @@ func (o IdcApplicationServiceIntegrationS3AccessGrantsPtrOutput) Elem() IdcAppli
 	}).(IdcApplicationServiceIntegrationS3AccessGrantsOutput)
 }
 
-// S3 Access grants integration scope.
 func (o IdcApplicationServiceIntegrationS3AccessGrantsPtrOutput) ReadWriteAccess() IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput {
 	return o.ApplyT(func(v *IdcApplicationServiceIntegrationS3AccessGrants) *IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess {
 		if v == nil {
@@ -1396,7 +1326,6 @@ func (o IdcApplicationServiceIntegrationS3AccessGrantsPtrOutput) ReadWriteAccess
 }
 
 type IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess struct {
-	// Determines whether read/write scope is enabled or disabled.
 	Authorization string `pulumi:"authorization"`
 }
 
@@ -1412,7 +1341,6 @@ type IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessInput interfac
 }
 
 type IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs struct {
-	// Determines whether read/write scope is enabled or disabled.
 	Authorization pulumi.StringInput `pulumi:"authorization"`
 }
 
@@ -1493,7 +1421,6 @@ func (o IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessOutput) ToI
 	}).(IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput)
 }
 
-// Determines whether read/write scope is enabled or disabled.
 func (o IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessOutput) Authorization() pulumi.StringOutput {
 	return o.ApplyT(func(v IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess) string { return v.Authorization }).(pulumi.StringOutput)
 }
@@ -1522,7 +1449,6 @@ func (o IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput) 
 	}).(IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessOutput)
 }
 
-// Determines whether read/write scope is enabled or disabled.
 func (o IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessPtrOutput) Authorization() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess) *string {
 		if v == nil {
@@ -1708,9 +1634,7 @@ func (o IntegrationTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type ParameterGroupParameter struct {
-	// The name of the Redshift parameter.
-	Name string `pulumi:"name"`
-	// The value of the Redshift parameter.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -1726,9 +1650,7 @@ type ParameterGroupParameterInput interface {
 }
 
 type ParameterGroupParameterArgs struct {
-	// The name of the Redshift parameter.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The value of the Redshift parameter.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1783,12 +1705,10 @@ func (o ParameterGroupParameterOutput) ToParameterGroupParameterOutputWithContex
 	return o
 }
 
-// The name of the Redshift parameter.
 func (o ParameterGroupParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ParameterGroupParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of the Redshift parameter.
 func (o ParameterGroupParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ParameterGroupParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1814,11 +1734,8 @@ func (o ParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ParameterGr
 }
 
 type ScheduledActionTargetAction struct {
-	// An action that runs a `PauseCluster` API operation. Documented below.
-	PauseCluster *ScheduledActionTargetActionPauseCluster `pulumi:"pauseCluster"`
-	// An action that runs a `ResizeCluster` API operation. Documented below.
+	PauseCluster  *ScheduledActionTargetActionPauseCluster  `pulumi:"pauseCluster"`
 	ResizeCluster *ScheduledActionTargetActionResizeCluster `pulumi:"resizeCluster"`
-	// An action that runs a `ResumeCluster` API operation. Documented below.
 	ResumeCluster *ScheduledActionTargetActionResumeCluster `pulumi:"resumeCluster"`
 }
 
@@ -1834,11 +1751,8 @@ type ScheduledActionTargetActionInput interface {
 }
 
 type ScheduledActionTargetActionArgs struct {
-	// An action that runs a `PauseCluster` API operation. Documented below.
-	PauseCluster ScheduledActionTargetActionPauseClusterPtrInput `pulumi:"pauseCluster"`
-	// An action that runs a `ResizeCluster` API operation. Documented below.
+	PauseCluster  ScheduledActionTargetActionPauseClusterPtrInput  `pulumi:"pauseCluster"`
 	ResizeCluster ScheduledActionTargetActionResizeClusterPtrInput `pulumi:"resizeCluster"`
-	// An action that runs a `ResumeCluster` API operation. Documented below.
 	ResumeCluster ScheduledActionTargetActionResumeClusterPtrInput `pulumi:"resumeCluster"`
 }
 
@@ -1919,17 +1833,14 @@ func (o ScheduledActionTargetActionOutput) ToScheduledActionTargetActionPtrOutpu
 	}).(ScheduledActionTargetActionPtrOutput)
 }
 
-// An action that runs a `PauseCluster` API operation. Documented below.
 func (o ScheduledActionTargetActionOutput) PauseCluster() ScheduledActionTargetActionPauseClusterPtrOutput {
 	return o.ApplyT(func(v ScheduledActionTargetAction) *ScheduledActionTargetActionPauseCluster { return v.PauseCluster }).(ScheduledActionTargetActionPauseClusterPtrOutput)
 }
 
-// An action that runs a `ResizeCluster` API operation. Documented below.
 func (o ScheduledActionTargetActionOutput) ResizeCluster() ScheduledActionTargetActionResizeClusterPtrOutput {
 	return o.ApplyT(func(v ScheduledActionTargetAction) *ScheduledActionTargetActionResizeCluster { return v.ResizeCluster }).(ScheduledActionTargetActionResizeClusterPtrOutput)
 }
 
-// An action that runs a `ResumeCluster` API operation. Documented below.
 func (o ScheduledActionTargetActionOutput) ResumeCluster() ScheduledActionTargetActionResumeClusterPtrOutput {
 	return o.ApplyT(func(v ScheduledActionTargetAction) *ScheduledActionTargetActionResumeCluster { return v.ResumeCluster }).(ScheduledActionTargetActionResumeClusterPtrOutput)
 }
@@ -1958,7 +1869,6 @@ func (o ScheduledActionTargetActionPtrOutput) Elem() ScheduledActionTargetAction
 	}).(ScheduledActionTargetActionOutput)
 }
 
-// An action that runs a `PauseCluster` API operation. Documented below.
 func (o ScheduledActionTargetActionPtrOutput) PauseCluster() ScheduledActionTargetActionPauseClusterPtrOutput {
 	return o.ApplyT(func(v *ScheduledActionTargetAction) *ScheduledActionTargetActionPauseCluster {
 		if v == nil {
@@ -1968,7 +1878,6 @@ func (o ScheduledActionTargetActionPtrOutput) PauseCluster() ScheduledActionTarg
 	}).(ScheduledActionTargetActionPauseClusterPtrOutput)
 }
 
-// An action that runs a `ResizeCluster` API operation. Documented below.
 func (o ScheduledActionTargetActionPtrOutput) ResizeCluster() ScheduledActionTargetActionResizeClusterPtrOutput {
 	return o.ApplyT(func(v *ScheduledActionTargetAction) *ScheduledActionTargetActionResizeCluster {
 		if v == nil {
@@ -1978,7 +1887,6 @@ func (o ScheduledActionTargetActionPtrOutput) ResizeCluster() ScheduledActionTar
 	}).(ScheduledActionTargetActionResizeClusterPtrOutput)
 }
 
-// An action that runs a `ResumeCluster` API operation. Documented below.
 func (o ScheduledActionTargetActionPtrOutput) ResumeCluster() ScheduledActionTargetActionResumeClusterPtrOutput {
 	return o.ApplyT(func(v *ScheduledActionTargetAction) *ScheduledActionTargetActionResumeCluster {
 		if v == nil {
@@ -1989,7 +1897,6 @@ func (o ScheduledActionTargetActionPtrOutput) ResumeCluster() ScheduledActionTar
 }
 
 type ScheduledActionTargetActionPauseCluster struct {
-	// The identifier of the cluster to be paused.
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
 }
 
@@ -2005,7 +1912,6 @@ type ScheduledActionTargetActionPauseClusterInput interface {
 }
 
 type ScheduledActionTargetActionPauseClusterArgs struct {
-	// The identifier of the cluster to be paused.
 	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
 }
 
@@ -2086,7 +1992,6 @@ func (o ScheduledActionTargetActionPauseClusterOutput) ToScheduledActionTargetAc
 	}).(ScheduledActionTargetActionPauseClusterPtrOutput)
 }
 
-// The identifier of the cluster to be paused.
 func (o ScheduledActionTargetActionPauseClusterOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledActionTargetActionPauseCluster) string { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
@@ -2115,7 +2020,6 @@ func (o ScheduledActionTargetActionPauseClusterPtrOutput) Elem() ScheduledAction
 	}).(ScheduledActionTargetActionPauseClusterOutput)
 }
 
-// The identifier of the cluster to be paused.
 func (o ScheduledActionTargetActionPauseClusterPtrOutput) ClusterIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledActionTargetActionPauseCluster) *string {
 		if v == nil {
@@ -2126,16 +2030,11 @@ func (o ScheduledActionTargetActionPauseClusterPtrOutput) ClusterIdentifier() pu
 }
 
 type ScheduledActionTargetActionResizeCluster struct {
-	// A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
-	Classic *bool `pulumi:"classic"`
-	// The unique identifier for the cluster to resize.
-	ClusterIdentifier string `pulumi:"clusterIdentifier"`
-	// The new cluster type for the specified cluster.
-	ClusterType *string `pulumi:"clusterType"`
-	// The new node type for the nodes you are adding.
-	NodeType *string `pulumi:"nodeType"`
-	// The new number of nodes for the cluster.
-	NumberOfNodes *int `pulumi:"numberOfNodes"`
+	Classic           *bool   `pulumi:"classic"`
+	ClusterIdentifier string  `pulumi:"clusterIdentifier"`
+	ClusterType       *string `pulumi:"clusterType"`
+	NodeType          *string `pulumi:"nodeType"`
+	NumberOfNodes     *int    `pulumi:"numberOfNodes"`
 }
 
 // ScheduledActionTargetActionResizeClusterInput is an input type that accepts ScheduledActionTargetActionResizeClusterArgs and ScheduledActionTargetActionResizeClusterOutput values.
@@ -2150,16 +2049,11 @@ type ScheduledActionTargetActionResizeClusterInput interface {
 }
 
 type ScheduledActionTargetActionResizeClusterArgs struct {
-	// A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
-	Classic pulumi.BoolPtrInput `pulumi:"classic"`
-	// The unique identifier for the cluster to resize.
-	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
-	// The new cluster type for the specified cluster.
-	ClusterType pulumi.StringPtrInput `pulumi:"clusterType"`
-	// The new node type for the nodes you are adding.
-	NodeType pulumi.StringPtrInput `pulumi:"nodeType"`
-	// The new number of nodes for the cluster.
-	NumberOfNodes pulumi.IntPtrInput `pulumi:"numberOfNodes"`
+	Classic           pulumi.BoolPtrInput   `pulumi:"classic"`
+	ClusterIdentifier pulumi.StringInput    `pulumi:"clusterIdentifier"`
+	ClusterType       pulumi.StringPtrInput `pulumi:"clusterType"`
+	NodeType          pulumi.StringPtrInput `pulumi:"nodeType"`
+	NumberOfNodes     pulumi.IntPtrInput    `pulumi:"numberOfNodes"`
 }
 
 func (ScheduledActionTargetActionResizeClusterArgs) ElementType() reflect.Type {
@@ -2239,27 +2133,22 @@ func (o ScheduledActionTargetActionResizeClusterOutput) ToScheduledActionTargetA
 	}).(ScheduledActionTargetActionResizeClusterPtrOutput)
 }
 
-// A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
 func (o ScheduledActionTargetActionResizeClusterOutput) Classic() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ScheduledActionTargetActionResizeCluster) *bool { return v.Classic }).(pulumi.BoolPtrOutput)
 }
 
-// The unique identifier for the cluster to resize.
 func (o ScheduledActionTargetActionResizeClusterOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledActionTargetActionResizeCluster) string { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
 
-// The new cluster type for the specified cluster.
 func (o ScheduledActionTargetActionResizeClusterOutput) ClusterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledActionTargetActionResizeCluster) *string { return v.ClusterType }).(pulumi.StringPtrOutput)
 }
 
-// The new node type for the nodes you are adding.
 func (o ScheduledActionTargetActionResizeClusterOutput) NodeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledActionTargetActionResizeCluster) *string { return v.NodeType }).(pulumi.StringPtrOutput)
 }
 
-// The new number of nodes for the cluster.
 func (o ScheduledActionTargetActionResizeClusterOutput) NumberOfNodes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduledActionTargetActionResizeCluster) *int { return v.NumberOfNodes }).(pulumi.IntPtrOutput)
 }
@@ -2288,7 +2177,6 @@ func (o ScheduledActionTargetActionResizeClusterPtrOutput) Elem() ScheduledActio
 	}).(ScheduledActionTargetActionResizeClusterOutput)
 }
 
-// A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
 func (o ScheduledActionTargetActionResizeClusterPtrOutput) Classic() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ScheduledActionTargetActionResizeCluster) *bool {
 		if v == nil {
@@ -2298,7 +2186,6 @@ func (o ScheduledActionTargetActionResizeClusterPtrOutput) Classic() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The unique identifier for the cluster to resize.
 func (o ScheduledActionTargetActionResizeClusterPtrOutput) ClusterIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledActionTargetActionResizeCluster) *string {
 		if v == nil {
@@ -2308,7 +2195,6 @@ func (o ScheduledActionTargetActionResizeClusterPtrOutput) ClusterIdentifier() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The new cluster type for the specified cluster.
 func (o ScheduledActionTargetActionResizeClusterPtrOutput) ClusterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledActionTargetActionResizeCluster) *string {
 		if v == nil {
@@ -2318,7 +2204,6 @@ func (o ScheduledActionTargetActionResizeClusterPtrOutput) ClusterType() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The new node type for the nodes you are adding.
 func (o ScheduledActionTargetActionResizeClusterPtrOutput) NodeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledActionTargetActionResizeCluster) *string {
 		if v == nil {
@@ -2328,7 +2213,6 @@ func (o ScheduledActionTargetActionResizeClusterPtrOutput) NodeType() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The new number of nodes for the cluster.
 func (o ScheduledActionTargetActionResizeClusterPtrOutput) NumberOfNodes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScheduledActionTargetActionResizeCluster) *int {
 		if v == nil {
@@ -2339,7 +2223,6 @@ func (o ScheduledActionTargetActionResizeClusterPtrOutput) NumberOfNodes() pulum
 }
 
 type ScheduledActionTargetActionResumeCluster struct {
-	// The identifier of the cluster to be resumed.
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
 }
 
@@ -2355,7 +2238,6 @@ type ScheduledActionTargetActionResumeClusterInput interface {
 }
 
 type ScheduledActionTargetActionResumeClusterArgs struct {
-	// The identifier of the cluster to be resumed.
 	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
 }
 
@@ -2436,7 +2318,6 @@ func (o ScheduledActionTargetActionResumeClusterOutput) ToScheduledActionTargetA
 	}).(ScheduledActionTargetActionResumeClusterPtrOutput)
 }
 
-// The identifier of the cluster to be resumed.
 func (o ScheduledActionTargetActionResumeClusterOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledActionTargetActionResumeCluster) string { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
@@ -2465,7 +2346,6 @@ func (o ScheduledActionTargetActionResumeClusterPtrOutput) Elem() ScheduledActio
 	}).(ScheduledActionTargetActionResumeClusterOutput)
 }
 
-// The identifier of the cluster to be resumed.
 func (o ScheduledActionTargetActionResumeClusterPtrOutput) ClusterIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledActionTargetActionResumeCluster) *string {
 		if v == nil {
@@ -2476,12 +2356,9 @@ func (o ScheduledActionTargetActionResumeClusterPtrOutput) ClusterIdentifier() p
 }
 
 type GetClusterClusterNode struct {
-	// Whether the node is a leader node or a compute node
-	NodeRole string `pulumi:"nodeRole"`
-	// Private IP address of a node within a cluster
+	NodeRole         string `pulumi:"nodeRole"`
 	PrivateIpAddress string `pulumi:"privateIpAddress"`
-	// Public IP address of a node within a cluster
-	PublicIpAddress string `pulumi:"publicIpAddress"`
+	PublicIpAddress  string `pulumi:"publicIpAddress"`
 }
 
 // GetClusterClusterNodeInput is an input type that accepts GetClusterClusterNodeArgs and GetClusterClusterNodeOutput values.
@@ -2496,12 +2373,9 @@ type GetClusterClusterNodeInput interface {
 }
 
 type GetClusterClusterNodeArgs struct {
-	// Whether the node is a leader node or a compute node
-	NodeRole pulumi.StringInput `pulumi:"nodeRole"`
-	// Private IP address of a node within a cluster
+	NodeRole         pulumi.StringInput `pulumi:"nodeRole"`
 	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
-	// Public IP address of a node within a cluster
-	PublicIpAddress pulumi.StringInput `pulumi:"publicIpAddress"`
+	PublicIpAddress  pulumi.StringInput `pulumi:"publicIpAddress"`
 }
 
 func (GetClusterClusterNodeArgs) ElementType() reflect.Type {
@@ -2555,17 +2429,14 @@ func (o GetClusterClusterNodeOutput) ToGetClusterClusterNodeOutputWithContext(ct
 	return o
 }
 
-// Whether the node is a leader node or a compute node
 func (o GetClusterClusterNodeOutput) NodeRole() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterClusterNode) string { return v.NodeRole }).(pulumi.StringOutput)
 }
 
-// Private IP address of a node within a cluster
 func (o GetClusterClusterNodeOutput) PrivateIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterClusterNode) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
 }
 
-// Public IP address of a node within a cluster
 func (o GetClusterClusterNodeOutput) PublicIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterClusterNode) string { return v.PublicIpAddress }).(pulumi.StringOutput)
 }
@@ -2591,12 +2462,9 @@ func (o GetClusterClusterNodeArrayOutput) Index(i pulumi.IntInput) GetClusterClu
 }
 
 type GetDataSharesDataShare struct {
-	// ARN (Amazon Resource Name) of the data share.
 	DataShareArn string `pulumi:"dataShareArn"`
-	// Identifier of a datashare to show its managing entity.
-	ManagedBy string `pulumi:"managedBy"`
-	// ARN (Amazon Resource Name) of the producer.
-	ProducerArn string `pulumi:"producerArn"`
+	ManagedBy    string `pulumi:"managedBy"`
+	ProducerArn  string `pulumi:"producerArn"`
 }
 
 // GetDataSharesDataShareInput is an input type that accepts GetDataSharesDataShareArgs and GetDataSharesDataShareOutput values.
@@ -2611,12 +2479,9 @@ type GetDataSharesDataShareInput interface {
 }
 
 type GetDataSharesDataShareArgs struct {
-	// ARN (Amazon Resource Name) of the data share.
 	DataShareArn pulumi.StringInput `pulumi:"dataShareArn"`
-	// Identifier of a datashare to show its managing entity.
-	ManagedBy pulumi.StringInput `pulumi:"managedBy"`
-	// ARN (Amazon Resource Name) of the producer.
-	ProducerArn pulumi.StringInput `pulumi:"producerArn"`
+	ManagedBy    pulumi.StringInput `pulumi:"managedBy"`
+	ProducerArn  pulumi.StringInput `pulumi:"producerArn"`
 }
 
 func (GetDataSharesDataShareArgs) ElementType() reflect.Type {
@@ -2670,17 +2535,14 @@ func (o GetDataSharesDataShareOutput) ToGetDataSharesDataShareOutputWithContext(
 	return o
 }
 
-// ARN (Amazon Resource Name) of the data share.
 func (o GetDataSharesDataShareOutput) DataShareArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDataSharesDataShare) string { return v.DataShareArn }).(pulumi.StringOutput)
 }
 
-// Identifier of a datashare to show its managing entity.
 func (o GetDataSharesDataShareOutput) ManagedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDataSharesDataShare) string { return v.ManagedBy }).(pulumi.StringOutput)
 }
 
-// ARN (Amazon Resource Name) of the producer.
 func (o GetDataSharesDataShareOutput) ProducerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDataSharesDataShare) string { return v.ProducerArn }).(pulumi.StringOutput)
 }
@@ -2706,14 +2568,9 @@ func (o GetDataSharesDataShareArrayOutput) Index(i pulumi.IntInput) GetDataShare
 }
 
 type GetProducerDataSharesDataShare struct {
-	// ARN (Amazon Resource Name) of the data share.
 	DataShareArn string `pulumi:"dataShareArn"`
-	// Identifier of a datashare to show its managing entity.
-	ManagedBy string `pulumi:"managedBy"`
-	// Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
-	//
-	// The following arguments are optional:
-	ProducerArn string `pulumi:"producerArn"`
+	ManagedBy    string `pulumi:"managedBy"`
+	ProducerArn  string `pulumi:"producerArn"`
 }
 
 // GetProducerDataSharesDataShareInput is an input type that accepts GetProducerDataSharesDataShareArgs and GetProducerDataSharesDataShareOutput values.
@@ -2728,14 +2585,9 @@ type GetProducerDataSharesDataShareInput interface {
 }
 
 type GetProducerDataSharesDataShareArgs struct {
-	// ARN (Amazon Resource Name) of the data share.
 	DataShareArn pulumi.StringInput `pulumi:"dataShareArn"`
-	// Identifier of a datashare to show its managing entity.
-	ManagedBy pulumi.StringInput `pulumi:"managedBy"`
-	// Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
-	//
-	// The following arguments are optional:
-	ProducerArn pulumi.StringInput `pulumi:"producerArn"`
+	ManagedBy    pulumi.StringInput `pulumi:"managedBy"`
+	ProducerArn  pulumi.StringInput `pulumi:"producerArn"`
 }
 
 func (GetProducerDataSharesDataShareArgs) ElementType() reflect.Type {
@@ -2789,19 +2641,14 @@ func (o GetProducerDataSharesDataShareOutput) ToGetProducerDataSharesDataShareOu
 	return o
 }
 
-// ARN (Amazon Resource Name) of the data share.
 func (o GetProducerDataSharesDataShareOutput) DataShareArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProducerDataSharesDataShare) string { return v.DataShareArn }).(pulumi.StringOutput)
 }
 
-// Identifier of a datashare to show its managing entity.
 func (o GetProducerDataSharesDataShareOutput) ManagedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProducerDataSharesDataShare) string { return v.ManagedBy }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
-//
-// The following arguments are optional:
 func (o GetProducerDataSharesDataShareOutput) ProducerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProducerDataSharesDataShare) string { return v.ProducerArn }).(pulumi.StringOutput)
 }

@@ -14,17 +14,9 @@ public final class ScheduledQueryNotificationConfigurationArgs extends com.pulum
 
     public static final ScheduledQueryNotificationConfigurationArgs Empty = new ScheduledQueryNotificationConfigurationArgs();
 
-    /**
-     * Configuration block for details about the Amazon Simple Notification Service (SNS) configuration. See below.
-     * 
-     */
     @Import(name="snsConfiguration", required=true)
     private Output<ScheduledQueryNotificationConfigurationSnsConfigurationArgs> snsConfiguration;
 
-    /**
-     * @return Configuration block for details about the Amazon Simple Notification Service (SNS) configuration. See below.
-     * 
-     */
     public Output<ScheduledQueryNotificationConfigurationSnsConfigurationArgs> snsConfiguration() {
         return this.snsConfiguration;
     }
@@ -53,23 +45,11 @@ public final class ScheduledQueryNotificationConfigurationArgs extends com.pulum
             $ = new ScheduledQueryNotificationConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param snsConfiguration Configuration block for details about the Amazon Simple Notification Service (SNS) configuration. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snsConfiguration(Output<ScheduledQueryNotificationConfigurationSnsConfigurationArgs> snsConfiguration) {
             $.snsConfiguration = snsConfiguration;
             return this;
         }
 
-        /**
-         * @param snsConfiguration Configuration block for details about the Amazon Simple Notification Service (SNS) configuration. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snsConfiguration(ScheduledQueryNotificationConfigurationSnsConfigurationArgs snsConfiguration) {
             return snsConfiguration(Output.of(snsConfiguration));
         }

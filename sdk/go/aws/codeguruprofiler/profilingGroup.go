@@ -11,66 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS CodeGuru Profiler Profiling Group.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codeguruprofiler"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codeguruprofiler.NewProfilingGroup(ctx, "example", &codeguruprofiler.ProfilingGroupArgs{
-//				Name:            pulumi.String("example"),
-//				ComputePlatform: pulumi.String("Default"),
-//				AgentOrchestrationConfig: &codeguruprofiler.ProfilingGroupAgentOrchestrationConfigArgs{
-//					ProfilingEnabled: pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:codeguruprofiler/profilingGroup:ProfilingGroup example profiling_group-name-12345678
-// ```
 type ProfilingGroup struct {
 	pulumi.CustomResourceState
 
-	// Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
 	AgentOrchestrationConfig ProfilingGroupAgentOrchestrationConfigPtrOutput `pulumi:"agentOrchestrationConfig"`
-	// ARN of the profiling group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Compute platform of the profiling group.
-	ComputePlatform pulumi.StringOutput `pulumi:"computePlatform"`
-	// Name of the profiling group.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                      pulumi.StringOutput                             `pulumi:"arn"`
+	ComputePlatform          pulumi.StringOutput                             `pulumi:"computePlatform"`
+	Name                     pulumi.StringOutput                             `pulumi:"name"`
+	Region                   pulumi.StringOutput                             `pulumi:"region"`
+	Tags                     pulumi.StringMapOutput                          `pulumi:"tags"`
+	TagsAll                  pulumi.StringMapOutput                          `pulumi:"tagsAll"`
 }
 
 // NewProfilingGroup registers a new resource with the given unique name, arguments, and options.
@@ -103,41 +53,23 @@ func GetProfilingGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProfilingGroup resources.
 type profilingGroupState struct {
-	// Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
 	AgentOrchestrationConfig *ProfilingGroupAgentOrchestrationConfig `pulumi:"agentOrchestrationConfig"`
-	// ARN of the profiling group.
-	Arn *string `pulumi:"arn"`
-	// Compute platform of the profiling group.
-	ComputePlatform *string `pulumi:"computePlatform"`
-	// Name of the profiling group.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                      *string                                 `pulumi:"arn"`
+	ComputePlatform          *string                                 `pulumi:"computePlatform"`
+	Name                     *string                                 `pulumi:"name"`
+	Region                   *string                                 `pulumi:"region"`
+	Tags                     map[string]string                       `pulumi:"tags"`
+	TagsAll                  map[string]string                       `pulumi:"tagsAll"`
 }
 
 type ProfilingGroupState struct {
-	// Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
 	AgentOrchestrationConfig ProfilingGroupAgentOrchestrationConfigPtrInput
-	// ARN of the profiling group.
-	Arn pulumi.StringPtrInput
-	// Compute platform of the profiling group.
-	ComputePlatform pulumi.StringPtrInput
-	// Name of the profiling group.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Arn                      pulumi.StringPtrInput
+	ComputePlatform          pulumi.StringPtrInput
+	Name                     pulumi.StringPtrInput
+	Region                   pulumi.StringPtrInput
+	Tags                     pulumi.StringMapInput
+	TagsAll                  pulumi.StringMapInput
 }
 
 func (ProfilingGroupState) ElementType() reflect.Type {
@@ -145,34 +77,20 @@ func (ProfilingGroupState) ElementType() reflect.Type {
 }
 
 type profilingGroupArgs struct {
-	// Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
 	AgentOrchestrationConfig *ProfilingGroupAgentOrchestrationConfig `pulumi:"agentOrchestrationConfig"`
-	// Compute platform of the profiling group.
-	ComputePlatform *string `pulumi:"computePlatform"`
-	// Name of the profiling group.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	ComputePlatform          *string                                 `pulumi:"computePlatform"`
+	Name                     *string                                 `pulumi:"name"`
+	Region                   *string                                 `pulumi:"region"`
+	Tags                     map[string]string                       `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ProfilingGroup resource.
 type ProfilingGroupArgs struct {
-	// Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
 	AgentOrchestrationConfig ProfilingGroupAgentOrchestrationConfigPtrInput
-	// Compute platform of the profiling group.
-	ComputePlatform pulumi.StringPtrInput
-	// Name of the profiling group.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	ComputePlatform          pulumi.StringPtrInput
+	Name                     pulumi.StringPtrInput
+	Region                   pulumi.StringPtrInput
+	Tags                     pulumi.StringMapInput
 }
 
 func (ProfilingGroupArgs) ElementType() reflect.Type {
@@ -262,41 +180,32 @@ func (o ProfilingGroupOutput) ToProfilingGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
 func (o ProfilingGroupOutput) AgentOrchestrationConfig() ProfilingGroupAgentOrchestrationConfigPtrOutput {
 	return o.ApplyT(func(v *ProfilingGroup) ProfilingGroupAgentOrchestrationConfigPtrOutput {
 		return v.AgentOrchestrationConfig
 	}).(ProfilingGroupAgentOrchestrationConfigPtrOutput)
 }
 
-// ARN of the profiling group.
 func (o ProfilingGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilingGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Compute platform of the profiling group.
 func (o ProfilingGroupOutput) ComputePlatform() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilingGroup) pulumi.StringOutput { return v.ComputePlatform }).(pulumi.StringOutput)
 }
 
-// Name of the profiling group.
-//
-// The following arguments are optional:
 func (o ProfilingGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilingGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ProfilingGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilingGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ProfilingGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ProfilingGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ProfilingGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ProfilingGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

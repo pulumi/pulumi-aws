@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleSourceCustomPolicyDetails {
-    /**
-     * @return The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is `false`.
-     * 
-     */
     private @Nullable Boolean enableDebugLogDelivery;
-    /**
-     * @return The runtime system for your Config Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://github.com/aws-cloudformation/cloudformation-guard).
-     * 
-     */
     private String policyRuntime;
-    /**
-     * @return The policy definition containing the logic for your Config Custom Policy rule.
-     * 
-     */
     private String policyText;
 
     private RuleSourceCustomPolicyDetails() {}
-    /**
-     * @return The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is `false`.
-     * 
-     */
     public Optional<Boolean> enableDebugLogDelivery() {
         return Optional.ofNullable(this.enableDebugLogDelivery);
     }
-    /**
-     * @return The runtime system for your Config Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://github.com/aws-cloudformation/cloudformation-guard).
-     * 
-     */
     public String policyRuntime() {
         return this.policyRuntime;
     }
-    /**
-     * @return The policy definition containing the logic for your Config Custom Policy rule.
-     * 
-     */
     public String policyText() {
         return this.policyText;
     }

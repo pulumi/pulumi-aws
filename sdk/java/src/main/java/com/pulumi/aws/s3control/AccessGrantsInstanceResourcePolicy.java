@@ -13,73 +13,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage an S3 Access Grants instance resource policy.
- * Use a resource policy to manage cross-account access to your S3 Access Grants instance.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3control.AccessGrantsInstance;
- * import com.pulumi.aws.s3control.AccessGrantsInstanceResourcePolicy;
- * import com.pulumi.aws.s3control.AccessGrantsInstanceResourcePolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AccessGrantsInstance("example");
- * 
- *         var exampleAccessGrantsInstanceResourcePolicy = new AccessGrantsInstanceResourcePolicy("exampleAccessGrantsInstanceResourcePolicy", AccessGrantsInstanceResourcePolicyArgs.builder()
- *             .policy(example.accessGrantsInstanceArn().applyValue(_accessGrantsInstanceArn -> """
- * {
- *   \"Version\": \"2012-10-17\",
- *   \"Id\": \"S3AccessGrantsPolicy\",
- *   \"Statement\": [{
- *     \"Sid\": \"AllowAccessToS3AccessGrants\",
- *     \"Effect\": \"Allow\",
- *     \"Principal\": {
- *       \"AWS\": \"123456789456\"
- *     },
- *     \"Action\": [
- *       \"s3:ListAccessGrants\",
- *       \"s3:ListAccessGrantsLocations\",
- *       \"s3:GetDataAccess\"
- *     ],
- *     \"Resource\": \"%s\"
- *   }]
- * }
- * ", _accessGrantsInstanceArn)))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import S3 Access Grants instance resource policies using the `account_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy example 123456789012
- * ```
- * 
- */
 @ResourceType(type="aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy")
 public class AccessGrantsInstanceResourcePolicy extends com.pulumi.resources.CustomResource {
     @Export(name="accountId", refs={String.class}, tree="[0]")
@@ -88,31 +21,15 @@ public class AccessGrantsInstanceResourcePolicy extends com.pulumi.resources.Cus
     public Output<String> accountId() {
         return this.accountId;
     }
-    /**
-     * The policy document.
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return The policy document.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

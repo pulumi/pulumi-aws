@@ -14,17 +14,9 @@ public final class JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgs ex
 
     public static final JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgs Empty = new JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgs();
 
-    /**
-     * Unique identifier.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Unique identifier.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -53,23 +45,11 @@ public final class JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgs ex
             $ = new JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Unique identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Unique identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

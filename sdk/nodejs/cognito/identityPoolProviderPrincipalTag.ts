@@ -4,54 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AWS Cognito Identity Principal Mapping.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = new aws.cognito.UserPool("example", {
- *     name: "user pool",
- *     autoVerifiedAttributes: ["email"],
- * });
- * const exampleUserPoolClient = new aws.cognito.UserPoolClient("example", {
- *     name: "client",
- *     userPoolId: example.id,
- *     supportedIdentityProviders: std.compact({
- *         input: ["COGNITO"],
- *     }).then(invoke => invoke.result),
- * });
- * const exampleIdentityPool = new aws.cognito.IdentityPool("example", {
- *     identityPoolName: "identity pool",
- *     allowUnauthenticatedIdentities: false,
- *     cognitoIdentityProviders: [{
- *         clientId: exampleUserPoolClient.id,
- *         providerName: example.endpoint,
- *         serverSideTokenCheck: false,
- *     }],
- * });
- * const exampleIdentityPoolProviderPrincipalTag = new aws.cognito.IdentityPoolProviderPrincipalTag("example", {
- *     identityPoolId: exampleIdentityPool.id,
- *     identityProviderName: example.endpoint,
- *     useDefaults: false,
- *     principalTags: {
- *         test: "value",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID and provider name. For example:
- *
- * ```sh
- * $ pulumi import aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag example us-west-2_abc123:CorpAD
- * ```
- */
 export class IdentityPoolProviderPrincipalTag extends pulumi.CustomResource {
     /**
      * Get an existing IdentityPoolProviderPrincipalTag resource's state with the given name, ID, and optional extra
@@ -80,25 +32,10 @@ export class IdentityPoolProviderPrincipalTag extends pulumi.CustomResource {
         return obj['__pulumiType'] === IdentityPoolProviderPrincipalTag.__pulumiType;
     }
 
-    /**
-     * An identity pool ID.
-     */
     declare public readonly identityPoolId: pulumi.Output<string>;
-    /**
-     * The name of the identity provider.
-     */
     declare public readonly identityProviderName: pulumi.Output<string>;
-    /**
-     * String to string map of variables.
-     */
     declare public readonly principalTags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * use default (username and clientID) attribute mappings.
-     */
     declare public readonly useDefaults: pulumi.Output<boolean | undefined>;
 
     /**
@@ -142,25 +79,10 @@ export class IdentityPoolProviderPrincipalTag extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IdentityPoolProviderPrincipalTag resources.
  */
 export interface IdentityPoolProviderPrincipalTagState {
-    /**
-     * An identity pool ID.
-     */
     identityPoolId?: pulumi.Input<string>;
-    /**
-     * The name of the identity provider.
-     */
     identityProviderName?: pulumi.Input<string>;
-    /**
-     * String to string map of variables.
-     */
     principalTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * use default (username and clientID) attribute mappings.
-     */
     useDefaults?: pulumi.Input<boolean>;
 }
 
@@ -168,24 +90,9 @@ export interface IdentityPoolProviderPrincipalTagState {
  * The set of arguments for constructing a IdentityPoolProviderPrincipalTag resource.
  */
 export interface IdentityPoolProviderPrincipalTagArgs {
-    /**
-     * An identity pool ID.
-     */
     identityPoolId: pulumi.Input<string>;
-    /**
-     * The name of the identity provider.
-     */
     identityProviderName: pulumi.Input<string>;
-    /**
-     * String to string map of variables.
-     */
     principalTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * use default (username and clientID) attribute mappings.
-     */
     useDefaults?: pulumi.Input<boolean>;
 }

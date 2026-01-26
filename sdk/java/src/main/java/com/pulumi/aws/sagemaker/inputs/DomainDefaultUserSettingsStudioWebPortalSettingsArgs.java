@@ -16,47 +16,23 @@ public final class DomainDefaultUserSettingsStudioWebPortalSettingsArgs extends 
 
     public static final DomainDefaultUserSettingsStudioWebPortalSettingsArgs Empty = new DomainDefaultUserSettingsStudioWebPortalSettingsArgs();
 
-    /**
-     * The Applications supported in Studio that are hidden from the Studio left navigation pane.
-     * 
-     */
     @Import(name="hiddenAppTypes")
     private @Nullable Output<List<String>> hiddenAppTypes;
 
-    /**
-     * @return The Applications supported in Studio that are hidden from the Studio left navigation pane.
-     * 
-     */
     public Optional<Output<List<String>>> hiddenAppTypes() {
         return Optional.ofNullable(this.hiddenAppTypes);
     }
 
-    /**
-     * The instance types you are hiding from the Studio user interface.
-     * 
-     */
     @Import(name="hiddenInstanceTypes")
     private @Nullable Output<List<String>> hiddenInstanceTypes;
 
-    /**
-     * @return The instance types you are hiding from the Studio user interface.
-     * 
-     */
     public Optional<Output<List<String>>> hiddenInstanceTypes() {
         return Optional.ofNullable(this.hiddenInstanceTypes);
     }
 
-    /**
-     * The machine learning tools that are hidden from the Studio left navigation pane.
-     * 
-     */
     @Import(name="hiddenMlTools")
     private @Nullable Output<List<String>> hiddenMlTools;
 
-    /**
-     * @return The machine learning tools that are hidden from the Studio left navigation pane.
-     * 
-     */
     public Optional<Output<List<String>>> hiddenMlTools() {
         return Optional.ofNullable(this.hiddenMlTools);
     }
@@ -87,95 +63,41 @@ public final class DomainDefaultUserSettingsStudioWebPortalSettingsArgs extends 
             $ = new DomainDefaultUserSettingsStudioWebPortalSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param hiddenAppTypes The Applications supported in Studio that are hidden from the Studio left navigation pane.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hiddenAppTypes(@Nullable Output<List<String>> hiddenAppTypes) {
             $.hiddenAppTypes = hiddenAppTypes;
             return this;
         }
 
-        /**
-         * @param hiddenAppTypes The Applications supported in Studio that are hidden from the Studio left navigation pane.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hiddenAppTypes(List<String> hiddenAppTypes) {
             return hiddenAppTypes(Output.of(hiddenAppTypes));
         }
 
-        /**
-         * @param hiddenAppTypes The Applications supported in Studio that are hidden from the Studio left navigation pane.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hiddenAppTypes(String... hiddenAppTypes) {
             return hiddenAppTypes(List.of(hiddenAppTypes));
         }
 
-        /**
-         * @param hiddenInstanceTypes The instance types you are hiding from the Studio user interface.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hiddenInstanceTypes(@Nullable Output<List<String>> hiddenInstanceTypes) {
             $.hiddenInstanceTypes = hiddenInstanceTypes;
             return this;
         }
 
-        /**
-         * @param hiddenInstanceTypes The instance types you are hiding from the Studio user interface.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hiddenInstanceTypes(List<String> hiddenInstanceTypes) {
             return hiddenInstanceTypes(Output.of(hiddenInstanceTypes));
         }
 
-        /**
-         * @param hiddenInstanceTypes The instance types you are hiding from the Studio user interface.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hiddenInstanceTypes(String... hiddenInstanceTypes) {
             return hiddenInstanceTypes(List.of(hiddenInstanceTypes));
         }
 
-        /**
-         * @param hiddenMlTools The machine learning tools that are hidden from the Studio left navigation pane.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hiddenMlTools(@Nullable Output<List<String>> hiddenMlTools) {
             $.hiddenMlTools = hiddenMlTools;
             return this;
         }
 
-        /**
-         * @param hiddenMlTools The machine learning tools that are hidden from the Studio left navigation pane.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hiddenMlTools(List<String> hiddenMlTools) {
             return hiddenMlTools(Output.of(hiddenMlTools));
         }
 
-        /**
-         * @param hiddenMlTools The machine learning tools that are hidden from the Studio left navigation pane.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hiddenMlTools(String... hiddenMlTools) {
             return hiddenMlTools(List.of(hiddenMlTools));
         }

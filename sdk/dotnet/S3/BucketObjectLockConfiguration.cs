@@ -9,107 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3
 {
-    /// <summary>
-    /// Provides an S3 bucket Object Lock configuration resource. For more information about Object Locking, go to [Using S3 Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html) in the Amazon S3 User Guide.
-    /// 
-    /// &gt; This resource can be used enable Object Lock for **new** and **existing** buckets.
-    /// 
-    /// &gt; This resource cannot be used with S3 directory buckets.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Object Lock configuration for new or existing buckets
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.S3.Bucket("example", new()
-    ///     {
-    ///         BucketName = "mybucket",
-    ///     });
-    /// 
-    ///     var exampleBucketVersioning = new Aws.S3.BucketVersioning("example", new()
-    ///     {
-    ///         Bucket = example.Id,
-    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningVersioningConfigurationArgs
-    ///         {
-    ///             Status = "Enabled",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleBucketObjectLockConfiguration = new Aws.S3.BucketObjectLockConfiguration("example", new()
-    ///     {
-    ///         Bucket = example.Id,
-    ///         Rule = new Aws.S3.Inputs.BucketObjectLockConfigurationRuleArgs
-    ///         {
-    ///             DefaultRetention = new Aws.S3.Inputs.BucketObjectLockConfigurationRuleDefaultRetentionArgs
-    ///             {
-    ///                 Mode = "COMPLIANCE",
-    ///                 Days = 5,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner`, separated by a comma (`,`). For example:
-    /// 
-    /// __Using `pulumi import`__, import an S3 bucket Object Lock Configuration using one of two forms. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:s3/bucketObjectLockConfiguration:BucketObjectLockConfiguration example bucket-name
-    /// ```
-    /// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner`, separated by a comma (`,`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:s3/bucketObjectLockConfiguration:BucketObjectLockConfiguration example bucket-name,123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:s3/bucketObjectLockConfiguration:BucketObjectLockConfiguration")]
     public partial class BucketObjectLockConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Name of the bucket.
-        /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
-        /// <summary>
-        /// Account ID of the expected bucket owner.
-        /// </summary>
         [Output("expectedBucketOwner")]
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
-        /// </summary>
         [Output("objectLockEnabled")]
         public Output<string?> ObjectLockEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for specifying the Object Lock rule for the specified object. See below.
-        /// </summary>
         [Output("rule")]
         public Output<Outputs.BucketObjectLockConfigurationRule?> Rule { get; private set; } = null!;
 
-        /// <summary>
-        /// This argument is deprecated and no longer needed to enable Object Lock.
-        /// To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioning` resource.
-        /// </summary>
         [Output("token")]
         public Output<string?> Token { get; private set; } = null!;
 
@@ -167,43 +84,23 @@ namespace Pulumi.Aws.S3
 
     public sealed class BucketObjectLockConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the bucket.
-        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
-        /// <summary>
-        /// Account ID of the expected bucket owner.
-        /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
-        /// <summary>
-        /// Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
-        /// </summary>
         [Input("objectLockEnabled")]
         public Input<string>? ObjectLockEnabled { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Configuration block for specifying the Object Lock rule for the specified object. See below.
-        /// </summary>
         [Input("rule")]
         public Input<Inputs.BucketObjectLockConfigurationRuleArgs>? Rule { get; set; }
 
         [Input("token")]
         private Input<string>? _token;
-
-        /// <summary>
-        /// This argument is deprecated and no longer needed to enable Object Lock.
-        /// To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioning` resource.
-        /// </summary>
         public Input<string>? Token
         {
             get => _token;
@@ -222,43 +119,23 @@ namespace Pulumi.Aws.S3
 
     public sealed class BucketObjectLockConfigurationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the bucket.
-        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
-        /// <summary>
-        /// Account ID of the expected bucket owner.
-        /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
-        /// <summary>
-        /// Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
-        /// </summary>
         [Input("objectLockEnabled")]
         public Input<string>? ObjectLockEnabled { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Configuration block for specifying the Object Lock rule for the specified object. See below.
-        /// </summary>
         [Input("rule")]
         public Input<Inputs.BucketObjectLockConfigurationRuleGetArgs>? Rule { get; set; }
 
         [Input("token")]
         private Input<string>? _token;
-
-        /// <summary>
-        /// This argument is deprecated and no longer needed to enable Object Lock.
-        /// To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioning` resource.
-        /// </summary>
         public Input<string>? Token
         {
             get => _token;

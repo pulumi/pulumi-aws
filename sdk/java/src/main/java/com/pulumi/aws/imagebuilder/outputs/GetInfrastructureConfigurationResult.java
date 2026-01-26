@@ -17,107 +17,39 @@ import java.util.Objects;
 @CustomType
 public final class GetInfrastructureConfigurationResult {
     private String arn;
-    /**
-     * @return Date the infrastructure configuration was updated.
-     * 
-     */
     private String dateCreated;
     private String dateUpdated;
-    /**
-     * @return Description of the infrastructure configuration.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Nested list of instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances.
-     * 
-     */
     private List<GetInfrastructureConfigurationInstanceMetadataOption> instanceMetadataOptions;
-    /**
-     * @return Name of the IAM Instance Profile associated with the configuration.
-     * 
-     */
     private String instanceProfileName;
-    /**
-     * @return Set of EC2 Instance Types associated with the configuration.
-     * 
-     */
     private List<String> instanceTypes;
-    /**
-     * @return Name of the EC2 Key Pair associated with the configuration.
-     * 
-     */
     private String keyPair;
-    /**
-     * @return Nested list of logging settings.
-     * 
-     */
     private List<GetInfrastructureConfigurationLogging> loggings;
-    /**
-     * @return Name of the infrastructure configuration.
-     * 
-     */
     private String name;
-    /**
-     * @return Placement settings that define where the instances that are launched from your image will run.
-     * 
-     */
     private List<GetInfrastructureConfigurationPlacement> placements;
     private String region;
-    /**
-     * @return Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
-     * 
-     */
     private Map<String,String> resourceTags;
-    /**
-     * @return Set of EC2 Security Group identifiers associated with the configuration.
-     * 
-     */
     private List<String> securityGroupIds;
-    /**
-     * @return ARN of the SNS Topic associated with the configuration.
-     * 
-     */
     private String snsTopicArn;
-    /**
-     * @return Identifier of the EC2 Subnet associated with the configuration.
-     * 
-     */
     private String subnetId;
-    /**
-     * @return Key-value map of resource tags for the infrastructure configuration.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Whether instances are terminated on failure.
-     * 
-     */
     private Boolean terminateInstanceOnFailure;
 
     private GetInfrastructureConfigurationResult() {}
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Date the infrastructure configuration was updated.
-     * 
-     */
     public String dateCreated() {
         return this.dateCreated;
     }
     public String dateUpdated() {
         return this.dateUpdated;
     }
-    /**
-     * @return Description of the infrastructure configuration.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -128,97 +60,45 @@ public final class GetInfrastructureConfigurationResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Nested list of instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances.
-     * 
-     */
     public List<GetInfrastructureConfigurationInstanceMetadataOption> instanceMetadataOptions() {
         return this.instanceMetadataOptions;
     }
-    /**
-     * @return Name of the IAM Instance Profile associated with the configuration.
-     * 
-     */
     public String instanceProfileName() {
         return this.instanceProfileName;
     }
-    /**
-     * @return Set of EC2 Instance Types associated with the configuration.
-     * 
-     */
     public List<String> instanceTypes() {
         return this.instanceTypes;
     }
-    /**
-     * @return Name of the EC2 Key Pair associated with the configuration.
-     * 
-     */
     public String keyPair() {
         return this.keyPair;
     }
-    /**
-     * @return Nested list of logging settings.
-     * 
-     */
     public List<GetInfrastructureConfigurationLogging> loggings() {
         return this.loggings;
     }
-    /**
-     * @return Name of the infrastructure configuration.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Placement settings that define where the instances that are launched from your image will run.
-     * 
-     */
     public List<GetInfrastructureConfigurationPlacement> placements() {
         return this.placements;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
-     * 
-     */
     public Map<String,String> resourceTags() {
         return this.resourceTags;
     }
-    /**
-     * @return Set of EC2 Security Group identifiers associated with the configuration.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds;
     }
-    /**
-     * @return ARN of the SNS Topic associated with the configuration.
-     * 
-     */
     public String snsTopicArn() {
         return this.snsTopicArn;
     }
-    /**
-     * @return Identifier of the EC2 Subnet associated with the configuration.
-     * 
-     */
     public String subnetId() {
         return this.subnetId;
     }
-    /**
-     * @return Key-value map of resource tags for the infrastructure configuration.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Whether instances are terminated on failure.
-     * 
-     */
     public Boolean terminateInstanceOnFailure() {
         return this.terminateInstanceOnFailure;
     }

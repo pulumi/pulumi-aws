@@ -17,126 +17,58 @@ public final class WorkerConfigurationState extends com.pulumi.resources.Resourc
 
     public static final WorkerConfigurationState Empty = new WorkerConfigurationState();
 
-    /**
-     * the Amazon Resource Name (ARN) of the worker configuration.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return the Amazon Resource Name (ARN) of the worker configuration.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * A summary description of the worker configuration.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return A summary description of the worker configuration.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * an ID of the latest successfully created revision of the worker configuration.
-     * 
-     */
     @Import(name="latestRevision")
     private @Nullable Output<Integer> latestRevision;
 
-    /**
-     * @return an ID of the latest successfully created revision of the worker configuration.
-     * 
-     */
     public Optional<Output<Integer>> latestRevision() {
         return Optional.ofNullable(this.latestRevision);
     }
 
-    /**
-     * The name of the worker configuration.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the worker configuration.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="propertiesFileContent")
     private @Nullable Output<String> propertiesFileContent;
 
-    /**
-     * @return Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> propertiesFileContent() {
         return Optional.ofNullable(this.propertiesFileContent);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -172,174 +104,74 @@ public final class WorkerConfigurationState extends com.pulumi.resources.Resourc
             $ = new WorkerConfigurationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn the Amazon Resource Name (ARN) of the worker configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn the Amazon Resource Name (ARN) of the worker configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param description A summary description of the worker configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description A summary description of the worker configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param latestRevision an ID of the latest successfully created revision of the worker configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder latestRevision(@Nullable Output<Integer> latestRevision) {
             $.latestRevision = latestRevision;
             return this;
         }
 
-        /**
-         * @param latestRevision an ID of the latest successfully created revision of the worker configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder latestRevision(Integer latestRevision) {
             return latestRevision(Output.of(latestRevision));
         }
 
-        /**
-         * @param name The name of the worker configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the worker configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param propertiesFileContent Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder propertiesFileContent(@Nullable Output<String> propertiesFileContent) {
             $.propertiesFileContent = propertiesFileContent;
             return this;
         }
 
-        /**
-         * @param propertiesFileContent Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder propertiesFileContent(String propertiesFileContent) {
             return propertiesFileContent(Output.of(propertiesFileContent));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

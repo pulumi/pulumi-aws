@@ -14,48 +14,19 @@ import java.util.Objects;
 @CustomType
 public final class GetAddonResult {
     private String addonName;
-    /**
-     * @return Version of EKS add-on.
-     * 
-     */
     private String addonVersion;
-    /**
-     * @return ARN of the EKS add-on.
-     * 
-     */
     private String arn;
     private String clusterName;
-    /**
-     * @return Configuration values for the addon with a single JSON string.
-     * 
-     */
     private String configurationValues;
-    /**
-     * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
-     * 
-     */
     private String createdAt;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
-     * 
-     */
     private String modifiedAt;
-    /**
-     * @return Pod identity association for the EKS add-on.
-     * 
-     */
     private List<GetAddonPodIdentityAssociation> podIdentityAssociations;
     private String region;
-    /**
-     * @return ARN of IAM role used for EKS add-on. If value is empty -
-     * then add-on uses the IAM role assigned to the EKS Cluster node.
-     * 
-     */
     private String serviceAccountRoleArn;
     private Map<String,String> tags;
 
@@ -63,34 +34,18 @@ public final class GetAddonResult {
     public String addonName() {
         return this.addonName;
     }
-    /**
-     * @return Version of EKS add-on.
-     * 
-     */
     public String addonVersion() {
         return this.addonVersion;
     }
-    /**
-     * @return ARN of the EKS add-on.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
     public String clusterName() {
         return this.clusterName;
     }
-    /**
-     * @return Configuration values for the addon with a single JSON string.
-     * 
-     */
     public String configurationValues() {
         return this.configurationValues;
     }
-    /**
-     * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
-     * 
-     */
     public String createdAt() {
         return this.createdAt;
     }
@@ -101,28 +56,15 @@ public final class GetAddonResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
-     * 
-     */
     public String modifiedAt() {
         return this.modifiedAt;
     }
-    /**
-     * @return Pod identity association for the EKS add-on.
-     * 
-     */
     public List<GetAddonPodIdentityAssociation> podIdentityAssociations() {
         return this.podIdentityAssociations;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return ARN of IAM role used for EKS add-on. If value is empty -
-     * then add-on uses the IAM role assigned to the EKS Cluster node.
-     * 
-     */
     public String serviceAccountRoleArn() {
         return this.serviceAccountRoleArn;
     }

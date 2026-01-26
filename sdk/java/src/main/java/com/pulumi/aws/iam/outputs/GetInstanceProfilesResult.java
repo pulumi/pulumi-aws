@@ -11,33 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInstanceProfilesResult {
-    /**
-     * @return Set of ARNs of instance profiles.
-     * 
-     */
     private List<String> arns;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Set of IAM instance profile names.
-     * 
-     */
     private List<String> names;
-    /**
-     * @return Set of IAM instance profile paths.
-     * 
-     */
     private List<String> paths;
     private String roleName;
 
     private GetInstanceProfilesResult() {}
-    /**
-     * @return Set of ARNs of instance profiles.
-     * 
-     */
     public List<String> arns() {
         return this.arns;
     }
@@ -48,17 +32,9 @@ public final class GetInstanceProfilesResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Set of IAM instance profile names.
-     * 
-     */
     public List<String> names() {
         return this.names;
     }
-    /**
-     * @return Set of IAM instance profile paths.
-     * 
-     */
     public List<String> paths() {
         return this.paths;
     }

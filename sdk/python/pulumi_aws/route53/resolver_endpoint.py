@@ -33,20 +33,6 @@ class ResolverEndpointArgs:
                  target_name_server_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ResolverEndpoint resource.
-        :param pulumi.Input[_builtins.str] direction: Direction of DNS queries to or from the Route 53 Resolver endpoint.
-               Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
-        :param pulumi.Input[Sequence[pulumi.Input['ResolverEndpointIpAddressArgs']]] ip_addresses: Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
-               to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: ID of one or more security groups that you want to use to control access to this VPC.
-        :param pulumi.Input[_builtins.str] name: Friendly name of the Route 53 Resolver endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: Protocols you want to use for the Route 53 Resolver endpoint.
-               Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resolver_endpoint_type: Endpoint IP type. This endpoint type is applied to all IP addresses.
-               Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
-        :param pulumi.Input[_builtins.bool] rni_enhanced_metrics_enabled: Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.bool] target_name_server_metrics_enabled: Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
         """
         pulumi.set(__self__, "direction", direction)
         pulumi.set(__self__, "ip_addresses", ip_addresses)
@@ -69,10 +55,6 @@ class ResolverEndpointArgs:
     @_builtins.property
     @pulumi.getter
     def direction(self) -> pulumi.Input[_builtins.str]:
-        """
-        Direction of DNS queries to or from the Route 53 Resolver endpoint.
-        Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
-        """
         return pulumi.get(self, "direction")
 
     @direction.setter
@@ -82,10 +64,6 @@ class ResolverEndpointArgs:
     @_builtins.property
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> pulumi.Input[Sequence[pulumi.Input['ResolverEndpointIpAddressArgs']]]:
-        """
-        Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
-        to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
-        """
         return pulumi.get(self, "ip_addresses")
 
     @ip_addresses.setter
@@ -95,9 +73,6 @@ class ResolverEndpointArgs:
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        ID of one or more security groups that you want to use to control access to this VPC.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -107,9 +82,6 @@ class ResolverEndpointArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Friendly name of the Route 53 Resolver endpoint.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -119,10 +91,6 @@ class ResolverEndpointArgs:
     @_builtins.property
     @pulumi.getter
     def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Protocols you want to use for the Route 53 Resolver endpoint.
-        Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
-        """
         return pulumi.get(self, "protocols")
 
     @protocols.setter
@@ -132,9 +100,6 @@ class ResolverEndpointArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -144,10 +109,6 @@ class ResolverEndpointArgs:
     @_builtins.property
     @pulumi.getter(name="resolverEndpointType")
     def resolver_endpoint_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Endpoint IP type. This endpoint type is applied to all IP addresses.
-        Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
-        """
         return pulumi.get(self, "resolver_endpoint_type")
 
     @resolver_endpoint_type.setter
@@ -157,9 +118,6 @@ class ResolverEndpointArgs:
     @_builtins.property
     @pulumi.getter(name="rniEnhancedMetricsEnabled")
     def rni_enhanced_metrics_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
-        """
         return pulumi.get(self, "rni_enhanced_metrics_enabled")
 
     @rni_enhanced_metrics_enabled.setter
@@ -169,9 +127,6 @@ class ResolverEndpointArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -181,9 +136,6 @@ class ResolverEndpointArgs:
     @_builtins.property
     @pulumi.getter(name="targetNameServerMetricsEnabled")
     def target_name_server_metrics_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
-        """
         return pulumi.get(self, "target_name_server_metrics_enabled")
 
     @target_name_server_metrics_enabled.setter
@@ -209,23 +161,6 @@ class _ResolverEndpointState:
                  target_name_server_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ResolverEndpoint resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Route 53 Resolver endpoint.
-        :param pulumi.Input[_builtins.str] direction: Direction of DNS queries to or from the Route 53 Resolver endpoint.
-               Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
-        :param pulumi.Input[_builtins.str] host_vpc_id: ID of the VPC that you want to create the resolver endpoint in.
-        :param pulumi.Input[Sequence[pulumi.Input['ResolverEndpointIpAddressArgs']]] ip_addresses: Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
-               to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
-        :param pulumi.Input[_builtins.str] name: Friendly name of the Route 53 Resolver endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: Protocols you want to use for the Route 53 Resolver endpoint.
-               Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resolver_endpoint_type: Endpoint IP type. This endpoint type is applied to all IP addresses.
-               Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
-        :param pulumi.Input[_builtins.bool] rni_enhanced_metrics_enabled: Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: ID of one or more security groups that you want to use to control access to this VPC.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.bool] target_name_server_metrics_enabled: Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -257,9 +192,6 @@ class _ResolverEndpointState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Route 53 Resolver endpoint.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -269,10 +201,6 @@ class _ResolverEndpointState:
     @_builtins.property
     @pulumi.getter
     def direction(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Direction of DNS queries to or from the Route 53 Resolver endpoint.
-        Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
-        """
         return pulumi.get(self, "direction")
 
     @direction.setter
@@ -282,9 +210,6 @@ class _ResolverEndpointState:
     @_builtins.property
     @pulumi.getter(name="hostVpcId")
     def host_vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the VPC that you want to create the resolver endpoint in.
-        """
         return pulumi.get(self, "host_vpc_id")
 
     @host_vpc_id.setter
@@ -294,10 +219,6 @@ class _ResolverEndpointState:
     @_builtins.property
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResolverEndpointIpAddressArgs']]]]:
-        """
-        Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
-        to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
-        """
         return pulumi.get(self, "ip_addresses")
 
     @ip_addresses.setter
@@ -307,9 +228,6 @@ class _ResolverEndpointState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Friendly name of the Route 53 Resolver endpoint.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -319,10 +237,6 @@ class _ResolverEndpointState:
     @_builtins.property
     @pulumi.getter
     def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Protocols you want to use for the Route 53 Resolver endpoint.
-        Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
-        """
         return pulumi.get(self, "protocols")
 
     @protocols.setter
@@ -332,9 +246,6 @@ class _ResolverEndpointState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -344,10 +255,6 @@ class _ResolverEndpointState:
     @_builtins.property
     @pulumi.getter(name="resolverEndpointType")
     def resolver_endpoint_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Endpoint IP type. This endpoint type is applied to all IP addresses.
-        Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
-        """
         return pulumi.get(self, "resolver_endpoint_type")
 
     @resolver_endpoint_type.setter
@@ -357,9 +264,6 @@ class _ResolverEndpointState:
     @_builtins.property
     @pulumi.getter(name="rniEnhancedMetricsEnabled")
     def rni_enhanced_metrics_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
-        """
         return pulumi.get(self, "rni_enhanced_metrics_enabled")
 
     @rni_enhanced_metrics_enabled.setter
@@ -369,9 +273,6 @@ class _ResolverEndpointState:
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        ID of one or more security groups that you want to use to control access to this VPC.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -381,9 +282,6 @@ class _ResolverEndpointState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -393,9 +291,6 @@ class _ResolverEndpointState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -405,9 +300,6 @@ class _ResolverEndpointState:
     @_builtins.property
     @pulumi.getter(name="targetNameServerMetricsEnabled")
     def target_name_server_metrics_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
-        """
         return pulumi.get(self, "target_name_server_metrics_enabled")
 
     @target_name_server_metrics_enabled.setter
@@ -433,64 +325,9 @@ class ResolverEndpoint(pulumi.CustomResource):
                  target_name_server_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        Provides a Route 53 Resolver endpoint resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.route53.ResolverEndpoint("foo",
-            name="foo",
-            direction="INBOUND",
-            resolver_endpoint_type="IPV4",
-            security_group_ids=[
-                sg1["id"],
-                sg2["id"],
-            ],
-            ip_addresses=[
-                {
-                    "subnet_id": sn1["id"],
-                },
-                {
-                    "subnet_id": sn2["id"],
-                    "ip": "10.0.64.4",
-                },
-            ],
-            protocols=[
-                "Do53",
-                "DoH",
-            ],
-            tags={
-                "Environment": "Prod",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import  Route 53 Resolver endpoints using the Route 53 Resolver endpoint ID. For example:
-
-        ```sh
-        $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
-        ```
-
+        Create a ResolverEndpoint resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] direction: Direction of DNS queries to or from the Route 53 Resolver endpoint.
-               Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ResolverEndpointIpAddressArgs', 'ResolverEndpointIpAddressArgsDict']]]] ip_addresses: Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
-               to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
-        :param pulumi.Input[_builtins.str] name: Friendly name of the Route 53 Resolver endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: Protocols you want to use for the Route 53 Resolver endpoint.
-               Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resolver_endpoint_type: Endpoint IP type. This endpoint type is applied to all IP addresses.
-               Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
-        :param pulumi.Input[_builtins.bool] rni_enhanced_metrics_enabled: Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: ID of one or more security groups that you want to use to control access to this VPC.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.bool] target_name_server_metrics_enabled: Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
         """
         ...
     @overload
@@ -499,48 +336,7 @@ class ResolverEndpoint(pulumi.CustomResource):
                  args: ResolverEndpointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Route 53 Resolver endpoint resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.route53.ResolverEndpoint("foo",
-            name="foo",
-            direction="INBOUND",
-            resolver_endpoint_type="IPV4",
-            security_group_ids=[
-                sg1["id"],
-                sg2["id"],
-            ],
-            ip_addresses=[
-                {
-                    "subnet_id": sn1["id"],
-                },
-                {
-                    "subnet_id": sn2["id"],
-                    "ip": "10.0.64.4",
-                },
-            ],
-            protocols=[
-                "Do53",
-                "DoH",
-            ],
-            tags={
-                "Environment": "Prod",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import  Route 53 Resolver endpoints using the Route 53 Resolver endpoint ID. For example:
-
-        ```sh
-        $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
-        ```
-
+        Create a ResolverEndpoint resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ResolverEndpointArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -624,23 +420,6 @@ class ResolverEndpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Route 53 Resolver endpoint.
-        :param pulumi.Input[_builtins.str] direction: Direction of DNS queries to or from the Route 53 Resolver endpoint.
-               Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
-        :param pulumi.Input[_builtins.str] host_vpc_id: ID of the VPC that you want to create the resolver endpoint in.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ResolverEndpointIpAddressArgs', 'ResolverEndpointIpAddressArgsDict']]]] ip_addresses: Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
-               to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
-        :param pulumi.Input[_builtins.str] name: Friendly name of the Route 53 Resolver endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: Protocols you want to use for the Route 53 Resolver endpoint.
-               Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resolver_endpoint_type: Endpoint IP type. This endpoint type is applied to all IP addresses.
-               Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
-        :param pulumi.Input[_builtins.bool] rni_enhanced_metrics_enabled: Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: ID of one or more security groups that you want to use to control access to this VPC.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.bool] target_name_server_metrics_enabled: Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -664,108 +443,65 @@ class ResolverEndpoint(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Route 53 Resolver endpoint.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def direction(self) -> pulumi.Output[_builtins.str]:
-        """
-        Direction of DNS queries to or from the Route 53 Resolver endpoint.
-        Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
-        """
         return pulumi.get(self, "direction")
 
     @_builtins.property
     @pulumi.getter(name="hostVpcId")
     def host_vpc_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the VPC that you want to create the resolver endpoint in.
-        """
         return pulumi.get(self, "host_vpc_id")
 
     @_builtins.property
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> pulumi.Output[Sequence['outputs.ResolverEndpointIpAddress']]:
-        """
-        Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
-        to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
-        """
         return pulumi.get(self, "ip_addresses")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Friendly name of the Route 53 Resolver endpoint.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def protocols(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        Protocols you want to use for the Route 53 Resolver endpoint.
-        Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
-        """
         return pulumi.get(self, "protocols")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resolverEndpointType")
     def resolver_endpoint_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Endpoint IP type. This endpoint type is applied to all IP addresses.
-        Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
-        """
         return pulumi.get(self, "resolver_endpoint_type")
 
     @_builtins.property
     @pulumi.getter(name="rniEnhancedMetricsEnabled")
     def rni_enhanced_metrics_enabled(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
-        """
         return pulumi.get(self, "rni_enhanced_metrics_enabled")
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        ID of one or more security groups that you want to use to control access to this VPC.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="targetNameServerMetricsEnabled")
     def target_name_server_metrics_enabled(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
-        """
         return pulumi.get(self, "target_name_server_metrics_enabled")
 

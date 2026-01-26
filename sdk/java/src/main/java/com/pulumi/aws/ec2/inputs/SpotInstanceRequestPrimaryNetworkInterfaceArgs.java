@@ -16,32 +16,16 @@ public final class SpotInstanceRequestPrimaryNetworkInterfaceArgs extends com.pu
 
     public static final SpotInstanceRequestPrimaryNetworkInterfaceArgs Empty = new SpotInstanceRequestPrimaryNetworkInterfaceArgs();
 
-    /**
-     * Whether the network interface will be deleted when the instance terminates.
-     * 
-     */
     @Import(name="deleteOnTermination")
     private @Nullable Output<Boolean> deleteOnTermination;
 
-    /**
-     * @return Whether the network interface will be deleted when the instance terminates.
-     * 
-     */
     public Optional<Output<Boolean>> deleteOnTermination() {
         return Optional.ofNullable(this.deleteOnTermination);
     }
 
-    /**
-     * ID of the network interface to attach.
-     * 
-     */
     @Import(name="networkInterfaceId")
     private @Nullable Output<String> networkInterfaceId;
 
-    /**
-     * @return ID of the network interface to attach.
-     * 
-     */
     public Optional<Output<String>> networkInterfaceId() {
         return Optional.ofNullable(this.networkInterfaceId);
     }
@@ -71,44 +55,20 @@ public final class SpotInstanceRequestPrimaryNetworkInterfaceArgs extends com.pu
             $ = new SpotInstanceRequestPrimaryNetworkInterfaceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param deleteOnTermination Whether the network interface will be deleted when the instance terminates.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deleteOnTermination(@Nullable Output<Boolean> deleteOnTermination) {
             $.deleteOnTermination = deleteOnTermination;
             return this;
         }
 
-        /**
-         * @param deleteOnTermination Whether the network interface will be deleted when the instance terminates.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deleteOnTermination(Boolean deleteOnTermination) {
             return deleteOnTermination(Output.of(deleteOnTermination));
         }
 
-        /**
-         * @param networkInterfaceId ID of the network interface to attach.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInterfaceId(@Nullable Output<String> networkInterfaceId) {
             $.networkInterfaceId = networkInterfaceId;
             return this;
         }
 
-        /**
-         * @param networkInterfaceId ID of the network interface to attach.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInterfaceId(String networkInterfaceId) {
             return networkInterfaceId(Output.of(networkInterfaceId));
         }

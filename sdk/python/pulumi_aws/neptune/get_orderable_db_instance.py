@@ -100,9 +100,6 @@ class GetOrderableDbInstanceResult:
     @_builtins.property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Sequence[_builtins.str]:
-        """
-        Availability zones where the instance is available.
-        """
         return pulumi.get(self, "availability_zones")
 
     @_builtins.property
@@ -136,57 +133,36 @@ class GetOrderableDbInstanceResult:
     @_builtins.property
     @pulumi.getter(name="maxIopsPerDbInstance")
     def max_iops_per_db_instance(self) -> _builtins.int:
-        """
-        Maximum total provisioned IOPS for a DB instance.
-        """
         return pulumi.get(self, "max_iops_per_db_instance")
 
     @_builtins.property
     @pulumi.getter(name="maxIopsPerGib")
     def max_iops_per_gib(self) -> _builtins.float:
-        """
-        Maximum provisioned IOPS per GiB for a DB instance.
-        """
         return pulumi.get(self, "max_iops_per_gib")
 
     @_builtins.property
     @pulumi.getter(name="maxStorageSize")
     def max_storage_size(self) -> _builtins.int:
-        """
-        Maximum storage size for a DB instance.
-        """
         return pulumi.get(self, "max_storage_size")
 
     @_builtins.property
     @pulumi.getter(name="minIopsPerDbInstance")
     def min_iops_per_db_instance(self) -> _builtins.int:
-        """
-        Minimum total provisioned IOPS for a DB instance.
-        """
         return pulumi.get(self, "min_iops_per_db_instance")
 
     @_builtins.property
     @pulumi.getter(name="minIopsPerGib")
     def min_iops_per_gib(self) -> _builtins.float:
-        """
-        Minimum provisioned IOPS per GiB for a DB instance.
-        """
         return pulumi.get(self, "min_iops_per_gib")
 
     @_builtins.property
     @pulumi.getter(name="minStorageSize")
     def min_storage_size(self) -> _builtins.int:
-        """
-        Minimum storage size for a DB instance.
-        """
         return pulumi.get(self, "min_storage_size")
 
     @_builtins.property
     @pulumi.getter(name="multiAzCapable")
     def multi_az_capable(self) -> _builtins.bool:
-        """
-        Whether a DB instance is Multi-AZ capable.
-        """
         return pulumi.get(self, "multi_az_capable")
 
     @_builtins.property
@@ -197,9 +173,6 @@ class GetOrderableDbInstanceResult:
     @_builtins.property
     @pulumi.getter(name="readReplicaCapable")
     def read_replica_capable(self) -> _builtins.bool:
-        """
-        Whether a DB instance can have a read replica.
-        """
         return pulumi.get(self, "read_replica_capable")
 
     @_builtins.property
@@ -210,49 +183,31 @@ class GetOrderableDbInstanceResult:
     @_builtins.property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> _builtins.str:
-        """
-        Storage type for a DB instance.
-        """
         return pulumi.get(self, "storage_type")
 
     @_builtins.property
     @pulumi.getter(name="supportsEnhancedMonitoring")
     def supports_enhanced_monitoring(self) -> _builtins.bool:
-        """
-        Whether a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
-        """
         return pulumi.get(self, "supports_enhanced_monitoring")
 
     @_builtins.property
     @pulumi.getter(name="supportsIamDatabaseAuthentication")
     def supports_iam_database_authentication(self) -> _builtins.bool:
-        """
-        Whether a DB instance supports IAM database authentication.
-        """
         return pulumi.get(self, "supports_iam_database_authentication")
 
     @_builtins.property
     @pulumi.getter(name="supportsIops")
     def supports_iops(self) -> _builtins.bool:
-        """
-        Whether a DB instance supports provisioned IOPS.
-        """
         return pulumi.get(self, "supports_iops")
 
     @_builtins.property
     @pulumi.getter(name="supportsPerformanceInsights")
     def supports_performance_insights(self) -> _builtins.bool:
-        """
-        Whether a DB instance supports Performance Insights.
-        """
         return pulumi.get(self, "supports_performance_insights")
 
     @_builtins.property
     @pulumi.getter(name="supportsStorageEncryption")
     def supports_storage_encryption(self) -> _builtins.bool:
-        """
-        Whether a DB instance supports encrypted storage.
-        """
         return pulumi.get(self, "supports_storage_encryption")
 
     @_builtins.property
@@ -301,30 +256,7 @@ def get_orderable_db_instance(engine: Optional[_builtins.str] = None,
                               vpc: Optional[_builtins.bool] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrderableDbInstanceResult:
     """
-    Information about Neptune orderable DB instances.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.neptune.get_orderable_db_instance(engine_version="1.0.3.0",
-        preferred_instance_classes=[
-            "db.r5.large",
-            "db.r4.large",
-            "db.t3.medium",
-        ])
-    ```
-
-
-    :param _builtins.str engine: DB engine. (Default: `neptune`)
-    :param _builtins.str engine_version: Version of the DB engine. For example, `1.0.1.0`, `1.0.1.2`, `1.0.2.2`, and `1.0.3.0`.
-    :param _builtins.str instance_class: DB instance class. Examples of classes are `db.r5.large`, `db.r5.xlarge`, `db.r4.large`, `db.r5.4xlarge`, `db.r5.12xlarge`, `db.r4.xlarge`, and `db.t3.medium`.
-    :param _builtins.str license_model: License model. (Default: `amazon-license`)
-    :param Sequence[_builtins.str] preferred_instance_classes: Ordered list of preferred Neptune DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.bool vpc: Enable to show only VPC offerings.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['engine'] = engine
@@ -370,30 +302,7 @@ def get_orderable_db_instance_output(engine: Optional[pulumi.Input[Optional[_bui
                                      vpc: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrderableDbInstanceResult]:
     """
-    Information about Neptune orderable DB instances.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.neptune.get_orderable_db_instance(engine_version="1.0.3.0",
-        preferred_instance_classes=[
-            "db.r5.large",
-            "db.r4.large",
-            "db.t3.medium",
-        ])
-    ```
-
-
-    :param _builtins.str engine: DB engine. (Default: `neptune`)
-    :param _builtins.str engine_version: Version of the DB engine. For example, `1.0.1.0`, `1.0.1.2`, `1.0.2.2`, and `1.0.3.0`.
-    :param _builtins.str instance_class: DB instance class. Examples of classes are `db.r5.large`, `db.r5.xlarge`, `db.r4.large`, `db.r5.4xlarge`, `db.r5.12xlarge`, `db.r4.xlarge`, and `db.t3.medium`.
-    :param _builtins.str license_model: License model. (Default: `amazon-license`)
-    :param Sequence[_builtins.str] preferred_instance_classes: Ordered list of preferred Neptune DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.bool vpc: Enable to show only VPC offerings.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['engine'] = engine

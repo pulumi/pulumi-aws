@@ -11,81 +11,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
 {
     public static class GetRouteTablePropagations
     {
-        /// <summary>
-        /// Provides information for multiple EC2 Transit Gateway Route Table Propagations, such as their identifiers.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### By Transit Gateway Identifier
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2TransitGateway.GetRouteTablePropagations.Invoke(new()
-        ///     {
-        ///         TransitGatewayRouteTableId = exampleAwsEc2TransitGatewayRouteTable.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetRouteTablePropagationsResult> InvokeAsync(GetRouteTablePropagationsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteTablePropagationsResult>("aws:ec2transitgateway/getRouteTablePropagations:getRouteTablePropagations", args ?? new GetRouteTablePropagationsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides information for multiple EC2 Transit Gateway Route Table Propagations, such as their identifiers.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### By Transit Gateway Identifier
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2TransitGateway.GetRouteTablePropagations.Invoke(new()
-        ///     {
-        ///         TransitGatewayRouteTableId = exampleAwsEc2TransitGatewayRouteTable.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetRouteTablePropagationsResult> Invoke(GetRouteTablePropagationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteTablePropagationsResult>("aws:ec2transitgateway/getRouteTablePropagations:getRouteTablePropagations", args ?? new GetRouteTablePropagationsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides information for multiple EC2 Transit Gateway Route Table Propagations, such as their identifiers.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### By Transit Gateway Identifier
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2TransitGateway.GetRouteTablePropagations.Invoke(new()
-        ///     {
-        ///         TransitGatewayRouteTableId = exampleAwsEc2TransitGatewayRouteTable.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetRouteTablePropagationsResult> Invoke(GetRouteTablePropagationsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteTablePropagationsResult>("aws:ec2transitgateway/getRouteTablePropagations:getRouteTablePropagations", args ?? new GetRouteTablePropagationsInvokeArgs(), options.WithDefaults());
     }
@@ -95,28 +26,15 @@ namespace Pulumi.Aws.Ec2TransitGateway
     {
         [Input("filters")]
         private List<Inputs.GetRouteTablePropagationsFilterArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// 
-        /// More complex filters can be expressed using one or more `Filter` sub-blocks,
-        /// which take the following arguments:
-        /// </summary>
         public List<Inputs.GetRouteTablePropagationsFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetRouteTablePropagationsFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// Identifier of EC2 Transit Gateway Route Table.
-        /// </summary>
         [Input("transitGatewayRouteTableId", required: true)]
         public string TransitGatewayRouteTableId { get; set; } = null!;
 
@@ -130,28 +48,15 @@ namespace Pulumi.Aws.Ec2TransitGateway
     {
         [Input("filters")]
         private InputList<Inputs.GetRouteTablePropagationsFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// 
-        /// More complex filters can be expressed using one or more `Filter` sub-blocks,
-        /// which take the following arguments:
-        /// </summary>
         public InputList<Inputs.GetRouteTablePropagationsFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetRouteTablePropagationsFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Identifier of EC2 Transit Gateway Route Table.
-        /// </summary>
         [Input("transitGatewayRouteTableId", required: true)]
         public Input<string> TransitGatewayRouteTableId { get; set; } = null!;
 
@@ -170,9 +75,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Set of Transit Gateway Route Table Association identifiers.
-        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string Region;
         public readonly string TransitGatewayRouteTableId;

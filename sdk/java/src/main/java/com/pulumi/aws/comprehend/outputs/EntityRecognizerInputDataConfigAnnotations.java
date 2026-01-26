@@ -12,18 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EntityRecognizerInputDataConfigAnnotations {
-    /**
-     * @return Location of training annotations.
-     * 
-     */
     private String s3Uri;
     private @Nullable String testS3Uri;
 
     private EntityRecognizerInputDataConfigAnnotations() {}
-    /**
-     * @return Location of training annotations.
-     * 
-     */
     public String s3Uri() {
         return this.s3Uri;
     }

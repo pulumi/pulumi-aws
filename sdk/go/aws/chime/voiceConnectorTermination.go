@@ -12,74 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Enable Termination settings to control outbound calling from your SIP infrastructure.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chime"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_default, err := chime.NewVoiceConnector(ctx, "default", &chime.VoiceConnectorArgs{
-//				Name:              pulumi.String("vc-name-test"),
-//				RequireEncryption: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = chime.NewVoiceConnectorTermination(ctx, "default", &chime.VoiceConnectorTerminationArgs{
-//				Disabled: pulumi.Bool(false),
-//				CpsLimit: pulumi.Int(1),
-//				CidrAllowLists: pulumi.StringArray{
-//					pulumi.String("50.35.78.96/31"),
-//				},
-//				CallingRegions: pulumi.StringArray{
-//					pulumi.String("US"),
-//					pulumi.String("CA"),
-//				},
-//				VoiceConnectorId: _default.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Chime Voice Connector Termination using the `voice_connector_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:chime/voiceConnectorTermination:VoiceConnectorTermination default abcdef1ghij2klmno3pqr4
-// ```
 type VoiceConnectorTermination struct {
 	pulumi.CustomResourceState
 
-	// The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
-	CallingRegions pulumi.StringArrayOutput `pulumi:"callingRegions"`
-	// The IP addresses allowed to make calls, in CIDR format.
-	CidrAllowLists pulumi.StringArrayOutput `pulumi:"cidrAllowLists"`
-	// The limit on calls per second. Max value based on account service quota. Default value of `1`.
-	CpsLimit pulumi.IntPtrOutput `pulumi:"cpsLimit"`
-	// The default caller ID phone number.
-	DefaultPhoneNumber pulumi.StringPtrOutput `pulumi:"defaultPhoneNumber"`
-	// When termination settings are disabled, outbound calls can not be made.
-	Disabled pulumi.BoolPtrOutput `pulumi:"disabled"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Chime Voice Connector ID.
-	VoiceConnectorId pulumi.StringOutput `pulumi:"voiceConnectorId"`
+	CallingRegions     pulumi.StringArrayOutput `pulumi:"callingRegions"`
+	CidrAllowLists     pulumi.StringArrayOutput `pulumi:"cidrAllowLists"`
+	CpsLimit           pulumi.IntPtrOutput      `pulumi:"cpsLimit"`
+	DefaultPhoneNumber pulumi.StringPtrOutput   `pulumi:"defaultPhoneNumber"`
+	Disabled           pulumi.BoolPtrOutput     `pulumi:"disabled"`
+	Region             pulumi.StringOutput      `pulumi:"region"`
+	VoiceConnectorId   pulumi.StringOutput      `pulumi:"voiceConnectorId"`
 }
 
 // NewVoiceConnectorTermination registers a new resource with the given unique name, arguments, and options.
@@ -121,37 +63,23 @@ func GetVoiceConnectorTermination(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VoiceConnectorTermination resources.
 type voiceConnectorTerminationState struct {
-	// The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
-	CallingRegions []string `pulumi:"callingRegions"`
-	// The IP addresses allowed to make calls, in CIDR format.
-	CidrAllowLists []string `pulumi:"cidrAllowLists"`
-	// The limit on calls per second. Max value based on account service quota. Default value of `1`.
-	CpsLimit *int `pulumi:"cpsLimit"`
-	// The default caller ID phone number.
-	DefaultPhoneNumber *string `pulumi:"defaultPhoneNumber"`
-	// When termination settings are disabled, outbound calls can not be made.
-	Disabled *bool `pulumi:"disabled"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The Amazon Chime Voice Connector ID.
-	VoiceConnectorId *string `pulumi:"voiceConnectorId"`
+	CallingRegions     []string `pulumi:"callingRegions"`
+	CidrAllowLists     []string `pulumi:"cidrAllowLists"`
+	CpsLimit           *int     `pulumi:"cpsLimit"`
+	DefaultPhoneNumber *string  `pulumi:"defaultPhoneNumber"`
+	Disabled           *bool    `pulumi:"disabled"`
+	Region             *string  `pulumi:"region"`
+	VoiceConnectorId   *string  `pulumi:"voiceConnectorId"`
 }
 
 type VoiceConnectorTerminationState struct {
-	// The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
-	CallingRegions pulumi.StringArrayInput
-	// The IP addresses allowed to make calls, in CIDR format.
-	CidrAllowLists pulumi.StringArrayInput
-	// The limit on calls per second. Max value based on account service quota. Default value of `1`.
-	CpsLimit pulumi.IntPtrInput
-	// The default caller ID phone number.
+	CallingRegions     pulumi.StringArrayInput
+	CidrAllowLists     pulumi.StringArrayInput
+	CpsLimit           pulumi.IntPtrInput
 	DefaultPhoneNumber pulumi.StringPtrInput
-	// When termination settings are disabled, outbound calls can not be made.
-	Disabled pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The Amazon Chime Voice Connector ID.
-	VoiceConnectorId pulumi.StringPtrInput
+	Disabled           pulumi.BoolPtrInput
+	Region             pulumi.StringPtrInput
+	VoiceConnectorId   pulumi.StringPtrInput
 }
 
 func (VoiceConnectorTerminationState) ElementType() reflect.Type {
@@ -159,38 +87,24 @@ func (VoiceConnectorTerminationState) ElementType() reflect.Type {
 }
 
 type voiceConnectorTerminationArgs struct {
-	// The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
-	CallingRegions []string `pulumi:"callingRegions"`
-	// The IP addresses allowed to make calls, in CIDR format.
-	CidrAllowLists []string `pulumi:"cidrAllowLists"`
-	// The limit on calls per second. Max value based on account service quota. Default value of `1`.
-	CpsLimit *int `pulumi:"cpsLimit"`
-	// The default caller ID phone number.
-	DefaultPhoneNumber *string `pulumi:"defaultPhoneNumber"`
-	// When termination settings are disabled, outbound calls can not be made.
-	Disabled *bool `pulumi:"disabled"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The Amazon Chime Voice Connector ID.
-	VoiceConnectorId string `pulumi:"voiceConnectorId"`
+	CallingRegions     []string `pulumi:"callingRegions"`
+	CidrAllowLists     []string `pulumi:"cidrAllowLists"`
+	CpsLimit           *int     `pulumi:"cpsLimit"`
+	DefaultPhoneNumber *string  `pulumi:"defaultPhoneNumber"`
+	Disabled           *bool    `pulumi:"disabled"`
+	Region             *string  `pulumi:"region"`
+	VoiceConnectorId   string   `pulumi:"voiceConnectorId"`
 }
 
 // The set of arguments for constructing a VoiceConnectorTermination resource.
 type VoiceConnectorTerminationArgs struct {
-	// The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
-	CallingRegions pulumi.StringArrayInput
-	// The IP addresses allowed to make calls, in CIDR format.
-	CidrAllowLists pulumi.StringArrayInput
-	// The limit on calls per second. Max value based on account service quota. Default value of `1`.
-	CpsLimit pulumi.IntPtrInput
-	// The default caller ID phone number.
+	CallingRegions     pulumi.StringArrayInput
+	CidrAllowLists     pulumi.StringArrayInput
+	CpsLimit           pulumi.IntPtrInput
 	DefaultPhoneNumber pulumi.StringPtrInput
-	// When termination settings are disabled, outbound calls can not be made.
-	Disabled pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The Amazon Chime Voice Connector ID.
-	VoiceConnectorId pulumi.StringInput
+	Disabled           pulumi.BoolPtrInput
+	Region             pulumi.StringPtrInput
+	VoiceConnectorId   pulumi.StringInput
 }
 
 func (VoiceConnectorTerminationArgs) ElementType() reflect.Type {
@@ -280,37 +194,30 @@ func (o VoiceConnectorTerminationOutput) ToVoiceConnectorTerminationOutputWithCo
 	return o
 }
 
-// The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
 func (o VoiceConnectorTerminationOutput) CallingRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VoiceConnectorTermination) pulumi.StringArrayOutput { return v.CallingRegions }).(pulumi.StringArrayOutput)
 }
 
-// The IP addresses allowed to make calls, in CIDR format.
 func (o VoiceConnectorTerminationOutput) CidrAllowLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VoiceConnectorTermination) pulumi.StringArrayOutput { return v.CidrAllowLists }).(pulumi.StringArrayOutput)
 }
 
-// The limit on calls per second. Max value based on account service quota. Default value of `1`.
 func (o VoiceConnectorTerminationOutput) CpsLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VoiceConnectorTermination) pulumi.IntPtrOutput { return v.CpsLimit }).(pulumi.IntPtrOutput)
 }
 
-// The default caller ID phone number.
 func (o VoiceConnectorTerminationOutput) DefaultPhoneNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VoiceConnectorTermination) pulumi.StringPtrOutput { return v.DefaultPhoneNumber }).(pulumi.StringPtrOutput)
 }
 
-// When termination settings are disabled, outbound calls can not be made.
 func (o VoiceConnectorTerminationOutput) Disabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VoiceConnectorTermination) pulumi.BoolPtrOutput { return v.Disabled }).(pulumi.BoolPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VoiceConnectorTerminationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VoiceConnectorTermination) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Chime Voice Connector ID.
 func (o VoiceConnectorTerminationOutput) VoiceConnectorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VoiceConnectorTermination) pulumi.StringOutput { return v.VoiceConnectorId }).(pulumi.StringOutput)
 }

@@ -13,29 +13,11 @@ namespace Pulumi.Aws.Rds.Outputs
     [OutputType]
     public sealed class OptionGroupOption
     {
-        /// <summary>
-        /// List of DB Security Groups for which the option is enabled.
-        /// </summary>
         public readonly ImmutableArray<string> DbSecurityGroupMemberships;
-        /// <summary>
-        /// Name of the option (e.g., MEMCACHED).
-        /// </summary>
         public readonly string OptionName;
-        /// <summary>
-        /// The option settings to apply. See `OptionSettings` Block below for more details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.OptionGroupOptionOptionSetting> OptionSettings;
-        /// <summary>
-        /// Port number when connecting to the option (e.g., 11211). Leaving out or removing `Port` from your configuration does not remove or clear a port from the option in AWS. AWS may assign a default port. Not including `Port` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any port changes.
-        /// </summary>
         public readonly int? Port;
-        /// <summary>
-        /// Version of the option (e.g., 13.1.0.0). Leaving out or removing `Version` from your configuration does not remove or clear a version from the option in AWS. AWS may assign a default version. Not including `Version` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any version changes.
-        /// </summary>
         public readonly string? Version;
-        /// <summary>
-        /// List of VPC Security Groups for which the option is enabled.
-        /// </summary>
         public readonly ImmutableArray<string> VpcSecurityGroupMemberships;
 
         [OutputConstructor]

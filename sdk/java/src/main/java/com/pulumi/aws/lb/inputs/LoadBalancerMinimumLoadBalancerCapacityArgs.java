@@ -14,17 +14,9 @@ public final class LoadBalancerMinimumLoadBalancerCapacityArgs extends com.pulum
 
     public static final LoadBalancerMinimumLoadBalancerCapacityArgs Empty = new LoadBalancerMinimumLoadBalancerCapacityArgs();
 
-    /**
-     * The number of capacity units.
-     * 
-     */
     @Import(name="capacityUnits", required=true)
     private Output<Integer> capacityUnits;
 
-    /**
-     * @return The number of capacity units.
-     * 
-     */
     public Output<Integer> capacityUnits() {
         return this.capacityUnits;
     }
@@ -53,23 +45,11 @@ public final class LoadBalancerMinimumLoadBalancerCapacityArgs extends com.pulum
             $ = new LoadBalancerMinimumLoadBalancerCapacityArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param capacityUnits The number of capacity units.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityUnits(Output<Integer> capacityUnits) {
             $.capacityUnits = capacityUnits;
             return this;
         }
 
-        /**
-         * @param capacityUnits The number of capacity units.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityUnits(Integer capacityUnits) {
             return capacityUnits(Output.of(capacityUnits));
         }

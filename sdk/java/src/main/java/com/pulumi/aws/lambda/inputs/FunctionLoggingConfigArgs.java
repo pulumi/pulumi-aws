@@ -16,62 +16,30 @@ public final class FunctionLoggingConfigArgs extends com.pulumi.resources.Resour
 
     public static final FunctionLoggingConfigArgs Empty = new FunctionLoggingConfigArgs();
 
-    /**
-     * Detail level of application logs. Valid values: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`.
-     * 
-     */
     @Import(name="applicationLogLevel")
     private @Nullable Output<String> applicationLogLevel;
 
-    /**
-     * @return Detail level of application logs. Valid values: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`.
-     * 
-     */
     public Optional<Output<String>> applicationLogLevel() {
         return Optional.ofNullable(this.applicationLogLevel);
     }
 
-    /**
-     * Log format. Valid values: `Text`, `JSON`.
-     * 
-     */
     @Import(name="logFormat", required=true)
     private Output<String> logFormat;
 
-    /**
-     * @return Log format. Valid values: `Text`, `JSON`.
-     * 
-     */
     public Output<String> logFormat() {
         return this.logFormat;
     }
 
-    /**
-     * CloudWatch log group where logs are sent.
-     * 
-     */
     @Import(name="logGroup")
     private @Nullable Output<String> logGroup;
 
-    /**
-     * @return CloudWatch log group where logs are sent.
-     * 
-     */
     public Optional<Output<String>> logGroup() {
         return Optional.ofNullable(this.logGroup);
     }
 
-    /**
-     * Detail level of Lambda platform logs. Valid values: `DEBUG`, `INFO`, `WARN`.
-     * 
-     */
     @Import(name="systemLogLevel")
     private @Nullable Output<String> systemLogLevel;
 
-    /**
-     * @return Detail level of Lambda platform logs. Valid values: `DEBUG`, `INFO`, `WARN`.
-     * 
-     */
     public Optional<Output<String>> systemLogLevel() {
         return Optional.ofNullable(this.systemLogLevel);
     }
@@ -103,86 +71,38 @@ public final class FunctionLoggingConfigArgs extends com.pulumi.resources.Resour
             $ = new FunctionLoggingConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applicationLogLevel Detail level of application logs. Valid values: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationLogLevel(@Nullable Output<String> applicationLogLevel) {
             $.applicationLogLevel = applicationLogLevel;
             return this;
         }
 
-        /**
-         * @param applicationLogLevel Detail level of application logs. Valid values: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationLogLevel(String applicationLogLevel) {
             return applicationLogLevel(Output.of(applicationLogLevel));
         }
 
-        /**
-         * @param logFormat Log format. Valid values: `Text`, `JSON`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logFormat(Output<String> logFormat) {
             $.logFormat = logFormat;
             return this;
         }
 
-        /**
-         * @param logFormat Log format. Valid values: `Text`, `JSON`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logFormat(String logFormat) {
             return logFormat(Output.of(logFormat));
         }
 
-        /**
-         * @param logGroup CloudWatch log group where logs are sent.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroup(@Nullable Output<String> logGroup) {
             $.logGroup = logGroup;
             return this;
         }
 
-        /**
-         * @param logGroup CloudWatch log group where logs are sent.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroup(String logGroup) {
             return logGroup(Output.of(logGroup));
         }
 
-        /**
-         * @param systemLogLevel Detail level of Lambda platform logs. Valid values: `DEBUG`, `INFO`, `WARN`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder systemLogLevel(@Nullable Output<String> systemLogLevel) {
             $.systemLogLevel = systemLogLevel;
             return this;
         }
 
-        /**
-         * @param systemLogLevel Detail level of Lambda platform logs. Valid values: `DEBUG`, `INFO`, `WARN`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder systemLogLevel(String systemLogLevel) {
             return systemLogLevel(Output.of(systemLogLevel));
         }

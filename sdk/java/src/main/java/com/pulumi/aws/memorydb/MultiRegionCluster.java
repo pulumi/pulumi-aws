@@ -18,211 +18,65 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a MemoryDB Multi Region Cluster.
- * 
- * More information about MemoryDB can be found in the [Developer Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/what-is-memorydb-for-redis.html).
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.memorydb.MultiRegionCluster;
- * import com.pulumi.aws.memorydb.MultiRegionClusterArgs;
- * import com.pulumi.aws.memorydb.Cluster;
- * import com.pulumi.aws.memorydb.ClusterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new MultiRegionCluster("example", MultiRegionClusterArgs.builder()
- *             .multiRegionClusterNameSuffix("example")
- *             .nodeType("db.r7g.xlarge")
- *             .build());
- * 
- *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
- *             .aclName(exampleAwsMemorydbAcl.id())
- *             .autoMinorVersionUpgrade(false)
- *             .name("example")
- *             .nodeType("db.t4g.small")
- *             .numShards(2)
- *             .securityGroupIds(exampleAwsSecurityGroup.id())
- *             .snapshotRetentionLimit(7)
- *             .subnetGroupName(exampleAwsMemorydbSubnetGroup.id())
- *             .multiRegionClusterName(example.multiRegionClusterName())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import a cluster using the `multi_region_cluster_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:memorydb/multiRegionCluster:MultiRegionCluster example virxk-example
- * ```
- * 
- */
 @ResourceType(type="aws:memorydb/multiRegionCluster:MultiRegionCluster")
 public class MultiRegionCluster extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the multi-region cluster.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the multi-region cluster.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * description for the multi-region cluster.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return description for the multi-region cluster.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
-     * 
-     */
     @Export(name="engine", refs={String.class}, tree="[0]")
     private Output<String> engine;
 
-    /**
-     * @return The name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
-     * 
-     */
     public Output<String> engine() {
         return this.engine;
     }
-    /**
-     * The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
-     * 
-     */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
-    /**
-     * @return The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
-     * 
-     */
     public Output<String> engineVersion() {
         return this.engineVersion;
     }
-    /**
-     * The name of the multi-region cluster.
-     * 
-     */
     @Export(name="multiRegionClusterName", refs={String.class}, tree="[0]")
     private Output<String> multiRegionClusterName;
 
-    /**
-     * @return The name of the multi-region cluster.
-     * 
-     */
     public Output<String> multiRegionClusterName() {
         return this.multiRegionClusterName;
     }
-    /**
-     * A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
-     * 
-     */
     @Export(name="multiRegionClusterNameSuffix", refs={String.class}, tree="[0]")
     private Output<String> multiRegionClusterNameSuffix;
 
-    /**
-     * @return A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
-     * 
-     */
     public Output<String> multiRegionClusterNameSuffix() {
         return this.multiRegionClusterNameSuffix;
     }
-    /**
-     * The name of the multi-region parameter group to be associated with the cluster.
-     * 
-     */
     @Export(name="multiRegionParameterGroupName", refs={String.class}, tree="[0]")
     private Output<String> multiRegionParameterGroupName;
 
-    /**
-     * @return The name of the multi-region parameter group to be associated with the cluster.
-     * 
-     */
     public Output<String> multiRegionParameterGroupName() {
         return this.multiRegionParameterGroupName;
     }
-    /**
-     * The node type to be used for the multi-region cluster.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="nodeType", refs={String.class}, tree="[0]")
     private Output<String> nodeType;
 
-    /**
-     * @return The node type to be used for the multi-region cluster.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> nodeType() {
         return this.nodeType;
     }
-    /**
-     * The number of shards for the multi-region cluster.
-     * 
-     */
     @Export(name="numShards", refs={Integer.class}, tree="[0]")
     private Output<Integer> numShards;
 
-    /**
-     * @return The number of shards for the multi-region cluster.
-     * 
-     */
     public Output<Integer> numShards() {
         return this.numShards;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
@@ -232,31 +86,15 @@ public class MultiRegionCluster extends com.pulumi.resources.CustomResource {
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
@@ -266,17 +104,9 @@ public class MultiRegionCluster extends com.pulumi.resources.CustomResource {
     public Output<Optional<MultiRegionClusterTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * A flag to enable in-transit encryption on the cluster.
-     * 
-     */
     @Export(name="tlsEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> tlsEnabled;
 
-    /**
-     * @return A flag to enable in-transit encryption on the cluster.
-     * 
-     */
     public Output<Boolean> tlsEnabled() {
         return this.tlsEnabled;
     }

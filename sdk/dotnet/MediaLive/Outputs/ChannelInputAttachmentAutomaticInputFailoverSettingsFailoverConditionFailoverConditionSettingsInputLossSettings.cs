@@ -13,9 +13,6 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings
     {
-        /// <summary>
-        /// The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
-        /// </summary>
         public readonly int? InputLossThresholdMsec;
 
         [OutputConstructor]

@@ -16,233 +16,29 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS DevOps Guru Resource Collection.
- * 
- * &gt; Only one type of resource collection (All Account Resources, CloudFormation, or Tags) can be enabled in an account at a time. To avoid persistent differences, this resource should be defined only once.
- * 
- * ## Example Usage
- * 
- * ### All Account Resources
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.devopsguru.ResourceCollection;
- * import com.pulumi.aws.devopsguru.ResourceCollectionArgs;
- * import com.pulumi.aws.devopsguru.inputs.ResourceCollectionCloudformationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceCollection("example", ResourceCollectionArgs.builder()
- *             .type("AWS_SERVICE")
- *             .cloudformation(ResourceCollectionCloudformationArgs.builder()
- *                 .stackNames("*")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### CloudFormation Stacks
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.devopsguru.ResourceCollection;
- * import com.pulumi.aws.devopsguru.ResourceCollectionArgs;
- * import com.pulumi.aws.devopsguru.inputs.ResourceCollectionCloudformationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceCollection("example", ResourceCollectionArgs.builder()
- *             .type("AWS_CLOUD_FORMATION")
- *             .cloudformation(ResourceCollectionCloudformationArgs.builder()
- *                 .stackNames("ExampleStack")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Tags
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.devopsguru.ResourceCollection;
- * import com.pulumi.aws.devopsguru.ResourceCollectionArgs;
- * import com.pulumi.aws.devopsguru.inputs.ResourceCollectionTagsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceCollection("example", ResourceCollectionArgs.builder()
- *             .type("AWS_TAGS")
- *             .tags(ResourceCollectionTagsArgs.builder()
- *                 .appBoundaryKey("DevOps-Guru-Example")
- *                 .tagValues("Example-Value")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Tags All Resources
- * 
- * To analyze all resources with the `appBoundaryKey` regardless of the corresponding tag value, set `tagValues` to `[&#34;*&#34;]`.
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.devopsguru.ResourceCollection;
- * import com.pulumi.aws.devopsguru.ResourceCollectionArgs;
- * import com.pulumi.aws.devopsguru.inputs.ResourceCollectionTagsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceCollection("example", ResourceCollectionArgs.builder()
- *             .type("AWS_TAGS")
- *             .tags(ResourceCollectionTagsArgs.builder()
- *                 .appBoundaryKey("DevOps-Guru-Example")
- *                 .tagValues("*")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import DevOps Guru Resource Collection using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:devopsguru/resourceCollection:ResourceCollection example AWS_CLOUD_FORMATION
- * ```
- * 
- */
 @ResourceType(type="aws:devopsguru/resourceCollection:ResourceCollection")
 public class ResourceCollection extends com.pulumi.resources.CustomResource {
-    /**
-     * A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
-     * 
-     */
     @Export(name="cloudformation", refs={ResourceCollectionCloudformation.class}, tree="[0]")
     private Output</* @Nullable */ ResourceCollectionCloudformation> cloudformation;
 
-    /**
-     * @return A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
-     * 
-     */
     public Output<Optional<ResourceCollectionCloudformation>> cloudformation() {
         return Codegen.optional(this.cloudformation);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
-     * 
-     */
     @Export(name="tags", refs={ResourceCollectionTags.class}, tree="[0]")
     private Output</* @Nullable */ ResourceCollectionTags> tags;
 
-    /**
-     * @return AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
-     * 
-     */
     public Output<Optional<ResourceCollectionTags>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
-    /**
-     * @return Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }

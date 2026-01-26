@@ -11,132 +11,12 @@ namespace Pulumi.Aws.Ebs
 {
     public static class GetEbsVolumes
     {
-        /// <summary>
-        /// `aws.ebs.getEbsVolumes` provides identifying information for EBS volumes matching given criteria.
-        /// 
-        /// This data source can be useful for getting a list of volume IDs with (for example) matching tags.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following demonstrates obtaining a map of availability zone to EBS volume ID for volumes with a given tag value.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ebs.GetEbsVolumes.Invoke(new()
-        ///     {
-        ///         Tags = 
-        ///         {
-        ///             { "VolumeSet", "TestVolumeSet" },
-        ///         },
-        ///     });
-        /// 
-        ///     var exampleGetVolume = ;
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["availabilityZoneToVolumeId"] = exampleGetVolume.Apply(exampleGetVolume =&gt; (exampleGetVolume).Values.ToDictionary(item =&gt; {
-        ///             var s = item.Value;
-        ///             return s.Id;
-        ///         }, item =&gt; {
-        ///             var s = item.Value;
-        ///             return s.AvailabilityZone;
-        ///         })),
-        ///     };
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetEbsVolumesResult> InvokeAsync(GetEbsVolumesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEbsVolumesResult>("aws:ebs/getEbsVolumes:getEbsVolumes", args ?? new GetEbsVolumesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// `aws.ebs.getEbsVolumes` provides identifying information for EBS volumes matching given criteria.
-        /// 
-        /// This data source can be useful for getting a list of volume IDs with (for example) matching tags.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following demonstrates obtaining a map of availability zone to EBS volume ID for volumes with a given tag value.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ebs.GetEbsVolumes.Invoke(new()
-        ///     {
-        ///         Tags = 
-        ///         {
-        ///             { "VolumeSet", "TestVolumeSet" },
-        ///         },
-        ///     });
-        /// 
-        ///     var exampleGetVolume = ;
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["availabilityZoneToVolumeId"] = exampleGetVolume.Apply(exampleGetVolume =&gt; (exampleGetVolume).Values.ToDictionary(item =&gt; {
-        ///             var s = item.Value;
-        ///             return s.Id;
-        ///         }, item =&gt; {
-        ///             var s = item.Value;
-        ///             return s.AvailabilityZone;
-        ///         })),
-        ///     };
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetEbsVolumesResult> Invoke(GetEbsVolumesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEbsVolumesResult>("aws:ebs/getEbsVolumes:getEbsVolumes", args ?? new GetEbsVolumesInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// `aws.ebs.getEbsVolumes` provides identifying information for EBS volumes matching given criteria.
-        /// 
-        /// This data source can be useful for getting a list of volume IDs with (for example) matching tags.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following demonstrates obtaining a map of availability zone to EBS volume ID for volumes with a given tag value.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ebs.GetEbsVolumes.Invoke(new()
-        ///     {
-        ///         Tags = 
-        ///         {
-        ///             { "VolumeSet", "TestVolumeSet" },
-        ///         },
-        ///     });
-        /// 
-        ///     var exampleGetVolume = ;
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["availabilityZoneToVolumeId"] = exampleGetVolume.Apply(exampleGetVolume =&gt; (exampleGetVolume).Values.ToDictionary(item =&gt; {
-        ///             var s = item.Value;
-        ///             return s.Id;
-        ///         }, item =&gt; {
-        ///             var s = item.Value;
-        ///             return s.AvailabilityZone;
-        ///         })),
-        ///     };
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetEbsVolumesResult> Invoke(GetEbsVolumesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEbsVolumesResult>("aws:ebs/getEbsVolumes:getEbsVolumes", args ?? new GetEbsVolumesInvokeArgs(), options.WithDefaults());
     }
@@ -146,32 +26,17 @@ namespace Pulumi.Aws.Ebs
     {
         [Input("filters")]
         private List<Inputs.GetEbsVolumesFilterArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// </summary>
         public List<Inputs.GetEbsVolumesFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetEbsVolumesFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired volumes.
-        /// 
-        /// More complex filters can be expressed using one or more `Filter` sub-blocks,
-        /// which take the following arguments:
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -188,32 +53,17 @@ namespace Pulumi.Aws.Ebs
     {
         [Input("filters")]
         private InputList<Inputs.GetEbsVolumesFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// </summary>
         public InputList<Inputs.GetEbsVolumesFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetEbsVolumesFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired volumes.
-        /// 
-        /// More complex filters can be expressed using one or more `Filter` sub-blocks,
-        /// which take the following arguments:
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -235,10 +85,6 @@ namespace Pulumi.Aws.Ebs
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Set of all the EBS Volume IDs found. This data source will fail if
-        /// no volumes match the provided criteria.
-        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string Region;
         public readonly ImmutableDictionary<string, string>? Tags;

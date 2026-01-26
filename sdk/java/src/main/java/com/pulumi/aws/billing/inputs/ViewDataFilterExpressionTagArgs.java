@@ -15,32 +15,16 @@ public final class ViewDataFilterExpressionTagArgs extends com.pulumi.resources.
 
     public static final ViewDataFilterExpressionTagArgs Empty = new ViewDataFilterExpressionTagArgs();
 
-    /**
-     * Key of the tag.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return Key of the tag.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * List of values for the tag.
-     * 
-     */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
-    /**
-     * @return List of values for the tag.
-     * 
-     */
     public Output<List<String>> values() {
         return this.values;
     }
@@ -70,54 +54,24 @@ public final class ViewDataFilterExpressionTagArgs extends com.pulumi.resources.
             $ = new ViewDataFilterExpressionTagArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key Key of the tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key Key of the tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param values List of values for the tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values List of values for the tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
-        /**
-         * @param values List of values for the tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

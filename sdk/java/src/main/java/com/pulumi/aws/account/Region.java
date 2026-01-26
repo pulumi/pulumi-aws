@@ -15,107 +15,29 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Enable (Opt-In) or Disable (Opt-Out) a particular Region for an AWS account.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.account.Region;
- * import com.pulumi.aws.account.RegionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Region("example", RegionArgs.builder()
- *             .regionName("ap-southeast-3")
- *             .enabled(true)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`. For example:
- * 
- * ```sh
- * $ pulumi import aws:account/region:Region example ap-southeast-3
- * ```
- * 
- */
 @ResourceType(type="aws:account/region:Region")
 public class Region extends com.pulumi.resources.CustomResource {
-    /**
-     * The ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted. To use this parameter, the caller must be an identity in the organization&#39;s management account or a delegated administrator account. The specified account ID must also be a member account in the same organization. The organization must have all features enabled, and the organization must have trusted access enabled for the Account Management service, and optionally a delegated admin account assigned.
-     * 
-     */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accountId;
 
-    /**
-     * @return The ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted. To use this parameter, the caller must be an identity in the organization&#39;s management account or a delegated administrator account. The specified account ID must also be a member account in the same organization. The organization must have all features enabled, and the organization must have trusted access enabled for the Account Management service, and optionally a delegated admin account assigned.
-     * 
-     */
     public Output<Optional<String>> accountId() {
         return Codegen.optional(this.accountId);
     }
-    /**
-     * Whether the region is enabled.
-     * 
-     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
-    /**
-     * @return Whether the region is enabled.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
-    /**
-     * The region opt status.
-     * 
-     */
     @Export(name="optStatus", refs={String.class}, tree="[0]")
     private Output<String> optStatus;
 
-    /**
-     * @return The region opt status.
-     * 
-     */
     public Output<String> optStatus() {
         return this.optStatus;
     }
-    /**
-     * The region name to manage.
-     * 
-     */
     @Export(name="regionName", refs={String.class}, tree="[0]")
     private Output<String> regionName;
 
-    /**
-     * @return The region name to manage.
-     * 
-     */
     public Output<String> regionName() {
         return this.regionName;
     }

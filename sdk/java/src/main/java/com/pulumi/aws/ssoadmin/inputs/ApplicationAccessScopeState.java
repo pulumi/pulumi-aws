@@ -16,66 +16,30 @@ public final class ApplicationAccessScopeState extends com.pulumi.resources.Reso
 
     public static final ApplicationAccessScopeState Empty = new ApplicationAccessScopeState();
 
-    /**
-     * Specifies the ARN of the application with the access scope with the targets to add or update.
-     * 
-     */
     @Import(name="applicationArn")
     private @Nullable Output<String> applicationArn;
 
-    /**
-     * @return Specifies the ARN of the application with the access scope with the targets to add or update.
-     * 
-     */
     public Optional<Output<String>> applicationArn() {
         return Optional.ofNullable(this.applicationArn);
     }
 
-    /**
-     * Specifies an array list of ARNs that represent the authorized targets for this access scope.
-     * 
-     */
     @Import(name="authorizedTargets")
     private @Nullable Output<List<String>> authorizedTargets;
 
-    /**
-     * @return Specifies an array list of ARNs that represent the authorized targets for this access scope.
-     * 
-     */
     public Optional<Output<List<String>>> authorizedTargets() {
         return Optional.ofNullable(this.authorizedTargets);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Specifies the name of the access scope to be associated with the specified targets.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="scope")
     private @Nullable Output<String> scope;
 
-    /**
-     * @return Specifies the name of the access scope to be associated with the specified targets.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> scope() {
         return Optional.ofNullable(this.scope);
     }
@@ -107,100 +71,42 @@ public final class ApplicationAccessScopeState extends com.pulumi.resources.Reso
             $ = new ApplicationAccessScopeState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applicationArn Specifies the ARN of the application with the access scope with the targets to add or update.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationArn(@Nullable Output<String> applicationArn) {
             $.applicationArn = applicationArn;
             return this;
         }
 
-        /**
-         * @param applicationArn Specifies the ARN of the application with the access scope with the targets to add or update.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationArn(String applicationArn) {
             return applicationArn(Output.of(applicationArn));
         }
 
-        /**
-         * @param authorizedTargets Specifies an array list of ARNs that represent the authorized targets for this access scope.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizedTargets(@Nullable Output<List<String>> authorizedTargets) {
             $.authorizedTargets = authorizedTargets;
             return this;
         }
 
-        /**
-         * @param authorizedTargets Specifies an array list of ARNs that represent the authorized targets for this access scope.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizedTargets(List<String> authorizedTargets) {
             return authorizedTargets(Output.of(authorizedTargets));
         }
 
-        /**
-         * @param authorizedTargets Specifies an array list of ARNs that represent the authorized targets for this access scope.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizedTargets(String... authorizedTargets) {
             return authorizedTargets(List.of(authorizedTargets));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param scope Specifies the name of the access scope to be associated with the specified targets.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder scope(@Nullable Output<String> scope) {
             $.scope = scope;
             return this;
         }
 
-        /**
-         * @param scope Specifies the name of the access scope to be associated with the specified targets.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder scope(String scope) {
             return scope(Output.of(scope));
         }

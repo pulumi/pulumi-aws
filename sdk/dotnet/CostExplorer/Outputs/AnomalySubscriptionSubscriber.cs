@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CostExplorer.Outputs
     [OutputType]
     public sealed class AnomalySubscriptionSubscriber
     {
-        /// <summary>
-        /// The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
-        /// </summary>
         public readonly string Address;
-        /// <summary>
-        /// The type of subscription. Valid Values: `SNS` | `EMAIL`.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

@@ -11,278 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS WorkSpaces Web Session Logger.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspacesweb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
-//				Bucket: pulumi.String("example-session-logs"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("Service"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("workspaces-web.amazonaws.com"),
-//								},
-//							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:PutObject"),
-//						},
-//						Resources: pulumi.StringArray{
-//							exampleBucket.Arn.ApplyT(func(arn string) (string, error) {
-//								return fmt.Sprintf("%v/*", arn), nil
-//							}).(pulumi.StringOutput),
-//						},
-//					},
-//				},
-//			}, nil)
-//			exampleBucketPolicy, err := s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
-//				Bucket: exampleBucket.ID(),
-//				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-//					return &example.Json, nil
-//				}).(pulumi.StringPtrOutput)),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = workspacesweb.NewSessionLogger(ctx, "example", &workspacesweb.SessionLoggerArgs{
-//				DisplayName: pulumi.String("example-session-logger"),
-//				EventFilter: &workspacesweb.SessionLoggerEventFilterArgs{
-//					All: &workspacesweb.SessionLoggerEventFilterAllArgs{},
-//				},
-//				LogConfiguration: &workspacesweb.SessionLoggerLogConfigurationArgs{
-//					S3: &workspacesweb.SessionLoggerLogConfigurationS3Args{
-//						Bucket:          exampleBucket.ID(),
-//						FolderStructure: pulumi.String("Flat"),
-//						LogFileFormat:   pulumi.String("Json"),
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleBucketPolicy,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Complete Configuration with KMS Encryption
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspacesweb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
-//				Bucket:       pulumi.String("example-session-logs"),
-//				ForceDestroy: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("Service"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("workspaces-web.amazonaws.com"),
-//								},
-//							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:PutObject"),
-//						},
-//						Resources: pulumi.StringArray{
-//							exampleBucket.Arn,
-//							exampleBucket.Arn.ApplyT(func(arn string) (string, error) {
-//								return fmt.Sprintf("%v/*", arn), nil
-//							}).(pulumi.StringOutput),
-//						},
-//					},
-//				},
-//			}, nil)
-//			exampleBucketPolicy, err := s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
-//				Bucket: exampleBucket.ID(),
-//				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-//					return &example.Json, nil
-//				}).(pulumi.StringPtrOutput)),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			current, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentGetCallerIdentity, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			kmsKeyPolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "AWS",
-//								Identifiers: []string{
-//									fmt.Sprintf("arn:%v:iam::%v:root", current.Partition, currentGetCallerIdentity.AccountId),
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"kms:*",
-//						},
-//						Resources: []string{
-//							"*",
-//						},
-//					},
-//					{
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"workspaces-web.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"kms:Encrypt",
-//							"kms:GenerateDataKey*",
-//							"kms:ReEncrypt*",
-//							"kms:Decrypt",
-//						},
-//						Resources: []string{
-//							"*",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleKey, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
-//				Description: pulumi.String("KMS key for WorkSpaces Web Session Logger"),
-//				Policy:      pulumi.String(kmsKeyPolicy.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = workspacesweb.NewSessionLogger(ctx, "example", &workspacesweb.SessionLoggerArgs{
-//				DisplayName:        pulumi.String("example-session-logger"),
-//				CustomerManagedKey: exampleKey.Arn,
-//				AdditionalEncryptionContext: pulumi.StringMap{
-//					"Environment": pulumi.String("Production"),
-//					"Application": pulumi.String("WorkSpacesWeb"),
-//				},
-//				EventFilter: &workspacesweb.SessionLoggerEventFilterArgs{
-//					Includes: pulumi.StringArray{
-//						pulumi.String("SessionStart"),
-//						pulumi.String("SessionEnd"),
-//					},
-//				},
-//				LogConfiguration: &workspacesweb.SessionLoggerLogConfigurationArgs{
-//					S3: &workspacesweb.SessionLoggerLogConfigurationS3Args{
-//						Bucket:          exampleBucket.ID(),
-//						BucketOwner:     pulumi.String(currentGetCallerIdentity.AccountId),
-//						FolderStructure: pulumi.String("NestedByDate"),
-//						KeyPrefix:       pulumi.String("workspaces-web-logs/"),
-//						LogFileFormat:   pulumi.String("JsonLines"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name":        pulumi.String("example-session-logger"),
-//					"Environment": pulumi.String("Production"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleBucketPolicy,
-//				exampleKey,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import WorkSpaces Web Session Logger using the `session_logger_arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:workspacesweb/sessionLogger:SessionLogger example arn:aws:workspaces-web:us-west-2:123456789012:sessionLogger/session_logger-id-12345678
-// ```
 type SessionLogger struct {
 	pulumi.CustomResourceState
 
-	// Map of additional encryption context key-value pairs.
-	AdditionalEncryptionContext pulumi.StringMapOutput `pulumi:"additionalEncryptionContext"`
-	// List of ARNs of the web portals associated with the session logger.
-	AssociatedPortalArns pulumi.StringArrayOutput `pulumi:"associatedPortalArns"`
-	// ARN of the customer managed KMS key used to encrypt sensitive information.
-	CustomerManagedKey pulumi.StringPtrOutput `pulumi:"customerManagedKey"`
-	// Human-readable display name for the session logger resource. Forces replacement if changed.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// Event filter that determines which events are logged. See Event Filter below.
-	EventFilter SessionLoggerEventFilterPtrOutput `pulumi:"eventFilter"`
-	// Configuration block for specifying where logs are delivered. See Log Configuration below.
-	//
-	// The following arguments are optional:
-	LogConfiguration SessionLoggerLogConfigurationPtrOutput `pulumi:"logConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ARN of the session logger.
-	SessionLoggerArn pulumi.StringOutput `pulumi:"sessionLoggerArn"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	AdditionalEncryptionContext pulumi.StringMapOutput                 `pulumi:"additionalEncryptionContext"`
+	AssociatedPortalArns        pulumi.StringArrayOutput               `pulumi:"associatedPortalArns"`
+	CustomerManagedKey          pulumi.StringPtrOutput                 `pulumi:"customerManagedKey"`
+	DisplayName                 pulumi.StringPtrOutput                 `pulumi:"displayName"`
+	EventFilter                 SessionLoggerEventFilterPtrOutput      `pulumi:"eventFilter"`
+	LogConfiguration            SessionLoggerLogConfigurationPtrOutput `pulumi:"logConfiguration"`
+	Region                      pulumi.StringOutput                    `pulumi:"region"`
+	SessionLoggerArn            pulumi.StringOutput                    `pulumi:"sessionLoggerArn"`
+	Tags                        pulumi.StringMapOutput                 `pulumi:"tags"`
+	TagsAll                     pulumi.StringMapOutput                 `pulumi:"tagsAll"`
 }
 
 // NewSessionLogger registers a new resource with the given unique name, arguments, and options.
@@ -315,53 +56,29 @@ func GetSessionLogger(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SessionLogger resources.
 type sessionLoggerState struct {
-	// Map of additional encryption context key-value pairs.
-	AdditionalEncryptionContext map[string]string `pulumi:"additionalEncryptionContext"`
-	// List of ARNs of the web portals associated with the session logger.
-	AssociatedPortalArns []string `pulumi:"associatedPortalArns"`
-	// ARN of the customer managed KMS key used to encrypt sensitive information.
-	CustomerManagedKey *string `pulumi:"customerManagedKey"`
-	// Human-readable display name for the session logger resource. Forces replacement if changed.
-	DisplayName *string `pulumi:"displayName"`
-	// Event filter that determines which events are logged. See Event Filter below.
-	EventFilter *SessionLoggerEventFilter `pulumi:"eventFilter"`
-	// Configuration block for specifying where logs are delivered. See Log Configuration below.
-	//
-	// The following arguments are optional:
-	LogConfiguration *SessionLoggerLogConfiguration `pulumi:"logConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the session logger.
-	SessionLoggerArn *string `pulumi:"sessionLoggerArn"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	AdditionalEncryptionContext map[string]string              `pulumi:"additionalEncryptionContext"`
+	AssociatedPortalArns        []string                       `pulumi:"associatedPortalArns"`
+	CustomerManagedKey          *string                        `pulumi:"customerManagedKey"`
+	DisplayName                 *string                        `pulumi:"displayName"`
+	EventFilter                 *SessionLoggerEventFilter      `pulumi:"eventFilter"`
+	LogConfiguration            *SessionLoggerLogConfiguration `pulumi:"logConfiguration"`
+	Region                      *string                        `pulumi:"region"`
+	SessionLoggerArn            *string                        `pulumi:"sessionLoggerArn"`
+	Tags                        map[string]string              `pulumi:"tags"`
+	TagsAll                     map[string]string              `pulumi:"tagsAll"`
 }
 
 type SessionLoggerState struct {
-	// Map of additional encryption context key-value pairs.
 	AdditionalEncryptionContext pulumi.StringMapInput
-	// List of ARNs of the web portals associated with the session logger.
-	AssociatedPortalArns pulumi.StringArrayInput
-	// ARN of the customer managed KMS key used to encrypt sensitive information.
-	CustomerManagedKey pulumi.StringPtrInput
-	// Human-readable display name for the session logger resource. Forces replacement if changed.
-	DisplayName pulumi.StringPtrInput
-	// Event filter that determines which events are logged. See Event Filter below.
-	EventFilter SessionLoggerEventFilterPtrInput
-	// Configuration block for specifying where logs are delivered. See Log Configuration below.
-	//
-	// The following arguments are optional:
-	LogConfiguration SessionLoggerLogConfigurationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN of the session logger.
-	SessionLoggerArn pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	AssociatedPortalArns        pulumi.StringArrayInput
+	CustomerManagedKey          pulumi.StringPtrInput
+	DisplayName                 pulumi.StringPtrInput
+	EventFilter                 SessionLoggerEventFilterPtrInput
+	LogConfiguration            SessionLoggerLogConfigurationPtrInput
+	Region                      pulumi.StringPtrInput
+	SessionLoggerArn            pulumi.StringPtrInput
+	Tags                        pulumi.StringMapInput
+	TagsAll                     pulumi.StringMapInput
 }
 
 func (SessionLoggerState) ElementType() reflect.Type {
@@ -369,42 +86,24 @@ func (SessionLoggerState) ElementType() reflect.Type {
 }
 
 type sessionLoggerArgs struct {
-	// Map of additional encryption context key-value pairs.
-	AdditionalEncryptionContext map[string]string `pulumi:"additionalEncryptionContext"`
-	// ARN of the customer managed KMS key used to encrypt sensitive information.
-	CustomerManagedKey *string `pulumi:"customerManagedKey"`
-	// Human-readable display name for the session logger resource. Forces replacement if changed.
-	DisplayName *string `pulumi:"displayName"`
-	// Event filter that determines which events are logged. See Event Filter below.
-	EventFilter *SessionLoggerEventFilter `pulumi:"eventFilter"`
-	// Configuration block for specifying where logs are delivered. See Log Configuration below.
-	//
-	// The following arguments are optional:
-	LogConfiguration *SessionLoggerLogConfiguration `pulumi:"logConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	AdditionalEncryptionContext map[string]string              `pulumi:"additionalEncryptionContext"`
+	CustomerManagedKey          *string                        `pulumi:"customerManagedKey"`
+	DisplayName                 *string                        `pulumi:"displayName"`
+	EventFilter                 *SessionLoggerEventFilter      `pulumi:"eventFilter"`
+	LogConfiguration            *SessionLoggerLogConfiguration `pulumi:"logConfiguration"`
+	Region                      *string                        `pulumi:"region"`
+	Tags                        map[string]string              `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SessionLogger resource.
 type SessionLoggerArgs struct {
-	// Map of additional encryption context key-value pairs.
 	AdditionalEncryptionContext pulumi.StringMapInput
-	// ARN of the customer managed KMS key used to encrypt sensitive information.
-	CustomerManagedKey pulumi.StringPtrInput
-	// Human-readable display name for the session logger resource. Forces replacement if changed.
-	DisplayName pulumi.StringPtrInput
-	// Event filter that determines which events are logged. See Event Filter below.
-	EventFilter SessionLoggerEventFilterPtrInput
-	// Configuration block for specifying where logs are delivered. See Log Configuration below.
-	//
-	// The following arguments are optional:
-	LogConfiguration SessionLoggerLogConfigurationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	CustomerManagedKey          pulumi.StringPtrInput
+	DisplayName                 pulumi.StringPtrInput
+	EventFilter                 SessionLoggerEventFilterPtrInput
+	LogConfiguration            SessionLoggerLogConfigurationPtrInput
+	Region                      pulumi.StringPtrInput
+	Tags                        pulumi.StringMapInput
 }
 
 func (SessionLoggerArgs) ElementType() reflect.Type {
@@ -494,54 +193,42 @@ func (o SessionLoggerOutput) ToSessionLoggerOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Map of additional encryption context key-value pairs.
 func (o SessionLoggerOutput) AdditionalEncryptionContext() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SessionLogger) pulumi.StringMapOutput { return v.AdditionalEncryptionContext }).(pulumi.StringMapOutput)
 }
 
-// List of ARNs of the web portals associated with the session logger.
 func (o SessionLoggerOutput) AssociatedPortalArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SessionLogger) pulumi.StringArrayOutput { return v.AssociatedPortalArns }).(pulumi.StringArrayOutput)
 }
 
-// ARN of the customer managed KMS key used to encrypt sensitive information.
 func (o SessionLoggerOutput) CustomerManagedKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SessionLogger) pulumi.StringPtrOutput { return v.CustomerManagedKey }).(pulumi.StringPtrOutput)
 }
 
-// Human-readable display name for the session logger resource. Forces replacement if changed.
 func (o SessionLoggerOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SessionLogger) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// Event filter that determines which events are logged. See Event Filter below.
 func (o SessionLoggerOutput) EventFilter() SessionLoggerEventFilterPtrOutput {
 	return o.ApplyT(func(v *SessionLogger) SessionLoggerEventFilterPtrOutput { return v.EventFilter }).(SessionLoggerEventFilterPtrOutput)
 }
 
-// Configuration block for specifying where logs are delivered. See Log Configuration below.
-//
-// The following arguments are optional:
 func (o SessionLoggerOutput) LogConfiguration() SessionLoggerLogConfigurationPtrOutput {
 	return o.ApplyT(func(v *SessionLogger) SessionLoggerLogConfigurationPtrOutput { return v.LogConfiguration }).(SessionLoggerLogConfigurationPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SessionLoggerOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SessionLogger) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ARN of the session logger.
 func (o SessionLoggerOutput) SessionLoggerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SessionLogger) pulumi.StringOutput { return v.SessionLoggerArn }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o SessionLoggerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SessionLogger) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SessionLoggerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SessionLogger) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

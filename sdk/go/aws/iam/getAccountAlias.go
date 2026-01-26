@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The IAM Account Alias data source allows access to the account alias
-// for the effective account in which this provider is working.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := iam.LookupAccountAlias(ctx, map[string]interface{}{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("accountAlias", current.AccountAlias)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupAccountAlias(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupAccountAliasResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAccountAliasResult
@@ -50,7 +23,6 @@ func LookupAccountAlias(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*Look
 
 // A collection of values returned by getAccountAlias.
 type LookupAccountAliasResult struct {
-	// Alias associated with the AWS account.
 	AccountAlias string `pulumi:"accountAlias"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -78,7 +50,6 @@ func (o LookupAccountAliasResultOutput) ToLookupAccountAliasResultOutputWithCont
 	return o
 }
 
-// Alias associated with the AWS account.
 func (o LookupAccountAliasResultOutput) AccountAlias() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountAliasResult) string { return v.AccountAlias }).(pulumi.StringOutput)
 }

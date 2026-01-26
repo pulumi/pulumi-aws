@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceNetworkConfiguration {
-    /**
-     * @return Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
-     * 
-     */
     private @Nullable ServiceNetworkConfigurationEgressConfiguration egressConfiguration;
-    /**
-     * @return Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
-     * 
-     */
     private @Nullable ServiceNetworkConfigurationIngressConfiguration ingressConfiguration;
-    /**
-     * @return App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
-     * 
-     */
     private @Nullable String ipAddressType;
 
     private ServiceNetworkConfiguration() {}
-    /**
-     * @return Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
-     * 
-     */
     public Optional<ServiceNetworkConfigurationEgressConfiguration> egressConfiguration() {
         return Optional.ofNullable(this.egressConfiguration);
     }
-    /**
-     * @return Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
-     * 
-     */
     public Optional<ServiceNetworkConfigurationIngressConfiguration> ingressConfiguration() {
         return Optional.ofNullable(this.ingressConfiguration);
     }
-    /**
-     * @return App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
-     * 
-     */
     public Optional<String> ipAddressType() {
         return Optional.ofNullable(this.ipAddressType);
     }

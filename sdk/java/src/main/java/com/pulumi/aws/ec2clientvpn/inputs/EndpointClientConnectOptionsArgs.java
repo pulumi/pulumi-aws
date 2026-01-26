@@ -16,32 +16,16 @@ public final class EndpointClientConnectOptionsArgs extends com.pulumi.resources
 
     public static final EndpointClientConnectOptionsArgs Empty = new EndpointClientConnectOptionsArgs();
 
-    /**
-     * Indicates whether client connect options are enabled. The default is `false` (not enabled).
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Indicates whether client connect options are enabled. The default is `false` (not enabled).
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
-     * 
-     */
     @Import(name="lambdaFunctionArn")
     private @Nullable Output<String> lambdaFunctionArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
-     * 
-     */
     public Optional<Output<String>> lambdaFunctionArn() {
         return Optional.ofNullable(this.lambdaFunctionArn);
     }
@@ -71,44 +55,20 @@ public final class EndpointClientConnectOptionsArgs extends com.pulumi.resources
             $ = new EndpointClientConnectOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Indicates whether client connect options are enabled. The default is `false` (not enabled).
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Indicates whether client connect options are enabled. The default is `false` (not enabled).
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param lambdaFunctionArn The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaFunctionArn(@Nullable Output<String> lambdaFunctionArn) {
             $.lambdaFunctionArn = lambdaFunctionArn;
             return this;
         }
 
-        /**
-         * @param lambdaFunctionArn The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaFunctionArn(String lambdaFunctionArn) {
             return lambdaFunctionArn(Output.of(lambdaFunctionArn));
         }

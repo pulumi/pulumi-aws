@@ -17,47 +17,23 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationArgs ext
 
     public static final AgentcoreGatewayTargetCredentialProviderConfigurationArgs Empty = new AgentcoreGatewayTargetCredentialProviderConfigurationArgs();
 
-    /**
-     * API key-based authentication configuration. See `apiKey` below.
-     * 
-     */
     @Import(name="apiKey")
     private @Nullable Output<AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs> apiKey;
 
-    /**
-     * @return API key-based authentication configuration. See `apiKey` below.
-     * 
-     */
     public Optional<Output<AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs>> apiKey() {
         return Optional.ofNullable(this.apiKey);
     }
 
-    /**
-     * Use the gateway&#39;s IAM role for authentication. This is an empty configuration block.
-     * 
-     */
     @Import(name="gatewayIamRole")
     private @Nullable Output<AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs> gatewayIamRole;
 
-    /**
-     * @return Use the gateway&#39;s IAM role for authentication. This is an empty configuration block.
-     * 
-     */
     public Optional<Output<AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs>> gatewayIamRole() {
         return Optional.ofNullable(this.gatewayIamRole);
     }
 
-    /**
-     * OAuth-based authentication configuration. See `oauth` below.
-     * 
-     */
     @Import(name="oauth")
     private @Nullable Output<AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs> oauth;
 
-    /**
-     * @return OAuth-based authentication configuration. See `oauth` below.
-     * 
-     */
     public Optional<Output<AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs>> oauth() {
         return Optional.ofNullable(this.oauth);
     }
@@ -88,65 +64,29 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationArgs ext
             $ = new AgentcoreGatewayTargetCredentialProviderConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param apiKey API key-based authentication configuration. See `apiKey` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiKey(@Nullable Output<AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs> apiKey) {
             $.apiKey = apiKey;
             return this;
         }
 
-        /**
-         * @param apiKey API key-based authentication configuration. See `apiKey` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiKey(AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs apiKey) {
             return apiKey(Output.of(apiKey));
         }
 
-        /**
-         * @param gatewayIamRole Use the gateway&#39;s IAM role for authentication. This is an empty configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gatewayIamRole(@Nullable Output<AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs> gatewayIamRole) {
             $.gatewayIamRole = gatewayIamRole;
             return this;
         }
 
-        /**
-         * @param gatewayIamRole Use the gateway&#39;s IAM role for authentication. This is an empty configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gatewayIamRole(AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs gatewayIamRole) {
             return gatewayIamRole(Output.of(gatewayIamRole));
         }
 
-        /**
-         * @param oauth OAuth-based authentication configuration. See `oauth` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oauth(@Nullable Output<AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs> oauth) {
             $.oauth = oauth;
             return this;
         }
 
-        /**
-         * @param oauth OAuth-based authentication configuration. See `oauth` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oauth(AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs oauth) {
             return oauth(Output.of(oauth));
         }

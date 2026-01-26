@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an Traffic mirror filter.\
- * Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
- *
- * ## Example Usage
- *
- * To create a basic traffic mirror filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = new aws.ec2.TrafficMirrorFilter("foo", {
- *     description: "traffic mirror filter - example",
- *     networkServices: ["amazon-dns"],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import traffic mirror filter using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:ec2/trafficMirrorFilter:TrafficMirrorFilter foo tmf-0fbb93ddf38198f64
- * ```
- */
 export class TrafficMirrorFilter extends pulumi.CustomResource {
     /**
      * Get an existing TrafficMirrorFilter resource's state with the given name, ID, and optional extra
@@ -58,29 +32,11 @@ export class TrafficMirrorFilter extends pulumi.CustomResource {
         return obj['__pulumiType'] === TrafficMirrorFilter.__pulumiType;
     }
 
-    /**
-     * The ARN of the traffic mirror filter.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * A description of the filter.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
-     */
     declare public readonly networkServices: pulumi.Output<string[] | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -120,29 +76,11 @@ export class TrafficMirrorFilter extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TrafficMirrorFilter resources.
  */
 export interface TrafficMirrorFilterState {
-    /**
-     * The ARN of the traffic mirror filter.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * A description of the filter.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
-     */
     networkServices?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -150,20 +88,8 @@ export interface TrafficMirrorFilterState {
  * The set of arguments for constructing a TrafficMirrorFilter resource.
  */
 export interface TrafficMirrorFilterArgs {
-    /**
-     * A description of the filter.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
-     */
     networkServices?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

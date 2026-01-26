@@ -12,106 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage a single Amazon GuardDuty [detector feature](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-features-activation-model.html#guardduty-features).
-//
-// > **NOTE:** Deleting this resource does not disable the detector feature, the resource in simply removed from state instead.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/guardduty"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := guardduty.NewDetector(ctx, "example", &guardduty.DetectorArgs{
-//				Enable: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = guardduty.NewDetectorFeature(ctx, "s3_protection", &guardduty.DetectorFeatureArgs{
-//				DetectorId: example.ID(),
-//				Name:       pulumi.String("S3_DATA_EVENTS"),
-//				Status:     pulumi.String("ENABLED"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Extended Threat Detection for EKS
-//
-// To enable GuardDuty [Extended Threat Detection](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html) for EKS, you need at least one of these features enabled: [EKS Protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html) or [Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring-configuration.html). For maximum detection coverage, enabling both is recommended to enhance detection capabilities.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/guardduty"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := guardduty.NewDetector(ctx, "example", &guardduty.DetectorArgs{
-//				Enable: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = guardduty.NewDetectorFeature(ctx, "eks_protection", &guardduty.DetectorFeatureArgs{
-//				DetectorId: example.ID(),
-//				Name:       pulumi.String("EKS_AUDIT_LOGS"),
-//				Status:     pulumi.String("ENABLED"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = guardduty.NewDetectorFeature(ctx, "eks_runtime_monitoring", &guardduty.DetectorFeatureArgs{
-//				DetectorId: example.ID(),
-//				Name:       pulumi.String("EKS_RUNTIME_MONITORING"),
-//				Status:     pulumi.String("ENABLED"),
-//				AdditionalConfigurations: guardduty.DetectorFeatureAdditionalConfigurationArray{
-//					&guardduty.DetectorFeatureAdditionalConfigurationArgs{
-//						Name:   pulumi.String("EKS_ADDON_MANAGEMENT"),
-//						Status: pulumi.String("ENABLED"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type DetectorFeature struct {
 	pulumi.CustomResourceState
 
-	// Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
 	AdditionalConfigurations DetectorFeatureAdditionalConfigurationArrayOutput `pulumi:"additionalConfigurations"`
-	// Amazon GuardDuty detector ID.
-	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
-	// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
-	Status pulumi.StringOutput `pulumi:"status"`
+	DetectorId               pulumi.StringOutput                               `pulumi:"detectorId"`
+	Name                     pulumi.StringOutput                               `pulumi:"name"`
+	Region                   pulumi.StringOutput                               `pulumi:"region"`
+	Status                   pulumi.StringOutput                               `pulumi:"status"`
 }
 
 // NewDetectorFeature registers a new resource with the given unique name, arguments, and options.
@@ -150,29 +58,19 @@ func GetDetectorFeature(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DetectorFeature resources.
 type detectorFeatureState struct {
-	// Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
 	AdditionalConfigurations []DetectorFeatureAdditionalConfiguration `pulumi:"additionalConfigurations"`
-	// Amazon GuardDuty detector ID.
-	DetectorId *string `pulumi:"detectorId"`
-	// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
-	Status *string `pulumi:"status"`
+	DetectorId               *string                                  `pulumi:"detectorId"`
+	Name                     *string                                  `pulumi:"name"`
+	Region                   *string                                  `pulumi:"region"`
+	Status                   *string                                  `pulumi:"status"`
 }
 
 type DetectorFeatureState struct {
-	// Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
 	AdditionalConfigurations DetectorFeatureAdditionalConfigurationArrayInput
-	// Amazon GuardDuty detector ID.
-	DetectorId pulumi.StringPtrInput
-	// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
-	Status pulumi.StringPtrInput
+	DetectorId               pulumi.StringPtrInput
+	Name                     pulumi.StringPtrInput
+	Region                   pulumi.StringPtrInput
+	Status                   pulumi.StringPtrInput
 }
 
 func (DetectorFeatureState) ElementType() reflect.Type {
@@ -180,30 +78,20 @@ func (DetectorFeatureState) ElementType() reflect.Type {
 }
 
 type detectorFeatureArgs struct {
-	// Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
 	AdditionalConfigurations []DetectorFeatureAdditionalConfiguration `pulumi:"additionalConfigurations"`
-	// Amazon GuardDuty detector ID.
-	DetectorId string `pulumi:"detectorId"`
-	// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
-	Status string `pulumi:"status"`
+	DetectorId               string                                   `pulumi:"detectorId"`
+	Name                     *string                                  `pulumi:"name"`
+	Region                   *string                                  `pulumi:"region"`
+	Status                   string                                   `pulumi:"status"`
 }
 
 // The set of arguments for constructing a DetectorFeature resource.
 type DetectorFeatureArgs struct {
-	// Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
 	AdditionalConfigurations DetectorFeatureAdditionalConfigurationArrayInput
-	// Amazon GuardDuty detector ID.
-	DetectorId pulumi.StringInput
-	// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
-	Status pulumi.StringInput
+	DetectorId               pulumi.StringInput
+	Name                     pulumi.StringPtrInput
+	Region                   pulumi.StringPtrInput
+	Status                   pulumi.StringInput
 }
 
 func (DetectorFeatureArgs) ElementType() reflect.Type {
@@ -293,29 +181,24 @@ func (o DetectorFeatureOutput) ToDetectorFeatureOutputWithContext(ctx context.Co
 	return o
 }
 
-// Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
 func (o DetectorFeatureOutput) AdditionalConfigurations() DetectorFeatureAdditionalConfigurationArrayOutput {
 	return o.ApplyT(func(v *DetectorFeature) DetectorFeatureAdditionalConfigurationArrayOutput {
 		return v.AdditionalConfigurations
 	}).(DetectorFeatureAdditionalConfigurationArrayOutput)
 }
 
-// Amazon GuardDuty detector ID.
 func (o DetectorFeatureOutput) DetectorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DetectorFeature) pulumi.StringOutput { return v.DetectorId }).(pulumi.StringOutput)
 }
 
-// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
 func (o DetectorFeatureOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DetectorFeature) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DetectorFeatureOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DetectorFeature) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
 func (o DetectorFeatureOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *DetectorFeature) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

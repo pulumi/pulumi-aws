@@ -13,14 +13,7 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsSlotTypeCompositeSlotTypeSettingSubSlot
     {
-        /// <summary>
-        /// Name of a constituent sub slot inside a composite slot.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Unique identifier assigned to a slot type.
-        /// This refers to either a built-in slot type or the unique `SlotTypeId` of a custom slot type.
-        /// </summary>
         public readonly string SlotTypeId;
 
         [OutputConstructor]

@@ -12,54 +12,22 @@ import java.util.Objects;
 
 @CustomType
 public final class GetImagesImage {
-    /**
-     * @return Media type of the artifact.
-     * 
-     */
     private String artifactMediaType;
-    /**
-     * @return Digest of the image manifest.
-     * 
-     */
     private String imageDigest;
-    /**
-     * @return Media type of the image manifest.
-     * 
-     */
     private String imageManifestMediaType;
     private String imagePushedAt;
     private Integer imageSizeInBytes;
     private List<String> imageTags;
-    /**
-     * @return AWS account ID associated with the public registry that contains the repository. If not specified, the default public registry is assumed.
-     * 
-     */
     private String registryId;
-    /**
-     * @return Name of the public repository.
-     * 
-     */
     private String repositoryName;
 
     private GetImagesImage() {}
-    /**
-     * @return Media type of the artifact.
-     * 
-     */
     public String artifactMediaType() {
         return this.artifactMediaType;
     }
-    /**
-     * @return Digest of the image manifest.
-     * 
-     */
     public String imageDigest() {
         return this.imageDigest;
     }
-    /**
-     * @return Media type of the image manifest.
-     * 
-     */
     public String imageManifestMediaType() {
         return this.imageManifestMediaType;
     }
@@ -72,17 +40,9 @@ public final class GetImagesImage {
     public List<String> imageTags() {
         return this.imageTags;
     }
-    /**
-     * @return AWS account ID associated with the public registry that contains the repository. If not specified, the default public registry is assumed.
-     * 
-     */
     public String registryId() {
         return this.registryId;
     }
-    /**
-     * @return Name of the public repository.
-     * 
-     */
     public String repositoryName() {
         return this.repositoryName;
     }

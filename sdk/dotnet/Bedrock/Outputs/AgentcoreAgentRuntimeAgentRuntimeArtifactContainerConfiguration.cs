@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration
     {
-        /// <summary>
-        /// URI of the container image in Amazon ECR.
-        /// </summary>
         public readonly string ContainerUri;
 
         [OutputConstructor]

@@ -16,32 +16,16 @@ public final class GetTaskDefinitionArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetTaskDefinitionArgs Empty = new GetTaskDefinitionArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
-     * 
-     */
     @Import(name="taskDefinition", required=true)
     private Output<String> taskDefinition;
 
-    /**
-     * @return Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
-     * 
-     */
     public Output<String> taskDefinition() {
         return this.taskDefinition;
     }
@@ -71,44 +55,20 @@ public final class GetTaskDefinitionArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetTaskDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param taskDefinition Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder taskDefinition(Output<String> taskDefinition) {
             $.taskDefinition = taskDefinition;
             return this;
         }
 
-        /**
-         * @param taskDefinition Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder taskDefinition(String taskDefinition) {
             return taskDefinition(Output.of(taskDefinition));
         }

@@ -48,9 +48,6 @@ class GetAmiIdsResult:
     @_builtins.property
     @pulumi.getter
     def arns(self) -> Sequence[_builtins.str]:
-        """
-        List of the Autoscaling Groups Arns in the current region.
-        """
         return pulumi.get(self, "arns")
 
     @_builtins.property
@@ -69,9 +66,6 @@ class GetAmiIdsResult:
     @_builtins.property
     @pulumi.getter
     def names(self) -> Sequence[_builtins.str]:
-        """
-        List of the Autoscaling Groups in the current region.
-        """
         return pulumi.get(self, "names")
 
     @_builtins.property
@@ -98,40 +92,7 @@ def get_ami_ids(filters: Optional[Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiI
                 region: Optional[_builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAmiIdsResult:
     """
-    The Autoscaling Groups data source allows access to the list of AWS
-    ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    groups = aws.autoscaling.get_ami_ids(filters=[
-        {
-            "name": "tag:Team",
-            "values": ["Pets"],
-        },
-        {
-            "name": "tag-key",
-            "values": ["Environment"],
-        },
-    ])
-    slack_notifications = aws.autoscaling.Notification("slack_notifications",
-        group_names=groups.names,
-        notifications=[
-            aws.autoscaling.NotificationType.INSTANCE_LAUNCH,
-            aws.autoscaling.NotificationType.INSTANCE_TERMINATE,
-            aws.autoscaling.NotificationType.INSTANCE_LAUNCH_ERROR,
-            aws.autoscaling.NotificationType.INSTANCE_TERMINATE_ERROR,
-        ],
-        topic_arn="TOPIC ARN")
-    ```
-
-
-    :param Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiIdsFilterArgsDict']] filters: Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
-    :param Sequence[_builtins.str] names: List of autoscaling group names
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -151,40 +112,7 @@ def get_ami_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['G
                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAmiIdsResult]:
     """
-    The Autoscaling Groups data source allows access to the list of AWS
-    ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    groups = aws.autoscaling.get_ami_ids(filters=[
-        {
-            "name": "tag:Team",
-            "values": ["Pets"],
-        },
-        {
-            "name": "tag-key",
-            "values": ["Environment"],
-        },
-    ])
-    slack_notifications = aws.autoscaling.Notification("slack_notifications",
-        group_names=groups.names,
-        notifications=[
-            aws.autoscaling.NotificationType.INSTANCE_LAUNCH,
-            aws.autoscaling.NotificationType.INSTANCE_TERMINATE,
-            aws.autoscaling.NotificationType.INSTANCE_LAUNCH_ERROR,
-            aws.autoscaling.NotificationType.INSTANCE_TERMINATE_ERROR,
-        ],
-        topic_arn="TOPIC ARN")
-    ```
-
-
-    :param Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiIdsFilterArgsDict']] filters: Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
-    :param Sequence[_builtins.str] names: List of autoscaling group names
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

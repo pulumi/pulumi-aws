@@ -16,32 +16,16 @@ public final class SharedDirectoryAccepterArgs extends com.pulumi.resources.Reso
 
     public static final SharedDirectoryAccepterArgs Empty = new SharedDirectoryAccepterArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-     * 
-     */
     @Import(name="sharedDirectoryId", required=true)
     private Output<String> sharedDirectoryId;
 
-    /**
-     * @return Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-     * 
-     */
     public Output<String> sharedDirectoryId() {
         return this.sharedDirectoryId;
     }
@@ -71,44 +55,20 @@ public final class SharedDirectoryAccepterArgs extends com.pulumi.resources.Reso
             $ = new SharedDirectoryAccepterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param sharedDirectoryId Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sharedDirectoryId(Output<String> sharedDirectoryId) {
             $.sharedDirectoryId = sharedDirectoryId;
             return this;
         }
 
-        /**
-         * @param sharedDirectoryId Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sharedDirectoryId(String sharedDirectoryId) {
             return sharedDirectoryId(Output.of(sharedDirectoryId));
         }

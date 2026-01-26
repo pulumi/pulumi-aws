@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlock {
-    /**
-     * @return Custom response for blocked requests. See below.
-     * 
-     */
     private @Nullable WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponse customResponse;
 
     private WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlock() {}
-    /**
-     * @return Custom response for blocked requests. See below.
-     * 
-     */
     public Optional<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponse> customResponse() {
         return Optional.ofNullable(this.customResponse);
     }

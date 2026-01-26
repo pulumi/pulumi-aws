@@ -7,20 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Get information on an Amazon MSK Broker Nodes.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.msk.getBrokerNodes({
- *     clusterArn: exampleAwsMskCluster.arn,
- * });
- * ```
- */
 export function getBrokerNodes(args: GetBrokerNodesArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerNodesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:msk/getBrokerNodes:getBrokerNodes", {
@@ -33,13 +19,7 @@ export function getBrokerNodes(args: GetBrokerNodesArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getBrokerNodes.
  */
 export interface GetBrokerNodesArgs {
-    /**
-     * ARN of the cluster the nodes belong to.
-     */
     clusterArn: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -55,20 +35,6 @@ export interface GetBrokerNodesResult {
     readonly nodeInfoLists: outputs.msk.GetBrokerNodesNodeInfoList[];
     readonly region: string;
 }
-/**
- * Get information on an Amazon MSK Broker Nodes.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.msk.getBrokerNodes({
- *     clusterArn: exampleAwsMskCluster.arn,
- * });
- * ```
- */
 export function getBrokerNodesOutput(args: GetBrokerNodesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBrokerNodesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:msk/getBrokerNodes:getBrokerNodes", {
@@ -81,12 +47,6 @@ export function getBrokerNodesOutput(args: GetBrokerNodesOutputArgs, opts?: pulu
  * A collection of arguments for invoking getBrokerNodes.
  */
 export interface GetBrokerNodesOutputArgs {
-    /**
-     * ARN of the cluster the nodes belong to.
-     */
     clusterArn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

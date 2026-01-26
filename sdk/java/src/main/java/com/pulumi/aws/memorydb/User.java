@@ -16,182 +16,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a MemoryDB User.
- * 
- * More information about users and ACL-s can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/clusters.acls.html).
- * 
- * &gt; **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.random.Password;
- * import com.pulumi.random.PasswordArgs;
- * import com.pulumi.aws.memorydb.User;
- * import com.pulumi.aws.memorydb.UserArgs;
- * import com.pulumi.aws.memorydb.inputs.UserAuthenticationModeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App }{{@code
- *     public static void main(String[] args) }{{@code
- *         Pulumi.run(App::stack);
- *     }}{@code
- * 
- *     public static void stack(Context ctx) }{{@code
- *         var example = new Password("example", PasswordArgs.builder()
- *             .length(16)
- *             .build());
- * 
- *         var exampleUser = new User("exampleUser", UserArgs.builder()
- *             .userName("my-user")
- *             .accessString("on ~* &* +}{@literal @}{@code all")
- *             .authenticationMode(UserAuthenticationModeArgs.builder()
- *                 .type("password")
- *                 .passwords(example.result())
- *                 .build())
- *             .build());
- * 
- *     }}{@code
- * }}{@code
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import a user using the `user_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:memorydb/user:User example my-user
- * ```
- * The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
- * 
- */
 @ResourceType(type="aws:memorydb/user:User")
 public class User extends com.pulumi.resources.CustomResource {
-    /**
-     * Access permissions string used for this user.
-     * 
-     */
     @Export(name="accessString", refs={String.class}, tree="[0]")
     private Output<String> accessString;
 
-    /**
-     * @return Access permissions string used for this user.
-     * 
-     */
     public Output<String> accessString() {
         return this.accessString;
     }
-    /**
-     * ARN of the user.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the user.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Denotes the user&#39;s authentication properties. Detailed below.
-     * 
-     */
     @Export(name="authenticationMode", refs={UserAuthenticationMode.class}, tree="[0]")
     private Output<UserAuthenticationMode> authenticationMode;
 
-    /**
-     * @return Denotes the user&#39;s authentication properties. Detailed below.
-     * 
-     */
     public Output<UserAuthenticationMode> authenticationMode() {
         return this.authenticationMode;
     }
-    /**
-     * Minimum engine version supported for the user.
-     * 
-     */
     @Export(name="minimumEngineVersion", refs={String.class}, tree="[0]")
     private Output<String> minimumEngineVersion;
 
-    /**
-     * @return Minimum engine version supported for the user.
-     * 
-     */
     public Output<String> minimumEngineVersion() {
         return this.minimumEngineVersion;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Name of the MemoryDB user. Up to 40 characters.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
-    /**
-     * @return Name of the MemoryDB user. Up to 40 characters.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> userName() {
         return this.userName;
     }

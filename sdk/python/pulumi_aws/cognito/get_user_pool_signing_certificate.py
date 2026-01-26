@@ -43,9 +43,6 @@ class GetUserPoolSigningCertificateResult:
     @_builtins.property
     @pulumi.getter
     def certificate(self) -> _builtins.str:
-        """
-        Certificate string
-        """
         return pulumi.get(self, "certificate")
 
     @_builtins.property
@@ -83,20 +80,7 @@ def get_user_pool_signing_certificate(region: Optional[_builtins.str] = None,
                                       user_pool_id: Optional[_builtins.str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserPoolSigningCertificateResult:
     """
-    Use this data source to get the signing certificate for a Cognito IdP user pool.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    sc = aws.cognito.get_user_pool_signing_certificate(user_pool_id=my_pool["id"])
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str user_pool_id: Cognito user pool ID.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -113,20 +97,7 @@ def get_user_pool_signing_certificate_output(region: Optional[pulumi.Input[Optio
                                              user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolSigningCertificateResult]:
     """
-    Use this data source to get the signing certificate for a Cognito IdP user pool.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    sc = aws.cognito.get_user_pool_signing_certificate(user_pool_id=my_pool["id"])
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str user_pool_id: Cognito user pool ID.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

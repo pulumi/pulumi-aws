@@ -14,32 +14,16 @@ public final class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificat
 
     public static final V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationImageResponseCardButtonArgs Empty = new V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationImageResponseCardButtonArgs();
 
-    /**
-     * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
-     * 
-     */
     @Import(name="text", required=true)
     private Output<String> text;
 
-    /**
-     * @return Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
-     * 
-     */
     public Output<String> text() {
         return this.text;
     }
 
-    /**
-     * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -69,44 +53,20 @@ public final class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificat
             $ = new V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationImageResponseCardButtonArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param text Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
-         * 
-         * @return builder
-         * 
-         */
         public Builder text(Output<String> text) {
             $.text = text;
             return this;
         }
 
-        /**
-         * @param text Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
-         * 
-         * @return builder
-         * 
-         */
         public Builder text(String text) {
             return text(Output.of(text));
         }
 
-        /**
-         * @param value Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

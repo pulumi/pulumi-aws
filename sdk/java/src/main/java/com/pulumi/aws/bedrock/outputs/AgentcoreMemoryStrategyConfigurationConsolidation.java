@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentcoreMemoryStrategyConfigurationConsolidation {
-    /**
-     * @return Additional text to append to the model prompt for consolidation processing.
-     * 
-     */
     private String appendToPrompt;
-    /**
-     * @return ID of the foundation model to use for consolidation processing.
-     * 
-     */
     private String modelId;
 
     private AgentcoreMemoryStrategyConfigurationConsolidation() {}
-    /**
-     * @return Additional text to append to the model prompt for consolidation processing.
-     * 
-     */
     public String appendToPrompt() {
         return this.appendToPrompt;
     }
-    /**
-     * @return ID of the foundation model to use for consolidation processing.
-     * 
-     */
     public String modelId() {
         return this.modelId;
     }

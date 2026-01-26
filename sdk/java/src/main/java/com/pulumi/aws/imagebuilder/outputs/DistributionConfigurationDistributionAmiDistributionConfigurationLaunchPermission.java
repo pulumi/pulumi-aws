@@ -11,53 +11,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission {
-    /**
-     * @return Set of AWS Organization ARNs to assign.
-     * 
-     */
     private @Nullable List<String> organizationArns;
-    /**
-     * @return Set of AWS Organizational Unit ARNs to assign.
-     * 
-     */
     private @Nullable List<String> organizationalUnitArns;
-    /**
-     * @return Set of EC2 launch permission user groups to assign. Use `all` to distribute a public AMI.
-     * 
-     */
     private @Nullable List<String> userGroups;
-    /**
-     * @return Set of AWS Account identifiers to assign.
-     * 
-     */
     private @Nullable List<String> userIds;
 
     private DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission() {}
-    /**
-     * @return Set of AWS Organization ARNs to assign.
-     * 
-     */
     public List<String> organizationArns() {
         return this.organizationArns == null ? List.of() : this.organizationArns;
     }
-    /**
-     * @return Set of AWS Organizational Unit ARNs to assign.
-     * 
-     */
     public List<String> organizationalUnitArns() {
         return this.organizationalUnitArns == null ? List.of() : this.organizationalUnitArns;
     }
-    /**
-     * @return Set of EC2 launch permission user groups to assign. Use `all` to distribute a public AMI.
-     * 
-     */
     public List<String> userGroups() {
         return this.userGroups == null ? List.of() : this.userGroups;
     }
-    /**
-     * @return Set of AWS Account identifiers to assign.
-     * 
-     */
     public List<String> userIds() {
         return this.userIds == null ? List.of() : this.userIds;
     }

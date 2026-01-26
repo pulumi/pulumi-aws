@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class VaultNotification {
-    /**
-     * @return You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
-     * 
-     */
     private List<String> events;
-    /**
-     * @return The SNS Topic ARN.
-     * 
-     */
     private String snsTopic;
 
     private VaultNotification() {}
-    /**
-     * @return You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
-     * 
-     */
     public List<String> events() {
         return this.events;
     }
-    /**
-     * @return The SNS Topic ARN.
-     * 
-     */
     public String snsTopic() {
         return this.snsTopic;
     }

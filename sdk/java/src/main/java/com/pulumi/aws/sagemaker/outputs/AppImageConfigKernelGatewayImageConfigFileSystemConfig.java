@@ -12,45 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AppImageConfigKernelGatewayImageConfigFileSystemConfig {
-    /**
-     * @return The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
-     * 
-     */
     private @Nullable Integer defaultGid;
-    /**
-     * @return The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
-     * 
-     */
     private @Nullable Integer defaultUid;
-    /**
-     * @return The path within the image to mount the user&#39;s EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
-     * 
-     * &gt; **Note:** When specifying `defaultGid` and `defaultUid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
-     * 
-     */
     private @Nullable String mountPath;
 
     private AppImageConfigKernelGatewayImageConfigFileSystemConfig() {}
-    /**
-     * @return The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
-     * 
-     */
     public Optional<Integer> defaultGid() {
         return Optional.ofNullable(this.defaultGid);
     }
-    /**
-     * @return The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
-     * 
-     */
     public Optional<Integer> defaultUid() {
         return Optional.ofNullable(this.defaultUid);
     }
-    /**
-     * @return The path within the image to mount the user&#39;s EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
-     * 
-     * &gt; **Note:** When specifying `defaultGid` and `defaultUid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
-     * 
-     */
     public Optional<String> mountPath() {
         return Optional.ofNullable(this.mountPath);
     }

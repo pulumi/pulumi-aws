@@ -11,53 +11,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AppProductionBranch {
-    /**
-     * @return Branch name for the production branch.
-     * 
-     */
     private @Nullable String branchName;
-    /**
-     * @return Last deploy time of the production branch.
-     * 
-     */
     private @Nullable String lastDeployTime;
-    /**
-     * @return Status of the production branch.
-     * 
-     */
     private @Nullable String status;
-    /**
-     * @return Thumbnail URL for the production branch.
-     * 
-     */
     private @Nullable String thumbnailUrl;
 
     private AppProductionBranch() {}
-    /**
-     * @return Branch name for the production branch.
-     * 
-     */
     public Optional<String> branchName() {
         return Optional.ofNullable(this.branchName);
     }
-    /**
-     * @return Last deploy time of the production branch.
-     * 
-     */
     public Optional<String> lastDeployTime() {
         return Optional.ofNullable(this.lastDeployTime);
     }
-    /**
-     * @return Status of the production branch.
-     * 
-     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }
-    /**
-     * @return Thumbnail URL for the production branch.
-     * 
-     */
     public Optional<String> thumbnailUrl() {
         return Optional.ofNullable(this.thumbnailUrl);
     }

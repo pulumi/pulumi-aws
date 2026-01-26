@@ -14,25 +14,15 @@ namespace Pulumi.Aws.S3.Inputs
     {
         [Input("destinations")]
         private InputList<Inputs.BucketMetadataConfigurationMetadataConfigurationDestinationArgs>? _destinations;
-
-        /// <summary>
-        /// Destination information for the S3 Metadata configuration.
-        /// </summary>
         public InputList<Inputs.BucketMetadataConfigurationMetadataConfigurationDestinationArgs> Destinations
         {
             get => _destinations ?? (_destinations = new InputList<Inputs.BucketMetadataConfigurationMetadataConfigurationDestinationArgs>());
             set => _destinations = value;
         }
 
-        /// <summary>
-        /// Inventory table configuration. See `InventoryTableConfiguration` Block for details.
-        /// </summary>
         [Input("inventoryTableConfiguration")]
         public Input<Inputs.BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgs>? InventoryTableConfiguration { get; set; }
 
-        /// <summary>
-        /// Journal table configuration. See `JournalTableConfiguration` Block for details.
-        /// </summary>
         [Input("journalTableConfiguration")]
         public Input<Inputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs>? JournalTableConfiguration { get; set; }
 

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunched
     {
-        /// <summary>
-        /// Defines the unit of time that the lifecycle policy uses to calculate elapsed time since the last instance launched from the AMI. For example: days, weeks, months, or years. Valid values: `DAYS`, `WEEKS`, `MONTHS` or `YEARS`.
-        /// </summary>
         public readonly string Unit;
-        /// <summary>
-        /// The integer number of units for the time period. For example 6 (months).
-        /// </summary>
         public readonly int Value;
 
         [OutputConstructor]

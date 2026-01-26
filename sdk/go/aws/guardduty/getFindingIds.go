@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS GuardDuty Finding Ids.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/guardduty"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := guardduty.GetFindingIds(ctx, &guardduty.GetFindingIdsArgs{
-//				DetectorId: exampleAwsGuarddutyDetector.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetFindingIds(ctx *pulumi.Context, args *GetFindingIdsArgs, opts ...pulumi.InvokeOption) (*GetFindingIdsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetFindingIdsResult
@@ -52,21 +23,17 @@ func GetFindingIds(ctx *pulumi.Context, args *GetFindingIdsArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getFindingIds.
 type GetFindingIdsArgs struct {
-	// ID of the GuardDuty detector.
-	DetectorId string `pulumi:"detectorId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	DetectorId string  `pulumi:"detectorId"`
+	Region     *string `pulumi:"region"`
 }
 
 // A collection of values returned by getFindingIds.
 type GetFindingIdsResult struct {
-	DetectorId string `pulumi:"detectorId"`
-	// A list of finding IDs for the specified detector.
-	FindingIds []string `pulumi:"findingIds"`
-	// Indicates whether findings are present for the specified detector.
-	HasFindings bool   `pulumi:"hasFindings"`
-	Id          string `pulumi:"id"`
-	Region      string `pulumi:"region"`
+	DetectorId  string   `pulumi:"detectorId"`
+	FindingIds  []string `pulumi:"findingIds"`
+	HasFindings bool     `pulumi:"hasFindings"`
+	Id          string   `pulumi:"id"`
+	Region      string   `pulumi:"region"`
 }
 
 func GetFindingIdsOutput(ctx *pulumi.Context, args GetFindingIdsOutputArgs, opts ...pulumi.InvokeOption) GetFindingIdsResultOutput {
@@ -80,10 +47,8 @@ func GetFindingIdsOutput(ctx *pulumi.Context, args GetFindingIdsOutputArgs, opts
 
 // A collection of arguments for invoking getFindingIds.
 type GetFindingIdsOutputArgs struct {
-	// ID of the GuardDuty detector.
-	DetectorId pulumi.StringInput `pulumi:"detectorId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	DetectorId pulumi.StringInput    `pulumi:"detectorId"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetFindingIdsOutputArgs) ElementType() reflect.Type {
@@ -109,12 +74,10 @@ func (o GetFindingIdsResultOutput) DetectorId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFindingIdsResult) string { return v.DetectorId }).(pulumi.StringOutput)
 }
 
-// A list of finding IDs for the specified detector.
 func (o GetFindingIdsResultOutput) FindingIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetFindingIdsResult) []string { return v.FindingIds }).(pulumi.StringArrayOutput)
 }
 
-// Indicates whether findings are present for the specified detector.
 func (o GetFindingIdsResultOutput) HasFindings() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetFindingIdsResult) bool { return v.HasFindings }).(pulumi.BoolOutput)
 }

@@ -7,28 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS WorkSpaces Connection Alias.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.workspaces.ConnectionAlias("example", {connectionString: "testdomain.test"});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import WorkSpaces Connection Alias using the connection alias ID. For example:
- *
- * ```sh
- * $ pulumi import aws:workspaces/connectionAlias:ConnectionAlias example rft-8012925589
- * ```
- */
 export class ConnectionAlias extends pulumi.CustomResource {
     /**
      * Get an existing ConnectionAlias resource's state with the given name, ID, and optional extra
@@ -65,21 +43,12 @@ export class ConnectionAlias extends pulumi.CustomResource {
      * The identifier of the Amazon Web Services account that owns the connection alias.
      */
     declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     /**
      * The current state of the connection alias.
      */
     declare public /*out*/ readonly state: pulumi.Output<string>;
-    /**
-     * A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.workspaces.ConnectionAliasTimeouts | undefined>;
 
@@ -133,21 +102,12 @@ export interface ConnectionAliasState {
      * The identifier of the Amazon Web Services account that owns the connection alias.
      */
     ownerAccountId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     /**
      * The current state of the connection alias.
      */
     state?: pulumi.Input<string>;
-    /**
-     * A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.workspaces.ConnectionAliasTimeouts>;
 }
@@ -160,13 +120,7 @@ export interface ConnectionAliasArgs {
      * The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as www.example.com.
      */
     connectionString: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.workspaces.ConnectionAliasTimeouts>;
 }

@@ -17,47 +17,23 @@ public final class LoggingConfigurationDestinationConfigurationArgs extends com.
 
     public static final LoggingConfigurationDestinationConfigurationArgs Empty = new LoggingConfigurationDestinationConfigurationArgs();
 
-    /**
-     * An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
-     * 
-     */
     @Import(name="cloudwatchLogs")
     private @Nullable Output<LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs> cloudwatchLogs;
 
-    /**
-     * @return An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
-     * 
-     */
     public Optional<Output<LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs>> cloudwatchLogs() {
         return Optional.ofNullable(this.cloudwatchLogs);
     }
 
-    /**
-     * An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
-     * 
-     */
     @Import(name="firehose")
     private @Nullable Output<LoggingConfigurationDestinationConfigurationFirehoseArgs> firehose;
 
-    /**
-     * @return An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
-     * 
-     */
     public Optional<Output<LoggingConfigurationDestinationConfigurationFirehoseArgs>> firehose() {
         return Optional.ofNullable(this.firehose);
     }
 
-    /**
-     * An Amazon S3 destination configuration where chat activity will be logged.
-     * 
-     */
     @Import(name="s3")
     private @Nullable Output<LoggingConfigurationDestinationConfigurationS3Args> s3;
 
-    /**
-     * @return An Amazon S3 destination configuration where chat activity will be logged.
-     * 
-     */
     public Optional<Output<LoggingConfigurationDestinationConfigurationS3Args>> s3() {
         return Optional.ofNullable(this.s3);
     }
@@ -88,65 +64,29 @@ public final class LoggingConfigurationDestinationConfigurationArgs extends com.
             $ = new LoggingConfigurationDestinationConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cloudwatchLogs An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLogs(@Nullable Output<LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs> cloudwatchLogs) {
             $.cloudwatchLogs = cloudwatchLogs;
             return this;
         }
 
-        /**
-         * @param cloudwatchLogs An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLogs(LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs cloudwatchLogs) {
             return cloudwatchLogs(Output.of(cloudwatchLogs));
         }
 
-        /**
-         * @param firehose An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firehose(@Nullable Output<LoggingConfigurationDestinationConfigurationFirehoseArgs> firehose) {
             $.firehose = firehose;
             return this;
         }
 
-        /**
-         * @param firehose An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firehose(LoggingConfigurationDestinationConfigurationFirehoseArgs firehose) {
             return firehose(Output.of(firehose));
         }
 
-        /**
-         * @param s3 An Amazon S3 destination configuration where chat activity will be logged.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3(@Nullable Output<LoggingConfigurationDestinationConfigurationS3Args> s3) {
             $.s3 = s3;
             return this;
         }
 
-        /**
-         * @param s3 An Amazon S3 destination configuration where chat activity will be logged.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3(LoggingConfigurationDestinationConfigurationS3Args s3) {
             return s3(Output.of(s3));
         }

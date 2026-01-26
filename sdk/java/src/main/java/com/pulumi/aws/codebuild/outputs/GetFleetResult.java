@@ -17,193 +17,73 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFleetResult {
-    /**
-     * @return ARN of the Fleet.
-     * 
-     */
     private String arn;
-    /**
-     * @return Number of machines allocated to the ﬂeet.
-     * 
-     */
     private Integer baseCapacity;
-    /**
-     * @return Compute configuration of the compute fleet.
-     * 
-     */
     private List<GetFleetComputeConfiguration> computeConfigurations;
-    /**
-     * @return Compute resources the compute fleet uses.
-     * 
-     */
     private String computeType;
-    /**
-     * @return Creation time of the fleet.
-     * 
-     */
     private String created;
-    /**
-     * @return Environment type of the compute fleet.
-     * 
-     */
     private String environmentType;
-    /**
-     * @return The service role associated with the compute fleet.
-     * 
-     */
     private String fleetServiceRole;
-    /**
-     * @return ARN of the Fleet.
-     * 
-     */
     private String id;
-    /**
-     * @return The Amazon Machine Image (AMI) of the compute fleet.
-     * 
-     */
     private String imageId;
-    /**
-     * @return Last modification time of the fleet.
-     * 
-     */
     private String lastModified;
     private String name;
-    /**
-     * @return Overflow behavior for compute fleet.
-     * 
-     */
     private String overflowBehavior;
     private String region;
-    /**
-     * @return Nested attribute containing information about the scaling configuration.
-     * 
-     */
     private List<GetFleetScalingConfiguration> scalingConfigurations;
-    /**
-     * @return Nested attribute containing information about the current status of the fleet.
-     * 
-     */
     private List<GetFleetStatus> statuses;
-    /**
-     * @return Mapping of Key-Value tags for the resource.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Nested attribute containing information about the VPC configuration.
-     * 
-     */
     private List<GetFleetVpcConfig> vpcConfigs;
 
     private GetFleetResult() {}
-    /**
-     * @return ARN of the Fleet.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Number of machines allocated to the ﬂeet.
-     * 
-     */
     public Integer baseCapacity() {
         return this.baseCapacity;
     }
-    /**
-     * @return Compute configuration of the compute fleet.
-     * 
-     */
     public List<GetFleetComputeConfiguration> computeConfigurations() {
         return this.computeConfigurations;
     }
-    /**
-     * @return Compute resources the compute fleet uses.
-     * 
-     */
     public String computeType() {
         return this.computeType;
     }
-    /**
-     * @return Creation time of the fleet.
-     * 
-     */
     public String created() {
         return this.created;
     }
-    /**
-     * @return Environment type of the compute fleet.
-     * 
-     */
     public String environmentType() {
         return this.environmentType;
     }
-    /**
-     * @return The service role associated with the compute fleet.
-     * 
-     */
     public String fleetServiceRole() {
         return this.fleetServiceRole;
     }
-    /**
-     * @return ARN of the Fleet.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return The Amazon Machine Image (AMI) of the compute fleet.
-     * 
-     */
     public String imageId() {
         return this.imageId;
     }
-    /**
-     * @return Last modification time of the fleet.
-     * 
-     */
     public String lastModified() {
         return this.lastModified;
     }
     public String name() {
         return this.name;
     }
-    /**
-     * @return Overflow behavior for compute fleet.
-     * 
-     */
     public String overflowBehavior() {
         return this.overflowBehavior;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Nested attribute containing information about the scaling configuration.
-     * 
-     */
     public List<GetFleetScalingConfiguration> scalingConfigurations() {
         return this.scalingConfigurations;
     }
-    /**
-     * @return Nested attribute containing information about the current status of the fleet.
-     * 
-     */
     public List<GetFleetStatus> statuses() {
         return this.statuses;
     }
-    /**
-     * @return Mapping of Key-Value tags for the resource.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Nested attribute containing information about the VPC configuration.
-     * 
-     */
     public List<GetFleetVpcConfig> vpcConfigs() {
         return this.vpcConfigs;
     }

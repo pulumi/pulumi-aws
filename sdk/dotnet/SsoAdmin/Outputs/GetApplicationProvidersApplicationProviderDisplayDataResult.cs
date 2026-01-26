@@ -13,17 +13,8 @@ namespace Pulumi.Aws.SsoAdmin.Outputs
     [OutputType]
     public sealed class GetApplicationProvidersApplicationProviderDisplayDataResult
     {
-        /// <summary>
-        /// Description of the application provider.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// Name of the application provider.
-        /// </summary>
         public readonly string DisplayName;
-        /// <summary>
-        /// URL that points to an icon that represents the application provider.
-        /// </summary>
         public readonly string IconUrl;
 
         [OutputConstructor]

@@ -14,62 +14,30 @@ public final class GetBundlePlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetBundlePlainArgs Empty = new GetBundlePlainArgs();
 
-    /**
-     * ID of the bundle.
-     * 
-     */
     @Import(name="bundleId")
     private @Nullable String bundleId;
 
-    /**
-     * @return ID of the bundle.
-     * 
-     */
     public Optional<String> bundleId() {
         return Optional.ofNullable(this.bundleId);
     }
 
-    /**
-     * Name of the bundle. You cannot combine this parameter with `bundleId`.
-     * 
-     */
     @Import(name="name")
     private @Nullable String name;
 
-    /**
-     * @return Name of the bundle. You cannot combine this parameter with `bundleId`.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundleId`.
-     * 
-     */
     @Import(name="owner")
     private @Nullable String owner;
 
-    /**
-     * @return Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundleId`.
-     * 
-     */
     public Optional<String> owner() {
         return Optional.ofNullable(this.owner);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -101,45 +69,21 @@ public final class GetBundlePlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetBundlePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bundleId ID of the bundle.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bundleId(@Nullable String bundleId) {
             $.bundleId = bundleId;
             return this;
         }
 
-        /**
-         * @param name Name of the bundle. You cannot combine this parameter with `bundleId`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param owner Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundleId`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owner(@Nullable String owner) {
             $.owner = owner;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

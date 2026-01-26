@@ -14,32 +14,16 @@ public final class CloudFormationTypeLoggingConfigArgs extends com.pulumi.resour
 
     public static final CloudFormationTypeLoggingConfigArgs Empty = new CloudFormationTypeLoggingConfigArgs();
 
-    /**
-     * Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type&#39;s handlers.
-     * 
-     */
     @Import(name="logGroupName", required=true)
     private Output<String> logGroupName;
 
-    /**
-     * @return Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type&#39;s handlers.
-     * 
-     */
     public Output<String> logGroupName() {
         return this.logGroupName;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
-     * 
-     */
     @Import(name="logRoleArn", required=true)
     private Output<String> logRoleArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
-     * 
-     */
     public Output<String> logRoleArn() {
         return this.logRoleArn;
     }
@@ -69,44 +53,20 @@ public final class CloudFormationTypeLoggingConfigArgs extends com.pulumi.resour
             $ = new CloudFormationTypeLoggingConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param logGroupName Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type&#39;s handlers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupName(Output<String> logGroupName) {
             $.logGroupName = logGroupName;
             return this;
         }
 
-        /**
-         * @param logGroupName Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type&#39;s handlers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupName(String logGroupName) {
             return logGroupName(Output.of(logGroupName));
         }
 
-        /**
-         * @param logRoleArn Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logRoleArn(Output<String> logRoleArn) {
             $.logRoleArn = logRoleArn;
             return this;
         }
 
-        /**
-         * @param logRoleArn Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logRoleArn(String logRoleArn) {
             return logRoleArn(Output.of(logRoleArn));
         }

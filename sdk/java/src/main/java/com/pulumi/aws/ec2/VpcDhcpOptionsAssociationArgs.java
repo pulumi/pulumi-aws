@@ -16,47 +16,23 @@ public final class VpcDhcpOptionsAssociationArgs extends com.pulumi.resources.Re
 
     public static final VpcDhcpOptionsAssociationArgs Empty = new VpcDhcpOptionsAssociationArgs();
 
-    /**
-     * The ID of the DHCP Options Set to associate to the VPC.
-     * 
-     */
     @Import(name="dhcpOptionsId", required=true)
     private Output<String> dhcpOptionsId;
 
-    /**
-     * @return The ID of the DHCP Options Set to associate to the VPC.
-     * 
-     */
     public Output<String> dhcpOptionsId() {
         return this.dhcpOptionsId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ID of the VPC to which we would like to associate a DHCP Options Set.
-     * 
-     */
     @Import(name="vpcId", required=true)
     private Output<String> vpcId;
 
-    /**
-     * @return The ID of the VPC to which we would like to associate a DHCP Options Set.
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }
@@ -87,65 +63,29 @@ public final class VpcDhcpOptionsAssociationArgs extends com.pulumi.resources.Re
             $ = new VpcDhcpOptionsAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dhcpOptionsId The ID of the DHCP Options Set to associate to the VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dhcpOptionsId(Output<String> dhcpOptionsId) {
             $.dhcpOptionsId = dhcpOptionsId;
             return this;
         }
 
-        /**
-         * @param dhcpOptionsId The ID of the DHCP Options Set to associate to the VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dhcpOptionsId(String dhcpOptionsId) {
             return dhcpOptionsId(Output.of(dhcpOptionsId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param vpcId The ID of the VPC to which we would like to associate a DHCP Options Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId The ID of the VPC to which we would like to associate a DHCP Options Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

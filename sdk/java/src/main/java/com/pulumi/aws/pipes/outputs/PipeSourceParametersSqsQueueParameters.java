@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipeSourceParametersSqsQueueParameters {
-    /**
-     * @return The maximum number of records to include in each batch. Maximum value of 10000.
-     * 
-     */
     private @Nullable Integer batchSize;
-    /**
-     * @return The maximum length of a time to wait for events. Maximum value of 300.
-     * 
-     */
     private @Nullable Integer maximumBatchingWindowInSeconds;
 
     private PipeSourceParametersSqsQueueParameters() {}
-    /**
-     * @return The maximum number of records to include in each batch. Maximum value of 10000.
-     * 
-     */
     public Optional<Integer> batchSize() {
         return Optional.ofNullable(this.batchSize);
     }
-    /**
-     * @return The maximum length of a time to wait for events. Maximum value of 300.
-     * 
-     */
     public Optional<Integer> maximumBatchingWindowInSeconds() {
         return Optional.ofNullable(this.maximumBatchingWindowInSeconds);
     }

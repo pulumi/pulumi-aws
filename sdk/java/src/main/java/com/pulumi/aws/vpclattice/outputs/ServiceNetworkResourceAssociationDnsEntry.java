@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ServiceNetworkResourceAssociationDnsEntry {
-    /**
-     * @return The domain name of the association in the service network.
-     * 
-     */
     private String domainName;
-    /**
-     * @return The ID of the hosted zone containing the domain name.
-     * 
-     */
     private String hostedZoneId;
 
     private ServiceNetworkResourceAssociationDnsEntry() {}
-    /**
-     * @return The domain name of the association in the service network.
-     * 
-     */
     public String domainName() {
         return this.domainName;
     }
-    /**
-     * @return The ID of the hosted zone containing the domain name.
-     * 
-     */
     public String hostedZoneId() {
         return this.hostedZoneId;
     }

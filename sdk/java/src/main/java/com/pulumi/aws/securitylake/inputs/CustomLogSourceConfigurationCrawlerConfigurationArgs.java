@@ -14,17 +14,9 @@ public final class CustomLogSourceConfigurationCrawlerConfigurationArgs extends 
 
     public static final CustomLogSourceConfigurationCrawlerConfigurationArgs Empty = new CustomLogSourceConfigurationCrawlerConfigurationArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
@@ -53,23 +45,11 @@ public final class CustomLogSourceConfigurationCrawlerConfigurationArgs extends 
             $ = new CustomLogSourceConfigurationCrawlerConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param roleArn The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

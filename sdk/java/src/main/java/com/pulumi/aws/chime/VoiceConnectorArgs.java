@@ -18,81 +18,37 @@ public final class VoiceConnectorArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final VoiceConnectorArgs Empty = new VoiceConnectorArgs();
 
-    /**
-     * The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
-     * 
-     */
     @Import(name="awsRegion")
     private @Nullable Output<String> awsRegion;
 
-    /**
-     * @return The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
-     * 
-     */
     public Optional<Output<String>> awsRegion() {
         return Optional.ofNullable(this.awsRegion);
     }
 
-    /**
-     * The name of the Amazon Chime Voice Connector.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the Amazon Chime Voice Connector.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * When enabled, requires encryption for the Amazon Chime Voice Connector.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="requireEncryption", required=true)
     private Output<Boolean> requireEncryption;
 
-    /**
-     * @return When enabled, requires encryption for the Amazon Chime Voice Connector.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Boolean> requireEncryption() {
         return this.requireEncryption;
     }
 
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -125,111 +81,47 @@ public final class VoiceConnectorArgs extends com.pulumi.resources.ResourceArgs 
             $ = new VoiceConnectorArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param awsRegion The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsRegion(@Nullable Output<String> awsRegion) {
             $.awsRegion = awsRegion;
             return this;
         }
 
-        /**
-         * @param awsRegion The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsRegion(String awsRegion) {
             return awsRegion(Output.of(awsRegion));
         }
 
-        /**
-         * @param name The name of the Amazon Chime Voice Connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the Amazon Chime Voice Connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param requireEncryption When enabled, requires encryption for the Amazon Chime Voice Connector.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder requireEncryption(Output<Boolean> requireEncryption) {
             $.requireEncryption = requireEncryption;
             return this;
         }
 
-        /**
-         * @param requireEncryption When enabled, requires encryption for the Amazon Chime Voice Connector.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder requireEncryption(Boolean requireEncryption) {
             return requireEncryption(Output.of(requireEncryption));
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

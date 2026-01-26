@@ -16,32 +16,16 @@ public final class GetEndpointPlainArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetEndpointPlainArgs Empty = new GetEndpointPlainArgs();
 
-    /**
-     * Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
-     * 
-     */
     @Import(name="endpointId", required=true)
     private String endpointId;
 
-    /**
-     * @return Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
-     * 
-     */
     public String endpointId() {
         return this.endpointId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -79,23 +63,11 @@ public final class GetEndpointPlainArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetEndpointPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param endpointId Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointId(String endpointId) {
             $.endpointId = endpointId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsInputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the CloudWatch Log Group to send findings to.
-        /// </summary>
         [Input("logGroup", required: true)]
         public Input<string> LogGroup { get; set; } = null!;
 

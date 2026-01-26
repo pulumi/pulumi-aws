@@ -16,32 +16,16 @@ public final class AgentcoreTokenVaultCmkKmsConfigurationArgs extends com.pulumi
 
     public static final AgentcoreTokenVaultCmkKmsConfigurationArgs Empty = new AgentcoreTokenVaultCmkKmsConfigurationArgs();
 
-    /**
-     * Type of KMS key. Valid values: `CustomerManagedKey`, `ServiceManagedKey`.
-     * 
-     */
     @Import(name="keyType", required=true)
     private Output<String> keyType;
 
-    /**
-     * @return Type of KMS key. Valid values: `CustomerManagedKey`, `ServiceManagedKey`.
-     * 
-     */
     public Output<String> keyType() {
         return this.keyType;
     }
 
-    /**
-     * ARN of the KMS key.
-     * 
-     */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
-    /**
-     * @return ARN of the KMS key.
-     * 
-     */
     public Optional<Output<String>> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
@@ -71,44 +55,20 @@ public final class AgentcoreTokenVaultCmkKmsConfigurationArgs extends com.pulumi
             $ = new AgentcoreTokenVaultCmkKmsConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param keyType Type of KMS key. Valid values: `CustomerManagedKey`, `ServiceManagedKey`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyType(Output<String> keyType) {
             $.keyType = keyType;
             return this;
         }
 
-        /**
-         * @param keyType Type of KMS key. Valid values: `CustomerManagedKey`, `ServiceManagedKey`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyType(String keyType) {
             return keyType(Output.of(keyType));
         }
 
-        /**
-         * @param kmsKeyArn ARN of the KMS key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(@Nullable Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
         }
 
-        /**
-         * @param kmsKeyArn ARN of the KMS key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
         }

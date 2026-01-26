@@ -11,84 +11,12 @@ namespace Pulumi.Aws.OpenSearch
 {
     public static class GetServerlessAccessPolicy
     {
-        /// <summary>
-        /// Data source for managing an AWS OpenSearch Serverless Access Policy.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.OpenSearch.GetServerlessAccessPolicy.Invoke(new()
-        ///     {
-        ///         Name = exampleAwsOpensearchserverlessAccessPolicy.Name,
-        ///         Type = exampleAwsOpensearchserverlessAccessPolicy.Type,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetServerlessAccessPolicyResult> InvokeAsync(GetServerlessAccessPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerlessAccessPolicyResult>("aws:opensearch/getServerlessAccessPolicy:getServerlessAccessPolicy", args ?? new GetServerlessAccessPolicyArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS OpenSearch Serverless Access Policy.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.OpenSearch.GetServerlessAccessPolicy.Invoke(new()
-        ///     {
-        ///         Name = exampleAwsOpensearchserverlessAccessPolicy.Name,
-        ///         Type = exampleAwsOpensearchserverlessAccessPolicy.Type,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetServerlessAccessPolicyResult> Invoke(GetServerlessAccessPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerlessAccessPolicyResult>("aws:opensearch/getServerlessAccessPolicy:getServerlessAccessPolicy", args ?? new GetServerlessAccessPolicyInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS OpenSearch Serverless Access Policy.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.OpenSearch.GetServerlessAccessPolicy.Invoke(new()
-        ///     {
-        ///         Name = exampleAwsOpensearchserverlessAccessPolicy.Name,
-        ///         Type = exampleAwsOpensearchserverlessAccessPolicy.Type,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetServerlessAccessPolicyResult> Invoke(GetServerlessAccessPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerlessAccessPolicyResult>("aws:opensearch/getServerlessAccessPolicy:getServerlessAccessPolicy", args ?? new GetServerlessAccessPolicyInvokeArgs(), options.WithDefaults());
     }
@@ -96,21 +24,12 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class GetServerlessAccessPolicyArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the policy.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// Type of access policy. Must be `Data`.
-        /// </summary>
         [Input("type", required: true)]
         public string Type { get; set; } = null!;
 
@@ -122,21 +41,12 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class GetServerlessAccessPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the policy.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Type of access policy. Must be `Data`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -150,19 +60,10 @@ namespace Pulumi.Aws.OpenSearch
     [OutputType]
     public sealed class GetServerlessAccessPolicyResult
     {
-        /// <summary>
-        /// Description of the policy. Typically used to store information about the permissions defined in the policy.
-        /// </summary>
         public readonly string Description;
         public readonly string Id;
         public readonly string Name;
-        /// <summary>
-        /// JSON policy document to use as the content for the new policy.
-        /// </summary>
         public readonly string Policy;
-        /// <summary>
-        /// Version of the policy.
-        /// </summary>
         public readonly string PolicyVersion;
         public readonly string Region;
         public readonly string Type;

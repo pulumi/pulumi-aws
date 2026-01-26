@@ -12,198 +12,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a CloudFormation StackSet Instance. Instances are managed in the account and region of the StackSet after the target account permissions have been configured. Additional information about StackSets can be found in the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html).
-//
-// > **NOTE:** All target accounts must have an IAM Role created that matches the name of the execution role configured in the StackSet (the `executionRoleName` argument in the `cloudformation.StackSet` resource) in a trust relationship with the administrative account or administration IAM Role. The execution role must have appropriate permissions to manage resources defined in the template along with those required for StackSets to operate. See the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html) for more details.
-//
-// > **NOTE:** To retain the Stack during resource destroy, ensure `retainStack` has been set to `true` in the state first. This must be completed _before_ a deployment that would destroy the resource.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudformation"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudformation.NewStackSetInstance(ctx, "example", &cloudformation.StackSetInstanceArgs{
-//				AccountId:              pulumi.String("123456789012"),
-//				StackSetInstanceRegion: pulumi.String("us-east-1"),
-//				StackSetName:           pulumi.Any(exampleAwsCloudformationStackSet.Name),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Example IAM Setup in Target Account
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Actions: []string{
-// "sts:AssumeRole",
-// },
-// Effect: pulumi.StringRef("Allow"),
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Identifiers: interface{}{
-// aWSCloudFormationStackSetAdministrationRole.Arn,
-// },
-// Type: "AWS",
-// },
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// aWSCloudFormationStackSetExecutionRole, err := iam.NewRole(ctx, "AWSCloudFormationStackSetExecutionRole", &iam.RoleArgs{
-// AssumeRolePolicy: pulumi.String(aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.Json),
-// Name: pulumi.String("AWSCloudFormationStackSetExecutionRole"),
-// })
-// if err != nil {
-// return err
-// }
-// // Documentation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html
-// // Additional IAM permissions necessary depend on the resources defined in the StackSet template
-// aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Actions: []string{
-// "cloudformation:*",
-// "s3:*",
-// "sns:*",
-// },
-// Effect: pulumi.StringRef("Allow"),
-// Resources: []string{
-// "*",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// _, err = iam.NewRolePolicy(ctx, "AWSCloudFormationStackSetExecutionRole_MinimumExecutionPolicy", &iam.RolePolicyArgs{
-// Name: pulumi.String("MinimumExecutionPolicy"),
-// Policy: pulumi.String(aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy.Json),
-// Role: aWSCloudFormationStackSetExecutionRole.Name,
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
-//
-// ### Example Deployment across Organizations account
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudformation"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudformation.NewStackSetInstance(ctx, "example", &cloudformation.StackSetInstanceArgs{
-//				DeploymentTargets: &cloudformation.StackSetInstanceDeploymentTargetsArgs{
-//					OrganizationalUnitIds: pulumi.StringArray{
-//						exampleAwsOrganizationsOrganization.Roots[0].Id,
-//					},
-//				},
-//				StackSetInstanceRegion: pulumi.String("us-east-1"),
-//				StackSetName:           pulumi.Any(exampleAwsCloudformationStackSet.Name),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Import CloudFormation StackSet Instances that target AWS Organizational Units using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS Region separated by commas (`,`). For example:
-//
-// Import CloudFormation StackSet Instances when acting a delegated administrator in a member account using the StackSet name, target AWS account ID or slash (`/`) separated list of organizational unit IDs, target AWS Region and `call_as` value separated by commas (`,`). For example:
-//
-// Using `pulumi import`, import CloudFormation StackSet Instances that target an AWS Account ID using the StackSet name, target AWS account ID, and target AWS Region separated by commas (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,123456789012,us-east-1
-// ```
-// Using `pulumi import`, import CloudFormation StackSet Instances that target AWS Organizational Units using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS Region separated by commas (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1
-// ```
-// Using `pulumi import`, import CloudFormation StackSet Instances when acting a delegated administrator in a member account using the StackSet name, target AWS account ID or slash (`/`) separated list of organizational unit IDs, target AWS Region and `call_as` value separated by commas (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1,DELEGATED_ADMIN
-// ```
 type StackSetInstance struct {
 	pulumi.CustomResourceState
 
-	// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
-	CallAs pulumi.StringPtrOutput `pulumi:"callAs"`
-	// AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
-	DeploymentTargets StackSetInstanceDeploymentTargetsPtrOutput `pulumi:"deploymentTargets"`
-	// Preferences for how AWS CloudFormation performs a stack set operation.
+	AccountId            pulumi.StringOutput                           `pulumi:"accountId"`
+	CallAs               pulumi.StringPtrOutput                        `pulumi:"callAs"`
+	DeploymentTargets    StackSetInstanceDeploymentTargetsPtrOutput    `pulumi:"deploymentTargets"`
 	OperationPreferences StackSetInstanceOperationPreferencesPtrOutput `pulumi:"operationPreferences"`
-	// Organizational unit ID in which the stack is deployed.
-	OrganizationalUnitId pulumi.StringOutput `pulumi:"organizationalUnitId"`
-	// Key-value map of input parameters to override from the StackSet for this Instance.
-	ParameterOverrides pulumi.StringMapOutput `pulumi:"parameterOverrides"`
-	// Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stackSetInstanceRegion` instead.
-	//
+	OrganizationalUnitId pulumi.StringOutput                           `pulumi:"organizationalUnitId"`
+	ParameterOverrides   pulumi.StringMapOutput                        `pulumi:"parameterOverrides"`
 	// Deprecated: region is deprecated. Use stackSetInstanceRegion instead.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
+	Region      pulumi.StringOutput  `pulumi:"region"`
 	RetainStack pulumi.BoolPtrOutput `pulumi:"retainStack"`
-	// Stack identifier.
-	StackId pulumi.StringOutput `pulumi:"stackId"`
-	// List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set. See `stackInstanceSummaries`.
+	StackId     pulumi.StringOutput  `pulumi:"stackId"`
+	// List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set.
 	StackInstanceSummaries StackSetInstanceStackInstanceSummaryArrayOutput `pulumi:"stackInstanceSummaries"`
-	// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
-	StackSetInstanceRegion pulumi.StringOutput `pulumi:"stackSetInstanceRegion"`
-	// Name of the StackSet.
-	StackSetName pulumi.StringOutput `pulumi:"stackSetName"`
+	StackSetInstanceRegion pulumi.StringOutput                             `pulumi:"stackSetInstanceRegion"`
+	StackSetName           pulumi.StringOutput                             `pulumi:"stackSetName"`
 }
 
 // NewStackSetInstance registers a new resource with the given unique name, arguments, and options.
@@ -239,61 +64,37 @@ func GetStackSetInstance(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StackSetInstance resources.
 type stackSetInstanceState struct {
-	// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
-	AccountId *string `pulumi:"accountId"`
-	// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
-	CallAs *string `pulumi:"callAs"`
-	// AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
-	DeploymentTargets *StackSetInstanceDeploymentTargets `pulumi:"deploymentTargets"`
-	// Preferences for how AWS CloudFormation performs a stack set operation.
+	AccountId            *string                               `pulumi:"accountId"`
+	CallAs               *string                               `pulumi:"callAs"`
+	DeploymentTargets    *StackSetInstanceDeploymentTargets    `pulumi:"deploymentTargets"`
 	OperationPreferences *StackSetInstanceOperationPreferences `pulumi:"operationPreferences"`
-	// Organizational unit ID in which the stack is deployed.
-	OrganizationalUnitId *string `pulumi:"organizationalUnitId"`
-	// Key-value map of input parameters to override from the StackSet for this Instance.
-	ParameterOverrides map[string]string `pulumi:"parameterOverrides"`
-	// Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stackSetInstanceRegion` instead.
-	//
+	OrganizationalUnitId *string                               `pulumi:"organizationalUnitId"`
+	ParameterOverrides   map[string]string                     `pulumi:"parameterOverrides"`
 	// Deprecated: region is deprecated. Use stackSetInstanceRegion instead.
-	Region *string `pulumi:"region"`
-	// During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
-	RetainStack *bool `pulumi:"retainStack"`
-	// Stack identifier.
-	StackId *string `pulumi:"stackId"`
-	// List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set. See `stackInstanceSummaries`.
+	Region      *string `pulumi:"region"`
+	RetainStack *bool   `pulumi:"retainStack"`
+	StackId     *string `pulumi:"stackId"`
+	// List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set.
 	StackInstanceSummaries []StackSetInstanceStackInstanceSummary `pulumi:"stackInstanceSummaries"`
-	// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
-	StackSetInstanceRegion *string `pulumi:"stackSetInstanceRegion"`
-	// Name of the StackSet.
-	StackSetName *string `pulumi:"stackSetName"`
+	StackSetInstanceRegion *string                                `pulumi:"stackSetInstanceRegion"`
+	StackSetName           *string                                `pulumi:"stackSetName"`
 }
 
 type StackSetInstanceState struct {
-	// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
-	AccountId pulumi.StringPtrInput
-	// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
-	CallAs pulumi.StringPtrInput
-	// AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
-	DeploymentTargets StackSetInstanceDeploymentTargetsPtrInput
-	// Preferences for how AWS CloudFormation performs a stack set operation.
+	AccountId            pulumi.StringPtrInput
+	CallAs               pulumi.StringPtrInput
+	DeploymentTargets    StackSetInstanceDeploymentTargetsPtrInput
 	OperationPreferences StackSetInstanceOperationPreferencesPtrInput
-	// Organizational unit ID in which the stack is deployed.
 	OrganizationalUnitId pulumi.StringPtrInput
-	// Key-value map of input parameters to override from the StackSet for this Instance.
-	ParameterOverrides pulumi.StringMapInput
-	// Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stackSetInstanceRegion` instead.
-	//
+	ParameterOverrides   pulumi.StringMapInput
 	// Deprecated: region is deprecated. Use stackSetInstanceRegion instead.
-	Region pulumi.StringPtrInput
-	// During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
+	Region      pulumi.StringPtrInput
 	RetainStack pulumi.BoolPtrInput
-	// Stack identifier.
-	StackId pulumi.StringPtrInput
-	// List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set. See `stackInstanceSummaries`.
+	StackId     pulumi.StringPtrInput
+	// List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set.
 	StackInstanceSummaries StackSetInstanceStackInstanceSummaryArrayInput
-	// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
 	StackSetInstanceRegion pulumi.StringPtrInput
-	// Name of the StackSet.
-	StackSetName pulumi.StringPtrInput
+	StackSetName           pulumi.StringPtrInput
 }
 
 func (StackSetInstanceState) ElementType() reflect.Type {
@@ -301,50 +102,30 @@ func (StackSetInstanceState) ElementType() reflect.Type {
 }
 
 type stackSetInstanceArgs struct {
-	// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
-	AccountId *string `pulumi:"accountId"`
-	// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
-	CallAs *string `pulumi:"callAs"`
-	// AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
-	DeploymentTargets *StackSetInstanceDeploymentTargets `pulumi:"deploymentTargets"`
-	// Preferences for how AWS CloudFormation performs a stack set operation.
+	AccountId            *string                               `pulumi:"accountId"`
+	CallAs               *string                               `pulumi:"callAs"`
+	DeploymentTargets    *StackSetInstanceDeploymentTargets    `pulumi:"deploymentTargets"`
 	OperationPreferences *StackSetInstanceOperationPreferences `pulumi:"operationPreferences"`
-	// Key-value map of input parameters to override from the StackSet for this Instance.
-	ParameterOverrides map[string]string `pulumi:"parameterOverrides"`
-	// Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stackSetInstanceRegion` instead.
-	//
+	ParameterOverrides   map[string]string                     `pulumi:"parameterOverrides"`
 	// Deprecated: region is deprecated. Use stackSetInstanceRegion instead.
-	Region *string `pulumi:"region"`
-	// During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
-	RetainStack *bool `pulumi:"retainStack"`
-	// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+	Region                 *string `pulumi:"region"`
+	RetainStack            *bool   `pulumi:"retainStack"`
 	StackSetInstanceRegion *string `pulumi:"stackSetInstanceRegion"`
-	// Name of the StackSet.
-	StackSetName string `pulumi:"stackSetName"`
+	StackSetName           string  `pulumi:"stackSetName"`
 }
 
 // The set of arguments for constructing a StackSetInstance resource.
 type StackSetInstanceArgs struct {
-	// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
-	AccountId pulumi.StringPtrInput
-	// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
-	CallAs pulumi.StringPtrInput
-	// AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
-	DeploymentTargets StackSetInstanceDeploymentTargetsPtrInput
-	// Preferences for how AWS CloudFormation performs a stack set operation.
+	AccountId            pulumi.StringPtrInput
+	CallAs               pulumi.StringPtrInput
+	DeploymentTargets    StackSetInstanceDeploymentTargetsPtrInput
 	OperationPreferences StackSetInstanceOperationPreferencesPtrInput
-	// Key-value map of input parameters to override from the StackSet for this Instance.
-	ParameterOverrides pulumi.StringMapInput
-	// Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stackSetInstanceRegion` instead.
-	//
+	ParameterOverrides   pulumi.StringMapInput
 	// Deprecated: region is deprecated. Use stackSetInstanceRegion instead.
-	Region pulumi.StringPtrInput
-	// During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
-	RetainStack pulumi.BoolPtrInput
-	// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+	Region                 pulumi.StringPtrInput
+	RetainStack            pulumi.BoolPtrInput
 	StackSetInstanceRegion pulumi.StringPtrInput
-	// Name of the StackSet.
-	StackSetName pulumi.StringInput
+	StackSetName           pulumi.StringInput
 }
 
 func (StackSetInstanceArgs) ElementType() reflect.Type {
@@ -434,66 +215,54 @@ func (o StackSetInstanceOutput) ToStackSetInstanceOutputWithContext(ctx context.
 	return o
 }
 
-// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
 func (o StackSetInstanceOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StackSetInstance) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
 func (o StackSetInstanceOutput) CallAs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StackSetInstance) pulumi.StringPtrOutput { return v.CallAs }).(pulumi.StringPtrOutput)
 }
 
-// AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
 func (o StackSetInstanceOutput) DeploymentTargets() StackSetInstanceDeploymentTargetsPtrOutput {
 	return o.ApplyT(func(v *StackSetInstance) StackSetInstanceDeploymentTargetsPtrOutput { return v.DeploymentTargets }).(StackSetInstanceDeploymentTargetsPtrOutput)
 }
 
-// Preferences for how AWS CloudFormation performs a stack set operation.
 func (o StackSetInstanceOutput) OperationPreferences() StackSetInstanceOperationPreferencesPtrOutput {
 	return o.ApplyT(func(v *StackSetInstance) StackSetInstanceOperationPreferencesPtrOutput { return v.OperationPreferences }).(StackSetInstanceOperationPreferencesPtrOutput)
 }
 
-// Organizational unit ID in which the stack is deployed.
 func (o StackSetInstanceOutput) OrganizationalUnitId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StackSetInstance) pulumi.StringOutput { return v.OrganizationalUnitId }).(pulumi.StringOutput)
 }
 
-// Key-value map of input parameters to override from the StackSet for this Instance.
 func (o StackSetInstanceOutput) ParameterOverrides() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *StackSetInstance) pulumi.StringMapOutput { return v.ParameterOverrides }).(pulumi.StringMapOutput)
 }
 
-// Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stackSetInstanceRegion` instead.
-//
 // Deprecated: region is deprecated. Use stackSetInstanceRegion instead.
 func (o StackSetInstanceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *StackSetInstance) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
 func (o StackSetInstanceOutput) RetainStack() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StackSetInstance) pulumi.BoolPtrOutput { return v.RetainStack }).(pulumi.BoolPtrOutput)
 }
 
-// Stack identifier.
 func (o StackSetInstanceOutput) StackId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StackSetInstance) pulumi.StringOutput { return v.StackId }).(pulumi.StringOutput)
 }
 
-// List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set. See `stackInstanceSummaries`.
+// List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set.
 func (o StackSetInstanceOutput) StackInstanceSummaries() StackSetInstanceStackInstanceSummaryArrayOutput {
 	return o.ApplyT(func(v *StackSetInstance) StackSetInstanceStackInstanceSummaryArrayOutput {
 		return v.StackInstanceSummaries
 	}).(StackSetInstanceStackInstanceSummaryArrayOutput)
 }
 
-// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
 func (o StackSetInstanceOutput) StackSetInstanceRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v *StackSetInstance) pulumi.StringOutput { return v.StackSetInstanceRegion }).(pulumi.StringOutput)
 }
 
-// Name of the StackSet.
 func (o StackSetInstanceOutput) StackSetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *StackSetInstance) pulumi.StringOutput { return v.StackSetName }).(pulumi.StringOutput)
 }

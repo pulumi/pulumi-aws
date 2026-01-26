@@ -12,172 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CloudWatch Log Account Policy resource.
-//
-// ## Example Usage
-//
-// ### Account Data Protection Policy
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Name":    "DataProtection",
-//				"Version": "2021-06-01",
-//				"Statement": []interface{}{
-//					map[string]interface{}{
-//						"Sid": "Audit",
-//						"DataIdentifier": []string{
-//							"arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-//						},
-//						"Operation": map[string]interface{}{
-//							"Audit": map[string]interface{}{
-//								"FindingsDestination": map[string]interface{}{},
-//							},
-//						},
-//					},
-//					map[string]interface{}{
-//						"Sid": "Redact",
-//						"DataIdentifier": []string{
-//							"arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-//						},
-//						"Operation": map[string]interface{}{
-//							"Deidentify": map[string]interface{}{
-//								"MaskConfig": map[string]interface{}{},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = cloudwatch.NewLogAccountPolicy(ctx, "data_protection", &cloudwatch.LogAccountPolicyArgs{
-//				PolicyName:     pulumi.String("data-protection"),
-//				PolicyType:     pulumi.String("DATA_PROTECTION_POLICY"),
-//				PolicyDocument: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Subscription Filter Policy
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"DestinationArn": test.Arn,
-//				"FilterPattern":  "test",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = cloudwatch.NewLogAccountPolicy(ctx, "subscription_filter", &cloudwatch.LogAccountPolicyArgs{
-//				PolicyName:        pulumi.String("subscription-filter"),
-//				PolicyType:        pulumi.String("SUBSCRIPTION_FILTER_POLICY"),
-//				PolicyDocument:    pulumi.String(json0),
-//				SelectionCriteria: pulumi.String("LogGroupName NOT IN [\"excluded_log_group_name\"]"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Field Index Policy
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Fields": []string{
-//					"field1",
-//					"field2",
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = cloudwatch.NewLogAccountPolicy(ctx, "field_index", &cloudwatch.LogAccountPolicyArgs{
-//				PolicyName:     pulumi.String("field-index"),
-//				PolicyType:     pulumi.String("FIELD_INDEX_POLICY"),
-//				PolicyDocument: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import this resource using the `policy_name` and `policy_type` separated by `:`. For example:
-//
-// ```sh
-// $ pulumi import aws:cloudwatch/logAccountPolicy:LogAccountPolicy example "my-account-policy:SUBSCRIPTION_FILTER_POLICY"
-// ```
 type LogAccountPolicy struct {
 	pulumi.CustomResourceState
 
-	// Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
-	PolicyDocument pulumi.StringOutput `pulumi:"policyDocument"`
-	// Name of the account policy.
-	PolicyName pulumi.StringOutput `pulumi:"policyName"`
-	// Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
-	PolicyType pulumi.StringOutput `pulumi:"policyType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Currently defaults to and only accepts the value: `ALL`.
-	Scope pulumi.StringPtrOutput `pulumi:"scope"`
-	// Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
+	PolicyDocument    pulumi.StringOutput    `pulumi:"policyDocument"`
+	PolicyName        pulumi.StringOutput    `pulumi:"policyName"`
+	PolicyType        pulumi.StringOutput    `pulumi:"policyType"`
+	Region            pulumi.StringOutput    `pulumi:"region"`
+	Scope             pulumi.StringPtrOutput `pulumi:"scope"`
 	SelectionCriteria pulumi.StringPtrOutput `pulumi:"selectionCriteria"`
 }
 
@@ -220,32 +62,20 @@ func GetLogAccountPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogAccountPolicy resources.
 type logAccountPolicyState struct {
-	// Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
-	PolicyDocument *string `pulumi:"policyDocument"`
-	// Name of the account policy.
-	PolicyName *string `pulumi:"policyName"`
-	// Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
-	PolicyType *string `pulumi:"policyType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Currently defaults to and only accepts the value: `ALL`.
-	Scope *string `pulumi:"scope"`
-	// Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
+	PolicyDocument    *string `pulumi:"policyDocument"`
+	PolicyName        *string `pulumi:"policyName"`
+	PolicyType        *string `pulumi:"policyType"`
+	Region            *string `pulumi:"region"`
+	Scope             *string `pulumi:"scope"`
 	SelectionCriteria *string `pulumi:"selectionCriteria"`
 }
 
 type LogAccountPolicyState struct {
-	// Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
-	PolicyDocument pulumi.StringPtrInput
-	// Name of the account policy.
-	PolicyName pulumi.StringPtrInput
-	// Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
-	PolicyType pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Currently defaults to and only accepts the value: `ALL`.
-	Scope pulumi.StringPtrInput
-	// Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
+	PolicyDocument    pulumi.StringPtrInput
+	PolicyName        pulumi.StringPtrInput
+	PolicyType        pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
+	Scope             pulumi.StringPtrInput
 	SelectionCriteria pulumi.StringPtrInput
 }
 
@@ -254,33 +84,21 @@ func (LogAccountPolicyState) ElementType() reflect.Type {
 }
 
 type logAccountPolicyArgs struct {
-	// Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
-	PolicyDocument string `pulumi:"policyDocument"`
-	// Name of the account policy.
-	PolicyName string `pulumi:"policyName"`
-	// Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
-	PolicyType string `pulumi:"policyType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Currently defaults to and only accepts the value: `ALL`.
-	Scope *string `pulumi:"scope"`
-	// Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
+	PolicyDocument    string  `pulumi:"policyDocument"`
+	PolicyName        string  `pulumi:"policyName"`
+	PolicyType        string  `pulumi:"policyType"`
+	Region            *string `pulumi:"region"`
+	Scope             *string `pulumi:"scope"`
 	SelectionCriteria *string `pulumi:"selectionCriteria"`
 }
 
 // The set of arguments for constructing a LogAccountPolicy resource.
 type LogAccountPolicyArgs struct {
-	// Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
-	PolicyDocument pulumi.StringInput
-	// Name of the account policy.
-	PolicyName pulumi.StringInput
-	// Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
-	PolicyType pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Currently defaults to and only accepts the value: `ALL`.
-	Scope pulumi.StringPtrInput
-	// Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
+	PolicyDocument    pulumi.StringInput
+	PolicyName        pulumi.StringInput
+	PolicyType        pulumi.StringInput
+	Region            pulumi.StringPtrInput
+	Scope             pulumi.StringPtrInput
 	SelectionCriteria pulumi.StringPtrInput
 }
 
@@ -371,32 +189,26 @@ func (o LogAccountPolicyOutput) ToLogAccountPolicyOutputWithContext(ctx context.
 	return o
 }
 
-// Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
 func (o LogAccountPolicyOutput) PolicyDocument() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogAccountPolicy) pulumi.StringOutput { return v.PolicyDocument }).(pulumi.StringOutput)
 }
 
-// Name of the account policy.
 func (o LogAccountPolicyOutput) PolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogAccountPolicy) pulumi.StringOutput { return v.PolicyName }).(pulumi.StringOutput)
 }
 
-// Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
 func (o LogAccountPolicyOutput) PolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogAccountPolicy) pulumi.StringOutput { return v.PolicyType }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LogAccountPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogAccountPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Currently defaults to and only accepts the value: `ALL`.
 func (o LogAccountPolicyOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogAccountPolicy) pulumi.StringPtrOutput { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
-// Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
 func (o LogAccountPolicyOutput) SelectionCriteria() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogAccountPolicy) pulumi.StringPtrOutput { return v.SelectionCriteria }).(pulumi.StringPtrOutput)
 }

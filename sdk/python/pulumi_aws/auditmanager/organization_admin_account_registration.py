@@ -23,8 +23,6 @@ class OrganizationAdminAccountRegistrationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OrganizationAdminAccountRegistration resource.
-        :param pulumi.Input[_builtins.str] admin_account_id: Identifier for the organization administrator account.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "admin_account_id", admin_account_id)
         if region is not None:
@@ -33,9 +31,6 @@ class OrganizationAdminAccountRegistrationArgs:
     @_builtins.property
     @pulumi.getter(name="adminAccountId")
     def admin_account_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier for the organization administrator account.
-        """
         return pulumi.get(self, "admin_account_id")
 
     @admin_account_id.setter
@@ -45,9 +40,6 @@ class OrganizationAdminAccountRegistrationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -63,9 +55,6 @@ class _OrganizationAdminAccountRegistrationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrganizationAdminAccountRegistration resources.
-        :param pulumi.Input[_builtins.str] admin_account_id: Identifier for the organization administrator account.
-        :param pulumi.Input[_builtins.str] organization_id: Identifier for the organization.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if admin_account_id is not None:
             pulumi.set(__self__, "admin_account_id", admin_account_id)
@@ -77,9 +66,6 @@ class _OrganizationAdminAccountRegistrationState:
     @_builtins.property
     @pulumi.getter(name="adminAccountId")
     def admin_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier for the organization administrator account.
-        """
         return pulumi.get(self, "admin_account_id")
 
     @admin_account_id.setter
@@ -89,9 +75,6 @@ class _OrganizationAdminAccountRegistrationState:
     @_builtins.property
     @pulumi.getter(name="organizationId")
     def organization_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier for the organization.
-        """
         return pulumi.get(self, "organization_id")
 
     @organization_id.setter
@@ -101,9 +84,6 @@ class _OrganizationAdminAccountRegistrationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -121,31 +101,9 @@ class OrganizationAdminAccountRegistration(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing AWS Audit Manager Organization Admin Account Registration.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.auditmanager.OrganizationAdminAccountRegistration("example", admin_account_id="123456789012")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Audit Manager Organization Admin Account Registration using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration example 123456789012
-        ```
-
+        Create a OrganizationAdminAccountRegistration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] admin_account_id: Identifier for the organization administrator account.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -154,27 +112,7 @@ class OrganizationAdminAccountRegistration(pulumi.CustomResource):
                  args: OrganizationAdminAccountRegistrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing AWS Audit Manager Organization Admin Account Registration.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.auditmanager.OrganizationAdminAccountRegistration("example", admin_account_id="123456789012")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Audit Manager Organization Admin Account Registration using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration example 123456789012
-        ```
-
+        Create a OrganizationAdminAccountRegistration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param OrganizationAdminAccountRegistrationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -226,9 +164,6 @@ class OrganizationAdminAccountRegistration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] admin_account_id: Identifier for the organization administrator account.
-        :param pulumi.Input[_builtins.str] organization_id: Identifier for the organization.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -242,24 +177,15 @@ class OrganizationAdminAccountRegistration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="adminAccountId")
     def admin_account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier for the organization administrator account.
-        """
         return pulumi.get(self, "admin_account_id")
 
     @_builtins.property
     @pulumi.getter(name="organizationId")
     def organization_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier for the organization.
-        """
         return pulumi.get(self, "organization_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

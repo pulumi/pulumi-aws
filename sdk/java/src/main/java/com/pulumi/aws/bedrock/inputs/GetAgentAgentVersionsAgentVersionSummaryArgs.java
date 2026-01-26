@@ -18,79 +18,37 @@ public final class GetAgentAgentVersionsAgentVersionSummaryArgs extends com.pulu
 
     public static final GetAgentAgentVersionsAgentVersionSummaryArgs Empty = new GetAgentAgentVersionsAgentVersionSummaryArgs();
 
-    /**
-     * Name of agent to which the version belongs.
-     * 
-     */
     @Import(name="agentName", required=true)
     private Output<String> agentName;
 
-    /**
-     * @return Name of agent to which the version belongs.
-     * 
-     */
     public Output<String> agentName() {
         return this.agentName;
     }
 
-    /**
-     * Status of the agent to which the version belongs.
-     * 
-     */
     @Import(name="agentStatus", required=true)
     private Output<String> agentStatus;
 
-    /**
-     * @return Status of the agent to which the version belongs.
-     * 
-     */
     public Output<String> agentStatus() {
         return this.agentStatus;
     }
 
-    /**
-     * Version of the agent.
-     * 
-     */
     @Import(name="agentVersion", required=true)
     private Output<String> agentVersion;
 
-    /**
-     * @return Version of the agent.
-     * 
-     */
     public Output<String> agentVersion() {
         return this.agentVersion;
     }
 
-    /**
-     * Time at which the version was created.
-     * 
-     */
     @Import(name="createdAt", required=true)
     private Output<String> createdAt;
 
-    /**
-     * @return Time at which the version was created.
-     * 
-     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
 
-    /**
-     * Description of the version of the agent.
-     * * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
-     * 
-     */
     @Import(name="description", required=true)
     private Output<String> description;
 
-    /**
-     * @return Description of the version of the agent.
-     * * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
-     * 
-     */
     public Output<String> description() {
         return this.description;
     }
@@ -102,17 +60,9 @@ public final class GetAgentAgentVersionsAgentVersionSummaryArgs extends com.pulu
         return Optional.ofNullable(this.guardrailConfigurations);
     }
 
-    /**
-     * Time at which the version was last updated.
-     * 
-     */
     @Import(name="updatedAt", required=true)
     private Output<String> updatedAt;
 
-    /**
-     * @return Time at which the version was last updated.
-     * 
-     */
     public Output<String> updatedAt() {
         return this.updatedAt;
     }
@@ -147,109 +97,47 @@ public final class GetAgentAgentVersionsAgentVersionSummaryArgs extends com.pulu
             $ = new GetAgentAgentVersionsAgentVersionSummaryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param agentName Name of agent to which the version belongs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder agentName(Output<String> agentName) {
             $.agentName = agentName;
             return this;
         }
 
-        /**
-         * @param agentName Name of agent to which the version belongs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder agentName(String agentName) {
             return agentName(Output.of(agentName));
         }
 
-        /**
-         * @param agentStatus Status of the agent to which the version belongs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder agentStatus(Output<String> agentStatus) {
             $.agentStatus = agentStatus;
             return this;
         }
 
-        /**
-         * @param agentStatus Status of the agent to which the version belongs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder agentStatus(String agentStatus) {
             return agentStatus(Output.of(agentStatus));
         }
 
-        /**
-         * @param agentVersion Version of the agent.
-         * 
-         * @return builder
-         * 
-         */
         public Builder agentVersion(Output<String> agentVersion) {
             $.agentVersion = agentVersion;
             return this;
         }
 
-        /**
-         * @param agentVersion Version of the agent.
-         * 
-         * @return builder
-         * 
-         */
         public Builder agentVersion(String agentVersion) {
             return agentVersion(Output.of(agentVersion));
         }
 
-        /**
-         * @param createdAt Time at which the version was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdAt(Output<String> createdAt) {
             $.createdAt = createdAt;
             return this;
         }
 
-        /**
-         * @param createdAt Time at which the version was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdAt(String createdAt) {
             return createdAt(Output.of(createdAt));
         }
 
-        /**
-         * @param description Description of the version of the agent.
-         * * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the version of the agent.
-         * * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
@@ -267,23 +155,11 @@ public final class GetAgentAgentVersionsAgentVersionSummaryArgs extends com.pulu
             return guardrailConfigurations(List.of(guardrailConfigurations));
         }
 
-        /**
-         * @param updatedAt Time at which the version was last updated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder updatedAt(Output<String> updatedAt) {
             $.updatedAt = updatedAt;
             return this;
         }
 
-        /**
-         * @param updatedAt Time at which the version was last updated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder updatedAt(String updatedAt) {
             return updatedAt(Output.of(updatedAt));
         }

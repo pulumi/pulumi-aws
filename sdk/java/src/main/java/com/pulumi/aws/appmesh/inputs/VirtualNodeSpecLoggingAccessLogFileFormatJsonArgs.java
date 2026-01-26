@@ -14,32 +14,16 @@ public final class VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs extends com
 
     public static final VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs Empty = new VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs();
 
-    /**
-     * The specified key for the JSON. Must be between 1 and 100 characters in length.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return The specified key for the JSON. Must be between 1 and 100 characters in length.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * The specified value for the JSON. Must be between 1 and 100 characters in length.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return The specified value for the JSON. Must be between 1 and 100 characters in length.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -69,44 +53,20 @@ public final class VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs extends com
             $ = new VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key The specified key for the JSON. Must be between 1 and 100 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key The specified key for the JSON. Must be between 1 and 100 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param value The specified value for the JSON. Must be between 1 and 100 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value The specified value for the JSON. Must be between 1 and 100 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

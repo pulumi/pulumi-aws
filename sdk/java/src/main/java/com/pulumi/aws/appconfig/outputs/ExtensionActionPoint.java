@@ -12,29 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ExtensionActionPoint {
-    /**
-     * @return An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
-     * 
-     */
     private List<ExtensionActionPointAction> actions;
-    /**
-     * @return The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
-     * 
-     */
     private String point;
 
     private ExtensionActionPoint() {}
-    /**
-     * @return An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
-     * 
-     */
     public List<ExtensionActionPointAction> actions() {
         return this.actions;
     }
-    /**
-     * @return The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
-     * 
-     */
     public String point() {
         return this.point;
     }

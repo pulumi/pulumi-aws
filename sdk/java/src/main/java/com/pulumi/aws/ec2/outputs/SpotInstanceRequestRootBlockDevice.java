@@ -14,125 +14,49 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SpotInstanceRequestRootBlockDevice {
-    /**
-     * @return Whether the volume should be destroyed on instance termination. Defaults to `true`.
-     * 
-     */
     private @Nullable Boolean deleteOnTermination;
     private @Nullable String deviceName;
-    /**
-     * @return Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.
-     * 
-     */
     private @Nullable Boolean encrypted;
-    /**
-     * @return Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
-     * 
-     */
     private @Nullable Integer iops;
-    /**
-     * @return Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
-     * 
-     */
     private @Nullable String kmsKeyId;
-    /**
-     * @return Map of tags to assign to the device.
-     * 
-     */
     private @Nullable Map<String,String> tags;
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     private @Nullable Map<String,String> tagsAll;
-    /**
-     * @return Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
-     * 
-     */
     private @Nullable Integer throughput;
     private @Nullable String volumeId;
-    /**
-     * @return Size of the volume in gibibytes (GiB).
-     * 
-     */
     private @Nullable Integer volumeSize;
-    /**
-     * @return Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to the volume type that the AMI uses.
-     * 
-     * Modifying the `encrypted` or `kmsKeyId` settings of the `rootBlockDevice` requires resource replacement.
-     * 
-     */
     private @Nullable String volumeType;
 
     private SpotInstanceRequestRootBlockDevice() {}
-    /**
-     * @return Whether the volume should be destroyed on instance termination. Defaults to `true`.
-     * 
-     */
     public Optional<Boolean> deleteOnTermination() {
         return Optional.ofNullable(this.deleteOnTermination);
     }
     public Optional<String> deviceName() {
         return Optional.ofNullable(this.deviceName);
     }
-    /**
-     * @return Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.
-     * 
-     */
     public Optional<Boolean> encrypted() {
         return Optional.ofNullable(this.encrypted);
     }
-    /**
-     * @return Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
-     * 
-     */
     public Optional<Integer> iops() {
         return Optional.ofNullable(this.iops);
     }
-    /**
-     * @return Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
-     * 
-     */
     public Optional<String> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
-    /**
-     * @return Map of tags to assign to the device.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Map<String,String> tagsAll() {
         return this.tagsAll == null ? Map.of() : this.tagsAll;
     }
-    /**
-     * @return Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
-     * 
-     */
     public Optional<Integer> throughput() {
         return Optional.ofNullable(this.throughput);
     }
     public Optional<String> volumeId() {
         return Optional.ofNullable(this.volumeId);
     }
-    /**
-     * @return Size of the volume in gibibytes (GiB).
-     * 
-     */
     public Optional<Integer> volumeSize() {
         return Optional.ofNullable(this.volumeSize);
     }
-    /**
-     * @return Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to the volume type that the AMI uses.
-     * 
-     * Modifying the `encrypted` or `kmsKeyId` settings of the `rootBlockDevice` requires resource replacement.
-     * 
-     */
     public Optional<String> volumeType() {
         return Optional.ofNullable(this.volumeType);
     }

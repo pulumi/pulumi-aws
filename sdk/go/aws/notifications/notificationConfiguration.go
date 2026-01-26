@@ -12,104 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS User Notifications Notification Configuration.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/notifications"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := notifications.NewNotificationConfiguration(ctx, "example", &notifications.NotificationConfigurationArgs{
-//				Name:        pulumi.String("example"),
-//				Description: pulumi.String("Example notification configuration"),
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("production"),
-//					"Project":     pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Aggregation Duration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/notifications"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := notifications.NewNotificationConfiguration(ctx, "example", &notifications.NotificationConfigurationArgs{
-//				Name:                pulumi.String("example-aggregation"),
-//				Description:         pulumi.String("Example notification configuration with aggregation"),
-//				AggregationDuration: pulumi.String("SHORT"),
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("production"),
-//					"Project":     pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import User Notifications Notification Configuration using the `arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:notifications/notificationConfiguration:NotificationConfiguration example arn:aws:notifications::123456789012:configuration/abcdef1234567890abcdef1234567890
-// ```
 type NotificationConfiguration struct {
 	pulumi.CustomResourceState
 
-	// Aggregation preference of the NotificationConfiguration. Valid values: `LONG` (
-	// aggregate notifications for 12 hours), `SHORT` (aggregate notifications for 5 minutes), `NONE` (don't aggregate
-	// notifications). Default: `NONE`.
-	AggregationDuration pulumi.StringOutput `pulumi:"aggregationDuration"`
-	// Amazon Resource Name (ARN) of the NotificationConfiguration.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Description of the NotificationConfiguration. Length constraints: Minimum length of 0,
-	// maximum length of 256.
-	Description pulumi.StringOutput `pulumi:"description"`
-	// Name of the NotificationConfiguration. Supports RFC 3986's unreserved characters. Length
-	// constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_\-]+`.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Map of tags to assign to the resource. A tag is a string-to-string map of key-value pairs. If
-	// configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those
-	// defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags`
-	// configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	AggregationDuration pulumi.StringOutput    `pulumi:"aggregationDuration"`
+	Arn                 pulumi.StringOutput    `pulumi:"arn"`
+	Description         pulumi.StringOutput    `pulumi:"description"`
+	Name                pulumi.StringOutput    `pulumi:"name"`
+	Tags                pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll             pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewNotificationConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -145,51 +56,21 @@ func GetNotificationConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NotificationConfiguration resources.
 type notificationConfigurationState struct {
-	// Aggregation preference of the NotificationConfiguration. Valid values: `LONG` (
-	// aggregate notifications for 12 hours), `SHORT` (aggregate notifications for 5 minutes), `NONE` (don't aggregate
-	// notifications). Default: `NONE`.
-	AggregationDuration *string `pulumi:"aggregationDuration"`
-	// Amazon Resource Name (ARN) of the NotificationConfiguration.
-	Arn *string `pulumi:"arn"`
-	// Description of the NotificationConfiguration. Length constraints: Minimum length of 0,
-	// maximum length of 256.
-	Description *string `pulumi:"description"`
-	// Name of the NotificationConfiguration. Supports RFC 3986's unreserved characters. Length
-	// constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_\-]+`.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Map of tags to assign to the resource. A tag is a string-to-string map of key-value pairs. If
-	// configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those
-	// defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags`
-	// configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	AggregationDuration *string           `pulumi:"aggregationDuration"`
+	Arn                 *string           `pulumi:"arn"`
+	Description         *string           `pulumi:"description"`
+	Name                *string           `pulumi:"name"`
+	Tags                map[string]string `pulumi:"tags"`
+	TagsAll             map[string]string `pulumi:"tagsAll"`
 }
 
 type NotificationConfigurationState struct {
-	// Aggregation preference of the NotificationConfiguration. Valid values: `LONG` (
-	// aggregate notifications for 12 hours), `SHORT` (aggregate notifications for 5 minutes), `NONE` (don't aggregate
-	// notifications). Default: `NONE`.
 	AggregationDuration pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the NotificationConfiguration.
-	Arn pulumi.StringPtrInput
-	// Description of the NotificationConfiguration. Length constraints: Minimum length of 0,
-	// maximum length of 256.
-	Description pulumi.StringPtrInput
-	// Name of the NotificationConfiguration. Supports RFC 3986's unreserved characters. Length
-	// constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_\-]+`.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Map of tags to assign to the resource. A tag is a string-to-string map of key-value pairs. If
-	// configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those
-	// defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags`
-	// configuration block.
-	TagsAll pulumi.StringMapInput
+	Arn                 pulumi.StringPtrInput
+	Description         pulumi.StringPtrInput
+	Name                pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
+	TagsAll             pulumi.StringMapInput
 }
 
 func (NotificationConfigurationState) ElementType() reflect.Type {
@@ -197,42 +78,18 @@ func (NotificationConfigurationState) ElementType() reflect.Type {
 }
 
 type notificationConfigurationArgs struct {
-	// Aggregation preference of the NotificationConfiguration. Valid values: `LONG` (
-	// aggregate notifications for 12 hours), `SHORT` (aggregate notifications for 5 minutes), `NONE` (don't aggregate
-	// notifications). Default: `NONE`.
-	AggregationDuration *string `pulumi:"aggregationDuration"`
-	// Description of the NotificationConfiguration. Length constraints: Minimum length of 0,
-	// maximum length of 256.
-	Description string `pulumi:"description"`
-	// Name of the NotificationConfiguration. Supports RFC 3986's unreserved characters. Length
-	// constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_\-]+`.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Map of tags to assign to the resource. A tag is a string-to-string map of key-value pairs. If
-	// configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those
-	// defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	AggregationDuration *string           `pulumi:"aggregationDuration"`
+	Description         string            `pulumi:"description"`
+	Name                *string           `pulumi:"name"`
+	Tags                map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NotificationConfiguration resource.
 type NotificationConfigurationArgs struct {
-	// Aggregation preference of the NotificationConfiguration. Valid values: `LONG` (
-	// aggregate notifications for 12 hours), `SHORT` (aggregate notifications for 5 minutes), `NONE` (don't aggregate
-	// notifications). Default: `NONE`.
 	AggregationDuration pulumi.StringPtrInput
-	// Description of the NotificationConfiguration. Length constraints: Minimum length of 0,
-	// maximum length of 256.
-	Description pulumi.StringInput
-	// Name of the NotificationConfiguration. Supports RFC 3986's unreserved characters. Length
-	// constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_\-]+`.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Map of tags to assign to the resource. A tag is a string-to-string map of key-value pairs. If
-	// configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those
-	// defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Description         pulumi.StringInput
+	Name                pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
 }
 
 func (NotificationConfigurationArgs) ElementType() reflect.Type {
@@ -322,41 +179,26 @@ func (o NotificationConfigurationOutput) ToNotificationConfigurationOutputWithCo
 	return o
 }
 
-// Aggregation preference of the NotificationConfiguration. Valid values: `LONG` (
-// aggregate notifications for 12 hours), `SHORT` (aggregate notifications for 5 minutes), `NONE` (don't aggregate
-// notifications). Default: `NONE`.
 func (o NotificationConfigurationOutput) AggregationDuration() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationConfiguration) pulumi.StringOutput { return v.AggregationDuration }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the NotificationConfiguration.
 func (o NotificationConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description of the NotificationConfiguration. Length constraints: Minimum length of 0,
-// maximum length of 256.
 func (o NotificationConfigurationOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationConfiguration) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// Name of the NotificationConfiguration. Supports RFC 3986's unreserved characters. Length
-// constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_\-]+`.
-//
-// The following arguments are optional:
 func (o NotificationConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the resource. A tag is a string-to-string map of key-value pairs. If
-// configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those
-// defined at the provider-level.
 func (o NotificationConfigurationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NotificationConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags`
-// configuration block.
 func (o NotificationConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NotificationConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

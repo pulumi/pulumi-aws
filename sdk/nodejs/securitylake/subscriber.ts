@@ -7,77 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Security Lake Subscriber.
- *
- * > **NOTE:** The underlying `aws.securitylake.DataLake` must be configured before creating the `aws.securitylake.Subscriber`. Use a `dependsOn` statement.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.securitylake.Subscriber("example", {
- *     subscriberName: "example-name",
- *     accessType: "S3",
- *     sources: [{
- *         awsLogSourceResource: {
- *             sourceName: "ROUTE53",
- *             sourceVersion: "1.0",
- *         },
- *     }],
- *     subscriberIdentity: {
- *         externalId: "example",
- *         principal: "1234567890",
- *     },
- * }, {
- *     dependsOn: [exampleAwsSecuritylakeDataLake],
- * });
- * ```
- *
- * ### Multiple Log Sources
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.securitylake.Subscriber("example", {
- *     subscriberName: "example-name",
- *     accessType: "S3",
- *     sources: [
- *         {
- *             awsLogSourceResource: {
- *                 sourceName: "SH_FINDINGS",
- *                 sourceVersion: "2.0",
- *             },
- *         },
- *         {
- *             awsLogSourceResource: {
- *                 sourceName: "ROUTE53",
- *                 sourceVersion: "2.0",
- *             },
- *         },
- *     ],
- *     subscriberIdentity: {
- *         externalId: "example",
- *         principal: "1234567890",
- *     },
- * }, {
- *     dependsOn: [exampleAwsSecuritylakeDataLake],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Security Lake subscriber using the subscriber ID. For example:
- *
- * ```sh
- * $ pulumi import aws:securitylake/subscriber:Subscriber example 9f3bfe79-d543-474d-a93c-f3846805d208
- * ```
- */
 export class Subscriber extends pulumi.CustomResource {
     /**
      * Get an existing Subscriber resource's state with the given name, ID, and optional extra
@@ -106,65 +35,20 @@ export class Subscriber extends pulumi.CustomResource {
         return obj['__pulumiType'] === Subscriber.__pulumiType;
     }
 
-    /**
-     * The Amazon S3 or Lake Formation access type.
-     */
     declare public readonly accessType: pulumi.Output<string>;
-    /**
-     * ARN of the Data Lake.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
-     */
     declare public /*out*/ readonly resourceShareArn: pulumi.Output<string>;
-    /**
-     * The name of the resource share.
-     */
     declare public /*out*/ readonly resourceShareName: pulumi.Output<string>;
-    /**
-     * The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
-     */
     declare public /*out*/ readonly roleArn: pulumi.Output<string>;
-    /**
-     * The ARN for the Amazon Security Lake Amazon S3 bucket.
-     */
     declare public /*out*/ readonly s3BucketArn: pulumi.Output<string>;
-    /**
-     * The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
-     */
     declare public readonly sources: pulumi.Output<outputs.securitylake.SubscriberSource[] | undefined>;
-    /**
-     * The description for your subscriber account in Security Lake.
-     */
     declare public readonly subscriberDescription: pulumi.Output<string | undefined>;
-    /**
-     * The subscriber endpoint to which exception messages are posted.
-     */
     declare public /*out*/ readonly subscriberEndpoint: pulumi.Output<string>;
-    /**
-     * The AWS identity used to access your data. See `subscriberIdentity` Block below.
-     */
     declare public readonly subscriberIdentity: pulumi.Output<outputs.securitylake.SubscriberSubscriberIdentity | undefined>;
-    /**
-     * The name of your Security Lake subscriber account.
-     */
     declare public readonly subscriberName: pulumi.Output<string | undefined>;
-    /**
-     * The subscriber status of the Amazon Security Lake subscriber account.
-     */
     declare public /*out*/ readonly subscriberStatus: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.securitylake.SubscriberTimeouts | undefined>;
 
@@ -225,65 +109,20 @@ export class Subscriber extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Subscriber resources.
  */
 export interface SubscriberState {
-    /**
-     * The Amazon S3 or Lake Formation access type.
-     */
     accessType?: pulumi.Input<string>;
-    /**
-     * ARN of the Data Lake.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
-     */
     resourceShareArn?: pulumi.Input<string>;
-    /**
-     * The name of the resource share.
-     */
     resourceShareName?: pulumi.Input<string>;
-    /**
-     * The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
-     */
     roleArn?: pulumi.Input<string>;
-    /**
-     * The ARN for the Amazon Security Lake Amazon S3 bucket.
-     */
     s3BucketArn?: pulumi.Input<string>;
-    /**
-     * The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
-     */
     sources?: pulumi.Input<pulumi.Input<inputs.securitylake.SubscriberSource>[]>;
-    /**
-     * The description for your subscriber account in Security Lake.
-     */
     subscriberDescription?: pulumi.Input<string>;
-    /**
-     * The subscriber endpoint to which exception messages are posted.
-     */
     subscriberEndpoint?: pulumi.Input<string>;
-    /**
-     * The AWS identity used to access your data. See `subscriberIdentity` Block below.
-     */
     subscriberIdentity?: pulumi.Input<inputs.securitylake.SubscriberSubscriberIdentity>;
-    /**
-     * The name of your Security Lake subscriber account.
-     */
     subscriberName?: pulumi.Input<string>;
-    /**
-     * The subscriber status of the Amazon Security Lake subscriber account.
-     */
     subscriberStatus?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.securitylake.SubscriberTimeouts>;
 }
@@ -292,33 +131,12 @@ export interface SubscriberState {
  * The set of arguments for constructing a Subscriber resource.
  */
 export interface SubscriberArgs {
-    /**
-     * The Amazon S3 or Lake Formation access type.
-     */
     accessType?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
-     */
     sources?: pulumi.Input<pulumi.Input<inputs.securitylake.SubscriberSource>[]>;
-    /**
-     * The description for your subscriber account in Security Lake.
-     */
     subscriberDescription?: pulumi.Input<string>;
-    /**
-     * The AWS identity used to access your data. See `subscriberIdentity` Block below.
-     */
     subscriberIdentity?: pulumi.Input<inputs.securitylake.SubscriberSubscriberIdentity>;
-    /**
-     * The name of your Security Lake subscriber account.
-     */
     subscriberName?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.securitylake.SubscriberTimeouts>;
 }

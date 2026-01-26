@@ -14,10 +14,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
     {
         [Input("ipSets")]
         private InputList<Inputs.RuleGroupRuleGroupRuleVariablesIpSetGetArgs>? _ipSets;
-
-        /// <summary>
-        /// Set of configuration blocks that define IP address information. See IP Sets below for details.
-        /// </summary>
         public InputList<Inputs.RuleGroupRuleGroupRuleVariablesIpSetGetArgs> IpSets
         {
             get => _ipSets ?? (_ipSets = new InputList<Inputs.RuleGroupRuleGroupRuleVariablesIpSetGetArgs>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
 
         [Input("portSets")]
         private InputList<Inputs.RuleGroupRuleGroupRuleVariablesPortSetGetArgs>? _portSets;
-
-        /// <summary>
-        /// Set of configuration blocks that define port range information. See Port Sets below for details.
-        /// </summary>
         public InputList<Inputs.RuleGroupRuleGroupRuleVariablesPortSetGetArgs> PortSets
         {
             get => _portSets ?? (_portSets = new InputList<Inputs.RuleGroupRuleGroupRuleVariablesPortSetGetArgs>());

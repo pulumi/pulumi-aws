@@ -18,255 +18,77 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an [AWS Mainframe Modernization Application](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2.html).
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.m2.Application;
- * import com.pulumi.aws.m2.ApplicationArgs;
- * import com.pulumi.aws.m2.inputs.ApplicationDefinitionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Application("example", ApplicationArgs.builder()
- *             .name("Example")
- *             .engineType("bluage")
- *             .definition(ApplicationDefinitionArgs.builder()
- *                 .content("""
- * {
- *   \"definition\": {
- *     \"listeners\": [
- *       {
- *         \"port\": 8196,
- *         \"type\": \"http\"
- *       }
- *     ],
- *     \"ba-application\": {
- *       \"app-location\": \"%s/PlanetsDemo-v1.zip\"
- *     }
- *   },
- *   \"source-locations\": [
- *     {
- *       \"source-id\": \"s3-source\",
- *       \"source-type\": \"s3\",
- *       \"properties\": {
- *         \"s3-bucket\": \"example-bucket\",
- *         \"s3-key-prefix\": \"v1\"
- *       }
- *     }
- *   ],
- *   \"template-version\": \"2.0\"
- * }
- * 
- * ", s3_source))
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Mainframe Modernization Application using the `01234567890abcdef012345678`. For example:
- * 
- * ```sh
- * $ pulumi import aws:m2/application:Application example 01234567890abcdef012345678
- * ```
- * 
- */
 @ResourceType(type="aws:m2/application:Application")
 public class Application extends com.pulumi.resources.CustomResource {
-    /**
-     * Id of the Application.
-     * 
-     */
     @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
-    /**
-     * @return Id of the Application.
-     * 
-     */
     public Output<String> applicationId() {
         return this.applicationId;
     }
-    /**
-     * ARN of the Application.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Application.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Current version of the application deployed.
-     * 
-     */
     @Export(name="currentVersion", refs={Integer.class}, tree="[0]")
     private Output<Integer> currentVersion;
 
-    /**
-     * @return Current version of the application deployed.
-     * 
-     */
     public Output<Integer> currentVersion() {
         return this.currentVersion;
     }
-    /**
-     * The application definition for this application. You can specify either inline JSON or an S3 bucket location.
-     * 
-     */
     @Export(name="definition", refs={ApplicationDefinition.class}, tree="[0]")
     private Output</* @Nullable */ ApplicationDefinition> definition;
 
-    /**
-     * @return The application definition for this application. You can specify either inline JSON or an S3 bucket location.
-     * 
-     */
     public Output<Optional<ApplicationDefinition>> definition() {
         return Codegen.optional(this.definition);
     }
-    /**
-     * Description of the application.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the application.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Engine type must be `microfocus | bluage`.
-     * 
-     */
     @Export(name="engineType", refs={String.class}, tree="[0]")
     private Output<String> engineType;
 
-    /**
-     * @return Engine type must be `microfocus | bluage`.
-     * 
-     */
     public Output<String> engineType() {
         return this.engineType;
     }
-    /**
-     * KMS Key to use for the Application.
-     * 
-     */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyId;
 
-    /**
-     * @return KMS Key to use for the Application.
-     * 
-     */
     public Output<Optional<String>> kmsKeyId() {
         return Codegen.optional(this.kmsKeyId);
     }
-    /**
-     * Unique identifier of the application.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Unique identifier of the application.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * ARN of role for application to use to access AWS resources.
-     * 
-     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleArn;
 
-    /**
-     * @return ARN of role for application to use to access AWS resources.
-     * 
-     */
     public Output<Optional<String>> roleArn() {
         return Codegen.optional(this.roleArn);
     }
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

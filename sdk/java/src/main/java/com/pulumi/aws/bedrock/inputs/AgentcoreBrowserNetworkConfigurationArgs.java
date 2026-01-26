@@ -17,32 +17,16 @@ public final class AgentcoreBrowserNetworkConfigurationArgs extends com.pulumi.r
 
     public static final AgentcoreBrowserNetworkConfigurationArgs Empty = new AgentcoreBrowserNetworkConfigurationArgs();
 
-    /**
-     * Network mode for the browser. Valid values: `PUBLIC`, `VPC`.
-     * 
-     */
     @Import(name="networkMode", required=true)
     private Output<String> networkMode;
 
-    /**
-     * @return Network mode for the browser. Valid values: `PUBLIC`, `VPC`.
-     * 
-     */
     public Output<String> networkMode() {
         return this.networkMode;
     }
 
-    /**
-     * VPC configuration when `networkMode` is `VPC`. See `vpcConfig` below.
-     * 
-     */
     @Import(name="vpcConfig")
     private @Nullable Output<AgentcoreBrowserNetworkConfigurationVpcConfigArgs> vpcConfig;
 
-    /**
-     * @return VPC configuration when `networkMode` is `VPC`. See `vpcConfig` below.
-     * 
-     */
     public Optional<Output<AgentcoreBrowserNetworkConfigurationVpcConfigArgs>> vpcConfig() {
         return Optional.ofNullable(this.vpcConfig);
     }
@@ -72,44 +56,20 @@ public final class AgentcoreBrowserNetworkConfigurationArgs extends com.pulumi.r
             $ = new AgentcoreBrowserNetworkConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param networkMode Network mode for the browser. Valid values: `PUBLIC`, `VPC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkMode(Output<String> networkMode) {
             $.networkMode = networkMode;
             return this;
         }
 
-        /**
-         * @param networkMode Network mode for the browser. Valid values: `PUBLIC`, `VPC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkMode(String networkMode) {
             return networkMode(Output.of(networkMode));
         }
 
-        /**
-         * @param vpcConfig VPC configuration when `networkMode` is `VPC`. See `vpcConfig` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcConfig(@Nullable Output<AgentcoreBrowserNetworkConfigurationVpcConfigArgs> vpcConfig) {
             $.vpcConfig = vpcConfig;
             return this;
         }
 
-        /**
-         * @param vpcConfig VPC configuration when `networkMode` is `VPC`. See `vpcConfig` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcConfig(AgentcoreBrowserNetworkConfigurationVpcConfigArgs vpcConfig) {
             return vpcConfig(Output.of(vpcConfig));
         }

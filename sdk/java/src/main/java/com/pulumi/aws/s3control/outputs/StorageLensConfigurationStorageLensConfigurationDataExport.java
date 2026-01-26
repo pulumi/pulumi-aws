@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class StorageLensConfigurationStorageLensConfigurationDataExport {
-    /**
-     * @return Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
-     * 
-     */
     private @Nullable StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics cloudWatchMetrics;
-    /**
-     * @return The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
-     * 
-     */
     private @Nullable StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination s3BucketDestination;
 
     private StorageLensConfigurationStorageLensConfigurationDataExport() {}
-    /**
-     * @return Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
-     * 
-     */
     public Optional<StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics> cloudWatchMetrics() {
         return Optional.ofNullable(this.cloudWatchMetrics);
     }
-    /**
-     * @return The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
-     * 
-     */
     public Optional<StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination> s3BucketDestination() {
         return Optional.ofNullable(this.s3BucketDestination);
     }

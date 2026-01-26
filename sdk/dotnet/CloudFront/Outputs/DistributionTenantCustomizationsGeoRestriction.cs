@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class DistributionTenantCustomizationsGeoRestriction
     {
-        /// <summary>
-        /// Set of ISO 3166-1-alpha-2 country codes for the restriction. Required if `RestrictionType` is `Whitelist` or `Blacklist`.
-        /// </summary>
         public readonly ImmutableArray<string> Locations;
-        /// <summary>
-        /// Method to restrict distribution by country: `None`, `Whitelist`, or `Blacklist`.
-        /// </summary>
         public readonly string? RestrictionType;
 
         [OutputConstructor]

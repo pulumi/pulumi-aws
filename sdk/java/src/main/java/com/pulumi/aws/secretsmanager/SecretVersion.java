@@ -17,156 +17,11 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage AWS Secrets Manager secret version including its secret value. To manage secret metadata, see the `aws.secretsmanager.Secret` resource.
- * 
- * &gt; **NOTE:** If the `AWSCURRENT` staging label is present on this version during resource deletion, that label cannot be removed and will be skipped to prevent errors when fully deleting the secret. That label will leave this secret version active even after the resource is deleted from this provider unless the secret itself is deleted. Move the `AWSCURRENT` staging label before or after deleting this resource from this provider to fully trigger version deprecation if necessary.
- * 
- * ## Example Usage
- * 
- * ### Simple String Value
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.secretsmanager.SecretVersion;
- * import com.pulumi.aws.secretsmanager.SecretVersionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new SecretVersion("example", SecretVersionArgs.builder()
- *             .secretId(exampleAwsSecretsmanagerSecret.id())
- *             .secretString("example-string-to-protect")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Key-Value Pairs
- * 
- * Secrets Manager also accepts key-value pairs in JSON.
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.secretsmanager.SecretVersion;
- * import com.pulumi.aws.secretsmanager.SecretVersionArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var config = ctx.config();
- *         final var example = config.get("example").orElse(Map.ofEntries(
- *             Map.entry("key1", "value1"),
- *             Map.entry("key2", "value2")
- *         ));
- *         var exampleSecretVersion = new SecretVersion("exampleSecretVersion", SecretVersionArgs.builder()
- *             .secretId(exampleAwsSecretsmanagerSecret.id())
- *             .secretString(serializeJson(
- *                 example))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * Reading key-value pairs from JSON back into a native map
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.JsondecodeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         ctx.export("example", StdFunctions.jsondecode(JsondecodeArgs.builder()
- *             .input(exampleAwsSecretsmanagerSecretVersion.secretString())
- *             .build()).result().key1());
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * * `secret_id` - (String) ID of the secret.
- * 
- * * `version_id` - (String) ID of the secret version.
- * 
- * #### Optional
- * 
- * * `account_id` (String) AWS Account where this resource is managed.
- * 
- * * `region` (String) Region where this resource is managed.
- * 
- * Using `pulumi import`, import `aws_secretsmanager_secret_version` using the secret ID and version ID. For example:
- * 
- * % pulumi import aws_secretsmanager_secret_version.example &#39;arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx&#39;
- * 
- */
 @ResourceType(type="aws:secretsmanager/secretVersion:SecretVersion")
 public class SecretVersion extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the secret.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the secret.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -176,65 +31,32 @@ public class SecretVersion extends com.pulumi.resources.CustomResource {
     public Output<Boolean> hasSecretStringWo() {
         return this.hasSecretStringWo;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
-     * 
-     */
     @Export(name="secretBinary", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> secretBinary;
 
-    /**
-     * @return Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
-     * 
-     */
     public Output<Optional<String>> secretBinary() {
         return Codegen.optional(this.secretBinary);
     }
-    /**
-     * Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
-     * 
-     */
     @Export(name="secretId", refs={String.class}, tree="[0]")
     private Output<String> secretId;
 
-    /**
-     * @return Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
-     * 
-     */
     public Output<String> secretId() {
         return this.secretId;
     }
-    /**
-     * Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
-     * 
-     */
     @Export(name="secretString", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> secretString;
 
-    /**
-     * @return Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
-     * 
-     */
     public Output<Optional<String>> secretString() {
         return Codegen.optional(this.secretString);
     }
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
      * 
      */
     @Export(name="secretStringWo", refs={String.class}, tree="[0]")
@@ -242,55 +64,26 @@ public class SecretVersion extends com.pulumi.resources.CustomResource {
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
      * 
      */
     public Output<Optional<String>> secretStringWo() {
         return Codegen.optional(this.secretStringWo);
     }
-    /**
-     * Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
-     * 
-     */
     @Export(name="secretStringWoVersion", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> secretStringWoVersion;
 
-    /**
-     * @return Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
-     * 
-     */
     public Output<Optional<Integer>> secretStringWoVersion() {
         return Codegen.optional(this.secretStringWoVersion);
     }
-    /**
-     * The unique identifier of the version of the secret.
-     * 
-     */
     @Export(name="versionId", refs={String.class}, tree="[0]")
     private Output<String> versionId;
 
-    /**
-     * @return The unique identifier of the version of the secret.
-     * 
-     */
     public Output<String> versionId() {
         return this.versionId;
     }
-    /**
-     * Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that&#39;s already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
-     * 
-     * &gt; **NOTE:** If `versionStages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
-     * 
-     */
     @Export(name="versionStages", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> versionStages;
 
-    /**
-     * @return Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that&#39;s already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
-     * 
-     * &gt; **NOTE:** If `versionStages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
-     * 
-     */
     public Output<List<String>> versionStages() {
         return this.versionStages;
     }

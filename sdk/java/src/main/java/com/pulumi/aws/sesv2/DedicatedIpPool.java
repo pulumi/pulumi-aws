@@ -15,160 +15,35 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sesv2.DedicatedIpPool;
- * import com.pulumi.aws.sesv2.DedicatedIpPoolArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DedicatedIpPool("example", DedicatedIpPoolArgs.builder()
- *             .poolName("my-pool")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Managed Pool
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sesv2.DedicatedIpPool;
- * import com.pulumi.aws.sesv2.DedicatedIpPoolArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DedicatedIpPool("example", DedicatedIpPoolArgs.builder()
- *             .poolName("my-managed-pool")
- *             .scalingMode("MANAGED")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import SESv2 (Simple Email V2) Dedicated IP Pool using the `pool_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:sesv2/dedicatedIpPool:DedicatedIpPool example my-pool
- * ```
- * 
- */
 @ResourceType(type="aws:sesv2/dedicatedIpPool:DedicatedIpPool")
 public class DedicatedIpPool extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Dedicated IP Pool.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Dedicated IP Pool.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Name of the dedicated IP pool.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="poolName", refs={String.class}, tree="[0]")
     private Output<String> poolName;
 
-    /**
-     * @return Name of the dedicated IP pool.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> poolName() {
         return this.poolName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
-     * 
-     */
     @Export(name="scalingMode", refs={String.class}, tree="[0]")
     private Output<String> scalingMode;
 
-    /**
-     * @return IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
-     * 
-     */
     public Output<String> scalingMode() {
         return this.scalingMode;
     }
-    /**
-     * A map of tags to assign to the pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

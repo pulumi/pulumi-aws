@@ -15,81 +15,37 @@ public final class PrincipalPortfolioAssociationState extends com.pulumi.resourc
 
     public static final PrincipalPortfolioAssociationState Empty = new PrincipalPortfolioAssociationState();
 
-    /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     * 
-     */
     @Import(name="acceptLanguage")
     private @Nullable Output<String> acceptLanguage;
 
-    /**
-     * @return Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     * 
-     */
     public Optional<Output<String>> acceptLanguage() {
         return Optional.ofNullable(this.acceptLanguage);
     }
 
-    /**
-     * Portfolio identifier.
-     * 
-     */
     @Import(name="portfolioId")
     private @Nullable Output<String> portfolioId;
 
-    /**
-     * @return Portfolio identifier.
-     * 
-     */
     public Optional<Output<String>> portfolioId() {
         return Optional.ofNullable(this.portfolioId);
     }
 
-    /**
-     * Principal ARN.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="principalArn")
     private @Nullable Output<String> principalArn;
 
-    /**
-     * @return Principal ARN.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> principalArn() {
         return Optional.ofNullable(this.principalArn);
     }
 
-    /**
-     * Principal type. Setting this argument empty (e.g., `principalType = &#34;&#34;`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
-     * 
-     */
     @Import(name="principalType")
     private @Nullable Output<String> principalType;
 
-    /**
-     * @return Principal type. Setting this argument empty (e.g., `principalType = &#34;&#34;`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
-     * 
-     */
     public Optional<Output<String>> principalType() {
         return Optional.ofNullable(this.principalType);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -122,111 +78,47 @@ public final class PrincipalPortfolioAssociationState extends com.pulumi.resourc
             $ = new PrincipalPortfolioAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param acceptLanguage Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder acceptLanguage(@Nullable Output<String> acceptLanguage) {
             $.acceptLanguage = acceptLanguage;
             return this;
         }
 
-        /**
-         * @param acceptLanguage Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder acceptLanguage(String acceptLanguage) {
             return acceptLanguage(Output.of(acceptLanguage));
         }
 
-        /**
-         * @param portfolioId Portfolio identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder portfolioId(@Nullable Output<String> portfolioId) {
             $.portfolioId = portfolioId;
             return this;
         }
 
-        /**
-         * @param portfolioId Portfolio identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder portfolioId(String portfolioId) {
             return portfolioId(Output.of(portfolioId));
         }
 
-        /**
-         * @param principalArn Principal ARN.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalArn(@Nullable Output<String> principalArn) {
             $.principalArn = principalArn;
             return this;
         }
 
-        /**
-         * @param principalArn Principal ARN.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalArn(String principalArn) {
             return principalArn(Output.of(principalArn));
         }
 
-        /**
-         * @param principalType Principal type. Setting this argument empty (e.g., `principalType = &#34;&#34;`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalType(@Nullable Output<String> principalType) {
             $.principalType = principalType;
             return this;
         }
 
-        /**
-         * @param principalType Principal type. Setting this argument empty (e.g., `principalType = &#34;&#34;`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalType(String principalType) {
             return principalType(Output.of(principalType));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

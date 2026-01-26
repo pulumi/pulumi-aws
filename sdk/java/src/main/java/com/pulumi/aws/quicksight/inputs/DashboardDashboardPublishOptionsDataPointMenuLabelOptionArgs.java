@@ -15,17 +15,9 @@ public final class DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgs 
 
     public static final DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgs Empty = new DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgs();
 
-    /**
-     * Availability status. Possibles values: ENABLED, DISABLED.
-     * 
-     */
     @Import(name="availabilityStatus")
     private @Nullable Output<String> availabilityStatus;
 
-    /**
-     * @return Availability status. Possibles values: ENABLED, DISABLED.
-     * 
-     */
     public Optional<Output<String>> availabilityStatus() {
         return Optional.ofNullable(this.availabilityStatus);
     }
@@ -54,23 +46,11 @@ public final class DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgs 
             $ = new DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param availabilityStatus Availability status. Possibles values: ENABLED, DISABLED.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityStatus(@Nullable Output<String> availabilityStatus) {
             $.availabilityStatus = availabilityStatus;
             return this;
         }
 
-        /**
-         * @param availabilityStatus Availability status. Possibles values: ENABLED, DISABLED.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityStatus(String availabilityStatus) {
             return availabilityStatus(Output.of(availabilityStatus));
         }

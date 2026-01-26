@@ -29,32 +29,16 @@ public final class NetworkManagedServiceS3AccessArgs extends com.pulumi.resource
         return this.ipv4Addresses;
     }
 
-    /**
-     * Specifies the endpoint policy for Amazon S3 access from the ODB network.
-     * 
-     */
     @Import(name="s3PolicyDocument", required=true)
     private Output<String> s3PolicyDocument;
 
-    /**
-     * @return Specifies the endpoint policy for Amazon S3 access from the ODB network.
-     * 
-     */
     public Output<String> s3PolicyDocument() {
         return this.s3PolicyDocument;
     }
 
-    /**
-     * The status of the network resource.
-     * 
-     */
     @Import(name="status", required=true)
     private Output<String> status;
 
-    /**
-     * @return The status of the network resource.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
@@ -108,44 +92,20 @@ public final class NetworkManagedServiceS3AccessArgs extends com.pulumi.resource
             return ipv4Addresses(List.of(ipv4Addresses));
         }
 
-        /**
-         * @param s3PolicyDocument Specifies the endpoint policy for Amazon S3 access from the ODB network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3PolicyDocument(Output<String> s3PolicyDocument) {
             $.s3PolicyDocument = s3PolicyDocument;
             return this;
         }
 
-        /**
-         * @param s3PolicyDocument Specifies the endpoint policy for Amazon S3 access from the ODB network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3PolicyDocument(String s3PolicyDocument) {
             return s3PolicyDocument(Output.of(s3PolicyDocument));
         }
 
-        /**
-         * @param status The status of the network resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The status of the network resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

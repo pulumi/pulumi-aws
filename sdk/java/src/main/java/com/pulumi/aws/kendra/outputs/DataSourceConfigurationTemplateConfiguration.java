@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class DataSourceConfigurationTemplateConfiguration {
-    /**
-     * @return JSON string containing a [data source template schema](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html).
-     * 
-     */
     private String template;
 
     private DataSourceConfigurationTemplateConfiguration() {}
-    /**
-     * @return JSON string containing a [data source template schema](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html).
-     * 
-     */
     public String template() {
         return this.template;
     }

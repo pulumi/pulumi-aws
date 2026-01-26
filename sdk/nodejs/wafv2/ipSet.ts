@@ -4,39 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a WAFv2 IP Set Resource
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.wafv2.IpSet("example", {
- *     name: "example",
- *     description: "Example IP set",
- *     scope: "REGIONAL",
- *     ipAddressVersion: "IPV4",
- *     addresses: [
- *         "1.2.3.4/32",
- *         "5.6.7.8/32",
- *     ],
- *     tags: {
- *         Tag1: "Value1",
- *         Tag2: "Value2",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import WAFv2 IP Sets using `ID/name/scope`. For example:
- *
- * ```sh
- * $ pulumi import aws:wafv2/ipSet:IpSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
- * ```
- */
 export class IpSet extends pulumi.CustomResource {
     /**
      * Get an existing IpSet resource's state with the given name, ID, and optional extra
@@ -65,46 +32,16 @@ export class IpSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === IpSet.__pulumiType;
     }
 
-    /**
-     * Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
-     */
     declare public readonly addresses: pulumi.Output<string[] | undefined>;
-    /**
-     * The Amazon Resource Name (ARN) of the IP set.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * A friendly description of the IP set.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.
-     */
     declare public readonly ipAddressVersion: pulumi.Output<string>;
     declare public /*out*/ readonly lockToken: pulumi.Output<string>;
-    /**
-     * A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     */
     declare public readonly namePrefix: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
-     */
     declare public readonly scope: pulumi.Output<string>;
-    /**
-     * An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -160,46 +97,16 @@ export class IpSet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IpSet resources.
  */
 export interface IpSetState {
-    /**
-     * Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
-     */
     addresses?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The Amazon Resource Name (ARN) of the IP set.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * A friendly description of the IP set.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.
-     */
     ipAddressVersion?: pulumi.Input<string>;
     lockToken?: pulumi.Input<string>;
-    /**
-     * A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     */
     namePrefix?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
-     */
     scope?: pulumi.Input<string>;
-    /**
-     * An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -207,36 +114,12 @@ export interface IpSetState {
  * The set of arguments for constructing a IpSet resource.
  */
 export interface IpSetArgs {
-    /**
-     * Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
-     */
     addresses?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A friendly description of the IP set.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.
-     */
     ipAddressVersion: pulumi.Input<string>;
-    /**
-     * A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     */
     namePrefix?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
-     */
     scope: pulumi.Input<string>;
-    /**
-     * An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

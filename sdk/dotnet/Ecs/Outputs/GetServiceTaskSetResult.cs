@@ -13,41 +13,14 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class GetServiceTaskSetResult
     {
-        /// <summary>
-        /// ARN of the task set
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Time when task set was created (RFC3339 format)
-        /// </summary>
         public readonly string CreatedAt;
-        /// <summary>
-        /// Task set ID
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Number of pending tasks
-        /// </summary>
         public readonly int PendingCount;
-        /// <summary>
-        /// Number of running tasks
-        /// </summary>
         public readonly int RunningCount;
-        /// <summary>
-        /// Stability status of the task set
-        /// </summary>
         public readonly string StabilityStatus;
-        /// <summary>
-        /// Task set status
-        /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// Task definition ARN
-        /// </summary>
         public readonly string TaskDefinition;
-        /// <summary>
-        /// Time when task set was last updated (RFC3339 format)
-        /// </summary>
         public readonly string UpdatedAt;
 
         [OutputConstructor]

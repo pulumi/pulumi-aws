@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AccessPolicyAssociationAccessScope {
-    /**
-     * @return The namespaces to which the access scope applies when type is namespace.
-     * 
-     */
     private @Nullable List<String> namespaces;
-    /**
-     * @return Valid values are `namespace` or `cluster`.
-     * 
-     */
     private String type;
 
     private AccessPolicyAssociationAccessScope() {}
-    /**
-     * @return The namespaces to which the access scope applies when type is namespace.
-     * 
-     */
     public List<String> namespaces() {
         return this.namespaces == null ? List.of() : this.namespaces;
     }
-    /**
-     * @return Valid values are `namespace` or `cluster`.
-     * 
-     */
     public String type() {
         return this.type;
     }

@@ -14,38 +14,16 @@ public final class GetSubnetsFilter extends com.pulumi.resources.InvokeArgs {
 
     public static final GetSubnetsFilter Empty = new GetSubnetsFilter();
 
-    /**
-     * Name of the field to filter by, as defined by
-     * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
-     * For example, if matching against tag `Name`, use:
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the field to filter by, as defined by
-     * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
-     * For example, if matching against tag `Name`, use:
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * Set of values that are accepted for the given field.
-     * Subnet IDs will be selected if any one of the given values match.
-     * 
-     */
     @Import(name="values", required=true)
     private List<String> values;
 
-    /**
-     * @return Set of values that are accepted for the given field.
-     * Subnet IDs will be selected if any one of the given values match.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }
@@ -75,38 +53,16 @@ public final class GetSubnetsFilter extends com.pulumi.resources.InvokeArgs {
             $ = new GetSubnetsFilter(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
-         * For example, if matching against tag `Name`, use:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param values Set of values that are accepted for the given field.
-         * Subnet IDs will be selected if any one of the given values match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values Set of values that are accepted for the given field.
-         * Subnet IDs will be selected if any one of the given values match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

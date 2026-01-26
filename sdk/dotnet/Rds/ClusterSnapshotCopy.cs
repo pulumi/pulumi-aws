@@ -9,168 +9,66 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Rds
 {
-    /// <summary>
-    /// Manages an RDS database cluster snapshot copy. For managing RDS database instance snapshot copies, see the `aws.rds.SnapshotCopy` resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Rds.Cluster("example", new()
-    ///     {
-    ///         ClusterIdentifier = "aurora-cluster-demo",
-    ///         DatabaseName = "test",
-    ///         Engine = Aws.Rds.EngineType.AuroraMysql,
-    ///         MasterUsername = "tfacctest",
-    ///         MasterPassword = "avoid-plaintext-passwords",
-    ///         SkipFinalSnapshot = true,
-    ///     });
-    /// 
-    ///     var exampleClusterSnapshot = new Aws.Rds.ClusterSnapshot("example", new()
-    ///     {
-    ///         DbClusterIdentifier = example.ClusterIdentifier,
-    ///         DbClusterSnapshotIdentifier = "example",
-    ///     });
-    /// 
-    ///     var exampleClusterSnapshotCopy = new Aws.Rds.ClusterSnapshotCopy("example", new()
-    ///     {
-    ///         SourceDbClusterSnapshotIdentifier = exampleClusterSnapshot.DbClusterSnapshotArn,
-    ///         TargetDbClusterSnapshotIdentifier = "example-copy",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_rds_cluster_snapshot_copy` using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:rds/clusterSnapshotCopy:ClusterSnapshotCopy example my-snapshot
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:rds/clusterSnapshotCopy:ClusterSnapshotCopy")]
     public partial class ClusterSnapshotCopy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Specifies the allocated storage size in gigabytes (GB).
-        /// </summary>
         [Output("allocatedStorage")]
         public Output<int> AllocatedStorage { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether to copy existing tags. Defaults to `False`.
-        /// </summary>
         [Output("copyTags")]
         public Output<bool?> CopyTags { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the DB cluster snapshot.
-        /// </summary>
         [Output("dbClusterSnapshotArn")]
         public Output<string> DbClusterSnapshotArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The Destination region to place snapshot copy.
-        /// </summary>
         [Output("destinationRegion")]
         public Output<string?> DestinationRegion { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the name of the database engine.
-        /// </summary>
         [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the version of the database engine.
-        /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
 
-        /// <summary>
-        /// KMS key ID.
-        /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
-        /// <summary>
-        /// License model information for the restored DB instance.
-        /// </summary>
         [Output("licenseModel")]
         public Output<string> LicenseModel { get; private set; } = null!;
 
-        /// <summary>
-        /// URL that contains a Signature Version 4 signed request.
-        /// </summary>
         [Output("presignedUrl")]
         public Output<string?> PresignedUrl { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// List of AWS Account IDs to share the snapshot with. Use `All` to make the snapshot public.
-        /// </summary>
         [Output("sharedAccounts")]
         public Output<ImmutableArray<string>> SharedAccounts { get; private set; } = null!;
 
         [Output("snapshotType")]
         public Output<string> SnapshotType { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of the source snapshot.
-        /// </summary>
         [Output("sourceDbClusterSnapshotIdentifier")]
         public Output<string> SourceDbClusterSnapshotIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies whether the DB cluster snapshot is encrypted.
-        /// </summary>
         [Output("storageEncrypted")]
         public Output<bool> StorageEncrypted { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the storage type associated with DB cluster snapshot.
-        /// </summary>
         [Output("storageType")]
         public Output<string> StorageType { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier for the snapshot.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("targetDbClusterSnapshotIdentifier")]
         public Output<string> TargetDbClusterSnapshotIdentifier { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.ClusterSnapshotCopyTimeouts?> Timeouts { get; private set; } = null!;
 
-        /// <summary>
-        /// Provides the VPC ID associated with the DB cluster snapshot.
-        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -220,71 +118,40 @@ namespace Pulumi.Aws.Rds
 
     public sealed class ClusterSnapshotCopyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to copy existing tags. Defaults to `False`.
-        /// </summary>
         [Input("copyTags")]
         public Input<bool>? CopyTags { get; set; }
 
-        /// <summary>
-        /// The Destination region to place snapshot copy.
-        /// </summary>
         [Input("destinationRegion")]
         public Input<string>? DestinationRegion { get; set; }
 
-        /// <summary>
-        /// KMS key ID.
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        /// <summary>
-        /// URL that contains a Signature Version 4 signed request.
-        /// </summary>
         [Input("presignedUrl")]
         public Input<string>? PresignedUrl { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("sharedAccounts")]
         private InputList<string>? _sharedAccounts;
-
-        /// <summary>
-        /// List of AWS Account IDs to share the snapshot with. Use `All` to make the snapshot public.
-        /// </summary>
         public InputList<string> SharedAccounts
         {
             get => _sharedAccounts ?? (_sharedAccounts = new InputList<string>());
             set => _sharedAccounts = value;
         }
 
-        /// <summary>
-        /// Identifier of the source snapshot.
-        /// </summary>
         [Input("sourceDbClusterSnapshotIdentifier", required: true)]
         public Input<string> SourceDbClusterSnapshotIdentifier { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Identifier for the snapshot.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("targetDbClusterSnapshotIdentifier", required: true)]
         public Input<string> TargetDbClusterSnapshotIdentifier { get; set; } = null!;
 
@@ -299,72 +166,38 @@ namespace Pulumi.Aws.Rds
 
     public sealed class ClusterSnapshotCopyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the allocated storage size in gigabytes (GB).
-        /// </summary>
         [Input("allocatedStorage")]
         public Input<int>? AllocatedStorage { get; set; }
 
-        /// <summary>
-        /// Whether to copy existing tags. Defaults to `False`.
-        /// </summary>
         [Input("copyTags")]
         public Input<bool>? CopyTags { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the DB cluster snapshot.
-        /// </summary>
         [Input("dbClusterSnapshotArn")]
         public Input<string>? DbClusterSnapshotArn { get; set; }
 
-        /// <summary>
-        /// The Destination region to place snapshot copy.
-        /// </summary>
         [Input("destinationRegion")]
         public Input<string>? DestinationRegion { get; set; }
 
-        /// <summary>
-        /// Specifies the name of the database engine.
-        /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
 
-        /// <summary>
-        /// Specifies the version of the database engine.
-        /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
-        /// <summary>
-        /// KMS key ID.
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        /// <summary>
-        /// License model information for the restored DB instance.
-        /// </summary>
         [Input("licenseModel")]
         public Input<string>? LicenseModel { get; set; }
 
-        /// <summary>
-        /// URL that contains a Signature Version 4 signed request.
-        /// </summary>
         [Input("presignedUrl")]
         public Input<string>? PresignedUrl { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("sharedAccounts")]
         private InputList<string>? _sharedAccounts;
-
-        /// <summary>
-        /// List of AWS Account IDs to share the snapshot with. Use `All` to make the snapshot public.
-        /// </summary>
         public InputList<string> SharedAccounts
         {
             get => _sharedAccounts ?? (_sharedAccounts = new InputList<string>());
@@ -374,30 +207,17 @@ namespace Pulumi.Aws.Rds
         [Input("snapshotType")]
         public Input<string>? SnapshotType { get; set; }
 
-        /// <summary>
-        /// Identifier of the source snapshot.
-        /// </summary>
         [Input("sourceDbClusterSnapshotIdentifier")]
         public Input<string>? SourceDbClusterSnapshotIdentifier { get; set; }
 
-        /// <summary>
-        /// Specifies whether the DB cluster snapshot is encrypted.
-        /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
 
-        /// <summary>
-        /// Specifies the storage type associated with DB cluster snapshot.
-        /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -406,30 +226,18 @@ namespace Pulumi.Aws.Rds
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// Identifier for the snapshot.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("targetDbClusterSnapshotIdentifier")]
         public Input<string>? TargetDbClusterSnapshotIdentifier { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.ClusterSnapshotCopyTimeoutsGetArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// Provides the VPC ID associated with the DB cluster snapshot.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

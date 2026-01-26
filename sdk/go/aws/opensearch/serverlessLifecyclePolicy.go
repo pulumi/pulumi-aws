@@ -12,69 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS OpenSearch Serverless Lifecycle Policy. See AWS documentation for [lifecycle policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html).
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Rules": []interface{}{
-//					map[string]interface{}{
-//						"ResourceType": "index",
-//						"Resource": []string{
-//							"index/autoparts-inventory/*",
-//						},
-//						"MinIndexRetention": "81d",
-//					},
-//					map[string]interface{}{
-//						"ResourceType": "index",
-//						"Resource": []string{
-//							"index/sales/orders*",
-//						},
-//						"NoMinIndexRetention": true,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = opensearch.NewServerlessLifecyclePolicy(ctx, "example", &opensearch.ServerlessLifecyclePolicyArgs{
-//				Name:   pulumi.String("example"),
-//				Type:   pulumi.String("retention"),
-//				Policy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import OpenSearch Serverless Lifecycle Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
-//
-// ```sh
-// $ pulumi import aws:opensearch/serverlessLifecyclePolicy:ServerlessLifecyclePolicy example example/retention
-// ```
 type ServerlessLifecyclePolicy struct {
 	pulumi.CustomResourceState
 
@@ -86,11 +23,8 @@ type ServerlessLifecyclePolicy struct {
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// Version of the policy.
 	PolicyVersion pulumi.StringOutput `pulumi:"policyVersion"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region        pulumi.StringOutput `pulumi:"region"`
 	// Type of lifecycle policy. Must be `retention`.
-	//
-	// The following arguments are optional:
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -138,11 +72,8 @@ type serverlessLifecyclePolicyState struct {
 	Policy *string `pulumi:"policy"`
 	// Version of the policy.
 	PolicyVersion *string `pulumi:"policyVersion"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region        *string `pulumi:"region"`
 	// Type of lifecycle policy. Must be `retention`.
-	//
-	// The following arguments are optional:
 	Type *string `pulumi:"type"`
 }
 
@@ -155,11 +86,8 @@ type ServerlessLifecyclePolicyState struct {
 	Policy pulumi.StringPtrInput
 	// Version of the policy.
 	PolicyVersion pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
 	// Type of lifecycle policy. Must be `retention`.
-	//
-	// The following arguments are optional:
 	Type pulumi.StringPtrInput
 }
 
@@ -173,12 +101,9 @@ type serverlessLifecyclePolicyArgs struct {
 	// Name of the policy.
 	Name *string `pulumi:"name"`
 	// JSON policy document to use as the content for the new policy.
-	Policy string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Policy string  `pulumi:"policy"`
 	Region *string `pulumi:"region"`
 	// Type of lifecycle policy. Must be `retention`.
-	//
-	// The following arguments are optional:
 	Type string `pulumi:"type"`
 }
 
@@ -190,11 +115,8 @@ type ServerlessLifecyclePolicyArgs struct {
 	Name pulumi.StringPtrInput
 	// JSON policy document to use as the content for the new policy.
 	Policy pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Type of lifecycle policy. Must be `retention`.
-	//
-	// The following arguments are optional:
 	Type pulumi.StringInput
 }
 
@@ -305,14 +227,11 @@ func (o ServerlessLifecyclePolicyOutput) PolicyVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessLifecyclePolicy) pulumi.StringOutput { return v.PolicyVersion }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ServerlessLifecyclePolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessLifecyclePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Type of lifecycle policy. Must be `retention`.
-//
-// The following arguments are optional:
 func (o ServerlessLifecyclePolicyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessLifecyclePolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

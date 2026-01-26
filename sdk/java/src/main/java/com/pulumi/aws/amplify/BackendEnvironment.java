@@ -13,143 +13,41 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Amplify Backend Environment resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.amplify.App;
- * import com.pulumi.aws.amplify.AppArgs;
- * import com.pulumi.aws.amplify.BackendEnvironment;
- * import com.pulumi.aws.amplify.BackendEnvironmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new App("example", AppArgs.builder()
- *             .name("example")
- *             .build());
- * 
- *         var exampleBackendEnvironment = new BackendEnvironment("exampleBackendEnvironment", BackendEnvironmentArgs.builder()
- *             .appId(example.id())
- *             .environmentName("example")
- *             .deploymentArtifacts("app-example-deployment")
- *             .stackName("amplify-app-example")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Amplify backend environment using `app_id` and `environment_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:amplify/backendEnvironment:BackendEnvironment example d2ypk4k47z8u6/example
- * ```
- * 
- */
 @ResourceType(type="aws:amplify/backendEnvironment:BackendEnvironment")
 public class BackendEnvironment extends com.pulumi.resources.CustomResource {
-    /**
-     * Unique ID for an Amplify app.
-     * 
-     */
     @Export(name="appId", refs={String.class}, tree="[0]")
     private Output<String> appId;
 
-    /**
-     * @return Unique ID for an Amplify app.
-     * 
-     */
     public Output<String> appId() {
         return this.appId;
     }
-    /**
-     * ARN for a backend environment that is part of an Amplify app.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN for a backend environment that is part of an Amplify app.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Name of deployment artifacts.
-     * 
-     */
     @Export(name="deploymentArtifacts", refs={String.class}, tree="[0]")
     private Output<String> deploymentArtifacts;
 
-    /**
-     * @return Name of deployment artifacts.
-     * 
-     */
     public Output<String> deploymentArtifacts() {
         return this.deploymentArtifacts;
     }
-    /**
-     * Name for the backend environment.
-     * 
-     */
     @Export(name="environmentName", refs={String.class}, tree="[0]")
     private Output<String> environmentName;
 
-    /**
-     * @return Name for the backend environment.
-     * 
-     */
     public Output<String> environmentName() {
         return this.environmentName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * AWS CloudFormation stack name of a backend environment.
-     * 
-     */
     @Export(name="stackName", refs={String.class}, tree="[0]")
     private Output<String> stackName;
 
-    /**
-     * @return AWS CloudFormation stack name of a backend environment.
-     * 
-     */
     public Output<String> stackName() {
         return this.stackName;
     }

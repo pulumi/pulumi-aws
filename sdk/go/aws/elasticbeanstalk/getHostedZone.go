@@ -11,31 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get the ID of an [elastic beanstalk hosted zone](http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticbeanstalk"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elasticbeanstalk.GetHostedZone(ctx, &elasticbeanstalk.GetHostedZoneArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetHostedZone(ctx *pulumi.Context, args *GetHostedZoneArgs, opts ...pulumi.InvokeOption) (*GetHostedZoneResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetHostedZoneResult
@@ -48,7 +23,6 @@ func GetHostedZone(ctx *pulumi.Context, args *GetHostedZoneArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getHostedZone.
 type GetHostedZoneArgs struct {
-	// Name of the Region whose hosted zone is desired. Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -70,7 +44,6 @@ func GetHostedZoneOutput(ctx *pulumi.Context, args GetHostedZoneOutputArgs, opts
 
 // A collection of arguments for invoking getHostedZone.
 type GetHostedZoneOutputArgs struct {
-	// Name of the Region whose hosted zone is desired. Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

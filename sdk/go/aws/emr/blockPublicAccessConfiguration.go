@@ -12,156 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS EMR block public access configuration. This region level security configuration restricts the launch of EMR clusters that have associated security groups permitting public access on unspecified ports. See the [EMR Block Public Access Configuration](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-block-public-access.html) documentation for further information.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emr.NewBlockPublicAccessConfiguration(ctx, "example", &emr.BlockPublicAccessConfigurationArgs{
-//				BlockPublicSecurityGroupRules: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Default Configuration
-//
-// By default, each AWS region is equipped with a block public access configuration that prevents EMR clusters from being launched if they have security group rules permitting public access on any port except for port 22. The default configuration can be managed using this resource.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emr.NewBlockPublicAccessConfiguration(ctx, "example", &emr.BlockPublicAccessConfigurationArgs{
-//				BlockPublicSecurityGroupRules: pulumi.Bool(true),
-//				PermittedPublicSecurityGroupRuleRanges: emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArray{
-//					&emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs{
-//						MinRange: pulumi.Int(22),
-//						MaxRange: pulumi.Int(22),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// > **NOTE:** If an `emr.BlockPublicAccessConfiguration` resource is destroyed, the configuration will reset to this default configuration.
-//
-// ### Multiple Permitted Public Security Group Rule Ranges
-//
-// The resource permits specification of multiple `permittedPublicSecurityGroupRuleRange` blocks.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emr.NewBlockPublicAccessConfiguration(ctx, "example", &emr.BlockPublicAccessConfigurationArgs{
-//				BlockPublicSecurityGroupRules: pulumi.Bool(true),
-//				PermittedPublicSecurityGroupRuleRanges: emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArray{
-//					&emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs{
-//						MinRange: pulumi.Int(22),
-//						MaxRange: pulumi.Int(22),
-//					},
-//					&emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs{
-//						MinRange: pulumi.Int(100),
-//						MaxRange: pulumi.Int(101),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Disabling Block Public Access
-//
-// To permit EMR clusters to be launched in the configured region regardless of associated security group rules, the Block Public Access feature can be disabled using this resource.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emr.NewBlockPublicAccessConfiguration(ctx, "example", &emr.BlockPublicAccessConfigurationArgs{
-//				BlockPublicSecurityGroupRules: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import the current EMR Block Public Access Configuration. For example:
-//
-// ```sh
-// $ pulumi import aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration example current
-// ```
 type BlockPublicAccessConfiguration struct {
 	pulumi.CustomResourceState
 
-	// Enable or disable EMR Block Public Access.
-	//
-	// The following arguments are optional:
-	BlockPublicSecurityGroupRules pulumi.BoolOutput `pulumi:"blockPublicSecurityGroupRules"`
-	// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
+	BlockPublicSecurityGroupRules          pulumi.BoolOutput                                                              `pulumi:"blockPublicSecurityGroupRules"`
 	PermittedPublicSecurityGroupRuleRanges BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput `pulumi:"permittedPublicSecurityGroupRuleRanges"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region                                 pulumi.StringOutput                                                            `pulumi:"region"`
 }
 
 // NewBlockPublicAccessConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -197,25 +53,15 @@ func GetBlockPublicAccessConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BlockPublicAccessConfiguration resources.
 type blockPublicAccessConfigurationState struct {
-	// Enable or disable EMR Block Public Access.
-	//
-	// The following arguments are optional:
-	BlockPublicSecurityGroupRules *bool `pulumi:"blockPublicSecurityGroupRules"`
-	// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
+	BlockPublicSecurityGroupRules          *bool                                                                 `pulumi:"blockPublicSecurityGroupRules"`
 	PermittedPublicSecurityGroupRuleRanges []BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange `pulumi:"permittedPublicSecurityGroupRuleRanges"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region                                 *string                                                               `pulumi:"region"`
 }
 
 type BlockPublicAccessConfigurationState struct {
-	// Enable or disable EMR Block Public Access.
-	//
-	// The following arguments are optional:
-	BlockPublicSecurityGroupRules pulumi.BoolPtrInput
-	// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
+	BlockPublicSecurityGroupRules          pulumi.BoolPtrInput
 	PermittedPublicSecurityGroupRuleRanges BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region                                 pulumi.StringPtrInput
 }
 
 func (BlockPublicAccessConfigurationState) ElementType() reflect.Type {
@@ -223,26 +69,16 @@ func (BlockPublicAccessConfigurationState) ElementType() reflect.Type {
 }
 
 type blockPublicAccessConfigurationArgs struct {
-	// Enable or disable EMR Block Public Access.
-	//
-	// The following arguments are optional:
-	BlockPublicSecurityGroupRules bool `pulumi:"blockPublicSecurityGroupRules"`
-	// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
+	BlockPublicSecurityGroupRules          bool                                                                  `pulumi:"blockPublicSecurityGroupRules"`
 	PermittedPublicSecurityGroupRuleRanges []BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange `pulumi:"permittedPublicSecurityGroupRuleRanges"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region                                 *string                                                               `pulumi:"region"`
 }
 
 // The set of arguments for constructing a BlockPublicAccessConfiguration resource.
 type BlockPublicAccessConfigurationArgs struct {
-	// Enable or disable EMR Block Public Access.
-	//
-	// The following arguments are optional:
-	BlockPublicSecurityGroupRules pulumi.BoolInput
-	// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
+	BlockPublicSecurityGroupRules          pulumi.BoolInput
 	PermittedPublicSecurityGroupRuleRanges BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region                                 pulumi.StringPtrInput
 }
 
 func (BlockPublicAccessConfigurationArgs) ElementType() reflect.Type {
@@ -332,21 +168,16 @@ func (o BlockPublicAccessConfigurationOutput) ToBlockPublicAccessConfigurationOu
 	return o
 }
 
-// Enable or disable EMR Block Public Access.
-//
-// The following arguments are optional:
 func (o BlockPublicAccessConfigurationOutput) BlockPublicSecurityGroupRules() pulumi.BoolOutput {
 	return o.ApplyT(func(v *BlockPublicAccessConfiguration) pulumi.BoolOutput { return v.BlockPublicSecurityGroupRules }).(pulumi.BoolOutput)
 }
 
-// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
 func (o BlockPublicAccessConfigurationOutput) PermittedPublicSecurityGroupRuleRanges() BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput {
 	return o.ApplyT(func(v *BlockPublicAccessConfiguration) BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput {
 		return v.PermittedPublicSecurityGroupRuleRanges
 	}).(BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BlockPublicAccessConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BlockPublicAccessConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

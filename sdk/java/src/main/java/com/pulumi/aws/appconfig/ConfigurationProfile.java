@@ -17,241 +17,83 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AppConfig Configuration Profile resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appconfig.ConfigurationProfile;
- * import com.pulumi.aws.appconfig.ConfigurationProfileArgs;
- * import com.pulumi.aws.appconfig.inputs.ConfigurationProfileValidatorArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ConfigurationProfile("example", ConfigurationProfileArgs.builder()
- *             .applicationId(exampleAwsAppconfigApplication.id())
- *             .description("Example Configuration Profile")
- *             .name("example-configuration-profile-tf")
- *             .locationUri("hosted")
- *             .validators(ConfigurationProfileValidatorArgs.builder()
- *                 .content(exampleAwsLambdaFunction.arn())
- *                 .type("LAMBDA")
- *                 .build())
- *             .tags(Map.of("Type", "AppConfig Configuration Profile"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import AppConfig Configuration Profiles using the configuration profile ID and application ID separated by a colon (`:`). For example:
- * 
- * ```sh
- * $ pulumi import aws:appconfig/configurationProfile:ConfigurationProfile example 71abcde:11xxxxx
- * ```
- * 
- */
 @ResourceType(type="aws:appconfig/configurationProfile:ConfigurationProfile")
 public class ConfigurationProfile extends com.pulumi.resources.CustomResource {
-    /**
-     * Application ID. Must be between 4 and 7 characters in length.
-     * 
-     */
     @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
-    /**
-     * @return Application ID. Must be between 4 and 7 characters in length.
-     * 
-     */
     public Output<String> applicationId() {
         return this.applicationId;
     }
-    /**
-     * ARN of the AppConfig Configuration Profile.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the AppConfig Configuration Profile.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The configuration profile ID.
-     * 
-     */
     @Export(name="configurationProfileId", refs={String.class}, tree="[0]")
     private Output<String> configurationProfileId;
 
-    /**
-     * @return The configuration profile ID.
-     * 
-     */
     public Output<String> configurationProfileId() {
         return this.configurationProfileId;
     }
-    /**
-     * Description of the configuration profile. Can be at most 1024 characters.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the configuration profile. Can be at most 1024 characters.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
-     * 
-     */
     @Export(name="kmsKeyIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyIdentifier;
 
-    /**
-     * @return The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
-     * 
-     */
     public Output<Optional<String>> kmsKeyIdentifier() {
         return Codegen.optional(this.kmsKeyIdentifier);
     }
-    /**
-     * URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://&lt;Document_name&gt;` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://&lt;Parameter_name&gt;` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://&lt;bucket&gt;/&lt;objectKey&gt;`.
-     * 
-     */
     @Export(name="locationUri", refs={String.class}, tree="[0]")
     private Output<String> locationUri;
 
-    /**
-     * @return URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://&lt;Document_name&gt;` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://&lt;Parameter_name&gt;` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://&lt;bucket&gt;/&lt;objectKey&gt;`.
-     * 
-     */
     public Output<String> locationUri() {
         return this.locationUri;
     }
-    /**
-     * Name for the configuration profile. Must be between 1 and 128 characters in length.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name for the configuration profile. Must be between 1 and 128 characters in length.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * ARN of an IAM role with permission to access the configuration at the specified `locationUri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
-     * 
-     */
     @Export(name="retrievalRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> retrievalRoleArn;
 
-    /**
-     * @return ARN of an IAM role with permission to access the configuration at the specified `locationUri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
-     * 
-     */
     public Output<Optional<String>> retrievalRoleArn() {
         return Codegen.optional(this.retrievalRoleArn);
     }
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
-    /**
-     * @return Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
-     * 
-     */
     public Output<Optional<String>> type() {
         return Codegen.optional(this.type);
     }
-    /**
-     * Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
-     * 
-     */
     @Export(name="validators", refs={List.class,ConfigurationProfileValidator.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ConfigurationProfileValidator>> validators;
 
-    /**
-     * @return Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
-     * 
-     */
     public Output<Optional<List<ConfigurationProfileValidator>>> validators() {
         return Codegen.optional(this.validators);
     }

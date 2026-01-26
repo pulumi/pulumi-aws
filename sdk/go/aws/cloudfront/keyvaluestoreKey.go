@@ -12,70 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := cloudfront.NewKeyValueStore(ctx, "example", &cloudfront.KeyValueStoreArgs{
-//				Name:    pulumi.String("ExampleKeyValueStore"),
-//				Comment: pulumi.String("This is an example key value store"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudfront.NewKeyvaluestoreKey(ctx, "example", &cloudfront.KeyvaluestoreKeyArgs{
-//				KeyValueStoreArn: example.Arn,
-//				Key:              pulumi.String("Test Key"),
-//				Value:            pulumi.String("Test Value"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// * `key_value_store_arn` (String) ARN of the CloudFront Key Value Store.
-//
-// * `key` (String) Key name.
-//
-// #### Optional
-//
-// * `account_id` (String) AWS Account where this resource is managed.
-//
-// Using `pulumi import`, import CloudFront KeyValueStore Key using the `key_value_store_arn` and 'key' separated by `,`. For example:
-//
-// % pulumi import aws_cloudfrontkeyvaluestore_key.example arn:aws:cloudfront::111111111111:key-value-store/8562g61f-caba-2845-9d99-b97diwae5d3c,someKey
 type KeyvaluestoreKey struct {
 	pulumi.CustomResourceState
 
-	// Key to put.
+	// The key to put.
 	Key pulumi.StringOutput `pulumi:"key"`
-	// Amazon Resource Name (ARN) of the Key Value Store.
+	// The Amazon Resource Name (ARN) of the Key Value Store.
 	KeyValueStoreArn pulumi.StringOutput `pulumi:"keyValueStoreArn"`
 	// Total size of the Key Value Store in bytes.
 	TotalSizeInBytes pulumi.IntOutput `pulumi:"totalSizeInBytes"`
-	// Value to put.
+	// The value to put.
 	Value pulumi.StringOutput `pulumi:"value"`
 }
 
@@ -118,24 +64,24 @@ func GetKeyvaluestoreKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KeyvaluestoreKey resources.
 type keyvaluestoreKeyState struct {
-	// Key to put.
+	// The key to put.
 	Key *string `pulumi:"key"`
-	// Amazon Resource Name (ARN) of the Key Value Store.
+	// The Amazon Resource Name (ARN) of the Key Value Store.
 	KeyValueStoreArn *string `pulumi:"keyValueStoreArn"`
 	// Total size of the Key Value Store in bytes.
 	TotalSizeInBytes *int `pulumi:"totalSizeInBytes"`
-	// Value to put.
+	// The value to put.
 	Value *string `pulumi:"value"`
 }
 
 type KeyvaluestoreKeyState struct {
-	// Key to put.
+	// The key to put.
 	Key pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the Key Value Store.
+	// The Amazon Resource Name (ARN) of the Key Value Store.
 	KeyValueStoreArn pulumi.StringPtrInput
 	// Total size of the Key Value Store in bytes.
 	TotalSizeInBytes pulumi.IntPtrInput
-	// Value to put.
+	// The value to put.
 	Value pulumi.StringPtrInput
 }
 
@@ -144,21 +90,21 @@ func (KeyvaluestoreKeyState) ElementType() reflect.Type {
 }
 
 type keyvaluestoreKeyArgs struct {
-	// Key to put.
+	// The key to put.
 	Key string `pulumi:"key"`
-	// Amazon Resource Name (ARN) of the Key Value Store.
+	// The Amazon Resource Name (ARN) of the Key Value Store.
 	KeyValueStoreArn string `pulumi:"keyValueStoreArn"`
-	// Value to put.
+	// The value to put.
 	Value string `pulumi:"value"`
 }
 
 // The set of arguments for constructing a KeyvaluestoreKey resource.
 type KeyvaluestoreKeyArgs struct {
-	// Key to put.
+	// The key to put.
 	Key pulumi.StringInput
-	// Amazon Resource Name (ARN) of the Key Value Store.
+	// The Amazon Resource Name (ARN) of the Key Value Store.
 	KeyValueStoreArn pulumi.StringInput
-	// Value to put.
+	// The value to put.
 	Value pulumi.StringInput
 }
 
@@ -249,12 +195,12 @@ func (o KeyvaluestoreKeyOutput) ToKeyvaluestoreKeyOutputWithContext(ctx context.
 	return o
 }
 
-// Key to put.
+// The key to put.
 func (o KeyvaluestoreKeyOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyvaluestoreKey) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the Key Value Store.
+// The Amazon Resource Name (ARN) of the Key Value Store.
 func (o KeyvaluestoreKeyOutput) KeyValueStoreArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyvaluestoreKey) pulumi.StringOutput { return v.KeyValueStoreArn }).(pulumi.StringOutput)
 }
@@ -264,7 +210,7 @@ func (o KeyvaluestoreKeyOutput) TotalSizeInBytes() pulumi.IntOutput {
 	return o.ApplyT(func(v *KeyvaluestoreKey) pulumi.IntOutput { return v.TotalSizeInBytes }).(pulumi.IntOutput)
 }
 
-// Value to put.
+// The value to put.
 func (o KeyvaluestoreKeyOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyvaluestoreKey) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
 }

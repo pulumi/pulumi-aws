@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class DistributionTenantManagedCertificateRequest
     {
-        /// <summary>
-        /// Certificate transparency logging preference. Valid values: `Enabled`, `Disabled`.
-        /// </summary>
         public readonly string? CertificateTransparencyLoggingPreference;
-        /// <summary>
-        /// Primary domain name for the certificate.
-        /// </summary>
         public readonly string? PrimaryDomainName;
-        /// <summary>
-        /// Host for validation token. Valid values: `Cloudfront`, `Domain`.
-        /// </summary>
         public readonly string? ValidationTokenHost;
 
         [OutputConstructor]

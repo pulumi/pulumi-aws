@@ -12,45 +12,24 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Average bitrate in bits/second.
-        /// </summary>
         [Input("bitrate")]
         public Input<double>? Bitrate { get; set; }
 
-        /// <summary>
-        /// Dolby Digital Plus with Dolby Atmos coding mode.
-        /// </summary>
         [Input("codingMode")]
         public Input<string>? CodingMode { get; set; }
 
-        /// <summary>
-        /// Sets the dialnorm for the output.
-        /// </summary>
         [Input("dialnorm")]
         public Input<double>? Dialnorm { get; set; }
 
-        /// <summary>
-        /// Sets the Dolby dynamic range compression profile.
-        /// </summary>
         [Input("drcLine")]
         public Input<string>? DrcLine { get; set; }
 
-        /// <summary>
-        /// Sets the profile for heavy Dolby dynamic range compression.
-        /// </summary>
         [Input("drcRf")]
         public Input<string>? DrcRf { get; set; }
 
-        /// <summary>
-        /// Height dimensional trim.
-        /// </summary>
         [Input("heightTrim")]
         public Input<double>? HeightTrim { get; set; }
 
-        /// <summary>
-        /// Surround dimensional trim.
-        /// </summary>
         [Input("surroundTrim")]
         public Input<double>? SurroundTrim { get; set; }
 

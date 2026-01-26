@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Kinesis.Inputs
 
     public sealed class FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The method for setting up document ID. Valid values: `FIREHOSE_DEFAULT`, `NO_DOCUMENT_ID`.
-        /// </summary>
         [Input("defaultDocumentIdFormat", required: true)]
         public Input<string> DefaultDocumentIdFormat { get; set; } = null!;
 

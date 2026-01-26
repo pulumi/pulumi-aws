@@ -11,78 +11,12 @@ namespace Pulumi.Aws.Kendra
 {
     public static class GetExperience
     {
-        /// <summary>
-        /// Provides details about a specific Amazon Kendra Experience.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Kendra.GetExperience.Invoke(new()
-        ///     {
-        ///         ExperienceId = "87654321-1234-4321-4321-321987654321",
-        ///         IndexId = "12345678-1234-1234-1234-123456789123",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetExperienceResult> InvokeAsync(GetExperienceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExperienceResult>("aws:kendra/getExperience:getExperience", args ?? new GetExperienceArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about a specific Amazon Kendra Experience.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Kendra.GetExperience.Invoke(new()
-        ///     {
-        ///         ExperienceId = "87654321-1234-4321-4321-321987654321",
-        ///         IndexId = "12345678-1234-1234-1234-123456789123",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetExperienceResult> Invoke(GetExperienceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExperienceResult>("aws:kendra/getExperience:getExperience", args ?? new GetExperienceInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about a specific Amazon Kendra Experience.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Kendra.GetExperience.Invoke(new()
-        ///     {
-        ///         ExperienceId = "87654321-1234-4321-4321-321987654321",
-        ///         IndexId = "12345678-1234-1234-1234-123456789123",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetExperienceResult> Invoke(GetExperienceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetExperienceResult>("aws:kendra/getExperience:getExperience", args ?? new GetExperienceInvokeArgs(), options.WithDefaults());
     }
@@ -90,21 +24,12 @@ namespace Pulumi.Aws.Kendra
 
     public sealed class GetExperienceArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Identifier of the Experience.
-        /// </summary>
         [Input("experienceId", required: true)]
         public string ExperienceId { get; set; } = null!;
 
-        /// <summary>
-        /// Identifier of the index that contains the Experience.
-        /// </summary>
         [Input("indexId", required: true)]
         public string IndexId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -116,21 +41,12 @@ namespace Pulumi.Aws.Kendra
 
     public sealed class GetExperienceInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Identifier of the Experience.
-        /// </summary>
         [Input("experienceId", required: true)]
         public Input<string> ExperienceId { get; set; } = null!;
 
-        /// <summary>
-        /// Identifier of the index that contains the Experience.
-        /// </summary>
         [Input("indexId", required: true)]
         public Input<string> IndexId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -144,29 +60,11 @@ namespace Pulumi.Aws.Kendra
     [OutputType]
     public sealed class GetExperienceResult
     {
-        /// <summary>
-        /// ARN of the Experience.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Block that specifies the configuration information for your Amazon Kendra Experience. This includes `ContentSourceConfiguration`, which specifies the data source IDs and/or FAQ IDs, and `UserIdentityConfiguration`, which specifies the user or group information to grant access to your Amazon Kendra Experience. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetExperienceConfigurationResult> Configurations;
-        /// <summary>
-        /// Unix datetime that the Experience was created.
-        /// </summary>
         public readonly string CreatedAt;
-        /// <summary>
-        /// Description of the Experience.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// Shows the endpoint URLs for your Amazon Kendra Experiences. The URLs are unique and fully hosted by AWS. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetExperienceEndpointResult> Endpoints;
-        /// <summary>
-        /// Reason your Amazon Kendra Experience could not properly process.
-        /// </summary>
         public readonly string ErrorMessage;
         public readonly string ExperienceId;
         /// <summary>
@@ -174,22 +72,10 @@ namespace Pulumi.Aws.Kendra
         /// </summary>
         public readonly string Id;
         public readonly string IndexId;
-        /// <summary>
-        /// Name of the Experience.
-        /// </summary>
         public readonly string Name;
         public readonly string Region;
-        /// <summary>
-        /// Shows the ARN of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and AWS SSO that stores your user and group information.
-        /// </summary>
         public readonly string RoleArn;
-        /// <summary>
-        /// Current processing status of your Amazon Kendra Experience. When the status is `ACTIVE`, your Amazon Kendra Experience is ready to use. When the status is `FAILED`, the `ErrorMessage` field contains the reason that this failed.
-        /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// Date and time that the Experience was last updated.
-        /// </summary>
         public readonly string UpdatedAt;
 
         [OutputConstructor]

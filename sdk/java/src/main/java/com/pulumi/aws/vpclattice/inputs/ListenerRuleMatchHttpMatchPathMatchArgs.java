@@ -17,36 +17,16 @@ public final class ListenerRuleMatchHttpMatchPathMatchArgs extends com.pulumi.re
 
     public static final ListenerRuleMatchHttpMatchPathMatchArgs Empty = new ListenerRuleMatchHttpMatchPathMatchArgs();
 
-    /**
-     * Indicates whether the match is case sensitive.
-     * Default is `false`.
-     * 
-     */
     @Import(name="caseSensitive")
     private @Nullable Output<Boolean> caseSensitive;
 
-    /**
-     * @return Indicates whether the match is case sensitive.
-     * Default is `false`.
-     * 
-     */
     public Optional<Output<Boolean>> caseSensitive() {
         return Optional.ofNullable(this.caseSensitive);
     }
 
-    /**
-     * The header match type.
-     * See Path Match `match` Block for details.
-     * 
-     */
     @Import(name="match", required=true)
     private Output<ListenerRuleMatchHttpMatchPathMatchMatchArgs> match;
 
-    /**
-     * @return The header match type.
-     * See Path Match `match` Block for details.
-     * 
-     */
     public Output<ListenerRuleMatchHttpMatchPathMatchMatchArgs> match() {
         return this.match;
     }
@@ -76,48 +56,20 @@ public final class ListenerRuleMatchHttpMatchPathMatchArgs extends com.pulumi.re
             $ = new ListenerRuleMatchHttpMatchPathMatchArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param caseSensitive Indicates whether the match is case sensitive.
-         * Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder caseSensitive(@Nullable Output<Boolean> caseSensitive) {
             $.caseSensitive = caseSensitive;
             return this;
         }
 
-        /**
-         * @param caseSensitive Indicates whether the match is case sensitive.
-         * Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder caseSensitive(Boolean caseSensitive) {
             return caseSensitive(Output.of(caseSensitive));
         }
 
-        /**
-         * @param match The header match type.
-         * See Path Match `match` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder match(Output<ListenerRuleMatchHttpMatchPathMatchMatchArgs> match) {
             $.match = match;
             return this;
         }
 
-        /**
-         * @param match The header match type.
-         * See Path Match `match` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder match(ListenerRuleMatchHttpMatchPathMatchMatchArgs match) {
             return match(Output.of(match));
         }

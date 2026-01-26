@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValue {
-    /**
-     * @return Exact string value to match in the header.
-     * 
-     */
     private String exact;
 
     private ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValue() {}
-    /**
-     * @return Exact string value to match in the header.
-     * 
-     */
     public String exact() {
         return this.exact;
     }

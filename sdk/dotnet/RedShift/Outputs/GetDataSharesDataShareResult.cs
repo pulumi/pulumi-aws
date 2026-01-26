@@ -13,17 +13,8 @@ namespace Pulumi.Aws.RedShift.Outputs
     [OutputType]
     public sealed class GetDataSharesDataShareResult
     {
-        /// <summary>
-        /// ARN (Amazon Resource Name) of the data share.
-        /// </summary>
         public readonly string DataShareArn;
-        /// <summary>
-        /// Identifier of a datashare to show its managing entity.
-        /// </summary>
         public readonly string ManagedBy;
-        /// <summary>
-        /// ARN (Amazon Resource Name) of the producer.
-        /// </summary>
         public readonly string ProducerArn;
 
         [OutputConstructor]

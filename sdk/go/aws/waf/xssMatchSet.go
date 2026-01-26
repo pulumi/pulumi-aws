@@ -11,63 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a WAF XSS Match Set Resource
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/waf"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := waf.NewXssMatchSet(ctx, "xss_match_set", &waf.XssMatchSetArgs{
-//				Name: pulumi.String("xss_match_set"),
-//				XssMatchTuples: waf.XssMatchSetXssMatchTupleArray{
-//					&waf.XssMatchSetXssMatchTupleArgs{
-//						TextTransformation: pulumi.String("NONE"),
-//						FieldToMatch: &waf.XssMatchSetXssMatchTupleFieldToMatchArgs{
-//							Type: pulumi.String("URI"),
-//						},
-//					},
-//					&waf.XssMatchSetXssMatchTupleArgs{
-//						TextTransformation: pulumi.String("NONE"),
-//						FieldToMatch: &waf.XssMatchSetXssMatchTupleFieldToMatchArgs{
-//							Type: pulumi.String("QUERY_STRING"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import WAF XSS Match Set using their ID. For example:
-//
-// ```sh
-// $ pulumi import aws:waf/xssMatchSet:XssMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-// ```
 type XssMatchSet struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN)
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name or description of the SizeConstraintSet.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The parts of web requests that you want to inspect for cross-site scripting attacks.
+	Arn            pulumi.StringOutput                 `pulumi:"arn"`
+	Name           pulumi.StringOutput                 `pulumi:"name"`
 	XssMatchTuples XssMatchSetXssMatchTupleArrayOutput `pulumi:"xssMatchTuples"`
 }
 
@@ -101,20 +49,14 @@ func GetXssMatchSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering XssMatchSet resources.
 type xssMatchSetState struct {
-	// Amazon Resource Name (ARN)
-	Arn *string `pulumi:"arn"`
-	// The name or description of the SizeConstraintSet.
-	Name *string `pulumi:"name"`
-	// The parts of web requests that you want to inspect for cross-site scripting attacks.
+	Arn            *string                    `pulumi:"arn"`
+	Name           *string                    `pulumi:"name"`
 	XssMatchTuples []XssMatchSetXssMatchTuple `pulumi:"xssMatchTuples"`
 }
 
 type XssMatchSetState struct {
-	// Amazon Resource Name (ARN)
-	Arn pulumi.StringPtrInput
-	// The name or description of the SizeConstraintSet.
-	Name pulumi.StringPtrInput
-	// The parts of web requests that you want to inspect for cross-site scripting attacks.
+	Arn            pulumi.StringPtrInput
+	Name           pulumi.StringPtrInput
 	XssMatchTuples XssMatchSetXssMatchTupleArrayInput
 }
 
@@ -123,17 +65,13 @@ func (XssMatchSetState) ElementType() reflect.Type {
 }
 
 type xssMatchSetArgs struct {
-	// The name or description of the SizeConstraintSet.
-	Name *string `pulumi:"name"`
-	// The parts of web requests that you want to inspect for cross-site scripting attacks.
+	Name           *string                    `pulumi:"name"`
 	XssMatchTuples []XssMatchSetXssMatchTuple `pulumi:"xssMatchTuples"`
 }
 
 // The set of arguments for constructing a XssMatchSet resource.
 type XssMatchSetArgs struct {
-	// The name or description of the SizeConstraintSet.
-	Name pulumi.StringPtrInput
-	// The parts of web requests that you want to inspect for cross-site scripting attacks.
+	Name           pulumi.StringPtrInput
 	XssMatchTuples XssMatchSetXssMatchTupleArrayInput
 }
 
@@ -224,17 +162,14 @@ func (o XssMatchSetOutput) ToXssMatchSetOutputWithContext(ctx context.Context) X
 	return o
 }
 
-// Amazon Resource Name (ARN)
 func (o XssMatchSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *XssMatchSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name or description of the SizeConstraintSet.
 func (o XssMatchSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *XssMatchSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The parts of web requests that you want to inspect for cross-site scripting attacks.
 func (o XssMatchSetOutput) XssMatchTuples() XssMatchSetXssMatchTupleArrayOutput {
 	return o.ApplyT(func(v *XssMatchSet) XssMatchSetXssMatchTupleArrayOutput { return v.XssMatchTuples }).(XssMatchSetXssMatchTupleArrayOutput)
 }

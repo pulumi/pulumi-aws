@@ -11,131 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS Bedrock AgentCore Code Interpreter. Code Interpreter provides a secure environment for AI agents to execute Python code, enabling data analysis, calculations, and file processing capabilities.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrock.NewAgentcoreCodeInterpreter(ctx, "example", &bedrock.AgentcoreCodeInterpreterArgs{
-//				Name:        pulumi.String("example-code-interpreter"),
-//				Description: pulumi.String("Code interpreter for data analysis"),
-//				NetworkConfiguration: &bedrock.AgentcoreCodeInterpreterNetworkConfigurationArgs{
-//					NetworkMode: pulumi.String("PUBLIC"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Code Interpreter with Execution Role
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"bedrock-agentcore.amazonaws.com",
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				Name:             pulumi.String("bedrock-agentcore-code-interpreter-role"),
-//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = bedrock.NewAgentcoreCodeInterpreter(ctx, "example", &bedrock.AgentcoreCodeInterpreterArgs{
-//				Name:             pulumi.String("example-code-interpreter"),
-//				Description:      pulumi.String("Code interpreter with custom execution role"),
-//				ExecutionRoleArn: example.Arn,
-//				NetworkConfiguration: &bedrock.AgentcoreCodeInterpreterNetworkConfigurationArgs{
-//					NetworkMode: pulumi.String("SANDBOX"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Bedrock AgentCore Code Interpreter using the code interpreter ID. For example:
-//
-// ```sh
-// $ pulumi import aws:bedrock/agentcoreCodeInterpreter:AgentcoreCodeInterpreter example CODEINTERPRETER1234567890
-// ```
 type AgentcoreCodeInterpreter struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Code Interpreter.
-	CodeInterpreterArn pulumi.StringOutput `pulumi:"codeInterpreterArn"`
-	// Unique identifier of the Code Interpreter.
-	CodeInterpreterId pulumi.StringOutput `pulumi:"codeInterpreterId"`
-	// Description of the code interpreter.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
-	ExecutionRoleArn pulumi.StringPtrOutput `pulumi:"executionRoleArn"`
-	// Name of the code interpreter.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Network configuration for the code interpreter. See `networkConfiguration` below.
-	//
-	// The following arguments are optional:
+	CodeInterpreterArn   pulumi.StringOutput                                   `pulumi:"codeInterpreterArn"`
+	CodeInterpreterId    pulumi.StringOutput                                   `pulumi:"codeInterpreterId"`
+	Description          pulumi.StringPtrOutput                                `pulumi:"description"`
+	ExecutionRoleArn     pulumi.StringPtrOutput                                `pulumi:"executionRoleArn"`
+	Name                 pulumi.StringOutput                                   `pulumi:"name"`
 	NetworkConfiguration AgentcoreCodeInterpreterNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput                    `pulumi:"tagsAll"`
-	Timeouts AgentcoreCodeInterpreterTimeoutsPtrOutput `pulumi:"timeouts"`
+	Region               pulumi.StringOutput                                   `pulumi:"region"`
+	Tags                 pulumi.StringMapOutput                                `pulumi:"tags"`
+	TagsAll              pulumi.StringMapOutput                                `pulumi:"tagsAll"`
+	Timeouts             AgentcoreCodeInterpreterTimeoutsPtrOutput             `pulumi:"timeouts"`
 }
 
 // NewAgentcoreCodeInterpreter registers a new resource with the given unique name, arguments, and options.
@@ -168,51 +56,29 @@ func GetAgentcoreCodeInterpreter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AgentcoreCodeInterpreter resources.
 type agentcoreCodeInterpreterState struct {
-	// ARN of the Code Interpreter.
-	CodeInterpreterArn *string `pulumi:"codeInterpreterArn"`
-	// Unique identifier of the Code Interpreter.
-	CodeInterpreterId *string `pulumi:"codeInterpreterId"`
-	// Description of the code interpreter.
-	Description *string `pulumi:"description"`
-	// ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
-	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
-	// Name of the code interpreter.
-	Name *string `pulumi:"name"`
-	// Network configuration for the code interpreter. See `networkConfiguration` below.
-	//
-	// The following arguments are optional:
+	CodeInterpreterArn   *string                                       `pulumi:"codeInterpreterArn"`
+	CodeInterpreterId    *string                                       `pulumi:"codeInterpreterId"`
+	Description          *string                                       `pulumi:"description"`
+	ExecutionRoleArn     *string                                       `pulumi:"executionRoleArn"`
+	Name                 *string                                       `pulumi:"name"`
 	NetworkConfiguration *AgentcoreCodeInterpreterNetworkConfiguration `pulumi:"networkConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string                 `pulumi:"tagsAll"`
-	Timeouts *AgentcoreCodeInterpreterTimeouts `pulumi:"timeouts"`
+	Region               *string                                       `pulumi:"region"`
+	Tags                 map[string]string                             `pulumi:"tags"`
+	TagsAll              map[string]string                             `pulumi:"tagsAll"`
+	Timeouts             *AgentcoreCodeInterpreterTimeouts             `pulumi:"timeouts"`
 }
 
 type AgentcoreCodeInterpreterState struct {
-	// ARN of the Code Interpreter.
-	CodeInterpreterArn pulumi.StringPtrInput
-	// Unique identifier of the Code Interpreter.
-	CodeInterpreterId pulumi.StringPtrInput
-	// Description of the code interpreter.
-	Description pulumi.StringPtrInput
-	// ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
-	ExecutionRoleArn pulumi.StringPtrInput
-	// Name of the code interpreter.
-	Name pulumi.StringPtrInput
-	// Network configuration for the code interpreter. See `networkConfiguration` below.
-	//
-	// The following arguments are optional:
+	CodeInterpreterArn   pulumi.StringPtrInput
+	CodeInterpreterId    pulumi.StringPtrInput
+	Description          pulumi.StringPtrInput
+	ExecutionRoleArn     pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
 	NetworkConfiguration AgentcoreCodeInterpreterNetworkConfigurationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts AgentcoreCodeInterpreterTimeoutsPtrInput
+	Region               pulumi.StringPtrInput
+	Tags                 pulumi.StringMapInput
+	TagsAll              pulumi.StringMapInput
+	Timeouts             AgentcoreCodeInterpreterTimeoutsPtrInput
 }
 
 func (AgentcoreCodeInterpreterState) ElementType() reflect.Type {
@@ -220,40 +86,24 @@ func (AgentcoreCodeInterpreterState) ElementType() reflect.Type {
 }
 
 type agentcoreCodeInterpreterArgs struct {
-	// Description of the code interpreter.
-	Description *string `pulumi:"description"`
-	// ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
-	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
-	// Name of the code interpreter.
-	Name *string `pulumi:"name"`
-	// Network configuration for the code interpreter. See `networkConfiguration` below.
-	//
-	// The following arguments are optional:
+	Description          *string                                       `pulumi:"description"`
+	ExecutionRoleArn     *string                                       `pulumi:"executionRoleArn"`
+	Name                 *string                                       `pulumi:"name"`
 	NetworkConfiguration *AgentcoreCodeInterpreterNetworkConfiguration `pulumi:"networkConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string                 `pulumi:"tags"`
-	Timeouts *AgentcoreCodeInterpreterTimeouts `pulumi:"timeouts"`
+	Region               *string                                       `pulumi:"region"`
+	Tags                 map[string]string                             `pulumi:"tags"`
+	Timeouts             *AgentcoreCodeInterpreterTimeouts             `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a AgentcoreCodeInterpreter resource.
 type AgentcoreCodeInterpreterArgs struct {
-	// Description of the code interpreter.
-	Description pulumi.StringPtrInput
-	// ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
-	ExecutionRoleArn pulumi.StringPtrInput
-	// Name of the code interpreter.
-	Name pulumi.StringPtrInput
-	// Network configuration for the code interpreter. See `networkConfiguration` below.
-	//
-	// The following arguments are optional:
+	Description          pulumi.StringPtrInput
+	ExecutionRoleArn     pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
 	NetworkConfiguration AgentcoreCodeInterpreterNetworkConfigurationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts AgentcoreCodeInterpreterTimeoutsPtrInput
+	Region               pulumi.StringPtrInput
+	Tags                 pulumi.StringMapInput
+	Timeouts             AgentcoreCodeInterpreterTimeoutsPtrInput
 }
 
 func (AgentcoreCodeInterpreterArgs) ElementType() reflect.Type {
@@ -343,51 +193,40 @@ func (o AgentcoreCodeInterpreterOutput) ToAgentcoreCodeInterpreterOutputWithCont
 	return o
 }
 
-// ARN of the Code Interpreter.
 func (o AgentcoreCodeInterpreterOutput) CodeInterpreterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreCodeInterpreter) pulumi.StringOutput { return v.CodeInterpreterArn }).(pulumi.StringOutput)
 }
 
-// Unique identifier of the Code Interpreter.
 func (o AgentcoreCodeInterpreterOutput) CodeInterpreterId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreCodeInterpreter) pulumi.StringOutput { return v.CodeInterpreterId }).(pulumi.StringOutput)
 }
 
-// Description of the code interpreter.
 func (o AgentcoreCodeInterpreterOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreCodeInterpreter) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
 func (o AgentcoreCodeInterpreterOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreCodeInterpreter) pulumi.StringPtrOutput { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// Name of the code interpreter.
 func (o AgentcoreCodeInterpreterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreCodeInterpreter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Network configuration for the code interpreter. See `networkConfiguration` below.
-//
-// The following arguments are optional:
 func (o AgentcoreCodeInterpreterOutput) NetworkConfiguration() AgentcoreCodeInterpreterNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentcoreCodeInterpreter) AgentcoreCodeInterpreterNetworkConfigurationPtrOutput {
 		return v.NetworkConfiguration
 	}).(AgentcoreCodeInterpreterNetworkConfigurationPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AgentcoreCodeInterpreterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreCodeInterpreter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AgentcoreCodeInterpreterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentcoreCodeInterpreter) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AgentcoreCodeInterpreterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentcoreCodeInterpreter) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

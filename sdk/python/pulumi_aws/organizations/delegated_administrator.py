@@ -23,8 +23,6 @@ class DelegatedAdministratorArgs:
                  service_principal: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a DelegatedAdministrator resource.
-        :param pulumi.Input[_builtins.str] account_id: The account ID number of the member account in the organization to register as a delegated administrator.
-        :param pulumi.Input[_builtins.str] service_principal: The service principal of the AWS service for which you want to make the member account a delegated administrator.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "service_principal", service_principal)
@@ -32,9 +30,6 @@ class DelegatedAdministratorArgs:
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The account ID number of the member account in the organization to register as a delegated administrator.
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -44,9 +39,6 @@ class DelegatedAdministratorArgs:
     @_builtins.property
     @pulumi.getter(name="servicePrincipal")
     def service_principal(self) -> pulumi.Input[_builtins.str]:
-        """
-        The service principal of the AWS service for which you want to make the member account a delegated administrator.
-        """
         return pulumi.get(self, "service_principal")
 
     @service_principal.setter
@@ -68,15 +60,6 @@ class _DelegatedAdministratorState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DelegatedAdministrator resources.
-        :param pulumi.Input[_builtins.str] account_id: The account ID number of the member account in the organization to register as a delegated administrator.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the delegated administrator's account.
-        :param pulumi.Input[_builtins.str] delegation_enabled_date: The date when the account was made a delegated administrator.
-        :param pulumi.Input[_builtins.str] email: The email address that is associated with the delegated administrator's AWS account.
-        :param pulumi.Input[_builtins.str] joined_method: The method by which the delegated administrator's account joined the organization.
-        :param pulumi.Input[_builtins.str] joined_timestamp: The date when the delegated administrator's account became a part of the organization.
-        :param pulumi.Input[_builtins.str] name: The friendly name of the delegated administrator's account.
-        :param pulumi.Input[_builtins.str] service_principal: The service principal of the AWS service for which you want to make the member account a delegated administrator.
-        :param pulumi.Input[_builtins.str] status: The status of the delegated administrator's account in the organization.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -100,9 +83,6 @@ class _DelegatedAdministratorState:
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The account ID number of the member account in the organization to register as a delegated administrator.
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -112,9 +92,6 @@ class _DelegatedAdministratorState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the delegated administrator's account.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -124,9 +101,6 @@ class _DelegatedAdministratorState:
     @_builtins.property
     @pulumi.getter(name="delegationEnabledDate")
     def delegation_enabled_date(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date when the account was made a delegated administrator.
-        """
         return pulumi.get(self, "delegation_enabled_date")
 
     @delegation_enabled_date.setter
@@ -136,9 +110,6 @@ class _DelegatedAdministratorState:
     @_builtins.property
     @pulumi.getter
     def email(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The email address that is associated with the delegated administrator's AWS account.
-        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -148,9 +119,6 @@ class _DelegatedAdministratorState:
     @_builtins.property
     @pulumi.getter(name="joinedMethod")
     def joined_method(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The method by which the delegated administrator's account joined the organization.
-        """
         return pulumi.get(self, "joined_method")
 
     @joined_method.setter
@@ -160,9 +128,6 @@ class _DelegatedAdministratorState:
     @_builtins.property
     @pulumi.getter(name="joinedTimestamp")
     def joined_timestamp(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date when the delegated administrator's account became a part of the organization.
-        """
         return pulumi.get(self, "joined_timestamp")
 
     @joined_timestamp.setter
@@ -172,9 +137,6 @@ class _DelegatedAdministratorState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The friendly name of the delegated administrator's account.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -184,9 +146,6 @@ class _DelegatedAdministratorState:
     @_builtins.property
     @pulumi.getter(name="servicePrincipal")
     def service_principal(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The service principal of the AWS service for which you want to make the member account a delegated administrator.
-        """
         return pulumi.get(self, "service_principal")
 
     @service_principal.setter
@@ -196,9 +155,6 @@ class _DelegatedAdministratorState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The status of the delegated administrator's account in the organization.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -216,41 +172,9 @@ class DelegatedAdministrator(pulumi.CustomResource):
                  service_principal: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a resource to manage an [AWS Organizations Delegated Administrator](https://docs.aws.amazon.com/organizations/latest/APIReference/API_RegisterDelegatedAdministrator.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.organizations.DelegatedAdministrator("example",
-            account_id="123456789012",
-            service_principal="principal")
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `service_principal` (String) Service principal for the AWS service.
-
-        * `delegated_account_id` (String) Account ID to be designated as a delegated administrator.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        Using `pulumi import`, import `aws_organizations_delegated_administrator` using the account ID and its service principal. For example:
-
-        % pulumi import aws_organizations_delegated_administrator.example 123456789012/config.amazonaws.com
-
+        Create a DelegatedAdministrator resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: The account ID number of the member account in the organization to register as a delegated administrator.
-        :param pulumi.Input[_builtins.str] service_principal: The service principal of the AWS service for which you want to make the member account a delegated administrator.
         """
         ...
     @overload
@@ -259,37 +183,7 @@ class DelegatedAdministrator(pulumi.CustomResource):
                  args: DelegatedAdministratorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage an [AWS Organizations Delegated Administrator](https://docs.aws.amazon.com/organizations/latest/APIReference/API_RegisterDelegatedAdministrator.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.organizations.DelegatedAdministrator("example",
-            account_id="123456789012",
-            service_principal="principal")
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `service_principal` (String) Service principal for the AWS service.
-
-        * `delegated_account_id` (String) Account ID to be designated as a delegated administrator.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        Using `pulumi import`, import `aws_organizations_delegated_administrator` using the account ID and its service principal. For example:
-
-        % pulumi import aws_organizations_delegated_administrator.example 123456789012/config.amazonaws.com
-
+        Create a DelegatedAdministrator resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DelegatedAdministratorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -355,15 +249,6 @@ class DelegatedAdministrator(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: The account ID number of the member account in the organization to register as a delegated administrator.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the delegated administrator's account.
-        :param pulumi.Input[_builtins.str] delegation_enabled_date: The date when the account was made a delegated administrator.
-        :param pulumi.Input[_builtins.str] email: The email address that is associated with the delegated administrator's AWS account.
-        :param pulumi.Input[_builtins.str] joined_method: The method by which the delegated administrator's account joined the organization.
-        :param pulumi.Input[_builtins.str] joined_timestamp: The date when the delegated administrator's account became a part of the organization.
-        :param pulumi.Input[_builtins.str] name: The friendly name of the delegated administrator's account.
-        :param pulumi.Input[_builtins.str] service_principal: The service principal of the AWS service for which you want to make the member account a delegated administrator.
-        :param pulumi.Input[_builtins.str] status: The status of the delegated administrator's account in the organization.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -383,72 +268,45 @@ class DelegatedAdministrator(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The account ID number of the member account in the organization to register as a delegated administrator.
-        """
         return pulumi.get(self, "account_id")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the delegated administrator's account.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="delegationEnabledDate")
     def delegation_enabled_date(self) -> pulumi.Output[_builtins.str]:
-        """
-        The date when the account was made a delegated administrator.
-        """
         return pulumi.get(self, "delegation_enabled_date")
 
     @_builtins.property
     @pulumi.getter
     def email(self) -> pulumi.Output[_builtins.str]:
-        """
-        The email address that is associated with the delegated administrator's AWS account.
-        """
         return pulumi.get(self, "email")
 
     @_builtins.property
     @pulumi.getter(name="joinedMethod")
     def joined_method(self) -> pulumi.Output[_builtins.str]:
-        """
-        The method by which the delegated administrator's account joined the organization.
-        """
         return pulumi.get(self, "joined_method")
 
     @_builtins.property
     @pulumi.getter(name="joinedTimestamp")
     def joined_timestamp(self) -> pulumi.Output[_builtins.str]:
-        """
-        The date when the delegated administrator's account became a part of the organization.
-        """
         return pulumi.get(self, "joined_timestamp")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The friendly name of the delegated administrator's account.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="servicePrincipal")
     def service_principal(self) -> pulumi.Output[_builtins.str]:
-        """
-        The service principal of the AWS service for which you want to make the member account a delegated administrator.
-        """
         return pulumi.get(self, "service_principal")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        The status of the delegated administrator's account in the organization.
-        """
         return pulumi.get(self, "status")
 

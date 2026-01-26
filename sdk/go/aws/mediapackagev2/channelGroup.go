@@ -11,59 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates an AWS Elemental MediaPackage Version 2 Channel Group.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/mediapackagev2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := mediapackagev2.NewChannelGroup(ctx, "example", &mediapackagev2.ChannelGroupArgs{
-//				Name:        pulumi.String("example"),
-//				Description: pulumi.String("channel group for example channels"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Elemental MediaPackage Version 2 Channel Group using the channel group's `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:mediapackagev2/channelGroup:ChannelGroup example example
-// ```
 type ChannelGroup struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the channel
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A description of the channel group
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The egress domain of the channel group
-	EgressDomain pulumi.StringOutput `pulumi:"egressDomain"`
-	// A unique identifier naming the channel group
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn          pulumi.StringOutput    `pulumi:"arn"`
+	Description  pulumi.StringPtrOutput `pulumi:"description"`
+	EgressDomain pulumi.StringOutput    `pulumi:"egressDomain"`
+	Name         pulumi.StringOutput    `pulumi:"name"`
+	Region       pulumi.StringOutput    `pulumi:"region"`
+	Tags         pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll      pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewChannelGroup registers a new resource with the given unique name, arguments, and options.
@@ -96,37 +53,23 @@ func GetChannelGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ChannelGroup resources.
 type channelGroupState struct {
-	// The ARN of the channel
-	Arn *string `pulumi:"arn"`
-	// A description of the channel group
-	Description *string `pulumi:"description"`
-	// The egress domain of the channel group
-	EgressDomain *string `pulumi:"egressDomain"`
-	// A unique identifier naming the channel group
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn          *string           `pulumi:"arn"`
+	Description  *string           `pulumi:"description"`
+	EgressDomain *string           `pulumi:"egressDomain"`
+	Name         *string           `pulumi:"name"`
+	Region       *string           `pulumi:"region"`
+	Tags         map[string]string `pulumi:"tags"`
+	TagsAll      map[string]string `pulumi:"tagsAll"`
 }
 
 type ChannelGroupState struct {
-	// The ARN of the channel
-	Arn pulumi.StringPtrInput
-	// A description of the channel group
-	Description pulumi.StringPtrInput
-	// The egress domain of the channel group
+	Arn          pulumi.StringPtrInput
+	Description  pulumi.StringPtrInput
 	EgressDomain pulumi.StringPtrInput
-	// A unique identifier naming the channel group
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Name         pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
+	Tags         pulumi.StringMapInput
+	TagsAll      pulumi.StringMapInput
 }
 
 func (ChannelGroupState) ElementType() reflect.Type {
@@ -134,26 +77,18 @@ func (ChannelGroupState) ElementType() reflect.Type {
 }
 
 type channelGroupArgs struct {
-	// A description of the channel group
-	Description *string `pulumi:"description"`
-	// A unique identifier naming the channel group
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Description *string           `pulumi:"description"`
+	Name        *string           `pulumi:"name"`
+	Region      *string           `pulumi:"region"`
+	Tags        map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ChannelGroup resource.
 type ChannelGroupArgs struct {
-	// A description of the channel group
 	Description pulumi.StringPtrInput
-	// A unique identifier naming the channel group
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name        pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
 }
 
 func (ChannelGroupArgs) ElementType() reflect.Type {
@@ -243,37 +178,30 @@ func (o ChannelGroupOutput) ToChannelGroupOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The ARN of the channel
 func (o ChannelGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ChannelGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A description of the channel group
 func (o ChannelGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The egress domain of the channel group
 func (o ChannelGroupOutput) EgressDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v *ChannelGroup) pulumi.StringOutput { return v.EgressDomain }).(pulumi.StringOutput)
 }
 
-// A unique identifier naming the channel group
 func (o ChannelGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ChannelGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ChannelGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ChannelGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ChannelGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ChannelGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ChannelGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ChannelGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

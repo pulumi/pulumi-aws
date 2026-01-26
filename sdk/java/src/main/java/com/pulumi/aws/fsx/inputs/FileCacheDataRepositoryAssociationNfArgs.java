@@ -17,32 +17,16 @@ public final class FileCacheDataRepositoryAssociationNfArgs extends com.pulumi.r
 
     public static final FileCacheDataRepositoryAssociationNfArgs Empty = new FileCacheDataRepositoryAssociationNfArgs();
 
-    /**
-     * A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
-     * 
-     */
     @Import(name="dnsIps")
     private @Nullable Output<List<String>> dnsIps;
 
-    /**
-     * @return A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
-     * 
-     */
     public Optional<Output<List<String>>> dnsIps() {
         return Optional.ofNullable(this.dnsIps);
     }
 
-    /**
-     * The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
-     * 
-     */
     @Import(name="version", required=true)
     private Output<String> version;
 
-    /**
-     * @return The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
-     * 
-     */
     public Output<String> version() {
         return this.version;
     }
@@ -72,54 +56,24 @@ public final class FileCacheDataRepositoryAssociationNfArgs extends com.pulumi.r
             $ = new FileCacheDataRepositoryAssociationNfArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dnsIps A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsIps(@Nullable Output<List<String>> dnsIps) {
             $.dnsIps = dnsIps;
             return this;
         }
 
-        /**
-         * @param dnsIps A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsIps(List<String> dnsIps) {
             return dnsIps(Output.of(dnsIps));
         }
 
-        /**
-         * @param dnsIps A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsIps(String... dnsIps) {
             return dnsIps(List.of(dnsIps));
         }
 
-        /**
-         * @param version The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(Output<String> version) {
             $.version = version;
             return this;
         }
 
-        /**
-         * @param version The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(String version) {
             return version(Output.of(version));
         }

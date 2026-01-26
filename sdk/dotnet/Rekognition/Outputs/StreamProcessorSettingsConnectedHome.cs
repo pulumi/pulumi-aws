@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Rekognition.Outputs
     public sealed class StreamProcessorSettingsConnectedHome
     {
         /// <summary>
-        /// Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
+        /// Specifies what you want to detect in the video, such as people, packages, or pets.
         /// </summary>
         public readonly ImmutableArray<string> Labels;
         /// <summary>
-        /// Minimum confidence required to label an object in the video.
+        /// The minimum confidence required to label an object in the video.
         /// </summary>
         public readonly double? MinConfidence;
 

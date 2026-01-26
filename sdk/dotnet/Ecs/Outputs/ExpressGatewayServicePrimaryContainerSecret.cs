@@ -14,9 +14,6 @@ namespace Pulumi.Aws.Ecs.Outputs
     public sealed class ExpressGatewayServicePrimaryContainerSecret
     {
         public readonly string Name;
-        /// <summary>
-        /// ARN of the AWS Secrets Manager secret or AWS Systems Manager parameter containing the secret value.
-        /// </summary>
         public readonly string ValueFrom;
 
         [OutputConstructor]

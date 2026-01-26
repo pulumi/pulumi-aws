@@ -13,112 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS EventBridge Schemas Registry Policy.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.schemas.RegistryPolicy;
- * import com.pulumi.aws.schemas.RegistryPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid("example")
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("AWS")
- *                     .identifiers("109876543210")
- *                     .build())
- *                 .actions("schemas:*")
- *                 .resources(                
- *                     "arn:aws:schemas:us-east-1:123456789012:registry/example",
- *                     "arn:aws:schemas:us-east-1:123456789012:schema/example*")
- *                 .build())
- *             .build());
- * 
- *         var exampleRegistryPolicy = new RegistryPolicy("exampleRegistryPolicy", RegistryPolicyArgs.builder()
- *             .registryName("example")
- *             .policy(example.json())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import EventBridge Schema Registry Policy using the `registry_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:schemas/registryPolicy:RegistryPolicy example example
- * ```
- * 
- */
 @ResourceType(type="aws:schemas/registryPolicy:RegistryPolicy")
 public class RegistryPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * Resource Policy for EventBridge Schema Registry
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return Resource Policy for EventBridge Schema Registry
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Name of EventBridge Schema Registry
-     * 
-     */
     @Export(name="registryName", refs={String.class}, tree="[0]")
     private Output<String> registryName;
 
-    /**
-     * @return Name of EventBridge Schema Registry
-     * 
-     */
     public Output<String> registryName() {
         return this.registryName;
     }

@@ -10,19 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class OrganizationConfigurationDatasourcesKubernetes {
-    /**
-     * @return Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-     * See Kubernetes Audit Logs below for more details.
-     * 
-     */
     private OrganizationConfigurationDatasourcesKubernetesAuditLogs auditLogs;
 
     private OrganizationConfigurationDatasourcesKubernetes() {}
-    /**
-     * @return Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-     * See Kubernetes Audit Logs below for more details.
-     * 
-     */
     public OrganizationConfigurationDatasourcesKubernetesAuditLogs auditLogs() {
         return this.auditLogs;
     }

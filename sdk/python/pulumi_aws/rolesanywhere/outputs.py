@@ -46,9 +46,6 @@ class TrustAnchorNotificationSetting(dict):
                  enabled: Optional[_builtins.bool] = None,
                  event: Optional[_builtins.str] = None,
                  threshold: Optional[_builtins.int] = None):
-        """
-        :param _builtins.bool enabled: Whether or not the Trust Anchor should be enabled.
-        """
         if channel is not None:
             pulumi.set(__self__, "channel", channel)
         if configured_by is not None:
@@ -73,9 +70,6 @@ class TrustAnchorNotificationSetting(dict):
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether or not the Trust Anchor should be enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
@@ -113,27 +107,17 @@ class TrustAnchorSource(dict):
     def __init__(__self__, *,
                  source_data: 'outputs.TrustAnchorSourceSourceData',
                  source_type: _builtins.str):
-        """
-        :param 'TrustAnchorSourceSourceDataArgs' source_data: The data denoting the source of trust, documented below
-        :param _builtins.str source_type: The type of the source of trust. Must be either `AWS_ACM_PCA` or `CERTIFICATE_BUNDLE`.
-        """
         pulumi.set(__self__, "source_data", source_data)
         pulumi.set(__self__, "source_type", source_type)
 
     @_builtins.property
     @pulumi.getter(name="sourceData")
     def source_data(self) -> 'outputs.TrustAnchorSourceSourceData':
-        """
-        The data denoting the source of trust, documented below
-        """
         return pulumi.get(self, "source_data")
 
     @_builtins.property
     @pulumi.getter(name="sourceType")
     def source_type(self) -> _builtins.str:
-        """
-        The type of the source of trust. Must be either `AWS_ACM_PCA` or `CERTIFICATE_BUNDLE`.
-        """
         return pulumi.get(self, "source_type")
 
 
@@ -161,9 +145,6 @@ class TrustAnchorSourceSourceData(dict):
     def __init__(__self__, *,
                  acm_pca_arn: Optional[_builtins.str] = None,
                  x509_certificate_data: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str acm_pca_arn: The ARN of an ACM Private Certificate Authority.
-        """
         if acm_pca_arn is not None:
             pulumi.set(__self__, "acm_pca_arn", acm_pca_arn)
         if x509_certificate_data is not None:
@@ -172,9 +153,6 @@ class TrustAnchorSourceSourceData(dict):
     @_builtins.property
     @pulumi.getter(name="acmPcaArn")
     def acm_pca_arn(self) -> Optional[_builtins.str]:
-        """
-        The ARN of an ACM Private Certificate Authority.
-        """
         return pulumi.get(self, "acm_pca_arn")
 
     @_builtins.property

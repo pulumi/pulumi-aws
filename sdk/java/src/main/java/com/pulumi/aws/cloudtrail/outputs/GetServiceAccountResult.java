@@ -10,10 +10,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceAccountResult {
-    /**
-     * @return ARN of the AWS CloudTrail service account in the selected Region.
-     * 
-     */
     private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -23,10 +19,6 @@ public final class GetServiceAccountResult {
     private String region;
 
     private GetServiceAccountResult() {}
-    /**
-     * @return ARN of the AWS CloudTrail service account in the selected Region.
-     * 
-     */
     public String arn() {
         return this.arn;
     }

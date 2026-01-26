@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class WorkteamMemberDefinitionCognitoMemberDefinition
     {
-        /// <summary>
-        /// An identifier for an application client. You must create the app client ID using Amazon Cognito.
-        /// </summary>
         public readonly string ClientId;
-        /// <summary>
-        /// An identifier for a user group.
-        /// </summary>
         public readonly string UserGroup;
-        /// <summary>
-        /// An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
-        /// </summary>
         public readonly string UserPool;
 
         [OutputConstructor]

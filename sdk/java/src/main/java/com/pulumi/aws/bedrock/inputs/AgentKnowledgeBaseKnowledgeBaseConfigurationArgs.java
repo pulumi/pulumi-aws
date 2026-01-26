@@ -19,62 +19,30 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs extends com.
 
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationArgs();
 
-    /**
-     * Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` block for details.
-     * 
-     */
     @Import(name="kendraKnowledgeBaseConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs> kendraKnowledgeBaseConfiguration;
 
-    /**
-     * @return Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` block for details.
-     * 
-     */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs>> kendraKnowledgeBaseConfiguration() {
         return Optional.ofNullable(this.kendraKnowledgeBaseConfiguration);
     }
 
-    /**
-     * Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` block for details.
-     * 
-     */
     @Import(name="sqlKnowledgeBaseConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs> sqlKnowledgeBaseConfiguration;
 
-    /**
-     * @return Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` block for details.
-     * 
-     */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs>> sqlKnowledgeBaseConfiguration() {
         return Optional.ofNullable(this.sqlKnowledgeBaseConfiguration);
     }
 
-    /**
-     * Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
 
-    /**
-     * Details about the model that&#39;s used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` block for details.
-     * 
-     */
     @Import(name="vectorKnowledgeBaseConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs> vectorKnowledgeBaseConfiguration;
 
-    /**
-     * @return Details about the model that&#39;s used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` block for details.
-     * 
-     */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs>> vectorKnowledgeBaseConfiguration() {
         return Optional.ofNullable(this.vectorKnowledgeBaseConfiguration);
     }
@@ -106,86 +74,38 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs extends com.
             $ = new AgentKnowledgeBaseKnowledgeBaseConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kendraKnowledgeBaseConfiguration Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kendraKnowledgeBaseConfiguration(@Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs> kendraKnowledgeBaseConfiguration) {
             $.kendraKnowledgeBaseConfiguration = kendraKnowledgeBaseConfiguration;
             return this;
         }
 
-        /**
-         * @param kendraKnowledgeBaseConfiguration Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kendraKnowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs kendraKnowledgeBaseConfiguration) {
             return kendraKnowledgeBaseConfiguration(Output.of(kendraKnowledgeBaseConfiguration));
         }
 
-        /**
-         * @param sqlKnowledgeBaseConfiguration Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sqlKnowledgeBaseConfiguration(@Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs> sqlKnowledgeBaseConfiguration) {
             $.sqlKnowledgeBaseConfiguration = sqlKnowledgeBaseConfiguration;
             return this;
         }
 
-        /**
-         * @param sqlKnowledgeBaseConfiguration Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sqlKnowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs sqlKnowledgeBaseConfiguration) {
             return sqlKnowledgeBaseConfiguration(Output.of(sqlKnowledgeBaseConfiguration));
         }
 
-        /**
-         * @param type Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
-        /**
-         * @param vectorKnowledgeBaseConfiguration Details about the model that&#39;s used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vectorKnowledgeBaseConfiguration(@Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs> vectorKnowledgeBaseConfiguration) {
             $.vectorKnowledgeBaseConfiguration = vectorKnowledgeBaseConfiguration;
             return this;
         }
 
-        /**
-         * @param vectorKnowledgeBaseConfiguration Details about the model that&#39;s used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vectorKnowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs vectorKnowledgeBaseConfiguration) {
             return vectorKnowledgeBaseConfiguration(Output.of(vectorKnowledgeBaseConfiguration));
         }

@@ -9,65 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Provides a resource for managing the main routing table of a VPC.
-    /// 
-    /// &gt; **NOTE:** **Do not** use both `aws.ec2.DefaultRouteTable` to manage a default route table **and** `aws.ec2.MainRouteTableAssociation` with the same VPC due to possible route conflicts. See aws.ec2.DefaultRouteTable documentation for more details.
-    /// For more information, see the Amazon VPC User Guide on [Route Tables][aws-route-tables]. For information about managing normal route tables in Pulumi, see [`aws.ec2.RouteTable`][tf-route-tables].
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var a = new Aws.Ec2.MainRouteTableAssociation("a", new()
-    ///     {
-    ///         VpcId = foo.Id,
-    ///         RouteTableId = bar.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Notes
-    /// 
-    /// On VPC creation, the AWS API always creates an initial Main Route Table. This
-    /// resource records the ID of that Route Table under `OriginalRouteTableId`.
-    /// The "Delete" action for a `MainRouteTableAssociation` consists of resetting
-    /// this original table as the Main Route Table for the VPC. You'll see this
-    /// additional Route Table in the AWS console; it must remain intact in order for
-    /// the `MainRouteTableAssociation` delete to work properly.
-    /// </summary>
     [AwsResourceType("aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation")]
     public partial class MainRouteTableAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Used internally, see **Notes** below
-        /// </summary>
         [Output("originalRouteTableId")]
         public Output<string> OriginalRouteTableId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the Route Table to set as the new
-        /// main route table for the target VPC
-        /// </summary>
         [Output("routeTableId")]
         public Output<string> RouteTableId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the VPC whose main route table should be set
-        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -117,22 +70,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class MainRouteTableAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the Route Table to set as the new
-        /// main route table for the target VPC
-        /// </summary>
         [Input("routeTableId", required: true)]
         public Input<string> RouteTableId { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of the VPC whose main route table should be set
-        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 
@@ -144,28 +87,15 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class MainRouteTableAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Used internally, see **Notes** below
-        /// </summary>
         [Input("originalRouteTableId")]
         public Input<string>? OriginalRouteTableId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the Route Table to set as the new
-        /// main route table for the target VPC
-        /// </summary>
         [Input("routeTableId")]
         public Input<string>? RouteTableId { get; set; }
 
-        /// <summary>
-        /// The ID of the VPC whose main route table should be set
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

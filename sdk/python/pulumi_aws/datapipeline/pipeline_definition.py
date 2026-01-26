@@ -28,13 +28,6 @@ class PipelineDefinitionArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PipelineDefinition resource.
-        :param pulumi.Input[_builtins.str] pipeline_id: ID of the pipeline.
-        :param pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectArgs']]] pipeline_objects: Configuration block for the objects that define the pipeline. See below
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectArgs']]] parameter_objects: Configuration block for the parameter objects used in the pipeline definition. See below
-        :param pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterValueArgs']]] parameter_values: Configuration block for the parameter values used in the pipeline definition. See below
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "pipeline_id", pipeline_id)
         pulumi.set(__self__, "pipeline_objects", pipeline_objects)
@@ -48,9 +41,6 @@ class PipelineDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="pipelineId")
     def pipeline_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the pipeline.
-        """
         return pulumi.get(self, "pipeline_id")
 
     @pipeline_id.setter
@@ -60,11 +50,6 @@ class PipelineDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="pipelineObjects")
     def pipeline_objects(self) -> pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectArgs']]]:
-        """
-        Configuration block for the objects that define the pipeline. See below
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "pipeline_objects")
 
     @pipeline_objects.setter
@@ -74,9 +59,6 @@ class PipelineDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="parameterObjects")
     def parameter_objects(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectArgs']]]]:
-        """
-        Configuration block for the parameter objects used in the pipeline definition. See below
-        """
         return pulumi.get(self, "parameter_objects")
 
     @parameter_objects.setter
@@ -86,9 +68,6 @@ class PipelineDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="parameterValues")
     def parameter_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterValueArgs']]]]:
-        """
-        Configuration block for the parameter values used in the pipeline definition. See below
-        """
         return pulumi.get(self, "parameter_values")
 
     @parameter_values.setter
@@ -98,9 +77,6 @@ class PipelineDefinitionArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -118,13 +94,6 @@ class _PipelineDefinitionState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PipelineDefinition resources.
-        :param pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectArgs']]] parameter_objects: Configuration block for the parameter objects used in the pipeline definition. See below
-        :param pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterValueArgs']]] parameter_values: Configuration block for the parameter values used in the pipeline definition. See below
-        :param pulumi.Input[_builtins.str] pipeline_id: ID of the pipeline.
-        :param pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectArgs']]] pipeline_objects: Configuration block for the objects that define the pipeline. See below
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if parameter_objects is not None:
             pulumi.set(__self__, "parameter_objects", parameter_objects)
@@ -140,9 +109,6 @@ class _PipelineDefinitionState:
     @_builtins.property
     @pulumi.getter(name="parameterObjects")
     def parameter_objects(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectArgs']]]]:
-        """
-        Configuration block for the parameter objects used in the pipeline definition. See below
-        """
         return pulumi.get(self, "parameter_objects")
 
     @parameter_objects.setter
@@ -152,9 +118,6 @@ class _PipelineDefinitionState:
     @_builtins.property
     @pulumi.getter(name="parameterValues")
     def parameter_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterValueArgs']]]]:
-        """
-        Configuration block for the parameter values used in the pipeline definition. See below
-        """
         return pulumi.get(self, "parameter_values")
 
     @parameter_values.setter
@@ -164,9 +127,6 @@ class _PipelineDefinitionState:
     @_builtins.property
     @pulumi.getter(name="pipelineId")
     def pipeline_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the pipeline.
-        """
         return pulumi.get(self, "pipeline_id")
 
     @pipeline_id.setter
@@ -176,11 +136,6 @@ class _PipelineDefinitionState:
     @_builtins.property
     @pulumi.getter(name="pipelineObjects")
     def pipeline_objects(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectArgs']]]]:
-        """
-        Configuration block for the objects that define the pipeline. See below
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "pipeline_objects")
 
     @pipeline_objects.setter
@@ -190,9 +145,6 @@ class _PipelineDefinitionState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -213,90 +165,9 @@ class PipelineDefinition(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a DataPipeline Pipeline Definition resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.datapipeline.Pipeline("default", name="tf-pipeline-default")
-        example = aws.datapipeline.PipelineDefinition("example",
-            pipeline_id=default.id,
-            pipeline_objects=[
-                {
-                    "id": "Default",
-                    "name": "Default",
-                    "fields": [{
-                        "key": "workerGroup",
-                        "string_value": "workerGroup",
-                    }],
-                },
-                {
-                    "id": "Schedule",
-                    "name": "Schedule",
-                    "fields": [
-                        {
-                            "key": "startDateTime",
-                            "string_value": "2012-12-12T00:00:00",
-                        },
-                        {
-                            "key": "type",
-                            "string_value": "Schedule",
-                        },
-                        {
-                            "key": "period",
-                            "string_value": "1 hour",
-                        },
-                        {
-                            "key": "endDateTime",
-                            "string_value": "2012-12-21T18:00:00",
-                        },
-                    ],
-                },
-                {
-                    "id": "SayHello",
-                    "name": "SayHello",
-                    "fields": [
-                        {
-                            "key": "type",
-                            "string_value": "ShellCommandActivity",
-                        },
-                        {
-                            "key": "command",
-                            "string_value": "echo hello",
-                        },
-                        {
-                            "key": "parent",
-                            "string_value": "Default",
-                        },
-                        {
-                            "key": "schedule",
-                            "string_value": "Schedule",
-                        },
-                    ],
-                },
-            ])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_datapipeline_pipeline_definition` using the id. For example:
-
-        ```sh
-        $ pulumi import aws:datapipeline/pipelineDefinition:PipelineDefinition example df-1234567890
-        ```
-
+        Create a PipelineDefinition resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineDefinitionParameterObjectArgs', 'PipelineDefinitionParameterObjectArgsDict']]]] parameter_objects: Configuration block for the parameter objects used in the pipeline definition. See below
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineDefinitionParameterValueArgs', 'PipelineDefinitionParameterValueArgsDict']]]] parameter_values: Configuration block for the parameter values used in the pipeline definition. See below
-        :param pulumi.Input[_builtins.str] pipeline_id: ID of the pipeline.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineDefinitionPipelineObjectArgs', 'PipelineDefinitionPipelineObjectArgsDict']]]] pipeline_objects: Configuration block for the objects that define the pipeline. See below
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -305,81 +176,7 @@ class PipelineDefinition(pulumi.CustomResource):
                  args: PipelineDefinitionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a DataPipeline Pipeline Definition resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.datapipeline.Pipeline("default", name="tf-pipeline-default")
-        example = aws.datapipeline.PipelineDefinition("example",
-            pipeline_id=default.id,
-            pipeline_objects=[
-                {
-                    "id": "Default",
-                    "name": "Default",
-                    "fields": [{
-                        "key": "workerGroup",
-                        "string_value": "workerGroup",
-                    }],
-                },
-                {
-                    "id": "Schedule",
-                    "name": "Schedule",
-                    "fields": [
-                        {
-                            "key": "startDateTime",
-                            "string_value": "2012-12-12T00:00:00",
-                        },
-                        {
-                            "key": "type",
-                            "string_value": "Schedule",
-                        },
-                        {
-                            "key": "period",
-                            "string_value": "1 hour",
-                        },
-                        {
-                            "key": "endDateTime",
-                            "string_value": "2012-12-21T18:00:00",
-                        },
-                    ],
-                },
-                {
-                    "id": "SayHello",
-                    "name": "SayHello",
-                    "fields": [
-                        {
-                            "key": "type",
-                            "string_value": "ShellCommandActivity",
-                        },
-                        {
-                            "key": "command",
-                            "string_value": "echo hello",
-                        },
-                        {
-                            "key": "parent",
-                            "string_value": "Default",
-                        },
-                        {
-                            "key": "schedule",
-                            "string_value": "Schedule",
-                        },
-                    ],
-                },
-            ])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_datapipeline_pipeline_definition` using the id. For example:
-
-        ```sh
-        $ pulumi import aws:datapipeline/pipelineDefinition:PipelineDefinition example df-1234567890
-        ```
-
+        Create a PipelineDefinition resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PipelineDefinitionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -440,13 +237,6 @@ class PipelineDefinition(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineDefinitionParameterObjectArgs', 'PipelineDefinitionParameterObjectArgsDict']]]] parameter_objects: Configuration block for the parameter objects used in the pipeline definition. See below
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineDefinitionParameterValueArgs', 'PipelineDefinitionParameterValueArgsDict']]]] parameter_values: Configuration block for the parameter values used in the pipeline definition. See below
-        :param pulumi.Input[_builtins.str] pipeline_id: ID of the pipeline.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineDefinitionPipelineObjectArgs', 'PipelineDefinitionPipelineObjectArgsDict']]]] pipeline_objects: Configuration block for the objects that define the pipeline. See below
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -462,42 +252,25 @@ class PipelineDefinition(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="parameterObjects")
     def parameter_objects(self) -> pulumi.Output[Optional[Sequence['outputs.PipelineDefinitionParameterObject']]]:
-        """
-        Configuration block for the parameter objects used in the pipeline definition. See below
-        """
         return pulumi.get(self, "parameter_objects")
 
     @_builtins.property
     @pulumi.getter(name="parameterValues")
     def parameter_values(self) -> pulumi.Output[Optional[Sequence['outputs.PipelineDefinitionParameterValue']]]:
-        """
-        Configuration block for the parameter values used in the pipeline definition. See below
-        """
         return pulumi.get(self, "parameter_values")
 
     @_builtins.property
     @pulumi.getter(name="pipelineId")
     def pipeline_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the pipeline.
-        """
         return pulumi.get(self, "pipeline_id")
 
     @_builtins.property
     @pulumi.getter(name="pipelineObjects")
     def pipeline_objects(self) -> pulumi.Output[Sequence['outputs.PipelineDefinitionPipelineObject']]:
-        """
-        Configuration block for the objects that define the pipeline. See below
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "pipeline_objects")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

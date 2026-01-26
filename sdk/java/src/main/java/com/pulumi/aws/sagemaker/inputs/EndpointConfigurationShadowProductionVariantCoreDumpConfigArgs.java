@@ -14,32 +14,16 @@ public final class EndpointConfigurationShadowProductionVariantCoreDumpConfigArg
 
     public static final EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs Empty = new EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs();
 
-    /**
-     * S3 bucket to send the core dump to.
-     * 
-     */
     @Import(name="destinationS3Uri", required=true)
     private Output<String> destinationS3Uri;
 
-    /**
-     * @return S3 bucket to send the core dump to.
-     * 
-     */
     public Output<String> destinationS3Uri() {
         return this.destinationS3Uri;
     }
 
-    /**
-     * KMS key that SageMaker AI uses to encrypt the core dump data at rest using S3 server-side encryption.
-     * 
-     */
     @Import(name="kmsKeyId", required=true)
     private Output<String> kmsKeyId;
 
-    /**
-     * @return KMS key that SageMaker AI uses to encrypt the core dump data at rest using S3 server-side encryption.
-     * 
-     */
     public Output<String> kmsKeyId() {
         return this.kmsKeyId;
     }
@@ -69,44 +53,20 @@ public final class EndpointConfigurationShadowProductionVariantCoreDumpConfigArg
             $ = new EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destinationS3Uri S3 bucket to send the core dump to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationS3Uri(Output<String> destinationS3Uri) {
             $.destinationS3Uri = destinationS3Uri;
             return this;
         }
 
-        /**
-         * @param destinationS3Uri S3 bucket to send the core dump to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationS3Uri(String destinationS3Uri) {
             return destinationS3Uri(Output.of(destinationS3Uri));
         }
 
-        /**
-         * @param kmsKeyId KMS key that SageMaker AI uses to encrypt the core dump data at rest using S3 server-side encryption.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
-        /**
-         * @param kmsKeyId KMS key that SageMaker AI uses to encrypt the core dump data at rest using S3 server-side encryption.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }

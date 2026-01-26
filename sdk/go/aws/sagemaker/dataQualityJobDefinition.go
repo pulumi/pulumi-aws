@@ -12,97 +12,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker AI data quality job definition resource.
-//
-// ## Example Usage
-//
-// Basic usage:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewDataQualityJobDefinition(ctx, "test", &sagemaker.DataQualityJobDefinitionArgs{
-//				Name: pulumi.String("my-data-quality-job-definition"),
-//				DataQualityAppSpecification: &sagemaker.DataQualityJobDefinitionDataQualityAppSpecificationArgs{
-//					ImageUri: pulumi.Any(monitor.RegistryPath),
-//				},
-//				DataQualityJobInput: &sagemaker.DataQualityJobDefinitionDataQualityJobInputArgs{
-//					EndpointInput: &sagemaker.DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs{
-//						EndpointName: pulumi.Any(myEndpoint.Name),
-//					},
-//				},
-//				DataQualityJobOutputConfig: &sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfigArgs{
-//					MonitoringOutputs: &sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs{
-//						S3Output: sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs{
-//							S3Uri: pulumi.Sprintf("https://%v/output", myBucket.BucketRegionalDomainName),
-//						},
-//					},
-//				},
-//				JobResources: &sagemaker.DataQualityJobDefinitionJobResourcesArgs{
-//					ClusterConfig: &sagemaker.DataQualityJobDefinitionJobResourcesClusterConfigArgs{
-//						InstanceCount:  pulumi.Int(1),
-//						InstanceType:   pulumi.String("ml.t3.medium"),
-//						VolumeSizeInGb: pulumi.Int(20),
-//					},
-//				},
-//				RoleArn: pulumi.Any(myRole.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import data quality job definitions using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition test_data_quality_job_definition data-quality-job-definition-foo
-// ```
 type DataQualityJobDefinition struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Specifies the container that runs the monitoring job. Fields are documented below.
-	DataQualityAppSpecification DataQualityJobDefinitionDataQualityAppSpecificationOutput `pulumi:"dataQualityAppSpecification"`
-	// Configures the constraints and baselines for the monitoring job. Fields are documented below.
-	DataQualityBaselineConfig DataQualityJobDefinitionDataQualityBaselineConfigPtrOutput `pulumi:"dataQualityBaselineConfig"`
-	// A list of inputs for the monitoring job. Fields are documented below.
-	DataQualityJobInput DataQualityJobDefinitionDataQualityJobInputOutput `pulumi:"dataQualityJobInput"`
-	// The output configuration for monitoring jobs. Fields are documented below.
-	DataQualityJobOutputConfig DataQualityJobDefinitionDataQualityJobOutputConfigOutput `pulumi:"dataQualityJobOutputConfig"`
-	// Identifies the resources to deploy for a monitoring job. Fields are documented below.
-	JobResources DataQualityJobDefinitionJobResourcesOutput `pulumi:"jobResources"`
-	// The name of the data quality job definition. If omitted, the provider will assign a random, unique name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies networking configuration for the monitoring job. Fields are documented below.
-	NetworkConfig DataQualityJobDefinitionNetworkConfigPtrOutput `pulumi:"networkConfig"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
-	StoppingCondition DataQualityJobDefinitionStoppingConditionOutput `pulumi:"stoppingCondition"`
-	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                         pulumi.StringOutput                                        `pulumi:"arn"`
+	DataQualityAppSpecification DataQualityJobDefinitionDataQualityAppSpecificationOutput  `pulumi:"dataQualityAppSpecification"`
+	DataQualityBaselineConfig   DataQualityJobDefinitionDataQualityBaselineConfigPtrOutput `pulumi:"dataQualityBaselineConfig"`
+	DataQualityJobInput         DataQualityJobDefinitionDataQualityJobInputOutput          `pulumi:"dataQualityJobInput"`
+	DataQualityJobOutputConfig  DataQualityJobDefinitionDataQualityJobOutputConfigOutput   `pulumi:"dataQualityJobOutputConfig"`
+	JobResources                DataQualityJobDefinitionJobResourcesOutput                 `pulumi:"jobResources"`
+	Name                        pulumi.StringOutput                                        `pulumi:"name"`
+	NetworkConfig               DataQualityJobDefinitionNetworkConfigPtrOutput             `pulumi:"networkConfig"`
+	Region                      pulumi.StringOutput                                        `pulumi:"region"`
+	RoleArn                     pulumi.StringOutput                                        `pulumi:"roleArn"`
+	StoppingCondition           DataQualityJobDefinitionStoppingConditionOutput            `pulumi:"stoppingCondition"`
+	Tags                        pulumi.StringMapOutput                                     `pulumi:"tags"`
+	TagsAll                     pulumi.StringMapOutput                                     `pulumi:"tagsAll"`
 }
 
 // NewDataQualityJobDefinition registers a new resource with the given unique name, arguments, and options.
@@ -150,61 +75,35 @@ func GetDataQualityJobDefinition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataQualityJobDefinition resources.
 type dataQualityJobDefinitionState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
-	Arn *string `pulumi:"arn"`
-	// Specifies the container that runs the monitoring job. Fields are documented below.
+	Arn                         *string                                              `pulumi:"arn"`
 	DataQualityAppSpecification *DataQualityJobDefinitionDataQualityAppSpecification `pulumi:"dataQualityAppSpecification"`
-	// Configures the constraints and baselines for the monitoring job. Fields are documented below.
-	DataQualityBaselineConfig *DataQualityJobDefinitionDataQualityBaselineConfig `pulumi:"dataQualityBaselineConfig"`
-	// A list of inputs for the monitoring job. Fields are documented below.
-	DataQualityJobInput *DataQualityJobDefinitionDataQualityJobInput `pulumi:"dataQualityJobInput"`
-	// The output configuration for monitoring jobs. Fields are documented below.
-	DataQualityJobOutputConfig *DataQualityJobDefinitionDataQualityJobOutputConfig `pulumi:"dataQualityJobOutputConfig"`
-	// Identifies the resources to deploy for a monitoring job. Fields are documented below.
-	JobResources *DataQualityJobDefinitionJobResources `pulumi:"jobResources"`
-	// The name of the data quality job definition. If omitted, the provider will assign a random, unique name.
-	Name *string `pulumi:"name"`
-	// Specifies networking configuration for the monitoring job. Fields are documented below.
-	NetworkConfig *DataQualityJobDefinitionNetworkConfig `pulumi:"networkConfig"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
-	RoleArn *string `pulumi:"roleArn"`
-	// A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
-	StoppingCondition *DataQualityJobDefinitionStoppingCondition `pulumi:"stoppingCondition"`
-	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	DataQualityBaselineConfig   *DataQualityJobDefinitionDataQualityBaselineConfig   `pulumi:"dataQualityBaselineConfig"`
+	DataQualityJobInput         *DataQualityJobDefinitionDataQualityJobInput         `pulumi:"dataQualityJobInput"`
+	DataQualityJobOutputConfig  *DataQualityJobDefinitionDataQualityJobOutputConfig  `pulumi:"dataQualityJobOutputConfig"`
+	JobResources                *DataQualityJobDefinitionJobResources                `pulumi:"jobResources"`
+	Name                        *string                                              `pulumi:"name"`
+	NetworkConfig               *DataQualityJobDefinitionNetworkConfig               `pulumi:"networkConfig"`
+	Region                      *string                                              `pulumi:"region"`
+	RoleArn                     *string                                              `pulumi:"roleArn"`
+	StoppingCondition           *DataQualityJobDefinitionStoppingCondition           `pulumi:"stoppingCondition"`
+	Tags                        map[string]string                                    `pulumi:"tags"`
+	TagsAll                     map[string]string                                    `pulumi:"tagsAll"`
 }
 
 type DataQualityJobDefinitionState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
-	Arn pulumi.StringPtrInput
-	// Specifies the container that runs the monitoring job. Fields are documented below.
+	Arn                         pulumi.StringPtrInput
 	DataQualityAppSpecification DataQualityJobDefinitionDataQualityAppSpecificationPtrInput
-	// Configures the constraints and baselines for the monitoring job. Fields are documented below.
-	DataQualityBaselineConfig DataQualityJobDefinitionDataQualityBaselineConfigPtrInput
-	// A list of inputs for the monitoring job. Fields are documented below.
-	DataQualityJobInput DataQualityJobDefinitionDataQualityJobInputPtrInput
-	// The output configuration for monitoring jobs. Fields are documented below.
-	DataQualityJobOutputConfig DataQualityJobDefinitionDataQualityJobOutputConfigPtrInput
-	// Identifies the resources to deploy for a monitoring job. Fields are documented below.
-	JobResources DataQualityJobDefinitionJobResourcesPtrInput
-	// The name of the data quality job definition. If omitted, the provider will assign a random, unique name.
-	Name pulumi.StringPtrInput
-	// Specifies networking configuration for the monitoring job. Fields are documented below.
-	NetworkConfig DataQualityJobDefinitionNetworkConfigPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
-	RoleArn pulumi.StringPtrInput
-	// A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
-	StoppingCondition DataQualityJobDefinitionStoppingConditionPtrInput
-	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	DataQualityBaselineConfig   DataQualityJobDefinitionDataQualityBaselineConfigPtrInput
+	DataQualityJobInput         DataQualityJobDefinitionDataQualityJobInputPtrInput
+	DataQualityJobOutputConfig  DataQualityJobDefinitionDataQualityJobOutputConfigPtrInput
+	JobResources                DataQualityJobDefinitionJobResourcesPtrInput
+	Name                        pulumi.StringPtrInput
+	NetworkConfig               DataQualityJobDefinitionNetworkConfigPtrInput
+	Region                      pulumi.StringPtrInput
+	RoleArn                     pulumi.StringPtrInput
+	StoppingCondition           DataQualityJobDefinitionStoppingConditionPtrInput
+	Tags                        pulumi.StringMapInput
+	TagsAll                     pulumi.StringMapInput
 }
 
 func (DataQualityJobDefinitionState) ElementType() reflect.Type {
@@ -212,54 +111,32 @@ func (DataQualityJobDefinitionState) ElementType() reflect.Type {
 }
 
 type dataQualityJobDefinitionArgs struct {
-	// Specifies the container that runs the monitoring job. Fields are documented below.
 	DataQualityAppSpecification DataQualityJobDefinitionDataQualityAppSpecification `pulumi:"dataQualityAppSpecification"`
-	// Configures the constraints and baselines for the monitoring job. Fields are documented below.
-	DataQualityBaselineConfig *DataQualityJobDefinitionDataQualityBaselineConfig `pulumi:"dataQualityBaselineConfig"`
-	// A list of inputs for the monitoring job. Fields are documented below.
-	DataQualityJobInput DataQualityJobDefinitionDataQualityJobInput `pulumi:"dataQualityJobInput"`
-	// The output configuration for monitoring jobs. Fields are documented below.
-	DataQualityJobOutputConfig DataQualityJobDefinitionDataQualityJobOutputConfig `pulumi:"dataQualityJobOutputConfig"`
-	// Identifies the resources to deploy for a monitoring job. Fields are documented below.
-	JobResources DataQualityJobDefinitionJobResources `pulumi:"jobResources"`
-	// The name of the data quality job definition. If omitted, the provider will assign a random, unique name.
-	Name *string `pulumi:"name"`
-	// Specifies networking configuration for the monitoring job. Fields are documented below.
-	NetworkConfig *DataQualityJobDefinitionNetworkConfig `pulumi:"networkConfig"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
-	RoleArn string `pulumi:"roleArn"`
-	// A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
-	StoppingCondition *DataQualityJobDefinitionStoppingCondition `pulumi:"stoppingCondition"`
-	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	DataQualityBaselineConfig   *DataQualityJobDefinitionDataQualityBaselineConfig  `pulumi:"dataQualityBaselineConfig"`
+	DataQualityJobInput         DataQualityJobDefinitionDataQualityJobInput         `pulumi:"dataQualityJobInput"`
+	DataQualityJobOutputConfig  DataQualityJobDefinitionDataQualityJobOutputConfig  `pulumi:"dataQualityJobOutputConfig"`
+	JobResources                DataQualityJobDefinitionJobResources                `pulumi:"jobResources"`
+	Name                        *string                                             `pulumi:"name"`
+	NetworkConfig               *DataQualityJobDefinitionNetworkConfig              `pulumi:"networkConfig"`
+	Region                      *string                                             `pulumi:"region"`
+	RoleArn                     string                                              `pulumi:"roleArn"`
+	StoppingCondition           *DataQualityJobDefinitionStoppingCondition          `pulumi:"stoppingCondition"`
+	Tags                        map[string]string                                   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DataQualityJobDefinition resource.
 type DataQualityJobDefinitionArgs struct {
-	// Specifies the container that runs the monitoring job. Fields are documented below.
 	DataQualityAppSpecification DataQualityJobDefinitionDataQualityAppSpecificationInput
-	// Configures the constraints and baselines for the monitoring job. Fields are documented below.
-	DataQualityBaselineConfig DataQualityJobDefinitionDataQualityBaselineConfigPtrInput
-	// A list of inputs for the monitoring job. Fields are documented below.
-	DataQualityJobInput DataQualityJobDefinitionDataQualityJobInputInput
-	// The output configuration for monitoring jobs. Fields are documented below.
-	DataQualityJobOutputConfig DataQualityJobDefinitionDataQualityJobOutputConfigInput
-	// Identifies the resources to deploy for a monitoring job. Fields are documented below.
-	JobResources DataQualityJobDefinitionJobResourcesInput
-	// The name of the data quality job definition. If omitted, the provider will assign a random, unique name.
-	Name pulumi.StringPtrInput
-	// Specifies networking configuration for the monitoring job. Fields are documented below.
-	NetworkConfig DataQualityJobDefinitionNetworkConfigPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
-	RoleArn pulumi.StringInput
-	// A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
-	StoppingCondition DataQualityJobDefinitionStoppingConditionPtrInput
-	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	DataQualityBaselineConfig   DataQualityJobDefinitionDataQualityBaselineConfigPtrInput
+	DataQualityJobInput         DataQualityJobDefinitionDataQualityJobInputInput
+	DataQualityJobOutputConfig  DataQualityJobDefinitionDataQualityJobOutputConfigInput
+	JobResources                DataQualityJobDefinitionJobResourcesInput
+	Name                        pulumi.StringPtrInput
+	NetworkConfig               DataQualityJobDefinitionNetworkConfigPtrInput
+	Region                      pulumi.StringPtrInput
+	RoleArn                     pulumi.StringInput
+	StoppingCondition           DataQualityJobDefinitionStoppingConditionPtrInput
+	Tags                        pulumi.StringMapInput
 }
 
 func (DataQualityJobDefinitionArgs) ElementType() reflect.Type {
@@ -349,79 +226,66 @@ func (o DataQualityJobDefinitionOutput) ToDataQualityJobDefinitionOutputWithCont
 	return o
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
 func (o DataQualityJobDefinitionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinition) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Specifies the container that runs the monitoring job. Fields are documented below.
 func (o DataQualityJobDefinitionOutput) DataQualityAppSpecification() DataQualityJobDefinitionDataQualityAppSpecificationOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinition) DataQualityJobDefinitionDataQualityAppSpecificationOutput {
 		return v.DataQualityAppSpecification
 	}).(DataQualityJobDefinitionDataQualityAppSpecificationOutput)
 }
 
-// Configures the constraints and baselines for the monitoring job. Fields are documented below.
 func (o DataQualityJobDefinitionOutput) DataQualityBaselineConfig() DataQualityJobDefinitionDataQualityBaselineConfigPtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinition) DataQualityJobDefinitionDataQualityBaselineConfigPtrOutput {
 		return v.DataQualityBaselineConfig
 	}).(DataQualityJobDefinitionDataQualityBaselineConfigPtrOutput)
 }
 
-// A list of inputs for the monitoring job. Fields are documented below.
 func (o DataQualityJobDefinitionOutput) DataQualityJobInput() DataQualityJobDefinitionDataQualityJobInputOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinition) DataQualityJobDefinitionDataQualityJobInputOutput {
 		return v.DataQualityJobInput
 	}).(DataQualityJobDefinitionDataQualityJobInputOutput)
 }
 
-// The output configuration for monitoring jobs. Fields are documented below.
 func (o DataQualityJobDefinitionOutput) DataQualityJobOutputConfig() DataQualityJobDefinitionDataQualityJobOutputConfigOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinition) DataQualityJobDefinitionDataQualityJobOutputConfigOutput {
 		return v.DataQualityJobOutputConfig
 	}).(DataQualityJobDefinitionDataQualityJobOutputConfigOutput)
 }
 
-// Identifies the resources to deploy for a monitoring job. Fields are documented below.
 func (o DataQualityJobDefinitionOutput) JobResources() DataQualityJobDefinitionJobResourcesOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinition) DataQualityJobDefinitionJobResourcesOutput { return v.JobResources }).(DataQualityJobDefinitionJobResourcesOutput)
 }
 
-// The name of the data quality job definition. If omitted, the provider will assign a random, unique name.
 func (o DataQualityJobDefinitionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies networking configuration for the monitoring job. Fields are documented below.
 func (o DataQualityJobDefinitionOutput) NetworkConfig() DataQualityJobDefinitionNetworkConfigPtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinition) DataQualityJobDefinitionNetworkConfigPtrOutput {
 		return v.NetworkConfig
 	}).(DataQualityJobDefinitionNetworkConfigPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DataQualityJobDefinitionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinition) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
 func (o DataQualityJobDefinitionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinition) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
 func (o DataQualityJobDefinitionOutput) StoppingCondition() DataQualityJobDefinitionStoppingConditionOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinition) DataQualityJobDefinitionStoppingConditionOutput {
 		return v.StoppingCondition
 	}).(DataQualityJobDefinitionStoppingConditionOutput)
 }
 
-// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DataQualityJobDefinitionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinition) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DataQualityJobDefinitionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinition) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

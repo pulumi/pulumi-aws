@@ -32,17 +32,6 @@ class ApplicationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Application resource.
-        :param pulumi.Input[_builtins.str] application_provider_arn: ARN of the application provider.
-        :param pulumi.Input[_builtins.str] instance_arn: ARN of the instance of IAM Identity Center.
-        :param pulumi.Input[_builtins.str] client_token: A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
-        :param pulumi.Input[_builtins.str] description: Description of the application.
-        :param pulumi.Input[_builtins.str] name: Name of the application.
-               
-               The following arguments are optional:
-        :param pulumi.Input['ApplicationPortalOptionsArgs'] portal_options: Options for the portal associated with an application. See `portal_options` below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: Status of the application. Valid values are `ENABLED` and `DISABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "application_provider_arn", application_provider_arn)
         pulumi.set(__self__, "instance_arn", instance_arn)
@@ -64,9 +53,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="applicationProviderArn")
     def application_provider_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the application provider.
-        """
         return pulumi.get(self, "application_provider_arn")
 
     @application_provider_arn.setter
@@ -76,9 +62,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the instance of IAM Identity Center.
-        """
         return pulumi.get(self, "instance_arn")
 
     @instance_arn.setter
@@ -88,9 +71,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="clientToken")
     def client_token(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
-        """
         return pulumi.get(self, "client_token")
 
     @client_token.setter
@@ -100,9 +80,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the application.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -112,11 +89,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the application.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -126,9 +98,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="portalOptions")
     def portal_options(self) -> Optional[pulumi.Input['ApplicationPortalOptionsArgs']]:
-        """
-        Options for the portal associated with an application. See `portal_options` below.
-        """
         return pulumi.get(self, "portal_options")
 
     @portal_options.setter
@@ -138,9 +107,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -150,9 +116,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of the application. Valid values are `ENABLED` and `DISABLED`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -162,9 +125,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -190,21 +150,6 @@ class _ApplicationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Application resources.
-        :param pulumi.Input[_builtins.str] application_account: AWS account ID.
-        :param pulumi.Input[_builtins.str] application_arn: (**Deprecated** Reference `arn` instead) ARN of the application.
-        :param pulumi.Input[_builtins.str] application_provider_arn: ARN of the application provider.
-        :param pulumi.Input[_builtins.str] arn: ARN of the application.
-        :param pulumi.Input[_builtins.str] client_token: A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
-        :param pulumi.Input[_builtins.str] description: Description of the application.
-        :param pulumi.Input[_builtins.str] instance_arn: ARN of the instance of IAM Identity Center.
-        :param pulumi.Input[_builtins.str] name: Name of the application.
-               
-               The following arguments are optional:
-        :param pulumi.Input['ApplicationPortalOptionsArgs'] portal_options: Options for the portal associated with an application. See `portal_options` below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: Status of the application. Valid values are `ENABLED` and `DISABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if application_account is not None:
             pulumi.set(__self__, "application_account", application_account)
@@ -239,9 +184,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="applicationAccount")
     def application_account(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS account ID.
-        """
         return pulumi.get(self, "application_account")
 
     @application_account.setter
@@ -252,9 +194,6 @@ class _ApplicationState:
     @pulumi.getter(name="applicationArn")
     @_utilities.deprecated("""Use 'arn' instead. This attribute will be removed in a future verion of the provider.""")
     def application_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (**Deprecated** Reference `arn` instead) ARN of the application.
-        """
         return pulumi.get(self, "application_arn")
 
     @application_arn.setter
@@ -264,9 +203,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="applicationProviderArn")
     def application_provider_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the application provider.
-        """
         return pulumi.get(self, "application_provider_arn")
 
     @application_provider_arn.setter
@@ -276,9 +212,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the application.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -288,9 +221,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="clientToken")
     def client_token(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
-        """
         return pulumi.get(self, "client_token")
 
     @client_token.setter
@@ -300,9 +230,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the application.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -312,9 +239,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the instance of IAM Identity Center.
-        """
         return pulumi.get(self, "instance_arn")
 
     @instance_arn.setter
@@ -324,11 +248,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the application.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -338,9 +257,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="portalOptions")
     def portal_options(self) -> Optional[pulumi.Input['ApplicationPortalOptionsArgs']]:
-        """
-        Options for the portal associated with an application. See `portal_options` below.
-        """
         return pulumi.get(self, "portal_options")
 
     @portal_options.setter
@@ -350,9 +266,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -362,9 +275,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of the application. Valid values are `ENABLED` and `DISABLED`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -374,9 +284,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -386,9 +293,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -413,72 +317,9 @@ class Application(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS SSO Admin Application.
-
-        > The `CreateApplication` API only supports custom OAuth 2.0 applications.
-        Creation of 3rd party SAML or OAuth 2.0 applications require setup to be done through the associated app service or AWS console.
-        See this issue for additional context.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssoadmin.get_instances()
-        example_application = aws.ssoadmin.Application("example",
-            name="example",
-            application_provider_arn="arn:aws:sso::aws:applicationProvider/custom",
-            instance_arn=example.arns[0])
-        ```
-
-        ### With Portal Options
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssoadmin.get_instances()
-        example_application = aws.ssoadmin.Application("example",
-            name="example",
-            application_provider_arn="arn:aws:sso::aws:applicationProvider/custom",
-            instance_arn=example.arns[0],
-            portal_options={
-                "visibility": "ENABLED",
-                "sign_in_options": {
-                    "application_url": "http://example.com",
-                    "origin": "APPLICATION",
-                },
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the SSO application.
-
-        Using `pulumi import`, import SSO Admin Application using the `id`. For example:
-
-        % pulumi import aws_ssoadmin_application.example arn:aws:sso::123456789012:application/id-12345678
-
+        Create a Application resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_provider_arn: ARN of the application provider.
-        :param pulumi.Input[_builtins.str] client_token: A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
-        :param pulumi.Input[_builtins.str] description: Description of the application.
-        :param pulumi.Input[_builtins.str] instance_arn: ARN of the instance of IAM Identity Center.
-        :param pulumi.Input[_builtins.str] name: Name of the application.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Union['ApplicationPortalOptionsArgs', 'ApplicationPortalOptionsArgsDict']] portal_options: Options for the portal associated with an application. See `portal_options` below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: Status of the application. Valid values are `ENABLED` and `DISABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -487,59 +328,7 @@ class Application(pulumi.CustomResource):
                  args: ApplicationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS SSO Admin Application.
-
-        > The `CreateApplication` API only supports custom OAuth 2.0 applications.
-        Creation of 3rd party SAML or OAuth 2.0 applications require setup to be done through the associated app service or AWS console.
-        See this issue for additional context.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssoadmin.get_instances()
-        example_application = aws.ssoadmin.Application("example",
-            name="example",
-            application_provider_arn="arn:aws:sso::aws:applicationProvider/custom",
-            instance_arn=example.arns[0])
-        ```
-
-        ### With Portal Options
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssoadmin.get_instances()
-        example_application = aws.ssoadmin.Application("example",
-            name="example",
-            application_provider_arn="arn:aws:sso::aws:applicationProvider/custom",
-            instance_arn=example.arns[0],
-            portal_options={
-                "visibility": "ENABLED",
-                "sign_in_options": {
-                    "application_url": "http://example.com",
-                    "origin": "APPLICATION",
-                },
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the SSO application.
-
-        Using `pulumi import`, import SSO Admin Application using the `id`. For example:
-
-        % pulumi import aws_ssoadmin_application.example arn:aws:sso::123456789012:application/id-12345678
-
+        Create a Application resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -620,21 +409,6 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_account: AWS account ID.
-        :param pulumi.Input[_builtins.str] application_arn: (**Deprecated** Reference `arn` instead) ARN of the application.
-        :param pulumi.Input[_builtins.str] application_provider_arn: ARN of the application provider.
-        :param pulumi.Input[_builtins.str] arn: ARN of the application.
-        :param pulumi.Input[_builtins.str] client_token: A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
-        :param pulumi.Input[_builtins.str] description: Description of the application.
-        :param pulumi.Input[_builtins.str] instance_arn: ARN of the instance of IAM Identity Center.
-        :param pulumi.Input[_builtins.str] name: Name of the application.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Union['ApplicationPortalOptionsArgs', 'ApplicationPortalOptionsArgsDict']] portal_options: Options for the portal associated with an application. See `portal_options` below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: Status of the application. Valid values are `ENABLED` and `DISABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -658,107 +432,66 @@ class Application(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="applicationAccount")
     def application_account(self) -> pulumi.Output[_builtins.str]:
-        """
-        AWS account ID.
-        """
         return pulumi.get(self, "application_account")
 
     @_builtins.property
     @pulumi.getter(name="applicationArn")
     @_utilities.deprecated("""Use 'arn' instead. This attribute will be removed in a future verion of the provider.""")
     def application_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        (**Deprecated** Reference `arn` instead) ARN of the application.
-        """
         return pulumi.get(self, "application_arn")
 
     @_builtins.property
     @pulumi.getter(name="applicationProviderArn")
     def application_provider_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the application provider.
-        """
         return pulumi.get(self, "application_provider_arn")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the application.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="clientToken")
     def client_token(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
-        """
         return pulumi.get(self, "client_token")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the application.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the instance of IAM Identity Center.
-        """
         return pulumi.get(self, "instance_arn")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the application.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="portalOptions")
     def portal_options(self) -> pulumi.Output[Optional['outputs.ApplicationPortalOptions']]:
-        """
-        Options for the portal associated with an application. See `portal_options` below.
-        """
         return pulumi.get(self, "portal_options")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Status of the application. Valid values are `ENABLED` and `DISABLED`.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

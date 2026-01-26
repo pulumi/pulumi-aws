@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocation {
-    /**
-     * @return Object containing the following attributes to describe the configuration of an s3 location to write error reports for records rejected.
-     * 
-     */
     private List<GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3Configuration> s3Configurations;
 
     private GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocation() {}
-    /**
-     * @return Object containing the following attributes to describe the configuration of an s3 location to write error reports for records rejected.
-     * 
-     */
     public List<GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3Configuration> s3Configurations() {
         return this.s3Configurations;
     }

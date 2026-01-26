@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WorkgroupConfigurationMonitoringConfigurationS3LoggingConfiguration {
-    /**
-     * @return Boolean whether Amazon S3 logging is enabled for the workgroup.
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
-     * 
-     */
     private @Nullable String kmsKey;
-    /**
-     * @return Amazon S3 destination URI (`s3://bucket/prefix`) for log publishing.
-     * 
-     */
     private @Nullable String logLocation;
 
     private WorkgroupConfigurationMonitoringConfigurationS3LoggingConfiguration() {}
-    /**
-     * @return Boolean whether Amazon S3 logging is enabled for the workgroup.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
-     * 
-     */
     public Optional<String> kmsKey() {
         return Optional.ofNullable(this.kmsKey);
     }
-    /**
-     * @return Amazon S3 destination URI (`s3://bucket/prefix`) for log publishing.
-     * 
-     */
     public Optional<String> logLocation() {
         return Optional.ofNullable(this.logLocation);
     }

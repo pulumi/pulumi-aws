@@ -18,107 +18,51 @@ public final class IdentityProviderArgs extends com.pulumi.resources.ResourceArg
 
     public static final IdentityProviderArgs Empty = new IdentityProviderArgs();
 
-    /**
-     * The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
-     * 
-     */
     @Import(name="attributeMapping")
     private @Nullable Output<Map<String,String>> attributeMapping;
 
-    /**
-     * @return The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
-     * 
-     */
     public Optional<Output<Map<String,String>>> attributeMapping() {
         return Optional.ofNullable(this.attributeMapping);
     }
 
-    /**
-     * The list of identity providers.
-     * 
-     */
     @Import(name="idpIdentifiers")
     private @Nullable Output<List<String>> idpIdentifiers;
 
-    /**
-     * @return The list of identity providers.
-     * 
-     */
     public Optional<Output<List<String>>> idpIdentifiers() {
         return Optional.ofNullable(this.idpIdentifiers);
     }
 
-    /**
-     * The map of identity details, such as access token
-     * 
-     */
     @Import(name="providerDetails", required=true)
     private Output<Map<String,String>> providerDetails;
 
-    /**
-     * @return The map of identity details, such as access token
-     * 
-     */
     public Output<Map<String,String>> providerDetails() {
         return this.providerDetails;
     }
 
-    /**
-     * The provider name
-     * 
-     */
     @Import(name="providerName", required=true)
     private Output<String> providerName;
 
-    /**
-     * @return The provider name
-     * 
-     */
     public Output<String> providerName() {
         return this.providerName;
     }
 
-    /**
-     * The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
-     * 
-     */
     @Import(name="providerType", required=true)
     private Output<String> providerType;
 
-    /**
-     * @return The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
-     * 
-     */
     public Output<String> providerType() {
         return this.providerType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The user pool id
-     * 
-     */
     @Import(name="userPoolId", required=true)
     private Output<String> userPoolId;
 
-    /**
-     * @return The user pool id
-     * 
-     */
     public Output<String> userPoolId() {
         return this.userPoolId;
     }
@@ -153,159 +97,69 @@ public final class IdentityProviderArgs extends com.pulumi.resources.ResourceArg
             $ = new IdentityProviderArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param attributeMapping The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributeMapping(@Nullable Output<Map<String,String>> attributeMapping) {
             $.attributeMapping = attributeMapping;
             return this;
         }
 
-        /**
-         * @param attributeMapping The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributeMapping(Map<String,String> attributeMapping) {
             return attributeMapping(Output.of(attributeMapping));
         }
 
-        /**
-         * @param idpIdentifiers The list of identity providers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idpIdentifiers(@Nullable Output<List<String>> idpIdentifiers) {
             $.idpIdentifiers = idpIdentifiers;
             return this;
         }
 
-        /**
-         * @param idpIdentifiers The list of identity providers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idpIdentifiers(List<String> idpIdentifiers) {
             return idpIdentifiers(Output.of(idpIdentifiers));
         }
 
-        /**
-         * @param idpIdentifiers The list of identity providers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idpIdentifiers(String... idpIdentifiers) {
             return idpIdentifiers(List.of(idpIdentifiers));
         }
 
-        /**
-         * @param providerDetails The map of identity details, such as access token
-         * 
-         * @return builder
-         * 
-         */
         public Builder providerDetails(Output<Map<String,String>> providerDetails) {
             $.providerDetails = providerDetails;
             return this;
         }
 
-        /**
-         * @param providerDetails The map of identity details, such as access token
-         * 
-         * @return builder
-         * 
-         */
         public Builder providerDetails(Map<String,String> providerDetails) {
             return providerDetails(Output.of(providerDetails));
         }
 
-        /**
-         * @param providerName The provider name
-         * 
-         * @return builder
-         * 
-         */
         public Builder providerName(Output<String> providerName) {
             $.providerName = providerName;
             return this;
         }
 
-        /**
-         * @param providerName The provider name
-         * 
-         * @return builder
-         * 
-         */
         public Builder providerName(String providerName) {
             return providerName(Output.of(providerName));
         }
 
-        /**
-         * @param providerType The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
-         * 
-         * @return builder
-         * 
-         */
         public Builder providerType(Output<String> providerType) {
             $.providerType = providerType;
             return this;
         }
 
-        /**
-         * @param providerType The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
-         * 
-         * @return builder
-         * 
-         */
         public Builder providerType(String providerType) {
             return providerType(Output.of(providerType));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param userPoolId The user pool id
-         * 
-         * @return builder
-         * 
-         */
         public Builder userPoolId(Output<String> userPoolId) {
             $.userPoolId = userPoolId;
             return this;
         }
 
-        /**
-         * @param userPoolId The user pool id
-         * 
-         * @return builder
-         * 
-         */
         public Builder userPoolId(String userPoolId) {
             return userPoolId(Output.of(userPoolId));
         }

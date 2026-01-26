@@ -17,198 +17,65 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a DMS (Data Migration Service) event subscription resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.dms.EventSubscription;
- * import com.pulumi.aws.dms.EventSubscriptionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new EventSubscription("example", EventSubscriptionArgs.builder()
- *             .enabled(true)
- *             .eventCategories(            
- *                 "creation",
- *                 "failure")
- *             .name("my-favorite-event-subscription")
- *             .snsTopicArn(exampleAwsSnsTopic.arn())
- *             .sourceIds(exampleAwsDmsReplicationTask.replicationTaskId())
- *             .sourceType("replication-task")
- *             .tags(Map.of("Name", "example"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import event subscriptions using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
- * ```
- * 
- */
 @ResourceType(type="aws:dms/eventSubscription:EventSubscription")
 public class EventSubscription extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the DMS Event Subscription.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the DMS Event Subscription.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Whether the event subscription should be enabled.
-     * 
-     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
-    /**
-     * @return Whether the event subscription should be enabled.
-     * 
-     */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
-    /**
-     * List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
-     * 
-     */
     @Export(name="eventCategories", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> eventCategories;
 
-    /**
-     * @return List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
-     * 
-     */
     public Output<List<String>> eventCategories() {
         return this.eventCategories;
     }
-    /**
-     * Name of event subscription.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of event subscription.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * SNS topic arn to send events on.
-     * 
-     */
     @Export(name="snsTopicArn", refs={String.class}, tree="[0]")
     private Output<String> snsTopicArn;
 
-    /**
-     * @return SNS topic arn to send events on.
-     * 
-     */
     public Output<String> snsTopicArn() {
         return this.snsTopicArn;
     }
-    /**
-     * Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
-     * 
-     */
     @Export(name="sourceIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sourceIds;
 
-    /**
-     * @return Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
-     * 
-     */
     public Output<Optional<List<String>>> sourceIds() {
         return Codegen.optional(this.sourceIds);
     }
-    /**
-     * Type of source for events. Valid values: `replication-instance` or `replication-task`
-     * 
-     */
     @Export(name="sourceType", refs={String.class}, tree="[0]")
     private Output<String> sourceType;
 
-    /**
-     * @return Type of source for events. Valid values: `replication-instance` or `replication-task`
-     * 
-     */
     public Output<String> sourceType() {
         return this.sourceType;
     }
-    /**
-     * Map of resource tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of resource tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

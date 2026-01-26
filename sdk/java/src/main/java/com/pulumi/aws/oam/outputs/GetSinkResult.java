@@ -11,39 +11,19 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSinkResult {
-    /**
-     * @return ARN of the sink.
-     * 
-     */
     private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Name of the sink.
-     * 
-     */
     private String name;
     private String region;
-    /**
-     * @return Random ID string that AWS generated as part of the sink ARN.
-     * 
-     */
     private String sinkId;
     private String sinkIdentifier;
-    /**
-     * @return Tags assigned to the sink.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetSinkResult() {}
-    /**
-     * @return ARN of the sink.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
@@ -54,30 +34,18 @@ public final class GetSinkResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Name of the sink.
-     * 
-     */
     public String name() {
         return this.name;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Random ID string that AWS generated as part of the sink ARN.
-     * 
-     */
     public String sinkId() {
         return this.sinkId;
     }
     public String sinkIdentifier() {
         return this.sinkIdentifier;
     }
-    /**
-     * @return Tags assigned to the sink.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

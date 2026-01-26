@@ -20,117 +20,51 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs 
 
     public static final ScalingPlanScalingInstructionTargetTrackingConfigurationArgs Empty = new ScalingPlanScalingInstructionTargetTrackingConfigurationArgs();
 
-    /**
-     * Customized metric. You can specify either `customizedScalingMetricSpecification` or `predefinedScalingMetricSpecification`.
-     * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedScalingMetricSpecification.html).
-     * 
-     */
     @Import(name="customizedScalingMetricSpecification")
     private @Nullable Output<ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs> customizedScalingMetricSpecification;
 
-    /**
-     * @return Customized metric. You can specify either `customizedScalingMetricSpecification` or `predefinedScalingMetricSpecification`.
-     * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedScalingMetricSpecification.html).
-     * 
-     */
     public Optional<Output<ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs>> customizedScalingMetricSpecification() {
         return Optional.ofNullable(this.customizedScalingMetricSpecification);
     }
 
-    /**
-     * Boolean indicating whether scale in by the target tracking scaling policy is disabled. Defaults to `false`.
-     * 
-     */
     @Import(name="disableScaleIn")
     private @Nullable Output<Boolean> disableScaleIn;
 
-    /**
-     * @return Boolean indicating whether scale in by the target tracking scaling policy is disabled. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> disableScaleIn() {
         return Optional.ofNullable(this.disableScaleIn);
     }
 
-    /**
-     * Estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
-     * This value is used only if the resource is an Auto Scaling group.
-     * 
-     */
     @Import(name="estimatedInstanceWarmup")
     private @Nullable Output<Integer> estimatedInstanceWarmup;
 
-    /**
-     * @return Estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
-     * This value is used only if the resource is an Auto Scaling group.
-     * 
-     */
     public Optional<Output<Integer>> estimatedInstanceWarmup() {
         return Optional.ofNullable(this.estimatedInstanceWarmup);
     }
 
-    /**
-     * Predefined metric. You can specify either `predefinedScalingMetricSpecification` or `customizedScalingMetricSpecification`.
-     * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html).
-     * 
-     */
     @Import(name="predefinedScalingMetricSpecification")
     private @Nullable Output<ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs> predefinedScalingMetricSpecification;
 
-    /**
-     * @return Predefined metric. You can specify either `predefinedScalingMetricSpecification` or `customizedScalingMetricSpecification`.
-     * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html).
-     * 
-     */
     public Optional<Output<ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs>> predefinedScalingMetricSpecification() {
         return Optional.ofNullable(this.predefinedScalingMetricSpecification);
     }
 
-    /**
-     * Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
-     * This value is not used if the scalable resource is an Auto Scaling group.
-     * 
-     */
     @Import(name="scaleInCooldown")
     private @Nullable Output<Integer> scaleInCooldown;
 
-    /**
-     * @return Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
-     * This value is not used if the scalable resource is an Auto Scaling group.
-     * 
-     */
     public Optional<Output<Integer>> scaleInCooldown() {
         return Optional.ofNullable(this.scaleInCooldown);
     }
 
-    /**
-     * Amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
-     * This value is not used if the scalable resource is an Auto Scaling group.
-     * 
-     */
     @Import(name="scaleOutCooldown")
     private @Nullable Output<Integer> scaleOutCooldown;
 
-    /**
-     * @return Amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
-     * This value is not used if the scalable resource is an Auto Scaling group.
-     * 
-     */
     public Optional<Output<Integer>> scaleOutCooldown() {
         return Optional.ofNullable(this.scaleOutCooldown);
     }
 
-    /**
-     * Target value for the metric.
-     * 
-     */
     @Import(name="targetValue", required=true)
     private Output<Double> targetValue;
 
-    /**
-     * @return Target value for the metric.
-     * 
-     */
     public Output<Double> targetValue() {
         return this.targetValue;
     }
@@ -165,159 +99,65 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs 
             $ = new ScalingPlanScalingInstructionTargetTrackingConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customizedScalingMetricSpecification Customized metric. You can specify either `customizedScalingMetricSpecification` or `predefinedScalingMetricSpecification`.
-         * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedScalingMetricSpecification.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder customizedScalingMetricSpecification(@Nullable Output<ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs> customizedScalingMetricSpecification) {
             $.customizedScalingMetricSpecification = customizedScalingMetricSpecification;
             return this;
         }
 
-        /**
-         * @param customizedScalingMetricSpecification Customized metric. You can specify either `customizedScalingMetricSpecification` or `predefinedScalingMetricSpecification`.
-         * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedScalingMetricSpecification.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder customizedScalingMetricSpecification(ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs customizedScalingMetricSpecification) {
             return customizedScalingMetricSpecification(Output.of(customizedScalingMetricSpecification));
         }
 
-        /**
-         * @param disableScaleIn Boolean indicating whether scale in by the target tracking scaling policy is disabled. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder disableScaleIn(@Nullable Output<Boolean> disableScaleIn) {
             $.disableScaleIn = disableScaleIn;
             return this;
         }
 
-        /**
-         * @param disableScaleIn Boolean indicating whether scale in by the target tracking scaling policy is disabled. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder disableScaleIn(Boolean disableScaleIn) {
             return disableScaleIn(Output.of(disableScaleIn));
         }
 
-        /**
-         * @param estimatedInstanceWarmup Estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
-         * This value is used only if the resource is an Auto Scaling group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder estimatedInstanceWarmup(@Nullable Output<Integer> estimatedInstanceWarmup) {
             $.estimatedInstanceWarmup = estimatedInstanceWarmup;
             return this;
         }
 
-        /**
-         * @param estimatedInstanceWarmup Estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
-         * This value is used only if the resource is an Auto Scaling group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder estimatedInstanceWarmup(Integer estimatedInstanceWarmup) {
             return estimatedInstanceWarmup(Output.of(estimatedInstanceWarmup));
         }
 
-        /**
-         * @param predefinedScalingMetricSpecification Predefined metric. You can specify either `predefinedScalingMetricSpecification` or `customizedScalingMetricSpecification`.
-         * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder predefinedScalingMetricSpecification(@Nullable Output<ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs> predefinedScalingMetricSpecification) {
             $.predefinedScalingMetricSpecification = predefinedScalingMetricSpecification;
             return this;
         }
 
-        /**
-         * @param predefinedScalingMetricSpecification Predefined metric. You can specify either `predefinedScalingMetricSpecification` or `customizedScalingMetricSpecification`.
-         * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder predefinedScalingMetricSpecification(ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs predefinedScalingMetricSpecification) {
             return predefinedScalingMetricSpecification(Output.of(predefinedScalingMetricSpecification));
         }
 
-        /**
-         * @param scaleInCooldown Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
-         * This value is not used if the scalable resource is an Auto Scaling group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scaleInCooldown(@Nullable Output<Integer> scaleInCooldown) {
             $.scaleInCooldown = scaleInCooldown;
             return this;
         }
 
-        /**
-         * @param scaleInCooldown Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
-         * This value is not used if the scalable resource is an Auto Scaling group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scaleInCooldown(Integer scaleInCooldown) {
             return scaleInCooldown(Output.of(scaleInCooldown));
         }
 
-        /**
-         * @param scaleOutCooldown Amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
-         * This value is not used if the scalable resource is an Auto Scaling group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scaleOutCooldown(@Nullable Output<Integer> scaleOutCooldown) {
             $.scaleOutCooldown = scaleOutCooldown;
             return this;
         }
 
-        /**
-         * @param scaleOutCooldown Amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
-         * This value is not used if the scalable resource is an Auto Scaling group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scaleOutCooldown(Integer scaleOutCooldown) {
             return scaleOutCooldown(Output.of(scaleOutCooldown));
         }
 
-        /**
-         * @param targetValue Target value for the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetValue(Output<Double> targetValue) {
             $.targetValue = targetValue;
             return this;
         }
 
-        /**
-         * @param targetValue Target value for the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetValue(Double targetValue) {
             return targetValue(Output.of(targetValue));
         }

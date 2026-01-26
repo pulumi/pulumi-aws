@@ -17,47 +17,23 @@ public final class FieldLevelEncryptionProfileArgs extends com.pulumi.resources.
 
     public static final FieldLevelEncryptionProfileArgs Empty = new FieldLevelEncryptionProfileArgs();
 
-    /**
-     * An optional comment about the Field Level Encryption Profile.
-     * 
-     */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
-    /**
-     * @return An optional comment about the Field Level Encryption Profile.
-     * 
-     */
     public Optional<Output<String>> comment() {
         return Optional.ofNullable(this.comment);
     }
 
-    /**
-     * The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
-     * 
-     */
     @Import(name="encryptionEntities", required=true)
     private Output<FieldLevelEncryptionProfileEncryptionEntitiesArgs> encryptionEntities;
 
-    /**
-     * @return The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
-     * 
-     */
     public Output<FieldLevelEncryptionProfileEncryptionEntitiesArgs> encryptionEntities() {
         return this.encryptionEntities;
     }
 
-    /**
-     * The name of the Field Level Encryption Profile.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the Field Level Encryption Profile.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -88,65 +64,29 @@ public final class FieldLevelEncryptionProfileArgs extends com.pulumi.resources.
             $ = new FieldLevelEncryptionProfileArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param comment An optional comment about the Field Level Encryption Profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(@Nullable Output<String> comment) {
             $.comment = comment;
             return this;
         }
 
-        /**
-         * @param comment An optional comment about the Field Level Encryption Profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
         }
 
-        /**
-         * @param encryptionEntities The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionEntities(Output<FieldLevelEncryptionProfileEncryptionEntitiesArgs> encryptionEntities) {
             $.encryptionEntities = encryptionEntities;
             return this;
         }
 
-        /**
-         * @param encryptionEntities The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionEntities(FieldLevelEncryptionProfileEncryptionEntitiesArgs encryptionEntities) {
             return encryptionEntities(Output.of(encryptionEntities));
         }
 
-        /**
-         * @param name The name of the Field Level Encryption Profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the Field Level Encryption Profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

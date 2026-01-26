@@ -14,97 +14,28 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     public sealed class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult
     {
         public readonly ImmutableArray<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountResult> AcceleratorCounts;
-        /// <summary>
-        /// List of accelerator manufacturer names.
-        /// </summary>
         public readonly ImmutableArray<string> AcceleratorManufacturers;
-        /// <summary>
-        /// List of accelerator names.
-        /// </summary>
         public readonly ImmutableArray<string> AcceleratorNames;
-        /// <summary>
-        /// List of objects describing the minimum and maximum total memory of the accelerators.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibResult> AcceleratorTotalMemoryMibs;
-        /// <summary>
-        /// List of accelerator types.
-        /// </summary>
         public readonly ImmutableArray<string> AcceleratorTypes;
-        /// <summary>
-        /// List of instance types to apply the specified attributes against.
-        /// </summary>
         public readonly ImmutableArray<string> AllowedInstanceTypes;
-        /// <summary>
-        /// Indicates whether bare metal instances are included, excluded, or required.
-        /// </summary>
         public readonly string BareMetal;
-        /// <summary>
-        /// List of objects describing the minimum and maximum baseline EBS bandwidth (Mbps).
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpResult> BaselineEbsBandwidthMbps;
-        /// <summary>
-        /// Indicates whether burstable performance instance types are included, excluded, or required.
-        /// </summary>
         public readonly string BurstablePerformance;
-        /// <summary>
-        /// List of CPU manufacturer names.
-        /// </summary>
         public readonly ImmutableArray<string> CpuManufacturers;
-        /// <summary>
-        /// List of excluded instance types.
-        /// </summary>
         public readonly ImmutableArray<string> ExcludedInstanceTypes;
-        /// <summary>
-        /// List of instance generation names.
-        /// </summary>
         public readonly ImmutableArray<string> InstanceGenerations;
-        /// <summary>
-        /// Indicates whether instance types with instance store volumes are included, excluded, or required.
-        /// </summary>
         public readonly string LocalStorage;
-        /// <summary>
-        /// List of local storage type names.
-        /// </summary>
         public readonly ImmutableArray<string> LocalStorageTypes;
-        /// <summary>
-        /// Price protection threshold for Spot Instances.
-        /// </summary>
         public readonly int MaxSpotPriceAsPercentageOfOptimalOnDemandPrice;
-        /// <summary>
-        /// List of objects describing the minimum and maximum amount of memory (GiB) per vCPU.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusResult> MemoryGibPerVcpus;
-        /// <summary>
-        /// List of objects describing the minimum and maximum amount of memory (MiB).
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibResult> MemoryMibs;
-        /// <summary>
-        /// List of objects describing the minimum and maximum amount of network bandwidth (Gbps).
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpResult> NetworkBandwidthGbps;
-        /// <summary>
-        /// List of objects describing the minimum and maximum amount of network interfaces.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountResult> NetworkInterfaceCounts;
-        /// <summary>
-        /// Price protection threshold for On-Demand Instances.
-        /// </summary>
         public readonly int OnDemandMaxPricePercentageOverLowestPrice;
-        /// <summary>
-        /// Indicates whether instance types must support On-Demand Instance Hibernation.
-        /// </summary>
         public readonly bool RequireHibernateSupport;
-        /// <summary>
-        /// Price protection threshold for Spot Instances.
-        /// </summary>
         public readonly int SpotMaxPricePercentageOverLowestPrice;
-        /// <summary>
-        /// List of objects describing the minimum and maximum total storage (GB).
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbResult> TotalLocalStorageGbs;
-        /// <summary>
-        /// List of objects describing the minimum and maximum number of vCPUs.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountResult> VcpuCounts;
 
         [OutputConstructor]

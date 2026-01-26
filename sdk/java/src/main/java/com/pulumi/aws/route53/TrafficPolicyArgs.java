@@ -16,51 +16,23 @@ public final class TrafficPolicyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TrafficPolicyArgs Empty = new TrafficPolicyArgs();
 
-    /**
-     * Comment for the traffic policy.
-     * 
-     */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
-    /**
-     * @return Comment for the traffic policy.
-     * 
-     */
     public Optional<Output<String>> comment() {
         return Optional.ofNullable(this.comment);
     }
 
-    /**
-     * Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="document", required=true)
     private Output<String> document;
 
-    /**
-     * @return Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> document() {
         return this.document;
     }
 
-    /**
-     * Name of the traffic policy.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the traffic policy.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -91,69 +63,29 @@ public final class TrafficPolicyArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TrafficPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param comment Comment for the traffic policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(@Nullable Output<String> comment) {
             $.comment = comment;
             return this;
         }
 
-        /**
-         * @param comment Comment for the traffic policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
         }
 
-        /**
-         * @param document Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder document(Output<String> document) {
             $.document = document;
             return this;
         }
 
-        /**
-         * @param document Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder document(String document) {
             return document(Output.of(document));
         }
 
-        /**
-         * @param name Name of the traffic policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the traffic policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

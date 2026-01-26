@@ -13,92 +13,44 @@ public final class GetListenerRuleActionRedirect extends com.pulumi.resources.In
 
     public static final GetListenerRuleActionRedirect Empty = new GetListenerRuleActionRedirect();
 
-    /**
-     * The hostname.
-     * 
-     */
     @Import(name="host", required=true)
     private String host;
 
-    /**
-     * @return The hostname.
-     * 
-     */
     public String host() {
         return this.host;
     }
 
-    /**
-     * The absolute path, starting with `/`.
-     * 
-     */
     @Import(name="path", required=true)
     private String path;
 
-    /**
-     * @return The absolute path, starting with `/`.
-     * 
-     */
     public String path() {
         return this.path;
     }
 
-    /**
-     * The port.
-     * 
-     */
     @Import(name="port", required=true)
     private String port;
 
-    /**
-     * @return The port.
-     * 
-     */
     public String port() {
         return this.port;
     }
 
-    /**
-     * The protocol.
-     * 
-     */
     @Import(name="protocol", required=true)
     private String protocol;
 
-    /**
-     * @return The protocol.
-     * 
-     */
     public String protocol() {
         return this.protocol;
     }
 
-    /**
-     * The query parameters.
-     * 
-     */
     @Import(name="query", required=true)
     private String query;
 
-    /**
-     * @return The query parameters.
-     * 
-     */
     public String query() {
         return this.query;
     }
 
-    /**
-     * The HTTP redirect code.
-     * 
-     */
     @Import(name="statusCode", required=true)
     private String statusCode;
 
-    /**
-     * @return The HTTP redirect code.
-     * 
-     */
     public String statusCode() {
         return this.statusCode;
     }
@@ -132,67 +84,31 @@ public final class GetListenerRuleActionRedirect extends com.pulumi.resources.In
             $ = new GetListenerRuleActionRedirect(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param host The hostname.
-         * 
-         * @return builder
-         * 
-         */
         public Builder host(String host) {
             $.host = host;
             return this;
         }
 
-        /**
-         * @param path The absolute path, starting with `/`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(String path) {
             $.path = path;
             return this;
         }
 
-        /**
-         * @param port The port.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(String port) {
             $.port = port;
             return this;
         }
 
-        /**
-         * @param protocol The protocol.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocol(String protocol) {
             $.protocol = protocol;
             return this;
         }
 
-        /**
-         * @param query The query parameters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder query(String query) {
             $.query = query;
             return this;
         }
 
-        /**
-         * @param statusCode The HTTP redirect code.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusCode(String statusCode) {
             $.statusCode = statusCode;
             return this;

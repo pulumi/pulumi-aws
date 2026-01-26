@@ -16,51 +16,23 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ClusterArgs Empty = new ClusterArgs();
 
-    /**
-     * Unique name describing the cluster.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Unique name describing the cluster.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Network type of cluster. Valid values are `IPV4` and `DUALSTACK`. Defaults to `IPV4`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="networkType")
     private @Nullable Output<String> networkType;
 
-    /**
-     * @return Network type of cluster. Valid values are `IPV4` and `DUALSTACK`. Defaults to `IPV4`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> networkType() {
         return Optional.ofNullable(this.networkType);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -91,69 +63,29 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ClusterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Unique name describing the cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Unique name describing the cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param networkType Network type of cluster. Valid values are `IPV4` and `DUALSTACK`. Defaults to `IPV4`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkType(@Nullable Output<String> networkType) {
             $.networkType = networkType;
             return this;
         }
 
-        /**
-         * @param networkType Network type of cluster. Valid values are `IPV4` and `DUALSTACK`. Defaults to `IPV4`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkType(String networkType) {
             return networkType(Output.of(networkType));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

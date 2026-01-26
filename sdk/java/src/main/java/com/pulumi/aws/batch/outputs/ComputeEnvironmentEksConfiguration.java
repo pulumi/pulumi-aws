@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ComputeEnvironmentEksConfiguration {
-    /**
-     * @return The Amazon Resource Name (ARN) of the Amazon EKS cluster.
-     * 
-     */
     private String eksClusterArn;
-    /**
-     * @return The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
-     * 
-     */
     private String kubernetesNamespace;
 
     private ComputeEnvironmentEksConfiguration() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the Amazon EKS cluster.
-     * 
-     */
     public String eksClusterArn() {
         return this.eksClusterArn;
     }
-    /**
-     * @return The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
-     * 
-     */
     public String kubernetesNamespace() {
         return this.kubernetesNamespace;
     }

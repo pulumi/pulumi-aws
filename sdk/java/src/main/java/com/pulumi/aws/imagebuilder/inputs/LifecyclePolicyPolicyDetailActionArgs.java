@@ -17,36 +17,16 @@ public final class LifecyclePolicyPolicyDetailActionArgs extends com.pulumi.reso
 
     public static final LifecyclePolicyPolicyDetailActionArgs Empty = new LifecyclePolicyPolicyDetailActionArgs();
 
-    /**
-     * Specifies the resources that the lifecycle policy applies to. Detailed below.
-     * 
-     */
     @Import(name="includeResources")
     private @Nullable Output<LifecyclePolicyPolicyDetailActionIncludeResourcesArgs> includeResources;
 
-    /**
-     * @return Specifies the resources that the lifecycle policy applies to. Detailed below.
-     * 
-     */
     public Optional<Output<LifecyclePolicyPolicyDetailActionIncludeResourcesArgs>> includeResources() {
         return Optional.ofNullable(this.includeResources);
     }
 
-    /**
-     * Specifies the lifecycle action to take. Valid values: `DELETE`, `DEPRECATE` or `DISABLE`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Specifies the lifecycle action to take. Valid values: `DELETE`, `DEPRECATE` or `DISABLE`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -76,48 +56,20 @@ public final class LifecyclePolicyPolicyDetailActionArgs extends com.pulumi.reso
             $ = new LifecyclePolicyPolicyDetailActionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param includeResources Specifies the resources that the lifecycle policy applies to. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeResources(@Nullable Output<LifecyclePolicyPolicyDetailActionIncludeResourcesArgs> includeResources) {
             $.includeResources = includeResources;
             return this;
         }
 
-        /**
-         * @param includeResources Specifies the resources that the lifecycle policy applies to. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeResources(LifecyclePolicyPolicyDetailActionIncludeResourcesArgs includeResources) {
             return includeResources(Output.of(includeResources));
         }
 
-        /**
-         * @param type Specifies the lifecycle action to take. Valid values: `DELETE`, `DEPRECATE` or `DISABLE`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Specifies the lifecycle action to take. Valid values: `DELETE`, `DEPRECATE` or `DISABLE`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

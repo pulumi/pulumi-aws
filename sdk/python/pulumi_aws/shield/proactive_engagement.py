@@ -25,8 +25,6 @@ class ProactiveEngagementArgs:
                  emergency_contacts: Optional[pulumi.Input[Sequence[pulumi.Input['ProactiveEngagementEmergencyContactArgs']]]] = None):
         """
         The set of arguments for constructing a ProactiveEngagement resource.
-        :param pulumi.Input[_builtins.bool] enabled: Boolean value indicating if Proactive Engagement should be enabled or not.
-        :param pulumi.Input[Sequence[pulumi.Input['ProactiveEngagementEmergencyContactArgs']]] emergency_contacts: One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergency_contacts`.
         """
         pulumi.set(__self__, "enabled", enabled)
         if emergency_contacts is not None:
@@ -35,9 +33,6 @@ class ProactiveEngagementArgs:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[_builtins.bool]:
-        """
-        Boolean value indicating if Proactive Engagement should be enabled or not.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -47,9 +42,6 @@ class ProactiveEngagementArgs:
     @_builtins.property
     @pulumi.getter(name="emergencyContacts")
     def emergency_contacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProactiveEngagementEmergencyContactArgs']]]]:
-        """
-        One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergency_contacts`.
-        """
         return pulumi.get(self, "emergency_contacts")
 
     @emergency_contacts.setter
@@ -64,8 +56,6 @@ class _ProactiveEngagementState:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ProactiveEngagement resources.
-        :param pulumi.Input[Sequence[pulumi.Input['ProactiveEngagementEmergencyContactArgs']]] emergency_contacts: One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergency_contacts`.
-        :param pulumi.Input[_builtins.bool] enabled: Boolean value indicating if Proactive Engagement should be enabled or not.
         """
         if emergency_contacts is not None:
             pulumi.set(__self__, "emergency_contacts", emergency_contacts)
@@ -75,9 +65,6 @@ class _ProactiveEngagementState:
     @_builtins.property
     @pulumi.getter(name="emergencyContacts")
     def emergency_contacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProactiveEngagementEmergencyContactArgs']]]]:
-        """
-        One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergency_contacts`.
-        """
         return pulumi.get(self, "emergency_contacts")
 
     @emergency_contacts.setter
@@ -87,9 +74,6 @@ class _ProactiveEngagementState:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Boolean value indicating if Proactive Engagement should be enabled or not.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -107,68 +91,9 @@ class ProactiveEngagement(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        Resource for managing a AWS Shield Proactive Engagement.
-        Proactive engagement authorizes the Shield Response Team (SRT) to use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_role = aws.iam.Role("example",
-            name="example-role",
-            assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "Service": "drt.shield.amazonaws.com",
-                    },
-                    "Action": "sts:AssumeRole",
-                }],
-            }))
-        example_drt_access_role_arn_association = aws.shield.DrtAccessRoleArnAssociation("example", role_arn=example_role.arn)
-        example = aws.shield.ProactiveEngagement("example",
-            enabled=True,
-            emergency_contacts=[
-                {
-                    "contact_notes": "Notes",
-                    "email_address": "contact1@example.com",
-                    "phone_number": "+12358132134",
-                },
-                {
-                    "contact_notes": "Notes 2",
-                    "email_address": "contact2@example.com",
-                    "phone_number": "+12358132134",
-                },
-            ],
-            opts = pulumi.ResourceOptions(depends_on=[example_drt_access_role_arn_association]))
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
-            role=example_role.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy")
-        example_protection_group = aws.shield.ProtectionGroup("example",
-            protection_group_id="example",
-            aggregation="MAX",
-            pattern="ALL")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Shield proactive engagement using the AWS account ID. For example:
-
-        ```sh
-        $ pulumi import aws:shield/proactiveEngagement:ProactiveEngagement example 123456789012
-        ```
-
+        Create a ProactiveEngagement resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProactiveEngagementEmergencyContactArgs', 'ProactiveEngagementEmergencyContactArgsDict']]]] emergency_contacts: One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergency_contacts`.
-        :param pulumi.Input[_builtins.bool] enabled: Boolean value indicating if Proactive Engagement should be enabled or not.
         """
         ...
     @overload
@@ -177,64 +102,7 @@ class ProactiveEngagement(pulumi.CustomResource):
                  args: ProactiveEngagementArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing a AWS Shield Proactive Engagement.
-        Proactive engagement authorizes the Shield Response Team (SRT) to use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_role = aws.iam.Role("example",
-            name="example-role",
-            assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "Service": "drt.shield.amazonaws.com",
-                    },
-                    "Action": "sts:AssumeRole",
-                }],
-            }))
-        example_drt_access_role_arn_association = aws.shield.DrtAccessRoleArnAssociation("example", role_arn=example_role.arn)
-        example = aws.shield.ProactiveEngagement("example",
-            enabled=True,
-            emergency_contacts=[
-                {
-                    "contact_notes": "Notes",
-                    "email_address": "contact1@example.com",
-                    "phone_number": "+12358132134",
-                },
-                {
-                    "contact_notes": "Notes 2",
-                    "email_address": "contact2@example.com",
-                    "phone_number": "+12358132134",
-                },
-            ],
-            opts = pulumi.ResourceOptions(depends_on=[example_drt_access_role_arn_association]))
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
-            role=example_role.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy")
-        example_protection_group = aws.shield.ProtectionGroup("example",
-            protection_group_id="example",
-            aggregation="MAX",
-            pattern="ALL")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Shield proactive engagement using the AWS account ID. For example:
-
-        ```sh
-        $ pulumi import aws:shield/proactiveEngagement:ProactiveEngagement example 123456789012
-        ```
-
+        Create a ProactiveEngagement resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ProactiveEngagementArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -284,8 +152,6 @@ class ProactiveEngagement(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProactiveEngagementEmergencyContactArgs', 'ProactiveEngagementEmergencyContactArgsDict']]]] emergency_contacts: One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergency_contacts`.
-        :param pulumi.Input[_builtins.bool] enabled: Boolean value indicating if Proactive Engagement should be enabled or not.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -298,16 +164,10 @@ class ProactiveEngagement(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="emergencyContacts")
     def emergency_contacts(self) -> pulumi.Output[Optional[Sequence['outputs.ProactiveEngagementEmergencyContact']]]:
-        """
-        One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergency_contacts`.
-        """
         return pulumi.get(self, "emergency_contacts")
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Boolean value indicating if Proactive Engagement should be enabled or not.
-        """
         return pulumi.get(self, "enabled")
 

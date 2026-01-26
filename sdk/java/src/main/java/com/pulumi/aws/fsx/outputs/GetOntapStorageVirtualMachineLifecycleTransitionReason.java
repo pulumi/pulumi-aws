@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOntapStorageVirtualMachineLifecycleTransitionReason {
-    /**
-     * @return A detailed message.
-     * 
-     */
     private String message;
 
     private GetOntapStorageVirtualMachineLifecycleTransitionReason() {}
-    /**
-     * @return A detailed message.
-     * 
-     */
     public String message() {
         return this.message;
     }

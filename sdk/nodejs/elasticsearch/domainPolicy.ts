@@ -7,39 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g., ARN)
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.elasticsearch.Domain("example", {
- *     domainName: "tf-test",
- *     elasticsearchVersion: "2.3",
- * });
- * const main = new aws.elasticsearch.DomainPolicy("main", {
- *     domainName: example.domainName,
- *     accessPolicies: pulumi.interpolate`{
- *     \"Version\": \"2012-10-17\",
- *     \"Statement\": [
- *         {
- *             \"Action\": \"es:*\",
- *             \"Principal\": \"*\",
- *             \"Effect\": \"Allow\",
- *             \"Condition\": {
- *                 \"IpAddress\": {\"aws:SourceIp\": \"127.0.0.1/32\"}
- *             },
- *             \"Resource\": \"${example.arn}/*\"
- *         }
- *     ]
- * }
- * `,
- * });
- * ```
- */
 export class DomainPolicy extends pulumi.CustomResource {
     /**
      * Get an existing DomainPolicy resource's state with the given name, ID, and optional extra
@@ -68,17 +35,8 @@ export class DomainPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === DomainPolicy.__pulumiType;
     }
 
-    /**
-     * IAM policy document specifying the access policies for the domain
-     */
     declare public readonly accessPolicies: pulumi.Output<string>;
-    /**
-     * Name of the domain.
-     */
     declare public readonly domainName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -118,17 +76,8 @@ export class DomainPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DomainPolicy resources.
  */
 export interface DomainPolicyState {
-    /**
-     * IAM policy document specifying the access policies for the domain
-     */
     accessPolicies?: pulumi.Input<string | inputs.elasticsearch.PolicyDocument>;
-    /**
-     * Name of the domain.
-     */
     domainName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -136,16 +85,7 @@ export interface DomainPolicyState {
  * The set of arguments for constructing a DomainPolicy resource.
  */
 export interface DomainPolicyArgs {
-    /**
-     * IAM policy document specifying the access policies for the domain
-     */
     accessPolicies: pulumi.Input<string | inputs.elasticsearch.PolicyDocument>;
-    /**
-     * Name of the domain.
-     */
     domainName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

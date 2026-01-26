@@ -11,33 +11,12 @@ namespace Pulumi.Aws.Odb
 {
     public static class GetGiVersions
     {
-        /// <summary>
-        /// Data source to retrieve available Grid Infrastructure versions of Oracle Database@AWS.
-        /// 
-        /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-        /// 
-        /// ## Example Usage
-        /// </summary>
         public static Task<GetGiVersionsResult> InvokeAsync(GetGiVersionsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGiVersionsResult>("aws:odb/getGiVersions:getGiVersions", args ?? new GetGiVersionsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source to retrieve available Grid Infrastructure versions of Oracle Database@AWS.
-        /// 
-        /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-        /// 
-        /// ## Example Usage
-        /// </summary>
         public static Output<GetGiVersionsResult> Invoke(GetGiVersionsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGiVersionsResult>("aws:odb/getGiVersions:getGiVersions", args ?? new GetGiVersionsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source to retrieve available Grid Infrastructure versions of Oracle Database@AWS.
-        /// 
-        /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-        /// 
-        /// ## Example Usage
-        /// </summary>
         public static Output<GetGiVersionsResult> Invoke(GetGiVersionsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGiVersionsResult>("aws:odb/getGiVersions:getGiVersions", args ?? new GetGiVersionsInvokeArgs(), options.WithDefaults());
     }
@@ -45,15 +24,9 @@ namespace Pulumi.Aws.Odb
 
     public sealed class GetGiVersionsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// The system shape.
-        /// </summary>
         [Input("shape")]
         public string? Shape { get; set; }
 
@@ -65,15 +38,9 @@ namespace Pulumi.Aws.Odb
 
     public sealed class GetGiVersionsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The system shape.
-        /// </summary>
         [Input("shape")]
         public Input<string>? Shape { get; set; }
 
@@ -87,9 +54,6 @@ namespace Pulumi.Aws.Odb
     [OutputType]
     public sealed class GetGiVersionsResult
     {
-        /// <summary>
-        /// Information about a specific version of Oracle Grid Infrastructure (GI) software that can be installed on a VM cluster.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetGiVersionsGiVersionResult> GiVersions;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

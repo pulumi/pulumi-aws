@@ -65,41 +65,26 @@ class GetServiceResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the service.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="authType")
     def auth_type(self) -> _builtins.str:
-        """
-        Type of IAM policy. Either `NONE` or `AWS_IAM`.
-        """
         return pulumi.get(self, "auth_type")
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> _builtins.str:
-        """
-        Amazon Resource Name (ARN) of the certificate.
-        """
         return pulumi.get(self, "certificate_arn")
 
     @_builtins.property
     @pulumi.getter(name="customDomainName")
     def custom_domain_name(self) -> _builtins.str:
-        """
-        Custom domain name of the service.
-        """
         return pulumi.get(self, "custom_domain_name")
 
     @_builtins.property
     @pulumi.getter(name="dnsEntries")
     def dns_entries(self) -> Sequence['outputs.GetServiceDnsEntryResult']:
-        """
-        List of objects with DNS names.
-        """
         return pulumi.get(self, "dns_entries")
 
     @_builtins.property
@@ -128,17 +113,11 @@ class GetServiceResult:
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Status of the service.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        List of tags associated with the service.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -167,24 +146,7 @@ def get_service(name: Optional[_builtins.str] = None,
                 tags: Optional[Mapping[str, _builtins.str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
-    Data source for managing an AWS VPC Lattice Service.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.vpclattice.get_service(name="example")
-    ```
-
-
-    :param _builtins.str name: Service name.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str service_identifier: ID or Amazon Resource Name (ARN) of the service.
-    :param Mapping[str, _builtins.str] tags: List of tags associated with the service.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -212,24 +174,7 @@ def get_service_output(name: Optional[pulumi.Input[Optional[_builtins.str]]] = N
                        tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
-    Data source for managing an AWS VPC Lattice Service.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.vpclattice.get_service(name="example")
-    ```
-
-
-    :param _builtins.str name: Service name.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str service_identifier: ID or Amazon Resource Name (ARN) of the service.
-    :param Mapping[str, _builtins.str] tags: List of tags associated with the service.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

@@ -14,43 +14,24 @@ namespace Pulumi.Aws.Glue.Inputs
     {
         [Input("arguments")]
         private InputMap<string>? _arguments;
-
-        /// <summary>
-        /// Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
-        /// </summary>
         public InputMap<string> Arguments
         {
             get => _arguments ?? (_arguments = new InputMap<string>());
             set => _arguments = value;
         }
 
-        /// <summary>
-        /// The name of the crawler to be executed. Conflicts with `JobName`.
-        /// </summary>
         [Input("crawlerName")]
         public Input<string>? CrawlerName { get; set; }
 
-        /// <summary>
-        /// The name of a job to be executed. Conflicts with `CrawlerName`.
-        /// </summary>
         [Input("jobName")]
         public Input<string>? JobName { get; set; }
 
-        /// <summary>
-        /// Specifies configuration properties of a job run notification. See Notification Property details below.
-        /// </summary>
         [Input("notificationProperty")]
         public Input<Inputs.TriggerActionNotificationPropertyArgs>? NotificationProperty { get; set; }
 
-        /// <summary>
-        /// The name of the Security Configuration structure to be used with this action.
-        /// </summary>
         [Input("securityConfiguration")]
         public Input<string>? SecurityConfiguration { get; set; }
 
-        /// <summary>
-        /// The job run timeout in minutes. It overrides the timeout value of the job.
-        /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }
 

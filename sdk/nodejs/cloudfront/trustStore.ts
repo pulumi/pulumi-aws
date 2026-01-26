@@ -7,56 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages an AWS CloudFront Trust Store.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudfront.TrustStore("example", {
- *     name: "example-trust-store",
- *     caCertificatesBundleSource: {
- *         caCertificatesBundleS3Location: {
- *             bucket: "example-bucket",
- *             key: "ca-certificates.pem",
- *             region: "us-east-1",
- *         },
- *     },
- * });
- * ```
- *
- * ### With S3 Object Version
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudfront.TrustStore("example", {
- *     name: "example-trust-store",
- *     caCertificatesBundleSource: {
- *         caCertificatesBundleS3Location: {
- *             bucket: "example-bucket",
- *             key: "ca-certificates.pem",
- *             region: "us-east-1",
- *             version: "abc123",
- *         },
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import CloudFront Trust Store using the trust store ID. For example:
- *
- * ```sh
- * $ pulumi import aws:cloudfront/trustStore:TrustStore example ts_12abcXYZhA4Q6RS6tuvW5Xy0ZZZ
- * ```
- */
 export class TrustStore extends pulumi.CustomResource {
     /**
      * Get an existing TrustStore resource's state with the given name, ID, and optional extra
@@ -85,35 +35,12 @@ export class TrustStore extends pulumi.CustomResource {
         return obj['__pulumiType'] === TrustStore.__pulumiType;
     }
 
-    /**
-     * ARN of the trust store.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Configuration block for the CA certificates bundle source. See `caCertificatesBundleSource` below.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly caCertificatesBundleSource: pulumi.Output<outputs.cloudfront.TrustStoreCaCertificatesBundleSource | undefined>;
-    /**
-     * ETag of the trust store.
-     */
     declare public /*out*/ readonly etag: pulumi.Output<string>;
-    /**
-     * Name of the trust store. Changing this forces a new resource to be created.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Number of CA certificates in the trust store.
-     */
     declare public /*out*/ readonly numberOfCaCertificates: pulumi.Output<number>;
-    /**
-     * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.cloudfront.TrustStoreTimeouts | undefined>;
 
@@ -158,35 +85,12 @@ export class TrustStore extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TrustStore resources.
  */
 export interface TrustStoreState {
-    /**
-     * ARN of the trust store.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Configuration block for the CA certificates bundle source. See `caCertificatesBundleSource` below.
-     *
-     * The following arguments are optional:
-     */
     caCertificatesBundleSource?: pulumi.Input<inputs.cloudfront.TrustStoreCaCertificatesBundleSource>;
-    /**
-     * ETag of the trust store.
-     */
     etag?: pulumi.Input<string>;
-    /**
-     * Name of the trust store. Changing this forces a new resource to be created.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Number of CA certificates in the trust store.
-     */
     numberOfCaCertificates?: pulumi.Input<number>;
-    /**
-     * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.cloudfront.TrustStoreTimeouts>;
 }
@@ -195,19 +99,8 @@ export interface TrustStoreState {
  * The set of arguments for constructing a TrustStore resource.
  */
 export interface TrustStoreArgs {
-    /**
-     * Configuration block for the CA certificates bundle source. See `caCertificatesBundleSource` below.
-     *
-     * The following arguments are optional:
-     */
     caCertificatesBundleSource?: pulumi.Input<inputs.cloudfront.TrustStoreCaCertificatesBundleSource>;
-    /**
-     * Name of the trust store. Changing this forces a new resource to be created.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.cloudfront.TrustStoreTimeouts>;
 }

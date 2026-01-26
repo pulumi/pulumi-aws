@@ -9,53 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ses
 {
-    /// <summary>
-    /// Provides an SES email identity resource
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ses.EmailIdentity("example", new()
-    ///     {
-    ///         Email = "email@example.com",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import SES email identities using the email address. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ses/emailIdentity:EmailIdentity example email@example.com
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ses/emailIdentity:EmailIdentity")]
     public partial class EmailIdentity : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the email identity.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The email address to assign to SES.
-        /// </summary>
         [Output("email")]
         public Output<string> Email { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -105,15 +67,9 @@ namespace Pulumi.Aws.Ses
 
     public sealed class EmailIdentityArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The email address to assign to SES.
-        /// </summary>
         [Input("email", required: true)]
         public Input<string> Email { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -125,21 +81,12 @@ namespace Pulumi.Aws.Ses
 
     public sealed class EmailIdentityState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the email identity.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The email address to assign to SES.
-        /// </summary>
         [Input("email")]
         public Input<string>? Email { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

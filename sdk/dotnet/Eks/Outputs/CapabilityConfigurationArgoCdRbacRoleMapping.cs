@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class CapabilityConfigurationArgoCdRbacRoleMapping
     {
-        /// <summary>
-        /// List of identities. See `Identity` below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.CapabilityConfigurationArgoCdRbacRoleMappingIdentity> Identities;
-        /// <summary>
-        /// ArgoCD role. Valid values: `ADMIN`, `EDITOR`, `VIEWER`.
-        /// </summary>
         public readonly string Role;
 
         [OutputConstructor]

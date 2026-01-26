@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClassificationJobScheduleFrequency {
-    /**
-     * @return Specifies a daily recurrence pattern for running the job.
-     * 
-     */
     private @Nullable Boolean dailySchedule;
-    /**
-     * @return Specifies a monthly recurrence pattern for running the job.
-     * 
-     */
     private @Nullable Integer monthlySchedule;
-    /**
-     * @return Specifies a weekly recurrence pattern for running the job.
-     * 
-     */
     private @Nullable String weeklySchedule;
 
     private ClassificationJobScheduleFrequency() {}
-    /**
-     * @return Specifies a daily recurrence pattern for running the job.
-     * 
-     */
     public Optional<Boolean> dailySchedule() {
         return Optional.ofNullable(this.dailySchedule);
     }
-    /**
-     * @return Specifies a monthly recurrence pattern for running the job.
-     * 
-     */
     public Optional<Integer> monthlySchedule() {
         return Optional.ofNullable(this.monthlySchedule);
     }
-    /**
-     * @return Specifies a weekly recurrence pattern for running the job.
-     * 
-     */
     public Optional<String> weeklySchedule() {
         return Optional.ofNullable(this.weeklySchedule);
     }

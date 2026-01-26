@@ -12,15 +12,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The frequency at which to capture frames for inclusion in the output.
-        /// </summary>
         [Input("captureInterval")]
         public Input<int>? CaptureInterval { get; set; }
 
-        /// <summary>
-        /// Unit for the frame capture interval.
-        /// </summary>
         [Input("captureIntervalUnits")]
         public Input<string>? CaptureIntervalUnits { get; set; }
 

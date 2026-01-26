@@ -12,18 +12,11 @@ namespace Pulumi.Aws.DataExchange.Inputs
 
     public sealed class RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the S3 bucket.
-        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
         [Input("keyPrefixes")]
         private InputList<string>? _keyPrefixes;
-
-        /// <summary>
-        /// List of key prefixes in the S3 bucket.
-        /// </summary>
         public InputList<string> KeyPrefixes
         {
             get => _keyPrefixes ?? (_keyPrefixes = new InputList<string>());
@@ -32,10 +25,6 @@ namespace Pulumi.Aws.DataExchange.Inputs
 
         [Input("keys")]
         private InputList<string>? _keys;
-
-        /// <summary>
-        /// List of object keys in the S3 bucket.
-        /// </summary>
         public InputList<string> Keys
         {
             get => _keys ?? (_keys = new InputList<string>());

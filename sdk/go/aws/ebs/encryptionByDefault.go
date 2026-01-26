@@ -11,50 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage whether default EBS encryption is enabled for your AWS account in the current AWS region. To manage the default KMS key for the region, see the `ebs.DefaultKmsKey` resource.
-//
-// > **NOTE:** Removing this resource disables default EBS encryption.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ebs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ebs.NewEncryptionByDefault(ctx, "example", &ebs.EncryptionByDefaultArgs{
-//				Enabled: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import the default EBS encryption state. For example:
-//
-// ```sh
-// $ pulumi import aws:ebs/encryptionByDefault:EncryptionByDefault example default
-// ```
 type EncryptionByDefault struct {
 	pulumi.CustomResourceState
 
-	// Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region  pulumi.StringOutput  `pulumi:"region"`
 }
 
 // NewEncryptionByDefault registers a new resource with the given unique name, arguments, and options.
@@ -87,17 +48,13 @@ func GetEncryptionByDefault(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EncryptionByDefault resources.
 type encryptionByDefaultState struct {
-	// Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
-	Enabled *bool `pulumi:"enabled"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Enabled *bool   `pulumi:"enabled"`
+	Region  *string `pulumi:"region"`
 }
 
 type EncryptionByDefaultState struct {
-	// Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region  pulumi.StringPtrInput
 }
 
 func (EncryptionByDefaultState) ElementType() reflect.Type {
@@ -105,18 +62,14 @@ func (EncryptionByDefaultState) ElementType() reflect.Type {
 }
 
 type encryptionByDefaultArgs struct {
-	// Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
-	Enabled *bool `pulumi:"enabled"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Enabled *bool   `pulumi:"enabled"`
+	Region  *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a EncryptionByDefault resource.
 type EncryptionByDefaultArgs struct {
-	// Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region  pulumi.StringPtrInput
 }
 
 func (EncryptionByDefaultArgs) ElementType() reflect.Type {
@@ -206,12 +159,10 @@ func (o EncryptionByDefaultOutput) ToEncryptionByDefaultOutputWithContext(ctx co
 	return o
 }
 
-// Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
 func (o EncryptionByDefaultOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EncryptionByDefault) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EncryptionByDefaultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EncryptionByDefault) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

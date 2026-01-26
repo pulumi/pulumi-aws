@@ -16,32 +16,16 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
 
     public static final AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs Empty = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs();
 
-    /**
-     * Contains configurations for a prompt that is defined inline. See Prompt Inline Configuration for more information.
-     * 
-     */
     @Import(name="inline")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs> inline;
 
-    /**
-     * @return Contains configurations for a prompt that is defined inline. See Prompt Inline Configuration for more information.
-     * 
-     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs>> inline() {
         return Optional.ofNullable(this.inline);
     }
 
-    /**
-     * Contains configurations for a prompt from Prompt management. See Prompt Resource Configuration for more information.
-     * 
-     */
     @Import(name="resource")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs> resource;
 
-    /**
-     * @return Contains configurations for a prompt from Prompt management. See Prompt Resource Configuration for more information.
-     * 
-     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs>> resource() {
         return Optional.ofNullable(this.resource);
     }
@@ -71,44 +55,20 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
             $ = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param inline Contains configurations for a prompt that is defined inline. See Prompt Inline Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inline(@Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs> inline) {
             $.inline = inline;
             return this;
         }
 
-        /**
-         * @param inline Contains configurations for a prompt that is defined inline. See Prompt Inline Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inline(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs inline) {
             return inline(Output.of(inline));
         }
 
-        /**
-         * @param resource Contains configurations for a prompt from Prompt management. See Prompt Resource Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resource(@Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs> resource) {
             $.resource = resource;
             return this;
         }
 
-        /**
-         * @param resource Contains configurations for a prompt from Prompt management. See Prompt Resource Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resource(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs resource) {
             return resource(Output.of(resource));
         }

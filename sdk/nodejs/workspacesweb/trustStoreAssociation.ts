@@ -4,38 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS WorkSpaces Web Trust Store Association.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = new aws.workspacesweb.Portal("example", {displayName: "example"});
- * const exampleTrustStore = new aws.workspacesweb.TrustStore("example", {certificateList: [std.file({
- *     input: "certificate.pem",
- * }).then(invoke => std.base64encode({
- *     input: invoke.result,
- * })).then(invoke => invoke.result)]});
- * const exampleTrustStoreAssociation = new aws.workspacesweb.TrustStoreAssociation("example", {
- *     trustStoreArn: exampleTrustStore.trustStoreArn,
- *     portalArn: example.portalArn,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import WorkSpaces Web Trust Store Association using the `trust_store_arn,portal_arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:workspacesweb/trustStoreAssociation:TrustStoreAssociation example arn:aws:workspaces-web:us-west-2:123456789012:trustStore/trust_store-id-12345678,arn:aws:workspaces-web:us-west-2:123456789012:portal/portal-id-12345678
- * ```
- */
 export class TrustStoreAssociation extends pulumi.CustomResource {
     /**
      * Get an existing TrustStoreAssociation resource's state with the given name, ID, and optional extra
@@ -64,19 +32,8 @@ export class TrustStoreAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === TrustStoreAssociation.__pulumiType;
     }
 
-    /**
-     * ARN of the portal to associate with the trust store. Forces replacement if changed.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly portalArn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ARN of the trust store to associate with the portal. Forces replacement if changed.
-     */
     declare public readonly trustStoreArn: pulumi.Output<string>;
 
     /**
@@ -116,19 +73,8 @@ export class TrustStoreAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TrustStoreAssociation resources.
  */
 export interface TrustStoreAssociationState {
-    /**
-     * ARN of the portal to associate with the trust store. Forces replacement if changed.
-     *
-     * The following arguments are optional:
-     */
     portalArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the trust store to associate with the portal. Forces replacement if changed.
-     */
     trustStoreArn?: pulumi.Input<string>;
 }
 
@@ -136,18 +82,7 @@ export interface TrustStoreAssociationState {
  * The set of arguments for constructing a TrustStoreAssociation resource.
  */
 export interface TrustStoreAssociationArgs {
-    /**
-     * ARN of the portal to associate with the trust store. Forces replacement if changed.
-     *
-     * The following arguments are optional:
-     */
     portalArn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the trust store to associate with the portal. Forces replacement if changed.
-     */
     trustStoreArn: pulumi.Input<string>;
 }

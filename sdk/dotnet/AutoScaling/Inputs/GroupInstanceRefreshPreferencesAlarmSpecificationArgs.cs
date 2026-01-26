@@ -14,10 +14,6 @@ namespace Pulumi.Aws.AutoScaling.Inputs
     {
         [Input("alarms")]
         private InputList<string>? _alarms;
-
-        /// <summary>
-        /// List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
-        /// </summary>
         public InputList<string> Alarms
         {
             get => _alarms ?? (_alarms = new InputList<string>());

@@ -15,17 +15,9 @@ public final class DeliveryChannelSnapshotDeliveryPropertiesArgs extends com.pul
 
     public static final DeliveryChannelSnapshotDeliveryPropertiesArgs Empty = new DeliveryChannelSnapshotDeliveryPropertiesArgs();
 
-    /**
-     * The frequency with which AWS Config recurringly delivers configuration snapshotsE.g., `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
-     * 
-     */
     @Import(name="deliveryFrequency")
     private @Nullable Output<String> deliveryFrequency;
 
-    /**
-     * @return The frequency with which AWS Config recurringly delivers configuration snapshotsE.g., `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
-     * 
-     */
     public Optional<Output<String>> deliveryFrequency() {
         return Optional.ofNullable(this.deliveryFrequency);
     }
@@ -54,23 +46,11 @@ public final class DeliveryChannelSnapshotDeliveryPropertiesArgs extends com.pul
             $ = new DeliveryChannelSnapshotDeliveryPropertiesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param deliveryFrequency The frequency with which AWS Config recurringly delivers configuration snapshotsE.g., `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
-         * 
-         * @return builder
-         * 
-         */
         public Builder deliveryFrequency(@Nullable Output<String> deliveryFrequency) {
             $.deliveryFrequency = deliveryFrequency;
             return this;
         }
 
-        /**
-         * @param deliveryFrequency The frequency with which AWS Config recurringly delivers configuration snapshotsE.g., `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
-         * 
-         * @return builder
-         * 
-         */
         public Builder deliveryFrequency(String deliveryFrequency) {
             return deliveryFrequency(Output.of(deliveryFrequency));
         }

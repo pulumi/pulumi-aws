@@ -9,105 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Bedrock
 {
-    /// <summary>
-    /// Resource for managing an AWS Agents for Amazon Bedrock Data Source.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Bedrock.AgentDataSource("example", new()
-    ///     {
-    ///         KnowledgeBaseId = "EMDPPAYPZI",
-    ///         Name = "example",
-    ///         DataSourceConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceDataSourceConfigurationArgs
-    ///         {
-    ///             Type = "S3",
-    ///             S3Configuration = new Aws.Bedrock.Inputs.AgentDataSourceDataSourceConfigurationS3ConfigurationArgs
-    ///             {
-    ///                 BucketArn = "arn:aws:s3:::example-bucket",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Agents for Amazon Bedrock Data Source using the data source ID and the knowledge base ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:bedrock/agentDataSource:AgentDataSource example GWCMFMQF6T,EMDPPAYPZI
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:bedrock/agentDataSource:AgentDataSource")]
     public partial class AgentDataSource : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
-        /// </summary>
         [Output("dataDeletionPolicy")]
         public Output<string> DataDeletionPolicy { get; private set; } = null!;
 
-        /// <summary>
-        /// Details about how the data source is stored. See `DataSourceConfiguration` block for details.
-        /// </summary>
         [Output("dataSourceConfiguration")]
         public Output<Outputs.AgentDataSourceDataSourceConfiguration?> DataSourceConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Unique identifier of the data source.
-        /// </summary>
         [Output("dataSourceId")]
         public Output<string> DataSourceId { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the data source.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Unique identifier of the knowledge base to which the data source belongs.
-        /// </summary>
         [Output("knowledgeBaseId")]
         public Output<string> KnowledgeBaseId { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the data source.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Details about the configuration of the server-side encryption. See `ServerSideEncryptionConfiguration` block for details.
-        /// </summary>
         [Output("serverSideEncryptionConfiguration")]
         public Output<Outputs.AgentDataSourceServerSideEncryptionConfiguration?> ServerSideEncryptionConfiguration { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.AgentDataSourceTimeouts?> Timeouts { get; private set; } = null!;
 
-        /// <summary>
-        /// Details about the configuration of the server-side encryption. See `VectorIngestionConfiguration` block for details.
-        /// </summary>
         [Output("vectorIngestionConfiguration")]
         public Output<Outputs.AgentDataSourceVectorIngestionConfiguration?> VectorIngestionConfiguration { get; private set; } = null!;
 
@@ -157,56 +88,30 @@ namespace Pulumi.Aws.Bedrock
 
     public sealed class AgentDataSourceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
-        /// </summary>
         [Input("dataDeletionPolicy")]
         public Input<string>? DataDeletionPolicy { get; set; }
 
-        /// <summary>
-        /// Details about how the data source is stored. See `DataSourceConfiguration` block for details.
-        /// </summary>
         [Input("dataSourceConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationArgs>? DataSourceConfiguration { get; set; }
 
-        /// <summary>
-        /// Description of the data source.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Unique identifier of the knowledge base to which the data source belongs.
-        /// </summary>
         [Input("knowledgeBaseId", required: true)]
         public Input<string> KnowledgeBaseId { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the data source.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Details about the configuration of the server-side encryption. See `ServerSideEncryptionConfiguration` block for details.
-        /// </summary>
         [Input("serverSideEncryptionConfiguration")]
         public Input<Inputs.AgentDataSourceServerSideEncryptionConfigurationArgs>? ServerSideEncryptionConfiguration { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.AgentDataSourceTimeoutsArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// Details about the configuration of the server-side encryption. See `VectorIngestionConfiguration` block for details.
-        /// </summary>
         [Input("vectorIngestionConfiguration")]
         public Input<Inputs.AgentDataSourceVectorIngestionConfigurationArgs>? VectorIngestionConfiguration { get; set; }
 
@@ -218,62 +123,33 @@ namespace Pulumi.Aws.Bedrock
 
     public sealed class AgentDataSourceState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
-        /// </summary>
         [Input("dataDeletionPolicy")]
         public Input<string>? DataDeletionPolicy { get; set; }
 
-        /// <summary>
-        /// Details about how the data source is stored. See `DataSourceConfiguration` block for details.
-        /// </summary>
         [Input("dataSourceConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationGetArgs>? DataSourceConfiguration { get; set; }
 
-        /// <summary>
-        /// Unique identifier of the data source.
-        /// </summary>
         [Input("dataSourceId")]
         public Input<string>? DataSourceId { get; set; }
 
-        /// <summary>
-        /// Description of the data source.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Unique identifier of the knowledge base to which the data source belongs.
-        /// </summary>
         [Input("knowledgeBaseId")]
         public Input<string>? KnowledgeBaseId { get; set; }
 
-        /// <summary>
-        /// Name of the data source.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Details about the configuration of the server-side encryption. See `ServerSideEncryptionConfiguration` block for details.
-        /// </summary>
         [Input("serverSideEncryptionConfiguration")]
         public Input<Inputs.AgentDataSourceServerSideEncryptionConfigurationGetArgs>? ServerSideEncryptionConfiguration { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.AgentDataSourceTimeoutsGetArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// Details about the configuration of the server-side encryption. See `VectorIngestionConfiguration` block for details.
-        /// </summary>
         [Input("vectorIngestionConfiguration")]
         public Input<Inputs.AgentDataSourceVectorIngestionConfigurationGetArgs>? VectorIngestionConfiguration { get; set; }
 

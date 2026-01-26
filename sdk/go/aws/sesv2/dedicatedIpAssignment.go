@@ -12,55 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS SESv2 (Simple Email V2) Dedicated IP Assignment.
-//
-// This resource is used with "Standard" dedicated IP addresses. This includes addresses [requested and relinquished manually](https://docs.aws.amazon.com/ses/latest/dg/dedicated-ip-case.html) via an AWS support case, or [Bring Your Own IP](https://docs.aws.amazon.com/ses/latest/dg/dedicated-ip-byo.html) addresses. Once no longer assigned, this resource returns the IP to the [`ses-default-dedicated-pool`](https://docs.aws.amazon.com/ses/latest/dg/managing-ip-pools.html), managed by AWS.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sesv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sesv2.NewDedicatedIpAssignment(ctx, "example", &sesv2.DedicatedIpAssignmentArgs{
-//				Ip:                  pulumi.String("0.0.0.0"),
-//				DestinationPoolName: pulumi.String("my-pool"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SESv2 (Simple Email V2) Dedicated IP Assignment using the `id`, which is a comma-separated string made up of `ip` and `destination_pool_name`. For example:
-//
-// ```sh
-// $ pulumi import aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment example "0.0.0.0,my-pool"
-// ```
 type DedicatedIpAssignment struct {
 	pulumi.CustomResourceState
 
-	// Dedicated IP address.
 	DestinationPoolName pulumi.StringOutput `pulumi:"destinationPoolName"`
-	// Dedicated IP address.
-	Ip pulumi.StringOutput `pulumi:"ip"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Ip                  pulumi.StringOutput `pulumi:"ip"`
+	Region              pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewDedicatedIpAssignment registers a new resource with the given unique name, arguments, and options.
@@ -99,21 +56,15 @@ func GetDedicatedIpAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DedicatedIpAssignment resources.
 type dedicatedIpAssignmentState struct {
-	// Dedicated IP address.
 	DestinationPoolName *string `pulumi:"destinationPoolName"`
-	// Dedicated IP address.
-	Ip *string `pulumi:"ip"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Ip                  *string `pulumi:"ip"`
+	Region              *string `pulumi:"region"`
 }
 
 type DedicatedIpAssignmentState struct {
-	// Dedicated IP address.
 	DestinationPoolName pulumi.StringPtrInput
-	// Dedicated IP address.
-	Ip pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Ip                  pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
 }
 
 func (DedicatedIpAssignmentState) ElementType() reflect.Type {
@@ -121,22 +72,16 @@ func (DedicatedIpAssignmentState) ElementType() reflect.Type {
 }
 
 type dedicatedIpAssignmentArgs struct {
-	// Dedicated IP address.
-	DestinationPoolName string `pulumi:"destinationPoolName"`
-	// Dedicated IP address.
-	Ip string `pulumi:"ip"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	DestinationPoolName string  `pulumi:"destinationPoolName"`
+	Ip                  string  `pulumi:"ip"`
+	Region              *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a DedicatedIpAssignment resource.
 type DedicatedIpAssignmentArgs struct {
-	// Dedicated IP address.
 	DestinationPoolName pulumi.StringInput
-	// Dedicated IP address.
-	Ip pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Ip                  pulumi.StringInput
+	Region              pulumi.StringPtrInput
 }
 
 func (DedicatedIpAssignmentArgs) ElementType() reflect.Type {
@@ -226,17 +171,14 @@ func (o DedicatedIpAssignmentOutput) ToDedicatedIpAssignmentOutputWithContext(ct
 	return o
 }
 
-// Dedicated IP address.
 func (o DedicatedIpAssignmentOutput) DestinationPoolName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DedicatedIpAssignment) pulumi.StringOutput { return v.DestinationPoolName }).(pulumi.StringOutput)
 }
 
-// Dedicated IP address.
 func (o DedicatedIpAssignmentOutput) Ip() pulumi.StringOutput {
 	return o.ApplyT(func(v *DedicatedIpAssignment) pulumi.StringOutput { return v.Ip }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DedicatedIpAssignmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DedicatedIpAssignment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

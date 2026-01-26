@@ -24,32 +24,16 @@ public final class KeyRegistrationState extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.awsAccountId);
     }
 
-    /**
-     * Registered keys. See key_registration.
-     * 
-     */
     @Import(name="keyRegistrations")
     private @Nullable Output<List<KeyRegistrationKeyRegistrationArgs>> keyRegistrations;
 
-    /**
-     * @return Registered keys. See key_registration.
-     * 
-     */
     public Optional<Output<List<KeyRegistrationKeyRegistrationArgs>>> keyRegistrations() {
         return Optional.ofNullable(this.keyRegistrations);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -89,54 +73,24 @@ public final class KeyRegistrationState extends com.pulumi.resources.ResourceArg
             return awsAccountId(Output.of(awsAccountId));
         }
 
-        /**
-         * @param keyRegistrations Registered keys. See key_registration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyRegistrations(@Nullable Output<List<KeyRegistrationKeyRegistrationArgs>> keyRegistrations) {
             $.keyRegistrations = keyRegistrations;
             return this;
         }
 
-        /**
-         * @param keyRegistrations Registered keys. See key_registration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyRegistrations(List<KeyRegistrationKeyRegistrationArgs> keyRegistrations) {
             return keyRegistrations(Output.of(keyRegistrations));
         }
 
-        /**
-         * @param keyRegistrations Registered keys. See key_registration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyRegistrations(KeyRegistrationKeyRegistrationArgs... keyRegistrations) {
             return keyRegistrations(List.of(keyRegistrations));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

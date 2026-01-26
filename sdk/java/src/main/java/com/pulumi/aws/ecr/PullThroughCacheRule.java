@@ -14,153 +14,47 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Elastic Container Registry Pull Through Cache Rule.
- * 
- * More information about pull through cache rules, including the set of supported
- * upstream repositories, see [Using pull through cache rules](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache.html).
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ecr.PullThroughCacheRule;
- * import com.pulumi.aws.ecr.PullThroughCacheRuleArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new PullThroughCacheRule("example", PullThroughCacheRuleArgs.builder()
- *             .ecrRepositoryPrefix("ecr-public")
- *             .upstreamRegistryUrl("public.ecr.aws")
- *             .credentialArn("arn:aws:secretsmanager:us-east-1:123456789:secret:ecr-pullthroughcache/ecrpublic")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import a pull-through cache rule using the `ecr_repository_prefix`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ecr/pullThroughCacheRule:PullThroughCacheRule example ecr-public
- * ```
- * 
- */
 @ResourceType(type="aws:ecr/pullThroughCacheRule:PullThroughCacheRule")
 public class PullThroughCacheRule extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Secret which will be used to authenticate against the registry.
-     * 
-     */
     @Export(name="credentialArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> credentialArn;
 
-    /**
-     * @return ARN of the Secret which will be used to authenticate against the registry.
-     * 
-     */
     public Output<Optional<String>> credentialArn() {
         return Codegen.optional(this.credentialArn);
     }
-    /**
-     * The ARN of the IAM role associated with the pull through cache rule. Must be specified if the upstream registry is a cross-account ECR private registry. See [AWS Document - Setting up permissions for cross-account ECR to ECR PTC](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-private.html).
-     * 
-     */
     @Export(name="customRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customRoleArn;
 
-    /**
-     * @return The ARN of the IAM role associated with the pull through cache rule. Must be specified if the upstream registry is a cross-account ECR private registry. See [AWS Document - Setting up permissions for cross-account ECR to ECR PTC](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-private.html).
-     * 
-     */
     public Output<Optional<String>> customRoleArn() {
         return Codegen.optional(this.customRoleArn);
     }
-    /**
-     * The repository name prefix to use when caching images from the source registry. Use `ROOT` as the prefix to apply a template to all repositories in your registry that don&#39;t have an associated pull through cache rule.
-     * 
-     */
     @Export(name="ecrRepositoryPrefix", refs={String.class}, tree="[0]")
     private Output<String> ecrRepositoryPrefix;
 
-    /**
-     * @return The repository name prefix to use when caching images from the source registry. Use `ROOT` as the prefix to apply a template to all repositories in your registry that don&#39;t have an associated pull through cache rule.
-     * 
-     */
     public Output<String> ecrRepositoryPrefix() {
         return this.ecrRepositoryPrefix;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The registry ID where the repository was created.
-     * 
-     */
     @Export(name="registryId", refs={String.class}, tree="[0]")
     private Output<String> registryId;
 
-    /**
-     * @return The registry ID where the repository was created.
-     * 
-     */
     public Output<String> registryId() {
         return this.registryId;
     }
-    /**
-     * The registry URL of the upstream registry to use as the source.
-     * 
-     */
     @Export(name="upstreamRegistryUrl", refs={String.class}, tree="[0]")
     private Output<String> upstreamRegistryUrl;
 
-    /**
-     * @return The registry URL of the upstream registry to use as the source.
-     * 
-     */
     public Output<String> upstreamRegistryUrl() {
         return this.upstreamRegistryUrl;
     }
-    /**
-     * The upstream repository prefix associated with the pull through cache rule. Used if the upstream registry is an ECR private registry. If not specified, it&#39;s set to `ROOT`, which allows matching with any upstream repository. See [AWS Document - Customizing repository prefixes for ECR to ECR pull through cache](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-private-wildcards.html).
-     * 
-     */
     @Export(name="upstreamRepositoryPrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> upstreamRepositoryPrefix;
 
-    /**
-     * @return The upstream repository prefix associated with the pull through cache rule. Used if the upstream registry is an ECR private registry. If not specified, it&#39;s set to `ROOT`, which allows matching with any upstream repository. See [AWS Document - Customizing repository prefixes for ECR to ECR pull through cache](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-private-wildcards.html).
-     * 
-     */
     public Output<Optional<String>> upstreamRepositoryPrefix() {
         return Codegen.optional(this.upstreamRepositoryPrefix);
     }

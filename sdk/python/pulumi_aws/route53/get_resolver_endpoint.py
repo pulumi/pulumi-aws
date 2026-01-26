@@ -75,17 +75,11 @@ class GetResolverEndpointResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        Computed ARN of the Route53 Resolver Endpoint.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def direction(self) -> _builtins.str:
-        """
-        Direction of the queries to or from the Resolver Endpoint .
-        """
         return pulumi.get(self, "direction")
 
     @_builtins.property
@@ -104,9 +98,6 @@ class GetResolverEndpointResult:
     @_builtins.property
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> Sequence[_builtins.str]:
-        """
-        List of IPaddresses that have been associated with the Resolver Endpoint.
-        """
         return pulumi.get(self, "ip_addresses")
 
     @_builtins.property
@@ -117,9 +108,6 @@ class GetResolverEndpointResult:
     @_builtins.property
     @pulumi.getter
     def protocols(self) -> Sequence[_builtins.str]:
-        """
-        The protocols used by the Resolver endpoint.
-        """
         return pulumi.get(self, "protocols")
 
     @_builtins.property
@@ -135,41 +123,26 @@ class GetResolverEndpointResult:
     @_builtins.property
     @pulumi.getter(name="resolverEndpointType")
     def resolver_endpoint_type(self) -> _builtins.str:
-        """
-        The Resolver endpoint IP address type.
-        """
         return pulumi.get(self, "resolver_endpoint_type")
 
     @_builtins.property
     @pulumi.getter(name="rniEnhancedMetricsEnabled")
     def rni_enhanced_metrics_enabled(self) -> _builtins.bool:
-        """
-        Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint.
-        """
         return pulumi.get(self, "rni_enhanced_metrics_enabled")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Current status of the Resolver Endpoint.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="targetNameServerMetricsEnabled")
     def target_name_server_metrics_enabled(self) -> _builtins.bool:
-        """
-        Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints.
-        """
         return pulumi.get(self, "target_name_server_metrics_enabled")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> _builtins.str:
-        """
-        ID of the Host VPC that the Resolver Endpoint resides in.
-        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -200,35 +173,7 @@ def get_resolver_endpoint(filters: Optional[Sequence[Union['GetResolverEndpointF
                           resolver_endpoint_id: Optional[_builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResolverEndpointResult:
     """
-    `route53.ResolverEndpoint` provides details about a specific Route53 Resolver Endpoint.
-
-    This data source allows to find a list of IPaddresses associated with a specific Route53 Resolver Endpoint.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_resolver_endpoint(resolver_endpoint_id="rslvr-in-1abc2345ef678g91h")
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_resolver_endpoint(filters=[{
-        "name": "NAME",
-        "values": ["MyResolverExampleName"],
-    }])
-    ```
-
-
-    :param Sequence[Union['GetResolverEndpointFilterArgs', 'GetResolverEndpointFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are
-           several valid keys, for a full reference, check out
-           [Route53resolver Filter value in the AWS API reference][1].
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str resolver_endpoint_id: ID of the Route53 Resolver Endpoint.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -257,35 +202,7 @@ def get_resolver_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequenc
                                  resolver_endpoint_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverEndpointResult]:
     """
-    `route53.ResolverEndpoint` provides details about a specific Route53 Resolver Endpoint.
-
-    This data source allows to find a list of IPaddresses associated with a specific Route53 Resolver Endpoint.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_resolver_endpoint(resolver_endpoint_id="rslvr-in-1abc2345ef678g91h")
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_resolver_endpoint(filters=[{
-        "name": "NAME",
-        "values": ["MyResolverExampleName"],
-    }])
-    ```
-
-
-    :param Sequence[Union['GetResolverEndpointFilterArgs', 'GetResolverEndpointFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are
-           several valid keys, for a full reference, check out
-           [Route53resolver Filter value in the AWS API reference][1].
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str resolver_endpoint_id: ID of the Route53 Resolver Endpoint.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

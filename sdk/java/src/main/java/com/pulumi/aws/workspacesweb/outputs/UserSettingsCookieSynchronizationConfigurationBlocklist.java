@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserSettingsCookieSynchronizationConfigurationBlocklist {
-    /**
-     * @return Domain of the cookie.
-     * 
-     */
     private String domain;
-    /**
-     * @return Name of the cookie.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return Path of the cookie.
-     * 
-     */
     private @Nullable String path;
 
     private UserSettingsCookieSynchronizationConfigurationBlocklist() {}
-    /**
-     * @return Domain of the cookie.
-     * 
-     */
     public String domain() {
         return this.domain;
     }
-    /**
-     * @return Name of the cookie.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return Path of the cookie.
-     * 
-     */
     public Optional<String> path() {
         return Optional.ofNullable(this.path);
     }

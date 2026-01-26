@@ -19,119 +19,51 @@ public final class MetricAlarmMetricQueryArgs extends com.pulumi.resources.Resou
 
     public static final MetricAlarmMetricQueryArgs Empty = new MetricAlarmMetricQueryArgs();
 
-    /**
-     * The ID of the account where the metrics are located, if this is a cross-account alarm.
-     * 
-     */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
-    /**
-     * @return The ID of the account where the metrics are located, if this is a cross-account alarm.
-     * 
-     */
     public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
-    /**
-     * A Metrics Insights query or a metric math expression to be evaluated on the returned data.
-     * For details about Metrics Insights queries, see [Metrics Insights query components and syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-metrics-insights-querylanguage) in the AWS documentation.
-     * For details about metric math expressions, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the AWS documentation.
-     * 
-     */
     @Import(name="expression")
     private @Nullable Output<String> expression;
 
-    /**
-     * @return A Metrics Insights query or a metric math expression to be evaluated on the returned data.
-     * For details about Metrics Insights queries, see [Metrics Insights query components and syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-metrics-insights-querylanguage) in the AWS documentation.
-     * For details about metric math expressions, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the AWS documentation.
-     * 
-     */
     public Optional<Output<String>> expression() {
         return Optional.ofNullable(this.expression);
     }
 
-    /**
-     * A short name used to tie this object to the results in the response. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
-     * 
-     */
     @Import(name="id", required=true)
     private Output<String> id;
 
-    /**
-     * @return A short name used to tie this object to the results in the response. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
-     * 
-     */
     public Output<String> id() {
         return this.id;
     }
 
-    /**
-     * A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents.
-     * 
-     */
     @Import(name="label")
     private @Nullable Output<String> label;
 
-    /**
-     * @return A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents.
-     * 
-     */
     public Optional<Output<String>> label() {
         return Optional.ofNullable(this.label);
     }
 
-    /**
-     * The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
-     * 
-     */
     @Import(name="metric")
     private @Nullable Output<MetricAlarmMetricQueryMetricArgs> metric;
 
-    /**
-     * @return The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
-     * 
-     */
     public Optional<Output<MetricAlarmMetricQueryMetricArgs>> metric() {
         return Optional.ofNullable(this.metric);
     }
 
-    /**
-     * Granularity in seconds of returned data points.
-     * For metrics with regular resolution, valid values are any multiple of `60`.
-     * For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
-     * 
-     */
     @Import(name="period")
     private @Nullable Output<Integer> period;
 
-    /**
-     * @return Granularity in seconds of returned data points.
-     * For metrics with regular resolution, valid values are any multiple of `60`.
-     * For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
-     * 
-     */
     public Optional<Output<Integer>> period() {
         return Optional.ofNullable(this.period);
     }
 
-    /**
-     * Specify exactly one `metricQuery` to be `true` to use that `metricQuery` result as the alarm.
-     * 
-     * &gt; **NOTE:**  You must specify either `metric` or `expression`. Not both.
-     * 
-     */
     @Import(name="returnData")
     private @Nullable Output<Boolean> returnData;
 
-    /**
-     * @return Specify exactly one `metricQuery` to be `true` to use that `metricQuery` result as the alarm.
-     * 
-     * &gt; **NOTE:**  You must specify either `metric` or `expression`. Not both.
-     * 
-     */
     public Optional<Output<Boolean>> returnData() {
         return Optional.ofNullable(this.returnData);
     }
@@ -166,161 +98,65 @@ public final class MetricAlarmMetricQueryArgs extends com.pulumi.resources.Resou
             $ = new MetricAlarmMetricQueryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountId The ID of the account where the metrics are located, if this is a cross-account alarm.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        /**
-         * @param accountId The ID of the account where the metrics are located, if this is a cross-account alarm.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
-        /**
-         * @param expression A Metrics Insights query or a metric math expression to be evaluated on the returned data.
-         * For details about Metrics Insights queries, see [Metrics Insights query components and syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-metrics-insights-querylanguage) in the AWS documentation.
-         * For details about metric math expressions, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the AWS documentation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expression(@Nullable Output<String> expression) {
             $.expression = expression;
             return this;
         }
 
-        /**
-         * @param expression A Metrics Insights query or a metric math expression to be evaluated on the returned data.
-         * For details about Metrics Insights queries, see [Metrics Insights query components and syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-metrics-insights-querylanguage) in the AWS documentation.
-         * For details about metric math expressions, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the AWS documentation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expression(String expression) {
             return expression(Output.of(expression));
         }
 
-        /**
-         * @param id A short name used to tie this object to the results in the response. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id A short name used to tie this object to the results in the response. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param label A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents.
-         * 
-         * @return builder
-         * 
-         */
         public Builder label(@Nullable Output<String> label) {
             $.label = label;
             return this;
         }
 
-        /**
-         * @param label A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents.
-         * 
-         * @return builder
-         * 
-         */
         public Builder label(String label) {
             return label(Output.of(label));
         }
 
-        /**
-         * @param metric The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metric(@Nullable Output<MetricAlarmMetricQueryMetricArgs> metric) {
             $.metric = metric;
             return this;
         }
 
-        /**
-         * @param metric The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metric(MetricAlarmMetricQueryMetricArgs metric) {
             return metric(Output.of(metric));
         }
 
-        /**
-         * @param period Granularity in seconds of returned data points.
-         * For metrics with regular resolution, valid values are any multiple of `60`.
-         * For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder period(@Nullable Output<Integer> period) {
             $.period = period;
             return this;
         }
 
-        /**
-         * @param period Granularity in seconds of returned data points.
-         * For metrics with regular resolution, valid values are any multiple of `60`.
-         * For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder period(Integer period) {
             return period(Output.of(period));
         }
 
-        /**
-         * @param returnData Specify exactly one `metricQuery` to be `true` to use that `metricQuery` result as the alarm.
-         * 
-         * &gt; **NOTE:**  You must specify either `metric` or `expression`. Not both.
-         * 
-         * @return builder
-         * 
-         */
         public Builder returnData(@Nullable Output<Boolean> returnData) {
             $.returnData = returnData;
             return this;
         }
 
-        /**
-         * @param returnData Specify exactly one `metricQuery` to be `true` to use that `metricQuery` result as the alarm.
-         * 
-         * &gt; **NOTE:**  You must specify either `metric` or `expression`. Not both.
-         * 
-         * @return builder
-         * 
-         */
         public Builder returnData(Boolean returnData) {
             return returnData(Output.of(returnData));
         }

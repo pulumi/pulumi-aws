@@ -13,59 +13,23 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPolicyStoreResult {
-    /**
-     * @return The ARN of the Policy Store.
-     * 
-     */
     private String arn;
-    /**
-     * @return The date the Policy Store was created.
-     * 
-     */
     private String createdDate;
-    /**
-     * @return Whether the policy store can be deleted.
-     * 
-     */
     private String deletionProtection;
     private String description;
     private String id;
-    /**
-     * @return The date the Policy Store was last updated.
-     * 
-     */
     private String lastUpdatedDate;
     private String region;
-    /**
-     * @return Map of key-value pairs associated with the policy store.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Validation settings for the policy store.
-     * 
-     */
     private List<GetPolicyStoreValidationSetting> validationSettings;
 
     private GetPolicyStoreResult() {}
-    /**
-     * @return The ARN of the Policy Store.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The date the Policy Store was created.
-     * 
-     */
     public String createdDate() {
         return this.createdDate;
     }
-    /**
-     * @return Whether the policy store can be deleted.
-     * 
-     */
     public String deletionProtection() {
         return this.deletionProtection;
     }
@@ -75,27 +39,15 @@ public final class GetPolicyStoreResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The date the Policy Store was last updated.
-     * 
-     */
     public String lastUpdatedDate() {
         return this.lastUpdatedDate;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Map of key-value pairs associated with the policy store.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Validation settings for the policy store.
-     * 
-     */
     public List<GetPolicyStoreValidationSetting> validationSettings() {
         return this.validationSettings;
     }

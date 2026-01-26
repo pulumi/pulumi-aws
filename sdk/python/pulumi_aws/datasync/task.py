@@ -35,20 +35,6 @@ class TaskArgs:
                  task_report_config: Optional[pulumi.Input['TaskTaskReportConfigArgs']] = None):
         """
         The set of arguments for constructing a Task resource.
-        :param pulumi.Input[_builtins.str] destination_location_arn: Amazon Resource Name (ARN) of destination DataSync Location.
-        :param pulumi.Input[_builtins.str] source_location_arn: Amazon Resource Name (ARN) of source DataSync Location.
-        :param pulumi.Input[_builtins.str] cloudwatch_log_group_arn: Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
-        :param pulumi.Input['TaskExcludesArgs'] excludes: Filter rules that determines which files to exclude from a task.
-        :param pulumi.Input['TaskIncludesArgs'] includes: Filter rules that determines which files to include in a task.
-        :param pulumi.Input[_builtins.str] name: Name of the DataSync Task.
-        :param pulumi.Input['TaskOptionsArgs'] options: Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['TaskScheduleArgs'] schedule: Specifies a schedule used to periodically transfer files from a source to a destination location.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] task_mode: One of the following task modes for your data transfer:
-               * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
-               * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
-        :param pulumi.Input['TaskTaskReportConfigArgs'] task_report_config: Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
         """
         pulumi.set(__self__, "destination_location_arn", destination_location_arn)
         pulumi.set(__self__, "source_location_arn", source_location_arn)
@@ -76,9 +62,6 @@ class TaskArgs:
     @_builtins.property
     @pulumi.getter(name="destinationLocationArn")
     def destination_location_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of destination DataSync Location.
-        """
         return pulumi.get(self, "destination_location_arn")
 
     @destination_location_arn.setter
@@ -88,9 +71,6 @@ class TaskArgs:
     @_builtins.property
     @pulumi.getter(name="sourceLocationArn")
     def source_location_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of source DataSync Location.
-        """
         return pulumi.get(self, "source_location_arn")
 
     @source_location_arn.setter
@@ -100,9 +80,6 @@ class TaskArgs:
     @_builtins.property
     @pulumi.getter(name="cloudwatchLogGroupArn")
     def cloudwatch_log_group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
-        """
         return pulumi.get(self, "cloudwatch_log_group_arn")
 
     @cloudwatch_log_group_arn.setter
@@ -112,9 +89,6 @@ class TaskArgs:
     @_builtins.property
     @pulumi.getter
     def excludes(self) -> Optional[pulumi.Input['TaskExcludesArgs']]:
-        """
-        Filter rules that determines which files to exclude from a task.
-        """
         return pulumi.get(self, "excludes")
 
     @excludes.setter
@@ -124,9 +98,6 @@ class TaskArgs:
     @_builtins.property
     @pulumi.getter
     def includes(self) -> Optional[pulumi.Input['TaskIncludesArgs']]:
-        """
-        Filter rules that determines which files to include in a task.
-        """
         return pulumi.get(self, "includes")
 
     @includes.setter
@@ -136,9 +107,6 @@ class TaskArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the DataSync Task.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -148,9 +116,6 @@ class TaskArgs:
     @_builtins.property
     @pulumi.getter
     def options(self) -> Optional[pulumi.Input['TaskOptionsArgs']]:
-        """
-        Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
-        """
         return pulumi.get(self, "options")
 
     @options.setter
@@ -160,9 +125,6 @@ class TaskArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -172,9 +134,6 @@ class TaskArgs:
     @_builtins.property
     @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input['TaskScheduleArgs']]:
-        """
-        Specifies a schedule used to periodically transfer files from a source to a destination location.
-        """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
@@ -184,9 +143,6 @@ class TaskArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -196,11 +152,6 @@ class TaskArgs:
     @_builtins.property
     @pulumi.getter(name="taskMode")
     def task_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        One of the following task modes for your data transfer:
-        * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
-        * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
-        """
         return pulumi.get(self, "task_mode")
 
     @task_mode.setter
@@ -210,9 +161,6 @@ class TaskArgs:
     @_builtins.property
     @pulumi.getter(name="taskReportConfig")
     def task_report_config(self) -> Optional[pulumi.Input['TaskTaskReportConfigArgs']]:
-        """
-        Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
-        """
         return pulumi.get(self, "task_report_config")
 
     @task_report_config.setter
@@ -239,22 +187,6 @@ class _TaskState:
                  task_report_config: Optional[pulumi.Input['TaskTaskReportConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Task resources.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Task.
-        :param pulumi.Input[_builtins.str] cloudwatch_log_group_arn: Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
-        :param pulumi.Input[_builtins.str] destination_location_arn: Amazon Resource Name (ARN) of destination DataSync Location.
-        :param pulumi.Input['TaskExcludesArgs'] excludes: Filter rules that determines which files to exclude from a task.
-        :param pulumi.Input['TaskIncludesArgs'] includes: Filter rules that determines which files to include in a task.
-        :param pulumi.Input[_builtins.str] name: Name of the DataSync Task.
-        :param pulumi.Input['TaskOptionsArgs'] options: Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['TaskScheduleArgs'] schedule: Specifies a schedule used to periodically transfer files from a source to a destination location.
-        :param pulumi.Input[_builtins.str] source_location_arn: Amazon Resource Name (ARN) of source DataSync Location.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] task_mode: One of the following task modes for your data transfer:
-               * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
-               * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
-        :param pulumi.Input['TaskTaskReportConfigArgs'] task_report_config: Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -288,9 +220,6 @@ class _TaskState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the DataSync Task.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -300,9 +229,6 @@ class _TaskState:
     @_builtins.property
     @pulumi.getter(name="cloudwatchLogGroupArn")
     def cloudwatch_log_group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
-        """
         return pulumi.get(self, "cloudwatch_log_group_arn")
 
     @cloudwatch_log_group_arn.setter
@@ -312,9 +238,6 @@ class _TaskState:
     @_builtins.property
     @pulumi.getter(name="destinationLocationArn")
     def destination_location_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of destination DataSync Location.
-        """
         return pulumi.get(self, "destination_location_arn")
 
     @destination_location_arn.setter
@@ -324,9 +247,6 @@ class _TaskState:
     @_builtins.property
     @pulumi.getter
     def excludes(self) -> Optional[pulumi.Input['TaskExcludesArgs']]:
-        """
-        Filter rules that determines which files to exclude from a task.
-        """
         return pulumi.get(self, "excludes")
 
     @excludes.setter
@@ -336,9 +256,6 @@ class _TaskState:
     @_builtins.property
     @pulumi.getter
     def includes(self) -> Optional[pulumi.Input['TaskIncludesArgs']]:
-        """
-        Filter rules that determines which files to include in a task.
-        """
         return pulumi.get(self, "includes")
 
     @includes.setter
@@ -348,9 +265,6 @@ class _TaskState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the DataSync Task.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -360,9 +274,6 @@ class _TaskState:
     @_builtins.property
     @pulumi.getter
     def options(self) -> Optional[pulumi.Input['TaskOptionsArgs']]:
-        """
-        Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
-        """
         return pulumi.get(self, "options")
 
     @options.setter
@@ -372,9 +283,6 @@ class _TaskState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -384,9 +292,6 @@ class _TaskState:
     @_builtins.property
     @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input['TaskScheduleArgs']]:
-        """
-        Specifies a schedule used to periodically transfer files from a source to a destination location.
-        """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
@@ -396,9 +301,6 @@ class _TaskState:
     @_builtins.property
     @pulumi.getter(name="sourceLocationArn")
     def source_location_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of source DataSync Location.
-        """
         return pulumi.get(self, "source_location_arn")
 
     @source_location_arn.setter
@@ -408,9 +310,6 @@ class _TaskState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -420,9 +319,6 @@ class _TaskState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -432,11 +328,6 @@ class _TaskState:
     @_builtins.property
     @pulumi.getter(name="taskMode")
     def task_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        One of the following task modes for your data transfer:
-        * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
-        * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
-        """
         return pulumi.get(self, "task_mode")
 
     @task_mode.setter
@@ -446,9 +337,6 @@ class _TaskState:
     @_builtins.property
     @pulumi.getter(name="taskReportConfig")
     def task_report_config(self) -> Optional[pulumi.Input['TaskTaskReportConfigArgs']]:
-        """
-        Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
-        """
         return pulumi.get(self, "task_report_config")
 
     @task_report_config.setter
@@ -476,105 +364,9 @@ class Task(pulumi.CustomResource):
                  task_report_config: Optional[pulumi.Input[Union['TaskTaskReportConfigArgs', 'TaskTaskReportConfigArgsDict']]] = None,
                  __props__=None):
         """
-        Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.datasync.Task("example",
-            destination_location_arn=destination["arn"],
-            name="example",
-            source_location_arn=source["arn"],
-            options={
-                "bytes_per_second": -1,
-            })
-        ```
-
-        ### With Scheduling
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.datasync.Task("example",
-            destination_location_arn=destination["arn"],
-            name="example",
-            source_location_arn=source["arn"],
-            schedule={
-                "schedule_expression": "cron(0 12 ? * SUN,WED *)",
-            })
-        ```
-
-        ### With Filtering
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.datasync.Task("example",
-            destination_location_arn=destination["arn"],
-            name="example",
-            source_location_arn=source["arn"],
-            excludes={
-                "filter_type": "SIMPLE_PATTERN",
-                "value": "/folder1|/folder2",
-            },
-            includes={
-                "filter_type": "SIMPLE_PATTERN",
-                "value": "/folder1|/folder2",
-            })
-        ```
-
-        ### With Enhanced Task Mode
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.datasync.Task("example",
-            destination_location_arn=destination["arn"],
-            name="example",
-            source_location_arn=source["arn"],
-            task_mode="ENHANCED",
-            options={
-                "gid": "NONE",
-                "posix_permissions": "NONE",
-                "uid": "NONE",
-                "verify_mode": "ONLY_FILES_TRANSFERRED",
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the DataSync task.
-
-        Using `pulumi import`, import `aws_datasync_task` using the DataSync Task Amazon Resource Name (ARN). For example:
-
-        % pulumi import aws_datasync_task.example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
-
+        Create a Task resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cloudwatch_log_group_arn: Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
-        :param pulumi.Input[_builtins.str] destination_location_arn: Amazon Resource Name (ARN) of destination DataSync Location.
-        :param pulumi.Input[Union['TaskExcludesArgs', 'TaskExcludesArgsDict']] excludes: Filter rules that determines which files to exclude from a task.
-        :param pulumi.Input[Union['TaskIncludesArgs', 'TaskIncludesArgsDict']] includes: Filter rules that determines which files to include in a task.
-        :param pulumi.Input[_builtins.str] name: Name of the DataSync Task.
-        :param pulumi.Input[Union['TaskOptionsArgs', 'TaskOptionsArgsDict']] options: Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['TaskScheduleArgs', 'TaskScheduleArgsDict']] schedule: Specifies a schedule used to periodically transfer files from a source to a destination location.
-        :param pulumi.Input[_builtins.str] source_location_arn: Amazon Resource Name (ARN) of source DataSync Location.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] task_mode: One of the following task modes for your data transfer:
-               * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
-               * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
-        :param pulumi.Input[Union['TaskTaskReportConfigArgs', 'TaskTaskReportConfigArgsDict']] task_report_config: Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
         """
         ...
     @overload
@@ -583,89 +375,7 @@ class Task(pulumi.CustomResource):
                  args: TaskArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.datasync.Task("example",
-            destination_location_arn=destination["arn"],
-            name="example",
-            source_location_arn=source["arn"],
-            options={
-                "bytes_per_second": -1,
-            })
-        ```
-
-        ### With Scheduling
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.datasync.Task("example",
-            destination_location_arn=destination["arn"],
-            name="example",
-            source_location_arn=source["arn"],
-            schedule={
-                "schedule_expression": "cron(0 12 ? * SUN,WED *)",
-            })
-        ```
-
-        ### With Filtering
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.datasync.Task("example",
-            destination_location_arn=destination["arn"],
-            name="example",
-            source_location_arn=source["arn"],
-            excludes={
-                "filter_type": "SIMPLE_PATTERN",
-                "value": "/folder1|/folder2",
-            },
-            includes={
-                "filter_type": "SIMPLE_PATTERN",
-                "value": "/folder1|/folder2",
-            })
-        ```
-
-        ### With Enhanced Task Mode
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.datasync.Task("example",
-            destination_location_arn=destination["arn"],
-            name="example",
-            source_location_arn=source["arn"],
-            task_mode="ENHANCED",
-            options={
-                "gid": "NONE",
-                "posix_permissions": "NONE",
-                "uid": "NONE",
-                "verify_mode": "ONLY_FILES_TRANSFERRED",
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the DataSync task.
-
-        Using `pulumi import`, import `aws_datasync_task` using the DataSync Task Amazon Resource Name (ARN). For example:
-
-        % pulumi import aws_datasync_task.example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
-
+        Create a Task resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TaskArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -751,22 +461,6 @@ class Task(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Task.
-        :param pulumi.Input[_builtins.str] cloudwatch_log_group_arn: Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
-        :param pulumi.Input[_builtins.str] destination_location_arn: Amazon Resource Name (ARN) of destination DataSync Location.
-        :param pulumi.Input[Union['TaskExcludesArgs', 'TaskExcludesArgsDict']] excludes: Filter rules that determines which files to exclude from a task.
-        :param pulumi.Input[Union['TaskIncludesArgs', 'TaskIncludesArgsDict']] includes: Filter rules that determines which files to include in a task.
-        :param pulumi.Input[_builtins.str] name: Name of the DataSync Task.
-        :param pulumi.Input[Union['TaskOptionsArgs', 'TaskOptionsArgsDict']] options: Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['TaskScheduleArgs', 'TaskScheduleArgsDict']] schedule: Specifies a schedule used to periodically transfer files from a source to a destination location.
-        :param pulumi.Input[_builtins.str] source_location_arn: Amazon Resource Name (ARN) of source DataSync Location.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] task_mode: One of the following task modes for your data transfer:
-               * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
-               * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
-        :param pulumi.Input[Union['TaskTaskReportConfigArgs', 'TaskTaskReportConfigArgsDict']] task_report_config: Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -791,114 +485,70 @@ class Task(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the DataSync Task.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchLogGroupArn")
     def cloudwatch_log_group_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
-        """
         return pulumi.get(self, "cloudwatch_log_group_arn")
 
     @_builtins.property
     @pulumi.getter(name="destinationLocationArn")
     def destination_location_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of destination DataSync Location.
-        """
         return pulumi.get(self, "destination_location_arn")
 
     @_builtins.property
     @pulumi.getter
     def excludes(self) -> pulumi.Output[Optional['outputs.TaskExcludes']]:
-        """
-        Filter rules that determines which files to exclude from a task.
-        """
         return pulumi.get(self, "excludes")
 
     @_builtins.property
     @pulumi.getter
     def includes(self) -> pulumi.Output[Optional['outputs.TaskIncludes']]:
-        """
-        Filter rules that determines which files to include in a task.
-        """
         return pulumi.get(self, "includes")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the DataSync Task.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def options(self) -> pulumi.Output[Optional['outputs.TaskOptions']]:
-        """
-        Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
-        """
         return pulumi.get(self, "options")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def schedule(self) -> pulumi.Output[Optional['outputs.TaskSchedule']]:
-        """
-        Specifies a schedule used to periodically transfer files from a source to a destination location.
-        """
         return pulumi.get(self, "schedule")
 
     @_builtins.property
     @pulumi.getter(name="sourceLocationArn")
     def source_location_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of source DataSync Location.
-        """
         return pulumi.get(self, "source_location_arn")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="taskMode")
     def task_mode(self) -> pulumi.Output[_builtins.str]:
-        """
-        One of the following task modes for your data transfer:
-        * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
-        * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
-        """
         return pulumi.get(self, "task_mode")
 
     @_builtins.property
     @pulumi.getter(name="taskReportConfig")
     def task_report_config(self) -> pulumi.Output[Optional['outputs.TaskTaskReportConfig']]:
-        """
-        Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
-        """
         return pulumi.get(self, "task_report_config")
 

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Auditmanager.Outputs
     [OutputType]
     public sealed class AssessmentScope
     {
-        /// <summary>
-        /// Amazon Web Services accounts that are in scope for the assessment. See `AwsAccounts` below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.AssessmentScopeAwsAccount> AwsAccounts;
-        /// <summary>
-        /// Amazon Web Services services that are included in the scope of the assessment. See `AwsServices` below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.AssessmentScopeAwsService> AwsServices;
 
         [OutputConstructor]

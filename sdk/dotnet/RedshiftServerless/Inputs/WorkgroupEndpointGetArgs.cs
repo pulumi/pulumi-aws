@@ -12,24 +12,14 @@ namespace Pulumi.Aws.RedshiftServerless.Inputs
 
     public sealed class WorkgroupEndpointGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The DNS address of the VPC endpoint.
-        /// </summary>
         [Input("address")]
         public Input<string>? Address { get; set; }
 
-        /// <summary>
-        /// The port number on which the cluster accepts incoming connections.
-        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         [Input("vpcEndpoints")]
         private InputList<Inputs.WorkgroupEndpointVpcEndpointGetArgs>? _vpcEndpoints;
-
-        /// <summary>
-        /// The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
-        /// </summary>
         public InputList<Inputs.WorkgroupEndpointVpcEndpointGetArgs> VpcEndpoints
         {
             get => _vpcEndpoints ?? (_vpcEndpoints = new InputList<Inputs.WorkgroupEndpointVpcEndpointGetArgs>());

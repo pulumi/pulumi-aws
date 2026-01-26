@@ -14,92 +14,44 @@ public final class GetListenerRuleActionRedirectArgs extends com.pulumi.resource
 
     public static final GetListenerRuleActionRedirectArgs Empty = new GetListenerRuleActionRedirectArgs();
 
-    /**
-     * The hostname.
-     * 
-     */
     @Import(name="host", required=true)
     private Output<String> host;
 
-    /**
-     * @return The hostname.
-     * 
-     */
     public Output<String> host() {
         return this.host;
     }
 
-    /**
-     * The absolute path, starting with `/`.
-     * 
-     */
     @Import(name="path", required=true)
     private Output<String> path;
 
-    /**
-     * @return The absolute path, starting with `/`.
-     * 
-     */
     public Output<String> path() {
         return this.path;
     }
 
-    /**
-     * The port.
-     * 
-     */
     @Import(name="port", required=true)
     private Output<String> port;
 
-    /**
-     * @return The port.
-     * 
-     */
     public Output<String> port() {
         return this.port;
     }
 
-    /**
-     * The protocol.
-     * 
-     */
     @Import(name="protocol", required=true)
     private Output<String> protocol;
 
-    /**
-     * @return The protocol.
-     * 
-     */
     public Output<String> protocol() {
         return this.protocol;
     }
 
-    /**
-     * The query parameters.
-     * 
-     */
     @Import(name="query", required=true)
     private Output<String> query;
 
-    /**
-     * @return The query parameters.
-     * 
-     */
     public Output<String> query() {
         return this.query;
     }
 
-    /**
-     * The HTTP redirect code.
-     * 
-     */
     @Import(name="statusCode", required=true)
     private Output<String> statusCode;
 
-    /**
-     * @return The HTTP redirect code.
-     * 
-     */
     public Output<String> statusCode() {
         return this.statusCode;
     }
@@ -133,128 +85,56 @@ public final class GetListenerRuleActionRedirectArgs extends com.pulumi.resource
             $ = new GetListenerRuleActionRedirectArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param host The hostname.
-         * 
-         * @return builder
-         * 
-         */
         public Builder host(Output<String> host) {
             $.host = host;
             return this;
         }
 
-        /**
-         * @param host The hostname.
-         * 
-         * @return builder
-         * 
-         */
         public Builder host(String host) {
             return host(Output.of(host));
         }
 
-        /**
-         * @param path The absolute path, starting with `/`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(Output<String> path) {
             $.path = path;
             return this;
         }
 
-        /**
-         * @param path The absolute path, starting with `/`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(String path) {
             return path(Output.of(path));
         }
 
-        /**
-         * @param port The port.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(Output<String> port) {
             $.port = port;
             return this;
         }
 
-        /**
-         * @param port The port.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(String port) {
             return port(Output.of(port));
         }
 
-        /**
-         * @param protocol The protocol.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocol(Output<String> protocol) {
             $.protocol = protocol;
             return this;
         }
 
-        /**
-         * @param protocol The protocol.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocol(String protocol) {
             return protocol(Output.of(protocol));
         }
 
-        /**
-         * @param query The query parameters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder query(Output<String> query) {
             $.query = query;
             return this;
         }
 
-        /**
-         * @param query The query parameters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder query(String query) {
             return query(Output.of(query));
         }
 
-        /**
-         * @param statusCode The HTTP redirect code.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusCode(Output<String> statusCode) {
             $.statusCode = statusCode;
             return this;
         }
 
-        /**
-         * @param statusCode The HTTP redirect code.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusCode(String statusCode) {
             return statusCode(Output.of(statusCode));
         }

@@ -7,56 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS WorkSpaces Web Portal.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.workspacesweb.Portal("example", {
- *     displayName: "example-portal",
- *     instanceType: "standard.regular",
- * });
- * ```
- *
- * ### Complete Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.kms.Key("example", {
- *     description: "KMS key for WorkSpaces Web Portal",
- *     deletionWindowInDays: 7,
- * });
- * const examplePortal = new aws.workspacesweb.Portal("example", {
- *     displayName: "example-portal",
- *     instanceType: "standard.large",
- *     authenticationType: "IAM_Identity_Center",
- *     customerManagedKey: example.arn,
- *     maxConcurrentSessions: 10,
- *     additionalEncryptionContext: {
- *         Environment: "Production",
- *     },
- *     tags: {
- *         Name: "example-portal",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import WorkSpaces Web Portal using the `portal_arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:workspacesweb/portal:Portal example arn:aws:workspaces-web:us-west-2:123456789012:portal/abcdef12345678
- * ```
- */
 export class Portal extends pulumi.CustomResource {
     /**
      * Get an existing Portal resource's state with the given name, ID, and optional extra
@@ -85,102 +35,30 @@ export class Portal extends pulumi.CustomResource {
         return obj['__pulumiType'] === Portal.__pulumiType;
     }
 
-    /**
-     * Additional encryption context for the customer managed key. Forces replacement if changed.
-     */
     declare public readonly additionalEncryptionContext: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Authentication type for the portal. Valid values: `Standard`, `IAM_Identity_Center`.
-     */
     declare public readonly authenticationType: pulumi.Output<string>;
-    /**
-     * ARN of the browser settings to use for the portal.
-     */
     declare public readonly browserSettingsArn: pulumi.Output<string>;
-    /**
-     * Browser type of the portal.
-     */
     declare public /*out*/ readonly browserType: pulumi.Output<string>;
-    /**
-     * Creation date of the portal.
-     */
     declare public /*out*/ readonly creationDate: pulumi.Output<string>;
-    /**
-     * ARN of the customer managed key. Forces replacement if changed.
-     */
     declare public readonly customerManagedKey: pulumi.Output<string | undefined>;
-    /**
-     * ARN of the data protection settings associated with the portal.
-     */
     declare public /*out*/ readonly dataProtectionSettingsArn: pulumi.Output<string>;
-    /**
-     * Display name of the portal.
-     */
     declare public readonly displayName: pulumi.Output<string>;
-    /**
-     * Instance type for the portal. Valid values: `standard.regular`, `standard.large`.
-     */
     declare public readonly instanceType: pulumi.Output<string>;
-    /**
-     * ARN of the IP access settings associated with the portal.
-     */
     declare public /*out*/ readonly ipAccessSettingsArn: pulumi.Output<string>;
-    /**
-     * Maximum number of concurrent sessions for the portal.
-     */
     declare public readonly maxConcurrentSessions: pulumi.Output<number>;
-    /**
-     * ARN of the network settings associated with the portal.
-     */
     declare public /*out*/ readonly networkSettingsArn: pulumi.Output<string>;
-    /**
-     * ARN of the portal.
-     */
     declare public /*out*/ readonly portalArn: pulumi.Output<string>;
-    /**
-     * Endpoint URL of the portal.
-     */
     declare public /*out*/ readonly portalEndpoint: pulumi.Output<string>;
-    /**
-     * Status of the portal.
-     */
     declare public /*out*/ readonly portalStatus: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Renderer type of the portal.
-     */
     declare public /*out*/ readonly rendererType: pulumi.Output<string>;
-    /**
-     * ARN of the session logger associated with the portal.
-     */
     declare public /*out*/ readonly sessionLoggerArn: pulumi.Output<string>;
-    /**
-     * Reason for the current status of the portal.
-     */
     declare public /*out*/ readonly statusReason: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.workspacesweb.PortalTimeouts | undefined>;
-    /**
-     * ARN of the trust store associated with the portal.
-     */
     declare public /*out*/ readonly trustStoreArn: pulumi.Output<string>;
-    /**
-     * ARN of the user access logging settings associated with the portal.
-     */
     declare public /*out*/ readonly userAccessLoggingSettingsArn: pulumi.Output<string>;
-    /**
-     * ARN of the user settings associated with the portal.
-     */
     declare public /*out*/ readonly userSettingsArn: pulumi.Output<string>;
 
     /**
@@ -258,102 +136,30 @@ export class Portal extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Portal resources.
  */
 export interface PortalState {
-    /**
-     * Additional encryption context for the customer managed key. Forces replacement if changed.
-     */
     additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Authentication type for the portal. Valid values: `Standard`, `IAM_Identity_Center`.
-     */
     authenticationType?: pulumi.Input<string>;
-    /**
-     * ARN of the browser settings to use for the portal.
-     */
     browserSettingsArn?: pulumi.Input<string>;
-    /**
-     * Browser type of the portal.
-     */
     browserType?: pulumi.Input<string>;
-    /**
-     * Creation date of the portal.
-     */
     creationDate?: pulumi.Input<string>;
-    /**
-     * ARN of the customer managed key. Forces replacement if changed.
-     */
     customerManagedKey?: pulumi.Input<string>;
-    /**
-     * ARN of the data protection settings associated with the portal.
-     */
     dataProtectionSettingsArn?: pulumi.Input<string>;
-    /**
-     * Display name of the portal.
-     */
     displayName?: pulumi.Input<string>;
-    /**
-     * Instance type for the portal. Valid values: `standard.regular`, `standard.large`.
-     */
     instanceType?: pulumi.Input<string>;
-    /**
-     * ARN of the IP access settings associated with the portal.
-     */
     ipAccessSettingsArn?: pulumi.Input<string>;
-    /**
-     * Maximum number of concurrent sessions for the portal.
-     */
     maxConcurrentSessions?: pulumi.Input<number>;
-    /**
-     * ARN of the network settings associated with the portal.
-     */
     networkSettingsArn?: pulumi.Input<string>;
-    /**
-     * ARN of the portal.
-     */
     portalArn?: pulumi.Input<string>;
-    /**
-     * Endpoint URL of the portal.
-     */
     portalEndpoint?: pulumi.Input<string>;
-    /**
-     * Status of the portal.
-     */
     portalStatus?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Renderer type of the portal.
-     */
     rendererType?: pulumi.Input<string>;
-    /**
-     * ARN of the session logger associated with the portal.
-     */
     sessionLoggerArn?: pulumi.Input<string>;
-    /**
-     * Reason for the current status of the portal.
-     */
     statusReason?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.workspacesweb.PortalTimeouts>;
-    /**
-     * ARN of the trust store associated with the portal.
-     */
     trustStoreArn?: pulumi.Input<string>;
-    /**
-     * ARN of the user access logging settings associated with the portal.
-     */
     userAccessLoggingSettingsArn?: pulumi.Input<string>;
-    /**
-     * ARN of the user settings associated with the portal.
-     */
     userSettingsArn?: pulumi.Input<string>;
 }
 
@@ -361,41 +167,14 @@ export interface PortalState {
  * The set of arguments for constructing a Portal resource.
  */
 export interface PortalArgs {
-    /**
-     * Additional encryption context for the customer managed key. Forces replacement if changed.
-     */
     additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Authentication type for the portal. Valid values: `Standard`, `IAM_Identity_Center`.
-     */
     authenticationType?: pulumi.Input<string>;
-    /**
-     * ARN of the browser settings to use for the portal.
-     */
     browserSettingsArn?: pulumi.Input<string>;
-    /**
-     * ARN of the customer managed key. Forces replacement if changed.
-     */
     customerManagedKey?: pulumi.Input<string>;
-    /**
-     * Display name of the portal.
-     */
     displayName?: pulumi.Input<string>;
-    /**
-     * Instance type for the portal. Valid values: `standard.regular`, `standard.large`.
-     */
     instanceType?: pulumi.Input<string>;
-    /**
-     * Maximum number of concurrent sessions for the portal.
-     */
     maxConcurrentSessions?: pulumi.Input<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.workspacesweb.PortalTimeouts>;
 }

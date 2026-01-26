@@ -13,119 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS WorkSpaces Web Browser Settings Association.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.workspacesweb.Portal;
- * import com.pulumi.aws.workspacesweb.PortalArgs;
- * import com.pulumi.aws.workspacesweb.BrowserSettings;
- * import com.pulumi.aws.workspacesweb.BrowserSettingsArgs;
- * import com.pulumi.aws.workspacesweb.BrowserSettingsAssociation;
- * import com.pulumi.aws.workspacesweb.BrowserSettingsAssociationArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Portal("example", PortalArgs.builder()
- *             .displayName("example")
- *             .build());
- * 
- *         var exampleBrowserSettings = new BrowserSettings("exampleBrowserSettings", BrowserSettingsArgs.builder()
- *             .browserPolicy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("chromePolicies", jsonObject(
- *                         jsonProperty("DefaultDownloadDirectory", jsonObject(
- *                             jsonProperty("value", "/home/as2-streaming-user/MyFiles/TemporaryFiles1")
- *                         ))
- *                     ))
- *                 )))
- *             .build());
- * 
- *         var exampleBrowserSettingsAssociation = new BrowserSettingsAssociation("exampleBrowserSettingsAssociation", BrowserSettingsAssociationArgs.builder()
- *             .browserSettingsArn(exampleBrowserSettings.browserSettingsArn())
- *             .portalArn(example.portalArn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import WorkSpaces Web Browser Settings Association using the `browser_settings_arn,portal_arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:workspacesweb/browserSettingsAssociation:BrowserSettingsAssociation example arn:aws:workspaces-web:us-west-2:123456789012:browserSettings/browser_settings-id-12345678,arn:aws:workspaces-web:us-west-2:123456789012:portal/portal-id-12345678
- * ```
- * 
- */
 @ResourceType(type="aws:workspacesweb/browserSettingsAssociation:BrowserSettingsAssociation")
 public class BrowserSettingsAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the browser settings to associate with the portal. Forces replacement if changed.
-     * 
-     */
     @Export(name="browserSettingsArn", refs={String.class}, tree="[0]")
     private Output<String> browserSettingsArn;
 
-    /**
-     * @return ARN of the browser settings to associate with the portal. Forces replacement if changed.
-     * 
-     */
     public Output<String> browserSettingsArn() {
         return this.browserSettingsArn;
     }
-    /**
-     * ARN of the portal to associate with the browser settings. Forces replacement if changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="portalArn", refs={String.class}, tree="[0]")
     private Output<String> portalArn;
 
-    /**
-     * @return ARN of the portal to associate with the browser settings. Forces replacement if changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> portalArn() {
         return this.portalArn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

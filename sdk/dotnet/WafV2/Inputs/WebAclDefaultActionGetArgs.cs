@@ -12,15 +12,9 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclDefaultActionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies that AWS WAF should allow requests by default. See `Allow` below for details.
-        /// </summary>
         [Input("allow")]
         public Input<Inputs.WebAclDefaultActionAllowGetArgs>? Allow { get; set; }
 
-        /// <summary>
-        /// Specifies that AWS WAF should block requests by default. See `Block` below for details.
-        /// </summary>
         [Input("block")]
         public Input<Inputs.WebAclDefaultActionBlockGetArgs>? Block { get; set; }
 

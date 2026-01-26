@@ -14,57 +14,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RouteSpecGrpcRouteMatch {
-    /**
-     * @return Data to match from the gRPC request.
-     * 
-     */
     private @Nullable List<RouteSpecGrpcRouteMatchMetadata> metadatas;
-    /**
-     * @return Method name to match from the request. If you specify a name, you must also specify a `serviceName`.
-     * 
-     */
     private @Nullable String methodName;
-    /**
-     * @return The port number to match from the request.
-     * 
-     */
     private @Nullable Integer port;
     private @Nullable String prefix;
-    /**
-     * @return Fully qualified domain name for the service to match from the request.
-     * 
-     */
     private @Nullable String serviceName;
 
     private RouteSpecGrpcRouteMatch() {}
-    /**
-     * @return Data to match from the gRPC request.
-     * 
-     */
     public List<RouteSpecGrpcRouteMatchMetadata> metadatas() {
         return this.metadatas == null ? List.of() : this.metadatas;
     }
-    /**
-     * @return Method name to match from the request. If you specify a name, you must also specify a `serviceName`.
-     * 
-     */
     public Optional<String> methodName() {
         return Optional.ofNullable(this.methodName);
     }
-    /**
-     * @return The port number to match from the request.
-     * 
-     */
     public Optional<Integer> port() {
         return Optional.ofNullable(this.port);
     }
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }
-    /**
-     * @return Fully qualified domain name for the service to match from the request.
-     * 
-     */
     public Optional<String> serviceName() {
         return Optional.ofNullable(this.serviceName);
     }

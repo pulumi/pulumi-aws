@@ -14,17 +14,9 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespaceA
 
     public static final WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs Empty = new WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs();
 
-    /**
-     * The namespace to use for aggregation
-     * 
-     */
     @Import(name="namespace", required=true)
     private Output<String> namespace;
 
-    /**
-     * @return The namespace to use for aggregation
-     * 
-     */
     public Output<String> namespace() {
         return this.namespace;
     }
@@ -53,23 +45,11 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespaceA
             $ = new WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param namespace The namespace to use for aggregation
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(Output<String> namespace) {
             $.namespace = namespace;
             return this;
         }
 
-        /**
-         * @param namespace The namespace to use for aggregation
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
         }

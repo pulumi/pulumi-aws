@@ -12,67 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a new Amazon Redshift Serverless Snapshot.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshiftserverless"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshiftserverless.NewSnapshot(ctx, "example", &redshiftserverless.SnapshotArgs{
-//				NamespaceName: pulumi.Any(exampleAwsRedshiftserverlessWorkgroup.NamespaceName),
-//				SnapshotName:  pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Redshift Serverless Snapshots using the `snapshot_name`. For example:
-//
-// ```sh
-// $ pulumi import aws:redshiftserverless/snapshot:Snapshot example example
-// ```
 type Snapshot struct {
 	pulumi.CustomResourceState
 
-	// All of the Amazon Web Services accounts that have access to restore a snapshot to a provisioned cluster.
 	AccountsWithProvisionedRestoreAccesses pulumi.StringArrayOutput `pulumi:"accountsWithProvisionedRestoreAccesses"`
-	// All of the Amazon Web Services accounts that have access to restore a snapshot to a namespace.
-	AccountsWithRestoreAccesses pulumi.StringArrayOutput `pulumi:"accountsWithRestoreAccesses"`
-	// The username of the database within a snapshot.
-	AdminUsername pulumi.StringOutput `pulumi:"adminUsername"`
-	// The Amazon Resource Name (ARN) of the snapshot.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The unique identifier of the KMS key used to encrypt the snapshot.
-	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
-	// The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
-	NamespaceArn pulumi.StringOutput `pulumi:"namespaceArn"`
-	// The namespace to create a snapshot for.
-	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
-	// The owner Amazon Web Services; account of the snapshot.
-	OwnerAccount pulumi.StringOutput `pulumi:"ownerAccount"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// How long to retain the created snapshot. Default value is `-1`.
-	RetentionPeriod pulumi.IntPtrOutput `pulumi:"retentionPeriod"`
-	// The name of the snapshot.
-	SnapshotName pulumi.StringOutput `pulumi:"snapshotName"`
+	AccountsWithRestoreAccesses            pulumi.StringArrayOutput `pulumi:"accountsWithRestoreAccesses"`
+	AdminUsername                          pulumi.StringOutput      `pulumi:"adminUsername"`
+	Arn                                    pulumi.StringOutput      `pulumi:"arn"`
+	KmsKeyId                               pulumi.StringOutput      `pulumi:"kmsKeyId"`
+	NamespaceArn                           pulumi.StringOutput      `pulumi:"namespaceArn"`
+	NamespaceName                          pulumi.StringOutput      `pulumi:"namespaceName"`
+	OwnerAccount                           pulumi.StringOutput      `pulumi:"ownerAccount"`
+	Region                                 pulumi.StringOutput      `pulumi:"region"`
+	RetentionPeriod                        pulumi.IntPtrOutput      `pulumi:"retentionPeriod"`
+	SnapshotName                           pulumi.StringOutput      `pulumi:"snapshotName"`
 }
 
 // NewSnapshot registers a new resource with the given unique name, arguments, and options.
@@ -111,53 +64,31 @@ func GetSnapshot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Snapshot resources.
 type snapshotState struct {
-	// All of the Amazon Web Services accounts that have access to restore a snapshot to a provisioned cluster.
 	AccountsWithProvisionedRestoreAccesses []string `pulumi:"accountsWithProvisionedRestoreAccesses"`
-	// All of the Amazon Web Services accounts that have access to restore a snapshot to a namespace.
-	AccountsWithRestoreAccesses []string `pulumi:"accountsWithRestoreAccesses"`
-	// The username of the database within a snapshot.
-	AdminUsername *string `pulumi:"adminUsername"`
-	// The Amazon Resource Name (ARN) of the snapshot.
-	Arn *string `pulumi:"arn"`
-	// The unique identifier of the KMS key used to encrypt the snapshot.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
-	NamespaceArn *string `pulumi:"namespaceArn"`
-	// The namespace to create a snapshot for.
-	NamespaceName *string `pulumi:"namespaceName"`
-	// The owner Amazon Web Services; account of the snapshot.
-	OwnerAccount *string `pulumi:"ownerAccount"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// How long to retain the created snapshot. Default value is `-1`.
-	RetentionPeriod *int `pulumi:"retentionPeriod"`
-	// The name of the snapshot.
-	SnapshotName *string `pulumi:"snapshotName"`
+	AccountsWithRestoreAccesses            []string `pulumi:"accountsWithRestoreAccesses"`
+	AdminUsername                          *string  `pulumi:"adminUsername"`
+	Arn                                    *string  `pulumi:"arn"`
+	KmsKeyId                               *string  `pulumi:"kmsKeyId"`
+	NamespaceArn                           *string  `pulumi:"namespaceArn"`
+	NamespaceName                          *string  `pulumi:"namespaceName"`
+	OwnerAccount                           *string  `pulumi:"ownerAccount"`
+	Region                                 *string  `pulumi:"region"`
+	RetentionPeriod                        *int     `pulumi:"retentionPeriod"`
+	SnapshotName                           *string  `pulumi:"snapshotName"`
 }
 
 type SnapshotState struct {
-	// All of the Amazon Web Services accounts that have access to restore a snapshot to a provisioned cluster.
 	AccountsWithProvisionedRestoreAccesses pulumi.StringArrayInput
-	// All of the Amazon Web Services accounts that have access to restore a snapshot to a namespace.
-	AccountsWithRestoreAccesses pulumi.StringArrayInput
-	// The username of the database within a snapshot.
-	AdminUsername pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the snapshot.
-	Arn pulumi.StringPtrInput
-	// The unique identifier of the KMS key used to encrypt the snapshot.
-	KmsKeyId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
-	NamespaceArn pulumi.StringPtrInput
-	// The namespace to create a snapshot for.
-	NamespaceName pulumi.StringPtrInput
-	// The owner Amazon Web Services; account of the snapshot.
-	OwnerAccount pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// How long to retain the created snapshot. Default value is `-1`.
-	RetentionPeriod pulumi.IntPtrInput
-	// The name of the snapshot.
-	SnapshotName pulumi.StringPtrInput
+	AccountsWithRestoreAccesses            pulumi.StringArrayInput
+	AdminUsername                          pulumi.StringPtrInput
+	Arn                                    pulumi.StringPtrInput
+	KmsKeyId                               pulumi.StringPtrInput
+	NamespaceArn                           pulumi.StringPtrInput
+	NamespaceName                          pulumi.StringPtrInput
+	OwnerAccount                           pulumi.StringPtrInput
+	Region                                 pulumi.StringPtrInput
+	RetentionPeriod                        pulumi.IntPtrInput
+	SnapshotName                           pulumi.StringPtrInput
 }
 
 func (SnapshotState) ElementType() reflect.Type {
@@ -165,26 +96,18 @@ func (SnapshotState) ElementType() reflect.Type {
 }
 
 type snapshotArgs struct {
-	// The namespace to create a snapshot for.
-	NamespaceName string `pulumi:"namespaceName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// How long to retain the created snapshot. Default value is `-1`.
-	RetentionPeriod *int `pulumi:"retentionPeriod"`
-	// The name of the snapshot.
-	SnapshotName string `pulumi:"snapshotName"`
+	NamespaceName   string  `pulumi:"namespaceName"`
+	Region          *string `pulumi:"region"`
+	RetentionPeriod *int    `pulumi:"retentionPeriod"`
+	SnapshotName    string  `pulumi:"snapshotName"`
 }
 
 // The set of arguments for constructing a Snapshot resource.
 type SnapshotArgs struct {
-	// The namespace to create a snapshot for.
-	NamespaceName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// How long to retain the created snapshot. Default value is `-1`.
+	NamespaceName   pulumi.StringInput
+	Region          pulumi.StringPtrInput
 	RetentionPeriod pulumi.IntPtrInput
-	// The name of the snapshot.
-	SnapshotName pulumi.StringInput
+	SnapshotName    pulumi.StringInput
 }
 
 func (SnapshotArgs) ElementType() reflect.Type {
@@ -274,57 +197,46 @@ func (o SnapshotOutput) ToSnapshotOutputWithContext(ctx context.Context) Snapsho
 	return o
 }
 
-// All of the Amazon Web Services accounts that have access to restore a snapshot to a provisioned cluster.
 func (o SnapshotOutput) AccountsWithProvisionedRestoreAccesses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringArrayOutput { return v.AccountsWithProvisionedRestoreAccesses }).(pulumi.StringArrayOutput)
 }
 
-// All of the Amazon Web Services accounts that have access to restore a snapshot to a namespace.
 func (o SnapshotOutput) AccountsWithRestoreAccesses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringArrayOutput { return v.AccountsWithRestoreAccesses }).(pulumi.StringArrayOutput)
 }
 
-// The username of the database within a snapshot.
 func (o SnapshotOutput) AdminUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the snapshot.
 func (o SnapshotOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The unique identifier of the KMS key used to encrypt the snapshot.
 func (o SnapshotOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
 func (o SnapshotOutput) NamespaceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.NamespaceArn }).(pulumi.StringOutput)
 }
 
-// The namespace to create a snapshot for.
 func (o SnapshotOutput) NamespaceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.NamespaceName }).(pulumi.StringOutput)
 }
 
-// The owner Amazon Web Services; account of the snapshot.
 func (o SnapshotOutput) OwnerAccount() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.OwnerAccount }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SnapshotOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// How long to retain the created snapshot. Default value is `-1`.
 func (o SnapshotOutput) RetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.IntPtrOutput { return v.RetentionPeriod }).(pulumi.IntPtrOutput)
 }
 
-// The name of the snapshot.
 func (o SnapshotOutput) SnapshotName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.SnapshotName }).(pulumi.StringOutput)
 }

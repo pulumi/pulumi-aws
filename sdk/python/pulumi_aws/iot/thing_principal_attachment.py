@@ -25,10 +25,6 @@ class ThingPrincipalAttachmentArgs:
                  thing_principal_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ThingPrincipalAttachment resource.
-        :param pulumi.Input[_builtins.str] principal: The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-        :param pulumi.Input[_builtins.str] thing: The name of the thing.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] thing_principal_type: The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
         """
         pulumi.set(__self__, "principal", principal)
         pulumi.set(__self__, "thing", thing)
@@ -40,9 +36,6 @@ class ThingPrincipalAttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def principal(self) -> pulumi.Input[_builtins.str]:
-        """
-        The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-        """
         return pulumi.get(self, "principal")
 
     @principal.setter
@@ -52,9 +45,6 @@ class ThingPrincipalAttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def thing(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the thing.
-        """
         return pulumi.get(self, "thing")
 
     @thing.setter
@@ -64,9 +54,6 @@ class ThingPrincipalAttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -76,9 +63,6 @@ class ThingPrincipalAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="thingPrincipalType")
     def thing_principal_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
-        """
         return pulumi.get(self, "thing_principal_type")
 
     @thing_principal_type.setter
@@ -95,10 +79,6 @@ class _ThingPrincipalAttachmentState:
                  thing_principal_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ThingPrincipalAttachment resources.
-        :param pulumi.Input[_builtins.str] principal: The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] thing: The name of the thing.
-        :param pulumi.Input[_builtins.str] thing_principal_type: The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
         """
         if principal is not None:
             pulumi.set(__self__, "principal", principal)
@@ -112,9 +92,6 @@ class _ThingPrincipalAttachmentState:
     @_builtins.property
     @pulumi.getter
     def principal(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-        """
         return pulumi.get(self, "principal")
 
     @principal.setter
@@ -124,9 +101,6 @@ class _ThingPrincipalAttachmentState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -136,9 +110,6 @@ class _ThingPrincipalAttachmentState:
     @_builtins.property
     @pulumi.getter
     def thing(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the thing.
-        """
         return pulumi.get(self, "thing")
 
     @thing.setter
@@ -148,9 +119,6 @@ class _ThingPrincipalAttachmentState:
     @_builtins.property
     @pulumi.getter(name="thingPrincipalType")
     def thing_principal_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
-        """
         return pulumi.get(self, "thing_principal_type")
 
     @thing_principal_type.setter
@@ -170,30 +138,9 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
                  thing_principal_type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Attaches Principal to AWS IoT Thing.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.iot.Thing("example", name="example")
-        cert = aws.iot.Certificate("cert",
-            csr=std.file(input="csr.pem").result,
-            active=True)
-        att = aws.iot.ThingPrincipalAttachment("att",
-            principal=cert.arn,
-            thing=example.name)
-        ```
-
+        Create a ThingPrincipalAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] principal: The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] thing: The name of the thing.
-        :param pulumi.Input[_builtins.str] thing_principal_type: The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
         """
         ...
     @overload
@@ -202,24 +149,7 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
                  args: ThingPrincipalAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Attaches Principal to AWS IoT Thing.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.iot.Thing("example", name="example")
-        cert = aws.iot.Certificate("cert",
-            csr=std.file(input="csr.pem").result,
-            active=True)
-        att = aws.iot.ThingPrincipalAttachment("att",
-            principal=cert.arn,
-            thing=example.name)
-        ```
-
+        Create a ThingPrincipalAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ThingPrincipalAttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -277,10 +207,6 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] principal: The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] thing: The name of the thing.
-        :param pulumi.Input[_builtins.str] thing_principal_type: The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -295,32 +221,20 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def principal(self) -> pulumi.Output[_builtins.str]:
-        """
-        The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-        """
         return pulumi.get(self, "principal")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def thing(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the thing.
-        """
         return pulumi.get(self, "thing")
 
     @_builtins.property
     @pulumi.getter(name="thingPrincipalType")
     def thing_principal_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
-        """
         return pulumi.get(self, "thing_principal_type")
 

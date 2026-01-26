@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Athena.Outputs
     [OutputType]
     public sealed class WorkgroupConfigurationMonitoringConfiguration
     {
-        /// <summary>
-        /// Configuration block for delivering logs to Amazon CloudWatch log groups. See CloudWatch Logging Configuration below.
-        /// </summary>
         public readonly Outputs.WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfiguration? CloudWatchLoggingConfiguration;
-        /// <summary>
-        /// Configuration block for managed log persistence. See Managed Logging Configuration below.
-        /// </summary>
         public readonly Outputs.WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfiguration? ManagedLoggingConfiguration;
-        /// <summary>
-        /// Configuration block for delivering logs to Amazon S3 buckets. See S3 Logging Configuration below.
-        /// </summary>
         public readonly Outputs.WorkgroupConfigurationMonitoringConfigurationS3LoggingConfiguration? S3LoggingConfiguration;
 
         [OutputConstructor]

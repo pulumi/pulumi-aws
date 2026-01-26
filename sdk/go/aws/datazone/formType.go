@@ -12,181 +12,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS DataZone Form Type.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datazone"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": []string{
-//							"sts:AssumeRole",
-//							"sts:TagSession",
-//						},
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": "datazone.amazonaws.com",
-//						},
-//					},
-//					map[string]interface{}{
-//						"Action": []string{
-//							"sts:AssumeRole",
-//							"sts:TagSession",
-//						},
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": "cloudformation.amazonaws.com",
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			tmpJSON1, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": []string{
-//							"datazone:*",
-//							"ram:*",
-//							"sso:*",
-//							"kms:*",
-//						},
-//						"Effect":   "Allow",
-//						"Resource": "*",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json1 := string(tmpJSON1)
-//			domainExecutionRole, err := iam.NewRole(ctx, "domain_execution_role", &iam.RoleArgs{
-//				Name:             pulumi.String("example-role"),
-//				AssumeRolePolicy: pulumi.String(json0),
-//				InlinePolicies: iam.RoleInlinePolicyArray{
-//					&iam.RoleInlinePolicyArgs{
-//						Name:   pulumi.String("example-policy"),
-//						Policy: pulumi.String(json1),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			test, err := datazone.NewDomain(ctx, "test", &datazone.DomainArgs{
-//				Name:                pulumi.String("example"),
-//				DomainExecutionRole: domainExecutionRole.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewSecurityGroup(ctx, "test", &ec2.SecurityGroupArgs{
-//				Name: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testProject, err := datazone.NewProject(ctx, "test", &datazone.ProjectArgs{
-//				DomainIdentifier: test.ID(),
-//				GlossaryTerms: pulumi.StringArray{
-//					pulumi.String("2N8w6XJCwZf"),
-//				},
-//				Name:              pulumi.String("example name"),
-//				Description:       pulumi.String("desc"),
-//				SkipDeletionCheck: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datazone.NewFormType(ctx, "test", &datazone.FormTypeArgs{
-//				Description:             pulumi.String("desc"),
-//				Name:                    pulumi.String("SageMakerModelFormType"),
-//				DomainIdentifier:        test.ID(),
-//				OwningProjectIdentifier: testProject.ID(),
-//				Status:                  pulumi.String("DISABLED"),
-//				Model: &datazone.FormTypeModelArgs{
-//					Smithy: pulumi.String(`\tstructure SageMakerModelFormType {
-//
-// \t\t\t@required
-// \t\t\t@amazon.datazone#searchable
-// \t\t\tmodelName: String
-//
-// \t\t\t@required
-// \t\t\tmodelArn: String
-//
-// \t\t\t@required
-// \t\t\tcreationTime: String
-// \t\t\t}
-// `),
-//
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import DataZone Form Type using a comma separated value of `domain_identifier`,`name`,`revision`. For example:
-//
-// ```sh
-// $ pulumi import aws:datazone/formType:FormType example domain_identifier,name,revision
-// ```
 type FormType struct {
 	pulumi.CustomResourceState
 
-	// Creation time of the Form Type.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Creator of the Form Type.
-	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
-	// Description of form type. Must have a length of between 1 and 2048 characters.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Identifier of the domain.
-	DomainIdentifier pulumi.StringOutput       `pulumi:"domainIdentifier"`
-	Imports          FormTypeImportArrayOutput `pulumi:"imports"`
-	// Object of the model of the form type that contains the following attributes.
-	Model FormTypeModelPtrOutput `pulumi:"model"`
-	// Name of the form type. Must be the name of the structure in smithy document.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Origin domain id of the Form Type.
-	OriginDomainId pulumi.StringOutput `pulumi:"originDomainId"`
-	// Origin project id of the Form Type.
-	OriginProjectId pulumi.StringOutput `pulumi:"originProjectId"`
-	// Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
-	OwningProjectIdentifier pulumi.StringOutput `pulumi:"owningProjectIdentifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Revision of the Form Type.
-	Revision pulumi.StringOutput       `pulumi:"revision"`
-	Status   pulumi.StringOutput       `pulumi:"status"`
-	Timeouts FormTypeTimeoutsPtrOutput `pulumi:"timeouts"`
+	CreatedAt               pulumi.StringOutput       `pulumi:"createdAt"`
+	CreatedBy               pulumi.StringOutput       `pulumi:"createdBy"`
+	Description             pulumi.StringPtrOutput    `pulumi:"description"`
+	DomainIdentifier        pulumi.StringOutput       `pulumi:"domainIdentifier"`
+	Imports                 FormTypeImportArrayOutput `pulumi:"imports"`
+	Model                   FormTypeModelPtrOutput    `pulumi:"model"`
+	Name                    pulumi.StringOutput       `pulumi:"name"`
+	OriginDomainId          pulumi.StringOutput       `pulumi:"originDomainId"`
+	OriginProjectId         pulumi.StringOutput       `pulumi:"originProjectId"`
+	OwningProjectIdentifier pulumi.StringOutput       `pulumi:"owningProjectIdentifier"`
+	Region                  pulumi.StringOutput       `pulumi:"region"`
+	Revision                pulumi.StringOutput       `pulumi:"revision"`
+	Status                  pulumi.StringOutput       `pulumi:"status"`
+	Timeouts                FormTypeTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewFormType registers a new resource with the given unique name, arguments, and options.
@@ -225,59 +67,37 @@ func GetFormType(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FormType resources.
 type formTypeState struct {
-	// Creation time of the Form Type.
-	CreatedAt *string `pulumi:"createdAt"`
-	// Creator of the Form Type.
-	CreatedBy *string `pulumi:"createdBy"`
-	// Description of form type. Must have a length of between 1 and 2048 characters.
-	Description *string `pulumi:"description"`
-	// Identifier of the domain.
-	DomainIdentifier *string          `pulumi:"domainIdentifier"`
-	Imports          []FormTypeImport `pulumi:"imports"`
-	// Object of the model of the form type that contains the following attributes.
-	Model *FormTypeModel `pulumi:"model"`
-	// Name of the form type. Must be the name of the structure in smithy document.
-	Name *string `pulumi:"name"`
-	// Origin domain id of the Form Type.
-	OriginDomainId *string `pulumi:"originDomainId"`
-	// Origin project id of the Form Type.
-	OriginProjectId *string `pulumi:"originProjectId"`
-	// Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
-	OwningProjectIdentifier *string `pulumi:"owningProjectIdentifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Revision of the Form Type.
-	Revision *string           `pulumi:"revision"`
-	Status   *string           `pulumi:"status"`
-	Timeouts *FormTypeTimeouts `pulumi:"timeouts"`
+	CreatedAt               *string           `pulumi:"createdAt"`
+	CreatedBy               *string           `pulumi:"createdBy"`
+	Description             *string           `pulumi:"description"`
+	DomainIdentifier        *string           `pulumi:"domainIdentifier"`
+	Imports                 []FormTypeImport  `pulumi:"imports"`
+	Model                   *FormTypeModel    `pulumi:"model"`
+	Name                    *string           `pulumi:"name"`
+	OriginDomainId          *string           `pulumi:"originDomainId"`
+	OriginProjectId         *string           `pulumi:"originProjectId"`
+	OwningProjectIdentifier *string           `pulumi:"owningProjectIdentifier"`
+	Region                  *string           `pulumi:"region"`
+	Revision                *string           `pulumi:"revision"`
+	Status                  *string           `pulumi:"status"`
+	Timeouts                *FormTypeTimeouts `pulumi:"timeouts"`
 }
 
 type FormTypeState struct {
-	// Creation time of the Form Type.
-	CreatedAt pulumi.StringPtrInput
-	// Creator of the Form Type.
-	CreatedBy pulumi.StringPtrInput
-	// Description of form type. Must have a length of between 1 and 2048 characters.
-	Description pulumi.StringPtrInput
-	// Identifier of the domain.
-	DomainIdentifier pulumi.StringPtrInput
-	Imports          FormTypeImportArrayInput
-	// Object of the model of the form type that contains the following attributes.
-	Model FormTypeModelPtrInput
-	// Name of the form type. Must be the name of the structure in smithy document.
-	Name pulumi.StringPtrInput
-	// Origin domain id of the Form Type.
-	OriginDomainId pulumi.StringPtrInput
-	// Origin project id of the Form Type.
-	OriginProjectId pulumi.StringPtrInput
-	// Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
+	CreatedAt               pulumi.StringPtrInput
+	CreatedBy               pulumi.StringPtrInput
+	Description             pulumi.StringPtrInput
+	DomainIdentifier        pulumi.StringPtrInput
+	Imports                 FormTypeImportArrayInput
+	Model                   FormTypeModelPtrInput
+	Name                    pulumi.StringPtrInput
+	OriginDomainId          pulumi.StringPtrInput
+	OriginProjectId         pulumi.StringPtrInput
 	OwningProjectIdentifier pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Revision of the Form Type.
-	Revision pulumi.StringPtrInput
-	Status   pulumi.StringPtrInput
-	Timeouts FormTypeTimeoutsPtrInput
+	Region                  pulumi.StringPtrInput
+	Revision                pulumi.StringPtrInput
+	Status                  pulumi.StringPtrInput
+	Timeouts                FormTypeTimeoutsPtrInput
 }
 
 func (FormTypeState) ElementType() reflect.Type {
@@ -285,38 +105,26 @@ func (FormTypeState) ElementType() reflect.Type {
 }
 
 type formTypeArgs struct {
-	// Description of form type. Must have a length of between 1 and 2048 characters.
-	Description *string `pulumi:"description"`
-	// Identifier of the domain.
-	DomainIdentifier string `pulumi:"domainIdentifier"`
-	// Object of the model of the form type that contains the following attributes.
-	Model *FormTypeModel `pulumi:"model"`
-	// Name of the form type. Must be the name of the structure in smithy document.
-	Name *string `pulumi:"name"`
-	// Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
-	OwningProjectIdentifier string `pulumi:"owningProjectIdentifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   *string           `pulumi:"region"`
-	Status   *string           `pulumi:"status"`
-	Timeouts *FormTypeTimeouts `pulumi:"timeouts"`
+	Description             *string           `pulumi:"description"`
+	DomainIdentifier        string            `pulumi:"domainIdentifier"`
+	Model                   *FormTypeModel    `pulumi:"model"`
+	Name                    *string           `pulumi:"name"`
+	OwningProjectIdentifier string            `pulumi:"owningProjectIdentifier"`
+	Region                  *string           `pulumi:"region"`
+	Status                  *string           `pulumi:"status"`
+	Timeouts                *FormTypeTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a FormType resource.
 type FormTypeArgs struct {
-	// Description of form type. Must have a length of between 1 and 2048 characters.
-	Description pulumi.StringPtrInput
-	// Identifier of the domain.
-	DomainIdentifier pulumi.StringInput
-	// Object of the model of the form type that contains the following attributes.
-	Model FormTypeModelPtrInput
-	// Name of the form type. Must be the name of the structure in smithy document.
-	Name pulumi.StringPtrInput
-	// Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
+	Description             pulumi.StringPtrInput
+	DomainIdentifier        pulumi.StringInput
+	Model                   FormTypeModelPtrInput
+	Name                    pulumi.StringPtrInput
 	OwningProjectIdentifier pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringPtrInput
-	Status   pulumi.StringPtrInput
-	Timeouts FormTypeTimeoutsPtrInput
+	Region                  pulumi.StringPtrInput
+	Status                  pulumi.StringPtrInput
+	Timeouts                FormTypeTimeoutsPtrInput
 }
 
 func (FormTypeArgs) ElementType() reflect.Type {
@@ -406,22 +214,18 @@ func (o FormTypeOutput) ToFormTypeOutputWithContext(ctx context.Context) FormTyp
 	return o
 }
 
-// Creation time of the Form Type.
 func (o FormTypeOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *FormType) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Creator of the Form Type.
 func (o FormTypeOutput) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *FormType) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
 }
 
-// Description of form type. Must have a length of between 1 and 2048 characters.
 func (o FormTypeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FormType) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Identifier of the domain.
 func (o FormTypeOutput) DomainIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *FormType) pulumi.StringOutput { return v.DomainIdentifier }).(pulumi.StringOutput)
 }
@@ -430,37 +234,30 @@ func (o FormTypeOutput) Imports() FormTypeImportArrayOutput {
 	return o.ApplyT(func(v *FormType) FormTypeImportArrayOutput { return v.Imports }).(FormTypeImportArrayOutput)
 }
 
-// Object of the model of the form type that contains the following attributes.
 func (o FormTypeOutput) Model() FormTypeModelPtrOutput {
 	return o.ApplyT(func(v *FormType) FormTypeModelPtrOutput { return v.Model }).(FormTypeModelPtrOutput)
 }
 
-// Name of the form type. Must be the name of the structure in smithy document.
 func (o FormTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FormType) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Origin domain id of the Form Type.
 func (o FormTypeOutput) OriginDomainId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FormType) pulumi.StringOutput { return v.OriginDomainId }).(pulumi.StringOutput)
 }
 
-// Origin project id of the Form Type.
 func (o FormTypeOutput) OriginProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FormType) pulumi.StringOutput { return v.OriginProjectId }).(pulumi.StringOutput)
 }
 
-// Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
 func (o FormTypeOutput) OwningProjectIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *FormType) pulumi.StringOutput { return v.OwningProjectIdentifier }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o FormTypeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *FormType) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Revision of the Form Type.
 func (o FormTypeOutput) Revision() pulumi.StringOutput {
 	return o.ApplyT(func(v *FormType) pulumi.StringOutput { return v.Revision }).(pulumi.StringOutput)
 }

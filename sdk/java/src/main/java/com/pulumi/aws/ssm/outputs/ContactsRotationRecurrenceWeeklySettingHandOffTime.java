@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ContactsRotationRecurrenceWeeklySettingHandOffTime {
-    /**
-     * @return (Required) The hour of the day.
-     * 
-     */
     private Integer hourOfDay;
-    /**
-     * @return (Required) The minutes of the hour.
-     * 
-     */
     private Integer minuteOfHour;
 
     private ContactsRotationRecurrenceWeeklySettingHandOffTime() {}
-    /**
-     * @return (Required) The hour of the day.
-     * 
-     */
     public Integer hourOfDay() {
         return this.hourOfDay;
     }
-    /**
-     * @return (Required) The minutes of the hour.
-     * 
-     */
     public Integer minuteOfHour() {
         return this.minuteOfHour;
     }

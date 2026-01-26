@@ -23,8 +23,7 @@ class SubscriptionArgs:
                  skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Subscription resource.
-        :param pulumi.Input[_builtins.str] auto_renew: Toggle for automated renewal of the subscription. Valid values are `ENABLED` or `DISABLED`. Default is `ENABLED`.
-        :param pulumi.Input[_builtins.bool] skip_destroy: Skip attempting to disable automated renewal upon destruction. If set to `true`, the `auto_renew` value will be left as-is and the resource will simply be removed from state.
+        :param pulumi.Input[_builtins.str] auto_renew: Whether to automatically renew the subscription when it expires.
         """
         if auto_renew is not None:
             pulumi.set(__self__, "auto_renew", auto_renew)
@@ -35,7 +34,7 @@ class SubscriptionArgs:
     @pulumi.getter(name="autoRenew")
     def auto_renew(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Toggle for automated renewal of the subscription. Valid values are `ENABLED` or `DISABLED`. Default is `ENABLED`.
+        Whether to automatically renew the subscription when it expires.
         """
         return pulumi.get(self, "auto_renew")
 
@@ -46,9 +45,6 @@ class SubscriptionArgs:
     @_builtins.property
     @pulumi.getter(name="skipDestroy")
     def skip_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Skip attempting to disable automated renewal upon destruction. If set to `true`, the `auto_renew` value will be left as-is and the resource will simply be removed from state.
-        """
         return pulumi.get(self, "skip_destroy")
 
     @skip_destroy.setter
@@ -63,8 +59,7 @@ class _SubscriptionState:
                  skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Subscription resources.
-        :param pulumi.Input[_builtins.str] auto_renew: Toggle for automated renewal of the subscription. Valid values are `ENABLED` or `DISABLED`. Default is `ENABLED`.
-        :param pulumi.Input[_builtins.bool] skip_destroy: Skip attempting to disable automated renewal upon destruction. If set to `true`, the `auto_renew` value will be left as-is and the resource will simply be removed from state.
+        :param pulumi.Input[_builtins.str] auto_renew: Whether to automatically renew the subscription when it expires.
         """
         if auto_renew is not None:
             pulumi.set(__self__, "auto_renew", auto_renew)
@@ -75,7 +70,7 @@ class _SubscriptionState:
     @pulumi.getter(name="autoRenew")
     def auto_renew(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Toggle for automated renewal of the subscription. Valid values are `ENABLED` or `DISABLED`. Default is `ENABLED`.
+        Whether to automatically renew the subscription when it expires.
         """
         return pulumi.get(self, "auto_renew")
 
@@ -86,9 +81,6 @@ class _SubscriptionState:
     @_builtins.property
     @pulumi.getter(name="skipDestroy")
     def skip_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Skip attempting to disable automated renewal upon destruction. If set to `true`, the `auto_renew` value will be left as-is and the resource will simply be removed from state.
-        """
         return pulumi.get(self, "skip_destroy")
 
     @skip_destroy.setter
@@ -106,35 +98,10 @@ class Subscription(pulumi.CustomResource):
                  skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Shield Subscription.
-
-        > This resource creates a subscription to AWS Shield Advanced, which requires a 1 year subscription commitment with a monthly fee. Refer to the [AWS Shield Pricing](https://aws.amazon.com/shield/pricing/) page for more details.
-
-        > Destruction of this resource will set `auto_renew` to `DISABLED`. Automatic renewal can only be disabled during the last 30 days of a subscription. To unsubscribe outside of this window, you must contact AWS Support. Set `skip_destroy` to `true` to skip modifying the `auto_renew` argument during destruction.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.shield.Subscription("example", auto_renew="ENABLED")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Shield Subscription using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:shield/subscription:Subscription example 123456789012
-        ```
-
+        Create a Subscription resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] auto_renew: Toggle for automated renewal of the subscription. Valid values are `ENABLED` or `DISABLED`. Default is `ENABLED`.
-        :param pulumi.Input[_builtins.bool] skip_destroy: Skip attempting to disable automated renewal upon destruction. If set to `true`, the `auto_renew` value will be left as-is and the resource will simply be removed from state.
+        :param pulumi.Input[_builtins.str] auto_renew: Whether to automatically renew the subscription when it expires.
         """
         ...
     @overload
@@ -143,31 +110,7 @@ class Subscription(pulumi.CustomResource):
                  args: Optional[SubscriptionArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Shield Subscription.
-
-        > This resource creates a subscription to AWS Shield Advanced, which requires a 1 year subscription commitment with a monthly fee. Refer to the [AWS Shield Pricing](https://aws.amazon.com/shield/pricing/) page for more details.
-
-        > Destruction of this resource will set `auto_renew` to `DISABLED`. Automatic renewal can only be disabled during the last 30 days of a subscription. To unsubscribe outside of this window, you must contact AWS Support. Set `skip_destroy` to `true` to skip modifying the `auto_renew` argument during destruction.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.shield.Subscription("example", auto_renew="ENABLED")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Shield Subscription using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:shield/subscription:Subscription example 123456789012
-        ```
-
+        Create a Subscription resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SubscriptionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -215,8 +158,7 @@ class Subscription(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] auto_renew: Toggle for automated renewal of the subscription. Valid values are `ENABLED` or `DISABLED`. Default is `ENABLED`.
-        :param pulumi.Input[_builtins.bool] skip_destroy: Skip attempting to disable automated renewal upon destruction. If set to `true`, the `auto_renew` value will be left as-is and the resource will simply be removed from state.
+        :param pulumi.Input[_builtins.str] auto_renew: Whether to automatically renew the subscription when it expires.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -230,15 +172,12 @@ class Subscription(pulumi.CustomResource):
     @pulumi.getter(name="autoRenew")
     def auto_renew(self) -> pulumi.Output[_builtins.str]:
         """
-        Toggle for automated renewal of the subscription. Valid values are `ENABLED` or `DISABLED`. Default is `ENABLED`.
+        Whether to automatically renew the subscription when it expires.
         """
         return pulumi.get(self, "auto_renew")
 
     @_builtins.property
     @pulumi.getter(name="skipDestroy")
     def skip_destroy(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Skip attempting to disable automated renewal upon destruction. If set to `true`, the `auto_renew` value will be left as-is and the resource will simply be removed from state.
-        """
         return pulumi.get(self, "skip_destroy")
 

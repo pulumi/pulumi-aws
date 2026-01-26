@@ -12,15 +12,9 @@ namespace Pulumi.Aws.IdentityStore.Inputs
 
     public sealed class GetUserAlternateIdentifierUniqueAttributeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
-        /// </summary>
         [Input("attributePath", required: true)]
         public string AttributePath { get; set; } = null!;
 
-        /// <summary>
-        /// Value for an attribute.
-        /// </summary>
         [Input("attributeValue", required: true)]
         public string AttributeValue { get; set; } = null!;
 

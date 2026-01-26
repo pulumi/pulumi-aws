@@ -12,33 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess {
-    /**
-     * @return The action to take on instances in the original environment after a successful blue/green deployment.
-     * * `TERMINATE`: Instances are terminated after a specified wait time.
-     * * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
-     * 
-     */
     private @Nullable String action;
-    /**
-     * @return The number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment.
-     * 
-     */
     private @Nullable Integer terminationWaitTimeInMinutes;
 
     private DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess() {}
-    /**
-     * @return The action to take on instances in the original environment after a successful blue/green deployment.
-     * * `TERMINATE`: Instances are terminated after a specified wait time.
-     * * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
-     * 
-     */
     public Optional<String> action() {
         return Optional.ofNullable(this.action);
     }
-    /**
-     * @return The number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment.
-     * 
-     */
     public Optional<Integer> terminationWaitTimeInMinutes() {
         return Optional.ofNullable(this.terminationWaitTimeInMinutes);
     }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsSlotObfuscationSetting
     {
-        /// <summary>
-        /// Whether Amazon Lex obscures slot values in conversation logs. Valid values are `DefaultObfuscation` and `None`.
-        /// </summary>
         public readonly string ObfuscationSettingType;
 
         [OutputConstructor]

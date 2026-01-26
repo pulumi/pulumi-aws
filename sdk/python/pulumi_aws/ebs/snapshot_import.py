@@ -34,17 +34,6 @@ class SnapshotImportArgs:
                  temporary_restore_days: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a SnapshotImport resource.
-        :param pulumi.Input['SnapshotImportDiskContainerArgs'] disk_container: Information about the disk container. Detailed below.
-        :param pulumi.Input['SnapshotImportClientDataArgs'] client_data: The client-specific data. Detailed below.
-        :param pulumi.Input[_builtins.str] description: The description string for the import snapshot task.
-        :param pulumi.Input[_builtins.bool] encrypted: Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
-        :param pulumi.Input[_builtins.str] kms_key_id: An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
-        :param pulumi.Input[_builtins.bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_name: The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
-        :param pulumi.Input[_builtins.str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the snapshot.
-        :param pulumi.Input[_builtins.int] temporary_restore_days: Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
         """
         pulumi.set(__self__, "disk_container", disk_container)
         if client_data is not None:
@@ -71,9 +60,6 @@ class SnapshotImportArgs:
     @_builtins.property
     @pulumi.getter(name="diskContainer")
     def disk_container(self) -> pulumi.Input['SnapshotImportDiskContainerArgs']:
-        """
-        Information about the disk container. Detailed below.
-        """
         return pulumi.get(self, "disk_container")
 
     @disk_container.setter
@@ -83,9 +69,6 @@ class SnapshotImportArgs:
     @_builtins.property
     @pulumi.getter(name="clientData")
     def client_data(self) -> Optional[pulumi.Input['SnapshotImportClientDataArgs']]:
-        """
-        The client-specific data. Detailed below.
-        """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
@@ -95,9 +78,6 @@ class SnapshotImportArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description string for the import snapshot task.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -107,9 +87,6 @@ class SnapshotImportArgs:
     @_builtins.property
     @pulumi.getter
     def encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
-        """
         return pulumi.get(self, "encrypted")
 
     @encrypted.setter
@@ -119,9 +96,6 @@ class SnapshotImportArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -131,9 +105,6 @@ class SnapshotImportArgs:
     @_builtins.property
     @pulumi.getter(name="permanentRestore")
     def permanent_restore(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether to permanently restore an archived snapshot.
-        """
         return pulumi.get(self, "permanent_restore")
 
     @permanent_restore.setter
@@ -143,9 +114,6 @@ class SnapshotImportArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -155,9 +123,6 @@ class SnapshotImportArgs:
     @_builtins.property
     @pulumi.getter(name="roleName")
     def role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
-        """
         return pulumi.get(self, "role_name")
 
     @role_name.setter
@@ -167,9 +132,6 @@ class SnapshotImportArgs:
     @_builtins.property
     @pulumi.getter(name="storageTier")
     def storage_tier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
-        """
         return pulumi.get(self, "storage_tier")
 
     @storage_tier.setter
@@ -179,9 +141,6 @@ class SnapshotImportArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the snapshot.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -191,9 +150,6 @@ class SnapshotImportArgs:
     @_builtins.property
     @pulumi.getter(name="temporaryRestoreDays")
     def temporary_restore_days(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
-        """
         return pulumi.get(self, "temporary_restore_days")
 
     @temporary_restore_days.setter
@@ -225,23 +181,6 @@ class _SnapshotImportState:
                  volume_size: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering SnapshotImport resources.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the EBS Snapshot.
-        :param pulumi.Input['SnapshotImportClientDataArgs'] client_data: The client-specific data. Detailed below.
-        :param pulumi.Input[_builtins.str] data_encryption_key_id: The data encryption key identifier for the snapshot.
-        :param pulumi.Input[_builtins.str] description: The description string for the import snapshot task.
-        :param pulumi.Input['SnapshotImportDiskContainerArgs'] disk_container: Information about the disk container. Detailed below.
-        :param pulumi.Input[_builtins.bool] encrypted: Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
-        :param pulumi.Input[_builtins.str] kms_key_id: An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
-        :param pulumi.Input[_builtins.str] owner_alias: Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
-        :param pulumi.Input[_builtins.str] owner_id: The AWS account ID of the EBS snapshot owner.
-        :param pulumi.Input[_builtins.bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_name: The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
-        :param pulumi.Input[_builtins.str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the snapshot.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.int] temporary_restore_days: Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
-        :param pulumi.Input[_builtins.int] volume_size: The size of the drive in GiBs.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -285,9 +224,6 @@ class _SnapshotImportState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the EBS Snapshot.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -297,9 +233,6 @@ class _SnapshotImportState:
     @_builtins.property
     @pulumi.getter(name="clientData")
     def client_data(self) -> Optional[pulumi.Input['SnapshotImportClientDataArgs']]:
-        """
-        The client-specific data. Detailed below.
-        """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
@@ -309,9 +242,6 @@ class _SnapshotImportState:
     @_builtins.property
     @pulumi.getter(name="dataEncryptionKeyId")
     def data_encryption_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The data encryption key identifier for the snapshot.
-        """
         return pulumi.get(self, "data_encryption_key_id")
 
     @data_encryption_key_id.setter
@@ -321,9 +251,6 @@ class _SnapshotImportState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description string for the import snapshot task.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -333,9 +260,6 @@ class _SnapshotImportState:
     @_builtins.property
     @pulumi.getter(name="diskContainer")
     def disk_container(self) -> Optional[pulumi.Input['SnapshotImportDiskContainerArgs']]:
-        """
-        Information about the disk container. Detailed below.
-        """
         return pulumi.get(self, "disk_container")
 
     @disk_container.setter
@@ -345,9 +269,6 @@ class _SnapshotImportState:
     @_builtins.property
     @pulumi.getter
     def encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
-        """
         return pulumi.get(self, "encrypted")
 
     @encrypted.setter
@@ -357,9 +278,6 @@ class _SnapshotImportState:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -378,9 +296,6 @@ class _SnapshotImportState:
     @_builtins.property
     @pulumi.getter(name="ownerAlias")
     def owner_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
-        """
         return pulumi.get(self, "owner_alias")
 
     @owner_alias.setter
@@ -390,9 +305,6 @@ class _SnapshotImportState:
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS account ID of the EBS snapshot owner.
-        """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
@@ -402,9 +314,6 @@ class _SnapshotImportState:
     @_builtins.property
     @pulumi.getter(name="permanentRestore")
     def permanent_restore(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether to permanently restore an archived snapshot.
-        """
         return pulumi.get(self, "permanent_restore")
 
     @permanent_restore.setter
@@ -414,9 +323,6 @@ class _SnapshotImportState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -426,9 +332,6 @@ class _SnapshotImportState:
     @_builtins.property
     @pulumi.getter(name="roleName")
     def role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
-        """
         return pulumi.get(self, "role_name")
 
     @role_name.setter
@@ -438,9 +341,6 @@ class _SnapshotImportState:
     @_builtins.property
     @pulumi.getter(name="storageTier")
     def storage_tier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
-        """
         return pulumi.get(self, "storage_tier")
 
     @storage_tier.setter
@@ -450,9 +350,6 @@ class _SnapshotImportState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the snapshot.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -462,9 +359,6 @@ class _SnapshotImportState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -474,9 +368,6 @@ class _SnapshotImportState:
     @_builtins.property
     @pulumi.getter(name="temporaryRestoreDays")
     def temporary_restore_days(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
-        """
         return pulumi.get(self, "temporary_restore_days")
 
     @temporary_restore_days.setter
@@ -495,9 +386,6 @@ class _SnapshotImportState:
     @_builtins.property
     @pulumi.getter(name="volumeSize")
     def volume_size(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The size of the drive in GiBs.
-        """
         return pulumi.get(self, "volume_size")
 
     @volume_size.setter
@@ -524,41 +412,9 @@ class SnapshotImport(pulumi.CustomResource):
                  temporary_restore_days: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
-        Imports a disk image from S3 as a Snapshot.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ebs.SnapshotImport("example",
-            disk_container={
-                "format": "VHD",
-                "user_bucket": {
-                    "s3_bucket": "disk-images",
-                    "s3_key": "source.vhd",
-                },
-            },
-            role_name="disk-image-import",
-            tags={
-                "Name": "HelloWorld",
-            })
-        ```
-
+        Create a SnapshotImport resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SnapshotImportClientDataArgs', 'SnapshotImportClientDataArgsDict']] client_data: The client-specific data. Detailed below.
-        :param pulumi.Input[_builtins.str] description: The description string for the import snapshot task.
-        :param pulumi.Input[Union['SnapshotImportDiskContainerArgs', 'SnapshotImportDiskContainerArgsDict']] disk_container: Information about the disk container. Detailed below.
-        :param pulumi.Input[_builtins.bool] encrypted: Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
-        :param pulumi.Input[_builtins.str] kms_key_id: An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
-        :param pulumi.Input[_builtins.bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_name: The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
-        :param pulumi.Input[_builtins.str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the snapshot.
-        :param pulumi.Input[_builtins.int] temporary_restore_days: Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
         """
         ...
     @overload
@@ -567,28 +423,7 @@ class SnapshotImport(pulumi.CustomResource):
                  args: SnapshotImportArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Imports a disk image from S3 as a Snapshot.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ebs.SnapshotImport("example",
-            disk_container={
-                "format": "VHD",
-                "user_bucket": {
-                    "s3_bucket": "disk-images",
-                    "s3_key": "source.vhd",
-                },
-            },
-            role_name="disk-image-import",
-            tags={
-                "Name": "HelloWorld",
-            })
-        ```
-
+        Create a SnapshotImport resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SnapshotImportArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -681,23 +516,6 @@ class SnapshotImport(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the EBS Snapshot.
-        :param pulumi.Input[Union['SnapshotImportClientDataArgs', 'SnapshotImportClientDataArgsDict']] client_data: The client-specific data. Detailed below.
-        :param pulumi.Input[_builtins.str] data_encryption_key_id: The data encryption key identifier for the snapshot.
-        :param pulumi.Input[_builtins.str] description: The description string for the import snapshot task.
-        :param pulumi.Input[Union['SnapshotImportDiskContainerArgs', 'SnapshotImportDiskContainerArgsDict']] disk_container: Information about the disk container. Detailed below.
-        :param pulumi.Input[_builtins.bool] encrypted: Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
-        :param pulumi.Input[_builtins.str] kms_key_id: An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
-        :param pulumi.Input[_builtins.str] owner_alias: Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
-        :param pulumi.Input[_builtins.str] owner_id: The AWS account ID of the EBS snapshot owner.
-        :param pulumi.Input[_builtins.bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_name: The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
-        :param pulumi.Input[_builtins.str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the snapshot.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.int] temporary_restore_days: Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
-        :param pulumi.Input[_builtins.int] volume_size: The size of the drive in GiBs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -727,57 +545,36 @@ class SnapshotImport(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the EBS Snapshot.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="clientData")
     def client_data(self) -> pulumi.Output[Optional['outputs.SnapshotImportClientData']]:
-        """
-        The client-specific data. Detailed below.
-        """
         return pulumi.get(self, "client_data")
 
     @_builtins.property
     @pulumi.getter(name="dataEncryptionKeyId")
     def data_encryption_key_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The data encryption key identifier for the snapshot.
-        """
         return pulumi.get(self, "data_encryption_key_id")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:
-        """
-        The description string for the import snapshot task.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="diskContainer")
     def disk_container(self) -> pulumi.Output['outputs.SnapshotImportDiskContainer']:
-        """
-        Information about the disk container. Detailed below.
-        """
         return pulumi.get(self, "disk_container")
 
     @_builtins.property
     @pulumi.getter
     def encrypted(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
-        """
         return pulumi.get(self, "encrypted")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
@@ -788,73 +585,46 @@ class SnapshotImport(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="ownerAlias")
     def owner_alias(self) -> pulumi.Output[_builtins.str]:
-        """
-        Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
-        """
         return pulumi.get(self, "owner_alias")
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The AWS account ID of the EBS snapshot owner.
-        """
         return pulumi.get(self, "owner_id")
 
     @_builtins.property
     @pulumi.getter(name="permanentRestore")
     def permanent_restore(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Indicates whether to permanently restore an archived snapshot.
-        """
         return pulumi.get(self, "permanent_restore")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="roleName")
     def role_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
-        """
         return pulumi.get(self, "role_name")
 
     @_builtins.property
     @pulumi.getter(name="storageTier")
     def storage_tier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
-        """
         return pulumi.get(self, "storage_tier")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the snapshot.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="temporaryRestoreDays")
     def temporary_restore_days(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
-        """
         return pulumi.get(self, "temporary_restore_days")
 
     @_builtins.property
@@ -865,8 +635,5 @@ class SnapshotImport(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="volumeSize")
     def volume_size(self) -> pulumi.Output[_builtins.int]:
-        """
-        The size of the drive in GiBs.
-        """
         return pulumi.get(self, "volume_size")
 

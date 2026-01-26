@@ -16,21 +16,9 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
 
     public static final AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs Empty = new AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs();
 
-    /**
-     * The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-     * 
-     * Each filter object should contain the following configuration:
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs>> filters;
 
-    /**
-     * @return The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-     * 
-     * Each filter object should contain the following configuration:
-     * 
-     */
     public Optional<Output<List<AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
@@ -59,39 +47,15 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
             $ = new AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-         * 
-         * Each filter object should contain the following configuration:
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-         * 
-         * Each filter object should contain the following configuration:
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-         * 
-         * Each filter object should contain the following configuration:
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs... filters) {
             return filters(List.of(filters));
         }

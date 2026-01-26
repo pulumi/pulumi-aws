@@ -17,81 +17,37 @@ public final class GetVocabularyArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetVocabularyArgs Empty = new GetVocabularyArgs();
 
-    /**
-     * Reference to the hosting Amazon Connect Instance
-     * 
-     */
     @Import(name="instanceId", required=true)
     private Output<String> instanceId;
 
-    /**
-     * @return Reference to the hosting Amazon Connect Instance
-     * 
-     */
     public Output<String> instanceId() {
         return this.instanceId;
     }
 
-    /**
-     * Returns information on a specific Vocabulary by name
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Returns information on a specific Vocabulary by name
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags to assign to the Vocabulary.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the Vocabulary.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Returns information on a specific Vocabulary by Vocabulary id
-     * 
-     * &gt; **NOTE:** `instanceId` and one of either `name` or `vocabularyId` is required.
-     * 
-     */
     @Import(name="vocabularyId")
     private @Nullable Output<String> vocabularyId;
 
-    /**
-     * @return Returns information on a specific Vocabulary by Vocabulary id
-     * 
-     * &gt; **NOTE:** `instanceId` and one of either `name` or `vocabularyId` is required.
-     * 
-     */
     public Optional<Output<String>> vocabularyId() {
         return Optional.ofNullable(this.vocabularyId);
     }
@@ -124,111 +80,47 @@ public final class GetVocabularyArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetVocabularyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param instanceId Reference to the hosting Amazon Connect Instance
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceId(Output<String> instanceId) {
             $.instanceId = instanceId;
             return this;
         }
 
-        /**
-         * @param instanceId Reference to the hosting Amazon Connect Instance
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceId(String instanceId) {
             return instanceId(Output.of(instanceId));
         }
 
-        /**
-         * @param name Returns information on a specific Vocabulary by name
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Returns information on a specific Vocabulary by name
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags A map of tags to assign to the Vocabulary.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the Vocabulary.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param vocabularyId Returns information on a specific Vocabulary by Vocabulary id
-         * 
-         * &gt; **NOTE:** `instanceId` and one of either `name` or `vocabularyId` is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vocabularyId(@Nullable Output<String> vocabularyId) {
             $.vocabularyId = vocabularyId;
             return this;
         }
 
-        /**
-         * @param vocabularyId Returns information on a specific Vocabulary by Vocabulary id
-         * 
-         * &gt; **NOTE:** `instanceId` and one of either `name` or `vocabularyId` is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vocabularyId(String vocabularyId) {
             return vocabularyId(Output.of(vocabularyId));
         }

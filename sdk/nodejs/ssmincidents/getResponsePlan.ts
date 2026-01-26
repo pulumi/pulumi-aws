@@ -7,20 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ssmincidents.ResponsePlan("example", {arn: "exampleARN"});
- * ```
- */
 export function getResponsePlan(args: GetResponsePlanArgs, opts?: pulumi.InvokeOptions): Promise<GetResponsePlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssmincidents/getResponsePlan:getResponsePlan", {
@@ -34,17 +20,8 @@ export function getResponsePlan(args: GetResponsePlanArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getResponsePlan.
  */
 export interface GetResponsePlanArgs {
-    /**
-     * The Amazon Resource Name (ARN) of the response plan.
-     */
     arn: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * The tags applied to the response plan.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -52,56 +29,21 @@ export interface GetResponsePlanArgs {
  * A collection of values returned by getResponsePlan.
  */
 export interface GetResponsePlanResult {
-    /**
-     * (Optional) The actions that the response plan starts at the beginning of an incident.
-     */
     readonly actions: outputs.ssmincidents.GetResponsePlanAction[];
     readonly arn: string;
-    /**
-     * The Chatbot chat channel used for collaboration during an incident.
-     */
     readonly chatChannels: string[];
-    /**
-     * The long format of the response plan name. This field can contain spaces.
-     */
     readonly displayName: string;
-    /**
-     * The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
-     */
     readonly engagements: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly incidentTemplates: outputs.ssmincidents.GetResponsePlanIncidentTemplate[];
-    /**
-     * Information about third-party services integrated into the response plan. The following values are supported:
-     */
     readonly integrations: outputs.ssmincidents.GetResponsePlanIntegration[];
-    /**
-     * The name of the PagerDuty configuration.
-     */
     readonly name: string;
     readonly region: string;
-    /**
-     * The tags applied to the response plan.
-     */
     readonly tags: {[key: string]: string};
 }
-/**
- * Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ssmincidents.ResponsePlan("example", {arn: "exampleARN"});
- * ```
- */
 export function getResponsePlanOutput(args: GetResponsePlanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResponsePlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ssmincidents/getResponsePlan:getResponsePlan", {
@@ -115,16 +57,7 @@ export function getResponsePlanOutput(args: GetResponsePlanOutputArgs, opts?: pu
  * A collection of arguments for invoking getResponsePlan.
  */
 export interface GetResponsePlanOutputArgs {
-    /**
-     * The Amazon Resource Name (ARN) of the response plan.
-     */
     arn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The tags applied to the response plan.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

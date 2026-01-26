@@ -12,29 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter {
-    /**
-     * @return An object that specifies parameter values for a control in a configuration policy. See below.
-     * 
-     */
     private List<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter> parameters;
-    /**
-     * @return The ID of the security control. For more information see the [Security Hub controls reference] documentation.
-     * 
-     */
     private String securityControlId;
 
     private ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter() {}
-    /**
-     * @return An object that specifies parameter values for a control in a configuration policy. See below.
-     * 
-     */
     public List<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter> parameters() {
         return this.parameters;
     }
-    /**
-     * @return The ID of the security control. For more information see the [Security Hub controls reference] documentation.
-     * 
-     */
     public String securityControlId() {
         return this.securityControlId;
     }

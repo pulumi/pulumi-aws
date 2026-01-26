@@ -16,47 +16,23 @@ public final class PipelinePipelineDefinitionS3LocationArgs extends com.pulumi.r
 
     public static final PipelinePipelineDefinitionS3LocationArgs Empty = new PipelinePipelineDefinitionS3LocationArgs();
 
-    /**
-     * Name of the S3 bucket.
-     * 
-     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
-    /**
-     * @return Name of the S3 bucket.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
-    /**
-     * The object key (or key name) uniquely identifies the object in an S3 bucket.
-     * 
-     */
     @Import(name="objectKey", required=true)
     private Output<String> objectKey;
 
-    /**
-     * @return The object key (or key name) uniquely identifies the object in an S3 bucket.
-     * 
-     */
     public Output<String> objectKey() {
         return this.objectKey;
     }
 
-    /**
-     * Version Id of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
-     * 
-     */
     @Import(name="versionId")
     private @Nullable Output<String> versionId;
 
-    /**
-     * @return Version Id of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
-     * 
-     */
     public Optional<Output<String>> versionId() {
         return Optional.ofNullable(this.versionId);
     }
@@ -87,65 +63,29 @@ public final class PipelinePipelineDefinitionS3LocationArgs extends com.pulumi.r
             $ = new PipelinePipelineDefinitionS3LocationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket Name of the S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket Name of the S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param objectKey The object key (or key name) uniquely identifies the object in an S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder objectKey(Output<String> objectKey) {
             $.objectKey = objectKey;
             return this;
         }
 
-        /**
-         * @param objectKey The object key (or key name) uniquely identifies the object in an S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder objectKey(String objectKey) {
             return objectKey(Output.of(objectKey));
         }
 
-        /**
-         * @param versionId Version Id of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
-         * 
-         * @return builder
-         * 
-         */
         public Builder versionId(@Nullable Output<String> versionId) {
             $.versionId = versionId;
             return this;
         }
 
-        /**
-         * @param versionId Version Id of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
-         * 
-         * @return builder
-         * 
-         */
         public Builder versionId(String versionId) {
             return versionId(Output.of(versionId));
         }

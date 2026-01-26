@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class CustomLogSourceAttribute {
-    /**
-     * @return The ARN of the AWS Glue crawler.
-     * 
-     */
     private String crawlerArn;
-    /**
-     * @return The ARN of the AWS Glue database where results are written.
-     * 
-     */
     private String databaseArn;
-    /**
-     * @return The ARN of the AWS Glue table.
-     * 
-     */
     private String tableArn;
 
     private CustomLogSourceAttribute() {}
-    /**
-     * @return The ARN of the AWS Glue crawler.
-     * 
-     */
     public String crawlerArn() {
         return this.crawlerArn;
     }
-    /**
-     * @return The ARN of the AWS Glue database where results are written.
-     * 
-     */
     public String databaseArn() {
         return this.databaseArn;
     }
-    /**
-     * @return The ARN of the AWS Glue table.
-     * 
-     */
     public String tableArn() {
         return this.tableArn;
     }

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Qbusiness.Inputs
     public sealed class ApplicationAttachmentsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Status information about whether file upload functionality is activated or deactivated for your end user. Valid values are `ENABLED` and `DISABLED`.
+        /// Status information about whether file upload functionality is activated or deactivated for your end user.
         /// </summary>
         [Input("attachmentsControlMode", required: true)]
         public Input<string> AttachmentsControlMode { get; set; } = null!;

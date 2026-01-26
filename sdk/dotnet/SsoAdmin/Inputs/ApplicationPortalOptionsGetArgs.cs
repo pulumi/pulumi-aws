@@ -12,15 +12,9 @@ namespace Pulumi.Aws.SsoAdmin.Inputs
 
     public sealed class ApplicationPortalOptionsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Sign-in options for the access portal. See `SignInOptions` below.
-        /// </summary>
         [Input("signInOptions")]
         public Input<Inputs.ApplicationPortalOptionsSignInOptionsGetArgs>? SignInOptions { get; set; }
 
-        /// <summary>
-        /// Indicates whether this application is visible in the access portal. Valid values are `ENABLED` and `DISABLED`.
-        /// </summary>
         [Input("visibility")]
         public Input<string>? Visibility { get; set; }
 

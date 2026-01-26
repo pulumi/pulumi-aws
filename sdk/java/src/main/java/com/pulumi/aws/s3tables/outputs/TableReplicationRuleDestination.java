@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class TableReplicationRuleDestination {
-    /**
-     * @return ARN of destination table bucket to replicate source tables to.
-     * 
-     */
     private String destinationTableBucketArn;
 
     private TableReplicationRuleDestination() {}
-    /**
-     * @return ARN of destination table bucket to replicate source tables to.
-     * 
-     */
     public String destinationTableBucketArn() {
         return this.destinationTableBucketArn;
     }

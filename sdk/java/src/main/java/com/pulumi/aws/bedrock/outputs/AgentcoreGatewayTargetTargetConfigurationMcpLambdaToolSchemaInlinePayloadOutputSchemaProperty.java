@@ -16,77 +16,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty {
-    /**
-     * @return Description of the property.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return Items definition for array properties. See `items` above.
-     * 
-     */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems items;
-    /**
-     * @return Name of the property.
-     * 
-     */
     private String name;
-    /**
-     * @return Set of nested property definitions for object properties.
-     * 
-     */
     private @Nullable List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyProperty> properties;
-    /**
-     * @return Whether this property is required. Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean required;
-    /**
-     * @return Data type of the property.
-     * 
-     */
     private String type;
 
     private AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty() {}
-    /**
-     * @return Description of the property.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return Items definition for array properties. See `items` above.
-     * 
-     */
     public Optional<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems> items() {
         return Optional.ofNullable(this.items);
     }
-    /**
-     * @return Name of the property.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Set of nested property definitions for object properties.
-     * 
-     */
     public List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyProperty> properties() {
         return this.properties == null ? List.of() : this.properties;
     }
-    /**
-     * @return Whether this property is required. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> required() {
         return Optional.ofNullable(this.required);
     }
-    /**
-     * @return Data type of the property.
-     * 
-     */
     public String type() {
         return this.type;
     }

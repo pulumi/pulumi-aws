@@ -20,18 +20,14 @@ public final class KeyvaluestoreKeysExclusiveArgs extends com.pulumi.resources.R
     public static final KeyvaluestoreKeysExclusiveArgs Empty = new KeyvaluestoreKeysExclusiveArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the Key Value Store.
-     * 
-     * The following arguments are optional:
+     * The Amazon Resource Name (ARN) of the Key Value Store.
      * 
      */
     @Import(name="keyValueStoreArn", required=true)
     private Output<String> keyValueStoreArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Key Value Store.
-     * 
-     * The following arguments are optional:
+     * @return The Amazon Resource Name (ARN) of the Key Value Store.
      * 
      */
     public Output<String> keyValueStoreArn() {
@@ -39,33 +35,23 @@ public final class KeyvaluestoreKeysExclusiveArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
+     * Maximum resource key values pairs that you wills update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first
      * 
      */
     @Import(name="maxBatchSize")
     private @Nullable Output<Integer> maxBatchSize;
 
     /**
-     * @return Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
+     * @return Maximum resource key values pairs that you wills update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first
      * 
      */
     public Optional<Output<Integer>> maxBatchSize() {
         return Optional.ofNullable(this.maxBatchSize);
     }
 
-    /**
-     * A list of all resource key value pairs associated with the KeyValueStore.
-     * See `resourceKeyValuePair` below.
-     * 
-     */
     @Import(name="resourceKeyValuePairs")
     private @Nullable Output<List<KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs>> resourceKeyValuePairs;
 
-    /**
-     * @return A list of all resource key value pairs associated with the KeyValueStore.
-     * See `resourceKeyValuePair` below.
-     * 
-     */
     public Optional<Output<List<KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs>>> resourceKeyValuePairs() {
         return Optional.ofNullable(this.resourceKeyValuePairs);
     }
@@ -97,9 +83,7 @@ public final class KeyvaluestoreKeysExclusiveArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param keyValueStoreArn Amazon Resource Name (ARN) of the Key Value Store.
-         * 
-         * The following arguments are optional:
+         * @param keyValueStoreArn The Amazon Resource Name (ARN) of the Key Value Store.
          * 
          * @return builder
          * 
@@ -110,9 +94,7 @@ public final class KeyvaluestoreKeysExclusiveArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param keyValueStoreArn Amazon Resource Name (ARN) of the Key Value Store.
-         * 
-         * The following arguments are optional:
+         * @param keyValueStoreArn The Amazon Resource Name (ARN) of the Key Value Store.
          * 
          * @return builder
          * 
@@ -122,7 +104,7 @@ public final class KeyvaluestoreKeysExclusiveArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param maxBatchSize Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
+         * @param maxBatchSize Maximum resource key values pairs that you wills update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first
          * 
          * @return builder
          * 
@@ -133,7 +115,7 @@ public final class KeyvaluestoreKeysExclusiveArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param maxBatchSize Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
+         * @param maxBatchSize Maximum resource key values pairs that you wills update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first
          * 
          * @return builder
          * 
@@ -142,36 +124,15 @@ public final class KeyvaluestoreKeysExclusiveArgs extends com.pulumi.resources.R
             return maxBatchSize(Output.of(maxBatchSize));
         }
 
-        /**
-         * @param resourceKeyValuePairs A list of all resource key value pairs associated with the KeyValueStore.
-         * See `resourceKeyValuePair` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceKeyValuePairs(@Nullable Output<List<KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs>> resourceKeyValuePairs) {
             $.resourceKeyValuePairs = resourceKeyValuePairs;
             return this;
         }
 
-        /**
-         * @param resourceKeyValuePairs A list of all resource key value pairs associated with the KeyValueStore.
-         * See `resourceKeyValuePair` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceKeyValuePairs(List<KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs> resourceKeyValuePairs) {
             return resourceKeyValuePairs(Output.of(resourceKeyValuePairs));
         }
 
-        /**
-         * @param resourceKeyValuePairs A list of all resource key value pairs associated with the KeyValueStore.
-         * See `resourceKeyValuePair` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceKeyValuePairs(KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs... resourceKeyValuePairs) {
             return resourceKeyValuePairs(List.of(resourceKeyValuePairs));
         }

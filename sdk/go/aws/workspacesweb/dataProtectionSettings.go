@@ -12,197 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS WorkSpaces Web Data Protection Settings resource. Once associated with a web portal, data protection settings control how sensitive information is redacted in streaming sessions.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspacesweb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := workspacesweb.NewDataProtectionSettings(ctx, "example", &workspacesweb.DataProtectionSettingsArgs{
-//				DisplayName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Inline Redaction Configuration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspacesweb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := workspacesweb.NewDataProtectionSettings(ctx, "example", &workspacesweb.DataProtectionSettingsArgs{
-//				DisplayName: pulumi.String("example"),
-//				Description: pulumi.String("Example data protection settings"),
-//				InlineRedactionConfiguration: &workspacesweb.DataProtectionSettingsInlineRedactionConfigurationArgs{
-//					GlobalConfidenceLevel: pulumi.Int(2),
-//					GlobalEnforcedUrls: pulumi.StringArray{
-//						pulumi.String("https://example.com"),
-//					},
-//					InlineRedactionPatterns: workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArray{
-//						&workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs{
-//							BuiltInPatternId: pulumi.String("ssn"),
-//							ConfidenceLevel:  pulumi.Int(3),
-//							RedactionPlaceHolders: workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArray{
-//								&workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs{
-//									RedactionPlaceHolderType: pulumi.String("CustomText"),
-//									RedactionPlaceHolderText: pulumi.String("REDACTED"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Complete Example
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspacesweb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
-//				Description:          pulumi.String("KMS key for WorkSpaces Web Data Protection Settings"),
-//				DeletionWindowInDays: pulumi.Int(7),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = workspacesweb.NewDataProtectionSettings(ctx, "example", &workspacesweb.DataProtectionSettingsArgs{
-//				DisplayName:        pulumi.String("example-complete"),
-//				Description:        pulumi.String("Complete example data protection settings"),
-//				CustomerManagedKey: example.Arn,
-//				AdditionalEncryptionContext: pulumi.StringMap{
-//					"Environment": pulumi.String("Production"),
-//				},
-//				InlineRedactionConfiguration: &workspacesweb.DataProtectionSettingsInlineRedactionConfigurationArgs{
-//					GlobalConfidenceLevel: pulumi.Int(2),
-//					GlobalEnforcedUrls: pulumi.StringArray{
-//						pulumi.String("https://example.com"),
-//						pulumi.String("https://test.example.com"),
-//					},
-//					GlobalExemptUrls: pulumi.StringArray{
-//						pulumi.String("https://exempt.example.com"),
-//					},
-//					InlineRedactionPatterns: workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArray{
-//						&workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs{
-//							BuiltInPatternId: pulumi.String("ssn"),
-//							ConfidenceLevel:  pulumi.Int(3),
-//							EnforcedUrls: pulumi.StringArray{
-//								pulumi.String("https://pattern1.example.com"),
-//							},
-//							ExemptUrls: pulumi.StringArray{
-//								pulumi.String("https://exempt-pattern1.example.com"),
-//							},
-//							RedactionPlaceHolders: workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArray{
-//								&workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs{
-//									RedactionPlaceHolderType: pulumi.String("CustomText"),
-//									RedactionPlaceHolderText: pulumi.String("REDACTED-SSN"),
-//								},
-//							},
-//						},
-//						&workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs{
-//							CustomPattern: &workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs{
-//								PatternName:        pulumi.String("CustomPattern"),
-//								PatternRegex:       pulumi.String("/\\d{3}-\\d{2}-\\d{4}/g"),
-//								KeywordRegex:       pulumi.String("/SSN|Social Security/gi"),
-//								PatternDescription: pulumi.String("Custom SSN pattern"),
-//							},
-//							RedactionPlaceHolders: workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArray{
-//								&workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs{
-//									RedactionPlaceHolderType: pulumi.String("CustomText"),
-//									RedactionPlaceHolderText: pulumi.String("REDACTED-CUSTOM"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example-data-protection-settings"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import WorkSpaces Web Data Protection Settings using the `data_protection_settings_arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:workspacesweb/dataProtectionSettings:DataProtectionSettings example arn:aws:workspaces-web:us-west-2:123456789012:dataprotectionsettings/abcdef12345
-// ```
 type DataProtectionSettings struct {
 	pulumi.CustomResourceState
 
-	// Additional encryption context for the data protection settings.
-	AdditionalEncryptionContext pulumi.StringMapOutput `pulumi:"additionalEncryptionContext"`
-	// List of web portal ARNs that this data protection settings resource is associated with.
-	AssociatedPortalArns pulumi.StringArrayOutput `pulumi:"associatedPortalArns"`
-	// ARN of the customer managed KMS key.
-	CustomerManagedKey pulumi.StringPtrOutput `pulumi:"customerManagedKey"`
-	// ARN of the data protection settings resource.
-	DataProtectionSettingsArn pulumi.StringOutput `pulumi:"dataProtectionSettingsArn"`
-	// The description of the data protection settings.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The display name of the data protection settings.
-	//
-	// The following arguments are optional:
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// The inline redaction configuration of the data protection settings. Detailed below.
+	AdditionalEncryptionContext  pulumi.StringMapOutput                                      `pulumi:"additionalEncryptionContext"`
+	AssociatedPortalArns         pulumi.StringArrayOutput                                    `pulumi:"associatedPortalArns"`
+	CustomerManagedKey           pulumi.StringPtrOutput                                      `pulumi:"customerManagedKey"`
+	DataProtectionSettingsArn    pulumi.StringOutput                                         `pulumi:"dataProtectionSettingsArn"`
+	Description                  pulumi.StringPtrOutput                                      `pulumi:"description"`
+	DisplayName                  pulumi.StringOutput                                         `pulumi:"displayName"`
 	InlineRedactionConfiguration DataProtectionSettingsInlineRedactionConfigurationPtrOutput `pulumi:"inlineRedactionConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Region                       pulumi.StringOutput                                         `pulumi:"region"`
+	Tags                         pulumi.StringMapOutput                                      `pulumi:"tags"`
+	TagsAll                      pulumi.StringMapOutput                                      `pulumi:"tagsAll"`
 }
 
 // NewDataProtectionSettings registers a new resource with the given unique name, arguments, and options.
@@ -238,53 +60,29 @@ func GetDataProtectionSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataProtectionSettings resources.
 type dataProtectionSettingsState struct {
-	// Additional encryption context for the data protection settings.
-	AdditionalEncryptionContext map[string]string `pulumi:"additionalEncryptionContext"`
-	// List of web portal ARNs that this data protection settings resource is associated with.
-	AssociatedPortalArns []string `pulumi:"associatedPortalArns"`
-	// ARN of the customer managed KMS key.
-	CustomerManagedKey *string `pulumi:"customerManagedKey"`
-	// ARN of the data protection settings resource.
-	DataProtectionSettingsArn *string `pulumi:"dataProtectionSettingsArn"`
-	// The description of the data protection settings.
-	Description *string `pulumi:"description"`
-	// The display name of the data protection settings.
-	//
-	// The following arguments are optional:
-	DisplayName *string `pulumi:"displayName"`
-	// The inline redaction configuration of the data protection settings. Detailed below.
+	AdditionalEncryptionContext  map[string]string                                   `pulumi:"additionalEncryptionContext"`
+	AssociatedPortalArns         []string                                            `pulumi:"associatedPortalArns"`
+	CustomerManagedKey           *string                                             `pulumi:"customerManagedKey"`
+	DataProtectionSettingsArn    *string                                             `pulumi:"dataProtectionSettingsArn"`
+	Description                  *string                                             `pulumi:"description"`
+	DisplayName                  *string                                             `pulumi:"displayName"`
 	InlineRedactionConfiguration *DataProtectionSettingsInlineRedactionConfiguration `pulumi:"inlineRedactionConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Region                       *string                                             `pulumi:"region"`
+	Tags                         map[string]string                                   `pulumi:"tags"`
+	TagsAll                      map[string]string                                   `pulumi:"tagsAll"`
 }
 
 type DataProtectionSettingsState struct {
-	// Additional encryption context for the data protection settings.
-	AdditionalEncryptionContext pulumi.StringMapInput
-	// List of web portal ARNs that this data protection settings resource is associated with.
-	AssociatedPortalArns pulumi.StringArrayInput
-	// ARN of the customer managed KMS key.
-	CustomerManagedKey pulumi.StringPtrInput
-	// ARN of the data protection settings resource.
-	DataProtectionSettingsArn pulumi.StringPtrInput
-	// The description of the data protection settings.
-	Description pulumi.StringPtrInput
-	// The display name of the data protection settings.
-	//
-	// The following arguments are optional:
-	DisplayName pulumi.StringPtrInput
-	// The inline redaction configuration of the data protection settings. Detailed below.
+	AdditionalEncryptionContext  pulumi.StringMapInput
+	AssociatedPortalArns         pulumi.StringArrayInput
+	CustomerManagedKey           pulumi.StringPtrInput
+	DataProtectionSettingsArn    pulumi.StringPtrInput
+	Description                  pulumi.StringPtrInput
+	DisplayName                  pulumi.StringPtrInput
 	InlineRedactionConfiguration DataProtectionSettingsInlineRedactionConfigurationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Region                       pulumi.StringPtrInput
+	Tags                         pulumi.StringMapInput
+	TagsAll                      pulumi.StringMapInput
 }
 
 func (DataProtectionSettingsState) ElementType() reflect.Type {
@@ -292,42 +90,24 @@ func (DataProtectionSettingsState) ElementType() reflect.Type {
 }
 
 type dataProtectionSettingsArgs struct {
-	// Additional encryption context for the data protection settings.
-	AdditionalEncryptionContext map[string]string `pulumi:"additionalEncryptionContext"`
-	// ARN of the customer managed KMS key.
-	CustomerManagedKey *string `pulumi:"customerManagedKey"`
-	// The description of the data protection settings.
-	Description *string `pulumi:"description"`
-	// The display name of the data protection settings.
-	//
-	// The following arguments are optional:
-	DisplayName string `pulumi:"displayName"`
-	// The inline redaction configuration of the data protection settings. Detailed below.
+	AdditionalEncryptionContext  map[string]string                                   `pulumi:"additionalEncryptionContext"`
+	CustomerManagedKey           *string                                             `pulumi:"customerManagedKey"`
+	Description                  *string                                             `pulumi:"description"`
+	DisplayName                  string                                              `pulumi:"displayName"`
 	InlineRedactionConfiguration *DataProtectionSettingsInlineRedactionConfiguration `pulumi:"inlineRedactionConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Region                       *string                                             `pulumi:"region"`
+	Tags                         map[string]string                                   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DataProtectionSettings resource.
 type DataProtectionSettingsArgs struct {
-	// Additional encryption context for the data protection settings.
-	AdditionalEncryptionContext pulumi.StringMapInput
-	// ARN of the customer managed KMS key.
-	CustomerManagedKey pulumi.StringPtrInput
-	// The description of the data protection settings.
-	Description pulumi.StringPtrInput
-	// The display name of the data protection settings.
-	//
-	// The following arguments are optional:
-	DisplayName pulumi.StringInput
-	// The inline redaction configuration of the data protection settings. Detailed below.
+	AdditionalEncryptionContext  pulumi.StringMapInput
+	CustomerManagedKey           pulumi.StringPtrInput
+	Description                  pulumi.StringPtrInput
+	DisplayName                  pulumi.StringInput
 	InlineRedactionConfiguration DataProtectionSettingsInlineRedactionConfigurationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Region                       pulumi.StringPtrInput
+	Tags                         pulumi.StringMapInput
 }
 
 func (DataProtectionSettingsArgs) ElementType() reflect.Type {
@@ -417,56 +197,44 @@ func (o DataProtectionSettingsOutput) ToDataProtectionSettingsOutputWithContext(
 	return o
 }
 
-// Additional encryption context for the data protection settings.
 func (o DataProtectionSettingsOutput) AdditionalEncryptionContext() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataProtectionSettings) pulumi.StringMapOutput { return v.AdditionalEncryptionContext }).(pulumi.StringMapOutput)
 }
 
-// List of web portal ARNs that this data protection settings resource is associated with.
 func (o DataProtectionSettingsOutput) AssociatedPortalArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataProtectionSettings) pulumi.StringArrayOutput { return v.AssociatedPortalArns }).(pulumi.StringArrayOutput)
 }
 
-// ARN of the customer managed KMS key.
 func (o DataProtectionSettingsOutput) CustomerManagedKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataProtectionSettings) pulumi.StringPtrOutput { return v.CustomerManagedKey }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the data protection settings resource.
 func (o DataProtectionSettingsOutput) DataProtectionSettingsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataProtectionSettings) pulumi.StringOutput { return v.DataProtectionSettingsArn }).(pulumi.StringOutput)
 }
 
-// The description of the data protection settings.
 func (o DataProtectionSettingsOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataProtectionSettings) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The display name of the data protection settings.
-//
-// The following arguments are optional:
 func (o DataProtectionSettingsOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataProtectionSettings) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// The inline redaction configuration of the data protection settings. Detailed below.
 func (o DataProtectionSettingsOutput) InlineRedactionConfiguration() DataProtectionSettingsInlineRedactionConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataProtectionSettings) DataProtectionSettingsInlineRedactionConfigurationPtrOutput {
 		return v.InlineRedactionConfiguration
 	}).(DataProtectionSettingsInlineRedactionConfigurationPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DataProtectionSettingsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataProtectionSettings) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DataProtectionSettingsOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataProtectionSettings) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DataProtectionSettingsOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataProtectionSettings) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class WorkspaceVpcConfiguration {
-    /**
-     * @return The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
-     * 
-     */
     private List<String> securityGroupIds;
-    /**
-     * @return The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
-     * 
-     */
     private List<String> subnetIds;
 
     private WorkspaceVpcConfiguration() {}
-    /**
-     * @return The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds;
     }
-    /**
-     * @return The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }

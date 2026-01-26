@@ -14,17 +14,9 @@ public final class DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeReposit
 
     public static final DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs Empty = new DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs();
 
-    /**
-     * The URL of the Git repository.
-     * 
-     */
     @Import(name="repositoryUrl", required=true)
     private Output<String> repositoryUrl;
 
-    /**
-     * @return The URL of the Git repository.
-     * 
-     */
     public Output<String> repositoryUrl() {
         return this.repositoryUrl;
     }
@@ -53,23 +45,11 @@ public final class DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeReposit
             $ = new DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param repositoryUrl The URL of the Git repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryUrl(Output<String> repositoryUrl) {
             $.repositoryUrl = repositoryUrl;
             return this;
         }
 
-        /**
-         * @param repositoryUrl The URL of the Git repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryUrl(String repositoryUrl) {
             return repositoryUrl(Output.of(repositoryUrl));
         }

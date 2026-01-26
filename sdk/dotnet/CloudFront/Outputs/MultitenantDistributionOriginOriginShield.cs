@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class MultitenantDistributionOriginOriginShield
     {
-        /// <summary>
-        /// Whether Origin Shield is enabled.
-        /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// AWS Region for Origin Shield. Required when `Enabled` is `True`.
-        /// </summary>
         public readonly string? OriginShieldRegion;
 
         [OutputConstructor]

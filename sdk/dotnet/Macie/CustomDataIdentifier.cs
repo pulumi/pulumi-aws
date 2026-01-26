@@ -9,126 +9,42 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Macie
 {
-    /// <summary>
-    /// Provides a resource to manage an [AWS Macie Custom Data Identifier](https://docs.aws.amazon.com/macie/latest/APIReference/custom-data-identifiers-id.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Macie2.Account("example");
-    /// 
-    ///     var exampleCustomDataIdentifier = new Aws.Macie.CustomDataIdentifier("example", new()
-    ///     {
-    ///         Name = "NAME OF CUSTOM DATA IDENTIFIER",
-    ///         Regex = "[0-9]{3}-[0-9]{2}-[0-9]{4}",
-    ///         Description = "DESCRIPTION",
-    ///         MaximumMatchDistance = 10,
-    ///         Keywords = new[]
-    ///         {
-    ///             "keyword",
-    ///         },
-    ///         IgnoreWords = new[]
-    ///         {
-    ///             "ignore",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             test,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_macie2_custom_data_identifier` using the id. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:macie/customDataIdentifier:CustomDataIdentifier example abcd1
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:macie/customDataIdentifier:CustomDataIdentifier")]
     public partial class CustomDataIdentifier : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the custom data identifier.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
-        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// A custom description of the custom data identifier. The description can contain as many as 512 characters.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters. Ignore words are case sensitive.
-        /// </summary>
         [Output("ignoreWords")]
         public Output<ImmutableArray<string>> IgnoreWords { get; private set; } = null!;
 
-        /// <summary>
-        /// An array that lists specific character sequences (keywords), one of which must be within proximity (`MaximumMatchDistance`) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3 - 90 characters. Keywords aren't case sensitive.
-        /// </summary>
         [Output("keywords")]
         public Output<ImmutableArray<string>> Keywords { get; private set; } = null!;
 
-        /// <summary>
-        /// The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.
-        /// </summary>
         [Output("maximumMatchDistance")]
         public Output<int> MaximumMatchDistance { get; private set; } = null!;
 
-        /// <summary>
-        /// A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
-        /// </summary>
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
 
-        /// <summary>
-        /// The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
-        /// </summary>
         [Output("regex")]
         public Output<string?> Regex { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -178,18 +94,11 @@ namespace Pulumi.Aws.Macie
 
     public sealed class CustomDataIdentifierArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A custom description of the custom data identifier. The description can contain as many as 512 characters.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("ignoreWords")]
         private InputList<string>? _ignoreWords;
-
-        /// <summary>
-        /// An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters. Ignore words are case sensitive.
-        /// </summary>
         public InputList<string> IgnoreWords
         {
             get => _ignoreWords ?? (_ignoreWords = new InputList<string>());
@@ -198,52 +107,29 @@ namespace Pulumi.Aws.Macie
 
         [Input("keywords")]
         private InputList<string>? _keywords;
-
-        /// <summary>
-        /// An array that lists specific character sequences (keywords), one of which must be within proximity (`MaximumMatchDistance`) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3 - 90 characters. Keywords aren't case sensitive.
-        /// </summary>
         public InputList<string> Keywords
         {
             get => _keywords ?? (_keywords = new InputList<string>());
             set => _keywords = value;
         }
 
-        /// <summary>
-        /// The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.
-        /// </summary>
         [Input("maximumMatchDistance")]
         public Input<int>? MaximumMatchDistance { get; set; }
 
-        /// <summary>
-        /// A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
-        /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
-        /// <summary>
-        /// The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
-        /// </summary>
         [Input("regex")]
         public Input<string>? Regex { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -258,30 +144,17 @@ namespace Pulumi.Aws.Macie
 
     public sealed class CustomDataIdentifierState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the custom data identifier.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
-        /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
-        /// <summary>
-        /// A custom description of the custom data identifier. The description can contain as many as 512 characters.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("ignoreWords")]
         private InputList<string>? _ignoreWords;
-
-        /// <summary>
-        /// An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters. Ignore words are case sensitive.
-        /// </summary>
         public InputList<string> IgnoreWords
         {
             get => _ignoreWords ?? (_ignoreWords = new InputList<string>());
@@ -290,52 +163,29 @@ namespace Pulumi.Aws.Macie
 
         [Input("keywords")]
         private InputList<string>? _keywords;
-
-        /// <summary>
-        /// An array that lists specific character sequences (keywords), one of which must be within proximity (`MaximumMatchDistance`) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3 - 90 characters. Keywords aren't case sensitive.
-        /// </summary>
         public InputList<string> Keywords
         {
             get => _keywords ?? (_keywords = new InputList<string>());
             set => _keywords = value;
         }
 
-        /// <summary>
-        /// The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.
-        /// </summary>
         [Input("maximumMatchDistance")]
         public Input<int>? MaximumMatchDistance { get; set; }
 
-        /// <summary>
-        /// A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
-        /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
-        /// <summary>
-        /// The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
-        /// </summary>
         [Input("regex")]
         public Input<string>? Regex { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -344,10 +194,6 @@ namespace Pulumi.Aws.Macie
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

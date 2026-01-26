@@ -9,77 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Auditmanager
 {
-    /// <summary>
-    /// Resource for managing an AWS Audit Manager Framework Share.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Auditmanager.FrameworkShare("example", new()
-    ///     {
-    ///         DestinationAccount = "123456789012",
-    ///         DestinationRegion = "us-east-1",
-    ///         FrameworkId = exampleAwsAuditmanagerFramework.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Audit Manager Framework Share using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:auditmanager/frameworkShare:FrameworkShare example abcdef-123456
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:auditmanager/frameworkShare:FrameworkShare")]
     public partial class FrameworkShare : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Comment from the sender about the share request.
-        /// </summary>
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Web Services account of the recipient.
-        /// </summary>
         [Output("destinationAccount")]
         public Output<string> DestinationAccount { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Web Services region of the recipient.
-        /// </summary>
         [Output("destinationRegion")]
         public Output<string> DestinationRegion { get; private set; } = null!;
 
-        /// <summary>
-        /// Unique identifier for the shared custom framework.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("frameworkId")]
         public Output<string> FrameworkId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Status of the share request.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -129,35 +76,18 @@ namespace Pulumi.Aws.Auditmanager
 
     public sealed class FrameworkShareArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Comment from the sender about the share request.
-        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
-        /// <summary>
-        /// Amazon Web Services account of the recipient.
-        /// </summary>
         [Input("destinationAccount", required: true)]
         public Input<string> DestinationAccount { get; set; } = null!;
 
-        /// <summary>
-        /// Amazon Web Services region of the recipient.
-        /// </summary>
         [Input("destinationRegion", required: true)]
         public Input<string> DestinationRegion { get; set; } = null!;
 
-        /// <summary>
-        /// Unique identifier for the shared custom framework.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("frameworkId", required: true)]
         public Input<string> FrameworkId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -169,41 +99,21 @@ namespace Pulumi.Aws.Auditmanager
 
     public sealed class FrameworkShareState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Comment from the sender about the share request.
-        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
-        /// <summary>
-        /// Amazon Web Services account of the recipient.
-        /// </summary>
         [Input("destinationAccount")]
         public Input<string>? DestinationAccount { get; set; }
 
-        /// <summary>
-        /// Amazon Web Services region of the recipient.
-        /// </summary>
         [Input("destinationRegion")]
         public Input<string>? DestinationRegion { get; set; }
 
-        /// <summary>
-        /// Unique identifier for the shared custom framework.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("frameworkId")]
         public Input<string>? FrameworkId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Status of the share request.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

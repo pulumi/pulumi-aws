@@ -7,66 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const fooServer = new aws.transfer.Server("foo", {
- *     identityProviderType: "SERVICE_MANAGED",
- *     tags: {
- *         NAME: "tf-acc-test-transfer-server",
- *     },
- * });
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["transfer.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const fooRole = new aws.iam.Role("foo", {
- *     name: "tf-test-transfer-user-iam-role",
- *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
- * });
- * const foo = aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "AllowFullAccesstoS3",
- *         effect: "Allow",
- *         actions: ["s3:*"],
- *         resources: ["*"],
- *     }],
- * });
- * const fooRolePolicy = new aws.iam.RolePolicy("foo", {
- *     name: "tf-test-transfer-user-iam-policy",
- *     role: fooRole.id,
- *     policy: foo.then(foo => foo.json),
- * });
- * const fooUser = new aws.transfer.User("foo", {
- *     serverId: fooServer.id,
- *     userName: "tftestuser",
- *     role: fooRole.arn,
- *     homeDirectoryType: "LOGICAL",
- *     homeDirectoryMappings: [{
- *         entry: "/test.pdf",
- *         target: "/bucket3/test-path/tftestuser.pdf",
- *     }],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Transfer Users using the `server_id` and `user_name` separated by `/`. For example:
- *
- * ```sh
- * $ pulumi import aws:transfer/user:User bar s-12345678/test-username
- * ```
- */
 export class User extends pulumi.CustomResource {
     /**
      * Get an existing User resource's state with the given name, ID, and optional extra
@@ -95,53 +35,17 @@ export class User extends pulumi.CustomResource {
         return obj['__pulumiType'] === User.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of Transfer User
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
-     */
     declare public readonly homeDirectory: pulumi.Output<string | undefined>;
-    /**
-     * Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
-     */
     declare public readonly homeDirectoryMappings: pulumi.Output<outputs.transfer.UserHomeDirectoryMapping[] | undefined>;
-    /**
-     * The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
-     */
     declare public readonly homeDirectoryType: pulumi.Output<string | undefined>;
-    /**
-     * An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
-     */
     declare public readonly policy: pulumi.Output<string | undefined>;
-    /**
-     * Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
-     */
     declare public readonly posixProfile: pulumi.Output<outputs.transfer.UserPosixProfile | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
-     */
     declare public readonly role: pulumi.Output<string>;
-    /**
-     * The Server ID of the Transfer Server (e.g., `s-12345678`)
-     */
     declare public readonly serverId: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The name used for log in to your SFTP server.
-     */
     declare public readonly userName: pulumi.Output<string>;
 
     /**
@@ -202,53 +106,17 @@ export class User extends pulumi.CustomResource {
  * Input properties used for looking up and filtering User resources.
  */
 export interface UserState {
-    /**
-     * Amazon Resource Name (ARN) of Transfer User
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
-     */
     homeDirectory?: pulumi.Input<string>;
-    /**
-     * Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
-     */
     homeDirectoryMappings?: pulumi.Input<pulumi.Input<inputs.transfer.UserHomeDirectoryMapping>[]>;
-    /**
-     * The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
-     */
     homeDirectoryType?: pulumi.Input<string>;
-    /**
-     * An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
-     */
     policy?: pulumi.Input<string>;
-    /**
-     * Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
-     */
     posixProfile?: pulumi.Input<inputs.transfer.UserPosixProfile>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
-     */
     role?: pulumi.Input<string>;
-    /**
-     * The Server ID of the Transfer Server (e.g., `s-12345678`)
-     */
     serverId?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The name used for log in to your SFTP server.
-     */
     userName?: pulumi.Input<string>;
 }
 
@@ -256,44 +124,14 @@ export interface UserState {
  * The set of arguments for constructing a User resource.
  */
 export interface UserArgs {
-    /**
-     * The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
-     */
     homeDirectory?: pulumi.Input<string>;
-    /**
-     * Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
-     */
     homeDirectoryMappings?: pulumi.Input<pulumi.Input<inputs.transfer.UserHomeDirectoryMapping>[]>;
-    /**
-     * The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
-     */
     homeDirectoryType?: pulumi.Input<string>;
-    /**
-     * An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
-     */
     policy?: pulumi.Input<string>;
-    /**
-     * Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
-     */
     posixProfile?: pulumi.Input<inputs.transfer.UserPosixProfile>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
-     */
     role: pulumi.Input<string>;
-    /**
-     * The Server ID of the Transfer Server (e.g., `s-12345678`)
-     */
     serverId: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The name used for log in to your SFTP server.
-     */
     userName: pulumi.Input<string>;
 }

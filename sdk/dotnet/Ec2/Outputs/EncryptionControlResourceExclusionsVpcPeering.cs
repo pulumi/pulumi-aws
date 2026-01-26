@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class EncryptionControlResourceExclusionsVpcPeering
     {
-        /// <summary>
-        /// The current state of the VPC Encryption Control.
-        /// </summary>
         public readonly string State;
-        /// <summary>
-        /// A message providing additional information about the state of the VPC Encryption Control.
-        /// </summary>
         public readonly string StateMessage;
 
         [OutputConstructor]

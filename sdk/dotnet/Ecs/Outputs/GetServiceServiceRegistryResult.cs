@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class GetServiceServiceRegistryResult
     {
-        /// <summary>
-        /// Name of the container to associate with the load balancer.
-        /// </summary>
         public readonly string ContainerName;
-        /// <summary>
-        /// Port on the container to associate with the load balancer.
-        /// </summary>
         public readonly int ContainerPort;
-        /// <summary>
-        /// Port value for service discovery
-        /// </summary>
         public readonly int Port;
-        /// <summary>
-        /// ARN of the service registry
-        /// </summary>
         public readonly string RegistryArn;
 
         [OutputConstructor]

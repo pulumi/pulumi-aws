@@ -21,26 +21,10 @@ public final class GetImageResult {
      */
     private String id;
     private String imageDigest;
-    /**
-     * @return Date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
-     * 
-     */
     private Integer imagePushedAt;
-    /**
-     * @return Size, in bytes, of the image in the repository.
-     * 
-     */
     private Integer imageSizeInBytes;
     private @Nullable String imageTag;
-    /**
-     * @return List of tags associated with this image.
-     * 
-     */
     private List<String> imageTags;
-    /**
-     * @return The URI for the specific image version specified by `imageTag` or `imageDigest`.
-     * 
-     */
     private String imageUri;
     private @Nullable Boolean mostRecent;
     private String region;
@@ -58,34 +42,18 @@ public final class GetImageResult {
     public String imageDigest() {
         return this.imageDigest;
     }
-    /**
-     * @return Date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
-     * 
-     */
     public Integer imagePushedAt() {
         return this.imagePushedAt;
     }
-    /**
-     * @return Size, in bytes, of the image in the repository.
-     * 
-     */
     public Integer imageSizeInBytes() {
         return this.imageSizeInBytes;
     }
     public Optional<String> imageTag() {
         return Optional.ofNullable(this.imageTag);
     }
-    /**
-     * @return List of tags associated with this image.
-     * 
-     */
     public List<String> imageTags() {
         return this.imageTags;
     }
-    /**
-     * @return The URI for the specific image version specified by `imageTag` or `imageDigest`.
-     * 
-     */
     public String imageUri() {
         return this.imageUri;
     }

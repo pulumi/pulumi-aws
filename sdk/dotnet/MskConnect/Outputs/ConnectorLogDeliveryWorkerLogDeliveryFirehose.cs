@@ -13,13 +13,7 @@ namespace Pulumi.Aws.MskConnect.Outputs
     [OutputType]
     public sealed class ConnectorLogDeliveryWorkerLogDeliveryFirehose
     {
-        /// <summary>
-        /// The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
-        /// </summary>
         public readonly string? DeliveryStream;
-        /// <summary>
-        /// Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
-        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]

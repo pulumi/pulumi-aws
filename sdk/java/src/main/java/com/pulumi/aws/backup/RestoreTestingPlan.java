@@ -17,157 +17,47 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Backup Restore Testing Plan.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.backup.RestoreTestingPlan;
- * import com.pulumi.aws.backup.RestoreTestingPlanArgs;
- * import com.pulumi.aws.backup.inputs.RestoreTestingPlanRecoveryPointSelectionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RestoreTestingPlan("example", RestoreTestingPlanArgs.builder()
- *             .name("example_restore_testing_plan")
- *             .recoveryPointSelection(RestoreTestingPlanRecoveryPointSelectionArgs.builder()
- *                 .algorithm("LATEST_WITHIN_WINDOW")
- *                 .includeVaults("*")
- *                 .recoveryPointTypes("CONTINUOUS")
- *                 .build())
- *             .scheduleExpression("cron(0 12 ? * * *)")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Backup Restore Testing Plan using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:backup/restoreTestingPlan:RestoreTestingPlan example my_testing_plan
- * ```
- * 
- */
 @ResourceType(type="aws:backup/restoreTestingPlan:RestoreTestingPlan")
 public class RestoreTestingPlan extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Restore Testing Plan.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Restore Testing Plan.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-     * 
-     */
     @Export(name="recoveryPointSelection", refs={RestoreTestingPlanRecoveryPointSelection.class}, tree="[0]")
     private Output</* @Nullable */ RestoreTestingPlanRecoveryPointSelection> recoveryPointSelection;
 
-    /**
-     * @return Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-     * 
-     */
     public Output<Optional<RestoreTestingPlanRecoveryPointSelection>> recoveryPointSelection() {
         return Codegen.optional(this.recoveryPointSelection);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The schedule expression for the restore testing plan.
-     * 
-     */
     @Export(name="scheduleExpression", refs={String.class}, tree="[0]")
     private Output<String> scheduleExpression;
 
-    /**
-     * @return The schedule expression for the restore testing plan.
-     * 
-     */
     public Output<String> scheduleExpression() {
         return this.scheduleExpression;
     }
-    /**
-     * The timezone for the schedule expression. If not provided, the state value will be used.
-     * 
-     */
     @Export(name="scheduleExpressionTimezone", refs={String.class}, tree="[0]")
     private Output<String> scheduleExpressionTimezone;
 
-    /**
-     * @return The timezone for the schedule expression. If not provided, the state value will be used.
-     * 
-     */
     public Output<String> scheduleExpressionTimezone() {
         return this.scheduleExpressionTimezone;
     }
-    /**
-     * The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
-     * 
-     */
     @Export(name="startWindowHours", refs={Integer.class}, tree="[0]")
     private Output<Integer> startWindowHours;
 
-    /**
-     * @return The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
-     * 
-     */
     public Output<Integer> startWindowHours() {
         return this.startWindowHours;
     }
@@ -177,17 +67,9 @@ public class RestoreTestingPlan extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

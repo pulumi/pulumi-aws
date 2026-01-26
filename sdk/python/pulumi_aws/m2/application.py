@@ -32,16 +32,6 @@ class ApplicationArgs:
                  timeouts: Optional[pulumi.Input['ApplicationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Application resource.
-        :param pulumi.Input[_builtins.str] engine_type: Engine type must be `microfocus | bluage`.
-        :param pulumi.Input['ApplicationDefinitionArgs'] definition: The application definition for this application. You can specify either inline JSON or an S3 bucket location.
-        :param pulumi.Input[_builtins.str] description: Description of the application.
-        :param pulumi.Input[_builtins.str] kms_key_id: KMS Key to use for the Application.
-        :param pulumi.Input[_builtins.str] name: Unique identifier of the application.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: ARN of role for application to use to access AWS resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "engine_type", engine_type)
         if definition is not None:
@@ -64,9 +54,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="engineType")
     def engine_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Engine type must be `microfocus | bluage`.
-        """
         return pulumi.get(self, "engine_type")
 
     @engine_type.setter
@@ -76,9 +63,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter
     def definition(self) -> Optional[pulumi.Input['ApplicationDefinitionArgs']]:
-        """
-        The application definition for this application. You can specify either inline JSON or an S3 bucket location.
-        """
         return pulumi.get(self, "definition")
 
     @definition.setter
@@ -88,9 +72,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the application.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -100,9 +81,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        KMS Key to use for the Application.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -112,11 +90,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique identifier of the application.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -126,9 +99,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -138,9 +108,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of role for application to use to access AWS resources.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -150,9 +117,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -187,20 +151,6 @@ class _ApplicationState:
                  timeouts: Optional[pulumi.Input['ApplicationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Application resources.
-        :param pulumi.Input[_builtins.str] application_id: Id of the Application.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Application.
-        :param pulumi.Input[_builtins.int] current_version: Current version of the application deployed.
-        :param pulumi.Input['ApplicationDefinitionArgs'] definition: The application definition for this application. You can specify either inline JSON or an S3 bucket location.
-        :param pulumi.Input[_builtins.str] description: Description of the application.
-        :param pulumi.Input[_builtins.str] engine_type: Engine type must be `microfocus | bluage`.
-        :param pulumi.Input[_builtins.str] kms_key_id: KMS Key to use for the Application.
-        :param pulumi.Input[_builtins.str] name: Unique identifier of the application.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: ARN of role for application to use to access AWS resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if application_id is not None:
             pulumi.set(__self__, "application_id", application_id)
@@ -232,9 +182,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Id of the Application.
-        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -244,9 +191,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Application.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -256,9 +200,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="currentVersion")
     def current_version(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Current version of the application deployed.
-        """
         return pulumi.get(self, "current_version")
 
     @current_version.setter
@@ -268,9 +209,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter
     def definition(self) -> Optional[pulumi.Input['ApplicationDefinitionArgs']]:
-        """
-        The application definition for this application. You can specify either inline JSON or an S3 bucket location.
-        """
         return pulumi.get(self, "definition")
 
     @definition.setter
@@ -280,9 +218,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the application.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -292,9 +227,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="engineType")
     def engine_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Engine type must be `microfocus | bluage`.
-        """
         return pulumi.get(self, "engine_type")
 
     @engine_type.setter
@@ -304,9 +236,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        KMS Key to use for the Application.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -316,11 +245,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique identifier of the application.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -330,9 +254,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -342,9 +263,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of role for application to use to access AWS resources.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -354,9 +272,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -366,9 +281,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -402,69 +314,9 @@ class Application(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an [AWS Mainframe Modernization Application](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2.html).
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.m2.Application("example",
-            name="Example",
-            engine_type="bluage",
-            definition={
-                "content": f\"\"\"{{
-          \\"definition\\": {{
-            \\"listeners\\": [
-              {{
-                \\"port\\": 8196,
-                \\"type\\": \\"http\\"
-              }}
-            ],
-            \\"ba-application\\": {{
-              \\"app-location\\": \\"{s3_source}/PlanetsDemo-v1.zip\\"
-            }}
-          }},
-          \\"source-locations\\": [
-            {{
-              \\"source-id\\": \\"s3-source\\",
-              \\"source-type\\": \\"s3\\",
-              \\"properties\\": {{
-                \\"s3-bucket\\": \\"example-bucket\\",
-                \\"s3-key-prefix\\": \\"v1\\"
-              }}
-            }}
-          ],
-          \\"template-version\\": \\"2.0\\"
-        }}
-
-        \"\"\",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Mainframe Modernization Application using the `01234567890abcdef012345678`. For example:
-
-        ```sh
-        $ pulumi import aws:m2/application:Application example 01234567890abcdef012345678
-        ```
-
+        Create a Application resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ApplicationDefinitionArgs', 'ApplicationDefinitionArgsDict']] definition: The application definition for this application. You can specify either inline JSON or an S3 bucket location.
-        :param pulumi.Input[_builtins.str] description: Description of the application.
-        :param pulumi.Input[_builtins.str] engine_type: Engine type must be `microfocus | bluage`.
-        :param pulumi.Input[_builtins.str] kms_key_id: KMS Key to use for the Application.
-        :param pulumi.Input[_builtins.str] name: Unique identifier of the application.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: ARN of role for application to use to access AWS resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -473,57 +325,7 @@ class Application(pulumi.CustomResource):
                  args: ApplicationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an [AWS Mainframe Modernization Application](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2.html).
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.m2.Application("example",
-            name="Example",
-            engine_type="bluage",
-            definition={
-                "content": f\"\"\"{{
-          \\"definition\\": {{
-            \\"listeners\\": [
-              {{
-                \\"port\\": 8196,
-                \\"type\\": \\"http\\"
-              }}
-            ],
-            \\"ba-application\\": {{
-              \\"app-location\\": \\"{s3_source}/PlanetsDemo-v1.zip\\"
-            }}
-          }},
-          \\"source-locations\\": [
-            {{
-              \\"source-id\\": \\"s3-source\\",
-              \\"source-type\\": \\"s3\\",
-              \\"properties\\": {{
-                \\"s3-bucket\\": \\"example-bucket\\",
-                \\"s3-key-prefix\\": \\"v1\\"
-              }}
-            }}
-          ],
-          \\"template-version\\": \\"2.0\\"
-        }}
-
-        \"\"\",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Mainframe Modernization Application using the `01234567890abcdef012345678`. For example:
-
-        ```sh
-        $ pulumi import aws:m2/application:Application example 01234567890abcdef012345678
-        ```
-
+        Create a Application resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -602,20 +404,6 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_id: Id of the Application.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Application.
-        :param pulumi.Input[_builtins.int] current_version: Current version of the application deployed.
-        :param pulumi.Input[Union['ApplicationDefinitionArgs', 'ApplicationDefinitionArgsDict']] definition: The application definition for this application. You can specify either inline JSON or an S3 bucket location.
-        :param pulumi.Input[_builtins.str] description: Description of the application.
-        :param pulumi.Input[_builtins.str] engine_type: Engine type must be `microfocus | bluage`.
-        :param pulumi.Input[_builtins.str] kms_key_id: KMS Key to use for the Application.
-        :param pulumi.Input[_builtins.str] name: Unique identifier of the application.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: ARN of role for application to use to access AWS resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -639,99 +427,61 @@ class Application(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Id of the Application.
-        """
         return pulumi.get(self, "application_id")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Application.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="currentVersion")
     def current_version(self) -> pulumi.Output[_builtins.int]:
-        """
-        Current version of the application deployed.
-        """
         return pulumi.get(self, "current_version")
 
     @_builtins.property
     @pulumi.getter
     def definition(self) -> pulumi.Output[Optional['outputs.ApplicationDefinition']]:
-        """
-        The application definition for this application. You can specify either inline JSON or an S3 bucket location.
-        """
         return pulumi.get(self, "definition")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the application.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="engineType")
     def engine_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Engine type must be `microfocus | bluage`.
-        """
         return pulumi.get(self, "engine_type")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        KMS Key to use for the Application.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique identifier of the application.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ARN of role for application to use to access AWS resources.
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property

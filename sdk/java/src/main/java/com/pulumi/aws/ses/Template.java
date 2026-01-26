@@ -14,139 +14,41 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to create a SES template.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ses.Template;
- * import com.pulumi.aws.ses.TemplateArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var myTemplate = new Template("myTemplate", TemplateArgs.builder()
- *             .name("MyTemplate")
- *             .subject("Greetings, {{name}}!")
- *             .html("<h1>Hello {{name}},</h1><p>Your favorite animal is {{favoriteanimal}}.</p>")
- *             .text("""
- * Hello {{name}},
- * Your favorite animal is {{favoriteanimal}}.            """)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import SES templates using the template name. For example:
- * 
- * ```sh
- * $ pulumi import aws:ses/template:Template MyTemplate MyTemplate
- * ```
- * 
- */
 @ResourceType(type="aws:ses/template:Template")
 public class Template extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the SES template
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the SES template
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
-     * 
-     */
     @Export(name="html", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> html;
 
-    /**
-     * @return The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
-     * 
-     */
     public Output<Optional<String>> html() {
         return Codegen.optional(this.html);
     }
-    /**
-     * The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The subject line of the email.
-     * 
-     */
     @Export(name="subject", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subject;
 
-    /**
-     * @return The subject line of the email.
-     * 
-     */
     public Output<Optional<String>> subject() {
         return Codegen.optional(this.subject);
     }
-    /**
-     * The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
-     * 
-     */
     @Export(name="text", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> text;
 
-    /**
-     * @return The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
-     * 
-     */
     public Output<Optional<String>> text() {
         return Codegen.optional(this.text);
     }

@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CoreNetworkSegment {
-    /**
-     * @return Regions where the edges are located.
-     * 
-     */
     private @Nullable List<String> edgeLocations;
-    /**
-     * @return Name of a core network segment.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return Shared segments of a core network.
-     * 
-     */
     private @Nullable List<String> sharedSegments;
 
     private CoreNetworkSegment() {}
-    /**
-     * @return Regions where the edges are located.
-     * 
-     */
     public List<String> edgeLocations() {
         return this.edgeLocations == null ? List.of() : this.edgeLocations;
     }
-    /**
-     * @return Name of a core network segment.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return Shared segments of a core network.
-     * 
-     */
     public List<String> sharedSegments() {
         return this.sharedSegments == null ? List.of() : this.sharedSegments;
     }

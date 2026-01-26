@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about multiple API Gateway Authorizers.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigateway.GetAuthorizers(ctx, &apigateway.GetAuthorizersArgs{
-//				RestApiId: exampleAwsApiGatewayRestApi.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetAuthorizers(ctx *pulumi.Context, args *GetAuthorizersArgs, opts ...pulumi.InvokeOption) (*GetAuthorizersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAuthorizersResult
@@ -50,17 +23,14 @@ func GetAuthorizers(ctx *pulumi.Context, args *GetAuthorizersArgs, opts ...pulum
 
 // A collection of arguments for invoking getAuthorizers.
 type GetAuthorizersArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID of the associated REST API.
-	RestApiId string `pulumi:"restApiId"`
+	Region    *string `pulumi:"region"`
+	RestApiId string  `pulumi:"restApiId"`
 }
 
 // A collection of values returned by getAuthorizers.
 type GetAuthorizersResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// List of Authorizer identifiers.
+	Id        string   `pulumi:"id"`
 	Ids       []string `pulumi:"ids"`
 	Region    string   `pulumi:"region"`
 	RestApiId string   `pulumi:"restApiId"`
@@ -77,10 +47,8 @@ func GetAuthorizersOutput(ctx *pulumi.Context, args GetAuthorizersOutputArgs, op
 
 // A collection of arguments for invoking getAuthorizers.
 type GetAuthorizersOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// ID of the associated REST API.
-	RestApiId pulumi.StringInput `pulumi:"restApiId"`
+	Region    pulumi.StringPtrInput `pulumi:"region"`
+	RestApiId pulumi.StringInput    `pulumi:"restApiId"`
 }
 
 func (GetAuthorizersOutputArgs) ElementType() reflect.Type {
@@ -107,7 +75,6 @@ func (o GetAuthorizersResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAuthorizersResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of Authorizer identifiers.
 func (o GetAuthorizersResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAuthorizersResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

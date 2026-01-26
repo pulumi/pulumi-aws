@@ -17,47 +17,23 @@ public final class EndpointPrivateDnsArgs extends com.pulumi.resources.ResourceA
 
     public static final EndpointPrivateDnsArgs Empty = new EndpointPrivateDnsArgs();
 
-    /**
-     * Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
-     * 
-     */
     @Import(name="privateDnsEnabled", required=true)
     private Output<Boolean> privateDnsEnabled;
 
-    /**
-     * @return Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
-     * 
-     */
     public Output<Boolean> privateDnsEnabled() {
         return this.privateDnsEnabled;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * VPC endpoint identifier.
-     * 
-     */
     @Import(name="vpcEndpointId", required=true)
     private Output<String> vpcEndpointId;
 
-    /**
-     * @return VPC endpoint identifier.
-     * 
-     */
     public Output<String> vpcEndpointId() {
         return this.vpcEndpointId;
     }
@@ -88,65 +64,29 @@ public final class EndpointPrivateDnsArgs extends com.pulumi.resources.ResourceA
             $ = new EndpointPrivateDnsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param privateDnsEnabled Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateDnsEnabled(Output<Boolean> privateDnsEnabled) {
             $.privateDnsEnabled = privateDnsEnabled;
             return this;
         }
 
-        /**
-         * @param privateDnsEnabled Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateDnsEnabled(Boolean privateDnsEnabled) {
             return privateDnsEnabled(Output.of(privateDnsEnabled));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param vpcEndpointId VPC endpoint identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointId(Output<String> vpcEndpointId) {
             $.vpcEndpointId = vpcEndpointId;
             return this;
         }
 
-        /**
-         * @param vpcEndpointId VPC endpoint identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointId(String vpcEndpointId) {
             return vpcEndpointId(Output.of(vpcEndpointId));
         }

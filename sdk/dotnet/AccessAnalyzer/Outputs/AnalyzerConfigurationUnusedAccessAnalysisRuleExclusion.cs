@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AccessAnalyzer.Outputs
     [OutputType]
     public sealed class AnalyzerConfigurationUnusedAccessAnalysisRuleExclusion
     {
-        /// <summary>
-        /// List of AWS account IDs to apply to the analysis rule criteria. The accounts cannot include the organization analyzer owner account. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
-        /// </summary>
         public readonly ImmutableArray<string> AccountIds;
-        /// <summary>
-        /// List of key-value pairs for resource tags to exclude from the analysis.
-        /// </summary>
         public readonly ImmutableArray<ImmutableDictionary<string, string>> ResourceTags;
 
         [OutputConstructor]

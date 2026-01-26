@@ -13,9 +13,6 @@ namespace Pulumi.Aws.VpcLattice.Outputs
     [OutputType]
     public sealed class ResourceConfigurationResourceConfigurationDefinitionIpResource
     {
-        /// <summary>
-        /// The IP Address of the Resource for this configuration.
-        /// </summary>
         public readonly string IpAddress;
 
         [OutputConstructor]

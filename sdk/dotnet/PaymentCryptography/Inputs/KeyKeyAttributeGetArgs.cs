@@ -12,33 +12,20 @@ namespace Pulumi.Aws.PaymentCryptography.Inputs
 
     public sealed class KeyKeyAttributeGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Key algorithm to be use during creation of an AWS Payment Cryptography key.
-        /// </summary>
         [Input("keyAlgorithm", required: true)]
         public Input<string> KeyAlgorithm { get; set; } = null!;
 
-        /// <summary>
-        /// Type of AWS Payment Cryptography key to create.
-        /// </summary>
         [Input("keyClass", required: true)]
         public Input<string> KeyClass { get; set; } = null!;
 
         [Input("keyModesOfUses")]
         private InputList<Inputs.KeyKeyAttributeKeyModesOfUseGetArgs>? _keyModesOfUses;
-
-        /// <summary>
-        /// List of cryptographic operations that you can perform using the key.
-        /// </summary>
         public InputList<Inputs.KeyKeyAttributeKeyModesOfUseGetArgs> KeyModesOfUses
         {
             get => _keyModesOfUses ?? (_keyModesOfUses = new InputList<Inputs.KeyKeyAttributeKeyModesOfUseGetArgs>());
             set => _keyModesOfUses = value;
         }
 
-        /// <summary>
-        /// Cryptographic usage of an AWS Payment Cryptography key as defined in section A.5.2 of the TR-31 spec.
-        /// </summary>
         [Input("keyUsage", required: true)]
         public Input<string> KeyUsage { get; set; } = null!;
 

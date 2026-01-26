@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Dlm.Outputs
     [OutputType]
     public sealed class LifecyclePolicyPolicyDetailsScheduleFastRestoreRule
     {
-        /// <summary>
-        /// The Availability Zones in which to enable fast snapshot restore.
-        /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
         public readonly int? Count;
         public readonly int? Interval;

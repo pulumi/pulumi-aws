@@ -12,9 +12,6 @@ namespace Pulumi.Aws.SsmContacts.Inputs
 
     public sealed class ContactChannelDeliveryAddressGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Details to engage this contact channel. The expected format depends on the contact channel type and is described in the [`ContactChannelAddress` section of the SSM Contacts API Reference](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_SSMContacts_ContactChannelAddress.html).
-        /// </summary>
         [Input("simpleAddress", required: true)]
         public Input<string> SimpleAddress { get; set; } = null!;
 

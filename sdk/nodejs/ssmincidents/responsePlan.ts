@@ -7,109 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage response plans in AWS Systems Manager Incident Manager.
- *
- * > NOTE: A response plan implicitly depends on a replication set. If you configured your replication set in Pulumi, we recommend you add it to the `dependsOn` argument for the ResponsePlan Resource.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ssmincidents.ResponsePlan("example", {
- *     name: "name",
- *     incidentTemplate: {
- *         title: "title",
- *         impact: 3,
- *     },
- *     tags: {
- *         key: "value",
- *     },
- * }, {
- *     dependsOn: [exampleAwsSsmincidentsReplicationSet],
- * });
- * ```
- *
- * ### Usage With All Fields
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ssmincidents.ResponsePlan("example", {
- *     name: "name",
- *     incidentTemplate: {
- *         title: "title",
- *         impact: 3,
- *         dedupeString: "dedupe",
- *         incidentTags: {
- *             key: "value",
- *         },
- *         notificationTargets: [
- *             {
- *                 snsTopicArn: example1.arn,
- *             },
- *             {
- *                 snsTopicArn: example2.arn,
- *             },
- *         ],
- *         summary: "summary",
- *     },
- *     displayName: "display name",
- *     chatChannels: [topic.arn],
- *     engagements: ["arn:aws:ssm-contacts:us-east-2:111122223333:contact/test1"],
- *     action: {
- *         ssmAutomations: [{
- *             documentName: document1.name,
- *             roleArn: role1.arn,
- *             documentVersion: "version1",
- *             targetAccount: "RESPONSE_PLAN_OWNER_ACCOUNT",
- *             parameters: [
- *                 {
- *                     name: "key",
- *                     values: [
- *                         "value1",
- *                         "value2",
- *                     ],
- *                 },
- *                 {
- *                     name: "foo",
- *                     values: ["bar"],
- *                 },
- *             ],
- *             dynamicParameters: {
- *                 someKey: "INVOLVED_RESOURCES",
- *                 anotherKey: "INCIDENT_RECORD_ARN",
- *             },
- *         }],
- *     },
- *     integration: {
- *         pagerduties: [{
- *             name: "pagerdutyIntergration",
- *             serviceId: "example",
- *             secretId: "example",
- *         }],
- *     },
- *     tags: {
- *         key: "value",
- *     },
- * }, {
- *     dependsOn: [exampleAwsSsmincidentsReplicationSet],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import an Incident Manager response plan using the response plan ARN. You can find the response plan ARN in the AWS Management Console. For example:
- *
- * ```sh
- * $ pulumi import aws:ssmincidents/responsePlan:ResponsePlan responsePlanName ARNValue
- * ```
- */
 export class ResponsePlan extends pulumi.CustomResource {
     /**
      * Get an existing ResponsePlan resource's state with the given name, ID, and optional extra
@@ -138,49 +35,16 @@ export class ResponsePlan extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResponsePlan.__pulumiType;
     }
 
-    /**
-     * The actions that the response plan starts at the beginning of an incident.
-     */
     declare public readonly action: pulumi.Output<outputs.ssmincidents.ResponsePlanAction | undefined>;
-    /**
-     * The ARN of the response plan.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The Chatbot chat channel used for collaboration during an incident.
-     */
     declare public readonly chatChannels: pulumi.Output<string[] | undefined>;
-    /**
-     * The long format of the response plan name. This field can contain spaces.
-     */
     declare public readonly displayName: pulumi.Output<string | undefined>;
-    /**
-     * The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
-     */
     declare public readonly engagements: pulumi.Output<string[] | undefined>;
-    /**
-     * The `incidentTemplate` configuration block is required and supports the following arguments:
-     */
     declare public readonly incidentTemplate: pulumi.Output<outputs.ssmincidents.ResponsePlanIncidentTemplate>;
-    /**
-     * Information about third-party services integrated into the response plan. The following values are supported:
-     */
     declare public readonly integration: pulumi.Output<outputs.ssmincidents.ResponsePlanIntegration | undefined>;
-    /**
-     * The name of the response plan.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The tags applied to the response plan.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -233,49 +97,16 @@ export class ResponsePlan extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ResponsePlan resources.
  */
 export interface ResponsePlanState {
-    /**
-     * The actions that the response plan starts at the beginning of an incident.
-     */
     action?: pulumi.Input<inputs.ssmincidents.ResponsePlanAction>;
-    /**
-     * The ARN of the response plan.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The Chatbot chat channel used for collaboration during an incident.
-     */
     chatChannels?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The long format of the response plan name. This field can contain spaces.
-     */
     displayName?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
-     */
     engagements?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The `incidentTemplate` configuration block is required and supports the following arguments:
-     */
     incidentTemplate?: pulumi.Input<inputs.ssmincidents.ResponsePlanIncidentTemplate>;
-    /**
-     * Information about third-party services integrated into the response plan. The following values are supported:
-     */
     integration?: pulumi.Input<inputs.ssmincidents.ResponsePlanIntegration>;
-    /**
-     * The name of the response plan.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The tags applied to the response plan.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -283,40 +114,13 @@ export interface ResponsePlanState {
  * The set of arguments for constructing a ResponsePlan resource.
  */
 export interface ResponsePlanArgs {
-    /**
-     * The actions that the response plan starts at the beginning of an incident.
-     */
     action?: pulumi.Input<inputs.ssmincidents.ResponsePlanAction>;
-    /**
-     * The Chatbot chat channel used for collaboration during an incident.
-     */
     chatChannels?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The long format of the response plan name. This field can contain spaces.
-     */
     displayName?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
-     */
     engagements?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The `incidentTemplate` configuration block is required and supports the following arguments:
-     */
     incidentTemplate: pulumi.Input<inputs.ssmincidents.ResponsePlanIncidentTemplate>;
-    /**
-     * Information about third-party services integrated into the response plan. The following values are supported:
-     */
     integration?: pulumi.Input<inputs.ssmincidents.ResponsePlanIntegration>;
-    /**
-     * The name of the response plan.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The tags applied to the response plan.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

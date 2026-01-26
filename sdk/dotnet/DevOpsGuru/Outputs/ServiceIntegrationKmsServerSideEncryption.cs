@@ -13,17 +13,8 @@ namespace Pulumi.Aws.DevOpsGuru.Outputs
     [OutputType]
     public sealed class ServiceIntegrationKmsServerSideEncryption
     {
-        /// <summary>
-        /// KMS key ID. This value can be a key ID, key ARN, alias name, or alias ARN.
-        /// </summary>
         public readonly string? KmsKeyId;
-        /// <summary>
-        /// Specifies whether KMS integration is enabled. Valid values are `DISABLED` and `ENABLED`.
-        /// </summary>
         public readonly string? OptInStatus;
-        /// <summary>
-        /// Type of KMS key used. Valid values are `CUSTOMER_MANAGED_KEY` and `AWS_OWNED_KMS_KEY`.
-        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

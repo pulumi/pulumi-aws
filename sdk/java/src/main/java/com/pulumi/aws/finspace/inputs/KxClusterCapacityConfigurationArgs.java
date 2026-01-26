@@ -15,50 +15,16 @@ public final class KxClusterCapacityConfigurationArgs extends com.pulumi.resourc
 
     public static final KxClusterCapacityConfigurationArgs Empty = new KxClusterCapacityConfigurationArgs();
 
-    /**
-     * Number of instances running in a cluster. Must be at least 1 and at most 5.
-     * 
-     */
     @Import(name="nodeCount", required=true)
     private Output<Integer> nodeCount;
 
-    /**
-     * @return Number of instances running in a cluster. Must be at least 1 and at most 5.
-     * 
-     */
     public Output<Integer> nodeCount() {
         return this.nodeCount;
     }
 
-    /**
-     * Determines the hardware of the host computer used for your cluster instance. Each node type offers different memory and storage capabilities. Choose a node type based on the requirements of the application or software that you plan to run on your instance.
-     * 
-     * You can only specify one of the following values:
-     * * kx.s.large - The node type with a configuration of 12 GiB memory and 2 vCPUs.
-     * * kx.s.xlarge - The node type with a configuration of 27 GiB memory and 4 vCPUs.
-     * * kx.s.2xlarge - The node type with a configuration of 54 GiB memory and 8 vCPUs.
-     * * kx.s.4xlarge - The node type with a configuration of 108 GiB memory and 16 vCPUs.
-     * * kx.s.8xlarge - The node type with a configuration of 216 GiB memory and 32 vCPUs.
-     * * kx.s.16xlarge - The node type with a configuration of 432 GiB memory and 64 vCPUs.
-     * * kx.s.32xlarge - The node type with a configuration of 864 GiB memory and 128 vCPUs.
-     * 
-     */
     @Import(name="nodeType", required=true)
     private Output<String> nodeType;
 
-    /**
-     * @return Determines the hardware of the host computer used for your cluster instance. Each node type offers different memory and storage capabilities. Choose a node type based on the requirements of the application or software that you plan to run on your instance.
-     * 
-     * You can only specify one of the following values:
-     * * kx.s.large - The node type with a configuration of 12 GiB memory and 2 vCPUs.
-     * * kx.s.xlarge - The node type with a configuration of 27 GiB memory and 4 vCPUs.
-     * * kx.s.2xlarge - The node type with a configuration of 54 GiB memory and 8 vCPUs.
-     * * kx.s.4xlarge - The node type with a configuration of 108 GiB memory and 16 vCPUs.
-     * * kx.s.8xlarge - The node type with a configuration of 216 GiB memory and 32 vCPUs.
-     * * kx.s.16xlarge - The node type with a configuration of 432 GiB memory and 64 vCPUs.
-     * * kx.s.32xlarge - The node type with a configuration of 864 GiB memory and 128 vCPUs.
-     * 
-     */
     public Output<String> nodeType() {
         return this.nodeType;
     }
@@ -88,62 +54,20 @@ public final class KxClusterCapacityConfigurationArgs extends com.pulumi.resourc
             $ = new KxClusterCapacityConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param nodeCount Number of instances running in a cluster. Must be at least 1 and at most 5.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nodeCount(Output<Integer> nodeCount) {
             $.nodeCount = nodeCount;
             return this;
         }
 
-        /**
-         * @param nodeCount Number of instances running in a cluster. Must be at least 1 and at most 5.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nodeCount(Integer nodeCount) {
             return nodeCount(Output.of(nodeCount));
         }
 
-        /**
-         * @param nodeType Determines the hardware of the host computer used for your cluster instance. Each node type offers different memory and storage capabilities. Choose a node type based on the requirements of the application or software that you plan to run on your instance.
-         * 
-         * You can only specify one of the following values:
-         * * kx.s.large - The node type with a configuration of 12 GiB memory and 2 vCPUs.
-         * * kx.s.xlarge - The node type with a configuration of 27 GiB memory and 4 vCPUs.
-         * * kx.s.2xlarge - The node type with a configuration of 54 GiB memory and 8 vCPUs.
-         * * kx.s.4xlarge - The node type with a configuration of 108 GiB memory and 16 vCPUs.
-         * * kx.s.8xlarge - The node type with a configuration of 216 GiB memory and 32 vCPUs.
-         * * kx.s.16xlarge - The node type with a configuration of 432 GiB memory and 64 vCPUs.
-         * * kx.s.32xlarge - The node type with a configuration of 864 GiB memory and 128 vCPUs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nodeType(Output<String> nodeType) {
             $.nodeType = nodeType;
             return this;
         }
 
-        /**
-         * @param nodeType Determines the hardware of the host computer used for your cluster instance. Each node type offers different memory and storage capabilities. Choose a node type based on the requirements of the application or software that you plan to run on your instance.
-         * 
-         * You can only specify one of the following values:
-         * * kx.s.large - The node type with a configuration of 12 GiB memory and 2 vCPUs.
-         * * kx.s.xlarge - The node type with a configuration of 27 GiB memory and 4 vCPUs.
-         * * kx.s.2xlarge - The node type with a configuration of 54 GiB memory and 8 vCPUs.
-         * * kx.s.4xlarge - The node type with a configuration of 108 GiB memory and 16 vCPUs.
-         * * kx.s.8xlarge - The node type with a configuration of 216 GiB memory and 32 vCPUs.
-         * * kx.s.16xlarge - The node type with a configuration of 432 GiB memory and 64 vCPUs.
-         * * kx.s.32xlarge - The node type with a configuration of 864 GiB memory and 128 vCPUs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nodeType(String nodeType) {
             return nodeType(Output.of(nodeType));
         }

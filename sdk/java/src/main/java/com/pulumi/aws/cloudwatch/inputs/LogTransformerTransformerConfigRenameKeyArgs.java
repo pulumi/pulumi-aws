@@ -15,17 +15,9 @@ public final class LogTransformerTransformerConfigRenameKeyArgs extends com.pulu
 
     public static final LogTransformerTransformerConfigRenameKeyArgs Empty = new LogTransformerTransformerConfigRenameKeyArgs();
 
-    /**
-     * Objects containing the information about the keys to rename. You must include at least one entry, and five at most. See `renameKeys` `entry` below for details.
-     * 
-     */
     @Import(name="entries", required=true)
     private Output<List<LogTransformerTransformerConfigRenameKeyEntryArgs>> entries;
 
-    /**
-     * @return Objects containing the information about the keys to rename. You must include at least one entry, and five at most. See `renameKeys` `entry` below for details.
-     * 
-     */
     public Output<List<LogTransformerTransformerConfigRenameKeyEntryArgs>> entries() {
         return this.entries;
     }
@@ -54,33 +46,15 @@ public final class LogTransformerTransformerConfigRenameKeyArgs extends com.pulu
             $ = new LogTransformerTransformerConfigRenameKeyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param entries Objects containing the information about the keys to rename. You must include at least one entry, and five at most. See `renameKeys` `entry` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entries(Output<List<LogTransformerTransformerConfigRenameKeyEntryArgs>> entries) {
             $.entries = entries;
             return this;
         }
 
-        /**
-         * @param entries Objects containing the information about the keys to rename. You must include at least one entry, and five at most. See `renameKeys` `entry` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entries(List<LogTransformerTransformerConfigRenameKeyEntryArgs> entries) {
             return entries(Output.of(entries));
         }
 
-        /**
-         * @param entries Objects containing the information about the keys to rename. You must include at least one entry, and five at most. See `renameKeys` `entry` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entries(LogTransformerTransformerConfigRenameKeyEntryArgs... entries) {
             return entries(List.of(entries));
         }

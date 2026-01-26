@@ -12,15 +12,9 @@ namespace Pulumi.Aws.ComputeOptimizer.Inputs
 
     public sealed class RecommendationPreferencesUtilizationPreferenceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the resource utilization metric name to customize. Valid values: `CpuUtilization`, `MemoryUtilization`.
-        /// </summary>
         [Input("metricName", required: true)]
         public Input<string> MetricName { get; set; } = null!;
 
-        /// <summary>
-        /// The parameters to set when customizing the resource utilization thresholds.
-        /// </summary>
         [Input("metricParameters")]
         public Input<Inputs.RecommendationPreferencesUtilizationPreferenceMetricParametersArgs>? MetricParameters { get; set; }
 

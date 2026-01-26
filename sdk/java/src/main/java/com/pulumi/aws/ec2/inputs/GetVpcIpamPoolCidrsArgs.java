@@ -18,47 +18,23 @@ public final class GetVpcIpamPoolCidrsArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetVpcIpamPoolCidrsArgs Empty = new GetVpcIpamPoolCidrsArgs();
 
-    /**
-     * Custom filter block as described below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<GetVpcIpamPoolCidrsFilterArgs>> filters;
 
-    /**
-     * @return Custom filter block as described below.
-     * 
-     */
     public Optional<Output<List<GetVpcIpamPoolCidrsFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * ID of the IPAM pool you would like the list of provisioned CIDRs.
-     * 
-     */
     @Import(name="ipamPoolId", required=true)
     private Output<String> ipamPoolId;
 
-    /**
-     * @return ID of the IPAM pool you would like the list of provisioned CIDRs.
-     * 
-     */
     public Output<String> ipamPoolId() {
         return this.ipamPoolId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -89,75 +65,33 @@ public final class GetVpcIpamPoolCidrsArgs extends com.pulumi.resources.InvokeAr
             $ = new GetVpcIpamPoolCidrsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<GetVpcIpamPoolCidrsFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<GetVpcIpamPoolCidrsFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetVpcIpamPoolCidrsFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param ipamPoolId ID of the IPAM pool you would like the list of provisioned CIDRs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipamPoolId(Output<String> ipamPoolId) {
             $.ipamPoolId = ipamPoolId;
             return this;
         }
 
-        /**
-         * @param ipamPoolId ID of the IPAM pool you would like the list of provisioned CIDRs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipamPoolId(String ipamPoolId) {
             return ipamPoolId(Output.of(ipamPoolId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

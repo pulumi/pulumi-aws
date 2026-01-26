@@ -14,32 +14,16 @@ public final class GetTaskExecutionOverridesContainerOverrideResourceRequirement
 
     public static final GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs Empty = new GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs();
 
-    /**
-     * The type of resource to assign to a container. Valid values are `GPU`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return The type of resource to assign to a container. Valid values are `GPU`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
 
-    /**
-     * The value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that&#39;s reserved for all containers in a task can&#39;t exceed the number of available GPUs on the container instance that the task is launched on.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return The value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that&#39;s reserved for all containers in a task can&#39;t exceed the number of available GPUs on the container instance that the task is launched on.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -69,44 +53,20 @@ public final class GetTaskExecutionOverridesContainerOverrideResourceRequirement
             $ = new GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param type The type of resource to assign to a container. Valid values are `GPU`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of resource to assign to a container. Valid values are `GPU`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
-        /**
-         * @param value The value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that&#39;s reserved for all containers in a task can&#39;t exceed the number of available GPUs on the container instance that the task is launched on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value The value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that&#39;s reserved for all containers in a task can&#39;t exceed the number of available GPUs on the container instance that the task is launched on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Transfer.Inputs
     {
         [Input("addressAllocationIds")]
         private InputList<string>? _addressAllocationIds;
-
-        /// <summary>
-        /// A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server's endpoint. This property can only be used when `EndpointType` is set to `VPC`.
-        /// </summary>
         public InputList<string> AddressAllocationIds
         {
             get => _addressAllocationIds ?? (_addressAllocationIds = new InputList<string>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.Transfer.Inputs
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
-
-        /// <summary>
-        /// A list of security groups IDs that are available to attach to your server's endpoint. If no security groups are specified, the VPC's default security groups are automatically assigned to your endpoint. This property can only be used when `EndpointType` is set to `VPC`.
-        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
@@ -38,25 +30,15 @@ namespace Pulumi.Aws.Transfer.Inputs
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// A list of subnet IDs that are required to host your SFTP server endpoint in your VPC. This property can only be used when `EndpointType` is set to `VPC`.
-        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
             set => _subnetIds = value;
         }
 
-        /// <summary>
-        /// The ID of the VPC endpoint. This property can only be used when `EndpointType` is set to `VPC_ENDPOINT`
-        /// </summary>
         [Input("vpcEndpointId")]
         public Input<string>? VpcEndpointId { get; set; }
 
-        /// <summary>
-        /// The VPC ID of the virtual private cloud in which the SFTP server's endpoint will be hosted. This property can only be used when `EndpointType` is set to `VPC`.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

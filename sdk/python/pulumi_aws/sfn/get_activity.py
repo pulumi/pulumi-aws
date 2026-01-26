@@ -51,9 +51,6 @@ class GetActivityResult:
     @_builtins.property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> _builtins.str:
-        """
-        Date the activity was created.
-        """
         return pulumi.get(self, "creation_date")
 
     @_builtins.property
@@ -93,21 +90,7 @@ def get_activity(arn: Optional[_builtins.str] = None,
                  region: Optional[_builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActivityResult:
     """
-    Provides a Step Functions Activity data source
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    sfn_activity = aws.sfn.get_activity(name="my-activity")
-    ```
-
-
-    :param _builtins.str arn: ARN that identifies the activity.
-    :param _builtins.str name: Name that identifies the activity.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -127,21 +110,7 @@ def get_activity_output(arn: Optional[pulumi.Input[Optional[_builtins.str]]] = N
                         region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActivityResult]:
     """
-    Provides a Step Functions Activity data source
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    sfn_activity = aws.sfn.get_activity(name="my-activity")
-    ```
-
-
-    :param _builtins.str arn: ARN that identifies the activity.
-    :param _builtins.str name: Name that identifies the activity.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

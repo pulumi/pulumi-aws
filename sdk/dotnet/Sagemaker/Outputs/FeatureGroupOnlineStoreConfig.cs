@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class FeatureGroupOnlineStoreConfig
     {
-        /// <summary>
-        /// Set to `True` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
-        /// </summary>
         public readonly bool? EnableOnlineStore;
-        /// <summary>
-        /// Security config for at-rest encryption of your OnlineStore. See Security Config Below.
-        /// </summary>
         public readonly Outputs.FeatureGroupOnlineStoreConfigSecurityConfig? SecurityConfig;
-        /// <summary>
-        /// Option for different tiers of low latency storage for real-time data retrieval. Valid values are `Standard`, or `InMemory`.
-        /// </summary>
         public readonly string? StorageType;
-        /// <summary>
-        /// Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
-        /// </summary>
         public readonly Outputs.FeatureGroupOnlineStoreConfigTtlDuration? TtlDuration;
 
         [OutputConstructor]

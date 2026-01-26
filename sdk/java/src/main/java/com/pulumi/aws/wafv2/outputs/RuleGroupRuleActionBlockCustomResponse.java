@@ -15,41 +15,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleGroupRuleActionBlockCustomResponse {
-    /**
-     * @return References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `customResponseBody` block of this resource.
-     * 
-     */
     private @Nullable String customResponseBodyKey;
-    /**
-     * @return The HTTP status code to return to the client.
-     * 
-     */
     private Integer responseCode;
-    /**
-     * @return The `responseHeader` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
-     * 
-     */
     private @Nullable List<RuleGroupRuleActionBlockCustomResponseResponseHeader> responseHeaders;
 
     private RuleGroupRuleActionBlockCustomResponse() {}
-    /**
-     * @return References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `customResponseBody` block of this resource.
-     * 
-     */
     public Optional<String> customResponseBodyKey() {
         return Optional.ofNullable(this.customResponseBodyKey);
     }
-    /**
-     * @return The HTTP status code to return to the client.
-     * 
-     */
     public Integer responseCode() {
         return this.responseCode;
     }
-    /**
-     * @return The `responseHeader` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
-     * 
-     */
     public List<RuleGroupRuleActionBlockCustomResponseResponseHeader> responseHeaders() {
         return this.responseHeaders == null ? List.of() : this.responseHeaders;
     }

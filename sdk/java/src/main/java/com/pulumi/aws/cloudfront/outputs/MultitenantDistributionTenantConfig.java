@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MultitenantDistributionTenantConfig {
-    /**
-     * @return One or more parameter definitions for the tenant configuration. See Parameter Definition below.
-     * 
-     */
     private @Nullable List<MultitenantDistributionTenantConfigParameterDefinition> parameterDefinitions;
 
     private MultitenantDistributionTenantConfig() {}
-    /**
-     * @return One or more parameter definitions for the tenant configuration. See Parameter Definition below.
-     * 
-     */
     public List<MultitenantDistributionTenantConfigParameterDefinition> parameterDefinitions() {
         return this.parameterDefinitions == null ? List.of() : this.parameterDefinitions;
     }

@@ -9,211 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Acm
 {
-    /// <summary>
-    /// This resource represents a successful validation of an ACM certificate in concert
-    /// with other resources.
-    /// 
-    /// Most commonly, this resource is used together with `aws.route53.Record` and
-    /// `aws.acm.Certificate` to request a DNS validated certificate,
-    /// deploy the required validation records and wait for validation to complete.
-    /// 
-    /// &gt; **WARNING:** This resource implements a part of the validation workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### DNS Validation with Route 53
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleCertificate = new Aws.Acm.Certificate("example", new()
-    ///     {
-    ///         DomainName = "example.com",
-    ///         ValidationMethod = "DNS",
-    ///     });
-    /// 
-    ///     var example = Aws.Route53.GetZone.Invoke(new()
-    ///     {
-    ///         Name = "example.com",
-    ///         PrivateZone = false,
-    ///     });
-    /// 
-    ///     var exampleRecord = new List&lt;Aws.Route53.Record&gt;();
-    ///     foreach (var range in exampleCertificate.DomainValidationOptions.Apply(domainValidationOptions =&gt; domainValidationOptions.ToDictionary(item =&gt; {
-    ///         var dvo = item.Value;
-    ///         return dvo.DomainName;
-    ///     }, item =&gt; {
-    ///         var dvo = item.Value;
-    ///         return 
-    ///         {
-    ///             { "name", dvo.ResourceRecordName },
-    ///             { "record", dvo.ResourceRecordValue },
-    ///             { "type", dvo.ResourceRecordType },
-    ///         };
-    ///     })).Select(pair =&gt; new { pair.Key, pair.Value }))
-    ///     {
-    ///         exampleRecord.Add(new Aws.Route53.Record($"example-{range.Key}", new()
-    ///         {
-    ///             AllowOverwrite = true,
-    ///             Name = range.Value.Name,
-    ///             Records = new[]
-    ///             {
-    ///                 range.Value.Record,
-    ///             },
-    ///             Ttl = 60,
-    ///             Type = System.Enum.Parse&lt;Aws.Route53.RecordType&gt;(range.Value.Type),
-    ///             ZoneId = example.Apply(getZoneResult =&gt; getZoneResult.ZoneId),
-    ///         }));
-    ///     }
-    ///     var exampleCertificateValidation = new Aws.Acm.CertificateValidation("example", new()
-    ///     {
-    ///         CertificateArn = exampleCertificate.Arn,
-    ///         ValidationRecordFqdns = exampleRecord.Apply(exampleRecord =&gt; exampleRecord.Select(record =&gt; 
-    ///         {
-    ///             return record.Fqdn;
-    ///         }).ToList()),
-    ///     });
-    /// 
-    ///     var exampleListener = new Aws.LB.Listener("example", new()
-    ///     {
-    ///         CertificateArn = exampleCertificateValidation.CertificateArn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Alternative Domains DNS Validation with Route 53
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Acm.Certificate("example", new()
-    ///     {
-    ///         DomainName = "example.com",
-    ///         SubjectAlternativeNames = new[]
-    ///         {
-    ///             "www.example.com",
-    ///             "example.org",
-    ///         },
-    ///         ValidationMethod = "DNS",
-    ///     });
-    /// 
-    ///     var exampleCom = Aws.Route53.GetZone.Invoke(new()
-    ///     {
-    ///         Name = "example.com",
-    ///         PrivateZone = false,
-    ///     });
-    /// 
-    ///     var exampleOrg = Aws.Route53.GetZone.Invoke(new()
-    ///     {
-    ///         Name = "example.org",
-    ///         PrivateZone = false,
-    ///     });
-    /// 
-    ///     var exampleRecord = new List&lt;Aws.Route53.Record&gt;();
-    ///     foreach (var range in Output.Tuple(example.DomainValidationOptions, dvo.DomainName == "example.org" ? exampleOrg.Apply(getZoneResult =&gt; getZoneResult.ZoneId) : exampleCom.Apply(getZoneResult =&gt; getZoneResult.ZoneId)).Apply(values =&gt;
-    ///     {
-    ///         var domainValidationOptions = values.Item1;
-    ///         var @value = values.Item2;
-    ///         return domainValidationOptions.ToDictionary(item =&gt; {
-    ///             var dvo = item.Value;
-    ///             return dvo.DomainName;
-    ///         }, item =&gt; {
-    ///             var dvo = item.Value;
-    ///             return 
-    ///             {
-    ///                 { "name", dvo.ResourceRecordName },
-    ///                 { "record", dvo.ResourceRecordValue },
-    ///                 { "type", dvo.ResourceRecordType },
-    ///                 { "zoneId", @value },
-    ///             };
-    ///         });
-    ///     }).Select(pair =&gt; new { pair.Key, pair.Value }))
-    ///     {
-    ///         exampleRecord.Add(new Aws.Route53.Record($"example-{range.Key}", new()
-    ///         {
-    ///             AllowOverwrite = true,
-    ///             Name = range.Value.Name,
-    ///             Records = new[]
-    ///             {
-    ///                 range.Value.Record,
-    ///             },
-    ///             Ttl = 60,
-    ///             Type = System.Enum.Parse&lt;Aws.Route53.RecordType&gt;(range.Value.Type),
-    ///             ZoneId = range.Value.ZoneId,
-    ///         }));
-    ///     }
-    ///     var exampleCertificateValidation = new Aws.Acm.CertificateValidation("example", new()
-    ///     {
-    ///         CertificateArn = example.Arn,
-    ///         ValidationRecordFqdns = exampleRecord.Apply(exampleRecord =&gt; exampleRecord.Select(record =&gt; 
-    ///         {
-    ///             return record.Fqdn;
-    ///         }).ToList()),
-    ///     });
-    /// 
-    ///     var exampleListener = new Aws.LB.Listener("example", new()
-    ///     {
-    ///         CertificateArn = exampleCertificateValidation.CertificateArn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Email Validation
-    /// 
-    /// In this situation, the resource is simply a waiter for manual email approval of ACM certificates.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Acm.Certificate("example", new()
-    ///     {
-    ///         DomainName = "example.com",
-    ///         ValidationMethod = "EMAIL",
-    ///     });
-    /// 
-    ///     var exampleCertificateValidation = new Aws.Acm.CertificateValidation("example", new()
-    ///     {
-    ///         CertificateArn = example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:acm/certificateValidation:CertificateValidation")]
     public partial class CertificateValidation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the certificate that is being validated.
-        /// </summary>
         [Output("certificateArn")]
         public Output<string> CertificateArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
-        /// </summary>
         [Output("validationRecordFqdns")]
         public Output<ImmutableArray<string>> ValidationRecordFqdns { get; private set; } = null!;
 
@@ -263,24 +67,14 @@ namespace Pulumi.Aws.Acm
 
     public sealed class CertificateValidationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the certificate that is being validated.
-        /// </summary>
         [Input("certificateArn", required: true)]
         public Input<string> CertificateArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("validationRecordFqdns")]
         private InputList<string>? _validationRecordFqdns;
-
-        /// <summary>
-        /// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
-        /// </summary>
         public InputList<string> ValidationRecordFqdns
         {
             get => _validationRecordFqdns ?? (_validationRecordFqdns = new InputList<string>());
@@ -295,24 +89,14 @@ namespace Pulumi.Aws.Acm
 
     public sealed class CertificateValidationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the certificate that is being validated.
-        /// </summary>
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("validationRecordFqdns")]
         private InputList<string>? _validationRecordFqdns;
-
-        /// <summary>
-        /// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
-        /// </summary>
         public InputList<string> ValidationRecordFqdns
         {
             get => _validationRecordFqdns ?? (_validationRecordFqdns = new InputList<string>());

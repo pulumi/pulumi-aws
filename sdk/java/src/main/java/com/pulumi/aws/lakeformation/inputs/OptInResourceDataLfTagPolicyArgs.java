@@ -17,62 +17,30 @@ public final class OptInResourceDataLfTagPolicyArgs extends com.pulumi.resources
 
     public static final OptInResourceDataLfTagPolicyArgs Empty = new OptInResourceDataLfTagPolicyArgs();
 
-    /**
-     * Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     @Import(name="catalogId")
     private @Nullable Output<String> catalogId;
 
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     public Optional<Output<String>> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
 
-    /**
-     * If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided ExpressionName .
-     * 
-     */
     @Import(name="expressionName")
     private @Nullable Output<String> expressionName;
 
-    /**
-     * @return If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided ExpressionName .
-     * 
-     */
     public Optional<Output<String>> expressionName() {
         return Optional.ofNullable(this.expressionName);
     }
 
-    /**
-     * List of LF-tag conditions or a saved expression that apply to the resource&#39;s LF-Tag policy.
-     * 
-     */
     @Import(name="expressions")
     private @Nullable Output<List<String>> expressions;
 
-    /**
-     * @return List of LF-tag conditions or a saved expression that apply to the resource&#39;s LF-Tag policy.
-     * 
-     */
     public Optional<Output<List<String>>> expressions() {
         return Optional.ofNullable(this.expressions);
     }
 
-    /**
-     * Resource type for which the LF-tag policy applies.
-     * 
-     */
     @Import(name="resourceType", required=true)
     private Output<String> resourceType;
 
-    /**
-     * @return Resource type for which the LF-tag policy applies.
-     * 
-     */
     public Output<String> resourceType() {
         return this.resourceType;
     }
@@ -104,96 +72,42 @@ public final class OptInResourceDataLfTagPolicyArgs extends com.pulumi.resources
             $ = new OptInResourceDataLfTagPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param catalogId Identifier for the Data Catalog. By default, it is the account ID of the caller.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(@Nullable Output<String> catalogId) {
             $.catalogId = catalogId;
             return this;
         }
 
-        /**
-         * @param catalogId Identifier for the Data Catalog. By default, it is the account ID of the caller.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(String catalogId) {
             return catalogId(Output.of(catalogId));
         }
 
-        /**
-         * @param expressionName If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided ExpressionName .
-         * 
-         * @return builder
-         * 
-         */
         public Builder expressionName(@Nullable Output<String> expressionName) {
             $.expressionName = expressionName;
             return this;
         }
 
-        /**
-         * @param expressionName If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided ExpressionName .
-         * 
-         * @return builder
-         * 
-         */
         public Builder expressionName(String expressionName) {
             return expressionName(Output.of(expressionName));
         }
 
-        /**
-         * @param expressions List of LF-tag conditions or a saved expression that apply to the resource&#39;s LF-Tag policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expressions(@Nullable Output<List<String>> expressions) {
             $.expressions = expressions;
             return this;
         }
 
-        /**
-         * @param expressions List of LF-tag conditions or a saved expression that apply to the resource&#39;s LF-Tag policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expressions(List<String> expressions) {
             return expressions(Output.of(expressions));
         }
 
-        /**
-         * @param expressions List of LF-tag conditions or a saved expression that apply to the resource&#39;s LF-Tag policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expressions(String... expressions) {
             return expressions(List.of(expressions));
         }
 
-        /**
-         * @param resourceType Resource type for which the LF-tag policy applies.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceType(Output<String> resourceType) {
             $.resourceType = resourceType;
             return this;
         }
 
-        /**
-         * @param resourceType Resource type for which the LF-tag policy applies.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceType(String resourceType) {
             return resourceType(Output.of(resourceType));
         }

@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ExperimentTemplateExperimentReportConfiguration {
-    /**
-     * @return The data sources for the experiment report. See below.
-     * 
-     */
     private @Nullable ExperimentTemplateExperimentReportConfigurationDataSources dataSources;
-    /**
-     * @return The outputs for the experiment report. See below.
-     * 
-     */
     private @Nullable ExperimentTemplateExperimentReportConfigurationOutputs outputs;
-    /**
-     * @return The duration of the post-experiment period. Defaults to `PT20M`.
-     * 
-     */
     private @Nullable String postExperimentDuration;
-    /**
-     * @return The duration of the pre-experiment period. Defaults to `PT20M`.
-     * 
-     */
     private @Nullable String preExperimentDuration;
 
     private ExperimentTemplateExperimentReportConfiguration() {}
-    /**
-     * @return The data sources for the experiment report. See below.
-     * 
-     */
     public Optional<ExperimentTemplateExperimentReportConfigurationDataSources> dataSources() {
         return Optional.ofNullable(this.dataSources);
     }
-    /**
-     * @return The outputs for the experiment report. See below.
-     * 
-     */
     public Optional<ExperimentTemplateExperimentReportConfigurationOutputs> outputs() {
         return Optional.ofNullable(this.outputs);
     }
-    /**
-     * @return The duration of the post-experiment period. Defaults to `PT20M`.
-     * 
-     */
     public Optional<String> postExperimentDuration() {
         return Optional.ofNullable(this.postExperimentDuration);
     }
-    /**
-     * @return The duration of the pre-experiment period. Defaults to `PT20M`.
-     * 
-     */
     public Optional<String> preExperimentDuration() {
         return Optional.ofNullable(this.preExperimentDuration);
     }

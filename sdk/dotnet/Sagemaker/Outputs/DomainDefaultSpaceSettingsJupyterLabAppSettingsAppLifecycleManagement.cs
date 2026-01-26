@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement
     {
-        /// <summary>
-        /// Settings related to idle shutdown of Studio applications. see `IdleSettings` Block below.
-        /// </summary>
         public readonly Outputs.DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings? IdleSettings;
 
         [OutputConstructor]

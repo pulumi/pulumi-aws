@@ -10,53 +10,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInfrastructureConfigurationPlacement {
-    /**
-     * @return Availability Zone where your build and test instances will launch.
-     * 
-     */
     private String availabilityZone;
-    /**
-     * @return ID of the Dedicated Host on which build and test instances run.
-     * 
-     */
     private String hostId;
-    /**
-     * @return ARN of the host resource group in which to launch build and test instances.
-     * 
-     */
     private String hostResourceGroupArn;
-    /**
-     * @return Placement tenancy of the instance.
-     * 
-     */
     private String tenancy;
 
     private GetInfrastructureConfigurationPlacement() {}
-    /**
-     * @return Availability Zone where your build and test instances will launch.
-     * 
-     */
     public String availabilityZone() {
         return this.availabilityZone;
     }
-    /**
-     * @return ID of the Dedicated Host on which build and test instances run.
-     * 
-     */
     public String hostId() {
         return this.hostId;
     }
-    /**
-     * @return ARN of the host resource group in which to launch build and test instances.
-     * 
-     */
     public String hostResourceGroupArn() {
         return this.hostResourceGroupArn;
     }
-    /**
-     * @return Placement tenancy of the instance.
-     * 
-     */
     public String tenancy() {
         return this.tenancy;
     }

@@ -13,151 +13,47 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Creates a new Amazon Redshift Partner Integration.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.redshift.Partner;
- * import com.pulumi.aws.redshift.PartnerArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Partner("example", PartnerArgs.builder()
- *             .clusterIdentifier(exampleAwsRedshiftCluster.id())
- *             .accountId("1234567910")
- *             .databaseName(exampleAwsRedshiftCluster.databaseName())
- *             .partnerName("example")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Redshift usage limits using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:redshift/partner:Partner example 01234567910:cluster-example-id:example:example
- * ```
- * 
- */
 @ResourceType(type="aws:redshift/partner:Partner")
 public class Partner extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Web Services account ID that owns the cluster.
-     * 
-     */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
-    /**
-     * @return The Amazon Web Services account ID that owns the cluster.
-     * 
-     */
     public Output<String> accountId() {
         return this.accountId;
     }
-    /**
-     * The cluster identifier of the cluster that receives data from the partner.
-     * 
-     */
     @Export(name="clusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> clusterIdentifier;
 
-    /**
-     * @return The cluster identifier of the cluster that receives data from the partner.
-     * 
-     */
     public Output<String> clusterIdentifier() {
         return this.clusterIdentifier;
     }
-    /**
-     * The name of the database that receives data from the partner.
-     * 
-     */
     @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output<String> databaseName;
 
-    /**
-     * @return The name of the database that receives data from the partner.
-     * 
-     */
     public Output<String> databaseName() {
         return this.databaseName;
     }
-    /**
-     * The name of the partner that is authorized to send data.
-     * 
-     */
     @Export(name="partnerName", refs={String.class}, tree="[0]")
     private Output<String> partnerName;
 
-    /**
-     * @return The name of the partner that is authorized to send data.
-     * 
-     */
     public Output<String> partnerName() {
         return this.partnerName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * (Optional) The partner integration status.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return (Optional) The partner integration status.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * (Optional) The status message provided by the partner.
-     * 
-     */
     @Export(name="statusMessage", refs={String.class}, tree="[0]")
     private Output<String> statusMessage;
 
-    /**
-     * @return (Optional) The status message provided by the partner.
-     * 
-     */
     public Output<String> statusMessage() {
         return this.statusMessage;
     }

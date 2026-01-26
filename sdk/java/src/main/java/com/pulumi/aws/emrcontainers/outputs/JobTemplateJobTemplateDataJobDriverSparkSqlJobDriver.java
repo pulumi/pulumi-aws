@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver {
-    /**
-     * @return The SQL file to be executed.
-     * 
-     */
     private @Nullable String entryPoint;
-    /**
-     * @return The Spark parameters to be included in the Spark SQL command.
-     * 
-     */
     private @Nullable String sparkSqlParameters;
 
     private JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver() {}
-    /**
-     * @return The SQL file to be executed.
-     * 
-     */
     public Optional<String> entryPoint() {
         return Optional.ofNullable(this.entryPoint);
     }
-    /**
-     * @return The Spark parameters to be included in the Spark SQL command.
-     * 
-     */
     public Optional<String> sparkSqlParameters() {
         return Optional.ofNullable(this.sparkSqlParameters);
     }

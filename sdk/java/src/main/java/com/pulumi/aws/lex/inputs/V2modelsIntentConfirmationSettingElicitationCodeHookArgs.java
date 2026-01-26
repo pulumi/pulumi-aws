@@ -16,32 +16,16 @@ public final class V2modelsIntentConfirmationSettingElicitationCodeHookArgs exte
 
     public static final V2modelsIntentConfirmationSettingElicitationCodeHookArgs Empty = new V2modelsIntentConfirmationSettingElicitationCodeHookArgs();
 
-    /**
-     * Whether a Lambda function should be invoked for the dialog.
-     * 
-     */
     @Import(name="enableCodeHookInvocation")
     private @Nullable Output<Boolean> enableCodeHookInvocation;
 
-    /**
-     * @return Whether a Lambda function should be invoked for the dialog.
-     * 
-     */
     public Optional<Output<Boolean>> enableCodeHookInvocation() {
         return Optional.ofNullable(this.enableCodeHookInvocation);
     }
 
-    /**
-     * Label that indicates the dialog step from which the dialog code hook is happening.
-     * 
-     */
     @Import(name="invocationLabel")
     private @Nullable Output<String> invocationLabel;
 
-    /**
-     * @return Label that indicates the dialog step from which the dialog code hook is happening.
-     * 
-     */
     public Optional<Output<String>> invocationLabel() {
         return Optional.ofNullable(this.invocationLabel);
     }
@@ -71,44 +55,20 @@ public final class V2modelsIntentConfirmationSettingElicitationCodeHookArgs exte
             $ = new V2modelsIntentConfirmationSettingElicitationCodeHookArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enableCodeHookInvocation Whether a Lambda function should be invoked for the dialog.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableCodeHookInvocation(@Nullable Output<Boolean> enableCodeHookInvocation) {
             $.enableCodeHookInvocation = enableCodeHookInvocation;
             return this;
         }
 
-        /**
-         * @param enableCodeHookInvocation Whether a Lambda function should be invoked for the dialog.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableCodeHookInvocation(Boolean enableCodeHookInvocation) {
             return enableCodeHookInvocation(Output.of(enableCodeHookInvocation));
         }
 
-        /**
-         * @param invocationLabel Label that indicates the dialog step from which the dialog code hook is happening.
-         * 
-         * @return builder
-         * 
-         */
         public Builder invocationLabel(@Nullable Output<String> invocationLabel) {
             $.invocationLabel = invocationLabel;
             return this;
         }
 
-        /**
-         * @param invocationLabel Label that indicates the dialog step from which the dialog code hook is happening.
-         * 
-         * @return builder
-         * 
-         */
         public Builder invocationLabel(String invocationLabel) {
             return invocationLabel(Output.of(invocationLabel));
         }

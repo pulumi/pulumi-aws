@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclDefaultActionBlock {
-    /**
-     * @return Defines a custom response for the web request. See `customResponse` below for details.
-     * 
-     */
     private @Nullable WebAclDefaultActionBlockCustomResponse customResponse;
 
     private WebAclDefaultActionBlock() {}
-    /**
-     * @return Defines a custom response for the web request. See `customResponse` below for details.
-     * 
-     */
     public Optional<WebAclDefaultActionBlockCustomResponse> customResponse() {
         return Optional.ofNullable(this.customResponse);
     }

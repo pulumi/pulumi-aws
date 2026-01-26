@@ -14,15 +14,13 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ResiliencyPolicyPolicy struct {
-	// Specifies Availability Zone failure policy. See `policy.az`
+	// The RTO and RPO target to measure resiliency for potential availability zone disruptions.
 	Az *ResiliencyPolicyPolicyAz `pulumi:"az"`
-	// Specifies Infrastructure failure policy. See `policy.hardware`
+	// The RTO and RPO target to measure resiliency for potential infrastructure disruptions.
 	Hardware *ResiliencyPolicyPolicyHardware `pulumi:"hardware"`
-	// Specifies Region failure policy. `policy.region`
+	// The RTO and RPO target to measure resiliency for potential region disruptions.
 	Region *ResiliencyPolicyPolicyRegion `pulumi:"region"`
-	// Specifies Application failure policy. See `policy.software`
-	//
-	// The following arguments are optional:
+	// The RTO and RPO target to measure resiliency for potential application disruptions.
 	Software *ResiliencyPolicyPolicySoftware `pulumi:"software"`
 }
 
@@ -38,15 +36,13 @@ type ResiliencyPolicyPolicyInput interface {
 }
 
 type ResiliencyPolicyPolicyArgs struct {
-	// Specifies Availability Zone failure policy. See `policy.az`
+	// The RTO and RPO target to measure resiliency for potential availability zone disruptions.
 	Az ResiliencyPolicyPolicyAzPtrInput `pulumi:"az"`
-	// Specifies Infrastructure failure policy. See `policy.hardware`
+	// The RTO and RPO target to measure resiliency for potential infrastructure disruptions.
 	Hardware ResiliencyPolicyPolicyHardwarePtrInput `pulumi:"hardware"`
-	// Specifies Region failure policy. `policy.region`
+	// The RTO and RPO target to measure resiliency for potential region disruptions.
 	Region ResiliencyPolicyPolicyRegionPtrInput `pulumi:"region"`
-	// Specifies Application failure policy. See `policy.software`
-	//
-	// The following arguments are optional:
+	// The RTO and RPO target to measure resiliency for potential application disruptions.
 	Software ResiliencyPolicyPolicySoftwarePtrInput `pulumi:"software"`
 }
 
@@ -127,24 +123,22 @@ func (o ResiliencyPolicyPolicyOutput) ToResiliencyPolicyPolicyPtrOutputWithConte
 	}).(ResiliencyPolicyPolicyPtrOutput)
 }
 
-// Specifies Availability Zone failure policy. See `policy.az`
+// The RTO and RPO target to measure resiliency for potential availability zone disruptions.
 func (o ResiliencyPolicyPolicyOutput) Az() ResiliencyPolicyPolicyAzPtrOutput {
 	return o.ApplyT(func(v ResiliencyPolicyPolicy) *ResiliencyPolicyPolicyAz { return v.Az }).(ResiliencyPolicyPolicyAzPtrOutput)
 }
 
-// Specifies Infrastructure failure policy. See `policy.hardware`
+// The RTO and RPO target to measure resiliency for potential infrastructure disruptions.
 func (o ResiliencyPolicyPolicyOutput) Hardware() ResiliencyPolicyPolicyHardwarePtrOutput {
 	return o.ApplyT(func(v ResiliencyPolicyPolicy) *ResiliencyPolicyPolicyHardware { return v.Hardware }).(ResiliencyPolicyPolicyHardwarePtrOutput)
 }
 
-// Specifies Region failure policy. `policy.region`
+// The RTO and RPO target to measure resiliency for potential region disruptions.
 func (o ResiliencyPolicyPolicyOutput) Region() ResiliencyPolicyPolicyRegionPtrOutput {
 	return o.ApplyT(func(v ResiliencyPolicyPolicy) *ResiliencyPolicyPolicyRegion { return v.Region }).(ResiliencyPolicyPolicyRegionPtrOutput)
 }
 
-// Specifies Application failure policy. See `policy.software`
-//
-// The following arguments are optional:
+// The RTO and RPO target to measure resiliency for potential application disruptions.
 func (o ResiliencyPolicyPolicyOutput) Software() ResiliencyPolicyPolicySoftwarePtrOutput {
 	return o.ApplyT(func(v ResiliencyPolicyPolicy) *ResiliencyPolicyPolicySoftware { return v.Software }).(ResiliencyPolicyPolicySoftwarePtrOutput)
 }
@@ -173,7 +167,7 @@ func (o ResiliencyPolicyPolicyPtrOutput) Elem() ResiliencyPolicyPolicyOutput {
 	}).(ResiliencyPolicyPolicyOutput)
 }
 
-// Specifies Availability Zone failure policy. See `policy.az`
+// The RTO and RPO target to measure resiliency for potential availability zone disruptions.
 func (o ResiliencyPolicyPolicyPtrOutput) Az() ResiliencyPolicyPolicyAzPtrOutput {
 	return o.ApplyT(func(v *ResiliencyPolicyPolicy) *ResiliencyPolicyPolicyAz {
 		if v == nil {
@@ -183,7 +177,7 @@ func (o ResiliencyPolicyPolicyPtrOutput) Az() ResiliencyPolicyPolicyAzPtrOutput 
 	}).(ResiliencyPolicyPolicyAzPtrOutput)
 }
 
-// Specifies Infrastructure failure policy. See `policy.hardware`
+// The RTO and RPO target to measure resiliency for potential infrastructure disruptions.
 func (o ResiliencyPolicyPolicyPtrOutput) Hardware() ResiliencyPolicyPolicyHardwarePtrOutput {
 	return o.ApplyT(func(v *ResiliencyPolicyPolicy) *ResiliencyPolicyPolicyHardware {
 		if v == nil {
@@ -193,7 +187,7 @@ func (o ResiliencyPolicyPolicyPtrOutput) Hardware() ResiliencyPolicyPolicyHardwa
 	}).(ResiliencyPolicyPolicyHardwarePtrOutput)
 }
 
-// Specifies Region failure policy. `policy.region`
+// The RTO and RPO target to measure resiliency for potential region disruptions.
 func (o ResiliencyPolicyPolicyPtrOutput) Region() ResiliencyPolicyPolicyRegionPtrOutput {
 	return o.ApplyT(func(v *ResiliencyPolicyPolicy) *ResiliencyPolicyPolicyRegion {
 		if v == nil {
@@ -203,9 +197,7 @@ func (o ResiliencyPolicyPolicyPtrOutput) Region() ResiliencyPolicyPolicyRegionPt
 	}).(ResiliencyPolicyPolicyRegionPtrOutput)
 }
 
-// Specifies Application failure policy. See `policy.software`
-//
-// The following arguments are optional:
+// The RTO and RPO target to measure resiliency for potential application disruptions.
 func (o ResiliencyPolicyPolicyPtrOutput) Software() ResiliencyPolicyPolicySoftwarePtrOutput {
 	return o.ApplyT(func(v *ResiliencyPolicyPolicy) *ResiliencyPolicyPolicySoftware {
 		if v == nil {

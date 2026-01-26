@@ -7,33 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an Amazon Aurora DSQL Cluster.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.dsql.Cluster("example", {
- *     deletionProtectionEnabled: true,
- *     tags: {
- *         Name: "TestCluster",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import DSQL Cluster using the `identifier`. For example:
- *
- * ```sh
- * $ pulumi import aws:dsql/cluster:Cluster example abcde1f234ghijklmnop5qr6st
- * ```
- */
 export class Cluster extends pulumi.CustomResource {
     /**
      * Get an existing Cluster resource's state with the given name, ID, and optional extra
@@ -62,52 +35,17 @@ export class Cluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === Cluster.__pulumiType;
     }
 
-    /**
-     * ARN of the Cluster.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Whether deletion protection is enabled in this cluster.
-     * Default value is `false`.
-     */
     declare public readonly deletionProtectionEnabled: pulumi.Output<boolean>;
-    /**
-     * Encryption configuration details for the DSQL Cluster.
-     */
     declare public /*out*/ readonly encryptionDetails: pulumi.Output<outputs.dsql.ClusterEncryptionDetail[]>;
-    /**
-     * Destroys cluster even if `deletionProtectionEnabled` is set to `true`.
-     * Default value is `false`.
-     */
     declare public readonly forceDestroy: pulumi.Output<boolean>;
-    /**
-     * Cluster Identifier.
-     */
     declare public /*out*/ readonly identifier: pulumi.Output<string>;
-    /**
-     * The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
-     */
     declare public readonly kmsEncryptionKey: pulumi.Output<string>;
-    /**
-     * Multi-region properties of the DSQL Cluster.
-     */
     declare public readonly multiRegionProperties: pulumi.Output<outputs.dsql.ClusterMultiRegionProperties | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Set of tags to be associated with the AWS DSQL Cluster resource.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.dsql.ClusterTimeouts | undefined>;
-    /**
-     * The DSQL Cluster's VPC endpoint service name.
-     */
     declare public /*out*/ readonly vpcEndpointServiceName: pulumi.Output<string>;
 
     /**
@@ -159,52 +97,17 @@ export class Cluster extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Cluster resources.
  */
 export interface ClusterState {
-    /**
-     * ARN of the Cluster.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Whether deletion protection is enabled in this cluster.
-     * Default value is `false`.
-     */
     deletionProtectionEnabled?: pulumi.Input<boolean>;
-    /**
-     * Encryption configuration details for the DSQL Cluster.
-     */
     encryptionDetails?: pulumi.Input<pulumi.Input<inputs.dsql.ClusterEncryptionDetail>[]>;
-    /**
-     * Destroys cluster even if `deletionProtectionEnabled` is set to `true`.
-     * Default value is `false`.
-     */
     forceDestroy?: pulumi.Input<boolean>;
-    /**
-     * Cluster Identifier.
-     */
     identifier?: pulumi.Input<string>;
-    /**
-     * The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
-     */
     kmsEncryptionKey?: pulumi.Input<string>;
-    /**
-     * Multi-region properties of the DSQL Cluster.
-     */
     multiRegionProperties?: pulumi.Input<inputs.dsql.ClusterMultiRegionProperties>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Set of tags to be associated with the AWS DSQL Cluster resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.dsql.ClusterTimeouts>;
-    /**
-     * The DSQL Cluster's VPC endpoint service name.
-     */
     vpcEndpointServiceName?: pulumi.Input<string>;
 }
 
@@ -212,31 +115,11 @@ export interface ClusterState {
  * The set of arguments for constructing a Cluster resource.
  */
 export interface ClusterArgs {
-    /**
-     * Whether deletion protection is enabled in this cluster.
-     * Default value is `false`.
-     */
     deletionProtectionEnabled?: pulumi.Input<boolean>;
-    /**
-     * Destroys cluster even if `deletionProtectionEnabled` is set to `true`.
-     * Default value is `false`.
-     */
     forceDestroy?: pulumi.Input<boolean>;
-    /**
-     * The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
-     */
     kmsEncryptionKey?: pulumi.Input<string>;
-    /**
-     * Multi-region properties of the DSQL Cluster.
-     */
     multiRegionProperties?: pulumi.Input<inputs.dsql.ClusterMultiRegionProperties>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Set of tags to be associated with the AWS DSQL Cluster resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.dsql.ClusterTimeouts>;
 }

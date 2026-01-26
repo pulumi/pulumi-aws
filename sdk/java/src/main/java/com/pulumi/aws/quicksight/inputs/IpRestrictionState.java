@@ -24,77 +24,37 @@ public final class IpRestrictionState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.awsAccountId);
     }
 
-    /**
-     * Whether IP rules are turned on.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Whether IP rules are turned on.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * Map of allowed IPv4 CIDR ranges and descriptions.
-     * 
-     */
     @Import(name="ipRestrictionRuleMap")
     private @Nullable Output<Map<String,String>> ipRestrictionRuleMap;
 
-    /**
-     * @return Map of allowed IPv4 CIDR ranges and descriptions.
-     * 
-     */
     public Optional<Output<Map<String,String>>> ipRestrictionRuleMap() {
         return Optional.ofNullable(this.ipRestrictionRuleMap);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of allowed VPC endpoint IDs and descriptions.
-     * 
-     */
     @Import(name="vpcEndpointIdRestrictionRuleMap")
     private @Nullable Output<Map<String,String>> vpcEndpointIdRestrictionRuleMap;
 
-    /**
-     * @return Map of allowed VPC endpoint IDs and descriptions.
-     * 
-     */
     public Optional<Output<Map<String,String>>> vpcEndpointIdRestrictionRuleMap() {
         return Optional.ofNullable(this.vpcEndpointIdRestrictionRuleMap);
     }
 
-    /**
-     * Map of VPC IDs and descriptions. Traffic from all VPC endpoints that are present in the specified VPC is allowed.
-     * 
-     */
     @Import(name="vpcIdRestrictionRuleMap")
     private @Nullable Output<Map<String,String>> vpcIdRestrictionRuleMap;
 
-    /**
-     * @return Map of VPC IDs and descriptions. Traffic from all VPC endpoints that are present in the specified VPC is allowed.
-     * 
-     */
     public Optional<Output<Map<String,String>>> vpcIdRestrictionRuleMap() {
         return Optional.ofNullable(this.vpcIdRestrictionRuleMap);
     }
@@ -137,107 +97,47 @@ public final class IpRestrictionState extends com.pulumi.resources.ResourceArgs 
             return awsAccountId(Output.of(awsAccountId));
         }
 
-        /**
-         * @param enabled Whether IP rules are turned on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether IP rules are turned on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param ipRestrictionRuleMap Map of allowed IPv4 CIDR ranges and descriptions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipRestrictionRuleMap(@Nullable Output<Map<String,String>> ipRestrictionRuleMap) {
             $.ipRestrictionRuleMap = ipRestrictionRuleMap;
             return this;
         }
 
-        /**
-         * @param ipRestrictionRuleMap Map of allowed IPv4 CIDR ranges and descriptions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipRestrictionRuleMap(Map<String,String> ipRestrictionRuleMap) {
             return ipRestrictionRuleMap(Output.of(ipRestrictionRuleMap));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param vpcEndpointIdRestrictionRuleMap Map of allowed VPC endpoint IDs and descriptions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointIdRestrictionRuleMap(@Nullable Output<Map<String,String>> vpcEndpointIdRestrictionRuleMap) {
             $.vpcEndpointIdRestrictionRuleMap = vpcEndpointIdRestrictionRuleMap;
             return this;
         }
 
-        /**
-         * @param vpcEndpointIdRestrictionRuleMap Map of allowed VPC endpoint IDs and descriptions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointIdRestrictionRuleMap(Map<String,String> vpcEndpointIdRestrictionRuleMap) {
             return vpcEndpointIdRestrictionRuleMap(Output.of(vpcEndpointIdRestrictionRuleMap));
         }
 
-        /**
-         * @param vpcIdRestrictionRuleMap Map of VPC IDs and descriptions. Traffic from all VPC endpoints that are present in the specified VPC is allowed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcIdRestrictionRuleMap(@Nullable Output<Map<String,String>> vpcIdRestrictionRuleMap) {
             $.vpcIdRestrictionRuleMap = vpcIdRestrictionRuleMap;
             return this;
         }
 
-        /**
-         * @param vpcIdRestrictionRuleMap Map of VPC IDs and descriptions. Traffic from all VPC endpoints that are present in the specified VPC is allowed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcIdRestrictionRuleMap(Map<String,String> vpcIdRestrictionRuleMap) {
             return vpcIdRestrictionRuleMap(Output.of(vpcIdRestrictionRuleMap));
         }

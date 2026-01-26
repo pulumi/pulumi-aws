@@ -12,70 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CodeArtifact Domain Resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codeartifact"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codeartifact.NewDomain(ctx, "example", &codeartifact.DomainArgs{
-//				Domain: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the CodeArtifact domain.
-//
-// Using `pulumi import`, import CodeArtifact Domain using the CodeArtifact Domain arn. For example:
-//
-// % pulumi import aws_codeartifact_domain.example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-8593714120730241305
 type Domain struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the Domain.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The total size of all assets in the domain.
-	AssetSizeBytes pulumi.StringOutput `pulumi:"assetSizeBytes"`
-	// A timestamp that represents the date and time the domain was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
-	Domain pulumi.StringOutput `pulumi:"domain"`
-	// The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
-	EncryptionKey pulumi.StringOutput `pulumi:"encryptionKey"`
-	// The AWS account ID that owns the domain.
-	Owner pulumi.StringOutput `pulumi:"owner"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The number of repositories in the domain.
-	RepositoryCount pulumi.IntOutput `pulumi:"repositoryCount"`
-	// The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
-	S3BucketArn pulumi.StringOutput `pulumi:"s3BucketArn"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn             pulumi.StringOutput    `pulumi:"arn"`
+	AssetSizeBytes  pulumi.StringOutput    `pulumi:"assetSizeBytes"`
+	CreatedTime     pulumi.StringOutput    `pulumi:"createdTime"`
+	Domain          pulumi.StringOutput    `pulumi:"domain"`
+	EncryptionKey   pulumi.StringOutput    `pulumi:"encryptionKey"`
+	Owner           pulumi.StringOutput    `pulumi:"owner"`
+	Region          pulumi.StringOutput    `pulumi:"region"`
+	RepositoryCount pulumi.IntOutput       `pulumi:"repositoryCount"`
+	S3BucketArn     pulumi.StringOutput    `pulumi:"s3BucketArn"`
+	Tags            pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll         pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewDomain registers a new resource with the given unique name, arguments, and options.
@@ -111,53 +61,31 @@ func GetDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Domain resources.
 type domainState struct {
-	// The ARN of the Domain.
-	Arn *string `pulumi:"arn"`
-	// The total size of all assets in the domain.
-	AssetSizeBytes *string `pulumi:"assetSizeBytes"`
-	// A timestamp that represents the date and time the domain was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-	CreatedTime *string `pulumi:"createdTime"`
-	// The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
-	Domain *string `pulumi:"domain"`
-	// The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
-	EncryptionKey *string `pulumi:"encryptionKey"`
-	// The AWS account ID that owns the domain.
-	Owner *string `pulumi:"owner"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The number of repositories in the domain.
-	RepositoryCount *int `pulumi:"repositoryCount"`
-	// The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
-	S3BucketArn *string `pulumi:"s3BucketArn"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn             *string           `pulumi:"arn"`
+	AssetSizeBytes  *string           `pulumi:"assetSizeBytes"`
+	CreatedTime     *string           `pulumi:"createdTime"`
+	Domain          *string           `pulumi:"domain"`
+	EncryptionKey   *string           `pulumi:"encryptionKey"`
+	Owner           *string           `pulumi:"owner"`
+	Region          *string           `pulumi:"region"`
+	RepositoryCount *int              `pulumi:"repositoryCount"`
+	S3BucketArn     *string           `pulumi:"s3BucketArn"`
+	Tags            map[string]string `pulumi:"tags"`
+	TagsAll         map[string]string `pulumi:"tagsAll"`
 }
 
 type DomainState struct {
-	// The ARN of the Domain.
-	Arn pulumi.StringPtrInput
-	// The total size of all assets in the domain.
-	AssetSizeBytes pulumi.StringPtrInput
-	// A timestamp that represents the date and time the domain was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-	CreatedTime pulumi.StringPtrInput
-	// The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
-	Domain pulumi.StringPtrInput
-	// The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
-	EncryptionKey pulumi.StringPtrInput
-	// The AWS account ID that owns the domain.
-	Owner pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The number of repositories in the domain.
+	Arn             pulumi.StringPtrInput
+	AssetSizeBytes  pulumi.StringPtrInput
+	CreatedTime     pulumi.StringPtrInput
+	Domain          pulumi.StringPtrInput
+	EncryptionKey   pulumi.StringPtrInput
+	Owner           pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
 	RepositoryCount pulumi.IntPtrInput
-	// The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
-	S3BucketArn pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	S3BucketArn     pulumi.StringPtrInput
+	Tags            pulumi.StringMapInput
+	TagsAll         pulumi.StringMapInput
 }
 
 func (DomainState) ElementType() reflect.Type {
@@ -165,26 +93,18 @@ func (DomainState) ElementType() reflect.Type {
 }
 
 type domainArgs struct {
-	// The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
-	Domain string `pulumi:"domain"`
-	// The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
-	EncryptionKey *string `pulumi:"encryptionKey"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Domain        string            `pulumi:"domain"`
+	EncryptionKey *string           `pulumi:"encryptionKey"`
+	Region        *string           `pulumi:"region"`
+	Tags          map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
-	// The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
-	Domain pulumi.StringInput
-	// The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
+	Domain        pulumi.StringInput
 	EncryptionKey pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Region        pulumi.StringPtrInput
+	Tags          pulumi.StringMapInput
 }
 
 func (DomainArgs) ElementType() reflect.Type {
@@ -274,57 +194,46 @@ func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutpu
 	return o
 }
 
-// The ARN of the Domain.
 func (o DomainOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The total size of all assets in the domain.
 func (o DomainOutput) AssetSizeBytes() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.AssetSizeBytes }).(pulumi.StringOutput)
 }
 
-// A timestamp that represents the date and time the domain was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 func (o DomainOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
 func (o DomainOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Domain }).(pulumi.StringOutput)
 }
 
-// The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
 func (o DomainOutput) EncryptionKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.EncryptionKey }).(pulumi.StringOutput)
 }
 
-// The AWS account ID that owns the domain.
 func (o DomainOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DomainOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The number of repositories in the domain.
 func (o DomainOutput) RepositoryCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *Domain) pulumi.IntOutput { return v.RepositoryCount }).(pulumi.IntOutput)
 }
 
-// The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
 func (o DomainOutput) S3BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.S3BucketArn }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DomainOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DomainOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

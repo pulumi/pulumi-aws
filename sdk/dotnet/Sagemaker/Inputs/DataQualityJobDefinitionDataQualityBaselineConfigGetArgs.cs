@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class DataQualityJobDefinitionDataQualityBaselineConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The constraints resource for a monitoring job. Fields are documented below.
-        /// </summary>
         [Input("constraintsResource")]
         public Input<Inputs.DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResourceGetArgs>? ConstraintsResource { get; set; }
 
-        /// <summary>
-        /// The statistics resource for a monitoring job. Fields are documented below.
-        /// </summary>
         [Input("statisticsResource")]
         public Input<Inputs.DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResourceGetArgs>? StatisticsResource { get; set; }
 

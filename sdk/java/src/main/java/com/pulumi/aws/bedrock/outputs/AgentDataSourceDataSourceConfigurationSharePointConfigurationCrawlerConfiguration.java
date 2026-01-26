@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration {
-    /**
-     * @return The Salesforce standard object configuration. See `filterConfiguration` block for details.
-     * 
-     */
     private @Nullable AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration filterConfiguration;
 
     private AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration() {}
-    /**
-     * @return The Salesforce standard object configuration. See `filterConfiguration` block for details.
-     * 
-     */
     public Optional<AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration> filterConfiguration() {
         return Optional.ofNullable(this.filterConfiguration);
     }

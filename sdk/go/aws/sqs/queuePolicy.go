@@ -12,166 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Allows you to set a policy of an SQS Queue while referencing the ARN of the queue within the policy.
-//
-// !> AWS will hang indefinitely when creating or updating an `sqs.Queue` with an associated policy if `Version = "2012-10-17"` is not explicitly set in the policy. See below for an example of how to avoid this issue.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sqs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// q, err := sqs.NewQueue(ctx, "q", &sqs.QueueArgs{
-// Name: pulumi.String("examplequeue"),
-// })
-// if err != nil {
-// return err
-// }
-// test := q.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
-// {
-// Sid: pulumi.StringRef(pulumi.String(pulumi.StringRef("First"))),
-// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "*",
-// Identifiers: []string{
-// "*",
-// },
-// },
-// },
-// Actions: []string{
-// "sqs:SendMessage",
-// },
-// Resources: []string{
-// arn,
-// },
-// Conditions: []iam.GetPolicyDocumentStatementCondition{
-// {
-// Test: "ArnEquals",
-// Variable: "aws:SourceArn",
-// Values: interface{}{
-// example.Arn,
-// },
-// },
-// },
-// },
-// }),
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
-// _, err = sqs.NewQueuePolicy(ctx, "test", &sqs.QueuePolicyArgs{
-// QueueUrl: q.ID(),
-// Policy: pulumi.String(test.ApplyT(func(test iam.GetPolicyDocumentResult) (*string, error) {
-// return &test.Json, nil
-// }).(pulumi.StringPtrOutput)),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
-//
-// ### Timeout Problems Creating/Updating
-//
-// If `Version = "2012-10-17"` is not explicitly set in the policy, AWS may hang, causing the AWS provider to time out. To avoid this, make sure to include `Version` as shown in the example below.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sqs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
-//				Bucket: pulumi.String("brodobaggins"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleQueue, err := sqs.NewQueue(ctx, "example", &sqs.QueueArgs{
-//				Name: pulumi.String("be-giant"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sqs.NewQueuePolicy(ctx, "example", &sqs.QueuePolicyArgs{
-//				QueueUrl: exampleQueue.ID(),
-//				Policy: pulumi.All(exampleQueue.Arn, example.Arn).ApplyT(func(_args []interface{}) (string, error) {
-//					exampleQueueArn := _args[0].(string)
-//					exampleArn := _args[1].(string)
-//					var _zero string
-//					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"Version": "2012-10-17",
-//						"Statement": []map[string]interface{}{
-//							map[string]interface{}{
-//								"Sid":    "Cejuwdam",
-//								"Effect": "Allow",
-//								"Principal": map[string]interface{}{
-//									"Service": "s3.amazonaws.com",
-//								},
-//								"Action":   "SQS:SendMessage",
-//								"Resource": exampleQueueArn,
-//								"Condition": map[string]interface{}{
-//									"ArnLike": map[string]interface{}{
-//										"aws:SourceArn": exampleArn,
-//									},
-//								},
-//							},
-//						},
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json0 := string(tmpJSON0)
-//					return json0, nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SQS Queue Policies using the queue URL. For example:
-//
-// ```sh
-// $ pulumi import aws:sqs/queuePolicy:QueuePolicy test https://queue.amazonaws.com/123456789012/myqueue
-// ```
 type QueuePolicy struct {
 	pulumi.CustomResourceState
 
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// URL of the SQS Queue to which to attach the policy.
+	Policy   pulumi.StringOutput `pulumi:"policy"`
 	QueueUrl pulumi.StringOutput `pulumi:"queueUrl"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region   pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewQueuePolicy registers a new resource with the given unique name, arguments, and options.
@@ -210,19 +56,15 @@ func GetQueuePolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering QueuePolicy resources.
 type queuePolicyState struct {
-	Policy interface{} `pulumi:"policy"`
-	// URL of the SQS Queue to which to attach the policy.
-	QueueUrl *string `pulumi:"queueUrl"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Policy   interface{} `pulumi:"policy"`
+	QueueUrl *string     `pulumi:"queueUrl"`
+	Region   *string     `pulumi:"region"`
 }
 
 type QueuePolicyState struct {
-	Policy pulumi.Input
-	// URL of the SQS Queue to which to attach the policy.
+	Policy   pulumi.Input
 	QueueUrl pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region   pulumi.StringPtrInput
 }
 
 func (QueuePolicyState) ElementType() reflect.Type {
@@ -230,20 +72,16 @@ func (QueuePolicyState) ElementType() reflect.Type {
 }
 
 type queuePolicyArgs struct {
-	Policy interface{} `pulumi:"policy"`
-	// URL of the SQS Queue to which to attach the policy.
-	QueueUrl string `pulumi:"queueUrl"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Policy   interface{} `pulumi:"policy"`
+	QueueUrl string      `pulumi:"queueUrl"`
+	Region   *string     `pulumi:"region"`
 }
 
 // The set of arguments for constructing a QueuePolicy resource.
 type QueuePolicyArgs struct {
-	Policy pulumi.Input
-	// URL of the SQS Queue to which to attach the policy.
+	Policy   pulumi.Input
 	QueueUrl pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region   pulumi.StringPtrInput
 }
 
 func (QueuePolicyArgs) ElementType() reflect.Type {
@@ -337,12 +175,10 @@ func (o QueuePolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueuePolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// URL of the SQS Queue to which to attach the policy.
 func (o QueuePolicyOutput) QueueUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueuePolicy) pulumi.StringOutput { return v.QueueUrl }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o QueuePolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueuePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

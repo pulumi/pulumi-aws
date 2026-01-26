@@ -12,77 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VpnConnectionVgwTelemetry {
-    /**
-     * @return The number of accepted routes.
-     * 
-     */
     private @Nullable Integer acceptedRouteCount;
-    /**
-     * @return The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
-     * 
-     */
     private @Nullable String certificateArn;
-    /**
-     * @return The date and time of the last change in status.
-     * 
-     */
     private @Nullable String lastStatusChange;
-    /**
-     * @return The Internet-routable IP address of the virtual private gateway&#39;s outside interface.
-     * 
-     */
     private @Nullable String outsideIpAddress;
-    /**
-     * @return The status of the VPN tunnel.
-     * 
-     */
     private @Nullable String status;
-    /**
-     * @return If an error occurs, a description of the error.
-     * 
-     */
     private @Nullable String statusMessage;
 
     private VpnConnectionVgwTelemetry() {}
-    /**
-     * @return The number of accepted routes.
-     * 
-     */
     public Optional<Integer> acceptedRouteCount() {
         return Optional.ofNullable(this.acceptedRouteCount);
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
-     * 
-     */
     public Optional<String> certificateArn() {
         return Optional.ofNullable(this.certificateArn);
     }
-    /**
-     * @return The date and time of the last change in status.
-     * 
-     */
     public Optional<String> lastStatusChange() {
         return Optional.ofNullable(this.lastStatusChange);
     }
-    /**
-     * @return The Internet-routable IP address of the virtual private gateway&#39;s outside interface.
-     * 
-     */
     public Optional<String> outsideIpAddress() {
         return Optional.ofNullable(this.outsideIpAddress);
     }
-    /**
-     * @return The status of the VPN tunnel.
-     * 
-     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }
-    /**
-     * @return If an error occurs, a description of the error.
-     * 
-     */
     public Optional<String> statusMessage() {
         return Optional.ofNullable(this.statusMessage);
     }

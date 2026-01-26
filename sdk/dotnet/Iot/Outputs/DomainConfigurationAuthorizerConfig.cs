@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Iot.Outputs
     [OutputType]
     public sealed class DomainConfigurationAuthorizerConfig
     {
-        /// <summary>
-        /// A Boolean that specifies whether the domain configuration's authorization service can be overridden.
-        /// </summary>
         public readonly bool? AllowAuthorizerOverride;
-        /// <summary>
-        /// The name of the authorization service for a domain configuration.
-        /// </summary>
         public readonly string? DefaultAuthorizerName;
 
         [OutputConstructor]

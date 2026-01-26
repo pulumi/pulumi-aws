@@ -13,83 +13,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAgentAgentVersionsAgentVersionSummary {
-    /**
-     * @return Name of agent to which the version belongs.
-     * 
-     */
     private String agentName;
-    /**
-     * @return Status of the agent to which the version belongs.
-     * 
-     */
     private String agentStatus;
-    /**
-     * @return Version of the agent.
-     * 
-     */
     private String agentVersion;
-    /**
-     * @return Time at which the version was created.
-     * 
-     */
     private String createdAt;
-    /**
-     * @return Description of the version of the agent.
-     * * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
-     * 
-     */
     private String description;
     private @Nullable List<GetAgentAgentVersionsAgentVersionSummaryGuardrailConfiguration> guardrailConfigurations;
-    /**
-     * @return Time at which the version was last updated.
-     * 
-     */
     private String updatedAt;
 
     private GetAgentAgentVersionsAgentVersionSummary() {}
-    /**
-     * @return Name of agent to which the version belongs.
-     * 
-     */
     public String agentName() {
         return this.agentName;
     }
-    /**
-     * @return Status of the agent to which the version belongs.
-     * 
-     */
     public String agentStatus() {
         return this.agentStatus;
     }
-    /**
-     * @return Version of the agent.
-     * 
-     */
     public String agentVersion() {
         return this.agentVersion;
     }
-    /**
-     * @return Time at which the version was created.
-     * 
-     */
     public String createdAt() {
         return this.createdAt;
     }
-    /**
-     * @return Description of the version of the agent.
-     * * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
-     * 
-     */
     public String description() {
         return this.description;
     }
     public List<GetAgentAgentVersionsAgentVersionSummaryGuardrailConfiguration> guardrailConfigurations() {
         return this.guardrailConfigurations == null ? List.of() : this.guardrailConfigurations;
     }
-    /**
-     * @return Time at which the version was last updated.
-     * 
-     */
     public String updatedAt() {
         return this.updatedAt;
     }

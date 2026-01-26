@@ -16,62 +16,30 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationIcebe
 
     public static final CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs Empty = new CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs();
 
-    /**
-     * If set to `false`, snapshots are only deleted from table metadata, and the underlying data and metadata files are not deleted. Defaults to `false`.
-     * 
-     */
     @Import(name="cleanExpiredFiles")
     private @Nullable Output<Boolean> cleanExpiredFiles;
 
-    /**
-     * @return If set to `false`, snapshots are only deleted from table metadata, and the underlying data and metadata files are not deleted. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> cleanExpiredFiles() {
         return Optional.ofNullable(this.cleanExpiredFiles);
     }
 
-    /**
-     * The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
-     * 
-     */
     @Import(name="numberOfSnapshotsToRetain")
     private @Nullable Output<Integer> numberOfSnapshotsToRetain;
 
-    /**
-     * @return The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
-     * 
-     */
     public Optional<Output<Integer>> numberOfSnapshotsToRetain() {
         return Optional.ofNullable(this.numberOfSnapshotsToRetain);
     }
 
-    /**
-     * Interval in hours between retention job runs. Defaults to `24`.
-     * 
-     */
     @Import(name="runRateInHours")
     private @Nullable Output<Integer> runRateInHours;
 
-    /**
-     * @return Interval in hours between retention job runs. Defaults to `24`.
-     * 
-     */
     public Optional<Output<Integer>> runRateInHours() {
         return Optional.ofNullable(this.runRateInHours);
     }
 
-    /**
-     * The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
-     * 
-     */
     @Import(name="snapshotRetentionPeriodInDays")
     private @Nullable Output<Integer> snapshotRetentionPeriodInDays;
 
-    /**
-     * @return The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
-     * 
-     */
     public Optional<Output<Integer>> snapshotRetentionPeriodInDays() {
         return Optional.ofNullable(this.snapshotRetentionPeriodInDays);
     }
@@ -103,86 +71,38 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationIcebe
             $ = new CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cleanExpiredFiles If set to `false`, snapshots are only deleted from table metadata, and the underlying data and metadata files are not deleted. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cleanExpiredFiles(@Nullable Output<Boolean> cleanExpiredFiles) {
             $.cleanExpiredFiles = cleanExpiredFiles;
             return this;
         }
 
-        /**
-         * @param cleanExpiredFiles If set to `false`, snapshots are only deleted from table metadata, and the underlying data and metadata files are not deleted. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cleanExpiredFiles(Boolean cleanExpiredFiles) {
             return cleanExpiredFiles(Output.of(cleanExpiredFiles));
         }
 
-        /**
-         * @param numberOfSnapshotsToRetain The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
-         * 
-         * @return builder
-         * 
-         */
         public Builder numberOfSnapshotsToRetain(@Nullable Output<Integer> numberOfSnapshotsToRetain) {
             $.numberOfSnapshotsToRetain = numberOfSnapshotsToRetain;
             return this;
         }
 
-        /**
-         * @param numberOfSnapshotsToRetain The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
-         * 
-         * @return builder
-         * 
-         */
         public Builder numberOfSnapshotsToRetain(Integer numberOfSnapshotsToRetain) {
             return numberOfSnapshotsToRetain(Output.of(numberOfSnapshotsToRetain));
         }
 
-        /**
-         * @param runRateInHours Interval in hours between retention job runs. Defaults to `24`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder runRateInHours(@Nullable Output<Integer> runRateInHours) {
             $.runRateInHours = runRateInHours;
             return this;
         }
 
-        /**
-         * @param runRateInHours Interval in hours between retention job runs. Defaults to `24`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder runRateInHours(Integer runRateInHours) {
             return runRateInHours(Output.of(runRateInHours));
         }
 
-        /**
-         * @param snapshotRetentionPeriodInDays The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snapshotRetentionPeriodInDays(@Nullable Output<Integer> snapshotRetentionPeriodInDays) {
             $.snapshotRetentionPeriodInDays = snapshotRetentionPeriodInDays;
             return this;
         }
 
-        /**
-         * @param snapshotRetentionPeriodInDays The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snapshotRetentionPeriodInDays(Integer snapshotRetentionPeriodInDays) {
             return snapshotRetentionPeriodInDays(Output.of(snapshotRetentionPeriodInDays));
         }

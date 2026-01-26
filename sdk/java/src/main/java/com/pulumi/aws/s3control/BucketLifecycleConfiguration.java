@@ -15,118 +15,23 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage an S3 Control Bucket Lifecycle Configuration.
- * 
- * &gt; **NOTE:** Each S3 Control Bucket can only have one Lifecycle Configuration. Using multiple of this resource against the same S3 Control Bucket will result in perpetual differences each provider run.
- * 
- * &gt; This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Bucket Lifecycle Configurations in an AWS Partition, see the `aws.s3.Bucket` resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3control.BucketLifecycleConfiguration;
- * import com.pulumi.aws.s3control.BucketLifecycleConfigurationArgs;
- * import com.pulumi.aws.s3control.inputs.BucketLifecycleConfigurationRuleArgs;
- * import com.pulumi.aws.s3control.inputs.BucketLifecycleConfigurationRuleExpirationArgs;
- * import com.pulumi.aws.s3control.inputs.BucketLifecycleConfigurationRuleFilterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new BucketLifecycleConfiguration("example", BucketLifecycleConfigurationArgs.builder()
- *             .bucket(exampleAwsS3controlBucket.arn())
- *             .rules(            
- *                 BucketLifecycleConfigurationRuleArgs.builder()
- *                     .expiration(BucketLifecycleConfigurationRuleExpirationArgs.builder()
- *                         .days(365)
- *                         .build())
- *                     .filter(BucketLifecycleConfigurationRuleFilterArgs.builder()
- *                         .prefix("logs/")
- *                         .build())
- *                     .id("logs")
- *                     .build(),
- *                 BucketLifecycleConfigurationRuleArgs.builder()
- *                     .expiration(BucketLifecycleConfigurationRuleExpirationArgs.builder()
- *                         .days(7)
- *                         .build())
- *                     .filter(BucketLifecycleConfigurationRuleFilterArgs.builder()
- *                         .prefix("temp/")
- *                         .build())
- *                     .id("temp")
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import S3 Control Bucket Lifecycle Configurations using the Amazon Resource Name (ARN). For example:
- * 
- * ```sh
- * $ pulumi import aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
- * ```
- * 
- */
 @ResourceType(type="aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration")
 public class BucketLifecycleConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the bucket.
-     * 
-     */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the bucket.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Configuration block(s) containing lifecycle rules for the bucket.
-     * 
-     */
     @Export(name="rules", refs={List.class,BucketLifecycleConfigurationRule.class}, tree="[0,1]")
     private Output<List<BucketLifecycleConfigurationRule>> rules;
 
-    /**
-     * @return Configuration block(s) containing lifecycle rules for the bucket.
-     * 
-     */
     public Output<List<BucketLifecycleConfigurationRule>> rules() {
         return this.rules;
     }

@@ -12,21 +12,12 @@ namespace Pulumi.Aws.DataPipeline.Inputs
 
     public sealed class PipelineDefinitionPipelineObjectFieldArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Field identifier.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        /// <summary>
-        /// Field value, expressed as the identifier of another object
-        /// </summary>
         [Input("refValue")]
         public Input<string>? RefValue { get; set; }
 
-        /// <summary>
-        /// Field value, expressed as a String.
-        /// </summary>
         [Input("stringValue")]
         public Input<string>? StringValue { get; set; }
 

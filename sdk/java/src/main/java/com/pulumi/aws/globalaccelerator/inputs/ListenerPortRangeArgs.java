@@ -15,32 +15,16 @@ public final class ListenerPortRangeArgs extends com.pulumi.resources.ResourceAr
 
     public static final ListenerPortRangeArgs Empty = new ListenerPortRangeArgs();
 
-    /**
-     * The first port in the range of ports, inclusive.
-     * 
-     */
     @Import(name="fromPort")
     private @Nullable Output<Integer> fromPort;
 
-    /**
-     * @return The first port in the range of ports, inclusive.
-     * 
-     */
     public Optional<Output<Integer>> fromPort() {
         return Optional.ofNullable(this.fromPort);
     }
 
-    /**
-     * The last port in the range of ports, inclusive.
-     * 
-     */
     @Import(name="toPort")
     private @Nullable Output<Integer> toPort;
 
-    /**
-     * @return The last port in the range of ports, inclusive.
-     * 
-     */
     public Optional<Output<Integer>> toPort() {
         return Optional.ofNullable(this.toPort);
     }
@@ -70,44 +54,20 @@ public final class ListenerPortRangeArgs extends com.pulumi.resources.ResourceAr
             $ = new ListenerPortRangeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fromPort The first port in the range of ports, inclusive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fromPort(@Nullable Output<Integer> fromPort) {
             $.fromPort = fromPort;
             return this;
         }
 
-        /**
-         * @param fromPort The first port in the range of ports, inclusive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fromPort(Integer fromPort) {
             return fromPort(Output.of(fromPort));
         }
 
-        /**
-         * @param toPort The last port in the range of ports, inclusive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder toPort(@Nullable Output<Integer> toPort) {
             $.toPort = toPort;
             return this;
         }
 
-        /**
-         * @param toPort The last port in the range of ports, inclusive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder toPort(Integer toPort) {
             return toPort(Output.of(toPort));
         }

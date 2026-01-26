@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing an AWS CloudWatch Observability Access Manager Sinks.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.oam.getSinks({});
- * ```
- */
 export function getSinks(args?: GetSinksArgs, opts?: pulumi.InvokeOptions): Promise<GetSinksResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -30,9 +16,6 @@ export function getSinks(args?: GetSinksArgs, opts?: pulumi.InvokeOptions): Prom
  * A collection of arguments for invoking getSinks.
  */
 export interface GetSinksArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -40,9 +23,6 @@ export interface GetSinksArgs {
  * A collection of values returned by getSinks.
  */
 export interface GetSinksResult {
-    /**
-     * Set of ARN of the Sinks.
-     */
     readonly arns: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -50,20 +30,6 @@ export interface GetSinksResult {
     readonly id: string;
     readonly region: string;
 }
-/**
- * Data source for managing an AWS CloudWatch Observability Access Manager Sinks.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.oam.getSinks({});
- * ```
- */
 export function getSinksOutput(args?: GetSinksOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSinksResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -76,8 +42,5 @@ export function getSinksOutput(args?: GetSinksOutputArgs, opts?: pulumi.InvokeOu
  * A collection of arguments for invoking getSinks.
  */
 export interface GetSinksOutputArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

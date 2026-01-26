@@ -16,17 +16,9 @@ public final class GetVirtualRouterPlainArgs extends com.pulumi.resources.Invoke
 
     public static final GetVirtualRouterPlainArgs Empty = new GetVirtualRouterPlainArgs();
 
-    /**
-     * Name of the mesh in which the virtual router exists
-     * 
-     */
     @Import(name="meshName", required=true)
     private String meshName;
 
-    /**
-     * @return Name of the mesh in which the virtual router exists
-     * 
-     */
     public String meshName() {
         return this.meshName;
     }
@@ -38,47 +30,23 @@ public final class GetVirtualRouterPlainArgs extends com.pulumi.resources.Invoke
         return Optional.ofNullable(this.meshOwner);
     }
 
-    /**
-     * Name of the virtual router.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the virtual router.
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Map of tags.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -111,12 +79,6 @@ public final class GetVirtualRouterPlainArgs extends com.pulumi.resources.Invoke
             $ = new GetVirtualRouterPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param meshName Name of the mesh in which the virtual router exists
-         * 
-         * @return builder
-         * 
-         */
         public Builder meshName(String meshName) {
             $.meshName = meshName;
             return this;
@@ -127,34 +89,16 @@ public final class GetVirtualRouterPlainArgs extends com.pulumi.resources.Invoke
             return this;
         }
 
-        /**
-         * @param name Name of the virtual router.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Map of tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

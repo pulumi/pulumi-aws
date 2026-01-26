@@ -4,35 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an DocumentDB subnet group resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = new aws.docdb.SubnetGroup("default", {
- *     name: "main",
- *     subnetIds: [
- *         frontend.id,
- *         backend.id,
- *     ],
- *     tags: {
- *         Name: "My docdb subnet group",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import DocumentDB Subnet groups using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:docdb/subnetGroup:SubnetGroup default production-subnet-group
- * ```
- */
 export class SubnetGroup extends pulumi.CustomResource {
     /**
      * Get an existing SubnetGroup resource's state with the given name, ID, and optional extra
@@ -61,41 +32,14 @@ export class SubnetGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === SubnetGroup.__pulumiType;
     }
 
-    /**
-     * The ARN of the docDB subnet group.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The description of the docDB subnet group. Defaults to "Managed by Pulumi".
-     */
     declare public readonly description: pulumi.Output<string>;
-    /**
-     * The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     */
     declare public readonly namePrefix: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A list of VPC subnet IDs.
-     */
     declare public readonly subnetIds: pulumi.Output<string[]>;
-    /**
-     * The network type of the docDB subnet group (`IPV4` or `DUAL`).
-     */
     declare public /*out*/ readonly supportedNetworkTypes: pulumi.Output<string[]>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -144,41 +88,14 @@ export class SubnetGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SubnetGroup resources.
  */
 export interface SubnetGroupState {
-    /**
-     * The ARN of the docDB subnet group.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The description of the docDB subnet group. Defaults to "Managed by Pulumi".
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     */
     namePrefix?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A list of VPC subnet IDs.
-     */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The network type of the docDB subnet group (`IPV4` or `DUAL`).
-     */
     supportedNetworkTypes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -186,28 +103,10 @@ export interface SubnetGroupState {
  * The set of arguments for constructing a SubnetGroup resource.
  */
 export interface SubnetGroupArgs {
-    /**
-     * The description of the docDB subnet group. Defaults to "Managed by Pulumi".
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     */
     namePrefix?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A list of VPC subnet IDs.
-     */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

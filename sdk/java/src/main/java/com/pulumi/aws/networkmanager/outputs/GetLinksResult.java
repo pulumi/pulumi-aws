@@ -20,10 +20,6 @@ public final class GetLinksResult {
      * 
      */
     private String id;
-    /**
-     * @return IDs of the links.
-     * 
-     */
     private List<String> ids;
     private @Nullable String providerName;
     private @Nullable String siteId;
@@ -41,10 +37,6 @@ public final class GetLinksResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return IDs of the links.
-     * 
-     */
     public List<String> ids() {
         return this.ids;
     }

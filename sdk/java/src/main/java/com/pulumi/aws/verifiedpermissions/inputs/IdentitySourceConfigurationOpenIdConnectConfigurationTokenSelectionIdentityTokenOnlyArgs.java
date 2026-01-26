@@ -16,32 +16,16 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
 
     public static final IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs Empty = new IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs();
 
-    /**
-     * The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
-     * 
-     */
     @Import(name="clientIds")
     private @Nullable Output<List<String>> clientIds;
 
-    /**
-     * @return The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
-     * 
-     */
     public Optional<Output<List<String>>> clientIds() {
         return Optional.ofNullable(this.clientIds);
     }
 
-    /**
-     * The claim that determines the principal in OIDC identity tokens.
-     * 
-     */
     @Import(name="principalIdClaim")
     private @Nullable Output<String> principalIdClaim;
 
-    /**
-     * @return The claim that determines the principal in OIDC identity tokens.
-     * 
-     */
     public Optional<Output<String>> principalIdClaim() {
         return Optional.ofNullable(this.principalIdClaim);
     }
@@ -71,54 +55,24 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
             $ = new IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clientIds The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientIds(@Nullable Output<List<String>> clientIds) {
             $.clientIds = clientIds;
             return this;
         }
 
-        /**
-         * @param clientIds The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientIds(List<String> clientIds) {
             return clientIds(Output.of(clientIds));
         }
 
-        /**
-         * @param clientIds The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientIds(String... clientIds) {
             return clientIds(List.of(clientIds));
         }
 
-        /**
-         * @param principalIdClaim The claim that determines the principal in OIDC identity tokens.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalIdClaim(@Nullable Output<String> principalIdClaim) {
             $.principalIdClaim = principalIdClaim;
             return this;
         }
 
-        /**
-         * @param principalIdClaim The claim that determines the principal in OIDC identity tokens.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalIdClaim(String principalIdClaim) {
             return principalIdClaim(Output.of(principalIdClaim));
         }

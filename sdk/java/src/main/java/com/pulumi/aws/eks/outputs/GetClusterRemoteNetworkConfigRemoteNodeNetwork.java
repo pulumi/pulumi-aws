@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterRemoteNetworkConfigRemoteNodeNetwork {
-    /**
-     * @return List of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.
-     * 
-     */
     private List<String> cidrs;
 
     private GetClusterRemoteNetworkConfigRemoteNodeNetwork() {}
-    /**
-     * @return List of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.
-     * 
-     */
     public List<String> cidrs() {
         return this.cidrs;
     }

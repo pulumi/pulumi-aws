@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCatalogTableStorageDescriptorSchemaReferenceSchemaId {
-    /**
-     * @return Name of the schema registry that contains the schema.
-     * 
-     */
     private String registryName;
-    /**
-     * @return ARN of the schema.
-     * 
-     */
     private String schemaArn;
-    /**
-     * @return Name of the schema.
-     * 
-     */
     private String schemaName;
 
     private GetCatalogTableStorageDescriptorSchemaReferenceSchemaId() {}
-    /**
-     * @return Name of the schema registry that contains the schema.
-     * 
-     */
     public String registryName() {
         return this.registryName;
     }
-    /**
-     * @return ARN of the schema.
-     * 
-     */
     public String schemaArn() {
         return this.schemaArn;
     }
-    /**
-     * @return Name of the schema.
-     * 
-     */
     public String schemaName() {
         return this.schemaName;
     }

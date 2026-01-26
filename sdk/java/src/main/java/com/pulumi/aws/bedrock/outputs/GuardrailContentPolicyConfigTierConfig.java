@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GuardrailContentPolicyConfigTierConfig {
-    /**
-     * @return The name of the content policy tier. Valid values include STANDARD or CLASSIC.
-     * 
-     */
     private String tierName;
 
     private GuardrailContentPolicyConfigTierConfig() {}
-    /**
-     * @return The name of the content policy tier. Valid values include STANDARD or CLASSIC.
-     * 
-     */
     public String tierName() {
         return this.tierName;
     }

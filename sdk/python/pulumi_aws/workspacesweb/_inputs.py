@@ -52,21 +52,9 @@ MYPY = False
 if not MYPY:
     class DataProtectionSettingsInlineRedactionConfigurationArgsDict(TypedDict):
         global_confidence_level: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The global confidence level for the inline redaction configuration. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
-        """
         global_enforced_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The global enforced URL configuration for the inline redaction configuration.
-        """
         global_exempt_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The global exempt URL configuration for the inline redaction configuration.
-        """
         inline_redaction_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgsDict']]]]
-        """
-        The inline redaction patterns to be enabled for the inline redaction configuration. Detailed below.
-        """
 elif False:
     DataProtectionSettingsInlineRedactionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -77,12 +65,6 @@ class DataProtectionSettingsInlineRedactionConfigurationArgs:
                  global_enforced_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  global_exempt_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  inline_redaction_patterns: Optional[pulumi.Input[Sequence[pulumi.Input['DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs']]]] = None):
-        """
-        :param pulumi.Input[_builtins.int] global_confidence_level: The global confidence level for the inline redaction configuration. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] global_enforced_urls: The global enforced URL configuration for the inline redaction configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] global_exempt_urls: The global exempt URL configuration for the inline redaction configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs']]] inline_redaction_patterns: The inline redaction patterns to be enabled for the inline redaction configuration. Detailed below.
-        """
         if global_confidence_level is not None:
             pulumi.set(__self__, "global_confidence_level", global_confidence_level)
         if global_enforced_urls is not None:
@@ -95,9 +77,6 @@ class DataProtectionSettingsInlineRedactionConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="globalConfidenceLevel")
     def global_confidence_level(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The global confidence level for the inline redaction configuration. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
-        """
         return pulumi.get(self, "global_confidence_level")
 
     @global_confidence_level.setter
@@ -107,9 +86,6 @@ class DataProtectionSettingsInlineRedactionConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="globalEnforcedUrls")
     def global_enforced_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The global enforced URL configuration for the inline redaction configuration.
-        """
         return pulumi.get(self, "global_enforced_urls")
 
     @global_enforced_urls.setter
@@ -119,9 +95,6 @@ class DataProtectionSettingsInlineRedactionConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="globalExemptUrls")
     def global_exempt_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The global exempt URL configuration for the inline redaction configuration.
-        """
         return pulumi.get(self, "global_exempt_urls")
 
     @global_exempt_urls.setter
@@ -131,9 +104,6 @@ class DataProtectionSettingsInlineRedactionConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="inlineRedactionPatterns")
     def inline_redaction_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs']]]]:
-        """
-        The inline redaction patterns to be enabled for the inline redaction configuration. Detailed below.
-        """
         return pulumi.get(self, "inline_redaction_patterns")
 
     @inline_redaction_patterns.setter
@@ -144,29 +114,11 @@ class DataProtectionSettingsInlineRedactionConfigurationArgs:
 if not MYPY:
     class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgsDict(TypedDict):
         built_in_pattern_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The built-in pattern from the list of preconfigured patterns. Either a `custom_pattern` or `built_in_pattern_id` is required.
-        """
         confidence_level: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The confidence level for inline redaction pattern. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
-        """
         custom_pattern: NotRequired[pulumi.Input['DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgsDict']]
-        """
-        The configuration for a custom pattern. Either a `custom_pattern` or `built_in_pattern_id` is required. Detailed below.
-        """
         enforced_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The enforced URL configuration for the inline redaction pattern.
-        """
         exempt_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The exempt URL configuration for the inline redaction pattern.
-        """
         redaction_place_holders: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgsDict']]]]
-        """
-        The redaction placeholder that will replace the redacted text in session. Detailed below.
-        """
 elif False:
     DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -179,14 +131,6 @@ class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternAr
                  enforced_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  exempt_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  redaction_place_holders: Optional[pulumi.Input[Sequence[pulumi.Input['DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs']]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] built_in_pattern_id: The built-in pattern from the list of preconfigured patterns. Either a `custom_pattern` or `built_in_pattern_id` is required.
-        :param pulumi.Input[_builtins.int] confidence_level: The confidence level for inline redaction pattern. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
-        :param pulumi.Input['DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs'] custom_pattern: The configuration for a custom pattern. Either a `custom_pattern` or `built_in_pattern_id` is required. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enforced_urls: The enforced URL configuration for the inline redaction pattern.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] exempt_urls: The exempt URL configuration for the inline redaction pattern.
-        :param pulumi.Input[Sequence[pulumi.Input['DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs']]] redaction_place_holders: The redaction placeholder that will replace the redacted text in session. Detailed below.
-        """
         if built_in_pattern_id is not None:
             pulumi.set(__self__, "built_in_pattern_id", built_in_pattern_id)
         if confidence_level is not None:
@@ -203,9 +147,6 @@ class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternAr
     @_builtins.property
     @pulumi.getter(name="builtInPatternId")
     def built_in_pattern_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The built-in pattern from the list of preconfigured patterns. Either a `custom_pattern` or `built_in_pattern_id` is required.
-        """
         return pulumi.get(self, "built_in_pattern_id")
 
     @built_in_pattern_id.setter
@@ -215,9 +156,6 @@ class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternAr
     @_builtins.property
     @pulumi.getter(name="confidenceLevel")
     def confidence_level(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The confidence level for inline redaction pattern. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
-        """
         return pulumi.get(self, "confidence_level")
 
     @confidence_level.setter
@@ -227,9 +165,6 @@ class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternAr
     @_builtins.property
     @pulumi.getter(name="customPattern")
     def custom_pattern(self) -> Optional[pulumi.Input['DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs']]:
-        """
-        The configuration for a custom pattern. Either a `custom_pattern` or `built_in_pattern_id` is required. Detailed below.
-        """
         return pulumi.get(self, "custom_pattern")
 
     @custom_pattern.setter
@@ -239,9 +174,6 @@ class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternAr
     @_builtins.property
     @pulumi.getter(name="enforcedUrls")
     def enforced_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The enforced URL configuration for the inline redaction pattern.
-        """
         return pulumi.get(self, "enforced_urls")
 
     @enforced_urls.setter
@@ -251,9 +183,6 @@ class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternAr
     @_builtins.property
     @pulumi.getter(name="exemptUrls")
     def exempt_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The exempt URL configuration for the inline redaction pattern.
-        """
         return pulumi.get(self, "exempt_urls")
 
     @exempt_urls.setter
@@ -263,9 +192,6 @@ class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternAr
     @_builtins.property
     @pulumi.getter(name="redactionPlaceHolders")
     def redaction_place_holders(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs']]]]:
-        """
-        The redaction placeholder that will replace the redacted text in session. Detailed below.
-        """
         return pulumi.get(self, "redaction_place_holders")
 
     @redaction_place_holders.setter
@@ -276,21 +202,9 @@ class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternAr
 if not MYPY:
     class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgsDict(TypedDict):
         pattern_name: pulumi.Input[_builtins.str]
-        """
-        The pattern name for the custom pattern.
-        """
         pattern_regex: pulumi.Input[_builtins.str]
-        """
-        The pattern regex for the customer pattern. The format must follow JavaScript regex format.
-        """
         keyword_regex: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The keyword regex for the customer pattern.
-        """
         pattern_description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The pattern description for the customer pattern.
-        """
 elif False:
     DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -301,12 +215,6 @@ class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCu
                  pattern_regex: pulumi.Input[_builtins.str],
                  keyword_regex: Optional[pulumi.Input[_builtins.str]] = None,
                  pattern_description: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] pattern_name: The pattern name for the custom pattern.
-        :param pulumi.Input[_builtins.str] pattern_regex: The pattern regex for the customer pattern. The format must follow JavaScript regex format.
-        :param pulumi.Input[_builtins.str] keyword_regex: The keyword regex for the customer pattern.
-        :param pulumi.Input[_builtins.str] pattern_description: The pattern description for the customer pattern.
-        """
         pulumi.set(__self__, "pattern_name", pattern_name)
         pulumi.set(__self__, "pattern_regex", pattern_regex)
         if keyword_regex is not None:
@@ -317,9 +225,6 @@ class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCu
     @_builtins.property
     @pulumi.getter(name="patternName")
     def pattern_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The pattern name for the custom pattern.
-        """
         return pulumi.get(self, "pattern_name")
 
     @pattern_name.setter
@@ -329,9 +234,6 @@ class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCu
     @_builtins.property
     @pulumi.getter(name="patternRegex")
     def pattern_regex(self) -> pulumi.Input[_builtins.str]:
-        """
-        The pattern regex for the customer pattern. The format must follow JavaScript regex format.
-        """
         return pulumi.get(self, "pattern_regex")
 
     @pattern_regex.setter
@@ -341,9 +243,6 @@ class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCu
     @_builtins.property
     @pulumi.getter(name="keywordRegex")
     def keyword_regex(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The keyword regex for the customer pattern.
-        """
         return pulumi.get(self, "keyword_regex")
 
     @keyword_regex.setter
@@ -353,9 +252,6 @@ class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCu
     @_builtins.property
     @pulumi.getter(name="patternDescription")
     def pattern_description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The pattern description for the customer pattern.
-        """
         return pulumi.get(self, "pattern_description")
 
     @pattern_description.setter
@@ -366,13 +262,7 @@ class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCu
 if not MYPY:
     class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgsDict(TypedDict):
         redaction_place_holder_type: pulumi.Input[_builtins.str]
-        """
-        The redaction placeholder type that will replace the redacted text in session. Currently, only `CustomText` is supported.
-        """
         redaction_place_holder_text: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The redaction placeholder text that will replace the redacted text in session for the custom text redaction placeholder type.
-        """
 elif False:
     DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -381,10 +271,6 @@ class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRe
     def __init__(__self__, *,
                  redaction_place_holder_type: pulumi.Input[_builtins.str],
                  redaction_place_holder_text: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] redaction_place_holder_type: The redaction placeholder type that will replace the redacted text in session. Currently, only `CustomText` is supported.
-        :param pulumi.Input[_builtins.str] redaction_place_holder_text: The redaction placeholder text that will replace the redacted text in session for the custom text redaction placeholder type.
-        """
         pulumi.set(__self__, "redaction_place_holder_type", redaction_place_holder_type)
         if redaction_place_holder_text is not None:
             pulumi.set(__self__, "redaction_place_holder_text", redaction_place_holder_text)
@@ -392,9 +278,6 @@ class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRe
     @_builtins.property
     @pulumi.getter(name="redactionPlaceHolderType")
     def redaction_place_holder_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The redaction placeholder type that will replace the redacted text in session. Currently, only `CustomText` is supported.
-        """
         return pulumi.get(self, "redaction_place_holder_type")
 
     @redaction_place_holder_type.setter
@@ -404,9 +287,6 @@ class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRe
     @_builtins.property
     @pulumi.getter(name="redactionPlaceHolderText")
     def redaction_place_holder_text(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The redaction placeholder text that will replace the redacted text in session for the custom text redaction placeholder type.
-        """
         return pulumi.get(self, "redaction_place_holder_text")
 
     @redaction_place_holder_text.setter
@@ -417,13 +297,7 @@ class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRe
 if not MYPY:
     class IpAccessSettingsIpRuleArgsDict(TypedDict):
         ip_range: pulumi.Input[_builtins.str]
-        """
-        The IP range of the IP rule.
-        """
         description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the IP access settings.
-        """
 elif False:
     IpAccessSettingsIpRuleArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -432,10 +306,6 @@ class IpAccessSettingsIpRuleArgs:
     def __init__(__self__, *,
                  ip_range: pulumi.Input[_builtins.str],
                  description: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] ip_range: The IP range of the IP rule.
-        :param pulumi.Input[_builtins.str] description: The description of the IP access settings.
-        """
         pulumi.set(__self__, "ip_range", ip_range)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -443,9 +313,6 @@ class IpAccessSettingsIpRuleArgs:
     @_builtins.property
     @pulumi.getter(name="ipRange")
     def ip_range(self) -> pulumi.Input[_builtins.str]:
-        """
-        The IP range of the IP rule.
-        """
         return pulumi.get(self, "ip_range")
 
     @ip_range.setter
@@ -455,9 +322,6 @@ class IpAccessSettingsIpRuleArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the IP access settings.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -540,13 +404,7 @@ class PortalTimeoutsArgs:
 if not MYPY:
     class SessionLoggerEventFilterArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['SessionLoggerEventFilterAllArgsDict']]
-        """
-        Block that specifies to monitor all events. Set to `{}` to monitor all events.
-        """
         includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of specific events to monitor. Valid values include session events like `SessionStart`, `SessionEnd`, etc.
-        """
 elif False:
     SessionLoggerEventFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -555,10 +413,6 @@ class SessionLoggerEventFilterArgs:
     def __init__(__self__, *,
                  all: Optional[pulumi.Input['SessionLoggerEventFilterAllArgs']] = None,
                  includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input['SessionLoggerEventFilterAllArgs'] all: Block that specifies to monitor all events. Set to `{}` to monitor all events.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] includes: List of specific events to monitor. Valid values include session events like `SessionStart`, `SessionEnd`, etc.
-        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if includes is not None:
@@ -567,9 +421,6 @@ class SessionLoggerEventFilterArgs:
     @_builtins.property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['SessionLoggerEventFilterAllArgs']]:
-        """
-        Block that specifies to monitor all events. Set to `{}` to monitor all events.
-        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -579,9 +430,6 @@ class SessionLoggerEventFilterArgs:
     @_builtins.property
     @pulumi.getter
     def includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of specific events to monitor. Valid values include session events like `SessionStart`, `SessionEnd`, etc.
-        """
         return pulumi.get(self, "includes")
 
     @includes.setter
@@ -604,9 +452,6 @@ class SessionLoggerEventFilterAllArgs:
 if not MYPY:
     class SessionLoggerLogConfigurationArgsDict(TypedDict):
         s3: NotRequired[pulumi.Input['SessionLoggerLogConfigurationS3ArgsDict']]
-        """
-        Configuration block for S3 log delivery. See S3 Configuration below.
-        """
 elif False:
     SessionLoggerLogConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -614,18 +459,12 @@ elif False:
 class SessionLoggerLogConfigurationArgs:
     def __init__(__self__, *,
                  s3: Optional[pulumi.Input['SessionLoggerLogConfigurationS3Args']] = None):
-        """
-        :param pulumi.Input['SessionLoggerLogConfigurationS3Args'] s3: Configuration block for S3 log delivery. See S3 Configuration below.
-        """
         if s3 is not None:
             pulumi.set(__self__, "s3", s3)
 
     @_builtins.property
     @pulumi.getter
     def s3(self) -> Optional[pulumi.Input['SessionLoggerLogConfigurationS3Args']]:
-        """
-        Configuration block for S3 log delivery. See S3 Configuration below.
-        """
         return pulumi.get(self, "s3")
 
     @s3.setter
@@ -636,25 +475,10 @@ class SessionLoggerLogConfigurationArgs:
 if not MYPY:
     class SessionLoggerLogConfigurationS3ArgsDict(TypedDict):
         bucket: pulumi.Input[_builtins.str]
-        """
-        S3 bucket name where logs are delivered.
-        """
         folder_structure: pulumi.Input[_builtins.str]
-        """
-        Folder structure that defines the organizational structure for log files in S3. Valid values: `FlatStructure`, `DateBasedStructure`.
-        """
         log_file_format: pulumi.Input[_builtins.str]
-        """
-        Format of the log file written to S3. Valid values: `Json`, `Parquet`.
-        """
         bucket_owner: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Expected bucket owner of the target S3 bucket.
-        """
         key_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        S3 path prefix that determines where log files are stored.
-        """
 elif False:
     SessionLoggerLogConfigurationS3ArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -666,13 +490,6 @@ class SessionLoggerLogConfigurationS3Args:
                  log_file_format: pulumi.Input[_builtins.str],
                  bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
                  key_prefix: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] bucket: S3 bucket name where logs are delivered.
-        :param pulumi.Input[_builtins.str] folder_structure: Folder structure that defines the organizational structure for log files in S3. Valid values: `FlatStructure`, `DateBasedStructure`.
-        :param pulumi.Input[_builtins.str] log_file_format: Format of the log file written to S3. Valid values: `Json`, `Parquet`.
-        :param pulumi.Input[_builtins.str] bucket_owner: Expected bucket owner of the target S3 bucket.
-        :param pulumi.Input[_builtins.str] key_prefix: S3 path prefix that determines where log files are stored.
-        """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "folder_structure", folder_structure)
         pulumi.set(__self__, "log_file_format", log_file_format)
@@ -684,9 +501,6 @@ class SessionLoggerLogConfigurationS3Args:
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[_builtins.str]:
-        """
-        S3 bucket name where logs are delivered.
-        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -696,9 +510,6 @@ class SessionLoggerLogConfigurationS3Args:
     @_builtins.property
     @pulumi.getter(name="folderStructure")
     def folder_structure(self) -> pulumi.Input[_builtins.str]:
-        """
-        Folder structure that defines the organizational structure for log files in S3. Valid values: `FlatStructure`, `DateBasedStructure`.
-        """
         return pulumi.get(self, "folder_structure")
 
     @folder_structure.setter
@@ -708,9 +519,6 @@ class SessionLoggerLogConfigurationS3Args:
     @_builtins.property
     @pulumi.getter(name="logFileFormat")
     def log_file_format(self) -> pulumi.Input[_builtins.str]:
-        """
-        Format of the log file written to S3. Valid values: `Json`, `Parquet`.
-        """
         return pulumi.get(self, "log_file_format")
 
     @log_file_format.setter
@@ -720,9 +528,6 @@ class SessionLoggerLogConfigurationS3Args:
     @_builtins.property
     @pulumi.getter(name="bucketOwner")
     def bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Expected bucket owner of the target S3 bucket.
-        """
         return pulumi.get(self, "bucket_owner")
 
     @bucket_owner.setter
@@ -732,9 +537,6 @@ class SessionLoggerLogConfigurationS3Args:
     @_builtins.property
     @pulumi.getter(name="keyPrefix")
     def key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        S3 path prefix that determines where log files are stored.
-        """
         return pulumi.get(self, "key_prefix")
 
     @key_prefix.setter
@@ -745,29 +547,11 @@ class SessionLoggerLogConfigurationS3Args:
 if not MYPY:
     class TrustStoreCertificateArgsDict(TypedDict):
         body: pulumi.Input[_builtins.str]
-        """
-        Certificate body in PEM format.
-        """
         issuer: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Certificate issuer.
-        """
         not_valid_after: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Date and time when the certificate expires in RFC3339 format.
-        """
         not_valid_before: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Date and time when the certificate becomes valid in RFC3339 format.
-        """
         subject: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Certificate subject.
-        """
         thumbprint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Certificate thumbprint.
-        """
 elif False:
     TrustStoreCertificateArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -780,14 +564,6 @@ class TrustStoreCertificateArgs:
                  not_valid_before: Optional[pulumi.Input[_builtins.str]] = None,
                  subject: Optional[pulumi.Input[_builtins.str]] = None,
                  thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] body: Certificate body in PEM format.
-        :param pulumi.Input[_builtins.str] issuer: Certificate issuer.
-        :param pulumi.Input[_builtins.str] not_valid_after: Date and time when the certificate expires in RFC3339 format.
-        :param pulumi.Input[_builtins.str] not_valid_before: Date and time when the certificate becomes valid in RFC3339 format.
-        :param pulumi.Input[_builtins.str] subject: Certificate subject.
-        :param pulumi.Input[_builtins.str] thumbprint: Certificate thumbprint.
-        """
         pulumi.set(__self__, "body", body)
         if issuer is not None:
             pulumi.set(__self__, "issuer", issuer)
@@ -803,9 +579,6 @@ class TrustStoreCertificateArgs:
     @_builtins.property
     @pulumi.getter
     def body(self) -> pulumi.Input[_builtins.str]:
-        """
-        Certificate body in PEM format.
-        """
         return pulumi.get(self, "body")
 
     @body.setter
@@ -815,9 +588,6 @@ class TrustStoreCertificateArgs:
     @_builtins.property
     @pulumi.getter
     def issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Certificate issuer.
-        """
         return pulumi.get(self, "issuer")
 
     @issuer.setter
@@ -827,9 +597,6 @@ class TrustStoreCertificateArgs:
     @_builtins.property
     @pulumi.getter(name="notValidAfter")
     def not_valid_after(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date and time when the certificate expires in RFC3339 format.
-        """
         return pulumi.get(self, "not_valid_after")
 
     @not_valid_after.setter
@@ -839,9 +606,6 @@ class TrustStoreCertificateArgs:
     @_builtins.property
     @pulumi.getter(name="notValidBefore")
     def not_valid_before(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date and time when the certificate becomes valid in RFC3339 format.
-        """
         return pulumi.get(self, "not_valid_before")
 
     @not_valid_before.setter
@@ -851,9 +615,6 @@ class TrustStoreCertificateArgs:
     @_builtins.property
     @pulumi.getter
     def subject(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Certificate subject.
-        """
         return pulumi.get(self, "subject")
 
     @subject.setter
@@ -863,9 +624,6 @@ class TrustStoreCertificateArgs:
     @_builtins.property
     @pulumi.getter
     def thumbprint(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Certificate thumbprint.
-        """
         return pulumi.get(self, "thumbprint")
 
     @thumbprint.setter
@@ -876,13 +634,7 @@ class TrustStoreCertificateArgs:
 if not MYPY:
     class UserSettingsCookieSynchronizationConfigurationArgsDict(TypedDict):
         allowlists: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserSettingsCookieSynchronizationConfigurationAllowlistArgsDict']]]]
-        """
-        List of cookie specifications that are allowed to be synchronized to the remote browser.
-        """
         blocklists: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserSettingsCookieSynchronizationConfigurationBlocklistArgsDict']]]]
-        """
-        List of cookie specifications that are blocked from being synchronized to the remote browser.
-        """
 elif False:
     UserSettingsCookieSynchronizationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -891,10 +643,6 @@ class UserSettingsCookieSynchronizationConfigurationArgs:
     def __init__(__self__, *,
                  allowlists: Optional[pulumi.Input[Sequence[pulumi.Input['UserSettingsCookieSynchronizationConfigurationAllowlistArgs']]]] = None,
                  blocklists: Optional[pulumi.Input[Sequence[pulumi.Input['UserSettingsCookieSynchronizationConfigurationBlocklistArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['UserSettingsCookieSynchronizationConfigurationAllowlistArgs']]] allowlists: List of cookie specifications that are allowed to be synchronized to the remote browser.
-        :param pulumi.Input[Sequence[pulumi.Input['UserSettingsCookieSynchronizationConfigurationBlocklistArgs']]] blocklists: List of cookie specifications that are blocked from being synchronized to the remote browser.
-        """
         if allowlists is not None:
             pulumi.set(__self__, "allowlists", allowlists)
         if blocklists is not None:
@@ -903,9 +651,6 @@ class UserSettingsCookieSynchronizationConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def allowlists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserSettingsCookieSynchronizationConfigurationAllowlistArgs']]]]:
-        """
-        List of cookie specifications that are allowed to be synchronized to the remote browser.
-        """
         return pulumi.get(self, "allowlists")
 
     @allowlists.setter
@@ -915,9 +660,6 @@ class UserSettingsCookieSynchronizationConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def blocklists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserSettingsCookieSynchronizationConfigurationBlocklistArgs']]]]:
-        """
-        List of cookie specifications that are blocked from being synchronized to the remote browser.
-        """
         return pulumi.get(self, "blocklists")
 
     @blocklists.setter
@@ -928,17 +670,8 @@ class UserSettingsCookieSynchronizationConfigurationArgs:
 if not MYPY:
     class UserSettingsCookieSynchronizationConfigurationAllowlistArgsDict(TypedDict):
         domain: pulumi.Input[_builtins.str]
-        """
-        Domain of the cookie.
-        """
         name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the cookie.
-        """
         path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Path of the cookie.
-        """
 elif False:
     UserSettingsCookieSynchronizationConfigurationAllowlistArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -948,11 +681,6 @@ class UserSettingsCookieSynchronizationConfigurationAllowlistArgs:
                  domain: pulumi.Input[_builtins.str],
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  path: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] domain: Domain of the cookie.
-        :param pulumi.Input[_builtins.str] name: Name of the cookie.
-        :param pulumi.Input[_builtins.str] path: Path of the cookie.
-        """
         pulumi.set(__self__, "domain", domain)
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -962,9 +690,6 @@ class UserSettingsCookieSynchronizationConfigurationAllowlistArgs:
     @_builtins.property
     @pulumi.getter
     def domain(self) -> pulumi.Input[_builtins.str]:
-        """
-        Domain of the cookie.
-        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -974,9 +699,6 @@ class UserSettingsCookieSynchronizationConfigurationAllowlistArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the cookie.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -986,9 +708,6 @@ class UserSettingsCookieSynchronizationConfigurationAllowlistArgs:
     @_builtins.property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Path of the cookie.
-        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -999,17 +718,8 @@ class UserSettingsCookieSynchronizationConfigurationAllowlistArgs:
 if not MYPY:
     class UserSettingsCookieSynchronizationConfigurationBlocklistArgsDict(TypedDict):
         domain: pulumi.Input[_builtins.str]
-        """
-        Domain of the cookie.
-        """
         name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the cookie.
-        """
         path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Path of the cookie.
-        """
 elif False:
     UserSettingsCookieSynchronizationConfigurationBlocklistArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1019,11 +729,6 @@ class UserSettingsCookieSynchronizationConfigurationBlocklistArgs:
                  domain: pulumi.Input[_builtins.str],
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  path: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] domain: Domain of the cookie.
-        :param pulumi.Input[_builtins.str] name: Name of the cookie.
-        :param pulumi.Input[_builtins.str] path: Path of the cookie.
-        """
         pulumi.set(__self__, "domain", domain)
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -1033,9 +738,6 @@ class UserSettingsCookieSynchronizationConfigurationBlocklistArgs:
     @_builtins.property
     @pulumi.getter
     def domain(self) -> pulumi.Input[_builtins.str]:
-        """
-        Domain of the cookie.
-        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -1045,9 +747,6 @@ class UserSettingsCookieSynchronizationConfigurationBlocklistArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the cookie.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1057,9 +756,6 @@ class UserSettingsCookieSynchronizationConfigurationBlocklistArgs:
     @_builtins.property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Path of the cookie.
-        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -1070,21 +766,9 @@ class UserSettingsCookieSynchronizationConfigurationBlocklistArgs:
 if not MYPY:
     class UserSettingsToolbarConfigurationArgsDict(TypedDict):
         hidden_toolbar_items: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of toolbar items to be hidden.
-        """
         max_display_resolution: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Maximum display resolution that is allowed for the session.
-        """
         toolbar_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of toolbar displayed during the session.
-        """
         visual_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Visual mode of the toolbar.
-        """
 elif False:
     UserSettingsToolbarConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1095,12 +779,6 @@ class UserSettingsToolbarConfigurationArgs:
                  max_display_resolution: Optional[pulumi.Input[_builtins.str]] = None,
                  toolbar_type: Optional[pulumi.Input[_builtins.str]] = None,
                  visual_mode: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] hidden_toolbar_items: List of toolbar items to be hidden.
-        :param pulumi.Input[_builtins.str] max_display_resolution: Maximum display resolution that is allowed for the session.
-        :param pulumi.Input[_builtins.str] toolbar_type: Type of toolbar displayed during the session.
-        :param pulumi.Input[_builtins.str] visual_mode: Visual mode of the toolbar.
-        """
         if hidden_toolbar_items is not None:
             pulumi.set(__self__, "hidden_toolbar_items", hidden_toolbar_items)
         if max_display_resolution is not None:
@@ -1113,9 +791,6 @@ class UserSettingsToolbarConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="hiddenToolbarItems")
     def hidden_toolbar_items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of toolbar items to be hidden.
-        """
         return pulumi.get(self, "hidden_toolbar_items")
 
     @hidden_toolbar_items.setter
@@ -1125,9 +800,6 @@ class UserSettingsToolbarConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="maxDisplayResolution")
     def max_display_resolution(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Maximum display resolution that is allowed for the session.
-        """
         return pulumi.get(self, "max_display_resolution")
 
     @max_display_resolution.setter
@@ -1137,9 +809,6 @@ class UserSettingsToolbarConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="toolbarType")
     def toolbar_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of toolbar displayed during the session.
-        """
         return pulumi.get(self, "toolbar_type")
 
     @toolbar_type.setter
@@ -1149,9 +818,6 @@ class UserSettingsToolbarConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="visualMode")
     def visual_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Visual mode of the toolbar.
-        """
         return pulumi.get(self, "visual_mode")
 
     @visual_mode.setter

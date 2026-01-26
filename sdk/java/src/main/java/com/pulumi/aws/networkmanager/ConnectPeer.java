@@ -18,429 +18,95 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an AWS Network Manager Connect Peer.
- * 
- * Use this resource to create a Connect peer in AWS Network Manager. Connect peers establish BGP sessions with your on-premises networks through Connect attachments, enabling dynamic routing between your core network and external networks.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkmanager.VpcAttachment;
- * import com.pulumi.aws.networkmanager.VpcAttachmentArgs;
- * import com.pulumi.aws.networkmanager.ConnectAttachment;
- * import com.pulumi.aws.networkmanager.ConnectAttachmentArgs;
- * import com.pulumi.aws.networkmanager.inputs.ConnectAttachmentOptionsArgs;
- * import com.pulumi.aws.networkmanager.ConnectPeer;
- * import com.pulumi.aws.networkmanager.ConnectPeerArgs;
- * import com.pulumi.aws.networkmanager.inputs.ConnectPeerBgpOptionsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new VpcAttachment("example", VpcAttachmentArgs.builder()
- *             .subnetArns(exampleAwsSubnet.stream().map(element -> element.arn()).collect(toList()))
- *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
- *             .vpcArn(exampleAwsVpc.arn())
- *             .build());
- * 
- *         var exampleConnectAttachment = new ConnectAttachment("exampleConnectAttachment", ConnectAttachmentArgs.builder()
- *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
- *             .transportAttachmentId(example.id())
- *             .edgeLocation(example.edgeLocation())
- *             .options(ConnectAttachmentOptionsArgs.builder()
- *                 .protocol("GRE")
- *                 .build())
- *             .build());
- * 
- *         var exampleConnectPeer = new ConnectPeer("exampleConnectPeer", ConnectPeerArgs.builder()
- *             .connectAttachmentId(exampleConnectAttachment.id())
- *             .peerAddress("127.0.0.1")
- *             .bgpOptions(ConnectPeerBgpOptionsArgs.builder()
- *                 .peerAsn("65000")
- *                 .build())
- *             .insideCidrBlocks("172.16.0.0/16")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Usage with attachment accepter
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkmanager.VpcAttachment;
- * import com.pulumi.aws.networkmanager.VpcAttachmentArgs;
- * import com.pulumi.aws.networkmanager.AttachmentAccepter;
- * import com.pulumi.aws.networkmanager.AttachmentAccepterArgs;
- * import com.pulumi.aws.networkmanager.ConnectAttachment;
- * import com.pulumi.aws.networkmanager.ConnectAttachmentArgs;
- * import com.pulumi.aws.networkmanager.inputs.ConnectAttachmentOptionsArgs;
- * import com.pulumi.aws.networkmanager.ConnectPeer;
- * import com.pulumi.aws.networkmanager.ConnectPeerArgs;
- * import com.pulumi.aws.networkmanager.inputs.ConnectPeerBgpOptionsArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new VpcAttachment("example", VpcAttachmentArgs.builder()
- *             .subnetArns(exampleAwsSubnet.stream().map(element -> element.arn()).collect(toList()))
- *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
- *             .vpcArn(exampleAwsVpc.arn())
- *             .build());
- * 
- *         var exampleAttachmentAccepter = new AttachmentAccepter("exampleAttachmentAccepter", AttachmentAccepterArgs.builder()
- *             .attachmentId(example.id())
- *             .attachmentType(example.attachmentType())
- *             .build());
- * 
- *         var exampleConnectAttachment = new ConnectAttachment("exampleConnectAttachment", ConnectAttachmentArgs.builder()
- *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
- *             .transportAttachmentId(example.id())
- *             .edgeLocation(example.edgeLocation())
- *             .options(ConnectAttachmentOptionsArgs.builder()
- *                 .protocol("GRE")
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAttachmentAccepter)
- *                 .build());
- * 
- *         var example2 = new AttachmentAccepter("example2", AttachmentAccepterArgs.builder()
- *             .attachmentId(exampleConnectAttachment.id())
- *             .attachmentType(exampleConnectAttachment.attachmentType())
- *             .build());
- * 
- *         var exampleConnectPeer = new ConnectPeer("exampleConnectPeer", ConnectPeerArgs.builder()
- *             .connectAttachmentId(exampleConnectAttachment.id())
- *             .peerAddress("127.0.0.1")
- *             .bgpOptions(ConnectPeerBgpOptionsArgs.builder()
- *                 .peerAsn("65500")
- *                 .build())
- *             .insideCidrBlocks("172.16.0.0/16")
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(example2)
- *                 .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Usage with a Tunnel-less Connect attachment
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkmanager.VpcAttachment;
- * import com.pulumi.aws.networkmanager.VpcAttachmentArgs;
- * import com.pulumi.aws.networkmanager.ConnectAttachment;
- * import com.pulumi.aws.networkmanager.ConnectAttachmentArgs;
- * import com.pulumi.aws.networkmanager.inputs.ConnectAttachmentOptionsArgs;
- * import com.pulumi.aws.networkmanager.ConnectPeer;
- * import com.pulumi.aws.networkmanager.ConnectPeerArgs;
- * import com.pulumi.aws.networkmanager.inputs.ConnectPeerBgpOptionsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new VpcAttachment("example", VpcAttachmentArgs.builder()
- *             .subnetArns(exampleAwsSubnet.stream().map(element -> element.arn()).collect(toList()))
- *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
- *             .vpcArn(exampleAwsVpc.arn())
- *             .build());
- * 
- *         var exampleConnectAttachment = new ConnectAttachment("exampleConnectAttachment", ConnectAttachmentArgs.builder()
- *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
- *             .transportAttachmentId(example.id())
- *             .edgeLocation(example.edgeLocation())
- *             .options(ConnectAttachmentOptionsArgs.builder()
- *                 .protocol("NO_ENCAP")
- *                 .build())
- *             .build());
- * 
- *         var exampleConnectPeer = new ConnectPeer("exampleConnectPeer", ConnectPeerArgs.builder()
- *             .connectAttachmentId(exampleConnectAttachment.id())
- *             .peerAddress("127.0.0.1")
- *             .bgpOptions(ConnectPeerBgpOptionsArgs.builder()
- *                 .peerAsn("65000")
- *                 .build())
- *             .subnetArn(example2.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_networkmanager_connect_peer` using the connect peer ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:networkmanager/connectPeer:ConnectPeer example connect-peer-061f3e96275db1acc
- * ```
- * 
- */
 @ResourceType(type="aws:networkmanager/connectPeer:ConnectPeer")
 public class ConnectPeer extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Connect peer.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Connect peer.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Connect peer BGP options. See bgpOptions for more information.
-     * 
-     */
     @Export(name="bgpOptions", refs={ConnectPeerBgpOptions.class}, tree="[0]")
     private Output<ConnectPeerBgpOptions> bgpOptions;
 
-    /**
-     * @return Connect peer BGP options. See bgpOptions for more information.
-     * 
-     */
     public Output<ConnectPeerBgpOptions> bgpOptions() {
         return this.bgpOptions;
     }
-    /**
-     * Configuration of the Connect peer.
-     * 
-     */
     @Export(name="configurations", refs={List.class,ConnectPeerConfiguration.class}, tree="[0,1]")
     private Output<List<ConnectPeerConfiguration>> configurations;
 
-    /**
-     * @return Configuration of the Connect peer.
-     * 
-     */
     public Output<List<ConnectPeerConfiguration>> configurations() {
         return this.configurations;
     }
-    /**
-     * ID of the connection attachment.
-     * 
-     */
     @Export(name="connectAttachmentId", refs={String.class}, tree="[0]")
     private Output<String> connectAttachmentId;
 
-    /**
-     * @return ID of the connection attachment.
-     * 
-     */
     public Output<String> connectAttachmentId() {
         return this.connectAttachmentId;
     }
-    /**
-     * ID of the Connect peer.
-     * 
-     */
     @Export(name="connectPeerId", refs={String.class}, tree="[0]")
     private Output<String> connectPeerId;
 
-    /**
-     * @return ID of the Connect peer.
-     * 
-     */
     public Output<String> connectPeerId() {
         return this.connectPeerId;
     }
-    /**
-     * Connect peer core network address.
-     * 
-     */
     @Export(name="coreNetworkAddress", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> coreNetworkAddress;
 
-    /**
-     * @return Connect peer core network address.
-     * 
-     */
     public Output<Optional<String>> coreNetworkAddress() {
         return Codegen.optional(this.coreNetworkAddress);
     }
-    /**
-     * ID of a core network.
-     * 
-     */
     @Export(name="coreNetworkId", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkId;
 
-    /**
-     * @return ID of a core network.
-     * 
-     */
     public Output<String> coreNetworkId() {
         return this.coreNetworkId;
     }
-    /**
-     * Timestamp when the Connect peer was created.
-     * 
-     */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
-    /**
-     * @return Timestamp when the Connect peer was created.
-     * 
-     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
-    /**
-     * Region where the peer is located.
-     * 
-     */
     @Export(name="edgeLocation", refs={String.class}, tree="[0]")
     private Output<String> edgeLocation;
 
-    /**
-     * @return Region where the peer is located.
-     * 
-     */
     public Output<String> edgeLocation() {
         return this.edgeLocation;
     }
-    /**
-     * Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
-     * 
-     */
     @Export(name="insideCidrBlocks", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> insideCidrBlocks;
 
-    /**
-     * @return Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
-     * 
-     */
     public Output<Optional<List<String>>> insideCidrBlocks() {
         return Codegen.optional(this.insideCidrBlocks);
     }
-    /**
-     * Connect peer address.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="peerAddress", refs={String.class}, tree="[0]")
     private Output<String> peerAddress;
 
-    /**
-     * @return Connect peer address.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> peerAddress() {
         return this.peerAddress;
     }
-    /**
-     * State of the Connect peer.
-     * 
-     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
-    /**
-     * @return State of the Connect peer.
-     * 
-     */
     public Output<String> state() {
         return this.state;
     }
-    /**
-     * Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
-     * 
-     */
     @Export(name="subnetArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subnetArn;
 
-    /**
-     * @return Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
-     * 
-     */
     public Output<Optional<String>> subnetArn() {
         return Codegen.optional(this.subnetArn);
     }
-    /**
-     * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

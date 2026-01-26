@@ -13,13 +13,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class MultiplexProgramMultiplexProgramSettingsServiceDescriptor
     {
-        /// <summary>
-        /// Unique provider name.
-        /// </summary>
         public readonly string ProviderName;
-        /// <summary>
-        /// Unique service name.
-        /// </summary>
         public readonly string ServiceName;
 
         [OutputConstructor]

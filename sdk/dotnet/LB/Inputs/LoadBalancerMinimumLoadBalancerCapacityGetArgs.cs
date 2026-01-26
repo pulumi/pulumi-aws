@@ -12,9 +12,6 @@ namespace Pulumi.Aws.LB.Inputs
 
     public sealed class LoadBalancerMinimumLoadBalancerCapacityGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The number of capacity units.
-        /// </summary>
         [Input("capacityUnits", required: true)]
         public Input<int> CapacityUnits { get; set; } = null!;
 

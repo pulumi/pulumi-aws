@@ -13,9 +13,6 @@ namespace Pulumi.Aws.DocDB.Outputs
     [OutputType]
     public sealed class ClusterMasterUserSecret
     {
-        /// <summary>
-        /// The ARN for the KMS encryption key. When specifying `KmsKeyId`, `StorageEncrypted` needs to be set to true.
-        /// </summary>
         public readonly string? KmsKeyId;
         public readonly string? SecretArn;
         public readonly string? SecretStatus;

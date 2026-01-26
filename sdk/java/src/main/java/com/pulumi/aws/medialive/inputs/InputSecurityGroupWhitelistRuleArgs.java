@@ -14,17 +14,9 @@ public final class InputSecurityGroupWhitelistRuleArgs extends com.pulumi.resour
 
     public static final InputSecurityGroupWhitelistRuleArgs Empty = new InputSecurityGroupWhitelistRuleArgs();
 
-    /**
-     * The IPv4 CIDR that&#39;s whitelisted.
-     * 
-     */
     @Import(name="cidr", required=true)
     private Output<String> cidr;
 
-    /**
-     * @return The IPv4 CIDR that&#39;s whitelisted.
-     * 
-     */
     public Output<String> cidr() {
         return this.cidr;
     }
@@ -53,23 +45,11 @@ public final class InputSecurityGroupWhitelistRuleArgs extends com.pulumi.resour
             $ = new InputSecurityGroupWhitelistRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cidr The IPv4 CIDR that&#39;s whitelisted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidr(Output<String> cidr) {
             $.cidr = cidr;
             return this;
         }
 
-        /**
-         * @param cidr The IPv4 CIDR that&#39;s whitelisted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidr(String cidr) {
             return cidr(Output.of(cidr));
         }

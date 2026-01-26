@@ -13,57 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter {
-    /**
-     * @return Description of the parameter. Helps the foundation model determine how to elicit the parameters from the user.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return Name of the parameter.
-     * 
-     * **Note:** The argument name `mapBlockKey` may seem out of context, but is necessary for backward compatibility reasons in the provider.
-     * 
-     */
     private String mapBlockKey;
-    /**
-     * @return Whether the parameter is required for the agent to complete the function for action group invocation.
-     * 
-     */
     private @Nullable Boolean required;
-    /**
-     * @return Data type of the parameter. Valid values: `string`, `number`, `integer`, `boolean`, `array`.
-     * 
-     */
     private String type;
 
     private AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter() {}
-    /**
-     * @return Description of the parameter. Helps the foundation model determine how to elicit the parameters from the user.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return Name of the parameter.
-     * 
-     * **Note:** The argument name `mapBlockKey` may seem out of context, but is necessary for backward compatibility reasons in the provider.
-     * 
-     */
     public String mapBlockKey() {
         return this.mapBlockKey;
     }
-    /**
-     * @return Whether the parameter is required for the agent to complete the function for action group invocation.
-     * 
-     */
     public Optional<Boolean> required() {
         return Optional.ofNullable(this.required);
     }
-    /**
-     * @return Data type of the parameter. Valid values: `string`, `number`, `integer`, `boolean`, `array`.
-     * 
-     */
     public String type() {
         return this.type;
     }

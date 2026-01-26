@@ -16,62 +16,30 @@ public final class GetEnvironmentPlainArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetEnvironmentPlainArgs Empty = new GetEnvironmentPlainArgs();
 
-    /**
-     * ID of the AppConfig Application to which this Environment belongs.
-     * 
-     */
     @Import(name="applicationId", required=true)
     private String applicationId;
 
-    /**
-     * @return ID of the AppConfig Application to which this Environment belongs.
-     * 
-     */
     public String applicationId() {
         return this.applicationId;
     }
 
-    /**
-     * ID of the AppConfig Environment.
-     * 
-     */
     @Import(name="environmentId", required=true)
     private String environmentId;
 
-    /**
-     * @return ID of the AppConfig Environment.
-     * 
-     */
     public String environmentId() {
         return this.environmentId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags for the resource.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Map of tags for the resource.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -103,45 +71,21 @@ public final class GetEnvironmentPlainArgs extends com.pulumi.resources.InvokeAr
             $ = new GetEnvironmentPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applicationId ID of the AppConfig Application to which this Environment belongs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationId(String applicationId) {
             $.applicationId = applicationId;
             return this;
         }
 
-        /**
-         * @param environmentId ID of the AppConfig Environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder environmentId(String environmentId) {
             $.environmentId = environmentId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Map of tags for the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

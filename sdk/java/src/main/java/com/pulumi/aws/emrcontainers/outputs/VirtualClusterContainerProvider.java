@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class VirtualClusterContainerProvider {
-    /**
-     * @return The name of the container provider that is running your EMR Containers cluster
-     * 
-     */
     private String id;
-    /**
-     * @return Nested list containing information about the configuration of the container provider
-     * 
-     */
     private VirtualClusterContainerProviderInfo info;
-    /**
-     * @return The type of the container provider
-     * 
-     */
     private String type;
 
     private VirtualClusterContainerProvider() {}
-    /**
-     * @return The name of the container provider that is running your EMR Containers cluster
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Nested list containing information about the configuration of the container provider
-     * 
-     */
     public VirtualClusterContainerProviderInfo info() {
         return this.info;
     }
-    /**
-     * @return The type of the container provider
-     * 
-     */
     public String type() {
         return this.type;
     }

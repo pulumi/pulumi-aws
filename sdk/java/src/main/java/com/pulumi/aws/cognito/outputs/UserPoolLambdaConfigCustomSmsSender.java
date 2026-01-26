@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class UserPoolLambdaConfigCustomSmsSender {
-    /**
-     * @return The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
-     * 
-     */
     private String lambdaArn;
-    /**
-     * @return The Lambda version represents the signature of the &#34;request&#34; attribute in the &#34;event&#34; information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
-     * 
-     */
     private String lambdaVersion;
 
     private UserPoolLambdaConfigCustomSmsSender() {}
-    /**
-     * @return The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
-     * 
-     */
     public String lambdaArn() {
         return this.lambdaArn;
     }
-    /**
-     * @return The Lambda version represents the signature of the &#34;request&#34; attribute in the &#34;event&#34; information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
-     * 
-     */
     public String lambdaVersion() {
         return this.lambdaVersion;
     }

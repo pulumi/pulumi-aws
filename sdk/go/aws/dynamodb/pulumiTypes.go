@@ -14,14 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type GlobalSecondaryIndexKeySchema struct {
-	// Name of the attribute.
 	AttributeName string `pulumi:"attributeName"`
-	// Type of the attribute in the index.
-	// Valid values are `S` (string), `N` (number), or `B` (binary).
 	AttributeType string `pulumi:"attributeType"`
-	// Key type.
-	// Valid values are `HASH` or `RANGE`.
-	KeyType string `pulumi:"keyType"`
+	KeyType       string `pulumi:"keyType"`
 }
 
 // GlobalSecondaryIndexKeySchemaInput is an input type that accepts GlobalSecondaryIndexKeySchemaArgs and GlobalSecondaryIndexKeySchemaOutput values.
@@ -36,14 +31,9 @@ type GlobalSecondaryIndexKeySchemaInput interface {
 }
 
 type GlobalSecondaryIndexKeySchemaArgs struct {
-	// Name of the attribute.
 	AttributeName pulumi.StringInput `pulumi:"attributeName"`
-	// Type of the attribute in the index.
-	// Valid values are `S` (string), `N` (number), or `B` (binary).
 	AttributeType pulumi.StringInput `pulumi:"attributeType"`
-	// Key type.
-	// Valid values are `HASH` or `RANGE`.
-	KeyType pulumi.StringInput `pulumi:"keyType"`
+	KeyType       pulumi.StringInput `pulumi:"keyType"`
 }
 
 func (GlobalSecondaryIndexKeySchemaArgs) ElementType() reflect.Type {
@@ -97,19 +87,14 @@ func (o GlobalSecondaryIndexKeySchemaOutput) ToGlobalSecondaryIndexKeySchemaOutp
 	return o
 }
 
-// Name of the attribute.
 func (o GlobalSecondaryIndexKeySchemaOutput) AttributeName() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalSecondaryIndexKeySchema) string { return v.AttributeName }).(pulumi.StringOutput)
 }
 
-// Type of the attribute in the index.
-// Valid values are `S` (string), `N` (number), or `B` (binary).
 func (o GlobalSecondaryIndexKeySchemaOutput) AttributeType() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalSecondaryIndexKeySchema) string { return v.AttributeType }).(pulumi.StringOutput)
 }
 
-// Key type.
-// Valid values are `HASH` or `RANGE`.
 func (o GlobalSecondaryIndexKeySchemaOutput) KeyType() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalSecondaryIndexKeySchema) string { return v.KeyType }).(pulumi.StringOutput)
 }
@@ -135,9 +120,7 @@ func (o GlobalSecondaryIndexKeySchemaArrayOutput) Index(i pulumi.IntInput) Globa
 }
 
 type GlobalSecondaryIndexOnDemandThroughput struct {
-	// Maximum number of read request units for this index.
-	MaxReadRequestUnits *int `pulumi:"maxReadRequestUnits"`
-	// Maximum number of write request units for this index.
+	MaxReadRequestUnits  *int `pulumi:"maxReadRequestUnits"`
 	MaxWriteRequestUnits *int `pulumi:"maxWriteRequestUnits"`
 }
 
@@ -153,9 +136,7 @@ type GlobalSecondaryIndexOnDemandThroughputInput interface {
 }
 
 type GlobalSecondaryIndexOnDemandThroughputArgs struct {
-	// Maximum number of read request units for this index.
-	MaxReadRequestUnits pulumi.IntPtrInput `pulumi:"maxReadRequestUnits"`
-	// Maximum number of write request units for this index.
+	MaxReadRequestUnits  pulumi.IntPtrInput `pulumi:"maxReadRequestUnits"`
 	MaxWriteRequestUnits pulumi.IntPtrInput `pulumi:"maxWriteRequestUnits"`
 }
 
@@ -236,12 +217,10 @@ func (o GlobalSecondaryIndexOnDemandThroughputOutput) ToGlobalSecondaryIndexOnDe
 	}).(GlobalSecondaryIndexOnDemandThroughputPtrOutput)
 }
 
-// Maximum number of read request units for this index.
 func (o GlobalSecondaryIndexOnDemandThroughputOutput) MaxReadRequestUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GlobalSecondaryIndexOnDemandThroughput) *int { return v.MaxReadRequestUnits }).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of write request units for this index.
 func (o GlobalSecondaryIndexOnDemandThroughputOutput) MaxWriteRequestUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GlobalSecondaryIndexOnDemandThroughput) *int { return v.MaxWriteRequestUnits }).(pulumi.IntPtrOutput)
 }
@@ -270,7 +249,6 @@ func (o GlobalSecondaryIndexOnDemandThroughputPtrOutput) Elem() GlobalSecondaryI
 	}).(GlobalSecondaryIndexOnDemandThroughputOutput)
 }
 
-// Maximum number of read request units for this index.
 func (o GlobalSecondaryIndexOnDemandThroughputPtrOutput) MaxReadRequestUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GlobalSecondaryIndexOnDemandThroughput) *int {
 		if v == nil {
@@ -280,7 +258,6 @@ func (o GlobalSecondaryIndexOnDemandThroughputPtrOutput) MaxReadRequestUnits() p
 	}).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of write request units for this index.
 func (o GlobalSecondaryIndexOnDemandThroughputPtrOutput) MaxWriteRequestUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GlobalSecondaryIndexOnDemandThroughput) *int {
 		if v == nil {
@@ -291,12 +268,8 @@ func (o GlobalSecondaryIndexOnDemandThroughputPtrOutput) MaxWriteRequestUnits() 
 }
 
 type GlobalSecondaryIndexProjection struct {
-	// Specifies which additional attributes to include in the index.
-	// Only valid when `projectionType` is `INCLUDE`.`
 	NonKeyAttributes []string `pulumi:"nonKeyAttributes"`
-	// The set of attributes represented in the index.
-	// One of `ALL`, `INCLUDE`, or `KEYS_ONLY`.
-	ProjectionType string `pulumi:"projectionType"`
+	ProjectionType   string   `pulumi:"projectionType"`
 }
 
 // GlobalSecondaryIndexProjectionInput is an input type that accepts GlobalSecondaryIndexProjectionArgs and GlobalSecondaryIndexProjectionOutput values.
@@ -311,12 +284,8 @@ type GlobalSecondaryIndexProjectionInput interface {
 }
 
 type GlobalSecondaryIndexProjectionArgs struct {
-	// Specifies which additional attributes to include in the index.
-	// Only valid when `projectionType` is `INCLUDE`.`
 	NonKeyAttributes pulumi.StringArrayInput `pulumi:"nonKeyAttributes"`
-	// The set of attributes represented in the index.
-	// One of `ALL`, `INCLUDE`, or `KEYS_ONLY`.
-	ProjectionType pulumi.StringInput `pulumi:"projectionType"`
+	ProjectionType   pulumi.StringInput      `pulumi:"projectionType"`
 }
 
 func (GlobalSecondaryIndexProjectionArgs) ElementType() reflect.Type {
@@ -396,14 +365,10 @@ func (o GlobalSecondaryIndexProjectionOutput) ToGlobalSecondaryIndexProjectionPt
 	}).(GlobalSecondaryIndexProjectionPtrOutput)
 }
 
-// Specifies which additional attributes to include in the index.
-// Only valid when `projectionType` is `INCLUDE`.`
 func (o GlobalSecondaryIndexProjectionOutput) NonKeyAttributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GlobalSecondaryIndexProjection) []string { return v.NonKeyAttributes }).(pulumi.StringArrayOutput)
 }
 
-// The set of attributes represented in the index.
-// One of `ALL`, `INCLUDE`, or `KEYS_ONLY`.
 func (o GlobalSecondaryIndexProjectionOutput) ProjectionType() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalSecondaryIndexProjection) string { return v.ProjectionType }).(pulumi.StringOutput)
 }
@@ -432,8 +397,6 @@ func (o GlobalSecondaryIndexProjectionPtrOutput) Elem() GlobalSecondaryIndexProj
 	}).(GlobalSecondaryIndexProjectionOutput)
 }
 
-// Specifies which additional attributes to include in the index.
-// Only valid when `projectionType` is `INCLUDE`.`
 func (o GlobalSecondaryIndexProjectionPtrOutput) NonKeyAttributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GlobalSecondaryIndexProjection) []string {
 		if v == nil {
@@ -443,8 +406,6 @@ func (o GlobalSecondaryIndexProjectionPtrOutput) NonKeyAttributes() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
-// The set of attributes represented in the index.
-// One of `ALL`, `INCLUDE`, or `KEYS_ONLY`.
 func (o GlobalSecondaryIndexProjectionPtrOutput) ProjectionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlobalSecondaryIndexProjection) *string {
 		if v == nil {
@@ -455,9 +416,7 @@ func (o GlobalSecondaryIndexProjectionPtrOutput) ProjectionType() pulumi.StringP
 }
 
 type GlobalSecondaryIndexProvisionedThroughput struct {
-	// Number of read capacity units for this index.
-	ReadCapacityUnits *int `pulumi:"readCapacityUnits"`
-	// Number of write capacity units for this index.
+	ReadCapacityUnits  *int `pulumi:"readCapacityUnits"`
 	WriteCapacityUnits *int `pulumi:"writeCapacityUnits"`
 }
 
@@ -473,9 +432,7 @@ type GlobalSecondaryIndexProvisionedThroughputInput interface {
 }
 
 type GlobalSecondaryIndexProvisionedThroughputArgs struct {
-	// Number of read capacity units for this index.
-	ReadCapacityUnits pulumi.IntPtrInput `pulumi:"readCapacityUnits"`
-	// Number of write capacity units for this index.
+	ReadCapacityUnits  pulumi.IntPtrInput `pulumi:"readCapacityUnits"`
 	WriteCapacityUnits pulumi.IntPtrInput `pulumi:"writeCapacityUnits"`
 }
 
@@ -556,12 +513,10 @@ func (o GlobalSecondaryIndexProvisionedThroughputOutput) ToGlobalSecondaryIndexP
 	}).(GlobalSecondaryIndexProvisionedThroughputPtrOutput)
 }
 
-// Number of read capacity units for this index.
 func (o GlobalSecondaryIndexProvisionedThroughputOutput) ReadCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GlobalSecondaryIndexProvisionedThroughput) *int { return v.ReadCapacityUnits }).(pulumi.IntPtrOutput)
 }
 
-// Number of write capacity units for this index.
 func (o GlobalSecondaryIndexProvisionedThroughputOutput) WriteCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GlobalSecondaryIndexProvisionedThroughput) *int { return v.WriteCapacityUnits }).(pulumi.IntPtrOutput)
 }
@@ -590,7 +545,6 @@ func (o GlobalSecondaryIndexProvisionedThroughputPtrOutput) Elem() GlobalSeconda
 	}).(GlobalSecondaryIndexProvisionedThroughputOutput)
 }
 
-// Number of read capacity units for this index.
 func (o GlobalSecondaryIndexProvisionedThroughputPtrOutput) ReadCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GlobalSecondaryIndexProvisionedThroughput) *int {
 		if v == nil {
@@ -600,7 +554,6 @@ func (o GlobalSecondaryIndexProvisionedThroughputPtrOutput) ReadCapacityUnits() 
 	}).(pulumi.IntPtrOutput)
 }
 
-// Number of write capacity units for this index.
 func (o GlobalSecondaryIndexProvisionedThroughputPtrOutput) WriteCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GlobalSecondaryIndexProvisionedThroughput) *int {
 		if v == nil {
@@ -786,9 +739,7 @@ func (o GlobalSecondaryIndexTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type GlobalSecondaryIndexWarmThroughput struct {
-	// Number of read operations this index can instantaneously support.
-	ReadUnitsPerSecond int `pulumi:"readUnitsPerSecond"`
-	// Number of write operations this index can instantaneously support.
+	ReadUnitsPerSecond  int `pulumi:"readUnitsPerSecond"`
 	WriteUnitsPerSecond int `pulumi:"writeUnitsPerSecond"`
 }
 
@@ -804,9 +755,7 @@ type GlobalSecondaryIndexWarmThroughputInput interface {
 }
 
 type GlobalSecondaryIndexWarmThroughputArgs struct {
-	// Number of read operations this index can instantaneously support.
-	ReadUnitsPerSecond pulumi.IntInput `pulumi:"readUnitsPerSecond"`
-	// Number of write operations this index can instantaneously support.
+	ReadUnitsPerSecond  pulumi.IntInput `pulumi:"readUnitsPerSecond"`
 	WriteUnitsPerSecond pulumi.IntInput `pulumi:"writeUnitsPerSecond"`
 }
 
@@ -887,12 +836,10 @@ func (o GlobalSecondaryIndexWarmThroughputOutput) ToGlobalSecondaryIndexWarmThro
 	}).(GlobalSecondaryIndexWarmThroughputPtrOutput)
 }
 
-// Number of read operations this index can instantaneously support.
 func (o GlobalSecondaryIndexWarmThroughputOutput) ReadUnitsPerSecond() pulumi.IntOutput {
 	return o.ApplyT(func(v GlobalSecondaryIndexWarmThroughput) int { return v.ReadUnitsPerSecond }).(pulumi.IntOutput)
 }
 
-// Number of write operations this index can instantaneously support.
 func (o GlobalSecondaryIndexWarmThroughputOutput) WriteUnitsPerSecond() pulumi.IntOutput {
 	return o.ApplyT(func(v GlobalSecondaryIndexWarmThroughput) int { return v.WriteUnitsPerSecond }).(pulumi.IntOutput)
 }
@@ -921,7 +868,6 @@ func (o GlobalSecondaryIndexWarmThroughputPtrOutput) Elem() GlobalSecondaryIndex
 	}).(GlobalSecondaryIndexWarmThroughputOutput)
 }
 
-// Number of read operations this index can instantaneously support.
 func (o GlobalSecondaryIndexWarmThroughputPtrOutput) ReadUnitsPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GlobalSecondaryIndexWarmThroughput) *int {
 		if v == nil {
@@ -931,7 +877,6 @@ func (o GlobalSecondaryIndexWarmThroughputPtrOutput) ReadUnitsPerSecond() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
-// Number of write operations this index can instantaneously support.
 func (o GlobalSecondaryIndexWarmThroughputPtrOutput) WriteUnitsPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GlobalSecondaryIndexWarmThroughput) *int {
 		if v == nil {
@@ -942,7 +887,6 @@ func (o GlobalSecondaryIndexWarmThroughputPtrOutput) WriteUnitsPerSecond() pulum
 }
 
 type GlobalTableReplica struct {
-	// AWS region name of replica DynamoDB TableE.g., `us-east-1`
 	RegionName string `pulumi:"regionName"`
 }
 
@@ -958,7 +902,6 @@ type GlobalTableReplicaInput interface {
 }
 
 type GlobalTableReplicaArgs struct {
-	// AWS region name of replica DynamoDB TableE.g., `us-east-1`
 	RegionName pulumi.StringInput `pulumi:"regionName"`
 }
 
@@ -1013,7 +956,6 @@ func (o GlobalTableReplicaOutput) ToGlobalTableReplicaOutputWithContext(ctx cont
 	return o
 }
 
-// AWS region name of replica DynamoDB TableE.g., `us-east-1`
 func (o GlobalTableReplicaOutput) RegionName() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableReplica) string { return v.RegionName }).(pulumi.StringOutput)
 }
@@ -1039,9 +981,7 @@ func (o GlobalTableReplicaArrayOutput) Index(i pulumi.IntInput) GlobalTableRepli
 }
 
 type TableAttribute struct {
-	// Name of the attribute
 	Name string `pulumi:"name"`
-	// Attribute type. Valid values are `S` (string), `N` (number), `B` (binary).
 	Type string `pulumi:"type"`
 }
 
@@ -1057,9 +997,7 @@ type TableAttributeInput interface {
 }
 
 type TableAttributeArgs struct {
-	// Name of the attribute
 	Name pulumi.StringInput `pulumi:"name"`
-	// Attribute type. Valid values are `S` (string), `N` (number), `B` (binary).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1114,12 +1052,10 @@ func (o TableAttributeOutput) ToTableAttributeOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Name of the attribute
 func (o TableAttributeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TableAttribute) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Attribute type. Valid values are `S` (string), `N` (number), `B` (binary).
 func (o TableAttributeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TableAttribute) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1308,24 +1244,15 @@ func (o TableExportIncrementalExportSpecificationPtrOutput) ExportViewType() pul
 }
 
 type TableGlobalSecondaryIndex struct {
-	// Name of the hash key in the index; must be defined as an attribute in the resource.
-	HashKey string `pulumi:"hashKey"`
-	// Name of the index.
-	Name string `pulumi:"name"`
-	// Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
-	NonKeyAttributes []string `pulumi:"nonKeyAttributes"`
-	// Sets the maximum number of read and write units for the specified on-demand index. See below.
+	HashKey            string                                       `pulumi:"hashKey"`
+	Name               string                                       `pulumi:"name"`
+	NonKeyAttributes   []string                                     `pulumi:"nonKeyAttributes"`
 	OnDemandThroughput *TableGlobalSecondaryIndexOnDemandThroughput `pulumi:"onDemandThroughput"`
-	// One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
-	ProjectionType string `pulumi:"projectionType"`
-	// Name of the range key; must be defined
-	RangeKey *string `pulumi:"rangeKey"`
-	// Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
-	ReadCapacity *int `pulumi:"readCapacity"`
-	// Sets the number of warm read and write units for this index. See below.
-	WarmThroughput *TableGlobalSecondaryIndexWarmThroughput `pulumi:"warmThroughput"`
-	// Number of write units for this index. Must be set if billingMode is set to PROVISIONED.
-	WriteCapacity *int `pulumi:"writeCapacity"`
+	ProjectionType     string                                       `pulumi:"projectionType"`
+	RangeKey           *string                                      `pulumi:"rangeKey"`
+	ReadCapacity       *int                                         `pulumi:"readCapacity"`
+	WarmThroughput     *TableGlobalSecondaryIndexWarmThroughput     `pulumi:"warmThroughput"`
+	WriteCapacity      *int                                         `pulumi:"writeCapacity"`
 }
 
 // TableGlobalSecondaryIndexInput is an input type that accepts TableGlobalSecondaryIndexArgs and TableGlobalSecondaryIndexOutput values.
@@ -1340,24 +1267,15 @@ type TableGlobalSecondaryIndexInput interface {
 }
 
 type TableGlobalSecondaryIndexArgs struct {
-	// Name of the hash key in the index; must be defined as an attribute in the resource.
-	HashKey pulumi.StringInput `pulumi:"hashKey"`
-	// Name of the index.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
-	NonKeyAttributes pulumi.StringArrayInput `pulumi:"nonKeyAttributes"`
-	// Sets the maximum number of read and write units for the specified on-demand index. See below.
+	HashKey            pulumi.StringInput                                  `pulumi:"hashKey"`
+	Name               pulumi.StringInput                                  `pulumi:"name"`
+	NonKeyAttributes   pulumi.StringArrayInput                             `pulumi:"nonKeyAttributes"`
 	OnDemandThroughput TableGlobalSecondaryIndexOnDemandThroughputPtrInput `pulumi:"onDemandThroughput"`
-	// One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
-	ProjectionType pulumi.StringInput `pulumi:"projectionType"`
-	// Name of the range key; must be defined
-	RangeKey pulumi.StringPtrInput `pulumi:"rangeKey"`
-	// Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
-	ReadCapacity pulumi.IntPtrInput `pulumi:"readCapacity"`
-	// Sets the number of warm read and write units for this index. See below.
-	WarmThroughput TableGlobalSecondaryIndexWarmThroughputPtrInput `pulumi:"warmThroughput"`
-	// Number of write units for this index. Must be set if billingMode is set to PROVISIONED.
-	WriteCapacity pulumi.IntPtrInput `pulumi:"writeCapacity"`
+	ProjectionType     pulumi.StringInput                                  `pulumi:"projectionType"`
+	RangeKey           pulumi.StringPtrInput                               `pulumi:"rangeKey"`
+	ReadCapacity       pulumi.IntPtrInput                                  `pulumi:"readCapacity"`
+	WarmThroughput     TableGlobalSecondaryIndexWarmThroughputPtrInput     `pulumi:"warmThroughput"`
+	WriteCapacity      pulumi.IntPtrInput                                  `pulumi:"writeCapacity"`
 }
 
 func (TableGlobalSecondaryIndexArgs) ElementType() reflect.Type {
@@ -1411,49 +1329,40 @@ func (o TableGlobalSecondaryIndexOutput) ToTableGlobalSecondaryIndexOutputWithCo
 	return o
 }
 
-// Name of the hash key in the index; must be defined as an attribute in the resource.
 func (o TableGlobalSecondaryIndexOutput) HashKey() pulumi.StringOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndex) string { return v.HashKey }).(pulumi.StringOutput)
 }
 
-// Name of the index.
 func (o TableGlobalSecondaryIndexOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndex) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
 func (o TableGlobalSecondaryIndexOutput) NonKeyAttributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndex) []string { return v.NonKeyAttributes }).(pulumi.StringArrayOutput)
 }
 
-// Sets the maximum number of read and write units for the specified on-demand index. See below.
 func (o TableGlobalSecondaryIndexOutput) OnDemandThroughput() TableGlobalSecondaryIndexOnDemandThroughputPtrOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndex) *TableGlobalSecondaryIndexOnDemandThroughput {
 		return v.OnDemandThroughput
 	}).(TableGlobalSecondaryIndexOnDemandThroughputPtrOutput)
 }
 
-// One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
 func (o TableGlobalSecondaryIndexOutput) ProjectionType() pulumi.StringOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndex) string { return v.ProjectionType }).(pulumi.StringOutput)
 }
 
-// Name of the range key; must be defined
 func (o TableGlobalSecondaryIndexOutput) RangeKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndex) *string { return v.RangeKey }).(pulumi.StringPtrOutput)
 }
 
-// Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
 func (o TableGlobalSecondaryIndexOutput) ReadCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndex) *int { return v.ReadCapacity }).(pulumi.IntPtrOutput)
 }
 
-// Sets the number of warm read and write units for this index. See below.
 func (o TableGlobalSecondaryIndexOutput) WarmThroughput() TableGlobalSecondaryIndexWarmThroughputPtrOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndex) *TableGlobalSecondaryIndexWarmThroughput { return v.WarmThroughput }).(TableGlobalSecondaryIndexWarmThroughputPtrOutput)
 }
 
-// Number of write units for this index. Must be set if billingMode is set to PROVISIONED.
 func (o TableGlobalSecondaryIndexOutput) WriteCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndex) *int { return v.WriteCapacity }).(pulumi.IntPtrOutput)
 }
@@ -1479,9 +1388,7 @@ func (o TableGlobalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) TableGlob
 }
 
 type TableGlobalSecondaryIndexOnDemandThroughput struct {
-	// Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
-	MaxReadRequestUnits *int `pulumi:"maxReadRequestUnits"`
-	// Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+	MaxReadRequestUnits  *int `pulumi:"maxReadRequestUnits"`
 	MaxWriteRequestUnits *int `pulumi:"maxWriteRequestUnits"`
 }
 
@@ -1497,9 +1404,7 @@ type TableGlobalSecondaryIndexOnDemandThroughputInput interface {
 }
 
 type TableGlobalSecondaryIndexOnDemandThroughputArgs struct {
-	// Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
-	MaxReadRequestUnits pulumi.IntPtrInput `pulumi:"maxReadRequestUnits"`
-	// Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+	MaxReadRequestUnits  pulumi.IntPtrInput `pulumi:"maxReadRequestUnits"`
 	MaxWriteRequestUnits pulumi.IntPtrInput `pulumi:"maxWriteRequestUnits"`
 }
 
@@ -1580,12 +1485,10 @@ func (o TableGlobalSecondaryIndexOnDemandThroughputOutput) ToTableGlobalSecondar
 	}).(TableGlobalSecondaryIndexOnDemandThroughputPtrOutput)
 }
 
-// Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
 func (o TableGlobalSecondaryIndexOnDemandThroughputOutput) MaxReadRequestUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndexOnDemandThroughput) *int { return v.MaxReadRequestUnits }).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
 func (o TableGlobalSecondaryIndexOnDemandThroughputOutput) MaxWriteRequestUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndexOnDemandThroughput) *int { return v.MaxWriteRequestUnits }).(pulumi.IntPtrOutput)
 }
@@ -1614,7 +1517,6 @@ func (o TableGlobalSecondaryIndexOnDemandThroughputPtrOutput) Elem() TableGlobal
 	}).(TableGlobalSecondaryIndexOnDemandThroughputOutput)
 }
 
-// Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
 func (o TableGlobalSecondaryIndexOnDemandThroughputPtrOutput) MaxReadRequestUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableGlobalSecondaryIndexOnDemandThroughput) *int {
 		if v == nil {
@@ -1624,7 +1526,6 @@ func (o TableGlobalSecondaryIndexOnDemandThroughputPtrOutput) MaxReadRequestUnit
 	}).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
 func (o TableGlobalSecondaryIndexOnDemandThroughputPtrOutput) MaxWriteRequestUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableGlobalSecondaryIndexOnDemandThroughput) *int {
 		if v == nil {
@@ -1635,9 +1536,7 @@ func (o TableGlobalSecondaryIndexOnDemandThroughputPtrOutput) MaxWriteRequestUni
 }
 
 type TableGlobalSecondaryIndexWarmThroughput struct {
-	// Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
-	ReadUnitsPerSecond *int `pulumi:"readUnitsPerSecond"`
-	// Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+	ReadUnitsPerSecond  *int `pulumi:"readUnitsPerSecond"`
 	WriteUnitsPerSecond *int `pulumi:"writeUnitsPerSecond"`
 }
 
@@ -1653,9 +1552,7 @@ type TableGlobalSecondaryIndexWarmThroughputInput interface {
 }
 
 type TableGlobalSecondaryIndexWarmThroughputArgs struct {
-	// Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
-	ReadUnitsPerSecond pulumi.IntPtrInput `pulumi:"readUnitsPerSecond"`
-	// Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+	ReadUnitsPerSecond  pulumi.IntPtrInput `pulumi:"readUnitsPerSecond"`
 	WriteUnitsPerSecond pulumi.IntPtrInput `pulumi:"writeUnitsPerSecond"`
 }
 
@@ -1736,12 +1633,10 @@ func (o TableGlobalSecondaryIndexWarmThroughputOutput) ToTableGlobalSecondaryInd
 	}).(TableGlobalSecondaryIndexWarmThroughputPtrOutput)
 }
 
-// Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
 func (o TableGlobalSecondaryIndexWarmThroughputOutput) ReadUnitsPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndexWarmThroughput) *int { return v.ReadUnitsPerSecond }).(pulumi.IntPtrOutput)
 }
 
-// Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
 func (o TableGlobalSecondaryIndexWarmThroughputOutput) WriteUnitsPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndexWarmThroughput) *int { return v.WriteUnitsPerSecond }).(pulumi.IntPtrOutput)
 }
@@ -1770,7 +1665,6 @@ func (o TableGlobalSecondaryIndexWarmThroughputPtrOutput) Elem() TableGlobalSeco
 	}).(TableGlobalSecondaryIndexWarmThroughputOutput)
 }
 
-// Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
 func (o TableGlobalSecondaryIndexWarmThroughputPtrOutput) ReadUnitsPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableGlobalSecondaryIndexWarmThroughput) *int {
 		if v == nil {
@@ -1780,7 +1674,6 @@ func (o TableGlobalSecondaryIndexWarmThroughputPtrOutput) ReadUnitsPerSecond() p
 	}).(pulumi.IntPtrOutput)
 }
 
-// Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
 func (o TableGlobalSecondaryIndexWarmThroughputPtrOutput) WriteUnitsPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableGlobalSecondaryIndexWarmThroughput) *int {
 		if v == nil {
@@ -1791,7 +1684,6 @@ func (o TableGlobalSecondaryIndexWarmThroughputPtrOutput) WriteUnitsPerSecond() 
 }
 
 type TableGlobalTableWitness struct {
-	// Name of the AWS Region that serves as a witness for the MRSC global table.
 	RegionName *string `pulumi:"regionName"`
 }
 
@@ -1807,7 +1699,6 @@ type TableGlobalTableWitnessInput interface {
 }
 
 type TableGlobalTableWitnessArgs struct {
-	// Name of the AWS Region that serves as a witness for the MRSC global table.
 	RegionName pulumi.StringPtrInput `pulumi:"regionName"`
 }
 
@@ -1888,7 +1779,6 @@ func (o TableGlobalTableWitnessOutput) ToTableGlobalTableWitnessPtrOutputWithCon
 	}).(TableGlobalTableWitnessPtrOutput)
 }
 
-// Name of the AWS Region that serves as a witness for the MRSC global table.
 func (o TableGlobalTableWitnessOutput) RegionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableGlobalTableWitness) *string { return v.RegionName }).(pulumi.StringPtrOutput)
 }
@@ -1917,7 +1807,6 @@ func (o TableGlobalTableWitnessPtrOutput) Elem() TableGlobalTableWitnessOutput {
 	}).(TableGlobalTableWitnessOutput)
 }
 
-// Name of the AWS Region that serves as a witness for the MRSC global table.
 func (o TableGlobalTableWitnessPtrOutput) RegionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableGlobalTableWitness) *string {
 		if v == nil {
@@ -1928,19 +1817,10 @@ func (o TableGlobalTableWitnessPtrOutput) RegionName() pulumi.StringPtrOutput {
 }
 
 type TableImportTable struct {
-	// Type of compression to be used on the input coming from the imported table.
-	// Valid values are `GZIP`, `ZSTD` and `NONE`.
-	InputCompressionType *string `pulumi:"inputCompressionType"`
-	// The format of the source data.
-	// Valid values are `CSV`, `DYNAMODB_JSON`, and `ION`.
-	InputFormat string `pulumi:"inputFormat"`
-	// Describe the format options for the data that was imported into the target table.
-	// There is one value, `csv`.
-	// See below.
-	InputFormatOptions *TableImportTableInputFormatOptions `pulumi:"inputFormatOptions"`
-	// Values for the S3 bucket the source file is imported from.
-	// See below.
-	S3BucketSource TableImportTableS3BucketSource `pulumi:"s3BucketSource"`
+	InputCompressionType *string                             `pulumi:"inputCompressionType"`
+	InputFormat          string                              `pulumi:"inputFormat"`
+	InputFormatOptions   *TableImportTableInputFormatOptions `pulumi:"inputFormatOptions"`
+	S3BucketSource       TableImportTableS3BucketSource      `pulumi:"s3BucketSource"`
 }
 
 // TableImportTableInput is an input type that accepts TableImportTableArgs and TableImportTableOutput values.
@@ -1955,19 +1835,10 @@ type TableImportTableInput interface {
 }
 
 type TableImportTableArgs struct {
-	// Type of compression to be used on the input coming from the imported table.
-	// Valid values are `GZIP`, `ZSTD` and `NONE`.
-	InputCompressionType pulumi.StringPtrInput `pulumi:"inputCompressionType"`
-	// The format of the source data.
-	// Valid values are `CSV`, `DYNAMODB_JSON`, and `ION`.
-	InputFormat pulumi.StringInput `pulumi:"inputFormat"`
-	// Describe the format options for the data that was imported into the target table.
-	// There is one value, `csv`.
-	// See below.
-	InputFormatOptions TableImportTableInputFormatOptionsPtrInput `pulumi:"inputFormatOptions"`
-	// Values for the S3 bucket the source file is imported from.
-	// See below.
-	S3BucketSource TableImportTableS3BucketSourceInput `pulumi:"s3BucketSource"`
+	InputCompressionType pulumi.StringPtrInput                      `pulumi:"inputCompressionType"`
+	InputFormat          pulumi.StringInput                         `pulumi:"inputFormat"`
+	InputFormatOptions   TableImportTableInputFormatOptionsPtrInput `pulumi:"inputFormatOptions"`
+	S3BucketSource       TableImportTableS3BucketSourceInput        `pulumi:"s3BucketSource"`
 }
 
 func (TableImportTableArgs) ElementType() reflect.Type {
@@ -2047,27 +1918,18 @@ func (o TableImportTableOutput) ToTableImportTablePtrOutputWithContext(ctx conte
 	}).(TableImportTablePtrOutput)
 }
 
-// Type of compression to be used on the input coming from the imported table.
-// Valid values are `GZIP`, `ZSTD` and `NONE`.
 func (o TableImportTableOutput) InputCompressionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableImportTable) *string { return v.InputCompressionType }).(pulumi.StringPtrOutput)
 }
 
-// The format of the source data.
-// Valid values are `CSV`, `DYNAMODB_JSON`, and `ION`.
 func (o TableImportTableOutput) InputFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v TableImportTable) string { return v.InputFormat }).(pulumi.StringOutput)
 }
 
-// Describe the format options for the data that was imported into the target table.
-// There is one value, `csv`.
-// See below.
 func (o TableImportTableOutput) InputFormatOptions() TableImportTableInputFormatOptionsPtrOutput {
 	return o.ApplyT(func(v TableImportTable) *TableImportTableInputFormatOptions { return v.InputFormatOptions }).(TableImportTableInputFormatOptionsPtrOutput)
 }
 
-// Values for the S3 bucket the source file is imported from.
-// See below.
 func (o TableImportTableOutput) S3BucketSource() TableImportTableS3BucketSourceOutput {
 	return o.ApplyT(func(v TableImportTable) TableImportTableS3BucketSource { return v.S3BucketSource }).(TableImportTableS3BucketSourceOutput)
 }
@@ -2096,8 +1958,6 @@ func (o TableImportTablePtrOutput) Elem() TableImportTableOutput {
 	}).(TableImportTableOutput)
 }
 
-// Type of compression to be used on the input coming from the imported table.
-// Valid values are `GZIP`, `ZSTD` and `NONE`.
 func (o TableImportTablePtrOutput) InputCompressionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableImportTable) *string {
 		if v == nil {
@@ -2107,8 +1967,6 @@ func (o TableImportTablePtrOutput) InputCompressionType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The format of the source data.
-// Valid values are `CSV`, `DYNAMODB_JSON`, and `ION`.
 func (o TableImportTablePtrOutput) InputFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableImportTable) *string {
 		if v == nil {
@@ -2118,9 +1976,6 @@ func (o TableImportTablePtrOutput) InputFormat() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describe the format options for the data that was imported into the target table.
-// There is one value, `csv`.
-// See below.
 func (o TableImportTablePtrOutput) InputFormatOptions() TableImportTableInputFormatOptionsPtrOutput {
 	return o.ApplyT(func(v *TableImportTable) *TableImportTableInputFormatOptions {
 		if v == nil {
@@ -2130,8 +1985,6 @@ func (o TableImportTablePtrOutput) InputFormatOptions() TableImportTableInputFor
 	}).(TableImportTableInputFormatOptionsPtrOutput)
 }
 
-// Values for the S3 bucket the source file is imported from.
-// See below.
 func (o TableImportTablePtrOutput) S3BucketSource() TableImportTableS3BucketSourcePtrOutput {
 	return o.ApplyT(func(v *TableImportTable) *TableImportTableS3BucketSource {
 		if v == nil {
@@ -2142,7 +1995,6 @@ func (o TableImportTablePtrOutput) S3BucketSource() TableImportTableS3BucketSour
 }
 
 type TableImportTableInputFormatOptions struct {
-	// This block contains the processing options for the CSV file being imported:
 	Csv *TableImportTableInputFormatOptionsCsv `pulumi:"csv"`
 }
 
@@ -2158,7 +2010,6 @@ type TableImportTableInputFormatOptionsInput interface {
 }
 
 type TableImportTableInputFormatOptionsArgs struct {
-	// This block contains the processing options for the CSV file being imported:
 	Csv TableImportTableInputFormatOptionsCsvPtrInput `pulumi:"csv"`
 }
 
@@ -2239,7 +2090,6 @@ func (o TableImportTableInputFormatOptionsOutput) ToTableImportTableInputFormatO
 	}).(TableImportTableInputFormatOptionsPtrOutput)
 }
 
-// This block contains the processing options for the CSV file being imported:
 func (o TableImportTableInputFormatOptionsOutput) Csv() TableImportTableInputFormatOptionsCsvPtrOutput {
 	return o.ApplyT(func(v TableImportTableInputFormatOptions) *TableImportTableInputFormatOptionsCsv { return v.Csv }).(TableImportTableInputFormatOptionsCsvPtrOutput)
 }
@@ -2268,7 +2118,6 @@ func (o TableImportTableInputFormatOptionsPtrOutput) Elem() TableImportTableInpu
 	}).(TableImportTableInputFormatOptionsOutput)
 }
 
-// This block contains the processing options for the CSV file being imported:
 func (o TableImportTableInputFormatOptionsPtrOutput) Csv() TableImportTableInputFormatOptionsCsvPtrOutput {
 	return o.ApplyT(func(v *TableImportTableInputFormatOptions) *TableImportTableInputFormatOptionsCsv {
 		if v == nil {
@@ -2279,9 +2128,7 @@ func (o TableImportTableInputFormatOptionsPtrOutput) Csv() TableImportTableInput
 }
 
 type TableImportTableInputFormatOptionsCsv struct {
-	// The delimiter used for separating items in the CSV file being imported.
-	Delimiter *string `pulumi:"delimiter"`
-	// List of the headers used to specify a common header for all source CSV files being imported.
+	Delimiter   *string  `pulumi:"delimiter"`
 	HeaderLists []string `pulumi:"headerLists"`
 }
 
@@ -2297,9 +2144,7 @@ type TableImportTableInputFormatOptionsCsvInput interface {
 }
 
 type TableImportTableInputFormatOptionsCsvArgs struct {
-	// The delimiter used for separating items in the CSV file being imported.
-	Delimiter pulumi.StringPtrInput `pulumi:"delimiter"`
-	// List of the headers used to specify a common header for all source CSV files being imported.
+	Delimiter   pulumi.StringPtrInput   `pulumi:"delimiter"`
 	HeaderLists pulumi.StringArrayInput `pulumi:"headerLists"`
 }
 
@@ -2380,12 +2225,10 @@ func (o TableImportTableInputFormatOptionsCsvOutput) ToTableImportTableInputForm
 	}).(TableImportTableInputFormatOptionsCsvPtrOutput)
 }
 
-// The delimiter used for separating items in the CSV file being imported.
 func (o TableImportTableInputFormatOptionsCsvOutput) Delimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableImportTableInputFormatOptionsCsv) *string { return v.Delimiter }).(pulumi.StringPtrOutput)
 }
 
-// List of the headers used to specify a common header for all source CSV files being imported.
 func (o TableImportTableInputFormatOptionsCsvOutput) HeaderLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TableImportTableInputFormatOptionsCsv) []string { return v.HeaderLists }).(pulumi.StringArrayOutput)
 }
@@ -2414,7 +2257,6 @@ func (o TableImportTableInputFormatOptionsCsvPtrOutput) Elem() TableImportTableI
 	}).(TableImportTableInputFormatOptionsCsvOutput)
 }
 
-// The delimiter used for separating items in the CSV file being imported.
 func (o TableImportTableInputFormatOptionsCsvPtrOutput) Delimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableImportTableInputFormatOptionsCsv) *string {
 		if v == nil {
@@ -2424,7 +2266,6 @@ func (o TableImportTableInputFormatOptionsCsvPtrOutput) Delimiter() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of the headers used to specify a common header for all source CSV files being imported.
 func (o TableImportTableInputFormatOptionsCsvPtrOutput) HeaderLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TableImportTableInputFormatOptionsCsv) []string {
 		if v == nil {
@@ -2435,12 +2276,9 @@ func (o TableImportTableInputFormatOptionsCsvPtrOutput) HeaderLists() pulumi.Str
 }
 
 type TableImportTableS3BucketSource struct {
-	// The S3 bucket that is being imported from.
-	Bucket string `pulumi:"bucket"`
-	// The account number of the S3 bucket that is being imported from.
+	Bucket      string  `pulumi:"bucket"`
 	BucketOwner *string `pulumi:"bucketOwner"`
-	// The key prefix shared by all S3 Objects that are being imported.
-	KeyPrefix *string `pulumi:"keyPrefix"`
+	KeyPrefix   *string `pulumi:"keyPrefix"`
 }
 
 // TableImportTableS3BucketSourceInput is an input type that accepts TableImportTableS3BucketSourceArgs and TableImportTableS3BucketSourceOutput values.
@@ -2455,12 +2293,9 @@ type TableImportTableS3BucketSourceInput interface {
 }
 
 type TableImportTableS3BucketSourceArgs struct {
-	// The S3 bucket that is being imported from.
-	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// The account number of the S3 bucket that is being imported from.
+	Bucket      pulumi.StringInput    `pulumi:"bucket"`
 	BucketOwner pulumi.StringPtrInput `pulumi:"bucketOwner"`
-	// The key prefix shared by all S3 Objects that are being imported.
-	KeyPrefix pulumi.StringPtrInput `pulumi:"keyPrefix"`
+	KeyPrefix   pulumi.StringPtrInput `pulumi:"keyPrefix"`
 }
 
 func (TableImportTableS3BucketSourceArgs) ElementType() reflect.Type {
@@ -2540,17 +2375,14 @@ func (o TableImportTableS3BucketSourceOutput) ToTableImportTableS3BucketSourcePt
 	}).(TableImportTableS3BucketSourcePtrOutput)
 }
 
-// The S3 bucket that is being imported from.
 func (o TableImportTableS3BucketSourceOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v TableImportTableS3BucketSource) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// The account number of the S3 bucket that is being imported from.
 func (o TableImportTableS3BucketSourceOutput) BucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableImportTableS3BucketSource) *string { return v.BucketOwner }).(pulumi.StringPtrOutput)
 }
 
-// The key prefix shared by all S3 Objects that are being imported.
 func (o TableImportTableS3BucketSourceOutput) KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableImportTableS3BucketSource) *string { return v.KeyPrefix }).(pulumi.StringPtrOutput)
 }
@@ -2579,7 +2411,6 @@ func (o TableImportTableS3BucketSourcePtrOutput) Elem() TableImportTableS3Bucket
 	}).(TableImportTableS3BucketSourceOutput)
 }
 
-// The S3 bucket that is being imported from.
 func (o TableImportTableS3BucketSourcePtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableImportTableS3BucketSource) *string {
 		if v == nil {
@@ -2589,7 +2420,6 @@ func (o TableImportTableS3BucketSourcePtrOutput) Bucket() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The account number of the S3 bucket that is being imported from.
 func (o TableImportTableS3BucketSourcePtrOutput) BucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableImportTableS3BucketSource) *string {
 		if v == nil {
@@ -2599,7 +2429,6 @@ func (o TableImportTableS3BucketSourcePtrOutput) BucketOwner() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The key prefix shared by all S3 Objects that are being imported.
 func (o TableImportTableS3BucketSourcePtrOutput) KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableImportTableS3BucketSource) *string {
 		if v == nil {
@@ -2610,14 +2439,10 @@ func (o TableImportTableS3BucketSourcePtrOutput) KeyPrefix() pulumi.StringPtrOut
 }
 
 type TableLocalSecondaryIndex struct {
-	// Name of the index
-	Name string `pulumi:"name"`
-	// Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
+	Name             string   `pulumi:"name"`
 	NonKeyAttributes []string `pulumi:"nonKeyAttributes"`
-	// One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
-	ProjectionType string `pulumi:"projectionType"`
-	// Name of the range key.
-	RangeKey string `pulumi:"rangeKey"`
+	ProjectionType   string   `pulumi:"projectionType"`
+	RangeKey         string   `pulumi:"rangeKey"`
 }
 
 // TableLocalSecondaryIndexInput is an input type that accepts TableLocalSecondaryIndexArgs and TableLocalSecondaryIndexOutput values.
@@ -2632,14 +2457,10 @@ type TableLocalSecondaryIndexInput interface {
 }
 
 type TableLocalSecondaryIndexArgs struct {
-	// Name of the index
-	Name pulumi.StringInput `pulumi:"name"`
-	// Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
+	Name             pulumi.StringInput      `pulumi:"name"`
 	NonKeyAttributes pulumi.StringArrayInput `pulumi:"nonKeyAttributes"`
-	// One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
-	ProjectionType pulumi.StringInput `pulumi:"projectionType"`
-	// Name of the range key.
-	RangeKey pulumi.StringInput `pulumi:"rangeKey"`
+	ProjectionType   pulumi.StringInput      `pulumi:"projectionType"`
+	RangeKey         pulumi.StringInput      `pulumi:"rangeKey"`
 }
 
 func (TableLocalSecondaryIndexArgs) ElementType() reflect.Type {
@@ -2693,22 +2514,18 @@ func (o TableLocalSecondaryIndexOutput) ToTableLocalSecondaryIndexOutputWithCont
 	return o
 }
 
-// Name of the index
 func (o TableLocalSecondaryIndexOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TableLocalSecondaryIndex) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
 func (o TableLocalSecondaryIndexOutput) NonKeyAttributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TableLocalSecondaryIndex) []string { return v.NonKeyAttributes }).(pulumi.StringArrayOutput)
 }
 
-// One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
 func (o TableLocalSecondaryIndexOutput) ProjectionType() pulumi.StringOutput {
 	return o.ApplyT(func(v TableLocalSecondaryIndex) string { return v.ProjectionType }).(pulumi.StringOutput)
 }
 
-// Name of the range key.
 func (o TableLocalSecondaryIndexOutput) RangeKey() pulumi.StringOutput {
 	return o.ApplyT(func(v TableLocalSecondaryIndex) string { return v.RangeKey }).(pulumi.StringOutput)
 }
@@ -2734,9 +2551,7 @@ func (o TableLocalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) TableLocal
 }
 
 type TableOnDemandThroughput struct {
-	// Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
-	MaxReadRequestUnits *int `pulumi:"maxReadRequestUnits"`
-	// Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+	MaxReadRequestUnits  *int `pulumi:"maxReadRequestUnits"`
 	MaxWriteRequestUnits *int `pulumi:"maxWriteRequestUnits"`
 }
 
@@ -2752,9 +2567,7 @@ type TableOnDemandThroughputInput interface {
 }
 
 type TableOnDemandThroughputArgs struct {
-	// Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
-	MaxReadRequestUnits pulumi.IntPtrInput `pulumi:"maxReadRequestUnits"`
-	// Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+	MaxReadRequestUnits  pulumi.IntPtrInput `pulumi:"maxReadRequestUnits"`
 	MaxWriteRequestUnits pulumi.IntPtrInput `pulumi:"maxWriteRequestUnits"`
 }
 
@@ -2835,12 +2648,10 @@ func (o TableOnDemandThroughputOutput) ToTableOnDemandThroughputPtrOutputWithCon
 	}).(TableOnDemandThroughputPtrOutput)
 }
 
-// Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
 func (o TableOnDemandThroughputOutput) MaxReadRequestUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TableOnDemandThroughput) *int { return v.MaxReadRequestUnits }).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
 func (o TableOnDemandThroughputOutput) MaxWriteRequestUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TableOnDemandThroughput) *int { return v.MaxWriteRequestUnits }).(pulumi.IntPtrOutput)
 }
@@ -2869,7 +2680,6 @@ func (o TableOnDemandThroughputPtrOutput) Elem() TableOnDemandThroughputOutput {
 	}).(TableOnDemandThroughputOutput)
 }
 
-// Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
 func (o TableOnDemandThroughputPtrOutput) MaxReadRequestUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableOnDemandThroughput) *int {
 		if v == nil {
@@ -2879,7 +2689,6 @@ func (o TableOnDemandThroughputPtrOutput) MaxReadRequestUnits() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
 func (o TableOnDemandThroughputPtrOutput) MaxWriteRequestUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableOnDemandThroughput) *int {
 		if v == nil {
@@ -2890,9 +2699,7 @@ func (o TableOnDemandThroughputPtrOutput) MaxWriteRequestUnits() pulumi.IntPtrOu
 }
 
 type TablePointInTimeRecovery struct {
-	// Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided, this defaults to `false`.
-	Enabled bool `pulumi:"enabled"`
-	// Number of preceding days for which continuous backups are taken and maintained. Default is 35.
+	Enabled              bool `pulumi:"enabled"`
 	RecoveryPeriodInDays *int `pulumi:"recoveryPeriodInDays"`
 }
 
@@ -2908,9 +2715,7 @@ type TablePointInTimeRecoveryInput interface {
 }
 
 type TablePointInTimeRecoveryArgs struct {
-	// Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided, this defaults to `false`.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Number of preceding days for which continuous backups are taken and maintained. Default is 35.
+	Enabled              pulumi.BoolInput   `pulumi:"enabled"`
 	RecoveryPeriodInDays pulumi.IntPtrInput `pulumi:"recoveryPeriodInDays"`
 }
 
@@ -2991,12 +2796,10 @@ func (o TablePointInTimeRecoveryOutput) ToTablePointInTimeRecoveryPtrOutputWithC
 	}).(TablePointInTimeRecoveryPtrOutput)
 }
 
-// Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided, this defaults to `false`.
 func (o TablePointInTimeRecoveryOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v TablePointInTimeRecovery) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Number of preceding days for which continuous backups are taken and maintained. Default is 35.
 func (o TablePointInTimeRecoveryOutput) RecoveryPeriodInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TablePointInTimeRecovery) *int { return v.RecoveryPeriodInDays }).(pulumi.IntPtrOutput)
 }
@@ -3025,7 +2828,6 @@ func (o TablePointInTimeRecoveryPtrOutput) Elem() TablePointInTimeRecoveryOutput
 	}).(TablePointInTimeRecoveryOutput)
 }
 
-// Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided, this defaults to `false`.
 func (o TablePointInTimeRecoveryPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TablePointInTimeRecovery) *bool {
 		if v == nil {
@@ -3035,7 +2837,6 @@ func (o TablePointInTimeRecoveryPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Number of preceding days for which continuous backups are taken and maintained. Default is 35.
 func (o TablePointInTimeRecoveryPtrOutput) RecoveryPeriodInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TablePointInTimeRecovery) *int {
 		if v == nil {
@@ -3046,32 +2847,15 @@ func (o TablePointInTimeRecoveryPtrOutput) RecoveryPeriodInDays() pulumi.IntPtrO
 }
 
 type TableReplicaType struct {
-	// ARN of the table
-	Arn *string `pulumi:"arn"`
-	// Whether this global table will be using `STRONG` consistency mode or `EVENTUAL` consistency mode. Default value is `EVENTUAL`.
-	ConsistencyMode *string `pulumi:"consistencyMode"`
-	// Whether deletion protection is enabled (true) or disabled (false) on the replica. Default is `false`.
-	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
-	// ARN of the CMK that should be used for the AWS KMS encryption.
-	// This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`.
-	// **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
-	// **Note:** Changing this value will recreate the replica.
-	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// Whether to enable Point In Time Recovery for the replica. Default is `false`.
-	PointInTimeRecovery *bool `pulumi:"pointInTimeRecovery"`
-	// Whether to propagate the global table's tags to a replica.
-	// Default is `false`.
-	// Changes to tags only move in one direction: from global (source) to replica.
-	// Tag drift on a replica will not trigger an update.
-	// Tag changes on the global table are propagated to replicas.
-	// Changing from `true` to `false` on a subsequent `apply` leaves replica tags as-is and no longer manages them.
-	PropagateTags *bool `pulumi:"propagateTags"`
-	// Region name of the replica.
-	RegionName string `pulumi:"regionName"`
-	// ARN of the Table Stream. Only available when `streamEnabled = true`
-	StreamArn *string `pulumi:"streamArn"`
-	// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
-	StreamLabel *string `pulumi:"streamLabel"`
+	Arn                       *string `pulumi:"arn"`
+	ConsistencyMode           *string `pulumi:"consistencyMode"`
+	DeletionProtectionEnabled *bool   `pulumi:"deletionProtectionEnabled"`
+	KmsKeyArn                 *string `pulumi:"kmsKeyArn"`
+	PointInTimeRecovery       *bool   `pulumi:"pointInTimeRecovery"`
+	PropagateTags             *bool   `pulumi:"propagateTags"`
+	RegionName                string  `pulumi:"regionName"`
+	StreamArn                 *string `pulumi:"streamArn"`
+	StreamLabel               *string `pulumi:"streamLabel"`
 }
 
 // TableReplicaTypeInput is an input type that accepts TableReplicaTypeArgs and TableReplicaTypeOutput values.
@@ -3086,32 +2870,15 @@ type TableReplicaTypeInput interface {
 }
 
 type TableReplicaTypeArgs struct {
-	// ARN of the table
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// Whether this global table will be using `STRONG` consistency mode or `EVENTUAL` consistency mode. Default value is `EVENTUAL`.
-	ConsistencyMode pulumi.StringPtrInput `pulumi:"consistencyMode"`
-	// Whether deletion protection is enabled (true) or disabled (false) on the replica. Default is `false`.
-	DeletionProtectionEnabled pulumi.BoolPtrInput `pulumi:"deletionProtectionEnabled"`
-	// ARN of the CMK that should be used for the AWS KMS encryption.
-	// This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`.
-	// **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
-	// **Note:** Changing this value will recreate the replica.
-	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
-	// Whether to enable Point In Time Recovery for the replica. Default is `false`.
-	PointInTimeRecovery pulumi.BoolPtrInput `pulumi:"pointInTimeRecovery"`
-	// Whether to propagate the global table's tags to a replica.
-	// Default is `false`.
-	// Changes to tags only move in one direction: from global (source) to replica.
-	// Tag drift on a replica will not trigger an update.
-	// Tag changes on the global table are propagated to replicas.
-	// Changing from `true` to `false` on a subsequent `apply` leaves replica tags as-is and no longer manages them.
-	PropagateTags pulumi.BoolPtrInput `pulumi:"propagateTags"`
-	// Region name of the replica.
-	RegionName pulumi.StringInput `pulumi:"regionName"`
-	// ARN of the Table Stream. Only available when `streamEnabled = true`
-	StreamArn pulumi.StringPtrInput `pulumi:"streamArn"`
-	// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
-	StreamLabel pulumi.StringPtrInput `pulumi:"streamLabel"`
+	Arn                       pulumi.StringPtrInput `pulumi:"arn"`
+	ConsistencyMode           pulumi.StringPtrInput `pulumi:"consistencyMode"`
+	DeletionProtectionEnabled pulumi.BoolPtrInput   `pulumi:"deletionProtectionEnabled"`
+	KmsKeyArn                 pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	PointInTimeRecovery       pulumi.BoolPtrInput   `pulumi:"pointInTimeRecovery"`
+	PropagateTags             pulumi.BoolPtrInput   `pulumi:"propagateTags"`
+	RegionName                pulumi.StringInput    `pulumi:"regionName"`
+	StreamArn                 pulumi.StringPtrInput `pulumi:"streamArn"`
+	StreamLabel               pulumi.StringPtrInput `pulumi:"streamLabel"`
 }
 
 func (TableReplicaTypeArgs) ElementType() reflect.Type {
@@ -3165,55 +2932,38 @@ func (o TableReplicaTypeOutput) ToTableReplicaTypeOutputWithContext(ctx context.
 	return o
 }
 
-// ARN of the table
 func (o TableReplicaTypeOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableReplicaType) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// Whether this global table will be using `STRONG` consistency mode or `EVENTUAL` consistency mode. Default value is `EVENTUAL`.
 func (o TableReplicaTypeOutput) ConsistencyMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableReplicaType) *string { return v.ConsistencyMode }).(pulumi.StringPtrOutput)
 }
 
-// Whether deletion protection is enabled (true) or disabled (false) on the replica. Default is `false`.
 func (o TableReplicaTypeOutput) DeletionProtectionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TableReplicaType) *bool { return v.DeletionProtectionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// ARN of the CMK that should be used for the AWS KMS encryption.
-// This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`.
-// **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
-// **Note:** Changing this value will recreate the replica.
 func (o TableReplicaTypeOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableReplicaType) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// Whether to enable Point In Time Recovery for the replica. Default is `false`.
 func (o TableReplicaTypeOutput) PointInTimeRecovery() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TableReplicaType) *bool { return v.PointInTimeRecovery }).(pulumi.BoolPtrOutput)
 }
 
-// Whether to propagate the global table's tags to a replica.
-// Default is `false`.
-// Changes to tags only move in one direction: from global (source) to replica.
-// Tag drift on a replica will not trigger an update.
-// Tag changes on the global table are propagated to replicas.
-// Changing from `true` to `false` on a subsequent `apply` leaves replica tags as-is and no longer manages them.
 func (o TableReplicaTypeOutput) PropagateTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TableReplicaType) *bool { return v.PropagateTags }).(pulumi.BoolPtrOutput)
 }
 
-// Region name of the replica.
 func (o TableReplicaTypeOutput) RegionName() pulumi.StringOutput {
 	return o.ApplyT(func(v TableReplicaType) string { return v.RegionName }).(pulumi.StringOutput)
 }
 
-// ARN of the Table Stream. Only available when `streamEnabled = true`
 func (o TableReplicaTypeOutput) StreamArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableReplicaType) *string { return v.StreamArn }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
 func (o TableReplicaTypeOutput) StreamLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableReplicaType) *string { return v.StreamLabel }).(pulumi.StringPtrOutput)
 }
@@ -3239,9 +2989,7 @@ func (o TableReplicaTypeArrayOutput) Index(i pulumi.IntInput) TableReplicaTypeOu
 }
 
 type TableServerSideEncryption struct {
-	// Whether or not to enable encryption at rest using an AWS managed KMS customer master key (CMK). If `enabled` is `false` then server-side encryption is set to AWS-_owned_ key (shown as `DEFAULT` in the AWS console). Potentially confusingly, if `enabled` is `true` and no `kmsKeyArn` is specified then server-side encryption is set to the _default_ KMS-_managed_ key (shown as `KMS` in the AWS console). The [AWS KMS documentation](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) explains the difference between AWS-_owned_ and KMS-_managed_ keys.
-	Enabled bool `pulumi:"enabled"`
-	// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
+	Enabled   bool    `pulumi:"enabled"`
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 }
 
@@ -3257,9 +3005,7 @@ type TableServerSideEncryptionInput interface {
 }
 
 type TableServerSideEncryptionArgs struct {
-	// Whether or not to enable encryption at rest using an AWS managed KMS customer master key (CMK). If `enabled` is `false` then server-side encryption is set to AWS-_owned_ key (shown as `DEFAULT` in the AWS console). Potentially confusingly, if `enabled` is `true` and no `kmsKeyArn` is specified then server-side encryption is set to the _default_ KMS-_managed_ key (shown as `KMS` in the AWS console). The [AWS KMS documentation](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) explains the difference between AWS-_owned_ and KMS-_managed_ keys.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
+	Enabled   pulumi.BoolInput      `pulumi:"enabled"`
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 }
 
@@ -3340,12 +3086,10 @@ func (o TableServerSideEncryptionOutput) ToTableServerSideEncryptionPtrOutputWit
 	}).(TableServerSideEncryptionPtrOutput)
 }
 
-// Whether or not to enable encryption at rest using an AWS managed KMS customer master key (CMK). If `enabled` is `false` then server-side encryption is set to AWS-_owned_ key (shown as `DEFAULT` in the AWS console). Potentially confusingly, if `enabled` is `true` and no `kmsKeyArn` is specified then server-side encryption is set to the _default_ KMS-_managed_ key (shown as `KMS` in the AWS console). The [AWS KMS documentation](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) explains the difference between AWS-_owned_ and KMS-_managed_ keys.
 func (o TableServerSideEncryptionOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v TableServerSideEncryption) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
 func (o TableServerSideEncryptionOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableServerSideEncryption) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -3374,7 +3118,6 @@ func (o TableServerSideEncryptionPtrOutput) Elem() TableServerSideEncryptionOutp
 	}).(TableServerSideEncryptionOutput)
 }
 
-// Whether or not to enable encryption at rest using an AWS managed KMS customer master key (CMK). If `enabled` is `false` then server-side encryption is set to AWS-_owned_ key (shown as `DEFAULT` in the AWS console). Potentially confusingly, if `enabled` is `true` and no `kmsKeyArn` is specified then server-side encryption is set to the _default_ KMS-_managed_ key (shown as `KMS` in the AWS console). The [AWS KMS documentation](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) explains the difference between AWS-_owned_ and KMS-_managed_ keys.
 func (o TableServerSideEncryptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TableServerSideEncryption) *bool {
 		if v == nil {
@@ -3384,7 +3127,6 @@ func (o TableServerSideEncryptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
 func (o TableServerSideEncryptionPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableServerSideEncryption) *string {
 		if v == nil {
@@ -3395,12 +3137,8 @@ func (o TableServerSideEncryptionPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 }
 
 type TableTtl struct {
-	// Name of the table attribute to store the TTL timestamp in.
-	// Required if `enabled` is `true`, must not be set otherwise.
 	AttributeName *string `pulumi:"attributeName"`
-	// Whether TTL is enabled.
-	// Default value is `false`.
-	Enabled *bool `pulumi:"enabled"`
+	Enabled       *bool   `pulumi:"enabled"`
 }
 
 // TableTtlInput is an input type that accepts TableTtlArgs and TableTtlOutput values.
@@ -3415,12 +3153,8 @@ type TableTtlInput interface {
 }
 
 type TableTtlArgs struct {
-	// Name of the table attribute to store the TTL timestamp in.
-	// Required if `enabled` is `true`, must not be set otherwise.
 	AttributeName pulumi.StringPtrInput `pulumi:"attributeName"`
-	// Whether TTL is enabled.
-	// Default value is `false`.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	Enabled       pulumi.BoolPtrInput   `pulumi:"enabled"`
 }
 
 func (TableTtlArgs) ElementType() reflect.Type {
@@ -3500,14 +3234,10 @@ func (o TableTtlOutput) ToTableTtlPtrOutputWithContext(ctx context.Context) Tabl
 	}).(TableTtlPtrOutput)
 }
 
-// Name of the table attribute to store the TTL timestamp in.
-// Required if `enabled` is `true`, must not be set otherwise.
 func (o TableTtlOutput) AttributeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableTtl) *string { return v.AttributeName }).(pulumi.StringPtrOutput)
 }
 
-// Whether TTL is enabled.
-// Default value is `false`.
 func (o TableTtlOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TableTtl) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -3536,8 +3266,6 @@ func (o TableTtlPtrOutput) Elem() TableTtlOutput {
 	}).(TableTtlOutput)
 }
 
-// Name of the table attribute to store the TTL timestamp in.
-// Required if `enabled` is `true`, must not be set otherwise.
 func (o TableTtlPtrOutput) AttributeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableTtl) *string {
 		if v == nil {
@@ -3547,8 +3275,6 @@ func (o TableTtlPtrOutput) AttributeName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether TTL is enabled.
-// Default value is `false`.
 func (o TableTtlPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TableTtl) *bool {
 		if v == nil {
@@ -3559,9 +3285,7 @@ func (o TableTtlPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type TableWarmThroughput struct {
-	// Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
-	ReadUnitsPerSecond *int `pulumi:"readUnitsPerSecond"`
-	// Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+	ReadUnitsPerSecond  *int `pulumi:"readUnitsPerSecond"`
 	WriteUnitsPerSecond *int `pulumi:"writeUnitsPerSecond"`
 }
 
@@ -3577,9 +3301,7 @@ type TableWarmThroughputInput interface {
 }
 
 type TableWarmThroughputArgs struct {
-	// Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
-	ReadUnitsPerSecond pulumi.IntPtrInput `pulumi:"readUnitsPerSecond"`
-	// Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+	ReadUnitsPerSecond  pulumi.IntPtrInput `pulumi:"readUnitsPerSecond"`
 	WriteUnitsPerSecond pulumi.IntPtrInput `pulumi:"writeUnitsPerSecond"`
 }
 
@@ -3660,12 +3382,10 @@ func (o TableWarmThroughputOutput) ToTableWarmThroughputPtrOutputWithContext(ctx
 	}).(TableWarmThroughputPtrOutput)
 }
 
-// Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
 func (o TableWarmThroughputOutput) ReadUnitsPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TableWarmThroughput) *int { return v.ReadUnitsPerSecond }).(pulumi.IntPtrOutput)
 }
 
-// Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
 func (o TableWarmThroughputOutput) WriteUnitsPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TableWarmThroughput) *int { return v.WriteUnitsPerSecond }).(pulumi.IntPtrOutput)
 }
@@ -3694,7 +3414,6 @@ func (o TableWarmThroughputPtrOutput) Elem() TableWarmThroughputOutput {
 	}).(TableWarmThroughputOutput)
 }
 
-// Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
 func (o TableWarmThroughputPtrOutput) ReadUnitsPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableWarmThroughput) *int {
 		if v == nil {
@@ -3704,7 +3423,6 @@ func (o TableWarmThroughputPtrOutput) ReadUnitsPerSecond() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
 func (o TableWarmThroughputPtrOutput) WriteUnitsPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableWarmThroughput) *int {
 		if v == nil {
@@ -3715,7 +3433,6 @@ func (o TableWarmThroughputPtrOutput) WriteUnitsPerSecond() pulumi.IntPtrOutput 
 }
 
 type GetTableAttribute struct {
-	// Name of the DynamoDB table.
 	Name string `pulumi:"name"`
 	Type string `pulumi:"type"`
 }
@@ -3732,7 +3449,6 @@ type GetTableAttributeInput interface {
 }
 
 type GetTableAttributeArgs struct {
-	// Name of the DynamoDB table.
 	Name pulumi.StringInput `pulumi:"name"`
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -3788,7 +3504,6 @@ func (o GetTableAttributeOutput) ToGetTableAttributeOutputWithContext(ctx contex
 	return o
 }
 
-// Name of the DynamoDB table.
 func (o GetTableAttributeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTableAttribute) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3818,8 +3533,7 @@ func (o GetTableAttributeArrayOutput) Index(i pulumi.IntInput) GetTableAttribute
 }
 
 type GetTableGlobalSecondaryIndex struct {
-	HashKey string `pulumi:"hashKey"`
-	// Name of the DynamoDB table.
+	HashKey             string                                           `pulumi:"hashKey"`
 	Name                string                                           `pulumi:"name"`
 	NonKeyAttributes    []string                                         `pulumi:"nonKeyAttributes"`
 	OnDemandThroughputs []GetTableGlobalSecondaryIndexOnDemandThroughput `pulumi:"onDemandThroughputs"`
@@ -3842,8 +3556,7 @@ type GetTableGlobalSecondaryIndexInput interface {
 }
 
 type GetTableGlobalSecondaryIndexArgs struct {
-	HashKey pulumi.StringInput `pulumi:"hashKey"`
-	// Name of the DynamoDB table.
+	HashKey             pulumi.StringInput                                       `pulumi:"hashKey"`
 	Name                pulumi.StringInput                                       `pulumi:"name"`
 	NonKeyAttributes    pulumi.StringArrayInput                                  `pulumi:"nonKeyAttributes"`
 	OnDemandThroughputs GetTableGlobalSecondaryIndexOnDemandThroughputArrayInput `pulumi:"onDemandThroughputs"`
@@ -3909,7 +3622,6 @@ func (o GetTableGlobalSecondaryIndexOutput) HashKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTableGlobalSecondaryIndex) string { return v.HashKey }).(pulumi.StringOutput)
 }
 
-// Name of the DynamoDB table.
 func (o GetTableGlobalSecondaryIndexOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTableGlobalSecondaryIndex) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -4167,7 +3879,6 @@ func (o GetTableGlobalSecondaryIndexWarmThroughputArrayOutput) Index(i pulumi.In
 }
 
 type GetTableLocalSecondaryIndex struct {
-	// Name of the DynamoDB table.
 	Name             string   `pulumi:"name"`
 	NonKeyAttributes []string `pulumi:"nonKeyAttributes"`
 	ProjectionType   string   `pulumi:"projectionType"`
@@ -4186,7 +3897,6 @@ type GetTableLocalSecondaryIndexInput interface {
 }
 
 type GetTableLocalSecondaryIndexArgs struct {
-	// Name of the DynamoDB table.
 	Name             pulumi.StringInput      `pulumi:"name"`
 	NonKeyAttributes pulumi.StringArrayInput `pulumi:"nonKeyAttributes"`
 	ProjectionType   pulumi.StringInput      `pulumi:"projectionType"`
@@ -4244,7 +3954,6 @@ func (o GetTableLocalSecondaryIndexOutput) ToGetTableLocalSecondaryIndexOutputWi
 	return o
 }
 
-// Name of the DynamoDB table.
 func (o GetTableLocalSecondaryIndexOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTableLocalSecondaryIndex) string { return v.Name }).(pulumi.StringOutput)
 }

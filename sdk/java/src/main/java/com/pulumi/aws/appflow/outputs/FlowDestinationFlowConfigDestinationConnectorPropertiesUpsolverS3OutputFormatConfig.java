@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig {
-    /**
-     * @return Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
-     * 
-     */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig aggregationConfig;
-    /**
-     * @return File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
-     * 
-     */
     private @Nullable String fileType;
-    /**
-     * @return Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
-     * 
-     */
     private FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig prefixConfig;
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig() {}
-    /**
-     * @return Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
-     * 
-     */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig> aggregationConfig() {
         return Optional.ofNullable(this.aggregationConfig);
     }
-    /**
-     * @return File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
-     * 
-     */
     public Optional<String> fileType() {
         return Optional.ofNullable(this.fileType);
     }
-    /**
-     * @return Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
-     * 
-     */
     public FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig prefixConfig() {
         return this.prefixConfig;
     }

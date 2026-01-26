@@ -13,21 +13,9 @@ namespace Pulumi.Aws.AppSync.Outputs
     [OutputType]
     public sealed class GraphQLApiOpenidConnectConfig
     {
-        /// <summary>
-        /// Number of milliseconds a token is valid after being authenticated.
-        /// </summary>
         public readonly int? AuthTtl;
-        /// <summary>
-        /// Client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
-        /// </summary>
         public readonly string? ClientId;
-        /// <summary>
-        /// Number of milliseconds a token is valid after being issued to a user.
-        /// </summary>
         public readonly int? IatTtl;
-        /// <summary>
-        /// Issuer for the OpenID Connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
-        /// </summary>
         public readonly string Issuer;
 
         [OutputConstructor]

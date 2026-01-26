@@ -14,14 +14,10 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type DomainMatching struct {
-	// A block that specifies the configuration about the auto-merging process. Documented below.
-	AutoMerging *DomainMatchingAutoMerging `pulumi:"autoMerging"`
-	// The flag that enables the matching process of duplicate profiles.
-	Enabled bool `pulumi:"enabled"`
-	// A block that specifies the configuration for exporting Identity Resolution results. Documented below.
+	AutoMerging     *DomainMatchingAutoMerging     `pulumi:"autoMerging"`
+	Enabled         bool                           `pulumi:"enabled"`
 	ExportingConfig *DomainMatchingExportingConfig `pulumi:"exportingConfig"`
-	// A block that specifies the day and time when you want to start the Identity Resolution Job every week. Documented below.
-	JobSchedule *DomainMatchingJobSchedule `pulumi:"jobSchedule"`
+	JobSchedule     *DomainMatchingJobSchedule     `pulumi:"jobSchedule"`
 }
 
 // DomainMatchingInput is an input type that accepts DomainMatchingArgs and DomainMatchingOutput values.
@@ -36,14 +32,10 @@ type DomainMatchingInput interface {
 }
 
 type DomainMatchingArgs struct {
-	// A block that specifies the configuration about the auto-merging process. Documented below.
-	AutoMerging DomainMatchingAutoMergingPtrInput `pulumi:"autoMerging"`
-	// The flag that enables the matching process of duplicate profiles.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// A block that specifies the configuration for exporting Identity Resolution results. Documented below.
+	AutoMerging     DomainMatchingAutoMergingPtrInput     `pulumi:"autoMerging"`
+	Enabled         pulumi.BoolInput                      `pulumi:"enabled"`
 	ExportingConfig DomainMatchingExportingConfigPtrInput `pulumi:"exportingConfig"`
-	// A block that specifies the day and time when you want to start the Identity Resolution Job every week. Documented below.
-	JobSchedule DomainMatchingJobSchedulePtrInput `pulumi:"jobSchedule"`
+	JobSchedule     DomainMatchingJobSchedulePtrInput     `pulumi:"jobSchedule"`
 }
 
 func (DomainMatchingArgs) ElementType() reflect.Type {
@@ -123,22 +115,18 @@ func (o DomainMatchingOutput) ToDomainMatchingPtrOutputWithContext(ctx context.C
 	}).(DomainMatchingPtrOutput)
 }
 
-// A block that specifies the configuration about the auto-merging process. Documented below.
 func (o DomainMatchingOutput) AutoMerging() DomainMatchingAutoMergingPtrOutput {
 	return o.ApplyT(func(v DomainMatching) *DomainMatchingAutoMerging { return v.AutoMerging }).(DomainMatchingAutoMergingPtrOutput)
 }
 
-// The flag that enables the matching process of duplicate profiles.
 func (o DomainMatchingOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DomainMatching) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// A block that specifies the configuration for exporting Identity Resolution results. Documented below.
 func (o DomainMatchingOutput) ExportingConfig() DomainMatchingExportingConfigPtrOutput {
 	return o.ApplyT(func(v DomainMatching) *DomainMatchingExportingConfig { return v.ExportingConfig }).(DomainMatchingExportingConfigPtrOutput)
 }
 
-// A block that specifies the day and time when you want to start the Identity Resolution Job every week. Documented below.
 func (o DomainMatchingOutput) JobSchedule() DomainMatchingJobSchedulePtrOutput {
 	return o.ApplyT(func(v DomainMatching) *DomainMatchingJobSchedule { return v.JobSchedule }).(DomainMatchingJobSchedulePtrOutput)
 }
@@ -167,7 +155,6 @@ func (o DomainMatchingPtrOutput) Elem() DomainMatchingOutput {
 	}).(DomainMatchingOutput)
 }
 
-// A block that specifies the configuration about the auto-merging process. Documented below.
 func (o DomainMatchingPtrOutput) AutoMerging() DomainMatchingAutoMergingPtrOutput {
 	return o.ApplyT(func(v *DomainMatching) *DomainMatchingAutoMerging {
 		if v == nil {
@@ -177,7 +164,6 @@ func (o DomainMatchingPtrOutput) AutoMerging() DomainMatchingAutoMergingPtrOutpu
 	}).(DomainMatchingAutoMergingPtrOutput)
 }
 
-// The flag that enables the matching process of duplicate profiles.
 func (o DomainMatchingPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainMatching) *bool {
 		if v == nil {
@@ -187,7 +173,6 @@ func (o DomainMatchingPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A block that specifies the configuration for exporting Identity Resolution results. Documented below.
 func (o DomainMatchingPtrOutput) ExportingConfig() DomainMatchingExportingConfigPtrOutput {
 	return o.ApplyT(func(v *DomainMatching) *DomainMatchingExportingConfig {
 		if v == nil {
@@ -197,7 +182,6 @@ func (o DomainMatchingPtrOutput) ExportingConfig() DomainMatchingExportingConfig
 	}).(DomainMatchingExportingConfigPtrOutput)
 }
 
-// A block that specifies the day and time when you want to start the Identity Resolution Job every week. Documented below.
 func (o DomainMatchingPtrOutput) JobSchedule() DomainMatchingJobSchedulePtrOutput {
 	return o.ApplyT(func(v *DomainMatching) *DomainMatchingJobSchedule {
 		if v == nil {
@@ -208,14 +192,10 @@ func (o DomainMatchingPtrOutput) JobSchedule() DomainMatchingJobSchedulePtrOutpu
 }
 
 type DomainMatchingAutoMerging struct {
-	// A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
-	ConflictResolution *DomainMatchingAutoMergingConflictResolution `pulumi:"conflictResolution"`
-	// A block that specifies a list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged. Documented below.
-	// * ` minAllowedConfidenceScoreForMerging  ` - (Optional) A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
-	Consolidation *DomainMatchingAutoMergingConsolidation `pulumi:"consolidation"`
-	// The flag that enables the auto-merging of duplicate profiles.
-	Enabled                             bool     `pulumi:"enabled"`
-	MinAllowedConfidenceScoreForMerging *float64 `pulumi:"minAllowedConfidenceScoreForMerging"`
+	ConflictResolution                  *DomainMatchingAutoMergingConflictResolution `pulumi:"conflictResolution"`
+	Consolidation                       *DomainMatchingAutoMergingConsolidation      `pulumi:"consolidation"`
+	Enabled                             bool                                         `pulumi:"enabled"`
+	MinAllowedConfidenceScoreForMerging *float64                                     `pulumi:"minAllowedConfidenceScoreForMerging"`
 }
 
 // DomainMatchingAutoMergingInput is an input type that accepts DomainMatchingAutoMergingArgs and DomainMatchingAutoMergingOutput values.
@@ -230,14 +210,10 @@ type DomainMatchingAutoMergingInput interface {
 }
 
 type DomainMatchingAutoMergingArgs struct {
-	// A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
-	ConflictResolution DomainMatchingAutoMergingConflictResolutionPtrInput `pulumi:"conflictResolution"`
-	// A block that specifies a list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged. Documented below.
-	// * ` minAllowedConfidenceScoreForMerging  ` - (Optional) A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
-	Consolidation DomainMatchingAutoMergingConsolidationPtrInput `pulumi:"consolidation"`
-	// The flag that enables the auto-merging of duplicate profiles.
-	Enabled                             pulumi.BoolInput       `pulumi:"enabled"`
-	MinAllowedConfidenceScoreForMerging pulumi.Float64PtrInput `pulumi:"minAllowedConfidenceScoreForMerging"`
+	ConflictResolution                  DomainMatchingAutoMergingConflictResolutionPtrInput `pulumi:"conflictResolution"`
+	Consolidation                       DomainMatchingAutoMergingConsolidationPtrInput      `pulumi:"consolidation"`
+	Enabled                             pulumi.BoolInput                                    `pulumi:"enabled"`
+	MinAllowedConfidenceScoreForMerging pulumi.Float64PtrInput                              `pulumi:"minAllowedConfidenceScoreForMerging"`
 }
 
 func (DomainMatchingAutoMergingArgs) ElementType() reflect.Type {
@@ -317,20 +293,16 @@ func (o DomainMatchingAutoMergingOutput) ToDomainMatchingAutoMergingPtrOutputWit
 	}).(DomainMatchingAutoMergingPtrOutput)
 }
 
-// A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
 func (o DomainMatchingAutoMergingOutput) ConflictResolution() DomainMatchingAutoMergingConflictResolutionPtrOutput {
 	return o.ApplyT(func(v DomainMatchingAutoMerging) *DomainMatchingAutoMergingConflictResolution {
 		return v.ConflictResolution
 	}).(DomainMatchingAutoMergingConflictResolutionPtrOutput)
 }
 
-// A block that specifies a list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged. Documented below.
-// * ` minAllowedConfidenceScoreForMerging  ` - (Optional) A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
 func (o DomainMatchingAutoMergingOutput) Consolidation() DomainMatchingAutoMergingConsolidationPtrOutput {
 	return o.ApplyT(func(v DomainMatchingAutoMerging) *DomainMatchingAutoMergingConsolidation { return v.Consolidation }).(DomainMatchingAutoMergingConsolidationPtrOutput)
 }
 
-// The flag that enables the auto-merging of duplicate profiles.
 func (o DomainMatchingAutoMergingOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DomainMatchingAutoMerging) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -363,7 +335,6 @@ func (o DomainMatchingAutoMergingPtrOutput) Elem() DomainMatchingAutoMergingOutp
 	}).(DomainMatchingAutoMergingOutput)
 }
 
-// A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
 func (o DomainMatchingAutoMergingPtrOutput) ConflictResolution() DomainMatchingAutoMergingConflictResolutionPtrOutput {
 	return o.ApplyT(func(v *DomainMatchingAutoMerging) *DomainMatchingAutoMergingConflictResolution {
 		if v == nil {
@@ -373,8 +344,6 @@ func (o DomainMatchingAutoMergingPtrOutput) ConflictResolution() DomainMatchingA
 	}).(DomainMatchingAutoMergingConflictResolutionPtrOutput)
 }
 
-// A block that specifies a list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged. Documented below.
-// * ` minAllowedConfidenceScoreForMerging  ` - (Optional) A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
 func (o DomainMatchingAutoMergingPtrOutput) Consolidation() DomainMatchingAutoMergingConsolidationPtrOutput {
 	return o.ApplyT(func(v *DomainMatchingAutoMerging) *DomainMatchingAutoMergingConsolidation {
 		if v == nil {
@@ -384,7 +353,6 @@ func (o DomainMatchingAutoMergingPtrOutput) Consolidation() DomainMatchingAutoMe
 	}).(DomainMatchingAutoMergingConsolidationPtrOutput)
 }
 
-// The flag that enables the auto-merging of duplicate profiles.
 func (o DomainMatchingAutoMergingPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainMatchingAutoMerging) *bool {
 		if v == nil {
@@ -404,10 +372,8 @@ func (o DomainMatchingAutoMergingPtrOutput) MinAllowedConfidenceScoreForMerging(
 }
 
 type DomainMatchingAutoMergingConflictResolution struct {
-	// How the auto-merging process should resolve conflicts between different profiles. Valid values are `RECENCY` and `SOURCE`
-	ConflictResolvingModel string `pulumi:"conflictResolvingModel"`
-	// The `ObjectType` name that is used to resolve profile merging conflicts when choosing `SOURCE` as the `ConflictResolvingModel`.
-	SourceName *string `pulumi:"sourceName"`
+	ConflictResolvingModel string  `pulumi:"conflictResolvingModel"`
+	SourceName             *string `pulumi:"sourceName"`
 }
 
 // DomainMatchingAutoMergingConflictResolutionInput is an input type that accepts DomainMatchingAutoMergingConflictResolutionArgs and DomainMatchingAutoMergingConflictResolutionOutput values.
@@ -422,10 +388,8 @@ type DomainMatchingAutoMergingConflictResolutionInput interface {
 }
 
 type DomainMatchingAutoMergingConflictResolutionArgs struct {
-	// How the auto-merging process should resolve conflicts between different profiles. Valid values are `RECENCY` and `SOURCE`
-	ConflictResolvingModel pulumi.StringInput `pulumi:"conflictResolvingModel"`
-	// The `ObjectType` name that is used to resolve profile merging conflicts when choosing `SOURCE` as the `ConflictResolvingModel`.
-	SourceName pulumi.StringPtrInput `pulumi:"sourceName"`
+	ConflictResolvingModel pulumi.StringInput    `pulumi:"conflictResolvingModel"`
+	SourceName             pulumi.StringPtrInput `pulumi:"sourceName"`
 }
 
 func (DomainMatchingAutoMergingConflictResolutionArgs) ElementType() reflect.Type {
@@ -505,12 +469,10 @@ func (o DomainMatchingAutoMergingConflictResolutionOutput) ToDomainMatchingAutoM
 	}).(DomainMatchingAutoMergingConflictResolutionPtrOutput)
 }
 
-// How the auto-merging process should resolve conflicts between different profiles. Valid values are `RECENCY` and `SOURCE`
 func (o DomainMatchingAutoMergingConflictResolutionOutput) ConflictResolvingModel() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainMatchingAutoMergingConflictResolution) string { return v.ConflictResolvingModel }).(pulumi.StringOutput)
 }
 
-// The `ObjectType` name that is used to resolve profile merging conflicts when choosing `SOURCE` as the `ConflictResolvingModel`.
 func (o DomainMatchingAutoMergingConflictResolutionOutput) SourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainMatchingAutoMergingConflictResolution) *string { return v.SourceName }).(pulumi.StringPtrOutput)
 }
@@ -539,7 +501,6 @@ func (o DomainMatchingAutoMergingConflictResolutionPtrOutput) Elem() DomainMatch
 	}).(DomainMatchingAutoMergingConflictResolutionOutput)
 }
 
-// How the auto-merging process should resolve conflicts between different profiles. Valid values are `RECENCY` and `SOURCE`
 func (o DomainMatchingAutoMergingConflictResolutionPtrOutput) ConflictResolvingModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainMatchingAutoMergingConflictResolution) *string {
 		if v == nil {
@@ -549,7 +510,6 @@ func (o DomainMatchingAutoMergingConflictResolutionPtrOutput) ConflictResolvingM
 	}).(pulumi.StringPtrOutput)
 }
 
-// The `ObjectType` name that is used to resolve profile merging conflicts when choosing `SOURCE` as the `ConflictResolvingModel`.
 func (o DomainMatchingAutoMergingConflictResolutionPtrOutput) SourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainMatchingAutoMergingConflictResolution) *string {
 		if v == nil {
@@ -560,7 +520,6 @@ func (o DomainMatchingAutoMergingConflictResolutionPtrOutput) SourceName() pulum
 }
 
 type DomainMatchingAutoMergingConsolidation struct {
-	// A list of matching criteria.
 	MatchingAttributesLists [][]string `pulumi:"matchingAttributesLists"`
 }
 
@@ -576,7 +535,6 @@ type DomainMatchingAutoMergingConsolidationInput interface {
 }
 
 type DomainMatchingAutoMergingConsolidationArgs struct {
-	// A list of matching criteria.
 	MatchingAttributesLists pulumi.StringArrayArrayInput `pulumi:"matchingAttributesLists"`
 }
 
@@ -657,7 +615,6 @@ func (o DomainMatchingAutoMergingConsolidationOutput) ToDomainMatchingAutoMergin
 	}).(DomainMatchingAutoMergingConsolidationPtrOutput)
 }
 
-// A list of matching criteria.
 func (o DomainMatchingAutoMergingConsolidationOutput) MatchingAttributesLists() pulumi.StringArrayArrayOutput {
 	return o.ApplyT(func(v DomainMatchingAutoMergingConsolidation) [][]string { return v.MatchingAttributesLists }).(pulumi.StringArrayArrayOutput)
 }
@@ -686,7 +643,6 @@ func (o DomainMatchingAutoMergingConsolidationPtrOutput) Elem() DomainMatchingAu
 	}).(DomainMatchingAutoMergingConsolidationOutput)
 }
 
-// A list of matching criteria.
 func (o DomainMatchingAutoMergingConsolidationPtrOutput) MatchingAttributesLists() pulumi.StringArrayArrayOutput {
 	return o.ApplyT(func(v *DomainMatchingAutoMergingConsolidation) [][]string {
 		if v == nil {
@@ -830,10 +786,8 @@ func (o DomainMatchingExportingConfigPtrOutput) S3Exporting() DomainMatchingExpo
 }
 
 type DomainMatchingExportingConfigS3Exporting struct {
-	// The name of the S3 bucket where Identity Resolution Jobs write result files.
-	S3BucketName string `pulumi:"s3BucketName"`
-	// The S3 key name of the location where Identity Resolution Jobs write result files.
-	S3KeyName *string `pulumi:"s3KeyName"`
+	S3BucketName string  `pulumi:"s3BucketName"`
+	S3KeyName    *string `pulumi:"s3KeyName"`
 }
 
 // DomainMatchingExportingConfigS3ExportingInput is an input type that accepts DomainMatchingExportingConfigS3ExportingArgs and DomainMatchingExportingConfigS3ExportingOutput values.
@@ -848,10 +802,8 @@ type DomainMatchingExportingConfigS3ExportingInput interface {
 }
 
 type DomainMatchingExportingConfigS3ExportingArgs struct {
-	// The name of the S3 bucket where Identity Resolution Jobs write result files.
-	S3BucketName pulumi.StringInput `pulumi:"s3BucketName"`
-	// The S3 key name of the location where Identity Resolution Jobs write result files.
-	S3KeyName pulumi.StringPtrInput `pulumi:"s3KeyName"`
+	S3BucketName pulumi.StringInput    `pulumi:"s3BucketName"`
+	S3KeyName    pulumi.StringPtrInput `pulumi:"s3KeyName"`
 }
 
 func (DomainMatchingExportingConfigS3ExportingArgs) ElementType() reflect.Type {
@@ -931,12 +883,10 @@ func (o DomainMatchingExportingConfigS3ExportingOutput) ToDomainMatchingExportin
 	}).(DomainMatchingExportingConfigS3ExportingPtrOutput)
 }
 
-// The name of the S3 bucket where Identity Resolution Jobs write result files.
 func (o DomainMatchingExportingConfigS3ExportingOutput) S3BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainMatchingExportingConfigS3Exporting) string { return v.S3BucketName }).(pulumi.StringOutput)
 }
 
-// The S3 key name of the location where Identity Resolution Jobs write result files.
 func (o DomainMatchingExportingConfigS3ExportingOutput) S3KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainMatchingExportingConfigS3Exporting) *string { return v.S3KeyName }).(pulumi.StringPtrOutput)
 }
@@ -965,7 +915,6 @@ func (o DomainMatchingExportingConfigS3ExportingPtrOutput) Elem() DomainMatching
 	}).(DomainMatchingExportingConfigS3ExportingOutput)
 }
 
-// The name of the S3 bucket where Identity Resolution Jobs write result files.
 func (o DomainMatchingExportingConfigS3ExportingPtrOutput) S3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainMatchingExportingConfigS3Exporting) *string {
 		if v == nil {
@@ -975,7 +924,6 @@ func (o DomainMatchingExportingConfigS3ExportingPtrOutput) S3BucketName() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The S3 key name of the location where Identity Resolution Jobs write result files.
 func (o DomainMatchingExportingConfigS3ExportingPtrOutput) S3KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainMatchingExportingConfigS3Exporting) *string {
 		if v == nil {
@@ -986,10 +934,8 @@ func (o DomainMatchingExportingConfigS3ExportingPtrOutput) S3KeyName() pulumi.St
 }
 
 type DomainMatchingJobSchedule struct {
-	// The day when the Identity Resolution Job should run every week.
 	DayOfTheWeek string `pulumi:"dayOfTheWeek"`
-	// The time when the Identity Resolution Job should run every week.
-	Time string `pulumi:"time"`
+	Time         string `pulumi:"time"`
 }
 
 // DomainMatchingJobScheduleInput is an input type that accepts DomainMatchingJobScheduleArgs and DomainMatchingJobScheduleOutput values.
@@ -1004,10 +950,8 @@ type DomainMatchingJobScheduleInput interface {
 }
 
 type DomainMatchingJobScheduleArgs struct {
-	// The day when the Identity Resolution Job should run every week.
 	DayOfTheWeek pulumi.StringInput `pulumi:"dayOfTheWeek"`
-	// The time when the Identity Resolution Job should run every week.
-	Time pulumi.StringInput `pulumi:"time"`
+	Time         pulumi.StringInput `pulumi:"time"`
 }
 
 func (DomainMatchingJobScheduleArgs) ElementType() reflect.Type {
@@ -1087,12 +1031,10 @@ func (o DomainMatchingJobScheduleOutput) ToDomainMatchingJobSchedulePtrOutputWit
 	}).(DomainMatchingJobSchedulePtrOutput)
 }
 
-// The day when the Identity Resolution Job should run every week.
 func (o DomainMatchingJobScheduleOutput) DayOfTheWeek() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainMatchingJobSchedule) string { return v.DayOfTheWeek }).(pulumi.StringOutput)
 }
 
-// The time when the Identity Resolution Job should run every week.
 func (o DomainMatchingJobScheduleOutput) Time() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainMatchingJobSchedule) string { return v.Time }).(pulumi.StringOutput)
 }
@@ -1121,7 +1063,6 @@ func (o DomainMatchingJobSchedulePtrOutput) Elem() DomainMatchingJobScheduleOutp
 	}).(DomainMatchingJobScheduleOutput)
 }
 
-// The day when the Identity Resolution Job should run every week.
 func (o DomainMatchingJobSchedulePtrOutput) DayOfTheWeek() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainMatchingJobSchedule) *string {
 		if v == nil {
@@ -1131,7 +1072,6 @@ func (o DomainMatchingJobSchedulePtrOutput) DayOfTheWeek() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The time when the Identity Resolution Job should run every week.
 func (o DomainMatchingJobSchedulePtrOutput) Time() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainMatchingJobSchedule) *string {
 		if v == nil {
@@ -1142,21 +1082,14 @@ func (o DomainMatchingJobSchedulePtrOutput) Time() pulumi.StringPtrOutput {
 }
 
 type DomainRuleBasedMatching struct {
-	// A block that configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles. Documented below.
-	AttributeTypesSelector *DomainRuleBasedMatchingAttributeTypesSelector `pulumi:"attributeTypesSelector"`
-	// A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
-	ConflictResolution *DomainRuleBasedMatchingConflictResolution `pulumi:"conflictResolution"`
-	// The flag that enables the rule-based matching process of duplicate profiles.
-	Enabled bool `pulumi:"enabled"`
-	// A block that specifies the configuration for exporting Identity Resolution results. Documented below.
-	ExportingConfig *DomainRuleBasedMatchingExportingConfig `pulumi:"exportingConfig"`
-	// A block that configures how the rule-based matching process should match profiles. You can have up to 15 `rule` in the `natchingRules`. Documented below.
-	MatchingRules []DomainRuleBasedMatchingMatchingRule `pulumi:"matchingRules"`
-	// Indicates the maximum allowed rule level for matching.
-	MaxAllowedRuleLevelForMatching *int `pulumi:"maxAllowedRuleLevelForMatching"`
-	// Indicates the maximum allowed rule level for merging.
-	MaxAllowedRuleLevelForMerging *int    `pulumi:"maxAllowedRuleLevelForMerging"`
-	Status                        *string `pulumi:"status"`
+	AttributeTypesSelector         *DomainRuleBasedMatchingAttributeTypesSelector `pulumi:"attributeTypesSelector"`
+	ConflictResolution             *DomainRuleBasedMatchingConflictResolution     `pulumi:"conflictResolution"`
+	Enabled                        bool                                           `pulumi:"enabled"`
+	ExportingConfig                *DomainRuleBasedMatchingExportingConfig        `pulumi:"exportingConfig"`
+	MatchingRules                  []DomainRuleBasedMatchingMatchingRule          `pulumi:"matchingRules"`
+	MaxAllowedRuleLevelForMatching *int                                           `pulumi:"maxAllowedRuleLevelForMatching"`
+	MaxAllowedRuleLevelForMerging  *int                                           `pulumi:"maxAllowedRuleLevelForMerging"`
+	Status                         *string                                        `pulumi:"status"`
 }
 
 // DomainRuleBasedMatchingInput is an input type that accepts DomainRuleBasedMatchingArgs and DomainRuleBasedMatchingOutput values.
@@ -1171,21 +1104,14 @@ type DomainRuleBasedMatchingInput interface {
 }
 
 type DomainRuleBasedMatchingArgs struct {
-	// A block that configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles. Documented below.
-	AttributeTypesSelector DomainRuleBasedMatchingAttributeTypesSelectorPtrInput `pulumi:"attributeTypesSelector"`
-	// A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
-	ConflictResolution DomainRuleBasedMatchingConflictResolutionPtrInput `pulumi:"conflictResolution"`
-	// The flag that enables the rule-based matching process of duplicate profiles.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// A block that specifies the configuration for exporting Identity Resolution results. Documented below.
-	ExportingConfig DomainRuleBasedMatchingExportingConfigPtrInput `pulumi:"exportingConfig"`
-	// A block that configures how the rule-based matching process should match profiles. You can have up to 15 `rule` in the `natchingRules`. Documented below.
-	MatchingRules DomainRuleBasedMatchingMatchingRuleArrayInput `pulumi:"matchingRules"`
-	// Indicates the maximum allowed rule level for matching.
-	MaxAllowedRuleLevelForMatching pulumi.IntPtrInput `pulumi:"maxAllowedRuleLevelForMatching"`
-	// Indicates the maximum allowed rule level for merging.
-	MaxAllowedRuleLevelForMerging pulumi.IntPtrInput    `pulumi:"maxAllowedRuleLevelForMerging"`
-	Status                        pulumi.StringPtrInput `pulumi:"status"`
+	AttributeTypesSelector         DomainRuleBasedMatchingAttributeTypesSelectorPtrInput `pulumi:"attributeTypesSelector"`
+	ConflictResolution             DomainRuleBasedMatchingConflictResolutionPtrInput     `pulumi:"conflictResolution"`
+	Enabled                        pulumi.BoolInput                                      `pulumi:"enabled"`
+	ExportingConfig                DomainRuleBasedMatchingExportingConfigPtrInput        `pulumi:"exportingConfig"`
+	MatchingRules                  DomainRuleBasedMatchingMatchingRuleArrayInput         `pulumi:"matchingRules"`
+	MaxAllowedRuleLevelForMatching pulumi.IntPtrInput                                    `pulumi:"maxAllowedRuleLevelForMatching"`
+	MaxAllowedRuleLevelForMerging  pulumi.IntPtrInput                                    `pulumi:"maxAllowedRuleLevelForMerging"`
+	Status                         pulumi.StringPtrInput                                 `pulumi:"status"`
 }
 
 func (DomainRuleBasedMatchingArgs) ElementType() reflect.Type {
@@ -1265,41 +1191,34 @@ func (o DomainRuleBasedMatchingOutput) ToDomainRuleBasedMatchingPtrOutputWithCon
 	}).(DomainRuleBasedMatchingPtrOutput)
 }
 
-// A block that configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles. Documented below.
 func (o DomainRuleBasedMatchingOutput) AttributeTypesSelector() DomainRuleBasedMatchingAttributeTypesSelectorPtrOutput {
 	return o.ApplyT(func(v DomainRuleBasedMatching) *DomainRuleBasedMatchingAttributeTypesSelector {
 		return v.AttributeTypesSelector
 	}).(DomainRuleBasedMatchingAttributeTypesSelectorPtrOutput)
 }
 
-// A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
 func (o DomainRuleBasedMatchingOutput) ConflictResolution() DomainRuleBasedMatchingConflictResolutionPtrOutput {
 	return o.ApplyT(func(v DomainRuleBasedMatching) *DomainRuleBasedMatchingConflictResolution {
 		return v.ConflictResolution
 	}).(DomainRuleBasedMatchingConflictResolutionPtrOutput)
 }
 
-// The flag that enables the rule-based matching process of duplicate profiles.
 func (o DomainRuleBasedMatchingOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DomainRuleBasedMatching) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// A block that specifies the configuration for exporting Identity Resolution results. Documented below.
 func (o DomainRuleBasedMatchingOutput) ExportingConfig() DomainRuleBasedMatchingExportingConfigPtrOutput {
 	return o.ApplyT(func(v DomainRuleBasedMatching) *DomainRuleBasedMatchingExportingConfig { return v.ExportingConfig }).(DomainRuleBasedMatchingExportingConfigPtrOutput)
 }
 
-// A block that configures how the rule-based matching process should match profiles. You can have up to 15 `rule` in the `natchingRules`. Documented below.
 func (o DomainRuleBasedMatchingOutput) MatchingRules() DomainRuleBasedMatchingMatchingRuleArrayOutput {
 	return o.ApplyT(func(v DomainRuleBasedMatching) []DomainRuleBasedMatchingMatchingRule { return v.MatchingRules }).(DomainRuleBasedMatchingMatchingRuleArrayOutput)
 }
 
-// Indicates the maximum allowed rule level for matching.
 func (o DomainRuleBasedMatchingOutput) MaxAllowedRuleLevelForMatching() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainRuleBasedMatching) *int { return v.MaxAllowedRuleLevelForMatching }).(pulumi.IntPtrOutput)
 }
 
-// Indicates the maximum allowed rule level for merging.
 func (o DomainRuleBasedMatchingOutput) MaxAllowedRuleLevelForMerging() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainRuleBasedMatching) *int { return v.MaxAllowedRuleLevelForMerging }).(pulumi.IntPtrOutput)
 }
@@ -1332,7 +1251,6 @@ func (o DomainRuleBasedMatchingPtrOutput) Elem() DomainRuleBasedMatchingOutput {
 	}).(DomainRuleBasedMatchingOutput)
 }
 
-// A block that configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles. Documented below.
 func (o DomainRuleBasedMatchingPtrOutput) AttributeTypesSelector() DomainRuleBasedMatchingAttributeTypesSelectorPtrOutput {
 	return o.ApplyT(func(v *DomainRuleBasedMatching) *DomainRuleBasedMatchingAttributeTypesSelector {
 		if v == nil {
@@ -1342,7 +1260,6 @@ func (o DomainRuleBasedMatchingPtrOutput) AttributeTypesSelector() DomainRuleBas
 	}).(DomainRuleBasedMatchingAttributeTypesSelectorPtrOutput)
 }
 
-// A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
 func (o DomainRuleBasedMatchingPtrOutput) ConflictResolution() DomainRuleBasedMatchingConflictResolutionPtrOutput {
 	return o.ApplyT(func(v *DomainRuleBasedMatching) *DomainRuleBasedMatchingConflictResolution {
 		if v == nil {
@@ -1352,7 +1269,6 @@ func (o DomainRuleBasedMatchingPtrOutput) ConflictResolution() DomainRuleBasedMa
 	}).(DomainRuleBasedMatchingConflictResolutionPtrOutput)
 }
 
-// The flag that enables the rule-based matching process of duplicate profiles.
 func (o DomainRuleBasedMatchingPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainRuleBasedMatching) *bool {
 		if v == nil {
@@ -1362,7 +1278,6 @@ func (o DomainRuleBasedMatchingPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A block that specifies the configuration for exporting Identity Resolution results. Documented below.
 func (o DomainRuleBasedMatchingPtrOutput) ExportingConfig() DomainRuleBasedMatchingExportingConfigPtrOutput {
 	return o.ApplyT(func(v *DomainRuleBasedMatching) *DomainRuleBasedMatchingExportingConfig {
 		if v == nil {
@@ -1372,7 +1287,6 @@ func (o DomainRuleBasedMatchingPtrOutput) ExportingConfig() DomainRuleBasedMatch
 	}).(DomainRuleBasedMatchingExportingConfigPtrOutput)
 }
 
-// A block that configures how the rule-based matching process should match profiles. You can have up to 15 `rule` in the `natchingRules`. Documented below.
 func (o DomainRuleBasedMatchingPtrOutput) MatchingRules() DomainRuleBasedMatchingMatchingRuleArrayOutput {
 	return o.ApplyT(func(v *DomainRuleBasedMatching) []DomainRuleBasedMatchingMatchingRule {
 		if v == nil {
@@ -1382,7 +1296,6 @@ func (o DomainRuleBasedMatchingPtrOutput) MatchingRules() DomainRuleBasedMatchin
 	}).(DomainRuleBasedMatchingMatchingRuleArrayOutput)
 }
 
-// Indicates the maximum allowed rule level for matching.
 func (o DomainRuleBasedMatchingPtrOutput) MaxAllowedRuleLevelForMatching() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DomainRuleBasedMatching) *int {
 		if v == nil {
@@ -1392,7 +1305,6 @@ func (o DomainRuleBasedMatchingPtrOutput) MaxAllowedRuleLevelForMatching() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
-// Indicates the maximum allowed rule level for merging.
 func (o DomainRuleBasedMatchingPtrOutput) MaxAllowedRuleLevelForMerging() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DomainRuleBasedMatching) *int {
 		if v == nil {
@@ -1412,14 +1324,10 @@ func (o DomainRuleBasedMatchingPtrOutput) Status() pulumi.StringPtrOutput {
 }
 
 type DomainRuleBasedMatchingAttributeTypesSelector struct {
-	// The `Address` type. You can choose from `Address`, `BusinessAddress`, `MaillingAddress`, and `ShippingAddress`.
-	Addresses []string `pulumi:"addresses"`
-	// Configures the `AttributeMatchingModel`, you can either choose `ONE_TO_ONE` or `MANY_TO_MANY`.
-	AttributeMatchingModel string `pulumi:"attributeMatchingModel"`
-	// The `Email` type. You can choose from `EmailAddress`, `BusinessEmailAddress` and `PersonalEmailAddress`.
-	EmailAddresses []string `pulumi:"emailAddresses"`
-	// The `PhoneNumber` type. You can choose from `PhoneNumber`, `HomePhoneNumber`, and `MobilePhoneNumber`.
-	PhoneNumbers []string `pulumi:"phoneNumbers"`
+	Addresses              []string `pulumi:"addresses"`
+	AttributeMatchingModel string   `pulumi:"attributeMatchingModel"`
+	EmailAddresses         []string `pulumi:"emailAddresses"`
+	PhoneNumbers           []string `pulumi:"phoneNumbers"`
 }
 
 // DomainRuleBasedMatchingAttributeTypesSelectorInput is an input type that accepts DomainRuleBasedMatchingAttributeTypesSelectorArgs and DomainRuleBasedMatchingAttributeTypesSelectorOutput values.
@@ -1434,14 +1342,10 @@ type DomainRuleBasedMatchingAttributeTypesSelectorInput interface {
 }
 
 type DomainRuleBasedMatchingAttributeTypesSelectorArgs struct {
-	// The `Address` type. You can choose from `Address`, `BusinessAddress`, `MaillingAddress`, and `ShippingAddress`.
-	Addresses pulumi.StringArrayInput `pulumi:"addresses"`
-	// Configures the `AttributeMatchingModel`, you can either choose `ONE_TO_ONE` or `MANY_TO_MANY`.
-	AttributeMatchingModel pulumi.StringInput `pulumi:"attributeMatchingModel"`
-	// The `Email` type. You can choose from `EmailAddress`, `BusinessEmailAddress` and `PersonalEmailAddress`.
-	EmailAddresses pulumi.StringArrayInput `pulumi:"emailAddresses"`
-	// The `PhoneNumber` type. You can choose from `PhoneNumber`, `HomePhoneNumber`, and `MobilePhoneNumber`.
-	PhoneNumbers pulumi.StringArrayInput `pulumi:"phoneNumbers"`
+	Addresses              pulumi.StringArrayInput `pulumi:"addresses"`
+	AttributeMatchingModel pulumi.StringInput      `pulumi:"attributeMatchingModel"`
+	EmailAddresses         pulumi.StringArrayInput `pulumi:"emailAddresses"`
+	PhoneNumbers           pulumi.StringArrayInput `pulumi:"phoneNumbers"`
 }
 
 func (DomainRuleBasedMatchingAttributeTypesSelectorArgs) ElementType() reflect.Type {
@@ -1521,22 +1425,18 @@ func (o DomainRuleBasedMatchingAttributeTypesSelectorOutput) ToDomainRuleBasedMa
 	}).(DomainRuleBasedMatchingAttributeTypesSelectorPtrOutput)
 }
 
-// The `Address` type. You can choose from `Address`, `BusinessAddress`, `MaillingAddress`, and `ShippingAddress`.
 func (o DomainRuleBasedMatchingAttributeTypesSelectorOutput) Addresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainRuleBasedMatchingAttributeTypesSelector) []string { return v.Addresses }).(pulumi.StringArrayOutput)
 }
 
-// Configures the `AttributeMatchingModel`, you can either choose `ONE_TO_ONE` or `MANY_TO_MANY`.
 func (o DomainRuleBasedMatchingAttributeTypesSelectorOutput) AttributeMatchingModel() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainRuleBasedMatchingAttributeTypesSelector) string { return v.AttributeMatchingModel }).(pulumi.StringOutput)
 }
 
-// The `Email` type. You can choose from `EmailAddress`, `BusinessEmailAddress` and `PersonalEmailAddress`.
 func (o DomainRuleBasedMatchingAttributeTypesSelectorOutput) EmailAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainRuleBasedMatchingAttributeTypesSelector) []string { return v.EmailAddresses }).(pulumi.StringArrayOutput)
 }
 
-// The `PhoneNumber` type. You can choose from `PhoneNumber`, `HomePhoneNumber`, and `MobilePhoneNumber`.
 func (o DomainRuleBasedMatchingAttributeTypesSelectorOutput) PhoneNumbers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainRuleBasedMatchingAttributeTypesSelector) []string { return v.PhoneNumbers }).(pulumi.StringArrayOutput)
 }
@@ -1565,7 +1465,6 @@ func (o DomainRuleBasedMatchingAttributeTypesSelectorPtrOutput) Elem() DomainRul
 	}).(DomainRuleBasedMatchingAttributeTypesSelectorOutput)
 }
 
-// The `Address` type. You can choose from `Address`, `BusinessAddress`, `MaillingAddress`, and `ShippingAddress`.
 func (o DomainRuleBasedMatchingAttributeTypesSelectorPtrOutput) Addresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainRuleBasedMatchingAttributeTypesSelector) []string {
 		if v == nil {
@@ -1575,7 +1474,6 @@ func (o DomainRuleBasedMatchingAttributeTypesSelectorPtrOutput) Addresses() pulu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Configures the `AttributeMatchingModel`, you can either choose `ONE_TO_ONE` or `MANY_TO_MANY`.
 func (o DomainRuleBasedMatchingAttributeTypesSelectorPtrOutput) AttributeMatchingModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainRuleBasedMatchingAttributeTypesSelector) *string {
 		if v == nil {
@@ -1585,7 +1483,6 @@ func (o DomainRuleBasedMatchingAttributeTypesSelectorPtrOutput) AttributeMatchin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The `Email` type. You can choose from `EmailAddress`, `BusinessEmailAddress` and `PersonalEmailAddress`.
 func (o DomainRuleBasedMatchingAttributeTypesSelectorPtrOutput) EmailAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainRuleBasedMatchingAttributeTypesSelector) []string {
 		if v == nil {
@@ -1595,7 +1492,6 @@ func (o DomainRuleBasedMatchingAttributeTypesSelectorPtrOutput) EmailAddresses()
 	}).(pulumi.StringArrayOutput)
 }
 
-// The `PhoneNumber` type. You can choose from `PhoneNumber`, `HomePhoneNumber`, and `MobilePhoneNumber`.
 func (o DomainRuleBasedMatchingAttributeTypesSelectorPtrOutput) PhoneNumbers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainRuleBasedMatchingAttributeTypesSelector) []string {
 		if v == nil {
@@ -1606,10 +1502,8 @@ func (o DomainRuleBasedMatchingAttributeTypesSelectorPtrOutput) PhoneNumbers() p
 }
 
 type DomainRuleBasedMatchingConflictResolution struct {
-	// How the auto-merging process should resolve conflicts between different profiles. Valid values are `RECENCY` and `SOURCE`
-	ConflictResolvingModel string `pulumi:"conflictResolvingModel"`
-	// The `ObjectType` name that is used to resolve profile merging conflicts when choosing `SOURCE` as the `ConflictResolvingModel`.
-	SourceName *string `pulumi:"sourceName"`
+	ConflictResolvingModel string  `pulumi:"conflictResolvingModel"`
+	SourceName             *string `pulumi:"sourceName"`
 }
 
 // DomainRuleBasedMatchingConflictResolutionInput is an input type that accepts DomainRuleBasedMatchingConflictResolutionArgs and DomainRuleBasedMatchingConflictResolutionOutput values.
@@ -1624,10 +1518,8 @@ type DomainRuleBasedMatchingConflictResolutionInput interface {
 }
 
 type DomainRuleBasedMatchingConflictResolutionArgs struct {
-	// How the auto-merging process should resolve conflicts between different profiles. Valid values are `RECENCY` and `SOURCE`
-	ConflictResolvingModel pulumi.StringInput `pulumi:"conflictResolvingModel"`
-	// The `ObjectType` name that is used to resolve profile merging conflicts when choosing `SOURCE` as the `ConflictResolvingModel`.
-	SourceName pulumi.StringPtrInput `pulumi:"sourceName"`
+	ConflictResolvingModel pulumi.StringInput    `pulumi:"conflictResolvingModel"`
+	SourceName             pulumi.StringPtrInput `pulumi:"sourceName"`
 }
 
 func (DomainRuleBasedMatchingConflictResolutionArgs) ElementType() reflect.Type {
@@ -1707,12 +1599,10 @@ func (o DomainRuleBasedMatchingConflictResolutionOutput) ToDomainRuleBasedMatchi
 	}).(DomainRuleBasedMatchingConflictResolutionPtrOutput)
 }
 
-// How the auto-merging process should resolve conflicts between different profiles. Valid values are `RECENCY` and `SOURCE`
 func (o DomainRuleBasedMatchingConflictResolutionOutput) ConflictResolvingModel() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainRuleBasedMatchingConflictResolution) string { return v.ConflictResolvingModel }).(pulumi.StringOutput)
 }
 
-// The `ObjectType` name that is used to resolve profile merging conflicts when choosing `SOURCE` as the `ConflictResolvingModel`.
 func (o DomainRuleBasedMatchingConflictResolutionOutput) SourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainRuleBasedMatchingConflictResolution) *string { return v.SourceName }).(pulumi.StringPtrOutput)
 }
@@ -1741,7 +1631,6 @@ func (o DomainRuleBasedMatchingConflictResolutionPtrOutput) Elem() DomainRuleBas
 	}).(DomainRuleBasedMatchingConflictResolutionOutput)
 }
 
-// How the auto-merging process should resolve conflicts between different profiles. Valid values are `RECENCY` and `SOURCE`
 func (o DomainRuleBasedMatchingConflictResolutionPtrOutput) ConflictResolvingModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainRuleBasedMatchingConflictResolution) *string {
 		if v == nil {
@@ -1751,7 +1640,6 @@ func (o DomainRuleBasedMatchingConflictResolutionPtrOutput) ConflictResolvingMod
 	}).(pulumi.StringPtrOutput)
 }
 
-// The `ObjectType` name that is used to resolve profile merging conflicts when choosing `SOURCE` as the `ConflictResolvingModel`.
 func (o DomainRuleBasedMatchingConflictResolutionPtrOutput) SourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainRuleBasedMatchingConflictResolution) *string {
 		if v == nil {
@@ -1897,10 +1785,8 @@ func (o DomainRuleBasedMatchingExportingConfigPtrOutput) S3Exporting() DomainRul
 }
 
 type DomainRuleBasedMatchingExportingConfigS3Exporting struct {
-	// The name of the S3 bucket where Identity Resolution Jobs write result files.
-	S3BucketName string `pulumi:"s3BucketName"`
-	// The S3 key name of the location where Identity Resolution Jobs write result files.
-	S3KeyName *string `pulumi:"s3KeyName"`
+	S3BucketName string  `pulumi:"s3BucketName"`
+	S3KeyName    *string `pulumi:"s3KeyName"`
 }
 
 // DomainRuleBasedMatchingExportingConfigS3ExportingInput is an input type that accepts DomainRuleBasedMatchingExportingConfigS3ExportingArgs and DomainRuleBasedMatchingExportingConfigS3ExportingOutput values.
@@ -1915,10 +1801,8 @@ type DomainRuleBasedMatchingExportingConfigS3ExportingInput interface {
 }
 
 type DomainRuleBasedMatchingExportingConfigS3ExportingArgs struct {
-	// The name of the S3 bucket where Identity Resolution Jobs write result files.
-	S3BucketName pulumi.StringInput `pulumi:"s3BucketName"`
-	// The S3 key name of the location where Identity Resolution Jobs write result files.
-	S3KeyName pulumi.StringPtrInput `pulumi:"s3KeyName"`
+	S3BucketName pulumi.StringInput    `pulumi:"s3BucketName"`
+	S3KeyName    pulumi.StringPtrInput `pulumi:"s3KeyName"`
 }
 
 func (DomainRuleBasedMatchingExportingConfigS3ExportingArgs) ElementType() reflect.Type {
@@ -1998,12 +1882,10 @@ func (o DomainRuleBasedMatchingExportingConfigS3ExportingOutput) ToDomainRuleBas
 	}).(DomainRuleBasedMatchingExportingConfigS3ExportingPtrOutput)
 }
 
-// The name of the S3 bucket where Identity Resolution Jobs write result files.
 func (o DomainRuleBasedMatchingExportingConfigS3ExportingOutput) S3BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainRuleBasedMatchingExportingConfigS3Exporting) string { return v.S3BucketName }).(pulumi.StringOutput)
 }
 
-// The S3 key name of the location where Identity Resolution Jobs write result files.
 func (o DomainRuleBasedMatchingExportingConfigS3ExportingOutput) S3KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainRuleBasedMatchingExportingConfigS3Exporting) *string { return v.S3KeyName }).(pulumi.StringPtrOutput)
 }
@@ -2032,7 +1914,6 @@ func (o DomainRuleBasedMatchingExportingConfigS3ExportingPtrOutput) Elem() Domai
 	}).(DomainRuleBasedMatchingExportingConfigS3ExportingOutput)
 }
 
-// The name of the S3 bucket where Identity Resolution Jobs write result files.
 func (o DomainRuleBasedMatchingExportingConfigS3ExportingPtrOutput) S3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainRuleBasedMatchingExportingConfigS3Exporting) *string {
 		if v == nil {
@@ -2042,7 +1923,6 @@ func (o DomainRuleBasedMatchingExportingConfigS3ExportingPtrOutput) S3BucketName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The S3 key name of the location where Identity Resolution Jobs write result files.
 func (o DomainRuleBasedMatchingExportingConfigS3ExportingPtrOutput) S3KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainRuleBasedMatchingExportingConfigS3Exporting) *string {
 		if v == nil {
@@ -2053,7 +1933,6 @@ func (o DomainRuleBasedMatchingExportingConfigS3ExportingPtrOutput) S3KeyName() 
 }
 
 type DomainRuleBasedMatchingMatchingRule struct {
-	// A single rule level of the `matchRules`. Configures how the rule-based matching process should match profiles.
 	Rules []string `pulumi:"rules"`
 }
 
@@ -2069,7 +1948,6 @@ type DomainRuleBasedMatchingMatchingRuleInput interface {
 }
 
 type DomainRuleBasedMatchingMatchingRuleArgs struct {
-	// A single rule level of the `matchRules`. Configures how the rule-based matching process should match profiles.
 	Rules pulumi.StringArrayInput `pulumi:"rules"`
 }
 
@@ -2124,7 +2002,6 @@ func (o DomainRuleBasedMatchingMatchingRuleOutput) ToDomainRuleBasedMatchingMatc
 	return o
 }
 
-// A single rule level of the `matchRules`. Configures how the rule-based matching process should match profiles.
 func (o DomainRuleBasedMatchingMatchingRuleOutput) Rules() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainRuleBasedMatchingMatchingRule) []string { return v.Rules }).(pulumi.StringArrayOutput)
 }
@@ -2150,26 +2027,16 @@ func (o DomainRuleBasedMatchingMatchingRuleArrayOutput) Index(i pulumi.IntInput)
 }
 
 type ProfileAddress struct {
-	// The first line of a customer address.
-	Address1 *string `pulumi:"address1"`
-	// The second line of a customer address.
-	Address2 *string `pulumi:"address2"`
-	// The third line of a customer address.
-	Address3 *string `pulumi:"address3"`
-	// The fourth line of a customer address.
-	Address4 *string `pulumi:"address4"`
-	// The city in which a customer lives.
-	City *string `pulumi:"city"`
-	// The country in which a customer lives.
-	Country *string `pulumi:"country"`
-	// The county in which a customer lives.
-	County *string `pulumi:"county"`
-	// The postal code of a customer address.
+	Address1   *string `pulumi:"address1"`
+	Address2   *string `pulumi:"address2"`
+	Address3   *string `pulumi:"address3"`
+	Address4   *string `pulumi:"address4"`
+	City       *string `pulumi:"city"`
+	Country    *string `pulumi:"country"`
+	County     *string `pulumi:"county"`
 	PostalCode *string `pulumi:"postalCode"`
-	// The province in which a customer lives.
-	Province *string `pulumi:"province"`
-	// The state in which a customer lives.
-	State *string `pulumi:"state"`
+	Province   *string `pulumi:"province"`
+	State      *string `pulumi:"state"`
 }
 
 // ProfileAddressInput is an input type that accepts ProfileAddressArgs and ProfileAddressOutput values.
@@ -2184,26 +2051,16 @@ type ProfileAddressInput interface {
 }
 
 type ProfileAddressArgs struct {
-	// The first line of a customer address.
-	Address1 pulumi.StringPtrInput `pulumi:"address1"`
-	// The second line of a customer address.
-	Address2 pulumi.StringPtrInput `pulumi:"address2"`
-	// The third line of a customer address.
-	Address3 pulumi.StringPtrInput `pulumi:"address3"`
-	// The fourth line of a customer address.
-	Address4 pulumi.StringPtrInput `pulumi:"address4"`
-	// The city in which a customer lives.
-	City pulumi.StringPtrInput `pulumi:"city"`
-	// The country in which a customer lives.
-	Country pulumi.StringPtrInput `pulumi:"country"`
-	// The county in which a customer lives.
-	County pulumi.StringPtrInput `pulumi:"county"`
-	// The postal code of a customer address.
+	Address1   pulumi.StringPtrInput `pulumi:"address1"`
+	Address2   pulumi.StringPtrInput `pulumi:"address2"`
+	Address3   pulumi.StringPtrInput `pulumi:"address3"`
+	Address4   pulumi.StringPtrInput `pulumi:"address4"`
+	City       pulumi.StringPtrInput `pulumi:"city"`
+	Country    pulumi.StringPtrInput `pulumi:"country"`
+	County     pulumi.StringPtrInput `pulumi:"county"`
 	PostalCode pulumi.StringPtrInput `pulumi:"postalCode"`
-	// The province in which a customer lives.
-	Province pulumi.StringPtrInput `pulumi:"province"`
-	// The state in which a customer lives.
-	State pulumi.StringPtrInput `pulumi:"state"`
+	Province   pulumi.StringPtrInput `pulumi:"province"`
+	State      pulumi.StringPtrInput `pulumi:"state"`
 }
 
 func (ProfileAddressArgs) ElementType() reflect.Type {
@@ -2283,52 +2140,42 @@ func (o ProfileAddressOutput) ToProfileAddressPtrOutputWithContext(ctx context.C
 	}).(ProfileAddressPtrOutput)
 }
 
-// The first line of a customer address.
 func (o ProfileAddressOutput) Address1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileAddress) *string { return v.Address1 }).(pulumi.StringPtrOutput)
 }
 
-// The second line of a customer address.
 func (o ProfileAddressOutput) Address2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileAddress) *string { return v.Address2 }).(pulumi.StringPtrOutput)
 }
 
-// The third line of a customer address.
 func (o ProfileAddressOutput) Address3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileAddress) *string { return v.Address3 }).(pulumi.StringPtrOutput)
 }
 
-// The fourth line of a customer address.
 func (o ProfileAddressOutput) Address4() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileAddress) *string { return v.Address4 }).(pulumi.StringPtrOutput)
 }
 
-// The city in which a customer lives.
 func (o ProfileAddressOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileAddress) *string { return v.City }).(pulumi.StringPtrOutput)
 }
 
-// The country in which a customer lives.
 func (o ProfileAddressOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileAddress) *string { return v.Country }).(pulumi.StringPtrOutput)
 }
 
-// The county in which a customer lives.
 func (o ProfileAddressOutput) County() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileAddress) *string { return v.County }).(pulumi.StringPtrOutput)
 }
 
-// The postal code of a customer address.
 func (o ProfileAddressOutput) PostalCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileAddress) *string { return v.PostalCode }).(pulumi.StringPtrOutput)
 }
 
-// The province in which a customer lives.
 func (o ProfileAddressOutput) Province() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileAddress) *string { return v.Province }).(pulumi.StringPtrOutput)
 }
 
-// The state in which a customer lives.
 func (o ProfileAddressOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileAddress) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -2357,7 +2204,6 @@ func (o ProfileAddressPtrOutput) Elem() ProfileAddressOutput {
 	}).(ProfileAddressOutput)
 }
 
-// The first line of a customer address.
 func (o ProfileAddressPtrOutput) Address1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileAddress) *string {
 		if v == nil {
@@ -2367,7 +2213,6 @@ func (o ProfileAddressPtrOutput) Address1() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The second line of a customer address.
 func (o ProfileAddressPtrOutput) Address2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileAddress) *string {
 		if v == nil {
@@ -2377,7 +2222,6 @@ func (o ProfileAddressPtrOutput) Address2() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The third line of a customer address.
 func (o ProfileAddressPtrOutput) Address3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileAddress) *string {
 		if v == nil {
@@ -2387,7 +2231,6 @@ func (o ProfileAddressPtrOutput) Address3() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fourth line of a customer address.
 func (o ProfileAddressPtrOutput) Address4() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileAddress) *string {
 		if v == nil {
@@ -2397,7 +2240,6 @@ func (o ProfileAddressPtrOutput) Address4() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The city in which a customer lives.
 func (o ProfileAddressPtrOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileAddress) *string {
 		if v == nil {
@@ -2407,7 +2249,6 @@ func (o ProfileAddressPtrOutput) City() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The country in which a customer lives.
 func (o ProfileAddressPtrOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileAddress) *string {
 		if v == nil {
@@ -2417,7 +2258,6 @@ func (o ProfileAddressPtrOutput) Country() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The county in which a customer lives.
 func (o ProfileAddressPtrOutput) County() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileAddress) *string {
 		if v == nil {
@@ -2427,7 +2267,6 @@ func (o ProfileAddressPtrOutput) County() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The postal code of a customer address.
 func (o ProfileAddressPtrOutput) PostalCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileAddress) *string {
 		if v == nil {
@@ -2437,7 +2276,6 @@ func (o ProfileAddressPtrOutput) PostalCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The province in which a customer lives.
 func (o ProfileAddressPtrOutput) Province() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileAddress) *string {
 		if v == nil {
@@ -2447,7 +2285,6 @@ func (o ProfileAddressPtrOutput) Province() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The state in which a customer lives.
 func (o ProfileAddressPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileAddress) *string {
 		if v == nil {
@@ -2458,26 +2295,16 @@ func (o ProfileAddressPtrOutput) State() pulumi.StringPtrOutput {
 }
 
 type ProfileBillingAddress struct {
-	// The first line of a customer address.
-	Address1 *string `pulumi:"address1"`
-	// The second line of a customer address.
-	Address2 *string `pulumi:"address2"`
-	// The third line of a customer address.
-	Address3 *string `pulumi:"address3"`
-	// The fourth line of a customer address.
-	Address4 *string `pulumi:"address4"`
-	// The city in which a customer lives.
-	City *string `pulumi:"city"`
-	// The country in which a customer lives.
-	Country *string `pulumi:"country"`
-	// The county in which a customer lives.
-	County *string `pulumi:"county"`
-	// The postal code of a customer address.
+	Address1   *string `pulumi:"address1"`
+	Address2   *string `pulumi:"address2"`
+	Address3   *string `pulumi:"address3"`
+	Address4   *string `pulumi:"address4"`
+	City       *string `pulumi:"city"`
+	Country    *string `pulumi:"country"`
+	County     *string `pulumi:"county"`
 	PostalCode *string `pulumi:"postalCode"`
-	// The province in which a customer lives.
-	Province *string `pulumi:"province"`
-	// The state in which a customer lives.
-	State *string `pulumi:"state"`
+	Province   *string `pulumi:"province"`
+	State      *string `pulumi:"state"`
 }
 
 // ProfileBillingAddressInput is an input type that accepts ProfileBillingAddressArgs and ProfileBillingAddressOutput values.
@@ -2492,26 +2319,16 @@ type ProfileBillingAddressInput interface {
 }
 
 type ProfileBillingAddressArgs struct {
-	// The first line of a customer address.
-	Address1 pulumi.StringPtrInput `pulumi:"address1"`
-	// The second line of a customer address.
-	Address2 pulumi.StringPtrInput `pulumi:"address2"`
-	// The third line of a customer address.
-	Address3 pulumi.StringPtrInput `pulumi:"address3"`
-	// The fourth line of a customer address.
-	Address4 pulumi.StringPtrInput `pulumi:"address4"`
-	// The city in which a customer lives.
-	City pulumi.StringPtrInput `pulumi:"city"`
-	// The country in which a customer lives.
-	Country pulumi.StringPtrInput `pulumi:"country"`
-	// The county in which a customer lives.
-	County pulumi.StringPtrInput `pulumi:"county"`
-	// The postal code of a customer address.
+	Address1   pulumi.StringPtrInput `pulumi:"address1"`
+	Address2   pulumi.StringPtrInput `pulumi:"address2"`
+	Address3   pulumi.StringPtrInput `pulumi:"address3"`
+	Address4   pulumi.StringPtrInput `pulumi:"address4"`
+	City       pulumi.StringPtrInput `pulumi:"city"`
+	Country    pulumi.StringPtrInput `pulumi:"country"`
+	County     pulumi.StringPtrInput `pulumi:"county"`
 	PostalCode pulumi.StringPtrInput `pulumi:"postalCode"`
-	// The province in which a customer lives.
-	Province pulumi.StringPtrInput `pulumi:"province"`
-	// The state in which a customer lives.
-	State pulumi.StringPtrInput `pulumi:"state"`
+	Province   pulumi.StringPtrInput `pulumi:"province"`
+	State      pulumi.StringPtrInput `pulumi:"state"`
 }
 
 func (ProfileBillingAddressArgs) ElementType() reflect.Type {
@@ -2591,52 +2408,42 @@ func (o ProfileBillingAddressOutput) ToProfileBillingAddressPtrOutputWithContext
 	}).(ProfileBillingAddressPtrOutput)
 }
 
-// The first line of a customer address.
 func (o ProfileBillingAddressOutput) Address1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileBillingAddress) *string { return v.Address1 }).(pulumi.StringPtrOutput)
 }
 
-// The second line of a customer address.
 func (o ProfileBillingAddressOutput) Address2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileBillingAddress) *string { return v.Address2 }).(pulumi.StringPtrOutput)
 }
 
-// The third line of a customer address.
 func (o ProfileBillingAddressOutput) Address3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileBillingAddress) *string { return v.Address3 }).(pulumi.StringPtrOutput)
 }
 
-// The fourth line of a customer address.
 func (o ProfileBillingAddressOutput) Address4() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileBillingAddress) *string { return v.Address4 }).(pulumi.StringPtrOutput)
 }
 
-// The city in which a customer lives.
 func (o ProfileBillingAddressOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileBillingAddress) *string { return v.City }).(pulumi.StringPtrOutput)
 }
 
-// The country in which a customer lives.
 func (o ProfileBillingAddressOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileBillingAddress) *string { return v.Country }).(pulumi.StringPtrOutput)
 }
 
-// The county in which a customer lives.
 func (o ProfileBillingAddressOutput) County() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileBillingAddress) *string { return v.County }).(pulumi.StringPtrOutput)
 }
 
-// The postal code of a customer address.
 func (o ProfileBillingAddressOutput) PostalCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileBillingAddress) *string { return v.PostalCode }).(pulumi.StringPtrOutput)
 }
 
-// The province in which a customer lives.
 func (o ProfileBillingAddressOutput) Province() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileBillingAddress) *string { return v.Province }).(pulumi.StringPtrOutput)
 }
 
-// The state in which a customer lives.
 func (o ProfileBillingAddressOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileBillingAddress) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -2665,7 +2472,6 @@ func (o ProfileBillingAddressPtrOutput) Elem() ProfileBillingAddressOutput {
 	}).(ProfileBillingAddressOutput)
 }
 
-// The first line of a customer address.
 func (o ProfileBillingAddressPtrOutput) Address1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileBillingAddress) *string {
 		if v == nil {
@@ -2675,7 +2481,6 @@ func (o ProfileBillingAddressPtrOutput) Address1() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The second line of a customer address.
 func (o ProfileBillingAddressPtrOutput) Address2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileBillingAddress) *string {
 		if v == nil {
@@ -2685,7 +2490,6 @@ func (o ProfileBillingAddressPtrOutput) Address2() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The third line of a customer address.
 func (o ProfileBillingAddressPtrOutput) Address3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileBillingAddress) *string {
 		if v == nil {
@@ -2695,7 +2499,6 @@ func (o ProfileBillingAddressPtrOutput) Address3() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fourth line of a customer address.
 func (o ProfileBillingAddressPtrOutput) Address4() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileBillingAddress) *string {
 		if v == nil {
@@ -2705,7 +2508,6 @@ func (o ProfileBillingAddressPtrOutput) Address4() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The city in which a customer lives.
 func (o ProfileBillingAddressPtrOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileBillingAddress) *string {
 		if v == nil {
@@ -2715,7 +2517,6 @@ func (o ProfileBillingAddressPtrOutput) City() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The country in which a customer lives.
 func (o ProfileBillingAddressPtrOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileBillingAddress) *string {
 		if v == nil {
@@ -2725,7 +2526,6 @@ func (o ProfileBillingAddressPtrOutput) Country() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The county in which a customer lives.
 func (o ProfileBillingAddressPtrOutput) County() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileBillingAddress) *string {
 		if v == nil {
@@ -2735,7 +2535,6 @@ func (o ProfileBillingAddressPtrOutput) County() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The postal code of a customer address.
 func (o ProfileBillingAddressPtrOutput) PostalCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileBillingAddress) *string {
 		if v == nil {
@@ -2745,7 +2544,6 @@ func (o ProfileBillingAddressPtrOutput) PostalCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The province in which a customer lives.
 func (o ProfileBillingAddressPtrOutput) Province() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileBillingAddress) *string {
 		if v == nil {
@@ -2755,7 +2553,6 @@ func (o ProfileBillingAddressPtrOutput) Province() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The state in which a customer lives.
 func (o ProfileBillingAddressPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileBillingAddress) *string {
 		if v == nil {
@@ -2766,26 +2563,16 @@ func (o ProfileBillingAddressPtrOutput) State() pulumi.StringPtrOutput {
 }
 
 type ProfileMailingAddress struct {
-	// The first line of a customer address.
-	Address1 *string `pulumi:"address1"`
-	// The second line of a customer address.
-	Address2 *string `pulumi:"address2"`
-	// The third line of a customer address.
-	Address3 *string `pulumi:"address3"`
-	// The fourth line of a customer address.
-	Address4 *string `pulumi:"address4"`
-	// The city in which a customer lives.
-	City *string `pulumi:"city"`
-	// The country in which a customer lives.
-	Country *string `pulumi:"country"`
-	// The county in which a customer lives.
-	County *string `pulumi:"county"`
-	// The postal code of a customer address.
+	Address1   *string `pulumi:"address1"`
+	Address2   *string `pulumi:"address2"`
+	Address3   *string `pulumi:"address3"`
+	Address4   *string `pulumi:"address4"`
+	City       *string `pulumi:"city"`
+	Country    *string `pulumi:"country"`
+	County     *string `pulumi:"county"`
 	PostalCode *string `pulumi:"postalCode"`
-	// The province in which a customer lives.
-	Province *string `pulumi:"province"`
-	// The state in which a customer lives.
-	State *string `pulumi:"state"`
+	Province   *string `pulumi:"province"`
+	State      *string `pulumi:"state"`
 }
 
 // ProfileMailingAddressInput is an input type that accepts ProfileMailingAddressArgs and ProfileMailingAddressOutput values.
@@ -2800,26 +2587,16 @@ type ProfileMailingAddressInput interface {
 }
 
 type ProfileMailingAddressArgs struct {
-	// The first line of a customer address.
-	Address1 pulumi.StringPtrInput `pulumi:"address1"`
-	// The second line of a customer address.
-	Address2 pulumi.StringPtrInput `pulumi:"address2"`
-	// The third line of a customer address.
-	Address3 pulumi.StringPtrInput `pulumi:"address3"`
-	// The fourth line of a customer address.
-	Address4 pulumi.StringPtrInput `pulumi:"address4"`
-	// The city in which a customer lives.
-	City pulumi.StringPtrInput `pulumi:"city"`
-	// The country in which a customer lives.
-	Country pulumi.StringPtrInput `pulumi:"country"`
-	// The county in which a customer lives.
-	County pulumi.StringPtrInput `pulumi:"county"`
-	// The postal code of a customer address.
+	Address1   pulumi.StringPtrInput `pulumi:"address1"`
+	Address2   pulumi.StringPtrInput `pulumi:"address2"`
+	Address3   pulumi.StringPtrInput `pulumi:"address3"`
+	Address4   pulumi.StringPtrInput `pulumi:"address4"`
+	City       pulumi.StringPtrInput `pulumi:"city"`
+	Country    pulumi.StringPtrInput `pulumi:"country"`
+	County     pulumi.StringPtrInput `pulumi:"county"`
 	PostalCode pulumi.StringPtrInput `pulumi:"postalCode"`
-	// The province in which a customer lives.
-	Province pulumi.StringPtrInput `pulumi:"province"`
-	// The state in which a customer lives.
-	State pulumi.StringPtrInput `pulumi:"state"`
+	Province   pulumi.StringPtrInput `pulumi:"province"`
+	State      pulumi.StringPtrInput `pulumi:"state"`
 }
 
 func (ProfileMailingAddressArgs) ElementType() reflect.Type {
@@ -2899,52 +2676,42 @@ func (o ProfileMailingAddressOutput) ToProfileMailingAddressPtrOutputWithContext
 	}).(ProfileMailingAddressPtrOutput)
 }
 
-// The first line of a customer address.
 func (o ProfileMailingAddressOutput) Address1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileMailingAddress) *string { return v.Address1 }).(pulumi.StringPtrOutput)
 }
 
-// The second line of a customer address.
 func (o ProfileMailingAddressOutput) Address2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileMailingAddress) *string { return v.Address2 }).(pulumi.StringPtrOutput)
 }
 
-// The third line of a customer address.
 func (o ProfileMailingAddressOutput) Address3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileMailingAddress) *string { return v.Address3 }).(pulumi.StringPtrOutput)
 }
 
-// The fourth line of a customer address.
 func (o ProfileMailingAddressOutput) Address4() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileMailingAddress) *string { return v.Address4 }).(pulumi.StringPtrOutput)
 }
 
-// The city in which a customer lives.
 func (o ProfileMailingAddressOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileMailingAddress) *string { return v.City }).(pulumi.StringPtrOutput)
 }
 
-// The country in which a customer lives.
 func (o ProfileMailingAddressOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileMailingAddress) *string { return v.Country }).(pulumi.StringPtrOutput)
 }
 
-// The county in which a customer lives.
 func (o ProfileMailingAddressOutput) County() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileMailingAddress) *string { return v.County }).(pulumi.StringPtrOutput)
 }
 
-// The postal code of a customer address.
 func (o ProfileMailingAddressOutput) PostalCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileMailingAddress) *string { return v.PostalCode }).(pulumi.StringPtrOutput)
 }
 
-// The province in which a customer lives.
 func (o ProfileMailingAddressOutput) Province() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileMailingAddress) *string { return v.Province }).(pulumi.StringPtrOutput)
 }
 
-// The state in which a customer lives.
 func (o ProfileMailingAddressOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileMailingAddress) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -2973,7 +2740,6 @@ func (o ProfileMailingAddressPtrOutput) Elem() ProfileMailingAddressOutput {
 	}).(ProfileMailingAddressOutput)
 }
 
-// The first line of a customer address.
 func (o ProfileMailingAddressPtrOutput) Address1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileMailingAddress) *string {
 		if v == nil {
@@ -2983,7 +2749,6 @@ func (o ProfileMailingAddressPtrOutput) Address1() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The second line of a customer address.
 func (o ProfileMailingAddressPtrOutput) Address2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileMailingAddress) *string {
 		if v == nil {
@@ -2993,7 +2758,6 @@ func (o ProfileMailingAddressPtrOutput) Address2() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The third line of a customer address.
 func (o ProfileMailingAddressPtrOutput) Address3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileMailingAddress) *string {
 		if v == nil {
@@ -3003,7 +2767,6 @@ func (o ProfileMailingAddressPtrOutput) Address3() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fourth line of a customer address.
 func (o ProfileMailingAddressPtrOutput) Address4() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileMailingAddress) *string {
 		if v == nil {
@@ -3013,7 +2776,6 @@ func (o ProfileMailingAddressPtrOutput) Address4() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The city in which a customer lives.
 func (o ProfileMailingAddressPtrOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileMailingAddress) *string {
 		if v == nil {
@@ -3023,7 +2785,6 @@ func (o ProfileMailingAddressPtrOutput) City() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The country in which a customer lives.
 func (o ProfileMailingAddressPtrOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileMailingAddress) *string {
 		if v == nil {
@@ -3033,7 +2794,6 @@ func (o ProfileMailingAddressPtrOutput) Country() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The county in which a customer lives.
 func (o ProfileMailingAddressPtrOutput) County() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileMailingAddress) *string {
 		if v == nil {
@@ -3043,7 +2803,6 @@ func (o ProfileMailingAddressPtrOutput) County() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The postal code of a customer address.
 func (o ProfileMailingAddressPtrOutput) PostalCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileMailingAddress) *string {
 		if v == nil {
@@ -3053,7 +2812,6 @@ func (o ProfileMailingAddressPtrOutput) PostalCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The province in which a customer lives.
 func (o ProfileMailingAddressPtrOutput) Province() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileMailingAddress) *string {
 		if v == nil {
@@ -3063,7 +2821,6 @@ func (o ProfileMailingAddressPtrOutput) Province() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The state in which a customer lives.
 func (o ProfileMailingAddressPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileMailingAddress) *string {
 		if v == nil {
@@ -3074,26 +2831,16 @@ func (o ProfileMailingAddressPtrOutput) State() pulumi.StringPtrOutput {
 }
 
 type ProfileShippingAddress struct {
-	// The first line of a customer address.
-	Address1 *string `pulumi:"address1"`
-	// The second line of a customer address.
-	Address2 *string `pulumi:"address2"`
-	// The third line of a customer address.
-	Address3 *string `pulumi:"address3"`
-	// The fourth line of a customer address.
-	Address4 *string `pulumi:"address4"`
-	// The city in which a customer lives.
-	City *string `pulumi:"city"`
-	// The country in which a customer lives.
-	Country *string `pulumi:"country"`
-	// The county in which a customer lives.
-	County *string `pulumi:"county"`
-	// The postal code of a customer address.
+	Address1   *string `pulumi:"address1"`
+	Address2   *string `pulumi:"address2"`
+	Address3   *string `pulumi:"address3"`
+	Address4   *string `pulumi:"address4"`
+	City       *string `pulumi:"city"`
+	Country    *string `pulumi:"country"`
+	County     *string `pulumi:"county"`
 	PostalCode *string `pulumi:"postalCode"`
-	// The province in which a customer lives.
-	Province *string `pulumi:"province"`
-	// The state in which a customer lives.
-	State *string `pulumi:"state"`
+	Province   *string `pulumi:"province"`
+	State      *string `pulumi:"state"`
 }
 
 // ProfileShippingAddressInput is an input type that accepts ProfileShippingAddressArgs and ProfileShippingAddressOutput values.
@@ -3108,26 +2855,16 @@ type ProfileShippingAddressInput interface {
 }
 
 type ProfileShippingAddressArgs struct {
-	// The first line of a customer address.
-	Address1 pulumi.StringPtrInput `pulumi:"address1"`
-	// The second line of a customer address.
-	Address2 pulumi.StringPtrInput `pulumi:"address2"`
-	// The third line of a customer address.
-	Address3 pulumi.StringPtrInput `pulumi:"address3"`
-	// The fourth line of a customer address.
-	Address4 pulumi.StringPtrInput `pulumi:"address4"`
-	// The city in which a customer lives.
-	City pulumi.StringPtrInput `pulumi:"city"`
-	// The country in which a customer lives.
-	Country pulumi.StringPtrInput `pulumi:"country"`
-	// The county in which a customer lives.
-	County pulumi.StringPtrInput `pulumi:"county"`
-	// The postal code of a customer address.
+	Address1   pulumi.StringPtrInput `pulumi:"address1"`
+	Address2   pulumi.StringPtrInput `pulumi:"address2"`
+	Address3   pulumi.StringPtrInput `pulumi:"address3"`
+	Address4   pulumi.StringPtrInput `pulumi:"address4"`
+	City       pulumi.StringPtrInput `pulumi:"city"`
+	Country    pulumi.StringPtrInput `pulumi:"country"`
+	County     pulumi.StringPtrInput `pulumi:"county"`
 	PostalCode pulumi.StringPtrInput `pulumi:"postalCode"`
-	// The province in which a customer lives.
-	Province pulumi.StringPtrInput `pulumi:"province"`
-	// The state in which a customer lives.
-	State pulumi.StringPtrInput `pulumi:"state"`
+	Province   pulumi.StringPtrInput `pulumi:"province"`
+	State      pulumi.StringPtrInput `pulumi:"state"`
 }
 
 func (ProfileShippingAddressArgs) ElementType() reflect.Type {
@@ -3207,52 +2944,42 @@ func (o ProfileShippingAddressOutput) ToProfileShippingAddressPtrOutputWithConte
 	}).(ProfileShippingAddressPtrOutput)
 }
 
-// The first line of a customer address.
 func (o ProfileShippingAddressOutput) Address1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileShippingAddress) *string { return v.Address1 }).(pulumi.StringPtrOutput)
 }
 
-// The second line of a customer address.
 func (o ProfileShippingAddressOutput) Address2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileShippingAddress) *string { return v.Address2 }).(pulumi.StringPtrOutput)
 }
 
-// The third line of a customer address.
 func (o ProfileShippingAddressOutput) Address3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileShippingAddress) *string { return v.Address3 }).(pulumi.StringPtrOutput)
 }
 
-// The fourth line of a customer address.
 func (o ProfileShippingAddressOutput) Address4() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileShippingAddress) *string { return v.Address4 }).(pulumi.StringPtrOutput)
 }
 
-// The city in which a customer lives.
 func (o ProfileShippingAddressOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileShippingAddress) *string { return v.City }).(pulumi.StringPtrOutput)
 }
 
-// The country in which a customer lives.
 func (o ProfileShippingAddressOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileShippingAddress) *string { return v.Country }).(pulumi.StringPtrOutput)
 }
 
-// The county in which a customer lives.
 func (o ProfileShippingAddressOutput) County() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileShippingAddress) *string { return v.County }).(pulumi.StringPtrOutput)
 }
 
-// The postal code of a customer address.
 func (o ProfileShippingAddressOutput) PostalCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileShippingAddress) *string { return v.PostalCode }).(pulumi.StringPtrOutput)
 }
 
-// The province in which a customer lives.
 func (o ProfileShippingAddressOutput) Province() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileShippingAddress) *string { return v.Province }).(pulumi.StringPtrOutput)
 }
 
-// The state in which a customer lives.
 func (o ProfileShippingAddressOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileShippingAddress) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -3281,7 +3008,6 @@ func (o ProfileShippingAddressPtrOutput) Elem() ProfileShippingAddressOutput {
 	}).(ProfileShippingAddressOutput)
 }
 
-// The first line of a customer address.
 func (o ProfileShippingAddressPtrOutput) Address1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileShippingAddress) *string {
 		if v == nil {
@@ -3291,7 +3017,6 @@ func (o ProfileShippingAddressPtrOutput) Address1() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The second line of a customer address.
 func (o ProfileShippingAddressPtrOutput) Address2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileShippingAddress) *string {
 		if v == nil {
@@ -3301,7 +3026,6 @@ func (o ProfileShippingAddressPtrOutput) Address2() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The third line of a customer address.
 func (o ProfileShippingAddressPtrOutput) Address3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileShippingAddress) *string {
 		if v == nil {
@@ -3311,7 +3035,6 @@ func (o ProfileShippingAddressPtrOutput) Address3() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fourth line of a customer address.
 func (o ProfileShippingAddressPtrOutput) Address4() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileShippingAddress) *string {
 		if v == nil {
@@ -3321,7 +3044,6 @@ func (o ProfileShippingAddressPtrOutput) Address4() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The city in which a customer lives.
 func (o ProfileShippingAddressPtrOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileShippingAddress) *string {
 		if v == nil {
@@ -3331,7 +3053,6 @@ func (o ProfileShippingAddressPtrOutput) City() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The country in which a customer lives.
 func (o ProfileShippingAddressPtrOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileShippingAddress) *string {
 		if v == nil {
@@ -3341,7 +3062,6 @@ func (o ProfileShippingAddressPtrOutput) Country() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The county in which a customer lives.
 func (o ProfileShippingAddressPtrOutput) County() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileShippingAddress) *string {
 		if v == nil {
@@ -3351,7 +3071,6 @@ func (o ProfileShippingAddressPtrOutput) County() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The postal code of a customer address.
 func (o ProfileShippingAddressPtrOutput) PostalCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileShippingAddress) *string {
 		if v == nil {
@@ -3361,7 +3080,6 @@ func (o ProfileShippingAddressPtrOutput) PostalCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The province in which a customer lives.
 func (o ProfileShippingAddressPtrOutput) Province() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileShippingAddress) *string {
 		if v == nil {
@@ -3371,7 +3089,6 @@ func (o ProfileShippingAddressPtrOutput) Province() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The state in which a customer lives.
 func (o ProfileShippingAddressPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileShippingAddress) *string {
 		if v == nil {

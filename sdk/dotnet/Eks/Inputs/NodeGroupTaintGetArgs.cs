@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Eks.Inputs
 
     public sealed class NodeGroupTaintGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The effect of the taint. Valid values: `NO_SCHEDULE`, `NO_EXECUTE`, `PREFER_NO_SCHEDULE`.
-        /// </summary>
         [Input("effect", required: true)]
         public Input<string> Effect { get; set; } = null!;
 
-        /// <summary>
-        /// The key of the taint. Maximum length of 63.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        /// <summary>
-        /// The value of the taint. Maximum length of 63.
-        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

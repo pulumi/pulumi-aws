@@ -13,13 +13,7 @@ namespace Pulumi.Aws.VerifiedPermissions.Outputs
     [OutputType]
     public sealed class PolicyDefinitionTemplateLinkedPrincipal
     {
-        /// <summary>
-        /// The entity ID of the principal.
-        /// </summary>
         public readonly string EntityId;
-        /// <summary>
-        /// The entity type of the principal.
-        /// </summary>
         public readonly string EntityType;
 
         [OutputConstructor]

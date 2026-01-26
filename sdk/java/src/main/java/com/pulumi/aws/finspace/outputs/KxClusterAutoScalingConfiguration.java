@@ -12,77 +12,29 @@ import java.util.Objects;
 
 @CustomType
 public final class KxClusterAutoScalingConfiguration {
-    /**
-     * @return Metric your cluster will track in order to scale in and out. For example, CPU_UTILIZATION_PERCENTAGE is the average CPU usage across all nodes in a cluster.
-     * 
-     */
     private String autoScalingMetric;
-    /**
-     * @return Highest number of nodes to scale. Cannot be greater than 5
-     * 
-     */
     private Integer maxNodeCount;
-    /**
-     * @return Desired value of chosen `autoScalingMetric`. When metric drops below this value, cluster will scale in. When metric goes above this value, cluster will scale out. Can be set between 0 and 100 percent.
-     * 
-     */
     private Double metricTarget;
-    /**
-     * @return Lowest number of nodes to scale. Must be at least 1 and less than the `maxNodeCount`. If nodes in cluster belong to multiple availability zones, then `minNodeCount` must be at least 3.
-     * 
-     */
     private Integer minNodeCount;
-    /**
-     * @return Duration in seconds that FinSpace will wait after a scale in event before initiating another scaling event.
-     * 
-     */
     private Double scaleInCooldownSeconds;
-    /**
-     * @return Duration in seconds that FinSpace will wait after a scale out event before initiating another scaling event.
-     * 
-     */
     private Double scaleOutCooldownSeconds;
 
     private KxClusterAutoScalingConfiguration() {}
-    /**
-     * @return Metric your cluster will track in order to scale in and out. For example, CPU_UTILIZATION_PERCENTAGE is the average CPU usage across all nodes in a cluster.
-     * 
-     */
     public String autoScalingMetric() {
         return this.autoScalingMetric;
     }
-    /**
-     * @return Highest number of nodes to scale. Cannot be greater than 5
-     * 
-     */
     public Integer maxNodeCount() {
         return this.maxNodeCount;
     }
-    /**
-     * @return Desired value of chosen `autoScalingMetric`. When metric drops below this value, cluster will scale in. When metric goes above this value, cluster will scale out. Can be set between 0 and 100 percent.
-     * 
-     */
     public Double metricTarget() {
         return this.metricTarget;
     }
-    /**
-     * @return Lowest number of nodes to scale. Must be at least 1 and less than the `maxNodeCount`. If nodes in cluster belong to multiple availability zones, then `minNodeCount` must be at least 3.
-     * 
-     */
     public Integer minNodeCount() {
         return this.minNodeCount;
     }
-    /**
-     * @return Duration in seconds that FinSpace will wait after a scale in event before initiating another scaling event.
-     * 
-     */
     public Double scaleInCooldownSeconds() {
         return this.scaleInCooldownSeconds;
     }
-    /**
-     * @return Duration in seconds that FinSpace will wait after a scale out event before initiating another scaling event.
-     * 
-     */
     public Double scaleOutCooldownSeconds() {
         return this.scaleOutCooldownSeconds;
     }

@@ -11,37 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing oracle database network peering resource in AWS.
-//
-// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/odb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := odb.LookupNetworkPeeringConnection(ctx, &odb.LookupNetworkPeeringConnectionArgs{
-//				Id: "example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupNetworkPeeringConnection(ctx *pulumi.Context, args *LookupNetworkPeeringConnectionArgs, opts ...pulumi.InvokeOption) (*LookupNetworkPeeringConnectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkPeeringConnectionResult
@@ -54,38 +23,24 @@ func LookupNetworkPeeringConnection(ctx *pulumi.Context, args *LookupNetworkPeer
 
 // A collection of arguments for invoking getNetworkPeeringConnection.
 type LookupNetworkPeeringConnectionArgs struct {
-	// The unique identifier of the ODB network peering connection.
-	//
-	// The following arguments are optional:
-	Id string `pulumi:"id"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Id     string  `pulumi:"id"`
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getNetworkPeeringConnection.
 type LookupNetworkPeeringConnectionResult struct {
-	// The Amazon Resource Name (ARN) for the  ODB network peering connection.
-	Arn string `pulumi:"arn"`
-	// Created time of the ODB network peering connection.
-	CreatedAt string `pulumi:"createdAt"`
-	// Display name of the ODB network peering connection.
-	DisplayName string `pulumi:"displayName"`
-	Id          string `pulumi:"id"`
-	// ARN of the ODB network peering connection.
-	OdbNetworkArn string `pulumi:"odbNetworkArn"`
-	// Type of the ODB peering connection.
-	OdbPeeringConnectionType string `pulumi:"odbPeeringConnectionType"`
-	// ARN of the peer network peering connection.
-	PeerNetworkArn string `pulumi:"peerNetworkArn"`
-	// Progress of the ODB network peering connection.
-	PercentProgress float64 `pulumi:"percentProgress"`
-	Region          string  `pulumi:"region"`
-	// Status of the ODB network peering connection.
-	Status string `pulumi:"status"`
-	// Status of the ODB network peering connection.
-	StatusReason string `pulumi:"statusReason"`
-	// Tags applied to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Arn                      string            `pulumi:"arn"`
+	CreatedAt                string            `pulumi:"createdAt"`
+	DisplayName              string            `pulumi:"displayName"`
+	Id                       string            `pulumi:"id"`
+	OdbNetworkArn            string            `pulumi:"odbNetworkArn"`
+	OdbPeeringConnectionType string            `pulumi:"odbPeeringConnectionType"`
+	PeerNetworkArn           string            `pulumi:"peerNetworkArn"`
+	PercentProgress          float64           `pulumi:"percentProgress"`
+	Region                   string            `pulumi:"region"`
+	Status                   string            `pulumi:"status"`
+	StatusReason             string            `pulumi:"statusReason"`
+	Tags                     map[string]string `pulumi:"tags"`
 }
 
 func LookupNetworkPeeringConnectionOutput(ctx *pulumi.Context, args LookupNetworkPeeringConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkPeeringConnectionResultOutput {
@@ -99,11 +54,7 @@ func LookupNetworkPeeringConnectionOutput(ctx *pulumi.Context, args LookupNetwor
 
 // A collection of arguments for invoking getNetworkPeeringConnection.
 type LookupNetworkPeeringConnectionOutputArgs struct {
-	// The unique identifier of the ODB network peering connection.
-	//
-	// The following arguments are optional:
-	Id pulumi.StringInput `pulumi:"id"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Id     pulumi.StringInput    `pulumi:"id"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -126,17 +77,14 @@ func (o LookupNetworkPeeringConnectionResultOutput) ToLookupNetworkPeeringConnec
 	return o
 }
 
-// The Amazon Resource Name (ARN) for the  ODB network peering connection.
 func (o LookupNetworkPeeringConnectionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkPeeringConnectionResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Created time of the ODB network peering connection.
 func (o LookupNetworkPeeringConnectionResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkPeeringConnectionResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Display name of the ODB network peering connection.
 func (o LookupNetworkPeeringConnectionResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkPeeringConnectionResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
@@ -145,22 +93,18 @@ func (o LookupNetworkPeeringConnectionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkPeeringConnectionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// ARN of the ODB network peering connection.
 func (o LookupNetworkPeeringConnectionResultOutput) OdbNetworkArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkPeeringConnectionResult) string { return v.OdbNetworkArn }).(pulumi.StringOutput)
 }
 
-// Type of the ODB peering connection.
 func (o LookupNetworkPeeringConnectionResultOutput) OdbPeeringConnectionType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkPeeringConnectionResult) string { return v.OdbPeeringConnectionType }).(pulumi.StringOutput)
 }
 
-// ARN of the peer network peering connection.
 func (o LookupNetworkPeeringConnectionResultOutput) PeerNetworkArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkPeeringConnectionResult) string { return v.PeerNetworkArn }).(pulumi.StringOutput)
 }
 
-// Progress of the ODB network peering connection.
 func (o LookupNetworkPeeringConnectionResultOutput) PercentProgress() pulumi.Float64Output {
 	return o.ApplyT(func(v LookupNetworkPeeringConnectionResult) float64 { return v.PercentProgress }).(pulumi.Float64Output)
 }
@@ -169,17 +113,14 @@ func (o LookupNetworkPeeringConnectionResultOutput) Region() pulumi.StringOutput
 	return o.ApplyT(func(v LookupNetworkPeeringConnectionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Status of the ODB network peering connection.
 func (o LookupNetworkPeeringConnectionResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkPeeringConnectionResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Status of the ODB network peering connection.
 func (o LookupNetworkPeeringConnectionResultOutput) StatusReason() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkPeeringConnectionResult) string { return v.StatusReason }).(pulumi.StringOutput)
 }
 
-// Tags applied to the resource.
 func (o LookupNetworkPeeringConnectionResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupNetworkPeeringConnectionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

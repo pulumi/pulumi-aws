@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserPoolAdminCreateUserConfigInviteMessageTemplate {
-    /**
-     * @return - Email message content.
-     * 
-     */
     private String emailMessage;
-    /**
-     * @return - Email message subject.
-     * 
-     */
     private String emailSubject;
-    /**
-     * @return - SMS message content.
-     * 
-     */
     private String smsMessage;
 
     private GetUserPoolAdminCreateUserConfigInviteMessageTemplate() {}
-    /**
-     * @return - Email message content.
-     * 
-     */
     public String emailMessage() {
         return this.emailMessage;
     }
-    /**
-     * @return - Email message subject.
-     * 
-     */
     public String emailSubject() {
         return this.emailSubject;
     }
-    /**
-     * @return - SMS message content.
-     * 
-     */
     public String smsMessage() {
         return this.smsMessage;
     }

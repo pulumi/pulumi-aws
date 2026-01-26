@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class PackagePackageSource {
-    /**
-     * @return The name of the Amazon S3 bucket containing the package.
-     * 
-     */
     private String s3BucketName;
-    /**
-     * @return Key (file name) of the package.
-     * 
-     */
     private String s3Key;
 
     private PackagePackageSource() {}
-    /**
-     * @return The name of the Amazon S3 bucket containing the package.
-     * 
-     */
     public String s3BucketName() {
         return this.s3BucketName;
     }
-    /**
-     * @return Key (file name) of the package.
-     * 
-     */
     public String s3Key() {
         return this.s3Key;
     }

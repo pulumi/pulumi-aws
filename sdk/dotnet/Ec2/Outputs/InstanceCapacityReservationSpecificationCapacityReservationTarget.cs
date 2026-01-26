@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class InstanceCapacityReservationSpecificationCapacityReservationTarget
     {
-        /// <summary>
-        /// ID of the Capacity Reservation in which to run the instance.
-        /// </summary>
         public readonly string? CapacityReservationId;
-        /// <summary>
-        /// ARN of the Capacity Reservation resource group in which to run the instance.
-        /// </summary>
         public readonly string? CapacityReservationResourceGroupArn;
 
         [OutputConstructor]

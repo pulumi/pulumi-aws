@@ -15,32 +15,16 @@ public final class ApplicationMonitoringConfigurationS3MonitoringConfigurationAr
 
     public static final ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs Empty = new ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs();
 
-    /**
-     * The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
-     * 
-     */
     @Import(name="encryptionKeyArn")
     private @Nullable Output<String> encryptionKeyArn;
 
-    /**
-     * @return The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
-     * 
-     */
     public Optional<Output<String>> encryptionKeyArn() {
         return Optional.ofNullable(this.encryptionKeyArn);
     }
 
-    /**
-     * The Amazon S3 destination URI for log publishing.
-     * 
-     */
     @Import(name="logUri")
     private @Nullable Output<String> logUri;
 
-    /**
-     * @return The Amazon S3 destination URI for log publishing.
-     * 
-     */
     public Optional<Output<String>> logUri() {
         return Optional.ofNullable(this.logUri);
     }
@@ -70,44 +54,20 @@ public final class ApplicationMonitoringConfigurationS3MonitoringConfigurationAr
             $ = new ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param encryptionKeyArn The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionKeyArn(@Nullable Output<String> encryptionKeyArn) {
             $.encryptionKeyArn = encryptionKeyArn;
             return this;
         }
 
-        /**
-         * @param encryptionKeyArn The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionKeyArn(String encryptionKeyArn) {
             return encryptionKeyArn(Output.of(encryptionKeyArn));
         }
 
-        /**
-         * @param logUri The Amazon S3 destination URI for log publishing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logUri(@Nullable Output<String> logUri) {
             $.logUri = logUri;
             return this;
         }
 
-        /**
-         * @param logUri The Amazon S3 destination URI for log publishing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logUri(String logUri) {
             return logUri(Output.of(logUri));
         }

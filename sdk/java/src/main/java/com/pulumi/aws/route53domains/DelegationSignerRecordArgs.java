@@ -18,32 +18,16 @@ public final class DelegationSignerRecordArgs extends com.pulumi.resources.Resou
 
     public static final DelegationSignerRecordArgs Empty = new DelegationSignerRecordArgs();
 
-    /**
-     * The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
-     * 
-     */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
-    /**
-     * @return The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
 
-    /**
-     * The information about a key, including the algorithm, public key-value, and flags.
-     * 
-     */
     @Import(name="signingAttributes")
     private @Nullable Output<DelegationSignerRecordSigningAttributesArgs> signingAttributes;
 
-    /**
-     * @return The information about a key, including the algorithm, public key-value, and flags.
-     * 
-     */
     public Optional<Output<DelegationSignerRecordSigningAttributesArgs>> signingAttributes() {
         return Optional.ofNullable(this.signingAttributes);
     }
@@ -81,44 +65,20 @@ public final class DelegationSignerRecordArgs extends com.pulumi.resources.Resou
             $ = new DelegationSignerRecordArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domainName The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
-        /**
-         * @param domainName The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
-        /**
-         * @param signingAttributes The information about a key, including the algorithm, public key-value, and flags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder signingAttributes(@Nullable Output<DelegationSignerRecordSigningAttributesArgs> signingAttributes) {
             $.signingAttributes = signingAttributes;
             return this;
         }
 
-        /**
-         * @param signingAttributes The information about a key, including the algorithm, public key-value, and flags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder signingAttributes(DelegationSignerRecordSigningAttributesArgs signingAttributes) {
             return signingAttributes(Output.of(signingAttributes));
         }

@@ -64,9 +64,6 @@ class GetConnectionsResult:
     @_builtins.property
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
-        """
-        IDs of the connections.
-        """
         return pulumi.get(self, "ids")
 
     @_builtins.property
@@ -93,24 +90,7 @@ def get_connections(device_id: Optional[_builtins.str] = None,
                     tags: Optional[Mapping[str, _builtins.str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionsResult:
     """
-    Provides details about existing Network Manager connections.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_connections(global_network_id=global_network_id,
-        tags={
-            "Env": "test",
-        })
-    ```
-
-
-    :param _builtins.str device_id: ID of the device of the connections to retrieve.
-    :param _builtins.str global_network_id: ID of the Global Network of the connections to retrieve.
-    :param Mapping[str, _builtins.str] tags: Restricts the list to the connections with these tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['deviceId'] = device_id
@@ -130,24 +110,7 @@ def get_connections_output(device_id: Optional[pulumi.Input[Optional[_builtins.s
                            tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionsResult]:
     """
-    Provides details about existing Network Manager connections.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_connections(global_network_id=global_network_id,
-        tags={
-            "Env": "test",
-        })
-    ```
-
-
-    :param _builtins.str device_id: ID of the device of the connections to retrieve.
-    :param _builtins.str global_network_id: ID of the Global Network of the connections to retrieve.
-    :param Mapping[str, _builtins.str] tags: Restricts the list to the connections with these tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['deviceId'] = device_id

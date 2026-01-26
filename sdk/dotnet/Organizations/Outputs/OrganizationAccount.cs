@@ -13,37 +13,13 @@ namespace Pulumi.Aws.Organizations.Outputs
     [OutputType]
     public sealed class OrganizationAccount
     {
-        /// <summary>
-        /// ARN of the root.
-        /// </summary>
         public readonly string? Arn;
-        /// <summary>
-        /// Email of the account.
-        /// </summary>
         public readonly string? Email;
-        /// <summary>
-        /// Identifier of the root.
-        /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// Method by which the account joined the organization.
-        /// </summary>
         public readonly string? JoinedMethod;
-        /// <summary>
-        /// Date the account became a part of the organization.
-        /// </summary>
         public readonly string? JoinedTimestamp;
-        /// <summary>
-        /// Name of the policy type.
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// State of the account.
-        /// </summary>
         public readonly string? State;
-        /// <summary>
-        /// Status of the policy type as it relates to the associated root.
-        /// </summary>
         public readonly string? Status;
 
         [OutputConstructor]

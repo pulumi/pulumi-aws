@@ -11,75 +11,12 @@ namespace Pulumi.Aws.Backup
 {
     public static class GetReportPlan
     {
-        /// <summary>
-        /// Use this data source to get information on an existing backup report plan.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Backup.GetReportPlan.Invoke(new()
-        ///     {
-        ///         Name = "my_example_backup_report_plan_name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetReportPlanResult> InvokeAsync(GetReportPlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReportPlanResult>("aws:backup/getReportPlan:getReportPlan", args ?? new GetReportPlanArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information on an existing backup report plan.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Backup.GetReportPlan.Invoke(new()
-        ///     {
-        ///         Name = "my_example_backup_report_plan_name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetReportPlanResult> Invoke(GetReportPlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReportPlanResult>("aws:backup/getReportPlan:getReportPlan", args ?? new GetReportPlanInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information on an existing backup report plan.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Backup.GetReportPlan.Invoke(new()
-        ///     {
-        ///         Name = "my_example_backup_report_plan_name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetReportPlanResult> Invoke(GetReportPlanInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetReportPlanResult>("aws:backup/getReportPlan:getReportPlan", args ?? new GetReportPlanInvokeArgs(), options.WithDefaults());
     }
@@ -87,24 +24,14 @@ namespace Pulumi.Aws.Backup
 
     public sealed class GetReportPlanArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Backup report plan name.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Metadata that you can assign to help organize the report plans you create.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -119,24 +46,14 @@ namespace Pulumi.Aws.Backup
 
     public sealed class GetReportPlanInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Backup report plan name.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Metadata that you can assign to help organize the report plans you create.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -153,21 +70,9 @@ namespace Pulumi.Aws.Backup
     [OutputType]
     public sealed class GetReportPlanResult
     {
-        /// <summary>
-        /// ARN of the backup report plan.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
-        /// </summary>
         public readonly string CreationTime;
-        /// <summary>
-        /// Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
-        /// </summary>
         public readonly string DeploymentStatus;
-        /// <summary>
-        /// Description of the report plan.
-        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -175,17 +80,8 @@ namespace Pulumi.Aws.Backup
         public readonly string Id;
         public readonly string Name;
         public readonly string Region;
-        /// <summary>
-        /// An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetReportPlanReportDeliveryChannelResult> ReportDeliveryChannels;
-        /// <summary>
-        /// An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetReportPlanReportSettingResult> ReportSettings;
-        /// <summary>
-        /// Metadata that you can assign to help organize the report plans you create.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

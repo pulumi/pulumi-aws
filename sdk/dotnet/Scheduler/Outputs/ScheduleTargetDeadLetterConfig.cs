@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Scheduler.Outputs
     [OutputType]
     public sealed class ScheduleTargetDeadLetterConfig
     {
-        /// <summary>
-        /// ARN of the SQS queue specified as the destination for the dead-letter queue.
-        /// </summary>
         public readonly string Arn;
 
         [OutputConstructor]

@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
     {
         [Input("awsAccountIds")]
         private InputList<Inputs.FilterFilterCriteriaAwsAccountIdGetArgs>? _awsAccountIds;
-
-        /// <summary>
-        /// (Optional) The AWS account ID in which the finding was generated. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaAwsAccountIdGetArgs> AwsAccountIds
         {
             get => _awsAccountIds ?? (_awsAccountIds = new InputList<Inputs.FilterFilterCriteriaAwsAccountIdGetArgs>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("codeRepositoryProjectNames")]
         private InputList<Inputs.FilterFilterCriteriaCodeRepositoryProjectNameGetArgs>? _codeRepositoryProjectNames;
-
-        /// <summary>
-        /// (Optional) The project name in a code repository. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaCodeRepositoryProjectNameGetArgs> CodeRepositoryProjectNames
         {
             get => _codeRepositoryProjectNames ?? (_codeRepositoryProjectNames = new InputList<Inputs.FilterFilterCriteriaCodeRepositoryProjectNameGetArgs>());
@@ -38,10 +30,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("codeRepositoryProviderTypes")]
         private InputList<Inputs.FilterFilterCriteriaCodeRepositoryProviderTypeGetArgs>? _codeRepositoryProviderTypes;
-
-        /// <summary>
-        /// (Optional) The repository provider type (such as GitHub, GitLab, etc.) Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaCodeRepositoryProviderTypeGetArgs> CodeRepositoryProviderTypes
         {
             get => _codeRepositoryProviderTypes ?? (_codeRepositoryProviderTypes = new InputList<Inputs.FilterFilterCriteriaCodeRepositoryProviderTypeGetArgs>());
@@ -50,10 +38,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("codeVulnerabilityDetectorNames")]
         private InputList<Inputs.FilterFilterCriteriaCodeVulnerabilityDetectorNameGetArgs>? _codeVulnerabilityDetectorNames;
-
-        /// <summary>
-        /// (Optional) The ID of the component. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaCodeVulnerabilityDetectorNameGetArgs> CodeVulnerabilityDetectorNames
         {
             get => _codeVulnerabilityDetectorNames ?? (_codeVulnerabilityDetectorNames = new InputList<Inputs.FilterFilterCriteriaCodeVulnerabilityDetectorNameGetArgs>());
@@ -62,10 +46,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("codeVulnerabilityDetectorTags")]
         private InputList<Inputs.FilterFilterCriteriaCodeVulnerabilityDetectorTagGetArgs>? _codeVulnerabilityDetectorTags;
-
-        /// <summary>
-        /// (Optional) The ID of the component. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaCodeVulnerabilityDetectorTagGetArgs> CodeVulnerabilityDetectorTags
         {
             get => _codeVulnerabilityDetectorTags ?? (_codeVulnerabilityDetectorTags = new InputList<Inputs.FilterFilterCriteriaCodeVulnerabilityDetectorTagGetArgs>());
@@ -74,10 +54,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("codeVulnerabilityFilePaths")]
         private InputList<Inputs.FilterFilterCriteriaCodeVulnerabilityFilePathGetArgs>? _codeVulnerabilityFilePaths;
-
-        /// <summary>
-        /// (Optional) The ID of the component. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaCodeVulnerabilityFilePathGetArgs> CodeVulnerabilityFilePaths
         {
             get => _codeVulnerabilityFilePaths ?? (_codeVulnerabilityFilePaths = new InputList<Inputs.FilterFilterCriteriaCodeVulnerabilityFilePathGetArgs>());
@@ -86,10 +62,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("componentIds")]
         private InputList<Inputs.FilterFilterCriteriaComponentIdGetArgs>? _componentIds;
-
-        /// <summary>
-        /// (Optional) The ID of the component. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaComponentIdGetArgs> ComponentIds
         {
             get => _componentIds ?? (_componentIds = new InputList<Inputs.FilterFilterCriteriaComponentIdGetArgs>());
@@ -98,10 +70,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("componentTypes")]
         private InputList<Inputs.FilterFilterCriteriaComponentTypeGetArgs>? _componentTypes;
-
-        /// <summary>
-        /// (Optional) The type of the component. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaComponentTypeGetArgs> ComponentTypes
         {
             get => _componentTypes ?? (_componentTypes = new InputList<Inputs.FilterFilterCriteriaComponentTypeGetArgs>());
@@ -110,10 +78,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("ec2InstanceImageIds")]
         private InputList<Inputs.FilterFilterCriteriaEc2InstanceImageIdGetArgs>? _ec2InstanceImageIds;
-
-        /// <summary>
-        /// (Optional) The ID of the Amazon Machine Image (AMI). Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaEc2InstanceImageIdGetArgs> Ec2InstanceImageIds
         {
             get => _ec2InstanceImageIds ?? (_ec2InstanceImageIds = new InputList<Inputs.FilterFilterCriteriaEc2InstanceImageIdGetArgs>());
@@ -122,10 +86,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("ec2InstanceSubnetIds")]
         private InputList<Inputs.FilterFilterCriteriaEc2InstanceSubnetIdGetArgs>? _ec2InstanceSubnetIds;
-
-        /// <summary>
-        /// (Optional) The ID of the subnet. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaEc2InstanceSubnetIdGetArgs> Ec2InstanceSubnetIds
         {
             get => _ec2InstanceSubnetIds ?? (_ec2InstanceSubnetIds = new InputList<Inputs.FilterFilterCriteriaEc2InstanceSubnetIdGetArgs>());
@@ -134,10 +94,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("ec2InstanceVpcIds")]
         private InputList<Inputs.FilterFilterCriteriaEc2InstanceVpcIdGetArgs>? _ec2InstanceVpcIds;
-
-        /// <summary>
-        /// (Optional) The ID of the VPC. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaEc2InstanceVpcIdGetArgs> Ec2InstanceVpcIds
         {
             get => _ec2InstanceVpcIds ?? (_ec2InstanceVpcIds = new InputList<Inputs.FilterFilterCriteriaEc2InstanceVpcIdGetArgs>());
@@ -146,10 +102,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("ecrImageArchitectures")]
         private InputList<Inputs.FilterFilterCriteriaEcrImageArchitectureGetArgs>? _ecrImageArchitectures;
-
-        /// <summary>
-        /// (Optional) The architecture of the ECR image. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaEcrImageArchitectureGetArgs> EcrImageArchitectures
         {
             get => _ecrImageArchitectures ?? (_ecrImageArchitectures = new InputList<Inputs.FilterFilterCriteriaEcrImageArchitectureGetArgs>());
@@ -158,10 +110,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("ecrImageHashes")]
         private InputList<Inputs.FilterFilterCriteriaEcrImageHashGetArgs>? _ecrImageHashes;
-
-        /// <summary>
-        /// (Optional) The SHA256 hash of the ECR image. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaEcrImageHashGetArgs> EcrImageHashes
         {
             get => _ecrImageHashes ?? (_ecrImageHashes = new InputList<Inputs.FilterFilterCriteriaEcrImageHashGetArgs>());
@@ -170,10 +118,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("ecrImageInUseCounts")]
         private InputList<Inputs.FilterFilterCriteriaEcrImageInUseCountGetArgs>? _ecrImageInUseCounts;
-
-        /// <summary>
-        /// (Optional)  The number of the ECR images in use. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaEcrImageInUseCountGetArgs> EcrImageInUseCounts
         {
             get => _ecrImageInUseCounts ?? (_ecrImageInUseCounts = new InputList<Inputs.FilterFilterCriteriaEcrImageInUseCountGetArgs>());
@@ -182,10 +126,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("ecrImageLastInUseAts")]
         private InputList<Inputs.FilterFilterCriteriaEcrImageLastInUseAtGetArgs>? _ecrImageLastInUseAts;
-
-        /// <summary>
-        /// (Optional) The date range when an ECR image was last used in an ECS cluster task or EKS cluster pod. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaEcrImageLastInUseAtGetArgs> EcrImageLastInUseAts
         {
             get => _ecrImageLastInUseAts ?? (_ecrImageLastInUseAts = new InputList<Inputs.FilterFilterCriteriaEcrImageLastInUseAtGetArgs>());
@@ -194,10 +134,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("ecrImagePushedAts")]
         private InputList<Inputs.FilterFilterCriteriaEcrImagePushedAtGetArgs>? _ecrImagePushedAts;
-
-        /// <summary>
-        /// (Optional) The date range when the image was pushed. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaEcrImagePushedAtGetArgs> EcrImagePushedAts
         {
             get => _ecrImagePushedAts ?? (_ecrImagePushedAts = new InputList<Inputs.FilterFilterCriteriaEcrImagePushedAtGetArgs>());
@@ -206,10 +142,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("ecrImageRegistries")]
         private InputList<Inputs.FilterFilterCriteriaEcrImageRegistryGetArgs>? _ecrImageRegistries;
-
-        /// <summary>
-        /// (Optional) The registry of the ECR image. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaEcrImageRegistryGetArgs> EcrImageRegistries
         {
             get => _ecrImageRegistries ?? (_ecrImageRegistries = new InputList<Inputs.FilterFilterCriteriaEcrImageRegistryGetArgs>());
@@ -218,10 +150,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("ecrImageRepositoryNames")]
         private InputList<Inputs.FilterFilterCriteriaEcrImageRepositoryNameGetArgs>? _ecrImageRepositoryNames;
-
-        /// <summary>
-        /// (Optional) The name of the ECR repository. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaEcrImageRepositoryNameGetArgs> EcrImageRepositoryNames
         {
             get => _ecrImageRepositoryNames ?? (_ecrImageRepositoryNames = new InputList<Inputs.FilterFilterCriteriaEcrImageRepositoryNameGetArgs>());
@@ -230,10 +158,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("ecrImageTags")]
         private InputList<Inputs.FilterFilterCriteriaEcrImageTagGetArgs>? _ecrImageTags;
-
-        /// <summary>
-        /// (Optional) The tags associated with the ECR image. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaEcrImageTagGetArgs> EcrImageTags
         {
             get => _ecrImageTags ?? (_ecrImageTags = new InputList<Inputs.FilterFilterCriteriaEcrImageTagGetArgs>());
@@ -242,10 +166,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("epssScores")]
         private InputList<Inputs.FilterFilterCriteriaEpssScoreGetArgs>? _epssScores;
-
-        /// <summary>
-        /// (Optional) EPSS (Exploit Prediction Scoring System) Score of the finding. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaEpssScoreGetArgs> EpssScores
         {
             get => _epssScores ?? (_epssScores = new InputList<Inputs.FilterFilterCriteriaEpssScoreGetArgs>());
@@ -254,10 +174,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("exploitAvailables")]
         private InputList<Inputs.FilterFilterCriteriaExploitAvailableGetArgs>? _exploitAvailables;
-
-        /// <summary>
-        /// (Optional) Availability of exploits. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaExploitAvailableGetArgs> ExploitAvailables
         {
             get => _exploitAvailables ?? (_exploitAvailables = new InputList<Inputs.FilterFilterCriteriaExploitAvailableGetArgs>());
@@ -266,10 +182,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("findingArns")]
         private InputList<Inputs.FilterFilterCriteriaFindingArnGetArgs>? _findingArns;
-
-        /// <summary>
-        /// (Optional) The ARN of the finding. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaFindingArnGetArgs> FindingArns
         {
             get => _findingArns ?? (_findingArns = new InputList<Inputs.FilterFilterCriteriaFindingArnGetArgs>());
@@ -278,10 +190,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("findingStatuses")]
         private InputList<Inputs.FilterFilterCriteriaFindingStatusGetArgs>? _findingStatuses;
-
-        /// <summary>
-        /// (Optional) The status of the finding. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaFindingStatusGetArgs> FindingStatuses
         {
             get => _findingStatuses ?? (_findingStatuses = new InputList<Inputs.FilterFilterCriteriaFindingStatusGetArgs>());
@@ -290,10 +198,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("findingTypes")]
         private InputList<Inputs.FilterFilterCriteriaFindingTypeGetArgs>? _findingTypes;
-
-        /// <summary>
-        /// (Optional) The type of the finding. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaFindingTypeGetArgs> FindingTypes
         {
             get => _findingTypes ?? (_findingTypes = new InputList<Inputs.FilterFilterCriteriaFindingTypeGetArgs>());
@@ -302,10 +206,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("firstObservedAts")]
         private InputList<Inputs.FilterFilterCriteriaFirstObservedAtGetArgs>? _firstObservedAts;
-
-        /// <summary>
-        /// (Optional) When the finding was first observed. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaFirstObservedAtGetArgs> FirstObservedAts
         {
             get => _firstObservedAts ?? (_firstObservedAts = new InputList<Inputs.FilterFilterCriteriaFirstObservedAtGetArgs>());
@@ -314,10 +214,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("fixAvailables")]
         private InputList<Inputs.FilterFilterCriteriaFixAvailableGetArgs>? _fixAvailables;
-
-        /// <summary>
-        /// (Optional) Availability of the fix. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaFixAvailableGetArgs> FixAvailables
         {
             get => _fixAvailables ?? (_fixAvailables = new InputList<Inputs.FilterFilterCriteriaFixAvailableGetArgs>());
@@ -326,10 +222,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("inspectorScores")]
         private InputList<Inputs.FilterFilterCriteriaInspectorScoreGetArgs>? _inspectorScores;
-
-        /// <summary>
-        /// (Optional) The Inspector score given to the finding. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaInspectorScoreGetArgs> InspectorScores
         {
             get => _inspectorScores ?? (_inspectorScores = new InputList<Inputs.FilterFilterCriteriaInspectorScoreGetArgs>());
@@ -338,10 +230,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("lambdaFunctionExecutionRoleArns")]
         private InputList<Inputs.FilterFilterCriteriaLambdaFunctionExecutionRoleArnGetArgs>? _lambdaFunctionExecutionRoleArns;
-
-        /// <summary>
-        /// (Optional) Lambda execution role ARN. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaLambdaFunctionExecutionRoleArnGetArgs> LambdaFunctionExecutionRoleArns
         {
             get => _lambdaFunctionExecutionRoleArns ?? (_lambdaFunctionExecutionRoleArns = new InputList<Inputs.FilterFilterCriteriaLambdaFunctionExecutionRoleArnGetArgs>());
@@ -350,10 +238,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("lambdaFunctionLastModifiedAts")]
         private InputList<Inputs.FilterFilterCriteriaLambdaFunctionLastModifiedAtGetArgs>? _lambdaFunctionLastModifiedAts;
-
-        /// <summary>
-        /// (Optional) Last modified timestamp of the lambda function. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaLambdaFunctionLastModifiedAtGetArgs> LambdaFunctionLastModifiedAts
         {
             get => _lambdaFunctionLastModifiedAts ?? (_lambdaFunctionLastModifiedAts = new InputList<Inputs.FilterFilterCriteriaLambdaFunctionLastModifiedAtGetArgs>());
@@ -362,10 +246,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("lambdaFunctionLayers")]
         private InputList<Inputs.FilterFilterCriteriaLambdaFunctionLayerGetArgs>? _lambdaFunctionLayers;
-
-        /// <summary>
-        /// (Optional) Lambda function layers. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaLambdaFunctionLayerGetArgs> LambdaFunctionLayers
         {
             get => _lambdaFunctionLayers ?? (_lambdaFunctionLayers = new InputList<Inputs.FilterFilterCriteriaLambdaFunctionLayerGetArgs>());
@@ -374,10 +254,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("lambdaFunctionNames")]
         private InputList<Inputs.FilterFilterCriteriaLambdaFunctionNameGetArgs>? _lambdaFunctionNames;
-
-        /// <summary>
-        /// (Optional) Lambda function name. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaLambdaFunctionNameGetArgs> LambdaFunctionNames
         {
             get => _lambdaFunctionNames ?? (_lambdaFunctionNames = new InputList<Inputs.FilterFilterCriteriaLambdaFunctionNameGetArgs>());
@@ -386,10 +262,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("lambdaFunctionRuntimes")]
         private InputList<Inputs.FilterFilterCriteriaLambdaFunctionRuntimeGetArgs>? _lambdaFunctionRuntimes;
-
-        /// <summary>
-        /// (Optional) Lambda function runtime. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaLambdaFunctionRuntimeGetArgs> LambdaFunctionRuntimes
         {
             get => _lambdaFunctionRuntimes ?? (_lambdaFunctionRuntimes = new InputList<Inputs.FilterFilterCriteriaLambdaFunctionRuntimeGetArgs>());
@@ -398,10 +270,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("lastObservedAts")]
         private InputList<Inputs.FilterFilterCriteriaLastObservedAtGetArgs>? _lastObservedAts;
-
-        /// <summary>
-        /// (Optional) When the finding was last observed. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaLastObservedAtGetArgs> LastObservedAts
         {
             get => _lastObservedAts ?? (_lastObservedAts = new InputList<Inputs.FilterFilterCriteriaLastObservedAtGetArgs>());
@@ -410,10 +278,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("networkProtocols")]
         private InputList<Inputs.FilterFilterCriteriaNetworkProtocolGetArgs>? _networkProtocols;
-
-        /// <summary>
-        /// (Optional) The network protocol of the finding. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaNetworkProtocolGetArgs> NetworkProtocols
         {
             get => _networkProtocols ?? (_networkProtocols = new InputList<Inputs.FilterFilterCriteriaNetworkProtocolGetArgs>());
@@ -422,10 +286,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("portRanges")]
         private InputList<Inputs.FilterFilterCriteriaPortRangeGetArgs>? _portRanges;
-
-        /// <summary>
-        /// (Optional) The port range of the finding. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaPortRangeGetArgs> PortRanges
         {
             get => _portRanges ?? (_portRanges = new InputList<Inputs.FilterFilterCriteriaPortRangeGetArgs>());
@@ -434,10 +294,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("relatedVulnerabilities")]
         private InputList<Inputs.FilterFilterCriteriaRelatedVulnerabilityGetArgs>? _relatedVulnerabilities;
-
-        /// <summary>
-        /// (Optional) Related vulnerabilities. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaRelatedVulnerabilityGetArgs> RelatedVulnerabilities
         {
             get => _relatedVulnerabilities ?? (_relatedVulnerabilities = new InputList<Inputs.FilterFilterCriteriaRelatedVulnerabilityGetArgs>());
@@ -446,10 +302,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("resourceIds")]
         private InputList<Inputs.FilterFilterCriteriaResourceIdGetArgs>? _resourceIds;
-
-        /// <summary>
-        /// (Optional) The ID of the resource. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaResourceIdGetArgs> ResourceIds
         {
             get => _resourceIds ?? (_resourceIds = new InputList<Inputs.FilterFilterCriteriaResourceIdGetArgs>());
@@ -458,10 +310,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("resourceTags")]
         private InputList<Inputs.FilterFilterCriteriaResourceTagGetArgs>? _resourceTags;
-
-        /// <summary>
-        /// (Optional) The tags of the resource. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaResourceTagGetArgs> ResourceTags
         {
             get => _resourceTags ?? (_resourceTags = new InputList<Inputs.FilterFilterCriteriaResourceTagGetArgs>());
@@ -470,10 +318,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("resourceTypes")]
         private InputList<Inputs.FilterFilterCriteriaResourceTypeGetArgs>? _resourceTypes;
-
-        /// <summary>
-        /// (Optional) The type of the resource. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaResourceTypeGetArgs> ResourceTypes
         {
             get => _resourceTypes ?? (_resourceTypes = new InputList<Inputs.FilterFilterCriteriaResourceTypeGetArgs>());
@@ -482,10 +326,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("severities")]
         private InputList<Inputs.FilterFilterCriteriaSeverityGetArgs>? _severities;
-
-        /// <summary>
-        /// (Optional) The severity of the finding. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaSeverityGetArgs> Severities
         {
             get => _severities ?? (_severities = new InputList<Inputs.FilterFilterCriteriaSeverityGetArgs>());
@@ -494,10 +334,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("titles")]
         private InputList<Inputs.FilterFilterCriteriaTitleGetArgs>? _titles;
-
-        /// <summary>
-        /// (Optional) The title of the finding. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaTitleGetArgs> Titles
         {
             get => _titles ?? (_titles = new InputList<Inputs.FilterFilterCriteriaTitleGetArgs>());
@@ -506,10 +342,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("updatedAts")]
         private InputList<Inputs.FilterFilterCriteriaUpdatedAtGetArgs>? _updatedAts;
-
-        /// <summary>
-        /// (Optional) When the finding was last updated. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaUpdatedAtGetArgs> UpdatedAts
         {
             get => _updatedAts ?? (_updatedAts = new InputList<Inputs.FilterFilterCriteriaUpdatedAtGetArgs>());
@@ -518,10 +350,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("vendorSeverities")]
         private InputList<Inputs.FilterFilterCriteriaVendorSeverityGetArgs>? _vendorSeverities;
-
-        /// <summary>
-        /// (Optional) The severity as reported by the vendor. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaVendorSeverityGetArgs> VendorSeverities
         {
             get => _vendorSeverities ?? (_vendorSeverities = new InputList<Inputs.FilterFilterCriteriaVendorSeverityGetArgs>());
@@ -530,10 +358,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("vulnerabilityIds")]
         private InputList<Inputs.FilterFilterCriteriaVulnerabilityIdGetArgs>? _vulnerabilityIds;
-
-        /// <summary>
-        /// (Optional) The ID of the vulnerability. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaVulnerabilityIdGetArgs> VulnerabilityIds
         {
             get => _vulnerabilityIds ?? (_vulnerabilityIds = new InputList<Inputs.FilterFilterCriteriaVulnerabilityIdGetArgs>());
@@ -542,10 +366,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("vulnerabilitySources")]
         private InputList<Inputs.FilterFilterCriteriaVulnerabilitySourceGetArgs>? _vulnerabilitySources;
-
-        /// <summary>
-        /// (Optional) The source of the vulnerability. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaVulnerabilitySourceGetArgs> VulnerabilitySources
         {
             get => _vulnerabilitySources ?? (_vulnerabilitySources = new InputList<Inputs.FilterFilterCriteriaVulnerabilitySourceGetArgs>());
@@ -554,10 +374,6 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
         [Input("vulnerablePackages")]
         private InputList<Inputs.FilterFilterCriteriaVulnerablePackageGetArgs>? _vulnerablePackages;
-
-        /// <summary>
-        /// (Optional) Details about vulnerable packages. Documented below.
-        /// </summary>
         public InputList<Inputs.FilterFilterCriteriaVulnerablePackageGetArgs> VulnerablePackages
         {
             get => _vulnerablePackages ?? (_vulnerablePackages = new InputList<Inputs.FilterFilterCriteriaVulnerablePackageGetArgs>());

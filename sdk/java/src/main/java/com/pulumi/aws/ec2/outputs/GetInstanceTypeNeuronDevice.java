@@ -14,10 +14,6 @@ public final class GetInstanceTypeNeuronDevice {
     private Integer coreCount;
     private Integer coreVersion;
     private Integer count;
-    /**
-     * @return Size of the instance memory, in MiB.
-     * 
-     */
     private Integer memorySize;
     private String name;
 
@@ -31,10 +27,6 @@ public final class GetInstanceTypeNeuronDevice {
     public Integer count() {
         return this.count;
     }
-    /**
-     * @return Size of the instance memory, in MiB.
-     * 
-     */
     public Integer memorySize() {
         return this.memorySize;
     }

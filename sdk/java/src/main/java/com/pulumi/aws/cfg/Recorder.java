@@ -15,241 +15,35 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AWS Config Configuration Recorder. Please note that this resource **does not start** the created recorder automatically.
- * 
- * &gt; **Note:** _Starting_ the Configuration Recorder requires a delivery channel (while delivery channel creation requires Configuration Recorder). This is why `aws.cfg.RecorderStatus` is a separate resource.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.cfg.Recorder;
- * import com.pulumi.aws.cfg.RecorderArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("config.amazonaws.com")
- *                     .build())
- *                 .actions("sts:AssumeRole")
- *                 .build())
- *             .build());
- * 
- *         var r = new Role("r", RoleArgs.builder()
- *             .name("awsconfig-example")
- *             .assumeRolePolicy(assumeRole.json())
- *             .build());
- * 
- *         var foo = new Recorder("foo", RecorderArgs.builder()
- *             .name("example")
- *             .roleArn(r.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Exclude Resources Types Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cfg.Recorder;
- * import com.pulumi.aws.cfg.RecorderArgs;
- * import com.pulumi.aws.cfg.inputs.RecorderRecordingGroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo = new Recorder("foo", RecorderArgs.builder()
- *             .name("example")
- *             .roleArn(r.arn())
- *             .recordingGroup(RecorderRecordingGroupArgs.builder()
- *                 .allSupported(false)
- *                 .exclusionByResourceTypes(RecorderRecordingGroupExclusionByResourceTypeArgs.builder()
- *                     .resourceTypes("AWS::EC2::Instance")
- *                     .build())
- *                 .recordingStrategies(RecorderRecordingGroupRecordingStrategyArgs.builder()
- *                     .useOnly("EXCLUSION_BY_RESOURCE_TYPES")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Periodic Recording
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cfg.Recorder;
- * import com.pulumi.aws.cfg.RecorderArgs;
- * import com.pulumi.aws.cfg.inputs.RecorderRecordingGroupArgs;
- * import com.pulumi.aws.cfg.inputs.RecorderRecordingModeArgs;
- * import com.pulumi.aws.cfg.inputs.RecorderRecordingModeRecordingModeOverrideArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo = new Recorder("foo", RecorderArgs.builder()
- *             .name("example")
- *             .roleArn(r.arn())
- *             .recordingGroup(RecorderRecordingGroupArgs.builder()
- *                 .allSupported(false)
- *                 .includeGlobalResourceTypes(false)
- *                 .resourceTypes(                
- *                     "AWS::EC2::Instance",
- *                     "AWS::EC2::NetworkInterface")
- *                 .build())
- *             .recordingMode(RecorderRecordingModeArgs.builder()
- *                 .recordingFrequency("CONTINUOUS")
- *                 .recordingModeOverride(RecorderRecordingModeRecordingModeOverrideArgs.builder()
- *                     .description("Only record EC2 network interfaces daily")
- *                     .resourceTypes("AWS::EC2::NetworkInterface")
- *                     .recordingFrequency("DAILY")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Configuration Recorder using the name. For example:
- * 
- * ```sh
- * $ pulumi import aws:cfg/recorder:Recorder foo example
- * ```
- * 
- */
 @ResourceType(type="aws:cfg/recorder:Recorder")
 public class Recorder extends com.pulumi.resources.CustomResource {
-    /**
-     * The name of the recorder. Defaults to `default`. Changing it recreates the resource.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the recorder. Defaults to `default`. Changing it recreates the resource.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Recording group - see below.
-     * 
-     */
     @Export(name="recordingGroup", refs={RecorderRecordingGroup.class}, tree="[0]")
     private Output<RecorderRecordingGroup> recordingGroup;
 
-    /**
-     * @return Recording group - see below.
-     * 
-     */
     public Output<RecorderRecordingGroup> recordingGroup() {
         return this.recordingGroup;
     }
-    /**
-     * Recording mode - see below.
-     * 
-     */
     @Export(name="recordingMode", refs={RecorderRecordingMode.class}, tree="[0]")
     private Output<RecorderRecordingMode> recordingMode;
 
-    /**
-     * @return Recording mode - see below.
-     * 
-     */
     public Output<RecorderRecordingMode> recordingMode() {
         return this.recordingMode;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
-     * 
-     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }

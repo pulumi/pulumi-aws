@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPolicyDocumentStatementCondition {
-    /**
-     * @return Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate.
-     * 
-     */
     private String test;
-    /**
-     * @return Values to evaluate the condition against. If multiple values are provided, the condition matches if at least one of them applies. That is, AWS evaluates multiple values as though using an &#34;OR&#34; boolean operation.
-     * 
-     */
     private List<String> values;
-    /**
-     * @return Name of a [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) to apply the condition to. Context variables may either be standard AWS variables starting with `aws:` or service-specific variables prefixed with the service name.
-     * 
-     */
     private String variable;
 
     private GetPolicyDocumentStatementCondition() {}
-    /**
-     * @return Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate.
-     * 
-     */
     public String test() {
         return this.test;
     }
-    /**
-     * @return Values to evaluate the condition against. If multiple values are provided, the condition matches if at least one of them applies. That is, AWS evaluates multiple values as though using an &#34;OR&#34; boolean operation.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }
-    /**
-     * @return Name of a [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) to apply the condition to. Context variables may either be standard AWS variables starting with `aws:` or service-specific variables prefixed with the service name.
-     * 
-     */
     public String variable() {
         return this.variable;
     }

@@ -12,95 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS CloudWatch Observability Access Manager Sink Policy.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/oam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := oam.NewSink(ctx, "example", &oam.SinkArgs{
-//				Name: pulumi.String("ExampleSink"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": []string{
-//							"oam:CreateLink",
-//							"oam:UpdateLink",
-//						},
-//						"Effect":   "Allow",
-//						"Resource": "*",
-//						"Principal": map[string]interface{}{
-//							"AWS": []string{
-//								"1111111111111",
-//								"222222222222",
-//							},
-//						},
-//						"Condition": map[string]interface{}{
-//							"ForAllValues:StringEquals": map[string]interface{}{
-//								"oam:ResourceTypes": []string{
-//									"AWS::CloudWatch::Metric",
-//									"AWS::Logs::LogGroup",
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = oam.NewSinkPolicy(ctx, "example", &oam.SinkPolicyArgs{
-//				SinkIdentifier: example.Arn,
-//				Policy:         pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CloudWatch Observability Access Manager Sink Policy using the `sink_identifier`. For example:
-//
-// ```sh
-// $ pulumi import aws:oam/sinkPolicy:SinkPolicy example arn:aws:oam:us-west-2:123456789012:sink/sink-id
-// ```
 type SinkPolicy struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Sink.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ID string that AWS generated as part of the sink ARN.
-	SinkId pulumi.StringOutput `pulumi:"sinkId"`
-	// ARN of the sink to attach this policy to.
+	Arn            pulumi.StringOutput `pulumi:"arn"`
+	Policy         pulumi.StringOutput `pulumi:"policy"`
+	Region         pulumi.StringOutput `pulumi:"region"`
+	SinkId         pulumi.StringOutput `pulumi:"sinkId"`
 	SinkIdentifier pulumi.StringOutput `pulumi:"sinkIdentifier"`
 }
 
@@ -140,28 +58,18 @@ func GetSinkPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SinkPolicy resources.
 type sinkPolicyState struct {
-	// ARN of the Sink.
-	Arn *string `pulumi:"arn"`
-	// JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
-	Policy *string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID string that AWS generated as part of the sink ARN.
-	SinkId *string `pulumi:"sinkId"`
-	// ARN of the sink to attach this policy to.
+	Arn            *string `pulumi:"arn"`
+	Policy         *string `pulumi:"policy"`
+	Region         *string `pulumi:"region"`
+	SinkId         *string `pulumi:"sinkId"`
 	SinkIdentifier *string `pulumi:"sinkIdentifier"`
 }
 
 type SinkPolicyState struct {
-	// ARN of the Sink.
-	Arn pulumi.StringPtrInput
-	// JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
-	Policy pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ID string that AWS generated as part of the sink ARN.
-	SinkId pulumi.StringPtrInput
-	// ARN of the sink to attach this policy to.
+	Arn            pulumi.StringPtrInput
+	Policy         pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
+	SinkId         pulumi.StringPtrInput
 	SinkIdentifier pulumi.StringPtrInput
 }
 
@@ -170,21 +78,15 @@ func (SinkPolicyState) ElementType() reflect.Type {
 }
 
 type sinkPolicyArgs struct {
-	// JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
-	Policy string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the sink to attach this policy to.
-	SinkIdentifier string `pulumi:"sinkIdentifier"`
+	Policy         string  `pulumi:"policy"`
+	Region         *string `pulumi:"region"`
+	SinkIdentifier string  `pulumi:"sinkIdentifier"`
 }
 
 // The set of arguments for constructing a SinkPolicy resource.
 type SinkPolicyArgs struct {
-	// JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
-	Policy pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN of the sink to attach this policy to.
+	Policy         pulumi.StringInput
+	Region         pulumi.StringPtrInput
 	SinkIdentifier pulumi.StringInput
 }
 
@@ -275,27 +177,22 @@ func (o SinkPolicyOutput) ToSinkPolicyOutputWithContext(ctx context.Context) Sin
 	return o
 }
 
-// ARN of the Sink.
 func (o SinkPolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SinkPolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
 func (o SinkPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *SinkPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SinkPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SinkPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ID string that AWS generated as part of the sink ARN.
 func (o SinkPolicyOutput) SinkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SinkPolicy) pulumi.StringOutput { return v.SinkId }).(pulumi.StringOutput)
 }
 
-// ARN of the sink to attach this policy to.
 func (o SinkPolicyOutput) SinkIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *SinkPolicy) pulumi.StringOutput { return v.SinkIdentifier }).(pulumi.StringOutput)
 }

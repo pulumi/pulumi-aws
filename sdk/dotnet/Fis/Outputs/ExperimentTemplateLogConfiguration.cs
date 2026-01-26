@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Fis.Outputs
     [OutputType]
     public sealed class ExperimentTemplateLogConfiguration
     {
-        /// <summary>
-        /// The configuration for experiment logging to Amazon CloudWatch Logs. See below.
-        /// </summary>
         public readonly Outputs.ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration? CloudwatchLogsConfiguration;
-        /// <summary>
-        /// The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
-        /// </summary>
         public readonly int LogSchemaVersion;
-        /// <summary>
-        /// The configuration for experiment logging to Amazon S3. See below.
-        /// </summary>
         public readonly Outputs.ExperimentTemplateLogConfigurationS3Configuration? S3Configuration;
 
         [OutputConstructor]

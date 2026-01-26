@@ -9,233 +9,42 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DataZone
 {
-    /// <summary>
-    /// Resource for managing an AWS DataZone Environment Profile.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var domainExecutionRole = new Aws.Iam.Role("domain_execution_role", new()
-    ///     {
-    ///         Name = "example-name",
-    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Action"] = new[]
-    ///                     {
-    ///                         "sts:AssumeRole",
-    ///                         "sts:TagSession",
-    ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Service"] = "datazone.amazonaws.com",
-    ///                     },
-    ///                 },
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Action"] = new[]
-    ///                     {
-    ///                         "sts:AssumeRole",
-    ///                         "sts:TagSession",
-    ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Service"] = "cloudformation.amazonaws.com",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }),
-    ///         InlinePolicies = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.RoleInlinePolicyArgs
-    ///             {
-    ///                 Name = "example-name",
-    ///                 Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Version"] = "2012-10-17",
-    ///                     ["Statement"] = new[]
-    ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["Action"] = new[]
-    ///                             {
-    ///                                 "datazone:*",
-    ///                                 "ram:*",
-    ///                                 "sso:*",
-    ///                                 "kms:*",
-    ///                             },
-    ///                             ["Effect"] = "Allow",
-    ///                             ["Resource"] = "*",
-    ///                         },
-    ///                     },
-    ///                 }),
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var testDomain = new Aws.DataZone.Domain("test", new()
-    ///     {
-    ///         Name = "example-name",
-    ///         DomainExecutionRole = domainExecutionRole.Arn,
-    ///     });
-    /// 
-    ///     var testSecurityGroup = new Aws.Ec2.SecurityGroup("test", new()
-    ///     {
-    ///         Name = "example-name",
-    ///     });
-    /// 
-    ///     var testProject = new Aws.DataZone.Project("test", new()
-    ///     {
-    ///         DomainIdentifier = testDomain.Id,
-    ///         GlossaryTerms = new[]
-    ///         {
-    ///             "2N8w6XJCwZf",
-    ///         },
-    ///         Name = "example-name",
-    ///         Description = "desc",
-    ///         SkipDeletionCheck = true,
-    ///     });
-    /// 
-    ///     var test = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var testGetRegion = Aws.GetRegion.Invoke();
-    /// 
-    ///     var testGetEnvironmentBlueprint = Aws.DataZone.GetEnvironmentBlueprint.Invoke(new()
-    ///     {
-    ///         DomainId = testDomain.Id,
-    ///         Name = "DefaultDataLake",
-    ///         Managed = true,
-    ///     });
-    /// 
-    ///     var testEnvironmentBlueprintConfiguration = new Aws.DataZone.EnvironmentBlueprintConfiguration("test", new()
-    ///     {
-    ///         DomainId = testDomain.Id,
-    ///         EnvironmentBlueprintId = testGetEnvironmentBlueprint.Apply(getEnvironmentBlueprintResult =&gt; getEnvironmentBlueprintResult.Id),
-    ///         ProvisioningRoleArn = domainExecutionRole.Arn,
-    ///         EnabledRegions = new[]
-    ///         {
-    ///             testGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name),
-    ///         },
-    ///     });
-    /// 
-    ///     var testEnvironmentProfile = new Aws.DataZone.EnvironmentProfile("test", new()
-    ///     {
-    ///         AwsAccountId = test.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///         AwsAccountRegion = testGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name),
-    ///         Description = "description",
-    ///         EnvironmentBlueprintIdentifier = testGetEnvironmentBlueprint.Apply(getEnvironmentBlueprintResult =&gt; getEnvironmentBlueprintResult.Id),
-    ///         Name = "example-name",
-    ///         ProjectIdentifier = testProject.Id,
-    ///         DomainIdentifier = testDomain.Id,
-    ///         UserParameters = new[]
-    ///         {
-    ///             new Aws.DataZone.Inputs.EnvironmentProfileUserParameterArgs
-    ///             {
-    ///                 Name = "consumerGlueDbName",
-    ///                 Value = "value",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import DataZone Environment Profile using a comma-delimited string combining `id` and `domain_identifier`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:datazone/environmentProfile:EnvironmentProfile example environment_profile-id-12345678,domain-id-12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:datazone/environmentProfile:EnvironmentProfile")]
     public partial class EnvironmentProfile : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Id of the AWS account being used.
-        /// </summary>
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// Desired region for environment profile.
-        /// </summary>
         [Output("awsAccountRegion")]
         public Output<string> AwsAccountRegion { get; private set; } = null!;
 
-        /// <summary>
-        /// Creation time of environment profile.
-        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// Creator of environment profile.
-        /// </summary>
         [Output("createdBy")]
         public Output<string> CreatedBy { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of environment profile.
-        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Domain Identifier for environment profile.
-        /// </summary>
         [Output("domainIdentifier")]
         public Output<string> DomainIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the blueprint which the environment will be created with.
-        /// </summary>
         [Output("environmentBlueprintIdentifier")]
         public Output<string> EnvironmentBlueprintIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the environment profile.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Project identifier for environment profile.
-        /// </summary>
         [Output("projectIdentifier")]
         public Output<string> ProjectIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Time of last update to environment profile.
-        /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// Array of user parameters of the environment profile with the following attributes:
-        /// </summary>
         [Output("userParameters")]
         public Output<ImmutableArray<Outputs.EnvironmentProfileUserParameter>> UserParameters { get; private set; } = null!;
 
@@ -285,60 +94,32 @@ namespace Pulumi.Aws.DataZone
 
     public sealed class EnvironmentProfileArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Id of the AWS account being used.
-        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// Desired region for environment profile.
-        /// </summary>
         [Input("awsAccountRegion", required: true)]
         public Input<string> AwsAccountRegion { get; set; } = null!;
 
-        /// <summary>
-        /// Description of environment profile.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Domain Identifier for environment profile.
-        /// </summary>
         [Input("domainIdentifier", required: true)]
         public Input<string> DomainIdentifier { get; set; } = null!;
 
-        /// <summary>
-        /// ID of the blueprint which the environment will be created with.
-        /// </summary>
         [Input("environmentBlueprintIdentifier", required: true)]
         public Input<string> EnvironmentBlueprintIdentifier { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the environment profile.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Project identifier for environment profile.
-        /// </summary>
         [Input("projectIdentifier", required: true)]
         public Input<string> ProjectIdentifier { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("userParameters")]
         private InputList<Inputs.EnvironmentProfileUserParameterArgs>? _userParameters;
-
-        /// <summary>
-        /// Array of user parameters of the environment profile with the following attributes:
-        /// </summary>
         public InputList<Inputs.EnvironmentProfileUserParameterArgs> UserParameters
         {
             get => _userParameters ?? (_userParameters = new InputList<Inputs.EnvironmentProfileUserParameterArgs>());
@@ -353,78 +134,41 @@ namespace Pulumi.Aws.DataZone
 
     public sealed class EnvironmentProfileState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Id of the AWS account being used.
-        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// Desired region for environment profile.
-        /// </summary>
         [Input("awsAccountRegion")]
         public Input<string>? AwsAccountRegion { get; set; }
 
-        /// <summary>
-        /// Creation time of environment profile.
-        /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
-        /// <summary>
-        /// Creator of environment profile.
-        /// </summary>
         [Input("createdBy")]
         public Input<string>? CreatedBy { get; set; }
 
-        /// <summary>
-        /// Description of environment profile.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Domain Identifier for environment profile.
-        /// </summary>
         [Input("domainIdentifier")]
         public Input<string>? DomainIdentifier { get; set; }
 
-        /// <summary>
-        /// ID of the blueprint which the environment will be created with.
-        /// </summary>
         [Input("environmentBlueprintIdentifier")]
         public Input<string>? EnvironmentBlueprintIdentifier { get; set; }
 
-        /// <summary>
-        /// Name of the environment profile.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Project identifier for environment profile.
-        /// </summary>
         [Input("projectIdentifier")]
         public Input<string>? ProjectIdentifier { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Time of last update to environment profile.
-        /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }
 
         [Input("userParameters")]
         private InputList<Inputs.EnvironmentProfileUserParameterGetArgs>? _userParameters;
-
-        /// <summary>
-        /// Array of user parameters of the environment profile with the following attributes:
-        /// </summary>
         public InputList<Inputs.EnvironmentProfileUserParameterGetArgs> UserParameters
         {
             get => _userParameters ?? (_userParameters = new InputList<Inputs.EnvironmentProfileUserParameterGetArgs>());

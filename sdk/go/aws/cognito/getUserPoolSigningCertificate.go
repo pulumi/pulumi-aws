@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get the signing certificate for a Cognito IdP user pool.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cognito"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cognito.GetUserPoolSigningCertificate(ctx, &cognito.GetUserPoolSigningCertificateArgs{
-//				UserPoolId: myPool.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetUserPoolSigningCertificate(ctx *pulumi.Context, args *GetUserPoolSigningCertificateArgs, opts ...pulumi.InvokeOption) (*GetUserPoolSigningCertificateResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetUserPoolSigningCertificateResult
@@ -50,15 +23,12 @@ func GetUserPoolSigningCertificate(ctx *pulumi.Context, args *GetUserPoolSigning
 
 // A collection of arguments for invoking getUserPoolSigningCertificate.
 type GetUserPoolSigningCertificateArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Cognito user pool ID.
-	UserPoolId string `pulumi:"userPoolId"`
+	Region     *string `pulumi:"region"`
+	UserPoolId string  `pulumi:"userPoolId"`
 }
 
 // A collection of values returned by getUserPoolSigningCertificate.
 type GetUserPoolSigningCertificateResult struct {
-	// Certificate string
 	Certificate string `pulumi:"certificate"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
@@ -77,10 +47,8 @@ func GetUserPoolSigningCertificateOutput(ctx *pulumi.Context, args GetUserPoolSi
 
 // A collection of arguments for invoking getUserPoolSigningCertificate.
 type GetUserPoolSigningCertificateOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Cognito user pool ID.
-	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
+	UserPoolId pulumi.StringInput    `pulumi:"userPoolId"`
 }
 
 func (GetUserPoolSigningCertificateOutputArgs) ElementType() reflect.Type {
@@ -102,7 +70,6 @@ func (o GetUserPoolSigningCertificateResultOutput) ToGetUserPoolSigningCertifica
 	return o
 }
 
-// Certificate string
 func (o GetUserPoolSigningCertificateResultOutput) Certificate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserPoolSigningCertificateResult) string { return v.Certificate }).(pulumi.StringOutput)
 }

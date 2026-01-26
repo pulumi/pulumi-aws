@@ -25,18 +25,6 @@ class NotificationConfigurationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NotificationConfiguration resource.
-        :param pulumi.Input[_builtins.str] description: Description of the NotificationConfiguration. Length constraints: Minimum length of 0,
-               maximum length of 256.
-        :param pulumi.Input[_builtins.str] aggregation_duration: Aggregation preference of the NotificationConfiguration. Valid values: `LONG` (
-               aggregate notifications for 12 hours), `SHORT` (aggregate notifications for 5 minutes), `NONE` (don't aggregate
-               notifications). Default: `NONE`.
-        :param pulumi.Input[_builtins.str] name: Name of the NotificationConfiguration. Supports RFC 3986's unreserved characters. Length
-               constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_\\-]+`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. A tag is a string-to-string map of key-value pairs. If
-               configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those
-               defined at the provider-level.
         """
         pulumi.set(__self__, "description", description)
         if aggregation_duration is not None:
@@ -49,10 +37,6 @@ class NotificationConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[_builtins.str]:
-        """
-        Description of the NotificationConfiguration. Length constraints: Minimum length of 0,
-        maximum length of 256.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -62,11 +46,6 @@ class NotificationConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="aggregationDuration")
     def aggregation_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Aggregation preference of the NotificationConfiguration. Valid values: `LONG` (
-        aggregate notifications for 12 hours), `SHORT` (aggregate notifications for 5 minutes), `NONE` (don't aggregate
-        notifications). Default: `NONE`.
-        """
         return pulumi.get(self, "aggregation_duration")
 
     @aggregation_duration.setter
@@ -76,12 +55,6 @@ class NotificationConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the NotificationConfiguration. Supports RFC 3986's unreserved characters. Length
-        constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_\\-]+`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -91,11 +64,6 @@ class NotificationConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. A tag is a string-to-string map of key-value pairs. If
-        configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those
-        defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -114,21 +82,6 @@ class _NotificationConfigurationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering NotificationConfiguration resources.
-        :param pulumi.Input[_builtins.str] aggregation_duration: Aggregation preference of the NotificationConfiguration. Valid values: `LONG` (
-               aggregate notifications for 12 hours), `SHORT` (aggregate notifications for 5 minutes), `NONE` (don't aggregate
-               notifications). Default: `NONE`.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the NotificationConfiguration.
-        :param pulumi.Input[_builtins.str] description: Description of the NotificationConfiguration. Length constraints: Minimum length of 0,
-               maximum length of 256.
-        :param pulumi.Input[_builtins.str] name: Name of the NotificationConfiguration. Supports RFC 3986's unreserved characters. Length
-               constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_\\-]+`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. A tag is a string-to-string map of key-value pairs. If
-               configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those
-               defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags`
-               configuration block.
         """
         if aggregation_duration is not None:
             pulumi.set(__self__, "aggregation_duration", aggregation_duration)
@@ -146,11 +99,6 @@ class _NotificationConfigurationState:
     @_builtins.property
     @pulumi.getter(name="aggregationDuration")
     def aggregation_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Aggregation preference of the NotificationConfiguration. Valid values: `LONG` (
-        aggregate notifications for 12 hours), `SHORT` (aggregate notifications for 5 minutes), `NONE` (don't aggregate
-        notifications). Default: `NONE`.
-        """
         return pulumi.get(self, "aggregation_duration")
 
     @aggregation_duration.setter
@@ -160,9 +108,6 @@ class _NotificationConfigurationState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the NotificationConfiguration.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -172,10 +117,6 @@ class _NotificationConfigurationState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the NotificationConfiguration. Length constraints: Minimum length of 0,
-        maximum length of 256.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -185,12 +126,6 @@ class _NotificationConfigurationState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the NotificationConfiguration. Supports RFC 3986's unreserved characters. Length
-        constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_\\-]+`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -200,11 +135,6 @@ class _NotificationConfigurationState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. A tag is a string-to-string map of key-value pairs. If
-        configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those
-        defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -214,10 +144,6 @@ class _NotificationConfigurationState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags`
-        configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -237,63 +163,9 @@ class NotificationConfiguration(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS User Notifications Notification Configuration.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.notifications.NotificationConfiguration("example",
-            name="example",
-            description="Example notification configuration",
-            tags={
-                "Environment": "production",
-                "Project": "example",
-            })
-        ```
-
-        ### With Aggregation Duration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.notifications.NotificationConfiguration("example",
-            name="example-aggregation",
-            description="Example notification configuration with aggregation",
-            aggregation_duration="SHORT",
-            tags={
-                "Environment": "production",
-                "Project": "example",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import User Notifications Notification Configuration using the `arn`. For example:
-
-        ```sh
-        $ pulumi import aws:notifications/notificationConfiguration:NotificationConfiguration example arn:aws:notifications::123456789012:configuration/abcdef1234567890abcdef1234567890
-        ```
-
+        Create a NotificationConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] aggregation_duration: Aggregation preference of the NotificationConfiguration. Valid values: `LONG` (
-               aggregate notifications for 12 hours), `SHORT` (aggregate notifications for 5 minutes), `NONE` (don't aggregate
-               notifications). Default: `NONE`.
-        :param pulumi.Input[_builtins.str] description: Description of the NotificationConfiguration. Length constraints: Minimum length of 0,
-               maximum length of 256.
-        :param pulumi.Input[_builtins.str] name: Name of the NotificationConfiguration. Supports RFC 3986's unreserved characters. Length
-               constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_\\-]+`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. A tag is a string-to-string map of key-value pairs. If
-               configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those
-               defined at the provider-level.
         """
         ...
     @overload
@@ -302,49 +174,7 @@ class NotificationConfiguration(pulumi.CustomResource):
                  args: NotificationConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS User Notifications Notification Configuration.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.notifications.NotificationConfiguration("example",
-            name="example",
-            description="Example notification configuration",
-            tags={
-                "Environment": "production",
-                "Project": "example",
-            })
-        ```
-
-        ### With Aggregation Duration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.notifications.NotificationConfiguration("example",
-            name="example-aggregation",
-            description="Example notification configuration with aggregation",
-            aggregation_duration="SHORT",
-            tags={
-                "Environment": "production",
-                "Project": "example",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import User Notifications Notification Configuration using the `arn`. For example:
-
-        ```sh
-        $ pulumi import aws:notifications/notificationConfiguration:NotificationConfiguration example arn:aws:notifications::123456789012:configuration/abcdef1234567890abcdef1234567890
-        ```
-
+        Create a NotificationConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param NotificationConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -404,21 +234,6 @@ class NotificationConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] aggregation_duration: Aggregation preference of the NotificationConfiguration. Valid values: `LONG` (
-               aggregate notifications for 12 hours), `SHORT` (aggregate notifications for 5 minutes), `NONE` (don't aggregate
-               notifications). Default: `NONE`.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the NotificationConfiguration.
-        :param pulumi.Input[_builtins.str] description: Description of the NotificationConfiguration. Length constraints: Minimum length of 0,
-               maximum length of 256.
-        :param pulumi.Input[_builtins.str] name: Name of the NotificationConfiguration. Supports RFC 3986's unreserved characters. Length
-               constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_\\-]+`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. A tag is a string-to-string map of key-value pairs. If
-               configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those
-               defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags`
-               configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -435,57 +250,30 @@ class NotificationConfiguration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="aggregationDuration")
     def aggregation_duration(self) -> pulumi.Output[_builtins.str]:
-        """
-        Aggregation preference of the NotificationConfiguration. Valid values: `LONG` (
-        aggregate notifications for 12 hours), `SHORT` (aggregate notifications for 5 minutes), `NONE` (don't aggregate
-        notifications). Default: `NONE`.
-        """
         return pulumi.get(self, "aggregation_duration")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the NotificationConfiguration.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:
-        """
-        Description of the NotificationConfiguration. Length constraints: Minimum length of 0,
-        maximum length of 256.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the NotificationConfiguration. Supports RFC 3986's unreserved characters. Length
-        constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_\\-]+`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. A tag is a string-to-string map of key-value pairs. If
-        configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those
-        defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags`
-        configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

@@ -4,38 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Virtual Private Gateway attachment resource, allowing for an existing
- * hardware VPN gateway to be attached and/or detached from a VPC.
- *
- * > **Note:** The `aws.ec2.VpnGateway`
- * resource can also automatically attach the Virtual Private Gateway it creates
- * to an existing VPC by setting the `vpcId` attribute accordingly.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const network = new aws.ec2.Vpc("network", {cidrBlock: "10.0.0.0/16"});
- * const vpn = new aws.ec2.VpnGateway("vpn", {tags: {
- *     Name: "example-vpn-gateway",
- * }});
- * const vpnAttachment = new aws.ec2.VpnGatewayAttachment("vpn_attachment", {
- *     vpcId: network.id,
- *     vpnGatewayId: vpn.id,
- * });
- * ```
- *
- * See [Virtual Private Cloud](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html)
- * and [Virtual Private Gateway](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html) user
- * guides for more information.
- *
- * ## Import
- *
- * You cannot import this resource.
- */
 export class VpnGatewayAttachment extends pulumi.CustomResource {
     /**
      * Get an existing VpnGatewayAttachment resource's state with the given name, ID, and optional extra
@@ -64,17 +32,8 @@ export class VpnGatewayAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpnGatewayAttachment.__pulumiType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The ID of the VPC.
-     */
     declare public readonly vpcId: pulumi.Output<string>;
-    /**
-     * The ID of the Virtual Private Gateway.
-     */
     declare public readonly vpnGatewayId: pulumi.Output<string>;
 
     /**
@@ -114,17 +73,8 @@ export class VpnGatewayAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpnGatewayAttachment resources.
  */
 export interface VpnGatewayAttachmentState {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the VPC.
-     */
     vpcId?: pulumi.Input<string>;
-    /**
-     * The ID of the Virtual Private Gateway.
-     */
     vpnGatewayId?: pulumi.Input<string>;
 }
 
@@ -132,16 +82,7 @@ export interface VpnGatewayAttachmentState {
  * The set of arguments for constructing a VpnGatewayAttachment resource.
  */
 export interface VpnGatewayAttachmentArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the VPC.
-     */
     vpcId: pulumi.Input<string>;
-    /**
-     * The ID of the Virtual Private Gateway.
-     */
     vpnGatewayId: pulumi.Input<string>;
 }

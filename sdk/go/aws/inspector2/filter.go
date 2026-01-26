@@ -12,77 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Inspector Filter.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/inspector2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := inspector2.NewFilter(ctx, "example", &inspector2.FilterArgs{
-//				Name:   pulumi.String("test"),
-//				Action: pulumi.String("NONE"),
-//				FilterCriterias: inspector2.FilterFilterCriteriaArray{
-//					&inspector2.FilterFilterCriteriaArgs{
-//						AwsAccountIds: inspector2.FilterFilterCriteriaAwsAccountIdArray{
-//							&inspector2.FilterFilterCriteriaAwsAccountIdArgs{
-//								Comparison: pulumi.String("EQUALS"),
-//								Value:      pulumi.String("111222333444"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Inspector Filter using the `arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:inspector2/filter:Filter example "arn:aws:inspector2:us-east-1:111222333444:owner/111222333444/filter/abcdefgh12345678"
-// ```
 type Filter struct {
 	pulumi.CustomResourceState
 
-	// Action to be applied to the findings that maatch the filter. Possible values are `NONE` and `SUPPRESS`
-	Action pulumi.StringOutput `pulumi:"action"`
-	// ARN of the Filter.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Description
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Details on the filter criteria. Documented below.
-	//
-	// The following arguments are optional:
+	Action          pulumi.StringOutput             `pulumi:"action"`
+	Arn             pulumi.StringOutput             `pulumi:"arn"`
+	Description     pulumi.StringPtrOutput          `pulumi:"description"`
 	FilterCriterias FilterFilterCriteriaArrayOutput `pulumi:"filterCriterias"`
-	// Name of the filter.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Reason for creating the filter
-	Reason pulumi.StringPtrOutput `pulumi:"reason"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Name            pulumi.StringOutput             `pulumi:"name"`
+	Reason          pulumi.StringPtrOutput          `pulumi:"reason"`
+	Region          pulumi.StringOutput             `pulumi:"region"`
+	Tags            pulumi.StringMapOutput          `pulumi:"tags"`
+	TagsAll         pulumi.StringMapOutput          `pulumi:"tagsAll"`
 }
 
 // NewFilter registers a new resource with the given unique name, arguments, and options.
@@ -118,49 +59,27 @@ func GetFilter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Filter resources.
 type filterState struct {
-	// Action to be applied to the findings that maatch the filter. Possible values are `NONE` and `SUPPRESS`
-	Action *string `pulumi:"action"`
-	// ARN of the Filter.
-	Arn *string `pulumi:"arn"`
-	// Description
-	Description *string `pulumi:"description"`
-	// Details on the filter criteria. Documented below.
-	//
-	// The following arguments are optional:
+	Action          *string                `pulumi:"action"`
+	Arn             *string                `pulumi:"arn"`
+	Description     *string                `pulumi:"description"`
 	FilterCriterias []FilterFilterCriteria `pulumi:"filterCriterias"`
-	// Name of the filter.
-	Name *string `pulumi:"name"`
-	// Reason for creating the filter
-	Reason *string `pulumi:"reason"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Name            *string                `pulumi:"name"`
+	Reason          *string                `pulumi:"reason"`
+	Region          *string                `pulumi:"region"`
+	Tags            map[string]string      `pulumi:"tags"`
+	TagsAll         map[string]string      `pulumi:"tagsAll"`
 }
 
 type FilterState struct {
-	// Action to be applied to the findings that maatch the filter. Possible values are `NONE` and `SUPPRESS`
-	Action pulumi.StringPtrInput
-	// ARN of the Filter.
-	Arn pulumi.StringPtrInput
-	// Description
-	Description pulumi.StringPtrInput
-	// Details on the filter criteria. Documented below.
-	//
-	// The following arguments are optional:
+	Action          pulumi.StringPtrInput
+	Arn             pulumi.StringPtrInput
+	Description     pulumi.StringPtrInput
 	FilterCriterias FilterFilterCriteriaArrayInput
-	// Name of the filter.
-	Name pulumi.StringPtrInput
-	// Reason for creating the filter
-	Reason pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Name            pulumi.StringPtrInput
+	Reason          pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
+	Tags            pulumi.StringMapInput
+	TagsAll         pulumi.StringMapInput
 }
 
 func (FilterState) ElementType() reflect.Type {
@@ -168,42 +87,24 @@ func (FilterState) ElementType() reflect.Type {
 }
 
 type filterArgs struct {
-	// Action to be applied to the findings that maatch the filter. Possible values are `NONE` and `SUPPRESS`
-	Action string `pulumi:"action"`
-	// Description
-	Description *string `pulumi:"description"`
-	// Details on the filter criteria. Documented below.
-	//
-	// The following arguments are optional:
+	Action          string                 `pulumi:"action"`
+	Description     *string                `pulumi:"description"`
 	FilterCriterias []FilterFilterCriteria `pulumi:"filterCriterias"`
-	// Name of the filter.
-	Name *string `pulumi:"name"`
-	// Reason for creating the filter
-	Reason *string `pulumi:"reason"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Name            *string                `pulumi:"name"`
+	Reason          *string                `pulumi:"reason"`
+	Region          *string                `pulumi:"region"`
+	Tags            map[string]string      `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Filter resource.
 type FilterArgs struct {
-	// Action to be applied to the findings that maatch the filter. Possible values are `NONE` and `SUPPRESS`
-	Action pulumi.StringInput
-	// Description
-	Description pulumi.StringPtrInput
-	// Details on the filter criteria. Documented below.
-	//
-	// The following arguments are optional:
+	Action          pulumi.StringInput
+	Description     pulumi.StringPtrInput
 	FilterCriterias FilterFilterCriteriaArrayInput
-	// Name of the filter.
-	Name pulumi.StringPtrInput
-	// Reason for creating the filter
-	Reason pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name            pulumi.StringPtrInput
+	Reason          pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
+	Tags            pulumi.StringMapInput
 }
 
 func (FilterArgs) ElementType() reflect.Type {
@@ -293,49 +194,38 @@ func (o FilterOutput) ToFilterOutputWithContext(ctx context.Context) FilterOutpu
 	return o
 }
 
-// Action to be applied to the findings that maatch the filter. Possible values are `NONE` and `SUPPRESS`
 func (o FilterOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v *Filter) pulumi.StringOutput { return v.Action }).(pulumi.StringOutput)
 }
 
-// ARN of the Filter.
 func (o FilterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Filter) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description
 func (o FilterOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Filter) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Details on the filter criteria. Documented below.
-//
-// The following arguments are optional:
 func (o FilterOutput) FilterCriterias() FilterFilterCriteriaArrayOutput {
 	return o.ApplyT(func(v *Filter) FilterFilterCriteriaArrayOutput { return v.FilterCriterias }).(FilterFilterCriteriaArrayOutput)
 }
 
-// Name of the filter.
 func (o FilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Filter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Reason for creating the filter
 func (o FilterOutput) Reason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Filter) pulumi.StringPtrOutput { return v.Reason }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o FilterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Filter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o FilterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Filter) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o FilterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Filter) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

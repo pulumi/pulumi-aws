@@ -12,85 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CloudFront Field-level Encryption Profile resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "public_key.pem",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := cloudfront.NewPublicKey(ctx, "example", &cloudfront.PublicKeyArgs{
-//				Comment:    pulumi.String("test public key"),
-//				EncodedKey: pulumi.String(invokeFile.Result),
-//				Name:       pulumi.String("test_key"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudfront.NewFieldLevelEncryptionProfile(ctx, "test", &cloudfront.FieldLevelEncryptionProfileArgs{
-//				Comment: pulumi.String("test comment"),
-//				Name:    pulumi.String("test profile"),
-//				EncryptionEntities: &cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesArgs{
-//					Items: cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemArray{
-//						&cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemArgs{
-//							PublicKeyId: example.ID(),
-//							ProviderId:  pulumi.String("test provider"),
-//							FieldPatterns: &cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs{
-//								Items: pulumi.StringArray{
-//									pulumi.String("DateOfBirth"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Cloudfront Field Level Encryption Profile using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile profile K3D5EWEUDCCXON
-// ```
 type FieldLevelEncryptionProfile struct {
 	pulumi.CustomResourceState
 
-	// The Field Level Encryption Profile ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
-	CallerReference pulumi.StringOutput `pulumi:"callerReference"`
-	// An optional comment about the Field Level Encryption Profile.
-	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
+	Arn                pulumi.StringOutput                                 `pulumi:"arn"`
+	CallerReference    pulumi.StringOutput                                 `pulumi:"callerReference"`
+	Comment            pulumi.StringPtrOutput                              `pulumi:"comment"`
 	EncryptionEntities FieldLevelEncryptionProfileEncryptionEntitiesOutput `pulumi:"encryptionEntities"`
-	// The current version of the Field Level Encryption Profile. For example: `E2QWRUHAPOMQZL`.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The name of the Field Level Encryption Profile.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Etag               pulumi.StringOutput                                 `pulumi:"etag"`
+	Name               pulumi.StringOutput                                 `pulumi:"name"`
 }
 
 // NewFieldLevelEncryptionProfile registers a new resource with the given unique name, arguments, and options.
@@ -126,33 +56,21 @@ func GetFieldLevelEncryptionProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FieldLevelEncryptionProfile resources.
 type fieldLevelEncryptionProfileState struct {
-	// The Field Level Encryption Profile ARN.
-	Arn *string `pulumi:"arn"`
-	// Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
-	CallerReference *string `pulumi:"callerReference"`
-	// An optional comment about the Field Level Encryption Profile.
-	Comment *string `pulumi:"comment"`
-	// The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
+	Arn                *string                                        `pulumi:"arn"`
+	CallerReference    *string                                        `pulumi:"callerReference"`
+	Comment            *string                                        `pulumi:"comment"`
 	EncryptionEntities *FieldLevelEncryptionProfileEncryptionEntities `pulumi:"encryptionEntities"`
-	// The current version of the Field Level Encryption Profile. For example: `E2QWRUHAPOMQZL`.
-	Etag *string `pulumi:"etag"`
-	// The name of the Field Level Encryption Profile.
-	Name *string `pulumi:"name"`
+	Etag               *string                                        `pulumi:"etag"`
+	Name               *string                                        `pulumi:"name"`
 }
 
 type FieldLevelEncryptionProfileState struct {
-	// The Field Level Encryption Profile ARN.
-	Arn pulumi.StringPtrInput
-	// Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
-	CallerReference pulumi.StringPtrInput
-	// An optional comment about the Field Level Encryption Profile.
-	Comment pulumi.StringPtrInput
-	// The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
+	Arn                pulumi.StringPtrInput
+	CallerReference    pulumi.StringPtrInput
+	Comment            pulumi.StringPtrInput
 	EncryptionEntities FieldLevelEncryptionProfileEncryptionEntitiesPtrInput
-	// The current version of the Field Level Encryption Profile. For example: `E2QWRUHAPOMQZL`.
-	Etag pulumi.StringPtrInput
-	// The name of the Field Level Encryption Profile.
-	Name pulumi.StringPtrInput
+	Etag               pulumi.StringPtrInput
+	Name               pulumi.StringPtrInput
 }
 
 func (FieldLevelEncryptionProfileState) ElementType() reflect.Type {
@@ -160,22 +78,16 @@ func (FieldLevelEncryptionProfileState) ElementType() reflect.Type {
 }
 
 type fieldLevelEncryptionProfileArgs struct {
-	// An optional comment about the Field Level Encryption Profile.
-	Comment *string `pulumi:"comment"`
-	// The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
+	Comment            *string                                       `pulumi:"comment"`
 	EncryptionEntities FieldLevelEncryptionProfileEncryptionEntities `pulumi:"encryptionEntities"`
-	// The name of the Field Level Encryption Profile.
-	Name *string `pulumi:"name"`
+	Name               *string                                       `pulumi:"name"`
 }
 
 // The set of arguments for constructing a FieldLevelEncryptionProfile resource.
 type FieldLevelEncryptionProfileArgs struct {
-	// An optional comment about the Field Level Encryption Profile.
-	Comment pulumi.StringPtrInput
-	// The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
+	Comment            pulumi.StringPtrInput
 	EncryptionEntities FieldLevelEncryptionProfileEncryptionEntitiesInput
-	// The name of the Field Level Encryption Profile.
-	Name pulumi.StringPtrInput
+	Name               pulumi.StringPtrInput
 }
 
 func (FieldLevelEncryptionProfileArgs) ElementType() reflect.Type {
@@ -265,34 +177,28 @@ func (o FieldLevelEncryptionProfileOutput) ToFieldLevelEncryptionProfileOutputWi
 	return o
 }
 
-// The Field Level Encryption Profile ARN.
 func (o FieldLevelEncryptionProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FieldLevelEncryptionProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
 func (o FieldLevelEncryptionProfileOutput) CallerReference() pulumi.StringOutput {
 	return o.ApplyT(func(v *FieldLevelEncryptionProfile) pulumi.StringOutput { return v.CallerReference }).(pulumi.StringOutput)
 }
 
-// An optional comment about the Field Level Encryption Profile.
 func (o FieldLevelEncryptionProfileOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FieldLevelEncryptionProfile) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
 func (o FieldLevelEncryptionProfileOutput) EncryptionEntities() FieldLevelEncryptionProfileEncryptionEntitiesOutput {
 	return o.ApplyT(func(v *FieldLevelEncryptionProfile) FieldLevelEncryptionProfileEncryptionEntitiesOutput {
 		return v.EncryptionEntities
 	}).(FieldLevelEncryptionProfileEncryptionEntitiesOutput)
 }
 
-// The current version of the Field Level Encryption Profile. For example: `E2QWRUHAPOMQZL`.
 func (o FieldLevelEncryptionProfileOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *FieldLevelEncryptionProfile) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
-// The name of the Field Level Encryption Profile.
 func (o FieldLevelEncryptionProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FieldLevelEncryptionProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

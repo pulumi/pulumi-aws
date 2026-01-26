@@ -12,15 +12,9 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class MultitenantDistributionOriginCustomHeaderArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the header.
-        /// </summary>
         [Input("headerName", required: true)]
         public Input<string> HeaderName { get; set; } = null!;
 
-        /// <summary>
-        /// Value for the header.
-        /// </summary>
         [Input("headerValue", required: true)]
         public Input<string> HeaderValue { get; set; } = null!;
 

@@ -67,25 +67,16 @@ class GetNetworkPeeringConnectionResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) for the  ODB network peering connection.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> _builtins.str:
-        """
-        Created time of the ODB network peering connection.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> _builtins.str:
-        """
-        Display name of the ODB network peering connection.
-        """
         return pulumi.get(self, "display_name")
 
     @_builtins.property
@@ -96,33 +87,21 @@ class GetNetworkPeeringConnectionResult:
     @_builtins.property
     @pulumi.getter(name="odbNetworkArn")
     def odb_network_arn(self) -> _builtins.str:
-        """
-        ARN of the ODB network peering connection.
-        """
         return pulumi.get(self, "odb_network_arn")
 
     @_builtins.property
     @pulumi.getter(name="odbPeeringConnectionType")
     def odb_peering_connection_type(self) -> _builtins.str:
-        """
-        Type of the ODB peering connection.
-        """
         return pulumi.get(self, "odb_peering_connection_type")
 
     @_builtins.property
     @pulumi.getter(name="peerNetworkArn")
     def peer_network_arn(self) -> _builtins.str:
-        """
-        ARN of the peer network peering connection.
-        """
         return pulumi.get(self, "peer_network_arn")
 
     @_builtins.property
     @pulumi.getter(name="percentProgress")
     def percent_progress(self) -> _builtins.float:
-        """
-        Progress of the ODB network peering connection.
-        """
         return pulumi.get(self, "percent_progress")
 
     @_builtins.property
@@ -133,25 +112,16 @@ class GetNetworkPeeringConnectionResult:
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Status of the ODB network peering connection.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="statusReason")
     def status_reason(self) -> _builtins.str:
-        """
-        Status of the ODB network peering connection.
-        """
         return pulumi.get(self, "status_reason")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Tags applied to the resource.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -179,26 +149,7 @@ def get_network_peering_connection(id: Optional[_builtins.str] = None,
                                    region: Optional[_builtins.str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkPeeringConnectionResult:
     """
-    Data source for managing oracle database network peering resource in AWS.
-
-    You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.odb.get_network_peering_connection(id="example")
-    ```
-
-
-    :param _builtins.str id: The unique identifier of the ODB network peering connection.
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -223,26 +174,7 @@ def get_network_peering_connection_output(id: Optional[pulumi.Input[_builtins.st
                                           region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkPeeringConnectionResult]:
     """
-    Data source for managing oracle database network peering resource in AWS.
-
-    You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.odb.get_network_peering_connection(id="example")
-    ```
-
-
-    :param _builtins.str id: The unique identifier of the ODB network peering connection.
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id

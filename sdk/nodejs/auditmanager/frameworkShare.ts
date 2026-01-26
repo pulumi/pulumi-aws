@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Audit Manager Framework Share.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.auditmanager.FrameworkShare("example", {
- *     destinationAccount: "123456789012",
- *     destinationRegion: "us-east-1",
- *     frameworkId: exampleAwsAuditmanagerFramework.id,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Audit Manager Framework Share using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:auditmanager/frameworkShare:FrameworkShare example abcdef-123456
- * ```
- */
 export class FrameworkShare extends pulumi.CustomResource {
     /**
      * Get an existing FrameworkShare resource's state with the given name, ID, and optional extra
@@ -58,31 +32,11 @@ export class FrameworkShare extends pulumi.CustomResource {
         return obj['__pulumiType'] === FrameworkShare.__pulumiType;
     }
 
-    /**
-     * Comment from the sender about the share request.
-     */
     declare public readonly comment: pulumi.Output<string | undefined>;
-    /**
-     * Amazon Web Services account of the recipient.
-     */
     declare public readonly destinationAccount: pulumi.Output<string>;
-    /**
-     * Amazon Web Services region of the recipient.
-     */
     declare public readonly destinationRegion: pulumi.Output<string>;
-    /**
-     * Unique identifier for the shared custom framework.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly frameworkId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Status of the share request.
-     */
     declare public /*out*/ readonly status: pulumi.Output<string>;
 
     /**
@@ -131,31 +85,11 @@ export class FrameworkShare extends pulumi.CustomResource {
  * Input properties used for looking up and filtering FrameworkShare resources.
  */
 export interface FrameworkShareState {
-    /**
-     * Comment from the sender about the share request.
-     */
     comment?: pulumi.Input<string>;
-    /**
-     * Amazon Web Services account of the recipient.
-     */
     destinationAccount?: pulumi.Input<string>;
-    /**
-     * Amazon Web Services region of the recipient.
-     */
     destinationRegion?: pulumi.Input<string>;
-    /**
-     * Unique identifier for the shared custom framework.
-     *
-     * The following arguments are optional:
-     */
     frameworkId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Status of the share request.
-     */
     status?: pulumi.Input<string>;
 }
 
@@ -163,26 +97,9 @@ export interface FrameworkShareState {
  * The set of arguments for constructing a FrameworkShare resource.
  */
 export interface FrameworkShareArgs {
-    /**
-     * Comment from the sender about the share request.
-     */
     comment?: pulumi.Input<string>;
-    /**
-     * Amazon Web Services account of the recipient.
-     */
     destinationAccount: pulumi.Input<string>;
-    /**
-     * Amazon Web Services region of the recipient.
-     */
     destinationRegion: pulumi.Input<string>;
-    /**
-     * Unique identifier for the shared custom framework.
-     *
-     * The following arguments are optional:
-     */
     frameworkId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

@@ -12,70 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS CloudWatch Logs Index Policy.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
-//				Name: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Fields": []string{
-//					"eventName",
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = cloudwatch.NewLogIndexPolicy(ctx, "example", &cloudwatch.LogIndexPolicyArgs{
-//				LogGroupName:   example.Name,
-//				PolicyDocument: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CloudWatch Logs Index Policy using the `log_group_name`. For example:
-//
-// ```sh
-// $ pulumi import aws:cloudwatch/logIndexPolicy:LogIndexPolicy example /aws/log/group/name
-// ```
 type LogIndexPolicy struct {
 	pulumi.CustomResourceState
 
-	// Log group name to set the policy for.
 	LogGroupName pulumi.StringOutput `pulumi:"logGroupName"`
-	// JSON policy document. This is a JSON formatted string.
+	// Field index filter policy, in JSON
 	PolicyDocument pulumi.StringOutput `pulumi:"policyDocument"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region         pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewLogIndexPolicy registers a new resource with the given unique name, arguments, and options.
@@ -114,21 +57,17 @@ func GetLogIndexPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogIndexPolicy resources.
 type logIndexPolicyState struct {
-	// Log group name to set the policy for.
 	LogGroupName *string `pulumi:"logGroupName"`
-	// JSON policy document. This is a JSON formatted string.
+	// Field index filter policy, in JSON
 	PolicyDocument *string `pulumi:"policyDocument"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region         *string `pulumi:"region"`
 }
 
 type LogIndexPolicyState struct {
-	// Log group name to set the policy for.
 	LogGroupName pulumi.StringPtrInput
-	// JSON policy document. This is a JSON formatted string.
+	// Field index filter policy, in JSON
 	PolicyDocument pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
 }
 
 func (LogIndexPolicyState) ElementType() reflect.Type {
@@ -136,22 +75,18 @@ func (LogIndexPolicyState) ElementType() reflect.Type {
 }
 
 type logIndexPolicyArgs struct {
-	// Log group name to set the policy for.
 	LogGroupName string `pulumi:"logGroupName"`
-	// JSON policy document. This is a JSON formatted string.
-	PolicyDocument string `pulumi:"policyDocument"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	// Field index filter policy, in JSON
+	PolicyDocument string  `pulumi:"policyDocument"`
+	Region         *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LogIndexPolicy resource.
 type LogIndexPolicyArgs struct {
-	// Log group name to set the policy for.
 	LogGroupName pulumi.StringInput
-	// JSON policy document. This is a JSON formatted string.
+	// Field index filter policy, in JSON
 	PolicyDocument pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
 }
 
 func (LogIndexPolicyArgs) ElementType() reflect.Type {
@@ -241,17 +176,15 @@ func (o LogIndexPolicyOutput) ToLogIndexPolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Log group name to set the policy for.
 func (o LogIndexPolicyOutput) LogGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogIndexPolicy) pulumi.StringOutput { return v.LogGroupName }).(pulumi.StringOutput)
 }
 
-// JSON policy document. This is a JSON formatted string.
+// Field index filter policy, in JSON
 func (o LogIndexPolicyOutput) PolicyDocument() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogIndexPolicy) pulumi.StringOutput { return v.PolicyDocument }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LogIndexPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogIndexPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

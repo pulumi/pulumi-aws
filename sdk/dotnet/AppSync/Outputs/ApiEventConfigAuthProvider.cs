@@ -13,21 +13,9 @@ namespace Pulumi.Aws.AppSync.Outputs
     [OutputType]
     public sealed class ApiEventConfigAuthProvider
     {
-        /// <summary>
-        /// Type of authentication provider. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
-        /// </summary>
         public readonly string AuthType;
-        /// <summary>
-        /// Configuration for Cognito user pool authentication. Required when `AuthType` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
-        /// </summary>
         public readonly Outputs.ApiEventConfigAuthProviderCognitoConfig? CognitoConfig;
-        /// <summary>
-        /// Configuration for Lambda authorization. Required when `AuthType` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
-        /// </summary>
         public readonly Outputs.ApiEventConfigAuthProviderLambdaAuthorizerConfig? LambdaAuthorizerConfig;
-        /// <summary>
-        /// Configuration for OpenID Connect. Required when `AuthType` is `OPENID_CONNECT`. See OpenID Connect Config below.
-        /// </summary>
         public readonly Outputs.ApiEventConfigAuthProviderOpenidConnectConfig? OpenidConnectConfig;
 
         [OutputConstructor]

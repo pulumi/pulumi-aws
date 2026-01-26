@@ -27,12 +27,6 @@ class ModelArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Model resource.
-        :param pulumi.Input[_builtins.str] api_id: API identifier.
-        :param pulumi.Input[_builtins.str] content_type: The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
-        :param pulumi.Input[_builtins.str] schema: Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
-        :param pulumi.Input[_builtins.str] description: Description of the model. Must be between 1 and 128 characters in length.
-        :param pulumi.Input[_builtins.str] name: Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "content_type", content_type)
@@ -47,9 +41,6 @@ class ModelArgs:
     @_builtins.property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        API identifier.
-        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -59,9 +50,6 @@ class ModelArgs:
     @_builtins.property
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
-        """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
@@ -71,9 +59,6 @@ class ModelArgs:
     @_builtins.property
     @pulumi.getter
     def schema(self) -> pulumi.Input[_builtins.str]:
-        """
-        Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
-        """
         return pulumi.get(self, "schema")
 
     @schema.setter
@@ -83,9 +68,6 @@ class ModelArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the model. Must be between 1 and 128 characters in length.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -95,9 +77,6 @@ class ModelArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -107,9 +86,6 @@ class ModelArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -128,12 +104,6 @@ class _ModelState:
                  schema: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Model resources.
-        :param pulumi.Input[_builtins.str] api_id: API identifier.
-        :param pulumi.Input[_builtins.str] content_type: The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
-        :param pulumi.Input[_builtins.str] description: Description of the model. Must be between 1 and 128 characters in length.
-        :param pulumi.Input[_builtins.str] name: Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] schema: Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
         """
         if api_id is not None:
             pulumi.set(__self__, "api_id", api_id)
@@ -151,9 +121,6 @@ class _ModelState:
     @_builtins.property
     @pulumi.getter(name="apiId")
     def api_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        API identifier.
-        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -163,9 +130,6 @@ class _ModelState:
     @_builtins.property
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
-        """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
@@ -175,9 +139,6 @@ class _ModelState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the model. Must be between 1 and 128 characters in length.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -187,9 +148,6 @@ class _ModelState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -199,9 +157,6 @@ class _ModelState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -211,9 +166,6 @@ class _ModelState:
     @_builtins.property
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
-        """
         return pulumi.get(self, "schema")
 
     @schema.setter
@@ -235,49 +187,9 @@ class Model(pulumi.CustomResource):
                  schema: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an Amazon API Gateway Version 2 [model](https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-models).
-
-        ## Example Usage
-
-        ### Basic
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.apigatewayv2.Model("example",
-            api_id=example_aws_apigatewayv2_api["id"],
-            content_type="application/json",
-            name="example",
-            schema=json.dumps({
-                "$schema": "http://json-schema.org/draft-04/schema#",
-                "title": "ExampleModel",
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "type": "string",
-                    },
-                },
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_apigatewayv2_model` using the API identifier and model identifier. For example:
-
-        ```sh
-        $ pulumi import aws:apigatewayv2/model:Model example aabbccddee/1122334
-        ```
-
+        Create a Model resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] api_id: API identifier.
-        :param pulumi.Input[_builtins.str] content_type: The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
-        :param pulumi.Input[_builtins.str] description: Description of the model. Must be between 1 and 128 characters in length.
-        :param pulumi.Input[_builtins.str] name: Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] schema: Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
         """
         ...
     @overload
@@ -286,41 +198,7 @@ class Model(pulumi.CustomResource):
                  args: ModelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Amazon API Gateway Version 2 [model](https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-models).
-
-        ## Example Usage
-
-        ### Basic
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.apigatewayv2.Model("example",
-            api_id=example_aws_apigatewayv2_api["id"],
-            content_type="application/json",
-            name="example",
-            schema=json.dumps({
-                "$schema": "http://json-schema.org/draft-04/schema#",
-                "title": "ExampleModel",
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "type": "string",
-                    },
-                },
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_apigatewayv2_model` using the API identifier and model identifier. For example:
-
-        ```sh
-        $ pulumi import aws:apigatewayv2/model:Model example aabbccddee/1122334
-        ```
-
+        Create a Model resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ModelArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -386,12 +264,6 @@ class Model(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] api_id: API identifier.
-        :param pulumi.Input[_builtins.str] content_type: The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
-        :param pulumi.Input[_builtins.str] description: Description of the model. Must be between 1 and 128 characters in length.
-        :param pulumi.Input[_builtins.str] name: Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] schema: Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -408,48 +280,30 @@ class Model(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        API identifier.
-        """
         return pulumi.get(self, "api_id")
 
     @_builtins.property
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
-        """
         return pulumi.get(self, "content_type")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the model. Must be between 1 and 128 characters in length.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def schema(self) -> pulumi.Output[_builtins.str]:
-        """
-        Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
-        """
         return pulumi.get(self, "schema")
 

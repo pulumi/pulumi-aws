@@ -11,78 +11,12 @@ namespace Pulumi.Aws.Odb
 {
     public static class GetCloudVmClusters
     {
-        /// <summary>
-        /// Data source for retrieving all cloud vm clusters AWS for Oracle Database@AWS.
-        /// 
-        /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Odb.GetCloudVmClusters.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetCloudVmClustersResult> InvokeAsync(GetCloudVmClustersArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudVmClustersResult>("aws:odb/getCloudVmClusters:getCloudVmClusters", args ?? new GetCloudVmClustersArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for retrieving all cloud vm clusters AWS for Oracle Database@AWS.
-        /// 
-        /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Odb.GetCloudVmClusters.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetCloudVmClustersResult> Invoke(GetCloudVmClustersInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudVmClustersResult>("aws:odb/getCloudVmClusters:getCloudVmClusters", args ?? new GetCloudVmClustersInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for retrieving all cloud vm clusters AWS for Oracle Database@AWS.
-        /// 
-        /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Odb.GetCloudVmClusters.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetCloudVmClustersResult> Invoke(GetCloudVmClustersInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudVmClustersResult>("aws:odb/getCloudVmClusters:getCloudVmClusters", args ?? new GetCloudVmClustersInvokeArgs(), options.WithDefaults());
     }
@@ -90,9 +24,6 @@ namespace Pulumi.Aws.Odb
 
     public sealed class GetCloudVmClustersArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -104,9 +35,6 @@ namespace Pulumi.Aws.Odb
 
     public sealed class GetCloudVmClustersInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -120,9 +48,6 @@ namespace Pulumi.Aws.Odb
     [OutputType]
     public sealed class GetCloudVmClustersResult
     {
-        /// <summary>
-        /// List of Cloud VM Clusters. It returns only basic information about the cloud VM clusters.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetCloudVmClustersCloudVmClusterResult> CloudVmClusters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

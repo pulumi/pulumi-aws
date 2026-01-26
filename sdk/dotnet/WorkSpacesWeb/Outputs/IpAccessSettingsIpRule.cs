@@ -13,13 +13,7 @@ namespace Pulumi.Aws.WorkSpacesWeb.Outputs
     [OutputType]
     public sealed class IpAccessSettingsIpRule
     {
-        /// <summary>
-        /// The description of the IP access settings.
-        /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The IP range of the IP rule.
-        /// </summary>
         public readonly string IpRange;
 
         [OutputConstructor]

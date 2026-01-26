@@ -11,103 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing VPC IPAMs.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetVpcIpams(ctx, &ec2.GetVpcIpamsArgs{
-//				IpamIds: []string{
-//					"ipam-abcd1234",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Filter by `tags`
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetVpcIpams(ctx, &ec2.GetVpcIpamsArgs{
-//				Filters: []ec2.GetVpcIpamsFilter{
-//					{
-//						Name: "tags.Some",
-//						Values: []string{
-//							"Value",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Filter by `tier`
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetVpcIpams(ctx, &ec2.GetVpcIpamsArgs{
-//				Filters: []ec2.GetVpcIpamsFilter{
-//					{
-//						Name: "tier",
-//						Values: []string{
-//							"free",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetVpcIpams(ctx *pulumi.Context, args *GetVpcIpamsArgs, opts ...pulumi.InvokeOption) (*GetVpcIpamsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVpcIpamsResult
@@ -120,25 +23,19 @@ func GetVpcIpams(ctx *pulumi.Context, args *GetVpcIpamsArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getVpcIpams.
 type GetVpcIpamsArgs struct {
-	// Custom filter block as described below.
-	//
-	// The arguments of this data source act as filters for querying the available IPAMs.
 	Filters []GetVpcIpamsFilter `pulumi:"filters"`
-	// IDs of the IPAM resources to query for.
-	IpamIds []string `pulumi:"ipamIds"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	IpamIds []string            `pulumi:"ipamIds"`
+	Region  *string             `pulumi:"region"`
 }
 
 // A collection of values returned by getVpcIpams.
 type GetVpcIpamsResult struct {
 	Filters []GetVpcIpamsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id      string   `pulumi:"id"`
-	IpamIds []string `pulumi:"ipamIds"`
-	// List of IPAM resources matching the provided arguments.
-	Ipams  []GetVpcIpamsIpam `pulumi:"ipams"`
-	Region string            `pulumi:"region"`
+	Id      string            `pulumi:"id"`
+	IpamIds []string          `pulumi:"ipamIds"`
+	Ipams   []GetVpcIpamsIpam `pulumi:"ipams"`
+	Region  string            `pulumi:"region"`
 }
 
 func GetVpcIpamsOutput(ctx *pulumi.Context, args GetVpcIpamsOutputArgs, opts ...pulumi.InvokeOption) GetVpcIpamsResultOutput {
@@ -152,14 +49,9 @@ func GetVpcIpamsOutput(ctx *pulumi.Context, args GetVpcIpamsOutputArgs, opts ...
 
 // A collection of arguments for invoking getVpcIpams.
 type GetVpcIpamsOutputArgs struct {
-	// Custom filter block as described below.
-	//
-	// The arguments of this data source act as filters for querying the available IPAMs.
 	Filters GetVpcIpamsFilterArrayInput `pulumi:"filters"`
-	// IDs of the IPAM resources to query for.
-	IpamIds pulumi.StringArrayInput `pulumi:"ipamIds"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	IpamIds pulumi.StringArrayInput     `pulumi:"ipamIds"`
+	Region  pulumi.StringPtrInput       `pulumi:"region"`
 }
 
 func (GetVpcIpamsOutputArgs) ElementType() reflect.Type {
@@ -194,7 +86,6 @@ func (o GetVpcIpamsResultOutput) IpamIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVpcIpamsResult) []string { return v.IpamIds }).(pulumi.StringArrayOutput)
 }
 
-// List of IPAM resources matching the provided arguments.
 func (o GetVpcIpamsResultOutput) Ipams() GetVpcIpamsIpamArrayOutput {
 	return o.ApplyT(func(v GetVpcIpamsResult) []GetVpcIpamsIpam { return v.Ipams }).(GetVpcIpamsIpamArrayOutput)
 }

@@ -18,77 +18,37 @@ public final class ConnectionGroupArgs extends com.pulumi.resources.ResourceArgs
 
     public static final ConnectionGroupArgs Empty = new ConnectionGroupArgs();
 
-    /**
-     * ID of the associated Anycast IP List. `ipv6Enabled` must not be set to `true` in order to set this argument
-     * 
-     */
     @Import(name="anycastIpListId")
     private @Nullable Output<String> anycastIpListId;
 
-    /**
-     * @return ID of the associated Anycast IP List. `ipv6Enabled` must not be set to `true` in order to set this argument
-     * 
-     */
     public Optional<Output<String>> anycastIpListId() {
         return Optional.ofNullable(this.anycastIpListId);
     }
 
-    /**
-     * Whether the connection group is enabled. Default is `true`.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Whether the connection group is enabled. Default is `true`.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * Whether IPv6 is enabled for the connection group. Default is `false`.
-     * 
-     */
     @Import(name="ipv6Enabled")
     private @Nullable Output<Boolean> ipv6Enabled;
 
-    /**
-     * @return Whether IPv6 is enabled for the connection group. Default is `false`.
-     * 
-     */
     public Optional<Output<Boolean>> ipv6Enabled() {
         return Optional.ofNullable(this.ipv6Enabled);
     }
 
-    /**
-     * Name of the connection group.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the connection group.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -137,107 +97,47 @@ public final class ConnectionGroupArgs extends com.pulumi.resources.ResourceArgs
             $ = new ConnectionGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param anycastIpListId ID of the associated Anycast IP List. `ipv6Enabled` must not be set to `true` in order to set this argument
-         * 
-         * @return builder
-         * 
-         */
         public Builder anycastIpListId(@Nullable Output<String> anycastIpListId) {
             $.anycastIpListId = anycastIpListId;
             return this;
         }
 
-        /**
-         * @param anycastIpListId ID of the associated Anycast IP List. `ipv6Enabled` must not be set to `true` in order to set this argument
-         * 
-         * @return builder
-         * 
-         */
         public Builder anycastIpListId(String anycastIpListId) {
             return anycastIpListId(Output.of(anycastIpListId));
         }
 
-        /**
-         * @param enabled Whether the connection group is enabled. Default is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether the connection group is enabled. Default is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param ipv6Enabled Whether IPv6 is enabled for the connection group. Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipv6Enabled(@Nullable Output<Boolean> ipv6Enabled) {
             $.ipv6Enabled = ipv6Enabled;
             return this;
         }
 
-        /**
-         * @param ipv6Enabled Whether IPv6 is enabled for the connection group. Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipv6Enabled(Boolean ipv6Enabled) {
             return ipv6Enabled(Output.of(ipv6Enabled));
         }
 
-        /**
-         * @param name Name of the connection group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the connection group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

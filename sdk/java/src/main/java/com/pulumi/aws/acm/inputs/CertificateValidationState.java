@@ -16,47 +16,23 @@ public final class CertificateValidationState extends com.pulumi.resources.Resou
 
     public static final CertificateValidationState Empty = new CertificateValidationState();
 
-    /**
-     * ARN of the certificate that is being validated.
-     * 
-     */
     @Import(name="certificateArn")
     private @Nullable Output<String> certificateArn;
 
-    /**
-     * @return ARN of the certificate that is being validated.
-     * 
-     */
     public Optional<Output<String>> certificateArn() {
         return Optional.ofNullable(this.certificateArn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
-     * 
-     */
     @Import(name="validationRecordFqdns")
     private @Nullable Output<List<String>> validationRecordFqdns;
 
-    /**
-     * @return List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
-     * 
-     */
     public Optional<Output<List<String>>> validationRecordFqdns() {
         return Optional.ofNullable(this.validationRecordFqdns);
     }
@@ -87,75 +63,33 @@ public final class CertificateValidationState extends com.pulumi.resources.Resou
             $ = new CertificateValidationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param certificateArn ARN of the certificate that is being validated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateArn(@Nullable Output<String> certificateArn) {
             $.certificateArn = certificateArn;
             return this;
         }
 
-        /**
-         * @param certificateArn ARN of the certificate that is being validated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateArn(String certificateArn) {
             return certificateArn(Output.of(certificateArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param validationRecordFqdns List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
-         * 
-         * @return builder
-         * 
-         */
         public Builder validationRecordFqdns(@Nullable Output<List<String>> validationRecordFqdns) {
             $.validationRecordFqdns = validationRecordFqdns;
             return this;
         }
 
-        /**
-         * @param validationRecordFqdns List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
-         * 
-         * @return builder
-         * 
-         */
         public Builder validationRecordFqdns(List<String> validationRecordFqdns) {
             return validationRecordFqdns(Output.of(validationRecordFqdns));
         }
 
-        /**
-         * @param validationRecordFqdns List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
-         * 
-         * @return builder
-         * 
-         */
         public Builder validationRecordFqdns(String... validationRecordFqdns) {
             return validationRecordFqdns(List.of(validationRecordFqdns));
         }

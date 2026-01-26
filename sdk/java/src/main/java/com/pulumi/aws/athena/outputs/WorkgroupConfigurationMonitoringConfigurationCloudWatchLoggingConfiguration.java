@@ -16,44 +16,20 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfiguration {
     private Boolean enabled;
-    /**
-     * @return Name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
-     * 
-     */
     private @Nullable String logGroup;
-    /**
-     * @return Prefix for the CloudWatch log stream name.
-     * 
-     */
     private @Nullable String logStreamNamePrefix;
-    /**
-     * @return Repeatable block defining log types to be delivered to CloudWatch.
-     * 
-     */
     private @Nullable List<WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogType> logTypes;
 
     private WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfiguration() {}
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return Name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
-     * 
-     */
     public Optional<String> logGroup() {
         return Optional.ofNullable(this.logGroup);
     }
-    /**
-     * @return Prefix for the CloudWatch log stream name.
-     * 
-     */
     public Optional<String> logStreamNamePrefix() {
         return Optional.ofNullable(this.logStreamNamePrefix);
     }
-    /**
-     * @return Repeatable block defining log types to be delivered to CloudWatch.
-     * 
-     */
     public List<WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogType> logTypes() {
         return this.logTypes == null ? List.of() : this.logTypes;
     }

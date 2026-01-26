@@ -13,11 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool
     {
-        /// <summary>
-        /// Name of the prompt.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

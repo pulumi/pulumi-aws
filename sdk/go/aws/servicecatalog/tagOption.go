@@ -12,58 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Service Catalog Tag Option.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicecatalog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.NewTagOption(ctx, "example", &servicecatalog.TagOptionArgs{
-//				Key:   pulumi.String("nyckel"),
-//				Value: pulumi.String("värde"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_servicecatalog_tag_option` using the tag option ID. For example:
-//
-// ```sh
-// $ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m
-// ```
 type TagOption struct {
 	pulumi.CustomResourceState
 
-	// Whether tag option is active. Default is `true`.
 	Active pulumi.BoolPtrOutput `pulumi:"active"`
-	// Tag option key.
-	Key   pulumi.StringOutput `pulumi:"key"`
-	Owner pulumi.StringOutput `pulumi:"owner"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Tag option value.
-	//
-	// The following arguments are optional:
-	Value pulumi.StringOutput `pulumi:"value"`
+	Key    pulumi.StringOutput  `pulumi:"key"`
+	Owner  pulumi.StringOutput  `pulumi:"owner"`
+	Region pulumi.StringOutput  `pulumi:"region"`
+	Value  pulumi.StringOutput  `pulumi:"value"`
 }
 
 // NewTagOption registers a new resource with the given unique name, arguments, and options.
@@ -102,31 +58,19 @@ func GetTagOption(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TagOption resources.
 type tagOptionState struct {
-	// Whether tag option is active. Default is `true`.
-	Active *bool `pulumi:"active"`
-	// Tag option key.
-	Key   *string `pulumi:"key"`
-	Owner *string `pulumi:"owner"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Active *bool   `pulumi:"active"`
+	Key    *string `pulumi:"key"`
+	Owner  *string `pulumi:"owner"`
 	Region *string `pulumi:"region"`
-	// Tag option value.
-	//
-	// The following arguments are optional:
-	Value *string `pulumi:"value"`
+	Value  *string `pulumi:"value"`
 }
 
 type TagOptionState struct {
-	// Whether tag option is active. Default is `true`.
 	Active pulumi.BoolPtrInput
-	// Tag option key.
-	Key   pulumi.StringPtrInput
-	Owner pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Key    pulumi.StringPtrInput
+	Owner  pulumi.StringPtrInput
 	Region pulumi.StringPtrInput
-	// Tag option value.
-	//
-	// The following arguments are optional:
-	Value pulumi.StringPtrInput
+	Value  pulumi.StringPtrInput
 }
 
 func (TagOptionState) ElementType() reflect.Type {
@@ -134,30 +78,18 @@ func (TagOptionState) ElementType() reflect.Type {
 }
 
 type tagOptionArgs struct {
-	// Whether tag option is active. Default is `true`.
-	Active *bool `pulumi:"active"`
-	// Tag option key.
-	Key string `pulumi:"key"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Active *bool   `pulumi:"active"`
+	Key    string  `pulumi:"key"`
 	Region *string `pulumi:"region"`
-	// Tag option value.
-	//
-	// The following arguments are optional:
-	Value string `pulumi:"value"`
+	Value  string  `pulumi:"value"`
 }
 
 // The set of arguments for constructing a TagOption resource.
 type TagOptionArgs struct {
-	// Whether tag option is active. Default is `true`.
 	Active pulumi.BoolPtrInput
-	// Tag option key.
-	Key pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Key    pulumi.StringInput
 	Region pulumi.StringPtrInput
-	// Tag option value.
-	//
-	// The following arguments are optional:
-	Value pulumi.StringInput
+	Value  pulumi.StringInput
 }
 
 func (TagOptionArgs) ElementType() reflect.Type {
@@ -247,12 +179,10 @@ func (o TagOptionOutput) ToTagOptionOutputWithContext(ctx context.Context) TagOp
 	return o
 }
 
-// Whether tag option is active. Default is `true`.
 func (o TagOptionOutput) Active() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TagOption) pulumi.BoolPtrOutput { return v.Active }).(pulumi.BoolPtrOutput)
 }
 
-// Tag option key.
 func (o TagOptionOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagOption) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
@@ -261,14 +191,10 @@ func (o TagOptionOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagOption) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TagOptionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagOption) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Tag option value.
-//
-// The following arguments are optional:
 func (o TagOptionOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagOption) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
 }

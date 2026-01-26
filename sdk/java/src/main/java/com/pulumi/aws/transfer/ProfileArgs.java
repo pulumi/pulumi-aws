@@ -18,77 +18,37 @@ public final class ProfileArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ProfileArgs Empty = new ProfileArgs();
 
-    /**
-     * The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
-     * 
-     */
     @Import(name="as2Id", required=true)
     private Output<String> as2Id;
 
-    /**
-     * @return The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
-     * 
-     */
     public Output<String> as2Id() {
         return this.as2Id;
     }
 
-    /**
-     * The list of certificate Ids from the imported certificate operation.
-     * 
-     */
     @Import(name="certificateIds")
     private @Nullable Output<List<String>> certificateIds;
 
-    /**
-     * @return The list of certificate Ids from the imported certificate operation.
-     * 
-     */
     public Optional<Output<List<String>>> certificateIds() {
         return Optional.ofNullable(this.certificateIds);
     }
 
-    /**
-     * The profile type should be LOCAL or PARTNER.
-     * 
-     */
     @Import(name="profileType", required=true)
     private Output<String> profileType;
 
-    /**
-     * @return The profile type should be LOCAL or PARTNER.
-     * 
-     */
     public Output<String> profileType() {
         return this.profileType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -121,117 +81,51 @@ public final class ProfileArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ProfileArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param as2Id The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
-         * 
-         * @return builder
-         * 
-         */
         public Builder as2Id(Output<String> as2Id) {
             $.as2Id = as2Id;
             return this;
         }
 
-        /**
-         * @param as2Id The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
-         * 
-         * @return builder
-         * 
-         */
         public Builder as2Id(String as2Id) {
             return as2Id(Output.of(as2Id));
         }
 
-        /**
-         * @param certificateIds The list of certificate Ids from the imported certificate operation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateIds(@Nullable Output<List<String>> certificateIds) {
             $.certificateIds = certificateIds;
             return this;
         }
 
-        /**
-         * @param certificateIds The list of certificate Ids from the imported certificate operation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateIds(List<String> certificateIds) {
             return certificateIds(Output.of(certificateIds));
         }
 
-        /**
-         * @param certificateIds The list of certificate Ids from the imported certificate operation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateIds(String... certificateIds) {
             return certificateIds(List.of(certificateIds));
         }
 
-        /**
-         * @param profileType The profile type should be LOCAL or PARTNER.
-         * 
-         * @return builder
-         * 
-         */
         public Builder profileType(Output<String> profileType) {
             $.profileType = profileType;
             return this;
         }
 
-        /**
-         * @param profileType The profile type should be LOCAL or PARTNER.
-         * 
-         * @return builder
-         * 
-         */
         public Builder profileType(String profileType) {
             return profileType(Output.of(profileType));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

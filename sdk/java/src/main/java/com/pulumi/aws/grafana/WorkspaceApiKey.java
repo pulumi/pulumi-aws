@@ -15,131 +15,41 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Amazon Managed Grafana workspace API Key resource.
- * 
- * ## Example Usage
- * 
- * ### Basic configuration
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.grafana.WorkspaceApiKey;
- * import com.pulumi.aws.grafana.WorkspaceApiKeyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var key = new WorkspaceApiKey("key", WorkspaceApiKeyArgs.builder()
- *             .keyName("test-key")
- *             .keyRole("VIEWER")
- *             .secondsToLive(3600)
- *             .workspaceId(test.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:grafana/workspaceApiKey:WorkspaceApiKey")
 public class WorkspaceApiKey extends com.pulumi.resources.CustomResource {
-    /**
-     * The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
-     * 
-     */
     @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
-    /**
-     * @return The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
-    /**
-     * Specifies the name of the API key. Key names must be unique to the workspace.
-     * 
-     */
     @Export(name="keyName", refs={String.class}, tree="[0]")
     private Output<String> keyName;
 
-    /**
-     * @return Specifies the name of the API key. Key names must be unique to the workspace.
-     * 
-     */
     public Output<String> keyName() {
         return this.keyName;
     }
-    /**
-     * Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
-     * 
-     */
     @Export(name="keyRole", refs={String.class}, tree="[0]")
     private Output<String> keyRole;
 
-    /**
-     * @return Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
-     * 
-     */
     public Output<String> keyRole() {
         return this.keyRole;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
-     * 
-     */
     @Export(name="secondsToLive", refs={Integer.class}, tree="[0]")
     private Output<Integer> secondsToLive;
 
-    /**
-     * @return Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
-     * 
-     */
     public Output<Integer> secondsToLive() {
         return this.secondsToLive;
     }
-    /**
-     * The ID of the workspace that the API key is valid for.
-     * 
-     */
     @Export(name="workspaceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceId;
 
-    /**
-     * @return The ID of the workspace that the API key is valid for.
-     * 
-     */
     public Output<String> workspaceId() {
         return this.workspaceId;
     }

@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS IVS (Interactive Video) Channel.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ivs.Channel("example", {name: "channel-1"});
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the IVS channel.
- *
- * Using `pulumi import`, import IVS (Interactive Video) Channel using the ARN. For example:
- *
- * % pulumi import aws_ivs_channel.example arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5
- */
 export class Channel extends pulumi.CustomResource {
     /**
      * Get an existing Channel resource's state with the given name, ID, and optional extra
@@ -58,49 +32,16 @@ export class Channel extends pulumi.CustomResource {
         return obj['__pulumiType'] === Channel.__pulumiType;
     }
 
-    /**
-     * ARN of the Channel.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * If `true`, channel is private (enabled for playback authorization).
-     */
     declare public readonly authorized: pulumi.Output<boolean>;
-    /**
-     * Channel ingest endpoint, part of the definition of an ingest server, used when setting up streaming software.
-     */
     declare public /*out*/ readonly ingestEndpoint: pulumi.Output<string>;
-    /**
-     * Channel latency mode. Valid values: `NORMAL`, `LOW`.
-     */
     declare public readonly latencyMode: pulumi.Output<string>;
-    /**
-     * Channel name.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Channel playback URL.
-     */
     declare public /*out*/ readonly playbackUrl: pulumi.Output<string>;
-    /**
-     * Recording configuration ARN.
-     */
     declare public readonly recordingConfigurationArn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
-     */
     declare public readonly type: pulumi.Output<string>;
 
     /**
@@ -150,49 +91,16 @@ export class Channel extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Channel resources.
  */
 export interface ChannelState {
-    /**
-     * ARN of the Channel.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * If `true`, channel is private (enabled for playback authorization).
-     */
     authorized?: pulumi.Input<boolean>;
-    /**
-     * Channel ingest endpoint, part of the definition of an ingest server, used when setting up streaming software.
-     */
     ingestEndpoint?: pulumi.Input<string>;
-    /**
-     * Channel latency mode. Valid values: `NORMAL`, `LOW`.
-     */
     latencyMode?: pulumi.Input<string>;
-    /**
-     * Channel name.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Channel playback URL.
-     */
     playbackUrl?: pulumi.Input<string>;
-    /**
-     * Recording configuration ARN.
-     */
     recordingConfigurationArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
-     */
     type?: pulumi.Input<string>;
 }
 
@@ -200,32 +108,11 @@ export interface ChannelState {
  * The set of arguments for constructing a Channel resource.
  */
 export interface ChannelArgs {
-    /**
-     * If `true`, channel is private (enabled for playback authorization).
-     */
     authorized?: pulumi.Input<boolean>;
-    /**
-     * Channel latency mode. Valid values: `NORMAL`, `LOW`.
-     */
     latencyMode?: pulumi.Input<string>;
-    /**
-     * Channel name.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Recording configuration ARN.
-     */
     recordingConfigurationArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
-     */
     type?: pulumi.Input<string>;
 }

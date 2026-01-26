@@ -17,17 +17,9 @@ public final class DefaultRouteTableAssociationArgs extends com.pulumi.resources
 
     public static final DefaultRouteTableAssociationArgs Empty = new DefaultRouteTableAssociationArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -39,32 +31,16 @@ public final class DefaultRouteTableAssociationArgs extends com.pulumi.resources
         return Optional.ofNullable(this.timeouts);
     }
 
-    /**
-     * ID of the Transit Gateway to change the default association route table on.
-     * 
-     */
     @Import(name="transitGatewayId", required=true)
     private Output<String> transitGatewayId;
 
-    /**
-     * @return ID of the Transit Gateway to change the default association route table on.
-     * 
-     */
     public Output<String> transitGatewayId() {
         return this.transitGatewayId;
     }
 
-    /**
-     * ID of the Transit Gateway Route Table to be made the default association route table.
-     * 
-     */
     @Import(name="transitGatewayRouteTableId", required=true)
     private Output<String> transitGatewayRouteTableId;
 
-    /**
-     * @return ID of the Transit Gateway Route Table to be made the default association route table.
-     * 
-     */
     public Output<String> transitGatewayRouteTableId() {
         return this.transitGatewayRouteTableId;
     }
@@ -96,23 +72,11 @@ public final class DefaultRouteTableAssociationArgs extends com.pulumi.resources
             $ = new DefaultRouteTableAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
@@ -126,44 +90,20 @@ public final class DefaultRouteTableAssociationArgs extends com.pulumi.resources
             return timeouts(Output.of(timeouts));
         }
 
-        /**
-         * @param transitGatewayId ID of the Transit Gateway to change the default association route table on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayId(Output<String> transitGatewayId) {
             $.transitGatewayId = transitGatewayId;
             return this;
         }
 
-        /**
-         * @param transitGatewayId ID of the Transit Gateway to change the default association route table on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayId(String transitGatewayId) {
             return transitGatewayId(Output.of(transitGatewayId));
         }
 
-        /**
-         * @param transitGatewayRouteTableId ID of the Transit Gateway Route Table to be made the default association route table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayRouteTableId(Output<String> transitGatewayRouteTableId) {
             $.transitGatewayRouteTableId = transitGatewayRouteTableId;
             return this;
         }
 
-        /**
-         * @param transitGatewayRouteTableId ID of the Transit Gateway Route Table to be made the default association route table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayRouteTableId(String transitGatewayRouteTableId) {
             return transitGatewayRouteTableId(Output.of(transitGatewayRouteTableId));
         }

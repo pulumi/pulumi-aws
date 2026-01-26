@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier {
-    /**
-     * @return Name of the custom data idenfitier
-     * 
-     */
     private String name;
-    /**
-     * @return Regular expression to match sensitive data
-     * 
-     */
     private String regex;
 
     private GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier() {}
-    /**
-     * @return Name of the custom data idenfitier
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Regular expression to match sensitive data
-     * 
-     */
     public String regex() {
         return this.regex;
     }

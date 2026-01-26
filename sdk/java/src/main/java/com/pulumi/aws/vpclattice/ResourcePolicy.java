@@ -13,127 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS VPC Lattice Resource Policy.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.inputs.GetPartitionArgs;
- * import com.pulumi.aws.vpclattice.ServiceNetwork;
- * import com.pulumi.aws.vpclattice.ServiceNetworkArgs;
- * import com.pulumi.aws.vpclattice.ResourcePolicy;
- * import com.pulumi.aws.vpclattice.ResourcePolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         final var currentGetPartition = AwsFunctions.getPartition(GetPartitionArgs.builder()
- *             .build());
- * 
- *         var example = new ServiceNetwork("example", ServiceNetworkArgs.builder()
- *             .name("example-vpclattice-service-network")
- *             .build());
- * 
- *         var exampleResourcePolicy = new ResourcePolicy("exampleResourcePolicy", ResourcePolicyArgs.builder()
- *             .resourceArn(example.arn())
- *             .policy(example.arn().applyValue(_arn -> serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Version", "2012-10-17"),
- *                     jsonProperty("Statement", jsonArray(jsonObject(
- *                         jsonProperty("Sid", "test-pol-principals-6"),
- *                         jsonProperty("Effect", "Allow"),
- *                         jsonProperty("Principal", jsonObject(
- *                             jsonProperty("AWS", String.format("arn:%s:iam::%s:root", currentGetPartition.partition(),current.accountId()))
- *                         )),
- *                         jsonProperty("Action", jsonArray(
- *                             "vpc-lattice:CreateServiceNetworkVpcAssociation", 
- *                             "vpc-lattice:CreateServiceNetworkServiceAssociation", 
- *                             "vpc-lattice:GetServiceNetwork"
- *                         )),
- *                         jsonProperty("Resource", _arn)
- *                     )))
- *                 ))))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import VPC Lattice Resource Policy using the `resource_arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:vpclattice/resourcePolicy:ResourcePolicy example rft-8012925589
- * ```
- * 
- */
 @ResourceType(type="aws:vpclattice/resourcePolicy:ResourcePolicy")
 public class ResourcePolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * An IAM policy. The policy string in JSON must not contain newlines or blank lines.
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return An IAM policy. The policy string in JSON must not contain newlines or blank lines.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
-     * 
-     */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
-    /**
-     * @return The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }

@@ -28,12 +28,6 @@ class CustomPermissionsArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CustomPermissions resource.
-        :param pulumi.Input[_builtins.str] custom_permissions_name: Custom permissions profile name.
-               
-               The following arguments are optional:
-        :param pulumi.Input['CustomPermissionsCapabilitiesArgs'] capabilities: Actions to include in the custom permissions profile. See capabilities.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "custom_permissions_name", custom_permissions_name)
         if aws_account_id is not None:
@@ -48,11 +42,6 @@ class CustomPermissionsArgs:
     @_builtins.property
     @pulumi.getter(name="customPermissionsName")
     def custom_permissions_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Custom permissions profile name.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "custom_permissions_name")
 
     @custom_permissions_name.setter
@@ -71,9 +60,6 @@ class CustomPermissionsArgs:
     @_builtins.property
     @pulumi.getter
     def capabilities(self) -> Optional[pulumi.Input['CustomPermissionsCapabilitiesArgs']]:
-        """
-        Actions to include in the custom permissions profile. See capabilities.
-        """
         return pulumi.get(self, "capabilities")
 
     @capabilities.setter
@@ -83,9 +69,6 @@ class CustomPermissionsArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -95,9 +78,6 @@ class CustomPermissionsArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -117,14 +97,6 @@ class _CustomPermissionsState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CustomPermissions resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the custom permissions profile.
-        :param pulumi.Input['CustomPermissionsCapabilitiesArgs'] capabilities: Actions to include in the custom permissions profile. See capabilities.
-        :param pulumi.Input[_builtins.str] custom_permissions_name: Custom permissions profile name.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -144,9 +116,6 @@ class _CustomPermissionsState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the custom permissions profile.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -165,9 +134,6 @@ class _CustomPermissionsState:
     @_builtins.property
     @pulumi.getter
     def capabilities(self) -> Optional[pulumi.Input['CustomPermissionsCapabilitiesArgs']]:
-        """
-        Actions to include in the custom permissions profile. See capabilities.
-        """
         return pulumi.get(self, "capabilities")
 
     @capabilities.setter
@@ -177,11 +143,6 @@ class _CustomPermissionsState:
     @_builtins.property
     @pulumi.getter(name="customPermissionsName")
     def custom_permissions_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Custom permissions profile name.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "custom_permissions_name")
 
     @custom_permissions_name.setter
@@ -191,9 +152,6 @@ class _CustomPermissionsState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -203,9 +161,6 @@ class _CustomPermissionsState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -215,9 +170,6 @@ class _CustomPermissionsState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -238,35 +190,9 @@ class CustomPermissions(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Manages a QuickSight custom permissions profile.
-
-        ## Example Usage
-
-        resource "quicksight.CustomPermissions" "example" {
-          custom_permissions_name = "example-permissions"
-
-          capabilities {
-            print_reports    = "DENY"
-            share_dashboards = "DENY"
-          }
-        }
-
-        ## Import
-
-        Using `pulumi import`, import a QuickSight custom permissions profile using the AWS account ID and custom permissions profile name separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:quicksight/customPermissions:CustomPermissions example 123456789012,example-permissions
-        ```
-
+        Create a CustomPermissions resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CustomPermissionsCapabilitiesArgs', 'CustomPermissionsCapabilitiesArgsDict']] capabilities: Actions to include in the custom permissions profile. See capabilities.
-        :param pulumi.Input[_builtins.str] custom_permissions_name: Custom permissions profile name.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -275,27 +201,7 @@ class CustomPermissions(pulumi.CustomResource):
                  args: CustomPermissionsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a QuickSight custom permissions profile.
-
-        ## Example Usage
-
-        resource "quicksight.CustomPermissions" "example" {
-          custom_permissions_name = "example-permissions"
-
-          capabilities {
-            print_reports    = "DENY"
-            share_dashboards = "DENY"
-          }
-        }
-
-        ## Import
-
-        Using `pulumi import`, import a QuickSight custom permissions profile using the AWS account ID and custom permissions profile name separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:quicksight/customPermissions:CustomPermissions example 123456789012,example-permissions
-        ```
-
+        Create a CustomPermissions resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CustomPermissionsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -358,14 +264,6 @@ class CustomPermissions(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the custom permissions profile.
-        :param pulumi.Input[Union['CustomPermissionsCapabilitiesArgs', 'CustomPermissionsCapabilitiesArgsDict']] capabilities: Actions to include in the custom permissions profile. See capabilities.
-        :param pulumi.Input[_builtins.str] custom_permissions_name: Custom permissions profile name.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -383,9 +281,6 @@ class CustomPermissions(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the custom permissions profile.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -396,42 +291,25 @@ class CustomPermissions(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def capabilities(self) -> pulumi.Output[Optional['outputs.CustomPermissionsCapabilities']]:
-        """
-        Actions to include in the custom permissions profile. See capabilities.
-        """
         return pulumi.get(self, "capabilities")
 
     @_builtins.property
     @pulumi.getter(name="customPermissionsName")
     def custom_permissions_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Custom permissions profile name.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "custom_permissions_name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

@@ -15,47 +15,23 @@ public final class GetExperiencePlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetExperiencePlainArgs Empty = new GetExperiencePlainArgs();
 
-    /**
-     * Identifier of the Experience.
-     * 
-     */
     @Import(name="experienceId", required=true)
     private String experienceId;
 
-    /**
-     * @return Identifier of the Experience.
-     * 
-     */
     public String experienceId() {
         return this.experienceId;
     }
 
-    /**
-     * Identifier of the index that contains the Experience.
-     * 
-     */
     @Import(name="indexId", required=true)
     private String indexId;
 
-    /**
-     * @return Identifier of the index that contains the Experience.
-     * 
-     */
     public String indexId() {
         return this.indexId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -86,34 +62,16 @@ public final class GetExperiencePlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetExperiencePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param experienceId Identifier of the Experience.
-         * 
-         * @return builder
-         * 
-         */
         public Builder experienceId(String experienceId) {
             $.experienceId = experienceId;
             return this;
         }
 
-        /**
-         * @param indexId Identifier of the index that contains the Experience.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexId(String indexId) {
             $.indexId = indexId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

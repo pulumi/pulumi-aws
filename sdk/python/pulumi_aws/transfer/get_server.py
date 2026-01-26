@@ -79,41 +79,26 @@ class GetServerResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of Transfer Server.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def certificate(self) -> _builtins.str:
-        """
-        ARN of any certificate.
-        """
         return pulumi.get(self, "certificate")
 
     @_builtins.property
     @pulumi.getter
     def domain(self) -> _builtins.str:
-        """
-        The domain of the storage system that is used for file transfers.
-        """
         return pulumi.get(self, "domain")
 
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> _builtins.str:
-        """
-        Endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`).
-        """
         return pulumi.get(self, "endpoint")
 
     @_builtins.property
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> _builtins.str:
-        """
-        Type of endpoint that the server is connected to.
-        """
         return pulumi.get(self, "endpoint_type")
 
     @_builtins.property
@@ -127,33 +112,21 @@ class GetServerResult:
     @_builtins.property
     @pulumi.getter(name="identityProviderType")
     def identity_provider_type(self) -> _builtins.str:
-        """
-        The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
-        """
         return pulumi.get(self, "identity_provider_type")
 
     @_builtins.property
     @pulumi.getter(name="invocationRole")
     def invocation_role(self) -> _builtins.str:
-        """
-        ARN of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
-        """
         return pulumi.get(self, "invocation_role")
 
     @_builtins.property
     @pulumi.getter(name="loggingRole")
     def logging_role(self) -> _builtins.str:
-        """
-        ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
-        """
         return pulumi.get(self, "logging_role")
 
     @_builtins.property
     @pulumi.getter
     def protocols(self) -> Sequence[_builtins.str]:
-        """
-        File transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint.
-        """
         return pulumi.get(self, "protocols")
 
     @_builtins.property
@@ -164,9 +137,6 @@ class GetServerResult:
     @_builtins.property
     @pulumi.getter(name="securityPolicyName")
     def security_policy_name(self) -> _builtins.str:
-        """
-        The name of the security policy that is attached to the server.
-        """
         return pulumi.get(self, "security_policy_name")
 
     @_builtins.property
@@ -177,25 +147,16 @@ class GetServerResult:
     @_builtins.property
     @pulumi.getter(name="structuredLogDestinations")
     def structured_log_destinations(self) -> Sequence[_builtins.str]:
-        """
-        A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs.
-        """
         return pulumi.get(self, "structured_log_destinations")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags assigned to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter
     def url(self) -> _builtins.str:
-        """
-        URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
-        """
         return pulumi.get(self, "url")
 
 
@@ -228,22 +189,7 @@ def get_server(region: Optional[_builtins.str] = None,
                tags: Optional[Mapping[str, _builtins.str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerResult:
     """
-    Use this data source to get the ARN of an AWS Transfer Server for use in other
-    resources.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.transfer.get_server(server_id="s-1234567")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str server_id: ID for an SFTP server.
-    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -274,22 +220,7 @@ def get_server_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = 
                       tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerResult]:
     """
-    Use this data source to get the ARN of an AWS Transfer Server for use in other
-    resources.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.transfer.get_server(server_id="s-1234567")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str server_id: ID for an SFTP server.
-    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

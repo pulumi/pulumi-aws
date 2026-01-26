@@ -9,176 +9,39 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AppMesh
 {
-    /// <summary>
-    /// Provides an AWS App Mesh virtual gateway resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppMesh.VirtualGateway("example", new()
-    ///     {
-    ///         Name = "example-virtual-gateway",
-    ///         MeshName = "example-service-mesh",
-    ///         Spec = new Aws.AppMesh.Inputs.VirtualGatewaySpecArgs
-    ///         {
-    ///             Listeners = new[]
-    ///             {
-    ///                 new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerArgs
-    ///                 {
-    ///                     PortMapping = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerPortMappingArgs
-    ///                     {
-    ///                         Port = 8080,
-    ///                         Protocol = "http",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "test" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Access Logs and TLS
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppMesh.VirtualGateway("example", new()
-    ///     {
-    ///         Name = "example-virtual-gateway",
-    ///         MeshName = "example-service-mesh",
-    ///         Spec = new Aws.AppMesh.Inputs.VirtualGatewaySpecArgs
-    ///         {
-    ///             Listeners = new[]
-    ///             {
-    ///                 new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerArgs
-    ///                 {
-    ///                     PortMapping = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerPortMappingArgs
-    ///                     {
-    ///                         Port = 8080,
-    ///                         Protocol = "http",
-    ///                     },
-    ///                     Tls = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerTlsArgs
-    ///                     {
-    ///                         Certificate = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerTlsCertificateArgs
-    ///                         {
-    ///                             Acm = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerTlsCertificateAcmArgs
-    ///                             {
-    ///                                 CertificateArn = exampleAwsAcmCertificate.Arn,
-    ///                             },
-    ///                         },
-    ///                         Mode = "STRICT",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Logging = new Aws.AppMesh.Inputs.VirtualGatewaySpecLoggingArgs
-    ///             {
-    ///                 AccessLog = new Aws.AppMesh.Inputs.VirtualGatewaySpecLoggingAccessLogArgs
-    ///                 {
-    ///                     File = new Aws.AppMesh.Inputs.VirtualGatewaySpecLoggingAccessLogFileArgs
-    ///                     {
-    ///                         Path = "/var/log/access.log",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import App Mesh virtual gateway using `mesh_name` together with the virtual gateway's `name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:appmesh/virtualGateway:VirtualGateway example mesh/gw1
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:appmesh/virtualGateway:VirtualGateway")]
     public partial class VirtualGateway : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the virtual gateway.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Creation date of the virtual gateway.
-        /// </summary>
         [Output("createdDate")]
         public Output<string> CreatedDate { get; private set; } = null!;
 
-        /// <summary>
-        /// Last update date of the virtual gateway.
-        /// </summary>
         [Output("lastUpdatedDate")]
         public Output<string> LastUpdatedDate { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the service mesh in which to create the virtual gateway. Must be between 1 and 255 characters in length.
-        /// </summary>
         [Output("meshName")]
         public Output<string> MeshName { get; private set; } = null!;
 
-        /// <summary>
-        /// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-        /// </summary>
         [Output("meshOwner")]
         public Output<string> MeshOwner { get; private set; } = null!;
 
-        /// <summary>
-        /// Name to use for the virtual gateway. Must be between 1 and 255 characters in length.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Resource owner's AWS account ID.
-        /// </summary>
         [Output("resourceOwner")]
         public Output<string> ResourceOwner { get; private set; } = null!;
 
-        /// <summary>
-        /// Virtual gateway specification to apply.
-        /// </summary>
         [Output("spec")]
         public Output<Outputs.VirtualGatewaySpec> Spec { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -228,42 +91,23 @@ namespace Pulumi.Aws.AppMesh
 
     public sealed class VirtualGatewayArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the service mesh in which to create the virtual gateway. Must be between 1 and 255 characters in length.
-        /// </summary>
         [Input("meshName", required: true)]
         public Input<string> MeshName { get; set; } = null!;
 
-        /// <summary>
-        /// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-        /// </summary>
         [Input("meshOwner")]
         public Input<string>? MeshOwner { get; set; }
 
-        /// <summary>
-        /// Name to use for the virtual gateway. Must be between 1 and 255 characters in length.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Virtual gateway specification to apply.
-        /// </summary>
         [Input("spec", required: true)]
         public Input<Inputs.VirtualGatewaySpecArgs> Spec { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -278,66 +122,35 @@ namespace Pulumi.Aws.AppMesh
 
     public sealed class VirtualGatewayState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the virtual gateway.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Creation date of the virtual gateway.
-        /// </summary>
         [Input("createdDate")]
         public Input<string>? CreatedDate { get; set; }
 
-        /// <summary>
-        /// Last update date of the virtual gateway.
-        /// </summary>
         [Input("lastUpdatedDate")]
         public Input<string>? LastUpdatedDate { get; set; }
 
-        /// <summary>
-        /// Name of the service mesh in which to create the virtual gateway. Must be between 1 and 255 characters in length.
-        /// </summary>
         [Input("meshName")]
         public Input<string>? MeshName { get; set; }
 
-        /// <summary>
-        /// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-        /// </summary>
         [Input("meshOwner")]
         public Input<string>? MeshOwner { get; set; }
 
-        /// <summary>
-        /// Name to use for the virtual gateway. Must be between 1 and 255 characters in length.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Resource owner's AWS account ID.
-        /// </summary>
         [Input("resourceOwner")]
         public Input<string>? ResourceOwner { get; set; }
 
-        /// <summary>
-        /// Virtual gateway specification to apply.
-        /// </summary>
         [Input("spec")]
         public Input<Inputs.VirtualGatewaySpecGetArgs>? Spec { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -346,10 +159,6 @@ namespace Pulumi.Aws.AppMesh
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CustomRoutingEndpointGroupEndpointConfiguration {
-    /**
-     * @return An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.
-     * 
-     */
     private @Nullable String endpointId;
 
     private CustomRoutingEndpointGroupEndpointConfiguration() {}
-    /**
-     * @return An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.
-     * 
-     */
     public Optional<String> endpointId() {
         return Optional.ofNullable(this.endpointId);
     }

@@ -16,62 +16,30 @@ public final class SshKeyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SshKeyArgs Empty = new SshKeyArgs();
 
-    /**
-     * The public key portion of an SSH key pair.
-     * 
-     */
     @Import(name="body", required=true)
     private Output<String> body;
 
-    /**
-     * @return The public key portion of an SSH key pair.
-     * 
-     */
     public Output<String> body() {
         return this.body;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The Server ID of the Transfer Server (e.g., `s-12345678`)
-     * 
-     */
     @Import(name="serverId", required=true)
     private Output<String> serverId;
 
-    /**
-     * @return The Server ID of the Transfer Server (e.g., `s-12345678`)
-     * 
-     */
     public Output<String> serverId() {
         return this.serverId;
     }
 
-    /**
-     * The name of the user account that is assigned to one or more servers.
-     * 
-     */
     @Import(name="userName", required=true)
     private Output<String> userName;
 
-    /**
-     * @return The name of the user account that is assigned to one or more servers.
-     * 
-     */
     public Output<String> userName() {
         return this.userName;
     }
@@ -103,86 +71,38 @@ public final class SshKeyArgs extends com.pulumi.resources.ResourceArgs {
             $ = new SshKeyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param body The public key portion of an SSH key pair.
-         * 
-         * @return builder
-         * 
-         */
         public Builder body(Output<String> body) {
             $.body = body;
             return this;
         }
 
-        /**
-         * @param body The public key portion of an SSH key pair.
-         * 
-         * @return builder
-         * 
-         */
         public Builder body(String body) {
             return body(Output.of(body));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param serverId The Server ID of the Transfer Server (e.g., `s-12345678`)
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverId(Output<String> serverId) {
             $.serverId = serverId;
             return this;
         }
 
-        /**
-         * @param serverId The Server ID of the Transfer Server (e.g., `s-12345678`)
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverId(String serverId) {
             return serverId(Output.of(serverId));
         }
 
-        /**
-         * @param userName The name of the user account that is assigned to one or more servers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(Output<String> userName) {
             $.userName = userName;
             return this;
         }
 
-        /**
-         * @param userName The name of the user account that is assigned to one or more servers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(String userName) {
             return userName(Output.of(userName));
         }

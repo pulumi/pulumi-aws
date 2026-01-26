@@ -13,89 +13,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FleetLaunchTemplateConfigOverride {
-    /**
-     * @return Availability Zone in which to launch the instances.
-     * 
-     */
     private @Nullable String availabilityZone;
-    /**
-     * @return Override the instance type in the Launch Template with instance types that satisfy the requirements.
-     * 
-     */
     private @Nullable FleetLaunchTemplateConfigOverrideInstanceRequirements instanceRequirements;
-    /**
-     * @return Instance type.
-     * 
-     */
     private @Nullable String instanceType;
-    /**
-     * @return Maximum price per unit hour that you are willing to pay for a Spot Instance.
-     * 
-     */
     private @Nullable String maxPrice;
-    /**
-     * @return Priority for the launch template override. If `onDemandOptions` `allocationStrategy` is set to `prioritized`, EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity. The highest priority is launched first. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. Valid values are whole numbers starting at 0.
-     * 
-     */
     private @Nullable Double priority;
-    /**
-     * @return ID of the subnet in which to launch the instances.
-     * 
-     */
     private @Nullable String subnetId;
-    /**
-     * @return Number of units provided by the specified instance type.
-     * 
-     */
     private @Nullable Double weightedCapacity;
 
     private FleetLaunchTemplateConfigOverride() {}
-    /**
-     * @return Availability Zone in which to launch the instances.
-     * 
-     */
     public Optional<String> availabilityZone() {
         return Optional.ofNullable(this.availabilityZone);
     }
-    /**
-     * @return Override the instance type in the Launch Template with instance types that satisfy the requirements.
-     * 
-     */
     public Optional<FleetLaunchTemplateConfigOverrideInstanceRequirements> instanceRequirements() {
         return Optional.ofNullable(this.instanceRequirements);
     }
-    /**
-     * @return Instance type.
-     * 
-     */
     public Optional<String> instanceType() {
         return Optional.ofNullable(this.instanceType);
     }
-    /**
-     * @return Maximum price per unit hour that you are willing to pay for a Spot Instance.
-     * 
-     */
     public Optional<String> maxPrice() {
         return Optional.ofNullable(this.maxPrice);
     }
-    /**
-     * @return Priority for the launch template override. If `onDemandOptions` `allocationStrategy` is set to `prioritized`, EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity. The highest priority is launched first. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. Valid values are whole numbers starting at 0.
-     * 
-     */
     public Optional<Double> priority() {
         return Optional.ofNullable(this.priority);
     }
-    /**
-     * @return ID of the subnet in which to launch the instances.
-     * 
-     */
     public Optional<String> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }
-    /**
-     * @return Number of units provided by the specified instance type.
-     * 
-     */
     public Optional<Double> weightedCapacity() {
         return Optional.ofNullable(this.weightedCapacity);
     }

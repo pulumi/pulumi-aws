@@ -9,67 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2ClientVpn
 {
-    /// <summary>
-    /// Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the
-    /// [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2ClientVpn.NetworkAssociation("example", new()
-    ///     {
-    ///         ClientVpnEndpointId = exampleAwsEc2ClientVpnEndpoint.Id,
-    ///         SubnetId = exampleAwsSubnet.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import AWS Client VPN network associations using the endpoint ID and the association ID. Values are separated by a `,`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2clientvpn/networkAssociation:NetworkAssociation example cvpn-endpoint-0ac3a1abbccddd666,cvpn-assoc-0b8db902465d069ad
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2clientvpn/networkAssociation:NetworkAssociation")]
     public partial class NetworkAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The unique ID of the target network association.
-        /// </summary>
         [Output("associationId")]
         public Output<string> AssociationId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the Client VPN endpoint.
-        /// </summary>
         [Output("clientVpnEndpointId")]
         public Output<string> ClientVpnEndpointId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the subnet to associate with the Client VPN endpoint.
-        /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the VPC in which the target subnet is located.
-        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -119,21 +73,12 @@ namespace Pulumi.Aws.Ec2ClientVpn
 
     public sealed class NetworkAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the Client VPN endpoint.
-        /// </summary>
         [Input("clientVpnEndpointId", required: true)]
         public Input<string> ClientVpnEndpointId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the subnet to associate with the Client VPN endpoint.
-        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
@@ -145,33 +90,18 @@ namespace Pulumi.Aws.Ec2ClientVpn
 
     public sealed class NetworkAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The unique ID of the target network association.
-        /// </summary>
         [Input("associationId")]
         public Input<string>? AssociationId { get; set; }
 
-        /// <summary>
-        /// The ID of the Client VPN endpoint.
-        /// </summary>
         [Input("clientVpnEndpointId")]
         public Input<string>? ClientVpnEndpointId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the subnet to associate with the Client VPN endpoint.
-        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
-        /// <summary>
-        /// The ID of the VPC in which the target subnet is located.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

@@ -14,104 +14,23 @@ import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS SSO Admin Application Assignment Configuration.
- * 
- * By default, applications will require users to have an explicit assignment in order to access an application.
- * This resource can be used to adjust this default behavior if necessary.
- * 
- * &gt; Deleting this resource will return the assignment configuration for the application to the default AWS behavior (ie. `assignmentRequired = true`).
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ssoadmin.ApplicationAssignmentConfiguration;
- * import com.pulumi.aws.ssoadmin.ApplicationAssignmentConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ApplicationAssignmentConfiguration("example", ApplicationAssignmentConfigurationArgs.builder()
- *             .applicationArn(exampleAwsSsoadminApplication.arn())
- *             .assignmentRequired(true)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the SSO application.
- * 
- * Using `pulumi import`, import SSO Admin Application Assignment Configuration using the `id`. For example:
- * 
- * % pulumi import aws_ssoadmin_application_assignment_configuration.example arn:aws:sso::123456789012:application/id-12345678
- * 
- */
 @ResourceType(type="aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration")
 public class ApplicationAssignmentConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the application.
-     * 
-     */
     @Export(name="applicationArn", refs={String.class}, tree="[0]")
     private Output<String> applicationArn;
 
-    /**
-     * @return ARN of the application.
-     * 
-     */
     public Output<String> applicationArn() {
         return this.applicationArn;
     }
-    /**
-     * Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
-     * 
-     */
     @Export(name="assignmentRequired", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> assignmentRequired;
 
-    /**
-     * @return Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
-     * 
-     */
     public Output<Boolean> assignmentRequired() {
         return this.assignmentRequired;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

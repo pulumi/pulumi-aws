@@ -14,47 +14,23 @@ public final class SelectionSelectionTagArgs extends com.pulumi.resources.Resour
 
     public static final SelectionSelectionTagArgs Empty = new SelectionSelectionTagArgs();
 
-    /**
-     * Key for the filter.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return Key for the filter.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * An operation, such as `STRINGEQUALS`, that is applied to the key-value pair used to filter resources in a selection.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return An operation, such as `STRINGEQUALS`, that is applied to the key-value pair used to filter resources in a selection.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
 
-    /**
-     * Value for the filter.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return Value for the filter.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -85,65 +61,29 @@ public final class SelectionSelectionTagArgs extends com.pulumi.resources.Resour
             $ = new SelectionSelectionTagArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key Key for the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key Key for the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param type An operation, such as `STRINGEQUALS`, that is applied to the key-value pair used to filter resources in a selection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type An operation, such as `STRINGEQUALS`, that is applied to the key-value pair used to filter resources in a selection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
-        /**
-         * @param value Value for the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Value for the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

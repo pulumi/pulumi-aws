@@ -12,66 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an Amazon S3 Tables Namespace.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3tables"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleTableBucket, err := s3tables.NewTableBucket(ctx, "example", &s3tables.TableBucketArgs{
-//				Name: pulumi.String("example-bucket"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3tables.NewNamespace(ctx, "example", &s3tables.NamespaceArgs{
-//				Namespace:      pulumi.String("example_namespace"),
-//				TableBucketArn: exampleTableBucket.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import S3 Tables Namespace using the `table_bucket_arn` and the value of `namespace`, separated by a semicolon (`;`). For example:
-//
-// ```sh
-// $ pulumi import aws:s3tables/namespace:Namespace example 'arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket;example-namespace'
-// ```
 type Namespace struct {
 	pulumi.CustomResourceState
 
-	// Date and time when the namespace was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Account ID of the account that created the namespace.
-	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
-	// Name of the namespace.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-	Namespace pulumi.StringOutput `pulumi:"namespace"`
-	// Account ID of the account that owns the namespace.
+	CreatedAt      pulumi.StringOutput `pulumi:"createdAt"`
+	CreatedBy      pulumi.StringOutput `pulumi:"createdBy"`
+	Namespace      pulumi.StringOutput `pulumi:"namespace"`
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ARN referencing the Table Bucket that contains this Namespace.
+	Region         pulumi.StringOutput `pulumi:"region"`
 	TableBucketArn pulumi.StringOutput `pulumi:"tableBucketArn"`
 }
 
@@ -111,36 +59,20 @@ func GetNamespace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Namespace resources.
 type namespaceState struct {
-	// Date and time when the namespace was created.
-	CreatedAt *string `pulumi:"createdAt"`
-	// Account ID of the account that created the namespace.
-	CreatedBy *string `pulumi:"createdBy"`
-	// Name of the namespace.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-	Namespace *string `pulumi:"namespace"`
-	// Account ID of the account that owns the namespace.
+	CreatedAt      *string `pulumi:"createdAt"`
+	CreatedBy      *string `pulumi:"createdBy"`
+	Namespace      *string `pulumi:"namespace"`
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN referencing the Table Bucket that contains this Namespace.
+	Region         *string `pulumi:"region"`
 	TableBucketArn *string `pulumi:"tableBucketArn"`
 }
 
 type NamespaceState struct {
-	// Date and time when the namespace was created.
-	CreatedAt pulumi.StringPtrInput
-	// Account ID of the account that created the namespace.
-	CreatedBy pulumi.StringPtrInput
-	// Name of the namespace.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-	Namespace pulumi.StringPtrInput
-	// Account ID of the account that owns the namespace.
+	CreatedAt      pulumi.StringPtrInput
+	CreatedBy      pulumi.StringPtrInput
+	Namespace      pulumi.StringPtrInput
 	OwnerAccountId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN referencing the Table Bucket that contains this Namespace.
+	Region         pulumi.StringPtrInput
 	TableBucketArn pulumi.StringPtrInput
 }
 
@@ -149,25 +81,15 @@ func (NamespaceState) ElementType() reflect.Type {
 }
 
 type namespaceArgs struct {
-	// Name of the namespace.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-	Namespace string `pulumi:"namespace"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN referencing the Table Bucket that contains this Namespace.
-	TableBucketArn string `pulumi:"tableBucketArn"`
+	Namespace      string  `pulumi:"namespace"`
+	Region         *string `pulumi:"region"`
+	TableBucketArn string  `pulumi:"tableBucketArn"`
 }
 
 // The set of arguments for constructing a Namespace resource.
 type NamespaceArgs struct {
-	// Name of the namespace.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-	Namespace pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN referencing the Table Bucket that contains this Namespace.
+	Namespace      pulumi.StringInput
+	Region         pulumi.StringPtrInput
 	TableBucketArn pulumi.StringInput
 }
 
@@ -258,34 +180,26 @@ func (o NamespaceOutput) ToNamespaceOutputWithContext(ctx context.Context) Names
 	return o
 }
 
-// Date and time when the namespace was created.
 func (o NamespaceOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Account ID of the account that created the namespace.
 func (o NamespaceOutput) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
 }
 
-// Name of the namespace.
-// Must be between 1 and 255 characters in length.
-// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 func (o NamespaceOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.Namespace }).(pulumi.StringOutput)
 }
 
-// Account ID of the account that owns the namespace.
 func (o NamespaceOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o NamespaceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ARN referencing the Table Bucket that contains this Namespace.
 func (o NamespaceOutput) TableBucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.TableBucketArn }).(pulumi.StringOutput)
 }

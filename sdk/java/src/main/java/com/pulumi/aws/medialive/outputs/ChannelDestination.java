@@ -16,53 +16,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelDestination {
-    /**
-     * @return User-specified id. Ths is used in an output group or an output.
-     * 
-     */
     private String id;
-    /**
-     * @return Destination settings for a MediaPackage output; one destination for both encoders. See Media Package Settings for more details.
-     * 
-     */
     private @Nullable List<ChannelDestinationMediaPackageSetting> mediaPackageSettings;
-    /**
-     * @return Destination settings for a Multiplex output; one destination for both encoders. See Multiplex Settings for more details.
-     * 
-     */
     private @Nullable ChannelDestinationMultiplexSettings multiplexSettings;
-    /**
-     * @return Destination settings for a standard output; one destination for each redundant encoder. See Settings for more details.
-     * 
-     */
     private @Nullable List<ChannelDestinationSetting> settings;
 
     private ChannelDestination() {}
-    /**
-     * @return User-specified id. Ths is used in an output group or an output.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Destination settings for a MediaPackage output; one destination for both encoders. See Media Package Settings for more details.
-     * 
-     */
     public List<ChannelDestinationMediaPackageSetting> mediaPackageSettings() {
         return this.mediaPackageSettings == null ? List.of() : this.mediaPackageSettings;
     }
-    /**
-     * @return Destination settings for a Multiplex output; one destination for both encoders. See Multiplex Settings for more details.
-     * 
-     */
     public Optional<ChannelDestinationMultiplexSettings> multiplexSettings() {
         return Optional.ofNullable(this.multiplexSettings);
     }
-    /**
-     * @return Destination settings for a standard output; one destination for each redundant encoder. See Settings for more details.
-     * 
-     */
     public List<ChannelDestinationSetting> settings() {
         return this.settings == null ? List.of() : this.settings;
     }

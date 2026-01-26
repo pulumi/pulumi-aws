@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PermissionsBoundaryAttachmentPermissionsBoundary {
-    /**
-     * @return Specifies the name and path of a customer managed policy. See below.
-     * 
-     */
     private @Nullable PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference customerManagedPolicyReference;
-    /**
-     * @return AWS-managed IAM policy ARN to use as the permissions boundary.
-     * 
-     */
     private @Nullable String managedPolicyArn;
 
     private PermissionsBoundaryAttachmentPermissionsBoundary() {}
-    /**
-     * @return Specifies the name and path of a customer managed policy. See below.
-     * 
-     */
     public Optional<PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference> customerManagedPolicyReference() {
         return Optional.ofNullable(this.customerManagedPolicyReference);
     }
-    /**
-     * @return AWS-managed IAM policy ARN to use as the permissions boundary.
-     * 
-     */
     public Optional<String> managedPolicyArn() {
         return Optional.ofNullable(this.managedPolicyArn);
     }

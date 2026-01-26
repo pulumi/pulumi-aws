@@ -14,322 +14,6 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS OpenSearch Serverless Security Policy. See AWS documentation for [encryption policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html#serverless-encryption-policies) and [network policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html#serverless-network-policies).
- * 
- * ## Example Usage
- * 
- * ### Encryption Security Policy
- * 
- * ### Applies to a single collection
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.opensearch.ServerlessSecurityPolicy;
- * import com.pulumi.aws.opensearch.ServerlessSecurityPolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ServerlessSecurityPolicy("example", ServerlessSecurityPolicyArgs.builder()
- *             .name("example")
- *             .type("encryption")
- *             .description("encryption security policy for example-collection")
- *             .policy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Rules", jsonArray(jsonObject(
- *                         jsonProperty("Resource", jsonArray("collection/example-collection")),
- *                         jsonProperty("ResourceType", "collection")
- *                     ))),
- *                     jsonProperty("AWSOwnedKey", true)
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Applies to multiple collections
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.opensearch.ServerlessSecurityPolicy;
- * import com.pulumi.aws.opensearch.ServerlessSecurityPolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ServerlessSecurityPolicy("example", ServerlessSecurityPolicyArgs.builder()
- *             .name("example")
- *             .type("encryption")
- *             .description("encryption security policy for collections that begin with \"example\"")
- *             .policy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Rules", jsonArray(jsonObject(
- *                         jsonProperty("Resource", jsonArray("collection/example*")),
- *                         jsonProperty("ResourceType", "collection")
- *                     ))),
- *                     jsonProperty("AWSOwnedKey", true)
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Using a customer managed key
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.opensearch.ServerlessSecurityPolicy;
- * import com.pulumi.aws.opensearch.ServerlessSecurityPolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ServerlessSecurityPolicy("example", ServerlessSecurityPolicyArgs.builder()
- *             .name("example")
- *             .type("encryption")
- *             .description("encryption security policy using customer KMS key")
- *             .policy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Rules", jsonArray(jsonObject(
- *                         jsonProperty("Resource", jsonArray("collection/customer-managed-key-collection")),
- *                         jsonProperty("ResourceType", "collection")
- *                     ))),
- *                     jsonProperty("AWSOwnedKey", false),
- *                     jsonProperty("KmsARN", "arn:aws:kms:us-east-1:123456789012:key/93fd6da4-a317-4c17-bfe9-382b5d988b36")
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Network Security Policy
- * 
- * ### Allow public access to the collection endpoint and the Dashboards endpoint
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.opensearch.ServerlessSecurityPolicy;
- * import com.pulumi.aws.opensearch.ServerlessSecurityPolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ServerlessSecurityPolicy("example", ServerlessSecurityPolicyArgs.builder()
- *             .name("example")
- *             .type("network")
- *             .description("Public access")
- *             .policy(serializeJson(
- *                 jsonArray(jsonObject(
- *                     jsonProperty("Description", "Public access to collection and Dashboards endpoint for example collection"),
- *                     jsonProperty("Rules", jsonArray(
- *                         jsonObject(
- *                             jsonProperty("ResourceType", "collection"),
- *                             jsonProperty("Resource", jsonArray("collection/example-collection"))
- *                         ), 
- *                         jsonObject(
- *                             jsonProperty("ResourceType", "dashboard"),
- *                             jsonProperty("Resource", jsonArray("collection/example-collection"))
- *                         )
- *                     )),
- *                     jsonProperty("AllowFromPublic", true)
- *                 ))))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Allow VPC access to the collection endpoint and the Dashboards endpoint
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.opensearch.ServerlessSecurityPolicy;
- * import com.pulumi.aws.opensearch.ServerlessSecurityPolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ServerlessSecurityPolicy("example", ServerlessSecurityPolicyArgs.builder()
- *             .name("example")
- *             .type("network")
- *             .description("VPC access")
- *             .policy(serializeJson(
- *                 jsonArray(jsonObject(
- *                     jsonProperty("Description", "VPC access to collection and Dashboards endpoint for example collection"),
- *                     jsonProperty("Rules", jsonArray(
- *                         jsonObject(
- *                             jsonProperty("ResourceType", "collection"),
- *                             jsonProperty("Resource", jsonArray("collection/example-collection"))
- *                         ), 
- *                         jsonObject(
- *                             jsonProperty("ResourceType", "dashboard"),
- *                             jsonProperty("Resource", jsonArray("collection/example-collection"))
- *                         )
- *                     )),
- *                     jsonProperty("AllowFromPublic", false),
- *                     jsonProperty("SourceVPCEs", jsonArray("vpce-050f79086ee71ac05"))
- *                 ))))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Mixed access for different collections
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.opensearch.ServerlessSecurityPolicy;
- * import com.pulumi.aws.opensearch.ServerlessSecurityPolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ServerlessSecurityPolicy("example", ServerlessSecurityPolicyArgs.builder()
- *             .name("example")
- *             .type("network")
- *             .description("Mixed access for marketing and sales")
- *             .policy(serializeJson(
- *                 jsonArray(
- *                     jsonObject(
- *                         jsonProperty("Description", "Marketing access"),
- *                         jsonProperty("Rules", jsonArray(
- *                             jsonObject(
- *                                 jsonProperty("ResourceType", "collection"),
- *                                 jsonProperty("Resource", jsonArray("collection/marketing*"))
- *                             ), 
- *                             jsonObject(
- *                                 jsonProperty("ResourceType", "dashboard"),
- *                                 jsonProperty("Resource", jsonArray("collection/marketing*"))
- *                             )
- *                         )),
- *                         jsonProperty("AllowFromPublic", false),
- *                         jsonProperty("SourceVPCEs", jsonArray("vpce-050f79086ee71ac05"))
- *                     ), 
- *                     jsonObject(
- *                         jsonProperty("Description", "Sales access"),
- *                         jsonProperty("Rules", jsonArray(jsonObject(
- *                             jsonProperty("ResourceType", "collection"),
- *                             jsonProperty("Resource", jsonArray("collection/finance"))
- *                         ))),
- *                         jsonProperty("AllowFromPublic", true)
- *                     )
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import OpenSearchServerless Security Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
- * 
- * ```sh
- * $ pulumi import aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy example example/encryption
- * ```
- * 
- */
 @ResourceType(type="aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy")
 public class ServerlessSecurityPolicy extends com.pulumi.resources.CustomResource {
     /**
@@ -361,14 +45,14 @@ public class ServerlessSecurityPolicy extends com.pulumi.resources.CustomResourc
         return this.name;
     }
     /**
-     * JSON policy document to use as the content for the new policy
+     * JSON policy document to use as the content for the new policy.
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
-     * @return JSON policy document to use as the content for the new policy
+     * @return JSON policy document to use as the content for the new policy.
      * 
      */
     public Output<String> policy() {
@@ -388,24 +72,14 @@ public class ServerlessSecurityPolicy extends com.pulumi.resources.CustomResourc
     public Output<String> policyVersion() {
         return this.policyVersion;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
     /**
      * Type of security policy. One of `encryption` or `network`.
-     * 
-     * The following arguments are optional:
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
@@ -413,8 +87,6 @@ public class ServerlessSecurityPolicy extends com.pulumi.resources.CustomResourc
 
     /**
      * @return Type of security policy. One of `encryption` or `network`.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<String> type() {

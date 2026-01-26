@@ -16,51 +16,23 @@ public final class UserAccessLoggingSettingsAssociationArgs extends com.pulumi.r
 
     public static final UserAccessLoggingSettingsAssociationArgs Empty = new UserAccessLoggingSettingsAssociationArgs();
 
-    /**
-     * ARN of the portal to associate with the user access logging settings. Forces replacement if changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="portalArn", required=true)
     private Output<String> portalArn;
 
-    /**
-     * @return ARN of the portal to associate with the user access logging settings. Forces replacement if changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> portalArn() {
         return this.portalArn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ARN of the user access logging settings to associate with the portal. Forces replacement if changed.
-     * 
-     */
     @Import(name="userAccessLoggingSettingsArn", required=true)
     private Output<String> userAccessLoggingSettingsArn;
 
-    /**
-     * @return ARN of the user access logging settings to associate with the portal. Forces replacement if changed.
-     * 
-     */
     public Output<String> userAccessLoggingSettingsArn() {
         return this.userAccessLoggingSettingsArn;
     }
@@ -91,69 +63,29 @@ public final class UserAccessLoggingSettingsAssociationArgs extends com.pulumi.r
             $ = new UserAccessLoggingSettingsAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param portalArn ARN of the portal to associate with the user access logging settings. Forces replacement if changed.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder portalArn(Output<String> portalArn) {
             $.portalArn = portalArn;
             return this;
         }
 
-        /**
-         * @param portalArn ARN of the portal to associate with the user access logging settings. Forces replacement if changed.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder portalArn(String portalArn) {
             return portalArn(Output.of(portalArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param userAccessLoggingSettingsArn ARN of the user access logging settings to associate with the portal. Forces replacement if changed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userAccessLoggingSettingsArn(Output<String> userAccessLoggingSettingsArn) {
             $.userAccessLoggingSettingsArn = userAccessLoggingSettingsArn;
             return this;
         }
 
-        /**
-         * @param userAccessLoggingSettingsArn ARN of the user access logging settings to associate with the portal. Forces replacement if changed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userAccessLoggingSettingsArn(String userAccessLoggingSettingsArn) {
             return userAccessLoggingSettingsArn(Output.of(userAccessLoggingSettingsArn));
         }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class GetFunctionCapacityProviderConfigResult
     {
-        /// <summary>
-        /// Configuration block for Lambda Managed Instances Capacity Provider.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigResult> LambdaManagedInstancesCapacityProviderConfigs;
 
         [OutputConstructor]

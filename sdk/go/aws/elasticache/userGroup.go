@@ -12,76 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an ElastiCache user group resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticache"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := elasticache.NewUser(ctx, "test", &elasticache.UserArgs{
-//				UserId:       pulumi.String("testUserId"),
-//				UserName:     pulumi.String("default"),
-//				AccessString: pulumi.String("on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember"),
-//				Engine:       pulumi.String("redis"),
-//				Passwords: pulumi.StringArray{
-//					pulumi.String("password123456789"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elasticache.NewUserGroup(ctx, "test", &elasticache.UserGroupArgs{
-//				Engine:      pulumi.String("redis"),
-//				UserGroupId: pulumi.String("userGroupId"),
-//				UserIds: pulumi.StringArray{
-//					test.UserId,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import ElastiCache user groups using the `user_group_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:elasticache/userGroup:UserGroup my_user_group userGoupId1
-// ```
 type UserGroup struct {
 	pulumi.CustomResourceState
 
-	// The ARN that identifies the user group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The current supported value are `redis`, `valkey` (case insensitive).
-	Engine pulumi.StringOutput `pulumi:"engine"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The ID of the user group.
-	//
-	// The following arguments are optional:
-	UserGroupId pulumi.StringOutput `pulumi:"userGroupId"`
-	// The list of user IDs that belong to the user group.
-	UserIds pulumi.StringArrayOutput `pulumi:"userIds"`
+	Arn         pulumi.StringOutput      `pulumi:"arn"`
+	Engine      pulumi.StringOutput      `pulumi:"engine"`
+	Region      pulumi.StringOutput      `pulumi:"region"`
+	Tags        pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll     pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	UserGroupId pulumi.StringOutput      `pulumi:"userGroupId"`
+	UserIds     pulumi.StringArrayOutput `pulumi:"userIds"`
 }
 
 // NewUserGroup registers a new resource with the given unique name, arguments, and options.
@@ -120,41 +60,23 @@ func GetUserGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserGroup resources.
 type userGroupState struct {
-	// The ARN that identifies the user group.
-	Arn *string `pulumi:"arn"`
-	// The current supported value are `redis`, `valkey` (case insensitive).
-	Engine *string `pulumi:"engine"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The ID of the user group.
-	//
-	// The following arguments are optional:
-	UserGroupId *string `pulumi:"userGroupId"`
-	// The list of user IDs that belong to the user group.
-	UserIds []string `pulumi:"userIds"`
+	Arn         *string           `pulumi:"arn"`
+	Engine      *string           `pulumi:"engine"`
+	Region      *string           `pulumi:"region"`
+	Tags        map[string]string `pulumi:"tags"`
+	TagsAll     map[string]string `pulumi:"tagsAll"`
+	UserGroupId *string           `pulumi:"userGroupId"`
+	UserIds     []string          `pulumi:"userIds"`
 }
 
 type UserGroupState struct {
-	// The ARN that identifies the user group.
-	Arn pulumi.StringPtrInput
-	// The current supported value are `redis`, `valkey` (case insensitive).
-	Engine pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The ID of the user group.
-	//
-	// The following arguments are optional:
+	Arn         pulumi.StringPtrInput
+	Engine      pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
 	UserGroupId pulumi.StringPtrInput
-	// The list of user IDs that belong to the user group.
-	UserIds pulumi.StringArrayInput
+	UserIds     pulumi.StringArrayInput
 }
 
 func (UserGroupState) ElementType() reflect.Type {
@@ -162,34 +84,20 @@ func (UserGroupState) ElementType() reflect.Type {
 }
 
 type userGroupArgs struct {
-	// The current supported value are `redis`, `valkey` (case insensitive).
-	Engine string `pulumi:"engine"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The ID of the user group.
-	//
-	// The following arguments are optional:
-	UserGroupId string `pulumi:"userGroupId"`
-	// The list of user IDs that belong to the user group.
-	UserIds []string `pulumi:"userIds"`
+	Engine      string            `pulumi:"engine"`
+	Region      *string           `pulumi:"region"`
+	Tags        map[string]string `pulumi:"tags"`
+	UserGroupId string            `pulumi:"userGroupId"`
+	UserIds     []string          `pulumi:"userIds"`
 }
 
 // The set of arguments for constructing a UserGroup resource.
 type UserGroupArgs struct {
-	// The current supported value are `redis`, `valkey` (case insensitive).
-	Engine pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The ID of the user group.
-	//
-	// The following arguments are optional:
+	Engine      pulumi.StringInput
+	Region      pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
 	UserGroupId pulumi.StringInput
-	// The list of user IDs that belong to the user group.
-	UserIds pulumi.StringArrayInput
+	UserIds     pulumi.StringArrayInput
 }
 
 func (UserGroupArgs) ElementType() reflect.Type {
@@ -279,39 +187,30 @@ func (o UserGroupOutput) ToUserGroupOutputWithContext(ctx context.Context) UserG
 	return o
 }
 
-// The ARN that identifies the user group.
 func (o UserGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The current supported value are `redis`, `valkey` (case insensitive).
 func (o UserGroupOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserGroup) pulumi.StringOutput { return v.Engine }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o UserGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o UserGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UserGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o UserGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UserGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The ID of the user group.
-//
-// The following arguments are optional:
 func (o UserGroupOutput) UserGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserGroup) pulumi.StringOutput { return v.UserGroupId }).(pulumi.StringOutput)
 }
 
-// The list of user IDs that belong to the user group.
 func (o UserGroupOutput) UserIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserGroup) pulumi.StringArrayOutput { return v.UserIds }).(pulumi.StringArrayOutput)
 }

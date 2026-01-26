@@ -56,25 +56,16 @@ class GetAliasResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN identifying the State Machine alias.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> _builtins.str:
-        """
-        Date the state machine Alias was created.
-        """
         return pulumi.get(self, "creation_date")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
-        """
-        Description of state machine alias.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -98,9 +89,6 @@ class GetAliasResult:
     @_builtins.property
     @pulumi.getter(name="routingConfigurations")
     def routing_configurations(self) -> Sequence['outputs.GetAliasRoutingConfigurationResult']:
-        """
-        Routing Configuration of state machine alias
-        """
         return pulumi.get(self, "routing_configurations")
 
     @_builtins.property
@@ -131,25 +119,7 @@ def get_alias(description: Optional[_builtins.str] = None,
               statemachine_arn: Optional[_builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAliasResult:
     """
-    Data source for managing an AWS SFN (Step Functions) State Machine Alias.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.sfn.get_alias(name="my_sfn_alias",
-        statemachine_arn=sfn_test["arn"])
-    ```
-
-
-    :param _builtins.str description: Description of state machine alias.
-    :param _builtins.str name: Name of the State Machine alias.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str statemachine_arn: ARN of the State Machine.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['description'] = description
@@ -174,25 +144,7 @@ def get_alias_output(description: Optional[pulumi.Input[Optional[_builtins.str]]
                      statemachine_arn: Optional[pulumi.Input[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAliasResult]:
     """
-    Data source for managing an AWS SFN (Step Functions) State Machine Alias.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.sfn.get_alias(name="my_sfn_alias",
-        statemachine_arn=sfn_test["arn"])
-    ```
-
-
-    :param _builtins.str description: Description of state machine alias.
-    :param _builtins.str name: Name of the State Machine alias.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str statemachine_arn: ARN of the State Machine.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['description'] = description

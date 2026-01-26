@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter {
-    /**
-     * @return The parameter name.
-     * 
-     */
     private String name;
-    /**
-     * @return The array of strings.
-     * 
-     */
     private List<String> values;
 
     private MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter() {}
-    /**
-     * @return The parameter name.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The array of strings.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

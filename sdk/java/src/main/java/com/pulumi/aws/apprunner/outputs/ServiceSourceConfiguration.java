@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceSourceConfiguration {
-    /**
-     * @return Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
-     * 
-     */
     private @Nullable ServiceSourceConfigurationAuthenticationConfiguration authenticationConfiguration;
-    /**
-     * @return Whether continuous integration from the source repository is enabled for the App Runner service. If set to `true`, each repository change (source code commit or new image version) starts a deployment. Defaults to `true`.
-     * 
-     */
     private @Nullable Boolean autoDeploymentsEnabled;
-    /**
-     * @return Description of a source code repository. See Code Repository below for more details.
-     * 
-     */
     private @Nullable ServiceSourceConfigurationCodeRepository codeRepository;
-    /**
-     * @return Description of a source image repository. See Image Repository below for more details.
-     * 
-     */
     private @Nullable ServiceSourceConfigurationImageRepository imageRepository;
 
     private ServiceSourceConfiguration() {}
-    /**
-     * @return Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
-     * 
-     */
     public Optional<ServiceSourceConfigurationAuthenticationConfiguration> authenticationConfiguration() {
         return Optional.ofNullable(this.authenticationConfiguration);
     }
-    /**
-     * @return Whether continuous integration from the source repository is enabled for the App Runner service. If set to `true`, each repository change (source code commit or new image version) starts a deployment. Defaults to `true`.
-     * 
-     */
     public Optional<Boolean> autoDeploymentsEnabled() {
         return Optional.ofNullable(this.autoDeploymentsEnabled);
     }
-    /**
-     * @return Description of a source code repository. See Code Repository below for more details.
-     * 
-     */
     public Optional<ServiceSourceConfigurationCodeRepository> codeRepository() {
         return Optional.ofNullable(this.codeRepository);
     }
-    /**
-     * @return Description of a source image repository. See Image Repository below for more details.
-     * 
-     */
     public Optional<ServiceSourceConfigurationImageRepository> imageRepository() {
         return Optional.ofNullable(this.imageRepository);
     }

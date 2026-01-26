@@ -12,79 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker AI User Profile resource.
-//
-// ## Example Usage
-//
-// ### Basic usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewUserProfile(ctx, "example", &sagemaker.UserProfileArgs{
-//				DomainId:        pulumi.Any(test.Id),
-//				UserProfileName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// * `domain_id` (String) SageMaker domain ID.
-//
-// * `user_profile_name` (String) Name of the user profile.
-//
-// #### Optional
-//
-// * `account_id` (String) AWS Account where this resource is managed.
-//
-// * `region` (String) Region where this resource is managed.
-//
-// Using `pulumi import`, import SageMaker AI User Profiles using the `arn`. For example:
-//
-// % pulumi import aws_sagemaker_user_profile.example arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
 type UserProfile struct {
 	pulumi.CustomResourceState
 
-	// The user profile Amazon Resource Name (ARN).
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ID of the associated Domain.
-	DomainId pulumi.StringOutput `pulumi:"domainId"`
-	// The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
-	HomeEfsFileSystemUid pulumi.StringOutput `pulumi:"homeEfsFileSystemUid"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A specifier for the type of value specified in `singleSignOnUserValue`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
-	SingleSignOnUserIdentifier pulumi.StringPtrOutput `pulumi:"singleSignOnUserIdentifier"`
-	// The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
-	SingleSignOnUserValue pulumi.StringPtrOutput `pulumi:"singleSignOnUserValue"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The name for the User Profile.
-	UserProfileName pulumi.StringOutput `pulumi:"userProfileName"`
-	// The user settings. See User Settings below.
-	UserSettings UserProfileUserSettingsPtrOutput `pulumi:"userSettings"`
+	Arn                        pulumi.StringOutput              `pulumi:"arn"`
+	DomainId                   pulumi.StringOutput              `pulumi:"domainId"`
+	HomeEfsFileSystemUid       pulumi.StringOutput              `pulumi:"homeEfsFileSystemUid"`
+	Region                     pulumi.StringOutput              `pulumi:"region"`
+	SingleSignOnUserIdentifier pulumi.StringPtrOutput           `pulumi:"singleSignOnUserIdentifier"`
+	SingleSignOnUserValue      pulumi.StringPtrOutput           `pulumi:"singleSignOnUserValue"`
+	Tags                       pulumi.StringMapOutput           `pulumi:"tags"`
+	TagsAll                    pulumi.StringMapOutput           `pulumi:"tagsAll"`
+	UserProfileName            pulumi.StringOutput              `pulumi:"userProfileName"`
+	UserSettings               UserProfileUserSettingsPtrOutput `pulumi:"userSettings"`
 }
 
 // NewUserProfile registers a new resource with the given unique name, arguments, and options.
@@ -123,49 +63,29 @@ func GetUserProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserProfile resources.
 type userProfileState struct {
-	// The user profile Amazon Resource Name (ARN).
-	Arn *string `pulumi:"arn"`
-	// The ID of the associated Domain.
-	DomainId *string `pulumi:"domainId"`
-	// The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
-	HomeEfsFileSystemUid *string `pulumi:"homeEfsFileSystemUid"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A specifier for the type of value specified in `singleSignOnUserValue`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
-	SingleSignOnUserIdentifier *string `pulumi:"singleSignOnUserIdentifier"`
-	// The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
-	SingleSignOnUserValue *string `pulumi:"singleSignOnUserValue"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The name for the User Profile.
-	UserProfileName *string `pulumi:"userProfileName"`
-	// The user settings. See User Settings below.
-	UserSettings *UserProfileUserSettings `pulumi:"userSettings"`
+	Arn                        *string                  `pulumi:"arn"`
+	DomainId                   *string                  `pulumi:"domainId"`
+	HomeEfsFileSystemUid       *string                  `pulumi:"homeEfsFileSystemUid"`
+	Region                     *string                  `pulumi:"region"`
+	SingleSignOnUserIdentifier *string                  `pulumi:"singleSignOnUserIdentifier"`
+	SingleSignOnUserValue      *string                  `pulumi:"singleSignOnUserValue"`
+	Tags                       map[string]string        `pulumi:"tags"`
+	TagsAll                    map[string]string        `pulumi:"tagsAll"`
+	UserProfileName            *string                  `pulumi:"userProfileName"`
+	UserSettings               *UserProfileUserSettings `pulumi:"userSettings"`
 }
 
 type UserProfileState struct {
-	// The user profile Amazon Resource Name (ARN).
-	Arn pulumi.StringPtrInput
-	// The ID of the associated Domain.
-	DomainId pulumi.StringPtrInput
-	// The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
-	HomeEfsFileSystemUid pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A specifier for the type of value specified in `singleSignOnUserValue`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
+	Arn                        pulumi.StringPtrInput
+	DomainId                   pulumi.StringPtrInput
+	HomeEfsFileSystemUid       pulumi.StringPtrInput
+	Region                     pulumi.StringPtrInput
 	SingleSignOnUserIdentifier pulumi.StringPtrInput
-	// The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
-	SingleSignOnUserValue pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The name for the User Profile.
-	UserProfileName pulumi.StringPtrInput
-	// The user settings. See User Settings below.
-	UserSettings UserProfileUserSettingsPtrInput
+	SingleSignOnUserValue      pulumi.StringPtrInput
+	Tags                       pulumi.StringMapInput
+	TagsAll                    pulumi.StringMapInput
+	UserProfileName            pulumi.StringPtrInput
+	UserSettings               UserProfileUserSettingsPtrInput
 }
 
 func (UserProfileState) ElementType() reflect.Type {
@@ -173,38 +93,24 @@ func (UserProfileState) ElementType() reflect.Type {
 }
 
 type userProfileArgs struct {
-	// The ID of the associated Domain.
-	DomainId string `pulumi:"domainId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A specifier for the type of value specified in `singleSignOnUserValue`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
-	SingleSignOnUserIdentifier *string `pulumi:"singleSignOnUserIdentifier"`
-	// The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
-	SingleSignOnUserValue *string `pulumi:"singleSignOnUserValue"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The name for the User Profile.
-	UserProfileName string `pulumi:"userProfileName"`
-	// The user settings. See User Settings below.
-	UserSettings *UserProfileUserSettings `pulumi:"userSettings"`
+	DomainId                   string                   `pulumi:"domainId"`
+	Region                     *string                  `pulumi:"region"`
+	SingleSignOnUserIdentifier *string                  `pulumi:"singleSignOnUserIdentifier"`
+	SingleSignOnUserValue      *string                  `pulumi:"singleSignOnUserValue"`
+	Tags                       map[string]string        `pulumi:"tags"`
+	UserProfileName            string                   `pulumi:"userProfileName"`
+	UserSettings               *UserProfileUserSettings `pulumi:"userSettings"`
 }
 
 // The set of arguments for constructing a UserProfile resource.
 type UserProfileArgs struct {
-	// The ID of the associated Domain.
-	DomainId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A specifier for the type of value specified in `singleSignOnUserValue`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
+	DomainId                   pulumi.StringInput
+	Region                     pulumi.StringPtrInput
 	SingleSignOnUserIdentifier pulumi.StringPtrInput
-	// The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
-	SingleSignOnUserValue pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The name for the User Profile.
-	UserProfileName pulumi.StringInput
-	// The user settings. See User Settings below.
-	UserSettings UserProfileUserSettingsPtrInput
+	SingleSignOnUserValue      pulumi.StringPtrInput
+	Tags                       pulumi.StringMapInput
+	UserProfileName            pulumi.StringInput
+	UserSettings               UserProfileUserSettingsPtrInput
 }
 
 func (UserProfileArgs) ElementType() reflect.Type {
@@ -294,52 +200,42 @@ func (o UserProfileOutput) ToUserProfileOutputWithContext(ctx context.Context) U
 	return o
 }
 
-// The user profile Amazon Resource Name (ARN).
 func (o UserProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The ID of the associated Domain.
 func (o UserProfileOutput) DomainId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserProfile) pulumi.StringOutput { return v.DomainId }).(pulumi.StringOutput)
 }
 
-// The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
 func (o UserProfileOutput) HomeEfsFileSystemUid() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserProfile) pulumi.StringOutput { return v.HomeEfsFileSystemUid }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o UserProfileOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserProfile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A specifier for the type of value specified in `singleSignOnUserValue`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
 func (o UserProfileOutput) SingleSignOnUserIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfile) pulumi.StringPtrOutput { return v.SingleSignOnUserIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
 func (o UserProfileOutput) SingleSignOnUserValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfile) pulumi.StringPtrOutput { return v.SingleSignOnUserValue }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o UserProfileOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UserProfile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o UserProfileOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UserProfile) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The name for the User Profile.
 func (o UserProfileOutput) UserProfileName() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserProfile) pulumi.StringOutput { return v.UserProfileName }).(pulumi.StringOutput)
 }
 
-// The user settings. See User Settings below.
 func (o UserProfileOutput) UserSettings() UserProfileUserSettingsPtrOutput {
 	return o.ApplyT(func(v *UserProfile) UserProfileUserSettingsPtrOutput { return v.UserSettings }).(UserProfileUserSettingsPtrOutput)
 }

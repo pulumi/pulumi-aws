@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class EventConnectionAuthParametersApiKey
     {
-        /// <summary>
-        /// Header Name.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// Header Value. Created and stored in AWS Secrets Manager.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

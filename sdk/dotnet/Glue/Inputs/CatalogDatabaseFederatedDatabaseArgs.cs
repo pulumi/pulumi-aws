@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class CatalogDatabaseFederatedDatabaseArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the connection to the external metastore.
-        /// </summary>
         [Input("connectionName")]
         public Input<string>? ConnectionName { get; set; }
 
-        /// <summary>
-        /// Unique identifier for the federated database.
-        /// </summary>
         [Input("identifier")]
         public Input<string>? Identifier { get; set; }
 

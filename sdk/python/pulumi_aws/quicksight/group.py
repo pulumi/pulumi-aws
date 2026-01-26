@@ -26,10 +26,6 @@ class GroupArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Group resource.
-        :param pulumi.Input[_builtins.str] group_name: A name for the group.
-        :param pulumi.Input[_builtins.str] description: A description for the group.
-        :param pulumi.Input[_builtins.str] namespace: The namespace. Currently, you should set this to `default`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "group_name", group_name)
         if aws_account_id is not None:
@@ -44,9 +40,6 @@ class GroupArgs:
     @_builtins.property
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        A name for the group.
-        """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
@@ -65,9 +58,6 @@ class GroupArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description for the group.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -77,9 +67,6 @@ class GroupArgs:
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The namespace. Currently, you should set this to `default`.
-        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -89,9 +76,6 @@ class GroupArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -110,11 +94,6 @@ class _GroupState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Group resources.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of group
-        :param pulumi.Input[_builtins.str] description: A description for the group.
-        :param pulumi.Input[_builtins.str] group_name: A name for the group.
-        :param pulumi.Input[_builtins.str] namespace: The namespace. Currently, you should set this to `default`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -132,9 +111,6 @@ class _GroupState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of group
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -153,9 +129,6 @@ class _GroupState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description for the group.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -165,9 +138,6 @@ class _GroupState:
     @_builtins.property
     @pulumi.getter(name="groupName")
     def group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A name for the group.
-        """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
@@ -177,9 +147,6 @@ class _GroupState:
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The namespace. Currently, you should set this to `default`.
-        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -189,9 +156,6 @@ class _GroupState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -212,31 +176,9 @@ class Group(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing QuickSight Group
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.Group("example", group_name="tf-example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import QuickSight Group using the aws account id, namespace and group name separated by `/`. For example:
-
-        ```sh
-        $ pulumi import aws:quicksight/group:Group example 123456789123/default/tf-example
-        ```
-
+        Create a Group resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: A description for the group.
-        :param pulumi.Input[_builtins.str] group_name: A name for the group.
-        :param pulumi.Input[_builtins.str] namespace: The namespace. Currently, you should set this to `default`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -245,25 +187,7 @@ class Group(pulumi.CustomResource):
                  args: GroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing QuickSight Group
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.Group("example", group_name="tf-example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import QuickSight Group using the aws account id, namespace and group name separated by `/`. For example:
-
-        ```sh
-        $ pulumi import aws:quicksight/group:Group example 123456789123/default/tf-example
-        ```
-
+        Create a Group resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -324,11 +248,6 @@ class Group(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of group
-        :param pulumi.Input[_builtins.str] description: A description for the group.
-        :param pulumi.Input[_builtins.str] group_name: A name for the group.
-        :param pulumi.Input[_builtins.str] namespace: The namespace. Currently, you should set this to `default`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -345,9 +264,6 @@ class Group(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of group
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -358,32 +274,20 @@ class Group(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A description for the group.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        A name for the group.
-        """
         return pulumi.get(self, "group_name")
 
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The namespace. Currently, you should set this to `default`.
-        """
         return pulumi.get(self, "namespace")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

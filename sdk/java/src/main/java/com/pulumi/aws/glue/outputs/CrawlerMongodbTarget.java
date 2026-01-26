@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CrawlerMongodbTarget {
-    /**
-     * @return The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
-     * 
-     */
     private String connectionName;
-    /**
-     * @return The path of the Amazon DocumentDB or MongoDB target (database/collection).
-     * 
-     */
     private String path;
-    /**
-     * @return Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
-     * 
-     */
     private @Nullable Boolean scanAll;
 
     private CrawlerMongodbTarget() {}
-    /**
-     * @return The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
-     * 
-     */
     public String connectionName() {
         return this.connectionName;
     }
-    /**
-     * @return The path of the Amazon DocumentDB or MongoDB target (database/collection).
-     * 
-     */
     public String path() {
         return this.path;
     }
-    /**
-     * @return Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
-     * 
-     */
     public Optional<Boolean> scanAll() {
         return Optional.ofNullable(this.scanAll);
     }

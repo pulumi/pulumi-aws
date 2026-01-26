@@ -7,54 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AppConfig Extension resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testTopic = new aws.sns.Topic("test", {name: "test"});
- * const test = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["appconfig.amazonaws.com"],
- *         }],
- *     }],
- * });
- * const testRole = new aws.iam.Role("test", {
- *     name: "test",
- *     assumeRolePolicy: test.then(test => test.json),
- * });
- * const testExtension = new aws.appconfig.Extension("test", {
- *     name: "test",
- *     description: "test description",
- *     actionPoints: [{
- *         point: "ON_DEPLOYMENT_COMPLETE",
- *         actions: [{
- *             name: "test",
- *             roleArn: testRole.arn,
- *             uri: testTopic.arn,
- *         }],
- *     }],
- *     tags: {
- *         Type: "AppConfig Extension",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import AppConfig Extensions using their extension ID. For example:
- *
- * ```sh
- * $ pulumi import aws:appconfig/extension:Extension example 71rxuzt
- * ```
- */
 export class Extension extends pulumi.CustomResource {
     /**
      * Get an existing Extension resource's state with the given name, ID, and optional extra
@@ -83,38 +35,14 @@ export class Extension extends pulumi.CustomResource {
         return obj['__pulumiType'] === Extension.__pulumiType;
     }
 
-    /**
-     * The action points defined in the extension. Detailed below.
-     */
     declare public readonly actionPoints: pulumi.Output<outputs.appconfig.ExtensionActionPoint[]>;
-    /**
-     * ARN of the AppConfig Extension.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Information about the extension.
-     */
     declare public readonly description: pulumi.Output<string>;
-    /**
-     * A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
-     */
     declare public readonly parameters: pulumi.Output<outputs.appconfig.ExtensionParameter[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The version number for the extension.
-     */
     declare public /*out*/ readonly version: pulumi.Output<number>;
 
     /**
@@ -163,38 +91,14 @@ export class Extension extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Extension resources.
  */
 export interface ExtensionState {
-    /**
-     * The action points defined in the extension. Detailed below.
-     */
     actionPoints?: pulumi.Input<pulumi.Input<inputs.appconfig.ExtensionActionPoint>[]>;
-    /**
-     * ARN of the AppConfig Extension.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Information about the extension.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
-     */
     parameters?: pulumi.Input<pulumi.Input<inputs.appconfig.ExtensionParameter>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The version number for the extension.
-     */
     version?: pulumi.Input<number>;
 }
 
@@ -202,28 +106,10 @@ export interface ExtensionState {
  * The set of arguments for constructing a Extension resource.
  */
 export interface ExtensionArgs {
-    /**
-     * The action points defined in the extension. Detailed below.
-     */
     actionPoints: pulumi.Input<pulumi.Input<inputs.appconfig.ExtensionActionPoint>[]>;
-    /**
-     * Information about the extension.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
-     */
     parameters?: pulumi.Input<pulumi.Input<inputs.appconfig.ExtensionParameter>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

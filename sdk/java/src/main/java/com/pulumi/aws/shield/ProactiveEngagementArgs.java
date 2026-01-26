@@ -18,32 +18,16 @@ public final class ProactiveEngagementArgs extends com.pulumi.resources.Resource
 
     public static final ProactiveEngagementArgs Empty = new ProactiveEngagementArgs();
 
-    /**
-     * One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergencyContacts`.
-     * 
-     */
     @Import(name="emergencyContacts")
     private @Nullable Output<List<ProactiveEngagementEmergencyContactArgs>> emergencyContacts;
 
-    /**
-     * @return One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergencyContacts`.
-     * 
-     */
     public Optional<Output<List<ProactiveEngagementEmergencyContactArgs>>> emergencyContacts() {
         return Optional.ofNullable(this.emergencyContacts);
     }
 
-    /**
-     * Boolean value indicating if Proactive Engagement should be enabled or not.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return Boolean value indicating if Proactive Engagement should be enabled or not.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
@@ -73,54 +57,24 @@ public final class ProactiveEngagementArgs extends com.pulumi.resources.Resource
             $ = new ProactiveEngagementArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param emergencyContacts One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergencyContacts`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emergencyContacts(@Nullable Output<List<ProactiveEngagementEmergencyContactArgs>> emergencyContacts) {
             $.emergencyContacts = emergencyContacts;
             return this;
         }
 
-        /**
-         * @param emergencyContacts One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergencyContacts`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emergencyContacts(List<ProactiveEngagementEmergencyContactArgs> emergencyContacts) {
             return emergencyContacts(Output.of(emergencyContacts));
         }
 
-        /**
-         * @param emergencyContacts One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergencyContacts`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emergencyContacts(ProactiveEngagementEmergencyContactArgs... emergencyContacts) {
             return emergencyContacts(List.of(emergencyContacts));
         }
 
-        /**
-         * @param enabled Boolean value indicating if Proactive Engagement should be enabled or not.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Boolean value indicating if Proactive Engagement should be enabled or not.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

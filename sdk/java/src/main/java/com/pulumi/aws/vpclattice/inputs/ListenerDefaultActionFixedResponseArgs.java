@@ -14,17 +14,9 @@ public final class ListenerDefaultActionFixedResponseArgs extends com.pulumi.res
 
     public static final ListenerDefaultActionFixedResponseArgs Empty = new ListenerDefaultActionFixedResponseArgs();
 
-    /**
-     * Custom HTTP status code to return, e.g. a 404 response code. See [Listeners](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html) in the AWS documentation for a list of supported codes.
-     * 
-     */
     @Import(name="statusCode", required=true)
     private Output<Integer> statusCode;
 
-    /**
-     * @return Custom HTTP status code to return, e.g. a 404 response code. See [Listeners](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html) in the AWS documentation for a list of supported codes.
-     * 
-     */
     public Output<Integer> statusCode() {
         return this.statusCode;
     }
@@ -53,23 +45,11 @@ public final class ListenerDefaultActionFixedResponseArgs extends com.pulumi.res
             $ = new ListenerDefaultActionFixedResponseArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param statusCode Custom HTTP status code to return, e.g. a 404 response code. See [Listeners](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html) in the AWS documentation for a list of supported codes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusCode(Output<Integer> statusCode) {
             $.statusCode = statusCode;
             return this;
         }
 
-        /**
-         * @param statusCode Custom HTTP status code to return, e.g. a 404 response code. See [Listeners](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html) in the AWS documentation for a list of supported codes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusCode(Integer statusCode) {
             return statusCode(Output.of(statusCode));
         }

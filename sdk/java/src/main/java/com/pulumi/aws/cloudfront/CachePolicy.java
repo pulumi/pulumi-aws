@@ -16,193 +16,53 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * 
- * Use the `aws.cloudfront.CachePolicy` resource to create a cache policy for CloudFront.
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudfront.CachePolicy;
- * import com.pulumi.aws.cloudfront.CachePolicyArgs;
- * import com.pulumi.aws.cloudfront.inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginArgs;
- * import com.pulumi.aws.cloudfront.inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs;
- * import com.pulumi.aws.cloudfront.inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs;
- * import com.pulumi.aws.cloudfront.inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new CachePolicy("example", CachePolicyArgs.builder()
- *             .name("example-policy")
- *             .comment("test comment")
- *             .defaultTtl(50)
- *             .maxTtl(100)
- *             .minTtl(1)
- *             .parametersInCacheKeyAndForwardedToOrigin(CachePolicyParametersInCacheKeyAndForwardedToOriginArgs.builder()
- *                 .cookiesConfig(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs.builder()
- *                     .cookieBehavior("whitelist")
- *                     .cookies(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs.builder()
- *                         .items("example")
- *                         .build())
- *                     .build())
- *                 .headersConfig(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs.builder()
- *                     .headerBehavior("whitelist")
- *                     .headers(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs.builder()
- *                         .items("example")
- *                         .build())
- *                     .build())
- *                 .queryStringsConfig(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs.builder()
- *                     .queryStringBehavior("whitelist")
- *                     .queryStrings(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs.builder()
- *                         .items("example")
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import CloudFront cache policies using the `id` of the cache policy. For example:
- * 
- * ```sh
- * $ pulumi import aws:cloudfront/cachePolicy:CachePolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f6
- * ```
- * 
- */
 @ResourceType(type="aws:cloudfront/cachePolicy:CachePolicy")
 public class CachePolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The cache policy ARN.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The cache policy ARN.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Description for the cache policy.
-     * 
-     */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
-    /**
-     * @return Description for the cache policy.
-     * 
-     */
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
     }
-    /**
-     * Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
-     * 
-     */
     @Export(name="defaultTtl", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> defaultTtl;
 
-    /**
-     * @return Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
-     * 
-     */
     public Output<Optional<Integer>> defaultTtl() {
         return Codegen.optional(this.defaultTtl);
     }
-    /**
-     * Current version of the cache policy.
-     * 
-     */
     @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
-    /**
-     * @return Current version of the cache policy.
-     * 
-     */
     public Output<String> etag() {
         return this.etag;
     }
-    /**
-     * Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
-     * 
-     */
     @Export(name="maxTtl", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxTtl;
 
-    /**
-     * @return Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
-     * 
-     */
     public Output<Optional<Integer>> maxTtl() {
         return Codegen.optional(this.maxTtl);
     }
-    /**
-     * Minimum amount of time, in seconds, that objects should remain in the CloudFront cache before a new request is sent to the origin to check for updates.
-     * 
-     */
     @Export(name="minTtl", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minTtl;
 
-    /**
-     * @return Minimum amount of time, in seconds, that objects should remain in the CloudFront cache before a new request is sent to the origin to check for updates.
-     * 
-     */
     public Output<Optional<Integer>> minTtl() {
         return Codegen.optional(this.minTtl);
     }
-    /**
-     * Unique name used to identify the cache policy.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Unique name used to identify the cache policy.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
-     * 
-     */
     @Export(name="parametersInCacheKeyAndForwardedToOrigin", refs={CachePolicyParametersInCacheKeyAndForwardedToOrigin.class}, tree="[0]")
     private Output<CachePolicyParametersInCacheKeyAndForwardedToOrigin> parametersInCacheKeyAndForwardedToOrigin;
 
-    /**
-     * @return Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
-     * 
-     */
     public Output<CachePolicyParametersInCacheKeyAndForwardedToOrigin> parametersInCacheKeyAndForwardedToOrigin() {
         return this.parametersInCacheKeyAndForwardedToOrigin;
     }

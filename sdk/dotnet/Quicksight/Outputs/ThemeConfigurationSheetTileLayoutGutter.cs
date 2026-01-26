@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class ThemeConfigurationSheetTileLayoutGutter
     {
-        /// <summary>
-        /// This Boolean value controls whether to display a gutter space between sheet tiles.
-        /// </summary>
         public readonly bool? Show;
 
         [OutputConstructor]

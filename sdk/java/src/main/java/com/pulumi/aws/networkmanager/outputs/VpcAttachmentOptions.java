@@ -11,53 +11,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VpcAttachmentOptions {
-    /**
-     * @return Whether to enable appliance mode support. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-     * 
-     */
     private @Nullable Boolean applianceModeSupport;
-    /**
-     * @return Whether to enable DNS support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-     * 
-     */
     private @Nullable Boolean dnsSupport;
-    /**
-     * @return Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-     * 
-     */
     private @Nullable Boolean ipv6Support;
-    /**
-     * @return Whether to enable security group referencing support for this VPC attachment. The default is `true`. However, at the core network policy-level the default is set to `false`. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-     * 
-     */
     private @Nullable Boolean securityGroupReferencingSupport;
 
     private VpcAttachmentOptions() {}
-    /**
-     * @return Whether to enable appliance mode support. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-     * 
-     */
     public Optional<Boolean> applianceModeSupport() {
         return Optional.ofNullable(this.applianceModeSupport);
     }
-    /**
-     * @return Whether to enable DNS support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-     * 
-     */
     public Optional<Boolean> dnsSupport() {
         return Optional.ofNullable(this.dnsSupport);
     }
-    /**
-     * @return Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-     * 
-     */
     public Optional<Boolean> ipv6Support() {
         return Optional.ofNullable(this.ipv6Support);
     }
-    /**
-     * @return Whether to enable security group referencing support for this VPC attachment. The default is `true`. However, at the core network policy-level the default is set to `false`. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-     * 
-     */
     public Optional<Boolean> securityGroupReferencingSupport() {
         return Optional.ofNullable(this.securityGroupReferencingSupport);
     }

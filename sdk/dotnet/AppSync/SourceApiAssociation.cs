@@ -9,90 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AppSync
 {
-    /// <summary>
-    /// Resource for managing an AWS AppSync Source API Association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.AppSync.SourceApiAssociation("test", new()
-    ///     {
-    ///         Description = "My source API Merged",
-    ///         MergedApiId = "gzos6bteufdunffzzifiowisoe",
-    ///         SourceApiId = "fzzifiowisoegzos6bteufdunf",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import AppSync Source API Association using the `association_id` and `merged_api_id` separated by `,`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:appsync/sourceApiAssociation:SourceApiAssociation example gzos6bteufdunffzzifiowisoe,243685a0-9347-4a1a-89c1-9b57dea01e31
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:appsync/sourceApiAssociation:SourceApiAssociation")]
     public partial class SourceApiAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Source API Association.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the Source API Association.
-        /// </summary>
         [Output("associationId")]
         public Output<string> AssociationId { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the source API being merged.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the merged API. One of `MergedApiArn` or `MergedApiId` must be specified.
-        /// </summary>
         [Output("mergedApiArn")]
         public Output<string> MergedApiArn { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the merged API. One of `MergedApiArn` or `MergedApiId` must be specified.
-        /// </summary>
         [Output("mergedApiId")]
         public Output<string> MergedApiId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the source API. One of `SourceApiArn` or `SourceApiId` must be specified.
-        /// </summary>
         [Output("sourceApiArn")]
         public Output<string> SourceApiArn { get; private set; } = null!;
 
         [Output("sourceApiAssociationConfigs")]
         public Output<ImmutableArray<Outputs.SourceApiAssociationSourceApiAssociationConfig>> SourceApiAssociationConfigs { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the source API. One of `SourceApiArn` or `SourceApiId` must be specified.
-        /// </summary>
         [Output("sourceApiId")]
         public Output<string> SourceApiId { get; private set; } = null!;
 
@@ -145,33 +88,18 @@ namespace Pulumi.Aws.AppSync
 
     public sealed class SourceApiAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of the source API being merged.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// ARN of the merged API. One of `MergedApiArn` or `MergedApiId` must be specified.
-        /// </summary>
         [Input("mergedApiArn")]
         public Input<string>? MergedApiArn { get; set; }
 
-        /// <summary>
-        /// ID of the merged API. One of `MergedApiArn` or `MergedApiId` must be specified.
-        /// </summary>
         [Input("mergedApiId")]
         public Input<string>? MergedApiId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the source API. One of `SourceApiArn` or `SourceApiId` must be specified.
-        /// </summary>
         [Input("sourceApiArn")]
         public Input<string>? SourceApiArn { get; set; }
 
@@ -183,9 +111,6 @@ namespace Pulumi.Aws.AppSync
             set => _sourceApiAssociationConfigs = value;
         }
 
-        /// <summary>
-        /// ID of the source API. One of `SourceApiArn` or `SourceApiId` must be specified.
-        /// </summary>
         [Input("sourceApiId")]
         public Input<string>? SourceApiId { get; set; }
 
@@ -200,45 +125,24 @@ namespace Pulumi.Aws.AppSync
 
     public sealed class SourceApiAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Source API Association.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// ID of the Source API Association.
-        /// </summary>
         [Input("associationId")]
         public Input<string>? AssociationId { get; set; }
 
-        /// <summary>
-        /// Description of the source API being merged.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// ARN of the merged API. One of `MergedApiArn` or `MergedApiId` must be specified.
-        /// </summary>
         [Input("mergedApiArn")]
         public Input<string>? MergedApiArn { get; set; }
 
-        /// <summary>
-        /// ID of the merged API. One of `MergedApiArn` or `MergedApiId` must be specified.
-        /// </summary>
         [Input("mergedApiId")]
         public Input<string>? MergedApiId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the source API. One of `SourceApiArn` or `SourceApiId` must be specified.
-        /// </summary>
         [Input("sourceApiArn")]
         public Input<string>? SourceApiArn { get; set; }
 
@@ -250,9 +154,6 @@ namespace Pulumi.Aws.AppSync
             set => _sourceApiAssociationConfigs = value;
         }
 
-        /// <summary>
-        /// ID of the source API. One of `SourceApiArn` or `SourceApiId` must be specified.
-        /// </summary>
         [Input("sourceApiId")]
         public Input<string>? SourceApiId { get; set; }
 

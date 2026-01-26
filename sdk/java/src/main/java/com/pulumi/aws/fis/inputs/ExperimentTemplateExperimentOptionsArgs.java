@@ -15,32 +15,16 @@ public final class ExperimentTemplateExperimentOptionsArgs extends com.pulumi.re
 
     public static final ExperimentTemplateExperimentOptionsArgs Empty = new ExperimentTemplateExperimentOptionsArgs();
 
-    /**
-     * Specifies the account targeting setting for experiment options. Supports `single-account` and `multi-account`.
-     * 
-     */
     @Import(name="accountTargeting")
     private @Nullable Output<String> accountTargeting;
 
-    /**
-     * @return Specifies the account targeting setting for experiment options. Supports `single-account` and `multi-account`.
-     * 
-     */
     public Optional<Output<String>> accountTargeting() {
         return Optional.ofNullable(this.accountTargeting);
     }
 
-    /**
-     * Specifies the empty target resolution mode for experiment options. Supports `fail` and `skip`.
-     * 
-     */
     @Import(name="emptyTargetResolutionMode")
     private @Nullable Output<String> emptyTargetResolutionMode;
 
-    /**
-     * @return Specifies the empty target resolution mode for experiment options. Supports `fail` and `skip`.
-     * 
-     */
     public Optional<Output<String>> emptyTargetResolutionMode() {
         return Optional.ofNullable(this.emptyTargetResolutionMode);
     }
@@ -70,44 +54,20 @@ public final class ExperimentTemplateExperimentOptionsArgs extends com.pulumi.re
             $ = new ExperimentTemplateExperimentOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountTargeting Specifies the account targeting setting for experiment options. Supports `single-account` and `multi-account`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountTargeting(@Nullable Output<String> accountTargeting) {
             $.accountTargeting = accountTargeting;
             return this;
         }
 
-        /**
-         * @param accountTargeting Specifies the account targeting setting for experiment options. Supports `single-account` and `multi-account`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountTargeting(String accountTargeting) {
             return accountTargeting(Output.of(accountTargeting));
         }
 
-        /**
-         * @param emptyTargetResolutionMode Specifies the empty target resolution mode for experiment options. Supports `fail` and `skip`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emptyTargetResolutionMode(@Nullable Output<String> emptyTargetResolutionMode) {
             $.emptyTargetResolutionMode = emptyTargetResolutionMode;
             return this;
         }
 
-        /**
-         * @param emptyTargetResolutionMode Specifies the empty target resolution mode for experiment options. Supports `fail` and `skip`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emptyTargetResolutionMode(String emptyTargetResolutionMode) {
             return emptyTargetResolutionMode(Output.of(emptyTargetResolutionMode));
         }

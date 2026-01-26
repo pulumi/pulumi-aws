@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Macie2.Inputs
 
     public sealed class ClassificationJobScheduleFrequencyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies a daily recurrence pattern for running the job.
-        /// </summary>
         [Input("dailySchedule")]
         public Input<bool>? DailySchedule { get; set; }
 
-        /// <summary>
-        /// Specifies a monthly recurrence pattern for running the job.
-        /// </summary>
         [Input("monthlySchedule")]
         public Input<int>? MonthlySchedule { get; set; }
 
-        /// <summary>
-        /// Specifies a weekly recurrence pattern for running the job.
-        /// </summary>
         [Input("weeklySchedule")]
         public Input<string>? WeeklySchedule { get; set; }
 

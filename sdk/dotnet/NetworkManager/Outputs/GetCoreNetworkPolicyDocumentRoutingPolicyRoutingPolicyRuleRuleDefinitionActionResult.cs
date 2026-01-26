@@ -13,13 +13,7 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     [OutputType]
     public sealed class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionResult
     {
-        /// <summary>
-        /// Type of action to perform. Valid values: `Drop`, `Allow`, `Summarize`, `prepend-asn-list`, `remove-asn-list`, `replace-asn-list`, `add-community`, `remove-community`, `set-med`, `set-local-preference`.
-        /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Value for the action, required for certain action types.
-        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

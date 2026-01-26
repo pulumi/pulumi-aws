@@ -13,120 +13,48 @@ import java.util.Objects;
 @CustomType
 public final class GetKeyResult {
     private String arn;
-    /**
-     * @return Date and time when the API Key was created.
-     * 
-     */
     private String createdDate;
-    /**
-     * @return Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
-     * 
-     */
     private String customerId;
-    /**
-     * @return Description of the API Key.
-     * 
-     */
     private String description;
-    /**
-     * @return Whether the API Key is enabled.
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return Set to the ID of the API Key.
-     * 
-     */
     private String id;
-    /**
-     * @return Date and time when the API Key was last updated.
-     * 
-     */
     private String lastUpdatedDate;
-    /**
-     * @return Set to the name of the API Key.
-     * 
-     */
     private String name;
     private String region;
-    /**
-     * @return Map of tags for the resource.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Set to the value of the API Key.
-     * 
-     */
     private String value;
 
     private GetKeyResult() {}
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Date and time when the API Key was created.
-     * 
-     */
     public String createdDate() {
         return this.createdDate;
     }
-    /**
-     * @return Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
-     * 
-     */
     public String customerId() {
         return this.customerId;
     }
-    /**
-     * @return Description of the API Key.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Whether the API Key is enabled.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return Set to the ID of the API Key.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Date and time when the API Key was last updated.
-     * 
-     */
     public String lastUpdatedDate() {
         return this.lastUpdatedDate;
     }
-    /**
-     * @return Set to the name of the API Key.
-     * 
-     */
     public String name() {
         return this.name;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Map of tags for the resource.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Set to the value of the API Key.
-     * 
-     */
     public String value() {
         return this.value;
     }

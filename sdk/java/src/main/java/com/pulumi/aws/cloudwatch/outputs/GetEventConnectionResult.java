@@ -10,46 +10,22 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEventConnectionResult {
-    /**
-     * @return ARN (Amazon Resource Name) of the connection.
-     * 
-     */
     private String arn;
-    /**
-     * @return Type of authorization specified for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
-     * 
-     */
     private String authorizationType;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return (Optional) Identifier of the AWS KMS customer managed key for EventBridge to use to encrypt the connection, if one has been specified.
-     * 
-     */
     private String kmsKeyIdentifier;
     private String name;
     private String region;
-    /**
-     * @return ARN of the secret created from the authorization parameters specified for the connection.
-     * 
-     */
     private String secretArn;
 
     private GetEventConnectionResult() {}
-    /**
-     * @return ARN (Amazon Resource Name) of the connection.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Type of authorization specified for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
-     * 
-     */
     public String authorizationType() {
         return this.authorizationType;
     }
@@ -60,10 +36,6 @@ public final class GetEventConnectionResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return (Optional) Identifier of the AWS KMS customer managed key for EventBridge to use to encrypt the connection, if one has been specified.
-     * 
-     */
     public String kmsKeyIdentifier() {
         return this.kmsKeyIdentifier;
     }
@@ -73,10 +45,6 @@ public final class GetEventConnectionResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return ARN of the secret created from the authorization parameters specified for the connection.
-     * 
-     */
     public String secretArn() {
         return this.secretArn;
     }

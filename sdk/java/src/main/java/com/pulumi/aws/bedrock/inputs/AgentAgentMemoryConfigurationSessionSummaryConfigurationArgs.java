@@ -14,17 +14,9 @@ public final class AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs 
 
     public static final AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs Empty = new AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs();
 
-    /**
-     * Maximum number of recent session summaries to include in the agent&#39;s prompt context.
-     * 
-     */
     @Import(name="maxRecentSessions", required=true)
     private Output<Integer> maxRecentSessions;
 
-    /**
-     * @return Maximum number of recent session summaries to include in the agent&#39;s prompt context.
-     * 
-     */
     public Output<Integer> maxRecentSessions() {
         return this.maxRecentSessions;
     }
@@ -53,23 +45,11 @@ public final class AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs 
             $ = new AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maxRecentSessions Maximum number of recent session summaries to include in the agent&#39;s prompt context.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxRecentSessions(Output<Integer> maxRecentSessions) {
             $.maxRecentSessions = maxRecentSessions;
             return this;
         }
 
-        /**
-         * @param maxRecentSessions Maximum number of recent session summaries to include in the agent&#39;s prompt context.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxRecentSessions(Integer maxRecentSessions) {
             return maxRecentSessions(Output.of(maxRecentSessions));
         }

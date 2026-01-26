@@ -12,65 +12,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTrafficPolicyDocumentRuleRegion {
-    /**
-     * @return References to an endpoint.
-     * 
-     */
     private @Nullable String endpointReference;
-    /**
-     * @return Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-     * 
-     */
     private @Nullable Boolean evaluateTargetHealth;
-    /**
-     * @return If you want to associate a health check with the endpoint or rule.
-     * 
-     */
     private @Nullable String healthCheck;
-    /**
-     * @return Region code for the AWS Region that you created the resource in.
-     * 
-     */
     private @Nullable String region;
-    /**
-     * @return References to a rule.
-     * 
-     */
     private @Nullable String ruleReference;
 
     private GetTrafficPolicyDocumentRuleRegion() {}
-    /**
-     * @return References to an endpoint.
-     * 
-     */
     public Optional<String> endpointReference() {
         return Optional.ofNullable(this.endpointReference);
     }
-    /**
-     * @return Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-     * 
-     */
     public Optional<Boolean> evaluateTargetHealth() {
         return Optional.ofNullable(this.evaluateTargetHealth);
     }
-    /**
-     * @return If you want to associate a health check with the endpoint or rule.
-     * 
-     */
     public Optional<String> healthCheck() {
         return Optional.ofNullable(this.healthCheck);
     }
-    /**
-     * @return Region code for the AWS Region that you created the resource in.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
-    /**
-     * @return References to a rule.
-     * 
-     */
     public Optional<String> ruleReference() {
         return Optional.ofNullable(this.ruleReference);
     }

@@ -15,17 +15,9 @@ public final class DataQualityJobDefinitionStoppingConditionArgs extends com.pul
 
     public static final DataQualityJobDefinitionStoppingConditionArgs Empty = new DataQualityJobDefinitionStoppingConditionArgs();
 
-    /**
-     * The maximum runtime allowed in seconds.
-     * 
-     */
     @Import(name="maxRuntimeInSeconds")
     private @Nullable Output<Integer> maxRuntimeInSeconds;
 
-    /**
-     * @return The maximum runtime allowed in seconds.
-     * 
-     */
     public Optional<Output<Integer>> maxRuntimeInSeconds() {
         return Optional.ofNullable(this.maxRuntimeInSeconds);
     }
@@ -54,23 +46,11 @@ public final class DataQualityJobDefinitionStoppingConditionArgs extends com.pul
             $ = new DataQualityJobDefinitionStoppingConditionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maxRuntimeInSeconds The maximum runtime allowed in seconds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxRuntimeInSeconds(@Nullable Output<Integer> maxRuntimeInSeconds) {
             $.maxRuntimeInSeconds = maxRuntimeInSeconds;
             return this;
         }
 
-        /**
-         * @param maxRuntimeInSeconds The maximum runtime allowed in seconds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxRuntimeInSeconds(Integer maxRuntimeInSeconds) {
             return maxRuntimeInSeconds(Output.of(maxRuntimeInSeconds));
         }

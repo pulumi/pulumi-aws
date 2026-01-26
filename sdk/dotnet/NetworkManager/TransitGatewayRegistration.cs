@@ -9,55 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.NetworkManager
 {
-    /// <summary>
-    /// Manages a Network Manager transit gateway registration. Registers a transit gateway to a global network. The transit gateway can be in any AWS Region, but it must be owned by the same AWS account that owns the global network. You cannot register a transit gateway in more than one global network.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkManager.GlobalNetwork("example", new()
-    ///     {
-    ///         Description = "example",
-    ///     });
-    /// 
-    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("example");
-    /// 
-    ///     var exampleTransitGatewayRegistration = new Aws.NetworkManager.TransitGatewayRegistration("example", new()
-    ///     {
-    ///         GlobalNetworkId = example.Id,
-    ///         TransitGatewayArn = exampleTransitGateway.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_networkmanager_transit_gateway_registration` using the global network ID and transit gateway ARN. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway/tgw-123abc05e04123abc
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration")]
     public partial class TransitGatewayRegistration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ID of the Global Network to register to.
-        /// </summary>
         [Output("globalNetworkId")]
         public Output<string> GlobalNetworkId { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the Transit Gateway to register.
-        /// </summary>
         [Output("transitGatewayArn")]
         public Output<string> TransitGatewayArn { get; private set; } = null!;
 
@@ -107,15 +64,9 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class TransitGatewayRegistrationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the Global Network to register to.
-        /// </summary>
         [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of the Transit Gateway to register.
-        /// </summary>
         [Input("transitGatewayArn", required: true)]
         public Input<string> TransitGatewayArn { get; set; } = null!;
 
@@ -127,15 +78,9 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class TransitGatewayRegistrationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the Global Network to register to.
-        /// </summary>
         [Input("globalNetworkId")]
         public Input<string>? GlobalNetworkId { get; set; }
 
-        /// <summary>
-        /// ARN of the Transit Gateway to register.
-        /// </summary>
         [Input("transitGatewayArn")]
         public Input<string>? TransitGatewayArn { get; set; }
 

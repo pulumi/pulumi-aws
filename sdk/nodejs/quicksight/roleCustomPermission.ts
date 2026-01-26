@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages the custom permissions that are associated with a role.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.quicksight.RoleCustomPermission("example", {
- *     role: "READER",
- *     customPermissionsName: exampleAwsQuicksightCustomPermissions.customPermissionsName,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import QuickSight role custom permissions using a comma-delimited string combining the `aws_account_id`, `namespace`, and `role`. For example:
- *
- * ```sh
- * $ pulumi import aws:quicksight/roleCustomPermission:RoleCustomPermission example 012345678901,default,READER
- * ```
- */
 export class RoleCustomPermission extends pulumi.CustomResource {
     /**
      * Get an existing RoleCustomPermission resource's state with the given name, ID, and optional extra
@@ -56,23 +33,9 @@ export class RoleCustomPermission extends pulumi.CustomResource {
     }
 
     declare public readonly awsAccountId: pulumi.Output<string>;
-    /**
-     * Custom permissions profile name.
-     */
     declare public readonly customPermissionsName: pulumi.Output<string>;
-    /**
-     * Namespace containing the role. Defaults to `default`.
-     */
     declare public readonly namespace: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Role. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly role: pulumi.Output<string>;
 
     /**
@@ -117,23 +80,9 @@ export class RoleCustomPermission extends pulumi.CustomResource {
  */
 export interface RoleCustomPermissionState {
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * Custom permissions profile name.
-     */
     customPermissionsName?: pulumi.Input<string>;
-    /**
-     * Namespace containing the role. Defaults to `default`.
-     */
     namespace?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Role. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-     *
-     * The following arguments are optional:
-     */
     role?: pulumi.Input<string>;
 }
 
@@ -142,22 +91,8 @@ export interface RoleCustomPermissionState {
  */
 export interface RoleCustomPermissionArgs {
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * Custom permissions profile name.
-     */
     customPermissionsName: pulumi.Input<string>;
-    /**
-     * Namespace containing the role. Defaults to `default`.
-     */
     namespace?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Role. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-     *
-     * The following arguments are optional:
-     */
     role: pulumi.Input<string>;
 }

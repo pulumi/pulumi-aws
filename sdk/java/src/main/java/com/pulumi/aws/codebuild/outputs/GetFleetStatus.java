@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFleetStatus {
-    /**
-     * @return Additional information about a compute fleet.
-     * 
-     */
     private String context;
-    /**
-     * @return Message associated with the status of a compute fleet.
-     * 
-     */
     private String message;
-    /**
-     * @return Status code of the compute fleet.
-     * 
-     */
     private String statusCode;
 
     private GetFleetStatus() {}
-    /**
-     * @return Additional information about a compute fleet.
-     * 
-     */
     public String context() {
         return this.context;
     }
-    /**
-     * @return Message associated with the status of a compute fleet.
-     * 
-     */
     public String message() {
         return this.message;
     }
-    /**
-     * @return Status code of the compute fleet.
-     * 
-     */
     public String statusCode() {
         return this.statusCode;
     }

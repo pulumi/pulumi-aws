@@ -13,113 +13,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource for managing the main routing table of a VPC.
- * 
- * &gt; **NOTE:** **Do not** use both `aws.ec2.DefaultRouteTable` to manage a default route table **and** `aws.ec2.MainRouteTableAssociation` with the same VPC due to possible route conflicts. See aws.ec2.DefaultRouteTable documentation for more details.
- * For more information, see the Amazon VPC User Guide on [Route Tables][aws-route-tables]. For information about managing normal route tables in Pulumi, see [`aws.ec2.RouteTable`][tf-route-tables].
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.MainRouteTableAssociation;
- * import com.pulumi.aws.ec2.MainRouteTableAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var a = new MainRouteTableAssociation("a", MainRouteTableAssociationArgs.builder()
- *             .vpcId(foo.id())
- *             .routeTableId(bar.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Notes
- * 
- * On VPC creation, the AWS API always creates an initial Main Route Table. This
- * resource records the ID of that Route Table under `originalRouteTableId`.
- * The &#34;Delete&#34; action for a `mainRouteTableAssociation` consists of resetting
- * this original table as the Main Route Table for the VPC. You&#39;ll see this
- * additional Route Table in the AWS console; it must remain intact in order for
- * the `mainRouteTableAssociation` delete to work properly.
- * 
- */
 @ResourceType(type="aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation")
 public class MainRouteTableAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * Used internally, see **Notes** below
-     * 
-     */
     @Export(name="originalRouteTableId", refs={String.class}, tree="[0]")
     private Output<String> originalRouteTableId;
 
-    /**
-     * @return Used internally, see **Notes** below
-     * 
-     */
     public Output<String> originalRouteTableId() {
         return this.originalRouteTableId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The ID of the Route Table to set as the new
-     * main route table for the target VPC
-     * 
-     */
     @Export(name="routeTableId", refs={String.class}, tree="[0]")
     private Output<String> routeTableId;
 
-    /**
-     * @return The ID of the Route Table to set as the new
-     * main route table for the target VPC
-     * 
-     */
     public Output<String> routeTableId() {
         return this.routeTableId;
     }
-    /**
-     * The ID of the VPC whose main route table should be set
-     * 
-     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
-    /**
-     * @return The ID of the VPC whose main route table should be set
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }

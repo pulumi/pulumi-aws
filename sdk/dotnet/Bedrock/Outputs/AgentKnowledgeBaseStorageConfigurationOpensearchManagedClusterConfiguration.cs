@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration
     {
-        /// <summary>
-        /// ARN of the OpenSearch domain.
-        /// </summary>
         public readonly string DomainArn;
-        /// <summary>
-        /// Endpoint URL of the OpenSearch domain.
-        /// </summary>
         public readonly string DomainEndpoint;
-        /// <summary>
-        /// The names of the fields to which to map information about the vector store. This block supports the following arguments:
-        /// </summary>
         public readonly Outputs.AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping? FieldMapping;
-        /// <summary>
-        /// Name of the vector store.
-        /// </summary>
         public readonly string VectorIndexName;
 
         [OutputConstructor]

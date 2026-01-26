@@ -10,19 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class DetectorDatasourcesKubernetesAuditLogs {
-    /**
-     * @return If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-     * Defaults to `true`.
-     * 
-     */
     private Boolean enable;
 
     private DetectorDatasourcesKubernetesAuditLogs() {}
-    /**
-     * @return If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-     * Defaults to `true`.
-     * 
-     */
     public Boolean enable() {
         return this.enable;
     }

@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver {
-    /**
-     * @return The entry point of job application.
-     * 
-     */
     private String entryPoint;
-    /**
-     * @return The arguments for job application.
-     * 
-     */
     private @Nullable List<String> entryPointArguments;
-    /**
-     * @return The Spark submit parameters that are used for job runs.
-     * 
-     */
     private @Nullable String sparkSubmitParameters;
 
     private JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver() {}
-    /**
-     * @return The entry point of job application.
-     * 
-     */
     public String entryPoint() {
         return this.entryPoint;
     }
-    /**
-     * @return The arguments for job application.
-     * 
-     */
     public List<String> entryPointArguments() {
         return this.entryPointArguments == null ? List.of() : this.entryPointArguments;
     }
-    /**
-     * @return The Spark submit parameters that are used for job runs.
-     * 
-     */
     public Optional<String> sparkSubmitParameters() {
         return Optional.ofNullable(this.sparkSubmitParameters);
     }

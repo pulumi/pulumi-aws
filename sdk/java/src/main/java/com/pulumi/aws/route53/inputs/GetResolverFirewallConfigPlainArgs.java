@@ -15,32 +15,16 @@ public final class GetResolverFirewallConfigPlainArgs extends com.pulumi.resourc
 
     public static final GetResolverFirewallConfigPlainArgs Empty = new GetResolverFirewallConfigPlainArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ID of the VPC from Amazon VPC that the configuration is for.
-     * 
-     */
     @Import(name="resourceId", required=true)
     private String resourceId;
 
-    /**
-     * @return The ID of the VPC from Amazon VPC that the configuration is for.
-     * 
-     */
     public String resourceId() {
         return this.resourceId;
     }
@@ -70,23 +54,11 @@ public final class GetResolverFirewallConfigPlainArgs extends com.pulumi.resourc
             $ = new GetResolverFirewallConfigPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param resourceId The ID of the VPC from Amazon VPC that the configuration is for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceId(String resourceId) {
             $.resourceId = resourceId;
             return this;

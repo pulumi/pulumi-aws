@@ -14,17 +14,9 @@ public final class PipelineParallelismConfigurationArgs extends com.pulumi.resou
 
     public static final PipelineParallelismConfigurationArgs Empty = new PipelineParallelismConfigurationArgs();
 
-    /**
-     * The max number of steps that can be executed in parallel.
-     * 
-     */
     @Import(name="maxParallelExecutionSteps", required=true)
     private Output<Integer> maxParallelExecutionSteps;
 
-    /**
-     * @return The max number of steps that can be executed in parallel.
-     * 
-     */
     public Output<Integer> maxParallelExecutionSteps() {
         return this.maxParallelExecutionSteps;
     }
@@ -53,23 +45,11 @@ public final class PipelineParallelismConfigurationArgs extends com.pulumi.resou
             $ = new PipelineParallelismConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maxParallelExecutionSteps The max number of steps that can be executed in parallel.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxParallelExecutionSteps(Output<Integer> maxParallelExecutionSteps) {
             $.maxParallelExecutionSteps = maxParallelExecutionSteps;
             return this;
         }
 
-        /**
-         * @param maxParallelExecutionSteps The max number of steps that can be executed in parallel.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxParallelExecutionSteps(Integer maxParallelExecutionSteps) {
             return maxParallelExecutionSteps(Output.of(maxParallelExecutionSteps));
         }

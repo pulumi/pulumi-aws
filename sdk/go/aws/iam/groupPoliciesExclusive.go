@@ -12,19 +12,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
-//
-// Using `pulumi import`, import exclusive management of inline policy assignments using the `group_name`. For example:
-//
-// ```sh
-// $ pulumi import aws:iam/groupPoliciesExclusive:GroupPoliciesExclusive example MyGroup
-// ```
 type GroupPoliciesExclusive struct {
 	pulumi.CustomResourceState
 
-	// IAM group name.
-	GroupName pulumi.StringOutput `pulumi:"groupName"`
-	// A list of inline policy names to be assigned to the group. Policies attached to this group but not configured in this argument will be removed.
+	GroupName   pulumi.StringOutput      `pulumi:"groupName"`
 	PolicyNames pulumi.StringArrayOutput `pulumi:"policyNames"`
 }
 
@@ -64,16 +55,12 @@ func GetGroupPoliciesExclusive(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GroupPoliciesExclusive resources.
 type groupPoliciesExclusiveState struct {
-	// IAM group name.
-	GroupName *string `pulumi:"groupName"`
-	// A list of inline policy names to be assigned to the group. Policies attached to this group but not configured in this argument will be removed.
+	GroupName   *string  `pulumi:"groupName"`
 	PolicyNames []string `pulumi:"policyNames"`
 }
 
 type GroupPoliciesExclusiveState struct {
-	// IAM group name.
-	GroupName pulumi.StringPtrInput
-	// A list of inline policy names to be assigned to the group. Policies attached to this group but not configured in this argument will be removed.
+	GroupName   pulumi.StringPtrInput
 	PolicyNames pulumi.StringArrayInput
 }
 
@@ -82,17 +69,13 @@ func (GroupPoliciesExclusiveState) ElementType() reflect.Type {
 }
 
 type groupPoliciesExclusiveArgs struct {
-	// IAM group name.
-	GroupName string `pulumi:"groupName"`
-	// A list of inline policy names to be assigned to the group. Policies attached to this group but not configured in this argument will be removed.
+	GroupName   string   `pulumi:"groupName"`
 	PolicyNames []string `pulumi:"policyNames"`
 }
 
 // The set of arguments for constructing a GroupPoliciesExclusive resource.
 type GroupPoliciesExclusiveArgs struct {
-	// IAM group name.
-	GroupName pulumi.StringInput
-	// A list of inline policy names to be assigned to the group. Policies attached to this group but not configured in this argument will be removed.
+	GroupName   pulumi.StringInput
 	PolicyNames pulumi.StringArrayInput
 }
 
@@ -183,12 +166,10 @@ func (o GroupPoliciesExclusiveOutput) ToGroupPoliciesExclusiveOutputWithContext(
 	return o
 }
 
-// IAM group name.
 func (o GroupPoliciesExclusiveOutput) GroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupPoliciesExclusive) pulumi.StringOutput { return v.GroupName }).(pulumi.StringOutput)
 }
 
-// A list of inline policy names to be assigned to the group. Policies attached to this group but not configured in this argument will be removed.
 func (o GroupPoliciesExclusiveOutput) PolicyNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupPoliciesExclusive) pulumi.StringArrayOutput { return v.PolicyNames }).(pulumi.StringArrayOutput)
 }

@@ -14,10 +14,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGiVersionsResult {
-    /**
-     * @return Information about a specific version of Oracle Grid Infrastructure (GI) software that can be installed on a VM cluster.
-     * 
-     */
     private List<GetGiVersionsGiVersion> giVersions;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -28,10 +24,6 @@ public final class GetGiVersionsResult {
     private @Nullable String shape;
 
     private GetGiVersionsResult() {}
-    /**
-     * @return Information about a specific version of Oracle Grid Infrastructure (GI) software that can be installed on a VM cluster.
-     * 
-     */
     public List<GetGiVersionsGiVersion> giVersions() {
         return this.giVersions;
     }

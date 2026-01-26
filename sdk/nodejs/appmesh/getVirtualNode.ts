@@ -7,21 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing an AWS App Mesh Virtual Node.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.appmesh.getVirtualNode({
- *     name: "serviceBv1",
- *     meshName: "example-mesh",
- * });
- * ```
- */
 export function getVirtualNode(args: GetVirtualNodeArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNodeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:appmesh/getVirtualNode:getVirtualNode", {
@@ -37,25 +22,10 @@ export function getVirtualNode(args: GetVirtualNodeArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getVirtualNode.
  */
 export interface GetVirtualNodeArgs {
-    /**
-     * Name of the service mesh in which the virtual node exists.
-     */
     meshName: string;
-    /**
-     * AWS account ID of the service mesh's owner.
-     */
     meshOwner?: string;
-    /**
-     * Name of the virtual node.
-     */
     name: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Map of tags.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -63,54 +33,21 @@ export interface GetVirtualNodeArgs {
  * A collection of values returned by getVirtualNode.
  */
 export interface GetVirtualNodeResult {
-    /**
-     * ARN of the virtual node.
-     */
     readonly arn: string;
-    /**
-     * Creation date of the virtual node.
-     */
     readonly createdDate: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Last update date of the virtual node.
-     */
     readonly lastUpdatedDate: string;
     readonly meshName: string;
     readonly meshOwner: string;
     readonly name: string;
     readonly region: string;
-    /**
-     * Resource owner's AWS account ID.
-     */
     readonly resourceOwner: string;
-    /**
-     * Virtual node specification. See the `aws.appmesh.VirtualNode` resource for details.
-     */
     readonly specs: outputs.appmesh.GetVirtualNodeSpec[];
-    /**
-     * Map of tags.
-     */
     readonly tags: {[key: string]: string};
 }
-/**
- * Data source for managing an AWS App Mesh Virtual Node.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.appmesh.getVirtualNode({
- *     name: "serviceBv1",
- *     meshName: "example-mesh",
- * });
- * ```
- */
 export function getVirtualNodeOutput(args: GetVirtualNodeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualNodeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:appmesh/getVirtualNode:getVirtualNode", {
@@ -126,24 +63,9 @@ export function getVirtualNodeOutput(args: GetVirtualNodeOutputArgs, opts?: pulu
  * A collection of arguments for invoking getVirtualNode.
  */
 export interface GetVirtualNodeOutputArgs {
-    /**
-     * Name of the service mesh in which the virtual node exists.
-     */
     meshName: pulumi.Input<string>;
-    /**
-     * AWS account ID of the service mesh's owner.
-     */
     meshOwner?: pulumi.Input<string>;
-    /**
-     * Name of the virtual node.
-     */
     name: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

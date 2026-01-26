@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class ServiceDeploymentConfigurationLifecycleHook
     {
-        /// <summary>
-        /// Custom parameters that Amazon ECS will pass to the hook target invocations (such as a Lambda function).
-        /// </summary>
         public readonly string? HookDetails;
-        /// <summary>
-        /// ARN of the Lambda function to invoke for the lifecycle hook.
-        /// </summary>
         public readonly string HookTargetArn;
-        /// <summary>
-        /// Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
-        /// </summary>
         public readonly ImmutableArray<string> LifecycleStages;
-        /// <summary>
-        /// ARN of the IAM role that grants the service permission to invoke the Lambda function.
-        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]

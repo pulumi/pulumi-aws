@@ -84,33 +84,21 @@ class GetNetworkInsightsAnalysisResult:
     @_builtins.property
     @pulumi.getter(name="alternatePathHints")
     def alternate_path_hints(self) -> Sequence['outputs.GetNetworkInsightsAnalysisAlternatePathHintResult']:
-        """
-        Potential intermediate components of a feasible path.
-        """
         return pulumi.get(self, "alternate_path_hints")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the selected Network Insights Analysis.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def explanations(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationResult']:
-        """
-        Explanation codes for an unreachable path.
-        """
         return pulumi.get(self, "explanations")
 
     @_builtins.property
     @pulumi.getter(name="filterInArns")
     def filter_in_arns(self) -> Sequence[_builtins.str]:
-        """
-        ARNs of the AWS resources that the path must traverse.
-        """
         return pulumi.get(self, "filter_in_arns")
 
     @_builtins.property
@@ -121,9 +109,6 @@ class GetNetworkInsightsAnalysisResult:
     @_builtins.property
     @pulumi.getter(name="forwardPathComponents")
     def forward_path_components(self) -> Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentResult']:
-        """
-        The components in the path from source to destination.
-        """
         return pulumi.get(self, "forward_path_components")
 
     @_builtins.property
@@ -142,17 +127,11 @@ class GetNetworkInsightsAnalysisResult:
     @_builtins.property
     @pulumi.getter(name="networkInsightsPathId")
     def network_insights_path_id(self) -> _builtins.str:
-        """
-        The ID of the path.
-        """
         return pulumi.get(self, "network_insights_path_id")
 
     @_builtins.property
     @pulumi.getter(name="pathFound")
     def path_found(self) -> _builtins.bool:
-        """
-        Set to `true` if the destination was reachable.
-        """
         return pulumi.get(self, "path_found")
 
     @_builtins.property
@@ -163,33 +142,21 @@ class GetNetworkInsightsAnalysisResult:
     @_builtins.property
     @pulumi.getter(name="returnPathComponents")
     def return_path_components(self) -> Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentResult']:
-        """
-        The components in the path from destination to source.
-        """
         return pulumi.get(self, "return_path_components")
 
     @_builtins.property
     @pulumi.getter(name="startDate")
     def start_date(self) -> _builtins.str:
-        """
-        Date/time the analysis was started.
-        """
         return pulumi.get(self, "start_date")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> _builtins.str:
-        """
-        Message to provide more context when the `status` is `failed`.
-        """
         return pulumi.get(self, "status_message")
 
     @_builtins.property
@@ -200,9 +167,6 @@ class GetNetworkInsightsAnalysisResult:
     @_builtins.property
     @pulumi.getter(name="warningMessage")
     def warning_message(self) -> _builtins.str:
-        """
-        Warning message.
-        """
         return pulumi.get(self, "warning_message")
 
 
@@ -237,25 +201,7 @@ def get_network_insights_analysis(filters: Optional[Sequence[Union['GetNetworkIn
                                   tags: Optional[Mapping[str, _builtins.str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInsightsAnalysisResult:
     """
-    `ec2.NetworkInsightsAnalysis` provides details about a specific Network Insights Analysis.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_network_insights_analysis(network_insights_analysis_id=example_aws_ec2_network_insights_analysis["id"])
-    ```
-
-
-    :param Sequence[Union['GetNetworkInsightsAnalysisFilterArgs', 'GetNetworkInsightsAnalysisFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
-           
-           The arguments of this data source act as filters for querying the available
-           Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
-           whose data will be exported as attributes.
-    :param _builtins.str network_insights_analysis_id: ID of the Network Insights Analysis to select.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -289,25 +235,7 @@ def get_network_insights_analysis_output(filters: Optional[pulumi.Input[Optional
                                          tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkInsightsAnalysisResult]:
     """
-    `ec2.NetworkInsightsAnalysis` provides details about a specific Network Insights Analysis.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_network_insights_analysis(network_insights_analysis_id=example_aws_ec2_network_insights_analysis["id"])
-    ```
-
-
-    :param Sequence[Union['GetNetworkInsightsAnalysisFilterArgs', 'GetNetworkInsightsAnalysisFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
-           
-           The arguments of this data source act as filters for querying the available
-           Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
-           whose data will be exported as attributes.
-    :param _builtins.str network_insights_analysis_id: ID of the Network Insights Analysis to select.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

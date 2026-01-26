@@ -12,41 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetJobDefinitionNodeProperty {
-    /**
-     * @return Specifies the node index for the main node of a multi-node parallel job. This node index value must be fewer than the number of nodes.
-     * 
-     */
     private Integer mainNode;
-    /**
-     * @return A list of node ranges and their properties that are associated with a multi-node parallel job.
-     * 
-     */
     private List<GetJobDefinitionNodePropertyNodeRangeProperty> nodeRangeProperties;
-    /**
-     * @return The number of nodes that are associated with a multi-node parallel job.
-     * 
-     */
     private Integer numNodes;
 
     private GetJobDefinitionNodeProperty() {}
-    /**
-     * @return Specifies the node index for the main node of a multi-node parallel job. This node index value must be fewer than the number of nodes.
-     * 
-     */
     public Integer mainNode() {
         return this.mainNode;
     }
-    /**
-     * @return A list of node ranges and their properties that are associated with a multi-node parallel job.
-     * 
-     */
     public List<GetJobDefinitionNodePropertyNodeRangeProperty> nodeRangeProperties() {
         return this.nodeRangeProperties;
     }
-    /**
-     * @return The number of nodes that are associated with a multi-node parallel job.
-     * 
-     */
     public Integer numNodes() {
         return this.numNodes;
     }

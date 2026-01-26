@@ -14,109 +14,29 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an IAM group.
- * 
- * &gt; **NOTE on user management:** Using `aws.iam.GroupMembership` or `aws.iam.UserGroupMembership` resources in addition to manually managing user/group membership using the console may lead to configuration drift or conflicts. For this reason, it&#39;s recommended to either manage membership entirely with the provider or entirely within the AWS console.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.Group;
- * import com.pulumi.aws.iam.GroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var developers = new Group("developers", GroupArgs.builder()
- *             .name("developers")
- *             .path("/users/")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import IAM Groups using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:iam/group:Group developers developers
- * ```
- * 
- */
 @ResourceType(type="aws:iam/group:Group")
 public class Group extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN assigned by AWS for this group.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN assigned by AWS for this group.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The group&#39;s name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.{@literal @}-_.`. Group names are not distinguished by case. For example, you cannot create groups named both &#34;ADMINS&#34; and &#34;admins&#34;.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The group&#39;s name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.{@literal @}-_.`. Group names are not distinguished by case. For example, you cannot create groups named both &#34;ADMINS&#34; and &#34;admins&#34;.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Path in which to create the group.
-     * 
-     */
     @Export(name="path", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> path;
 
-    /**
-     * @return Path in which to create the group.
-     * 
-     */
     public Output<Optional<String>> path() {
         return Codegen.optional(this.path);
     }
-    /**
-     * The [unique ID][1] assigned by AWS.
-     * 
-     */
     @Export(name="uniqueId", refs={String.class}, tree="[0]")
     private Output<String> uniqueId;
 
-    /**
-     * @return The [unique ID][1] assigned by AWS.
-     * 
-     */
     public Output<String> uniqueId() {
         return this.uniqueId;
     }

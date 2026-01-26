@@ -12,9 +12,6 @@ namespace Pulumi.Aws.DocDB.Inputs
 
     public sealed class ClusterMasterUserSecretGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN for the KMS encryption key. When specifying `KmsKeyId`, `StorageEncrypted` needs to be set to true.
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 

@@ -14,17 +14,9 @@ public final class SdkvoiceGlobalSettingsArgs extends com.pulumi.resources.Resou
 
     public static final SdkvoiceGlobalSettingsArgs Empty = new SdkvoiceGlobalSettingsArgs();
 
-    /**
-     * The Voice Connector settings. See voice_connector.
-     * 
-     */
     @Import(name="voiceConnector", required=true)
     private Output<SdkvoiceGlobalSettingsVoiceConnectorArgs> voiceConnector;
 
-    /**
-     * @return The Voice Connector settings. See voice_connector.
-     * 
-     */
     public Output<SdkvoiceGlobalSettingsVoiceConnectorArgs> voiceConnector() {
         return this.voiceConnector;
     }
@@ -53,23 +45,11 @@ public final class SdkvoiceGlobalSettingsArgs extends com.pulumi.resources.Resou
             $ = new SdkvoiceGlobalSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param voiceConnector The Voice Connector settings. See voice_connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder voiceConnector(Output<SdkvoiceGlobalSettingsVoiceConnectorArgs> voiceConnector) {
             $.voiceConnector = voiceConnector;
             return this;
         }
 
-        /**
-         * @param voiceConnector The Voice Connector settings. See voice_connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder voiceConnector(SdkvoiceGlobalSettingsVoiceConnectorArgs voiceConnector) {
             return voiceConnector(Output.of(voiceConnector));
         }

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Batch.Outputs
     [OutputType]
     public sealed class GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountResult
     {
-        /// <summary>
-        /// The path on the container where the volume is mounted.
-        /// </summary>
         public readonly string MountPath;
-        /// <summary>
-        /// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// If this value is true, the container has read-only access to the volume.
-        /// </summary>
         public readonly bool ReadOnly;
 
         [OutputConstructor]

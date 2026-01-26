@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to get information about an RDS subnet group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const database = aws.rds.getSubnetGroup({
- *     name: "my-test-database-subnet-group",
- * });
- * ```
- */
 export function getSubnetGroup(args: GetSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getSubnetGroup:getSubnetGroup", {
@@ -30,13 +16,7 @@ export function getSubnetGroup(args: GetSubnetGroupArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getSubnetGroup.
  */
 export interface GetSubnetGroupArgs {
-    /**
-     * Name of the RDS database subnet group.
-     */
     name: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -44,13 +24,7 @@ export interface GetSubnetGroupArgs {
  * A collection of values returned by getSubnetGroup.
  */
 export interface GetSubnetGroupResult {
-    /**
-     * ARN for the DB subnet group.
-     */
     readonly arn: string;
-    /**
-     * Provides the description of the DB subnet group.
-     */
     readonly description: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -58,37 +32,11 @@ export interface GetSubnetGroupResult {
     readonly id: string;
     readonly name: string;
     readonly region: string;
-    /**
-     * Provides the status of the DB subnet group.
-     */
     readonly status: string;
-    /**
-     * Contains a list of subnet identifiers.
-     */
     readonly subnetIds: string[];
-    /**
-     * The network type of the DB subnet group.
-     */
     readonly supportedNetworkTypes: string[];
-    /**
-     * Provides the VPC ID of the DB subnet group.
-     */
     readonly vpcId: string;
 }
-/**
- * Use this data source to get information about an RDS subnet group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const database = aws.rds.getSubnetGroup({
- *     name: "my-test-database-subnet-group",
- * });
- * ```
- */
 export function getSubnetGroupOutput(args: GetSubnetGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubnetGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:rds/getSubnetGroup:getSubnetGroup", {
@@ -101,12 +49,6 @@ export function getSubnetGroupOutput(args: GetSubnetGroupOutputArgs, opts?: pulu
  * A collection of arguments for invoking getSubnetGroup.
  */
 export interface GetSubnetGroupOutputArgs {
-    /**
-     * Name of the RDS database subnet group.
-     */
     name: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

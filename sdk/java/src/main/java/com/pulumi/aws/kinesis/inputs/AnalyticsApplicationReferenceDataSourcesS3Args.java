@@ -14,47 +14,23 @@ public final class AnalyticsApplicationReferenceDataSourcesS3Args extends com.pu
 
     public static final AnalyticsApplicationReferenceDataSourcesS3Args Empty = new AnalyticsApplicationReferenceDataSourcesS3Args();
 
-    /**
-     * The S3 Bucket ARN.
-     * 
-     */
     @Import(name="bucketArn", required=true)
     private Output<String> bucketArn;
 
-    /**
-     * @return The S3 Bucket ARN.
-     * 
-     */
     public Output<String> bucketArn() {
         return this.bucketArn;
     }
 
-    /**
-     * The File Key name containing reference data.
-     * 
-     */
     @Import(name="fileKey", required=true)
     private Output<String> fileKey;
 
-    /**
-     * @return The File Key name containing reference data.
-     * 
-     */
     public Output<String> fileKey() {
         return this.fileKey;
     }
 
-    /**
-     * The IAM Role ARN to read the data.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return The IAM Role ARN to read the data.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
@@ -85,65 +61,29 @@ public final class AnalyticsApplicationReferenceDataSourcesS3Args extends com.pu
             $ = new AnalyticsApplicationReferenceDataSourcesS3Args(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketArn The S3 Bucket ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketArn(Output<String> bucketArn) {
             $.bucketArn = bucketArn;
             return this;
         }
 
-        /**
-         * @param bucketArn The S3 Bucket ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketArn(String bucketArn) {
             return bucketArn(Output.of(bucketArn));
         }
 
-        /**
-         * @param fileKey The File Key name containing reference data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileKey(Output<String> fileKey) {
             $.fileKey = fileKey;
             return this;
         }
 
-        /**
-         * @param fileKey The File Key name containing reference data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileKey(String fileKey) {
             return fileKey(Output.of(fileKey));
         }
 
-        /**
-         * @param roleArn The IAM Role ARN to read the data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The IAM Role ARN to read the data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

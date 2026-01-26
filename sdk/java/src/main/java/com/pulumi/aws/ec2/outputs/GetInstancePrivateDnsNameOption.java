@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInstancePrivateDnsNameOption {
-    /**
-     * @return Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
-     * 
-     */
     private Boolean enableResourceNameDnsARecord;
-    /**
-     * @return Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
-     * 
-     */
     private Boolean enableResourceNameDnsAaaaRecord;
-    /**
-     * @return Type of hostname for EC2 instances.
-     * 
-     */
     private String hostnameType;
 
     private GetInstancePrivateDnsNameOption() {}
-    /**
-     * @return Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
-     * 
-     */
     public Boolean enableResourceNameDnsARecord() {
         return this.enableResourceNameDnsARecord;
     }
-    /**
-     * @return Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
-     * 
-     */
     public Boolean enableResourceNameDnsAaaaRecord() {
         return this.enableResourceNameDnsAaaaRecord;
     }
-    /**
-     * @return Type of hostname for EC2 instances.
-     * 
-     */
     public String hostnameType() {
         return this.hostnameType;
     }

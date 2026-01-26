@@ -15,32 +15,16 @@ public final class DistributionTenantCustomizationsWebAclArgs extends com.pulumi
 
     public static final DistributionTenantCustomizationsWebAclArgs Empty = new DistributionTenantCustomizationsWebAclArgs();
 
-    /**
-     * Action to take for the web ACL. Valid values: `allow`, `block`.
-     * 
-     */
     @Import(name="action")
     private @Nullable Output<String> action;
 
-    /**
-     * @return Action to take for the web ACL. Valid values: `allow`, `block`.
-     * 
-     */
     public Optional<Output<String>> action() {
         return Optional.ofNullable(this.action);
     }
 
-    /**
-     * ARN of the distribution tenant.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the distribution tenant.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
@@ -70,44 +54,20 @@ public final class DistributionTenantCustomizationsWebAclArgs extends com.pulumi
             $ = new DistributionTenantCustomizationsWebAclArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param action Action to take for the web ACL. Valid values: `allow`, `block`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(@Nullable Output<String> action) {
             $.action = action;
             return this;
         }
 
-        /**
-         * @param action Action to take for the web ACL. Valid values: `allow`, `block`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(String action) {
             return action(Output.of(action));
         }
 
-        /**
-         * @param arn ARN of the distribution tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the distribution tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }

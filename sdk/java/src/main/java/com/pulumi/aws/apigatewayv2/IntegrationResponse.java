@@ -15,153 +15,47 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an Amazon API Gateway Version 2 integration response.
- * More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
- * 
- * ## Example Usage
- * 
- * ### Basic
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigatewayv2.IntegrationResponse;
- * import com.pulumi.aws.apigatewayv2.IntegrationResponseArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new IntegrationResponse("example", IntegrationResponseArgs.builder()
- *             .apiId(exampleAwsApigatewayv2Api.id())
- *             .integrationId(exampleAwsApigatewayv2Integration.id())
- *             .integrationResponseKey("/200/")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_apigatewayv2_integration_response` using the API identifier, integration identifier and integration response identifier. For example:
- * 
- * ```sh
- * $ pulumi import aws:apigatewayv2/integrationResponse:IntegrationResponse example aabbccddee/1122334/998877
- * ```
- * 
- */
 @ResourceType(type="aws:apigatewayv2/integrationResponse:IntegrationResponse")
 public class IntegrationResponse extends com.pulumi.resources.CustomResource {
-    /**
-     * API identifier.
-     * 
-     */
     @Export(name="apiId", refs={String.class}, tree="[0]")
     private Output<String> apiId;
 
-    /**
-     * @return API identifier.
-     * 
-     */
     public Output<String> apiId() {
         return this.apiId;
     }
-    /**
-     * How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
-     * 
-     */
     @Export(name="contentHandlingStrategy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> contentHandlingStrategy;
 
-    /**
-     * @return How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
-     * 
-     */
     public Output<Optional<String>> contentHandlingStrategy() {
         return Codegen.optional(this.contentHandlingStrategy);
     }
-    /**
-     * Identifier of the `aws.apigatewayv2.Integration`.
-     * 
-     */
     @Export(name="integrationId", refs={String.class}, tree="[0]")
     private Output<String> integrationId;
 
-    /**
-     * @return Identifier of the `aws.apigatewayv2.Integration`.
-     * 
-     */
     public Output<String> integrationId() {
         return this.integrationId;
     }
-    /**
-     * Integration response key.
-     * 
-     */
     @Export(name="integrationResponseKey", refs={String.class}, tree="[0]")
     private Output<String> integrationResponseKey;
 
-    /**
-     * @return Integration response key.
-     * 
-     */
     public Output<String> integrationResponseKey() {
         return this.integrationResponseKey;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
-     * 
-     */
     @Export(name="responseTemplates", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> responseTemplates;
 
-    /**
-     * @return Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
-     * 
-     */
     public Output<Optional<Map<String,String>>> responseTemplates() {
         return Codegen.optional(this.responseTemplates);
     }
-    /**
-     * The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
-     * 
-     */
     @Export(name="templateSelectionExpression", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> templateSelectionExpression;
 
-    /**
-     * @return The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
-     * 
-     */
     public Output<Optional<String>> templateSelectionExpression() {
         return Codegen.optional(this.templateSelectionExpression);
     }

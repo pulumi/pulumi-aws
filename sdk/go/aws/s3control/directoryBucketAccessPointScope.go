@@ -12,87 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ### S3 Access Point Scope for a directory bucket in an AWS Local Zone
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3control"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
-//				State: pulumi.StringRef("available"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := s3.NewDirectoryBucket(ctx, "example", &s3.DirectoryBucketArgs{
-//				Bucket: pulumi.String("example--zoneId--x-s3"),
-//				Location: &s3.DirectoryBucketLocationArgs{
-//					Name: pulumi.String(available.ZoneIds[0]),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewAccessPoint(ctx, "example", &s3.AccessPointArgs{
-//				Bucket: example.ID(),
-//				Name:   pulumi.String("example--zoneId--xa-s3"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3control.NewDirectoryBucketAccessPointScope(ctx, "example", &s3control.DirectoryBucketAccessPointScopeArgs{
-//				Name:      pulumi.String("example--zoneId--xa-s3"),
-//				AccountId: pulumi.String("123456789012"),
-//				Scope: &s3control.DirectoryBucketAccessPointScopeScopeArgs{
-//					Permissions: pulumi.StringArray{
-//						pulumi.String("GetObject"),
-//						pulumi.String("ListBucket"),
-//					},
-//					Prefixes: pulumi.StringArray{
-//						pulumi.String("myobject1.csv"),
-//						pulumi.String("myobject2*"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Access Point Scope using access point name and AWS account ID separated by a colon (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:s3control/directoryBucketAccessPointScope:DirectoryBucketAccessPointScope example example--zoneid--xa-s3,123456789012
-// ```
 type DirectoryBucketAccessPointScope struct {
 	pulumi.CustomResourceState
 
-	// The AWS account ID that owns the specified access point.
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// The name of the access point that you want to apply the scope to.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
-	Scope DirectoryBucketAccessPointScopeScopePtrOutput `pulumi:"scope"`
+	AccountId pulumi.StringOutput                           `pulumi:"accountId"`
+	Name      pulumi.StringOutput                           `pulumi:"name"`
+	Region    pulumi.StringOutput                           `pulumi:"region"`
+	Scope     DirectoryBucketAccessPointScopeScopePtrOutput `pulumi:"scope"`
 }
 
 // NewDirectoryBucketAccessPointScope registers a new resource with the given unique name, arguments, and options.
@@ -128,25 +54,17 @@ func GetDirectoryBucketAccessPointScope(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DirectoryBucketAccessPointScope resources.
 type directoryBucketAccessPointScopeState struct {
-	// The AWS account ID that owns the specified access point.
-	AccountId *string `pulumi:"accountId"`
-	// The name of the access point that you want to apply the scope to.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
-	Scope *DirectoryBucketAccessPointScopeScope `pulumi:"scope"`
+	AccountId *string                               `pulumi:"accountId"`
+	Name      *string                               `pulumi:"name"`
+	Region    *string                               `pulumi:"region"`
+	Scope     *DirectoryBucketAccessPointScopeScope `pulumi:"scope"`
 }
 
 type DirectoryBucketAccessPointScopeState struct {
-	// The AWS account ID that owns the specified access point.
 	AccountId pulumi.StringPtrInput
-	// The name of the access point that you want to apply the scope to.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
-	Scope DirectoryBucketAccessPointScopeScopePtrInput
+	Name      pulumi.StringPtrInput
+	Region    pulumi.StringPtrInput
+	Scope     DirectoryBucketAccessPointScopeScopePtrInput
 }
 
 func (DirectoryBucketAccessPointScopeState) ElementType() reflect.Type {
@@ -154,26 +72,18 @@ func (DirectoryBucketAccessPointScopeState) ElementType() reflect.Type {
 }
 
 type directoryBucketAccessPointScopeArgs struct {
-	// The AWS account ID that owns the specified access point.
-	AccountId string `pulumi:"accountId"`
-	// The name of the access point that you want to apply the scope to.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
-	Scope *DirectoryBucketAccessPointScopeScope `pulumi:"scope"`
+	AccountId string                                `pulumi:"accountId"`
+	Name      *string                               `pulumi:"name"`
+	Region    *string                               `pulumi:"region"`
+	Scope     *DirectoryBucketAccessPointScopeScope `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a DirectoryBucketAccessPointScope resource.
 type DirectoryBucketAccessPointScopeArgs struct {
-	// The AWS account ID that owns the specified access point.
 	AccountId pulumi.StringInput
-	// The name of the access point that you want to apply the scope to.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
-	Scope DirectoryBucketAccessPointScopeScopePtrInput
+	Name      pulumi.StringPtrInput
+	Region    pulumi.StringPtrInput
+	Scope     DirectoryBucketAccessPointScopeScopePtrInput
 }
 
 func (DirectoryBucketAccessPointScopeArgs) ElementType() reflect.Type {
@@ -263,22 +173,18 @@ func (o DirectoryBucketAccessPointScopeOutput) ToDirectoryBucketAccessPointScope
 	return o
 }
 
-// The AWS account ID that owns the specified access point.
 func (o DirectoryBucketAccessPointScopeOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryBucketAccessPointScope) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// The name of the access point that you want to apply the scope to.
 func (o DirectoryBucketAccessPointScopeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryBucketAccessPointScope) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DirectoryBucketAccessPointScopeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryBucketAccessPointScope) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
 func (o DirectoryBucketAccessPointScopeOutput) Scope() DirectoryBucketAccessPointScopeScopePtrOutput {
 	return o.ApplyT(func(v *DirectoryBucketAccessPointScope) DirectoryBucketAccessPointScopeScopePtrOutput { return v.Scope }).(DirectoryBucketAccessPointScopeScopePtrOutput)
 }

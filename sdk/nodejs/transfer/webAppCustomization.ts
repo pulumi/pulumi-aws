@@ -4,19 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Transfer Family Web App Customization.
- *
- * ## Example Usage
- *
- * ## Import
- *
- * Using `pulumi import`, import Transfer Family Web App Customization using the `web_app_id`. For example:
- *
- * ```sh
- * $ pulumi import aws:transfer/webAppCustomization:WebAppCustomization example webapp-12345678901234567890
- * ```
- */
 export class WebAppCustomization extends pulumi.CustomResource {
     /**
      * Get an existing WebAppCustomization resource's state with the given name, ID, and optional extra
@@ -47,19 +34,8 @@ export class WebAppCustomization extends pulumi.CustomResource {
 
     declare public readonly faviconFile: pulumi.Output<string>;
     declare public readonly logoFile: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
-     */
     declare public readonly title: pulumi.Output<string | undefined>;
-    /**
-     * The identifier of the web app to be customized.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly webAppId: pulumi.Output<string>;
 
     /**
@@ -102,19 +78,8 @@ export class WebAppCustomization extends pulumi.CustomResource {
 export interface WebAppCustomizationState {
     faviconFile?: pulumi.Input<string>;
     logoFile?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
-     */
     title?: pulumi.Input<string>;
-    /**
-     * The identifier of the web app to be customized.
-     *
-     * The following arguments are optional:
-     */
     webAppId?: pulumi.Input<string>;
 }
 
@@ -124,18 +89,7 @@ export interface WebAppCustomizationState {
 export interface WebAppCustomizationArgs {
     faviconFile?: pulumi.Input<string>;
     logoFile?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
-     */
     title?: pulumi.Input<string>;
-    /**
-     * The identifier of the web app to be customized.
-     *
-     * The following arguments are optional:
-     */
     webAppId: pulumi.Input<string>;
 }

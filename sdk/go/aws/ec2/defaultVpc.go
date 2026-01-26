@@ -11,84 +11,32 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage the [default AWS VPC](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html)
-// in the current AWS Region.
-//
-// If you created your AWS account after 2013-12-04 you have a default VPC in each AWS Region.
-//
-// **This is an advanced resource** and has special caveats to be aware of when using it. Please read this document in its entirety before using this resource.
-//
-// The `ec2.DefaultVpc` resource behaves differently from normal resources in that if a default VPC exists, this provider does not _create_ this resource, but instead "adopts" it into management.
-// If no default VPC exists, the provider creates a new default VPC, which leads to the implicit creation of [other resources](https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#default-vpc-components).
-// By default, `pulumi destroy` does not delete the default VPC but does remove the resource from the state.
-// Set the `forceDestroy` argument to `true` to delete the default VPC.
-//
-// ## Example Usage
-//
-// Basic usage with tags:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewDefaultVpc(ctx, "default", &ec2.DefaultVpcArgs{
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Default VPC"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Default VPCs using the VPC `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2/defaultVpc:DefaultVpc default vpc-a01106c2
-// ```
 type DefaultVpc struct {
 	pulumi.CustomResourceState
 
-	Arn                          pulumi.StringOutput  `pulumi:"arn"`
-	AssignGeneratedIpv6CidrBlock pulumi.BoolPtrOutput `pulumi:"assignGeneratedIpv6CidrBlock"`
-	// The primary IPv4 CIDR block for the VPC
-	CidrBlock                        pulumi.StringOutput  `pulumi:"cidrBlock"`
-	DefaultNetworkAclId              pulumi.StringOutput  `pulumi:"defaultNetworkAclId"`
-	DefaultRouteTableId              pulumi.StringOutput  `pulumi:"defaultRouteTableId"`
-	DefaultSecurityGroupId           pulumi.StringOutput  `pulumi:"defaultSecurityGroupId"`
-	DhcpOptionsId                    pulumi.StringOutput  `pulumi:"dhcpOptionsId"`
-	EnableDnsHostnames               pulumi.BoolPtrOutput `pulumi:"enableDnsHostnames"`
-	EnableDnsSupport                 pulumi.BoolPtrOutput `pulumi:"enableDnsSupport"`
-	EnableNetworkAddressUsageMetrics pulumi.BoolOutput    `pulumi:"enableNetworkAddressUsageMetrics"`
-	ExistingDefaultVpc               pulumi.BoolOutput    `pulumi:"existingDefaultVpc"`
-	// Whether destroying the resource deletes the default VPC. Default: `false`
-	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
-	// The allowed tenancy of instances launched into the VPC
-	InstanceTenancy                 pulumi.StringOutput    `pulumi:"instanceTenancy"`
-	Ipv6AssociationId               pulumi.StringOutput    `pulumi:"ipv6AssociationId"`
-	Ipv6CidrBlock                   pulumi.StringOutput    `pulumi:"ipv6CidrBlock"`
-	Ipv6CidrBlockNetworkBorderGroup pulumi.StringOutput    `pulumi:"ipv6CidrBlockNetworkBorderGroup"`
-	Ipv6IpamPoolId                  pulumi.StringPtrOutput `pulumi:"ipv6IpamPoolId"`
-	Ipv6NetmaskLength               pulumi.IntPtrOutput    `pulumi:"ipv6NetmaskLength"`
-	MainRouteTableId                pulumi.StringOutput    `pulumi:"mainRouteTableId"`
-	OwnerId                         pulumi.StringOutput    `pulumi:"ownerId"`
-	Region                          pulumi.StringOutput    `pulumi:"region"`
-	Tags                            pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll                         pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                              pulumi.StringOutput    `pulumi:"arn"`
+	AssignGeneratedIpv6CidrBlock     pulumi.BoolPtrOutput   `pulumi:"assignGeneratedIpv6CidrBlock"`
+	CidrBlock                        pulumi.StringOutput    `pulumi:"cidrBlock"`
+	DefaultNetworkAclId              pulumi.StringOutput    `pulumi:"defaultNetworkAclId"`
+	DefaultRouteTableId              pulumi.StringOutput    `pulumi:"defaultRouteTableId"`
+	DefaultSecurityGroupId           pulumi.StringOutput    `pulumi:"defaultSecurityGroupId"`
+	DhcpOptionsId                    pulumi.StringOutput    `pulumi:"dhcpOptionsId"`
+	EnableDnsHostnames               pulumi.BoolPtrOutput   `pulumi:"enableDnsHostnames"`
+	EnableDnsSupport                 pulumi.BoolPtrOutput   `pulumi:"enableDnsSupport"`
+	EnableNetworkAddressUsageMetrics pulumi.BoolOutput      `pulumi:"enableNetworkAddressUsageMetrics"`
+	ExistingDefaultVpc               pulumi.BoolOutput      `pulumi:"existingDefaultVpc"`
+	ForceDestroy                     pulumi.BoolPtrOutput   `pulumi:"forceDestroy"`
+	InstanceTenancy                  pulumi.StringOutput    `pulumi:"instanceTenancy"`
+	Ipv6AssociationId                pulumi.StringOutput    `pulumi:"ipv6AssociationId"`
+	Ipv6CidrBlock                    pulumi.StringOutput    `pulumi:"ipv6CidrBlock"`
+	Ipv6CidrBlockNetworkBorderGroup  pulumi.StringOutput    `pulumi:"ipv6CidrBlockNetworkBorderGroup"`
+	Ipv6IpamPoolId                   pulumi.StringPtrOutput `pulumi:"ipv6IpamPoolId"`
+	Ipv6NetmaskLength                pulumi.IntPtrOutput    `pulumi:"ipv6NetmaskLength"`
+	MainRouteTableId                 pulumi.StringOutput    `pulumi:"mainRouteTableId"`
+	OwnerId                          pulumi.StringOutput    `pulumi:"ownerId"`
+	Region                           pulumi.StringOutput    `pulumi:"region"`
+	Tags                             pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll                          pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewDefaultVpc registers a new resource with the given unique name, arguments, and options.
@@ -121,38 +69,34 @@ func GetDefaultVpc(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DefaultVpc resources.
 type defaultVpcState struct {
-	Arn                          *string `pulumi:"arn"`
-	AssignGeneratedIpv6CidrBlock *bool   `pulumi:"assignGeneratedIpv6CidrBlock"`
-	// The primary IPv4 CIDR block for the VPC
-	CidrBlock                        *string `pulumi:"cidrBlock"`
-	DefaultNetworkAclId              *string `pulumi:"defaultNetworkAclId"`
-	DefaultRouteTableId              *string `pulumi:"defaultRouteTableId"`
-	DefaultSecurityGroupId           *string `pulumi:"defaultSecurityGroupId"`
-	DhcpOptionsId                    *string `pulumi:"dhcpOptionsId"`
-	EnableDnsHostnames               *bool   `pulumi:"enableDnsHostnames"`
-	EnableDnsSupport                 *bool   `pulumi:"enableDnsSupport"`
-	EnableNetworkAddressUsageMetrics *bool   `pulumi:"enableNetworkAddressUsageMetrics"`
-	ExistingDefaultVpc               *bool   `pulumi:"existingDefaultVpc"`
-	// Whether destroying the resource deletes the default VPC. Default: `false`
-	ForceDestroy *bool `pulumi:"forceDestroy"`
-	// The allowed tenancy of instances launched into the VPC
-	InstanceTenancy                 *string           `pulumi:"instanceTenancy"`
-	Ipv6AssociationId               *string           `pulumi:"ipv6AssociationId"`
-	Ipv6CidrBlock                   *string           `pulumi:"ipv6CidrBlock"`
-	Ipv6CidrBlockNetworkBorderGroup *string           `pulumi:"ipv6CidrBlockNetworkBorderGroup"`
-	Ipv6IpamPoolId                  *string           `pulumi:"ipv6IpamPoolId"`
-	Ipv6NetmaskLength               *int              `pulumi:"ipv6NetmaskLength"`
-	MainRouteTableId                *string           `pulumi:"mainRouteTableId"`
-	OwnerId                         *string           `pulumi:"ownerId"`
-	Region                          *string           `pulumi:"region"`
-	Tags                            map[string]string `pulumi:"tags"`
-	TagsAll                         map[string]string `pulumi:"tagsAll"`
+	Arn                              *string           `pulumi:"arn"`
+	AssignGeneratedIpv6CidrBlock     *bool             `pulumi:"assignGeneratedIpv6CidrBlock"`
+	CidrBlock                        *string           `pulumi:"cidrBlock"`
+	DefaultNetworkAclId              *string           `pulumi:"defaultNetworkAclId"`
+	DefaultRouteTableId              *string           `pulumi:"defaultRouteTableId"`
+	DefaultSecurityGroupId           *string           `pulumi:"defaultSecurityGroupId"`
+	DhcpOptionsId                    *string           `pulumi:"dhcpOptionsId"`
+	EnableDnsHostnames               *bool             `pulumi:"enableDnsHostnames"`
+	EnableDnsSupport                 *bool             `pulumi:"enableDnsSupport"`
+	EnableNetworkAddressUsageMetrics *bool             `pulumi:"enableNetworkAddressUsageMetrics"`
+	ExistingDefaultVpc               *bool             `pulumi:"existingDefaultVpc"`
+	ForceDestroy                     *bool             `pulumi:"forceDestroy"`
+	InstanceTenancy                  *string           `pulumi:"instanceTenancy"`
+	Ipv6AssociationId                *string           `pulumi:"ipv6AssociationId"`
+	Ipv6CidrBlock                    *string           `pulumi:"ipv6CidrBlock"`
+	Ipv6CidrBlockNetworkBorderGroup  *string           `pulumi:"ipv6CidrBlockNetworkBorderGroup"`
+	Ipv6IpamPoolId                   *string           `pulumi:"ipv6IpamPoolId"`
+	Ipv6NetmaskLength                *int              `pulumi:"ipv6NetmaskLength"`
+	MainRouteTableId                 *string           `pulumi:"mainRouteTableId"`
+	OwnerId                          *string           `pulumi:"ownerId"`
+	Region                           *string           `pulumi:"region"`
+	Tags                             map[string]string `pulumi:"tags"`
+	TagsAll                          map[string]string `pulumi:"tagsAll"`
 }
 
 type DefaultVpcState struct {
-	Arn                          pulumi.StringPtrInput
-	AssignGeneratedIpv6CidrBlock pulumi.BoolPtrInput
-	// The primary IPv4 CIDR block for the VPC
+	Arn                              pulumi.StringPtrInput
+	AssignGeneratedIpv6CidrBlock     pulumi.BoolPtrInput
 	CidrBlock                        pulumi.StringPtrInput
 	DefaultNetworkAclId              pulumi.StringPtrInput
 	DefaultRouteTableId              pulumi.StringPtrInput
@@ -162,20 +106,18 @@ type DefaultVpcState struct {
 	EnableDnsSupport                 pulumi.BoolPtrInput
 	EnableNetworkAddressUsageMetrics pulumi.BoolPtrInput
 	ExistingDefaultVpc               pulumi.BoolPtrInput
-	// Whether destroying the resource deletes the default VPC. Default: `false`
-	ForceDestroy pulumi.BoolPtrInput
-	// The allowed tenancy of instances launched into the VPC
-	InstanceTenancy                 pulumi.StringPtrInput
-	Ipv6AssociationId               pulumi.StringPtrInput
-	Ipv6CidrBlock                   pulumi.StringPtrInput
-	Ipv6CidrBlockNetworkBorderGroup pulumi.StringPtrInput
-	Ipv6IpamPoolId                  pulumi.StringPtrInput
-	Ipv6NetmaskLength               pulumi.IntPtrInput
-	MainRouteTableId                pulumi.StringPtrInput
-	OwnerId                         pulumi.StringPtrInput
-	Region                          pulumi.StringPtrInput
-	Tags                            pulumi.StringMapInput
-	TagsAll                         pulumi.StringMapInput
+	ForceDestroy                     pulumi.BoolPtrInput
+	InstanceTenancy                  pulumi.StringPtrInput
+	Ipv6AssociationId                pulumi.StringPtrInput
+	Ipv6CidrBlock                    pulumi.StringPtrInput
+	Ipv6CidrBlockNetworkBorderGroup  pulumi.StringPtrInput
+	Ipv6IpamPoolId                   pulumi.StringPtrInput
+	Ipv6NetmaskLength                pulumi.IntPtrInput
+	MainRouteTableId                 pulumi.StringPtrInput
+	OwnerId                          pulumi.StringPtrInput
+	Region                           pulumi.StringPtrInput
+	Tags                             pulumi.StringMapInput
+	TagsAll                          pulumi.StringMapInput
 }
 
 func (DefaultVpcState) ElementType() reflect.Type {
@@ -183,18 +125,17 @@ func (DefaultVpcState) ElementType() reflect.Type {
 }
 
 type defaultVpcArgs struct {
-	AssignGeneratedIpv6CidrBlock     *bool `pulumi:"assignGeneratedIpv6CidrBlock"`
-	EnableDnsHostnames               *bool `pulumi:"enableDnsHostnames"`
-	EnableDnsSupport                 *bool `pulumi:"enableDnsSupport"`
-	EnableNetworkAddressUsageMetrics *bool `pulumi:"enableNetworkAddressUsageMetrics"`
-	// Whether destroying the resource deletes the default VPC. Default: `false`
-	ForceDestroy                    *bool             `pulumi:"forceDestroy"`
-	Ipv6CidrBlock                   *string           `pulumi:"ipv6CidrBlock"`
-	Ipv6CidrBlockNetworkBorderGroup *string           `pulumi:"ipv6CidrBlockNetworkBorderGroup"`
-	Ipv6IpamPoolId                  *string           `pulumi:"ipv6IpamPoolId"`
-	Ipv6NetmaskLength               *int              `pulumi:"ipv6NetmaskLength"`
-	Region                          *string           `pulumi:"region"`
-	Tags                            map[string]string `pulumi:"tags"`
+	AssignGeneratedIpv6CidrBlock     *bool             `pulumi:"assignGeneratedIpv6CidrBlock"`
+	EnableDnsHostnames               *bool             `pulumi:"enableDnsHostnames"`
+	EnableDnsSupport                 *bool             `pulumi:"enableDnsSupport"`
+	EnableNetworkAddressUsageMetrics *bool             `pulumi:"enableNetworkAddressUsageMetrics"`
+	ForceDestroy                     *bool             `pulumi:"forceDestroy"`
+	Ipv6CidrBlock                    *string           `pulumi:"ipv6CidrBlock"`
+	Ipv6CidrBlockNetworkBorderGroup  *string           `pulumi:"ipv6CidrBlockNetworkBorderGroup"`
+	Ipv6IpamPoolId                   *string           `pulumi:"ipv6IpamPoolId"`
+	Ipv6NetmaskLength                *int              `pulumi:"ipv6NetmaskLength"`
+	Region                           *string           `pulumi:"region"`
+	Tags                             map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DefaultVpc resource.
@@ -203,14 +144,13 @@ type DefaultVpcArgs struct {
 	EnableDnsHostnames               pulumi.BoolPtrInput
 	EnableDnsSupport                 pulumi.BoolPtrInput
 	EnableNetworkAddressUsageMetrics pulumi.BoolPtrInput
-	// Whether destroying the resource deletes the default VPC. Default: `false`
-	ForceDestroy                    pulumi.BoolPtrInput
-	Ipv6CidrBlock                   pulumi.StringPtrInput
-	Ipv6CidrBlockNetworkBorderGroup pulumi.StringPtrInput
-	Ipv6IpamPoolId                  pulumi.StringPtrInput
-	Ipv6NetmaskLength               pulumi.IntPtrInput
-	Region                          pulumi.StringPtrInput
-	Tags                            pulumi.StringMapInput
+	ForceDestroy                     pulumi.BoolPtrInput
+	Ipv6CidrBlock                    pulumi.StringPtrInput
+	Ipv6CidrBlockNetworkBorderGroup  pulumi.StringPtrInput
+	Ipv6IpamPoolId                   pulumi.StringPtrInput
+	Ipv6NetmaskLength                pulumi.IntPtrInput
+	Region                           pulumi.StringPtrInput
+	Tags                             pulumi.StringMapInput
 }
 
 func (DefaultVpcArgs) ElementType() reflect.Type {
@@ -308,7 +248,6 @@ func (o DefaultVpcOutput) AssignGeneratedIpv6CidrBlock() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DefaultVpc) pulumi.BoolPtrOutput { return v.AssignGeneratedIpv6CidrBlock }).(pulumi.BoolPtrOutput)
 }
 
-// The primary IPv4 CIDR block for the VPC
 func (o DefaultVpcOutput) CidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultVpc) pulumi.StringOutput { return v.CidrBlock }).(pulumi.StringOutput)
 }
@@ -345,12 +284,10 @@ func (o DefaultVpcOutput) ExistingDefaultVpc() pulumi.BoolOutput {
 	return o.ApplyT(func(v *DefaultVpc) pulumi.BoolOutput { return v.ExistingDefaultVpc }).(pulumi.BoolOutput)
 }
 
-// Whether destroying the resource deletes the default VPC. Default: `false`
 func (o DefaultVpcOutput) ForceDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DefaultVpc) pulumi.BoolPtrOutput { return v.ForceDestroy }).(pulumi.BoolPtrOutput)
 }
 
-// The allowed tenancy of instances launched into the VPC
 func (o DefaultVpcOutput) InstanceTenancy() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultVpc) pulumi.StringOutput { return v.InstanceTenancy }).(pulumi.StringOutput)
 }

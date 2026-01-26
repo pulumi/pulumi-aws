@@ -19,161 +19,57 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PartitionStorageDescriptor {
-    /**
-     * @return List of locations that point to the path where a Delta table is located.
-     * 
-     */
     private @Nullable List<String> additionalLocations;
-    /**
-     * @return A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
-     * 
-     */
     private @Nullable List<String> bucketColumns;
-    /**
-     * @return A list of the Columns in the table.
-     * 
-     */
     private @Nullable List<PartitionStorageDescriptorColumn> columns;
-    /**
-     * @return True if the data in the table is compressed, or False if not.
-     * 
-     */
     private @Nullable Boolean compressed;
-    /**
-     * @return The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
-     * 
-     */
     private @Nullable String inputFormat;
-    /**
-     * @return The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
-     * 
-     */
     private @Nullable String location;
-    /**
-     * @return Must be specified if the table contains any dimension columns.
-     * 
-     */
     private @Nullable Integer numberOfBuckets;
-    /**
-     * @return The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
-     * 
-     */
     private @Nullable String outputFormat;
-    /**
-     * @return User-supplied properties in key-value form.
-     * 
-     */
     private @Nullable Map<String,String> parameters;
-    /**
-     * @return Serialization/deserialization (SerDe) information.
-     * 
-     */
     private @Nullable PartitionStorageDescriptorSerDeInfo serDeInfo;
-    /**
-     * @return Information about values that appear very frequently in a column (skewed values).
-     * 
-     */
     private @Nullable PartitionStorageDescriptorSkewedInfo skewedInfo;
-    /**
-     * @return A list of Order objects specifying the sort order of each bucket in the table.
-     * 
-     */
     private @Nullable List<PartitionStorageDescriptorSortColumn> sortColumns;
-    /**
-     * @return True if the table data is stored in subdirectories, or False if not.
-     * 
-     */
     private @Nullable Boolean storedAsSubDirectories;
 
     private PartitionStorageDescriptor() {}
-    /**
-     * @return List of locations that point to the path where a Delta table is located.
-     * 
-     */
     public List<String> additionalLocations() {
         return this.additionalLocations == null ? List.of() : this.additionalLocations;
     }
-    /**
-     * @return A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
-     * 
-     */
     public List<String> bucketColumns() {
         return this.bucketColumns == null ? List.of() : this.bucketColumns;
     }
-    /**
-     * @return A list of the Columns in the table.
-     * 
-     */
     public List<PartitionStorageDescriptorColumn> columns() {
         return this.columns == null ? List.of() : this.columns;
     }
-    /**
-     * @return True if the data in the table is compressed, or False if not.
-     * 
-     */
     public Optional<Boolean> compressed() {
         return Optional.ofNullable(this.compressed);
     }
-    /**
-     * @return The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
-     * 
-     */
     public Optional<String> inputFormat() {
         return Optional.ofNullable(this.inputFormat);
     }
-    /**
-     * @return The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
-     * 
-     */
     public Optional<String> location() {
         return Optional.ofNullable(this.location);
     }
-    /**
-     * @return Must be specified if the table contains any dimension columns.
-     * 
-     */
     public Optional<Integer> numberOfBuckets() {
         return Optional.ofNullable(this.numberOfBuckets);
     }
-    /**
-     * @return The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
-     * 
-     */
     public Optional<String> outputFormat() {
         return Optional.ofNullable(this.outputFormat);
     }
-    /**
-     * @return User-supplied properties in key-value form.
-     * 
-     */
     public Map<String,String> parameters() {
         return this.parameters == null ? Map.of() : this.parameters;
     }
-    /**
-     * @return Serialization/deserialization (SerDe) information.
-     * 
-     */
     public Optional<PartitionStorageDescriptorSerDeInfo> serDeInfo() {
         return Optional.ofNullable(this.serDeInfo);
     }
-    /**
-     * @return Information about values that appear very frequently in a column (skewed values).
-     * 
-     */
     public Optional<PartitionStorageDescriptorSkewedInfo> skewedInfo() {
         return Optional.ofNullable(this.skewedInfo);
     }
-    /**
-     * @return A list of Order objects specifying the sort order of each bucket in the table.
-     * 
-     */
     public List<PartitionStorageDescriptorSortColumn> sortColumns() {
         return this.sortColumns == null ? List.of() : this.sortColumns;
     }
-    /**
-     * @return True if the table data is stored in subdirectories, or False if not.
-     * 
-     */
     public Optional<Boolean> storedAsSubDirectories() {
         return Optional.ofNullable(this.storedAsSubDirectories);
     }

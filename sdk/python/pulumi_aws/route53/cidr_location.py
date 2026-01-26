@@ -24,9 +24,6 @@ class CidrLocationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CidrLocation resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_blocks: CIDR blocks for the location.
-        :param pulumi.Input[_builtins.str] cidr_collection_id: The ID of the CIDR collection to update.
-        :param pulumi.Input[_builtins.str] name: Name for the CIDR location.
         """
         pulumi.set(__self__, "cidr_blocks", cidr_blocks)
         pulumi.set(__self__, "cidr_collection_id", cidr_collection_id)
@@ -36,9 +33,6 @@ class CidrLocationArgs:
     @_builtins.property
     @pulumi.getter(name="cidrBlocks")
     def cidr_blocks(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        CIDR blocks for the location.
-        """
         return pulumi.get(self, "cidr_blocks")
 
     @cidr_blocks.setter
@@ -48,9 +42,6 @@ class CidrLocationArgs:
     @_builtins.property
     @pulumi.getter(name="cidrCollectionId")
     def cidr_collection_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the CIDR collection to update.
-        """
         return pulumi.get(self, "cidr_collection_id")
 
     @cidr_collection_id.setter
@@ -60,9 +51,6 @@ class CidrLocationArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name for the CIDR location.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -78,9 +66,6 @@ class _CidrLocationState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CidrLocation resources.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_blocks: CIDR blocks for the location.
-        :param pulumi.Input[_builtins.str] cidr_collection_id: The ID of the CIDR collection to update.
-        :param pulumi.Input[_builtins.str] name: Name for the CIDR location.
         """
         if cidr_blocks is not None:
             pulumi.set(__self__, "cidr_blocks", cidr_blocks)
@@ -92,9 +77,6 @@ class _CidrLocationState:
     @_builtins.property
     @pulumi.getter(name="cidrBlocks")
     def cidr_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        CIDR blocks for the location.
-        """
         return pulumi.get(self, "cidr_blocks")
 
     @cidr_blocks.setter
@@ -104,9 +86,6 @@ class _CidrLocationState:
     @_builtins.property
     @pulumi.getter(name="cidrCollectionId")
     def cidr_collection_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the CIDR collection to update.
-        """
         return pulumi.get(self, "cidr_collection_id")
 
     @cidr_collection_id.setter
@@ -116,9 +95,6 @@ class _CidrLocationState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name for the CIDR location.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -137,37 +113,9 @@ class CidrLocation(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a Route53 CIDR location resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53.CidrCollection("example", name="collection-1")
-        example_cidr_location = aws.route53.CidrLocation("example",
-            cidr_collection_id=example.id,
-            name="office",
-            cidr_blocks=[
-                "200.5.3.0/24",
-                "200.6.3.0/24",
-            ])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CIDR locations using their the CIDR collection ID and location name. For example:
-
-        ```sh
-        $ pulumi import aws:route53/cidrLocation:CidrLocation example 9ac32814-3e67-0932-6048-8d779cc6f511,office
-        ```
-
+        Create a CidrLocation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_blocks: CIDR blocks for the location.
-        :param pulumi.Input[_builtins.str] cidr_collection_id: The ID of the CIDR collection to update.
-        :param pulumi.Input[_builtins.str] name: Name for the CIDR location.
         """
         ...
     @overload
@@ -176,32 +124,7 @@ class CidrLocation(pulumi.CustomResource):
                  args: CidrLocationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Route53 CIDR location resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53.CidrCollection("example", name="collection-1")
-        example_cidr_location = aws.route53.CidrLocation("example",
-            cidr_collection_id=example.id,
-            name="office",
-            cidr_blocks=[
-                "200.5.3.0/24",
-                "200.6.3.0/24",
-            ])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CIDR locations using their the CIDR collection ID and location name. For example:
-
-        ```sh
-        $ pulumi import aws:route53/cidrLocation:CidrLocation example 9ac32814-3e67-0932-6048-8d779cc6f511,office
-        ```
-
+        Create a CidrLocation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CidrLocationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -256,9 +179,6 @@ class CidrLocation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_blocks: CIDR blocks for the location.
-        :param pulumi.Input[_builtins.str] cidr_collection_id: The ID of the CIDR collection to update.
-        :param pulumi.Input[_builtins.str] name: Name for the CIDR location.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -272,24 +192,15 @@ class CidrLocation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="cidrBlocks")
     def cidr_blocks(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        CIDR blocks for the location.
-        """
         return pulumi.get(self, "cidr_blocks")
 
     @_builtins.property
     @pulumi.getter(name="cidrCollectionId")
     def cidr_collection_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the CIDR collection to update.
-        """
         return pulumi.get(self, "cidr_collection_id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name for the CIDR location.
-        """
         return pulumi.get(self, "name")
 

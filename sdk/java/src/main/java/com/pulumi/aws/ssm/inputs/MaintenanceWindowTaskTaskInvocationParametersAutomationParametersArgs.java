@@ -17,32 +17,16 @@ public final class MaintenanceWindowTaskTaskInvocationParametersAutomationParame
 
     public static final MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs Empty = new MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs();
 
-    /**
-     * The version of an Automation document to use during task execution.
-     * 
-     */
     @Import(name="documentVersion")
     private @Nullable Output<String> documentVersion;
 
-    /**
-     * @return The version of an Automation document to use during task execution.
-     * 
-     */
     public Optional<Output<String>> documentVersion() {
         return Optional.ofNullable(this.documentVersion);
     }
 
-    /**
-     * The parameters for the RUN_COMMAND task execution. Documented below.
-     * 
-     */
     @Import(name="parameters")
     private @Nullable Output<List<MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs>> parameters;
 
-    /**
-     * @return The parameters for the RUN_COMMAND task execution. Documented below.
-     * 
-     */
     public Optional<Output<List<MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs>>> parameters() {
         return Optional.ofNullable(this.parameters);
     }
@@ -72,54 +56,24 @@ public final class MaintenanceWindowTaskTaskInvocationParametersAutomationParame
             $ = new MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param documentVersion The version of an Automation document to use during task execution.
-         * 
-         * @return builder
-         * 
-         */
         public Builder documentVersion(@Nullable Output<String> documentVersion) {
             $.documentVersion = documentVersion;
             return this;
         }
 
-        /**
-         * @param documentVersion The version of an Automation document to use during task execution.
-         * 
-         * @return builder
-         * 
-         */
         public Builder documentVersion(String documentVersion) {
             return documentVersion(Output.of(documentVersion));
         }
 
-        /**
-         * @param parameters The parameters for the RUN_COMMAND task execution. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(@Nullable Output<List<MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs>> parameters) {
             $.parameters = parameters;
             return this;
         }
 
-        /**
-         * @param parameters The parameters for the RUN_COMMAND task execution. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(List<MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs> parameters) {
             return parameters(Output.of(parameters));
         }
 
-        /**
-         * @param parameters The parameters for the RUN_COMMAND task execution. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs... parameters) {
             return parameters(List.of(parameters));
         }

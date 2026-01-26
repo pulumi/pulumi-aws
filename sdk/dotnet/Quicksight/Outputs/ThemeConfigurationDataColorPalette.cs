@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class ThemeConfigurationDataColorPalette
     {
-        /// <summary>
-        /// List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
-        /// </summary>
         public readonly ImmutableArray<string> Colors;
-        /// <summary>
-        /// The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
-        /// </summary>
         public readonly string? EmptyFillColor;
-        /// <summary>
-        /// The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
-        /// </summary>
         public readonly ImmutableArray<string> MinMaxGradients;
 
         [OutputConstructor]

@@ -15,47 +15,23 @@ public final class ComputeEnvironmentComputeResourcesEc2ConfigurationArgs extend
 
     public static final ComputeEnvironmentComputeResourcesEc2ConfigurationArgs Empty = new ComputeEnvironmentComputeResourcesEc2ConfigurationArgs();
 
-    /**
-     * The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResources` block.
-     * 
-     */
     @Import(name="imageIdOverride")
     private @Nullable Output<String> imageIdOverride;
 
-    /**
-     * @return The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResources` block.
-     * 
-     */
     public Optional<Output<String>> imageIdOverride() {
         return Optional.ofNullable(this.imageIdOverride);
     }
 
-    /**
-     * The Kubernetes version for the compute environment. If you don&#39;t specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
-     * 
-     */
     @Import(name="imageKubernetesVersion")
     private @Nullable Output<String> imageKubernetesVersion;
 
-    /**
-     * @return The Kubernetes version for the compute environment. If you don&#39;t specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
-     * 
-     */
     public Optional<Output<String>> imageKubernetesVersion() {
         return Optional.ofNullable(this.imageKubernetesVersion);
     }
 
-    /**
-     * The image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn&#39;t specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
-     * 
-     */
     @Import(name="imageType")
     private @Nullable Output<String> imageType;
 
-    /**
-     * @return The image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn&#39;t specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
-     * 
-     */
     public Optional<Output<String>> imageType() {
         return Optional.ofNullable(this.imageType);
     }
@@ -86,65 +62,29 @@ public final class ComputeEnvironmentComputeResourcesEc2ConfigurationArgs extend
             $ = new ComputeEnvironmentComputeResourcesEc2ConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param imageIdOverride The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResources` block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageIdOverride(@Nullable Output<String> imageIdOverride) {
             $.imageIdOverride = imageIdOverride;
             return this;
         }
 
-        /**
-         * @param imageIdOverride The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResources` block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageIdOverride(String imageIdOverride) {
             return imageIdOverride(Output.of(imageIdOverride));
         }
 
-        /**
-         * @param imageKubernetesVersion The Kubernetes version for the compute environment. If you don&#39;t specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageKubernetesVersion(@Nullable Output<String> imageKubernetesVersion) {
             $.imageKubernetesVersion = imageKubernetesVersion;
             return this;
         }
 
-        /**
-         * @param imageKubernetesVersion The Kubernetes version for the compute environment. If you don&#39;t specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageKubernetesVersion(String imageKubernetesVersion) {
             return imageKubernetesVersion(Output.of(imageKubernetesVersion));
         }
 
-        /**
-         * @param imageType The image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn&#39;t specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageType(@Nullable Output<String> imageType) {
             $.imageType = imageType;
             return this;
         }
 
-        /**
-         * @param imageType The image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn&#39;t specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageType(String imageType) {
             return imageType(Output.of(imageType));
         }

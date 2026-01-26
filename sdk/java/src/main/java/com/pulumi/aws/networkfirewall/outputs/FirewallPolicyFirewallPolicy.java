@@ -18,117 +18,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirewallPolicyFirewallPolicy {
-    /**
-     * @return . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
-     * 
-     */
     private @Nullable FirewallPolicyFirewallPolicyPolicyVariables policyVariables;
-    /**
-     * @return Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. Value values: `aws:drop_strict`, `aws:drop_established`, `aws:drop_established_app_layer`, `aws:alert_strict`, ` aws:alert_established,  `aws:alert_established_app_layer`. For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the AWS Network Firewall Developer Guide.
-     * 
-     */
     private @Nullable List<String> statefulDefaultActions;
-    /**
-     * @return A configuration block that defines options on how the policy handles stateful rules. See Stateful Engine Options below for details.
-     * 
-     */
     private @Nullable FirewallPolicyFirewallPolicyStatefulEngineOptions statefulEngineOptions;
-    /**
-     * @return Set of configuration blocks containing references to the stateful rule groups that are used in the policy. See Stateful Rule Group Reference below for details.
-     * 
-     */
     private @Nullable List<FirewallPolicyFirewallPolicyStatefulRuleGroupReference> statefulRuleGroupReferences;
-    /**
-     * @return Set of configuration blocks describing the custom action definitions that are available for use in the firewall policy&#39;s `statelessDefaultActions`. See Stateless Custom Action below for details.
-     * 
-     */
     private @Nullable List<FirewallPolicyFirewallPolicyStatelessCustomAction> statelessCustomActions;
-    /**
-     * @return Set of actions to take on a packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
-     * In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
-     * 
-     */
     private List<String> statelessDefaultActions;
-    /**
-     * @return Set of actions to take on a fragmented packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
-     * In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
-     * 
-     */
     private List<String> statelessFragmentDefaultActions;
-    /**
-     * @return Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See Stateless Rule Group Reference below for details.
-     * 
-     */
     private @Nullable List<FirewallPolicyFirewallPolicyStatelessRuleGroupReference> statelessRuleGroupReferences;
-    /**
-     * @return The (ARN) of the TLS Inspection policy to attach to the FW Policy.  This must be added at creation of the resource per AWS documentation. &#34;You can only add a TLS inspection configuration to a new policy, not to an existing policy.&#34;  This cannot be removed from a FW Policy.
-     * 
-     */
     private @Nullable String tlsInspectionConfigurationArn;
 
     private FirewallPolicyFirewallPolicy() {}
-    /**
-     * @return . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
-     * 
-     */
     public Optional<FirewallPolicyFirewallPolicyPolicyVariables> policyVariables() {
         return Optional.ofNullable(this.policyVariables);
     }
-    /**
-     * @return Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. Value values: `aws:drop_strict`, `aws:drop_established`, `aws:drop_established_app_layer`, `aws:alert_strict`, ` aws:alert_established,  `aws:alert_established_app_layer`. For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the AWS Network Firewall Developer Guide.
-     * 
-     */
     public List<String> statefulDefaultActions() {
         return this.statefulDefaultActions == null ? List.of() : this.statefulDefaultActions;
     }
-    /**
-     * @return A configuration block that defines options on how the policy handles stateful rules. See Stateful Engine Options below for details.
-     * 
-     */
     public Optional<FirewallPolicyFirewallPolicyStatefulEngineOptions> statefulEngineOptions() {
         return Optional.ofNullable(this.statefulEngineOptions);
     }
-    /**
-     * @return Set of configuration blocks containing references to the stateful rule groups that are used in the policy. See Stateful Rule Group Reference below for details.
-     * 
-     */
     public List<FirewallPolicyFirewallPolicyStatefulRuleGroupReference> statefulRuleGroupReferences() {
         return this.statefulRuleGroupReferences == null ? List.of() : this.statefulRuleGroupReferences;
     }
-    /**
-     * @return Set of configuration blocks describing the custom action definitions that are available for use in the firewall policy&#39;s `statelessDefaultActions`. See Stateless Custom Action below for details.
-     * 
-     */
     public List<FirewallPolicyFirewallPolicyStatelessCustomAction> statelessCustomActions() {
         return this.statelessCustomActions == null ? List.of() : this.statelessCustomActions;
     }
-    /**
-     * @return Set of actions to take on a packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
-     * In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
-     * 
-     */
     public List<String> statelessDefaultActions() {
         return this.statelessDefaultActions;
     }
-    /**
-     * @return Set of actions to take on a fragmented packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
-     * In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
-     * 
-     */
     public List<String> statelessFragmentDefaultActions() {
         return this.statelessFragmentDefaultActions;
     }
-    /**
-     * @return Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See Stateless Rule Group Reference below for details.
-     * 
-     */
     public List<FirewallPolicyFirewallPolicyStatelessRuleGroupReference> statelessRuleGroupReferences() {
         return this.statelessRuleGroupReferences == null ? List.of() : this.statelessRuleGroupReferences;
     }
-    /**
-     * @return The (ARN) of the TLS Inspection policy to attach to the FW Policy.  This must be added at creation of the resource per AWS documentation. &#34;You can only add a TLS inspection configuration to a new policy, not to an existing policy.&#34;  This cannot be removed from a FW Policy.
-     * 
-     */
     public Optional<String> tlsInspectionConfigurationArn() {
         return Optional.ofNullable(this.tlsInspectionConfigurationArn);
     }

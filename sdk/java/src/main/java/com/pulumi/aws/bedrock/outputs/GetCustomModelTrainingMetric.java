@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCustomModelTrainingMetric {
-    /**
-     * @return Loss metric associated with the customization job.
-     * 
-     */
     private Double trainingLoss;
 
     private GetCustomModelTrainingMetric() {}
-    /**
-     * @return Loss metric associated with the customization job.
-     * 
-     */
     public Double trainingLoss() {
         return this.trainingLoss;
     }

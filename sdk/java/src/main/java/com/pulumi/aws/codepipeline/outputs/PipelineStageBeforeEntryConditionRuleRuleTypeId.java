@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipelineStageBeforeEntryConditionRuleRuleTypeId {
-    /**
-     * @return A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is `Rule`.
-     * 
-     */
     private String category;
-    /**
-     * @return The creator of the rule being called. The valid value for the Owner field in the rule category is `AWS`.
-     * 
-     */
     private @Nullable String owner;
-    /**
-     * @return The rule provider, such as the DeploymentWindow rule. For a list of rule provider names, see the rules listed in the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
-     * 
-     */
     private String provider;
-    /**
-     * @return A string that describes the rule version.
-     * 
-     */
     private @Nullable String version;
 
     private PipelineStageBeforeEntryConditionRuleRuleTypeId() {}
-    /**
-     * @return A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is `Rule`.
-     * 
-     */
     public String category() {
         return this.category;
     }
-    /**
-     * @return The creator of the rule being called. The valid value for the Owner field in the rule category is `AWS`.
-     * 
-     */
     public Optional<String> owner() {
         return Optional.ofNullable(this.owner);
     }
-    /**
-     * @return The rule provider, such as the DeploymentWindow rule. For a list of rule provider names, see the rules listed in the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
-     * 
-     */
     public String provider() {
         return this.provider;
     }
-    /**
-     * @return A string that describes the rule version.
-     * 
-     */
     public Optional<String> version() {
         return Optional.ofNullable(this.version);
     }

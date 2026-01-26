@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block for the Amazon S3 object that contains the source code for the agent runtime. See `S3` below.
-        /// </summary>
         [Input("s3")]
         public Input<Inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3GetArgs>? S3 { get; set; }
 

@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelNamespaceHandlerConfigsOnSubscribe {
-    /**
-     * @return Behavior for the handler. Valid values: `CODE`, `DIRECT`.
-     * 
-     */
     private String behavior;
-    /**
-     * @return Integration data source configuration for the handler. See Integration below.
-     * 
-     */
     private @Nullable ChannelNamespaceHandlerConfigsOnSubscribeIntegration integration;
 
     private ChannelNamespaceHandlerConfigsOnSubscribe() {}
-    /**
-     * @return Behavior for the handler. Valid values: `CODE`, `DIRECT`.
-     * 
-     */
     public String behavior() {
         return this.behavior;
     }
-    /**
-     * @return Integration data source configuration for the handler. See Integration below.
-     * 
-     */
     public Optional<ChannelNamespaceHandlerConfigsOnSubscribeIntegration> integration() {
         return Optional.ofNullable(this.integration);
     }

@@ -4,38 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a ApplicationInsights Application resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleGroup = new aws.resourcegroups.Group("example", {
- *     name: "example",
- *     resourceQuery: {
- *         query: JSON.stringify({
- *             ResourceTypeFilters: ["AWS::EC2::Instance"],
- *             TagFilters: [{
- *                 Key: "Stage",
- *                 Values: ["Test"],
- *             }],
- *         }),
- *     },
- * });
- * const example = new aws.applicationinsights.Application("example", {resourceGroupName: exampleGroup.name});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import ApplicationInsights Applications using the `resource_group_name`. For example:
- *
- * ```sh
- * $ pulumi import aws:applicationinsights/application:Application some some-application
- * ```
- */
 export class Application extends pulumi.CustomResource {
     /**
      * Get an existing Application resource's state with the given name, ID, and optional extra
@@ -64,51 +32,16 @@ export class Application extends pulumi.CustomResource {
         return obj['__pulumiType'] === Application.__pulumiType;
     }
 
-    /**
-     * ARN of the Application.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
-     */
     declare public readonly autoConfigEnabled: pulumi.Output<boolean | undefined>;
-    /**
-     * Configures all of the resources in the resource group by applying the recommended configurations.
-     */
     declare public readonly autoCreate: pulumi.Output<boolean | undefined>;
-    /**
-     * Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
-     */
     declare public readonly cweMonitorEnabled: pulumi.Output<boolean | undefined>;
-    /**
-     * Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
-     */
     declare public readonly groupingType: pulumi.Output<string | undefined>;
-    /**
-     * When set to `true`, creates opsItems for any problems detected on an application.
-     */
     declare public readonly opsCenterEnabled: pulumi.Output<boolean | undefined>;
-    /**
-     * SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
-     */
     declare public readonly opsItemSnsTopicArn: pulumi.Output<string | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Name of the resource group.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly resourceGroupName: pulumi.Output<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -161,51 +94,16 @@ export class Application extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Application resources.
  */
 export interface ApplicationState {
-    /**
-     * ARN of the Application.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
-     */
     autoConfigEnabled?: pulumi.Input<boolean>;
-    /**
-     * Configures all of the resources in the resource group by applying the recommended configurations.
-     */
     autoCreate?: pulumi.Input<boolean>;
-    /**
-     * Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
-     */
     cweMonitorEnabled?: pulumi.Input<boolean>;
-    /**
-     * Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
-     */
     groupingType?: pulumi.Input<string>;
-    /**
-     * When set to `true`, creates opsItems for any problems detected on an application.
-     */
     opsCenterEnabled?: pulumi.Input<boolean>;
-    /**
-     * SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
-     */
     opsItemSnsTopicArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Name of the resource group.
-     *
-     * The following arguments are optional:
-     */
     resourceGroupName?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -213,42 +111,13 @@ export interface ApplicationState {
  * The set of arguments for constructing a Application resource.
  */
 export interface ApplicationArgs {
-    /**
-     * Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
-     */
     autoConfigEnabled?: pulumi.Input<boolean>;
-    /**
-     * Configures all of the resources in the resource group by applying the recommended configurations.
-     */
     autoCreate?: pulumi.Input<boolean>;
-    /**
-     * Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
-     */
     cweMonitorEnabled?: pulumi.Input<boolean>;
-    /**
-     * Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
-     */
     groupingType?: pulumi.Input<string>;
-    /**
-     * When set to `true`, creates opsItems for any problems detected on an application.
-     */
     opsCenterEnabled?: pulumi.Input<boolean>;
-    /**
-     * SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
-     */
     opsItemSnsTopicArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Name of the resource group.
-     *
-     * The following arguments are optional:
-     */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

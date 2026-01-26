@@ -16,32 +16,16 @@ public final class DataQualityJobDefinitionDataQualityBaselineConfigArgs extends
 
     public static final DataQualityJobDefinitionDataQualityBaselineConfigArgs Empty = new DataQualityJobDefinitionDataQualityBaselineConfigArgs();
 
-    /**
-     * The constraints resource for a monitoring job. Fields are documented below.
-     * 
-     */
     @Import(name="constraintsResource")
     private @Nullable Output<DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResourceArgs> constraintsResource;
 
-    /**
-     * @return The constraints resource for a monitoring job. Fields are documented below.
-     * 
-     */
     public Optional<Output<DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResourceArgs>> constraintsResource() {
         return Optional.ofNullable(this.constraintsResource);
     }
 
-    /**
-     * The statistics resource for a monitoring job. Fields are documented below.
-     * 
-     */
     @Import(name="statisticsResource")
     private @Nullable Output<DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResourceArgs> statisticsResource;
 
-    /**
-     * @return The statistics resource for a monitoring job. Fields are documented below.
-     * 
-     */
     public Optional<Output<DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResourceArgs>> statisticsResource() {
         return Optional.ofNullable(this.statisticsResource);
     }
@@ -71,44 +55,20 @@ public final class DataQualityJobDefinitionDataQualityBaselineConfigArgs extends
             $ = new DataQualityJobDefinitionDataQualityBaselineConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param constraintsResource The constraints resource for a monitoring job. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder constraintsResource(@Nullable Output<DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResourceArgs> constraintsResource) {
             $.constraintsResource = constraintsResource;
             return this;
         }
 
-        /**
-         * @param constraintsResource The constraints resource for a monitoring job. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder constraintsResource(DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResourceArgs constraintsResource) {
             return constraintsResource(Output.of(constraintsResource));
         }
 
-        /**
-         * @param statisticsResource The statistics resource for a monitoring job. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statisticsResource(@Nullable Output<DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResourceArgs> statisticsResource) {
             $.statisticsResource = statisticsResource;
             return this;
         }
 
-        /**
-         * @param statisticsResource The statistics resource for a monitoring job. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statisticsResource(DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResourceArgs statisticsResource) {
             return statisticsResource(Output.of(statisticsResource));
         }

@@ -14,197 +14,135 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Provides a License Manager grant. This allows for sharing licenses with other AWS accounts.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.licensemanager.LicenseGrant;
- * import com.pulumi.aws.licensemanager.LicenseGrantArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new LicenseGrant("test", LicenseGrantArgs.builder()
- *             .name("share-license-with-account")
- *             .allowedOperations(            
- *                 "ListPurchasedLicenses",
- *                 "CheckoutLicense",
- *                 "CheckInLicense",
- *                 "ExtendConsumptionLicense",
- *                 "CreateToken")
- *             .licenseArn("arn:aws:license-manager::111111111111:license:l-exampleARN")
- *             .principal("arn:aws:iam::111111111112:root")
- *             .homeRegion("us-east-1")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_licensemanager_grant` using the grant arn. For example:
- * 
- * ```sh
- * $ pulumi import aws:licensemanager/licenseGrant:LicenseGrant test arn:aws:license-manager::123456789011:grant:g-01d313393d9e443d8664cc054db1e089
- * ```
- * 
- */
 @ResourceType(type="aws:licensemanager/licenseGrant:LicenseGrant")
 public class LicenseGrant extends com.pulumi.resources.CustomResource {
     /**
-     * A list of the allowed operations for the grant. This is a subset of the allowed operations on the license.
+     * Allowed operations for the grant. This is a subset of the allowed operations on the license.
      * 
      */
     @Export(name="allowedOperations", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> allowedOperations;
 
     /**
-     * @return A list of the allowed operations for the grant. This is a subset of the allowed operations on the license.
+     * @return Allowed operations for the grant. This is a subset of the allowed operations on the license.
      * 
      */
     public Output<List<String>> allowedOperations() {
         return this.allowedOperations;
     }
     /**
-     * The grant ARN.
+     * Amazon Resource Name (ARN) of the grant.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The grant ARN.
+     * @return Amazon Resource Name (ARN) of the grant.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The home region for the license.
+     * Home Region of the grant.
      * 
      */
     @Export(name="homeRegion", refs={String.class}, tree="[0]")
     private Output<String> homeRegion;
 
     /**
-     * @return The home region for the license.
+     * @return Home Region of the grant.
      * 
      */
     public Output<String> homeRegion() {
         return this.homeRegion;
     }
     /**
-     * The ARN of the license to grant.
+     * License ARN.
      * 
      */
     @Export(name="licenseArn", refs={String.class}, tree="[0]")
     private Output<String> licenseArn;
 
     /**
-     * @return The ARN of the license to grant.
+     * @return License ARN.
      * 
      */
     public Output<String> licenseArn() {
         return this.licenseArn;
     }
     /**
-     * The Name of the grant.
+     * Name of the grant.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The Name of the grant.
+     * @return Name of the grant.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The parent ARN.
+     * Parent ARN.
      * 
      */
     @Export(name="parentArn", refs={String.class}, tree="[0]")
     private Output<String> parentArn;
 
     /**
-     * @return The parent ARN.
+     * @return Parent ARN.
      * 
      */
     public Output<String> parentArn() {
         return this.parentArn;
     }
     /**
-     * The target account for the grant in the form of the ARN for an account principal of the root user.
+     * The grantee principal ARN. The target account for the grant in the form of the ARN for an account principal of the root user.
      * 
      */
     @Export(name="principal", refs={String.class}, tree="[0]")
     private Output<String> principal;
 
     /**
-     * @return The target account for the grant in the form of the ARN for an account principal of the root user.
+     * @return The grantee principal ARN. The target account for the grant in the form of the ARN for an account principal of the root user.
      * 
      */
     public Output<String> principal() {
         return this.principal;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
     /**
-     * The grant status.
+     * Grant status.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The grant status.
+     * @return Grant status.
      * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
-     * The grant version.
+     * Grant version.
      * 
      */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**
-     * @return The grant version.
+     * @return Grant version.
      * 
      */
     public Output<String> version() {

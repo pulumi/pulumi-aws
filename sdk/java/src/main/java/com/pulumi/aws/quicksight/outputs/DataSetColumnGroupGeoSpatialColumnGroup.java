@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class DataSetColumnGroupGeoSpatialColumnGroup {
-    /**
-     * @return Columns in this hierarchy.
-     * 
-     */
     private List<String> columns;
-    /**
-     * @return Country code. Valid values are `US`.
-     * 
-     */
     private String countryCode;
-    /**
-     * @return A display name for the hierarchy.
-     * 
-     */
     private String name;
 
     private DataSetColumnGroupGeoSpatialColumnGroup() {}
-    /**
-     * @return Columns in this hierarchy.
-     * 
-     */
     public List<String> columns() {
         return this.columns;
     }
-    /**
-     * @return Country code. Valid values are `US`.
-     * 
-     */
     public String countryCode() {
         return this.countryCode;
     }
-    /**
-     * @return A display name for the hierarchy.
-     * 
-     */
     public String name() {
         return this.name;
     }

@@ -16,19 +16,9 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingArgs extends com.pulu
 
     public static final V2modelsSlotTypeCompositeSlotTypeSettingArgs Empty = new V2modelsSlotTypeCompositeSlotTypeSettingArgs();
 
-    /**
-     * Sub slots in the composite slot.
-     * See `subSlots` argument reference below.
-     * 
-     */
     @Import(name="subSlots")
     private @Nullable Output<List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs>> subSlots;
 
-    /**
-     * @return Sub slots in the composite slot.
-     * See `subSlots` argument reference below.
-     * 
-     */
     public Optional<Output<List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs>>> subSlots() {
         return Optional.ofNullable(this.subSlots);
     }
@@ -57,36 +47,15 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingArgs extends com.pulu
             $ = new V2modelsSlotTypeCompositeSlotTypeSettingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param subSlots Sub slots in the composite slot.
-         * See `subSlots` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subSlots(@Nullable Output<List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs>> subSlots) {
             $.subSlots = subSlots;
             return this;
         }
 
-        /**
-         * @param subSlots Sub slots in the composite slot.
-         * See `subSlots` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subSlots(List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs> subSlots) {
             return subSlots(Output.of(subSlots));
         }
 
-        /**
-         * @param subSlots Sub slots in the composite slot.
-         * See `subSlots` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subSlots(V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs... subSlots) {
             return subSlots(List.of(subSlots));
         }

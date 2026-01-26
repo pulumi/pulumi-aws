@@ -10,137 +10,49 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBudgetCostType {
-    /**
-     * @return A boolean value whether to include credits in the cost budget. Defaults to `true`.
-     * 
-     */
     private Boolean includeCredit;
-    /**
-     * @return Whether a budget includes discounts. Defaults to `true`.
-     * 
-     */
     private Boolean includeDiscount;
-    /**
-     * @return A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`.
-     * 
-     */
     private Boolean includeOtherSubscription;
-    /**
-     * @return A boolean value whether to include recurring costs in the cost budget. Defaults to `true`.
-     * 
-     */
     private Boolean includeRecurring;
-    /**
-     * @return A boolean value whether to include refunds in the cost budget. Defaults to `true`.
-     * 
-     */
     private Boolean includeRefund;
-    /**
-     * @return A boolean value whether to include subscriptions in the cost budget. Defaults to `true`.
-     * 
-     */
     private Boolean includeSubscription;
-    /**
-     * @return A boolean value whether to include support costs in the cost budget. Defaults to `true`.
-     * 
-     */
     private Boolean includeSupport;
-    /**
-     * @return A boolean value whether to include tax in the cost budget. Defaults to `true`.
-     * 
-     */
     private Boolean includeTax;
-    /**
-     * @return A boolean value whether to include upfront costs in the cost budget. Defaults to `true`.
-     * 
-     */
     private Boolean includeUpfront;
-    /**
-     * @return Whether a budget uses the amortized rate. Defaults to `false`.
-     * 
-     */
     private Boolean useAmortized;
-    /**
-     * @return A boolean value whether to use blended costs in the cost budget. Defaults to `false`.
-     * 
-     */
     private Boolean useBlended;
 
     private GetBudgetCostType() {}
-    /**
-     * @return A boolean value whether to include credits in the cost budget. Defaults to `true`.
-     * 
-     */
     public Boolean includeCredit() {
         return this.includeCredit;
     }
-    /**
-     * @return Whether a budget includes discounts. Defaults to `true`.
-     * 
-     */
     public Boolean includeDiscount() {
         return this.includeDiscount;
     }
-    /**
-     * @return A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`.
-     * 
-     */
     public Boolean includeOtherSubscription() {
         return this.includeOtherSubscription;
     }
-    /**
-     * @return A boolean value whether to include recurring costs in the cost budget. Defaults to `true`.
-     * 
-     */
     public Boolean includeRecurring() {
         return this.includeRecurring;
     }
-    /**
-     * @return A boolean value whether to include refunds in the cost budget. Defaults to `true`.
-     * 
-     */
     public Boolean includeRefund() {
         return this.includeRefund;
     }
-    /**
-     * @return A boolean value whether to include subscriptions in the cost budget. Defaults to `true`.
-     * 
-     */
     public Boolean includeSubscription() {
         return this.includeSubscription;
     }
-    /**
-     * @return A boolean value whether to include support costs in the cost budget. Defaults to `true`.
-     * 
-     */
     public Boolean includeSupport() {
         return this.includeSupport;
     }
-    /**
-     * @return A boolean value whether to include tax in the cost budget. Defaults to `true`.
-     * 
-     */
     public Boolean includeTax() {
         return this.includeTax;
     }
-    /**
-     * @return A boolean value whether to include upfront costs in the cost budget. Defaults to `true`.
-     * 
-     */
     public Boolean includeUpfront() {
         return this.includeUpfront;
     }
-    /**
-     * @return Whether a budget uses the amortized rate. Defaults to `false`.
-     * 
-     */
     public Boolean useAmortized() {
         return this.useAmortized;
     }
-    /**
-     * @return A boolean value whether to use blended costs in the cost budget. Defaults to `false`.
-     * 
-     */
     public Boolean useBlended() {
         return this.useBlended;
     }

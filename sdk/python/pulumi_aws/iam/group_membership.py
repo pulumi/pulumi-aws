@@ -24,9 +24,6 @@ class GroupMembershipArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GroupMembership resource.
-        :param pulumi.Input[_builtins.str] group: The IAM Group name to attach the list of `users` to
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users: A list of IAM User names to associate with the Group
-        :param pulumi.Input[_builtins.str] name: The name to identify the Group Membership
         """
         pulumi.set(__self__, "group", group)
         pulumi.set(__self__, "users", users)
@@ -36,9 +33,6 @@ class GroupMembershipArgs:
     @_builtins.property
     @pulumi.getter
     def group(self) -> pulumi.Input[_builtins.str]:
-        """
-        The IAM Group name to attach the list of `users` to
-        """
         return pulumi.get(self, "group")
 
     @group.setter
@@ -48,9 +42,6 @@ class GroupMembershipArgs:
     @_builtins.property
     @pulumi.getter
     def users(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        A list of IAM User names to associate with the Group
-        """
         return pulumi.get(self, "users")
 
     @users.setter
@@ -60,9 +51,6 @@ class GroupMembershipArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name to identify the Group Membership
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -78,9 +66,6 @@ class _GroupMembershipState:
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering GroupMembership resources.
-        :param pulumi.Input[_builtins.str] group: The IAM Group name to attach the list of `users` to
-        :param pulumi.Input[_builtins.str] name: The name to identify the Group Membership
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users: A list of IAM User names to associate with the Group
         """
         if group is not None:
             pulumi.set(__self__, "group", group)
@@ -92,9 +77,6 @@ class _GroupMembershipState:
     @_builtins.property
     @pulumi.getter
     def group(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The IAM Group name to attach the list of `users` to
-        """
         return pulumi.get(self, "group")
 
     @group.setter
@@ -104,9 +86,6 @@ class _GroupMembershipState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name to identify the Group Membership
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -116,9 +95,6 @@ class _GroupMembershipState:
     @_builtins.property
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of IAM User names to associate with the Group
-        """
         return pulumi.get(self, "users")
 
     @users.setter
@@ -137,38 +113,9 @@ class GroupMembership(pulumi.CustomResource):
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        > **WARNING:** Multiple iam.GroupMembership resources with the same group name will produce inconsistent behavior!
-
-        Provides a top level resource to manage IAM Group membership for IAM Users. For
-        more information on managing IAM Groups or IAM Users, see IAM Groups or
-        IAM Users
-
-        > **Note:** `iam.GroupMembership` will conflict with itself if used more than once with the same group. To non-exclusively manage the users in a group, see the
-        `iam.UserGroupMembership` resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        group = aws.iam.Group("group", name="test-group")
-        user_one = aws.iam.User("user_one", name="test-user")
-        user_two = aws.iam.User("user_two", name="test-user-two")
-        team = aws.iam.GroupMembership("team",
-            name="tf-testing-group-membership",
-            users=[
-                user_one.name,
-                user_two.name,
-            ],
-            group=group.name)
-        ```
-
+        Create a GroupMembership resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] group: The IAM Group name to attach the list of `users` to
-        :param pulumi.Input[_builtins.str] name: The name to identify the Group Membership
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users: A list of IAM User names to associate with the Group
         """
         ...
     @overload
@@ -177,33 +124,7 @@ class GroupMembership(pulumi.CustomResource):
                  args: GroupMembershipArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **WARNING:** Multiple iam.GroupMembership resources with the same group name will produce inconsistent behavior!
-
-        Provides a top level resource to manage IAM Group membership for IAM Users. For
-        more information on managing IAM Groups or IAM Users, see IAM Groups or
-        IAM Users
-
-        > **Note:** `iam.GroupMembership` will conflict with itself if used more than once with the same group. To non-exclusively manage the users in a group, see the
-        `iam.UserGroupMembership` resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        group = aws.iam.Group("group", name="test-group")
-        user_one = aws.iam.User("user_one", name="test-user")
-        user_two = aws.iam.User("user_two", name="test-user-two")
-        team = aws.iam.GroupMembership("team",
-            name="tf-testing-group-membership",
-            users=[
-                user_one.name,
-                user_two.name,
-            ],
-            group=group.name)
-        ```
-
+        Create a GroupMembership resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param GroupMembershipArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -258,9 +179,6 @@ class GroupMembership(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] group: The IAM Group name to attach the list of `users` to
-        :param pulumi.Input[_builtins.str] name: The name to identify the Group Membership
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users: A list of IAM User names to associate with the Group
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -274,24 +192,15 @@ class GroupMembership(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def group(self) -> pulumi.Output[_builtins.str]:
-        """
-        The IAM Group name to attach the list of `users` to
-        """
         return pulumi.get(self, "group")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name to identify the Group Membership
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def users(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        A list of IAM User names to associate with the Group
-        """
         return pulumi.get(self, "users")
 

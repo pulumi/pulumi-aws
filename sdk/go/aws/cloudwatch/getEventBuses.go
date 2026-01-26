@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS EventBridge Event Buses.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.GetEventBuses(ctx, &cloudwatch.GetEventBusesArgs{
-//				NamePrefix: pulumi.StringRef("test"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetEventBuses(ctx *pulumi.Context, args *GetEventBusesArgs, opts ...pulumi.InvokeOption) (*GetEventBusesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEventBusesResult
@@ -52,15 +23,12 @@ func GetEventBuses(ctx *pulumi.Context, args *GetEventBusesArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getEventBuses.
 type GetEventBusesArgs struct {
-	// Specifying this limits the results to only those event buses with names that start with the specified prefix.
 	NamePrefix *string `pulumi:"namePrefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region     *string `pulumi:"region"`
 }
 
 // A collection of values returned by getEventBuses.
 type GetEventBusesResult struct {
-	// This list of event buses.
 	EventBuses []GetEventBusesEventBus `pulumi:"eventBuses"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string  `pulumi:"id"`
@@ -79,10 +47,8 @@ func GetEventBusesOutput(ctx *pulumi.Context, args GetEventBusesOutputArgs, opts
 
 // A collection of arguments for invoking getEventBuses.
 type GetEventBusesOutputArgs struct {
-	// Specifying this limits the results to only those event buses with names that start with the specified prefix.
 	NamePrefix pulumi.StringPtrInput `pulumi:"namePrefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetEventBusesOutputArgs) ElementType() reflect.Type {
@@ -104,7 +70,6 @@ func (o GetEventBusesResultOutput) ToGetEventBusesResultOutputWithContext(ctx co
 	return o
 }
 
-// This list of event buses.
 func (o GetEventBusesResultOutput) EventBuses() GetEventBusesEventBusArrayOutput {
 	return o.ApplyT(func(v GetEventBusesResult) []GetEventBusesEventBus { return v.EventBuses }).(GetEventBusesEventBusArrayOutput)
 }

@@ -11,37 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for viewing AWS SSO Admin Principal Application Assignments.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssoadmin.GetPrincipalApplicationAssignments(ctx, &ssoadmin.GetPrincipalApplicationAssignmentsArgs{
-//				InstanceArn:   test.Arns[0],
-//				PrincipalId:   testAwsIdentitystoreUser.UserId,
-//				PrincipalType: "USER",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetPrincipalApplicationAssignments(ctx *pulumi.Context, args *GetPrincipalApplicationAssignmentsArgs, opts ...pulumi.InvokeOption) (*GetPrincipalApplicationAssignmentsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPrincipalApplicationAssignmentsResult
@@ -54,29 +23,21 @@ func GetPrincipalApplicationAssignments(ctx *pulumi.Context, args *GetPrincipalA
 
 // A collection of arguments for invoking getPrincipalApplicationAssignments.
 type GetPrincipalApplicationAssignmentsArgs struct {
-	// List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
 	ApplicationAssignments []GetPrincipalApplicationAssignmentsApplicationAssignment `pulumi:"applicationAssignments"`
-	// ARN of the instance of IAM Identity Center.
-	InstanceArn string `pulumi:"instanceArn"`
-	// An identifier for an object in IAM Identity Center, such as a user or group.
-	PrincipalId string `pulumi:"principalId"`
-	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-	PrincipalType string `pulumi:"principalType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	InstanceArn            string                                                    `pulumi:"instanceArn"`
+	PrincipalId            string                                                    `pulumi:"principalId"`
+	PrincipalType          string                                                    `pulumi:"principalType"`
+	Region                 *string                                                   `pulumi:"region"`
 }
 
 // A collection of values returned by getPrincipalApplicationAssignments.
 type GetPrincipalApplicationAssignmentsResult struct {
-	// List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
 	ApplicationAssignments []GetPrincipalApplicationAssignmentsApplicationAssignment `pulumi:"applicationAssignments"`
 	Id                     string                                                    `pulumi:"id"`
 	InstanceArn            string                                                    `pulumi:"instanceArn"`
-	// An identifier for an object in IAM Identity Center, such as a user or group.
-	PrincipalId string `pulumi:"principalId"`
-	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-	PrincipalType string `pulumi:"principalType"`
-	Region        string `pulumi:"region"`
+	PrincipalId            string                                                    `pulumi:"principalId"`
+	PrincipalType          string                                                    `pulumi:"principalType"`
+	Region                 string                                                    `pulumi:"region"`
 }
 
 func GetPrincipalApplicationAssignmentsOutput(ctx *pulumi.Context, args GetPrincipalApplicationAssignmentsOutputArgs, opts ...pulumi.InvokeOption) GetPrincipalApplicationAssignmentsResultOutput {
@@ -90,16 +51,11 @@ func GetPrincipalApplicationAssignmentsOutput(ctx *pulumi.Context, args GetPrinc
 
 // A collection of arguments for invoking getPrincipalApplicationAssignments.
 type GetPrincipalApplicationAssignmentsOutputArgs struct {
-	// List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
 	ApplicationAssignments GetPrincipalApplicationAssignmentsApplicationAssignmentArrayInput `pulumi:"applicationAssignments"`
-	// ARN of the instance of IAM Identity Center.
-	InstanceArn pulumi.StringInput `pulumi:"instanceArn"`
-	// An identifier for an object in IAM Identity Center, such as a user or group.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-	PrincipalType pulumi.StringInput `pulumi:"principalType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	InstanceArn            pulumi.StringInput                                                `pulumi:"instanceArn"`
+	PrincipalId            pulumi.StringInput                                                `pulumi:"principalId"`
+	PrincipalType          pulumi.StringInput                                                `pulumi:"principalType"`
+	Region                 pulumi.StringPtrInput                                             `pulumi:"region"`
 }
 
 func (GetPrincipalApplicationAssignmentsOutputArgs) ElementType() reflect.Type {
@@ -121,7 +77,6 @@ func (o GetPrincipalApplicationAssignmentsResultOutput) ToGetPrincipalApplicatio
 	return o
 }
 
-// List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
 func (o GetPrincipalApplicationAssignmentsResultOutput) ApplicationAssignments() GetPrincipalApplicationAssignmentsApplicationAssignmentArrayOutput {
 	return o.ApplyT(func(v GetPrincipalApplicationAssignmentsResult) []GetPrincipalApplicationAssignmentsApplicationAssignment {
 		return v.ApplicationAssignments
@@ -136,12 +91,10 @@ func (o GetPrincipalApplicationAssignmentsResultOutput) InstanceArn() pulumi.Str
 	return o.ApplyT(func(v GetPrincipalApplicationAssignmentsResult) string { return v.InstanceArn }).(pulumi.StringOutput)
 }
 
-// An identifier for an object in IAM Identity Center, such as a user or group.
 func (o GetPrincipalApplicationAssignmentsResultOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrincipalApplicationAssignmentsResult) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
 func (o GetPrincipalApplicationAssignmentsResultOutput) PrincipalType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrincipalApplicationAssignmentsResult) string { return v.PrincipalType }).(pulumi.StringOutput)
 }

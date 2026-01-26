@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class TableEncryptionConfiguration {
-    /**
-     * @return The ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
-     * 
-     */
     private String kmsKeyArn;
-    /**
-     * @return One of `aws:kms` or `AES256`
-     * 
-     */
     private String sseAlgorithm;
 
     private TableEncryptionConfiguration() {}
-    /**
-     * @return The ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
-     * 
-     */
     public String kmsKeyArn() {
         return this.kmsKeyArn;
     }
-    /**
-     * @return One of `aws:kms` or `AES256`
-     * 
-     */
     public String sseAlgorithm() {
         return this.sseAlgorithm;
     }

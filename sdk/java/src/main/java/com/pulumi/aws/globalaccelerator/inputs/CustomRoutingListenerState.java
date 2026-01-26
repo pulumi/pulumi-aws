@@ -17,17 +17,9 @@ public final class CustomRoutingListenerState extends com.pulumi.resources.Resou
 
     public static final CustomRoutingListenerState Empty = new CustomRoutingListenerState();
 
-    /**
-     * The Amazon Resource Name (ARN) of a custom routing accelerator.
-     * 
-     */
     @Import(name="acceleratorArn")
     private @Nullable Output<String> acceleratorArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of a custom routing accelerator.
-     * 
-     */
     public Optional<Output<String>> acceleratorArn() {
         return Optional.ofNullable(this.acceleratorArn);
     }
@@ -39,17 +31,9 @@ public final class CustomRoutingListenerState extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-     * 
-     */
     @Import(name="portRanges")
     private @Nullable Output<List<CustomRoutingListenerPortRangeArgs>> portRanges;
 
-    /**
-     * @return The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-     * 
-     */
     public Optional<Output<List<CustomRoutingListenerPortRangeArgs>>> portRanges() {
         return Optional.ofNullable(this.portRanges);
     }
@@ -80,23 +64,11 @@ public final class CustomRoutingListenerState extends com.pulumi.resources.Resou
             $ = new CustomRoutingListenerState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param acceleratorArn The Amazon Resource Name (ARN) of a custom routing accelerator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder acceleratorArn(@Nullable Output<String> acceleratorArn) {
             $.acceleratorArn = acceleratorArn;
             return this;
         }
 
-        /**
-         * @param acceleratorArn The Amazon Resource Name (ARN) of a custom routing accelerator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder acceleratorArn(String acceleratorArn) {
             return acceleratorArn(Output.of(acceleratorArn));
         }
@@ -110,33 +82,15 @@ public final class CustomRoutingListenerState extends com.pulumi.resources.Resou
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param portRanges The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder portRanges(@Nullable Output<List<CustomRoutingListenerPortRangeArgs>> portRanges) {
             $.portRanges = portRanges;
             return this;
         }
 
-        /**
-         * @param portRanges The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder portRanges(List<CustomRoutingListenerPortRangeArgs> portRanges) {
             return portRanges(Output.of(portRanges));
         }
 
-        /**
-         * @param portRanges The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder portRanges(CustomRoutingListenerPortRangeArgs... portRanges) {
             return portRanges(List.of(portRanges));
         }

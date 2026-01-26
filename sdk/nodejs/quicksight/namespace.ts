@@ -7,28 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS QuickSight Namespace.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.quicksight.Namespace("example", {namespace: "example"});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import QuickSight Namespace using the AWS account ID and namespace separated by commas (`,`). For example:
- *
- * ```sh
- * $ pulumi import aws:quicksight/namespace:Namespace example 123456789012,example
- * ```
- */
 export class Namespace extends pulumi.CustomResource {
     /**
      * Get an existing Namespace resource's state with the given name, ID, and optional extra
@@ -57,40 +35,14 @@ export class Namespace extends pulumi.CustomResource {
         return obj['__pulumiType'] === Namespace.__pulumiType;
     }
 
-    /**
-     * ARN of the Namespace.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     declare public readonly awsAccountId: pulumi.Output<string>;
-    /**
-     * Namespace AWS Region.
-     */
     declare public /*out*/ readonly capacityRegion: pulumi.Output<string>;
-    /**
-     * Creation status of the namespace.
-     */
     declare public /*out*/ readonly creationStatus: pulumi.Output<string>;
-    /**
-     * User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
-     */
     declare public readonly identityStore: pulumi.Output<string>;
-    /**
-     * Name of the namespace.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly namespace: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.quicksight.NamespaceTimeouts | undefined>;
 
@@ -142,40 +94,14 @@ export class Namespace extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Namespace resources.
  */
 export interface NamespaceState {
-    /**
-     * ARN of the Namespace.
-     */
     arn?: pulumi.Input<string>;
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * Namespace AWS Region.
-     */
     capacityRegion?: pulumi.Input<string>;
-    /**
-     * Creation status of the namespace.
-     */
     creationStatus?: pulumi.Input<string>;
-    /**
-     * User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
-     */
     identityStore?: pulumi.Input<string>;
-    /**
-     * Name of the namespace.
-     *
-     * The following arguments are optional:
-     */
     namespace?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.quicksight.NamespaceTimeouts>;
 }
@@ -185,23 +111,9 @@ export interface NamespaceState {
  */
 export interface NamespaceArgs {
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
-     */
     identityStore?: pulumi.Input<string>;
-    /**
-     * Name of the namespace.
-     *
-     * The following arguments are optional:
-     */
     namespace: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.quicksight.NamespaceTimeouts>;
 }

@@ -19,108 +19,42 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketLifecycleConfigurationRule {
-    /**
-     * @return Configuration block that specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload. See below.
-     * 
-     */
     private @Nullable BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload abortIncompleteMultipartUpload;
-    /**
-     * @return Configuration block that specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker. See below.
-     * 
-     */
     private @Nullable BucketLifecycleConfigurationRuleExpiration expiration;
-    /**
-     * @return Configuration block used to identify objects that a Lifecycle Rule applies to.
-     * See below.
-     * 
-     */
     private @Nullable BucketLifecycleConfigurationRuleFilter filter;
-    /**
-     * @return Unique identifier for the rule. The value cannot be longer than 255 characters.
-     * 
-     */
     private String id;
-    /**
-     * @return Configuration block that specifies when noncurrent object versions expire. See below.
-     * 
-     */
     private @Nullable BucketLifecycleConfigurationRuleNoncurrentVersionExpiration noncurrentVersionExpiration;
-    /**
-     * @return Set of configuration blocks that specify the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class. See below.
-     * 
-     */
     private @Nullable List<BucketLifecycleConfigurationRuleNoncurrentVersionTransition> noncurrentVersionTransitions;
     /**
-     * @return **DEPRECATED** Use `filter` instead.
-     * This has been deprecated by Amazon S3.
-     * Prefix identifying one or more objects to which the rule applies.
-     * 
      * @deprecated
      * Specify a prefix using &#39;filter&#39; instead
      * 
      */
     @Deprecated /* Specify a prefix using 'filter' instead */
     private @Nullable String prefix;
-    /**
-     * @return Whether the rule is currently being applied. Valid values: `Enabled` or `Disabled`.
-     * 
-     */
     private String status;
-    /**
-     * @return Set of configuration blocks that specify when an Amazon S3 object transitions to a specified storage class. See below.
-     * 
-     */
     private @Nullable List<BucketLifecycleConfigurationRuleTransition> transitions;
 
     private BucketLifecycleConfigurationRule() {}
-    /**
-     * @return Configuration block that specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload. See below.
-     * 
-     */
     public Optional<BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload> abortIncompleteMultipartUpload() {
         return Optional.ofNullable(this.abortIncompleteMultipartUpload);
     }
-    /**
-     * @return Configuration block that specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker. See below.
-     * 
-     */
     public Optional<BucketLifecycleConfigurationRuleExpiration> expiration() {
         return Optional.ofNullable(this.expiration);
     }
-    /**
-     * @return Configuration block used to identify objects that a Lifecycle Rule applies to.
-     * See below.
-     * 
-     */
     public Optional<BucketLifecycleConfigurationRuleFilter> filter() {
         return Optional.ofNullable(this.filter);
     }
-    /**
-     * @return Unique identifier for the rule. The value cannot be longer than 255 characters.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Configuration block that specifies when noncurrent object versions expire. See below.
-     * 
-     */
     public Optional<BucketLifecycleConfigurationRuleNoncurrentVersionExpiration> noncurrentVersionExpiration() {
         return Optional.ofNullable(this.noncurrentVersionExpiration);
     }
-    /**
-     * @return Set of configuration blocks that specify the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class. See below.
-     * 
-     */
     public List<BucketLifecycleConfigurationRuleNoncurrentVersionTransition> noncurrentVersionTransitions() {
         return this.noncurrentVersionTransitions == null ? List.of() : this.noncurrentVersionTransitions;
     }
     /**
-     * @return **DEPRECATED** Use `filter` instead.
-     * This has been deprecated by Amazon S3.
-     * Prefix identifying one or more objects to which the rule applies.
-     * 
      * @deprecated
      * Specify a prefix using &#39;filter&#39; instead
      * 
@@ -129,17 +63,9 @@ public final class BucketLifecycleConfigurationRule {
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }
-    /**
-     * @return Whether the rule is currently being applied. Valid values: `Enabled` or `Disabled`.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Set of configuration blocks that specify when an Amazon S3 object transitions to a specified storage class. See below.
-     * 
-     */
     public List<BucketLifecycleConfigurationRuleTransition> transitions() {
         return this.transitions == null ? List.of() : this.transitions;
     }

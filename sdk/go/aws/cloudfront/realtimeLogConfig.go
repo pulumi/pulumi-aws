@@ -12,126 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CloudFront real-time log configuration resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Effect: pulumi.StringRef("Allow"),
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "Service",
-// Identifiers: []string{
-// "cloudfront.amazonaws.com",
-// },
-// },
-// },
-// Actions: []string{
-// "sts:AssumeRole",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-// Name: pulumi.String("cloudfront-realtime-log-config-example"),
-// AssumeRolePolicy: pulumi.String(assumeRole.Json),
-// })
-// if err != nil {
-// return err
-// }
-// example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Effect: pulumi.StringRef("Allow"),
-// Actions: []string{
-// "kinesis:DescribeStreamSummary",
-// "kinesis:DescribeStream",
-// "kinesis:PutRecord",
-// "kinesis:PutRecords",
-// },
-// Resources: interface{}{
-// exampleAwsKinesisStream.Arn,
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// exampleRolePolicy, err := iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
-// Name: pulumi.String("cloudfront-realtime-log-config-example"),
-// Role: exampleRole.ID(),
-// Policy: pulumi.String(example.Json),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = cloudfront.NewRealtimeLogConfig(ctx, "example", &cloudfront.RealtimeLogConfigArgs{
-// Name: pulumi.String("example"),
-// SamplingRate: pulumi.Int(75),
-// Fields: pulumi.StringArray{
-// pulumi.String("timestamp"),
-// pulumi.String("c-ip"),
-// },
-// Endpoint: &cloudfront.RealtimeLogConfigEndpointArgs{
-// StreamType: pulumi.String("Kinesis"),
-// KinesisStreamConfig: &cloudfront.RealtimeLogConfigEndpointKinesisStreamConfigArgs{
-// RoleArn: exampleRole.Arn,
-// StreamArn: pulumi.Any(exampleAwsKinesisStream.Arn),
-// },
-// },
-// }, pulumi.DependsOn([]pulumi.Resource{
-// exampleRolePolicy,
-// }))
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the CloudFront real-time log configuration.
-//
-// Using `pulumi import`, import CloudFront real-time log configurations using the ARN. For example:
-//
-// % pulumi import aws_cloudfront_realtime_log_config.example arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig
 type RealtimeLogConfig struct {
 	pulumi.CustomResourceState
 
-	// The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The Amazon Kinesis data streams where real-time log data is sent.
-	Endpoint RealtimeLogConfigEndpointOutput `pulumi:"endpoint"`
-	// The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
-	Fields pulumi.StringArrayOutput `pulumi:"fields"`
-	// The unique name to identify this real-time log configuration.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
-	SamplingRate pulumi.IntOutput `pulumi:"samplingRate"`
+	Arn          pulumi.StringOutput             `pulumi:"arn"`
+	Endpoint     RealtimeLogConfigEndpointOutput `pulumi:"endpoint"`
+	Fields       pulumi.StringArrayOutput        `pulumi:"fields"`
+	Name         pulumi.StringOutput             `pulumi:"name"`
+	SamplingRate pulumi.IntOutput                `pulumi:"samplingRate"`
 }
 
 // NewRealtimeLogConfig registers a new resource with the given unique name, arguments, and options.
@@ -173,28 +61,18 @@ func GetRealtimeLogConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RealtimeLogConfig resources.
 type realtimeLogConfigState struct {
-	// The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
-	Arn *string `pulumi:"arn"`
-	// The Amazon Kinesis data streams where real-time log data is sent.
-	Endpoint *RealtimeLogConfigEndpoint `pulumi:"endpoint"`
-	// The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
-	Fields []string `pulumi:"fields"`
-	// The unique name to identify this real-time log configuration.
-	Name *string `pulumi:"name"`
-	// The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
-	SamplingRate *int `pulumi:"samplingRate"`
+	Arn          *string                    `pulumi:"arn"`
+	Endpoint     *RealtimeLogConfigEndpoint `pulumi:"endpoint"`
+	Fields       []string                   `pulumi:"fields"`
+	Name         *string                    `pulumi:"name"`
+	SamplingRate *int                       `pulumi:"samplingRate"`
 }
 
 type RealtimeLogConfigState struct {
-	// The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
-	Arn pulumi.StringPtrInput
-	// The Amazon Kinesis data streams where real-time log data is sent.
-	Endpoint RealtimeLogConfigEndpointPtrInput
-	// The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
-	Fields pulumi.StringArrayInput
-	// The unique name to identify this real-time log configuration.
-	Name pulumi.StringPtrInput
-	// The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
+	Arn          pulumi.StringPtrInput
+	Endpoint     RealtimeLogConfigEndpointPtrInput
+	Fields       pulumi.StringArrayInput
+	Name         pulumi.StringPtrInput
 	SamplingRate pulumi.IntPtrInput
 }
 
@@ -203,25 +81,17 @@ func (RealtimeLogConfigState) ElementType() reflect.Type {
 }
 
 type realtimeLogConfigArgs struct {
-	// The Amazon Kinesis data streams where real-time log data is sent.
-	Endpoint RealtimeLogConfigEndpoint `pulumi:"endpoint"`
-	// The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
-	Fields []string `pulumi:"fields"`
-	// The unique name to identify this real-time log configuration.
-	Name *string `pulumi:"name"`
-	// The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
-	SamplingRate int `pulumi:"samplingRate"`
+	Endpoint     RealtimeLogConfigEndpoint `pulumi:"endpoint"`
+	Fields       []string                  `pulumi:"fields"`
+	Name         *string                   `pulumi:"name"`
+	SamplingRate int                       `pulumi:"samplingRate"`
 }
 
 // The set of arguments for constructing a RealtimeLogConfig resource.
 type RealtimeLogConfigArgs struct {
-	// The Amazon Kinesis data streams where real-time log data is sent.
-	Endpoint RealtimeLogConfigEndpointInput
-	// The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
-	Fields pulumi.StringArrayInput
-	// The unique name to identify this real-time log configuration.
-	Name pulumi.StringPtrInput
-	// The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
+	Endpoint     RealtimeLogConfigEndpointInput
+	Fields       pulumi.StringArrayInput
+	Name         pulumi.StringPtrInput
 	SamplingRate pulumi.IntInput
 }
 
@@ -312,27 +182,22 @@ func (o RealtimeLogConfigOutput) ToRealtimeLogConfigOutputWithContext(ctx contex
 	return o
 }
 
-// The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
 func (o RealtimeLogConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RealtimeLogConfig) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The Amazon Kinesis data streams where real-time log data is sent.
 func (o RealtimeLogConfigOutput) Endpoint() RealtimeLogConfigEndpointOutput {
 	return o.ApplyT(func(v *RealtimeLogConfig) RealtimeLogConfigEndpointOutput { return v.Endpoint }).(RealtimeLogConfigEndpointOutput)
 }
 
-// The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
 func (o RealtimeLogConfigOutput) Fields() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RealtimeLogConfig) pulumi.StringArrayOutput { return v.Fields }).(pulumi.StringArrayOutput)
 }
 
-// The unique name to identify this real-time log configuration.
 func (o RealtimeLogConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RealtimeLogConfig) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
 func (o RealtimeLogConfigOutput) SamplingRate() pulumi.IntOutput {
 	return o.ApplyT(func(v *RealtimeLogConfig) pulumi.IntOutput { return v.SamplingRate }).(pulumi.IntOutput)
 }

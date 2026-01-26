@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
     [OutputType]
     public sealed class FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration
     {
-        /// <summary>
-        /// The type of connectivity used to access the Amazon MSK cluster. Valid values: `PUBLIC`, `PRIVATE`.
-        /// </summary>
         public readonly string Connectivity;
-        /// <summary>
-        /// The ARN of the role used to access the Amazon MSK cluster.
-        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]

@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration {
-    /**
-     * @return The ARN of the model used to parse documents
-     * 
-     */
     private String modelArn;
-    /**
-     * @return Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
-     * 
-     */
     private @Nullable AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt parsingPrompt;
 
     private AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration() {}
-    /**
-     * @return The ARN of the model used to parse documents
-     * 
-     */
     public String modelArn() {
         return this.modelArn;
     }
-    /**
-     * @return Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
-     * 
-     */
     public Optional<AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt> parsingPrompt() {
         return Optional.ofNullable(this.parsingPrompt);
     }

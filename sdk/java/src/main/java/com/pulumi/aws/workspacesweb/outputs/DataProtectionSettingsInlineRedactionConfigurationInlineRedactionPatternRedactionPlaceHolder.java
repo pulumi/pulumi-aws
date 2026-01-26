@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolder {
-    /**
-     * @return The redaction placeholder text that will replace the redacted text in session for the custom text redaction placeholder type.
-     * 
-     */
     private @Nullable String redactionPlaceHolderText;
-    /**
-     * @return The redaction placeholder type that will replace the redacted text in session. Currently, only `CustomText` is supported.
-     * 
-     */
     private String redactionPlaceHolderType;
 
     private DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolder() {}
-    /**
-     * @return The redaction placeholder text that will replace the redacted text in session for the custom text redaction placeholder type.
-     * 
-     */
     public Optional<String> redactionPlaceHolderText() {
         return Optional.ofNullable(this.redactionPlaceHolderText);
     }
-    /**
-     * @return The redaction placeholder type that will replace the redacted text in session. Currently, only `CustomText` is supported.
-     * 
-     */
     public String redactionPlaceHolderType() {
         return this.redactionPlaceHolderType;
     }

@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration {
-    /**
-     * @return Monitoring configurations for CloudWatch.
-     * 
-     */
     private @Nullable JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration cloudWatchMonitoringConfiguration;
-    /**
-     * @return Monitoring configurations for the persistent application UI.
-     * 
-     */
     private @Nullable String persistentAppUi;
-    /**
-     * @return Amazon S3 configuration for monitoring log publishing.
-     * 
-     */
     private @Nullable JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration s3MonitoringConfiguration;
 
     private JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration() {}
-    /**
-     * @return Monitoring configurations for CloudWatch.
-     * 
-     */
     public Optional<JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration> cloudWatchMonitoringConfiguration() {
         return Optional.ofNullable(this.cloudWatchMonitoringConfiguration);
     }
-    /**
-     * @return Monitoring configurations for the persistent application UI.
-     * 
-     */
     public Optional<String> persistentAppUi() {
         return Optional.ofNullable(this.persistentAppUi);
     }
-    /**
-     * @return Amazon S3 configuration for monitoring log publishing.
-     * 
-     */
     public Optional<JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration> s3MonitoringConfiguration() {
         return Optional.ofNullable(this.s3MonitoringConfiguration);
     }

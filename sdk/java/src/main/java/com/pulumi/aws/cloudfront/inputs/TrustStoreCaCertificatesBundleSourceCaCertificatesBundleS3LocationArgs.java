@@ -16,62 +16,30 @@ public final class TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Loc
 
     public static final TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs Empty = new TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs();
 
-    /**
-     * S3 bucket name containing the CA certificates bundle.
-     * 
-     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
-    /**
-     * @return S3 bucket name containing the CA certificates bundle.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
-    /**
-     * S3 object key for the CA certificates bundle.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return S3 object key for the CA certificates bundle.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * AWS region of the S3 bucket.
-     * 
-     */
     @Import(name="region", required=true)
     private Output<String> region;
 
-    /**
-     * @return AWS region of the S3 bucket.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
 
-    /**
-     * S3 object version ID for the CA certificates bundle.
-     * 
-     */
     @Import(name="version")
     private @Nullable Output<String> version;
 
-    /**
-     * @return S3 object version ID for the CA certificates bundle.
-     * 
-     */
     public Optional<Output<String>> version() {
         return Optional.ofNullable(this.version);
     }
@@ -103,86 +71,38 @@ public final class TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Loc
             $ = new TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket S3 bucket name containing the CA certificates bundle.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket S3 bucket name containing the CA certificates bundle.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param key S3 object key for the CA certificates bundle.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key S3 object key for the CA certificates bundle.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param region AWS region of the S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region AWS region of the S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param version S3 object version ID for the CA certificates bundle.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(@Nullable Output<String> version) {
             $.version = version;
             return this;
         }
 
-        /**
-         * @param version S3 object version ID for the CA certificates bundle.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(String version) {
             return version(Output.of(version));
         }

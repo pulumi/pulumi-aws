@@ -28,13 +28,6 @@ class CloudFormationStackArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CloudFormationStack resource.
-        :param pulumi.Input[_builtins.str] application_id: The ARN of the application from the Serverless Application Repository.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capabilities: A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
-        :param pulumi.Input[_builtins.str] name: The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of Parameter structures that specify input parameters for the stack.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] semantic_version: The version of the application to deploy. If not supplied, deploys the latest version.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "capabilities", capabilities)
@@ -52,9 +45,6 @@ class CloudFormationStackArgs:
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the application from the Serverless Application Repository.
-        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -64,9 +54,6 @@ class CloudFormationStackArgs:
     @_builtins.property
     @pulumi.getter
     def capabilities(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
-        """
         return pulumi.get(self, "capabilities")
 
     @capabilities.setter
@@ -76,9 +63,6 @@ class CloudFormationStackArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -88,9 +72,6 @@ class CloudFormationStackArgs:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of Parameter structures that specify input parameters for the stack.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -100,9 +81,6 @@ class CloudFormationStackArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -112,9 +90,6 @@ class CloudFormationStackArgs:
     @_builtins.property
     @pulumi.getter(name="semanticVersion")
     def semantic_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The version of the application to deploy. If not supplied, deploys the latest version.
-        """
         return pulumi.get(self, "semantic_version")
 
     @semantic_version.setter
@@ -124,9 +99,6 @@ class CloudFormationStackArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A list of tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -148,15 +120,6 @@ class _CloudFormationStackState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CloudFormationStack resources.
-        :param pulumi.Input[_builtins.str] application_id: The ARN of the application from the Serverless Application Repository.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capabilities: A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
-        :param pulumi.Input[_builtins.str] name: The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] outputs: A map of outputs from the stack.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of Parameter structures that specify input parameters for the stack.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] semantic_version: The version of the application to deploy. If not supplied, deploys the latest version.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if application_id is not None:
             pulumi.set(__self__, "application_id", application_id)
@@ -180,9 +143,6 @@ class _CloudFormationStackState:
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the application from the Serverless Application Repository.
-        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -192,9 +152,6 @@ class _CloudFormationStackState:
     @_builtins.property
     @pulumi.getter
     def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
-        """
         return pulumi.get(self, "capabilities")
 
     @capabilities.setter
@@ -204,9 +161,6 @@ class _CloudFormationStackState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -216,9 +170,6 @@ class _CloudFormationStackState:
     @_builtins.property
     @pulumi.getter
     def outputs(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of outputs from the stack.
-        """
         return pulumi.get(self, "outputs")
 
     @outputs.setter
@@ -228,9 +179,6 @@ class _CloudFormationStackState:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of Parameter structures that specify input parameters for the stack.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -240,9 +188,6 @@ class _CloudFormationStackState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -252,9 +197,6 @@ class _CloudFormationStackState:
     @_builtins.property
     @pulumi.getter(name="semanticVersion")
     def semantic_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The version of the application to deploy. If not supplied, deploys the latest version.
-        """
         return pulumi.get(self, "semantic_version")
 
     @semantic_version.setter
@@ -264,9 +206,6 @@ class _CloudFormationStackState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A list of tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -276,9 +215,6 @@ class _CloudFormationStackState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -301,46 +237,9 @@ class CloudFormationStack(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Deploys an Application CloudFormation Stack from the Serverless Application Repository.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_partition()
-        current_get_region = aws.get_region()
-        postgres_rotator = aws.serverlessrepository.CloudFormationStack("postgres-rotator",
-            name="postgres-rotator",
-            application_id="arn:aws:serverlessrepo:us-east-1:297356227824:applications/SecretsManagerRDSPostgreSQLRotationSingleUser",
-            capabilities=[
-                "CAPABILITY_IAM",
-                "CAPABILITY_RESOURCE_POLICY",
-            ],
-            parameters={
-                "functionName": "func-postgres-rotator",
-                "endpoint": f"secretsmanager.{current_get_region.region}.{current.dns_suffix}",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Serverless Application Repository Stack using the CloudFormation Stack name (with or without the `serverlessrepo-` prefix) or the CloudFormation Stack ID. For example:
-
-        ```sh
-        $ pulumi import aws:serverlessrepository/cloudFormationStack:CloudFormationStack example serverlessrepo-postgres-rotator
-        ```
-
+        Create a CloudFormationStack resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_id: The ARN of the application from the Serverless Application Repository.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capabilities: A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
-        :param pulumi.Input[_builtins.str] name: The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of Parameter structures that specify input parameters for the stack.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] semantic_version: The version of the application to deploy. If not supplied, deploys the latest version.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -349,37 +248,7 @@ class CloudFormationStack(pulumi.CustomResource):
                  args: CloudFormationStackArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Deploys an Application CloudFormation Stack from the Serverless Application Repository.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_partition()
-        current_get_region = aws.get_region()
-        postgres_rotator = aws.serverlessrepository.CloudFormationStack("postgres-rotator",
-            name="postgres-rotator",
-            application_id="arn:aws:serverlessrepo:us-east-1:297356227824:applications/SecretsManagerRDSPostgreSQLRotationSingleUser",
-            capabilities=[
-                "CAPABILITY_IAM",
-                "CAPABILITY_RESOURCE_POLICY",
-            ],
-            parameters={
-                "functionName": "func-postgres-rotator",
-                "endpoint": f"secretsmanager.{current_get_region.region}.{current.dns_suffix}",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Serverless Application Repository Stack using the CloudFormation Stack name (with or without the `serverlessrepo-` prefix) or the CloudFormation Stack ID. For example:
-
-        ```sh
-        $ pulumi import aws:serverlessrepository/cloudFormationStack:CloudFormationStack example serverlessrepo-postgres-rotator
-        ```
-
+        Create a CloudFormationStack resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CloudFormationStackArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -450,15 +319,6 @@ class CloudFormationStack(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_id: The ARN of the application from the Serverless Application Repository.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capabilities: A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
-        :param pulumi.Input[_builtins.str] name: The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] outputs: A map of outputs from the stack.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of Parameter structures that specify input parameters for the stack.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] semantic_version: The version of the application to deploy. If not supplied, deploys the latest version.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -478,72 +338,45 @@ class CloudFormationStack(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the application from the Serverless Application Repository.
-        """
         return pulumi.get(self, "application_id")
 
     @_builtins.property
     @pulumi.getter
     def capabilities(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
-        """
         return pulumi.get(self, "capabilities")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def outputs(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of outputs from the stack.
-        """
         return pulumi.get(self, "outputs")
 
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of Parameter structures that specify input parameters for the stack.
-        """
         return pulumi.get(self, "parameters")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="semanticVersion")
     def semantic_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        The version of the application to deploy. If not supplied, deploys the latest version.
-        """
         return pulumi.get(self, "semantic_version")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A list of tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

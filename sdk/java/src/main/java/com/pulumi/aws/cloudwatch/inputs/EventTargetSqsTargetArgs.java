@@ -15,17 +15,9 @@ public final class EventTargetSqsTargetArgs extends com.pulumi.resources.Resourc
 
     public static final EventTargetSqsTargetArgs Empty = new EventTargetSqsTargetArgs();
 
-    /**
-     * The FIFO message group ID to use as the target.
-     * 
-     */
     @Import(name="messageGroupId")
     private @Nullable Output<String> messageGroupId;
 
-    /**
-     * @return The FIFO message group ID to use as the target.
-     * 
-     */
     public Optional<Output<String>> messageGroupId() {
         return Optional.ofNullable(this.messageGroupId);
     }
@@ -54,23 +46,11 @@ public final class EventTargetSqsTargetArgs extends com.pulumi.resources.Resourc
             $ = new EventTargetSqsTargetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param messageGroupId The FIFO message group ID to use as the target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messageGroupId(@Nullable Output<String> messageGroupId) {
             $.messageGroupId = messageGroupId;
             return this;
         }
 
-        /**
-         * @param messageGroupId The FIFO message group ID to use as the target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messageGroupId(String messageGroupId) {
             return messageGroupId(Output.of(messageGroupId));
         }

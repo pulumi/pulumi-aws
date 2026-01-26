@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LaunchTemplateInstanceRequirementsVcpuCount {
-    /**
-     * @return Maximum.
-     * 
-     */
     private @Nullable Integer max;
-    /**
-     * @return Minimum.
-     * 
-     */
     private Integer min;
 
     private LaunchTemplateInstanceRequirementsVcpuCount() {}
-    /**
-     * @return Maximum.
-     * 
-     */
     public Optional<Integer> max() {
         return Optional.ofNullable(this.max);
     }
-    /**
-     * @return Minimum.
-     * 
-     */
     public Integer min() {
         return this.min;
     }

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class RecommendationPreferencesExternalMetricsPreference {
-    /**
-     * @return The source options for external metrics preferences. Valid values: `Datadog`, `Dynatrace`, `NewRelic`, `Instana`.
-     * 
-     */
     private String source;
 
     private RecommendationPreferencesExternalMetricsPreference() {}
-    /**
-     * @return The source options for external metrics preferences. Valid values: `Datadog`, `Dynatrace`, `NewRelic`, `Instana`.
-     * 
-     */
     public String source() {
         return this.source;
     }

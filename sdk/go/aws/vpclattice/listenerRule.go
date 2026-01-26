@@ -12,150 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS VPC Lattice Listener Rule.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpclattice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.NewListenerRule(ctx, "example", &vpclattice.ListenerRuleArgs{
-//				Name:               pulumi.String("example"),
-//				ListenerIdentifier: pulumi.Any(exampleAwsVpclatticeListener.ListenerId),
-//				ServiceIdentifier:  pulumi.Any(exampleAwsVpclatticeService.Id),
-//				Priority:           pulumi.Int(20),
-//				Match: &vpclattice.ListenerRuleMatchArgs{
-//					HttpMatch: &vpclattice.ListenerRuleMatchHttpMatchArgs{
-//						HeaderMatches: vpclattice.ListenerRuleMatchHttpMatchHeaderMatchArray{
-//							&vpclattice.ListenerRuleMatchHttpMatchHeaderMatchArgs{
-//								Name:          pulumi.String("example-header"),
-//								CaseSensitive: pulumi.Bool(false),
-//								Match: &vpclattice.ListenerRuleMatchHttpMatchHeaderMatchMatchArgs{
-//									Exact: pulumi.String("example-contains"),
-//								},
-//							},
-//						},
-//						PathMatch: &vpclattice.ListenerRuleMatchHttpMatchPathMatchArgs{
-//							CaseSensitive: pulumi.Bool(true),
-//							Match: &vpclattice.ListenerRuleMatchHttpMatchPathMatchMatchArgs{
-//								Prefix: pulumi.String("/example-path"),
-//							},
-//						},
-//					},
-//				},
-//				Action: &vpclattice.ListenerRuleActionArgs{
-//					Forward: &vpclattice.ListenerRuleActionForwardArgs{
-//						TargetGroups: vpclattice.ListenerRuleActionForwardTargetGroupArray{
-//							&vpclattice.ListenerRuleActionForwardTargetGroupArgs{
-//								TargetGroupIdentifier: pulumi.Any(exampleAwsVpclatticeTargetGroup.Id),
-//								Weight:                pulumi.Int(1),
-//							},
-//							&vpclattice.ListenerRuleActionForwardTargetGroupArgs{
-//								TargetGroupIdentifier: pulumi.Any(example2.Id),
-//								Weight:                pulumi.Int(2),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpclattice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.NewListenerRule(ctx, "example", &vpclattice.ListenerRuleArgs{
-//				Name:               pulumi.String("example"),
-//				ListenerIdentifier: pulumi.Any(exampleAwsVpclatticeListener.ListenerId),
-//				ServiceIdentifier:  pulumi.Any(exampleAwsVpclatticeService.Id),
-//				Priority:           pulumi.Int(10),
-//				Match: &vpclattice.ListenerRuleMatchArgs{
-//					HttpMatch: &vpclattice.ListenerRuleMatchHttpMatchArgs{
-//						PathMatch: &vpclattice.ListenerRuleMatchHttpMatchPathMatchArgs{
-//							CaseSensitive: pulumi.Bool(false),
-//							Match: &vpclattice.ListenerRuleMatchHttpMatchPathMatchMatchArgs{
-//								Exact: pulumi.String("/example-path"),
-//							},
-//						},
-//					},
-//				},
-//				Action: &vpclattice.ListenerRuleActionArgs{
-//					FixedResponse: &vpclattice.ListenerRuleActionFixedResponseArgs{
-//						StatusCode: pulumi.Int(404),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import VPC Lattice Listener Rule using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:vpclattice/listenerRule:ListenerRule example service123/listener456/rule789
-// ```
 type ListenerRule struct {
 	pulumi.CustomResourceState
 
-	// The action for the listener rule.
-	// See `action` Block for details.
-	Action ListenerRuleActionOutput `pulumi:"action"`
-	// The ARN for the listener rule.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ID or Amazon Resource Name (ARN) of the listener.
-	ListenerIdentifier pulumi.StringOutput `pulumi:"listenerIdentifier"`
-	// The rule match.
-	// See `match` Block
-	Match ListenerRuleMatchOutput `pulumi:"match"`
-	// The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
-	//
-	// The following arguments are optional:
-	Priority pulumi.IntOutput `pulumi:"priority"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Unique identifier for the listener rule.
-	RuleId pulumi.StringOutput `pulumi:"ruleId"`
-	// The ID or Amazon Resource Identifier (ARN) of the service.
-	ServiceIdentifier pulumi.StringOutput `pulumi:"serviceIdentifier"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Action             ListenerRuleActionOutput `pulumi:"action"`
+	Arn                pulumi.StringOutput      `pulumi:"arn"`
+	ListenerIdentifier pulumi.StringOutput      `pulumi:"listenerIdentifier"`
+	Match              ListenerRuleMatchOutput  `pulumi:"match"`
+	Name               pulumi.StringOutput      `pulumi:"name"`
+	Priority           pulumi.IntOutput         `pulumi:"priority"`
+	Region             pulumi.StringOutput      `pulumi:"region"`
+	RuleId             pulumi.StringOutput      `pulumi:"ruleId"`
+	ServiceIdentifier  pulumi.StringOutput      `pulumi:"serviceIdentifier"`
+	Tags               pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll            pulumi.StringMapOutput   `pulumi:"tagsAll"`
 }
 
 // NewListenerRule registers a new resource with the given unique name, arguments, and options.
@@ -203,61 +73,31 @@ func GetListenerRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ListenerRule resources.
 type listenerRuleState struct {
-	// The action for the listener rule.
-	// See `action` Block for details.
-	Action *ListenerRuleAction `pulumi:"action"`
-	// The ARN for the listener rule.
-	Arn *string `pulumi:"arn"`
-	// The ID or Amazon Resource Name (ARN) of the listener.
-	ListenerIdentifier *string `pulumi:"listenerIdentifier"`
-	// The rule match.
-	// See `match` Block
-	Match *ListenerRuleMatch `pulumi:"match"`
-	// The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
-	Name *string `pulumi:"name"`
-	// The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
-	//
-	// The following arguments are optional:
-	Priority *int `pulumi:"priority"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Unique identifier for the listener rule.
-	RuleId *string `pulumi:"ruleId"`
-	// The ID or Amazon Resource Identifier (ARN) of the service.
-	ServiceIdentifier *string `pulumi:"serviceIdentifier"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Action             *ListenerRuleAction `pulumi:"action"`
+	Arn                *string             `pulumi:"arn"`
+	ListenerIdentifier *string             `pulumi:"listenerIdentifier"`
+	Match              *ListenerRuleMatch  `pulumi:"match"`
+	Name               *string             `pulumi:"name"`
+	Priority           *int                `pulumi:"priority"`
+	Region             *string             `pulumi:"region"`
+	RuleId             *string             `pulumi:"ruleId"`
+	ServiceIdentifier  *string             `pulumi:"serviceIdentifier"`
+	Tags               map[string]string   `pulumi:"tags"`
+	TagsAll            map[string]string   `pulumi:"tagsAll"`
 }
 
 type ListenerRuleState struct {
-	// The action for the listener rule.
-	// See `action` Block for details.
-	Action ListenerRuleActionPtrInput
-	// The ARN for the listener rule.
-	Arn pulumi.StringPtrInput
-	// The ID or Amazon Resource Name (ARN) of the listener.
+	Action             ListenerRuleActionPtrInput
+	Arn                pulumi.StringPtrInput
 	ListenerIdentifier pulumi.StringPtrInput
-	// The rule match.
-	// See `match` Block
-	Match ListenerRuleMatchPtrInput
-	// The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
-	Name pulumi.StringPtrInput
-	// The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
-	//
-	// The following arguments are optional:
-	Priority pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Unique identifier for the listener rule.
-	RuleId pulumi.StringPtrInput
-	// The ID or Amazon Resource Identifier (ARN) of the service.
-	ServiceIdentifier pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Match              ListenerRuleMatchPtrInput
+	Name               pulumi.StringPtrInput
+	Priority           pulumi.IntPtrInput
+	Region             pulumi.StringPtrInput
+	RuleId             pulumi.StringPtrInput
+	ServiceIdentifier  pulumi.StringPtrInput
+	Tags               pulumi.StringMapInput
+	TagsAll            pulumi.StringMapInput
 }
 
 func (ListenerRuleState) ElementType() reflect.Type {
@@ -265,50 +105,26 @@ func (ListenerRuleState) ElementType() reflect.Type {
 }
 
 type listenerRuleArgs struct {
-	// The action for the listener rule.
-	// See `action` Block for details.
-	Action ListenerRuleAction `pulumi:"action"`
-	// The ID or Amazon Resource Name (ARN) of the listener.
-	ListenerIdentifier string `pulumi:"listenerIdentifier"`
-	// The rule match.
-	// See `match` Block
-	Match ListenerRuleMatch `pulumi:"match"`
-	// The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
-	Name *string `pulumi:"name"`
-	// The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
-	//
-	// The following arguments are optional:
-	Priority int `pulumi:"priority"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID or Amazon Resource Identifier (ARN) of the service.
-	ServiceIdentifier string `pulumi:"serviceIdentifier"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Action             ListenerRuleAction `pulumi:"action"`
+	ListenerIdentifier string             `pulumi:"listenerIdentifier"`
+	Match              ListenerRuleMatch  `pulumi:"match"`
+	Name               *string            `pulumi:"name"`
+	Priority           int                `pulumi:"priority"`
+	Region             *string            `pulumi:"region"`
+	ServiceIdentifier  string             `pulumi:"serviceIdentifier"`
+	Tags               map[string]string  `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ListenerRule resource.
 type ListenerRuleArgs struct {
-	// The action for the listener rule.
-	// See `action` Block for details.
-	Action ListenerRuleActionInput
-	// The ID or Amazon Resource Name (ARN) of the listener.
+	Action             ListenerRuleActionInput
 	ListenerIdentifier pulumi.StringInput
-	// The rule match.
-	// See `match` Block
-	Match ListenerRuleMatchInput
-	// The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
-	Name pulumi.StringPtrInput
-	// The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
-	//
-	// The following arguments are optional:
-	Priority pulumi.IntInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID or Amazon Resource Identifier (ARN) of the service.
-	ServiceIdentifier pulumi.StringInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Match              ListenerRuleMatchInput
+	Name               pulumi.StringPtrInput
+	Priority           pulumi.IntInput
+	Region             pulumi.StringPtrInput
+	ServiceIdentifier  pulumi.StringInput
+	Tags               pulumi.StringMapInput
 }
 
 func (ListenerRuleArgs) ElementType() reflect.Type {
@@ -398,61 +214,46 @@ func (o ListenerRuleOutput) ToListenerRuleOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The action for the listener rule.
-// See `action` Block for details.
 func (o ListenerRuleOutput) Action() ListenerRuleActionOutput {
 	return o.ApplyT(func(v *ListenerRule) ListenerRuleActionOutput { return v.Action }).(ListenerRuleActionOutput)
 }
 
-// The ARN for the listener rule.
 func (o ListenerRuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The ID or Amazon Resource Name (ARN) of the listener.
 func (o ListenerRuleOutput) ListenerIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.StringOutput { return v.ListenerIdentifier }).(pulumi.StringOutput)
 }
 
-// The rule match.
-// See `match` Block
 func (o ListenerRuleOutput) Match() ListenerRuleMatchOutput {
 	return o.ApplyT(func(v *ListenerRule) ListenerRuleMatchOutput { return v.Match }).(ListenerRuleMatchOutput)
 }
 
-// The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 func (o ListenerRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
-//
-// The following arguments are optional:
 func (o ListenerRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ListenerRuleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Unique identifier for the listener rule.
 func (o ListenerRuleOutput) RuleId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.StringOutput { return v.RuleId }).(pulumi.StringOutput)
 }
 
-// The ID or Amazon Resource Identifier (ARN) of the service.
 func (o ListenerRuleOutput) ServiceIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.StringOutput { return v.ServiceIdentifier }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ListenerRuleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ListenerRuleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

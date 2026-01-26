@@ -14,17 +14,9 @@ public final class AgentAgentCollaboratorAgentDescriptorArgs extends com.pulumi.
 
     public static final AgentAgentCollaboratorAgentDescriptorArgs Empty = new AgentAgentCollaboratorAgentDescriptorArgs();
 
-    /**
-     * ARN of the Alias of an Agent to use as the collaborator.
-     * 
-     */
     @Import(name="aliasArn", required=true)
     private Output<String> aliasArn;
 
-    /**
-     * @return ARN of the Alias of an Agent to use as the collaborator.
-     * 
-     */
     public Output<String> aliasArn() {
         return this.aliasArn;
     }
@@ -53,23 +45,11 @@ public final class AgentAgentCollaboratorAgentDescriptorArgs extends com.pulumi.
             $ = new AgentAgentCollaboratorAgentDescriptorArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param aliasArn ARN of the Alias of an Agent to use as the collaborator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aliasArn(Output<String> aliasArn) {
             $.aliasArn = aliasArn;
             return this;
         }
 
-        /**
-         * @param aliasArn ARN of the Alias of an Agent to use as the collaborator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aliasArn(String aliasArn) {
             return aliasArn(Output.of(aliasArn));
         }

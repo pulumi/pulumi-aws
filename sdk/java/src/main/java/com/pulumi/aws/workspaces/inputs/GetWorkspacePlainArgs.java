@@ -15,77 +15,37 @@ public final class GetWorkspacePlainArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetWorkspacePlainArgs Empty = new GetWorkspacePlainArgs();
 
-    /**
-     * ID of the directory for the WorkSpace. You have to specify `userName` along with `directoryId`. You cannot combine this parameter with `workspaceId`.
-     * 
-     */
     @Import(name="directoryId")
     private @Nullable String directoryId;
 
-    /**
-     * @return ID of the directory for the WorkSpace. You have to specify `userName` along with `directoryId`. You cannot combine this parameter with `workspaceId`.
-     * 
-     */
     public Optional<String> directoryId() {
         return Optional.ofNullable(this.directoryId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Tags for the WorkSpace.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Tags for the WorkSpace.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspaceId`.
-     * 
-     */
     @Import(name="userName")
     private @Nullable String userName;
 
-    /**
-     * @return User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspaceId`.
-     * 
-     */
     public Optional<String> userName() {
         return Optional.ofNullable(this.userName);
     }
 
-    /**
-     * ID of the WorkSpace. You cannot combine this parameter with `directoryId`.
-     * 
-     */
     @Import(name="workspaceId")
     private @Nullable String workspaceId;
 
-    /**
-     * @return ID of the WorkSpace. You cannot combine this parameter with `directoryId`.
-     * 
-     */
     public Optional<String> workspaceId() {
         return Optional.ofNullable(this.workspaceId);
     }
@@ -118,56 +78,26 @@ public final class GetWorkspacePlainArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetWorkspacePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param directoryId ID of the directory for the WorkSpace. You have to specify `userName` along with `directoryId`. You cannot combine this parameter with `workspaceId`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder directoryId(@Nullable String directoryId) {
             $.directoryId = directoryId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Tags for the WorkSpace.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param userName User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspaceId`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(@Nullable String userName) {
             $.userName = userName;
             return this;
         }
 
-        /**
-         * @param workspaceId ID of the WorkSpace. You cannot combine this parameter with `directoryId`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workspaceId(@Nullable String workspaceId) {
             $.workspaceId = workspaceId;
             return this;

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.CodePipeline.Inputs
 
     public sealed class CustomActionTypeInputArtifactDetailsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
-        /// </summary>
         [Input("maximumCount", required: true)]
         public Input<int> MaximumCount { get; set; } = null!;
 
-        /// <summary>
-        /// The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
-        /// </summary>
         [Input("minimumCount", required: true)]
         public Input<int> MinimumCount { get; set; } = null!;
 

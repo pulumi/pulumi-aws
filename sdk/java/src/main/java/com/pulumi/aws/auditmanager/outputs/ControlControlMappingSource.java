@@ -13,97 +13,37 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ControlControlMappingSource {
-    /**
-     * @return Description of the source.
-     * 
-     */
     private @Nullable String sourceDescription;
-    /**
-     * @return Frequency of evidence collection. Valid values are `DAILY`, `WEEKLY`, or `MONTHLY`.
-     * 
-     */
     private @Nullable String sourceFrequency;
     private @Nullable String sourceId;
-    /**
-     * @return The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
-     * 
-     */
     private @Nullable ControlControlMappingSourceSourceKeyword sourceKeyword;
-    /**
-     * @return Name of the source.
-     * 
-     */
     private String sourceName;
-    /**
-     * @return The setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
-     * 
-     */
     private String sourceSetUpOption;
-    /**
-     * @return Type of data source for evidence collection. If `sourceSetUpOption` is manual, the only valid value is `MANUAL`. If `sourceSetUpOption` is automated, valid values are `AWS_Cloudtrail`, `AWS_Config`, `AWS_Security_Hub`, or `AWS_API_Call`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private String sourceType;
-    /**
-     * @return Instructions for troubleshooting the control.
-     * 
-     */
     private @Nullable String troubleshootingText;
 
     private ControlControlMappingSource() {}
-    /**
-     * @return Description of the source.
-     * 
-     */
     public Optional<String> sourceDescription() {
         return Optional.ofNullable(this.sourceDescription);
     }
-    /**
-     * @return Frequency of evidence collection. Valid values are `DAILY`, `WEEKLY`, or `MONTHLY`.
-     * 
-     */
     public Optional<String> sourceFrequency() {
         return Optional.ofNullable(this.sourceFrequency);
     }
     public Optional<String> sourceId() {
         return Optional.ofNullable(this.sourceId);
     }
-    /**
-     * @return The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
-     * 
-     */
     public Optional<ControlControlMappingSourceSourceKeyword> sourceKeyword() {
         return Optional.ofNullable(this.sourceKeyword);
     }
-    /**
-     * @return Name of the source.
-     * 
-     */
     public String sourceName() {
         return this.sourceName;
     }
-    /**
-     * @return The setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
-     * 
-     */
     public String sourceSetUpOption() {
         return this.sourceSetUpOption;
     }
-    /**
-     * @return Type of data source for evidence collection. If `sourceSetUpOption` is manual, the only valid value is `MANUAL`. If `sourceSetUpOption` is automated, valid values are `AWS_Cloudtrail`, `AWS_Config`, `AWS_Security_Hub`, or `AWS_API_Call`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String sourceType() {
         return this.sourceType;
     }
-    /**
-     * @return Instructions for troubleshooting the control.
-     * 
-     */
     public Optional<String> troubleshootingText() {
         return Optional.ofNullable(this.troubleshootingText);
     }

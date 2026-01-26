@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGroupTag {
-    /**
-     * @return Key.
-     * 
-     */
     private String key;
-    /**
-     * @return Whether the tag is propagated to Amazon EC2 instances launched via this ASG.
-     * 
-     */
     private Boolean propagateAtLaunch;
-    /**
-     * @return Value.
-     * 
-     */
     private String value;
 
     private GetGroupTag() {}
-    /**
-     * @return Key.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return Whether the tag is propagated to Amazon EC2 instances launched via this ASG.
-     * 
-     */
     public Boolean propagateAtLaunch() {
         return this.propagateAtLaunch;
     }
-    /**
-     * @return Value.
-     * 
-     */
     public String value() {
         return this.value;
     }

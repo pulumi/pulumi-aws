@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetListenerRuleActionForwardStickiness {
-    /**
-     * @return The time period, in seconds, during which requests from a client should be routed to the same target group.
-     * 
-     */
     private Integer duration;
-    /**
-     * @return Indicates whether target group stickiness is enabled.
-     * 
-     */
     private Boolean enabled;
 
     private GetListenerRuleActionForwardStickiness() {}
-    /**
-     * @return The time period, in seconds, during which requests from a client should be routed to the same target group.
-     * 
-     */
     public Integer duration() {
         return this.duration;
     }
-    /**
-     * @return Indicates whether target group stickiness is enabled.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }

@@ -12,22 +12,10 @@ import java.util.Objects;
 
 @CustomType
 public final class AnalysisParametersIntegerParameter {
-    /**
-     * @return Display name for the analysis.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private String name;
     private List<Integer> values;
 
     private AnalysisParametersIntegerParameter() {}
-    /**
-     * @return Display name for the analysis.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String name() {
         return this.name;
     }

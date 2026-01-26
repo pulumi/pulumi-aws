@@ -15,14 +15,14 @@ public final class DistributionLocationArgs extends com.pulumi.resources.Resourc
     public static final DistributionLocationArgs Empty = new DistributionLocationArgs();
 
     /**
-     * Availability Zone. Follows the format us-east-2a (case-sensitive).
+     * The Availability Zone.
      * 
      */
     @Import(name="availabilityZone", required=true)
     private Output<String> availabilityZone;
 
     /**
-     * @return Availability Zone. Follows the format us-east-2a (case-sensitive).
+     * @return The Availability Zone.
      * 
      */
     public Output<String> availabilityZone() {
@@ -30,14 +30,14 @@ public final class DistributionLocationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * AWS Region name.
+     * The AWS Region name.
      * 
      */
     @Import(name="regionName", required=true)
     private Output<String> regionName;
 
     /**
-     * @return AWS Region name.
+     * @return The AWS Region name.
      * 
      */
     public Output<String> regionName() {
@@ -70,7 +70,7 @@ public final class DistributionLocationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param availabilityZone Availability Zone. Follows the format us-east-2a (case-sensitive).
+         * @param availabilityZone The Availability Zone.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class DistributionLocationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param availabilityZone Availability Zone. Follows the format us-east-2a (case-sensitive).
+         * @param availabilityZone The Availability Zone.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class DistributionLocationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param regionName AWS Region name.
+         * @param regionName The AWS Region name.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class DistributionLocationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param regionName AWS Region name.
+         * @param regionName The AWS Region name.
          * 
          * @return builder
          * 

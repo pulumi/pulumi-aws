@@ -4,34 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing AWS User Notifications Contacts Email Contact.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.notifications.ContactsEmailContact("example", {
- *     name: "example-contact",
- *     emailAddress: "example@example.com",
- *     tags: {
- *         Environment: "Production",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import User Notifications Contacts Email Contact using the `arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:notifications/contactsEmailContact:ContactsEmailContact example arn:aws:notificationscontacts:us-west-2:123456789012:emailcontact:example-contact
- * ```
- */
 export class ContactsEmailContact extends pulumi.CustomResource {
     /**
      * Get an existing ContactsEmailContact resource's state with the given name, ID, and optional extra
@@ -60,32 +32,10 @@ export class ContactsEmailContact extends pulumi.CustomResource {
         return obj['__pulumiType'] === ContactsEmailContact.__pulumiType;
     }
 
-    /**
-     * ARN of the Email Contact.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Email address for the contact. Must be between 6 and 254 characters and match an email
-     * pattern.
-     */
     declare public readonly emailAddress: pulumi.Output<string>;
-    /**
-     * Name of the email contact. Must be between 1 and 64 characters and can contain alphanumeric
-     * characters, underscores, tildes, periods, and hyphens.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider 
-     * `defaultTags` configuration block
-     * present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider 
-     * `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -126,32 +76,10 @@ export class ContactsEmailContact extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ContactsEmailContact resources.
  */
 export interface ContactsEmailContactState {
-    /**
-     * ARN of the Email Contact.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Email address for the contact. Must be between 6 and 254 characters and match an email
-     * pattern.
-     */
     emailAddress?: pulumi.Input<string>;
-    /**
-     * Name of the email contact. Must be between 1 and 64 characters and can contain alphanumeric
-     * characters, underscores, tildes, periods, and hyphens.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider 
-     * `defaultTags` configuration block
-     * present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider 
-     * `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -159,22 +87,7 @@ export interface ContactsEmailContactState {
  * The set of arguments for constructing a ContactsEmailContact resource.
  */
 export interface ContactsEmailContactArgs {
-    /**
-     * Email address for the contact. Must be between 6 and 254 characters and match an email
-     * pattern.
-     */
     emailAddress: pulumi.Input<string>;
-    /**
-     * Name of the email contact. Must be between 1 and 64 characters and can contain alphanumeric
-     * characters, underscores, tildes, periods, and hyphens.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider 
-     * `defaultTags` configuration block
-     * present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

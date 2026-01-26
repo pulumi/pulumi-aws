@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DashboardDashboardPublishOptionsAdHocFilteringOption
     {
-        /// <summary>
-        /// Availability status. Possibles values: ENABLED, DISABLED.
-        /// </summary>
         public readonly string? AvailabilityStatus;
 
         [OutputConstructor]

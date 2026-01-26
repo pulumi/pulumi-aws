@@ -12,15 +12,9 @@ namespace Pulumi.Aws.ComputeOptimizer.Inputs
 
     public sealed class RecommendationPreferencesScopeArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the scope. Valid values: `Organization`, `AccountId`, `ResourceArn`.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// The value of the scope. `ALL_ACCOUNTS` for `Organization` scopes, AWS account ID for `AccountId` scopes, ARN of an EC2 instance or an Auto Scaling group for `ResourceArn` scopes.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

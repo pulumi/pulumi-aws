@@ -9,171 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudWatch
 {
-    /// <summary>
-    /// Provides a CloudWatch Log Account Policy resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Account Data Protection Policy
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var dataProtection = new Aws.CloudWatch.LogAccountPolicy("data_protection", new()
-    ///     {
-    ///         PolicyName = "data-protection",
-    ///         PolicyType = "DATA_PROTECTION_POLICY",
-    ///         PolicyDocument = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Name"] = "DataProtection",
-    ///             ["Version"] = "2021-06-01",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Sid"] = "Audit",
-    ///                     ["DataIdentifier"] = new[]
-    ///                     {
-    ///                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-    ///                     },
-    ///                     ["Operation"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Audit"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["FindingsDestination"] = new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Sid"] = "Redact",
-    ///                     ["DataIdentifier"] = new[]
-    ///                     {
-    ///                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-    ///                     },
-    ///                     ["Operation"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Deidentify"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["MaskConfig"] = new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Subscription Filter Policy
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var subscriptionFilter = new Aws.CloudWatch.LogAccountPolicy("subscription_filter", new()
-    ///     {
-    ///         PolicyName = "subscription-filter",
-    ///         PolicyType = "SUBSCRIPTION_FILTER_POLICY",
-    ///         PolicyDocument = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["DestinationArn"] = test.Arn,
-    ///             ["FilterPattern"] = "test",
-    ///         }),
-    ///         SelectionCriteria = "LogGroupName NOT IN [\"excluded_log_group_name\"]",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Field Index Policy
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var fieldIndex = new Aws.CloudWatch.LogAccountPolicy("field_index", new()
-    ///     {
-    ///         PolicyName = "field-index",
-    ///         PolicyType = "FIELD_INDEX_POLICY",
-    ///         PolicyDocument = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Fields"] = new[]
-    ///             {
-    ///                 "field1",
-    ///                 "field2",
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import this resource using the `policy_name` and `policy_type` separated by `:`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cloudwatch/logAccountPolicy:LogAccountPolicy example "my-account-policy:SUBSCRIPTION_FILTER_POLICY"
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cloudwatch/logAccountPolicy:LogAccountPolicy")]
     public partial class LogAccountPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
-        /// </summary>
         [Output("policyDocument")]
         public Output<string> PolicyDocument { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the account policy.
-        /// </summary>
         [Output("policyName")]
         public Output<string> PolicyName { get; private set; } = null!;
 
-        /// <summary>
-        /// Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
-        /// </summary>
         [Output("policyType")]
         public Output<string> PolicyType { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Currently defaults to and only accepts the value: `ALL`.
-        /// </summary>
         [Output("scope")]
         public Output<string?> Scope { get; private set; } = null!;
 
-        /// <summary>
-        /// Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
-        /// </summary>
         [Output("selectionCriteria")]
         public Output<string?> SelectionCriteria { get; private set; } = null!;
 
@@ -223,39 +76,21 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class LogAccountPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
-        /// </summary>
         [Input("policyDocument", required: true)]
         public Input<string> PolicyDocument { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the account policy.
-        /// </summary>
         [Input("policyName", required: true)]
         public Input<string> PolicyName { get; set; } = null!;
 
-        /// <summary>
-        /// Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
-        /// </summary>
         [Input("policyType", required: true)]
         public Input<string> PolicyType { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Currently defaults to and only accepts the value: `ALL`.
-        /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
 
-        /// <summary>
-        /// Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
-        /// </summary>
         [Input("selectionCriteria")]
         public Input<string>? SelectionCriteria { get; set; }
 
@@ -267,39 +102,21 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class LogAccountPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
-        /// </summary>
         [Input("policyDocument")]
         public Input<string>? PolicyDocument { get; set; }
 
-        /// <summary>
-        /// Name of the account policy.
-        /// </summary>
         [Input("policyName")]
         public Input<string>? PolicyName { get; set; }
 
-        /// <summary>
-        /// Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
-        /// </summary>
         [Input("policyType")]
         public Input<string>? PolicyType { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Currently defaults to and only accepts the value: `ALL`.
-        /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
 
-        /// <summary>
-        /// Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
-        /// </summary>
         [Input("selectionCriteria")]
         public Input<string>? SelectionCriteria { get; set; }
 

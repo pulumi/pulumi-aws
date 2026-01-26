@@ -16,77 +16,37 @@ public final class ApplicationSnapshotState extends com.pulumi.resources.Resourc
 
     public static final ApplicationSnapshotState Empty = new ApplicationSnapshotState();
 
-    /**
-     * The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
-     * 
-     */
     @Import(name="applicationName")
     private @Nullable Output<String> applicationName;
 
-    /**
-     * @return The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
-     * 
-     */
     public Optional<Output<String>> applicationName() {
         return Optional.ofNullable(this.applicationName);
     }
 
-    /**
-     * The current application version ID when the snapshot was created.
-     * 
-     */
     @Import(name="applicationVersionId")
     private @Nullable Output<Integer> applicationVersionId;
 
-    /**
-     * @return The current application version ID when the snapshot was created.
-     * 
-     */
     public Optional<Output<Integer>> applicationVersionId() {
         return Optional.ofNullable(this.applicationVersionId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The timestamp of the application snapshot.
-     * 
-     */
     @Import(name="snapshotCreationTimestamp")
     private @Nullable Output<String> snapshotCreationTimestamp;
 
-    /**
-     * @return The timestamp of the application snapshot.
-     * 
-     */
     public Optional<Output<String>> snapshotCreationTimestamp() {
         return Optional.ofNullable(this.snapshotCreationTimestamp);
     }
 
-    /**
-     * The name of the application snapshot.
-     * 
-     */
     @Import(name="snapshotName")
     private @Nullable Output<String> snapshotName;
 
-    /**
-     * @return The name of the application snapshot.
-     * 
-     */
     public Optional<Output<String>> snapshotName() {
         return Optional.ofNullable(this.snapshotName);
     }
@@ -119,107 +79,47 @@ public final class ApplicationSnapshotState extends com.pulumi.resources.Resourc
             $ = new ApplicationSnapshotState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applicationName The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationName(@Nullable Output<String> applicationName) {
             $.applicationName = applicationName;
             return this;
         }
 
-        /**
-         * @param applicationName The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationName(String applicationName) {
             return applicationName(Output.of(applicationName));
         }
 
-        /**
-         * @param applicationVersionId The current application version ID when the snapshot was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationVersionId(@Nullable Output<Integer> applicationVersionId) {
             $.applicationVersionId = applicationVersionId;
             return this;
         }
 
-        /**
-         * @param applicationVersionId The current application version ID when the snapshot was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationVersionId(Integer applicationVersionId) {
             return applicationVersionId(Output.of(applicationVersionId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param snapshotCreationTimestamp The timestamp of the application snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snapshotCreationTimestamp(@Nullable Output<String> snapshotCreationTimestamp) {
             $.snapshotCreationTimestamp = snapshotCreationTimestamp;
             return this;
         }
 
-        /**
-         * @param snapshotCreationTimestamp The timestamp of the application snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snapshotCreationTimestamp(String snapshotCreationTimestamp) {
             return snapshotCreationTimestamp(Output.of(snapshotCreationTimestamp));
         }
 
-        /**
-         * @param snapshotName The name of the application snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snapshotName(@Nullable Output<String> snapshotName) {
             $.snapshotName = snapshotName;
             return this;
         }
 
-        /**
-         * @param snapshotName The name of the application snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snapshotName(String snapshotName) {
             return snapshotName(Output.of(snapshotName));
         }

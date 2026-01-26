@@ -12,62 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Service Catalog self-service action.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicecatalog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.NewServiceAction(ctx, "example", &servicecatalog.ServiceActionArgs{
-//				Description: pulumi.String("Motor generator unit"),
-//				Name:        pulumi.String("MGU"),
-//				Definition: &servicecatalog.ServiceActionDefinitionArgs{
-//					Name: pulumi.String("AWS-RestartEC2Instance"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_servicecatalog_service_action` using the service action ID. For example:
-//
-// ```sh
-// $ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh
-// ```
 type ServiceAction struct {
 	pulumi.CustomResourceState
 
-	// Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
-	AcceptLanguage pulumi.StringPtrOutput `pulumi:"acceptLanguage"`
-	// Self-service action definition configuration block. Detailed below.
-	Definition ServiceActionDefinitionOutput `pulumi:"definition"`
-	// Self-service action description.
-	Description pulumi.StringOutput `pulumi:"description"`
-	// Self-service action name.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	AcceptLanguage pulumi.StringPtrOutput        `pulumi:"acceptLanguage"`
+	Definition     ServiceActionDefinitionOutput `pulumi:"definition"`
+	Description    pulumi.StringOutput           `pulumi:"description"`
+	Name           pulumi.StringOutput           `pulumi:"name"`
+	Region         pulumi.StringOutput           `pulumi:"region"`
 }
 
 // NewServiceAction registers a new resource with the given unique name, arguments, and options.
@@ -103,33 +55,19 @@ func GetServiceAction(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceAction resources.
 type serviceActionState struct {
-	// Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
-	AcceptLanguage *string `pulumi:"acceptLanguage"`
-	// Self-service action definition configuration block. Detailed below.
-	Definition *ServiceActionDefinition `pulumi:"definition"`
-	// Self-service action description.
-	Description *string `pulumi:"description"`
-	// Self-service action name.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	AcceptLanguage *string                  `pulumi:"acceptLanguage"`
+	Definition     *ServiceActionDefinition `pulumi:"definition"`
+	Description    *string                  `pulumi:"description"`
+	Name           *string                  `pulumi:"name"`
+	Region         *string                  `pulumi:"region"`
 }
 
 type ServiceActionState struct {
-	// Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
 	AcceptLanguage pulumi.StringPtrInput
-	// Self-service action definition configuration block. Detailed below.
-	Definition ServiceActionDefinitionPtrInput
-	// Self-service action description.
-	Description pulumi.StringPtrInput
-	// Self-service action name.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Definition     ServiceActionDefinitionPtrInput
+	Description    pulumi.StringPtrInput
+	Name           pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
 }
 
 func (ServiceActionState) ElementType() reflect.Type {
@@ -137,34 +75,20 @@ func (ServiceActionState) ElementType() reflect.Type {
 }
 
 type serviceActionArgs struct {
-	// Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
-	AcceptLanguage *string `pulumi:"acceptLanguage"`
-	// Self-service action definition configuration block. Detailed below.
-	Definition ServiceActionDefinition `pulumi:"definition"`
-	// Self-service action description.
-	Description *string `pulumi:"description"`
-	// Self-service action name.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	AcceptLanguage *string                 `pulumi:"acceptLanguage"`
+	Definition     ServiceActionDefinition `pulumi:"definition"`
+	Description    *string                 `pulumi:"description"`
+	Name           *string                 `pulumi:"name"`
+	Region         *string                 `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ServiceAction resource.
 type ServiceActionArgs struct {
-	// Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
 	AcceptLanguage pulumi.StringPtrInput
-	// Self-service action definition configuration block. Detailed below.
-	Definition ServiceActionDefinitionInput
-	// Self-service action description.
-	Description pulumi.StringPtrInput
-	// Self-service action name.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Definition     ServiceActionDefinitionInput
+	Description    pulumi.StringPtrInput
+	Name           pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
 }
 
 func (ServiceActionArgs) ElementType() reflect.Type {
@@ -254,29 +178,22 @@ func (o ServiceActionOutput) ToServiceActionOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
 func (o ServiceActionOutput) AcceptLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceAction) pulumi.StringPtrOutput { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
 }
 
-// Self-service action definition configuration block. Detailed below.
 func (o ServiceActionOutput) Definition() ServiceActionDefinitionOutput {
 	return o.ApplyT(func(v *ServiceAction) ServiceActionDefinitionOutput { return v.Definition }).(ServiceActionDefinitionOutput)
 }
 
-// Self-service action description.
 func (o ServiceActionOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceAction) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// Self-service action name.
-//
-// The following arguments are optional:
 func (o ServiceActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceAction) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ServiceActionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceAction) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

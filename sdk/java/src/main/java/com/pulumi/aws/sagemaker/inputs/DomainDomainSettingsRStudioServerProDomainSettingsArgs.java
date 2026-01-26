@@ -17,62 +17,30 @@ public final class DomainDomainSettingsRStudioServerProDomainSettingsArgs extend
 
     public static final DomainDomainSettingsRStudioServerProDomainSettingsArgs Empty = new DomainDomainSettingsRStudioServerProDomainSettingsArgs();
 
-    /**
-     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
-     * 
-     */
     @Import(name="defaultResourceSpec")
     private @Nullable Output<DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs> defaultResourceSpec;
 
-    /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
-     * 
-     */
     public Optional<Output<DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs>> defaultResourceSpec() {
         return Optional.ofNullable(this.defaultResourceSpec);
     }
 
-    /**
-     * The ARN of the execution role for the RStudioServerPro Domain-level app.
-     * 
-     */
     @Import(name="domainExecutionRoleArn", required=true)
     private Output<String> domainExecutionRoleArn;
 
-    /**
-     * @return The ARN of the execution role for the RStudioServerPro Domain-level app.
-     * 
-     */
     public Output<String> domainExecutionRoleArn() {
         return this.domainExecutionRoleArn;
     }
 
-    /**
-     * A URL pointing to an RStudio Connect server.
-     * 
-     */
     @Import(name="rStudioConnectUrl")
     private @Nullable Output<String> rStudioConnectUrl;
 
-    /**
-     * @return A URL pointing to an RStudio Connect server.
-     * 
-     */
     public Optional<Output<String>> rStudioConnectUrl() {
         return Optional.ofNullable(this.rStudioConnectUrl);
     }
 
-    /**
-     * A URL pointing to an RStudio Package Manager server.
-     * 
-     */
     @Import(name="rStudioPackageManagerUrl")
     private @Nullable Output<String> rStudioPackageManagerUrl;
 
-    /**
-     * @return A URL pointing to an RStudio Package Manager server.
-     * 
-     */
     public Optional<Output<String>> rStudioPackageManagerUrl() {
         return Optional.ofNullable(this.rStudioPackageManagerUrl);
     }
@@ -104,86 +72,38 @@ public final class DomainDomainSettingsRStudioServerProDomainSettingsArgs extend
             $ = new DomainDomainSettingsRStudioServerProDomainSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultResourceSpec(@Nullable Output<DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs> defaultResourceSpec) {
             $.defaultResourceSpec = defaultResourceSpec;
             return this;
         }
 
-        /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultResourceSpec(DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs defaultResourceSpec) {
             return defaultResourceSpec(Output.of(defaultResourceSpec));
         }
 
-        /**
-         * @param domainExecutionRoleArn The ARN of the execution role for the RStudioServerPro Domain-level app.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainExecutionRoleArn(Output<String> domainExecutionRoleArn) {
             $.domainExecutionRoleArn = domainExecutionRoleArn;
             return this;
         }
 
-        /**
-         * @param domainExecutionRoleArn The ARN of the execution role for the RStudioServerPro Domain-level app.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainExecutionRoleArn(String domainExecutionRoleArn) {
             return domainExecutionRoleArn(Output.of(domainExecutionRoleArn));
         }
 
-        /**
-         * @param rStudioConnectUrl A URL pointing to an RStudio Connect server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rStudioConnectUrl(@Nullable Output<String> rStudioConnectUrl) {
             $.rStudioConnectUrl = rStudioConnectUrl;
             return this;
         }
 
-        /**
-         * @param rStudioConnectUrl A URL pointing to an RStudio Connect server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rStudioConnectUrl(String rStudioConnectUrl) {
             return rStudioConnectUrl(Output.of(rStudioConnectUrl));
         }
 
-        /**
-         * @param rStudioPackageManagerUrl A URL pointing to an RStudio Package Manager server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rStudioPackageManagerUrl(@Nullable Output<String> rStudioPackageManagerUrl) {
             $.rStudioPackageManagerUrl = rStudioPackageManagerUrl;
             return this;
         }
 
-        /**
-         * @param rStudioPackageManagerUrl A URL pointing to an RStudio Package Manager server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rStudioPackageManagerUrl(String rStudioPackageManagerUrl) {
             return rStudioPackageManagerUrl(Output.of(rStudioPackageManagerUrl));
         }

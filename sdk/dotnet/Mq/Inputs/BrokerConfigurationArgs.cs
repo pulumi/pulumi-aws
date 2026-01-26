@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Mq.Inputs
 
     public sealed class BrokerConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration ID.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// Revision of the Configuration.
-        /// </summary>
         [Input("revision")]
         public Input<int>? Revision { get; set; }
 

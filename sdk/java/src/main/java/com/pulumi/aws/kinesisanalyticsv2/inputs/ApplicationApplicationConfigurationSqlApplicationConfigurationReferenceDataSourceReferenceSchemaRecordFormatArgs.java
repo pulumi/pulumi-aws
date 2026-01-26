@@ -15,32 +15,16 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
 
     public static final ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs Empty = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs();
 
-    /**
-     * Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-     * 
-     */
     @Import(name="mappingParameters", required=true)
     private Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs> mappingParameters;
 
-    /**
-     * @return Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-     * 
-     */
     public Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs> mappingParameters() {
         return this.mappingParameters;
     }
 
-    /**
-     * The type of record format. Valid values: `CSV`, `JSON`.
-     * 
-     */
     @Import(name="recordFormatType", required=true)
     private Output<String> recordFormatType;
 
-    /**
-     * @return The type of record format. Valid values: `CSV`, `JSON`.
-     * 
-     */
     public Output<String> recordFormatType() {
         return this.recordFormatType;
     }
@@ -70,44 +54,20 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
             $ = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param mappingParameters Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mappingParameters(Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs> mappingParameters) {
             $.mappingParameters = mappingParameters;
             return this;
         }
 
-        /**
-         * @param mappingParameters Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mappingParameters(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs mappingParameters) {
             return mappingParameters(Output.of(mappingParameters));
         }
 
-        /**
-         * @param recordFormatType The type of record format. Valid values: `CSV`, `JSON`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordFormatType(Output<String> recordFormatType) {
             $.recordFormatType = recordFormatType;
             return this;
         }
 
-        /**
-         * @param recordFormatType The type of record format. Valid values: `CSV`, `JSON`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordFormatType(String recordFormatType) {
             return recordFormatType(Output.of(recordFormatType));
         }

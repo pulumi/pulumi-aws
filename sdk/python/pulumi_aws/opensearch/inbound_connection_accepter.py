@@ -23,8 +23,6 @@ class InboundConnectionAccepterArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a InboundConnectionAccepter resource.
-        :param pulumi.Input[_builtins.str] connection_id: Specifies the ID of the connection to accept.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "connection_id", connection_id)
         if region is not None:
@@ -33,9 +31,6 @@ class InboundConnectionAccepterArgs:
     @_builtins.property
     @pulumi.getter(name="connectionId")
     def connection_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies the ID of the connection to accept.
-        """
         return pulumi.get(self, "connection_id")
 
     @connection_id.setter
@@ -45,9 +40,6 @@ class InboundConnectionAccepterArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -63,9 +55,6 @@ class _InboundConnectionAccepterState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering InboundConnectionAccepter resources.
-        :param pulumi.Input[_builtins.str] connection_id: Specifies the ID of the connection to accept.
-        :param pulumi.Input[_builtins.str] connection_status: Status of the connection request.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if connection_id is not None:
             pulumi.set(__self__, "connection_id", connection_id)
@@ -77,9 +66,6 @@ class _InboundConnectionAccepterState:
     @_builtins.property
     @pulumi.getter(name="connectionId")
     def connection_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the ID of the connection to accept.
-        """
         return pulumi.get(self, "connection_id")
 
     @connection_id.setter
@@ -89,9 +75,6 @@ class _InboundConnectionAccepterState:
     @_builtins.property
     @pulumi.getter(name="connectionStatus")
     def connection_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of the connection request.
-        """
         return pulumi.get(self, "connection_status")
 
     @connection_status.setter
@@ -101,9 +84,6 @@ class _InboundConnectionAccepterState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -121,45 +101,9 @@ class InboundConnectionAccepter(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an [AWS Opensearch Inbound Connection Accepter](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AcceptInboundConnection.html). If connecting domains from different AWS accounts, ensure that the accepter is configured to use the AWS account where the _remote_ opensearch domain exists.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        current_get_region = aws.get_region()
-        foo = aws.opensearch.OutboundConnection("foo",
-            connection_alias="outbound_connection",
-            local_domain_info={
-                "owner_id": current.account_id,
-                "region": current_get_region.region,
-                "domain_name": local_domain["domainName"],
-            },
-            remote_domain_info={
-                "owner_id": current.account_id,
-                "region": current_get_region.region,
-                "domain_name": remote_domain["domainName"],
-            })
-        foo_inbound_connection_accepter = aws.opensearch.InboundConnectionAccepter("foo", connection_id=foo.id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AWS Opensearch Inbound Connection Accepters using the Inbound Connection ID. For example:
-
-        ```sh
-        $ pulumi import aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter foo connection-id
-        ```
-
+        Create a InboundConnectionAccepter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] connection_id: Specifies the ID of the connection to accept.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -168,41 +112,7 @@ class InboundConnectionAccepter(pulumi.CustomResource):
                  args: InboundConnectionAccepterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an [AWS Opensearch Inbound Connection Accepter](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AcceptInboundConnection.html). If connecting domains from different AWS accounts, ensure that the accepter is configured to use the AWS account where the _remote_ opensearch domain exists.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        current_get_region = aws.get_region()
-        foo = aws.opensearch.OutboundConnection("foo",
-            connection_alias="outbound_connection",
-            local_domain_info={
-                "owner_id": current.account_id,
-                "region": current_get_region.region,
-                "domain_name": local_domain["domainName"],
-            },
-            remote_domain_info={
-                "owner_id": current.account_id,
-                "region": current_get_region.region,
-                "domain_name": remote_domain["domainName"],
-            })
-        foo_inbound_connection_accepter = aws.opensearch.InboundConnectionAccepter("foo", connection_id=foo.id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AWS Opensearch Inbound Connection Accepters using the Inbound Connection ID. For example:
-
-        ```sh
-        $ pulumi import aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter foo connection-id
-        ```
-
+        Create a InboundConnectionAccepter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param InboundConnectionAccepterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -254,9 +164,6 @@ class InboundConnectionAccepter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] connection_id: Specifies the ID of the connection to accept.
-        :param pulumi.Input[_builtins.str] connection_status: Status of the connection request.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -270,24 +177,15 @@ class InboundConnectionAccepter(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="connectionId")
     def connection_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies the ID of the connection to accept.
-        """
         return pulumi.get(self, "connection_id")
 
     @_builtins.property
     @pulumi.getter(name="connectionStatus")
     def connection_status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Status of the connection request.
-        """
         return pulumi.get(self, "connection_status")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

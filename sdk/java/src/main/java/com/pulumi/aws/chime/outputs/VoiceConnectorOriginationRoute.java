@@ -13,65 +13,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VoiceConnectorOriginationRoute {
-    /**
-     * @return The FQDN or IP address to contact for origination traffic.
-     * 
-     */
     private String host;
-    /**
-     * @return The designated origination route port. Defaults to `5060`.
-     * 
-     */
     private @Nullable Integer port;
-    /**
-     * @return The priority associated with the host, with 1 being the highest priority. Higher priority hosts are attempted first.
-     * 
-     */
     private Integer priority;
-    /**
-     * @return The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.
-     * 
-     */
     private String protocol;
-    /**
-     * @return The weight associated with the host. If hosts are equal in priority, calls are redistributed among them based on their relative weight.
-     * 
-     */
     private Integer weight;
 
     private VoiceConnectorOriginationRoute() {}
-    /**
-     * @return The FQDN or IP address to contact for origination traffic.
-     * 
-     */
     public String host() {
         return this.host;
     }
-    /**
-     * @return The designated origination route port. Defaults to `5060`.
-     * 
-     */
     public Optional<Integer> port() {
         return Optional.ofNullable(this.port);
     }
-    /**
-     * @return The priority associated with the host, with 1 being the highest priority. Higher priority hosts are attempted first.
-     * 
-     */
     public Integer priority() {
         return this.priority;
     }
-    /**
-     * @return The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.
-     * 
-     */
     public String protocol() {
         return this.protocol;
     }
-    /**
-     * @return The weight associated with the host. If hosts are equal in priority, calls are redistributed among them based on their relative weight.
-     * 
-     */
     public Integer weight() {
         return this.weight;
     }

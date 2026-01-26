@@ -15,10 +15,6 @@ import java.util.Objects;
 public final class GetRouteSpecGrpcRouteMatchMetadata {
     private Boolean invert;
     private List<GetRouteSpecGrpcRouteMatchMetadataMatch> matches;
-    /**
-     * @return Name of the route.
-     * 
-     */
     private String name;
 
     private GetRouteSpecGrpcRouteMatchMetadata() {}
@@ -28,10 +24,6 @@ public final class GetRouteSpecGrpcRouteMatchMetadata {
     public List<GetRouteSpecGrpcRouteMatchMetadataMatch> matches() {
         return this.matches;
     }
-    /**
-     * @return Name of the route.
-     * 
-     */
     public String name() {
         return this.name;
     }

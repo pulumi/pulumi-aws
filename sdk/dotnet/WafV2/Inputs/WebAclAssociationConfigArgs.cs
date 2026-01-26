@@ -14,10 +14,6 @@ namespace Pulumi.Aws.WafV2.Inputs
     {
         [Input("requestBodies")]
         private InputList<Inputs.WebAclAssociationConfigRequestBodyArgs>? _requestBodies;
-
-        /// <summary>
-        /// Customizes the request body that your protected resource forward to AWS WAF for inspection. See `RequestBody` below for details.
-        /// </summary>
         public InputList<Inputs.WebAclAssociationConfigRequestBodyArgs> RequestBodies
         {
             get => _requestBodies ?? (_requestBodies = new InputList<Inputs.WebAclAssociationConfigRequestBodyArgs>());

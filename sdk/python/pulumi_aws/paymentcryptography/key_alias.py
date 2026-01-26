@@ -24,11 +24,6 @@ class KeyAliasArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a KeyAlias resource.
-        :param pulumi.Input[_builtins.str] alias_name: Name of the Key Alias.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] key_arn: ARN of the key.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "alias_name", alias_name)
         if key_arn is not None:
@@ -39,11 +34,6 @@ class KeyAliasArgs:
     @_builtins.property
     @pulumi.getter(name="aliasName")
     def alias_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Key Alias.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "alias_name")
 
     @alias_name.setter
@@ -53,9 +43,6 @@ class KeyAliasArgs:
     @_builtins.property
     @pulumi.getter(name="keyArn")
     def key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the key.
-        """
         return pulumi.get(self, "key_arn")
 
     @key_arn.setter
@@ -65,9 +52,6 @@ class KeyAliasArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -83,11 +67,6 @@ class _KeyAliasState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering KeyAlias resources.
-        :param pulumi.Input[_builtins.str] alias_name: Name of the Key Alias.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] key_arn: ARN of the key.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if alias_name is not None:
             pulumi.set(__self__, "alias_name", alias_name)
@@ -99,11 +78,6 @@ class _KeyAliasState:
     @_builtins.property
     @pulumi.getter(name="aliasName")
     def alias_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Key Alias.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "alias_name")
 
     @alias_name.setter
@@ -113,9 +87,6 @@ class _KeyAliasState:
     @_builtins.property
     @pulumi.getter(name="keyArn")
     def key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the key.
-        """
         return pulumi.get(self, "key_arn")
 
     @key_arn.setter
@@ -125,9 +96,6 @@ class _KeyAliasState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -146,49 +114,9 @@ class KeyAlias(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Payment Cryptography Control Plane Key Alias.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.paymentcryptography.Key("test",
-            exportable=True,
-            key_attributes=[{
-                "key_algorithm": "TDES_3KEY",
-                "key_class": "SYMMETRIC_KEY",
-                "key_usage": "TR31_P0_PIN_ENCRYPTION_KEY",
-                "key_modes_of_uses": [{
-                    "decrypt": True,
-                    "encrypt": True,
-                    "wrap": True,
-                    "unwrap": True,
-                }],
-            }])
-        test_key_alias = aws.paymentcryptography.KeyAlias("test",
-            alias_name="alias/test-alias",
-            key_arn=test.arn)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Payment Cryptography Control Plane Key Alias using the `alias/4681482429376900170`. For example:
-
-        ```sh
-        $ pulumi import aws:paymentcryptography/keyAlias:KeyAlias example alias/4681482429376900170
-        ```
-
+        Create a KeyAlias resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] alias_name: Name of the Key Alias.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] key_arn: ARN of the key.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -197,42 +125,7 @@ class KeyAlias(pulumi.CustomResource):
                  args: KeyAliasArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Payment Cryptography Control Plane Key Alias.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.paymentcryptography.Key("test",
-            exportable=True,
-            key_attributes=[{
-                "key_algorithm": "TDES_3KEY",
-                "key_class": "SYMMETRIC_KEY",
-                "key_usage": "TR31_P0_PIN_ENCRYPTION_KEY",
-                "key_modes_of_uses": [{
-                    "decrypt": True,
-                    "encrypt": True,
-                    "wrap": True,
-                    "unwrap": True,
-                }],
-            }])
-        test_key_alias = aws.paymentcryptography.KeyAlias("test",
-            alias_name="alias/test-alias",
-            key_arn=test.arn)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Payment Cryptography Control Plane Key Alias using the `alias/4681482429376900170`. For example:
-
-        ```sh
-        $ pulumi import aws:paymentcryptography/keyAlias:KeyAlias example alias/4681482429376900170
-        ```
-
+        Create a KeyAlias resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param KeyAliasArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -285,11 +178,6 @@ class KeyAlias(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] alias_name: Name of the Key Alias.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] key_arn: ARN of the key.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -303,26 +191,15 @@ class KeyAlias(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="aliasName")
     def alias_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the Key Alias.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "alias_name")
 
     @_builtins.property
     @pulumi.getter(name="keyArn")
     def key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ARN of the key.
-        """
         return pulumi.get(self, "key_arn")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

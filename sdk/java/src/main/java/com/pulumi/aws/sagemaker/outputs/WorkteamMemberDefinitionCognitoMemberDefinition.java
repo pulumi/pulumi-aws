@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class WorkteamMemberDefinitionCognitoMemberDefinition {
-    /**
-     * @return An identifier for an application client. You must create the app client ID using Amazon Cognito.
-     * 
-     */
     private String clientId;
-    /**
-     * @return An identifier for a user group.
-     * 
-     */
     private String userGroup;
-    /**
-     * @return An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
-     * 
-     */
     private String userPool;
 
     private WorkteamMemberDefinitionCognitoMemberDefinition() {}
-    /**
-     * @return An identifier for an application client. You must create the app client ID using Amazon Cognito.
-     * 
-     */
     public String clientId() {
         return this.clientId;
     }
-    /**
-     * @return An identifier for a user group.
-     * 
-     */
     public String userGroup() {
         return this.userGroup;
     }
-    /**
-     * @return An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
-     * 
-     */
     public String userPool() {
         return this.userPool;
     }

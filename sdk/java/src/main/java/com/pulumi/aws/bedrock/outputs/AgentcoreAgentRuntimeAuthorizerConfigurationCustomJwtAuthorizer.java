@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer {
-    /**
-     * @return Set of allowed audience values for JWT token validation.
-     * 
-     */
     private @Nullable List<String> allowedAudiences;
-    /**
-     * @return Set of allowed client IDs for JWT token validation.
-     * 
-     */
     private @Nullable List<String> allowedClients;
-    /**
-     * @return URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
-     * 
-     */
     private String discoveryUrl;
 
     private AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer() {}
-    /**
-     * @return Set of allowed audience values for JWT token validation.
-     * 
-     */
     public List<String> allowedAudiences() {
         return this.allowedAudiences == null ? List.of() : this.allowedAudiences;
     }
-    /**
-     * @return Set of allowed client IDs for JWT token validation.
-     * 
-     */
     public List<String> allowedClients() {
         return this.allowedClients == null ? List.of() : this.allowedClients;
     }
-    /**
-     * @return URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
-     * 
-     */
     public String discoveryUrl() {
         return this.discoveryUrl;
     }

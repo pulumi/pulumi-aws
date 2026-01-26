@@ -7,32 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages an AWS Bedrock AgentCore Agent Runtime Endpoint. Agent Runtime Endpoints provide a network-accessible interface for interacting with agent runtimes, enabling external systems to communicate with and invoke agent capabilities.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.bedrock.AgentcoreAgentRuntimeEndpoint("example", {
- *     name: "example-endpoint",
- *     agentRuntimeId: exampleAwsBedrockagentcoreAgentRuntime.agentRuntimeId,
- *     description: "Endpoint for agent runtime communication",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Bedrock AgentCore Agent Runtime Endpoint using the `agent_runtime_id` and `name` separated by a comma. For example:
- *
- * ```sh
- * $ pulumi import aws:bedrock/agentcoreAgentRuntimeEndpoint:AgentcoreAgentRuntimeEndpoint example AGENTRUNTIME1234567890,example-endpoint
- * ```
- */
 export class AgentcoreAgentRuntimeEndpoint extends pulumi.CustomResource {
     /**
      * Get an existing AgentcoreAgentRuntimeEndpoint resource's state with the given name, ID, and optional extra
@@ -61,43 +35,14 @@ export class AgentcoreAgentRuntimeEndpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === AgentcoreAgentRuntimeEndpoint.__pulumiType;
     }
 
-    /**
-     * ARN of the associated Agent Runtime.
-     */
     declare public /*out*/ readonly agentRuntimeArn: pulumi.Output<string>;
-    /**
-     * ARN of the Agent Runtime Endpoint.
-     */
     declare public /*out*/ readonly agentRuntimeEndpointArn: pulumi.Output<string>;
-    /**
-     * ID of the agent runtime this endpoint belongs to.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly agentRuntimeId: pulumi.Output<string>;
-    /**
-     * Version of the agent runtime to use for this endpoint.
-     */
     declare public readonly agentRuntimeVersion: pulumi.Output<string>;
-    /**
-     * Description of the agent runtime endpoint.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Name of the agent runtime endpoint.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.bedrock.AgentcoreAgentRuntimeEndpointTimeouts | undefined>;
 
@@ -149,43 +94,14 @@ export class AgentcoreAgentRuntimeEndpoint extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AgentcoreAgentRuntimeEndpoint resources.
  */
 export interface AgentcoreAgentRuntimeEndpointState {
-    /**
-     * ARN of the associated Agent Runtime.
-     */
     agentRuntimeArn?: pulumi.Input<string>;
-    /**
-     * ARN of the Agent Runtime Endpoint.
-     */
     agentRuntimeEndpointArn?: pulumi.Input<string>;
-    /**
-     * ID of the agent runtime this endpoint belongs to.
-     *
-     * The following arguments are optional:
-     */
     agentRuntimeId?: pulumi.Input<string>;
-    /**
-     * Version of the agent runtime to use for this endpoint.
-     */
     agentRuntimeVersion?: pulumi.Input<string>;
-    /**
-     * Description of the agent runtime endpoint.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Name of the agent runtime endpoint.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeEndpointTimeouts>;
 }
@@ -194,31 +110,11 @@ export interface AgentcoreAgentRuntimeEndpointState {
  * The set of arguments for constructing a AgentcoreAgentRuntimeEndpoint resource.
  */
 export interface AgentcoreAgentRuntimeEndpointArgs {
-    /**
-     * ID of the agent runtime this endpoint belongs to.
-     *
-     * The following arguments are optional:
-     */
     agentRuntimeId: pulumi.Input<string>;
-    /**
-     * Version of the agent runtime to use for this endpoint.
-     */
     agentRuntimeVersion?: pulumi.Input<string>;
-    /**
-     * Description of the agent runtime endpoint.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Name of the agent runtime endpoint.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeEndpointTimeouts>;
 }

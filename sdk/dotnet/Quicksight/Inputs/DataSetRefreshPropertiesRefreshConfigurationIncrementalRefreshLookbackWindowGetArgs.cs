@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the lookback window column.
-        /// </summary>
         [Input("columnName", required: true)]
         public Input<string> ColumnName { get; set; } = null!;
 
-        /// <summary>
-        /// The lookback window column size.
-        /// </summary>
         [Input("size", required: true)]
         public Input<int> Size { get; set; } = null!;
 
-        /// <summary>
-        /// The size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
-        /// </summary>
         [Input("sizeUnit", required: true)]
         public Input<string> SizeUnit { get; set; } = null!;
 

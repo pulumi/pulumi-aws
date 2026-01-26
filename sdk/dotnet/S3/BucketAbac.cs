@@ -9,82 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3
 {
-    /// <summary>
-    /// Manages ABAC (Attribute Based Access Control) for an AWS S3 (Simple Storage) Bucket.
-    /// See the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging-enable-abac.html) on enabling ABAC for general purpose buckets for additional information.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.S3.Bucket("example", new()
-    ///     {
-    ///         BucketName = "bucket-name",
-    ///     });
-    /// 
-    ///     var exampleBucketAbac = new Aws.S3.BucketAbac("example", new()
-    ///     {
-    ///         Bucket = example.BucketName,
-    ///         AbacStatus = new Aws.S3.Inputs.BucketAbacAbacStatusArgs
-    ///         {
-    ///             Status = "Enabled",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-    /// 
-    /// Using `pulumi import`, import S3 (Simple Storage) Bucket ABAC using the `bucket` or `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
-    /// 
-    /// If the owner (account ID) of the source bucket is the same account used to configure the Terraform AWS Provider, import using the `bucket`:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:s3/bucketAbac:BucketAbac example bucket-name
-    /// ```
-    /// If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:s3/bucketAbac:BucketAbac example bucket-name,123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:s3/bucketAbac:BucketAbac")]
     public partial class BucketAbac : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ABAC status configuration. See `AbacStatus` Block for details.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("abacStatus")]
         public Output<Outputs.BucketAbacAbacStatus?> AbacStatus { get; private set; } = null!;
 
-        /// <summary>
-        /// General purpose bucket that you want to create the metadata configuration for.
-        /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
-        /// <summary>
-        /// Account ID of the expected bucket owner.
-        /// </summary>
         [Output("expectedBucketOwner")]
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -134,29 +70,15 @@ namespace Pulumi.Aws.S3
 
     public sealed class BucketAbacArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ABAC status configuration. See `AbacStatus` Block for details.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("abacStatus")]
         public Input<Inputs.BucketAbacAbacStatusArgs>? AbacStatus { get; set; }
 
-        /// <summary>
-        /// General purpose bucket that you want to create the metadata configuration for.
-        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
-        /// <summary>
-        /// Account ID of the expected bucket owner.
-        /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -168,29 +90,15 @@ namespace Pulumi.Aws.S3
 
     public sealed class BucketAbacState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ABAC status configuration. See `AbacStatus` Block for details.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("abacStatus")]
         public Input<Inputs.BucketAbacAbacStatusGetArgs>? AbacStatus { get; set; }
 
-        /// <summary>
-        /// General purpose bucket that you want to create the metadata configuration for.
-        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
-        /// <summary>
-        /// Account ID of the expected bucket owner.
-        /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

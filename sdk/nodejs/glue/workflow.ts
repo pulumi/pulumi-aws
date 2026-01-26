@@ -4,50 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Glue Workflow resource.
- * The workflow graph (DAG) can be build using the `aws.glue.Trigger` resource.
- * See the example below for creating a graph with four nodes (two triggers and two jobs).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.glue.Workflow("example", {name: "example"});
- * const example_start = new aws.glue.Trigger("example-start", {
- *     name: "trigger-start",
- *     type: "ON_DEMAND",
- *     workflowName: example.name,
- *     actions: [{
- *         jobName: "example-job",
- *     }],
- * });
- * const example_inner = new aws.glue.Trigger("example-inner", {
- *     name: "trigger-inner",
- *     type: "CONDITIONAL",
- *     workflowName: example.name,
- *     predicate: {
- *         conditions: [{
- *             jobName: "example-job",
- *             state: "SUCCEEDED",
- *         }],
- *     },
- *     actions: [{
- *         jobName: "another-example-job",
- *     }],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Glue Workflows using `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
- * ```
- */
 export class Workflow extends pulumi.CustomResource {
     /**
      * Get an existing Workflow resource's state with the given name, ID, and optional extra
@@ -76,37 +32,13 @@ export class Workflow extends pulumi.CustomResource {
         return obj['__pulumiType'] === Workflow.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of Glue Workflow
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
-     */
     declare public readonly defaultRunProperties: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Description of the workflow.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
-     */
     declare public readonly maxConcurrentRuns: pulumi.Output<number | undefined>;
-    /**
-     * The name you assign to this workflow.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -150,37 +82,13 @@ export class Workflow extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Workflow resources.
  */
 export interface WorkflowState {
-    /**
-     * Amazon Resource Name (ARN) of Glue Workflow
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
-     */
     defaultRunProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Description of the workflow.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
-     */
     maxConcurrentRuns?: pulumi.Input<number>;
-    /**
-     * The name you assign to this workflow.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -188,28 +96,10 @@ export interface WorkflowState {
  * The set of arguments for constructing a Workflow resource.
  */
 export interface WorkflowArgs {
-    /**
-     * A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
-     */
     defaultRunProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Description of the workflow.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
-     */
     maxConcurrentRuns?: pulumi.Input<number>;
-    /**
-     * The name you assign to this workflow.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

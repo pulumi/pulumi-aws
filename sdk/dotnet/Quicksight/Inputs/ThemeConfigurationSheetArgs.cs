@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class ThemeConfigurationSheetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The display options for tiles. See tile.
-        /// </summary>
         [Input("tile")]
         public Input<Inputs.ThemeConfigurationSheetTileArgs>? Tile { get; set; }
 
-        /// <summary>
-        /// The layout options for tiles. See tile_layout.
-        /// </summary>
         [Input("tileLayout")]
         public Input<Inputs.ThemeConfigurationSheetTileLayoutArgs>? TileLayout { get; set; }
 

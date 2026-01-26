@@ -15,47 +15,23 @@ public final class InvitationAccepterState extends com.pulumi.resources.Resource
 
     public static final InvitationAccepterState Empty = new InvitationAccepterState();
 
-    /**
-     * The AWS account ID for the account that sent the invitation.
-     * 
-     */
     @Import(name="administratorAccountId")
     private @Nullable Output<String> administratorAccountId;
 
-    /**
-     * @return The AWS account ID for the account that sent the invitation.
-     * 
-     */
     public Optional<Output<String>> administratorAccountId() {
         return Optional.ofNullable(this.administratorAccountId);
     }
 
-    /**
-     * The unique identifier for the invitation.
-     * 
-     */
     @Import(name="invitationId")
     private @Nullable Output<String> invitationId;
 
-    /**
-     * @return The unique identifier for the invitation.
-     * 
-     */
     public Optional<Output<String>> invitationId() {
         return Optional.ofNullable(this.invitationId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -86,65 +62,29 @@ public final class InvitationAccepterState extends com.pulumi.resources.Resource
             $ = new InvitationAccepterState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param administratorAccountId The AWS account ID for the account that sent the invitation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder administratorAccountId(@Nullable Output<String> administratorAccountId) {
             $.administratorAccountId = administratorAccountId;
             return this;
         }
 
-        /**
-         * @param administratorAccountId The AWS account ID for the account that sent the invitation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder administratorAccountId(String administratorAccountId) {
             return administratorAccountId(Output.of(administratorAccountId));
         }
 
-        /**
-         * @param invitationId The unique identifier for the invitation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder invitationId(@Nullable Output<String> invitationId) {
             $.invitationId = invitationId;
             return this;
         }
 
-        /**
-         * @param invitationId The unique identifier for the invitation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder invitationId(String invitationId) {
             return invitationId(Output.of(invitationId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

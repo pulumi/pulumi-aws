@@ -56,9 +56,6 @@ class GetNodeGroupsResult:
     @_builtins.property
     @pulumi.getter
     def names(self) -> Sequence[_builtins.str]:
-        """
-        Set of all node group names in an EKS Cluster.
-        """
         return pulumi.get(self, "names")
 
     @_builtins.property
@@ -83,22 +80,7 @@ def get_node_groups(cluster_name: Optional[_builtins.str] = None,
                     region: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNodeGroupsResult:
     """
-    Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.eks.get_node_groups(cluster_name="example")
-    example_get_node_group = {__key: aws.eks.get_node_group(cluster_name="example",
-        node_group_name=__value) for __key, __value in example.names}
-    ```
-
-
-    :param _builtins.str cluster_name: Name of the cluster.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
@@ -115,22 +97,7 @@ def get_node_groups_output(cluster_name: Optional[pulumi.Input[_builtins.str]] =
                            region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNodeGroupsResult]:
     """
-    Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.eks.get_node_groups(cluster_name="example")
-    example_get_node_group = {__key: aws.eks.get_node_group(cluster_name="example",
-        node_group_name=__value) for __key, __value in example.names}
-    ```
-
-
-    :param _builtins.str cluster_name: Name of the cluster.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name

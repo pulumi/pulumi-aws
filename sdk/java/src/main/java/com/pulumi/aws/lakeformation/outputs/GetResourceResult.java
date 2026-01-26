@@ -12,46 +12,22 @@ import java.util.Objects;
 @CustomType
 public final class GetResourceResult {
     private String arn;
-    /**
-     * @return Flag to enable AWS LakeFormation hybrid access permission mode.
-     * 
-     */
     private Boolean hybridAccessEnabled;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     * 
-     */
     private String lastModified;
     private String region;
-    /**
-     * @return Role that the resource was registered with.
-     * 
-     */
     private String roleArn;
-    /**
-     * @return Whether the resource is a federated resource.
-     * 
-     */
     private Boolean withFederation;
-    /**
-     * @return Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
-     * 
-     */
     private Boolean withPrivilegedAccess;
 
     private GetResourceResult() {}
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Flag to enable AWS LakeFormation hybrid access permission mode.
-     * 
-     */
     public Boolean hybridAccessEnabled() {
         return this.hybridAccessEnabled;
     }
@@ -62,34 +38,18 @@ public final class GetResourceResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     * 
-     */
     public String lastModified() {
         return this.lastModified;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Role that the resource was registered with.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
-    /**
-     * @return Whether the resource is a federated resource.
-     * 
-     */
     public Boolean withFederation() {
         return this.withFederation;
     }
-    /**
-     * @return Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
-     * 
-     */
     public Boolean withPrivilegedAccess() {
         return this.withPrivilegedAccess;
     }

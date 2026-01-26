@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class MetricStreamIncludeFilter
     {
-        /// <summary>
-        /// An array that defines the metrics you want to include for this metric namespace
-        /// </summary>
         public readonly ImmutableArray<string> MetricNames;
-        /// <summary>
-        /// Name of the metric namespace in the filter.
-        /// </summary>
         public readonly string Namespace;
 
         [OutputConstructor]

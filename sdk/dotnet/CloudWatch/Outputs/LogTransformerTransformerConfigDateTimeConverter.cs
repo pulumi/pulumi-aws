@@ -13,33 +13,12 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class LogTransformerTransformerConfigDateTimeConverter
     {
-        /// <summary>
-        /// Specifies the locale of the source field. Defaults to `locale.ROOT`.
-        /// </summary>
         public readonly string? Locale;
-        /// <summary>
-        /// Specifies the list of patterns to match against the `Source` field.
-        /// </summary>
         public readonly ImmutableArray<string> MatchPatterns;
-        /// <summary>
-        /// Specifies the key to apply the date conversion to.
-        /// </summary>
         public readonly string Source;
-        /// <summary>
-        /// Specifies the time zone of the source field. Defaults to `UTC`.
-        /// </summary>
         public readonly string? SourceTimezone;
-        /// <summary>
-        /// Specifies the JSON field to store the result in.
-        /// </summary>
         public readonly string Target;
-        /// <summary>
-        /// Specifies the datetime format to use for the converted data in the target field. Defaults to `yyyy-MM-dd'T'HH:mm:ss.SSS'Z`.
-        /// </summary>
         public readonly string? TargetFormat;
-        /// <summary>
-        /// Specifies the time zone of the target field. Defaults to `UTC`.
-        /// </summary>
         public readonly string? TargetTimezone;
 
         [OutputConstructor]

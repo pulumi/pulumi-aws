@@ -13,46 +13,22 @@ import java.util.Objects;
 
 @CustomType
 public final class GetResourceCollectionResult {
-    /**
-     * @return A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
-     * 
-     */
     private List<GetResourceCollectionCloudformation> cloudformations;
-    /**
-     * @return Type of AWS resource collection to create (same value as `type`).
-     * 
-     */
     private String id;
     private String region;
-    /**
-     * @return AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
-     * 
-     */
     private List<GetResourceCollectionTag> tags;
     private String type;
 
     private GetResourceCollectionResult() {}
-    /**
-     * @return A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
-     * 
-     */
     public List<GetResourceCollectionCloudformation> cloudformations() {
         return this.cloudformations;
     }
-    /**
-     * @return Type of AWS resource collection to create (same value as `type`).
-     * 
-     */
     public String id() {
         return this.id;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
-     * 
-     */
     public List<GetResourceCollectionTag> tags() {
         return this.tags;
     }

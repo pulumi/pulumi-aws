@@ -12,60 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS QuickSight Role Membership.
-//
-// > The role membership APIs are disabled for identities managed by QuickSight. This resource can only be used when the QuickSight account subscription uses the Active Directory or IAM Identity Center authentication method.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewRoleMembership(ctx, "example", &quicksight.RoleMembershipArgs{
-//				MemberName: pulumi.String("example-group"),
-//				Role:       pulumi.String("READER"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import QuickSight Role Membership using a comma-delimited string combining the `aws_account_id`, `namespace`, `role`, and `member_name`. For example:
-//
-// ```sh
-// $ pulumi import aws:quicksight/roleMembership:RoleMembership example 012345678901,default,READER,example-group
-// ```
 type RoleMembership struct {
 	pulumi.CustomResourceState
 
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// Name of the group to be added to the role.
-	MemberName pulumi.StringOutput `pulumi:"memberName"`
-	// Name of the namespace. Defaults to `default`.
-	Namespace pulumi.StringOutput `pulumi:"namespace"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-	//
-	// The following arguments are optional:
-	Role pulumi.StringOutput `pulumi:"role"`
+	MemberName   pulumi.StringOutput `pulumi:"memberName"`
+	Namespace    pulumi.StringOutput `pulumi:"namespace"`
+	Region       pulumi.StringOutput `pulumi:"region"`
+	Role         pulumi.StringOutput `pulumi:"role"`
 }
 
 // NewRoleMembership registers a new resource with the given unique name, arguments, and options.
@@ -105,30 +59,18 @@ func GetRoleMembership(ctx *pulumi.Context,
 // Input properties used for looking up and filtering RoleMembership resources.
 type roleMembershipState struct {
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Name of the group to be added to the role.
-	MemberName *string `pulumi:"memberName"`
-	// Name of the namespace. Defaults to `default`.
-	Namespace *string `pulumi:"namespace"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-	//
-	// The following arguments are optional:
-	Role *string `pulumi:"role"`
+	MemberName   *string `pulumi:"memberName"`
+	Namespace    *string `pulumi:"namespace"`
+	Region       *string `pulumi:"region"`
+	Role         *string `pulumi:"role"`
 }
 
 type RoleMembershipState struct {
 	AwsAccountId pulumi.StringPtrInput
-	// Name of the group to be added to the role.
-	MemberName pulumi.StringPtrInput
-	// Name of the namespace. Defaults to `default`.
-	Namespace pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-	//
-	// The following arguments are optional:
-	Role pulumi.StringPtrInput
+	MemberName   pulumi.StringPtrInput
+	Namespace    pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
+	Role         pulumi.StringPtrInput
 }
 
 func (RoleMembershipState) ElementType() reflect.Type {
@@ -137,31 +79,19 @@ func (RoleMembershipState) ElementType() reflect.Type {
 
 type roleMembershipArgs struct {
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Name of the group to be added to the role.
-	MemberName string `pulumi:"memberName"`
-	// Name of the namespace. Defaults to `default`.
-	Namespace *string `pulumi:"namespace"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-	//
-	// The following arguments are optional:
-	Role string `pulumi:"role"`
+	MemberName   string  `pulumi:"memberName"`
+	Namespace    *string `pulumi:"namespace"`
+	Region       *string `pulumi:"region"`
+	Role         string  `pulumi:"role"`
 }
 
 // The set of arguments for constructing a RoleMembership resource.
 type RoleMembershipArgs struct {
 	AwsAccountId pulumi.StringPtrInput
-	// Name of the group to be added to the role.
-	MemberName pulumi.StringInput
-	// Name of the namespace. Defaults to `default`.
-	Namespace pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-	//
-	// The following arguments are optional:
-	Role pulumi.StringInput
+	MemberName   pulumi.StringInput
+	Namespace    pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
+	Role         pulumi.StringInput
 }
 
 func (RoleMembershipArgs) ElementType() reflect.Type {
@@ -255,24 +185,18 @@ func (o RoleMembershipOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleMembership) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// Name of the group to be added to the role.
 func (o RoleMembershipOutput) MemberName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleMembership) pulumi.StringOutput { return v.MemberName }).(pulumi.StringOutput)
 }
 
-// Name of the namespace. Defaults to `default`.
 func (o RoleMembershipOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleMembership) pulumi.StringOutput { return v.Namespace }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RoleMembershipOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleMembership) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-//
-// The following arguments are optional:
 func (o RoleMembershipOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleMembership) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
 }

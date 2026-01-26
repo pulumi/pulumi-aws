@@ -15,32 +15,16 @@ public final class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs e
 
     public static final FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs Empty = new FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs();
 
-    /**
-     * A configuration block that defines a set of IP addresses. See IP Set below for details.
-     * 
-     */
     @Import(name="ipSet", required=true)
     private Output<FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs> ipSet;
 
-    /**
-     * @return A configuration block that defines a set of IP addresses. See IP Set below for details.
-     * 
-     */
     public Output<FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs> ipSet() {
         return this.ipSet;
     }
 
-    /**
-     * An alphanumeric string to identify the `ipSet`. Valid values: `HOME_NET`
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return An alphanumeric string to identify the `ipSet`. Valid values: `HOME_NET`
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
@@ -70,44 +54,20 @@ public final class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs e
             $ = new FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ipSet A configuration block that defines a set of IP addresses. See IP Set below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipSet(Output<FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs> ipSet) {
             $.ipSet = ipSet;
             return this;
         }
 
-        /**
-         * @param ipSet A configuration block that defines a set of IP addresses. See IP Set below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipSet(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs ipSet) {
             return ipSet(Output.of(ipSet));
         }
 
-        /**
-         * @param key An alphanumeric string to identify the `ipSet`. Valid values: `HOME_NET`
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key An alphanumeric string to identify the `ipSet`. Valid values: `HOME_NET`
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }

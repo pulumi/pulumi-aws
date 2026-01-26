@@ -11,45 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get an Identity Store Group.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/identitystore"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleGetGroup, err := identitystore.LookupGroup(ctx, &identitystore.LookupGroupArgs{
-//				IdentityStoreId: example.IdentityStoreIds[0],
-//				AlternateIdentifier: identitystore.GetGroupAlternateIdentifier{
-//					UniqueAttribute: identitystore.GetGroupAlternateIdentifierUniqueAttribute{
-//						AttributePath:  "DisplayName",
-//						AttributeValue: "ExampleGroup",
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("groupId", exampleGetGroup.GroupId)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.InvokeOption) (*LookupGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGroupResult
@@ -62,30 +23,19 @@ func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getGroup.
 type LookupGroupArgs struct {
-	// A unique identifier for the group that is not the primary identifier. Conflicts with `groupId` and `filter`. Detailed below.
 	AlternateIdentifier *GetGroupAlternateIdentifier `pulumi:"alternateIdentifier"`
-	// The identifier for a group in the Identity Store.
-	//
-	// > Exactly one of the above arguments must be provided. Passing both `filter` and `groupId` is allowed for backwards compatibility.
-	GroupId *string `pulumi:"groupId"`
-	// Identity Store ID associated with the Single Sign-On Instance.
-	//
-	// The following arguments are optional:
-	IdentityStoreId string `pulumi:"identityStoreId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	GroupId             *string                      `pulumi:"groupId"`
+	IdentityStoreId     string                       `pulumi:"identityStoreId"`
+	Region              *string                      `pulumi:"region"`
 }
 
 // A collection of values returned by getGroup.
 type LookupGroupResult struct {
 	AlternateIdentifier *GetGroupAlternateIdentifier `pulumi:"alternateIdentifier"`
-	// Description of the specified group.
-	Description string `pulumi:"description"`
-	// Group's display name value.
-	DisplayName string `pulumi:"displayName"`
-	// List of identifiers issued to this resource by an external identity provider.
-	ExternalIds []GetGroupExternalId `pulumi:"externalIds"`
-	GroupId     string               `pulumi:"groupId"`
+	Description         string                       `pulumi:"description"`
+	DisplayName         string                       `pulumi:"displayName"`
+	ExternalIds         []GetGroupExternalId         `pulumi:"externalIds"`
+	GroupId             string                       `pulumi:"groupId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id              string `pulumi:"id"`
 	IdentityStoreId string `pulumi:"identityStoreId"`
@@ -103,18 +53,10 @@ func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...
 
 // A collection of arguments for invoking getGroup.
 type LookupGroupOutputArgs struct {
-	// A unique identifier for the group that is not the primary identifier. Conflicts with `groupId` and `filter`. Detailed below.
 	AlternateIdentifier GetGroupAlternateIdentifierPtrInput `pulumi:"alternateIdentifier"`
-	// The identifier for a group in the Identity Store.
-	//
-	// > Exactly one of the above arguments must be provided. Passing both `filter` and `groupId` is allowed for backwards compatibility.
-	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
-	// Identity Store ID associated with the Single Sign-On Instance.
-	//
-	// The following arguments are optional:
-	IdentityStoreId pulumi.StringInput `pulumi:"identityStoreId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	GroupId             pulumi.StringPtrInput               `pulumi:"groupId"`
+	IdentityStoreId     pulumi.StringInput                  `pulumi:"identityStoreId"`
+	Region              pulumi.StringPtrInput               `pulumi:"region"`
 }
 
 func (LookupGroupOutputArgs) ElementType() reflect.Type {
@@ -140,17 +82,14 @@ func (o LookupGroupResultOutput) AlternateIdentifier() GetGroupAlternateIdentifi
 	return o.ApplyT(func(v LookupGroupResult) *GetGroupAlternateIdentifier { return v.AlternateIdentifier }).(GetGroupAlternateIdentifierPtrOutput)
 }
 
-// Description of the specified group.
 func (o LookupGroupResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Group's display name value.
 func (o LookupGroupResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// List of identifiers issued to this resource by an external identity provider.
 func (o LookupGroupResultOutput) ExternalIds() GetGroupExternalIdArrayOutput {
 	return o.ApplyT(func(v LookupGroupResult) []GetGroupExternalId { return v.ExternalIds }).(GetGroupExternalIdArrayOutput)
 }

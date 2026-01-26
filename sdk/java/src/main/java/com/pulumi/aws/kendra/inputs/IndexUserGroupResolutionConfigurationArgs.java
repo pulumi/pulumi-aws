@@ -14,17 +14,9 @@ public final class IndexUserGroupResolutionConfigurationArgs extends com.pulumi.
 
     public static final IndexUserGroupResolutionConfigurationArgs Empty = new IndexUserGroupResolutionConfigurationArgs();
 
-    /**
-     * The identity store provider (mode) you want to use to fetch access levels of groups and users. AWS Single Sign-On is currently the only available mode. Your users and groups must exist in an AWS SSO identity source in order to use this mode. Valid Values are `AWS_SSO` or `NONE`.
-     * 
-     */
     @Import(name="userGroupResolutionMode", required=true)
     private Output<String> userGroupResolutionMode;
 
-    /**
-     * @return The identity store provider (mode) you want to use to fetch access levels of groups and users. AWS Single Sign-On is currently the only available mode. Your users and groups must exist in an AWS SSO identity source in order to use this mode. Valid Values are `AWS_SSO` or `NONE`.
-     * 
-     */
     public Output<String> userGroupResolutionMode() {
         return this.userGroupResolutionMode;
     }
@@ -53,23 +45,11 @@ public final class IndexUserGroupResolutionConfigurationArgs extends com.pulumi.
             $ = new IndexUserGroupResolutionConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param userGroupResolutionMode The identity store provider (mode) you want to use to fetch access levels of groups and users. AWS Single Sign-On is currently the only available mode. Your users and groups must exist in an AWS SSO identity source in order to use this mode. Valid Values are `AWS_SSO` or `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userGroupResolutionMode(Output<String> userGroupResolutionMode) {
             $.userGroupResolutionMode = userGroupResolutionMode;
             return this;
         }
 
-        /**
-         * @param userGroupResolutionMode The identity store provider (mode) you want to use to fetch access levels of groups and users. AWS Single Sign-On is currently the only available mode. Your users and groups must exist in an AWS SSO identity source in order to use this mode. Valid Values are `AWS_SSO` or `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userGroupResolutionMode(String userGroupResolutionMode) {
             return userGroupResolutionMode(Output.of(userGroupResolutionMode));
         }

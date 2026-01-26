@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInfrastructureConfigurationLoggingS3Log {
-    /**
-     * @return Name of the S3 Bucket for logging.
-     * 
-     */
     private String s3BucketName;
-    /**
-     * @return Key prefix for S3 Bucket logging.
-     * 
-     */
     private String s3KeyPrefix;
 
     private GetInfrastructureConfigurationLoggingS3Log() {}
-    /**
-     * @return Name of the S3 Bucket for logging.
-     * 
-     */
     public String s3BucketName() {
         return this.s3BucketName;
     }
-    /**
-     * @return Key prefix for S3 Bucket logging.
-     * 
-     */
     public String s3KeyPrefix() {
         return this.s3KeyPrefix;
     }

@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ScheduleTargetEventbridgeParameters {
-    /**
-     * @return Free-form string used to decide what fields to expect in the event detail. Up to 128 characters.
-     * 
-     */
     private String detailType;
-    /**
-     * @return Source of the event.
-     * 
-     */
     private String source;
 
     private ScheduleTargetEventbridgeParameters() {}
-    /**
-     * @return Free-form string used to decide what fields to expect in the event detail. Up to 128 characters.
-     * 
-     */
     public String detailType() {
         return this.detailType;
     }
-    /**
-     * @return Source of the event.
-     * 
-     */
     public String source() {
         return this.source;
     }

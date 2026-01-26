@@ -16,74 +16,11 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Use the `awsKendraIndexBlockList` resource to manage an AWS Kendra block list used for query suggestions for an index.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kendra.QuerySuggestionsBlockList;
- * import com.pulumi.aws.kendra.QuerySuggestionsBlockListArgs;
- * import com.pulumi.aws.kendra.inputs.QuerySuggestionsBlockListSourceS3PathArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new QuerySuggestionsBlockList("example", QuerySuggestionsBlockListArgs.builder()
- *             .indexId(exampleAwsKendraIndex.id())
- *             .name("Example")
- *             .roleArn(exampleAwsIamRole.arn())
- *             .sourceS3Path(QuerySuggestionsBlockListSourceS3PathArgs.builder()
- *                 .bucket(exampleAwsS3Bucket.id())
- *                 .key("example/suggestions.txt")
- *                 .build())
- *             .tags(Map.of("Name", "Example Kendra Index"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import the `aws_kendra_query_suggestions_block_list` resource using the unique identifiers of the block list and index separated by a slash (`/`). For example:
- * 
- * ```sh
- * $ pulumi import aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList example blocklist-123456780/idx-8012925589
- * ```
- * 
- */
 @ResourceType(type="aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList")
 public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the block list.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the block list.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -93,45 +30,21 @@ public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResour
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Identifier of the index for a block list.
-     * 
-     */
     @Export(name="indexId", refs={String.class}, tree="[0]")
     private Output<String> indexId;
 
-    /**
-     * @return Identifier of the index for a block list.
-     * 
-     */
     public Output<String> indexId() {
         return this.indexId;
     }
-    /**
-     * Name for the block list.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name for the block list.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Unique identifier of the block list.
-     * 
-     */
     @Export(name="querySuggestionsBlockListId", refs={String.class}, tree="[0]")
     private Output<String> querySuggestionsBlockListId;
 
-    /**
-     * @return Unique identifier of the block list.
-     * 
-     */
     public Output<String> querySuggestionsBlockListId() {
         return this.querySuggestionsBlockListId;
     }
@@ -141,31 +54,15 @@ public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResour
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * IAM (Identity and Access Management) role used to access the block list text file in S3.
-     * 
-     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
-    /**
-     * @return IAM (Identity and Access Management) role used to access the block list text file in S3.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
-    /**
-     * S3 path where your block list text file is located. See details below.
-     * 
-     */
     @Export(name="sourceS3Path", refs={QuerySuggestionsBlockListSourceS3Path.class}, tree="[0]")
     private Output<QuerySuggestionsBlockListSourceS3Path> sourceS3Path;
 
-    /**
-     * @return S3 path where your block list text file is located. See details below.
-     * 
-     */
     public Output<QuerySuggestionsBlockListSourceS3Path> sourceS3Path() {
         return this.sourceS3Path;
     }
@@ -181,17 +78,9 @@ public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResour
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider&#39;s defaultTags configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider&#39;s defaultTags configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

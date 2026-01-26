@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EndpointClientLoginBannerOptions {
-    /**
-     * @return Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
-     * 
-     */
     private @Nullable String bannerText;
-    /**
-     * @return Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
-     * 
-     */
     private @Nullable Boolean enabled;
 
     private EndpointClientLoginBannerOptions() {}
-    /**
-     * @return Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
-     * 
-     */
     public Optional<String> bannerText() {
         return Optional.ofNullable(this.bannerText);
     }
-    /**
-     * @return Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }

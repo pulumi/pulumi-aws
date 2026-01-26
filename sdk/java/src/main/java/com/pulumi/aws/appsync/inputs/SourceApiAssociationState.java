@@ -18,107 +18,51 @@ public final class SourceApiAssociationState extends com.pulumi.resources.Resour
 
     public static final SourceApiAssociationState Empty = new SourceApiAssociationState();
 
-    /**
-     * ARN of the Source API Association.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the Source API Association.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * ID of the Source API Association.
-     * 
-     */
     @Import(name="associationId")
     private @Nullable Output<String> associationId;
 
-    /**
-     * @return ID of the Source API Association.
-     * 
-     */
     public Optional<Output<String>> associationId() {
         return Optional.ofNullable(this.associationId);
     }
 
-    /**
-     * Description of the source API being merged.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the source API being merged.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * ARN of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
-     * 
-     */
     @Import(name="mergedApiArn")
     private @Nullable Output<String> mergedApiArn;
 
-    /**
-     * @return ARN of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
-     * 
-     */
     public Optional<Output<String>> mergedApiArn() {
         return Optional.ofNullable(this.mergedApiArn);
     }
 
-    /**
-     * ID of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
-     * 
-     */
     @Import(name="mergedApiId")
     private @Nullable Output<String> mergedApiId;
 
-    /**
-     * @return ID of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
-     * 
-     */
     public Optional<Output<String>> mergedApiId() {
         return Optional.ofNullable(this.mergedApiId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
-     * 
-     */
     @Import(name="sourceApiArn")
     private @Nullable Output<String> sourceApiArn;
 
-    /**
-     * @return ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
-     * 
-     */
     public Optional<Output<String>> sourceApiArn() {
         return Optional.ofNullable(this.sourceApiArn);
     }
@@ -130,17 +74,9 @@ public final class SourceApiAssociationState extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.sourceApiAssociationConfigs);
     }
 
-    /**
-     * ID of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
-     * 
-     */
     @Import(name="sourceApiId")
     private @Nullable Output<String> sourceApiId;
 
-    /**
-     * @return ID of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
-     * 
-     */
     public Optional<Output<String>> sourceApiId() {
         return Optional.ofNullable(this.sourceApiId);
     }
@@ -185,149 +121,65 @@ public final class SourceApiAssociationState extends com.pulumi.resources.Resour
             $ = new SourceApiAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the Source API Association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the Source API Association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param associationId ID of the Source API Association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder associationId(@Nullable Output<String> associationId) {
             $.associationId = associationId;
             return this;
         }
 
-        /**
-         * @param associationId ID of the Source API Association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder associationId(String associationId) {
             return associationId(Output.of(associationId));
         }
 
-        /**
-         * @param description Description of the source API being merged.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the source API being merged.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param mergedApiArn ARN of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mergedApiArn(@Nullable Output<String> mergedApiArn) {
             $.mergedApiArn = mergedApiArn;
             return this;
         }
 
-        /**
-         * @param mergedApiArn ARN of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mergedApiArn(String mergedApiArn) {
             return mergedApiArn(Output.of(mergedApiArn));
         }
 
-        /**
-         * @param mergedApiId ID of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mergedApiId(@Nullable Output<String> mergedApiId) {
             $.mergedApiId = mergedApiId;
             return this;
         }
 
-        /**
-         * @param mergedApiId ID of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mergedApiId(String mergedApiId) {
             return mergedApiId(Output.of(mergedApiId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param sourceApiArn ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceApiArn(@Nullable Output<String> sourceApiArn) {
             $.sourceApiArn = sourceApiArn;
             return this;
         }
 
-        /**
-         * @param sourceApiArn ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceApiArn(String sourceApiArn) {
             return sourceApiArn(Output.of(sourceApiArn));
         }
@@ -345,23 +197,11 @@ public final class SourceApiAssociationState extends com.pulumi.resources.Resour
             return sourceApiAssociationConfigs(List.of(sourceApiAssociationConfigs));
         }
 
-        /**
-         * @param sourceApiId ID of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceApiId(@Nullable Output<String> sourceApiId) {
             $.sourceApiId = sourceApiId;
             return this;
         }
 
-        /**
-         * @param sourceApiId ID of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceApiId(String sourceApiId) {
             return sourceApiId(Output.of(sourceApiId));
         }

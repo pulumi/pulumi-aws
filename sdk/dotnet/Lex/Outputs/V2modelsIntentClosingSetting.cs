@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsIntentClosingSetting
     {
-        /// <summary>
-        /// Whether an intent's closing response is used. When this field is false, the closing response isn't sent to the user. If the active field isn't specified, the default is true.
-        /// </summary>
         public readonly bool? Active;
-        /// <summary>
-        /// Configuration block for response that Amazon Lex sends to the user when the intent is complete. See `ClosingResponse`.
-        /// </summary>
         public readonly Outputs.V2modelsIntentClosingSettingClosingResponse? ClosingResponse;
-        /// <summary>
-        /// Configuration block for list of conditional branches associated with the intent's closing response. These branches are executed when the `NextStep` attribute is set to `EvalutateConditional`. See `Conditional`.
-        /// </summary>
         public readonly Outputs.V2modelsIntentClosingSettingConditional? Conditional;
-        /// <summary>
-        /// Next step that the bot executes after playing the intent's closing response. See `NextStep`.
-        /// </summary>
         public readonly Outputs.V2modelsIntentClosingSettingNextStep? NextStep;
 
         [OutputConstructor]

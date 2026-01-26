@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS Service Catalog AppRegistry Attribute Group.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicecatalog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.LookupAppregistryAttributeGroup(ctx, &servicecatalog.LookupAppregistryAttributeGroupArgs{
-//				Name: pulumi.StringRef("example_attribute_group"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupAppregistryAttributeGroup(ctx *pulumi.Context, args *LookupAppregistryAttributeGroupArgs, opts ...pulumi.InvokeOption) (*LookupAppregistryAttributeGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAppregistryAttributeGroupResult
@@ -52,29 +23,21 @@ func LookupAppregistryAttributeGroup(ctx *pulumi.Context, args *LookupAppregistr
 
 // A collection of arguments for invoking getAppregistryAttributeGroup.
 type LookupAppregistryAttributeGroupArgs struct {
-	// ARN of the Attribute Group to find.
-	Arn *string `pulumi:"arn"`
-	// ID of the Attribute Group to find.
-	Id *string `pulumi:"id"`
-	// Name of the Attribute Group to find.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// > Exactly one of `arn`, `id`, or `name` must be set.
+	Arn    *string `pulumi:"arn"`
+	Id     *string `pulumi:"id"`
+	Name   *string `pulumi:"name"`
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getAppregistryAttributeGroup.
 type LookupAppregistryAttributeGroupResult struct {
-	Arn string `pulumi:"arn"`
-	// A JSON string of nested key-value pairs that represents the attributes of the group.
-	Attributes string `pulumi:"attributes"`
-	// Description of the Attribute Group.
-	Description string `pulumi:"description"`
-	Id          string `pulumi:"id"`
-	Name        string `pulumi:"name"`
-	Region      string `pulumi:"region"`
-	// A map of tags assigned to the Attribute Group. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Arn         string            `pulumi:"arn"`
+	Attributes  string            `pulumi:"attributes"`
+	Description string            `pulumi:"description"`
+	Id          string            `pulumi:"id"`
+	Name        string            `pulumi:"name"`
+	Region      string            `pulumi:"region"`
+	Tags        map[string]string `pulumi:"tags"`
 }
 
 func LookupAppregistryAttributeGroupOutput(ctx *pulumi.Context, args LookupAppregistryAttributeGroupOutputArgs, opts ...pulumi.InvokeOption) LookupAppregistryAttributeGroupResultOutput {
@@ -88,14 +51,9 @@ func LookupAppregistryAttributeGroupOutput(ctx *pulumi.Context, args LookupAppre
 
 // A collection of arguments for invoking getAppregistryAttributeGroup.
 type LookupAppregistryAttributeGroupOutputArgs struct {
-	// ARN of the Attribute Group to find.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// ID of the Attribute Group to find.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Name of the Attribute Group to find.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// > Exactly one of `arn`, `id`, or `name` must be set.
+	Arn    pulumi.StringPtrInput `pulumi:"arn"`
+	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -122,12 +80,10 @@ func (o LookupAppregistryAttributeGroupResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAppregistryAttributeGroupResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A JSON string of nested key-value pairs that represents the attributes of the group.
 func (o LookupAppregistryAttributeGroupResultOutput) Attributes() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAppregistryAttributeGroupResult) string { return v.Attributes }).(pulumi.StringOutput)
 }
 
-// Description of the Attribute Group.
 func (o LookupAppregistryAttributeGroupResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAppregistryAttributeGroupResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -144,7 +100,6 @@ func (o LookupAppregistryAttributeGroupResultOutput) Region() pulumi.StringOutpu
 	return o.ApplyT(func(v LookupAppregistryAttributeGroupResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags assigned to the Attribute Group. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o LookupAppregistryAttributeGroupResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupAppregistryAttributeGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -16,47 +16,23 @@ public final class PackageState extends com.pulumi.resources.ResourceArgs {
 
     public static final PackageState Empty = new PackageState();
 
-    /**
-     * The current version of the package.
-     * 
-     */
     @Import(name="availablePackageVersion")
     private @Nullable Output<String> availablePackageVersion;
 
-    /**
-     * @return The current version of the package.
-     * 
-     */
     public Optional<Output<String>> availablePackageVersion() {
         return Optional.ofNullable(this.availablePackageVersion);
     }
 
-    /**
-     * Engine version that the package is compatible with. This argument is required and only valid when `packageType` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
-     * 
-     */
     @Import(name="engineVersion")
     private @Nullable Output<String> engineVersion;
 
-    /**
-     * @return Engine version that the package is compatible with. This argument is required and only valid when `packageType` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
-     * 
-     */
     public Optional<Output<String>> engineVersion() {
         return Optional.ofNullable(this.engineVersion);
     }
 
-    /**
-     * Description of the package.
-     * 
-     */
     @Import(name="packageDescription")
     private @Nullable Output<String> packageDescription;
 
-    /**
-     * @return Description of the package.
-     * 
-     */
     public Optional<Output<String>> packageDescription() {
         return Optional.ofNullable(this.packageDescription);
     }
@@ -68,62 +44,30 @@ public final class PackageState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.packageId);
     }
 
-    /**
-     * Unique name for the package.
-     * 
-     */
     @Import(name="packageName")
     private @Nullable Output<String> packageName;
 
-    /**
-     * @return Unique name for the package.
-     * 
-     */
     public Optional<Output<String>> packageName() {
         return Optional.ofNullable(this.packageName);
     }
 
-    /**
-     * Configuration block for the package source options.
-     * 
-     */
     @Import(name="packageSource")
     private @Nullable Output<PackagePackageSourceArgs> packageSource;
 
-    /**
-     * @return Configuration block for the package source options.
-     * 
-     */
     public Optional<Output<PackagePackageSourceArgs>> packageSource() {
         return Optional.ofNullable(this.packageSource);
     }
 
-    /**
-     * The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
-     * 
-     */
     @Import(name="packageType")
     private @Nullable Output<String> packageType;
 
-    /**
-     * @return The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
-     * 
-     */
     public Optional<Output<String>> packageType() {
         return Optional.ofNullable(this.packageType);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -159,65 +103,29 @@ public final class PackageState extends com.pulumi.resources.ResourceArgs {
             $ = new PackageState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param availablePackageVersion The current version of the package.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availablePackageVersion(@Nullable Output<String> availablePackageVersion) {
             $.availablePackageVersion = availablePackageVersion;
             return this;
         }
 
-        /**
-         * @param availablePackageVersion The current version of the package.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availablePackageVersion(String availablePackageVersion) {
             return availablePackageVersion(Output.of(availablePackageVersion));
         }
 
-        /**
-         * @param engineVersion Engine version that the package is compatible with. This argument is required and only valid when `packageType` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
-         * 
-         * @return builder
-         * 
-         */
         public Builder engineVersion(@Nullable Output<String> engineVersion) {
             $.engineVersion = engineVersion;
             return this;
         }
 
-        /**
-         * @param engineVersion Engine version that the package is compatible with. This argument is required and only valid when `packageType` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
-         * 
-         * @return builder
-         * 
-         */
         public Builder engineVersion(String engineVersion) {
             return engineVersion(Output.of(engineVersion));
         }
 
-        /**
-         * @param packageDescription Description of the package.
-         * 
-         * @return builder
-         * 
-         */
         public Builder packageDescription(@Nullable Output<String> packageDescription) {
             $.packageDescription = packageDescription;
             return this;
         }
 
-        /**
-         * @param packageDescription Description of the package.
-         * 
-         * @return builder
-         * 
-         */
         public Builder packageDescription(String packageDescription) {
             return packageDescription(Output.of(packageDescription));
         }
@@ -231,86 +139,38 @@ public final class PackageState extends com.pulumi.resources.ResourceArgs {
             return packageId(Output.of(packageId));
         }
 
-        /**
-         * @param packageName Unique name for the package.
-         * 
-         * @return builder
-         * 
-         */
         public Builder packageName(@Nullable Output<String> packageName) {
             $.packageName = packageName;
             return this;
         }
 
-        /**
-         * @param packageName Unique name for the package.
-         * 
-         * @return builder
-         * 
-         */
         public Builder packageName(String packageName) {
             return packageName(Output.of(packageName));
         }
 
-        /**
-         * @param packageSource Configuration block for the package source options.
-         * 
-         * @return builder
-         * 
-         */
         public Builder packageSource(@Nullable Output<PackagePackageSourceArgs> packageSource) {
             $.packageSource = packageSource;
             return this;
         }
 
-        /**
-         * @param packageSource Configuration block for the package source options.
-         * 
-         * @return builder
-         * 
-         */
         public Builder packageSource(PackagePackageSourceArgs packageSource) {
             return packageSource(Output.of(packageSource));
         }
 
-        /**
-         * @param packageType The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder packageType(@Nullable Output<String> packageType) {
             $.packageType = packageType;
             return this;
         }
 
-        /**
-         * @param packageType The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder packageType(String packageType) {
             return packageType(Output.of(packageType));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

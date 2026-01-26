@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleActionChallengeCustomRequestHandling {
-    /**
-     * @return The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
-     * 
-     */
     private List<WebAclRuleActionChallengeCustomRequestHandlingInsertHeader> insertHeaders;
 
     private WebAclRuleActionChallengeCustomRequestHandling() {}
-    /**
-     * @return The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
-     * 
-     */
     public List<WebAclRuleActionChallengeCustomRequestHandlingInsertHeader> insertHeaders() {
         return this.insertHeaders;
     }

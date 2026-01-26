@@ -14,32 +14,16 @@ public final class GetTaskExecutionOverridesContainerOverrideEnvironmentArgs ext
 
     public static final GetTaskExecutionOverridesContainerOverrideEnvironmentArgs Empty = new GetTaskExecutionOverridesContainerOverrideEnvironmentArgs();
 
-    /**
-     * The name of the key-value pair. For environment variables, this is the name of the environment variable.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return The name of the key-value pair. For environment variables, this is the name of the environment variable.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * The value of the key-value pair. For environment variables, this is the value of the environment variable.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return The value of the key-value pair. For environment variables, this is the value of the environment variable.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -69,44 +53,20 @@ public final class GetTaskExecutionOverridesContainerOverrideEnvironmentArgs ext
             $ = new GetTaskExecutionOverridesContainerOverrideEnvironmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key The name of the key-value pair. For environment variables, this is the name of the environment variable.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key The name of the key-value pair. For environment variables, this is the name of the environment variable.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param value The value of the key-value pair. For environment variables, this is the value of the environment variable.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value The value of the key-value pair. For environment variables, this is the value of the environment variable.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

@@ -7,43 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS MediaLive Input.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.medialive.InputSecurityGroup("example", {
- *     whitelistRules: [{
- *         cidr: "10.0.0.8/32",
- *     }],
- *     tags: {
- *         ENVIRONMENT: "prod",
- *     },
- * });
- * const exampleInput = new aws.medialive.Input("example", {
- *     name: "example-input",
- *     inputSecurityGroups: [example.id],
- *     type: "UDP_PUSH",
- *     tags: {
- *         ENVIRONMENT: "prod",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import MediaLive Input using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:medialive/input:Input example 12345678
- * ```
- */
 export class Input extends pulumi.CustomResource {
     /**
      * Get an existing Input resource's state with the given name, ID, and optional extra
@@ -72,72 +35,22 @@ export class Input extends pulumi.CustomResource {
         return obj['__pulumiType'] === Input.__pulumiType;
     }
 
-    /**
-     * ARN of the Input.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Channels attached to Input.
-     */
     declare public /*out*/ readonly attachedChannels: pulumi.Output<string[]>;
-    /**
-     * Destination settings for PUSH type inputs. See Destinations for more details.
-     */
     declare public readonly destinations: pulumi.Output<outputs.medialive.InputDestination[] | undefined>;
-    /**
-     * The input class.
-     */
     declare public /*out*/ readonly inputClass: pulumi.Output<string>;
-    /**
-     * Settings for the devices. See Input Devices for more details.
-     */
     declare public readonly inputDevices: pulumi.Output<outputs.medialive.InputInputDevice[]>;
-    /**
-     * A list of IDs for all Inputs which are partners of this one.
-     */
     declare public /*out*/ readonly inputPartnerIds: pulumi.Output<string[]>;
-    /**
-     * List of input security groups.
-     */
     declare public readonly inputSecurityGroups: pulumi.Output<string[] | undefined>;
-    /**
-     * Source type of the input.
-     */
     declare public /*out*/ readonly inputSourceType: pulumi.Output<string>;
-    /**
-     * A list of the MediaConnect Flows. See Media Connect Flows for more details.
-     */
     declare public readonly mediaConnectFlows: pulumi.Output<outputs.medialive.InputMediaConnectFlow[]>;
-    /**
-     * Name of the input.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The ARN of the role this input assumes during and after creation.
-     */
     declare public readonly roleArn: pulumi.Output<string>;
-    /**
-     * The source URLs for a PULL-type input. See Sources for more details.
-     */
     declare public readonly sources: pulumi.Output<outputs.medialive.InputSource[]>;
-    /**
-     * A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The different types of inputs that AWS Elemental MediaLive supports.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly type: pulumi.Output<string>;
-    /**
-     * Settings for a private VPC Input. See VPC for more details.
-     */
     declare public readonly vpc: pulumi.Output<outputs.medialive.InputVpc | undefined>;
 
     /**
@@ -202,72 +115,22 @@ export class Input extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Input resources.
  */
 export interface InputState {
-    /**
-     * ARN of the Input.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Channels attached to Input.
-     */
     attachedChannels?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Destination settings for PUSH type inputs. See Destinations for more details.
-     */
     destinations?: pulumi.Input<pulumi.Input<inputs.medialive.InputDestination>[]>;
-    /**
-     * The input class.
-     */
     inputClass?: pulumi.Input<string>;
-    /**
-     * Settings for the devices. See Input Devices for more details.
-     */
     inputDevices?: pulumi.Input<pulumi.Input<inputs.medialive.InputInputDevice>[]>;
-    /**
-     * A list of IDs for all Inputs which are partners of this one.
-     */
     inputPartnerIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * List of input security groups.
-     */
     inputSecurityGroups?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Source type of the input.
-     */
     inputSourceType?: pulumi.Input<string>;
-    /**
-     * A list of the MediaConnect Flows. See Media Connect Flows for more details.
-     */
     mediaConnectFlows?: pulumi.Input<pulumi.Input<inputs.medialive.InputMediaConnectFlow>[]>;
-    /**
-     * Name of the input.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ARN of the role this input assumes during and after creation.
-     */
     roleArn?: pulumi.Input<string>;
-    /**
-     * The source URLs for a PULL-type input. See Sources for more details.
-     */
     sources?: pulumi.Input<pulumi.Input<inputs.medialive.InputSource>[]>;
-    /**
-     * A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The different types of inputs that AWS Elemental MediaLive supports.
-     *
-     * The following arguments are optional:
-     */
     type?: pulumi.Input<string>;
-    /**
-     * Settings for a private VPC Input. See VPC for more details.
-     */
     vpc?: pulumi.Input<inputs.medialive.InputVpc>;
 }
 
@@ -275,50 +138,15 @@ export interface InputState {
  * The set of arguments for constructing a Input resource.
  */
 export interface InputArgs {
-    /**
-     * Destination settings for PUSH type inputs. See Destinations for more details.
-     */
     destinations?: pulumi.Input<pulumi.Input<inputs.medialive.InputDestination>[]>;
-    /**
-     * Settings for the devices. See Input Devices for more details.
-     */
     inputDevices?: pulumi.Input<pulumi.Input<inputs.medialive.InputInputDevice>[]>;
-    /**
-     * List of input security groups.
-     */
     inputSecurityGroups?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A list of the MediaConnect Flows. See Media Connect Flows for more details.
-     */
     mediaConnectFlows?: pulumi.Input<pulumi.Input<inputs.medialive.InputMediaConnectFlow>[]>;
-    /**
-     * Name of the input.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ARN of the role this input assumes during and after creation.
-     */
     roleArn?: pulumi.Input<string>;
-    /**
-     * The source URLs for a PULL-type input. See Sources for more details.
-     */
     sources?: pulumi.Input<pulumi.Input<inputs.medialive.InputSource>[]>;
-    /**
-     * A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The different types of inputs that AWS Elemental MediaLive supports.
-     *
-     * The following arguments are optional:
-     */
     type: pulumi.Input<string>;
-    /**
-     * Settings for a private VPC Input. See VPC for more details.
-     */
     vpc?: pulumi.Input<inputs.medialive.InputVpc>;
 }

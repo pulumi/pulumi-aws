@@ -19,187 +19,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Network Flow Monitor Monitor.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.networkflowmonitor.Monitor;
- * import com.pulumi.aws.networkflowmonitor.MonitorArgs;
- * import com.pulumi.aws.networkflowmonitor.inputs.MonitorLocalResourceArgs;
- * import com.pulumi.aws.networkflowmonitor.inputs.MonitorRemoteResourceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Vpc("example", VpcArgs.builder()
- *             .cidrBlock("10.0.0.0/16")
- *             .tags(Map.of("Name", "example"))
- *             .build());
- * 
- *         var exampleMonitor = new Monitor("exampleMonitor", MonitorArgs.builder()
- *             .monitorName("example-monitor")
- *             .scopeArn(exampleAwsNetworkflowmonitorScope.scopeArn())
- *             .localResources(MonitorLocalResourceArgs.builder()
- *                 .type("AWS::EC2::VPC")
- *                 .identifier(example.arn())
- *                 .build())
- *             .remoteResources(MonitorRemoteResourceArgs.builder()
- *                 .type("AWS::EC2::VPC")
- *                 .identifier(example.arn())
- *                 .build())
- *             .tags(Map.of("Name", "example"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Network Flow Monitor Monitor using the monitor name. For example:
- * 
- * ```sh
- * $ pulumi import aws:networkflowmonitor/monitor:Monitor example example-monitor
- * ```
- * 
- */
 @ResourceType(type="aws:networkflowmonitor/monitor:Monitor")
 public class Monitor extends com.pulumi.resources.CustomResource {
-    /**
-     * The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
-     * 
-     */
     @Export(name="localResources", refs={List.class,MonitorLocalResource.class}, tree="[0,1]")
     private Output</* @Nullable */ List<MonitorLocalResource>> localResources;
 
-    /**
-     * @return The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
-     * 
-     */
     public Output<Optional<List<MonitorLocalResource>>> localResources() {
         return Codegen.optional(this.localResources);
     }
-    /**
-     * The Amazon Resource Name (ARN) of the monitor.
-     * 
-     */
     @Export(name="monitorArn", refs={String.class}, tree="[0]")
     private Output<String> monitorArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the monitor.
-     * 
-     */
     public Output<String> monitorArn() {
         return this.monitorArn;
     }
-    /**
-     * The name of the monitor. Cannot be changed after creation.
-     * 
-     */
     @Export(name="monitorName", refs={String.class}, tree="[0]")
     private Output<String> monitorName;
 
-    /**
-     * @return The name of the monitor. Cannot be changed after creation.
-     * 
-     */
     public Output<String> monitorName() {
         return this.monitorName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The remote resources to monitor. A remote resource is the other endpoint specified for the network flow of a workload, with a local resource.
-     * 
-     */
     @Export(name="remoteResources", refs={List.class,MonitorRemoteResource.class}, tree="[0,1]")
     private Output</* @Nullable */ List<MonitorRemoteResource>> remoteResources;
 
-    /**
-     * @return The remote resources to monitor. A remote resource is the other endpoint specified for the network flow of a workload, with a local resource.
-     * 
-     */
     public Output<Optional<List<MonitorRemoteResource>>> remoteResources() {
         return Codegen.optional(this.remoteResources);
     }
-    /**
-     * The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="scopeArn", refs={String.class}, tree="[0]")
     private Output<String> scopeArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> scopeArn() {
         return this.scopeArn;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

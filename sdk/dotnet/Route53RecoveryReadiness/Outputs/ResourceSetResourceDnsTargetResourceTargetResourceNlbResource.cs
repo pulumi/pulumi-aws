@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Route53RecoveryReadiness.Outputs
     [OutputType]
     public sealed class ResourceSetResourceDnsTargetResourceTargetResourceNlbResource
     {
-        /// <summary>
-        /// NLB resource ARN.
-        /// </summary>
         public readonly string? Arn;
 
         [OutputConstructor]

@@ -19,47 +19,23 @@ public final class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRul
 
     public static final GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionArgs Empty = new GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionArgs();
 
-    /**
-     * Block defining the action to take when conditions match. Detailed below.
-     * 
-     */
     @Import(name="action", required=true)
     private Output<GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionArgs> action;
 
-    /**
-     * @return Block defining the action to take when conditions match. Detailed below.
-     * 
-     */
     public Output<GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionArgs> action() {
         return this.action;
     }
 
-    /**
-     * Logic to apply when multiple match conditions are present. Valid values: `and`, `or`.
-     * 
-     */
     @Import(name="conditionLogic")
     private @Nullable Output<String> conditionLogic;
 
-    /**
-     * @return Logic to apply when multiple match conditions are present. Valid values: `and`, `or`.
-     * 
-     */
     public Optional<Output<String>> conditionLogic() {
         return Optional.ofNullable(this.conditionLogic);
     }
 
-    /**
-     * List of conditions to match against routes. Detailed below.
-     * 
-     */
     @Import(name="matchConditions")
     private @Nullable Output<List<GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArgs>> matchConditions;
 
-    /**
-     * @return List of conditions to match against routes. Detailed below.
-     * 
-     */
     public Optional<Output<List<GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArgs>>> matchConditions() {
         return Optional.ofNullable(this.matchConditions);
     }
@@ -90,75 +66,33 @@ public final class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRul
             $ = new GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param action Block defining the action to take when conditions match. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(Output<GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionArgs> action) {
             $.action = action;
             return this;
         }
 
-        /**
-         * @param action Block defining the action to take when conditions match. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionArgs action) {
             return action(Output.of(action));
         }
 
-        /**
-         * @param conditionLogic Logic to apply when multiple match conditions are present. Valid values: `and`, `or`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditionLogic(@Nullable Output<String> conditionLogic) {
             $.conditionLogic = conditionLogic;
             return this;
         }
 
-        /**
-         * @param conditionLogic Logic to apply when multiple match conditions are present. Valid values: `and`, `or`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditionLogic(String conditionLogic) {
             return conditionLogic(Output.of(conditionLogic));
         }
 
-        /**
-         * @param matchConditions List of conditions to match against routes. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder matchConditions(@Nullable Output<List<GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArgs>> matchConditions) {
             $.matchConditions = matchConditions;
             return this;
         }
 
-        /**
-         * @param matchConditions List of conditions to match against routes. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder matchConditions(List<GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArgs> matchConditions) {
             return matchConditions(Output.of(matchConditions));
         }
 
-        /**
-         * @param matchConditions List of conditions to match against routes. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder matchConditions(GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArgs... matchConditions) {
             return matchConditions(List.of(matchConditions));
         }

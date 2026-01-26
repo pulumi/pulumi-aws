@@ -17,10 +17,6 @@ public final class GetNodeGroupsResult {
      * 
      */
     private String id;
-    /**
-     * @return Set of all node group names in an EKS Cluster.
-     * 
-     */
     private List<String> names;
     private String region;
 
@@ -35,10 +31,6 @@ public final class GetNodeGroupsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Set of all node group names in an EKS Cluster.
-     * 
-     */
     public List<String> names() {
         return this.names;
     }

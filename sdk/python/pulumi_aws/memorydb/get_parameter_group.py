@@ -56,25 +56,16 @@ class GetParameterGroupResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the parameter group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the parameter group.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def family(self) -> _builtins.str:
-        """
-        Engine version that the parameter group can be used with.
-        """
         return pulumi.get(self, "family")
 
     @_builtins.property
@@ -88,17 +79,11 @@ class GetParameterGroupResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the parameter.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Sequence['outputs.GetParameterGroupParameterResult']:
-        """
-        Set of user-defined MemoryDB parameters applied by the parameter group.
-        """
         return pulumi.get(self, "parameters")
 
     @_builtins.property
@@ -109,9 +94,6 @@ class GetParameterGroupResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags assigned to the parameter group.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -136,21 +118,7 @@ def get_parameter_group(name: Optional[_builtins.str] = None,
                         tags: Optional[Mapping[str, _builtins.str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetParameterGroupResult:
     """
-    Provides information about a MemoryDB Parameter Group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.memorydb.get_parameter_group(name="my-parameter-group")
-    ```
-
-
-    :param _builtins.str name: Name of the parameter group.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the parameter group.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -173,21 +141,7 @@ def get_parameter_group_output(name: Optional[pulumi.Input[_builtins.str]] = Non
                                tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetParameterGroupResult]:
     """
-    Provides information about a MemoryDB Parameter Group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.memorydb.get_parameter_group(name="my-parameter-group")
-    ```
-
-
-    :param _builtins.str name: Name of the parameter group.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the parameter group.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

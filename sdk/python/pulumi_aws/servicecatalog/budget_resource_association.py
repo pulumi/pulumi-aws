@@ -24,9 +24,6 @@ class BudgetResourceAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BudgetResourceAssociation resource.
-        :param pulumi.Input[_builtins.str] budget_name: Budget name.
-        :param pulumi.Input[_builtins.str] resource_id: Resource identifier.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "budget_name", budget_name)
         pulumi.set(__self__, "resource_id", resource_id)
@@ -36,9 +33,6 @@ class BudgetResourceAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="budgetName")
     def budget_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Budget name.
-        """
         return pulumi.get(self, "budget_name")
 
     @budget_name.setter
@@ -48,9 +42,6 @@ class BudgetResourceAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Resource identifier.
-        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -60,9 +51,6 @@ class BudgetResourceAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -78,9 +66,6 @@ class _BudgetResourceAssociationState:
                  resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BudgetResourceAssociation resources.
-        :param pulumi.Input[_builtins.str] budget_name: Budget name.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_id: Resource identifier.
         """
         if budget_name is not None:
             pulumi.set(__self__, "budget_name", budget_name)
@@ -92,9 +77,6 @@ class _BudgetResourceAssociationState:
     @_builtins.property
     @pulumi.getter(name="budgetName")
     def budget_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Budget name.
-        """
         return pulumi.get(self, "budget_name")
 
     @budget_name.setter
@@ -104,9 +86,6 @@ class _BudgetResourceAssociationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -116,9 +95,6 @@ class _BudgetResourceAssociationState:
     @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Resource identifier.
-        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -137,36 +113,9 @@ class BudgetResourceAssociation(pulumi.CustomResource):
                  resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages a Service Catalog Budget Resource Association.
-
-        > **Tip:** A "resource" is either a Service Catalog portfolio or product.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicecatalog.BudgetResourceAssociation("example",
-            budget_name="budget-pjtvyakdlyo3m",
-            resource_id="prod-dnigbtea24ste")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_servicecatalog_budget_resource_association` using the budget name and resource ID. For example:
-
-        ```sh
-        $ pulumi import aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation example budget-pjtvyakdlyo3m:prod-dnigbtea24ste
-        ```
-
+        Create a BudgetResourceAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] budget_name: Budget name.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_id: Resource identifier.
         """
         ...
     @overload
@@ -175,31 +124,7 @@ class BudgetResourceAssociation(pulumi.CustomResource):
                  args: BudgetResourceAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Service Catalog Budget Resource Association.
-
-        > **Tip:** A "resource" is either a Service Catalog portfolio or product.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicecatalog.BudgetResourceAssociation("example",
-            budget_name="budget-pjtvyakdlyo3m",
-            resource_id="prod-dnigbtea24ste")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_servicecatalog_budget_resource_association` using the budget name and resource ID. For example:
-
-        ```sh
-        $ pulumi import aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation example budget-pjtvyakdlyo3m:prod-dnigbtea24ste
-        ```
-
+        Create a BudgetResourceAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param BudgetResourceAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -254,9 +179,6 @@ class BudgetResourceAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] budget_name: Budget name.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_id: Resource identifier.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -270,24 +192,15 @@ class BudgetResourceAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="budgetName")
     def budget_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Budget name.
-        """
         return pulumi.get(self, "budget_name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Resource identifier.
-        """
         return pulumi.get(self, "resource_id")
 

@@ -26,11 +26,6 @@ class ConfigurationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Configuration resource.
-        :param pulumi.Input[_builtins.str] server_properties: Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
-        :param pulumi.Input[_builtins.str] description: Description of the configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] kafka_versions: List of Apache Kafka versions which can use this configuration.
-        :param pulumi.Input[_builtins.str] name: Name of the configuration.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "server_properties", server_properties)
         if description is not None:
@@ -45,9 +40,6 @@ class ConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="serverProperties")
     def server_properties(self) -> pulumi.Input[_builtins.str]:
-        """
-        Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
-        """
         return pulumi.get(self, "server_properties")
 
     @server_properties.setter
@@ -57,9 +49,6 @@ class ConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the configuration.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -69,9 +58,6 @@ class ConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="kafkaVersions")
     def kafka_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of Apache Kafka versions which can use this configuration.
-        """
         return pulumi.get(self, "kafka_versions")
 
     @kafka_versions.setter
@@ -81,9 +67,6 @@ class ConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the configuration.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -93,9 +76,6 @@ class ConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -115,13 +95,6 @@ class _ConfigurationState:
                  server_properties: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Configuration resources.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the configuration.
-        :param pulumi.Input[_builtins.str] description: Description of the configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] kafka_versions: List of Apache Kafka versions which can use this configuration.
-        :param pulumi.Input[_builtins.int] latest_revision: Latest revision of the configuration.
-        :param pulumi.Input[_builtins.str] name: Name of the configuration.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] server_properties: Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -141,9 +114,6 @@ class _ConfigurationState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the configuration.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -153,9 +123,6 @@ class _ConfigurationState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the configuration.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -165,9 +132,6 @@ class _ConfigurationState:
     @_builtins.property
     @pulumi.getter(name="kafkaVersions")
     def kafka_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of Apache Kafka versions which can use this configuration.
-        """
         return pulumi.get(self, "kafka_versions")
 
     @kafka_versions.setter
@@ -177,9 +141,6 @@ class _ConfigurationState:
     @_builtins.property
     @pulumi.getter(name="latestRevision")
     def latest_revision(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Latest revision of the configuration.
-        """
         return pulumi.get(self, "latest_revision")
 
     @latest_revision.setter
@@ -189,9 +150,6 @@ class _ConfigurationState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the configuration.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -201,9 +159,6 @@ class _ConfigurationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -213,9 +168,6 @@ class _ConfigurationState:
     @_builtins.property
     @pulumi.getter(name="serverProperties")
     def server_properties(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
-        """
         return pulumi.get(self, "server_properties")
 
     @server_properties.setter
@@ -236,37 +188,9 @@ class Configuration(pulumi.CustomResource):
                  server_properties: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an Amazon Managed Streaming for Kafka configuration. More information can be found on the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.msk.Configuration("example",
-            kafka_versions=["2.1.0"],
-            name="example",
-            server_properties=\"\"\"auto.create.topics.enable = true
-        delete.topic.enable = true
-        \"\"\")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import MSK configurations using the configuration ARN. For example:
-
-        ```sh
-        $ pulumi import aws:msk/configuration:Configuration example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
-        ```
-
+        Create a Configuration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: Description of the configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] kafka_versions: List of Apache Kafka versions which can use this configuration.
-        :param pulumi.Input[_builtins.str] name: Name of the configuration.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] server_properties: Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
         """
         ...
     @overload
@@ -275,30 +199,7 @@ class Configuration(pulumi.CustomResource):
                  args: ConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Amazon Managed Streaming for Kafka configuration. More information can be found on the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.msk.Configuration("example",
-            kafka_versions=["2.1.0"],
-            name="example",
-            server_properties=\"\"\"auto.create.topics.enable = true
-        delete.topic.enable = true
-        \"\"\")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import MSK configurations using the configuration ARN. For example:
-
-        ```sh
-        $ pulumi import aws:msk/configuration:Configuration example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
-        ```
-
+        Create a Configuration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -361,13 +262,6 @@ class Configuration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the configuration.
-        :param pulumi.Input[_builtins.str] description: Description of the configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] kafka_versions: List of Apache Kafka versions which can use this configuration.
-        :param pulumi.Input[_builtins.int] latest_revision: Latest revision of the configuration.
-        :param pulumi.Input[_builtins.str] name: Name of the configuration.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] server_properties: Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -385,56 +279,35 @@ class Configuration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the configuration.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the configuration.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="kafkaVersions")
     def kafka_versions(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        List of Apache Kafka versions which can use this configuration.
-        """
         return pulumi.get(self, "kafka_versions")
 
     @_builtins.property
     @pulumi.getter(name="latestRevision")
     def latest_revision(self) -> pulumi.Output[_builtins.int]:
-        """
-        Latest revision of the configuration.
-        """
         return pulumi.get(self, "latest_revision")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the configuration.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="serverProperties")
     def server_properties(self) -> pulumi.Output[_builtins.str]:
-        """
-        Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
-        """
         return pulumi.get(self, "server_properties")
 

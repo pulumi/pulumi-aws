@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Ec2ClientVpn.Outputs
     [OutputType]
     public sealed class EndpointConnectionLogOptions
     {
-        /// <summary>
-        /// The name of the CloudWatch Logs log group.
-        /// </summary>
         public readonly string? CloudwatchLogGroup;
-        /// <summary>
-        /// The name of the CloudWatch Logs log stream to which the connection data is published.
-        /// </summary>
         public readonly string? CloudwatchLogStream;
-        /// <summary>
-        /// Indicates whether connection logging is enabled.
-        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]

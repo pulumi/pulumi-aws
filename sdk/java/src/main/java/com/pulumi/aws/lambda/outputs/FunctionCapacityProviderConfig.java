@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class FunctionCapacityProviderConfig {
-    /**
-     * @return Configuration block for Lambda Managed Instances Capacity Provider. See below.
-     * 
-     */
     private FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig lambdaManagedInstancesCapacityProviderConfig;
 
     private FunctionCapacityProviderConfig() {}
-    /**
-     * @return Configuration block for Lambda Managed Instances Capacity Provider. See below.
-     * 
-     */
     public FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig lambdaManagedInstancesCapacityProviderConfig() {
         return this.lambdaManagedInstancesCapacityProviderConfig;
     }

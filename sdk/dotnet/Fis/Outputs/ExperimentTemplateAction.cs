@@ -13,29 +13,11 @@ namespace Pulumi.Aws.Fis.Outputs
     [OutputType]
     public sealed class ExperimentTemplateAction
     {
-        /// <summary>
-        /// ID of the action. To find out what actions are supported see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
-        /// </summary>
         public readonly string ActionId;
-        /// <summary>
-        /// Description of the action.
-        /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// Friendly name of the action.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Parameter(s) for the action, if applicable. See below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ExperimentTemplateActionParameter> Parameters;
-        /// <summary>
-        /// Set of action names that must complete before this action can be executed.
-        /// </summary>
         public readonly ImmutableArray<string> StartAfters;
-        /// <summary>
-        /// Action's target, if applicable. See below.
-        /// </summary>
         public readonly Outputs.ExperimentTemplateActionTarget? Target;
 
         [OutputConstructor]

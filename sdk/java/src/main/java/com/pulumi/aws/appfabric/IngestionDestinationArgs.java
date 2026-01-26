@@ -20,92 +20,44 @@ public final class IngestionDestinationArgs extends com.pulumi.resources.Resourc
 
     public static final IngestionDestinationArgs Empty = new IngestionDestinationArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) of the app bundle to use for the request.
-     * 
-     */
     @Import(name="appBundleArn", required=true)
     private Output<String> appBundleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the app bundle to use for the request.
-     * 
-     */
     public Output<String> appBundleArn() {
         return this.appBundleArn;
     }
 
-    /**
-     * Contains information about the destination of ingested data.
-     * 
-     */
     @Import(name="destinationConfiguration")
     private @Nullable Output<IngestionDestinationDestinationConfigurationArgs> destinationConfiguration;
 
-    /**
-     * @return Contains information about the destination of ingested data.
-     * 
-     */
     public Optional<Output<IngestionDestinationDestinationConfigurationArgs>> destinationConfiguration() {
         return Optional.ofNullable(this.destinationConfiguration);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the ingestion to use for the request.
-     * 
-     */
     @Import(name="ingestionArn", required=true)
     private Output<String> ingestionArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the ingestion to use for the request.
-     * 
-     */
     public Output<String> ingestionArn() {
         return this.ingestionArn;
     }
 
-    /**
-     * Contains information about how ingested data is processed.
-     * 
-     */
     @Import(name="processingConfiguration")
     private @Nullable Output<IngestionDestinationProcessingConfigurationArgs> processingConfiguration;
 
-    /**
-     * @return Contains information about how ingested data is processed.
-     * 
-     */
     public Optional<Output<IngestionDestinationProcessingConfigurationArgs>> processingConfiguration() {
         return Optional.ofNullable(this.processingConfiguration);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -147,128 +99,56 @@ public final class IngestionDestinationArgs extends com.pulumi.resources.Resourc
             $ = new IngestionDestinationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param appBundleArn The Amazon Resource Name (ARN) of the app bundle to use for the request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appBundleArn(Output<String> appBundleArn) {
             $.appBundleArn = appBundleArn;
             return this;
         }
 
-        /**
-         * @param appBundleArn The Amazon Resource Name (ARN) of the app bundle to use for the request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appBundleArn(String appBundleArn) {
             return appBundleArn(Output.of(appBundleArn));
         }
 
-        /**
-         * @param destinationConfiguration Contains information about the destination of ingested data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationConfiguration(@Nullable Output<IngestionDestinationDestinationConfigurationArgs> destinationConfiguration) {
             $.destinationConfiguration = destinationConfiguration;
             return this;
         }
 
-        /**
-         * @param destinationConfiguration Contains information about the destination of ingested data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationConfiguration(IngestionDestinationDestinationConfigurationArgs destinationConfiguration) {
             return destinationConfiguration(Output.of(destinationConfiguration));
         }
 
-        /**
-         * @param ingestionArn The Amazon Resource Name (ARN) of the ingestion to use for the request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ingestionArn(Output<String> ingestionArn) {
             $.ingestionArn = ingestionArn;
             return this;
         }
 
-        /**
-         * @param ingestionArn The Amazon Resource Name (ARN) of the ingestion to use for the request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ingestionArn(String ingestionArn) {
             return ingestionArn(Output.of(ingestionArn));
         }
 
-        /**
-         * @param processingConfiguration Contains information about how ingested data is processed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder processingConfiguration(@Nullable Output<IngestionDestinationProcessingConfigurationArgs> processingConfiguration) {
             $.processingConfiguration = processingConfiguration;
             return this;
         }
 
-        /**
-         * @param processingConfiguration Contains information about how ingested data is processed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder processingConfiguration(IngestionDestinationProcessingConfigurationArgs processingConfiguration) {
             return processingConfiguration(Output.of(processingConfiguration));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

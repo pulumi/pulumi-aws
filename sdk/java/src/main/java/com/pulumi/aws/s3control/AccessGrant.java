@@ -17,131 +17,29 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage an S3 Access Grant.
- * Each access grant has its own ID and gives an IAM user or role or a directory user, or group (the grantee) access to a registered location. You determine the level of access, such as `READ` or `READWRITE`.
- * Before you can create a grant, you must have an S3 Access Grants instance in the same Region as the S3 data.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3control.AccessGrantsInstance;
- * import com.pulumi.aws.s3control.AccessGrantsLocation;
- * import com.pulumi.aws.s3control.AccessGrantsLocationArgs;
- * import com.pulumi.aws.s3control.AccessGrant;
- * import com.pulumi.aws.s3control.AccessGrantArgs;
- * import com.pulumi.aws.s3control.inputs.AccessGrantAccessGrantsLocationConfigurationArgs;
- * import com.pulumi.aws.s3control.inputs.AccessGrantGranteeArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AccessGrantsInstance("example");
- * 
- *         var exampleAccessGrantsLocation = new AccessGrantsLocation("exampleAccessGrantsLocation", AccessGrantsLocationArgs.builder()
- *             .iamRoleArn(exampleAwsIamRole.arn())
- *             .locationScope(String.format("s3://%s/prefixA*", exampleAwsS3Bucket.bucket()))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(example)
- *                 .build());
- * 
- *         var exampleAccessGrant = new AccessGrant("exampleAccessGrant", AccessGrantArgs.builder()
- *             .accessGrantsLocationId(exampleAccessGrantsLocation.accessGrantsLocationId())
- *             .permission("READ")
- *             .accessGrantsLocationConfiguration(AccessGrantAccessGrantsLocationConfigurationArgs.builder()
- *                 .s3SubPrefix("prefixB*")
- *                 .build())
- *             .grantee(AccessGrantGranteeArgs.builder()
- *                 .granteeType("IAM")
- *                 .granteeIdentifier(exampleAwsIamUser.arn())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import S3 Access Grants using the `account_id` and `access_grant_id`, separated by a comma (`,`). For example:
- * 
- * ```sh
- * $ pulumi import aws:s3control/accessGrant:AccessGrant example 123456789012,04549c5e-2f3c-4a07-824d-2cafe720aa22
- * ```
- * 
- */
 @ResourceType(type="aws:s3control/accessGrant:AccessGrant")
 public class AccessGrant extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the S3 Access Grant.
-     * 
-     */
     @Export(name="accessGrantArn", refs={String.class}, tree="[0]")
     private Output<String> accessGrantArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the S3 Access Grant.
-     * 
-     */
     public Output<String> accessGrantArn() {
         return this.accessGrantArn;
     }
-    /**
-     * Unique ID of the S3 Access Grant.
-     * 
-     */
     @Export(name="accessGrantId", refs={String.class}, tree="[0]")
     private Output<String> accessGrantId;
 
-    /**
-     * @return Unique ID of the S3 Access Grant.
-     * 
-     */
     public Output<String> accessGrantId() {
         return this.accessGrantId;
     }
-    /**
-     * See Location Configuration below for more details.
-     * 
-     */
     @Export(name="accessGrantsLocationConfiguration", refs={AccessGrantAccessGrantsLocationConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ AccessGrantAccessGrantsLocationConfiguration> accessGrantsLocationConfiguration;
 
-    /**
-     * @return See Location Configuration below for more details.
-     * 
-     */
     public Output<Optional<AccessGrantAccessGrantsLocationConfiguration>> accessGrantsLocationConfiguration() {
         return Codegen.optional(this.accessGrantsLocationConfiguration);
     }
-    /**
-     * The ID of the S3 Access Grants location to with the access grant is giving access.
-     * 
-     */
     @Export(name="accessGrantsLocationId", refs={String.class}, tree="[0]")
     private Output<String> accessGrantsLocationId;
 
-    /**
-     * @return The ID of the S3 Access Grants location to with the access grant is giving access.
-     * 
-     */
     public Output<String> accessGrantsLocationId() {
         return this.accessGrantsLocationId;
     }
@@ -151,101 +49,45 @@ public class AccessGrant extends com.pulumi.resources.CustomResource {
     public Output<String> accountId() {
         return this.accountId;
     }
-    /**
-     * The access grant&#39;s scope.
-     * 
-     */
     @Export(name="grantScope", refs={String.class}, tree="[0]")
     private Output<String> grantScope;
 
-    /**
-     * @return The access grant&#39;s scope.
-     * 
-     */
     public Output<String> grantScope() {
         return this.grantScope;
     }
-    /**
-     * See Grantee below for more details.
-     * 
-     */
     @Export(name="grantee", refs={AccessGrantGrantee.class}, tree="[0]")
     private Output</* @Nullable */ AccessGrantGrantee> grantee;
 
-    /**
-     * @return See Grantee below for more details.
-     * 
-     */
     public Output<Optional<AccessGrantGrantee>> grantee() {
         return Codegen.optional(this.grantee);
     }
-    /**
-     * The access grant&#39;s level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
-     * 
-     */
     @Export(name="permission", refs={String.class}, tree="[0]")
     private Output<String> permission;
 
-    /**
-     * @return The access grant&#39;s level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
-     * 
-     */
     public Output<String> permission() {
         return this.permission;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
-     * 
-     */
     @Export(name="s3PrefixType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> s3PrefixType;
 
-    /**
-     * @return If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
-     * 
-     */
     public Output<Optional<String>> s3PrefixType() {
         return Codegen.optional(this.s3PrefixType);
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

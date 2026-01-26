@@ -13,22 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetLifecyclePolicyDocumentRuleAction {
     private @Nullable String targetStorageClass;
-    /**
-     * @return Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
-     * * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
-     * 
-     */
     private String type;
 
     private GetLifecyclePolicyDocumentRuleAction() {}
     public Optional<String> targetStorageClass() {
         return Optional.ofNullable(this.targetStorageClass);
     }
-    /**
-     * @return Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
-     * * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
-     * 
-     */
     public String type() {
         return this.type;
     }

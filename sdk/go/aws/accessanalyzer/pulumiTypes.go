@@ -14,10 +14,8 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AnalyzerConfiguration struct {
-	// Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment. See `internalAccess` Block for details.
 	InternalAccess *AnalyzerConfigurationInternalAccess `pulumi:"internalAccess"`
-	// Specifies the configuration of an unused access analyzer for an AWS organization or account. See `unusedAccess` Block for details.
-	UnusedAccess *AnalyzerConfigurationUnusedAccess `pulumi:"unusedAccess"`
+	UnusedAccess   *AnalyzerConfigurationUnusedAccess   `pulumi:"unusedAccess"`
 }
 
 // AnalyzerConfigurationInput is an input type that accepts AnalyzerConfigurationArgs and AnalyzerConfigurationOutput values.
@@ -32,10 +30,8 @@ type AnalyzerConfigurationInput interface {
 }
 
 type AnalyzerConfigurationArgs struct {
-	// Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment. See `internalAccess` Block for details.
 	InternalAccess AnalyzerConfigurationInternalAccessPtrInput `pulumi:"internalAccess"`
-	// Specifies the configuration of an unused access analyzer for an AWS organization or account. See `unusedAccess` Block for details.
-	UnusedAccess AnalyzerConfigurationUnusedAccessPtrInput `pulumi:"unusedAccess"`
+	UnusedAccess   AnalyzerConfigurationUnusedAccessPtrInput   `pulumi:"unusedAccess"`
 }
 
 func (AnalyzerConfigurationArgs) ElementType() reflect.Type {
@@ -115,12 +111,10 @@ func (o AnalyzerConfigurationOutput) ToAnalyzerConfigurationPtrOutputWithContext
 	}).(AnalyzerConfigurationPtrOutput)
 }
 
-// Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment. See `internalAccess` Block for details.
 func (o AnalyzerConfigurationOutput) InternalAccess() AnalyzerConfigurationInternalAccessPtrOutput {
 	return o.ApplyT(func(v AnalyzerConfiguration) *AnalyzerConfigurationInternalAccess { return v.InternalAccess }).(AnalyzerConfigurationInternalAccessPtrOutput)
 }
 
-// Specifies the configuration of an unused access analyzer for an AWS organization or account. See `unusedAccess` Block for details.
 func (o AnalyzerConfigurationOutput) UnusedAccess() AnalyzerConfigurationUnusedAccessPtrOutput {
 	return o.ApplyT(func(v AnalyzerConfiguration) *AnalyzerConfigurationUnusedAccess { return v.UnusedAccess }).(AnalyzerConfigurationUnusedAccessPtrOutput)
 }
@@ -149,7 +143,6 @@ func (o AnalyzerConfigurationPtrOutput) Elem() AnalyzerConfigurationOutput {
 	}).(AnalyzerConfigurationOutput)
 }
 
-// Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment. See `internalAccess` Block for details.
 func (o AnalyzerConfigurationPtrOutput) InternalAccess() AnalyzerConfigurationInternalAccessPtrOutput {
 	return o.ApplyT(func(v *AnalyzerConfiguration) *AnalyzerConfigurationInternalAccess {
 		if v == nil {
@@ -159,7 +152,6 @@ func (o AnalyzerConfigurationPtrOutput) InternalAccess() AnalyzerConfigurationIn
 	}).(AnalyzerConfigurationInternalAccessPtrOutput)
 }
 
-// Specifies the configuration of an unused access analyzer for an AWS organization or account. See `unusedAccess` Block for details.
 func (o AnalyzerConfigurationPtrOutput) UnusedAccess() AnalyzerConfigurationUnusedAccessPtrOutput {
 	return o.ApplyT(func(v *AnalyzerConfiguration) *AnalyzerConfigurationUnusedAccess {
 		if v == nil {
@@ -170,7 +162,6 @@ func (o AnalyzerConfigurationPtrOutput) UnusedAccess() AnalyzerConfigurationUnus
 }
 
 type AnalyzerConfigurationInternalAccess struct {
-	// Information about analysis rules for the internal access analyzer. These rules determine which resources and access patterns will be analyzed. See `analysisRule` Block for Internal Access Analyzer for details.
 	AnalysisRule *AnalyzerConfigurationInternalAccessAnalysisRule `pulumi:"analysisRule"`
 }
 
@@ -186,7 +177,6 @@ type AnalyzerConfigurationInternalAccessInput interface {
 }
 
 type AnalyzerConfigurationInternalAccessArgs struct {
-	// Information about analysis rules for the internal access analyzer. These rules determine which resources and access patterns will be analyzed. See `analysisRule` Block for Internal Access Analyzer for details.
 	AnalysisRule AnalyzerConfigurationInternalAccessAnalysisRulePtrInput `pulumi:"analysisRule"`
 }
 
@@ -267,7 +257,6 @@ func (o AnalyzerConfigurationInternalAccessOutput) ToAnalyzerConfigurationIntern
 	}).(AnalyzerConfigurationInternalAccessPtrOutput)
 }
 
-// Information about analysis rules for the internal access analyzer. These rules determine which resources and access patterns will be analyzed. See `analysisRule` Block for Internal Access Analyzer for details.
 func (o AnalyzerConfigurationInternalAccessOutput) AnalysisRule() AnalyzerConfigurationInternalAccessAnalysisRulePtrOutput {
 	return o.ApplyT(func(v AnalyzerConfigurationInternalAccess) *AnalyzerConfigurationInternalAccessAnalysisRule {
 		return v.AnalysisRule
@@ -298,7 +287,6 @@ func (o AnalyzerConfigurationInternalAccessPtrOutput) Elem() AnalyzerConfigurati
 	}).(AnalyzerConfigurationInternalAccessOutput)
 }
 
-// Information about analysis rules for the internal access analyzer. These rules determine which resources and access patterns will be analyzed. See `analysisRule` Block for Internal Access Analyzer for details.
 func (o AnalyzerConfigurationInternalAccessPtrOutput) AnalysisRule() AnalyzerConfigurationInternalAccessAnalysisRulePtrOutput {
 	return o.ApplyT(func(v *AnalyzerConfigurationInternalAccess) *AnalyzerConfigurationInternalAccessAnalysisRule {
 		if v == nil {
@@ -309,7 +297,6 @@ func (o AnalyzerConfigurationInternalAccessPtrOutput) AnalysisRule() AnalyzerCon
 }
 
 type AnalyzerConfigurationInternalAccessAnalysisRule struct {
-	// List of rules for the internal access analyzer containing criteria to include in analysis. Only resources that meet the rule criteria will generate findings. See `inclusion` Block for details.
 	Inclusions []AnalyzerConfigurationInternalAccessAnalysisRuleInclusion `pulumi:"inclusions"`
 }
 
@@ -325,7 +312,6 @@ type AnalyzerConfigurationInternalAccessAnalysisRuleInput interface {
 }
 
 type AnalyzerConfigurationInternalAccessAnalysisRuleArgs struct {
-	// List of rules for the internal access analyzer containing criteria to include in analysis. Only resources that meet the rule criteria will generate findings. See `inclusion` Block for details.
 	Inclusions AnalyzerConfigurationInternalAccessAnalysisRuleInclusionArrayInput `pulumi:"inclusions"`
 }
 
@@ -406,7 +392,6 @@ func (o AnalyzerConfigurationInternalAccessAnalysisRuleOutput) ToAnalyzerConfigu
 	}).(AnalyzerConfigurationInternalAccessAnalysisRulePtrOutput)
 }
 
-// List of rules for the internal access analyzer containing criteria to include in analysis. Only resources that meet the rule criteria will generate findings. See `inclusion` Block for details.
 func (o AnalyzerConfigurationInternalAccessAnalysisRuleOutput) Inclusions() AnalyzerConfigurationInternalAccessAnalysisRuleInclusionArrayOutput {
 	return o.ApplyT(func(v AnalyzerConfigurationInternalAccessAnalysisRule) []AnalyzerConfigurationInternalAccessAnalysisRuleInclusion {
 		return v.Inclusions
@@ -437,7 +422,6 @@ func (o AnalyzerConfigurationInternalAccessAnalysisRulePtrOutput) Elem() Analyze
 	}).(AnalyzerConfigurationInternalAccessAnalysisRuleOutput)
 }
 
-// List of rules for the internal access analyzer containing criteria to include in analysis. Only resources that meet the rule criteria will generate findings. See `inclusion` Block for details.
 func (o AnalyzerConfigurationInternalAccessAnalysisRulePtrOutput) Inclusions() AnalyzerConfigurationInternalAccessAnalysisRuleInclusionArrayOutput {
 	return o.ApplyT(func(v *AnalyzerConfigurationInternalAccessAnalysisRule) []AnalyzerConfigurationInternalAccessAnalysisRuleInclusion {
 		if v == nil {
@@ -448,11 +432,8 @@ func (o AnalyzerConfigurationInternalAccessAnalysisRulePtrOutput) Inclusions() A
 }
 
 type AnalyzerConfigurationInternalAccessAnalysisRuleInclusion struct {
-	// List of AWS account IDs to apply to the internal access analysis rule criteria. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
-	AccountIds []string `pulumi:"accountIds"`
-	// List of resource ARNs to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources that match these ARNs.
-	ResourceArns []string `pulumi:"resourceArns"`
-	// List of resource types to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources of these types. Refer to [InternalAccessAnalysisRuleCriteria](https://docs.aws.amazon.com/access-analyzer/latest/APIReference/API_InternalAccessAnalysisRuleCriteria.html) in the AWS IAM Access Analyzer API Reference for valid values.
+	AccountIds    []string `pulumi:"accountIds"`
+	ResourceArns  []string `pulumi:"resourceArns"`
 	ResourceTypes []string `pulumi:"resourceTypes"`
 }
 
@@ -468,11 +449,8 @@ type AnalyzerConfigurationInternalAccessAnalysisRuleInclusionInput interface {
 }
 
 type AnalyzerConfigurationInternalAccessAnalysisRuleInclusionArgs struct {
-	// List of AWS account IDs to apply to the internal access analysis rule criteria. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
-	AccountIds pulumi.StringArrayInput `pulumi:"accountIds"`
-	// List of resource ARNs to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources that match these ARNs.
-	ResourceArns pulumi.StringArrayInput `pulumi:"resourceArns"`
-	// List of resource types to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources of these types. Refer to [InternalAccessAnalysisRuleCriteria](https://docs.aws.amazon.com/access-analyzer/latest/APIReference/API_InternalAccessAnalysisRuleCriteria.html) in the AWS IAM Access Analyzer API Reference for valid values.
+	AccountIds    pulumi.StringArrayInput `pulumi:"accountIds"`
+	ResourceArns  pulumi.StringArrayInput `pulumi:"resourceArns"`
 	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
 }
 
@@ -527,17 +505,14 @@ func (o AnalyzerConfigurationInternalAccessAnalysisRuleInclusionOutput) ToAnalyz
 	return o
 }
 
-// List of AWS account IDs to apply to the internal access analysis rule criteria. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
 func (o AnalyzerConfigurationInternalAccessAnalysisRuleInclusionOutput) AccountIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnalyzerConfigurationInternalAccessAnalysisRuleInclusion) []string { return v.AccountIds }).(pulumi.StringArrayOutput)
 }
 
-// List of resource ARNs to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources that match these ARNs.
 func (o AnalyzerConfigurationInternalAccessAnalysisRuleInclusionOutput) ResourceArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnalyzerConfigurationInternalAccessAnalysisRuleInclusion) []string { return v.ResourceArns }).(pulumi.StringArrayOutput)
 }
 
-// List of resource types to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources of these types. Refer to [InternalAccessAnalysisRuleCriteria](https://docs.aws.amazon.com/access-analyzer/latest/APIReference/API_InternalAccessAnalysisRuleCriteria.html) in the AWS IAM Access Analyzer API Reference for valid values.
 func (o AnalyzerConfigurationInternalAccessAnalysisRuleInclusionOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnalyzerConfigurationInternalAccessAnalysisRuleInclusion) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
 }
@@ -563,10 +538,8 @@ func (o AnalyzerConfigurationInternalAccessAnalysisRuleInclusionArrayOutput) Ind
 }
 
 type AnalyzerConfigurationUnusedAccess struct {
-	// Information about analysis rules for the analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule. See `analysisRule` Block for Unused Access Analyzer for details.
-	AnalysisRule *AnalyzerConfigurationUnusedAccessAnalysisRule `pulumi:"analysisRule"`
-	// Specified access age in days for which to generate findings for unused access.
-	UnusedAccessAge *int `pulumi:"unusedAccessAge"`
+	AnalysisRule    *AnalyzerConfigurationUnusedAccessAnalysisRule `pulumi:"analysisRule"`
+	UnusedAccessAge *int                                           `pulumi:"unusedAccessAge"`
 }
 
 // AnalyzerConfigurationUnusedAccessInput is an input type that accepts AnalyzerConfigurationUnusedAccessArgs and AnalyzerConfigurationUnusedAccessOutput values.
@@ -581,10 +554,8 @@ type AnalyzerConfigurationUnusedAccessInput interface {
 }
 
 type AnalyzerConfigurationUnusedAccessArgs struct {
-	// Information about analysis rules for the analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule. See `analysisRule` Block for Unused Access Analyzer for details.
-	AnalysisRule AnalyzerConfigurationUnusedAccessAnalysisRulePtrInput `pulumi:"analysisRule"`
-	// Specified access age in days for which to generate findings for unused access.
-	UnusedAccessAge pulumi.IntPtrInput `pulumi:"unusedAccessAge"`
+	AnalysisRule    AnalyzerConfigurationUnusedAccessAnalysisRulePtrInput `pulumi:"analysisRule"`
+	UnusedAccessAge pulumi.IntPtrInput                                    `pulumi:"unusedAccessAge"`
 }
 
 func (AnalyzerConfigurationUnusedAccessArgs) ElementType() reflect.Type {
@@ -664,14 +635,12 @@ func (o AnalyzerConfigurationUnusedAccessOutput) ToAnalyzerConfigurationUnusedAc
 	}).(AnalyzerConfigurationUnusedAccessPtrOutput)
 }
 
-// Information about analysis rules for the analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule. See `analysisRule` Block for Unused Access Analyzer for details.
 func (o AnalyzerConfigurationUnusedAccessOutput) AnalysisRule() AnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput {
 	return o.ApplyT(func(v AnalyzerConfigurationUnusedAccess) *AnalyzerConfigurationUnusedAccessAnalysisRule {
 		return v.AnalysisRule
 	}).(AnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput)
 }
 
-// Specified access age in days for which to generate findings for unused access.
 func (o AnalyzerConfigurationUnusedAccessOutput) UnusedAccessAge() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AnalyzerConfigurationUnusedAccess) *int { return v.UnusedAccessAge }).(pulumi.IntPtrOutput)
 }
@@ -700,7 +669,6 @@ func (o AnalyzerConfigurationUnusedAccessPtrOutput) Elem() AnalyzerConfiguration
 	}).(AnalyzerConfigurationUnusedAccessOutput)
 }
 
-// Information about analysis rules for the analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule. See `analysisRule` Block for Unused Access Analyzer for details.
 func (o AnalyzerConfigurationUnusedAccessPtrOutput) AnalysisRule() AnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput {
 	return o.ApplyT(func(v *AnalyzerConfigurationUnusedAccess) *AnalyzerConfigurationUnusedAccessAnalysisRule {
 		if v == nil {
@@ -710,7 +678,6 @@ func (o AnalyzerConfigurationUnusedAccessPtrOutput) AnalysisRule() AnalyzerConfi
 	}).(AnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput)
 }
 
-// Specified access age in days for which to generate findings for unused access.
 func (o AnalyzerConfigurationUnusedAccessPtrOutput) UnusedAccessAge() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AnalyzerConfigurationUnusedAccess) *int {
 		if v == nil {
@@ -721,7 +688,6 @@ func (o AnalyzerConfigurationUnusedAccessPtrOutput) UnusedAccessAge() pulumi.Int
 }
 
 type AnalyzerConfigurationUnusedAccessAnalysisRule struct {
-	// List of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings. See `exclusion` Block for details.
 	Exclusions []AnalyzerConfigurationUnusedAccessAnalysisRuleExclusion `pulumi:"exclusions"`
 }
 
@@ -737,7 +703,6 @@ type AnalyzerConfigurationUnusedAccessAnalysisRuleInput interface {
 }
 
 type AnalyzerConfigurationUnusedAccessAnalysisRuleArgs struct {
-	// List of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings. See `exclusion` Block for details.
 	Exclusions AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayInput `pulumi:"exclusions"`
 }
 
@@ -818,7 +783,6 @@ func (o AnalyzerConfigurationUnusedAccessAnalysisRuleOutput) ToAnalyzerConfigura
 	}).(AnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput)
 }
 
-// List of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings. See `exclusion` Block for details.
 func (o AnalyzerConfigurationUnusedAccessAnalysisRuleOutput) Exclusions() AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayOutput {
 	return o.ApplyT(func(v AnalyzerConfigurationUnusedAccessAnalysisRule) []AnalyzerConfigurationUnusedAccessAnalysisRuleExclusion {
 		return v.Exclusions
@@ -849,7 +813,6 @@ func (o AnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput) Elem() AnalyzerC
 	}).(AnalyzerConfigurationUnusedAccessAnalysisRuleOutput)
 }
 
-// List of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings. See `exclusion` Block for details.
 func (o AnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput) Exclusions() AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayOutput {
 	return o.ApplyT(func(v *AnalyzerConfigurationUnusedAccessAnalysisRule) []AnalyzerConfigurationUnusedAccessAnalysisRuleExclusion {
 		if v == nil {
@@ -860,9 +823,7 @@ func (o AnalyzerConfigurationUnusedAccessAnalysisRulePtrOutput) Exclusions() Ana
 }
 
 type AnalyzerConfigurationUnusedAccessAnalysisRuleExclusion struct {
-	// List of AWS account IDs to apply to the analysis rule criteria. The accounts cannot include the organization analyzer owner account. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
-	AccountIds []string `pulumi:"accountIds"`
-	// List of key-value pairs for resource tags to exclude from the analysis.
+	AccountIds   []string            `pulumi:"accountIds"`
 	ResourceTags []map[string]string `pulumi:"resourceTags"`
 }
 
@@ -878,9 +839,7 @@ type AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionInput interface {
 }
 
 type AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs struct {
-	// List of AWS account IDs to apply to the analysis rule criteria. The accounts cannot include the organization analyzer owner account. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
-	AccountIds pulumi.StringArrayInput `pulumi:"accountIds"`
-	// List of key-value pairs for resource tags to exclude from the analysis.
+	AccountIds   pulumi.StringArrayInput    `pulumi:"accountIds"`
 	ResourceTags pulumi.StringMapArrayInput `pulumi:"resourceTags"`
 }
 
@@ -935,12 +894,10 @@ func (o AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionOutput) ToAnalyzer
 	return o
 }
 
-// List of AWS account IDs to apply to the analysis rule criteria. The accounts cannot include the organization analyzer owner account. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
 func (o AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionOutput) AccountIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnalyzerConfigurationUnusedAccessAnalysisRuleExclusion) []string { return v.AccountIds }).(pulumi.StringArrayOutput)
 }
 
-// List of key-value pairs for resource tags to exclude from the analysis.
 func (o AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionOutput) ResourceTags() pulumi.StringMapArrayOutput {
 	return o.ApplyT(func(v AnalyzerConfigurationUnusedAccessAnalysisRuleExclusion) []map[string]string {
 		return v.ResourceTags
@@ -968,16 +925,11 @@ func (o AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArrayOutput) Index
 }
 
 type ArchiveRuleFilter struct {
-	// Contains comparator.
 	Contains []string `pulumi:"contains"`
-	// Filter criteria.
-	Criteria string `pulumi:"criteria"`
-	// Equals comparator.
-	Eqs []string `pulumi:"eqs"`
-	// Boolean comparator.
-	Exists *string `pulumi:"exists"`
-	// Not Equals comparator.
-	Neqs []string `pulumi:"neqs"`
+	Criteria string   `pulumi:"criteria"`
+	Eqs      []string `pulumi:"eqs"`
+	Exists   *string  `pulumi:"exists"`
+	Neqs     []string `pulumi:"neqs"`
 }
 
 // ArchiveRuleFilterInput is an input type that accepts ArchiveRuleFilterArgs and ArchiveRuleFilterOutput values.
@@ -992,16 +944,11 @@ type ArchiveRuleFilterInput interface {
 }
 
 type ArchiveRuleFilterArgs struct {
-	// Contains comparator.
 	Contains pulumi.StringArrayInput `pulumi:"contains"`
-	// Filter criteria.
-	Criteria pulumi.StringInput `pulumi:"criteria"`
-	// Equals comparator.
-	Eqs pulumi.StringArrayInput `pulumi:"eqs"`
-	// Boolean comparator.
-	Exists pulumi.StringPtrInput `pulumi:"exists"`
-	// Not Equals comparator.
-	Neqs pulumi.StringArrayInput `pulumi:"neqs"`
+	Criteria pulumi.StringInput      `pulumi:"criteria"`
+	Eqs      pulumi.StringArrayInput `pulumi:"eqs"`
+	Exists   pulumi.StringPtrInput   `pulumi:"exists"`
+	Neqs     pulumi.StringArrayInput `pulumi:"neqs"`
 }
 
 func (ArchiveRuleFilterArgs) ElementType() reflect.Type {
@@ -1055,27 +1002,22 @@ func (o ArchiveRuleFilterOutput) ToArchiveRuleFilterOutputWithContext(ctx contex
 	return o
 }
 
-// Contains comparator.
 func (o ArchiveRuleFilterOutput) Contains() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ArchiveRuleFilter) []string { return v.Contains }).(pulumi.StringArrayOutput)
 }
 
-// Filter criteria.
 func (o ArchiveRuleFilterOutput) Criteria() pulumi.StringOutput {
 	return o.ApplyT(func(v ArchiveRuleFilter) string { return v.Criteria }).(pulumi.StringOutput)
 }
 
-// Equals comparator.
 func (o ArchiveRuleFilterOutput) Eqs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ArchiveRuleFilter) []string { return v.Eqs }).(pulumi.StringArrayOutput)
 }
 
-// Boolean comparator.
 func (o ArchiveRuleFilterOutput) Exists() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArchiveRuleFilter) *string { return v.Exists }).(pulumi.StringPtrOutput)
 }
 
-// Not Equals comparator.
 func (o ArchiveRuleFilterOutput) Neqs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ArchiveRuleFilter) []string { return v.Neqs }).(pulumi.StringArrayOutput)
 }

@@ -41,28 +41,6 @@ class GraphQLApiArgs:
                  xray_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a GraphQLApi resource.
-        :param pulumi.Input[_builtins.str] authentication_type: Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
-        :param pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]] additional_authentication_providers: One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
-        :param pulumi.Input[_builtins.str] api_type: API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
-        :param pulumi.Input['GraphQLApiEnhancedMetricsConfigArgs'] enhanced_metrics_config: Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
-        :param pulumi.Input[_builtins.str] introspection_config: Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
-        :param pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs'] lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
-        :param pulumi.Input['GraphQLApiLogConfigArgs'] log_config: Nested argument containing logging configuration. See `log_config` Block for details.
-        :param pulumi.Input[_builtins.str] merged_api_execution_role_arn: ARN of the execution role when `api_type` is set to `MERGED`.
-        :param pulumi.Input[_builtins.str] name: User-supplied name for the GraphQL API.
-               
-               The following arguments are optional:
-        :param pulumi.Input['GraphQLApiOpenidConnectConfigArgs'] openid_connect_config: Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
-        :param pulumi.Input[_builtins.int] query_depth_limit: The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
-               
-               Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] resolver_count_limit: The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
-        :param pulumi.Input[_builtins.str] schema: Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['GraphQLApiUserPoolConfigArgs'] user_pool_config: Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
-        :param pulumi.Input[_builtins.str] visibility: Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
-        :param pulumi.Input[_builtins.bool] xray_enabled: Whether tracing with X-ray is enabled. Defaults to false.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         if additional_authentication_providers is not None:
@@ -103,9 +81,6 @@ class GraphQLApiArgs:
     @_builtins.property
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
-        """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
@@ -115,9 +90,6 @@ class GraphQLApiArgs:
     @_builtins.property
     @pulumi.getter(name="additionalAuthenticationProviders")
     def additional_authentication_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]]:
-        """
-        One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
-        """
         return pulumi.get(self, "additional_authentication_providers")
 
     @additional_authentication_providers.setter
@@ -127,9 +99,6 @@ class GraphQLApiArgs:
     @_builtins.property
     @pulumi.getter(name="apiType")
     def api_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
-        """
         return pulumi.get(self, "api_type")
 
     @api_type.setter
@@ -139,9 +108,6 @@ class GraphQLApiArgs:
     @_builtins.property
     @pulumi.getter(name="enhancedMetricsConfig")
     def enhanced_metrics_config(self) -> Optional[pulumi.Input['GraphQLApiEnhancedMetricsConfigArgs']]:
-        """
-        Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
-        """
         return pulumi.get(self, "enhanced_metrics_config")
 
     @enhanced_metrics_config.setter
@@ -151,9 +117,6 @@ class GraphQLApiArgs:
     @_builtins.property
     @pulumi.getter(name="introspectionConfig")
     def introspection_config(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
-        """
         return pulumi.get(self, "introspection_config")
 
     @introspection_config.setter
@@ -163,9 +126,6 @@ class GraphQLApiArgs:
     @_builtins.property
     @pulumi.getter(name="lambdaAuthorizerConfig")
     def lambda_authorizer_config(self) -> Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']]:
-        """
-        Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
-        """
         return pulumi.get(self, "lambda_authorizer_config")
 
     @lambda_authorizer_config.setter
@@ -175,9 +135,6 @@ class GraphQLApiArgs:
     @_builtins.property
     @pulumi.getter(name="logConfig")
     def log_config(self) -> Optional[pulumi.Input['GraphQLApiLogConfigArgs']]:
-        """
-        Nested argument containing logging configuration. See `log_config` Block for details.
-        """
         return pulumi.get(self, "log_config")
 
     @log_config.setter
@@ -187,9 +144,6 @@ class GraphQLApiArgs:
     @_builtins.property
     @pulumi.getter(name="mergedApiExecutionRoleArn")
     def merged_api_execution_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the execution role when `api_type` is set to `MERGED`.
-        """
         return pulumi.get(self, "merged_api_execution_role_arn")
 
     @merged_api_execution_role_arn.setter
@@ -199,11 +153,6 @@ class GraphQLApiArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        User-supplied name for the GraphQL API.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -213,9 +162,6 @@ class GraphQLApiArgs:
     @_builtins.property
     @pulumi.getter(name="openidConnectConfig")
     def openid_connect_config(self) -> Optional[pulumi.Input['GraphQLApiOpenidConnectConfigArgs']]:
-        """
-        Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
-        """
         return pulumi.get(self, "openid_connect_config")
 
     @openid_connect_config.setter
@@ -225,11 +171,6 @@ class GraphQLApiArgs:
     @_builtins.property
     @pulumi.getter(name="queryDepthLimit")
     def query_depth_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
-
-        Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
-        """
         return pulumi.get(self, "query_depth_limit")
 
     @query_depth_limit.setter
@@ -239,9 +180,6 @@ class GraphQLApiArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -251,9 +189,6 @@ class GraphQLApiArgs:
     @_builtins.property
     @pulumi.getter(name="resolverCountLimit")
     def resolver_count_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
-        """
         return pulumi.get(self, "resolver_count_limit")
 
     @resolver_count_limit.setter
@@ -263,9 +198,6 @@ class GraphQLApiArgs:
     @_builtins.property
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
-        """
         return pulumi.get(self, "schema")
 
     @schema.setter
@@ -275,9 +207,6 @@ class GraphQLApiArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -287,9 +216,6 @@ class GraphQLApiArgs:
     @_builtins.property
     @pulumi.getter(name="userPoolConfig")
     def user_pool_config(self) -> Optional[pulumi.Input['GraphQLApiUserPoolConfigArgs']]:
-        """
-        Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
-        """
         return pulumi.get(self, "user_pool_config")
 
     @user_pool_config.setter
@@ -299,9 +225,6 @@ class GraphQLApiArgs:
     @_builtins.property
     @pulumi.getter
     def visibility(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
-        """
         return pulumi.get(self, "visibility")
 
     @visibility.setter
@@ -311,9 +234,6 @@ class GraphQLApiArgs:
     @_builtins.property
     @pulumi.getter(name="xrayEnabled")
     def xray_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether tracing with X-ray is enabled. Defaults to false.
-        """
         return pulumi.get(self, "xray_enabled")
 
     @xray_enabled.setter
@@ -347,31 +267,6 @@ class _GraphQLApiState:
                  xray_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering GraphQLApi resources.
-        :param pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]] additional_authentication_providers: One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
-        :param pulumi.Input[_builtins.str] api_type: API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
-        :param pulumi.Input[_builtins.str] arn: ARN
-        :param pulumi.Input[_builtins.str] authentication_type: Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
-        :param pulumi.Input['GraphQLApiEnhancedMetricsConfigArgs'] enhanced_metrics_config: Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
-        :param pulumi.Input[_builtins.str] introspection_config: Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
-        :param pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs'] lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
-        :param pulumi.Input['GraphQLApiLogConfigArgs'] log_config: Nested argument containing logging configuration. See `log_config` Block for details.
-        :param pulumi.Input[_builtins.str] merged_api_execution_role_arn: ARN of the execution role when `api_type` is set to `MERGED`.
-        :param pulumi.Input[_builtins.str] name: User-supplied name for the GraphQL API.
-               
-               The following arguments are optional:
-        :param pulumi.Input['GraphQLApiOpenidConnectConfigArgs'] openid_connect_config: Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
-        :param pulumi.Input[_builtins.int] query_depth_limit: The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
-               
-               Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] resolver_count_limit: The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
-        :param pulumi.Input[_builtins.str] schema: Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] uris: Map of URIs associated with the API E.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
-        :param pulumi.Input['GraphQLApiUserPoolConfigArgs'] user_pool_config: Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
-        :param pulumi.Input[_builtins.str] visibility: Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
-        :param pulumi.Input[_builtins.bool] xray_enabled: Whether tracing with X-ray is enabled. Defaults to false.
         """
         if additional_authentication_providers is not None:
             pulumi.set(__self__, "additional_authentication_providers", additional_authentication_providers)
@@ -419,9 +314,6 @@ class _GraphQLApiState:
     @_builtins.property
     @pulumi.getter(name="additionalAuthenticationProviders")
     def additional_authentication_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]]:
-        """
-        One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
-        """
         return pulumi.get(self, "additional_authentication_providers")
 
     @additional_authentication_providers.setter
@@ -431,9 +323,6 @@ class _GraphQLApiState:
     @_builtins.property
     @pulumi.getter(name="apiType")
     def api_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
-        """
         return pulumi.get(self, "api_type")
 
     @api_type.setter
@@ -443,9 +332,6 @@ class _GraphQLApiState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -455,9 +341,6 @@ class _GraphQLApiState:
     @_builtins.property
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
-        """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
@@ -467,9 +350,6 @@ class _GraphQLApiState:
     @_builtins.property
     @pulumi.getter(name="enhancedMetricsConfig")
     def enhanced_metrics_config(self) -> Optional[pulumi.Input['GraphQLApiEnhancedMetricsConfigArgs']]:
-        """
-        Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
-        """
         return pulumi.get(self, "enhanced_metrics_config")
 
     @enhanced_metrics_config.setter
@@ -479,9 +359,6 @@ class _GraphQLApiState:
     @_builtins.property
     @pulumi.getter(name="introspectionConfig")
     def introspection_config(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
-        """
         return pulumi.get(self, "introspection_config")
 
     @introspection_config.setter
@@ -491,9 +368,6 @@ class _GraphQLApiState:
     @_builtins.property
     @pulumi.getter(name="lambdaAuthorizerConfig")
     def lambda_authorizer_config(self) -> Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']]:
-        """
-        Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
-        """
         return pulumi.get(self, "lambda_authorizer_config")
 
     @lambda_authorizer_config.setter
@@ -503,9 +377,6 @@ class _GraphQLApiState:
     @_builtins.property
     @pulumi.getter(name="logConfig")
     def log_config(self) -> Optional[pulumi.Input['GraphQLApiLogConfigArgs']]:
-        """
-        Nested argument containing logging configuration. See `log_config` Block for details.
-        """
         return pulumi.get(self, "log_config")
 
     @log_config.setter
@@ -515,9 +386,6 @@ class _GraphQLApiState:
     @_builtins.property
     @pulumi.getter(name="mergedApiExecutionRoleArn")
     def merged_api_execution_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the execution role when `api_type` is set to `MERGED`.
-        """
         return pulumi.get(self, "merged_api_execution_role_arn")
 
     @merged_api_execution_role_arn.setter
@@ -527,11 +395,6 @@ class _GraphQLApiState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        User-supplied name for the GraphQL API.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -541,9 +404,6 @@ class _GraphQLApiState:
     @_builtins.property
     @pulumi.getter(name="openidConnectConfig")
     def openid_connect_config(self) -> Optional[pulumi.Input['GraphQLApiOpenidConnectConfigArgs']]:
-        """
-        Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
-        """
         return pulumi.get(self, "openid_connect_config")
 
     @openid_connect_config.setter
@@ -553,11 +413,6 @@ class _GraphQLApiState:
     @_builtins.property
     @pulumi.getter(name="queryDepthLimit")
     def query_depth_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
-
-        Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
-        """
         return pulumi.get(self, "query_depth_limit")
 
     @query_depth_limit.setter
@@ -567,9 +422,6 @@ class _GraphQLApiState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -579,9 +431,6 @@ class _GraphQLApiState:
     @_builtins.property
     @pulumi.getter(name="resolverCountLimit")
     def resolver_count_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
-        """
         return pulumi.get(self, "resolver_count_limit")
 
     @resolver_count_limit.setter
@@ -591,9 +440,6 @@ class _GraphQLApiState:
     @_builtins.property
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
-        """
         return pulumi.get(self, "schema")
 
     @schema.setter
@@ -603,9 +449,6 @@ class _GraphQLApiState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -615,9 +458,6 @@ class _GraphQLApiState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -627,9 +467,6 @@ class _GraphQLApiState:
     @_builtins.property
     @pulumi.getter
     def uris(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of URIs associated with the API E.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
-        """
         return pulumi.get(self, "uris")
 
     @uris.setter
@@ -639,9 +476,6 @@ class _GraphQLApiState:
     @_builtins.property
     @pulumi.getter(name="userPoolConfig")
     def user_pool_config(self) -> Optional[pulumi.Input['GraphQLApiUserPoolConfigArgs']]:
-        """
-        Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
-        """
         return pulumi.get(self, "user_pool_config")
 
     @user_pool_config.setter
@@ -651,9 +485,6 @@ class _GraphQLApiState:
     @_builtins.property
     @pulumi.getter
     def visibility(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
-        """
         return pulumi.get(self, "visibility")
 
     @visibility.setter
@@ -663,9 +494,6 @@ class _GraphQLApiState:
     @_builtins.property
     @pulumi.getter(name="xrayEnabled")
     def xray_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether tracing with X-ray is enabled. Defaults to false.
-        """
         return pulumi.get(self, "xray_enabled")
 
     @xray_enabled.setter
@@ -699,230 +527,9 @@ class GraphQLApi(pulumi.CustomResource):
                  xray_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        Provides an AppSync GraphQL API.
-
-        ## Example Usage
-
-        ### API Key Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            authentication_type="API_KEY",
-            name="example")
-        ```
-
-        ### AWS IAM Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            authentication_type="AWS_IAM",
-            name="example")
-        ```
-
-        ### AWS Cognito User Pool Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            authentication_type="AMAZON_COGNITO_USER_POOLS",
-            name="example",
-            user_pool_config={
-                "aws_region": current["region"],
-                "default_action": "DENY",
-                "user_pool_id": example_aws_cognito_user_pool["id"],
-            })
-        ```
-
-        ### OpenID Connect Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            authentication_type="OPENID_CONNECT",
-            name="example",
-            openid_connect_config={
-                "issuer": "https://example.com",
-            })
-        ```
-
-        ### AWS Lambda Authorizer Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            authentication_type="AWS_LAMBDA",
-            name="example",
-            lambda_authorizer_config={
-                "authorizer_uri": "arn:aws:lambda:us-east-1:123456789012:function:custom_lambda_authorizer",
-            })
-        appsync_lambda_authorizer = aws.lambda_.Permission("appsync_lambda_authorizer",
-            statement_id="appsync_lambda_authorizer",
-            action="lambda:InvokeFunction",
-            function="custom_lambda_authorizer",
-            principal="appsync.amazonaws.com",
-            source_arn=example.arn)
-        ```
-
-        ### With Multiple Authentication Providers
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            authentication_type="API_KEY",
-            name="example",
-            additional_authentication_providers=[{
-                "authentication_type": "AWS_IAM",
-            }])
-        ```
-
-        ### With Schema
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            authentication_type="AWS_IAM",
-            name="example",
-            schema=\"\"\"schema {
-        \\tquery: Query
-        }
-        type Query {
-          test: Int
-        }
-        \"\"\")
-        ```
-
-        ### Enabling Logging
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["appsync.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        example = aws.iam.Role("example",
-            name="example",
-            assume_role_policy=assume_role.json)
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs",
-            role=example.name)
-        example_graph_ql_api = aws.appsync.GraphQLApi("example", log_config={
-            "cloudwatch_logs_role_arn": example.arn,
-            "field_log_level": "ERROR",
-        })
-        ```
-
-        ### Associate Web ACL (v2)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            authentication_type="API_KEY",
-            name="example")
-        example_web_acl = aws.wafv2.WebAcl("example",
-            name="managed-rule-example",
-            description="Example of a managed rule.",
-            scope="REGIONAL",
-            default_action={
-                "allow": {},
-            },
-            rules=[{
-                "name": "rule-1",
-                "priority": 1,
-                "override_action": {
-                    "block": [{}],
-                },
-                "statement": {
-                    "managed_rule_group_statement": {
-                        "name": "AWSManagedRulesCommonRuleSet",
-                        "vendor_name": "AWS",
-                    },
-                },
-                "visibility_config": {
-                    "cloudwatch_metrics_enabled": False,
-                    "metric_name": "friendly-rule-metric-name",
-                    "sampled_requests_enabled": False,
-                },
-            }],
-            visibility_config={
-                "cloudwatch_metrics_enabled": False,
-                "metric_name": "friendly-metric-name",
-                "sampled_requests_enabled": False,
-            })
-        example_web_acl_association = aws.wafv2.WebAclAssociation("example",
-            resource_arn=example.arn,
-            web_acl_arn=example_web_acl.arn)
-        ```
-
-        ### GraphQL run complexity, query depth, and introspection
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            authentication_type="AWS_IAM",
-            name="example",
-            introspection_config="ENABLED",
-            query_depth_limit=2,
-            resolver_count_limit=2)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AppSync GraphQL API using the GraphQL API ID. For example:
-
-        ```sh
-        $ pulumi import aws:appsync/graphQLApi:GraphQLApi example 0123456789
-        ```
-
+        Create a GraphQLApi resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GraphQLApiAdditionalAuthenticationProviderArgs', 'GraphQLApiAdditionalAuthenticationProviderArgsDict']]]] additional_authentication_providers: One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
-        :param pulumi.Input[_builtins.str] api_type: API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
-        :param pulumi.Input[_builtins.str] authentication_type: Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
-        :param pulumi.Input[Union['GraphQLApiEnhancedMetricsConfigArgs', 'GraphQLApiEnhancedMetricsConfigArgsDict']] enhanced_metrics_config: Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
-        :param pulumi.Input[_builtins.str] introspection_config: Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
-        :param pulumi.Input[Union['GraphQLApiLambdaAuthorizerConfigArgs', 'GraphQLApiLambdaAuthorizerConfigArgsDict']] lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
-        :param pulumi.Input[Union['GraphQLApiLogConfigArgs', 'GraphQLApiLogConfigArgsDict']] log_config: Nested argument containing logging configuration. See `log_config` Block for details.
-        :param pulumi.Input[_builtins.str] merged_api_execution_role_arn: ARN of the execution role when `api_type` is set to `MERGED`.
-        :param pulumi.Input[_builtins.str] name: User-supplied name for the GraphQL API.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Union['GraphQLApiOpenidConnectConfigArgs', 'GraphQLApiOpenidConnectConfigArgsDict']] openid_connect_config: Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
-        :param pulumi.Input[_builtins.int] query_depth_limit: The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
-               
-               Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] resolver_count_limit: The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
-        :param pulumi.Input[_builtins.str] schema: Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['GraphQLApiUserPoolConfigArgs', 'GraphQLApiUserPoolConfigArgsDict']] user_pool_config: Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
-        :param pulumi.Input[_builtins.str] visibility: Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
-        :param pulumi.Input[_builtins.bool] xray_enabled: Whether tracing with X-ray is enabled. Defaults to false.
         """
         ...
     @overload
@@ -931,206 +538,7 @@ class GraphQLApi(pulumi.CustomResource):
                  args: GraphQLApiArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AppSync GraphQL API.
-
-        ## Example Usage
-
-        ### API Key Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            authentication_type="API_KEY",
-            name="example")
-        ```
-
-        ### AWS IAM Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            authentication_type="AWS_IAM",
-            name="example")
-        ```
-
-        ### AWS Cognito User Pool Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            authentication_type="AMAZON_COGNITO_USER_POOLS",
-            name="example",
-            user_pool_config={
-                "aws_region": current["region"],
-                "default_action": "DENY",
-                "user_pool_id": example_aws_cognito_user_pool["id"],
-            })
-        ```
-
-        ### OpenID Connect Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            authentication_type="OPENID_CONNECT",
-            name="example",
-            openid_connect_config={
-                "issuer": "https://example.com",
-            })
-        ```
-
-        ### AWS Lambda Authorizer Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            authentication_type="AWS_LAMBDA",
-            name="example",
-            lambda_authorizer_config={
-                "authorizer_uri": "arn:aws:lambda:us-east-1:123456789012:function:custom_lambda_authorizer",
-            })
-        appsync_lambda_authorizer = aws.lambda_.Permission("appsync_lambda_authorizer",
-            statement_id="appsync_lambda_authorizer",
-            action="lambda:InvokeFunction",
-            function="custom_lambda_authorizer",
-            principal="appsync.amazonaws.com",
-            source_arn=example.arn)
-        ```
-
-        ### With Multiple Authentication Providers
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            authentication_type="API_KEY",
-            name="example",
-            additional_authentication_providers=[{
-                "authentication_type": "AWS_IAM",
-            }])
-        ```
-
-        ### With Schema
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            authentication_type="AWS_IAM",
-            name="example",
-            schema=\"\"\"schema {
-        \\tquery: Query
-        }
-        type Query {
-          test: Int
-        }
-        \"\"\")
-        ```
-
-        ### Enabling Logging
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["appsync.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        example = aws.iam.Role("example",
-            name="example",
-            assume_role_policy=assume_role.json)
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs",
-            role=example.name)
-        example_graph_ql_api = aws.appsync.GraphQLApi("example", log_config={
-            "cloudwatch_logs_role_arn": example.arn,
-            "field_log_level": "ERROR",
-        })
-        ```
-
-        ### Associate Web ACL (v2)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            authentication_type="API_KEY",
-            name="example")
-        example_web_acl = aws.wafv2.WebAcl("example",
-            name="managed-rule-example",
-            description="Example of a managed rule.",
-            scope="REGIONAL",
-            default_action={
-                "allow": {},
-            },
-            rules=[{
-                "name": "rule-1",
-                "priority": 1,
-                "override_action": {
-                    "block": [{}],
-                },
-                "statement": {
-                    "managed_rule_group_statement": {
-                        "name": "AWSManagedRulesCommonRuleSet",
-                        "vendor_name": "AWS",
-                    },
-                },
-                "visibility_config": {
-                    "cloudwatch_metrics_enabled": False,
-                    "metric_name": "friendly-rule-metric-name",
-                    "sampled_requests_enabled": False,
-                },
-            }],
-            visibility_config={
-                "cloudwatch_metrics_enabled": False,
-                "metric_name": "friendly-metric-name",
-                "sampled_requests_enabled": False,
-            })
-        example_web_acl_association = aws.wafv2.WebAclAssociation("example",
-            resource_arn=example.arn,
-            web_acl_arn=example_web_acl.arn)
-        ```
-
-        ### GraphQL run complexity, query depth, and introspection
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            authentication_type="AWS_IAM",
-            name="example",
-            introspection_config="ENABLED",
-            query_depth_limit=2,
-            resolver_count_limit=2)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AppSync GraphQL API using the GraphQL API ID. For example:
-
-        ```sh
-        $ pulumi import aws:appsync/graphQLApi:GraphQLApi example 0123456789
-        ```
-
+        Create a GraphQLApi resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param GraphQLApiArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1234,31 +642,6 @@ class GraphQLApi(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GraphQLApiAdditionalAuthenticationProviderArgs', 'GraphQLApiAdditionalAuthenticationProviderArgsDict']]]] additional_authentication_providers: One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
-        :param pulumi.Input[_builtins.str] api_type: API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
-        :param pulumi.Input[_builtins.str] arn: ARN
-        :param pulumi.Input[_builtins.str] authentication_type: Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
-        :param pulumi.Input[Union['GraphQLApiEnhancedMetricsConfigArgs', 'GraphQLApiEnhancedMetricsConfigArgsDict']] enhanced_metrics_config: Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
-        :param pulumi.Input[_builtins.str] introspection_config: Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
-        :param pulumi.Input[Union['GraphQLApiLambdaAuthorizerConfigArgs', 'GraphQLApiLambdaAuthorizerConfigArgsDict']] lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
-        :param pulumi.Input[Union['GraphQLApiLogConfigArgs', 'GraphQLApiLogConfigArgsDict']] log_config: Nested argument containing logging configuration. See `log_config` Block for details.
-        :param pulumi.Input[_builtins.str] merged_api_execution_role_arn: ARN of the execution role when `api_type` is set to `MERGED`.
-        :param pulumi.Input[_builtins.str] name: User-supplied name for the GraphQL API.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Union['GraphQLApiOpenidConnectConfigArgs', 'GraphQLApiOpenidConnectConfigArgsDict']] openid_connect_config: Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
-        :param pulumi.Input[_builtins.int] query_depth_limit: The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
-               
-               Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] resolver_count_limit: The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
-        :param pulumi.Input[_builtins.str] schema: Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] uris: Map of URIs associated with the API E.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
-        :param pulumi.Input[Union['GraphQLApiUserPoolConfigArgs', 'GraphQLApiUserPoolConfigArgsDict']] user_pool_config: Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
-        :param pulumi.Input[_builtins.str] visibility: Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
-        :param pulumi.Input[_builtins.bool] xray_enabled: Whether tracing with X-ray is enabled. Defaults to false.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1290,172 +673,105 @@ class GraphQLApi(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="additionalAuthenticationProviders")
     def additional_authentication_providers(self) -> pulumi.Output[Optional[Sequence['outputs.GraphQLApiAdditionalAuthenticationProvider']]]:
-        """
-        One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
-        """
         return pulumi.get(self, "additional_authentication_providers")
 
     @_builtins.property
     @pulumi.getter(name="apiType")
     def api_type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
-        """
         return pulumi.get(self, "api_type")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
-        """
         return pulumi.get(self, "authentication_type")
 
     @_builtins.property
     @pulumi.getter(name="enhancedMetricsConfig")
     def enhanced_metrics_config(self) -> pulumi.Output[Optional['outputs.GraphQLApiEnhancedMetricsConfig']]:
-        """
-        Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
-        """
         return pulumi.get(self, "enhanced_metrics_config")
 
     @_builtins.property
     @pulumi.getter(name="introspectionConfig")
     def introspection_config(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
-        """
         return pulumi.get(self, "introspection_config")
 
     @_builtins.property
     @pulumi.getter(name="lambdaAuthorizerConfig")
     def lambda_authorizer_config(self) -> pulumi.Output[Optional['outputs.GraphQLApiLambdaAuthorizerConfig']]:
-        """
-        Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
-        """
         return pulumi.get(self, "lambda_authorizer_config")
 
     @_builtins.property
     @pulumi.getter(name="logConfig")
     def log_config(self) -> pulumi.Output[Optional['outputs.GraphQLApiLogConfig']]:
-        """
-        Nested argument containing logging configuration. See `log_config` Block for details.
-        """
         return pulumi.get(self, "log_config")
 
     @_builtins.property
     @pulumi.getter(name="mergedApiExecutionRoleArn")
     def merged_api_execution_role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ARN of the execution role when `api_type` is set to `MERGED`.
-        """
         return pulumi.get(self, "merged_api_execution_role_arn")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        User-supplied name for the GraphQL API.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="openidConnectConfig")
     def openid_connect_config(self) -> pulumi.Output[Optional['outputs.GraphQLApiOpenidConnectConfig']]:
-        """
-        Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
-        """
         return pulumi.get(self, "openid_connect_config")
 
     @_builtins.property
     @pulumi.getter(name="queryDepthLimit")
     def query_depth_limit(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
-
-        Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
-        """
         return pulumi.get(self, "query_depth_limit")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resolverCountLimit")
     def resolver_count_limit(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
-        """
         return pulumi.get(self, "resolver_count_limit")
 
     @_builtins.property
     @pulumi.getter
     def schema(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
-        """
         return pulumi.get(self, "schema")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def uris(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of URIs associated with the API E.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
-        """
         return pulumi.get(self, "uris")
 
     @_builtins.property
     @pulumi.getter(name="userPoolConfig")
     def user_pool_config(self) -> pulumi.Output[Optional['outputs.GraphQLApiUserPoolConfig']]:
-        """
-        Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
-        """
         return pulumi.get(self, "user_pool_config")
 
     @_builtins.property
     @pulumi.getter
     def visibility(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
-        """
         return pulumi.get(self, "visibility")
 
     @_builtins.property
     @pulumi.getter(name="xrayEnabled")
     def xray_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether tracing with X-ray is enabled. Defaults to false.
-        """
         return pulumi.get(self, "xray_enabled")
 

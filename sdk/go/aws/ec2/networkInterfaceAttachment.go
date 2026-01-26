@@ -12,60 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Attach an Elastic network interface (ENI) resource with EC2 instance.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewNetworkInterfaceAttachment(ctx, "test", &ec2.NetworkInterfaceAttachmentArgs{
-//				InstanceId:         pulumi.Any(testAwsInstance.Id),
-//				NetworkInterfaceId: pulumi.Any(testAwsNetworkInterface.Id),
-//				DeviceIndex:        pulumi.Int(0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Elastic network interface (ENI) Attachments using its Attachment ID. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment secondary_nic eni-attach-0a33842b4ec347c4c
-// ```
 type NetworkInterfaceAttachment struct {
 	pulumi.CustomResourceState
 
-	// The ENI Attachment ID.
-	AttachmentId pulumi.StringOutput `pulumi:"attachmentId"`
-	// Network interface index (int).
-	DeviceIndex pulumi.IntOutput `pulumi:"deviceIndex"`
-	// Instance ID to attach.
-	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
-	// Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
-	NetworkCardIndex pulumi.IntOutput `pulumi:"networkCardIndex"`
-	// ENI ID to attach.
+	AttachmentId       pulumi.StringOutput `pulumi:"attachmentId"`
+	DeviceIndex        pulumi.IntOutput    `pulumi:"deviceIndex"`
+	InstanceId         pulumi.StringOutput `pulumi:"instanceId"`
+	NetworkCardIndex   pulumi.IntOutput    `pulumi:"networkCardIndex"`
 	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The status of the Network Interface Attachment.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Region             pulumi.StringOutput `pulumi:"region"`
+	Status             pulumi.StringOutput `pulumi:"status"`
 }
 
 // NewNetworkInterfaceAttachment registers a new resource with the given unique name, arguments, and options.
@@ -107,37 +63,23 @@ func GetNetworkInterfaceAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkInterfaceAttachment resources.
 type networkInterfaceAttachmentState struct {
-	// The ENI Attachment ID.
-	AttachmentId *string `pulumi:"attachmentId"`
-	// Network interface index (int).
-	DeviceIndex *int `pulumi:"deviceIndex"`
-	// Instance ID to attach.
-	InstanceId *string `pulumi:"instanceId"`
-	// Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
-	NetworkCardIndex *int `pulumi:"networkCardIndex"`
-	// ENI ID to attach.
+	AttachmentId       *string `pulumi:"attachmentId"`
+	DeviceIndex        *int    `pulumi:"deviceIndex"`
+	InstanceId         *string `pulumi:"instanceId"`
+	NetworkCardIndex   *int    `pulumi:"networkCardIndex"`
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The status of the Network Interface Attachment.
-	Status *string `pulumi:"status"`
+	Region             *string `pulumi:"region"`
+	Status             *string `pulumi:"status"`
 }
 
 type NetworkInterfaceAttachmentState struct {
-	// The ENI Attachment ID.
-	AttachmentId pulumi.StringPtrInput
-	// Network interface index (int).
-	DeviceIndex pulumi.IntPtrInput
-	// Instance ID to attach.
-	InstanceId pulumi.StringPtrInput
-	// Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
-	NetworkCardIndex pulumi.IntPtrInput
-	// ENI ID to attach.
+	AttachmentId       pulumi.StringPtrInput
+	DeviceIndex        pulumi.IntPtrInput
+	InstanceId         pulumi.StringPtrInput
+	NetworkCardIndex   pulumi.IntPtrInput
 	NetworkInterfaceId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The status of the Network Interface Attachment.
-	Status pulumi.StringPtrInput
+	Region             pulumi.StringPtrInput
+	Status             pulumi.StringPtrInput
 }
 
 func (NetworkInterfaceAttachmentState) ElementType() reflect.Type {
@@ -145,30 +87,20 @@ func (NetworkInterfaceAttachmentState) ElementType() reflect.Type {
 }
 
 type networkInterfaceAttachmentArgs struct {
-	// Network interface index (int).
-	DeviceIndex int `pulumi:"deviceIndex"`
-	// Instance ID to attach.
-	InstanceId string `pulumi:"instanceId"`
-	// Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
-	NetworkCardIndex *int `pulumi:"networkCardIndex"`
-	// ENI ID to attach.
-	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	DeviceIndex        int     `pulumi:"deviceIndex"`
+	InstanceId         string  `pulumi:"instanceId"`
+	NetworkCardIndex   *int    `pulumi:"networkCardIndex"`
+	NetworkInterfaceId string  `pulumi:"networkInterfaceId"`
+	Region             *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a NetworkInterfaceAttachment resource.
 type NetworkInterfaceAttachmentArgs struct {
-	// Network interface index (int).
-	DeviceIndex pulumi.IntInput
-	// Instance ID to attach.
-	InstanceId pulumi.StringInput
-	// Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
-	NetworkCardIndex pulumi.IntPtrInput
-	// ENI ID to attach.
+	DeviceIndex        pulumi.IntInput
+	InstanceId         pulumi.StringInput
+	NetworkCardIndex   pulumi.IntPtrInput
 	NetworkInterfaceId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region             pulumi.StringPtrInput
 }
 
 func (NetworkInterfaceAttachmentArgs) ElementType() reflect.Type {
@@ -258,37 +190,30 @@ func (o NetworkInterfaceAttachmentOutput) ToNetworkInterfaceAttachmentOutputWith
 	return o
 }
 
-// The ENI Attachment ID.
 func (o NetworkInterfaceAttachmentOutput) AttachmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.StringOutput { return v.AttachmentId }).(pulumi.StringOutput)
 }
 
-// Network interface index (int).
 func (o NetworkInterfaceAttachmentOutput) DeviceIndex() pulumi.IntOutput {
 	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.IntOutput { return v.DeviceIndex }).(pulumi.IntOutput)
 }
 
-// Instance ID to attach.
 func (o NetworkInterfaceAttachmentOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
 func (o NetworkInterfaceAttachmentOutput) NetworkCardIndex() pulumi.IntOutput {
 	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.IntOutput { return v.NetworkCardIndex }).(pulumi.IntOutput)
 }
 
-// ENI ID to attach.
 func (o NetworkInterfaceAttachmentOutput) NetworkInterfaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.StringOutput { return v.NetworkInterfaceId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o NetworkInterfaceAttachmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The status of the Network Interface Attachment.
 func (o NetworkInterfaceAttachmentOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

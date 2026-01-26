@@ -15,32 +15,16 @@ public final class GetEmailIdentityPlainArgs extends com.pulumi.resources.Invoke
 
     public static final GetEmailIdentityPlainArgs Empty = new GetEmailIdentityPlainArgs();
 
-    /**
-     * Email identity.
-     * 
-     */
     @Import(name="email", required=true)
     private String email;
 
-    /**
-     * @return Email identity.
-     * 
-     */
     public String email() {
         return this.email;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -70,23 +54,11 @@ public final class GetEmailIdentityPlainArgs extends com.pulumi.resources.Invoke
             $ = new GetEmailIdentityPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param email Email identity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder email(String email) {
             $.email = email;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

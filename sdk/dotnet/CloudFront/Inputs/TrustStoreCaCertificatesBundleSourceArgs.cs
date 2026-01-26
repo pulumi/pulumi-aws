@@ -12,9 +12,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class TrustStoreCaCertificatesBundleSourceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block for the S3 location of the CA certificates bundle. See `CaCertificatesBundleS3Location` below.
-        /// </summary>
         [Input("caCertificatesBundleS3Location")]
         public Input<Inputs.TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs>? CaCertificatesBundleS3Location { get; set; }
 

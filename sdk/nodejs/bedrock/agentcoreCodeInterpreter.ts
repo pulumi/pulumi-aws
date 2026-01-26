@@ -7,64 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages an AWS Bedrock AgentCore Code Interpreter. Code Interpreter provides a secure environment for AI agents to execute Python code, enabling data analysis, calculations, and file processing capabilities.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.bedrock.AgentcoreCodeInterpreter("example", {
- *     name: "example-code-interpreter",
- *     description: "Code interpreter for data analysis",
- *     networkConfiguration: {
- *         networkMode: "PUBLIC",
- *     },
- * });
- * ```
- *
- * ### Code Interpreter with Execution Role
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         actions: ["sts:AssumeRole"],
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["bedrock-agentcore.amazonaws.com"],
- *         }],
- *     }],
- * });
- * const example = new aws.iam.Role("example", {
- *     name: "bedrock-agentcore-code-interpreter-role",
- *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
- * });
- * const exampleAgentcoreCodeInterpreter = new aws.bedrock.AgentcoreCodeInterpreter("example", {
- *     name: "example-code-interpreter",
- *     description: "Code interpreter with custom execution role",
- *     executionRoleArn: example.arn,
- *     networkConfiguration: {
- *         networkMode: "SANDBOX",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Bedrock AgentCore Code Interpreter using the code interpreter ID. For example:
- *
- * ```sh
- * $ pulumi import aws:bedrock/agentcoreCodeInterpreter:AgentcoreCodeInterpreter example CODEINTERPRETER1234567890
- * ```
- */
 export class AgentcoreCodeInterpreter extends pulumi.CustomResource {
     /**
      * Get an existing AgentcoreCodeInterpreter resource's state with the given name, ID, and optional extra
@@ -93,43 +35,14 @@ export class AgentcoreCodeInterpreter extends pulumi.CustomResource {
         return obj['__pulumiType'] === AgentcoreCodeInterpreter.__pulumiType;
     }
 
-    /**
-     * ARN of the Code Interpreter.
-     */
     declare public /*out*/ readonly codeInterpreterArn: pulumi.Output<string>;
-    /**
-     * Unique identifier of the Code Interpreter.
-     */
     declare public /*out*/ readonly codeInterpreterId: pulumi.Output<string>;
-    /**
-     * Description of the code interpreter.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
-     */
     declare public readonly executionRoleArn: pulumi.Output<string | undefined>;
-    /**
-     * Name of the code interpreter.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Network configuration for the code interpreter. See `networkConfiguration` below.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly networkConfiguration: pulumi.Output<outputs.bedrock.AgentcoreCodeInterpreterNetworkConfiguration | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.bedrock.AgentcoreCodeInterpreterTimeouts | undefined>;
 
@@ -178,43 +91,14 @@ export class AgentcoreCodeInterpreter extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AgentcoreCodeInterpreter resources.
  */
 export interface AgentcoreCodeInterpreterState {
-    /**
-     * ARN of the Code Interpreter.
-     */
     codeInterpreterArn?: pulumi.Input<string>;
-    /**
-     * Unique identifier of the Code Interpreter.
-     */
     codeInterpreterId?: pulumi.Input<string>;
-    /**
-     * Description of the code interpreter.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
-     */
     executionRoleArn?: pulumi.Input<string>;
-    /**
-     * Name of the code interpreter.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Network configuration for the code interpreter. See `networkConfiguration` below.
-     *
-     * The following arguments are optional:
-     */
     networkConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreCodeInterpreterNetworkConfiguration>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentcoreCodeInterpreterTimeouts>;
 }
@@ -223,31 +107,11 @@ export interface AgentcoreCodeInterpreterState {
  * The set of arguments for constructing a AgentcoreCodeInterpreter resource.
  */
 export interface AgentcoreCodeInterpreterArgs {
-    /**
-     * Description of the code interpreter.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
-     */
     executionRoleArn?: pulumi.Input<string>;
-    /**
-     * Name of the code interpreter.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Network configuration for the code interpreter. See `networkConfiguration` below.
-     *
-     * The following arguments are optional:
-     */
     networkConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreCodeInterpreterNetworkConfiguration>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentcoreCodeInterpreterTimeouts>;
 }

@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserPoolClientRefreshTokenRotation {
-    /**
-     * @return The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
-     * 
-     */
     private String feature;
-    /**
-     * @return A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
-     * 
-     */
     private @Nullable Integer retryGracePeriodSeconds;
 
     private UserPoolClientRefreshTokenRotation() {}
-    /**
-     * @return The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
-     * 
-     */
     public String feature() {
         return this.feature;
     }
-    /**
-     * @return A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
-     * 
-     */
     public Optional<Integer> retryGracePeriodSeconds() {
         return Optional.ofNullable(this.retryGracePeriodSeconds);
     }

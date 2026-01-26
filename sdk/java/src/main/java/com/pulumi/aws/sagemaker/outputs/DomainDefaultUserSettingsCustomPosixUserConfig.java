@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class DomainDefaultUserSettingsCustomPosixUserConfig {
-    /**
-     * @return The POSIX group ID.
-     * 
-     */
     private Integer gid;
-    /**
-     * @return The POSIX user ID.
-     * 
-     */
     private Integer uid;
 
     private DomainDefaultUserSettingsCustomPosixUserConfig() {}
-    /**
-     * @return The POSIX group ID.
-     * 
-     */
     public Integer gid() {
         return this.gid;
     }
-    /**
-     * @return The POSIX user ID.
-     * 
-     */
     public Integer uid() {
         return this.uid;
     }

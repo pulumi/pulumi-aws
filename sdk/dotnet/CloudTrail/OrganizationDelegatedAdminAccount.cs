@@ -9,69 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudTrail
 {
-    /// <summary>
-    /// Provides a resource to manage an AWS CloudTrail Delegated Administrator.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// Basic usage:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var delegated = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var example = new Aws.CloudTrail.OrganizationDelegatedAdminAccount("example", new()
-    ///     {
-    ///         AccountId = delegated.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import delegated administrators using the delegate account `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cloudtrail/organizationDelegatedAdminAccount:OrganizationDelegatedAdminAccount example 12345678901
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cloudtrail/organizationDelegatedAdminAccount:OrganizationDelegatedAdminAccount")]
     public partial class OrganizationDelegatedAdminAccount : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// An organization member account ID that you want to designate as a delegated administrator.
-        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the delegated administrator's account.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The email address that is associated with the delegated administrator's AWS account.
-        /// </summary>
         [Output("email")]
         public Output<string> Email { get; private set; } = null!;
 
-        /// <summary>
-        /// The friendly name of the delegated administrator's account.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The AWS CloudTrail service principal name.
-        /// </summary>
         [Output("servicePrincipal")]
         public Output<string> ServicePrincipal { get; private set; } = null!;
 
@@ -121,9 +73,6 @@ namespace Pulumi.Aws.CloudTrail
 
     public sealed class OrganizationDelegatedAdminAccountArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An organization member account ID that you want to designate as a delegated administrator.
-        /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
@@ -135,33 +84,18 @@ namespace Pulumi.Aws.CloudTrail
 
     public sealed class OrganizationDelegatedAdminAccountState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An organization member account ID that you want to designate as a delegated administrator.
-        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the delegated administrator's account.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The email address that is associated with the delegated administrator's AWS account.
-        /// </summary>
         [Input("email")]
         public Input<string>? Email { get; set; }
 
-        /// <summary>
-        /// The friendly name of the delegated administrator's account.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The AWS CloudTrail service principal name.
-        /// </summary>
         [Input("servicePrincipal")]
         public Input<string>? ServicePrincipal { get; set; }
 

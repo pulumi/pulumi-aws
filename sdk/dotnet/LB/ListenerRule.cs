@@ -9,65 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LB
 {
-    /// <summary>
-    /// Provides a Load Balancer Listener Rule resource.
-    /// 
-    /// &gt; **Note:** `aws.alb.ListenerRule` is known as `aws.lb.ListenerRule`. The functionality is identical.
-    /// </summary>
     [AwsResourceType("aws:lb/listenerRule:ListenerRule")]
     public partial class ListenerRule : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// An Action block. Action blocks are documented below.
-        /// </summary>
         [Output("actions")]
         public Output<ImmutableArray<Outputs.ListenerRuleAction>> Actions { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the rule (matches `Id`)
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
-        /// </summary>
         [Output("conditions")]
         public Output<ImmutableArray<Outputs.ListenerRuleCondition>> Conditions { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the listener to which to attach the rule.
-        /// </summary>
         [Output("listenerArn")]
         public Output<string> ListenerArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
-        /// </summary>
         [Output("priority")]
         public Output<int> Priority { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `Transform` block from the configuration.
-        /// </summary>
         [Output("transforms")]
         public Output<ImmutableArray<Outputs.ListenerRuleTransform>> Transforms { get; private set; } = null!;
 
@@ -123,10 +91,6 @@ namespace Pulumi.Aws.LB
     {
         [Input("actions", required: true)]
         private InputList<Inputs.ListenerRuleActionArgs>? _actions;
-
-        /// <summary>
-        /// An Action block. Action blocks are documented below.
-        /// </summary>
         public InputList<Inputs.ListenerRuleActionArgs> Actions
         {
             get => _actions ?? (_actions = new InputList<Inputs.ListenerRuleActionArgs>());
@@ -135,40 +99,23 @@ namespace Pulumi.Aws.LB
 
         [Input("conditions", required: true)]
         private InputList<Inputs.ListenerRuleConditionArgs>? _conditions;
-
-        /// <summary>
-        /// A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
-        /// </summary>
         public InputList<Inputs.ListenerRuleConditionArgs> Conditions
         {
             get => _conditions ?? (_conditions = new InputList<Inputs.ListenerRuleConditionArgs>());
             set => _conditions = value;
         }
 
-        /// <summary>
-        /// The ARN of the listener to which to attach the rule.
-        /// </summary>
         [Input("listenerArn", required: true)]
         public Input<string> ListenerArn { get; set; } = null!;
 
-        /// <summary>
-        /// The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
-        /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -177,10 +124,6 @@ namespace Pulumi.Aws.LB
 
         [Input("transforms")]
         private InputList<Inputs.ListenerRuleTransformArgs>? _transforms;
-
-        /// <summary>
-        /// Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `Transform` block from the configuration.
-        /// </summary>
         public InputList<Inputs.ListenerRuleTransformArgs> Transforms
         {
             get => _transforms ?? (_transforms = new InputList<Inputs.ListenerRuleTransformArgs>());
@@ -197,58 +140,34 @@ namespace Pulumi.Aws.LB
     {
         [Input("actions")]
         private InputList<Inputs.ListenerRuleActionGetArgs>? _actions;
-
-        /// <summary>
-        /// An Action block. Action blocks are documented below.
-        /// </summary>
         public InputList<Inputs.ListenerRuleActionGetArgs> Actions
         {
             get => _actions ?? (_actions = new InputList<Inputs.ListenerRuleActionGetArgs>());
             set => _actions = value;
         }
 
-        /// <summary>
-        /// The ARN of the rule (matches `Id`)
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("conditions")]
         private InputList<Inputs.ListenerRuleConditionGetArgs>? _conditions;
-
-        /// <summary>
-        /// A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
-        /// </summary>
         public InputList<Inputs.ListenerRuleConditionGetArgs> Conditions
         {
             get => _conditions ?? (_conditions = new InputList<Inputs.ListenerRuleConditionGetArgs>());
             set => _conditions = value;
         }
 
-        /// <summary>
-        /// The ARN of the listener to which to attach the rule.
-        /// </summary>
         [Input("listenerArn")]
         public Input<string>? ListenerArn { get; set; }
 
-        /// <summary>
-        /// The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
-        /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -257,10 +176,6 @@ namespace Pulumi.Aws.LB
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -269,10 +184,6 @@ namespace Pulumi.Aws.LB
 
         [Input("transforms")]
         private InputList<Inputs.ListenerRuleTransformGetArgs>? _transforms;
-
-        /// <summary>
-        /// Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `Transform` block from the configuration.
-        /// </summary>
         public InputList<Inputs.ListenerRuleTransformGetArgs> Transforms
         {
             get => _transforms ?? (_transforms = new InputList<Inputs.ListenerRuleTransformGetArgs>());

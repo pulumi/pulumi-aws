@@ -365,13 +365,6 @@ class AgentAgentActionGroupActionGroupExecutor(dict):
     def __init__(__self__, *,
                  custom_control: Optional[_builtins.str] = None,
                  lambda_: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str custom_control: Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`.
-               To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`.
-               Only one of `custom_control` or `lambda` can be specified.
-        :param _builtins.str lambda_: ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
-               Only one of `lambda` or `custom_control` can be specified.
-        """
         if custom_control is not None:
             pulumi.set(__self__, "custom_control", custom_control)
         if lambda_ is not None:
@@ -380,20 +373,11 @@ class AgentAgentActionGroupActionGroupExecutor(dict):
     @_builtins.property
     @pulumi.getter(name="customControl")
     def custom_control(self) -> Optional[_builtins.str]:
-        """
-        Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`.
-        To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`.
-        Only one of `custom_control` or `lambda` can be specified.
-        """
         return pulumi.get(self, "custom_control")
 
     @_builtins.property
     @pulumi.getter(name="lambda")
     def lambda_(self) -> Optional[_builtins.str]:
-        """
-        ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
-        Only one of `lambda` or `custom_control` can be specified.
-        """
         return pulumi.get(self, "lambda_")
 
 
@@ -402,12 +386,6 @@ class AgentAgentActionGroupApiSchema(dict):
     def __init__(__self__, *,
                  payload: Optional[_builtins.str] = None,
                  s3: Optional['outputs.AgentAgentActionGroupApiSchemaS3'] = None):
-        """
-        :param _builtins.str payload: JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
-               Only one of `payload` or `s3` can be specified.
-        :param 'AgentAgentActionGroupApiSchemaS3Args' s3: Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
-               Only one of `s3` or `payload` can be specified.
-        """
         if payload is not None:
             pulumi.set(__self__, "payload", payload)
         if s3 is not None:
@@ -416,19 +394,11 @@ class AgentAgentActionGroupApiSchema(dict):
     @_builtins.property
     @pulumi.getter
     def payload(self) -> Optional[_builtins.str]:
-        """
-        JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
-        Only one of `payload` or `s3` can be specified.
-        """
         return pulumi.get(self, "payload")
 
     @_builtins.property
     @pulumi.getter
     def s3(self) -> Optional['outputs.AgentAgentActionGroupApiSchemaS3']:
-        """
-        Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
-        Only one of `s3` or `payload` can be specified.
-        """
         return pulumi.get(self, "s3")
 
 
@@ -456,10 +426,6 @@ class AgentAgentActionGroupApiSchemaS3(dict):
     def __init__(__self__, *,
                  s3_bucket_name: Optional[_builtins.str] = None,
                  s3_object_key: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str s3_bucket_name: Name of the S3 bucket.
-        :param _builtins.str s3_object_key: S3 object key containing the resource.
-        """
         if s3_bucket_name is not None:
             pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if s3_object_key is not None:
@@ -468,17 +434,11 @@ class AgentAgentActionGroupApiSchemaS3(dict):
     @_builtins.property
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> Optional[_builtins.str]:
-        """
-        Name of the S3 bucket.
-        """
         return pulumi.get(self, "s3_bucket_name")
 
     @_builtins.property
     @pulumi.getter(name="s3ObjectKey")
     def s3_object_key(self) -> Optional[_builtins.str]:
-        """
-        S3 object key containing the resource.
-        """
         return pulumi.get(self, "s3_object_key")
 
 
@@ -503,22 +463,12 @@ class AgentAgentActionGroupFunctionSchema(dict):
 
     def __init__(__self__, *,
                  member_functions: Optional['outputs.AgentAgentActionGroupFunctionSchemaMemberFunctions'] = None):
-        """
-        :param 'AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs' member_functions: Contains a list of functions.
-               Each function describes and action in the action group.
-               See `member_functions` Block for details.
-        """
         if member_functions is not None:
             pulumi.set(__self__, "member_functions", member_functions)
 
     @_builtins.property
     @pulumi.getter(name="memberFunctions")
     def member_functions(self) -> Optional['outputs.AgentAgentActionGroupFunctionSchemaMemberFunctions']:
-        """
-        Contains a list of functions.
-        Each function describes and action in the action group.
-        See `member_functions` Block for details.
-        """
         return pulumi.get(self, "member_functions")
 
 
@@ -526,18 +476,12 @@ class AgentAgentActionGroupFunctionSchema(dict):
 class AgentAgentActionGroupFunctionSchemaMemberFunctions(dict):
     def __init__(__self__, *,
                  functions: Optional[Sequence['outputs.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunction']] = None):
-        """
-        :param Sequence['AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs'] functions: Functions that each define an action in the action group. See `functions` Block for details.
-        """
         if functions is not None:
             pulumi.set(__self__, "functions", functions)
 
     @_builtins.property
     @pulumi.getter
     def functions(self) -> Optional[Sequence['outputs.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunction']]:
-        """
-        Functions that each define an action in the action group. See `functions` Block for details.
-        """
         return pulumi.get(self, "functions")
 
 
@@ -547,11 +491,6 @@ class AgentAgentActionGroupFunctionSchemaMemberFunctionsFunction(dict):
                  name: _builtins.str,
                  description: Optional[_builtins.str] = None,
                  parameters: Optional[Sequence['outputs.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter']] = None):
-        """
-        :param _builtins.str name: Name for the function.
-        :param _builtins.str description: Description of the function and its purpose.
-        :param Sequence['AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs'] parameters: Parameters that the agent elicits from the user to fulfill the function. See `parameters` Block for details.
-        """
         pulumi.set(__self__, "name", name)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -561,25 +500,16 @@ class AgentAgentActionGroupFunctionSchemaMemberFunctionsFunction(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name for the function.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
-        """
-        Description of the function and its purpose.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[Sequence['outputs.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter']]:
-        """
-        Parameters that the agent elicits from the user to fulfill the function. See `parameters` Block for details.
-        """
         return pulumi.get(self, "parameters")
 
 
@@ -607,14 +537,6 @@ class AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter(dict):
                  type: _builtins.str,
                  description: Optional[_builtins.str] = None,
                  required: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str map_block_key: Name of the parameter.
-               
-               **Note:** The argument name `map_block_key` may seem out of context, but is necessary for backward compatibility reasons in the provider.
-        :param _builtins.str type: Data type of the parameter. Valid values: `string`, `number`, `integer`, `boolean`, `array`.
-        :param _builtins.str description: Description of the parameter. Helps the foundation model determine how to elicit the parameters from the user.
-        :param _builtins.bool required: Whether the parameter is required for the agent to complete the function for action group invocation.
-        """
         pulumi.set(__self__, "map_block_key", map_block_key)
         pulumi.set(__self__, "type", type)
         if description is not None:
@@ -625,35 +547,21 @@ class AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter(dict):
     @_builtins.property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> _builtins.str:
-        """
-        Name of the parameter.
-
-        **Note:** The argument name `map_block_key` may seem out of context, but is necessary for backward compatibility reasons in the provider.
-        """
         return pulumi.get(self, "map_block_key")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Data type of the parameter. Valid values: `string`, `number`, `integer`, `boolean`, `array`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
-        """
-        Description of the parameter. Helps the foundation model determine how to elicit the parameters from the user.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def required(self) -> Optional[_builtins.bool]:
-        """
-        Whether the parameter is required for the agent to complete the function for action group invocation.
-        """
         return pulumi.get(self, "required")
 
 
@@ -712,27 +620,17 @@ class AgentAgentAliasRoutingConfiguration(dict):
     def __init__(__self__, *,
                  agent_version: _builtins.str,
                  provisioned_throughput: _builtins.str):
-        """
-        :param _builtins.str agent_version: Version of the agent with which the alias is associated.
-        :param _builtins.str provisioned_throughput: ARN of the Provisioned Throughput assigned to the agent alias.
-        """
         pulumi.set(__self__, "agent_version", agent_version)
         pulumi.set(__self__, "provisioned_throughput", provisioned_throughput)
 
     @_builtins.property
     @pulumi.getter(name="agentVersion")
     def agent_version(self) -> _builtins.str:
-        """
-        Version of the agent with which the alias is associated.
-        """
         return pulumi.get(self, "agent_version")
 
     @_builtins.property
     @pulumi.getter(name="provisionedThroughput")
     def provisioned_throughput(self) -> _builtins.str:
-        """
-        ARN of the Provisioned Throughput assigned to the agent alias.
-        """
         return pulumi.get(self, "provisioned_throughput")
 
 
@@ -800,17 +698,11 @@ class AgentAgentCollaboratorAgentDescriptor(dict):
 
     def __init__(__self__, *,
                  alias_arn: _builtins.str):
-        """
-        :param _builtins.str alias_arn: ARN of the Alias of an Agent to use as the collaborator.
-        """
         pulumi.set(__self__, "alias_arn", alias_arn)
 
     @_builtins.property
     @pulumi.getter(name="aliasArn")
     def alias_arn(self) -> _builtins.str:
-        """
-        ARN of the Alias of an Agent to use as the collaborator.
-        """
         return pulumi.get(self, "alias_arn")
 
 
@@ -881,27 +773,17 @@ class AgentAgentGuardrailConfiguration(dict):
     def __init__(__self__, *,
                  guardrail_identifier: _builtins.str,
                  guardrail_version: _builtins.str):
-        """
-        :param _builtins.str guardrail_identifier: Unique identifier of the guardrail.
-        :param _builtins.str guardrail_version: Version of the guardrail.
-        """
         pulumi.set(__self__, "guardrail_identifier", guardrail_identifier)
         pulumi.set(__self__, "guardrail_version", guardrail_version)
 
     @_builtins.property
     @pulumi.getter(name="guardrailIdentifier")
     def guardrail_identifier(self) -> _builtins.str:
-        """
-        Unique identifier of the guardrail.
-        """
         return pulumi.get(self, "guardrail_identifier")
 
     @_builtins.property
     @pulumi.getter(name="guardrailVersion")
     def guardrail_version(self) -> _builtins.str:
-        """
-        Version of the guardrail.
-        """
         return pulumi.get(self, "guardrail_version")
 
 
@@ -963,11 +845,6 @@ class AgentAgentMemoryConfiguration(dict):
                  enabled_memory_types: Sequence[_builtins.str],
                  session_summary_configurations: Sequence['outputs.AgentAgentMemoryConfigurationSessionSummaryConfiguration'],
                  storage_days: _builtins.int):
-        """
-        :param Sequence[_builtins.str] enabled_memory_types: The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
-        :param Sequence['AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs'] session_summary_configurations: Configuration block for `SESSION_SUMMARY` memory type enabled for the agent. See `session_summary_configuration` Block for details.
-        :param _builtins.int storage_days: The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
-        """
         pulumi.set(__self__, "enabled_memory_types", enabled_memory_types)
         pulumi.set(__self__, "session_summary_configurations", session_summary_configurations)
         pulumi.set(__self__, "storage_days", storage_days)
@@ -975,25 +852,16 @@ class AgentAgentMemoryConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="enabledMemoryTypes")
     def enabled_memory_types(self) -> Sequence[_builtins.str]:
-        """
-        The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
-        """
         return pulumi.get(self, "enabled_memory_types")
 
     @_builtins.property
     @pulumi.getter(name="sessionSummaryConfigurations")
     def session_summary_configurations(self) -> Sequence['outputs.AgentAgentMemoryConfigurationSessionSummaryConfiguration']:
-        """
-        Configuration block for `SESSION_SUMMARY` memory type enabled for the agent. See `session_summary_configuration` Block for details.
-        """
         return pulumi.get(self, "session_summary_configurations")
 
     @_builtins.property
     @pulumi.getter(name="storageDays")
     def storage_days(self) -> _builtins.int:
-        """
-        The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
-        """
         return pulumi.get(self, "storage_days")
 
 
@@ -1018,17 +886,11 @@ class AgentAgentMemoryConfigurationSessionSummaryConfiguration(dict):
 
     def __init__(__self__, *,
                  max_recent_sessions: _builtins.int):
-        """
-        :param _builtins.int max_recent_sessions: Maximum number of recent session summaries to include in the agent's prompt context.
-        """
         pulumi.set(__self__, "max_recent_sessions", max_recent_sessions)
 
     @_builtins.property
     @pulumi.getter(name="maxRecentSessions")
     def max_recent_sessions(self) -> _builtins.int:
-        """
-        Maximum number of recent session summaries to include in the agent's prompt context.
-        """
         return pulumi.get(self, "max_recent_sessions")
 
 
@@ -1056,27 +918,17 @@ class AgentAgentPromptOverrideConfiguration(dict):
     def __init__(__self__, *,
                  override_lambda: _builtins.str,
                  prompt_configurations: Sequence['outputs.AgentAgentPromptOverrideConfigurationPromptConfiguration']):
-        """
-        :param _builtins.str override_lambda: ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `prompt_configurations` block must contain a `parser_mode` value that is set to `OVERRIDDEN`.
-        :param Sequence['AgentAgentPromptOverrideConfigurationPromptConfigurationArgs'] prompt_configurations: Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` Block for details.
-        """
         pulumi.set(__self__, "override_lambda", override_lambda)
         pulumi.set(__self__, "prompt_configurations", prompt_configurations)
 
     @_builtins.property
     @pulumi.getter(name="overrideLambda")
     def override_lambda(self) -> _builtins.str:
-        """
-        ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `prompt_configurations` block must contain a `parser_mode` value that is set to `OVERRIDDEN`.
-        """
         return pulumi.get(self, "override_lambda")
 
     @_builtins.property
     @pulumi.getter(name="promptConfigurations")
     def prompt_configurations(self) -> Sequence['outputs.AgentAgentPromptOverrideConfigurationPromptConfiguration']:
-        """
-        Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` Block for details.
-        """
         return pulumi.get(self, "prompt_configurations")
 
 
@@ -1116,14 +968,6 @@ class AgentAgentPromptOverrideConfigurationPromptConfiguration(dict):
                  prompt_creation_mode: _builtins.str,
                  prompt_state: _builtins.str,
                  prompt_type: _builtins.str):
-        """
-        :param _builtins.str base_prompt_template: prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
-        :param Sequence['AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs'] inference_configurations: Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `prompt_type`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inference_configuration` Block for details.
-        :param _builtins.str parser_mode: Whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `prompt_type`. If you set the argument as `OVERRIDDEN`, the `override_lambda` argument in the `prompt_override_configuration` block must be specified with the ARN of a Lambda function. Valid values: `DEFAULT`, `OVERRIDDEN`.
-        :param _builtins.str prompt_creation_mode: Whether to override the default prompt template for this `prompt_type`. Set this argument to `OVERRIDDEN` to use the prompt that you provide in the `base_prompt_template`. If you leave it as `DEFAULT`, the agent uses a default prompt template. Valid values: `DEFAULT`, `OVERRIDDEN`.
-        :param _builtins.str prompt_state: Whether to allow the agent to carry out the step specified in the `prompt_type`. If you set this argument to `DISABLED`, the agent skips that step. Valid Values: `ENABLED`, `DISABLED`.
-        :param _builtins.str prompt_type: Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`.
-        """
         pulumi.set(__self__, "base_prompt_template", base_prompt_template)
         pulumi.set(__self__, "inference_configurations", inference_configurations)
         pulumi.set(__self__, "parser_mode", parser_mode)
@@ -1134,49 +978,31 @@ class AgentAgentPromptOverrideConfigurationPromptConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="basePromptTemplate")
     def base_prompt_template(self) -> _builtins.str:
-        """
-        prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
-        """
         return pulumi.get(self, "base_prompt_template")
 
     @_builtins.property
     @pulumi.getter(name="inferenceConfigurations")
     def inference_configurations(self) -> Sequence['outputs.AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration']:
-        """
-        Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `prompt_type`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inference_configuration` Block for details.
-        """
         return pulumi.get(self, "inference_configurations")
 
     @_builtins.property
     @pulumi.getter(name="parserMode")
     def parser_mode(self) -> _builtins.str:
-        """
-        Whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `prompt_type`. If you set the argument as `OVERRIDDEN`, the `override_lambda` argument in the `prompt_override_configuration` block must be specified with the ARN of a Lambda function. Valid values: `DEFAULT`, `OVERRIDDEN`.
-        """
         return pulumi.get(self, "parser_mode")
 
     @_builtins.property
     @pulumi.getter(name="promptCreationMode")
     def prompt_creation_mode(self) -> _builtins.str:
-        """
-        Whether to override the default prompt template for this `prompt_type`. Set this argument to `OVERRIDDEN` to use the prompt that you provide in the `base_prompt_template`. If you leave it as `DEFAULT`, the agent uses a default prompt template. Valid values: `DEFAULT`, `OVERRIDDEN`.
-        """
         return pulumi.get(self, "prompt_creation_mode")
 
     @_builtins.property
     @pulumi.getter(name="promptState")
     def prompt_state(self) -> _builtins.str:
-        """
-        Whether to allow the agent to carry out the step specified in the `prompt_type`. If you set this argument to `DISABLED`, the agent skips that step. Valid Values: `ENABLED`, `DISABLED`.
-        """
         return pulumi.get(self, "prompt_state")
 
     @_builtins.property
     @pulumi.getter(name="promptType")
     def prompt_type(self) -> _builtins.str:
-        """
-        Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`.
-        """
         return pulumi.get(self, "prompt_type")
 
 
@@ -1211,13 +1037,6 @@ class AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigura
                  temperature: _builtins.float,
                  top_k: _builtins.int,
                  top_p: _builtins.float):
-        """
-        :param _builtins.int max_length: Maximum number of tokens to allow in the generated response.
-        :param Sequence[_builtins.str] stop_sequences: List of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.
-        :param _builtins.float temperature: Likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.
-        :param _builtins.int top_k: Number of top most-likely candidates, between 0 and 500, from which the model chooses the next token in the sequence.
-        :param _builtins.float top_p: Top percentage of the probability distribution of next tokens, between 0 and 1 (denoting 0% and 100%), from which the model chooses the next token in the sequence.
-        """
         pulumi.set(__self__, "max_length", max_length)
         pulumi.set(__self__, "stop_sequences", stop_sequences)
         pulumi.set(__self__, "temperature", temperature)
@@ -1227,41 +1046,26 @@ class AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigura
     @_builtins.property
     @pulumi.getter(name="maxLength")
     def max_length(self) -> _builtins.int:
-        """
-        Maximum number of tokens to allow in the generated response.
-        """
         return pulumi.get(self, "max_length")
 
     @_builtins.property
     @pulumi.getter(name="stopSequences")
     def stop_sequences(self) -> Sequence[_builtins.str]:
-        """
-        List of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.
-        """
         return pulumi.get(self, "stop_sequences")
 
     @_builtins.property
     @pulumi.getter
     def temperature(self) -> _builtins.float:
-        """
-        Likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.
-        """
         return pulumi.get(self, "temperature")
 
     @_builtins.property
     @pulumi.getter(name="topK")
     def top_k(self) -> _builtins.int:
-        """
-        Number of top most-likely candidates, between 0 and 500, from which the model chooses the next token in the sequence.
-        """
         return pulumi.get(self, "top_k")
 
     @_builtins.property
     @pulumi.getter(name="topP")
     def top_p(self) -> _builtins.float:
-        """
-        Top percentage of the probability distribution of next tokens, between 0 and 1 (denoting 0% and 100%), from which the model chooses the next token in the sequence.
-        """
         return pulumi.get(self, "top_p")
 
 
@@ -1342,14 +1146,6 @@ class AgentDataSourceDataSourceConfiguration(dict):
                  salesforce_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationSalesforceConfiguration'] = None,
                  share_point_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationSharePointConfiguration'] = None,
                  web_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationWebConfiguration'] = None):
-        """
-        :param _builtins.str type: Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
-        :param 'AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs' confluence_configuration: Details about the configuration of the Confluence data source. See `confluence_data_source_configuration` block for details.
-        :param 'AgentDataSourceDataSourceConfigurationS3ConfigurationArgs' s3_configuration: Details about the configuration of the S3 object containing the data source. See `s3_data_source_configuration` block for details.
-        :param 'AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs' salesforce_configuration: Details about the configuration of the Salesforce data source. See `salesforce_data_source_configuration` block for details.
-        :param 'AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs' share_point_configuration: Details about the configuration of the SharePoint data source. See `share_point_data_source_configuration` block for details.
-        :param 'AgentDataSourceDataSourceConfigurationWebConfigurationArgs' web_configuration: Details about the configuration of the web data source. See `web_data_source_configuration` block for details.
-        """
         pulumi.set(__self__, "type", type)
         if confluence_configuration is not None:
             pulumi.set(__self__, "confluence_configuration", confluence_configuration)
@@ -1365,49 +1161,31 @@ class AgentDataSourceDataSourceConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="confluenceConfiguration")
     def confluence_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationConfluenceConfiguration']:
-        """
-        Details about the configuration of the Confluence data source. See `confluence_data_source_configuration` block for details.
-        """
         return pulumi.get(self, "confluence_configuration")
 
     @_builtins.property
     @pulumi.getter(name="s3Configuration")
     def s3_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationS3Configuration']:
-        """
-        Details about the configuration of the S3 object containing the data source. See `s3_data_source_configuration` block for details.
-        """
         return pulumi.get(self, "s3_configuration")
 
     @_builtins.property
     @pulumi.getter(name="salesforceConfiguration")
     def salesforce_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationSalesforceConfiguration']:
-        """
-        Details about the configuration of the Salesforce data source. See `salesforce_data_source_configuration` block for details.
-        """
         return pulumi.get(self, "salesforce_configuration")
 
     @_builtins.property
     @pulumi.getter(name="sharePointConfiguration")
     def share_point_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationSharePointConfiguration']:
-        """
-        Details about the configuration of the SharePoint data source. See `share_point_data_source_configuration` block for details.
-        """
         return pulumi.get(self, "share_point_configuration")
 
     @_builtins.property
     @pulumi.getter(name="webConfiguration")
     def web_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationWebConfiguration']:
-        """
-        Details about the configuration of the web data source. See `web_data_source_configuration` block for details.
-        """
         return pulumi.get(self, "web_configuration")
 
 
@@ -1472,18 +1250,12 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfig
 
     def __init__(__self__, *,
                  filter_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration'] = None):
-        """
-        :param 'AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationArgs' filter_configuration: The Salesforce standard object configuration. See `filter_configuration` block for details.
-        """
         if filter_configuration is not None:
             pulumi.set(__self__, "filter_configuration", filter_configuration)
 
     @_builtins.property
     @pulumi.getter(name="filterConfiguration")
     def filter_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration']:
-        """
-        The Salesforce standard object configuration. See `filter_configuration` block for details.
-        """
         return pulumi.get(self, "filter_configuration")
 
 
@@ -1509,10 +1281,6 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfig
     def __init__(__self__, *,
                  type: _builtins.str,
                  pattern_object_filters: Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter']] = None):
-        """
-        :param _builtins.str type: The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
-        :param Sequence['AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs'] pattern_object_filters: The configuration of filtering certain objects or content types of the data source. See `pattern_object_filter` block for details.
-        """
         pulumi.set(__self__, "type", type)
         if pattern_object_filters is not None:
             pulumi.set(__self__, "pattern_object_filters", pattern_object_filters)
@@ -1520,17 +1288,11 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfig
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="patternObjectFilters")
     def pattern_object_filters(self) -> Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter']]:
-        """
-        The configuration of filtering certain objects or content types of the data source. See `pattern_object_filter` block for details.
-        """
         return pulumi.get(self, "pattern_object_filters")
 
 
@@ -1538,22 +1300,12 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfig
 class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter(dict):
     def __init__(__self__, *,
                  filters: Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter']] = None):
-        """
-        :param Sequence['AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs'] filters: The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-               
-               Each filter object should contain the following configuration:
-        """
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
 
     @_builtins.property
     @pulumi.getter
     def filters(self) -> Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter']]:
-        """
-        The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-
-        Each filter object should contain the following configuration:
-        """
         return pulumi.get(self, "filters")
 
 
@@ -1584,9 +1336,6 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfig
                  object_type: _builtins.str,
                  exclusion_filters: Optional[Sequence[_builtins.str]] = None,
                  inclusion_filters: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str object_type: The supported object type or content type of the data source.
-        """
         pulumi.set(__self__, "object_type", object_type)
         if exclusion_filters is not None:
             pulumi.set(__self__, "exclusion_filters", exclusion_filters)
@@ -1596,9 +1345,6 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfig
     @_builtins.property
     @pulumi.getter(name="objectType")
     def object_type(self) -> _builtins.str:
-        """
-        The supported object type or content type of the data source.
-        """
         return pulumi.get(self, "object_type")
 
     @_builtins.property
@@ -1642,12 +1388,6 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigu
                  credentials_secret_arn: _builtins.str,
                  host_type: _builtins.str,
                  host_url: _builtins.str):
-        """
-        :param _builtins.str auth_type: The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
-        :param _builtins.str credentials_secret_arn: The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
-        :param _builtins.str host_type: The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
-        :param _builtins.str host_url: The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\\s]*$`.
-        """
         pulumi.set(__self__, "auth_type", auth_type)
         pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
         pulumi.set(__self__, "host_type", host_type)
@@ -1656,33 +1396,21 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigu
     @_builtins.property
     @pulumi.getter(name="authType")
     def auth_type(self) -> _builtins.str:
-        """
-        The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
-        """
         return pulumi.get(self, "auth_type")
 
     @_builtins.property
     @pulumi.getter(name="credentialsSecretArn")
     def credentials_secret_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
-        """
         return pulumi.get(self, "credentials_secret_arn")
 
     @_builtins.property
     @pulumi.getter(name="hostType")
     def host_type(self) -> _builtins.str:
-        """
-        The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
-        """
         return pulumi.get(self, "host_type")
 
     @_builtins.property
     @pulumi.getter(name="hostUrl")
     def host_url(self) -> _builtins.str:
-        """
-        The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\\s]*$`.
-        """
         return pulumi.get(self, "host_url")
 
 
@@ -1713,11 +1441,6 @@ class AgentDataSourceDataSourceConfigurationS3Configuration(dict):
                  bucket_arn: _builtins.str,
                  bucket_owner_account_id: Optional[_builtins.str] = None,
                  inclusion_prefixes: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str bucket_arn: ARN of the bucket that contains the data source.
-        :param _builtins.str bucket_owner_account_id: Bucket account owner ID for the S3 bucket.
-        :param Sequence[_builtins.str] inclusion_prefixes: List of S3 prefixes that define the object containing the data sources. For more information, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html).
-        """
         pulumi.set(__self__, "bucket_arn", bucket_arn)
         if bucket_owner_account_id is not None:
             pulumi.set(__self__, "bucket_owner_account_id", bucket_owner_account_id)
@@ -1727,25 +1450,16 @@ class AgentDataSourceDataSourceConfigurationS3Configuration(dict):
     @_builtins.property
     @pulumi.getter(name="bucketArn")
     def bucket_arn(self) -> _builtins.str:
-        """
-        ARN of the bucket that contains the data source.
-        """
         return pulumi.get(self, "bucket_arn")
 
     @_builtins.property
     @pulumi.getter(name="bucketOwnerAccountId")
     def bucket_owner_account_id(self) -> Optional[_builtins.str]:
-        """
-        Bucket account owner ID for the S3 bucket.
-        """
         return pulumi.get(self, "bucket_owner_account_id")
 
     @_builtins.property
     @pulumi.getter(name="inclusionPrefixes")
     def inclusion_prefixes(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of S3 prefixes that define the object containing the data sources. For more information, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html).
-        """
         return pulumi.get(self, "inclusion_prefixes")
 
 
@@ -1810,18 +1524,12 @@ class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfig
 
     def __init__(__self__, *,
                  filter_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration'] = None):
-        """
-        :param 'AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationArgs' filter_configuration: The Salesforce standard object configuration. See `filter_configuration` block for details.
-        """
         if filter_configuration is not None:
             pulumi.set(__self__, "filter_configuration", filter_configuration)
 
     @_builtins.property
     @pulumi.getter(name="filterConfiguration")
     def filter_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration']:
-        """
-        The Salesforce standard object configuration. See `filter_configuration` block for details.
-        """
         return pulumi.get(self, "filter_configuration")
 
 
@@ -1847,10 +1555,6 @@ class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfig
     def __init__(__self__, *,
                  type: _builtins.str,
                  pattern_object_filters: Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter']] = None):
-        """
-        :param _builtins.str type: The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
-        :param Sequence['AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs'] pattern_object_filters: The configuration of filtering certain objects or content types of the data source. See `pattern_object_filter` block for details.
-        """
         pulumi.set(__self__, "type", type)
         if pattern_object_filters is not None:
             pulumi.set(__self__, "pattern_object_filters", pattern_object_filters)
@@ -1858,17 +1562,11 @@ class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfig
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="patternObjectFilters")
     def pattern_object_filters(self) -> Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter']]:
-        """
-        The configuration of filtering certain objects or content types of the data source. See `pattern_object_filter` block for details.
-        """
         return pulumi.get(self, "pattern_object_filters")
 
 
@@ -1876,22 +1574,12 @@ class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfig
 class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter(dict):
     def __init__(__self__, *,
                  filters: Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter']] = None):
-        """
-        :param Sequence['AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs'] filters: The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-               
-               Each filter object should contain the following configuration:
-        """
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
 
     @_builtins.property
     @pulumi.getter
     def filters(self) -> Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter']]:
-        """
-        The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-
-        Each filter object should contain the following configuration:
-        """
         return pulumi.get(self, "filters")
 
 
@@ -1922,9 +1610,6 @@ class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfig
                  object_type: _builtins.str,
                  exclusion_filters: Optional[Sequence[_builtins.str]] = None,
                  inclusion_filters: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str object_type: The supported object type or content type of the data source.
-        """
         pulumi.set(__self__, "object_type", object_type)
         if exclusion_filters is not None:
             pulumi.set(__self__, "exclusion_filters", exclusion_filters)
@@ -1934,9 +1619,6 @@ class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfig
     @_builtins.property
     @pulumi.getter(name="objectType")
     def object_type(self) -> _builtins.str:
-        """
-        The supported object type or content type of the data source.
-        """
         return pulumi.get(self, "object_type")
 
     @_builtins.property
@@ -1977,11 +1659,6 @@ class AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigu
                  auth_type: _builtins.str,
                  credentials_secret_arn: _builtins.str,
                  host_url: _builtins.str):
-        """
-        :param _builtins.str auth_type: The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
-        :param _builtins.str credentials_secret_arn: The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
-        :param _builtins.str host_url: The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\\s]*$`.
-        """
         pulumi.set(__self__, "auth_type", auth_type)
         pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
         pulumi.set(__self__, "host_url", host_url)
@@ -1989,25 +1666,16 @@ class AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigu
     @_builtins.property
     @pulumi.getter(name="authType")
     def auth_type(self) -> _builtins.str:
-        """
-        The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
-        """
         return pulumi.get(self, "auth_type")
 
     @_builtins.property
     @pulumi.getter(name="credentialsSecretArn")
     def credentials_secret_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
-        """
         return pulumi.get(self, "credentials_secret_arn")
 
     @_builtins.property
     @pulumi.getter(name="hostUrl")
     def host_url(self) -> _builtins.str:
-        """
-        The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\\s]*$`.
-        """
         return pulumi.get(self, "host_url")
 
 
@@ -2072,18 +1740,12 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfig
 
     def __init__(__self__, *,
                  filter_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration'] = None):
-        """
-        :param 'AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationArgs' filter_configuration: The Salesforce standard object configuration. See `filter_configuration` block for details.
-        """
         if filter_configuration is not None:
             pulumi.set(__self__, "filter_configuration", filter_configuration)
 
     @_builtins.property
     @pulumi.getter(name="filterConfiguration")
     def filter_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration']:
-        """
-        The Salesforce standard object configuration. See `filter_configuration` block for details.
-        """
         return pulumi.get(self, "filter_configuration")
 
 
@@ -2109,10 +1771,6 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfig
     def __init__(__self__, *,
                  type: _builtins.str,
                  pattern_object_filters: Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter']] = None):
-        """
-        :param _builtins.str type: The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
-        :param Sequence['AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs'] pattern_object_filters: The configuration of filtering certain objects or content types of the data source. See `pattern_object_filter` block for details.
-        """
         pulumi.set(__self__, "type", type)
         if pattern_object_filters is not None:
             pulumi.set(__self__, "pattern_object_filters", pattern_object_filters)
@@ -2120,17 +1778,11 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfig
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="patternObjectFilters")
     def pattern_object_filters(self) -> Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter']]:
-        """
-        The configuration of filtering certain objects or content types of the data source. See `pattern_object_filter` block for details.
-        """
         return pulumi.get(self, "pattern_object_filters")
 
 
@@ -2138,22 +1790,12 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfig
 class AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter(dict):
     def __init__(__self__, *,
                  filters: Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter']] = None):
-        """
-        :param Sequence['AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs'] filters: The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-               
-               Each filter object should contain the following configuration:
-        """
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
 
     @_builtins.property
     @pulumi.getter
     def filters(self) -> Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter']]:
-        """
-        The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-
-        Each filter object should contain the following configuration:
-        """
         return pulumi.get(self, "filters")
 
 
@@ -2184,9 +1826,6 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfig
                  object_type: _builtins.str,
                  exclusion_filters: Optional[Sequence[_builtins.str]] = None,
                  inclusion_filters: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str object_type: The supported object type or content type of the data source.
-        """
         pulumi.set(__self__, "object_type", object_type)
         if exclusion_filters is not None:
             pulumi.set(__self__, "exclusion_filters", exclusion_filters)
@@ -2196,9 +1835,6 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfig
     @_builtins.property
     @pulumi.getter(name="objectType")
     def object_type(self) -> _builtins.str:
-        """
-        The supported object type or content type of the data source.
-        """
         return pulumi.get(self, "object_type")
 
     @_builtins.property
@@ -2246,14 +1882,6 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigu
                  host_type: _builtins.str,
                  site_urls: Sequence[_builtins.str],
                  tenant_id: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str auth_type: The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
-        :param _builtins.str credentials_secret_arn: The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
-        :param _builtins.str domain: The domain of your SharePoint instance or site URL/URLs.
-        :param _builtins.str host_type: The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
-        :param Sequence[_builtins.str] site_urls: A list of one or more SharePoint site URLs.
-        :param _builtins.str tenant_id: The identifier of your Microsoft 365 tenant.
-        """
         pulumi.set(__self__, "auth_type", auth_type)
         pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
         pulumi.set(__self__, "domain", domain)
@@ -2265,49 +1893,31 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigu
     @_builtins.property
     @pulumi.getter(name="authType")
     def auth_type(self) -> _builtins.str:
-        """
-        The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
-        """
         return pulumi.get(self, "auth_type")
 
     @_builtins.property
     @pulumi.getter(name="credentialsSecretArn")
     def credentials_secret_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
-        """
         return pulumi.get(self, "credentials_secret_arn")
 
     @_builtins.property
     @pulumi.getter
     def domain(self) -> _builtins.str:
-        """
-        The domain of your SharePoint instance or site URL/URLs.
-        """
         return pulumi.get(self, "domain")
 
     @_builtins.property
     @pulumi.getter(name="hostType")
     def host_type(self) -> _builtins.str:
-        """
-        The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
-        """
         return pulumi.get(self, "host_type")
 
     @_builtins.property
     @pulumi.getter(name="siteUrls")
     def site_urls(self) -> Sequence[_builtins.str]:
-        """
-        A list of one or more SharePoint site URLs.
-        """
         return pulumi.get(self, "site_urls")
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[_builtins.str]:
-        """
-        The identifier of your Microsoft 365 tenant.
-        """
         return pulumi.get(self, "tenant_id")
 
 
@@ -2382,13 +1992,6 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration
                  inclusion_filters: Optional[Sequence[_builtins.str]] = None,
                  scope: Optional[_builtins.str] = None,
                  user_agent: Optional[_builtins.str] = None):
-        """
-        :param 'AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs' crawler_limits: Configuration of crawl limits for the web URLs. See `crawler_limits` block for details.
-        :param Sequence[_builtins.str] exclusion_filters: List of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
-        :param Sequence[_builtins.str] inclusion_filters: List of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
-        :param _builtins.str scope: Scope of what is crawled for your URLs.
-        :param _builtins.str user_agent: String used for identifying the crawler or a bot when it accesses a web server. Default value is `bedrockbot_UUID`.
-        """
         if crawler_limits is not None:
             pulumi.set(__self__, "crawler_limits", crawler_limits)
         if exclusion_filters is not None:
@@ -2403,41 +2006,26 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration
     @_builtins.property
     @pulumi.getter(name="crawlerLimits")
     def crawler_limits(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits']:
-        """
-        Configuration of crawl limits for the web URLs. See `crawler_limits` block for details.
-        """
         return pulumi.get(self, "crawler_limits")
 
     @_builtins.property
     @pulumi.getter(name="exclusionFilters")
     def exclusion_filters(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
-        """
         return pulumi.get(self, "exclusion_filters")
 
     @_builtins.property
     @pulumi.getter(name="inclusionFilters")
     def inclusion_filters(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
-        """
         return pulumi.get(self, "inclusion_filters")
 
     @_builtins.property
     @pulumi.getter
     def scope(self) -> Optional[_builtins.str]:
-        """
-        Scope of what is crawled for your URLs.
-        """
         return pulumi.get(self, "scope")
 
     @_builtins.property
     @pulumi.getter(name="userAgent")
     def user_agent(self) -> Optional[_builtins.str]:
-        """
-        String used for identifying the crawler or a bot when it accesses a web server. Default value is `bedrockbot_UUID`.
-        """
         return pulumi.get(self, "user_agent")
 
 
@@ -2465,10 +2053,6 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration
     def __init__(__self__, *,
                  max_pages: Optional[_builtins.int] = None,
                  rate_limit: Optional[_builtins.int] = None):
-        """
-        :param _builtins.int max_pages: Max number of web pages crawled from your source URLs, up to 25,000 pages.
-        :param _builtins.int rate_limit: Max rate at which pages are crawled, up to 300 per minute per host.
-        """
         if max_pages is not None:
             pulumi.set(__self__, "max_pages", max_pages)
         if rate_limit is not None:
@@ -2477,17 +2061,11 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration
     @_builtins.property
     @pulumi.getter(name="maxPages")
     def max_pages(self) -> Optional[_builtins.int]:
-        """
-        Max number of web pages crawled from your source URLs, up to 25,000 pages.
-        """
         return pulumi.get(self, "max_pages")
 
     @_builtins.property
     @pulumi.getter(name="rateLimit")
     def rate_limit(self) -> Optional[_builtins.int]:
-        """
-        Max rate at which pages are crawled, up to 300 per minute per host.
-        """
         return pulumi.get(self, "rate_limit")
 
 
@@ -2512,18 +2090,12 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration(
 
     def __init__(__self__, *,
                  url_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration'] = None):
-        """
-        :param 'AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs' url_configuration: The URL configuration of your web data source. See `url_configuration` block for details.
-        """
         if url_configuration is not None:
             pulumi.set(__self__, "url_configuration", url_configuration)
 
     @_builtins.property
     @pulumi.getter(name="urlConfiguration")
     def url_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration']:
-        """
-        The URL configuration of your web data source. See `url_configuration` block for details.
-        """
         return pulumi.get(self, "url_configuration")
 
 
@@ -2548,18 +2120,12 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationU
 
     def __init__(__self__, *,
                  seed_urls: Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl']] = None):
-        """
-        :param Sequence['AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs'] seed_urls: List of one or more seed URLs to crawl. See `seed_urls` block for details.
-        """
         if seed_urls is not None:
             pulumi.set(__self__, "seed_urls", seed_urls)
 
     @_builtins.property
     @pulumi.getter(name="seedUrls")
     def seed_urls(self) -> Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl']]:
-        """
-        List of one or more seed URLs to crawl. See `seed_urls` block for details.
-        """
         return pulumi.get(self, "seed_urls")
 
 
@@ -2567,18 +2133,12 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationU
 class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl(dict):
     def __init__(__self__, *,
                  url: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str url: Seed or starting point URL. Must match the pattern `^https?://[A-Za-z0-9][^\\s]*$`.
-        """
         if url is not None:
             pulumi.set(__self__, "url", url)
 
     @_builtins.property
     @pulumi.getter
     def url(self) -> Optional[_builtins.str]:
-        """
-        Seed or starting point URL. Must match the pattern `^https?://[A-Za-z0-9][^\\s]*$`.
-        """
         return pulumi.get(self, "url")
 
 
@@ -2603,18 +2163,12 @@ class AgentDataSourceServerSideEncryptionConfiguration(dict):
 
     def __init__(__self__, *,
                  kms_key_arn: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str kms_key_arn: ARN of the AWS KMS key used to encrypt the resource.
-        """
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[_builtins.str]:
-        """
-        ARN of the AWS KMS key used to encrypt the resource.
-        """
         return pulumi.get(self, "kms_key_arn")
 
 
@@ -2676,11 +2230,6 @@ class AgentDataSourceVectorIngestionConfiguration(dict):
                  chunking_configuration: Optional['outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfiguration'] = None,
                  custom_transformation_configuration: Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration'] = None,
                  parsing_configuration: Optional['outputs.AgentDataSourceVectorIngestionConfigurationParsingConfiguration'] = None):
-        """
-        :param 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs' chunking_configuration: Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunking_configuration` block for details.
-        :param 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs' custom_transformation_configuration: Configuration for custom transformation of data source documents.
-        :param 'AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs' parsing_configuration: Configuration for custom parsing of data source documents. See `parsing_configuration` block for details.
-        """
         if chunking_configuration is not None:
             pulumi.set(__self__, "chunking_configuration", chunking_configuration)
         if custom_transformation_configuration is not None:
@@ -2691,25 +2240,16 @@ class AgentDataSourceVectorIngestionConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="chunkingConfiguration")
     def chunking_configuration(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfiguration']:
-        """
-        Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunking_configuration` block for details.
-        """
         return pulumi.get(self, "chunking_configuration")
 
     @_builtins.property
     @pulumi.getter(name="customTransformationConfiguration")
     def custom_transformation_configuration(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration']:
-        """
-        Configuration for custom transformation of data source documents.
-        """
         return pulumi.get(self, "custom_transformation_configuration")
 
     @_builtins.property
     @pulumi.getter(name="parsingConfiguration")
     def parsing_configuration(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationParsingConfiguration']:
-        """
-        Configuration for custom parsing of data source documents. See `parsing_configuration` block for details.
-        """
         return pulumi.get(self, "parsing_configuration")
 
 
@@ -2743,12 +2283,6 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfiguration(dict):
                  fixed_size_chunking_configuration: Optional['outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration'] = None,
                  hierarchical_chunking_configuration: Optional['outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration'] = None,
                  semantic_chunking_configuration: Optional['outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration'] = None):
-        """
-        :param _builtins.str chunking_strategy: Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
-        :param 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs' fixed_size_chunking_configuration: Configurations for when you choose fixed-size chunking. Requires chunking_strategy as `FIXED_SIZE`. See `fixed_size_chunking_configuration` for details.
-        :param 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs' hierarchical_chunking_configuration: Configurations for when you choose hierarchical chunking. Requires chunking_strategy as `HIERARCHICAL`. See `hierarchical_chunking_configuration` for details.
-        :param 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs' semantic_chunking_configuration: Configurations for when you choose semantic chunking. Requires chunking_strategy as `SEMANTIC`. See `semantic_chunking_configuration` for details.
-        """
         pulumi.set(__self__, "chunking_strategy", chunking_strategy)
         if fixed_size_chunking_configuration is not None:
             pulumi.set(__self__, "fixed_size_chunking_configuration", fixed_size_chunking_configuration)
@@ -2760,33 +2294,21 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="chunkingStrategy")
     def chunking_strategy(self) -> _builtins.str:
-        """
-        Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
-        """
         return pulumi.get(self, "chunking_strategy")
 
     @_builtins.property
     @pulumi.getter(name="fixedSizeChunkingConfiguration")
     def fixed_size_chunking_configuration(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration']:
-        """
-        Configurations for when you choose fixed-size chunking. Requires chunking_strategy as `FIXED_SIZE`. See `fixed_size_chunking_configuration` for details.
-        """
         return pulumi.get(self, "fixed_size_chunking_configuration")
 
     @_builtins.property
     @pulumi.getter(name="hierarchicalChunkingConfiguration")
     def hierarchical_chunking_configuration(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration']:
-        """
-        Configurations for when you choose hierarchical chunking. Requires chunking_strategy as `HIERARCHICAL`. See `hierarchical_chunking_configuration` for details.
-        """
         return pulumi.get(self, "hierarchical_chunking_configuration")
 
     @_builtins.property
     @pulumi.getter(name="semanticChunkingConfiguration")
     def semantic_chunking_configuration(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration']:
-        """
-        Configurations for when you choose semantic chunking. Requires chunking_strategy as `SEMANTIC`. See `semantic_chunking_configuration` for details.
-        """
         return pulumi.get(self, "semantic_chunking_configuration")
 
 
@@ -2814,27 +2336,17 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeC
     def __init__(__self__, *,
                  max_tokens: _builtins.int,
                  overlap_percentage: _builtins.int):
-        """
-        :param _builtins.int max_tokens: Maximum number of tokens to include in a chunk.
-        :param _builtins.int overlap_percentage: Percentage of overlap between adjacent chunks of a data source.
-        """
         pulumi.set(__self__, "max_tokens", max_tokens)
         pulumi.set(__self__, "overlap_percentage", overlap_percentage)
 
     @_builtins.property
     @pulumi.getter(name="maxTokens")
     def max_tokens(self) -> _builtins.int:
-        """
-        Maximum number of tokens to include in a chunk.
-        """
         return pulumi.get(self, "max_tokens")
 
     @_builtins.property
     @pulumi.getter(name="overlapPercentage")
     def overlap_percentage(self) -> _builtins.int:
-        """
-        Percentage of overlap between adjacent chunks of a data source.
-        """
         return pulumi.get(self, "overlap_percentage")
 
 
@@ -2862,27 +2374,17 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchic
     def __init__(__self__, *,
                  level_configurations: Sequence['outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration'],
                  overlap_tokens: _builtins.int):
-        """
-        :param Sequence['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs'] level_configurations: Maximum number of tokens to include in a chunk. Must contain two `level_configurations`. See `level_configurations` for details.
-        :param _builtins.int overlap_tokens: The number of tokens to repeat across chunks in the same layer.
-        """
         pulumi.set(__self__, "level_configurations", level_configurations)
         pulumi.set(__self__, "overlap_tokens", overlap_tokens)
 
     @_builtins.property
     @pulumi.getter(name="levelConfigurations")
     def level_configurations(self) -> Sequence['outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration']:
-        """
-        Maximum number of tokens to include in a chunk. Must contain two `level_configurations`. See `level_configurations` for details.
-        """
         return pulumi.get(self, "level_configurations")
 
     @_builtins.property
     @pulumi.getter(name="overlapTokens")
     def overlap_tokens(self) -> _builtins.int:
-        """
-        The number of tokens to repeat across chunks in the same layer.
-        """
         return pulumi.get(self, "overlap_tokens")
 
 
@@ -2907,17 +2409,11 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchic
 
     def __init__(__self__, *,
                  max_tokens: _builtins.int):
-        """
-        :param _builtins.int max_tokens: The maximum number of tokens that a chunk can contain in this layer.
-        """
         pulumi.set(__self__, "max_tokens", max_tokens)
 
     @_builtins.property
     @pulumi.getter(name="maxTokens")
     def max_tokens(self) -> _builtins.int:
-        """
-        The maximum number of tokens that a chunk can contain in this layer.
-        """
         return pulumi.get(self, "max_tokens")
 
 
@@ -2948,11 +2444,6 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticCh
                  breakpoint_percentile_threshold: _builtins.int,
                  buffer_size: _builtins.int,
                  max_token: _builtins.int):
-        """
-        :param _builtins.int breakpoint_percentile_threshold: The dissimilarity threshold for splitting chunks.
-        :param _builtins.int buffer_size: The buffer size.
-        :param _builtins.int max_token: The maximum number of tokens a chunk can contain.
-        """
         pulumi.set(__self__, "breakpoint_percentile_threshold", breakpoint_percentile_threshold)
         pulumi.set(__self__, "buffer_size", buffer_size)
         pulumi.set(__self__, "max_token", max_token)
@@ -2960,25 +2451,16 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticCh
     @_builtins.property
     @pulumi.getter(name="breakpointPercentileThreshold")
     def breakpoint_percentile_threshold(self) -> _builtins.int:
-        """
-        The dissimilarity threshold for splitting chunks.
-        """
         return pulumi.get(self, "breakpoint_percentile_threshold")
 
     @_builtins.property
     @pulumi.getter(name="bufferSize")
     def buffer_size(self) -> _builtins.int:
-        """
-        The buffer size.
-        """
         return pulumi.get(self, "buffer_size")
 
     @_builtins.property
     @pulumi.getter(name="maxToken")
     def max_token(self) -> _builtins.int:
-        """
-        The maximum number of tokens a chunk can contain.
-        """
         return pulumi.get(self, "max_token")
 
 
@@ -3004,10 +2486,6 @@ class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurati
     def __init__(__self__, *,
                  intermediate_storage: Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage'] = None,
                  transformation: Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation'] = None):
-        """
-        :param 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs' intermediate_storage: The intermediate storage for custom transformation.
-        :param 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs' transformation: A custom processing step for documents moving through the data source ingestion pipeline.
-        """
         if intermediate_storage is not None:
             pulumi.set(__self__, "intermediate_storage", intermediate_storage)
         if transformation is not None:
@@ -3016,17 +2494,11 @@ class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurati
     @_builtins.property
     @pulumi.getter(name="intermediateStorage")
     def intermediate_storage(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage']:
-        """
-        The intermediate storage for custom transformation.
-        """
         return pulumi.get(self, "intermediate_storage")
 
     @_builtins.property
     @pulumi.getter
     def transformation(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation']:
-        """
-        A custom processing step for documents moving through the data source ingestion pipeline.
-        """
         return pulumi.get(self, "transformation")
 
 
@@ -3051,18 +2523,12 @@ class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurati
 
     def __init__(__self__, *,
                  s3_location: Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location'] = None):
-        """
-        :param 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs' s3_location: Configuration block for intermedia S3 storage.
-        """
         if s3_location is not None:
             pulumi.set(__self__, "s3_location", s3_location)
 
     @_builtins.property
     @pulumi.getter(name="s3Location")
     def s3_location(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location']:
-        """
-        Configuration block for intermedia S3 storage.
-        """
         return pulumi.get(self, "s3_location")
 
 
@@ -3070,17 +2536,11 @@ class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurati
 class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location(dict):
     def __init__(__self__, *,
                  uri: _builtins.str):
-        """
-        :param _builtins.str uri: S3 URI for intermediate storage.
-        """
         pulumi.set(__self__, "uri", uri)
 
     @_builtins.property
     @pulumi.getter
     def uri(self) -> _builtins.str:
-        """
-        S3 URI for intermediate storage.
-        """
         return pulumi.get(self, "uri")
 
 
@@ -3108,10 +2568,6 @@ class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurati
     def __init__(__self__, *,
                  step_to_apply: _builtins.str,
                  transformation_function: Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction'] = None):
-        """
-        :param _builtins.str step_to_apply: When the service applies the transformation. Currently only `POST_CHUNKING` is supported.
-        :param 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs' transformation_function: The lambda function that processes documents.
-        """
         pulumi.set(__self__, "step_to_apply", step_to_apply)
         if transformation_function is not None:
             pulumi.set(__self__, "transformation_function", transformation_function)
@@ -3119,17 +2575,11 @@ class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurati
     @_builtins.property
     @pulumi.getter(name="stepToApply")
     def step_to_apply(self) -> _builtins.str:
-        """
-        When the service applies the transformation. Currently only `POST_CHUNKING` is supported.
-        """
         return pulumi.get(self, "step_to_apply")
 
     @_builtins.property
     @pulumi.getter(name="transformationFunction")
     def transformation_function(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction']:
-        """
-        The lambda function that processes documents.
-        """
         return pulumi.get(self, "transformation_function")
 
 
@@ -3154,18 +2604,12 @@ class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurati
 
     def __init__(__self__, *,
                  transformation_lambda_configuration: Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration'] = None):
-        """
-        :param 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs' transformation_lambda_configuration: The configuration of the lambda function.
-        """
         if transformation_lambda_configuration is not None:
             pulumi.set(__self__, "transformation_lambda_configuration", transformation_lambda_configuration)
 
     @_builtins.property
     @pulumi.getter(name="transformationLambdaConfiguration")
     def transformation_lambda_configuration(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration']:
-        """
-        The configuration of the lambda function.
-        """
         return pulumi.get(self, "transformation_lambda_configuration")
 
 
@@ -3190,17 +2634,11 @@ class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurati
 
     def __init__(__self__, *,
                  lambda_arn: _builtins.str):
-        """
-        :param _builtins.str lambda_arn: The ARN of the lambda to use for custom transformation.
-        """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
 
     @_builtins.property
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> _builtins.str:
-        """
-        The ARN of the lambda to use for custom transformation.
-        """
         return pulumi.get(self, "lambda_arn")
 
 
@@ -3228,10 +2666,6 @@ class AgentDataSourceVectorIngestionConfigurationParsingConfiguration(dict):
     def __init__(__self__, *,
                  parsing_strategy: _builtins.str,
                  bedrock_foundation_model_configuration: Optional['outputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration'] = None):
-        """
-        :param _builtins.str parsing_strategy: Currently only `BEDROCK_FOUNDATION_MODEL` is supported
-        :param 'AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs' bedrock_foundation_model_configuration: Settings for a foundation model used to parse documents in a data source. See `bedrock_foundation_model_configuration` block for details.
-        """
         pulumi.set(__self__, "parsing_strategy", parsing_strategy)
         if bedrock_foundation_model_configuration is not None:
             pulumi.set(__self__, "bedrock_foundation_model_configuration", bedrock_foundation_model_configuration)
@@ -3239,17 +2673,11 @@ class AgentDataSourceVectorIngestionConfigurationParsingConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="parsingStrategy")
     def parsing_strategy(self) -> _builtins.str:
-        """
-        Currently only `BEDROCK_FOUNDATION_MODEL` is supported
-        """
         return pulumi.get(self, "parsing_strategy")
 
     @_builtins.property
     @pulumi.getter(name="bedrockFoundationModelConfiguration")
     def bedrock_foundation_model_configuration(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration']:
-        """
-        Settings for a foundation model used to parse documents in a data source. See `bedrock_foundation_model_configuration` block for details.
-        """
         return pulumi.get(self, "bedrock_foundation_model_configuration")
 
 
@@ -3277,10 +2705,6 @@ class AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoun
     def __init__(__self__, *,
                  model_arn: _builtins.str,
                  parsing_prompt: Optional['outputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt'] = None):
-        """
-        :param _builtins.str model_arn: The ARN of the model used to parse documents
-        :param 'AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs' parsing_prompt: Instructions for interpreting the contents of the document. See `parsing_prompt` block for details.
-        """
         pulumi.set(__self__, "model_arn", model_arn)
         if parsing_prompt is not None:
             pulumi.set(__self__, "parsing_prompt", parsing_prompt)
@@ -3288,17 +2712,11 @@ class AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoun
     @_builtins.property
     @pulumi.getter(name="modelArn")
     def model_arn(self) -> _builtins.str:
-        """
-        The ARN of the model used to parse documents
-        """
         return pulumi.get(self, "model_arn")
 
     @_builtins.property
     @pulumi.getter(name="parsingPrompt")
     def parsing_prompt(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt']:
-        """
-        Instructions for interpreting the contents of the document. See `parsing_prompt` block for details.
-        """
         return pulumi.get(self, "parsing_prompt")
 
 
@@ -3323,17 +2741,11 @@ class AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoun
 
     def __init__(__self__, *,
                  parsing_prompt_string: _builtins.str):
-        """
-        :param _builtins.str parsing_prompt_string: Instructions for interpreting the contents of the document.
-        """
         pulumi.set(__self__, "parsing_prompt_string", parsing_prompt_string)
 
     @_builtins.property
     @pulumi.getter(name="parsingPromptString")
     def parsing_prompt_string(self) -> _builtins.str:
-        """
-        Instructions for interpreting the contents of the document.
-        """
         return pulumi.get(self, "parsing_prompt_string")
 
 
@@ -3342,10 +2754,6 @@ class AgentFlowDefinition(dict):
     def __init__(__self__, *,
                  connections: Optional[Sequence['outputs.AgentFlowDefinitionConnection']] = None,
                  nodes: Optional[Sequence['outputs.AgentFlowDefinitionNode']] = None):
-        """
-        :param Sequence['AgentFlowDefinitionConnectionArgs'] connections: A list of connection definitions in the flow. See Connection for more information.
-        :param Sequence['AgentFlowDefinitionNodeArgs'] nodes: A list of node definitions in the flow. See Node for more information.
-        """
         if connections is not None:
             pulumi.set(__self__, "connections", connections)
         if nodes is not None:
@@ -3354,17 +2762,11 @@ class AgentFlowDefinition(dict):
     @_builtins.property
     @pulumi.getter
     def connections(self) -> Optional[Sequence['outputs.AgentFlowDefinitionConnection']]:
-        """
-        A list of connection definitions in the flow. See Connection for more information.
-        """
         return pulumi.get(self, "connections")
 
     @_builtins.property
     @pulumi.getter
     def nodes(self) -> Optional[Sequence['outputs.AgentFlowDefinitionNode']]:
-        """
-        A list of node definitions in the flow. See Node for more information.
-        """
         return pulumi.get(self, "nodes")
 
 
@@ -3376,13 +2778,6 @@ class AgentFlowDefinitionConnection(dict):
                  target: _builtins.str,
                  type: _builtins.str,
                  configuration: Optional['outputs.AgentFlowDefinitionConnectionConfiguration'] = None):
-        """
-        :param _builtins.str name: A name for the connection that you can reference.
-        :param _builtins.str source: The node that the connection starts at.
-        :param _builtins.str target: The node that the connection ends at.
-        :param _builtins.str type: Whether the source node that the connection begins from is a condition node `Conditional` or not `Data`.
-        :param 'AgentFlowDefinitionConnectionConfigurationArgs' configuration: Configuration of the connection. See Connection Configuration for more information.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "source", source)
         pulumi.set(__self__, "target", target)
@@ -3393,41 +2788,26 @@ class AgentFlowDefinitionConnection(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        A name for the connection that you can reference.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def source(self) -> _builtins.str:
-        """
-        The node that the connection starts at.
-        """
         return pulumi.get(self, "source")
 
     @_builtins.property
     @pulumi.getter
     def target(self) -> _builtins.str:
-        """
-        The node that the connection ends at.
-        """
         return pulumi.get(self, "target")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Whether the source node that the connection begins from is a condition node `Conditional` or not `Data`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def configuration(self) -> Optional['outputs.AgentFlowDefinitionConnectionConfiguration']:
-        """
-        Configuration of the connection. See Connection Configuration for more information.
-        """
         return pulumi.get(self, "configuration")
 
 
@@ -3436,10 +2816,6 @@ class AgentFlowDefinitionConnectionConfiguration(dict):
     def __init__(__self__, *,
                  conditional: Optional['outputs.AgentFlowDefinitionConnectionConfigurationConditional'] = None,
                  data: Optional['outputs.AgentFlowDefinitionConnectionConfigurationData'] = None):
-        """
-        :param 'AgentFlowDefinitionConnectionConfigurationConditionalArgs' conditional: The configuration of a connection originating from a Condition node. See Conditional Connection Configuration for more information.
-        :param 'AgentFlowDefinitionConnectionConfigurationDataArgs' data: The configuration of a connection originating from a node that isn’t a Condition node. See Data Connection Configuration for more information.
-        """
         if conditional is not None:
             pulumi.set(__self__, "conditional", conditional)
         if data is not None:
@@ -3448,17 +2824,11 @@ class AgentFlowDefinitionConnectionConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def conditional(self) -> Optional['outputs.AgentFlowDefinitionConnectionConfigurationConditional']:
-        """
-        The configuration of a connection originating from a Condition node. See Conditional Connection Configuration for more information.
-        """
         return pulumi.get(self, "conditional")
 
     @_builtins.property
     @pulumi.getter
     def data(self) -> Optional['outputs.AgentFlowDefinitionConnectionConfigurationData']:
-        """
-        The configuration of a connection originating from a node that isn’t a Condition node. See Data Connection Configuration for more information.
-        """
         return pulumi.get(self, "data")
 
 
@@ -3498,27 +2868,17 @@ class AgentFlowDefinitionConnectionConfigurationData(dict):
     def __init__(__self__, *,
                  source_output: _builtins.str,
                  target_input: _builtins.str):
-        """
-        :param _builtins.str source_output: The name of the output in the source node that the connection begins from.
-        :param _builtins.str target_input: The name of the input in the target node that the connection ends at.
-        """
         pulumi.set(__self__, "source_output", source_output)
         pulumi.set(__self__, "target_input", target_input)
 
     @_builtins.property
     @pulumi.getter(name="sourceOutput")
     def source_output(self) -> _builtins.str:
-        """
-        The name of the output in the source node that the connection begins from.
-        """
         return pulumi.get(self, "source_output")
 
     @_builtins.property
     @pulumi.getter(name="targetInput")
     def target_input(self) -> _builtins.str:
-        """
-        The name of the input in the target node that the connection ends at.
-        """
         return pulumi.get(self, "target_input")
 
 
@@ -3530,13 +2890,6 @@ class AgentFlowDefinitionNode(dict):
                  configuration: Optional['outputs.AgentFlowDefinitionNodeConfiguration'] = None,
                  inputs: Optional[Sequence['outputs.AgentFlowDefinitionNodeInput']] = None,
                  outputs: Optional[Sequence['outputs.AgentFlowDefinitionNodeOutput']] = None):
-        """
-        :param _builtins.str name: A name for the node.
-        :param _builtins.str type: The type of node. This value must match the name of the key that you provide in the configuration. Valid values: `Agent`, `Collector`, `Condition`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
-        :param 'AgentFlowDefinitionNodeConfigurationArgs' configuration: Contains configurations for the node. See Node Configuration for more information.
-        :param Sequence['AgentFlowDefinitionNodeInputArgs'] inputs: A list of objects containing information about an input into the node. See Node Input for more information.
-        :param Sequence['AgentFlowDefinitionNodeOutputArgs'] outputs: A list of objects containing information about an output from the node. See Node Output for more information.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
         if configuration is not None:
@@ -3549,41 +2902,26 @@ class AgentFlowDefinitionNode(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        A name for the node.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        The type of node. This value must match the name of the key that you provide in the configuration. Valid values: `Agent`, `Collector`, `Condition`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def configuration(self) -> Optional['outputs.AgentFlowDefinitionNodeConfiguration']:
-        """
-        Contains configurations for the node. See Node Configuration for more information.
-        """
         return pulumi.get(self, "configuration")
 
     @_builtins.property
     @pulumi.getter
     def inputs(self) -> Optional[Sequence['outputs.AgentFlowDefinitionNodeInput']]:
-        """
-        A list of objects containing information about an input into the node. See Node Input for more information.
-        """
         return pulumi.get(self, "inputs")
 
     @_builtins.property
     @pulumi.getter
     def outputs(self) -> Optional[Sequence['outputs.AgentFlowDefinitionNodeOutput']]:
-        """
-        A list of objects containing information about an output from the node. See Node Output for more information.
-        """
         return pulumi.get(self, "outputs")
 
 
@@ -3624,18 +2962,6 @@ class AgentFlowDefinitionNodeConfiguration(dict):
                  prompt: Optional['outputs.AgentFlowDefinitionNodeConfigurationPrompt'] = None,
                  retrieval: Optional['outputs.AgentFlowDefinitionNodeConfigurationRetrieval'] = None,
                  storage: Optional['outputs.AgentFlowDefinitionNodeConfigurationStorage'] = None):
-        """
-        :param 'AgentFlowDefinitionNodeConfigurationAgentArgs' agent: Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See Agent Node Configuration for more information.
-        :param 'AgentFlowDefinitionNodeConfigurationCollectorArgs' collector: Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
-        :param 'AgentFlowDefinitionNodeConfigurationInlineCodeArgs' inline_code: Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
-        :param 'AgentFlowDefinitionNodeConfigurationIteratorArgs' iterator: Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This object has no fields.
-        :param 'AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs' knowledge_base: Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See Knowledge Base Node Configuration for more information.
-        :param 'AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs' lambda_function: Contains configurations for a Lambda function node in your flow. Invokes a Lambda function. See Lambda Function Node Configuration for more information.
-        :param 'AgentFlowDefinitionNodeConfigurationLexArgs' lex: Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
-        :param 'AgentFlowDefinitionNodeConfigurationPromptArgs' prompt: Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
-        :param 'AgentFlowDefinitionNodeConfigurationRetrievalArgs' retrieval: Contains configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See Retrieval Node Configuration for more information.
-        :param 'AgentFlowDefinitionNodeConfigurationStorageArgs' storage: Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Node Configuration for more information.
-        """
         if agent is not None:
             pulumi.set(__self__, "agent", agent)
         if collector is not None:
@@ -3666,17 +2992,11 @@ class AgentFlowDefinitionNodeConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def agent(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationAgent']:
-        """
-        Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See Agent Node Configuration for more information.
-        """
         return pulumi.get(self, "agent")
 
     @_builtins.property
     @pulumi.getter
     def collector(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationCollector']:
-        """
-        Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
-        """
         return pulumi.get(self, "collector")
 
     @_builtins.property
@@ -3687,9 +3007,6 @@ class AgentFlowDefinitionNodeConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="inlineCode")
     def inline_code(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationInlineCode']:
-        """
-        Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
-        """
         return pulumi.get(self, "inline_code")
 
     @_builtins.property
@@ -3700,33 +3017,21 @@ class AgentFlowDefinitionNodeConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def iterator(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationIterator']:
-        """
-        Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This object has no fields.
-        """
         return pulumi.get(self, "iterator")
 
     @_builtins.property
     @pulumi.getter(name="knowledgeBase")
     def knowledge_base(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationKnowledgeBase']:
-        """
-        Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See Knowledge Base Node Configuration for more information.
-        """
         return pulumi.get(self, "knowledge_base")
 
     @_builtins.property
     @pulumi.getter(name="lambdaFunction")
     def lambda_function(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationLambdaFunction']:
-        """
-        Contains configurations for a Lambda function node in your flow. Invokes a Lambda function. See Lambda Function Node Configuration for more information.
-        """
         return pulumi.get(self, "lambda_function")
 
     @_builtins.property
     @pulumi.getter
     def lex(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationLex']:
-        """
-        Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
-        """
         return pulumi.get(self, "lex")
 
     @_builtins.property
@@ -3737,25 +3042,16 @@ class AgentFlowDefinitionNodeConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def prompt(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPrompt']:
-        """
-        Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
-        """
         return pulumi.get(self, "prompt")
 
     @_builtins.property
     @pulumi.getter
     def retrieval(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationRetrieval']:
-        """
-        Contains configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See Retrieval Node Configuration for more information.
-        """
         return pulumi.get(self, "retrieval")
 
     @_builtins.property
     @pulumi.getter
     def storage(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationStorage']:
-        """
-        Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Node Configuration for more information.
-        """
         return pulumi.get(self, "storage")
 
 
@@ -3780,17 +3076,11 @@ class AgentFlowDefinitionNodeConfigurationAgent(dict):
 
     def __init__(__self__, *,
                  agent_alias_arn: _builtins.str):
-        """
-        :param _builtins.str agent_alias_arn: The Amazon Resource Name (ARN) of the alias of the agent to invoke.
-        """
         pulumi.set(__self__, "agent_alias_arn", agent_alias_arn)
 
     @_builtins.property
     @pulumi.getter(name="agentAliasArn")
     def agent_alias_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the alias of the agent to invoke.
-        """
         return pulumi.get(self, "agent_alias_arn")
 
 
@@ -3817,9 +3107,6 @@ class AgentFlowDefinitionNodeConfigurationConditionCondition(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  expression: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str name: A name for the flow.
-        """
         pulumi.set(__self__, "name", name)
         if expression is not None:
             pulumi.set(__self__, "expression", expression)
@@ -3827,9 +3114,6 @@ class AgentFlowDefinitionNodeConfigurationConditionCondition(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        A name for the flow.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -3843,27 +3127,17 @@ class AgentFlowDefinitionNodeConfigurationInlineCode(dict):
     def __init__(__self__, *,
                  code: _builtins.str,
                  language: _builtins.str):
-        """
-        :param _builtins.str code: The code that's executed in your inline code node.
-        :param _builtins.str language: The programming language used by your inline code node.
-        """
         pulumi.set(__self__, "code", code)
         pulumi.set(__self__, "language", language)
 
     @_builtins.property
     @pulumi.getter
     def code(self) -> _builtins.str:
-        """
-        The code that's executed in your inline code node.
-        """
         return pulumi.get(self, "code")
 
     @_builtins.property
     @pulumi.getter
     def language(self) -> _builtins.str:
-        """
-        The programming language used by your inline code node.
-        """
         return pulumi.get(self, "language")
 
 
@@ -3912,11 +3186,6 @@ class AgentFlowDefinitionNodeConfigurationKnowledgeBase(dict):
                  guardrail_configuration: Optional['outputs.AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration'] = None,
                  inference_configuration: Optional['outputs.AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration'] = None,
                  number_of_results: Optional[_builtins.int] = None):
-        """
-        :param _builtins.str knowledge_base_id: The unique identifier of the knowledge base to query.
-        :param 'AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs' guardrail_configuration: Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
-        :param 'AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs' inference_configuration: Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
-        """
         pulumi.set(__self__, "knowledge_base_id", knowledge_base_id)
         pulumi.set(__self__, "model_id", model_id)
         if guardrail_configuration is not None:
@@ -3929,9 +3198,6 @@ class AgentFlowDefinitionNodeConfigurationKnowledgeBase(dict):
     @_builtins.property
     @pulumi.getter(name="knowledgeBaseId")
     def knowledge_base_id(self) -> _builtins.str:
-        """
-        The unique identifier of the knowledge base to query.
-        """
         return pulumi.get(self, "knowledge_base_id")
 
     @_builtins.property
@@ -3942,17 +3208,11 @@ class AgentFlowDefinitionNodeConfigurationKnowledgeBase(dict):
     @_builtins.property
     @pulumi.getter(name="guardrailConfiguration")
     def guardrail_configuration(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration']:
-        """
-        Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
-        """
         return pulumi.get(self, "guardrail_configuration")
 
     @_builtins.property
     @pulumi.getter(name="inferenceConfiguration")
     def inference_configuration(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration']:
-        """
-        Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
-        """
         return pulumi.get(self, "inference_configuration")
 
     @_builtins.property
@@ -3985,27 +3245,17 @@ class AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration(di
     def __init__(__self__, *,
                  guardrail_identifier: _builtins.str,
                  guardrail_version: _builtins.str):
-        """
-        :param _builtins.str guardrail_identifier: The unique identifier of the guardrail.
-        :param _builtins.str guardrail_version: The version of the guardrail.
-        """
         pulumi.set(__self__, "guardrail_identifier", guardrail_identifier)
         pulumi.set(__self__, "guardrail_version", guardrail_version)
 
     @_builtins.property
     @pulumi.getter(name="guardrailIdentifier")
     def guardrail_identifier(self) -> _builtins.str:
-        """
-        The unique identifier of the guardrail.
-        """
         return pulumi.get(self, "guardrail_identifier")
 
     @_builtins.property
     @pulumi.getter(name="guardrailVersion")
     def guardrail_version(self) -> _builtins.str:
-        """
-        The version of the guardrail.
-        """
         return pulumi.get(self, "guardrail_version")
 
 
@@ -4050,12 +3300,6 @@ class AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTex
                  stop_sequences: Optional[Sequence[_builtins.str]] = None,
                  temperature: Optional[_builtins.float] = None,
                  top_p: Optional[_builtins.float] = None):
-        """
-        :param _builtins.int max_tokens: Maximum number of tokens to return in the response.
-        :param Sequence[_builtins.str] stop_sequences: List of strings that define sequences after which the model will stop generating.
-        :param _builtins.float temperature: Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
-        :param _builtins.float top_p: Percentage of most-likely candidates that the model considers for the next token.
-        """
         if max_tokens is not None:
             pulumi.set(__self__, "max_tokens", max_tokens)
         if stop_sequences is not None:
@@ -4068,33 +3312,21 @@ class AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTex
     @_builtins.property
     @pulumi.getter(name="maxTokens")
     def max_tokens(self) -> Optional[_builtins.int]:
-        """
-        Maximum number of tokens to return in the response.
-        """
         return pulumi.get(self, "max_tokens")
 
     @_builtins.property
     @pulumi.getter(name="stopSequences")
     def stop_sequences(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of strings that define sequences after which the model will stop generating.
-        """
         return pulumi.get(self, "stop_sequences")
 
     @_builtins.property
     @pulumi.getter
     def temperature(self) -> Optional[_builtins.float]:
-        """
-        Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
-        """
         return pulumi.get(self, "temperature")
 
     @_builtins.property
     @pulumi.getter(name="topP")
     def top_p(self) -> Optional[_builtins.float]:
-        """
-        Percentage of most-likely candidates that the model considers for the next token.
-        """
         return pulumi.get(self, "top_p")
 
 
@@ -4119,17 +3351,11 @@ class AgentFlowDefinitionNodeConfigurationLambdaFunction(dict):
 
     def __init__(__self__, *,
                  lambda_arn: _builtins.str):
-        """
-        :param _builtins.str lambda_arn: The Amazon Resource Name (ARN) of the Lambda function to invoke.
-        """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
 
     @_builtins.property
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the Lambda function to invoke.
-        """
         return pulumi.get(self, "lambda_arn")
 
 
@@ -4157,27 +3383,17 @@ class AgentFlowDefinitionNodeConfigurationLex(dict):
     def __init__(__self__, *,
                  bot_alias_arn: _builtins.str,
                  locale_id: _builtins.str):
-        """
-        :param _builtins.str bot_alias_arn: The Amazon Resource Name (ARN) of the Amazon Lex bot alias to invoke.
-        :param _builtins.str locale_id: The Region to invoke the Amazon Lex bot in
-        """
         pulumi.set(__self__, "bot_alias_arn", bot_alias_arn)
         pulumi.set(__self__, "locale_id", locale_id)
 
     @_builtins.property
     @pulumi.getter(name="botAliasArn")
     def bot_alias_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the Amazon Lex bot alias to invoke.
-        """
         return pulumi.get(self, "bot_alias_arn")
 
     @_builtins.property
     @pulumi.getter(name="localeId")
     def locale_id(self) -> _builtins.str:
-        """
-        The Region to invoke the Amazon Lex bot in
-        """
         return pulumi.get(self, "locale_id")
 
 
@@ -4211,9 +3427,6 @@ class AgentFlowDefinitionNodeConfigurationPrompt(dict):
     def __init__(__self__, *,
                  guardrail_configuration: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration'] = None,
                  source_configuration: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration'] = None):
-        """
-        :param 'AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs' guardrail_configuration: Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
-        """
         if guardrail_configuration is not None:
             pulumi.set(__self__, "guardrail_configuration", guardrail_configuration)
         if source_configuration is not None:
@@ -4222,9 +3435,6 @@ class AgentFlowDefinitionNodeConfigurationPrompt(dict):
     @_builtins.property
     @pulumi.getter(name="guardrailConfiguration")
     def guardrail_configuration(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration']:
-        """
-        Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
-        """
         return pulumi.get(self, "guardrail_configuration")
 
     @_builtins.property
@@ -4257,27 +3467,17 @@ class AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration(dict):
     def __init__(__self__, *,
                  guardrail_identifier: _builtins.str,
                  guardrail_version: _builtins.str):
-        """
-        :param _builtins.str guardrail_identifier: The unique identifier of the guardrail.
-        :param _builtins.str guardrail_version: The version of the guardrail.
-        """
         pulumi.set(__self__, "guardrail_identifier", guardrail_identifier)
         pulumi.set(__self__, "guardrail_version", guardrail_version)
 
     @_builtins.property
     @pulumi.getter(name="guardrailIdentifier")
     def guardrail_identifier(self) -> _builtins.str:
-        """
-        The unique identifier of the guardrail.
-        """
         return pulumi.get(self, "guardrail_identifier")
 
     @_builtins.property
     @pulumi.getter(name="guardrailVersion")
     def guardrail_version(self) -> _builtins.str:
-        """
-        The version of the guardrail.
-        """
         return pulumi.get(self, "guardrail_version")
 
 
@@ -4286,10 +3486,6 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration(dict):
     def __init__(__self__, *,
                  inline: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline'] = None,
                  resource: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource'] = None):
-        """
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs' inline: Contains configurations for a prompt that is defined inline. See Prompt Inline Configuration for more information.
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs' resource: Contains configurations for a prompt from Prompt management. See Prompt Resource Configuration for more information.
-        """
         if inline is not None:
             pulumi.set(__self__, "inline", inline)
         if resource is not None:
@@ -4298,17 +3494,11 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def inline(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline']:
-        """
-        Contains configurations for a prompt that is defined inline. See Prompt Inline Configuration for more information.
-        """
         return pulumi.get(self, "inline")
 
     @_builtins.property
     @pulumi.getter
     def resource(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource']:
-        """
-        Contains configurations for a prompt from Prompt management. See Prompt Resource Configuration for more information.
-        """
         return pulumi.get(self, "resource")
 
 
@@ -4345,12 +3535,6 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline(dict):
                  additional_model_request_fields: Optional[_builtins.str] = None,
                  inference_configuration: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration'] = None,
                  template_configuration: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration'] = None):
-        """
-        :param _builtins.str template_type: The type of prompt template. Valid values: `TEXT`, `CHAT`.
-        :param _builtins.str additional_model_request_fields: Additional fields to be included in the model request for the Prompt node.
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs' inference_configuration: Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs' template_configuration: Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
-        """
         pulumi.set(__self__, "model_id", model_id)
         pulumi.set(__self__, "template_type", template_type)
         if additional_model_request_fields is not None:
@@ -4368,33 +3552,21 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline(dict):
     @_builtins.property
     @pulumi.getter(name="templateType")
     def template_type(self) -> _builtins.str:
-        """
-        The type of prompt template. Valid values: `TEXT`, `CHAT`.
-        """
         return pulumi.get(self, "template_type")
 
     @_builtins.property
     @pulumi.getter(name="additionalModelRequestFields")
     def additional_model_request_fields(self) -> Optional[_builtins.str]:
-        """
-        Additional fields to be included in the model request for the Prompt node.
-        """
         return pulumi.get(self, "additional_model_request_fields")
 
     @_builtins.property
     @pulumi.getter(name="inferenceConfiguration")
     def inference_configuration(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration']:
-        """
-        Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
-        """
         return pulumi.get(self, "inference_configuration")
 
     @_builtins.property
     @pulumi.getter(name="templateConfiguration")
     def template_configuration(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration']:
-        """
-        Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
-        """
         return pulumi.get(self, "template_configuration")
 
 
@@ -4439,12 +3611,6 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferen
                  stop_sequences: Optional[Sequence[_builtins.str]] = None,
                  temperature: Optional[_builtins.float] = None,
                  top_p: Optional[_builtins.float] = None):
-        """
-        :param _builtins.int max_tokens: Maximum number of tokens to return in the response.
-        :param Sequence[_builtins.str] stop_sequences: List of strings that define sequences after which the model will stop generating.
-        :param _builtins.float temperature: Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
-        :param _builtins.float top_p: Percentage of most-likely candidates that the model considers for the next token.
-        """
         if max_tokens is not None:
             pulumi.set(__self__, "max_tokens", max_tokens)
         if stop_sequences is not None:
@@ -4457,33 +3623,21 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferen
     @_builtins.property
     @pulumi.getter(name="maxTokens")
     def max_tokens(self) -> Optional[_builtins.int]:
-        """
-        Maximum number of tokens to return in the response.
-        """
         return pulumi.get(self, "max_tokens")
 
     @_builtins.property
     @pulumi.getter(name="stopSequences")
     def stop_sequences(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of strings that define sequences after which the model will stop generating.
-        """
         return pulumi.get(self, "stop_sequences")
 
     @_builtins.property
     @pulumi.getter
     def temperature(self) -> Optional[_builtins.float]:
-        """
-        Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
-        """
         return pulumi.get(self, "temperature")
 
     @_builtins.property
     @pulumi.getter(name="topP")
     def top_p(self) -> Optional[_builtins.float]:
-        """
-        Percentage of most-likely candidates that the model considers for the next token.
-        """
         return pulumi.get(self, "top_p")
 
 
@@ -4492,9 +3646,6 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     def __init__(__self__, *,
                  chat: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat'] = None,
                  text: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText'] = None):
-        """
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs' chat: Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
-        """
         if chat is not None:
             pulumi.set(__self__, "chat", chat)
         if text is not None:
@@ -4503,9 +3654,6 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @_builtins.property
     @pulumi.getter
     def chat(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat']:
-        """
-        Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
-        """
         return pulumi.get(self, "chat")
 
     @_builtins.property
@@ -4540,11 +3688,6 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
                  messages: Optional[Sequence['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage']] = None,
                  systems: Optional[Sequence['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem']] = None,
                  tool_configuration: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration'] = None):
-        """
-        :param Sequence['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs'] messages: A list of messages in the chat for the prompt. See Message for more information.
-        :param Sequence['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgs'] systems: A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs' tool_configuration: Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
-        """
         if input_variables is not None:
             pulumi.set(__self__, "input_variables", input_variables)
         if messages is not None:
@@ -4562,25 +3705,16 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @_builtins.property
     @pulumi.getter
     def messages(self) -> Optional[Sequence['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage']]:
-        """
-        A list of messages in the chat for the prompt. See Message for more information.
-        """
         return pulumi.get(self, "messages")
 
     @_builtins.property
     @pulumi.getter
     def systems(self) -> Optional[Sequence['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem']]:
-        """
-        A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
-        """
         return pulumi.get(self, "systems")
 
     @_builtins.property
     @pulumi.getter(name="toolConfiguration")
     def tool_configuration(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration']:
-        """
-        Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
-        """
         return pulumi.get(self, "tool_configuration")
 
 
@@ -4588,17 +3722,11 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
 class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable(dict):
     def __init__(__self__, *,
                  name: _builtins.str):
-        """
-        :param _builtins.str name: The name of the variable.
-        """
         pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the variable.
-        """
         return pulumi.get(self, "name")
 
 
@@ -4607,10 +3735,6 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     def __init__(__self__, *,
                  role: _builtins.str,
                  content: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent'] = None):
-        """
-        :param _builtins.str role: The role that the message belongs to.
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs' content: Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
-        """
         pulumi.set(__self__, "role", role)
         if content is not None:
             pulumi.set(__self__, "content", content)
@@ -4618,17 +3742,11 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @_builtins.property
     @pulumi.getter
     def role(self) -> _builtins.str:
-        """
-        The role that the message belongs to.
-        """
         return pulumi.get(self, "role")
 
     @_builtins.property
     @pulumi.getter
     def content(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent']:
-        """
-        Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
-        """
         return pulumi.get(self, "content")
 
 
@@ -4674,17 +3792,11 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
 class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint(dict):
     def __init__(__self__, *,
                  type: _builtins.str):
-        """
-        :param _builtins.str type: Indicates that the CachePointBlock is of the default type. Valid values: `default`.
-        """
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Indicates that the CachePointBlock is of the default type. Valid values: `default`.
-        """
         return pulumi.get(self, "type")
 
 
@@ -4710,10 +3822,6 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     def __init__(__self__, *,
                  cache_point: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePoint'] = None,
                  text: Optional[_builtins.str] = None):
-        """
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointArgs' cache_point: Creates a cache checkpoint within a tool designation. See Cache Point for more information.
-        :param _builtins.str text: The text in the system prompt.
-        """
         if cache_point is not None:
             pulumi.set(__self__, "cache_point", cache_point)
         if text is not None:
@@ -4722,17 +3830,11 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @_builtins.property
     @pulumi.getter(name="cachePoint")
     def cache_point(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePoint']:
-        """
-        Creates a cache checkpoint within a tool designation. See Cache Point for more information.
-        """
         return pulumi.get(self, "cache_point")
 
     @_builtins.property
     @pulumi.getter
     def text(self) -> Optional[_builtins.str]:
-        """
-        The text in the system prompt.
-        """
         return pulumi.get(self, "text")
 
 
@@ -4740,17 +3842,11 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
 class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePoint(dict):
     def __init__(__self__, *,
                  type: _builtins.str):
-        """
-        :param _builtins.str type: Indicates that the CachePointBlock is of the default type. Valid values: `default`.
-        """
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Indicates that the CachePointBlock is of the default type. Valid values: `default`.
-        """
         return pulumi.get(self, "type")
 
 
@@ -4776,10 +3872,6 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     def __init__(__self__, *,
                  tool_choice: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice'] = None,
                  tools: Optional[Sequence['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationTool']] = None):
-        """
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgs' tool_choice: Defines which tools the model should request when invoked. See Tool Choice for more information.
-        :param Sequence['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArgs'] tools: A list of tools to pass to a model. See Tool for more information.
-        """
         if tool_choice is not None:
             pulumi.set(__self__, "tool_choice", tool_choice)
         if tools is not None:
@@ -4788,17 +3880,11 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @_builtins.property
     @pulumi.getter(name="toolChoice")
     def tool_choice(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice']:
-        """
-        Defines which tools the model should request when invoked. See Tool Choice for more information.
-        """
         return pulumi.get(self, "tool_choice")
 
     @_builtins.property
     @pulumi.getter
     def tools(self) -> Optional[Sequence['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationTool']]:
-        """
-        A list of tools to pass to a model. See Tool for more information.
-        """
         return pulumi.get(self, "tools")
 
 
@@ -4826,10 +3912,6 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     def __init__(__self__, *,
                  cache_point: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePoint'] = None,
                  tool_spec: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec'] = None):
-        """
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgs' cache_point: Creates a cache checkpoint within a tool designation. See Cache Point for more information.
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs' tool_spec: The specification for the tool. See Tool Specification for more information.
-        """
         if cache_point is not None:
             pulumi.set(__self__, "cache_point", cache_point)
         if tool_spec is not None:
@@ -4838,17 +3920,11 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @_builtins.property
     @pulumi.getter(name="cachePoint")
     def cache_point(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePoint']:
-        """
-        Creates a cache checkpoint within a tool designation. See Cache Point for more information.
-        """
         return pulumi.get(self, "cache_point")
 
     @_builtins.property
     @pulumi.getter(name="toolSpec")
     def tool_spec(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec']:
-        """
-        The specification for the tool. See Tool Specification for more information.
-        """
         return pulumi.get(self, "tool_spec")
 
 
@@ -4856,17 +3932,11 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
 class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePoint(dict):
     def __init__(__self__, *,
                  type: _builtins.str):
-        """
-        :param _builtins.str type: Indicates that the CachePointBlock is of the default type. Valid values: `default`.
-        """
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Indicates that the CachePointBlock is of the default type. Valid values: `default`.
-        """
         return pulumi.get(self, "type")
 
 
@@ -4876,11 +3946,6 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
                  any: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAny'] = None,
                  auto: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAuto'] = None,
                  tool: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool'] = None):
-        """
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs' any: Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs' auto: Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgs' tool: Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
-        """
         if any is not None:
             pulumi.set(__self__, "any", any)
         if auto is not None:
@@ -4891,25 +3956,16 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @_builtins.property
     @pulumi.getter
     def any(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAny']:
-        """
-        Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
-        """
         return pulumi.get(self, "any")
 
     @_builtins.property
     @pulumi.getter
     def auto(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAuto']:
-        """
-        Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
-        """
         return pulumi.get(self, "auto")
 
     @_builtins.property
     @pulumi.getter
     def tool(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool']:
-        """
-        Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
-        """
         return pulumi.get(self, "tool")
 
 
@@ -4929,17 +3985,11 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
 class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool(dict):
     def __init__(__self__, *,
                  name: _builtins.str):
-        """
-        :param _builtins.str name: A name for the flow.
-        """
         pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        A name for the flow.
-        """
         return pulumi.get(self, "name")
 
 
@@ -4966,11 +4016,6 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
                  name: _builtins.str,
                  description: Optional[_builtins.str] = None,
                  input_schema: Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema'] = None):
-        """
-        :param _builtins.str name: A name for the flow.
-        :param _builtins.str description: A description for the flow.
-        :param 'AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs' input_schema: The input schema of the tool. See Tool Input Schema for more information.
-        """
         pulumi.set(__self__, "name", name)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -4980,25 +4025,16 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        A name for the flow.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
-        """
-        A description for the flow.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="inputSchema")
     def input_schema(self) -> Optional['outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema']:
-        """
-        The input schema of the tool. See Tool Input Schema for more information.
-        """
         return pulumi.get(self, "input_schema")
 
 
@@ -5006,18 +4042,12 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
 class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema(dict):
     def __init__(__self__, *,
                  json: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str json: A JSON object defining the input schema for the tool.
-        """
         if json is not None:
             pulumi.set(__self__, "json", json)
 
     @_builtins.property
     @pulumi.getter
     def json(self) -> Optional[_builtins.str]:
-        """
-        A JSON object defining the input schema for the tool.
-        """
         return pulumi.get(self, "json")
 
 
@@ -5072,17 +4102,11 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
 class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint(dict):
     def __init__(__self__, *,
                  type: _builtins.str):
-        """
-        :param _builtins.str type: Indicates that the CachePointBlock is of the default type. Valid values: `default`.
-        """
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Indicates that the CachePointBlock is of the default type. Valid values: `default`.
-        """
         return pulumi.get(self, "type")
 
 
@@ -5090,17 +4114,11 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
 class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariable(dict):
     def __init__(__self__, *,
                  name: _builtins.str):
-        """
-        :param _builtins.str name: The name of the variable.
-        """
         pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the variable.
-        """
         return pulumi.get(self, "name")
 
 
@@ -5125,17 +4143,11 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource(dict
 
     def __init__(__self__, *,
                  prompt_arn: _builtins.str):
-        """
-        :param _builtins.str prompt_arn: The Amazon Resource Name (ARN) of the prompt from Prompt management.
-        """
         pulumi.set(__self__, "prompt_arn", prompt_arn)
 
     @_builtins.property
     @pulumi.getter(name="promptArn")
     def prompt_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the prompt from Prompt management.
-        """
         return pulumi.get(self, "prompt_arn")
 
 
@@ -5290,10 +4302,6 @@ class AgentFlowDefinitionNodeInput(dict):
                  name: _builtins.str,
                  type: _builtins.str,
                  category: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str name: A name for the flow.
-        :param _builtins.str category: How input data flows between iterations in a DoWhile loop.
-        """
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -5308,9 +4316,6 @@ class AgentFlowDefinitionNodeInput(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        A name for the flow.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -5321,9 +4326,6 @@ class AgentFlowDefinitionNodeInput(dict):
     @_builtins.property
     @pulumi.getter
     def category(self) -> Optional[_builtins.str]:
-        """
-        How input data flows between iterations in a DoWhile loop.
-        """
         return pulumi.get(self, "category")
 
 
@@ -5332,18 +4334,12 @@ class AgentFlowDefinitionNodeOutput(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  type: _builtins.str):
-        """
-        :param _builtins.str name: A name for the flow.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        A name for the flow.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -5423,12 +4419,6 @@ class AgentKnowledgeBaseKnowledgeBaseConfiguration(dict):
                  kendra_knowledge_base_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration'] = None,
                  sql_knowledge_base_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration'] = None,
                  vector_knowledge_base_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration'] = None):
-        """
-        :param _builtins.str type: Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs' kendra_knowledge_base_configuration: Settings for an Amazon Kendra knowledge base. See `kendra_knowledge_base_configuration` block for details.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs' sql_knowledge_base_configuration: Configurations for a knowledge base connected to an SQL database. See `sql_knowledge_base_configuration` block for details.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs' vector_knowledge_base_configuration: Details about the model that's used to convert the data source into vector embeddings. See `vector_knowledge_base_configuration` block for details.
-        """
         pulumi.set(__self__, "type", type)
         if kendra_knowledge_base_configuration is not None:
             pulumi.set(__self__, "kendra_knowledge_base_configuration", kendra_knowledge_base_configuration)
@@ -5440,33 +4430,21 @@ class AgentKnowledgeBaseKnowledgeBaseConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="kendraKnowledgeBaseConfiguration")
     def kendra_knowledge_base_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration']:
-        """
-        Settings for an Amazon Kendra knowledge base. See `kendra_knowledge_base_configuration` block for details.
-        """
         return pulumi.get(self, "kendra_knowledge_base_configuration")
 
     @_builtins.property
     @pulumi.getter(name="sqlKnowledgeBaseConfiguration")
     def sql_knowledge_base_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration']:
-        """
-        Configurations for a knowledge base connected to an SQL database. See `sql_knowledge_base_configuration` block for details.
-        """
         return pulumi.get(self, "sql_knowledge_base_configuration")
 
     @_builtins.property
     @pulumi.getter(name="vectorKnowledgeBaseConfiguration")
     def vector_knowledge_base_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration']:
-        """
-        Details about the model that's used to convert the data source into vector embeddings. See `vector_knowledge_base_configuration` block for details.
-        """
         return pulumi.get(self, "vector_knowledge_base_configuration")
 
 
@@ -5491,17 +4469,11 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurati
 
     def __init__(__self__, *,
                  kendra_index_arn: _builtins.str):
-        """
-        :param _builtins.str kendra_index_arn: ARN of the Amazon Kendra index.
-        """
         pulumi.set(__self__, "kendra_index_arn", kendra_index_arn)
 
     @_builtins.property
     @pulumi.getter(name="kendraIndexArn")
     def kendra_index_arn(self) -> _builtins.str:
-        """
-        ARN of the Amazon Kendra index.
-        """
         return pulumi.get(self, "kendra_index_arn")
 
 
@@ -5527,10 +4499,6 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration(
     def __init__(__self__, *,
                  type: _builtins.str,
                  redshift_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration'] = None):
-        """
-        :param _builtins.str type: Type of SQL database to connect to the knowledge base. Valid values: `REDSHIFT`.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs' redshift_configuration: Configurations for a knowledge base connected to an Amazon Redshift database. See `redshift_configuration` block for details.
-        """
         pulumi.set(__self__, "type", type)
         if redshift_configuration is not None:
             pulumi.set(__self__, "redshift_configuration", redshift_configuration)
@@ -5538,17 +4506,11 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration(
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of SQL database to connect to the knowledge base. Valid values: `REDSHIFT`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="redshiftConfiguration")
     def redshift_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration']:
-        """
-        Configurations for a knowledge base connected to an Amazon Redshift database. See `redshift_configuration` block for details.
-        """
         return pulumi.get(self, "redshift_configuration")
 
 
@@ -5579,11 +4541,6 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
                  query_engine_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration'] = None,
                  query_generation_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration'] = None,
                  storage_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration'] = None):
-        """
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs' query_engine_configuration: Configurations for an Amazon Redshift query engine. See `query_engine_configuration` block for details.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs' query_generation_configuration: Configurations for generating queries. See `query_generation_configuration` block for details.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs' storage_configuration: Configurations for Amazon Redshift database storage. See `storage_configuration` block for details.
-        """
         if query_engine_configuration is not None:
             pulumi.set(__self__, "query_engine_configuration", query_engine_configuration)
         if query_generation_configuration is not None:
@@ -5594,25 +4551,16 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     @_builtins.property
     @pulumi.getter(name="queryEngineConfiguration")
     def query_engine_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration']:
-        """
-        Configurations for an Amazon Redshift query engine. See `query_engine_configuration` block for details.
-        """
         return pulumi.get(self, "query_engine_configuration")
 
     @_builtins.property
     @pulumi.getter(name="queryGenerationConfiguration")
     def query_generation_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration']:
-        """
-        Configurations for generating queries. See `query_generation_configuration` block for details.
-        """
         return pulumi.get(self, "query_generation_configuration")
 
     @_builtins.property
     @pulumi.getter(name="storageConfiguration")
     def storage_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration']:
-        """
-        Configurations for Amazon Redshift database storage. See `storage_configuration` block for details.
-        """
         return pulumi.get(self, "storage_configuration")
 
 
@@ -5641,11 +4589,6 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
                  type: _builtins.str,
                  provisioned_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration'] = None,
                  serverless_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration'] = None):
-        """
-        :param _builtins.str type: Type of query engine. Valid values: `SERVERLESS`, `PROVISIONED`.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs' provisioned_configuration: Configurations for a provisioned Amazon Redshift query engine. See `provisioned_configuration` block for details.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs' serverless_configuration: Configurations for a serverless Amazon Redshift query engine. See `serverless_configuration` block for details.
-        """
         pulumi.set(__self__, "type", type)
         if provisioned_configuration is not None:
             pulumi.set(__self__, "provisioned_configuration", provisioned_configuration)
@@ -5655,25 +4598,16 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of query engine. Valid values: `SERVERLESS`, `PROVISIONED`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="provisionedConfiguration")
     def provisioned_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration']:
-        """
-        Configurations for a provisioned Amazon Redshift query engine. See `provisioned_configuration` block for details.
-        """
         return pulumi.get(self, "provisioned_configuration")
 
     @_builtins.property
     @pulumi.getter(name="serverlessConfiguration")
     def serverless_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration']:
-        """
-        Configurations for a serverless Amazon Redshift query engine. See `serverless_configuration` block for details.
-        """
         return pulumi.get(self, "serverless_configuration")
 
 
@@ -5701,10 +4635,6 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     def __init__(__self__, *,
                  cluster_identifier: _builtins.str,
                  auth_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration'] = None):
-        """
-        :param _builtins.str cluster_identifier: ID of the Amazon Redshift cluster.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs' auth_configuration: Configurations for authentication to Amazon Redshift. See `auth_configuration` block for details.
-        """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         if auth_configuration is not None:
             pulumi.set(__self__, "auth_configuration", auth_configuration)
@@ -5712,17 +4642,11 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> _builtins.str:
-        """
-        ID of the Amazon Redshift cluster.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @_builtins.property
     @pulumi.getter(name="authConfiguration")
     def auth_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration']:
-        """
-        Configurations for authentication to Amazon Redshift. See `auth_configuration` block for details.
-        """
         return pulumi.get(self, "auth_configuration")
 
 
@@ -5751,11 +4675,6 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
                  type: _builtins.str,
                  database_user: Optional[_builtins.str] = None,
                  username_password_secret_arn: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str type: Type of authentication to use. Valid values: `IAM`, `USERNAME_PASSWORD`.
-        :param _builtins.str database_user: Database username for authentication to an Amazon Redshift provisioned data warehouse.
-        :param _builtins.str username_password_secret_arn: ARN of a Secrets Manager secret for authentication.
-        """
         pulumi.set(__self__, "type", type)
         if database_user is not None:
             pulumi.set(__self__, "database_user", database_user)
@@ -5765,25 +4684,16 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of authentication to use. Valid values: `IAM`, `USERNAME_PASSWORD`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="databaseUser")
     def database_user(self) -> Optional[_builtins.str]:
-        """
-        Database username for authentication to an Amazon Redshift provisioned data warehouse.
-        """
         return pulumi.get(self, "database_user")
 
     @_builtins.property
     @pulumi.getter(name="usernamePasswordSecretArn")
     def username_password_secret_arn(self) -> Optional[_builtins.str]:
-        """
-        ARN of a Secrets Manager secret for authentication.
-        """
         return pulumi.get(self, "username_password_secret_arn")
 
 
@@ -5811,10 +4721,6 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     def __init__(__self__, *,
                  workgroup_arn: _builtins.str,
                  auth_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration'] = None):
-        """
-        :param _builtins.str workgroup_arn: ARN of the Amazon Redshift workgroup.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs' auth_configuration: Configurations for authentication to a Redshift Serverless. See `auth_configuration` block for details.
-        """
         pulumi.set(__self__, "workgroup_arn", workgroup_arn)
         if auth_configuration is not None:
             pulumi.set(__self__, "auth_configuration", auth_configuration)
@@ -5822,17 +4728,11 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     @_builtins.property
     @pulumi.getter(name="workgroupArn")
     def workgroup_arn(self) -> _builtins.str:
-        """
-        ARN of the Amazon Redshift workgroup.
-        """
         return pulumi.get(self, "workgroup_arn")
 
     @_builtins.property
     @pulumi.getter(name="authConfiguration")
     def auth_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration']:
-        """
-        Configurations for authentication to a Redshift Serverless. See `auth_configuration` block for details.
-        """
         return pulumi.get(self, "auth_configuration")
 
 
@@ -5858,10 +4758,6 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     def __init__(__self__, *,
                  type: _builtins.str,
                  username_password_secret_arn: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str type: Type of authentication to use. Valid values: `IAM`, `USERNAME_PASSWORD`.
-        :param _builtins.str username_password_secret_arn: ARN of a Secrets Manager secret for authentication.
-        """
         pulumi.set(__self__, "type", type)
         if username_password_secret_arn is not None:
             pulumi.set(__self__, "username_password_secret_arn", username_password_secret_arn)
@@ -5869,17 +4765,11 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of authentication to use. Valid values: `IAM`, `USERNAME_PASSWORD`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="usernamePasswordSecretArn")
     def username_password_secret_arn(self) -> Optional[_builtins.str]:
-        """
-        ARN of a Secrets Manager secret for authentication.
-        """
         return pulumi.get(self, "username_password_secret_arn")
 
 
@@ -5907,10 +4797,6 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     def __init__(__self__, *,
                  execution_timeout_seconds: Optional[_builtins.int] = None,
                  generation_context: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext'] = None):
-        """
-        :param _builtins.int execution_timeout_seconds: Time after which query generation will time out.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs' generation_context: Configurations for context to use during query generation. See `generation_context` block for details.
-        """
         if execution_timeout_seconds is not None:
             pulumi.set(__self__, "execution_timeout_seconds", execution_timeout_seconds)
         if generation_context is not None:
@@ -5919,17 +4805,11 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     @_builtins.property
     @pulumi.getter(name="executionTimeoutSeconds")
     def execution_timeout_seconds(self) -> Optional[_builtins.int]:
-        """
-        Time after which query generation will time out.
-        """
         return pulumi.get(self, "execution_timeout_seconds")
 
     @_builtins.property
     @pulumi.getter(name="generationContext")
     def generation_context(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext']:
-        """
-        Configurations for context to use during query generation. See `generation_context` block for details.
-        """
         return pulumi.get(self, "generation_context")
 
 
@@ -5955,10 +4835,6 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     def __init__(__self__, *,
                  curated_queries: Optional[Sequence['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQuery']] = None,
                  tables: Optional[Sequence['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable']] = None):
-        """
-        :param Sequence['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArgs'] curated_queries: Information about example queries to help the query engine generate appropriate SQL queries. See `curated_query` block for details.
-        :param Sequence['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArgs'] tables: Information about a table in the database. See `table` block for details.
-        """
         if curated_queries is not None:
             pulumi.set(__self__, "curated_queries", curated_queries)
         if tables is not None:
@@ -5967,17 +4843,11 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     @_builtins.property
     @pulumi.getter(name="curatedQueries")
     def curated_queries(self) -> Optional[Sequence['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQuery']]:
-        """
-        Information about example queries to help the query engine generate appropriate SQL queries. See `curated_query` block for details.
-        """
         return pulumi.get(self, "curated_queries")
 
     @_builtins.property
     @pulumi.getter
     def tables(self) -> Optional[Sequence['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTable']]:
-        """
-        Information about a table in the database. See `table` block for details.
-        """
         return pulumi.get(self, "tables")
 
 
@@ -6003,27 +4873,17 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     def __init__(__self__, *,
                  natural_language: _builtins.str,
                  sql: _builtins.str):
-        """
-        :param _builtins.str natural_language: Example natural language query.
-        :param _builtins.str sql: SQL equivalent of `natural_language`.
-        """
         pulumi.set(__self__, "natural_language", natural_language)
         pulumi.set(__self__, "sql", sql)
 
     @_builtins.property
     @pulumi.getter(name="naturalLanguage")
     def natural_language(self) -> _builtins.str:
-        """
-        Example natural language query.
-        """
         return pulumi.get(self, "natural_language")
 
     @_builtins.property
     @pulumi.getter
     def sql(self) -> _builtins.str:
-        """
-        SQL equivalent of `natural_language`.
-        """
         return pulumi.get(self, "sql")
 
 
@@ -6034,12 +4894,6 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
                  columns: Optional[Sequence['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumn']] = None,
                  description: Optional[_builtins.str] = None,
                  inclusion: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str name: Name of the table for which the other fields in this object apply.
-        :param Sequence['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArgs'] columns: Information about a column in the table. See `column` block for details.
-        :param _builtins.str description: Description of the table that helps the query engine understand the contents of the table.
-        :param _builtins.str inclusion: Whether to include or exclude the table during query generation. Valid values `INCLUDE`, `EXCLUDE`.
-        """
         pulumi.set(__self__, "name", name)
         if columns is not None:
             pulumi.set(__self__, "columns", columns)
@@ -6051,33 +4905,21 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the table for which the other fields in this object apply.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def columns(self) -> Optional[Sequence['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumn']]:
-        """
-        Information about a column in the table. See `column` block for details.
-        """
         return pulumi.get(self, "columns")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
-        """
-        Description of the table that helps the query engine understand the contents of the table.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def inclusion(self) -> Optional[_builtins.str]:
-        """
-        Whether to include or exclude the table during query generation. Valid values `INCLUDE`, `EXCLUDE`.
-        """
         return pulumi.get(self, "inclusion")
 
 
@@ -6087,11 +4929,6 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
                  description: Optional[_builtins.str] = None,
                  inclusion: Optional[_builtins.str] = None,
                  name: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str description: Description of the column that helps the query engine understand the contents of the column.
-        :param _builtins.str inclusion: Whether to include or exclude the column during query generation. Valid values `INCLUDE`, `EXCLUDE`.
-        :param _builtins.str name: Name of the column for which the other fields in this object apply.
-        """
         if description is not None:
             pulumi.set(__self__, "description", description)
         if inclusion is not None:
@@ -6102,25 +4939,16 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
-        """
-        Description of the column that helps the query engine understand the contents of the column.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def inclusion(self) -> Optional[_builtins.str]:
-        """
-        Whether to include or exclude the column during query generation. Valid values `INCLUDE`, `EXCLUDE`.
-        """
         return pulumi.get(self, "inclusion")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
-        """
-        Name of the column for which the other fields in this object apply.
-        """
         return pulumi.get(self, "name")
 
 
@@ -6149,11 +4977,6 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
                  type: _builtins.str,
                  aws_data_catalog_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfiguration'] = None,
                  redshift_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfiguration'] = None):
-        """
-        :param _builtins.str type: Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs' aws_data_catalog_configuration: Configurations for storage in AWS Glue Data Catalog. See `aws_data_catalog_configuration` block for details.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs' redshift_configuration: Configurations for storage in Amazon Redshift. See `redshift_configuration` block for details.
-        """
         pulumi.set(__self__, "type", type)
         if aws_data_catalog_configuration is not None:
             pulumi.set(__self__, "aws_data_catalog_configuration", aws_data_catalog_configuration)
@@ -6163,25 +4986,16 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="awsDataCatalogConfiguration")
     def aws_data_catalog_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfiguration']:
-        """
-        Configurations for storage in AWS Glue Data Catalog. See `aws_data_catalog_configuration` block for details.
-        """
         return pulumi.get(self, "aws_data_catalog_configuration")
 
     @_builtins.property
     @pulumi.getter(name="redshiftConfiguration")
     def redshift_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfiguration']:
-        """
-        Configurations for storage in Amazon Redshift. See `redshift_configuration` block for details.
-        """
         return pulumi.get(self, "redshift_configuration")
 
 
@@ -6206,17 +5020,11 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
 
     def __init__(__self__, *,
                  table_names: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] table_names: List of names of the tables to use.
-        """
         pulumi.set(__self__, "table_names", table_names)
 
     @_builtins.property
     @pulumi.getter(name="tableNames")
     def table_names(self) -> Sequence[_builtins.str]:
-        """
-        List of names of the tables to use.
-        """
         return pulumi.get(self, "table_names")
 
 
@@ -6241,17 +5049,11 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
 
     def __init__(__self__, *,
                  database_name: _builtins.str):
-        """
-        :param _builtins.str database_name: Name of the Amazon Redshift database.
-        """
         pulumi.set(__self__, "database_name", database_name)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> _builtins.str:
-        """
-        Name of the Amazon Redshift database.
-        """
         return pulumi.get(self, "database_name")
 
 
@@ -6282,11 +5084,6 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
                  embedding_model_arn: _builtins.str,
                  embedding_model_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration'] = None,
                  supplemental_data_storage_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration'] = None):
-        """
-        :param _builtins.str embedding_model_arn: ARN of the model used to create vector embeddings for the knowledge base.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs' embedding_model_configuration: The embeddings model configuration details for the vector model used in Knowledge Base.  See `embedding_model_configuration` block for details.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs' supplemental_data_storage_configuration: supplemental_data_storage_configuration.  See `supplemental_data_storage_configuration` block for details.
-        """
         pulumi.set(__self__, "embedding_model_arn", embedding_model_arn)
         if embedding_model_configuration is not None:
             pulumi.set(__self__, "embedding_model_configuration", embedding_model_configuration)
@@ -6296,25 +5093,16 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
     @_builtins.property
     @pulumi.getter(name="embeddingModelArn")
     def embedding_model_arn(self) -> _builtins.str:
-        """
-        ARN of the model used to create vector embeddings for the knowledge base.
-        """
         return pulumi.get(self, "embedding_model_arn")
 
     @_builtins.property
     @pulumi.getter(name="embeddingModelConfiguration")
     def embedding_model_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration']:
-        """
-        The embeddings model configuration details for the vector model used in Knowledge Base.  See `embedding_model_configuration` block for details.
-        """
         return pulumi.get(self, "embedding_model_configuration")
 
     @_builtins.property
     @pulumi.getter(name="supplementalDataStorageConfiguration")
     def supplemental_data_storage_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration']:
-        """
-        supplemental_data_storage_configuration.  See `supplemental_data_storage_configuration` block for details.
-        """
         return pulumi.get(self, "supplemental_data_storage_configuration")
 
 
@@ -6339,18 +5127,12 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
 
     def __init__(__self__, *,
                  bedrock_embedding_model_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration'] = None):
-        """
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs' bedrock_embedding_model_configuration: The vector configuration details on the Bedrock embeddings model.  See `bedrock_embedding_model_configuration` block for details.
-        """
         if bedrock_embedding_model_configuration is not None:
             pulumi.set(__self__, "bedrock_embedding_model_configuration", bedrock_embedding_model_configuration)
 
     @_builtins.property
     @pulumi.getter(name="bedrockEmbeddingModelConfiguration")
     def bedrock_embedding_model_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration']:
-        """
-        The vector configuration details on the Bedrock embeddings model.  See `bedrock_embedding_model_configuration` block for details.
-        """
         return pulumi.get(self, "bedrock_embedding_model_configuration")
 
 
@@ -6376,10 +5158,6 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
     def __init__(__self__, *,
                  dimensions: Optional[_builtins.int] = None,
                  embedding_data_type: Optional[_builtins.str] = None):
-        """
-        :param _builtins.int dimensions: Dimension details for the vector configuration used on the Bedrock embeddings model.
-        :param _builtins.str embedding_data_type: Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
-        """
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
         if embedding_data_type is not None:
@@ -6388,17 +5166,11 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
     @_builtins.property
     @pulumi.getter
     def dimensions(self) -> Optional[_builtins.int]:
-        """
-        Dimension details for the vector configuration used on the Bedrock embeddings model.
-        """
         return pulumi.get(self, "dimensions")
 
     @_builtins.property
     @pulumi.getter(name="embeddingDataType")
     def embedding_data_type(self) -> Optional[_builtins.str]:
-        """
-        Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
-        """
         return pulumi.get(self, "embedding_data_type")
 
 
@@ -6423,18 +5195,12 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
 
     def __init__(__self__, *,
                  storage_locations: Optional[Sequence['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation']] = None):
-        """
-        :param Sequence['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs'] storage_locations: A storage location specification for images extracted from multimodal documents in your data source.  See `storage_location` block for details.
-        """
         if storage_locations is not None:
             pulumi.set(__self__, "storage_locations", storage_locations)
 
     @_builtins.property
     @pulumi.getter(name="storageLocations")
     def storage_locations(self) -> Optional[Sequence['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation']]:
-        """
-        A storage location specification for images extracted from multimodal documents in your data source.  See `storage_location` block for details.
-        """
         return pulumi.get(self, "storage_locations")
 
 
@@ -6460,10 +5226,6 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
     def __init__(__self__, *,
                  type: _builtins.str,
                  s3_location: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location'] = None):
-        """
-        :param _builtins.str type: Storage service used for this location. `S3` is the only valid value.
-        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs' s3_location: Contains information about the Amazon S3 location for the extracted images.  See `s3_location` block for details.
-        """
         pulumi.set(__self__, "type", type)
         if s3_location is not None:
             pulumi.set(__self__, "s3_location", s3_location)
@@ -6471,17 +5233,11 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Storage service used for this location. `S3` is the only valid value.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="s3Location")
     def s3_location(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location']:
-        """
-        Contains information about the Amazon S3 location for the extracted images.  See `s3_location` block for details.
-        """
         return pulumi.get(self, "s3_location")
 
 
@@ -6489,17 +5245,11 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
 class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location(dict):
     def __init__(__self__, *,
                  uri: _builtins.str):
-        """
-        :param _builtins.str uri: URI of the location.
-        """
         pulumi.set(__self__, "uri", uri)
 
     @_builtins.property
     @pulumi.getter
     def uri(self) -> _builtins.str:
-        """
-        URI of the location.
-        """
         return pulumi.get(self, "uri")
 
 
@@ -6546,17 +5296,6 @@ class AgentKnowledgeBaseStorageConfiguration(dict):
                  rds_configuration: Optional['outputs.AgentKnowledgeBaseStorageConfigurationRdsConfiguration'] = None,
                  redis_enterprise_cloud_configuration: Optional['outputs.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration'] = None,
                  s3_vectors_configuration: Optional['outputs.AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration'] = None):
-        """
-        :param _builtins.str type: Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
-        :param 'AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs' mongo_db_atlas_configuration: The storage configuration of the knowledge base in MongoDB Atlas. See `mongo_db_atlas_configuration` block for details.
-        :param 'AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs' neptune_analytics_configuration: The storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptune_analytics_configuration` block for details.
-        :param 'AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs' opensearch_managed_cluster_configuration: The storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearch_managed_cluster_configuration` block for details.
-        :param 'AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs' opensearch_serverless_configuration: The storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearch_serverless_configuration` block for details.
-        :param 'AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs' pinecone_configuration: The storage configuration of the knowledge base in Pinecone. See `pinecone_configuration` block for details.
-        :param 'AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs' rds_configuration: Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rds_configuration` block for details.
-        :param 'AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs' redis_enterprise_cloud_configuration: The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redis_enterprise_cloud_configuration` block for details.
-        :param 'AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs' s3_vectors_configuration: The storage configuration of the knowledge base in Amazon S3 Vectors. See `s3_vectors_configuration` block for details.
-        """
         pulumi.set(__self__, "type", type)
         if mongo_db_atlas_configuration is not None:
             pulumi.set(__self__, "mongo_db_atlas_configuration", mongo_db_atlas_configuration)
@@ -6578,73 +5317,46 @@ class AgentKnowledgeBaseStorageConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="mongoDbAtlasConfiguration")
     def mongo_db_atlas_configuration(self) -> Optional['outputs.AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration']:
-        """
-        The storage configuration of the knowledge base in MongoDB Atlas. See `mongo_db_atlas_configuration` block for details.
-        """
         return pulumi.get(self, "mongo_db_atlas_configuration")
 
     @_builtins.property
     @pulumi.getter(name="neptuneAnalyticsConfiguration")
     def neptune_analytics_configuration(self) -> Optional['outputs.AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration']:
-        """
-        The storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptune_analytics_configuration` block for details.
-        """
         return pulumi.get(self, "neptune_analytics_configuration")
 
     @_builtins.property
     @pulumi.getter(name="opensearchManagedClusterConfiguration")
     def opensearch_managed_cluster_configuration(self) -> Optional['outputs.AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration']:
-        """
-        The storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearch_managed_cluster_configuration` block for details.
-        """
         return pulumi.get(self, "opensearch_managed_cluster_configuration")
 
     @_builtins.property
     @pulumi.getter(name="opensearchServerlessConfiguration")
     def opensearch_serverless_configuration(self) -> Optional['outputs.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration']:
-        """
-        The storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearch_serverless_configuration` block for details.
-        """
         return pulumi.get(self, "opensearch_serverless_configuration")
 
     @_builtins.property
     @pulumi.getter(name="pineconeConfiguration")
     def pinecone_configuration(self) -> Optional['outputs.AgentKnowledgeBaseStorageConfigurationPineconeConfiguration']:
-        """
-        The storage configuration of the knowledge base in Pinecone. See `pinecone_configuration` block for details.
-        """
         return pulumi.get(self, "pinecone_configuration")
 
     @_builtins.property
     @pulumi.getter(name="rdsConfiguration")
     def rds_configuration(self) -> Optional['outputs.AgentKnowledgeBaseStorageConfigurationRdsConfiguration']:
-        """
-        Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rds_configuration` block for details.
-        """
         return pulumi.get(self, "rds_configuration")
 
     @_builtins.property
     @pulumi.getter(name="redisEnterpriseCloudConfiguration")
     def redis_enterprise_cloud_configuration(self) -> Optional['outputs.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration']:
-        """
-        The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redis_enterprise_cloud_configuration` block for details.
-        """
         return pulumi.get(self, "redis_enterprise_cloud_configuration")
 
     @_builtins.property
     @pulumi.getter(name="s3VectorsConfiguration")
     def s3_vectors_configuration(self) -> Optional['outputs.AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration']:
-        """
-        The storage configuration of the knowledge base in Amazon S3 Vectors. See `s3_vectors_configuration` block for details.
-        """
         return pulumi.get(self, "s3_vectors_configuration")
 
 
@@ -6688,16 +5400,6 @@ class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration(dict):
                  endpoint_service_name: Optional[_builtins.str] = None,
                  field_mapping: Optional['outputs.AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping'] = None,
                  text_index_name: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str collection_name: The name of the collection in the MongoDB Atlas database.
-        :param _builtins.str credentials_secret_arn: The ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
-        :param _builtins.str database_name: The name of the database in the MongoDB Atlas database.
-        :param _builtins.str endpoint: The endpoint URL of the MongoDB Atlas database.
-        :param _builtins.str vector_index_name: The name of the vector index.
-        :param _builtins.str endpoint_service_name: The name of the service that hosts the MongoDB Atlas database.
-        :param 'AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs' field_mapping: Contains the names of the fields to which to map information about the vector store.
-        :param _builtins.str text_index_name: The name of the vector index.
-        """
         pulumi.set(__self__, "collection_name", collection_name)
         pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
         pulumi.set(__self__, "database_name", database_name)
@@ -6713,65 +5415,41 @@ class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="collectionName")
     def collection_name(self) -> _builtins.str:
-        """
-        The name of the collection in the MongoDB Atlas database.
-        """
         return pulumi.get(self, "collection_name")
 
     @_builtins.property
     @pulumi.getter(name="credentialsSecretArn")
     def credentials_secret_arn(self) -> _builtins.str:
-        """
-        The ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
-        """
         return pulumi.get(self, "credentials_secret_arn")
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> _builtins.str:
-        """
-        The name of the database in the MongoDB Atlas database.
-        """
         return pulumi.get(self, "database_name")
 
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> _builtins.str:
-        """
-        The endpoint URL of the MongoDB Atlas database.
-        """
         return pulumi.get(self, "endpoint")
 
     @_builtins.property
     @pulumi.getter(name="vectorIndexName")
     def vector_index_name(self) -> _builtins.str:
-        """
-        The name of the vector index.
-        """
         return pulumi.get(self, "vector_index_name")
 
     @_builtins.property
     @pulumi.getter(name="endpointServiceName")
     def endpoint_service_name(self) -> Optional[_builtins.str]:
-        """
-        The name of the service that hosts the MongoDB Atlas database.
-        """
         return pulumi.get(self, "endpoint_service_name")
 
     @_builtins.property
     @pulumi.getter(name="fieldMapping")
     def field_mapping(self) -> Optional['outputs.AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping']:
-        """
-        Contains the names of the fields to which to map information about the vector store.
-        """
         return pulumi.get(self, "field_mapping")
 
     @_builtins.property
     @pulumi.getter(name="textIndexName")
     def text_index_name(self) -> Optional[_builtins.str]:
-        """
-        The name of the vector index.
-        """
         return pulumi.get(self, "text_index_name")
 
 
@@ -6802,11 +5480,6 @@ class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappin
                  metadata_field: _builtins.str,
                  text_field: _builtins.str,
                  vector_field: _builtins.str):
-        """
-        :param _builtins.str metadata_field: The name of the field in which Amazon Bedrock stores metadata about the vector store.
-        :param _builtins.str text_field: The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-        :param _builtins.str vector_field: The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
-        """
         pulumi.set(__self__, "metadata_field", metadata_field)
         pulumi.set(__self__, "text_field", text_field)
         pulumi.set(__self__, "vector_field", vector_field)
@@ -6814,25 +5487,16 @@ class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappin
     @_builtins.property
     @pulumi.getter(name="metadataField")
     def metadata_field(self) -> _builtins.str:
-        """
-        The name of the field in which Amazon Bedrock stores metadata about the vector store.
-        """
         return pulumi.get(self, "metadata_field")
 
     @_builtins.property
     @pulumi.getter(name="textField")
     def text_field(self) -> _builtins.str:
-        """
-        The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-        """
         return pulumi.get(self, "text_field")
 
     @_builtins.property
     @pulumi.getter(name="vectorField")
     def vector_field(self) -> _builtins.str:
-        """
-        The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
-        """
         return pulumi.get(self, "vector_field")
 
 
@@ -6860,10 +5524,6 @@ class AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration(dict):
     def __init__(__self__, *,
                  graph_arn: _builtins.str,
                  field_mapping: Optional['outputs.AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping'] = None):
-        """
-        :param _builtins.str graph_arn: ARN of the Neptune Analytics vector store.
-        :param 'AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs' field_mapping: The names of the fields to which to map information about the vector store. This block supports the following arguments:
-        """
         pulumi.set(__self__, "graph_arn", graph_arn)
         if field_mapping is not None:
             pulumi.set(__self__, "field_mapping", field_mapping)
@@ -6871,17 +5531,11 @@ class AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="graphArn")
     def graph_arn(self) -> _builtins.str:
-        """
-        ARN of the Neptune Analytics vector store.
-        """
         return pulumi.get(self, "graph_arn")
 
     @_builtins.property
     @pulumi.getter(name="fieldMapping")
     def field_mapping(self) -> Optional['outputs.AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping']:
-        """
-        The names of the fields to which to map information about the vector store. This block supports the following arguments:
-        """
         return pulumi.get(self, "field_mapping")
 
 
@@ -6909,27 +5563,17 @@ class AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMa
     def __init__(__self__, *,
                  metadata_field: _builtins.str,
                  text_field: _builtins.str):
-        """
-        :param _builtins.str metadata_field: Name of the field in which Amazon Bedrock stores metadata about the vector store.
-        :param _builtins.str text_field: Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-        """
         pulumi.set(__self__, "metadata_field", metadata_field)
         pulumi.set(__self__, "text_field", text_field)
 
     @_builtins.property
     @pulumi.getter(name="metadataField")
     def metadata_field(self) -> _builtins.str:
-        """
-        Name of the field in which Amazon Bedrock stores metadata about the vector store.
-        """
         return pulumi.get(self, "metadata_field")
 
     @_builtins.property
     @pulumi.getter(name="textField")
     def text_field(self) -> _builtins.str:
-        """
-        Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-        """
         return pulumi.get(self, "text_field")
 
 
@@ -6963,12 +5607,6 @@ class AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguratio
                  domain_endpoint: _builtins.str,
                  vector_index_name: _builtins.str,
                  field_mapping: Optional['outputs.AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping'] = None):
-        """
-        :param _builtins.str domain_arn: ARN of the OpenSearch domain.
-        :param _builtins.str domain_endpoint: Endpoint URL of the OpenSearch domain.
-        :param _builtins.str vector_index_name: Name of the vector store.
-        :param 'AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs' field_mapping: The names of the fields to which to map information about the vector store. This block supports the following arguments:
-        """
         pulumi.set(__self__, "domain_arn", domain_arn)
         pulumi.set(__self__, "domain_endpoint", domain_endpoint)
         pulumi.set(__self__, "vector_index_name", vector_index_name)
@@ -6978,33 +5616,21 @@ class AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguratio
     @_builtins.property
     @pulumi.getter(name="domainArn")
     def domain_arn(self) -> _builtins.str:
-        """
-        ARN of the OpenSearch domain.
-        """
         return pulumi.get(self, "domain_arn")
 
     @_builtins.property
     @pulumi.getter(name="domainEndpoint")
     def domain_endpoint(self) -> _builtins.str:
-        """
-        Endpoint URL of the OpenSearch domain.
-        """
         return pulumi.get(self, "domain_endpoint")
 
     @_builtins.property
     @pulumi.getter(name="vectorIndexName")
     def vector_index_name(self) -> _builtins.str:
-        """
-        Name of the vector store.
-        """
         return pulumi.get(self, "vector_index_name")
 
     @_builtins.property
     @pulumi.getter(name="fieldMapping")
     def field_mapping(self) -> Optional['outputs.AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping']:
-        """
-        The names of the fields to which to map information about the vector store. This block supports the following arguments:
-        """
         return pulumi.get(self, "field_mapping")
 
 
@@ -7035,11 +5661,6 @@ class AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguratio
                  metadata_field: _builtins.str,
                  text_field: _builtins.str,
                  vector_field: _builtins.str):
-        """
-        :param _builtins.str metadata_field: Name of the field in which Amazon Bedrock stores metadata about the vector store.
-        :param _builtins.str text_field: Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-        :param _builtins.str vector_field: Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
-        """
         pulumi.set(__self__, "metadata_field", metadata_field)
         pulumi.set(__self__, "text_field", text_field)
         pulumi.set(__self__, "vector_field", vector_field)
@@ -7047,25 +5668,16 @@ class AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguratio
     @_builtins.property
     @pulumi.getter(name="metadataField")
     def metadata_field(self) -> _builtins.str:
-        """
-        Name of the field in which Amazon Bedrock stores metadata about the vector store.
-        """
         return pulumi.get(self, "metadata_field")
 
     @_builtins.property
     @pulumi.getter(name="textField")
     def text_field(self) -> _builtins.str:
-        """
-        Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-        """
         return pulumi.get(self, "text_field")
 
     @_builtins.property
     @pulumi.getter(name="vectorField")
     def vector_field(self) -> _builtins.str:
-        """
-        Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
-        """
         return pulumi.get(self, "vector_field")
 
 
@@ -7096,11 +5708,6 @@ class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration(di
                  collection_arn: _builtins.str,
                  vector_index_name: _builtins.str,
                  field_mapping: Optional['outputs.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping'] = None):
-        """
-        :param _builtins.str collection_arn: ARN of the OpenSearch Service vector store.
-        :param _builtins.str vector_index_name: Name of the vector store.
-        :param 'AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs' field_mapping: The names of the fields to which to map information about the vector store. This block supports the following arguments:
-        """
         pulumi.set(__self__, "collection_arn", collection_arn)
         pulumi.set(__self__, "vector_index_name", vector_index_name)
         if field_mapping is not None:
@@ -7109,25 +5716,16 @@ class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration(di
     @_builtins.property
     @pulumi.getter(name="collectionArn")
     def collection_arn(self) -> _builtins.str:
-        """
-        ARN of the OpenSearch Service vector store.
-        """
         return pulumi.get(self, "collection_arn")
 
     @_builtins.property
     @pulumi.getter(name="vectorIndexName")
     def vector_index_name(self) -> _builtins.str:
-        """
-        Name of the vector store.
-        """
         return pulumi.get(self, "vector_index_name")
 
     @_builtins.property
     @pulumi.getter(name="fieldMapping")
     def field_mapping(self) -> Optional['outputs.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping']:
-        """
-        The names of the fields to which to map information about the vector store. This block supports the following arguments:
-        """
         return pulumi.get(self, "field_mapping")
 
 
@@ -7158,11 +5756,6 @@ class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFie
                  metadata_field: _builtins.str,
                  text_field: _builtins.str,
                  vector_field: _builtins.str):
-        """
-        :param _builtins.str metadata_field: Name of the field in which Amazon Bedrock stores metadata about the vector store.
-        :param _builtins.str text_field: Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-        :param _builtins.str vector_field: Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
-        """
         pulumi.set(__self__, "metadata_field", metadata_field)
         pulumi.set(__self__, "text_field", text_field)
         pulumi.set(__self__, "vector_field", vector_field)
@@ -7170,25 +5763,16 @@ class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFie
     @_builtins.property
     @pulumi.getter(name="metadataField")
     def metadata_field(self) -> _builtins.str:
-        """
-        Name of the field in which Amazon Bedrock stores metadata about the vector store.
-        """
         return pulumi.get(self, "metadata_field")
 
     @_builtins.property
     @pulumi.getter(name="textField")
     def text_field(self) -> _builtins.str:
-        """
-        Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-        """
         return pulumi.get(self, "text_field")
 
     @_builtins.property
     @pulumi.getter(name="vectorField")
     def vector_field(self) -> _builtins.str:
-        """
-        Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
-        """
         return pulumi.get(self, "vector_field")
 
 
@@ -7220,12 +5804,6 @@ class AgentKnowledgeBaseStorageConfigurationPineconeConfiguration(dict):
                  credentials_secret_arn: _builtins.str,
                  field_mapping: Optional['outputs.AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping'] = None,
                  namespace: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str connection_string: Endpoint URL for your index management page.
-        :param _builtins.str credentials_secret_arn: ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
-        :param 'AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs' field_mapping: The names of the fields to which to map information about the vector store. This block supports the following arguments:
-        :param _builtins.str namespace: Namespace to be used to write new data to your database.
-        """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
         if field_mapping is not None:
@@ -7236,33 +5814,21 @@ class AgentKnowledgeBaseStorageConfigurationPineconeConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="connectionString")
     def connection_string(self) -> _builtins.str:
-        """
-        Endpoint URL for your index management page.
-        """
         return pulumi.get(self, "connection_string")
 
     @_builtins.property
     @pulumi.getter(name="credentialsSecretArn")
     def credentials_secret_arn(self) -> _builtins.str:
-        """
-        ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
-        """
         return pulumi.get(self, "credentials_secret_arn")
 
     @_builtins.property
     @pulumi.getter(name="fieldMapping")
     def field_mapping(self) -> Optional['outputs.AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping']:
-        """
-        The names of the fields to which to map information about the vector store. This block supports the following arguments:
-        """
         return pulumi.get(self, "field_mapping")
 
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> Optional[_builtins.str]:
-        """
-        Namespace to be used to write new data to your database.
-        """
         return pulumi.get(self, "namespace")
 
 
@@ -7290,27 +5856,17 @@ class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping(di
     def __init__(__self__, *,
                  metadata_field: _builtins.str,
                  text_field: _builtins.str):
-        """
-        :param _builtins.str metadata_field: Name of the field in which Amazon Bedrock stores metadata about the vector store.
-        :param _builtins.str text_field: Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-        """
         pulumi.set(__self__, "metadata_field", metadata_field)
         pulumi.set(__self__, "text_field", text_field)
 
     @_builtins.property
     @pulumi.getter(name="metadataField")
     def metadata_field(self) -> _builtins.str:
-        """
-        Name of the field in which Amazon Bedrock stores metadata about the vector store.
-        """
         return pulumi.get(self, "metadata_field")
 
     @_builtins.property
     @pulumi.getter(name="textField")
     def text_field(self) -> _builtins.str:
-        """
-        Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-        """
         return pulumi.get(self, "text_field")
 
 
@@ -7347,13 +5903,6 @@ class AgentKnowledgeBaseStorageConfigurationRdsConfiguration(dict):
                  resource_arn: _builtins.str,
                  table_name: _builtins.str,
                  field_mapping: Optional['outputs.AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping'] = None):
-        """
-        :param _builtins.str credentials_secret_arn: ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
-        :param _builtins.str database_name: Name of your Amazon RDS database.
-        :param _builtins.str resource_arn: ARN of the vector store.
-        :param _builtins.str table_name: Name of the table in the database.
-        :param 'AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs' field_mapping: Names of the fields to which to map information about the vector store. This block supports the following arguments:
-        """
         pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -7364,41 +5913,26 @@ class AgentKnowledgeBaseStorageConfigurationRdsConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="credentialsSecretArn")
     def credentials_secret_arn(self) -> _builtins.str:
-        """
-        ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
-        """
         return pulumi.get(self, "credentials_secret_arn")
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> _builtins.str:
-        """
-        Name of your Amazon RDS database.
-        """
         return pulumi.get(self, "database_name")
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> _builtins.str:
-        """
-        ARN of the vector store.
-        """
         return pulumi.get(self, "resource_arn")
 
     @_builtins.property
     @pulumi.getter(name="tableName")
     def table_name(self) -> _builtins.str:
-        """
-        Name of the table in the database.
-        """
         return pulumi.get(self, "table_name")
 
     @_builtins.property
     @pulumi.getter(name="fieldMapping")
     def field_mapping(self) -> Optional['outputs.AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping']:
-        """
-        Names of the fields to which to map information about the vector store. This block supports the following arguments:
-        """
         return pulumi.get(self, "field_mapping")
 
 
@@ -7435,13 +5969,6 @@ class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping(dict):
                  text_field: _builtins.str,
                  vector_field: _builtins.str,
                  custom_metadata_field: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str metadata_field: Name of the field in which Amazon Bedrock stores metadata about the vector store.
-        :param _builtins.str primary_key_field: Name of the field in which Amazon Bedrock stores the ID for each entry.
-        :param _builtins.str text_field: Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-        :param _builtins.str vector_field: Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
-        :param _builtins.str custom_metadata_field: Name for the universal metadata field where Amazon Bedrock will store any custom metadata from your data source.
-        """
         pulumi.set(__self__, "metadata_field", metadata_field)
         pulumi.set(__self__, "primary_key_field", primary_key_field)
         pulumi.set(__self__, "text_field", text_field)
@@ -7452,41 +5979,26 @@ class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping(dict):
     @_builtins.property
     @pulumi.getter(name="metadataField")
     def metadata_field(self) -> _builtins.str:
-        """
-        Name of the field in which Amazon Bedrock stores metadata about the vector store.
-        """
         return pulumi.get(self, "metadata_field")
 
     @_builtins.property
     @pulumi.getter(name="primaryKeyField")
     def primary_key_field(self) -> _builtins.str:
-        """
-        Name of the field in which Amazon Bedrock stores the ID for each entry.
-        """
         return pulumi.get(self, "primary_key_field")
 
     @_builtins.property
     @pulumi.getter(name="textField")
     def text_field(self) -> _builtins.str:
-        """
-        Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-        """
         return pulumi.get(self, "text_field")
 
     @_builtins.property
     @pulumi.getter(name="vectorField")
     def vector_field(self) -> _builtins.str:
-        """
-        Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
-        """
         return pulumi.get(self, "vector_field")
 
     @_builtins.property
     @pulumi.getter(name="customMetadataField")
     def custom_metadata_field(self) -> Optional[_builtins.str]:
-        """
-        Name for the universal metadata field where Amazon Bedrock will store any custom metadata from your data source.
-        """
         return pulumi.get(self, "custom_metadata_field")
 
 
@@ -7518,12 +6030,6 @@ class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration(di
                  endpoint: _builtins.str,
                  vector_index_name: _builtins.str,
                  field_mapping: Optional['outputs.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping'] = None):
-        """
-        :param _builtins.str credentials_secret_arn: ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
-        :param _builtins.str endpoint: Endpoint URL of the Redis Enterprise Cloud database.
-        :param _builtins.str vector_index_name: Name of the vector index.
-        :param 'AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs' field_mapping: The names of the fields to which to map information about the vector store. This block supports the following arguments:
-        """
         pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
         pulumi.set(__self__, "endpoint", endpoint)
         pulumi.set(__self__, "vector_index_name", vector_index_name)
@@ -7533,33 +6039,21 @@ class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration(di
     @_builtins.property
     @pulumi.getter(name="credentialsSecretArn")
     def credentials_secret_arn(self) -> _builtins.str:
-        """
-        ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
-        """
         return pulumi.get(self, "credentials_secret_arn")
 
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> _builtins.str:
-        """
-        Endpoint URL of the Redis Enterprise Cloud database.
-        """
         return pulumi.get(self, "endpoint")
 
     @_builtins.property
     @pulumi.getter(name="vectorIndexName")
     def vector_index_name(self) -> _builtins.str:
-        """
-        Name of the vector index.
-        """
         return pulumi.get(self, "vector_index_name")
 
     @_builtins.property
     @pulumi.getter(name="fieldMapping")
     def field_mapping(self) -> Optional['outputs.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping']:
-        """
-        The names of the fields to which to map information about the vector store. This block supports the following arguments:
-        """
         return pulumi.get(self, "field_mapping")
 
 
@@ -7590,11 +6084,6 @@ class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFie
                  metadata_field: Optional[_builtins.str] = None,
                  text_field: Optional[_builtins.str] = None,
                  vector_field: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str metadata_field: Name of the field in which Amazon Bedrock stores metadata about the vector store.
-        :param _builtins.str text_field: Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-        :param _builtins.str vector_field: Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
-        """
         if metadata_field is not None:
             pulumi.set(__self__, "metadata_field", metadata_field)
         if text_field is not None:
@@ -7605,25 +6094,16 @@ class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFie
     @_builtins.property
     @pulumi.getter(name="metadataField")
     def metadata_field(self) -> Optional[_builtins.str]:
-        """
-        Name of the field in which Amazon Bedrock stores metadata about the vector store.
-        """
         return pulumi.get(self, "metadata_field")
 
     @_builtins.property
     @pulumi.getter(name="textField")
     def text_field(self) -> Optional[_builtins.str]:
-        """
-        Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-        """
         return pulumi.get(self, "text_field")
 
     @_builtins.property
     @pulumi.getter(name="vectorField")
     def vector_field(self) -> Optional[_builtins.str]:
-        """
-        Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
-        """
         return pulumi.get(self, "vector_field")
 
 
@@ -7654,11 +6134,6 @@ class AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration(dict):
                  index_arn: Optional[_builtins.str] = None,
                  index_name: Optional[_builtins.str] = None,
                  vector_bucket_arn: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str index_arn: ARN of the S3 Vectors index. Conflicts with `index_name` and `vector_bucket_arn`.
-        :param _builtins.str index_name: Name of the S3 Vectors index. Must be specified with `vector_bucket_arn`. Conflicts with `index_arn`.
-        :param _builtins.str vector_bucket_arn: ARN of the S3 Vectors vector bucket. Must be specified with `index_name`. Conflicts with `index_arn`.
-        """
         if index_arn is not None:
             pulumi.set(__self__, "index_arn", index_arn)
         if index_name is not None:
@@ -7669,25 +6144,16 @@ class AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="indexArn")
     def index_arn(self) -> Optional[_builtins.str]:
-        """
-        ARN of the S3 Vectors index. Conflicts with `index_name` and `vector_bucket_arn`.
-        """
         return pulumi.get(self, "index_arn")
 
     @_builtins.property
     @pulumi.getter(name="indexName")
     def index_name(self) -> Optional[_builtins.str]:
-        """
-        Name of the S3 Vectors index. Must be specified with `vector_bucket_arn`. Conflicts with `index_arn`.
-        """
         return pulumi.get(self, "index_name")
 
     @_builtins.property
     @pulumi.getter(name="vectorBucketArn")
     def vector_bucket_arn(self) -> Optional[_builtins.str]:
-        """
-        ARN of the S3 Vectors vector bucket. Must be specified with `index_name`. Conflicts with `index_arn`.
-        """
         return pulumi.get(self, "vector_bucket_arn")
 
 
@@ -7772,16 +6238,6 @@ class AgentPromptVariant(dict):
                  metadatas: Optional[Sequence['outputs.AgentPromptVariantMetadata']] = None,
                  model_id: Optional[_builtins.str] = None,
                  template_configuration: Optional['outputs.AgentPromptVariantTemplateConfiguration'] = None):
-        """
-        :param _builtins.str name: Name of the prompt variant.
-        :param _builtins.str template_type: Type of prompt template to use. Valid values: `CHAT`, `TEXT`.
-        :param _builtins.str additional_model_request_fields: Contains model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
-        :param 'AgentPromptVariantGenAiResourceArgs' gen_ai_resource: Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `gen_ai_resource` must be defined. See Generative AI Resource for more information.
-        :param 'AgentPromptVariantInferenceConfigurationArgs' inference_configuration: Contains inference configurations for the prompt variant. See Inference Configuration for more information.
-        :param Sequence['AgentPromptVariantMetadataArgs'] metadatas: A list of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See Metadata for more information.
-        :param _builtins.str model_id: Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt. If this is not supplied, then a `gen_ai_resource` must be defined.
-        :param 'AgentPromptVariantTemplateConfigurationArgs' template_configuration: Contains configurations for the prompt template. See Template Configuration for more information.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "template_type", template_type)
         if additional_model_request_fields is not None:
@@ -7800,65 +6256,41 @@ class AgentPromptVariant(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the prompt variant.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="templateType")
     def template_type(self) -> _builtins.str:
-        """
-        Type of prompt template to use. Valid values: `CHAT`, `TEXT`.
-        """
         return pulumi.get(self, "template_type")
 
     @_builtins.property
     @pulumi.getter(name="additionalModelRequestFields")
     def additional_model_request_fields(self) -> Optional[_builtins.str]:
-        """
-        Contains model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
-        """
         return pulumi.get(self, "additional_model_request_fields")
 
     @_builtins.property
     @pulumi.getter(name="genAiResource")
     def gen_ai_resource(self) -> Optional['outputs.AgentPromptVariantGenAiResource']:
-        """
-        Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `gen_ai_resource` must be defined. See Generative AI Resource for more information.
-        """
         return pulumi.get(self, "gen_ai_resource")
 
     @_builtins.property
     @pulumi.getter(name="inferenceConfiguration")
     def inference_configuration(self) -> Optional['outputs.AgentPromptVariantInferenceConfiguration']:
-        """
-        Contains inference configurations for the prompt variant. See Inference Configuration for more information.
-        """
         return pulumi.get(self, "inference_configuration")
 
     @_builtins.property
     @pulumi.getter
     def metadatas(self) -> Optional[Sequence['outputs.AgentPromptVariantMetadata']]:
-        """
-        A list of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See Metadata for more information.
-        """
         return pulumi.get(self, "metadatas")
 
     @_builtins.property
     @pulumi.getter(name="modelId")
     def model_id(self) -> Optional[_builtins.str]:
-        """
-        Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt. If this is not supplied, then a `gen_ai_resource` must be defined.
-        """
         return pulumi.get(self, "model_id")
 
     @_builtins.property
     @pulumi.getter(name="templateConfiguration")
     def template_configuration(self) -> Optional['outputs.AgentPromptVariantTemplateConfiguration']:
-        """
-        Contains configurations for the prompt template. See Template Configuration for more information.
-        """
         return pulumi.get(self, "template_configuration")
 
 
@@ -7866,18 +6298,12 @@ class AgentPromptVariant(dict):
 class AgentPromptVariantGenAiResource(dict):
     def __init__(__self__, *,
                  agent: Optional['outputs.AgentPromptVariantGenAiResourceAgent'] = None):
-        """
-        :param 'AgentPromptVariantGenAiResourceAgentArgs' agent: Specifies an Amazon Bedrock agent with which to use the prompt. See Agent Configuration for more information.
-        """
         if agent is not None:
             pulumi.set(__self__, "agent", agent)
 
     @_builtins.property
     @pulumi.getter
     def agent(self) -> Optional['outputs.AgentPromptVariantGenAiResourceAgent']:
-        """
-        Specifies an Amazon Bedrock agent with which to use the prompt. See Agent Configuration for more information.
-        """
         return pulumi.get(self, "agent")
 
 
@@ -7902,17 +6328,11 @@ class AgentPromptVariantGenAiResourceAgent(dict):
 
     def __init__(__self__, *,
                  agent_identifier: _builtins.str):
-        """
-        :param _builtins.str agent_identifier: ARN of the agent with which to use the prompt.
-        """
         pulumi.set(__self__, "agent_identifier", agent_identifier)
 
     @_builtins.property
     @pulumi.getter(name="agentIdentifier")
     def agent_identifier(self) -> _builtins.str:
-        """
-        ARN of the agent with which to use the prompt.
-        """
         return pulumi.get(self, "agent_identifier")
 
 
@@ -7920,18 +6340,12 @@ class AgentPromptVariantGenAiResourceAgent(dict):
 class AgentPromptVariantInferenceConfiguration(dict):
     def __init__(__self__, *,
                  text: Optional['outputs.AgentPromptVariantInferenceConfigurationText'] = None):
-        """
-        :param 'AgentPromptVariantInferenceConfigurationTextArgs' text: Contains inference configurations for the prompt variant. See Text Inference Configuration for more information.
-        """
         if text is not None:
             pulumi.set(__self__, "text", text)
 
     @_builtins.property
     @pulumi.getter
     def text(self) -> Optional['outputs.AgentPromptVariantInferenceConfigurationText']:
-        """
-        Contains inference configurations for the prompt variant. See Text Inference Configuration for more information.
-        """
         return pulumi.get(self, "text")
 
 
@@ -7963,12 +6377,6 @@ class AgentPromptVariantInferenceConfigurationText(dict):
                  stop_sequences: Optional[Sequence[_builtins.str]] = None,
                  temperature: Optional[_builtins.float] = None,
                  top_p: Optional[_builtins.float] = None):
-        """
-        :param _builtins.int max_tokens: Maximum number of tokens to return in the response.
-        :param Sequence[_builtins.str] stop_sequences: List of strings that define sequences after which the model will stop generating.
-        :param _builtins.float temperature: Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
-        :param _builtins.float top_p: Percentage of most-likely candidates that the model considers for the next token.
-        """
         if max_tokens is not None:
             pulumi.set(__self__, "max_tokens", max_tokens)
         if stop_sequences is not None:
@@ -7981,33 +6389,21 @@ class AgentPromptVariantInferenceConfigurationText(dict):
     @_builtins.property
     @pulumi.getter(name="maxTokens")
     def max_tokens(self) -> Optional[_builtins.int]:
-        """
-        Maximum number of tokens to return in the response.
-        """
         return pulumi.get(self, "max_tokens")
 
     @_builtins.property
     @pulumi.getter(name="stopSequences")
     def stop_sequences(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of strings that define sequences after which the model will stop generating.
-        """
         return pulumi.get(self, "stop_sequences")
 
     @_builtins.property
     @pulumi.getter
     def temperature(self) -> Optional[_builtins.float]:
-        """
-        Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
-        """
         return pulumi.get(self, "temperature")
 
     @_builtins.property
     @pulumi.getter(name="topP")
     def top_p(self) -> Optional[_builtins.float]:
-        """
-        Percentage of most-likely candidates that the model considers for the next token.
-        """
         return pulumi.get(self, "top_p")
 
 
@@ -8016,27 +6412,17 @@ class AgentPromptVariantMetadata(dict):
     def __init__(__self__, *,
                  key: _builtins.str,
                  value: _builtins.str):
-        """
-        :param _builtins.str key: Key of a metadata tag for a prompt variant.
-        :param _builtins.str value: Value of a metadata tag for a prompt variant.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> _builtins.str:
-        """
-        Key of a metadata tag for a prompt variant.
-        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        Value of a metadata tag for a prompt variant.
-        """
         return pulumi.get(self, "value")
 
 
@@ -8045,10 +6431,6 @@ class AgentPromptVariantTemplateConfiguration(dict):
     def __init__(__self__, *,
                  chat: Optional['outputs.AgentPromptVariantTemplateConfigurationChat'] = None,
                  text: Optional['outputs.AgentPromptVariantTemplateConfigurationText'] = None):
-        """
-        :param 'AgentPromptVariantTemplateConfigurationChatArgs' chat: Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
-        :param 'AgentPromptVariantTemplateConfigurationTextArgs' text: Contains configurations for the text in a message for a prompt. See Text Template Configuration
-        """
         if chat is not None:
             pulumi.set(__self__, "chat", chat)
         if text is not None:
@@ -8057,17 +6439,11 @@ class AgentPromptVariantTemplateConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def chat(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChat']:
-        """
-        Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
-        """
         return pulumi.get(self, "chat")
 
     @_builtins.property
     @pulumi.getter
     def text(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationText']:
-        """
-        Contains configurations for the text in a message for a prompt. See Text Template Configuration
-        """
         return pulumi.get(self, "text")
 
 
@@ -8097,11 +6473,6 @@ class AgentPromptVariantTemplateConfigurationChat(dict):
                  messages: Optional[Sequence['outputs.AgentPromptVariantTemplateConfigurationChatMessage']] = None,
                  systems: Optional[Sequence['outputs.AgentPromptVariantTemplateConfigurationChatSystem']] = None,
                  tool_configuration: Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfiguration'] = None):
-        """
-        :param Sequence['AgentPromptVariantTemplateConfigurationChatMessageArgs'] messages: A list of messages in the chat for the prompt. See Message for more information.
-        :param Sequence['AgentPromptVariantTemplateConfigurationChatSystemArgs'] systems: A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
-        :param 'AgentPromptVariantTemplateConfigurationChatToolConfigurationArgs' tool_configuration: Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
-        """
         if input_variables is not None:
             pulumi.set(__self__, "input_variables", input_variables)
         if messages is not None:
@@ -8119,25 +6490,16 @@ class AgentPromptVariantTemplateConfigurationChat(dict):
     @_builtins.property
     @pulumi.getter
     def messages(self) -> Optional[Sequence['outputs.AgentPromptVariantTemplateConfigurationChatMessage']]:
-        """
-        A list of messages in the chat for the prompt. See Message for more information.
-        """
         return pulumi.get(self, "messages")
 
     @_builtins.property
     @pulumi.getter
     def systems(self) -> Optional[Sequence['outputs.AgentPromptVariantTemplateConfigurationChatSystem']]:
-        """
-        A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
-        """
         return pulumi.get(self, "systems")
 
     @_builtins.property
     @pulumi.getter(name="toolConfiguration")
     def tool_configuration(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfiguration']:
-        """
-        Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
-        """
         return pulumi.get(self, "tool_configuration")
 
 
@@ -8145,17 +6507,11 @@ class AgentPromptVariantTemplateConfigurationChat(dict):
 class AgentPromptVariantTemplateConfigurationChatInputVariable(dict):
     def __init__(__self__, *,
                  name: _builtins.str):
-        """
-        :param _builtins.str name: The name of the variable.
-        """
         pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the variable.
-        """
         return pulumi.get(self, "name")
 
 
@@ -8164,10 +6520,6 @@ class AgentPromptVariantTemplateConfigurationChatMessage(dict):
     def __init__(__self__, *,
                  role: _builtins.str,
                  content: Optional['outputs.AgentPromptVariantTemplateConfigurationChatMessageContent'] = None):
-        """
-        :param _builtins.str role: The role that the message belongs to.
-        :param 'AgentPromptVariantTemplateConfigurationChatMessageContentArgs' content: Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
-        """
         pulumi.set(__self__, "role", role)
         if content is not None:
             pulumi.set(__self__, "content", content)
@@ -8175,17 +6527,11 @@ class AgentPromptVariantTemplateConfigurationChatMessage(dict):
     @_builtins.property
     @pulumi.getter
     def role(self) -> _builtins.str:
-        """
-        The role that the message belongs to.
-        """
         return pulumi.get(self, "role")
 
     @_builtins.property
     @pulumi.getter
     def content(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChatMessageContent']:
-        """
-        Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
-        """
         return pulumi.get(self, "content")
 
 
@@ -8231,17 +6577,11 @@ class AgentPromptVariantTemplateConfigurationChatMessageContent(dict):
 class AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint(dict):
     def __init__(__self__, *,
                  type: _builtins.str):
-        """
-        :param _builtins.str type: Indicates that the CachePointBlock is of the default type. Valid values: `default`.
-        """
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Indicates that the CachePointBlock is of the default type. Valid values: `default`.
-        """
         return pulumi.get(self, "type")
 
 
@@ -8267,10 +6607,6 @@ class AgentPromptVariantTemplateConfigurationChatSystem(dict):
     def __init__(__self__, *,
                  cache_point: Optional['outputs.AgentPromptVariantTemplateConfigurationChatSystemCachePoint'] = None,
                  text: Optional[_builtins.str] = None):
-        """
-        :param 'AgentPromptVariantTemplateConfigurationChatSystemCachePointArgs' cache_point: Creates a cache checkpoint within a tool designation. See Cache Point for more information.
-        :param _builtins.str text: The text in the system prompt.
-        """
         if cache_point is not None:
             pulumi.set(__self__, "cache_point", cache_point)
         if text is not None:
@@ -8279,17 +6615,11 @@ class AgentPromptVariantTemplateConfigurationChatSystem(dict):
     @_builtins.property
     @pulumi.getter(name="cachePoint")
     def cache_point(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChatSystemCachePoint']:
-        """
-        Creates a cache checkpoint within a tool designation. See Cache Point for more information.
-        """
         return pulumi.get(self, "cache_point")
 
     @_builtins.property
     @pulumi.getter
     def text(self) -> Optional[_builtins.str]:
-        """
-        The text in the system prompt.
-        """
         return pulumi.get(self, "text")
 
 
@@ -8297,17 +6627,11 @@ class AgentPromptVariantTemplateConfigurationChatSystem(dict):
 class AgentPromptVariantTemplateConfigurationChatSystemCachePoint(dict):
     def __init__(__self__, *,
                  type: _builtins.str):
-        """
-        :param _builtins.str type: Indicates that the CachePointBlock is of the default type. Valid values: `default`.
-        """
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Indicates that the CachePointBlock is of the default type. Valid values: `default`.
-        """
         return pulumi.get(self, "type")
 
 
@@ -8333,10 +6657,6 @@ class AgentPromptVariantTemplateConfigurationChatToolConfiguration(dict):
     def __init__(__self__, *,
                  tool_choice: Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice'] = None,
                  tools: Optional[Sequence['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationTool']] = None):
-        """
-        :param 'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgs' tool_choice: Defines which tools the model should request when invoked. See Tool Choice for more information.
-        :param Sequence['AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArgs'] tools: A list of tools to pass to a model. See Tool for more information.
-        """
         if tool_choice is not None:
             pulumi.set(__self__, "tool_choice", tool_choice)
         if tools is not None:
@@ -8345,17 +6665,11 @@ class AgentPromptVariantTemplateConfigurationChatToolConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="toolChoice")
     def tool_choice(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice']:
-        """
-        Defines which tools the model should request when invoked. See Tool Choice for more information.
-        """
         return pulumi.get(self, "tool_choice")
 
     @_builtins.property
     @pulumi.getter
     def tools(self) -> Optional[Sequence['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationTool']]:
-        """
-        A list of tools to pass to a model. See Tool for more information.
-        """
         return pulumi.get(self, "tools")
 
 
@@ -8383,10 +6697,6 @@ class AgentPromptVariantTemplateConfigurationChatToolConfigurationTool(dict):
     def __init__(__self__, *,
                  cache_point: Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint'] = None,
                  tool_spec: Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec'] = None):
-        """
-        :param 'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointArgs' cache_point: Creates a cache checkpoint within a tool designation. See Cache Point for more information.
-        :param 'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecArgs' tool_spec: The specification for the tool. See Tool Specification for more information.
-        """
         if cache_point is not None:
             pulumi.set(__self__, "cache_point", cache_point)
         if tool_spec is not None:
@@ -8395,17 +6705,11 @@ class AgentPromptVariantTemplateConfigurationChatToolConfigurationTool(dict):
     @_builtins.property
     @pulumi.getter(name="cachePoint")
     def cache_point(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint']:
-        """
-        Creates a cache checkpoint within a tool designation. See Cache Point for more information.
-        """
         return pulumi.get(self, "cache_point")
 
     @_builtins.property
     @pulumi.getter(name="toolSpec")
     def tool_spec(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec']:
-        """
-        The specification for the tool. See Tool Specification for more information.
-        """
         return pulumi.get(self, "tool_spec")
 
 
@@ -8413,17 +6717,11 @@ class AgentPromptVariantTemplateConfigurationChatToolConfigurationTool(dict):
 class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint(dict):
     def __init__(__self__, *,
                  type: _builtins.str):
-        """
-        :param _builtins.str type: Indicates that the CachePointBlock is of the default type. Valid values: `default`.
-        """
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Indicates that the CachePointBlock is of the default type. Valid values: `default`.
-        """
         return pulumi.get(self, "type")
 
 
@@ -8433,11 +6731,6 @@ class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice(dic
                  any: Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAny'] = None,
                  auto: Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAuto'] = None,
                  tool: Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool'] = None):
-        """
-        :param 'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs' any: Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
-        :param 'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs' auto: Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
-        :param 'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolArgs' tool: Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
-        """
         if any is not None:
             pulumi.set(__self__, "any", any)
         if auto is not None:
@@ -8448,25 +6741,16 @@ class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice(dic
     @_builtins.property
     @pulumi.getter
     def any(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAny']:
-        """
-        Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
-        """
         return pulumi.get(self, "any")
 
     @_builtins.property
     @pulumi.getter
     def auto(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAuto']:
-        """
-        Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
-        """
         return pulumi.get(self, "auto")
 
     @_builtins.property
     @pulumi.getter
     def tool(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool']:
-        """
-        Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
-        """
         return pulumi.get(self, "tool")
 
 
@@ -8486,21 +6770,11 @@ class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAuto
 class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool(dict):
     def __init__(__self__, *,
                  name: _builtins.str):
-        """
-        :param _builtins.str name: Name of the prompt.
-               
-               The following arguments are optional:
-        """
         pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the prompt.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
 
@@ -8527,13 +6801,6 @@ class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec(d
                  name: _builtins.str,
                  description: Optional[_builtins.str] = None,
                  input_schema: Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema'] = None):
-        """
-        :param _builtins.str name: Name of the prompt.
-               
-               The following arguments are optional:
-        :param _builtins.str description: Description of the prompt.
-        :param 'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs' input_schema: The input schema of the tool. See Tool Input Schema for more information.
-        """
         pulumi.set(__self__, "name", name)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -8543,27 +6810,16 @@ class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec(d
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the prompt.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
-        """
-        Description of the prompt.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="inputSchema")
     def input_schema(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema']:
-        """
-        The input schema of the tool. See Tool Input Schema for more information.
-        """
         return pulumi.get(self, "input_schema")
 
 
@@ -8571,18 +6827,12 @@ class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec(d
 class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema(dict):
     def __init__(__self__, *,
                  json: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str json: A JSON object defining the input schema for the tool.
-        """
         if json is not None:
             pulumi.set(__self__, "json", json)
 
     @_builtins.property
     @pulumi.getter
     def json(self) -> Optional[_builtins.str]:
-        """
-        A JSON object defining the input schema for the tool.
-        """
         return pulumi.get(self, "json")
 
 
@@ -8637,17 +6887,11 @@ class AgentPromptVariantTemplateConfigurationText(dict):
 class AgentPromptVariantTemplateConfigurationTextCachePoint(dict):
     def __init__(__self__, *,
                  type: _builtins.str):
-        """
-        :param _builtins.str type: Indicates that the CachePointBlock is of the default type. Valid values: `default`.
-        """
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Indicates that the CachePointBlock is of the default type. Valid values: `default`.
-        """
         return pulumi.get(self, "type")
 
 
@@ -8655,17 +6899,11 @@ class AgentPromptVariantTemplateConfigurationTextCachePoint(dict):
 class AgentPromptVariantTemplateConfigurationTextInputVariable(dict):
     def __init__(__self__, *,
                  name: _builtins.str):
-        """
-        :param _builtins.str name: The name of the variable.
-        """
         pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the variable.
-        """
         return pulumi.get(self, "name")
 
 
@@ -8693,10 +6931,6 @@ class AgentcoreAgentRuntimeAgentRuntimeArtifact(dict):
     def __init__(__self__, *,
                  code_configuration: Optional['outputs.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration'] = None,
                  container_configuration: Optional['outputs.AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration'] = None):
-        """
-        :param 'AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs' code_configuration: Code configuration block for the agent runtime artifact, including the source code location and execution settings. Exactly one of `code_configuration` or `container_configuration` must be specified. See `code_configuration` below.
-        :param 'AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs' container_configuration: Container configuration block for the agent artifact. Exactly one of `code_configuration` or `container_configuration` must be specified. See `container_configuration` below.
-        """
         if code_configuration is not None:
             pulumi.set(__self__, "code_configuration", code_configuration)
         if container_configuration is not None:
@@ -8705,17 +6939,11 @@ class AgentcoreAgentRuntimeAgentRuntimeArtifact(dict):
     @_builtins.property
     @pulumi.getter(name="codeConfiguration")
     def code_configuration(self) -> Optional['outputs.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration']:
-        """
-        Code configuration block for the agent runtime artifact, including the source code location and execution settings. Exactly one of `code_configuration` or `container_configuration` must be specified. See `code_configuration` below.
-        """
         return pulumi.get(self, "code_configuration")
 
     @_builtins.property
     @pulumi.getter(name="containerConfiguration")
     def container_configuration(self) -> Optional['outputs.AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration']:
-        """
-        Container configuration block for the agent artifact. Exactly one of `code_configuration` or `container_configuration` must be specified. See `container_configuration` below.
-        """
         return pulumi.get(self, "container_configuration")
 
 
@@ -8742,11 +6970,6 @@ class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration(dict):
                  entry_points: Sequence[_builtins.str],
                  runtime: _builtins.str,
                  code: Optional['outputs.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCode'] = None):
-        """
-        :param Sequence[_builtins.str] entry_points: Array specifying the entry point for code execution, indicating the function or method to invoke when the code runs. The array must contain 1 or 2 elements. Examples: `["main.py"]`, `["opentelemetry-instrument", "main.py"]`.
-        :param _builtins.str runtime: Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`.
-        :param 'AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs' code: Configuration block for the source code location and configuration details. See `code` below.
-        """
         pulumi.set(__self__, "entry_points", entry_points)
         pulumi.set(__self__, "runtime", runtime)
         if code is not None:
@@ -8755,25 +6978,16 @@ class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="entryPoints")
     def entry_points(self) -> Sequence[_builtins.str]:
-        """
-        Array specifying the entry point for code execution, indicating the function or method to invoke when the code runs. The array must contain 1 or 2 elements. Examples: `["main.py"]`, `["opentelemetry-instrument", "main.py"]`.
-        """
         return pulumi.get(self, "entry_points")
 
     @_builtins.property
     @pulumi.getter
     def runtime(self) -> _builtins.str:
-        """
-        Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`.
-        """
         return pulumi.get(self, "runtime")
 
     @_builtins.property
     @pulumi.getter
     def code(self) -> Optional['outputs.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCode']:
-        """
-        Configuration block for the source code location and configuration details. See `code` below.
-        """
         return pulumi.get(self, "code")
 
 
@@ -8781,18 +6995,12 @@ class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration(dict):
 class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCode(dict):
     def __init__(__self__, *,
                  s3: Optional['outputs.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3'] = None):
-        """
-        :param 'AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args' s3: Configuration block for the Amazon S3 object that contains the source code for the agent runtime. See `s3` below.
-        """
         if s3 is not None:
             pulumi.set(__self__, "s3", s3)
 
     @_builtins.property
     @pulumi.getter
     def s3(self) -> Optional['outputs.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3']:
-        """
-        Configuration block for the Amazon S3 object that contains the source code for the agent runtime. See `s3` below.
-        """
         return pulumi.get(self, "s3")
 
 
@@ -8819,11 +7027,6 @@ class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3(dict):
                  bucket: _builtins.str,
                  prefix: _builtins.str,
                  version_id: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str bucket: Name of the Amazon S3 bucket.
-        :param _builtins.str prefix: Key of the object containing the ZIP file of the source code for the agent runtime in the Amazon S3 bucket.
-        :param _builtins.str version_id: Version ID of the Amazon S3 object. If not specified, the latest version of the object is used.
-        """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "prefix", prefix)
         if version_id is not None:
@@ -8832,25 +7035,16 @@ class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3(dict):
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> _builtins.str:
-        """
-        Name of the Amazon S3 bucket.
-        """
         return pulumi.get(self, "bucket")
 
     @_builtins.property
     @pulumi.getter
     def prefix(self) -> _builtins.str:
-        """
-        Key of the object containing the ZIP file of the source code for the agent runtime in the Amazon S3 bucket.
-        """
         return pulumi.get(self, "prefix")
 
     @_builtins.property
     @pulumi.getter(name="versionId")
     def version_id(self) -> Optional[_builtins.str]:
-        """
-        Version ID of the Amazon S3 object. If not specified, the latest version of the object is used.
-        """
         return pulumi.get(self, "version_id")
 
 
@@ -8875,17 +7069,11 @@ class AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration(dict):
 
     def __init__(__self__, *,
                  container_uri: _builtins.str):
-        """
-        :param _builtins.str container_uri: URI of the container image in Amazon ECR.
-        """
         pulumi.set(__self__, "container_uri", container_uri)
 
     @_builtins.property
     @pulumi.getter(name="containerUri")
     def container_uri(self) -> _builtins.str:
-        """
-        URI of the container image in Amazon ECR.
-        """
         return pulumi.get(self, "container_uri")
 
 
@@ -8910,18 +7098,12 @@ class AgentcoreAgentRuntimeAuthorizerConfiguration(dict):
 
     def __init__(__self__, *,
                  custom_jwt_authorizer: Optional['outputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer'] = None):
-        """
-        :param 'AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs' custom_jwt_authorizer: JWT-based authorization configuration block. See `custom_jwt_authorizer` below.
-        """
         if custom_jwt_authorizer is not None:
             pulumi.set(__self__, "custom_jwt_authorizer", custom_jwt_authorizer)
 
     @_builtins.property
     @pulumi.getter(name="customJwtAuthorizer")
     def custom_jwt_authorizer(self) -> Optional['outputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer']:
-        """
-        JWT-based authorization configuration block. See `custom_jwt_authorizer` below.
-        """
         return pulumi.get(self, "custom_jwt_authorizer")
 
 
@@ -8952,11 +7134,6 @@ class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer(dict):
                  discovery_url: _builtins.str,
                  allowed_audiences: Optional[Sequence[_builtins.str]] = None,
                  allowed_clients: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str discovery_url: URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
-        :param Sequence[_builtins.str] allowed_audiences: Set of allowed audience values for JWT token validation.
-        :param Sequence[_builtins.str] allowed_clients: Set of allowed client IDs for JWT token validation.
-        """
         pulumi.set(__self__, "discovery_url", discovery_url)
         if allowed_audiences is not None:
             pulumi.set(__self__, "allowed_audiences", allowed_audiences)
@@ -8966,25 +7143,16 @@ class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer(dict):
     @_builtins.property
     @pulumi.getter(name="discoveryUrl")
     def discovery_url(self) -> _builtins.str:
-        """
-        URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
-        """
         return pulumi.get(self, "discovery_url")
 
     @_builtins.property
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Set of allowed audience values for JWT token validation.
-        """
         return pulumi.get(self, "allowed_audiences")
 
     @_builtins.property
     @pulumi.getter(name="allowedClients")
     def allowed_clients(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Set of allowed client IDs for JWT token validation.
-        """
         return pulumi.get(self, "allowed_clients")
 
 
@@ -9055,27 +7223,17 @@ class AgentcoreAgentRuntimeLifecycleConfiguration(dict):
     def __init__(__self__, *,
                  idle_runtime_session_timeout: _builtins.int,
                  max_lifetime: _builtins.int):
-        """
-        :param _builtins.int idle_runtime_session_timeout: Timeout in seconds for idle runtime sessions.
-        :param _builtins.int max_lifetime: Maximum lifetime for the instance in seconds.
-        """
         pulumi.set(__self__, "idle_runtime_session_timeout", idle_runtime_session_timeout)
         pulumi.set(__self__, "max_lifetime", max_lifetime)
 
     @_builtins.property
     @pulumi.getter(name="idleRuntimeSessionTimeout")
     def idle_runtime_session_timeout(self) -> _builtins.int:
-        """
-        Timeout in seconds for idle runtime sessions.
-        """
         return pulumi.get(self, "idle_runtime_session_timeout")
 
     @_builtins.property
     @pulumi.getter(name="maxLifetime")
     def max_lifetime(self) -> _builtins.int:
-        """
-        Maximum lifetime for the instance in seconds.
-        """
         return pulumi.get(self, "max_lifetime")
 
 
@@ -9103,10 +7261,6 @@ class AgentcoreAgentRuntimeNetworkConfiguration(dict):
     def __init__(__self__, *,
                  network_mode: _builtins.str,
                  network_mode_config: Optional['outputs.AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig'] = None):
-        """
-        :param _builtins.str network_mode: Network mode for the agent runtime. Valid values: `PUBLIC`, `VPC`.
-        :param 'AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs' network_mode_config: Network mode configuration. See `network_mode_config` below.
-        """
         pulumi.set(__self__, "network_mode", network_mode)
         if network_mode_config is not None:
             pulumi.set(__self__, "network_mode_config", network_mode_config)
@@ -9114,17 +7268,11 @@ class AgentcoreAgentRuntimeNetworkConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="networkMode")
     def network_mode(self) -> _builtins.str:
-        """
-        Network mode for the agent runtime. Valid values: `PUBLIC`, `VPC`.
-        """
         return pulumi.get(self, "network_mode")
 
     @_builtins.property
     @pulumi.getter(name="networkModeConfig")
     def network_mode_config(self) -> Optional['outputs.AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig']:
-        """
-        Network mode configuration. See `network_mode_config` below.
-        """
         return pulumi.get(self, "network_mode_config")
 
 
@@ -9150,27 +7298,17 @@ class AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig(dict):
     def __init__(__self__, *,
                  security_groups: Sequence[_builtins.str],
                  subnets: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] security_groups: Security groups associated with the VPC configuration.
-        :param Sequence[_builtins.str] subnets: Subnets associated with the VPC configuration.
-        """
         pulumi.set(__self__, "security_groups", security_groups)
         pulumi.set(__self__, "subnets", subnets)
 
     @_builtins.property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Sequence[_builtins.str]:
-        """
-        Security groups associated with the VPC configuration.
-        """
         return pulumi.get(self, "security_groups")
 
     @_builtins.property
     @pulumi.getter
     def subnets(self) -> Sequence[_builtins.str]:
-        """
-        Subnets associated with the VPC configuration.
-        """
         return pulumi.get(self, "subnets")
 
 
@@ -9195,18 +7333,12 @@ class AgentcoreAgentRuntimeProtocolConfiguration(dict):
 
     def __init__(__self__, *,
                  server_protocol: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str server_protocol: Server protocol for the agent runtime. Valid values: `HTTP`, `MCP`, `A2A`.
-        """
         if server_protocol is not None:
             pulumi.set(__self__, "server_protocol", server_protocol)
 
     @_builtins.property
     @pulumi.getter(name="serverProtocol")
     def server_protocol(self) -> Optional[_builtins.str]:
-        """
-        Server protocol for the agent runtime. Valid values: `HTTP`, `MCP`, `A2A`.
-        """
         return pulumi.get(self, "server_protocol")
 
 
@@ -9231,18 +7363,12 @@ class AgentcoreAgentRuntimeRequestHeaderConfiguration(dict):
 
     def __init__(__self__, *,
                  request_header_allowlists: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param Sequence[_builtins.str] request_header_allowlists: A list of HTTP request headers that are allowed to be passed through to the runtime.
-        """
         if request_header_allowlists is not None:
             pulumi.set(__self__, "request_header_allowlists", request_header_allowlists)
 
     @_builtins.property
     @pulumi.getter(name="requestHeaderAllowlists")
     def request_header_allowlists(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        A list of HTTP request headers that are allowed to be passed through to the runtime.
-        """
         return pulumi.get(self, "request_header_allowlists")
 
 
@@ -9310,17 +7436,11 @@ class AgentcoreAgentRuntimeWorkloadIdentityDetail(dict):
 
     def __init__(__self__, *,
                  workload_identity_arn: _builtins.str):
-        """
-        :param _builtins.str workload_identity_arn: ARN of the workload identity.
-        """
         pulumi.set(__self__, "workload_identity_arn", workload_identity_arn)
 
     @_builtins.property
     @pulumi.getter(name="workloadIdentityArn")
     def workload_identity_arn(self) -> _builtins.str:
-        """
-        ARN of the workload identity.
-        """
         return pulumi.get(self, "workload_identity_arn")
 
 
@@ -9345,17 +7465,11 @@ class AgentcoreApiKeyCredentialProviderApiKeySecretArn(dict):
 
     def __init__(__self__, *,
                  secret_arn: _builtins.str):
-        """
-        :param _builtins.str secret_arn: ARN of the secret in AWS Secrets Manager.
-        """
         pulumi.set(__self__, "secret_arn", secret_arn)
 
     @_builtins.property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> _builtins.str:
-        """
-        ARN of the secret in AWS Secrets Manager.
-        """
         return pulumi.get(self, "secret_arn")
 
 
@@ -9383,10 +7497,6 @@ class AgentcoreBrowserNetworkConfiguration(dict):
     def __init__(__self__, *,
                  network_mode: _builtins.str,
                  vpc_config: Optional['outputs.AgentcoreBrowserNetworkConfigurationVpcConfig'] = None):
-        """
-        :param _builtins.str network_mode: Network mode for the browser. Valid values: `PUBLIC`, `VPC`.
-        :param 'AgentcoreBrowserNetworkConfigurationVpcConfigArgs' vpc_config: VPC configuration when `network_mode` is `VPC`. See `vpc_config` below.
-        """
         pulumi.set(__self__, "network_mode", network_mode)
         if vpc_config is not None:
             pulumi.set(__self__, "vpc_config", vpc_config)
@@ -9394,17 +7504,11 @@ class AgentcoreBrowserNetworkConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="networkMode")
     def network_mode(self) -> _builtins.str:
-        """
-        Network mode for the browser. Valid values: `PUBLIC`, `VPC`.
-        """
         return pulumi.get(self, "network_mode")
 
     @_builtins.property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional['outputs.AgentcoreBrowserNetworkConfigurationVpcConfig']:
-        """
-        VPC configuration when `network_mode` is `VPC`. See `vpc_config` below.
-        """
         return pulumi.get(self, "vpc_config")
 
 
@@ -9430,27 +7534,17 @@ class AgentcoreBrowserNetworkConfigurationVpcConfig(dict):
     def __init__(__self__, *,
                  security_groups: Sequence[_builtins.str],
                  subnets: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] security_groups: Set of security group IDs for the VPC configuration.
-        :param Sequence[_builtins.str] subnets: Set of subnet IDs for the VPC configuration.
-        """
         pulumi.set(__self__, "security_groups", security_groups)
         pulumi.set(__self__, "subnets", subnets)
 
     @_builtins.property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Sequence[_builtins.str]:
-        """
-        Set of security group IDs for the VPC configuration.
-        """
         return pulumi.get(self, "security_groups")
 
     @_builtins.property
     @pulumi.getter
     def subnets(self) -> Sequence[_builtins.str]:
-        """
-        Set of subnet IDs for the VPC configuration.
-        """
         return pulumi.get(self, "subnets")
 
 
@@ -9476,10 +7570,6 @@ class AgentcoreBrowserRecording(dict):
     def __init__(__self__, *,
                  enabled: Optional[_builtins.bool] = None,
                  s3_location: Optional['outputs.AgentcoreBrowserRecordingS3Location'] = None):
-        """
-        :param _builtins.bool enabled: Whether to enable recording for browser sessions. Defaults to `false`.
-        :param 'AgentcoreBrowserRecordingS3LocationArgs' s3_location: S3 location where browser session recordings are stored. See `s3_location` below.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if s3_location is not None:
@@ -9488,17 +7578,11 @@ class AgentcoreBrowserRecording(dict):
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether to enable recording for browser sessions. Defaults to `false`.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter(name="s3Location")
     def s3_location(self) -> Optional['outputs.AgentcoreBrowserRecordingS3Location']:
-        """
-        S3 location where browser session recordings are stored. See `s3_location` below.
-        """
         return pulumi.get(self, "s3_location")
 
 
@@ -9507,27 +7591,17 @@ class AgentcoreBrowserRecordingS3Location(dict):
     def __init__(__self__, *,
                  bucket: _builtins.str,
                  prefix: _builtins.str):
-        """
-        :param _builtins.str bucket: Name of the S3 bucket where recordings are stored.
-        :param _builtins.str prefix: S3 key prefix for recording files.
-        """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "prefix", prefix)
 
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> _builtins.str:
-        """
-        Name of the S3 bucket where recordings are stored.
-        """
         return pulumi.get(self, "bucket")
 
     @_builtins.property
     @pulumi.getter
     def prefix(self) -> _builtins.str:
-        """
-        S3 key prefix for recording files.
-        """
         return pulumi.get(self, "prefix")
 
 
@@ -9586,10 +7660,6 @@ class AgentcoreCodeInterpreterNetworkConfiguration(dict):
     def __init__(__self__, *,
                  network_mode: _builtins.str,
                  vpc_config: Optional['outputs.AgentcoreCodeInterpreterNetworkConfigurationVpcConfig'] = None):
-        """
-        :param _builtins.str network_mode: Network mode for the code interpreter. Valid values: `PUBLIC`, `SANDBOX`, `VPC`.
-        :param 'AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgs' vpc_config: VPC configuration. See `vpc_config` below.
-        """
         pulumi.set(__self__, "network_mode", network_mode)
         if vpc_config is not None:
             pulumi.set(__self__, "vpc_config", vpc_config)
@@ -9597,17 +7667,11 @@ class AgentcoreCodeInterpreterNetworkConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="networkMode")
     def network_mode(self) -> _builtins.str:
-        """
-        Network mode for the code interpreter. Valid values: `PUBLIC`, `SANDBOX`, `VPC`.
-        """
         return pulumi.get(self, "network_mode")
 
     @_builtins.property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional['outputs.AgentcoreCodeInterpreterNetworkConfigurationVpcConfig']:
-        """
-        VPC configuration. See `vpc_config` below.
-        """
         return pulumi.get(self, "vpc_config")
 
 
@@ -9633,27 +7697,17 @@ class AgentcoreCodeInterpreterNetworkConfigurationVpcConfig(dict):
     def __init__(__self__, *,
                  security_groups: Sequence[_builtins.str],
                  subnets: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] security_groups: Security groups associated with the VPC configuration.
-        :param Sequence[_builtins.str] subnets: Subnets associated with the VPC configuration.
-        """
         pulumi.set(__self__, "security_groups", security_groups)
         pulumi.set(__self__, "subnets", subnets)
 
     @_builtins.property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Sequence[_builtins.str]:
-        """
-        Security groups associated with the VPC configuration.
-        """
         return pulumi.get(self, "security_groups")
 
     @_builtins.property
     @pulumi.getter
     def subnets(self) -> Sequence[_builtins.str]:
-        """
-        Subnets associated with the VPC configuration.
-        """
         return pulumi.get(self, "subnets")
 
 
@@ -9709,18 +7763,12 @@ class AgentcoreGatewayAuthorizerConfiguration(dict):
 
     def __init__(__self__, *,
                  custom_jwt_authorizer: Optional['outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer'] = None):
-        """
-        :param 'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs' custom_jwt_authorizer: JWT-based authorization configuration block. See `custom_jwt_authorizer` below.
-        """
         if custom_jwt_authorizer is not None:
             pulumi.set(__self__, "custom_jwt_authorizer", custom_jwt_authorizer)
 
     @_builtins.property
     @pulumi.getter(name="customJwtAuthorizer")
     def custom_jwt_authorizer(self) -> Optional['outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer']:
-        """
-        JWT-based authorization configuration block. See `custom_jwt_authorizer` below.
-        """
         return pulumi.get(self, "custom_jwt_authorizer")
 
 
@@ -9751,11 +7799,6 @@ class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer(dict):
                  discovery_url: _builtins.str,
                  allowed_audiences: Optional[Sequence[_builtins.str]] = None,
                  allowed_clients: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str discovery_url: URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
-        :param Sequence[_builtins.str] allowed_audiences: Set of allowed audience values for JWT token validation.
-        :param Sequence[_builtins.str] allowed_clients: Set of allowed client IDs for JWT token validation.
-        """
         pulumi.set(__self__, "discovery_url", discovery_url)
         if allowed_audiences is not None:
             pulumi.set(__self__, "allowed_audiences", allowed_audiences)
@@ -9765,25 +7808,16 @@ class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer(dict):
     @_builtins.property
     @pulumi.getter(name="discoveryUrl")
     def discovery_url(self) -> _builtins.str:
-        """
-        URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
-        """
         return pulumi.get(self, "discovery_url")
 
     @_builtins.property
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Set of allowed audience values for JWT token validation.
-        """
         return pulumi.get(self, "allowed_audiences")
 
     @_builtins.property
     @pulumi.getter(name="allowedClients")
     def allowed_clients(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Set of allowed client IDs for JWT token validation.
-        """
         return pulumi.get(self, "allowed_clients")
 
 
@@ -9812,11 +7846,6 @@ class AgentcoreGatewayInterceptorConfiguration(dict):
                  interception_points: Sequence[_builtins.str],
                  input_configuration: Optional['outputs.AgentcoreGatewayInterceptorConfigurationInputConfiguration'] = None,
                  interceptor: Optional['outputs.AgentcoreGatewayInterceptorConfigurationInterceptor'] = None):
-        """
-        :param Sequence[_builtins.str] interception_points: Set of interception points. Valid values: `REQUEST`, `RESPONSE`.
-        :param 'AgentcoreGatewayInterceptorConfigurationInputConfigurationArgs' input_configuration: Input configuration for the interceptor. See `input_configuration` below.
-        :param 'AgentcoreGatewayInterceptorConfigurationInterceptorArgs' interceptor: Interceptor infrastructure configuration. See `interceptor` below.
-        """
         pulumi.set(__self__, "interception_points", interception_points)
         if input_configuration is not None:
             pulumi.set(__self__, "input_configuration", input_configuration)
@@ -9826,25 +7855,16 @@ class AgentcoreGatewayInterceptorConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="interceptionPoints")
     def interception_points(self) -> Sequence[_builtins.str]:
-        """
-        Set of interception points. Valid values: `REQUEST`, `RESPONSE`.
-        """
         return pulumi.get(self, "interception_points")
 
     @_builtins.property
     @pulumi.getter(name="inputConfiguration")
     def input_configuration(self) -> Optional['outputs.AgentcoreGatewayInterceptorConfigurationInputConfiguration']:
-        """
-        Input configuration for the interceptor. See `input_configuration` below.
-        """
         return pulumi.get(self, "input_configuration")
 
     @_builtins.property
     @pulumi.getter
     def interceptor(self) -> Optional['outputs.AgentcoreGatewayInterceptorConfigurationInterceptor']:
-        """
-        Interceptor infrastructure configuration. See `interceptor` below.
-        """
         return pulumi.get(self, "interceptor")
 
 
@@ -9869,17 +7889,11 @@ class AgentcoreGatewayInterceptorConfigurationInputConfiguration(dict):
 
     def __init__(__self__, *,
                  pass_request_headers: _builtins.bool):
-        """
-        :param _builtins.bool pass_request_headers: Whether to pass request headers to the interceptor.
-        """
         pulumi.set(__self__, "pass_request_headers", pass_request_headers)
 
     @_builtins.property
     @pulumi.getter(name="passRequestHeaders")
     def pass_request_headers(self) -> _builtins.bool:
-        """
-        Whether to pass request headers to the interceptor.
-        """
         return pulumi.get(self, "pass_request_headers")
 
 
@@ -9904,18 +7918,12 @@ class AgentcoreGatewayInterceptorConfigurationInterceptor(dict):
 
     def __init__(__self__, *,
                  lambda_: Optional['outputs.AgentcoreGatewayInterceptorConfigurationInterceptorLambda'] = None):
-        """
-        :param 'AgentcoreGatewayInterceptorConfigurationInterceptorLambdaArgs' lambda_: Lambda function configuration for the interceptor. See `lambda` below.
-        """
         if lambda_ is not None:
             pulumi.set(__self__, "lambda_", lambda_)
 
     @_builtins.property
     @pulumi.getter(name="lambda")
     def lambda_(self) -> Optional['outputs.AgentcoreGatewayInterceptorConfigurationInterceptorLambda']:
-        """
-        Lambda function configuration for the interceptor. See `lambda` below.
-        """
         return pulumi.get(self, "lambda_")
 
 
@@ -9923,17 +7931,11 @@ class AgentcoreGatewayInterceptorConfigurationInterceptor(dict):
 class AgentcoreGatewayInterceptorConfigurationInterceptorLambda(dict):
     def __init__(__self__, *,
                  arn: _builtins.str):
-        """
-        :param _builtins.str arn: ARN of the Lambda function to invoke for the interceptor.
-        """
         pulumi.set(__self__, "arn", arn)
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Lambda function to invoke for the interceptor.
-        """
         return pulumi.get(self, "arn")
 
 
@@ -9941,18 +7943,12 @@ class AgentcoreGatewayInterceptorConfigurationInterceptorLambda(dict):
 class AgentcoreGatewayProtocolConfiguration(dict):
     def __init__(__self__, *,
                  mcp: Optional['outputs.AgentcoreGatewayProtocolConfigurationMcp'] = None):
-        """
-        :param 'AgentcoreGatewayProtocolConfigurationMcpArgs' mcp: Model Context Protocol (MCP) configuration block. See `mcp` below.
-        """
         if mcp is not None:
             pulumi.set(__self__, "mcp", mcp)
 
     @_builtins.property
     @pulumi.getter
     def mcp(self) -> Optional['outputs.AgentcoreGatewayProtocolConfigurationMcp']:
-        """
-        Model Context Protocol (MCP) configuration block. See `mcp` below.
-        """
         return pulumi.get(self, "mcp")
 
 
@@ -9981,11 +7977,6 @@ class AgentcoreGatewayProtocolConfigurationMcp(dict):
                  instructions: Optional[_builtins.str] = None,
                  search_type: Optional[_builtins.str] = None,
                  supported_versions: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str instructions: Instructions for the MCP protocol configuration.
-        :param _builtins.str search_type: Search type for MCP. Valid values: `SEMANTIC`.
-        :param Sequence[_builtins.str] supported_versions: Set of supported MCP protocol versions.
-        """
         if instructions is not None:
             pulumi.set(__self__, "instructions", instructions)
         if search_type is not None:
@@ -9996,25 +7987,16 @@ class AgentcoreGatewayProtocolConfigurationMcp(dict):
     @_builtins.property
     @pulumi.getter
     def instructions(self) -> Optional[_builtins.str]:
-        """
-        Instructions for the MCP protocol configuration.
-        """
         return pulumi.get(self, "instructions")
 
     @_builtins.property
     @pulumi.getter(name="searchType")
     def search_type(self) -> Optional[_builtins.str]:
-        """
-        Search type for MCP. Valid values: `SEMANTIC`.
-        """
         return pulumi.get(self, "search_type")
 
     @_builtins.property
     @pulumi.getter(name="supportedVersions")
     def supported_versions(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Set of supported MCP protocol versions.
-        """
         return pulumi.get(self, "supported_versions")
 
 
@@ -10043,11 +8025,6 @@ class AgentcoreGatewayTargetCredentialProviderConfiguration(dict):
                  api_key: Optional['outputs.AgentcoreGatewayTargetCredentialProviderConfigurationApiKey'] = None,
                  gateway_iam_role: Optional['outputs.AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole'] = None,
                  oauth: Optional['outputs.AgentcoreGatewayTargetCredentialProviderConfigurationOauth'] = None):
-        """
-        :param 'AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs' api_key: API key-based authentication configuration. See `api_key` below.
-        :param 'AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs' gateway_iam_role: Use the gateway's IAM role for authentication. This is an empty configuration block.
-        :param 'AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs' oauth: OAuth-based authentication configuration. See `oauth` below.
-        """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
         if gateway_iam_role is not None:
@@ -10058,25 +8035,16 @@ class AgentcoreGatewayTargetCredentialProviderConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="apiKey")
     def api_key(self) -> Optional['outputs.AgentcoreGatewayTargetCredentialProviderConfigurationApiKey']:
-        """
-        API key-based authentication configuration. See `api_key` below.
-        """
         return pulumi.get(self, "api_key")
 
     @_builtins.property
     @pulumi.getter(name="gatewayIamRole")
     def gateway_iam_role(self) -> Optional['outputs.AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole']:
-        """
-        Use the gateway's IAM role for authentication. This is an empty configuration block.
-        """
         return pulumi.get(self, "gateway_iam_role")
 
     @_builtins.property
     @pulumi.getter
     def oauth(self) -> Optional['outputs.AgentcoreGatewayTargetCredentialProviderConfigurationOauth']:
-        """
-        OAuth-based authentication configuration. See `oauth` below.
-        """
         return pulumi.get(self, "oauth")
 
 
@@ -10110,12 +8078,6 @@ class AgentcoreGatewayTargetCredentialProviderConfigurationApiKey(dict):
                  credential_location: Optional[_builtins.str] = None,
                  credential_parameter_name: Optional[_builtins.str] = None,
                  credential_prefix: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str provider_arn: ARN of the OIDC provider for API key authentication.
-        :param _builtins.str credential_location: Location where the API key credential is provided. Valid values: `HEADER`, `QUERY_PARAMETER`.
-        :param _builtins.str credential_parameter_name: Name of the parameter containing the API key credential.
-        :param _builtins.str credential_prefix: Prefix to add to the API key credential value.
-        """
         pulumi.set(__self__, "provider_arn", provider_arn)
         if credential_location is not None:
             pulumi.set(__self__, "credential_location", credential_location)
@@ -10127,33 +8089,21 @@ class AgentcoreGatewayTargetCredentialProviderConfigurationApiKey(dict):
     @_builtins.property
     @pulumi.getter(name="providerArn")
     def provider_arn(self) -> _builtins.str:
-        """
-        ARN of the OIDC provider for API key authentication.
-        """
         return pulumi.get(self, "provider_arn")
 
     @_builtins.property
     @pulumi.getter(name="credentialLocation")
     def credential_location(self) -> Optional[_builtins.str]:
-        """
-        Location where the API key credential is provided. Valid values: `HEADER`, `QUERY_PARAMETER`.
-        """
         return pulumi.get(self, "credential_location")
 
     @_builtins.property
     @pulumi.getter(name="credentialParameterName")
     def credential_parameter_name(self) -> Optional[_builtins.str]:
-        """
-        Name of the parameter containing the API key credential.
-        """
         return pulumi.get(self, "credential_parameter_name")
 
     @_builtins.property
     @pulumi.getter(name="credentialPrefix")
     def credential_prefix(self) -> Optional[_builtins.str]:
-        """
-        Prefix to add to the API key credential value.
-        """
         return pulumi.get(self, "credential_prefix")
 
 
@@ -10188,11 +8138,6 @@ class AgentcoreGatewayTargetCredentialProviderConfigurationOauth(dict):
                  provider_arn: _builtins.str,
                  scopes: Sequence[_builtins.str],
                  custom_parameters: Optional[Mapping[str, _builtins.str]] = None):
-        """
-        :param _builtins.str provider_arn: ARN of the OIDC provider for OAuth authentication.
-        :param Sequence[_builtins.str] scopes: Set of OAuth scopes to request.
-        :param Mapping[str, _builtins.str] custom_parameters: Map of custom parameters to include in OAuth requests.
-        """
         pulumi.set(__self__, "provider_arn", provider_arn)
         pulumi.set(__self__, "scopes", scopes)
         if custom_parameters is not None:
@@ -10201,25 +8146,16 @@ class AgentcoreGatewayTargetCredentialProviderConfigurationOauth(dict):
     @_builtins.property
     @pulumi.getter(name="providerArn")
     def provider_arn(self) -> _builtins.str:
-        """
-        ARN of the OIDC provider for OAuth authentication.
-        """
         return pulumi.get(self, "provider_arn")
 
     @_builtins.property
     @pulumi.getter
     def scopes(self) -> Sequence[_builtins.str]:
-        """
-        Set of OAuth scopes to request.
-        """
         return pulumi.get(self, "scopes")
 
     @_builtins.property
     @pulumi.getter(name="customParameters")
     def custom_parameters(self) -> Optional[Mapping[str, _builtins.str]]:
-        """
-        Map of custom parameters to include in OAuth requests.
-        """
         return pulumi.get(self, "custom_parameters")
 
 
@@ -10227,18 +8163,12 @@ class AgentcoreGatewayTargetCredentialProviderConfigurationOauth(dict):
 class AgentcoreGatewayTargetTargetConfiguration(dict):
     def __init__(__self__, *,
                  mcp: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcp'] = None):
-        """
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpArgs' mcp: Model Context Protocol (MCP) configuration. See `mcp` below.
-        """
         if mcp is not None:
             pulumi.set(__self__, "mcp", mcp)
 
     @_builtins.property
     @pulumi.getter
     def mcp(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcp']:
-        """
-        Model Context Protocol (MCP) configuration. See `mcp` below.
-        """
         return pulumi.get(self, "mcp")
 
 
@@ -10272,12 +8202,6 @@ class AgentcoreGatewayTargetTargetConfigurationMcp(dict):
                  mcp_server: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServer'] = None,
                  open_api_schema: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema'] = None,
                  smithy_model: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel'] = None):
-        """
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs' lambda_: Lambda function target configuration. See `lambda` below.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs' mcp_server: MCP server target configuration. See `mcp_server` below.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs' open_api_schema: OpenAPI schema-based target configuration. See `api_schema_configuration` below.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs' smithy_model: Smithy model-based target configuration. See `api_schema_configuration` below.
-        """
         if lambda_ is not None:
             pulumi.set(__self__, "lambda_", lambda_)
         if mcp_server is not None:
@@ -10290,33 +8214,21 @@ class AgentcoreGatewayTargetTargetConfigurationMcp(dict):
     @_builtins.property
     @pulumi.getter(name="lambda")
     def lambda_(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambda']:
-        """
-        Lambda function target configuration. See `lambda` below.
-        """
         return pulumi.get(self, "lambda_")
 
     @_builtins.property
     @pulumi.getter(name="mcpServer")
     def mcp_server(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServer']:
-        """
-        MCP server target configuration. See `mcp_server` below.
-        """
         return pulumi.get(self, "mcp_server")
 
     @_builtins.property
     @pulumi.getter(name="openApiSchema")
     def open_api_schema(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema']:
-        """
-        OpenAPI schema-based target configuration. See `api_schema_configuration` below.
-        """
         return pulumi.get(self, "open_api_schema")
 
     @_builtins.property
     @pulumi.getter(name="smithyModel")
     def smithy_model(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel']:
-        """
-        Smithy model-based target configuration. See `api_schema_configuration` below.
-        """
         return pulumi.get(self, "smithy_model")
 
 
@@ -10344,10 +8256,6 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambda(dict):
     def __init__(__self__, *,
                  lambda_arn: _builtins.str,
                  tool_schema: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema'] = None):
-        """
-        :param _builtins.str lambda_arn: ARN of the Lambda function to invoke.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs' tool_schema: Schema definition for the tool. See `tool_schema` below.
-        """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
         if tool_schema is not None:
             pulumi.set(__self__, "tool_schema", tool_schema)
@@ -10355,17 +8263,11 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambda(dict):
     @_builtins.property
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> _builtins.str:
-        """
-        ARN of the Lambda function to invoke.
-        """
         return pulumi.get(self, "lambda_arn")
 
     @_builtins.property
     @pulumi.getter(name="toolSchema")
     def tool_schema(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema']:
-        """
-        Schema definition for the tool. See `tool_schema` below.
-        """
         return pulumi.get(self, "tool_schema")
 
 
@@ -10391,10 +8293,6 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema(dict):
     def __init__(__self__, *,
                  inline_payloads: Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload']] = None,
                  s3: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3'] = None):
-        """
-        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs'] inline_payloads: Inline tool definition. See `inline_payload` below.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args' s3: S3-based tool definition. See `s3` below.
-        """
         if inline_payloads is not None:
             pulumi.set(__self__, "inline_payloads", inline_payloads)
         if s3 is not None:
@@ -10403,17 +8301,11 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema(dict):
     @_builtins.property
     @pulumi.getter(name="inlinePayloads")
     def inline_payloads(self) -> Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload']]:
-        """
-        Inline tool definition. See `inline_payload` below.
-        """
         return pulumi.get(self, "inline_payloads")
 
     @_builtins.property
     @pulumi.getter
     def s3(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3']:
-        """
-        S3-based tool definition. See `s3` below.
-        """
         return pulumi.get(self, "s3")
 
 
@@ -10443,12 +8335,6 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload(
                  name: _builtins.str,
                  input_schema: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema'] = None,
                  output_schema: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema'] = None):
-        """
-        :param _builtins.str description: Description of what the tool does.
-        :param _builtins.str name: Name of the tool.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs' input_schema: Schema for the tool's input. See `schema_definition` below.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs' output_schema: Schema for the tool's output. See `schema_definition` below.
-        """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "name", name)
         if input_schema is not None:
@@ -10459,33 +8345,21 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload(
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of what the tool does.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the tool.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="inputSchema")
     def input_schema(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema']:
-        """
-        Schema for the tool's input. See `schema_definition` below.
-        """
         return pulumi.get(self, "input_schema")
 
     @_builtins.property
     @pulumi.getter(name="outputSchema")
     def output_schema(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema']:
-        """
-        Schema for the tool's output. See `schema_definition` below.
-        """
         return pulumi.get(self, "output_schema")
 
 
@@ -10496,9 +8370,6 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
                  description: Optional[_builtins.str] = None,
                  items: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems'] = None,
                  properties: Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaProperty']] = None):
-        """
-        :param _builtins.str description: Description of the gateway target.
-        """
         pulumi.set(__self__, "type", type)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -10515,9 +8386,6 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
-        """
-        Description of the gateway target.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -10538,12 +8406,6 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
                  description: Optional[_builtins.str] = None,
                  items: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItems'] = None,
                  properties: Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsProperty']] = None):
-        """
-        :param _builtins.str type: Data type of the array items.
-        :param _builtins.str description: Description of the array items.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsArgs' items: Nested items definition for arrays of arrays.
-        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgs'] properties: Set of property definitions for arrays of objects. See `property` below.
-        """
         pulumi.set(__self__, "type", type)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -10555,33 +8417,21 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Data type of the array items.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
-        """
-        Description of the array items.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def items(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItems']:
-        """
-        Nested items definition for arrays of arrays.
-        """
         return pulumi.get(self, "items")
 
     @_builtins.property
     @pulumi.getter
     def properties(self) -> Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsProperty']]:
-        """
-        Set of property definitions for arrays of objects. See `property` below.
-        """
         return pulumi.get(self, "properties")
 
 
@@ -10611,12 +8461,6 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
                  description: Optional[_builtins.str] = None,
                  items_json: Optional[_builtins.str] = None,
                  properties_json: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str type: Data type of the array items.
-        :param _builtins.str description: Description of the array items.
-        :param _builtins.str items_json: JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
-        :param _builtins.str properties_json: JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
-        """
         pulumi.set(__self__, "type", type)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -10628,33 +8472,21 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Data type of the array items.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
-        """
-        Description of the array items.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="itemsJson")
     def items_json(self) -> Optional[_builtins.str]:
-        """
-        JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
-        """
         return pulumi.get(self, "items_json")
 
     @_builtins.property
     @pulumi.getter(name="propertiesJson")
     def properties_json(self) -> Optional[_builtins.str]:
-        """
-        JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
-        """
         return pulumi.get(self, "properties_json")
 
 
@@ -10686,14 +8518,6 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
                  items_json: Optional[_builtins.str] = None,
                  properties_json: Optional[_builtins.str] = None,
                  required: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str name: Name of the property.
-        :param _builtins.str type: Data type of the property.
-        :param _builtins.str description: Description of the property.
-        :param _builtins.str items_json: JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
-        :param _builtins.str properties_json: JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
-        :param _builtins.bool required: Whether this property is required. Defaults to `false`.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
         if description is not None:
@@ -10708,49 +8532,31 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the property.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Data type of the property.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
-        """
-        Description of the property.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="itemsJson")
     def items_json(self) -> Optional[_builtins.str]:
-        """
-        JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
-        """
         return pulumi.get(self, "items_json")
 
     @_builtins.property
     @pulumi.getter(name="propertiesJson")
     def properties_json(self) -> Optional[_builtins.str]:
-        """
-        JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
-        """
         return pulumi.get(self, "properties_json")
 
     @_builtins.property
     @pulumi.getter
     def required(self) -> Optional[_builtins.bool]:
-        """
-        Whether this property is required. Defaults to `false`.
-        """
         return pulumi.get(self, "required")
 
 
@@ -10763,14 +8569,6 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
                  items: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems'] = None,
                  properties: Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyProperty']] = None,
                  required: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str name: Name of the property.
-        :param _builtins.str type: Data type of the property.
-        :param _builtins.str description: Description of the property.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs' items: Items definition for array properties. See `items` above.
-        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs'] properties: Set of nested property definitions for object properties.
-        :param _builtins.bool required: Whether this property is required. Defaults to `false`.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
         if description is not None:
@@ -10785,49 +8583,31 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the property.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Data type of the property.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
-        """
-        Description of the property.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def items(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems']:
-        """
-        Items definition for array properties. See `items` above.
-        """
         return pulumi.get(self, "items")
 
     @_builtins.property
     @pulumi.getter
     def properties(self) -> Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyProperty']]:
-        """
-        Set of nested property definitions for object properties.
-        """
         return pulumi.get(self, "properties")
 
     @_builtins.property
     @pulumi.getter
     def required(self) -> Optional[_builtins.bool]:
-        """
-        Whether this property is required. Defaults to `false`.
-        """
         return pulumi.get(self, "required")
 
 
@@ -10838,12 +8618,6 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
                  description: Optional[_builtins.str] = None,
                  items: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems'] = None,
                  properties: Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty']] = None):
-        """
-        :param _builtins.str type: Data type of the array items.
-        :param _builtins.str description: Description of the array items.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgs' items: Nested items definition for arrays of arrays.
-        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgs'] properties: Set of property definitions for arrays of objects. See `property` below.
-        """
         pulumi.set(__self__, "type", type)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -10855,33 +8629,21 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Data type of the array items.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
-        """
-        Description of the array items.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def items(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems']:
-        """
-        Nested items definition for arrays of arrays.
-        """
         return pulumi.get(self, "items")
 
     @_builtins.property
     @pulumi.getter
     def properties(self) -> Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty']]:
-        """
-        Set of property definitions for arrays of objects. See `property` below.
-        """
         return pulumi.get(self, "properties")
 
 
@@ -10911,12 +8673,6 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
                  description: Optional[_builtins.str] = None,
                  items_json: Optional[_builtins.str] = None,
                  properties_json: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str type: Data type of the array items.
-        :param _builtins.str description: Description of the array items.
-        :param _builtins.str items_json: JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
-        :param _builtins.str properties_json: JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
-        """
         pulumi.set(__self__, "type", type)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -10928,33 +8684,21 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Data type of the array items.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
-        """
-        Description of the array items.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="itemsJson")
     def items_json(self) -> Optional[_builtins.str]:
-        """
-        JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
-        """
         return pulumi.get(self, "items_json")
 
     @_builtins.property
     @pulumi.getter(name="propertiesJson")
     def properties_json(self) -> Optional[_builtins.str]:
-        """
-        JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
-        """
         return pulumi.get(self, "properties_json")
 
 
@@ -10986,14 +8730,6 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
                  items_json: Optional[_builtins.str] = None,
                  properties_json: Optional[_builtins.str] = None,
                  required: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str name: Name of the property.
-        :param _builtins.str type: Data type of the property.
-        :param _builtins.str description: Description of the property.
-        :param _builtins.str items_json: JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
-        :param _builtins.str properties_json: JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
-        :param _builtins.bool required: Whether this property is required. Defaults to `false`.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
         if description is not None:
@@ -11008,49 +8744,31 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the property.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Data type of the property.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
-        """
-        Description of the property.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="itemsJson")
     def items_json(self) -> Optional[_builtins.str]:
-        """
-        JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
-        """
         return pulumi.get(self, "items_json")
 
     @_builtins.property
     @pulumi.getter(name="propertiesJson")
     def properties_json(self) -> Optional[_builtins.str]:
-        """
-        JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
-        """
         return pulumi.get(self, "properties_json")
 
     @_builtins.property
     @pulumi.getter
     def required(self) -> Optional[_builtins.bool]:
-        """
-        Whether this property is required. Defaults to `false`.
-        """
         return pulumi.get(self, "required")
 
 
@@ -11082,14 +8800,6 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
                  items_json: Optional[_builtins.str] = None,
                  properties_json: Optional[_builtins.str] = None,
                  required: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str name: Name of the property.
-        :param _builtins.str type: Data type of the property.
-        :param _builtins.str description: Description of the property.
-        :param _builtins.str items_json: JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
-        :param _builtins.str properties_json: JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
-        :param _builtins.bool required: Whether this property is required. Defaults to `false`.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
         if description is not None:
@@ -11104,49 +8814,31 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the property.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Data type of the property.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
-        """
-        Description of the property.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="itemsJson")
     def items_json(self) -> Optional[_builtins.str]:
-        """
-        JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
-        """
         return pulumi.get(self, "items_json")
 
     @_builtins.property
     @pulumi.getter(name="propertiesJson")
     def properties_json(self) -> Optional[_builtins.str]:
-        """
-        JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
-        """
         return pulumi.get(self, "properties_json")
 
     @_builtins.property
     @pulumi.getter
     def required(self) -> Optional[_builtins.bool]:
-        """
-        Whether this property is required. Defaults to `false`.
-        """
         return pulumi.get(self, "required")
 
 
@@ -11157,9 +8849,6 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
                  description: Optional[_builtins.str] = None,
                  items: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems'] = None,
                  properties: Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty']] = None):
-        """
-        :param _builtins.str description: Description of the gateway target.
-        """
         pulumi.set(__self__, "type", type)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -11176,9 +8865,6 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
-        """
-        Description of the gateway target.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -11199,12 +8885,6 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
                  description: Optional[_builtins.str] = None,
                  items: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems'] = None,
                  properties: Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsProperty']] = None):
-        """
-        :param _builtins.str type: Data type of the array items.
-        :param _builtins.str description: Description of the array items.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgs' items: Nested items definition for arrays of arrays.
-        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArgs'] properties: Set of property definitions for arrays of objects. See `property` below.
-        """
         pulumi.set(__self__, "type", type)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -11216,33 +8896,21 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Data type of the array items.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
-        """
-        Description of the array items.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def items(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems']:
-        """
-        Nested items definition for arrays of arrays.
-        """
         return pulumi.get(self, "items")
 
     @_builtins.property
     @pulumi.getter
     def properties(self) -> Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsProperty']]:
-        """
-        Set of property definitions for arrays of objects. See `property` below.
-        """
         return pulumi.get(self, "properties")
 
 
@@ -11272,12 +8940,6 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
                  description: Optional[_builtins.str] = None,
                  items_json: Optional[_builtins.str] = None,
                  properties_json: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str type: Data type of the array items.
-        :param _builtins.str description: Description of the array items.
-        :param _builtins.str items_json: JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
-        :param _builtins.str properties_json: JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
-        """
         pulumi.set(__self__, "type", type)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -11289,33 +8951,21 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Data type of the array items.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
-        """
-        Description of the array items.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="itemsJson")
     def items_json(self) -> Optional[_builtins.str]:
-        """
-        JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
-        """
         return pulumi.get(self, "items_json")
 
     @_builtins.property
     @pulumi.getter(name="propertiesJson")
     def properties_json(self) -> Optional[_builtins.str]:
-        """
-        JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
-        """
         return pulumi.get(self, "properties_json")
 
 
@@ -11347,14 +8997,6 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
                  items_json: Optional[_builtins.str] = None,
                  properties_json: Optional[_builtins.str] = None,
                  required: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str name: Name of the property.
-        :param _builtins.str type: Data type of the property.
-        :param _builtins.str description: Description of the property.
-        :param _builtins.str items_json: JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
-        :param _builtins.str properties_json: JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
-        :param _builtins.bool required: Whether this property is required. Defaults to `false`.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
         if description is not None:
@@ -11369,49 +9011,31 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the property.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Data type of the property.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
-        """
-        Description of the property.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="itemsJson")
     def items_json(self) -> Optional[_builtins.str]:
-        """
-        JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
-        """
         return pulumi.get(self, "items_json")
 
     @_builtins.property
     @pulumi.getter(name="propertiesJson")
     def properties_json(self) -> Optional[_builtins.str]:
-        """
-        JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
-        """
         return pulumi.get(self, "properties_json")
 
     @_builtins.property
     @pulumi.getter
     def required(self) -> Optional[_builtins.bool]:
-        """
-        Whether this property is required. Defaults to `false`.
-        """
         return pulumi.get(self, "required")
 
 
@@ -11424,14 +9048,6 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
                  items: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems'] = None,
                  properties: Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyProperty']] = None,
                  required: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str name: Name of the property.
-        :param _builtins.str type: Data type of the property.
-        :param _builtins.str description: Description of the property.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsArgs' items: Items definition for array properties. See `items` above.
-        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArgs'] properties: Set of nested property definitions for object properties.
-        :param _builtins.bool required: Whether this property is required. Defaults to `false`.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
         if description is not None:
@@ -11446,49 +9062,31 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the property.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Data type of the property.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
-        """
-        Description of the property.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def items(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems']:
-        """
-        Items definition for array properties. See `items` above.
-        """
         return pulumi.get(self, "items")
 
     @_builtins.property
     @pulumi.getter
     def properties(self) -> Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyProperty']]:
-        """
-        Set of nested property definitions for object properties.
-        """
         return pulumi.get(self, "properties")
 
     @_builtins.property
     @pulumi.getter
     def required(self) -> Optional[_builtins.bool]:
-        """
-        Whether this property is required. Defaults to `false`.
-        """
         return pulumi.get(self, "required")
 
 
@@ -11499,12 +9097,6 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
                  description: Optional[_builtins.str] = None,
                  items: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems'] = None,
                  properties: Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty']] = None):
-        """
-        :param _builtins.str type: Data type of the array items.
-        :param _builtins.str description: Description of the array items.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgs' items: Nested items definition for arrays of arrays.
-        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArgs'] properties: Set of property definitions for arrays of objects. See `property` below.
-        """
         pulumi.set(__self__, "type", type)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -11516,33 +9108,21 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Data type of the array items.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
-        """
-        Description of the array items.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def items(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems']:
-        """
-        Nested items definition for arrays of arrays.
-        """
         return pulumi.get(self, "items")
 
     @_builtins.property
     @pulumi.getter
     def properties(self) -> Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty']]:
-        """
-        Set of property definitions for arrays of objects. See `property` below.
-        """
         return pulumi.get(self, "properties")
 
 
@@ -11572,12 +9152,6 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
                  description: Optional[_builtins.str] = None,
                  items_json: Optional[_builtins.str] = None,
                  properties_json: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str type: Data type of the array items.
-        :param _builtins.str description: Description of the array items.
-        :param _builtins.str items_json: JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
-        :param _builtins.str properties_json: JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
-        """
         pulumi.set(__self__, "type", type)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -11589,33 +9163,21 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Data type of the array items.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
-        """
-        Description of the array items.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="itemsJson")
     def items_json(self) -> Optional[_builtins.str]:
-        """
-        JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
-        """
         return pulumi.get(self, "items_json")
 
     @_builtins.property
     @pulumi.getter(name="propertiesJson")
     def properties_json(self) -> Optional[_builtins.str]:
-        """
-        JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
-        """
         return pulumi.get(self, "properties_json")
 
 
@@ -11647,14 +9209,6 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
                  items_json: Optional[_builtins.str] = None,
                  properties_json: Optional[_builtins.str] = None,
                  required: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str name: Name of the property.
-        :param _builtins.str type: Data type of the property.
-        :param _builtins.str description: Description of the property.
-        :param _builtins.str items_json: JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
-        :param _builtins.str properties_json: JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
-        :param _builtins.bool required: Whether this property is required. Defaults to `false`.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
         if description is not None:
@@ -11669,49 +9223,31 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the property.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Data type of the property.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
-        """
-        Description of the property.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="itemsJson")
     def items_json(self) -> Optional[_builtins.str]:
-        """
-        JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
-        """
         return pulumi.get(self, "items_json")
 
     @_builtins.property
     @pulumi.getter(name="propertiesJson")
     def properties_json(self) -> Optional[_builtins.str]:
-        """
-        JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
-        """
         return pulumi.get(self, "properties_json")
 
     @_builtins.property
     @pulumi.getter
     def required(self) -> Optional[_builtins.bool]:
-        """
-        Whether this property is required. Defaults to `false`.
-        """
         return pulumi.get(self, "required")
 
 
@@ -11743,14 +9279,6 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
                  items_json: Optional[_builtins.str] = None,
                  properties_json: Optional[_builtins.str] = None,
                  required: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str name: Name of the property.
-        :param _builtins.str type: Data type of the property.
-        :param _builtins.str description: Description of the property.
-        :param _builtins.str items_json: JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
-        :param _builtins.str properties_json: JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
-        :param _builtins.bool required: Whether this property is required. Defaults to `false`.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
         if description is not None:
@@ -11765,49 +9293,31 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the property.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Data type of the property.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
-        """
-        Description of the property.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="itemsJson")
     def items_json(self) -> Optional[_builtins.str]:
-        """
-        JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
-        """
         return pulumi.get(self, "items_json")
 
     @_builtins.property
     @pulumi.getter(name="propertiesJson")
     def properties_json(self) -> Optional[_builtins.str]:
-        """
-        JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
-        """
         return pulumi.get(self, "properties_json")
 
     @_builtins.property
     @pulumi.getter
     def required(self) -> Optional[_builtins.bool]:
-        """
-        Whether this property is required. Defaults to `false`.
-        """
         return pulumi.get(self, "required")
 
 
@@ -11833,10 +9343,6 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3(dict):
     def __init__(__self__, *,
                  bucket_owner_account_id: Optional[_builtins.str] = None,
                  uri: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str bucket_owner_account_id: Account ID of the S3 bucket owner.
-        :param _builtins.str uri: S3 URI where the schema is stored.
-        """
         if bucket_owner_account_id is not None:
             pulumi.set(__self__, "bucket_owner_account_id", bucket_owner_account_id)
         if uri is not None:
@@ -11845,17 +9351,11 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3(dict):
     @_builtins.property
     @pulumi.getter(name="bucketOwnerAccountId")
     def bucket_owner_account_id(self) -> Optional[_builtins.str]:
-        """
-        Account ID of the S3 bucket owner.
-        """
         return pulumi.get(self, "bucket_owner_account_id")
 
     @_builtins.property
     @pulumi.getter
     def uri(self) -> Optional[_builtins.str]:
-        """
-        S3 URI where the schema is stored.
-        """
         return pulumi.get(self, "uri")
 
 
@@ -11863,17 +9363,11 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3(dict):
 class AgentcoreGatewayTargetTargetConfigurationMcpMcpServer(dict):
     def __init__(__self__, *,
                  endpoint: _builtins.str):
-        """
-        :param _builtins.str endpoint: Endpoint for the MCP server target configuration.
-        """
         pulumi.set(__self__, "endpoint", endpoint)
 
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> _builtins.str:
-        """
-        Endpoint for the MCP server target configuration.
-        """
         return pulumi.get(self, "endpoint")
 
 
@@ -11919,17 +9413,11 @@ class AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema(dict):
 class AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayload(dict):
     def __init__(__self__, *,
                  payload: _builtins.str):
-        """
-        :param _builtins.str payload: The inline schema payload content.
-        """
         pulumi.set(__self__, "payload", payload)
 
     @_builtins.property
     @pulumi.getter
     def payload(self) -> _builtins.str:
-        """
-        The inline schema payload content.
-        """
         return pulumi.get(self, "payload")
 
 
@@ -11955,10 +9443,6 @@ class AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3(dict):
     def __init__(__self__, *,
                  bucket_owner_account_id: Optional[_builtins.str] = None,
                  uri: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str bucket_owner_account_id: Account ID of the S3 bucket owner.
-        :param _builtins.str uri: S3 URI where the schema is stored.
-        """
         if bucket_owner_account_id is not None:
             pulumi.set(__self__, "bucket_owner_account_id", bucket_owner_account_id)
         if uri is not None:
@@ -11967,17 +9451,11 @@ class AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3(dict):
     @_builtins.property
     @pulumi.getter(name="bucketOwnerAccountId")
     def bucket_owner_account_id(self) -> Optional[_builtins.str]:
-        """
-        Account ID of the S3 bucket owner.
-        """
         return pulumi.get(self, "bucket_owner_account_id")
 
     @_builtins.property
     @pulumi.getter
     def uri(self) -> Optional[_builtins.str]:
-        """
-        S3 URI where the schema is stored.
-        """
         return pulumi.get(self, "uri")
 
 
@@ -12023,17 +9501,11 @@ class AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel(dict):
 class AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayload(dict):
     def __init__(__self__, *,
                  payload: _builtins.str):
-        """
-        :param _builtins.str payload: The inline schema payload content.
-        """
         pulumi.set(__self__, "payload", payload)
 
     @_builtins.property
     @pulumi.getter
     def payload(self) -> _builtins.str:
-        """
-        The inline schema payload content.
-        """
         return pulumi.get(self, "payload")
 
 
@@ -12059,10 +9531,6 @@ class AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3(dict):
     def __init__(__self__, *,
                  bucket_owner_account_id: Optional[_builtins.str] = None,
                  uri: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str bucket_owner_account_id: Account ID of the S3 bucket owner.
-        :param _builtins.str uri: S3 URI where the schema is stored.
-        """
         if bucket_owner_account_id is not None:
             pulumi.set(__self__, "bucket_owner_account_id", bucket_owner_account_id)
         if uri is not None:
@@ -12071,17 +9539,11 @@ class AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3(dict):
     @_builtins.property
     @pulumi.getter(name="bucketOwnerAccountId")
     def bucket_owner_account_id(self) -> Optional[_builtins.str]:
-        """
-        Account ID of the S3 bucket owner.
-        """
         return pulumi.get(self, "bucket_owner_account_id")
 
     @_builtins.property
     @pulumi.getter
     def uri(self) -> Optional[_builtins.str]:
-        """
-        S3 URI where the schema is stored.
-        """
         return pulumi.get(self, "uri")
 
 
@@ -12192,17 +9654,11 @@ class AgentcoreGatewayWorkloadIdentityDetail(dict):
 
     def __init__(__self__, *,
                  workload_identity_arn: _builtins.str):
-        """
-        :param _builtins.str workload_identity_arn: ARN of the workload identity.
-        """
         pulumi.set(__self__, "workload_identity_arn", workload_identity_arn)
 
     @_builtins.property
     @pulumi.getter(name="workloadIdentityArn")
     def workload_identity_arn(self) -> _builtins.str:
-        """
-        ARN of the workload identity.
-        """
         return pulumi.get(self, "workload_identity_arn")
 
 
@@ -12212,11 +9668,6 @@ class AgentcoreMemoryStrategyConfiguration(dict):
                  type: _builtins.str,
                  consolidation: Optional['outputs.AgentcoreMemoryStrategyConfigurationConsolidation'] = None,
                  extraction: Optional['outputs.AgentcoreMemoryStrategyConfigurationExtraction'] = None):
-        """
-        :param _builtins.str type: Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`. Changing this forces a new resource.
-        :param 'AgentcoreMemoryStrategyConfigurationConsolidationArgs' consolidation: Consolidation configuration for processing and organizing memory content. See `consolidation` below. Once added, this block cannot be removed without recreating the resource.
-        :param 'AgentcoreMemoryStrategyConfigurationExtractionArgs' extraction: Extraction configuration for identifying and extracting relevant information. See `extraction` below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
-        """
         pulumi.set(__self__, "type", type)
         if consolidation is not None:
             pulumi.set(__self__, "consolidation", consolidation)
@@ -12226,25 +9677,16 @@ class AgentcoreMemoryStrategyConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`. Changing this forces a new resource.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def consolidation(self) -> Optional['outputs.AgentcoreMemoryStrategyConfigurationConsolidation']:
-        """
-        Consolidation configuration for processing and organizing memory content. See `consolidation` below. Once added, this block cannot be removed without recreating the resource.
-        """
         return pulumi.get(self, "consolidation")
 
     @_builtins.property
     @pulumi.getter
     def extraction(self) -> Optional['outputs.AgentcoreMemoryStrategyConfigurationExtraction']:
-        """
-        Extraction configuration for identifying and extracting relevant information. See `extraction` below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
-        """
         return pulumi.get(self, "extraction")
 
 
@@ -12272,27 +9714,17 @@ class AgentcoreMemoryStrategyConfigurationConsolidation(dict):
     def __init__(__self__, *,
                  append_to_prompt: _builtins.str,
                  model_id: _builtins.str):
-        """
-        :param _builtins.str append_to_prompt: Additional text to append to the model prompt for consolidation processing.
-        :param _builtins.str model_id: ID of the foundation model to use for consolidation processing.
-        """
         pulumi.set(__self__, "append_to_prompt", append_to_prompt)
         pulumi.set(__self__, "model_id", model_id)
 
     @_builtins.property
     @pulumi.getter(name="appendToPrompt")
     def append_to_prompt(self) -> _builtins.str:
-        """
-        Additional text to append to the model prompt for consolidation processing.
-        """
         return pulumi.get(self, "append_to_prompt")
 
     @_builtins.property
     @pulumi.getter(name="modelId")
     def model_id(self) -> _builtins.str:
-        """
-        ID of the foundation model to use for consolidation processing.
-        """
         return pulumi.get(self, "model_id")
 
 
@@ -12320,27 +9752,17 @@ class AgentcoreMemoryStrategyConfigurationExtraction(dict):
     def __init__(__self__, *,
                  append_to_prompt: _builtins.str,
                  model_id: _builtins.str):
-        """
-        :param _builtins.str append_to_prompt: Additional text to append to the model prompt for extraction processing.
-        :param _builtins.str model_id: ID of the foundation model to use for extraction processing.
-        """
         pulumi.set(__self__, "append_to_prompt", append_to_prompt)
         pulumi.set(__self__, "model_id", model_id)
 
     @_builtins.property
     @pulumi.getter(name="appendToPrompt")
     def append_to_prompt(self) -> _builtins.str:
-        """
-        Additional text to append to the model prompt for extraction processing.
-        """
         return pulumi.get(self, "append_to_prompt")
 
     @_builtins.property
     @pulumi.getter(name="modelId")
     def model_id(self) -> _builtins.str:
-        """
-        ID of the foundation model to use for extraction processing.
-        """
         return pulumi.get(self, "model_id")
 
 
@@ -12439,17 +9861,11 @@ class AgentcoreOauth2CredentialProviderClientSecretArn(dict):
 
     def __init__(__self__, *,
                  secret_arn: _builtins.str):
-        """
-        :param _builtins.str secret_arn: ARN of the secret in AWS Secrets Manager.
-        """
         pulumi.set(__self__, "secret_arn", secret_arn)
 
     @_builtins.property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> _builtins.str:
-        """
-        ARN of the secret in AWS Secrets Manager.
-        """
         return pulumi.get(self, "secret_arn")
 
 
@@ -12489,14 +9905,6 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfig(dict):
                  microsoft_oauth2_provider_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig'] = None,
                  salesforce_oauth2_provider_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig'] = None,
                  slack_oauth2_provider_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig'] = None):
-        """
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs' custom_oauth2_provider_config: Custom OAuth2 provider configuration. See `custom` below.
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs' github_oauth2_provider_config: GitHub OAuth provider configuration. See `github` below.
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigArgs' google_oauth2_provider_config: Google OAuth provider configuration. See `google` below.
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigArgs' microsoft_oauth2_provider_config: Microsoft OAuth provider configuration. See `microsoft` below.
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigArgs' salesforce_oauth2_provider_config: Salesforce OAuth provider configuration. See `salesforce` below.
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigArgs' slack_oauth2_provider_config: Slack OAuth provider configuration. See `slack` below.
-        """
         if custom_oauth2_provider_config is not None:
             pulumi.set(__self__, "custom_oauth2_provider_config", custom_oauth2_provider_config)
         if github_oauth2_provider_config is not None:
@@ -12513,49 +9921,31 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfig(dict):
     @_builtins.property
     @pulumi.getter(name="customOauth2ProviderConfig")
     def custom_oauth2_provider_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig']:
-        """
-        Custom OAuth2 provider configuration. See `custom` below.
-        """
         return pulumi.get(self, "custom_oauth2_provider_config")
 
     @_builtins.property
     @pulumi.getter(name="githubOauth2ProviderConfig")
     def github_oauth2_provider_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig']:
-        """
-        GitHub OAuth provider configuration. See `github` below.
-        """
         return pulumi.get(self, "github_oauth2_provider_config")
 
     @_builtins.property
     @pulumi.getter(name="googleOauth2ProviderConfig")
     def google_oauth2_provider_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig']:
-        """
-        Google OAuth provider configuration. See `google` below.
-        """
         return pulumi.get(self, "google_oauth2_provider_config")
 
     @_builtins.property
     @pulumi.getter(name="microsoftOauth2ProviderConfig")
     def microsoft_oauth2_provider_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig']:
-        """
-        Microsoft OAuth provider configuration. See `microsoft` below.
-        """
         return pulumi.get(self, "microsoft_oauth2_provider_config")
 
     @_builtins.property
     @pulumi.getter(name="salesforceOauth2ProviderConfig")
     def salesforce_oauth2_provider_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig']:
-        """
-        Salesforce OAuth provider configuration. See `salesforce` below.
-        """
         return pulumi.get(self, "salesforce_oauth2_provider_config")
 
     @_builtins.property
     @pulumi.getter(name="slackOauth2ProviderConfig")
     def slack_oauth2_provider_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig']:
-        """
-        Slack OAuth provider configuration. See `slack` below.
-        """
         return pulumi.get(self, "slack_oauth2_provider_config")
 
 
@@ -12596,18 +9986,8 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
                  client_secret_wo: Optional[_builtins.str] = None,
                  oauth_discovery: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery'] = None):
         """
-        :param _builtins.int client_credentials_wo_version: Used together with write-only credentials to trigger an update. Increment this value when an update to `client_id_wo` or `client_secret_wo` is required.
-               
-               **OAuth Discovery Configuration:**
-        :param _builtins.str client_id: OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
         :param _builtins.str client_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Write-only OAuth2 client ID. Cannot be used with `client_id`. Must be used together with `client_secret_wo` and `client_credentials_wo_version`.
-        :param _builtins.str client_secret: OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
-               
-               **Write-Only Credentials (choose one pair):**
         :param _builtins.str client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Write-only OAuth2 client secret. Cannot be used with `client_secret`. Must be used together with `client_id_wo` and `client_credentials_wo_version`.
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs' oauth_discovery: OAuth discovery configuration. See `oauth_discovery` below.
         """
         if client_credentials_wo_version is not None:
             pulumi.set(__self__, "client_credentials_wo_version", client_credentials_wo_version)
@@ -12625,19 +10005,11 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
     @_builtins.property
     @pulumi.getter(name="clientCredentialsWoVersion")
     def client_credentials_wo_version(self) -> Optional[_builtins.int]:
-        """
-        Used together with write-only credentials to trigger an update. Increment this value when an update to `client_id_wo` or `client_secret_wo` is required.
-
-        **OAuth Discovery Configuration:**
-        """
         return pulumi.get(self, "client_credentials_wo_version")
 
     @_builtins.property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[_builtins.str]:
-        """
-        OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
-        """
         return pulumi.get(self, "client_id")
 
     @_builtins.property
@@ -12645,18 +10017,12 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
     def client_id_wo(self) -> Optional[_builtins.str]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Write-only OAuth2 client ID. Cannot be used with `client_id`. Must be used together with `client_secret_wo` and `client_credentials_wo_version`.
         """
         return pulumi.get(self, "client_id_wo")
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[_builtins.str]:
-        """
-        OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
-
-        **Write-Only Credentials (choose one pair):**
-        """
         return pulumi.get(self, "client_secret")
 
     @_builtins.property
@@ -12664,16 +10030,12 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
     def client_secret_wo(self) -> Optional[_builtins.str]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Write-only OAuth2 client secret. Cannot be used with `client_secret`. Must be used together with `client_id_wo` and `client_credentials_wo_version`.
         """
         return pulumi.get(self, "client_secret_wo")
 
     @_builtins.property
     @pulumi.getter(name="oauthDiscovery")
     def oauth_discovery(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery']:
-        """
-        OAuth discovery configuration. See `oauth_discovery` below.
-        """
         return pulumi.get(self, "oauth_discovery")
 
 
@@ -12701,10 +10063,6 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
     def __init__(__self__, *,
                  authorization_server_metadata: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata'] = None,
                  discovery_url: Optional[_builtins.str] = None):
-        """
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs' authorization_server_metadata: Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
-        :param _builtins.str discovery_url: OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
-        """
         if authorization_server_metadata is not None:
             pulumi.set(__self__, "authorization_server_metadata", authorization_server_metadata)
         if discovery_url is not None:
@@ -12713,17 +10071,11 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
     @_builtins.property
     @pulumi.getter(name="authorizationServerMetadata")
     def authorization_server_metadata(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata']:
-        """
-        Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
-        """
         return pulumi.get(self, "authorization_server_metadata")
 
     @_builtins.property
     @pulumi.getter(name="discoveryUrl")
     def discovery_url(self) -> Optional[_builtins.str]:
-        """
-        OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
-        """
         return pulumi.get(self, "discovery_url")
 
 
@@ -12755,12 +10107,6 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
                  issuer: _builtins.str,
                  token_endpoint: _builtins.str,
                  response_types: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str authorization_endpoint: OAuth2 authorization endpoint URL.
-        :param _builtins.str issuer: OAuth2 authorization server issuer identifier.
-        :param _builtins.str token_endpoint: OAuth2 token endpoint URL.
-        :param Sequence[_builtins.str] response_types: Set of OAuth2 response types supported by the authorization server.
-        """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "issuer", issuer)
         pulumi.set(__self__, "token_endpoint", token_endpoint)
@@ -12770,33 +10116,21 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
     @_builtins.property
     @pulumi.getter(name="authorizationEndpoint")
     def authorization_endpoint(self) -> _builtins.str:
-        """
-        OAuth2 authorization endpoint URL.
-        """
         return pulumi.get(self, "authorization_endpoint")
 
     @_builtins.property
     @pulumi.getter
     def issuer(self) -> _builtins.str:
-        """
-        OAuth2 authorization server issuer identifier.
-        """
         return pulumi.get(self, "issuer")
 
     @_builtins.property
     @pulumi.getter(name="tokenEndpoint")
     def token_endpoint(self) -> _builtins.str:
-        """
-        OAuth2 token endpoint URL.
-        """
         return pulumi.get(self, "token_endpoint")
 
     @_builtins.property
     @pulumi.getter(name="responseTypes")
     def response_types(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Set of OAuth2 response types supported by the authorization server.
-        """
         return pulumi.get(self, "response_types")
 
 
@@ -12839,7 +10173,6 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderC
         """
         :param _builtins.str client_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
         :param _builtins.str client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration. See `oauth_discovery` below.
         """
         if client_credentials_wo_version is not None:
             pulumi.set(__self__, "client_credentials_wo_version", client_credentials_wo_version)
@@ -12888,9 +10221,6 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderC
     @_builtins.property
     @pulumi.getter(name="oauthDiscoveries")
     def oauth_discoveries(self) -> Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery']]:
-        """
-        OAuth discovery configuration. See `oauth_discovery` below.
-        """
         return pulumi.get(self, "oauth_discoveries")
 
 
@@ -12918,27 +10248,17 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderC
     def __init__(__self__, *,
                  authorization_server_metadatas: Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata'],
                  discovery_url: _builtins.str):
-        """
-        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs'] authorization_server_metadatas: Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
-        :param _builtins.str discovery_url: OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
-        """
         pulumi.set(__self__, "authorization_server_metadatas", authorization_server_metadatas)
         pulumi.set(__self__, "discovery_url", discovery_url)
 
     @_builtins.property
     @pulumi.getter(name="authorizationServerMetadatas")
     def authorization_server_metadatas(self) -> Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata']:
-        """
-        Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
-        """
         return pulumi.get(self, "authorization_server_metadatas")
 
     @_builtins.property
     @pulumi.getter(name="discoveryUrl")
     def discovery_url(self) -> _builtins.str:
-        """
-        OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
-        """
         return pulumi.get(self, "discovery_url")
 
 
@@ -12970,12 +10290,6 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderC
                  issuer: _builtins.str,
                  response_types: Sequence[_builtins.str],
                  token_endpoint: _builtins.str):
-        """
-        :param _builtins.str authorization_endpoint: OAuth2 authorization endpoint URL.
-        :param _builtins.str issuer: OAuth2 authorization server issuer identifier.
-        :param Sequence[_builtins.str] response_types: Set of OAuth2 response types supported by the authorization server.
-        :param _builtins.str token_endpoint: OAuth2 token endpoint URL.
-        """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "issuer", issuer)
         pulumi.set(__self__, "response_types", response_types)
@@ -12984,33 +10298,21 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderC
     @_builtins.property
     @pulumi.getter(name="authorizationEndpoint")
     def authorization_endpoint(self) -> _builtins.str:
-        """
-        OAuth2 authorization endpoint URL.
-        """
         return pulumi.get(self, "authorization_endpoint")
 
     @_builtins.property
     @pulumi.getter
     def issuer(self) -> _builtins.str:
-        """
-        OAuth2 authorization server issuer identifier.
-        """
         return pulumi.get(self, "issuer")
 
     @_builtins.property
     @pulumi.getter(name="responseTypes")
     def response_types(self) -> Sequence[_builtins.str]:
-        """
-        Set of OAuth2 response types supported by the authorization server.
-        """
         return pulumi.get(self, "response_types")
 
     @_builtins.property
     @pulumi.getter(name="tokenEndpoint")
     def token_endpoint(self) -> _builtins.str:
-        """
-        OAuth2 token endpoint URL.
-        """
         return pulumi.get(self, "token_endpoint")
 
 
@@ -13053,7 +10355,6 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderC
         """
         :param _builtins.str client_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
         :param _builtins.str client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration. See `oauth_discovery` below.
         """
         if client_credentials_wo_version is not None:
             pulumi.set(__self__, "client_credentials_wo_version", client_credentials_wo_version)
@@ -13102,9 +10403,6 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderC
     @_builtins.property
     @pulumi.getter(name="oauthDiscoveries")
     def oauth_discoveries(self) -> Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery']]:
-        """
-        OAuth discovery configuration. See `oauth_discovery` below.
-        """
         return pulumi.get(self, "oauth_discoveries")
 
 
@@ -13132,27 +10430,17 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderC
     def __init__(__self__, *,
                  authorization_server_metadatas: Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata'],
                  discovery_url: _builtins.str):
-        """
-        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs'] authorization_server_metadatas: Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
-        :param _builtins.str discovery_url: OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
-        """
         pulumi.set(__self__, "authorization_server_metadatas", authorization_server_metadatas)
         pulumi.set(__self__, "discovery_url", discovery_url)
 
     @_builtins.property
     @pulumi.getter(name="authorizationServerMetadatas")
     def authorization_server_metadatas(self) -> Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata']:
-        """
-        Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
-        """
         return pulumi.get(self, "authorization_server_metadatas")
 
     @_builtins.property
     @pulumi.getter(name="discoveryUrl")
     def discovery_url(self) -> _builtins.str:
-        """
-        OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
-        """
         return pulumi.get(self, "discovery_url")
 
 
@@ -13184,12 +10472,6 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderC
                  issuer: _builtins.str,
                  response_types: Sequence[_builtins.str],
                  token_endpoint: _builtins.str):
-        """
-        :param _builtins.str authorization_endpoint: OAuth2 authorization endpoint URL.
-        :param _builtins.str issuer: OAuth2 authorization server issuer identifier.
-        :param Sequence[_builtins.str] response_types: Set of OAuth2 response types supported by the authorization server.
-        :param _builtins.str token_endpoint: OAuth2 token endpoint URL.
-        """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "issuer", issuer)
         pulumi.set(__self__, "response_types", response_types)
@@ -13198,33 +10480,21 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderC
     @_builtins.property
     @pulumi.getter(name="authorizationEndpoint")
     def authorization_endpoint(self) -> _builtins.str:
-        """
-        OAuth2 authorization endpoint URL.
-        """
         return pulumi.get(self, "authorization_endpoint")
 
     @_builtins.property
     @pulumi.getter
     def issuer(self) -> _builtins.str:
-        """
-        OAuth2 authorization server issuer identifier.
-        """
         return pulumi.get(self, "issuer")
 
     @_builtins.property
     @pulumi.getter(name="responseTypes")
     def response_types(self) -> Sequence[_builtins.str]:
-        """
-        Set of OAuth2 response types supported by the authorization server.
-        """
         return pulumi.get(self, "response_types")
 
     @_builtins.property
     @pulumi.getter(name="tokenEndpoint")
     def token_endpoint(self) -> _builtins.str:
-        """
-        OAuth2 token endpoint URL.
-        """
         return pulumi.get(self, "token_endpoint")
 
 
@@ -13267,7 +10537,6 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Provid
         """
         :param _builtins.str client_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
         :param _builtins.str client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration. See `oauth_discovery` below.
         """
         if client_credentials_wo_version is not None:
             pulumi.set(__self__, "client_credentials_wo_version", client_credentials_wo_version)
@@ -13316,9 +10585,6 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Provid
     @_builtins.property
     @pulumi.getter(name="oauthDiscoveries")
     def oauth_discoveries(self) -> Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery']]:
-        """
-        OAuth discovery configuration. See `oauth_discovery` below.
-        """
         return pulumi.get(self, "oauth_discoveries")
 
 
@@ -13346,27 +10612,17 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Provid
     def __init__(__self__, *,
                  authorization_server_metadatas: Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata'],
                  discovery_url: _builtins.str):
-        """
-        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs'] authorization_server_metadatas: Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
-        :param _builtins.str discovery_url: OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
-        """
         pulumi.set(__self__, "authorization_server_metadatas", authorization_server_metadatas)
         pulumi.set(__self__, "discovery_url", discovery_url)
 
     @_builtins.property
     @pulumi.getter(name="authorizationServerMetadatas")
     def authorization_server_metadatas(self) -> Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata']:
-        """
-        Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
-        """
         return pulumi.get(self, "authorization_server_metadatas")
 
     @_builtins.property
     @pulumi.getter(name="discoveryUrl")
     def discovery_url(self) -> _builtins.str:
-        """
-        OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
-        """
         return pulumi.get(self, "discovery_url")
 
 
@@ -13398,12 +10654,6 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Provid
                  issuer: _builtins.str,
                  response_types: Sequence[_builtins.str],
                  token_endpoint: _builtins.str):
-        """
-        :param _builtins.str authorization_endpoint: OAuth2 authorization endpoint URL.
-        :param _builtins.str issuer: OAuth2 authorization server issuer identifier.
-        :param Sequence[_builtins.str] response_types: Set of OAuth2 response types supported by the authorization server.
-        :param _builtins.str token_endpoint: OAuth2 token endpoint URL.
-        """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "issuer", issuer)
         pulumi.set(__self__, "response_types", response_types)
@@ -13412,33 +10662,21 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Provid
     @_builtins.property
     @pulumi.getter(name="authorizationEndpoint")
     def authorization_endpoint(self) -> _builtins.str:
-        """
-        OAuth2 authorization endpoint URL.
-        """
         return pulumi.get(self, "authorization_endpoint")
 
     @_builtins.property
     @pulumi.getter
     def issuer(self) -> _builtins.str:
-        """
-        OAuth2 authorization server issuer identifier.
-        """
         return pulumi.get(self, "issuer")
 
     @_builtins.property
     @pulumi.getter(name="responseTypes")
     def response_types(self) -> Sequence[_builtins.str]:
-        """
-        Set of OAuth2 response types supported by the authorization server.
-        """
         return pulumi.get(self, "response_types")
 
     @_builtins.property
     @pulumi.getter(name="tokenEndpoint")
     def token_endpoint(self) -> _builtins.str:
-        """
-        OAuth2 token endpoint URL.
-        """
         return pulumi.get(self, "token_endpoint")
 
 
@@ -13481,7 +10719,6 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Provi
         """
         :param _builtins.str client_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
         :param _builtins.str client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration. See `oauth_discovery` below.
         """
         if client_credentials_wo_version is not None:
             pulumi.set(__self__, "client_credentials_wo_version", client_credentials_wo_version)
@@ -13530,9 +10767,6 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Provi
     @_builtins.property
     @pulumi.getter(name="oauthDiscoveries")
     def oauth_discoveries(self) -> Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery']]:
-        """
-        OAuth discovery configuration. See `oauth_discovery` below.
-        """
         return pulumi.get(self, "oauth_discoveries")
 
 
@@ -13560,27 +10794,17 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Provi
     def __init__(__self__, *,
                  authorization_server_metadatas: Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata'],
                  discovery_url: _builtins.str):
-        """
-        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs'] authorization_server_metadatas: Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
-        :param _builtins.str discovery_url: OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
-        """
         pulumi.set(__self__, "authorization_server_metadatas", authorization_server_metadatas)
         pulumi.set(__self__, "discovery_url", discovery_url)
 
     @_builtins.property
     @pulumi.getter(name="authorizationServerMetadatas")
     def authorization_server_metadatas(self) -> Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata']:
-        """
-        Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
-        """
         return pulumi.get(self, "authorization_server_metadatas")
 
     @_builtins.property
     @pulumi.getter(name="discoveryUrl")
     def discovery_url(self) -> _builtins.str:
-        """
-        OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
-        """
         return pulumi.get(self, "discovery_url")
 
 
@@ -13612,12 +10836,6 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Provi
                  issuer: _builtins.str,
                  response_types: Sequence[_builtins.str],
                  token_endpoint: _builtins.str):
-        """
-        :param _builtins.str authorization_endpoint: OAuth2 authorization endpoint URL.
-        :param _builtins.str issuer: OAuth2 authorization server issuer identifier.
-        :param Sequence[_builtins.str] response_types: Set of OAuth2 response types supported by the authorization server.
-        :param _builtins.str token_endpoint: OAuth2 token endpoint URL.
-        """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "issuer", issuer)
         pulumi.set(__self__, "response_types", response_types)
@@ -13626,33 +10844,21 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Provi
     @_builtins.property
     @pulumi.getter(name="authorizationEndpoint")
     def authorization_endpoint(self) -> _builtins.str:
-        """
-        OAuth2 authorization endpoint URL.
-        """
         return pulumi.get(self, "authorization_endpoint")
 
     @_builtins.property
     @pulumi.getter
     def issuer(self) -> _builtins.str:
-        """
-        OAuth2 authorization server issuer identifier.
-        """
         return pulumi.get(self, "issuer")
 
     @_builtins.property
     @pulumi.getter(name="responseTypes")
     def response_types(self) -> Sequence[_builtins.str]:
-        """
-        Set of OAuth2 response types supported by the authorization server.
-        """
         return pulumi.get(self, "response_types")
 
     @_builtins.property
     @pulumi.getter(name="tokenEndpoint")
     def token_endpoint(self) -> _builtins.str:
-        """
-        OAuth2 token endpoint URL.
-        """
         return pulumi.get(self, "token_endpoint")
 
 
@@ -13695,7 +10901,6 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCo
         """
         :param _builtins.str client_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
         :param _builtins.str client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration. See `oauth_discovery` below.
         """
         if client_credentials_wo_version is not None:
             pulumi.set(__self__, "client_credentials_wo_version", client_credentials_wo_version)
@@ -13744,9 +10949,6 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCo
     @_builtins.property
     @pulumi.getter(name="oauthDiscoveries")
     def oauth_discoveries(self) -> Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery']]:
-        """
-        OAuth discovery configuration. See `oauth_discovery` below.
-        """
         return pulumi.get(self, "oauth_discoveries")
 
 
@@ -13774,27 +10976,17 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCo
     def __init__(__self__, *,
                  authorization_server_metadatas: Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata'],
                  discovery_url: _builtins.str):
-        """
-        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs'] authorization_server_metadatas: Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
-        :param _builtins.str discovery_url: OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
-        """
         pulumi.set(__self__, "authorization_server_metadatas", authorization_server_metadatas)
         pulumi.set(__self__, "discovery_url", discovery_url)
 
     @_builtins.property
     @pulumi.getter(name="authorizationServerMetadatas")
     def authorization_server_metadatas(self) -> Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata']:
-        """
-        Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
-        """
         return pulumi.get(self, "authorization_server_metadatas")
 
     @_builtins.property
     @pulumi.getter(name="discoveryUrl")
     def discovery_url(self) -> _builtins.str:
-        """
-        OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
-        """
         return pulumi.get(self, "discovery_url")
 
 
@@ -13826,12 +11018,6 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCo
                  issuer: _builtins.str,
                  response_types: Sequence[_builtins.str],
                  token_endpoint: _builtins.str):
-        """
-        :param _builtins.str authorization_endpoint: OAuth2 authorization endpoint URL.
-        :param _builtins.str issuer: OAuth2 authorization server issuer identifier.
-        :param Sequence[_builtins.str] response_types: Set of OAuth2 response types supported by the authorization server.
-        :param _builtins.str token_endpoint: OAuth2 token endpoint URL.
-        """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "issuer", issuer)
         pulumi.set(__self__, "response_types", response_types)
@@ -13840,33 +11026,21 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCo
     @_builtins.property
     @pulumi.getter(name="authorizationEndpoint")
     def authorization_endpoint(self) -> _builtins.str:
-        """
-        OAuth2 authorization endpoint URL.
-        """
         return pulumi.get(self, "authorization_endpoint")
 
     @_builtins.property
     @pulumi.getter
     def issuer(self) -> _builtins.str:
-        """
-        OAuth2 authorization server issuer identifier.
-        """
         return pulumi.get(self, "issuer")
 
     @_builtins.property
     @pulumi.getter(name="responseTypes")
     def response_types(self) -> Sequence[_builtins.str]:
-        """
-        Set of OAuth2 response types supported by the authorization server.
-        """
         return pulumi.get(self, "response_types")
 
     @_builtins.property
     @pulumi.getter(name="tokenEndpoint")
     def token_endpoint(self) -> _builtins.str:
-        """
-        OAuth2 token endpoint URL.
-        """
         return pulumi.get(self, "token_endpoint")
 
 
@@ -13894,10 +11068,6 @@ class AgentcoreTokenVaultCmkKmsConfiguration(dict):
     def __init__(__self__, *,
                  key_type: _builtins.str,
                  kms_key_arn: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str key_type: Type of KMS key. Valid values: `CustomerManagedKey`, `ServiceManagedKey`.
-        :param _builtins.str kms_key_arn: ARN of the KMS key.
-        """
         pulumi.set(__self__, "key_type", key_type)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
@@ -13905,17 +11075,11 @@ class AgentcoreTokenVaultCmkKmsConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="keyType")
     def key_type(self) -> _builtins.str:
-        """
-        Type of KMS key. Valid values: `CustomerManagedKey`, `ServiceManagedKey`.
-        """
         return pulumi.get(self, "key_type")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[_builtins.str]:
-        """
-        ARN of the KMS key.
-        """
         return pulumi.get(self, "kms_key_arn")
 
 
@@ -13940,17 +11104,11 @@ class CustomModelOutputDataConfig(dict):
 
     def __init__(__self__, *,
                  s3_uri: _builtins.str):
-        """
-        :param _builtins.str s3_uri: The S3 URI where the output data is stored.
-        """
         pulumi.set(__self__, "s3_uri", s3_uri)
 
     @_builtins.property
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> _builtins.str:
-        """
-        The S3 URI where the output data is stored.
-        """
         return pulumi.get(self, "s3_uri")
 
 
@@ -14006,17 +11164,11 @@ class CustomModelTrainingDataConfig(dict):
 
     def __init__(__self__, *,
                  s3_uri: _builtins.str):
-        """
-        :param _builtins.str s3_uri: The S3 URI where the training data is stored.
-        """
         pulumi.set(__self__, "s3_uri", s3_uri)
 
     @_builtins.property
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> _builtins.str:
-        """
-        The S3 URI where the training data is stored.
-        """
         return pulumi.get(self, "s3_uri")
 
 
@@ -14041,17 +11193,11 @@ class CustomModelTrainingMetric(dict):
 
     def __init__(__self__, *,
                  training_loss: _builtins.float):
-        """
-        :param _builtins.float training_loss: Loss metric associated with the customization job.
-        """
         pulumi.set(__self__, "training_loss", training_loss)
 
     @_builtins.property
     @pulumi.getter(name="trainingLoss")
     def training_loss(self) -> _builtins.float:
-        """
-        Loss metric associated with the customization job.
-        """
         return pulumi.get(self, "training_loss")
 
 
@@ -14059,18 +11205,12 @@ class CustomModelTrainingMetric(dict):
 class CustomModelValidationDataConfig(dict):
     def __init__(__self__, *,
                  validators: Optional[Sequence['outputs.CustomModelValidationDataConfigValidator']] = None):
-        """
-        :param Sequence['CustomModelValidationDataConfigValidatorArgs'] validators: Information about the validators.
-        """
         if validators is not None:
             pulumi.set(__self__, "validators", validators)
 
     @_builtins.property
     @pulumi.getter
     def validators(self) -> Optional[Sequence['outputs.CustomModelValidationDataConfigValidator']]:
-        """
-        Information about the validators.
-        """
         return pulumi.get(self, "validators")
 
 
@@ -14095,17 +11235,11 @@ class CustomModelValidationDataConfigValidator(dict):
 
     def __init__(__self__, *,
                  s3_uri: _builtins.str):
-        """
-        :param _builtins.str s3_uri: The S3 URI where the validation data is stored.
-        """
         pulumi.set(__self__, "s3_uri", s3_uri)
 
     @_builtins.property
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> _builtins.str:
-        """
-        The S3 URI where the validation data is stored.
-        """
         return pulumi.get(self, "s3_uri")
 
 
@@ -14130,17 +11264,11 @@ class CustomModelValidationMetric(dict):
 
     def __init__(__self__, *,
                  validation_loss: _builtins.float):
-        """
-        :param _builtins.float validation_loss: The validation loss associated with the validator.
-        """
         pulumi.set(__self__, "validation_loss", validation_loss)
 
     @_builtins.property
     @pulumi.getter(name="validationLoss")
     def validation_loss(self) -> _builtins.float:
-        """
-        The validation loss associated with the validator.
-        """
         return pulumi.get(self, "validation_loss")
 
 
@@ -14168,27 +11296,17 @@ class CustomModelVpcConfig(dict):
     def __init__(__self__, *,
                  security_group_ids: Sequence[_builtins.str],
                  subnet_ids: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] security_group_ids: VPC configuration security group IDs.
-        :param Sequence[_builtins.str] subnet_ids: VPC configuration subnets.
-        """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[_builtins.str]:
-        """
-        VPC configuration security group IDs.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[_builtins.str]:
-        """
-        VPC configuration subnets.
-        """
         return pulumi.get(self, "subnet_ids")
 
 
@@ -14216,11 +11334,6 @@ class GuardrailContentPolicyConfig(dict):
     def __init__(__self__, *,
                  filters_configs: Optional[Sequence['outputs.GuardrailContentPolicyConfigFiltersConfig']] = None,
                  tier_configs: Optional[Sequence['outputs.GuardrailContentPolicyConfigTierConfig']] = None):
-        """
-        :param Sequence['GuardrailContentPolicyConfigFiltersConfigArgs'] filters_configs: Set of content filter configs in content policy.
-               See Filters Config for more information.
-        :param Sequence['GuardrailContentPolicyConfigTierConfigArgs'] tier_configs: Configuration block for the content policy tier. See Tier Config for more information.
-        """
         if filters_configs is not None:
             pulumi.set(__self__, "filters_configs", filters_configs)
         if tier_configs is not None:
@@ -14229,18 +11342,11 @@ class GuardrailContentPolicyConfig(dict):
     @_builtins.property
     @pulumi.getter(name="filtersConfigs")
     def filters_configs(self) -> Optional[Sequence['outputs.GuardrailContentPolicyConfigFiltersConfig']]:
-        """
-        Set of content filter configs in content policy.
-        See Filters Config for more information.
-        """
         return pulumi.get(self, "filters_configs")
 
     @_builtins.property
     @pulumi.getter(name="tierConfigs")
     def tier_configs(self) -> Optional[Sequence['outputs.GuardrailContentPolicyConfigTierConfig']]:
-        """
-        Configuration block for the content policy tier. See Tier Config for more information.
-        """
         return pulumi.get(self, "tier_configs")
 
 
@@ -14287,17 +11393,6 @@ class GuardrailContentPolicyConfigFiltersConfig(dict):
                  output_action: Optional[_builtins.str] = None,
                  output_enabled: Optional[_builtins.bool] = None,
                  output_modalities: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str input_strength: Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
-        :param _builtins.str output_strength: Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
-        :param _builtins.str type: Type of contextual grounding filter.
-        :param _builtins.str input_action: Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
-        :param _builtins.bool input_enabled: Toggles guardrail evaluation on input.
-        :param Sequence[_builtins.str] input_modalities: List of selected input modalities. Valid values: `IMAGE`, `TEXT`.
-        :param _builtins.str output_action: Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
-        :param _builtins.bool output_enabled: Toggles guardrail evaluation on output.
-        :param Sequence[_builtins.str] output_modalities: List of selected output modalities. Valid values: `IMAGE`, `TEXT`.
-        """
         pulumi.set(__self__, "input_strength", input_strength)
         pulumi.set(__self__, "output_strength", output_strength)
         pulumi.set(__self__, "type", type)
@@ -14317,73 +11412,46 @@ class GuardrailContentPolicyConfigFiltersConfig(dict):
     @_builtins.property
     @pulumi.getter(name="inputStrength")
     def input_strength(self) -> _builtins.str:
-        """
-        Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
-        """
         return pulumi.get(self, "input_strength")
 
     @_builtins.property
     @pulumi.getter(name="outputStrength")
     def output_strength(self) -> _builtins.str:
-        """
-        Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
-        """
         return pulumi.get(self, "output_strength")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of contextual grounding filter.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="inputAction")
     def input_action(self) -> Optional[_builtins.str]:
-        """
-        Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
-        """
         return pulumi.get(self, "input_action")
 
     @_builtins.property
     @pulumi.getter(name="inputEnabled")
     def input_enabled(self) -> Optional[_builtins.bool]:
-        """
-        Toggles guardrail evaluation on input.
-        """
         return pulumi.get(self, "input_enabled")
 
     @_builtins.property
     @pulumi.getter(name="inputModalities")
     def input_modalities(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of selected input modalities. Valid values: `IMAGE`, `TEXT`.
-        """
         return pulumi.get(self, "input_modalities")
 
     @_builtins.property
     @pulumi.getter(name="outputAction")
     def output_action(self) -> Optional[_builtins.str]:
-        """
-        Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
-        """
         return pulumi.get(self, "output_action")
 
     @_builtins.property
     @pulumi.getter(name="outputEnabled")
     def output_enabled(self) -> Optional[_builtins.bool]:
-        """
-        Toggles guardrail evaluation on output.
-        """
         return pulumi.get(self, "output_enabled")
 
     @_builtins.property
     @pulumi.getter(name="outputModalities")
     def output_modalities(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of selected output modalities. Valid values: `IMAGE`, `TEXT`.
-        """
         return pulumi.get(self, "output_modalities")
 
 
@@ -14408,17 +11476,11 @@ class GuardrailContentPolicyConfigTierConfig(dict):
 
     def __init__(__self__, *,
                  tier_name: _builtins.str):
-        """
-        :param _builtins.str tier_name: The name of the content policy tier. Valid values include STANDARD or CLASSIC.
-        """
         pulumi.set(__self__, "tier_name", tier_name)
 
     @_builtins.property
     @pulumi.getter(name="tierName")
     def tier_name(self) -> _builtins.str:
-        """
-        The name of the content policy tier. Valid values include STANDARD or CLASSIC.
-        """
         return pulumi.get(self, "tier_name")
 
 
@@ -14443,18 +11505,12 @@ class GuardrailContextualGroundingPolicyConfig(dict):
 
     def __init__(__self__, *,
                  filters_configs: Optional[Sequence['outputs.GuardrailContextualGroundingPolicyConfigFiltersConfig']] = None):
-        """
-        :param Sequence['GuardrailContextualGroundingPolicyConfigFiltersConfigArgs'] filters_configs: One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
-        """
         if filters_configs is not None:
             pulumi.set(__self__, "filters_configs", filters_configs)
 
     @_builtins.property
     @pulumi.getter(name="filtersConfigs")
     def filters_configs(self) -> Optional[Sequence['outputs.GuardrailContextualGroundingPolicyConfigFiltersConfig']]:
-        """
-        One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
-        """
         return pulumi.get(self, "filters_configs")
 
 
@@ -14463,27 +11519,17 @@ class GuardrailContextualGroundingPolicyConfigFiltersConfig(dict):
     def __init__(__self__, *,
                  threshold: _builtins.float,
                  type: _builtins.str):
-        """
-        :param _builtins.float threshold: The threshold for this filter.
-        :param _builtins.str type: Type of contextual grounding filter.
-        """
         pulumi.set(__self__, "threshold", threshold)
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
     def threshold(self) -> _builtins.float:
-        """
-        The threshold for this filter.
-        """
         return pulumi.get(self, "threshold")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of contextual grounding filter.
-        """
         return pulumi.get(self, "type")
 
 
@@ -14508,17 +11554,11 @@ class GuardrailCrossRegionConfig(dict):
 
     def __init__(__self__, *,
                  guardrail_profile_identifier: _builtins.str):
-        """
-        :param _builtins.str guardrail_profile_identifier: Guardrail profile ARN.
-        """
         pulumi.set(__self__, "guardrail_profile_identifier", guardrail_profile_identifier)
 
     @_builtins.property
     @pulumi.getter(name="guardrailProfileIdentifier")
     def guardrail_profile_identifier(self) -> _builtins.str:
-        """
-        Guardrail profile ARN.
-        """
         return pulumi.get(self, "guardrail_profile_identifier")
 
 
@@ -14546,10 +11586,6 @@ class GuardrailSensitiveInformationPolicyConfig(dict):
     def __init__(__self__, *,
                  pii_entities_configs: Optional[Sequence['outputs.GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig']] = None,
                  regexes_configs: Optional[Sequence['outputs.GuardrailSensitiveInformationPolicyConfigRegexesConfig']] = None):
-        """
-        :param Sequence['GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArgs'] pii_entities_configs: List of entities. See PII Entities Config for more information.
-        :param Sequence['GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs'] regexes_configs: List of regex. See Regexes Config for more information.
-        """
         if pii_entities_configs is not None:
             pulumi.set(__self__, "pii_entities_configs", pii_entities_configs)
         if regexes_configs is not None:
@@ -14558,17 +11594,11 @@ class GuardrailSensitiveInformationPolicyConfig(dict):
     @_builtins.property
     @pulumi.getter(name="piiEntitiesConfigs")
     def pii_entities_configs(self) -> Optional[Sequence['outputs.GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig']]:
-        """
-        List of entities. See PII Entities Config for more information.
-        """
         return pulumi.get(self, "pii_entities_configs")
 
     @_builtins.property
     @pulumi.getter(name="regexesConfigs")
     def regexes_configs(self) -> Optional[Sequence['outputs.GuardrailSensitiveInformationPolicyConfigRegexesConfig']]:
-        """
-        List of regex. See Regexes Config for more information.
-        """
         return pulumi.get(self, "regexes_configs")
 
 
@@ -14604,14 +11634,6 @@ class GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig(dict):
                  input_enabled: Optional[_builtins.bool] = None,
                  output_action: Optional[_builtins.str] = None,
                  output_enabled: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str action: Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-        :param _builtins.str type: The currently supported PII entities.
-        :param _builtins.str input_action: Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-        :param _builtins.bool input_enabled: Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
-        :param _builtins.str output_action: Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-        :param _builtins.bool output_enabled: Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
-        """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "type", type)
         if input_action is not None:
@@ -14626,49 +11648,31 @@ class GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig(dict):
     @_builtins.property
     @pulumi.getter
     def action(self) -> _builtins.str:
-        """
-        Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-        """
         return pulumi.get(self, "action")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        The currently supported PII entities.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="inputAction")
     def input_action(self) -> Optional[_builtins.str]:
-        """
-        Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-        """
         return pulumi.get(self, "input_action")
 
     @_builtins.property
     @pulumi.getter(name="inputEnabled")
     def input_enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
-        """
         return pulumi.get(self, "input_enabled")
 
     @_builtins.property
     @pulumi.getter(name="outputAction")
     def output_action(self) -> Optional[_builtins.str]:
-        """
-        Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-        """
         return pulumi.get(self, "output_action")
 
     @_builtins.property
     @pulumi.getter(name="outputEnabled")
     def output_enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
-        """
         return pulumi.get(self, "output_enabled")
 
 
@@ -14706,16 +11710,6 @@ class GuardrailSensitiveInformationPolicyConfigRegexesConfig(dict):
                  input_enabled: Optional[_builtins.bool] = None,
                  output_action: Optional[_builtins.str] = None,
                  output_enabled: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str action: Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-        :param _builtins.str name: The regex name.
-        :param _builtins.str pattern: The regex pattern.
-        :param _builtins.str description: The regex description.
-        :param _builtins.str input_action: Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-        :param _builtins.bool input_enabled: Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
-        :param _builtins.str output_action: Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-        :param _builtins.bool output_enabled: Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
-        """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "pattern", pattern)
@@ -14733,65 +11727,41 @@ class GuardrailSensitiveInformationPolicyConfigRegexesConfig(dict):
     @_builtins.property
     @pulumi.getter
     def action(self) -> _builtins.str:
-        """
-        Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-        """
         return pulumi.get(self, "action")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The regex name.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def pattern(self) -> _builtins.str:
-        """
-        The regex pattern.
-        """
         return pulumi.get(self, "pattern")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
-        """
-        The regex description.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="inputAction")
     def input_action(self) -> Optional[_builtins.str]:
-        """
-        Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-        """
         return pulumi.get(self, "input_action")
 
     @_builtins.property
     @pulumi.getter(name="inputEnabled")
     def input_enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
-        """
         return pulumi.get(self, "input_enabled")
 
     @_builtins.property
     @pulumi.getter(name="outputAction")
     def output_action(self) -> Optional[_builtins.str]:
-        """
-        Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-        """
         return pulumi.get(self, "output_action")
 
     @_builtins.property
     @pulumi.getter(name="outputEnabled")
     def output_enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
-        """
         return pulumi.get(self, "output_enabled")
 
 
@@ -14862,10 +11832,6 @@ class GuardrailTopicPolicyConfig(dict):
     def __init__(__self__, *,
                  tier_configs: Optional[Sequence['outputs.GuardrailTopicPolicyConfigTierConfig']] = None,
                  topics_configs: Optional[Sequence['outputs.GuardrailTopicPolicyConfigTopicsConfig']] = None):
-        """
-        :param Sequence['GuardrailTopicPolicyConfigTierConfigArgs'] tier_configs: Configuration block for the topic policy tier. See Tier Config for more information.
-        :param Sequence['GuardrailTopicPolicyConfigTopicsConfigArgs'] topics_configs: List of topic configs in topic policy. See Topics Config for more information.
-        """
         if tier_configs is not None:
             pulumi.set(__self__, "tier_configs", tier_configs)
         if topics_configs is not None:
@@ -14874,17 +11840,11 @@ class GuardrailTopicPolicyConfig(dict):
     @_builtins.property
     @pulumi.getter(name="tierConfigs")
     def tier_configs(self) -> Optional[Sequence['outputs.GuardrailTopicPolicyConfigTierConfig']]:
-        """
-        Configuration block for the topic policy tier. See Tier Config for more information.
-        """
         return pulumi.get(self, "tier_configs")
 
     @_builtins.property
     @pulumi.getter(name="topicsConfigs")
     def topics_configs(self) -> Optional[Sequence['outputs.GuardrailTopicPolicyConfigTopicsConfig']]:
-        """
-        List of topic configs in topic policy. See Topics Config for more information.
-        """
         return pulumi.get(self, "topics_configs")
 
 
@@ -14909,17 +11869,11 @@ class GuardrailTopicPolicyConfigTierConfig(dict):
 
     def __init__(__self__, *,
                  tier_name: _builtins.str):
-        """
-        :param _builtins.str tier_name: The name of the content policy tier. Valid values include STANDARD or CLASSIC.
-        """
         pulumi.set(__self__, "tier_name", tier_name)
 
     @_builtins.property
     @pulumi.getter(name="tierName")
     def tier_name(self) -> _builtins.str:
-        """
-        The name of the content policy tier. Valid values include STANDARD or CLASSIC.
-        """
         return pulumi.get(self, "tier_name")
 
 
@@ -14930,12 +11884,6 @@ class GuardrailTopicPolicyConfigTopicsConfig(dict):
                  name: _builtins.str,
                  type: _builtins.str,
                  examples: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str definition: Definition of topic in topic policy.
-        :param _builtins.str name: Name of topic in topic policy.
-        :param _builtins.str type: Type of topic in a policy.
-        :param Sequence[_builtins.str] examples: List of text examples.
-        """
         pulumi.set(__self__, "definition", definition)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -14945,33 +11893,21 @@ class GuardrailTopicPolicyConfigTopicsConfig(dict):
     @_builtins.property
     @pulumi.getter
     def definition(self) -> _builtins.str:
-        """
-        Definition of topic in topic policy.
-        """
         return pulumi.get(self, "definition")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of topic in topic policy.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of topic in a policy.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def examples(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of text examples.
-        """
         return pulumi.get(self, "examples")
 
 
@@ -15030,10 +11966,6 @@ class GuardrailWordPolicyConfig(dict):
     def __init__(__self__, *,
                  managed_word_lists_configs: Optional[Sequence['outputs.GuardrailWordPolicyConfigManagedWordListsConfig']] = None,
                  words_configs: Optional[Sequence['outputs.GuardrailWordPolicyConfigWordsConfig']] = None):
-        """
-        :param Sequence['GuardrailWordPolicyConfigManagedWordListsConfigArgs'] managed_word_lists_configs: A config for the list of managed words. See Managed Word Lists Config for more information.
-        :param Sequence['GuardrailWordPolicyConfigWordsConfigArgs'] words_configs: List of custom word configs. See Words Config for more information.
-        """
         if managed_word_lists_configs is not None:
             pulumi.set(__self__, "managed_word_lists_configs", managed_word_lists_configs)
         if words_configs is not None:
@@ -15042,17 +11974,11 @@ class GuardrailWordPolicyConfig(dict):
     @_builtins.property
     @pulumi.getter(name="managedWordListsConfigs")
     def managed_word_lists_configs(self) -> Optional[Sequence['outputs.GuardrailWordPolicyConfigManagedWordListsConfig']]:
-        """
-        A config for the list of managed words. See Managed Word Lists Config for more information.
-        """
         return pulumi.get(self, "managed_word_lists_configs")
 
     @_builtins.property
     @pulumi.getter(name="wordsConfigs")
     def words_configs(self) -> Optional[Sequence['outputs.GuardrailWordPolicyConfigWordsConfig']]:
-        """
-        List of custom word configs. See Words Config for more information.
-        """
         return pulumi.get(self, "words_configs")
 
 
@@ -15087,13 +12013,6 @@ class GuardrailWordPolicyConfigManagedWordListsConfig(dict):
                  input_enabled: Optional[_builtins.bool] = None,
                  output_action: Optional[_builtins.str] = None,
                  output_enabled: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str type: Options for managed words.
-        :param _builtins.str input_action: Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `NONE`.
-        :param _builtins.bool input_enabled: Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
-        :param _builtins.str output_action: Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `NONE`.
-        :param _builtins.bool output_enabled: Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
-        """
         pulumi.set(__self__, "type", type)
         if input_action is not None:
             pulumi.set(__self__, "input_action", input_action)
@@ -15107,41 +12026,26 @@ class GuardrailWordPolicyConfigManagedWordListsConfig(dict):
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Options for managed words.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="inputAction")
     def input_action(self) -> Optional[_builtins.str]:
-        """
-        Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `NONE`.
-        """
         return pulumi.get(self, "input_action")
 
     @_builtins.property
     @pulumi.getter(name="inputEnabled")
     def input_enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
-        """
         return pulumi.get(self, "input_enabled")
 
     @_builtins.property
     @pulumi.getter(name="outputAction")
     def output_action(self) -> Optional[_builtins.str]:
-        """
-        Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `NONE`.
-        """
         return pulumi.get(self, "output_action")
 
     @_builtins.property
     @pulumi.getter(name="outputEnabled")
     def output_enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
-        """
         return pulumi.get(self, "output_enabled")
 
 
@@ -15176,13 +12080,6 @@ class GuardrailWordPolicyConfigWordsConfig(dict):
                  input_enabled: Optional[_builtins.bool] = None,
                  output_action: Optional[_builtins.str] = None,
                  output_enabled: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str text: The custom word text.
-        :param _builtins.str input_action: Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `NONE`.
-        :param _builtins.bool input_enabled: Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
-        :param _builtins.str output_action: Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `NONE`.
-        :param _builtins.bool output_enabled: Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
-        """
         pulumi.set(__self__, "text", text)
         if input_action is not None:
             pulumi.set(__self__, "input_action", input_action)
@@ -15196,41 +12093,26 @@ class GuardrailWordPolicyConfigWordsConfig(dict):
     @_builtins.property
     @pulumi.getter
     def text(self) -> _builtins.str:
-        """
-        The custom word text.
-        """
         return pulumi.get(self, "text")
 
     @_builtins.property
     @pulumi.getter(name="inputAction")
     def input_action(self) -> Optional[_builtins.str]:
-        """
-        Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `NONE`.
-        """
         return pulumi.get(self, "input_action")
 
     @_builtins.property
     @pulumi.getter(name="inputEnabled")
     def input_enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation.
-        """
         return pulumi.get(self, "input_enabled")
 
     @_builtins.property
     @pulumi.getter(name="outputAction")
     def output_action(self) -> Optional[_builtins.str]:
-        """
-        Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `NONE`.
-        """
         return pulumi.get(self, "output_action")
 
     @_builtins.property
     @pulumi.getter(name="outputEnabled")
     def output_enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation.
-        """
         return pulumi.get(self, "output_enabled")
 
 
@@ -15255,17 +12137,11 @@ class InferenceProfileModel(dict):
 
     def __init__(__self__, *,
                  model_arn: _builtins.str):
-        """
-        :param _builtins.str model_arn: The Amazon Resource Name (ARN) of the model.
-        """
         pulumi.set(__self__, "model_arn", model_arn)
 
     @_builtins.property
     @pulumi.getter(name="modelArn")
     def model_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the model.
-        """
         return pulumi.get(self, "model_arn")
 
 
@@ -15290,17 +12166,11 @@ class InferenceProfileModelSource(dict):
 
     def __init__(__self__, *,
                  copy_from: _builtins.str):
-        """
-        :param _builtins.str copy_from: The Amazon Resource Name (ARN) of the model.
-        """
         pulumi.set(__self__, "copy_from", copy_from)
 
     @_builtins.property
     @pulumi.getter(name="copyFrom")
     def copy_from(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the model.
-        """
         return pulumi.get(self, "copy_from")
 
 
@@ -15376,15 +12246,6 @@ class GetAgentAgentVersionsAgentVersionSummaryResult(dict):
                  description: _builtins.str,
                  updated_at: _builtins.str,
                  guardrail_configurations: Optional[Sequence['outputs.GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationResult']] = None):
-        """
-        :param _builtins.str agent_name: Name of agent to which the version belongs.
-        :param _builtins.str agent_status: Status of the agent to which the version belongs.
-        :param _builtins.str agent_version: Version of the agent.
-        :param _builtins.str created_at: Time at which the version was created.
-        :param _builtins.str description: Description of the version of the agent.
-               * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
-        :param _builtins.str updated_at: Time at which the version was last updated.
-        """
         pulumi.set(__self__, "agent_name", agent_name)
         pulumi.set(__self__, "agent_status", agent_status)
         pulumi.set(__self__, "agent_version", agent_version)
@@ -15397,50 +12258,31 @@ class GetAgentAgentVersionsAgentVersionSummaryResult(dict):
     @_builtins.property
     @pulumi.getter(name="agentName")
     def agent_name(self) -> _builtins.str:
-        """
-        Name of agent to which the version belongs.
-        """
         return pulumi.get(self, "agent_name")
 
     @_builtins.property
     @pulumi.getter(name="agentStatus")
     def agent_status(self) -> _builtins.str:
-        """
-        Status of the agent to which the version belongs.
-        """
         return pulumi.get(self, "agent_status")
 
     @_builtins.property
     @pulumi.getter(name="agentVersion")
     def agent_version(self) -> _builtins.str:
-        """
-        Version of the agent.
-        """
         return pulumi.get(self, "agent_version")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> _builtins.str:
-        """
-        Time at which the version was created.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the version of the agent.
-        * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> _builtins.str:
-        """
-        Time at which the version was last updated.
-        """
         return pulumi.get(self, "updated_at")
 
     @_builtins.property
@@ -15454,27 +12296,17 @@ class GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationResult(dict)
     def __init__(__self__, *,
                  guardrail_identifier: _builtins.str,
                  guardrail_version: _builtins.str):
-        """
-        :param _builtins.str guardrail_identifier: Unique identifier of the guardrail.
-        :param _builtins.str guardrail_version: Version of the guardrail.
-        """
         pulumi.set(__self__, "guardrail_identifier", guardrail_identifier)
         pulumi.set(__self__, "guardrail_version", guardrail_version)
 
     @_builtins.property
     @pulumi.getter(name="guardrailIdentifier")
     def guardrail_identifier(self) -> _builtins.str:
-        """
-        Unique identifier of the guardrail.
-        """
         return pulumi.get(self, "guardrail_identifier")
 
     @_builtins.property
     @pulumi.getter(name="guardrailVersion")
     def guardrail_version(self) -> _builtins.str:
-        """
-        Version of the guardrail.
-        """
         return pulumi.get(self, "guardrail_version")
 
 
@@ -15482,17 +12314,11 @@ class GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationResult(dict)
 class GetCustomModelOutputDataConfigResult(dict):
     def __init__(__self__, *,
                  s3_uri: _builtins.str):
-        """
-        :param _builtins.str s3_uri: The S3 URI where the validation data is stored..
-        """
         pulumi.set(__self__, "s3_uri", s3_uri)
 
     @_builtins.property
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> _builtins.str:
-        """
-        The S3 URI where the validation data is stored..
-        """
         return pulumi.get(self, "s3_uri")
 
 
@@ -15500,17 +12326,11 @@ class GetCustomModelOutputDataConfigResult(dict):
 class GetCustomModelTrainingDataConfigResult(dict):
     def __init__(__self__, *,
                  s3_uri: _builtins.str):
-        """
-        :param _builtins.str s3_uri: The S3 URI where the validation data is stored..
-        """
         pulumi.set(__self__, "s3_uri", s3_uri)
 
     @_builtins.property
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> _builtins.str:
-        """
-        The S3 URI where the validation data is stored..
-        """
         return pulumi.get(self, "s3_uri")
 
 
@@ -15518,17 +12338,11 @@ class GetCustomModelTrainingDataConfigResult(dict):
 class GetCustomModelTrainingMetricResult(dict):
     def __init__(__self__, *,
                  training_loss: _builtins.float):
-        """
-        :param _builtins.float training_loss: Loss metric associated with the customization job.
-        """
         pulumi.set(__self__, "training_loss", training_loss)
 
     @_builtins.property
     @pulumi.getter(name="trainingLoss")
     def training_loss(self) -> _builtins.float:
-        """
-        Loss metric associated with the customization job.
-        """
         return pulumi.get(self, "training_loss")
 
 
@@ -15536,17 +12350,11 @@ class GetCustomModelTrainingMetricResult(dict):
 class GetCustomModelValidationDataConfigResult(dict):
     def __init__(__self__, *,
                  validators: Sequence['outputs.GetCustomModelValidationDataConfigValidatorResult']):
-        """
-        :param Sequence['GetCustomModelValidationDataConfigValidatorArgs'] validators: Information about the validators.
-        """
         pulumi.set(__self__, "validators", validators)
 
     @_builtins.property
     @pulumi.getter
     def validators(self) -> Sequence['outputs.GetCustomModelValidationDataConfigValidatorResult']:
-        """
-        Information about the validators.
-        """
         return pulumi.get(self, "validators")
 
 
@@ -15554,17 +12362,11 @@ class GetCustomModelValidationDataConfigResult(dict):
 class GetCustomModelValidationDataConfigValidatorResult(dict):
     def __init__(__self__, *,
                  s3_uri: _builtins.str):
-        """
-        :param _builtins.str s3_uri: The S3 URI where the validation data is stored..
-        """
         pulumi.set(__self__, "s3_uri", s3_uri)
 
     @_builtins.property
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> _builtins.str:
-        """
-        The S3 URI where the validation data is stored..
-        """
         return pulumi.get(self, "s3_uri")
 
 
@@ -15572,17 +12374,11 @@ class GetCustomModelValidationDataConfigValidatorResult(dict):
 class GetCustomModelValidationMetricResult(dict):
     def __init__(__self__, *,
                  validation_loss: _builtins.float):
-        """
-        :param _builtins.float validation_loss: The validation loss associated with the validator.
-        """
         pulumi.set(__self__, "validation_loss", validation_loss)
 
     @_builtins.property
     @pulumi.getter(name="validationLoss")
     def validation_loss(self) -> _builtins.float:
-        """
-        The validation loss associated with the validator.
-        """
         return pulumi.get(self, "validation_loss")
 
 
@@ -15592,11 +12388,6 @@ class GetCustomModelsModelSummaryResult(dict):
                  creation_time: _builtins.str,
                  model_arn: _builtins.str,
                  model_name: _builtins.str):
-        """
-        :param _builtins.str creation_time: Creation time of the model.
-        :param _builtins.str model_arn: The ARN of the custom model.
-        :param _builtins.str model_name: The name of the custom model.
-        """
         pulumi.set(__self__, "creation_time", creation_time)
         pulumi.set(__self__, "model_arn", model_arn)
         pulumi.set(__self__, "model_name", model_name)
@@ -15604,25 +12395,16 @@ class GetCustomModelsModelSummaryResult(dict):
     @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> _builtins.str:
-        """
-        Creation time of the model.
-        """
         return pulumi.get(self, "creation_time")
 
     @_builtins.property
     @pulumi.getter(name="modelArn")
     def model_arn(self) -> _builtins.str:
-        """
-        The ARN of the custom model.
-        """
         return pulumi.get(self, "model_arn")
 
     @_builtins.property
     @pulumi.getter(name="modelName")
     def model_name(self) -> _builtins.str:
-        """
-        The name of the custom model.
-        """
         return pulumi.get(self, "model_name")
 
 
@@ -15630,17 +12412,11 @@ class GetCustomModelsModelSummaryResult(dict):
 class GetInferenceProfileModelResult(dict):
     def __init__(__self__, *,
                  model_arn: _builtins.str):
-        """
-        :param _builtins.str model_arn: The Amazon Resource Name (ARN) of the model.
-        """
         pulumi.set(__self__, "model_arn", model_arn)
 
     @_builtins.property
     @pulumi.getter(name="modelArn")
     def model_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the model.
-        """
         return pulumi.get(self, "model_arn")
 
 
@@ -15656,17 +12432,6 @@ class GetInferenceProfilesInferenceProfileSummaryResult(dict):
                  status: _builtins.str,
                  type: _builtins.str,
                  updated_at: _builtins.str):
-        """
-        :param _builtins.str created_at: Time at which the inference profile was created.
-        :param _builtins.str description: Description of the inference profile.
-        :param _builtins.str inference_profile_arn: Amazon Resource Name (ARN) of the inference profile.
-        :param _builtins.str inference_profile_id: Unique identifier of the inference profile.
-        :param _builtins.str inference_profile_name: Name of the inference profile.
-        :param Sequence['GetInferenceProfilesInferenceProfileSummaryModelArgs'] models: List of information about each model in the inference profile. See `models` Block.
-        :param _builtins.str status: Status of the inference profile. `ACTIVE` means that the inference profile is available to use.
-        :param _builtins.str type: Filters for inference profiles that match the type you specify. Valid values are: `SYSTEM_DEFINED`, `APPLICATION`.
-        :param _builtins.str updated_at: Time at which the inference profile was last updated.
-        """
         pulumi.set(__self__, "created_at", created_at)
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "inference_profile_arn", inference_profile_arn)
@@ -15680,73 +12445,46 @@ class GetInferenceProfilesInferenceProfileSummaryResult(dict):
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> _builtins.str:
-        """
-        Time at which the inference profile was created.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the inference profile.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="inferenceProfileArn")
     def inference_profile_arn(self) -> _builtins.str:
-        """
-        Amazon Resource Name (ARN) of the inference profile.
-        """
         return pulumi.get(self, "inference_profile_arn")
 
     @_builtins.property
     @pulumi.getter(name="inferenceProfileId")
     def inference_profile_id(self) -> _builtins.str:
-        """
-        Unique identifier of the inference profile.
-        """
         return pulumi.get(self, "inference_profile_id")
 
     @_builtins.property
     @pulumi.getter(name="inferenceProfileName")
     def inference_profile_name(self) -> _builtins.str:
-        """
-        Name of the inference profile.
-        """
         return pulumi.get(self, "inference_profile_name")
 
     @_builtins.property
     @pulumi.getter
     def models(self) -> Sequence['outputs.GetInferenceProfilesInferenceProfileSummaryModelResult']:
-        """
-        List of information about each model in the inference profile. See `models` Block.
-        """
         return pulumi.get(self, "models")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Status of the inference profile. `ACTIVE` means that the inference profile is available to use.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Filters for inference profiles that match the type you specify. Valid values are: `SYSTEM_DEFINED`, `APPLICATION`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> _builtins.str:
-        """
-        Time at which the inference profile was last updated.
-        """
         return pulumi.get(self, "updated_at")
 
 
@@ -15754,17 +12492,11 @@ class GetInferenceProfilesInferenceProfileSummaryResult(dict):
 class GetInferenceProfilesInferenceProfileSummaryModelResult(dict):
     def __init__(__self__, *,
                  model_arn: _builtins.str):
-        """
-        :param _builtins.str model_arn: Amazon Resource Name (ARN) of the model.
-        """
         pulumi.set(__self__, "model_arn", model_arn)
 
     @_builtins.property
     @pulumi.getter(name="modelArn")
     def model_arn(self) -> _builtins.str:
-        """
-        Amazon Resource Name (ARN) of the model.
-        """
         return pulumi.get(self, "model_arn")
 
 

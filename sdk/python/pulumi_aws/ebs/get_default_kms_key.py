@@ -48,9 +48,6 @@ class GetDefaultKmsKeyResult:
     @_builtins.property
     @pulumi.getter(name="keyArn")
     def key_arn(self) -> _builtins.str:
-        """
-        ARN of the default KMS key uses to encrypt an EBS volume in this region when no key is specified in an API call that creates the volume and encryption by default is enabled.
-        """
         return pulumi.get(self, "key_arn")
 
     @_builtins.property
@@ -73,23 +70,7 @@ class AwaitableGetDefaultKmsKeyResult(GetDefaultKmsKeyResult):
 def get_default_kms_key(region: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDefaultKmsKeyResult:
     """
-    Use this data source to get the default EBS encryption KMS key in the current region.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.ebs.get_default_kms_key()
-    example = aws.ebs.Volume("example",
-        availability_zone="us-west-2a",
-        encrypted=True,
-        kms_key_id=current.key_arn)
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -103,23 +84,7 @@ def get_default_kms_key(region: Optional[_builtins.str] = None,
 def get_default_kms_key_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDefaultKmsKeyResult]:
     """
-    Use this data source to get the default EBS encryption KMS key in the current region.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.ebs.get_default_kms_key()
-    example = aws.ebs.Volume("example",
-        availability_zone="us-west-2a",
-        encrypted=True,
-        kms_key_id=current.key_arn)
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

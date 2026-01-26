@@ -18,107 +18,51 @@ public final class DomainSamlOptionsSamlOptionsArgs extends com.pulumi.resources
 
     public static final DomainSamlOptionsSamlOptionsArgs Empty = new DomainSamlOptionsSamlOptionsArgs();
 
-    /**
-     * Whether SAML authentication is enabled.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Whether SAML authentication is enabled.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * Information from your identity provider.
-     * 
-     */
     @Import(name="idp")
     private @Nullable Output<DomainSamlOptionsSamlOptionsIdpArgs> idp;
 
-    /**
-     * @return Information from your identity provider.
-     * 
-     */
     public Optional<Output<DomainSamlOptionsSamlOptionsIdpArgs>> idp() {
         return Optional.ofNullable(this.idp);
     }
 
-    /**
-     * This backend role from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
-     * 
-     */
     @Import(name="masterBackendRole")
     private @Nullable Output<String> masterBackendRole;
 
-    /**
-     * @return This backend role from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
-     * 
-     */
     public Optional<Output<String>> masterBackendRole() {
         return Optional.ofNullable(this.masterBackendRole);
     }
 
-    /**
-     * This username from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
-     * 
-     */
     @Import(name="masterUserName")
     private @Nullable Output<String> masterUserName;
 
-    /**
-     * @return This username from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
-     * 
-     */
     public Optional<Output<String>> masterUserName() {
         return Optional.ofNullable(this.masterUserName);
     }
 
-    /**
-     * Element of the SAML assertion to use for backend roles. Default is roles.
-     * 
-     */
     @Import(name="rolesKey")
     private @Nullable Output<String> rolesKey;
 
-    /**
-     * @return Element of the SAML assertion to use for backend roles. Default is roles.
-     * 
-     */
     public Optional<Output<String>> rolesKey() {
         return Optional.ofNullable(this.rolesKey);
     }
 
-    /**
-     * Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440.
-     * 
-     */
     @Import(name="sessionTimeoutMinutes")
     private @Nullable Output<Integer> sessionTimeoutMinutes;
 
-    /**
-     * @return Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440.
-     * 
-     */
     public Optional<Output<Integer>> sessionTimeoutMinutes() {
         return Optional.ofNullable(this.sessionTimeoutMinutes);
     }
 
-    /**
-     * Custom SAML attribute to use for user names. Default is an empty string - `&#34;&#34;`. This will cause Elasticsearch to use the `NameID` element of the `Subject`, which is the default location for name identifiers in the SAML specification.
-     * 
-     */
     @Import(name="subjectKey")
     private @Nullable Output<String> subjectKey;
 
-    /**
-     * @return Custom SAML attribute to use for user names. Default is an empty string - `&#34;&#34;`. This will cause Elasticsearch to use the `NameID` element of the `Subject`, which is the default location for name identifiers in the SAML specification.
-     * 
-     */
     public Optional<Output<String>> subjectKey() {
         return Optional.ofNullable(this.subjectKey);
     }
@@ -153,149 +97,65 @@ public final class DomainSamlOptionsSamlOptionsArgs extends com.pulumi.resources
             $ = new DomainSamlOptionsSamlOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Whether SAML authentication is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether SAML authentication is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param idp Information from your identity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idp(@Nullable Output<DomainSamlOptionsSamlOptionsIdpArgs> idp) {
             $.idp = idp;
             return this;
         }
 
-        /**
-         * @param idp Information from your identity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idp(DomainSamlOptionsSamlOptionsIdpArgs idp) {
             return idp(Output.of(idp));
         }
 
-        /**
-         * @param masterBackendRole This backend role from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder masterBackendRole(@Nullable Output<String> masterBackendRole) {
             $.masterBackendRole = masterBackendRole;
             return this;
         }
 
-        /**
-         * @param masterBackendRole This backend role from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder masterBackendRole(String masterBackendRole) {
             return masterBackendRole(Output.of(masterBackendRole));
         }
 
-        /**
-         * @param masterUserName This username from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder masterUserName(@Nullable Output<String> masterUserName) {
             $.masterUserName = masterUserName;
             return this;
         }
 
-        /**
-         * @param masterUserName This username from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder masterUserName(String masterUserName) {
             return masterUserName(Output.of(masterUserName));
         }
 
-        /**
-         * @param rolesKey Element of the SAML assertion to use for backend roles. Default is roles.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rolesKey(@Nullable Output<String> rolesKey) {
             $.rolesKey = rolesKey;
             return this;
         }
 
-        /**
-         * @param rolesKey Element of the SAML assertion to use for backend roles. Default is roles.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rolesKey(String rolesKey) {
             return rolesKey(Output.of(rolesKey));
         }
 
-        /**
-         * @param sessionTimeoutMinutes Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sessionTimeoutMinutes(@Nullable Output<Integer> sessionTimeoutMinutes) {
             $.sessionTimeoutMinutes = sessionTimeoutMinutes;
             return this;
         }
 
-        /**
-         * @param sessionTimeoutMinutes Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sessionTimeoutMinutes(Integer sessionTimeoutMinutes) {
             return sessionTimeoutMinutes(Output.of(sessionTimeoutMinutes));
         }
 
-        /**
-         * @param subjectKey Custom SAML attribute to use for user names. Default is an empty string - `&#34;&#34;`. This will cause Elasticsearch to use the `NameID` element of the `Subject`, which is the default location for name identifiers in the SAML specification.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subjectKey(@Nullable Output<String> subjectKey) {
             $.subjectKey = subjectKey;
             return this;
         }
 
-        /**
-         * @param subjectKey Custom SAML attribute to use for user names. Default is an empty string - `&#34;&#34;`. This will cause Elasticsearch to use the `NameID` element of the `Subject`, which is the default location for name identifiers in the SAML specification.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subjectKey(String subjectKey) {
             return subjectKey(Output.of(subjectKey));
         }

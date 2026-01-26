@@ -9,71 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Pinpoint
 {
-    /// <summary>
-    /// Provides a Pinpoint ADM (Amazon Device Messaging) Channel resource.
-    /// 
-    /// &gt; **Note:** All arguments including the Client ID and Client Secret will be stored in the raw state as plain-text.
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var app = new Aws.Pinpoint.App("app");
-    /// 
-    ///     var channel = new Aws.Pinpoint.AdmChannel("channel", new()
-    ///     {
-    ///         ApplicationId = app.ApplicationId,
-    ///         ClientId = "",
-    ///         ClientSecret = "",
-    ///         Enabled = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Pinpoint ADM Channel using the `application-id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:pinpoint/admChannel:AdmChannel channel application-id
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:pinpoint/admChannel:AdmChannel")]
     public partial class AdmChannel : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The application ID.
-        /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
-        /// <summary>
-        /// Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
-        /// </summary>
         [Output("clientId")]
         public Output<string> ClientId { get; private set; } = null!;
 
-        /// <summary>
-        /// Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
-        /// </summary>
         [Output("clientSecret")]
         public Output<string> ClientSecret { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies whether to enable the channel. Defaults to `True`.
-        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -128,18 +78,11 @@ namespace Pulumi.Aws.Pinpoint
 
     public sealed class AdmChannelArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The application ID.
-        /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
         [Input("clientId", required: true)]
         private Input<string>? _clientId;
-
-        /// <summary>
-        /// Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
-        /// </summary>
         public Input<string>? ClientId
         {
             get => _clientId;
@@ -152,10 +95,6 @@ namespace Pulumi.Aws.Pinpoint
 
         [Input("clientSecret", required: true)]
         private Input<string>? _clientSecret;
-
-        /// <summary>
-        /// Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
-        /// </summary>
         public Input<string>? ClientSecret
         {
             get => _clientSecret;
@@ -166,15 +105,9 @@ namespace Pulumi.Aws.Pinpoint
             }
         }
 
-        /// <summary>
-        /// Specifies whether to enable the channel. Defaults to `True`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -186,18 +119,11 @@ namespace Pulumi.Aws.Pinpoint
 
     public sealed class AdmChannelState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The application ID.
-        /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
 
         [Input("clientId")]
         private Input<string>? _clientId;
-
-        /// <summary>
-        /// Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
-        /// </summary>
         public Input<string>? ClientId
         {
             get => _clientId;
@@ -210,10 +136,6 @@ namespace Pulumi.Aws.Pinpoint
 
         [Input("clientSecret")]
         private Input<string>? _clientSecret;
-
-        /// <summary>
-        /// Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
-        /// </summary>
         public Input<string>? ClientSecret
         {
             get => _clientSecret;
@@ -224,15 +146,9 @@ namespace Pulumi.Aws.Pinpoint
             }
         }
 
-        /// <summary>
-        /// Specifies whether to enable the channel. Defaults to `True`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

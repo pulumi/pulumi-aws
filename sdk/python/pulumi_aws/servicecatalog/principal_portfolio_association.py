@@ -26,13 +26,6 @@ class PrincipalPortfolioAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrincipalPortfolioAssociation resource.
-        :param pulumi.Input[_builtins.str] portfolio_id: Portfolio identifier.
-        :param pulumi.Input[_builtins.str] principal_arn: Principal ARN.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        :param pulumi.Input[_builtins.str] principal_type: Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "portfolio_id", portfolio_id)
         pulumi.set(__self__, "principal_arn", principal_arn)
@@ -46,9 +39,6 @@ class PrincipalPortfolioAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="portfolioId")
     def portfolio_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Portfolio identifier.
-        """
         return pulumi.get(self, "portfolio_id")
 
     @portfolio_id.setter
@@ -58,11 +48,6 @@ class PrincipalPortfolioAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="principalArn")
     def principal_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        Principal ARN.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "principal_arn")
 
     @principal_arn.setter
@@ -72,9 +57,6 @@ class PrincipalPortfolioAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
@@ -84,9 +66,6 @@ class PrincipalPortfolioAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="principalType")
     def principal_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
-        """
         return pulumi.get(self, "principal_type")
 
     @principal_type.setter
@@ -96,9 +75,6 @@ class PrincipalPortfolioAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -116,13 +92,6 @@ class _PrincipalPortfolioAssociationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PrincipalPortfolioAssociation resources.
-        :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        :param pulumi.Input[_builtins.str] portfolio_id: Portfolio identifier.
-        :param pulumi.Input[_builtins.str] principal_arn: Principal ARN.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] principal_type: Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if accept_language is not None:
             pulumi.set(__self__, "accept_language", accept_language)
@@ -138,9 +107,6 @@ class _PrincipalPortfolioAssociationState:
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
@@ -150,9 +116,6 @@ class _PrincipalPortfolioAssociationState:
     @_builtins.property
     @pulumi.getter(name="portfolioId")
     def portfolio_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Portfolio identifier.
-        """
         return pulumi.get(self, "portfolio_id")
 
     @portfolio_id.setter
@@ -162,11 +125,6 @@ class _PrincipalPortfolioAssociationState:
     @_builtins.property
     @pulumi.getter(name="principalArn")
     def principal_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Principal ARN.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "principal_arn")
 
     @principal_arn.setter
@@ -176,9 +134,6 @@ class _PrincipalPortfolioAssociationState:
     @_builtins.property
     @pulumi.getter(name="principalType")
     def principal_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
-        """
         return pulumi.get(self, "principal_type")
 
     @principal_type.setter
@@ -188,9 +143,6 @@ class _PrincipalPortfolioAssociationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -211,38 +163,9 @@ class PrincipalPortfolioAssociation(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages a Service Catalog Principal Portfolio Association.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicecatalog.PrincipalPortfolioAssociation("example",
-            portfolio_id="port-68656c6c6f",
-            principal_arn="arn:aws:iam::123456789012:user/Eleanor")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_servicecatalog_principal_portfolio_association` using `accept_language`, `principal_arn`, `portfolio_id`, and `principal_type` separated by a comma. For example:
-
-        ```sh
-        $ pulumi import aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation example en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f,IAM
-        ```
-
+        Create a PrincipalPortfolioAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        :param pulumi.Input[_builtins.str] portfolio_id: Portfolio identifier.
-        :param pulumi.Input[_builtins.str] principal_arn: Principal ARN.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] principal_type: Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -251,29 +174,7 @@ class PrincipalPortfolioAssociation(pulumi.CustomResource):
                  args: PrincipalPortfolioAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Service Catalog Principal Portfolio Association.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicecatalog.PrincipalPortfolioAssociation("example",
-            portfolio_id="port-68656c6c6f",
-            principal_arn="arn:aws:iam::123456789012:user/Eleanor")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_servicecatalog_principal_portfolio_association` using `accept_language`, `principal_arn`, `portfolio_id`, and `principal_type` separated by a comma. For example:
-
-        ```sh
-        $ pulumi import aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation example en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f,IAM
-        ```
-
+        Create a PrincipalPortfolioAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PrincipalPortfolioAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -334,13 +235,6 @@ class PrincipalPortfolioAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        :param pulumi.Input[_builtins.str] portfolio_id: Portfolio identifier.
-        :param pulumi.Input[_builtins.str] principal_arn: Principal ARN.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] principal_type: Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -356,42 +250,25 @@ class PrincipalPortfolioAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        """
         return pulumi.get(self, "accept_language")
 
     @_builtins.property
     @pulumi.getter(name="portfolioId")
     def portfolio_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Portfolio identifier.
-        """
         return pulumi.get(self, "portfolio_id")
 
     @_builtins.property
     @pulumi.getter(name="principalArn")
     def principal_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Principal ARN.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "principal_arn")
 
     @_builtins.property
     @pulumi.getter(name="principalType")
     def principal_type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
-        """
         return pulumi.get(self, "principal_type")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

@@ -52,35 +52,6 @@ class UserPoolArgs:
                  web_authn_configuration: Optional[pulumi.Input['UserPoolWebAuthnConfigurationArgs']] = None):
         """
         The set of arguments for constructing a UserPool resource.
-        :param pulumi.Input['UserPoolAccountRecoverySettingArgs'] account_recovery_setting: Configuration block to define which verified available method a user can use to recover their forgotten password. Detailed below.
-        :param pulumi.Input['UserPoolAdminCreateUserConfigArgs'] admin_create_user_config: Configuration block for creating a new user profile. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alias_attributes: Attributes supported as an alias for this user pool. Valid values: `phone_number`, `email`, or `preferred_username`. Conflicts with `username_attributes`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auto_verified_attributes: Attributes to be auto-verified. Valid values: `email`, `phone_number`.
-        :param pulumi.Input[_builtins.str] deletion_protection: When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
-        :param pulumi.Input['UserPoolDeviceConfigurationArgs'] device_configuration: Configuration block for the user pool's device tracking. Detailed below.
-        :param pulumi.Input['UserPoolEmailConfigurationArgs'] email_configuration: Configuration block for configuring email. Detailed below.
-        :param pulumi.Input['UserPoolEmailMfaConfigurationArgs'] email_mfa_configuration: Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
-        :param pulumi.Input[_builtins.str] email_verification_message: String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
-        :param pulumi.Input[_builtins.str] email_verification_subject: String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
-        :param pulumi.Input['UserPoolLambdaConfigArgs'] lambda_config: Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
-        :param pulumi.Input[_builtins.str] mfa_configuration: Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured).
-        :param pulumi.Input[_builtins.str] name: Name of the user pool.
-        :param pulumi.Input['UserPoolPasswordPolicyArgs'] password_policy: Configuration block for information about the user pool password policy. Detailed below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['UserPoolSchemaArgs']]] schemas: Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
-        :param pulumi.Input['UserPoolSignInPolicyArgs'] sign_in_policy: Configuration block for information about the user pool sign in policy. Detailed below.
-        :param pulumi.Input[_builtins.str] sms_authentication_message: String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
-        :param pulumi.Input['UserPoolSmsConfigurationArgs'] sms_configuration: Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). SMS MFA is activated only when `mfa_configuration` is set to `ON` or `OPTIONAL` along with this block. Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
-        :param pulumi.Input[_builtins.str] sms_verification_message: String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
-        :param pulumi.Input['UserPoolSoftwareTokenMfaConfigurationArgs'] software_token_mfa_configuration: Configuration block for software token Mult-Factor Authentication (MFA) settings. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the User Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['UserPoolUserAttributeUpdateSettingsArgs'] user_attribute_update_settings: Configuration block for user attribute update settings. Detailed below.
-        :param pulumi.Input['UserPoolUserPoolAddOnsArgs'] user_pool_add_ons: Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
-        :param pulumi.Input[_builtins.str] user_pool_tier: The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html), or tier. Valid values: `LITE`, `ESSENTIALS`, `PLUS`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] username_attributes: Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
-        :param pulumi.Input['UserPoolUsernameConfigurationArgs'] username_configuration: Configuration block for username configuration. Detailed below.
-        :param pulumi.Input['UserPoolVerificationMessageTemplateArgs'] verification_message_template: Configuration block for verification message templates. Detailed below.
-        :param pulumi.Input['UserPoolWebAuthnConfigurationArgs'] web_authn_configuration: Configuration block for web authn configuration. Detailed below.
         """
         if account_recovery_setting is not None:
             pulumi.set(__self__, "account_recovery_setting", account_recovery_setting)
@@ -144,9 +115,6 @@ class UserPoolArgs:
     @_builtins.property
     @pulumi.getter(name="accountRecoverySetting")
     def account_recovery_setting(self) -> Optional[pulumi.Input['UserPoolAccountRecoverySettingArgs']]:
-        """
-        Configuration block to define which verified available method a user can use to recover their forgotten password. Detailed below.
-        """
         return pulumi.get(self, "account_recovery_setting")
 
     @account_recovery_setting.setter
@@ -156,9 +124,6 @@ class UserPoolArgs:
     @_builtins.property
     @pulumi.getter(name="adminCreateUserConfig")
     def admin_create_user_config(self) -> Optional[pulumi.Input['UserPoolAdminCreateUserConfigArgs']]:
-        """
-        Configuration block for creating a new user profile. Detailed below.
-        """
         return pulumi.get(self, "admin_create_user_config")
 
     @admin_create_user_config.setter
@@ -168,9 +133,6 @@ class UserPoolArgs:
     @_builtins.property
     @pulumi.getter(name="aliasAttributes")
     def alias_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Attributes supported as an alias for this user pool. Valid values: `phone_number`, `email`, or `preferred_username`. Conflicts with `username_attributes`.
-        """
         return pulumi.get(self, "alias_attributes")
 
     @alias_attributes.setter
@@ -180,9 +142,6 @@ class UserPoolArgs:
     @_builtins.property
     @pulumi.getter(name="autoVerifiedAttributes")
     def auto_verified_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Attributes to be auto-verified. Valid values: `email`, `phone_number`.
-        """
         return pulumi.get(self, "auto_verified_attributes")
 
     @auto_verified_attributes.setter
@@ -192,9 +151,6 @@ class UserPoolArgs:
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
-        """
         return pulumi.get(self, "deletion_protection")
 
     @deletion_protection.setter
@@ -204,9 +160,6 @@ class UserPoolArgs:
     @_builtins.property
     @pulumi.getter(name="deviceConfiguration")
     def device_configuration(self) -> Optional[pulumi.Input['UserPoolDeviceConfigurationArgs']]:
-        """
-        Configuration block for the user pool's device tracking. Detailed below.
-        """
         return pulumi.get(self, "device_configuration")
 
     @device_configuration.setter
@@ -216,9 +169,6 @@ class UserPoolArgs:
     @_builtins.property
     @pulumi.getter(name="emailConfiguration")
     def email_configuration(self) -> Optional[pulumi.Input['UserPoolEmailConfigurationArgs']]:
-        """
-        Configuration block for configuring email. Detailed below.
-        """
         return pulumi.get(self, "email_configuration")
 
     @email_configuration.setter
@@ -228,9 +178,6 @@ class UserPoolArgs:
     @_builtins.property
     @pulumi.getter(name="emailMfaConfiguration")
     def email_mfa_configuration(self) -> Optional[pulumi.Input['UserPoolEmailMfaConfigurationArgs']]:
-        """
-        Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
-        """
         return pulumi.get(self, "email_mfa_configuration")
 
     @email_mfa_configuration.setter
@@ -240,9 +187,6 @@ class UserPoolArgs:
     @_builtins.property
     @pulumi.getter(name="emailVerificationMessage")
     def email_verification_message(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
-        """
         return pulumi.get(self, "email_verification_message")
 
     @email_verification_message.setter
@@ -252,9 +196,6 @@ class UserPoolArgs:
     @_builtins.property
     @pulumi.getter(name="emailVerificationSubject")
     def email_verification_subject(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
-        """
         return pulumi.get(self, "email_verification_subject")
 
     @email_verification_subject.setter
@@ -264,9 +205,6 @@ class UserPoolArgs:
     @_builtins.property
     @pulumi.getter(name="lambdaConfig")
     def lambda_config(self) -> Optional[pulumi.Input['UserPoolLambdaConfigArgs']]:
-        """
-        Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
-        """
         return pulumi.get(self, "lambda_config")
 
     @lambda_config.setter
@@ -276,9 +214,6 @@ class UserPoolArgs:
     @_builtins.property
     @pulumi.getter(name="mfaConfiguration")
     def mfa_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured).
-        """
         return pulumi.get(self, "mfa_configuration")
 
     @mfa_configuration.setter
@@ -288,9 +223,6 @@ class UserPoolArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the user pool.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -300,9 +232,6 @@ class UserPoolArgs:
     @_builtins.property
     @pulumi.getter(name="passwordPolicy")
     def password_policy(self) -> Optional[pulumi.Input['UserPoolPasswordPolicyArgs']]:
-        """
-        Configuration block for information about the user pool password policy. Detailed below.
-        """
         return pulumi.get(self, "password_policy")
 
     @password_policy.setter
@@ -312,9 +241,6 @@ class UserPoolArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -324,9 +250,6 @@ class UserPoolArgs:
     @_builtins.property
     @pulumi.getter
     def schemas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolSchemaArgs']]]]:
-        """
-        Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
-        """
         return pulumi.get(self, "schemas")
 
     @schemas.setter
@@ -336,9 +259,6 @@ class UserPoolArgs:
     @_builtins.property
     @pulumi.getter(name="signInPolicy")
     def sign_in_policy(self) -> Optional[pulumi.Input['UserPoolSignInPolicyArgs']]:
-        """
-        Configuration block for information about the user pool sign in policy. Detailed below.
-        """
         return pulumi.get(self, "sign_in_policy")
 
     @sign_in_policy.setter
@@ -348,9 +268,6 @@ class UserPoolArgs:
     @_builtins.property
     @pulumi.getter(name="smsAuthenticationMessage")
     def sms_authentication_message(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
-        """
         return pulumi.get(self, "sms_authentication_message")
 
     @sms_authentication_message.setter
@@ -360,9 +277,6 @@ class UserPoolArgs:
     @_builtins.property
     @pulumi.getter(name="smsConfiguration")
     def sms_configuration(self) -> Optional[pulumi.Input['UserPoolSmsConfigurationArgs']]:
-        """
-        Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). SMS MFA is activated only when `mfa_configuration` is set to `ON` or `OPTIONAL` along with this block. Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
-        """
         return pulumi.get(self, "sms_configuration")
 
     @sms_configuration.setter
@@ -372,9 +286,6 @@ class UserPoolArgs:
     @_builtins.property
     @pulumi.getter(name="smsVerificationMessage")
     def sms_verification_message(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
-        """
         return pulumi.get(self, "sms_verification_message")
 
     @sms_verification_message.setter
@@ -384,9 +295,6 @@ class UserPoolArgs:
     @_builtins.property
     @pulumi.getter(name="softwareTokenMfaConfiguration")
     def software_token_mfa_configuration(self) -> Optional[pulumi.Input['UserPoolSoftwareTokenMfaConfigurationArgs']]:
-        """
-        Configuration block for software token Mult-Factor Authentication (MFA) settings. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
-        """
         return pulumi.get(self, "software_token_mfa_configuration")
 
     @software_token_mfa_configuration.setter
@@ -396,9 +304,6 @@ class UserPoolArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the User Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -408,9 +313,6 @@ class UserPoolArgs:
     @_builtins.property
     @pulumi.getter(name="userAttributeUpdateSettings")
     def user_attribute_update_settings(self) -> Optional[pulumi.Input['UserPoolUserAttributeUpdateSettingsArgs']]:
-        """
-        Configuration block for user attribute update settings. Detailed below.
-        """
         return pulumi.get(self, "user_attribute_update_settings")
 
     @user_attribute_update_settings.setter
@@ -420,9 +322,6 @@ class UserPoolArgs:
     @_builtins.property
     @pulumi.getter(name="userPoolAddOns")
     def user_pool_add_ons(self) -> Optional[pulumi.Input['UserPoolUserPoolAddOnsArgs']]:
-        """
-        Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
-        """
         return pulumi.get(self, "user_pool_add_ons")
 
     @user_pool_add_ons.setter
@@ -432,9 +331,6 @@ class UserPoolArgs:
     @_builtins.property
     @pulumi.getter(name="userPoolTier")
     def user_pool_tier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html), or tier. Valid values: `LITE`, `ESSENTIALS`, `PLUS`.
-        """
         return pulumi.get(self, "user_pool_tier")
 
     @user_pool_tier.setter
@@ -444,9 +340,6 @@ class UserPoolArgs:
     @_builtins.property
     @pulumi.getter(name="usernameAttributes")
     def username_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
-        """
         return pulumi.get(self, "username_attributes")
 
     @username_attributes.setter
@@ -456,9 +349,6 @@ class UserPoolArgs:
     @_builtins.property
     @pulumi.getter(name="usernameConfiguration")
     def username_configuration(self) -> Optional[pulumi.Input['UserPoolUsernameConfigurationArgs']]:
-        """
-        Configuration block for username configuration. Detailed below.
-        """
         return pulumi.get(self, "username_configuration")
 
     @username_configuration.setter
@@ -468,9 +358,6 @@ class UserPoolArgs:
     @_builtins.property
     @pulumi.getter(name="verificationMessageTemplate")
     def verification_message_template(self) -> Optional[pulumi.Input['UserPoolVerificationMessageTemplateArgs']]:
-        """
-        Configuration block for verification message templates. Detailed below.
-        """
         return pulumi.get(self, "verification_message_template")
 
     @verification_message_template.setter
@@ -480,9 +367,6 @@ class UserPoolArgs:
     @_builtins.property
     @pulumi.getter(name="webAuthnConfiguration")
     def web_authn_configuration(self) -> Optional[pulumi.Input['UserPoolWebAuthnConfigurationArgs']]:
-        """
-        Configuration block for web authn configuration. Detailed below.
-        """
         return pulumi.get(self, "web_authn_configuration")
 
     @web_authn_configuration.setter
@@ -532,43 +416,6 @@ class _UserPoolState:
                  web_authn_configuration: Optional[pulumi.Input['UserPoolWebAuthnConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering UserPool resources.
-        :param pulumi.Input['UserPoolAccountRecoverySettingArgs'] account_recovery_setting: Configuration block to define which verified available method a user can use to recover their forgotten password. Detailed below.
-        :param pulumi.Input['UserPoolAdminCreateUserConfigArgs'] admin_create_user_config: Configuration block for creating a new user profile. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alias_attributes: Attributes supported as an alias for this user pool. Valid values: `phone_number`, `email`, or `preferred_username`. Conflicts with `username_attributes`.
-        :param pulumi.Input[_builtins.str] arn: ARN of the user pool.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auto_verified_attributes: Attributes to be auto-verified. Valid values: `email`, `phone_number`.
-        :param pulumi.Input[_builtins.str] creation_date: Date the user pool was created.
-        :param pulumi.Input[_builtins.str] custom_domain: A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: `auth.example.com`.
-        :param pulumi.Input[_builtins.str] deletion_protection: When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
-        :param pulumi.Input['UserPoolDeviceConfigurationArgs'] device_configuration: Configuration block for the user pool's device tracking. Detailed below.
-        :param pulumi.Input[_builtins.str] domain: Holds the domain prefix if the user pool has a domain associated with it.
-        :param pulumi.Input['UserPoolEmailConfigurationArgs'] email_configuration: Configuration block for configuring email. Detailed below.
-        :param pulumi.Input['UserPoolEmailMfaConfigurationArgs'] email_mfa_configuration: Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
-        :param pulumi.Input[_builtins.str] email_verification_message: String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
-        :param pulumi.Input[_builtins.str] email_verification_subject: String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
-        :param pulumi.Input[_builtins.str] endpoint: Endpoint name of the user pool. Example format: `cognito-idp.REGION.amazonaws.com/xxxx_yyyyy`
-        :param pulumi.Input[_builtins.int] estimated_number_of_users: A number estimating the size of the user pool.
-        :param pulumi.Input['UserPoolLambdaConfigArgs'] lambda_config: Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
-        :param pulumi.Input[_builtins.str] last_modified_date: Date the user pool was last modified.
-        :param pulumi.Input[_builtins.str] mfa_configuration: Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured).
-        :param pulumi.Input[_builtins.str] name: Name of the user pool.
-        :param pulumi.Input['UserPoolPasswordPolicyArgs'] password_policy: Configuration block for information about the user pool password policy. Detailed below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['UserPoolSchemaArgs']]] schemas: Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
-        :param pulumi.Input['UserPoolSignInPolicyArgs'] sign_in_policy: Configuration block for information about the user pool sign in policy. Detailed below.
-        :param pulumi.Input[_builtins.str] sms_authentication_message: String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
-        :param pulumi.Input['UserPoolSmsConfigurationArgs'] sms_configuration: Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). SMS MFA is activated only when `mfa_configuration` is set to `ON` or `OPTIONAL` along with this block. Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
-        :param pulumi.Input[_builtins.str] sms_verification_message: String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
-        :param pulumi.Input['UserPoolSoftwareTokenMfaConfigurationArgs'] software_token_mfa_configuration: Configuration block for software token Mult-Factor Authentication (MFA) settings. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the User Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['UserPoolUserAttributeUpdateSettingsArgs'] user_attribute_update_settings: Configuration block for user attribute update settings. Detailed below.
-        :param pulumi.Input['UserPoolUserPoolAddOnsArgs'] user_pool_add_ons: Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
-        :param pulumi.Input[_builtins.str] user_pool_tier: The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html), or tier. Valid values: `LITE`, `ESSENTIALS`, `PLUS`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] username_attributes: Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
-        :param pulumi.Input['UserPoolUsernameConfigurationArgs'] username_configuration: Configuration block for username configuration. Detailed below.
-        :param pulumi.Input['UserPoolVerificationMessageTemplateArgs'] verification_message_template: Configuration block for verification message templates. Detailed below.
-        :param pulumi.Input['UserPoolWebAuthnConfigurationArgs'] web_authn_configuration: Configuration block for web authn configuration. Detailed below.
         """
         if account_recovery_setting is not None:
             pulumi.set(__self__, "account_recovery_setting", account_recovery_setting)
@@ -648,9 +495,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter(name="accountRecoverySetting")
     def account_recovery_setting(self) -> Optional[pulumi.Input['UserPoolAccountRecoverySettingArgs']]:
-        """
-        Configuration block to define which verified available method a user can use to recover their forgotten password. Detailed below.
-        """
         return pulumi.get(self, "account_recovery_setting")
 
     @account_recovery_setting.setter
@@ -660,9 +504,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter(name="adminCreateUserConfig")
     def admin_create_user_config(self) -> Optional[pulumi.Input['UserPoolAdminCreateUserConfigArgs']]:
-        """
-        Configuration block for creating a new user profile. Detailed below.
-        """
         return pulumi.get(self, "admin_create_user_config")
 
     @admin_create_user_config.setter
@@ -672,9 +513,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter(name="aliasAttributes")
     def alias_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Attributes supported as an alias for this user pool. Valid values: `phone_number`, `email`, or `preferred_username`. Conflicts with `username_attributes`.
-        """
         return pulumi.get(self, "alias_attributes")
 
     @alias_attributes.setter
@@ -684,9 +522,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the user pool.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -696,9 +531,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter(name="autoVerifiedAttributes")
     def auto_verified_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Attributes to be auto-verified. Valid values: `email`, `phone_number`.
-        """
         return pulumi.get(self, "auto_verified_attributes")
 
     @auto_verified_attributes.setter
@@ -708,9 +540,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date the user pool was created.
-        """
         return pulumi.get(self, "creation_date")
 
     @creation_date.setter
@@ -720,9 +549,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter(name="customDomain")
     def custom_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: `auth.example.com`.
-        """
         return pulumi.get(self, "custom_domain")
 
     @custom_domain.setter
@@ -732,9 +558,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
-        """
         return pulumi.get(self, "deletion_protection")
 
     @deletion_protection.setter
@@ -744,9 +567,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter(name="deviceConfiguration")
     def device_configuration(self) -> Optional[pulumi.Input['UserPoolDeviceConfigurationArgs']]:
-        """
-        Configuration block for the user pool's device tracking. Detailed below.
-        """
         return pulumi.get(self, "device_configuration")
 
     @device_configuration.setter
@@ -756,9 +576,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter
     def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Holds the domain prefix if the user pool has a domain associated with it.
-        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -768,9 +585,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter(name="emailConfiguration")
     def email_configuration(self) -> Optional[pulumi.Input['UserPoolEmailConfigurationArgs']]:
-        """
-        Configuration block for configuring email. Detailed below.
-        """
         return pulumi.get(self, "email_configuration")
 
     @email_configuration.setter
@@ -780,9 +594,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter(name="emailMfaConfiguration")
     def email_mfa_configuration(self) -> Optional[pulumi.Input['UserPoolEmailMfaConfigurationArgs']]:
-        """
-        Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
-        """
         return pulumi.get(self, "email_mfa_configuration")
 
     @email_mfa_configuration.setter
@@ -792,9 +603,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter(name="emailVerificationMessage")
     def email_verification_message(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
-        """
         return pulumi.get(self, "email_verification_message")
 
     @email_verification_message.setter
@@ -804,9 +612,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter(name="emailVerificationSubject")
     def email_verification_subject(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
-        """
         return pulumi.get(self, "email_verification_subject")
 
     @email_verification_subject.setter
@@ -816,9 +621,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Endpoint name of the user pool. Example format: `cognito-idp.REGION.amazonaws.com/xxxx_yyyyy`
-        """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
@@ -828,9 +630,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter(name="estimatedNumberOfUsers")
     def estimated_number_of_users(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        A number estimating the size of the user pool.
-        """
         return pulumi.get(self, "estimated_number_of_users")
 
     @estimated_number_of_users.setter
@@ -840,9 +639,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter(name="lambdaConfig")
     def lambda_config(self) -> Optional[pulumi.Input['UserPoolLambdaConfigArgs']]:
-        """
-        Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
-        """
         return pulumi.get(self, "lambda_config")
 
     @lambda_config.setter
@@ -852,9 +648,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter(name="lastModifiedDate")
     def last_modified_date(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date the user pool was last modified.
-        """
         return pulumi.get(self, "last_modified_date")
 
     @last_modified_date.setter
@@ -864,9 +657,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter(name="mfaConfiguration")
     def mfa_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured).
-        """
         return pulumi.get(self, "mfa_configuration")
 
     @mfa_configuration.setter
@@ -876,9 +666,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the user pool.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -888,9 +675,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter(name="passwordPolicy")
     def password_policy(self) -> Optional[pulumi.Input['UserPoolPasswordPolicyArgs']]:
-        """
-        Configuration block for information about the user pool password policy. Detailed below.
-        """
         return pulumi.get(self, "password_policy")
 
     @password_policy.setter
@@ -900,9 +684,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -912,9 +693,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter
     def schemas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolSchemaArgs']]]]:
-        """
-        Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
-        """
         return pulumi.get(self, "schemas")
 
     @schemas.setter
@@ -924,9 +702,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter(name="signInPolicy")
     def sign_in_policy(self) -> Optional[pulumi.Input['UserPoolSignInPolicyArgs']]:
-        """
-        Configuration block for information about the user pool sign in policy. Detailed below.
-        """
         return pulumi.get(self, "sign_in_policy")
 
     @sign_in_policy.setter
@@ -936,9 +711,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter(name="smsAuthenticationMessage")
     def sms_authentication_message(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
-        """
         return pulumi.get(self, "sms_authentication_message")
 
     @sms_authentication_message.setter
@@ -948,9 +720,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter(name="smsConfiguration")
     def sms_configuration(self) -> Optional[pulumi.Input['UserPoolSmsConfigurationArgs']]:
-        """
-        Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). SMS MFA is activated only when `mfa_configuration` is set to `ON` or `OPTIONAL` along with this block. Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
-        """
         return pulumi.get(self, "sms_configuration")
 
     @sms_configuration.setter
@@ -960,9 +729,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter(name="smsVerificationMessage")
     def sms_verification_message(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
-        """
         return pulumi.get(self, "sms_verification_message")
 
     @sms_verification_message.setter
@@ -972,9 +738,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter(name="softwareTokenMfaConfiguration")
     def software_token_mfa_configuration(self) -> Optional[pulumi.Input['UserPoolSoftwareTokenMfaConfigurationArgs']]:
-        """
-        Configuration block for software token Mult-Factor Authentication (MFA) settings. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
-        """
         return pulumi.get(self, "software_token_mfa_configuration")
 
     @software_token_mfa_configuration.setter
@@ -984,9 +747,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the User Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -996,9 +756,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -1008,9 +765,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter(name="userAttributeUpdateSettings")
     def user_attribute_update_settings(self) -> Optional[pulumi.Input['UserPoolUserAttributeUpdateSettingsArgs']]:
-        """
-        Configuration block for user attribute update settings. Detailed below.
-        """
         return pulumi.get(self, "user_attribute_update_settings")
 
     @user_attribute_update_settings.setter
@@ -1020,9 +774,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter(name="userPoolAddOns")
     def user_pool_add_ons(self) -> Optional[pulumi.Input['UserPoolUserPoolAddOnsArgs']]:
-        """
-        Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
-        """
         return pulumi.get(self, "user_pool_add_ons")
 
     @user_pool_add_ons.setter
@@ -1032,9 +783,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter(name="userPoolTier")
     def user_pool_tier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html), or tier. Valid values: `LITE`, `ESSENTIALS`, `PLUS`.
-        """
         return pulumi.get(self, "user_pool_tier")
 
     @user_pool_tier.setter
@@ -1044,9 +792,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter(name="usernameAttributes")
     def username_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
-        """
         return pulumi.get(self, "username_attributes")
 
     @username_attributes.setter
@@ -1056,9 +801,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter(name="usernameConfiguration")
     def username_configuration(self) -> Optional[pulumi.Input['UserPoolUsernameConfigurationArgs']]:
-        """
-        Configuration block for username configuration. Detailed below.
-        """
         return pulumi.get(self, "username_configuration")
 
     @username_configuration.setter
@@ -1068,9 +810,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter(name="verificationMessageTemplate")
     def verification_message_template(self) -> Optional[pulumi.Input['UserPoolVerificationMessageTemplateArgs']]:
-        """
-        Configuration block for verification message templates. Detailed below.
-        """
         return pulumi.get(self, "verification_message_template")
 
     @verification_message_template.setter
@@ -1080,9 +819,6 @@ class _UserPoolState:
     @_builtins.property
     @pulumi.getter(name="webAuthnConfiguration")
     def web_authn_configuration(self) -> Optional[pulumi.Input['UserPoolWebAuthnConfigurationArgs']]:
-        """
-        Configuration block for web authn configuration. Detailed below.
-        """
         return pulumi.get(self, "web_authn_configuration")
 
     @web_authn_configuration.setter
@@ -1127,99 +863,9 @@ class UserPool(pulumi.CustomResource):
                  web_authn_configuration: Optional[pulumi.Input[Union['UserPoolWebAuthnConfigurationArgs', 'UserPoolWebAuthnConfigurationArgsDict']]] = None,
                  __props__=None):
         """
-        Provides a Cognito User Pool resource.
-
-        ## Example Usage
-
-        ### Basic configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        pool = aws.cognito.UserPool("pool", name="mypool")
-        ```
-
-        ### Enabling SMS and Software Token Multi-Factor Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cognito.UserPool("example",
-            mfa_configuration="ON",
-            sms_authentication_message="Your code is {####}",
-            sms_configuration={
-                "external_id": "example",
-                "sns_caller_arn": example_aws_iam_role["arn"],
-                "sns_region": "us-east-1",
-            },
-            software_token_mfa_configuration={
-                "enabled": True,
-            })
-        ```
-
-        ### Using Account Recovery Setting
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.cognito.UserPool("test",
-            name="mypool",
-            account_recovery_setting={
-                "recovery_mechanisms": [
-                    {
-                        "name": "verified_email",
-                        "priority": 1,
-                    },
-                    {
-                        "name": "verified_phone_number",
-                        "priority": 2,
-                    },
-                ],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Cognito User Pools using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
-        ```
-
+        Create a UserPool resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['UserPoolAccountRecoverySettingArgs', 'UserPoolAccountRecoverySettingArgsDict']] account_recovery_setting: Configuration block to define which verified available method a user can use to recover their forgotten password. Detailed below.
-        :param pulumi.Input[Union['UserPoolAdminCreateUserConfigArgs', 'UserPoolAdminCreateUserConfigArgsDict']] admin_create_user_config: Configuration block for creating a new user profile. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alias_attributes: Attributes supported as an alias for this user pool. Valid values: `phone_number`, `email`, or `preferred_username`. Conflicts with `username_attributes`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auto_verified_attributes: Attributes to be auto-verified. Valid values: `email`, `phone_number`.
-        :param pulumi.Input[_builtins.str] deletion_protection: When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
-        :param pulumi.Input[Union['UserPoolDeviceConfigurationArgs', 'UserPoolDeviceConfigurationArgsDict']] device_configuration: Configuration block for the user pool's device tracking. Detailed below.
-        :param pulumi.Input[Union['UserPoolEmailConfigurationArgs', 'UserPoolEmailConfigurationArgsDict']] email_configuration: Configuration block for configuring email. Detailed below.
-        :param pulumi.Input[Union['UserPoolEmailMfaConfigurationArgs', 'UserPoolEmailMfaConfigurationArgsDict']] email_mfa_configuration: Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
-        :param pulumi.Input[_builtins.str] email_verification_message: String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
-        :param pulumi.Input[_builtins.str] email_verification_subject: String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
-        :param pulumi.Input[Union['UserPoolLambdaConfigArgs', 'UserPoolLambdaConfigArgsDict']] lambda_config: Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
-        :param pulumi.Input[_builtins.str] mfa_configuration: Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured).
-        :param pulumi.Input[_builtins.str] name: Name of the user pool.
-        :param pulumi.Input[Union['UserPoolPasswordPolicyArgs', 'UserPoolPasswordPolicyArgsDict']] password_policy: Configuration block for information about the user pool password policy. Detailed below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['UserPoolSchemaArgs', 'UserPoolSchemaArgsDict']]]] schemas: Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
-        :param pulumi.Input[Union['UserPoolSignInPolicyArgs', 'UserPoolSignInPolicyArgsDict']] sign_in_policy: Configuration block for information about the user pool sign in policy. Detailed below.
-        :param pulumi.Input[_builtins.str] sms_authentication_message: String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
-        :param pulumi.Input[Union['UserPoolSmsConfigurationArgs', 'UserPoolSmsConfigurationArgsDict']] sms_configuration: Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). SMS MFA is activated only when `mfa_configuration` is set to `ON` or `OPTIONAL` along with this block. Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
-        :param pulumi.Input[_builtins.str] sms_verification_message: String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
-        :param pulumi.Input[Union['UserPoolSoftwareTokenMfaConfigurationArgs', 'UserPoolSoftwareTokenMfaConfigurationArgsDict']] software_token_mfa_configuration: Configuration block for software token Mult-Factor Authentication (MFA) settings. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the User Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['UserPoolUserAttributeUpdateSettingsArgs', 'UserPoolUserAttributeUpdateSettingsArgsDict']] user_attribute_update_settings: Configuration block for user attribute update settings. Detailed below.
-        :param pulumi.Input[Union['UserPoolUserPoolAddOnsArgs', 'UserPoolUserPoolAddOnsArgsDict']] user_pool_add_ons: Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
-        :param pulumi.Input[_builtins.str] user_pool_tier: The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html), or tier. Valid values: `LITE`, `ESSENTIALS`, `PLUS`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] username_attributes: Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
-        :param pulumi.Input[Union['UserPoolUsernameConfigurationArgs', 'UserPoolUsernameConfigurationArgsDict']] username_configuration: Configuration block for username configuration. Detailed below.
-        :param pulumi.Input[Union['UserPoolVerificationMessageTemplateArgs', 'UserPoolVerificationMessageTemplateArgsDict']] verification_message_template: Configuration block for verification message templates. Detailed below.
-        :param pulumi.Input[Union['UserPoolWebAuthnConfigurationArgs', 'UserPoolWebAuthnConfigurationArgsDict']] web_authn_configuration: Configuration block for web authn configuration. Detailed below.
         """
         ...
     @overload
@@ -1228,68 +874,7 @@ class UserPool(pulumi.CustomResource):
                  args: Optional[UserPoolArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Cognito User Pool resource.
-
-        ## Example Usage
-
-        ### Basic configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        pool = aws.cognito.UserPool("pool", name="mypool")
-        ```
-
-        ### Enabling SMS and Software Token Multi-Factor Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cognito.UserPool("example",
-            mfa_configuration="ON",
-            sms_authentication_message="Your code is {####}",
-            sms_configuration={
-                "external_id": "example",
-                "sns_caller_arn": example_aws_iam_role["arn"],
-                "sns_region": "us-east-1",
-            },
-            software_token_mfa_configuration={
-                "enabled": True,
-            })
-        ```
-
-        ### Using Account Recovery Setting
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.cognito.UserPool("test",
-            name="mypool",
-            account_recovery_setting={
-                "recovery_mechanisms": [
-                    {
-                        "name": "verified_email",
-                        "priority": 1,
-                    },
-                    {
-                        "name": "verified_phone_number",
-                        "priority": 2,
-                    },
-                ],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Cognito User Pools using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
-        ```
-
+        Create a UserPool resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UserPoolArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1434,43 +1019,6 @@ class UserPool(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['UserPoolAccountRecoverySettingArgs', 'UserPoolAccountRecoverySettingArgsDict']] account_recovery_setting: Configuration block to define which verified available method a user can use to recover their forgotten password. Detailed below.
-        :param pulumi.Input[Union['UserPoolAdminCreateUserConfigArgs', 'UserPoolAdminCreateUserConfigArgsDict']] admin_create_user_config: Configuration block for creating a new user profile. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alias_attributes: Attributes supported as an alias for this user pool. Valid values: `phone_number`, `email`, or `preferred_username`. Conflicts with `username_attributes`.
-        :param pulumi.Input[_builtins.str] arn: ARN of the user pool.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auto_verified_attributes: Attributes to be auto-verified. Valid values: `email`, `phone_number`.
-        :param pulumi.Input[_builtins.str] creation_date: Date the user pool was created.
-        :param pulumi.Input[_builtins.str] custom_domain: A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: `auth.example.com`.
-        :param pulumi.Input[_builtins.str] deletion_protection: When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
-        :param pulumi.Input[Union['UserPoolDeviceConfigurationArgs', 'UserPoolDeviceConfigurationArgsDict']] device_configuration: Configuration block for the user pool's device tracking. Detailed below.
-        :param pulumi.Input[_builtins.str] domain: Holds the domain prefix if the user pool has a domain associated with it.
-        :param pulumi.Input[Union['UserPoolEmailConfigurationArgs', 'UserPoolEmailConfigurationArgsDict']] email_configuration: Configuration block for configuring email. Detailed below.
-        :param pulumi.Input[Union['UserPoolEmailMfaConfigurationArgs', 'UserPoolEmailMfaConfigurationArgsDict']] email_mfa_configuration: Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
-        :param pulumi.Input[_builtins.str] email_verification_message: String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
-        :param pulumi.Input[_builtins.str] email_verification_subject: String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
-        :param pulumi.Input[_builtins.str] endpoint: Endpoint name of the user pool. Example format: `cognito-idp.REGION.amazonaws.com/xxxx_yyyyy`
-        :param pulumi.Input[_builtins.int] estimated_number_of_users: A number estimating the size of the user pool.
-        :param pulumi.Input[Union['UserPoolLambdaConfigArgs', 'UserPoolLambdaConfigArgsDict']] lambda_config: Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
-        :param pulumi.Input[_builtins.str] last_modified_date: Date the user pool was last modified.
-        :param pulumi.Input[_builtins.str] mfa_configuration: Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured).
-        :param pulumi.Input[_builtins.str] name: Name of the user pool.
-        :param pulumi.Input[Union['UserPoolPasswordPolicyArgs', 'UserPoolPasswordPolicyArgsDict']] password_policy: Configuration block for information about the user pool password policy. Detailed below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['UserPoolSchemaArgs', 'UserPoolSchemaArgsDict']]]] schemas: Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
-        :param pulumi.Input[Union['UserPoolSignInPolicyArgs', 'UserPoolSignInPolicyArgsDict']] sign_in_policy: Configuration block for information about the user pool sign in policy. Detailed below.
-        :param pulumi.Input[_builtins.str] sms_authentication_message: String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
-        :param pulumi.Input[Union['UserPoolSmsConfigurationArgs', 'UserPoolSmsConfigurationArgsDict']] sms_configuration: Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). SMS MFA is activated only when `mfa_configuration` is set to `ON` or `OPTIONAL` along with this block. Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
-        :param pulumi.Input[_builtins.str] sms_verification_message: String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
-        :param pulumi.Input[Union['UserPoolSoftwareTokenMfaConfigurationArgs', 'UserPoolSoftwareTokenMfaConfigurationArgsDict']] software_token_mfa_configuration: Configuration block for software token Mult-Factor Authentication (MFA) settings. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the User Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['UserPoolUserAttributeUpdateSettingsArgs', 'UserPoolUserAttributeUpdateSettingsArgsDict']] user_attribute_update_settings: Configuration block for user attribute update settings. Detailed below.
-        :param pulumi.Input[Union['UserPoolUserPoolAddOnsArgs', 'UserPoolUserPoolAddOnsArgsDict']] user_pool_add_ons: Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
-        :param pulumi.Input[_builtins.str] user_pool_tier: The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html), or tier. Valid values: `LITE`, `ESSENTIALS`, `PLUS`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] username_attributes: Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
-        :param pulumi.Input[Union['UserPoolUsernameConfigurationArgs', 'UserPoolUsernameConfigurationArgsDict']] username_configuration: Configuration block for username configuration. Detailed below.
-        :param pulumi.Input[Union['UserPoolVerificationMessageTemplateArgs', 'UserPoolVerificationMessageTemplateArgsDict']] verification_message_template: Configuration block for verification message templates. Detailed below.
-        :param pulumi.Input[Union['UserPoolWebAuthnConfigurationArgs', 'UserPoolWebAuthnConfigurationArgsDict']] web_authn_configuration: Configuration block for web authn configuration. Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1518,296 +1066,185 @@ class UserPool(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accountRecoverySetting")
     def account_recovery_setting(self) -> pulumi.Output[Optional['outputs.UserPoolAccountRecoverySetting']]:
-        """
-        Configuration block to define which verified available method a user can use to recover their forgotten password. Detailed below.
-        """
         return pulumi.get(self, "account_recovery_setting")
 
     @_builtins.property
     @pulumi.getter(name="adminCreateUserConfig")
     def admin_create_user_config(self) -> pulumi.Output['outputs.UserPoolAdminCreateUserConfig']:
-        """
-        Configuration block for creating a new user profile. Detailed below.
-        """
         return pulumi.get(self, "admin_create_user_config")
 
     @_builtins.property
     @pulumi.getter(name="aliasAttributes")
     def alias_attributes(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        Attributes supported as an alias for this user pool. Valid values: `phone_number`, `email`, or `preferred_username`. Conflicts with `username_attributes`.
-        """
         return pulumi.get(self, "alias_attributes")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the user pool.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="autoVerifiedAttributes")
     def auto_verified_attributes(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        Attributes to be auto-verified. Valid values: `email`, `phone_number`.
-        """
         return pulumi.get(self, "auto_verified_attributes")
 
     @_builtins.property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> pulumi.Output[_builtins.str]:
-        """
-        Date the user pool was created.
-        """
         return pulumi.get(self, "creation_date")
 
     @_builtins.property
     @pulumi.getter(name="customDomain")
     def custom_domain(self) -> pulumi.Output[_builtins.str]:
-        """
-        A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: `auth.example.com`.
-        """
         return pulumi.get(self, "custom_domain")
 
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
-        """
         return pulumi.get(self, "deletion_protection")
 
     @_builtins.property
     @pulumi.getter(name="deviceConfiguration")
     def device_configuration(self) -> pulumi.Output[Optional['outputs.UserPoolDeviceConfiguration']]:
-        """
-        Configuration block for the user pool's device tracking. Detailed below.
-        """
         return pulumi.get(self, "device_configuration")
 
     @_builtins.property
     @pulumi.getter
     def domain(self) -> pulumi.Output[_builtins.str]:
-        """
-        Holds the domain prefix if the user pool has a domain associated with it.
-        """
         return pulumi.get(self, "domain")
 
     @_builtins.property
     @pulumi.getter(name="emailConfiguration")
     def email_configuration(self) -> pulumi.Output[Optional['outputs.UserPoolEmailConfiguration']]:
-        """
-        Configuration block for configuring email. Detailed below.
-        """
         return pulumi.get(self, "email_configuration")
 
     @_builtins.property
     @pulumi.getter(name="emailMfaConfiguration")
     def email_mfa_configuration(self) -> pulumi.Output[Optional['outputs.UserPoolEmailMfaConfiguration']]:
-        """
-        Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
-        """
         return pulumi.get(self, "email_mfa_configuration")
 
     @_builtins.property
     @pulumi.getter(name="emailVerificationMessage")
     def email_verification_message(self) -> pulumi.Output[_builtins.str]:
-        """
-        String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
-        """
         return pulumi.get(self, "email_verification_message")
 
     @_builtins.property
     @pulumi.getter(name="emailVerificationSubject")
     def email_verification_subject(self) -> pulumi.Output[_builtins.str]:
-        """
-        String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
-        """
         return pulumi.get(self, "email_verification_subject")
 
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[_builtins.str]:
-        """
-        Endpoint name of the user pool. Example format: `cognito-idp.REGION.amazonaws.com/xxxx_yyyyy`
-        """
         return pulumi.get(self, "endpoint")
 
     @_builtins.property
     @pulumi.getter(name="estimatedNumberOfUsers")
     def estimated_number_of_users(self) -> pulumi.Output[_builtins.int]:
-        """
-        A number estimating the size of the user pool.
-        """
         return pulumi.get(self, "estimated_number_of_users")
 
     @_builtins.property
     @pulumi.getter(name="lambdaConfig")
     def lambda_config(self) -> pulumi.Output[Optional['outputs.UserPoolLambdaConfig']]:
-        """
-        Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
-        """
         return pulumi.get(self, "lambda_config")
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedDate")
     def last_modified_date(self) -> pulumi.Output[_builtins.str]:
-        """
-        Date the user pool was last modified.
-        """
         return pulumi.get(self, "last_modified_date")
 
     @_builtins.property
     @pulumi.getter(name="mfaConfiguration")
     def mfa_configuration(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured).
-        """
         return pulumi.get(self, "mfa_configuration")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the user pool.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="passwordPolicy")
     def password_policy(self) -> pulumi.Output['outputs.UserPoolPasswordPolicy']:
-        """
-        Configuration block for information about the user pool password policy. Detailed below.
-        """
         return pulumi.get(self, "password_policy")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def schemas(self) -> pulumi.Output[Optional[Sequence['outputs.UserPoolSchema']]]:
-        """
-        Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
-        """
         return pulumi.get(self, "schemas")
 
     @_builtins.property
     @pulumi.getter(name="signInPolicy")
     def sign_in_policy(self) -> pulumi.Output['outputs.UserPoolSignInPolicy']:
-        """
-        Configuration block for information about the user pool sign in policy. Detailed below.
-        """
         return pulumi.get(self, "sign_in_policy")
 
     @_builtins.property
     @pulumi.getter(name="smsAuthenticationMessage")
     def sms_authentication_message(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
-        """
         return pulumi.get(self, "sms_authentication_message")
 
     @_builtins.property
     @pulumi.getter(name="smsConfiguration")
     def sms_configuration(self) -> pulumi.Output['outputs.UserPoolSmsConfiguration']:
-        """
-        Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). SMS MFA is activated only when `mfa_configuration` is set to `ON` or `OPTIONAL` along with this block. Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
-        """
         return pulumi.get(self, "sms_configuration")
 
     @_builtins.property
     @pulumi.getter(name="smsVerificationMessage")
     def sms_verification_message(self) -> pulumi.Output[_builtins.str]:
-        """
-        String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
-        """
         return pulumi.get(self, "sms_verification_message")
 
     @_builtins.property
     @pulumi.getter(name="softwareTokenMfaConfiguration")
     def software_token_mfa_configuration(self) -> pulumi.Output[Optional['outputs.UserPoolSoftwareTokenMfaConfiguration']]:
-        """
-        Configuration block for software token Mult-Factor Authentication (MFA) settings. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
-        """
         return pulumi.get(self, "software_token_mfa_configuration")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the User Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="userAttributeUpdateSettings")
     def user_attribute_update_settings(self) -> pulumi.Output[Optional['outputs.UserPoolUserAttributeUpdateSettings']]:
-        """
-        Configuration block for user attribute update settings. Detailed below.
-        """
         return pulumi.get(self, "user_attribute_update_settings")
 
     @_builtins.property
     @pulumi.getter(name="userPoolAddOns")
     def user_pool_add_ons(self) -> pulumi.Output[Optional['outputs.UserPoolUserPoolAddOns']]:
-        """
-        Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
-        """
         return pulumi.get(self, "user_pool_add_ons")
 
     @_builtins.property
     @pulumi.getter(name="userPoolTier")
     def user_pool_tier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html), or tier. Valid values: `LITE`, `ESSENTIALS`, `PLUS`.
-        """
         return pulumi.get(self, "user_pool_tier")
 
     @_builtins.property
     @pulumi.getter(name="usernameAttributes")
     def username_attributes(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
-        """
         return pulumi.get(self, "username_attributes")
 
     @_builtins.property
     @pulumi.getter(name="usernameConfiguration")
     def username_configuration(self) -> pulumi.Output['outputs.UserPoolUsernameConfiguration']:
-        """
-        Configuration block for username configuration. Detailed below.
-        """
         return pulumi.get(self, "username_configuration")
 
     @_builtins.property
     @pulumi.getter(name="verificationMessageTemplate")
     def verification_message_template(self) -> pulumi.Output['outputs.UserPoolVerificationMessageTemplate']:
-        """
-        Configuration block for verification message templates. Detailed below.
-        """
         return pulumi.get(self, "verification_message_template")
 
     @_builtins.property
     @pulumi.getter(name="webAuthnConfiguration")
     def web_authn_configuration(self) -> pulumi.Output[Optional['outputs.UserPoolWebAuthnConfiguration']]:
-        """
-        Configuration block for web authn configuration. Detailed below.
-        """
         return pulumi.get(self, "web_authn_configuration")
 

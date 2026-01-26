@@ -11,94 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS Audit Manager Control.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/auditmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := auditmanager.LookupControl(ctx, &auditmanager.LookupControlArgs{
-//				Name: "1. Risk Management",
-//				Type: "Standard",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Framework Resource
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/auditmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := auditmanager.LookupControl(ctx, &auditmanager.LookupControlArgs{
-//				Name: "1. Risk Management",
-//				Type: "Standard",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example2, err := auditmanager.LookupControl(ctx, &auditmanager.LookupControlArgs{
-//				Name: "2. Personnel",
-//				Type: "Standard",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = auditmanager.NewFramework(ctx, "example", &auditmanager.FrameworkArgs{
-//				Name: pulumi.String("example"),
-//				ControlSets: auditmanager.FrameworkControlSetArray{
-//					&auditmanager.FrameworkControlSetArgs{
-//						Name: pulumi.String("example"),
-//						Controls: auditmanager.FrameworkControlSetControlArray{
-//							&auditmanager.FrameworkControlSetControlArgs{
-//								Id: pulumi.String(example.Id),
-//							},
-//						},
-//					},
-//					&auditmanager.FrameworkControlSetArgs{
-//						Name: pulumi.String("example2"),
-//						Controls: auditmanager.FrameworkControlSetControlArray{
-//							&auditmanager.FrameworkControlSetControlArgs{
-//								Id: pulumi.String(example2.Id),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupControl(ctx *pulumi.Context, args *LookupControlArgs, opts ...pulumi.InvokeOption) (*LookupControlResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupControlResult
@@ -111,12 +23,9 @@ func LookupControl(ctx *pulumi.Context, args *LookupControlArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getControl.
 type LookupControlArgs struct {
-	// Name of the control.
-	Name string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   string  `pulumi:"name"`
 	Region *string `pulumi:"region"`
-	// Type of control. Valid values are `Custom` and `Standard`.
-	Type string `pulumi:"type"`
+	Type   string  `pulumi:"type"`
 }
 
 // A collection of values returned by getControl.
@@ -145,12 +54,9 @@ func LookupControlOutput(ctx *pulumi.Context, args LookupControlOutputArgs, opts
 
 // A collection of arguments for invoking getControl.
 type LookupControlOutputArgs struct {
-	// Name of the control.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringInput    `pulumi:"name"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Type of control. Valid values are `Custom` and `Standard`.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type   pulumi.StringInput    `pulumi:"type"`
 }
 
 func (LookupControlOutputArgs) ElementType() reflect.Type {

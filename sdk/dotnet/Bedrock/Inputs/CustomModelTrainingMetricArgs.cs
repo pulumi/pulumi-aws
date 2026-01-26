@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class CustomModelTrainingMetricArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Loss metric associated with the customization job.
-        /// </summary>
         [Input("trainingLoss", required: true)]
         public Input<double> TrainingLoss { get; set; } = null!;
 

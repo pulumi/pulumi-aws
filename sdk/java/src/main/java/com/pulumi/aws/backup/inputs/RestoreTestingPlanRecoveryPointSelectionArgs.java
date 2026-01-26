@@ -18,77 +18,37 @@ public final class RestoreTestingPlanRecoveryPointSelectionArgs extends com.pulu
 
     public static final RestoreTestingPlanRecoveryPointSelectionArgs Empty = new RestoreTestingPlanRecoveryPointSelectionArgs();
 
-    /**
-     * Specifies the algorithm used for selecting recovery points. Valid values are &#34;RANDOM_WITHIN_WINDOW&#34; and &#34;LATEST_WITHIN_WINDOW&#34;.
-     * 
-     */
     @Import(name="algorithm", required=true)
     private Output<String> algorithm;
 
-    /**
-     * @return Specifies the algorithm used for selecting recovery points. Valid values are &#34;RANDOM_WITHIN_WINDOW&#34; and &#34;LATEST_WITHIN_WINDOW&#34;.
-     * 
-     */
     public Output<String> algorithm() {
         return this.algorithm;
     }
 
-    /**
-     * Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or &#34;*&#34; to exclude all backup vaults.
-     * 
-     */
     @Import(name="excludeVaults")
     private @Nullable Output<List<String>> excludeVaults;
 
-    /**
-     * @return Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or &#34;*&#34; to exclude all backup vaults.
-     * 
-     */
     public Optional<Output<List<String>>> excludeVaults() {
         return Optional.ofNullable(this.excludeVaults);
     }
 
-    /**
-     * Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or &#34;*&#34; to include all backup vaults.
-     * 
-     */
     @Import(name="includeVaults", required=true)
     private Output<List<String>> includeVaults;
 
-    /**
-     * @return Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or &#34;*&#34; to include all backup vaults.
-     * 
-     */
     public Output<List<String>> includeVaults() {
         return this.includeVaults;
     }
 
-    /**
-     * Specifies the types of recovery points to include in the selection. Valid values are &#34;CONTINUOUS&#34; and &#34;SNAPSHOT&#34;.
-     * 
-     */
     @Import(name="recoveryPointTypes", required=true)
     private Output<List<String>> recoveryPointTypes;
 
-    /**
-     * @return Specifies the types of recovery points to include in the selection. Valid values are &#34;CONTINUOUS&#34; and &#34;SNAPSHOT&#34;.
-     * 
-     */
     public Output<List<String>> recoveryPointTypes() {
         return this.recoveryPointTypes;
     }
 
-    /**
-     * Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
-     * 
-     */
     @Import(name="selectionWindowDays")
     private @Nullable Output<Integer> selectionWindowDays;
 
-    /**
-     * @return Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
-     * 
-     */
     public Optional<Output<Integer>> selectionWindowDays() {
         return Optional.ofNullable(this.selectionWindowDays);
     }
@@ -121,137 +81,59 @@ public final class RestoreTestingPlanRecoveryPointSelectionArgs extends com.pulu
             $ = new RestoreTestingPlanRecoveryPointSelectionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param algorithm Specifies the algorithm used for selecting recovery points. Valid values are &#34;RANDOM_WITHIN_WINDOW&#34; and &#34;LATEST_WITHIN_WINDOW&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder algorithm(Output<String> algorithm) {
             $.algorithm = algorithm;
             return this;
         }
 
-        /**
-         * @param algorithm Specifies the algorithm used for selecting recovery points. Valid values are &#34;RANDOM_WITHIN_WINDOW&#34; and &#34;LATEST_WITHIN_WINDOW&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder algorithm(String algorithm) {
             return algorithm(Output.of(algorithm));
         }
 
-        /**
-         * @param excludeVaults Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or &#34;*&#34; to exclude all backup vaults.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludeVaults(@Nullable Output<List<String>> excludeVaults) {
             $.excludeVaults = excludeVaults;
             return this;
         }
 
-        /**
-         * @param excludeVaults Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or &#34;*&#34; to exclude all backup vaults.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludeVaults(List<String> excludeVaults) {
             return excludeVaults(Output.of(excludeVaults));
         }
 
-        /**
-         * @param excludeVaults Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or &#34;*&#34; to exclude all backup vaults.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludeVaults(String... excludeVaults) {
             return excludeVaults(List.of(excludeVaults));
         }
 
-        /**
-         * @param includeVaults Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or &#34;*&#34; to include all backup vaults.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeVaults(Output<List<String>> includeVaults) {
             $.includeVaults = includeVaults;
             return this;
         }
 
-        /**
-         * @param includeVaults Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or &#34;*&#34; to include all backup vaults.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeVaults(List<String> includeVaults) {
             return includeVaults(Output.of(includeVaults));
         }
 
-        /**
-         * @param includeVaults Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or &#34;*&#34; to include all backup vaults.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeVaults(String... includeVaults) {
             return includeVaults(List.of(includeVaults));
         }
 
-        /**
-         * @param recoveryPointTypes Specifies the types of recovery points to include in the selection. Valid values are &#34;CONTINUOUS&#34; and &#34;SNAPSHOT&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recoveryPointTypes(Output<List<String>> recoveryPointTypes) {
             $.recoveryPointTypes = recoveryPointTypes;
             return this;
         }
 
-        /**
-         * @param recoveryPointTypes Specifies the types of recovery points to include in the selection. Valid values are &#34;CONTINUOUS&#34; and &#34;SNAPSHOT&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recoveryPointTypes(List<String> recoveryPointTypes) {
             return recoveryPointTypes(Output.of(recoveryPointTypes));
         }
 
-        /**
-         * @param recoveryPointTypes Specifies the types of recovery points to include in the selection. Valid values are &#34;CONTINUOUS&#34; and &#34;SNAPSHOT&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recoveryPointTypes(String... recoveryPointTypes) {
             return recoveryPointTypes(List.of(recoveryPointTypes));
         }
 
-        /**
-         * @param selectionWindowDays Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
-         * 
-         * @return builder
-         * 
-         */
         public Builder selectionWindowDays(@Nullable Output<Integer> selectionWindowDays) {
             $.selectionWindowDays = selectionWindowDays;
             return this;
         }
 
-        /**
-         * @param selectionWindowDays Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
-         * 
-         * @return builder
-         * 
-         */
         public Builder selectionWindowDays(Integer selectionWindowDays) {
             return selectionWindowDays(Output.of(selectionWindowDays));
         }

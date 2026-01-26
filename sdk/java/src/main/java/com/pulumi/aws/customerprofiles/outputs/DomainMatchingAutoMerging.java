@@ -15,44 +15,18 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainMatchingAutoMerging {
-    /**
-     * @return A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
-     * 
-     */
     private @Nullable DomainMatchingAutoMergingConflictResolution conflictResolution;
-    /**
-     * @return A block that specifies a list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged. Documented below.
-     * * ` minAllowedConfidenceScoreForMerging  ` - (Optional) A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
-     * 
-     */
     private @Nullable DomainMatchingAutoMergingConsolidation consolidation;
-    /**
-     * @return The flag that enables the auto-merging of duplicate profiles.
-     * 
-     */
     private Boolean enabled;
     private @Nullable Double minAllowedConfidenceScoreForMerging;
 
     private DomainMatchingAutoMerging() {}
-    /**
-     * @return A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
-     * 
-     */
     public Optional<DomainMatchingAutoMergingConflictResolution> conflictResolution() {
         return Optional.ofNullable(this.conflictResolution);
     }
-    /**
-     * @return A block that specifies a list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged. Documented below.
-     * * ` minAllowedConfidenceScoreForMerging  ` - (Optional) A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
-     * 
-     */
     public Optional<DomainMatchingAutoMergingConsolidation> consolidation() {
         return Optional.ofNullable(this.consolidation);
     }
-    /**
-     * @return The flag that enables the auto-merging of duplicate profiles.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }

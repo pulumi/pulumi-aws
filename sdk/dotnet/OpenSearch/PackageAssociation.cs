@@ -9,72 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.OpenSearch
 {
-    /// <summary>
-    /// Manages an AWS Opensearch Package Association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var myDomain = new Aws.OpenSearch.Domain("my_domain", new()
-    ///     {
-    ///         DomainName = "my-opensearch-domain",
-    ///         EngineVersion = "Elasticsearch_7.10",
-    ///         ClusterConfig = new Aws.OpenSearch.Inputs.DomainClusterConfigArgs
-    ///         {
-    ///             InstanceType = "r4.large.search",
-    ///         },
-    ///     });
-    /// 
-    ///     var example = new Aws.OpenSearch.Package("example", new()
-    ///     {
-    ///         PackageName = "example-txt",
-    ///         PackageSource = new Aws.OpenSearch.Inputs.PackagePackageSourceArgs
-    ///         {
-    ///             S3BucketName = myOpensearchPackages.Bucket,
-    ///             S3Key = exampleAwsS3Object.Key,
-    ///         },
-    ///         PackageType = "TXT-DICTIONARY",
-    ///     });
-    /// 
-    ///     var examplePackageAssociation = new Aws.OpenSearch.PackageAssociation("example", new()
-    ///     {
-    ///         PackageId = example.Id,
-    ///         DomainName = myDomain.DomainName,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:opensearch/packageAssociation:PackageAssociation")]
     public partial class PackageAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Name of the domain to associate the package with.
-        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
-        /// <summary>
-        /// Internal ID of the package to associate with a domain.
-        /// </summary>
         [Output("packageId")]
         public Output<string> PackageId { get; private set; } = null!;
 
         [Output("referencePath")]
         public Output<string> ReferencePath { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -124,21 +70,12 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class PackageAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the domain to associate the package with.
-        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
-        /// <summary>
-        /// Internal ID of the package to associate with a domain.
-        /// </summary>
         [Input("packageId", required: true)]
         public Input<string> PackageId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -150,24 +87,15 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class PackageAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the domain to associate the package with.
-        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
-        /// <summary>
-        /// Internal ID of the package to associate with a domain.
-        /// </summary>
         [Input("packageId")]
         public Input<string>? PackageId { get; set; }
 
         [Input("referencePath")]
         public Input<string>? ReferencePath { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

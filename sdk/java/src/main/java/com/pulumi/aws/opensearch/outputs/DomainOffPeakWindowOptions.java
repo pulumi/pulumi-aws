@@ -12,18 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainOffPeakWindowOptions {
-    /**
-     * @return Enabled disabled toggle for off-peak update window.
-     * 
-     */
     private @Nullable Boolean enabled;
     private @Nullable DomainOffPeakWindowOptionsOffPeakWindow offPeakWindow;
 
     private DomainOffPeakWindowOptions() {}
-    /**
-     * @return Enabled disabled toggle for off-peak update window.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }

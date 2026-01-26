@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Kms.Outputs
     [OutputType]
     public sealed class GetKeyMultiRegionConfigurationPrimaryKeyResult
     {
-        /// <summary>
-        /// The key ARN of a primary or replica key of a multi-Region key.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         public readonly string Region;
 
         [OutputConstructor]

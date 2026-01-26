@@ -9,129 +9,39 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AutoScaling
 {
-    /// <summary>
-    /// Provides an AutoScaling Schedule resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foobar = new Aws.AutoScaling.Group("foobar", new()
-    ///     {
-    ///         AvailabilityZones = new[]
-    ///         {
-    ///             "us-west-2a",
-    ///         },
-    ///         Name = "test-foobar5",
-    ///         MaxSize = 1,
-    ///         MinSize = 1,
-    ///         HealthCheckGracePeriod = 300,
-    ///         HealthCheckType = "ELB",
-    ///         ForceDelete = true,
-    ///         TerminationPolicies = new[]
-    ///         {
-    ///             "OldestInstance",
-    ///         },
-    ///     });
-    /// 
-    ///     var foobarSchedule = new Aws.AutoScaling.Schedule("foobar", new()
-    ///     {
-    ///         ScheduledActionName = "foobar",
-    ///         MinSize = 0,
-    ///         MaxSize = 1,
-    ///         DesiredCapacity = 0,
-    ///         StartTime = "2016-12-11T18:00:00Z",
-    ///         EndTime = "2016-12-12T06:00:00Z",
-    ///         AutoscalingGroupName = foobar.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import AutoScaling ScheduledAction using the `auto-scaling-group-name` and `scheduled-action-name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:autoscaling/schedule:Schedule resource-name auto-scaling-group-name/scheduled-action-name
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:autoscaling/schedule:Schedule")]
     public partial class Schedule : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN assigned by AWS to the autoscaling schedule.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the Auto Scaling group.
-        /// </summary>
         [Output("autoscalingGroupName")]
         public Output<string> AutoscalingGroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// The initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain. Set to `-1` if you don't want to change the desired capacity at the scheduled time. Defaults to `0`.
-        /// </summary>
         [Output("desiredCapacity")]
         public Output<int> DesiredCapacity { get; private set; } = null!;
 
-        /// <summary>
-        /// The date and time for the recurring schedule to end, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
-        /// </summary>
         [Output("endTime")]
         public Output<string> EndTime { get; private set; } = null!;
 
-        /// <summary>
-        /// The maximum size of the Auto Scaling group. Set to `-1` if you don't want to change the maximum size at the scheduled time. Defaults to `0`.
-        /// </summary>
         [Output("maxSize")]
         public Output<int> MaxSize { get; private set; } = null!;
 
-        /// <summary>
-        /// The minimum size of the Auto Scaling group. Set to `-1` if you don't want to change the minimum size at the scheduled time. Defaults to `0`.
-        /// </summary>
         [Output("minSize")]
         public Output<int> MinSize { get; private set; } = null!;
 
-        /// <summary>
-        /// The recurring schedule for this action specified using the Unix cron syntax format.
-        /// </summary>
         [Output("recurrence")]
         public Output<string> Recurrence { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of this scaling action.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("scheduledActionName")]
         public Output<string> ScheduledActionName { get; private set; } = null!;
 
-        /// <summary>
-        /// The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
-        /// </summary>
         [Output("startTime")]
         public Output<string> StartTime { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
-        /// 
-        /// &gt; **NOTE:** When `StartTime` and `EndTime` are specified with `Recurrence` , they form the boundaries of when the recurring action will start and stop.
-        /// </summary>
         [Output("timeZone")]
         public Output<string> TimeZone { get; private set; } = null!;
 
@@ -181,67 +91,33 @@ namespace Pulumi.Aws.AutoScaling
 
     public sealed class ScheduleArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the Auto Scaling group.
-        /// </summary>
         [Input("autoscalingGroupName", required: true)]
         public Input<string> AutoscalingGroupName { get; set; } = null!;
 
-        /// <summary>
-        /// The initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain. Set to `-1` if you don't want to change the desired capacity at the scheduled time. Defaults to `0`.
-        /// </summary>
         [Input("desiredCapacity")]
         public Input<int>? DesiredCapacity { get; set; }
 
-        /// <summary>
-        /// The date and time for the recurring schedule to end, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
-        /// </summary>
         [Input("endTime")]
         public Input<string>? EndTime { get; set; }
 
-        /// <summary>
-        /// The maximum size of the Auto Scaling group. Set to `-1` if you don't want to change the maximum size at the scheduled time. Defaults to `0`.
-        /// </summary>
         [Input("maxSize")]
         public Input<int>? MaxSize { get; set; }
 
-        /// <summary>
-        /// The minimum size of the Auto Scaling group. Set to `-1` if you don't want to change the minimum size at the scheduled time. Defaults to `0`.
-        /// </summary>
         [Input("minSize")]
         public Input<int>? MinSize { get; set; }
 
-        /// <summary>
-        /// The recurring schedule for this action specified using the Unix cron syntax format.
-        /// </summary>
         [Input("recurrence")]
         public Input<string>? Recurrence { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name of this scaling action.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("scheduledActionName", required: true)]
         public Input<string> ScheduledActionName { get; set; } = null!;
 
-        /// <summary>
-        /// The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
-        /// </summary>
         [Input("startTime")]
         public Input<string>? StartTime { get; set; }
 
-        /// <summary>
-        /// Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
-        /// 
-        /// &gt; **NOTE:** When `StartTime` and `EndTime` are specified with `Recurrence` , they form the boundaries of when the recurring action will start and stop.
-        /// </summary>
         [Input("timeZone")]
         public Input<string>? TimeZone { get; set; }
 
@@ -253,73 +129,36 @@ namespace Pulumi.Aws.AutoScaling
 
     public sealed class ScheduleState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN assigned by AWS to the autoscaling schedule.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The name of the Auto Scaling group.
-        /// </summary>
         [Input("autoscalingGroupName")]
         public Input<string>? AutoscalingGroupName { get; set; }
 
-        /// <summary>
-        /// The initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain. Set to `-1` if you don't want to change the desired capacity at the scheduled time. Defaults to `0`.
-        /// </summary>
         [Input("desiredCapacity")]
         public Input<int>? DesiredCapacity { get; set; }
 
-        /// <summary>
-        /// The date and time for the recurring schedule to end, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
-        /// </summary>
         [Input("endTime")]
         public Input<string>? EndTime { get; set; }
 
-        /// <summary>
-        /// The maximum size of the Auto Scaling group. Set to `-1` if you don't want to change the maximum size at the scheduled time. Defaults to `0`.
-        /// </summary>
         [Input("maxSize")]
         public Input<int>? MaxSize { get; set; }
 
-        /// <summary>
-        /// The minimum size of the Auto Scaling group. Set to `-1` if you don't want to change the minimum size at the scheduled time. Defaults to `0`.
-        /// </summary>
         [Input("minSize")]
         public Input<int>? MinSize { get; set; }
 
-        /// <summary>
-        /// The recurring schedule for this action specified using the Unix cron syntax format.
-        /// </summary>
         [Input("recurrence")]
         public Input<string>? Recurrence { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name of this scaling action.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("scheduledActionName")]
         public Input<string>? ScheduledActionName { get; set; }
 
-        /// <summary>
-        /// The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
-        /// </summary>
         [Input("startTime")]
         public Input<string>? StartTime { get; set; }
 
-        /// <summary>
-        /// Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
-        /// 
-        /// &gt; **NOTE:** When `StartTime` and `EndTime` are specified with `Recurrence` , they form the boundaries of when the recurring action will start and stop.
-        /// </summary>
         [Input("timeZone")]
         public Input<string>? TimeZone { get; set; }
 

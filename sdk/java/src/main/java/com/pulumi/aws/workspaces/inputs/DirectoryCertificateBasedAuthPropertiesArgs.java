@@ -15,32 +15,16 @@ public final class DirectoryCertificateBasedAuthPropertiesArgs extends com.pulum
 
     public static final DirectoryCertificateBasedAuthPropertiesArgs Empty = new DirectoryCertificateBasedAuthPropertiesArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
-     * 
-     */
     @Import(name="certificateAuthorityArn")
     private @Nullable Output<String> certificateAuthorityArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
-     * 
-     */
     public Optional<Output<String>> certificateAuthorityArn() {
         return Optional.ofNullable(this.certificateAuthorityArn);
     }
 
-    /**
-     * Status of certificate-based authentication. Default `DISABLED`.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return Status of certificate-based authentication. Default `DISABLED`.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -70,44 +54,20 @@ public final class DirectoryCertificateBasedAuthPropertiesArgs extends com.pulum
             $ = new DirectoryCertificateBasedAuthPropertiesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param certificateAuthorityArn The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateAuthorityArn(@Nullable Output<String> certificateAuthorityArn) {
             $.certificateAuthorityArn = certificateAuthorityArn;
             return this;
         }
 
-        /**
-         * @param certificateAuthorityArn The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateAuthorityArn(String certificateAuthorityArn) {
             return certificateAuthorityArn(Output.of(certificateAuthorityArn));
         }
 
-        /**
-         * @param status Status of certificate-based authentication. Default `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Status of certificate-based authentication. Default `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

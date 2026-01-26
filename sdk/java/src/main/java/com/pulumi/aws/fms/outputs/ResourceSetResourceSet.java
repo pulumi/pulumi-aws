@@ -13,78 +13,30 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ResourceSetResourceSet {
-    /**
-     * @return Description of the resource set.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return Unique identifier for the resource set. It&#39;s returned in the responses to create and list commands. You provide it to operations like update and delete.
-     * 
-     */
     private @Nullable String id;
-    /**
-     * @return Last time that the reosurce set was changed.
-     * 
-     */
     private @Nullable String lastUpdateTime;
-    /**
-     * @return Descriptive name of the resource set. You can&#39;t change the name of a resource set after you create it.
-     * 
-     */
     private String name;
-    /**
-     * @return Indicates whether the resource set is in or out of the admin&#39;s Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can&#39;t edit or delete the resource set.)
-     * 
-     */
     private @Nullable String resourceSetStatus;
-    /**
-     * @return Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
-     * 
-     */
     private @Nullable List<String> resourceTypeLists;
     private @Nullable String updateToken;
 
     private ResourceSetResourceSet() {}
-    /**
-     * @return Description of the resource set.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return Unique identifier for the resource set. It&#39;s returned in the responses to create and list commands. You provide it to operations like update and delete.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
-    /**
-     * @return Last time that the reosurce set was changed.
-     * 
-     */
     public Optional<String> lastUpdateTime() {
         return Optional.ofNullable(this.lastUpdateTime);
     }
-    /**
-     * @return Descriptive name of the resource set. You can&#39;t change the name of a resource set after you create it.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Indicates whether the resource set is in or out of the admin&#39;s Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can&#39;t edit or delete the resource set.)
-     * 
-     */
     public Optional<String> resourceSetStatus() {
         return Optional.ofNullable(this.resourceSetStatus);
     }
-    /**
-     * @return Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
-     * 
-     */
     public List<String> resourceTypeLists() {
         return this.resourceTypeLists == null ? List.of() : this.resourceTypeLists;
     }

@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationApplicationConfigurationApplicationCodeConfiguration {
-    /**
-     * @return The location and type of the application code.
-     * 
-     */
     private @Nullable ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent codeContent;
-    /**
-     * @return Specifies whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
-     * 
-     */
     private String codeContentType;
 
     private ApplicationApplicationConfigurationApplicationCodeConfiguration() {}
-    /**
-     * @return The location and type of the application code.
-     * 
-     */
     public Optional<ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent> codeContent() {
         return Optional.ofNullable(this.codeContent);
     }
-    /**
-     * @return Specifies whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
-     * 
-     */
     public String codeContentType() {
         return this.codeContentType;
     }

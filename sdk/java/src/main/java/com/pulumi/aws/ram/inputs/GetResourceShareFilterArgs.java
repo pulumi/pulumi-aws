@@ -15,32 +15,16 @@ public final class GetResourceShareFilterArgs extends com.pulumi.resources.Resou
 
     public static final GetResourceShareFilterArgs Empty = new GetResourceShareFilterArgs();
 
-    /**
-     * Name of the tag key to filter on.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the tag key to filter on.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Value of the tag key.
-     * 
-     */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
-    /**
-     * @return Value of the tag key.
-     * 
-     */
     public Output<List<String>> values() {
         return this.values;
     }
@@ -70,54 +54,24 @@ public final class GetResourceShareFilterArgs extends com.pulumi.resources.Resou
             $ = new GetResourceShareFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the tag key to filter on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the tag key to filter on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param values Value of the tag key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values Value of the tag key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
-        /**
-         * @param values Value of the tag key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

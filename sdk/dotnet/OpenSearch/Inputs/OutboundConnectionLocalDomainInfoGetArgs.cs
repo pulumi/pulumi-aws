@@ -12,21 +12,12 @@ namespace Pulumi.Aws.OpenSearch.Inputs
 
     public sealed class OutboundConnectionLocalDomainInfoGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the local domain.
-        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
-        /// <summary>
-        /// The Account ID of the owner of the local domain.
-        /// </summary>
         [Input("ownerId", required: true)]
         public Input<string> OwnerId { get; set; } = null!;
 
-        /// <summary>
-        /// The region of the local domain.
-        /// </summary>
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
 

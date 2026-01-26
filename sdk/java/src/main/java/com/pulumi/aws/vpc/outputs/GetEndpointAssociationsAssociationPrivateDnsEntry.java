@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEndpointAssociationsAssociationPrivateDnsEntry {
-    /**
-     * @return DNS name.
-     * 
-     */
     private String dnsName;
-    /**
-     * @return ID of the private hosted zone.
-     * 
-     */
     private String hostedZoneId;
 
     private GetEndpointAssociationsAssociationPrivateDnsEntry() {}
-    /**
-     * @return DNS name.
-     * 
-     */
     public String dnsName() {
         return this.dnsName;
     }
-    /**
-     * @return ID of the private hosted zone.
-     * 
-     */
     public String hostedZoneId() {
         return this.hostedZoneId;
     }

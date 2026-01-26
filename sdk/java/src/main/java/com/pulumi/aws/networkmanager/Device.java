@@ -17,225 +17,77 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Network Manager Device.
- * 
- * Use this resource to create a device in a global network. If you specify both a site ID and a location, the location of the site is used for visualization in the Network Manager console.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkmanager.Device;
- * import com.pulumi.aws.networkmanager.DeviceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Device("example", DeviceArgs.builder()
- *             .globalNetworkId(exampleAwsNetworkmanagerGlobalNetwork.id())
- *             .siteId(exampleAwsNetworkmanagerSite.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_networkmanager_device` using the device ARN. For example:
- * 
- * ```sh
- * $ pulumi import aws:networkmanager/device:Device example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/device-07f6fd08867abc123
- * ```
- * 
- */
 @ResourceType(type="aws:networkmanager/device:Device")
 public class Device extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the device.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the device.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * AWS location of the device. Documented below.
-     * 
-     */
     @Export(name="awsLocation", refs={DeviceAwsLocation.class}, tree="[0]")
     private Output</* @Nullable */ DeviceAwsLocation> awsLocation;
 
-    /**
-     * @return AWS location of the device. Documented below.
-     * 
-     */
     public Output<Optional<DeviceAwsLocation>> awsLocation() {
         return Codegen.optional(this.awsLocation);
     }
-    /**
-     * Description of the device.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the device.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * ID of the global network.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="globalNetworkId", refs={String.class}, tree="[0]")
     private Output<String> globalNetworkId;
 
-    /**
-     * @return ID of the global network.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> globalNetworkId() {
         return this.globalNetworkId;
     }
-    /**
-     * Location of the device. Documented below.
-     * 
-     */
     @Export(name="location", refs={DeviceLocation.class}, tree="[0]")
     private Output</* @Nullable */ DeviceLocation> location;
 
-    /**
-     * @return Location of the device. Documented below.
-     * 
-     */
     public Output<Optional<DeviceLocation>> location() {
         return Codegen.optional(this.location);
     }
-    /**
-     * Model of device.
-     * 
-     */
     @Export(name="model", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> model;
 
-    /**
-     * @return Model of device.
-     * 
-     */
     public Output<Optional<String>> model() {
         return Codegen.optional(this.model);
     }
-    /**
-     * Serial number of the device.
-     * 
-     */
     @Export(name="serialNumber", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> serialNumber;
 
-    /**
-     * @return Serial number of the device.
-     * 
-     */
     public Output<Optional<String>> serialNumber() {
         return Codegen.optional(this.serialNumber);
     }
-    /**
-     * ID of the site.
-     * 
-     */
     @Export(name="siteId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> siteId;
 
-    /**
-     * @return ID of the site.
-     * 
-     */
     public Output<Optional<String>> siteId() {
         return Codegen.optional(this.siteId);
     }
-    /**
-     * Key-value tags for the device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Type of device.
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
-    /**
-     * @return Type of device.
-     * 
-     */
     public Output<Optional<String>> type() {
         return Codegen.optional(this.type);
     }
-    /**
-     * Vendor of the device.
-     * 
-     */
     @Export(name="vendor", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vendor;
 
-    /**
-     * @return Vendor of the device.
-     * 
-     */
     public Output<Optional<String>> vendor() {
         return Codegen.optional(this.vendor);
     }

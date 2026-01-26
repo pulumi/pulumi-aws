@@ -37,47 +37,6 @@ class ClusterInstanceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ClusterInstance resource.
-        :param pulumi.Input[_builtins.str] cluster_identifier: The identifier of the `docdb.Cluster` in which to launch this instance.
-        :param pulumi.Input[_builtins.str] instance_class: The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
-               DocumentDB currently supports the below instance classes.
-               Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
-               - db.r6g.large
-               - db.r6g.xlarge
-               - db.r6g.2xlarge
-               - db.r6g.4xlarge
-               - db.r6g.8xlarge
-               - db.r6g.12xlarge
-               - db.r6g.16xlarge
-               - db.r5.large
-               - db.r5.xlarge
-               - db.r5.2xlarge
-               - db.r5.4xlarge
-               - db.r5.12xlarge
-               - db.r5.24xlarge
-               - db.r4.large
-               - db.r4.xlarge
-               - db.r4.2xlarge
-               - db.r4.4xlarge
-               - db.r4.8xlarge
-               - db.r4.16xlarge
-               - db.t4g.medium
-               - db.t3.medium
-        :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any database modifications
-               are applied immediately, or during the next maintenance window. Default is`false`.
-        :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
-        :param pulumi.Input[_builtins.str] availability_zone: The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
-        :param pulumi.Input[_builtins.str] ca_cert_identifier: The identifier of the certificate authority (CA) certificate for the DB instance.
-        :param pulumi.Input[_builtins.bool] copy_tags_to_snapshot: Copy all DB instance `tags` to snapshots. Default is `false`.
-        :param pulumi.Input[_builtins.bool] enable_performance_insights: A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
-        :param pulumi.Input[_builtins.str] engine: The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
-        :param pulumi.Input[_builtins.str] identifier: The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
-        :param pulumi.Input[_builtins.str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
-        :param pulumi.Input[_builtins.str] performance_insights_kms_key_id: The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
-        :param pulumi.Input[_builtins.str] preferred_maintenance_window: The window to perform maintenance in.
-               Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-        :param pulumi.Input[_builtins.int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         pulumi.set(__self__, "instance_class", instance_class)
@@ -113,9 +72,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The identifier of the `docdb.Cluster` in which to launch this instance.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -125,32 +81,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="instanceClass")
     def instance_class(self) -> pulumi.Input[_builtins.str]:
-        """
-        The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
-        DocumentDB currently supports the below instance classes.
-        Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
-        - db.r6g.large
-        - db.r6g.xlarge
-        - db.r6g.2xlarge
-        - db.r6g.4xlarge
-        - db.r6g.8xlarge
-        - db.r6g.12xlarge
-        - db.r6g.16xlarge
-        - db.r5.large
-        - db.r5.xlarge
-        - db.r5.2xlarge
-        - db.r5.4xlarge
-        - db.r5.12xlarge
-        - db.r5.24xlarge
-        - db.r4.large
-        - db.r4.xlarge
-        - db.r4.2xlarge
-        - db.r4.4xlarge
-        - db.r4.8xlarge
-        - db.r4.16xlarge
-        - db.t4g.medium
-        - db.t3.medium
-        """
         return pulumi.get(self, "instance_class")
 
     @instance_class.setter
@@ -160,10 +90,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="applyImmediately")
     def apply_immediately(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether any database modifications
-        are applied immediately, or during the next maintenance window. Default is`false`.
-        """
         return pulumi.get(self, "apply_immediately")
 
     @apply_immediately.setter
@@ -173,9 +99,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="autoMinorVersionUpgrade")
     def auto_minor_version_upgrade(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
-        """
         return pulumi.get(self, "auto_minor_version_upgrade")
 
     @auto_minor_version_upgrade.setter
@@ -185,9 +108,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
-        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -197,9 +117,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="caCertIdentifier")
     def ca_cert_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier of the certificate authority (CA) certificate for the DB instance.
-        """
         return pulumi.get(self, "ca_cert_identifier")
 
     @ca_cert_identifier.setter
@@ -209,9 +126,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="copyTagsToSnapshot")
     def copy_tags_to_snapshot(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Copy all DB instance `tags` to snapshots. Default is `false`.
-        """
         return pulumi.get(self, "copy_tags_to_snapshot")
 
     @copy_tags_to_snapshot.setter
@@ -221,9 +135,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="enablePerformanceInsights")
     def enable_performance_insights(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
-        """
         return pulumi.get(self, "enable_performance_insights")
 
     @enable_performance_insights.setter
@@ -233,9 +144,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
-        """
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -245,9 +153,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter
     def identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
-        """
         return pulumi.get(self, "identifier")
 
     @identifier.setter
@@ -257,9 +162,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="identifierPrefix")
     def identifier_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
-        """
         return pulumi.get(self, "identifier_prefix")
 
     @identifier_prefix.setter
@@ -269,9 +171,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="performanceInsightsKmsKeyId")
     def performance_insights_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
-        """
         return pulumi.get(self, "performance_insights_kms_key_id")
 
     @performance_insights_kms_key_id.setter
@@ -281,10 +180,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The window to perform maintenance in.
-        Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
@@ -294,9 +189,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="promotionTier")
     def promotion_tier(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
-        """
         return pulumi.get(self, "promotion_tier")
 
     @promotion_tier.setter
@@ -306,9 +198,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -318,9 +207,6 @@ class ClusterInstanceArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -361,58 +247,6 @@ class _ClusterInstanceState:
                  writer: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ClusterInstance resources.
-        :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any database modifications
-               are applied immediately, or during the next maintenance window. Default is`false`.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of cluster instance
-        :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
-        :param pulumi.Input[_builtins.str] availability_zone: The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
-        :param pulumi.Input[_builtins.str] ca_cert_identifier: The identifier of the certificate authority (CA) certificate for the DB instance.
-        :param pulumi.Input[_builtins.str] cluster_identifier: The identifier of the `docdb.Cluster` in which to launch this instance.
-        :param pulumi.Input[_builtins.bool] copy_tags_to_snapshot: Copy all DB instance `tags` to snapshots. Default is `false`.
-        :param pulumi.Input[_builtins.str] db_subnet_group_name: The DB subnet group to associate with this DB instance.
-        :param pulumi.Input[_builtins.str] dbi_resource_id: The region-unique, immutable identifier for the DB instance.
-        :param pulumi.Input[_builtins.bool] enable_performance_insights: A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
-        :param pulumi.Input[_builtins.str] endpoint: The DNS address for this instance. May not be writable
-        :param pulumi.Input[_builtins.str] engine: The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
-        :param pulumi.Input[_builtins.str] engine_version: The database engine version
-        :param pulumi.Input[_builtins.str] identifier: The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
-        :param pulumi.Input[_builtins.str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
-        :param pulumi.Input[_builtins.str] instance_class: The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
-               DocumentDB currently supports the below instance classes.
-               Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
-               - db.r6g.large
-               - db.r6g.xlarge
-               - db.r6g.2xlarge
-               - db.r6g.4xlarge
-               - db.r6g.8xlarge
-               - db.r6g.12xlarge
-               - db.r6g.16xlarge
-               - db.r5.large
-               - db.r5.xlarge
-               - db.r5.2xlarge
-               - db.r5.4xlarge
-               - db.r5.12xlarge
-               - db.r5.24xlarge
-               - db.r4.large
-               - db.r4.xlarge
-               - db.r4.2xlarge
-               - db.r4.4xlarge
-               - db.r4.8xlarge
-               - db.r4.16xlarge
-               - db.t4g.medium
-               - db.t3.medium
-        :param pulumi.Input[_builtins.str] kms_key_id: The ARN for the KMS encryption key if one is set to the cluster.
-        :param pulumi.Input[_builtins.str] performance_insights_kms_key_id: The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
-        :param pulumi.Input[_builtins.int] port: The database port
-        :param pulumi.Input[_builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled.
-        :param pulumi.Input[_builtins.str] preferred_maintenance_window: The window to perform maintenance in.
-               Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-        :param pulumi.Input[_builtins.int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] storage_encrypted: Specifies whether the DB cluster is encrypted.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.bool] writer: Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
         """
         if apply_immediately is not None:
             pulumi.set(__self__, "apply_immediately", apply_immediately)
@@ -474,10 +308,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="applyImmediately")
     def apply_immediately(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether any database modifications
-        are applied immediately, or during the next maintenance window. Default is`false`.
-        """
         return pulumi.get(self, "apply_immediately")
 
     @apply_immediately.setter
@@ -487,9 +317,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of cluster instance
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -499,9 +326,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="autoMinorVersionUpgrade")
     def auto_minor_version_upgrade(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
-        """
         return pulumi.get(self, "auto_minor_version_upgrade")
 
     @auto_minor_version_upgrade.setter
@@ -511,9 +335,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
-        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -523,9 +344,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="caCertIdentifier")
     def ca_cert_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier of the certificate authority (CA) certificate for the DB instance.
-        """
         return pulumi.get(self, "ca_cert_identifier")
 
     @ca_cert_identifier.setter
@@ -535,9 +353,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier of the `docdb.Cluster` in which to launch this instance.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -547,9 +362,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="copyTagsToSnapshot")
     def copy_tags_to_snapshot(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Copy all DB instance `tags` to snapshots. Default is `false`.
-        """
         return pulumi.get(self, "copy_tags_to_snapshot")
 
     @copy_tags_to_snapshot.setter
@@ -559,9 +371,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="dbSubnetGroupName")
     def db_subnet_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The DB subnet group to associate with this DB instance.
-        """
         return pulumi.get(self, "db_subnet_group_name")
 
     @db_subnet_group_name.setter
@@ -571,9 +380,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="dbiResourceId")
     def dbi_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The region-unique, immutable identifier for the DB instance.
-        """
         return pulumi.get(self, "dbi_resource_id")
 
     @dbi_resource_id.setter
@@ -583,9 +389,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="enablePerformanceInsights")
     def enable_performance_insights(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
-        """
         return pulumi.get(self, "enable_performance_insights")
 
     @enable_performance_insights.setter
@@ -595,9 +398,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The DNS address for this instance. May not be writable
-        """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
@@ -607,9 +407,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
-        """
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -619,9 +416,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The database engine version
-        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -631,9 +425,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter
     def identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
-        """
         return pulumi.get(self, "identifier")
 
     @identifier.setter
@@ -643,9 +434,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="identifierPrefix")
     def identifier_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
-        """
         return pulumi.get(self, "identifier_prefix")
 
     @identifier_prefix.setter
@@ -655,32 +443,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="instanceClass")
     def instance_class(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
-        DocumentDB currently supports the below instance classes.
-        Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
-        - db.r6g.large
-        - db.r6g.xlarge
-        - db.r6g.2xlarge
-        - db.r6g.4xlarge
-        - db.r6g.8xlarge
-        - db.r6g.12xlarge
-        - db.r6g.16xlarge
-        - db.r5.large
-        - db.r5.xlarge
-        - db.r5.2xlarge
-        - db.r5.4xlarge
-        - db.r5.12xlarge
-        - db.r5.24xlarge
-        - db.r4.large
-        - db.r4.xlarge
-        - db.r4.2xlarge
-        - db.r4.4xlarge
-        - db.r4.8xlarge
-        - db.r4.16xlarge
-        - db.t4g.medium
-        - db.t3.medium
-        """
         return pulumi.get(self, "instance_class")
 
     @instance_class.setter
@@ -690,9 +452,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN for the KMS encryption key if one is set to the cluster.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -702,9 +461,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="performanceInsightsKmsKeyId")
     def performance_insights_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
-        """
         return pulumi.get(self, "performance_insights_kms_key_id")
 
     @performance_insights_kms_key_id.setter
@@ -714,9 +470,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The database port
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -726,9 +479,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The daily time range during which automated backups are created if automated backups are enabled.
-        """
         return pulumi.get(self, "preferred_backup_window")
 
     @preferred_backup_window.setter
@@ -738,10 +488,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The window to perform maintenance in.
-        Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
@@ -751,9 +497,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="promotionTier")
     def promotion_tier(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
-        """
         return pulumi.get(self, "promotion_tier")
 
     @promotion_tier.setter
@@ -772,9 +515,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -784,9 +524,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether the DB cluster is encrypted.
-        """
         return pulumi.get(self, "storage_encrypted")
 
     @storage_encrypted.setter
@@ -796,9 +533,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -808,9 +542,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -820,9 +551,6 @@ class _ClusterInstanceState:
     @_builtins.property
     @pulumi.getter
     def writer(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
-        """
         return pulumi.get(self, "writer")
 
     @writer.setter
@@ -854,89 +582,9 @@ class ClusterInstance(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides an DocumentDB Cluster Resource Instance. A Cluster Instance Resource defines
-        attributes that are specific to a single instance in a [DocumentDB Cluster][1].
-
-        You do not designate a primary and subsequent replicas. Instead, you simply add DocumentDB
-        Instances and DocumentDB manages the replication. You can use the [count][3]
-        meta-parameter to make multiple instances and join them all to the same DocumentDB
-        Cluster, or you may specify different Cluster Instance resources with various
-        `instance_class` sizes.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.docdb.Cluster("default",
-            cluster_identifier="docdb-cluster-demo",
-            availability_zones=[
-                "us-west-2a",
-                "us-west-2b",
-                "us-west-2c",
-            ],
-            master_username="foo",
-            master_password="barbut8chars")
-        cluster_instances = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            cluster_instances.append(aws.docdb.ClusterInstance(f"cluster_instances-{range['value']}",
-                identifier=f"docdb-cluster-demo-{range['value']}",
-                cluster_identifier=default.id,
-                instance_class="db.r5.large"))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DocumentDB Cluster Instances using the `identifier`. For example:
-
-        ```sh
-        $ pulumi import aws:docdb/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
-        ```
-
+        Create a ClusterInstance resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any database modifications
-               are applied immediately, or during the next maintenance window. Default is`false`.
-        :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
-        :param pulumi.Input[_builtins.str] availability_zone: The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
-        :param pulumi.Input[_builtins.str] ca_cert_identifier: The identifier of the certificate authority (CA) certificate for the DB instance.
-        :param pulumi.Input[_builtins.str] cluster_identifier: The identifier of the `docdb.Cluster` in which to launch this instance.
-        :param pulumi.Input[_builtins.bool] copy_tags_to_snapshot: Copy all DB instance `tags` to snapshots. Default is `false`.
-        :param pulumi.Input[_builtins.bool] enable_performance_insights: A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
-        :param pulumi.Input[_builtins.str] engine: The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
-        :param pulumi.Input[_builtins.str] identifier: The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
-        :param pulumi.Input[_builtins.str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
-        :param pulumi.Input[_builtins.str] instance_class: The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
-               DocumentDB currently supports the below instance classes.
-               Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
-               - db.r6g.large
-               - db.r6g.xlarge
-               - db.r6g.2xlarge
-               - db.r6g.4xlarge
-               - db.r6g.8xlarge
-               - db.r6g.12xlarge
-               - db.r6g.16xlarge
-               - db.r5.large
-               - db.r5.xlarge
-               - db.r5.2xlarge
-               - db.r5.4xlarge
-               - db.r5.12xlarge
-               - db.r5.24xlarge
-               - db.r4.large
-               - db.r4.xlarge
-               - db.r4.2xlarge
-               - db.r4.4xlarge
-               - db.r4.8xlarge
-               - db.r4.16xlarge
-               - db.t4g.medium
-               - db.t3.medium
-        :param pulumi.Input[_builtins.str] performance_insights_kms_key_id: The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
-        :param pulumi.Input[_builtins.str] preferred_maintenance_window: The window to perform maintenance in.
-               Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-        :param pulumi.Input[_builtins.int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -945,46 +593,7 @@ class ClusterInstance(pulumi.CustomResource):
                  args: ClusterInstanceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an DocumentDB Cluster Resource Instance. A Cluster Instance Resource defines
-        attributes that are specific to a single instance in a [DocumentDB Cluster][1].
-
-        You do not designate a primary and subsequent replicas. Instead, you simply add DocumentDB
-        Instances and DocumentDB manages the replication. You can use the [count][3]
-        meta-parameter to make multiple instances and join them all to the same DocumentDB
-        Cluster, or you may specify different Cluster Instance resources with various
-        `instance_class` sizes.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.docdb.Cluster("default",
-            cluster_identifier="docdb-cluster-demo",
-            availability_zones=[
-                "us-west-2a",
-                "us-west-2b",
-                "us-west-2c",
-            ],
-            master_username="foo",
-            master_password="barbut8chars")
-        cluster_instances = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            cluster_instances.append(aws.docdb.ClusterInstance(f"cluster_instances-{range['value']}",
-                identifier=f"docdb-cluster-demo-{range['value']}",
-                cluster_identifier=default.id,
-                instance_class="db.r5.large"))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DocumentDB Cluster Instances using the `identifier`. For example:
-
-        ```sh
-        $ pulumi import aws:docdb/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
-        ```
-
+        Create a ClusterInstance resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ClusterInstanceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1102,58 +711,6 @@ class ClusterInstance(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any database modifications
-               are applied immediately, or during the next maintenance window. Default is`false`.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of cluster instance
-        :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
-        :param pulumi.Input[_builtins.str] availability_zone: The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
-        :param pulumi.Input[_builtins.str] ca_cert_identifier: The identifier of the certificate authority (CA) certificate for the DB instance.
-        :param pulumi.Input[_builtins.str] cluster_identifier: The identifier of the `docdb.Cluster` in which to launch this instance.
-        :param pulumi.Input[_builtins.bool] copy_tags_to_snapshot: Copy all DB instance `tags` to snapshots. Default is `false`.
-        :param pulumi.Input[_builtins.str] db_subnet_group_name: The DB subnet group to associate with this DB instance.
-        :param pulumi.Input[_builtins.str] dbi_resource_id: The region-unique, immutable identifier for the DB instance.
-        :param pulumi.Input[_builtins.bool] enable_performance_insights: A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
-        :param pulumi.Input[_builtins.str] endpoint: The DNS address for this instance. May not be writable
-        :param pulumi.Input[_builtins.str] engine: The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
-        :param pulumi.Input[_builtins.str] engine_version: The database engine version
-        :param pulumi.Input[_builtins.str] identifier: The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
-        :param pulumi.Input[_builtins.str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
-        :param pulumi.Input[_builtins.str] instance_class: The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
-               DocumentDB currently supports the below instance classes.
-               Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
-               - db.r6g.large
-               - db.r6g.xlarge
-               - db.r6g.2xlarge
-               - db.r6g.4xlarge
-               - db.r6g.8xlarge
-               - db.r6g.12xlarge
-               - db.r6g.16xlarge
-               - db.r5.large
-               - db.r5.xlarge
-               - db.r5.2xlarge
-               - db.r5.4xlarge
-               - db.r5.12xlarge
-               - db.r5.24xlarge
-               - db.r4.large
-               - db.r4.xlarge
-               - db.r4.2xlarge
-               - db.r4.4xlarge
-               - db.r4.8xlarge
-               - db.r4.16xlarge
-               - db.t4g.medium
-               - db.t3.medium
-        :param pulumi.Input[_builtins.str] kms_key_id: The ARN for the KMS encryption key if one is set to the cluster.
-        :param pulumi.Input[_builtins.str] performance_insights_kms_key_id: The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
-        :param pulumi.Input[_builtins.int] port: The database port
-        :param pulumi.Input[_builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled.
-        :param pulumi.Input[_builtins.str] preferred_maintenance_window: The window to perform maintenance in.
-               Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-        :param pulumi.Input[_builtins.int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] storage_encrypted: Specifies whether the DB cluster is encrypted.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.bool] writer: Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1192,202 +749,111 @@ class ClusterInstance(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="applyImmediately")
     def apply_immediately(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Specifies whether any database modifications
-        are applied immediately, or during the next maintenance window. Default is`false`.
-        """
         return pulumi.get(self, "apply_immediately")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of cluster instance
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="autoMinorVersionUpgrade")
     def auto_minor_version_upgrade(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
-        """
         return pulumi.get(self, "auto_minor_version_upgrade")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[_builtins.str]:
-        """
-        The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
-        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
     @pulumi.getter(name="caCertIdentifier")
     def ca_cert_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The identifier of the certificate authority (CA) certificate for the DB instance.
-        """
         return pulumi.get(self, "ca_cert_identifier")
 
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The identifier of the `docdb.Cluster` in which to launch this instance.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @_builtins.property
     @pulumi.getter(name="copyTagsToSnapshot")
     def copy_tags_to_snapshot(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Copy all DB instance `tags` to snapshots. Default is `false`.
-        """
         return pulumi.get(self, "copy_tags_to_snapshot")
 
     @_builtins.property
     @pulumi.getter(name="dbSubnetGroupName")
     def db_subnet_group_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The DB subnet group to associate with this DB instance.
-        """
         return pulumi.get(self, "db_subnet_group_name")
 
     @_builtins.property
     @pulumi.getter(name="dbiResourceId")
     def dbi_resource_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The region-unique, immutable identifier for the DB instance.
-        """
         return pulumi.get(self, "dbi_resource_id")
 
     @_builtins.property
     @pulumi.getter(name="enablePerformanceInsights")
     def enable_performance_insights(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
-        """
         return pulumi.get(self, "enable_performance_insights")
 
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[_builtins.str]:
-        """
-        The DNS address for this instance. May not be writable
-        """
         return pulumi.get(self, "endpoint")
 
     @_builtins.property
     @pulumi.getter
     def engine(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
-        """
         return pulumi.get(self, "engine")
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        The database engine version
-        """
         return pulumi.get(self, "engine_version")
 
     @_builtins.property
     @pulumi.getter
     def identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
-        """
         return pulumi.get(self, "identifier")
 
     @_builtins.property
     @pulumi.getter(name="identifierPrefix")
     def identifier_prefix(self) -> pulumi.Output[_builtins.str]:
-        """
-        Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
-        """
         return pulumi.get(self, "identifier_prefix")
 
     @_builtins.property
     @pulumi.getter(name="instanceClass")
     def instance_class(self) -> pulumi.Output[_builtins.str]:
-        """
-        The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
-        DocumentDB currently supports the below instance classes.
-        Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
-        - db.r6g.large
-        - db.r6g.xlarge
-        - db.r6g.2xlarge
-        - db.r6g.4xlarge
-        - db.r6g.8xlarge
-        - db.r6g.12xlarge
-        - db.r6g.16xlarge
-        - db.r5.large
-        - db.r5.xlarge
-        - db.r5.2xlarge
-        - db.r5.4xlarge
-        - db.r5.12xlarge
-        - db.r5.24xlarge
-        - db.r4.large
-        - db.r4.xlarge
-        - db.r4.2xlarge
-        - db.r4.4xlarge
-        - db.r4.8xlarge
-        - db.r4.16xlarge
-        - db.t4g.medium
-        - db.t3.medium
-        """
         return pulumi.get(self, "instance_class")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN for the KMS encryption key if one is set to the cluster.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="performanceInsightsKmsKeyId")
     def performance_insights_kms_key_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
-        """
         return pulumi.get(self, "performance_insights_kms_key_id")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> pulumi.Output[_builtins.int]:
-        """
-        The database port
-        """
         return pulumi.get(self, "port")
 
     @_builtins.property
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> pulumi.Output[_builtins.str]:
-        """
-        The daily time range during which automated backups are created if automated backups are enabled.
-        """
         return pulumi.get(self, "preferred_backup_window")
 
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> pulumi.Output[_builtins.str]:
-        """
-        The window to perform maintenance in.
-        Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @_builtins.property
     @pulumi.getter(name="promotionTier")
     def promotion_tier(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
-        """
         return pulumi.get(self, "promotion_tier")
 
     @_builtins.property
@@ -1398,40 +864,25 @@ class ClusterInstance(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Specifies whether the DB cluster is encrypted.
-        """
         return pulumi.get(self, "storage_encrypted")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def writer(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
-        """
         return pulumi.get(self, "writer")
 

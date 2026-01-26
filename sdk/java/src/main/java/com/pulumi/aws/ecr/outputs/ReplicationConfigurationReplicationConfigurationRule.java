@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ReplicationConfigurationReplicationConfigurationRule {
-    /**
-     * @return the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
-     * 
-     */
     private List<ReplicationConfigurationReplicationConfigurationRuleDestination> destinations;
-    /**
-     * @return filters for a replication rule. See Repository Filter.
-     * 
-     */
     private @Nullable List<ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter> repositoryFilters;
 
     private ReplicationConfigurationReplicationConfigurationRule() {}
-    /**
-     * @return the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
-     * 
-     */
     public List<ReplicationConfigurationReplicationConfigurationRuleDestination> destinations() {
         return this.destinations;
     }
-    /**
-     * @return filters for a replication rule. See Repository Filter.
-     * 
-     */
     public List<ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter> repositoryFilters() {
         return this.repositoryFilters == null ? List.of() : this.repositoryFilters;
     }

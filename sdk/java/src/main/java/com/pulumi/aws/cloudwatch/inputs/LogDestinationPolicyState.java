@@ -16,62 +16,30 @@ public final class LogDestinationPolicyState extends com.pulumi.resources.Resour
 
     public static final LogDestinationPolicyState Empty = new LogDestinationPolicyState();
 
-    /**
-     * The policy document. This is a JSON formatted string.
-     * 
-     */
     @Import(name="accessPolicy")
     private @Nullable Output<String> accessPolicy;
 
-    /**
-     * @return The policy document. This is a JSON formatted string.
-     * 
-     */
     public Optional<Output<String>> accessPolicy() {
         return Optional.ofNullable(this.accessPolicy);
     }
 
-    /**
-     * A name for the subscription filter
-     * 
-     */
     @Import(name="destinationName")
     private @Nullable Output<String> destinationName;
 
-    /**
-     * @return A name for the subscription filter
-     * 
-     */
     public Optional<Output<String>> destinationName() {
         return Optional.ofNullable(this.destinationName);
     }
 
-    /**
-     * Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
-     * 
-     */
     @Import(name="forceUpdate")
     private @Nullable Output<Boolean> forceUpdate;
 
-    /**
-     * @return Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
-     * 
-     */
     public Optional<Output<Boolean>> forceUpdate() {
         return Optional.ofNullable(this.forceUpdate);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -103,86 +71,38 @@ public final class LogDestinationPolicyState extends com.pulumi.resources.Resour
             $ = new LogDestinationPolicyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessPolicy The policy document. This is a JSON formatted string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessPolicy(@Nullable Output<String> accessPolicy) {
             $.accessPolicy = accessPolicy;
             return this;
         }
 
-        /**
-         * @param accessPolicy The policy document. This is a JSON formatted string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessPolicy(String accessPolicy) {
             return accessPolicy(Output.of(accessPolicy));
         }
 
-        /**
-         * @param destinationName A name for the subscription filter
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationName(@Nullable Output<String> destinationName) {
             $.destinationName = destinationName;
             return this;
         }
 
-        /**
-         * @param destinationName A name for the subscription filter
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationName(String destinationName) {
             return destinationName(Output.of(destinationName));
         }
 
-        /**
-         * @param forceUpdate Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder forceUpdate(@Nullable Output<Boolean> forceUpdate) {
             $.forceUpdate = forceUpdate;
             return this;
         }
 
-        /**
-         * @param forceUpdate Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder forceUpdate(Boolean forceUpdate) {
             return forceUpdate(Output.of(forceUpdate));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

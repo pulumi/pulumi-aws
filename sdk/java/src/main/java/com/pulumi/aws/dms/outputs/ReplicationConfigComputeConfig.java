@@ -15,123 +15,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ReplicationConfigComputeConfig {
-    /**
-     * @return The Availability Zone where the DMS Serverless replication using this configuration will run. The default value is a random.
-     * 
-     */
     private @Nullable String availabilityZone;
-    /**
-     * @return A list of custom DNS name servers supported for the DMS Serverless replication to access your source or target database.
-     * 
-     */
     private @Nullable String dnsNameServers;
-    /**
-     * @return An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don&#39;t specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
-     * 
-     */
     private @Nullable String kmsKeyId;
-    /**
-     * @return Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCUs as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
-     * 
-     */
     private @Nullable Integer maxCapacityUnits;
-    /**
-     * @return Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn&#39;t set DMS sets the lowest allowed value, 1.
-     * 
-     */
     private @Nullable Integer minCapacityUnits;
-    /**
-     * @return Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
-     * 
-     */
     private @Nullable Boolean multiAz;
-    /**
-     * @return The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-     * 
-     * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-     * - Format: `ddd:hh24:mi-ddd:hh24:mi`
-     * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-     * - Constraints: Minimum 30-minute window.
-     * 
-     */
     private @Nullable String preferredMaintenanceWindow;
-    /**
-     * @return Specifies a subnet group identifier to associate with the DMS Serverless replication.
-     * 
-     */
     private String replicationSubnetGroupId;
-    /**
-     * @return Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
-     * 
-     */
     private @Nullable List<String> vpcSecurityGroupIds;
 
     private ReplicationConfigComputeConfig() {}
-    /**
-     * @return The Availability Zone where the DMS Serverless replication using this configuration will run. The default value is a random.
-     * 
-     */
     public Optional<String> availabilityZone() {
         return Optional.ofNullable(this.availabilityZone);
     }
-    /**
-     * @return A list of custom DNS name servers supported for the DMS Serverless replication to access your source or target database.
-     * 
-     */
     public Optional<String> dnsNameServers() {
         return Optional.ofNullable(this.dnsNameServers);
     }
-    /**
-     * @return An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don&#39;t specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
-     * 
-     */
     public Optional<String> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
-    /**
-     * @return Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCUs as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
-     * 
-     */
     public Optional<Integer> maxCapacityUnits() {
         return Optional.ofNullable(this.maxCapacityUnits);
     }
-    /**
-     * @return Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn&#39;t set DMS sets the lowest allowed value, 1.
-     * 
-     */
     public Optional<Integer> minCapacityUnits() {
         return Optional.ofNullable(this.minCapacityUnits);
     }
-    /**
-     * @return Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
-     * 
-     */
     public Optional<Boolean> multiAz() {
         return Optional.ofNullable(this.multiAz);
     }
-    /**
-     * @return The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-     * 
-     * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-     * - Format: `ddd:hh24:mi-ddd:hh24:mi`
-     * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-     * - Constraints: Minimum 30-minute window.
-     * 
-     */
     public Optional<String> preferredMaintenanceWindow() {
         return Optional.ofNullable(this.preferredMaintenanceWindow);
     }
-    /**
-     * @return Specifies a subnet group identifier to associate with the DMS Serverless replication.
-     * 
-     */
     public String replicationSubnetGroupId() {
         return this.replicationSubnetGroupId;
     }
-    /**
-     * @return Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
-     * 
-     */
     public List<String> vpcSecurityGroupIds() {
         return this.vpcSecurityGroupIds == null ? List.of() : this.vpcSecurityGroupIds;
     }

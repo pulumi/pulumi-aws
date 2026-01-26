@@ -25,32 +25,16 @@ public final class QuerySuggestionsBlockListArgs extends com.pulumi.resources.Re
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Identifier of the index for a block list.
-     * 
-     */
     @Import(name="indexId", required=true)
     private Output<String> indexId;
 
-    /**
-     * @return Identifier of the index for a block list.
-     * 
-     */
     public Output<String> indexId() {
         return this.indexId;
     }
 
-    /**
-     * Name for the block list.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name for the block list.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -62,32 +46,16 @@ public final class QuerySuggestionsBlockListArgs extends com.pulumi.resources.Re
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * IAM (Identity and Access Management) role used to access the block list text file in S3.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return IAM (Identity and Access Management) role used to access the block list text file in S3.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
 
-    /**
-     * S3 path where your block list text file is located. See details below.
-     * 
-     */
     @Import(name="sourceS3Path", required=true)
     private Output<QuerySuggestionsBlockListSourceS3PathArgs> sourceS3Path;
 
-    /**
-     * @return S3 path where your block list text file is located. See details below.
-     * 
-     */
     public Output<QuerySuggestionsBlockListSourceS3PathArgs> sourceS3Path() {
         return this.sourceS3Path;
     }
@@ -138,44 +106,20 @@ public final class QuerySuggestionsBlockListArgs extends com.pulumi.resources.Re
             return description(Output.of(description));
         }
 
-        /**
-         * @param indexId Identifier of the index for a block list.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexId(Output<String> indexId) {
             $.indexId = indexId;
             return this;
         }
 
-        /**
-         * @param indexId Identifier of the index for a block list.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexId(String indexId) {
             return indexId(Output.of(indexId));
         }
 
-        /**
-         * @param name Name for the block list.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name for the block list.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
@@ -189,44 +133,20 @@ public final class QuerySuggestionsBlockListArgs extends com.pulumi.resources.Re
             return region(Output.of(region));
         }
 
-        /**
-         * @param roleArn IAM (Identity and Access Management) role used to access the block list text file in S3.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn IAM (Identity and Access Management) role used to access the block list text file in S3.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param sourceS3Path S3 path where your block list text file is located. See details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceS3Path(Output<QuerySuggestionsBlockListSourceS3PathArgs> sourceS3Path) {
             $.sourceS3Path = sourceS3Path;
             return this;
         }
 
-        /**
-         * @param sourceS3Path S3 path where your block list text file is located. See details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceS3Path(QuerySuggestionsBlockListSourceS3PathArgs sourceS3Path) {
             return sourceS3Path(Output.of(sourceS3Path));
         }

@@ -17,62 +17,30 @@ public final class CrawlerJdbcTargetArgs extends com.pulumi.resources.ResourceAr
 
     public static final CrawlerJdbcTargetArgs Empty = new CrawlerJdbcTargetArgs();
 
-    /**
-     * The name of the connection to use to connect to the JDBC target.
-     * 
-     */
     @Import(name="connectionName", required=true)
     private Output<String> connectionName;
 
-    /**
-     * @return The name of the connection to use to connect to the JDBC target.
-     * 
-     */
     public Output<String> connectionName() {
         return this.connectionName;
     }
 
-    /**
-     * Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata intable responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
-     * 
-     */
     @Import(name="enableAdditionalMetadatas")
     private @Nullable Output<List<String>> enableAdditionalMetadatas;
 
-    /**
-     * @return Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata intable responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
-     * 
-     */
     public Optional<Output<List<String>>> enableAdditionalMetadatas() {
         return Optional.ofNullable(this.enableAdditionalMetadatas);
     }
 
-    /**
-     * A list of glob patterns used to exclude from the crawl.
-     * 
-     */
     @Import(name="exclusions")
     private @Nullable Output<List<String>> exclusions;
 
-    /**
-     * @return A list of glob patterns used to exclude from the crawl.
-     * 
-     */
     public Optional<Output<List<String>>> exclusions() {
         return Optional.ofNullable(this.exclusions);
     }
 
-    /**
-     * The path of the JDBC target.
-     * 
-     */
     @Import(name="path", required=true)
     private Output<String> path;
 
-    /**
-     * @return The path of the JDBC target.
-     * 
-     */
     public Output<String> path() {
         return this.path;
     }
@@ -104,106 +72,46 @@ public final class CrawlerJdbcTargetArgs extends com.pulumi.resources.ResourceAr
             $ = new CrawlerJdbcTargetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param connectionName The name of the connection to use to connect to the JDBC target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionName(Output<String> connectionName) {
             $.connectionName = connectionName;
             return this;
         }
 
-        /**
-         * @param connectionName The name of the connection to use to connect to the JDBC target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionName(String connectionName) {
             return connectionName(Output.of(connectionName));
         }
 
-        /**
-         * @param enableAdditionalMetadatas Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata intable responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableAdditionalMetadatas(@Nullable Output<List<String>> enableAdditionalMetadatas) {
             $.enableAdditionalMetadatas = enableAdditionalMetadatas;
             return this;
         }
 
-        /**
-         * @param enableAdditionalMetadatas Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata intable responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableAdditionalMetadatas(List<String> enableAdditionalMetadatas) {
             return enableAdditionalMetadatas(Output.of(enableAdditionalMetadatas));
         }
 
-        /**
-         * @param enableAdditionalMetadatas Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata intable responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableAdditionalMetadatas(String... enableAdditionalMetadatas) {
             return enableAdditionalMetadatas(List.of(enableAdditionalMetadatas));
         }
 
-        /**
-         * @param exclusions A list of glob patterns used to exclude from the crawl.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exclusions(@Nullable Output<List<String>> exclusions) {
             $.exclusions = exclusions;
             return this;
         }
 
-        /**
-         * @param exclusions A list of glob patterns used to exclude from the crawl.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exclusions(List<String> exclusions) {
             return exclusions(Output.of(exclusions));
         }
 
-        /**
-         * @param exclusions A list of glob patterns used to exclude from the crawl.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exclusions(String... exclusions) {
             return exclusions(List.of(exclusions));
         }
 
-        /**
-         * @param path The path of the JDBC target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(Output<String> path) {
             $.path = path;
             return this;
         }
 
-        /**
-         * @param path The path of the JDBC target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(String path) {
             return path(Output.of(path));
         }

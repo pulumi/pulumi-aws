@@ -14,32 +14,16 @@ public final class RevisionAssetsAssetImportAssetsFromS3AssetSourceArgs extends 
 
     public static final RevisionAssetsAssetImportAssetsFromS3AssetSourceArgs Empty = new RevisionAssetsAssetImportAssetsFromS3AssetSourceArgs();
 
-    /**
-     * The name of the S3 bucket.
-     * 
-     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
-    /**
-     * @return The name of the S3 bucket.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
-    /**
-     * The key of the object in the S3 bucket.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return The key of the object in the S3 bucket.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
@@ -69,44 +53,20 @@ public final class RevisionAssetsAssetImportAssetsFromS3AssetSourceArgs extends 
             $ = new RevisionAssetsAssetImportAssetsFromS3AssetSourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket The name of the S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket The name of the S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param key The key of the object in the S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key The key of the object in the S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }

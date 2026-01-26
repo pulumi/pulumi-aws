@@ -15,21 +15,9 @@ public final class SmbFileShareCacheAttributesArgs extends com.pulumi.resources.
 
     public static final SmbFileShareCacheAttributesArgs Empty = new SmbFileShareCacheAttributesArgs();
 
-    /**
-     * Refreshes a file share&#39;s cache by using Time To Live (TTL).
-     * TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
-     * to first refresh that directory&#39;s contents from the Amazon S3 bucket. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
-     * 
-     */
     @Import(name="cacheStaleTimeoutInSeconds")
     private @Nullable Output<Integer> cacheStaleTimeoutInSeconds;
 
-    /**
-     * @return Refreshes a file share&#39;s cache by using Time To Live (TTL).
-     * TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
-     * to first refresh that directory&#39;s contents from the Amazon S3 bucket. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
-     * 
-     */
     public Optional<Output<Integer>> cacheStaleTimeoutInSeconds() {
         return Optional.ofNullable(this.cacheStaleTimeoutInSeconds);
     }
@@ -58,27 +46,11 @@ public final class SmbFileShareCacheAttributesArgs extends com.pulumi.resources.
             $ = new SmbFileShareCacheAttributesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cacheStaleTimeoutInSeconds Refreshes a file share&#39;s cache by using Time To Live (TTL).
-         * TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
-         * to first refresh that directory&#39;s contents from the Amazon S3 bucket. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
-         * 
-         * @return builder
-         * 
-         */
         public Builder cacheStaleTimeoutInSeconds(@Nullable Output<Integer> cacheStaleTimeoutInSeconds) {
             $.cacheStaleTimeoutInSeconds = cacheStaleTimeoutInSeconds;
             return this;
         }
 
-        /**
-         * @param cacheStaleTimeoutInSeconds Refreshes a file share&#39;s cache by using Time To Live (TTL).
-         * TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
-         * to first refresh that directory&#39;s contents from the Amazon S3 bucket. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
-         * 
-         * @return builder
-         * 
-         */
         public Builder cacheStaleTimeoutInSeconds(Integer cacheStaleTimeoutInSeconds) {
             return cacheStaleTimeoutInSeconds(Output.of(cacheStaleTimeoutInSeconds));
         }

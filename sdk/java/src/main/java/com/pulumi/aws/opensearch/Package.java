@@ -15,120 +15,23 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an AWS Opensearch Package.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.Bucket;
- * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3.BucketObjectv2;
- * import com.pulumi.aws.s3.BucketObjectv2Args;
- * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.Filemd5Args;
- * import com.pulumi.aws.opensearch.Package;
- * import com.pulumi.aws.opensearch.PackageArgs;
- * import com.pulumi.aws.opensearch.inputs.PackagePackageSourceArgs;
- * import com.pulumi.asset.FileAsset;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var myOpensearchPackages = new Bucket("myOpensearchPackages", BucketArgs.builder()
- *             .bucket("my-opensearch-packages")
- *             .build());
- * 
- *         var example = new BucketObjectv2("example", BucketObjectv2Args.builder()
- *             .bucket(myOpensearchPackages.bucket())
- *             .key("example.txt")
- *             .source(new FileAsset("./example.txt"))
- *             .etag(StdFunctions.filemd5(Filemd5Args.builder()
- *                 .input("./example.txt")
- *                 .build()).result())
- *             .build());
- * 
- *         var examplePackage = new Package("examplePackage", PackageArgs.builder()
- *             .packageName("example-txt")
- *             .packageSource(PackagePackageSourceArgs.builder()
- *                 .s3BucketName(myOpensearchPackages.bucket())
- *                 .s3Key(example.key())
- *                 .build())
- *             .packageType("TXT-DICTIONARY")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import AWS Opensearch Packages using the Package ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:opensearch/package:Package example package-id
- * ```
- * 
- */
 @ResourceType(type="aws:opensearch/package:Package")
 public class Package extends com.pulumi.resources.CustomResource {
-    /**
-     * The current version of the package.
-     * 
-     */
     @Export(name="availablePackageVersion", refs={String.class}, tree="[0]")
     private Output<String> availablePackageVersion;
 
-    /**
-     * @return The current version of the package.
-     * 
-     */
     public Output<String> availablePackageVersion() {
         return this.availablePackageVersion;
     }
-    /**
-     * Engine version that the package is compatible with. This argument is required and only valid when `packageType` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
-     * 
-     */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> engineVersion;
 
-    /**
-     * @return Engine version that the package is compatible with. This argument is required and only valid when `packageType` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
-     * 
-     */
     public Output<Optional<String>> engineVersion() {
         return Codegen.optional(this.engineVersion);
     }
-    /**
-     * Description of the package.
-     * 
-     */
     @Export(name="packageDescription", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> packageDescription;
 
-    /**
-     * @return Description of the package.
-     * 
-     */
     public Output<Optional<String>> packageDescription() {
         return Codegen.optional(this.packageDescription);
     }
@@ -138,59 +41,27 @@ public class Package extends com.pulumi.resources.CustomResource {
     public Output<String> packageId() {
         return this.packageId;
     }
-    /**
-     * Unique name for the package.
-     * 
-     */
     @Export(name="packageName", refs={String.class}, tree="[0]")
     private Output<String> packageName;
 
-    /**
-     * @return Unique name for the package.
-     * 
-     */
     public Output<String> packageName() {
         return this.packageName;
     }
-    /**
-     * Configuration block for the package source options.
-     * 
-     */
     @Export(name="packageSource", refs={PackagePackageSource.class}, tree="[0]")
     private Output<PackagePackageSource> packageSource;
 
-    /**
-     * @return Configuration block for the package source options.
-     * 
-     */
     public Output<PackagePackageSource> packageSource() {
         return this.packageSource;
     }
-    /**
-     * The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
-     * 
-     */
     @Export(name="packageType", refs={String.class}, tree="[0]")
     private Output<String> packageType;
 
-    /**
-     * @return The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
-     * 
-     */
     public Output<String> packageType() {
         return this.packageType;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

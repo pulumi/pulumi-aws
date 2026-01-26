@@ -14,7 +14,6 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type RepositoryExternalConnections struct {
-	// The name of the external connection associated with a repository.
 	ExternalConnectionName string  `pulumi:"externalConnectionName"`
 	PackageFormat          *string `pulumi:"packageFormat"`
 	Status                 *string `pulumi:"status"`
@@ -32,7 +31,6 @@ type RepositoryExternalConnectionsInput interface {
 }
 
 type RepositoryExternalConnectionsArgs struct {
-	// The name of the external connection associated with a repository.
 	ExternalConnectionName pulumi.StringInput    `pulumi:"externalConnectionName"`
 	PackageFormat          pulumi.StringPtrInput `pulumi:"packageFormat"`
 	Status                 pulumi.StringPtrInput `pulumi:"status"`
@@ -115,7 +113,6 @@ func (o RepositoryExternalConnectionsOutput) ToRepositoryExternalConnectionsPtrO
 	}).(RepositoryExternalConnectionsPtrOutput)
 }
 
-// The name of the external connection associated with a repository.
 func (o RepositoryExternalConnectionsOutput) ExternalConnectionName() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryExternalConnections) string { return v.ExternalConnectionName }).(pulumi.StringOutput)
 }
@@ -152,7 +149,6 @@ func (o RepositoryExternalConnectionsPtrOutput) Elem() RepositoryExternalConnect
 	}).(RepositoryExternalConnectionsOutput)
 }
 
-// The name of the external connection associated with a repository.
 func (o RepositoryExternalConnectionsPtrOutput) ExternalConnectionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryExternalConnections) *string {
 		if v == nil {
@@ -181,7 +177,6 @@ func (o RepositoryExternalConnectionsPtrOutput) Status() pulumi.StringPtrOutput 
 }
 
 type RepositoryUpstream struct {
-	// The name of an upstream repository.
 	RepositoryName string `pulumi:"repositoryName"`
 }
 
@@ -197,7 +192,6 @@ type RepositoryUpstreamInput interface {
 }
 
 type RepositoryUpstreamArgs struct {
-	// The name of an upstream repository.
 	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
 }
 
@@ -252,7 +246,6 @@ func (o RepositoryUpstreamOutput) ToRepositoryUpstreamOutputWithContext(ctx cont
 	return o
 }
 
-// The name of an upstream repository.
 func (o RepositoryUpstreamOutput) RepositoryName() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryUpstream) string { return v.RepositoryName }).(pulumi.StringOutput)
 }

@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class AutomationRuleActionFindingFieldsUpdateNote {
-    /**
-     * @return The updated note text.
-     * 
-     */
     private String text;
-    /**
-     * @return The principal that updated the note.
-     * 
-     */
     private String updatedBy;
 
     private AutomationRuleActionFindingFieldsUpdateNote() {}
-    /**
-     * @return The updated note text.
-     * 
-     */
     public String text() {
         return this.text;
     }
-    /**
-     * @return The principal that updated the note.
-     * 
-     */
     public String updatedBy() {
         return this.updatedBy;
     }

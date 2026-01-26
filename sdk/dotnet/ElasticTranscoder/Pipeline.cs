@@ -9,130 +9,42 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ElasticTranscoder
 {
-    /// <summary>
-    /// Provides an Elastic Transcoder pipeline resource.
-    /// 
-    /// &gt; **Warning:** This resource is deprecated. Use [AWS Elemental MediaConvert](https://aws.amazon.com/blogs/media/migrating-workflows-from-amazon-elastic-transcoder-to-aws-elemental-mediaconvert/) instead. AWS will [discontinue support for Amazon Elastic Transcoder](https://aws.amazon.com/blogs/media/support-for-amazon-elastic-transcoder-ending-soon/), effective November 13, 2025.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var bar = new Aws.ElasticTranscoder.Pipeline("bar", new()
-    ///     {
-    ///         InputBucket = inputBucket.Id,
-    ///         Name = "aws_elastictranscoder_pipeline_my_test_",
-    ///         Role = testRole.Arn,
-    ///         ContentConfig = new Aws.ElasticTranscoder.Inputs.PipelineContentConfigArgs
-    ///         {
-    ///             Bucket = contentBucket.Id,
-    ///             StorageClass = "Standard",
-    ///         },
-    ///         ThumbnailConfig = new Aws.ElasticTranscoder.Inputs.PipelineThumbnailConfigArgs
-    ///         {
-    ///             Bucket = thumbBucket.Id,
-    ///             StorageClass = "Standard",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Elastic Transcoder pipelines using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:elastictranscoder/pipeline:Pipeline")]
     public partial class Pipeline : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the Elastictranscoder pipeline.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
-        /// </summary>
         [Output("awsKmsKeyArn")]
         public Output<string?> AwsKmsKeyArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
-        /// </summary>
         [Output("contentConfig")]
         public Output<Outputs.PipelineContentConfig> ContentConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// The permissions for the `ContentConfig` object. (documented below)
-        /// </summary>
         [Output("contentConfigPermissions")]
         public Output<ImmutableArray<Outputs.PipelineContentConfigPermission>> ContentConfigPermissions { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
-        /// </summary>
         [Output("inputBucket")]
         public Output<string> InputBucket { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the pipeline. Maximum 40 characters
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
-        /// </summary>
         [Output("notifications")]
         public Output<Outputs.PipelineNotifications?> Notifications { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
-        /// </summary>
         [Output("outputBucket")]
         public Output<string> OutputBucket { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
-        /// </summary>
         [Output("role")]
         public Output<string> Role { get; private set; } = null!;
 
-        /// <summary>
-        /// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
-        /// </summary>
         [Output("thumbnailConfig")]
         public Output<Outputs.PipelineThumbnailConfig> ThumbnailConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// The permissions for the `ThumbnailConfig` object. (documented below)
-        /// 
-        /// See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
-        /// 
-        /// The `ContentConfig` object specifies information about the Amazon S3 bucket in
-        /// which you want Elastic Transcoder to save transcoded files and playlists: which
-        /// bucket to use, and the storage class that you want to assign to the files. If
-        /// you specify values for `ContentConfig`, you must also specify values for
-        /// `ThumbnailConfig`. If you specify values for `ContentConfig` and
-        /// `ThumbnailConfig`, omit the `OutputBucket` object.
-        /// </summary>
         [Output("thumbnailConfigPermissions")]
         public Output<ImmutableArray<Outputs.PipelineThumbnailConfigPermission>> ThumbnailConfigPermissions { get; private set; } = null!;
 
@@ -182,87 +94,43 @@ namespace Pulumi.Aws.ElasticTranscoder
 
     public sealed class PipelineArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
-        /// </summary>
         [Input("awsKmsKeyArn")]
         public Input<string>? AwsKmsKeyArn { get; set; }
 
-        /// <summary>
-        /// The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
-        /// </summary>
         [Input("contentConfig")]
         public Input<Inputs.PipelineContentConfigArgs>? ContentConfig { get; set; }
 
         [Input("contentConfigPermissions")]
         private InputList<Inputs.PipelineContentConfigPermissionArgs>? _contentConfigPermissions;
-
-        /// <summary>
-        /// The permissions for the `ContentConfig` object. (documented below)
-        /// </summary>
         public InputList<Inputs.PipelineContentConfigPermissionArgs> ContentConfigPermissions
         {
             get => _contentConfigPermissions ?? (_contentConfigPermissions = new InputList<Inputs.PipelineContentConfigPermissionArgs>());
             set => _contentConfigPermissions = value;
         }
 
-        /// <summary>
-        /// The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
-        /// </summary>
         [Input("inputBucket", required: true)]
         public Input<string> InputBucket { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the pipeline. Maximum 40 characters
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
-        /// </summary>
         [Input("notifications")]
         public Input<Inputs.PipelineNotificationsArgs>? Notifications { get; set; }
 
-        /// <summary>
-        /// The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
-        /// </summary>
         [Input("outputBucket")]
         public Input<string>? OutputBucket { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
-        /// </summary>
         [Input("role", required: true)]
         public Input<string> Role { get; set; } = null!;
 
-        /// <summary>
-        /// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
-        /// </summary>
         [Input("thumbnailConfig")]
         public Input<Inputs.PipelineThumbnailConfigArgs>? ThumbnailConfig { get; set; }
 
         [Input("thumbnailConfigPermissions")]
         private InputList<Inputs.PipelineThumbnailConfigPermissionArgs>? _thumbnailConfigPermissions;
-
-        /// <summary>
-        /// The permissions for the `ThumbnailConfig` object. (documented below)
-        /// 
-        /// See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
-        /// 
-        /// The `ContentConfig` object specifies information about the Amazon S3 bucket in
-        /// which you want Elastic Transcoder to save transcoded files and playlists: which
-        /// bucket to use, and the storage class that you want to assign to the files. If
-        /// you specify values for `ContentConfig`, you must also specify values for
-        /// `ThumbnailConfig`. If you specify values for `ContentConfig` and
-        /// `ThumbnailConfig`, omit the `OutputBucket` object.
-        /// </summary>
         public InputList<Inputs.PipelineThumbnailConfigPermissionArgs> ThumbnailConfigPermissions
         {
             get => _thumbnailConfigPermissions ?? (_thumbnailConfigPermissions = new InputList<Inputs.PipelineThumbnailConfigPermissionArgs>());
@@ -277,93 +145,46 @@ namespace Pulumi.Aws.ElasticTranscoder
 
     public sealed class PipelineState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the Elastictranscoder pipeline.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
-        /// </summary>
         [Input("awsKmsKeyArn")]
         public Input<string>? AwsKmsKeyArn { get; set; }
 
-        /// <summary>
-        /// The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
-        /// </summary>
         [Input("contentConfig")]
         public Input<Inputs.PipelineContentConfigGetArgs>? ContentConfig { get; set; }
 
         [Input("contentConfigPermissions")]
         private InputList<Inputs.PipelineContentConfigPermissionGetArgs>? _contentConfigPermissions;
-
-        /// <summary>
-        /// The permissions for the `ContentConfig` object. (documented below)
-        /// </summary>
         public InputList<Inputs.PipelineContentConfigPermissionGetArgs> ContentConfigPermissions
         {
             get => _contentConfigPermissions ?? (_contentConfigPermissions = new InputList<Inputs.PipelineContentConfigPermissionGetArgs>());
             set => _contentConfigPermissions = value;
         }
 
-        /// <summary>
-        /// The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
-        /// </summary>
         [Input("inputBucket")]
         public Input<string>? InputBucket { get; set; }
 
-        /// <summary>
-        /// The name of the pipeline. Maximum 40 characters
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
-        /// </summary>
         [Input("notifications")]
         public Input<Inputs.PipelineNotificationsGetArgs>? Notifications { get; set; }
 
-        /// <summary>
-        /// The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
-        /// </summary>
         [Input("outputBucket")]
         public Input<string>? OutputBucket { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
-        /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
 
-        /// <summary>
-        /// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
-        /// </summary>
         [Input("thumbnailConfig")]
         public Input<Inputs.PipelineThumbnailConfigGetArgs>? ThumbnailConfig { get; set; }
 
         [Input("thumbnailConfigPermissions")]
         private InputList<Inputs.PipelineThumbnailConfigPermissionGetArgs>? _thumbnailConfigPermissions;
-
-        /// <summary>
-        /// The permissions for the `ThumbnailConfig` object. (documented below)
-        /// 
-        /// See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
-        /// 
-        /// The `ContentConfig` object specifies information about the Amazon S3 bucket in
-        /// which you want Elastic Transcoder to save transcoded files and playlists: which
-        /// bucket to use, and the storage class that you want to assign to the files. If
-        /// you specify values for `ContentConfig`, you must also specify values for
-        /// `ThumbnailConfig`. If you specify values for `ContentConfig` and
-        /// `ThumbnailConfig`, omit the `OutputBucket` object.
-        /// </summary>
         public InputList<Inputs.PipelineThumbnailConfigPermissionGetArgs> ThumbnailConfigPermissions
         {
             get => _thumbnailConfigPermissions ?? (_thumbnailConfigPermissions = new InputList<Inputs.PipelineThumbnailConfigPermissionGetArgs>());

@@ -14,32 +14,16 @@ public final class AgentFlowDefinitionNodeConfigurationInlineCodeArgs extends co
 
     public static final AgentFlowDefinitionNodeConfigurationInlineCodeArgs Empty = new AgentFlowDefinitionNodeConfigurationInlineCodeArgs();
 
-    /**
-     * The code that&#39;s executed in your inline code node.
-     * 
-     */
     @Import(name="code", required=true)
     private Output<String> code;
 
-    /**
-     * @return The code that&#39;s executed in your inline code node.
-     * 
-     */
     public Output<String> code() {
         return this.code;
     }
 
-    /**
-     * The programming language used by your inline code node.
-     * 
-     */
     @Import(name="language", required=true)
     private Output<String> language;
 
-    /**
-     * @return The programming language used by your inline code node.
-     * 
-     */
     public Output<String> language() {
         return this.language;
     }
@@ -69,44 +53,20 @@ public final class AgentFlowDefinitionNodeConfigurationInlineCodeArgs extends co
             $ = new AgentFlowDefinitionNodeConfigurationInlineCodeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param code The code that&#39;s executed in your inline code node.
-         * 
-         * @return builder
-         * 
-         */
         public Builder code(Output<String> code) {
             $.code = code;
             return this;
         }
 
-        /**
-         * @param code The code that&#39;s executed in your inline code node.
-         * 
-         * @return builder
-         * 
-         */
         public Builder code(String code) {
             return code(Output.of(code));
         }
 
-        /**
-         * @param language The programming language used by your inline code node.
-         * 
-         * @return builder
-         * 
-         */
         public Builder language(Output<String> language) {
             $.language = language;
             return this;
         }
 
-        /**
-         * @param language The programming language used by your inline code node.
-         * 
-         * @return builder
-         * 
-         */
         public Builder language(String language) {
             return language(Output.of(language));
         }

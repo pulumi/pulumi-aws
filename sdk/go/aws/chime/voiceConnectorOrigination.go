@@ -12,76 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Enable origination settings to control inbound calling to your SIP infrastructure.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chime"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_default, err := chime.NewVoiceConnector(ctx, "default", &chime.VoiceConnectorArgs{
-//				Name:              pulumi.String("test"),
-//				RequireEncryption: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = chime.NewVoiceConnectorOrigination(ctx, "default", &chime.VoiceConnectorOriginationArgs{
-//				Disabled:         pulumi.Bool(false),
-//				VoiceConnectorId: _default.ID(),
-//				Routes: chime.VoiceConnectorOriginationRouteArray{
-//					&chime.VoiceConnectorOriginationRouteArgs{
-//						Host:     pulumi.String("127.0.0.1"),
-//						Port:     pulumi.Int(8081),
-//						Protocol: pulumi.String("TCP"),
-//						Priority: pulumi.Int(1),
-//						Weight:   pulumi.Int(1),
-//					},
-//					&chime.VoiceConnectorOriginationRouteArgs{
-//						Host:     pulumi.String("127.0.0.2"),
-//						Port:     pulumi.Int(8082),
-//						Protocol: pulumi.String("TCP"),
-//						Priority: pulumi.Int(2),
-//						Weight:   pulumi.Int(10),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Chime Voice Connector Origination using the `voice_connector_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:chime/voiceConnectorOrigination:VoiceConnectorOrigination default abcdef1ghij2klmno3pqr4
-// ```
 type VoiceConnectorOrigination struct {
 	pulumi.CustomResourceState
 
-	// When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
-	Disabled pulumi.BoolPtrOutput `pulumi:"disabled"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
-	Routes VoiceConnectorOriginationRouteArrayOutput `pulumi:"routes"`
-	// The Amazon Chime Voice Connector ID.
-	VoiceConnectorId pulumi.StringOutput `pulumi:"voiceConnectorId"`
+	Disabled         pulumi.BoolPtrOutput                      `pulumi:"disabled"`
+	Region           pulumi.StringOutput                       `pulumi:"region"`
+	Routes           VoiceConnectorOriginationRouteArrayOutput `pulumi:"routes"`
+	VoiceConnectorId pulumi.StringOutput                       `pulumi:"voiceConnectorId"`
 }
 
 // NewVoiceConnectorOrigination registers a new resource with the given unique name, arguments, and options.
@@ -126,24 +63,16 @@ func GetVoiceConnectorOrigination(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VoiceConnectorOrigination resources.
 type voiceConnectorOriginationState struct {
-	// When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
-	Disabled *bool `pulumi:"disabled"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
-	Routes []VoiceConnectorOriginationRoute `pulumi:"routes"`
-	// The Amazon Chime Voice Connector ID.
-	VoiceConnectorId *string `pulumi:"voiceConnectorId"`
+	Disabled         *bool                            `pulumi:"disabled"`
+	Region           *string                          `pulumi:"region"`
+	Routes           []VoiceConnectorOriginationRoute `pulumi:"routes"`
+	VoiceConnectorId *string                          `pulumi:"voiceConnectorId"`
 }
 
 type VoiceConnectorOriginationState struct {
-	// When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
-	Disabled pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
-	Routes VoiceConnectorOriginationRouteArrayInput
-	// The Amazon Chime Voice Connector ID.
+	Disabled         pulumi.BoolPtrInput
+	Region           pulumi.StringPtrInput
+	Routes           VoiceConnectorOriginationRouteArrayInput
 	VoiceConnectorId pulumi.StringPtrInput
 }
 
@@ -152,25 +81,17 @@ func (VoiceConnectorOriginationState) ElementType() reflect.Type {
 }
 
 type voiceConnectorOriginationArgs struct {
-	// When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
-	Disabled *bool `pulumi:"disabled"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
-	Routes []VoiceConnectorOriginationRoute `pulumi:"routes"`
-	// The Amazon Chime Voice Connector ID.
-	VoiceConnectorId string `pulumi:"voiceConnectorId"`
+	Disabled         *bool                            `pulumi:"disabled"`
+	Region           *string                          `pulumi:"region"`
+	Routes           []VoiceConnectorOriginationRoute `pulumi:"routes"`
+	VoiceConnectorId string                           `pulumi:"voiceConnectorId"`
 }
 
 // The set of arguments for constructing a VoiceConnectorOrigination resource.
 type VoiceConnectorOriginationArgs struct {
-	// When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
-	Disabled pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
-	Routes VoiceConnectorOriginationRouteArrayInput
-	// The Amazon Chime Voice Connector ID.
+	Disabled         pulumi.BoolPtrInput
+	Region           pulumi.StringPtrInput
+	Routes           VoiceConnectorOriginationRouteArrayInput
 	VoiceConnectorId pulumi.StringInput
 }
 
@@ -261,22 +182,18 @@ func (o VoiceConnectorOriginationOutput) ToVoiceConnectorOriginationOutputWithCo
 	return o
 }
 
-// When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
 func (o VoiceConnectorOriginationOutput) Disabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VoiceConnectorOrigination) pulumi.BoolPtrOutput { return v.Disabled }).(pulumi.BoolPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VoiceConnectorOriginationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VoiceConnectorOrigination) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
 func (o VoiceConnectorOriginationOutput) Routes() VoiceConnectorOriginationRouteArrayOutput {
 	return o.ApplyT(func(v *VoiceConnectorOrigination) VoiceConnectorOriginationRouteArrayOutput { return v.Routes }).(VoiceConnectorOriginationRouteArrayOutput)
 }
 
-// The Amazon Chime Voice Connector ID.
 func (o VoiceConnectorOriginationOutput) VoiceConnectorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VoiceConnectorOrigination) pulumi.StringOutput { return v.VoiceConnectorId }).(pulumi.StringOutput)
 }

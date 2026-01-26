@@ -15,17 +15,9 @@ public final class ObjectCopyOverrideProviderArgs extends com.pulumi.resources.R
 
     public static final ObjectCopyOverrideProviderArgs Empty = new ObjectCopyOverrideProviderArgs();
 
-    /**
-     * Override the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="defaultTags")
     private @Nullable Output<ObjectCopyOverrideProviderDefaultTagsArgs> defaultTags;
 
-    /**
-     * @return Override the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<ObjectCopyOverrideProviderDefaultTagsArgs>> defaultTags() {
         return Optional.ofNullable(this.defaultTags);
     }
@@ -54,23 +46,11 @@ public final class ObjectCopyOverrideProviderArgs extends com.pulumi.resources.R
             $ = new ObjectCopyOverrideProviderArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param defaultTags Override the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultTags(@Nullable Output<ObjectCopyOverrideProviderDefaultTagsArgs> defaultTags) {
             $.defaultTags = defaultTags;
             return this;
         }
 
-        /**
-         * @param defaultTags Override the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultTags(ObjectCopyOverrideProviderDefaultTagsArgs defaultTags) {
             return defaultTags(Output.of(defaultTags));
         }

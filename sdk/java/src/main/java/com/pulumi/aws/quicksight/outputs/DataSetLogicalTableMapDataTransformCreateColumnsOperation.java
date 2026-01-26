@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class DataSetLogicalTableMapDataTransformCreateColumnsOperation {
-    /**
-     * @return Calculated columns to create. See columns.
-     * 
-     */
     private List<DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn> columns;
 
     private DataSetLogicalTableMapDataTransformCreateColumnsOperation() {}
-    /**
-     * @return Calculated columns to create. See columns.
-     * 
-     */
     public List<DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn> columns() {
         return this.columns;
     }

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationInputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Unique identifier of the guardrail.
-        /// </summary>
         [Input("guardrailIdentifier", required: true)]
         public Input<string> GuardrailIdentifier { get; set; } = null!;
 
-        /// <summary>
-        /// Version of the guardrail.
-        /// </summary>
         [Input("guardrailVersion", required: true)]
         public Input<string> GuardrailVersion { get; set; } = null!;
 

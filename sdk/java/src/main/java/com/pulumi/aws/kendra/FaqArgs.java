@@ -32,17 +32,9 @@ public final class FaqArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.fileFormat);
     }
 
-    /**
-     * The identifier of the index for a FAQ.
-     * 
-     */
     @Import(name="indexId", required=true)
     private Output<String> indexId;
 
-    /**
-     * @return The identifier of the index for a FAQ.
-     * 
-     */
     public Output<String> indexId() {
         return this.indexId;
     }
@@ -54,17 +46,9 @@ public final class FaqArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.languageCode);
     }
 
-    /**
-     * The name that should be associated with the FAQ.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name that should be associated with the FAQ.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -76,32 +60,16 @@ public final class FaqArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
 
-    /**
-     * The S3 location of the FAQ input data. Detailed below.
-     * 
-     */
     @Import(name="s3Path", required=true)
     private Output<FaqS3PathArgs> s3Path;
 
-    /**
-     * @return The S3 location of the FAQ input data. Detailed below.
-     * 
-     */
     public Output<FaqS3PathArgs> s3Path() {
         return this.s3Path;
     }
@@ -163,23 +131,11 @@ public final class FaqArgs extends com.pulumi.resources.ResourceArgs {
             return fileFormat(Output.of(fileFormat));
         }
 
-        /**
-         * @param indexId The identifier of the index for a FAQ.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexId(Output<String> indexId) {
             $.indexId = indexId;
             return this;
         }
 
-        /**
-         * @param indexId The identifier of the index for a FAQ.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexId(String indexId) {
             return indexId(Output.of(indexId));
         }
@@ -193,23 +149,11 @@ public final class FaqArgs extends com.pulumi.resources.ResourceArgs {
             return languageCode(Output.of(languageCode));
         }
 
-        /**
-         * @param name The name that should be associated with the FAQ.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name that should be associated with the FAQ.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
@@ -223,44 +167,20 @@ public final class FaqArgs extends com.pulumi.resources.ResourceArgs {
             return region(Output.of(region));
         }
 
-        /**
-         * @param roleArn The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param s3Path The S3 location of the FAQ input data. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Path(Output<FaqS3PathArgs> s3Path) {
             $.s3Path = s3Path;
             return this;
         }
 
-        /**
-         * @param s3Path The S3 location of the FAQ input data. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Path(FaqS3PathArgs s3Path) {
             return s3Path(Output.of(s3Path));
         }

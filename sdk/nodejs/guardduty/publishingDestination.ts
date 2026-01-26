@@ -4,98 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage a GuardDuty PublishingDestination. Requires an existing GuardDuty Detector.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const currentGetRegion = aws.getRegion({});
- * const gdBucket = new aws.s3.Bucket("gd_bucket", {
- *     bucket: "example",
- *     forceDestroy: true,
- * });
- * const bucketPol = aws.iam.getPolicyDocumentOutput({
- *     statements: [
- *         {
- *             sid: "Allow PutObject",
- *             actions: ["s3:PutObject"],
- *             resources: [pulumi.interpolate`${gdBucket.arn}/*`],
- *             principals: [{
- *                 type: "Service",
- *                 identifiers: ["guardduty.amazonaws.com"],
- *             }],
- *         },
- *         {
- *             sid: "Allow GetBucketLocation",
- *             actions: ["s3:GetBucketLocation"],
- *             resources: [gdBucket.arn],
- *             principals: [{
- *                 type: "Service",
- *                 identifiers: ["guardduty.amazonaws.com"],
- *             }],
- *         },
- *     ],
- * });
- * const kmsPol = Promise.all([currentGetRegion, current, currentGetRegion, current, current]).then(([currentGetRegion, current, currentGetRegion1, current1, current2]) => aws.iam.getPolicyDocument({
- *     statements: [
- *         {
- *             sid: "Allow GuardDuty to encrypt findings",
- *             actions: ["kms:GenerateDataKey"],
- *             resources: [`arn:aws:kms:${currentGetRegion.region}:${current.accountId}:key/*`],
- *             principals: [{
- *                 type: "Service",
- *                 identifiers: ["guardduty.amazonaws.com"],
- *             }],
- *         },
- *         {
- *             sid: "Allow all users to modify/delete key (test only)",
- *             actions: ["kms:*"],
- *             resources: [`arn:aws:kms:${currentGetRegion1.region}:${current1.accountId}:key/*`],
- *             principals: [{
- *                 type: "AWS",
- *                 identifiers: [`arn:aws:iam::${current2.accountId}:root`],
- *             }],
- *         },
- *     ],
- * }));
- * const testGd = new aws.guardduty.Detector("test_gd", {enable: true});
- * const gdBucketAcl = new aws.s3.BucketAcl("gd_bucket_acl", {
- *     bucket: gdBucket.id,
- *     acl: "private",
- * });
- * const gdBucketPolicy = new aws.s3.BucketPolicy("gd_bucket_policy", {
- *     bucket: gdBucket.id,
- *     policy: bucketPol.apply(bucketPol => bucketPol.json),
- * });
- * const gdKey = new aws.kms.Key("gd_key", {
- *     description: "Temporary key for AccTest of TF",
- *     deletionWindowInDays: 7,
- *     policy: kmsPol.then(kmsPol => kmsPol.json),
- * });
- * const test = new aws.guardduty.PublishingDestination("test", {
- *     detectorId: testGd.id,
- *     destinationArn: gdBucket.arn,
- *     kmsKeyArn: gdKey.arn,
- * }, {
- *     dependsOn: [gdBucketPolicy],
- * });
- * ```
- *
- * > **Note:** Please do not use this simple example for Bucket-Policy and KMS Key Policy in a production environment. It is much too open for such a use-case. Refer to the AWS documentation here: https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html
- *
- * ## Import
- *
- * Using `pulumi import`, import GuardDuty PublishingDestination using the master GuardDuty detector ID and PublishingDestinationID. For example:
- *
- * ```sh
- * $ pulumi import aws:guardduty/publishingDestination:PublishingDestination test a4b86f26fa42e7e7cf0d1c333ea77777:a4b86f27a0e464e4a7e0516d242f1234
- * ```
- */
 export class PublishingDestination extends pulumi.CustomResource {
     /**
      * Get an existing PublishingDestination resource's state with the given name, ID, and optional extra
@@ -124,27 +32,10 @@ export class PublishingDestination extends pulumi.CustomResource {
         return obj['__pulumiType'] === PublishingDestination.__pulumiType;
     }
 
-    /**
-     * The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
-     */
     declare public readonly destinationArn: pulumi.Output<string>;
-    /**
-     * Currently there is only "S3" available as destination type which is also the default value
-     *
-     * > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
-     */
     declare public readonly destinationType: pulumi.Output<string | undefined>;
-    /**
-     * The detector ID of the GuardDuty.
-     */
     declare public readonly detectorId: pulumi.Output<string>;
-    /**
-     * The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
-     */
     declare public readonly kmsKeyArn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -191,27 +82,10 @@ export class PublishingDestination extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PublishingDestination resources.
  */
 export interface PublishingDestinationState {
-    /**
-     * The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
-     */
     destinationArn?: pulumi.Input<string>;
-    /**
-     * Currently there is only "S3" available as destination type which is also the default value
-     *
-     * > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
-     */
     destinationType?: pulumi.Input<string>;
-    /**
-     * The detector ID of the GuardDuty.
-     */
     detectorId?: pulumi.Input<string>;
-    /**
-     * The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
-     */
     kmsKeyArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -219,26 +93,9 @@ export interface PublishingDestinationState {
  * The set of arguments for constructing a PublishingDestination resource.
  */
 export interface PublishingDestinationArgs {
-    /**
-     * The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
-     */
     destinationArn: pulumi.Input<string>;
-    /**
-     * Currently there is only "S3" available as destination type which is also the default value
-     *
-     * > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
-     */
     destinationType?: pulumi.Input<string>;
-    /**
-     * The detector ID of the GuardDuty.
-     */
     detectorId: pulumi.Input<string>;
-    /**
-     * The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
-     */
     kmsKeyArn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

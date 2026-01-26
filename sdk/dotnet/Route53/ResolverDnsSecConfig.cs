@@ -9,72 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Route53
 {
-    /// <summary>
-    /// Provides a Route 53 Resolver DNSSEC config resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.Vpc("example", new()
-    ///     {
-    ///         CidrBlock = "10.0.0.0/16",
-    ///         EnableDnsSupport = true,
-    ///         EnableDnsHostnames = true,
-    ///     });
-    /// 
-    ///     var exampleResolverDnsSecConfig = new Aws.Route53.ResolverDnsSecConfig("example", new()
-    ///     {
-    ///         ResourceId = example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import  Route 53 Resolver DNSSEC configs using the Route 53 Resolver DNSSEC config ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig example rdsc-be1866ecc1683e95
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig")]
     public partial class ResolverDnsSecConfig : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN for a configuration for DNSSEC validation.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
-        /// </summary>
         [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
-        /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 
-        /// <summary>
-        /// The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
-        /// </summary>
         [Output("validationStatus")]
         public Output<string> ValidationStatus { get; private set; } = null!;
 
@@ -124,15 +73,9 @@ namespace Pulumi.Aws.Route53
 
     public sealed class ResolverDnsSecConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
-        /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
 
@@ -144,33 +87,18 @@ namespace Pulumi.Aws.Route53
 
     public sealed class ResolverDnsSecConfigState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN for a configuration for DNSSEC validation.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
-        /// </summary>
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
-        /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
 
-        /// <summary>
-        /// The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
-        /// </summary>
         [Input("validationStatus")]
         public Input<string>? ValidationStatus { get; set; }
 

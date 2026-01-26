@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class EventPermissionCondition {
-    /**
-     * @return Key for the condition. Valid values: `aws:PrincipalOrgID`.
-     * 
-     */
     private String key;
-    /**
-     * @return Type of condition. Value values: `StringEquals`.
-     * 
-     */
     private String type;
-    /**
-     * @return Value for the key.
-     * 
-     */
     private String value;
 
     private EventPermissionCondition() {}
-    /**
-     * @return Key for the condition. Valid values: `aws:PrincipalOrgID`.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return Type of condition. Value values: `StringEquals`.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return Value for the key.
-     * 
-     */
     public String value() {
         return this.value;
     }

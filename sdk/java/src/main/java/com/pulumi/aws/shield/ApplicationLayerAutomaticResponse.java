@@ -15,88 +15,17 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Shield Application Layer Automatic Response for automatic DDoS mitigation.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.inputs.GetPartitionArgs;
- * import com.pulumi.aws.shield.ApplicationLayerAutomaticResponse;
- * import com.pulumi.aws.shield.ApplicationLayerAutomaticResponseArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var config = ctx.config();
- *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
- *             .build());
- * 
- *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         final var currentGetPartition = AwsFunctions.getPartition(GetPartitionArgs.builder()
- *             .build());
- * 
- *         final var distributionId = config.get("distributionId");
- *         var example = new ApplicationLayerAutomaticResponse("example", ApplicationLayerAutomaticResponseArgs.builder()
- *             .resourceArn(String.format("arn:%s:cloudfront:%s:distribution/%s", currentGetPartition.partition(),currentGetCallerIdentity.accountId(),distributionId))
- *             .action("COUNT")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:shield/applicationLayerAutomaticResponse:ApplicationLayerAutomaticResponse")
 public class ApplicationLayerAutomaticResponse extends com.pulumi.resources.CustomResource {
-    /**
-     * One of `COUNT` or `BLOCK`
-     * 
-     */
     @Export(name="action", refs={String.class}, tree="[0]")
     private Output<String> action;
 
-    /**
-     * @return One of `COUNT` or `BLOCK`
-     * 
-     */
     public Output<String> action() {
         return this.action;
     }
-    /**
-     * ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
-     * 
-     */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
-    /**
-     * @return ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }

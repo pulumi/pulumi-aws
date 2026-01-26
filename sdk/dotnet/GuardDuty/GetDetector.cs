@@ -11,66 +11,12 @@ namespace Pulumi.Aws.GuardDuty
 {
     public static class GetDetector
     {
-        /// <summary>
-        /// Retrieve information about a GuardDuty detector.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.GuardDuty.GetDetector.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetDetectorResult> InvokeAsync(GetDetectorArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDetectorResult>("aws:guardduty/getDetector:getDetector", args ?? new GetDetectorArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve information about a GuardDuty detector.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.GuardDuty.GetDetector.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetDetectorResult> Invoke(GetDetectorInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDetectorResult>("aws:guardduty/getDetector:getDetector", args ?? new GetDetectorInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve information about a GuardDuty detector.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.GuardDuty.GetDetector.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetDetectorResult> Invoke(GetDetectorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDetectorResult>("aws:guardduty/getDetector:getDetector", args ?? new GetDetectorInvokeArgs(), options.WithDefaults());
     }
@@ -78,24 +24,14 @@ namespace Pulumi.Aws.GuardDuty
 
     public sealed class GetDetectorArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the detector.
-        /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags for the resource.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -110,24 +46,14 @@ namespace Pulumi.Aws.GuardDuty
 
     public sealed class GetDetectorInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the detector.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags for the resource.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -144,31 +70,13 @@ namespace Pulumi.Aws.GuardDuty
     [OutputType]
     public sealed class GetDetectorResult
     {
-        /// <summary>
-        /// ARN of the detector.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Current configuration of the detector features.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDetectorFeatureResult> Features;
-        /// <summary>
-        /// The frequency of notifications sent about subsequent finding occurrences.
-        /// </summary>
         public readonly string FindingPublishingFrequency;
         public readonly string Id;
         public readonly string Region;
-        /// <summary>
-        /// Service-linked role that grants GuardDuty access to the resources in the AWS account.
-        /// </summary>
         public readonly string ServiceRoleArn;
-        /// <summary>
-        /// Current status of the detector.
-        /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// Map of tags for the resource.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

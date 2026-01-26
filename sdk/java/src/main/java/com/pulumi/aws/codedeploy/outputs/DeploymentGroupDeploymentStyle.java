@@ -11,33 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DeploymentGroupDeploymentStyle {
-    /**
-     * @return Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
-     * 
-     */
     private @Nullable String deploymentOption;
-    /**
-     * @return Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
-     * 
-     * _Only one `deploymentStyle` is allowed_.
-     * 
-     */
     private @Nullable String deploymentType;
 
     private DeploymentGroupDeploymentStyle() {}
-    /**
-     * @return Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
-     * 
-     */
     public Optional<String> deploymentOption() {
         return Optional.ofNullable(this.deploymentOption);
     }
-    /**
-     * @return Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
-     * 
-     * _Only one `deploymentStyle` is allowed_.
-     * 
-     */
     public Optional<String> deploymentType() {
         return Optional.ofNullable(this.deploymentType);
     }

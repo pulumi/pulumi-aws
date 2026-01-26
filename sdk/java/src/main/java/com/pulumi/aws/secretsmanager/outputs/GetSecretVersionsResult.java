@@ -15,10 +15,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSecretVersionsResult {
-    /**
-     * @return ARN of the secret.
-     * 
-     */
     private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -29,17 +25,9 @@ public final class GetSecretVersionsResult {
     private String name;
     private String region;
     private String secretId;
-    /**
-     * @return List of the versions of the secret. Attributes are specified below.
-     * 
-     */
     private List<GetSecretVersionsVersion> versions;
 
     private GetSecretVersionsResult() {}
-    /**
-     * @return ARN of the secret.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
@@ -62,10 +50,6 @@ public final class GetSecretVersionsResult {
     public String secretId() {
         return this.secretId;
     }
-    /**
-     * @return List of the versions of the secret. Attributes are specified below.
-     * 
-     */
     public List<GetSecretVersionsVersion> versions() {
         return this.versions;
     }

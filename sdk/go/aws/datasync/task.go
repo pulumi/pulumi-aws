@@ -12,185 +12,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datasync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datasync.NewTask(ctx, "example", &datasync.TaskArgs{
-//				DestinationLocationArn: pulumi.Any(destination.Arn),
-//				Name:                   pulumi.String("example"),
-//				SourceLocationArn:      pulumi.Any(source.Arn),
-//				Options: &datasync.TaskOptionsArgs{
-//					BytesPerSecond: pulumi.Int(-1),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Scheduling
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datasync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datasync.NewTask(ctx, "example", &datasync.TaskArgs{
-//				DestinationLocationArn: pulumi.Any(destination.Arn),
-//				Name:                   pulumi.String("example"),
-//				SourceLocationArn:      pulumi.Any(source.Arn),
-//				Schedule: &datasync.TaskScheduleArgs{
-//					ScheduleExpression: pulumi.String("cron(0 12 ? * SUN,WED *)"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Filtering
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datasync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datasync.NewTask(ctx, "example", &datasync.TaskArgs{
-//				DestinationLocationArn: pulumi.Any(destination.Arn),
-//				Name:                   pulumi.String("example"),
-//				SourceLocationArn:      pulumi.Any(source.Arn),
-//				Excludes: &datasync.TaskExcludesArgs{
-//					FilterType: pulumi.String("SIMPLE_PATTERN"),
-//					Value:      pulumi.String("/folder1|/folder2"),
-//				},
-//				Includes: &datasync.TaskIncludesArgs{
-//					FilterType: pulumi.String("SIMPLE_PATTERN"),
-//					Value:      pulumi.String("/folder1|/folder2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Enhanced Task Mode
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datasync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datasync.NewTask(ctx, "example", &datasync.TaskArgs{
-//				DestinationLocationArn: pulumi.Any(destination.Arn),
-//				Name:                   pulumi.String("example"),
-//				SourceLocationArn:      pulumi.Any(source.Arn),
-//				TaskMode:               pulumi.String("ENHANCED"),
-//				Options: &datasync.TaskOptionsArgs{
-//					Gid:              pulumi.String("NONE"),
-//					PosixPermissions: pulumi.String("NONE"),
-//					Uid:              pulumi.String("NONE"),
-//					VerifyMode:       pulumi.String("ONLY_FILES_TRANSFERRED"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the DataSync task.
-//
-// Using `pulumi import`, import `aws_datasync_task` using the DataSync Task Amazon Resource Name (ARN). For example:
-//
-// % pulumi import aws_datasync_task.example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
 type Task struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the DataSync Task.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
-	CloudwatchLogGroupArn pulumi.StringPtrOutput `pulumi:"cloudwatchLogGroupArn"`
-	// Amazon Resource Name (ARN) of destination DataSync Location.
-	DestinationLocationArn pulumi.StringOutput `pulumi:"destinationLocationArn"`
-	// Filter rules that determines which files to exclude from a task.
-	Excludes TaskExcludesPtrOutput `pulumi:"excludes"`
-	// Filter rules that determines which files to include in a task.
-	Includes TaskIncludesPtrOutput `pulumi:"includes"`
-	// Name of the DataSync Task.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
-	Options TaskOptionsPtrOutput `pulumi:"options"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Specifies a schedule used to periodically transfer files from a source to a destination location.
-	Schedule TaskSchedulePtrOutput `pulumi:"schedule"`
-	// Amazon Resource Name (ARN) of source DataSync Location.
-	SourceLocationArn pulumi.StringOutput `pulumi:"sourceLocationArn"`
-	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// One of the following task modes for your data transfer:
-	// * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
-	// * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
-	TaskMode pulumi.StringOutput `pulumi:"taskMode"`
-	// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
-	TaskReportConfig TaskTaskReportConfigPtrOutput `pulumi:"taskReportConfig"`
+	Arn                    pulumi.StringOutput           `pulumi:"arn"`
+	CloudwatchLogGroupArn  pulumi.StringPtrOutput        `pulumi:"cloudwatchLogGroupArn"`
+	DestinationLocationArn pulumi.StringOutput           `pulumi:"destinationLocationArn"`
+	Excludes               TaskExcludesPtrOutput         `pulumi:"excludes"`
+	Includes               TaskIncludesPtrOutput         `pulumi:"includes"`
+	Name                   pulumi.StringOutput           `pulumi:"name"`
+	Options                TaskOptionsPtrOutput          `pulumi:"options"`
+	Region                 pulumi.StringOutput           `pulumi:"region"`
+	Schedule               TaskSchedulePtrOutput         `pulumi:"schedule"`
+	SourceLocationArn      pulumi.StringOutput           `pulumi:"sourceLocationArn"`
+	Tags                   pulumi.StringMapOutput        `pulumi:"tags"`
+	TagsAll                pulumi.StringMapOutput        `pulumi:"tagsAll"`
+	TaskMode               pulumi.StringOutput           `pulumi:"taskMode"`
+	TaskReportConfig       TaskTaskReportConfigPtrOutput `pulumi:"taskReportConfig"`
 }
 
 // NewTask registers a new resource with the given unique name, arguments, and options.
@@ -229,69 +67,37 @@ func GetTask(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Task resources.
 type taskState struct {
-	// Amazon Resource Name (ARN) of the DataSync Task.
-	Arn *string `pulumi:"arn"`
-	// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
-	CloudwatchLogGroupArn *string `pulumi:"cloudwatchLogGroupArn"`
-	// Amazon Resource Name (ARN) of destination DataSync Location.
-	DestinationLocationArn *string `pulumi:"destinationLocationArn"`
-	// Filter rules that determines which files to exclude from a task.
-	Excludes *TaskExcludes `pulumi:"excludes"`
-	// Filter rules that determines which files to include in a task.
-	Includes *TaskIncludes `pulumi:"includes"`
-	// Name of the DataSync Task.
-	Name *string `pulumi:"name"`
-	// Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
-	Options *TaskOptions `pulumi:"options"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Specifies a schedule used to periodically transfer files from a source to a destination location.
-	Schedule *TaskSchedule `pulumi:"schedule"`
-	// Amazon Resource Name (ARN) of source DataSync Location.
-	SourceLocationArn *string `pulumi:"sourceLocationArn"`
-	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// One of the following task modes for your data transfer:
-	// * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
-	// * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
-	TaskMode *string `pulumi:"taskMode"`
-	// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
-	TaskReportConfig *TaskTaskReportConfig `pulumi:"taskReportConfig"`
+	Arn                    *string               `pulumi:"arn"`
+	CloudwatchLogGroupArn  *string               `pulumi:"cloudwatchLogGroupArn"`
+	DestinationLocationArn *string               `pulumi:"destinationLocationArn"`
+	Excludes               *TaskExcludes         `pulumi:"excludes"`
+	Includes               *TaskIncludes         `pulumi:"includes"`
+	Name                   *string               `pulumi:"name"`
+	Options                *TaskOptions          `pulumi:"options"`
+	Region                 *string               `pulumi:"region"`
+	Schedule               *TaskSchedule         `pulumi:"schedule"`
+	SourceLocationArn      *string               `pulumi:"sourceLocationArn"`
+	Tags                   map[string]string     `pulumi:"tags"`
+	TagsAll                map[string]string     `pulumi:"tagsAll"`
+	TaskMode               *string               `pulumi:"taskMode"`
+	TaskReportConfig       *TaskTaskReportConfig `pulumi:"taskReportConfig"`
 }
 
 type TaskState struct {
-	// Amazon Resource Name (ARN) of the DataSync Task.
-	Arn pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
-	CloudwatchLogGroupArn pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of destination DataSync Location.
+	Arn                    pulumi.StringPtrInput
+	CloudwatchLogGroupArn  pulumi.StringPtrInput
 	DestinationLocationArn pulumi.StringPtrInput
-	// Filter rules that determines which files to exclude from a task.
-	Excludes TaskExcludesPtrInput
-	// Filter rules that determines which files to include in a task.
-	Includes TaskIncludesPtrInput
-	// Name of the DataSync Task.
-	Name pulumi.StringPtrInput
-	// Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
-	Options TaskOptionsPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Specifies a schedule used to periodically transfer files from a source to a destination location.
-	Schedule TaskSchedulePtrInput
-	// Amazon Resource Name (ARN) of source DataSync Location.
-	SourceLocationArn pulumi.StringPtrInput
-	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// One of the following task modes for your data transfer:
-	// * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
-	// * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
-	TaskMode pulumi.StringPtrInput
-	// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
-	TaskReportConfig TaskTaskReportConfigPtrInput
+	Excludes               TaskExcludesPtrInput
+	Includes               TaskIncludesPtrInput
+	Name                   pulumi.StringPtrInput
+	Options                TaskOptionsPtrInput
+	Region                 pulumi.StringPtrInput
+	Schedule               TaskSchedulePtrInput
+	SourceLocationArn      pulumi.StringPtrInput
+	Tags                   pulumi.StringMapInput
+	TagsAll                pulumi.StringMapInput
+	TaskMode               pulumi.StringPtrInput
+	TaskReportConfig       TaskTaskReportConfigPtrInput
 }
 
 func (TaskState) ElementType() reflect.Type {
@@ -299,62 +105,34 @@ func (TaskState) ElementType() reflect.Type {
 }
 
 type taskArgs struct {
-	// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
-	CloudwatchLogGroupArn *string `pulumi:"cloudwatchLogGroupArn"`
-	// Amazon Resource Name (ARN) of destination DataSync Location.
-	DestinationLocationArn string `pulumi:"destinationLocationArn"`
-	// Filter rules that determines which files to exclude from a task.
-	Excludes *TaskExcludes `pulumi:"excludes"`
-	// Filter rules that determines which files to include in a task.
-	Includes *TaskIncludes `pulumi:"includes"`
-	// Name of the DataSync Task.
-	Name *string `pulumi:"name"`
-	// Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
-	Options *TaskOptions `pulumi:"options"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Specifies a schedule used to periodically transfer files from a source to a destination location.
-	Schedule *TaskSchedule `pulumi:"schedule"`
-	// Amazon Resource Name (ARN) of source DataSync Location.
-	SourceLocationArn string `pulumi:"sourceLocationArn"`
-	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// One of the following task modes for your data transfer:
-	// * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
-	// * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
-	TaskMode *string `pulumi:"taskMode"`
-	// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
-	TaskReportConfig *TaskTaskReportConfig `pulumi:"taskReportConfig"`
+	CloudwatchLogGroupArn  *string               `pulumi:"cloudwatchLogGroupArn"`
+	DestinationLocationArn string                `pulumi:"destinationLocationArn"`
+	Excludes               *TaskExcludes         `pulumi:"excludes"`
+	Includes               *TaskIncludes         `pulumi:"includes"`
+	Name                   *string               `pulumi:"name"`
+	Options                *TaskOptions          `pulumi:"options"`
+	Region                 *string               `pulumi:"region"`
+	Schedule               *TaskSchedule         `pulumi:"schedule"`
+	SourceLocationArn      string                `pulumi:"sourceLocationArn"`
+	Tags                   map[string]string     `pulumi:"tags"`
+	TaskMode               *string               `pulumi:"taskMode"`
+	TaskReportConfig       *TaskTaskReportConfig `pulumi:"taskReportConfig"`
 }
 
 // The set of arguments for constructing a Task resource.
 type TaskArgs struct {
-	// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
-	CloudwatchLogGroupArn pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of destination DataSync Location.
+	CloudwatchLogGroupArn  pulumi.StringPtrInput
 	DestinationLocationArn pulumi.StringInput
-	// Filter rules that determines which files to exclude from a task.
-	Excludes TaskExcludesPtrInput
-	// Filter rules that determines which files to include in a task.
-	Includes TaskIncludesPtrInput
-	// Name of the DataSync Task.
-	Name pulumi.StringPtrInput
-	// Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
-	Options TaskOptionsPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Specifies a schedule used to periodically transfer files from a source to a destination location.
-	Schedule TaskSchedulePtrInput
-	// Amazon Resource Name (ARN) of source DataSync Location.
-	SourceLocationArn pulumi.StringInput
-	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// One of the following task modes for your data transfer:
-	// * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
-	// * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
-	TaskMode pulumi.StringPtrInput
-	// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
-	TaskReportConfig TaskTaskReportConfigPtrInput
+	Excludes               TaskExcludesPtrInput
+	Includes               TaskIncludesPtrInput
+	Name                   pulumi.StringPtrInput
+	Options                TaskOptionsPtrInput
+	Region                 pulumi.StringPtrInput
+	Schedule               TaskSchedulePtrInput
+	SourceLocationArn      pulumi.StringInput
+	Tags                   pulumi.StringMapInput
+	TaskMode               pulumi.StringPtrInput
+	TaskReportConfig       TaskTaskReportConfigPtrInput
 }
 
 func (TaskArgs) ElementType() reflect.Type {
@@ -444,74 +222,58 @@ func (o TaskOutput) ToTaskOutputWithContext(ctx context.Context) TaskOutput {
 	return o
 }
 
-// Amazon Resource Name (ARN) of the DataSync Task.
 func (o TaskOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
 func (o TaskOutput) CloudwatchLogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringPtrOutput { return v.CloudwatchLogGroupArn }).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of destination DataSync Location.
 func (o TaskOutput) DestinationLocationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.DestinationLocationArn }).(pulumi.StringOutput)
 }
 
-// Filter rules that determines which files to exclude from a task.
 func (o TaskOutput) Excludes() TaskExcludesPtrOutput {
 	return o.ApplyT(func(v *Task) TaskExcludesPtrOutput { return v.Excludes }).(TaskExcludesPtrOutput)
 }
 
-// Filter rules that determines which files to include in a task.
 func (o TaskOutput) Includes() TaskIncludesPtrOutput {
 	return o.ApplyT(func(v *Task) TaskIncludesPtrOutput { return v.Includes }).(TaskIncludesPtrOutput)
 }
 
-// Name of the DataSync Task.
 func (o TaskOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
 func (o TaskOutput) Options() TaskOptionsPtrOutput {
 	return o.ApplyT(func(v *Task) TaskOptionsPtrOutput { return v.Options }).(TaskOptionsPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TaskOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Specifies a schedule used to periodically transfer files from a source to a destination location.
 func (o TaskOutput) Schedule() TaskSchedulePtrOutput {
 	return o.ApplyT(func(v *Task) TaskSchedulePtrOutput { return v.Schedule }).(TaskSchedulePtrOutput)
 }
 
-// Amazon Resource Name (ARN) of source DataSync Location.
 func (o TaskOutput) SourceLocationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.SourceLocationArn }).(pulumi.StringOutput)
 }
 
-// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o TaskOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o TaskOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// One of the following task modes for your data transfer:
-// * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
-// * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
 func (o TaskOutput) TaskMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.TaskMode }).(pulumi.StringOutput)
 }
 
-// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
 func (o TaskOutput) TaskReportConfig() TaskTaskReportConfigPtrOutput {
 	return o.ApplyT(func(v *Task) TaskTaskReportConfigPtrOutput { return v.TaskReportConfig }).(TaskTaskReportConfigPtrOutput)
 }

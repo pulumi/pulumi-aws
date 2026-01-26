@@ -14,45 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceNetworkConfiguration {
-    /**
-     * @return Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
-     * 
-     */
     private @Nullable Boolean assignPublicIp;
-    /**
-     * @return Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
-     * 
-     */
     private @Nullable List<String> securityGroups;
-    /**
-     * @return Subnets associated with the task or service.
-     * 
-     * For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
-     * 
-     */
     private List<String> subnets;
 
     private ServiceNetworkConfiguration() {}
-    /**
-     * @return Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
-     * 
-     */
     public Optional<Boolean> assignPublicIp() {
         return Optional.ofNullable(this.assignPublicIp);
     }
-    /**
-     * @return Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
-     * 
-     */
     public List<String> securityGroups() {
         return this.securityGroups == null ? List.of() : this.securityGroups;
     }
-    /**
-     * @return Subnets associated with the task or service.
-     * 
-     * For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
-     * 
-     */
     public List<String> subnets() {
         return this.subnets;
     }

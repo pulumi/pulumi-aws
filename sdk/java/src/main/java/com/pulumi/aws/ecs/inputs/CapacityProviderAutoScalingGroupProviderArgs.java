@@ -17,62 +17,30 @@ public final class CapacityProviderAutoScalingGroupProviderArgs extends com.pulu
 
     public static final CapacityProviderAutoScalingGroupProviderArgs Empty = new CapacityProviderAutoScalingGroupProviderArgs();
 
-    /**
-     * ARN of the associated auto scaling group.
-     * 
-     */
     @Import(name="autoScalingGroupArn", required=true)
     private Output<String> autoScalingGroupArn;
 
-    /**
-     * @return ARN of the associated auto scaling group.
-     * 
-     */
     public Output<String> autoScalingGroupArn() {
         return this.autoScalingGroupArn;
     }
 
-    /**
-     * Enables or disables a graceful shutdown of instances without disturbing workloads. Valid values are `ENABLED` and `DISABLED`. The default value is `ENABLED` when a capacity provider is created.
-     * 
-     */
     @Import(name="managedDraining")
     private @Nullable Output<String> managedDraining;
 
-    /**
-     * @return Enables or disables a graceful shutdown of instances without disturbing workloads. Valid values are `ENABLED` and `DISABLED`. The default value is `ENABLED` when a capacity provider is created.
-     * 
-     */
     public Optional<Output<String>> managedDraining() {
         return Optional.ofNullable(this.managedDraining);
     }
 
-    /**
-     * Configuration block defining the parameters of the auto scaling. Detailed below.
-     * 
-     */
     @Import(name="managedScaling")
     private @Nullable Output<CapacityProviderAutoScalingGroupProviderManagedScalingArgs> managedScaling;
 
-    /**
-     * @return Configuration block defining the parameters of the auto scaling. Detailed below.
-     * 
-     */
     public Optional<Output<CapacityProviderAutoScalingGroupProviderManagedScalingArgs>> managedScaling() {
         return Optional.ofNullable(this.managedScaling);
     }
 
-    /**
-     * Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     @Import(name="managedTerminationProtection")
     private @Nullable Output<String> managedTerminationProtection;
 
-    /**
-     * @return Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     public Optional<Output<String>> managedTerminationProtection() {
         return Optional.ofNullable(this.managedTerminationProtection);
     }
@@ -104,86 +72,38 @@ public final class CapacityProviderAutoScalingGroupProviderArgs extends com.pulu
             $ = new CapacityProviderAutoScalingGroupProviderArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param autoScalingGroupArn ARN of the associated auto scaling group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoScalingGroupArn(Output<String> autoScalingGroupArn) {
             $.autoScalingGroupArn = autoScalingGroupArn;
             return this;
         }
 
-        /**
-         * @param autoScalingGroupArn ARN of the associated auto scaling group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoScalingGroupArn(String autoScalingGroupArn) {
             return autoScalingGroupArn(Output.of(autoScalingGroupArn));
         }
 
-        /**
-         * @param managedDraining Enables or disables a graceful shutdown of instances without disturbing workloads. Valid values are `ENABLED` and `DISABLED`. The default value is `ENABLED` when a capacity provider is created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedDraining(@Nullable Output<String> managedDraining) {
             $.managedDraining = managedDraining;
             return this;
         }
 
-        /**
-         * @param managedDraining Enables or disables a graceful shutdown of instances without disturbing workloads. Valid values are `ENABLED` and `DISABLED`. The default value is `ENABLED` when a capacity provider is created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedDraining(String managedDraining) {
             return managedDraining(Output.of(managedDraining));
         }
 
-        /**
-         * @param managedScaling Configuration block defining the parameters of the auto scaling. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedScaling(@Nullable Output<CapacityProviderAutoScalingGroupProviderManagedScalingArgs> managedScaling) {
             $.managedScaling = managedScaling;
             return this;
         }
 
-        /**
-         * @param managedScaling Configuration block defining the parameters of the auto scaling. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedScaling(CapacityProviderAutoScalingGroupProviderManagedScalingArgs managedScaling) {
             return managedScaling(Output.of(managedScaling));
         }
 
-        /**
-         * @param managedTerminationProtection Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedTerminationProtection(@Nullable Output<String> managedTerminationProtection) {
             $.managedTerminationProtection = managedTerminationProtection;
             return this;
         }
 
-        /**
-         * @param managedTerminationProtection Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedTerminationProtection(String managedTerminationProtection) {
             return managedTerminationProtection(Output.of(managedTerminationProtection));
         }

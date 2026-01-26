@@ -12,16 +12,9 @@ namespace Pulumi.Aws.LB.Inputs
 
     public sealed class GetListenerRuleActionForwardTargetGroupInputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Listener Rule.
-        /// Either `Arn` or `ListenerArn` must be set.
-        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
-        /// <summary>
-        /// Weight of the target group.
-        /// </summary>
         [Input("weight", required: true)]
         public Input<int> Weight { get; set; } = null!;
 

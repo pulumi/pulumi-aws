@@ -16,461 +16,165 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCloudExadataInfrastructureResult {
-    /**
-     * @return The number of storage servers requested for the Exadata infrastructure.
-     * 
-     */
     private Integer activatedStorageCount;
-    /**
-     * @return The number of storage servers requested for the Exadata infrastructure.
-     * 
-     */
     private Integer additionalStorageCount;
-    /**
-     * @return The Amazon Resource Name (ARN) for the Exadata infrastructure.
-     * 
-     */
     private String arn;
-    /**
-     * @return The name of the Availability Zone (AZ) where the Exadata infrastructure is located.
-     * 
-     */
     private String availabilityZone;
-    /**
-     * @return The AZ ID of the AZ where the Exadata infrastructure is located.
-     * 
-     */
     private String availabilityZoneId;
     private Integer availableStorageSizeInGbs;
-    /**
-     * @return The number of database servers for the Exadata infrastructure.
-     * 
-     */
     private Integer computeCount;
-    /**
-     * @return The OCI compute model used when you create or clone an instance: ECPU or OCPU. An ECPU is an abstracted measure of compute resources. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers. An OCPU is a legacy physical measure of compute resources. OCPUs are based on the physical core of a processor with hyper-threading enabled.
-     * 
-     */
     private String computeModel;
-    /**
-     * @return The total number of CPU cores that are allocated to the Exadata infrastructure.
-     * 
-     */
     private Integer cpuCount;
-    /**
-     * @return The time when the Exadata infrastructure was created.
-     * 
-     */
     private String createdAt;
     private List<GetCloudExadataInfrastructureCustomerContactsToSendToOci> customerContactsToSendToOcis;
-    /**
-     * @return The size of the Exadata infrastructure&#39;s data disk group, in terabytes (TB).
-     * 
-     */
     private Double dataStorageSizeInTbs;
-    /**
-     * @return The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation.
-     * 
-     */
     private String databaseServerType;
-    /**
-     * @return The size of the storage available on each database node, in gigabytes (GB).
-     * 
-     */
     private Integer dbNodeStorageSizeInGbs;
-    /**
-     * @return The version of the Exadata infrastructure.
-     * 
-     */
     private String dbServerVersion;
-    /**
-     * @return The display name of the Exadata infrastructure.
-     * 
-     */
     private String displayName;
-    /**
-     * @return The unique identifier of the Exadata infrastructure.
-     * 
-     */
     private String id;
-    /**
-     * @return The Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure.
-     * 
-     */
     private String lastMaintenanceRunId;
-    /**
-     * @return The scheduling details of the maintenance window. Patching and system updates take place during the maintenance window.
-     * 
-     */
     private List<GetCloudExadataInfrastructureMaintenanceWindow> maintenanceWindows;
-    /**
-     * @return The total number of CPU cores available on the Exadata infrastructure.
-     * 
-     */
     private Integer maxCpuCount;
-    /**
-     * @return The total amount of data disk group storage, in terabytes (TB), that&#39;s available on the Exadata infrastructure.
-     * 
-     */
     private Double maxDataStorageInTbs;
-    /**
-     * @return The total amount of local node storage, in gigabytes (GB), that&#39;s available on the Exadata infrastructure.
-     * 
-     */
     private Integer maxDbNodeStorageSizeInGbs;
-    /**
-     * @return The total amount of memory, in gigabytes (GB), that&#39;s available on the Exadata infrastructure.
-     * 
-     */
     private Integer maxMemoryInGbs;
-    /**
-     * @return The amount of memory, in gigabytes (GB), that&#39;s allocated on the Exadata infrastructure.
-     * 
-     */
     private Integer memorySizeInGbs;
-    /**
-     * @return The monthly software version of the database servers installed on the Exadata infrastructure.
-     * 
-     */
     private String monthlyDbServerVersion;
-    /**
-     * @return The monthly software version of the storage servers installed on the Exadata infrastructure.
-     * 
-     */
     private String monthlyStorageServerVersion;
-    /**
-     * @return The OCID of the next maintenance run for the Exadata infrastructure.
-     * 
-     */
     private String nextMaintenanceRunId;
-    /**
-     * @return The name of the OCI resource anchor for the Exadata infrastructure.
-     * 
-     */
     private String ociResourceAnchorName;
-    /**
-     * @return The HTTPS link to the Exadata infrastructure in OCI.
-     * 
-     */
     private String ociUrl;
-    /**
-     * @return The OCID of the Exadata infrastructure in OCI.
-     * 
-     */
     private String ocid;
-    /**
-     * @return The amount of progress made on the current operation on the Exadata infrastructure expressed as a percentage.
-     * 
-     */
     private Double percentProgress;
     private String region;
-    /**
-     * @return The model name of the Exadata infrastructure.
-     * 
-     */
     private String shape;
-    /**
-     * @return The status of the Exadata infrastructure.
-     * 
-     */
     private String status;
-    /**
-     * @return Additional information about the status of the Exadata infrastructure.
-     * 
-     */
     private String statusReason;
-    /**
-     * @return The number of storage servers that are activated for the Exadata infrastructure.
-     * 
-     */
     private Integer storageCount;
-    /**
-     * @return The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation.
-     * 
-     */
     private String storageServerType;
-    /**
-     * @return The software version of the storage servers on the Exadata infrastructure.
-     * 
-     */
     private String storageServerVersion;
-    /**
-     * @return (Optional) A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return The total amount of storage, in gigabytes (GB), on the Exadata infrastructure.
-     * 
-     */
     private Integer totalStorageSizeInGbs;
 
     private GetCloudExadataInfrastructureResult() {}
-    /**
-     * @return The number of storage servers requested for the Exadata infrastructure.
-     * 
-     */
     public Integer activatedStorageCount() {
         return this.activatedStorageCount;
     }
-    /**
-     * @return The number of storage servers requested for the Exadata infrastructure.
-     * 
-     */
     public Integer additionalStorageCount() {
         return this.additionalStorageCount;
     }
-    /**
-     * @return The Amazon Resource Name (ARN) for the Exadata infrastructure.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The name of the Availability Zone (AZ) where the Exadata infrastructure is located.
-     * 
-     */
     public String availabilityZone() {
         return this.availabilityZone;
     }
-    /**
-     * @return The AZ ID of the AZ where the Exadata infrastructure is located.
-     * 
-     */
     public String availabilityZoneId() {
         return this.availabilityZoneId;
     }
     public Integer availableStorageSizeInGbs() {
         return this.availableStorageSizeInGbs;
     }
-    /**
-     * @return The number of database servers for the Exadata infrastructure.
-     * 
-     */
     public Integer computeCount() {
         return this.computeCount;
     }
-    /**
-     * @return The OCI compute model used when you create or clone an instance: ECPU or OCPU. An ECPU is an abstracted measure of compute resources. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers. An OCPU is a legacy physical measure of compute resources. OCPUs are based on the physical core of a processor with hyper-threading enabled.
-     * 
-     */
     public String computeModel() {
         return this.computeModel;
     }
-    /**
-     * @return The total number of CPU cores that are allocated to the Exadata infrastructure.
-     * 
-     */
     public Integer cpuCount() {
         return this.cpuCount;
     }
-    /**
-     * @return The time when the Exadata infrastructure was created.
-     * 
-     */
     public String createdAt() {
         return this.createdAt;
     }
     public List<GetCloudExadataInfrastructureCustomerContactsToSendToOci> customerContactsToSendToOcis() {
         return this.customerContactsToSendToOcis;
     }
-    /**
-     * @return The size of the Exadata infrastructure&#39;s data disk group, in terabytes (TB).
-     * 
-     */
     public Double dataStorageSizeInTbs() {
         return this.dataStorageSizeInTbs;
     }
-    /**
-     * @return The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation.
-     * 
-     */
     public String databaseServerType() {
         return this.databaseServerType;
     }
-    /**
-     * @return The size of the storage available on each database node, in gigabytes (GB).
-     * 
-     */
     public Integer dbNodeStorageSizeInGbs() {
         return this.dbNodeStorageSizeInGbs;
     }
-    /**
-     * @return The version of the Exadata infrastructure.
-     * 
-     */
     public String dbServerVersion() {
         return this.dbServerVersion;
     }
-    /**
-     * @return The display name of the Exadata infrastructure.
-     * 
-     */
     public String displayName() {
         return this.displayName;
     }
-    /**
-     * @return The unique identifier of the Exadata infrastructure.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return The Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure.
-     * 
-     */
     public String lastMaintenanceRunId() {
         return this.lastMaintenanceRunId;
     }
-    /**
-     * @return The scheduling details of the maintenance window. Patching and system updates take place during the maintenance window.
-     * 
-     */
     public List<GetCloudExadataInfrastructureMaintenanceWindow> maintenanceWindows() {
         return this.maintenanceWindows;
     }
-    /**
-     * @return The total number of CPU cores available on the Exadata infrastructure.
-     * 
-     */
     public Integer maxCpuCount() {
         return this.maxCpuCount;
     }
-    /**
-     * @return The total amount of data disk group storage, in terabytes (TB), that&#39;s available on the Exadata infrastructure.
-     * 
-     */
     public Double maxDataStorageInTbs() {
         return this.maxDataStorageInTbs;
     }
-    /**
-     * @return The total amount of local node storage, in gigabytes (GB), that&#39;s available on the Exadata infrastructure.
-     * 
-     */
     public Integer maxDbNodeStorageSizeInGbs() {
         return this.maxDbNodeStorageSizeInGbs;
     }
-    /**
-     * @return The total amount of memory, in gigabytes (GB), that&#39;s available on the Exadata infrastructure.
-     * 
-     */
     public Integer maxMemoryInGbs() {
         return this.maxMemoryInGbs;
     }
-    /**
-     * @return The amount of memory, in gigabytes (GB), that&#39;s allocated on the Exadata infrastructure.
-     * 
-     */
     public Integer memorySizeInGbs() {
         return this.memorySizeInGbs;
     }
-    /**
-     * @return The monthly software version of the database servers installed on the Exadata infrastructure.
-     * 
-     */
     public String monthlyDbServerVersion() {
         return this.monthlyDbServerVersion;
     }
-    /**
-     * @return The monthly software version of the storage servers installed on the Exadata infrastructure.
-     * 
-     */
     public String monthlyStorageServerVersion() {
         return this.monthlyStorageServerVersion;
     }
-    /**
-     * @return The OCID of the next maintenance run for the Exadata infrastructure.
-     * 
-     */
     public String nextMaintenanceRunId() {
         return this.nextMaintenanceRunId;
     }
-    /**
-     * @return The name of the OCI resource anchor for the Exadata infrastructure.
-     * 
-     */
     public String ociResourceAnchorName() {
         return this.ociResourceAnchorName;
     }
-    /**
-     * @return The HTTPS link to the Exadata infrastructure in OCI.
-     * 
-     */
     public String ociUrl() {
         return this.ociUrl;
     }
-    /**
-     * @return The OCID of the Exadata infrastructure in OCI.
-     * 
-     */
     public String ocid() {
         return this.ocid;
     }
-    /**
-     * @return The amount of progress made on the current operation on the Exadata infrastructure expressed as a percentage.
-     * 
-     */
     public Double percentProgress() {
         return this.percentProgress;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return The model name of the Exadata infrastructure.
-     * 
-     */
     public String shape() {
         return this.shape;
     }
-    /**
-     * @return The status of the Exadata infrastructure.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Additional information about the status of the Exadata infrastructure.
-     * 
-     */
     public String statusReason() {
         return this.statusReason;
     }
-    /**
-     * @return The number of storage servers that are activated for the Exadata infrastructure.
-     * 
-     */
     public Integer storageCount() {
         return this.storageCount;
     }
-    /**
-     * @return The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation.
-     * 
-     */
     public String storageServerType() {
         return this.storageServerType;
     }
-    /**
-     * @return The software version of the storage servers on the Exadata infrastructure.
-     * 
-     */
     public String storageServerVersion() {
         return this.storageServerVersion;
     }
-    /**
-     * @return (Optional) A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return The total amount of storage, in gigabytes (GB), on the Exadata infrastructure.
-     * 
-     */
     public Integer totalStorageSizeInGbs() {
         return this.totalStorageSizeInGbs;
     }

@@ -7,42 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AWS Backup plan resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.backup.Plan("example", {
- *     name: "my_example_backup_plan",
- *     rules: [{
- *         ruleName: "my_example_backup_rule",
- *         targetVaultName: test.name,
- *         schedule: "cron(0 12 * * ? *)",
- *         lifecycle: {
- *             deleteAfter: 14,
- *         },
- *     }],
- *     advancedBackupSettings: [{
- *         backupOptions: {
- *             WindowsVSS: "enabled",
- *         },
- *         resourceType: "EC2",
- *     }],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Backup Plan using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:backup/plan:Plan test <id>
- * ```
- */
 export class Plan extends pulumi.CustomResource {
     /**
      * Get an existing Plan resource's state with the given name, ID, and optional extra
@@ -71,41 +35,14 @@ export class Plan extends pulumi.CustomResource {
         return obj['__pulumiType'] === Plan.__pulumiType;
     }
 
-    /**
-     * An object that specifies backup options for each resource type.
-     */
     declare public readonly advancedBackupSettings: pulumi.Output<outputs.backup.PlanAdvancedBackupSetting[] | undefined>;
-    /**
-     * The ARN of the backup plan.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The display name of a backup plan.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A rule object that specifies a scheduled task that is used to back up a selection of resources.
-     */
     declare public readonly rules: pulumi.Output<outputs.backup.PlanRule[]>;
-    /**
-     * Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
-     */
     declare public readonly scanSettings: pulumi.Output<outputs.backup.PlanScanSetting[] | undefined>;
-    /**
-     * Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
-     */
     declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
@@ -154,41 +91,14 @@ export class Plan extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Plan resources.
  */
 export interface PlanState {
-    /**
-     * An object that specifies backup options for each resource type.
-     */
     advancedBackupSettings?: pulumi.Input<pulumi.Input<inputs.backup.PlanAdvancedBackupSetting>[]>;
-    /**
-     * The ARN of the backup plan.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The display name of a backup plan.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A rule object that specifies a scheduled task that is used to back up a selection of resources.
-     */
     rules?: pulumi.Input<pulumi.Input<inputs.backup.PlanRule>[]>;
-    /**
-     * Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
-     */
     scanSettings?: pulumi.Input<pulumi.Input<inputs.backup.PlanScanSetting>[]>;
-    /**
-     * Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
-     */
     version?: pulumi.Input<string>;
 }
 
@@ -196,28 +106,10 @@ export interface PlanState {
  * The set of arguments for constructing a Plan resource.
  */
 export interface PlanArgs {
-    /**
-     * An object that specifies backup options for each resource type.
-     */
     advancedBackupSettings?: pulumi.Input<pulumi.Input<inputs.backup.PlanAdvancedBackupSetting>[]>;
-    /**
-     * The display name of a backup plan.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A rule object that specifies a scheduled task that is used to back up a selection of resources.
-     */
     rules: pulumi.Input<pulumi.Input<inputs.backup.PlanRule>[]>;
-    /**
-     * Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
-     */
     scanSettings?: pulumi.Input<pulumi.Input<inputs.backup.PlanScanSetting>[]>;
-    /**
-     * Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

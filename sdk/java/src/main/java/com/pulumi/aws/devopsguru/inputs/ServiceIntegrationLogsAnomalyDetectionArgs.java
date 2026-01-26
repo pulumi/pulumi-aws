@@ -15,17 +15,9 @@ public final class ServiceIntegrationLogsAnomalyDetectionArgs extends com.pulumi
 
     public static final ServiceIntegrationLogsAnomalyDetectionArgs Empty = new ServiceIntegrationLogsAnomalyDetectionArgs();
 
-    /**
-     * Specifies if DevOps Guru is configured to perform log anomaly detection on CloudWatch log groups. Valid values are `DISABLED` and `ENABLED`.
-     * 
-     */
     @Import(name="optInStatus")
     private @Nullable Output<String> optInStatus;
 
-    /**
-     * @return Specifies if DevOps Guru is configured to perform log anomaly detection on CloudWatch log groups. Valid values are `DISABLED` and `ENABLED`.
-     * 
-     */
     public Optional<Output<String>> optInStatus() {
         return Optional.ofNullable(this.optInStatus);
     }
@@ -54,23 +46,11 @@ public final class ServiceIntegrationLogsAnomalyDetectionArgs extends com.pulumi
             $ = new ServiceIntegrationLogsAnomalyDetectionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param optInStatus Specifies if DevOps Guru is configured to perform log anomaly detection on CloudWatch log groups. Valid values are `DISABLED` and `ENABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder optInStatus(@Nullable Output<String> optInStatus) {
             $.optInStatus = optInStatus;
             return this;
         }
 
-        /**
-         * @param optInStatus Specifies if DevOps Guru is configured to perform log anomaly detection on CloudWatch log groups. Valid values are `DISABLED` and `ENABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder optInStatus(String optInStatus) {
             return optInStatus(Output.of(optInStatus));
         }

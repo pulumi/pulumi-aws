@@ -14,77 +14,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketCorsConfigurationV2CorsRule {
-    /**
-     * @return Set of Headers that are specified in the `Access-Control-Request-Headers` header.
-     * 
-     */
     private @Nullable List<String> allowedHeaders;
-    /**
-     * @return Set of HTTP methods that you allow the origin to execute. Valid values are `GET`, `PUT`, `HEAD`, `POST`, and `DELETE`.
-     * 
-     */
     private List<String> allowedMethods;
-    /**
-     * @return Set of origins you want customers to be able to access the bucket from.
-     * 
-     */
     private List<String> allowedOrigins;
-    /**
-     * @return Set of headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
-     * 
-     */
     private @Nullable List<String> exposeHeaders;
-    /**
-     * @return Unique identifier for the rule. The value cannot be longer than 255 characters.
-     * 
-     */
     private @Nullable String id;
-    /**
-     * @return Time in seconds that your browser is to cache the preflight response for the specified resource.
-     * 
-     */
     private @Nullable Integer maxAgeSeconds;
 
     private BucketCorsConfigurationV2CorsRule() {}
-    /**
-     * @return Set of Headers that are specified in the `Access-Control-Request-Headers` header.
-     * 
-     */
     public List<String> allowedHeaders() {
         return this.allowedHeaders == null ? List.of() : this.allowedHeaders;
     }
-    /**
-     * @return Set of HTTP methods that you allow the origin to execute. Valid values are `GET`, `PUT`, `HEAD`, `POST`, and `DELETE`.
-     * 
-     */
     public List<String> allowedMethods() {
         return this.allowedMethods;
     }
-    /**
-     * @return Set of origins you want customers to be able to access the bucket from.
-     * 
-     */
     public List<String> allowedOrigins() {
         return this.allowedOrigins;
     }
-    /**
-     * @return Set of headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
-     * 
-     */
     public List<String> exposeHeaders() {
         return this.exposeHeaders == null ? List.of() : this.exposeHeaders;
     }
-    /**
-     * @return Unique identifier for the rule. The value cannot be longer than 255 characters.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
-    /**
-     * @return Time in seconds that your browser is to cache the preflight response for the specified resource.
-     * 
-     */
     public Optional<Integer> maxAgeSeconds() {
         return Optional.ofNullable(this.maxAgeSeconds);
     }

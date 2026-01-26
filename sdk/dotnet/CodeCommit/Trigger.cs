@@ -9,68 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CodeCommit
 {
-    /// <summary>
-    /// Provides a CodeCommit Trigger Resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.CodeCommit.Repository("test", new()
-    ///     {
-    ///         RepositoryName = "test",
-    ///     });
-    /// 
-    ///     var testTrigger = new Aws.CodeCommit.Trigger("test", new()
-    ///     {
-    ///         RepositoryName = test.RepositoryName,
-    ///         Triggers = new[]
-    ///         {
-    ///             new Aws.CodeCommit.Inputs.TriggerTriggerArgs
-    ///             {
-    ///                 Name = "all",
-    ///                 Events = new[]
-    ///                 {
-    ///                     "all",
-    ///                 },
-    ///                 DestinationArn = testAwsSnsTopic.Arn,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:codecommit/trigger:Trigger")]
     public partial class Trigger : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// System-generated unique identifier.
-        /// </summary>
         [Output("configurationId")]
         public Output<string> ConfigurationId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The name for the repository. This needs to be less than 100 characters.
-        /// </summary>
         [Output("repositoryName")]
         public Output<string> RepositoryName { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the trigger.
-        /// </summary>
         [Output("triggers")]
         public Output<ImmutableArray<Outputs.TriggerTrigger>> Triggers { get; private set; } = null!;
 
@@ -120,24 +70,14 @@ namespace Pulumi.Aws.CodeCommit
 
     public sealed class TriggerArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name for the repository. This needs to be less than 100 characters.
-        /// </summary>
         [Input("repositoryName", required: true)]
         public Input<string> RepositoryName { get; set; } = null!;
 
         [Input("triggers", required: true)]
         private InputList<Inputs.TriggerTriggerArgs>? _triggers;
-
-        /// <summary>
-        /// The name of the trigger.
-        /// </summary>
         public InputList<Inputs.TriggerTriggerArgs> Triggers
         {
             get => _triggers ?? (_triggers = new InputList<Inputs.TriggerTriggerArgs>());
@@ -152,30 +92,17 @@ namespace Pulumi.Aws.CodeCommit
 
     public sealed class TriggerState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// System-generated unique identifier.
-        /// </summary>
         [Input("configurationId")]
         public Input<string>? ConfigurationId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name for the repository. This needs to be less than 100 characters.
-        /// </summary>
         [Input("repositoryName")]
         public Input<string>? RepositoryName { get; set; }
 
         [Input("triggers")]
         private InputList<Inputs.TriggerTriggerGetArgs>? _triggers;
-
-        /// <summary>
-        /// The name of the trigger.
-        /// </summary>
         public InputList<Inputs.TriggerTriggerGetArgs> Triggers
         {
             get => _triggers ?? (_triggers = new InputList<Inputs.TriggerTriggerGetArgs>());

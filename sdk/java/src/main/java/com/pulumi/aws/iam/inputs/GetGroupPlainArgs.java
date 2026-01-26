@@ -13,17 +13,9 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetGroupPlainArgs Empty = new GetGroupPlainArgs();
 
-    /**
-     * Friendly IAM group name to match.
-     * 
-     */
     @Import(name="groupName", required=true)
     private String groupName;
 
-    /**
-     * @return Friendly IAM group name to match.
-     * 
-     */
     public String groupName() {
         return this.groupName;
     }
@@ -52,12 +44,6 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetGroupPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param groupName Friendly IAM group name to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupName(String groupName) {
             $.groupName = groupName;
             return this;

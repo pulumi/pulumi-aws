@@ -20,107 +20,51 @@ public final class AssessmentTemplateArgs extends com.pulumi.resources.ResourceA
 
     public static final AssessmentTemplateArgs Empty = new AssessmentTemplateArgs();
 
-    /**
-     * The duration of the inspector run.
-     * 
-     */
     @Import(name="duration", required=true)
     private Output<Integer> duration;
 
-    /**
-     * @return The duration of the inspector run.
-     * 
-     */
     public Output<Integer> duration() {
         return this.duration;
     }
 
-    /**
-     * A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
-     * 
-     */
     @Import(name="eventSubscriptions")
     private @Nullable Output<List<AssessmentTemplateEventSubscriptionArgs>> eventSubscriptions;
 
-    /**
-     * @return A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
-     * 
-     */
     public Optional<Output<List<AssessmentTemplateEventSubscriptionArgs>>> eventSubscriptions() {
         return Optional.ofNullable(this.eventSubscriptions);
     }
 
-    /**
-     * The name of the assessment template.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the assessment template.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The rules to be used during the run.
-     * 
-     */
     @Import(name="rulesPackageArns", required=true)
     private Output<List<String>> rulesPackageArns;
 
-    /**
-     * @return The rules to be used during the run.
-     * 
-     */
     public Output<List<String>> rulesPackageArns() {
         return this.rulesPackageArns;
     }
 
-    /**
-     * Key-value map of tags for the Inspector assessment template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of tags for the Inspector assessment template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * The assessment target ARN to attach the template to.
-     * 
-     */
     @Import(name="targetArn", required=true)
     private Output<String> targetArn;
 
-    /**
-     * @return The assessment target ARN to attach the template to.
-     * 
-     */
     public Output<String> targetArn() {
         return this.targetArn;
     }
@@ -155,169 +99,73 @@ public final class AssessmentTemplateArgs extends com.pulumi.resources.ResourceA
             $ = new AssessmentTemplateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param duration The duration of the inspector run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder duration(Output<Integer> duration) {
             $.duration = duration;
             return this;
         }
 
-        /**
-         * @param duration The duration of the inspector run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder duration(Integer duration) {
             return duration(Output.of(duration));
         }
 
-        /**
-         * @param eventSubscriptions A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventSubscriptions(@Nullable Output<List<AssessmentTemplateEventSubscriptionArgs>> eventSubscriptions) {
             $.eventSubscriptions = eventSubscriptions;
             return this;
         }
 
-        /**
-         * @param eventSubscriptions A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventSubscriptions(List<AssessmentTemplateEventSubscriptionArgs> eventSubscriptions) {
             return eventSubscriptions(Output.of(eventSubscriptions));
         }
 
-        /**
-         * @param eventSubscriptions A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventSubscriptions(AssessmentTemplateEventSubscriptionArgs... eventSubscriptions) {
             return eventSubscriptions(List.of(eventSubscriptions));
         }
 
-        /**
-         * @param name The name of the assessment template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the assessment template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param rulesPackageArns The rules to be used during the run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rulesPackageArns(Output<List<String>> rulesPackageArns) {
             $.rulesPackageArns = rulesPackageArns;
             return this;
         }
 
-        /**
-         * @param rulesPackageArns The rules to be used during the run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rulesPackageArns(List<String> rulesPackageArns) {
             return rulesPackageArns(Output.of(rulesPackageArns));
         }
 
-        /**
-         * @param rulesPackageArns The rules to be used during the run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rulesPackageArns(String... rulesPackageArns) {
             return rulesPackageArns(List.of(rulesPackageArns));
         }
 
-        /**
-         * @param tags Key-value map of tags for the Inspector assessment template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of tags for the Inspector assessment template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param targetArn The assessment target ARN to attach the template to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetArn(Output<String> targetArn) {
             $.targetArn = targetArn;
             return this;
         }
 
-        /**
-         * @param targetArn The assessment target ARN to attach the template to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetArn(String targetArn) {
             return targetArn(Output.of(targetArn));
         }

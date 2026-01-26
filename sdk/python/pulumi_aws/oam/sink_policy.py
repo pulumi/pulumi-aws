@@ -24,9 +24,6 @@ class SinkPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SinkPolicy resource.
-        :param pulumi.Input[_builtins.str] policy: JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
-        :param pulumi.Input[_builtins.str] sink_identifier: ARN of the sink to attach this policy to.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "sink_identifier", sink_identifier)
@@ -36,9 +33,6 @@ class SinkPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Input[_builtins.str]:
-        """
-        JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -48,9 +42,6 @@ class SinkPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="sinkIdentifier")
     def sink_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the sink to attach this policy to.
-        """
         return pulumi.get(self, "sink_identifier")
 
     @sink_identifier.setter
@@ -60,9 +51,6 @@ class SinkPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -80,11 +68,6 @@ class _SinkPolicyState:
                  sink_identifier: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SinkPolicy resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Sink.
-        :param pulumi.Input[_builtins.str] policy: JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] sink_id: ID string that AWS generated as part of the sink ARN.
-        :param pulumi.Input[_builtins.str] sink_identifier: ARN of the sink to attach this policy to.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -100,9 +83,6 @@ class _SinkPolicyState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Sink.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -112,9 +92,6 @@ class _SinkPolicyState:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -124,9 +101,6 @@ class _SinkPolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -136,9 +110,6 @@ class _SinkPolicyState:
     @_builtins.property
     @pulumi.getter(name="sinkId")
     def sink_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID string that AWS generated as part of the sink ARN.
-        """
         return pulumi.get(self, "sink_id")
 
     @sink_id.setter
@@ -148,9 +119,6 @@ class _SinkPolicyState:
     @_builtins.property
     @pulumi.getter(name="sinkIdentifier")
     def sink_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the sink to attach this policy to.
-        """
         return pulumi.get(self, "sink_identifier")
 
     @sink_identifier.setter
@@ -169,60 +137,9 @@ class SinkPolicy(pulumi.CustomResource):
                  sink_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS CloudWatch Observability Access Manager Sink Policy.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.oam.Sink("example", name="ExampleSink")
-        example_sink_policy = aws.oam.SinkPolicy("example",
-            sink_identifier=example.arn,
-            policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": [
-                        "oam:CreateLink",
-                        "oam:UpdateLink",
-                    ],
-                    "Effect": "Allow",
-                    "Resource": "*",
-                    "Principal": {
-                        "AWS": [
-                            "1111111111111",
-                            "222222222222",
-                        ],
-                    },
-                    "Condition": {
-                        "ForAllValues:StringEquals": {
-                            "oam:ResourceTypes": [
-                                "AWS::CloudWatch::Metric",
-                                "AWS::Logs::LogGroup",
-                            ],
-                        },
-                    },
-                }],
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudWatch Observability Access Manager Sink Policy using the `sink_identifier`. For example:
-
-        ```sh
-        $ pulumi import aws:oam/sinkPolicy:SinkPolicy example arn:aws:oam:us-west-2:123456789012:sink/sink-id
-        ```
-
+        Create a SinkPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] policy: JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] sink_identifier: ARN of the sink to attach this policy to.
         """
         ...
     @overload
@@ -231,55 +148,7 @@ class SinkPolicy(pulumi.CustomResource):
                  args: SinkPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS CloudWatch Observability Access Manager Sink Policy.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.oam.Sink("example", name="ExampleSink")
-        example_sink_policy = aws.oam.SinkPolicy("example",
-            sink_identifier=example.arn,
-            policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": [
-                        "oam:CreateLink",
-                        "oam:UpdateLink",
-                    ],
-                    "Effect": "Allow",
-                    "Resource": "*",
-                    "Principal": {
-                        "AWS": [
-                            "1111111111111",
-                            "222222222222",
-                        ],
-                    },
-                    "Condition": {
-                        "ForAllValues:StringEquals": {
-                            "oam:ResourceTypes": [
-                                "AWS::CloudWatch::Metric",
-                                "AWS::Logs::LogGroup",
-                            ],
-                        },
-                    },
-                }],
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudWatch Observability Access Manager Sink Policy using the `sink_identifier`. For example:
-
-        ```sh
-        $ pulumi import aws:oam/sinkPolicy:SinkPolicy example arn:aws:oam:us-west-2:123456789012:sink/sink-id
-        ```
-
+        Create a SinkPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SinkPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -338,11 +207,6 @@ class SinkPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Sink.
-        :param pulumi.Input[_builtins.str] policy: JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] sink_id: ID string that AWS generated as part of the sink ARN.
-        :param pulumi.Input[_builtins.str] sink_identifier: ARN of the sink to attach this policy to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -358,40 +222,25 @@ class SinkPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Sink.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:
-        """
-        JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="sinkId")
     def sink_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID string that AWS generated as part of the sink ARN.
-        """
         return pulumi.get(self, "sink_id")
 
     @_builtins.property
     @pulumi.getter(name="sinkIdentifier")
     def sink_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the sink to attach this policy to.
-        """
         return pulumi.get(self, "sink_identifier")
 

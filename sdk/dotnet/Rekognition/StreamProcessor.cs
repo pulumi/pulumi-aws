@@ -9,401 +9,72 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Rekognition
 {
-    /// <summary>
-    /// Resource for managing an AWS Rekognition Stream Processor.
-    /// 
-    /// &gt; This resource must be configured specifically for your use case, and not all options are compatible with one another. See [Stream Processor API documentation](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateStreamProcessor.html#rekognition-CreateStreamProcessor-request-Input) for configuration information.
-    /// 
-    /// &gt; Stream Processors configured for Face Recognition cannot have _any_ properties updated after the fact, and it will result in an AWS API error.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Label Detection
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.S3.Bucket("example", new()
-    ///     {
-    ///         BucketName = "example-bucket",
-    ///     });
-    /// 
-    ///     var exampleTopic = new Aws.Sns.Topic("example", new()
-    ///     {
-    ///         Name = "example-topic",
-    ///     });
-    /// 
-    ///     var exampleVideoStream = new Aws.Kinesis.VideoStream("example", new()
-    ///     {
-    ///         Name = "example-kinesis-input",
-    ///         DataRetentionInHours = 1,
-    ///         DeviceName = "kinesis-video-device-name",
-    ///         MediaType = "video/h264",
-    ///     });
-    /// 
-    ///     var exampleRole = new Aws.Iam.Role("example", new()
-    ///     {
-    ///         Name = "example-role",
-    ///         InlinePolicies = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.RoleInlinePolicyArgs
-    ///             {
-    ///                 Name = "Rekognition-Access",
-    ///                 Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Version"] = "2012-10-17",
-    ///                     ["Statement"] = new[]
-    ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["Action"] = new[]
-    ///                             {
-    ///                                 "s3:PutObject",
-    ///                             },
-    ///                             ["Effect"] = "Allow",
-    ///                             ["Resource"] = new[]
-    ///                             {
-    ///                                 example.Arn.Apply(arn =&gt; $"{arn}/*"),
-    ///                             },
-    ///                         },
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["Action"] = new[]
-    ///                             {
-    ///                                 "sns:Publish",
-    ///                             },
-    ///                             ["Effect"] = "Allow",
-    ///                             ["Resource"] = new[]
-    ///                             {
-    ///                                 exampleTopic.Arn,
-    ///                             },
-    ///                         },
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["Action"] = new[]
-    ///                             {
-    ///                                 "kinesis:Get*",
-    ///                                 "kinesis:DescribeStreamSummary",
-    ///                             },
-    ///                             ["Effect"] = "Allow",
-    ///                             ["Resource"] = new[]
-    ///                             {
-    ///                                 exampleVideoStream.Arn,
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 })),
-    ///             },
-    ///         },
-    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Action"] = "sts:AssumeRole",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Service"] = "rekognition.amazonaws.com",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    ///     var exampleStreamProcessor = new Aws.Rekognition.StreamProcessor("example", new()
-    ///     {
-    ///         RoleArn = exampleRole.Arn,
-    ///         Name = "example-processor",
-    ///         DataSharingPreference = new Aws.Rekognition.Inputs.StreamProcessorDataSharingPreferenceArgs
-    ///         {
-    ///             OptIn = false,
-    ///         },
-    ///         Output = new Aws.Rekognition.Inputs.StreamProcessorOutputArgs
-    ///         {
-    ///             S3Destination = new Aws.Rekognition.Inputs.StreamProcessorOutputS3DestinationArgs
-    ///             {
-    ///                 Bucket = example.BucketName,
-    ///             },
-    ///         },
-    ///         Settings = new Aws.Rekognition.Inputs.StreamProcessorSettingsArgs
-    ///         {
-    ///             ConnectedHome = new Aws.Rekognition.Inputs.StreamProcessorSettingsConnectedHomeArgs
-    ///             {
-    ///                 Labels = new[]
-    ///                 {
-    ///                     "PERSON",
-    ///                     "PET",
-    ///                 },
-    ///             },
-    ///         },
-    ///         Input = new Aws.Rekognition.Inputs.StreamProcessorInputArgs
-    ///         {
-    ///             KinesisVideoStream = new Aws.Rekognition.Inputs.StreamProcessorInputKinesisVideoStreamArgs
-    ///             {
-    ///                 Arn = exampleVideoStream.Arn,
-    ///             },
-    ///         },
-    ///         NotificationChannel = new Aws.Rekognition.Inputs.StreamProcessorNotificationChannelArgs
-    ///         {
-    ///             SnsTopicArn = exampleTopic.Arn,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Face Detection Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Kinesis.VideoStream("example", new()
-    ///     {
-    ///         Name = "example-kinesis-input",
-    ///         DataRetentionInHours = 1,
-    ///         DeviceName = "kinesis-video-device-name",
-    ///         MediaType = "video/h264",
-    ///     });
-    /// 
-    ///     var exampleStream = new Aws.Kinesis.Stream("example", new()
-    ///     {
-    ///         Name = "pulumi-kinesis-example",
-    ///         ShardCount = 1,
-    ///     });
-    /// 
-    ///     var exampleRole = new Aws.Iam.Role("example", new()
-    ///     {
-    ///         Name = "example-role",
-    ///         InlinePolicies = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.RoleInlinePolicyArgs
-    ///             {
-    ///                 Name = "Rekognition-Access",
-    ///                 Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Version"] = "2012-10-17",
-    ///                     ["Statement"] = new[]
-    ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["Action"] = new[]
-    ///                             {
-    ///                                 "kinesis:Get*",
-    ///                                 "kinesis:DescribeStreamSummary",
-    ///                             },
-    ///                             ["Effect"] = "Allow",
-    ///                             ["Resource"] = new[]
-    ///                             {
-    ///                                 example.Arn,
-    ///                             },
-    ///                         },
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["Action"] = new[]
-    ///                             {
-    ///                                 "kinesis:PutRecord",
-    ///                             },
-    ///                             ["Effect"] = "Allow",
-    ///                             ["Resource"] = new[]
-    ///                             {
-    ///                                 exampleStream.Arn,
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 })),
-    ///             },
-    ///         },
-    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Action"] = "sts:AssumeRole",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Service"] = "rekognition.amazonaws.com",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    ///     var exampleCollection = new Aws.Rekognition.Collection("example", new()
-    ///     {
-    ///         CollectionId = "example-collection",
-    ///     });
-    /// 
-    ///     var exampleStreamProcessor = new Aws.Rekognition.StreamProcessor("example", new()
-    ///     {
-    ///         RoleArn = exampleRole.Arn,
-    ///         Name = "example-processor",
-    ///         DataSharingPreference = new Aws.Rekognition.Inputs.StreamProcessorDataSharingPreferenceArgs
-    ///         {
-    ///             OptIn = false,
-    ///         },
-    ///         RegionsOfInterests = new[]
-    ///         {
-    ///             new Aws.Rekognition.Inputs.StreamProcessorRegionsOfInterestArgs
-    ///             {
-    ///                 Polygons = new[]
-    ///                 {
-    ///                     new Aws.Rekognition.Inputs.StreamProcessorRegionsOfInterestPolygonArgs
-    ///                     {
-    ///                         X = 0.5,
-    ///                         Y = 0.5,
-    ///                     },
-    ///                     new Aws.Rekognition.Inputs.StreamProcessorRegionsOfInterestPolygonArgs
-    ///                     {
-    ///                         X = 0.5,
-    ///                         Y = 0.5,
-    ///                     },
-    ///                     new Aws.Rekognition.Inputs.StreamProcessorRegionsOfInterestPolygonArgs
-    ///                     {
-    ///                         X = 0.5,
-    ///                         Y = 0.5,
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///         Input = new Aws.Rekognition.Inputs.StreamProcessorInputArgs
-    ///         {
-    ///             KinesisVideoStream = new Aws.Rekognition.Inputs.StreamProcessorInputKinesisVideoStreamArgs
-    ///             {
-    ///                 Arn = example.Arn,
-    ///             },
-    ///         },
-    ///         Output = new Aws.Rekognition.Inputs.StreamProcessorOutputArgs
-    ///         {
-    ///             KinesisDataStream = new Aws.Rekognition.Inputs.StreamProcessorOutputKinesisDataStreamArgs
-    ///             {
-    ///                 Arn = exampleStream.Arn,
-    ///             },
-    ///         },
-    ///         Settings = new Aws.Rekognition.Inputs.StreamProcessorSettingsArgs
-    ///         {
-    ///             FaceSearch = new Aws.Rekognition.Inputs.StreamProcessorSettingsFaceSearchArgs
-    ///             {
-    ///                 CollectionId = exampleCollection.Id,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Rekognition Stream Processor using the `name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:rekognition/streamProcessor:StreamProcessor example my-stream
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:rekognition/streamProcessor:StreamProcessor")]
     public partial class StreamProcessor : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Stream Processor.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// See `DataSharingPreference`.
+        /// Shows whether you are sharing data with Rekognition to improve model performance.
         /// </summary>
         [Output("dataSharingPreference")]
         public Output<Outputs.StreamProcessorDataSharingPreference?> DataSharingPreference { get; private set; } = null!;
 
         /// <summary>
-        /// Input video stream. See `Input`.
+        /// Information about the source streaming video.
         /// </summary>
         [Output("input")]
         public Output<Outputs.StreamProcessorInput?> Input { get; private set; } = null!;
 
         /// <summary>
-        /// Optional parameter for label detection stream processors.
+        /// The identifier for your AWS Key Management Service key (AWS KMS key). You can supply the Amazon Resource Name (ARN) of your KMS key, the ID of your KMS key, an alias for your KMS key, or an alias ARN.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Stream Processor.
+        /// An identifier you assign to the stream processor.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `NotificationChannel`.
+        /// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the object detection results and completion status of a video analysis operation.
         /// </summary>
         [Output("notificationChannel")]
         public Output<Outputs.StreamProcessorNotificationChannel?> NotificationChannel { get; private set; } = null!;
 
         /// <summary>
-        /// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `Output`.
+        /// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results.
         /// </summary>
         [Output("output")]
         public Output<Outputs.StreamProcessorOutput?> Output { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `RegionsOfInterest`.
-        /// </summary>
         [Output("regionsOfInterests")]
         public Output<ImmutableArray<Outputs.StreamProcessorRegionsOfInterest>> RegionsOfInterests { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
+        /// The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// Input parameters used in a streaming video analyzed by a stream processor. See `Settings`.
-        /// 
-        /// The following arguments are optional:
+        /// Input parameters used in a streaming video analyzed by a stream processor.
         /// </summary>
         [Output("settings")]
         public Output<Outputs.StreamProcessorSettings?> Settings { get; private set; } = null!;
 
-        /// <summary>
-        /// (**Deprecated**) ARN of the Stream Processor.
-        /// Use `Arn` instead.
-        /// </summary>
         [Output("streamProcessorArn")]
         public Output<string> StreamProcessorArn { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -457,53 +128,46 @@ namespace Pulumi.Aws.Rekognition
     public sealed class StreamProcessorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// See `DataSharingPreference`.
+        /// Shows whether you are sharing data with Rekognition to improve model performance.
         /// </summary>
         [Input("dataSharingPreference")]
         public Input<Inputs.StreamProcessorDataSharingPreferenceArgs>? DataSharingPreference { get; set; }
 
         /// <summary>
-        /// Input video stream. See `Input`.
+        /// Information about the source streaming video.
         /// </summary>
         [Input("input")]
         public Input<Inputs.StreamProcessorInputArgs>? Input { get; set; }
 
         /// <summary>
-        /// Optional parameter for label detection stream processors.
+        /// The identifier for your AWS Key Management Service key (AWS KMS key). You can supply the Amazon Resource Name (ARN) of your KMS key, the ID of your KMS key, an alias for your KMS key, or an alias ARN.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// The name of the Stream Processor.
+        /// An identifier you assign to the stream processor.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `NotificationChannel`.
+        /// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the object detection results and completion status of a video analysis operation.
         /// </summary>
         [Input("notificationChannel")]
         public Input<Inputs.StreamProcessorNotificationChannelArgs>? NotificationChannel { get; set; }
 
         /// <summary>
-        /// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `Output`.
+        /// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results.
         /// </summary>
         [Input("output")]
         public Input<Inputs.StreamProcessorOutputArgs>? Output { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("regionsOfInterests")]
         private InputList<Inputs.StreamProcessorRegionsOfInterestArgs>? _regionsOfInterests;
-
-        /// <summary>
-        /// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `RegionsOfInterest`.
-        /// </summary>
         public InputList<Inputs.StreamProcessorRegionsOfInterestArgs> RegionsOfInterests
         {
             get => _regionsOfInterests ?? (_regionsOfInterests = new InputList<Inputs.StreamProcessorRegionsOfInterestArgs>());
@@ -511,25 +175,19 @@ namespace Pulumi.Aws.Rekognition
         }
 
         /// <summary>
-        /// The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
+        /// The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
-        /// Input parameters used in a streaming video analyzed by a stream processor. See `Settings`.
-        /// 
-        /// The following arguments are optional:
+        /// Input parameters used in a streaming video analyzed by a stream processor.
         /// </summary>
         [Input("settings")]
         public Input<Inputs.StreamProcessorSettingsArgs>? Settings { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -547,60 +205,50 @@ namespace Pulumi.Aws.Rekognition
 
     public sealed class StreamProcessorState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Stream Processor.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// See `DataSharingPreference`.
+        /// Shows whether you are sharing data with Rekognition to improve model performance.
         /// </summary>
         [Input("dataSharingPreference")]
         public Input<Inputs.StreamProcessorDataSharingPreferenceGetArgs>? DataSharingPreference { get; set; }
 
         /// <summary>
-        /// Input video stream. See `Input`.
+        /// Information about the source streaming video.
         /// </summary>
         [Input("input")]
         public Input<Inputs.StreamProcessorInputGetArgs>? Input { get; set; }
 
         /// <summary>
-        /// Optional parameter for label detection stream processors.
+        /// The identifier for your AWS Key Management Service key (AWS KMS key). You can supply the Amazon Resource Name (ARN) of your KMS key, the ID of your KMS key, an alias for your KMS key, or an alias ARN.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// The name of the Stream Processor.
+        /// An identifier you assign to the stream processor.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `NotificationChannel`.
+        /// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the object detection results and completion status of a video analysis operation.
         /// </summary>
         [Input("notificationChannel")]
         public Input<Inputs.StreamProcessorNotificationChannelGetArgs>? NotificationChannel { get; set; }
 
         /// <summary>
-        /// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `Output`.
+        /// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results.
         /// </summary>
         [Input("output")]
         public Input<Inputs.StreamProcessorOutputGetArgs>? Output { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("regionsOfInterests")]
         private InputList<Inputs.StreamProcessorRegionsOfInterestGetArgs>? _regionsOfInterests;
-
-        /// <summary>
-        /// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `RegionsOfInterest`.
-        /// </summary>
         public InputList<Inputs.StreamProcessorRegionsOfInterestGetArgs> RegionsOfInterests
         {
             get => _regionsOfInterests ?? (_regionsOfInterests = new InputList<Inputs.StreamProcessorRegionsOfInterestGetArgs>());
@@ -608,32 +256,22 @@ namespace Pulumi.Aws.Rekognition
         }
 
         /// <summary>
-        /// The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
+        /// The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// Input parameters used in a streaming video analyzed by a stream processor. See `Settings`.
-        /// 
-        /// The following arguments are optional:
+        /// Input parameters used in a streaming video analyzed by a stream processor.
         /// </summary>
         [Input("settings")]
         public Input<Inputs.StreamProcessorSettingsGetArgs>? Settings { get; set; }
 
-        /// <summary>
-        /// (**Deprecated**) ARN of the Stream Processor.
-        /// Use `Arn` instead.
-        /// </summary>
         [Input("streamProcessorArn")]
         public Input<string>? StreamProcessorArn { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -642,10 +280,6 @@ namespace Pulumi.Aws.Rekognition
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

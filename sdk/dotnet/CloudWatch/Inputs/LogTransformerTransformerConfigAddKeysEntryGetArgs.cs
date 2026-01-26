@@ -12,22 +12,12 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class LogTransformerTransformerConfigAddKeysEntryGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the key with the value that will be converted to a different type.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies whether to overwrite the value if the destination key already exists. Defaults to `False`.
-        /// * `renameTo` - (Required) Specifies the new name of the key.
-        /// </summary>
         [Input("overwriteIfExists")]
         public Input<bool>? OverwriteIfExists { get; set; }
 
-        /// <summary>
-        /// Specifies the value of the new entry to be added to the log event.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

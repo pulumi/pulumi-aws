@@ -11,53 +11,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserIdentityInfo {
-    /**
-     * @return The email address. If you are using SAML for identity management and include this parameter, an error is returned. Note that updates to the `email` is supported. From the [UpdateUserIdentityInfo API documentation](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateUserIdentityInfo.html) it is strongly recommended to limit who has the ability to invoke `UpdateUserIdentityInfo`. Someone with that ability can change the login credentials of other users by changing their email address. This poses a security risk to your organization. They can change the email address of a user to the attacker&#39;s email address, and then reset the password through email. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
-     * 
-     */
     private @Nullable String email;
-    /**
-     * @return The first name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
-     * 
-     */
     private @Nullable String firstName;
-    /**
-     * @return The last name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
-     * 
-     */
     private @Nullable String lastName;
-    /**
-     * @return The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
-     * 
-     */
     private @Nullable String secondaryEmail;
 
     private UserIdentityInfo() {}
-    /**
-     * @return The email address. If you are using SAML for identity management and include this parameter, an error is returned. Note that updates to the `email` is supported. From the [UpdateUserIdentityInfo API documentation](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateUserIdentityInfo.html) it is strongly recommended to limit who has the ability to invoke `UpdateUserIdentityInfo`. Someone with that ability can change the login credentials of other users by changing their email address. This poses a security risk to your organization. They can change the email address of a user to the attacker&#39;s email address, and then reset the password through email. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
-     * 
-     */
     public Optional<String> email() {
         return Optional.ofNullable(this.email);
     }
-    /**
-     * @return The first name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
-     * 
-     */
     public Optional<String> firstName() {
         return Optional.ofNullable(this.firstName);
     }
-    /**
-     * @return The last name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
-     * 
-     */
     public Optional<String> lastName() {
         return Optional.ofNullable(this.lastName);
     }
-    /**
-     * @return The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
-     * 
-     */
     public Optional<String> secondaryEmail() {
         return Optional.ofNullable(this.secondaryEmail);
     }

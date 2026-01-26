@@ -14,17 +14,9 @@ public final class SpaceOwnershipSettingsArgs extends com.pulumi.resources.Resou
 
     public static final SpaceOwnershipSettingsArgs Empty = new SpaceOwnershipSettingsArgs();
 
-    /**
-     * The user profile who is the owner of the private space.
-     * 
-     */
     @Import(name="ownerUserProfileName", required=true)
     private Output<String> ownerUserProfileName;
 
-    /**
-     * @return The user profile who is the owner of the private space.
-     * 
-     */
     public Output<String> ownerUserProfileName() {
         return this.ownerUserProfileName;
     }
@@ -53,23 +45,11 @@ public final class SpaceOwnershipSettingsArgs extends com.pulumi.resources.Resou
             $ = new SpaceOwnershipSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ownerUserProfileName The user profile who is the owner of the private space.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ownerUserProfileName(Output<String> ownerUserProfileName) {
             $.ownerUserProfileName = ownerUserProfileName;
             return this;
         }
 
-        /**
-         * @param ownerUserProfileName The user profile who is the owner of the private space.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ownerUserProfileName(String ownerUserProfileName) {
             return ownerUserProfileName(Output.of(ownerUserProfileName));
         }

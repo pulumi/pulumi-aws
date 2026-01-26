@@ -11,34 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieve information about the AWS Direct Connect locations in the current AWS Region.
-// These are the locations that can be specified when configuring `directconnect.Connection` or `directconnect.LinkAggregationGroup` resources.
-//
-// > **Note:** This data source is different from the `directconnect.getLocation` data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directconnect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directconnect.GetLocations(ctx, &directconnect.GetLocationsArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetLocations(ctx *pulumi.Context, args *GetLocationsArgs, opts ...pulumi.InvokeOption) (*GetLocationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocationsResult
@@ -51,15 +23,13 @@ func GetLocations(ctx *pulumi.Context, args *GetLocationsArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getLocations.
 type GetLocationsArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getLocations.
 type GetLocationsResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Code for the locations.
+	Id            string   `pulumi:"id"`
 	LocationCodes []string `pulumi:"locationCodes"`
 	Region        string   `pulumi:"region"`
 }
@@ -75,7 +45,6 @@ func GetLocationsOutput(ctx *pulumi.Context, args GetLocationsOutputArgs, opts .
 
 // A collection of arguments for invoking getLocations.
 type GetLocationsOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -103,7 +72,6 @@ func (o GetLocationsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocationsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Code for the locations.
 func (o GetLocationsResultOutput) LocationCodes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLocationsResult) []string { return v.LocationCodes }).(pulumi.StringArrayOutput)
 }

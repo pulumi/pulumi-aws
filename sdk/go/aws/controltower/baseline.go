@@ -12,72 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Control Tower Baseline.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/controltower"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := controltower.NewBaseline(ctx, "example", &controltower.BaselineArgs{
-//				BaselineIdentifier: pulumi.String("arn:aws:controltower:us-east-1::baseline/17BSJV3IGJ2QSGA2"),
-//				BaselineVersion:    pulumi.String("4.0"),
-//				TargetIdentifier:   pulumi.Any(test.Arn),
-//				Parameters: &controltower.BaselineParametersArgs{
-//					Key:   pulumi.String("IdentityCenterEnabledBaselineArn"),
-//					Value: pulumi.String("arn:aws:controltower:us-east-1:664418989480:enabledbaseline/XALULM96QHI525UOC"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Control Tower Baseline using the `arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:controltower/baseline:Baseline example arn:aws:controltower:us-east-1:012345678912:enabledbaseline/XALULM96QHI525UOC
-// ```
 type Baseline struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Baseline.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ARN of the baseline to be enabled.
-	BaselineIdentifier pulumi.StringOutput `pulumi:"baselineIdentifier"`
-	// The version of the baseline to be enabled.
-	BaselineVersion     pulumi.StringOutput `pulumi:"baselineVersion"`
-	OperationIdentifier pulumi.StringOutput `pulumi:"operationIdentifier"`
-	// A list of key-value objects that specify enablement parameters, where key is a string and value is a document of any type. See Parameter below for details.
-	Parameters BaselineParametersPtrOutput `pulumi:"parameters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the landing zone, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The ARN of the target on which the baseline will be enabled. Only OUs are supported as targets.
-	//
-	// The following arguments are optional:
-	TargetIdentifier pulumi.StringOutput       `pulumi:"targetIdentifier"`
-	Timeouts         BaselineTimeoutsPtrOutput `pulumi:"timeouts"`
+	Arn                 pulumi.StringOutput         `pulumi:"arn"`
+	BaselineIdentifier  pulumi.StringOutput         `pulumi:"baselineIdentifier"`
+	BaselineVersion     pulumi.StringOutput         `pulumi:"baselineVersion"`
+	OperationIdentifier pulumi.StringOutput         `pulumi:"operationIdentifier"`
+	Parameters          BaselineParametersPtrOutput `pulumi:"parameters"`
+	Region              pulumi.StringOutput         `pulumi:"region"`
+	Tags                pulumi.StringMapOutput      `pulumi:"tags"`
+	TagsAll             pulumi.StringMapOutput      `pulumi:"tagsAll"`
+	TargetIdentifier    pulumi.StringOutput         `pulumi:"targetIdentifier"`
+	Timeouts            BaselineTimeoutsPtrOutput   `pulumi:"timeouts"`
 }
 
 // NewBaseline registers a new resource with the given unique name, arguments, and options.
@@ -119,49 +66,29 @@ func GetBaseline(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Baseline resources.
 type baselineState struct {
-	// ARN of the Baseline.
-	Arn *string `pulumi:"arn"`
-	// The ARN of the baseline to be enabled.
-	BaselineIdentifier *string `pulumi:"baselineIdentifier"`
-	// The version of the baseline to be enabled.
-	BaselineVersion     *string `pulumi:"baselineVersion"`
-	OperationIdentifier *string `pulumi:"operationIdentifier"`
-	// A list of key-value objects that specify enablement parameters, where key is a string and value is a document of any type. See Parameter below for details.
-	Parameters *BaselineParameters `pulumi:"parameters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the landing zone, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The ARN of the target on which the baseline will be enabled. Only OUs are supported as targets.
-	//
-	// The following arguments are optional:
-	TargetIdentifier *string           `pulumi:"targetIdentifier"`
-	Timeouts         *BaselineTimeouts `pulumi:"timeouts"`
+	Arn                 *string             `pulumi:"arn"`
+	BaselineIdentifier  *string             `pulumi:"baselineIdentifier"`
+	BaselineVersion     *string             `pulumi:"baselineVersion"`
+	OperationIdentifier *string             `pulumi:"operationIdentifier"`
+	Parameters          *BaselineParameters `pulumi:"parameters"`
+	Region              *string             `pulumi:"region"`
+	Tags                map[string]string   `pulumi:"tags"`
+	TagsAll             map[string]string   `pulumi:"tagsAll"`
+	TargetIdentifier    *string             `pulumi:"targetIdentifier"`
+	Timeouts            *BaselineTimeouts   `pulumi:"timeouts"`
 }
 
 type BaselineState struct {
-	// ARN of the Baseline.
-	Arn pulumi.StringPtrInput
-	// The ARN of the baseline to be enabled.
-	BaselineIdentifier pulumi.StringPtrInput
-	// The version of the baseline to be enabled.
+	Arn                 pulumi.StringPtrInput
+	BaselineIdentifier  pulumi.StringPtrInput
 	BaselineVersion     pulumi.StringPtrInput
 	OperationIdentifier pulumi.StringPtrInput
-	// A list of key-value objects that specify enablement parameters, where key is a string and value is a document of any type. See Parameter below for details.
-	Parameters BaselineParametersPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the landing zone, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The ARN of the target on which the baseline will be enabled. Only OUs are supported as targets.
-	//
-	// The following arguments are optional:
-	TargetIdentifier pulumi.StringPtrInput
-	Timeouts         BaselineTimeoutsPtrInput
+	Parameters          BaselineParametersPtrInput
+	Region              pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
+	TagsAll             pulumi.StringMapInput
+	TargetIdentifier    pulumi.StringPtrInput
+	Timeouts            BaselineTimeoutsPtrInput
 }
 
 func (BaselineState) ElementType() reflect.Type {
@@ -169,40 +96,24 @@ func (BaselineState) ElementType() reflect.Type {
 }
 
 type baselineArgs struct {
-	// The ARN of the baseline to be enabled.
-	BaselineIdentifier string `pulumi:"baselineIdentifier"`
-	// The version of the baseline to be enabled.
-	BaselineVersion string `pulumi:"baselineVersion"`
-	// A list of key-value objects that specify enablement parameters, where key is a string and value is a document of any type. See Parameter below for details.
-	Parameters *BaselineParameters `pulumi:"parameters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The ARN of the target on which the baseline will be enabled. Only OUs are supported as targets.
-	//
-	// The following arguments are optional:
-	TargetIdentifier string            `pulumi:"targetIdentifier"`
-	Timeouts         *BaselineTimeouts `pulumi:"timeouts"`
+	BaselineIdentifier string              `pulumi:"baselineIdentifier"`
+	BaselineVersion    string              `pulumi:"baselineVersion"`
+	Parameters         *BaselineParameters `pulumi:"parameters"`
+	Region             *string             `pulumi:"region"`
+	Tags               map[string]string   `pulumi:"tags"`
+	TargetIdentifier   string              `pulumi:"targetIdentifier"`
+	Timeouts           *BaselineTimeouts   `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a Baseline resource.
 type BaselineArgs struct {
-	// The ARN of the baseline to be enabled.
 	BaselineIdentifier pulumi.StringInput
-	// The version of the baseline to be enabled.
-	BaselineVersion pulumi.StringInput
-	// A list of key-value objects that specify enablement parameters, where key is a string and value is a document of any type. See Parameter below for details.
-	Parameters BaselineParametersPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The ARN of the target on which the baseline will be enabled. Only OUs are supported as targets.
-	//
-	// The following arguments are optional:
-	TargetIdentifier pulumi.StringInput
-	Timeouts         BaselineTimeoutsPtrInput
+	BaselineVersion    pulumi.StringInput
+	Parameters         BaselineParametersPtrInput
+	Region             pulumi.StringPtrInput
+	Tags               pulumi.StringMapInput
+	TargetIdentifier   pulumi.StringInput
+	Timeouts           BaselineTimeoutsPtrInput
 }
 
 func (BaselineArgs) ElementType() reflect.Type {
@@ -292,17 +203,14 @@ func (o BaselineOutput) ToBaselineOutputWithContext(ctx context.Context) Baselin
 	return o
 }
 
-// ARN of the Baseline.
 func (o BaselineOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Baseline) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The ARN of the baseline to be enabled.
 func (o BaselineOutput) BaselineIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Baseline) pulumi.StringOutput { return v.BaselineIdentifier }).(pulumi.StringOutput)
 }
 
-// The version of the baseline to be enabled.
 func (o BaselineOutput) BaselineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Baseline) pulumi.StringOutput { return v.BaselineVersion }).(pulumi.StringOutput)
 }
@@ -311,29 +219,22 @@ func (o BaselineOutput) OperationIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Baseline) pulumi.StringOutput { return v.OperationIdentifier }).(pulumi.StringOutput)
 }
 
-// A list of key-value objects that specify enablement parameters, where key is a string and value is a document of any type. See Parameter below for details.
 func (o BaselineOutput) Parameters() BaselineParametersPtrOutput {
 	return o.ApplyT(func(v *Baseline) BaselineParametersPtrOutput { return v.Parameters }).(BaselineParametersPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BaselineOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Baseline) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o BaselineOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Baseline) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the landing zone, including those inherited from the provider `defaultTags` configuration block.
 func (o BaselineOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Baseline) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The ARN of the target on which the baseline will be enabled. Only OUs are supported as targets.
-//
-// The following arguments are optional:
 func (o BaselineOutput) TargetIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Baseline) pulumi.StringOutput { return v.TargetIdentifier }).(pulumi.StringOutput)
 }

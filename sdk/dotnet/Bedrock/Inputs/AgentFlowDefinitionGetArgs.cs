@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
     {
         [Input("connections")]
         private InputList<Inputs.AgentFlowDefinitionConnectionGetArgs>? _connections;
-
-        /// <summary>
-        /// A list of connection definitions in the flow. See Connection for more information.
-        /// </summary>
         public InputList<Inputs.AgentFlowDefinitionConnectionGetArgs> Connections
         {
             get => _connections ?? (_connections = new InputList<Inputs.AgentFlowDefinitionConnectionGetArgs>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
         [Input("nodes")]
         private InputList<Inputs.AgentFlowDefinitionNodeGetArgs>? _nodes;
-
-        /// <summary>
-        /// A list of node definitions in the flow. See Node for more information.
-        /// </summary>
         public InputList<Inputs.AgentFlowDefinitionNodeGetArgs> Nodes
         {
             get => _nodes ?? (_nodes = new InputList<Inputs.AgentFlowDefinitionNodeGetArgs>());

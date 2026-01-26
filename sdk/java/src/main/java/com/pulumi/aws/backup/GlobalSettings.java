@@ -14,70 +14,11 @@ import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AWS Backup Global Settings resource.
- * 
- * &gt; **Note:** This resource will show perpetual differences for any supported settings not explicitly configured in the `globalSettings` configuration block. To avoid this, specify all supported options with their default values (typically `&#34;false&#34;`, but check the plan diff for the actual value). See [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide for available settings.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.backup.GlobalSettings;
- * import com.pulumi.aws.backup.GlobalSettingsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new GlobalSettings("test", GlobalSettingsArgs.builder()
- *             .globalSettings(Map.ofEntries(
- *                 Map.entry("isCrossAccountBackupEnabled", "true"),
- *                 Map.entry("isMpaEnabled", "false"),
- *                 Map.entry("isDelegatedAdministratorEnabled", "false")
- *             ))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Backup Global Settings using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:backup/globalSettings:GlobalSettings example 123456789012
- * ```
- * 
- */
 @ResourceType(type="aws:backup/globalSettings:GlobalSettings")
 public class GlobalSettings extends com.pulumi.resources.CustomResource {
-    /**
-     * A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
-     * 
-     */
     @Export(name="globalSettings", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> globalSettings;
 
-    /**
-     * @return A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
-     * 
-     */
     public Output<Map<String,String>> globalSettings() {
         return this.globalSettings;
     }

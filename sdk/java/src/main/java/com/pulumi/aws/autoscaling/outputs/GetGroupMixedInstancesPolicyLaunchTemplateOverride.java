@@ -13,55 +13,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGroupMixedInstancesPolicyLaunchTemplateOverride {
-    /**
-     * @return List of instance requirements objects.
-     * * `acceleratorCount - List of objects describing the minimum and maximum number of accelerators for an instance type.
-     * 
-     */
     private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement> instanceRequirements;
-    /**
-     * @return Overriding instance type.
-     * 
-     */
     private String instanceType;
-    /**
-     * @return List of overriding launch template specification objects.
-     * 
-     */
     private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification> launchTemplateSpecifications;
-    /**
-     * @return Number of capacity units, which gives the instance type a proportional weight to other instance types.
-     * 
-     */
     private String weightedCapacity;
 
     private GetGroupMixedInstancesPolicyLaunchTemplateOverride() {}
-    /**
-     * @return List of instance requirements objects.
-     * * `acceleratorCount - List of objects describing the minimum and maximum number of accelerators for an instance type.
-     * 
-     */
     public List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement> instanceRequirements() {
         return this.instanceRequirements;
     }
-    /**
-     * @return Overriding instance type.
-     * 
-     */
     public String instanceType() {
         return this.instanceType;
     }
-    /**
-     * @return List of overriding launch template specification objects.
-     * 
-     */
     public List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification> launchTemplateSpecifications() {
         return this.launchTemplateSpecifications;
     }
-    /**
-     * @return Number of capacity units, which gives the instance type a proportional weight to other instance types.
-     * 
-     */
     public String weightedCapacity() {
         return this.weightedCapacity;
     }

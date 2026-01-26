@@ -14,105 +14,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEndpointAssociationsAssociation {
-    /**
-     * @return Accessibility of the resource.
-     * 
-     */
     private String associatedResourceAccessibility;
-    /**
-     * @return ARN of the resource for this association.
-     * 
-     */
     private String associatedResourceArn;
-    /**
-     * @return DNS entries for the Association. DNS entry blocks are documented below.
-     * 
-     */
     private List<GetEndpointAssociationsAssociationDnsEntry> dnsEntries;
     private String id;
-    /**
-     * @return DNS entries for the Association. Private DNS entry blocks are documented below.
-     * 
-     */
     private List<GetEndpointAssociationsAssociationPrivateDnsEntry> privateDnsEntries;
-    /**
-     * @return ARN of the Resource Group if the Resource is a member of a group.
-     * 
-     */
     private String resourceConfigurationGroupArn;
-    /**
-     * @return Service Network ARN. Applicable for endpoints of type `ServiceNetwork`.
-     * 
-     */
     private String serviceNetworkArn;
-    /**
-     * @return Service Network Name. Applicable for endpoints of type `ServiceNetwork`.
-     * 
-     */
     private String serviceNetworkName;
-    /**
-     * @return Tags of the association.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetEndpointAssociationsAssociation() {}
-    /**
-     * @return Accessibility of the resource.
-     * 
-     */
     public String associatedResourceAccessibility() {
         return this.associatedResourceAccessibility;
     }
-    /**
-     * @return ARN of the resource for this association.
-     * 
-     */
     public String associatedResourceArn() {
         return this.associatedResourceArn;
     }
-    /**
-     * @return DNS entries for the Association. DNS entry blocks are documented below.
-     * 
-     */
     public List<GetEndpointAssociationsAssociationDnsEntry> dnsEntries() {
         return this.dnsEntries;
     }
     public String id() {
         return this.id;
     }
-    /**
-     * @return DNS entries for the Association. Private DNS entry blocks are documented below.
-     * 
-     */
     public List<GetEndpointAssociationsAssociationPrivateDnsEntry> privateDnsEntries() {
         return this.privateDnsEntries;
     }
-    /**
-     * @return ARN of the Resource Group if the Resource is a member of a group.
-     * 
-     */
     public String resourceConfigurationGroupArn() {
         return this.resourceConfigurationGroupArn;
     }
-    /**
-     * @return Service Network ARN. Applicable for endpoints of type `ServiceNetwork`.
-     * 
-     */
     public String serviceNetworkArn() {
         return this.serviceNetworkArn;
     }
-    /**
-     * @return Service Network Name. Applicable for endpoints of type `ServiceNetwork`.
-     * 
-     */
     public String serviceNetworkName() {
         return this.serviceNetworkName;
     }
-    /**
-     * @return Tags of the association.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

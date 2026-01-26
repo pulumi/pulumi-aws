@@ -13,13 +13,7 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     [OutputType]
     public sealed class TableImportTableInputFormatOptionsCsv
     {
-        /// <summary>
-        /// The delimiter used for separating items in the CSV file being imported.
-        /// </summary>
         public readonly string? Delimiter;
-        /// <summary>
-        /// List of the headers used to specify a common header for all source CSV files being imported.
-        /// </summary>
         public readonly ImmutableArray<string> HeaderLists;
 
         [OutputConstructor]

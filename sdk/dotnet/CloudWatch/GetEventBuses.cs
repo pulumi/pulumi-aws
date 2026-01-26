@@ -11,81 +11,12 @@ namespace Pulumi.Aws.CloudWatch
 {
     public static class GetEventBuses
     {
-        /// <summary>
-        /// Data source for managing an AWS EventBridge Event Buses.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudWatch.GetEventBuses.Invoke(new()
-        ///     {
-        ///         NamePrefix = "test",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetEventBusesResult> InvokeAsync(GetEventBusesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventBusesResult>("aws:cloudwatch/getEventBuses:getEventBuses", args ?? new GetEventBusesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS EventBridge Event Buses.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudWatch.GetEventBuses.Invoke(new()
-        ///     {
-        ///         NamePrefix = "test",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetEventBusesResult> Invoke(GetEventBusesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventBusesResult>("aws:cloudwatch/getEventBuses:getEventBuses", args ?? new GetEventBusesInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS EventBridge Event Buses.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudWatch.GetEventBuses.Invoke(new()
-        ///     {
-        ///         NamePrefix = "test",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetEventBusesResult> Invoke(GetEventBusesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventBusesResult>("aws:cloudwatch/getEventBuses:getEventBuses", args ?? new GetEventBusesInvokeArgs(), options.WithDefaults());
     }
@@ -93,15 +24,9 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class GetEventBusesArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Specifying this limits the results to only those event buses with names that start with the specified prefix.
-        /// </summary>
         [Input("namePrefix")]
         public string? NamePrefix { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -113,15 +38,9 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class GetEventBusesInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Specifying this limits the results to only those event buses with names that start with the specified prefix.
-        /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -135,9 +54,6 @@ namespace Pulumi.Aws.CloudWatch
     [OutputType]
     public sealed class GetEventBusesResult
     {
-        /// <summary>
-        /// This list of event buses.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetEventBusesEventBusResult> EventBuses;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

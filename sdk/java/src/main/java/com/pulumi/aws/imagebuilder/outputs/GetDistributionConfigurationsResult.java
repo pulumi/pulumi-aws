@@ -13,10 +13,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDistributionConfigurationsResult {
-    /**
-     * @return Set of ARNs of the matched Image Builder Distribution Configurations.
-     * 
-     */
     private List<String> arns;
     private @Nullable List<GetDistributionConfigurationsFilter> filters;
     /**
@@ -24,18 +20,10 @@ public final class GetDistributionConfigurationsResult {
      * 
      */
     private String id;
-    /**
-     * @return Set of names of the matched Image Builder Distribution Configurations.
-     * 
-     */
     private List<String> names;
     private String region;
 
     private GetDistributionConfigurationsResult() {}
-    /**
-     * @return Set of ARNs of the matched Image Builder Distribution Configurations.
-     * 
-     */
     public List<String> arns() {
         return this.arns;
     }
@@ -49,10 +37,6 @@ public final class GetDistributionConfigurationsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Set of names of the matched Image Builder Distribution Configurations.
-     * 
-     */
     public List<String> names() {
         return this.names;
     }

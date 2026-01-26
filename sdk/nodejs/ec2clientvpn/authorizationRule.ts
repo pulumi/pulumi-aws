@@ -4,40 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides authorization rules for AWS Client VPN endpoints. For more information on usage, please see the
- * [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2clientvpn.AuthorizationRule("example", {
- *     clientVpnEndpointId: exampleAwsEc2ClientVpnEndpoint.id,
- *     targetNetworkCidr: exampleAwsSubnet.cidrBlock,
- *     authorizeAllGroups: true,
- * });
- * ```
- *
- * ## Import
- *
- * Using the endpoint ID, target network CIDR, and group name:
- *
- * __Using `pulumi import` to import__ AWS Client VPN authorization rules using the endpoint ID and target network CIDR. If there is a specific group name, include that also. All values are separated by a `,`. For example:
- *
- * Using the endpoint ID and target network CIDR:
- *
- * ```sh
- * $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24
- * ```
- * Using the endpoint ID, target network CIDR, and group name:
- *
- * ```sh
- * $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24,team-a
- * ```
- */
 export class AuthorizationRule extends pulumi.CustomResource {
     /**
      * Get an existing AuthorizationRule resource's state with the given name, ID, and optional extra
@@ -66,29 +32,11 @@ export class AuthorizationRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === AuthorizationRule.__pulumiType;
     }
 
-    /**
-     * The ID of the group to which the authorization rule grants access. One of `accessGroupId` or `authorizeAllGroups` must be set.
-     */
     declare public readonly accessGroupId: pulumi.Output<string | undefined>;
-    /**
-     * Indicates whether the authorization rule grants access to all clients. One of `accessGroupId` or `authorizeAllGroups` must be set.
-     */
     declare public readonly authorizeAllGroups: pulumi.Output<boolean | undefined>;
-    /**
-     * The ID of the Client VPN endpoint.
-     */
     declare public readonly clientVpnEndpointId: pulumi.Output<string>;
-    /**
-     * A brief description of the authorization rule.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
-     */
     declare public readonly targetNetworkCidr: pulumi.Output<string>;
 
     /**
@@ -134,29 +82,11 @@ export class AuthorizationRule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AuthorizationRule resources.
  */
 export interface AuthorizationRuleState {
-    /**
-     * The ID of the group to which the authorization rule grants access. One of `accessGroupId` or `authorizeAllGroups` must be set.
-     */
     accessGroupId?: pulumi.Input<string>;
-    /**
-     * Indicates whether the authorization rule grants access to all clients. One of `accessGroupId` or `authorizeAllGroups` must be set.
-     */
     authorizeAllGroups?: pulumi.Input<boolean>;
-    /**
-     * The ID of the Client VPN endpoint.
-     */
     clientVpnEndpointId?: pulumi.Input<string>;
-    /**
-     * A brief description of the authorization rule.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
-     */
     targetNetworkCidr?: pulumi.Input<string>;
 }
 
@@ -164,28 +94,10 @@ export interface AuthorizationRuleState {
  * The set of arguments for constructing a AuthorizationRule resource.
  */
 export interface AuthorizationRuleArgs {
-    /**
-     * The ID of the group to which the authorization rule grants access. One of `accessGroupId` or `authorizeAllGroups` must be set.
-     */
     accessGroupId?: pulumi.Input<string>;
-    /**
-     * Indicates whether the authorization rule grants access to all clients. One of `accessGroupId` or `authorizeAllGroups` must be set.
-     */
     authorizeAllGroups?: pulumi.Input<boolean>;
-    /**
-     * The ID of the Client VPN endpoint.
-     */
     clientVpnEndpointId: pulumi.Input<string>;
-    /**
-     * A brief description of the authorization rule.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
-     */
     targetNetworkCidr: pulumi.Input<string>;
 }

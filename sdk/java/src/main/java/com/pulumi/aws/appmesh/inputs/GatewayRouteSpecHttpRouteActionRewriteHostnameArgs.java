@@ -14,17 +14,9 @@ public final class GatewayRouteSpecHttpRouteActionRewriteHostnameArgs extends co
 
     public static final GatewayRouteSpecHttpRouteActionRewriteHostnameArgs Empty = new GatewayRouteSpecHttpRouteActionRewriteHostnameArgs();
 
-    /**
-     * Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     @Import(name="defaultTargetHostname", required=true)
     private Output<String> defaultTargetHostname;
 
-    /**
-     * @return Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     public Output<String> defaultTargetHostname() {
         return this.defaultTargetHostname;
     }
@@ -53,23 +45,11 @@ public final class GatewayRouteSpecHttpRouteActionRewriteHostnameArgs extends co
             $ = new GatewayRouteSpecHttpRouteActionRewriteHostnameArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param defaultTargetHostname Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultTargetHostname(Output<String> defaultTargetHostname) {
             $.defaultTargetHostname = defaultTargetHostname;
             return this;
         }
 
-        /**
-         * @param defaultTargetHostname Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultTargetHostname(String defaultTargetHostname) {
             return defaultTargetHostname(Output.of(defaultTargetHostname));
         }

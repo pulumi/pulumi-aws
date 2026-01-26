@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TargetGroupTargetHealthState {
-    /**
-     * @return Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `true` or `false`. Default: `true`.
-     * 
-     */
     private Boolean enableUnhealthyConnectionTermination;
-    /**
-     * @return Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enableUnhealthyConnectionTermination` is set to false. Default: `0`.
-     * 
-     */
     private @Nullable Integer unhealthyDrainingInterval;
 
     private TargetGroupTargetHealthState() {}
-    /**
-     * @return Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `true` or `false`. Default: `true`.
-     * 
-     */
     public Boolean enableUnhealthyConnectionTermination() {
         return this.enableUnhealthyConnectionTermination;
     }
-    /**
-     * @return Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enableUnhealthyConnectionTermination` is set to false. Default: `0`.
-     * 
-     */
     public Optional<Integer> unhealthyDrainingInterval() {
         return Optional.ofNullable(this.unhealthyDrainingInterval);
     }

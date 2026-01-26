@@ -9,123 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ses
 {
-    /// <summary>
-    /// Provides an SES domain MAIL FROM resource.
-    /// 
-    /// &gt; **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the aws.ses.DomainIdentity resource. To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/dg/mail-from.html) for more information.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Domain Identity MAIL FROM
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Example SES Domain Identity
-    ///     var exampleDomainIdentity = new Aws.Ses.DomainIdentity("example", new()
-    ///     {
-    ///         Domain = "example.com",
-    ///     });
-    /// 
-    ///     var example = new Aws.Ses.MailFrom("example", new()
-    ///     {
-    ///         Domain = exampleDomainIdentity.Domain,
-    ///         MailFromDomain = exampleDomainIdentity.Domain.Apply(domain =&gt; $"bounce.{domain}"),
-    ///     });
-    /// 
-    ///     // Example Route53 MX record
-    ///     var exampleSesDomainMailFromMx = new Aws.Route53.Record("example_ses_domain_mail_from_mx", new()
-    ///     {
-    ///         ZoneId = exampleAwsRoute53Zone.Id,
-    ///         Name = example.MailFromDomain,
-    ///         Type = Aws.Route53.RecordType.MX,
-    ///         Ttl = 600,
-    ///         Records = new[]
-    ///         {
-    ///             "10 feedback-smtp.us-east-1.amazonses.com",
-    ///         },
-    ///     });
-    /// 
-    ///     // Example Route53 TXT record for SPF
-    ///     var exampleSesDomainMailFromTxt = new Aws.Route53.Record("example_ses_domain_mail_from_txt", new()
-    ///     {
-    ///         ZoneId = exampleAwsRoute53Zone.Id,
-    ///         Name = example.MailFromDomain,
-    ///         Type = Aws.Route53.RecordType.TXT,
-    ///         Ttl = 600,
-    ///         Records = new[]
-    ///         {
-    ///             "v=spf1 include:amazonses.com ~all",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Email Identity MAIL FROM
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Example SES Email Identity
-    ///     var example = new Aws.Ses.EmailIdentity("example", new()
-    ///     {
-    ///         Email = "user@example.com",
-    ///     });
-    /// 
-    ///     var exampleMailFrom = new Aws.Ses.MailFrom("example", new()
-    ///     {
-    ///         Domain = example.Email,
-    ///         MailFromDomain = "mail.example.com",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import MAIL FROM domain using the `domain` attribute. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ses/mailFrom:MailFrom example example.com
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ses/mailFrom:MailFrom")]
     public partial class MailFrom : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
-        /// </summary>
         [Output("behaviorOnMxFailure")]
         public Output<string?> BehaviorOnMxFailure { get; private set; } = null!;
 
-        /// <summary>
-        /// Verified domain name or email identity to generate DKIM tokens for.
-        /// </summary>
         [Output("domain")]
         public Output<string> Domain { get; private set; } = null!;
 
-        /// <summary>
-        /// Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("mailFromDomain")]
         public Output<string> MailFromDomain { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -175,29 +70,15 @@ namespace Pulumi.Aws.Ses
 
     public sealed class MailFromArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
-        /// </summary>
         [Input("behaviorOnMxFailure")]
         public Input<string>? BehaviorOnMxFailure { get; set; }
 
-        /// <summary>
-        /// Verified domain name or email identity to generate DKIM tokens for.
-        /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
 
-        /// <summary>
-        /// Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("mailFromDomain", required: true)]
         public Input<string> MailFromDomain { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -209,29 +90,15 @@ namespace Pulumi.Aws.Ses
 
     public sealed class MailFromState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
-        /// </summary>
         [Input("behaviorOnMxFailure")]
         public Input<string>? BehaviorOnMxFailure { get; set; }
 
-        /// <summary>
-        /// Verified domain name or email identity to generate DKIM tokens for.
-        /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
-        /// <summary>
-        /// Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("mailFromDomain")]
         public Input<string>? MailFromDomain { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

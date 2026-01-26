@@ -9,54 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudFront
 {
-    /// <summary>
-    /// Provides a CloudFront real-time log configuration resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudFront.MonitoringSubscription("example", new()
-    ///     {
-    ///         DistributionId = exampleAwsCloudfrontDistribution.Id,
-    ///         MonitoringSubscriptionDetails = new Aws.CloudFront.Inputs.MonitoringSubscriptionMonitoringSubscriptionArgs
-    ///         {
-    ///             RealtimeMetricsSubscriptionConfig = new Aws.CloudFront.Inputs.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs
-    ///             {
-    ///                 RealtimeMetricsSubscriptionStatus = "Enabled",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import CloudFront monitoring subscription using the id. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cloudfront/monitoringSubscription:MonitoringSubscription example E3QYSUHO4VYRGB
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cloudfront/monitoringSubscription:MonitoringSubscription")]
     public partial class MonitoringSubscription : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ID of the distribution that you are enabling metrics for.
-        /// </summary>
         [Output("distributionId")]
         public Output<string> DistributionId { get; private set; } = null!;
 
-        /// <summary>
-        /// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
-        /// </summary>
         [Output("monitoringSubscription")]
         public Output<Outputs.MonitoringSubscriptionMonitoringSubscription> MonitoringSubscriptionDetails { get; private set; } = null!;
 
@@ -106,15 +64,9 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class MonitoringSubscriptionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the distribution that you are enabling metrics for.
-        /// </summary>
         [Input("distributionId", required: true)]
         public Input<string> DistributionId { get; set; } = null!;
 
-        /// <summary>
-        /// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
-        /// </summary>
         [Input("monitoringSubscription", required: true)]
         public Input<Inputs.MonitoringSubscriptionMonitoringSubscriptionArgs> MonitoringSubscriptionDetails { get; set; } = null!;
 
@@ -126,15 +78,9 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class MonitoringSubscriptionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the distribution that you are enabling metrics for.
-        /// </summary>
         [Input("distributionId")]
         public Input<string>? DistributionId { get; set; }
 
-        /// <summary>
-        /// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
-        /// </summary>
         [Input("monitoringSubscription")]
         public Input<Inputs.MonitoringSubscriptionMonitoringSubscriptionGetArgs>? MonitoringSubscriptionDetails { get; set; }
 

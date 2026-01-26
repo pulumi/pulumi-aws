@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CapabilityConfigurationArgoCdNetworkAccess {
-    /**
-     * @return VPC Endpoint IDs.
-     * 
-     */
     private @Nullable List<String> vpceIds;
 
     private CapabilityConfigurationArgoCdNetworkAccess() {}
-    /**
-     * @return VPC Endpoint IDs.
-     * 
-     */
     public List<String> vpceIds() {
         return this.vpceIds == null ? List.of() : this.vpceIds;
     }

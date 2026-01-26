@@ -9,89 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sagemaker
 {
-    /// <summary>
-    /// Provides a SageMaker AI Project resource.
-    /// 
-    ///  &gt; Note: If you are trying to use SageMaker AI projects with SageMaker AI studio you will need to add a tag with the key `sagemaker:studio-visibility` with value `True`. For more on requirements to use projects and permission needed see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-projects-templates-custom.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Sagemaker.Project("example", new()
-    ///     {
-    ///         ProjectName = "example",
-    ///         ServiceCatalogProvisioningDetails = new Aws.Sagemaker.Inputs.ProjectServiceCatalogProvisioningDetailsArgs
-    ///         {
-    ///             ProductId = exampleAwsServicecatalogProduct.Id,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import SageMaker AI Projects using the `project_name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:sagemaker/project:Project example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:sagemaker/project:Project")]
     public partial class Project : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Project.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// A description for the project.
-        /// </summary>
         [Output("projectDescription")]
         public Output<string?> ProjectDescription { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the project.
-        /// </summary>
         [Output("projectId")]
         public Output<string> ProjectId { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the Project.
-        /// </summary>
         [Output("projectName")]
         public Output<string> ProjectName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
-        /// </summary>
         [Output("serviceCatalogProvisioningDetails")]
         public Output<Outputs.ProjectServiceCatalogProvisioningDetails> ServiceCatalogProvisioningDetails { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -141,36 +82,20 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class ProjectArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A description for the project.
-        /// </summary>
         [Input("projectDescription")]
         public Input<string>? ProjectDescription { get; set; }
 
-        /// <summary>
-        /// The name of the Project.
-        /// </summary>
         [Input("projectName", required: true)]
         public Input<string> ProjectName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
-        /// </summary>
         [Input("serviceCatalogProvisioningDetails", required: true)]
         public Input<Inputs.ProjectServiceCatalogProvisioningDetailsArgs> ServiceCatalogProvisioningDetails { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -185,48 +110,26 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class ProjectState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Project.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// A description for the project.
-        /// </summary>
         [Input("projectDescription")]
         public Input<string>? ProjectDescription { get; set; }
 
-        /// <summary>
-        /// The ID of the project.
-        /// </summary>
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }
 
-        /// <summary>
-        /// The name of the Project.
-        /// </summary>
         [Input("projectName")]
         public Input<string>? ProjectName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
-        /// </summary>
         [Input("serviceCatalogProvisioningDetails")]
         public Input<Inputs.ProjectServiceCatalogProvisioningDetailsGetArgs>? ServiceCatalogProvisioningDetails { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -235,10 +138,6 @@ namespace Pulumi.Aws.Sagemaker
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

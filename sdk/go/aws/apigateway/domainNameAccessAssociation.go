@@ -12,64 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a domain name access association resource between an access association source and a private custom domain name.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigateway.NewDomainNameAccessAssociation(ctx, "example", &apigateway.DomainNameAccessAssociationArgs{
-//				AccessAssociationSource:     pulumi.Any(exampleAwsVpcEndpoint.Id),
-//				AccessAssociationSourceType: pulumi.String("VPCE"),
-//				DomainNameArn:               pulumi.Any(exampleAwsApiGatewayDomainName.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the API Gateway domain name access association.
-//
-// Using `pulumi import`, import API Gateway domain name acces associations as using their `arn`. For example:
-//
-// % pulumi import aws_api_gateway_domain_name_access_association.example arn:aws:apigateway:us-west-2:123456789012:/domainnameaccessassociations/domainname/12qmzgp2.9m7ilski.test+hykg7a12e7/vpcesource/vpce-05de3f8f82740a748
 type DomainNameAccessAssociation struct {
 	pulumi.CustomResourceState
 
-	// The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
-	AccessAssociationSource pulumi.StringOutput `pulumi:"accessAssociationSource"`
-	// The type of the domain name access association source. Valid values are `VPCE`.
-	AccessAssociationSourceType pulumi.StringOutput `pulumi:"accessAssociationSourceType"`
-	// ARN of the domain name access association.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ARN of the domain name.
-	DomainNameArn pulumi.StringOutput `pulumi:"domainNameArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	AccessAssociationSource     pulumi.StringOutput    `pulumi:"accessAssociationSource"`
+	AccessAssociationSourceType pulumi.StringOutput    `pulumi:"accessAssociationSourceType"`
+	Arn                         pulumi.StringOutput    `pulumi:"arn"`
+	DomainNameArn               pulumi.StringOutput    `pulumi:"domainNameArn"`
+	Region                      pulumi.StringOutput    `pulumi:"region"`
+	Tags                        pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll                     pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewDomainNameAccessAssociation registers a new resource with the given unique name, arguments, and options.
@@ -111,37 +63,23 @@ func GetDomainNameAccessAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainNameAccessAssociation resources.
 type domainNameAccessAssociationState struct {
-	// The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
-	AccessAssociationSource *string `pulumi:"accessAssociationSource"`
-	// The type of the domain name access association source. Valid values are `VPCE`.
-	AccessAssociationSourceType *string `pulumi:"accessAssociationSourceType"`
-	// ARN of the domain name access association.
-	Arn *string `pulumi:"arn"`
-	// The ARN of the domain name.
-	DomainNameArn *string `pulumi:"domainNameArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	AccessAssociationSource     *string           `pulumi:"accessAssociationSource"`
+	AccessAssociationSourceType *string           `pulumi:"accessAssociationSourceType"`
+	Arn                         *string           `pulumi:"arn"`
+	DomainNameArn               *string           `pulumi:"domainNameArn"`
+	Region                      *string           `pulumi:"region"`
+	Tags                        map[string]string `pulumi:"tags"`
+	TagsAll                     map[string]string `pulumi:"tagsAll"`
 }
 
 type DomainNameAccessAssociationState struct {
-	// The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
-	AccessAssociationSource pulumi.StringPtrInput
-	// The type of the domain name access association source. Valid values are `VPCE`.
+	AccessAssociationSource     pulumi.StringPtrInput
 	AccessAssociationSourceType pulumi.StringPtrInput
-	// ARN of the domain name access association.
-	Arn pulumi.StringPtrInput
-	// The ARN of the domain name.
-	DomainNameArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Arn                         pulumi.StringPtrInput
+	DomainNameArn               pulumi.StringPtrInput
+	Region                      pulumi.StringPtrInput
+	Tags                        pulumi.StringMapInput
+	TagsAll                     pulumi.StringMapInput
 }
 
 func (DomainNameAccessAssociationState) ElementType() reflect.Type {
@@ -149,30 +87,20 @@ func (DomainNameAccessAssociationState) ElementType() reflect.Type {
 }
 
 type domainNameAccessAssociationArgs struct {
-	// The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
-	AccessAssociationSource string `pulumi:"accessAssociationSource"`
-	// The type of the domain name access association source. Valid values are `VPCE`.
-	AccessAssociationSourceType string `pulumi:"accessAssociationSourceType"`
-	// The ARN of the domain name.
-	DomainNameArn string `pulumi:"domainNameArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	AccessAssociationSource     string            `pulumi:"accessAssociationSource"`
+	AccessAssociationSourceType string            `pulumi:"accessAssociationSourceType"`
+	DomainNameArn               string            `pulumi:"domainNameArn"`
+	Region                      *string           `pulumi:"region"`
+	Tags                        map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DomainNameAccessAssociation resource.
 type DomainNameAccessAssociationArgs struct {
-	// The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
-	AccessAssociationSource pulumi.StringInput
-	// The type of the domain name access association source. Valid values are `VPCE`.
+	AccessAssociationSource     pulumi.StringInput
 	AccessAssociationSourceType pulumi.StringInput
-	// The ARN of the domain name.
-	DomainNameArn pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	DomainNameArn               pulumi.StringInput
+	Region                      pulumi.StringPtrInput
+	Tags                        pulumi.StringMapInput
 }
 
 func (DomainNameAccessAssociationArgs) ElementType() reflect.Type {
@@ -262,37 +190,30 @@ func (o DomainNameAccessAssociationOutput) ToDomainNameAccessAssociationOutputWi
 	return o
 }
 
-// The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
 func (o DomainNameAccessAssociationOutput) AccessAssociationSource() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainNameAccessAssociation) pulumi.StringOutput { return v.AccessAssociationSource }).(pulumi.StringOutput)
 }
 
-// The type of the domain name access association source. Valid values are `VPCE`.
 func (o DomainNameAccessAssociationOutput) AccessAssociationSourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainNameAccessAssociation) pulumi.StringOutput { return v.AccessAssociationSourceType }).(pulumi.StringOutput)
 }
 
-// ARN of the domain name access association.
 func (o DomainNameAccessAssociationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainNameAccessAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The ARN of the domain name.
 func (o DomainNameAccessAssociationOutput) DomainNameArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainNameAccessAssociation) pulumi.StringOutput { return v.DomainNameArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DomainNameAccessAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainNameAccessAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DomainNameAccessAssociationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DomainNameAccessAssociation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DomainNameAccessAssociationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DomainNameAccessAssociation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

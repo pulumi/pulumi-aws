@@ -16,47 +16,23 @@ public final class VaultPolicyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final VaultPolicyArgs Empty = new VaultPolicyArgs();
 
-    /**
-     * Name of the backup vault to add policy for.
-     * 
-     */
     @Import(name="backupVaultName", required=true)
     private Output<String> backupVaultName;
 
-    /**
-     * @return Name of the backup vault to add policy for.
-     * 
-     */
     public Output<String> backupVaultName() {
         return this.backupVaultName;
     }
 
-    /**
-     * The backup vault access policy document in JSON format.
-     * 
-     */
     @Import(name="policy", required=true)
     private Output<String> policy;
 
-    /**
-     * @return The backup vault access policy document in JSON format.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -87,65 +63,29 @@ public final class VaultPolicyArgs extends com.pulumi.resources.ResourceArgs {
             $ = new VaultPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param backupVaultName Name of the backup vault to add policy for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder backupVaultName(Output<String> backupVaultName) {
             $.backupVaultName = backupVaultName;
             return this;
         }
 
-        /**
-         * @param backupVaultName Name of the backup vault to add policy for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder backupVaultName(String backupVaultName) {
             return backupVaultName(Output.of(backupVaultName));
         }
 
-        /**
-         * @param policy The backup vault access policy document in JSON format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
-        /**
-         * @param policy The backup vault access policy document in JSON format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

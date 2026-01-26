@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **NOTE:** The AWS Region specified by a provider must always be one of the Regions specified for the replication set.
-//
-// Use this data source to manage a replication set in AWS Systems Manager Incident Manager.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssmincidents"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssmincidents.LookupReplicationSet(ctx, &ssmincidents.LookupReplicationSetArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupReplicationSet(ctx *pulumi.Context, args *LookupReplicationSetArgs, opts ...pulumi.InvokeOption) (*LookupReplicationSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupReplicationSetResult
@@ -52,33 +23,22 @@ func LookupReplicationSet(ctx *pulumi.Context, args *LookupReplicationSetArgs, o
 
 // A collection of arguments for invoking getReplicationSet.
 type LookupReplicationSetArgs struct {
-	// All tags applied to the replication set.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getReplicationSet.
 type LookupReplicationSetResult struct {
-	// The Amazon Resource Name (ARN) of the replication set.
-	Arn string `pulumi:"arn"`
-	// The ARN of the user who created the replication set.
-	CreatedBy string `pulumi:"createdBy"`
-	// If `true`, the last remaining Region in a replication set can’t be deleted.
-	DeletionProtected bool `pulumi:"deletionProtected"`
+	Arn               string `pulumi:"arn"`
+	CreatedBy         string `pulumi:"createdBy"`
+	DeletionProtected bool   `pulumi:"deletionProtected"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The ARN of the user who last modified the replication set.
+	Id             string `pulumi:"id"`
 	LastModifiedBy string `pulumi:"lastModifiedBy"`
-	// (**Deprecated**) The replication set's Regions. Use `regions` instead.
-	//
 	// Deprecated: region is deprecated. Use regions instead.
-	Region []GetReplicationSetRegion `pulumi:"region"`
-	// The replication set's Regions.
+	Region  []GetReplicationSetRegion `pulumi:"region"`
 	Regions []GetReplicationSetRegion `pulumi:"regions"`
-	// The current status of the Region.
-	// * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-	Status string `pulumi:"status"`
-	// All tags applied to the replication set.
-	Tags map[string]string `pulumi:"tags"`
+	Status  string                    `pulumi:"status"`
+	Tags    map[string]string         `pulumi:"tags"`
 }
 
 func LookupReplicationSetOutput(ctx *pulumi.Context, args LookupReplicationSetOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationSetResultOutput {
@@ -92,7 +52,6 @@ func LookupReplicationSetOutput(ctx *pulumi.Context, args LookupReplicationSetOu
 
 // A collection of arguments for invoking getReplicationSet.
 type LookupReplicationSetOutputArgs struct {
-	// All tags applied to the replication set.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -115,17 +74,14 @@ func (o LookupReplicationSetResultOutput) ToLookupReplicationSetResultOutputWith
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the replication set.
 func (o LookupReplicationSetResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationSetResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The ARN of the user who created the replication set.
 func (o LookupReplicationSetResultOutput) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationSetResult) string { return v.CreatedBy }).(pulumi.StringOutput)
 }
 
-// If `true`, the last remaining Region in a replication set can’t be deleted.
 func (o LookupReplicationSetResultOutput) DeletionProtected() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupReplicationSetResult) bool { return v.DeletionProtected }).(pulumi.BoolOutput)
 }
@@ -135,30 +91,23 @@ func (o LookupReplicationSetResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationSetResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The ARN of the user who last modified the replication set.
 func (o LookupReplicationSetResultOutput) LastModifiedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationSetResult) string { return v.LastModifiedBy }).(pulumi.StringOutput)
 }
 
-// (**Deprecated**) The replication set's Regions. Use `regions` instead.
-//
 // Deprecated: region is deprecated. Use regions instead.
 func (o LookupReplicationSetResultOutput) Region() GetReplicationSetRegionArrayOutput {
 	return o.ApplyT(func(v LookupReplicationSetResult) []GetReplicationSetRegion { return v.Region }).(GetReplicationSetRegionArrayOutput)
 }
 
-// The replication set's Regions.
 func (o LookupReplicationSetResultOutput) Regions() GetReplicationSetRegionArrayOutput {
 	return o.ApplyT(func(v LookupReplicationSetResult) []GetReplicationSetRegion { return v.Regions }).(GetReplicationSetRegionArrayOutput)
 }
 
-// The current status of the Region.
-// * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
 func (o LookupReplicationSetResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationSetResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// All tags applied to the replication set.
 func (o LookupReplicationSetResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupReplicationSetResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

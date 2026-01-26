@@ -14,17 +14,9 @@ public final class InputInputDeviceArgs extends com.pulumi.resources.ResourceArg
 
     public static final InputInputDeviceArgs Empty = new InputInputDeviceArgs();
 
-    /**
-     * The unique ID for the device.
-     * 
-     */
     @Import(name="id", required=true)
     private Output<String> id;
 
-    /**
-     * @return The unique ID for the device.
-     * 
-     */
     public Output<String> id() {
         return this.id;
     }
@@ -53,23 +45,11 @@ public final class InputInputDeviceArgs extends com.pulumi.resources.ResourceArg
             $ = new InputInputDeviceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id The unique ID for the device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id The unique ID for the device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }

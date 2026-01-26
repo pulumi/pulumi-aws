@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpiration {
-    /**
-     * @return Number of days to retain journal table records.
-     * 
-     */
     private @Nullable Integer days;
-    /**
-     * @return Whether journal table record expiration is enabled or disabled. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     private String expiration;
 
     private BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpiration() {}
-    /**
-     * @return Number of days to retain journal table records.
-     * 
-     */
     public Optional<Integer> days() {
         return Optional.ofNullable(this.days);
     }
-    /**
-     * @return Whether journal table record expiration is enabled or disabled. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     public String expiration() {
         return this.expiration;
     }

@@ -17,70 +17,30 @@ public final class GetInstancesPlainArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetInstancesPlainArgs Empty = new GetInstancesPlainArgs();
 
-    /**
-     * One or more filters to apply to the search.
-     * If multiple `filter` blocks are provided, they all must be true.
-     * For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
-     * See `filter` Block below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetInstancesFilter> filters;
 
-    /**
-     * @return One or more filters to apply to the search.
-     * If multiple `filter` blocks are provided, they all must be true.
-     * For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
-     * See `filter` Block below.
-     * 
-     */
     public Optional<List<GetInstancesFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
-     * 
-     */
     @Import(name="instanceStateNames")
     private @Nullable List<String> instanceStateNames;
 
-    /**
-     * @return List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
-     * 
-     */
     public Optional<List<String>> instanceStateNames() {
         return Optional.ofNullable(this.instanceStateNames);
     }
 
-    /**
-     * Map of tags, each pair of which must
-     * exactly match a pair on desired instances.
-     * 
-     */
     @Import(name="instanceTags")
     private @Nullable Map<String,String> instanceTags;
 
-    /**
-     * @return Map of tags, each pair of which must
-     * exactly match a pair on desired instances.
-     * 
-     */
     public Optional<Map<String,String>> instanceTags() {
         return Optional.ofNullable(this.instanceTags);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -112,72 +72,29 @@ public final class GetInstancesPlainArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetInstancesPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters One or more filters to apply to the search.
-         * If multiple `filter` blocks are provided, they all must be true.
-         * For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
-         * See `filter` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetInstancesFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters One or more filters to apply to the search.
-         * If multiple `filter` blocks are provided, they all must be true.
-         * For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
-         * See `filter` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetInstancesFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param instanceStateNames List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceStateNames(@Nullable List<String> instanceStateNames) {
             $.instanceStateNames = instanceStateNames;
             return this;
         }
 
-        /**
-         * @param instanceStateNames List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceStateNames(String... instanceStateNames) {
             return instanceStateNames(List.of(instanceStateNames));
         }
 
-        /**
-         * @param instanceTags Map of tags, each pair of which must
-         * exactly match a pair on desired instances.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceTags(@Nullable Map<String,String> instanceTags) {
             $.instanceTags = instanceTags;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

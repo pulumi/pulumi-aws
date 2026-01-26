@@ -19,21 +19,9 @@ import javax.annotation.Nullable;
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection {
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields addressFields;
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField emailField;
-    /**
-     * @return Details about your login page password field. See `passwordField` for more details.
-     * 
-     */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordField passwordField;
-    /**
-     * @return The payload type for your login endpoint, either JSON or form encoded.
-     * 
-     */
     private String payloadType;
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields phoneNumberFields;
-    /**
-     * @return Details about your login page username field. See `usernameField` for more details.
-     * 
-     */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField usernameField;
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection() {}
@@ -43,27 +31,15 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField> emailField() {
         return Optional.ofNullable(this.emailField);
     }
-    /**
-     * @return Details about your login page password field. See `passwordField` for more details.
-     * 
-     */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordField> passwordField() {
         return Optional.ofNullable(this.passwordField);
     }
-    /**
-     * @return The payload type for your login endpoint, either JSON or form encoded.
-     * 
-     */
     public String payloadType() {
         return this.payloadType;
     }
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields> phoneNumberFields() {
         return Optional.ofNullable(this.phoneNumberFields);
     }
-    /**
-     * @return Details about your login page username field. See `usernameField` for more details.
-     * 
-     */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField> usernameField() {
         return Optional.ofNullable(this.usernameField);
     }

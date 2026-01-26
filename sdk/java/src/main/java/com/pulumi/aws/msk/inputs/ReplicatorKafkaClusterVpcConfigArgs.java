@@ -17,32 +17,16 @@ public final class ReplicatorKafkaClusterVpcConfigArgs extends com.pulumi.resour
 
     public static final ReplicatorKafkaClusterVpcConfigArgs Empty = new ReplicatorKafkaClusterVpcConfigArgs();
 
-    /**
-     * The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
-     * 
-     */
     @Import(name="securityGroupsIds")
     private @Nullable Output<List<String>> securityGroupsIds;
 
-    /**
-     * @return The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
-     * 
-     */
     public Optional<Output<List<String>>> securityGroupsIds() {
         return Optional.ofNullable(this.securityGroupsIds);
     }
 
-    /**
-     * The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
-     * 
-     */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
-    /**
-     * @return The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
-     * 
-     */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
@@ -72,64 +56,28 @@ public final class ReplicatorKafkaClusterVpcConfigArgs extends com.pulumi.resour
             $ = new ReplicatorKafkaClusterVpcConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param securityGroupsIds The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupsIds(@Nullable Output<List<String>> securityGroupsIds) {
             $.securityGroupsIds = securityGroupsIds;
             return this;
         }
 
-        /**
-         * @param securityGroupsIds The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupsIds(List<String> securityGroupsIds) {
             return securityGroupsIds(Output.of(securityGroupsIds));
         }
 
-        /**
-         * @param securityGroupsIds The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupsIds(String... securityGroupsIds) {
             return securityGroupsIds(List.of(securityGroupsIds));
         }
 
-        /**
-         * @param subnetIds The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
-        /**
-         * @param subnetIds The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
-        /**
-         * @param subnetIds The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }

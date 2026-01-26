@@ -12,159 +12,32 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Elastic Load Balancer resource, also known as a "Classic
-// Load Balancer" after the release of
-// Application/Network Load Balancers.
-//
-// > **NOTE on ELB Instances and ELB Attachments:** This provider currently
-// provides both a standalone ELB Attachment resource
-// (describing an instance attached to an ELB), and an ELB resource with
-// `instances` defined in-line. At this time you cannot use an ELB with in-line
-// instances in conjunction with a ELB Attachment resources. Doing so will cause a
-// conflict and will overwrite attachments.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Create a new load balancer
-//			_, err := elb.NewLoadBalancer(ctx, "bar", &elb.LoadBalancerArgs{
-//				Name: pulumi.String("foobar-elb"),
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-west-2a"),
-//					pulumi.String("us-west-2b"),
-//					pulumi.String("us-west-2c"),
-//				},
-//				AccessLogs: &elb.LoadBalancerAccessLogsArgs{
-//					Bucket:       pulumi.String("foo"),
-//					BucketPrefix: pulumi.String("bar"),
-//					Interval:     pulumi.Int(60),
-//				},
-//				Listeners: elb.LoadBalancerListenerArray{
-//					&elb.LoadBalancerListenerArgs{
-//						InstancePort:     pulumi.Int(8000),
-//						InstanceProtocol: pulumi.String("http"),
-//						LbPort:           pulumi.Int(80),
-//						LbProtocol:       pulumi.String("http"),
-//					},
-//					&elb.LoadBalancerListenerArgs{
-//						InstancePort:     pulumi.Int(8000),
-//						InstanceProtocol: pulumi.String("http"),
-//						LbPort:           pulumi.Int(443),
-//						LbProtocol:       pulumi.String("https"),
-//						SslCertificateId: pulumi.String("arn:aws:iam::123456789012:server-certificate/certName"),
-//					},
-//				},
-//				HealthCheck: &elb.LoadBalancerHealthCheckArgs{
-//					HealthyThreshold:   pulumi.Int(2),
-//					UnhealthyThreshold: pulumi.Int(2),
-//					Timeout:            pulumi.Int(3),
-//					Target:             pulumi.String("HTTP:8000/"),
-//					Interval:           pulumi.Int(30),
-//				},
-//				Instances: pulumi.StringArray{
-//					foo.Id,
-//				},
-//				CrossZoneLoadBalancing:    pulumi.Bool(true),
-//				IdleTimeout:               pulumi.Int(400),
-//				ConnectionDraining:        pulumi.Bool(true),
-//				ConnectionDrainingTimeout: pulumi.Int(400),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("foobar-elb"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Note on ECDSA Key Algorithm
-//
-// If the ARN of the `sslCertificateId` that is pointed to references a
-// certificate that was signed by an ECDSA key, note that ELB only supports the
-// P256 and P384 curves.  Using a certificate signed by a key using a different
-// curve could produce the error `ERR_SSL_VERSION_OR_CIPHER_MISMATCH` in your
-// browser.
-//
-// ## Import
-//
-// Using `pulumi import`, import ELBs using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
-// ```
 type LoadBalancer struct {
 	pulumi.CustomResourceState
 
-	// An Access Logs block. Access Logs documented below.
-	AccessLogs LoadBalancerAccessLogsPtrOutput `pulumi:"accessLogs"`
-	// The ARN of the ELB
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The AZ's to serve traffic in.
-	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
-	// Boolean to enable connection draining. Default: `false`
-	ConnectionDraining pulumi.BoolPtrOutput `pulumi:"connectionDraining"`
-	// The time in seconds to allow for connections to drain. Default: `300`
-	ConnectionDrainingTimeout pulumi.IntPtrOutput `pulumi:"connectionDrainingTimeout"`
-	// Enable cross-zone load balancing. Default: `true`
-	CrossZoneLoadBalancing pulumi.BoolPtrOutput `pulumi:"crossZoneLoadBalancing"`
-	// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
-	DesyncMitigationMode pulumi.StringPtrOutput `pulumi:"desyncMitigationMode"`
-	// The DNS name of the ELB
-	DnsName pulumi.StringOutput `pulumi:"dnsName"`
-	// A healthCheck block. Health Check documented below.
-	HealthCheck LoadBalancerHealthCheckOutput `pulumi:"healthCheck"`
-	// The time in seconds that the connection is allowed to be idle. Default: `60`
-	IdleTimeout pulumi.IntPtrOutput `pulumi:"idleTimeout"`
-	// A list of instance ids to place in the ELB pool.
-	Instances pulumi.StringArrayOutput `pulumi:"instances"`
-	// If true, ELB will be an internal ELB.
-	Internal pulumi.BoolOutput `pulumi:"internal"`
-	// A list of listener blocks. Listeners documented below.
-	Listeners LoadBalancerListenerArrayOutput `pulumi:"listeners"`
-	// The name of the ELB. By default generated by this provider.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Creates a unique name beginning with the specified
-	// prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A list of security group IDs to assign to the ELB.
-	// Only valid if creating an ELB within a VPC
-	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
-	// The name of the security group that you can use as
-	// part of your inbound rules for your load balancer's back-end application
-	// instances. Use this for Classic or Default VPC only.
-	SourceSecurityGroup pulumi.StringOutput `pulumi:"sourceSecurityGroup"`
-	// The ID of the security group that you can use as
-	// part of your inbound rules for your load balancer's back-end application
-	// instances. Only available on ELBs launched in a VPC.
-	SourceSecurityGroupId pulumi.StringOutput `pulumi:"sourceSecurityGroupId"`
-	// A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
-	Subnets pulumi.StringArrayOutput `pulumi:"subnets"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// Exactly one of `availabilityZones` or `subnets` must be specified: this
-	// determines if the ELB exists in a VPC or in EC2-classic.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
-	ZoneId pulumi.StringOutput `pulumi:"zoneId"`
+	AccessLogs                LoadBalancerAccessLogsPtrOutput `pulumi:"accessLogs"`
+	Arn                       pulumi.StringOutput             `pulumi:"arn"`
+	AvailabilityZones         pulumi.StringArrayOutput        `pulumi:"availabilityZones"`
+	ConnectionDraining        pulumi.BoolPtrOutput            `pulumi:"connectionDraining"`
+	ConnectionDrainingTimeout pulumi.IntPtrOutput             `pulumi:"connectionDrainingTimeout"`
+	CrossZoneLoadBalancing    pulumi.BoolPtrOutput            `pulumi:"crossZoneLoadBalancing"`
+	DesyncMitigationMode      pulumi.StringPtrOutput          `pulumi:"desyncMitigationMode"`
+	DnsName                   pulumi.StringOutput             `pulumi:"dnsName"`
+	HealthCheck               LoadBalancerHealthCheckOutput   `pulumi:"healthCheck"`
+	IdleTimeout               pulumi.IntPtrOutput             `pulumi:"idleTimeout"`
+	Instances                 pulumi.StringArrayOutput        `pulumi:"instances"`
+	Internal                  pulumi.BoolOutput               `pulumi:"internal"`
+	Listeners                 LoadBalancerListenerArrayOutput `pulumi:"listeners"`
+	Name                      pulumi.StringOutput             `pulumi:"name"`
+	NamePrefix                pulumi.StringOutput             `pulumi:"namePrefix"`
+	Region                    pulumi.StringOutput             `pulumi:"region"`
+	SecurityGroups            pulumi.StringArrayOutput        `pulumi:"securityGroups"`
+	SourceSecurityGroup       pulumi.StringOutput             `pulumi:"sourceSecurityGroup"`
+	SourceSecurityGroupId     pulumi.StringOutput             `pulumi:"sourceSecurityGroupId"`
+	Subnets                   pulumi.StringArrayOutput        `pulumi:"subnets"`
+	Tags                      pulumi.StringMapOutput          `pulumi:"tags"`
+	TagsAll                   pulumi.StringMapOutput          `pulumi:"tagsAll"`
+	ZoneId                    pulumi.StringOutput             `pulumi:"zoneId"`
 }
 
 // NewLoadBalancer registers a new resource with the given unique name, arguments, and options.
@@ -206,119 +79,55 @@ func GetLoadBalancer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LoadBalancer resources.
 type loadBalancerState struct {
-	// An Access Logs block. Access Logs documented below.
-	AccessLogs *LoadBalancerAccessLogs `pulumi:"accessLogs"`
-	// The ARN of the ELB
-	Arn *string `pulumi:"arn"`
-	// The AZ's to serve traffic in.
-	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// Boolean to enable connection draining. Default: `false`
-	ConnectionDraining *bool `pulumi:"connectionDraining"`
-	// The time in seconds to allow for connections to drain. Default: `300`
-	ConnectionDrainingTimeout *int `pulumi:"connectionDrainingTimeout"`
-	// Enable cross-zone load balancing. Default: `true`
-	CrossZoneLoadBalancing *bool `pulumi:"crossZoneLoadBalancing"`
-	// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
-	DesyncMitigationMode *string `pulumi:"desyncMitigationMode"`
-	// The DNS name of the ELB
-	DnsName *string `pulumi:"dnsName"`
-	// A healthCheck block. Health Check documented below.
-	HealthCheck *LoadBalancerHealthCheck `pulumi:"healthCheck"`
-	// The time in seconds that the connection is allowed to be idle. Default: `60`
-	IdleTimeout *int `pulumi:"idleTimeout"`
-	// A list of instance ids to place in the ELB pool.
-	Instances []string `pulumi:"instances"`
-	// If true, ELB will be an internal ELB.
-	Internal *bool `pulumi:"internal"`
-	// A list of listener blocks. Listeners documented below.
-	Listeners []LoadBalancerListener `pulumi:"listeners"`
-	// The name of the ELB. By default generated by this provider.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified
-	// prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A list of security group IDs to assign to the ELB.
-	// Only valid if creating an ELB within a VPC
-	SecurityGroups []string `pulumi:"securityGroups"`
-	// The name of the security group that you can use as
-	// part of your inbound rules for your load balancer's back-end application
-	// instances. Use this for Classic or Default VPC only.
-	SourceSecurityGroup *string `pulumi:"sourceSecurityGroup"`
-	// The ID of the security group that you can use as
-	// part of your inbound rules for your load balancer's back-end application
-	// instances. Only available on ELBs launched in a VPC.
-	SourceSecurityGroupId *string `pulumi:"sourceSecurityGroupId"`
-	// A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
-	Subnets []string `pulumi:"subnets"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// Exactly one of `availabilityZones` or `subnets` must be specified: this
-	// determines if the ELB exists in a VPC or in EC2-classic.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
-	ZoneId *string `pulumi:"zoneId"`
+	AccessLogs                *LoadBalancerAccessLogs  `pulumi:"accessLogs"`
+	Arn                       *string                  `pulumi:"arn"`
+	AvailabilityZones         []string                 `pulumi:"availabilityZones"`
+	ConnectionDraining        *bool                    `pulumi:"connectionDraining"`
+	ConnectionDrainingTimeout *int                     `pulumi:"connectionDrainingTimeout"`
+	CrossZoneLoadBalancing    *bool                    `pulumi:"crossZoneLoadBalancing"`
+	DesyncMitigationMode      *string                  `pulumi:"desyncMitigationMode"`
+	DnsName                   *string                  `pulumi:"dnsName"`
+	HealthCheck               *LoadBalancerHealthCheck `pulumi:"healthCheck"`
+	IdleTimeout               *int                     `pulumi:"idleTimeout"`
+	Instances                 []string                 `pulumi:"instances"`
+	Internal                  *bool                    `pulumi:"internal"`
+	Listeners                 []LoadBalancerListener   `pulumi:"listeners"`
+	Name                      *string                  `pulumi:"name"`
+	NamePrefix                *string                  `pulumi:"namePrefix"`
+	Region                    *string                  `pulumi:"region"`
+	SecurityGroups            []string                 `pulumi:"securityGroups"`
+	SourceSecurityGroup       *string                  `pulumi:"sourceSecurityGroup"`
+	SourceSecurityGroupId     *string                  `pulumi:"sourceSecurityGroupId"`
+	Subnets                   []string                 `pulumi:"subnets"`
+	Tags                      map[string]string        `pulumi:"tags"`
+	TagsAll                   map[string]string        `pulumi:"tagsAll"`
+	ZoneId                    *string                  `pulumi:"zoneId"`
 }
 
 type LoadBalancerState struct {
-	// An Access Logs block. Access Logs documented below.
-	AccessLogs LoadBalancerAccessLogsPtrInput
-	// The ARN of the ELB
-	Arn pulumi.StringPtrInput
-	// The AZ's to serve traffic in.
-	AvailabilityZones pulumi.StringArrayInput
-	// Boolean to enable connection draining. Default: `false`
-	ConnectionDraining pulumi.BoolPtrInput
-	// The time in seconds to allow for connections to drain. Default: `300`
+	AccessLogs                LoadBalancerAccessLogsPtrInput
+	Arn                       pulumi.StringPtrInput
+	AvailabilityZones         pulumi.StringArrayInput
+	ConnectionDraining        pulumi.BoolPtrInput
 	ConnectionDrainingTimeout pulumi.IntPtrInput
-	// Enable cross-zone load balancing. Default: `true`
-	CrossZoneLoadBalancing pulumi.BoolPtrInput
-	// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
-	DesyncMitigationMode pulumi.StringPtrInput
-	// The DNS name of the ELB
-	DnsName pulumi.StringPtrInput
-	// A healthCheck block. Health Check documented below.
-	HealthCheck LoadBalancerHealthCheckPtrInput
-	// The time in seconds that the connection is allowed to be idle. Default: `60`
-	IdleTimeout pulumi.IntPtrInput
-	// A list of instance ids to place in the ELB pool.
-	Instances pulumi.StringArrayInput
-	// If true, ELB will be an internal ELB.
-	Internal pulumi.BoolPtrInput
-	// A list of listener blocks. Listeners documented below.
-	Listeners LoadBalancerListenerArrayInput
-	// The name of the ELB. By default generated by this provider.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified
-	// prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A list of security group IDs to assign to the ELB.
-	// Only valid if creating an ELB within a VPC
-	SecurityGroups pulumi.StringArrayInput
-	// The name of the security group that you can use as
-	// part of your inbound rules for your load balancer's back-end application
-	// instances. Use this for Classic or Default VPC only.
-	SourceSecurityGroup pulumi.StringPtrInput
-	// The ID of the security group that you can use as
-	// part of your inbound rules for your load balancer's back-end application
-	// instances. Only available on ELBs launched in a VPC.
-	SourceSecurityGroupId pulumi.StringPtrInput
-	// A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
-	Subnets pulumi.StringArrayInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// Exactly one of `availabilityZones` or `subnets` must be specified: this
-	// determines if the ELB exists in a VPC or in EC2-classic.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
-	ZoneId pulumi.StringPtrInput
+	CrossZoneLoadBalancing    pulumi.BoolPtrInput
+	DesyncMitigationMode      pulumi.StringPtrInput
+	DnsName                   pulumi.StringPtrInput
+	HealthCheck               LoadBalancerHealthCheckPtrInput
+	IdleTimeout               pulumi.IntPtrInput
+	Instances                 pulumi.StringArrayInput
+	Internal                  pulumi.BoolPtrInput
+	Listeners                 LoadBalancerListenerArrayInput
+	Name                      pulumi.StringPtrInput
+	NamePrefix                pulumi.StringPtrInput
+	Region                    pulumi.StringPtrInput
+	SecurityGroups            pulumi.StringArrayInput
+	SourceSecurityGroup       pulumi.StringPtrInput
+	SourceSecurityGroupId     pulumi.StringPtrInput
+	Subnets                   pulumi.StringArrayInput
+	Tags                      pulumi.StringMapInput
+	TagsAll                   pulumi.StringMapInput
+	ZoneId                    pulumi.StringPtrInput
 }
 
 func (LoadBalancerState) ElementType() reflect.Type {
@@ -326,96 +135,46 @@ func (LoadBalancerState) ElementType() reflect.Type {
 }
 
 type loadBalancerArgs struct {
-	// An Access Logs block. Access Logs documented below.
-	AccessLogs *LoadBalancerAccessLogs `pulumi:"accessLogs"`
-	// The AZ's to serve traffic in.
-	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// Boolean to enable connection draining. Default: `false`
-	ConnectionDraining *bool `pulumi:"connectionDraining"`
-	// The time in seconds to allow for connections to drain. Default: `300`
-	ConnectionDrainingTimeout *int `pulumi:"connectionDrainingTimeout"`
-	// Enable cross-zone load balancing. Default: `true`
-	CrossZoneLoadBalancing *bool `pulumi:"crossZoneLoadBalancing"`
-	// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
-	DesyncMitigationMode *string `pulumi:"desyncMitigationMode"`
-	// A healthCheck block. Health Check documented below.
-	HealthCheck *LoadBalancerHealthCheck `pulumi:"healthCheck"`
-	// The time in seconds that the connection is allowed to be idle. Default: `60`
-	IdleTimeout *int `pulumi:"idleTimeout"`
-	// A list of instance ids to place in the ELB pool.
-	Instances []string `pulumi:"instances"`
-	// If true, ELB will be an internal ELB.
-	Internal *bool `pulumi:"internal"`
-	// A list of listener blocks. Listeners documented below.
-	Listeners []LoadBalancerListener `pulumi:"listeners"`
-	// The name of the ELB. By default generated by this provider.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified
-	// prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A list of security group IDs to assign to the ELB.
-	// Only valid if creating an ELB within a VPC
-	SecurityGroups []string `pulumi:"securityGroups"`
-	// The name of the security group that you can use as
-	// part of your inbound rules for your load balancer's back-end application
-	// instances. Use this for Classic or Default VPC only.
-	SourceSecurityGroup *string `pulumi:"sourceSecurityGroup"`
-	// A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
-	Subnets []string `pulumi:"subnets"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// Exactly one of `availabilityZones` or `subnets` must be specified: this
-	// determines if the ELB exists in a VPC or in EC2-classic.
-	Tags map[string]string `pulumi:"tags"`
+	AccessLogs                *LoadBalancerAccessLogs  `pulumi:"accessLogs"`
+	AvailabilityZones         []string                 `pulumi:"availabilityZones"`
+	ConnectionDraining        *bool                    `pulumi:"connectionDraining"`
+	ConnectionDrainingTimeout *int                     `pulumi:"connectionDrainingTimeout"`
+	CrossZoneLoadBalancing    *bool                    `pulumi:"crossZoneLoadBalancing"`
+	DesyncMitigationMode      *string                  `pulumi:"desyncMitigationMode"`
+	HealthCheck               *LoadBalancerHealthCheck `pulumi:"healthCheck"`
+	IdleTimeout               *int                     `pulumi:"idleTimeout"`
+	Instances                 []string                 `pulumi:"instances"`
+	Internal                  *bool                    `pulumi:"internal"`
+	Listeners                 []LoadBalancerListener   `pulumi:"listeners"`
+	Name                      *string                  `pulumi:"name"`
+	NamePrefix                *string                  `pulumi:"namePrefix"`
+	Region                    *string                  `pulumi:"region"`
+	SecurityGroups            []string                 `pulumi:"securityGroups"`
+	SourceSecurityGroup       *string                  `pulumi:"sourceSecurityGroup"`
+	Subnets                   []string                 `pulumi:"subnets"`
+	Tags                      map[string]string        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LoadBalancer resource.
 type LoadBalancerArgs struct {
-	// An Access Logs block. Access Logs documented below.
-	AccessLogs LoadBalancerAccessLogsPtrInput
-	// The AZ's to serve traffic in.
-	AvailabilityZones pulumi.StringArrayInput
-	// Boolean to enable connection draining. Default: `false`
-	ConnectionDraining pulumi.BoolPtrInput
-	// The time in seconds to allow for connections to drain. Default: `300`
+	AccessLogs                LoadBalancerAccessLogsPtrInput
+	AvailabilityZones         pulumi.StringArrayInput
+	ConnectionDraining        pulumi.BoolPtrInput
 	ConnectionDrainingTimeout pulumi.IntPtrInput
-	// Enable cross-zone load balancing. Default: `true`
-	CrossZoneLoadBalancing pulumi.BoolPtrInput
-	// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
-	DesyncMitigationMode pulumi.StringPtrInput
-	// A healthCheck block. Health Check documented below.
-	HealthCheck LoadBalancerHealthCheckPtrInput
-	// The time in seconds that the connection is allowed to be idle. Default: `60`
-	IdleTimeout pulumi.IntPtrInput
-	// A list of instance ids to place in the ELB pool.
-	Instances pulumi.StringArrayInput
-	// If true, ELB will be an internal ELB.
-	Internal pulumi.BoolPtrInput
-	// A list of listener blocks. Listeners documented below.
-	Listeners LoadBalancerListenerArrayInput
-	// The name of the ELB. By default generated by this provider.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified
-	// prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A list of security group IDs to assign to the ELB.
-	// Only valid if creating an ELB within a VPC
-	SecurityGroups pulumi.StringArrayInput
-	// The name of the security group that you can use as
-	// part of your inbound rules for your load balancer's back-end application
-	// instances. Use this for Classic or Default VPC only.
-	SourceSecurityGroup pulumi.StringPtrInput
-	// A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
-	Subnets pulumi.StringArrayInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// Exactly one of `availabilityZones` or `subnets` must be specified: this
-	// determines if the ELB exists in a VPC or in EC2-classic.
-	Tags pulumi.StringMapInput
+	CrossZoneLoadBalancing    pulumi.BoolPtrInput
+	DesyncMitigationMode      pulumi.StringPtrInput
+	HealthCheck               LoadBalancerHealthCheckPtrInput
+	IdleTimeout               pulumi.IntPtrInput
+	Instances                 pulumi.StringArrayInput
+	Internal                  pulumi.BoolPtrInput
+	Listeners                 LoadBalancerListenerArrayInput
+	Name                      pulumi.StringPtrInput
+	NamePrefix                pulumi.StringPtrInput
+	Region                    pulumi.StringPtrInput
+	SecurityGroups            pulumi.StringArrayInput
+	SourceSecurityGroup       pulumi.StringPtrInput
+	Subnets                   pulumi.StringArrayInput
+	Tags                      pulumi.StringMapInput
 }
 
 func (LoadBalancerArgs) ElementType() reflect.Type {
@@ -505,126 +264,94 @@ func (o LoadBalancerOutput) ToLoadBalancerOutputWithContext(ctx context.Context)
 	return o
 }
 
-// An Access Logs block. Access Logs documented below.
 func (o LoadBalancerOutput) AccessLogs() LoadBalancerAccessLogsPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) LoadBalancerAccessLogsPtrOutput { return v.AccessLogs }).(LoadBalancerAccessLogsPtrOutput)
 }
 
-// The ARN of the ELB
 func (o LoadBalancerOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The AZ's to serve traffic in.
 func (o LoadBalancerOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
-// Boolean to enable connection draining. Default: `false`
 func (o LoadBalancerOutput) ConnectionDraining() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.BoolPtrOutput { return v.ConnectionDraining }).(pulumi.BoolPtrOutput)
 }
 
-// The time in seconds to allow for connections to drain. Default: `300`
 func (o LoadBalancerOutput) ConnectionDrainingTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.IntPtrOutput { return v.ConnectionDrainingTimeout }).(pulumi.IntPtrOutput)
 }
 
-// Enable cross-zone load balancing. Default: `true`
 func (o LoadBalancerOutput) CrossZoneLoadBalancing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.BoolPtrOutput { return v.CrossZoneLoadBalancing }).(pulumi.BoolPtrOutput)
 }
 
-// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
 func (o LoadBalancerOutput) DesyncMitigationMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.DesyncMitigationMode }).(pulumi.StringPtrOutput)
 }
 
-// The DNS name of the ELB
 func (o LoadBalancerOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
 }
 
-// A healthCheck block. Health Check documented below.
 func (o LoadBalancerOutput) HealthCheck() LoadBalancerHealthCheckOutput {
 	return o.ApplyT(func(v *LoadBalancer) LoadBalancerHealthCheckOutput { return v.HealthCheck }).(LoadBalancerHealthCheckOutput)
 }
 
-// The time in seconds that the connection is allowed to be idle. Default: `60`
 func (o LoadBalancerOutput) IdleTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.IntPtrOutput { return v.IdleTimeout }).(pulumi.IntPtrOutput)
 }
 
-// A list of instance ids to place in the ELB pool.
 func (o LoadBalancerOutput) Instances() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.Instances }).(pulumi.StringArrayOutput)
 }
 
-// If true, ELB will be an internal ELB.
 func (o LoadBalancerOutput) Internal() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.BoolOutput { return v.Internal }).(pulumi.BoolOutput)
 }
 
-// A list of listener blocks. Listeners documented below.
 func (o LoadBalancerOutput) Listeners() LoadBalancerListenerArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) LoadBalancerListenerArrayOutput { return v.Listeners }).(LoadBalancerListenerArrayOutput)
 }
 
-// The name of the ELB. By default generated by this provider.
 func (o LoadBalancerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Creates a unique name beginning with the specified
-// prefix. Conflicts with `name`.
 func (o LoadBalancerOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LoadBalancerOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A list of security group IDs to assign to the ELB.
-// Only valid if creating an ELB within a VPC
 func (o LoadBalancerOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-// The name of the security group that you can use as
-// part of your inbound rules for your load balancer's back-end application
-// instances. Use this for Classic or Default VPC only.
 func (o LoadBalancerOutput) SourceSecurityGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.SourceSecurityGroup }).(pulumi.StringOutput)
 }
 
-// The ID of the security group that you can use as
-// part of your inbound rules for your load balancer's back-end application
-// instances. Only available on ELBs launched in a VPC.
 func (o LoadBalancerOutput) SourceSecurityGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.SourceSecurityGroupId }).(pulumi.StringOutput)
 }
 
-// A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
 func (o LoadBalancerOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.Subnets }).(pulumi.StringArrayOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-//
-// Exactly one of `availabilityZones` or `subnets` must be specified: this
-// determines if the ELB exists in a VPC or in EC2-classic.
 func (o LoadBalancerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o LoadBalancerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
 func (o LoadBalancerOutput) ZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.ZoneId }).(pulumi.StringOutput)
 }

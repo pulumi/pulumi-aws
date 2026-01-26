@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern {
-    /**
-     * @return The keyword regex for the customer pattern.
-     * 
-     */
     private @Nullable String keywordRegex;
-    /**
-     * @return The pattern description for the customer pattern.
-     * 
-     */
     private @Nullable String patternDescription;
-    /**
-     * @return The pattern name for the custom pattern.
-     * 
-     */
     private String patternName;
-    /**
-     * @return The pattern regex for the customer pattern. The format must follow JavaScript regex format.
-     * 
-     */
     private String patternRegex;
 
     private DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern() {}
-    /**
-     * @return The keyword regex for the customer pattern.
-     * 
-     */
     public Optional<String> keywordRegex() {
         return Optional.ofNullable(this.keywordRegex);
     }
-    /**
-     * @return The pattern description for the customer pattern.
-     * 
-     */
     public Optional<String> patternDescription() {
         return Optional.ofNullable(this.patternDescription);
     }
-    /**
-     * @return The pattern name for the custom pattern.
-     * 
-     */
     public String patternName() {
         return this.patternName;
     }
-    /**
-     * @return The pattern regex for the customer pattern. The format must follow JavaScript regex format.
-     * 
-     */
     public String patternRegex() {
         return this.patternRegex;
     }

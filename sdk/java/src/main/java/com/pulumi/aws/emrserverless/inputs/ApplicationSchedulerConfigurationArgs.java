@@ -15,32 +15,16 @@ public final class ApplicationSchedulerConfigurationArgs extends com.pulumi.reso
 
     public static final ApplicationSchedulerConfigurationArgs Empty = new ApplicationSchedulerConfigurationArgs();
 
-    /**
-     * Maximum concurrent job runs on this application. Valid range is `1` to `1000`. Defaults to `15`.
-     * 
-     */
     @Import(name="maxConcurrentRuns")
     private @Nullable Output<Integer> maxConcurrentRuns;
 
-    /**
-     * @return Maximum concurrent job runs on this application. Valid range is `1` to `1000`. Defaults to `15`.
-     * 
-     */
     public Optional<Output<Integer>> maxConcurrentRuns() {
         return Optional.ofNullable(this.maxConcurrentRuns);
     }
 
-    /**
-     * Maximum duration in minutes for the job in QUEUED state. Valid range is from `15` to `720`. Defaults to `360`.
-     * 
-     */
     @Import(name="queueTimeoutMinutes")
     private @Nullable Output<Integer> queueTimeoutMinutes;
 
-    /**
-     * @return Maximum duration in minutes for the job in QUEUED state. Valid range is from `15` to `720`. Defaults to `360`.
-     * 
-     */
     public Optional<Output<Integer>> queueTimeoutMinutes() {
         return Optional.ofNullable(this.queueTimeoutMinutes);
     }
@@ -70,44 +54,20 @@ public final class ApplicationSchedulerConfigurationArgs extends com.pulumi.reso
             $ = new ApplicationSchedulerConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maxConcurrentRuns Maximum concurrent job runs on this application. Valid range is `1` to `1000`. Defaults to `15`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxConcurrentRuns(@Nullable Output<Integer> maxConcurrentRuns) {
             $.maxConcurrentRuns = maxConcurrentRuns;
             return this;
         }
 
-        /**
-         * @param maxConcurrentRuns Maximum concurrent job runs on this application. Valid range is `1` to `1000`. Defaults to `15`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxConcurrentRuns(Integer maxConcurrentRuns) {
             return maxConcurrentRuns(Output.of(maxConcurrentRuns));
         }
 
-        /**
-         * @param queueTimeoutMinutes Maximum duration in minutes for the job in QUEUED state. Valid range is from `15` to `720`. Defaults to `360`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queueTimeoutMinutes(@Nullable Output<Integer> queueTimeoutMinutes) {
             $.queueTimeoutMinutes = queueTimeoutMinutes;
             return this;
         }
 
-        /**
-         * @param queueTimeoutMinutes Maximum duration in minutes for the job in QUEUED state. Valid range is from `15` to `720`. Defaults to `360`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queueTimeoutMinutes(Integer queueTimeoutMinutes) {
             return queueTimeoutMinutes(Output.of(queueTimeoutMinutes));
         }

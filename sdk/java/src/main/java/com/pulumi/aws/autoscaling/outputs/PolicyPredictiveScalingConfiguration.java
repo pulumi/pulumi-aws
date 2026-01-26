@@ -13,65 +13,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicyPredictiveScalingConfiguration {
-    /**
-     * @return Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity of the Auto Scaling group. Valid values are `HonorMaxCapacity` or `IncreaseMaxCapacity`. Default is `HonorMaxCapacity`.
-     * 
-     */
     private @Nullable String maxCapacityBreachBehavior;
-    /**
-     * @return Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. Valid range is `0` to `100`. If set to `0`, Amazon EC2 Auto Scaling may scale capacity higher than the maximum capacity to equal but not exceed forecast capacity.
-     * 
-     */
     private @Nullable String maxCapacityBuffer;
-    /**
-     * @return This structure includes the metrics and target utilization to use for predictive scaling.
-     * 
-     */
     private PolicyPredictiveScalingConfigurationMetricSpecification metricSpecification;
-    /**
-     * @return Predictive scaling mode. Valid values are `ForecastAndScale` and `ForecastOnly`. Default is `ForecastOnly`.
-     * 
-     */
     private @Nullable String mode;
-    /**
-     * @return Amount of time, in seconds, by which the instance launch time can be advanced. Minimum is `0`.
-     * 
-     */
     private @Nullable String schedulingBufferTime;
 
     private PolicyPredictiveScalingConfiguration() {}
-    /**
-     * @return Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity of the Auto Scaling group. Valid values are `HonorMaxCapacity` or `IncreaseMaxCapacity`. Default is `HonorMaxCapacity`.
-     * 
-     */
     public Optional<String> maxCapacityBreachBehavior() {
         return Optional.ofNullable(this.maxCapacityBreachBehavior);
     }
-    /**
-     * @return Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. Valid range is `0` to `100`. If set to `0`, Amazon EC2 Auto Scaling may scale capacity higher than the maximum capacity to equal but not exceed forecast capacity.
-     * 
-     */
     public Optional<String> maxCapacityBuffer() {
         return Optional.ofNullable(this.maxCapacityBuffer);
     }
-    /**
-     * @return This structure includes the metrics and target utilization to use for predictive scaling.
-     * 
-     */
     public PolicyPredictiveScalingConfigurationMetricSpecification metricSpecification() {
         return this.metricSpecification;
     }
-    /**
-     * @return Predictive scaling mode. Valid values are `ForecastAndScale` and `ForecastOnly`. Default is `ForecastOnly`.
-     * 
-     */
     public Optional<String> mode() {
         return Optional.ofNullable(this.mode);
     }
-    /**
-     * @return Amount of time, in seconds, by which the instance launch time can be advanced. Minimum is `0`.
-     * 
-     */
     public Optional<String> schedulingBufferTime() {
         return Optional.ofNullable(this.schedulingBufferTime);
     }

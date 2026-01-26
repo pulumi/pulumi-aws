@@ -17,62 +17,30 @@ public final class LocationFsxOntapFileSystemProtocolSmbArgs extends com.pulumi.
 
     public static final LocationFsxOntapFileSystemProtocolSmbArgs Empty = new LocationFsxOntapFileSystemProtocolSmbArgs();
 
-    /**
-     * Fully qualified domain name of the Microsoft Active Directory (AD) that your storage virtual machine belongs to.
-     * 
-     */
     @Import(name="domain")
     private @Nullable Output<String> domain;
 
-    /**
-     * @return Fully qualified domain name of the Microsoft Active Directory (AD) that your storage virtual machine belongs to.
-     * 
-     */
     public Optional<Output<String>> domain() {
         return Optional.ofNullable(this.domain);
     }
 
-    /**
-     * Mount options that are available for DataSync to access an SMB location. See SMB Mount Options below.
-     * 
-     */
     @Import(name="mountOptions", required=true)
     private Output<LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs> mountOptions;
 
-    /**
-     * @return Mount options that are available for DataSync to access an SMB location. See SMB Mount Options below.
-     * 
-     */
     public Output<LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs> mountOptions() {
         return this.mountOptions;
     }
 
-    /**
-     * Password of a user who has permission to access your SVM.
-     * 
-     */
     @Import(name="password", required=true)
     private Output<String> password;
 
-    /**
-     * @return Password of a user who has permission to access your SVM.
-     * 
-     */
     public Output<String> password() {
         return this.password;
     }
 
-    /**
-     * Username that can mount the location and access the files, folders, and metadata that you need in the SVM.
-     * 
-     */
     @Import(name="user", required=true)
     private Output<String> user;
 
-    /**
-     * @return Username that can mount the location and access the files, folders, and metadata that you need in the SVM.
-     * 
-     */
     public Output<String> user() {
         return this.user;
     }
@@ -104,86 +72,38 @@ public final class LocationFsxOntapFileSystemProtocolSmbArgs extends com.pulumi.
             $ = new LocationFsxOntapFileSystemProtocolSmbArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domain Fully qualified domain name of the Microsoft Active Directory (AD) that your storage virtual machine belongs to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domain(@Nullable Output<String> domain) {
             $.domain = domain;
             return this;
         }
 
-        /**
-         * @param domain Fully qualified domain name of the Microsoft Active Directory (AD) that your storage virtual machine belongs to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domain(String domain) {
             return domain(Output.of(domain));
         }
 
-        /**
-         * @param mountOptions Mount options that are available for DataSync to access an SMB location. See SMB Mount Options below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mountOptions(Output<LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs> mountOptions) {
             $.mountOptions = mountOptions;
             return this;
         }
 
-        /**
-         * @param mountOptions Mount options that are available for DataSync to access an SMB location. See SMB Mount Options below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mountOptions(LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs mountOptions) {
             return mountOptions(Output.of(mountOptions));
         }
 
-        /**
-         * @param password Password of a user who has permission to access your SVM.
-         * 
-         * @return builder
-         * 
-         */
         public Builder password(Output<String> password) {
             $.password = password;
             return this;
         }
 
-        /**
-         * @param password Password of a user who has permission to access your SVM.
-         * 
-         * @return builder
-         * 
-         */
         public Builder password(String password) {
             return password(Output.of(password));
         }
 
-        /**
-         * @param user Username that can mount the location and access the files, folders, and metadata that you need in the SVM.
-         * 
-         * @return builder
-         * 
-         */
         public Builder user(Output<String> user) {
             $.user = user;
             return this;
         }
 
-        /**
-         * @param user Username that can mount the location and access the files, folders, and metadata that you need in the SVM.
-         * 
-         * @return builder
-         * 
-         */
         public Builder user(String user) {
             return user(Output.of(user));
         }

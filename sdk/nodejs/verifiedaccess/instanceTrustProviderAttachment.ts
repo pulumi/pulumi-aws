@@ -4,38 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing a Verified Access Instance Trust Provider Attachment.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.verifiedaccess.Instance("example", {});
- * const exampleTrustProvider = new aws.verifiedaccess.TrustProvider("example", {
- *     deviceTrustProviderType: "jamf",
- *     policyReferenceName: "example",
- *     trustProviderType: "device",
- *     deviceOptions: {
- *         tenantId: "example",
- *     },
- * });
- * const exampleInstanceTrustProviderAttachment = new aws.verifiedaccess.InstanceTrustProviderAttachment("example", {
- *     verifiedaccessInstanceId: example.id,
- *     verifiedaccessTrustProviderId: exampleTrustProvider.id,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Verified Access Instance Trust Provider Attachments using the `verifiedaccess_instance_id` and `verifiedaccess_trust_provider_id` separated by a forward slash (`/`). For example:
- *
- * ```sh
- * $ pulumi import aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment example vai-1234567890abcdef0/vatp-8012925589
- * ```
- */
 export class InstanceTrustProviderAttachment extends pulumi.CustomResource {
     /**
      * Get an existing InstanceTrustProviderAttachment resource's state with the given name, ID, and optional extra
@@ -64,17 +32,8 @@ export class InstanceTrustProviderAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === InstanceTrustProviderAttachment.__pulumiType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The ID of the Verified Access instance to attach the Trust Provider to.
-     */
     declare public readonly verifiedaccessInstanceId: pulumi.Output<string>;
-    /**
-     * The ID of the Verified Access trust provider.
-     */
     declare public readonly verifiedaccessTrustProviderId: pulumi.Output<string>;
 
     /**
@@ -114,17 +73,8 @@ export class InstanceTrustProviderAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering InstanceTrustProviderAttachment resources.
  */
 export interface InstanceTrustProviderAttachmentState {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the Verified Access instance to attach the Trust Provider to.
-     */
     verifiedaccessInstanceId?: pulumi.Input<string>;
-    /**
-     * The ID of the Verified Access trust provider.
-     */
     verifiedaccessTrustProviderId?: pulumi.Input<string>;
 }
 
@@ -132,16 +82,7 @@ export interface InstanceTrustProviderAttachmentState {
  * The set of arguments for constructing a InstanceTrustProviderAttachment resource.
  */
 export interface InstanceTrustProviderAttachmentArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the Verified Access instance to attach the Trust Provider to.
-     */
     verifiedaccessInstanceId: pulumi.Input<string>;
-    /**
-     * The ID of the Verified Access trust provider.
-     */
     verifiedaccessTrustProviderId: pulumi.Input<string>;
 }

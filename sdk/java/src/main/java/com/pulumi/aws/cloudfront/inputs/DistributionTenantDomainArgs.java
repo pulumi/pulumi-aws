@@ -16,32 +16,16 @@ public final class DistributionTenantDomainArgs extends com.pulumi.resources.Res
 
     public static final DistributionTenantDomainArgs Empty = new DistributionTenantDomainArgs();
 
-    /**
-     * Set of domains associated with the distribution tenant.
-     * 
-     */
     @Import(name="domain", required=true)
     private Output<String> domain;
 
-    /**
-     * @return Set of domains associated with the distribution tenant.
-     * 
-     */
     public Output<String> domain() {
         return this.domain;
     }
 
-    /**
-     * Current status of the distribution tenant.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return Current status of the distribution tenant.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -71,44 +55,20 @@ public final class DistributionTenantDomainArgs extends com.pulumi.resources.Res
             $ = new DistributionTenantDomainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domain Set of domains associated with the distribution tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domain(Output<String> domain) {
             $.domain = domain;
             return this;
         }
 
-        /**
-         * @param domain Set of domains associated with the distribution tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domain(String domain) {
             return domain(Output.of(domain));
         }
 
-        /**
-         * @param status Current status of the distribution tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Current status of the distribution tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

@@ -12,21 +12,12 @@ namespace Pulumi.Aws.CodeBuild.Inputs
 
     public sealed class ProjectEnvironmentEnvironmentVariableArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Environment variable's name or key.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// Environment variable's value.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

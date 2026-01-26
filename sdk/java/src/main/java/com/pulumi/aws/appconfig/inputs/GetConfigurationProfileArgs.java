@@ -17,62 +17,30 @@ public final class GetConfigurationProfileArgs extends com.pulumi.resources.Invo
 
     public static final GetConfigurationProfileArgs Empty = new GetConfigurationProfileArgs();
 
-    /**
-     * ID of the AppConfig application to which this configuration profile belongs.
-     * 
-     */
     @Import(name="applicationId", required=true)
     private Output<String> applicationId;
 
-    /**
-     * @return ID of the AppConfig application to which this configuration profile belongs.
-     * 
-     */
     public Output<String> applicationId() {
         return this.applicationId;
     }
 
-    /**
-     * ID of the Configuration Profile.
-     * 
-     */
     @Import(name="configurationProfileId", required=true)
     private Output<String> configurationProfileId;
 
-    /**
-     * @return ID of the Configuration Profile.
-     * 
-     */
     public Output<String> configurationProfileId() {
         return this.configurationProfileId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags for the resource.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags for the resource.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -104,86 +72,38 @@ public final class GetConfigurationProfileArgs extends com.pulumi.resources.Invo
             $ = new GetConfigurationProfileArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applicationId ID of the AppConfig application to which this configuration profile belongs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationId(Output<String> applicationId) {
             $.applicationId = applicationId;
             return this;
         }
 
-        /**
-         * @param applicationId ID of the AppConfig application to which this configuration profile belongs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationId(String applicationId) {
             return applicationId(Output.of(applicationId));
         }
 
-        /**
-         * @param configurationProfileId ID of the Configuration Profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationProfileId(Output<String> configurationProfileId) {
             $.configurationProfileId = configurationProfileId;
             return this;
         }
 
-        /**
-         * @param configurationProfileId ID of the Configuration Profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationProfileId(String configurationProfileId) {
             return configurationProfileId(Output.of(configurationProfileId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Map of tags for the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags for the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

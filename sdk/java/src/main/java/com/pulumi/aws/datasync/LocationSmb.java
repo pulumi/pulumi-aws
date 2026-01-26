@@ -17,200 +17,65 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages a SMB Location within AWS DataSync.
- * 
- * &gt; **NOTE:** The DataSync Agents must be available before creating this resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.datasync.LocationSmb;
- * import com.pulumi.aws.datasync.LocationSmbArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new LocationSmb("example", LocationSmbArgs.builder()
- *             .serverHostname("smb.example.com")
- *             .subdirectory("/exported/path")
- *             .user("Guest")
- *             .password("ANotGreatPassword")
- *             .agentArns(exampleAwsDatasyncAgent.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the DataSync SMB location.
- * 
- * Using `pulumi import`, import `aws_datasync_location_smb` using the Amazon Resource Name (ARN). For example:
- * 
- * % pulumi import aws_datasync_location_smb.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
- * 
- */
 @ResourceType(type="aws:datasync/locationSmb:LocationSmb")
 public class LocationSmb extends com.pulumi.resources.CustomResource {
-    /**
-     * A list of DataSync Agent ARNs with which this location will be associated.
-     * 
-     */
     @Export(name="agentArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> agentArns;
 
-    /**
-     * @return A list of DataSync Agent ARNs with which this location will be associated.
-     * 
-     */
     public Output<List<String>> agentArns() {
         return this.agentArns;
     }
-    /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the DataSync Location.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The name of the Windows domain the SMB server belongs to.
-     * 
-     */
     @Export(name="domain", refs={String.class}, tree="[0]")
     private Output<String> domain;
 
-    /**
-     * @return The name of the Windows domain the SMB server belongs to.
-     * 
-     */
     public Output<String> domain() {
         return this.domain;
     }
-    /**
-     * Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
-     * 
-     */
     @Export(name="mountOptions", refs={LocationSmbMountOptions.class}, tree="[0]")
     private Output</* @Nullable */ LocationSmbMountOptions> mountOptions;
 
-    /**
-     * @return Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
-     * 
-     */
     public Output<Optional<LocationSmbMountOptions>> mountOptions() {
         return Codegen.optional(this.mountOptions);
     }
-    /**
-     * The password of the user who can mount the share and has file permissions in the SMB.
-     * 
-     */
     @Export(name="password", refs={String.class}, tree="[0]")
     private Output<String> password;
 
-    /**
-     * @return The password of the user who can mount the share and has file permissions in the SMB.
-     * 
-     */
     public Output<String> password() {
         return this.password;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
-     * 
-     */
     @Export(name="serverHostname", refs={String.class}, tree="[0]")
     private Output<String> serverHostname;
 
-    /**
-     * @return Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
-     * 
-     */
     public Output<String> serverHostname() {
         return this.serverHostname;
     }
-    /**
-     * Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
-     * 
-     */
     @Export(name="subdirectory", refs={String.class}, tree="[0]")
     private Output<String> subdirectory;
 
-    /**
-     * @return Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
-     * 
-     */
     public Output<String> subdirectory() {
         return this.subdirectory;
     }
-    /**
-     * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
@@ -220,17 +85,9 @@ public class LocationSmb extends com.pulumi.resources.CustomResource {
     public Output<String> uri() {
         return this.uri;
     }
-    /**
-     * The user who can mount the share and has file and folder permissions in the SMB share.
-     * 
-     */
     @Export(name="user", refs={String.class}, tree="[0]")
     private Output<String> user;
 
-    /**
-     * @return The user who can mount the share and has file and folder permissions in the SMB share.
-     * 
-     */
     public Output<String> user() {
         return this.user;
     }

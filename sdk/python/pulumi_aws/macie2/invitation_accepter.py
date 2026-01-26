@@ -23,8 +23,6 @@ class InvitationAccepterArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a InvitationAccepter resource.
-        :param pulumi.Input[_builtins.str] administrator_account_id: The AWS account ID for the account that sent the invitation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "administrator_account_id", administrator_account_id)
         if region is not None:
@@ -33,9 +31,6 @@ class InvitationAccepterArgs:
     @_builtins.property
     @pulumi.getter(name="administratorAccountId")
     def administrator_account_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The AWS account ID for the account that sent the invitation.
-        """
         return pulumi.get(self, "administrator_account_id")
 
     @administrator_account_id.setter
@@ -45,9 +40,6 @@ class InvitationAccepterArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -63,9 +55,6 @@ class _InvitationAccepterState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering InvitationAccepter resources.
-        :param pulumi.Input[_builtins.str] administrator_account_id: The AWS account ID for the account that sent the invitation.
-        :param pulumi.Input[_builtins.str] invitation_id: The unique identifier for the invitation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if administrator_account_id is not None:
             pulumi.set(__self__, "administrator_account_id", administrator_account_id)
@@ -77,9 +66,6 @@ class _InvitationAccepterState:
     @_builtins.property
     @pulumi.getter(name="administratorAccountId")
     def administrator_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS account ID for the account that sent the invitation.
-        """
         return pulumi.get(self, "administrator_account_id")
 
     @administrator_account_id.setter
@@ -89,9 +75,6 @@ class _InvitationAccepterState:
     @_builtins.property
     @pulumi.getter(name="invitationId")
     def invitation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The unique identifier for the invitation.
-        """
         return pulumi.get(self, "invitation_id")
 
     @invitation_id.setter
@@ -101,9 +84,6 @@ class _InvitationAccepterState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -121,38 +101,9 @@ class InvitationAccepter(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a resource to manage an [Amazon Macie Invitation Accepter](https://docs.aws.amazon.com/macie/latest/APIReference/invitations-accept.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        primary = aws.macie2.Account("primary")
-        member = aws.macie2.Account("member")
-        primary_member = aws.macie2.Member("primary",
-            account_id="ACCOUNT ID",
-            email="EMAIL",
-            invite=True,
-            invitation_message="Message of the invite",
-            opts = pulumi.ResourceOptions(depends_on=[primary]))
-        member_invitation_accepter = aws.macie2.InvitationAccepter("member", administrator_account_id="ADMINISTRATOR ACCOUNT ID",
-        opts = pulumi.ResourceOptions(depends_on=[primary_member]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_macie2_invitation_accepter` using the admin account ID. For example:
-
-        ```sh
-        $ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012
-        ```
-
+        Create a InvitationAccepter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] administrator_account_id: The AWS account ID for the account that sent the invitation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -161,34 +112,7 @@ class InvitationAccepter(pulumi.CustomResource):
                  args: InvitationAccepterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage an [Amazon Macie Invitation Accepter](https://docs.aws.amazon.com/macie/latest/APIReference/invitations-accept.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        primary = aws.macie2.Account("primary")
-        member = aws.macie2.Account("member")
-        primary_member = aws.macie2.Member("primary",
-            account_id="ACCOUNT ID",
-            email="EMAIL",
-            invite=True,
-            invitation_message="Message of the invite",
-            opts = pulumi.ResourceOptions(depends_on=[primary]))
-        member_invitation_accepter = aws.macie2.InvitationAccepter("member", administrator_account_id="ADMINISTRATOR ACCOUNT ID",
-        opts = pulumi.ResourceOptions(depends_on=[primary_member]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_macie2_invitation_accepter` using the admin account ID. For example:
-
-        ```sh
-        $ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012
-        ```
-
+        Create a InvitationAccepter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param InvitationAccepterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -240,9 +164,6 @@ class InvitationAccepter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] administrator_account_id: The AWS account ID for the account that sent the invitation.
-        :param pulumi.Input[_builtins.str] invitation_id: The unique identifier for the invitation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -256,24 +177,15 @@ class InvitationAccepter(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="administratorAccountId")
     def administrator_account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The AWS account ID for the account that sent the invitation.
-        """
         return pulumi.get(self, "administrator_account_id")
 
     @_builtins.property
     @pulumi.getter(name="invitationId")
     def invitation_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The unique identifier for the invitation.
-        """
         return pulumi.get(self, "invitation_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

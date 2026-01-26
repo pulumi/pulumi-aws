@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentFlowDefinitionNode
     {
-        /// <summary>
-        /// Contains configurations for the node. See Node Configuration for more information.
-        /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfiguration? Configuration;
-        /// <summary>
-        /// A list of objects containing information about an input into the node. See Node Input for more information.
-        /// </summary>
         public readonly ImmutableArray<Outputs.AgentFlowDefinitionNodeInput> Inputs;
-        /// <summary>
-        /// A name for the node.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// A list of objects containing information about an output from the node. See Node Output for more information.
-        /// </summary>
         public readonly ImmutableArray<Outputs.AgentFlowDefinitionNodeOutput> Outputs;
-        /// <summary>
-        /// The type of node. This value must match the name of the key that you provide in the configuration. Valid values: `Agent`, `Collector`, `Condition`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

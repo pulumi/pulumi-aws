@@ -36,45 +36,15 @@ MYPY = False
 if not MYPY:
     class AppAutoBranchCreationConfigArgsDict(TypedDict):
         basic_auth_credentials: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Basic authorization credentials for the autocreated branch.
-        """
         build_spec: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Build specification (build spec) for the autocreated branch.
-        """
         enable_auto_build: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables auto building for the autocreated branch.
-        """
         enable_basic_auth: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables basic authorization for the autocreated branch.
-        """
         enable_performance_mode: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables performance mode for the branch.
-        """
         enable_pull_request_preview: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables pull request previews for the autocreated branch.
-        """
         environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Environment variables for the autocreated branch.
-        """
         framework: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Framework for the autocreated branch.
-        """
         pull_request_environment_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Amplify environment name for the pull request.
-        """
         stage: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Describes the current stage for the autocreated branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
-        """
 elif False:
     AppAutoBranchCreationConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -91,18 +61,6 @@ class AppAutoBranchCreationConfigArgs:
                  framework: Optional[pulumi.Input[_builtins.str]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
                  stage: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] basic_auth_credentials: Basic authorization credentials for the autocreated branch.
-        :param pulumi.Input[_builtins.str] build_spec: Build specification (build spec) for the autocreated branch.
-        :param pulumi.Input[_builtins.bool] enable_auto_build: Enables auto building for the autocreated branch.
-        :param pulumi.Input[_builtins.bool] enable_basic_auth: Enables basic authorization for the autocreated branch.
-        :param pulumi.Input[_builtins.bool] enable_performance_mode: Enables performance mode for the branch.
-        :param pulumi.Input[_builtins.bool] enable_pull_request_preview: Enables pull request previews for the autocreated branch.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Environment variables for the autocreated branch.
-        :param pulumi.Input[_builtins.str] framework: Framework for the autocreated branch.
-        :param pulumi.Input[_builtins.str] pull_request_environment_name: Amplify environment name for the pull request.
-        :param pulumi.Input[_builtins.str] stage: Describes the current stage for the autocreated branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
-        """
         if basic_auth_credentials is not None:
             pulumi.set(__self__, "basic_auth_credentials", basic_auth_credentials)
         if build_spec is not None:
@@ -127,9 +85,6 @@ class AppAutoBranchCreationConfigArgs:
     @_builtins.property
     @pulumi.getter(name="basicAuthCredentials")
     def basic_auth_credentials(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Basic authorization credentials for the autocreated branch.
-        """
         return pulumi.get(self, "basic_auth_credentials")
 
     @basic_auth_credentials.setter
@@ -139,9 +94,6 @@ class AppAutoBranchCreationConfigArgs:
     @_builtins.property
     @pulumi.getter(name="buildSpec")
     def build_spec(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Build specification (build spec) for the autocreated branch.
-        """
         return pulumi.get(self, "build_spec")
 
     @build_spec.setter
@@ -151,9 +103,6 @@ class AppAutoBranchCreationConfigArgs:
     @_builtins.property
     @pulumi.getter(name="enableAutoBuild")
     def enable_auto_build(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enables auto building for the autocreated branch.
-        """
         return pulumi.get(self, "enable_auto_build")
 
     @enable_auto_build.setter
@@ -163,9 +112,6 @@ class AppAutoBranchCreationConfigArgs:
     @_builtins.property
     @pulumi.getter(name="enableBasicAuth")
     def enable_basic_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enables basic authorization for the autocreated branch.
-        """
         return pulumi.get(self, "enable_basic_auth")
 
     @enable_basic_auth.setter
@@ -175,9 +121,6 @@ class AppAutoBranchCreationConfigArgs:
     @_builtins.property
     @pulumi.getter(name="enablePerformanceMode")
     def enable_performance_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enables performance mode for the branch.
-        """
         return pulumi.get(self, "enable_performance_mode")
 
     @enable_performance_mode.setter
@@ -187,9 +130,6 @@ class AppAutoBranchCreationConfigArgs:
     @_builtins.property
     @pulumi.getter(name="enablePullRequestPreview")
     def enable_pull_request_preview(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enables pull request previews for the autocreated branch.
-        """
         return pulumi.get(self, "enable_pull_request_preview")
 
     @enable_pull_request_preview.setter
@@ -199,9 +139,6 @@ class AppAutoBranchCreationConfigArgs:
     @_builtins.property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Environment variables for the autocreated branch.
-        """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
@@ -211,9 +148,6 @@ class AppAutoBranchCreationConfigArgs:
     @_builtins.property
     @pulumi.getter
     def framework(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Framework for the autocreated branch.
-        """
         return pulumi.get(self, "framework")
 
     @framework.setter
@@ -223,9 +157,6 @@ class AppAutoBranchCreationConfigArgs:
     @_builtins.property
     @pulumi.getter(name="pullRequestEnvironmentName")
     def pull_request_environment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amplify environment name for the pull request.
-        """
         return pulumi.get(self, "pull_request_environment_name")
 
     @pull_request_environment_name.setter
@@ -235,9 +166,6 @@ class AppAutoBranchCreationConfigArgs:
     @_builtins.property
     @pulumi.getter
     def stage(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Describes the current stage for the autocreated branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
-        """
         return pulumi.get(self, "stage")
 
     @stage.setter
@@ -248,9 +176,6 @@ class AppAutoBranchCreationConfigArgs:
 if not MYPY:
     class AppCacheConfigArgsDict(TypedDict):
         type: pulumi.Input[_builtins.str]
-        """
-        Type of cache configuration to use for an Amplify app. Valid values: `AMPLIFY_MANAGED`, `AMPLIFY_MANAGED_NO_COOKIES`.
-        """
 elif False:
     AppCacheConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -258,17 +183,11 @@ elif False:
 class AppCacheConfigArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] type: Type of cache configuration to use for an Amplify app. Valid values: `AMPLIFY_MANAGED`, `AMPLIFY_MANAGED_NO_COOKIES`.
-        """
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Type of cache configuration to use for an Amplify app. Valid values: `AMPLIFY_MANAGED`, `AMPLIFY_MANAGED_NO_COOKIES`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -279,21 +198,9 @@ class AppCacheConfigArgs:
 if not MYPY:
     class AppCustomRuleArgsDict(TypedDict):
         source: pulumi.Input[_builtins.str]
-        """
-        Source pattern for a URL rewrite or redirect rule.
-        """
         target: pulumi.Input[_builtins.str]
-        """
-        Target pattern for a URL rewrite or redirect rule.
-        """
         condition: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Condition for a URL rewrite or redirect rule, such as a country code.
-        """
         status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
-        """
 elif False:
     AppCustomRuleArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -304,12 +211,6 @@ class AppCustomRuleArgs:
                  target: pulumi.Input[_builtins.str],
                  condition: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] source: Source pattern for a URL rewrite or redirect rule.
-        :param pulumi.Input[_builtins.str] target: Target pattern for a URL rewrite or redirect rule.
-        :param pulumi.Input[_builtins.str] condition: Condition for a URL rewrite or redirect rule, such as a country code.
-        :param pulumi.Input[_builtins.str] status: Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
-        """
         pulumi.set(__self__, "source", source)
         pulumi.set(__self__, "target", target)
         if condition is not None:
@@ -320,9 +221,6 @@ class AppCustomRuleArgs:
     @_builtins.property
     @pulumi.getter
     def source(self) -> pulumi.Input[_builtins.str]:
-        """
-        Source pattern for a URL rewrite or redirect rule.
-        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -332,9 +230,6 @@ class AppCustomRuleArgs:
     @_builtins.property
     @pulumi.getter
     def target(self) -> pulumi.Input[_builtins.str]:
-        """
-        Target pattern for a URL rewrite or redirect rule.
-        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -344,9 +239,6 @@ class AppCustomRuleArgs:
     @_builtins.property
     @pulumi.getter
     def condition(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Condition for a URL rewrite or redirect rule, such as a country code.
-        """
         return pulumi.get(self, "condition")
 
     @condition.setter
@@ -356,9 +248,6 @@ class AppCustomRuleArgs:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -369,9 +258,6 @@ class AppCustomRuleArgs:
 if not MYPY:
     class AppJobConfigArgsDict(TypedDict):
         build_compute_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Size of the build instance. Valid values: `STANDARD_8GB`, `LARGE_16GB`, and `XLARGE_72GB`. Default: `STANDARD_8GB`.
-        """
 elif False:
     AppJobConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -379,18 +265,12 @@ elif False:
 class AppJobConfigArgs:
     def __init__(__self__, *,
                  build_compute_type: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] build_compute_type: Size of the build instance. Valid values: `STANDARD_8GB`, `LARGE_16GB`, and `XLARGE_72GB`. Default: `STANDARD_8GB`.
-        """
         if build_compute_type is not None:
             pulumi.set(__self__, "build_compute_type", build_compute_type)
 
     @_builtins.property
     @pulumi.getter(name="buildComputeType")
     def build_compute_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Size of the build instance. Valid values: `STANDARD_8GB`, `LARGE_16GB`, and `XLARGE_72GB`. Default: `STANDARD_8GB`.
-        """
         return pulumi.get(self, "build_compute_type")
 
     @build_compute_type.setter
@@ -401,21 +281,9 @@ class AppJobConfigArgs:
 if not MYPY:
     class AppProductionBranchArgsDict(TypedDict):
         branch_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Branch name for the production branch.
-        """
         last_deploy_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Last deploy time of the production branch.
-        """
         status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Status of the production branch.
-        """
         thumbnail_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Thumbnail URL for the production branch.
-        """
 elif False:
     AppProductionBranchArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -426,12 +294,6 @@ class AppProductionBranchArgs:
                  last_deploy_time: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  thumbnail_url: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] branch_name: Branch name for the production branch.
-        :param pulumi.Input[_builtins.str] last_deploy_time: Last deploy time of the production branch.
-        :param pulumi.Input[_builtins.str] status: Status of the production branch.
-        :param pulumi.Input[_builtins.str] thumbnail_url: Thumbnail URL for the production branch.
-        """
         if branch_name is not None:
             pulumi.set(__self__, "branch_name", branch_name)
         if last_deploy_time is not None:
@@ -444,9 +306,6 @@ class AppProductionBranchArgs:
     @_builtins.property
     @pulumi.getter(name="branchName")
     def branch_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Branch name for the production branch.
-        """
         return pulumi.get(self, "branch_name")
 
     @branch_name.setter
@@ -456,9 +315,6 @@ class AppProductionBranchArgs:
     @_builtins.property
     @pulumi.getter(name="lastDeployTime")
     def last_deploy_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Last deploy time of the production branch.
-        """
         return pulumi.get(self, "last_deploy_time")
 
     @last_deploy_time.setter
@@ -468,9 +324,6 @@ class AppProductionBranchArgs:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of the production branch.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -480,9 +333,6 @@ class AppProductionBranchArgs:
     @_builtins.property
     @pulumi.getter(name="thumbnailUrl")
     def thumbnail_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Thumbnail URL for the production branch.
-        """
         return pulumi.get(self, "thumbnail_url")
 
     @thumbnail_url.setter
@@ -493,19 +343,8 @@ class AppProductionBranchArgs:
 if not MYPY:
     class DomainAssociationCertificateSettingsArgsDict(TypedDict):
         type: pulumi.Input[_builtins.str]
-        """
-        The certificate type.
-        Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
-        """
         certificate_verification_dns_record: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
-        """
         custom_certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon resource name (ARN) for the custom certificate.
-        Required when `type` is `CUSTOM`.
-        """
 elif False:
     DomainAssociationCertificateSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -515,13 +354,6 @@ class DomainAssociationCertificateSettingsArgs:
                  type: pulumi.Input[_builtins.str],
                  certificate_verification_dns_record: Optional[pulumi.Input[_builtins.str]] = None,
                  custom_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] type: The certificate type.
-               Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
-        :param pulumi.Input[_builtins.str] certificate_verification_dns_record: DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
-        :param pulumi.Input[_builtins.str] custom_certificate_arn: The Amazon resource name (ARN) for the custom certificate.
-               Required when `type` is `CUSTOM`.
-        """
         pulumi.set(__self__, "type", type)
         if certificate_verification_dns_record is not None:
             pulumi.set(__self__, "certificate_verification_dns_record", certificate_verification_dns_record)
@@ -531,10 +363,6 @@ class DomainAssociationCertificateSettingsArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The certificate type.
-        Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -544,9 +372,6 @@ class DomainAssociationCertificateSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="certificateVerificationDnsRecord")
     def certificate_verification_dns_record(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
-        """
         return pulumi.get(self, "certificate_verification_dns_record")
 
     @certificate_verification_dns_record.setter
@@ -556,10 +381,6 @@ class DomainAssociationCertificateSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="customCertificateArn")
     def custom_certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon resource name (ARN) for the custom certificate.
-        Required when `type` is `CUSTOM`.
-        """
         return pulumi.get(self, "custom_certificate_arn")
 
     @custom_certificate_arn.setter
@@ -570,21 +391,9 @@ class DomainAssociationCertificateSettingsArgs:
 if not MYPY:
     class DomainAssociationSubDomainArgsDict(TypedDict):
         branch_name: pulumi.Input[_builtins.str]
-        """
-        Branch name setting for the subdomain.
-        """
         prefix: pulumi.Input[_builtins.str]
-        """
-        Prefix setting for the subdomain.
-        """
         dns_record: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        DNS record for the subdomain in a space-prefixed and space-delimited format (` CNAME <target>`).
-        """
         verified: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Verified status of the subdomain.
-        """
 elif False:
     DomainAssociationSubDomainArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -595,12 +404,6 @@ class DomainAssociationSubDomainArgs:
                  prefix: pulumi.Input[_builtins.str],
                  dns_record: Optional[pulumi.Input[_builtins.str]] = None,
                  verified: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        :param pulumi.Input[_builtins.str] branch_name: Branch name setting for the subdomain.
-        :param pulumi.Input[_builtins.str] prefix: Prefix setting for the subdomain.
-        :param pulumi.Input[_builtins.str] dns_record: DNS record for the subdomain in a space-prefixed and space-delimited format (` CNAME <target>`).
-        :param pulumi.Input[_builtins.bool] verified: Verified status of the subdomain.
-        """
         pulumi.set(__self__, "branch_name", branch_name)
         pulumi.set(__self__, "prefix", prefix)
         if dns_record is not None:
@@ -611,9 +414,6 @@ class DomainAssociationSubDomainArgs:
     @_builtins.property
     @pulumi.getter(name="branchName")
     def branch_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Branch name setting for the subdomain.
-        """
         return pulumi.get(self, "branch_name")
 
     @branch_name.setter
@@ -623,9 +423,6 @@ class DomainAssociationSubDomainArgs:
     @_builtins.property
     @pulumi.getter
     def prefix(self) -> pulumi.Input[_builtins.str]:
-        """
-        Prefix setting for the subdomain.
-        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -635,9 +432,6 @@ class DomainAssociationSubDomainArgs:
     @_builtins.property
     @pulumi.getter(name="dnsRecord")
     def dns_record(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        DNS record for the subdomain in a space-prefixed and space-delimited format (` CNAME <target>`).
-        """
         return pulumi.get(self, "dns_record")
 
     @dns_record.setter
@@ -647,9 +441,6 @@ class DomainAssociationSubDomainArgs:
     @_builtins.property
     @pulumi.getter
     def verified(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Verified status of the subdomain.
-        """
         return pulumi.get(self, "verified")
 
     @verified.setter

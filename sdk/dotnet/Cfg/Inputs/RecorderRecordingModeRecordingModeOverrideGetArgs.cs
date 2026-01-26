@@ -12,24 +12,14 @@ namespace Pulumi.Aws.Cfg.Inputs
 
     public sealed class RecorderRecordingModeRecordingModeOverrideGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A description you provide of the override.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The recording frequency for the resources in the override block. `CONTINUOUS` or `DAILY`.
-        /// </summary>
         [Input("recordingFrequency", required: true)]
         public Input<string> RecordingFrequency { get; set; } = null!;
 
         [Input("resourceTypes", required: true)]
         private InputList<string>? _resourceTypes;
-
-        /// <summary>
-        /// A list that specifies the types of AWS resources for which the override applies to.  See [restrictions in the AWS Docs](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingModeOverride.html)
-        /// </summary>
         public InputList<string> ResourceTypes
         {
             get => _resourceTypes ?? (_resourceTypes = new InputList<string>());

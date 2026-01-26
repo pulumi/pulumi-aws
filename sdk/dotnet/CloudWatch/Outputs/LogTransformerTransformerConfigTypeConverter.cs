@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class LogTransformerTransformerConfigTypeConverter
     {
-        /// <summary>
-        /// Objects containing the information about the fields to change the type of. You must include at least one entry, and five at most. See `TypeConverter` `Entry` below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.LogTransformerTransformerConfigTypeConverterEntry> Entries;
 
         [OutputConstructor]

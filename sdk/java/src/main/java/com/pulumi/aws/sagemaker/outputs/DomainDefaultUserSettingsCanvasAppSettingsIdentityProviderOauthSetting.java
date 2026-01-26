@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting {
-    /**
-     * @return The name of the data source that you&#39;re connecting to. Canvas currently supports OAuth for Snowflake and Salesforce Data Cloud. Valid values are `SalesforceGenie` and `Snowflake`.
-     * 
-     */
     private @Nullable String dataSourceName;
-    /**
-     * @return The ARN of an Amazon Web Services Secrets Manager secret that stores the credentials from your identity provider, such as the client ID and secret, authorization URL, and token URL.
-     * 
-     */
     private String secretArn;
-    /**
-     * @return Describes whether OAuth for a data source is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     private @Nullable String status;
 
     private DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting() {}
-    /**
-     * @return The name of the data source that you&#39;re connecting to. Canvas currently supports OAuth for Snowflake and Salesforce Data Cloud. Valid values are `SalesforceGenie` and `Snowflake`.
-     * 
-     */
     public Optional<String> dataSourceName() {
         return Optional.ofNullable(this.dataSourceName);
     }
-    /**
-     * @return The ARN of an Amazon Web Services Secrets Manager secret that stores the credentials from your identity provider, such as the client ID and secret, authorization URL, and token URL.
-     * 
-     */
     public String secretArn() {
         return this.secretArn;
     }
-    /**
-     * @return Describes whether OAuth for a data source is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }

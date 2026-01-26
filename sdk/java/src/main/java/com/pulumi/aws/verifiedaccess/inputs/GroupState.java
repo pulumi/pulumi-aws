@@ -17,137 +17,65 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
     public static final GroupState Empty = new GroupState();
 
-    /**
-     * Timestamp when the access group was created.
-     * 
-     */
     @Import(name="creationTime")
     private @Nullable Output<String> creationTime;
 
-    /**
-     * @return Timestamp when the access group was created.
-     * 
-     */
     public Optional<Output<String>> creationTime() {
         return Optional.ofNullable(this.creationTime);
     }
 
-    /**
-     * Timestamp when the access group was deleted.
-     * 
-     */
     @Import(name="deletionTime")
     private @Nullable Output<String> deletionTime;
 
-    /**
-     * @return Timestamp when the access group was deleted.
-     * 
-     */
     public Optional<Output<String>> deletionTime() {
         return Optional.ofNullable(this.deletionTime);
     }
 
-    /**
-     * Description of the verified access group.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the verified access group.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Timestamp when the access group was last updated.
-     * 
-     */
     @Import(name="lastUpdatedTime")
     private @Nullable Output<String> lastUpdatedTime;
 
-    /**
-     * @return Timestamp when the access group was last updated.
-     * 
-     */
     public Optional<Output<String>> lastUpdatedTime() {
         return Optional.ofNullable(this.lastUpdatedTime);
     }
 
-    /**
-     * AWS account number owning this resource.
-     * 
-     */
     @Import(name="owner")
     private @Nullable Output<String> owner;
 
-    /**
-     * @return AWS account number owning this resource.
-     * 
-     */
     public Optional<Output<String>> owner() {
         return Optional.ofNullable(this.owner);
     }
 
-    /**
-     * The policy document that is associated with this resource.
-     * 
-     */
     @Import(name="policyDocument")
     private @Nullable Output<String> policyDocument;
 
-    /**
-     * @return The policy document that is associated with this resource.
-     * 
-     */
     public Optional<Output<String>> policyDocument() {
         return Optional.ofNullable(this.policyDocument);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Configuration block to use KMS keys for server-side encryption.
-     * 
-     */
     @Import(name="sseConfiguration")
     private @Nullable Output<GroupSseConfigurationArgs> sseConfiguration;
 
-    /**
-     * @return Configuration block to use KMS keys for server-side encryption.
-     * 
-     */
     public Optional<Output<GroupSseConfigurationArgs>> sseConfiguration() {
         return Optional.ofNullable(this.sseConfiguration);
     }
 
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -159,51 +87,23 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tagsAll);
     }
 
-    /**
-     * ARN of this verified acess group.
-     * 
-     */
     @Import(name="verifiedaccessGroupArn")
     private @Nullable Output<String> verifiedaccessGroupArn;
 
-    /**
-     * @return ARN of this verified acess group.
-     * 
-     */
     public Optional<Output<String>> verifiedaccessGroupArn() {
         return Optional.ofNullable(this.verifiedaccessGroupArn);
     }
 
-    /**
-     * ID of this verified access group.
-     * 
-     */
     @Import(name="verifiedaccessGroupId")
     private @Nullable Output<String> verifiedaccessGroupId;
 
-    /**
-     * @return ID of this verified access group.
-     * 
-     */
     public Optional<Output<String>> verifiedaccessGroupId() {
         return Optional.ofNullable(this.verifiedaccessGroupId);
     }
 
-    /**
-     * The id of the verified access instance this group is associated with.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="verifiedaccessInstanceId")
     private @Nullable Output<String> verifiedaccessInstanceId;
 
-    /**
-     * @return The id of the verified access instance this group is associated with.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> verifiedaccessInstanceId() {
         return Optional.ofNullable(this.verifiedaccessInstanceId);
     }
@@ -244,191 +144,83 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
             $ = new GroupState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param creationTime Timestamp when the access group was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder creationTime(@Nullable Output<String> creationTime) {
             $.creationTime = creationTime;
             return this;
         }
 
-        /**
-         * @param creationTime Timestamp when the access group was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder creationTime(String creationTime) {
             return creationTime(Output.of(creationTime));
         }
 
-        /**
-         * @param deletionTime Timestamp when the access group was deleted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deletionTime(@Nullable Output<String> deletionTime) {
             $.deletionTime = deletionTime;
             return this;
         }
 
-        /**
-         * @param deletionTime Timestamp when the access group was deleted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deletionTime(String deletionTime) {
             return deletionTime(Output.of(deletionTime));
         }
 
-        /**
-         * @param description Description of the verified access group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the verified access group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param lastUpdatedTime Timestamp when the access group was last updated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lastUpdatedTime(@Nullable Output<String> lastUpdatedTime) {
             $.lastUpdatedTime = lastUpdatedTime;
             return this;
         }
 
-        /**
-         * @param lastUpdatedTime Timestamp when the access group was last updated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lastUpdatedTime(String lastUpdatedTime) {
             return lastUpdatedTime(Output.of(lastUpdatedTime));
         }
 
-        /**
-         * @param owner AWS account number owning this resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owner(@Nullable Output<String> owner) {
             $.owner = owner;
             return this;
         }
 
-        /**
-         * @param owner AWS account number owning this resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owner(String owner) {
             return owner(Output.of(owner));
         }
 
-        /**
-         * @param policyDocument The policy document that is associated with this resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyDocument(@Nullable Output<String> policyDocument) {
             $.policyDocument = policyDocument;
             return this;
         }
 
-        /**
-         * @param policyDocument The policy document that is associated with this resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyDocument(String policyDocument) {
             return policyDocument(Output.of(policyDocument));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param sseConfiguration Configuration block to use KMS keys for server-side encryption.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sseConfiguration(@Nullable Output<GroupSseConfigurationArgs> sseConfiguration) {
             $.sseConfiguration = sseConfiguration;
             return this;
         }
 
-        /**
-         * @param sseConfiguration Configuration block to use KMS keys for server-side encryption.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sseConfiguration(GroupSseConfigurationArgs sseConfiguration) {
             return sseConfiguration(Output.of(sseConfiguration));
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
@@ -442,69 +234,29 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
             return tagsAll(Output.of(tagsAll));
         }
 
-        /**
-         * @param verifiedaccessGroupArn ARN of this verified acess group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder verifiedaccessGroupArn(@Nullable Output<String> verifiedaccessGroupArn) {
             $.verifiedaccessGroupArn = verifiedaccessGroupArn;
             return this;
         }
 
-        /**
-         * @param verifiedaccessGroupArn ARN of this verified acess group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder verifiedaccessGroupArn(String verifiedaccessGroupArn) {
             return verifiedaccessGroupArn(Output.of(verifiedaccessGroupArn));
         }
 
-        /**
-         * @param verifiedaccessGroupId ID of this verified access group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder verifiedaccessGroupId(@Nullable Output<String> verifiedaccessGroupId) {
             $.verifiedaccessGroupId = verifiedaccessGroupId;
             return this;
         }
 
-        /**
-         * @param verifiedaccessGroupId ID of this verified access group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder verifiedaccessGroupId(String verifiedaccessGroupId) {
             return verifiedaccessGroupId(Output.of(verifiedaccessGroupId));
         }
 
-        /**
-         * @param verifiedaccessInstanceId The id of the verified access instance this group is associated with.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder verifiedaccessInstanceId(@Nullable Output<String> verifiedaccessInstanceId) {
             $.verifiedaccessInstanceId = verifiedaccessInstanceId;
             return this;
         }
 
-        /**
-         * @param verifiedaccessInstanceId The id of the verified access instance this group is associated with.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder verifiedaccessInstanceId(String verifiedaccessInstanceId) {
             return verifiedaccessInstanceId(Output.of(verifiedaccessInstanceId));
         }

@@ -17,261 +17,59 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Neptune Global Cluster. A global cluster consists of one primary region and up to five read-only secondary regions. You issue write operations directly to the primary cluster in the primary region and Amazon Neptune automatically replicates the data to the secondary regions using dedicated infrastructure.
- * 
- * More information about Neptune Global Clusters can be found in the [Neptune User Guide](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-global-database.html).
- * 
- * ## Example Usage
- * 
- * ### New Neptune Global Cluster
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.neptune.GlobalCluster;
- * import com.pulumi.aws.neptune.GlobalClusterArgs;
- * import com.pulumi.aws.neptune.Cluster;
- * import com.pulumi.aws.neptune.ClusterArgs;
- * import com.pulumi.aws.neptune.ClusterInstance;
- * import com.pulumi.aws.neptune.ClusterInstanceArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new GlobalCluster("example", GlobalClusterArgs.builder()
- *             .globalClusterIdentifier("global-test")
- *             .engine("neptune")
- *             .engineVersion("1.2.0.0")
- *             .build());
- * 
- *         var primary = new Cluster("primary", ClusterArgs.builder()
- *             .engine(example.engine())
- *             .engineVersion(example.engineVersion())
- *             .clusterIdentifier("test-primary-cluster")
- *             .globalClusterIdentifier(example.id())
- *             .neptuneSubnetGroupName("default")
- *             .build());
- * 
- *         var primaryClusterInstance = new ClusterInstance("primaryClusterInstance", ClusterInstanceArgs.builder()
- *             .engine(example.engine())
- *             .engineVersion(example.engineVersion())
- *             .identifier("test-primary-cluster-instance")
- *             .clusterIdentifier(primary.id())
- *             .instanceClass("db.r5.large")
- *             .neptuneSubnetGroupName("default")
- *             .build());
- * 
- *         var secondary = new Cluster("secondary", ClusterArgs.builder()
- *             .engine(example.engine())
- *             .engineVersion(example.engineVersion())
- *             .clusterIdentifier("test-secondary-cluster")
- *             .globalClusterIdentifier(example.id())
- *             .neptuneSubnetGroupName("default")
- *             .build());
- * 
- *         var secondaryClusterInstance = new ClusterInstance("secondaryClusterInstance", ClusterInstanceArgs.builder()
- *             .engine(example.engine())
- *             .engineVersion(example.engineVersion())
- *             .identifier("test-secondary-cluster-instance")
- *             .clusterIdentifier(secondary.id())
- *             .instanceClass("db.r5.large")
- *             .neptuneSubnetGroupName("default")
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(primaryClusterInstance)
- *                 .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### New Global Cluster From Existing DB Cluster
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.neptune.Cluster;
- * import com.pulumi.aws.neptune.GlobalCluster;
- * import com.pulumi.aws.neptune.GlobalClusterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Cluster("example");
- * 
- *         var exampleGlobalCluster = new GlobalCluster("exampleGlobalCluster", GlobalClusterArgs.builder()
- *             .globalClusterIdentifier("example")
- *             .sourceDbClusterIdentifier(example.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_neptune_global_cluster` using the Global Cluster identifier. For example:
- * 
- * ```sh
- * $ pulumi import aws:neptune/globalCluster:GlobalCluster example example
- * ```
- * Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
- * 
- */
 @ResourceType(type="aws:neptune/globalCluster:GlobalCluster")
 public class GlobalCluster extends com.pulumi.resources.CustomResource {
-    /**
-     * Global Cluster ARN
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Global Cluster ARN
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * If the Global Cluster should have deletion protection enabled. The database can&#39;t be deleted when this value is set to `true`. The default is `false`.
-     * 
-     */
     @Export(name="deletionProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deletionProtection;
 
-    /**
-     * @return If the Global Cluster should have deletion protection enabled. The database can&#39;t be deleted when this value is set to `true`. The default is `false`.
-     * 
-     */
     public Output<Optional<Boolean>> deletionProtection() {
         return Codegen.optional(this.deletionProtection);
     }
-    /**
-     * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `neptune`. Conflicts with `sourceDbClusterIdentifier`.
-     * 
-     */
     @Export(name="engine", refs={String.class}, tree="[0]")
     private Output<String> engine;
 
-    /**
-     * @return Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `neptune`. Conflicts with `sourceDbClusterIdentifier`.
-     * 
-     */
     public Output<String> engine() {
         return this.engine;
     }
-    /**
-     * Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-     * 
-     */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
-    /**
-     * @return Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-     * 
-     */
     public Output<String> engineVersion() {
         return this.engineVersion;
     }
-    /**
-     * Global cluster identifier.
-     * 
-     */
     @Export(name="globalClusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> globalClusterIdentifier;
 
-    /**
-     * @return Global cluster identifier.
-     * 
-     */
     public Output<String> globalClusterIdentifier() {
         return this.globalClusterIdentifier;
     }
-    /**
-     * Set of objects containing Global Cluster members.
-     * 
-     */
     @Export(name="globalClusterMembers", refs={List.class,GlobalClusterGlobalClusterMember.class}, tree="[0,1]")
     private Output<List<GlobalClusterGlobalClusterMember>> globalClusterMembers;
 
-    /**
-     * @return Set of objects containing Global Cluster members.
-     * 
-     */
     public Output<List<GlobalClusterGlobalClusterMember>> globalClusterMembers() {
         return this.globalClusterMembers;
     }
-    /**
-     * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
-     * 
-     */
     @Export(name="globalClusterResourceId", refs={String.class}, tree="[0]")
     private Output<String> globalClusterResourceId;
 
-    /**
-     * @return AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
-     * 
-     */
     public Output<String> globalClusterResourceId() {
         return this.globalClusterResourceId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
-     * 
-     */
     @Export(name="sourceDbClusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> sourceDbClusterIdentifier;
 
-    /**
-     * @return ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
-     * 
-     */
     public Output<String> sourceDbClusterIdentifier() {
         return this.sourceDbClusterIdentifier;
     }
@@ -281,17 +79,9 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
-     * 
-     */
     @Export(name="storageEncrypted", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> storageEncrypted;
 
-    /**
-     * @return Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
-     * 
-     */
     public Output<Boolean> storageEncrypted() {
         return this.storageEncrypted;
     }

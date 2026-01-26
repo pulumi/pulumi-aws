@@ -14,32 +14,16 @@ public final class GetListenerRuleConditionQueryStringValueArgs extends com.pulu
 
     public static final GetListenerRuleConditionQueryStringValueArgs Empty = new GetListenerRuleConditionQueryStringValueArgs();
 
-    /**
-     * Key of query parameter
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return Key of query parameter
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * Value of query parameter
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return Value of query parameter
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -69,44 +53,20 @@ public final class GetListenerRuleConditionQueryStringValueArgs extends com.pulu
             $ = new GetListenerRuleConditionQueryStringValueArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key Key of query parameter
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key Key of query parameter
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param value Value of query parameter
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Value of query parameter
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

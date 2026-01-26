@@ -9,70 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AppStream
 {
-    /// <summary>
-    /// Manages an AppStream Fleet Stack association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppStream.Fleet("example", new()
-    ///     {
-    ///         Name = "NAME",
-    ///         ImageName = "Amazon-AppStream2-Sample-Image-03-11-2023",
-    ///         InstanceType = "stream.standard.small",
-    ///         ComputeCapacity = new Aws.AppStream.Inputs.FleetComputeCapacityArgs
-    ///         {
-    ///             DesiredInstances = 1,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleStack = new Aws.AppStream.Stack("example", new()
-    ///     {
-    ///         Name = "STACK NAME",
-    ///     });
-    /// 
-    ///     var exampleFleetStackAssociation = new Aws.AppStream.FleetStackAssociation("example", new()
-    ///     {
-    ///         FleetName = example.Name,
-    ///         StackName = exampleStack.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import AppStream Stack Fleet Association using the `fleet_name` and `stack_name` separated by a slash (`/`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:appstream/fleetStackAssociation:FleetStackAssociation")]
     public partial class FleetStackAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Name of the fleet.
-        /// </summary>
         [Output("fleetName")]
         public Output<string> FleetName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the stack.
-        /// </summary>
         [Output("stackName")]
         public Output<string> StackName { get; private set; } = null!;
 
@@ -122,21 +67,12 @@ namespace Pulumi.Aws.AppStream
 
     public sealed class FleetStackAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the fleet.
-        /// </summary>
         [Input("fleetName", required: true)]
         public Input<string> FleetName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Name of the stack.
-        /// </summary>
         [Input("stackName", required: true)]
         public Input<string> StackName { get; set; } = null!;
 
@@ -148,21 +84,12 @@ namespace Pulumi.Aws.AppStream
 
     public sealed class FleetStackAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the fleet.
-        /// </summary>
         [Input("fleetName")]
         public Input<string>? FleetName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Name of the stack.
-        /// </summary>
         [Input("stackName")]
         public Input<string>? StackName { get; set; }
 

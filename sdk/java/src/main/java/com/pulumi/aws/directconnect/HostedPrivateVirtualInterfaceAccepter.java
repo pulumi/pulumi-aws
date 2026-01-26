@@ -15,175 +15,47 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage the accepter&#39;s side of a Direct Connect hosted private virtual interface.
- * This resource accepts ownership of a private virtual interface created by another AWS account.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.ec2.VpnGateway;
- * import com.pulumi.aws.directconnect.HostedPrivateVirtualInterface;
- * import com.pulumi.aws.directconnect.HostedPrivateVirtualInterfaceArgs;
- * import com.pulumi.aws.directconnect.HostedPrivateVirtualInterfaceAccepter;
- * import com.pulumi.aws.directconnect.HostedPrivateVirtualInterfaceAccepterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var accepter = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         // Accepter's side of the VIF.
- *         var vpnGw = new VpnGateway("vpnGw");
- * 
- *         // Creator's side of the VIF
- *         var creator = new HostedPrivateVirtualInterface("creator", HostedPrivateVirtualInterfaceArgs.builder()
- *             .connectionId("dxcon-zzzzzzzz")
- *             .ownerAccountId(accepter.accountId())
- *             .name("vif-foo")
- *             .vlan(4094)
- *             .addressFamily("ipv4")
- *             .bgpAsn(65352)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(vpnGw)
- *                 .build());
- * 
- *         var accepterHostedPrivateVirtualInterfaceAccepter = new HostedPrivateVirtualInterfaceAccepter("accepterHostedPrivateVirtualInterfaceAccepter", HostedPrivateVirtualInterfaceAccepterArgs.builder()
- *             .virtualInterfaceId(creator.id())
- *             .vpnGatewayId(vpnGw.id())
- *             .tags(Map.of("Side", "Accepter"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Direct Connect hosted private virtual interfaces using the VIF `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter test dxvif-33cc44dd
- * ```
- * 
- */
 @ResourceType(type="aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter")
 public class HostedPrivateVirtualInterfaceAccepter extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the virtual interface.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the virtual interface.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The ID of the Direct Connect gateway to which to connect the virtual interface.
-     * 
-     */
     @Export(name="dxGatewayId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dxGatewayId;
 
-    /**
-     * @return The ID of the Direct Connect gateway to which to connect the virtual interface.
-     * 
-     */
     public Output<Optional<String>> dxGatewayId() {
         return Codegen.optional(this.dxGatewayId);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The ID of the Direct Connect virtual interface to accept.
-     * 
-     */
     @Export(name="virtualInterfaceId", refs={String.class}, tree="[0]")
     private Output<String> virtualInterfaceId;
 
-    /**
-     * @return The ID of the Direct Connect virtual interface to accept.
-     * 
-     */
     public Output<String> virtualInterfaceId() {
         return this.virtualInterfaceId;
     }
-    /**
-     * The ID of the virtual private gateway to which to connect the virtual interface.
-     * 
-     */
     @Export(name="vpnGatewayId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vpnGatewayId;
 
-    /**
-     * @return The ID of the virtual private gateway to which to connect the virtual interface.
-     * 
-     */
     public Output<Optional<String>> vpnGatewayId() {
         return Codegen.optional(this.vpnGatewayId);
     }

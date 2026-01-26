@@ -12,58 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/secretsmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := secretsmanager.NewSecret(ctx, "test", &secretsmanager.SecretArgs{
-//				Name: pulumi.String("example-secret"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = secretsmanager.NewTag(ctx, "test", &secretsmanager.TagArgs{
-//				SecretId: test.ID(),
-//				Key:      pulumi.String("ExampleKey"),
-//				Value:    pulumi.String("ExampleValue"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_secretsmanager_tag` using the AWS Secrets Manager secret identifier and key, separated by a comma (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:secretsmanager/tag:Tag example arn:aws:secretsmanager:us-east-1:123456789012:example-secret,ExampleKey
-// ```
 type Tag struct {
 	pulumi.CustomResourceState
 
-	// Tag name.
-	Key pulumi.StringOutput `pulumi:"key"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ID of the AWS Secrets Manager secret to tag.
+	Key      pulumi.StringOutput `pulumi:"key"`
+	Region   pulumi.StringOutput `pulumi:"region"`
 	SecretId pulumi.StringOutput `pulumi:"secretId"`
-	// Tag value.
-	Value pulumi.StringOutput `pulumi:"value"`
+	Value    pulumi.StringOutput `pulumi:"value"`
 }
 
 // NewTag registers a new resource with the given unique name, arguments, and options.
@@ -105,25 +60,17 @@ func GetTag(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Tag resources.
 type tagState struct {
-	// Tag name.
-	Key *string `pulumi:"key"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID of the AWS Secrets Manager secret to tag.
+	Key      *string `pulumi:"key"`
+	Region   *string `pulumi:"region"`
 	SecretId *string `pulumi:"secretId"`
-	// Tag value.
-	Value *string `pulumi:"value"`
+	Value    *string `pulumi:"value"`
 }
 
 type TagState struct {
-	// Tag name.
-	Key pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ID of the AWS Secrets Manager secret to tag.
+	Key      pulumi.StringPtrInput
+	Region   pulumi.StringPtrInput
 	SecretId pulumi.StringPtrInput
-	// Tag value.
-	Value pulumi.StringPtrInput
+	Value    pulumi.StringPtrInput
 }
 
 func (TagState) ElementType() reflect.Type {
@@ -131,26 +78,18 @@ func (TagState) ElementType() reflect.Type {
 }
 
 type tagArgs struct {
-	// Tag name.
-	Key string `pulumi:"key"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID of the AWS Secrets Manager secret to tag.
-	SecretId string `pulumi:"secretId"`
-	// Tag value.
-	Value string `pulumi:"value"`
+	Key      string  `pulumi:"key"`
+	Region   *string `pulumi:"region"`
+	SecretId string  `pulumi:"secretId"`
+	Value    string  `pulumi:"value"`
 }
 
 // The set of arguments for constructing a Tag resource.
 type TagArgs struct {
-	// Tag name.
-	Key pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ID of the AWS Secrets Manager secret to tag.
+	Key      pulumi.StringInput
+	Region   pulumi.StringPtrInput
 	SecretId pulumi.StringInput
-	// Tag value.
-	Value pulumi.StringInput
+	Value    pulumi.StringInput
 }
 
 func (TagArgs) ElementType() reflect.Type {
@@ -240,22 +179,18 @@ func (o TagOutput) ToTagOutputWithContext(ctx context.Context) TagOutput {
 	return o
 }
 
-// Tag name.
 func (o TagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TagOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ID of the AWS Secrets Manager secret to tag.
 func (o TagOutput) SecretId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.SecretId }).(pulumi.StringOutput)
 }
 
-// Tag value.
 func (o TagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
 }

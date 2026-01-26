@@ -16,32 +16,16 @@ public final class KeyspaceReplicationSpecificationArgs extends com.pulumi.resou
 
     public static final KeyspaceReplicationSpecificationArgs Empty = new KeyspaceReplicationSpecificationArgs();
 
-    /**
-     * Replication regions. If `replicationStrategy` is `MULTI_REGION`, `regionList` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
-     * 
-     */
     @Import(name="regionLists")
     private @Nullable Output<List<String>> regionLists;
 
-    /**
-     * @return Replication regions. If `replicationStrategy` is `MULTI_REGION`, `regionList` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
-     * 
-     */
     public Optional<Output<List<String>>> regionLists() {
         return Optional.ofNullable(this.regionLists);
     }
 
-    /**
-     * Replication strategy. Valid values: `SINGLE_REGION` and `MULTI_REGION`.
-     * 
-     */
     @Import(name="replicationStrategy")
     private @Nullable Output<String> replicationStrategy;
 
-    /**
-     * @return Replication strategy. Valid values: `SINGLE_REGION` and `MULTI_REGION`.
-     * 
-     */
     public Optional<Output<String>> replicationStrategy() {
         return Optional.ofNullable(this.replicationStrategy);
     }
@@ -71,54 +55,24 @@ public final class KeyspaceReplicationSpecificationArgs extends com.pulumi.resou
             $ = new KeyspaceReplicationSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param regionLists Replication regions. If `replicationStrategy` is `MULTI_REGION`, `regionList` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regionLists(@Nullable Output<List<String>> regionLists) {
             $.regionLists = regionLists;
             return this;
         }
 
-        /**
-         * @param regionLists Replication regions. If `replicationStrategy` is `MULTI_REGION`, `regionList` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regionLists(List<String> regionLists) {
             return regionLists(Output.of(regionLists));
         }
 
-        /**
-         * @param regionLists Replication regions. If `replicationStrategy` is `MULTI_REGION`, `regionList` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regionLists(String... regionLists) {
             return regionLists(List.of(regionLists));
         }
 
-        /**
-         * @param replicationStrategy Replication strategy. Valid values: `SINGLE_REGION` and `MULTI_REGION`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationStrategy(@Nullable Output<String> replicationStrategy) {
             $.replicationStrategy = replicationStrategy;
             return this;
         }
 
-        /**
-         * @param replicationStrategy Replication strategy. Valid values: `SINGLE_REGION` and `MULTI_REGION`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationStrategy(String replicationStrategy) {
             return replicationStrategy(Output.of(replicationStrategy));
         }

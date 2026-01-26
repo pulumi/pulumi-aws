@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Msk.Inputs
 
     public sealed class ClusterClientAuthenticationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block for specifying SASL client authentication. See ClientAuthentication sasl Argument Reference below.
-        /// </summary>
         [Input("sasl")]
         public Input<Inputs.ClusterClientAuthenticationSaslGetArgs>? Sasl { get; set; }
 
-        /// <summary>
-        /// Configuration block for specifying TLS client authentication. See ClientAuthentication tls Argument Reference below.
-        /// </summary>
         [Input("tls")]
         public Input<Inputs.ClusterClientAuthenticationTlsGetArgs>? Tls { get; set; }
 
-        /// <summary>
-        /// Enables unauthenticated access.
-        /// </summary>
         [Input("unauthenticated")]
         public Input<bool>? Unauthenticated { get; set; }
 

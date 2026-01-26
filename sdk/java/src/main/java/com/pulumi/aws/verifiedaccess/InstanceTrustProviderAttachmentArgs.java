@@ -16,47 +16,23 @@ public final class InstanceTrustProviderAttachmentArgs extends com.pulumi.resour
 
     public static final InstanceTrustProviderAttachmentArgs Empty = new InstanceTrustProviderAttachmentArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ID of the Verified Access instance to attach the Trust Provider to.
-     * 
-     */
     @Import(name="verifiedaccessInstanceId", required=true)
     private Output<String> verifiedaccessInstanceId;
 
-    /**
-     * @return The ID of the Verified Access instance to attach the Trust Provider to.
-     * 
-     */
     public Output<String> verifiedaccessInstanceId() {
         return this.verifiedaccessInstanceId;
     }
 
-    /**
-     * The ID of the Verified Access trust provider.
-     * 
-     */
     @Import(name="verifiedaccessTrustProviderId", required=true)
     private Output<String> verifiedaccessTrustProviderId;
 
-    /**
-     * @return The ID of the Verified Access trust provider.
-     * 
-     */
     public Output<String> verifiedaccessTrustProviderId() {
         return this.verifiedaccessTrustProviderId;
     }
@@ -87,65 +63,29 @@ public final class InstanceTrustProviderAttachmentArgs extends com.pulumi.resour
             $ = new InstanceTrustProviderAttachmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param verifiedaccessInstanceId The ID of the Verified Access instance to attach the Trust Provider to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder verifiedaccessInstanceId(Output<String> verifiedaccessInstanceId) {
             $.verifiedaccessInstanceId = verifiedaccessInstanceId;
             return this;
         }
 
-        /**
-         * @param verifiedaccessInstanceId The ID of the Verified Access instance to attach the Trust Provider to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder verifiedaccessInstanceId(String verifiedaccessInstanceId) {
             return verifiedaccessInstanceId(Output.of(verifiedaccessInstanceId));
         }
 
-        /**
-         * @param verifiedaccessTrustProviderId The ID of the Verified Access trust provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder verifiedaccessTrustProviderId(Output<String> verifiedaccessTrustProviderId) {
             $.verifiedaccessTrustProviderId = verifiedaccessTrustProviderId;
             return this;
         }
 
-        /**
-         * @param verifiedaccessTrustProviderId The ID of the Verified Access trust provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder verifiedaccessTrustProviderId(String verifiedaccessTrustProviderId) {
             return verifiedaccessTrustProviderId(Output.of(verifiedaccessTrustProviderId));
         }

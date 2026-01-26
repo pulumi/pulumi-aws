@@ -15,53 +15,23 @@ public final class LoggingConfigurationLoggingConfigurationLogDestinationConfigA
 
     public static final LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs Empty = new LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs();
 
-    /**
-     * A map describing the logging destination for the chosen `logDestinationType`.
-     * * For an Amazon S3 bucket, specify the key `bucketName` with the name of the bucket and optionally specify the key `prefix` with a path (Do not add a leading / in the `prefix` as the configuration will have two // when applied).
-     * * For a CloudWatch log group, specify the key `logGroup` with the name of the CloudWatch log group.
-     * * For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the name of the delivery stream.
-     * 
-     */
     @Import(name="logDestination", required=true)
     private Output<Map<String,String>> logDestination;
 
-    /**
-     * @return A map describing the logging destination for the chosen `logDestinationType`.
-     * * For an Amazon S3 bucket, specify the key `bucketName` with the name of the bucket and optionally specify the key `prefix` with a path (Do not add a leading / in the `prefix` as the configuration will have two // when applied).
-     * * For a CloudWatch log group, specify the key `logGroup` with the name of the CloudWatch log group.
-     * * For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the name of the delivery stream.
-     * 
-     */
     public Output<Map<String,String>> logDestination() {
         return this.logDestination;
     }
 
-    /**
-     * The location to send logs to. Valid values: `S3`, `CloudWatchLogs`, `KinesisDataFirehose`.
-     * 
-     */
     @Import(name="logDestinationType", required=true)
     private Output<String> logDestinationType;
 
-    /**
-     * @return The location to send logs to. Valid values: `S3`, `CloudWatchLogs`, `KinesisDataFirehose`.
-     * 
-     */
     public Output<String> logDestinationType() {
         return this.logDestinationType;
     }
 
-    /**
-     * The type of log to send. Valid values: `ALERT` or `FLOW` or `TLS`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
-     * 
-     */
     @Import(name="logType", required=true)
     private Output<String> logType;
 
-    /**
-     * @return The type of log to send. Valid values: `ALERT` or `FLOW` or `TLS`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
-     * 
-     */
     public Output<String> logType() {
         return this.logType;
     }
@@ -92,71 +62,29 @@ public final class LoggingConfigurationLoggingConfigurationLogDestinationConfigA
             $ = new LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param logDestination A map describing the logging destination for the chosen `logDestinationType`.
-         * * For an Amazon S3 bucket, specify the key `bucketName` with the name of the bucket and optionally specify the key `prefix` with a path (Do not add a leading / in the `prefix` as the configuration will have two // when applied).
-         * * For a CloudWatch log group, specify the key `logGroup` with the name of the CloudWatch log group.
-         * * For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the name of the delivery stream.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logDestination(Output<Map<String,String>> logDestination) {
             $.logDestination = logDestination;
             return this;
         }
 
-        /**
-         * @param logDestination A map describing the logging destination for the chosen `logDestinationType`.
-         * * For an Amazon S3 bucket, specify the key `bucketName` with the name of the bucket and optionally specify the key `prefix` with a path (Do not add a leading / in the `prefix` as the configuration will have two // when applied).
-         * * For a CloudWatch log group, specify the key `logGroup` with the name of the CloudWatch log group.
-         * * For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the name of the delivery stream.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logDestination(Map<String,String> logDestination) {
             return logDestination(Output.of(logDestination));
         }
 
-        /**
-         * @param logDestinationType The location to send logs to. Valid values: `S3`, `CloudWatchLogs`, `KinesisDataFirehose`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logDestinationType(Output<String> logDestinationType) {
             $.logDestinationType = logDestinationType;
             return this;
         }
 
-        /**
-         * @param logDestinationType The location to send logs to. Valid values: `S3`, `CloudWatchLogs`, `KinesisDataFirehose`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logDestinationType(String logDestinationType) {
             return logDestinationType(Output.of(logDestinationType));
         }
 
-        /**
-         * @param logType The type of log to send. Valid values: `ALERT` or `FLOW` or `TLS`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logType(Output<String> logType) {
             $.logType = logType;
             return this;
         }
 
-        /**
-         * @param logType The type of log to send. Valid values: `ALERT` or `FLOW` or `TLS`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logType(String logType) {
             return logType(Output.of(logType));
         }

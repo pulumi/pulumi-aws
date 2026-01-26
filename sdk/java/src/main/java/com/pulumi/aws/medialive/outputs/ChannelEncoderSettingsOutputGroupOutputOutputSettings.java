@@ -18,40 +18,16 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettings {
-    /**
-     * @return Archive output settings. See Archive Output Settings for more details.
-     * 
-     */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings archiveOutputSettings;
     private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings frameCaptureOutputSettings;
     private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings hlsOutputSettings;
-    /**
-     * @return Media package output settings. This can be set as an empty block.
-     * 
-     */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettings mediaPackageOutputSettings;
     private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings msSmoothOutputSettings;
-    /**
-     * @return Multiplex output settings. See Multiplex Output Settings for more details.
-     * 
-     */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettings multiplexOutputSettings;
-    /**
-     * @return RTMP output settings. See RTMP Output Settings for more details.
-     * 
-     */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings rtmpOutputSettings;
-    /**
-     * @return UDP output settings. See UDP Output Settings for more details.
-     * 
-     */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings udpOutputSettings;
 
     private ChannelEncoderSettingsOutputGroupOutputOutputSettings() {}
-    /**
-     * @return Archive output settings. See Archive Output Settings for more details.
-     * 
-     */
     public Optional<ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings> archiveOutputSettings() {
         return Optional.ofNullable(this.archiveOutputSettings);
     }
@@ -61,34 +37,18 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettings {
     public Optional<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings> hlsOutputSettings() {
         return Optional.ofNullable(this.hlsOutputSettings);
     }
-    /**
-     * @return Media package output settings. This can be set as an empty block.
-     * 
-     */
     public Optional<ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettings> mediaPackageOutputSettings() {
         return Optional.ofNullable(this.mediaPackageOutputSettings);
     }
     public Optional<ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings> msSmoothOutputSettings() {
         return Optional.ofNullable(this.msSmoothOutputSettings);
     }
-    /**
-     * @return Multiplex output settings. See Multiplex Output Settings for more details.
-     * 
-     */
     public Optional<ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettings> multiplexOutputSettings() {
         return Optional.ofNullable(this.multiplexOutputSettings);
     }
-    /**
-     * @return RTMP output settings. See RTMP Output Settings for more details.
-     * 
-     */
     public Optional<ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings> rtmpOutputSettings() {
         return Optional.ofNullable(this.rtmpOutputSettings);
     }
-    /**
-     * @return UDP output settings. See UDP Output Settings for more details.
-     * 
-     */
     public Optional<ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings> udpOutputSettings() {
         return Optional.ofNullable(this.udpOutputSettings);
     }

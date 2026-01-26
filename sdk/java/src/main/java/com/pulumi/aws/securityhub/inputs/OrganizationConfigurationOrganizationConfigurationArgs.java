@@ -14,17 +14,9 @@ public final class OrganizationConfigurationOrganizationConfigurationArgs extend
 
     public static final OrganizationConfigurationOrganizationConfigurationArgs Empty = new OrganizationConfigurationOrganizationConfigurationArgs();
 
-    /**
-     * Indicates whether the organization uses local or central configuration. If using central configuration, `autoEnable` must be set to `false` and `autoEnableStandards` set to `NONE`. More information can be found in the [documentation for central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html). Valid values: `LOCAL`, `CENTRAL`.
-     * 
-     */
     @Import(name="configurationType", required=true)
     private Output<String> configurationType;
 
-    /**
-     * @return Indicates whether the organization uses local or central configuration. If using central configuration, `autoEnable` must be set to `false` and `autoEnableStandards` set to `NONE`. More information can be found in the [documentation for central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html). Valid values: `LOCAL`, `CENTRAL`.
-     * 
-     */
     public Output<String> configurationType() {
         return this.configurationType;
     }
@@ -53,23 +45,11 @@ public final class OrganizationConfigurationOrganizationConfigurationArgs extend
             $ = new OrganizationConfigurationOrganizationConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param configurationType Indicates whether the organization uses local or central configuration. If using central configuration, `autoEnable` must be set to `false` and `autoEnableStandards` set to `NONE`. More information can be found in the [documentation for central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html). Valid values: `LOCAL`, `CENTRAL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationType(Output<String> configurationType) {
             $.configurationType = configurationType;
             return this;
         }
 
-        /**
-         * @param configurationType Indicates whether the organization uses local or central configuration. If using central configuration, `autoEnable` must be set to `false` and `autoEnableStandards` set to `NONE`. More information can be found in the [documentation for central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html). Valid values: `LOCAL`, `CENTRAL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationType(String configurationType) {
             return configurationType(Output.of(configurationType));
         }

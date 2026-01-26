@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ContainerServicePrivateRegistryAccessEcrImagePullerRole {
-    /**
-     * @return Whether to activate the role. Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean isActive;
-    /**
-     * @return Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
-     * 
-     */
     private @Nullable String principalArn;
 
     private ContainerServicePrivateRegistryAccessEcrImagePullerRole() {}
-    /**
-     * @return Whether to activate the role. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> isActive() {
         return Optional.ofNullable(this.isActive);
     }
-    /**
-     * @return Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
-     * 
-     */
     public Optional<String> principalArn() {
         return Optional.ofNullable(this.principalArn);
     }

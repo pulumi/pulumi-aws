@@ -9,27 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iam
 {
-    /// <summary>
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import exclusive management of inline policy assignments using the `user_name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:iam/userPoliciesExclusive:UserPoliciesExclusive example MyUser
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iam/userPoliciesExclusive:UserPoliciesExclusive")]
     public partial class UserPoliciesExclusive : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A list of inline policy names to be assigned to the user. Policies attached to this user but not configured in this argument will be removed.
-        /// </summary>
         [Output("policyNames")]
         public Output<ImmutableArray<string>> PolicyNames { get; private set; } = null!;
 
-        /// <summary>
-        /// IAM user name.
-        /// </summary>
         [Output("userName")]
         public Output<string> UserName { get; private set; } = null!;
 
@@ -81,19 +66,12 @@ namespace Pulumi.Aws.Iam
     {
         [Input("policyNames", required: true)]
         private InputList<string>? _policyNames;
-
-        /// <summary>
-        /// A list of inline policy names to be assigned to the user. Policies attached to this user but not configured in this argument will be removed.
-        /// </summary>
         public InputList<string> PolicyNames
         {
             get => _policyNames ?? (_policyNames = new InputList<string>());
             set => _policyNames = value;
         }
 
-        /// <summary>
-        /// IAM user name.
-        /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
 
@@ -107,19 +85,12 @@ namespace Pulumi.Aws.Iam
     {
         [Input("policyNames")]
         private InputList<string>? _policyNames;
-
-        /// <summary>
-        /// A list of inline policy names to be assigned to the user. Policies attached to this user but not configured in this argument will be removed.
-        /// </summary>
         public InputList<string> PolicyNames
         {
             get => _policyNames ?? (_policyNames = new InputList<string>());
             set => _policyNames = value;
         }
 
-        /// <summary>
-        /// IAM user name.
-        /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }
 

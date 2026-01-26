@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class GetContributorManagedInsightRulesManagedRuleResult
     {
-        /// <summary>
-        /// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-        /// </summary>
         public readonly string ResourceArn;
-        /// <summary>
-        /// Describes the state of a managed rule. If the rule is enabled, it contains information about the Contributor Insights rule that contains information about the related Amazon Web Services resource. See `RuleState reference` below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetContributorManagedInsightRulesManagedRuleRuleStateResult> RuleStates;
-        /// <summary>
-        /// Template name for the managed rule. Used to enable managed rules using `PutManagedInsightRules`.
-        /// </summary>
         public readonly string TemplateName;
 
         [OutputConstructor]

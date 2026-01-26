@@ -219,13 +219,6 @@ class CachePolicyParametersInCacheKeyAndForwardedToOrigin(dict):
                  query_strings_config: 'outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig',
                  enable_accept_encoding_brotli: Optional[_builtins.bool] = None,
                  enable_accept_encoding_gzip: Optional[_builtins.bool] = None):
-        """
-        :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs' cookies_config: Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
-        :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs' headers_config: Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
-        :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs' query_strings_config: Whether any URL query strings in viewer requests are included in the cache key. It also automatically includes these query strings in requests that CloudFront sends to the origin. Please refer to the Query String Config for more information.
-        :param _builtins.bool enable_accept_encoding_brotli: Flag determines whether the Accept-Encoding HTTP header is included in the cache key and in requests that CloudFront sends to the origin.
-        :param _builtins.bool enable_accept_encoding_gzip: Whether the Accept-Encoding HTTP header is included in the cache key and in requests sent to the origin by CloudFront.
-        """
         pulumi.set(__self__, "cookies_config", cookies_config)
         pulumi.set(__self__, "headers_config", headers_config)
         pulumi.set(__self__, "query_strings_config", query_strings_config)
@@ -237,41 +230,26 @@ class CachePolicyParametersInCacheKeyAndForwardedToOrigin(dict):
     @_builtins.property
     @pulumi.getter(name="cookiesConfig")
     def cookies_config(self) -> 'outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig':
-        """
-        Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
-        """
         return pulumi.get(self, "cookies_config")
 
     @_builtins.property
     @pulumi.getter(name="headersConfig")
     def headers_config(self) -> 'outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig':
-        """
-        Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
-        """
         return pulumi.get(self, "headers_config")
 
     @_builtins.property
     @pulumi.getter(name="queryStringsConfig")
     def query_strings_config(self) -> 'outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig':
-        """
-        Whether any URL query strings in viewer requests are included in the cache key. It also automatically includes these query strings in requests that CloudFront sends to the origin. Please refer to the Query String Config for more information.
-        """
         return pulumi.get(self, "query_strings_config")
 
     @_builtins.property
     @pulumi.getter(name="enableAcceptEncodingBrotli")
     def enable_accept_encoding_brotli(self) -> Optional[_builtins.bool]:
-        """
-        Flag determines whether the Accept-Encoding HTTP header is included in the cache key and in requests that CloudFront sends to the origin.
-        """
         return pulumi.get(self, "enable_accept_encoding_brotli")
 
     @_builtins.property
     @pulumi.getter(name="enableAcceptEncodingGzip")
     def enable_accept_encoding_gzip(self) -> Optional[_builtins.bool]:
-        """
-        Whether the Accept-Encoding HTTP header is included in the cache key and in requests sent to the origin by CloudFront.
-        """
         return pulumi.get(self, "enable_accept_encoding_gzip")
 
 
@@ -297,10 +275,6 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig(dict):
     def __init__(__self__, *,
                  cookie_behavior: _builtins.str,
                  cookies: Optional['outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies'] = None):
-        """
-        :param _builtins.str cookie_behavior: Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `cookie_behavior` are `none`, `whitelist`, `allExcept`, and `all`.
-        :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs' cookies: Object that contains a list of cookie names. See Items for more information.
-        """
         pulumi.set(__self__, "cookie_behavior", cookie_behavior)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
@@ -308,17 +282,11 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig(dict):
     @_builtins.property
     @pulumi.getter(name="cookieBehavior")
     def cookie_behavior(self) -> _builtins.str:
-        """
-        Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `cookie_behavior` are `none`, `whitelist`, `allExcept`, and `all`.
-        """
         return pulumi.get(self, "cookie_behavior")
 
     @_builtins.property
     @pulumi.getter
     def cookies(self) -> Optional['outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies']:
-        """
-        Object that contains a list of cookie names. See Items for more information.
-        """
         return pulumi.get(self, "cookies")
 
 
@@ -326,18 +294,12 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig(dict):
 class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies(dict):
     def __init__(__self__, *,
                  items: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param Sequence[_builtins.str] items: List of item names, such as cookies, headers, or query strings.
-        """
         if items is not None:
             pulumi.set(__self__, "items", items)
 
     @_builtins.property
     @pulumi.getter
     def items(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of item names, such as cookies, headers, or query strings.
-        """
         return pulumi.get(self, "items")
 
 
@@ -363,10 +325,6 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig(dict):
     def __init__(__self__, *,
                  header_behavior: Optional[_builtins.str] = None,
                  headers: Optional['outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders'] = None):
-        """
-        :param _builtins.str header_behavior: Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `header_behavior` are `none` and `whitelist`.
-        :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs' headers: Object contains a list of header names. See Items for more information.
-        """
         if header_behavior is not None:
             pulumi.set(__self__, "header_behavior", header_behavior)
         if headers is not None:
@@ -375,17 +333,11 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig(dict):
     @_builtins.property
     @pulumi.getter(name="headerBehavior")
     def header_behavior(self) -> Optional[_builtins.str]:
-        """
-        Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `header_behavior` are `none` and `whitelist`.
-        """
         return pulumi.get(self, "header_behavior")
 
     @_builtins.property
     @pulumi.getter
     def headers(self) -> Optional['outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders']:
-        """
-        Object contains a list of header names. See Items for more information.
-        """
         return pulumi.get(self, "headers")
 
 
@@ -393,18 +345,12 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig(dict):
 class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders(dict):
     def __init__(__self__, *,
                  items: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param Sequence[_builtins.str] items: List of item names, such as cookies, headers, or query strings.
-        """
         if items is not None:
             pulumi.set(__self__, "items", items)
 
     @_builtins.property
     @pulumi.getter
     def items(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of item names, such as cookies, headers, or query strings.
-        """
         return pulumi.get(self, "items")
 
 
@@ -432,10 +378,6 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig(dict
     def __init__(__self__, *,
                  query_string_behavior: _builtins.str,
                  query_strings: Optional['outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings'] = None):
-        """
-        :param _builtins.str query_string_behavior: Whether URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `query_string_behavior` are `none`, `whitelist`, `allExcept`, and `all`.
-        :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs' query_strings: Configuration parameter that contains a list of query string names. See Items for more information.
-        """
         pulumi.set(__self__, "query_string_behavior", query_string_behavior)
         if query_strings is not None:
             pulumi.set(__self__, "query_strings", query_strings)
@@ -443,17 +385,11 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig(dict
     @_builtins.property
     @pulumi.getter(name="queryStringBehavior")
     def query_string_behavior(self) -> _builtins.str:
-        """
-        Whether URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `query_string_behavior` are `none`, `whitelist`, `allExcept`, and `all`.
-        """
         return pulumi.get(self, "query_string_behavior")
 
     @_builtins.property
     @pulumi.getter(name="queryStrings")
     def query_strings(self) -> Optional['outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings']:
-        """
-        Configuration parameter that contains a list of query string names. See Items for more information.
-        """
         return pulumi.get(self, "query_strings")
 
 
@@ -461,18 +397,12 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig(dict
 class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings(dict):
     def __init__(__self__, *,
                  items: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param Sequence[_builtins.str] items: List of item names, such as cookies, headers, or query strings.
-        """
         if items is not None:
             pulumi.set(__self__, "items", items)
 
     @_builtins.property
     @pulumi.getter
     def items(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of item names, such as cookies, headers, or query strings.
-        """
         return pulumi.get(self, "items")
 
 
@@ -499,11 +429,6 @@ class ConnectionFunctionConnectionFunctionConfig(dict):
                  comment: _builtins.str,
                  runtime: _builtins.str,
                  key_value_store_association: Optional['outputs.ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociation'] = None):
-        """
-        :param _builtins.str comment: Comment to describe the function.
-        :param _builtins.str runtime: Runtime environment for the function. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
-        :param 'ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationArgs' key_value_store_association: Key value store associations. See `key_value_store_association` below.
-        """
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "runtime", runtime)
         if key_value_store_association is not None:
@@ -512,25 +437,16 @@ class ConnectionFunctionConnectionFunctionConfig(dict):
     @_builtins.property
     @pulumi.getter
     def comment(self) -> _builtins.str:
-        """
-        Comment to describe the function.
-        """
         return pulumi.get(self, "comment")
 
     @_builtins.property
     @pulumi.getter
     def runtime(self) -> _builtins.str:
-        """
-        Runtime environment for the function. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
-        """
         return pulumi.get(self, "runtime")
 
     @_builtins.property
     @pulumi.getter(name="keyValueStoreAssociation")
     def key_value_store_association(self) -> Optional['outputs.ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociation']:
-        """
-        Key value store associations. See `key_value_store_association` below.
-        """
         return pulumi.get(self, "key_value_store_association")
 
 
@@ -555,17 +471,11 @@ class ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociation(dict):
 
     def __init__(__self__, *,
                  key_value_store_arn: _builtins.str):
-        """
-        :param _builtins.str key_value_store_arn: ARN of the key value store.
-        """
         pulumi.set(__self__, "key_value_store_arn", key_value_store_arn)
 
     @_builtins.property
     @pulumi.getter(name="keyValueStoreArn")
     def key_value_store_arn(self) -> _builtins.str:
-        """
-        ARN of the key value store.
-        """
         return pulumi.get(self, "key_value_store_arn")
 
 
@@ -617,10 +527,6 @@ class ContinuousDeploymentPolicyStagingDistributionDnsNames(dict):
     def __init__(__self__, *,
                  quantity: _builtins.int,
                  items: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.int quantity: Number of CloudFront domain names in the staging distribution.
-        :param Sequence[_builtins.str] items: A list of CloudFront domain names for the staging distribution.
-        """
         pulumi.set(__self__, "quantity", quantity)
         if items is not None:
             pulumi.set(__self__, "items", items)
@@ -628,17 +534,11 @@ class ContinuousDeploymentPolicyStagingDistributionDnsNames(dict):
     @_builtins.property
     @pulumi.getter
     def quantity(self) -> _builtins.int:
-        """
-        Number of CloudFront domain names in the staging distribution.
-        """
         return pulumi.get(self, "quantity")
 
     @_builtins.property
     @pulumi.getter
     def items(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        A list of CloudFront domain names for the staging distribution.
-        """
         return pulumi.get(self, "items")
 
 
@@ -667,11 +567,6 @@ class ContinuousDeploymentPolicyTrafficConfig(dict):
                  type: _builtins.str,
                  single_header_config: Optional['outputs.ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig'] = None,
                  single_weight_config: Optional['outputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig'] = None):
-        """
-        :param _builtins.str type: Type of traffic configuration. Valid values are `SingleWeight` and `SingleHeader`.
-        :param 'ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs' single_header_config: Determines which HTTP requests are sent to the staging distribution. See `single_header_config`.
-        :param 'ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs' single_weight_config: Contains the percentage of traffic to send to the staging distribution. See `single_weight_config`.
-        """
         pulumi.set(__self__, "type", type)
         if single_header_config is not None:
             pulumi.set(__self__, "single_header_config", single_header_config)
@@ -681,25 +576,16 @@ class ContinuousDeploymentPolicyTrafficConfig(dict):
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of traffic configuration. Valid values are `SingleWeight` and `SingleHeader`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="singleHeaderConfig")
     def single_header_config(self) -> Optional['outputs.ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig']:
-        """
-        Determines which HTTP requests are sent to the staging distribution. See `single_header_config`.
-        """
         return pulumi.get(self, "single_header_config")
 
     @_builtins.property
     @pulumi.getter(name="singleWeightConfig")
     def single_weight_config(self) -> Optional['outputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig']:
-        """
-        Contains the percentage of traffic to send to the staging distribution. See `single_weight_config`.
-        """
         return pulumi.get(self, "single_weight_config")
 
 
@@ -708,27 +594,17 @@ class ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig(dict):
     def __init__(__self__, *,
                  header: _builtins.str,
                  value: _builtins.str):
-        """
-        :param _builtins.str header: Request header name to send to the staging distribution. The header must contain the prefix `aws-cf-cd-`.
-        :param _builtins.str value: Request header value.
-        """
         pulumi.set(__self__, "header", header)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def header(self) -> _builtins.str:
-        """
-        Request header name to send to the staging distribution. The header must contain the prefix `aws-cf-cd-`.
-        """
         return pulumi.get(self, "header")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        Request header value.
-        """
         return pulumi.get(self, "value")
 
 
@@ -754,10 +630,6 @@ class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig(dict):
     def __init__(__self__, *,
                  weight: _builtins.float,
                  session_stickiness_config: Optional['outputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig'] = None):
-        """
-        :param _builtins.float weight: The percentage of traffic to send to a staging distribution, expressed as a decimal number between `0` and `.15`.
-        :param 'ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs' session_stickiness_config: Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user's requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `session_stickiness_config`.
-        """
         pulumi.set(__self__, "weight", weight)
         if session_stickiness_config is not None:
             pulumi.set(__self__, "session_stickiness_config", session_stickiness_config)
@@ -765,17 +637,11 @@ class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig(dict):
     @_builtins.property
     @pulumi.getter
     def weight(self) -> _builtins.float:
-        """
-        The percentage of traffic to send to a staging distribution, expressed as a decimal number between `0` and `.15`.
-        """
         return pulumi.get(self, "weight")
 
     @_builtins.property
     @pulumi.getter(name="sessionStickinessConfig")
     def session_stickiness_config(self) -> Optional['outputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig']:
-        """
-        Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user's requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `session_stickiness_config`.
-        """
         return pulumi.get(self, "session_stickiness_config")
 
 
@@ -803,27 +669,17 @@ class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickiness
     def __init__(__self__, *,
                  idle_ttl: _builtins.int,
                  maximum_ttl: _builtins.int):
-        """
-        :param _builtins.int idle_ttl: The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` - `3600` (5–60 minutes). The value must be less than or equal to `maximum_ttl`.
-        :param _builtins.int maximum_ttl: The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` - `3600` (5–60 minutes). The value must be greater than or equal to `idle_ttl`.
-        """
         pulumi.set(__self__, "idle_ttl", idle_ttl)
         pulumi.set(__self__, "maximum_ttl", maximum_ttl)
 
     @_builtins.property
     @pulumi.getter(name="idleTtl")
     def idle_ttl(self) -> _builtins.int:
-        """
-        The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` - `3600` (5–60 minutes). The value must be less than or equal to `maximum_ttl`.
-        """
         return pulumi.get(self, "idle_ttl")
 
     @_builtins.property
     @pulumi.getter(name="maximumTtl")
     def maximum_ttl(self) -> _builtins.int:
-        """
-        The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` - `3600` (5–60 minutes). The value must be greater than or equal to `idle_ttl`.
-        """
         return pulumi.get(self, "maximum_ttl")
 
 
@@ -831,17 +687,11 @@ class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickiness
 class DistributionConnectionFunctionAssociation(dict):
     def __init__(__self__, *,
                  id: _builtins.str):
-        """
-        :param _builtins.str id: Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
-        """
         pulumi.set(__self__, "id", id)
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
-        """
         return pulumi.get(self, "id")
 
 
@@ -875,12 +725,6 @@ class DistributionCustomErrorResponse(dict):
                  error_caching_min_ttl: Optional[_builtins.int] = None,
                  response_code: Optional[_builtins.int] = None,
                  response_page_path: Optional[_builtins.str] = None):
-        """
-        :param _builtins.int error_code: 4xx or 5xx HTTP status code that you want to customize.
-        :param _builtins.int error_caching_min_ttl: Minimum amount of time you want HTTP error codes to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated.
-        :param _builtins.int response_code: HTTP status code that you want CloudFront to return with the custom error page to the viewer.
-        :param _builtins.str response_page_path: Path of the custom error page (for example, `/custom_404.html`).
-        """
         pulumi.set(__self__, "error_code", error_code)
         if error_caching_min_ttl is not None:
             pulumi.set(__self__, "error_caching_min_ttl", error_caching_min_ttl)
@@ -892,33 +736,21 @@ class DistributionCustomErrorResponse(dict):
     @_builtins.property
     @pulumi.getter(name="errorCode")
     def error_code(self) -> _builtins.int:
-        """
-        4xx or 5xx HTTP status code that you want to customize.
-        """
         return pulumi.get(self, "error_code")
 
     @_builtins.property
     @pulumi.getter(name="errorCachingMinTtl")
     def error_caching_min_ttl(self) -> Optional[_builtins.int]:
-        """
-        Minimum amount of time you want HTTP error codes to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated.
-        """
         return pulumi.get(self, "error_caching_min_ttl")
 
     @_builtins.property
     @pulumi.getter(name="responseCode")
     def response_code(self) -> Optional[_builtins.int]:
-        """
-        HTTP status code that you want CloudFront to return with the custom error page to the viewer.
-        """
         return pulumi.get(self, "response_code")
 
     @_builtins.property
     @pulumi.getter(name="responsePagePath")
     def response_page_path(self) -> Optional[_builtins.str]:
-        """
-        Path of the custom error page (for example, `/custom_404.html`).
-        """
         return pulumi.get(self, "response_page_path")
 
 
@@ -998,28 +830,6 @@ class DistributionDefaultCacheBehavior(dict):
                  smooth_streaming: Optional[_builtins.bool] = None,
                  trusted_key_groups: Optional[Sequence[_builtins.str]] = None,
                  trusted_signers: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param Sequence[_builtins.str] allowed_methods: Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
-        :param Sequence[_builtins.str] cached_methods: Controls whether CloudFront caches the response to requests using the specified HTTP methods.
-        :param _builtins.str target_origin_id: Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
-        :param _builtins.str viewer_protocol_policy: Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
-        :param _builtins.str cache_policy_id: Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `default_cache_behavior` either `cache_policy_id` or `forwarded_values` must be set.
-        :param _builtins.bool compress: Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header (default: `false`).
-        :param _builtins.int default_ttl: Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header. The TTL defined in Cache Policy overrides this configuration.
-        :param _builtins.str field_level_encryption_id: Field level encryption configuration ID.
-        :param 'DistributionDefaultCacheBehaviorForwardedValuesArgs' forwarded_values: The forwarded values configuration that specifies how CloudFront handles query strings, cookies and headers (maximum one).
-        :param Sequence['DistributionDefaultCacheBehaviorFunctionAssociationArgs'] function_associations: A config block that triggers a cloudfront function with specific actions (maximum 2).
-        :param 'DistributionDefaultCacheBehaviorGrpcConfigArgs' grpc_config: A config block that sets the grpc config.
-        :param Sequence['DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs'] lambda_function_associations: A config block that triggers a lambda function with specific actions (maximum 4).
-        :param _builtins.int max_ttl: Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers. The TTL defined in Cache Policy overrides this configuration.
-        :param _builtins.int min_ttl: Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds. The TTL defined in Cache Policy overrides this configuration.
-        :param _builtins.str origin_request_policy_id: Unique identifier of the origin request policy that is attached to the behavior.
-        :param _builtins.str realtime_log_config_arn: ARN of the real-time log configuration that is attached to this cache behavior.
-        :param _builtins.str response_headers_policy_id: Identifier for a response headers policy.
-        :param _builtins.bool smooth_streaming: Indicates whether you want to distribute media files in Microsoft Smooth Streaming format using the origin that is associated with this cache behavior.
-        :param Sequence[_builtins.str] trusted_key_groups: List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
-        :param Sequence[_builtins.str] trusted_signers: List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
-        """
         pulumi.set(__self__, "allowed_methods", allowed_methods)
         pulumi.set(__self__, "cached_methods", cached_methods)
         pulumi.set(__self__, "target_origin_id", target_origin_id)
@@ -1060,161 +870,101 @@ class DistributionDefaultCacheBehavior(dict):
     @_builtins.property
     @pulumi.getter(name="allowedMethods")
     def allowed_methods(self) -> Sequence[_builtins.str]:
-        """
-        Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
-        """
         return pulumi.get(self, "allowed_methods")
 
     @_builtins.property
     @pulumi.getter(name="cachedMethods")
     def cached_methods(self) -> Sequence[_builtins.str]:
-        """
-        Controls whether CloudFront caches the response to requests using the specified HTTP methods.
-        """
         return pulumi.get(self, "cached_methods")
 
     @_builtins.property
     @pulumi.getter(name="targetOriginId")
     def target_origin_id(self) -> _builtins.str:
-        """
-        Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
-        """
         return pulumi.get(self, "target_origin_id")
 
     @_builtins.property
     @pulumi.getter(name="viewerProtocolPolicy")
     def viewer_protocol_policy(self) -> _builtins.str:
-        """
-        Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
-        """
         return pulumi.get(self, "viewer_protocol_policy")
 
     @_builtins.property
     @pulumi.getter(name="cachePolicyId")
     def cache_policy_id(self) -> Optional[_builtins.str]:
-        """
-        Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `default_cache_behavior` either `cache_policy_id` or `forwarded_values` must be set.
-        """
         return pulumi.get(self, "cache_policy_id")
 
     @_builtins.property
     @pulumi.getter
     def compress(self) -> Optional[_builtins.bool]:
-        """
-        Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header (default: `false`).
-        """
         return pulumi.get(self, "compress")
 
     @_builtins.property
     @pulumi.getter(name="defaultTtl")
     def default_ttl(self) -> Optional[_builtins.int]:
-        """
-        Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header. The TTL defined in Cache Policy overrides this configuration.
-        """
         return pulumi.get(self, "default_ttl")
 
     @_builtins.property
     @pulumi.getter(name="fieldLevelEncryptionId")
     def field_level_encryption_id(self) -> Optional[_builtins.str]:
-        """
-        Field level encryption configuration ID.
-        """
         return pulumi.get(self, "field_level_encryption_id")
 
     @_builtins.property
     @pulumi.getter(name="forwardedValues")
     def forwarded_values(self) -> Optional['outputs.DistributionDefaultCacheBehaviorForwardedValues']:
-        """
-        The forwarded values configuration that specifies how CloudFront handles query strings, cookies and headers (maximum one).
-        """
         return pulumi.get(self, "forwarded_values")
 
     @_builtins.property
     @pulumi.getter(name="functionAssociations")
     def function_associations(self) -> Optional[Sequence['outputs.DistributionDefaultCacheBehaviorFunctionAssociation']]:
-        """
-        A config block that triggers a cloudfront function with specific actions (maximum 2).
-        """
         return pulumi.get(self, "function_associations")
 
     @_builtins.property
     @pulumi.getter(name="grpcConfig")
     def grpc_config(self) -> Optional['outputs.DistributionDefaultCacheBehaviorGrpcConfig']:
-        """
-        A config block that sets the grpc config.
-        """
         return pulumi.get(self, "grpc_config")
 
     @_builtins.property
     @pulumi.getter(name="lambdaFunctionAssociations")
     def lambda_function_associations(self) -> Optional[Sequence['outputs.DistributionDefaultCacheBehaviorLambdaFunctionAssociation']]:
-        """
-        A config block that triggers a lambda function with specific actions (maximum 4).
-        """
         return pulumi.get(self, "lambda_function_associations")
 
     @_builtins.property
     @pulumi.getter(name="maxTtl")
     def max_ttl(self) -> Optional[_builtins.int]:
-        """
-        Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers. The TTL defined in Cache Policy overrides this configuration.
-        """
         return pulumi.get(self, "max_ttl")
 
     @_builtins.property
     @pulumi.getter(name="minTtl")
     def min_ttl(self) -> Optional[_builtins.int]:
-        """
-        Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds. The TTL defined in Cache Policy overrides this configuration.
-        """
         return pulumi.get(self, "min_ttl")
 
     @_builtins.property
     @pulumi.getter(name="originRequestPolicyId")
     def origin_request_policy_id(self) -> Optional[_builtins.str]:
-        """
-        Unique identifier of the origin request policy that is attached to the behavior.
-        """
         return pulumi.get(self, "origin_request_policy_id")
 
     @_builtins.property
     @pulumi.getter(name="realtimeLogConfigArn")
     def realtime_log_config_arn(self) -> Optional[_builtins.str]:
-        """
-        ARN of the real-time log configuration that is attached to this cache behavior.
-        """
         return pulumi.get(self, "realtime_log_config_arn")
 
     @_builtins.property
     @pulumi.getter(name="responseHeadersPolicyId")
     def response_headers_policy_id(self) -> Optional[_builtins.str]:
-        """
-        Identifier for a response headers policy.
-        """
         return pulumi.get(self, "response_headers_policy_id")
 
     @_builtins.property
     @pulumi.getter(name="smoothStreaming")
     def smooth_streaming(self) -> Optional[_builtins.bool]:
-        """
-        Indicates whether you want to distribute media files in Microsoft Smooth Streaming format using the origin that is associated with this cache behavior.
-        """
         return pulumi.get(self, "smooth_streaming")
 
     @_builtins.property
     @pulumi.getter(name="trustedKeyGroups")
     def trusted_key_groups(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
-        """
         return pulumi.get(self, "trusted_key_groups")
 
     @_builtins.property
     @pulumi.getter(name="trustedSigners")
     def trusted_signers(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
-        """
         return pulumi.get(self, "trusted_signers")
 
 
@@ -1244,12 +994,6 @@ class DistributionDefaultCacheBehaviorForwardedValues(dict):
                  query_string: _builtins.bool,
                  headers: Optional[Sequence[_builtins.str]] = None,
                  query_string_cache_keys: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param 'DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs' cookies: The forwarded values cookies that specifies how CloudFront handles cookies (maximum one).
-        :param _builtins.bool query_string: Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior.
-        :param Sequence[_builtins.str] headers: Headers, if any, that you want CloudFront to vary upon for this cache behavior. Specify `*` to include all headers.
-        :param Sequence[_builtins.str] query_string_cache_keys: When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.
-        """
         pulumi.set(__self__, "cookies", cookies)
         pulumi.set(__self__, "query_string", query_string)
         if headers is not None:
@@ -1260,33 +1004,21 @@ class DistributionDefaultCacheBehaviorForwardedValues(dict):
     @_builtins.property
     @pulumi.getter
     def cookies(self) -> 'outputs.DistributionDefaultCacheBehaviorForwardedValuesCookies':
-        """
-        The forwarded values cookies that specifies how CloudFront handles cookies (maximum one).
-        """
         return pulumi.get(self, "cookies")
 
     @_builtins.property
     @pulumi.getter(name="queryString")
     def query_string(self) -> _builtins.bool:
-        """
-        Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior.
-        """
         return pulumi.get(self, "query_string")
 
     @_builtins.property
     @pulumi.getter
     def headers(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Headers, if any, that you want CloudFront to vary upon for this cache behavior. Specify `*` to include all headers.
-        """
         return pulumi.get(self, "headers")
 
     @_builtins.property
     @pulumi.getter(name="queryStringCacheKeys")
     def query_string_cache_keys(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.
-        """
         return pulumi.get(self, "query_string_cache_keys")
 
 
@@ -1312,10 +1044,6 @@ class DistributionDefaultCacheBehaviorForwardedValuesCookies(dict):
     def __init__(__self__, *,
                  forward: _builtins.str,
                  whitelisted_names: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str forward: Whether you want CloudFront to forward cookies to the origin that is associated with this cache behavior. You can specify `all`, `none` or `whitelist`. If `whitelist`, you must include the subsequent `whitelisted_names`.
-        :param Sequence[_builtins.str] whitelisted_names: If you have specified `whitelist` to `forward`, the whitelisted cookies that you want CloudFront to forward to your origin.
-        """
         pulumi.set(__self__, "forward", forward)
         if whitelisted_names is not None:
             pulumi.set(__self__, "whitelisted_names", whitelisted_names)
@@ -1323,17 +1051,11 @@ class DistributionDefaultCacheBehaviorForwardedValuesCookies(dict):
     @_builtins.property
     @pulumi.getter
     def forward(self) -> _builtins.str:
-        """
-        Whether you want CloudFront to forward cookies to the origin that is associated with this cache behavior. You can specify `all`, `none` or `whitelist`. If `whitelist`, you must include the subsequent `whitelisted_names`.
-        """
         return pulumi.get(self, "forward")
 
     @_builtins.property
     @pulumi.getter(name="whitelistedNames")
     def whitelisted_names(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        If you have specified `whitelist` to `forward`, the whitelisted cookies that you want CloudFront to forward to your origin.
-        """
         return pulumi.get(self, "whitelisted_names")
 
 
@@ -1361,27 +1083,17 @@ class DistributionDefaultCacheBehaviorFunctionAssociation(dict):
     def __init__(__self__, *,
                  event_type: _builtins.str,
                  function_arn: _builtins.str):
-        """
-        :param _builtins.str event_type: Specific event to trigger this function. Valid values: `viewer-request` or `viewer-response`.
-        :param _builtins.str function_arn: ARN of the CloudFront function.
-        """
         pulumi.set(__self__, "event_type", event_type)
         pulumi.set(__self__, "function_arn", function_arn)
 
     @_builtins.property
     @pulumi.getter(name="eventType")
     def event_type(self) -> _builtins.str:
-        """
-        Specific event to trigger this function. Valid values: `viewer-request` or `viewer-response`.
-        """
         return pulumi.get(self, "event_type")
 
     @_builtins.property
     @pulumi.getter(name="functionArn")
     def function_arn(self) -> _builtins.str:
-        """
-        ARN of the CloudFront function.
-        """
         return pulumi.get(self, "function_arn")
 
 
@@ -1389,18 +1101,12 @@ class DistributionDefaultCacheBehaviorFunctionAssociation(dict):
 class DistributionDefaultCacheBehaviorGrpcConfig(dict):
     def __init__(__self__, *,
                  enabled: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.bool enabled: Whether the distribution is enabled to accept end user requests for content.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether the distribution is enabled to accept end user requests for content.
-        """
         return pulumi.get(self, "enabled")
 
 
@@ -1431,11 +1137,6 @@ class DistributionDefaultCacheBehaviorLambdaFunctionAssociation(dict):
                  event_type: _builtins.str,
                  lambda_arn: _builtins.str,
                  include_body: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str event_type: Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
-        :param _builtins.str lambda_arn: ARN of the Lambda function.
-        :param _builtins.bool include_body: When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
-        """
         pulumi.set(__self__, "event_type", event_type)
         pulumi.set(__self__, "lambda_arn", lambda_arn)
         if include_body is not None:
@@ -1444,25 +1145,16 @@ class DistributionDefaultCacheBehaviorLambdaFunctionAssociation(dict):
     @_builtins.property
     @pulumi.getter(name="eventType")
     def event_type(self) -> _builtins.str:
-        """
-        Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
-        """
         return pulumi.get(self, "event_type")
 
     @_builtins.property
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> _builtins.str:
-        """
-        ARN of the Lambda function.
-        """
         return pulumi.get(self, "lambda_arn")
 
     @_builtins.property
     @pulumi.getter(name="includeBody")
     def include_body(self) -> Optional[_builtins.bool]:
-        """
-        When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
-        """
         return pulumi.get(self, "include_body")
 
 
@@ -1489,11 +1181,6 @@ class DistributionLoggingConfig(dict):
                  bucket: Optional[_builtins.str] = None,
                  include_cookies: Optional[_builtins.bool] = None,
                  prefix: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str bucket: Amazon S3 bucket for V1 logging where access logs are stored, for example, `myawslogbucket.s3.amazonaws.com`. V1 logging is enabled when this argument is specified. The bucket must have correct ACL attached with "FULL_CONTROL" permission for "awslogsdelivery" account (Canonical ID: "c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0") for log transfer to work.
-        :param _builtins.bool include_cookies: Whether to include cookies in access logs (default: `false`). This argument applies to both V1 and V2 logging.
-        :param _builtins.str prefix: Prefix added to the access log file names for V1 logging, for example, `myprefix/`. This argument is effective only when V1 logging is enabled.
-        """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
         if include_cookies is not None:
@@ -1504,25 +1191,16 @@ class DistributionLoggingConfig(dict):
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> Optional[_builtins.str]:
-        """
-        Amazon S3 bucket for V1 logging where access logs are stored, for example, `myawslogbucket.s3.amazonaws.com`. V1 logging is enabled when this argument is specified. The bucket must have correct ACL attached with "FULL_CONTROL" permission for "awslogsdelivery" account (Canonical ID: "c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0") for log transfer to work.
-        """
         return pulumi.get(self, "bucket")
 
     @_builtins.property
     @pulumi.getter(name="includeCookies")
     def include_cookies(self) -> Optional[_builtins.bool]:
-        """
-        Whether to include cookies in access logs (default: `false`). This argument applies to both V1 and V2 logging.
-        """
         return pulumi.get(self, "include_cookies")
 
     @_builtins.property
     @pulumi.getter
     def prefix(self) -> Optional[_builtins.str]:
-        """
-        Prefix added to the access log file names for V1 logging, for example, `myprefix/`. This argument is effective only when V1 logging is enabled.
-        """
         return pulumi.get(self, "prefix")
 
 
@@ -1605,29 +1283,6 @@ class DistributionOrderedCacheBehavior(dict):
                  smooth_streaming: Optional[_builtins.bool] = None,
                  trusted_key_groups: Optional[Sequence[_builtins.str]] = None,
                  trusted_signers: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param Sequence[_builtins.str] allowed_methods: Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
-        :param Sequence[_builtins.str] cached_methods: Controls whether CloudFront caches the response to requests using the specified HTTP methods.
-        :param _builtins.str path_pattern: Pattern (for example, `images/*.jpg`) that specifies which requests you want this cache behavior to apply to.
-        :param _builtins.str target_origin_id: Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
-        :param _builtins.str viewer_protocol_policy: Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
-        :param _builtins.str cache_policy_id: Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `default_cache_behavior` either `cache_policy_id` or `forwarded_values` must be set.
-        :param _builtins.bool compress: Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header (default: `false`).
-        :param _builtins.int default_ttl: Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header. The TTL defined in Cache Policy overrides this configuration.
-        :param _builtins.str field_level_encryption_id: Field level encryption configuration ID.
-        :param 'DistributionOrderedCacheBehaviorForwardedValuesArgs' forwarded_values: The forwarded values configuration that specifies how CloudFront handles query strings, cookies and headers (maximum one).
-        :param Sequence['DistributionOrderedCacheBehaviorFunctionAssociationArgs'] function_associations: A config block that triggers a cloudfront function with specific actions (maximum 2).
-        :param 'DistributionOrderedCacheBehaviorGrpcConfigArgs' grpc_config: A config block that sets the grpc config.
-        :param Sequence['DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs'] lambda_function_associations: A config block that triggers a lambda function with specific actions (maximum 4).
-        :param _builtins.int max_ttl: Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers. The TTL defined in Cache Policy overrides this configuration.
-        :param _builtins.int min_ttl: Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds. The TTL defined in Cache Policy overrides this configuration.
-        :param _builtins.str origin_request_policy_id: Unique identifier of the origin request policy that is attached to the behavior.
-        :param _builtins.str realtime_log_config_arn: ARN of the real-time log configuration that is attached to this cache behavior.
-        :param _builtins.str response_headers_policy_id: Identifier for a response headers policy.
-        :param _builtins.bool smooth_streaming: Indicates whether you want to distribute media files in Microsoft Smooth Streaming format using the origin that is associated with this cache behavior.
-        :param Sequence[_builtins.str] trusted_key_groups: List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
-        :param Sequence[_builtins.str] trusted_signers: List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
-        """
         pulumi.set(__self__, "allowed_methods", allowed_methods)
         pulumi.set(__self__, "cached_methods", cached_methods)
         pulumi.set(__self__, "path_pattern", path_pattern)
@@ -1669,169 +1324,106 @@ class DistributionOrderedCacheBehavior(dict):
     @_builtins.property
     @pulumi.getter(name="allowedMethods")
     def allowed_methods(self) -> Sequence[_builtins.str]:
-        """
-        Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
-        """
         return pulumi.get(self, "allowed_methods")
 
     @_builtins.property
     @pulumi.getter(name="cachedMethods")
     def cached_methods(self) -> Sequence[_builtins.str]:
-        """
-        Controls whether CloudFront caches the response to requests using the specified HTTP methods.
-        """
         return pulumi.get(self, "cached_methods")
 
     @_builtins.property
     @pulumi.getter(name="pathPattern")
     def path_pattern(self) -> _builtins.str:
-        """
-        Pattern (for example, `images/*.jpg`) that specifies which requests you want this cache behavior to apply to.
-        """
         return pulumi.get(self, "path_pattern")
 
     @_builtins.property
     @pulumi.getter(name="targetOriginId")
     def target_origin_id(self) -> _builtins.str:
-        """
-        Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
-        """
         return pulumi.get(self, "target_origin_id")
 
     @_builtins.property
     @pulumi.getter(name="viewerProtocolPolicy")
     def viewer_protocol_policy(self) -> _builtins.str:
-        """
-        Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
-        """
         return pulumi.get(self, "viewer_protocol_policy")
 
     @_builtins.property
     @pulumi.getter(name="cachePolicyId")
     def cache_policy_id(self) -> Optional[_builtins.str]:
-        """
-        Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `default_cache_behavior` either `cache_policy_id` or `forwarded_values` must be set.
-        """
         return pulumi.get(self, "cache_policy_id")
 
     @_builtins.property
     @pulumi.getter
     def compress(self) -> Optional[_builtins.bool]:
-        """
-        Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header (default: `false`).
-        """
         return pulumi.get(self, "compress")
 
     @_builtins.property
     @pulumi.getter(name="defaultTtl")
     def default_ttl(self) -> Optional[_builtins.int]:
-        """
-        Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header. The TTL defined in Cache Policy overrides this configuration.
-        """
         return pulumi.get(self, "default_ttl")
 
     @_builtins.property
     @pulumi.getter(name="fieldLevelEncryptionId")
     def field_level_encryption_id(self) -> Optional[_builtins.str]:
-        """
-        Field level encryption configuration ID.
-        """
         return pulumi.get(self, "field_level_encryption_id")
 
     @_builtins.property
     @pulumi.getter(name="forwardedValues")
     def forwarded_values(self) -> Optional['outputs.DistributionOrderedCacheBehaviorForwardedValues']:
-        """
-        The forwarded values configuration that specifies how CloudFront handles query strings, cookies and headers (maximum one).
-        """
         return pulumi.get(self, "forwarded_values")
 
     @_builtins.property
     @pulumi.getter(name="functionAssociations")
     def function_associations(self) -> Optional[Sequence['outputs.DistributionOrderedCacheBehaviorFunctionAssociation']]:
-        """
-        A config block that triggers a cloudfront function with specific actions (maximum 2).
-        """
         return pulumi.get(self, "function_associations")
 
     @_builtins.property
     @pulumi.getter(name="grpcConfig")
     def grpc_config(self) -> Optional['outputs.DistributionOrderedCacheBehaviorGrpcConfig']:
-        """
-        A config block that sets the grpc config.
-        """
         return pulumi.get(self, "grpc_config")
 
     @_builtins.property
     @pulumi.getter(name="lambdaFunctionAssociations")
     def lambda_function_associations(self) -> Optional[Sequence['outputs.DistributionOrderedCacheBehaviorLambdaFunctionAssociation']]:
-        """
-        A config block that triggers a lambda function with specific actions (maximum 4).
-        """
         return pulumi.get(self, "lambda_function_associations")
 
     @_builtins.property
     @pulumi.getter(name="maxTtl")
     def max_ttl(self) -> Optional[_builtins.int]:
-        """
-        Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers. The TTL defined in Cache Policy overrides this configuration.
-        """
         return pulumi.get(self, "max_ttl")
 
     @_builtins.property
     @pulumi.getter(name="minTtl")
     def min_ttl(self) -> Optional[_builtins.int]:
-        """
-        Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds. The TTL defined in Cache Policy overrides this configuration.
-        """
         return pulumi.get(self, "min_ttl")
 
     @_builtins.property
     @pulumi.getter(name="originRequestPolicyId")
     def origin_request_policy_id(self) -> Optional[_builtins.str]:
-        """
-        Unique identifier of the origin request policy that is attached to the behavior.
-        """
         return pulumi.get(self, "origin_request_policy_id")
 
     @_builtins.property
     @pulumi.getter(name="realtimeLogConfigArn")
     def realtime_log_config_arn(self) -> Optional[_builtins.str]:
-        """
-        ARN of the real-time log configuration that is attached to this cache behavior.
-        """
         return pulumi.get(self, "realtime_log_config_arn")
 
     @_builtins.property
     @pulumi.getter(name="responseHeadersPolicyId")
     def response_headers_policy_id(self) -> Optional[_builtins.str]:
-        """
-        Identifier for a response headers policy.
-        """
         return pulumi.get(self, "response_headers_policy_id")
 
     @_builtins.property
     @pulumi.getter(name="smoothStreaming")
     def smooth_streaming(self) -> Optional[_builtins.bool]:
-        """
-        Indicates whether you want to distribute media files in Microsoft Smooth Streaming format using the origin that is associated with this cache behavior.
-        """
         return pulumi.get(self, "smooth_streaming")
 
     @_builtins.property
     @pulumi.getter(name="trustedKeyGroups")
     def trusted_key_groups(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
-        """
         return pulumi.get(self, "trusted_key_groups")
 
     @_builtins.property
     @pulumi.getter(name="trustedSigners")
     def trusted_signers(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
-        """
         return pulumi.get(self, "trusted_signers")
 
 
@@ -1861,12 +1453,6 @@ class DistributionOrderedCacheBehaviorForwardedValues(dict):
                  query_string: _builtins.bool,
                  headers: Optional[Sequence[_builtins.str]] = None,
                  query_string_cache_keys: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param 'DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs' cookies: The forwarded values cookies that specifies how CloudFront handles cookies (maximum one).
-        :param _builtins.bool query_string: Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior.
-        :param Sequence[_builtins.str] headers: Headers, if any, that you want CloudFront to vary upon for this cache behavior. Specify `*` to include all headers.
-        :param Sequence[_builtins.str] query_string_cache_keys: When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.
-        """
         pulumi.set(__self__, "cookies", cookies)
         pulumi.set(__self__, "query_string", query_string)
         if headers is not None:
@@ -1877,33 +1463,21 @@ class DistributionOrderedCacheBehaviorForwardedValues(dict):
     @_builtins.property
     @pulumi.getter
     def cookies(self) -> 'outputs.DistributionOrderedCacheBehaviorForwardedValuesCookies':
-        """
-        The forwarded values cookies that specifies how CloudFront handles cookies (maximum one).
-        """
         return pulumi.get(self, "cookies")
 
     @_builtins.property
     @pulumi.getter(name="queryString")
     def query_string(self) -> _builtins.bool:
-        """
-        Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior.
-        """
         return pulumi.get(self, "query_string")
 
     @_builtins.property
     @pulumi.getter
     def headers(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Headers, if any, that you want CloudFront to vary upon for this cache behavior. Specify `*` to include all headers.
-        """
         return pulumi.get(self, "headers")
 
     @_builtins.property
     @pulumi.getter(name="queryStringCacheKeys")
     def query_string_cache_keys(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.
-        """
         return pulumi.get(self, "query_string_cache_keys")
 
 
@@ -1929,10 +1503,6 @@ class DistributionOrderedCacheBehaviorForwardedValuesCookies(dict):
     def __init__(__self__, *,
                  forward: _builtins.str,
                  whitelisted_names: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str forward: Whether you want CloudFront to forward cookies to the origin that is associated with this cache behavior. You can specify `all`, `none` or `whitelist`. If `whitelist`, you must include the subsequent `whitelisted_names`.
-        :param Sequence[_builtins.str] whitelisted_names: If you have specified `whitelist` to `forward`, the whitelisted cookies that you want CloudFront to forward to your origin.
-        """
         pulumi.set(__self__, "forward", forward)
         if whitelisted_names is not None:
             pulumi.set(__self__, "whitelisted_names", whitelisted_names)
@@ -1940,17 +1510,11 @@ class DistributionOrderedCacheBehaviorForwardedValuesCookies(dict):
     @_builtins.property
     @pulumi.getter
     def forward(self) -> _builtins.str:
-        """
-        Whether you want CloudFront to forward cookies to the origin that is associated with this cache behavior. You can specify `all`, `none` or `whitelist`. If `whitelist`, you must include the subsequent `whitelisted_names`.
-        """
         return pulumi.get(self, "forward")
 
     @_builtins.property
     @pulumi.getter(name="whitelistedNames")
     def whitelisted_names(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        If you have specified `whitelist` to `forward`, the whitelisted cookies that you want CloudFront to forward to your origin.
-        """
         return pulumi.get(self, "whitelisted_names")
 
 
@@ -1978,27 +1542,17 @@ class DistributionOrderedCacheBehaviorFunctionAssociation(dict):
     def __init__(__self__, *,
                  event_type: _builtins.str,
                  function_arn: _builtins.str):
-        """
-        :param _builtins.str event_type: Specific event to trigger this function. Valid values: `viewer-request` or `viewer-response`.
-        :param _builtins.str function_arn: ARN of the CloudFront function.
-        """
         pulumi.set(__self__, "event_type", event_type)
         pulumi.set(__self__, "function_arn", function_arn)
 
     @_builtins.property
     @pulumi.getter(name="eventType")
     def event_type(self) -> _builtins.str:
-        """
-        Specific event to trigger this function. Valid values: `viewer-request` or `viewer-response`.
-        """
         return pulumi.get(self, "event_type")
 
     @_builtins.property
     @pulumi.getter(name="functionArn")
     def function_arn(self) -> _builtins.str:
-        """
-        ARN of the CloudFront function.
-        """
         return pulumi.get(self, "function_arn")
 
 
@@ -2006,18 +1560,12 @@ class DistributionOrderedCacheBehaviorFunctionAssociation(dict):
 class DistributionOrderedCacheBehaviorGrpcConfig(dict):
     def __init__(__self__, *,
                  enabled: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.bool enabled: Whether the distribution is enabled to accept end user requests for content.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether the distribution is enabled to accept end user requests for content.
-        """
         return pulumi.get(self, "enabled")
 
 
@@ -2048,11 +1596,6 @@ class DistributionOrderedCacheBehaviorLambdaFunctionAssociation(dict):
                  event_type: _builtins.str,
                  lambda_arn: _builtins.str,
                  include_body: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str event_type: Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
-        :param _builtins.str lambda_arn: ARN of the Lambda function.
-        :param _builtins.bool include_body: When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
-        """
         pulumi.set(__self__, "event_type", event_type)
         pulumi.set(__self__, "lambda_arn", lambda_arn)
         if include_body is not None:
@@ -2061,25 +1604,16 @@ class DistributionOrderedCacheBehaviorLambdaFunctionAssociation(dict):
     @_builtins.property
     @pulumi.getter(name="eventType")
     def event_type(self) -> _builtins.str:
-        """
-        Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
-        """
         return pulumi.get(self, "event_type")
 
     @_builtins.property
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> _builtins.str:
-        """
-        ARN of the Lambda function.
-        """
         return pulumi.get(self, "lambda_arn")
 
     @_builtins.property
     @pulumi.getter(name="includeBody")
     def include_body(self) -> Optional[_builtins.bool]:
-        """
-        When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
-        """
         return pulumi.get(self, "include_body")
 
 
@@ -2137,19 +1671,6 @@ class DistributionOrigin(dict):
                  response_completion_timeout: Optional[_builtins.int] = None,
                  s3_origin_config: Optional['outputs.DistributionOriginS3OriginConfig'] = None,
                  vpc_origin_config: Optional['outputs.DistributionOriginVpcOriginConfig'] = None):
-        """
-        :param _builtins.str domain_name: Domain name corresponding to the distribution. For example: `d604721fxaaqy9.cloudfront.net`.
-        :param _builtins.int connection_attempts: Number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Defaults to 3.
-        :param _builtins.int connection_timeout: Number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Defaults to 10.
-        :param Sequence['DistributionOriginCustomHeaderArgs'] custom_headers: One or more sub-resources with `name` and `value` parameters that specify header data that will be sent to the origin (multiples allowed).
-        :param 'DistributionOriginCustomOriginConfigArgs' custom_origin_config: The CloudFront custom origin configuration information. If an S3 origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
-        :param _builtins.str origin_access_control_id: Unique identifier of a [CloudFront origin access control][8] for this origin.
-        :param _builtins.str origin_path: Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
-        :param 'DistributionOriginOriginShieldArgs' origin_shield: CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
-        :param _builtins.int response_completion_timeout: Time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. Must be integer greater than or equal to the value of `origin_read_timeout`. If omitted or explicitly set to `0`, no maximum value is enforced.
-        :param 'DistributionOriginS3OriginConfigArgs' s3_origin_config: CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
-        :param 'DistributionOriginVpcOriginConfigArgs' vpc_origin_config: The VPC origin configuration.
-        """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "origin_id", origin_id)
         if connection_attempts is not None:
@@ -2176,9 +1697,6 @@ class DistributionOrigin(dict):
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> _builtins.str:
-        """
-        Domain name corresponding to the distribution. For example: `d604721fxaaqy9.cloudfront.net`.
-        """
         return pulumi.get(self, "domain_name")
 
     @_builtins.property
@@ -2189,81 +1707,51 @@ class DistributionOrigin(dict):
     @_builtins.property
     @pulumi.getter(name="connectionAttempts")
     def connection_attempts(self) -> Optional[_builtins.int]:
-        """
-        Number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Defaults to 3.
-        """
         return pulumi.get(self, "connection_attempts")
 
     @_builtins.property
     @pulumi.getter(name="connectionTimeout")
     def connection_timeout(self) -> Optional[_builtins.int]:
-        """
-        Number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Defaults to 10.
-        """
         return pulumi.get(self, "connection_timeout")
 
     @_builtins.property
     @pulumi.getter(name="customHeaders")
     def custom_headers(self) -> Optional[Sequence['outputs.DistributionOriginCustomHeader']]:
-        """
-        One or more sub-resources with `name` and `value` parameters that specify header data that will be sent to the origin (multiples allowed).
-        """
         return pulumi.get(self, "custom_headers")
 
     @_builtins.property
     @pulumi.getter(name="customOriginConfig")
     def custom_origin_config(self) -> Optional['outputs.DistributionOriginCustomOriginConfig']:
-        """
-        The CloudFront custom origin configuration information. If an S3 origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
-        """
         return pulumi.get(self, "custom_origin_config")
 
     @_builtins.property
     @pulumi.getter(name="originAccessControlId")
     def origin_access_control_id(self) -> Optional[_builtins.str]:
-        """
-        Unique identifier of a [CloudFront origin access control][8] for this origin.
-        """
         return pulumi.get(self, "origin_access_control_id")
 
     @_builtins.property
     @pulumi.getter(name="originPath")
     def origin_path(self) -> Optional[_builtins.str]:
-        """
-        Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
-        """
         return pulumi.get(self, "origin_path")
 
     @_builtins.property
     @pulumi.getter(name="originShield")
     def origin_shield(self) -> Optional['outputs.DistributionOriginOriginShield']:
-        """
-        CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
-        """
         return pulumi.get(self, "origin_shield")
 
     @_builtins.property
     @pulumi.getter(name="responseCompletionTimeout")
     def response_completion_timeout(self) -> Optional[_builtins.int]:
-        """
-        Time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. Must be integer greater than or equal to the value of `origin_read_timeout`. If omitted or explicitly set to `0`, no maximum value is enforced.
-        """
         return pulumi.get(self, "response_completion_timeout")
 
     @_builtins.property
     @pulumi.getter(name="s3OriginConfig")
     def s3_origin_config(self) -> Optional['outputs.DistributionOriginS3OriginConfig']:
-        """
-        CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
-        """
         return pulumi.get(self, "s3_origin_config")
 
     @_builtins.property
     @pulumi.getter(name="vpcOriginConfig")
     def vpc_origin_config(self) -> Optional['outputs.DistributionOriginVpcOriginConfig']:
-        """
-        The VPC origin configuration.
-        """
         return pulumi.get(self, "vpc_origin_config")
 
 
@@ -2325,13 +1813,6 @@ class DistributionOriginCustomOriginConfig(dict):
                  ip_address_type: Optional[_builtins.str] = None,
                  origin_keepalive_timeout: Optional[_builtins.int] = None,
                  origin_read_timeout: Optional[_builtins.int] = None):
-        """
-        :param _builtins.int http_port: HTTP port the custom origin listens on.
-        :param _builtins.int https_port: HTTPS port the custom origin listens on.
-        :param _builtins.str origin_protocol_policy: Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
-        :param Sequence[_builtins.str] origin_ssl_protocols: List of SSL/TLS protocols that CloudFront can use when connecting to your origin over HTTPS. Valid values: `SSLv3`, `TLSv1`, `TLSv1.1`, `TLSv1.2`. For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the Amazon CloudFront Developer Guide.
-        :param _builtins.str ip_address_type: IP protocol CloudFront uses when connecting to your origin. Valid values: `ipv4`, `ipv6`, `dualstack`.
-        """
         pulumi.set(__self__, "http_port", http_port)
         pulumi.set(__self__, "https_port", https_port)
         pulumi.set(__self__, "origin_protocol_policy", origin_protocol_policy)
@@ -2346,41 +1827,26 @@ class DistributionOriginCustomOriginConfig(dict):
     @_builtins.property
     @pulumi.getter(name="httpPort")
     def http_port(self) -> _builtins.int:
-        """
-        HTTP port the custom origin listens on.
-        """
         return pulumi.get(self, "http_port")
 
     @_builtins.property
     @pulumi.getter(name="httpsPort")
     def https_port(self) -> _builtins.int:
-        """
-        HTTPS port the custom origin listens on.
-        """
         return pulumi.get(self, "https_port")
 
     @_builtins.property
     @pulumi.getter(name="originProtocolPolicy")
     def origin_protocol_policy(self) -> _builtins.str:
-        """
-        Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
-        """
         return pulumi.get(self, "origin_protocol_policy")
 
     @_builtins.property
     @pulumi.getter(name="originSslProtocols")
     def origin_ssl_protocols(self) -> Sequence[_builtins.str]:
-        """
-        List of SSL/TLS protocols that CloudFront can use when connecting to your origin over HTTPS. Valid values: `SSLv3`, `TLSv1`, `TLSv1.1`, `TLSv1.2`. For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the Amazon CloudFront Developer Guide.
-        """
         return pulumi.get(self, "origin_ssl_protocols")
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[_builtins.str]:
-        """
-        IP protocol CloudFront uses when connecting to your origin. Valid values: `ipv4`, `ipv6`, `dualstack`.
-        """
         return pulumi.get(self, "ip_address_type")
 
     @_builtins.property
@@ -2419,10 +1885,6 @@ class DistributionOriginGroup(dict):
                  failover_criteria: 'outputs.DistributionOriginGroupFailoverCriteria',
                  members: Sequence['outputs.DistributionOriginGroupMember'],
                  origin_id: _builtins.str):
-        """
-        :param 'DistributionOriginGroupFailoverCriteriaArgs' failover_criteria: The failover criteria for when to failover to the secondary origin.
-        :param Sequence['DistributionOriginGroupMemberArgs'] members: Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. You must specify two members.
-        """
         pulumi.set(__self__, "failover_criteria", failover_criteria)
         pulumi.set(__self__, "members", members)
         pulumi.set(__self__, "origin_id", origin_id)
@@ -2430,17 +1892,11 @@ class DistributionOriginGroup(dict):
     @_builtins.property
     @pulumi.getter(name="failoverCriteria")
     def failover_criteria(self) -> 'outputs.DistributionOriginGroupFailoverCriteria':
-        """
-        The failover criteria for when to failover to the secondary origin.
-        """
         return pulumi.get(self, "failover_criteria")
 
     @_builtins.property
     @pulumi.getter
     def members(self) -> Sequence['outputs.DistributionOriginGroupMember']:
-        """
-        Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. You must specify two members.
-        """
         return pulumi.get(self, "members")
 
     @_builtins.property
@@ -2470,17 +1926,11 @@ class DistributionOriginGroupFailoverCriteria(dict):
 
     def __init__(__self__, *,
                  status_codes: Sequence[_builtins.int]):
-        """
-        :param Sequence[_builtins.int] status_codes: List of HTTP status codes for the origin group.
-        """
         pulumi.set(__self__, "status_codes", status_codes)
 
     @_builtins.property
     @pulumi.getter(name="statusCodes")
     def status_codes(self) -> Sequence[_builtins.int]:
-        """
-        List of HTTP status codes for the origin group.
-        """
         return pulumi.get(self, "status_codes")
 
 
@@ -2535,10 +1985,6 @@ class DistributionOriginOriginShield(dict):
     def __init__(__self__, *,
                  enabled: _builtins.bool,
                  origin_shield_region: Optional[_builtins.str] = None):
-        """
-        :param _builtins.bool enabled: Whether the distribution is enabled to accept end user requests for content.
-        :param _builtins.str origin_shield_region: AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as `us-east-2`.
-        """
         pulumi.set(__self__, "enabled", enabled)
         if origin_shield_region is not None:
             pulumi.set(__self__, "origin_shield_region", origin_shield_region)
@@ -2546,17 +1992,11 @@ class DistributionOriginOriginShield(dict):
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
-        """
-        Whether the distribution is enabled to accept end user requests for content.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter(name="originShieldRegion")
     def origin_shield_region(self) -> Optional[_builtins.str]:
-        """
-        AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as `us-east-2`.
-        """
         return pulumi.get(self, "origin_shield_region")
 
 
@@ -2581,17 +2021,11 @@ class DistributionOriginS3OriginConfig(dict):
 
     def __init__(__self__, *,
                  origin_access_identity: _builtins.str):
-        """
-        :param _builtins.str origin_access_identity: The CloudFront origin access identity to associate with the origin.
-        """
         pulumi.set(__self__, "origin_access_identity", origin_access_identity)
 
     @_builtins.property
     @pulumi.getter(name="originAccessIdentity")
     def origin_access_identity(self) -> _builtins.str:
-        """
-        The CloudFront origin access identity to associate with the origin.
-        """
         return pulumi.get(self, "origin_access_identity")
 
 
@@ -2625,10 +2059,6 @@ class DistributionOriginVpcOriginConfig(dict):
                  origin_keepalive_timeout: Optional[_builtins.int] = None,
                  origin_read_timeout: Optional[_builtins.int] = None,
                  owner_account_id: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str vpc_origin_id: The VPC origin ID.
-        :param _builtins.str owner_account_id: The AWS account ID that owns the VPC origin. Required when referencing a VPC origin from a different AWS account for cross-account VPC origin access.
-        """
         pulumi.set(__self__, "vpc_origin_id", vpc_origin_id)
         if origin_keepalive_timeout is not None:
             pulumi.set(__self__, "origin_keepalive_timeout", origin_keepalive_timeout)
@@ -2640,9 +2070,6 @@ class DistributionOriginVpcOriginConfig(dict):
     @_builtins.property
     @pulumi.getter(name="vpcOriginId")
     def vpc_origin_id(self) -> _builtins.str:
-        """
-        The VPC origin ID.
-        """
         return pulumi.get(self, "vpc_origin_id")
 
     @_builtins.property
@@ -2658,9 +2085,6 @@ class DistributionOriginVpcOriginConfig(dict):
     @_builtins.property
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> Optional[_builtins.str]:
-        """
-        The AWS account ID that owns the VPC origin. Required when referencing a VPC origin from a different AWS account for cross-account VPC origin access.
-        """
         return pulumi.get(self, "owner_account_id")
 
 
@@ -2715,10 +2139,6 @@ class DistributionRestrictionsGeoRestriction(dict):
     def __init__(__self__, *,
                  restriction_type: _builtins.str,
                  locations: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str restriction_type: Method that you want to use to restrict distribution of your content by country: `none`, `whitelist`, or `blacklist`.
-        :param Sequence[_builtins.str] locations: [ISO 3166-1-alpha-2 codes][4] for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
-        """
         pulumi.set(__self__, "restriction_type", restriction_type)
         if locations is not None:
             pulumi.set(__self__, "locations", locations)
@@ -2726,17 +2146,11 @@ class DistributionRestrictionsGeoRestriction(dict):
     @_builtins.property
     @pulumi.getter(name="restrictionType")
     def restriction_type(self) -> _builtins.str:
-        """
-        Method that you want to use to restrict distribution of your content by country: `none`, `whitelist`, or `blacklist`.
-        """
         return pulumi.get(self, "restriction_type")
 
     @_builtins.property
     @pulumi.getter
     def locations(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        [ISO 3166-1-alpha-2 codes][4] for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
-        """
         return pulumi.get(self, "locations")
 
 
@@ -2765,11 +2179,6 @@ class DistributionTenantCustomizations(dict):
                  certificate: Optional['outputs.DistributionTenantCustomizationsCertificate'] = None,
                  geo_restriction: Optional['outputs.DistributionTenantCustomizationsGeoRestriction'] = None,
                  web_acl: Optional['outputs.DistributionTenantCustomizationsWebAcl'] = None):
-        """
-        :param 'DistributionTenantCustomizationsCertificateArgs' certificate: Certificate configuration for the tenant (maximum one).
-        :param 'DistributionTenantCustomizationsGeoRestrictionArgs' geo_restriction: Geographic restrictions configuration for the tenant (maximum one).
-        :param 'DistributionTenantCustomizationsWebAclArgs' web_acl: Web ACL configuration for the tenant (maximum one).
-        """
         if certificate is not None:
             pulumi.set(__self__, "certificate", certificate)
         if geo_restriction is not None:
@@ -2780,25 +2189,16 @@ class DistributionTenantCustomizations(dict):
     @_builtins.property
     @pulumi.getter
     def certificate(self) -> Optional['outputs.DistributionTenantCustomizationsCertificate']:
-        """
-        Certificate configuration for the tenant (maximum one).
-        """
         return pulumi.get(self, "certificate")
 
     @_builtins.property
     @pulumi.getter(name="geoRestriction")
     def geo_restriction(self) -> Optional['outputs.DistributionTenantCustomizationsGeoRestriction']:
-        """
-        Geographic restrictions configuration for the tenant (maximum one).
-        """
         return pulumi.get(self, "geo_restriction")
 
     @_builtins.property
     @pulumi.getter(name="webAcl")
     def web_acl(self) -> Optional['outputs.DistributionTenantCustomizationsWebAcl']:
-        """
-        Web ACL configuration for the tenant (maximum one).
-        """
         return pulumi.get(self, "web_acl")
 
 
@@ -2806,18 +2206,12 @@ class DistributionTenantCustomizations(dict):
 class DistributionTenantCustomizationsCertificate(dict):
     def __init__(__self__, *,
                  arn: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str arn: ARN of the distribution tenant.
-        """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[_builtins.str]:
-        """
-        ARN of the distribution tenant.
-        """
         return pulumi.get(self, "arn")
 
 
@@ -2843,10 +2237,6 @@ class DistributionTenantCustomizationsGeoRestriction(dict):
     def __init__(__self__, *,
                  locations: Optional[Sequence[_builtins.str]] = None,
                  restriction_type: Optional[_builtins.str] = None):
-        """
-        :param Sequence[_builtins.str] locations: Set of ISO 3166-1-alpha-2 country codes for the restriction. Required if `restriction_type` is `whitelist` or `blacklist`.
-        :param _builtins.str restriction_type: Method to restrict distribution by country: `none`, `whitelist`, or `blacklist`.
-        """
         if locations is not None:
             pulumi.set(__self__, "locations", locations)
         if restriction_type is not None:
@@ -2855,17 +2245,11 @@ class DistributionTenantCustomizationsGeoRestriction(dict):
     @_builtins.property
     @pulumi.getter
     def locations(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Set of ISO 3166-1-alpha-2 country codes for the restriction. Required if `restriction_type` is `whitelist` or `blacklist`.
-        """
         return pulumi.get(self, "locations")
 
     @_builtins.property
     @pulumi.getter(name="restrictionType")
     def restriction_type(self) -> Optional[_builtins.str]:
-        """
-        Method to restrict distribution by country: `none`, `whitelist`, or `blacklist`.
-        """
         return pulumi.get(self, "restriction_type")
 
 
@@ -2874,10 +2258,6 @@ class DistributionTenantCustomizationsWebAcl(dict):
     def __init__(__self__, *,
                  action: Optional[_builtins.str] = None,
                  arn: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str action: Action to take for the web ACL. Valid values: `allow`, `block`.
-        :param _builtins.str arn: ARN of the distribution tenant.
-        """
         if action is not None:
             pulumi.set(__self__, "action", action)
         if arn is not None:
@@ -2886,17 +2266,11 @@ class DistributionTenantCustomizationsWebAcl(dict):
     @_builtins.property
     @pulumi.getter
     def action(self) -> Optional[_builtins.str]:
-        """
-        Action to take for the web ACL. Valid values: `allow`, `block`.
-        """
         return pulumi.get(self, "action")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[_builtins.str]:
-        """
-        ARN of the distribution tenant.
-        """
         return pulumi.get(self, "arn")
 
 
@@ -2905,10 +2279,6 @@ class DistributionTenantDomain(dict):
     def __init__(__self__, *,
                  domain: _builtins.str,
                  status: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str domain: Set of domains associated with the distribution tenant.
-        :param _builtins.str status: Current status of the distribution tenant.
-        """
         pulumi.set(__self__, "domain", domain)
         if status is not None:
             pulumi.set(__self__, "status", status)
@@ -2916,17 +2286,11 @@ class DistributionTenantDomain(dict):
     @_builtins.property
     @pulumi.getter
     def domain(self) -> _builtins.str:
-        """
-        Set of domains associated with the distribution tenant.
-        """
         return pulumi.get(self, "domain")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[_builtins.str]:
-        """
-        Current status of the distribution tenant.
-        """
         return pulumi.get(self, "status")
 
 
@@ -2957,11 +2321,6 @@ class DistributionTenantManagedCertificateRequest(dict):
                  certificate_transparency_logging_preference: Optional[_builtins.str] = None,
                  primary_domain_name: Optional[_builtins.str] = None,
                  validation_token_host: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str certificate_transparency_logging_preference: Certificate transparency logging preference. Valid values: `enabled`, `disabled`.
-        :param _builtins.str primary_domain_name: Primary domain name for the certificate.
-        :param _builtins.str validation_token_host: Host for validation token. Valid values: `cloudfront`, `domain`.
-        """
         if certificate_transparency_logging_preference is not None:
             pulumi.set(__self__, "certificate_transparency_logging_preference", certificate_transparency_logging_preference)
         if primary_domain_name is not None:
@@ -2972,25 +2331,16 @@ class DistributionTenantManagedCertificateRequest(dict):
     @_builtins.property
     @pulumi.getter(name="certificateTransparencyLoggingPreference")
     def certificate_transparency_logging_preference(self) -> Optional[_builtins.str]:
-        """
-        Certificate transparency logging preference. Valid values: `enabled`, `disabled`.
-        """
         return pulumi.get(self, "certificate_transparency_logging_preference")
 
     @_builtins.property
     @pulumi.getter(name="primaryDomainName")
     def primary_domain_name(self) -> Optional[_builtins.str]:
-        """
-        Primary domain name for the certificate.
-        """
         return pulumi.get(self, "primary_domain_name")
 
     @_builtins.property
     @pulumi.getter(name="validationTokenHost")
     def validation_token_host(self) -> Optional[_builtins.str]:
-        """
-        Host for validation token. Valid values: `cloudfront`, `domain`.
-        """
         return pulumi.get(self, "validation_token_host")
 
 
@@ -2999,27 +2349,17 @@ class DistributionTenantParameter(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  value: _builtins.str):
-        """
-        :param _builtins.str name: Name of the distribution tenant.
-        :param _builtins.str value: Value of the parameter.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the distribution tenant.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        Value of the parameter.
-        """
         return pulumi.get(self, "value")
 
 
@@ -3071,10 +2411,6 @@ class DistributionTrustedKeyGroup(dict):
     def __init__(__self__, *,
                  enabled: Optional[_builtins.bool] = None,
                  items: Optional[Sequence['outputs.DistributionTrustedKeyGroupItem']] = None):
-        """
-        :param _builtins.bool enabled: Whether the distribution is enabled to accept end user requests for content.
-        :param Sequence['DistributionTrustedKeyGroupItemArgs'] items: List of nested attributes for each trusted signer
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if items is not None:
@@ -3083,17 +2419,11 @@ class DistributionTrustedKeyGroup(dict):
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether the distribution is enabled to accept end user requests for content.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter
     def items(self) -> Optional[Sequence['outputs.DistributionTrustedKeyGroupItem']]:
-        """
-        List of nested attributes for each trusted signer
-        """
         return pulumi.get(self, "items")
 
 
@@ -3121,10 +2451,6 @@ class DistributionTrustedKeyGroupItem(dict):
     def __init__(__self__, *,
                  key_group_id: Optional[_builtins.str] = None,
                  key_pair_ids: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str key_group_id: ID of the key group that contains the public keys.
-        :param Sequence[_builtins.str] key_pair_ids: Set of active CloudFront key pairs associated with the signer account
-        """
         if key_group_id is not None:
             pulumi.set(__self__, "key_group_id", key_group_id)
         if key_pair_ids is not None:
@@ -3133,17 +2459,11 @@ class DistributionTrustedKeyGroupItem(dict):
     @_builtins.property
     @pulumi.getter(name="keyGroupId")
     def key_group_id(self) -> Optional[_builtins.str]:
-        """
-        ID of the key group that contains the public keys.
-        """
         return pulumi.get(self, "key_group_id")
 
     @_builtins.property
     @pulumi.getter(name="keyPairIds")
     def key_pair_ids(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Set of active CloudFront key pairs associated with the signer account
-        """
         return pulumi.get(self, "key_pair_ids")
 
 
@@ -3152,10 +2472,6 @@ class DistributionTrustedSigner(dict):
     def __init__(__self__, *,
                  enabled: Optional[_builtins.bool] = None,
                  items: Optional[Sequence['outputs.DistributionTrustedSignerItem']] = None):
-        """
-        :param _builtins.bool enabled: Whether the distribution is enabled to accept end user requests for content.
-        :param Sequence['DistributionTrustedSignerItemArgs'] items: List of nested attributes for each trusted signer
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if items is not None:
@@ -3164,17 +2480,11 @@ class DistributionTrustedSigner(dict):
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether the distribution is enabled to accept end user requests for content.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter
     def items(self) -> Optional[Sequence['outputs.DistributionTrustedSignerItem']]:
-        """
-        List of nested attributes for each trusted signer
-        """
         return pulumi.get(self, "items")
 
 
@@ -3202,10 +2512,6 @@ class DistributionTrustedSignerItem(dict):
     def __init__(__self__, *,
                  aws_account_number: Optional[_builtins.str] = None,
                  key_pair_ids: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str aws_account_number: AWS account ID or `self`
-        :param Sequence[_builtins.str] key_pair_ids: Set of active CloudFront key pairs associated with the signer account
-        """
         if aws_account_number is not None:
             pulumi.set(__self__, "aws_account_number", aws_account_number)
         if key_pair_ids is not None:
@@ -3214,17 +2520,11 @@ class DistributionTrustedSignerItem(dict):
     @_builtins.property
     @pulumi.getter(name="awsAccountNumber")
     def aws_account_number(self) -> Optional[_builtins.str]:
-        """
-        AWS account ID or `self`
-        """
         return pulumi.get(self, "aws_account_number")
 
     @_builtins.property
     @pulumi.getter(name="keyPairIds")
     def key_pair_ids(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Set of active CloudFront key pairs associated with the signer account
-        """
         return pulumi.get(self, "key_pair_ids")
 
 
@@ -3261,13 +2561,6 @@ class DistributionViewerCertificate(dict):
                  iam_certificate_id: Optional[_builtins.str] = None,
                  minimum_protocol_version: Optional[_builtins.str] = None,
                  ssl_support_method: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str acm_certificate_arn: ARN of the [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/) certificate that you wish to use with this distribution. Specify this, `cloudfront_default_certificate`, or `iam_certificate_id`.  The ACM certificate must be in  US-EAST-1.
-        :param _builtins.bool cloudfront_default_certificate: `true` if you want viewers to use HTTPS to request your objects and you're using the CloudFront domain name for your distribution. Specify this, `acm_certificate_arn`, or `iam_certificate_id`.
-        :param _builtins.str iam_certificate_id: IAM certificate identifier of the custom viewer certificate for this distribution if you are using a custom domain. Specify this, `acm_certificate_arn`, or `cloudfront_default_certificate`.
-        :param _builtins.str minimum_protocol_version: Minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. Can only be set if `cloudfront_default_certificate = false`. See all possible values in [this](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html) table under "Security policy." Some examples include: `TLSv1.2_2019` and `TLSv1.2_2021`. Default: `TLSv1`. **NOTE**: If you are using a custom certificate (specified with `acm_certificate_arn` or `iam_certificate_id`), and have specified `sni-only` in `ssl_support_method`, `TLSv1` or later must be specified. If you have specified `vip` in `ssl_support_method`, only `SSLv3` or `TLSv1` can be specified. If you have specified `cloudfront_default_certificate`, `TLSv1` must be specified.
-        :param _builtins.str ssl_support_method: How you want CloudFront to serve HTTPS requests. One of `vip`, `sni-only`, or `static-ip`. Required if you specify `acm_certificate_arn` or `iam_certificate_id`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
-        """
         if acm_certificate_arn is not None:
             pulumi.set(__self__, "acm_certificate_arn", acm_certificate_arn)
         if cloudfront_default_certificate is not None:
@@ -3282,41 +2575,26 @@ class DistributionViewerCertificate(dict):
     @_builtins.property
     @pulumi.getter(name="acmCertificateArn")
     def acm_certificate_arn(self) -> Optional[_builtins.str]:
-        """
-        ARN of the [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/) certificate that you wish to use with this distribution. Specify this, `cloudfront_default_certificate`, or `iam_certificate_id`.  The ACM certificate must be in  US-EAST-1.
-        """
         return pulumi.get(self, "acm_certificate_arn")
 
     @_builtins.property
     @pulumi.getter(name="cloudfrontDefaultCertificate")
     def cloudfront_default_certificate(self) -> Optional[_builtins.bool]:
-        """
-        `true` if you want viewers to use HTTPS to request your objects and you're using the CloudFront domain name for your distribution. Specify this, `acm_certificate_arn`, or `iam_certificate_id`.
-        """
         return pulumi.get(self, "cloudfront_default_certificate")
 
     @_builtins.property
     @pulumi.getter(name="iamCertificateId")
     def iam_certificate_id(self) -> Optional[_builtins.str]:
-        """
-        IAM certificate identifier of the custom viewer certificate for this distribution if you are using a custom domain. Specify this, `acm_certificate_arn`, or `cloudfront_default_certificate`.
-        """
         return pulumi.get(self, "iam_certificate_id")
 
     @_builtins.property
     @pulumi.getter(name="minimumProtocolVersion")
     def minimum_protocol_version(self) -> Optional[_builtins.str]:
-        """
-        Minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. Can only be set if `cloudfront_default_certificate = false`. See all possible values in [this](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html) table under "Security policy." Some examples include: `TLSv1.2_2019` and `TLSv1.2_2021`. Default: `TLSv1`. **NOTE**: If you are using a custom certificate (specified with `acm_certificate_arn` or `iam_certificate_id`), and have specified `sni-only` in `ssl_support_method`, `TLSv1` or later must be specified. If you have specified `vip` in `ssl_support_method`, only `SSLv3` or `TLSv1` can be specified. If you have specified `cloudfront_default_certificate`, `TLSv1` must be specified.
-        """
         return pulumi.get(self, "minimum_protocol_version")
 
     @_builtins.property
     @pulumi.getter(name="sslSupportMethod")
     def ssl_support_method(self) -> Optional[_builtins.str]:
-        """
-        How you want CloudFront to serve HTTPS requests. One of `vip`, `sni-only`, or `static-ip`. Required if you specify `acm_certificate_arn` or `iam_certificate_id`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
-        """
         return pulumi.get(self, "ssl_support_method")
 
 
@@ -3342,10 +2620,6 @@ class DistributionViewerMtlsConfig(dict):
     def __init__(__self__, *,
                  mode: Optional[_builtins.str] = None,
                  trust_store_config: Optional['outputs.DistributionViewerMtlsConfigTrustStoreConfig'] = None):
-        """
-        :param _builtins.str mode: The mode for viewer mTLS. Valid values: `required`, `optional`.
-        :param 'DistributionViewerMtlsConfigTrustStoreConfigArgs' trust_store_config: The trust store configuration for viewer mTLS (maximum one).
-        """
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
         if trust_store_config is not None:
@@ -3354,17 +2628,11 @@ class DistributionViewerMtlsConfig(dict):
     @_builtins.property
     @pulumi.getter
     def mode(self) -> Optional[_builtins.str]:
-        """
-        The mode for viewer mTLS. Valid values: `required`, `optional`.
-        """
         return pulumi.get(self, "mode")
 
     @_builtins.property
     @pulumi.getter(name="trustStoreConfig")
     def trust_store_config(self) -> Optional['outputs.DistributionViewerMtlsConfigTrustStoreConfig']:
-        """
-        The trust store configuration for viewer mTLS (maximum one).
-        """
         return pulumi.get(self, "trust_store_config")
 
 
@@ -3395,11 +2663,6 @@ class DistributionViewerMtlsConfigTrustStoreConfig(dict):
                  trust_store_id: _builtins.str,
                  advertise_trust_store_ca_names: Optional[_builtins.bool] = None,
                  ignore_certificate_expiry: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str trust_store_id: Identifier of the trust store to use for viewer mTLS.
-        :param _builtins.bool advertise_trust_store_ca_names: Whether to advertise the trust store CA names to clients. Defaults to `false`.
-        :param _builtins.bool ignore_certificate_expiry: Whether to ignore certificate expiry for viewer mTLS. Defaults to `false`.
-        """
         pulumi.set(__self__, "trust_store_id", trust_store_id)
         if advertise_trust_store_ca_names is not None:
             pulumi.set(__self__, "advertise_trust_store_ca_names", advertise_trust_store_ca_names)
@@ -3409,25 +2672,16 @@ class DistributionViewerMtlsConfigTrustStoreConfig(dict):
     @_builtins.property
     @pulumi.getter(name="trustStoreId")
     def trust_store_id(self) -> _builtins.str:
-        """
-        Identifier of the trust store to use for viewer mTLS.
-        """
         return pulumi.get(self, "trust_store_id")
 
     @_builtins.property
     @pulumi.getter(name="advertiseTrustStoreCaNames")
     def advertise_trust_store_ca_names(self) -> Optional[_builtins.bool]:
-        """
-        Whether to advertise the trust store CA names to clients. Defaults to `false`.
-        """
         return pulumi.get(self, "advertise_trust_store_ca_names")
 
     @_builtins.property
     @pulumi.getter(name="ignoreCertificateExpiry")
     def ignore_certificate_expiry(self) -> Optional[_builtins.bool]:
-        """
-        Whether to ignore certificate expiry for viewer mTLS. Defaults to `false`.
-        """
         return pulumi.get(self, "ignore_certificate_expiry")
 
 
@@ -3455,27 +2709,17 @@ class FieldLevelEncryptionConfigContentTypeProfileConfig(dict):
     def __init__(__self__, *,
                  content_type_profiles: 'outputs.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles',
                  forward_when_content_type_is_unknown: _builtins.bool):
-        """
-        :param 'FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs' content_type_profiles: Object that contains an attribute `items` that contains the list of configurations for a field-level encryption content type-profile. See Content Type Profile.
-        :param _builtins.bool forward_when_content_type_is_unknown: specifies what to do when an unknown content type is provided for the profile. If true, content is forwarded without being encrypted when the content type is unknown. If false (the default), an error is returned when the content type is unknown.
-        """
         pulumi.set(__self__, "content_type_profiles", content_type_profiles)
         pulumi.set(__self__, "forward_when_content_type_is_unknown", forward_when_content_type_is_unknown)
 
     @_builtins.property
     @pulumi.getter(name="contentTypeProfiles")
     def content_type_profiles(self) -> 'outputs.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles':
-        """
-        Object that contains an attribute `items` that contains the list of configurations for a field-level encryption content type-profile. See Content Type Profile.
-        """
         return pulumi.get(self, "content_type_profiles")
 
     @_builtins.property
     @pulumi.getter(name="forwardWhenContentTypeIsUnknown")
     def forward_when_content_type_is_unknown(self) -> _builtins.bool:
-        """
-        specifies what to do when an unknown content type is provided for the profile. If true, content is forwarded without being encrypted when the content type is unknown. If false (the default), an error is returned when the content type is unknown.
-        """
         return pulumi.get(self, "forward_when_content_type_is_unknown")
 
 
@@ -3516,10 +2760,6 @@ class FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem(
                  content_type: _builtins.str,
                  format: _builtins.str,
                  profile_id: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str content_type: he content type for a field-level encryption content type-profile mapping. Valid value is `application/x-www-form-urlencoded`.
-        :param _builtins.str format: The format for a field-level encryption content type-profile mapping. Valid value is `URLEncoded`.
-        """
         pulumi.set(__self__, "content_type", content_type)
         pulumi.set(__self__, "format", format)
         if profile_id is not None:
@@ -3528,17 +2768,11 @@ class FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem(
     @_builtins.property
     @pulumi.getter(name="contentType")
     def content_type(self) -> _builtins.str:
-        """
-        he content type for a field-level encryption content type-profile mapping. Valid value is `application/x-www-form-urlencoded`.
-        """
         return pulumi.get(self, "content_type")
 
     @_builtins.property
     @pulumi.getter
     def format(self) -> _builtins.str:
-        """
-        The format for a field-level encryption content type-profile mapping. Valid value is `URLEncoded`.
-        """
         return pulumi.get(self, "format")
 
     @_builtins.property
@@ -3571,10 +2805,6 @@ class FieldLevelEncryptionConfigQueryArgProfileConfig(dict):
     def __init__(__self__, *,
                  forward_when_query_arg_profile_is_unknown: _builtins.bool,
                  query_arg_profiles: Optional['outputs.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles'] = None):
-        """
-        :param _builtins.bool forward_when_query_arg_profile_is_unknown: Flag to set if you want a request to be forwarded to the origin even if the profile specified by the field-level encryption query argument, fle-profile, is unknown.
-        :param 'FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs' query_arg_profiles: Object that contains an attribute `items` that contains the list ofrofiles specified for query argument-profile mapping for field-level encryption. see Query Arg Profile.
-        """
         pulumi.set(__self__, "forward_when_query_arg_profile_is_unknown", forward_when_query_arg_profile_is_unknown)
         if query_arg_profiles is not None:
             pulumi.set(__self__, "query_arg_profiles", query_arg_profiles)
@@ -3582,17 +2812,11 @@ class FieldLevelEncryptionConfigQueryArgProfileConfig(dict):
     @_builtins.property
     @pulumi.getter(name="forwardWhenQueryArgProfileIsUnknown")
     def forward_when_query_arg_profile_is_unknown(self) -> _builtins.bool:
-        """
-        Flag to set if you want a request to be forwarded to the origin even if the profile specified by the field-level encryption query argument, fle-profile, is unknown.
-        """
         return pulumi.get(self, "forward_when_query_arg_profile_is_unknown")
 
     @_builtins.property
     @pulumi.getter(name="queryArgProfiles")
     def query_arg_profiles(self) -> Optional['outputs.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles']:
-        """
-        Object that contains an attribute `items` that contains the list ofrofiles specified for query argument-profile mapping for field-level encryption. see Query Arg Profile.
-        """
         return pulumi.get(self, "query_arg_profiles")
 
 
@@ -3633,9 +2857,6 @@ class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem(dict):
     def __init__(__self__, *,
                  profile_id: _builtins.str,
                  query_arg: _builtins.str):
-        """
-        :param _builtins.str query_arg: Query argument for field-level encryption query argument-profile mapping.
-        """
         pulumi.set(__self__, "profile_id", profile_id)
         pulumi.set(__self__, "query_arg", query_arg)
 
@@ -3647,9 +2868,6 @@ class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem(dict):
     @_builtins.property
     @pulumi.getter(name="queryArg")
     def query_arg(self) -> _builtins.str:
-        """
-        Query argument for field-level encryption query argument-profile mapping.
-        """
         return pulumi.get(self, "query_arg")
 
 
@@ -3693,11 +2911,6 @@ class FieldLevelEncryptionProfileEncryptionEntitiesItem(dict):
                  field_patterns: 'outputs.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns',
                  provider_id: _builtins.str,
                  public_key_id: _builtins.str):
-        """
-        :param 'FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs' field_patterns: Object that contains an attribute `items` that contains the list of field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted.
-        :param _builtins.str provider_id: The provider associated with the public key being used for encryption.
-        :param _builtins.str public_key_id: The public key associated with a set of field-level encryption patterns, to be used when encrypting the fields that match the patterns.
-        """
         pulumi.set(__self__, "field_patterns", field_patterns)
         pulumi.set(__self__, "provider_id", provider_id)
         pulumi.set(__self__, "public_key_id", public_key_id)
@@ -3705,25 +2918,16 @@ class FieldLevelEncryptionProfileEncryptionEntitiesItem(dict):
     @_builtins.property
     @pulumi.getter(name="fieldPatterns")
     def field_patterns(self) -> 'outputs.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns':
-        """
-        Object that contains an attribute `items` that contains the list of field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted.
-        """
         return pulumi.get(self, "field_patterns")
 
     @_builtins.property
     @pulumi.getter(name="providerId")
     def provider_id(self) -> _builtins.str:
-        """
-        The provider associated with the public key being used for encryption.
-        """
         return pulumi.get(self, "provider_id")
 
     @_builtins.property
     @pulumi.getter(name="publicKeyId")
     def public_key_id(self) -> _builtins.str:
-        """
-        The public key associated with a set of field-level encryption patterns, to be used when encrypting the fields that match the patterns.
-        """
         return pulumi.get(self, "public_key_id")
 
 
@@ -3765,8 +2969,8 @@ class KeyvaluestoreKeysExclusiveResourceKeyValuePair(dict):
                  key: _builtins.str,
                  value: _builtins.str):
         """
-        :param _builtins.str key: Key to put.
-        :param _builtins.str value: Value to put.
+        :param _builtins.str key: The key to put.
+        :param _builtins.str value: The value to put.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -3775,7 +2979,7 @@ class KeyvaluestoreKeysExclusiveResourceKeyValuePair(dict):
     @pulumi.getter
     def key(self) -> _builtins.str:
         """
-        Key to put.
+        The key to put.
         """
         return pulumi.get(self, "key")
 
@@ -3783,7 +2987,7 @@ class KeyvaluestoreKeysExclusiveResourceKeyValuePair(dict):
     @pulumi.getter
     def value(self) -> _builtins.str:
         """
-        Value to put.
+        The value to put.
         """
         return pulumi.get(self, "value")
 
@@ -3809,17 +3013,11 @@ class MonitoringSubscriptionMonitoringSubscription(dict):
 
     def __init__(__self__, *,
                  realtime_metrics_subscription_config: 'outputs.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig'):
-        """
-        :param 'MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs' realtime_metrics_subscription_config: A subscription configuration for additional CloudWatch metrics. See below.
-        """
         pulumi.set(__self__, "realtime_metrics_subscription_config", realtime_metrics_subscription_config)
 
     @_builtins.property
     @pulumi.getter(name="realtimeMetricsSubscriptionConfig")
     def realtime_metrics_subscription_config(self) -> 'outputs.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig':
-        """
-        A subscription configuration for additional CloudWatch metrics. See below.
-        """
         return pulumi.get(self, "realtime_metrics_subscription_config")
 
 
@@ -3844,17 +3042,11 @@ class MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionCon
 
     def __init__(__self__, *,
                  realtime_metrics_subscription_status: _builtins.str):
-        """
-        :param _builtins.str realtime_metrics_subscription_status: A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution. Valid values are `Enabled` and `Disabled`. See below.
-        """
         pulumi.set(__self__, "realtime_metrics_subscription_status", realtime_metrics_subscription_status)
 
     @_builtins.property
     @pulumi.getter(name="realtimeMetricsSubscriptionStatus")
     def realtime_metrics_subscription_status(self) -> _builtins.str:
-        """
-        A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution. Valid values are `Enabled` and `Disabled`. See below.
-        """
         return pulumi.get(self, "realtime_metrics_subscription_status")
 
 
@@ -3863,10 +3055,6 @@ class MultitenantDistributionActiveTrustedKeyGroup(dict):
     def __init__(__self__, *,
                  enabled: Optional[_builtins.bool] = None,
                  items: Optional[Sequence['outputs.MultitenantDistributionActiveTrustedKeyGroupItem']] = None):
-        """
-        :param _builtins.bool enabled: Whether any of the key groups have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies.
-        :param Sequence['MultitenantDistributionActiveTrustedKeyGroupItemArgs'] items: List of key groups. See Key Group Items below.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if items is not None:
@@ -3875,17 +3063,11 @@ class MultitenantDistributionActiveTrustedKeyGroup(dict):
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether any of the key groups have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter
     def items(self) -> Optional[Sequence['outputs.MultitenantDistributionActiveTrustedKeyGroupItem']]:
-        """
-        List of key groups. See Key Group Items below.
-        """
         return pulumi.get(self, "items")
 
 
@@ -3913,10 +3095,6 @@ class MultitenantDistributionActiveTrustedKeyGroupItem(dict):
     def __init__(__self__, *,
                  key_group_id: Optional[_builtins.str] = None,
                  key_pair_ids: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str key_group_id: ID of the key group that contains the public keys.
-        :param Sequence[_builtins.str] key_pair_ids: Set of active CloudFront key pairs associated with the signer that can be used to verify the signatures of signed URLs and signed cookies.
-        """
         if key_group_id is not None:
             pulumi.set(__self__, "key_group_id", key_group_id)
         if key_pair_ids is not None:
@@ -3925,17 +3103,11 @@ class MultitenantDistributionActiveTrustedKeyGroupItem(dict):
     @_builtins.property
     @pulumi.getter(name="keyGroupId")
     def key_group_id(self) -> Optional[_builtins.str]:
-        """
-        ID of the key group that contains the public keys.
-        """
         return pulumi.get(self, "key_group_id")
 
     @_builtins.property
     @pulumi.getter(name="keyPairIds")
     def key_pair_ids(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Set of active CloudFront key pairs associated with the signer that can be used to verify the signatures of signed URLs and signed cookies.
-        """
         return pulumi.get(self, "key_pair_ids")
 
 
@@ -3994,21 +3166,6 @@ class MultitenantDistributionCacheBehavior(dict):
                  realtime_log_config_arn: Optional[_builtins.str] = None,
                  response_headers_policy_id: Optional[_builtins.str] = None,
                  trusted_key_groups: Optional['outputs.MultitenantDistributionCacheBehaviorTrustedKeyGroups'] = None):
-        """
-        :param _builtins.str path_pattern: Pattern that specifies which requests you want this cache behavior to apply to.
-        :param _builtins.str target_origin_id: Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
-        :param _builtins.str viewer_protocol_policy: Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
-        :param 'MultitenantDistributionCacheBehaviorAllowedMethodsArgs' allowed_methods: Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
-        :param _builtins.str cache_policy_id: Unique identifier of the cache policy that is attached to the cache behavior.
-        :param _builtins.bool compress: Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header. Default: `false`.
-        :param _builtins.str field_level_encryption_id: Field level encryption configuration ID.
-        :param Sequence['MultitenantDistributionCacheBehaviorFunctionAssociationArgs'] function_associations: Configuration block for CloudFront Functions associations. See Function Association below.
-        :param Sequence['MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArgs'] lambda_function_associations: Configuration block for Lambda@Edge associations. See Lambda Function Association below.
-        :param _builtins.str origin_request_policy_id: Unique identifier of the origin request policy that is attached to the behavior.
-        :param _builtins.str realtime_log_config_arn: ARN of the real-time log configuration that is attached to this cache behavior.
-        :param _builtins.str response_headers_policy_id: Identifier for a response headers policy.
-        :param 'MultitenantDistributionCacheBehaviorTrustedKeyGroupsArgs' trusted_key_groups: List of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
-        """
         pulumi.set(__self__, "path_pattern", path_pattern)
         pulumi.set(__self__, "target_origin_id", target_origin_id)
         pulumi.set(__self__, "viewer_protocol_policy", viewer_protocol_policy)
@@ -4036,105 +3193,66 @@ class MultitenantDistributionCacheBehavior(dict):
     @_builtins.property
     @pulumi.getter(name="pathPattern")
     def path_pattern(self) -> _builtins.str:
-        """
-        Pattern that specifies which requests you want this cache behavior to apply to.
-        """
         return pulumi.get(self, "path_pattern")
 
     @_builtins.property
     @pulumi.getter(name="targetOriginId")
     def target_origin_id(self) -> _builtins.str:
-        """
-        Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
-        """
         return pulumi.get(self, "target_origin_id")
 
     @_builtins.property
     @pulumi.getter(name="viewerProtocolPolicy")
     def viewer_protocol_policy(self) -> _builtins.str:
-        """
-        Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
-        """
         return pulumi.get(self, "viewer_protocol_policy")
 
     @_builtins.property
     @pulumi.getter(name="allowedMethods")
     def allowed_methods(self) -> Optional['outputs.MultitenantDistributionCacheBehaviorAllowedMethods']:
-        """
-        Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
-        """
         return pulumi.get(self, "allowed_methods")
 
     @_builtins.property
     @pulumi.getter(name="cachePolicyId")
     def cache_policy_id(self) -> Optional[_builtins.str]:
-        """
-        Unique identifier of the cache policy that is attached to the cache behavior.
-        """
         return pulumi.get(self, "cache_policy_id")
 
     @_builtins.property
     @pulumi.getter
     def compress(self) -> Optional[_builtins.bool]:
-        """
-        Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header. Default: `false`.
-        """
         return pulumi.get(self, "compress")
 
     @_builtins.property
     @pulumi.getter(name="fieldLevelEncryptionId")
     def field_level_encryption_id(self) -> Optional[_builtins.str]:
-        """
-        Field level encryption configuration ID.
-        """
         return pulumi.get(self, "field_level_encryption_id")
 
     @_builtins.property
     @pulumi.getter(name="functionAssociations")
     def function_associations(self) -> Optional[Sequence['outputs.MultitenantDistributionCacheBehaviorFunctionAssociation']]:
-        """
-        Configuration block for CloudFront Functions associations. See Function Association below.
-        """
         return pulumi.get(self, "function_associations")
 
     @_builtins.property
     @pulumi.getter(name="lambdaFunctionAssociations")
     def lambda_function_associations(self) -> Optional[Sequence['outputs.MultitenantDistributionCacheBehaviorLambdaFunctionAssociation']]:
-        """
-        Configuration block for Lambda@Edge associations. See Lambda Function Association below.
-        """
         return pulumi.get(self, "lambda_function_associations")
 
     @_builtins.property
     @pulumi.getter(name="originRequestPolicyId")
     def origin_request_policy_id(self) -> Optional[_builtins.str]:
-        """
-        Unique identifier of the origin request policy that is attached to the behavior.
-        """
         return pulumi.get(self, "origin_request_policy_id")
 
     @_builtins.property
     @pulumi.getter(name="realtimeLogConfigArn")
     def realtime_log_config_arn(self) -> Optional[_builtins.str]:
-        """
-        ARN of the real-time log configuration that is attached to this cache behavior.
-        """
         return pulumi.get(self, "realtime_log_config_arn")
 
     @_builtins.property
     @pulumi.getter(name="responseHeadersPolicyId")
     def response_headers_policy_id(self) -> Optional[_builtins.str]:
-        """
-        Identifier for a response headers policy.
-        """
         return pulumi.get(self, "response_headers_policy_id")
 
     @_builtins.property
     @pulumi.getter(name="trustedKeyGroups")
     def trusted_key_groups(self) -> Optional['outputs.MultitenantDistributionCacheBehaviorTrustedKeyGroups']:
-        """
-        List of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
-        """
         return pulumi.get(self, "trusted_key_groups")
 
 
@@ -4160,18 +3278,12 @@ class MultitenantDistributionCacheBehaviorAllowedMethods(dict):
     def __init__(__self__, *,
                  cached_methods: Sequence[_builtins.str],
                  items: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] cached_methods: Controls whether CloudFront caches the response to requests using the specified HTTP methods.
-        """
         pulumi.set(__self__, "cached_methods", cached_methods)
         pulumi.set(__self__, "items", items)
 
     @_builtins.property
     @pulumi.getter(name="cachedMethods")
     def cached_methods(self) -> Sequence[_builtins.str]:
-        """
-        Controls whether CloudFront caches the response to requests using the specified HTTP methods.
-        """
         return pulumi.get(self, "cached_methods")
 
     @_builtins.property
@@ -4204,27 +3316,17 @@ class MultitenantDistributionCacheBehaviorFunctionAssociation(dict):
     def __init__(__self__, *,
                  event_type: _builtins.str,
                  function_arn: _builtins.str):
-        """
-        :param _builtins.str event_type: Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
-        :param _builtins.str function_arn: ARN of the CloudFront function.
-        """
         pulumi.set(__self__, "event_type", event_type)
         pulumi.set(__self__, "function_arn", function_arn)
 
     @_builtins.property
     @pulumi.getter(name="eventType")
     def event_type(self) -> _builtins.str:
-        """
-        Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
-        """
         return pulumi.get(self, "event_type")
 
     @_builtins.property
     @pulumi.getter(name="functionArn")
     def function_arn(self) -> _builtins.str:
-        """
-        ARN of the CloudFront function.
-        """
         return pulumi.get(self, "function_arn")
 
 
@@ -4255,11 +3357,6 @@ class MultitenantDistributionCacheBehaviorLambdaFunctionAssociation(dict):
                  event_type: _builtins.str,
                  lambda_function_arn: _builtins.str,
                  include_body: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str event_type: Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
-        :param _builtins.str lambda_function_arn: ARN of the Lambda function.
-        :param _builtins.bool include_body: When set to true, the request body is exposed to the Lambda function. Default: `false`.
-        """
         pulumi.set(__self__, "event_type", event_type)
         pulumi.set(__self__, "lambda_function_arn", lambda_function_arn)
         if include_body is not None:
@@ -4268,25 +3365,16 @@ class MultitenantDistributionCacheBehaviorLambdaFunctionAssociation(dict):
     @_builtins.property
     @pulumi.getter(name="eventType")
     def event_type(self) -> _builtins.str:
-        """
-        Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
-        """
         return pulumi.get(self, "event_type")
 
     @_builtins.property
     @pulumi.getter(name="lambdaFunctionArn")
     def lambda_function_arn(self) -> _builtins.str:
-        """
-        ARN of the Lambda function.
-        """
         return pulumi.get(self, "lambda_function_arn")
 
     @_builtins.property
     @pulumi.getter(name="includeBody")
     def include_body(self) -> Optional[_builtins.bool]:
-        """
-        When set to true, the request body is exposed to the Lambda function. Default: `false`.
-        """
         return pulumi.get(self, "include_body")
 
 
@@ -4295,9 +3383,6 @@ class MultitenantDistributionCacheBehaviorTrustedKeyGroups(dict):
     def __init__(__self__, *,
                  enabled: Optional[_builtins.bool] = None,
                  items: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.bool enabled: Whether the distribution is enabled to accept end user requests for content.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if items is not None:
@@ -4306,9 +3391,6 @@ class MultitenantDistributionCacheBehaviorTrustedKeyGroups(dict):
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether the distribution is enabled to accept end user requests for content.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
@@ -4347,12 +3429,6 @@ class MultitenantDistributionCustomErrorResponse(dict):
                  error_caching_min_ttl: Optional[_builtins.int] = None,
                  response_code: Optional[_builtins.str] = None,
                  response_page_path: Optional[_builtins.str] = None):
-        """
-        :param _builtins.int error_code: HTTP status code for which you want to specify a custom error page and/or a caching duration.
-        :param _builtins.int error_caching_min_ttl: Minimum amount of time that you want CloudFront to cache the HTTP status code specified in ErrorCode.
-        :param _builtins.str response_code: HTTP status code that you want CloudFront to return to the viewer along with the custom error page.
-        :param _builtins.str response_page_path: Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode.
-        """
         pulumi.set(__self__, "error_code", error_code)
         if error_caching_min_ttl is not None:
             pulumi.set(__self__, "error_caching_min_ttl", error_caching_min_ttl)
@@ -4364,33 +3440,21 @@ class MultitenantDistributionCustomErrorResponse(dict):
     @_builtins.property
     @pulumi.getter(name="errorCode")
     def error_code(self) -> _builtins.int:
-        """
-        HTTP status code for which you want to specify a custom error page and/or a caching duration.
-        """
         return pulumi.get(self, "error_code")
 
     @_builtins.property
     @pulumi.getter(name="errorCachingMinTtl")
     def error_caching_min_ttl(self) -> Optional[_builtins.int]:
-        """
-        Minimum amount of time that you want CloudFront to cache the HTTP status code specified in ErrorCode.
-        """
         return pulumi.get(self, "error_caching_min_ttl")
 
     @_builtins.property
     @pulumi.getter(name="responseCode")
     def response_code(self) -> Optional[_builtins.str]:
-        """
-        HTTP status code that you want CloudFront to return to the viewer along with the custom error page.
-        """
         return pulumi.get(self, "response_code")
 
     @_builtins.property
     @pulumi.getter(name="responsePagePath")
     def response_page_path(self) -> Optional[_builtins.str]:
-        """
-        Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode.
-        """
         return pulumi.get(self, "response_page_path")
 
 
@@ -4446,20 +3510,6 @@ class MultitenantDistributionDefaultCacheBehavior(dict):
                  realtime_log_config_arn: Optional[_builtins.str] = None,
                  response_headers_policy_id: Optional[_builtins.str] = None,
                  trusted_key_groups: Optional['outputs.MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroups'] = None):
-        """
-        :param _builtins.str target_origin_id: Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
-        :param _builtins.str viewer_protocol_policy: Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
-        :param 'MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs' allowed_methods: Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
-        :param _builtins.str cache_policy_id: Unique identifier of the cache policy that is attached to the cache behavior.
-        :param _builtins.bool compress: Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header. Default: `false`.
-        :param _builtins.str field_level_encryption_id: Field level encryption configuration ID.
-        :param Sequence['MultitenantDistributionDefaultCacheBehaviorFunctionAssociationArgs'] function_associations: Configuration block for CloudFront Functions associations. See Function Association below.
-        :param Sequence['MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs'] lambda_function_associations: Configuration block for Lambda@Edge associations. See Lambda Function Association below.
-        :param _builtins.str origin_request_policy_id: Unique identifier of the origin request policy that is attached to the behavior.
-        :param _builtins.str realtime_log_config_arn: ARN of the real-time log configuration that is attached to this cache behavior.
-        :param _builtins.str response_headers_policy_id: Identifier for a response headers policy.
-        :param 'MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsArgs' trusted_key_groups: List of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
-        """
         pulumi.set(__self__, "target_origin_id", target_origin_id)
         pulumi.set(__self__, "viewer_protocol_policy", viewer_protocol_policy)
         if allowed_methods is not None:
@@ -4486,97 +3536,61 @@ class MultitenantDistributionDefaultCacheBehavior(dict):
     @_builtins.property
     @pulumi.getter(name="targetOriginId")
     def target_origin_id(self) -> _builtins.str:
-        """
-        Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
-        """
         return pulumi.get(self, "target_origin_id")
 
     @_builtins.property
     @pulumi.getter(name="viewerProtocolPolicy")
     def viewer_protocol_policy(self) -> _builtins.str:
-        """
-        Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
-        """
         return pulumi.get(self, "viewer_protocol_policy")
 
     @_builtins.property
     @pulumi.getter(name="allowedMethods")
     def allowed_methods(self) -> Optional['outputs.MultitenantDistributionDefaultCacheBehaviorAllowedMethods']:
-        """
-        Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
-        """
         return pulumi.get(self, "allowed_methods")
 
     @_builtins.property
     @pulumi.getter(name="cachePolicyId")
     def cache_policy_id(self) -> Optional[_builtins.str]:
-        """
-        Unique identifier of the cache policy that is attached to the cache behavior.
-        """
         return pulumi.get(self, "cache_policy_id")
 
     @_builtins.property
     @pulumi.getter
     def compress(self) -> Optional[_builtins.bool]:
-        """
-        Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header. Default: `false`.
-        """
         return pulumi.get(self, "compress")
 
     @_builtins.property
     @pulumi.getter(name="fieldLevelEncryptionId")
     def field_level_encryption_id(self) -> Optional[_builtins.str]:
-        """
-        Field level encryption configuration ID.
-        """
         return pulumi.get(self, "field_level_encryption_id")
 
     @_builtins.property
     @pulumi.getter(name="functionAssociations")
     def function_associations(self) -> Optional[Sequence['outputs.MultitenantDistributionDefaultCacheBehaviorFunctionAssociation']]:
-        """
-        Configuration block for CloudFront Functions associations. See Function Association below.
-        """
         return pulumi.get(self, "function_associations")
 
     @_builtins.property
     @pulumi.getter(name="lambdaFunctionAssociations")
     def lambda_function_associations(self) -> Optional[Sequence['outputs.MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociation']]:
-        """
-        Configuration block for Lambda@Edge associations. See Lambda Function Association below.
-        """
         return pulumi.get(self, "lambda_function_associations")
 
     @_builtins.property
     @pulumi.getter(name="originRequestPolicyId")
     def origin_request_policy_id(self) -> Optional[_builtins.str]:
-        """
-        Unique identifier of the origin request policy that is attached to the behavior.
-        """
         return pulumi.get(self, "origin_request_policy_id")
 
     @_builtins.property
     @pulumi.getter(name="realtimeLogConfigArn")
     def realtime_log_config_arn(self) -> Optional[_builtins.str]:
-        """
-        ARN of the real-time log configuration that is attached to this cache behavior.
-        """
         return pulumi.get(self, "realtime_log_config_arn")
 
     @_builtins.property
     @pulumi.getter(name="responseHeadersPolicyId")
     def response_headers_policy_id(self) -> Optional[_builtins.str]:
-        """
-        Identifier for a response headers policy.
-        """
         return pulumi.get(self, "response_headers_policy_id")
 
     @_builtins.property
     @pulumi.getter(name="trustedKeyGroups")
     def trusted_key_groups(self) -> Optional['outputs.MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroups']:
-        """
-        List of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
-        """
         return pulumi.get(self, "trusted_key_groups")
 
 
@@ -4602,18 +3616,12 @@ class MultitenantDistributionDefaultCacheBehaviorAllowedMethods(dict):
     def __init__(__self__, *,
                  cached_methods: Sequence[_builtins.str],
                  items: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] cached_methods: Controls whether CloudFront caches the response to requests using the specified HTTP methods.
-        """
         pulumi.set(__self__, "cached_methods", cached_methods)
         pulumi.set(__self__, "items", items)
 
     @_builtins.property
     @pulumi.getter(name="cachedMethods")
     def cached_methods(self) -> Sequence[_builtins.str]:
-        """
-        Controls whether CloudFront caches the response to requests using the specified HTTP methods.
-        """
         return pulumi.get(self, "cached_methods")
 
     @_builtins.property
@@ -4646,27 +3654,17 @@ class MultitenantDistributionDefaultCacheBehaviorFunctionAssociation(dict):
     def __init__(__self__, *,
                  event_type: _builtins.str,
                  function_arn: _builtins.str):
-        """
-        :param _builtins.str event_type: Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
-        :param _builtins.str function_arn: ARN of the CloudFront function.
-        """
         pulumi.set(__self__, "event_type", event_type)
         pulumi.set(__self__, "function_arn", function_arn)
 
     @_builtins.property
     @pulumi.getter(name="eventType")
     def event_type(self) -> _builtins.str:
-        """
-        Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
-        """
         return pulumi.get(self, "event_type")
 
     @_builtins.property
     @pulumi.getter(name="functionArn")
     def function_arn(self) -> _builtins.str:
-        """
-        ARN of the CloudFront function.
-        """
         return pulumi.get(self, "function_arn")
 
 
@@ -4697,11 +3695,6 @@ class MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociation(dict)
                  event_type: _builtins.str,
                  lambda_function_arn: _builtins.str,
                  include_body: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str event_type: Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
-        :param _builtins.str lambda_function_arn: ARN of the Lambda function.
-        :param _builtins.bool include_body: When set to true, the request body is exposed to the Lambda function. Default: `false`.
-        """
         pulumi.set(__self__, "event_type", event_type)
         pulumi.set(__self__, "lambda_function_arn", lambda_function_arn)
         if include_body is not None:
@@ -4710,25 +3703,16 @@ class MultitenantDistributionDefaultCacheBehaviorLambdaFunctionAssociation(dict)
     @_builtins.property
     @pulumi.getter(name="eventType")
     def event_type(self) -> _builtins.str:
-        """
-        Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
-        """
         return pulumi.get(self, "event_type")
 
     @_builtins.property
     @pulumi.getter(name="lambdaFunctionArn")
     def lambda_function_arn(self) -> _builtins.str:
-        """
-        ARN of the Lambda function.
-        """
         return pulumi.get(self, "lambda_function_arn")
 
     @_builtins.property
     @pulumi.getter(name="includeBody")
     def include_body(self) -> Optional[_builtins.bool]:
-        """
-        When set to true, the request body is exposed to the Lambda function. Default: `false`.
-        """
         return pulumi.get(self, "include_body")
 
 
@@ -4737,9 +3721,6 @@ class MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroups(dict):
     def __init__(__self__, *,
                  enabled: Optional[_builtins.bool] = None,
                  items: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.bool enabled: Whether the distribution is enabled to accept end user requests for content.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if items is not None:
@@ -4748,9 +3729,6 @@ class MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroups(dict):
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether the distribution is enabled to accept end user requests for content.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
@@ -4808,19 +3786,6 @@ class MultitenantDistributionOrigin(dict):
                  origin_shields: Optional[Sequence['outputs.MultitenantDistributionOriginOriginShield']] = None,
                  response_completion_timeout: Optional[_builtins.int] = None,
                  vpc_origin_configs: Optional[Sequence['outputs.MultitenantDistributionOriginVpcOriginConfig']] = None):
-        """
-        :param _builtins.str domain_name: DNS domain name of either the S3 bucket, or web site of your custom origin.
-        :param _builtins.str id: Identifier for the distribution.
-        :param _builtins.int connection_attempts: Number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Default: 3.
-        :param _builtins.int connection_timeout: Number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Default: 10.
-        :param Sequence['MultitenantDistributionOriginCustomHeaderArgs'] custom_headers: One or more sub-resources with `name` and `value` parameters that specify header data that will be sent to the origin. See Custom Header below.
-        :param Sequence['MultitenantDistributionOriginCustomOriginConfigArgs'] custom_origin_configs: CloudFront origin access identity to associate with the origin. See Custom Origin Config below.
-        :param _builtins.str origin_access_control_id: CloudFront origin access control identifier to associate with the origin.
-        :param _builtins.str origin_path: Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
-        :param Sequence['MultitenantDistributionOriginOriginShieldArgs'] origin_shields: CloudFront Origin Shield configuration information. See Origin Shield below.
-        :param _builtins.int response_completion_timeout: Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Default: 30.
-        :param Sequence['MultitenantDistributionOriginVpcOriginConfigArgs'] vpc_origin_configs: CloudFront VPC origin configuration. See VPC Origin Config below.
-        """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "id", id)
         if connection_attempts is not None:
@@ -4845,89 +3810,56 @@ class MultitenantDistributionOrigin(dict):
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> _builtins.str:
-        """
-        DNS domain name of either the S3 bucket, or web site of your custom origin.
-        """
         return pulumi.get(self, "domain_name")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        Identifier for the distribution.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="connectionAttempts")
     def connection_attempts(self) -> Optional[_builtins.int]:
-        """
-        Number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Default: 3.
-        """
         return pulumi.get(self, "connection_attempts")
 
     @_builtins.property
     @pulumi.getter(name="connectionTimeout")
     def connection_timeout(self) -> Optional[_builtins.int]:
-        """
-        Number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Default: 10.
-        """
         return pulumi.get(self, "connection_timeout")
 
     @_builtins.property
     @pulumi.getter(name="customHeaders")
     def custom_headers(self) -> Optional[Sequence['outputs.MultitenantDistributionOriginCustomHeader']]:
-        """
-        One or more sub-resources with `name` and `value` parameters that specify header data that will be sent to the origin. See Custom Header below.
-        """
         return pulumi.get(self, "custom_headers")
 
     @_builtins.property
     @pulumi.getter(name="customOriginConfigs")
     def custom_origin_configs(self) -> Optional[Sequence['outputs.MultitenantDistributionOriginCustomOriginConfig']]:
-        """
-        CloudFront origin access identity to associate with the origin. See Custom Origin Config below.
-        """
         return pulumi.get(self, "custom_origin_configs")
 
     @_builtins.property
     @pulumi.getter(name="originAccessControlId")
     def origin_access_control_id(self) -> Optional[_builtins.str]:
-        """
-        CloudFront origin access control identifier to associate with the origin.
-        """
         return pulumi.get(self, "origin_access_control_id")
 
     @_builtins.property
     @pulumi.getter(name="originPath")
     def origin_path(self) -> Optional[_builtins.str]:
-        """
-        Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
-        """
         return pulumi.get(self, "origin_path")
 
     @_builtins.property
     @pulumi.getter(name="originShields")
     def origin_shields(self) -> Optional[Sequence['outputs.MultitenantDistributionOriginOriginShield']]:
-        """
-        CloudFront Origin Shield configuration information. See Origin Shield below.
-        """
         return pulumi.get(self, "origin_shields")
 
     @_builtins.property
     @pulumi.getter(name="responseCompletionTimeout")
     def response_completion_timeout(self) -> Optional[_builtins.int]:
-        """
-        Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Default: 30.
-        """
         return pulumi.get(self, "response_completion_timeout")
 
     @_builtins.property
     @pulumi.getter(name="vpcOriginConfigs")
     def vpc_origin_configs(self) -> Optional[Sequence['outputs.MultitenantDistributionOriginVpcOriginConfig']]:
-        """
-        CloudFront VPC origin configuration. See VPC Origin Config below.
-        """
         return pulumi.get(self, "vpc_origin_configs")
 
 
@@ -4955,27 +3887,17 @@ class MultitenantDistributionOriginCustomHeader(dict):
     def __init__(__self__, *,
                  header_name: _builtins.str,
                  header_value: _builtins.str):
-        """
-        :param _builtins.str header_name: Name of the header.
-        :param _builtins.str header_value: Value for the header.
-        """
         pulumi.set(__self__, "header_name", header_name)
         pulumi.set(__self__, "header_value", header_value)
 
     @_builtins.property
     @pulumi.getter(name="headerName")
     def header_name(self) -> _builtins.str:
-        """
-        Name of the header.
-        """
         return pulumi.get(self, "header_name")
 
     @_builtins.property
     @pulumi.getter(name="headerValue")
     def header_value(self) -> _builtins.str:
-        """
-        Value for the header.
-        """
         return pulumi.get(self, "header_value")
 
 
@@ -5018,15 +3940,6 @@ class MultitenantDistributionOriginCustomOriginConfig(dict):
                  ip_address_type: Optional[_builtins.str] = None,
                  origin_keepalive_timeout: Optional[_builtins.int] = None,
                  origin_read_timeout: Optional[_builtins.int] = None):
-        """
-        :param _builtins.int http_port: HTTP port the custom origin listens on.
-        :param _builtins.int https_port: HTTPS port the custom origin listens on.
-        :param _builtins.str origin_protocol_policy: Origin protocol policy to apply to your origin. Valid values are `http-only`, `https-only`, and `match-viewer`.
-        :param Sequence[_builtins.str] origin_ssl_protocols: List of SSL/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS.
-        :param _builtins.str ip_address_type: Type of IP addresses used by your origins. Valid values are `ipv4` and `dualstack`.
-        :param _builtins.int origin_keepalive_timeout: Custom keep-alive timeout, in seconds. Default: 5.
-        :param _builtins.int origin_read_timeout: Custom read timeout, in seconds. Default: 30.
-        """
         pulumi.set(__self__, "http_port", http_port)
         pulumi.set(__self__, "https_port", https_port)
         pulumi.set(__self__, "origin_protocol_policy", origin_protocol_policy)
@@ -5041,57 +3954,36 @@ class MultitenantDistributionOriginCustomOriginConfig(dict):
     @_builtins.property
     @pulumi.getter(name="httpPort")
     def http_port(self) -> _builtins.int:
-        """
-        HTTP port the custom origin listens on.
-        """
         return pulumi.get(self, "http_port")
 
     @_builtins.property
     @pulumi.getter(name="httpsPort")
     def https_port(self) -> _builtins.int:
-        """
-        HTTPS port the custom origin listens on.
-        """
         return pulumi.get(self, "https_port")
 
     @_builtins.property
     @pulumi.getter(name="originProtocolPolicy")
     def origin_protocol_policy(self) -> _builtins.str:
-        """
-        Origin protocol policy to apply to your origin. Valid values are `http-only`, `https-only`, and `match-viewer`.
-        """
         return pulumi.get(self, "origin_protocol_policy")
 
     @_builtins.property
     @pulumi.getter(name="originSslProtocols")
     def origin_ssl_protocols(self) -> Sequence[_builtins.str]:
-        """
-        List of SSL/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS.
-        """
         return pulumi.get(self, "origin_ssl_protocols")
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[_builtins.str]:
-        """
-        Type of IP addresses used by your origins. Valid values are `ipv4` and `dualstack`.
-        """
         return pulumi.get(self, "ip_address_type")
 
     @_builtins.property
     @pulumi.getter(name="originKeepaliveTimeout")
     def origin_keepalive_timeout(self) -> Optional[_builtins.int]:
-        """
-        Custom keep-alive timeout, in seconds. Default: 5.
-        """
         return pulumi.get(self, "origin_keepalive_timeout")
 
     @_builtins.property
     @pulumi.getter(name="originReadTimeout")
     def origin_read_timeout(self) -> Optional[_builtins.int]:
-        """
-        Custom read timeout, in seconds. Default: 30.
-        """
         return pulumi.get(self, "origin_read_timeout")
 
 
@@ -5120,11 +4012,6 @@ class MultitenantDistributionOriginGroup(dict):
                  origin_id: _builtins.str,
                  failover_criteria: Optional['outputs.MultitenantDistributionOriginGroupFailoverCriteria'] = None,
                  members: Optional[Sequence['outputs.MultitenantDistributionOriginGroupMember']] = None):
-        """
-        :param _builtins.str origin_id: Unique identifier for the origin group.
-        :param 'MultitenantDistributionOriginGroupFailoverCriteriaArgs' failover_criteria: Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
-        :param Sequence['MultitenantDistributionOriginGroupMemberArgs'] members: List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
-        """
         pulumi.set(__self__, "origin_id", origin_id)
         if failover_criteria is not None:
             pulumi.set(__self__, "failover_criteria", failover_criteria)
@@ -5134,25 +4021,16 @@ class MultitenantDistributionOriginGroup(dict):
     @_builtins.property
     @pulumi.getter(name="originId")
     def origin_id(self) -> _builtins.str:
-        """
-        Unique identifier for the origin group.
-        """
         return pulumi.get(self, "origin_id")
 
     @_builtins.property
     @pulumi.getter(name="failoverCriteria")
     def failover_criteria(self) -> Optional['outputs.MultitenantDistributionOriginGroupFailoverCriteria']:
-        """
-        Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
-        """
         return pulumi.get(self, "failover_criteria")
 
     @_builtins.property
     @pulumi.getter
     def members(self) -> Optional[Sequence['outputs.MultitenantDistributionOriginGroupMember']]:
-        """
-        List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
-        """
         return pulumi.get(self, "members")
 
 
@@ -5177,17 +4055,11 @@ class MultitenantDistributionOriginGroupFailoverCriteria(dict):
 
     def __init__(__self__, *,
                  status_codes: Sequence[_builtins.int]):
-        """
-        :param Sequence[_builtins.int] status_codes: List of HTTP status codes that trigger a failover to the secondary origin.
-        """
         pulumi.set(__self__, "status_codes", status_codes)
 
     @_builtins.property
     @pulumi.getter(name="statusCodes")
     def status_codes(self) -> Sequence[_builtins.int]:
-        """
-        List of HTTP status codes that trigger a failover to the secondary origin.
-        """
         return pulumi.get(self, "status_codes")
 
 
@@ -5242,10 +4114,6 @@ class MultitenantDistributionOriginOriginShield(dict):
     def __init__(__self__, *,
                  enabled: _builtins.bool,
                  origin_shield_region: Optional[_builtins.str] = None):
-        """
-        :param _builtins.bool enabled: Whether Origin Shield is enabled.
-        :param _builtins.str origin_shield_region: AWS Region for Origin Shield. Required when `enabled` is `true`.
-        """
         pulumi.set(__self__, "enabled", enabled)
         if origin_shield_region is not None:
             pulumi.set(__self__, "origin_shield_region", origin_shield_region)
@@ -5253,17 +4121,11 @@ class MultitenantDistributionOriginOriginShield(dict):
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
-        """
-        Whether Origin Shield is enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter(name="originShieldRegion")
     def origin_shield_region(self) -> Optional[_builtins.str]:
-        """
-        AWS Region for Origin Shield. Required when `enabled` is `true`.
-        """
         return pulumi.get(self, "origin_shield_region")
 
 
@@ -5294,11 +4156,6 @@ class MultitenantDistributionOriginVpcOriginConfig(dict):
                  vpc_origin_id: _builtins.str,
                  origin_keepalive_timeout: Optional[_builtins.int] = None,
                  origin_read_timeout: Optional[_builtins.int] = None):
-        """
-        :param _builtins.str vpc_origin_id: ID of the VPC origin that you want CloudFront to route requests to.
-        :param _builtins.int origin_keepalive_timeout: Custom keep-alive timeout, in seconds. By default, CloudFront uses a default timeout. Default: 5.
-        :param _builtins.int origin_read_timeout: Custom read timeout, in seconds. By default, CloudFront uses a default timeout. Default: 30.
-        """
         pulumi.set(__self__, "vpc_origin_id", vpc_origin_id)
         if origin_keepalive_timeout is not None:
             pulumi.set(__self__, "origin_keepalive_timeout", origin_keepalive_timeout)
@@ -5308,25 +4165,16 @@ class MultitenantDistributionOriginVpcOriginConfig(dict):
     @_builtins.property
     @pulumi.getter(name="vpcOriginId")
     def vpc_origin_id(self) -> _builtins.str:
-        """
-        ID of the VPC origin that you want CloudFront to route requests to.
-        """
         return pulumi.get(self, "vpc_origin_id")
 
     @_builtins.property
     @pulumi.getter(name="originKeepaliveTimeout")
     def origin_keepalive_timeout(self) -> Optional[_builtins.int]:
-        """
-        Custom keep-alive timeout, in seconds. By default, CloudFront uses a default timeout. Default: 5.
-        """
         return pulumi.get(self, "origin_keepalive_timeout")
 
     @_builtins.property
     @pulumi.getter(name="originReadTimeout")
     def origin_read_timeout(self) -> Optional[_builtins.int]:
-        """
-        Custom read timeout, in seconds. By default, CloudFront uses a default timeout. Default: 30.
-        """
         return pulumi.get(self, "origin_read_timeout")
 
 
@@ -5351,18 +4199,12 @@ class MultitenantDistributionRestrictions(dict):
 
     def __init__(__self__, *,
                  geo_restriction: Optional['outputs.MultitenantDistributionRestrictionsGeoRestriction'] = None):
-        """
-        :param 'MultitenantDistributionRestrictionsGeoRestrictionArgs' geo_restriction: Geographic restriction configuration. See Geo Restriction below.
-        """
         if geo_restriction is not None:
             pulumi.set(__self__, "geo_restriction", geo_restriction)
 
     @_builtins.property
     @pulumi.getter(name="geoRestriction")
     def geo_restriction(self) -> Optional['outputs.MultitenantDistributionRestrictionsGeoRestriction']:
-        """
-        Geographic restriction configuration. See Geo Restriction below.
-        """
         return pulumi.get(self, "geo_restriction")
 
 
@@ -5388,10 +4230,6 @@ class MultitenantDistributionRestrictionsGeoRestriction(dict):
     def __init__(__self__, *,
                  restriction_type: _builtins.str,
                  items: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str restriction_type: Method to restrict distribution of your content by country. Valid values are `none`, `whitelist`, and `blacklist`.
-        :param Sequence[_builtins.str] items: List of ISO 3166-1-alpha-2 country codes for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). Required when `restriction_type` is `whitelist` or `blacklist`.
-        """
         pulumi.set(__self__, "restriction_type", restriction_type)
         if items is not None:
             pulumi.set(__self__, "items", items)
@@ -5399,17 +4237,11 @@ class MultitenantDistributionRestrictionsGeoRestriction(dict):
     @_builtins.property
     @pulumi.getter(name="restrictionType")
     def restriction_type(self) -> _builtins.str:
-        """
-        Method to restrict distribution of your content by country. Valid values are `none`, `whitelist`, and `blacklist`.
-        """
         return pulumi.get(self, "restriction_type")
 
     @_builtins.property
     @pulumi.getter
     def items(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of ISO 3166-1-alpha-2 country codes for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). Required when `restriction_type` is `whitelist` or `blacklist`.
-        """
         return pulumi.get(self, "items")
 
 
@@ -5434,18 +4266,12 @@ class MultitenantDistributionTenantConfig(dict):
 
     def __init__(__self__, *,
                  parameter_definitions: Optional[Sequence['outputs.MultitenantDistributionTenantConfigParameterDefinition']] = None):
-        """
-        :param Sequence['MultitenantDistributionTenantConfigParameterDefinitionArgs'] parameter_definitions: One or more parameter definitions for the tenant configuration. See Parameter Definition below.
-        """
         if parameter_definitions is not None:
             pulumi.set(__self__, "parameter_definitions", parameter_definitions)
 
     @_builtins.property
     @pulumi.getter(name="parameterDefinitions")
     def parameter_definitions(self) -> Optional[Sequence['outputs.MultitenantDistributionTenantConfigParameterDefinition']]:
-        """
-        One or more parameter definitions for the tenant configuration. See Parameter Definition below.
-        """
         return pulumi.get(self, "parameter_definitions")
 
 
@@ -5454,10 +4280,6 @@ class MultitenantDistributionTenantConfigParameterDefinition(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  definitions: Optional[Sequence['outputs.MultitenantDistributionTenantConfigParameterDefinitionDefinition']] = None):
-        """
-        :param _builtins.str name: Name of the parameter.
-        :param Sequence['MultitenantDistributionTenantConfigParameterDefinitionDefinitionArgs'] definitions: Definition of the parameter schema. See Parameter Definition Schema below.
-        """
         pulumi.set(__self__, "name", name)
         if definitions is not None:
             pulumi.set(__self__, "definitions", definitions)
@@ -5465,17 +4287,11 @@ class MultitenantDistributionTenantConfigParameterDefinition(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the parameter.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def definitions(self) -> Optional[Sequence['outputs.MultitenantDistributionTenantConfigParameterDefinitionDefinition']]:
-        """
-        Definition of the parameter schema. See Parameter Definition Schema below.
-        """
         return pulumi.get(self, "definitions")
 
 
@@ -5500,18 +4316,12 @@ class MultitenantDistributionTenantConfigParameterDefinitionDefinition(dict):
 
     def __init__(__self__, *,
                  string_schemas: Optional[Sequence['outputs.MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchema']] = None):
-        """
-        :param Sequence['MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArgs'] string_schemas: String schema configuration. See String Schema below.
-        """
         if string_schemas is not None:
             pulumi.set(__self__, "string_schemas", string_schemas)
 
     @_builtins.property
     @pulumi.getter(name="stringSchemas")
     def string_schemas(self) -> Optional[Sequence['outputs.MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchema']]:
-        """
-        String schema configuration. See String Schema below.
-        """
         return pulumi.get(self, "string_schemas")
 
 
@@ -5538,11 +4348,6 @@ class MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSche
                  required: _builtins.bool,
                  comment: Optional[_builtins.str] = None,
                  default_value: Optional[_builtins.str] = None):
-        """
-        :param _builtins.bool required: Whether the parameter is required.
-        :param _builtins.str comment: Comment describing the parameter.
-        :param _builtins.str default_value: Default value for the parameter.
-        """
         pulumi.set(__self__, "required", required)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
@@ -5552,25 +4357,16 @@ class MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSche
     @_builtins.property
     @pulumi.getter
     def required(self) -> _builtins.bool:
-        """
-        Whether the parameter is required.
-        """
         return pulumi.get(self, "required")
 
     @_builtins.property
     @pulumi.getter
     def comment(self) -> Optional[_builtins.str]:
-        """
-        Comment describing the parameter.
-        """
         return pulumi.get(self, "comment")
 
     @_builtins.property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> Optional[_builtins.str]:
-        """
-        Default value for the parameter.
-        """
         return pulumi.get(self, "default_value")
 
 
@@ -5647,12 +4443,6 @@ class MultitenantDistributionViewerCertificate(dict):
                  cloudfront_default_certificate: Optional[_builtins.bool] = None,
                  minimum_protocol_version: Optional[_builtins.str] = None,
                  ssl_support_method: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str acm_certificate_arn: ARN of the AWS Certificate Manager certificate that you wish to use with this distribution. Required when using a custom SSL certificate.
-        :param _builtins.bool cloudfront_default_certificate: Whether to use the CloudFront default certificate. Cannot be used with `acm_certificate_arn`.
-        :param _builtins.str minimum_protocol_version: Minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. Default: `TLSv1`.
-        :param _builtins.str ssl_support_method: How you want CloudFront to serve HTTPS requests. Valid values are `sni-only` and `vip`. Required when `acm_certificate_arn` is specified.
-        """
         if acm_certificate_arn is not None:
             pulumi.set(__self__, "acm_certificate_arn", acm_certificate_arn)
         if cloudfront_default_certificate is not None:
@@ -5665,33 +4455,21 @@ class MultitenantDistributionViewerCertificate(dict):
     @_builtins.property
     @pulumi.getter(name="acmCertificateArn")
     def acm_certificate_arn(self) -> Optional[_builtins.str]:
-        """
-        ARN of the AWS Certificate Manager certificate that you wish to use with this distribution. Required when using a custom SSL certificate.
-        """
         return pulumi.get(self, "acm_certificate_arn")
 
     @_builtins.property
     @pulumi.getter(name="cloudfrontDefaultCertificate")
     def cloudfront_default_certificate(self) -> Optional[_builtins.bool]:
-        """
-        Whether to use the CloudFront default certificate. Cannot be used with `acm_certificate_arn`.
-        """
         return pulumi.get(self, "cloudfront_default_certificate")
 
     @_builtins.property
     @pulumi.getter(name="minimumProtocolVersion")
     def minimum_protocol_version(self) -> Optional[_builtins.str]:
-        """
-        Minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. Default: `TLSv1`.
-        """
         return pulumi.get(self, "minimum_protocol_version")
 
     @_builtins.property
     @pulumi.getter(name="sslSupportMethod")
     def ssl_support_method(self) -> Optional[_builtins.str]:
-        """
-        How you want CloudFront to serve HTTPS requests. Valid values are `sni-only` and `vip`. Required when `acm_certificate_arn` is specified.
-        """
         return pulumi.get(self, "ssl_support_method")
 
 
@@ -5872,27 +4650,17 @@ class RealtimeLogConfigEndpoint(dict):
     def __init__(__self__, *,
                  kinesis_stream_config: 'outputs.RealtimeLogConfigEndpointKinesisStreamConfig',
                  stream_type: _builtins.str):
-        """
-        :param 'RealtimeLogConfigEndpointKinesisStreamConfigArgs' kinesis_stream_config: The Amazon Kinesis data stream configuration.
-        :param _builtins.str stream_type: The type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
-        """
         pulumi.set(__self__, "kinesis_stream_config", kinesis_stream_config)
         pulumi.set(__self__, "stream_type", stream_type)
 
     @_builtins.property
     @pulumi.getter(name="kinesisStreamConfig")
     def kinesis_stream_config(self) -> 'outputs.RealtimeLogConfigEndpointKinesisStreamConfig':
-        """
-        The Amazon Kinesis data stream configuration.
-        """
         return pulumi.get(self, "kinesis_stream_config")
 
     @_builtins.property
     @pulumi.getter(name="streamType")
     def stream_type(self) -> _builtins.str:
-        """
-        The type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
-        """
         return pulumi.get(self, "stream_type")
 
 
@@ -5920,29 +4688,17 @@ class RealtimeLogConfigEndpointKinesisStreamConfig(dict):
     def __init__(__self__, *,
                  role_arn: _builtins.str,
                  stream_arn: _builtins.str):
-        """
-        :param _builtins.str role_arn: The ARN of an IAM role that CloudFront can use to send real-time log data to the Kinesis data stream.
-               See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) for more information.
-        :param _builtins.str stream_arn: The ARN of the Kinesis data stream.
-        """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "stream_arn", stream_arn)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
-        """
-        The ARN of an IAM role that CloudFront can use to send real-time log data to the Kinesis data stream.
-        See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) for more information.
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> _builtins.str:
-        """
-        The ARN of the Kinesis data stream.
-        """
         return pulumi.get(self, "stream_arn")
 
 
@@ -5985,15 +4741,6 @@ class ResponseHeadersPolicyCorsConfig(dict):
                  origin_override: _builtins.bool,
                  access_control_expose_headers: Optional['outputs.ResponseHeadersPolicyCorsConfigAccessControlExposeHeaders'] = None,
                  access_control_max_age_sec: Optional[_builtins.int] = None):
-        """
-        :param _builtins.bool access_control_allow_credentials: A Boolean value that CloudFront uses as the value for the `Access-Control-Allow-Credentials` HTTP response header.
-        :param 'ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs' access_control_allow_headers: Object that contains an attribute `items` that contains a list of HTTP header names that CloudFront includes as values for the `Access-Control-Allow-Headers` HTTP response header.
-        :param 'ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsArgs' access_control_allow_methods: Object that contains an attribute `items` that contains a list of HTTP methods that CloudFront includes as values for the `Access-Control-Allow-Methods` HTTP response header. Valid values: `GET` | `POST` | `OPTIONS` | `PUT` | `DELETE` | `HEAD` | `ALL`
-        :param 'ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgs' access_control_allow_origins: Object that contains an attribute `items` that contains a list of origins that CloudFront can use as the value for the `Access-Control-Allow-Origin` HTTP response header.
-        :param _builtins.bool origin_override: A Boolean value that determines how CloudFront behaves for the HTTP response header.
-        :param 'ResponseHeadersPolicyCorsConfigAccessControlExposeHeadersArgs' access_control_expose_headers: Object that contains an attribute `items` that contains a list of HTTP headers that CloudFront includes as values for the `Access-Control-Expose-Headers` HTTP response header.
-        :param _builtins.int access_control_max_age_sec: A number that CloudFront uses as the value for the `Access-Control-Max-Age` HTTP response header.
-        """
         pulumi.set(__self__, "access_control_allow_credentials", access_control_allow_credentials)
         pulumi.set(__self__, "access_control_allow_headers", access_control_allow_headers)
         pulumi.set(__self__, "access_control_allow_methods", access_control_allow_methods)
@@ -6007,57 +4754,36 @@ class ResponseHeadersPolicyCorsConfig(dict):
     @_builtins.property
     @pulumi.getter(name="accessControlAllowCredentials")
     def access_control_allow_credentials(self) -> _builtins.bool:
-        """
-        A Boolean value that CloudFront uses as the value for the `Access-Control-Allow-Credentials` HTTP response header.
-        """
         return pulumi.get(self, "access_control_allow_credentials")
 
     @_builtins.property
     @pulumi.getter(name="accessControlAllowHeaders")
     def access_control_allow_headers(self) -> 'outputs.ResponseHeadersPolicyCorsConfigAccessControlAllowHeaders':
-        """
-        Object that contains an attribute `items` that contains a list of HTTP header names that CloudFront includes as values for the `Access-Control-Allow-Headers` HTTP response header.
-        """
         return pulumi.get(self, "access_control_allow_headers")
 
     @_builtins.property
     @pulumi.getter(name="accessControlAllowMethods")
     def access_control_allow_methods(self) -> 'outputs.ResponseHeadersPolicyCorsConfigAccessControlAllowMethods':
-        """
-        Object that contains an attribute `items` that contains a list of HTTP methods that CloudFront includes as values for the `Access-Control-Allow-Methods` HTTP response header. Valid values: `GET` | `POST` | `OPTIONS` | `PUT` | `DELETE` | `HEAD` | `ALL`
-        """
         return pulumi.get(self, "access_control_allow_methods")
 
     @_builtins.property
     @pulumi.getter(name="accessControlAllowOrigins")
     def access_control_allow_origins(self) -> 'outputs.ResponseHeadersPolicyCorsConfigAccessControlAllowOrigins':
-        """
-        Object that contains an attribute `items` that contains a list of origins that CloudFront can use as the value for the `Access-Control-Allow-Origin` HTTP response header.
-        """
         return pulumi.get(self, "access_control_allow_origins")
 
     @_builtins.property
     @pulumi.getter(name="originOverride")
     def origin_override(self) -> _builtins.bool:
-        """
-        A Boolean value that determines how CloudFront behaves for the HTTP response header.
-        """
         return pulumi.get(self, "origin_override")
 
     @_builtins.property
     @pulumi.getter(name="accessControlExposeHeaders")
     def access_control_expose_headers(self) -> Optional['outputs.ResponseHeadersPolicyCorsConfigAccessControlExposeHeaders']:
-        """
-        Object that contains an attribute `items` that contains a list of HTTP headers that CloudFront includes as values for the `Access-Control-Expose-Headers` HTTP response header.
-        """
         return pulumi.get(self, "access_control_expose_headers")
 
     @_builtins.property
     @pulumi.getter(name="accessControlMaxAgeSec")
     def access_control_max_age_sec(self) -> Optional[_builtins.int]:
-        """
-        A number that CloudFront uses as the value for the `Access-Control-Max-Age` HTTP response header.
-        """
         return pulumi.get(self, "access_control_max_age_sec")
 
 
@@ -6132,9 +4858,6 @@ class ResponseHeadersPolicyCustomHeadersConfigItem(dict):
                  header: _builtins.str,
                  override: _builtins.bool,
                  value: _builtins.str):
-        """
-        :param _builtins.str value: The value for the HTTP response header.
-        """
         pulumi.set(__self__, "header", header)
         pulumi.set(__self__, "override", override)
         pulumi.set(__self__, "value", value)
@@ -6152,9 +4875,6 @@ class ResponseHeadersPolicyCustomHeadersConfigItem(dict):
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        The value for the HTTP response header.
-        """
         return pulumi.get(self, "value")
 
 
@@ -6219,14 +4939,6 @@ class ResponseHeadersPolicySecurityHeadersConfig(dict):
                  referrer_policy: Optional['outputs.ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy'] = None,
                  strict_transport_security: Optional['outputs.ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity'] = None,
                  xss_protection: Optional['outputs.ResponseHeadersPolicySecurityHeadersConfigXssProtection'] = None):
-        """
-        :param 'ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs' content_security_policy: The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header. See Content Security Policy for more information.
-        :param 'ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsArgs' content_type_options: Determines whether CloudFront includes the `X-Content-Type-Options` HTTP response header with its value set to `nosniff`. See Content Type Options for more information.
-        :param 'ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgs' frame_options: Determines whether CloudFront includes the `X-Frame-Options` HTTP response header and the header’s value. See Frame Options for more information.
-        :param 'ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs' referrer_policy: Determines whether CloudFront includes the `Referrer-Policy` HTTP response header and the header’s value. See Referrer Policy for more information.
-        :param 'ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs' strict_transport_security: Determines whether CloudFront includes the `Strict-Transport-Security` HTTP response header and the header’s value. See Strict Transport Security for more information.
-        :param 'ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs' xss_protection: Determine whether CloudFront includes the `X-XSS-Protection` HTTP response header and the header’s value. See XSS Protection for more information.
-        """
         if content_security_policy is not None:
             pulumi.set(__self__, "content_security_policy", content_security_policy)
         if content_type_options is not None:
@@ -6243,49 +4955,31 @@ class ResponseHeadersPolicySecurityHeadersConfig(dict):
     @_builtins.property
     @pulumi.getter(name="contentSecurityPolicy")
     def content_security_policy(self) -> Optional['outputs.ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy']:
-        """
-        The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header. See Content Security Policy for more information.
-        """
         return pulumi.get(self, "content_security_policy")
 
     @_builtins.property
     @pulumi.getter(name="contentTypeOptions")
     def content_type_options(self) -> Optional['outputs.ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions']:
-        """
-        Determines whether CloudFront includes the `X-Content-Type-Options` HTTP response header with its value set to `nosniff`. See Content Type Options for more information.
-        """
         return pulumi.get(self, "content_type_options")
 
     @_builtins.property
     @pulumi.getter(name="frameOptions")
     def frame_options(self) -> Optional['outputs.ResponseHeadersPolicySecurityHeadersConfigFrameOptions']:
-        """
-        Determines whether CloudFront includes the `X-Frame-Options` HTTP response header and the header’s value. See Frame Options for more information.
-        """
         return pulumi.get(self, "frame_options")
 
     @_builtins.property
     @pulumi.getter(name="referrerPolicy")
     def referrer_policy(self) -> Optional['outputs.ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy']:
-        """
-        Determines whether CloudFront includes the `Referrer-Policy` HTTP response header and the header’s value. See Referrer Policy for more information.
-        """
         return pulumi.get(self, "referrer_policy")
 
     @_builtins.property
     @pulumi.getter(name="strictTransportSecurity")
     def strict_transport_security(self) -> Optional['outputs.ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity']:
-        """
-        Determines whether CloudFront includes the `Strict-Transport-Security` HTTP response header and the header’s value. See Strict Transport Security for more information.
-        """
         return pulumi.get(self, "strict_transport_security")
 
     @_builtins.property
     @pulumi.getter(name="xssProtection")
     def xss_protection(self) -> Optional['outputs.ResponseHeadersPolicySecurityHeadersConfigXssProtection']:
-        """
-        Determine whether CloudFront includes the `X-XSS-Protection` HTTP response header and the header’s value. See XSS Protection for more information.
-        """
         return pulumi.get(self, "xss_protection")
 
 
@@ -6311,27 +5005,17 @@ class ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy(dict):
     def __init__(__self__, *,
                  content_security_policy: _builtins.str,
                  override: _builtins.bool):
-        """
-        :param _builtins.str content_security_policy: The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
-        :param _builtins.bool override: Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
-        """
         pulumi.set(__self__, "content_security_policy", content_security_policy)
         pulumi.set(__self__, "override", override)
 
     @_builtins.property
     @pulumi.getter(name="contentSecurityPolicy")
     def content_security_policy(self) -> _builtins.str:
-        """
-        The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
-        """
         return pulumi.get(self, "content_security_policy")
 
     @_builtins.property
     @pulumi.getter
     def override(self) -> _builtins.bool:
-        """
-        Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
-        """
         return pulumi.get(self, "override")
 
 
@@ -6339,17 +5023,11 @@ class ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy(dict):
 class ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions(dict):
     def __init__(__self__, *,
                  override: _builtins.bool):
-        """
-        :param _builtins.bool override: Whether CloudFront overrides the `X-Content-Type-Options` HTTP response header received from the origin with the one specified in this response headers policy.
-        """
         pulumi.set(__self__, "override", override)
 
     @_builtins.property
     @pulumi.getter
     def override(self) -> _builtins.bool:
-        """
-        Whether CloudFront overrides the `X-Content-Type-Options` HTTP response header received from the origin with the one specified in this response headers policy.
-        """
         return pulumi.get(self, "override")
 
 
@@ -6375,27 +5053,17 @@ class ResponseHeadersPolicySecurityHeadersConfigFrameOptions(dict):
     def __init__(__self__, *,
                  frame_option: _builtins.str,
                  override: _builtins.bool):
-        """
-        :param _builtins.str frame_option: The value of the `X-Frame-Options` HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
-        :param _builtins.bool override: Whether CloudFront overrides the `X-Frame-Options` HTTP response header received from the origin with the one specified in this response headers policy.
-        """
         pulumi.set(__self__, "frame_option", frame_option)
         pulumi.set(__self__, "override", override)
 
     @_builtins.property
     @pulumi.getter(name="frameOption")
     def frame_option(self) -> _builtins.str:
-        """
-        The value of the `X-Frame-Options` HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
-        """
         return pulumi.get(self, "frame_option")
 
     @_builtins.property
     @pulumi.getter
     def override(self) -> _builtins.bool:
-        """
-        Whether CloudFront overrides the `X-Frame-Options` HTTP response header received from the origin with the one specified in this response headers policy.
-        """
         return pulumi.get(self, "override")
 
 
@@ -6421,27 +5089,17 @@ class ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy(dict):
     def __init__(__self__, *,
                  override: _builtins.bool,
                  referrer_policy: _builtins.str):
-        """
-        :param _builtins.bool override: Whether CloudFront overrides the `Referrer-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
-        :param _builtins.str referrer_policy: The value of the `Referrer-Policy` HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
-        """
         pulumi.set(__self__, "override", override)
         pulumi.set(__self__, "referrer_policy", referrer_policy)
 
     @_builtins.property
     @pulumi.getter
     def override(self) -> _builtins.bool:
-        """
-        Whether CloudFront overrides the `Referrer-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
-        """
         return pulumi.get(self, "override")
 
     @_builtins.property
     @pulumi.getter(name="referrerPolicy")
     def referrer_policy(self) -> _builtins.str:
-        """
-        The value of the `Referrer-Policy` HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
-        """
         return pulumi.get(self, "referrer_policy")
 
 
@@ -6471,12 +5129,6 @@ class ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity(dict):
                  override: _builtins.bool,
                  include_subdomains: Optional[_builtins.bool] = None,
                  preload: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.int access_control_max_age_sec: A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
-        :param _builtins.bool override: Whether CloudFront overrides the `Strict-Transport-Security` HTTP response header received from the origin with the one specified in this response headers policy.
-        :param _builtins.bool include_subdomains: Whether CloudFront includes the `includeSubDomains` directive in the `Strict-Transport-Security` HTTP response header.
-        :param _builtins.bool preload: Whether CloudFront includes the `preload` directive in the `Strict-Transport-Security` HTTP response header.
-        """
         pulumi.set(__self__, "access_control_max_age_sec", access_control_max_age_sec)
         pulumi.set(__self__, "override", override)
         if include_subdomains is not None:
@@ -6487,33 +5139,21 @@ class ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity(dict):
     @_builtins.property
     @pulumi.getter(name="accessControlMaxAgeSec")
     def access_control_max_age_sec(self) -> _builtins.int:
-        """
-        A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
-        """
         return pulumi.get(self, "access_control_max_age_sec")
 
     @_builtins.property
     @pulumi.getter
     def override(self) -> _builtins.bool:
-        """
-        Whether CloudFront overrides the `Strict-Transport-Security` HTTP response header received from the origin with the one specified in this response headers policy.
-        """
         return pulumi.get(self, "override")
 
     @_builtins.property
     @pulumi.getter(name="includeSubdomains")
     def include_subdomains(self) -> Optional[_builtins.bool]:
-        """
-        Whether CloudFront includes the `includeSubDomains` directive in the `Strict-Transport-Security` HTTP response header.
-        """
         return pulumi.get(self, "include_subdomains")
 
     @_builtins.property
     @pulumi.getter
     def preload(self) -> Optional[_builtins.bool]:
-        """
-        Whether CloudFront includes the `preload` directive in the `Strict-Transport-Security` HTTP response header.
-        """
         return pulumi.get(self, "preload")
 
 
@@ -6543,12 +5183,6 @@ class ResponseHeadersPolicySecurityHeadersConfigXssProtection(dict):
                  protection: _builtins.bool,
                  mode_block: Optional[_builtins.bool] = None,
                  report_uri: Optional[_builtins.str] = None):
-        """
-        :param _builtins.bool override: Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
-        :param _builtins.bool protection: A Boolean value that determines the value of the `X-XSS-Protection` HTTP response header. When this setting is `true`, the value of the `X-XSS-Protection` header is `1`. When this setting is `false`, the value of the `X-XSS-Protection` header is `0`.
-        :param _builtins.bool mode_block: Whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
-        :param _builtins.str report_uri: A reporting URI, which CloudFront uses as the value of the report directive in the `X-XSS-Protection` header. You cannot specify a `report_uri` when `mode_block` is `true`.
-        """
         pulumi.set(__self__, "override", override)
         pulumi.set(__self__, "protection", protection)
         if mode_block is not None:
@@ -6559,33 +5193,21 @@ class ResponseHeadersPolicySecurityHeadersConfigXssProtection(dict):
     @_builtins.property
     @pulumi.getter
     def override(self) -> _builtins.bool:
-        """
-        Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
-        """
         return pulumi.get(self, "override")
 
     @_builtins.property
     @pulumi.getter
     def protection(self) -> _builtins.bool:
-        """
-        A Boolean value that determines the value of the `X-XSS-Protection` HTTP response header. When this setting is `true`, the value of the `X-XSS-Protection` header is `1`. When this setting is `false`, the value of the `X-XSS-Protection` header is `0`.
-        """
         return pulumi.get(self, "protection")
 
     @_builtins.property
     @pulumi.getter(name="modeBlock")
     def mode_block(self) -> Optional[_builtins.bool]:
-        """
-        Whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
-        """
         return pulumi.get(self, "mode_block")
 
     @_builtins.property
     @pulumi.getter(name="reportUri")
     def report_uri(self) -> Optional[_builtins.str]:
-        """
-        A reporting URI, which CloudFront uses as the value of the report directive in the `X-XSS-Protection` header. You cannot specify a `report_uri` when `mode_block` is `true`.
-        """
         return pulumi.get(self, "report_uri")
 
 
@@ -6611,27 +5233,17 @@ class ResponseHeadersPolicyServerTimingHeadersConfig(dict):
     def __init__(__self__, *,
                  enabled: _builtins.bool,
                  sampling_rate: _builtins.float):
-        """
-        :param _builtins.bool enabled: A Whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
-        :param _builtins.float sampling_rate: A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to. Valid range: Minimum value of 0.0. Maximum value of 100.0.
-        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "sampling_rate", sampling_rate)
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
-        """
-        A Whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter(name="samplingRate")
     def sampling_rate(self) -> _builtins.float:
-        """
-        A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to. Valid range: Minimum value of 0.0. Maximum value of 100.0.
-        """
         return pulumi.get(self, "sampling_rate")
 
 
@@ -6656,18 +5268,12 @@ class TrustStoreCaCertificatesBundleSource(dict):
 
     def __init__(__self__, *,
                  ca_certificates_bundle_s3_location: Optional['outputs.TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location'] = None):
-        """
-        :param 'TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs' ca_certificates_bundle_s3_location: Configuration block for the S3 location of the CA certificates bundle. See `ca_certificates_bundle_s3_location` below.
-        """
         if ca_certificates_bundle_s3_location is not None:
             pulumi.set(__self__, "ca_certificates_bundle_s3_location", ca_certificates_bundle_s3_location)
 
     @_builtins.property
     @pulumi.getter(name="caCertificatesBundleS3Location")
     def ca_certificates_bundle_s3_location(self) -> Optional['outputs.TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location']:
-        """
-        Configuration block for the S3 location of the CA certificates bundle. See `ca_certificates_bundle_s3_location` below.
-        """
         return pulumi.get(self, "ca_certificates_bundle_s3_location")
 
 
@@ -6678,12 +5284,6 @@ class TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location(dict):
                  key: _builtins.str,
                  region: _builtins.str,
                  version: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str bucket: S3 bucket name containing the CA certificates bundle.
-        :param _builtins.str key: S3 object key for the CA certificates bundle.
-        :param _builtins.str region: AWS region of the S3 bucket.
-        :param _builtins.str version: S3 object version ID for the CA certificates bundle.
-        """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "region", region)
@@ -6693,33 +5293,21 @@ class TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location(dict):
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> _builtins.str:
-        """
-        S3 bucket name containing the CA certificates bundle.
-        """
         return pulumi.get(self, "bucket")
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> _builtins.str:
-        """
-        S3 object key for the CA certificates bundle.
-        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> _builtins.str:
-        """
-        AWS region of the S3 bucket.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[_builtins.str]:
-        """
-        S3 object version ID for the CA certificates bundle.
-        """
         return pulumi.get(self, "version")
 
 
@@ -6841,14 +5429,6 @@ class VpcOriginVpcOriginEndpointConfig(dict):
                  name: _builtins.str,
                  origin_protocol_policy: _builtins.str,
                  origin_ssl_protocols: Optional['outputs.VpcOriginVpcOriginEndpointConfigOriginSslProtocols'] = None):
-        """
-        :param _builtins.str arn: The VPC origin ARN.
-        :param _builtins.int http_port: The HTTP port for the CloudFront VPC origin endpoint configuration.
-        :param _builtins.int https_port: The HTTPS port for the CloudFront VPC origin endpoint configuration.
-        :param _builtins.str name: The name of the CloudFront VPC origin endpoint configuration.
-        :param _builtins.str origin_protocol_policy: The origin protocol policy for the CloudFront VPC origin endpoint configuration.
-        :param 'VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs' origin_ssl_protocols: A complex type that contains information about the SSL/TLS protocols that CloudFront can use when establishing an HTTPS connection with your origin.
-        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "http_port", http_port)
         pulumi.set(__self__, "https_port", https_port)
@@ -6860,49 +5440,31 @@ class VpcOriginVpcOriginEndpointConfig(dict):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        The VPC origin ARN.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="httpPort")
     def http_port(self) -> _builtins.int:
-        """
-        The HTTP port for the CloudFront VPC origin endpoint configuration.
-        """
         return pulumi.get(self, "http_port")
 
     @_builtins.property
     @pulumi.getter(name="httpsPort")
     def https_port(self) -> _builtins.int:
-        """
-        The HTTPS port for the CloudFront VPC origin endpoint configuration.
-        """
         return pulumi.get(self, "https_port")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the CloudFront VPC origin endpoint configuration.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="originProtocolPolicy")
     def origin_protocol_policy(self) -> _builtins.str:
-        """
-        The origin protocol policy for the CloudFront VPC origin endpoint configuration.
-        """
         return pulumi.get(self, "origin_protocol_policy")
 
     @_builtins.property
     @pulumi.getter(name="originSslProtocols")
     def origin_ssl_protocols(self) -> Optional['outputs.VpcOriginVpcOriginEndpointConfigOriginSslProtocols']:
-        """
-        A complex type that contains information about the SSL/TLS protocols that CloudFront can use when establishing an HTTPS connection with your origin.
-        """
         return pulumi.get(self, "origin_ssl_protocols")
 
 
@@ -6933,13 +5495,6 @@ class GetCachePolicyParametersInCacheKeyAndForwardedToOriginResult(dict):
                  enable_accept_encoding_gzip: _builtins.bool,
                  headers_configs: Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigResult'],
                  query_strings_configs: Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigResult']):
-        """
-        :param Sequence['GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs'] cookies_configs: Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
-        :param _builtins.bool enable_accept_encoding_brotli: A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
-        :param _builtins.bool enable_accept_encoding_gzip: A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
-        :param Sequence['GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs'] headers_configs: Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
-        :param Sequence['GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs'] query_strings_configs: Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
-        """
         pulumi.set(__self__, "cookies_configs", cookies_configs)
         pulumi.set(__self__, "enable_accept_encoding_brotli", enable_accept_encoding_brotli)
         pulumi.set(__self__, "enable_accept_encoding_gzip", enable_accept_encoding_gzip)
@@ -6949,41 +5504,26 @@ class GetCachePolicyParametersInCacheKeyAndForwardedToOriginResult(dict):
     @_builtins.property
     @pulumi.getter(name="cookiesConfigs")
     def cookies_configs(self) -> Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigResult']:
-        """
-        Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
-        """
         return pulumi.get(self, "cookies_configs")
 
     @_builtins.property
     @pulumi.getter(name="enableAcceptEncodingBrotli")
     def enable_accept_encoding_brotli(self) -> _builtins.bool:
-        """
-        A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
-        """
         return pulumi.get(self, "enable_accept_encoding_brotli")
 
     @_builtins.property
     @pulumi.getter(name="enableAcceptEncodingGzip")
     def enable_accept_encoding_gzip(self) -> _builtins.bool:
-        """
-        A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
-        """
         return pulumi.get(self, "enable_accept_encoding_gzip")
 
     @_builtins.property
     @pulumi.getter(name="headersConfigs")
     def headers_configs(self) -> Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigResult']:
-        """
-        Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
-        """
         return pulumi.get(self, "headers_configs")
 
     @_builtins.property
     @pulumi.getter(name="queryStringsConfigs")
     def query_strings_configs(self) -> Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigResult']:
-        """
-        Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
-        """
         return pulumi.get(self, "query_strings_configs")
 
 
@@ -6992,27 +5532,17 @@ class GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigResult(
     def __init__(__self__, *,
                  cookie_behavior: _builtins.str,
                  cookies: Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieResult']):
-        """
-        :param _builtins.str cookie_behavior: Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
-        :param Sequence['GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArgs'] cookies: Object that contains a list of cookie names. See Items for more information.
-        """
         pulumi.set(__self__, "cookie_behavior", cookie_behavior)
         pulumi.set(__self__, "cookies", cookies)
 
     @_builtins.property
     @pulumi.getter(name="cookieBehavior")
     def cookie_behavior(self) -> _builtins.str:
-        """
-        Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
-        """
         return pulumi.get(self, "cookie_behavior")
 
     @_builtins.property
     @pulumi.getter
     def cookies(self) -> Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieResult']:
-        """
-        Object that contains a list of cookie names. See Items for more information.
-        """
         return pulumi.get(self, "cookies")
 
 
@@ -7020,17 +5550,11 @@ class GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigResult(
 class GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieResult(dict):
     def __init__(__self__, *,
                  items: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] items: List of item names (`cookies`, `headers`, or `query_strings`).
-        """
         pulumi.set(__self__, "items", items)
 
     @_builtins.property
     @pulumi.getter
     def items(self) -> Sequence[_builtins.str]:
-        """
-        List of item names (`cookies`, `headers`, or `query_strings`).
-        """
         return pulumi.get(self, "items")
 
 
@@ -7039,27 +5563,17 @@ class GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigResult(
     def __init__(__self__, *,
                  header_behavior: _builtins.str,
                  headers: Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderResult']):
-        """
-        :param _builtins.str header_behavior: Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
-        :param Sequence['GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArgs'] headers: Object that contains a list of header names. See Items for more information.
-        """
         pulumi.set(__self__, "header_behavior", header_behavior)
         pulumi.set(__self__, "headers", headers)
 
     @_builtins.property
     @pulumi.getter(name="headerBehavior")
     def header_behavior(self) -> _builtins.str:
-        """
-        Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
-        """
         return pulumi.get(self, "header_behavior")
 
     @_builtins.property
     @pulumi.getter
     def headers(self) -> Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderResult']:
-        """
-        Object that contains a list of header names. See Items for more information.
-        """
         return pulumi.get(self, "headers")
 
 
@@ -7067,17 +5581,11 @@ class GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigResult(
 class GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderResult(dict):
     def __init__(__self__, *,
                  items: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] items: List of item names (`cookies`, `headers`, or `query_strings`).
-        """
         pulumi.set(__self__, "items", items)
 
     @_builtins.property
     @pulumi.getter
     def items(self) -> Sequence[_builtins.str]:
-        """
-        List of item names (`cookies`, `headers`, or `query_strings`).
-        """
         return pulumi.get(self, "items")
 
 
@@ -7086,27 +5594,17 @@ class GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigRe
     def __init__(__self__, *,
                  query_string_behavior: _builtins.str,
                  query_strings: Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringResult']):
-        """
-        :param _builtins.str query_string_behavior: Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
-        :param Sequence['GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArgs'] query_strings: Object that contains a list of query string names. See Items for more information.
-        """
         pulumi.set(__self__, "query_string_behavior", query_string_behavior)
         pulumi.set(__self__, "query_strings", query_strings)
 
     @_builtins.property
     @pulumi.getter(name="queryStringBehavior")
     def query_string_behavior(self) -> _builtins.str:
-        """
-        Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
-        """
         return pulumi.get(self, "query_string_behavior")
 
     @_builtins.property
     @pulumi.getter(name="queryStrings")
     def query_strings(self) -> Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringResult']:
-        """
-        Object that contains a list of query string names. See Items for more information.
-        """
         return pulumi.get(self, "query_strings")
 
 
@@ -7114,17 +5612,11 @@ class GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigRe
 class GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringResult(dict):
     def __init__(__self__, *,
                  items: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] items: List of item names (`cookies`, `headers`, or `query_strings`).
-        """
         pulumi.set(__self__, "items", items)
 
     @_builtins.property
     @pulumi.getter
     def items(self) -> Sequence[_builtins.str]:
-        """
-        List of item names (`cookies`, `headers`, or `query_strings`).
-        """
         return pulumi.get(self, "items")
 
 
@@ -7158,17 +5650,11 @@ class GetDistributionTenantCustomizationResult(dict):
 class GetDistributionTenantCustomizationCertificateResult(dict):
     def __init__(__self__, *,
                  arn: _builtins.str):
-        """
-        :param _builtins.str arn: ARN (Amazon Resource Name) for the distribution tenant.
-        """
         pulumi.set(__self__, "arn", arn)
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN (Amazon Resource Name) for the distribution tenant.
-        """
         return pulumi.get(self, "arn")
 
 
@@ -7196,9 +5682,6 @@ class GetDistributionTenantCustomizationWebAclResult(dict):
     def __init__(__self__, *,
                  action: _builtins.str,
                  arn: _builtins.str):
-        """
-        :param _builtins.str arn: ARN (Amazon Resource Name) for the distribution tenant.
-        """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "arn", arn)
 
@@ -7210,9 +5693,6 @@ class GetDistributionTenantCustomizationWebAclResult(dict):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN (Amazon Resource Name) for the distribution tenant.
-        """
         return pulumi.get(self, "arn")
 
 
@@ -7221,31 +5701,17 @@ class GetDistributionTenantDomainResult(dict):
     def __init__(__self__, *,
                  domain: _builtins.str,
                  status: _builtins.str):
-        """
-        :param _builtins.str domain: An associated domain of the distribution tenant. Exactly one of `id` or `domain` must be specified.
-        :param _builtins.str status: Current status of the distribution tenant. `Deployed` if the
-               distribution tenant's information is fully propagated throughout the Amazon
-               CloudFront system.
-        """
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "status", status)
 
     @_builtins.property
     @pulumi.getter
     def domain(self) -> _builtins.str:
-        """
-        An associated domain of the distribution tenant. Exactly one of `id` or `domain` must be specified.
-        """
         return pulumi.get(self, "domain")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Current status of the distribution tenant. `Deployed` if the
-        distribution tenant's information is fully propagated throughout the Amazon
-        CloudFront system.
-        """
         return pulumi.get(self, "status")
 
 
@@ -7392,27 +5858,17 @@ class GetRealtimeLogConfigEndpointResult(dict):
     def __init__(__self__, *,
                  kinesis_stream_configs: Sequence['outputs.GetRealtimeLogConfigEndpointKinesisStreamConfigResult'],
                  stream_type: _builtins.str):
-        """
-        :param Sequence['GetRealtimeLogConfigEndpointKinesisStreamConfigArgs'] kinesis_stream_configs: (Required) Amazon Kinesis data stream configuration.
-        :param _builtins.str stream_type: (Required) Type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
-        """
         pulumi.set(__self__, "kinesis_stream_configs", kinesis_stream_configs)
         pulumi.set(__self__, "stream_type", stream_type)
 
     @_builtins.property
     @pulumi.getter(name="kinesisStreamConfigs")
     def kinesis_stream_configs(self) -> Sequence['outputs.GetRealtimeLogConfigEndpointKinesisStreamConfigResult']:
-        """
-        (Required) Amazon Kinesis data stream configuration.
-        """
         return pulumi.get(self, "kinesis_stream_configs")
 
     @_builtins.property
     @pulumi.getter(name="streamType")
     def stream_type(self) -> _builtins.str:
-        """
-        (Required) Type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
-        """
         return pulumi.get(self, "stream_type")
 
 
@@ -7421,29 +5877,17 @@ class GetRealtimeLogConfigEndpointKinesisStreamConfigResult(dict):
     def __init__(__self__, *,
                  role_arn: _builtins.str,
                  stream_arn: _builtins.str):
-        """
-        :param _builtins.str role_arn: (Required) ARN of an IAM role that CloudFront can use to send real-time log data to the Kinesis data stream.
-               See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) for more information.
-        :param _builtins.str stream_arn: (Required) ARN of the Kinesis data stream.
-        """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "stream_arn", stream_arn)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
-        """
-        (Required) ARN of an IAM role that CloudFront can use to send real-time log data to the Kinesis data stream.
-        See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) for more information.
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> _builtins.str:
-        """
-        (Required) ARN of the Kinesis data stream.
-        """
         return pulumi.get(self, "stream_arn")
 
 
@@ -7457,14 +5901,6 @@ class GetResponseHeadersPolicyCorsConfigResult(dict):
                  access_control_expose_headers: Sequence['outputs.GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderResult'],
                  access_control_max_age_sec: _builtins.int,
                  origin_override: _builtins.bool):
-        """
-        :param _builtins.bool access_control_allow_credentials: A Boolean value that CloudFront uses as the value for the Access-Control-Allow-Credentials HTTP response header.
-        :param Sequence['GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArgs'] access_control_allow_headers: Object that contains an attribute `items` that contains a list of HTTP header names that CloudFront includes as values for the Access-Control-Allow-Headers HTTP response header.
-        :param Sequence['GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArgs'] access_control_allow_methods: Object that contains an attribute `items` that contains a list of HTTP methods that CloudFront includes as values for the Access-Control-Allow-Methods HTTP response header. Valid values: `GET` | `POST` | `OPTIONS` | `PUT` | `DELETE` | `HEAD` | `ALL`
-        :param Sequence['GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArgs'] access_control_allow_origins: Object that contains an attribute `items` that contains a list of origins that CloudFront can use as the value for the Access-Control-Allow-Origin HTTP response header.
-        :param Sequence['GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArgs'] access_control_expose_headers: Object that contains an attribute `items` that contains a list of HTTP headers that CloudFront includes as values for the Access-Control-Expose-Headers HTTP response header.
-        :param _builtins.int access_control_max_age_sec: A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
-        """
         pulumi.set(__self__, "access_control_allow_credentials", access_control_allow_credentials)
         pulumi.set(__self__, "access_control_allow_headers", access_control_allow_headers)
         pulumi.set(__self__, "access_control_allow_methods", access_control_allow_methods)
@@ -7476,49 +5912,31 @@ class GetResponseHeadersPolicyCorsConfigResult(dict):
     @_builtins.property
     @pulumi.getter(name="accessControlAllowCredentials")
     def access_control_allow_credentials(self) -> _builtins.bool:
-        """
-        A Boolean value that CloudFront uses as the value for the Access-Control-Allow-Credentials HTTP response header.
-        """
         return pulumi.get(self, "access_control_allow_credentials")
 
     @_builtins.property
     @pulumi.getter(name="accessControlAllowHeaders")
     def access_control_allow_headers(self) -> Sequence['outputs.GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderResult']:
-        """
-        Object that contains an attribute `items` that contains a list of HTTP header names that CloudFront includes as values for the Access-Control-Allow-Headers HTTP response header.
-        """
         return pulumi.get(self, "access_control_allow_headers")
 
     @_builtins.property
     @pulumi.getter(name="accessControlAllowMethods")
     def access_control_allow_methods(self) -> Sequence['outputs.GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodResult']:
-        """
-        Object that contains an attribute `items` that contains a list of HTTP methods that CloudFront includes as values for the Access-Control-Allow-Methods HTTP response header. Valid values: `GET` | `POST` | `OPTIONS` | `PUT` | `DELETE` | `HEAD` | `ALL`
-        """
         return pulumi.get(self, "access_control_allow_methods")
 
     @_builtins.property
     @pulumi.getter(name="accessControlAllowOrigins")
     def access_control_allow_origins(self) -> Sequence['outputs.GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginResult']:
-        """
-        Object that contains an attribute `items` that contains a list of origins that CloudFront can use as the value for the Access-Control-Allow-Origin HTTP response header.
-        """
         return pulumi.get(self, "access_control_allow_origins")
 
     @_builtins.property
     @pulumi.getter(name="accessControlExposeHeaders")
     def access_control_expose_headers(self) -> Sequence['outputs.GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderResult']:
-        """
-        Object that contains an attribute `items` that contains a list of HTTP headers that CloudFront includes as values for the Access-Control-Expose-Headers HTTP response header.
-        """
         return pulumi.get(self, "access_control_expose_headers")
 
     @_builtins.property
     @pulumi.getter(name="accessControlMaxAgeSec")
     def access_control_max_age_sec(self) -> _builtins.int:
-        """
-        A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
-        """
         return pulumi.get(self, "access_control_max_age_sec")
 
     @_builtins.property
@@ -7593,11 +6011,6 @@ class GetResponseHeadersPolicyCustomHeadersConfigItemResult(dict):
                  header: _builtins.str,
                  override: _builtins.bool,
                  value: _builtins.str):
-        """
-        :param _builtins.str header: The HTTP header name.
-        :param _builtins.bool override: Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-        :param _builtins.str value: Value for the HTTP response header.
-        """
         pulumi.set(__self__, "header", header)
         pulumi.set(__self__, "override", override)
         pulumi.set(__self__, "value", value)
@@ -7605,25 +6018,16 @@ class GetResponseHeadersPolicyCustomHeadersConfigItemResult(dict):
     @_builtins.property
     @pulumi.getter
     def header(self) -> _builtins.str:
-        """
-        The HTTP header name.
-        """
         return pulumi.get(self, "header")
 
     @_builtins.property
     @pulumi.getter
     def override(self) -> _builtins.bool:
-        """
-        Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-        """
         return pulumi.get(self, "override")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        Value for the HTTP response header.
-        """
         return pulumi.get(self, "value")
 
 
@@ -7643,17 +6047,11 @@ class GetResponseHeadersPolicyRemoveHeadersConfigResult(dict):
 class GetResponseHeadersPolicyRemoveHeadersConfigItemResult(dict):
     def __init__(__self__, *,
                  header: _builtins.str):
-        """
-        :param _builtins.str header: The HTTP header name.
-        """
         pulumi.set(__self__, "header", header)
 
     @_builtins.property
     @pulumi.getter
     def header(self) -> _builtins.str:
-        """
-        The HTTP header name.
-        """
         return pulumi.get(self, "header")
 
 
@@ -7666,14 +6064,6 @@ class GetResponseHeadersPolicySecurityHeadersConfigResult(dict):
                  referrer_policies: Sequence['outputs.GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyResult'],
                  strict_transport_securities: Sequence['outputs.GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityResult'],
                  xss_protections: Sequence['outputs.GetResponseHeadersPolicySecurityHeadersConfigXssProtectionResult']):
-        """
-        :param Sequence['GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs'] content_security_policies: The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
-        :param Sequence['GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArgs'] content_type_options: A setting that determines whether CloudFront includes the X-Content-Type-Options HTTP response header with its value set to nosniff. See Content Type Options for more information.
-        :param Sequence['GetResponseHeadersPolicySecurityHeadersConfigFrameOptionArgs'] frame_options: Setting that determines whether CloudFront includes the X-Frame-Options HTTP response header and the header’s value. See Frame Options for more information.
-        :param Sequence['GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs'] referrer_policies: Value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
-        :param Sequence['GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs'] strict_transport_securities: Settings that determine whether CloudFront includes the Strict-Transport-Security HTTP response header and the header’s value. See Strict Transport Security for more information.
-        :param Sequence['GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs'] xss_protections: Settings that determine whether CloudFront includes the X-XSS-Protection HTTP response header and the header’s value. See XSS Protection for more information.
-        """
         pulumi.set(__self__, "content_security_policies", content_security_policies)
         pulumi.set(__self__, "content_type_options", content_type_options)
         pulumi.set(__self__, "frame_options", frame_options)
@@ -7684,49 +6074,31 @@ class GetResponseHeadersPolicySecurityHeadersConfigResult(dict):
     @_builtins.property
     @pulumi.getter(name="contentSecurityPolicies")
     def content_security_policies(self) -> Sequence['outputs.GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyResult']:
-        """
-        The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
-        """
         return pulumi.get(self, "content_security_policies")
 
     @_builtins.property
     @pulumi.getter(name="contentTypeOptions")
     def content_type_options(self) -> Sequence['outputs.GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionResult']:
-        """
-        A setting that determines whether CloudFront includes the X-Content-Type-Options HTTP response header with its value set to nosniff. See Content Type Options for more information.
-        """
         return pulumi.get(self, "content_type_options")
 
     @_builtins.property
     @pulumi.getter(name="frameOptions")
     def frame_options(self) -> Sequence['outputs.GetResponseHeadersPolicySecurityHeadersConfigFrameOptionResult']:
-        """
-        Setting that determines whether CloudFront includes the X-Frame-Options HTTP response header and the header’s value. See Frame Options for more information.
-        """
         return pulumi.get(self, "frame_options")
 
     @_builtins.property
     @pulumi.getter(name="referrerPolicies")
     def referrer_policies(self) -> Sequence['outputs.GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyResult']:
-        """
-        Value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
-        """
         return pulumi.get(self, "referrer_policies")
 
     @_builtins.property
     @pulumi.getter(name="strictTransportSecurities")
     def strict_transport_securities(self) -> Sequence['outputs.GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityResult']:
-        """
-        Settings that determine whether CloudFront includes the Strict-Transport-Security HTTP response header and the header’s value. See Strict Transport Security for more information.
-        """
         return pulumi.get(self, "strict_transport_securities")
 
     @_builtins.property
     @pulumi.getter(name="xssProtections")
     def xss_protections(self) -> Sequence['outputs.GetResponseHeadersPolicySecurityHeadersConfigXssProtectionResult']:
-        """
-        Settings that determine whether CloudFront includes the X-XSS-Protection HTTP response header and the header’s value. See XSS Protection for more information.
-        """
         return pulumi.get(self, "xss_protections")
 
 
@@ -7735,27 +6107,17 @@ class GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyResult(d
     def __init__(__self__, *,
                  content_security_policy: _builtins.str,
                  override: _builtins.bool):
-        """
-        :param _builtins.str content_security_policy: The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
-        :param _builtins.bool override: Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-        """
         pulumi.set(__self__, "content_security_policy", content_security_policy)
         pulumi.set(__self__, "override", override)
 
     @_builtins.property
     @pulumi.getter(name="contentSecurityPolicy")
     def content_security_policy(self) -> _builtins.str:
-        """
-        The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
-        """
         return pulumi.get(self, "content_security_policy")
 
     @_builtins.property
     @pulumi.getter
     def override(self) -> _builtins.bool:
-        """
-        Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-        """
         return pulumi.get(self, "override")
 
 
@@ -7763,17 +6125,11 @@ class GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyResult(d
 class GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionResult(dict):
     def __init__(__self__, *,
                  override: _builtins.bool):
-        """
-        :param _builtins.bool override: Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-        """
         pulumi.set(__self__, "override", override)
 
     @_builtins.property
     @pulumi.getter
     def override(self) -> _builtins.bool:
-        """
-        Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-        """
         return pulumi.get(self, "override")
 
 
@@ -7782,27 +6138,17 @@ class GetResponseHeadersPolicySecurityHeadersConfigFrameOptionResult(dict):
     def __init__(__self__, *,
                  frame_option: _builtins.str,
                  override: _builtins.bool):
-        """
-        :param _builtins.str frame_option: Value of the X-Frame-Options HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
-        :param _builtins.bool override: Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-        """
         pulumi.set(__self__, "frame_option", frame_option)
         pulumi.set(__self__, "override", override)
 
     @_builtins.property
     @pulumi.getter(name="frameOption")
     def frame_option(self) -> _builtins.str:
-        """
-        Value of the X-Frame-Options HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
-        """
         return pulumi.get(self, "frame_option")
 
     @_builtins.property
     @pulumi.getter
     def override(self) -> _builtins.bool:
-        """
-        Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-        """
         return pulumi.get(self, "override")
 
 
@@ -7811,27 +6157,17 @@ class GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyResult(dict):
     def __init__(__self__, *,
                  override: _builtins.bool,
                  referrer_policy: _builtins.str):
-        """
-        :param _builtins.bool override: Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-        :param _builtins.str referrer_policy: Value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
-        """
         pulumi.set(__self__, "override", override)
         pulumi.set(__self__, "referrer_policy", referrer_policy)
 
     @_builtins.property
     @pulumi.getter
     def override(self) -> _builtins.bool:
-        """
-        Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-        """
         return pulumi.get(self, "override")
 
     @_builtins.property
     @pulumi.getter(name="referrerPolicy")
     def referrer_policy(self) -> _builtins.str:
-        """
-        Value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
-        """
         return pulumi.get(self, "referrer_policy")
 
 
@@ -7842,12 +6178,6 @@ class GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityResult
                  include_subdomains: _builtins.bool,
                  override: _builtins.bool,
                  preload: _builtins.bool):
-        """
-        :param _builtins.int access_control_max_age_sec: A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
-        :param _builtins.bool include_subdomains: Whether CloudFront includes the includeSubDomains directive in the Strict-Transport-Security HTTP response header.
-        :param _builtins.bool override: Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-        :param _builtins.bool preload: Whether CloudFront includes the preload directive in the Strict-Transport-Security HTTP response header.
-        """
         pulumi.set(__self__, "access_control_max_age_sec", access_control_max_age_sec)
         pulumi.set(__self__, "include_subdomains", include_subdomains)
         pulumi.set(__self__, "override", override)
@@ -7856,33 +6186,21 @@ class GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityResult
     @_builtins.property
     @pulumi.getter(name="accessControlMaxAgeSec")
     def access_control_max_age_sec(self) -> _builtins.int:
-        """
-        A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
-        """
         return pulumi.get(self, "access_control_max_age_sec")
 
     @_builtins.property
     @pulumi.getter(name="includeSubdomains")
     def include_subdomains(self) -> _builtins.bool:
-        """
-        Whether CloudFront includes the includeSubDomains directive in the Strict-Transport-Security HTTP response header.
-        """
         return pulumi.get(self, "include_subdomains")
 
     @_builtins.property
     @pulumi.getter
     def override(self) -> _builtins.bool:
-        """
-        Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-        """
         return pulumi.get(self, "override")
 
     @_builtins.property
     @pulumi.getter
     def preload(self) -> _builtins.bool:
-        """
-        Whether CloudFront includes the preload directive in the Strict-Transport-Security HTTP response header.
-        """
         return pulumi.get(self, "preload")
 
 
@@ -7893,12 +6211,6 @@ class GetResponseHeadersPolicySecurityHeadersConfigXssProtectionResult(dict):
                  override: _builtins.bool,
                  protection: _builtins.bool,
                  report_uri: _builtins.str):
-        """
-        :param _builtins.bool mode_block: Whether CloudFront includes the mode=block directive in the X-XSS-Protection header.
-        :param _builtins.bool override: Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-        :param _builtins.bool protection: Boolean value that determines the value of the X-XSS-Protection HTTP response header. When this setting is true, the value of the X-XSS-Protection header is 1. When this setting is false, the value of the X-XSS-Protection header is 0.
-        :param _builtins.str report_uri: Whether CloudFront sets a reporting URI in the X-XSS-Protection header.
-        """
         pulumi.set(__self__, "mode_block", mode_block)
         pulumi.set(__self__, "override", override)
         pulumi.set(__self__, "protection", protection)
@@ -7907,33 +6219,21 @@ class GetResponseHeadersPolicySecurityHeadersConfigXssProtectionResult(dict):
     @_builtins.property
     @pulumi.getter(name="modeBlock")
     def mode_block(self) -> _builtins.bool:
-        """
-        Whether CloudFront includes the mode=block directive in the X-XSS-Protection header.
-        """
         return pulumi.get(self, "mode_block")
 
     @_builtins.property
     @pulumi.getter
     def override(self) -> _builtins.bool:
-        """
-        Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-        """
         return pulumi.get(self, "override")
 
     @_builtins.property
     @pulumi.getter
     def protection(self) -> _builtins.bool:
-        """
-        Boolean value that determines the value of the X-XSS-Protection HTTP response header. When this setting is true, the value of the X-XSS-Protection header is 1. When this setting is false, the value of the X-XSS-Protection header is 0.
-        """
         return pulumi.get(self, "protection")
 
     @_builtins.property
     @pulumi.getter(name="reportUri")
     def report_uri(self) -> _builtins.str:
-        """
-        Whether CloudFront sets a reporting URI in the X-XSS-Protection header.
-        """
         return pulumi.get(self, "report_uri")
 
 
@@ -7942,27 +6242,17 @@ class GetResponseHeadersPolicyServerTimingHeadersConfigResult(dict):
     def __init__(__self__, *,
                  enabled: _builtins.bool,
                  sampling_rate: _builtins.float):
-        """
-        :param _builtins.bool enabled: Whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
-        :param _builtins.float sampling_rate: Number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to.
-        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "sampling_rate", sampling_rate)
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
-        """
-        Whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter(name="samplingRate")
     def sampling_rate(self) -> _builtins.float:
-        """
-        Number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to.
-        """
         return pulumi.get(self, "sampling_rate")
 
 

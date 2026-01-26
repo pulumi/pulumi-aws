@@ -14,65 +14,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSetPhysicalTableMapRelationalTable {
-    /**
-     * @return Catalog associated with the table.
-     * 
-     */
     private @Nullable String catalog;
-    /**
-     * @return ARN of the data source.
-     * 
-     */
     private String dataSourceArn;
-    /**
-     * @return Column schema of the table. See input_columns.
-     * 
-     */
     private List<DataSetPhysicalTableMapRelationalTableInputColumn> inputColumns;
-    /**
-     * @return Name of the relational table.
-     * 
-     */
     private String name;
-    /**
-     * @return Schema name. This name applies to certain relational database engines.
-     * 
-     */
     private @Nullable String schema;
 
     private DataSetPhysicalTableMapRelationalTable() {}
-    /**
-     * @return Catalog associated with the table.
-     * 
-     */
     public Optional<String> catalog() {
         return Optional.ofNullable(this.catalog);
     }
-    /**
-     * @return ARN of the data source.
-     * 
-     */
     public String dataSourceArn() {
         return this.dataSourceArn;
     }
-    /**
-     * @return Column schema of the table. See input_columns.
-     * 
-     */
     public List<DataSetPhysicalTableMapRelationalTableInputColumn> inputColumns() {
         return this.inputColumns;
     }
-    /**
-     * @return Name of the relational table.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Schema name. This name applies to certain relational database engines.
-     * 
-     */
     public Optional<String> schema() {
         return Optional.ofNullable(this.schema);
     }

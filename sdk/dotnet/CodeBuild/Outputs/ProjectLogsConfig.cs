@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     [OutputType]
     public sealed class ProjectLogsConfig
     {
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         public readonly Outputs.ProjectLogsConfigCloudwatchLogs? CloudwatchLogs;
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         public readonly Outputs.ProjectLogsConfigS3Logs? S3Logs;
 
         [OutputConstructor]

@@ -16,107 +16,51 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosS
 
     public static final ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs Empty = new ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs();
 
-    /**
-     * Average bitrate in bits/second.
-     * 
-     */
     @Import(name="bitrate")
     private @Nullable Output<Double> bitrate;
 
-    /**
-     * @return Average bitrate in bits/second.
-     * 
-     */
     public Optional<Output<Double>> bitrate() {
         return Optional.ofNullable(this.bitrate);
     }
 
-    /**
-     * Dolby Digital Plus with Dolby Atmos coding mode.
-     * 
-     */
     @Import(name="codingMode")
     private @Nullable Output<String> codingMode;
 
-    /**
-     * @return Dolby Digital Plus with Dolby Atmos coding mode.
-     * 
-     */
     public Optional<Output<String>> codingMode() {
         return Optional.ofNullable(this.codingMode);
     }
 
-    /**
-     * Sets the dialnorm for the output.
-     * 
-     */
     @Import(name="dialnorm")
     private @Nullable Output<Double> dialnorm;
 
-    /**
-     * @return Sets the dialnorm for the output.
-     * 
-     */
     public Optional<Output<Double>> dialnorm() {
         return Optional.ofNullable(this.dialnorm);
     }
 
-    /**
-     * Sets the Dolby dynamic range compression profile.
-     * 
-     */
     @Import(name="drcLine")
     private @Nullable Output<String> drcLine;
 
-    /**
-     * @return Sets the Dolby dynamic range compression profile.
-     * 
-     */
     public Optional<Output<String>> drcLine() {
         return Optional.ofNullable(this.drcLine);
     }
 
-    /**
-     * Sets the profile for heavy Dolby dynamic range compression.
-     * 
-     */
     @Import(name="drcRf")
     private @Nullable Output<String> drcRf;
 
-    /**
-     * @return Sets the profile for heavy Dolby dynamic range compression.
-     * 
-     */
     public Optional<Output<String>> drcRf() {
         return Optional.ofNullable(this.drcRf);
     }
 
-    /**
-     * Height dimensional trim.
-     * 
-     */
     @Import(name="heightTrim")
     private @Nullable Output<Double> heightTrim;
 
-    /**
-     * @return Height dimensional trim.
-     * 
-     */
     public Optional<Output<Double>> heightTrim() {
         return Optional.ofNullable(this.heightTrim);
     }
 
-    /**
-     * Surround dimensional trim.
-     * 
-     */
     @Import(name="surroundTrim")
     private @Nullable Output<Double> surroundTrim;
 
-    /**
-     * @return Surround dimensional trim.
-     * 
-     */
     public Optional<Output<Double>> surroundTrim() {
         return Optional.ofNullable(this.surroundTrim);
     }
@@ -151,149 +95,65 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosS
             $ = new ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bitrate Average bitrate in bits/second.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bitrate(@Nullable Output<Double> bitrate) {
             $.bitrate = bitrate;
             return this;
         }
 
-        /**
-         * @param bitrate Average bitrate in bits/second.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bitrate(Double bitrate) {
             return bitrate(Output.of(bitrate));
         }
 
-        /**
-         * @param codingMode Dolby Digital Plus with Dolby Atmos coding mode.
-         * 
-         * @return builder
-         * 
-         */
         public Builder codingMode(@Nullable Output<String> codingMode) {
             $.codingMode = codingMode;
             return this;
         }
 
-        /**
-         * @param codingMode Dolby Digital Plus with Dolby Atmos coding mode.
-         * 
-         * @return builder
-         * 
-         */
         public Builder codingMode(String codingMode) {
             return codingMode(Output.of(codingMode));
         }
 
-        /**
-         * @param dialnorm Sets the dialnorm for the output.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dialnorm(@Nullable Output<Double> dialnorm) {
             $.dialnorm = dialnorm;
             return this;
         }
 
-        /**
-         * @param dialnorm Sets the dialnorm for the output.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dialnorm(Double dialnorm) {
             return dialnorm(Output.of(dialnorm));
         }
 
-        /**
-         * @param drcLine Sets the Dolby dynamic range compression profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder drcLine(@Nullable Output<String> drcLine) {
             $.drcLine = drcLine;
             return this;
         }
 
-        /**
-         * @param drcLine Sets the Dolby dynamic range compression profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder drcLine(String drcLine) {
             return drcLine(Output.of(drcLine));
         }
 
-        /**
-         * @param drcRf Sets the profile for heavy Dolby dynamic range compression.
-         * 
-         * @return builder
-         * 
-         */
         public Builder drcRf(@Nullable Output<String> drcRf) {
             $.drcRf = drcRf;
             return this;
         }
 
-        /**
-         * @param drcRf Sets the profile for heavy Dolby dynamic range compression.
-         * 
-         * @return builder
-         * 
-         */
         public Builder drcRf(String drcRf) {
             return drcRf(Output.of(drcRf));
         }
 
-        /**
-         * @param heightTrim Height dimensional trim.
-         * 
-         * @return builder
-         * 
-         */
         public Builder heightTrim(@Nullable Output<Double> heightTrim) {
             $.heightTrim = heightTrim;
             return this;
         }
 
-        /**
-         * @param heightTrim Height dimensional trim.
-         * 
-         * @return builder
-         * 
-         */
         public Builder heightTrim(Double heightTrim) {
             return heightTrim(Output.of(heightTrim));
         }
 
-        /**
-         * @param surroundTrim Surround dimensional trim.
-         * 
-         * @return builder
-         * 
-         */
         public Builder surroundTrim(@Nullable Output<Double> surroundTrim) {
             $.surroundTrim = surroundTrim;
             return this;
         }
 
-        /**
-         * @param surroundTrim Surround dimensional trim.
-         * 
-         * @return builder
-         * 
-         */
         public Builder surroundTrim(Double surroundTrim) {
             return surroundTrim(Output.of(surroundTrim));
         }

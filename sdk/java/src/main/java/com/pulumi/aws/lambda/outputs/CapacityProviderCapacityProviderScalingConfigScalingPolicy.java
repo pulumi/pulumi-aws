@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class CapacityProviderCapacityProviderScalingConfigScalingPolicy {
-    /**
-     * @return The predefined metric type for the scaling policy. Valid values are `LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION`.
-     * 
-     */
     private String predefinedMetricType;
-    /**
-     * @return The target value for the scaling policy.
-     * 
-     */
     private Double targetValue;
 
     private CapacityProviderCapacityProviderScalingConfigScalingPolicy() {}
-    /**
-     * @return The predefined metric type for the scaling policy. Valid values are `LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION`.
-     * 
-     */
     public String predefinedMetricType() {
         return this.predefinedMetricType;
     }
-    /**
-     * @return The target value for the scaling policy.
-     * 
-     */
     public Double targetValue() {
         return this.targetValue;
     }

@@ -11,63 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about a specific Amazon Connect Security Profile.
-//
-// ## Example Usage
-//
-// By `name`
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.LookupSecurityProfile(ctx, &connect.LookupSecurityProfileArgs{
-//				InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-//				Name:       pulumi.StringRef("Example"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// By `securityProfileId`
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.LookupSecurityProfile(ctx, &connect.LookupSecurityProfileArgs{
-//				InstanceId:        "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-//				SecurityProfileId: pulumi.StringRef("cccccccc-bbbb-cccc-dddd-111111111111"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupSecurityProfile(ctx *pulumi.Context, args *LookupSecurityProfileArgs, opts ...pulumi.InvokeOption) (*LookupSecurityProfileResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSecurityProfileResult
@@ -80,38 +23,26 @@ func LookupSecurityProfile(ctx *pulumi.Context, args *LookupSecurityProfileArgs,
 
 // A collection of arguments for invoking getSecurityProfile.
 type LookupSecurityProfileArgs struct {
-	// Reference to the hosting Amazon Connect Instance
-	InstanceId string `pulumi:"instanceId"`
-	// Returns information on a specific Security Profile by name
-	//
-	// > **NOTE:** `instanceId` and one of either `name` or `securityProfileId` is required.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Returns information on a specific Security Profile by Security Profile id
-	SecurityProfileId *string `pulumi:"securityProfileId"`
-	// Map of tags to assign to the Security Profile.
-	Tags map[string]string `pulumi:"tags"`
+	InstanceId        string            `pulumi:"instanceId"`
+	Name              *string           `pulumi:"name"`
+	Region            *string           `pulumi:"region"`
+	SecurityProfileId *string           `pulumi:"securityProfileId"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getSecurityProfile.
 type LookupSecurityProfileResult struct {
-	// ARN of the Security Profile.
-	Arn string `pulumi:"arn"`
-	// Description of the Security Profile.
+	Arn         string `pulumi:"arn"`
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	InstanceId string `pulumi:"instanceId"`
-	Name       string `pulumi:"name"`
-	// The organization resource identifier for the security profile.
-	OrganizationResourceId string `pulumi:"organizationResourceId"`
-	// List of permissions assigned to the security profile.
-	Permissions       []string `pulumi:"permissions"`
-	Region            string   `pulumi:"region"`
-	SecurityProfileId string   `pulumi:"securityProfileId"`
-	// Map of tags to assign to the Security Profile.
-	Tags map[string]string `pulumi:"tags"`
+	Id                     string            `pulumi:"id"`
+	InstanceId             string            `pulumi:"instanceId"`
+	Name                   string            `pulumi:"name"`
+	OrganizationResourceId string            `pulumi:"organizationResourceId"`
+	Permissions            []string          `pulumi:"permissions"`
+	Region                 string            `pulumi:"region"`
+	SecurityProfileId      string            `pulumi:"securityProfileId"`
+	Tags                   map[string]string `pulumi:"tags"`
 }
 
 func LookupSecurityProfileOutput(ctx *pulumi.Context, args LookupSecurityProfileOutputArgs, opts ...pulumi.InvokeOption) LookupSecurityProfileResultOutput {
@@ -125,18 +56,11 @@ func LookupSecurityProfileOutput(ctx *pulumi.Context, args LookupSecurityProfile
 
 // A collection of arguments for invoking getSecurityProfile.
 type LookupSecurityProfileOutputArgs struct {
-	// Reference to the hosting Amazon Connect Instance
-	InstanceId pulumi.StringInput `pulumi:"instanceId"`
-	// Returns information on a specific Security Profile by name
-	//
-	// > **NOTE:** `instanceId` and one of either `name` or `securityProfileId` is required.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Returns information on a specific Security Profile by Security Profile id
+	InstanceId        pulumi.StringInput    `pulumi:"instanceId"`
+	Name              pulumi.StringPtrInput `pulumi:"name"`
+	Region            pulumi.StringPtrInput `pulumi:"region"`
 	SecurityProfileId pulumi.StringPtrInput `pulumi:"securityProfileId"`
-	// Map of tags to assign to the Security Profile.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags              pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupSecurityProfileOutputArgs) ElementType() reflect.Type {
@@ -158,12 +82,10 @@ func (o LookupSecurityProfileResultOutput) ToLookupSecurityProfileResultOutputWi
 	return o
 }
 
-// ARN of the Security Profile.
 func (o LookupSecurityProfileResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecurityProfileResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description of the Security Profile.
 func (o LookupSecurityProfileResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecurityProfileResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -181,12 +103,10 @@ func (o LookupSecurityProfileResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecurityProfileResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The organization resource identifier for the security profile.
 func (o LookupSecurityProfileResultOutput) OrganizationResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecurityProfileResult) string { return v.OrganizationResourceId }).(pulumi.StringOutput)
 }
 
-// List of permissions assigned to the security profile.
 func (o LookupSecurityProfileResultOutput) Permissions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSecurityProfileResult) []string { return v.Permissions }).(pulumi.StringArrayOutput)
 }
@@ -199,7 +119,6 @@ func (o LookupSecurityProfileResultOutput) SecurityProfileId() pulumi.StringOutp
 	return o.ApplyT(func(v LookupSecurityProfileResult) string { return v.SecurityProfileId }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the Security Profile.
 func (o LookupSecurityProfileResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupSecurityProfileResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

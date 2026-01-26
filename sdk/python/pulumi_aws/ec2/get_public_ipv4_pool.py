@@ -59,9 +59,6 @@ class GetPublicIpv4PoolResult:
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the pool, if any.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -75,10 +72,6 @@ class GetPublicIpv4PoolResult:
     @_builtins.property
     @pulumi.getter(name="networkBorderGroup")
     def network_border_group(self) -> _builtins.str:
-        """
-        Name of the location from which the address pool is advertised.
-        * pool_address_ranges` - List of Address Ranges in the Pool; each address range record contains:
-        """
         return pulumi.get(self, "network_border_group")
 
     @_builtins.property
@@ -99,25 +92,16 @@ class GetPublicIpv4PoolResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Any tags for the address pool.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="totalAddressCount")
     def total_address_count(self) -> _builtins.int:
-        """
-        Total number of addresses in the pool.
-        """
         return pulumi.get(self, "total_address_count")
 
     @_builtins.property
     @pulumi.getter(name="totalAvailableAddressCount")
     def total_available_address_count(self) -> _builtins.int:
-        """
-        Total number of available addresses in the pool.
-        """
         return pulumi.get(self, "total_available_address_count")
 
 
@@ -143,23 +127,7 @@ def get_public_ipv4_pool(pool_id: Optional[_builtins.str] = None,
                          tags: Optional[Mapping[str, _builtins.str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublicIpv4PoolResult:
     """
-    Provides details about a specific AWS EC2 Public IPv4 Pool.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_public_ipv4_pool(pool_id="ipv4pool-ec2-000df99cff0c1ec10")
-    ```
-
-
-    :param _builtins.str pool_id: AWS resource IDs of a public IPv4 pool (as a string) for which this data source will fetch detailed information.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Any tags for the address pool.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['poolId'] = pool_id
@@ -183,23 +151,7 @@ def get_public_ipv4_pool_output(pool_id: Optional[pulumi.Input[_builtins.str]] =
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublicIpv4PoolResult]:
     """
-    Provides details about a specific AWS EC2 Public IPv4 Pool.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_public_ipv4_pool(pool_id="ipv4pool-ec2-000df99cff0c1ec10")
-    ```
-
-
-    :param _builtins.str pool_id: AWS resource IDs of a public IPv4 pool (as a string) for which this data source will fetch detailed information.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Any tags for the address pool.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['poolId'] = pool_id

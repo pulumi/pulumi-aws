@@ -12,65 +12,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DocumentationPartLocation {
-    /**
-     * @return HTTP verb of a method. The default value is `*` for any method.
-     * 
-     */
     private @Nullable String method;
-    /**
-     * @return Name of the targeted API entity.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return URL path of the target. The default value is `/` for the root resource.
-     * 
-     */
     private @Nullable String path;
-    /**
-     * @return HTTP status code of a response. The default value is `*` for any status code.
-     * 
-     */
     private @Nullable String statusCode;
-    /**
-     * @return Type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
-     * 
-     */
     private String type;
 
     private DocumentationPartLocation() {}
-    /**
-     * @return HTTP verb of a method. The default value is `*` for any method.
-     * 
-     */
     public Optional<String> method() {
         return Optional.ofNullable(this.method);
     }
-    /**
-     * @return Name of the targeted API entity.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return URL path of the target. The default value is `/` for the root resource.
-     * 
-     */
     public Optional<String> path() {
         return Optional.ofNullable(this.path);
     }
-    /**
-     * @return HTTP status code of a response. The default value is `*` for any status code.
-     * 
-     */
     public Optional<String> statusCode() {
         return Optional.ofNullable(this.statusCode);
     }
-    /**
-     * @return Type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
-     * 
-     */
     public String type() {
         return this.type;
     }

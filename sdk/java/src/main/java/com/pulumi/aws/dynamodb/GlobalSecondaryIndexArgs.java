@@ -23,129 +23,51 @@ public final class GlobalSecondaryIndexArgs extends com.pulumi.resources.Resourc
 
     public static final GlobalSecondaryIndexArgs Empty = new GlobalSecondaryIndexArgs();
 
-    /**
-     * Name of the index.
-     * 
-     */
     @Import(name="indexName", required=true)
     private Output<String> indexName;
 
-    /**
-     * @return Name of the index.
-     * 
-     */
     public Output<String> indexName() {
         return this.indexName;
     }
 
-    /**
-     * Set of nested attribute definitions.
-     * At least 1 element defining a `HASH` is required.
-     * All elements with the `keyType` of `HASH` must precede elements with `keyType` of `RANGE`.
-     * Changing any values in `keySchema` will re-create the resource.
-     * See `keySchema` below.
-     * 
-     */
     @Import(name="keySchemas")
     private @Nullable Output<List<GlobalSecondaryIndexKeySchemaArgs>> keySchemas;
 
-    /**
-     * @return Set of nested attribute definitions.
-     * At least 1 element defining a `HASH` is required.
-     * All elements with the `keyType` of `HASH` must precede elements with `keyType` of `RANGE`.
-     * Changing any values in `keySchema` will re-create the resource.
-     * See `keySchema` below.
-     * 
-     */
     public Optional<Output<List<GlobalSecondaryIndexKeySchemaArgs>>> keySchemas() {
         return Optional.ofNullable(this.keySchemas);
     }
 
-    /**
-     * Sets the maximum number of read and write units for the index.
-     * See `onDemandThroughput` below.
-     * Only valid if the table&#39;s `billingMode` is `PAY_PER_REQUEST`.
-     * 
-     */
     @Import(name="onDemandThroughput")
     private @Nullable Output<GlobalSecondaryIndexOnDemandThroughputArgs> onDemandThroughput;
 
-    /**
-     * @return Sets the maximum number of read and write units for the index.
-     * See `onDemandThroughput` below.
-     * Only valid if the table&#39;s `billingMode` is `PAY_PER_REQUEST`.
-     * 
-     */
     public Optional<Output<GlobalSecondaryIndexOnDemandThroughputArgs>> onDemandThroughput() {
         return Optional.ofNullable(this.onDemandThroughput);
     }
 
-    /**
-     * Describes which attributes from the table are represented in the index.
-     * See `projection` below.
-     * 
-     */
     @Import(name="projection")
     private @Nullable Output<GlobalSecondaryIndexProjectionArgs> projection;
 
-    /**
-     * @return Describes which attributes from the table are represented in the index.
-     * See `projection` below.
-     * 
-     */
     public Optional<Output<GlobalSecondaryIndexProjectionArgs>> projection() {
         return Optional.ofNullable(this.projection);
     }
 
-    /**
-     * Provisioned throughput for the index.
-     * See `provisionedThroughput` below.
-     * Required if the table&#39;s `billingMode` is `PROVISIONED`.
-     * 
-     */
     @Import(name="provisionedThroughput")
     private @Nullable Output<GlobalSecondaryIndexProvisionedThroughputArgs> provisionedThroughput;
 
-    /**
-     * @return Provisioned throughput for the index.
-     * See `provisionedThroughput` below.
-     * Required if the table&#39;s `billingMode` is `PROVISIONED`.
-     * 
-     */
     public Optional<Output<GlobalSecondaryIndexProvisionedThroughputArgs>> provisionedThroughput() {
         return Optional.ofNullable(this.provisionedThroughput);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Name of the table this index belongs to.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="tableName", required=true)
     private Output<String> tableName;
 
-    /**
-     * @return Name of the table this index belongs to.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> tableName() {
         return this.tableName;
     }
@@ -157,19 +79,9 @@ public final class GlobalSecondaryIndexArgs extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.timeouts);
     }
 
-    /**
-     * Sets the number of warm read and write units for this index.
-     * See `warmThroughput` below.
-     * 
-     */
     @Import(name="warmThroughput")
     private @Nullable Output<GlobalSecondaryIndexWarmThroughputArgs> warmThroughput;
 
-    /**
-     * @return Sets the number of warm read and write units for this index.
-     * See `warmThroughput` below.
-     * 
-     */
     public Optional<Output<GlobalSecondaryIndexWarmThroughputArgs>> warmThroughput() {
         return Optional.ofNullable(this.warmThroughput);
     }
@@ -206,185 +118,69 @@ public final class GlobalSecondaryIndexArgs extends com.pulumi.resources.Resourc
             $ = new GlobalSecondaryIndexArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param indexName Name of the index.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexName(Output<String> indexName) {
             $.indexName = indexName;
             return this;
         }
 
-        /**
-         * @param indexName Name of the index.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexName(String indexName) {
             return indexName(Output.of(indexName));
         }
 
-        /**
-         * @param keySchemas Set of nested attribute definitions.
-         * At least 1 element defining a `HASH` is required.
-         * All elements with the `keyType` of `HASH` must precede elements with `keyType` of `RANGE`.
-         * Changing any values in `keySchema` will re-create the resource.
-         * See `keySchema` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keySchemas(@Nullable Output<List<GlobalSecondaryIndexKeySchemaArgs>> keySchemas) {
             $.keySchemas = keySchemas;
             return this;
         }
 
-        /**
-         * @param keySchemas Set of nested attribute definitions.
-         * At least 1 element defining a `HASH` is required.
-         * All elements with the `keyType` of `HASH` must precede elements with `keyType` of `RANGE`.
-         * Changing any values in `keySchema` will re-create the resource.
-         * See `keySchema` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keySchemas(List<GlobalSecondaryIndexKeySchemaArgs> keySchemas) {
             return keySchemas(Output.of(keySchemas));
         }
 
-        /**
-         * @param keySchemas Set of nested attribute definitions.
-         * At least 1 element defining a `HASH` is required.
-         * All elements with the `keyType` of `HASH` must precede elements with `keyType` of `RANGE`.
-         * Changing any values in `keySchema` will re-create the resource.
-         * See `keySchema` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keySchemas(GlobalSecondaryIndexKeySchemaArgs... keySchemas) {
             return keySchemas(List.of(keySchemas));
         }
 
-        /**
-         * @param onDemandThroughput Sets the maximum number of read and write units for the index.
-         * See `onDemandThroughput` below.
-         * Only valid if the table&#39;s `billingMode` is `PAY_PER_REQUEST`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onDemandThroughput(@Nullable Output<GlobalSecondaryIndexOnDemandThroughputArgs> onDemandThroughput) {
             $.onDemandThroughput = onDemandThroughput;
             return this;
         }
 
-        /**
-         * @param onDemandThroughput Sets the maximum number of read and write units for the index.
-         * See `onDemandThroughput` below.
-         * Only valid if the table&#39;s `billingMode` is `PAY_PER_REQUEST`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onDemandThroughput(GlobalSecondaryIndexOnDemandThroughputArgs onDemandThroughput) {
             return onDemandThroughput(Output.of(onDemandThroughput));
         }
 
-        /**
-         * @param projection Describes which attributes from the table are represented in the index.
-         * See `projection` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projection(@Nullable Output<GlobalSecondaryIndexProjectionArgs> projection) {
             $.projection = projection;
             return this;
         }
 
-        /**
-         * @param projection Describes which attributes from the table are represented in the index.
-         * See `projection` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projection(GlobalSecondaryIndexProjectionArgs projection) {
             return projection(Output.of(projection));
         }
 
-        /**
-         * @param provisionedThroughput Provisioned throughput for the index.
-         * See `provisionedThroughput` below.
-         * Required if the table&#39;s `billingMode` is `PROVISIONED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder provisionedThroughput(@Nullable Output<GlobalSecondaryIndexProvisionedThroughputArgs> provisionedThroughput) {
             $.provisionedThroughput = provisionedThroughput;
             return this;
         }
 
-        /**
-         * @param provisionedThroughput Provisioned throughput for the index.
-         * See `provisionedThroughput` below.
-         * Required if the table&#39;s `billingMode` is `PROVISIONED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder provisionedThroughput(GlobalSecondaryIndexProvisionedThroughputArgs provisionedThroughput) {
             return provisionedThroughput(Output.of(provisionedThroughput));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tableName Name of the table this index belongs to.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(Output<String> tableName) {
             $.tableName = tableName;
             return this;
         }
 
-        /**
-         * @param tableName Name of the table this index belongs to.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(String tableName) {
             return tableName(Output.of(tableName));
         }
@@ -398,25 +194,11 @@ public final class GlobalSecondaryIndexArgs extends com.pulumi.resources.Resourc
             return timeouts(Output.of(timeouts));
         }
 
-        /**
-         * @param warmThroughput Sets the number of warm read and write units for this index.
-         * See `warmThroughput` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder warmThroughput(@Nullable Output<GlobalSecondaryIndexWarmThroughputArgs> warmThroughput) {
             $.warmThroughput = warmThroughput;
             return this;
         }
 
-        /**
-         * @param warmThroughput Sets the number of warm read and write units for this index.
-         * See `warmThroughput` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder warmThroughput(GlobalSecondaryIndexWarmThroughputArgs warmThroughput) {
             return warmThroughput(Output.of(warmThroughput));
         }

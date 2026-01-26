@@ -24,9 +24,6 @@ class ResourcePolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourcePolicy resource.
-        :param pulumi.Input[_builtins.str] policy: The policy to be applied to the aws glue data catalog.
-        :param pulumi.Input[_builtins.str] enable_hybrid: Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy", policy)
         if enable_hybrid is not None:
@@ -37,9 +34,6 @@ class ResourcePolicyArgs:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Input[_builtins.str]:
-        """
-        The policy to be applied to the aws glue data catalog.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -49,9 +43,6 @@ class ResourcePolicyArgs:
     @_builtins.property
     @pulumi.getter(name="enableHybrid")
     def enable_hybrid(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
-        """
         return pulumi.get(self, "enable_hybrid")
 
     @enable_hybrid.setter
@@ -61,9 +52,6 @@ class ResourcePolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -79,9 +67,6 @@ class _ResourcePolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResourcePolicy resources.
-        :param pulumi.Input[_builtins.str] enable_hybrid: Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
-        :param pulumi.Input[_builtins.str] policy: The policy to be applied to the aws glue data catalog.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if enable_hybrid is not None:
             pulumi.set(__self__, "enable_hybrid", enable_hybrid)
@@ -93,9 +78,6 @@ class _ResourcePolicyState:
     @_builtins.property
     @pulumi.getter(name="enableHybrid")
     def enable_hybrid(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
-        """
         return pulumi.get(self, "enable_hybrid")
 
     @enable_hybrid.setter
@@ -105,9 +87,6 @@ class _ResourcePolicyState:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The policy to be applied to the aws glue data catalog.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -117,9 +96,6 @@ class _ResourcePolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -138,41 +114,9 @@ class ResourcePolicy(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a Glue resource policy. Only one can exist per region.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        current_get_partition = aws.get_partition()
-        current_get_region = aws.get_region()
-        glue_example_policy = aws.iam.get_policy_document(statements=[{
-            "actions": ["glue:CreateTable"],
-            "resources": [f"arn:{current_get_partition.partition}:glue:{current_get_region.region}:{current.account_id}:*"],
-            "principals": [{
-                "identifiers": ["*"],
-                "type": "AWS",
-            }],
-        }])
-        example = aws.glue.ResourcePolicy("example", policy=glue_example_policy.json)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Glue Resource Policy using the region where the resource resides. For example:
-
-        ```sh
-        $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test us-east-1
-        ```
-
+        Create a ResourcePolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] enable_hybrid: Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
-        :param pulumi.Input[_builtins.str] policy: The policy to be applied to the aws glue data catalog.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -181,36 +125,7 @@ class ResourcePolicy(pulumi.CustomResource):
                  args: ResourcePolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Glue resource policy. Only one can exist per region.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        current_get_partition = aws.get_partition()
-        current_get_region = aws.get_region()
-        glue_example_policy = aws.iam.get_policy_document(statements=[{
-            "actions": ["glue:CreateTable"],
-            "resources": [f"arn:{current_get_partition.partition}:glue:{current_get_region.region}:{current.account_id}:*"],
-            "principals": [{
-                "identifiers": ["*"],
-                "type": "AWS",
-            }],
-        }])
-        example = aws.glue.ResourcePolicy("example", policy=glue_example_policy.json)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Glue Resource Policy using the region where the resource resides. For example:
-
-        ```sh
-        $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test us-east-1
-        ```
-
+        Create a ResourcePolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ResourcePolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -263,9 +178,6 @@ class ResourcePolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] enable_hybrid: Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
-        :param pulumi.Input[_builtins.str] policy: The policy to be applied to the aws glue data catalog.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -279,24 +191,15 @@ class ResourcePolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="enableHybrid")
     def enable_hybrid(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
-        """
         return pulumi.get(self, "enable_hybrid")
 
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:
-        """
-        The policy to be applied to the aws glue data catalog.
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

@@ -56,21 +56,9 @@ MYPY = False
 if not MYPY:
     class DomainMatchingArgsDict(TypedDict):
         enabled: pulumi.Input[_builtins.bool]
-        """
-        The flag that enables the matching process of duplicate profiles.
-        """
         auto_merging: NotRequired[pulumi.Input['DomainMatchingAutoMergingArgsDict']]
-        """
-        A block that specifies the configuration about the auto-merging process. Documented below.
-        """
         exporting_config: NotRequired[pulumi.Input['DomainMatchingExportingConfigArgsDict']]
-        """
-        A block that specifies the configuration for exporting Identity Resolution results. Documented below.
-        """
         job_schedule: NotRequired[pulumi.Input['DomainMatchingJobScheduleArgsDict']]
-        """
-        A block that specifies the day and time when you want to start the Identity Resolution Job every week. Documented below.
-        """
 elif False:
     DomainMatchingArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -81,12 +69,6 @@ class DomainMatchingArgs:
                  auto_merging: Optional[pulumi.Input['DomainMatchingAutoMergingArgs']] = None,
                  exporting_config: Optional[pulumi.Input['DomainMatchingExportingConfigArgs']] = None,
                  job_schedule: Optional[pulumi.Input['DomainMatchingJobScheduleArgs']] = None):
-        """
-        :param pulumi.Input[_builtins.bool] enabled: The flag that enables the matching process of duplicate profiles.
-        :param pulumi.Input['DomainMatchingAutoMergingArgs'] auto_merging: A block that specifies the configuration about the auto-merging process. Documented below.
-        :param pulumi.Input['DomainMatchingExportingConfigArgs'] exporting_config: A block that specifies the configuration for exporting Identity Resolution results. Documented below.
-        :param pulumi.Input['DomainMatchingJobScheduleArgs'] job_schedule: A block that specifies the day and time when you want to start the Identity Resolution Job every week. Documented below.
-        """
         pulumi.set(__self__, "enabled", enabled)
         if auto_merging is not None:
             pulumi.set(__self__, "auto_merging", auto_merging)
@@ -98,9 +80,6 @@ class DomainMatchingArgs:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[_builtins.bool]:
-        """
-        The flag that enables the matching process of duplicate profiles.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -110,9 +89,6 @@ class DomainMatchingArgs:
     @_builtins.property
     @pulumi.getter(name="autoMerging")
     def auto_merging(self) -> Optional[pulumi.Input['DomainMatchingAutoMergingArgs']]:
-        """
-        A block that specifies the configuration about the auto-merging process. Documented below.
-        """
         return pulumi.get(self, "auto_merging")
 
     @auto_merging.setter
@@ -122,9 +98,6 @@ class DomainMatchingArgs:
     @_builtins.property
     @pulumi.getter(name="exportingConfig")
     def exporting_config(self) -> Optional[pulumi.Input['DomainMatchingExportingConfigArgs']]:
-        """
-        A block that specifies the configuration for exporting Identity Resolution results. Documented below.
-        """
         return pulumi.get(self, "exporting_config")
 
     @exporting_config.setter
@@ -134,9 +107,6 @@ class DomainMatchingArgs:
     @_builtins.property
     @pulumi.getter(name="jobSchedule")
     def job_schedule(self) -> Optional[pulumi.Input['DomainMatchingJobScheduleArgs']]:
-        """
-        A block that specifies the day and time when you want to start the Identity Resolution Job every week. Documented below.
-        """
         return pulumi.get(self, "job_schedule")
 
     @job_schedule.setter
@@ -147,18 +117,8 @@ class DomainMatchingArgs:
 if not MYPY:
     class DomainMatchingAutoMergingArgsDict(TypedDict):
         enabled: pulumi.Input[_builtins.bool]
-        """
-        The flag that enables the auto-merging of duplicate profiles.
-        """
         conflict_resolution: NotRequired[pulumi.Input['DomainMatchingAutoMergingConflictResolutionArgsDict']]
-        """
-        A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
-        """
         consolidation: NotRequired[pulumi.Input['DomainMatchingAutoMergingConsolidationArgsDict']]
-        """
-        A block that specifies a list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged. Documented below.
-        * `min_allowed_confidence_score_for_merging ` - (Optional) A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
-        """
         min_allowed_confidence_score_for_merging: NotRequired[pulumi.Input[_builtins.float]]
 elif False:
     DomainMatchingAutoMergingArgsDict: TypeAlias = Mapping[str, Any]
@@ -170,12 +130,6 @@ class DomainMatchingAutoMergingArgs:
                  conflict_resolution: Optional[pulumi.Input['DomainMatchingAutoMergingConflictResolutionArgs']] = None,
                  consolidation: Optional[pulumi.Input['DomainMatchingAutoMergingConsolidationArgs']] = None,
                  min_allowed_confidence_score_for_merging: Optional[pulumi.Input[_builtins.float]] = None):
-        """
-        :param pulumi.Input[_builtins.bool] enabled: The flag that enables the auto-merging of duplicate profiles.
-        :param pulumi.Input['DomainMatchingAutoMergingConflictResolutionArgs'] conflict_resolution: A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
-        :param pulumi.Input['DomainMatchingAutoMergingConsolidationArgs'] consolidation: A block that specifies a list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged. Documented below.
-               * `min_allowed_confidence_score_for_merging ` - (Optional) A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
-        """
         pulumi.set(__self__, "enabled", enabled)
         if conflict_resolution is not None:
             pulumi.set(__self__, "conflict_resolution", conflict_resolution)
@@ -187,9 +141,6 @@ class DomainMatchingAutoMergingArgs:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[_builtins.bool]:
-        """
-        The flag that enables the auto-merging of duplicate profiles.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -199,9 +150,6 @@ class DomainMatchingAutoMergingArgs:
     @_builtins.property
     @pulumi.getter(name="conflictResolution")
     def conflict_resolution(self) -> Optional[pulumi.Input['DomainMatchingAutoMergingConflictResolutionArgs']]:
-        """
-        A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
-        """
         return pulumi.get(self, "conflict_resolution")
 
     @conflict_resolution.setter
@@ -211,10 +159,6 @@ class DomainMatchingAutoMergingArgs:
     @_builtins.property
     @pulumi.getter
     def consolidation(self) -> Optional[pulumi.Input['DomainMatchingAutoMergingConsolidationArgs']]:
-        """
-        A block that specifies a list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged. Documented below.
-        * `min_allowed_confidence_score_for_merging ` - (Optional) A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
-        """
         return pulumi.get(self, "consolidation")
 
     @consolidation.setter
@@ -234,13 +178,7 @@ class DomainMatchingAutoMergingArgs:
 if not MYPY:
     class DomainMatchingAutoMergingConflictResolutionArgsDict(TypedDict):
         conflict_resolving_model: pulumi.Input[_builtins.str]
-        """
-        How the auto-merging process should resolve conflicts between different profiles. Valid values are `RECENCY` and `SOURCE`
-        """
         source_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The `ObjectType` name that is used to resolve profile merging conflicts when choosing `SOURCE` as the `ConflictResolvingModel`.
-        """
 elif False:
     DomainMatchingAutoMergingConflictResolutionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -249,10 +187,6 @@ class DomainMatchingAutoMergingConflictResolutionArgs:
     def __init__(__self__, *,
                  conflict_resolving_model: pulumi.Input[_builtins.str],
                  source_name: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] conflict_resolving_model: How the auto-merging process should resolve conflicts between different profiles. Valid values are `RECENCY` and `SOURCE`
-        :param pulumi.Input[_builtins.str] source_name: The `ObjectType` name that is used to resolve profile merging conflicts when choosing `SOURCE` as the `ConflictResolvingModel`.
-        """
         pulumi.set(__self__, "conflict_resolving_model", conflict_resolving_model)
         if source_name is not None:
             pulumi.set(__self__, "source_name", source_name)
@@ -260,9 +194,6 @@ class DomainMatchingAutoMergingConflictResolutionArgs:
     @_builtins.property
     @pulumi.getter(name="conflictResolvingModel")
     def conflict_resolving_model(self) -> pulumi.Input[_builtins.str]:
-        """
-        How the auto-merging process should resolve conflicts between different profiles. Valid values are `RECENCY` and `SOURCE`
-        """
         return pulumi.get(self, "conflict_resolving_model")
 
     @conflict_resolving_model.setter
@@ -272,9 +203,6 @@ class DomainMatchingAutoMergingConflictResolutionArgs:
     @_builtins.property
     @pulumi.getter(name="sourceName")
     def source_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The `ObjectType` name that is used to resolve profile merging conflicts when choosing `SOURCE` as the `ConflictResolvingModel`.
-        """
         return pulumi.get(self, "source_name")
 
     @source_name.setter
@@ -285,9 +213,6 @@ class DomainMatchingAutoMergingConflictResolutionArgs:
 if not MYPY:
     class DomainMatchingAutoMergingConsolidationArgsDict(TypedDict):
         matching_attributes_lists: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]
-        """
-        A list of matching criteria.
-        """
 elif False:
     DomainMatchingAutoMergingConsolidationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -295,17 +220,11 @@ elif False:
 class DomainMatchingAutoMergingConsolidationArgs:
     def __init__(__self__, *,
                  matching_attributes_lists: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]] matching_attributes_lists: A list of matching criteria.
-        """
         pulumi.set(__self__, "matching_attributes_lists", matching_attributes_lists)
 
     @_builtins.property
     @pulumi.getter(name="matchingAttributesLists")
     def matching_attributes_lists(self) -> pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]:
-        """
-        A list of matching criteria.
-        """
         return pulumi.get(self, "matching_attributes_lists")
 
     @matching_attributes_lists.setter
@@ -339,13 +258,7 @@ class DomainMatchingExportingConfigArgs:
 if not MYPY:
     class DomainMatchingExportingConfigS3ExportingArgsDict(TypedDict):
         s3_bucket_name: pulumi.Input[_builtins.str]
-        """
-        The name of the S3 bucket where Identity Resolution Jobs write result files.
-        """
         s3_key_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The S3 key name of the location where Identity Resolution Jobs write result files.
-        """
 elif False:
     DomainMatchingExportingConfigS3ExportingArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -354,10 +267,6 @@ class DomainMatchingExportingConfigS3ExportingArgs:
     def __init__(__self__, *,
                  s3_bucket_name: pulumi.Input[_builtins.str],
                  s3_key_name: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] s3_bucket_name: The name of the S3 bucket where Identity Resolution Jobs write result files.
-        :param pulumi.Input[_builtins.str] s3_key_name: The S3 key name of the location where Identity Resolution Jobs write result files.
-        """
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if s3_key_name is not None:
             pulumi.set(__self__, "s3_key_name", s3_key_name)
@@ -365,9 +274,6 @@ class DomainMatchingExportingConfigS3ExportingArgs:
     @_builtins.property
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the S3 bucket where Identity Resolution Jobs write result files.
-        """
         return pulumi.get(self, "s3_bucket_name")
 
     @s3_bucket_name.setter
@@ -377,9 +283,6 @@ class DomainMatchingExportingConfigS3ExportingArgs:
     @_builtins.property
     @pulumi.getter(name="s3KeyName")
     def s3_key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The S3 key name of the location where Identity Resolution Jobs write result files.
-        """
         return pulumi.get(self, "s3_key_name")
 
     @s3_key_name.setter
@@ -390,13 +293,7 @@ class DomainMatchingExportingConfigS3ExportingArgs:
 if not MYPY:
     class DomainMatchingJobScheduleArgsDict(TypedDict):
         day_of_the_week: pulumi.Input[_builtins.str]
-        """
-        The day when the Identity Resolution Job should run every week.
-        """
         time: pulumi.Input[_builtins.str]
-        """
-        The time when the Identity Resolution Job should run every week.
-        """
 elif False:
     DomainMatchingJobScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -405,19 +302,12 @@ class DomainMatchingJobScheduleArgs:
     def __init__(__self__, *,
                  day_of_the_week: pulumi.Input[_builtins.str],
                  time: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] day_of_the_week: The day when the Identity Resolution Job should run every week.
-        :param pulumi.Input[_builtins.str] time: The time when the Identity Resolution Job should run every week.
-        """
         pulumi.set(__self__, "day_of_the_week", day_of_the_week)
         pulumi.set(__self__, "time", time)
 
     @_builtins.property
     @pulumi.getter(name="dayOfTheWeek")
     def day_of_the_week(self) -> pulumi.Input[_builtins.str]:
-        """
-        The day when the Identity Resolution Job should run every week.
-        """
         return pulumi.get(self, "day_of_the_week")
 
     @day_of_the_week.setter
@@ -427,9 +317,6 @@ class DomainMatchingJobScheduleArgs:
     @_builtins.property
     @pulumi.getter
     def time(self) -> pulumi.Input[_builtins.str]:
-        """
-        The time when the Identity Resolution Job should run every week.
-        """
         return pulumi.get(self, "time")
 
     @time.setter
@@ -440,33 +327,12 @@ class DomainMatchingJobScheduleArgs:
 if not MYPY:
     class DomainRuleBasedMatchingArgsDict(TypedDict):
         enabled: pulumi.Input[_builtins.bool]
-        """
-        The flag that enables the rule-based matching process of duplicate profiles.
-        """
         attribute_types_selector: NotRequired[pulumi.Input['DomainRuleBasedMatchingAttributeTypesSelectorArgsDict']]
-        """
-        A block that configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles. Documented below.
-        """
         conflict_resolution: NotRequired[pulumi.Input['DomainRuleBasedMatchingConflictResolutionArgsDict']]
-        """
-        A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
-        """
         exporting_config: NotRequired[pulumi.Input['DomainRuleBasedMatchingExportingConfigArgsDict']]
-        """
-        A block that specifies the configuration for exporting Identity Resolution results. Documented below.
-        """
         matching_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainRuleBasedMatchingMatchingRuleArgsDict']]]]
-        """
-        A block that configures how the rule-based matching process should match profiles. You can have up to 15 `rule` in the `natching_rules`. Documented below.
-        """
         max_allowed_rule_level_for_matching: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Indicates the maximum allowed rule level for matching.
-        """
         max_allowed_rule_level_for_merging: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Indicates the maximum allowed rule level for merging.
-        """
         status: NotRequired[pulumi.Input[_builtins.str]]
 elif False:
     DomainRuleBasedMatchingArgsDict: TypeAlias = Mapping[str, Any]
@@ -482,15 +348,6 @@ class DomainRuleBasedMatchingArgs:
                  max_allowed_rule_level_for_matching: Optional[pulumi.Input[_builtins.int]] = None,
                  max_allowed_rule_level_for_merging: Optional[pulumi.Input[_builtins.int]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.bool] enabled: The flag that enables the rule-based matching process of duplicate profiles.
-        :param pulumi.Input['DomainRuleBasedMatchingAttributeTypesSelectorArgs'] attribute_types_selector: A block that configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles. Documented below.
-        :param pulumi.Input['DomainRuleBasedMatchingConflictResolutionArgs'] conflict_resolution: A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
-        :param pulumi.Input['DomainRuleBasedMatchingExportingConfigArgs'] exporting_config: A block that specifies the configuration for exporting Identity Resolution results. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainRuleBasedMatchingMatchingRuleArgs']]] matching_rules: A block that configures how the rule-based matching process should match profiles. You can have up to 15 `rule` in the `natching_rules`. Documented below.
-        :param pulumi.Input[_builtins.int] max_allowed_rule_level_for_matching: Indicates the maximum allowed rule level for matching.
-        :param pulumi.Input[_builtins.int] max_allowed_rule_level_for_merging: Indicates the maximum allowed rule level for merging.
-        """
         pulumi.set(__self__, "enabled", enabled)
         if attribute_types_selector is not None:
             pulumi.set(__self__, "attribute_types_selector", attribute_types_selector)
@@ -510,9 +367,6 @@ class DomainRuleBasedMatchingArgs:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[_builtins.bool]:
-        """
-        The flag that enables the rule-based matching process of duplicate profiles.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -522,9 +376,6 @@ class DomainRuleBasedMatchingArgs:
     @_builtins.property
     @pulumi.getter(name="attributeTypesSelector")
     def attribute_types_selector(self) -> Optional[pulumi.Input['DomainRuleBasedMatchingAttributeTypesSelectorArgs']]:
-        """
-        A block that configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles. Documented below.
-        """
         return pulumi.get(self, "attribute_types_selector")
 
     @attribute_types_selector.setter
@@ -534,9 +385,6 @@ class DomainRuleBasedMatchingArgs:
     @_builtins.property
     @pulumi.getter(name="conflictResolution")
     def conflict_resolution(self) -> Optional[pulumi.Input['DomainRuleBasedMatchingConflictResolutionArgs']]:
-        """
-        A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
-        """
         return pulumi.get(self, "conflict_resolution")
 
     @conflict_resolution.setter
@@ -546,9 +394,6 @@ class DomainRuleBasedMatchingArgs:
     @_builtins.property
     @pulumi.getter(name="exportingConfig")
     def exporting_config(self) -> Optional[pulumi.Input['DomainRuleBasedMatchingExportingConfigArgs']]:
-        """
-        A block that specifies the configuration for exporting Identity Resolution results. Documented below.
-        """
         return pulumi.get(self, "exporting_config")
 
     @exporting_config.setter
@@ -558,9 +403,6 @@ class DomainRuleBasedMatchingArgs:
     @_builtins.property
     @pulumi.getter(name="matchingRules")
     def matching_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainRuleBasedMatchingMatchingRuleArgs']]]]:
-        """
-        A block that configures how the rule-based matching process should match profiles. You can have up to 15 `rule` in the `natching_rules`. Documented below.
-        """
         return pulumi.get(self, "matching_rules")
 
     @matching_rules.setter
@@ -570,9 +412,6 @@ class DomainRuleBasedMatchingArgs:
     @_builtins.property
     @pulumi.getter(name="maxAllowedRuleLevelForMatching")
     def max_allowed_rule_level_for_matching(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Indicates the maximum allowed rule level for matching.
-        """
         return pulumi.get(self, "max_allowed_rule_level_for_matching")
 
     @max_allowed_rule_level_for_matching.setter
@@ -582,9 +421,6 @@ class DomainRuleBasedMatchingArgs:
     @_builtins.property
     @pulumi.getter(name="maxAllowedRuleLevelForMerging")
     def max_allowed_rule_level_for_merging(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Indicates the maximum allowed rule level for merging.
-        """
         return pulumi.get(self, "max_allowed_rule_level_for_merging")
 
     @max_allowed_rule_level_for_merging.setter
@@ -604,21 +440,9 @@ class DomainRuleBasedMatchingArgs:
 if not MYPY:
     class DomainRuleBasedMatchingAttributeTypesSelectorArgsDict(TypedDict):
         attribute_matching_model: pulumi.Input[_builtins.str]
-        """
-        Configures the `AttributeMatchingModel`, you can either choose `ONE_TO_ONE` or `MANY_TO_MANY`.
-        """
         addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The `Address` type. You can choose from `Address`, `BusinessAddress`, `MaillingAddress`, and `ShippingAddress`.
-        """
         email_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The `Email` type. You can choose from `EmailAddress`, `BusinessEmailAddress` and `PersonalEmailAddress`.
-        """
         phone_numbers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The `PhoneNumber` type. You can choose from `PhoneNumber`, `HomePhoneNumber`, and `MobilePhoneNumber`.
-        """
 elif False:
     DomainRuleBasedMatchingAttributeTypesSelectorArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -629,12 +453,6 @@ class DomainRuleBasedMatchingAttributeTypesSelectorArgs:
                  addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  phone_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] attribute_matching_model: Configures the `AttributeMatchingModel`, you can either choose `ONE_TO_ONE` or `MANY_TO_MANY`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] addresses: The `Address` type. You can choose from `Address`, `BusinessAddress`, `MaillingAddress`, and `ShippingAddress`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] email_addresses: The `Email` type. You can choose from `EmailAddress`, `BusinessEmailAddress` and `PersonalEmailAddress`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] phone_numbers: The `PhoneNumber` type. You can choose from `PhoneNumber`, `HomePhoneNumber`, and `MobilePhoneNumber`.
-        """
         pulumi.set(__self__, "attribute_matching_model", attribute_matching_model)
         if addresses is not None:
             pulumi.set(__self__, "addresses", addresses)
@@ -646,9 +464,6 @@ class DomainRuleBasedMatchingAttributeTypesSelectorArgs:
     @_builtins.property
     @pulumi.getter(name="attributeMatchingModel")
     def attribute_matching_model(self) -> pulumi.Input[_builtins.str]:
-        """
-        Configures the `AttributeMatchingModel`, you can either choose `ONE_TO_ONE` or `MANY_TO_MANY`.
-        """
         return pulumi.get(self, "attribute_matching_model")
 
     @attribute_matching_model.setter
@@ -658,9 +473,6 @@ class DomainRuleBasedMatchingAttributeTypesSelectorArgs:
     @_builtins.property
     @pulumi.getter
     def addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The `Address` type. You can choose from `Address`, `BusinessAddress`, `MaillingAddress`, and `ShippingAddress`.
-        """
         return pulumi.get(self, "addresses")
 
     @addresses.setter
@@ -670,9 +482,6 @@ class DomainRuleBasedMatchingAttributeTypesSelectorArgs:
     @_builtins.property
     @pulumi.getter(name="emailAddresses")
     def email_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The `Email` type. You can choose from `EmailAddress`, `BusinessEmailAddress` and `PersonalEmailAddress`.
-        """
         return pulumi.get(self, "email_addresses")
 
     @email_addresses.setter
@@ -682,9 +491,6 @@ class DomainRuleBasedMatchingAttributeTypesSelectorArgs:
     @_builtins.property
     @pulumi.getter(name="phoneNumbers")
     def phone_numbers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The `PhoneNumber` type. You can choose from `PhoneNumber`, `HomePhoneNumber`, and `MobilePhoneNumber`.
-        """
         return pulumi.get(self, "phone_numbers")
 
     @phone_numbers.setter
@@ -695,13 +501,7 @@ class DomainRuleBasedMatchingAttributeTypesSelectorArgs:
 if not MYPY:
     class DomainRuleBasedMatchingConflictResolutionArgsDict(TypedDict):
         conflict_resolving_model: pulumi.Input[_builtins.str]
-        """
-        How the auto-merging process should resolve conflicts between different profiles. Valid values are `RECENCY` and `SOURCE`
-        """
         source_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The `ObjectType` name that is used to resolve profile merging conflicts when choosing `SOURCE` as the `ConflictResolvingModel`.
-        """
 elif False:
     DomainRuleBasedMatchingConflictResolutionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -710,10 +510,6 @@ class DomainRuleBasedMatchingConflictResolutionArgs:
     def __init__(__self__, *,
                  conflict_resolving_model: pulumi.Input[_builtins.str],
                  source_name: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] conflict_resolving_model: How the auto-merging process should resolve conflicts between different profiles. Valid values are `RECENCY` and `SOURCE`
-        :param pulumi.Input[_builtins.str] source_name: The `ObjectType` name that is used to resolve profile merging conflicts when choosing `SOURCE` as the `ConflictResolvingModel`.
-        """
         pulumi.set(__self__, "conflict_resolving_model", conflict_resolving_model)
         if source_name is not None:
             pulumi.set(__self__, "source_name", source_name)
@@ -721,9 +517,6 @@ class DomainRuleBasedMatchingConflictResolutionArgs:
     @_builtins.property
     @pulumi.getter(name="conflictResolvingModel")
     def conflict_resolving_model(self) -> pulumi.Input[_builtins.str]:
-        """
-        How the auto-merging process should resolve conflicts between different profiles. Valid values are `RECENCY` and `SOURCE`
-        """
         return pulumi.get(self, "conflict_resolving_model")
 
     @conflict_resolving_model.setter
@@ -733,9 +526,6 @@ class DomainRuleBasedMatchingConflictResolutionArgs:
     @_builtins.property
     @pulumi.getter(name="sourceName")
     def source_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The `ObjectType` name that is used to resolve profile merging conflicts when choosing `SOURCE` as the `ConflictResolvingModel`.
-        """
         return pulumi.get(self, "source_name")
 
     @source_name.setter
@@ -769,13 +559,7 @@ class DomainRuleBasedMatchingExportingConfigArgs:
 if not MYPY:
     class DomainRuleBasedMatchingExportingConfigS3ExportingArgsDict(TypedDict):
         s3_bucket_name: pulumi.Input[_builtins.str]
-        """
-        The name of the S3 bucket where Identity Resolution Jobs write result files.
-        """
         s3_key_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The S3 key name of the location where Identity Resolution Jobs write result files.
-        """
 elif False:
     DomainRuleBasedMatchingExportingConfigS3ExportingArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -784,10 +568,6 @@ class DomainRuleBasedMatchingExportingConfigS3ExportingArgs:
     def __init__(__self__, *,
                  s3_bucket_name: pulumi.Input[_builtins.str],
                  s3_key_name: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] s3_bucket_name: The name of the S3 bucket where Identity Resolution Jobs write result files.
-        :param pulumi.Input[_builtins.str] s3_key_name: The S3 key name of the location where Identity Resolution Jobs write result files.
-        """
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if s3_key_name is not None:
             pulumi.set(__self__, "s3_key_name", s3_key_name)
@@ -795,9 +575,6 @@ class DomainRuleBasedMatchingExportingConfigS3ExportingArgs:
     @_builtins.property
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the S3 bucket where Identity Resolution Jobs write result files.
-        """
         return pulumi.get(self, "s3_bucket_name")
 
     @s3_bucket_name.setter
@@ -807,9 +584,6 @@ class DomainRuleBasedMatchingExportingConfigS3ExportingArgs:
     @_builtins.property
     @pulumi.getter(name="s3KeyName")
     def s3_key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The S3 key name of the location where Identity Resolution Jobs write result files.
-        """
         return pulumi.get(self, "s3_key_name")
 
     @s3_key_name.setter
@@ -820,9 +594,6 @@ class DomainRuleBasedMatchingExportingConfigS3ExportingArgs:
 if not MYPY:
     class DomainRuleBasedMatchingMatchingRuleArgsDict(TypedDict):
         rules: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A single rule level of the `match_rules`. Configures how the rule-based matching process should match profiles.
-        """
 elif False:
     DomainRuleBasedMatchingMatchingRuleArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -830,17 +601,11 @@ elif False:
 class DomainRuleBasedMatchingMatchingRuleArgs:
     def __init__(__self__, *,
                  rules: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rules: A single rule level of the `match_rules`. Configures how the rule-based matching process should match profiles.
-        """
         pulumi.set(__self__, "rules", rules)
 
     @_builtins.property
     @pulumi.getter
     def rules(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        A single rule level of the `match_rules`. Configures how the rule-based matching process should match profiles.
-        """
         return pulumi.get(self, "rules")
 
     @rules.setter
@@ -851,45 +616,15 @@ class DomainRuleBasedMatchingMatchingRuleArgs:
 if not MYPY:
     class ProfileAddressArgsDict(TypedDict):
         address1: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The first line of a customer address.
-        """
         address2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The second line of a customer address.
-        """
         address3: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The third line of a customer address.
-        """
         address4: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The fourth line of a customer address.
-        """
         city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The city in which a customer lives.
-        """
         country: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The country in which a customer lives.
-        """
         county: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The county in which a customer lives.
-        """
         postal_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The postal code of a customer address.
-        """
         province: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The province in which a customer lives.
-        """
         state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The state in which a customer lives.
-        """
 elif False:
     ProfileAddressArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -906,18 +641,6 @@ class ProfileAddressArgs:
                  postal_code: Optional[pulumi.Input[_builtins.str]] = None,
                  province: Optional[pulumi.Input[_builtins.str]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] address1: The first line of a customer address.
-        :param pulumi.Input[_builtins.str] address2: The second line of a customer address.
-        :param pulumi.Input[_builtins.str] address3: The third line of a customer address.
-        :param pulumi.Input[_builtins.str] address4: The fourth line of a customer address.
-        :param pulumi.Input[_builtins.str] city: The city in which a customer lives.
-        :param pulumi.Input[_builtins.str] country: The country in which a customer lives.
-        :param pulumi.Input[_builtins.str] county: The county in which a customer lives.
-        :param pulumi.Input[_builtins.str] postal_code: The postal code of a customer address.
-        :param pulumi.Input[_builtins.str] province: The province in which a customer lives.
-        :param pulumi.Input[_builtins.str] state: The state in which a customer lives.
-        """
         if address1 is not None:
             pulumi.set(__self__, "address1", address1)
         if address2 is not None:
@@ -942,9 +665,6 @@ class ProfileAddressArgs:
     @_builtins.property
     @pulumi.getter
     def address1(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The first line of a customer address.
-        """
         return pulumi.get(self, "address1")
 
     @address1.setter
@@ -954,9 +674,6 @@ class ProfileAddressArgs:
     @_builtins.property
     @pulumi.getter
     def address2(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The second line of a customer address.
-        """
         return pulumi.get(self, "address2")
 
     @address2.setter
@@ -966,9 +683,6 @@ class ProfileAddressArgs:
     @_builtins.property
     @pulumi.getter
     def address3(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The third line of a customer address.
-        """
         return pulumi.get(self, "address3")
 
     @address3.setter
@@ -978,9 +692,6 @@ class ProfileAddressArgs:
     @_builtins.property
     @pulumi.getter
     def address4(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The fourth line of a customer address.
-        """
         return pulumi.get(self, "address4")
 
     @address4.setter
@@ -990,9 +701,6 @@ class ProfileAddressArgs:
     @_builtins.property
     @pulumi.getter
     def city(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The city in which a customer lives.
-        """
         return pulumi.get(self, "city")
 
     @city.setter
@@ -1002,9 +710,6 @@ class ProfileAddressArgs:
     @_builtins.property
     @pulumi.getter
     def country(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The country in which a customer lives.
-        """
         return pulumi.get(self, "country")
 
     @country.setter
@@ -1014,9 +719,6 @@ class ProfileAddressArgs:
     @_builtins.property
     @pulumi.getter
     def county(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The county in which a customer lives.
-        """
         return pulumi.get(self, "county")
 
     @county.setter
@@ -1026,9 +728,6 @@ class ProfileAddressArgs:
     @_builtins.property
     @pulumi.getter(name="postalCode")
     def postal_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The postal code of a customer address.
-        """
         return pulumi.get(self, "postal_code")
 
     @postal_code.setter
@@ -1038,9 +737,6 @@ class ProfileAddressArgs:
     @_builtins.property
     @pulumi.getter
     def province(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The province in which a customer lives.
-        """
         return pulumi.get(self, "province")
 
     @province.setter
@@ -1050,9 +746,6 @@ class ProfileAddressArgs:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The state in which a customer lives.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -1063,45 +756,15 @@ class ProfileAddressArgs:
 if not MYPY:
     class ProfileBillingAddressArgsDict(TypedDict):
         address1: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The first line of a customer address.
-        """
         address2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The second line of a customer address.
-        """
         address3: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The third line of a customer address.
-        """
         address4: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The fourth line of a customer address.
-        """
         city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The city in which a customer lives.
-        """
         country: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The country in which a customer lives.
-        """
         county: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The county in which a customer lives.
-        """
         postal_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The postal code of a customer address.
-        """
         province: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The province in which a customer lives.
-        """
         state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The state in which a customer lives.
-        """
 elif False:
     ProfileBillingAddressArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1118,18 +781,6 @@ class ProfileBillingAddressArgs:
                  postal_code: Optional[pulumi.Input[_builtins.str]] = None,
                  province: Optional[pulumi.Input[_builtins.str]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] address1: The first line of a customer address.
-        :param pulumi.Input[_builtins.str] address2: The second line of a customer address.
-        :param pulumi.Input[_builtins.str] address3: The third line of a customer address.
-        :param pulumi.Input[_builtins.str] address4: The fourth line of a customer address.
-        :param pulumi.Input[_builtins.str] city: The city in which a customer lives.
-        :param pulumi.Input[_builtins.str] country: The country in which a customer lives.
-        :param pulumi.Input[_builtins.str] county: The county in which a customer lives.
-        :param pulumi.Input[_builtins.str] postal_code: The postal code of a customer address.
-        :param pulumi.Input[_builtins.str] province: The province in which a customer lives.
-        :param pulumi.Input[_builtins.str] state: The state in which a customer lives.
-        """
         if address1 is not None:
             pulumi.set(__self__, "address1", address1)
         if address2 is not None:
@@ -1154,9 +805,6 @@ class ProfileBillingAddressArgs:
     @_builtins.property
     @pulumi.getter
     def address1(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The first line of a customer address.
-        """
         return pulumi.get(self, "address1")
 
     @address1.setter
@@ -1166,9 +814,6 @@ class ProfileBillingAddressArgs:
     @_builtins.property
     @pulumi.getter
     def address2(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The second line of a customer address.
-        """
         return pulumi.get(self, "address2")
 
     @address2.setter
@@ -1178,9 +823,6 @@ class ProfileBillingAddressArgs:
     @_builtins.property
     @pulumi.getter
     def address3(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The third line of a customer address.
-        """
         return pulumi.get(self, "address3")
 
     @address3.setter
@@ -1190,9 +832,6 @@ class ProfileBillingAddressArgs:
     @_builtins.property
     @pulumi.getter
     def address4(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The fourth line of a customer address.
-        """
         return pulumi.get(self, "address4")
 
     @address4.setter
@@ -1202,9 +841,6 @@ class ProfileBillingAddressArgs:
     @_builtins.property
     @pulumi.getter
     def city(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The city in which a customer lives.
-        """
         return pulumi.get(self, "city")
 
     @city.setter
@@ -1214,9 +850,6 @@ class ProfileBillingAddressArgs:
     @_builtins.property
     @pulumi.getter
     def country(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The country in which a customer lives.
-        """
         return pulumi.get(self, "country")
 
     @country.setter
@@ -1226,9 +859,6 @@ class ProfileBillingAddressArgs:
     @_builtins.property
     @pulumi.getter
     def county(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The county in which a customer lives.
-        """
         return pulumi.get(self, "county")
 
     @county.setter
@@ -1238,9 +868,6 @@ class ProfileBillingAddressArgs:
     @_builtins.property
     @pulumi.getter(name="postalCode")
     def postal_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The postal code of a customer address.
-        """
         return pulumi.get(self, "postal_code")
 
     @postal_code.setter
@@ -1250,9 +877,6 @@ class ProfileBillingAddressArgs:
     @_builtins.property
     @pulumi.getter
     def province(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The province in which a customer lives.
-        """
         return pulumi.get(self, "province")
 
     @province.setter
@@ -1262,9 +886,6 @@ class ProfileBillingAddressArgs:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The state in which a customer lives.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -1275,45 +896,15 @@ class ProfileBillingAddressArgs:
 if not MYPY:
     class ProfileMailingAddressArgsDict(TypedDict):
         address1: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The first line of a customer address.
-        """
         address2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The second line of a customer address.
-        """
         address3: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The third line of a customer address.
-        """
         address4: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The fourth line of a customer address.
-        """
         city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The city in which a customer lives.
-        """
         country: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The country in which a customer lives.
-        """
         county: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The county in which a customer lives.
-        """
         postal_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The postal code of a customer address.
-        """
         province: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The province in which a customer lives.
-        """
         state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The state in which a customer lives.
-        """
 elif False:
     ProfileMailingAddressArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1330,18 +921,6 @@ class ProfileMailingAddressArgs:
                  postal_code: Optional[pulumi.Input[_builtins.str]] = None,
                  province: Optional[pulumi.Input[_builtins.str]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] address1: The first line of a customer address.
-        :param pulumi.Input[_builtins.str] address2: The second line of a customer address.
-        :param pulumi.Input[_builtins.str] address3: The third line of a customer address.
-        :param pulumi.Input[_builtins.str] address4: The fourth line of a customer address.
-        :param pulumi.Input[_builtins.str] city: The city in which a customer lives.
-        :param pulumi.Input[_builtins.str] country: The country in which a customer lives.
-        :param pulumi.Input[_builtins.str] county: The county in which a customer lives.
-        :param pulumi.Input[_builtins.str] postal_code: The postal code of a customer address.
-        :param pulumi.Input[_builtins.str] province: The province in which a customer lives.
-        :param pulumi.Input[_builtins.str] state: The state in which a customer lives.
-        """
         if address1 is not None:
             pulumi.set(__self__, "address1", address1)
         if address2 is not None:
@@ -1366,9 +945,6 @@ class ProfileMailingAddressArgs:
     @_builtins.property
     @pulumi.getter
     def address1(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The first line of a customer address.
-        """
         return pulumi.get(self, "address1")
 
     @address1.setter
@@ -1378,9 +954,6 @@ class ProfileMailingAddressArgs:
     @_builtins.property
     @pulumi.getter
     def address2(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The second line of a customer address.
-        """
         return pulumi.get(self, "address2")
 
     @address2.setter
@@ -1390,9 +963,6 @@ class ProfileMailingAddressArgs:
     @_builtins.property
     @pulumi.getter
     def address3(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The third line of a customer address.
-        """
         return pulumi.get(self, "address3")
 
     @address3.setter
@@ -1402,9 +972,6 @@ class ProfileMailingAddressArgs:
     @_builtins.property
     @pulumi.getter
     def address4(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The fourth line of a customer address.
-        """
         return pulumi.get(self, "address4")
 
     @address4.setter
@@ -1414,9 +981,6 @@ class ProfileMailingAddressArgs:
     @_builtins.property
     @pulumi.getter
     def city(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The city in which a customer lives.
-        """
         return pulumi.get(self, "city")
 
     @city.setter
@@ -1426,9 +990,6 @@ class ProfileMailingAddressArgs:
     @_builtins.property
     @pulumi.getter
     def country(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The country in which a customer lives.
-        """
         return pulumi.get(self, "country")
 
     @country.setter
@@ -1438,9 +999,6 @@ class ProfileMailingAddressArgs:
     @_builtins.property
     @pulumi.getter
     def county(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The county in which a customer lives.
-        """
         return pulumi.get(self, "county")
 
     @county.setter
@@ -1450,9 +1008,6 @@ class ProfileMailingAddressArgs:
     @_builtins.property
     @pulumi.getter(name="postalCode")
     def postal_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The postal code of a customer address.
-        """
         return pulumi.get(self, "postal_code")
 
     @postal_code.setter
@@ -1462,9 +1017,6 @@ class ProfileMailingAddressArgs:
     @_builtins.property
     @pulumi.getter
     def province(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The province in which a customer lives.
-        """
         return pulumi.get(self, "province")
 
     @province.setter
@@ -1474,9 +1026,6 @@ class ProfileMailingAddressArgs:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The state in which a customer lives.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -1487,45 +1036,15 @@ class ProfileMailingAddressArgs:
 if not MYPY:
     class ProfileShippingAddressArgsDict(TypedDict):
         address1: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The first line of a customer address.
-        """
         address2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The second line of a customer address.
-        """
         address3: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The third line of a customer address.
-        """
         address4: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The fourth line of a customer address.
-        """
         city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The city in which a customer lives.
-        """
         country: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The country in which a customer lives.
-        """
         county: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The county in which a customer lives.
-        """
         postal_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The postal code of a customer address.
-        """
         province: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The province in which a customer lives.
-        """
         state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The state in which a customer lives.
-        """
 elif False:
     ProfileShippingAddressArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1542,18 +1061,6 @@ class ProfileShippingAddressArgs:
                  postal_code: Optional[pulumi.Input[_builtins.str]] = None,
                  province: Optional[pulumi.Input[_builtins.str]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] address1: The first line of a customer address.
-        :param pulumi.Input[_builtins.str] address2: The second line of a customer address.
-        :param pulumi.Input[_builtins.str] address3: The third line of a customer address.
-        :param pulumi.Input[_builtins.str] address4: The fourth line of a customer address.
-        :param pulumi.Input[_builtins.str] city: The city in which a customer lives.
-        :param pulumi.Input[_builtins.str] country: The country in which a customer lives.
-        :param pulumi.Input[_builtins.str] county: The county in which a customer lives.
-        :param pulumi.Input[_builtins.str] postal_code: The postal code of a customer address.
-        :param pulumi.Input[_builtins.str] province: The province in which a customer lives.
-        :param pulumi.Input[_builtins.str] state: The state in which a customer lives.
-        """
         if address1 is not None:
             pulumi.set(__self__, "address1", address1)
         if address2 is not None:
@@ -1578,9 +1085,6 @@ class ProfileShippingAddressArgs:
     @_builtins.property
     @pulumi.getter
     def address1(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The first line of a customer address.
-        """
         return pulumi.get(self, "address1")
 
     @address1.setter
@@ -1590,9 +1094,6 @@ class ProfileShippingAddressArgs:
     @_builtins.property
     @pulumi.getter
     def address2(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The second line of a customer address.
-        """
         return pulumi.get(self, "address2")
 
     @address2.setter
@@ -1602,9 +1103,6 @@ class ProfileShippingAddressArgs:
     @_builtins.property
     @pulumi.getter
     def address3(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The third line of a customer address.
-        """
         return pulumi.get(self, "address3")
 
     @address3.setter
@@ -1614,9 +1112,6 @@ class ProfileShippingAddressArgs:
     @_builtins.property
     @pulumi.getter
     def address4(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The fourth line of a customer address.
-        """
         return pulumi.get(self, "address4")
 
     @address4.setter
@@ -1626,9 +1121,6 @@ class ProfileShippingAddressArgs:
     @_builtins.property
     @pulumi.getter
     def city(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The city in which a customer lives.
-        """
         return pulumi.get(self, "city")
 
     @city.setter
@@ -1638,9 +1130,6 @@ class ProfileShippingAddressArgs:
     @_builtins.property
     @pulumi.getter
     def country(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The country in which a customer lives.
-        """
         return pulumi.get(self, "country")
 
     @country.setter
@@ -1650,9 +1139,6 @@ class ProfileShippingAddressArgs:
     @_builtins.property
     @pulumi.getter
     def county(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The county in which a customer lives.
-        """
         return pulumi.get(self, "county")
 
     @county.setter
@@ -1662,9 +1148,6 @@ class ProfileShippingAddressArgs:
     @_builtins.property
     @pulumi.getter(name="postalCode")
     def postal_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The postal code of a customer address.
-        """
         return pulumi.get(self, "postal_code")
 
     @postal_code.setter
@@ -1674,9 +1157,6 @@ class ProfileShippingAddressArgs:
     @_builtins.property
     @pulumi.getter
     def province(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The province in which a customer lives.
-        """
         return pulumi.get(self, "province")
 
     @province.setter
@@ -1686,9 +1166,6 @@ class ProfileShippingAddressArgs:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The state in which a customer lives.
-        """
         return pulumi.get(self, "state")
 
     @state.setter

@@ -12,69 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an [AWS AppSync Channel Namespace](https://docs.aws.amazon.com/appsync/latest/eventapi/event-api-concepts.html#namespace).
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appsync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appsync.NewChannelNamespace(ctx, "example", &appsync.ChannelNamespaceArgs{
-//				Name:  pulumi.String("example-channel-namespace"),
-//				ApiId: pulumi.Any(exampleAwsAppsyncApi.ApiId),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import AppSync Channel Namespace using the `api_id` and `name` separated by a comma (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:appsync/channelNamespace:ChannelNamespace example example-api-id,example-channel-namespace
-// ```
 type ChannelNamespace struct {
 	pulumi.CustomResourceState
 
-	// Event API ID.
-	ApiId pulumi.StringOutput `pulumi:"apiId"`
-	// ARN of the channel namespace.
-	ChannelNamespaceArn pulumi.StringOutput `pulumi:"channelNamespaceArn"`
-	// Event handler functions that run custom business logic to process published events and subscribe requests.
-	CodeHandlers pulumi.StringPtrOutput `pulumi:"codeHandlers"`
-	// Configuration for the `onPublish` and `onSubscribe` handlers. See Handler Configs below.
-	HandlerConfigs ChannelNamespaceHandlerConfigsPtrOutput `pulumi:"handlerConfigs"`
-	// Name of the channel namespace.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
-	PublishAuthModes ChannelNamespacePublishAuthModeArrayOutput `pulumi:"publishAuthModes"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
-	SubscribeAuthModes ChannelNamespaceSubscribeAuthModeArrayOutput `pulumi:"subscribeAuthModes"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	ApiId               pulumi.StringOutput                          `pulumi:"apiId"`
+	ChannelNamespaceArn pulumi.StringOutput                          `pulumi:"channelNamespaceArn"`
+	CodeHandlers        pulumi.StringPtrOutput                       `pulumi:"codeHandlers"`
+	HandlerConfigs      ChannelNamespaceHandlerConfigsPtrOutput      `pulumi:"handlerConfigs"`
+	Name                pulumi.StringOutput                          `pulumi:"name"`
+	PublishAuthModes    ChannelNamespacePublishAuthModeArrayOutput   `pulumi:"publishAuthModes"`
+	Region              pulumi.StringOutput                          `pulumi:"region"`
+	SubscribeAuthModes  ChannelNamespaceSubscribeAuthModeArrayOutput `pulumi:"subscribeAuthModes"`
+	Tags                pulumi.StringMapOutput                       `pulumi:"tags"`
+	TagsAll             pulumi.StringMapOutput                       `pulumi:"tagsAll"`
 }
 
 // NewChannelNamespace registers a new resource with the given unique name, arguments, and options.
@@ -110,53 +60,29 @@ func GetChannelNamespace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ChannelNamespace resources.
 type channelNamespaceState struct {
-	// Event API ID.
-	ApiId *string `pulumi:"apiId"`
-	// ARN of the channel namespace.
-	ChannelNamespaceArn *string `pulumi:"channelNamespaceArn"`
-	// Event handler functions that run custom business logic to process published events and subscribe requests.
-	CodeHandlers *string `pulumi:"codeHandlers"`
-	// Configuration for the `onPublish` and `onSubscribe` handlers. See Handler Configs below.
-	HandlerConfigs *ChannelNamespaceHandlerConfigs `pulumi:"handlerConfigs"`
-	// Name of the channel namespace.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
-	PublishAuthModes []ChannelNamespacePublishAuthMode `pulumi:"publishAuthModes"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
-	SubscribeAuthModes []ChannelNamespaceSubscribeAuthMode `pulumi:"subscribeAuthModes"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	ApiId               *string                             `pulumi:"apiId"`
+	ChannelNamespaceArn *string                             `pulumi:"channelNamespaceArn"`
+	CodeHandlers        *string                             `pulumi:"codeHandlers"`
+	HandlerConfigs      *ChannelNamespaceHandlerConfigs     `pulumi:"handlerConfigs"`
+	Name                *string                             `pulumi:"name"`
+	PublishAuthModes    []ChannelNamespacePublishAuthMode   `pulumi:"publishAuthModes"`
+	Region              *string                             `pulumi:"region"`
+	SubscribeAuthModes  []ChannelNamespaceSubscribeAuthMode `pulumi:"subscribeAuthModes"`
+	Tags                map[string]string                   `pulumi:"tags"`
+	TagsAll             map[string]string                   `pulumi:"tagsAll"`
 }
 
 type ChannelNamespaceState struct {
-	// Event API ID.
-	ApiId pulumi.StringPtrInput
-	// ARN of the channel namespace.
+	ApiId               pulumi.StringPtrInput
 	ChannelNamespaceArn pulumi.StringPtrInput
-	// Event handler functions that run custom business logic to process published events and subscribe requests.
-	CodeHandlers pulumi.StringPtrInput
-	// Configuration for the `onPublish` and `onSubscribe` handlers. See Handler Configs below.
-	HandlerConfigs ChannelNamespaceHandlerConfigsPtrInput
-	// Name of the channel namespace.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
-	PublishAuthModes ChannelNamespacePublishAuthModeArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
-	SubscribeAuthModes ChannelNamespaceSubscribeAuthModeArrayInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	CodeHandlers        pulumi.StringPtrInput
+	HandlerConfigs      ChannelNamespaceHandlerConfigsPtrInput
+	Name                pulumi.StringPtrInput
+	PublishAuthModes    ChannelNamespacePublishAuthModeArrayInput
+	Region              pulumi.StringPtrInput
+	SubscribeAuthModes  ChannelNamespaceSubscribeAuthModeArrayInput
+	Tags                pulumi.StringMapInput
+	TagsAll             pulumi.StringMapInput
 }
 
 func (ChannelNamespaceState) ElementType() reflect.Type {
@@ -164,46 +90,26 @@ func (ChannelNamespaceState) ElementType() reflect.Type {
 }
 
 type channelNamespaceArgs struct {
-	// Event API ID.
-	ApiId string `pulumi:"apiId"`
-	// Event handler functions that run custom business logic to process published events and subscribe requests.
-	CodeHandlers *string `pulumi:"codeHandlers"`
-	// Configuration for the `onPublish` and `onSubscribe` handlers. See Handler Configs below.
-	HandlerConfigs *ChannelNamespaceHandlerConfigs `pulumi:"handlerConfigs"`
-	// Name of the channel namespace.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
-	PublishAuthModes []ChannelNamespacePublishAuthMode `pulumi:"publishAuthModes"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
+	ApiId              string                              `pulumi:"apiId"`
+	CodeHandlers       *string                             `pulumi:"codeHandlers"`
+	HandlerConfigs     *ChannelNamespaceHandlerConfigs     `pulumi:"handlerConfigs"`
+	Name               *string                             `pulumi:"name"`
+	PublishAuthModes   []ChannelNamespacePublishAuthMode   `pulumi:"publishAuthModes"`
+	Region             *string                             `pulumi:"region"`
 	SubscribeAuthModes []ChannelNamespaceSubscribeAuthMode `pulumi:"subscribeAuthModes"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Tags               map[string]string                   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ChannelNamespace resource.
 type ChannelNamespaceArgs struct {
-	// Event API ID.
-	ApiId pulumi.StringInput
-	// Event handler functions that run custom business logic to process published events and subscribe requests.
-	CodeHandlers pulumi.StringPtrInput
-	// Configuration for the `onPublish` and `onSubscribe` handlers. See Handler Configs below.
-	HandlerConfigs ChannelNamespaceHandlerConfigsPtrInput
-	// Name of the channel namespace.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
-	PublishAuthModes ChannelNamespacePublishAuthModeArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
+	ApiId              pulumi.StringInput
+	CodeHandlers       pulumi.StringPtrInput
+	HandlerConfigs     ChannelNamespaceHandlerConfigsPtrInput
+	Name               pulumi.StringPtrInput
+	PublishAuthModes   ChannelNamespacePublishAuthModeArrayInput
+	Region             pulumi.StringPtrInput
 	SubscribeAuthModes ChannelNamespaceSubscribeAuthModeArrayInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags               pulumi.StringMapInput
 }
 
 func (ChannelNamespaceArgs) ElementType() reflect.Type {
@@ -293,54 +199,42 @@ func (o ChannelNamespaceOutput) ToChannelNamespaceOutputWithContext(ctx context.
 	return o
 }
 
-// Event API ID.
 func (o ChannelNamespaceOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ChannelNamespace) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
-// ARN of the channel namespace.
 func (o ChannelNamespaceOutput) ChannelNamespaceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ChannelNamespace) pulumi.StringOutput { return v.ChannelNamespaceArn }).(pulumi.StringOutput)
 }
 
-// Event handler functions that run custom business logic to process published events and subscribe requests.
 func (o ChannelNamespaceOutput) CodeHandlers() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelNamespace) pulumi.StringPtrOutput { return v.CodeHandlers }).(pulumi.StringPtrOutput)
 }
 
-// Configuration for the `onPublish` and `onSubscribe` handlers. See Handler Configs below.
 func (o ChannelNamespaceOutput) HandlerConfigs() ChannelNamespaceHandlerConfigsPtrOutput {
 	return o.ApplyT(func(v *ChannelNamespace) ChannelNamespaceHandlerConfigsPtrOutput { return v.HandlerConfigs }).(ChannelNamespaceHandlerConfigsPtrOutput)
 }
 
-// Name of the channel namespace.
-//
-// The following arguments are optional:
 func (o ChannelNamespaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ChannelNamespace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
 func (o ChannelNamespaceOutput) PublishAuthModes() ChannelNamespacePublishAuthModeArrayOutput {
 	return o.ApplyT(func(v *ChannelNamespace) ChannelNamespacePublishAuthModeArrayOutput { return v.PublishAuthModes }).(ChannelNamespacePublishAuthModeArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ChannelNamespaceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ChannelNamespace) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
 func (o ChannelNamespaceOutput) SubscribeAuthModes() ChannelNamespaceSubscribeAuthModeArrayOutput {
 	return o.ApplyT(func(v *ChannelNamespace) ChannelNamespaceSubscribeAuthModeArrayOutput { return v.SubscribeAuthModes }).(ChannelNamespaceSubscribeAuthModeArrayOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ChannelNamespaceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ChannelNamespace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ChannelNamespaceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ChannelNamespace) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

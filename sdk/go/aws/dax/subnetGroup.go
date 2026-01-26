@@ -12,58 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a DAX Subnet Group resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dax"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dax.NewSubnetGroup(ctx, "example", &dax.SubnetGroupArgs{
-//				Name: pulumi.String("example"),
-//				SubnetIds: pulumi.StringArray{
-//					example1.Id,
-//					example2.Id,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import DAX Subnet Group using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:dax/subnetGroup:SubnetGroup example my_dax_sg
-// ```
 type SubnetGroup struct {
 	pulumi.CustomResourceState
 
-	// A description of the subnet group.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name of the subnet group.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A list of VPC subnet IDs for the subnet group.
-	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// VPC ID of the subnet group.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	Description pulumi.StringPtrOutput   `pulumi:"description"`
+	Name        pulumi.StringOutput      `pulumi:"name"`
+	Region      pulumi.StringOutput      `pulumi:"region"`
+	SubnetIds   pulumi.StringArrayOutput `pulumi:"subnetIds"`
+	VpcId       pulumi.StringOutput      `pulumi:"vpcId"`
 }
 
 // NewSubnetGroup registers a new resource with the given unique name, arguments, and options.
@@ -99,29 +55,19 @@ func GetSubnetGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SubnetGroup resources.
 type subnetGroupState struct {
-	// A description of the subnet group.
-	Description *string `pulumi:"description"`
-	// The name of the subnet group.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A list of VPC subnet IDs for the subnet group.
-	SubnetIds []string `pulumi:"subnetIds"`
-	// VPC ID of the subnet group.
-	VpcId *string `pulumi:"vpcId"`
+	Description *string  `pulumi:"description"`
+	Name        *string  `pulumi:"name"`
+	Region      *string  `pulumi:"region"`
+	SubnetIds   []string `pulumi:"subnetIds"`
+	VpcId       *string  `pulumi:"vpcId"`
 }
 
 type SubnetGroupState struct {
-	// A description of the subnet group.
 	Description pulumi.StringPtrInput
-	// The name of the subnet group.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A list of VPC subnet IDs for the subnet group.
-	SubnetIds pulumi.StringArrayInput
-	// VPC ID of the subnet group.
-	VpcId pulumi.StringPtrInput
+	Name        pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
+	SubnetIds   pulumi.StringArrayInput
+	VpcId       pulumi.StringPtrInput
 }
 
 func (SubnetGroupState) ElementType() reflect.Type {
@@ -129,26 +75,18 @@ func (SubnetGroupState) ElementType() reflect.Type {
 }
 
 type subnetGroupArgs struct {
-	// A description of the subnet group.
-	Description *string `pulumi:"description"`
-	// The name of the subnet group.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A list of VPC subnet IDs for the subnet group.
-	SubnetIds []string `pulumi:"subnetIds"`
+	Description *string  `pulumi:"description"`
+	Name        *string  `pulumi:"name"`
+	Region      *string  `pulumi:"region"`
+	SubnetIds   []string `pulumi:"subnetIds"`
 }
 
 // The set of arguments for constructing a SubnetGroup resource.
 type SubnetGroupArgs struct {
-	// A description of the subnet group.
 	Description pulumi.StringPtrInput
-	// The name of the subnet group.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A list of VPC subnet IDs for the subnet group.
-	SubnetIds pulumi.StringArrayInput
+	Name        pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
+	SubnetIds   pulumi.StringArrayInput
 }
 
 func (SubnetGroupArgs) ElementType() reflect.Type {
@@ -238,27 +176,22 @@ func (o SubnetGroupOutput) ToSubnetGroupOutputWithContext(ctx context.Context) S
 	return o
 }
 
-// A description of the subnet group.
 func (o SubnetGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name of the subnet group.
 func (o SubnetGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SubnetGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A list of VPC subnet IDs for the subnet group.
 func (o SubnetGroupOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// VPC ID of the subnet group.
 func (o SubnetGroupOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

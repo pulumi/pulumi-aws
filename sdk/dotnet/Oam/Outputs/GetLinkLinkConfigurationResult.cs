@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Oam.Outputs
     [OutputType]
     public sealed class GetLinkLinkConfigurationResult
     {
-        /// <summary>
-        /// Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `LogGroupConfiguration` Block for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetLinkLinkConfigurationLogGroupConfigurationResult> LogGroupConfigurations;
-        /// <summary>
-        /// Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `MetricConfiguration` Block for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetLinkLinkConfigurationMetricConfigurationResult> MetricConfigurations;
 
         [OutputConstructor]

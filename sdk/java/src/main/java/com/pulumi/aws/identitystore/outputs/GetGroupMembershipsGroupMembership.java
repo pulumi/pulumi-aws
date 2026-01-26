@@ -11,42 +11,18 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGroupMembershipsGroupMembership {
-    /**
-     * @return The identifier for a group in the Identity Store.
-     * 
-     */
     private String groupId;
-    /**
-     * @return Identity Store ID associated with the Single Sign-On Instance.
-     * 
-     */
     private String identityStoreId;
-    /**
-     * @return An object containing the identifier of a group member. See `memberId` below.
-     * 
-     */
     private GetGroupMembershipsGroupMembershipMemberId memberId;
     private String membershipId;
 
     private GetGroupMembershipsGroupMembership() {}
-    /**
-     * @return The identifier for a group in the Identity Store.
-     * 
-     */
     public String groupId() {
         return this.groupId;
     }
-    /**
-     * @return Identity Store ID associated with the Single Sign-On Instance.
-     * 
-     */
     public String identityStoreId() {
         return this.identityStoreId;
     }
-    /**
-     * @return An object containing the identifier of a group member. See `memberId` below.
-     * 
-     */
     public GetGroupMembershipsGroupMembershipMemberId memberId() {
         return this.memberId;
     }

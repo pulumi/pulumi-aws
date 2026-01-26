@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Amp.Outputs
     [OutputType]
     public sealed class ScraperDestinationAmp
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the prometheus workspace.
-        /// </summary>
         public readonly string WorkspaceArn;
 
         [OutputConstructor]

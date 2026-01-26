@@ -9,151 +9,75 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ImageBuilder
 {
-    /// <summary>
-    /// Manages an Image Builder Image Pipeline.
-    /// 
-    /// &gt; **NOTE:** Starting with version `5.74.0`, lifecycle meta-argument `ReplaceTriggeredBy` must be used in order to prevent a dependency error on destroy.
-    /// </summary>
     [AwsResourceType("aws:imagebuilder/imagePipeline:ImagePipeline")]
     public partial class ImagePipeline : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the image pipeline.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the container recipe.
-        /// </summary>
         [Output("containerRecipeArn")]
         public Output<string?> ContainerRecipeArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Date the image pipeline was created.
-        /// </summary>
         [Output("dateCreated")]
         public Output<string> DateCreated { get; private set; } = null!;
 
-        /// <summary>
-        /// Date the image pipeline was last run.
-        /// </summary>
         [Output("dateLastRun")]
         public Output<string> DateLastRun { get; private set; } = null!;
 
-        /// <summary>
-        /// Date the image pipeline will run next.
-        /// </summary>
         [Output("dateNextRun")]
         public Output<string> DateNextRun { get; private set; } = null!;
 
-        /// <summary>
-        /// Date the image pipeline was updated.
-        /// </summary>
         [Output("dateUpdated")]
         public Output<string> DateUpdated { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the image pipeline.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
-        /// </summary>
         [Output("distributionConfigurationArn")]
         public Output<string?> DistributionConfigurationArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether additional information about the image being created is collected. Defaults to `True`.
-        /// </summary>
         [Output("enhancedImageMetadataEnabled")]
         public Output<bool?> EnhancedImageMetadataEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
-        /// </summary>
         [Output("executionRole")]
         public Output<string?> ExecutionRole { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the image recipe.
-        /// </summary>
         [Output("imageRecipeArn")]
         public Output<string?> ImageRecipeArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block with image scanning configuration. Detailed below.
-        /// </summary>
         [Output("imageScanningConfiguration")]
         public Output<Outputs.ImagePipelineImageScanningConfiguration> ImageScanningConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block with image tests configuration. Detailed below.
-        /// </summary>
         [Output("imageTestsConfiguration")]
         public Output<Outputs.ImagePipelineImageTestsConfiguration> ImageTestsConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
-        /// </summary>
         [Output("infrastructureConfigurationArn")]
         public Output<string> InfrastructureConfigurationArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block with logging configuration. Detailed below.
-        /// </summary>
         [Output("loggingConfiguration")]
         public Output<Outputs.ImagePipelineLoggingConfiguration?> LoggingConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the image pipeline.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Platform of the image pipeline.
-        /// </summary>
         [Output("platform")]
         public Output<string> Platform { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block with schedule settings. Detailed below.
-        /// </summary>
         [Output("schedule")]
         public Output<Outputs.ImagePipelineSchedule?> Schedule { get; private set; } = null!;
 
-        /// <summary>
-        /// Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
-        /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags for the image pipeline. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block with the workflow configuration. Detailed below.
-        /// </summary>
         [Output("workflows")]
         public Output<ImmutableArray<Outputs.ImagePipelineWorkflow>> Workflows { get; private set; } = null!;
 
@@ -203,98 +127,50 @@ namespace Pulumi.Aws.ImageBuilder
 
     public sealed class ImagePipelineArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the container recipe.
-        /// </summary>
         [Input("containerRecipeArn")]
         public Input<string>? ContainerRecipeArn { get; set; }
 
-        /// <summary>
-        /// Description of the image pipeline.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
-        /// </summary>
         [Input("distributionConfigurationArn")]
         public Input<string>? DistributionConfigurationArn { get; set; }
 
-        /// <summary>
-        /// Whether additional information about the image being created is collected. Defaults to `True`.
-        /// </summary>
         [Input("enhancedImageMetadataEnabled")]
         public Input<bool>? EnhancedImageMetadataEnabled { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
-        /// </summary>
         [Input("executionRole")]
         public Input<string>? ExecutionRole { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the image recipe.
-        /// </summary>
         [Input("imageRecipeArn")]
         public Input<string>? ImageRecipeArn { get; set; }
 
-        /// <summary>
-        /// Configuration block with image scanning configuration. Detailed below.
-        /// </summary>
         [Input("imageScanningConfiguration")]
         public Input<Inputs.ImagePipelineImageScanningConfigurationArgs>? ImageScanningConfiguration { get; set; }
 
-        /// <summary>
-        /// Configuration block with image tests configuration. Detailed below.
-        /// </summary>
         [Input("imageTestsConfiguration")]
         public Input<Inputs.ImagePipelineImageTestsConfigurationArgs>? ImageTestsConfiguration { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
-        /// </summary>
         [Input("infrastructureConfigurationArn", required: true)]
         public Input<string> InfrastructureConfigurationArn { get; set; } = null!;
 
-        /// <summary>
-        /// Configuration block with logging configuration. Detailed below.
-        /// </summary>
         [Input("loggingConfiguration")]
         public Input<Inputs.ImagePipelineLoggingConfigurationArgs>? LoggingConfiguration { get; set; }
 
-        /// <summary>
-        /// Name of the image pipeline.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Configuration block with schedule settings. Detailed below.
-        /// </summary>
         [Input("schedule")]
         public Input<Inputs.ImagePipelineScheduleArgs>? Schedule { get; set; }
 
-        /// <summary>
-        /// Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags for the image pipeline. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -303,10 +179,6 @@ namespace Pulumi.Aws.ImageBuilder
 
         [Input("workflows")]
         private InputList<Inputs.ImagePipelineWorkflowArgs>? _workflows;
-
-        /// <summary>
-        /// Configuration block with the workflow configuration. Detailed below.
-        /// </summary>
         public InputList<Inputs.ImagePipelineWorkflowArgs> Workflows
         {
             get => _workflows ?? (_workflows = new InputList<Inputs.ImagePipelineWorkflowArgs>());
@@ -321,134 +193,68 @@ namespace Pulumi.Aws.ImageBuilder
 
     public sealed class ImagePipelineState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the image pipeline.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the container recipe.
-        /// </summary>
         [Input("containerRecipeArn")]
         public Input<string>? ContainerRecipeArn { get; set; }
 
-        /// <summary>
-        /// Date the image pipeline was created.
-        /// </summary>
         [Input("dateCreated")]
         public Input<string>? DateCreated { get; set; }
 
-        /// <summary>
-        /// Date the image pipeline was last run.
-        /// </summary>
         [Input("dateLastRun")]
         public Input<string>? DateLastRun { get; set; }
 
-        /// <summary>
-        /// Date the image pipeline will run next.
-        /// </summary>
         [Input("dateNextRun")]
         public Input<string>? DateNextRun { get; set; }
 
-        /// <summary>
-        /// Date the image pipeline was updated.
-        /// </summary>
         [Input("dateUpdated")]
         public Input<string>? DateUpdated { get; set; }
 
-        /// <summary>
-        /// Description of the image pipeline.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
-        /// </summary>
         [Input("distributionConfigurationArn")]
         public Input<string>? DistributionConfigurationArn { get; set; }
 
-        /// <summary>
-        /// Whether additional information about the image being created is collected. Defaults to `True`.
-        /// </summary>
         [Input("enhancedImageMetadataEnabled")]
         public Input<bool>? EnhancedImageMetadataEnabled { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
-        /// </summary>
         [Input("executionRole")]
         public Input<string>? ExecutionRole { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the image recipe.
-        /// </summary>
         [Input("imageRecipeArn")]
         public Input<string>? ImageRecipeArn { get; set; }
 
-        /// <summary>
-        /// Configuration block with image scanning configuration. Detailed below.
-        /// </summary>
         [Input("imageScanningConfiguration")]
         public Input<Inputs.ImagePipelineImageScanningConfigurationGetArgs>? ImageScanningConfiguration { get; set; }
 
-        /// <summary>
-        /// Configuration block with image tests configuration. Detailed below.
-        /// </summary>
         [Input("imageTestsConfiguration")]
         public Input<Inputs.ImagePipelineImageTestsConfigurationGetArgs>? ImageTestsConfiguration { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
-        /// </summary>
         [Input("infrastructureConfigurationArn")]
         public Input<string>? InfrastructureConfigurationArn { get; set; }
 
-        /// <summary>
-        /// Configuration block with logging configuration. Detailed below.
-        /// </summary>
         [Input("loggingConfiguration")]
         public Input<Inputs.ImagePipelineLoggingConfigurationGetArgs>? LoggingConfiguration { get; set; }
 
-        /// <summary>
-        /// Name of the image pipeline.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Platform of the image pipeline.
-        /// </summary>
         [Input("platform")]
         public Input<string>? Platform { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Configuration block with schedule settings. Detailed below.
-        /// </summary>
         [Input("schedule")]
         public Input<Inputs.ImagePipelineScheduleGetArgs>? Schedule { get; set; }
 
-        /// <summary>
-        /// Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags for the image pipeline. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -457,10 +263,6 @@ namespace Pulumi.Aws.ImageBuilder
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -469,10 +271,6 @@ namespace Pulumi.Aws.ImageBuilder
 
         [Input("workflows")]
         private InputList<Inputs.ImagePipelineWorkflowGetArgs>? _workflows;
-
-        /// <summary>
-        /// Configuration block with the workflow configuration. Detailed below.
-        /// </summary>
         public InputList<Inputs.ImagePipelineWorkflowGetArgs> Workflows
         {
             get => _workflows ?? (_workflows = new InputList<Inputs.ImagePipelineWorkflowGetArgs>());

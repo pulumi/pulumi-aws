@@ -81,25 +81,16 @@ class GetMulticastDomainResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        EC2 Transit Gateway Multicast Domain ARN.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def associations(self) -> Sequence['outputs.GetMulticastDomainAssociationResult']:
-        """
-        EC2 Transit Gateway Multicast Domain Associations
-        """
         return pulumi.get(self, "associations")
 
     @_builtins.property
     @pulumi.getter(name="autoAcceptSharedAssociations")
     def auto_accept_shared_associations(self) -> _builtins.str:
-        """
-        Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain.
-        """
         return pulumi.get(self, "auto_accept_shared_associations")
 
     @_builtins.property
@@ -118,25 +109,16 @@ class GetMulticastDomainResult:
     @_builtins.property
     @pulumi.getter(name="igmpv2Support")
     def igmpv2_support(self) -> _builtins.str:
-        """
-        Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain.
-        """
         return pulumi.get(self, "igmpv2_support")
 
     @_builtins.property
     @pulumi.getter
     def members(self) -> Sequence['outputs.GetMulticastDomainMemberResult']:
-        """
-        EC2 Multicast Domain Group Members
-        """
         return pulumi.get(self, "members")
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> _builtins.str:
-        """
-        Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
-        """
         return pulumi.get(self, "owner_id")
 
     @_builtins.property
@@ -147,9 +129,6 @@ class GetMulticastDomainResult:
     @_builtins.property
     @pulumi.getter
     def sources(self) -> Sequence['outputs.GetMulticastDomainSourceResult']:
-        """
-        EC2 Multicast Domain Group Sources
-        """
         return pulumi.get(self, "sources")
 
     @_builtins.property
@@ -160,33 +139,21 @@ class GetMulticastDomainResult:
     @_builtins.property
     @pulumi.getter(name="staticSourcesSupport")
     def static_sources_support(self) -> _builtins.str:
-        """
-        Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain.
-        """
         return pulumi.get(self, "static_sources_support")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value tags for the EC2 Transit Gateway Multicast Domain.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> _builtins.str:
-        """
-        The ID of the transit gateway attachment.
-        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> _builtins.str:
-        """
-        EC2 Transit Gateway identifier.
-        """
         return pulumi.get(self, "transit_gateway_id")
 
     @_builtins.property
@@ -225,36 +192,7 @@ def get_multicast_domain(filters: Optional[Sequence[Union['GetMulticastDomainFil
                          transit_gateway_multicast_domain_id: Optional[_builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMulticastDomainResult:
     """
-    Get information on an EC2 Transit Gateway Multicast Domain.
-
-    ## Example Usage
-
-    ### By Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_multicast_domain(filters=[{
-        "name": "transit-gateway-multicast-domain-id",
-        "values": ["tgw-mcast-domain-12345678"],
-    }])
-    ```
-
-    ### By Identifier
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_multicast_domain(transit_gateway_multicast_domain_id="tgw-mcast-domain-12345678")
-    ```
-
-
-    :param Sequence[Union['GetMulticastDomainFilterArgs', 'GetMulticastDomainFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value tags for the EC2 Transit Gateway Multicast Domain.
-    :param _builtins.str transit_gateway_multicast_domain_id: Identifier of the EC2 Transit Gateway Multicast Domain.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -287,36 +225,7 @@ def get_multicast_domain_output(filters: Optional[pulumi.Input[Optional[Sequence
                                 transit_gateway_multicast_domain_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMulticastDomainResult]:
     """
-    Get information on an EC2 Transit Gateway Multicast Domain.
-
-    ## Example Usage
-
-    ### By Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_multicast_domain(filters=[{
-        "name": "transit-gateway-multicast-domain-id",
-        "values": ["tgw-mcast-domain-12345678"],
-    }])
-    ```
-
-    ### By Identifier
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_multicast_domain(transit_gateway_multicast_domain_id="tgw-mcast-domain-12345678")
-    ```
-
-
-    :param Sequence[Union['GetMulticastDomainFilterArgs', 'GetMulticastDomainFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value tags for the EC2 Transit Gateway Multicast Domain.
-    :param _builtins.str transit_gateway_multicast_domain_id: Identifier of the EC2 Transit Gateway Multicast Domain.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

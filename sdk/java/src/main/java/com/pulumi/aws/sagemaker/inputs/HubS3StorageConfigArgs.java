@@ -15,17 +15,9 @@ public final class HubS3StorageConfigArgs extends com.pulumi.resources.ResourceA
 
     public static final HubS3StorageConfigArgs Empty = new HubS3StorageConfigArgs();
 
-    /**
-     * The Amazon S3 bucket prefix for hosting hub content.interface.
-     * 
-     */
     @Import(name="s3OutputPath")
     private @Nullable Output<String> s3OutputPath;
 
-    /**
-     * @return The Amazon S3 bucket prefix for hosting hub content.interface.
-     * 
-     */
     public Optional<Output<String>> s3OutputPath() {
         return Optional.ofNullable(this.s3OutputPath);
     }
@@ -54,23 +46,11 @@ public final class HubS3StorageConfigArgs extends com.pulumi.resources.ResourceA
             $ = new HubS3StorageConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param s3OutputPath The Amazon S3 bucket prefix for hosting hub content.interface.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3OutputPath(@Nullable Output<String> s3OutputPath) {
             $.s3OutputPath = s3OutputPath;
             return this;
         }
 
-        /**
-         * @param s3OutputPath The Amazon S3 bucket prefix for hosting hub content.interface.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3OutputPath(String s3OutputPath) {
             return s3OutputPath(Output.of(s3OutputPath));
         }

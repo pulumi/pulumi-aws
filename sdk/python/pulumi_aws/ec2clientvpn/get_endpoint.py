@@ -111,49 +111,31 @@ class GetEndpointResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        The ARN of the Client VPN endpoint.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="authenticationOptions")
     def authentication_options(self) -> Sequence['outputs.GetEndpointAuthenticationOptionResult']:
-        """
-        Information about the authentication method used by the Client VPN endpoint.
-        """
         return pulumi.get(self, "authentication_options")
 
     @_builtins.property
     @pulumi.getter(name="clientCidrBlock")
     def client_cidr_block(self) -> _builtins.str:
-        """
-        IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
-        """
         return pulumi.get(self, "client_cidr_block")
 
     @_builtins.property
     @pulumi.getter(name="clientConnectOptions")
     def client_connect_options(self) -> Sequence['outputs.GetEndpointClientConnectOptionResult']:
-        """
-        The options for managing connection authorization for new client connections.
-        """
         return pulumi.get(self, "client_connect_options")
 
     @_builtins.property
     @pulumi.getter(name="clientLoginBannerOptions")
     def client_login_banner_options(self) -> Sequence['outputs.GetEndpointClientLoginBannerOptionResult']:
-        """
-        Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
-        """
         return pulumi.get(self, "client_login_banner_options")
 
     @_builtins.property
     @pulumi.getter(name="clientRouteEnforcementOptions")
     def client_route_enforcement_options(self) -> Sequence['outputs.GetEndpointClientRouteEnforcementOptionResult']:
-        """
-        Options for enforce administrator defined routes on devices connected through the VPN.
-        """
         return pulumi.get(self, "client_route_enforcement_options")
 
     @_builtins.property
@@ -164,41 +146,26 @@ class GetEndpointResult:
     @_builtins.property
     @pulumi.getter(name="connectionLogOptions")
     def connection_log_options(self) -> Sequence['outputs.GetEndpointConnectionLogOptionResult']:
-        """
-        Information about the client connection logging options for the Client VPN endpoint.
-        """
         return pulumi.get(self, "connection_log_options")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Brief description of the endpoint.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> _builtins.str:
-        """
-        DNS name to be used by clients when connecting to the Client VPN endpoint.
-        """
         return pulumi.get(self, "dns_name")
 
     @_builtins.property
     @pulumi.getter(name="dnsServers")
     def dns_servers(self) -> Sequence[_builtins.str]:
-        """
-        Information about the DNS servers to be used for DNS resolution.
-        """
         return pulumi.get(self, "dns_servers")
 
     @_builtins.property
     @pulumi.getter(name="endpointIpAddressType")
     def endpoint_ip_address_type(self) -> _builtins.str:
-        """
-        IP address type for the Client VPN endpoint.
-        """
         return pulumi.get(self, "endpoint_ip_address_type")
 
     @_builtins.property
@@ -222,49 +189,31 @@ class GetEndpointResult:
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[_builtins.str]:
-        """
-        IDs of the security groups for the target network associated with the Client VPN endpoint.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @_builtins.property
     @pulumi.getter(name="selfServicePortal")
     def self_service_portal(self) -> _builtins.str:
-        """
-        Whether the self-service portal for the Client VPN endpoint is enabled.
-        """
         return pulumi.get(self, "self_service_portal")
 
     @_builtins.property
     @pulumi.getter(name="selfServicePortalUrl")
     def self_service_portal_url(self) -> _builtins.str:
-        """
-        The URL of the self-service portal.
-        """
         return pulumi.get(self, "self_service_portal_url")
 
     @_builtins.property
     @pulumi.getter(name="serverCertificateArn")
     def server_certificate_arn(self) -> _builtins.str:
-        """
-        The ARN of the server certificate.
-        """
         return pulumi.get(self, "server_certificate_arn")
 
     @_builtins.property
     @pulumi.getter(name="sessionTimeoutHours")
     def session_timeout_hours(self) -> _builtins.int:
-        """
-        The maximum VPN session duration time in hours.
-        """
         return pulumi.get(self, "session_timeout_hours")
 
     @_builtins.property
     @pulumi.getter(name="splitTunnel")
     def split_tunnel(self) -> _builtins.bool:
-        """
-        Whether split-tunnel is enabled in the AWS Client VPN endpoint.
-        """
         return pulumi.get(self, "split_tunnel")
 
     @_builtins.property
@@ -275,33 +224,21 @@ class GetEndpointResult:
     @_builtins.property
     @pulumi.getter(name="trafficIpAddressType")
     def traffic_ip_address_type(self) -> _builtins.str:
-        """
-        IP address type for traffic within the Client VPN tunnel.
-        """
         return pulumi.get(self, "traffic_ip_address_type")
 
     @_builtins.property
     @pulumi.getter(name="transportProtocol")
     def transport_protocol(self) -> _builtins.str:
-        """
-        Transport protocol used by the Client VPN endpoint.
-        """
         return pulumi.get(self, "transport_protocol")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> _builtins.str:
-        """
-        ID of the VPC associated with the Client VPN endpoint.
-        """
         return pulumi.get(self, "vpc_id")
 
     @_builtins.property
     @pulumi.getter(name="vpnPort")
     def vpn_port(self) -> _builtins.int:
-        """
-        Port number for the Client VPN endpoint.
-        """
         return pulumi.get(self, "vpn_port")
 
 
@@ -345,36 +282,7 @@ def get_endpoint(client_vpn_endpoint_id: Optional[_builtins.str] = None,
                  tags: Optional[Mapping[str, _builtins.str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEndpointResult:
     """
-    Get information on an EC2 Client VPN endpoint.
-
-    ## Example Usage
-
-    ### By Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2clientvpn.get_endpoint(filters=[{
-        "name": "tag:Name",
-        "values": ["ExampleVpn"],
-    }])
-    ```
-
-    ### By Identifier
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2clientvpn.get_endpoint(client_vpn_endpoint_id="cvpn-endpoint-083cf50d6eb314f21")
-    ```
-
-
-    :param _builtins.str client_vpn_endpoint_id: ID of the Client VPN endpoint.
-    :param Sequence[Union['GetEndpointFilterArgs', 'GetEndpointFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired endpoint.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['clientVpnEndpointId'] = client_vpn_endpoint_id
@@ -417,36 +325,7 @@ def get_endpoint_output(client_vpn_endpoint_id: Optional[pulumi.Input[Optional[_
                         tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointResult]:
     """
-    Get information on an EC2 Client VPN endpoint.
-
-    ## Example Usage
-
-    ### By Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2clientvpn.get_endpoint(filters=[{
-        "name": "tag:Name",
-        "values": ["ExampleVpn"],
-    }])
-    ```
-
-    ### By Identifier
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2clientvpn.get_endpoint(client_vpn_endpoint_id="cvpn-endpoint-083cf50d6eb314f21")
-    ```
-
-
-    :param _builtins.str client_vpn_endpoint_id: ID of the Client VPN endpoint.
-    :param Sequence[Union['GetEndpointFilterArgs', 'GetEndpointFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired endpoint.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['clientVpnEndpointId'] = client_vpn_endpoint_id

@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConfigurationSetTrackingOptions {
-    /**
-     * @return Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
-     * 
-     */
     private @Nullable String customRedirectDomain;
 
     private ConfigurationSetTrackingOptions() {}
-    /**
-     * @return Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
-     * 
-     */
     public Optional<String> customRedirectDomain() {
         return Optional.ofNullable(this.customRedirectDomain);
     }

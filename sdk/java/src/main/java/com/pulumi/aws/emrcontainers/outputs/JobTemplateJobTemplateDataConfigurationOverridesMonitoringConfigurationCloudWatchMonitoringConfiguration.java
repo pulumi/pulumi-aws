@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration {
-    /**
-     * @return The name of the log group for log publishing.
-     * 
-     */
     private String logGroupName;
-    /**
-     * @return The specified name prefix for log streams.
-     * 
-     */
     private @Nullable String logStreamNamePrefix;
 
     private JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration() {}
-    /**
-     * @return The name of the log group for log publishing.
-     * 
-     */
     public String logGroupName() {
         return this.logGroupName;
     }
-    /**
-     * @return The specified name prefix for log streams.
-     * 
-     */
     public Optional<String> logStreamNamePrefix() {
         return Optional.ofNullable(this.logStreamNamePrefix);
     }

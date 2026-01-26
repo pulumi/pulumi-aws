@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Alb.Outputs
     [OutputType]
     public sealed class TargetGroupTargetHealthState
     {
-        /// <summary>
-        /// Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `True` or `False`. Default: `True`.
-        /// </summary>
         public readonly bool EnableUnhealthyConnectionTermination;
-        /// <summary>
-        /// Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `EnableUnhealthyConnectionTermination` is set to false. Default: `0`.
-        /// </summary>
         public readonly int? UnhealthyDrainingInterval;
 
         [OutputConstructor]

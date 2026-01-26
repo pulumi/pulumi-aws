@@ -15,182 +15,47 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AWS EIP Association as a top level resource, to associate and disassociate Elastic IPs from AWS Instances and Network Interfaces.
- * 
- * &gt; **NOTE:** Do not use this resource to associate an EIP to `aws.lb.LoadBalancer` or `aws.ec2.NatGateway` resources. Instead use the `allocationId` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
- * 
- * &gt; **NOTE:** `aws.ec2.EipAssociation` is useful in scenarios where EIPs are either pre-existing or distributed to customers or users and therefore cannot be changed.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Instance;
- * import com.pulumi.aws.ec2.InstanceArgs;
- * import com.pulumi.aws.ec2.Eip;
- * import com.pulumi.aws.ec2.EipArgs;
- * import com.pulumi.aws.ec2.EipAssociation;
- * import com.pulumi.aws.ec2.EipAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var web = new Instance("web", InstanceArgs.builder()
- *             .ami("ami-21f78e11")
- *             .availabilityZone("us-west-2a")
- *             .instanceType("t2.micro")
- *             .tags(Map.of("Name", "HelloWorld"))
- *             .build());
- * 
- *         var example = new Eip("example", EipArgs.builder()
- *             .domain("vpc")
- *             .build());
- * 
- *         var eipAssoc = new EipAssociation("eipAssoc", EipAssociationArgs.builder()
- *             .instanceId(web.id())
- *             .allocationId(example.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import EIP Assocations using their association IDs. For example:
- * 
- * ```sh
- * $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/eipAssociation:EipAssociation")
 public class EipAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * ID of the associated Elastic IP.
-     * This argument is required despite being optional at the resource level due to legacy support for EC2-Classic networking.
-     * 
-     */
     @Export(name="allocationId", refs={String.class}, tree="[0]")
     private Output<String> allocationId;
 
-    /**
-     * @return ID of the associated Elastic IP.
-     * This argument is required despite being optional at the resource level due to legacy support for EC2-Classic networking.
-     * 
-     */
     public Output<String> allocationId() {
         return this.allocationId;
     }
-    /**
-     * Whether to allow an Elastic IP address to be re-associated.
-     * Defaults to `true`.
-     * 
-     */
     @Export(name="allowReassociation", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowReassociation;
 
-    /**
-     * @return Whether to allow an Elastic IP address to be re-associated.
-     * Defaults to `true`.
-     * 
-     */
     public Output<Optional<Boolean>> allowReassociation() {
         return Codegen.optional(this.allowReassociation);
     }
-    /**
-     * ID of the instance.
-     * The instance must have exactly one attached network interface.
-     * You can specify either the instance ID or the network interface ID, but not both.
-     * 
-     */
     @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
-    /**
-     * @return ID of the instance.
-     * The instance must have exactly one attached network interface.
-     * You can specify either the instance ID or the network interface ID, but not both.
-     * 
-     */
     public Output<String> instanceId() {
         return this.instanceId;
     }
-    /**
-     * ID of the network interface.
-     * If the instance has more than one network interface, you must specify a network interface ID.
-     * You can specify either the instance ID or the network interface ID, but not both.
-     * 
-     */
     @Export(name="networkInterfaceId", refs={String.class}, tree="[0]")
     private Output<String> networkInterfaceId;
 
-    /**
-     * @return ID of the network interface.
-     * If the instance has more than one network interface, you must specify a network interface ID.
-     * You can specify either the instance ID or the network interface ID, but not both.
-     * 
-     */
     public Output<String> networkInterfaceId() {
         return this.networkInterfaceId;
     }
-    /**
-     * Primary or secondary private IP address to associate with the Elastic IP address.
-     * If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
-     * 
-     */
     @Export(name="privateIpAddress", refs={String.class}, tree="[0]")
     private Output<String> privateIpAddress;
 
-    /**
-     * @return Primary or secondary private IP address to associate with the Elastic IP address.
-     * If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
-     * 
-     */
     public Output<String> privateIpAddress() {
         return this.privateIpAddress;
     }
-    /**
-     * ) Address of the associated Elastic IP.
-     * 
-     */
     @Export(name="publicIp", refs={String.class}, tree="[0]")
     private Output<String> publicIp;
 
-    /**
-     * @return ) Address of the associated Elastic IP.
-     * 
-     */
     public Output<String> publicIp() {
         return this.publicIp;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

@@ -18,180 +18,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS IVS (Interactive Video) Chat Room.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ivschat.Room;
- * import com.pulumi.aws.ivschat.RoomArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Room("example", RoomArgs.builder()
- *             .name("tf-room")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:ivschat/room:Room")
 public class Room extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Room.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Room.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * List of Logging Configuration
-     * ARNs to attach to the room.
-     * 
-     */
     @Export(name="loggingConfigurationIdentifiers", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> loggingConfigurationIdentifiers;
 
-    /**
-     * @return List of Logging Configuration
-     * ARNs to attach to the room.
-     * 
-     */
     public Output<Optional<List<String>>> loggingConfigurationIdentifiers() {
         return Codegen.optional(this.loggingConfigurationIdentifiers);
     }
-    /**
-     * Maximum number of characters in a single
-     * message. Messages are expected to be UTF-8 encoded and this limit applies
-     * specifically to rune/code-point count, not number of bytes.
-     * 
-     */
     @Export(name="maximumMessageLength", refs={Integer.class}, tree="[0]")
     private Output<Integer> maximumMessageLength;
 
-    /**
-     * @return Maximum number of characters in a single
-     * message. Messages are expected to be UTF-8 encoded and this limit applies
-     * specifically to rune/code-point count, not number of bytes.
-     * 
-     */
     public Output<Integer> maximumMessageLength() {
         return this.maximumMessageLength;
     }
-    /**
-     * Maximum number of messages per
-     * second that can be sent to the room (by all clients).
-     * 
-     */
     @Export(name="maximumMessageRatePerSecond", refs={Integer.class}, tree="[0]")
     private Output<Integer> maximumMessageRatePerSecond;
 
-    /**
-     * @return Maximum number of messages per
-     * second that can be sent to the room (by all clients).
-     * 
-     */
     public Output<Integer> maximumMessageRatePerSecond() {
         return this.maximumMessageRatePerSecond;
     }
-    /**
-     * Configuration information for optional
-     * review of messages.
-     * 
-     */
     @Export(name="messageReviewHandler", refs={RoomMessageReviewHandler.class}, tree="[0]")
     private Output</* @Nullable */ RoomMessageReviewHandler> messageReviewHandler;
 
-    /**
-     * @return Configuration information for optional
-     * review of messages.
-     * 
-     */
     public Output<Optional<RoomMessageReviewHandler>> messageReviewHandler() {
         return Codegen.optional(this.messageReviewHandler);
     }
-    /**
-     * Room name.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Room name.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

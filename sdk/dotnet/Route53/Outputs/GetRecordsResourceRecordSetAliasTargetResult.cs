@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Route53.Outputs
     [OutputType]
     public sealed class GetRecordsResourceRecordSetAliasTargetResult
     {
-        /// <summary>
-        /// Target DNS name.
-        /// </summary>
         public readonly string DnsName;
-        /// <summary>
-        /// Whether an alias resource record set inherits the health of the referenced AWS resource.
-        /// </summary>
         public readonly bool EvaluateTargetHealth;
-        /// <summary>
-        /// Target hosted zone ID.
-        /// </summary>
         public readonly string HostedZoneId;
 
         [OutputConstructor]

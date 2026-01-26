@@ -7,69 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an [S3 Intelligent-Tiering](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html) configuration resource.
- *
- * > This resource cannot be used with S3 directory buckets.
- *
- * ## Example Usage
- *
- * ### Add intelligent tiering configuration for entire S3 bucket
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3.Bucket("example", {bucket: "example"});
- * const example_entire_bucket = new aws.s3.BucketIntelligentTieringConfiguration("example-entire-bucket", {
- *     bucket: example.id,
- *     name: "EntireBucket",
- *     tierings: [
- *         {
- *             accessTier: "DEEP_ARCHIVE_ACCESS",
- *             days: 180,
- *         },
- *         {
- *             accessTier: "ARCHIVE_ACCESS",
- *             days: 125,
- *         },
- *     ],
- * });
- * ```
- *
- * ### Add intelligent tiering configuration with S3 object filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3.Bucket("example", {bucket: "example"});
- * const example_filtered = new aws.s3.BucketIntelligentTieringConfiguration("example-filtered", {
- *     bucket: example.id,
- *     name: "ImportantBlueDocuments",
- *     status: "Disabled",
- *     filter: {
- *         prefix: "documents/",
- *         tags: {
- *             priority: "high",
- *             "class": "blue",
- *         },
- *     },
- *     tierings: [{
- *         accessTier: "ARCHIVE_ACCESS",
- *         days: 125,
- *     }],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import S3 bucket intelligent tiering configurations using `bucket:name`. For example:
- *
- * ```sh
- * $ pulumi import aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
- * ```
- */
 export class BucketIntelligentTieringConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing BucketIntelligentTieringConfiguration resource's state with the given name, ID, and optional extra
@@ -98,29 +35,11 @@ export class BucketIntelligentTieringConfiguration extends pulumi.CustomResource
         return obj['__pulumiType'] === BucketIntelligentTieringConfiguration.__pulumiType;
     }
 
-    /**
-     * Name of the bucket this intelligent tiering configuration is associated with.
-     */
     declare public readonly bucket: pulumi.Output<string>;
-    /**
-     * Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
-     */
     declare public readonly filter: pulumi.Output<outputs.s3.BucketIntelligentTieringConfigurationFilter | undefined>;
-    /**
-     * Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
-     */
     declare public readonly status: pulumi.Output<string | undefined>;
-    /**
-     * S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
-     */
     declare public readonly tierings: pulumi.Output<outputs.s3.BucketIntelligentTieringConfigurationTiering[]>;
 
     /**
@@ -166,29 +85,11 @@ export class BucketIntelligentTieringConfiguration extends pulumi.CustomResource
  * Input properties used for looking up and filtering BucketIntelligentTieringConfiguration resources.
  */
 export interface BucketIntelligentTieringConfigurationState {
-    /**
-     * Name of the bucket this intelligent tiering configuration is associated with.
-     */
     bucket?: pulumi.Input<string>;
-    /**
-     * Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
-     */
     filter?: pulumi.Input<inputs.s3.BucketIntelligentTieringConfigurationFilter>;
-    /**
-     * Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
-     */
     tierings?: pulumi.Input<pulumi.Input<inputs.s3.BucketIntelligentTieringConfigurationTiering>[]>;
 }
 
@@ -196,28 +97,10 @@ export interface BucketIntelligentTieringConfigurationState {
  * The set of arguments for constructing a BucketIntelligentTieringConfiguration resource.
  */
 export interface BucketIntelligentTieringConfigurationArgs {
-    /**
-     * Name of the bucket this intelligent tiering configuration is associated with.
-     */
     bucket: pulumi.Input<string>;
-    /**
-     * Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
-     */
     filter?: pulumi.Input<inputs.s3.BucketIntelligentTieringConfigurationFilter>;
-    /**
-     * Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
-     */
     tierings: pulumi.Input<pulumi.Input<inputs.s3.BucketIntelligentTieringConfigurationTiering>[]>;
 }

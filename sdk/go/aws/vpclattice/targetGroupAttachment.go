@@ -12,48 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides the ability to register a target with an AWS VPC Lattice Target Group.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpclattice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.NewTargetGroupAttachment(ctx, "example", &vpclattice.TargetGroupAttachmentArgs{
-//				TargetGroupIdentifier: pulumi.Any(exampleAwsVpclatticeTargetGroup.Id),
-//				Target: &vpclattice.TargetGroupAttachmentTargetArgs{
-//					Id:   pulumi.Any(exampleAwsLb.Arn),
-//					Port: pulumi.Int(80),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type TargetGroupAttachment struct {
 	pulumi.CustomResourceState
 
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The target.
-	Target TargetGroupAttachmentTargetOutput `pulumi:"target"`
-	// The ID or Amazon Resource Name (ARN) of the target group.
-	TargetGroupIdentifier pulumi.StringOutput `pulumi:"targetGroupIdentifier"`
+	Region                pulumi.StringOutput               `pulumi:"region"`
+	Target                TargetGroupAttachmentTargetOutput `pulumi:"target"`
+	TargetGroupIdentifier pulumi.StringOutput               `pulumi:"targetGroupIdentifier"`
 }
 
 // NewTargetGroupAttachment registers a new resource with the given unique name, arguments, and options.
@@ -92,20 +56,14 @@ func GetTargetGroupAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TargetGroupAttachment resources.
 type targetGroupAttachmentState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The target.
-	Target *TargetGroupAttachmentTarget `pulumi:"target"`
-	// The ID or Amazon Resource Name (ARN) of the target group.
-	TargetGroupIdentifier *string `pulumi:"targetGroupIdentifier"`
+	Region                *string                      `pulumi:"region"`
+	Target                *TargetGroupAttachmentTarget `pulumi:"target"`
+	TargetGroupIdentifier *string                      `pulumi:"targetGroupIdentifier"`
 }
 
 type TargetGroupAttachmentState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The target.
-	Target TargetGroupAttachmentTargetPtrInput
-	// The ID or Amazon Resource Name (ARN) of the target group.
+	Region                pulumi.StringPtrInput
+	Target                TargetGroupAttachmentTargetPtrInput
 	TargetGroupIdentifier pulumi.StringPtrInput
 }
 
@@ -114,21 +72,15 @@ func (TargetGroupAttachmentState) ElementType() reflect.Type {
 }
 
 type targetGroupAttachmentArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The target.
-	Target TargetGroupAttachmentTarget `pulumi:"target"`
-	// The ID or Amazon Resource Name (ARN) of the target group.
-	TargetGroupIdentifier string `pulumi:"targetGroupIdentifier"`
+	Region                *string                     `pulumi:"region"`
+	Target                TargetGroupAttachmentTarget `pulumi:"target"`
+	TargetGroupIdentifier string                      `pulumi:"targetGroupIdentifier"`
 }
 
 // The set of arguments for constructing a TargetGroupAttachment resource.
 type TargetGroupAttachmentArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The target.
-	Target TargetGroupAttachmentTargetInput
-	// The ID or Amazon Resource Name (ARN) of the target group.
+	Region                pulumi.StringPtrInput
+	Target                TargetGroupAttachmentTargetInput
 	TargetGroupIdentifier pulumi.StringInput
 }
 
@@ -219,17 +171,14 @@ func (o TargetGroupAttachmentOutput) ToTargetGroupAttachmentOutputWithContext(ct
 	return o
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TargetGroupAttachmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TargetGroupAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The target.
 func (o TargetGroupAttachmentOutput) Target() TargetGroupAttachmentTargetOutput {
 	return o.ApplyT(func(v *TargetGroupAttachment) TargetGroupAttachmentTargetOutput { return v.Target }).(TargetGroupAttachmentTargetOutput)
 }
 
-// The ID or Amazon Resource Name (ARN) of the target group.
 func (o TargetGroupAttachmentOutput) TargetGroupIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *TargetGroupAttachment) pulumi.StringOutput { return v.TargetGroupIdentifier }).(pulumi.StringOutput)
 }

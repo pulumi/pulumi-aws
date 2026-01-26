@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreBrowserNetworkConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Network mode for the browser. Valid values: `PUBLIC`, `VPC`.
-        /// </summary>
         [Input("networkMode", required: true)]
         public Input<string> NetworkMode { get; set; } = null!;
 
-        /// <summary>
-        /// VPC configuration when `NetworkMode` is `VPC`. See `VpcConfig` below.
-        /// </summary>
         [Input("vpcConfig")]
         public Input<Inputs.AgentcoreBrowserNetworkConfigurationVpcConfigGetArgs>? VpcConfig { get; set; }
 

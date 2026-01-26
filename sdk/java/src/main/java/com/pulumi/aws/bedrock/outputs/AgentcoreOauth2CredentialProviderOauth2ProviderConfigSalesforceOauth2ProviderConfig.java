@@ -27,10 +27,6 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesfor
      * 
      */
     private @Nullable String clientSecretWo;
-    /**
-     * @return OAuth discovery configuration. See `oauthDiscovery` below.
-     * 
-     */
     private @Nullable List<AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery> oauthDiscoveries;
 
     private AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig() {}
@@ -57,10 +53,6 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesfor
     public Optional<String> clientSecretWo() {
         return Optional.ofNullable(this.clientSecretWo);
     }
-    /**
-     * @return OAuth discovery configuration. See `oauthDiscovery` below.
-     * 
-     */
     public List<AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery> oauthDiscoveries() {
         return this.oauthDiscoveries == null ? List.of() : this.oauthDiscoveries;
     }

@@ -16,17 +16,9 @@ public final class AnalyzerConfigurationInternalAccessAnalysisRuleArgs extends c
 
     public static final AnalyzerConfigurationInternalAccessAnalysisRuleArgs Empty = new AnalyzerConfigurationInternalAccessAnalysisRuleArgs();
 
-    /**
-     * List of rules for the internal access analyzer containing criteria to include in analysis. Only resources that meet the rule criteria will generate findings. See `inclusion` Block for details.
-     * 
-     */
     @Import(name="inclusions")
     private @Nullable Output<List<AnalyzerConfigurationInternalAccessAnalysisRuleInclusionArgs>> inclusions;
 
-    /**
-     * @return List of rules for the internal access analyzer containing criteria to include in analysis. Only resources that meet the rule criteria will generate findings. See `inclusion` Block for details.
-     * 
-     */
     public Optional<Output<List<AnalyzerConfigurationInternalAccessAnalysisRuleInclusionArgs>>> inclusions() {
         return Optional.ofNullable(this.inclusions);
     }
@@ -55,33 +47,15 @@ public final class AnalyzerConfigurationInternalAccessAnalysisRuleArgs extends c
             $ = new AnalyzerConfigurationInternalAccessAnalysisRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param inclusions List of rules for the internal access analyzer containing criteria to include in analysis. Only resources that meet the rule criteria will generate findings. See `inclusion` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inclusions(@Nullable Output<List<AnalyzerConfigurationInternalAccessAnalysisRuleInclusionArgs>> inclusions) {
             $.inclusions = inclusions;
             return this;
         }
 
-        /**
-         * @param inclusions List of rules for the internal access analyzer containing criteria to include in analysis. Only resources that meet the rule criteria will generate findings. See `inclusion` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inclusions(List<AnalyzerConfigurationInternalAccessAnalysisRuleInclusionArgs> inclusions) {
             return inclusions(Output.of(inclusions));
         }
 
-        /**
-         * @param inclusions List of rules for the internal access analyzer containing criteria to include in analysis. Only resources that meet the rule criteria will generate findings. See `inclusion` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inclusions(AnalyzerConfigurationInternalAccessAnalysisRuleInclusionArgs... inclusions) {
             return inclusions(List.of(inclusions));
         }

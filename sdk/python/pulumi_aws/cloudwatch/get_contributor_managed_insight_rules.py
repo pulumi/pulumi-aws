@@ -52,9 +52,6 @@ class GetContributorManagedInsightRulesResult:
     @_builtins.property
     @pulumi.getter(name="managedRules")
     def managed_rules(self) -> Sequence['outputs.GetContributorManagedInsightRulesManagedRuleResult']:
-        """
-        Managed rules that are available for the specified Amazon Web Services resource. See `managed_rules reference` below for details.
-        """
         return pulumi.get(self, "managed_rules")
 
     @_builtins.property
@@ -65,9 +62,6 @@ class GetContributorManagedInsightRulesResult:
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> _builtins.str:
-        """
-        If a managed rule is enabled, this is the ARN for the related Amazon Web Services resource.
-        """
         return pulumi.get(self, "resource_arn")
 
 
@@ -87,22 +81,7 @@ def get_contributor_managed_insight_rules(region: Optional[_builtins.str] = None
                                           resource_arn: Optional[_builtins.str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContributorManagedInsightRulesResult:
     """
-    Data source for managing an AWS CloudWatch Contributor Managed Insight Rules.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudwatch.get_contributor_managed_insight_rules(resource_arn="arn:aws:ec2:us-west-2:123456789012:resource-name/resourceid")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str resource_arn: ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -119,22 +98,7 @@ def get_contributor_managed_insight_rules_output(region: Optional[pulumi.Input[O
                                                  resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContributorManagedInsightRulesResult]:
     """
-    Data source for managing an AWS CloudWatch Contributor Managed Insight Rules.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudwatch.get_contributor_managed_insight_rules(resource_arn="arn:aws:ec2:us-west-2:123456789012:resource-name/resourceid")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str resource_arn: ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

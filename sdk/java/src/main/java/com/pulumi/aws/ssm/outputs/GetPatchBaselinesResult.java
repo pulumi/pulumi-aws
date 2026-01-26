@@ -16,10 +16,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPatchBaselinesResult {
-    /**
-     * @return List of baseline identities. See `baselineIdentities` below.
-     * 
-     */
     private List<GetPatchBaselinesBaselineIdentity> baselineIdentities;
     private @Nullable Boolean defaultBaselines;
     private @Nullable List<GetPatchBaselinesFilter> filters;
@@ -31,10 +27,6 @@ public final class GetPatchBaselinesResult {
     private String region;
 
     private GetPatchBaselinesResult() {}
-    /**
-     * @return List of baseline identities. See `baselineIdentities` below.
-     * 
-     */
     public List<GetPatchBaselinesBaselineIdentity> baselineIdentities() {
         return this.baselineIdentities;
     }

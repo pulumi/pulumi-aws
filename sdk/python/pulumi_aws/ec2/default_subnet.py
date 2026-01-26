@@ -35,12 +35,6 @@ class DefaultSubnetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DefaultSubnet resource.
-        :param pulumi.Input[_builtins.str] availability_zone: is required
-               * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
-               * The default value for `map_public_ip_on_launch` is `true`
-               
-               This resource supports the following additional arguments:
-        :param pulumi.Input[_builtins.bool] force_destroy: Whether destroying the resource deletes the default subnet. Default: `false`
         """
         pulumi.set(__self__, "availability_zone", availability_zone)
         if assign_ipv6_address_on_creation is not None:
@@ -73,13 +67,6 @@ class DefaultSubnetArgs:
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Input[_builtins.str]:
-        """
-        is required
-        * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
-        * The default value for `map_public_ip_on_launch` is `true`
-
-        This resource supports the following additional arguments:
-        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -134,9 +121,6 @@ class DefaultSubnetArgs:
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether destroying the resource deletes the default subnet. Default: `false`
-        """
         return pulumi.get(self, "force_destroy")
 
     @force_destroy.setter
@@ -236,15 +220,6 @@ class _DefaultSubnetState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DefaultSubnet resources.
-        :param pulumi.Input[_builtins.str] availability_zone: is required
-               * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
-               * The default value for `map_public_ip_on_launch` is `true`
-               
-               This resource supports the following additional arguments:
-        :param pulumi.Input[_builtins.str] availability_zone_id: The AZ ID of the subnet
-        :param pulumi.Input[_builtins.str] cidr_block: The IPv4 CIDR block assigned to the subnet
-        :param pulumi.Input[_builtins.bool] force_destroy: Whether destroying the resource deletes the default subnet. Default: `false`
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC the subnet is in
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -316,13 +291,6 @@ class _DefaultSubnetState:
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        is required
-        * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
-        * The default value for `map_public_ip_on_launch` is `true`
-
-        This resource supports the following additional arguments:
-        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -332,9 +300,6 @@ class _DefaultSubnetState:
     @_builtins.property
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AZ ID of the subnet
-        """
         return pulumi.get(self, "availability_zone_id")
 
     @availability_zone_id.setter
@@ -344,9 +309,6 @@ class _DefaultSubnetState:
     @_builtins.property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The IPv4 CIDR block assigned to the subnet
-        """
         return pulumi.get(self, "cidr_block")
 
     @cidr_block.setter
@@ -410,9 +372,6 @@ class _DefaultSubnetState:
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether destroying the resource deletes the default subnet. Default: `false`
-        """
         return pulumi.get(self, "force_destroy")
 
     @force_destroy.setter
@@ -521,9 +480,6 @@ class _DefaultSubnetState:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the VPC the subnet is in
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -553,44 +509,9 @@ class DefaultSubnet(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a resource to manage a [default subnet](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html#default-vpc-basics) in the current region.
-
-        **This is an advanced resource** and has special caveats to be aware of when using it. Please read this document in its entirety before using this resource.
-
-        The `ec2.DefaultSubnet` resource behaves differently from normal resources in that if a default subnet exists in the specified Availability Zone, this provider does not _create_ this resource, but instead "adopts" it into management.
-        If no default subnet exists, this provider creates a new default subnet.
-        By default, `pulumi destroy` does not delete the default subnet but does remove the resource from the state.
-        Set the `force_destroy` argument to `true` to delete the default subnet.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default_az1 = aws.ec2.DefaultSubnet("default_az1",
-            availability_zone="us-west-2a",
-            tags={
-                "Name": "Default subnet for us-west-2a",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import subnets using the subnet `id`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/defaultSubnet:DefaultSubnet public_subnet subnet-9d4a7b6c
-        ```
-
+        Create a DefaultSubnet resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] availability_zone: is required
-               * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
-               * The default value for `map_public_ip_on_launch` is `true`
-               
-               This resource supports the following additional arguments:
-        :param pulumi.Input[_builtins.bool] force_destroy: Whether destroying the resource deletes the default subnet. Default: `false`
         """
         ...
     @overload
@@ -599,36 +520,7 @@ class DefaultSubnet(pulumi.CustomResource):
                  args: DefaultSubnetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage a [default subnet](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html#default-vpc-basics) in the current region.
-
-        **This is an advanced resource** and has special caveats to be aware of when using it. Please read this document in its entirety before using this resource.
-
-        The `ec2.DefaultSubnet` resource behaves differently from normal resources in that if a default subnet exists in the specified Availability Zone, this provider does not _create_ this resource, but instead "adopts" it into management.
-        If no default subnet exists, this provider creates a new default subnet.
-        By default, `pulumi destroy` does not delete the default subnet but does remove the resource from the state.
-        Set the `force_destroy` argument to `true` to delete the default subnet.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default_az1 = aws.ec2.DefaultSubnet("default_az1",
-            availability_zone="us-west-2a",
-            tags={
-                "Name": "Default subnet for us-west-2a",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import subnets using the subnet `id`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/defaultSubnet:DefaultSubnet public_subnet subnet-9d4a7b6c
-        ```
-
+        Create a DefaultSubnet resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DefaultSubnetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -734,15 +626,6 @@ class DefaultSubnet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] availability_zone: is required
-               * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
-               * The default value for `map_public_ip_on_launch` is `true`
-               
-               This resource supports the following additional arguments:
-        :param pulumi.Input[_builtins.str] availability_zone_id: The AZ ID of the subnet
-        :param pulumi.Input[_builtins.str] cidr_block: The IPv4 CIDR block assigned to the subnet
-        :param pulumi.Input[_builtins.bool] force_destroy: Whether destroying the resource deletes the default subnet. Default: `false`
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC the subnet is in
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -787,29 +670,16 @@ class DefaultSubnet(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[_builtins.str]:
-        """
-        is required
-        * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
-        * The default value for `map_public_ip_on_launch` is `true`
-
-        This resource supports the following additional arguments:
-        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The AZ ID of the subnet
-        """
         return pulumi.get(self, "availability_zone_id")
 
     @_builtins.property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> pulumi.Output[_builtins.str]:
-        """
-        The IPv4 CIDR block assigned to the subnet
-        """
         return pulumi.get(self, "cidr_block")
 
     @_builtins.property
@@ -845,9 +715,6 @@ class DefaultSubnet(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether destroying the resource deletes the default subnet. Default: `false`
-        """
         return pulumi.get(self, "force_destroy")
 
     @_builtins.property
@@ -908,8 +775,5 @@ class DefaultSubnet(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the VPC the subnet is in
-        """
         return pulumi.get(self, "vpc_id")
 

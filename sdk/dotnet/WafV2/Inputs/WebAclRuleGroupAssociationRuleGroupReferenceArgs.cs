@@ -22,7 +22,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideArgs>? _ruleActionOverrides;
 
         /// <summary>
-        /// Override actions for specific rules within the rule group. See below.
+        /// Action settings to use in place of rule actions configured inside the rule group. You can specify up to 100 overrides.
         /// </summary>
         public InputList<Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideArgs> RuleActionOverrides
         {

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSetLogicalTableMapDataTransformProjectOperation
     {
-        /// <summary>
-        /// Projected columns.
-        /// </summary>
         public readonly ImmutableArray<string> ProjectedColumns;
 
         [OutputConstructor]

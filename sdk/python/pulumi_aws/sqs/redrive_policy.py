@@ -24,9 +24,6 @@ class RedrivePolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RedrivePolicy resource.
-        :param pulumi.Input[_builtins.str] queue_url: The URL of the SQS Queue to which to attach the policy
-        :param pulumi.Input[_builtins.str] redrive_policy: The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "queue_url", queue_url)
         pulumi.set(__self__, "redrive_policy", redrive_policy)
@@ -36,9 +33,6 @@ class RedrivePolicyArgs:
     @_builtins.property
     @pulumi.getter(name="queueUrl")
     def queue_url(self) -> pulumi.Input[_builtins.str]:
-        """
-        The URL of the SQS Queue to which to attach the policy
-        """
         return pulumi.get(self, "queue_url")
 
     @queue_url.setter
@@ -48,9 +42,6 @@ class RedrivePolicyArgs:
     @_builtins.property
     @pulumi.getter(name="redrivePolicy")
     def redrive_policy(self) -> pulumi.Input[_builtins.str]:
-        """
-        The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
-        """
         return pulumi.get(self, "redrive_policy")
 
     @redrive_policy.setter
@@ -60,9 +51,6 @@ class RedrivePolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -78,9 +66,6 @@ class _RedrivePolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RedrivePolicy resources.
-        :param pulumi.Input[_builtins.str] queue_url: The URL of the SQS Queue to which to attach the policy
-        :param pulumi.Input[_builtins.str] redrive_policy: The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if queue_url is not None:
             pulumi.set(__self__, "queue_url", queue_url)
@@ -92,9 +77,6 @@ class _RedrivePolicyState:
     @_builtins.property
     @pulumi.getter(name="queueUrl")
     def queue_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The URL of the SQS Queue to which to attach the policy
-        """
         return pulumi.get(self, "queue_url")
 
     @queue_url.setter
@@ -104,9 +86,6 @@ class _RedrivePolicyState:
     @_builtins.property
     @pulumi.getter(name="redrivePolicy")
     def redrive_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
-        """
         return pulumi.get(self, "redrive_policy")
 
     @redrive_policy.setter
@@ -116,9 +95,6 @@ class _RedrivePolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -137,48 +113,9 @@ class RedrivePolicy(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Allows you to set a redrive policy of an SQS Queue
-        while referencing ARN of the dead letter queue inside the redrive policy.
-
-        This is useful when you want to set a dedicated
-        dead letter queue for a standard or FIFO queue, but need
-        the dead letter queue to exist before setting the redrive policy.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        q = aws.sqs.Queue("q", name="examplequeue")
-        ddl = aws.sqs.Queue("ddl",
-            name="examplequeue-ddl",
-            redrive_allow_policy=pulumi.Output.json_dumps({
-                "redrivePermission": "byQueue",
-                "sourceQueueArns": [q.arn],
-            }))
-        q_redrive_policy = aws.sqs.RedrivePolicy("q",
-            queue_url=q.id,
-            redrive_policy=pulumi.Output.json_dumps({
-                "deadLetterTargetArn": ddl.arn,
-                "maxReceiveCount": 4,
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SQS Queue Redrive Policies using the queue URL. For example:
-
-        ```sh
-        $ pulumi import aws:sqs/redrivePolicy:RedrivePolicy test https://queue.amazonaws.com/123456789012/myqueue
-        ```
-
+        Create a RedrivePolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] queue_url: The URL of the SQS Queue to which to attach the policy
-        :param pulumi.Input[_builtins.str] redrive_policy: The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -187,43 +124,7 @@ class RedrivePolicy(pulumi.CustomResource):
                  args: RedrivePolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Allows you to set a redrive policy of an SQS Queue
-        while referencing ARN of the dead letter queue inside the redrive policy.
-
-        This is useful when you want to set a dedicated
-        dead letter queue for a standard or FIFO queue, but need
-        the dead letter queue to exist before setting the redrive policy.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        q = aws.sqs.Queue("q", name="examplequeue")
-        ddl = aws.sqs.Queue("ddl",
-            name="examplequeue-ddl",
-            redrive_allow_policy=pulumi.Output.json_dumps({
-                "redrivePermission": "byQueue",
-                "sourceQueueArns": [q.arn],
-            }))
-        q_redrive_policy = aws.sqs.RedrivePolicy("q",
-            queue_url=q.id,
-            redrive_policy=pulumi.Output.json_dumps({
-                "deadLetterTargetArn": ddl.arn,
-                "maxReceiveCount": 4,
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SQS Queue Redrive Policies using the queue URL. For example:
-
-        ```sh
-        $ pulumi import aws:sqs/redrivePolicy:RedrivePolicy test https://queue.amazonaws.com/123456789012/myqueue
-        ```
-
+        Create a RedrivePolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RedrivePolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -278,9 +179,6 @@ class RedrivePolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] queue_url: The URL of the SQS Queue to which to attach the policy
-        :param pulumi.Input[_builtins.str] redrive_policy: The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -294,24 +192,15 @@ class RedrivePolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="queueUrl")
     def queue_url(self) -> pulumi.Output[_builtins.str]:
-        """
-        The URL of the SQS Queue to which to attach the policy
-        """
         return pulumi.get(self, "queue_url")
 
     @_builtins.property
     @pulumi.getter(name="redrivePolicy")
     def redrive_policy(self) -> pulumi.Output[_builtins.str]:
-        """
-        The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
-        """
         return pulumi.get(self, "redrive_policy")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

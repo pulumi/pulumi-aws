@@ -15,62 +15,30 @@ public final class GetInstanceStorageConfigPlainArgs extends com.pulumi.resource
 
     public static final GetInstanceStorageConfigPlainArgs Empty = new GetInstanceStorageConfigPlainArgs();
 
-    /**
-     * The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
-     * 
-     */
     @Import(name="associationId", required=true)
     private String associationId;
 
-    /**
-     * @return The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
-     * 
-     */
     public String associationId() {
         return this.associationId;
     }
 
-    /**
-     * Reference to the hosting Amazon Connect Instance
-     * 
-     */
     @Import(name="instanceId", required=true)
     private String instanceId;
 
-    /**
-     * @return Reference to the hosting Amazon Connect Instance
-     * 
-     */
     public String instanceId() {
         return this.instanceId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` |  `SCREEN_RECORDINGS`.
-     * 
-     */
     @Import(name="resourceType", required=true)
     private String resourceType;
 
-    /**
-     * @return A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` |  `SCREEN_RECORDINGS`.
-     * 
-     */
     public String resourceType() {
         return this.resourceType;
     }
@@ -102,45 +70,21 @@ public final class GetInstanceStorageConfigPlainArgs extends com.pulumi.resource
             $ = new GetInstanceStorageConfigPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param associationId The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder associationId(String associationId) {
             $.associationId = associationId;
             return this;
         }
 
-        /**
-         * @param instanceId Reference to the hosting Amazon Connect Instance
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceId(String instanceId) {
             $.instanceId = instanceId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param resourceType A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` |  `SCREEN_RECORDINGS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceType(String resourceType) {
             $.resourceType = resourceType;
             return this;

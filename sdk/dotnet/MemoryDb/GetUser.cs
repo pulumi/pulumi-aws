@@ -11,75 +11,12 @@ namespace Pulumi.Aws.MemoryDb
 {
     public static class GetUser
     {
-        /// <summary>
-        /// Provides information about a MemoryDB User.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.MemoryDb.GetUser.Invoke(new()
-        ///     {
-        ///         UserName = "my-user",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("aws:memorydb/getUser:getUser", args ?? new GetUserArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides information about a MemoryDB User.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.MemoryDb.GetUser.Invoke(new()
-        ///     {
-        ///         UserName = "my-user",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("aws:memorydb/getUser:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides information about a MemoryDB User.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.MemoryDb.GetUser.Invoke(new()
-        ///     {
-        ///         UserName = "my-user",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("aws:memorydb/getUser:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
     }
@@ -87,27 +24,17 @@ namespace Pulumi.Aws.MemoryDb
 
     public sealed class GetUserArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the user.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Name of the user.
-        /// </summary>
         [Input("userName", required: true)]
         public string UserName { get; set; } = null!;
 
@@ -119,27 +46,17 @@ namespace Pulumi.Aws.MemoryDb
 
     public sealed class GetUserInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the user.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Name of the user.
-        /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
 
@@ -153,30 +70,15 @@ namespace Pulumi.Aws.MemoryDb
     [OutputType]
     public sealed class GetUserResult
     {
-        /// <summary>
-        /// Access permissions string used for this user.
-        /// </summary>
         public readonly string AccessString;
-        /// <summary>
-        /// ARN of the user.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Denotes the user's authentication properties.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetUserAuthenticationModeResult> AuthenticationModes;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Minimum engine version supported for the user.
-        /// </summary>
         public readonly string MinimumEngineVersion;
         public readonly string Region;
-        /// <summary>
-        /// Map of tags assigned to the user.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly string UserName;
 

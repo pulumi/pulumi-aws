@@ -9,62 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Vpc
 {
-    /// <summary>
-    /// Resource for managing an AWS VPC (Virtual Private Cloud) Endpoint Service Private DNS Verification.
-    /// This resource begins the verification process by calling the [`StartVpcEndpointServicePrivateDnsVerification`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_StartVpcEndpointServicePrivateDnsVerification.html) API.
-    /// The service provider should add a record to the DNS server _before_ creating this resource.
-    /// 
-    /// For additional details, refer to the AWS documentation on [managing VPC endpoint service DNS names](https://docs.aws.amazon.com/vpc/latest/privatelink/manage-dns-names.html).
-    /// 
-    /// &gt; Destruction of this resource will not stop the verification process, only remove the resource from state.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Vpc.EndpointServicePrivateDnsVerification("example", new()
-    ///     {
-    ///         ServiceId = exampleAwsVpcEndpointService.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// You cannot import this resource.
-    /// </summary>
     [AwsResourceType("aws:vpc/endpointServicePrivateDnsVerification:EndpointServicePrivateDnsVerification")]
     public partial class EndpointServicePrivateDnsVerification : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the endpoint service.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("serviceId")]
         public Output<string> ServiceId { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.EndpointServicePrivateDnsVerificationTimeouts?> Timeouts { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether to wait until the endpoint service returns a `Verified` status for the configured private DNS name.
-        /// </summary>
         [Output("waitForVerification")]
         public Output<bool?> WaitForVerification { get; private set; } = null!;
 
@@ -114,26 +70,15 @@ namespace Pulumi.Aws.Vpc
 
     public sealed class EndpointServicePrivateDnsVerificationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID of the endpoint service.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("serviceId", required: true)]
         public Input<string> ServiceId { get; set; } = null!;
 
         [Input("timeouts")]
         public Input<Inputs.EndpointServicePrivateDnsVerificationTimeoutsArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// Whether to wait until the endpoint service returns a `Verified` status for the configured private DNS name.
-        /// </summary>
         [Input("waitForVerification")]
         public Input<bool>? WaitForVerification { get; set; }
 
@@ -145,26 +90,15 @@ namespace Pulumi.Aws.Vpc
 
     public sealed class EndpointServicePrivateDnsVerificationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID of the endpoint service.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("serviceId")]
         public Input<string>? ServiceId { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.EndpointServicePrivateDnsVerificationTimeoutsGetArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// Whether to wait until the endpoint service returns a `Verified` status for the configured private DNS name.
-        /// </summary>
         [Input("waitForVerification")]
         public Input<bool>? WaitForVerification { get; set; }
 

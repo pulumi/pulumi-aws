@@ -16,62 +16,30 @@ public final class GetSecretVersionArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetSecretVersionArgs Empty = new GetSecretVersionArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
-     * 
-     */
     @Import(name="secretId", required=true)
     private Output<String> secretId;
 
-    /**
-     * @return Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
-     * 
-     */
     public Output<String> secretId() {
         return this.secretId;
     }
 
-    /**
-     * Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `versionStage`.
-     * 
-     */
     @Import(name="versionId")
     private @Nullable Output<String> versionId;
 
-    /**
-     * @return Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `versionStage`.
-     * 
-     */
     public Optional<Output<String>> versionId() {
         return Optional.ofNullable(this.versionId);
     }
 
-    /**
-     * Specifies the secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
-     * 
-     */
     @Import(name="versionStage")
     private @Nullable Output<String> versionStage;
 
-    /**
-     * @return Specifies the secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
-     * 
-     */
     public Optional<Output<String>> versionStage() {
         return Optional.ofNullable(this.versionStage);
     }
@@ -103,86 +71,38 @@ public final class GetSecretVersionArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetSecretVersionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param secretId Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretId(Output<String> secretId) {
             $.secretId = secretId;
             return this;
         }
 
-        /**
-         * @param secretId Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretId(String secretId) {
             return secretId(Output.of(secretId));
         }
 
-        /**
-         * @param versionId Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `versionStage`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder versionId(@Nullable Output<String> versionId) {
             $.versionId = versionId;
             return this;
         }
 
-        /**
-         * @param versionId Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `versionStage`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder versionId(String versionId) {
             return versionId(Output.of(versionId));
         }
 
-        /**
-         * @param versionStage Specifies the secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder versionStage(@Nullable Output<String> versionStage) {
             $.versionStage = versionStage;
             return this;
         }
 
-        /**
-         * @param versionStage Specifies the secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder versionStage(String versionStage) {
             return versionStage(Output.of(versionStage));
         }

@@ -11,43 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get a list of AMI IDs matching the specified criteria.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetAmiIds(ctx, &ec2.GetAmiIdsArgs{
-//				Owners: []string{
-//					"099720109477",
-//				},
-//				Filters: []ec2.GetAmiIdsFilter{
-//					{
-//						Name: "name",
-//						Values: []string{
-//							"ubuntu/images/ubuntu-*-*-amd64-server-*",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetAmiIds(ctx *pulumi.Context, args *GetAmiIdsArgs, opts ...pulumi.InvokeOption) (*GetAmiIdsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAmiIdsResult
@@ -60,29 +23,13 @@ func GetAmiIds(ctx *pulumi.Context, args *GetAmiIdsArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getAmiIds.
 type GetAmiIdsArgs struct {
-	// Limit search to users with *explicit* launch
-	// permission on  the image. Valid items are the numeric account ID or `self`.
-	ExecutableUsers []string `pulumi:"executableUsers"`
-	// One or more name/value pairs to filter off of. There
-	// are several valid keys, for a full reference, check out
-	// [describe-images in the AWS CLI reference][1].
-	Filters []GetAmiIdsFilter `pulumi:"filters"`
-	// If true, all deprecated AMIs are included in the response.
-	// If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `false`.
-	IncludeDeprecated *bool `pulumi:"includeDeprecated"`
-	// Regex string to apply to the AMI list returned
-	// by AWS. This allows more advanced filtering not supported from the AWS API.
-	// This filtering is done locally on what AWS returns, and could have a performance
-	// impact if the result is large. Combine this with other
-	// options to narrow down the list AWS returns.
-	NameRegex *string `pulumi:"nameRegex"`
-	// List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
-	Owners []string `pulumi:"owners"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Used to sort AMIs by creation time.
-	// If no value is specified, the default value is `false`.
-	SortAscending *bool `pulumi:"sortAscending"`
+	ExecutableUsers   []string          `pulumi:"executableUsers"`
+	Filters           []GetAmiIdsFilter `pulumi:"filters"`
+	IncludeDeprecated *bool             `pulumi:"includeDeprecated"`
+	NameRegex         *string           `pulumi:"nameRegex"`
+	Owners            []string          `pulumi:"owners"`
+	Region            *string           `pulumi:"region"`
+	SortAscending     *bool             `pulumi:"sortAscending"`
 }
 
 // A collection of values returned by getAmiIds.
@@ -90,8 +37,7 @@ type GetAmiIdsResult struct {
 	ExecutableUsers []string          `pulumi:"executableUsers"`
 	Filters         []GetAmiIdsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// is set to the list of AMI IDs, sorted by creation time according to `sortAscending`.
+	Id                string   `pulumi:"id"`
 	Ids               []string `pulumi:"ids"`
 	IncludeDeprecated *bool    `pulumi:"includeDeprecated"`
 	NameRegex         *string  `pulumi:"nameRegex"`
@@ -111,29 +57,13 @@ func GetAmiIdsOutput(ctx *pulumi.Context, args GetAmiIdsOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getAmiIds.
 type GetAmiIdsOutputArgs struct {
-	// Limit search to users with *explicit* launch
-	// permission on  the image. Valid items are the numeric account ID or `self`.
-	ExecutableUsers pulumi.StringArrayInput `pulumi:"executableUsers"`
-	// One or more name/value pairs to filter off of. There
-	// are several valid keys, for a full reference, check out
-	// [describe-images in the AWS CLI reference][1].
-	Filters GetAmiIdsFilterArrayInput `pulumi:"filters"`
-	// If true, all deprecated AMIs are included in the response.
-	// If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `false`.
-	IncludeDeprecated pulumi.BoolPtrInput `pulumi:"includeDeprecated"`
-	// Regex string to apply to the AMI list returned
-	// by AWS. This allows more advanced filtering not supported from the AWS API.
-	// This filtering is done locally on what AWS returns, and could have a performance
-	// impact if the result is large. Combine this with other
-	// options to narrow down the list AWS returns.
-	NameRegex pulumi.StringPtrInput `pulumi:"nameRegex"`
-	// List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
-	Owners pulumi.StringArrayInput `pulumi:"owners"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Used to sort AMIs by creation time.
-	// If no value is specified, the default value is `false`.
-	SortAscending pulumi.BoolPtrInput `pulumi:"sortAscending"`
+	ExecutableUsers   pulumi.StringArrayInput   `pulumi:"executableUsers"`
+	Filters           GetAmiIdsFilterArrayInput `pulumi:"filters"`
+	IncludeDeprecated pulumi.BoolPtrInput       `pulumi:"includeDeprecated"`
+	NameRegex         pulumi.StringPtrInput     `pulumi:"nameRegex"`
+	Owners            pulumi.StringArrayInput   `pulumi:"owners"`
+	Region            pulumi.StringPtrInput     `pulumi:"region"`
+	SortAscending     pulumi.BoolPtrInput       `pulumi:"sortAscending"`
 }
 
 func (GetAmiIdsOutputArgs) ElementType() reflect.Type {
@@ -168,7 +98,6 @@ func (o GetAmiIdsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAmiIdsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// is set to the list of AMI IDs, sorted by creation time according to `sortAscending`.
 func (o GetAmiIdsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAmiIdsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

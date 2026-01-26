@@ -15,92 +15,17 @@ import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
 
-/**
- * Manages IoT event configurations.
- * 
- * &gt; **NOTE:** Deleting this resource does not disable the event configurations, the resource in simply removed from state instead.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iot.EventConfigurations;
- * import com.pulumi.aws.iot.EventConfigurationsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new EventConfigurations("example", EventConfigurationsArgs.builder()
- *             .eventConfigurations(Map.ofEntries(
- *                 Map.entry("THING", true),
- *                 Map.entry("THING_GROUP", false),
- *                 Map.entry("THING_TYPE", false),
- *                 Map.entry("THING_GROUP_MEMBERSHIP", false),
- *                 Map.entry("THING_GROUP_HIERARCHY", false),
- *                 Map.entry("THING_TYPE_ASSOCIATION", false),
- *                 Map.entry("JOB", false),
- *                 Map.entry("JOB_EXECUTION", false),
- *                 Map.entry("POLICY", false),
- *                 Map.entry("CERTIFICATE", true),
- *                 Map.entry("CA_CERTIFICATE", false)
- *             ))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import IoT Event Configurations using the AWS Region. For example:
- * 
- * ```sh
- * $ pulumi import aws:iot/eventConfigurations:EventConfigurations example us-west-2
- * ```
- * 
- */
 @ResourceType(type="aws:iot/eventConfigurations:EventConfigurations")
 public class EventConfigurations extends com.pulumi.resources.CustomResource {
-    /**
-     * Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
-     * 
-     */
     @Export(name="eventConfigurations", refs={Map.class,String.class,Boolean.class}, tree="[0,1,2]")
     private Output<Map<String,Boolean>> eventConfigurations;
 
-    /**
-     * @return Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
-     * 
-     */
     public Output<Map<String,Boolean>> eventConfigurations() {
         return this.eventConfigurations;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

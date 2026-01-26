@@ -10,45 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GlobalSecondaryIndexKeySchema {
-    /**
-     * @return Name of the attribute.
-     * 
-     */
     private String attributeName;
-    /**
-     * @return Type of the attribute in the index.
-     * Valid values are `S` (string), `N` (number), or `B` (binary).
-     * 
-     */
     private String attributeType;
-    /**
-     * @return Key type.
-     * Valid values are `HASH` or `RANGE`.
-     * 
-     */
     private String keyType;
 
     private GlobalSecondaryIndexKeySchema() {}
-    /**
-     * @return Name of the attribute.
-     * 
-     */
     public String attributeName() {
         return this.attributeName;
     }
-    /**
-     * @return Type of the attribute in the index.
-     * Valid values are `S` (string), `N` (number), or `B` (binary).
-     * 
-     */
     public String attributeType() {
         return this.attributeType;
     }
-    /**
-     * @return Key type.
-     * Valid values are `HASH` or `RANGE`.
-     * 
-     */
     public String keyType() {
         return this.keyType;
     }

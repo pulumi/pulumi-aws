@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Iot.Inputs
 
     public sealed class DomainConfigurationTlsConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The security policy for a domain configuration.
-        /// </summary>
         [Input("securityPolicy")]
         public Input<string>? SecurityPolicy { get; set; }
 

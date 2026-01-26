@@ -15,67 +15,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRule {
-    /**
-     * @return Configuration block of the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Not used if `type` is `GROUP`. Detailed below.
-     * 
-     */
     private @Nullable WebAclRuleAction action;
-    /**
-     * @return Configuration block of the override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Only used if `type` is `GROUP`. Detailed below.
-     * 
-     */
     private @Nullable WebAclRuleOverrideAction overrideAction;
-    /**
-     * @return Specifies the order in which the rules in a WebACL are evaluated.
-     * Rules with a lower value are evaluated before rules with a higher value.
-     * 
-     */
     private Integer priority;
-    /**
-     * @return ID of the associated WAF (Regional) rule (e.g., `aws.wafregional.Rule`). WAF (Global) rules cannot be used.
-     * 
-     */
     private String ruleId;
-    /**
-     * @return The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
-     * 
-     */
     private @Nullable String type;
 
     private WebAclRule() {}
-    /**
-     * @return Configuration block of the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Not used if `type` is `GROUP`. Detailed below.
-     * 
-     */
     public Optional<WebAclRuleAction> action() {
         return Optional.ofNullable(this.action);
     }
-    /**
-     * @return Configuration block of the override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Only used if `type` is `GROUP`. Detailed below.
-     * 
-     */
     public Optional<WebAclRuleOverrideAction> overrideAction() {
         return Optional.ofNullable(this.overrideAction);
     }
-    /**
-     * @return Specifies the order in which the rules in a WebACL are evaluated.
-     * Rules with a lower value are evaluated before rules with a higher value.
-     * 
-     */
     public Integer priority() {
         return this.priority;
     }
-    /**
-     * @return ID of the associated WAF (Regional) rule (e.g., `aws.wafregional.Rule`). WAF (Global) rules cannot be used.
-     * 
-     */
     public String ruleId() {
         return this.ruleId;
     }
-    /**
-     * @return The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

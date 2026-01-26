@@ -12,54 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an EC2 Transit Gateway Policy Table association.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.NewPolicyTableAssociation(ctx, "example", &ec2transitgateway.PolicyTableAssociationArgs{
-//				TransitGatewayAttachmentId:  pulumi.Any(exampleAwsNetworkmanagerTransitGatewayPeering.TransitGatewayPeeringAttachmentId),
-//				TransitGatewayPolicyTableId: pulumi.Any(exampleAwsEc2TransitGatewayPolicyTable.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_ec2_transit_gateway_policy_table_association` using the EC2 Transit Gateway Policy Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation example tgw-rtb-12345678_tgw-attach-87654321
-// ```
 type PolicyTableAssociation struct {
 	pulumi.CustomResourceState
 
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Identifier of the resource
-	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
-	// Type of the resource
-	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
-	// Identifier of EC2 Transit Gateway Attachment.
-	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
-	// Identifier of EC2 Transit Gateway Policy Table.
+	Region                      pulumi.StringOutput `pulumi:"region"`
+	ResourceId                  pulumi.StringOutput `pulumi:"resourceId"`
+	ResourceType                pulumi.StringOutput `pulumi:"resourceType"`
+	TransitGatewayAttachmentId  pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
 	TransitGatewayPolicyTableId pulumi.StringOutput `pulumi:"transitGatewayPolicyTableId"`
 }
 
@@ -99,28 +58,18 @@ func GetPolicyTableAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PolicyTableAssociation resources.
 type policyTableAssociationState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Identifier of the resource
-	ResourceId *string `pulumi:"resourceId"`
-	// Type of the resource
-	ResourceType *string `pulumi:"resourceType"`
-	// Identifier of EC2 Transit Gateway Attachment.
-	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
-	// Identifier of EC2 Transit Gateway Policy Table.
+	Region                      *string `pulumi:"region"`
+	ResourceId                  *string `pulumi:"resourceId"`
+	ResourceType                *string `pulumi:"resourceType"`
+	TransitGatewayAttachmentId  *string `pulumi:"transitGatewayAttachmentId"`
 	TransitGatewayPolicyTableId *string `pulumi:"transitGatewayPolicyTableId"`
 }
 
 type PolicyTableAssociationState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Identifier of the resource
-	ResourceId pulumi.StringPtrInput
-	// Type of the resource
-	ResourceType pulumi.StringPtrInput
-	// Identifier of EC2 Transit Gateway Attachment.
-	TransitGatewayAttachmentId pulumi.StringPtrInput
-	// Identifier of EC2 Transit Gateway Policy Table.
+	Region                      pulumi.StringPtrInput
+	ResourceId                  pulumi.StringPtrInput
+	ResourceType                pulumi.StringPtrInput
+	TransitGatewayAttachmentId  pulumi.StringPtrInput
 	TransitGatewayPolicyTableId pulumi.StringPtrInput
 }
 
@@ -129,21 +78,15 @@ func (PolicyTableAssociationState) ElementType() reflect.Type {
 }
 
 type policyTableAssociationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Identifier of EC2 Transit Gateway Attachment.
-	TransitGatewayAttachmentId string `pulumi:"transitGatewayAttachmentId"`
-	// Identifier of EC2 Transit Gateway Policy Table.
-	TransitGatewayPolicyTableId string `pulumi:"transitGatewayPolicyTableId"`
+	Region                      *string `pulumi:"region"`
+	TransitGatewayAttachmentId  string  `pulumi:"transitGatewayAttachmentId"`
+	TransitGatewayPolicyTableId string  `pulumi:"transitGatewayPolicyTableId"`
 }
 
 // The set of arguments for constructing a PolicyTableAssociation resource.
 type PolicyTableAssociationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Identifier of EC2 Transit Gateway Attachment.
-	TransitGatewayAttachmentId pulumi.StringInput
-	// Identifier of EC2 Transit Gateway Policy Table.
+	Region                      pulumi.StringPtrInput
+	TransitGatewayAttachmentId  pulumi.StringInput
 	TransitGatewayPolicyTableId pulumi.StringInput
 }
 
@@ -234,27 +177,22 @@ func (o PolicyTableAssociationOutput) ToPolicyTableAssociationOutputWithContext(
 	return o
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PolicyTableAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyTableAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Identifier of the resource
 func (o PolicyTableAssociationOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyTableAssociation) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// Type of the resource
 func (o PolicyTableAssociationOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyTableAssociation) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Identifier of EC2 Transit Gateway Attachment.
 func (o PolicyTableAssociationOutput) TransitGatewayAttachmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyTableAssociation) pulumi.StringOutput { return v.TransitGatewayAttachmentId }).(pulumi.StringOutput)
 }
 
-// Identifier of EC2 Transit Gateway Policy Table.
 func (o PolicyTableAssociationOutput) TransitGatewayPolicyTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyTableAssociation) pulumi.StringOutput { return v.TransitGatewayPolicyTableId }).(pulumi.StringOutput)
 }

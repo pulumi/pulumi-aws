@@ -12,9 +12,6 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether the existing objects should be replicated. Either `"Enabled"` or `"Disabled"`.
-        /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 

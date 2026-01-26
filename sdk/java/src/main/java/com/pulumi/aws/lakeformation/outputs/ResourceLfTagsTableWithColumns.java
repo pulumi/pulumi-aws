@@ -14,81 +14,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ResourceLfTagsTableWithColumns {
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     private @Nullable String catalogId;
-    /**
-     * @return Set of column names for the table.
-     * 
-     */
     private @Nullable List<String> columnNames;
-    /**
-     * @return Name of the database for the table with columns resource. Unique to the Data Catalog.
-     * 
-     */
     private String databaseName;
-    /**
-     * @return Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
-     * 
-     */
     private @Nullable List<String> excludedColumnNames;
-    /**
-     * @return Name of the table resource.
-     * 
-     */
     private String name;
-    /**
-     * @return Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private @Nullable Boolean wildcard;
 
     private ResourceLfTagsTableWithColumns() {}
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     public Optional<String> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
-    /**
-     * @return Set of column names for the table.
-     * 
-     */
     public List<String> columnNames() {
         return this.columnNames == null ? List.of() : this.columnNames;
     }
-    /**
-     * @return Name of the database for the table with columns resource. Unique to the Data Catalog.
-     * 
-     */
     public String databaseName() {
         return this.databaseName;
     }
-    /**
-     * @return Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
-     * 
-     */
     public List<String> excludedColumnNames() {
         return this.excludedColumnNames == null ? List.of() : this.excludedColumnNames;
     }
-    /**
-     * @return Name of the table resource.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Boolean> wildcard() {
         return Optional.ofNullable(this.wildcard);
     }

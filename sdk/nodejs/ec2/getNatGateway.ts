@@ -7,34 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides details about a specific VPC NAT Gateway.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = aws.ec2.getNatGateway({
- *     subnetId: _public.id,
- * });
- * ```
- *
- * ### With tags
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = aws.ec2.getNatGateway({
- *     subnetId: _public.id,
- *     tags: {
- *         Name: "gw NAT",
- *     },
- * });
- * ```
- */
 export function getNatGateway(args?: GetNatGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetNatGatewayResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -53,38 +25,12 @@ export function getNatGateway(args?: GetNatGatewayArgs, opts?: pulumi.InvokeOpti
  * A collection of arguments for invoking getNatGateway.
  */
 export interface GetNatGatewayArgs {
-    /**
-     * Custom filter block as described below.
-     *
-     * The arguments of this data source act as filters for querying the available
-     * NAT Gateways in the current Region. The given filters must match exactly one
-     * NAT Gateway whose data will be exported as attributes.
-     */
     filters?: inputs.ec2.GetNatGatewayFilter[];
-    /**
-     * ID of the specific NAT Gateway to retrieve.
-     */
     id?: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * State of the NAT Gateway (pending | failed | available | deleting | deleted ).
-     */
     state?: string;
-    /**
-     * ID of subnet that the NAT Gateway resides in.
-     */
     subnetId?: string;
-    /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired NAT Gateway.
-     */
     tags?: {[key: string]: string};
-    /**
-     * ID of the VPC that the NAT Gateway resides in.
-     */
     vpcId?: string;
 }
 
@@ -92,102 +38,29 @@ export interface GetNatGatewayArgs {
  * A collection of values returned by getNatGateway.
  */
 export interface GetNatGatewayResult {
-    /**
-     * Allocation ID of the Elastic IP address.
-     */
     readonly allocationId: string;
-    /**
-     * Association ID of the Elastic IP address.
-     */
     readonly associationId: string;
-    /**
-     * (regional NAT gateways only) Indicates whether AWS automatically manages AZ coverage.
-     */
     readonly autoProvisionZones: string;
-    /**
-     * (regional NAT gateways only) Indicates whether AWS automatically allocates additional Elastic IP addresses (EIPs) in an AZ when the NAT gateway needs more ports due to increased concurrent connections to a single destination from that AZ.
-     */
     readonly autoScalingIps: string;
-    /**
-     * Specifies whether to create a zonal (single-AZ) or regional (multi-AZ) NAT gateway.
-     */
     readonly availabilityMode: string;
-    /**
-     * (regional NAT gateways only) Repeatable configuration block for the Elastic IP addresses (EIPs) and availability zones for the regional NAT gateway.
-     */
     readonly availabilityZoneAddresses: outputs.ec2.GetNatGatewayAvailabilityZoneAddress[];
-    /**
-     * Connectivity type of the NAT Gateway.
-     */
     readonly connectivityType: string;
     readonly filters?: outputs.ec2.GetNatGatewayFilter[];
     readonly id: string;
-    /**
-     * ID of the network interface.
-     */
     readonly networkInterfaceId: string;
-    /**
-     * (zonal NAT gateways only) Private IP address of the selected NAT Gateway.
-     */
     readonly privateIp: string;
-    /**
-     * Public IP address.
-     */
     readonly publicIp: string;
     readonly region: string;
-    /**
-     * (regional NAT gateways only) Repeatable blocks for information about the IP addresses and network interface associated with the regional NAT gateway.
-     */
     readonly regionalNatGatewayAddresses: outputs.ec2.GetNatGatewayRegionalNatGatewayAddress[];
-    /**
-     * (regional NAT gateways only) ID of the automatically created route table.
-     */
     readonly routeTableId: string;
-    /**
-     * (zonal NAT gateways only) Secondary allocation EIP IDs for the selected NAT Gateway.
-     */
     readonly secondaryAllocationIds: string[];
-    /**
-     * (zonal NAT gateways only) The number of secondary private IPv4 addresses assigned to the selected NAT Gateway.
-     */
     readonly secondaryPrivateIpAddressCount: number;
-    /**
-     * (zonal NAT gateways only) Secondary private IPv4 addresses assigned to the selected NAT Gateway.
-     */
     readonly secondaryPrivateIpAddresses: string[];
     readonly state: string;
     readonly subnetId: string;
     readonly tags: {[key: string]: string};
     readonly vpcId: string;
 }
-/**
- * Provides details about a specific VPC NAT Gateway.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = aws.ec2.getNatGateway({
- *     subnetId: _public.id,
- * });
- * ```
- *
- * ### With tags
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = aws.ec2.getNatGateway({
- *     subnetId: _public.id,
- *     tags: {
- *         Name: "gw NAT",
- *     },
- * });
- * ```
- */
 export function getNatGatewayOutput(args?: GetNatGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNatGatewayResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -206,37 +79,11 @@ export function getNatGatewayOutput(args?: GetNatGatewayOutputArgs, opts?: pulum
  * A collection of arguments for invoking getNatGateway.
  */
 export interface GetNatGatewayOutputArgs {
-    /**
-     * Custom filter block as described below.
-     *
-     * The arguments of this data source act as filters for querying the available
-     * NAT Gateways in the current Region. The given filters must match exactly one
-     * NAT Gateway whose data will be exported as attributes.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNatGatewayFilterArgs>[]>;
-    /**
-     * ID of the specific NAT Gateway to retrieve.
-     */
     id?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * State of the NAT Gateway (pending | failed | available | deleting | deleted ).
-     */
     state?: pulumi.Input<string>;
-    /**
-     * ID of subnet that the NAT Gateway resides in.
-     */
     subnetId?: pulumi.Input<string>;
-    /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired NAT Gateway.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * ID of the VPC that the NAT Gateway resides in.
-     */
     vpcId?: pulumi.Input<string>;
 }

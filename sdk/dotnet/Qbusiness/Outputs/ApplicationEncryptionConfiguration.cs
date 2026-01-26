@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Qbusiness.Outputs
     public sealed class ApplicationEncryptionConfiguration
     {
         /// <summary>
-        /// Identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn't support asymmetric keys.
+        /// The identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn't support asymmetric keys.
         /// </summary>
         public readonly string KmsKeyId;
 

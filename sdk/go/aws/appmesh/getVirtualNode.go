@@ -11,34 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS App Mesh Virtual Node.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appmesh"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appmesh.LookupVirtualNode(ctx, &appmesh.LookupVirtualNodeArgs{
-//				Name:     "serviceBv1",
-//				MeshName: "example-mesh",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVirtualNode(ctx *pulumi.Context, args *LookupVirtualNodeArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNodeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualNodeResult
@@ -51,38 +23,27 @@ func LookupVirtualNode(ctx *pulumi.Context, args *LookupVirtualNodeArgs, opts ..
 
 // A collection of arguments for invoking getVirtualNode.
 type LookupVirtualNodeArgs struct {
-	// Name of the service mesh in which the virtual node exists.
-	MeshName string `pulumi:"meshName"`
-	// AWS account ID of the service mesh's owner.
-	MeshOwner *string `pulumi:"meshOwner"`
-	// Name of the virtual node.
-	Name string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags.
-	Tags map[string]string `pulumi:"tags"`
+	MeshName  string            `pulumi:"meshName"`
+	MeshOwner *string           `pulumi:"meshOwner"`
+	Name      string            `pulumi:"name"`
+	Region    *string           `pulumi:"region"`
+	Tags      map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getVirtualNode.
 type LookupVirtualNodeResult struct {
-	// ARN of the virtual node.
-	Arn string `pulumi:"arn"`
-	// Creation date of the virtual node.
+	Arn         string `pulumi:"arn"`
 	CreatedDate string `pulumi:"createdDate"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Last update date of the virtual node.
-	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
-	MeshName        string `pulumi:"meshName"`
-	MeshOwner       string `pulumi:"meshOwner"`
-	Name            string `pulumi:"name"`
-	Region          string `pulumi:"region"`
-	// Resource owner's AWS account ID.
-	ResourceOwner string `pulumi:"resourceOwner"`
-	// Virtual node specification. See the `appmesh.VirtualNode` resource for details.
-	Specs []GetVirtualNodeSpec `pulumi:"specs"`
-	// Map of tags.
-	Tags map[string]string `pulumi:"tags"`
+	Id              string               `pulumi:"id"`
+	LastUpdatedDate string               `pulumi:"lastUpdatedDate"`
+	MeshName        string               `pulumi:"meshName"`
+	MeshOwner       string               `pulumi:"meshOwner"`
+	Name            string               `pulumi:"name"`
+	Region          string               `pulumi:"region"`
+	ResourceOwner   string               `pulumi:"resourceOwner"`
+	Specs           []GetVirtualNodeSpec `pulumi:"specs"`
+	Tags            map[string]string    `pulumi:"tags"`
 }
 
 func LookupVirtualNodeOutput(ctx *pulumi.Context, args LookupVirtualNodeOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualNodeResultOutput {
@@ -96,16 +57,11 @@ func LookupVirtualNodeOutput(ctx *pulumi.Context, args LookupVirtualNodeOutputAr
 
 // A collection of arguments for invoking getVirtualNode.
 type LookupVirtualNodeOutputArgs struct {
-	// Name of the service mesh in which the virtual node exists.
-	MeshName pulumi.StringInput `pulumi:"meshName"`
-	// AWS account ID of the service mesh's owner.
+	MeshName  pulumi.StringInput    `pulumi:"meshName"`
 	MeshOwner pulumi.StringPtrInput `pulumi:"meshOwner"`
-	// Name of the virtual node.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Map of tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Name      pulumi.StringInput    `pulumi:"name"`
+	Region    pulumi.StringPtrInput `pulumi:"region"`
+	Tags      pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupVirtualNodeOutputArgs) ElementType() reflect.Type {
@@ -127,12 +83,10 @@ func (o LookupVirtualNodeResultOutput) ToLookupVirtualNodeResultOutputWithContex
 	return o
 }
 
-// ARN of the virtual node.
 func (o LookupVirtualNodeResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualNodeResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Creation date of the virtual node.
 func (o LookupVirtualNodeResultOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualNodeResult) string { return v.CreatedDate }).(pulumi.StringOutput)
 }
@@ -142,7 +96,6 @@ func (o LookupVirtualNodeResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualNodeResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Last update date of the virtual node.
 func (o LookupVirtualNodeResultOutput) LastUpdatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualNodeResult) string { return v.LastUpdatedDate }).(pulumi.StringOutput)
 }
@@ -163,17 +116,14 @@ func (o LookupVirtualNodeResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualNodeResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Resource owner's AWS account ID.
 func (o LookupVirtualNodeResultOutput) ResourceOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualNodeResult) string { return v.ResourceOwner }).(pulumi.StringOutput)
 }
 
-// Virtual node specification. See the `appmesh.VirtualNode` resource for details.
 func (o LookupVirtualNodeResultOutput) Specs() GetVirtualNodeSpecArrayOutput {
 	return o.ApplyT(func(v LookupVirtualNodeResult) []GetVirtualNodeSpec { return v.Specs }).(GetVirtualNodeSpecArrayOutput)
 }
 
-// Map of tags.
 func (o LookupVirtualNodeResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupVirtualNodeResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

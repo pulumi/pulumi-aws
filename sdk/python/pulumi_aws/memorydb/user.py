@@ -28,13 +28,6 @@ class UserArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a User resource.
-        :param pulumi.Input[_builtins.str] access_string: Access permissions string used for this user.
-        :param pulumi.Input['UserAuthenticationModeArgs'] authentication_mode: Denotes the user's authentication properties. Detailed below.
-        :param pulumi.Input[_builtins.str] user_name: Name of the MemoryDB user. Up to 40 characters.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "access_string", access_string)
         pulumi.set(__self__, "authentication_mode", authentication_mode)
@@ -47,9 +40,6 @@ class UserArgs:
     @_builtins.property
     @pulumi.getter(name="accessString")
     def access_string(self) -> pulumi.Input[_builtins.str]:
-        """
-        Access permissions string used for this user.
-        """
         return pulumi.get(self, "access_string")
 
     @access_string.setter
@@ -59,9 +49,6 @@ class UserArgs:
     @_builtins.property
     @pulumi.getter(name="authenticationMode")
     def authentication_mode(self) -> pulumi.Input['UserAuthenticationModeArgs']:
-        """
-        Denotes the user's authentication properties. Detailed below.
-        """
         return pulumi.get(self, "authentication_mode")
 
     @authentication_mode.setter
@@ -71,11 +58,6 @@ class UserArgs:
     @_builtins.property
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the MemoryDB user. Up to 40 characters.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -85,9 +67,6 @@ class UserArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -97,9 +76,6 @@ class UserArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -120,16 +96,6 @@ class _UserState:
                  user_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering User resources.
-        :param pulumi.Input[_builtins.str] access_string: Access permissions string used for this user.
-        :param pulumi.Input[_builtins.str] arn: ARN of the user.
-        :param pulumi.Input['UserAuthenticationModeArgs'] authentication_mode: Denotes the user's authentication properties. Detailed below.
-        :param pulumi.Input[_builtins.str] minimum_engine_version: Minimum engine version supported for the user.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] user_name: Name of the MemoryDB user. Up to 40 characters.
-               
-               The following arguments are optional:
         """
         if access_string is not None:
             pulumi.set(__self__, "access_string", access_string)
@@ -151,9 +117,6 @@ class _UserState:
     @_builtins.property
     @pulumi.getter(name="accessString")
     def access_string(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Access permissions string used for this user.
-        """
         return pulumi.get(self, "access_string")
 
     @access_string.setter
@@ -163,9 +126,6 @@ class _UserState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the user.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -175,9 +135,6 @@ class _UserState:
     @_builtins.property
     @pulumi.getter(name="authenticationMode")
     def authentication_mode(self) -> Optional[pulumi.Input['UserAuthenticationModeArgs']]:
-        """
-        Denotes the user's authentication properties. Detailed below.
-        """
         return pulumi.get(self, "authentication_mode")
 
     @authentication_mode.setter
@@ -187,9 +144,6 @@ class _UserState:
     @_builtins.property
     @pulumi.getter(name="minimumEngineVersion")
     def minimum_engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Minimum engine version supported for the user.
-        """
         return pulumi.get(self, "minimum_engine_version")
 
     @minimum_engine_version.setter
@@ -199,9 +153,6 @@ class _UserState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -211,9 +162,6 @@ class _UserState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -223,9 +171,6 @@ class _UserState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -235,11 +180,6 @@ class _UserState:
     @_builtins.property
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the MemoryDB user. Up to 40 characters.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -260,46 +200,9 @@ class User(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a MemoryDB User.
-
-        More information about users and ACL-s can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/clusters.acls.html).
-
-        > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_random as random
-
-        example = random.index.Password("example", length=16)
-        example_user = aws.memorydb.User("example",
-            user_name="my-user",
-            access_string="on ~* &* +@all",
-            authentication_mode={
-                "type": "password",
-                "passwords": [example["result"]],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import a user using the `user_name`. For example:
-
-        ```sh
-        $ pulumi import aws:memorydb/user:User example my-user
-        ```
-        The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
-
+        Create a User resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_string: Access permissions string used for this user.
-        :param pulumi.Input[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict']] authentication_mode: Denotes the user's authentication properties. Detailed below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] user_name: Name of the MemoryDB user. Up to 40 characters.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -308,37 +211,7 @@ class User(pulumi.CustomResource):
                  args: UserArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a MemoryDB User.
-
-        More information about users and ACL-s can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/clusters.acls.html).
-
-        > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_random as random
-
-        example = random.index.Password("example", length=16)
-        example_user = aws.memorydb.User("example",
-            user_name="my-user",
-            access_string="on ~* &* +@all",
-            authentication_mode={
-                "type": "password",
-                "passwords": [example["result"]],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import a user using the `user_name`. For example:
-
-        ```sh
-        $ pulumi import aws:memorydb/user:User example my-user
-        ```
-        The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
-
+        Create a User resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -407,16 +280,6 @@ class User(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_string: Access permissions string used for this user.
-        :param pulumi.Input[_builtins.str] arn: ARN of the user.
-        :param pulumi.Input[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict']] authentication_mode: Denotes the user's authentication properties. Detailed below.
-        :param pulumi.Input[_builtins.str] minimum_engine_version: Minimum engine version supported for the user.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] user_name: Name of the MemoryDB user. Up to 40 characters.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -435,66 +298,40 @@ class User(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accessString")
     def access_string(self) -> pulumi.Output[_builtins.str]:
-        """
-        Access permissions string used for this user.
-        """
         return pulumi.get(self, "access_string")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the user.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="authenticationMode")
     def authentication_mode(self) -> pulumi.Output['outputs.UserAuthenticationMode']:
-        """
-        Denotes the user's authentication properties. Detailed below.
-        """
         return pulumi.get(self, "authentication_mode")
 
     @_builtins.property
     @pulumi.getter(name="minimumEngineVersion")
     def minimum_engine_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        Minimum engine version supported for the user.
-        """
         return pulumi.get(self, "minimum_engine_version")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the MemoryDB user. Up to 40 characters.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "user_name")
 

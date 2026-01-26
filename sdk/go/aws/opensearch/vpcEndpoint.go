@@ -12,63 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an [AWS Opensearch VPC Endpoint](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateVpcEndpoint.html). Creates an Amazon OpenSearch Service-managed VPC endpoint.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opensearch.NewVpcEndpoint(ctx, "foo", &opensearch.VpcEndpointArgs{
-//				DomainArn: pulumi.Any(domain1.Arn),
-//				VpcOptions: &opensearch.VpcEndpointVpcOptionsArgs{
-//					SecurityGroupIds: pulumi.StringArray{
-//						test.Id,
-//						test2.Id,
-//					},
-//					SubnetIds: pulumi.StringArray{
-//						testAwsSubnet.Id,
-//						test2AwsSubnet.Id,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import OpenSearch VPC endpoint connections using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:opensearch/vpcEndpoint:VpcEndpoint example endpoint-id
-// ```
 type VpcEndpoint struct {
 	pulumi.CustomResourceState
 
-	// Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
-	DomainArn pulumi.StringOutput `pulumi:"domainArn"`
-	// The connection endpoint ID for connecting to the domain.
-	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Options to specify the subnets and security groups for the endpoint.
+	DomainArn  pulumi.StringOutput         `pulumi:"domainArn"`
+	Endpoint   pulumi.StringOutput         `pulumi:"endpoint"`
+	Region     pulumi.StringOutput         `pulumi:"region"`
 	VpcOptions VpcEndpointVpcOptionsOutput `pulumi:"vpcOptions"`
 }
 
@@ -108,24 +57,16 @@ func GetVpcEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcEndpoint resources.
 type vpcEndpointState struct {
-	// Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
-	DomainArn *string `pulumi:"domainArn"`
-	// The connection endpoint ID for connecting to the domain.
-	Endpoint *string `pulumi:"endpoint"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Options to specify the subnets and security groups for the endpoint.
+	DomainArn  *string                `pulumi:"domainArn"`
+	Endpoint   *string                `pulumi:"endpoint"`
+	Region     *string                `pulumi:"region"`
 	VpcOptions *VpcEndpointVpcOptions `pulumi:"vpcOptions"`
 }
 
 type VpcEndpointState struct {
-	// Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
-	DomainArn pulumi.StringPtrInput
-	// The connection endpoint ID for connecting to the domain.
-	Endpoint pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Options to specify the subnets and security groups for the endpoint.
+	DomainArn  pulumi.StringPtrInput
+	Endpoint   pulumi.StringPtrInput
+	Region     pulumi.StringPtrInput
 	VpcOptions VpcEndpointVpcOptionsPtrInput
 }
 
@@ -134,21 +75,15 @@ func (VpcEndpointState) ElementType() reflect.Type {
 }
 
 type vpcEndpointArgs struct {
-	// Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
-	DomainArn string `pulumi:"domainArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Options to specify the subnets and security groups for the endpoint.
+	DomainArn  string                `pulumi:"domainArn"`
+	Region     *string               `pulumi:"region"`
 	VpcOptions VpcEndpointVpcOptions `pulumi:"vpcOptions"`
 }
 
 // The set of arguments for constructing a VpcEndpoint resource.
 type VpcEndpointArgs struct {
-	// Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
-	DomainArn pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Options to specify the subnets and security groups for the endpoint.
+	DomainArn  pulumi.StringInput
+	Region     pulumi.StringPtrInput
 	VpcOptions VpcEndpointVpcOptionsInput
 }
 
@@ -239,22 +174,18 @@ func (o VpcEndpointOutput) ToVpcEndpointOutputWithContext(ctx context.Context) V
 	return o
 }
 
-// Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
 func (o VpcEndpointOutput) DomainArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringOutput { return v.DomainArn }).(pulumi.StringOutput)
 }
 
-// The connection endpoint ID for connecting to the domain.
 func (o VpcEndpointOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpcEndpointOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Options to specify the subnets and security groups for the endpoint.
 func (o VpcEndpointOutput) VpcOptions() VpcEndpointVpcOptionsOutput {
 	return o.ApplyT(func(v *VpcEndpoint) VpcEndpointVpcOptionsOutput { return v.VpcOptions }).(VpcEndpointVpcOptionsOutput)
 }

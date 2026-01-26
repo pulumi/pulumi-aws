@@ -16,32 +16,16 @@ public final class BrokerEncryptionOptionsArgs extends com.pulumi.resources.Reso
 
     public static final BrokerEncryptionOptionsArgs Empty = new BrokerEncryptionOptionsArgs();
 
-    /**
-     * ARN of KMS CMK to use for encryption at rest. Requires setting `useAwsOwnedKey` to `false`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
-     * 
-     */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
-    /**
-     * @return ARN of KMS CMK to use for encryption at rest. Requires setting `useAwsOwnedKey` to `false`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
-     * 
-     */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
 
-    /**
-     * Whether to enable an AWS-owned KMS CMK not in your account. Defaults to `true`. Setting to `false` without configuring `kmsKeyId` creates an AWS-managed CMK aliased to `aws/mq` in your account.
-     * 
-     */
     @Import(name="useAwsOwnedKey")
     private @Nullable Output<Boolean> useAwsOwnedKey;
 
-    /**
-     * @return Whether to enable an AWS-owned KMS CMK not in your account. Defaults to `true`. Setting to `false` without configuring `kmsKeyId` creates an AWS-managed CMK aliased to `aws/mq` in your account.
-     * 
-     */
     public Optional<Output<Boolean>> useAwsOwnedKey() {
         return Optional.ofNullable(this.useAwsOwnedKey);
     }
@@ -71,44 +55,20 @@ public final class BrokerEncryptionOptionsArgs extends com.pulumi.resources.Reso
             $ = new BrokerEncryptionOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kmsKeyId ARN of KMS CMK to use for encryption at rest. Requires setting `useAwsOwnedKey` to `false`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
-        /**
-         * @param kmsKeyId ARN of KMS CMK to use for encryption at rest. Requires setting `useAwsOwnedKey` to `false`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }
 
-        /**
-         * @param useAwsOwnedKey Whether to enable an AWS-owned KMS CMK not in your account. Defaults to `true`. Setting to `false` without configuring `kmsKeyId` creates an AWS-managed CMK aliased to `aws/mq` in your account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder useAwsOwnedKey(@Nullable Output<Boolean> useAwsOwnedKey) {
             $.useAwsOwnedKey = useAwsOwnedKey;
             return this;
         }
 
-        /**
-         * @param useAwsOwnedKey Whether to enable an AWS-owned KMS CMK not in your account. Defaults to `true`. Setting to `false` without configuring `kmsKeyId` creates an AWS-managed CMK aliased to `aws/mq` in your account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder useAwsOwnedKey(Boolean useAwsOwnedKey) {
             return useAwsOwnedKey(Output.of(useAwsOwnedKey));
         }

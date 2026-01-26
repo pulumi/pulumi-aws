@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Lambda.Inputs
 
     public sealed class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Message attribute to validate. Valid values: `KEY`, `VALUE`.
-        /// </summary>
         [Input("attribute")]
         public Input<string>? Attribute { get; set; }
 

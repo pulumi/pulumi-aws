@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class LogTransformerTransformerConfigCopyValue
     {
-        /// <summary>
-        /// Objects containing the information about the values to copy to the log event. You must include at least one entry, and five at most. See `CopyValue` `Entry` below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.LogTransformerTransformerConfigCopyValueEntry> Entries;
 
         [OutputConstructor]

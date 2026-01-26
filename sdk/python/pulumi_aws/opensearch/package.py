@@ -29,12 +29,6 @@ class PackageArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Package resource.
-        :param pulumi.Input[_builtins.str] package_name: Unique name for the package.
-        :param pulumi.Input['PackagePackageSourceArgs'] package_source: Configuration block for the package source options.
-        :param pulumi.Input[_builtins.str] package_type: The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
-        :param pulumi.Input[_builtins.str] engine_version: Engine version that the package is compatible with. This argument is required and only valid when `package_type` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
-        :param pulumi.Input[_builtins.str] package_description: Description of the package.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "package_name", package_name)
         pulumi.set(__self__, "package_source", package_source)
@@ -49,9 +43,6 @@ class PackageArgs:
     @_builtins.property
     @pulumi.getter(name="packageName")
     def package_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Unique name for the package.
-        """
         return pulumi.get(self, "package_name")
 
     @package_name.setter
@@ -61,9 +52,6 @@ class PackageArgs:
     @_builtins.property
     @pulumi.getter(name="packageSource")
     def package_source(self) -> pulumi.Input['PackagePackageSourceArgs']:
-        """
-        Configuration block for the package source options.
-        """
         return pulumi.get(self, "package_source")
 
     @package_source.setter
@@ -73,9 +61,6 @@ class PackageArgs:
     @_builtins.property
     @pulumi.getter(name="packageType")
     def package_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
-        """
         return pulumi.get(self, "package_type")
 
     @package_type.setter
@@ -85,9 +70,6 @@ class PackageArgs:
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Engine version that the package is compatible with. This argument is required and only valid when `package_type` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
-        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -97,9 +79,6 @@ class PackageArgs:
     @_builtins.property
     @pulumi.getter(name="packageDescription")
     def package_description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the package.
-        """
         return pulumi.get(self, "package_description")
 
     @package_description.setter
@@ -109,9 +88,6 @@ class PackageArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -132,13 +108,6 @@ class _PackageState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Package resources.
-        :param pulumi.Input[_builtins.str] available_package_version: The current version of the package.
-        :param pulumi.Input[_builtins.str] engine_version: Engine version that the package is compatible with. This argument is required and only valid when `package_type` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
-        :param pulumi.Input[_builtins.str] package_description: Description of the package.
-        :param pulumi.Input[_builtins.str] package_name: Unique name for the package.
-        :param pulumi.Input['PackagePackageSourceArgs'] package_source: Configuration block for the package source options.
-        :param pulumi.Input[_builtins.str] package_type: The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if available_package_version is not None:
             pulumi.set(__self__, "available_package_version", available_package_version)
@@ -160,9 +129,6 @@ class _PackageState:
     @_builtins.property
     @pulumi.getter(name="availablePackageVersion")
     def available_package_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The current version of the package.
-        """
         return pulumi.get(self, "available_package_version")
 
     @available_package_version.setter
@@ -172,9 +138,6 @@ class _PackageState:
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Engine version that the package is compatible with. This argument is required and only valid when `package_type` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
-        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -184,9 +147,6 @@ class _PackageState:
     @_builtins.property
     @pulumi.getter(name="packageDescription")
     def package_description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the package.
-        """
         return pulumi.get(self, "package_description")
 
     @package_description.setter
@@ -205,9 +165,6 @@ class _PackageState:
     @_builtins.property
     @pulumi.getter(name="packageName")
     def package_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name for the package.
-        """
         return pulumi.get(self, "package_name")
 
     @package_name.setter
@@ -217,9 +174,6 @@ class _PackageState:
     @_builtins.property
     @pulumi.getter(name="packageSource")
     def package_source(self) -> Optional[pulumi.Input['PackagePackageSourceArgs']]:
-        """
-        Configuration block for the package source options.
-        """
         return pulumi.get(self, "package_source")
 
     @package_source.setter
@@ -229,9 +183,6 @@ class _PackageState:
     @_builtins.property
     @pulumi.getter(name="packageType")
     def package_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
-        """
         return pulumi.get(self, "package_type")
 
     @package_type.setter
@@ -241,9 +192,6 @@ class _PackageState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -265,48 +213,9 @@ class Package(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an AWS Opensearch Package.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        my_opensearch_packages = aws.s3.Bucket("my_opensearch_packages", bucket="my-opensearch-packages")
-        example = aws.s3.BucketObjectv2("example",
-            bucket=my_opensearch_packages.bucket,
-            key="example.txt",
-            source=pulumi.FileAsset("./example.txt"),
-            etag=std.filemd5(input="./example.txt").result)
-        example_package = aws.opensearch.Package("example",
-            package_name="example-txt",
-            package_source={
-                "s3_bucket_name": my_opensearch_packages.bucket,
-                "s3_key": example.key,
-            },
-            package_type="TXT-DICTIONARY")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AWS Opensearch Packages using the Package ID. For example:
-
-        ```sh
-        $ pulumi import aws:opensearch/package:Package example package-id
-        ```
-
+        Create a Package resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] engine_version: Engine version that the package is compatible with. This argument is required and only valid when `package_type` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
-        :param pulumi.Input[_builtins.str] package_description: Description of the package.
-        :param pulumi.Input[_builtins.str] package_name: Unique name for the package.
-        :param pulumi.Input[Union['PackagePackageSourceArgs', 'PackagePackageSourceArgsDict']] package_source: Configuration block for the package source options.
-        :param pulumi.Input[_builtins.str] package_type: The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -315,40 +224,7 @@ class Package(pulumi.CustomResource):
                  args: PackageArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS Opensearch Package.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        my_opensearch_packages = aws.s3.Bucket("my_opensearch_packages", bucket="my-opensearch-packages")
-        example = aws.s3.BucketObjectv2("example",
-            bucket=my_opensearch_packages.bucket,
-            key="example.txt",
-            source=pulumi.FileAsset("./example.txt"),
-            etag=std.filemd5(input="./example.txt").result)
-        example_package = aws.opensearch.Package("example",
-            package_name="example-txt",
-            package_source={
-                "s3_bucket_name": my_opensearch_packages.bucket,
-                "s3_key": example.key,
-            },
-            package_type="TXT-DICTIONARY")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AWS Opensearch Packages using the Package ID. For example:
-
-        ```sh
-        $ pulumi import aws:opensearch/package:Package example package-id
-        ```
-
+        Create a Package resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PackageArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -418,13 +294,6 @@ class Package(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] available_package_version: The current version of the package.
-        :param pulumi.Input[_builtins.str] engine_version: Engine version that the package is compatible with. This argument is required and only valid when `package_type` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
-        :param pulumi.Input[_builtins.str] package_description: Description of the package.
-        :param pulumi.Input[_builtins.str] package_name: Unique name for the package.
-        :param pulumi.Input[Union['PackagePackageSourceArgs', 'PackagePackageSourceArgsDict']] package_source: Configuration block for the package source options.
-        :param pulumi.Input[_builtins.str] package_type: The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -443,25 +312,16 @@ class Package(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="availablePackageVersion")
     def available_package_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        The current version of the package.
-        """
         return pulumi.get(self, "available_package_version")
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Engine version that the package is compatible with. This argument is required and only valid when `package_type` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
-        """
         return pulumi.get(self, "engine_version")
 
     @_builtins.property
     @pulumi.getter(name="packageDescription")
     def package_description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the package.
-        """
         return pulumi.get(self, "package_description")
 
     @_builtins.property
@@ -472,32 +332,20 @@ class Package(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="packageName")
     def package_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique name for the package.
-        """
         return pulumi.get(self, "package_name")
 
     @_builtins.property
     @pulumi.getter(name="packageSource")
     def package_source(self) -> pulumi.Output['outputs.PackagePackageSource']:
-        """
-        Configuration block for the package source options.
-        """
         return pulumi.get(self, "package_source")
 
     @_builtins.property
     @pulumi.getter(name="packageType")
     def package_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
-        """
         return pulumi.get(self, "package_type")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

@@ -11,22 +11,10 @@ import java.util.Objects;
 
 @CustomType
 public final class AnalysisParametersDateTimeParameter {
-    /**
-     * @return Display name for the analysis.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private String name;
     private List<String> values;
 
     private AnalysisParametersDateTimeParameter() {}
-    /**
-     * @return Display name for the analysis.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String name() {
         return this.name;
     }

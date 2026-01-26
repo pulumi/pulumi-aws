@@ -7,45 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AppStream fleet.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testFleet = new aws.appstream.Fleet("test_fleet", {
- *     name: "test-fleet",
- *     computeCapacity: {
- *         desiredInstances: 1,
- *     },
- *     description: "test fleet",
- *     idleDisconnectTimeoutInSeconds: 60,
- *     displayName: "test-fleet",
- *     enableDefaultInternetAccess: false,
- *     fleetType: "ON_DEMAND",
- *     imageName: "Amazon-AppStream2-Sample-Image-03-11-2023",
- *     instanceType: "stream.standard.large",
- *     maxUserDurationInSeconds: 600,
- *     vpcConfig: {
- *         subnetIds: ["subnet-06e9b13400c225127"],
- *     },
- *     tags: {
- *         TagName: "tag-value",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_appstream_fleet` using the id. For example:
- *
- * ```sh
- * $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
- * ```
- */
 export class Fleet extends pulumi.CustomResource {
     /**
      * Get an existing Fleet resource's state with the given name, ID, and optional extra
@@ -74,96 +35,28 @@ export class Fleet extends pulumi.CustomResource {
         return obj['__pulumiType'] === Fleet.__pulumiType;
     }
 
-    /**
-     * ARN of the appstream fleet.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Configuration block for the desired capacity of the fleet. See below.
-     */
     declare public readonly computeCapacity: pulumi.Output<outputs.appstream.FleetComputeCapacity>;
-    /**
-     * Date and time, in UTC and extended RFC 3339 format, when the fleet was created.
-     */
     declare public /*out*/ readonly createdTime: pulumi.Output<string>;
-    /**
-     * Description to display.
-     */
     declare public readonly description: pulumi.Output<string>;
-    /**
-     * Amount of time that a streaming session remains active after users disconnect.
-     */
     declare public readonly disconnectTimeoutInSeconds: pulumi.Output<number>;
-    /**
-     * Human-readable friendly name for the AppStream fleet.
-     */
     declare public readonly displayName: pulumi.Output<string>;
-    /**
-     * Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
-     */
     declare public readonly domainJoinInfo: pulumi.Output<outputs.appstream.FleetDomainJoinInfo>;
-    /**
-     * Enables or disables default internet access for the fleet.
-     */
     declare public readonly enableDefaultInternetAccess: pulumi.Output<boolean>;
-    /**
-     * Fleet type. Valid values are: `ON_DEMAND`, `ALWAYS_ON`
-     */
     declare public readonly fleetType: pulumi.Output<string>;
-    /**
-     * ARN of the IAM role to apply to the fleet.
-     */
     declare public readonly iamRoleArn: pulumi.Output<string>;
-    /**
-     * Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins. Defaults to `0`. Valid value is between `60` and `3600 `seconds.
-     */
     declare public readonly idleDisconnectTimeoutInSeconds: pulumi.Output<number | undefined>;
-    /**
-     * ARN of the public, private, or shared image to use.
-     */
     declare public readonly imageArn: pulumi.Output<string>;
-    /**
-     * Name of the image used to create the fleet.
-     */
     declare public readonly imageName: pulumi.Output<string>;
-    /**
-     * Instance type to use when launching fleet instances.
-     */
     declare public readonly instanceType: pulumi.Output<string>;
-    /**
-     * The maximum number of user sessions on an instance. This only applies to multi-session fleets.
-     */
     declare public readonly maxSessionsPerInstance: pulumi.Output<number | undefined>;
-    /**
-     * Maximum amount of time that a streaming session can remain active, in seconds.
-     */
     declare public readonly maxUserDurationInSeconds: pulumi.Output<number>;
-    /**
-     * Unique name for the fleet.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
-     */
     declare public /*out*/ readonly state: pulumi.Output<string>;
-    /**
-     * AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
-     */
     declare public readonly streamView: pulumi.Output<string>;
-    /**
-     * Map of tags to attach to AppStream instances.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Configuration block for the VPC configuration for the image builder. See below.
-     */
     declare public readonly vpcConfig: pulumi.Output<outputs.appstream.FleetVpcConfig>;
 
     /**
@@ -243,96 +136,28 @@ export class Fleet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Fleet resources.
  */
 export interface FleetState {
-    /**
-     * ARN of the appstream fleet.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Configuration block for the desired capacity of the fleet. See below.
-     */
     computeCapacity?: pulumi.Input<inputs.appstream.FleetComputeCapacity>;
-    /**
-     * Date and time, in UTC and extended RFC 3339 format, when the fleet was created.
-     */
     createdTime?: pulumi.Input<string>;
-    /**
-     * Description to display.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Amount of time that a streaming session remains active after users disconnect.
-     */
     disconnectTimeoutInSeconds?: pulumi.Input<number>;
-    /**
-     * Human-readable friendly name for the AppStream fleet.
-     */
     displayName?: pulumi.Input<string>;
-    /**
-     * Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
-     */
     domainJoinInfo?: pulumi.Input<inputs.appstream.FleetDomainJoinInfo>;
-    /**
-     * Enables or disables default internet access for the fleet.
-     */
     enableDefaultInternetAccess?: pulumi.Input<boolean>;
-    /**
-     * Fleet type. Valid values are: `ON_DEMAND`, `ALWAYS_ON`
-     */
     fleetType?: pulumi.Input<string>;
-    /**
-     * ARN of the IAM role to apply to the fleet.
-     */
     iamRoleArn?: pulumi.Input<string>;
-    /**
-     * Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins. Defaults to `0`. Valid value is between `60` and `3600 `seconds.
-     */
     idleDisconnectTimeoutInSeconds?: pulumi.Input<number>;
-    /**
-     * ARN of the public, private, or shared image to use.
-     */
     imageArn?: pulumi.Input<string>;
-    /**
-     * Name of the image used to create the fleet.
-     */
     imageName?: pulumi.Input<string>;
-    /**
-     * Instance type to use when launching fleet instances.
-     */
     instanceType?: pulumi.Input<string>;
-    /**
-     * The maximum number of user sessions on an instance. This only applies to multi-session fleets.
-     */
     maxSessionsPerInstance?: pulumi.Input<number>;
-    /**
-     * Maximum amount of time that a streaming session can remain active, in seconds.
-     */
     maxUserDurationInSeconds?: pulumi.Input<number>;
-    /**
-     * Unique name for the fleet.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
-     */
     state?: pulumi.Input<string>;
-    /**
-     * AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
-     */
     streamView?: pulumi.Input<string>;
-    /**
-     * Map of tags to attach to AppStream instances.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Configuration block for the VPC configuration for the image builder. See below.
-     */
     vpcConfig?: pulumi.Input<inputs.appstream.FleetVpcConfig>;
 }
 
@@ -340,82 +165,23 @@ export interface FleetState {
  * The set of arguments for constructing a Fleet resource.
  */
 export interface FleetArgs {
-    /**
-     * Configuration block for the desired capacity of the fleet. See below.
-     */
     computeCapacity: pulumi.Input<inputs.appstream.FleetComputeCapacity>;
-    /**
-     * Description to display.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Amount of time that a streaming session remains active after users disconnect.
-     */
     disconnectTimeoutInSeconds?: pulumi.Input<number>;
-    /**
-     * Human-readable friendly name for the AppStream fleet.
-     */
     displayName?: pulumi.Input<string>;
-    /**
-     * Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
-     */
     domainJoinInfo?: pulumi.Input<inputs.appstream.FleetDomainJoinInfo>;
-    /**
-     * Enables or disables default internet access for the fleet.
-     */
     enableDefaultInternetAccess?: pulumi.Input<boolean>;
-    /**
-     * Fleet type. Valid values are: `ON_DEMAND`, `ALWAYS_ON`
-     */
     fleetType?: pulumi.Input<string>;
-    /**
-     * ARN of the IAM role to apply to the fleet.
-     */
     iamRoleArn?: pulumi.Input<string>;
-    /**
-     * Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins. Defaults to `0`. Valid value is between `60` and `3600 `seconds.
-     */
     idleDisconnectTimeoutInSeconds?: pulumi.Input<number>;
-    /**
-     * ARN of the public, private, or shared image to use.
-     */
     imageArn?: pulumi.Input<string>;
-    /**
-     * Name of the image used to create the fleet.
-     */
     imageName?: pulumi.Input<string>;
-    /**
-     * Instance type to use when launching fleet instances.
-     */
     instanceType: pulumi.Input<string>;
-    /**
-     * The maximum number of user sessions on an instance. This only applies to multi-session fleets.
-     */
     maxSessionsPerInstance?: pulumi.Input<number>;
-    /**
-     * Maximum amount of time that a streaming session can remain active, in seconds.
-     */
     maxUserDurationInSeconds?: pulumi.Input<number>;
-    /**
-     * Unique name for the fleet.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
-     */
     streamView?: pulumi.Input<string>;
-    /**
-     * Map of tags to attach to AppStream instances.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Configuration block for the VPC configuration for the image builder. See below.
-     */
     vpcConfig?: pulumi.Input<inputs.appstream.FleetVpcConfig>;
 }

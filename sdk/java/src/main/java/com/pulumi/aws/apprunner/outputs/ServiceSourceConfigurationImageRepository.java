@@ -13,43 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceSourceConfigurationImageRepository {
-    /**
-     * @return Configuration for running the identified image. See Image Configuration below for more details.
-     * 
-     */
     private @Nullable ServiceSourceConfigurationImageRepositoryImageConfiguration imageConfiguration;
-    /**
-     * @return Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
-     * image name format, see Pulling an image in the Amazon ECR User Guide.
-     * 
-     */
     private String imageIdentifier;
-    /**
-     * @return Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
-     * 
-     */
     private String imageRepositoryType;
 
     private ServiceSourceConfigurationImageRepository() {}
-    /**
-     * @return Configuration for running the identified image. See Image Configuration below for more details.
-     * 
-     */
     public Optional<ServiceSourceConfigurationImageRepositoryImageConfiguration> imageConfiguration() {
         return Optional.ofNullable(this.imageConfiguration);
     }
-    /**
-     * @return Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
-     * image name format, see Pulling an image in the Amazon ECR User Guide.
-     * 
-     */
     public String imageIdentifier() {
         return this.imageIdentifier;
     }
-    /**
-     * @return Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
-     * 
-     */
     public String imageRepositoryType() {
         return this.imageRepositoryType;
     }

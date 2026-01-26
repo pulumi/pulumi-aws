@@ -16,32 +16,16 @@ public final class ExtensionActionPointArgs extends com.pulumi.resources.Resourc
 
     public static final ExtensionActionPointArgs Empty = new ExtensionActionPointArgs();
 
-    /**
-     * An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
-     * 
-     */
     @Import(name="actions", required=true)
     private Output<List<ExtensionActionPointActionArgs>> actions;
 
-    /**
-     * @return An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
-     * 
-     */
     public Output<List<ExtensionActionPointActionArgs>> actions() {
         return this.actions;
     }
 
-    /**
-     * The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
-     * 
-     */
     @Import(name="point", required=true)
     private Output<String> point;
 
-    /**
-     * @return The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
-     * 
-     */
     public Output<String> point() {
         return this.point;
     }
@@ -71,54 +55,24 @@ public final class ExtensionActionPointArgs extends com.pulumi.resources.Resourc
             $ = new ExtensionActionPointArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param actions An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actions(Output<List<ExtensionActionPointActionArgs>> actions) {
             $.actions = actions;
             return this;
         }
 
-        /**
-         * @param actions An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actions(List<ExtensionActionPointActionArgs> actions) {
             return actions(Output.of(actions));
         }
 
-        /**
-         * @param actions An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actions(ExtensionActionPointActionArgs... actions) {
             return actions(List.of(actions));
         }
 
-        /**
-         * @param point The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder point(Output<String> point) {
             $.point = point;
             return this;
         }
 
-        /**
-         * @param point The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder point(String point) {
             return point(Output.of(point));
         }

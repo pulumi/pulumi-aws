@@ -25,32 +25,16 @@ public final class QueuePolicyArgs extends com.pulumi.resources.ResourceArgs {
         return this.policy;
     }
 
-    /**
-     * URL of the SQS Queue to which to attach the policy.
-     * 
-     */
     @Import(name="queueUrl", required=true)
     private Output<String> queueUrl;
 
-    /**
-     * @return URL of the SQS Queue to which to attach the policy.
-     * 
-     */
     public Output<String> queueUrl() {
         return this.queueUrl;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -98,44 +82,20 @@ public final class QueuePolicyArgs extends com.pulumi.resources.ResourceArgs {
             return policy(Either.ofRight(policy));
         }
 
-        /**
-         * @param queueUrl URL of the SQS Queue to which to attach the policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queueUrl(Output<String> queueUrl) {
             $.queueUrl = queueUrl;
             return this;
         }
 
-        /**
-         * @param queueUrl URL of the SQS Queue to which to attach the policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queueUrl(String queueUrl) {
             return queueUrl(Output.of(queueUrl));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

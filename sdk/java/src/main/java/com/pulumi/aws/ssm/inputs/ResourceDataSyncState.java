@@ -16,47 +16,23 @@ public final class ResourceDataSyncState extends com.pulumi.resources.ResourceAr
 
     public static final ResourceDataSyncState Empty = new ResourceDataSyncState();
 
-    /**
-     * Name for the configuration.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name for the configuration.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Amazon S3 configuration details for the sync.
-     * 
-     */
     @Import(name="s3Destination")
     private @Nullable Output<ResourceDataSyncS3DestinationArgs> s3Destination;
 
-    /**
-     * @return Amazon S3 configuration details for the sync.
-     * 
-     */
     public Optional<Output<ResourceDataSyncS3DestinationArgs>> s3Destination() {
         return Optional.ofNullable(this.s3Destination);
     }
@@ -87,65 +63,29 @@ public final class ResourceDataSyncState extends com.pulumi.resources.ResourceAr
             $ = new ResourceDataSyncState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name for the configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name for the configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param s3Destination Amazon S3 configuration details for the sync.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Destination(@Nullable Output<ResourceDataSyncS3DestinationArgs> s3Destination) {
             $.s3Destination = s3Destination;
             return this;
         }
 
-        /**
-         * @param s3Destination Amazon S3 configuration details for the sync.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Destination(ResourceDataSyncS3DestinationArgs s3Destination) {
             return s3Destination(Output.of(s3Destination));
         }

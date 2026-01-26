@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentPromptVariantGenAiResourceGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies an Amazon Bedrock agent with which to use the prompt. See Agent Configuration for more information.
-        /// </summary>
         [Input("agent")]
         public Input<Inputs.AgentPromptVariantGenAiResourceAgentGetArgs>? Agent { get; set; }
 

@@ -16,32 +16,16 @@ public final class BucketMetadataConfigurationMetadataConfigurationInventoryTabl
 
     public static final BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationEncryptionConfigurationArgs Empty = new BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationEncryptionConfigurationArgs();
 
-    /**
-     * KMS key ARN when `sseAlgorithm` is `aws:kms`.
-     * 
-     */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
-    /**
-     * @return KMS key ARN when `sseAlgorithm` is `aws:kms`.
-     * 
-     */
     public Optional<Output<String>> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
 
-    /**
-     * Encryption type for the metadata table. Valid values: `aws:kms`, `AES256`.
-     * 
-     */
     @Import(name="sseAlgorithm", required=true)
     private Output<String> sseAlgorithm;
 
-    /**
-     * @return Encryption type for the metadata table. Valid values: `aws:kms`, `AES256`.
-     * 
-     */
     public Output<String> sseAlgorithm() {
         return this.sseAlgorithm;
     }
@@ -71,44 +55,20 @@ public final class BucketMetadataConfigurationMetadataConfigurationInventoryTabl
             $ = new BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationEncryptionConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kmsKeyArn KMS key ARN when `sseAlgorithm` is `aws:kms`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(@Nullable Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
         }
 
-        /**
-         * @param kmsKeyArn KMS key ARN when `sseAlgorithm` is `aws:kms`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
         }
 
-        /**
-         * @param sseAlgorithm Encryption type for the metadata table. Valid values: `aws:kms`, `AES256`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sseAlgorithm(Output<String> sseAlgorithm) {
             $.sseAlgorithm = sseAlgorithm;
             return this;
         }
 
-        /**
-         * @param sseAlgorithm Encryption type for the metadata table. Valid values: `aws:kms`, `AES256`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sseAlgorithm(String sseAlgorithm) {
             return sseAlgorithm(Output.of(sseAlgorithm));
         }

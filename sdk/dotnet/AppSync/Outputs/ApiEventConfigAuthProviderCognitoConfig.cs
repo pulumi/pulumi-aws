@@ -13,17 +13,8 @@ namespace Pulumi.Aws.AppSync.Outputs
     [OutputType]
     public sealed class ApiEventConfigAuthProviderCognitoConfig
     {
-        /// <summary>
-        /// Regular expression for matching the client ID.
-        /// </summary>
         public readonly string? AppIdClientRegex;
-        /// <summary>
-        /// AWS region where the user pool is located.
-        /// </summary>
         public readonly string AwsRegion;
-        /// <summary>
-        /// ID of the Cognito user pool.
-        /// </summary>
         public readonly string UserPoolId;
 
         [OutputConstructor]

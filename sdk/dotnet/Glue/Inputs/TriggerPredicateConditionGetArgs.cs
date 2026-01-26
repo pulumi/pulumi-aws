@@ -12,33 +12,18 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class TriggerPredicateConditionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `CrawlerName` must also be specified. Conflicts with `State`.
-        /// </summary>
         [Input("crawlState")]
         public Input<string>? CrawlState { get; set; }
 
-        /// <summary>
-        /// The name of the crawler to watch. If this is specified, `CrawlState` must also be specified. Conflicts with `JobName`.
-        /// </summary>
         [Input("crawlerName")]
         public Input<string>? CrawlerName { get; set; }
 
-        /// <summary>
-        /// The name of the job to watch. If this is specified, `State` must also be specified. Conflicts with `CrawlerName`.
-        /// </summary>
         [Input("jobName")]
         public Input<string>? JobName { get; set; }
 
-        /// <summary>
-        /// A logical operator. Defaults to `EQUALS`.
-        /// </summary>
         [Input("logicalOperator")]
         public Input<string>? LogicalOperator { get; set; }
 
-        /// <summary>
-        /// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `JobName` must also be specified. Conflicts with `CrawlerState`.
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 

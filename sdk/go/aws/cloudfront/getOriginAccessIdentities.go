@@ -11,64 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
-//
-// ## Example Usage
-//
-// ### All origin access identities in the account
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.GetOriginAccessIdentities(ctx, &cloudfront.GetOriginAccessIdentitiesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Origin access identities filtered by comment/name
-//
-// Origin access identities whose comments are `example-comment1`, `example-comment2`
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.GetOriginAccessIdentities(ctx, &cloudfront.GetOriginAccessIdentitiesArgs{
-//				Comments: []string{
-//					"example-comment1",
-//					"example-comment2",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetOriginAccessIdentities(ctx *pulumi.Context, args *GetOriginAccessIdentitiesArgs, opts ...pulumi.InvokeOption) (*GetOriginAccessIdentitiesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOriginAccessIdentitiesResult
@@ -81,20 +23,16 @@ func GetOriginAccessIdentities(ctx *pulumi.Context, args *GetOriginAccessIdentit
 
 // A collection of arguments for invoking getOriginAccessIdentities.
 type GetOriginAccessIdentitiesArgs struct {
-	// Filter origin access identities by comment.
 	Comments []string `pulumi:"comments"`
 }
 
 // A collection of values returned by getOriginAccessIdentities.
 type GetOriginAccessIdentitiesResult struct {
 	Comments []string `pulumi:"comments"`
-	// Set of ARNs of the matched origin access identities.
-	IamArns []string `pulumi:"iamArns"`
+	IamArns  []string `pulumi:"iamArns"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Set of ids of the matched origin access identities.
-	Ids []string `pulumi:"ids"`
-	// Set of S3 canonical user IDs of the matched origin access identities.
+	Id                 string   `pulumi:"id"`
+	Ids                []string `pulumi:"ids"`
 	S3CanonicalUserIds []string `pulumi:"s3CanonicalUserIds"`
 }
 
@@ -109,7 +47,6 @@ func GetOriginAccessIdentitiesOutput(ctx *pulumi.Context, args GetOriginAccessId
 
 // A collection of arguments for invoking getOriginAccessIdentities.
 type GetOriginAccessIdentitiesOutputArgs struct {
-	// Filter origin access identities by comment.
 	Comments pulumi.StringArrayInput `pulumi:"comments"`
 }
 
@@ -136,7 +73,6 @@ func (o GetOriginAccessIdentitiesResultOutput) Comments() pulumi.StringArrayOutp
 	return o.ApplyT(func(v GetOriginAccessIdentitiesResult) []string { return v.Comments }).(pulumi.StringArrayOutput)
 }
 
-// Set of ARNs of the matched origin access identities.
 func (o GetOriginAccessIdentitiesResultOutput) IamArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOriginAccessIdentitiesResult) []string { return v.IamArns }).(pulumi.StringArrayOutput)
 }
@@ -146,12 +82,10 @@ func (o GetOriginAccessIdentitiesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOriginAccessIdentitiesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Set of ids of the matched origin access identities.
 func (o GetOriginAccessIdentitiesResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOriginAccessIdentitiesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }
 
-// Set of S3 canonical user IDs of the matched origin access identities.
 func (o GetOriginAccessIdentitiesResultOutput) S3CanonicalUserIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOriginAccessIdentitiesResult) []string { return v.S3CanonicalUserIds }).(pulumi.StringArrayOutput)
 }

@@ -36,27 +36,6 @@ class RouteArgs:
                  vpc_peering_connection_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Route resource.
-        :param pulumi.Input[_builtins.str] route_table_id: The ID of the routing table.
-               
-               One of the following destination arguments must be supplied:
-        :param pulumi.Input[_builtins.str] carrier_gateway_id: Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
-        :param pulumi.Input[_builtins.str] core_network_arn: The Amazon Resource Name (ARN) of a core network.
-        :param pulumi.Input[_builtins.str] destination_cidr_block: The destination CIDR block.
-        :param pulumi.Input[_builtins.str] destination_ipv6_cidr_block: The destination IPv6 CIDR block.
-        :param pulumi.Input[_builtins.str] destination_prefix_list_id: The ID of a managed prefix list destination.
-               
-               One of the following target arguments must be supplied:
-        :param pulumi.Input[_builtins.str] egress_only_gateway_id: Identifier of a VPC Egress Only Internet Gateway.
-        :param pulumi.Input[_builtins.str] gateway_id: Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
-        :param pulumi.Input[_builtins.str] local_gateway_id: Identifier of a Outpost local gateway.
-        :param pulumi.Input[_builtins.str] nat_gateway_id: Identifier of a VPC NAT gateway.
-        :param pulumi.Input[_builtins.str] network_interface_id: Identifier of an EC2 network interface.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] transit_gateway_id: Identifier of an EC2 Transit Gateway.
-        :param pulumi.Input[_builtins.str] vpc_endpoint_id: Identifier of a VPC Endpoint.
-        :param pulumi.Input[_builtins.str] vpc_peering_connection_id: Identifier of a VPC peering connection.
-               
-               Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
         """
         pulumi.set(__self__, "route_table_id", route_table_id)
         if carrier_gateway_id is not None:
@@ -91,11 +70,6 @@ class RouteArgs:
     @_builtins.property
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the routing table.
-
-        One of the following destination arguments must be supplied:
-        """
         return pulumi.get(self, "route_table_id")
 
     @route_table_id.setter
@@ -105,9 +79,6 @@ class RouteArgs:
     @_builtins.property
     @pulumi.getter(name="carrierGatewayId")
     def carrier_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
-        """
         return pulumi.get(self, "carrier_gateway_id")
 
     @carrier_gateway_id.setter
@@ -117,9 +88,6 @@ class RouteArgs:
     @_builtins.property
     @pulumi.getter(name="coreNetworkArn")
     def core_network_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of a core network.
-        """
         return pulumi.get(self, "core_network_arn")
 
     @core_network_arn.setter
@@ -129,9 +97,6 @@ class RouteArgs:
     @_builtins.property
     @pulumi.getter(name="destinationCidrBlock")
     def destination_cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The destination CIDR block.
-        """
         return pulumi.get(self, "destination_cidr_block")
 
     @destination_cidr_block.setter
@@ -141,9 +106,6 @@ class RouteArgs:
     @_builtins.property
     @pulumi.getter(name="destinationIpv6CidrBlock")
     def destination_ipv6_cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The destination IPv6 CIDR block.
-        """
         return pulumi.get(self, "destination_ipv6_cidr_block")
 
     @destination_ipv6_cidr_block.setter
@@ -153,11 +115,6 @@ class RouteArgs:
     @_builtins.property
     @pulumi.getter(name="destinationPrefixListId")
     def destination_prefix_list_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of a managed prefix list destination.
-
-        One of the following target arguments must be supplied:
-        """
         return pulumi.get(self, "destination_prefix_list_id")
 
     @destination_prefix_list_id.setter
@@ -167,9 +124,6 @@ class RouteArgs:
     @_builtins.property
     @pulumi.getter(name="egressOnlyGatewayId")
     def egress_only_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of a VPC Egress Only Internet Gateway.
-        """
         return pulumi.get(self, "egress_only_gateway_id")
 
     @egress_only_gateway_id.setter
@@ -179,9 +133,6 @@ class RouteArgs:
     @_builtins.property
     @pulumi.getter(name="gatewayId")
     def gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
-        """
         return pulumi.get(self, "gateway_id")
 
     @gateway_id.setter
@@ -191,9 +142,6 @@ class RouteArgs:
     @_builtins.property
     @pulumi.getter(name="localGatewayId")
     def local_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of a Outpost local gateway.
-        """
         return pulumi.get(self, "local_gateway_id")
 
     @local_gateway_id.setter
@@ -203,9 +151,6 @@ class RouteArgs:
     @_builtins.property
     @pulumi.getter(name="natGatewayId")
     def nat_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of a VPC NAT gateway.
-        """
         return pulumi.get(self, "nat_gateway_id")
 
     @nat_gateway_id.setter
@@ -215,9 +160,6 @@ class RouteArgs:
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of an EC2 network interface.
-        """
         return pulumi.get(self, "network_interface_id")
 
     @network_interface_id.setter
@@ -227,9 +169,6 @@ class RouteArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -239,9 +178,6 @@ class RouteArgs:
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of an EC2 Transit Gateway.
-        """
         return pulumi.get(self, "transit_gateway_id")
 
     @transit_gateway_id.setter
@@ -251,9 +187,6 @@ class RouteArgs:
     @_builtins.property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of a VPC Endpoint.
-        """
         return pulumi.get(self, "vpc_endpoint_id")
 
     @vpc_endpoint_id.setter
@@ -263,11 +196,6 @@ class RouteArgs:
     @_builtins.property
     @pulumi.getter(name="vpcPeeringConnectionId")
     def vpc_peering_connection_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of a VPC peering connection.
-
-        Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
-        """
         return pulumi.get(self, "vpc_peering_connection_id")
 
     @vpc_peering_connection_id.setter
@@ -299,31 +227,6 @@ class _RouteState:
                  vpc_peering_connection_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Route resources.
-        :param pulumi.Input[_builtins.str] carrier_gateway_id: Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
-        :param pulumi.Input[_builtins.str] core_network_arn: The Amazon Resource Name (ARN) of a core network.
-        :param pulumi.Input[_builtins.str] destination_cidr_block: The destination CIDR block.
-        :param pulumi.Input[_builtins.str] destination_ipv6_cidr_block: The destination IPv6 CIDR block.
-        :param pulumi.Input[_builtins.str] destination_prefix_list_id: The ID of a managed prefix list destination.
-               
-               One of the following target arguments must be supplied:
-        :param pulumi.Input[_builtins.str] egress_only_gateway_id: Identifier of a VPC Egress Only Internet Gateway.
-        :param pulumi.Input[_builtins.str] gateway_id: Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
-        :param pulumi.Input[_builtins.str] instance_id: Identifier of an EC2 instance.
-        :param pulumi.Input[_builtins.str] instance_owner_id: The AWS account ID of the owner of the EC2 instance.
-        :param pulumi.Input[_builtins.str] local_gateway_id: Identifier of a Outpost local gateway.
-        :param pulumi.Input[_builtins.str] nat_gateway_id: Identifier of a VPC NAT gateway.
-        :param pulumi.Input[_builtins.str] network_interface_id: Identifier of an EC2 network interface.
-        :param pulumi.Input[_builtins.str] origin: How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] route_table_id: The ID of the routing table.
-               
-               One of the following destination arguments must be supplied:
-        :param pulumi.Input[_builtins.str] state: The state of the route - `active` or `blackhole`.
-        :param pulumi.Input[_builtins.str] transit_gateway_id: Identifier of an EC2 Transit Gateway.
-        :param pulumi.Input[_builtins.str] vpc_endpoint_id: Identifier of a VPC Endpoint.
-        :param pulumi.Input[_builtins.str] vpc_peering_connection_id: Identifier of a VPC peering connection.
-               
-               Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
         """
         if carrier_gateway_id is not None:
             pulumi.set(__self__, "carrier_gateway_id", carrier_gateway_id)
@@ -367,9 +270,6 @@ class _RouteState:
     @_builtins.property
     @pulumi.getter(name="carrierGatewayId")
     def carrier_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
-        """
         return pulumi.get(self, "carrier_gateway_id")
 
     @carrier_gateway_id.setter
@@ -379,9 +279,6 @@ class _RouteState:
     @_builtins.property
     @pulumi.getter(name="coreNetworkArn")
     def core_network_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of a core network.
-        """
         return pulumi.get(self, "core_network_arn")
 
     @core_network_arn.setter
@@ -391,9 +288,6 @@ class _RouteState:
     @_builtins.property
     @pulumi.getter(name="destinationCidrBlock")
     def destination_cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The destination CIDR block.
-        """
         return pulumi.get(self, "destination_cidr_block")
 
     @destination_cidr_block.setter
@@ -403,9 +297,6 @@ class _RouteState:
     @_builtins.property
     @pulumi.getter(name="destinationIpv6CidrBlock")
     def destination_ipv6_cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The destination IPv6 CIDR block.
-        """
         return pulumi.get(self, "destination_ipv6_cidr_block")
 
     @destination_ipv6_cidr_block.setter
@@ -415,11 +306,6 @@ class _RouteState:
     @_builtins.property
     @pulumi.getter(name="destinationPrefixListId")
     def destination_prefix_list_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of a managed prefix list destination.
-
-        One of the following target arguments must be supplied:
-        """
         return pulumi.get(self, "destination_prefix_list_id")
 
     @destination_prefix_list_id.setter
@@ -429,9 +315,6 @@ class _RouteState:
     @_builtins.property
     @pulumi.getter(name="egressOnlyGatewayId")
     def egress_only_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of a VPC Egress Only Internet Gateway.
-        """
         return pulumi.get(self, "egress_only_gateway_id")
 
     @egress_only_gateway_id.setter
@@ -441,9 +324,6 @@ class _RouteState:
     @_builtins.property
     @pulumi.getter(name="gatewayId")
     def gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
-        """
         return pulumi.get(self, "gateway_id")
 
     @gateway_id.setter
@@ -453,9 +333,6 @@ class _RouteState:
     @_builtins.property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of an EC2 instance.
-        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -465,9 +342,6 @@ class _RouteState:
     @_builtins.property
     @pulumi.getter(name="instanceOwnerId")
     def instance_owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS account ID of the owner of the EC2 instance.
-        """
         return pulumi.get(self, "instance_owner_id")
 
     @instance_owner_id.setter
@@ -477,9 +351,6 @@ class _RouteState:
     @_builtins.property
     @pulumi.getter(name="localGatewayId")
     def local_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of a Outpost local gateway.
-        """
         return pulumi.get(self, "local_gateway_id")
 
     @local_gateway_id.setter
@@ -489,9 +360,6 @@ class _RouteState:
     @_builtins.property
     @pulumi.getter(name="natGatewayId")
     def nat_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of a VPC NAT gateway.
-        """
         return pulumi.get(self, "nat_gateway_id")
 
     @nat_gateway_id.setter
@@ -501,9 +369,6 @@ class _RouteState:
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of an EC2 network interface.
-        """
         return pulumi.get(self, "network_interface_id")
 
     @network_interface_id.setter
@@ -513,9 +378,6 @@ class _RouteState:
     @_builtins.property
     @pulumi.getter
     def origin(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
-        """
         return pulumi.get(self, "origin")
 
     @origin.setter
@@ -525,9 +387,6 @@ class _RouteState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -537,11 +396,6 @@ class _RouteState:
     @_builtins.property
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the routing table.
-
-        One of the following destination arguments must be supplied:
-        """
         return pulumi.get(self, "route_table_id")
 
     @route_table_id.setter
@@ -551,9 +405,6 @@ class _RouteState:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The state of the route - `active` or `blackhole`.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -563,9 +414,6 @@ class _RouteState:
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of an EC2 Transit Gateway.
-        """
         return pulumi.get(self, "transit_gateway_id")
 
     @transit_gateway_id.setter
@@ -575,9 +423,6 @@ class _RouteState:
     @_builtins.property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of a VPC Endpoint.
-        """
         return pulumi.get(self, "vpc_endpoint_id")
 
     @vpc_endpoint_id.setter
@@ -587,11 +432,6 @@ class _RouteState:
     @_builtins.property
     @pulumi.getter(name="vpcPeeringConnectionId")
     def vpc_peering_connection_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of a VPC peering connection.
-
-        Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
-        """
         return pulumi.get(self, "vpc_peering_connection_id")
 
     @vpc_peering_connection_id.setter
@@ -622,123 +462,9 @@ class Route(pulumi.CustomResource):
                  vpc_peering_connection_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a resource to create a routing table entry (a route) in a VPC routing table.
-
-        > **NOTE on `gateway_id` attribute:** The AWS API is very forgiving with the resource ID passed in the `gateway_id` attribute. For example an `ec2.Route` resource can be created with an `ec2.NatGateway` or `ec2.EgressOnlyInternetGateway` ID specified for the `gateway_id` attribute. Specifying anything other than an `ec2.InternetGateway` or `ec2.VpnGateway` ID will lead to this provider reporting a permanent diff between your configuration and recorded state, as the AWS API returns the more-specific attribute. If you are experiencing constant diffs with an `ec2.Route` resource, the first thing to check is that the correct attribute is being specified.
-
-        > **NOTE on combining `vpc_endpoint_id` and `destination_prefix_list_id` attributes:** To associate a Gateway VPC Endpoint (such as S3) with destination prefix list, use the `ec2.VpcEndpointRouteTableAssociation` resource instead.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        r = aws.ec2.Route("r",
-            route_table_id=testing["id"],
-            destination_cidr_block="10.0.1.0/22",
-            vpc_peering_connection_id="pcx-45ff3dc1")
-        ```
-
-        ## Example IPv6 Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        vpc = aws.ec2.Vpc("vpc",
-            cidr_block="10.1.0.0/16",
-            assign_generated_ipv6_cidr_block=True)
-        egress = aws.ec2.EgressOnlyInternetGateway("egress", vpc_id=vpc.id)
-        r = aws.ec2.Route("r",
-            route_table_id="rtb-4fbb3ac4",
-            destination_ipv6_cidr_block="::/0",
-            egress_only_gateway_id=egress.id)
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `route_table_id` - (String) ID of the route table.
-
-        #### Optional
-
-        ~> Exactly one of of `destination_cidr_block`, `destination_ipv6_cidr_block`, or `destination_prefix_list_id` is required.
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `destination_cidr_block` - (String) Destination IPv4 CIDR block.
-
-        * `destination_ipv6_cidr_block` - (String) Destination IPv6 CIDR block.
-
-        * `destination_prefix_list_id` - (String) Destination IPv6 CIDR block.
-
-        * `region` (String) Region where this resource is managed.
-
-        Import a route in route table `rtb-656C65616E6F72` with an IPv6 destination CIDR of `2620:0:2d0:200::8/125`:
-
-        terraform
-
-        import {
-
-          to = aws_route.my_route
-
-          id = "rtb-656C65616E6F72_2620:0:2d0:200::8/125"
-
-        }
-
-        Import a route in route table `rtb-656C65616E6F72` with a managed prefix list destination of `pl-0570a1d2d725c16be`:
-
-        terraform
-
-        import {
-
-          to = aws_route.my_route
-
-          id = "rtb-656C65616E6F72_pl-0570a1d2d725c16be"
-
-        }
-
-        **Using `pulumi import` to import** individual routes using `ROUTETABLEID_DESTINATION`. Import [local routes](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#RouteTables) using the VPC's IPv4 or IPv6 CIDR blocks. For example:
-
-        Import a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16`:
-
-        % pulumi import aws_route.my_route rtb-656C65616E6F72_10.42.0.0/16
-
-        Import a route in route table `rtb-656C65616E6F72` with an IPv6 destination CIDR of `2620:0:2d0:200::8/125`:
-
-        % pulumi import aws_route.my_route rtb-656C65616E6F72_2620:0:2d0:200::8/125
-
-        Import a route in route table `rtb-656C65616E6F72` with a managed prefix list destination of `pl-0570a1d2d725c16be`:
-
-        % pulumi import aws_route.my_route rtb-656C65616E6F72_pl-0570a1d2d725c16be
-
+        Create a Route resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] carrier_gateway_id: Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
-        :param pulumi.Input[_builtins.str] core_network_arn: The Amazon Resource Name (ARN) of a core network.
-        :param pulumi.Input[_builtins.str] destination_cidr_block: The destination CIDR block.
-        :param pulumi.Input[_builtins.str] destination_ipv6_cidr_block: The destination IPv6 CIDR block.
-        :param pulumi.Input[_builtins.str] destination_prefix_list_id: The ID of a managed prefix list destination.
-               
-               One of the following target arguments must be supplied:
-        :param pulumi.Input[_builtins.str] egress_only_gateway_id: Identifier of a VPC Egress Only Internet Gateway.
-        :param pulumi.Input[_builtins.str] gateway_id: Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
-        :param pulumi.Input[_builtins.str] local_gateway_id: Identifier of a Outpost local gateway.
-        :param pulumi.Input[_builtins.str] nat_gateway_id: Identifier of a VPC NAT gateway.
-        :param pulumi.Input[_builtins.str] network_interface_id: Identifier of an EC2 network interface.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] route_table_id: The ID of the routing table.
-               
-               One of the following destination arguments must be supplied:
-        :param pulumi.Input[_builtins.str] transit_gateway_id: Identifier of an EC2 Transit Gateway.
-        :param pulumi.Input[_builtins.str] vpc_endpoint_id: Identifier of a VPC Endpoint.
-        :param pulumi.Input[_builtins.str] vpc_peering_connection_id: Identifier of a VPC peering connection.
-               
-               Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
         """
         ...
     @overload
@@ -747,100 +473,7 @@ class Route(pulumi.CustomResource):
                  args: RouteArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to create a routing table entry (a route) in a VPC routing table.
-
-        > **NOTE on `gateway_id` attribute:** The AWS API is very forgiving with the resource ID passed in the `gateway_id` attribute. For example an `ec2.Route` resource can be created with an `ec2.NatGateway` or `ec2.EgressOnlyInternetGateway` ID specified for the `gateway_id` attribute. Specifying anything other than an `ec2.InternetGateway` or `ec2.VpnGateway` ID will lead to this provider reporting a permanent diff between your configuration and recorded state, as the AWS API returns the more-specific attribute. If you are experiencing constant diffs with an `ec2.Route` resource, the first thing to check is that the correct attribute is being specified.
-
-        > **NOTE on combining `vpc_endpoint_id` and `destination_prefix_list_id` attributes:** To associate a Gateway VPC Endpoint (such as S3) with destination prefix list, use the `ec2.VpcEndpointRouteTableAssociation` resource instead.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        r = aws.ec2.Route("r",
-            route_table_id=testing["id"],
-            destination_cidr_block="10.0.1.0/22",
-            vpc_peering_connection_id="pcx-45ff3dc1")
-        ```
-
-        ## Example IPv6 Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        vpc = aws.ec2.Vpc("vpc",
-            cidr_block="10.1.0.0/16",
-            assign_generated_ipv6_cidr_block=True)
-        egress = aws.ec2.EgressOnlyInternetGateway("egress", vpc_id=vpc.id)
-        r = aws.ec2.Route("r",
-            route_table_id="rtb-4fbb3ac4",
-            destination_ipv6_cidr_block="::/0",
-            egress_only_gateway_id=egress.id)
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `route_table_id` - (String) ID of the route table.
-
-        #### Optional
-
-        ~> Exactly one of of `destination_cidr_block`, `destination_ipv6_cidr_block`, or `destination_prefix_list_id` is required.
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `destination_cidr_block` - (String) Destination IPv4 CIDR block.
-
-        * `destination_ipv6_cidr_block` - (String) Destination IPv6 CIDR block.
-
-        * `destination_prefix_list_id` - (String) Destination IPv6 CIDR block.
-
-        * `region` (String) Region where this resource is managed.
-
-        Import a route in route table `rtb-656C65616E6F72` with an IPv6 destination CIDR of `2620:0:2d0:200::8/125`:
-
-        terraform
-
-        import {
-
-          to = aws_route.my_route
-
-          id = "rtb-656C65616E6F72_2620:0:2d0:200::8/125"
-
-        }
-
-        Import a route in route table `rtb-656C65616E6F72` with a managed prefix list destination of `pl-0570a1d2d725c16be`:
-
-        terraform
-
-        import {
-
-          to = aws_route.my_route
-
-          id = "rtb-656C65616E6F72_pl-0570a1d2d725c16be"
-
-        }
-
-        **Using `pulumi import` to import** individual routes using `ROUTETABLEID_DESTINATION`. Import [local routes](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#RouteTables) using the VPC's IPv4 or IPv6 CIDR blocks. For example:
-
-        Import a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16`:
-
-        % pulumi import aws_route.my_route rtb-656C65616E6F72_10.42.0.0/16
-
-        Import a route in route table `rtb-656C65616E6F72` with an IPv6 destination CIDR of `2620:0:2d0:200::8/125`:
-
-        % pulumi import aws_route.my_route rtb-656C65616E6F72_2620:0:2d0:200::8/125
-
-        Import a route in route table `rtb-656C65616E6F72` with a managed prefix list destination of `pl-0570a1d2d725c16be`:
-
-        % pulumi import aws_route.my_route rtb-656C65616E6F72_pl-0570a1d2d725c16be
-
+        Create a Route resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RouteArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -937,31 +570,6 @@ class Route(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] carrier_gateway_id: Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
-        :param pulumi.Input[_builtins.str] core_network_arn: The Amazon Resource Name (ARN) of a core network.
-        :param pulumi.Input[_builtins.str] destination_cidr_block: The destination CIDR block.
-        :param pulumi.Input[_builtins.str] destination_ipv6_cidr_block: The destination IPv6 CIDR block.
-        :param pulumi.Input[_builtins.str] destination_prefix_list_id: The ID of a managed prefix list destination.
-               
-               One of the following target arguments must be supplied:
-        :param pulumi.Input[_builtins.str] egress_only_gateway_id: Identifier of a VPC Egress Only Internet Gateway.
-        :param pulumi.Input[_builtins.str] gateway_id: Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
-        :param pulumi.Input[_builtins.str] instance_id: Identifier of an EC2 instance.
-        :param pulumi.Input[_builtins.str] instance_owner_id: The AWS account ID of the owner of the EC2 instance.
-        :param pulumi.Input[_builtins.str] local_gateway_id: Identifier of a Outpost local gateway.
-        :param pulumi.Input[_builtins.str] nat_gateway_id: Identifier of a VPC NAT gateway.
-        :param pulumi.Input[_builtins.str] network_interface_id: Identifier of an EC2 network interface.
-        :param pulumi.Input[_builtins.str] origin: How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] route_table_id: The ID of the routing table.
-               
-               One of the following destination arguments must be supplied:
-        :param pulumi.Input[_builtins.str] state: The state of the route - `active` or `blackhole`.
-        :param pulumi.Input[_builtins.str] transit_gateway_id: Identifier of an EC2 Transit Gateway.
-        :param pulumi.Input[_builtins.str] vpc_endpoint_id: Identifier of a VPC Endpoint.
-        :param pulumi.Input[_builtins.str] vpc_peering_connection_id: Identifier of a VPC peering connection.
-               
-               Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -991,158 +599,95 @@ class Route(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="carrierGatewayId")
     def carrier_gateway_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
-        """
         return pulumi.get(self, "carrier_gateway_id")
 
     @_builtins.property
     @pulumi.getter(name="coreNetworkArn")
     def core_network_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of a core network.
-        """
         return pulumi.get(self, "core_network_arn")
 
     @_builtins.property
     @pulumi.getter(name="destinationCidrBlock")
     def destination_cidr_block(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The destination CIDR block.
-        """
         return pulumi.get(self, "destination_cidr_block")
 
     @_builtins.property
     @pulumi.getter(name="destinationIpv6CidrBlock")
     def destination_ipv6_cidr_block(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The destination IPv6 CIDR block.
-        """
         return pulumi.get(self, "destination_ipv6_cidr_block")
 
     @_builtins.property
     @pulumi.getter(name="destinationPrefixListId")
     def destination_prefix_list_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The ID of a managed prefix list destination.
-
-        One of the following target arguments must be supplied:
-        """
         return pulumi.get(self, "destination_prefix_list_id")
 
     @_builtins.property
     @pulumi.getter(name="egressOnlyGatewayId")
     def egress_only_gateway_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Identifier of a VPC Egress Only Internet Gateway.
-        """
         return pulumi.get(self, "egress_only_gateway_id")
 
     @_builtins.property
     @pulumi.getter(name="gatewayId")
     def gateway_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
-        """
         return pulumi.get(self, "gateway_id")
 
     @_builtins.property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of an EC2 instance.
-        """
         return pulumi.get(self, "instance_id")
 
     @_builtins.property
     @pulumi.getter(name="instanceOwnerId")
     def instance_owner_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The AWS account ID of the owner of the EC2 instance.
-        """
         return pulumi.get(self, "instance_owner_id")
 
     @_builtins.property
     @pulumi.getter(name="localGatewayId")
     def local_gateway_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Identifier of a Outpost local gateway.
-        """
         return pulumi.get(self, "local_gateway_id")
 
     @_builtins.property
     @pulumi.getter(name="natGatewayId")
     def nat_gateway_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Identifier of a VPC NAT gateway.
-        """
         return pulumi.get(self, "nat_gateway_id")
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of an EC2 network interface.
-        """
         return pulumi.get(self, "network_interface_id")
 
     @_builtins.property
     @pulumi.getter
     def origin(self) -> pulumi.Output[_builtins.str]:
-        """
-        How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
-        """
         return pulumi.get(self, "origin")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the routing table.
-
-        One of the following destination arguments must be supplied:
-        """
         return pulumi.get(self, "route_table_id")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[_builtins.str]:
-        """
-        The state of the route - `active` or `blackhole`.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Identifier of an EC2 Transit Gateway.
-        """
         return pulumi.get(self, "transit_gateway_id")
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Identifier of a VPC Endpoint.
-        """
         return pulumi.get(self, "vpc_endpoint_id")
 
     @_builtins.property
     @pulumi.getter(name="vpcPeeringConnectionId")
     def vpc_peering_connection_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Identifier of a VPC peering connection.
-
-        Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
-        """
         return pulumi.get(self, "vpc_peering_connection_id")
 

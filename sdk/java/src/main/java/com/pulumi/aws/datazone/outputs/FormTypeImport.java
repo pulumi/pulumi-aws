@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class FormTypeImport {
-    /**
-     * @return Name of the form type. Must be the name of the structure in smithy document.
-     * 
-     */
     private String name;
-    /**
-     * @return Revision of the Form Type.
-     * 
-     */
     private String revision;
 
     private FormTypeImport() {}
-    /**
-     * @return Name of the form type. Must be the name of the structure in smithy document.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Revision of the Form Type.
-     * 
-     */
     public String revision() {
         return this.revision;
     }

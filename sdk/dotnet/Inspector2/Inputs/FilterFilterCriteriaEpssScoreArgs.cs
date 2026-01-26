@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
     public sealed class FilterFilterCriteriaEpssScoreArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// (Optional) Lower bound of the range, inclusive.
-        /// </summary>
         [Input("lowerInclusive", required: true)]
         public Input<double> LowerInclusive { get; set; } = null!;
 
-        /// <summary>
-        /// (Optional) Upper bound of the range, inclusive.
-        /// </summary>
         [Input("upperInclusive", required: true)]
         public Input<double> UpperInclusive { get; set; } = null!;
 

@@ -7,31 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages an [AWS AppSync Channel Namespace](https://docs.aws.amazon.com/appsync/latest/eventapi/event-api-concepts.html#namespace).
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appsync.ChannelNamespace("example", {
- *     name: "example-channel-namespace",
- *     apiId: exampleAwsAppsyncApi.apiId,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import AppSync Channel Namespace using the `api_id` and `name` separated by a comma (`,`). For example:
- *
- * ```sh
- * $ pulumi import aws:appsync/channelNamespace:ChannelNamespace example example-api-id,example-channel-namespace
- * ```
- */
 export class ChannelNamespace extends pulumi.CustomResource {
     /**
      * Get an existing ChannelNamespace resource's state with the given name, ID, and optional extra
@@ -60,47 +35,15 @@ export class ChannelNamespace extends pulumi.CustomResource {
         return obj['__pulumiType'] === ChannelNamespace.__pulumiType;
     }
 
-    /**
-     * Event API ID.
-     */
     declare public readonly apiId: pulumi.Output<string>;
-    /**
-     * ARN of the channel namespace.
-     */
     declare public /*out*/ readonly channelNamespaceArn: pulumi.Output<string>;
-    /**
-     * Event handler functions that run custom business logic to process published events and subscribe requests.
-     */
     declare public readonly codeHandlers: pulumi.Output<string | undefined>;
-    /**
-     * Configuration for the `onPublish` and `onSubscribe` handlers. See Handler Configs below.
-     */
     declare public readonly handlerConfigs: pulumi.Output<outputs.appsync.ChannelNamespaceHandlerConfigs | undefined>;
-    /**
-     * Name of the channel namespace.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
-     */
     declare public readonly publishAuthModes: pulumi.Output<outputs.appsync.ChannelNamespacePublishAuthMode[] | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
-     */
     declare public readonly subscribeAuthModes: pulumi.Output<outputs.appsync.ChannelNamespaceSubscribeAuthMode[] | undefined>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -151,47 +94,15 @@ export class ChannelNamespace extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ChannelNamespace resources.
  */
 export interface ChannelNamespaceState {
-    /**
-     * Event API ID.
-     */
     apiId?: pulumi.Input<string>;
-    /**
-     * ARN of the channel namespace.
-     */
     channelNamespaceArn?: pulumi.Input<string>;
-    /**
-     * Event handler functions that run custom business logic to process published events and subscribe requests.
-     */
     codeHandlers?: pulumi.Input<string>;
-    /**
-     * Configuration for the `onPublish` and `onSubscribe` handlers. See Handler Configs below.
-     */
     handlerConfigs?: pulumi.Input<inputs.appsync.ChannelNamespaceHandlerConfigs>;
-    /**
-     * Name of the channel namespace.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
-     */
     publishAuthModes?: pulumi.Input<pulumi.Input<inputs.appsync.ChannelNamespacePublishAuthMode>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
-     */
     subscribeAuthModes?: pulumi.Input<pulumi.Input<inputs.appsync.ChannelNamespaceSubscribeAuthMode>[]>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -199,38 +110,12 @@ export interface ChannelNamespaceState {
  * The set of arguments for constructing a ChannelNamespace resource.
  */
 export interface ChannelNamespaceArgs {
-    /**
-     * Event API ID.
-     */
     apiId: pulumi.Input<string>;
-    /**
-     * Event handler functions that run custom business logic to process published events and subscribe requests.
-     */
     codeHandlers?: pulumi.Input<string>;
-    /**
-     * Configuration for the `onPublish` and `onSubscribe` handlers. See Handler Configs below.
-     */
     handlerConfigs?: pulumi.Input<inputs.appsync.ChannelNamespaceHandlerConfigs>;
-    /**
-     * Name of the channel namespace.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
-     */
     publishAuthModes?: pulumi.Input<pulumi.Input<inputs.appsync.ChannelNamespacePublishAuthMode>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
-     */
     subscribeAuthModes?: pulumi.Input<pulumi.Input<inputs.appsync.ChannelNamespaceSubscribeAuthMode>[]>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

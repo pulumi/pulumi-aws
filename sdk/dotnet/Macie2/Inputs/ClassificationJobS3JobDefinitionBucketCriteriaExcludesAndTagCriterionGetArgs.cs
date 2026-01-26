@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Macie2.Inputs
 
     public sealed class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
-        /// </summary>
         [Input("comparator")]
         public Input<string>? Comparator { get; set; }
 
         [Input("tagValues")]
         private InputList<Inputs.ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueGetArgs>? _tagValues;
-
-        /// <summary>
-        /// The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
-        /// </summary>
         public InputList<Inputs.ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueGetArgs> TagValues
         {
             get => _tagValues ?? (_tagValues = new InputList<Inputs.ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueGetArgs>());

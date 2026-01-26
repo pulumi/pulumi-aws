@@ -14,11 +14,8 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type DataIntegrationScheduleConfig struct {
-	// The start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
 	FirstExecutionFrom string `pulumi:"firstExecutionFrom"`
-	// The name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
-	Object string `pulumi:"object"`
-	// How often the data should be pulled from data source. Examples include `rate(1 hour)`, `rate(3 hours)`, `rate(1 day)`.
+	Object             string `pulumi:"object"`
 	ScheduleExpression string `pulumi:"scheduleExpression"`
 }
 
@@ -34,11 +31,8 @@ type DataIntegrationScheduleConfigInput interface {
 }
 
 type DataIntegrationScheduleConfigArgs struct {
-	// The start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
 	FirstExecutionFrom pulumi.StringInput `pulumi:"firstExecutionFrom"`
-	// The name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
-	Object pulumi.StringInput `pulumi:"object"`
-	// How often the data should be pulled from data source. Examples include `rate(1 hour)`, `rate(3 hours)`, `rate(1 day)`.
+	Object             pulumi.StringInput `pulumi:"object"`
 	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
 }
 
@@ -119,17 +113,14 @@ func (o DataIntegrationScheduleConfigOutput) ToDataIntegrationScheduleConfigPtrO
 	}).(DataIntegrationScheduleConfigPtrOutput)
 }
 
-// The start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
 func (o DataIntegrationScheduleConfigOutput) FirstExecutionFrom() pulumi.StringOutput {
 	return o.ApplyT(func(v DataIntegrationScheduleConfig) string { return v.FirstExecutionFrom }).(pulumi.StringOutput)
 }
 
-// The name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
 func (o DataIntegrationScheduleConfigOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v DataIntegrationScheduleConfig) string { return v.Object }).(pulumi.StringOutput)
 }
 
-// How often the data should be pulled from data source. Examples include `rate(1 hour)`, `rate(3 hours)`, `rate(1 day)`.
 func (o DataIntegrationScheduleConfigOutput) ScheduleExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v DataIntegrationScheduleConfig) string { return v.ScheduleExpression }).(pulumi.StringOutput)
 }
@@ -158,7 +149,6 @@ func (o DataIntegrationScheduleConfigPtrOutput) Elem() DataIntegrationScheduleCo
 	}).(DataIntegrationScheduleConfigOutput)
 }
 
-// The start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
 func (o DataIntegrationScheduleConfigPtrOutput) FirstExecutionFrom() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataIntegrationScheduleConfig) *string {
 		if v == nil {
@@ -168,7 +158,6 @@ func (o DataIntegrationScheduleConfigPtrOutput) FirstExecutionFrom() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
 func (o DataIntegrationScheduleConfigPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataIntegrationScheduleConfig) *string {
 		if v == nil {
@@ -178,7 +167,6 @@ func (o DataIntegrationScheduleConfigPtrOutput) Object() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// How often the data should be pulled from data source. Examples include `rate(1 hour)`, `rate(3 hours)`, `rate(1 day)`.
 func (o DataIntegrationScheduleConfigPtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataIntegrationScheduleConfig) *string {
 		if v == nil {
@@ -189,7 +177,6 @@ func (o DataIntegrationScheduleConfigPtrOutput) ScheduleExpression() pulumi.Stri
 }
 
 type GetEventIntegrationEventFilter struct {
-	// The source of the events.
 	Source string `pulumi:"source"`
 }
 
@@ -205,7 +192,6 @@ type GetEventIntegrationEventFilterInput interface {
 }
 
 type GetEventIntegrationEventFilterArgs struct {
-	// The source of the events.
 	Source pulumi.StringInput `pulumi:"source"`
 }
 
@@ -260,7 +246,6 @@ func (o GetEventIntegrationEventFilterOutput) ToGetEventIntegrationEventFilterOu
 	return o
 }
 
-// The source of the events.
 func (o GetEventIntegrationEventFilterOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEventIntegrationEventFilter) string { return v.Source }).(pulumi.StringOutput)
 }

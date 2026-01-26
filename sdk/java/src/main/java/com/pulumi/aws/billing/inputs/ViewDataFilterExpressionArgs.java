@@ -18,47 +18,23 @@ public final class ViewDataFilterExpressionArgs extends com.pulumi.resources.Res
 
     public static final ViewDataFilterExpressionArgs Empty = new ViewDataFilterExpressionArgs();
 
-    /**
-     * Dimension to use for `expression`. Refer to #dimensions for more details.
-     * 
-     */
     @Import(name="dimensions")
     private @Nullable Output<ViewDataFilterExpressionDimensionsArgs> dimensions;
 
-    /**
-     * @return Dimension to use for `expression`. Refer to #dimensions for more details.
-     * 
-     */
     public Optional<Output<ViewDataFilterExpressionDimensionsArgs>> dimensions() {
         return Optional.ofNullable(this.dimensions);
     }
 
-    /**
-     * List of key value map specifying tags associated to the billing view being created.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<List<ViewDataFilterExpressionTagArgs>> tags;
 
-    /**
-     * @return List of key value map specifying tags associated to the billing view being created.
-     * 
-     */
     public Optional<Output<List<ViewDataFilterExpressionTagArgs>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Time range to use for `expression`. Refer to #time-range for more details.
-     * 
-     */
     @Import(name="timeRange")
     private @Nullable Output<ViewDataFilterExpressionTimeRangeArgs> timeRange;
 
-    /**
-     * @return Time range to use for `expression`. Refer to #time-range for more details.
-     * 
-     */
     public Optional<Output<ViewDataFilterExpressionTimeRangeArgs>> timeRange() {
         return Optional.ofNullable(this.timeRange);
     }
@@ -89,75 +65,33 @@ public final class ViewDataFilterExpressionArgs extends com.pulumi.resources.Res
             $ = new ViewDataFilterExpressionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dimensions Dimension to use for `expression`. Refer to #dimensions for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimensions(@Nullable Output<ViewDataFilterExpressionDimensionsArgs> dimensions) {
             $.dimensions = dimensions;
             return this;
         }
 
-        /**
-         * @param dimensions Dimension to use for `expression`. Refer to #dimensions for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimensions(ViewDataFilterExpressionDimensionsArgs dimensions) {
             return dimensions(Output.of(dimensions));
         }
 
-        /**
-         * @param tags List of key value map specifying tags associated to the billing view being created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<List<ViewDataFilterExpressionTagArgs>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags List of key value map specifying tags associated to the billing view being created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(List<ViewDataFilterExpressionTagArgs> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tags List of key value map specifying tags associated to the billing view being created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(ViewDataFilterExpressionTagArgs... tags) {
             return tags(List.of(tags));
         }
 
-        /**
-         * @param timeRange Time range to use for `expression`. Refer to #time-range for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeRange(@Nullable Output<ViewDataFilterExpressionTimeRangeArgs> timeRange) {
             $.timeRange = timeRange;
             return this;
         }
 
-        /**
-         * @param timeRange Time range to use for `expression`. Refer to #time-range for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeRange(ViewDataFilterExpressionTimeRangeArgs timeRange) {
             return timeRange(Output.of(timeRange));
         }

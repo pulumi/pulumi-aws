@@ -11,87 +11,12 @@ namespace Pulumi.Aws.Route53
 {
     public static class GetResolverFirewallRuleGroup
     {
-        /// <summary>
-        /// `aws.route53.ResolverFirewallRuleGroup` Retrieves the specified firewall rule group.
-        /// 
-        /// This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example shows how to get a firewall rule group from its ID.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetResolverFirewallRuleGroup.Invoke(new()
-        ///     {
-        ///         FirewallRuleGroupId = "rslvr-frg-example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetResolverFirewallRuleGroupResult> InvokeAsync(GetResolverFirewallRuleGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResolverFirewallRuleGroupResult>("aws:route53/getResolverFirewallRuleGroup:getResolverFirewallRuleGroup", args ?? new GetResolverFirewallRuleGroupArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// `aws.route53.ResolverFirewallRuleGroup` Retrieves the specified firewall rule group.
-        /// 
-        /// This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example shows how to get a firewall rule group from its ID.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetResolverFirewallRuleGroup.Invoke(new()
-        ///     {
-        ///         FirewallRuleGroupId = "rslvr-frg-example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetResolverFirewallRuleGroupResult> Invoke(GetResolverFirewallRuleGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverFirewallRuleGroupResult>("aws:route53/getResolverFirewallRuleGroup:getResolverFirewallRuleGroup", args ?? new GetResolverFirewallRuleGroupInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// `aws.route53.ResolverFirewallRuleGroup` Retrieves the specified firewall rule group.
-        /// 
-        /// This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example shows how to get a firewall rule group from its ID.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetResolverFirewallRuleGroup.Invoke(new()
-        ///     {
-        ///         FirewallRuleGroupId = "rslvr-frg-example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetResolverFirewallRuleGroupResult> Invoke(GetResolverFirewallRuleGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverFirewallRuleGroupResult>("aws:route53/getResolverFirewallRuleGroup:getResolverFirewallRuleGroup", args ?? new GetResolverFirewallRuleGroupInvokeArgs(), options.WithDefaults());
     }
@@ -99,15 +24,9 @@ namespace Pulumi.Aws.Route53
 
     public sealed class GetResolverFirewallRuleGroupArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The ID of the rule group.
-        /// </summary>
         [Input("firewallRuleGroupId", required: true)]
         public string FirewallRuleGroupId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -119,15 +38,9 @@ namespace Pulumi.Aws.Route53
 
     public sealed class GetResolverFirewallRuleGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The ID of the rule group.
-        /// </summary>
         [Input("firewallRuleGroupId", required: true)]
         public Input<string> FirewallRuleGroupId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -141,51 +54,21 @@ namespace Pulumi.Aws.Route53
     [OutputType]
     public sealed class GetResolverFirewallRuleGroupResult
     {
-        /// <summary>
-        /// The ARN (Amazon Resource Name) of the rule group.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// The date and time that the rule group was created, in Unix time format and Coordinated Universal Time (UTC).
-        /// </summary>
         public readonly string CreationTime;
-        /// <summary>
-        /// A unique string defined by you to identify the request.
-        /// </summary>
         public readonly string CreatorRequestId;
         public readonly string FirewallRuleGroupId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The date and time that the rule group was last modified, in Unix time format and Coordinated Universal Time (UTC).
-        /// </summary>
         public readonly string ModificationTime;
-        /// <summary>
-        /// The name of the rule group.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The Amazon Web Services account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
-        /// </summary>
         public readonly string OwnerId;
         public readonly string Region;
-        /// <summary>
-        /// The number of rules in the rule group.
-        /// </summary>
         public readonly int RuleCount;
-        /// <summary>
-        /// Whether the rule group is shared with other Amazon Web Services accounts, or was shared with the current account by another Amazon Web Services account.
-        /// </summary>
         public readonly string ShareStatus;
-        /// <summary>
-        /// The status of the rule group.
-        /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// Additional information about the status of the rule group, if available.
-        /// </summary>
         public readonly string StatusMessage;
 
         [OutputConstructor]

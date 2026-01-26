@@ -13,21 +13,9 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class GetDistributionConfigurationDistributionS3ExportConfigurationResult
     {
-        /// <summary>
-        /// The disk image format of the exported image (`RAW`, `VHD`, or `VMDK`)
-        /// </summary>
         public readonly string DiskImageFormat;
-        /// <summary>
-        /// The name of the IAM role to use for exporting.
-        /// </summary>
         public readonly string RoleName;
-        /// <summary>
-        /// The name of the S3 bucket to store the exported image in.
-        /// </summary>
         public readonly string S3Bucket;
-        /// <summary>
-        /// The prefix for the exported image.
-        /// </summary>
         public readonly string S3Prefix;
 
         [OutputConstructor]

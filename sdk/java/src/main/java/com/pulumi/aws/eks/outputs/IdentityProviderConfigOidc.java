@@ -13,101 +13,37 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IdentityProviderConfigOidc {
-    /**
-     * @return Client ID for the OpenID Connect identity provider.
-     * 
-     */
     private String clientId;
-    /**
-     * @return The JWT claim that the provider will use to return groups.
-     * 
-     */
     private @Nullable String groupsClaim;
-    /**
-     * @return A prefix that is prepended to group claims e.g., `oidc:`.
-     * 
-     */
     private @Nullable String groupsPrefix;
-    /**
-     * @return The name of the identity provider config.
-     * 
-     */
     private String identityProviderConfigName;
-    /**
-     * @return Issuer URL for the OpenID Connect identity provider.
-     * 
-     */
     private String issuerUrl;
-    /**
-     * @return The key value pairs that describe required claims in the identity token.
-     * 
-     */
     private @Nullable Map<String,String> requiredClaims;
-    /**
-     * @return The JWT claim that the provider will use as the username.
-     * 
-     */
     private @Nullable String usernameClaim;
-    /**
-     * @return A prefix that is prepended to username claims.
-     * 
-     */
     private @Nullable String usernamePrefix;
 
     private IdentityProviderConfigOidc() {}
-    /**
-     * @return Client ID for the OpenID Connect identity provider.
-     * 
-     */
     public String clientId() {
         return this.clientId;
     }
-    /**
-     * @return The JWT claim that the provider will use to return groups.
-     * 
-     */
     public Optional<String> groupsClaim() {
         return Optional.ofNullable(this.groupsClaim);
     }
-    /**
-     * @return A prefix that is prepended to group claims e.g., `oidc:`.
-     * 
-     */
     public Optional<String> groupsPrefix() {
         return Optional.ofNullable(this.groupsPrefix);
     }
-    /**
-     * @return The name of the identity provider config.
-     * 
-     */
     public String identityProviderConfigName() {
         return this.identityProviderConfigName;
     }
-    /**
-     * @return Issuer URL for the OpenID Connect identity provider.
-     * 
-     */
     public String issuerUrl() {
         return this.issuerUrl;
     }
-    /**
-     * @return The key value pairs that describe required claims in the identity token.
-     * 
-     */
     public Map<String,String> requiredClaims() {
         return this.requiredClaims == null ? Map.of() : this.requiredClaims;
     }
-    /**
-     * @return The JWT claim that the provider will use as the username.
-     * 
-     */
     public Optional<String> usernameClaim() {
         return Optional.ofNullable(this.usernameClaim);
     }
-    /**
-     * @return A prefix that is prepended to username claims.
-     * 
-     */
     public Optional<String> usernamePrefix() {
         return Optional.ofNullable(this.usernamePrefix);
     }

@@ -17,47 +17,23 @@ public final class GetListenerRuleActionJwtValidation extends com.pulumi.resourc
 
     public static final GetListenerRuleActionJwtValidation Empty = new GetListenerRuleActionJwtValidation();
 
-    /**
-     * Additional claims to validate.
-     * 
-     */
     @Import(name="additionalClaims")
     private @Nullable List<GetListenerRuleActionJwtValidationAdditionalClaim> additionalClaims;
 
-    /**
-     * @return Additional claims to validate.
-     * 
-     */
     public Optional<List<GetListenerRuleActionJwtValidationAdditionalClaim>> additionalClaims() {
         return Optional.ofNullable(this.additionalClaims);
     }
 
-    /**
-     * Issuer of the JWT.
-     * 
-     */
     @Import(name="issuer", required=true)
     private String issuer;
 
-    /**
-     * @return Issuer of the JWT.
-     * 
-     */
     public String issuer() {
         return this.issuer;
     }
 
-    /**
-     * JSON Web Key Set (JWKS) endpoint.
-     * 
-     */
     @Import(name="jwksEndpoint", required=true)
     private String jwksEndpoint;
 
-    /**
-     * @return JSON Web Key Set (JWKS) endpoint.
-     * 
-     */
     public String jwksEndpoint() {
         return this.jwksEndpoint;
     }
@@ -88,44 +64,20 @@ public final class GetListenerRuleActionJwtValidation extends com.pulumi.resourc
             $ = new GetListenerRuleActionJwtValidation(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param additionalClaims Additional claims to validate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder additionalClaims(@Nullable List<GetListenerRuleActionJwtValidationAdditionalClaim> additionalClaims) {
             $.additionalClaims = additionalClaims;
             return this;
         }
 
-        /**
-         * @param additionalClaims Additional claims to validate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder additionalClaims(GetListenerRuleActionJwtValidationAdditionalClaim... additionalClaims) {
             return additionalClaims(List.of(additionalClaims));
         }
 
-        /**
-         * @param issuer Issuer of the JWT.
-         * 
-         * @return builder
-         * 
-         */
         public Builder issuer(String issuer) {
             $.issuer = issuer;
             return this;
         }
 
-        /**
-         * @param jwksEndpoint JSON Web Key Set (JWKS) endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jwksEndpoint(String jwksEndpoint) {
             $.jwksEndpoint = jwksEndpoint;
             return this;

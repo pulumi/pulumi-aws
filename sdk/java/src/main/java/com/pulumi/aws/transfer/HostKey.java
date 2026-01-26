@@ -16,102 +16,28 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages a host key for a server. This is an [_additional server host key_](https://docs.aws.amazon.com/transfer/latest/userguide/server-host-key-add.html).
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.transfer.HostKey;
- * import com.pulumi.aws.transfer.HostKeyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new HostKey("example", HostKeyArgs.builder()
- *             .serverId(exampleAwsTransferServer.id())
- *             .description("example additional host key")
- *             .hostKeyBodyWo("""
- * # Private key PEM.
- *             """)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import host keys using the `server_id` and `host_key_id` separated by `,`. For example:
- * 
- * ```sh
- * $ pulumi import aws:transfer/hostKey:HostKey example s-12345678,key-12345
- * ```
- * 
- */
 @ResourceType(type="aws:transfer/hostKey:HostKey")
 public class HostKey extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of host key.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of host key.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Text description.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Text description.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Private key portion of an SSH key pair.
-     * 
-     */
     @Export(name="hostKeyBody", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> hostKeyBody;
 
-    /**
-     * @return Private key portion of an SSH key pair.
-     * 
-     */
     public Output<Optional<String>> hostKeyBody() {
         return Codegen.optional(this.hostKeyBody);
     }
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
      * 
      */
     @Export(name="hostKeyBodyWo", refs={String.class}, tree="[0]")
@@ -119,93 +45,44 @@ public class HostKey extends com.pulumi.resources.CustomResource {
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
      * 
      */
     public Output<Optional<String>> hostKeyBodyWo() {
         return Codegen.optional(this.hostKeyBodyWo);
     }
-    /**
-     * Public key fingerprint.
-     * 
-     */
     @Export(name="hostKeyFingerprint", refs={String.class}, tree="[0]")
     private Output<String> hostKeyFingerprint;
 
-    /**
-     * @return Public key fingerprint.
-     * 
-     */
     public Output<String> hostKeyFingerprint() {
         return this.hostKeyFingerprint;
     }
-    /**
-     * ID of the host key.
-     * 
-     */
     @Export(name="hostKeyId", refs={String.class}, tree="[0]")
     private Output<String> hostKeyId;
 
-    /**
-     * @return ID of the host key.
-     * 
-     */
     public Output<String> hostKeyId() {
         return this.hostKeyId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Server ID.
-     * 
-     */
     @Export(name="serverId", refs={String.class}, tree="[0]")
     private Output<String> serverId;
 
-    /**
-     * @return Server ID.
-     * 
-     */
     public Output<String> serverId() {
         return this.serverId;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

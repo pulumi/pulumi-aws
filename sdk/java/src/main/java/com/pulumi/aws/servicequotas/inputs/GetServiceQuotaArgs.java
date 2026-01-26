@@ -16,66 +16,30 @@ public final class GetServiceQuotaArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetServiceQuotaArgs Empty = new GetServiceQuotaArgs();
 
-    /**
-     * Quota code within the service. When configured, the data source directly looks up the service quota. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quotaCode` or `quotaName` must be specified.
-     * 
-     */
     @Import(name="quotaCode")
     private @Nullable Output<String> quotaCode;
 
-    /**
-     * @return Quota code within the service. When configured, the data source directly looks up the service quota. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quotaCode` or `quotaName` must be specified.
-     * 
-     */
     public Optional<Output<String>> quotaCode() {
         return Optional.ofNullable(this.quotaCode);
     }
 
-    /**
-     * Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quotaName` or `quotaCode` must be specified.
-     * 
-     * &gt; *NOTE:* Either `quotaCode` or `quotaName` must be configured.
-     * 
-     */
     @Import(name="quotaName")
     private @Nullable Output<String> quotaName;
 
-    /**
-     * @return Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quotaName` or `quotaCode` must be specified.
-     * 
-     * &gt; *NOTE:* Either `quotaCode` or `quotaName` must be configured.
-     * 
-     */
     public Optional<Output<String>> quotaName() {
         return Optional.ofNullable(this.quotaName);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Service code for the quota. Available values can be found with the `aws.servicequotas.getService` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-     * 
-     */
     @Import(name="serviceCode", required=true)
     private Output<String> serviceCode;
 
-    /**
-     * @return Service code for the quota. Available values can be found with the `aws.servicequotas.getService` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-     * 
-     */
     public Output<String> serviceCode() {
         return this.serviceCode;
     }
@@ -107,90 +71,38 @@ public final class GetServiceQuotaArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetServiceQuotaArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param quotaCode Quota code within the service. When configured, the data source directly looks up the service quota. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quotaCode` or `quotaName` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder quotaCode(@Nullable Output<String> quotaCode) {
             $.quotaCode = quotaCode;
             return this;
         }
 
-        /**
-         * @param quotaCode Quota code within the service. When configured, the data source directly looks up the service quota. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quotaCode` or `quotaName` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder quotaCode(String quotaCode) {
             return quotaCode(Output.of(quotaCode));
         }
 
-        /**
-         * @param quotaName Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quotaName` or `quotaCode` must be specified.
-         * 
-         * &gt; *NOTE:* Either `quotaCode` or `quotaName` must be configured.
-         * 
-         * @return builder
-         * 
-         */
         public Builder quotaName(@Nullable Output<String> quotaName) {
             $.quotaName = quotaName;
             return this;
         }
 
-        /**
-         * @param quotaName Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quotaName` or `quotaCode` must be specified.
-         * 
-         * &gt; *NOTE:* Either `quotaCode` or `quotaName` must be configured.
-         * 
-         * @return builder
-         * 
-         */
         public Builder quotaName(String quotaName) {
             return quotaName(Output.of(quotaName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param serviceCode Service code for the quota. Available values can be found with the `aws.servicequotas.getService` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceCode(Output<String> serviceCode) {
             $.serviceCode = serviceCode;
             return this;
         }
 
-        /**
-         * @param serviceCode Service code for the quota. Available values can be found with the `aws.servicequotas.getService` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceCode(String serviceCode) {
             return serviceCode(Output.of(serviceCode));
         }

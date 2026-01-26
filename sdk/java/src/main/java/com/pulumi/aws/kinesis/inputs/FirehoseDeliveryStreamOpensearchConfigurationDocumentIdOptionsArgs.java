@@ -14,17 +14,9 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOption
 
     public static final FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs Empty = new FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs();
 
-    /**
-     * The method for setting up document ID. Valid values: `FIREHOSE_DEFAULT`, `NO_DOCUMENT_ID`.
-     * 
-     */
     @Import(name="defaultDocumentIdFormat", required=true)
     private Output<String> defaultDocumentIdFormat;
 
-    /**
-     * @return The method for setting up document ID. Valid values: `FIREHOSE_DEFAULT`, `NO_DOCUMENT_ID`.
-     * 
-     */
     public Output<String> defaultDocumentIdFormat() {
         return this.defaultDocumentIdFormat;
     }
@@ -53,23 +45,11 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOption
             $ = new FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param defaultDocumentIdFormat The method for setting up document ID. Valid values: `FIREHOSE_DEFAULT`, `NO_DOCUMENT_ID`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultDocumentIdFormat(Output<String> defaultDocumentIdFormat) {
             $.defaultDocumentIdFormat = defaultDocumentIdFormat;
             return this;
         }
 
-        /**
-         * @param defaultDocumentIdFormat The method for setting up document ID. Valid values: `FIREHOSE_DEFAULT`, `NO_DOCUMENT_ID`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultDocumentIdFormat(String defaultDocumentIdFormat) {
             return defaultDocumentIdFormat(Output.of(defaultDocumentIdFormat));
         }

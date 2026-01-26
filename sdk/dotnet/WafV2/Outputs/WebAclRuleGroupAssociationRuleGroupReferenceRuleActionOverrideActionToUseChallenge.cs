@@ -13,9 +13,6 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallenge
     {
-        /// <summary>
-        /// Custom handling for challenge requests. See below.
-        /// </summary>
         public readonly Outputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeCustomRequestHandling? CustomRequestHandling;
 
         [OutputConstructor]

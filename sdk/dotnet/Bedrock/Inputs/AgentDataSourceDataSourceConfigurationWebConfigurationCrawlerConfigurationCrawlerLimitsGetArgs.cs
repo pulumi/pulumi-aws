@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Max number of web pages crawled from your source URLs, up to 25,000 pages.
-        /// </summary>
         [Input("maxPages")]
         public Input<int>? MaxPages { get; set; }
 
-        /// <summary>
-        /// Max rate at which pages are crawled, up to 300 per minute per host.
-        /// </summary>
         [Input("rateLimit")]
         public Input<int>? RateLimit { get; set; }
 

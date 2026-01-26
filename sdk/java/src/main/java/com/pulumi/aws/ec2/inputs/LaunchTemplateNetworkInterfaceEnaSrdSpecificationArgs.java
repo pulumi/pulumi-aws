@@ -16,32 +16,16 @@ public final class LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs extends
 
     public static final LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs Empty = new LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs();
 
-    /**
-     * Whether to enable ENA Express. ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to improve the performance of TCP traffic.
-     * 
-     */
     @Import(name="enaSrdEnabled")
     private @Nullable Output<Boolean> enaSrdEnabled;
 
-    /**
-     * @return Whether to enable ENA Express. ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to improve the performance of TCP traffic.
-     * 
-     */
     public Optional<Output<Boolean>> enaSrdEnabled() {
         return Optional.ofNullable(this.enaSrdEnabled);
     }
 
-    /**
-     * Configuration for ENA Express UDP optimization. See details below.
-     * 
-     */
     @Import(name="enaSrdUdpSpecification")
     private @Nullable Output<LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs> enaSrdUdpSpecification;
 
-    /**
-     * @return Configuration for ENA Express UDP optimization. See details below.
-     * 
-     */
     public Optional<Output<LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs>> enaSrdUdpSpecification() {
         return Optional.ofNullable(this.enaSrdUdpSpecification);
     }
@@ -71,44 +55,20 @@ public final class LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs extends
             $ = new LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enaSrdEnabled Whether to enable ENA Express. ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to improve the performance of TCP traffic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enaSrdEnabled(@Nullable Output<Boolean> enaSrdEnabled) {
             $.enaSrdEnabled = enaSrdEnabled;
             return this;
         }
 
-        /**
-         * @param enaSrdEnabled Whether to enable ENA Express. ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to improve the performance of TCP traffic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enaSrdEnabled(Boolean enaSrdEnabled) {
             return enaSrdEnabled(Output.of(enaSrdEnabled));
         }
 
-        /**
-         * @param enaSrdUdpSpecification Configuration for ENA Express UDP optimization. See details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enaSrdUdpSpecification(@Nullable Output<LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs> enaSrdUdpSpecification) {
             $.enaSrdUdpSpecification = enaSrdUdpSpecification;
             return this;
         }
 
-        /**
-         * @param enaSrdUdpSpecification Configuration for ENA Express UDP optimization. See details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enaSrdUdpSpecification(LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs enaSrdUdpSpecification) {
             return enaSrdUdpSpecification(Output.of(enaSrdUdpSpecification));
         }

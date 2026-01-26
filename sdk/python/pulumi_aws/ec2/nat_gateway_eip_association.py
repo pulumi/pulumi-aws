@@ -27,11 +27,6 @@ class NatGatewayEipAssociationArgs:
                  timeouts: Optional[pulumi.Input['NatGatewayEipAssociationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a NatGatewayEipAssociation resource.
-        :param pulumi.Input[_builtins.str] allocation_id: The ID of the Elastic IP Allocation to associate with the NAT Gateway.
-        :param pulumi.Input[_builtins.str] nat_gateway_id: The ID of the NAT Gateway to associate the Elastic IP Allocation to.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "allocation_id", allocation_id)
         pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
@@ -43,9 +38,6 @@ class NatGatewayEipAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the Elastic IP Allocation to associate with the NAT Gateway.
-        """
         return pulumi.get(self, "allocation_id")
 
     @allocation_id.setter
@@ -55,11 +47,6 @@ class NatGatewayEipAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="natGatewayId")
     def nat_gateway_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the NAT Gateway to associate the Elastic IP Allocation to.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "nat_gateway_id")
 
     @nat_gateway_id.setter
@@ -69,9 +56,6 @@ class NatGatewayEipAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -98,11 +82,6 @@ class _NatGatewayEipAssociationState:
                  timeouts: Optional[pulumi.Input['NatGatewayEipAssociationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering NatGatewayEipAssociation resources.
-        :param pulumi.Input[_builtins.str] allocation_id: The ID of the Elastic IP Allocation to associate with the NAT Gateway.
-        :param pulumi.Input[_builtins.str] nat_gateway_id: The ID of the NAT Gateway to associate the Elastic IP Allocation to.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if allocation_id is not None:
             pulumi.set(__self__, "allocation_id", allocation_id)
@@ -118,9 +97,6 @@ class _NatGatewayEipAssociationState:
     @_builtins.property
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the Elastic IP Allocation to associate with the NAT Gateway.
-        """
         return pulumi.get(self, "allocation_id")
 
     @allocation_id.setter
@@ -139,11 +115,6 @@ class _NatGatewayEipAssociationState:
     @_builtins.property
     @pulumi.getter(name="natGatewayId")
     def nat_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the NAT Gateway to associate the Elastic IP Allocation to.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "nat_gateway_id")
 
     @nat_gateway_id.setter
@@ -153,9 +124,6 @@ class _NatGatewayEipAssociationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -184,38 +152,9 @@ class NatGatewayEipAssociation(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['NatGatewayEipAssociationTimeoutsArgs', 'NatGatewayEipAssociationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS VPC NAT Gateway EIP Association.
-
-        !> **WARNING:** You should not use the `ec2.NatGatewayEipAssociation` resource in conjunction with an `ec2.NatGateway` resource that has `secondary_allocation_ids` configured. Doing so may cause perpetual differences, and result in associations being overwritten.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.NatGatewayEipAssociation("example",
-            allocation_id=example_aws_eip["id"],
-            nat_gateway_id=example_aws_nat_gateway["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import VPC NAT Gateway EIP Association using the `nat_gateway_id,allocation_id`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/natGatewayEipAssociation:NatGatewayEipAssociation example nat-1234567890abcdef1,eipalloc-1234567890abcdef1
-        ```
-
+        Create a NatGatewayEipAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] allocation_id: The ID of the Elastic IP Allocation to associate with the NAT Gateway.
-        :param pulumi.Input[_builtins.str] nat_gateway_id: The ID of the NAT Gateway to associate the Elastic IP Allocation to.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -224,31 +163,7 @@ class NatGatewayEipAssociation(pulumi.CustomResource):
                  args: NatGatewayEipAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS VPC NAT Gateway EIP Association.
-
-        !> **WARNING:** You should not use the `ec2.NatGatewayEipAssociation` resource in conjunction with an `ec2.NatGateway` resource that has `secondary_allocation_ids` configured. Doing so may cause perpetual differences, and result in associations being overwritten.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.NatGatewayEipAssociation("example",
-            allocation_id=example_aws_eip["id"],
-            nat_gateway_id=example_aws_nat_gateway["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import VPC NAT Gateway EIP Association using the `nat_gateway_id,allocation_id`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/natGatewayEipAssociation:NatGatewayEipAssociation example nat-1234567890abcdef1,eipalloc-1234567890abcdef1
-        ```
-
+        Create a NatGatewayEipAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param NatGatewayEipAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -308,11 +223,6 @@ class NatGatewayEipAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] allocation_id: The ID of the Elastic IP Allocation to associate with the NAT Gateway.
-        :param pulumi.Input[_builtins.str] nat_gateway_id: The ID of the NAT Gateway to associate the Elastic IP Allocation to.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -328,9 +238,6 @@ class NatGatewayEipAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the Elastic IP Allocation to associate with the NAT Gateway.
-        """
         return pulumi.get(self, "allocation_id")
 
     @_builtins.property
@@ -341,19 +248,11 @@ class NatGatewayEipAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="natGatewayId")
     def nat_gateway_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the NAT Gateway to associate the Elastic IP Allocation to.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "nat_gateway_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property

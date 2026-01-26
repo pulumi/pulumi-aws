@@ -45,32 +45,6 @@ class DomainArgs:
                  vpc_options: Optional[pulumi.Input['DomainVpcOptionsArgs']] = None):
         """
         The set of arguments for constructing a Domain resource.
-        :param pulumi.Input[_builtins.str] access_policies: IAM policy document specifying the access policies for the domain.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] advanced_options: Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
-        :param pulumi.Input['DomainAdvancedSecurityOptionsArgs'] advanced_security_options: Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
-        :param pulumi.Input['DomainAimlOptionsArgs'] aiml_options: Configuration block for parameters required to enable all machine learning features. Detailed below.
-        :param pulumi.Input['DomainAutoTuneOptionsArgs'] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
-        :param pulumi.Input['DomainClusterConfigArgs'] cluster_config: Configuration block for the cluster of the domain. Detailed below.
-        :param pulumi.Input['DomainCognitoOptionsArgs'] cognito_options: Configuration block for authenticating dashboard with Cognito. Detailed below.
-        :param pulumi.Input['DomainDomainEndpointOptionsArgs'] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
-        :param pulumi.Input[_builtins.str] domain_name: Name of the domain.
-               
-               The following arguments are optional:
-        :param pulumi.Input['DomainEbsOptionsArgs'] ebs_options: Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
-        :param pulumi.Input['DomainEncryptAtRestArgs'] encrypt_at_rest: Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
-        :param pulumi.Input[_builtins.str] engine_version: Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
-               See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
-               Defaults to the lastest version of OpenSearch.
-        :param pulumi.Input['DomainIdentityCenterOptionsArgs'] identity_center_options: Configuration block for enabling and managing IAM Identity Center integration within a domain. Detailed below.
-        :param pulumi.Input[_builtins.str] ip_address_type: The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainLogPublishingOptionArgs']]] log_publishing_options: Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
-        :param pulumi.Input['DomainNodeToNodeEncryptionArgs'] node_to_node_encryption: Configuration block for node-to-node encryption options. Detailed below.
-        :param pulumi.Input['DomainOffPeakWindowOptionsArgs'] off_peak_window_options: Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['DomainSnapshotOptionsArgs'] snapshot_options: Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
-        :param pulumi.Input['DomainSoftwareUpdateOptionsArgs'] software_update_options: Software update options for the domain. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['DomainVpcOptionsArgs'] vpc_options: Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
         """
         if access_policies is not None:
             pulumi.set(__self__, "access_policies", access_policies)
@@ -120,9 +94,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="accessPolicies")
     def access_policies(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        IAM policy document specifying the access policies for the domain.
-        """
         return pulumi.get(self, "access_policies")
 
     @access_policies.setter
@@ -132,9 +103,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="advancedOptions")
     def advanced_options(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
-        """
         return pulumi.get(self, "advanced_options")
 
     @advanced_options.setter
@@ -144,9 +112,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="advancedSecurityOptions")
     def advanced_security_options(self) -> Optional[pulumi.Input['DomainAdvancedSecurityOptionsArgs']]:
-        """
-        Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
-        """
         return pulumi.get(self, "advanced_security_options")
 
     @advanced_security_options.setter
@@ -156,9 +121,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="aimlOptions")
     def aiml_options(self) -> Optional[pulumi.Input['DomainAimlOptionsArgs']]:
-        """
-        Configuration block for parameters required to enable all machine learning features. Detailed below.
-        """
         return pulumi.get(self, "aiml_options")
 
     @aiml_options.setter
@@ -168,9 +130,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="autoTuneOptions")
     def auto_tune_options(self) -> Optional[pulumi.Input['DomainAutoTuneOptionsArgs']]:
-        """
-        Configuration block for the Auto-Tune options of the domain. Detailed below.
-        """
         return pulumi.get(self, "auto_tune_options")
 
     @auto_tune_options.setter
@@ -180,9 +139,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="clusterConfig")
     def cluster_config(self) -> Optional[pulumi.Input['DomainClusterConfigArgs']]:
-        """
-        Configuration block for the cluster of the domain. Detailed below.
-        """
         return pulumi.get(self, "cluster_config")
 
     @cluster_config.setter
@@ -192,9 +148,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="cognitoOptions")
     def cognito_options(self) -> Optional[pulumi.Input['DomainCognitoOptionsArgs']]:
-        """
-        Configuration block for authenticating dashboard with Cognito. Detailed below.
-        """
         return pulumi.get(self, "cognito_options")
 
     @cognito_options.setter
@@ -204,9 +157,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="domainEndpointOptions")
     def domain_endpoint_options(self) -> Optional[pulumi.Input['DomainDomainEndpointOptionsArgs']]:
-        """
-        Configuration block for domain endpoint HTTP(S) related options. Detailed below.
-        """
         return pulumi.get(self, "domain_endpoint_options")
 
     @domain_endpoint_options.setter
@@ -216,11 +166,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the domain.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -230,9 +175,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="ebsOptions")
     def ebs_options(self) -> Optional[pulumi.Input['DomainEbsOptionsArgs']]:
-        """
-        Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
-        """
         return pulumi.get(self, "ebs_options")
 
     @ebs_options.setter
@@ -242,9 +184,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="encryptAtRest")
     def encrypt_at_rest(self) -> Optional[pulumi.Input['DomainEncryptAtRestArgs']]:
-        """
-        Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
-        """
         return pulumi.get(self, "encrypt_at_rest")
 
     @encrypt_at_rest.setter
@@ -254,11 +193,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
-        See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
-        Defaults to the lastest version of OpenSearch.
-        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -268,9 +202,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="identityCenterOptions")
     def identity_center_options(self) -> Optional[pulumi.Input['DomainIdentityCenterOptionsArgs']]:
-        """
-        Configuration block for enabling and managing IAM Identity Center integration within a domain. Detailed below.
-        """
         return pulumi.get(self, "identity_center_options")
 
     @identity_center_options.setter
@@ -280,9 +211,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
-        """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
@@ -292,9 +220,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="logPublishingOptions")
     def log_publishing_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainLogPublishingOptionArgs']]]]:
-        """
-        Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
-        """
         return pulumi.get(self, "log_publishing_options")
 
     @log_publishing_options.setter
@@ -304,9 +229,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="nodeToNodeEncryption")
     def node_to_node_encryption(self) -> Optional[pulumi.Input['DomainNodeToNodeEncryptionArgs']]:
-        """
-        Configuration block for node-to-node encryption options. Detailed below.
-        """
         return pulumi.get(self, "node_to_node_encryption")
 
     @node_to_node_encryption.setter
@@ -316,9 +238,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="offPeakWindowOptions")
     def off_peak_window_options(self) -> Optional[pulumi.Input['DomainOffPeakWindowOptionsArgs']]:
-        """
-        Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
-        """
         return pulumi.get(self, "off_peak_window_options")
 
     @off_peak_window_options.setter
@@ -328,9 +247,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -340,9 +256,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="snapshotOptions")
     def snapshot_options(self) -> Optional[pulumi.Input['DomainSnapshotOptionsArgs']]:
-        """
-        Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
-        """
         return pulumi.get(self, "snapshot_options")
 
     @snapshot_options.setter
@@ -352,9 +265,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="softwareUpdateOptions")
     def software_update_options(self) -> Optional[pulumi.Input['DomainSoftwareUpdateOptionsArgs']]:
-        """
-        Software update options for the domain. Detailed below.
-        """
         return pulumi.get(self, "software_update_options")
 
     @software_update_options.setter
@@ -364,9 +274,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -376,9 +283,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="vpcOptions")
     def vpc_options(self) -> Optional[pulumi.Input['DomainVpcOptionsArgs']]:
-        """
-        Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
-        """
         return pulumi.get(self, "vpc_options")
 
     @vpc_options.setter
@@ -421,40 +325,6 @@ class _DomainState:
                  vpc_options: Optional[pulumi.Input['DomainVpcOptionsArgs']] = None):
         """
         Input properties used for looking up and filtering Domain resources.
-        :param pulumi.Input[_builtins.str] access_policies: IAM policy document specifying the access policies for the domain.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] advanced_options: Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
-        :param pulumi.Input['DomainAdvancedSecurityOptionsArgs'] advanced_security_options: Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
-        :param pulumi.Input['DomainAimlOptionsArgs'] aiml_options: Configuration block for parameters required to enable all machine learning features. Detailed below.
-        :param pulumi.Input[_builtins.str] arn: ARN of the domain.
-        :param pulumi.Input['DomainAutoTuneOptionsArgs'] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
-        :param pulumi.Input['DomainClusterConfigArgs'] cluster_config: Configuration block for the cluster of the domain. Detailed below.
-        :param pulumi.Input['DomainCognitoOptionsArgs'] cognito_options: Configuration block for authenticating dashboard with Cognito. Detailed below.
-        :param pulumi.Input[_builtins.str] dashboard_endpoint: Domain-specific endpoint for Dashboard without https scheme.
-        :param pulumi.Input[_builtins.str] dashboard_endpoint_v2: V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
-        :param pulumi.Input['DomainDomainEndpointOptionsArgs'] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
-        :param pulumi.Input[_builtins.str] domain_endpoint_v2_hosted_zone_id: Dual stack hosted zone ID for the domain.
-        :param pulumi.Input[_builtins.str] domain_id: Unique identifier for the domain.
-        :param pulumi.Input[_builtins.str] domain_name: Name of the domain.
-               
-               The following arguments are optional:
-        :param pulumi.Input['DomainEbsOptionsArgs'] ebs_options: Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
-        :param pulumi.Input['DomainEncryptAtRestArgs'] encrypt_at_rest: Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
-        :param pulumi.Input[_builtins.str] endpoint: Domain-specific endpoint used to submit index, search, and data upload requests.
-        :param pulumi.Input[_builtins.str] endpoint_v2: V2 domain endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
-        :param pulumi.Input[_builtins.str] engine_version: Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
-               See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
-               Defaults to the lastest version of OpenSearch.
-        :param pulumi.Input['DomainIdentityCenterOptionsArgs'] identity_center_options: Configuration block for enabling and managing IAM Identity Center integration within a domain. Detailed below.
-        :param pulumi.Input[_builtins.str] ip_address_type: The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainLogPublishingOptionArgs']]] log_publishing_options: Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
-        :param pulumi.Input['DomainNodeToNodeEncryptionArgs'] node_to_node_encryption: Configuration block for node-to-node encryption options. Detailed below.
-        :param pulumi.Input['DomainOffPeakWindowOptionsArgs'] off_peak_window_options: Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['DomainSnapshotOptionsArgs'] snapshot_options: Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
-        :param pulumi.Input['DomainSoftwareUpdateOptionsArgs'] software_update_options: Software update options for the domain. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['DomainVpcOptionsArgs'] vpc_options: Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
         """
         if access_policies is not None:
             pulumi.set(__self__, "access_policies", access_policies)
@@ -520,9 +390,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="accessPolicies")
     def access_policies(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        IAM policy document specifying the access policies for the domain.
-        """
         return pulumi.get(self, "access_policies")
 
     @access_policies.setter
@@ -532,9 +399,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="advancedOptions")
     def advanced_options(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
-        """
         return pulumi.get(self, "advanced_options")
 
     @advanced_options.setter
@@ -544,9 +408,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="advancedSecurityOptions")
     def advanced_security_options(self) -> Optional[pulumi.Input['DomainAdvancedSecurityOptionsArgs']]:
-        """
-        Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
-        """
         return pulumi.get(self, "advanced_security_options")
 
     @advanced_security_options.setter
@@ -556,9 +417,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="aimlOptions")
     def aiml_options(self) -> Optional[pulumi.Input['DomainAimlOptionsArgs']]:
-        """
-        Configuration block for parameters required to enable all machine learning features. Detailed below.
-        """
         return pulumi.get(self, "aiml_options")
 
     @aiml_options.setter
@@ -568,9 +426,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the domain.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -580,9 +435,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="autoTuneOptions")
     def auto_tune_options(self) -> Optional[pulumi.Input['DomainAutoTuneOptionsArgs']]:
-        """
-        Configuration block for the Auto-Tune options of the domain. Detailed below.
-        """
         return pulumi.get(self, "auto_tune_options")
 
     @auto_tune_options.setter
@@ -592,9 +444,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="clusterConfig")
     def cluster_config(self) -> Optional[pulumi.Input['DomainClusterConfigArgs']]:
-        """
-        Configuration block for the cluster of the domain. Detailed below.
-        """
         return pulumi.get(self, "cluster_config")
 
     @cluster_config.setter
@@ -604,9 +453,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="cognitoOptions")
     def cognito_options(self) -> Optional[pulumi.Input['DomainCognitoOptionsArgs']]:
-        """
-        Configuration block for authenticating dashboard with Cognito. Detailed below.
-        """
         return pulumi.get(self, "cognito_options")
 
     @cognito_options.setter
@@ -616,9 +462,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="dashboardEndpoint")
     def dashboard_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Domain-specific endpoint for Dashboard without https scheme.
-        """
         return pulumi.get(self, "dashboard_endpoint")
 
     @dashboard_endpoint.setter
@@ -628,9 +471,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="dashboardEndpointV2")
     def dashboard_endpoint_v2(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
-        """
         return pulumi.get(self, "dashboard_endpoint_v2")
 
     @dashboard_endpoint_v2.setter
@@ -640,9 +480,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="domainEndpointOptions")
     def domain_endpoint_options(self) -> Optional[pulumi.Input['DomainDomainEndpointOptionsArgs']]:
-        """
-        Configuration block for domain endpoint HTTP(S) related options. Detailed below.
-        """
         return pulumi.get(self, "domain_endpoint_options")
 
     @domain_endpoint_options.setter
@@ -652,9 +489,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="domainEndpointV2HostedZoneId")
     def domain_endpoint_v2_hosted_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Dual stack hosted zone ID for the domain.
-        """
         return pulumi.get(self, "domain_endpoint_v2_hosted_zone_id")
 
     @domain_endpoint_v2_hosted_zone_id.setter
@@ -664,9 +498,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="domainId")
     def domain_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique identifier for the domain.
-        """
         return pulumi.get(self, "domain_id")
 
     @domain_id.setter
@@ -676,11 +507,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the domain.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -690,9 +516,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="ebsOptions")
     def ebs_options(self) -> Optional[pulumi.Input['DomainEbsOptionsArgs']]:
-        """
-        Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
-        """
         return pulumi.get(self, "ebs_options")
 
     @ebs_options.setter
@@ -702,9 +525,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="encryptAtRest")
     def encrypt_at_rest(self) -> Optional[pulumi.Input['DomainEncryptAtRestArgs']]:
-        """
-        Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
-        """
         return pulumi.get(self, "encrypt_at_rest")
 
     @encrypt_at_rest.setter
@@ -714,9 +534,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Domain-specific endpoint used to submit index, search, and data upload requests.
-        """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
@@ -726,9 +543,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="endpointV2")
     def endpoint_v2(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        V2 domain endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
-        """
         return pulumi.get(self, "endpoint_v2")
 
     @endpoint_v2.setter
@@ -738,11 +552,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
-        See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
-        Defaults to the lastest version of OpenSearch.
-        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -752,9 +561,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="identityCenterOptions")
     def identity_center_options(self) -> Optional[pulumi.Input['DomainIdentityCenterOptionsArgs']]:
-        """
-        Configuration block for enabling and managing IAM Identity Center integration within a domain. Detailed below.
-        """
         return pulumi.get(self, "identity_center_options")
 
     @identity_center_options.setter
@@ -764,9 +570,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
-        """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
@@ -776,9 +579,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="logPublishingOptions")
     def log_publishing_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainLogPublishingOptionArgs']]]]:
-        """
-        Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
-        """
         return pulumi.get(self, "log_publishing_options")
 
     @log_publishing_options.setter
@@ -788,9 +588,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="nodeToNodeEncryption")
     def node_to_node_encryption(self) -> Optional[pulumi.Input['DomainNodeToNodeEncryptionArgs']]:
-        """
-        Configuration block for node-to-node encryption options. Detailed below.
-        """
         return pulumi.get(self, "node_to_node_encryption")
 
     @node_to_node_encryption.setter
@@ -800,9 +597,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="offPeakWindowOptions")
     def off_peak_window_options(self) -> Optional[pulumi.Input['DomainOffPeakWindowOptionsArgs']]:
-        """
-        Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
-        """
         return pulumi.get(self, "off_peak_window_options")
 
     @off_peak_window_options.setter
@@ -812,9 +606,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -824,9 +615,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="snapshotOptions")
     def snapshot_options(self) -> Optional[pulumi.Input['DomainSnapshotOptionsArgs']]:
-        """
-        Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
-        """
         return pulumi.get(self, "snapshot_options")
 
     @snapshot_options.setter
@@ -836,9 +624,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="softwareUpdateOptions")
     def software_update_options(self) -> Optional[pulumi.Input['DomainSoftwareUpdateOptionsArgs']]:
-        """
-        Software update options for the domain. Detailed below.
-        """
         return pulumi.get(self, "software_update_options")
 
     @software_update_options.setter
@@ -848,9 +633,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -860,9 +642,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -872,9 +651,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="vpcOptions")
     def vpc_options(self) -> Optional[pulumi.Input['DomainVpcOptionsArgs']]:
-        """
-        Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
-        """
         return pulumi.get(self, "vpc_options")
 
     @vpc_options.setter
@@ -912,289 +688,9 @@ class Domain(pulumi.CustomResource):
                  vpc_options: Optional[pulumi.Input[Union['DomainVpcOptionsArgs', 'DomainVpcOptionsArgsDict']]] = None,
                  __props__=None):
         """
-        Manages an Amazon OpenSearch Domain.
-
-        ## Elasticsearch vs. OpenSearch
-
-        Amazon OpenSearch Service is the successor to Amazon Elasticsearch Service and supports OpenSearch and legacy Elasticsearch OSS (up to 7.10, the final open source version of the software).
-
-        OpenSearch Domain configurations are similar in many ways to Elasticsearch Domain configurations. However, there are important differences including these:
-
-        * OpenSearch has `engine_version` while Elasticsearch has `elasticsearch_version`
-        * Versions are specified differently - _e.g._, `Elasticsearch_7.10` with OpenSearch vs. `7.10` for Elasticsearch.
-        * `instance_type` argument values end in `search` for OpenSearch vs. `elasticsearch` for Elasticsearch (_e.g._, `t2.micro.search` vs. `t2.micro.elasticsearch`).
-        * The AWS-managed service-linked role for OpenSearch is called `AWSServiceRoleForAmazonOpenSearchService` instead of `AWSServiceRoleForAmazonElasticsearchService` for Elasticsearch.
-
-        There are also some potentially unexpected similarities in configurations:
-
-        * ARNs for both are prefaced with `arn:aws:es:`.
-        * Both OpenSearch and Elasticsearch use assume role policies that refer to the `Principal` `Service` as `es.amazonaws.com`.
-        * IAM policy actions, such as those you will find in `access_policies`, are prefaced with `es:` for both.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.opensearch.Domain("example",
-            domain_name="example",
-            engine_version="Elasticsearch_7.10",
-            cluster_config={
-                "instance_type": "r4.large.search",
-            },
-            tags={
-                "Domain": "TestDomain",
-            })
-        ```
-
-        ### Access Policy
-
-        > See also: `opensearch.DomainPolicy` resource
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        config = pulumi.Config()
-        domain = config.get("domain")
-        if domain is None:
-            domain = "tf-test"
-        current = aws.get_region()
-        current_get_caller_identity = aws.get_caller_identity()
-        example = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "*",
-                "identifiers": ["*"],
-            }],
-            "actions": ["es:*"],
-            "resources": [f"arn:aws:es:{current.region}:{current_get_caller_identity.account_id}:domain/{domain}/*"],
-            "conditions": [{
-                "test": "IpAddress",
-                "variable": "aws:SourceIp",
-                "values": ["66.193.100.22/32"],
-            }],
-        }])
-        example_domain = aws.opensearch.Domain("example",
-            domain_name=domain,
-            access_policies=example.json)
-        ```
-
-        ### Log publishing to CloudWatch Logs
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_log_group = aws.cloudwatch.LogGroup("example", name="example")
-        example = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["es.amazonaws.com"],
-            }],
-            "actions": [
-                "logs:PutLogEvents",
-                "logs:PutLogEventsBatch",
-                "logs:CreateLogStream",
-            ],
-            "resources": ["arn:aws:logs:*"],
-        }])
-        example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("example",
-            policy_name="example",
-            policy_document=example.json)
-        example_domain = aws.opensearch.Domain("example", log_publishing_options=[{
-            "cloudwatch_log_group_arn": example_log_group.arn,
-            "log_type": "INDEX_SLOW_LOGS",
-        }])
-        ```
-
-        ### VPC based OpenSearch
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        config = pulumi.Config()
-        vpc = config.require_object("vpc")
-        domain = config.get("domain")
-        if domain is None:
-            domain = "tf-test"
-        example = aws.ec2.get_vpc(tags={
-            "Name": vpc,
-        })
-        example_get_subnets = aws.ec2.get_subnets(filters=[{
-                "name": "vpc-id",
-                "values": [example.id],
-            }],
-            tags={
-                "Tier": "private",
-            })
-        current = aws.get_region()
-        current_get_caller_identity = aws.get_caller_identity()
-        example_security_group = aws.ec2.SecurityGroup("example",
-            name=f"{vpc}-opensearch-{domain}",
-            description="Managed by Pulumi",
-            vpc_id=example.id,
-            ingress=[{
-                "from_port": 443,
-                "to_port": 443,
-                "protocol": "tcp",
-                "cidr_blocks": [example.cidr_block],
-            }])
-        example_service_linked_role = aws.iam.ServiceLinkedRole("example", aws_service_name="opensearchservice.amazonaws.com")
-        example_get_policy_document = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "*",
-                "identifiers": ["*"],
-            }],
-            "actions": ["es:*"],
-            "resources": [f"arn:aws:es:{current.region}:{current_get_caller_identity.account_id}:domain/{domain}/*"],
-        }])
-        example_domain = aws.opensearch.Domain("example",
-            domain_name=domain,
-            engine_version="OpenSearch_1.0",
-            cluster_config={
-                "instance_type": "m4.large.search",
-                "zone_awareness_enabled": True,
-            },
-            vpc_options={
-                "subnet_ids": [
-                    example_get_subnets.ids[0],
-                    example_get_subnets.ids[1],
-                ],
-                "security_group_ids": [example_security_group.id],
-            },
-            advanced_options={
-                "rest.action.multi.allow_explicit_index": "true",
-            },
-            access_policies=example_get_policy_document.json,
-            tags={
-                "Domain": "TestDomain",
-            },
-            opts = pulumi.ResourceOptions(depends_on=[example_service_linked_role]))
-        ```
-
-        ### Enabling fine-grained access control on an existing domain
-
-        This example shows two configurations: one to create a domain without fine-grained access control and the second to modify the domain to enable fine-grained access control. For more information, see [Enabling fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html).
-
-        ### First apply
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.opensearch.Domain("example",
-            domain_name="ggkitty",
-            engine_version="Elasticsearch_7.1",
-            cluster_config={
-                "instance_type": "r5.large.search",
-            },
-            advanced_security_options={
-                "enabled": False,
-                "anonymous_auth_enabled": True,
-                "internal_user_database_enabled": True,
-                "master_user_options": {
-                    "master_user_name": "example",
-                    "master_user_password": "Barbarbarbar1!",
-                },
-            },
-            encrypt_at_rest={
-                "enabled": True,
-            },
-            domain_endpoint_options={
-                "enforce_https": True,
-                "tls_security_policy": "Policy-Min-TLS-1-2-2019-07",
-            },
-            node_to_node_encryption={
-                "enabled": True,
-            },
-            ebs_options={
-                "ebs_enabled": True,
-                "volume_size": 10,
-            })
-        ```
-
-        ### Second apply
-
-        Notice that the only change is `advanced_security_options.0.enabled` is now set to `true`.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.opensearch.Domain("example",
-            domain_name="ggkitty",
-            engine_version="Elasticsearch_7.1",
-            cluster_config={
-                "instance_type": "r5.large.search",
-            },
-            advanced_security_options={
-                "enabled": True,
-                "anonymous_auth_enabled": True,
-                "internal_user_database_enabled": True,
-                "master_user_options": {
-                    "master_user_name": "example",
-                    "master_user_password": "Barbarbarbar1!",
-                },
-            },
-            encrypt_at_rest={
-                "enabled": True,
-            },
-            domain_endpoint_options={
-                "enforce_https": True,
-                "tls_security_policy": "Policy-Min-TLS-1-2-2019-07",
-            },
-            node_to_node_encryption={
-                "enabled": True,
-            },
-            ebs_options={
-                "ebs_enabled": True,
-                "volume_size": 10,
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import OpenSearch domains using the `domain_name`. For example:
-
-        ```sh
-        $ pulumi import aws:opensearch/domain:Domain example domain_name
-        ```
-
+        Create a Domain resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_policies: IAM policy document specifying the access policies for the domain.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] advanced_options: Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
-        :param pulumi.Input[Union['DomainAdvancedSecurityOptionsArgs', 'DomainAdvancedSecurityOptionsArgsDict']] advanced_security_options: Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
-        :param pulumi.Input[Union['DomainAimlOptionsArgs', 'DomainAimlOptionsArgsDict']] aiml_options: Configuration block for parameters required to enable all machine learning features. Detailed below.
-        :param pulumi.Input[Union['DomainAutoTuneOptionsArgs', 'DomainAutoTuneOptionsArgsDict']] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
-        :param pulumi.Input[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict']] cluster_config: Configuration block for the cluster of the domain. Detailed below.
-        :param pulumi.Input[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict']] cognito_options: Configuration block for authenticating dashboard with Cognito. Detailed below.
-        :param pulumi.Input[Union['DomainDomainEndpointOptionsArgs', 'DomainDomainEndpointOptionsArgsDict']] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
-        :param pulumi.Input[_builtins.str] domain_name: Name of the domain.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict']] ebs_options: Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
-        :param pulumi.Input[Union['DomainEncryptAtRestArgs', 'DomainEncryptAtRestArgsDict']] encrypt_at_rest: Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
-        :param pulumi.Input[_builtins.str] engine_version: Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
-               See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
-               Defaults to the lastest version of OpenSearch.
-        :param pulumi.Input[Union['DomainIdentityCenterOptionsArgs', 'DomainIdentityCenterOptionsArgsDict']] identity_center_options: Configuration block for enabling and managing IAM Identity Center integration within a domain. Detailed below.
-        :param pulumi.Input[_builtins.str] ip_address_type: The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict']]]] log_publishing_options: Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
-        :param pulumi.Input[Union['DomainNodeToNodeEncryptionArgs', 'DomainNodeToNodeEncryptionArgsDict']] node_to_node_encryption: Configuration block for node-to-node encryption options. Detailed below.
-        :param pulumi.Input[Union['DomainOffPeakWindowOptionsArgs', 'DomainOffPeakWindowOptionsArgsDict']] off_peak_window_options: Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict']] snapshot_options: Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
-        :param pulumi.Input[Union['DomainSoftwareUpdateOptionsArgs', 'DomainSoftwareUpdateOptionsArgsDict']] software_update_options: Software update options for the domain. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['DomainVpcOptionsArgs', 'DomainVpcOptionsArgsDict']] vpc_options: Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
         """
         ...
     @overload
@@ -1203,261 +699,7 @@ class Domain(pulumi.CustomResource):
                  args: Optional[DomainArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Amazon OpenSearch Domain.
-
-        ## Elasticsearch vs. OpenSearch
-
-        Amazon OpenSearch Service is the successor to Amazon Elasticsearch Service and supports OpenSearch and legacy Elasticsearch OSS (up to 7.10, the final open source version of the software).
-
-        OpenSearch Domain configurations are similar in many ways to Elasticsearch Domain configurations. However, there are important differences including these:
-
-        * OpenSearch has `engine_version` while Elasticsearch has `elasticsearch_version`
-        * Versions are specified differently - _e.g._, `Elasticsearch_7.10` with OpenSearch vs. `7.10` for Elasticsearch.
-        * `instance_type` argument values end in `search` for OpenSearch vs. `elasticsearch` for Elasticsearch (_e.g._, `t2.micro.search` vs. `t2.micro.elasticsearch`).
-        * The AWS-managed service-linked role for OpenSearch is called `AWSServiceRoleForAmazonOpenSearchService` instead of `AWSServiceRoleForAmazonElasticsearchService` for Elasticsearch.
-
-        There are also some potentially unexpected similarities in configurations:
-
-        * ARNs for both are prefaced with `arn:aws:es:`.
-        * Both OpenSearch and Elasticsearch use assume role policies that refer to the `Principal` `Service` as `es.amazonaws.com`.
-        * IAM policy actions, such as those you will find in `access_policies`, are prefaced with `es:` for both.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.opensearch.Domain("example",
-            domain_name="example",
-            engine_version="Elasticsearch_7.10",
-            cluster_config={
-                "instance_type": "r4.large.search",
-            },
-            tags={
-                "Domain": "TestDomain",
-            })
-        ```
-
-        ### Access Policy
-
-        > See also: `opensearch.DomainPolicy` resource
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        config = pulumi.Config()
-        domain = config.get("domain")
-        if domain is None:
-            domain = "tf-test"
-        current = aws.get_region()
-        current_get_caller_identity = aws.get_caller_identity()
-        example = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "*",
-                "identifiers": ["*"],
-            }],
-            "actions": ["es:*"],
-            "resources": [f"arn:aws:es:{current.region}:{current_get_caller_identity.account_id}:domain/{domain}/*"],
-            "conditions": [{
-                "test": "IpAddress",
-                "variable": "aws:SourceIp",
-                "values": ["66.193.100.22/32"],
-            }],
-        }])
-        example_domain = aws.opensearch.Domain("example",
-            domain_name=domain,
-            access_policies=example.json)
-        ```
-
-        ### Log publishing to CloudWatch Logs
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_log_group = aws.cloudwatch.LogGroup("example", name="example")
-        example = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["es.amazonaws.com"],
-            }],
-            "actions": [
-                "logs:PutLogEvents",
-                "logs:PutLogEventsBatch",
-                "logs:CreateLogStream",
-            ],
-            "resources": ["arn:aws:logs:*"],
-        }])
-        example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("example",
-            policy_name="example",
-            policy_document=example.json)
-        example_domain = aws.opensearch.Domain("example", log_publishing_options=[{
-            "cloudwatch_log_group_arn": example_log_group.arn,
-            "log_type": "INDEX_SLOW_LOGS",
-        }])
-        ```
-
-        ### VPC based OpenSearch
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        config = pulumi.Config()
-        vpc = config.require_object("vpc")
-        domain = config.get("domain")
-        if domain is None:
-            domain = "tf-test"
-        example = aws.ec2.get_vpc(tags={
-            "Name": vpc,
-        })
-        example_get_subnets = aws.ec2.get_subnets(filters=[{
-                "name": "vpc-id",
-                "values": [example.id],
-            }],
-            tags={
-                "Tier": "private",
-            })
-        current = aws.get_region()
-        current_get_caller_identity = aws.get_caller_identity()
-        example_security_group = aws.ec2.SecurityGroup("example",
-            name=f"{vpc}-opensearch-{domain}",
-            description="Managed by Pulumi",
-            vpc_id=example.id,
-            ingress=[{
-                "from_port": 443,
-                "to_port": 443,
-                "protocol": "tcp",
-                "cidr_blocks": [example.cidr_block],
-            }])
-        example_service_linked_role = aws.iam.ServiceLinkedRole("example", aws_service_name="opensearchservice.amazonaws.com")
-        example_get_policy_document = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "*",
-                "identifiers": ["*"],
-            }],
-            "actions": ["es:*"],
-            "resources": [f"arn:aws:es:{current.region}:{current_get_caller_identity.account_id}:domain/{domain}/*"],
-        }])
-        example_domain = aws.opensearch.Domain("example",
-            domain_name=domain,
-            engine_version="OpenSearch_1.0",
-            cluster_config={
-                "instance_type": "m4.large.search",
-                "zone_awareness_enabled": True,
-            },
-            vpc_options={
-                "subnet_ids": [
-                    example_get_subnets.ids[0],
-                    example_get_subnets.ids[1],
-                ],
-                "security_group_ids": [example_security_group.id],
-            },
-            advanced_options={
-                "rest.action.multi.allow_explicit_index": "true",
-            },
-            access_policies=example_get_policy_document.json,
-            tags={
-                "Domain": "TestDomain",
-            },
-            opts = pulumi.ResourceOptions(depends_on=[example_service_linked_role]))
-        ```
-
-        ### Enabling fine-grained access control on an existing domain
-
-        This example shows two configurations: one to create a domain without fine-grained access control and the second to modify the domain to enable fine-grained access control. For more information, see [Enabling fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html).
-
-        ### First apply
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.opensearch.Domain("example",
-            domain_name="ggkitty",
-            engine_version="Elasticsearch_7.1",
-            cluster_config={
-                "instance_type": "r5.large.search",
-            },
-            advanced_security_options={
-                "enabled": False,
-                "anonymous_auth_enabled": True,
-                "internal_user_database_enabled": True,
-                "master_user_options": {
-                    "master_user_name": "example",
-                    "master_user_password": "Barbarbarbar1!",
-                },
-            },
-            encrypt_at_rest={
-                "enabled": True,
-            },
-            domain_endpoint_options={
-                "enforce_https": True,
-                "tls_security_policy": "Policy-Min-TLS-1-2-2019-07",
-            },
-            node_to_node_encryption={
-                "enabled": True,
-            },
-            ebs_options={
-                "ebs_enabled": True,
-                "volume_size": 10,
-            })
-        ```
-
-        ### Second apply
-
-        Notice that the only change is `advanced_security_options.0.enabled` is now set to `true`.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.opensearch.Domain("example",
-            domain_name="ggkitty",
-            engine_version="Elasticsearch_7.1",
-            cluster_config={
-                "instance_type": "r5.large.search",
-            },
-            advanced_security_options={
-                "enabled": True,
-                "anonymous_auth_enabled": True,
-                "internal_user_database_enabled": True,
-                "master_user_options": {
-                    "master_user_name": "example",
-                    "master_user_password": "Barbarbarbar1!",
-                },
-            },
-            encrypt_at_rest={
-                "enabled": True,
-            },
-            domain_endpoint_options={
-                "enforce_https": True,
-                "tls_security_policy": "Policy-Min-TLS-1-2-2019-07",
-            },
-            node_to_node_encryption={
-                "enabled": True,
-            },
-            ebs_options={
-                "ebs_enabled": True,
-                "volume_size": 10,
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import OpenSearch domains using the `domain_name`. For example:
-
-        ```sh
-        $ pulumi import aws:opensearch/domain:Domain example domain_name
-        ```
-
+        Create a Domain resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1581,40 +823,6 @@ class Domain(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_policies: IAM policy document specifying the access policies for the domain.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] advanced_options: Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
-        :param pulumi.Input[Union['DomainAdvancedSecurityOptionsArgs', 'DomainAdvancedSecurityOptionsArgsDict']] advanced_security_options: Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
-        :param pulumi.Input[Union['DomainAimlOptionsArgs', 'DomainAimlOptionsArgsDict']] aiml_options: Configuration block for parameters required to enable all machine learning features. Detailed below.
-        :param pulumi.Input[_builtins.str] arn: ARN of the domain.
-        :param pulumi.Input[Union['DomainAutoTuneOptionsArgs', 'DomainAutoTuneOptionsArgsDict']] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
-        :param pulumi.Input[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict']] cluster_config: Configuration block for the cluster of the domain. Detailed below.
-        :param pulumi.Input[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict']] cognito_options: Configuration block for authenticating dashboard with Cognito. Detailed below.
-        :param pulumi.Input[_builtins.str] dashboard_endpoint: Domain-specific endpoint for Dashboard without https scheme.
-        :param pulumi.Input[_builtins.str] dashboard_endpoint_v2: V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
-        :param pulumi.Input[Union['DomainDomainEndpointOptionsArgs', 'DomainDomainEndpointOptionsArgsDict']] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
-        :param pulumi.Input[_builtins.str] domain_endpoint_v2_hosted_zone_id: Dual stack hosted zone ID for the domain.
-        :param pulumi.Input[_builtins.str] domain_id: Unique identifier for the domain.
-        :param pulumi.Input[_builtins.str] domain_name: Name of the domain.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict']] ebs_options: Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
-        :param pulumi.Input[Union['DomainEncryptAtRestArgs', 'DomainEncryptAtRestArgsDict']] encrypt_at_rest: Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
-        :param pulumi.Input[_builtins.str] endpoint: Domain-specific endpoint used to submit index, search, and data upload requests.
-        :param pulumi.Input[_builtins.str] endpoint_v2: V2 domain endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
-        :param pulumi.Input[_builtins.str] engine_version: Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
-               See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
-               Defaults to the lastest version of OpenSearch.
-        :param pulumi.Input[Union['DomainIdentityCenterOptionsArgs', 'DomainIdentityCenterOptionsArgsDict']] identity_center_options: Configuration block for enabling and managing IAM Identity Center integration within a domain. Detailed below.
-        :param pulumi.Input[_builtins.str] ip_address_type: The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict']]]] log_publishing_options: Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
-        :param pulumi.Input[Union['DomainNodeToNodeEncryptionArgs', 'DomainNodeToNodeEncryptionArgsDict']] node_to_node_encryption: Configuration block for node-to-node encryption options. Detailed below.
-        :param pulumi.Input[Union['DomainOffPeakWindowOptionsArgs', 'DomainOffPeakWindowOptionsArgsDict']] off_peak_window_options: Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict']] snapshot_options: Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
-        :param pulumi.Input[Union['DomainSoftwareUpdateOptionsArgs', 'DomainSoftwareUpdateOptionsArgsDict']] software_update_options: Software update options for the domain. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['DomainVpcOptionsArgs', 'DomainVpcOptionsArgsDict']] vpc_options: Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1655,244 +863,150 @@ class Domain(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accessPolicies")
     def access_policies(self) -> pulumi.Output[_builtins.str]:
-        """
-        IAM policy document specifying the access policies for the domain.
-        """
         return pulumi.get(self, "access_policies")
 
     @_builtins.property
     @pulumi.getter(name="advancedOptions")
     def advanced_options(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
-        """
         return pulumi.get(self, "advanced_options")
 
     @_builtins.property
     @pulumi.getter(name="advancedSecurityOptions")
     def advanced_security_options(self) -> pulumi.Output['outputs.DomainAdvancedSecurityOptions']:
-        """
-        Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
-        """
         return pulumi.get(self, "advanced_security_options")
 
     @_builtins.property
     @pulumi.getter(name="aimlOptions")
     def aiml_options(self) -> pulumi.Output['outputs.DomainAimlOptions']:
-        """
-        Configuration block for parameters required to enable all machine learning features. Detailed below.
-        """
         return pulumi.get(self, "aiml_options")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the domain.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="autoTuneOptions")
     def auto_tune_options(self) -> pulumi.Output['outputs.DomainAutoTuneOptions']:
-        """
-        Configuration block for the Auto-Tune options of the domain. Detailed below.
-        """
         return pulumi.get(self, "auto_tune_options")
 
     @_builtins.property
     @pulumi.getter(name="clusterConfig")
     def cluster_config(self) -> pulumi.Output['outputs.DomainClusterConfig']:
-        """
-        Configuration block for the cluster of the domain. Detailed below.
-        """
         return pulumi.get(self, "cluster_config")
 
     @_builtins.property
     @pulumi.getter(name="cognitoOptions")
     def cognito_options(self) -> pulumi.Output[Optional['outputs.DomainCognitoOptions']]:
-        """
-        Configuration block for authenticating dashboard with Cognito. Detailed below.
-        """
         return pulumi.get(self, "cognito_options")
 
     @_builtins.property
     @pulumi.getter(name="dashboardEndpoint")
     def dashboard_endpoint(self) -> pulumi.Output[_builtins.str]:
-        """
-        Domain-specific endpoint for Dashboard without https scheme.
-        """
         return pulumi.get(self, "dashboard_endpoint")
 
     @_builtins.property
     @pulumi.getter(name="dashboardEndpointV2")
     def dashboard_endpoint_v2(self) -> pulumi.Output[_builtins.str]:
-        """
-        V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
-        """
         return pulumi.get(self, "dashboard_endpoint_v2")
 
     @_builtins.property
     @pulumi.getter(name="domainEndpointOptions")
     def domain_endpoint_options(self) -> pulumi.Output['outputs.DomainDomainEndpointOptions']:
-        """
-        Configuration block for domain endpoint HTTP(S) related options. Detailed below.
-        """
         return pulumi.get(self, "domain_endpoint_options")
 
     @_builtins.property
     @pulumi.getter(name="domainEndpointV2HostedZoneId")
     def domain_endpoint_v2_hosted_zone_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Dual stack hosted zone ID for the domain.
-        """
         return pulumi.get(self, "domain_endpoint_v2_hosted_zone_id")
 
     @_builtins.property
     @pulumi.getter(name="domainId")
     def domain_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique identifier for the domain.
-        """
         return pulumi.get(self, "domain_id")
 
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the domain.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "domain_name")
 
     @_builtins.property
     @pulumi.getter(name="ebsOptions")
     def ebs_options(self) -> pulumi.Output['outputs.DomainEbsOptions']:
-        """
-        Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
-        """
         return pulumi.get(self, "ebs_options")
 
     @_builtins.property
     @pulumi.getter(name="encryptAtRest")
     def encrypt_at_rest(self) -> pulumi.Output['outputs.DomainEncryptAtRest']:
-        """
-        Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
-        """
         return pulumi.get(self, "encrypt_at_rest")
 
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[_builtins.str]:
-        """
-        Domain-specific endpoint used to submit index, search, and data upload requests.
-        """
         return pulumi.get(self, "endpoint")
 
     @_builtins.property
     @pulumi.getter(name="endpointV2")
     def endpoint_v2(self) -> pulumi.Output[_builtins.str]:
-        """
-        V2 domain endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
-        """
         return pulumi.get(self, "endpoint_v2")
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
-        See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
-        Defaults to the lastest version of OpenSearch.
-        """
         return pulumi.get(self, "engine_version")
 
     @_builtins.property
     @pulumi.getter(name="identityCenterOptions")
     def identity_center_options(self) -> pulumi.Output[Optional['outputs.DomainIdentityCenterOptions']]:
-        """
-        Configuration block for enabling and managing IAM Identity Center integration within a domain. Detailed below.
-        """
         return pulumi.get(self, "identity_center_options")
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
-        """
         return pulumi.get(self, "ip_address_type")
 
     @_builtins.property
     @pulumi.getter(name="logPublishingOptions")
     def log_publishing_options(self) -> pulumi.Output[Optional[Sequence['outputs.DomainLogPublishingOption']]]:
-        """
-        Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
-        """
         return pulumi.get(self, "log_publishing_options")
 
     @_builtins.property
     @pulumi.getter(name="nodeToNodeEncryption")
     def node_to_node_encryption(self) -> pulumi.Output['outputs.DomainNodeToNodeEncryption']:
-        """
-        Configuration block for node-to-node encryption options. Detailed below.
-        """
         return pulumi.get(self, "node_to_node_encryption")
 
     @_builtins.property
     @pulumi.getter(name="offPeakWindowOptions")
     def off_peak_window_options(self) -> pulumi.Output['outputs.DomainOffPeakWindowOptions']:
-        """
-        Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
-        """
         return pulumi.get(self, "off_peak_window_options")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="snapshotOptions")
     def snapshot_options(self) -> pulumi.Output[Optional['outputs.DomainSnapshotOptions']]:
-        """
-        Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
-        """
         return pulumi.get(self, "snapshot_options")
 
     @_builtins.property
     @pulumi.getter(name="softwareUpdateOptions")
     def software_update_options(self) -> pulumi.Output['outputs.DomainSoftwareUpdateOptions']:
-        """
-        Software update options for the domain. Detailed below.
-        """
         return pulumi.get(self, "software_update_options")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="vpcOptions")
     def vpc_options(self) -> pulumi.Output[Optional['outputs.DomainVpcOptions']]:
-        """
-        Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
-        """
         return pulumi.get(self, "vpc_options")
 

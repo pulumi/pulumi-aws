@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ServerlessClusterClientAuthenticationSasl {
-    /**
-     * @return Details for client authentication using IAM. See below.
-     * 
-     */
     private ServerlessClusterClientAuthenticationSaslIam iam;
 
     private ServerlessClusterClientAuthenticationSasl() {}
-    /**
-     * @return Details for client authentication using IAM. See below.
-     * 
-     */
     public ServerlessClusterClientAuthenticationSaslIam iam() {
         return this.iam;
     }

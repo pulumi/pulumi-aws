@@ -4,33 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.organizations.getOrganization({});
- * const exampleOrganizationalUnit = new aws.organizations.OrganizationalUnit("example", {
- *     name: "ExampleOU",
- *     parentId: example.then(example => example.roots?.[0]?.id),
- * });
- * const exampleTag = new aws.organizations.Tag("example", {
- *     resourceId: exampleOrganizationalUnit.id,
- *     key: "ExampleKey",
- *     value: "ExampleValue",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_organizations_tag` using the Organizations resource identifier and key, separated by a comma (`,`). For example:
- *
- * ```sh
- * $ pulumi import aws:organizations/tag:Tag example ou-1234567,ExampleKey
- * ```
- */
 export class Tag extends pulumi.CustomResource {
     /**
      * Get an existing Tag resource's state with the given name, ID, and optional extra
@@ -59,17 +32,8 @@ export class Tag extends pulumi.CustomResource {
         return obj['__pulumiType'] === Tag.__pulumiType;
     }
 
-    /**
-     * Tag name.
-     */
     declare public readonly key: pulumi.Output<string>;
-    /**
-     * Id of the Organizations resource to tag.
-     */
     declare public readonly resourceId: pulumi.Output<string>;
-    /**
-     * Tag value.
-     */
     declare public readonly value: pulumi.Output<string>;
 
     /**
@@ -112,17 +76,8 @@ export class Tag extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Tag resources.
  */
 export interface TagState {
-    /**
-     * Tag name.
-     */
     key?: pulumi.Input<string>;
-    /**
-     * Id of the Organizations resource to tag.
-     */
     resourceId?: pulumi.Input<string>;
-    /**
-     * Tag value.
-     */
     value?: pulumi.Input<string>;
 }
 
@@ -130,16 +85,7 @@ export interface TagState {
  * The set of arguments for constructing a Tag resource.
  */
 export interface TagArgs {
-    /**
-     * Tag name.
-     */
     key: pulumi.Input<string>;
-    /**
-     * Id of the Organizations resource to tag.
-     */
     resourceId: pulumi.Input<string>;
-    /**
-     * Tag value.
-     */
     value: pulumi.Input<string>;
 }

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.CodeCatalyst.Inputs
 
     public sealed class DevEnvironmentIdesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the IDE. Valid values include Cloud9, IntelliJ, PyCharm, GoLand, and VSCode.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// A link to the IDE runtime image. This parameter is not required if the name is VSCode. Values of the runtime can be for example public.ecr.aws/jetbrains/py,public.ecr.aws/jetbrains/go
-        /// </summary>
         [Input("runtime")]
         public Input<string>? Runtime { get; set; }
 

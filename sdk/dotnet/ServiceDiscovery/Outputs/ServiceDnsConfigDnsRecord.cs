@@ -13,13 +13,7 @@ namespace Pulumi.Aws.ServiceDiscovery.Outputs
     [OutputType]
     public sealed class ServiceDnsConfigDnsRecord
     {
-        /// <summary>
-        /// The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
-        /// </summary>
         public readonly int Ttl;
-        /// <summary>
-        /// The type of the resource, which indicates the value that Amazon Route 53 returns in response to DNS queries. Valid Values: A, AAAA, SRV, CNAME
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

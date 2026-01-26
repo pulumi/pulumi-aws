@@ -226,17 +226,8 @@ class DrtAccessRoleArnAssociationTimeoutsArgs:
 if not MYPY:
     class ProactiveEngagementEmergencyContactArgsDict(TypedDict):
         email_address: pulumi.Input[_builtins.str]
-        """
-        A valid email address that will be used for this contact.
-        """
         contact_notes: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Additional notes regarding the contact.
-        """
         phone_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A phone number, starting with `+` and up to 15 digits that will be used for this contact.
-        """
 elif False:
     ProactiveEngagementEmergencyContactArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -246,11 +237,6 @@ class ProactiveEngagementEmergencyContactArgs:
                  email_address: pulumi.Input[_builtins.str],
                  contact_notes: Optional[pulumi.Input[_builtins.str]] = None,
                  phone_number: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] email_address: A valid email address that will be used for this contact.
-        :param pulumi.Input[_builtins.str] contact_notes: Additional notes regarding the contact.
-        :param pulumi.Input[_builtins.str] phone_number: A phone number, starting with `+` and up to 15 digits that will be used for this contact.
-        """
         pulumi.set(__self__, "email_address", email_address)
         if contact_notes is not None:
             pulumi.set(__self__, "contact_notes", contact_notes)
@@ -260,9 +246,6 @@ class ProactiveEngagementEmergencyContactArgs:
     @_builtins.property
     @pulumi.getter(name="emailAddress")
     def email_address(self) -> pulumi.Input[_builtins.str]:
-        """
-        A valid email address that will be used for this contact.
-        """
         return pulumi.get(self, "email_address")
 
     @email_address.setter
@@ -272,9 +255,6 @@ class ProactiveEngagementEmergencyContactArgs:
     @_builtins.property
     @pulumi.getter(name="contactNotes")
     def contact_notes(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Additional notes regarding the contact.
-        """
         return pulumi.get(self, "contact_notes")
 
     @contact_notes.setter
@@ -284,9 +264,6 @@ class ProactiveEngagementEmergencyContactArgs:
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
     def phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A phone number, starting with `+` and up to 15 digits that will be used for this contact.
-        """
         return pulumi.get(self, "phone_number")
 
     @phone_number.setter

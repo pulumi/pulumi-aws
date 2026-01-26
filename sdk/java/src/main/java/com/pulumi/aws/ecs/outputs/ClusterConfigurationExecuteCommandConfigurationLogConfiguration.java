@@ -12,65 +12,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterConfigurationExecuteCommandConfigurationLogConfiguration {
-    /**
-     * @return Whether to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
-     * 
-     */
     private @Nullable Boolean cloudWatchEncryptionEnabled;
-    /**
-     * @return The name of the CloudWatch log group to send logs to.
-     * 
-     */
     private @Nullable String cloudWatchLogGroupName;
-    /**
-     * @return Whether to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
-     * 
-     */
     private @Nullable Boolean s3BucketEncryptionEnabled;
-    /**
-     * @return Name of the S3 bucket to send logs to.
-     * 
-     */
     private @Nullable String s3BucketName;
-    /**
-     * @return Optional folder in the S3 bucket to place logs in.
-     * 
-     */
     private @Nullable String s3KeyPrefix;
 
     private ClusterConfigurationExecuteCommandConfigurationLogConfiguration() {}
-    /**
-     * @return Whether to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
-     * 
-     */
     public Optional<Boolean> cloudWatchEncryptionEnabled() {
         return Optional.ofNullable(this.cloudWatchEncryptionEnabled);
     }
-    /**
-     * @return The name of the CloudWatch log group to send logs to.
-     * 
-     */
     public Optional<String> cloudWatchLogGroupName() {
         return Optional.ofNullable(this.cloudWatchLogGroupName);
     }
-    /**
-     * @return Whether to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
-     * 
-     */
     public Optional<Boolean> s3BucketEncryptionEnabled() {
         return Optional.ofNullable(this.s3BucketEncryptionEnabled);
     }
-    /**
-     * @return Name of the S3 bucket to send logs to.
-     * 
-     */
     public Optional<String> s3BucketName() {
         return Optional.ofNullable(this.s3BucketName);
     }
-    /**
-     * @return Optional folder in the S3 bucket to place logs in.
-     * 
-     */
     public Optional<String> s3KeyPrefix() {
         return Optional.ofNullable(this.s3KeyPrefix);
     }

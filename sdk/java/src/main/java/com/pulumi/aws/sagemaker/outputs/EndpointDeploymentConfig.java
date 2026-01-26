@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EndpointDeploymentConfig {
-    /**
-     * @return Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
-     * 
-     */
     private @Nullable EndpointDeploymentConfigAutoRollbackConfiguration autoRollbackConfiguration;
-    /**
-     * @return Update policy for a blue/green deployment. If this update policy is specified, SageMaker AI creates a new fleet during the deployment while maintaining the old fleet. SageMaker AI flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker AI uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
-     * 
-     */
     private @Nullable EndpointDeploymentConfigBlueGreenUpdatePolicy blueGreenUpdatePolicy;
-    /**
-     * @return Specifies a rolling deployment strategy for updating a SageMaker AI endpoint. See Rolling Update Policy.
-     * 
-     */
     private @Nullable EndpointDeploymentConfigRollingUpdatePolicy rollingUpdatePolicy;
 
     private EndpointDeploymentConfig() {}
-    /**
-     * @return Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
-     * 
-     */
     public Optional<EndpointDeploymentConfigAutoRollbackConfiguration> autoRollbackConfiguration() {
         return Optional.ofNullable(this.autoRollbackConfiguration);
     }
-    /**
-     * @return Update policy for a blue/green deployment. If this update policy is specified, SageMaker AI creates a new fleet during the deployment while maintaining the old fleet. SageMaker AI flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker AI uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
-     * 
-     */
     public Optional<EndpointDeploymentConfigBlueGreenUpdatePolicy> blueGreenUpdatePolicy() {
         return Optional.ofNullable(this.blueGreenUpdatePolicy);
     }
-    /**
-     * @return Specifies a rolling deployment strategy for updating a SageMaker AI endpoint. See Rolling Update Policy.
-     * 
-     */
     public Optional<EndpointDeploymentConfigRollingUpdatePolicy> rollingUpdatePolicy() {
         return Optional.ofNullable(this.rollingUpdatePolicy);
     }

@@ -19,81 +19,37 @@ public final class LogDeliveryConfigurationLogConfigurationArgs extends com.pulu
 
     public static final LogDeliveryConfigurationLogConfigurationArgs Empty = new LogDeliveryConfigurationLogConfigurationArgs();
 
-    /**
-     * Configuration for CloudWatch Logs delivery. See CloudWatch Logs Configuration below.
-     * 
-     */
     @Import(name="cloudWatchLogsConfiguration")
     private @Nullable Output<LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs> cloudWatchLogsConfiguration;
 
-    /**
-     * @return Configuration for CloudWatch Logs delivery. See CloudWatch Logs Configuration below.
-     * 
-     */
     public Optional<Output<LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs>> cloudWatchLogsConfiguration() {
         return Optional.ofNullable(this.cloudWatchLogsConfiguration);
     }
 
-    /**
-     * The event source to configure logging for. Valid values are `userNotification` and `userAuthEvents`.
-     * 
-     */
     @Import(name="eventSource", required=true)
     private Output<String> eventSource;
 
-    /**
-     * @return The event source to configure logging for. Valid values are `userNotification` and `userAuthEvents`.
-     * 
-     */
     public Output<String> eventSource() {
         return this.eventSource;
     }
 
-    /**
-     * Configuration for Kinesis Data Firehose delivery. See Firehose Configuration below.
-     * 
-     */
     @Import(name="firehoseConfiguration")
     private @Nullable Output<LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs> firehoseConfiguration;
 
-    /**
-     * @return Configuration for Kinesis Data Firehose delivery. See Firehose Configuration below.
-     * 
-     */
     public Optional<Output<LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs>> firehoseConfiguration() {
         return Optional.ofNullable(this.firehoseConfiguration);
     }
 
-    /**
-     * The log level to set for the event source. Valid values are `ERROR` and `INFO`.
-     * 
-     */
     @Import(name="logLevel", required=true)
     private Output<String> logLevel;
 
-    /**
-     * @return The log level to set for the event source. Valid values are `ERROR` and `INFO`.
-     * 
-     */
     public Output<String> logLevel() {
         return this.logLevel;
     }
 
-    /**
-     * Configuration for S3 delivery. See S3 Configuration below.
-     * 
-     * &gt; **Note:** At least one destination configuration (`cloudWatchLogsConfiguration`, `firehoseConfiguration`, or `s3Configuration`) must be specified for each log configuration.
-     * 
-     */
     @Import(name="s3Configuration")
     private @Nullable Output<LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs> s3Configuration;
 
-    /**
-     * @return Configuration for S3 delivery. See S3 Configuration below.
-     * 
-     * &gt; **Note:** At least one destination configuration (`cloudWatchLogsConfiguration`, `firehoseConfiguration`, or `s3Configuration`) must be specified for each log configuration.
-     * 
-     */
     public Optional<Output<LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs>> s3Configuration() {
         return Optional.ofNullable(this.s3Configuration);
     }
@@ -126,111 +82,47 @@ public final class LogDeliveryConfigurationLogConfigurationArgs extends com.pulu
             $ = new LogDeliveryConfigurationLogConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cloudWatchLogsConfiguration Configuration for CloudWatch Logs delivery. See CloudWatch Logs Configuration below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudWatchLogsConfiguration(@Nullable Output<LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs> cloudWatchLogsConfiguration) {
             $.cloudWatchLogsConfiguration = cloudWatchLogsConfiguration;
             return this;
         }
 
-        /**
-         * @param cloudWatchLogsConfiguration Configuration for CloudWatch Logs delivery. See CloudWatch Logs Configuration below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudWatchLogsConfiguration(LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs cloudWatchLogsConfiguration) {
             return cloudWatchLogsConfiguration(Output.of(cloudWatchLogsConfiguration));
         }
 
-        /**
-         * @param eventSource The event source to configure logging for. Valid values are `userNotification` and `userAuthEvents`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventSource(Output<String> eventSource) {
             $.eventSource = eventSource;
             return this;
         }
 
-        /**
-         * @param eventSource The event source to configure logging for. Valid values are `userNotification` and `userAuthEvents`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventSource(String eventSource) {
             return eventSource(Output.of(eventSource));
         }
 
-        /**
-         * @param firehoseConfiguration Configuration for Kinesis Data Firehose delivery. See Firehose Configuration below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firehoseConfiguration(@Nullable Output<LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs> firehoseConfiguration) {
             $.firehoseConfiguration = firehoseConfiguration;
             return this;
         }
 
-        /**
-         * @param firehoseConfiguration Configuration for Kinesis Data Firehose delivery. See Firehose Configuration below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firehoseConfiguration(LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs firehoseConfiguration) {
             return firehoseConfiguration(Output.of(firehoseConfiguration));
         }
 
-        /**
-         * @param logLevel The log level to set for the event source. Valid values are `ERROR` and `INFO`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logLevel(Output<String> logLevel) {
             $.logLevel = logLevel;
             return this;
         }
 
-        /**
-         * @param logLevel The log level to set for the event source. Valid values are `ERROR` and `INFO`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logLevel(String logLevel) {
             return logLevel(Output.of(logLevel));
         }
 
-        /**
-         * @param s3Configuration Configuration for S3 delivery. See S3 Configuration below.
-         * 
-         * &gt; **Note:** At least one destination configuration (`cloudWatchLogsConfiguration`, `firehoseConfiguration`, or `s3Configuration`) must be specified for each log configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Configuration(@Nullable Output<LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs> s3Configuration) {
             $.s3Configuration = s3Configuration;
             return this;
         }
 
-        /**
-         * @param s3Configuration Configuration for S3 delivery. See S3 Configuration below.
-         * 
-         * &gt; **Note:** At least one destination configuration (`cloudWatchLogsConfiguration`, `firehoseConfiguration`, or `s3Configuration`) must be specified for each log configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Configuration(LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs s3Configuration) {
             return s3Configuration(Output.of(s3Configuration));
         }

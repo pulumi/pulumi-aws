@@ -11,108 +11,12 @@ namespace Pulumi.Aws.Organizations
 {
     public static class GetPoliciesForTarget
     {
-        /// <summary>
-        /// Data source for managing an AWS Organizations Policies For Target.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// using Std = Pulumi.Std;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Organizations.GetOrganization.Invoke();
-        /// 
-        ///     var exampleGetPoliciesForTarget = Aws.Organizations.GetPoliciesForTarget.Invoke(new()
-        ///     {
-        ///         TargetId = example.Apply(getOrganizationResult =&gt; getOrganizationResult.Roots[0]?.Id),
-        ///         Filter = "SERVICE_CONTROL_POLICY",
-        ///     });
-        /// 
-        ///     var exampleGetPolicy = Std.Toset.Invoke(new()
-        ///     {
-        ///         Input = exampleGetPoliciesForTarget.Apply(getPoliciesForTargetResult =&gt; getPoliciesForTargetResult.Ids),
-        ///     }).Apply(invoke =&gt; );
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetPoliciesForTargetResult> InvokeAsync(GetPoliciesForTargetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPoliciesForTargetResult>("aws:organizations/getPoliciesForTarget:getPoliciesForTarget", args ?? new GetPoliciesForTargetArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Organizations Policies For Target.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// using Std = Pulumi.Std;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Organizations.GetOrganization.Invoke();
-        /// 
-        ///     var exampleGetPoliciesForTarget = Aws.Organizations.GetPoliciesForTarget.Invoke(new()
-        ///     {
-        ///         TargetId = example.Apply(getOrganizationResult =&gt; getOrganizationResult.Roots[0]?.Id),
-        ///         Filter = "SERVICE_CONTROL_POLICY",
-        ///     });
-        /// 
-        ///     var exampleGetPolicy = Std.Toset.Invoke(new()
-        ///     {
-        ///         Input = exampleGetPoliciesForTarget.Apply(getPoliciesForTargetResult =&gt; getPoliciesForTargetResult.Ids),
-        ///     }).Apply(invoke =&gt; );
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetPoliciesForTargetResult> Invoke(GetPoliciesForTargetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPoliciesForTargetResult>("aws:organizations/getPoliciesForTarget:getPoliciesForTarget", args ?? new GetPoliciesForTargetInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Organizations Policies For Target.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// using Std = Pulumi.Std;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Organizations.GetOrganization.Invoke();
-        /// 
-        ///     var exampleGetPoliciesForTarget = Aws.Organizations.GetPoliciesForTarget.Invoke(new()
-        ///     {
-        ///         TargetId = example.Apply(getOrganizationResult =&gt; getOrganizationResult.Roots[0]?.Id),
-        ///         Filter = "SERVICE_CONTROL_POLICY",
-        ///     });
-        /// 
-        ///     var exampleGetPolicy = Std.Toset.Invoke(new()
-        ///     {
-        ///         Input = exampleGetPoliciesForTarget.Apply(getPoliciesForTargetResult =&gt; getPoliciesForTargetResult.Ids),
-        ///     }).Apply(invoke =&gt; );
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetPoliciesForTargetResult> Invoke(GetPoliciesForTargetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPoliciesForTargetResult>("aws:organizations/getPoliciesForTarget:getPoliciesForTarget", args ?? new GetPoliciesForTargetInvokeArgs(), options.WithDefaults());
     }
@@ -120,15 +24,9 @@ namespace Pulumi.Aws.Organizations
 
     public sealed class GetPoliciesForTargetArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Must supply one of the 7 different policy filters for a target (AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | CHATBOT_POLICY | DECLARATIVE_POLICY_EC2 | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY)
-        /// </summary>
         [Input("filter", required: true)]
         public string Filter { get; set; } = null!;
 
-        /// <summary>
-        /// The root (string that begins with "r-" followed by 4-32 lowercase letters or digits), account (12 digit string), or Organizational Unit (string starting with "ou-" followed by 4-32 lowercase letters or digits. This string is followed by a second "-" dash and from 8-32 additional lowercase letters or digits.)
-        /// </summary>
         [Input("targetId", required: true)]
         public string TargetId { get; set; } = null!;
 
@@ -140,15 +38,9 @@ namespace Pulumi.Aws.Organizations
 
     public sealed class GetPoliciesForTargetInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Must supply one of the 7 different policy filters for a target (AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | CHATBOT_POLICY | DECLARATIVE_POLICY_EC2 | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY)
-        /// </summary>
         [Input("filter", required: true)]
         public Input<string> Filter { get; set; } = null!;
 
-        /// <summary>
-        /// The root (string that begins with "r-" followed by 4-32 lowercase letters or digits), account (12 digit string), or Organizational Unit (string starting with "ou-" followed by 4-32 lowercase letters or digits. This string is followed by a second "-" dash and from 8-32 additional lowercase letters or digits.)
-        /// </summary>
         [Input("targetId", required: true)]
         public Input<string> TargetId { get; set; } = null!;
 
@@ -167,9 +59,6 @@ namespace Pulumi.Aws.Organizations
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// List of all the policy ids found.
-        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string TargetId;
 

@@ -16,36 +16,16 @@ public final class DevEnvironmentRepositoryArgs extends com.pulumi.resources.Res
 
     public static final DevEnvironmentRepositoryArgs Empty = new DevEnvironmentRepositoryArgs();
 
-    /**
-     * The name of the branch in a source repository.
-     * 
-     * persistent storage (`  persistentStorage `) supports the following:
-     * 
-     */
     @Import(name="branchName")
     private @Nullable Output<String> branchName;
 
-    /**
-     * @return The name of the branch in a source repository.
-     * 
-     * persistent storage (`  persistentStorage `) supports the following:
-     * 
-     */
     public Optional<Output<String>> branchName() {
         return Optional.ofNullable(this.branchName);
     }
 
-    /**
-     * The name of the source repository.
-     * 
-     */
     @Import(name="repositoryName", required=true)
     private Output<String> repositoryName;
 
-    /**
-     * @return The name of the source repository.
-     * 
-     */
     public Output<String> repositoryName() {
         return this.repositoryName;
     }
@@ -75,48 +55,20 @@ public final class DevEnvironmentRepositoryArgs extends com.pulumi.resources.Res
             $ = new DevEnvironmentRepositoryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param branchName The name of the branch in a source repository.
-         * 
-         * persistent storage (`  persistentStorage `) supports the following:
-         * 
-         * @return builder
-         * 
-         */
         public Builder branchName(@Nullable Output<String> branchName) {
             $.branchName = branchName;
             return this;
         }
 
-        /**
-         * @param branchName The name of the branch in a source repository.
-         * 
-         * persistent storage (`  persistentStorage `) supports the following:
-         * 
-         * @return builder
-         * 
-         */
         public Builder branchName(String branchName) {
             return branchName(Output.of(branchName));
         }
 
-        /**
-         * @param repositoryName The name of the source repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryName(Output<String> repositoryName) {
             $.repositoryName = repositoryName;
             return this;
         }
 
-        /**
-         * @param repositoryName The name of the source repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryName(String repositoryName) {
             return repositoryName(Output.of(repositoryName));
         }

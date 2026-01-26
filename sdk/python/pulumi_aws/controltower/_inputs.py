@@ -30,13 +30,7 @@ MYPY = False
 if not MYPY:
     class BaselineParametersArgsDict(TypedDict):
         key: pulumi.Input[_builtins.str]
-        """
-        The key of the parameter.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        The value of the parameter.
-        """
 elif False:
     BaselineParametersArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -45,19 +39,12 @@ class BaselineParametersArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] key: The key of the parameter.
-        :param pulumi.Input[_builtins.str] value: The value of the parameter.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> pulumi.Input[_builtins.str]:
-        """
-        The key of the parameter.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -67,9 +54,6 @@ class BaselineParametersArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        The value of the parameter.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -152,13 +136,7 @@ class BaselineTimeoutsArgs:
 if not MYPY:
     class ControlTowerControlParameterArgsDict(TypedDict):
         key: pulumi.Input[_builtins.str]
-        """
-        The name of the parameter.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        The value of the parameter.
-        """
 elif False:
     ControlTowerControlParameterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -167,19 +145,12 @@ class ControlTowerControlParameterArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] key: The name of the parameter.
-        :param pulumi.Input[_builtins.str] value: The value of the parameter.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the parameter.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -189,9 +160,6 @@ class ControlTowerControlParameterArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        The value of the parameter.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -202,9 +170,6 @@ class ControlTowerControlParameterArgs:
 if not MYPY:
     class LandingZoneDriftStatusArgsDict(TypedDict):
         status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The drift status of the landing zone.
-        """
 elif False:
     LandingZoneDriftStatusArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -212,18 +177,12 @@ elif False:
 class LandingZoneDriftStatusArgs:
     def __init__(__self__, *,
                  status: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] status: The drift status of the landing zone.
-        """
         if status is not None:
             pulumi.set(__self__, "status", status)
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The drift status of the landing zone.
-        """
         return pulumi.get(self, "status")
 
     @status.setter

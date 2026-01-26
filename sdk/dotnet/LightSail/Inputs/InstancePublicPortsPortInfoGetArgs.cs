@@ -14,10 +14,6 @@ namespace Pulumi.Aws.LightSail.Inputs
     {
         [Input("cidrListAliases")]
         private InputList<string>? _cidrListAliases;
-
-        /// <summary>
-        /// Set of CIDR aliases that define access for a preconfigured range of IP addresses.
-        /// </summary>
         public InputList<string> CidrListAliases
         {
             get => _cidrListAliases ?? (_cidrListAliases = new InputList<string>());
@@ -26,43 +22,26 @@ namespace Pulumi.Aws.LightSail.Inputs
 
         [Input("cidrs")]
         private InputList<string>? _cidrs;
-
-        /// <summary>
-        /// Set of IPv4 addresses or ranges of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
-        /// </summary>
         public InputList<string> Cidrs
         {
             get => _cidrs ?? (_cidrs = new InputList<string>());
             set => _cidrs = value;
         }
 
-        /// <summary>
-        /// First port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
-        /// </summary>
         [Input("fromPort", required: true)]
         public Input<int> FromPort { get; set; } = null!;
 
         [Input("ipv6Cidrs")]
         private InputList<string>? _ipv6Cidrs;
-
-        /// <summary>
-        /// Set of IPv6 addresses or ranges of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
-        /// </summary>
         public InputList<string> Ipv6Cidrs
         {
             get => _ipv6Cidrs ?? (_ipv6Cidrs = new InputList<string>());
             set => _ipv6Cidrs = value;
         }
 
-        /// <summary>
-        /// IP protocol name. Valid values: `Tcp`, `All`, `Udp`, `Icmp`, `Icmpv6`. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
-        /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
-        /// <summary>
-        /// Last port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
-        /// </summary>
         [Input("toPort", required: true)]
         public Input<int> ToPort { get; set; } = null!;
 

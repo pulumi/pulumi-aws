@@ -13,94 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing AWS Audit Manager Organization Admin Account Registration.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.auditmanager.OrganizationAdminAccountRegistration;
- * import com.pulumi.aws.auditmanager.OrganizationAdminAccountRegistrationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new OrganizationAdminAccountRegistration("example", OrganizationAdminAccountRegistrationArgs.builder()
- *             .adminAccountId("123456789012")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Audit Manager Organization Admin Account Registration using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration example 123456789012
- * ```
- * 
- */
 @ResourceType(type="aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration")
 public class OrganizationAdminAccountRegistration extends com.pulumi.resources.CustomResource {
-    /**
-     * Identifier for the organization administrator account.
-     * 
-     */
     @Export(name="adminAccountId", refs={String.class}, tree="[0]")
     private Output<String> adminAccountId;
 
-    /**
-     * @return Identifier for the organization administrator account.
-     * 
-     */
     public Output<String> adminAccountId() {
         return this.adminAccountId;
     }
-    /**
-     * Identifier for the organization.
-     * 
-     */
     @Export(name="organizationId", refs={String.class}, tree="[0]")
     private Output<String> organizationId;
 
-    /**
-     * @return Identifier for the organization.
-     * 
-     */
     public Output<String> organizationId() {
         return this.organizationId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

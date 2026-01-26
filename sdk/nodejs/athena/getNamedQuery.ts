@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an Athena Named Query data source.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.athena.getNamedQuery({
- *     name: "athenaQueryName",
- * });
- * ```
- */
 export function getNamedQuery(args: GetNamedQueryArgs, opts?: pulumi.InvokeOptions): Promise<GetNamedQueryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:athena/getNamedQuery:getNamedQuery", {
@@ -31,17 +17,8 @@ export function getNamedQuery(args: GetNamedQueryArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getNamedQuery.
  */
 export interface GetNamedQueryArgs {
-    /**
-     * The plain language name for the query. Maximum length of 128.
-     */
     name: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * The workgroup to which the query belongs. Defaults to `primary`.
-     */
     workgroup?: string;
 }
 
@@ -49,13 +26,7 @@ export interface GetNamedQueryArgs {
  * A collection of values returned by getNamedQuery.
  */
 export interface GetNamedQueryResult {
-    /**
-     * Database to which the query belongs.
-     */
     readonly database: string;
-    /**
-     * Brief explanation of the query.
-     */
     readonly description: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -66,20 +37,6 @@ export interface GetNamedQueryResult {
     readonly region: string;
     readonly workgroup?: string;
 }
-/**
- * Provides an Athena Named Query data source.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.athena.getNamedQuery({
- *     name: "athenaQueryName",
- * });
- * ```
- */
 export function getNamedQueryOutput(args: GetNamedQueryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamedQueryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:athena/getNamedQuery:getNamedQuery", {
@@ -93,16 +50,7 @@ export function getNamedQueryOutput(args: GetNamedQueryOutputArgs, opts?: pulumi
  * A collection of arguments for invoking getNamedQuery.
  */
 export interface GetNamedQueryOutputArgs {
-    /**
-     * The plain language name for the query. Maximum length of 128.
-     */
     name: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The workgroup to which the query belongs. Defaults to `primary`.
-     */
     workgroup?: pulumi.Input<string>;
 }

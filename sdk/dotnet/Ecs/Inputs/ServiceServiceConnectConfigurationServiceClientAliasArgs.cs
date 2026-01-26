@@ -12,24 +12,14 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class ServiceServiceConnectConfigurationServiceClientAliasArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name that you use in the applications of client tasks to connect to this service.
-        /// </summary>
         [Input("dnsName")]
         public Input<string>? DnsName { get; set; }
 
-        /// <summary>
-        /// Listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
-        /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
 
         [Input("testTrafficRules")]
         private InputList<Inputs.ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgs>? _testTrafficRules;
-
-        /// <summary>
-        /// Configuration block for test traffic routing rules. See below.
-        /// </summary>
         public InputList<Inputs.ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgs> TestTrafficRules
         {
             get => _testTrafficRules ?? (_testTrafficRules = new InputList<Inputs.ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgs>());

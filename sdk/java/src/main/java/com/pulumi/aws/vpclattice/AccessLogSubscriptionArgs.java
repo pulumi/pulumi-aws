@@ -17,66 +17,30 @@ public final class AccessLogSubscriptionArgs extends com.pulumi.resources.Resour
 
     public static final AccessLogSubscriptionArgs Empty = new AccessLogSubscriptionArgs();
 
-    /**
-     * Amazon Resource Name (ARN) of the log destination.
-     * 
-     */
     @Import(name="destinationArn", required=true)
     private Output<String> destinationArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the log destination.
-     * 
-     */
     public Output<String> destinationArn() {
         return this.destinationArn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="resourceIdentifier", required=true)
     private Output<String> resourceIdentifier;
 
-    /**
-     * @return The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> resourceIdentifier() {
         return this.resourceIdentifier;
     }
 
-    /**
-     * Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
-     * 
-     */
     @Import(name="serviceNetworkLogType")
     private @Nullable Output<String> serviceNetworkLogType;
 
-    /**
-     * @return Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
-     * 
-     */
     public Optional<Output<String>> serviceNetworkLogType() {
         return Optional.ofNullable(this.serviceNetworkLogType);
     }
@@ -116,90 +80,38 @@ public final class AccessLogSubscriptionArgs extends com.pulumi.resources.Resour
             $ = new AccessLogSubscriptionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destinationArn Amazon Resource Name (ARN) of the log destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationArn(Output<String> destinationArn) {
             $.destinationArn = destinationArn;
             return this;
         }
 
-        /**
-         * @param destinationArn Amazon Resource Name (ARN) of the log destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationArn(String destinationArn) {
             return destinationArn(Output.of(destinationArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceIdentifier The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceIdentifier(Output<String> resourceIdentifier) {
             $.resourceIdentifier = resourceIdentifier;
             return this;
         }
 
-        /**
-         * @param resourceIdentifier The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceIdentifier(String resourceIdentifier) {
             return resourceIdentifier(Output.of(resourceIdentifier));
         }
 
-        /**
-         * @param serviceNetworkLogType Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceNetworkLogType(@Nullable Output<String> serviceNetworkLogType) {
             $.serviceNetworkLogType = serviceNetworkLogType;
             return this;
         }
 
-        /**
-         * @param serviceNetworkLogType Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceNetworkLogType(String serviceNetworkLogType) {
             return serviceNetworkLogType(Output.of(serviceNetworkLogType));
         }

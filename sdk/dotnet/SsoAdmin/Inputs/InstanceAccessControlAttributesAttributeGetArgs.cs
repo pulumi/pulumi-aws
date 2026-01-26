@@ -12,18 +12,11 @@ namespace Pulumi.Aws.SsoAdmin.Inputs
 
     public sealed class InstanceAccessControlAttributesAttributeGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<Inputs.InstanceAccessControlAttributesAttributeValueGetArgs>? _values;
-
-        /// <summary>
-        /// The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
-        /// </summary>
         public InputList<Inputs.InstanceAccessControlAttributesAttributeValueGetArgs> Values
         {
             get => _values ?? (_values = new InputList<Inputs.InstanceAccessControlAttributesAttributeValueGetArgs>());

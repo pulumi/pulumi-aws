@@ -13,13 +13,7 @@ namespace Pulumi.Aws.SecurityLake.Outputs
     [OutputType]
     public sealed class DataLakeConfigurationLifecycleConfiguration
     {
-        /// <summary>
-        /// Provides data expiration details of Amazon Security Lake object.
-        /// </summary>
         public readonly Outputs.DataLakeConfigurationLifecycleConfigurationExpiration? Expiration;
-        /// <summary>
-        /// Provides data storage transition details of Amazon Security Lake object.
-        /// </summary>
         public readonly ImmutableArray<Outputs.DataLakeConfigurationLifecycleConfigurationTransition> Transitions;
 
         [OutputConstructor]

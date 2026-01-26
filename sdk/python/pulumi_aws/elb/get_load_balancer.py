@@ -244,30 +244,7 @@ def get_load_balancer(name: Optional[_builtins.str] = None,
                       tags: Optional[Mapping[str, _builtins.str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadBalancerResult:
     """
-    Provides information about a "classic" Elastic Load Balancer (ELB).
-    See LB Data Source if you are looking for "v2"
-    Application Load Balancer (ALB) or Network Load Balancer (NLB).
-
-    This data source can prove useful when a module accepts an LB as an input
-    variable and needs to, for example, determine the security groups associated
-    with it, etc.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    lb_name = config.get("lbName")
-    if lb_name is None:
-        lb_name = ""
-    test = aws.elb.get_load_balancer(name=lb_name)
-    ```
-
-
-    :param _builtins.str name: Unique name of the load balancer.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -304,30 +281,7 @@ def get_load_balancer_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoadBalancerResult]:
     """
-    Provides information about a "classic" Elastic Load Balancer (ELB).
-    See LB Data Source if you are looking for "v2"
-    Application Load Balancer (ALB) or Network Load Balancer (NLB).
-
-    This data source can prove useful when a module accepts an LB as an input
-    variable and needs to, for example, determine the security groups associated
-    with it, etc.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    lb_name = config.get("lbName")
-    if lb_name is None:
-        lb_name = ""
-    test = aws.elb.get_load_balancer(name=lb_name)
-    ```
-
-
-    :param _builtins.str name: Unique name of the load balancer.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

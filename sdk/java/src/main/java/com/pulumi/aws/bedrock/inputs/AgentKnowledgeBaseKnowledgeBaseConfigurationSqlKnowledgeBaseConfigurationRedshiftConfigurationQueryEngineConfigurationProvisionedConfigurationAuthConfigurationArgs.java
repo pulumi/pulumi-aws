@@ -16,47 +16,23 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
 
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs();
 
-    /**
-     * Database username for authentication to an Amazon Redshift provisioned data warehouse.
-     * 
-     */
     @Import(name="databaseUser")
     private @Nullable Output<String> databaseUser;
 
-    /**
-     * @return Database username for authentication to an Amazon Redshift provisioned data warehouse.
-     * 
-     */
     public Optional<Output<String>> databaseUser() {
         return Optional.ofNullable(this.databaseUser);
     }
 
-    /**
-     * Type of authentication to use. Valid values: `IAM`, `USERNAME_PASSWORD`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Type of authentication to use. Valid values: `IAM`, `USERNAME_PASSWORD`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
 
-    /**
-     * ARN of a Secrets Manager secret for authentication.
-     * 
-     */
     @Import(name="usernamePasswordSecretArn")
     private @Nullable Output<String> usernamePasswordSecretArn;
 
-    /**
-     * @return ARN of a Secrets Manager secret for authentication.
-     * 
-     */
     public Optional<Output<String>> usernamePasswordSecretArn() {
         return Optional.ofNullable(this.usernamePasswordSecretArn);
     }
@@ -87,65 +63,29 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
             $ = new AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param databaseUser Database username for authentication to an Amazon Redshift provisioned data warehouse.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseUser(@Nullable Output<String> databaseUser) {
             $.databaseUser = databaseUser;
             return this;
         }
 
-        /**
-         * @param databaseUser Database username for authentication to an Amazon Redshift provisioned data warehouse.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseUser(String databaseUser) {
             return databaseUser(Output.of(databaseUser));
         }
 
-        /**
-         * @param type Type of authentication to use. Valid values: `IAM`, `USERNAME_PASSWORD`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of authentication to use. Valid values: `IAM`, `USERNAME_PASSWORD`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
-        /**
-         * @param usernamePasswordSecretArn ARN of a Secrets Manager secret for authentication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder usernamePasswordSecretArn(@Nullable Output<String> usernamePasswordSecretArn) {
             $.usernamePasswordSecretArn = usernamePasswordSecretArn;
             return this;
         }
 
-        /**
-         * @param usernamePasswordSecretArn ARN of a Secrets Manager secret for authentication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder usernamePasswordSecretArn(String usernamePasswordSecretArn) {
             return usernamePasswordSecretArn(Output.of(usernamePasswordSecretArn));
         }

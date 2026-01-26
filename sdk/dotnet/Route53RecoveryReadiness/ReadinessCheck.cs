@@ -9,68 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Route53RecoveryReadiness
 {
-    /// <summary>
-    /// Provides an AWS Route 53 Recovery Readiness Readiness Check.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Route53RecoveryReadiness.ReadinessCheck("example", new()
-    ///     {
-    ///         ReadinessCheckName = my_cw_alarm_check,
-    ///         ResourceSetName = my_cw_alarm_set,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Route53 Recovery Readiness readiness checks using the readiness check name. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:route53recoveryreadiness/readinessCheck:ReadinessCheck my-cw-alarm-check example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:route53recoveryreadiness/readinessCheck:ReadinessCheck")]
     public partial class ReadinessCheck : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the readiness_check
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Unique name describing the readiness check.
-        /// </summary>
         [Output("readinessCheckName")]
         public Output<string> ReadinessCheckName { get; private set; } = null!;
 
-        /// <summary>
-        /// Name describing the resource set that will be monitored for readiness.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("resourceSetName")]
         public Output<string> ResourceSetName { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -120,26 +73,14 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
     public sealed class ReadinessCheckArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Unique name describing the readiness check.
-        /// </summary>
         [Input("readinessCheckName", required: true)]
         public Input<string> ReadinessCheckName { get; set; } = null!;
 
-        /// <summary>
-        /// Name describing the resource set that will be monitored for readiness.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("resourceSetName", required: true)]
         public Input<string> ResourceSetName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -154,32 +95,17 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
     public sealed class ReadinessCheckState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the readiness_check
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Unique name describing the readiness check.
-        /// </summary>
         [Input("readinessCheckName")]
         public Input<string>? ReadinessCheckName { get; set; }
 
-        /// <summary>
-        /// Name describing the resource set that will be monitored for readiness.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("resourceSetName")]
         public Input<string>? ResourceSetName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -188,10 +114,6 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

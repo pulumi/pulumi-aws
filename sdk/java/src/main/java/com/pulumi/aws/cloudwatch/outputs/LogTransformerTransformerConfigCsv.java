@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LogTransformerTransformerConfigCsv {
-    /**
-     * @return Specifies the names to use for the columns in the transformed log event. If not specified, default column names (`[column_1, column2 ...]`) are used.
-     * 
-     */
     private @Nullable List<String> columns;
-    /**
-     * @return Specifies the character used to separate each column in the original comma-separated value log event. Defaults to the comma `,` character.
-     * 
-     */
     private @Nullable String delimiter;
-    /**
-     * @return Specifies the character used as a text qualifier for a single column of data. Defaults to the double quotation mark `&#34;` character.
-     * 
-     */
     private @Nullable String quoteCharacter;
-    /**
-     * @return Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
-     * 
-     */
     private @Nullable String source;
 
     private LogTransformerTransformerConfigCsv() {}
-    /**
-     * @return Specifies the names to use for the columns in the transformed log event. If not specified, default column names (`[column_1, column2 ...]`) are used.
-     * 
-     */
     public List<String> columns() {
         return this.columns == null ? List.of() : this.columns;
     }
-    /**
-     * @return Specifies the character used to separate each column in the original comma-separated value log event. Defaults to the comma `,` character.
-     * 
-     */
     public Optional<String> delimiter() {
         return Optional.ofNullable(this.delimiter);
     }
-    /**
-     * @return Specifies the character used as a text qualifier for a single column of data. Defaults to the double quotation mark `&#34;` character.
-     * 
-     */
     public Optional<String> quoteCharacter() {
         return Optional.ofNullable(this.quoteCharacter);
     }
-    /**
-     * @return Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
-     * 
-     */
     public Optional<String> source() {
         return Optional.ofNullable(this.source);
     }

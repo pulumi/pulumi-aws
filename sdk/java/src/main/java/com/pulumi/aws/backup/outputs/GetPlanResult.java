@@ -14,49 +14,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPlanResult {
-    /**
-     * @return ARN of the backup plan.
-     * 
-     */
     private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Display name of a backup plan.
-     * 
-     */
     private String name;
     private String planId;
     private String region;
-    /**
-     * @return Rules of a backup plan.
-     * 
-     */
     private List<GetPlanRule> rules;
-    /**
-     * @return Scanning configuration for the backup rule.
-     * 
-     */
     private List<GetPlanScanSetting> scanSettings;
-    /**
-     * @return Metadata that you can assign to help organize the plans you create.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
-     * 
-     */
     private String version;
 
     private GetPlanResult() {}
-    /**
-     * @return ARN of the backup plan.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
@@ -67,10 +39,6 @@ public final class GetPlanResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Display name of a backup plan.
-     * 
-     */
     public String name() {
         return this.name;
     }
@@ -80,31 +48,15 @@ public final class GetPlanResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Rules of a backup plan.
-     * 
-     */
     public List<GetPlanRule> rules() {
         return this.rules;
     }
-    /**
-     * @return Scanning configuration for the backup rule.
-     * 
-     */
     public List<GetPlanScanSetting> scanSettings() {
         return this.scanSettings;
     }
-    /**
-     * @return Metadata that you can assign to help organize the plans you create.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
-     * 
-     */
     public String version() {
         return this.version;
     }

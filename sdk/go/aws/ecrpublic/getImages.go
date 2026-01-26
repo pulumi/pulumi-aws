@@ -11,9 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The ECR Public Images data source allows the list of images in a specified public repository to be retrieved.
-//
-// ## Example Usage
 func GetImages(ctx *pulumi.Context, args *GetImagesArgs, opts ...pulumi.InvokeOption) (*GetImagesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetImagesResult
@@ -26,28 +23,21 @@ func GetImages(ctx *pulumi.Context, args *GetImagesArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getImages.
 type GetImagesArgs struct {
-	// One or more image ID filters. Each image ID can use either a tag or digest (or both). Each object has the following attributes:
-	ImageIds []GetImagesImageId `pulumi:"imageIds"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// AWS account ID associated with the public registry that contains the repository. If not specified, the default public registry is assumed.
-	RegistryId *string `pulumi:"registryId"`
-	// Name of the public repository.
-	RepositoryName string `pulumi:"repositoryName"`
+	ImageIds       []GetImagesImageId `pulumi:"imageIds"`
+	Region         *string            `pulumi:"region"`
+	RegistryId     *string            `pulumi:"registryId"`
+	RepositoryName string             `pulumi:"repositoryName"`
 }
 
 // A collection of values returned by getImages.
 type GetImagesResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id       string             `pulumi:"id"`
-	ImageIds []GetImagesImageId `pulumi:"imageIds"`
-	// List of images returned. Each image contains:
-	Images []GetImagesImage `pulumi:"images"`
-	Region string           `pulumi:"region"`
-	// AWS account ID associated with the public registry.
-	RegistryId *string `pulumi:"registryId"`
-	// Name of the repository.
-	RepositoryName string `pulumi:"repositoryName"`
+	Id             string             `pulumi:"id"`
+	ImageIds       []GetImagesImageId `pulumi:"imageIds"`
+	Images         []GetImagesImage   `pulumi:"images"`
+	Region         string             `pulumi:"region"`
+	RegistryId     *string            `pulumi:"registryId"`
+	RepositoryName string             `pulumi:"repositoryName"`
 }
 
 func GetImagesOutput(ctx *pulumi.Context, args GetImagesOutputArgs, opts ...pulumi.InvokeOption) GetImagesResultOutput {
@@ -61,14 +51,10 @@ func GetImagesOutput(ctx *pulumi.Context, args GetImagesOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getImages.
 type GetImagesOutputArgs struct {
-	// One or more image ID filters. Each image ID can use either a tag or digest (or both). Each object has the following attributes:
-	ImageIds GetImagesImageIdArrayInput `pulumi:"imageIds"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// AWS account ID associated with the public registry that contains the repository. If not specified, the default public registry is assumed.
-	RegistryId pulumi.StringPtrInput `pulumi:"registryId"`
-	// Name of the public repository.
-	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
+	ImageIds       GetImagesImageIdArrayInput `pulumi:"imageIds"`
+	Region         pulumi.StringPtrInput      `pulumi:"region"`
+	RegistryId     pulumi.StringPtrInput      `pulumi:"registryId"`
+	RepositoryName pulumi.StringInput         `pulumi:"repositoryName"`
 }
 
 func (GetImagesOutputArgs) ElementType() reflect.Type {
@@ -99,7 +85,6 @@ func (o GetImagesResultOutput) ImageIds() GetImagesImageIdArrayOutput {
 	return o.ApplyT(func(v GetImagesResult) []GetImagesImageId { return v.ImageIds }).(GetImagesImageIdArrayOutput)
 }
 
-// List of images returned. Each image contains:
 func (o GetImagesResultOutput) Images() GetImagesImageArrayOutput {
 	return o.ApplyT(func(v GetImagesResult) []GetImagesImage { return v.Images }).(GetImagesImageArrayOutput)
 }
@@ -108,12 +93,10 @@ func (o GetImagesResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImagesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// AWS account ID associated with the public registry.
 func (o GetImagesResultOutput) RegistryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetImagesResult) *string { return v.RegistryId }).(pulumi.StringPtrOutput)
 }
 
-// Name of the repository.
 func (o GetImagesResultOutput) RepositoryName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImagesResult) string { return v.RepositoryName }).(pulumi.StringOutput)
 }

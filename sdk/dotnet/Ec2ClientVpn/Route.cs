@@ -9,105 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2ClientVpn
 {
-    /// <summary>
-    /// Provides additional routes for AWS Client VPN endpoints. For more information on usage, please see the
-    /// [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleEndpoint = new Aws.Ec2ClientVpn.Endpoint("example", new()
-    ///     {
-    ///         Description = "Example Client VPN endpoint",
-    ///         ServerCertificateArn = exampleAwsAcmCertificate.Arn,
-    ///         ClientCidrBlock = "10.0.0.0/16",
-    ///         AuthenticationOptions = new[]
-    ///         {
-    ///             new Aws.Ec2ClientVpn.Inputs.EndpointAuthenticationOptionArgs
-    ///             {
-    ///                 Type = "certificate-authentication",
-    ///                 RootCertificateChainArn = exampleAwsAcmCertificate.Arn,
-    ///             },
-    ///         },
-    ///         ConnectionLogOptions = new Aws.Ec2ClientVpn.Inputs.EndpointConnectionLogOptionsArgs
-    ///         {
-    ///             Enabled = false,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleNetworkAssociation = new Aws.Ec2ClientVpn.NetworkAssociation("example", new()
-    ///     {
-    ///         ClientVpnEndpointId = exampleEndpoint.Id,
-    ///         SubnetId = exampleAwsSubnet.Id,
-    ///     });
-    /// 
-    ///     var example = new Aws.Ec2ClientVpn.Route("example", new()
-    ///     {
-    ///         ClientVpnEndpointId = exampleEndpoint.Id,
-    ///         DestinationCidrBlock = "0.0.0.0/0",
-    ///         TargetVpcSubnetId = exampleNetworkAssociation.SubnetId,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import AWS Client VPN routes using the endpoint ID, target subnet ID, and destination CIDR block. All values are separated by a `,`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2clientvpn/route:Route example cvpn-endpoint-1234567890abcdef,subnet-9876543210fedcba,10.1.0.0/24
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2clientvpn/route:Route")]
     public partial class Route : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ID of the Client VPN endpoint.
-        /// </summary>
         [Output("clientVpnEndpointId")]
         public Output<string> ClientVpnEndpointId { get; private set; } = null!;
 
-        /// <summary>
-        /// A brief description of the route.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
-        /// </summary>
         [Output("destinationCidrBlock")]
         public Output<string> DestinationCidrBlock { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
-        /// </summary>
         [Output("origin")]
         public Output<string> Origin { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
-        /// </summary>
         [Output("targetVpcSubnetId")]
         public Output<string> TargetVpcSubnetId { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of the route.
-        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -157,33 +79,18 @@ namespace Pulumi.Aws.Ec2ClientVpn
 
     public sealed class RouteArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the Client VPN endpoint.
-        /// </summary>
         [Input("clientVpnEndpointId", required: true)]
         public Input<string> ClientVpnEndpointId { get; set; } = null!;
 
-        /// <summary>
-        /// A brief description of the route.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
-        /// </summary>
         [Input("destinationCidrBlock", required: true)]
         public Input<string> DestinationCidrBlock { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
-        /// </summary>
         [Input("targetVpcSubnetId", required: true)]
         public Input<string> TargetVpcSubnetId { get; set; } = null!;
 
@@ -195,45 +102,24 @@ namespace Pulumi.Aws.Ec2ClientVpn
 
     public sealed class RouteState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the Client VPN endpoint.
-        /// </summary>
         [Input("clientVpnEndpointId")]
         public Input<string>? ClientVpnEndpointId { get; set; }
 
-        /// <summary>
-        /// A brief description of the route.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
-        /// </summary>
         [Input("destinationCidrBlock")]
         public Input<string>? DestinationCidrBlock { get; set; }
 
-        /// <summary>
-        /// Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
-        /// </summary>
         [Input("origin")]
         public Input<string>? Origin { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
-        /// </summary>
         [Input("targetVpcSubnetId")]
         public Input<string>? TargetVpcSubnetId { get; set; }
 
-        /// <summary>
-        /// The type of the route.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

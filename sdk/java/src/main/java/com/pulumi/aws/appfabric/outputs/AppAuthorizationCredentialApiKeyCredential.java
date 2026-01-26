@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AppAuthorizationCredentialApiKeyCredential {
-    /**
-     * @return Contains API key credential information.
-     * 
-     */
     private String apiKey;
 
     private AppAuthorizationCredentialApiKeyCredential() {}
-    /**
-     * @return Contains API key credential information.
-     * 
-     */
     public String apiKey() {
         return this.apiKey;
     }

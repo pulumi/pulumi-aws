@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDataLakeSettingsCreateDatabaseDefaultPermission {
-    /**
-     * @return List of permissions granted to the principal.
-     * 
-     */
     private List<String> permissions;
-    /**
-     * @return Principal who is granted permissions.
-     * 
-     */
     private String principal;
 
     private GetDataLakeSettingsCreateDatabaseDefaultPermission() {}
-    /**
-     * @return List of permissions granted to the principal.
-     * 
-     */
     public List<String> permissions() {
         return this.permissions;
     }
-    /**
-     * @return Principal who is granted permissions.
-     * 
-     */
     public String principal() {
         return this.principal;
     }

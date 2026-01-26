@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ManagedUserPoolClientTokenValidityUnits {
-    /**
-     * @return Time unit for the value in `accessTokenValidity` and defaults to `hours`.
-     * 
-     */
     private @Nullable String accessToken;
-    /**
-     * @return Time unit for the value in `idTokenValidity`, and it defaults to `hours`.
-     * 
-     */
     private @Nullable String idToken;
-    /**
-     * @return Time unit for the value in `refreshTokenValidity` and defaults to `days`.
-     * 
-     */
     private @Nullable String refreshToken;
 
     private ManagedUserPoolClientTokenValidityUnits() {}
-    /**
-     * @return Time unit for the value in `accessTokenValidity` and defaults to `hours`.
-     * 
-     */
     public Optional<String> accessToken() {
         return Optional.ofNullable(this.accessToken);
     }
-    /**
-     * @return Time unit for the value in `idTokenValidity`, and it defaults to `hours`.
-     * 
-     */
     public Optional<String> idToken() {
         return Optional.ofNullable(this.idToken);
     }
-    /**
-     * @return Time unit for the value in `refreshTokenValidity` and defaults to `days`.
-     * 
-     */
     public Optional<String> refreshToken() {
         return Optional.ofNullable(this.refreshToken);
     }

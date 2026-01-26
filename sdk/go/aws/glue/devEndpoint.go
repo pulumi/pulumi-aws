@@ -12,134 +12,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Glue Development Endpoint resource.
-//
-// ## Example Usage
-//
-// Basic usage:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glue"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"glue.amazonaws.com",
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				Name:             pulumi.String("AWSGlueServiceRole-foo"),
-//				AssumeRolePolicy: pulumi.String(example.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = glue.NewDevEndpoint(ctx, "example", &glue.DevEndpointArgs{
-//				Name:    pulumi.String("foo"),
-//				RoleArn: exampleRole.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "example-AWSGlueServiceRole", &iam.RolePolicyAttachmentArgs{
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole"),
-//				Role:      exampleRole.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import a Glue Development Endpoint using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
-// ```
 type DevEndpoint struct {
 	pulumi.CustomResourceState
 
-	// A map of arguments used to configure the endpoint.
-	Arguments pulumi.StringMapOutput `pulumi:"arguments"`
-	// The ARN of the endpoint.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The AWS availability zone where this endpoint is located.
-	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
-	// Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
-	ExtraJarsS3Path pulumi.StringPtrOutput `pulumi:"extraJarsS3Path"`
-	// Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
-	ExtraPythonLibsS3Path pulumi.StringPtrOutput `pulumi:"extraPythonLibsS3Path"`
-	// The reason for a current failure in this endpoint.
-	FailureReason pulumi.StringOutput `pulumi:"failureReason"`
-	// Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
-	GlueVersion pulumi.StringPtrOutput `pulumi:"glueVersion"`
-	// The name of this endpoint. It must be unique in your account.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `workerType`.
-	NumberOfNodes pulumi.IntPtrOutput `pulumi:"numberOfNodes"`
-	// The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
-	NumberOfWorkers pulumi.IntPtrOutput `pulumi:"numberOfWorkers"`
-	// A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
-	PrivateAddress pulumi.StringOutput `pulumi:"privateAddress"`
-	// The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
-	PublicAddress pulumi.StringOutput `pulumi:"publicAddress"`
-	// The public key to be used by this endpoint for authentication.
-	PublicKey pulumi.StringPtrOutput `pulumi:"publicKey"`
-	// A list of public keys to be used by this endpoint for authentication.
-	PublicKeys pulumi.StringArrayOutput `pulumi:"publicKeys"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The IAM role for this endpoint.
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// The name of the Security Configuration structure to be used with this endpoint.
-	SecurityConfiguration pulumi.StringPtrOutput `pulumi:"securityConfiguration"`
-	// Security group IDs for the security groups to be used by this endpoint.
-	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	// The current status of this endpoint.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// The subnet ID for the new endpoint to use.
-	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// he ID of the VPC used by this endpoint.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
-	// The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
-	WorkerType pulumi.StringPtrOutput `pulumi:"workerType"`
-	// The YARN endpoint address used by this endpoint.
-	YarnEndpointAddress pulumi.StringOutput `pulumi:"yarnEndpointAddress"`
-	// The Apache Zeppelin port for the remote Apache Spark interpreter.
-	ZeppelinRemoteSparkInterpreterPort pulumi.IntOutput `pulumi:"zeppelinRemoteSparkInterpreterPort"`
+	Arguments                          pulumi.StringMapOutput   `pulumi:"arguments"`
+	Arn                                pulumi.StringOutput      `pulumi:"arn"`
+	AvailabilityZone                   pulumi.StringOutput      `pulumi:"availabilityZone"`
+	ExtraJarsS3Path                    pulumi.StringPtrOutput   `pulumi:"extraJarsS3Path"`
+	ExtraPythonLibsS3Path              pulumi.StringPtrOutput   `pulumi:"extraPythonLibsS3Path"`
+	FailureReason                      pulumi.StringOutput      `pulumi:"failureReason"`
+	GlueVersion                        pulumi.StringPtrOutput   `pulumi:"glueVersion"`
+	Name                               pulumi.StringOutput      `pulumi:"name"`
+	NumberOfNodes                      pulumi.IntPtrOutput      `pulumi:"numberOfNodes"`
+	NumberOfWorkers                    pulumi.IntPtrOutput      `pulumi:"numberOfWorkers"`
+	PrivateAddress                     pulumi.StringOutput      `pulumi:"privateAddress"`
+	PublicAddress                      pulumi.StringOutput      `pulumi:"publicAddress"`
+	PublicKey                          pulumi.StringPtrOutput   `pulumi:"publicKey"`
+	PublicKeys                         pulumi.StringArrayOutput `pulumi:"publicKeys"`
+	Region                             pulumi.StringOutput      `pulumi:"region"`
+	RoleArn                            pulumi.StringOutput      `pulumi:"roleArn"`
+	SecurityConfiguration              pulumi.StringPtrOutput   `pulumi:"securityConfiguration"`
+	SecurityGroupIds                   pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
+	Status                             pulumi.StringOutput      `pulumi:"status"`
+	SubnetId                           pulumi.StringPtrOutput   `pulumi:"subnetId"`
+	Tags                               pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll                            pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	VpcId                              pulumi.StringOutput      `pulumi:"vpcId"`
+	WorkerType                         pulumi.StringPtrOutput   `pulumi:"workerType"`
+	YarnEndpointAddress                pulumi.StringOutput      `pulumi:"yarnEndpointAddress"`
+	ZeppelinRemoteSparkInterpreterPort pulumi.IntOutput         `pulumi:"zeppelinRemoteSparkInterpreterPort"`
 }
 
 // NewDevEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -175,112 +76,60 @@ func GetDevEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DevEndpoint resources.
 type devEndpointState struct {
-	// A map of arguments used to configure the endpoint.
-	Arguments map[string]string `pulumi:"arguments"`
-	// The ARN of the endpoint.
-	Arn *string `pulumi:"arn"`
-	// The AWS availability zone where this endpoint is located.
-	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
-	ExtraJarsS3Path *string `pulumi:"extraJarsS3Path"`
-	// Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
-	ExtraPythonLibsS3Path *string `pulumi:"extraPythonLibsS3Path"`
-	// The reason for a current failure in this endpoint.
-	FailureReason *string `pulumi:"failureReason"`
-	// Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
-	GlueVersion *string `pulumi:"glueVersion"`
-	// The name of this endpoint. It must be unique in your account.
-	Name *string `pulumi:"name"`
-	// The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `workerType`.
-	NumberOfNodes *int `pulumi:"numberOfNodes"`
-	// The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
-	NumberOfWorkers *int `pulumi:"numberOfWorkers"`
-	// A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
-	PrivateAddress *string `pulumi:"privateAddress"`
-	// The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
-	PublicAddress *string `pulumi:"publicAddress"`
-	// The public key to be used by this endpoint for authentication.
-	PublicKey *string `pulumi:"publicKey"`
-	// A list of public keys to be used by this endpoint for authentication.
-	PublicKeys []string `pulumi:"publicKeys"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The IAM role for this endpoint.
-	RoleArn *string `pulumi:"roleArn"`
-	// The name of the Security Configuration structure to be used with this endpoint.
-	SecurityConfiguration *string `pulumi:"securityConfiguration"`
-	// Security group IDs for the security groups to be used by this endpoint.
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// The current status of this endpoint.
-	Status *string `pulumi:"status"`
-	// The subnet ID for the new endpoint to use.
-	SubnetId *string `pulumi:"subnetId"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// he ID of the VPC used by this endpoint.
-	VpcId *string `pulumi:"vpcId"`
-	// The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
-	WorkerType *string `pulumi:"workerType"`
-	// The YARN endpoint address used by this endpoint.
-	YarnEndpointAddress *string `pulumi:"yarnEndpointAddress"`
-	// The Apache Zeppelin port for the remote Apache Spark interpreter.
-	ZeppelinRemoteSparkInterpreterPort *int `pulumi:"zeppelinRemoteSparkInterpreterPort"`
+	Arguments                          map[string]string `pulumi:"arguments"`
+	Arn                                *string           `pulumi:"arn"`
+	AvailabilityZone                   *string           `pulumi:"availabilityZone"`
+	ExtraJarsS3Path                    *string           `pulumi:"extraJarsS3Path"`
+	ExtraPythonLibsS3Path              *string           `pulumi:"extraPythonLibsS3Path"`
+	FailureReason                      *string           `pulumi:"failureReason"`
+	GlueVersion                        *string           `pulumi:"glueVersion"`
+	Name                               *string           `pulumi:"name"`
+	NumberOfNodes                      *int              `pulumi:"numberOfNodes"`
+	NumberOfWorkers                    *int              `pulumi:"numberOfWorkers"`
+	PrivateAddress                     *string           `pulumi:"privateAddress"`
+	PublicAddress                      *string           `pulumi:"publicAddress"`
+	PublicKey                          *string           `pulumi:"publicKey"`
+	PublicKeys                         []string          `pulumi:"publicKeys"`
+	Region                             *string           `pulumi:"region"`
+	RoleArn                            *string           `pulumi:"roleArn"`
+	SecurityConfiguration              *string           `pulumi:"securityConfiguration"`
+	SecurityGroupIds                   []string          `pulumi:"securityGroupIds"`
+	Status                             *string           `pulumi:"status"`
+	SubnetId                           *string           `pulumi:"subnetId"`
+	Tags                               map[string]string `pulumi:"tags"`
+	TagsAll                            map[string]string `pulumi:"tagsAll"`
+	VpcId                              *string           `pulumi:"vpcId"`
+	WorkerType                         *string           `pulumi:"workerType"`
+	YarnEndpointAddress                *string           `pulumi:"yarnEndpointAddress"`
+	ZeppelinRemoteSparkInterpreterPort *int              `pulumi:"zeppelinRemoteSparkInterpreterPort"`
 }
 
 type DevEndpointState struct {
-	// A map of arguments used to configure the endpoint.
-	Arguments pulumi.StringMapInput
-	// The ARN of the endpoint.
-	Arn pulumi.StringPtrInput
-	// The AWS availability zone where this endpoint is located.
-	AvailabilityZone pulumi.StringPtrInput
-	// Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
-	ExtraJarsS3Path pulumi.StringPtrInput
-	// Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
-	ExtraPythonLibsS3Path pulumi.StringPtrInput
-	// The reason for a current failure in this endpoint.
-	FailureReason pulumi.StringPtrInput
-	// Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
-	GlueVersion pulumi.StringPtrInput
-	// The name of this endpoint. It must be unique in your account.
-	Name pulumi.StringPtrInput
-	// The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `workerType`.
-	NumberOfNodes pulumi.IntPtrInput
-	// The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
-	NumberOfWorkers pulumi.IntPtrInput
-	// A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
-	PrivateAddress pulumi.StringPtrInput
-	// The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
-	PublicAddress pulumi.StringPtrInput
-	// The public key to be used by this endpoint for authentication.
-	PublicKey pulumi.StringPtrInput
-	// A list of public keys to be used by this endpoint for authentication.
-	PublicKeys pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The IAM role for this endpoint.
-	RoleArn pulumi.StringPtrInput
-	// The name of the Security Configuration structure to be used with this endpoint.
-	SecurityConfiguration pulumi.StringPtrInput
-	// Security group IDs for the security groups to be used by this endpoint.
-	SecurityGroupIds pulumi.StringArrayInput
-	// The current status of this endpoint.
-	Status pulumi.StringPtrInput
-	// The subnet ID for the new endpoint to use.
-	SubnetId pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// he ID of the VPC used by this endpoint.
-	VpcId pulumi.StringPtrInput
-	// The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
-	WorkerType pulumi.StringPtrInput
-	// The YARN endpoint address used by this endpoint.
-	YarnEndpointAddress pulumi.StringPtrInput
-	// The Apache Zeppelin port for the remote Apache Spark interpreter.
+	Arguments                          pulumi.StringMapInput
+	Arn                                pulumi.StringPtrInput
+	AvailabilityZone                   pulumi.StringPtrInput
+	ExtraJarsS3Path                    pulumi.StringPtrInput
+	ExtraPythonLibsS3Path              pulumi.StringPtrInput
+	FailureReason                      pulumi.StringPtrInput
+	GlueVersion                        pulumi.StringPtrInput
+	Name                               pulumi.StringPtrInput
+	NumberOfNodes                      pulumi.IntPtrInput
+	NumberOfWorkers                    pulumi.IntPtrInput
+	PrivateAddress                     pulumi.StringPtrInput
+	PublicAddress                      pulumi.StringPtrInput
+	PublicKey                          pulumi.StringPtrInput
+	PublicKeys                         pulumi.StringArrayInput
+	Region                             pulumi.StringPtrInput
+	RoleArn                            pulumi.StringPtrInput
+	SecurityConfiguration              pulumi.StringPtrInput
+	SecurityGroupIds                   pulumi.StringArrayInput
+	Status                             pulumi.StringPtrInput
+	SubnetId                           pulumi.StringPtrInput
+	Tags                               pulumi.StringMapInput
+	TagsAll                            pulumi.StringMapInput
+	VpcId                              pulumi.StringPtrInput
+	WorkerType                         pulumi.StringPtrInput
+	YarnEndpointAddress                pulumi.StringPtrInput
 	ZeppelinRemoteSparkInterpreterPort pulumi.IntPtrInput
 }
 
@@ -289,74 +138,42 @@ func (DevEndpointState) ElementType() reflect.Type {
 }
 
 type devEndpointArgs struct {
-	// A map of arguments used to configure the endpoint.
-	Arguments map[string]string `pulumi:"arguments"`
-	// Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
-	ExtraJarsS3Path *string `pulumi:"extraJarsS3Path"`
-	// Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
-	ExtraPythonLibsS3Path *string `pulumi:"extraPythonLibsS3Path"`
-	// Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
-	GlueVersion *string `pulumi:"glueVersion"`
-	// The name of this endpoint. It must be unique in your account.
-	Name *string `pulumi:"name"`
-	// The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `workerType`.
-	NumberOfNodes *int `pulumi:"numberOfNodes"`
-	// The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
-	NumberOfWorkers *int `pulumi:"numberOfWorkers"`
-	// The public key to be used by this endpoint for authentication.
-	PublicKey *string `pulumi:"publicKey"`
-	// A list of public keys to be used by this endpoint for authentication.
-	PublicKeys []string `pulumi:"publicKeys"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The IAM role for this endpoint.
-	RoleArn string `pulumi:"roleArn"`
-	// The name of the Security Configuration structure to be used with this endpoint.
-	SecurityConfiguration *string `pulumi:"securityConfiguration"`
-	// Security group IDs for the security groups to be used by this endpoint.
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// The subnet ID for the new endpoint to use.
-	SubnetId *string `pulumi:"subnetId"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
-	WorkerType *string `pulumi:"workerType"`
+	Arguments             map[string]string `pulumi:"arguments"`
+	ExtraJarsS3Path       *string           `pulumi:"extraJarsS3Path"`
+	ExtraPythonLibsS3Path *string           `pulumi:"extraPythonLibsS3Path"`
+	GlueVersion           *string           `pulumi:"glueVersion"`
+	Name                  *string           `pulumi:"name"`
+	NumberOfNodes         *int              `pulumi:"numberOfNodes"`
+	NumberOfWorkers       *int              `pulumi:"numberOfWorkers"`
+	PublicKey             *string           `pulumi:"publicKey"`
+	PublicKeys            []string          `pulumi:"publicKeys"`
+	Region                *string           `pulumi:"region"`
+	RoleArn               string            `pulumi:"roleArn"`
+	SecurityConfiguration *string           `pulumi:"securityConfiguration"`
+	SecurityGroupIds      []string          `pulumi:"securityGroupIds"`
+	SubnetId              *string           `pulumi:"subnetId"`
+	Tags                  map[string]string `pulumi:"tags"`
+	WorkerType            *string           `pulumi:"workerType"`
 }
 
 // The set of arguments for constructing a DevEndpoint resource.
 type DevEndpointArgs struct {
-	// A map of arguments used to configure the endpoint.
-	Arguments pulumi.StringMapInput
-	// Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
-	ExtraJarsS3Path pulumi.StringPtrInput
-	// Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
+	Arguments             pulumi.StringMapInput
+	ExtraJarsS3Path       pulumi.StringPtrInput
 	ExtraPythonLibsS3Path pulumi.StringPtrInput
-	// Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
-	GlueVersion pulumi.StringPtrInput
-	// The name of this endpoint. It must be unique in your account.
-	Name pulumi.StringPtrInput
-	// The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `workerType`.
-	NumberOfNodes pulumi.IntPtrInput
-	// The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
-	NumberOfWorkers pulumi.IntPtrInput
-	// The public key to be used by this endpoint for authentication.
-	PublicKey pulumi.StringPtrInput
-	// A list of public keys to be used by this endpoint for authentication.
-	PublicKeys pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The IAM role for this endpoint.
-	RoleArn pulumi.StringInput
-	// The name of the Security Configuration structure to be used with this endpoint.
+	GlueVersion           pulumi.StringPtrInput
+	Name                  pulumi.StringPtrInput
+	NumberOfNodes         pulumi.IntPtrInput
+	NumberOfWorkers       pulumi.IntPtrInput
+	PublicKey             pulumi.StringPtrInput
+	PublicKeys            pulumi.StringArrayInput
+	Region                pulumi.StringPtrInput
+	RoleArn               pulumi.StringInput
 	SecurityConfiguration pulumi.StringPtrInput
-	// Security group IDs for the security groups to be used by this endpoint.
-	SecurityGroupIds pulumi.StringArrayInput
-	// The subnet ID for the new endpoint to use.
-	SubnetId pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
-	WorkerType pulumi.StringPtrInput
+	SecurityGroupIds      pulumi.StringArrayInput
+	SubnetId              pulumi.StringPtrInput
+	Tags                  pulumi.StringMapInput
+	WorkerType            pulumi.StringPtrInput
 }
 
 func (DevEndpointArgs) ElementType() reflect.Type {
@@ -446,132 +263,106 @@ func (o DevEndpointOutput) ToDevEndpointOutputWithContext(ctx context.Context) D
 	return o
 }
 
-// A map of arguments used to configure the endpoint.
 func (o DevEndpointOutput) Arguments() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringMapOutput { return v.Arguments }).(pulumi.StringMapOutput)
 }
 
-// The ARN of the endpoint.
 func (o DevEndpointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The AWS availability zone where this endpoint is located.
 func (o DevEndpointOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
 
-// Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
 func (o DevEndpointOutput) ExtraJarsS3Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringPtrOutput { return v.ExtraJarsS3Path }).(pulumi.StringPtrOutput)
 }
 
-// Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
 func (o DevEndpointOutput) ExtraPythonLibsS3Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringPtrOutput { return v.ExtraPythonLibsS3Path }).(pulumi.StringPtrOutput)
 }
 
-// The reason for a current failure in this endpoint.
 func (o DevEndpointOutput) FailureReason() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringOutput { return v.FailureReason }).(pulumi.StringOutput)
 }
 
-// Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
 func (o DevEndpointOutput) GlueVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringPtrOutput { return v.GlueVersion }).(pulumi.StringPtrOutput)
 }
 
-// The name of this endpoint. It must be unique in your account.
 func (o DevEndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `workerType`.
 func (o DevEndpointOutput) NumberOfNodes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.IntPtrOutput { return v.NumberOfNodes }).(pulumi.IntPtrOutput)
 }
 
-// The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
 func (o DevEndpointOutput) NumberOfWorkers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.IntPtrOutput { return v.NumberOfWorkers }).(pulumi.IntPtrOutput)
 }
 
-// A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
 func (o DevEndpointOutput) PrivateAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringOutput { return v.PrivateAddress }).(pulumi.StringOutput)
 }
 
-// The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
 func (o DevEndpointOutput) PublicAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringOutput { return v.PublicAddress }).(pulumi.StringOutput)
 }
 
-// The public key to be used by this endpoint for authentication.
 func (o DevEndpointOutput) PublicKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringPtrOutput { return v.PublicKey }).(pulumi.StringPtrOutput)
 }
 
-// A list of public keys to be used by this endpoint for authentication.
 func (o DevEndpointOutput) PublicKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringArrayOutput { return v.PublicKeys }).(pulumi.StringArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DevEndpointOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The IAM role for this endpoint.
 func (o DevEndpointOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// The name of the Security Configuration structure to be used with this endpoint.
 func (o DevEndpointOutput) SecurityConfiguration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringPtrOutput { return v.SecurityConfiguration }).(pulumi.StringPtrOutput)
 }
 
-// Security group IDs for the security groups to be used by this endpoint.
 func (o DevEndpointOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// The current status of this endpoint.
 func (o DevEndpointOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// The subnet ID for the new endpoint to use.
 func (o DevEndpointOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DevEndpointOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DevEndpointOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// he ID of the VPC used by this endpoint.
 func (o DevEndpointOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }
 
-// The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
 func (o DevEndpointOutput) WorkerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringPtrOutput { return v.WorkerType }).(pulumi.StringPtrOutput)
 }
 
-// The YARN endpoint address used by this endpoint.
 func (o DevEndpointOutput) YarnEndpointAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringOutput { return v.YarnEndpointAddress }).(pulumi.StringOutput)
 }
 
-// The Apache Zeppelin port for the remote Apache Spark interpreter.
 func (o DevEndpointOutput) ZeppelinRemoteSparkInterpreterPort() pulumi.IntOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.IntOutput { return v.ZeppelinRemoteSparkInterpreterPort }).(pulumi.IntOutput)
 }

@@ -12,70 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS CloudWatch Logs Delivery. A delivery is a connection between an `cloudwatch.LogDeliverySource` and an `cloudwatch.LogDeliveryDestination`.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewLogDelivery(ctx, "example", &cloudwatch.LogDeliveryArgs{
-//				DeliverySourceName:     pulumi.Any(exampleAwsCloudwatchLogDeliverySource.Name),
-//				DeliveryDestinationArn: pulumi.Any(exampleAwsCloudwatchLogDeliveryDestination.Arn),
-//				FieldDelimiter:         pulumi.String(","),
-//				RecordFields: pulumi.StringArray{
-//					pulumi.String("event_timestamp"),
-//					pulumi.String("event"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CloudWatch Logs Delivery using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:cloudwatch/logDelivery:LogDelivery example jsoGVi4Zq8VlYp9n
-// ```
 type LogDelivery struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the delivery.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ARN of the delivery destination to use for this delivery.
-	DeliveryDestinationArn pulumi.StringOutput `pulumi:"deliveryDestinationArn"`
-	// The name of the delivery source to use for this delivery.
-	DeliverySourceName pulumi.StringOutput `pulumi:"deliverySourceName"`
-	// The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
-	FieldDelimiter pulumi.StringOutput `pulumi:"fieldDelimiter"`
-	// The list of record fields to be delivered to the destination, in order.
-	RecordFields pulumi.StringArrayOutput `pulumi:"recordFields"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
+	Arn                      pulumi.StringOutput                           `pulumi:"arn"`
+	DeliveryDestinationArn   pulumi.StringOutput                           `pulumi:"deliveryDestinationArn"`
+	DeliverySourceName       pulumi.StringOutput                           `pulumi:"deliverySourceName"`
+	FieldDelimiter           pulumi.StringOutput                           `pulumi:"fieldDelimiter"`
+	RecordFields             pulumi.StringArrayOutput                      `pulumi:"recordFields"`
+	Region                   pulumi.StringOutput                           `pulumi:"region"`
 	S3DeliveryConfigurations LogDeliveryS3DeliveryConfigurationArrayOutput `pulumi:"s3DeliveryConfigurations"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Tags                     pulumi.StringMapOutput                        `pulumi:"tags"`
+	TagsAll                  pulumi.StringMapOutput                        `pulumi:"tagsAll"`
 }
 
 // NewLogDelivery registers a new resource with the given unique name, arguments, and options.
@@ -114,45 +62,27 @@ func GetLogDelivery(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogDelivery resources.
 type logDeliveryState struct {
-	// The Amazon Resource Name (ARN) of the delivery.
-	Arn *string `pulumi:"arn"`
-	// The ARN of the delivery destination to use for this delivery.
-	DeliveryDestinationArn *string `pulumi:"deliveryDestinationArn"`
-	// The name of the delivery source to use for this delivery.
-	DeliverySourceName *string `pulumi:"deliverySourceName"`
-	// The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
-	FieldDelimiter *string `pulumi:"fieldDelimiter"`
-	// The list of record fields to be delivered to the destination, in order.
-	RecordFields []string `pulumi:"recordFields"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
+	Arn                      *string                              `pulumi:"arn"`
+	DeliveryDestinationArn   *string                              `pulumi:"deliveryDestinationArn"`
+	DeliverySourceName       *string                              `pulumi:"deliverySourceName"`
+	FieldDelimiter           *string                              `pulumi:"fieldDelimiter"`
+	RecordFields             []string                             `pulumi:"recordFields"`
+	Region                   *string                              `pulumi:"region"`
 	S3DeliveryConfigurations []LogDeliveryS3DeliveryConfiguration `pulumi:"s3DeliveryConfigurations"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags                     map[string]string                    `pulumi:"tags"`
+	TagsAll                  map[string]string                    `pulumi:"tagsAll"`
 }
 
 type LogDeliveryState struct {
-	// The Amazon Resource Name (ARN) of the delivery.
-	Arn pulumi.StringPtrInput
-	// The ARN of the delivery destination to use for this delivery.
-	DeliveryDestinationArn pulumi.StringPtrInput
-	// The name of the delivery source to use for this delivery.
-	DeliverySourceName pulumi.StringPtrInput
-	// The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
-	FieldDelimiter pulumi.StringPtrInput
-	// The list of record fields to be delivered to the destination, in order.
-	RecordFields pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
+	Arn                      pulumi.StringPtrInput
+	DeliveryDestinationArn   pulumi.StringPtrInput
+	DeliverySourceName       pulumi.StringPtrInput
+	FieldDelimiter           pulumi.StringPtrInput
+	RecordFields             pulumi.StringArrayInput
+	Region                   pulumi.StringPtrInput
 	S3DeliveryConfigurations LogDeliveryS3DeliveryConfigurationArrayInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Tags                     pulumi.StringMapInput
+	TagsAll                  pulumi.StringMapInput
 }
 
 func (LogDeliveryState) ElementType() reflect.Type {
@@ -160,38 +90,24 @@ func (LogDeliveryState) ElementType() reflect.Type {
 }
 
 type logDeliveryArgs struct {
-	// The ARN of the delivery destination to use for this delivery.
-	DeliveryDestinationArn string `pulumi:"deliveryDestinationArn"`
-	// The name of the delivery source to use for this delivery.
-	DeliverySourceName string `pulumi:"deliverySourceName"`
-	// The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
-	FieldDelimiter *string `pulumi:"fieldDelimiter"`
-	// The list of record fields to be delivered to the destination, in order.
-	RecordFields []string `pulumi:"recordFields"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
+	DeliveryDestinationArn   string                               `pulumi:"deliveryDestinationArn"`
+	DeliverySourceName       string                               `pulumi:"deliverySourceName"`
+	FieldDelimiter           *string                              `pulumi:"fieldDelimiter"`
+	RecordFields             []string                             `pulumi:"recordFields"`
+	Region                   *string                              `pulumi:"region"`
 	S3DeliveryConfigurations []LogDeliveryS3DeliveryConfiguration `pulumi:"s3DeliveryConfigurations"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Tags                     map[string]string                    `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LogDelivery resource.
 type LogDeliveryArgs struct {
-	// The ARN of the delivery destination to use for this delivery.
-	DeliveryDestinationArn pulumi.StringInput
-	// The name of the delivery source to use for this delivery.
-	DeliverySourceName pulumi.StringInput
-	// The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
-	FieldDelimiter pulumi.StringPtrInput
-	// The list of record fields to be delivered to the destination, in order.
-	RecordFields pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
+	DeliveryDestinationArn   pulumi.StringInput
+	DeliverySourceName       pulumi.StringInput
+	FieldDelimiter           pulumi.StringPtrInput
+	RecordFields             pulumi.StringArrayInput
+	Region                   pulumi.StringPtrInput
 	S3DeliveryConfigurations LogDeliveryS3DeliveryConfigurationArrayInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags                     pulumi.StringMapInput
 }
 
 func (LogDeliveryArgs) ElementType() reflect.Type {
@@ -281,47 +197,38 @@ func (o LogDeliveryOutput) ToLogDeliveryOutputWithContext(ctx context.Context) L
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the delivery.
 func (o LogDeliveryOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDelivery) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The ARN of the delivery destination to use for this delivery.
 func (o LogDeliveryOutput) DeliveryDestinationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDelivery) pulumi.StringOutput { return v.DeliveryDestinationArn }).(pulumi.StringOutput)
 }
 
-// The name of the delivery source to use for this delivery.
 func (o LogDeliveryOutput) DeliverySourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDelivery) pulumi.StringOutput { return v.DeliverySourceName }).(pulumi.StringOutput)
 }
 
-// The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
 func (o LogDeliveryOutput) FieldDelimiter() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDelivery) pulumi.StringOutput { return v.FieldDelimiter }).(pulumi.StringOutput)
 }
 
-// The list of record fields to be delivered to the destination, in order.
 func (o LogDeliveryOutput) RecordFields() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogDelivery) pulumi.StringArrayOutput { return v.RecordFields }).(pulumi.StringArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LogDeliveryOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDelivery) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
 func (o LogDeliveryOutput) S3DeliveryConfigurations() LogDeliveryS3DeliveryConfigurationArrayOutput {
 	return o.ApplyT(func(v *LogDelivery) LogDeliveryS3DeliveryConfigurationArrayOutput { return v.S3DeliveryConfigurations }).(LogDeliveryS3DeliveryConfigurationArrayOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o LogDeliveryOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LogDelivery) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o LogDeliveryOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LogDelivery) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -4,30 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Lightsail bucket access key. Use this resource to create credentials that allow programmatic access to your Lightsail bucket via API requests.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.lightsail.Bucket("example", {
- *     name: "example-bucket",
- *     bundleId: "small_1_0",
- * });
- * const exampleBucketAccessKey = new aws.lightsail.BucketAccessKey("example", {bucketName: example.id});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_lightsail_bucket_access_key` using the `id` attribute. For example:
- *
- * ```sh
- * $ pulumi import aws:lightsail/bucketAccessKey:BucketAccessKey example example-bucket,AKIAIOSFODNN7EXAMPLE
- * ```
- */
 export class BucketAccessKey extends pulumi.CustomResource {
     /**
      * Get an existing BucketAccessKey resource's state with the given name, ID, and optional extra
@@ -56,29 +32,11 @@ export class BucketAccessKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === BucketAccessKey.__pulumiType;
     }
 
-    /**
-     * Access key ID.
-     */
     declare public /*out*/ readonly accessKeyId: pulumi.Output<string>;
-    /**
-     * Name of the bucket that the access key will belong to and grant access to.
-     */
     declare public readonly bucketName: pulumi.Output<string>;
-    /**
-     * Date and time when the access key was created.
-     */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
-     */
     declare public /*out*/ readonly secretAccessKey: pulumi.Output<string>;
-    /**
-     * Status of the access key.
-     */
     declare public /*out*/ readonly status: pulumi.Output<string>;
 
     /**
@@ -121,29 +79,11 @@ export class BucketAccessKey extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BucketAccessKey resources.
  */
 export interface BucketAccessKeyState {
-    /**
-     * Access key ID.
-     */
     accessKeyId?: pulumi.Input<string>;
-    /**
-     * Name of the bucket that the access key will belong to and grant access to.
-     */
     bucketName?: pulumi.Input<string>;
-    /**
-     * Date and time when the access key was created.
-     */
     createdAt?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
-     */
     secretAccessKey?: pulumi.Input<string>;
-    /**
-     * Status of the access key.
-     */
     status?: pulumi.Input<string>;
 }
 
@@ -151,12 +91,6 @@ export interface BucketAccessKeyState {
  * The set of arguments for constructing a BucketAccessKey resource.
  */
 export interface BucketAccessKeyArgs {
-    /**
-     * Name of the bucket that the access key will belong to and grant access to.
-     */
     bucketName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

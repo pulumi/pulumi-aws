@@ -25,12 +25,6 @@ class BackupArgs:
                  volume_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Backup resource.
-        :param pulumi.Input[_builtins.str] file_system_id: The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-        :param pulumi.Input[_builtins.str] volume_id: The ID of the volume to back up. Required if backing up a ONTAP Volume.
-               
-               Note - One of `file_system_id` or `volume_id` can be specified. `file_system_id` is used for Lustre and Windows, `volume_id` is used for ONTAP.
         """
         if file_system_id is not None:
             pulumi.set(__self__, "file_system_id", file_system_id)
@@ -44,9 +38,6 @@ class BackupArgs:
     @_builtins.property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
-        """
         return pulumi.get(self, "file_system_id")
 
     @file_system_id.setter
@@ -56,9 +47,6 @@ class BackupArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -68,9 +56,6 @@ class BackupArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -80,11 +65,6 @@ class BackupArgs:
     @_builtins.property
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the volume to back up. Required if backing up a ONTAP Volume.
-
-        Note - One of `file_system_id` or `volume_id` can be specified. `file_system_id` is used for Lustre and Windows, `volume_id` is used for ONTAP.
-        """
         return pulumi.get(self, "volume_id")
 
     @volume_id.setter
@@ -106,17 +86,6 @@ class _BackupState:
                  volume_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Backup resources.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name of the backup.
-        :param pulumi.Input[_builtins.str] file_system_id: The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
-        :param pulumi.Input[_builtins.str] kms_key_id: The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
-        :param pulumi.Input[_builtins.str] owner_id: AWS account identifier that created the file system.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: The type of the file system backup.
-        :param pulumi.Input[_builtins.str] volume_id: The ID of the volume to back up. Required if backing up a ONTAP Volume.
-               
-               Note - One of `file_system_id` or `volume_id` can be specified. `file_system_id` is used for Lustre and Windows, `volume_id` is used for ONTAP.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -140,9 +109,6 @@ class _BackupState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name of the backup.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -152,9 +118,6 @@ class _BackupState:
     @_builtins.property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
-        """
         return pulumi.get(self, "file_system_id")
 
     @file_system_id.setter
@@ -164,9 +127,6 @@ class _BackupState:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -176,9 +136,6 @@ class _BackupState:
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS account identifier that created the file system.
-        """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
@@ -188,9 +145,6 @@ class _BackupState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -200,9 +154,6 @@ class _BackupState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -212,9 +163,6 @@ class _BackupState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -224,9 +172,6 @@ class _BackupState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of the file system backup.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -236,11 +181,6 @@ class _BackupState:
     @_builtins.property
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the volume to back up. Required if backing up a ONTAP Volume.
-
-        Note - One of `file_system_id` or `volume_id` can be specified. `file_system_id` is used for Lustre and Windows, `volume_id` is used for ONTAP.
-        """
         return pulumi.get(self, "volume_id")
 
     @volume_id.setter
@@ -260,82 +200,9 @@ class Backup(pulumi.CustomResource):
                  volume_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a FSx Backup resource.
-
-        ## Lustre Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_lustre_file_system = aws.fsx.LustreFileSystem("example",
-            storage_capacity=1200,
-            subnet_ids=example_aws_subnet["id"],
-            deployment_type="PERSISTENT_1",
-            per_unit_storage_throughput=50)
-        example = aws.fsx.Backup("example", file_system_id=example_lustre_file_system.id)
-        ```
-
-        ## Windows Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_windows_file_system = aws.fsx.WindowsFileSystem("example",
-            active_directory_id=eample["id"],
-            skip_final_backup=True,
-            storage_capacity=32,
-            subnet_ids=[example1["id"]],
-            throughput_capacity=8)
-        example = aws.fsx.Backup("example", file_system_id=example_windows_file_system.id)
-        ```
-
-        ## ONTAP Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_ontap_volume = aws.fsx.OntapVolume("example",
-            name="example",
-            junction_path="/example",
-            size_in_megabytes=1024,
-            storage_efficiency_enabled=True,
-            storage_virtual_machine_id=test["id"])
-        example = aws.fsx.Backup("example", volume_id=example_ontap_volume.id)
-        ```
-
-        ## OpenZFS Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_open_zfs_file_system = aws.fsx.OpenZfsFileSystem("example",
-            storage_capacity=64,
-            subnet_ids=[example_aws_subnet["id"]],
-            deployment_type="SINGLE_AZ_1",
-            throughput_capacity=64)
-        example = aws.fsx.Backup("example", file_system_id=example_open_zfs_file_system.id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import FSx Backups using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:fsx/backup:Backup example fs-543ab12b1ca672f33
-        ```
-
+        Create a Backup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] file_system_id: The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-        :param pulumi.Input[_builtins.str] volume_id: The ID of the volume to back up. Required if backing up a ONTAP Volume.
-               
-               Note - One of `file_system_id` or `volume_id` can be specified. `file_system_id` is used for Lustre and Windows, `volume_id` is used for ONTAP.
         """
         ...
     @overload
@@ -344,74 +211,7 @@ class Backup(pulumi.CustomResource):
                  args: Optional[BackupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a FSx Backup resource.
-
-        ## Lustre Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_lustre_file_system = aws.fsx.LustreFileSystem("example",
-            storage_capacity=1200,
-            subnet_ids=example_aws_subnet["id"],
-            deployment_type="PERSISTENT_1",
-            per_unit_storage_throughput=50)
-        example = aws.fsx.Backup("example", file_system_id=example_lustre_file_system.id)
-        ```
-
-        ## Windows Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_windows_file_system = aws.fsx.WindowsFileSystem("example",
-            active_directory_id=eample["id"],
-            skip_final_backup=True,
-            storage_capacity=32,
-            subnet_ids=[example1["id"]],
-            throughput_capacity=8)
-        example = aws.fsx.Backup("example", file_system_id=example_windows_file_system.id)
-        ```
-
-        ## ONTAP Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_ontap_volume = aws.fsx.OntapVolume("example",
-            name="example",
-            junction_path="/example",
-            size_in_megabytes=1024,
-            storage_efficiency_enabled=True,
-            storage_virtual_machine_id=test["id"])
-        example = aws.fsx.Backup("example", volume_id=example_ontap_volume.id)
-        ```
-
-        ## OpenZFS Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_open_zfs_file_system = aws.fsx.OpenZfsFileSystem("example",
-            storage_capacity=64,
-            subnet_ids=[example_aws_subnet["id"]],
-            deployment_type="SINGLE_AZ_1",
-            throughput_capacity=64)
-        example = aws.fsx.Backup("example", file_system_id=example_open_zfs_file_system.id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import FSx Backups using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:fsx/backup:Backup example fs-543ab12b1ca672f33
-        ```
-
+        Create a Backup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param BackupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -475,17 +275,6 @@ class Backup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name of the backup.
-        :param pulumi.Input[_builtins.str] file_system_id: The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
-        :param pulumi.Input[_builtins.str] kms_key_id: The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
-        :param pulumi.Input[_builtins.str] owner_id: AWS account identifier that created the file system.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: The type of the file system backup.
-        :param pulumi.Input[_builtins.str] volume_id: The ID of the volume to back up. Required if backing up a ONTAP Volume.
-               
-               Note - One of `file_system_id` or `volume_id` can be specified. `file_system_id` is used for Lustre and Windows, `volume_id` is used for ONTAP.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -505,74 +294,45 @@ class Backup(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name of the backup.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
-        """
         return pulumi.get(self, "file_system_id")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        AWS account identifier that created the file system.
-        """
         return pulumi.get(self, "owner_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of the file system backup.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The ID of the volume to back up. Required if backing up a ONTAP Volume.
-
-        Note - One of `file_system_id` or `volume_id` can be specified. `file_system_id` is used for Lustre and Windows, `volume_id` is used for ONTAP.
-        """
         return pulumi.get(self, "volume_id")
 

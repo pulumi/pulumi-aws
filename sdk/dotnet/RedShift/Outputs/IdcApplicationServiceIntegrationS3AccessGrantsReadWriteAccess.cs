@@ -13,9 +13,6 @@ namespace Pulumi.Aws.RedShift.Outputs
     [OutputType]
     public sealed class IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess
     {
-        /// <summary>
-        /// Determines whether read/write scope is enabled or disabled.
-        /// </summary>
         public readonly string Authorization;
 
         [OutputConstructor]

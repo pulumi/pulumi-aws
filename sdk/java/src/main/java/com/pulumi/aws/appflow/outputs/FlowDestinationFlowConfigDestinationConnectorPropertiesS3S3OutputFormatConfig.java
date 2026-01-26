@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig {
-    /**
-     * @return Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
-     * 
-     */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig aggregationConfig;
-    /**
-     * @return File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
-     * 
-     */
     private @Nullable String fileType;
-    /**
-     * @return Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
-     * 
-     */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig prefixConfig;
-    /**
-     * @return Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
-     * 
-     */
     private @Nullable Boolean preserveSourceDataTyping;
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig() {}
-    /**
-     * @return Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
-     * 
-     */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig> aggregationConfig() {
         return Optional.ofNullable(this.aggregationConfig);
     }
-    /**
-     * @return File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
-     * 
-     */
     public Optional<String> fileType() {
         return Optional.ofNullable(this.fileType);
     }
-    /**
-     * @return Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
-     * 
-     */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig> prefixConfig() {
         return Optional.ofNullable(this.prefixConfig);
     }
-    /**
-     * @return Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
-     * 
-     */
     public Optional<Boolean> preserveSourceDataTyping() {
         return Optional.ofNullable(this.preserveSourceDataTyping);
     }

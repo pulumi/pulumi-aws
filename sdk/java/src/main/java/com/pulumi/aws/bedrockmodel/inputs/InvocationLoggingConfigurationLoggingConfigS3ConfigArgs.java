@@ -16,32 +16,16 @@ public final class InvocationLoggingConfigurationLoggingConfigS3ConfigArgs exten
 
     public static final InvocationLoggingConfigurationLoggingConfigS3ConfigArgs Empty = new InvocationLoggingConfigurationLoggingConfigS3ConfigArgs();
 
-    /**
-     * S3 bucket name.
-     * 
-     */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
-    /**
-     * @return S3 bucket name.
-     * 
-     */
     public Output<String> bucketName() {
         return this.bucketName;
     }
 
-    /**
-     * S3 prefix.
-     * 
-     */
     @Import(name="keyPrefix")
     private @Nullable Output<String> keyPrefix;
 
-    /**
-     * @return S3 prefix.
-     * 
-     */
     public Optional<Output<String>> keyPrefix() {
         return Optional.ofNullable(this.keyPrefix);
     }
@@ -71,44 +55,20 @@ public final class InvocationLoggingConfigurationLoggingConfigS3ConfigArgs exten
             $ = new InvocationLoggingConfigurationLoggingConfigS3ConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketName S3 bucket name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(Output<String> bucketName) {
             $.bucketName = bucketName;
             return this;
         }
 
-        /**
-         * @param bucketName S3 bucket name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
         }
 
-        /**
-         * @param keyPrefix S3 prefix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyPrefix(@Nullable Output<String> keyPrefix) {
             $.keyPrefix = keyPrefix;
             return this;
         }
 
-        /**
-         * @param keyPrefix S3 prefix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyPrefix(String keyPrefix) {
             return keyPrefix(Output.of(keyPrefix));
         }

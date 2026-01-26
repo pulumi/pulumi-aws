@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
     {
         [Input("dateTimeParameters")]
         private InputList<Inputs.DashboardParametersDateTimeParameterGetArgs>? _dateTimeParameters;
-
-        /// <summary>
-        /// A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
-        /// </summary>
         public InputList<Inputs.DashboardParametersDateTimeParameterGetArgs> DateTimeParameters
         {
             get => _dateTimeParameters ?? (_dateTimeParameters = new InputList<Inputs.DashboardParametersDateTimeParameterGetArgs>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
         [Input("decimalParameters")]
         private InputList<Inputs.DashboardParametersDecimalParameterGetArgs>? _decimalParameters;
-
-        /// <summary>
-        /// A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
-        /// </summary>
         public InputList<Inputs.DashboardParametersDecimalParameterGetArgs> DecimalParameters
         {
             get => _decimalParameters ?? (_decimalParameters = new InputList<Inputs.DashboardParametersDecimalParameterGetArgs>());
@@ -38,10 +30,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
         [Input("integerParameters")]
         private InputList<Inputs.DashboardParametersIntegerParameterGetArgs>? _integerParameters;
-
-        /// <summary>
-        /// A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
-        /// </summary>
         public InputList<Inputs.DashboardParametersIntegerParameterGetArgs> IntegerParameters
         {
             get => _integerParameters ?? (_integerParameters = new InputList<Inputs.DashboardParametersIntegerParameterGetArgs>());
@@ -50,10 +38,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
         [Input("stringParameters")]
         private InputList<Inputs.DashboardParametersStringParameterGetArgs>? _stringParameters;
-
-        /// <summary>
-        /// A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
-        /// </summary>
         public InputList<Inputs.DashboardParametersStringParameterGetArgs> StringParameters
         {
             get => _stringParameters ?? (_stringParameters = new InputList<Inputs.DashboardParametersStringParameterGetArgs>());

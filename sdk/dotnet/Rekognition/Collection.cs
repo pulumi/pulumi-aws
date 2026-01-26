@@ -9,77 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Rekognition
 {
-    /// <summary>
-    /// Resource for managing an AWS Rekognition Collection.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Rekognition.Collection("example", new()
-    ///     {
-    ///         CollectionId = "my-collection",
-    ///         Tags = 
-    ///         {
-    ///             { "example", "1" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Rekognition Collection using the `collection_id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:rekognition/collection:Collection example collection-id-12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:rekognition/collection:Collection")]
     public partial class Collection : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Collection.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the collection
-        /// 
-        /// The following arguments are optional:
+        /// The name of the Rekognition collection
         /// </summary>
         [Output("collectionId")]
         public Output<string> CollectionId { get; private set; } = null!;
 
-        /// <summary>
-        /// The Face Model Version that the collection was initialized with
-        /// </summary>
         [Output("faceModelVersion")]
         public Output<string> FaceModelVersion { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -133,25 +83,16 @@ namespace Pulumi.Aws.Rekognition
     public sealed class CollectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the collection
-        /// 
-        /// The following arguments are optional:
+        /// The name of the Rekognition collection
         /// </summary>
         [Input("collectionId", required: true)]
         public Input<string> CollectionId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -169,38 +110,23 @@ namespace Pulumi.Aws.Rekognition
 
     public sealed class CollectionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Collection.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The name of the collection
-        /// 
-        /// The following arguments are optional:
+        /// The name of the Rekognition collection
         /// </summary>
         [Input("collectionId")]
         public Input<string>? CollectionId { get; set; }
 
-        /// <summary>
-        /// The Face Model Version that the collection was initialized with
-        /// </summary>
         [Input("faceModelVersion")]
         public Input<string>? FaceModelVersion { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -209,10 +135,6 @@ namespace Pulumi.Aws.Rekognition
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

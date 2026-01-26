@@ -9,76 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.OpenSearch
 {
-    /// <summary>
-    /// Manages an [AWS Opensearch Inbound Connection Accepter](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AcceptInboundConnection.html). If connecting domains from different AWS accounts, ensure that the accepter is configured to use the AWS account where the _remote_ opensearch domain exists.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var currentGetRegion = Aws.GetRegion.Invoke();
-    /// 
-    ///     var foo = new Aws.OpenSearch.OutboundConnection("foo", new()
-    ///     {
-    ///         ConnectionAlias = "outbound_connection",
-    ///         LocalDomainInfo = new Aws.OpenSearch.Inputs.OutboundConnectionLocalDomainInfoArgs
-    ///         {
-    ///             OwnerId = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///             Region = currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region),
-    ///             DomainName = localDomain.DomainName,
-    ///         },
-    ///         RemoteDomainInfo = new Aws.OpenSearch.Inputs.OutboundConnectionRemoteDomainInfoArgs
-    ///         {
-    ///             OwnerId = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///             Region = currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region),
-    ///             DomainName = remoteDomain.DomainName,
-    ///         },
-    ///     });
-    /// 
-    ///     var fooInboundConnectionAccepter = new Aws.OpenSearch.InboundConnectionAccepter("foo", new()
-    ///     {
-    ///         ConnectionId = foo.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import AWS Opensearch Inbound Connection Accepters using the Inbound Connection ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter foo connection-id
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter")]
     public partial class InboundConnectionAccepter : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Specifies the ID of the connection to accept.
-        /// </summary>
         [Output("connectionId")]
         public Output<string> ConnectionId { get; private set; } = null!;
 
-        /// <summary>
-        /// Status of the connection request.
-        /// </summary>
         [Output("connectionStatus")]
         public Output<string> ConnectionStatus { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -128,15 +67,9 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class InboundConnectionAccepterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the ID of the connection to accept.
-        /// </summary>
         [Input("connectionId", required: true)]
         public Input<string> ConnectionId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -148,21 +81,12 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class InboundConnectionAccepterState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the ID of the connection to accept.
-        /// </summary>
         [Input("connectionId")]
         public Input<string>? ConnectionId { get; set; }
 
-        /// <summary>
-        /// Status of the connection request.
-        /// </summary>
         [Input("connectionStatus")]
         public Input<string>? ConnectionStatus { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

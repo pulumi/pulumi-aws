@@ -7,32 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS DataZone User Profile.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.datazone.UserProfile("example", {
- *     userIdentifier: exampleAwsIamUser.arn,
- *     domainIdentifier: exampleAwsDatazoneDomain.id,
- *     userType: "IAM_USER",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import DataZone User Profile using the `user_identifier,domain_identifier,type`. For example:
- *
- * ```sh
- * $ pulumi import aws:datazone/userProfile:UserProfile example arn:aws:iam::123456789012:user/example,dzd_54nakfrg9k6suo,IAM
- * ```
- */
 export class UserProfile extends pulumi.CustomResource {
     /**
      * Get an existing UserProfile resource's state with the given name, ID, and optional extra
@@ -61,36 +35,13 @@ export class UserProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserProfile.__pulumiType;
     }
 
-    /**
-     * Details about the user profile.
-     */
     declare public /*out*/ readonly details: pulumi.Output<outputs.datazone.UserProfileDetail[]>;
-    /**
-     * The domain identifier.
-     */
     declare public readonly domainIdentifier: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The user profile status.
-     */
     declare public readonly status: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.datazone.UserProfileTimeouts | undefined>;
-    /**
-     * The user profile type.
-     */
     declare public /*out*/ readonly type: pulumi.Output<string>;
-    /**
-     * The user identifier.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly userIdentifier: pulumi.Output<string>;
-    /**
-     * The user type.
-     */
     declare public readonly userType: pulumi.Output<string>;
 
     /**
@@ -140,36 +91,13 @@ export class UserProfile extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserProfile resources.
  */
 export interface UserProfileState {
-    /**
-     * Details about the user profile.
-     */
     details?: pulumi.Input<pulumi.Input<inputs.datazone.UserProfileDetail>[]>;
-    /**
-     * The domain identifier.
-     */
     domainIdentifier?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The user profile status.
-     */
     status?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.datazone.UserProfileTimeouts>;
-    /**
-     * The user profile type.
-     */
     type?: pulumi.Input<string>;
-    /**
-     * The user identifier.
-     *
-     * The following arguments are optional:
-     */
     userIdentifier?: pulumi.Input<string>;
-    /**
-     * The user type.
-     */
     userType?: pulumi.Input<string>;
 }
 
@@ -177,27 +105,10 @@ export interface UserProfileState {
  * The set of arguments for constructing a UserProfile resource.
  */
 export interface UserProfileArgs {
-    /**
-     * The domain identifier.
-     */
     domainIdentifier: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The user profile status.
-     */
     status?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.datazone.UserProfileTimeouts>;
-    /**
-     * The user identifier.
-     *
-     * The following arguments are optional:
-     */
     userIdentifier: pulumi.Input<string>;
-    /**
-     * The user type.
-     */
     userType?: pulumi.Input<string>;
 }

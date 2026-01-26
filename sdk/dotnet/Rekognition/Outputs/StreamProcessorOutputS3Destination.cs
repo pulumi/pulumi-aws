@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Rekognition.Outputs
     public sealed class StreamProcessorOutputS3Destination
     {
         /// <summary>
-        /// Name of the Amazon S3 bucket you want to associate with the streaming video project.
+        /// The name of the Amazon S3 bucket you want to associate with the streaming video project.
         /// </summary>
         public readonly string? Bucket;
         /// <summary>

@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConfigurationProfileValidator {
-    /**
-     * @return Either the JSON Schema content or the ARN of an AWS Lambda function.
-     * 
-     */
     private String content;
-    /**
-     * @return Type of validator. Valid values: JSON_SCHEMA and LAMBDA.
-     * 
-     */
     private String type;
 
     private GetConfigurationProfileValidator() {}
-    /**
-     * @return Either the JSON Schema content or the ARN of an AWS Lambda function.
-     * 
-     */
     public String content() {
         return this.content;
     }
-    /**
-     * @return Type of validator. Valid values: JSON_SCHEMA and LAMBDA.
-     * 
-     */
     public String type() {
         return this.type;
     }

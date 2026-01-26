@@ -18,310 +18,113 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an EC2 Capacity Block Reservation. This allows you to purchase capacity block for your Amazon EC2 instances in a specific Availability Zone for machine learning (ML) Workloads.
- * 
- * &gt; **NOTE:** Once created, a reservation is valid for the `duration` of the provided `capacityBlockOfferingId` and cannot be deleted. Performing a `destroy` will only remove the resource from state. For more information see [EC2 Capacity Block Reservation Documentation](https://aws.amazon.com/ec2/instance-types/p5/) and [PurchaseReservedDBInstancesOffering](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-blocks-pricing-billing.html).
- * 
- * &gt; **NOTE:** Due to the expense of testing this resource, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Ec2Functions;
- * import com.pulumi.aws.ec2.inputs.GetCapacityBlockOfferingArgs;
- * import com.pulumi.aws.ec2.CapacityBlockReservation;
- * import com.pulumi.aws.ec2.CapacityBlockReservationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var test = Ec2Functions.getCapacityBlockOffering(GetCapacityBlockOfferingArgs.builder()
- *             .capacityDurationHours(24)
- *             .endDateRange("2024-05-30T15:04:05Z")
- *             .instanceCount(1)
- *             .instanceType("p4d.24xlarge")
- *             .startDateRange("2024-04-28T15:04:05Z")
- *             .build());
- * 
- *         var example = new CapacityBlockReservation("example", CapacityBlockReservationArgs.builder()
- *             .capacityBlockOfferingId(test.capacityBlockOfferingId())
- *             .instancePlatform("Linux/UNIX")
- *             .tags(Map.of("Environment", "dev"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:ec2/capacityBlockReservation:CapacityBlockReservation")
 public class CapacityBlockReservation extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the reservation.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the reservation.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The Availability Zone in which to create the Capacity Block Reservation.
-     * 
-     */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
-    /**
-     * @return The Availability Zone in which to create the Capacity Block Reservation.
-     * 
-     */
     public Output<String> availabilityZone() {
         return this.availabilityZone;
     }
-    /**
-     * The Capacity Block Reservation ID.
-     * 
-     */
     @Export(name="capacityBlockOfferingId", refs={String.class}, tree="[0]")
     private Output<String> capacityBlockOfferingId;
 
-    /**
-     * @return The Capacity Block Reservation ID.
-     * 
-     */
     public Output<String> capacityBlockOfferingId() {
         return this.capacityBlockOfferingId;
     }
-    /**
-     * The date and time at which the Capacity Block Reservation was created.
-     * 
-     */
     @Export(name="createdDate", refs={String.class}, tree="[0]")
     private Output<String> createdDate;
 
-    /**
-     * @return The date and time at which the Capacity Block Reservation was created.
-     * 
-     */
     public Output<String> createdDate() {
         return this.createdDate;
     }
-    /**
-     * Indicates whether the Capacity Reservation supports EBS-optimized instances.
-     * 
-     */
     @Export(name="ebsOptimized", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> ebsOptimized;
 
-    /**
-     * @return Indicates whether the Capacity Reservation supports EBS-optimized instances.
-     * 
-     */
     public Output<Boolean> ebsOptimized() {
         return this.ebsOptimized;
     }
-    /**
-     * The date and time at which the Capacity Block Reservation expires. When a Capacity Block Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-     * 
-     */
     @Export(name="endDate", refs={String.class}, tree="[0]")
     private Output<String> endDate;
 
-    /**
-     * @return The date and time at which the Capacity Block Reservation expires. When a Capacity Block Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-     * 
-     */
     public Output<String> endDate() {
         return this.endDate;
     }
-    /**
-     * Indicates the way in which the Capacity Reservation ends.
-     * 
-     */
     @Export(name="endDateType", refs={String.class}, tree="[0]")
     private Output<String> endDateType;
 
-    /**
-     * @return Indicates the way in which the Capacity Reservation ends.
-     * 
-     */
     public Output<String> endDateType() {
         return this.endDateType;
     }
-    /**
-     * The number of instances for which to reserve capacity.
-     * 
-     */
     @Export(name="instanceCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> instanceCount;
 
-    /**
-     * @return The number of instances for which to reserve capacity.
-     * 
-     */
     public Output<Integer> instanceCount() {
         return this.instanceCount;
     }
-    /**
-     * The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
-     * 
-     */
     @Export(name="instancePlatform", refs={String.class}, tree="[0]")
     private Output<String> instancePlatform;
 
-    /**
-     * @return The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
-     * 
-     */
     public Output<String> instancePlatform() {
         return this.instancePlatform;
     }
-    /**
-     * The instance type for which to reserve capacity.
-     * 
-     */
     @Export(name="instanceType", refs={String.class}, tree="[0]")
     private Output<String> instanceType;
 
-    /**
-     * @return The instance type for which to reserve capacity.
-     * 
-     */
     public Output<String> instanceType() {
         return this.instanceType;
     }
-    /**
-     * The ARN of the Outpost on which to create the Capacity Block Reservation.
-     * 
-     */
     @Export(name="outpostArn", refs={String.class}, tree="[0]")
     private Output<String> outpostArn;
 
-    /**
-     * @return The ARN of the Outpost on which to create the Capacity Block Reservation.
-     * 
-     */
     public Output<String> outpostArn() {
         return this.outpostArn;
     }
-    /**
-     * The ARN of the placement group in which to create the Capacity Block Reservation.
-     * 
-     */
     @Export(name="placementGroupArn", refs={String.class}, tree="[0]")
     private Output<String> placementGroupArn;
 
-    /**
-     * @return The ARN of the placement group in which to create the Capacity Block Reservation.
-     * 
-     */
     public Output<String> placementGroupArn() {
         return this.placementGroupArn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The type of Capacity Reservation.
-     * 
-     */
     @Export(name="reservationType", refs={String.class}, tree="[0]")
     private Output<String> reservationType;
 
-    /**
-     * @return The type of Capacity Reservation.
-     * 
-     */
     public Output<String> reservationType() {
         return this.reservationType;
     }
-    /**
-     * The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-     * 
-     */
     @Export(name="startDate", refs={String.class}, tree="[0]")
     private Output<String> startDate;
 
-    /**
-     * @return The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-     * 
-     */
     public Output<String> startDate() {
         return this.startDate;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Indicates the tenancy of the Capacity Block Reservation. Specify either `default` or `dedicated`.
-     * 
-     */
     @Export(name="tenancy", refs={String.class}, tree="[0]")
     private Output<String> tenancy;
 
-    /**
-     * @return Indicates the tenancy of the Capacity Block Reservation. Specify either `default` or `dedicated`.
-     * 
-     */
     public Output<String> tenancy() {
         return this.tenancy;
     }

@@ -16,32 +16,16 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesAndArgs extend
 
     public static final ClassificationJobS3JobDefinitionScopingIncludesAndArgs Empty = new ClassificationJobS3JobDefinitionScopingIncludesAndArgs();
 
-    /**
-     * A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. (documented below)
-     * 
-     */
     @Import(name="simpleScopeTerm")
     private @Nullable Output<ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermArgs> simpleScopeTerm;
 
-    /**
-     * @return A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. (documented below)
-     * 
-     */
     public Optional<Output<ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermArgs>> simpleScopeTerm() {
         return Optional.ofNullable(this.simpleScopeTerm);
     }
 
-    /**
-     * A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job. (documented below)
-     * 
-     */
     @Import(name="tagScopeTerm")
     private @Nullable Output<ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermArgs> tagScopeTerm;
 
-    /**
-     * @return A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job. (documented below)
-     * 
-     */
     public Optional<Output<ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermArgs>> tagScopeTerm() {
         return Optional.ofNullable(this.tagScopeTerm);
     }
@@ -71,44 +55,20 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesAndArgs extend
             $ = new ClassificationJobS3JobDefinitionScopingIncludesAndArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param simpleScopeTerm A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. (documented below)
-         * 
-         * @return builder
-         * 
-         */
         public Builder simpleScopeTerm(@Nullable Output<ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermArgs> simpleScopeTerm) {
             $.simpleScopeTerm = simpleScopeTerm;
             return this;
         }
 
-        /**
-         * @param simpleScopeTerm A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. (documented below)
-         * 
-         * @return builder
-         * 
-         */
         public Builder simpleScopeTerm(ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermArgs simpleScopeTerm) {
             return simpleScopeTerm(Output.of(simpleScopeTerm));
         }
 
-        /**
-         * @param tagScopeTerm A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job. (documented below)
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagScopeTerm(@Nullable Output<ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermArgs> tagScopeTerm) {
             $.tagScopeTerm = tagScopeTerm;
             return this;
         }
 
-        /**
-         * @param tagScopeTerm A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job. (documented below)
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagScopeTerm(ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermArgs tagScopeTerm) {
             return tagScopeTerm(Output.of(tagScopeTerm));
         }

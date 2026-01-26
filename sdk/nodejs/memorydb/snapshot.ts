@@ -7,31 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a MemoryDB Snapshot.
- *
- * More information about snapshot and restore can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/snapshots.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.memorydb.Snapshot("example", {
- *     clusterName: exampleAwsMemorydbCluster.name,
- *     name: "my-snapshot",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import a snapshot using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
- * ```
- */
 export class Snapshot extends pulumi.CustomResource {
     /**
      * Get an existing Snapshot resource's state with the given name, ID, and optional extra
@@ -60,45 +35,15 @@ export class Snapshot extends pulumi.CustomResource {
         return obj['__pulumiType'] === Snapshot.__pulumiType;
     }
 
-    /**
-     * The ARN of the snapshot.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The configuration of the cluster from which the snapshot was taken.
-     */
     declare public /*out*/ readonly clusterConfigurations: pulumi.Output<outputs.memorydb.SnapshotClusterConfiguration[]>;
-    /**
-     * Name of the MemoryDB cluster to take a snapshot of.
-     */
     declare public readonly clusterName: pulumi.Output<string>;
-    /**
-     * ARN of the KMS key used to encrypt the snapshot at rest.
-     */
     declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
-    /**
-     * Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     */
     declare public readonly namePrefix: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
-     */
     declare public /*out*/ readonly source: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -149,45 +94,15 @@ export class Snapshot extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Snapshot resources.
  */
 export interface SnapshotState {
-    /**
-     * The ARN of the snapshot.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The configuration of the cluster from which the snapshot was taken.
-     */
     clusterConfigurations?: pulumi.Input<pulumi.Input<inputs.memorydb.SnapshotClusterConfiguration>[]>;
-    /**
-     * Name of the MemoryDB cluster to take a snapshot of.
-     */
     clusterName?: pulumi.Input<string>;
-    /**
-     * ARN of the KMS key used to encrypt the snapshot at rest.
-     */
     kmsKeyArn?: pulumi.Input<string>;
-    /**
-     * Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     */
     namePrefix?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
-     */
     source?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -195,28 +110,10 @@ export interface SnapshotState {
  * The set of arguments for constructing a Snapshot resource.
  */
 export interface SnapshotArgs {
-    /**
-     * Name of the MemoryDB cluster to take a snapshot of.
-     */
     clusterName: pulumi.Input<string>;
-    /**
-     * ARN of the KMS key used to encrypt the snapshot at rest.
-     */
     kmsKeyArn?: pulumi.Input<string>;
-    /**
-     * Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     */
     namePrefix?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

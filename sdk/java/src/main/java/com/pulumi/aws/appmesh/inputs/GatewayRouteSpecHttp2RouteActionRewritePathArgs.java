@@ -14,17 +14,9 @@ public final class GatewayRouteSpecHttp2RouteActionRewritePathArgs extends com.p
 
     public static final GatewayRouteSpecHttp2RouteActionRewritePathArgs Empty = new GatewayRouteSpecHttp2RouteActionRewritePathArgs();
 
-    /**
-     * The exact path to match on.
-     * 
-     */
     @Import(name="exact", required=true)
     private Output<String> exact;
 
-    /**
-     * @return The exact path to match on.
-     * 
-     */
     public Output<String> exact() {
         return this.exact;
     }
@@ -53,23 +45,11 @@ public final class GatewayRouteSpecHttp2RouteActionRewritePathArgs extends com.p
             $ = new GatewayRouteSpecHttp2RouteActionRewritePathArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param exact The exact path to match on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exact(Output<String> exact) {
             $.exact = exact;
             return this;
         }
 
-        /**
-         * @param exact The exact path to match on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exact(String exact) {
             return exact(Output.of(exact));
         }

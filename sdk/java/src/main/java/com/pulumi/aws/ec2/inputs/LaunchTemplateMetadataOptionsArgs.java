@@ -16,81 +16,37 @@ public final class LaunchTemplateMetadataOptionsArgs extends com.pulumi.resource
 
     public static final LaunchTemplateMetadataOptionsArgs Empty = new LaunchTemplateMetadataOptionsArgs();
 
-    /**
-     * Whether the metadata service is available. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`. (Default: `&#34;enabled&#34;`).
-     * 
-     */
     @Import(name="httpEndpoint")
     private @Nullable Output<String> httpEndpoint;
 
-    /**
-     * @return Whether the metadata service is available. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`. (Default: `&#34;enabled&#34;`).
-     * 
-     */
     public Optional<Output<String>> httpEndpoint() {
         return Optional.ofNullable(this.httpEndpoint);
     }
 
-    /**
-     * Enables or disables the IPv6 endpoint for the instance metadata service. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`.
-     * 
-     */
     @Import(name="httpProtocolIpv6")
     private @Nullable Output<String> httpProtocolIpv6;
 
-    /**
-     * @return Enables or disables the IPv6 endpoint for the instance metadata service. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`.
-     * 
-     */
     public Optional<Output<String>> httpProtocolIpv6() {
         return Optional.ofNullable(this.httpProtocolIpv6);
     }
 
-    /**
-     * The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
-     * 
-     */
     @Import(name="httpPutResponseHopLimit")
     private @Nullable Output<Integer> httpPutResponseHopLimit;
 
-    /**
-     * @return The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
-     * 
-     */
     public Optional<Output<Integer>> httpPutResponseHopLimit() {
         return Optional.ofNullable(this.httpPutResponseHopLimit);
     }
 
-    /**
-     * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `&#34;optional&#34;` or `&#34;required&#34;`. (Default: `&#34;optional&#34;`).
-     * 
-     */
     @Import(name="httpTokens")
     private @Nullable Output<String> httpTokens;
 
-    /**
-     * @return Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `&#34;optional&#34;` or `&#34;required&#34;`. (Default: `&#34;optional&#34;`).
-     * 
-     */
     public Optional<Output<String>> httpTokens() {
         return Optional.ofNullable(this.httpTokens);
     }
 
-    /**
-     * Enables or disables access to instance tags from the instance metadata service. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`.
-     * 
-     * For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
-     * 
-     */
     @Import(name="instanceMetadataTags")
     private @Nullable Output<String> instanceMetadataTags;
 
-    /**
-     * @return Enables or disables access to instance tags from the instance metadata service. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`.
-     * 
-     * For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
-     * 
-     */
     public Optional<Output<String>> instanceMetadataTags() {
         return Optional.ofNullable(this.instanceMetadataTags);
     }
@@ -123,111 +79,47 @@ public final class LaunchTemplateMetadataOptionsArgs extends com.pulumi.resource
             $ = new LaunchTemplateMetadataOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param httpEndpoint Whether the metadata service is available. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`. (Default: `&#34;enabled&#34;`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpEndpoint(@Nullable Output<String> httpEndpoint) {
             $.httpEndpoint = httpEndpoint;
             return this;
         }
 
-        /**
-         * @param httpEndpoint Whether the metadata service is available. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`. (Default: `&#34;enabled&#34;`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpEndpoint(String httpEndpoint) {
             return httpEndpoint(Output.of(httpEndpoint));
         }
 
-        /**
-         * @param httpProtocolIpv6 Enables or disables the IPv6 endpoint for the instance metadata service. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpProtocolIpv6(@Nullable Output<String> httpProtocolIpv6) {
             $.httpProtocolIpv6 = httpProtocolIpv6;
             return this;
         }
 
-        /**
-         * @param httpProtocolIpv6 Enables or disables the IPv6 endpoint for the instance metadata service. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpProtocolIpv6(String httpProtocolIpv6) {
             return httpProtocolIpv6(Output.of(httpProtocolIpv6));
         }
 
-        /**
-         * @param httpPutResponseHopLimit The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpPutResponseHopLimit(@Nullable Output<Integer> httpPutResponseHopLimit) {
             $.httpPutResponseHopLimit = httpPutResponseHopLimit;
             return this;
         }
 
-        /**
-         * @param httpPutResponseHopLimit The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpPutResponseHopLimit(Integer httpPutResponseHopLimit) {
             return httpPutResponseHopLimit(Output.of(httpPutResponseHopLimit));
         }
 
-        /**
-         * @param httpTokens Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `&#34;optional&#34;` or `&#34;required&#34;`. (Default: `&#34;optional&#34;`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpTokens(@Nullable Output<String> httpTokens) {
             $.httpTokens = httpTokens;
             return this;
         }
 
-        /**
-         * @param httpTokens Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `&#34;optional&#34;` or `&#34;required&#34;`. (Default: `&#34;optional&#34;`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpTokens(String httpTokens) {
             return httpTokens(Output.of(httpTokens));
         }
 
-        /**
-         * @param instanceMetadataTags Enables or disables access to instance tags from the instance metadata service. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`.
-         * 
-         * For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceMetadataTags(@Nullable Output<String> instanceMetadataTags) {
             $.instanceMetadataTags = instanceMetadataTags;
             return this;
         }
 
-        /**
-         * @param instanceMetadataTags Enables or disables access to instance tags from the instance metadata service. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`.
-         * 
-         * For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceMetadataTags(String instanceMetadataTags) {
             return instanceMetadataTags(Output.of(instanceMetadataTags));
         }

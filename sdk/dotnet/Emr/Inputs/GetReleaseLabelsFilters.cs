@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Emr.Inputs
 
     public sealed class GetReleaseLabelsFiltersArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
-        /// </summary>
         [Input("application")]
         public string? Application { get; set; }
 
-        /// <summary>
-        /// Optional release label version prefix filter. For example, `emr-5`.
-        /// </summary>
         [Input("prefix")]
         public string? Prefix { get; set; }
 

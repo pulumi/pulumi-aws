@@ -15,17 +15,9 @@ public final class DashboardParametersDateTimeParameterArgs extends com.pulumi.r
 
     public static final DashboardParametersDateTimeParameterArgs Empty = new DashboardParametersDateTimeParameterArgs();
 
-    /**
-     * Display name for the dashboard.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Display name for the dashboard.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -62,23 +54,11 @@ public final class DashboardParametersDateTimeParameterArgs extends com.pulumi.r
             $ = new DashboardParametersDateTimeParameterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Display name for the dashboard.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Display name for the dashboard.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

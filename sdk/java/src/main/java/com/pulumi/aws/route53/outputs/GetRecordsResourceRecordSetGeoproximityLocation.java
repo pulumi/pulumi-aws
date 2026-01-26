@@ -12,53 +12,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRecordsResourceRecordSetGeoproximityLocation {
-    /**
-     * @return The AWS Region the resource you are directing DNS traffic to, is in.
-     * 
-     */
     private String awsRegion;
-    /**
-     * @return The bias increases or decreases the size of the geographic region from which Route 53 routes traffic to a resource.
-     * 
-     */
     private Integer bias;
-    /**
-     * @return Contains the longitude and latitude for a geographic region.
-     * 
-     */
     private GetRecordsResourceRecordSetGeoproximityLocationCoordinates coordinates;
-    /**
-     * @return An AWS Local Zone Group.
-     * 
-     */
     private String localZoneGroup;
 
     private GetRecordsResourceRecordSetGeoproximityLocation() {}
-    /**
-     * @return The AWS Region the resource you are directing DNS traffic to, is in.
-     * 
-     */
     public String awsRegion() {
         return this.awsRegion;
     }
-    /**
-     * @return The bias increases or decreases the size of the geographic region from which Route 53 routes traffic to a resource.
-     * 
-     */
     public Integer bias() {
         return this.bias;
     }
-    /**
-     * @return Contains the longitude and latitude for a geographic region.
-     * 
-     */
     public GetRecordsResourceRecordSetGeoproximityLocationCoordinates coordinates() {
         return this.coordinates;
     }
-    /**
-     * @return An AWS Local Zone Group.
-     * 
-     */
     public String localZoneGroup() {
         return this.localZoneGroup;
     }

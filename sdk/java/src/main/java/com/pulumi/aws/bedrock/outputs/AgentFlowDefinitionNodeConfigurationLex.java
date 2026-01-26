@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationLex {
-    /**
-     * @return The Amazon Resource Name (ARN) of the Amazon Lex bot alias to invoke.
-     * 
-     */
     private String botAliasArn;
-    /**
-     * @return The Region to invoke the Amazon Lex bot in
-     * 
-     */
     private String localeId;
 
     private AgentFlowDefinitionNodeConfigurationLex() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the Amazon Lex bot alias to invoke.
-     * 
-     */
     public String botAliasArn() {
         return this.botAliasArn;
     }
-    /**
-     * @return The Region to invoke the Amazon Lex bot in
-     * 
-     */
     public String localeId() {
         return this.localeId;
     }

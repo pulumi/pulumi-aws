@@ -9,87 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Backup
 {
-    /// <summary>
-    /// Resource for managing an AWS Backup Logically Air Gapped Vault.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Backup.LogicallyAirGappedVault("example", new()
-    ///     {
-    ///         Name = "lag-example-vault",
-    ///         MaxRetentionDays = 7,
-    ///         MinRetentionDays = 7,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Backup Logically Air Gapped Vault using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:backup/logicallyAirGappedVault:LogicallyAirGappedVault example lag-example-vault
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:backup/logicallyAirGappedVault:LogicallyAirGappedVault")]
     public partial class LogicallyAirGappedVault : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the Logically Air Gapped Backup Vault.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
-        /// </summary>
         [Output("encryptionKeyArn")]
         public Output<string> EncryptionKeyArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-        /// </summary>
         [Output("maxRetentionDays")]
         public Output<int> MaxRetentionDays { get; private set; } = null!;
 
-        /// <summary>
-        /// Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-        /// </summary>
         [Output("minRetentionDays")]
         public Output<int> MinRetentionDays { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the Logically Air Gapped Backup Vault to create.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Metadata that you can assign to help organize the resources that you create. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -142,42 +85,23 @@ namespace Pulumi.Aws.Backup
 
     public sealed class LogicallyAirGappedVaultArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
-        /// </summary>
         [Input("encryptionKeyArn")]
         public Input<string>? EncryptionKeyArn { get; set; }
 
-        /// <summary>
-        /// Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-        /// </summary>
         [Input("maxRetentionDays", required: true)]
         public Input<int> MaxRetentionDays { get; set; } = null!;
 
-        /// <summary>
-        /// Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-        /// </summary>
         [Input("minRetentionDays", required: true)]
         public Input<int> MinRetentionDays { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the Logically Air Gapped Backup Vault to create.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Metadata that you can assign to help organize the resources that you create. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -195,48 +119,26 @@ namespace Pulumi.Aws.Backup
 
     public sealed class LogicallyAirGappedVaultState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the Logically Air Gapped Backup Vault.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
-        /// </summary>
         [Input("encryptionKeyArn")]
         public Input<string>? EncryptionKeyArn { get; set; }
 
-        /// <summary>
-        /// Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-        /// </summary>
         [Input("maxRetentionDays")]
         public Input<int>? MaxRetentionDays { get; set; }
 
-        /// <summary>
-        /// Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-        /// </summary>
         [Input("minRetentionDays")]
         public Input<int>? MinRetentionDays { get; set; }
 
-        /// <summary>
-        /// Name of the Logically Air Gapped Backup Vault to create.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Metadata that you can assign to help organize the resources that you create. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -245,10 +147,6 @@ namespace Pulumi.Aws.Backup
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -15,85 +15,37 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRouteTableResult {
-    /**
-     * @return EC2 Transit Gateway Route Table ARN.
-     * 
-     */
     private String arn;
-    /**
-     * @return Boolean whether this is the default association route table for the EC2 Transit Gateway
-     * 
-     */
     private Boolean defaultAssociationRouteTable;
-    /**
-     * @return Boolean whether this is the default propagation route table for the EC2 Transit Gateway
-     * 
-     */
     private Boolean defaultPropagationRouteTable;
     private @Nullable List<GetRouteTableFilter> filters;
-    /**
-     * @return EC2 Transit Gateway Route Table identifier
-     * 
-     */
     private String id;
     private String region;
-    /**
-     * @return Key-value tags for the EC2 Transit Gateway Route Table
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return EC2 Transit Gateway identifier
-     * 
-     */
     private String transitGatewayId;
 
     private GetRouteTableResult() {}
-    /**
-     * @return EC2 Transit Gateway Route Table ARN.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Boolean whether this is the default association route table for the EC2 Transit Gateway
-     * 
-     */
     public Boolean defaultAssociationRouteTable() {
         return this.defaultAssociationRouteTable;
     }
-    /**
-     * @return Boolean whether this is the default propagation route table for the EC2 Transit Gateway
-     * 
-     */
     public Boolean defaultPropagationRouteTable() {
         return this.defaultPropagationRouteTable;
     }
     public List<GetRouteTableFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
-    /**
-     * @return EC2 Transit Gateway Route Table identifier
-     * 
-     */
     public String id() {
         return this.id;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Key-value tags for the EC2 Transit Gateway Route Table
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return EC2 Transit Gateway identifier
-     * 
-     */
     public String transitGatewayId() {
         return this.transitGatewayId;
     }

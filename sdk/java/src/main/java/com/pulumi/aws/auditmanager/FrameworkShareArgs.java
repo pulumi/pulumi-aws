@@ -16,81 +16,37 @@ public final class FrameworkShareArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final FrameworkShareArgs Empty = new FrameworkShareArgs();
 
-    /**
-     * Comment from the sender about the share request.
-     * 
-     */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
-    /**
-     * @return Comment from the sender about the share request.
-     * 
-     */
     public Optional<Output<String>> comment() {
         return Optional.ofNullable(this.comment);
     }
 
-    /**
-     * Amazon Web Services account of the recipient.
-     * 
-     */
     @Import(name="destinationAccount", required=true)
     private Output<String> destinationAccount;
 
-    /**
-     * @return Amazon Web Services account of the recipient.
-     * 
-     */
     public Output<String> destinationAccount() {
         return this.destinationAccount;
     }
 
-    /**
-     * Amazon Web Services region of the recipient.
-     * 
-     */
     @Import(name="destinationRegion", required=true)
     private Output<String> destinationRegion;
 
-    /**
-     * @return Amazon Web Services region of the recipient.
-     * 
-     */
     public Output<String> destinationRegion() {
         return this.destinationRegion;
     }
 
-    /**
-     * Unique identifier for the shared custom framework.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="frameworkId", required=true)
     private Output<String> frameworkId;
 
-    /**
-     * @return Unique identifier for the shared custom framework.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> frameworkId() {
         return this.frameworkId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -123,111 +79,47 @@ public final class FrameworkShareArgs extends com.pulumi.resources.ResourceArgs 
             $ = new FrameworkShareArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param comment Comment from the sender about the share request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(@Nullable Output<String> comment) {
             $.comment = comment;
             return this;
         }
 
-        /**
-         * @param comment Comment from the sender about the share request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
         }
 
-        /**
-         * @param destinationAccount Amazon Web Services account of the recipient.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationAccount(Output<String> destinationAccount) {
             $.destinationAccount = destinationAccount;
             return this;
         }
 
-        /**
-         * @param destinationAccount Amazon Web Services account of the recipient.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationAccount(String destinationAccount) {
             return destinationAccount(Output.of(destinationAccount));
         }
 
-        /**
-         * @param destinationRegion Amazon Web Services region of the recipient.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationRegion(Output<String> destinationRegion) {
             $.destinationRegion = destinationRegion;
             return this;
         }
 
-        /**
-         * @param destinationRegion Amazon Web Services region of the recipient.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationRegion(String destinationRegion) {
             return destinationRegion(Output.of(destinationRegion));
         }
 
-        /**
-         * @param frameworkId Unique identifier for the shared custom framework.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder frameworkId(Output<String> frameworkId) {
             $.frameworkId = frameworkId;
             return this;
         }
 
-        /**
-         * @param frameworkId Unique identifier for the shared custom framework.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder frameworkId(String frameworkId) {
             return frameworkId(Output.of(frameworkId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

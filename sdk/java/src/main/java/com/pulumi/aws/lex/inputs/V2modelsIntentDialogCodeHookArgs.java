@@ -14,17 +14,9 @@ public final class V2modelsIntentDialogCodeHookArgs extends com.pulumi.resources
 
     public static final V2modelsIntentDialogCodeHookArgs Empty = new V2modelsIntentDialogCodeHookArgs();
 
-    /**
-     * Enables the dialog code hook so that it processes user requests.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return Enables the dialog code hook so that it processes user requests.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
@@ -53,23 +45,11 @@ public final class V2modelsIntentDialogCodeHookArgs extends com.pulumi.resources
             $ = new V2modelsIntentDialogCodeHookArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Enables the dialog code hook so that it processes user requests.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Enables the dialog code hook so that it processes user requests.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

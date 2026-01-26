@@ -13,10 +13,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetReceivedLicensesResult {
-    /**
-     * @return List of all the license ARNs found.
-     * 
-     */
     private List<String> arns;
     private @Nullable List<GetReceivedLicensesFilter> filters;
     /**
@@ -27,10 +23,6 @@ public final class GetReceivedLicensesResult {
     private String region;
 
     private GetReceivedLicensesResult() {}
-    /**
-     * @return List of all the license ARNs found.
-     * 
-     */
     public List<String> arns() {
         return this.arns;
     }

@@ -7,124 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to create a VPC routing table.
- *
- * > **NOTE on `gatewayId` and `natGatewayId`:** The AWS API is very forgiving with these two
- * attributes and the `aws.ec2.RouteTable` resource can be created with a NAT ID specified as a Gateway ID attribute.
- * This _will_ lead to a permanent diff between your configuration and statefile, as the API returns the correct
- * parameters in the returned route table. If you're experiencing constant diffs in your `aws.ec2.RouteTable` resources,
- * the first thing to check is whether or not you're specifying a NAT ID instead of a Gateway ID, or vice-versa.
- *
- * > **NOTE on `propagatingVgws` and the `aws.ec2.VpnGatewayRoutePropagation` resource:**
- * If the `propagatingVgws` argument is present, it's not supported to _also_
- * define route propagations using `aws.ec2.VpnGatewayRoutePropagation`, since
- * this resource will delete any propagating gateways not explicitly listed in
- * `propagatingVgws`. Omit this argument when defining route propagation using
- * the separate resource.
- *
- * ## Example Usage
- *
- * ### Basic example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.RouteTable("example", {
- *     vpcId: exampleAwsVpc.id,
- *     routes: [
- *         {
- *             cidrBlock: "10.0.1.0/24",
- *             gatewayId: exampleAwsInternetGateway.id,
- *         },
- *         {
- *             ipv6CidrBlock: "::/0",
- *             egressOnlyGatewayId: exampleAwsEgressOnlyInternetGateway.id,
- *         },
- *     ],
- *     tags: {
- *         Name: "example",
- *     },
- * });
- * ```
- *
- * To subsequently remove all managed routes:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.RouteTable("example", {
- *     vpcId: exampleAwsVpc.id,
- *     routes: [],
- *     tags: {
- *         Name: "example",
- *     },
- * });
- * ```
- *
- * ### Adopting an existing local route
- *
- * AWS creates certain routes that the AWS provider mostly ignores. You can manage them by importing or adopting them. See Import below for information on importing. This example shows adopting a route and then updating its target.
- *
- * First, adopt an existing AWS-created route:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.ec2.Vpc("test", {cidrBlock: "10.1.0.0/16"});
- * const testRouteTable = new aws.ec2.RouteTable("test", {
- *     vpcId: test.id,
- *     routes: [{
- *         cidrBlock: "10.1.0.0/16",
- *         gatewayId: "local",
- *     }],
- * });
- * ```
- *
- * Next, update the target of the route:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.ec2.Vpc("test", {cidrBlock: "10.1.0.0/16"});
- * const testSubnet = new aws.ec2.Subnet("test", {
- *     cidrBlock: "10.1.1.0/24",
- *     vpcId: test.id,
- * });
- * const testNetworkInterface = new aws.ec2.NetworkInterface("test", {subnetId: testSubnet.id});
- * const testRouteTable = new aws.ec2.RouteTable("test", {
- *     vpcId: test.id,
- *     routes: [{
- *         cidrBlock: test.cidrBlock,
- *         networkInterfaceId: testNetworkInterface.id,
- *     }],
- * });
- * ```
- *
- * The target could then be updated again back to `local`.
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * * `id` - (String) ID of the routing table.
- *
- * #### Optional
- *
- * * `account_id` (String) AWS Account where this resource is managed.
- *
- * * `region` (String) Region where this resource is managed.
- *
- * Using `pulumi import`, import Route Tables using the route table `id`. For example:
- *
- * % pulumi import aws_route_table.public_rt rtb-4e616f6d69
- */
 export class RouteTable extends pulumi.CustomResource {
     /**
      * Get an existing RouteTable resource's state with the given name, ID, and optional extra
@@ -153,40 +35,13 @@ export class RouteTable extends pulumi.CustomResource {
         return obj['__pulumiType'] === RouteTable.__pulumiType;
     }
 
-    /**
-     * The ARN of the route table.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The ID of the AWS account that owns the route table.
-     */
     declare public /*out*/ readonly ownerId: pulumi.Output<string>;
-    /**
-     * A list of virtual gateways for propagation.
-     */
     declare public readonly propagatingVgws: pulumi.Output<string[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A list of route objects. Their keys are documented below.
-     * This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
-     *
-     * > **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`aws.ec2.Route`) and a Route Table resource with routes defined in-line (`aws.ec2.RouteTable`). At this time you cannot use a `aws.ec2.RouteTable` inline `route` blocks in conjunction with any `aws.ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.
-     */
     declare public readonly routes: pulumi.Output<outputs.ec2.RouteTableRoute[]>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The VPC ID.
-     */
     declare public readonly vpcId: pulumi.Output<string>;
 
     /**
@@ -233,40 +88,13 @@ export class RouteTable extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RouteTable resources.
  */
 export interface RouteTableState {
-    /**
-     * The ARN of the route table.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The ID of the AWS account that owns the route table.
-     */
     ownerId?: pulumi.Input<string>;
-    /**
-     * A list of virtual gateways for propagation.
-     */
     propagatingVgws?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A list of route objects. Their keys are documented below.
-     * This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
-     *
-     * > **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`aws.ec2.Route`) and a Route Table resource with routes defined in-line (`aws.ec2.RouteTable`). At this time you cannot use a `aws.ec2.RouteTable` inline `route` blocks in conjunction with any `aws.ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.
-     */
     routes?: pulumi.Input<pulumi.Input<inputs.ec2.RouteTableRoute>[]>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The VPC ID.
-     */
     vpcId?: pulumi.Input<string>;
 }
 
@@ -274,27 +102,9 @@ export interface RouteTableState {
  * The set of arguments for constructing a RouteTable resource.
  */
 export interface RouteTableArgs {
-    /**
-     * A list of virtual gateways for propagation.
-     */
     propagatingVgws?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A list of route objects. Their keys are documented below.
-     * This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
-     *
-     * > **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`aws.ec2.Route`) and a Route Table resource with routes defined in-line (`aws.ec2.RouteTable`). At this time you cannot use a `aws.ec2.RouteTable` inline `route` blocks in conjunction with any `aws.ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.
-     */
     routes?: pulumi.Input<pulumi.Input<inputs.ec2.RouteTableRoute>[]>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The VPC ID.
-     */
     vpcId: pulumi.Input<string>;
 }

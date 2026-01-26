@@ -7,20 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to get information about an ElastiCache Serverless Cache.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.elasticache.getServerlessCache({
- *     name: "example",
- * });
- * ```
- */
 export function getServerlessCache(args: GetServerlessCacheArgs, opts?: pulumi.InvokeOptions): Promise<GetServerlessCacheResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:elasticache/getServerlessCache:getServerlessCache", {
@@ -33,13 +19,7 @@ export function getServerlessCache(args: GetServerlessCacheArgs, opts?: pulumi.I
  * A collection of arguments for invoking getServerlessCache.
  */
 export interface GetServerlessCacheArgs {
-    /**
-     * Identifier for the serverless cache.
-     */
     name: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -47,91 +27,29 @@ export interface GetServerlessCacheArgs {
  * A collection of values returned by getServerlessCache.
  */
 export interface GetServerlessCacheResult {
-    /**
-     * The Amazon Resource Name (ARN) of the serverless cache.
-     */
     readonly arn: string;
-    /**
-     * The cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
-     */
     readonly cacheUsageLimits: outputs.elasticache.GetServerlessCacheCacheUsageLimits;
-    /**
-     * Timestamp of when the serverless cache was created.
-     */
     readonly createTime: string;
-    /**
-     * The daily time that snapshots will be created from the new serverless cache. Only available for engine types `"redis"` and `"valkey"`.
-     */
     readonly dailySnapshotTime: string;
-    /**
-     * Description of the serverless cache.
-     */
     readonly description: string;
-    /**
-     * Represents the information required for client programs to connect to the cache. See `endpoint` Block for details.
-     */
     readonly endpoint: outputs.elasticache.GetServerlessCacheEndpoint;
-    /**
-     * Name of the cache engine.
-     */
     readonly engine: string;
-    /**
-     * The name and version number of the engine the serverless cache is compatible with.
-     */
     readonly fullEngineVersion: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * ARN of the customer managed key for encrypting the data at rest.
-     */
     readonly kmsKeyId: string;
-    /**
-     * The version number of the engine the serverless cache is compatible with.
-     */
     readonly majorEngineVersion: string;
     readonly name: string;
-    /**
-     * Represents the information required for client programs to connect to a cache node. See `readerEndpoint` Block for details.
-     */
     readonly readerEndpoint: outputs.elasticache.GetServerlessCacheReaderEndpoint;
     readonly region: string;
-    /**
-     * A list of the one or more VPC security groups associated with the serverless cache.
-     */
     readonly securityGroupIds: string[];
-    /**
-     * The number of snapshots that will be retained for the serverless cache. Available for Redis only.
-     */
     readonly snapshotRetentionLimit: number;
-    /**
-     * The current status of the serverless cache.
-     */
     readonly status: string;
-    /**
-     * A list of the identifiers of the subnets where the VPC endpoint for the serverless cache are deployed.
-     */
     readonly subnetIds: string[];
-    /**
-     * The identifier of the UserGroup associated with the serverless cache. Available for Redis only.
-     */
     readonly userGroupId: string;
 }
-/**
- * Use this data source to get information about an ElastiCache Serverless Cache.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.elasticache.getServerlessCache({
- *     name: "example",
- * });
- * ```
- */
 export function getServerlessCacheOutput(args: GetServerlessCacheOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerlessCacheResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:elasticache/getServerlessCache:getServerlessCache", {
@@ -144,12 +62,6 @@ export function getServerlessCacheOutput(args: GetServerlessCacheOutputArgs, opt
  * A collection of arguments for invoking getServerlessCache.
  */
 export interface GetServerlessCacheOutputArgs {
-    /**
-     * Identifier for the serverless cache.
-     */
     name: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

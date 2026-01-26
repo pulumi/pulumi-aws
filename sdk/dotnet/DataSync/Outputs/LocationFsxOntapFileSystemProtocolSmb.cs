@@ -13,21 +13,9 @@ namespace Pulumi.Aws.DataSync.Outputs
     [OutputType]
     public sealed class LocationFsxOntapFileSystemProtocolSmb
     {
-        /// <summary>
-        /// Fully qualified domain name of the Microsoft Active Directory (AD) that your storage virtual machine belongs to.
-        /// </summary>
         public readonly string? Domain;
-        /// <summary>
-        /// Mount options that are available for DataSync to access an SMB location. See SMB Mount Options below.
-        /// </summary>
         public readonly Outputs.LocationFsxOntapFileSystemProtocolSmbMountOptions MountOptions;
-        /// <summary>
-        /// Password of a user who has permission to access your SVM.
-        /// </summary>
         public readonly string Password;
-        /// <summary>
-        /// Username that can mount the location and access the files, folders, and metadata that you need in the SVM.
-        /// </summary>
         public readonly string User;
 
         [OutputConstructor]

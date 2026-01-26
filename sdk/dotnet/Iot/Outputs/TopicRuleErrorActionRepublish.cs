@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Iot.Outputs
     [OutputType]
     public sealed class TopicRuleErrorActionRepublish
     {
-        /// <summary>
-        /// The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
-        /// </summary>
         public readonly int? Qos;
-        /// <summary>
-        /// The ARN of the IAM role that grants access.
-        /// </summary>
         public readonly string RoleArn;
-        /// <summary>
-        /// The name of the MQTT topic the message should be republished to.
-        /// </summary>
         public readonly string Topic;
 
         [OutputConstructor]

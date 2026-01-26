@@ -12,27 +12,15 @@ namespace Pulumi.Aws.NetworkManager.Inputs
 
     public sealed class GetCoreNetworkPolicyDocumentAttachmentPolicyConditionInputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// string value
-        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
-        /// <summary>
-        /// Valid values include: `Equals`, `not-equals`, `Contains`, `begins-with`.
-        /// </summary>
         [Input("operator")]
         public Input<string>? Operator { get; set; }
 
-        /// <summary>
-        /// Must be `routing-policy-label`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        /// <summary>
-        /// Routing policy label to match.
-        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

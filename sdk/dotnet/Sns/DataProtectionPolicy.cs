@@ -9,91 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sns
 {
-    /// <summary>
-    /// Provides an SNS data protection topic policy resource
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Sns.Topic("example", new()
-    ///     {
-    ///         Name = "example",
-    ///     });
-    /// 
-    ///     var exampleDataProtectionPolicy = new Aws.Sns.DataProtectionPolicy("example", new()
-    ///     {
-    ///         Arn = example.Arn,
-    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Description"] = "Example data protection policy",
-    ///             ["Name"] = "__example_data_protection_policy",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["DataDirection"] = "Inbound",
-    ///                     ["DataIdentifier"] = new[]
-    ///                     {
-    ///                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-    ///                     },
-    ///                     ["Operation"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Deny"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                         },
-    ///                     },
-    ///                     ["Principal"] = new[]
-    ///                     {
-    ///                         "*",
-    ///                     },
-    ///                     ["Sid"] = "__deny_statement_11ba9d96",
-    ///                 },
-    ///             },
-    ///             ["Version"] = "2021-06-01",
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the SNS topic.
-    /// 
-    /// Using `pulumi import`, import SNS Data Protection Topic Policy using the topic ARN. For example:
-    /// 
-    /// % pulumi import aws_sns_topic_data_protection_policy.example arn:aws:sns:us-west-2:123456789012:example
-    /// </summary>
     [AwsResourceType("aws:sns/dataProtectionPolicy:DataProtectionPolicy")]
     public partial class DataProtectionPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the SNS topic
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -143,21 +67,12 @@ namespace Pulumi.Aws.Sns
 
     public sealed class DataProtectionPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the SNS topic
-        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
-        /// <summary>
-        /// The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -169,21 +84,12 @@ namespace Pulumi.Aws.Sns
 
     public sealed class DataProtectionPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the SNS topic
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

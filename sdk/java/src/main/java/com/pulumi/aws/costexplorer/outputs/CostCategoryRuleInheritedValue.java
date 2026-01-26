@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CostCategoryRuleInheritedValue {
-    /**
-     * @return Key to extract cost category values.
-     * 
-     */
     private @Nullable String dimensionKey;
-    /**
-     * @return Name of the dimension that&#39;s used to group costs. If you specify `LINKED_ACCOUNT_NAME`, the cost category value is based on account name. If you specify `TAG`, the cost category value will be based on the value of the specified tag key. Valid values are `LINKED_ACCOUNT_NAME`, `TAG`
-     * 
-     */
     private @Nullable String dimensionName;
 
     private CostCategoryRuleInheritedValue() {}
-    /**
-     * @return Key to extract cost category values.
-     * 
-     */
     public Optional<String> dimensionKey() {
         return Optional.ofNullable(this.dimensionKey);
     }
-    /**
-     * @return Name of the dimension that&#39;s used to group costs. If you specify `LINKED_ACCOUNT_NAME`, the cost category value is based on account name. If you specify `TAG`, the cost category value will be based on the value of the specified tag key. Valid values are `LINKED_ACCOUNT_NAME`, `TAG`
-     * 
-     */
     public Optional<String> dimensionName() {
         return Optional.ofNullable(this.dimensionName);
     }

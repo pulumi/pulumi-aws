@@ -20,47 +20,31 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
 
     public static final GraphState Empty = new GraphState();
 
-    /**
-     * (String) Graph resource ARN
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return (String) Graph resource ARN
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
     /**
-     * Value that indicates whether the Graph has deletion protection enabled. The graph can&#39;t be deleted when deletion protection is enabled.
+     * A value that indicates whether the graph has deletion protection enabled. The graph can&#39;t be deleted when deletion protection is enabled.
      * 
      */
     @Import(name="deletionProtection")
     private @Nullable Output<Boolean> deletionProtection;
 
     /**
-     * @return Value that indicates whether the Graph has deletion protection enabled. The graph can&#39;t be deleted when deletion protection is enabled.
+     * @return A value that indicates whether the graph has deletion protection enabled. The graph can&#39;t be deleted when deletion protection is enabled.
      * 
      */
     public Optional<Output<Boolean>> deletionProtection() {
         return Optional.ofNullable(this.deletionProtection);
     }
 
-    /**
-     * (String) The connection endpoint for the graph. For example: `g-12a3bcdef4.us-east-1.neptune-graph.amazonaws.com`
-     * 
-     */
     @Import(name="endpoint")
     private @Nullable Output<String> endpoint;
 
-    /**
-     * @return (String) The connection endpoint for the graph. For example: `g-12a3bcdef4.us-east-1.neptune-graph.amazonaws.com`
-     * 
-     */
     public Optional<Output<String>> endpoint() {
         return Optional.ofNullable(this.endpoint);
     }
@@ -104,14 +88,14 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN for the KMS encryption key. By Default, Neptune Analytics will use an AWS provided key (&#34;AWS_OWNED_KEY&#34;). This parameter is used if you want to encrypt the graph using a KMS Customer Managed Key (CMK).
+     * Specifies a KMS key to use to encrypt data in the new graph.  Value must be ARN of KMS Key.
      * 
      */
     @Import(name="kmsKeyIdentifier")
     private @Nullable Output<String> kmsKeyIdentifier;
 
     /**
-     * @return The ARN for the KMS encryption key. By Default, Neptune Analytics will use an AWS provided key (&#34;AWS_OWNED_KEY&#34;). This parameter is used if you want to encrypt the graph using a KMS Customer Managed Key (CMK).
+     * @return Specifies a KMS key to use to encrypt data in the new graph.  Value must be ARN of KMS Key.
      * 
      */
     public Optional<Output<String>> kmsKeyIdentifier() {
@@ -121,8 +105,6 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
     /**
      * The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="provisionedMemory")
     private @Nullable Output<Integer> provisionedMemory;
@@ -130,84 +112,68 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
      * 
-     * The following arguments are optional:
-     * 
      */
     public Optional<Output<Integer>> provisionedMemory() {
         return Optional.ofNullable(this.provisionedMemory);
     }
 
     /**
-     * Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn&#39;t publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
+     * Specifies whether or not the graph can be reachable over the internet.
+     * 								All access to graphs is IAM authenticated.
+     * 								When the graph is publicly available, its domain name system (DNS) endpoint resolves to
+     * 								the public IP address from the internet. When the graph isn&#39;t publicly available, you need
+     * 								to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private
+     * 								IP address that is reachable from the VPC.
      * 
      */
     @Import(name="publicConnectivity")
     private @Nullable Output<Boolean> publicConnectivity;
 
     /**
-     * @return Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn&#39;t publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
+     * @return Specifies whether or not the graph can be reachable over the internet.
+     * 								All access to graphs is IAM authenticated.
+     * 								When the graph is publicly available, its domain name system (DNS) endpoint resolves to
+     * 								the public IP address from the internet. When the graph isn&#39;t publicly available, you need
+     * 								to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private
+     * 								IP address that is reachable from the VPC.
      * 
      */
     public Optional<Output<Boolean>> publicConnectivity() {
         return Optional.ofNullable(this.publicConnectivity);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
     /**
-     * Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
+     * The number of replicas in other AZs.  Value must be between 0 and 2.
      * 
      */
     @Import(name="replicaCount")
     private @Nullable Output<Integer> replicaCount;
 
     /**
-     * @return Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
+     * @return The number of replicas in other AZs.  Value must be between 0 and 2.
      * 
      */
     public Optional<Output<Integer>> replicaCount() {
         return Optional.ofNullable(this.replicaCount);
     }
 
-    /**
-     * Key-value tags for the graph. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the graph. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -220,14 +186,14 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Vector Search Configuration (see below for nested schema of vector_search_configuration)
+     * Vector search configuration for the Neptune Graph
      * 
      */
     @Import(name="vectorSearchConfiguration")
     private @Nullable Output<GraphVectorSearchConfigurationArgs> vectorSearchConfiguration;
 
     /**
-     * @return Vector Search Configuration (see below for nested schema of vector_search_configuration)
+     * @return Vector search configuration for the Neptune Graph
      * 
      */
     public Optional<Output<GraphVectorSearchConfigurationArgs>> vectorSearchConfiguration() {
@@ -271,29 +237,17 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
             $ = new GraphState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn (String) Graph resource ARN
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn (String) Graph resource ARN
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
         /**
-         * @param deletionProtection Value that indicates whether the Graph has deletion protection enabled. The graph can&#39;t be deleted when deletion protection is enabled.
+         * @param deletionProtection A value that indicates whether the graph has deletion protection enabled. The graph can&#39;t be deleted when deletion protection is enabled.
          * 
          * @return builder
          * 
@@ -304,7 +258,7 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deletionProtection Value that indicates whether the Graph has deletion protection enabled. The graph can&#39;t be deleted when deletion protection is enabled.
+         * @param deletionProtection A value that indicates whether the graph has deletion protection enabled. The graph can&#39;t be deleted when deletion protection is enabled.
          * 
          * @return builder
          * 
@@ -313,23 +267,11 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
             return deletionProtection(Output.of(deletionProtection));
         }
 
-        /**
-         * @param endpoint (String) The connection endpoint for the graph. For example: `g-12a3bcdef4.us-east-1.neptune-graph.amazonaws.com`
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpoint(@Nullable Output<String> endpoint) {
             $.endpoint = endpoint;
             return this;
         }
 
-        /**
-         * @param endpoint (String) The connection endpoint for the graph. For example: `g-12a3bcdef4.us-east-1.neptune-graph.amazonaws.com`
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpoint(String endpoint) {
             return endpoint(Output.of(endpoint));
         }
@@ -385,7 +327,7 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyIdentifier The ARN for the KMS encryption key. By Default, Neptune Analytics will use an AWS provided key (&#34;AWS_OWNED_KEY&#34;). This parameter is used if you want to encrypt the graph using a KMS Customer Managed Key (CMK).
+         * @param kmsKeyIdentifier Specifies a KMS key to use to encrypt data in the new graph.  Value must be ARN of KMS Key.
          * 
          * @return builder
          * 
@@ -396,7 +338,7 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyIdentifier The ARN for the KMS encryption key. By Default, Neptune Analytics will use an AWS provided key (&#34;AWS_OWNED_KEY&#34;). This parameter is used if you want to encrypt the graph using a KMS Customer Managed Key (CMK).
+         * @param kmsKeyIdentifier Specifies a KMS key to use to encrypt data in the new graph.  Value must be ARN of KMS Key.
          * 
          * @return builder
          * 
@@ -407,8 +349,6 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param provisionedMemory The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -421,8 +361,6 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param provisionedMemory The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -431,7 +369,12 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicConnectivity Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn&#39;t publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
+         * @param publicConnectivity Specifies whether or not the graph can be reachable over the internet.
+         * 								All access to graphs is IAM authenticated.
+         * 								When the graph is publicly available, its domain name system (DNS) endpoint resolves to
+         * 								the public IP address from the internet. When the graph isn&#39;t publicly available, you need
+         * 								to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private
+         * 								IP address that is reachable from the VPC.
          * 
          * @return builder
          * 
@@ -442,7 +385,12 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicConnectivity Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn&#39;t publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
+         * @param publicConnectivity Specifies whether or not the graph can be reachable over the internet.
+         * 								All access to graphs is IAM authenticated.
+         * 								When the graph is publicly available, its domain name system (DNS) endpoint resolves to
+         * 								the public IP address from the internet. When the graph isn&#39;t publicly available, you need
+         * 								to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private
+         * 								IP address that is reachable from the VPC.
          * 
          * @return builder
          * 
@@ -451,29 +399,17 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
             return publicConnectivity(Output.of(publicConnectivity));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
         /**
-         * @param replicaCount Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
+         * @param replicaCount The number of replicas in other AZs.  Value must be between 0 and 2.
          * 
          * @return builder
          * 
@@ -484,7 +420,7 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replicaCount Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
+         * @param replicaCount The number of replicas in other AZs.  Value must be between 0 and 2.
          * 
          * @return builder
          * 
@@ -493,44 +429,20 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
             return replicaCount(Output.of(replicaCount));
         }
 
-        /**
-         * @param tags Key-value tags for the graph. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value tags for the graph. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
@@ -545,7 +457,7 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vectorSearchConfiguration Vector Search Configuration (see below for nested schema of vector_search_configuration)
+         * @param vectorSearchConfiguration Vector search configuration for the Neptune Graph
          * 
          * @return builder
          * 
@@ -556,7 +468,7 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vectorSearchConfiguration Vector Search Configuration (see below for nested schema of vector_search_configuration)
+         * @param vectorSearchConfiguration Vector search configuration for the Neptune Graph
          * 
          * @return builder
          * 

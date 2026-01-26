@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ResourceConfigurationResourceConfigurationDefinitionIpResource {
-    /**
-     * @return The IP Address of the Resource for this configuration.
-     * 
-     */
     private String ipAddress;
 
     private ResourceConfigurationResourceConfigurationDefinitionIpResource() {}
-    /**
-     * @return The IP Address of the Resource for this configuration.
-     * 
-     */
     public String ipAddress() {
         return this.ipAddress;
     }

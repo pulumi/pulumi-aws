@@ -17,22 +17,8 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetListenerRuleResult {
-    /**
-     * @return List of actions associated with the rule, sorted by `order`.
-     * Detailed below.
-     * 
-     */
     private @Nullable List<GetListenerRuleAction> actions;
-    /**
-     * @return ARN of the target group.
-     * 
-     */
     private String arn;
-    /**
-     * @return Set of conditions associated with the rule.
-     * Detailed below.
-     * 
-     */
     private @Nullable List<GetListenerRuleCondition> conditions;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -42,38 +28,16 @@ public final class GetListenerRuleResult {
     private String listenerArn;
     private Integer priority;
     private String region;
-    /**
-     * @return Tags assigned to the Listener Rule.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Block for transform to apply to requests that match this rule. Detailed below.
-     * 
-     */
     private @Nullable List<GetListenerRuleTransform> transforms;
 
     private GetListenerRuleResult() {}
-    /**
-     * @return List of actions associated with the rule, sorted by `order`.
-     * Detailed below.
-     * 
-     */
     public List<GetListenerRuleAction> actions() {
         return this.actions == null ? List.of() : this.actions;
     }
-    /**
-     * @return ARN of the target group.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Set of conditions associated with the rule.
-     * Detailed below.
-     * 
-     */
     public List<GetListenerRuleCondition> conditions() {
         return this.conditions == null ? List.of() : this.conditions;
     }
@@ -93,17 +57,9 @@ public final class GetListenerRuleResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Tags assigned to the Listener Rule.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Block for transform to apply to requests that match this rule. Detailed below.
-     * 
-     */
     public List<GetListenerRuleTransform> transforms() {
         return this.transforms == null ? List.of() : this.transforms;
     }

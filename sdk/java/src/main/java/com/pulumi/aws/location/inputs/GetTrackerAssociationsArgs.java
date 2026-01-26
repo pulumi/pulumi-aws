@@ -16,32 +16,16 @@ public final class GetTrackerAssociationsArgs extends com.pulumi.resources.Invok
 
     public static final GetTrackerAssociationsArgs Empty = new GetTrackerAssociationsArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Name of the tracker resource associated with a geofence collection.
-     * 
-     */
     @Import(name="trackerName", required=true)
     private Output<String> trackerName;
 
-    /**
-     * @return Name of the tracker resource associated with a geofence collection.
-     * 
-     */
     public Output<String> trackerName() {
         return this.trackerName;
     }
@@ -71,44 +55,20 @@ public final class GetTrackerAssociationsArgs extends com.pulumi.resources.Invok
             $ = new GetTrackerAssociationsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param trackerName Name of the tracker resource associated with a geofence collection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trackerName(Output<String> trackerName) {
             $.trackerName = trackerName;
             return this;
         }
 
-        /**
-         * @param trackerName Name of the tracker resource associated with a geofence collection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trackerName(String trackerName) {
             return trackerName(Output.of(trackerName));
         }

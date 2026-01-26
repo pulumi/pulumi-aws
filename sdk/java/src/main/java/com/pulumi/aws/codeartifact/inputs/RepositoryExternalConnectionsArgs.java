@@ -16,17 +16,9 @@ public final class RepositoryExternalConnectionsArgs extends com.pulumi.resource
 
     public static final RepositoryExternalConnectionsArgs Empty = new RepositoryExternalConnectionsArgs();
 
-    /**
-     * The name of the external connection associated with a repository.
-     * 
-     */
     @Import(name="externalConnectionName", required=true)
     private Output<String> externalConnectionName;
 
-    /**
-     * @return The name of the external connection associated with a repository.
-     * 
-     */
     public Output<String> externalConnectionName() {
         return this.externalConnectionName;
     }
@@ -71,23 +63,11 @@ public final class RepositoryExternalConnectionsArgs extends com.pulumi.resource
             $ = new RepositoryExternalConnectionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param externalConnectionName The name of the external connection associated with a repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder externalConnectionName(Output<String> externalConnectionName) {
             $.externalConnectionName = externalConnectionName;
             return this;
         }
 
-        /**
-         * @param externalConnectionName The name of the external connection associated with a repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder externalConnectionName(String externalConnectionName) {
             return externalConnectionName(Output.of(externalConnectionName));
         }

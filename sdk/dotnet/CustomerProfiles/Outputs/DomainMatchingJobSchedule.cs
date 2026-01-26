@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CustomerProfiles.Outputs
     [OutputType]
     public sealed class DomainMatchingJobSchedule
     {
-        /// <summary>
-        /// The day when the Identity Resolution Job should run every week.
-        /// </summary>
         public readonly string DayOfTheWeek;
-        /// <summary>
-        /// The time when the Identity Resolution Job should run every week.
-        /// </summary>
         public readonly string Time;
 
         [OutputConstructor]

@@ -13,33 +13,12 @@ namespace Pulumi.Aws.Iot.Outputs
     [OutputType]
     public sealed class IndexingConfigurationThingIndexingConfiguration
     {
-        /// <summary>
-        /// Contains custom field names and their data type. See below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.IndexingConfigurationThingIndexingConfigurationCustomField> CustomFields;
-        /// <summary>
-        /// Device Defender indexing mode. Valid values: `VIOLATIONS`, `OFF`. Default: `OFF`.
-        /// </summary>
         public readonly string? DeviceDefenderIndexingMode;
-        /// <summary>
-        /// Required if `NamedShadowIndexingMode` is `ON`. Enables to add named shadows filtered by `Filter` to fleet indexing configuration.
-        /// </summary>
         public readonly Outputs.IndexingConfigurationThingIndexingConfigurationFilter? Filter;
-        /// <summary>
-        /// Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.IndexingConfigurationThingIndexingConfigurationManagedField> ManagedFields;
-        /// <summary>
-        /// [Named shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html) indexing mode. Valid values: `ON`, `OFF`. Default: `OFF`.
-        /// </summary>
         public readonly string? NamedShadowIndexingMode;
-        /// <summary>
-        /// Thing connectivity indexing mode. Valid values: `STATUS`, `OFF`. Default: `OFF`.
-        /// </summary>
         public readonly string? ThingConnectivityIndexingMode;
-        /// <summary>
-        /// Thing indexing mode. Valid values: `REGISTRY`, `REGISTRY_AND_SHADOW`, `OFF`.
-        /// </summary>
         public readonly string ThingIndexingMode;
 
         [OutputConstructor]

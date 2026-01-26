@@ -14,108 +14,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Glue Security Configuration.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.glue.SecurityConfiguration;
- * import com.pulumi.aws.glue.SecurityConfigurationArgs;
- * import com.pulumi.aws.glue.inputs.SecurityConfigurationEncryptionConfigurationArgs;
- * import com.pulumi.aws.glue.inputs.SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs;
- * import com.pulumi.aws.glue.inputs.SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs;
- * import com.pulumi.aws.glue.inputs.SecurityConfigurationEncryptionConfigurationS3EncryptionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new SecurityConfiguration("example", SecurityConfigurationArgs.builder()
- *             .name("example")
- *             .encryptionConfiguration(SecurityConfigurationEncryptionConfigurationArgs.builder()
- *                 .cloudwatchEncryption(SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs.builder()
- *                     .cloudwatchEncryptionMode("DISABLED")
- *                     .build())
- *                 .jobBookmarksEncryption(SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs.builder()
- *                     .jobBookmarksEncryptionMode("DISABLED")
- *                     .build())
- *                 .s3Encryption(SecurityConfigurationEncryptionConfigurationS3EncryptionArgs.builder()
- *                     .kmsKeyArn(exampleAwsKmsKey.arn())
- *                     .s3EncryptionMode("SSE-KMS")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Glue Security Configurations using `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
- * ```
- * 
- */
 @ResourceType(type="aws:glue/securityConfiguration:SecurityConfiguration")
 public class SecurityConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * Configuration block containing encryption configuration. Detailed below.
-     * 
-     */
     @Export(name="encryptionConfiguration", refs={SecurityConfigurationEncryptionConfiguration.class}, tree="[0]")
     private Output<SecurityConfigurationEncryptionConfiguration> encryptionConfiguration;
 
-    /**
-     * @return Configuration block containing encryption configuration. Detailed below.
-     * 
-     */
     public Output<SecurityConfigurationEncryptionConfiguration> encryptionConfiguration() {
         return this.encryptionConfiguration;
     }
-    /**
-     * Name of the security configuration.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the security configuration.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

@@ -15,32 +15,16 @@ public final class AliasRoutingConfigurationArgs extends com.pulumi.resources.Re
 
     public static final AliasRoutingConfigurationArgs Empty = new AliasRoutingConfigurationArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) of the state machine version.
-     * 
-     */
     @Import(name="stateMachineVersionArn", required=true)
     private Output<String> stateMachineVersionArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the state machine version.
-     * 
-     */
     public Output<String> stateMachineVersionArn() {
         return this.stateMachineVersionArn;
     }
 
-    /**
-     * Percentage of traffic routed to the state machine version.
-     * 
-     */
     @Import(name="weight", required=true)
     private Output<Integer> weight;
 
-    /**
-     * @return Percentage of traffic routed to the state machine version.
-     * 
-     */
     public Output<Integer> weight() {
         return this.weight;
     }
@@ -70,44 +54,20 @@ public final class AliasRoutingConfigurationArgs extends com.pulumi.resources.Re
             $ = new AliasRoutingConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param stateMachineVersionArn The Amazon Resource Name (ARN) of the state machine version.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stateMachineVersionArn(Output<String> stateMachineVersionArn) {
             $.stateMachineVersionArn = stateMachineVersionArn;
             return this;
         }
 
-        /**
-         * @param stateMachineVersionArn The Amazon Resource Name (ARN) of the state machine version.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stateMachineVersionArn(String stateMachineVersionArn) {
             return stateMachineVersionArn(Output.of(stateMachineVersionArn));
         }
 
-        /**
-         * @param weight Percentage of traffic routed to the state machine version.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weight(Output<Integer> weight) {
             $.weight = weight;
             return this;
         }
 
-        /**
-         * @param weight Percentage of traffic routed to the state machine version.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weight(Integer weight) {
             return weight(Output.of(weight));
         }

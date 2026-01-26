@@ -24,45 +24,13 @@ import javax.annotation.Nullable;
 public final class GetBudgetResult {
     private String accountId;
     private String arn;
-    /**
-     * @return Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
-     * 
-     */
     private List<GetBudgetAutoAdjustData> autoAdjustDatas;
-    /**
-     * @return ARN of the billing view.
-     * 
-     */
     private String billingViewArn;
-    /**
-     * @return Boolean indicating whether this budget has been exceeded.
-     * 
-     */
     private Boolean budgetExceeded;
-    /**
-     * @return The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget. Contains object Spend.
-     * 
-     */
     private List<GetBudgetBudgetLimit> budgetLimits;
-    /**
-     * @return Whether this budget tracks monetary cost or usage.
-     * 
-     */
     private String budgetType;
-    /**
-     * @return The spend objects that are associated with this budget. The actualSpend tracks how much you&#39;ve used, cost, usage, RI units, or Savings Plans units and the forecastedSpend tracks how much that you&#39;re predicted to spend based on your historical usage profile.
-     * 
-     */
     private List<GetBudgetCalculatedSpend> calculatedSpends;
-    /**
-     * @return A list of CostFilter name/values pair to apply to budget.
-     * 
-     */
     private List<GetBudgetCostFilter> costFilters;
-    /**
-     * @return Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
-     * 
-     */
     private List<GetBudgetCostType> costTypes;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -71,35 +39,11 @@ public final class GetBudgetResult {
     private String id;
     private String name;
     private @Nullable String namePrefix;
-    /**
-     * @return Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
-     * 
-     */
     private List<GetBudgetNotification> notifications;
-    /**
-     * @return Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
-     * 
-     */
     private List<GetBudgetPlannedLimit> plannedLimits;
-    /**
-     * @return Map of tags assigned to the resource.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
-     * 
-     */
     private String timePeriodEnd;
-    /**
-     * @return The start of the time period covered by the budget. If you don&#39;t specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
-     * 
-     */
     private String timePeriodStart;
-    /**
-     * @return The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
-     * 
-     */
     private String timeUnit;
 
     private GetBudgetResult() {}
@@ -109,59 +53,27 @@ public final class GetBudgetResult {
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
-     * 
-     */
     public List<GetBudgetAutoAdjustData> autoAdjustDatas() {
         return this.autoAdjustDatas;
     }
-    /**
-     * @return ARN of the billing view.
-     * 
-     */
     public String billingViewArn() {
         return this.billingViewArn;
     }
-    /**
-     * @return Boolean indicating whether this budget has been exceeded.
-     * 
-     */
     public Boolean budgetExceeded() {
         return this.budgetExceeded;
     }
-    /**
-     * @return The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget. Contains object Spend.
-     * 
-     */
     public List<GetBudgetBudgetLimit> budgetLimits() {
         return this.budgetLimits;
     }
-    /**
-     * @return Whether this budget tracks monetary cost or usage.
-     * 
-     */
     public String budgetType() {
         return this.budgetType;
     }
-    /**
-     * @return The spend objects that are associated with this budget. The actualSpend tracks how much you&#39;ve used, cost, usage, RI units, or Savings Plans units and the forecastedSpend tracks how much that you&#39;re predicted to spend based on your historical usage profile.
-     * 
-     */
     public List<GetBudgetCalculatedSpend> calculatedSpends() {
         return this.calculatedSpends;
     }
-    /**
-     * @return A list of CostFilter name/values pair to apply to budget.
-     * 
-     */
     public List<GetBudgetCostFilter> costFilters() {
         return this.costFilters;
     }
-    /**
-     * @return Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
-     * 
-     */
     public List<GetBudgetCostType> costTypes() {
         return this.costTypes;
     }
@@ -178,45 +90,21 @@ public final class GetBudgetResult {
     public Optional<String> namePrefix() {
         return Optional.ofNullable(this.namePrefix);
     }
-    /**
-     * @return Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
-     * 
-     */
     public List<GetBudgetNotification> notifications() {
         return this.notifications;
     }
-    /**
-     * @return Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
-     * 
-     */
     public List<GetBudgetPlannedLimit> plannedLimits() {
         return this.plannedLimits;
     }
-    /**
-     * @return Map of tags assigned to the resource.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
-     * 
-     */
     public String timePeriodEnd() {
         return this.timePeriodEnd;
     }
-    /**
-     * @return The start of the time period covered by the budget. If you don&#39;t specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
-     * 
-     */
     public String timePeriodStart() {
         return this.timePeriodStart;
     }
-    /**
-     * @return The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
-     * 
-     */
     public String timeUnit() {
         return this.timeUnit;
     }

@@ -12,56 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Synthetics Group Association resource.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/synthetics"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := synthetics.NewGroupAssociation(ctx, "example", &synthetics.GroupAssociationArgs{
-//				GroupName: pulumi.Any(exampleAwsSyntheticsGroup.Name),
-//				CanaryArn: pulumi.Any(exampleAwsSyntheticsCanary.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CloudWatch Synthetics Group Association using the `canary_arn,group_name`. For example:
-//
-// ```sh
-// $ pulumi import aws:synthetics/groupAssociation:GroupAssociation example arn:aws:synthetics:us-west-2:123456789012:canary:tf-acc-test-abcd1234,examplename
-// ```
 type GroupAssociation struct {
 	pulumi.CustomResourceState
 
-	// ARN of the canary.
 	CanaryArn pulumi.StringOutput `pulumi:"canaryArn"`
 	GroupArn  pulumi.StringOutput `pulumi:"groupArn"`
-	// ID of the Group.
-	GroupId pulumi.StringOutput `pulumi:"groupId"`
-	// Name of the group that the canary will be associated with.
+	GroupId   pulumi.StringOutput `pulumi:"groupId"`
 	GroupName pulumi.StringOutput `pulumi:"groupName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region    pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewGroupAssociation registers a new resource with the given unique name, arguments, and options.
@@ -100,27 +58,19 @@ func GetGroupAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GroupAssociation resources.
 type groupAssociationState struct {
-	// ARN of the canary.
 	CanaryArn *string `pulumi:"canaryArn"`
 	GroupArn  *string `pulumi:"groupArn"`
-	// ID of the Group.
-	GroupId *string `pulumi:"groupId"`
-	// Name of the group that the canary will be associated with.
+	GroupId   *string `pulumi:"groupId"`
 	GroupName *string `pulumi:"groupName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region    *string `pulumi:"region"`
 }
 
 type GroupAssociationState struct {
-	// ARN of the canary.
 	CanaryArn pulumi.StringPtrInput
 	GroupArn  pulumi.StringPtrInput
-	// ID of the Group.
-	GroupId pulumi.StringPtrInput
-	// Name of the group that the canary will be associated with.
+	GroupId   pulumi.StringPtrInput
 	GroupName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region    pulumi.StringPtrInput
 }
 
 func (GroupAssociationState) ElementType() reflect.Type {
@@ -128,22 +78,16 @@ func (GroupAssociationState) ElementType() reflect.Type {
 }
 
 type groupAssociationArgs struct {
-	// ARN of the canary.
-	CanaryArn string `pulumi:"canaryArn"`
-	// Name of the group that the canary will be associated with.
-	GroupName string `pulumi:"groupName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	CanaryArn string  `pulumi:"canaryArn"`
+	GroupName string  `pulumi:"groupName"`
+	Region    *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a GroupAssociation resource.
 type GroupAssociationArgs struct {
-	// ARN of the canary.
 	CanaryArn pulumi.StringInput
-	// Name of the group that the canary will be associated with.
 	GroupName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region    pulumi.StringPtrInput
 }
 
 func (GroupAssociationArgs) ElementType() reflect.Type {
@@ -233,7 +177,6 @@ func (o GroupAssociationOutput) ToGroupAssociationOutputWithContext(ctx context.
 	return o
 }
 
-// ARN of the canary.
 func (o GroupAssociationOutput) CanaryArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupAssociation) pulumi.StringOutput { return v.CanaryArn }).(pulumi.StringOutput)
 }
@@ -242,17 +185,14 @@ func (o GroupAssociationOutput) GroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupAssociation) pulumi.StringOutput { return v.GroupArn }).(pulumi.StringOutput)
 }
 
-// ID of the Group.
 func (o GroupAssociationOutput) GroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupAssociation) pulumi.StringOutput { return v.GroupId }).(pulumi.StringOutput)
 }
 
-// Name of the group that the canary will be associated with.
 func (o GroupAssociationOutput) GroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupAssociation) pulumi.StringOutput { return v.GroupName }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GroupAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

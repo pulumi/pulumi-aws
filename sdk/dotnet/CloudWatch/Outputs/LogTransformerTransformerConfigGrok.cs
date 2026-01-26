@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class LogTransformerTransformerConfigGrok
     {
-        /// <summary>
-        /// Specifies the grok pattern to match against the log event.
-        /// </summary>
         public readonly string Match;
-        /// <summary>
-        /// Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
-        /// </summary>
         public readonly string? Source;
 
         [OutputConstructor]

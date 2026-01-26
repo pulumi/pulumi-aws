@@ -46,9 +46,6 @@ class GetResolverFirewallConfigResult:
     @_builtins.property
     @pulumi.getter(name="firewallFailOpen")
     def firewall_fail_open(self) -> _builtins.str:
-        """
-        Determines how DNS Firewall operates during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply.
-        """
         return pulumi.get(self, "firewall_fail_open")
 
     @_builtins.property
@@ -62,9 +59,6 @@ class GetResolverFirewallConfigResult:
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> _builtins.str:
-        """
-        The Amazon Web Services account ID of the owner of the VPC that this firewall configuration applies to.
-        """
         return pulumi.get(self, "owner_id")
 
     @_builtins.property
@@ -95,24 +89,7 @@ def get_resolver_firewall_config(region: Optional[_builtins.str] = None,
                                  resource_id: Optional[_builtins.str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResolverFirewallConfigResult:
     """
-    `route53.ResolverFirewallConfig` provides details about a specific a Route 53 Resolver DNS Firewall config.
-
-    This data source allows to find a details about a specific a Route 53 Resolver DNS Firewall config.
-
-    ## Example Usage
-
-    The following example shows how to get a firewall config using the VPC ID.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_resolver_firewall_config(resource_id="vpc-exampleid")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str resource_id: The ID of the VPC from Amazon VPC that the configuration is for.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -130,24 +107,7 @@ def get_resolver_firewall_config_output(region: Optional[pulumi.Input[Optional[_
                                         resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverFirewallConfigResult]:
     """
-    `route53.ResolverFirewallConfig` provides details about a specific a Route 53 Resolver DNS Firewall config.
-
-    This data source allows to find a details about a specific a Route 53 Resolver DNS Firewall config.
-
-    ## Example Usage
-
-    The following example shows how to get a firewall config using the VPC ID.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_resolver_firewall_config(resource_id="vpc-exampleid")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str resource_id: The ID of the VPC from Amazon VPC that the configuration is for.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

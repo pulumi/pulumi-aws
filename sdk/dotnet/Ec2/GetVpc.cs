@@ -11,144 +11,12 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetVpc
     {
-        /// <summary>
-        /// `aws.ec2.Vpc` provides details about a specific VPC.
-        /// 
-        /// This resource can prove useful when a module accepts a vpc id as
-        /// an input variable and needs to, for example, determine the CIDR block of that
-        /// VPC.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example shows how one might accept a VPC id as a variable
-        /// and use this data source to obtain the data necessary to create a subnet
-        /// within it.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// using Std = Pulumi.Std;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var vpcId = config.RequireObject&lt;dynamic&gt;("vpcId");
-        ///     var selected = Aws.Ec2.GetVpc.Invoke(new()
-        ///     {
-        ///         Id = vpcId,
-        ///     });
-        /// 
-        ///     var example = new Aws.Ec2.Subnet("example", new()
-        ///     {
-        ///         VpcId = selected.Apply(getVpcResult =&gt; getVpcResult.Id),
-        ///         AvailabilityZone = "us-west-2a",
-        ///         CidrBlock = Std.Cidrsubnet.Invoke(new()
-        ///         {
-        ///             Input = selected.Apply(getVpcResult =&gt; getVpcResult.CidrBlock),
-        ///             Newbits = 4,
-        ///             Netnum = 1,
-        ///         }).Apply(invoke =&gt; invoke.Result),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetVpcResult> InvokeAsync(GetVpcArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcResult>("aws:ec2/getVpc:getVpc", args ?? new GetVpcArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// `aws.ec2.Vpc` provides details about a specific VPC.
-        /// 
-        /// This resource can prove useful when a module accepts a vpc id as
-        /// an input variable and needs to, for example, determine the CIDR block of that
-        /// VPC.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example shows how one might accept a VPC id as a variable
-        /// and use this data source to obtain the data necessary to create a subnet
-        /// within it.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// using Std = Pulumi.Std;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var vpcId = config.RequireObject&lt;dynamic&gt;("vpcId");
-        ///     var selected = Aws.Ec2.GetVpc.Invoke(new()
-        ///     {
-        ///         Id = vpcId,
-        ///     });
-        /// 
-        ///     var example = new Aws.Ec2.Subnet("example", new()
-        ///     {
-        ///         VpcId = selected.Apply(getVpcResult =&gt; getVpcResult.Id),
-        ///         AvailabilityZone = "us-west-2a",
-        ///         CidrBlock = Std.Cidrsubnet.Invoke(new()
-        ///         {
-        ///             Input = selected.Apply(getVpcResult =&gt; getVpcResult.CidrBlock),
-        ///             Newbits = 4,
-        ///             Netnum = 1,
-        ///         }).Apply(invoke =&gt; invoke.Result),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetVpcResult> Invoke(GetVpcInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcResult>("aws:ec2/getVpc:getVpc", args ?? new GetVpcInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// `aws.ec2.Vpc` provides details about a specific VPC.
-        /// 
-        /// This resource can prove useful when a module accepts a vpc id as
-        /// an input variable and needs to, for example, determine the CIDR block of that
-        /// VPC.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example shows how one might accept a VPC id as a variable
-        /// and use this data source to obtain the data necessary to create a subnet
-        /// within it.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// using Std = Pulumi.Std;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var vpcId = config.RequireObject&lt;dynamic&gt;("vpcId");
-        ///     var selected = Aws.Ec2.GetVpc.Invoke(new()
-        ///     {
-        ///         Id = vpcId,
-        ///     });
-        /// 
-        ///     var example = new Aws.Ec2.Subnet("example", new()
-        ///     {
-        ///         VpcId = selected.Apply(getVpcResult =&gt; getVpcResult.Id),
-        ///         AvailabilityZone = "us-west-2a",
-        ///         CidrBlock = Std.Cidrsubnet.Invoke(new()
-        ///         {
-        ///             Input = selected.Apply(getVpcResult =&gt; getVpcResult.CidrBlock),
-        ///             Newbits = 4,
-        ///             Netnum = 1,
-        ///         }).Apply(invoke =&gt; invoke.Result),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetVpcResult> Invoke(GetVpcInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcResult>("aws:ec2/getVpc:getVpc", args ?? new GetVpcInvokeArgs(), options.WithDefaults());
     }
@@ -156,66 +24,34 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class GetVpcArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Cidr block of the desired VPC.
-        /// </summary>
         [Input("cidrBlock")]
         public string? CidrBlock { get; set; }
 
-        /// <summary>
-        /// Boolean constraint on whether the desired VPC is
-        /// the default VPC for the region.
-        /// </summary>
         [Input("default")]
         public bool? Default { get; set; }
 
-        /// <summary>
-        /// DHCP options id of the desired VPC.
-        /// </summary>
         [Input("dhcpOptionsId")]
         public string? DhcpOptionsId { get; set; }
 
         [Input("filters")]
         private List<Inputs.GetVpcFilterArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// </summary>
         public List<Inputs.GetVpcFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetVpcFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// ID of the specific VPC to retrieve.
-        /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// Current state of the desired VPC.
-        /// Can be either `"pending"` or `"available"`.
-        /// </summary>
         [Input("state")]
         public string? State { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired VPC.
-        /// 
-        /// More complex filters can be expressed using one or more `Filter` sub-blocks,
-        /// which take the following arguments:
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -230,66 +66,34 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class GetVpcInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Cidr block of the desired VPC.
-        /// </summary>
         [Input("cidrBlock")]
         public Input<string>? CidrBlock { get; set; }
 
-        /// <summary>
-        /// Boolean constraint on whether the desired VPC is
-        /// the default VPC for the region.
-        /// </summary>
         [Input("default")]
         public Input<bool>? Default { get; set; }
 
-        /// <summary>
-        /// DHCP options id of the desired VPC.
-        /// </summary>
         [Input("dhcpOptionsId")]
         public Input<string>? DhcpOptionsId { get; set; }
 
         [Input("filters")]
         private InputList<Inputs.GetVpcFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// </summary>
         public InputList<Inputs.GetVpcFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetVpcFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// ID of the specific VPC to retrieve.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Current state of the desired VPC.
-        /// Can be either `"pending"` or `"available"`.
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired VPC.
-        /// 
-        /// More complex filters can be expressed using one or more `Filter` sub-blocks,
-        /// which take the following arguments:
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -306,56 +110,22 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class GetVpcResult
     {
-        /// <summary>
-        /// ARN of VPC
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// CIDR block for the association.
-        /// </summary>
         public readonly string CidrBlock;
         public readonly ImmutableArray<Outputs.GetVpcCidrBlockAssociationResult> CidrBlockAssociations;
         public readonly bool Default;
         public readonly string DhcpOptionsId;
-        /// <summary>
-        /// Whether or not the VPC has DNS hostname support
-        /// </summary>
         public readonly bool EnableDnsHostnames;
-        /// <summary>
-        /// Whether or not the VPC has DNS support
-        /// </summary>
         public readonly bool EnableDnsSupport;
-        /// <summary>
-        /// Whether Network Address Usage metrics are enabled for your VPC
-        /// </summary>
         public readonly bool EnableNetworkAddressUsageMetrics;
         public readonly ImmutableArray<Outputs.GetVpcFilterResult> Filters;
         public readonly string Id;
-        /// <summary>
-        /// Allowed tenancy of instances launched into the
-        /// selected VPC. May be any of `"default"`, `"dedicated"`, or `"host"`.
-        /// </summary>
         public readonly string InstanceTenancy;
-        /// <summary>
-        /// Association ID for the IPv6 CIDR block.
-        /// </summary>
         public readonly string Ipv6AssociationId;
-        /// <summary>
-        /// IPv6 CIDR block.
-        /// </summary>
         public readonly string Ipv6CidrBlock;
-        /// <summary>
-        /// ID of the main route table associated with this VPC.
-        /// </summary>
         public readonly string MainRouteTableId;
-        /// <summary>
-        /// ID of the AWS account that owns the VPC.
-        /// </summary>
         public readonly string OwnerId;
         public readonly string Region;
-        /// <summary>
-        /// State of the association.
-        /// </summary>
         public readonly string State;
         public readonly ImmutableDictionary<string, string> Tags;
 

@@ -14,32 +14,16 @@ public final class EnvironmentStorageConfigurationEfsArgs extends com.pulumi.res
 
     public static final EnvironmentStorageConfigurationEfsArgs Empty = new EnvironmentStorageConfigurationEfsArgs();
 
-    /**
-     * Id of the EFS filesystem to mount.
-     * 
-     */
     @Import(name="fileSystemId", required=true)
     private Output<String> fileSystemId;
 
-    /**
-     * @return Id of the EFS filesystem to mount.
-     * 
-     */
     public Output<String> fileSystemId() {
         return this.fileSystemId;
     }
 
-    /**
-     * Path to mount the filesystem on, must start with `/m2/mount/`.
-     * 
-     */
     @Import(name="mountPoint", required=true)
     private Output<String> mountPoint;
 
-    /**
-     * @return Path to mount the filesystem on, must start with `/m2/mount/`.
-     * 
-     */
     public Output<String> mountPoint() {
         return this.mountPoint;
     }
@@ -69,44 +53,20 @@ public final class EnvironmentStorageConfigurationEfsArgs extends com.pulumi.res
             $ = new EnvironmentStorageConfigurationEfsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fileSystemId Id of the EFS filesystem to mount.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileSystemId(Output<String> fileSystemId) {
             $.fileSystemId = fileSystemId;
             return this;
         }
 
-        /**
-         * @param fileSystemId Id of the EFS filesystem to mount.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileSystemId(String fileSystemId) {
             return fileSystemId(Output.of(fileSystemId));
         }
 
-        /**
-         * @param mountPoint Path to mount the filesystem on, must start with `/m2/mount/`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mountPoint(Output<String> mountPoint) {
             $.mountPoint = mountPoint;
             return this;
         }
 
-        /**
-         * @param mountPoint Path to mount the filesystem on, must start with `/m2/mount/`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mountPoint(String mountPoint) {
             return mountPoint(Output.of(mountPoint));
         }

@@ -14,40 +14,23 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ComputeEnvironmentComputeResources struct {
-	// The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-	AllocationStrategy *string `pulumi:"allocationStrategy"`
-	// Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100% of the On-Demand price. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-	BidPercentage *int `pulumi:"bidPercentage"`
-	// The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-	DesiredVcpus *int `pulumi:"desiredVcpus"`
-	// Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
-	Ec2Configurations []ComputeEnvironmentComputeResourcesEc2Configuration `pulumi:"ec2Configurations"`
-	// The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-	Ec2KeyPair *string `pulumi:"ec2KeyPair"`
-	// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2Configuration` `imageIdOverride` instead)
-	ImageId *string `pulumi:"imageId"`
-	// The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-	InstanceRole *string `pulumi:"instanceRole"`
-	// A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-	InstanceTypes []string `pulumi:"instanceTypes"`
-	// The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-	LaunchTemplate *ComputeEnvironmentComputeResourcesLaunchTemplate `pulumi:"launchTemplate"`
-	// The maximum number of EC2 vCPUs that an environment can reach.
-	MaxVcpus int `pulumi:"maxVcpus"`
-	// The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-	MinVcpus *int `pulumi:"minVcpus"`
-	// The Amazon EC2 placement group to associate with your compute resources.
-	PlacementGroup *string `pulumi:"placementGroup"`
-	// A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-	SpotIamFleetRole *string `pulumi:"spotIamFleetRole"`
-	// A list of VPC subnets into which the compute resources are launched.
-	Subnets []string `pulumi:"subnets"`
-	// Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
-	Type string `pulumi:"type"`
+	AllocationStrategy *string                                              `pulumi:"allocationStrategy"`
+	BidPercentage      *int                                                 `pulumi:"bidPercentage"`
+	DesiredVcpus       *int                                                 `pulumi:"desiredVcpus"`
+	Ec2Configurations  []ComputeEnvironmentComputeResourcesEc2Configuration `pulumi:"ec2Configurations"`
+	Ec2KeyPair         *string                                              `pulumi:"ec2KeyPair"`
+	ImageId            *string                                              `pulumi:"imageId"`
+	InstanceRole       *string                                              `pulumi:"instanceRole"`
+	InstanceTypes      []string                                             `pulumi:"instanceTypes"`
+	LaunchTemplate     *ComputeEnvironmentComputeResourcesLaunchTemplate    `pulumi:"launchTemplate"`
+	MaxVcpus           int                                                  `pulumi:"maxVcpus"`
+	MinVcpus           *int                                                 `pulumi:"minVcpus"`
+	PlacementGroup     *string                                              `pulumi:"placementGroup"`
+	SecurityGroupIds   []string                                             `pulumi:"securityGroupIds"`
+	SpotIamFleetRole   *string                                              `pulumi:"spotIamFleetRole"`
+	Subnets            []string                                             `pulumi:"subnets"`
+	Tags               map[string]string                                    `pulumi:"tags"`
+	Type               string                                               `pulumi:"type"`
 }
 
 // ComputeEnvironmentComputeResourcesInput is an input type that accepts ComputeEnvironmentComputeResourcesArgs and ComputeEnvironmentComputeResourcesOutput values.
@@ -62,40 +45,23 @@ type ComputeEnvironmentComputeResourcesInput interface {
 }
 
 type ComputeEnvironmentComputeResourcesArgs struct {
-	// The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-	AllocationStrategy pulumi.StringPtrInput `pulumi:"allocationStrategy"`
-	// Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100% of the On-Demand price. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-	BidPercentage pulumi.IntPtrInput `pulumi:"bidPercentage"`
-	// The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-	DesiredVcpus pulumi.IntPtrInput `pulumi:"desiredVcpus"`
-	// Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
-	Ec2Configurations ComputeEnvironmentComputeResourcesEc2ConfigurationArrayInput `pulumi:"ec2Configurations"`
-	// The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-	Ec2KeyPair pulumi.StringPtrInput `pulumi:"ec2KeyPair"`
-	// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2Configuration` `imageIdOverride` instead)
-	ImageId pulumi.StringPtrInput `pulumi:"imageId"`
-	// The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-	InstanceRole pulumi.StringPtrInput `pulumi:"instanceRole"`
-	// A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-	InstanceTypes pulumi.StringArrayInput `pulumi:"instanceTypes"`
-	// The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-	LaunchTemplate ComputeEnvironmentComputeResourcesLaunchTemplatePtrInput `pulumi:"launchTemplate"`
-	// The maximum number of EC2 vCPUs that an environment can reach.
-	MaxVcpus pulumi.IntInput `pulumi:"maxVcpus"`
-	// The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-	MinVcpus pulumi.IntPtrInput `pulumi:"minVcpus"`
-	// The Amazon EC2 placement group to associate with your compute resources.
-	PlacementGroup pulumi.StringPtrInput `pulumi:"placementGroup"`
-	// A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
-	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-	SpotIamFleetRole pulumi.StringPtrInput `pulumi:"spotIamFleetRole"`
-	// A list of VPC subnets into which the compute resources are launched.
-	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
-	// Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
-	Type pulumi.StringInput `pulumi:"type"`
+	AllocationStrategy pulumi.StringPtrInput                                        `pulumi:"allocationStrategy"`
+	BidPercentage      pulumi.IntPtrInput                                           `pulumi:"bidPercentage"`
+	DesiredVcpus       pulumi.IntPtrInput                                           `pulumi:"desiredVcpus"`
+	Ec2Configurations  ComputeEnvironmentComputeResourcesEc2ConfigurationArrayInput `pulumi:"ec2Configurations"`
+	Ec2KeyPair         pulumi.StringPtrInput                                        `pulumi:"ec2KeyPair"`
+	ImageId            pulumi.StringPtrInput                                        `pulumi:"imageId"`
+	InstanceRole       pulumi.StringPtrInput                                        `pulumi:"instanceRole"`
+	InstanceTypes      pulumi.StringArrayInput                                      `pulumi:"instanceTypes"`
+	LaunchTemplate     ComputeEnvironmentComputeResourcesLaunchTemplatePtrInput     `pulumi:"launchTemplate"`
+	MaxVcpus           pulumi.IntInput                                              `pulumi:"maxVcpus"`
+	MinVcpus           pulumi.IntPtrInput                                           `pulumi:"minVcpus"`
+	PlacementGroup     pulumi.StringPtrInput                                        `pulumi:"placementGroup"`
+	SecurityGroupIds   pulumi.StringArrayInput                                      `pulumi:"securityGroupIds"`
+	SpotIamFleetRole   pulumi.StringPtrInput                                        `pulumi:"spotIamFleetRole"`
+	Subnets            pulumi.StringArrayInput                                      `pulumi:"subnets"`
+	Tags               pulumi.StringMapInput                                        `pulumi:"tags"`
+	Type               pulumi.StringInput                                           `pulumi:"type"`
 }
 
 func (ComputeEnvironmentComputeResourcesArgs) ElementType() reflect.Type {
@@ -175,91 +141,74 @@ func (o ComputeEnvironmentComputeResourcesOutput) ToComputeEnvironmentComputeRes
 	}).(ComputeEnvironmentComputeResourcesPtrOutput)
 }
 
-// The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesOutput) AllocationStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *string { return v.AllocationStrategy }).(pulumi.StringPtrOutput)
 }
 
-// Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100% of the On-Demand price. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesOutput) BidPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *int { return v.BidPercentage }).(pulumi.IntPtrOutput)
 }
 
-// The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesOutput) DesiredVcpus() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *int { return v.DesiredVcpus }).(pulumi.IntPtrOutput)
 }
 
-// Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesOutput) Ec2Configurations() ComputeEnvironmentComputeResourcesEc2ConfigurationArrayOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) []ComputeEnvironmentComputeResourcesEc2Configuration {
 		return v.Ec2Configurations
 	}).(ComputeEnvironmentComputeResourcesEc2ConfigurationArrayOutput)
 }
 
-// The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesOutput) Ec2KeyPair() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *string { return v.Ec2KeyPair }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2Configuration` `imageIdOverride` instead)
 func (o ComputeEnvironmentComputeResourcesOutput) ImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *string { return v.ImageId }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesOutput) InstanceRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *string { return v.InstanceRole }).(pulumi.StringPtrOutput)
 }
 
-// A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesOutput) InstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) []string { return v.InstanceTypes }).(pulumi.StringArrayOutput)
 }
 
-// The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesOutput) LaunchTemplate() ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *ComputeEnvironmentComputeResourcesLaunchTemplate {
 		return v.LaunchTemplate
 	}).(ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput)
 }
 
-// The maximum number of EC2 vCPUs that an environment can reach.
 func (o ComputeEnvironmentComputeResourcesOutput) MaxVcpus() pulumi.IntOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) int { return v.MaxVcpus }).(pulumi.IntOutput)
 }
 
-// The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesOutput) MinVcpus() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *int { return v.MinVcpus }).(pulumi.IntPtrOutput)
 }
 
-// The Amazon EC2 placement group to associate with your compute resources.
 func (o ComputeEnvironmentComputeResourcesOutput) PlacementGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *string { return v.PlacementGroup }).(pulumi.StringPtrOutput)
 }
 
-// A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
 func (o ComputeEnvironmentComputeResourcesOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesOutput) SpotIamFleetRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *string { return v.SpotIamFleetRole }).(pulumi.StringPtrOutput)
 }
 
-// A list of VPC subnets into which the compute resources are launched.
 func (o ComputeEnvironmentComputeResourcesOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) []string { return v.Subnets }).(pulumi.StringArrayOutput)
 }
 
-// Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
 func (o ComputeEnvironmentComputeResourcesOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -288,7 +237,6 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) Elem() ComputeEnvironmentCo
 	}).(ComputeEnvironmentComputeResourcesOutput)
 }
 
-// The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) AllocationStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *string {
 		if v == nil {
@@ -298,7 +246,6 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) AllocationStrategy() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100% of the On-Demand price. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) BidPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *int {
 		if v == nil {
@@ -308,7 +255,6 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) BidPercentage() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) DesiredVcpus() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *int {
 		if v == nil {
@@ -318,7 +264,6 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) DesiredVcpus() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) Ec2Configurations() ComputeEnvironmentComputeResourcesEc2ConfigurationArrayOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) []ComputeEnvironmentComputeResourcesEc2Configuration {
 		if v == nil {
@@ -328,7 +273,6 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) Ec2Configurations() Compute
 	}).(ComputeEnvironmentComputeResourcesEc2ConfigurationArrayOutput)
 }
 
-// The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) Ec2KeyPair() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *string {
 		if v == nil {
@@ -338,7 +282,6 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) Ec2KeyPair() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2Configuration` `imageIdOverride` instead)
 func (o ComputeEnvironmentComputeResourcesPtrOutput) ImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *string {
 		if v == nil {
@@ -348,7 +291,6 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) ImageId() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) InstanceRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *string {
 		if v == nil {
@@ -358,7 +300,6 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) InstanceRole() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) InstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) []string {
 		if v == nil {
@@ -368,7 +309,6 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) InstanceTypes() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) LaunchTemplate() ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *ComputeEnvironmentComputeResourcesLaunchTemplate {
 		if v == nil {
@@ -378,7 +318,6 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) LaunchTemplate() ComputeEnv
 	}).(ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput)
 }
 
-// The maximum number of EC2 vCPUs that an environment can reach.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) MaxVcpus() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *int {
 		if v == nil {
@@ -388,7 +327,6 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) MaxVcpus() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) MinVcpus() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *int {
 		if v == nil {
@@ -398,7 +336,6 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) MinVcpus() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// The Amazon EC2 placement group to associate with your compute resources.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) PlacementGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *string {
 		if v == nil {
@@ -408,7 +345,6 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) PlacementGroup() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) []string {
 		if v == nil {
@@ -418,7 +354,6 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) SecurityGroupIds() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) SpotIamFleetRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *string {
 		if v == nil {
@@ -428,7 +363,6 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) SpotIamFleetRole() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of VPC subnets into which the compute resources are launched.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) []string {
 		if v == nil {
@@ -438,7 +372,6 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) Subnets() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-// Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) map[string]string {
 		if v == nil {
@@ -448,7 +381,6 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) Tags() pulumi.StringMapOutp
 	}).(pulumi.StringMapOutput)
 }
 
-// The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *string {
 		if v == nil {
@@ -459,12 +391,9 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) Type() pulumi.StringPtrOutp
 }
 
 type ComputeEnvironmentComputeResourcesEc2Configuration struct {
-	// The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResources` block.
-	ImageIdOverride *string `pulumi:"imageIdOverride"`
-	// The Kubernetes version for the compute environment. If you don't specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
+	ImageIdOverride        *string `pulumi:"imageIdOverride"`
 	ImageKubernetesVersion *string `pulumi:"imageKubernetesVersion"`
-	// The image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
-	ImageType *string `pulumi:"imageType"`
+	ImageType              *string `pulumi:"imageType"`
 }
 
 // ComputeEnvironmentComputeResourcesEc2ConfigurationInput is an input type that accepts ComputeEnvironmentComputeResourcesEc2ConfigurationArgs and ComputeEnvironmentComputeResourcesEc2ConfigurationOutput values.
@@ -479,12 +408,9 @@ type ComputeEnvironmentComputeResourcesEc2ConfigurationInput interface {
 }
 
 type ComputeEnvironmentComputeResourcesEc2ConfigurationArgs struct {
-	// The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResources` block.
-	ImageIdOverride pulumi.StringPtrInput `pulumi:"imageIdOverride"`
-	// The Kubernetes version for the compute environment. If you don't specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
+	ImageIdOverride        pulumi.StringPtrInput `pulumi:"imageIdOverride"`
 	ImageKubernetesVersion pulumi.StringPtrInput `pulumi:"imageKubernetesVersion"`
-	// The image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
-	ImageType pulumi.StringPtrInput `pulumi:"imageType"`
+	ImageType              pulumi.StringPtrInput `pulumi:"imageType"`
 }
 
 func (ComputeEnvironmentComputeResourcesEc2ConfigurationArgs) ElementType() reflect.Type {
@@ -538,17 +464,14 @@ func (o ComputeEnvironmentComputeResourcesEc2ConfigurationOutput) ToComputeEnvir
 	return o
 }
 
-// The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResources` block.
 func (o ComputeEnvironmentComputeResourcesEc2ConfigurationOutput) ImageIdOverride() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResourcesEc2Configuration) *string { return v.ImageIdOverride }).(pulumi.StringPtrOutput)
 }
 
-// The Kubernetes version for the compute environment. If you don't specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
 func (o ComputeEnvironmentComputeResourcesEc2ConfigurationOutput) ImageKubernetesVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResourcesEc2Configuration) *string { return v.ImageKubernetesVersion }).(pulumi.StringPtrOutput)
 }
 
-// The image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
 func (o ComputeEnvironmentComputeResourcesEc2ConfigurationOutput) ImageType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResourcesEc2Configuration) *string { return v.ImageType }).(pulumi.StringPtrOutput)
 }
@@ -574,12 +497,9 @@ func (o ComputeEnvironmentComputeResourcesEc2ConfigurationArrayOutput) Index(i p
 }
 
 type ComputeEnvironmentComputeResourcesLaunchTemplate struct {
-	// ID of the launch template. You must specify either the launch template ID or launch template name in the request, but not both.
-	LaunchTemplateId *string `pulumi:"launchTemplateId"`
-	// Name of the launch template.
+	LaunchTemplateId   *string `pulumi:"launchTemplateId"`
 	LaunchTemplateName *string `pulumi:"launchTemplateName"`
-	// The version number of the launch template. Default: The default version of the launch template.
-	Version *string `pulumi:"version"`
+	Version            *string `pulumi:"version"`
 }
 
 // ComputeEnvironmentComputeResourcesLaunchTemplateInput is an input type that accepts ComputeEnvironmentComputeResourcesLaunchTemplateArgs and ComputeEnvironmentComputeResourcesLaunchTemplateOutput values.
@@ -594,12 +514,9 @@ type ComputeEnvironmentComputeResourcesLaunchTemplateInput interface {
 }
 
 type ComputeEnvironmentComputeResourcesLaunchTemplateArgs struct {
-	// ID of the launch template. You must specify either the launch template ID or launch template name in the request, but not both.
-	LaunchTemplateId pulumi.StringPtrInput `pulumi:"launchTemplateId"`
-	// Name of the launch template.
+	LaunchTemplateId   pulumi.StringPtrInput `pulumi:"launchTemplateId"`
 	LaunchTemplateName pulumi.StringPtrInput `pulumi:"launchTemplateName"`
-	// The version number of the launch template. Default: The default version of the launch template.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	Version            pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (ComputeEnvironmentComputeResourcesLaunchTemplateArgs) ElementType() reflect.Type {
@@ -679,17 +596,14 @@ func (o ComputeEnvironmentComputeResourcesLaunchTemplateOutput) ToComputeEnviron
 	}).(ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput)
 }
 
-// ID of the launch template. You must specify either the launch template ID or launch template name in the request, but not both.
 func (o ComputeEnvironmentComputeResourcesLaunchTemplateOutput) LaunchTemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResourcesLaunchTemplate) *string { return v.LaunchTemplateId }).(pulumi.StringPtrOutput)
 }
 
-// Name of the launch template.
 func (o ComputeEnvironmentComputeResourcesLaunchTemplateOutput) LaunchTemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResourcesLaunchTemplate) *string { return v.LaunchTemplateName }).(pulumi.StringPtrOutput)
 }
 
-// The version number of the launch template. Default: The default version of the launch template.
 func (o ComputeEnvironmentComputeResourcesLaunchTemplateOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResourcesLaunchTemplate) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -718,7 +632,6 @@ func (o ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput) Elem() Comput
 	}).(ComputeEnvironmentComputeResourcesLaunchTemplateOutput)
 }
 
-// ID of the launch template. You must specify either the launch template ID or launch template name in the request, but not both.
 func (o ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput) LaunchTemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResourcesLaunchTemplate) *string {
 		if v == nil {
@@ -728,7 +641,6 @@ func (o ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput) LaunchTemplat
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the launch template.
 func (o ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput) LaunchTemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResourcesLaunchTemplate) *string {
 		if v == nil {
@@ -738,7 +650,6 @@ func (o ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput) LaunchTemplat
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version number of the launch template. Default: The default version of the launch template.
 func (o ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResourcesLaunchTemplate) *string {
 		if v == nil {
@@ -749,9 +660,7 @@ func (o ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput) Version() pul
 }
 
 type ComputeEnvironmentEksConfiguration struct {
-	// The Amazon Resource Name (ARN) of the Amazon EKS cluster.
-	EksClusterArn string `pulumi:"eksClusterArn"`
-	// The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
+	EksClusterArn       string `pulumi:"eksClusterArn"`
 	KubernetesNamespace string `pulumi:"kubernetesNamespace"`
 }
 
@@ -767,9 +676,7 @@ type ComputeEnvironmentEksConfigurationInput interface {
 }
 
 type ComputeEnvironmentEksConfigurationArgs struct {
-	// The Amazon Resource Name (ARN) of the Amazon EKS cluster.
-	EksClusterArn pulumi.StringInput `pulumi:"eksClusterArn"`
-	// The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
+	EksClusterArn       pulumi.StringInput `pulumi:"eksClusterArn"`
 	KubernetesNamespace pulumi.StringInput `pulumi:"kubernetesNamespace"`
 }
 
@@ -850,12 +757,10 @@ func (o ComputeEnvironmentEksConfigurationOutput) ToComputeEnvironmentEksConfigu
 	}).(ComputeEnvironmentEksConfigurationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon EKS cluster.
 func (o ComputeEnvironmentEksConfigurationOutput) EksClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ComputeEnvironmentEksConfiguration) string { return v.EksClusterArn }).(pulumi.StringOutput)
 }
 
-// The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
 func (o ComputeEnvironmentEksConfigurationOutput) KubernetesNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v ComputeEnvironmentEksConfiguration) string { return v.KubernetesNamespace }).(pulumi.StringOutput)
 }
@@ -884,7 +789,6 @@ func (o ComputeEnvironmentEksConfigurationPtrOutput) Elem() ComputeEnvironmentEk
 	}).(ComputeEnvironmentEksConfigurationOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon EKS cluster.
 func (o ComputeEnvironmentEksConfigurationPtrOutput) EksClusterArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentEksConfiguration) *string {
 		if v == nil {
@@ -894,7 +798,6 @@ func (o ComputeEnvironmentEksConfigurationPtrOutput) EksClusterArn() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
 func (o ComputeEnvironmentEksConfigurationPtrOutput) KubernetesNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentEksConfiguration) *string {
 		if v == nil {
@@ -905,10 +808,8 @@ func (o ComputeEnvironmentEksConfigurationPtrOutput) KubernetesNamespace() pulum
 }
 
 type ComputeEnvironmentUpdatePolicy struct {
-	// Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
-	JobExecutionTimeoutMinutes *int `pulumi:"jobExecutionTimeoutMinutes"`
-	// Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
-	TerminateJobsOnUpdate *bool `pulumi:"terminateJobsOnUpdate"`
+	JobExecutionTimeoutMinutes *int  `pulumi:"jobExecutionTimeoutMinutes"`
+	TerminateJobsOnUpdate      *bool `pulumi:"terminateJobsOnUpdate"`
 }
 
 // ComputeEnvironmentUpdatePolicyInput is an input type that accepts ComputeEnvironmentUpdatePolicyArgs and ComputeEnvironmentUpdatePolicyOutput values.
@@ -923,10 +824,8 @@ type ComputeEnvironmentUpdatePolicyInput interface {
 }
 
 type ComputeEnvironmentUpdatePolicyArgs struct {
-	// Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
-	JobExecutionTimeoutMinutes pulumi.IntPtrInput `pulumi:"jobExecutionTimeoutMinutes"`
-	// Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
-	TerminateJobsOnUpdate pulumi.BoolPtrInput `pulumi:"terminateJobsOnUpdate"`
+	JobExecutionTimeoutMinutes pulumi.IntPtrInput  `pulumi:"jobExecutionTimeoutMinutes"`
+	TerminateJobsOnUpdate      pulumi.BoolPtrInput `pulumi:"terminateJobsOnUpdate"`
 }
 
 func (ComputeEnvironmentUpdatePolicyArgs) ElementType() reflect.Type {
@@ -1006,12 +905,10 @@ func (o ComputeEnvironmentUpdatePolicyOutput) ToComputeEnvironmentUpdatePolicyPt
 	}).(ComputeEnvironmentUpdatePolicyPtrOutput)
 }
 
-// Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
 func (o ComputeEnvironmentUpdatePolicyOutput) JobExecutionTimeoutMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentUpdatePolicy) *int { return v.JobExecutionTimeoutMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
 func (o ComputeEnvironmentUpdatePolicyOutput) TerminateJobsOnUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentUpdatePolicy) *bool { return v.TerminateJobsOnUpdate }).(pulumi.BoolPtrOutput)
 }
@@ -1040,7 +937,6 @@ func (o ComputeEnvironmentUpdatePolicyPtrOutput) Elem() ComputeEnvironmentUpdate
 	}).(ComputeEnvironmentUpdatePolicyOutput)
 }
 
-// Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
 func (o ComputeEnvironmentUpdatePolicyPtrOutput) JobExecutionTimeoutMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentUpdatePolicy) *int {
 		if v == nil {
@@ -1050,7 +946,6 @@ func (o ComputeEnvironmentUpdatePolicyPtrOutput) JobExecutionTimeoutMinutes() pu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
 func (o ComputeEnvironmentUpdatePolicyPtrOutput) TerminateJobsOnUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentUpdatePolicy) *bool {
 		if v == nil {
@@ -1061,7 +956,6 @@ func (o ComputeEnvironmentUpdatePolicyPtrOutput) TerminateJobsOnUpdate() pulumi.
 }
 
 type JobDefinitionEksProperties struct {
-	// Properties for the Kubernetes pod resources of a job. See `podProperties` below.
 	PodProperties JobDefinitionEksPropertiesPodProperties `pulumi:"podProperties"`
 }
 
@@ -1077,7 +971,6 @@ type JobDefinitionEksPropertiesInput interface {
 }
 
 type JobDefinitionEksPropertiesArgs struct {
-	// Properties for the Kubernetes pod resources of a job. See `podProperties` below.
 	PodProperties JobDefinitionEksPropertiesPodPropertiesInput `pulumi:"podProperties"`
 }
 
@@ -1158,7 +1051,6 @@ func (o JobDefinitionEksPropertiesOutput) ToJobDefinitionEksPropertiesPtrOutputW
 	}).(JobDefinitionEksPropertiesPtrOutput)
 }
 
-// Properties for the Kubernetes pod resources of a job. See `podProperties` below.
 func (o JobDefinitionEksPropertiesOutput) PodProperties() JobDefinitionEksPropertiesPodPropertiesOutput {
 	return o.ApplyT(func(v JobDefinitionEksProperties) JobDefinitionEksPropertiesPodProperties { return v.PodProperties }).(JobDefinitionEksPropertiesPodPropertiesOutput)
 }
@@ -1187,7 +1079,6 @@ func (o JobDefinitionEksPropertiesPtrOutput) Elem() JobDefinitionEksPropertiesOu
 	}).(JobDefinitionEksPropertiesOutput)
 }
 
-// Properties for the Kubernetes pod resources of a job. See `podProperties` below.
 func (o JobDefinitionEksPropertiesPtrOutput) PodProperties() JobDefinitionEksPropertiesPodPropertiesPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionEksProperties) *JobDefinitionEksPropertiesPodProperties {
 		if v == nil {
@@ -1198,24 +1089,15 @@ func (o JobDefinitionEksPropertiesPtrOutput) PodProperties() JobDefinitionEksPro
 }
 
 type JobDefinitionEksPropertiesPodProperties struct {
-	// Properties of the container that's used on the Amazon EKS pod. See containers below.
-	Containers []JobDefinitionEksPropertiesPodPropertiesContainer `pulumi:"containers"`
-	// DNS policy for the pod. The default value is `ClusterFirst`. If the `hostNetwork` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod's DNS policy in the Kubernetes documentation.
-	DnsPolicy *string `pulumi:"dnsPolicy"`
-	// Whether the pod uses the hosts' network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
-	HostNetwork *bool `pulumi:"hostNetwork"`
-	// List of Kubernetes secret resources. See `imagePullSecret` below.
-	ImagePullSecrets []JobDefinitionEksPropertiesPodPropertiesImagePullSecret `pulumi:"imagePullSecrets"`
-	// Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
-	InitContainers []JobDefinitionEksPropertiesPodPropertiesInitContainer `pulumi:"initContainers"`
-	// Metadata about the Kubernetes pod.
-	Metadata *JobDefinitionEksPropertiesPodPropertiesMetadata `pulumi:"metadata"`
-	// Name of the service account that's used to run the pod.
-	ServiceAccountName *string `pulumi:"serviceAccountName"`
-	// Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
-	ShareProcessNamespace *bool `pulumi:"shareProcessNamespace"`
-	// Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
-	Volumes []JobDefinitionEksPropertiesPodPropertiesVolume `pulumi:"volumes"`
+	Containers            []JobDefinitionEksPropertiesPodPropertiesContainer       `pulumi:"containers"`
+	DnsPolicy             *string                                                  `pulumi:"dnsPolicy"`
+	HostNetwork           *bool                                                    `pulumi:"hostNetwork"`
+	ImagePullSecrets      []JobDefinitionEksPropertiesPodPropertiesImagePullSecret `pulumi:"imagePullSecrets"`
+	InitContainers        []JobDefinitionEksPropertiesPodPropertiesInitContainer   `pulumi:"initContainers"`
+	Metadata              *JobDefinitionEksPropertiesPodPropertiesMetadata         `pulumi:"metadata"`
+	ServiceAccountName    *string                                                  `pulumi:"serviceAccountName"`
+	ShareProcessNamespace *bool                                                    `pulumi:"shareProcessNamespace"`
+	Volumes               []JobDefinitionEksPropertiesPodPropertiesVolume          `pulumi:"volumes"`
 }
 
 // JobDefinitionEksPropertiesPodPropertiesInput is an input type that accepts JobDefinitionEksPropertiesPodPropertiesArgs and JobDefinitionEksPropertiesPodPropertiesOutput values.
@@ -1230,24 +1112,15 @@ type JobDefinitionEksPropertiesPodPropertiesInput interface {
 }
 
 type JobDefinitionEksPropertiesPodPropertiesArgs struct {
-	// Properties of the container that's used on the Amazon EKS pod. See containers below.
-	Containers JobDefinitionEksPropertiesPodPropertiesContainerArrayInput `pulumi:"containers"`
-	// DNS policy for the pod. The default value is `ClusterFirst`. If the `hostNetwork` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod's DNS policy in the Kubernetes documentation.
-	DnsPolicy pulumi.StringPtrInput `pulumi:"dnsPolicy"`
-	// Whether the pod uses the hosts' network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
-	HostNetwork pulumi.BoolPtrInput `pulumi:"hostNetwork"`
-	// List of Kubernetes secret resources. See `imagePullSecret` below.
-	ImagePullSecrets JobDefinitionEksPropertiesPodPropertiesImagePullSecretArrayInput `pulumi:"imagePullSecrets"`
-	// Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
-	InitContainers JobDefinitionEksPropertiesPodPropertiesInitContainerArrayInput `pulumi:"initContainers"`
-	// Metadata about the Kubernetes pod.
-	Metadata JobDefinitionEksPropertiesPodPropertiesMetadataPtrInput `pulumi:"metadata"`
-	// Name of the service account that's used to run the pod.
-	ServiceAccountName pulumi.StringPtrInput `pulumi:"serviceAccountName"`
-	// Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
-	ShareProcessNamespace pulumi.BoolPtrInput `pulumi:"shareProcessNamespace"`
-	// Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
-	Volumes JobDefinitionEksPropertiesPodPropertiesVolumeArrayInput `pulumi:"volumes"`
+	Containers            JobDefinitionEksPropertiesPodPropertiesContainerArrayInput       `pulumi:"containers"`
+	DnsPolicy             pulumi.StringPtrInput                                            `pulumi:"dnsPolicy"`
+	HostNetwork           pulumi.BoolPtrInput                                              `pulumi:"hostNetwork"`
+	ImagePullSecrets      JobDefinitionEksPropertiesPodPropertiesImagePullSecretArrayInput `pulumi:"imagePullSecrets"`
+	InitContainers        JobDefinitionEksPropertiesPodPropertiesInitContainerArrayInput   `pulumi:"initContainers"`
+	Metadata              JobDefinitionEksPropertiesPodPropertiesMetadataPtrInput          `pulumi:"metadata"`
+	ServiceAccountName    pulumi.StringPtrInput                                            `pulumi:"serviceAccountName"`
+	ShareProcessNamespace pulumi.BoolPtrInput                                              `pulumi:"shareProcessNamespace"`
+	Volumes               JobDefinitionEksPropertiesPodPropertiesVolumeArrayInput          `pulumi:"volumes"`
 }
 
 func (JobDefinitionEksPropertiesPodPropertiesArgs) ElementType() reflect.Type {
@@ -1327,55 +1200,46 @@ func (o JobDefinitionEksPropertiesPodPropertiesOutput) ToJobDefinitionEksPropert
 	}).(JobDefinitionEksPropertiesPodPropertiesPtrOutput)
 }
 
-// Properties of the container that's used on the Amazon EKS pod. See containers below.
 func (o JobDefinitionEksPropertiesPodPropertiesOutput) Containers() JobDefinitionEksPropertiesPodPropertiesContainerArrayOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodProperties) []JobDefinitionEksPropertiesPodPropertiesContainer {
 		return v.Containers
 	}).(JobDefinitionEksPropertiesPodPropertiesContainerArrayOutput)
 }
 
-// DNS policy for the pod. The default value is `ClusterFirst`. If the `hostNetwork` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod's DNS policy in the Kubernetes documentation.
 func (o JobDefinitionEksPropertiesPodPropertiesOutput) DnsPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodProperties) *string { return v.DnsPolicy }).(pulumi.StringPtrOutput)
 }
 
-// Whether the pod uses the hosts' network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
 func (o JobDefinitionEksPropertiesPodPropertiesOutput) HostNetwork() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodProperties) *bool { return v.HostNetwork }).(pulumi.BoolPtrOutput)
 }
 
-// List of Kubernetes secret resources. See `imagePullSecret` below.
 func (o JobDefinitionEksPropertiesPodPropertiesOutput) ImagePullSecrets() JobDefinitionEksPropertiesPodPropertiesImagePullSecretArrayOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodProperties) []JobDefinitionEksPropertiesPodPropertiesImagePullSecret {
 		return v.ImagePullSecrets
 	}).(JobDefinitionEksPropertiesPodPropertiesImagePullSecretArrayOutput)
 }
 
-// Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
 func (o JobDefinitionEksPropertiesPodPropertiesOutput) InitContainers() JobDefinitionEksPropertiesPodPropertiesInitContainerArrayOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodProperties) []JobDefinitionEksPropertiesPodPropertiesInitContainer {
 		return v.InitContainers
 	}).(JobDefinitionEksPropertiesPodPropertiesInitContainerArrayOutput)
 }
 
-// Metadata about the Kubernetes pod.
 func (o JobDefinitionEksPropertiesPodPropertiesOutput) Metadata() JobDefinitionEksPropertiesPodPropertiesMetadataPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodProperties) *JobDefinitionEksPropertiesPodPropertiesMetadata {
 		return v.Metadata
 	}).(JobDefinitionEksPropertiesPodPropertiesMetadataPtrOutput)
 }
 
-// Name of the service account that's used to run the pod.
 func (o JobDefinitionEksPropertiesPodPropertiesOutput) ServiceAccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodProperties) *string { return v.ServiceAccountName }).(pulumi.StringPtrOutput)
 }
 
-// Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
 func (o JobDefinitionEksPropertiesPodPropertiesOutput) ShareProcessNamespace() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodProperties) *bool { return v.ShareProcessNamespace }).(pulumi.BoolPtrOutput)
 }
 
-// Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
 func (o JobDefinitionEksPropertiesPodPropertiesOutput) Volumes() JobDefinitionEksPropertiesPodPropertiesVolumeArrayOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodProperties) []JobDefinitionEksPropertiesPodPropertiesVolume {
 		return v.Volumes
@@ -1406,7 +1270,6 @@ func (o JobDefinitionEksPropertiesPodPropertiesPtrOutput) Elem() JobDefinitionEk
 	}).(JobDefinitionEksPropertiesPodPropertiesOutput)
 }
 
-// Properties of the container that's used on the Amazon EKS pod. See containers below.
 func (o JobDefinitionEksPropertiesPodPropertiesPtrOutput) Containers() JobDefinitionEksPropertiesPodPropertiesContainerArrayOutput {
 	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodProperties) []JobDefinitionEksPropertiesPodPropertiesContainer {
 		if v == nil {
@@ -1416,7 +1279,6 @@ func (o JobDefinitionEksPropertiesPodPropertiesPtrOutput) Containers() JobDefini
 	}).(JobDefinitionEksPropertiesPodPropertiesContainerArrayOutput)
 }
 
-// DNS policy for the pod. The default value is `ClusterFirst`. If the `hostNetwork` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod's DNS policy in the Kubernetes documentation.
 func (o JobDefinitionEksPropertiesPodPropertiesPtrOutput) DnsPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodProperties) *string {
 		if v == nil {
@@ -1426,7 +1288,6 @@ func (o JobDefinitionEksPropertiesPodPropertiesPtrOutput) DnsPolicy() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether the pod uses the hosts' network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
 func (o JobDefinitionEksPropertiesPodPropertiesPtrOutput) HostNetwork() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodProperties) *bool {
 		if v == nil {
@@ -1436,7 +1297,6 @@ func (o JobDefinitionEksPropertiesPodPropertiesPtrOutput) HostNetwork() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// List of Kubernetes secret resources. See `imagePullSecret` below.
 func (o JobDefinitionEksPropertiesPodPropertiesPtrOutput) ImagePullSecrets() JobDefinitionEksPropertiesPodPropertiesImagePullSecretArrayOutput {
 	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodProperties) []JobDefinitionEksPropertiesPodPropertiesImagePullSecret {
 		if v == nil {
@@ -1446,7 +1306,6 @@ func (o JobDefinitionEksPropertiesPodPropertiesPtrOutput) ImagePullSecrets() Job
 	}).(JobDefinitionEksPropertiesPodPropertiesImagePullSecretArrayOutput)
 }
 
-// Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
 func (o JobDefinitionEksPropertiesPodPropertiesPtrOutput) InitContainers() JobDefinitionEksPropertiesPodPropertiesInitContainerArrayOutput {
 	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodProperties) []JobDefinitionEksPropertiesPodPropertiesInitContainer {
 		if v == nil {
@@ -1456,7 +1315,6 @@ func (o JobDefinitionEksPropertiesPodPropertiesPtrOutput) InitContainers() JobDe
 	}).(JobDefinitionEksPropertiesPodPropertiesInitContainerArrayOutput)
 }
 
-// Metadata about the Kubernetes pod.
 func (o JobDefinitionEksPropertiesPodPropertiesPtrOutput) Metadata() JobDefinitionEksPropertiesPodPropertiesMetadataPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodProperties) *JobDefinitionEksPropertiesPodPropertiesMetadata {
 		if v == nil {
@@ -1466,7 +1324,6 @@ func (o JobDefinitionEksPropertiesPodPropertiesPtrOutput) Metadata() JobDefiniti
 	}).(JobDefinitionEksPropertiesPodPropertiesMetadataPtrOutput)
 }
 
-// Name of the service account that's used to run the pod.
 func (o JobDefinitionEksPropertiesPodPropertiesPtrOutput) ServiceAccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodProperties) *string {
 		if v == nil {
@@ -1476,7 +1333,6 @@ func (o JobDefinitionEksPropertiesPodPropertiesPtrOutput) ServiceAccountName() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
 func (o JobDefinitionEksPropertiesPodPropertiesPtrOutput) ShareProcessNamespace() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodProperties) *bool {
 		if v == nil {
@@ -1486,7 +1342,6 @@ func (o JobDefinitionEksPropertiesPodPropertiesPtrOutput) ShareProcessNamespace(
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
 func (o JobDefinitionEksPropertiesPodPropertiesPtrOutput) Volumes() JobDefinitionEksPropertiesPodPropertiesVolumeArrayOutput {
 	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodProperties) []JobDefinitionEksPropertiesPodPropertiesVolume {
 		if v == nil {
@@ -1497,24 +1352,15 @@ func (o JobDefinitionEksPropertiesPodPropertiesPtrOutput) Volumes() JobDefinitio
 }
 
 type JobDefinitionEksPropertiesPodPropertiesContainer struct {
-	// Array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
-	Args []string `pulumi:"args"`
-	// Entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
-	Commands []string `pulumi:"commands"`
-	// Environment variables to pass to a container. See EKS Environment below.
-	Envs []JobDefinitionEksPropertiesPodPropertiesContainerEnv `pulumi:"envs"`
-	// Docker image used to start the container.
-	Image string `pulumi:"image"`
-	// Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
-	ImagePullPolicy *string `pulumi:"imagePullPolicy"`
-	// Name of the container. If the name isn't specified, the default name "Default" is used. Each container in a pod must have a unique name.
-	Name *string `pulumi:"name"`
-	// Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
-	Resources *JobDefinitionEksPropertiesPodPropertiesContainerResources `pulumi:"resources"`
-	// Security context for a job.
+	Args            []string                                                         `pulumi:"args"`
+	Commands        []string                                                         `pulumi:"commands"`
+	Envs            []JobDefinitionEksPropertiesPodPropertiesContainerEnv            `pulumi:"envs"`
+	Image           string                                                           `pulumi:"image"`
+	ImagePullPolicy *string                                                          `pulumi:"imagePullPolicy"`
+	Name            *string                                                          `pulumi:"name"`
+	Resources       *JobDefinitionEksPropertiesPodPropertiesContainerResources       `pulumi:"resources"`
 	SecurityContext *JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext `pulumi:"securityContext"`
-	// Volume mounts for the container.
-	VolumeMounts []JobDefinitionEksPropertiesPodPropertiesContainerVolumeMount `pulumi:"volumeMounts"`
+	VolumeMounts    []JobDefinitionEksPropertiesPodPropertiesContainerVolumeMount    `pulumi:"volumeMounts"`
 }
 
 // JobDefinitionEksPropertiesPodPropertiesContainerInput is an input type that accepts JobDefinitionEksPropertiesPodPropertiesContainerArgs and JobDefinitionEksPropertiesPodPropertiesContainerOutput values.
@@ -1529,24 +1375,15 @@ type JobDefinitionEksPropertiesPodPropertiesContainerInput interface {
 }
 
 type JobDefinitionEksPropertiesPodPropertiesContainerArgs struct {
-	// Array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
-	Args pulumi.StringArrayInput `pulumi:"args"`
-	// Entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
-	Commands pulumi.StringArrayInput `pulumi:"commands"`
-	// Environment variables to pass to a container. See EKS Environment below.
-	Envs JobDefinitionEksPropertiesPodPropertiesContainerEnvArrayInput `pulumi:"envs"`
-	// Docker image used to start the container.
-	Image pulumi.StringInput `pulumi:"image"`
-	// Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
-	ImagePullPolicy pulumi.StringPtrInput `pulumi:"imagePullPolicy"`
-	// Name of the container. If the name isn't specified, the default name "Default" is used. Each container in a pod must have a unique name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
-	Resources JobDefinitionEksPropertiesPodPropertiesContainerResourcesPtrInput `pulumi:"resources"`
-	// Security context for a job.
+	Args            pulumi.StringArrayInput                                                 `pulumi:"args"`
+	Commands        pulumi.StringArrayInput                                                 `pulumi:"commands"`
+	Envs            JobDefinitionEksPropertiesPodPropertiesContainerEnvArrayInput           `pulumi:"envs"`
+	Image           pulumi.StringInput                                                      `pulumi:"image"`
+	ImagePullPolicy pulumi.StringPtrInput                                                   `pulumi:"imagePullPolicy"`
+	Name            pulumi.StringPtrInput                                                   `pulumi:"name"`
+	Resources       JobDefinitionEksPropertiesPodPropertiesContainerResourcesPtrInput       `pulumi:"resources"`
 	SecurityContext JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextPtrInput `pulumi:"securityContext"`
-	// Volume mounts for the container.
-	VolumeMounts JobDefinitionEksPropertiesPodPropertiesContainerVolumeMountArrayInput `pulumi:"volumeMounts"`
+	VolumeMounts    JobDefinitionEksPropertiesPodPropertiesContainerVolumeMountArrayInput   `pulumi:"volumeMounts"`
 }
 
 func (JobDefinitionEksPropertiesPodPropertiesContainerArgs) ElementType() reflect.Type {
@@ -1600,53 +1437,44 @@ func (o JobDefinitionEksPropertiesPodPropertiesContainerOutput) ToJobDefinitionE
 	return o
 }
 
-// Array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
 func (o JobDefinitionEksPropertiesPodPropertiesContainerOutput) Args() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesContainer) []string { return v.Args }).(pulumi.StringArrayOutput)
 }
 
-// Entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
 func (o JobDefinitionEksPropertiesPodPropertiesContainerOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
-// Environment variables to pass to a container. See EKS Environment below.
 func (o JobDefinitionEksPropertiesPodPropertiesContainerOutput) Envs() JobDefinitionEksPropertiesPodPropertiesContainerEnvArrayOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesContainer) []JobDefinitionEksPropertiesPodPropertiesContainerEnv {
 		return v.Envs
 	}).(JobDefinitionEksPropertiesPodPropertiesContainerEnvArrayOutput)
 }
 
-// Docker image used to start the container.
 func (o JobDefinitionEksPropertiesPodPropertiesContainerOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesContainer) string { return v.Image }).(pulumi.StringOutput)
 }
 
-// Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
 func (o JobDefinitionEksPropertiesPodPropertiesContainerOutput) ImagePullPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesContainer) *string { return v.ImagePullPolicy }).(pulumi.StringPtrOutput)
 }
 
-// Name of the container. If the name isn't specified, the default name "Default" is used. Each container in a pod must have a unique name.
 func (o JobDefinitionEksPropertiesPodPropertiesContainerOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesContainer) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
 func (o JobDefinitionEksPropertiesPodPropertiesContainerOutput) Resources() JobDefinitionEksPropertiesPodPropertiesContainerResourcesPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesContainer) *JobDefinitionEksPropertiesPodPropertiesContainerResources {
 		return v.Resources
 	}).(JobDefinitionEksPropertiesPodPropertiesContainerResourcesPtrOutput)
 }
 
-// Security context for a job.
 func (o JobDefinitionEksPropertiesPodPropertiesContainerOutput) SecurityContext() JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesContainer) *JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext {
 		return v.SecurityContext
 	}).(JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextPtrOutput)
 }
 
-// Volume mounts for the container.
 func (o JobDefinitionEksPropertiesPodPropertiesContainerOutput) VolumeMounts() JobDefinitionEksPropertiesPodPropertiesContainerVolumeMountArrayOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesContainer) []JobDefinitionEksPropertiesPodPropertiesContainerVolumeMount {
 		return v.VolumeMounts
@@ -1674,9 +1502,7 @@ func (o JobDefinitionEksPropertiesPodPropertiesContainerArrayOutput) Index(i pul
 }
 
 type JobDefinitionEksPropertiesPodPropertiesContainerEnv struct {
-	// Name of the job definition.
-	Name string `pulumi:"name"`
-	// Value of the environment variable.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -1692,9 +1518,7 @@ type JobDefinitionEksPropertiesPodPropertiesContainerEnvInput interface {
 }
 
 type JobDefinitionEksPropertiesPodPropertiesContainerEnvArgs struct {
-	// Name of the job definition.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Value of the environment variable.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1749,12 +1573,10 @@ func (o JobDefinitionEksPropertiesPodPropertiesContainerEnvOutput) ToJobDefiniti
 	return o
 }
 
-// Name of the job definition.
 func (o JobDefinitionEksPropertiesPodPropertiesContainerEnvOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesContainerEnv) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Value of the environment variable.
 func (o JobDefinitionEksPropertiesPodPropertiesContainerEnvOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesContainerEnv) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2124,9 +1946,8 @@ func (o JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextPtrOutput
 
 type JobDefinitionEksPropertiesPodPropertiesContainerVolumeMount struct {
 	MountPath string `pulumi:"mountPath"`
-	// Name of the job definition.
-	Name     string `pulumi:"name"`
-	ReadOnly *bool  `pulumi:"readOnly"`
+	Name      string `pulumi:"name"`
+	ReadOnly  *bool  `pulumi:"readOnly"`
 }
 
 // JobDefinitionEksPropertiesPodPropertiesContainerVolumeMountInput is an input type that accepts JobDefinitionEksPropertiesPodPropertiesContainerVolumeMountArgs and JobDefinitionEksPropertiesPodPropertiesContainerVolumeMountOutput values.
@@ -2141,10 +1962,9 @@ type JobDefinitionEksPropertiesPodPropertiesContainerVolumeMountInput interface 
 }
 
 type JobDefinitionEksPropertiesPodPropertiesContainerVolumeMountArgs struct {
-	MountPath pulumi.StringInput `pulumi:"mountPath"`
-	// Name of the job definition.
-	Name     pulumi.StringInput  `pulumi:"name"`
-	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
+	MountPath pulumi.StringInput  `pulumi:"mountPath"`
+	Name      pulumi.StringInput  `pulumi:"name"`
+	ReadOnly  pulumi.BoolPtrInput `pulumi:"readOnly"`
 }
 
 func (JobDefinitionEksPropertiesPodPropertiesContainerVolumeMountArgs) ElementType() reflect.Type {
@@ -2202,7 +2022,6 @@ func (o JobDefinitionEksPropertiesPodPropertiesContainerVolumeMountOutput) Mount
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesContainerVolumeMount) string { return v.MountPath }).(pulumi.StringOutput)
 }
 
-// Name of the job definition.
 func (o JobDefinitionEksPropertiesPodPropertiesContainerVolumeMountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesContainerVolumeMount) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2232,7 +2051,6 @@ func (o JobDefinitionEksPropertiesPodPropertiesContainerVolumeMountArrayOutput) 
 }
 
 type JobDefinitionEksPropertiesPodPropertiesImagePullSecret struct {
-	// Unique identifier.
 	Name string `pulumi:"name"`
 }
 
@@ -2248,7 +2066,6 @@ type JobDefinitionEksPropertiesPodPropertiesImagePullSecretInput interface {
 }
 
 type JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgs struct {
-	// Unique identifier.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -2303,7 +2120,6 @@ func (o JobDefinitionEksPropertiesPodPropertiesImagePullSecretOutput) ToJobDefin
 	return o
 }
 
-// Unique identifier.
 func (o JobDefinitionEksPropertiesPodPropertiesImagePullSecretOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesImagePullSecret) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2329,24 +2145,15 @@ func (o JobDefinitionEksPropertiesPodPropertiesImagePullSecretArrayOutput) Index
 }
 
 type JobDefinitionEksPropertiesPodPropertiesInitContainer struct {
-	// Array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
-	Args []string `pulumi:"args"`
-	// Entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
-	Commands []string `pulumi:"commands"`
-	// Environment variables to pass to a container. See EKS Environment below.
-	Envs []JobDefinitionEksPropertiesPodPropertiesInitContainerEnv `pulumi:"envs"`
-	// Docker image used to start the container.
-	Image string `pulumi:"image"`
-	// Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
-	ImagePullPolicy *string `pulumi:"imagePullPolicy"`
-	// Name of the job definition.
-	Name *string `pulumi:"name"`
-	// Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
-	Resources *JobDefinitionEksPropertiesPodPropertiesInitContainerResources `pulumi:"resources"`
-	// Security context for a job.
+	Args            []string                                                             `pulumi:"args"`
+	Commands        []string                                                             `pulumi:"commands"`
+	Envs            []JobDefinitionEksPropertiesPodPropertiesInitContainerEnv            `pulumi:"envs"`
+	Image           string                                                               `pulumi:"image"`
+	ImagePullPolicy *string                                                              `pulumi:"imagePullPolicy"`
+	Name            *string                                                              `pulumi:"name"`
+	Resources       *JobDefinitionEksPropertiesPodPropertiesInitContainerResources       `pulumi:"resources"`
 	SecurityContext *JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext `pulumi:"securityContext"`
-	// Volume mounts for the container.
-	VolumeMounts []JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMount `pulumi:"volumeMounts"`
+	VolumeMounts    []JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMount    `pulumi:"volumeMounts"`
 }
 
 // JobDefinitionEksPropertiesPodPropertiesInitContainerInput is an input type that accepts JobDefinitionEksPropertiesPodPropertiesInitContainerArgs and JobDefinitionEksPropertiesPodPropertiesInitContainerOutput values.
@@ -2361,24 +2168,15 @@ type JobDefinitionEksPropertiesPodPropertiesInitContainerInput interface {
 }
 
 type JobDefinitionEksPropertiesPodPropertiesInitContainerArgs struct {
-	// Array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
-	Args pulumi.StringArrayInput `pulumi:"args"`
-	// Entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
-	Commands pulumi.StringArrayInput `pulumi:"commands"`
-	// Environment variables to pass to a container. See EKS Environment below.
-	Envs JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArrayInput `pulumi:"envs"`
-	// Docker image used to start the container.
-	Image pulumi.StringInput `pulumi:"image"`
-	// Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
-	ImagePullPolicy pulumi.StringPtrInput `pulumi:"imagePullPolicy"`
-	// Name of the job definition.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
-	Resources JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrInput `pulumi:"resources"`
-	// Security context for a job.
+	Args            pulumi.StringArrayInput                                                     `pulumi:"args"`
+	Commands        pulumi.StringArrayInput                                                     `pulumi:"commands"`
+	Envs            JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArrayInput           `pulumi:"envs"`
+	Image           pulumi.StringInput                                                          `pulumi:"image"`
+	ImagePullPolicy pulumi.StringPtrInput                                                       `pulumi:"imagePullPolicy"`
+	Name            pulumi.StringPtrInput                                                       `pulumi:"name"`
+	Resources       JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrInput       `pulumi:"resources"`
 	SecurityContext JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrInput `pulumi:"securityContext"`
-	// Volume mounts for the container.
-	VolumeMounts JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayInput `pulumi:"volumeMounts"`
+	VolumeMounts    JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayInput   `pulumi:"volumeMounts"`
 }
 
 func (JobDefinitionEksPropertiesPodPropertiesInitContainerArgs) ElementType() reflect.Type {
@@ -2432,53 +2230,44 @@ func (o JobDefinitionEksPropertiesPodPropertiesInitContainerOutput) ToJobDefinit
 	return o
 }
 
-// Array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
 func (o JobDefinitionEksPropertiesPodPropertiesInitContainerOutput) Args() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainer) []string { return v.Args }).(pulumi.StringArrayOutput)
 }
 
-// Entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
 func (o JobDefinitionEksPropertiesPodPropertiesInitContainerOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
-// Environment variables to pass to a container. See EKS Environment below.
 func (o JobDefinitionEksPropertiesPodPropertiesInitContainerOutput) Envs() JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArrayOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainer) []JobDefinitionEksPropertiesPodPropertiesInitContainerEnv {
 		return v.Envs
 	}).(JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArrayOutput)
 }
 
-// Docker image used to start the container.
 func (o JobDefinitionEksPropertiesPodPropertiesInitContainerOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainer) string { return v.Image }).(pulumi.StringOutput)
 }
 
-// Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
 func (o JobDefinitionEksPropertiesPodPropertiesInitContainerOutput) ImagePullPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainer) *string { return v.ImagePullPolicy }).(pulumi.StringPtrOutput)
 }
 
-// Name of the job definition.
 func (o JobDefinitionEksPropertiesPodPropertiesInitContainerOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainer) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
 func (o JobDefinitionEksPropertiesPodPropertiesInitContainerOutput) Resources() JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainer) *JobDefinitionEksPropertiesPodPropertiesInitContainerResources {
 		return v.Resources
 	}).(JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutput)
 }
 
-// Security context for a job.
 func (o JobDefinitionEksPropertiesPodPropertiesInitContainerOutput) SecurityContext() JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainer) *JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext {
 		return v.SecurityContext
 	}).(JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput)
 }
 
-// Volume mounts for the container.
 func (o JobDefinitionEksPropertiesPodPropertiesInitContainerOutput) VolumeMounts() JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainer) []JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMount {
 		return v.VolumeMounts
@@ -2506,9 +2295,7 @@ func (o JobDefinitionEksPropertiesPodPropertiesInitContainerArrayOutput) Index(i
 }
 
 type JobDefinitionEksPropertiesPodPropertiesInitContainerEnv struct {
-	// Name of the job definition.
-	Name string `pulumi:"name"`
-	// Value of the environment variable.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -2524,9 +2311,7 @@ type JobDefinitionEksPropertiesPodPropertiesInitContainerEnvInput interface {
 }
 
 type JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs struct {
-	// Name of the job definition.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Value of the environment variable.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2581,12 +2366,10 @@ func (o JobDefinitionEksPropertiesPodPropertiesInitContainerEnvOutput) ToJobDefi
 	return o
 }
 
-// Name of the job definition.
 func (o JobDefinitionEksPropertiesPodPropertiesInitContainerEnvOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainerEnv) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Value of the environment variable.
 func (o JobDefinitionEksPropertiesPodPropertiesInitContainerEnvOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainerEnv) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2962,9 +2745,8 @@ func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOu
 
 type JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMount struct {
 	MountPath string `pulumi:"mountPath"`
-	// Name of the job definition.
-	Name     string `pulumi:"name"`
-	ReadOnly *bool  `pulumi:"readOnly"`
+	Name      string `pulumi:"name"`
+	ReadOnly  *bool  `pulumi:"readOnly"`
 }
 
 // JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountInput is an input type that accepts JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs and JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountOutput values.
@@ -2979,10 +2761,9 @@ type JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountInput interf
 }
 
 type JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs struct {
-	MountPath pulumi.StringInput `pulumi:"mountPath"`
-	// Name of the job definition.
-	Name     pulumi.StringInput  `pulumi:"name"`
-	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
+	MountPath pulumi.StringInput  `pulumi:"mountPath"`
+	Name      pulumi.StringInput  `pulumi:"name"`
+	ReadOnly  pulumi.BoolPtrInput `pulumi:"readOnly"`
 }
 
 func (JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs) ElementType() reflect.Type {
@@ -3040,7 +2821,6 @@ func (o JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountOutput) M
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMount) string { return v.MountPath }).(pulumi.StringOutput)
 }
 
-// Name of the job definition.
 func (o JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMount) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3070,7 +2850,6 @@ func (o JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayOutp
 }
 
 type JobDefinitionEksPropertiesPodPropertiesMetadata struct {
-	// Key-value pairs used to identify, sort, and organize kubernetes resources.
 	Labels map[string]string `pulumi:"labels"`
 }
 
@@ -3086,7 +2865,6 @@ type JobDefinitionEksPropertiesPodPropertiesMetadataInput interface {
 }
 
 type JobDefinitionEksPropertiesPodPropertiesMetadataArgs struct {
-	// Key-value pairs used to identify, sort, and organize kubernetes resources.
 	Labels pulumi.StringMapInput `pulumi:"labels"`
 }
 
@@ -3167,7 +2945,6 @@ func (o JobDefinitionEksPropertiesPodPropertiesMetadataOutput) ToJobDefinitionEk
 	}).(JobDefinitionEksPropertiesPodPropertiesMetadataPtrOutput)
 }
 
-// Key-value pairs used to identify, sort, and organize kubernetes resources.
 func (o JobDefinitionEksPropertiesPodPropertiesMetadataOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesMetadata) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
@@ -3196,7 +2973,6 @@ func (o JobDefinitionEksPropertiesPodPropertiesMetadataPtrOutput) Elem() JobDefi
 	}).(JobDefinitionEksPropertiesPodPropertiesMetadataOutput)
 }
 
-// Key-value pairs used to identify, sort, and organize kubernetes resources.
 func (o JobDefinitionEksPropertiesPodPropertiesMetadataPtrOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodPropertiesMetadata) map[string]string {
 		if v == nil {
@@ -3209,9 +2985,8 @@ func (o JobDefinitionEksPropertiesPodPropertiesMetadataPtrOutput) Labels() pulum
 type JobDefinitionEksPropertiesPodPropertiesVolume struct {
 	EmptyDir *JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir `pulumi:"emptyDir"`
 	HostPath *JobDefinitionEksPropertiesPodPropertiesVolumeHostPath `pulumi:"hostPath"`
-	// Name of the job definition.
-	Name   *string                                              `pulumi:"name"`
-	Secret *JobDefinitionEksPropertiesPodPropertiesVolumeSecret `pulumi:"secret"`
+	Name     *string                                                `pulumi:"name"`
+	Secret   *JobDefinitionEksPropertiesPodPropertiesVolumeSecret   `pulumi:"secret"`
 }
 
 // JobDefinitionEksPropertiesPodPropertiesVolumeInput is an input type that accepts JobDefinitionEksPropertiesPodPropertiesVolumeArgs and JobDefinitionEksPropertiesPodPropertiesVolumeOutput values.
@@ -3228,9 +3003,8 @@ type JobDefinitionEksPropertiesPodPropertiesVolumeInput interface {
 type JobDefinitionEksPropertiesPodPropertiesVolumeArgs struct {
 	EmptyDir JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirPtrInput `pulumi:"emptyDir"`
 	HostPath JobDefinitionEksPropertiesPodPropertiesVolumeHostPathPtrInput `pulumi:"hostPath"`
-	// Name of the job definition.
-	Name   pulumi.StringPtrInput                                       `pulumi:"name"`
-	Secret JobDefinitionEksPropertiesPodPropertiesVolumeSecretPtrInput `pulumi:"secret"`
+	Name     pulumi.StringPtrInput                                         `pulumi:"name"`
+	Secret   JobDefinitionEksPropertiesPodPropertiesVolumeSecretPtrInput   `pulumi:"secret"`
 }
 
 func (JobDefinitionEksPropertiesPodPropertiesVolumeArgs) ElementType() reflect.Type {
@@ -3296,7 +3070,6 @@ func (o JobDefinitionEksPropertiesPodPropertiesVolumeOutput) HostPath() JobDefin
 	}).(JobDefinitionEksPropertiesPodPropertiesVolumeHostPathPtrOutput)
 }
 
-// Name of the job definition.
 func (o JobDefinitionEksPropertiesPodPropertiesVolumeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesVolume) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -3328,10 +3101,8 @@ func (o JobDefinitionEksPropertiesPodPropertiesVolumeArrayOutput) Index(i pulumi
 }
 
 type JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir struct {
-	// Medium to store the volume. The default value is an empty string, which uses the storage of the node.
-	Medium *string `pulumi:"medium"`
-	// Maximum size of the volume. By default, there's no maximum size defined.
-	SizeLimit string `pulumi:"sizeLimit"`
+	Medium    *string `pulumi:"medium"`
+	SizeLimit string  `pulumi:"sizeLimit"`
 }
 
 // JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirInput is an input type that accepts JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs and JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirOutput values.
@@ -3346,10 +3117,8 @@ type JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirInput interface {
 }
 
 type JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs struct {
-	// Medium to store the volume. The default value is an empty string, which uses the storage of the node.
-	Medium pulumi.StringPtrInput `pulumi:"medium"`
-	// Maximum size of the volume. By default, there's no maximum size defined.
-	SizeLimit pulumi.StringInput `pulumi:"sizeLimit"`
+	Medium    pulumi.StringPtrInput `pulumi:"medium"`
+	SizeLimit pulumi.StringInput    `pulumi:"sizeLimit"`
 }
 
 func (JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs) ElementType() reflect.Type {
@@ -3429,12 +3198,10 @@ func (o JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirOutput) ToJobDefini
 	}).(JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirPtrOutput)
 }
 
-// Medium to store the volume. The default value is an empty string, which uses the storage of the node.
 func (o JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirOutput) Medium() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir) *string { return v.Medium }).(pulumi.StringPtrOutput)
 }
 
-// Maximum size of the volume. By default, there's no maximum size defined.
 func (o JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirOutput) SizeLimit() pulumi.StringOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir) string { return v.SizeLimit }).(pulumi.StringOutput)
 }
@@ -3463,7 +3230,6 @@ func (o JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirPtrOutput) Elem() J
 	}).(JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirOutput)
 }
 
-// Medium to store the volume. The default value is an empty string, which uses the storage of the node.
 func (o JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirPtrOutput) Medium() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir) *string {
 		if v == nil {
@@ -3473,7 +3239,6 @@ func (o JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirPtrOutput) Medium()
 	}).(pulumi.StringPtrOutput)
 }
 
-// Maximum size of the volume. By default, there's no maximum size defined.
 func (o JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirPtrOutput) SizeLimit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir) *string {
 		if v == nil {
@@ -3484,7 +3249,6 @@ func (o JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirPtrOutput) SizeLimi
 }
 
 type JobDefinitionEksPropertiesPodPropertiesVolumeHostPath struct {
-	// Path of the file or directory on the host to mount into containers on the pod.
 	Path string `pulumi:"path"`
 }
 
@@ -3500,7 +3264,6 @@ type JobDefinitionEksPropertiesPodPropertiesVolumeHostPathInput interface {
 }
 
 type JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgs struct {
-	// Path of the file or directory on the host to mount into containers on the pod.
 	Path pulumi.StringInput `pulumi:"path"`
 }
 
@@ -3581,7 +3344,6 @@ func (o JobDefinitionEksPropertiesPodPropertiesVolumeHostPathOutput) ToJobDefini
 	}).(JobDefinitionEksPropertiesPodPropertiesVolumeHostPathPtrOutput)
 }
 
-// Path of the file or directory on the host to mount into containers on the pod.
 func (o JobDefinitionEksPropertiesPodPropertiesVolumeHostPathOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesVolumeHostPath) string { return v.Path }).(pulumi.StringOutput)
 }
@@ -3610,7 +3372,6 @@ func (o JobDefinitionEksPropertiesPodPropertiesVolumeHostPathPtrOutput) Elem() J
 	}).(JobDefinitionEksPropertiesPodPropertiesVolumeHostPathOutput)
 }
 
-// Path of the file or directory on the host to mount into containers on the pod.
 func (o JobDefinitionEksPropertiesPodPropertiesVolumeHostPathPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodPropertiesVolumeHostPath) *string {
 		if v == nil {
@@ -3621,9 +3382,7 @@ func (o JobDefinitionEksPropertiesPodPropertiesVolumeHostPathPtrOutput) Path() p
 }
 
 type JobDefinitionEksPropertiesPodPropertiesVolumeSecret struct {
-	// Whether the secret or the secret's keys must be defined.
-	Optional *bool `pulumi:"optional"`
-	// Name of the secret. The name must be allowed as a DNS subdomain name.
+	Optional   *bool  `pulumi:"optional"`
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -3639,10 +3398,8 @@ type JobDefinitionEksPropertiesPodPropertiesVolumeSecretInput interface {
 }
 
 type JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs struct {
-	// Whether the secret or the secret's keys must be defined.
-	Optional pulumi.BoolPtrInput `pulumi:"optional"`
-	// Name of the secret. The name must be allowed as a DNS subdomain name.
-	SecretName pulumi.StringInput `pulumi:"secretName"`
+	Optional   pulumi.BoolPtrInput `pulumi:"optional"`
+	SecretName pulumi.StringInput  `pulumi:"secretName"`
 }
 
 func (JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs) ElementType() reflect.Type {
@@ -3722,12 +3479,10 @@ func (o JobDefinitionEksPropertiesPodPropertiesVolumeSecretOutput) ToJobDefiniti
 	}).(JobDefinitionEksPropertiesPodPropertiesVolumeSecretPtrOutput)
 }
 
-// Whether the secret or the secret's keys must be defined.
 func (o JobDefinitionEksPropertiesPodPropertiesVolumeSecretOutput) Optional() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesVolumeSecret) *bool { return v.Optional }).(pulumi.BoolPtrOutput)
 }
 
-// Name of the secret. The name must be allowed as a DNS subdomain name.
 func (o JobDefinitionEksPropertiesPodPropertiesVolumeSecretOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesVolumeSecret) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -3756,7 +3511,6 @@ func (o JobDefinitionEksPropertiesPodPropertiesVolumeSecretPtrOutput) Elem() Job
 	}).(JobDefinitionEksPropertiesPodPropertiesVolumeSecretOutput)
 }
 
-// Whether the secret or the secret's keys must be defined.
 func (o JobDefinitionEksPropertiesPodPropertiesVolumeSecretPtrOutput) Optional() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodPropertiesVolumeSecret) *bool {
 		if v == nil {
@@ -3766,7 +3520,6 @@ func (o JobDefinitionEksPropertiesPodPropertiesVolumeSecretPtrOutput) Optional()
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Name of the secret. The name must be allowed as a DNS subdomain name.
 func (o JobDefinitionEksPropertiesPodPropertiesVolumeSecretPtrOutput) SecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodPropertiesVolumeSecret) *string {
 		if v == nil {
@@ -3777,9 +3530,7 @@ func (o JobDefinitionEksPropertiesPodPropertiesVolumeSecretPtrOutput) SecretName
 }
 
 type JobDefinitionRetryStrategy struct {
-	// Number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
-	Attempts *int `pulumi:"attempts"`
-	// Evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
+	Attempts        *int                                       `pulumi:"attempts"`
 	EvaluateOnExits []JobDefinitionRetryStrategyEvaluateOnExit `pulumi:"evaluateOnExits"`
 }
 
@@ -3795,9 +3546,7 @@ type JobDefinitionRetryStrategyInput interface {
 }
 
 type JobDefinitionRetryStrategyArgs struct {
-	// Number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
-	Attempts pulumi.IntPtrInput `pulumi:"attempts"`
-	// Evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
+	Attempts        pulumi.IntPtrInput                                 `pulumi:"attempts"`
 	EvaluateOnExits JobDefinitionRetryStrategyEvaluateOnExitArrayInput `pulumi:"evaluateOnExits"`
 }
 
@@ -3878,12 +3627,10 @@ func (o JobDefinitionRetryStrategyOutput) ToJobDefinitionRetryStrategyPtrOutputW
 	}).(JobDefinitionRetryStrategyPtrOutput)
 }
 
-// Number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
 func (o JobDefinitionRetryStrategyOutput) Attempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobDefinitionRetryStrategy) *int { return v.Attempts }).(pulumi.IntPtrOutput)
 }
 
-// Evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
 func (o JobDefinitionRetryStrategyOutput) EvaluateOnExits() JobDefinitionRetryStrategyEvaluateOnExitArrayOutput {
 	return o.ApplyT(func(v JobDefinitionRetryStrategy) []JobDefinitionRetryStrategyEvaluateOnExit {
 		return v.EvaluateOnExits
@@ -3914,7 +3661,6 @@ func (o JobDefinitionRetryStrategyPtrOutput) Elem() JobDefinitionRetryStrategyOu
 	}).(JobDefinitionRetryStrategyOutput)
 }
 
-// Number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
 func (o JobDefinitionRetryStrategyPtrOutput) Attempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionRetryStrategy) *int {
 		if v == nil {
@@ -3924,7 +3670,6 @@ func (o JobDefinitionRetryStrategyPtrOutput) Attempts() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
 func (o JobDefinitionRetryStrategyPtrOutput) EvaluateOnExits() JobDefinitionRetryStrategyEvaluateOnExitArrayOutput {
 	return o.ApplyT(func(v *JobDefinitionRetryStrategy) []JobDefinitionRetryStrategyEvaluateOnExit {
 		if v == nil {
@@ -3935,13 +3680,9 @@ func (o JobDefinitionRetryStrategyPtrOutput) EvaluateOnExits() JobDefinitionRetr
 }
 
 type JobDefinitionRetryStrategyEvaluateOnExit struct {
-	// Action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
-	Action string `pulumi:"action"`
-	// Glob pattern to match against the decimal representation of the exit code returned for a job.
-	OnExitCode *string `pulumi:"onExitCode"`
-	// Glob pattern to match against the reason returned for a job.
-	OnReason *string `pulumi:"onReason"`
-	// Glob pattern to match against the status reason returned for a job.
+	Action         string  `pulumi:"action"`
+	OnExitCode     *string `pulumi:"onExitCode"`
+	OnReason       *string `pulumi:"onReason"`
 	OnStatusReason *string `pulumi:"onStatusReason"`
 }
 
@@ -3957,13 +3698,9 @@ type JobDefinitionRetryStrategyEvaluateOnExitInput interface {
 }
 
 type JobDefinitionRetryStrategyEvaluateOnExitArgs struct {
-	// Action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
-	Action pulumi.StringInput `pulumi:"action"`
-	// Glob pattern to match against the decimal representation of the exit code returned for a job.
-	OnExitCode pulumi.StringPtrInput `pulumi:"onExitCode"`
-	// Glob pattern to match against the reason returned for a job.
-	OnReason pulumi.StringPtrInput `pulumi:"onReason"`
-	// Glob pattern to match against the status reason returned for a job.
+	Action         pulumi.StringInput    `pulumi:"action"`
+	OnExitCode     pulumi.StringPtrInput `pulumi:"onExitCode"`
+	OnReason       pulumi.StringPtrInput `pulumi:"onReason"`
 	OnStatusReason pulumi.StringPtrInput `pulumi:"onStatusReason"`
 }
 
@@ -4018,22 +3755,18 @@ func (o JobDefinitionRetryStrategyEvaluateOnExitOutput) ToJobDefinitionRetryStra
 	return o
 }
 
-// Action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
 func (o JobDefinitionRetryStrategyEvaluateOnExitOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v JobDefinitionRetryStrategyEvaluateOnExit) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// Glob pattern to match against the decimal representation of the exit code returned for a job.
 func (o JobDefinitionRetryStrategyEvaluateOnExitOutput) OnExitCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDefinitionRetryStrategyEvaluateOnExit) *string { return v.OnExitCode }).(pulumi.StringPtrOutput)
 }
 
-// Glob pattern to match against the reason returned for a job.
 func (o JobDefinitionRetryStrategyEvaluateOnExitOutput) OnReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDefinitionRetryStrategyEvaluateOnExit) *string { return v.OnReason }).(pulumi.StringPtrOutput)
 }
 
-// Glob pattern to match against the status reason returned for a job.
 func (o JobDefinitionRetryStrategyEvaluateOnExitOutput) OnStatusReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDefinitionRetryStrategyEvaluateOnExit) *string { return v.OnStatusReason }).(pulumi.StringPtrOutput)
 }
@@ -4059,7 +3792,6 @@ func (o JobDefinitionRetryStrategyEvaluateOnExitArrayOutput) Index(i pulumi.IntI
 }
 
 type JobDefinitionTimeout struct {
-	// Time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
 	AttemptDurationSeconds *int `pulumi:"attemptDurationSeconds"`
 }
 
@@ -4075,7 +3807,6 @@ type JobDefinitionTimeoutInput interface {
 }
 
 type JobDefinitionTimeoutArgs struct {
-	// Time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
 	AttemptDurationSeconds pulumi.IntPtrInput `pulumi:"attemptDurationSeconds"`
 }
 
@@ -4156,7 +3887,6 @@ func (o JobDefinitionTimeoutOutput) ToJobDefinitionTimeoutPtrOutputWithContext(c
 	}).(JobDefinitionTimeoutPtrOutput)
 }
 
-// Time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
 func (o JobDefinitionTimeoutOutput) AttemptDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobDefinitionTimeout) *int { return v.AttemptDurationSeconds }).(pulumi.IntPtrOutput)
 }
@@ -4185,7 +3915,6 @@ func (o JobDefinitionTimeoutPtrOutput) Elem() JobDefinitionTimeoutOutput {
 	}).(JobDefinitionTimeoutOutput)
 }
 
-// Time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
 func (o JobDefinitionTimeoutPtrOutput) AttemptDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionTimeout) *int {
 		if v == nil {
@@ -4196,10 +3925,8 @@ func (o JobDefinitionTimeoutPtrOutput) AttemptDurationSeconds() pulumi.IntPtrOut
 }
 
 type JobQueueComputeEnvironmentOrder struct {
-	// The Amazon Resource Name (ARN) of the compute environment.
 	ComputeEnvironment string `pulumi:"computeEnvironment"`
-	// The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
-	Order int `pulumi:"order"`
+	Order              int    `pulumi:"order"`
 }
 
 // JobQueueComputeEnvironmentOrderInput is an input type that accepts JobQueueComputeEnvironmentOrderArgs and JobQueueComputeEnvironmentOrderOutput values.
@@ -4214,10 +3941,8 @@ type JobQueueComputeEnvironmentOrderInput interface {
 }
 
 type JobQueueComputeEnvironmentOrderArgs struct {
-	// The Amazon Resource Name (ARN) of the compute environment.
 	ComputeEnvironment pulumi.StringInput `pulumi:"computeEnvironment"`
-	// The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
-	Order pulumi.IntInput `pulumi:"order"`
+	Order              pulumi.IntInput    `pulumi:"order"`
 }
 
 func (JobQueueComputeEnvironmentOrderArgs) ElementType() reflect.Type {
@@ -4271,12 +3996,10 @@ func (o JobQueueComputeEnvironmentOrderOutput) ToJobQueueComputeEnvironmentOrder
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the compute environment.
 func (o JobQueueComputeEnvironmentOrderOutput) ComputeEnvironment() pulumi.StringOutput {
 	return o.ApplyT(func(v JobQueueComputeEnvironmentOrder) string { return v.ComputeEnvironment }).(pulumi.StringOutput)
 }
 
-// The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
 func (o JobQueueComputeEnvironmentOrderOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v JobQueueComputeEnvironmentOrder) int { return v.Order }).(pulumi.IntOutput)
 }
@@ -4302,14 +4025,10 @@ func (o JobQueueComputeEnvironmentOrderArrayOutput) Index(i pulumi.IntInput) Job
 }
 
 type JobQueueJobStateTimeLimitAction struct {
-	// The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `"CANCEL"`
-	Action string `pulumi:"action"`
-	// The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` & `86400`
-	MaxTimeSeconds int `pulumi:"maxTimeSeconds"`
-	// The reason to log for the action being taken.
-	Reason string `pulumi:"reason"`
-	// The state of the job needed to trigger the action. Valid values include `"RUNNABLE"`.
-	State string `pulumi:"state"`
+	Action         string `pulumi:"action"`
+	MaxTimeSeconds int    `pulumi:"maxTimeSeconds"`
+	Reason         string `pulumi:"reason"`
+	State          string `pulumi:"state"`
 }
 
 // JobQueueJobStateTimeLimitActionInput is an input type that accepts JobQueueJobStateTimeLimitActionArgs and JobQueueJobStateTimeLimitActionOutput values.
@@ -4324,14 +4043,10 @@ type JobQueueJobStateTimeLimitActionInput interface {
 }
 
 type JobQueueJobStateTimeLimitActionArgs struct {
-	// The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `"CANCEL"`
-	Action pulumi.StringInput `pulumi:"action"`
-	// The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` & `86400`
-	MaxTimeSeconds pulumi.IntInput `pulumi:"maxTimeSeconds"`
-	// The reason to log for the action being taken.
-	Reason pulumi.StringInput `pulumi:"reason"`
-	// The state of the job needed to trigger the action. Valid values include `"RUNNABLE"`.
-	State pulumi.StringInput `pulumi:"state"`
+	Action         pulumi.StringInput `pulumi:"action"`
+	MaxTimeSeconds pulumi.IntInput    `pulumi:"maxTimeSeconds"`
+	Reason         pulumi.StringInput `pulumi:"reason"`
+	State          pulumi.StringInput `pulumi:"state"`
 }
 
 func (JobQueueJobStateTimeLimitActionArgs) ElementType() reflect.Type {
@@ -4385,22 +4100,18 @@ func (o JobQueueJobStateTimeLimitActionOutput) ToJobQueueJobStateTimeLimitAction
 	return o
 }
 
-// The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `"CANCEL"`
 func (o JobQueueJobStateTimeLimitActionOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v JobQueueJobStateTimeLimitAction) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` & `86400`
 func (o JobQueueJobStateTimeLimitActionOutput) MaxTimeSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v JobQueueJobStateTimeLimitAction) int { return v.MaxTimeSeconds }).(pulumi.IntOutput)
 }
 
-// The reason to log for the action being taken.
 func (o JobQueueJobStateTimeLimitActionOutput) Reason() pulumi.StringOutput {
 	return o.ApplyT(func(v JobQueueJobStateTimeLimitAction) string { return v.Reason }).(pulumi.StringOutput)
 }
 
-// The state of the job needed to trigger the action. Valid values include `"RUNNABLE"`.
 func (o JobQueueJobStateTimeLimitActionOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v JobQueueJobStateTimeLimitAction) string { return v.State }).(pulumi.StringOutput)
 }
@@ -4601,10 +4312,8 @@ func (o JobQueueTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type SchedulingPolicyFairSharePolicy struct {
-	// A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
-	ComputeReservation *int `pulumi:"computeReservation"`
-	ShareDecaySeconds  *int `pulumi:"shareDecaySeconds"`
-	// One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
+	ComputeReservation *int                                               `pulumi:"computeReservation"`
+	ShareDecaySeconds  *int                                               `pulumi:"shareDecaySeconds"`
 	ShareDistributions []SchedulingPolicyFairSharePolicyShareDistribution `pulumi:"shareDistributions"`
 }
 
@@ -4620,10 +4329,8 @@ type SchedulingPolicyFairSharePolicyInput interface {
 }
 
 type SchedulingPolicyFairSharePolicyArgs struct {
-	// A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
-	ComputeReservation pulumi.IntPtrInput `pulumi:"computeReservation"`
-	ShareDecaySeconds  pulumi.IntPtrInput `pulumi:"shareDecaySeconds"`
-	// One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
+	ComputeReservation pulumi.IntPtrInput                                         `pulumi:"computeReservation"`
+	ShareDecaySeconds  pulumi.IntPtrInput                                         `pulumi:"shareDecaySeconds"`
 	ShareDistributions SchedulingPolicyFairSharePolicyShareDistributionArrayInput `pulumi:"shareDistributions"`
 }
 
@@ -4704,7 +4411,6 @@ func (o SchedulingPolicyFairSharePolicyOutput) ToSchedulingPolicyFairSharePolicy
 	}).(SchedulingPolicyFairSharePolicyPtrOutput)
 }
 
-// A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
 func (o SchedulingPolicyFairSharePolicyOutput) ComputeReservation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SchedulingPolicyFairSharePolicy) *int { return v.ComputeReservation }).(pulumi.IntPtrOutput)
 }
@@ -4713,7 +4419,6 @@ func (o SchedulingPolicyFairSharePolicyOutput) ShareDecaySeconds() pulumi.IntPtr
 	return o.ApplyT(func(v SchedulingPolicyFairSharePolicy) *int { return v.ShareDecaySeconds }).(pulumi.IntPtrOutput)
 }
 
-// One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
 func (o SchedulingPolicyFairSharePolicyOutput) ShareDistributions() SchedulingPolicyFairSharePolicyShareDistributionArrayOutput {
 	return o.ApplyT(func(v SchedulingPolicyFairSharePolicy) []SchedulingPolicyFairSharePolicyShareDistribution {
 		return v.ShareDistributions
@@ -4744,7 +4449,6 @@ func (o SchedulingPolicyFairSharePolicyPtrOutput) Elem() SchedulingPolicyFairSha
 	}).(SchedulingPolicyFairSharePolicyOutput)
 }
 
-// A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
 func (o SchedulingPolicyFairSharePolicyPtrOutput) ComputeReservation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SchedulingPolicyFairSharePolicy) *int {
 		if v == nil {
@@ -4763,7 +4467,6 @@ func (o SchedulingPolicyFairSharePolicyPtrOutput) ShareDecaySeconds() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
 func (o SchedulingPolicyFairSharePolicyPtrOutput) ShareDistributions() SchedulingPolicyFairSharePolicyShareDistributionArrayOutput {
 	return o.ApplyT(func(v *SchedulingPolicyFairSharePolicy) []SchedulingPolicyFairSharePolicyShareDistribution {
 		if v == nil {
@@ -4774,10 +4477,8 @@ func (o SchedulingPolicyFairSharePolicyPtrOutput) ShareDistributions() Schedulin
 }
 
 type SchedulingPolicyFairSharePolicyShareDistribution struct {
-	// A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-	ShareIdentifier string `pulumi:"shareIdentifier"`
-	// The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-	WeightFactor *float64 `pulumi:"weightFactor"`
+	ShareIdentifier string   `pulumi:"shareIdentifier"`
+	WeightFactor    *float64 `pulumi:"weightFactor"`
 }
 
 // SchedulingPolicyFairSharePolicyShareDistributionInput is an input type that accepts SchedulingPolicyFairSharePolicyShareDistributionArgs and SchedulingPolicyFairSharePolicyShareDistributionOutput values.
@@ -4792,10 +4493,8 @@ type SchedulingPolicyFairSharePolicyShareDistributionInput interface {
 }
 
 type SchedulingPolicyFairSharePolicyShareDistributionArgs struct {
-	// A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-	ShareIdentifier pulumi.StringInput `pulumi:"shareIdentifier"`
-	// The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-	WeightFactor pulumi.Float64PtrInput `pulumi:"weightFactor"`
+	ShareIdentifier pulumi.StringInput     `pulumi:"shareIdentifier"`
+	WeightFactor    pulumi.Float64PtrInput `pulumi:"weightFactor"`
 }
 
 func (SchedulingPolicyFairSharePolicyShareDistributionArgs) ElementType() reflect.Type {
@@ -4849,12 +4548,10 @@ func (o SchedulingPolicyFairSharePolicyShareDistributionOutput) ToSchedulingPoli
 	return o
 }
 
-// A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
 func (o SchedulingPolicyFairSharePolicyShareDistributionOutput) ShareIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v SchedulingPolicyFairSharePolicyShareDistribution) string { return v.ShareIdentifier }).(pulumi.StringOutput)
 }
 
-// The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
 func (o SchedulingPolicyFairSharePolicyShareDistributionOutput) WeightFactor() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SchedulingPolicyFairSharePolicyShareDistribution) *float64 { return v.WeightFactor }).(pulumi.Float64PtrOutput)
 }
@@ -4980,7 +4677,6 @@ func (o GetComputeEnvironmentUpdatePolicyArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetJobDefinitionEksProperty struct {
-	// The properties for the Kubernetes pod resources of a job.
 	PodProperties []GetJobDefinitionEksPropertyPodProperty `pulumi:"podProperties"`
 }
 
@@ -4996,7 +4692,6 @@ type GetJobDefinitionEksPropertyInput interface {
 }
 
 type GetJobDefinitionEksPropertyArgs struct {
-	// The properties for the Kubernetes pod resources of a job.
 	PodProperties GetJobDefinitionEksPropertyPodPropertyArrayInput `pulumi:"podProperties"`
 }
 
@@ -5051,7 +4746,6 @@ func (o GetJobDefinitionEksPropertyOutput) ToGetJobDefinitionEksPropertyOutputWi
 	return o
 }
 
-// The properties for the Kubernetes pod resources of a job.
 func (o GetJobDefinitionEksPropertyOutput) PodProperties() GetJobDefinitionEksPropertyPodPropertyArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksProperty) []GetJobDefinitionEksPropertyPodProperty { return v.PodProperties }).(GetJobDefinitionEksPropertyPodPropertyArrayOutput)
 }
@@ -5077,23 +4771,15 @@ func (o GetJobDefinitionEksPropertyArrayOutput) Index(i pulumi.IntInput) GetJobD
 }
 
 type GetJobDefinitionEksPropertyPodProperty struct {
-	// The properties of the container that's used on the Amazon EKS pod. See containers below.
-	Containers []GetJobDefinitionEksPropertyPodPropertyContainer `pulumi:"containers"`
-	// The DNS policy for the pod. The default value is ClusterFirst. If the hostNetwork parameter is not specified, the default is ClusterFirstWithHostNet. ClusterFirst indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node.
-	DnsPolicy string `pulumi:"dnsPolicy"`
-	// Indicates if the pod uses the hosts' network IP address. The default value is true. Setting this to false enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
-	HostNetwork      bool                                                    `pulumi:"hostNetwork"`
-	ImagePullSecrets []GetJobDefinitionEksPropertyPodPropertyImagePullSecret `pulumi:"imagePullSecrets"`
-	// Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
-	InitContainers []GetJobDefinitionEksPropertyPodPropertyInitContainer `pulumi:"initContainers"`
-	// Metadata about the Kubernetes pod.
-	Metadatas []GetJobDefinitionEksPropertyPodPropertyMetadata `pulumi:"metadatas"`
-	// The name of the service account that's used to run the pod.
-	ServiceAccountName string `pulumi:"serviceAccountName"`
-	// (Optional) Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
-	ShareProcessNamespace bool `pulumi:"shareProcessNamespace"`
-	// A list of data volumes used in a job.
-	Volumes []GetJobDefinitionEksPropertyPodPropertyVolume `pulumi:"volumes"`
+	Containers            []GetJobDefinitionEksPropertyPodPropertyContainer       `pulumi:"containers"`
+	DnsPolicy             string                                                  `pulumi:"dnsPolicy"`
+	HostNetwork           bool                                                    `pulumi:"hostNetwork"`
+	ImagePullSecrets      []GetJobDefinitionEksPropertyPodPropertyImagePullSecret `pulumi:"imagePullSecrets"`
+	InitContainers        []GetJobDefinitionEksPropertyPodPropertyInitContainer   `pulumi:"initContainers"`
+	Metadatas             []GetJobDefinitionEksPropertyPodPropertyMetadata        `pulumi:"metadatas"`
+	ServiceAccountName    string                                                  `pulumi:"serviceAccountName"`
+	ShareProcessNamespace bool                                                    `pulumi:"shareProcessNamespace"`
+	Volumes               []GetJobDefinitionEksPropertyPodPropertyVolume          `pulumi:"volumes"`
 }
 
 // GetJobDefinitionEksPropertyPodPropertyInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyArgs and GetJobDefinitionEksPropertyPodPropertyOutput values.
@@ -5108,23 +4794,15 @@ type GetJobDefinitionEksPropertyPodPropertyInput interface {
 }
 
 type GetJobDefinitionEksPropertyPodPropertyArgs struct {
-	// The properties of the container that's used on the Amazon EKS pod. See containers below.
-	Containers GetJobDefinitionEksPropertyPodPropertyContainerArrayInput `pulumi:"containers"`
-	// The DNS policy for the pod. The default value is ClusterFirst. If the hostNetwork parameter is not specified, the default is ClusterFirstWithHostNet. ClusterFirst indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node.
-	DnsPolicy pulumi.StringInput `pulumi:"dnsPolicy"`
-	// Indicates if the pod uses the hosts' network IP address. The default value is true. Setting this to false enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
-	HostNetwork      pulumi.BoolInput                                                `pulumi:"hostNetwork"`
-	ImagePullSecrets GetJobDefinitionEksPropertyPodPropertyImagePullSecretArrayInput `pulumi:"imagePullSecrets"`
-	// Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
-	InitContainers GetJobDefinitionEksPropertyPodPropertyInitContainerArrayInput `pulumi:"initContainers"`
-	// Metadata about the Kubernetes pod.
-	Metadatas GetJobDefinitionEksPropertyPodPropertyMetadataArrayInput `pulumi:"metadatas"`
-	// The name of the service account that's used to run the pod.
-	ServiceAccountName pulumi.StringInput `pulumi:"serviceAccountName"`
-	// (Optional) Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
-	ShareProcessNamespace pulumi.BoolInput `pulumi:"shareProcessNamespace"`
-	// A list of data volumes used in a job.
-	Volumes GetJobDefinitionEksPropertyPodPropertyVolumeArrayInput `pulumi:"volumes"`
+	Containers            GetJobDefinitionEksPropertyPodPropertyContainerArrayInput       `pulumi:"containers"`
+	DnsPolicy             pulumi.StringInput                                              `pulumi:"dnsPolicy"`
+	HostNetwork           pulumi.BoolInput                                                `pulumi:"hostNetwork"`
+	ImagePullSecrets      GetJobDefinitionEksPropertyPodPropertyImagePullSecretArrayInput `pulumi:"imagePullSecrets"`
+	InitContainers        GetJobDefinitionEksPropertyPodPropertyInitContainerArrayInput   `pulumi:"initContainers"`
+	Metadatas             GetJobDefinitionEksPropertyPodPropertyMetadataArrayInput        `pulumi:"metadatas"`
+	ServiceAccountName    pulumi.StringInput                                              `pulumi:"serviceAccountName"`
+	ShareProcessNamespace pulumi.BoolInput                                                `pulumi:"shareProcessNamespace"`
+	Volumes               GetJobDefinitionEksPropertyPodPropertyVolumeArrayInput          `pulumi:"volumes"`
 }
 
 func (GetJobDefinitionEksPropertyPodPropertyArgs) ElementType() reflect.Type {
@@ -5178,19 +4856,16 @@ func (o GetJobDefinitionEksPropertyPodPropertyOutput) ToGetJobDefinitionEksPrope
 	return o
 }
 
-// The properties of the container that's used on the Amazon EKS pod. See containers below.
 func (o GetJobDefinitionEksPropertyPodPropertyOutput) Containers() GetJobDefinitionEksPropertyPodPropertyContainerArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodProperty) []GetJobDefinitionEksPropertyPodPropertyContainer {
 		return v.Containers
 	}).(GetJobDefinitionEksPropertyPodPropertyContainerArrayOutput)
 }
 
-// The DNS policy for the pod. The default value is ClusterFirst. If the hostNetwork parameter is not specified, the default is ClusterFirstWithHostNet. ClusterFirst indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node.
 func (o GetJobDefinitionEksPropertyPodPropertyOutput) DnsPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodProperty) string { return v.DnsPolicy }).(pulumi.StringOutput)
 }
 
-// Indicates if the pod uses the hosts' network IP address. The default value is true. Setting this to false enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
 func (o GetJobDefinitionEksPropertyPodPropertyOutput) HostNetwork() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodProperty) bool { return v.HostNetwork }).(pulumi.BoolOutput)
 }
@@ -5201,31 +4876,26 @@ func (o GetJobDefinitionEksPropertyPodPropertyOutput) ImagePullSecrets() GetJobD
 	}).(GetJobDefinitionEksPropertyPodPropertyImagePullSecretArrayOutput)
 }
 
-// Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
 func (o GetJobDefinitionEksPropertyPodPropertyOutput) InitContainers() GetJobDefinitionEksPropertyPodPropertyInitContainerArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodProperty) []GetJobDefinitionEksPropertyPodPropertyInitContainer {
 		return v.InitContainers
 	}).(GetJobDefinitionEksPropertyPodPropertyInitContainerArrayOutput)
 }
 
-// Metadata about the Kubernetes pod.
 func (o GetJobDefinitionEksPropertyPodPropertyOutput) Metadatas() GetJobDefinitionEksPropertyPodPropertyMetadataArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodProperty) []GetJobDefinitionEksPropertyPodPropertyMetadata {
 		return v.Metadatas
 	}).(GetJobDefinitionEksPropertyPodPropertyMetadataArrayOutput)
 }
 
-// The name of the service account that's used to run the pod.
 func (o GetJobDefinitionEksPropertyPodPropertyOutput) ServiceAccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodProperty) string { return v.ServiceAccountName }).(pulumi.StringOutput)
 }
 
-// (Optional) Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
 func (o GetJobDefinitionEksPropertyPodPropertyOutput) ShareProcessNamespace() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodProperty) bool { return v.ShareProcessNamespace }).(pulumi.BoolOutput)
 }
 
-// A list of data volumes used in a job.
 func (o GetJobDefinitionEksPropertyPodPropertyOutput) Volumes() GetJobDefinitionEksPropertyPodPropertyVolumeArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodProperty) []GetJobDefinitionEksPropertyPodPropertyVolume {
 		return v.Volumes
@@ -5253,24 +4923,15 @@ func (o GetJobDefinitionEksPropertyPodPropertyArrayOutput) Index(i pulumi.IntInp
 }
 
 type GetJobDefinitionEksPropertyPodPropertyContainer struct {
-	// An array of arguments to the entrypoint
-	Args []string `pulumi:"args"`
-	// The command that's passed to the container.
-	Commands []string `pulumi:"commands"`
-	// The environment variables to pass to a container.  Array of EksContainerEnvironmentVariable objects.
-	Envs []GetJobDefinitionEksPropertyPodPropertyContainerEnv `pulumi:"envs"`
-	// The image used to start a container.
-	Image string `pulumi:"image"`
-	// The image pull policy for the container.
-	ImagePullPolicy string `pulumi:"imagePullPolicy"`
-	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-	Name string `pulumi:"name"`
-	// The type and amount of resources to assign to a container.
-	Resources []GetJobDefinitionEksPropertyPodPropertyContainerResource `pulumi:"resources"`
-	// The security context for a job.
+	Args             []string                                                         `pulumi:"args"`
+	Commands         []string                                                         `pulumi:"commands"`
+	Envs             []GetJobDefinitionEksPropertyPodPropertyContainerEnv             `pulumi:"envs"`
+	Image            string                                                           `pulumi:"image"`
+	ImagePullPolicy  string                                                           `pulumi:"imagePullPolicy"`
+	Name             string                                                           `pulumi:"name"`
+	Resources        []GetJobDefinitionEksPropertyPodPropertyContainerResource        `pulumi:"resources"`
 	SecurityContexts []GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext `pulumi:"securityContexts"`
-	// The volume mounts for the container.
-	VolumeMounts []GetJobDefinitionEksPropertyPodPropertyContainerVolumeMount `pulumi:"volumeMounts"`
+	VolumeMounts     []GetJobDefinitionEksPropertyPodPropertyContainerVolumeMount     `pulumi:"volumeMounts"`
 }
 
 // GetJobDefinitionEksPropertyPodPropertyContainerInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyContainerArgs and GetJobDefinitionEksPropertyPodPropertyContainerOutput values.
@@ -5285,24 +4946,15 @@ type GetJobDefinitionEksPropertyPodPropertyContainerInput interface {
 }
 
 type GetJobDefinitionEksPropertyPodPropertyContainerArgs struct {
-	// An array of arguments to the entrypoint
-	Args pulumi.StringArrayInput `pulumi:"args"`
-	// The command that's passed to the container.
-	Commands pulumi.StringArrayInput `pulumi:"commands"`
-	// The environment variables to pass to a container.  Array of EksContainerEnvironmentVariable objects.
-	Envs GetJobDefinitionEksPropertyPodPropertyContainerEnvArrayInput `pulumi:"envs"`
-	// The image used to start a container.
-	Image pulumi.StringInput `pulumi:"image"`
-	// The image pull policy for the container.
-	ImagePullPolicy pulumi.StringInput `pulumi:"imagePullPolicy"`
-	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-	Name pulumi.StringInput `pulumi:"name"`
-	// The type and amount of resources to assign to a container.
-	Resources GetJobDefinitionEksPropertyPodPropertyContainerResourceArrayInput `pulumi:"resources"`
-	// The security context for a job.
+	Args             pulumi.StringArrayInput                                                  `pulumi:"args"`
+	Commands         pulumi.StringArrayInput                                                  `pulumi:"commands"`
+	Envs             GetJobDefinitionEksPropertyPodPropertyContainerEnvArrayInput             `pulumi:"envs"`
+	Image            pulumi.StringInput                                                       `pulumi:"image"`
+	ImagePullPolicy  pulumi.StringInput                                                       `pulumi:"imagePullPolicy"`
+	Name             pulumi.StringInput                                                       `pulumi:"name"`
+	Resources        GetJobDefinitionEksPropertyPodPropertyContainerResourceArrayInput        `pulumi:"resources"`
 	SecurityContexts GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayInput `pulumi:"securityContexts"`
-	// The volume mounts for the container.
-	VolumeMounts GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayInput `pulumi:"volumeMounts"`
+	VolumeMounts     GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayInput     `pulumi:"volumeMounts"`
 }
 
 func (GetJobDefinitionEksPropertyPodPropertyContainerArgs) ElementType() reflect.Type {
@@ -5356,53 +5008,44 @@ func (o GetJobDefinitionEksPropertyPodPropertyContainerOutput) ToGetJobDefinitio
 	return o
 }
 
-// An array of arguments to the entrypoint
 func (o GetJobDefinitionEksPropertyPodPropertyContainerOutput) Args() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainer) []string { return v.Args }).(pulumi.StringArrayOutput)
 }
 
-// The command that's passed to the container.
 func (o GetJobDefinitionEksPropertyPodPropertyContainerOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
-// The environment variables to pass to a container.  Array of EksContainerEnvironmentVariable objects.
 func (o GetJobDefinitionEksPropertyPodPropertyContainerOutput) Envs() GetJobDefinitionEksPropertyPodPropertyContainerEnvArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainer) []GetJobDefinitionEksPropertyPodPropertyContainerEnv {
 		return v.Envs
 	}).(GetJobDefinitionEksPropertyPodPropertyContainerEnvArrayOutput)
 }
 
-// The image used to start a container.
 func (o GetJobDefinitionEksPropertyPodPropertyContainerOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainer) string { return v.Image }).(pulumi.StringOutput)
 }
 
-// The image pull policy for the container.
 func (o GetJobDefinitionEksPropertyPodPropertyContainerOutput) ImagePullPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainer) string { return v.ImagePullPolicy }).(pulumi.StringOutput)
 }
 
-// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 func (o GetJobDefinitionEksPropertyPodPropertyContainerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainer) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The type and amount of resources to assign to a container.
 func (o GetJobDefinitionEksPropertyPodPropertyContainerOutput) Resources() GetJobDefinitionEksPropertyPodPropertyContainerResourceArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainer) []GetJobDefinitionEksPropertyPodPropertyContainerResource {
 		return v.Resources
 	}).(GetJobDefinitionEksPropertyPodPropertyContainerResourceArrayOutput)
 }
 
-// The security context for a job.
 func (o GetJobDefinitionEksPropertyPodPropertyContainerOutput) SecurityContexts() GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainer) []GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext {
 		return v.SecurityContexts
 	}).(GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayOutput)
 }
 
-// The volume mounts for the container.
 func (o GetJobDefinitionEksPropertyPodPropertyContainerOutput) VolumeMounts() GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainer) []GetJobDefinitionEksPropertyPodPropertyContainerVolumeMount {
 		return v.VolumeMounts
@@ -5430,9 +5073,7 @@ func (o GetJobDefinitionEksPropertyPodPropertyContainerArrayOutput) Index(i pulu
 }
 
 type GetJobDefinitionEksPropertyPodPropertyContainerEnv struct {
-	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-	Name string `pulumi:"name"`
-	// The quantity of the specified resource to reserve for the container.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -5448,9 +5089,7 @@ type GetJobDefinitionEksPropertyPodPropertyContainerEnvInput interface {
 }
 
 type GetJobDefinitionEksPropertyPodPropertyContainerEnvArgs struct {
-	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-	Name pulumi.StringInput `pulumi:"name"`
-	// The quantity of the specified resource to reserve for the container.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -5505,12 +5144,10 @@ func (o GetJobDefinitionEksPropertyPodPropertyContainerEnvOutput) ToGetJobDefini
 	return o
 }
 
-// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 func (o GetJobDefinitionEksPropertyPodPropertyContainerEnvOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainerEnv) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The quantity of the specified resource to reserve for the container.
 func (o GetJobDefinitionEksPropertyPodPropertyContainerEnvOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainerEnv) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -5536,9 +5173,7 @@ func (o GetJobDefinitionEksPropertyPodPropertyContainerEnvArrayOutput) Index(i p
 }
 
 type GetJobDefinitionEksPropertyPodPropertyContainerResource struct {
-	// The type and quantity of the resources to reserve for the container.
-	Limits map[string]string `pulumi:"limits"`
-	// The type and quantity of the resources to request for the container.
+	Limits   map[string]string `pulumi:"limits"`
 	Requests map[string]string `pulumi:"requests"`
 }
 
@@ -5554,9 +5189,7 @@ type GetJobDefinitionEksPropertyPodPropertyContainerResourceInput interface {
 }
 
 type GetJobDefinitionEksPropertyPodPropertyContainerResourceArgs struct {
-	// The type and quantity of the resources to reserve for the container.
-	Limits pulumi.StringMapInput `pulumi:"limits"`
-	// The type and quantity of the resources to request for the container.
+	Limits   pulumi.StringMapInput `pulumi:"limits"`
 	Requests pulumi.StringMapInput `pulumi:"requests"`
 }
 
@@ -5611,12 +5244,10 @@ func (o GetJobDefinitionEksPropertyPodPropertyContainerResourceOutput) ToGetJobD
 	return o
 }
 
-// The type and quantity of the resources to reserve for the container.
 func (o GetJobDefinitionEksPropertyPodPropertyContainerResourceOutput) Limits() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainerResource) map[string]string { return v.Limits }).(pulumi.StringMapOutput)
 }
 
-// The type and quantity of the resources to request for the container.
 func (o GetJobDefinitionEksPropertyPodPropertyContainerResourceOutput) Requests() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainerResource) map[string]string { return v.Requests }).(pulumi.StringMapOutput)
 }
@@ -5642,15 +5273,11 @@ func (o GetJobDefinitionEksPropertyPodPropertyContainerResourceArrayOutput) Inde
 }
 
 type GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext struct {
-	// When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
 	Privileged             bool `pulumi:"privileged"`
 	ReadOnlyRootFileSystem bool `pulumi:"readOnlyRootFileSystem"`
-	// When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
-	RunAsGroup int `pulumi:"runAsGroup"`
-	// When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn't specified, so such rule is enforced.
-	RunAsNonRoot bool `pulumi:"runAsNonRoot"`
-	// When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn't specified, the default is the user that's specified in the image metadata.
-	RunAsUser int `pulumi:"runAsUser"`
+	RunAsGroup             int  `pulumi:"runAsGroup"`
+	RunAsNonRoot           bool `pulumi:"runAsNonRoot"`
+	RunAsUser              int  `pulumi:"runAsUser"`
 }
 
 // GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArgs and GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput values.
@@ -5665,15 +5292,11 @@ type GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextInput interfa
 }
 
 type GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArgs struct {
-	// When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
 	Privileged             pulumi.BoolInput `pulumi:"privileged"`
 	ReadOnlyRootFileSystem pulumi.BoolInput `pulumi:"readOnlyRootFileSystem"`
-	// When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
-	RunAsGroup pulumi.IntInput `pulumi:"runAsGroup"`
-	// When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn't specified, so such rule is enforced.
-	RunAsNonRoot pulumi.BoolInput `pulumi:"runAsNonRoot"`
-	// When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn't specified, the default is the user that's specified in the image metadata.
-	RunAsUser pulumi.IntInput `pulumi:"runAsUser"`
+	RunAsGroup             pulumi.IntInput  `pulumi:"runAsGroup"`
+	RunAsNonRoot           pulumi.BoolInput `pulumi:"runAsNonRoot"`
+	RunAsUser              pulumi.IntInput  `pulumi:"runAsUser"`
 }
 
 func (GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArgs) ElementType() reflect.Type {
@@ -5727,7 +5350,6 @@ func (o GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput) To
 	return o
 }
 
-// When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
 func (o GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput) Privileged() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext) bool { return v.Privileged }).(pulumi.BoolOutput)
 }
@@ -5738,17 +5360,14 @@ func (o GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput) Re
 	}).(pulumi.BoolOutput)
 }
 
-// When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
 func (o GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput) RunAsGroup() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext) int { return v.RunAsGroup }).(pulumi.IntOutput)
 }
 
-// When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn't specified, so such rule is enforced.
 func (o GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput) RunAsNonRoot() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext) bool { return v.RunAsNonRoot }).(pulumi.BoolOutput)
 }
 
-// When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn't specified, the default is the user that's specified in the image metadata.
 func (o GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput) RunAsUser() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext) int { return v.RunAsUser }).(pulumi.IntOutput)
 }
@@ -5774,12 +5393,9 @@ func (o GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayOutpu
 }
 
 type GetJobDefinitionEksPropertyPodPropertyContainerVolumeMount struct {
-	// The path on the container where the volume is mounted.
 	MountPath string `pulumi:"mountPath"`
-	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-	Name string `pulumi:"name"`
-	// If this value is true, the container has read-only access to the volume.
-	ReadOnly bool `pulumi:"readOnly"`
+	Name      string `pulumi:"name"`
+	ReadOnly  bool   `pulumi:"readOnly"`
 }
 
 // GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArgs and GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountOutput values.
@@ -5794,12 +5410,9 @@ type GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountInput interface {
 }
 
 type GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArgs struct {
-	// The path on the container where the volume is mounted.
 	MountPath pulumi.StringInput `pulumi:"mountPath"`
-	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-	Name pulumi.StringInput `pulumi:"name"`
-	// If this value is true, the container has read-only access to the volume.
-	ReadOnly pulumi.BoolInput `pulumi:"readOnly"`
+	Name      pulumi.StringInput `pulumi:"name"`
+	ReadOnly  pulumi.BoolInput   `pulumi:"readOnly"`
 }
 
 func (GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArgs) ElementType() reflect.Type {
@@ -5853,17 +5466,14 @@ func (o GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountOutput) ToGetJ
 	return o
 }
 
-// The path on the container where the volume is mounted.
 func (o GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountOutput) MountPath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainerVolumeMount) string { return v.MountPath }).(pulumi.StringOutput)
 }
 
-// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 func (o GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainerVolumeMount) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// If this value is true, the container has read-only access to the volume.
 func (o GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountOutput) ReadOnly() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainerVolumeMount) bool { return v.ReadOnly }).(pulumi.BoolOutput)
 }
@@ -5889,7 +5499,6 @@ func (o GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayOutput) I
 }
 
 type GetJobDefinitionEksPropertyPodPropertyImagePullSecret struct {
-	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 	Name string `pulumi:"name"`
 }
 
@@ -5905,7 +5514,6 @@ type GetJobDefinitionEksPropertyPodPropertyImagePullSecretInput interface {
 }
 
 type GetJobDefinitionEksPropertyPodPropertyImagePullSecretArgs struct {
-	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -5960,7 +5568,6 @@ func (o GetJobDefinitionEksPropertyPodPropertyImagePullSecretOutput) ToGetJobDef
 	return o
 }
 
-// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 func (o GetJobDefinitionEksPropertyPodPropertyImagePullSecretOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyImagePullSecret) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -5986,24 +5593,15 @@ func (o GetJobDefinitionEksPropertyPodPropertyImagePullSecretArrayOutput) Index(
 }
 
 type GetJobDefinitionEksPropertyPodPropertyInitContainer struct {
-	// An array of arguments to the entrypoint
-	Args []string `pulumi:"args"`
-	// The command that's passed to the container.
-	Commands []string `pulumi:"commands"`
-	// The environment variables to pass to a container.  Array of EksContainerEnvironmentVariable objects.
-	Envs []GetJobDefinitionEksPropertyPodPropertyInitContainerEnv `pulumi:"envs"`
-	// The image used to start a container.
-	Image string `pulumi:"image"`
-	// The image pull policy for the container.
-	ImagePullPolicy string `pulumi:"imagePullPolicy"`
-	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-	Name string `pulumi:"name"`
-	// The type and amount of resources to assign to a container.
-	Resources []GetJobDefinitionEksPropertyPodPropertyInitContainerResource `pulumi:"resources"`
-	// The security context for a job.
+	Args             []string                                                             `pulumi:"args"`
+	Commands         []string                                                             `pulumi:"commands"`
+	Envs             []GetJobDefinitionEksPropertyPodPropertyInitContainerEnv             `pulumi:"envs"`
+	Image            string                                                               `pulumi:"image"`
+	ImagePullPolicy  string                                                               `pulumi:"imagePullPolicy"`
+	Name             string                                                               `pulumi:"name"`
+	Resources        []GetJobDefinitionEksPropertyPodPropertyInitContainerResource        `pulumi:"resources"`
 	SecurityContexts []GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContext `pulumi:"securityContexts"`
-	// The volume mounts for the container.
-	VolumeMounts []GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMount `pulumi:"volumeMounts"`
+	VolumeMounts     []GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMount     `pulumi:"volumeMounts"`
 }
 
 // GetJobDefinitionEksPropertyPodPropertyInitContainerInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyInitContainerArgs and GetJobDefinitionEksPropertyPodPropertyInitContainerOutput values.
@@ -6018,24 +5616,15 @@ type GetJobDefinitionEksPropertyPodPropertyInitContainerInput interface {
 }
 
 type GetJobDefinitionEksPropertyPodPropertyInitContainerArgs struct {
-	// An array of arguments to the entrypoint
-	Args pulumi.StringArrayInput `pulumi:"args"`
-	// The command that's passed to the container.
-	Commands pulumi.StringArrayInput `pulumi:"commands"`
-	// The environment variables to pass to a container.  Array of EksContainerEnvironmentVariable objects.
-	Envs GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayInput `pulumi:"envs"`
-	// The image used to start a container.
-	Image pulumi.StringInput `pulumi:"image"`
-	// The image pull policy for the container.
-	ImagePullPolicy pulumi.StringInput `pulumi:"imagePullPolicy"`
-	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-	Name pulumi.StringInput `pulumi:"name"`
-	// The type and amount of resources to assign to a container.
-	Resources GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayInput `pulumi:"resources"`
-	// The security context for a job.
+	Args             pulumi.StringArrayInput                                                      `pulumi:"args"`
+	Commands         pulumi.StringArrayInput                                                      `pulumi:"commands"`
+	Envs             GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayInput             `pulumi:"envs"`
+	Image            pulumi.StringInput                                                           `pulumi:"image"`
+	ImagePullPolicy  pulumi.StringInput                                                           `pulumi:"imagePullPolicy"`
+	Name             pulumi.StringInput                                                           `pulumi:"name"`
+	Resources        GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayInput        `pulumi:"resources"`
 	SecurityContexts GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArrayInput `pulumi:"securityContexts"`
-	// The volume mounts for the container.
-	VolumeMounts GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArrayInput `pulumi:"volumeMounts"`
+	VolumeMounts     GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArrayInput     `pulumi:"volumeMounts"`
 }
 
 func (GetJobDefinitionEksPropertyPodPropertyInitContainerArgs) ElementType() reflect.Type {
@@ -6089,53 +5678,44 @@ func (o GetJobDefinitionEksPropertyPodPropertyInitContainerOutput) ToGetJobDefin
 	return o
 }
 
-// An array of arguments to the entrypoint
 func (o GetJobDefinitionEksPropertyPodPropertyInitContainerOutput) Args() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainer) []string { return v.Args }).(pulumi.StringArrayOutput)
 }
 
-// The command that's passed to the container.
 func (o GetJobDefinitionEksPropertyPodPropertyInitContainerOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
-// The environment variables to pass to a container.  Array of EksContainerEnvironmentVariable objects.
 func (o GetJobDefinitionEksPropertyPodPropertyInitContainerOutput) Envs() GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainer) []GetJobDefinitionEksPropertyPodPropertyInitContainerEnv {
 		return v.Envs
 	}).(GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayOutput)
 }
 
-// The image used to start a container.
 func (o GetJobDefinitionEksPropertyPodPropertyInitContainerOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainer) string { return v.Image }).(pulumi.StringOutput)
 }
 
-// The image pull policy for the container.
 func (o GetJobDefinitionEksPropertyPodPropertyInitContainerOutput) ImagePullPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainer) string { return v.ImagePullPolicy }).(pulumi.StringOutput)
 }
 
-// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 func (o GetJobDefinitionEksPropertyPodPropertyInitContainerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainer) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The type and amount of resources to assign to a container.
 func (o GetJobDefinitionEksPropertyPodPropertyInitContainerOutput) Resources() GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainer) []GetJobDefinitionEksPropertyPodPropertyInitContainerResource {
 		return v.Resources
 	}).(GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayOutput)
 }
 
-// The security context for a job.
 func (o GetJobDefinitionEksPropertyPodPropertyInitContainerOutput) SecurityContexts() GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainer) []GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContext {
 		return v.SecurityContexts
 	}).(GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArrayOutput)
 }
 
-// The volume mounts for the container.
 func (o GetJobDefinitionEksPropertyPodPropertyInitContainerOutput) VolumeMounts() GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainer) []GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMount {
 		return v.VolumeMounts
@@ -6163,9 +5743,7 @@ func (o GetJobDefinitionEksPropertyPodPropertyInitContainerArrayOutput) Index(i 
 }
 
 type GetJobDefinitionEksPropertyPodPropertyInitContainerEnv struct {
-	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-	Name string `pulumi:"name"`
-	// The quantity of the specified resource to reserve for the container.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -6181,9 +5759,7 @@ type GetJobDefinitionEksPropertyPodPropertyInitContainerEnvInput interface {
 }
 
 type GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArgs struct {
-	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-	Name pulumi.StringInput `pulumi:"name"`
-	// The quantity of the specified resource to reserve for the container.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -6238,12 +5814,10 @@ func (o GetJobDefinitionEksPropertyPodPropertyInitContainerEnvOutput) ToGetJobDe
 	return o
 }
 
-// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 func (o GetJobDefinitionEksPropertyPodPropertyInitContainerEnvOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainerEnv) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The quantity of the specified resource to reserve for the container.
 func (o GetJobDefinitionEksPropertyPodPropertyInitContainerEnvOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainerEnv) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -6269,9 +5843,7 @@ func (o GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayOutput) Index
 }
 
 type GetJobDefinitionEksPropertyPodPropertyInitContainerResource struct {
-	// The type and quantity of the resources to reserve for the container.
-	Limits map[string]string `pulumi:"limits"`
-	// The type and quantity of the resources to request for the container.
+	Limits   map[string]string `pulumi:"limits"`
 	Requests map[string]string `pulumi:"requests"`
 }
 
@@ -6287,9 +5859,7 @@ type GetJobDefinitionEksPropertyPodPropertyInitContainerResourceInput interface 
 }
 
 type GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArgs struct {
-	// The type and quantity of the resources to reserve for the container.
-	Limits pulumi.StringMapInput `pulumi:"limits"`
-	// The type and quantity of the resources to request for the container.
+	Limits   pulumi.StringMapInput `pulumi:"limits"`
 	Requests pulumi.StringMapInput `pulumi:"requests"`
 }
 
@@ -6344,12 +5914,10 @@ func (o GetJobDefinitionEksPropertyPodPropertyInitContainerResourceOutput) ToGet
 	return o
 }
 
-// The type and quantity of the resources to reserve for the container.
 func (o GetJobDefinitionEksPropertyPodPropertyInitContainerResourceOutput) Limits() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainerResource) map[string]string { return v.Limits }).(pulumi.StringMapOutput)
 }
 
-// The type and quantity of the resources to request for the container.
 func (o GetJobDefinitionEksPropertyPodPropertyInitContainerResourceOutput) Requests() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainerResource) map[string]string {
 		return v.Requests
@@ -6377,15 +5945,11 @@ func (o GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayOutput) 
 }
 
 type GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContext struct {
-	// When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
 	Privileged             bool `pulumi:"privileged"`
 	ReadOnlyRootFileSystem bool `pulumi:"readOnlyRootFileSystem"`
-	// When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
-	RunAsGroup int `pulumi:"runAsGroup"`
-	// When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn't specified, so such rule is enforced.
-	RunAsNonRoot bool `pulumi:"runAsNonRoot"`
-	// When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn't specified, the default is the user that's specified in the image metadata.
-	RunAsUser int `pulumi:"runAsUser"`
+	RunAsGroup             int  `pulumi:"runAsGroup"`
+	RunAsNonRoot           bool `pulumi:"runAsNonRoot"`
+	RunAsUser              int  `pulumi:"runAsUser"`
 }
 
 // GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArgs and GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput values.
@@ -6400,15 +5964,11 @@ type GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextInput int
 }
 
 type GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArgs struct {
-	// When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
 	Privileged             pulumi.BoolInput `pulumi:"privileged"`
 	ReadOnlyRootFileSystem pulumi.BoolInput `pulumi:"readOnlyRootFileSystem"`
-	// When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
-	RunAsGroup pulumi.IntInput `pulumi:"runAsGroup"`
-	// When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn't specified, so such rule is enforced.
-	RunAsNonRoot pulumi.BoolInput `pulumi:"runAsNonRoot"`
-	// When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn't specified, the default is the user that's specified in the image metadata.
-	RunAsUser pulumi.IntInput `pulumi:"runAsUser"`
+	RunAsGroup             pulumi.IntInput  `pulumi:"runAsGroup"`
+	RunAsNonRoot           pulumi.BoolInput `pulumi:"runAsNonRoot"`
+	RunAsUser              pulumi.IntInput  `pulumi:"runAsUser"`
 }
 
 func (GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArgs) ElementType() reflect.Type {
@@ -6462,7 +6022,6 @@ func (o GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput
 	return o
 }
 
-// When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
 func (o GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput) Privileged() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContext) bool { return v.Privileged }).(pulumi.BoolOutput)
 }
@@ -6473,17 +6032,14 @@ func (o GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput
 	}).(pulumi.BoolOutput)
 }
 
-// When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
 func (o GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput) RunAsGroup() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContext) int { return v.RunAsGroup }).(pulumi.IntOutput)
 }
 
-// When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn't specified, so such rule is enforced.
 func (o GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput) RunAsNonRoot() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContext) bool { return v.RunAsNonRoot }).(pulumi.BoolOutput)
 }
 
-// When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn't specified, the default is the user that's specified in the image metadata.
 func (o GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput) RunAsUser() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContext) int { return v.RunAsUser }).(pulumi.IntOutput)
 }
@@ -6509,12 +6065,9 @@ func (o GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArrayO
 }
 
 type GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMount struct {
-	// The path on the container where the volume is mounted.
 	MountPath string `pulumi:"mountPath"`
-	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-	Name string `pulumi:"name"`
-	// If this value is true, the container has read-only access to the volume.
-	ReadOnly bool `pulumi:"readOnly"`
+	Name      string `pulumi:"name"`
+	ReadOnly  bool   `pulumi:"readOnly"`
 }
 
 // GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArgs and GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountOutput values.
@@ -6529,12 +6082,9 @@ type GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountInput interfa
 }
 
 type GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArgs struct {
-	// The path on the container where the volume is mounted.
 	MountPath pulumi.StringInput `pulumi:"mountPath"`
-	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-	Name pulumi.StringInput `pulumi:"name"`
-	// If this value is true, the container has read-only access to the volume.
-	ReadOnly pulumi.BoolInput `pulumi:"readOnly"`
+	Name      pulumi.StringInput `pulumi:"name"`
+	ReadOnly  pulumi.BoolInput   `pulumi:"readOnly"`
 }
 
 func (GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArgs) ElementType() reflect.Type {
@@ -6588,17 +6138,14 @@ func (o GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountOutput) To
 	return o
 }
 
-// The path on the container where the volume is mounted.
 func (o GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountOutput) MountPath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMount) string { return v.MountPath }).(pulumi.StringOutput)
 }
 
-// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 func (o GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMount) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// If this value is true, the container has read-only access to the volume.
 func (o GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountOutput) ReadOnly() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMount) bool { return v.ReadOnly }).(pulumi.BoolOutput)
 }
@@ -6624,7 +6171,6 @@ func (o GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArrayOutpu
 }
 
 type GetJobDefinitionEksPropertyPodPropertyMetadata struct {
-	// Key-value pairs used to identify, sort, and organize cube resources.
 	Labels map[string]string `pulumi:"labels"`
 }
 
@@ -6640,7 +6186,6 @@ type GetJobDefinitionEksPropertyPodPropertyMetadataInput interface {
 }
 
 type GetJobDefinitionEksPropertyPodPropertyMetadataArgs struct {
-	// Key-value pairs used to identify, sort, and organize cube resources.
 	Labels pulumi.StringMapInput `pulumi:"labels"`
 }
 
@@ -6695,7 +6240,6 @@ func (o GetJobDefinitionEksPropertyPodPropertyMetadataOutput) ToGetJobDefinition
 	return o
 }
 
-// Key-value pairs used to identify, sort, and organize cube resources.
 func (o GetJobDefinitionEksPropertyPodPropertyMetadataOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyMetadata) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
@@ -6721,14 +6265,10 @@ func (o GetJobDefinitionEksPropertyPodPropertyMetadataArrayOutput) Index(i pulum
 }
 
 type GetJobDefinitionEksPropertyPodPropertyVolume struct {
-	// Specifies the configuration of a Kubernetes emptyDir volume.
 	EmptyDirs []GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDir `pulumi:"emptyDirs"`
-	// The path for the device on the host container instance.
 	HostPaths []GetJobDefinitionEksPropertyPodPropertyVolumeHostPath `pulumi:"hostPaths"`
-	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-	Name string `pulumi:"name"`
-	// Specifies the configuration of a Kubernetes secret volume.
-	Secrets []GetJobDefinitionEksPropertyPodPropertyVolumeSecret `pulumi:"secrets"`
+	Name      string                                                 `pulumi:"name"`
+	Secrets   []GetJobDefinitionEksPropertyPodPropertyVolumeSecret   `pulumi:"secrets"`
 }
 
 // GetJobDefinitionEksPropertyPodPropertyVolumeInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyVolumeArgs and GetJobDefinitionEksPropertyPodPropertyVolumeOutput values.
@@ -6743,14 +6283,10 @@ type GetJobDefinitionEksPropertyPodPropertyVolumeInput interface {
 }
 
 type GetJobDefinitionEksPropertyPodPropertyVolumeArgs struct {
-	// Specifies the configuration of a Kubernetes emptyDir volume.
 	EmptyDirs GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArrayInput `pulumi:"emptyDirs"`
-	// The path for the device on the host container instance.
 	HostPaths GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArrayInput `pulumi:"hostPaths"`
-	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-	Name pulumi.StringInput `pulumi:"name"`
-	// Specifies the configuration of a Kubernetes secret volume.
-	Secrets GetJobDefinitionEksPropertyPodPropertyVolumeSecretArrayInput `pulumi:"secrets"`
+	Name      pulumi.StringInput                                             `pulumi:"name"`
+	Secrets   GetJobDefinitionEksPropertyPodPropertyVolumeSecretArrayInput   `pulumi:"secrets"`
 }
 
 func (GetJobDefinitionEksPropertyPodPropertyVolumeArgs) ElementType() reflect.Type {
@@ -6804,26 +6340,22 @@ func (o GetJobDefinitionEksPropertyPodPropertyVolumeOutput) ToGetJobDefinitionEk
 	return o
 }
 
-// Specifies the configuration of a Kubernetes emptyDir volume.
 func (o GetJobDefinitionEksPropertyPodPropertyVolumeOutput) EmptyDirs() GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyVolume) []GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDir {
 		return v.EmptyDirs
 	}).(GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArrayOutput)
 }
 
-// The path for the device on the host container instance.
 func (o GetJobDefinitionEksPropertyPodPropertyVolumeOutput) HostPaths() GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyVolume) []GetJobDefinitionEksPropertyPodPropertyVolumeHostPath {
 		return v.HostPaths
 	}).(GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArrayOutput)
 }
 
-// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 func (o GetJobDefinitionEksPropertyPodPropertyVolumeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyVolume) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the configuration of a Kubernetes secret volume.
 func (o GetJobDefinitionEksPropertyPodPropertyVolumeOutput) Secrets() GetJobDefinitionEksPropertyPodPropertyVolumeSecretArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyVolume) []GetJobDefinitionEksPropertyPodPropertyVolumeSecret {
 		return v.Secrets
@@ -6851,9 +6383,7 @@ func (o GetJobDefinitionEksPropertyPodPropertyVolumeArrayOutput) Index(i pulumi.
 }
 
 type GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDir struct {
-	// The medium to store the volume.
-	Medium string `pulumi:"medium"`
-	// The maximum size of the volume. By default, there's no maximum size defined.
+	Medium    string `pulumi:"medium"`
 	SizeLimit string `pulumi:"sizeLimit"`
 }
 
@@ -6869,9 +6399,7 @@ type GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirInput interface {
 }
 
 type GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArgs struct {
-	// The medium to store the volume.
-	Medium pulumi.StringInput `pulumi:"medium"`
-	// The maximum size of the volume. By default, there's no maximum size defined.
+	Medium    pulumi.StringInput `pulumi:"medium"`
 	SizeLimit pulumi.StringInput `pulumi:"sizeLimit"`
 }
 
@@ -6926,12 +6454,10 @@ func (o GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirOutput) ToGetJobDefi
 	return o
 }
 
-// The medium to store the volume.
 func (o GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirOutput) Medium() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDir) string { return v.Medium }).(pulumi.StringOutput)
 }
 
-// The maximum size of the volume. By default, there's no maximum size defined.
 func (o GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirOutput) SizeLimit() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDir) string { return v.SizeLimit }).(pulumi.StringOutput)
 }
@@ -6957,7 +6483,6 @@ func (o GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArrayOutput) Index(i
 }
 
 type GetJobDefinitionEksPropertyPodPropertyVolumeHostPath struct {
-	// The path of the file or directory on the host to mount into containers on the pod.
 	Path string `pulumi:"path"`
 }
 
@@ -6973,7 +6498,6 @@ type GetJobDefinitionEksPropertyPodPropertyVolumeHostPathInput interface {
 }
 
 type GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArgs struct {
-	// The path of the file or directory on the host to mount into containers on the pod.
 	Path pulumi.StringInput `pulumi:"path"`
 }
 
@@ -7028,7 +6552,6 @@ func (o GetJobDefinitionEksPropertyPodPropertyVolumeHostPathOutput) ToGetJobDefi
 	return o
 }
 
-// The path of the file or directory on the host to mount into containers on the pod.
 func (o GetJobDefinitionEksPropertyPodPropertyVolumeHostPathOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyVolumeHostPath) string { return v.Path }).(pulumi.StringOutput)
 }
@@ -7054,9 +6577,7 @@ func (o GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArrayOutput) Index(i
 }
 
 type GetJobDefinitionEksPropertyPodPropertyVolumeSecret struct {
-	// Specifies whether the secret or the secret's keys must be defined.
-	Optional bool `pulumi:"optional"`
-	// The name of the secret. The name must be allowed as a DNS subdomain name
+	Optional   bool   `pulumi:"optional"`
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -7072,9 +6593,7 @@ type GetJobDefinitionEksPropertyPodPropertyVolumeSecretInput interface {
 }
 
 type GetJobDefinitionEksPropertyPodPropertyVolumeSecretArgs struct {
-	// Specifies whether the secret or the secret's keys must be defined.
-	Optional pulumi.BoolInput `pulumi:"optional"`
-	// The name of the secret. The name must be allowed as a DNS subdomain name
+	Optional   pulumi.BoolInput   `pulumi:"optional"`
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -7129,12 +6648,10 @@ func (o GetJobDefinitionEksPropertyPodPropertyVolumeSecretOutput) ToGetJobDefini
 	return o
 }
 
-// Specifies whether the secret or the secret's keys must be defined.
 func (o GetJobDefinitionEksPropertyPodPropertyVolumeSecretOutput) Optional() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyVolumeSecret) bool { return v.Optional }).(pulumi.BoolOutput)
 }
 
-// The name of the secret. The name must be allowed as a DNS subdomain name
 func (o GetJobDefinitionEksPropertyPodPropertyVolumeSecretOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyVolumeSecret) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -7160,12 +6677,9 @@ func (o GetJobDefinitionEksPropertyPodPropertyVolumeSecretArrayOutput) Index(i p
 }
 
 type GetJobDefinitionNodeProperty struct {
-	// Specifies the node index for the main node of a multi-node parallel job. This node index value must be fewer than the number of nodes.
-	MainNode int `pulumi:"mainNode"`
-	// A list of node ranges and their properties that are associated with a multi-node parallel job.
+	MainNode            int                                             `pulumi:"mainNode"`
 	NodeRangeProperties []GetJobDefinitionNodePropertyNodeRangeProperty `pulumi:"nodeRangeProperties"`
-	// The number of nodes that are associated with a multi-node parallel job.
-	NumNodes int `pulumi:"numNodes"`
+	NumNodes            int                                             `pulumi:"numNodes"`
 }
 
 // GetJobDefinitionNodePropertyInput is an input type that accepts GetJobDefinitionNodePropertyArgs and GetJobDefinitionNodePropertyOutput values.
@@ -7180,12 +6694,9 @@ type GetJobDefinitionNodePropertyInput interface {
 }
 
 type GetJobDefinitionNodePropertyArgs struct {
-	// Specifies the node index for the main node of a multi-node parallel job. This node index value must be fewer than the number of nodes.
-	MainNode pulumi.IntInput `pulumi:"mainNode"`
-	// A list of node ranges and their properties that are associated with a multi-node parallel job.
+	MainNode            pulumi.IntInput                                         `pulumi:"mainNode"`
 	NodeRangeProperties GetJobDefinitionNodePropertyNodeRangePropertyArrayInput `pulumi:"nodeRangeProperties"`
-	// The number of nodes that are associated with a multi-node parallel job.
-	NumNodes pulumi.IntInput `pulumi:"numNodes"`
+	NumNodes            pulumi.IntInput                                         `pulumi:"numNodes"`
 }
 
 func (GetJobDefinitionNodePropertyArgs) ElementType() reflect.Type {
@@ -7239,19 +6750,16 @@ func (o GetJobDefinitionNodePropertyOutput) ToGetJobDefinitionNodePropertyOutput
 	return o
 }
 
-// Specifies the node index for the main node of a multi-node parallel job. This node index value must be fewer than the number of nodes.
 func (o GetJobDefinitionNodePropertyOutput) MainNode() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodeProperty) int { return v.MainNode }).(pulumi.IntOutput)
 }
 
-// A list of node ranges and their properties that are associated with a multi-node parallel job.
 func (o GetJobDefinitionNodePropertyOutput) NodeRangeProperties() GetJobDefinitionNodePropertyNodeRangePropertyArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodeProperty) []GetJobDefinitionNodePropertyNodeRangeProperty {
 		return v.NodeRangeProperties
 	}).(GetJobDefinitionNodePropertyNodeRangePropertyArrayOutput)
 }
 
-// The number of nodes that are associated with a multi-node parallel job.
 func (o GetJobDefinitionNodePropertyOutput) NumNodes() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodeProperty) int { return v.NumNodes }).(pulumi.IntOutput)
 }
@@ -7277,10 +6785,8 @@ func (o GetJobDefinitionNodePropertyArrayOutput) Index(i pulumi.IntInput) GetJob
 }
 
 type GetJobDefinitionNodePropertyNodeRangeProperty struct {
-	// The container details for the node range.
-	Containers []GetJobDefinitionNodePropertyNodeRangePropertyContainer `pulumi:"containers"`
-	// The range of nodes, using node index values. A range of 0:3 indicates nodes with index values of 0 through 3. I
-	TargetNodes string `pulumi:"targetNodes"`
+	Containers  []GetJobDefinitionNodePropertyNodeRangePropertyContainer `pulumi:"containers"`
+	TargetNodes string                                                   `pulumi:"targetNodes"`
 }
 
 // GetJobDefinitionNodePropertyNodeRangePropertyInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyArgs and GetJobDefinitionNodePropertyNodeRangePropertyOutput values.
@@ -7295,10 +6801,8 @@ type GetJobDefinitionNodePropertyNodeRangePropertyInput interface {
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyArgs struct {
-	// The container details for the node range.
-	Containers GetJobDefinitionNodePropertyNodeRangePropertyContainerArrayInput `pulumi:"containers"`
-	// The range of nodes, using node index values. A range of 0:3 indicates nodes with index values of 0 through 3. I
-	TargetNodes pulumi.StringInput `pulumi:"targetNodes"`
+	Containers  GetJobDefinitionNodePropertyNodeRangePropertyContainerArrayInput `pulumi:"containers"`
+	TargetNodes pulumi.StringInput                                               `pulumi:"targetNodes"`
 }
 
 func (GetJobDefinitionNodePropertyNodeRangePropertyArgs) ElementType() reflect.Type {
@@ -7352,14 +6856,12 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyOutput) ToGetJobDefinitionN
 	return o
 }
 
-// The container details for the node range.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyOutput) Containers() GetJobDefinitionNodePropertyNodeRangePropertyContainerArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangeProperty) []GetJobDefinitionNodePropertyNodeRangePropertyContainer {
 		return v.Containers
 	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerArrayOutput)
 }
 
-// The range of nodes, using node index values. A range of 0:3 indicates nodes with index values of 0 through 3. I
 func (o GetJobDefinitionNodePropertyNodeRangePropertyOutput) TargetNodes() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangeProperty) string { return v.TargetNodes }).(pulumi.StringOutput)
 }
@@ -7385,46 +6887,26 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyArrayOutput) Index(i pulumi
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainer struct {
-	// The command that's passed to the container.
-	Commands []string `pulumi:"commands"`
-	// The environment variables to pass to a container.
-	Environments []GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironment `pulumi:"environments"`
-	// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate.
-	EphemeralStorages []GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorage `pulumi:"ephemeralStorages"`
-	// The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role.
-	ExecutionRoleArn string `pulumi:"executionRoleArn"`
-	// The platform configuration for jobs that are running on Fargate resources. Jobs that are running on EC2 resources must not specify this parameter.
+	Commands                      []string                                                                             `pulumi:"commands"`
+	Environments                  []GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironment                  `pulumi:"environments"`
+	EphemeralStorages             []GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorage             `pulumi:"ephemeralStorages"`
+	ExecutionRoleArn              string                                                                               `pulumi:"executionRoleArn"`
 	FargatePlatformConfigurations []GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfiguration `pulumi:"fargatePlatformConfigurations"`
-	// The image used to start a container.
-	Image string `pulumi:"image"`
-	// The instance type to use for a multi-node parallel job.
-	InstanceType string `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions.
-	JobRoleArn string `pulumi:"jobRoleArn"`
-	// Linux-specific modifications that are applied to the container.
-	LinuxParameters []GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter `pulumi:"linuxParameters"`
-	// The log configuration specification for the container.
-	LogConfigurations []GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfiguration `pulumi:"logConfigurations"`
-	// The mount points for data volumes in your container.
-	MountPoints []GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPoint `pulumi:"mountPoints"`
-	// The network configuration for jobs that are running on Fargate resources.
-	NetworkConfigurations []GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfiguration `pulumi:"networkConfigurations"`
-	// When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
-	Privileged bool `pulumi:"privileged"`
-	// When this parameter is true, the container is given read-only access to its root file system.
-	ReadonlyRootFilesystem bool `pulumi:"readonlyRootFilesystem"`
-	// The type and amount of resources to assign to a container.
-	ResourceRequirements []GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirement `pulumi:"resourceRequirements"`
-	// An object that represents the compute environment architecture for AWS Batch jobs on Fargate.
-	RuntimePlatforms []GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatform `pulumi:"runtimePlatforms"`
-	// The secrets for the container.
-	Secrets []GetJobDefinitionNodePropertyNodeRangePropertyContainerSecret `pulumi:"secrets"`
-	// A list of ulimits to set in the container.
-	Ulimits []GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimit `pulumi:"ulimits"`
-	// The user name to use inside the container.
-	User string `pulumi:"user"`
-	// A list of data volumes used in a job.
-	Volumes []GetJobDefinitionNodePropertyNodeRangePropertyContainerVolume `pulumi:"volumes"`
+	Image                         string                                                                               `pulumi:"image"`
+	InstanceType                  string                                                                               `pulumi:"instanceType"`
+	JobRoleArn                    string                                                                               `pulumi:"jobRoleArn"`
+	LinuxParameters               []GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter               `pulumi:"linuxParameters"`
+	LogConfigurations             []GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfiguration             `pulumi:"logConfigurations"`
+	MountPoints                   []GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPoint                   `pulumi:"mountPoints"`
+	NetworkConfigurations         []GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfiguration         `pulumi:"networkConfigurations"`
+	Privileged                    bool                                                                                 `pulumi:"privileged"`
+	ReadonlyRootFilesystem        bool                                                                                 `pulumi:"readonlyRootFilesystem"`
+	ResourceRequirements          []GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirement          `pulumi:"resourceRequirements"`
+	RuntimePlatforms              []GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatform              `pulumi:"runtimePlatforms"`
+	Secrets                       []GetJobDefinitionNodePropertyNodeRangePropertyContainerSecret                       `pulumi:"secrets"`
+	Ulimits                       []GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimit                       `pulumi:"ulimits"`
+	User                          string                                                                               `pulumi:"user"`
+	Volumes                       []GetJobDefinitionNodePropertyNodeRangePropertyContainerVolume                       `pulumi:"volumes"`
 }
 
 // GetJobDefinitionNodePropertyNodeRangePropertyContainerInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerArgs and GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput values.
@@ -7439,46 +6921,26 @@ type GetJobDefinitionNodePropertyNodeRangePropertyContainerInput interface {
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerArgs struct {
-	// The command that's passed to the container.
-	Commands pulumi.StringArrayInput `pulumi:"commands"`
-	// The environment variables to pass to a container.
-	Environments GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayInput `pulumi:"environments"`
-	// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate.
-	EphemeralStorages GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayInput `pulumi:"ephemeralStorages"`
-	// The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role.
-	ExecutionRoleArn pulumi.StringInput `pulumi:"executionRoleArn"`
-	// The platform configuration for jobs that are running on Fargate resources. Jobs that are running on EC2 resources must not specify this parameter.
+	Commands                      pulumi.StringArrayInput                                                                      `pulumi:"commands"`
+	Environments                  GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayInput                  `pulumi:"environments"`
+	EphemeralStorages             GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayInput             `pulumi:"ephemeralStorages"`
+	ExecutionRoleArn              pulumi.StringInput                                                                           `pulumi:"executionRoleArn"`
 	FargatePlatformConfigurations GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArrayInput `pulumi:"fargatePlatformConfigurations"`
-	// The image used to start a container.
-	Image pulumi.StringInput `pulumi:"image"`
-	// The instance type to use for a multi-node parallel job.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions.
-	JobRoleArn pulumi.StringInput `pulumi:"jobRoleArn"`
-	// Linux-specific modifications that are applied to the container.
-	LinuxParameters GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayInput `pulumi:"linuxParameters"`
-	// The log configuration specification for the container.
-	LogConfigurations GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArrayInput `pulumi:"logConfigurations"`
-	// The mount points for data volumes in your container.
-	MountPoints GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayInput `pulumi:"mountPoints"`
-	// The network configuration for jobs that are running on Fargate resources.
-	NetworkConfigurations GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArrayInput `pulumi:"networkConfigurations"`
-	// When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
-	Privileged pulumi.BoolInput `pulumi:"privileged"`
-	// When this parameter is true, the container is given read-only access to its root file system.
-	ReadonlyRootFilesystem pulumi.BoolInput `pulumi:"readonlyRootFilesystem"`
-	// The type and amount of resources to assign to a container.
-	ResourceRequirements GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArrayInput `pulumi:"resourceRequirements"`
-	// An object that represents the compute environment architecture for AWS Batch jobs on Fargate.
-	RuntimePlatforms GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArrayInput `pulumi:"runtimePlatforms"`
-	// The secrets for the container.
-	Secrets GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayInput `pulumi:"secrets"`
-	// A list of ulimits to set in the container.
-	Ulimits GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayInput `pulumi:"ulimits"`
-	// The user name to use inside the container.
-	User pulumi.StringInput `pulumi:"user"`
-	// A list of data volumes used in a job.
-	Volumes GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArrayInput `pulumi:"volumes"`
+	Image                         pulumi.StringInput                                                                           `pulumi:"image"`
+	InstanceType                  pulumi.StringInput                                                                           `pulumi:"instanceType"`
+	JobRoleArn                    pulumi.StringInput                                                                           `pulumi:"jobRoleArn"`
+	LinuxParameters               GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayInput               `pulumi:"linuxParameters"`
+	LogConfigurations             GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArrayInput             `pulumi:"logConfigurations"`
+	MountPoints                   GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayInput                   `pulumi:"mountPoints"`
+	NetworkConfigurations         GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArrayInput         `pulumi:"networkConfigurations"`
+	Privileged                    pulumi.BoolInput                                                                             `pulumi:"privileged"`
+	ReadonlyRootFilesystem        pulumi.BoolInput                                                                             `pulumi:"readonlyRootFilesystem"`
+	ResourceRequirements          GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArrayInput          `pulumi:"resourceRequirements"`
+	RuntimePlatforms              GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArrayInput              `pulumi:"runtimePlatforms"`
+	Secrets                       GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayInput                       `pulumi:"secrets"`
+	Ulimits                       GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayInput                       `pulumi:"ulimits"`
+	User                          pulumi.StringInput                                                                           `pulumi:"user"`
+	Volumes                       GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArrayInput                       `pulumi:"volumes"`
 }
 
 func (GetJobDefinitionNodePropertyNodeRangePropertyContainerArgs) ElementType() reflect.Type {
@@ -7532,124 +6994,104 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) ToGetJobDe
 	return o
 }
 
-// The command that's passed to the container.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
-// The environment variables to pass to a container.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) Environments() GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) []GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironment {
 		return v.Environments
 	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayOutput)
 }
 
-// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) EphemeralStorages() GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) []GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorage {
 		return v.EphemeralStorages
 	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) ExecutionRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) string { return v.ExecutionRoleArn }).(pulumi.StringOutput)
 }
 
-// The platform configuration for jobs that are running on Fargate resources. Jobs that are running on EC2 resources must not specify this parameter.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) FargatePlatformConfigurations() GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) []GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfiguration {
 		return v.FargatePlatformConfigurations
 	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArrayOutput)
 }
 
-// The image used to start a container.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) string { return v.Image }).(pulumi.StringOutput)
 }
 
-// The instance type to use for a multi-node parallel job.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) JobRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) string { return v.JobRoleArn }).(pulumi.StringOutput)
 }
 
-// Linux-specific modifications that are applied to the container.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) LinuxParameters() GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) []GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter {
 		return v.LinuxParameters
 	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayOutput)
 }
 
-// The log configuration specification for the container.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) LogConfigurations() GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) []GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfiguration {
 		return v.LogConfigurations
 	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArrayOutput)
 }
 
-// The mount points for data volumes in your container.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) MountPoints() GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) []GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPoint {
 		return v.MountPoints
 	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayOutput)
 }
 
-// The network configuration for jobs that are running on Fargate resources.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) NetworkConfigurations() GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) []GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfiguration {
 		return v.NetworkConfigurations
 	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArrayOutput)
 }
 
-// When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) Privileged() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) bool { return v.Privileged }).(pulumi.BoolOutput)
 }
 
-// When this parameter is true, the container is given read-only access to its root file system.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) ReadonlyRootFilesystem() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) bool { return v.ReadonlyRootFilesystem }).(pulumi.BoolOutput)
 }
 
-// The type and amount of resources to assign to a container.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) ResourceRequirements() GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) []GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirement {
 		return v.ResourceRequirements
 	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArrayOutput)
 }
 
-// An object that represents the compute environment architecture for AWS Batch jobs on Fargate.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) RuntimePlatforms() GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) []GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatform {
 		return v.RuntimePlatforms
 	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArrayOutput)
 }
 
-// The secrets for the container.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) Secrets() GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) []GetJobDefinitionNodePropertyNodeRangePropertyContainerSecret {
 		return v.Secrets
 	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayOutput)
 }
 
-// A list of ulimits to set in the container.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) Ulimits() GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) []GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimit {
 		return v.Ulimits
 	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayOutput)
 }
 
-// The user name to use inside the container.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) User() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) string { return v.User }).(pulumi.StringOutput)
 }
 
-// A list of data volumes used in a job.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) Volumes() GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) []GetJobDefinitionNodePropertyNodeRangePropertyContainerVolume {
 		return v.Volumes
@@ -7677,9 +7119,7 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerArrayOutput) Index
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironment struct {
-	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-	Name string `pulumi:"name"`
-	// The quantity of the specified resource to reserve for the container.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -7695,9 +7135,7 @@ type GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentInput inte
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArgs struct {
-	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-	Name pulumi.StringInput `pulumi:"name"`
-	// The quantity of the specified resource to reserve for the container.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -7752,12 +7190,10 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentOutput)
 	return o
 }
 
-// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironment) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The quantity of the specified resource to reserve for the container.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironment) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -7877,7 +7313,6 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageAr
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfiguration struct {
-	// The AWS Fargate platform version where the jobs are running. A platform version is specified only for jobs that are running on Fargate resources.
 	PlatformVersion string `pulumi:"platformVersion"`
 }
 
@@ -7893,7 +7328,6 @@ type GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfig
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArgs struct {
-	// The AWS Fargate platform version where the jobs are running. A platform version is specified only for jobs that are running on Fargate resources.
 	PlatformVersion pulumi.StringInput `pulumi:"platformVersion"`
 }
 
@@ -7948,7 +7382,6 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformCon
 	return o
 }
 
-// The AWS Fargate platform version where the jobs are running. A platform version is specified only for jobs that are running on Fargate resources.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationOutput) PlatformVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfiguration) string {
 		return v.PlatformVersion
@@ -7976,18 +7409,12 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformCon
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter struct {
-	// Any of the host devices to expose to the container.
-	Devices []GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDevice `pulumi:"devices"`
-	// If true, run an init process inside the container that forwards signals and reaps processes.
-	InitProcessEnabled bool `pulumi:"initProcessEnabled"`
-	// The total amount of swap memory (in MiB) a container can use.
-	MaxSwap int `pulumi:"maxSwap"`
-	// The value for the size (in MiB) of the `/dev/shm` volume.
-	SharedMemorySize int `pulumi:"sharedMemorySize"`
-	// You can use this parameter to tune a container's memory swappiness behavior.
-	Swappiness int `pulumi:"swappiness"`
-	// The container path, mount options, and size (in MiB) of the tmpfs mount.
-	Tmpfs []GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf `pulumi:"tmpfs"`
+	Devices            []GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDevice `pulumi:"devices"`
+	InitProcessEnabled bool                                                                         `pulumi:"initProcessEnabled"`
+	MaxSwap            int                                                                          `pulumi:"maxSwap"`
+	SharedMemorySize   int                                                                          `pulumi:"sharedMemorySize"`
+	Swappiness         int                                                                          `pulumi:"swappiness"`
+	Tmpfs              []GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf   `pulumi:"tmpfs"`
 }
 
 // GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArgs and GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutput values.
@@ -8002,18 +7429,12 @@ type GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterInput i
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArgs struct {
-	// Any of the host devices to expose to the container.
-	Devices GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArrayInput `pulumi:"devices"`
-	// If true, run an init process inside the container that forwards signals and reaps processes.
-	InitProcessEnabled pulumi.BoolInput `pulumi:"initProcessEnabled"`
-	// The total amount of swap memory (in MiB) a container can use.
-	MaxSwap pulumi.IntInput `pulumi:"maxSwap"`
-	// The value for the size (in MiB) of the `/dev/shm` volume.
-	SharedMemorySize pulumi.IntInput `pulumi:"sharedMemorySize"`
-	// You can use this parameter to tune a container's memory swappiness behavior.
-	Swappiness pulumi.IntInput `pulumi:"swappiness"`
-	// The container path, mount options, and size (in MiB) of the tmpfs mount.
-	Tmpfs GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArrayInput `pulumi:"tmpfs"`
+	Devices            GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArrayInput `pulumi:"devices"`
+	InitProcessEnabled pulumi.BoolInput                                                                     `pulumi:"initProcessEnabled"`
+	MaxSwap            pulumi.IntInput                                                                      `pulumi:"maxSwap"`
+	SharedMemorySize   pulumi.IntInput                                                                      `pulumi:"sharedMemorySize"`
+	Swappiness         pulumi.IntInput                                                                      `pulumi:"swappiness"`
+	Tmpfs              GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArrayInput   `pulumi:"tmpfs"`
 }
 
 func (GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArgs) ElementType() reflect.Type {
@@ -8067,38 +7488,32 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutp
 	return o
 }
 
-// Any of the host devices to expose to the container.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutput) Devices() GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter) []GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDevice {
 		return v.Devices
 	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArrayOutput)
 }
 
-// If true, run an init process inside the container that forwards signals and reaps processes.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutput) InitProcessEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter) bool {
 		return v.InitProcessEnabled
 	}).(pulumi.BoolOutput)
 }
 
-// The total amount of swap memory (in MiB) a container can use.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutput) MaxSwap() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter) int { return v.MaxSwap }).(pulumi.IntOutput)
 }
 
-// The value for the size (in MiB) of the `/dev/shm` volume.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutput) SharedMemorySize() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter) int {
 		return v.SharedMemorySize
 	}).(pulumi.IntOutput)
 }
 
-// You can use this parameter to tune a container's memory swappiness behavior.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutput) Swappiness() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter) int { return v.Swappiness }).(pulumi.IntOutput)
 }
 
-// The container path, mount options, and size (in MiB) of the tmpfs mount.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutput) Tmpfs() GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter) []GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf {
 		return v.Tmpfs
@@ -8126,12 +7541,9 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArra
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDevice struct {
-	// The absolute file path in the container where the tmpfs volume is mounted.
-	ContainerPath string `pulumi:"containerPath"`
-	// The path for the device on the host container instance.
-	HostPath string `pulumi:"hostPath"`
-	// The explicit permissions to provide to the container for the device.
-	Permissions []string `pulumi:"permissions"`
+	ContainerPath string   `pulumi:"containerPath"`
+	HostPath      string   `pulumi:"hostPath"`
+	Permissions   []string `pulumi:"permissions"`
 }
 
 // GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArgs and GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceOutput values.
@@ -8146,12 +7558,9 @@ type GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceI
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArgs struct {
-	// The absolute file path in the container where the tmpfs volume is mounted.
-	ContainerPath pulumi.StringInput `pulumi:"containerPath"`
-	// The path for the device on the host container instance.
-	HostPath pulumi.StringInput `pulumi:"hostPath"`
-	// The explicit permissions to provide to the container for the device.
-	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
+	ContainerPath pulumi.StringInput      `pulumi:"containerPath"`
+	HostPath      pulumi.StringInput      `pulumi:"hostPath"`
+	Permissions   pulumi.StringArrayInput `pulumi:"permissions"`
 }
 
 func (GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArgs) ElementType() reflect.Type {
@@ -8205,21 +7614,18 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDevi
 	return o
 }
 
-// The absolute file path in the container where the tmpfs volume is mounted.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceOutput) ContainerPath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDevice) string {
 		return v.ContainerPath
 	}).(pulumi.StringOutput)
 }
 
-// The path for the device on the host container instance.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceOutput) HostPath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDevice) string {
 		return v.HostPath
 	}).(pulumi.StringOutput)
 }
 
-// The explicit permissions to provide to the container for the device.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceOutput) Permissions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDevice) []string {
 		return v.Permissions
@@ -8247,12 +7653,9 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDevi
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf struct {
-	// The absolute file path in the container where the tmpfs volume is mounted.
-	ContainerPath string `pulumi:"containerPath"`
-	// The list of tmpfs volume mount options.
-	MountOptions []string `pulumi:"mountOptions"`
-	// The size (in MiB) of the tmpfs volume.
-	Size int `pulumi:"size"`
+	ContainerPath string   `pulumi:"containerPath"`
+	MountOptions  []string `pulumi:"mountOptions"`
+	Size          int      `pulumi:"size"`
 }
 
 // GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArgs and GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfOutput values.
@@ -8267,12 +7670,9 @@ type GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfInp
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArgs struct {
-	// The absolute file path in the container where the tmpfs volume is mounted.
-	ContainerPath pulumi.StringInput `pulumi:"containerPath"`
-	// The list of tmpfs volume mount options.
-	MountOptions pulumi.StringArrayInput `pulumi:"mountOptions"`
-	// The size (in MiB) of the tmpfs volume.
-	Size pulumi.IntInput `pulumi:"size"`
+	ContainerPath pulumi.StringInput      `pulumi:"containerPath"`
+	MountOptions  pulumi.StringArrayInput `pulumi:"mountOptions"`
+	Size          pulumi.IntInput         `pulumi:"size"`
 }
 
 func (GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArgs) ElementType() reflect.Type {
@@ -8326,21 +7726,18 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf
 	return o
 }
 
-// The absolute file path in the container where the tmpfs volume is mounted.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfOutput) ContainerPath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf) string {
 		return v.ContainerPath
 	}).(pulumi.StringOutput)
 }
 
-// The list of tmpfs volume mount options.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfOutput) MountOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf) []string {
 		return v.MountOptions
 	}).(pulumi.StringArrayOutput)
 }
 
-// The size (in MiB) of the tmpfs volume.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf) int { return v.Size }).(pulumi.IntOutput)
 }
@@ -8366,11 +7763,8 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfiguration struct {
-	// The log driver to use for the container.
-	LogDriver string `pulumi:"logDriver"`
-	// The configuration options to send to the log driver.
-	Options map[string]string `pulumi:"options"`
-	// The secrets to pass to the log configuration.
+	LogDriver     string                                                                               `pulumi:"logDriver"`
+	Options       map[string]string                                                                    `pulumi:"options"`
 	SecretOptions []GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOption `pulumi:"secretOptions"`
 }
 
@@ -8386,11 +7780,8 @@ type GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationInput
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArgs struct {
-	// The log driver to use for the container.
-	LogDriver pulumi.StringInput `pulumi:"logDriver"`
-	// The configuration options to send to the log driver.
-	Options pulumi.StringMapInput `pulumi:"options"`
-	// The secrets to pass to the log configuration.
+	LogDriver     pulumi.StringInput                                                                           `pulumi:"logDriver"`
+	Options       pulumi.StringMapInput                                                                        `pulumi:"options"`
 	SecretOptions GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArrayInput `pulumi:"secretOptions"`
 }
 
@@ -8445,21 +7836,18 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationOu
 	return o
 }
 
-// The log driver to use for the container.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationOutput) LogDriver() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfiguration) string {
 		return v.LogDriver
 	}).(pulumi.StringOutput)
 }
 
-// The configuration options to send to the log driver.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationOutput) Options() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfiguration) map[string]string {
 		return v.Options
 	}).(pulumi.StringMapOutput)
 }
 
-// The secrets to pass to the log configuration.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationOutput) SecretOptions() GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfiguration) []GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOption {
 		return v.SecretOptions
@@ -8487,9 +7875,7 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationAr
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOption struct {
-	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-	Name string `pulumi:"name"`
-	// The secret to expose to the container. The supported values are either the full Amazon Resource Name (ARN) of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
+	Name      string `pulumi:"name"`
 	ValueFrom string `pulumi:"valueFrom"`
 }
 
@@ -8505,9 +7891,7 @@ type GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecre
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArgs struct {
-	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-	Name pulumi.StringInput `pulumi:"name"`
-	// The secret to expose to the container. The supported values are either the full Amazon Resource Name (ARN) of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
+	Name      pulumi.StringInput `pulumi:"name"`
 	ValueFrom pulumi.StringInput `pulumi:"valueFrom"`
 }
 
@@ -8562,14 +7946,12 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSe
 	return o
 }
 
-// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOption) string {
 		return v.Name
 	}).(pulumi.StringOutput)
 }
 
-// The secret to expose to the container. The supported values are either the full Amazon Resource Name (ARN) of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionOutput) ValueFrom() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOption) string {
 		return v.ValueFrom
@@ -8597,12 +7979,9 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSe
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPoint struct {
-	// The absolute file path in the container where the tmpfs volume is mounted.
 	ContainerPath string `pulumi:"containerPath"`
-	// If this value is true, the container has read-only access to the volume.
-	ReadOnly bool `pulumi:"readOnly"`
-	// The name of the volume to mount.
-	SourceVolume string `pulumi:"sourceVolume"`
+	ReadOnly      bool   `pulumi:"readOnly"`
+	SourceVolume  string `pulumi:"sourceVolume"`
 }
 
 // GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArgs and GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointOutput values.
@@ -8617,12 +7996,9 @@ type GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointInput inter
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArgs struct {
-	// The absolute file path in the container where the tmpfs volume is mounted.
 	ContainerPath pulumi.StringInput `pulumi:"containerPath"`
-	// If this value is true, the container has read-only access to the volume.
-	ReadOnly pulumi.BoolInput `pulumi:"readOnly"`
-	// The name of the volume to mount.
-	SourceVolume pulumi.StringInput `pulumi:"sourceVolume"`
+	ReadOnly      pulumi.BoolInput   `pulumi:"readOnly"`
+	SourceVolume  pulumi.StringInput `pulumi:"sourceVolume"`
 }
 
 func (GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArgs) ElementType() reflect.Type {
@@ -8676,19 +8052,16 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointOutput) 
 	return o
 }
 
-// The absolute file path in the container where the tmpfs volume is mounted.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointOutput) ContainerPath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPoint) string {
 		return v.ContainerPath
 	}).(pulumi.StringOutput)
 }
 
-// If this value is true, the container has read-only access to the volume.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointOutput) ReadOnly() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPoint) bool { return v.ReadOnly }).(pulumi.BoolOutput)
 }
 
-// The name of the volume to mount.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointOutput) SourceVolume() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPoint) string { return v.SourceVolume }).(pulumi.StringOutput)
 }
@@ -8714,7 +8087,6 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayOut
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfiguration struct {
-	// Indicates whether the job has a public IP address.
 	AssignPublicIp bool `pulumi:"assignPublicIp"`
 }
 
@@ -8730,7 +8102,6 @@ type GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationI
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArgs struct {
-	// Indicates whether the job has a public IP address.
 	AssignPublicIp pulumi.BoolInput `pulumi:"assignPublicIp"`
 }
 
@@ -8785,7 +8156,6 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurati
 	return o
 }
 
-// Indicates whether the job has a public IP address.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationOutput) AssignPublicIp() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfiguration) bool {
 		return v.AssignPublicIp
@@ -8813,9 +8183,7 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurati
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirement struct {
-	// The type of resource to assign to a container. The supported resources include `GPU`, `MEMORY`, and `VCPU`.
-	Type string `pulumi:"type"`
-	// The quantity of the specified resource to reserve for the container.
+	Type  string `pulumi:"type"`
 	Value string `pulumi:"value"`
 }
 
@@ -8831,9 +8199,7 @@ type GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementIn
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArgs struct {
-	// The type of resource to assign to a container. The supported resources include `GPU`, `MEMORY`, and `VCPU`.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The quantity of the specified resource to reserve for the container.
+	Type  pulumi.StringInput `pulumi:"type"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -8888,14 +8254,12 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequiremen
 	return o
 }
 
-// The type of resource to assign to a container. The supported resources include `GPU`, `MEMORY`, and `VCPU`.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirement) string {
 		return v.Type
 	}).(pulumi.StringOutput)
 }
 
-// The quantity of the specified resource to reserve for the container.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirement) string {
 		return v.Value
@@ -8923,9 +8287,7 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequiremen
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatform struct {
-	// The vCPU architecture. The default value is X86_64. Valid values are X86_64 and ARM64.
-	CpuArchitecture string `pulumi:"cpuArchitecture"`
-	// The operating system for the compute environment. V
+	CpuArchitecture       string `pulumi:"cpuArchitecture"`
 	OperatingSystemFamily string `pulumi:"operatingSystemFamily"`
 }
 
@@ -8941,9 +8303,7 @@ type GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformInput 
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArgs struct {
-	// The vCPU architecture. The default value is X86_64. Valid values are X86_64 and ARM64.
-	CpuArchitecture pulumi.StringInput `pulumi:"cpuArchitecture"`
-	// The operating system for the compute environment. V
+	CpuArchitecture       pulumi.StringInput `pulumi:"cpuArchitecture"`
 	OperatingSystemFamily pulumi.StringInput `pulumi:"operatingSystemFamily"`
 }
 
@@ -8998,14 +8358,12 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformOut
 	return o
 }
 
-// The vCPU architecture. The default value is X86_64. Valid values are X86_64 and ARM64.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformOutput) CpuArchitecture() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatform) string {
 		return v.CpuArchitecture
 	}).(pulumi.StringOutput)
 }
 
-// The operating system for the compute environment. V
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformOutput) OperatingSystemFamily() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatform) string {
 		return v.OperatingSystemFamily
@@ -9033,9 +8391,7 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArr
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerSecret struct {
-	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-	Name string `pulumi:"name"`
-	// The secret to expose to the container. The supported values are either the full Amazon Resource Name (ARN) of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
+	Name      string `pulumi:"name"`
 	ValueFrom string `pulumi:"valueFrom"`
 }
 
@@ -9051,9 +8407,7 @@ type GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretInput interface
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArgs struct {
-	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-	Name pulumi.StringInput `pulumi:"name"`
-	// The secret to expose to the container. The supported values are either the full Amazon Resource Name (ARN) of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
+	Name      pulumi.StringInput `pulumi:"name"`
 	ValueFrom pulumi.StringInput `pulumi:"valueFrom"`
 }
 
@@ -9108,12 +8462,10 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretOutput) ToGe
 	return o
 }
 
-// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerSecret) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The secret to expose to the container. The supported values are either the full Amazon Resource Name (ARN) of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretOutput) ValueFrom() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerSecret) string { return v.ValueFrom }).(pulumi.StringOutput)
 }
@@ -9139,12 +8491,9 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayOutput)
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimit struct {
-	// The hard limit for the ulimit type.
-	HardLimit int `pulumi:"hardLimit"`
-	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-	Name string `pulumi:"name"`
-	// The soft limit for the ulimit type.
-	SoftLimit int `pulumi:"softLimit"`
+	HardLimit int    `pulumi:"hardLimit"`
+	Name      string `pulumi:"name"`
+	SoftLimit int    `pulumi:"softLimit"`
 }
 
 // GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArgs and GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitOutput values.
@@ -9159,12 +8508,9 @@ type GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitInput interface
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArgs struct {
-	// The hard limit for the ulimit type.
-	HardLimit pulumi.IntInput `pulumi:"hardLimit"`
-	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-	Name pulumi.StringInput `pulumi:"name"`
-	// The soft limit for the ulimit type.
-	SoftLimit pulumi.IntInput `pulumi:"softLimit"`
+	HardLimit pulumi.IntInput    `pulumi:"hardLimit"`
+	Name      pulumi.StringInput `pulumi:"name"`
+	SoftLimit pulumi.IntInput    `pulumi:"softLimit"`
 }
 
 func (GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArgs) ElementType() reflect.Type {
@@ -9218,17 +8564,14 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitOutput) ToGe
 	return o
 }
 
-// The hard limit for the ulimit type.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitOutput) HardLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimit) int { return v.HardLimit }).(pulumi.IntOutput)
 }
 
-// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimit) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The soft limit for the ulimit type.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitOutput) SoftLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimit) int { return v.SoftLimit }).(pulumi.IntOutput)
 }
@@ -9254,12 +8597,9 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayOutput)
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolume struct {
-	// This parameter is specified when you're using an Amazon Elastic File System file system for job storage.
 	EfsVolumeConfigurations []GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration `pulumi:"efsVolumeConfigurations"`
-	// The contents of the host parameter determine whether your data volume persists on the host container instance and where it's stored.
-	Hosts []GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHost `pulumi:"hosts"`
-	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-	Name string `pulumi:"name"`
+	Hosts                   []GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHost                   `pulumi:"hosts"`
+	Name                    string                                                                               `pulumi:"name"`
 }
 
 // GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArgs and GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeOutput values.
@@ -9274,12 +8614,9 @@ type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeInput interface
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArgs struct {
-	// This parameter is specified when you're using an Amazon Elastic File System file system for job storage.
 	EfsVolumeConfigurations GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArrayInput `pulumi:"efsVolumeConfigurations"`
-	// The contents of the host parameter determine whether your data volume persists on the host container instance and where it's stored.
-	Hosts GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayInput `pulumi:"hosts"`
-	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-	Name pulumi.StringInput `pulumi:"name"`
+	Hosts                   GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayInput                   `pulumi:"hosts"`
+	Name                    pulumi.StringInput                                                                           `pulumi:"name"`
 }
 
 func (GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArgs) ElementType() reflect.Type {
@@ -9333,21 +8670,18 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeOutput) ToGe
 	return o
 }
 
-// This parameter is specified when you're using an Amazon Elastic File System file system for job storage.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeOutput) EfsVolumeConfigurations() GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerVolume) []GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration {
 		return v.EfsVolumeConfigurations
 	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArrayOutput)
 }
 
-// The contents of the host parameter determine whether your data volume persists on the host container instance and where it's stored.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeOutput) Hosts() GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerVolume) []GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHost {
 		return v.Hosts
 	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayOutput)
 }
 
-// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerVolume) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -9373,16 +8707,11 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArrayOutput)
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration struct {
-	// The authorization configuration details for the Amazon EFS file system.
-	AuthorizationConfigs []GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfig `pulumi:"authorizationConfigs"`
-	// The Amazon EFS file system ID to use.
-	FileSystemId string `pulumi:"fileSystemId"`
-	// The directory within the Amazon EFS file system to mount as the root directory inside the host.
-	RootDirectory string `pulumi:"rootDirectory"`
-	// Determines whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server
-	TransitEncryption string `pulumi:"transitEncryption"`
-	// The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server.
-	TransitEncryptionPort int `pulumi:"transitEncryptionPort"`
+	AuthorizationConfigs  []GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfig `pulumi:"authorizationConfigs"`
+	FileSystemId          string                                                                                                  `pulumi:"fileSystemId"`
+	RootDirectory         string                                                                                                  `pulumi:"rootDirectory"`
+	TransitEncryption     string                                                                                                  `pulumi:"transitEncryption"`
+	TransitEncryptionPort int                                                                                                     `pulumi:"transitEncryptionPort"`
 }
 
 // GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArgs and GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutput values.
@@ -9397,16 +8726,11 @@ type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfig
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArgs struct {
-	// The authorization configuration details for the Amazon EFS file system.
-	AuthorizationConfigs GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArrayInput `pulumi:"authorizationConfigs"`
-	// The Amazon EFS file system ID to use.
-	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
-	// The directory within the Amazon EFS file system to mount as the root directory inside the host.
-	RootDirectory pulumi.StringInput `pulumi:"rootDirectory"`
-	// Determines whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server
-	TransitEncryption pulumi.StringInput `pulumi:"transitEncryption"`
-	// The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server.
-	TransitEncryptionPort pulumi.IntInput `pulumi:"transitEncryptionPort"`
+	AuthorizationConfigs  GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArrayInput `pulumi:"authorizationConfigs"`
+	FileSystemId          pulumi.StringInput                                                                                              `pulumi:"fileSystemId"`
+	RootDirectory         pulumi.StringInput                                                                                              `pulumi:"rootDirectory"`
+	TransitEncryption     pulumi.StringInput                                                                                              `pulumi:"transitEncryption"`
+	TransitEncryptionPort pulumi.IntInput                                                                                                 `pulumi:"transitEncryptionPort"`
 }
 
 func (GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArgs) ElementType() reflect.Type {
@@ -9460,35 +8784,30 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeCon
 	return o
 }
 
-// The authorization configuration details for the Amazon EFS file system.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutput) AuthorizationConfigs() GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration) []GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfig {
 		return v.AuthorizationConfigs
 	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput)
 }
 
-// The Amazon EFS file system ID to use.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration) string {
 		return v.FileSystemId
 	}).(pulumi.StringOutput)
 }
 
-// The directory within the Amazon EFS file system to mount as the root directory inside the host.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutput) RootDirectory() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration) string {
 		return v.RootDirectory
 	}).(pulumi.StringOutput)
 }
 
-// Determines whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutput) TransitEncryption() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration) string {
 		return v.TransitEncryption
 	}).(pulumi.StringOutput)
 }
 
-// The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutput) TransitEncryptionPort() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration) int {
 		return v.TransitEncryptionPort
@@ -9516,10 +8835,8 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeCon
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfig struct {
-	// The Amazon EFS access point ID to use.
 	AccessPointId string `pulumi:"accessPointId"`
-	// Whether or not to use the AWS Batch job IAM role defined in a job definition when mounting the Amazon EFS file system.
-	Iam string `pulumi:"iam"`
+	Iam           string `pulumi:"iam"`
 }
 
 // GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArgs and GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigOutput values.
@@ -9534,10 +8851,8 @@ type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfig
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArgs struct {
-	// The Amazon EFS access point ID to use.
 	AccessPointId pulumi.StringInput `pulumi:"accessPointId"`
-	// Whether or not to use the AWS Batch job IAM role defined in a job definition when mounting the Amazon EFS file system.
-	Iam pulumi.StringInput `pulumi:"iam"`
+	Iam           pulumi.StringInput `pulumi:"iam"`
 }
 
 func (GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArgs) ElementType() reflect.Type {
@@ -9591,14 +8906,12 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeCon
 	return o
 }
 
-// The Amazon EFS access point ID to use.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigOutput) AccessPointId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfig) string {
 		return v.AccessPointId
 	}).(pulumi.StringOutput)
 }
 
-// Whether or not to use the AWS Batch job IAM role defined in a job definition when mounting the Amazon EFS file system.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigOutput) Iam() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfig) string {
 		return v.Iam
@@ -9626,7 +8939,6 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeCon
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHost struct {
-	// The path on the host container instance that's presented to the container.
 	SourcePath string `pulumi:"sourcePath"`
 }
 
@@ -9642,7 +8954,6 @@ type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostInput inter
 }
 
 type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArgs struct {
-	// The path on the host container instance that's presented to the container.
 	SourcePath pulumi.StringInput `pulumi:"sourcePath"`
 }
 
@@ -9697,7 +9008,6 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostOutput) 
 	return o
 }
 
-// The path on the host container instance that's presented to the container.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostOutput) SourcePath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHost) string { return v.SourcePath }).(pulumi.StringOutput)
 }
@@ -9723,9 +9033,7 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayOut
 }
 
 type GetJobDefinitionRetryStrategy struct {
-	// The number of times to move a job to the RUNNABLE status.
-	Attempts int `pulumi:"attempts"`
-	// Array of up to 5 objects that specify the conditions where jobs are retried or failed.
+	Attempts        int                                           `pulumi:"attempts"`
 	EvaluateOnExits []GetJobDefinitionRetryStrategyEvaluateOnExit `pulumi:"evaluateOnExits"`
 }
 
@@ -9741,9 +9049,7 @@ type GetJobDefinitionRetryStrategyInput interface {
 }
 
 type GetJobDefinitionRetryStrategyArgs struct {
-	// The number of times to move a job to the RUNNABLE status.
-	Attempts pulumi.IntInput `pulumi:"attempts"`
-	// Array of up to 5 objects that specify the conditions where jobs are retried or failed.
+	Attempts        pulumi.IntInput                                       `pulumi:"attempts"`
 	EvaluateOnExits GetJobDefinitionRetryStrategyEvaluateOnExitArrayInput `pulumi:"evaluateOnExits"`
 }
 
@@ -9798,12 +9104,10 @@ func (o GetJobDefinitionRetryStrategyOutput) ToGetJobDefinitionRetryStrategyOutp
 	return o
 }
 
-// The number of times to move a job to the RUNNABLE status.
 func (o GetJobDefinitionRetryStrategyOutput) Attempts() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobDefinitionRetryStrategy) int { return v.Attempts }).(pulumi.IntOutput)
 }
 
-// Array of up to 5 objects that specify the conditions where jobs are retried or failed.
 func (o GetJobDefinitionRetryStrategyOutput) EvaluateOnExits() GetJobDefinitionRetryStrategyEvaluateOnExitArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionRetryStrategy) []GetJobDefinitionRetryStrategyEvaluateOnExit {
 		return v.EvaluateOnExits
@@ -9831,13 +9135,9 @@ func (o GetJobDefinitionRetryStrategyArrayOutput) Index(i pulumi.IntInput) GetJo
 }
 
 type GetJobDefinitionRetryStrategyEvaluateOnExit struct {
-	// Specifies the action to take if all of the specified conditions (onStatusReason, onReason, and onExitCode) are met. The values aren't case sensitive.
-	Action string `pulumi:"action"`
-	// Contains a glob pattern to match against the decimal representation of the ExitCode returned for a job.
-	OnExitCode string `pulumi:"onExitCode"`
-	// Contains a glob pattern to match against the Reason returned for a job.
-	OnReason string `pulumi:"onReason"`
-	// Contains a glob pattern to match against the StatusReason returned for a job.
+	Action         string `pulumi:"action"`
+	OnExitCode     string `pulumi:"onExitCode"`
+	OnReason       string `pulumi:"onReason"`
 	OnStatusReason string `pulumi:"onStatusReason"`
 }
 
@@ -9853,13 +9153,9 @@ type GetJobDefinitionRetryStrategyEvaluateOnExitInput interface {
 }
 
 type GetJobDefinitionRetryStrategyEvaluateOnExitArgs struct {
-	// Specifies the action to take if all of the specified conditions (onStatusReason, onReason, and onExitCode) are met. The values aren't case sensitive.
-	Action pulumi.StringInput `pulumi:"action"`
-	// Contains a glob pattern to match against the decimal representation of the ExitCode returned for a job.
-	OnExitCode pulumi.StringInput `pulumi:"onExitCode"`
-	// Contains a glob pattern to match against the Reason returned for a job.
-	OnReason pulumi.StringInput `pulumi:"onReason"`
-	// Contains a glob pattern to match against the StatusReason returned for a job.
+	Action         pulumi.StringInput `pulumi:"action"`
+	OnExitCode     pulumi.StringInput `pulumi:"onExitCode"`
+	OnReason       pulumi.StringInput `pulumi:"onReason"`
 	OnStatusReason pulumi.StringInput `pulumi:"onStatusReason"`
 }
 
@@ -9914,22 +9210,18 @@ func (o GetJobDefinitionRetryStrategyEvaluateOnExitOutput) ToGetJobDefinitionRet
 	return o
 }
 
-// Specifies the action to take if all of the specified conditions (onStatusReason, onReason, and onExitCode) are met. The values aren't case sensitive.
 func (o GetJobDefinitionRetryStrategyEvaluateOnExitOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionRetryStrategyEvaluateOnExit) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// Contains a glob pattern to match against the decimal representation of the ExitCode returned for a job.
 func (o GetJobDefinitionRetryStrategyEvaluateOnExitOutput) OnExitCode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionRetryStrategyEvaluateOnExit) string { return v.OnExitCode }).(pulumi.StringOutput)
 }
 
-// Contains a glob pattern to match against the Reason returned for a job.
 func (o GetJobDefinitionRetryStrategyEvaluateOnExitOutput) OnReason() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionRetryStrategyEvaluateOnExit) string { return v.OnReason }).(pulumi.StringOutput)
 }
 
-// Contains a glob pattern to match against the StatusReason returned for a job.
 func (o GetJobDefinitionRetryStrategyEvaluateOnExitOutput) OnStatusReason() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionRetryStrategyEvaluateOnExit) string { return v.OnStatusReason }).(pulumi.StringOutput)
 }
@@ -9955,7 +9247,6 @@ func (o GetJobDefinitionRetryStrategyEvaluateOnExitArrayOutput) Index(i pulumi.I
 }
 
 type GetJobDefinitionTimeout struct {
-	// The job timeout time (in seconds) that's measured from the job attempt's startedAt timestamp.
 	AttemptDurationSeconds int `pulumi:"attemptDurationSeconds"`
 }
 
@@ -9971,7 +9262,6 @@ type GetJobDefinitionTimeoutInput interface {
 }
 
 type GetJobDefinitionTimeoutArgs struct {
-	// The job timeout time (in seconds) that's measured from the job attempt's startedAt timestamp.
 	AttemptDurationSeconds pulumi.IntInput `pulumi:"attemptDurationSeconds"`
 }
 
@@ -10026,7 +9316,6 @@ func (o GetJobDefinitionTimeoutOutput) ToGetJobDefinitionTimeoutOutputWithContex
 	return o
 }
 
-// The job timeout time (in seconds) that's measured from the job attempt's startedAt timestamp.
 func (o GetJobDefinitionTimeoutOutput) AttemptDurationSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v GetJobDefinitionTimeout) int { return v.AttemptDurationSeconds }).(pulumi.IntOutput)
 }
@@ -10155,8 +9444,7 @@ type GetJobQueueJobStateTimeLimitAction struct {
 	Action         string `pulumi:"action"`
 	MaxTimeSeconds int    `pulumi:"maxTimeSeconds"`
 	Reason         string `pulumi:"reason"`
-	// Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
-	State string `pulumi:"state"`
+	State          string `pulumi:"state"`
 }
 
 // GetJobQueueJobStateTimeLimitActionInput is an input type that accepts GetJobQueueJobStateTimeLimitActionArgs and GetJobQueueJobStateTimeLimitActionOutput values.
@@ -10174,8 +9462,7 @@ type GetJobQueueJobStateTimeLimitActionArgs struct {
 	Action         pulumi.StringInput `pulumi:"action"`
 	MaxTimeSeconds pulumi.IntInput    `pulumi:"maxTimeSeconds"`
 	Reason         pulumi.StringInput `pulumi:"reason"`
-	// Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
-	State pulumi.StringInput `pulumi:"state"`
+	State          pulumi.StringInput `pulumi:"state"`
 }
 
 func (GetJobQueueJobStateTimeLimitActionArgs) ElementType() reflect.Type {
@@ -10241,7 +9528,6 @@ func (o GetJobQueueJobStateTimeLimitActionOutput) Reason() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobQueueJobStateTimeLimitAction) string { return v.Reason }).(pulumi.StringOutput)
 }
 
-// Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
 func (o GetJobQueueJobStateTimeLimitActionOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobQueueJobStateTimeLimitAction) string { return v.State }).(pulumi.StringOutput)
 }
@@ -10267,10 +9553,8 @@ func (o GetJobQueueJobStateTimeLimitActionArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetSchedulingPolicyFairSharePolicy struct {
-	// Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
-	ComputeReservation int `pulumi:"computeReservation"`
-	ShareDecaySeconds  int `pulumi:"shareDecaySeconds"`
-	// One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
+	ComputeReservation int                                                   `pulumi:"computeReservation"`
+	ShareDecaySeconds  int                                                   `pulumi:"shareDecaySeconds"`
 	ShareDistributions []GetSchedulingPolicyFairSharePolicyShareDistribution `pulumi:"shareDistributions"`
 }
 
@@ -10286,10 +9570,8 @@ type GetSchedulingPolicyFairSharePolicyInput interface {
 }
 
 type GetSchedulingPolicyFairSharePolicyArgs struct {
-	// Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
-	ComputeReservation pulumi.IntInput `pulumi:"computeReservation"`
-	ShareDecaySeconds  pulumi.IntInput `pulumi:"shareDecaySeconds"`
-	// One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
+	ComputeReservation pulumi.IntInput                                               `pulumi:"computeReservation"`
+	ShareDecaySeconds  pulumi.IntInput                                               `pulumi:"shareDecaySeconds"`
 	ShareDistributions GetSchedulingPolicyFairSharePolicyShareDistributionArrayInput `pulumi:"shareDistributions"`
 }
 
@@ -10344,7 +9626,6 @@ func (o GetSchedulingPolicyFairSharePolicyOutput) ToGetSchedulingPolicyFairShare
 	return o
 }
 
-// Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
 func (o GetSchedulingPolicyFairSharePolicyOutput) ComputeReservation() pulumi.IntOutput {
 	return o.ApplyT(func(v GetSchedulingPolicyFairSharePolicy) int { return v.ComputeReservation }).(pulumi.IntOutput)
 }
@@ -10353,7 +9634,6 @@ func (o GetSchedulingPolicyFairSharePolicyOutput) ShareDecaySeconds() pulumi.Int
 	return o.ApplyT(func(v GetSchedulingPolicyFairSharePolicy) int { return v.ShareDecaySeconds }).(pulumi.IntOutput)
 }
 
-// One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
 func (o GetSchedulingPolicyFairSharePolicyOutput) ShareDistributions() GetSchedulingPolicyFairSharePolicyShareDistributionArrayOutput {
 	return o.ApplyT(func(v GetSchedulingPolicyFairSharePolicy) []GetSchedulingPolicyFairSharePolicyShareDistribution {
 		return v.ShareDistributions
@@ -10381,10 +9661,8 @@ func (o GetSchedulingPolicyFairSharePolicyArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetSchedulingPolicyFairSharePolicyShareDistribution struct {
-	// Fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-	ShareIdentifier string `pulumi:"shareIdentifier"`
-	// Weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-	WeightFactor float64 `pulumi:"weightFactor"`
+	ShareIdentifier string  `pulumi:"shareIdentifier"`
+	WeightFactor    float64 `pulumi:"weightFactor"`
 }
 
 // GetSchedulingPolicyFairSharePolicyShareDistributionInput is an input type that accepts GetSchedulingPolicyFairSharePolicyShareDistributionArgs and GetSchedulingPolicyFairSharePolicyShareDistributionOutput values.
@@ -10399,10 +9677,8 @@ type GetSchedulingPolicyFairSharePolicyShareDistributionInput interface {
 }
 
 type GetSchedulingPolicyFairSharePolicyShareDistributionArgs struct {
-	// Fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-	ShareIdentifier pulumi.StringInput `pulumi:"shareIdentifier"`
-	// Weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-	WeightFactor pulumi.Float64Input `pulumi:"weightFactor"`
+	ShareIdentifier pulumi.StringInput  `pulumi:"shareIdentifier"`
+	WeightFactor    pulumi.Float64Input `pulumi:"weightFactor"`
 }
 
 func (GetSchedulingPolicyFairSharePolicyShareDistributionArgs) ElementType() reflect.Type {
@@ -10456,12 +9732,10 @@ func (o GetSchedulingPolicyFairSharePolicyShareDistributionOutput) ToGetScheduli
 	return o
 }
 
-// Fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
 func (o GetSchedulingPolicyFairSharePolicyShareDistributionOutput) ShareIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchedulingPolicyFairSharePolicyShareDistribution) string { return v.ShareIdentifier }).(pulumi.StringOutput)
 }
 
-// Weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
 func (o GetSchedulingPolicyFairSharePolicyShareDistributionOutput) WeightFactor() pulumi.Float64Output {
 	return o.ApplyT(func(v GetSchedulingPolicyFairSharePolicyShareDistribution) float64 { return v.WeightFactor }).(pulumi.Float64Output)
 }

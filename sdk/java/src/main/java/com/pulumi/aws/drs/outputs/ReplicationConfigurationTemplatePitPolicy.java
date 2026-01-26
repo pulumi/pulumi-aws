@@ -14,65 +14,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ReplicationConfigurationTemplatePitPolicy {
-    /**
-     * @return Whether this rule is enabled or not.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return How often, in the chosen units, a snapshot should be taken.
-     * 
-     */
     private Integer interval;
-    /**
-     * @return Duration to retain a snapshot for, in the chosen `units`.
-     * 
-     */
     private Integer retentionDuration;
-    /**
-     * @return ID of the rule. Valid values are integers.
-     * 
-     */
     private @Nullable Integer ruleId;
-    /**
-     * @return Units used to measure the `interval` and `retentionDuration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
-     * 
-     */
     private String units;
 
     private ReplicationConfigurationTemplatePitPolicy() {}
-    /**
-     * @return Whether this rule is enabled or not.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return How often, in the chosen units, a snapshot should be taken.
-     * 
-     */
     public Integer interval() {
         return this.interval;
     }
-    /**
-     * @return Duration to retain a snapshot for, in the chosen `units`.
-     * 
-     */
     public Integer retentionDuration() {
         return this.retentionDuration;
     }
-    /**
-     * @return ID of the rule. Valid values are integers.
-     * 
-     */
     public Optional<Integer> ruleId() {
         return Optional.ofNullable(this.ruleId);
     }
-    /**
-     * @return Units used to measure the `interval` and `retentionDuration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
-     * 
-     */
     public String units() {
         return this.units;
     }

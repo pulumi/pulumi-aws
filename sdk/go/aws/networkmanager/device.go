@@ -12,73 +12,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Network Manager Device.
-//
-// Use this resource to create a device in a global network. If you specify both a site ID and a location, the location of the site is used for visualization in the Network Manager console.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkmanager.NewDevice(ctx, "example", &networkmanager.DeviceArgs{
-//				GlobalNetworkId: pulumi.Any(exampleAwsNetworkmanagerGlobalNetwork.Id),
-//				SiteId:          pulumi.Any(exampleAwsNetworkmanagerSite.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_networkmanager_device` using the device ARN. For example:
-//
-// ```sh
-// $ pulumi import aws:networkmanager/device:Device example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/device-07f6fd08867abc123
-// ```
 type Device struct {
 	pulumi.CustomResourceState
 
-	// ARN of the device.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// AWS location of the device. Documented below.
-	AwsLocation DeviceAwsLocationPtrOutput `pulumi:"awsLocation"`
-	// Description of the device.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// ID of the global network.
-	//
-	// The following arguments are optional:
-	GlobalNetworkId pulumi.StringOutput `pulumi:"globalNetworkId"`
-	// Location of the device. Documented below.
-	Location DeviceLocationPtrOutput `pulumi:"location"`
-	// Model of device.
-	Model pulumi.StringPtrOutput `pulumi:"model"`
-	// Serial number of the device.
-	SerialNumber pulumi.StringPtrOutput `pulumi:"serialNumber"`
-	// ID of the site.
-	SiteId pulumi.StringPtrOutput `pulumi:"siteId"`
-	// Key-value tags for the device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Type of device.
-	Type pulumi.StringPtrOutput `pulumi:"type"`
-	// Vendor of the device.
-	Vendor pulumi.StringPtrOutput `pulumi:"vendor"`
+	Arn             pulumi.StringOutput        `pulumi:"arn"`
+	AwsLocation     DeviceAwsLocationPtrOutput `pulumi:"awsLocation"`
+	Description     pulumi.StringPtrOutput     `pulumi:"description"`
+	GlobalNetworkId pulumi.StringOutput        `pulumi:"globalNetworkId"`
+	Location        DeviceLocationPtrOutput    `pulumi:"location"`
+	Model           pulumi.StringPtrOutput     `pulumi:"model"`
+	SerialNumber    pulumi.StringPtrOutput     `pulumi:"serialNumber"`
+	SiteId          pulumi.StringPtrOutput     `pulumi:"siteId"`
+	Tags            pulumi.StringMapOutput     `pulumi:"tags"`
+	TagsAll         pulumi.StringMapOutput     `pulumi:"tagsAll"`
+	Type            pulumi.StringPtrOutput     `pulumi:"type"`
+	Vendor          pulumi.StringPtrOutput     `pulumi:"vendor"`
 }
 
 // NewDevice registers a new resource with the given unique name, arguments, and options.
@@ -114,61 +62,33 @@ func GetDevice(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Device resources.
 type deviceState struct {
-	// ARN of the device.
-	Arn *string `pulumi:"arn"`
-	// AWS location of the device. Documented below.
-	AwsLocation *DeviceAwsLocation `pulumi:"awsLocation"`
-	// Description of the device.
-	Description *string `pulumi:"description"`
-	// ID of the global network.
-	//
-	// The following arguments are optional:
-	GlobalNetworkId *string `pulumi:"globalNetworkId"`
-	// Location of the device. Documented below.
-	Location *DeviceLocation `pulumi:"location"`
-	// Model of device.
-	Model *string `pulumi:"model"`
-	// Serial number of the device.
-	SerialNumber *string `pulumi:"serialNumber"`
-	// ID of the site.
-	SiteId *string `pulumi:"siteId"`
-	// Key-value tags for the device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Type of device.
-	Type *string `pulumi:"type"`
-	// Vendor of the device.
-	Vendor *string `pulumi:"vendor"`
+	Arn             *string            `pulumi:"arn"`
+	AwsLocation     *DeviceAwsLocation `pulumi:"awsLocation"`
+	Description     *string            `pulumi:"description"`
+	GlobalNetworkId *string            `pulumi:"globalNetworkId"`
+	Location        *DeviceLocation    `pulumi:"location"`
+	Model           *string            `pulumi:"model"`
+	SerialNumber    *string            `pulumi:"serialNumber"`
+	SiteId          *string            `pulumi:"siteId"`
+	Tags            map[string]string  `pulumi:"tags"`
+	TagsAll         map[string]string  `pulumi:"tagsAll"`
+	Type            *string            `pulumi:"type"`
+	Vendor          *string            `pulumi:"vendor"`
 }
 
 type DeviceState struct {
-	// ARN of the device.
-	Arn pulumi.StringPtrInput
-	// AWS location of the device. Documented below.
-	AwsLocation DeviceAwsLocationPtrInput
-	// Description of the device.
-	Description pulumi.StringPtrInput
-	// ID of the global network.
-	//
-	// The following arguments are optional:
+	Arn             pulumi.StringPtrInput
+	AwsLocation     DeviceAwsLocationPtrInput
+	Description     pulumi.StringPtrInput
 	GlobalNetworkId pulumi.StringPtrInput
-	// Location of the device. Documented below.
-	Location DeviceLocationPtrInput
-	// Model of device.
-	Model pulumi.StringPtrInput
-	// Serial number of the device.
-	SerialNumber pulumi.StringPtrInput
-	// ID of the site.
-	SiteId pulumi.StringPtrInput
-	// Key-value tags for the device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Type of device.
-	Type pulumi.StringPtrInput
-	// Vendor of the device.
-	Vendor pulumi.StringPtrInput
+	Location        DeviceLocationPtrInput
+	Model           pulumi.StringPtrInput
+	SerialNumber    pulumi.StringPtrInput
+	SiteId          pulumi.StringPtrInput
+	Tags            pulumi.StringMapInput
+	TagsAll         pulumi.StringMapInput
+	Type            pulumi.StringPtrInput
+	Vendor          pulumi.StringPtrInput
 }
 
 func (DeviceState) ElementType() reflect.Type {
@@ -176,54 +96,30 @@ func (DeviceState) ElementType() reflect.Type {
 }
 
 type deviceArgs struct {
-	// AWS location of the device. Documented below.
-	AwsLocation *DeviceAwsLocation `pulumi:"awsLocation"`
-	// Description of the device.
-	Description *string `pulumi:"description"`
-	// ID of the global network.
-	//
-	// The following arguments are optional:
-	GlobalNetworkId string `pulumi:"globalNetworkId"`
-	// Location of the device. Documented below.
-	Location *DeviceLocation `pulumi:"location"`
-	// Model of device.
-	Model *string `pulumi:"model"`
-	// Serial number of the device.
-	SerialNumber *string `pulumi:"serialNumber"`
-	// ID of the site.
-	SiteId *string `pulumi:"siteId"`
-	// Key-value tags for the device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Type of device.
-	Type *string `pulumi:"type"`
-	// Vendor of the device.
-	Vendor *string `pulumi:"vendor"`
+	AwsLocation     *DeviceAwsLocation `pulumi:"awsLocation"`
+	Description     *string            `pulumi:"description"`
+	GlobalNetworkId string             `pulumi:"globalNetworkId"`
+	Location        *DeviceLocation    `pulumi:"location"`
+	Model           *string            `pulumi:"model"`
+	SerialNumber    *string            `pulumi:"serialNumber"`
+	SiteId          *string            `pulumi:"siteId"`
+	Tags            map[string]string  `pulumi:"tags"`
+	Type            *string            `pulumi:"type"`
+	Vendor          *string            `pulumi:"vendor"`
 }
 
 // The set of arguments for constructing a Device resource.
 type DeviceArgs struct {
-	// AWS location of the device. Documented below.
-	AwsLocation DeviceAwsLocationPtrInput
-	// Description of the device.
-	Description pulumi.StringPtrInput
-	// ID of the global network.
-	//
-	// The following arguments are optional:
+	AwsLocation     DeviceAwsLocationPtrInput
+	Description     pulumi.StringPtrInput
 	GlobalNetworkId pulumi.StringInput
-	// Location of the device. Documented below.
-	Location DeviceLocationPtrInput
-	// Model of device.
-	Model pulumi.StringPtrInput
-	// Serial number of the device.
-	SerialNumber pulumi.StringPtrInput
-	// ID of the site.
-	SiteId pulumi.StringPtrInput
-	// Key-value tags for the device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Type of device.
-	Type pulumi.StringPtrInput
-	// Vendor of the device.
-	Vendor pulumi.StringPtrInput
+	Location        DeviceLocationPtrInput
+	Model           pulumi.StringPtrInput
+	SerialNumber    pulumi.StringPtrInput
+	SiteId          pulumi.StringPtrInput
+	Tags            pulumi.StringMapInput
+	Type            pulumi.StringPtrInput
+	Vendor          pulumi.StringPtrInput
 }
 
 func (DeviceArgs) ElementType() reflect.Type {
@@ -313,64 +209,50 @@ func (o DeviceOutput) ToDeviceOutputWithContext(ctx context.Context) DeviceOutpu
 	return o
 }
 
-// ARN of the device.
 func (o DeviceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// AWS location of the device. Documented below.
 func (o DeviceOutput) AwsLocation() DeviceAwsLocationPtrOutput {
 	return o.ApplyT(func(v *Device) DeviceAwsLocationPtrOutput { return v.AwsLocation }).(DeviceAwsLocationPtrOutput)
 }
 
-// Description of the device.
 func (o DeviceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Device) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// ID of the global network.
-//
-// The following arguments are optional:
 func (o DeviceOutput) GlobalNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.GlobalNetworkId }).(pulumi.StringOutput)
 }
 
-// Location of the device. Documented below.
 func (o DeviceOutput) Location() DeviceLocationPtrOutput {
 	return o.ApplyT(func(v *Device) DeviceLocationPtrOutput { return v.Location }).(DeviceLocationPtrOutput)
 }
 
-// Model of device.
 func (o DeviceOutput) Model() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Device) pulumi.StringPtrOutput { return v.Model }).(pulumi.StringPtrOutput)
 }
 
-// Serial number of the device.
 func (o DeviceOutput) SerialNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Device) pulumi.StringPtrOutput { return v.SerialNumber }).(pulumi.StringPtrOutput)
 }
 
-// ID of the site.
 func (o DeviceOutput) SiteId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Device) pulumi.StringPtrOutput { return v.SiteId }).(pulumi.StringPtrOutput)
 }
 
-// Key-value tags for the device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DeviceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Device) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DeviceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Device) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Type of device.
 func (o DeviceOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Device) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Vendor of the device.
 func (o DeviceOutput) Vendor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Device) pulumi.StringPtrOutput { return v.Vendor }).(pulumi.StringPtrOutput)
 }

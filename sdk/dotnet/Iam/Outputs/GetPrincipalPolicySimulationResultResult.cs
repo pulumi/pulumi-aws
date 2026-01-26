@@ -14,31 +14,31 @@ namespace Pulumi.Aws.Iam.Outputs
     public sealed class GetPrincipalPolicySimulationResultResult
     {
         /// <summary>
-        /// The name of the single IAM action used for this particular request.
+        /// The name of the action whose simulation this result is describing.
         /// </summary>
         public readonly string ActionName;
         /// <summary>
-        /// `True` if `Decision` is "allowed", and `False` otherwise.
+        /// A summary of attribute "decision" which is true only if the decision is "allowed".
         /// </summary>
         public readonly bool Allowed;
         /// <summary>
-        /// The raw decision determined from all of the policies in scope; either "allowed", "explicitDeny", or "implicitDeny".
+        /// The exact decision keyword returned by the policy simulator: "allowed", "explicitDeny", or "implicitDeny".
         /// </summary>
         public readonly string Decision;
         /// <summary>
-        /// A map of arbitrary metadata entries returned by the policy simulator for this request.
+        /// A mapping of various additional details that are relevant to the decision, exactly as returned by the policy simulator.
         /// </summary>
         public readonly ImmutableDictionary<string, string> DecisionDetails;
         /// <summary>
-        /// A nested set of objects describing which policies contained statements that were relevant to this simulation request. Each object has attributes `SourcePolicyId` and `SourcePolicyType` to identify one of the policies.
+        /// Detail about which specific policies contributed to this result.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPrincipalPolicySimulationResultMatchedStatementResult> MatchedStatements;
         /// <summary>
-        /// A set of context keys (or condition keys) that were needed by some of the policies contributing to this result but not specified using a `Context` block in the configuration. Missing or incorrect context keys will typically cause a simulated request to be disallowed.
+        /// Set of context entry keys that were needed for one or more of the relevant policies but not included in the request. You must specify suitable values for all context keys used in all of the relevant policies in order to obtain a correct simulation result.
         /// </summary>
         public readonly ImmutableArray<string> MissingContextKeys;
         /// <summary>
-        /// ARN of the resource that was used for this particular request. When you specify multiple actions and multiple resource ARNs, that causes a separate policy request for each combination of unique action and resource.
+        /// ARN of the resource that the action was tested against.
         /// </summary>
         public readonly string ResourceArn;
 

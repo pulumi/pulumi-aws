@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseResponseHeader {
-    /**
-     * @return Name of the response header.
-     * 
-     */
     private String name;
-    /**
-     * @return Value of the response header.
-     * 
-     */
     private String value;
 
     private WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponseResponseHeader() {}
-    /**
-     * @return Name of the response header.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Value of the response header.
-     * 
-     */
     public String value() {
         return this.value;
     }

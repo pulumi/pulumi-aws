@@ -24,9 +24,6 @@ class UserGroupAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserGroupAssociation resource.
-        :param pulumi.Input[_builtins.str] user_group_id: ID of the user group.
-        :param pulumi.Input[_builtins.str] user_id: ID of the user to associated with the user group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "user_group_id", user_group_id)
         pulumi.set(__self__, "user_id", user_id)
@@ -36,9 +33,6 @@ class UserGroupAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="userGroupId")
     def user_group_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the user group.
-        """
         return pulumi.get(self, "user_group_id")
 
     @user_group_id.setter
@@ -48,9 +42,6 @@ class UserGroupAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the user to associated with the user group.
-        """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
@@ -60,9 +51,6 @@ class UserGroupAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -78,9 +66,6 @@ class _UserGroupAssociationState:
                  user_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserGroupAssociation resources.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] user_group_id: ID of the user group.
-        :param pulumi.Input[_builtins.str] user_id: ID of the user to associated with the user group.
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -92,9 +77,6 @@ class _UserGroupAssociationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -104,9 +86,6 @@ class _UserGroupAssociationState:
     @_builtins.property
     @pulumi.getter(name="userGroupId")
     def user_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the user group.
-        """
         return pulumi.get(self, "user_group_id")
 
     @user_group_id.setter
@@ -116,9 +95,6 @@ class _UserGroupAssociationState:
     @_builtins.property
     @pulumi.getter(name="userId")
     def user_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the user to associated with the user group.
-        """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
@@ -137,50 +113,9 @@ class UserGroupAssociation(pulumi.CustomResource):
                  user_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Associate an existing ElastiCache user and an existing user group.
-
-        > Pulumi will detect changes in the `elasticache.UserGroup` since `elasticache.UserGroupAssociation` changes the user IDs associated with the user group. You can ignore these changes with the `lifecycle` `ignore_changes` meta argument as shown in the example.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.elasticache.User("default",
-            user_id="defaultUserID",
-            user_name="default",
-            access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-            engine="REDIS",
-            passwords=["password123456789"])
-        example = aws.elasticache.UserGroup("example",
-            engine="REDIS",
-            user_group_id="userGroupId",
-            user_ids=[default.user_id])
-        example_user = aws.elasticache.User("example",
-            user_id="exampleUserID",
-            user_name="exampleuser",
-            access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-            engine="REDIS",
-            passwords=["password123456789"])
-        example_user_group_association = aws.elasticache.UserGroupAssociation("example",
-            user_group_id=example.user_group_id,
-            user_id=example_user.user_id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import ElastiCache user group associations using the `user_group_id` and `user_id`. For example:
-
-        ```sh
-        $ pulumi import aws:elasticache/userGroupAssociation:UserGroupAssociation example userGoupId1,userId
-        ```
-
+        Create a UserGroupAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] user_group_id: ID of the user group.
-        :param pulumi.Input[_builtins.str] user_id: ID of the user to associated with the user group.
         """
         ...
     @overload
@@ -189,45 +124,7 @@ class UserGroupAssociation(pulumi.CustomResource):
                  args: UserGroupAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Associate an existing ElastiCache user and an existing user group.
-
-        > Pulumi will detect changes in the `elasticache.UserGroup` since `elasticache.UserGroupAssociation` changes the user IDs associated with the user group. You can ignore these changes with the `lifecycle` `ignore_changes` meta argument as shown in the example.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.elasticache.User("default",
-            user_id="defaultUserID",
-            user_name="default",
-            access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-            engine="REDIS",
-            passwords=["password123456789"])
-        example = aws.elasticache.UserGroup("example",
-            engine="REDIS",
-            user_group_id="userGroupId",
-            user_ids=[default.user_id])
-        example_user = aws.elasticache.User("example",
-            user_id="exampleUserID",
-            user_name="exampleuser",
-            access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-            engine="REDIS",
-            passwords=["password123456789"])
-        example_user_group_association = aws.elasticache.UserGroupAssociation("example",
-            user_group_id=example.user_group_id,
-            user_id=example_user.user_id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import ElastiCache user group associations using the `user_group_id` and `user_id`. For example:
-
-        ```sh
-        $ pulumi import aws:elasticache/userGroupAssociation:UserGroupAssociation example userGoupId1,userId
-        ```
-
+        Create a UserGroupAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UserGroupAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -282,9 +179,6 @@ class UserGroupAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] user_group_id: ID of the user group.
-        :param pulumi.Input[_builtins.str] user_id: ID of the user to associated with the user group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -298,24 +192,15 @@ class UserGroupAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="userGroupId")
     def user_group_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the user group.
-        """
         return pulumi.get(self, "user_group_id")
 
     @_builtins.property
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the user to associated with the user group.
-        """
         return pulumi.get(self, "user_id")
 

@@ -12,21 +12,12 @@ namespace Pulumi.Aws.CodePipeline.Inputs
 
     public sealed class PipelineVariableArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The default value of a pipeline-level variable.
-        /// </summary>
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
 
-        /// <summary>
-        /// The description of a pipeline-level variable.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The name of a pipeline-level variable.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

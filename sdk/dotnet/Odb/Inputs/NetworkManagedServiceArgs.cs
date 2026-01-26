@@ -33,10 +33,6 @@ namespace Pulumi.Aws.Odb.Inputs
 
         [Input("s3Accesses", required: true)]
         private InputList<Inputs.NetworkManagedServiceS3AccessArgs>? _s3Accesses;
-
-        /// <summary>
-        /// Specifies the configuration for Amazon S3 access from the ODB network.
-        /// </summary>
         public InputList<Inputs.NetworkManagedServiceS3AccessArgs> S3Accesses
         {
             get => _s3Accesses ?? (_s3Accesses = new InputList<Inputs.NetworkManagedServiceS3AccessArgs>());
@@ -56,12 +52,6 @@ namespace Pulumi.Aws.Odb.Inputs
 
         [Input("zeroEtlAccesses", required: true)]
         private InputList<Inputs.NetworkManagedServiceZeroEtlAccessArgs>? _zeroEtlAccesses;
-
-        /// <summary>
-        /// Specifies the configuration for Zero-ETL access from the ODB network.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public InputList<Inputs.NetworkManagedServiceZeroEtlAccessArgs> ZeroEtlAccesses
         {
             get => _zeroEtlAccesses ?? (_zeroEtlAccesses = new InputList<Inputs.NetworkManagedServiceZeroEtlAccessArgs>());

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class SdkvoiceSipMediaApplicationEndpoints {
-    /**
-     * @return Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
-     * 
-     */
     private String lambdaArn;
 
     private SdkvoiceSipMediaApplicationEndpoints() {}
-    /**
-     * @return Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
-     * 
-     */
     public String lambdaArn() {
         return this.lambdaArn;
     }

@@ -15,51 +15,23 @@ public final class DataProtectionSettingsAssociationState extends com.pulumi.res
 
     public static final DataProtectionSettingsAssociationState Empty = new DataProtectionSettingsAssociationState();
 
-    /**
-     * ARN of the data protection settings to associate with the portal. Forces replacement if changed.
-     * 
-     */
     @Import(name="dataProtectionSettingsArn")
     private @Nullable Output<String> dataProtectionSettingsArn;
 
-    /**
-     * @return ARN of the data protection settings to associate with the portal. Forces replacement if changed.
-     * 
-     */
     public Optional<Output<String>> dataProtectionSettingsArn() {
         return Optional.ofNullable(this.dataProtectionSettingsArn);
     }
 
-    /**
-     * ARN of the portal to associate with the data protection settings. Forces replacement if changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="portalArn")
     private @Nullable Output<String> portalArn;
 
-    /**
-     * @return ARN of the portal to associate with the data protection settings. Forces replacement if changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> portalArn() {
         return Optional.ofNullable(this.portalArn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -90,69 +62,29 @@ public final class DataProtectionSettingsAssociationState extends com.pulumi.res
             $ = new DataProtectionSettingsAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dataProtectionSettingsArn ARN of the data protection settings to associate with the portal. Forces replacement if changed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataProtectionSettingsArn(@Nullable Output<String> dataProtectionSettingsArn) {
             $.dataProtectionSettingsArn = dataProtectionSettingsArn;
             return this;
         }
 
-        /**
-         * @param dataProtectionSettingsArn ARN of the data protection settings to associate with the portal. Forces replacement if changed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataProtectionSettingsArn(String dataProtectionSettingsArn) {
             return dataProtectionSettingsArn(Output.of(dataProtectionSettingsArn));
         }
 
-        /**
-         * @param portalArn ARN of the portal to associate with the data protection settings. Forces replacement if changed.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder portalArn(@Nullable Output<String> portalArn) {
             $.portalArn = portalArn;
             return this;
         }
 
-        /**
-         * @param portalArn ARN of the portal to associate with the data protection settings. Forces replacement if changed.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder portalArn(String portalArn) {
             return portalArn(Output.of(portalArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

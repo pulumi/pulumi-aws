@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentDataSourceServerSideEncryptionConfiguration
     {
-        /// <summary>
-        /// ARN of the AWS KMS key used to encrypt the resource.
-        /// </summary>
         public readonly string? KmsKeyArn;
 
         [OutputConstructor]

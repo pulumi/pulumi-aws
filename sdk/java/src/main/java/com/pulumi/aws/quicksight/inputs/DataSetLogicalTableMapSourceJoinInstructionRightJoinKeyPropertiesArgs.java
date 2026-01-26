@@ -15,17 +15,9 @@ public final class DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProper
 
     public static final DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs Empty = new DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs();
 
-    /**
-     * A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
-     * 
-     */
     @Import(name="uniqueKey")
     private @Nullable Output<Boolean> uniqueKey;
 
-    /**
-     * @return A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
-     * 
-     */
     public Optional<Output<Boolean>> uniqueKey() {
         return Optional.ofNullable(this.uniqueKey);
     }
@@ -54,23 +46,11 @@ public final class DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProper
             $ = new DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param uniqueKey A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uniqueKey(@Nullable Output<Boolean> uniqueKey) {
             $.uniqueKey = uniqueKey;
             return this;
         }
 
-        /**
-         * @param uniqueKey A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uniqueKey(Boolean uniqueKey) {
             return uniqueKey(Output.of(uniqueKey));
         }

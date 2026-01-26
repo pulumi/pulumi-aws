@@ -18,246 +18,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an ElastiCache user resource.
- * 
- * &gt; **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.elasticache.User;
- * import com.pulumi.aws.elasticache.UserArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App }{{@code
- *     public static void main(String[] args) }{{@code
- *         Pulumi.run(App::stack);
- *     }}{@code
- * 
- *     public static void stack(Context ctx) }{{@code
- *         var test = new User("test", UserArgs.builder()
- *             .userId("testUserId")
- *             .userName("testUserName")
- *             .accessString("on ~app::* -}{@literal @}{@code all +}{@literal @}{@code read +}{@literal @}{@code hash +}{@literal @}{@code bitmap +}{@literal @}{@code geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember")
- *             .engine("redis")
- *             .passwords("password123456789")
- *             .build());
- * 
- *     }}{@code
- * }}{@code
- * }
- * </pre>
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.elasticache.User;
- * import com.pulumi.aws.elasticache.UserArgs;
- * import com.pulumi.aws.elasticache.inputs.UserAuthenticationModeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App }{{@code
- *     public static void main(String[] args) }{{@code
- *         Pulumi.run(App::stack);
- *     }}{@code
- * 
- *     public static void stack(Context ctx) }{{@code
- *         var test = new User("test", UserArgs.builder()
- *             .userId("testUserId")
- *             .userName("testUserName")
- *             .accessString("on ~* +}{@literal @}{@code all")
- *             .engine("redis")
- *             .authenticationMode(UserAuthenticationModeArgs.builder()
- *                 .type("iam")
- *                 .build())
- *             .build());
- * 
- *     }}{@code
- * }}{@code
- * }
- * </pre>
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.elasticache.User;
- * import com.pulumi.aws.elasticache.UserArgs;
- * import com.pulumi.aws.elasticache.inputs.UserAuthenticationModeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App }{{@code
- *     public static void main(String[] args) }{{@code
- *         Pulumi.run(App::stack);
- *     }}{@code
- * 
- *     public static void stack(Context ctx) }{{@code
- *         var test = new User("test", UserArgs.builder()
- *             .userId("testUserId")
- *             .userName("testUserName")
- *             .accessString("on ~* +}{@literal @}{@code all")
- *             .engine("redis")
- *             .authenticationMode(UserAuthenticationModeArgs.builder()
- *                 .type("password")
- *                 .passwords(                
- *                     "password1",
- *                     "password2")
- *                 .build())
- *             .build());
- * 
- *     }}{@code
- * }}{@code
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import ElastiCache users using the `user_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:elasticache/user:User my_user userId1
- * ```
- * 
- */
 @ResourceType(type="aws:elasticache/user:User")
 public class User extends com.pulumi.resources.CustomResource {
-    /**
-     * Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
-     * 
-     */
     @Export(name="accessString", refs={String.class}, tree="[0]")
     private Output<String> accessString;
 
-    /**
-     * @return Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
-     * 
-     */
     public Output<String> accessString() {
         return this.accessString;
     }
-    /**
-     * The ARN of the created ElastiCache User.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the created ElastiCache User.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Denotes the user&#39;s authentication properties. Detailed below.
-     * 
-     */
     @Export(name="authenticationMode", refs={UserAuthenticationMode.class}, tree="[0]")
     private Output<UserAuthenticationMode> authenticationMode;
 
-    /**
-     * @return Denotes the user&#39;s authentication properties. Detailed below.
-     * 
-     */
     public Output<UserAuthenticationMode> authenticationMode() {
         return this.authenticationMode;
     }
-    /**
-     * The current supported values are `redis`, `valkey` (case insensitive).
-     * 
-     */
     @Export(name="engine", refs={String.class}, tree="[0]")
     private Output<String> engine;
 
-    /**
-     * @return The current supported values are `redis`, `valkey` (case insensitive).
-     * 
-     */
     public Output<String> engine() {
         return this.engine;
     }
-    /**
-     * Indicates a password is not required for this user.
-     * 
-     */
     @Export(name="noPasswordRequired", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> noPasswordRequired;
 
-    /**
-     * @return Indicates a password is not required for this user.
-     * 
-     */
     public Output<Optional<Boolean>> noPasswordRequired() {
         return Codegen.optional(this.noPasswordRequired);
     }
-    /**
-     * Passwords used for this user. You can create up to two passwords for each user.
-     * 
-     */
     @Export(name="passwords", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> passwords;
 
-    /**
-     * @return Passwords used for this user. You can create up to two passwords for each user.
-     * 
-     */
     public Output<Optional<List<String>>> passwords() {
         return Codegen.optional(this.passwords);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A list of tags to be added to this resource. A tag is a key-value pair.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A list of tags to be added to this resource. A tag is a key-value pair.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
@@ -267,35 +74,15 @@ public class User extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The ID of the user.
-     * 
-     */
     @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
-    /**
-     * @return The ID of the user.
-     * 
-     */
     public Output<String> userId() {
         return this.userId;
     }
-    /**
-     * The username of the user.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
-    /**
-     * @return The username of the user.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> userName() {
         return this.userName;
     }

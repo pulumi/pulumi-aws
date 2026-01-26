@@ -12,15 +12,9 @@ namespace Pulumi.Aws.EmrContainers.Inputs
 
     public sealed class JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The SQL file to be executed.
-        /// </summary>
         [Input("entryPoint")]
         public Input<string>? EntryPoint { get; set; }
 
-        /// <summary>
-        /// The Spark parameters to be included in the Spark SQL command.
-        /// </summary>
         [Input("sparkSqlParameters")]
         public Input<string>? SparkSqlParameters { get; set; }
 

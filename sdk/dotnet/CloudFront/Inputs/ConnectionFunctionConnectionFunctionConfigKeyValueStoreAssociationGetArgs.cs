@@ -12,9 +12,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the key value store.
-        /// </summary>
         [Input("keyValueStoreArn", required: true)]
         public Input<string> KeyValueStoreArn { get; set; } = null!;
 

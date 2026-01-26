@@ -23,197 +23,93 @@ public final class DistributionTenantState extends com.pulumi.resources.Resource
 
     public static final DistributionTenantState Empty = new DistributionTenantState();
 
-    /**
-     * ARN of the distribution tenant.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the distribution tenant.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * ID of the connection group for the distribution tenant. If not specified, CloudFront uses the default connection group.
-     * 
-     */
     @Import(name="connectionGroupId")
     private @Nullable Output<String> connectionGroupId;
 
-    /**
-     * @return ID of the connection group for the distribution tenant. If not specified, CloudFront uses the default connection group.
-     * 
-     */
     public Optional<Output<String>> connectionGroupId() {
         return Optional.ofNullable(this.connectionGroupId);
     }
 
-    /**
-     * Customizations for the distribution tenant (maximum one).
-     * 
-     */
     @Import(name="customizations")
     private @Nullable Output<DistributionTenantCustomizationsArgs> customizations;
 
-    /**
-     * @return Customizations for the distribution tenant (maximum one).
-     * 
-     */
     public Optional<Output<DistributionTenantCustomizationsArgs>> customizations() {
         return Optional.ofNullable(this.customizations);
     }
 
-    /**
-     * ID of the multi-tenant distribution.
-     * 
-     */
     @Import(name="distributionId")
     private @Nullable Output<String> distributionId;
 
-    /**
-     * @return ID of the multi-tenant distribution.
-     * 
-     */
     public Optional<Output<String>> distributionId() {
         return Optional.ofNullable(this.distributionId);
     }
 
-    /**
-     * Set of domains associated with the distribution tenant.
-     * 
-     */
     @Import(name="domains")
     private @Nullable Output<List<DistributionTenantDomainArgs>> domains;
 
-    /**
-     * @return Set of domains associated with the distribution tenant.
-     * 
-     */
     public Optional<Output<List<DistributionTenantDomainArgs>>> domains() {
         return Optional.ofNullable(this.domains);
     }
 
-    /**
-     * Whether the distribution tenant is enabled to serve traffic. Defaults to `true`.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Whether the distribution tenant is enabled to serve traffic. Defaults to `true`.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * Current version of the distribution tenant.
-     * 
-     */
     @Import(name="etag")
     private @Nullable Output<String> etag;
 
-    /**
-     * @return Current version of the distribution tenant.
-     * 
-     */
     public Optional<Output<String>> etag() {
         return Optional.ofNullable(this.etag);
     }
 
-    /**
-     * Managed certificate request for CloudFront managed ACM certificate (maximum one).
-     * 
-     */
     @Import(name="managedCertificateRequest")
     private @Nullable Output<DistributionTenantManagedCertificateRequestArgs> managedCertificateRequest;
 
-    /**
-     * @return Managed certificate request for CloudFront managed ACM certificate (maximum one).
-     * 
-     */
     public Optional<Output<DistributionTenantManagedCertificateRequestArgs>> managedCertificateRequest() {
         return Optional.ofNullable(this.managedCertificateRequest);
     }
 
-    /**
-     * Name of the distribution tenant.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the distribution tenant.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Set of parameter values for the distribution tenant.
-     * 
-     */
     @Import(name="parameters")
     private @Nullable Output<List<DistributionTenantParameterArgs>> parameters;
 
-    /**
-     * @return Set of parameter values for the distribution tenant.
-     * 
-     */
     public Optional<Output<List<DistributionTenantParameterArgs>>> parameters() {
         return Optional.ofNullable(this.parameters);
     }
 
-    /**
-     * Current status of the distribution tenant.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return Current status of the distribution tenant.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -225,17 +121,9 @@ public final class DistributionTenantState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.timeouts);
     }
 
-    /**
-     * If enabled, the resource will wait for the distribution tenant status to change from `InProgress` to `Deployed`. Setting this to `false` will skip the process. Default: `true`.
-     * 
-     */
     @Import(name="waitForDeployment")
     private @Nullable Output<Boolean> waitForDeployment;
 
-    /**
-     * @return If enabled, the resource will wait for the distribution tenant status to change from `InProgress` to `Deployed`. Setting this to `false` will skip the process. Default: `true`.
-     * 
-     */
     public Optional<Output<Boolean>> waitForDeployment() {
         return Optional.ofNullable(this.waitForDeployment);
     }
@@ -278,295 +166,127 @@ public final class DistributionTenantState extends com.pulumi.resources.Resource
             $ = new DistributionTenantState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the distribution tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the distribution tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param connectionGroupId ID of the connection group for the distribution tenant. If not specified, CloudFront uses the default connection group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionGroupId(@Nullable Output<String> connectionGroupId) {
             $.connectionGroupId = connectionGroupId;
             return this;
         }
 
-        /**
-         * @param connectionGroupId ID of the connection group for the distribution tenant. If not specified, CloudFront uses the default connection group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionGroupId(String connectionGroupId) {
             return connectionGroupId(Output.of(connectionGroupId));
         }
 
-        /**
-         * @param customizations Customizations for the distribution tenant (maximum one).
-         * 
-         * @return builder
-         * 
-         */
         public Builder customizations(@Nullable Output<DistributionTenantCustomizationsArgs> customizations) {
             $.customizations = customizations;
             return this;
         }
 
-        /**
-         * @param customizations Customizations for the distribution tenant (maximum one).
-         * 
-         * @return builder
-         * 
-         */
         public Builder customizations(DistributionTenantCustomizationsArgs customizations) {
             return customizations(Output.of(customizations));
         }
 
-        /**
-         * @param distributionId ID of the multi-tenant distribution.
-         * 
-         * @return builder
-         * 
-         */
         public Builder distributionId(@Nullable Output<String> distributionId) {
             $.distributionId = distributionId;
             return this;
         }
 
-        /**
-         * @param distributionId ID of the multi-tenant distribution.
-         * 
-         * @return builder
-         * 
-         */
         public Builder distributionId(String distributionId) {
             return distributionId(Output.of(distributionId));
         }
 
-        /**
-         * @param domains Set of domains associated with the distribution tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domains(@Nullable Output<List<DistributionTenantDomainArgs>> domains) {
             $.domains = domains;
             return this;
         }
 
-        /**
-         * @param domains Set of domains associated with the distribution tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domains(List<DistributionTenantDomainArgs> domains) {
             return domains(Output.of(domains));
         }
 
-        /**
-         * @param domains Set of domains associated with the distribution tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domains(DistributionTenantDomainArgs... domains) {
             return domains(List.of(domains));
         }
 
-        /**
-         * @param enabled Whether the distribution tenant is enabled to serve traffic. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether the distribution tenant is enabled to serve traffic. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param etag Current version of the distribution tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder etag(@Nullable Output<String> etag) {
             $.etag = etag;
             return this;
         }
 
-        /**
-         * @param etag Current version of the distribution tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder etag(String etag) {
             return etag(Output.of(etag));
         }
 
-        /**
-         * @param managedCertificateRequest Managed certificate request for CloudFront managed ACM certificate (maximum one).
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedCertificateRequest(@Nullable Output<DistributionTenantManagedCertificateRequestArgs> managedCertificateRequest) {
             $.managedCertificateRequest = managedCertificateRequest;
             return this;
         }
 
-        /**
-         * @param managedCertificateRequest Managed certificate request for CloudFront managed ACM certificate (maximum one).
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedCertificateRequest(DistributionTenantManagedCertificateRequestArgs managedCertificateRequest) {
             return managedCertificateRequest(Output.of(managedCertificateRequest));
         }
 
-        /**
-         * @param name Name of the distribution tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the distribution tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param parameters Set of parameter values for the distribution tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(@Nullable Output<List<DistributionTenantParameterArgs>> parameters) {
             $.parameters = parameters;
             return this;
         }
 
-        /**
-         * @param parameters Set of parameter values for the distribution tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(List<DistributionTenantParameterArgs> parameters) {
             return parameters(Output.of(parameters));
         }
 
-        /**
-         * @param parameters Set of parameter values for the distribution tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(DistributionTenantParameterArgs... parameters) {
             return parameters(List.of(parameters));
         }
 
-        /**
-         * @param status Current status of the distribution tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Current status of the distribution tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
@@ -580,23 +300,11 @@ public final class DistributionTenantState extends com.pulumi.resources.Resource
             return timeouts(Output.of(timeouts));
         }
 
-        /**
-         * @param waitForDeployment If enabled, the resource will wait for the distribution tenant status to change from `InProgress` to `Deployed`. Setting this to `false` will skip the process. Default: `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder waitForDeployment(@Nullable Output<Boolean> waitForDeployment) {
             $.waitForDeployment = waitForDeployment;
             return this;
         }
 
-        /**
-         * @param waitForDeployment If enabled, the resource will wait for the distribution tenant status to change from `InProgress` to `Deployed`. Setting this to `false` will skip the process. Default: `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder waitForDeployment(Boolean waitForDeployment) {
             return waitForDeployment(Output.of(waitForDeployment));
         }

@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScriptStorageLocation {
-    /**
-     * @return Name of your S3 bucket.
-     * 
-     */
     private String bucket;
-    /**
-     * @return Name of the zip file containing your script files.
-     * 
-     */
     private String key;
-    /**
-     * @return A specific version of the file. If not set, the latest version of the file is retrieved.
-     * 
-     */
     private @Nullable String objectVersion;
-    /**
-     * @return ARN of the access role that allows Amazon GameLift to access your S3 bucket.
-     * 
-     */
     private String roleArn;
 
     private ScriptStorageLocation() {}
-    /**
-     * @return Name of your S3 bucket.
-     * 
-     */
     public String bucket() {
         return this.bucket;
     }
-    /**
-     * @return Name of the zip file containing your script files.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return A specific version of the file. If not set, the latest version of the file is retrieved.
-     * 
-     */
     public Optional<String> objectVersion() {
         return Optional.ofNullable(this.objectVersion);
     }
-    /**
-     * @return ARN of the access role that allows Amazon GameLift to access your S3 bucket.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }

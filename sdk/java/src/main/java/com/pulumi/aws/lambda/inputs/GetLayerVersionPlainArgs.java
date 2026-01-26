@@ -16,81 +16,37 @@ public final class GetLayerVersionPlainArgs extends com.pulumi.resources.InvokeA
 
     public static final GetLayerVersionPlainArgs Empty = new GetLayerVersionPlainArgs();
 
-    /**
-     * Specific architecture the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
-     * 
-     */
     @Import(name="compatibleArchitecture")
     private @Nullable String compatibleArchitecture;
 
-    /**
-     * @return Specific architecture the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
-     * 
-     */
     public Optional<String> compatibleArchitecture() {
         return Optional.ofNullable(this.compatibleArchitecture);
     }
 
-    /**
-     * Specific runtime the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided runtime will be used.
-     * 
-     */
     @Import(name="compatibleRuntime")
     private @Nullable String compatibleRuntime;
 
-    /**
-     * @return Specific runtime the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided runtime will be used.
-     * 
-     */
     public Optional<String> compatibleRuntime() {
         return Optional.ofNullable(this.compatibleRuntime);
     }
 
-    /**
-     * Name of the Lambda layer.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="layerName", required=true)
     private String layerName;
 
-    /**
-     * @return Name of the Lambda layer.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String layerName() {
         return this.layerName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Specific layer version. Conflicts with `compatibleRuntime` and `compatibleArchitecture`. If omitted, the latest available layer version will be used.
-     * 
-     */
     @Import(name="version")
     private @Nullable Integer version;
 
-    /**
-     * @return Specific layer version. Conflicts with `compatibleRuntime` and `compatibleArchitecture`. If omitted, the latest available layer version will be used.
-     * 
-     */
     public Optional<Integer> version() {
         return Optional.ofNullable(this.version);
     }
@@ -123,58 +79,26 @@ public final class GetLayerVersionPlainArgs extends com.pulumi.resources.InvokeA
             $ = new GetLayerVersionPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param compatibleArchitecture Specific architecture the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder compatibleArchitecture(@Nullable String compatibleArchitecture) {
             $.compatibleArchitecture = compatibleArchitecture;
             return this;
         }
 
-        /**
-         * @param compatibleRuntime Specific runtime the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided runtime will be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder compatibleRuntime(@Nullable String compatibleRuntime) {
             $.compatibleRuntime = compatibleRuntime;
             return this;
         }
 
-        /**
-         * @param layerName Name of the Lambda layer.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder layerName(String layerName) {
             $.layerName = layerName;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param version Specific layer version. Conflicts with `compatibleRuntime` and `compatibleArchitecture`. If omitted, the latest available layer version will be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(@Nullable Integer version) {
             $.version = version;
             return this;

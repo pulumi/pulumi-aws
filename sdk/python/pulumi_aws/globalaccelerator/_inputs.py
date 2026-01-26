@@ -44,17 +44,8 @@ MYPY = False
 if not MYPY:
     class AcceleratorAttributesArgsDict(TypedDict):
         flow_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
-        """
         flow_logs_s3_bucket: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
-        """
         flow_logs_s3_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
-        """
 elif False:
     AcceleratorAttributesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -64,11 +55,6 @@ class AcceleratorAttributesArgs:
                  flow_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  flow_logs_s3_bucket: Optional[pulumi.Input[_builtins.str]] = None,
                  flow_logs_s3_prefix: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.bool] flow_logs_enabled: Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
-        :param pulumi.Input[_builtins.str] flow_logs_s3_bucket: The name of the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
-        :param pulumi.Input[_builtins.str] flow_logs_s3_prefix: The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
-        """
         if flow_logs_enabled is not None:
             pulumi.set(__self__, "flow_logs_enabled", flow_logs_enabled)
         if flow_logs_s3_bucket is not None:
@@ -79,9 +65,6 @@ class AcceleratorAttributesArgs:
     @_builtins.property
     @pulumi.getter(name="flowLogsEnabled")
     def flow_logs_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
-        """
         return pulumi.get(self, "flow_logs_enabled")
 
     @flow_logs_enabled.setter
@@ -91,9 +74,6 @@ class AcceleratorAttributesArgs:
     @_builtins.property
     @pulumi.getter(name="flowLogsS3Bucket")
     def flow_logs_s3_bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
-        """
         return pulumi.get(self, "flow_logs_s3_bucket")
 
     @flow_logs_s3_bucket.setter
@@ -103,9 +83,6 @@ class AcceleratorAttributesArgs:
     @_builtins.property
     @pulumi.getter(name="flowLogsS3Prefix")
     def flow_logs_s3_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
-        """
         return pulumi.get(self, "flow_logs_s3_prefix")
 
     @flow_logs_s3_prefix.setter
@@ -116,13 +93,7 @@ class AcceleratorAttributesArgs:
 if not MYPY:
     class AcceleratorIpSetArgsDict(TypedDict):
         ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
-        """
         ip_family: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of IP addresses included in this IP set.
-        """
 elif False:
     AcceleratorIpSetArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -131,10 +102,6 @@ class AcceleratorIpSetArgs:
     def __init__(__self__, *,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  ip_family: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_addresses: The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
-        :param pulumi.Input[_builtins.str] ip_family: The type of IP addresses included in this IP set.
-        """
         if ip_addresses is not None:
             pulumi.set(__self__, "ip_addresses", ip_addresses)
         if ip_family is not None:
@@ -143,9 +110,6 @@ class AcceleratorIpSetArgs:
     @_builtins.property
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
-        """
         return pulumi.get(self, "ip_addresses")
 
     @ip_addresses.setter
@@ -155,9 +119,6 @@ class AcceleratorIpSetArgs:
     @_builtins.property
     @pulumi.getter(name="ipFamily")
     def ip_family(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of IP addresses included in this IP set.
-        """
         return pulumi.get(self, "ip_family")
 
     @ip_family.setter
@@ -168,17 +129,8 @@ class AcceleratorIpSetArgs:
 if not MYPY:
     class CrossAccountAttachmentResourceArgsDict(TypedDict):
         cidr_block: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        IP address range, in CIDR format, that is specified as resource.
-        """
         endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The endpoint ID for the endpoint that is specified as a AWS resource.
-        """
         region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The AWS Region where a shared endpoint resource is located.
-        """
 elif False:
     CrossAccountAttachmentResourceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -188,11 +140,6 @@ class CrossAccountAttachmentResourceArgs:
                  cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
                  endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] cidr_block: IP address range, in CIDR format, that is specified as resource.
-        :param pulumi.Input[_builtins.str] endpoint_id: The endpoint ID for the endpoint that is specified as a AWS resource.
-        :param pulumi.Input[_builtins.str] region: The AWS Region where a shared endpoint resource is located.
-        """
         if cidr_block is not None:
             pulumi.set(__self__, "cidr_block", cidr_block)
         if endpoint_id is not None:
@@ -203,9 +150,6 @@ class CrossAccountAttachmentResourceArgs:
     @_builtins.property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        IP address range, in CIDR format, that is specified as resource.
-        """
         return pulumi.get(self, "cidr_block")
 
     @cidr_block.setter
@@ -215,9 +159,6 @@ class CrossAccountAttachmentResourceArgs:
     @_builtins.property
     @pulumi.getter(name="endpointId")
     def endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The endpoint ID for the endpoint that is specified as a AWS resource.
-        """
         return pulumi.get(self, "endpoint_id")
 
     @endpoint_id.setter
@@ -227,9 +168,6 @@ class CrossAccountAttachmentResourceArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS Region where a shared endpoint resource is located.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -240,17 +178,8 @@ class CrossAccountAttachmentResourceArgs:
 if not MYPY:
     class CustomRoutingAcceleratorAttributesArgsDict(TypedDict):
         flow_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
-        """
         flow_logs_s3_bucket: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
-        """
         flow_logs_s3_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
-        """
 elif False:
     CustomRoutingAcceleratorAttributesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -260,11 +189,6 @@ class CustomRoutingAcceleratorAttributesArgs:
                  flow_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  flow_logs_s3_bucket: Optional[pulumi.Input[_builtins.str]] = None,
                  flow_logs_s3_prefix: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.bool] flow_logs_enabled: Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
-        :param pulumi.Input[_builtins.str] flow_logs_s3_bucket: The name of the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
-        :param pulumi.Input[_builtins.str] flow_logs_s3_prefix: The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
-        """
         if flow_logs_enabled is not None:
             pulumi.set(__self__, "flow_logs_enabled", flow_logs_enabled)
         if flow_logs_s3_bucket is not None:
@@ -275,9 +199,6 @@ class CustomRoutingAcceleratorAttributesArgs:
     @_builtins.property
     @pulumi.getter(name="flowLogsEnabled")
     def flow_logs_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
-        """
         return pulumi.get(self, "flow_logs_enabled")
 
     @flow_logs_enabled.setter
@@ -287,9 +208,6 @@ class CustomRoutingAcceleratorAttributesArgs:
     @_builtins.property
     @pulumi.getter(name="flowLogsS3Bucket")
     def flow_logs_s3_bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
-        """
         return pulumi.get(self, "flow_logs_s3_bucket")
 
     @flow_logs_s3_bucket.setter
@@ -299,9 +217,6 @@ class CustomRoutingAcceleratorAttributesArgs:
     @_builtins.property
     @pulumi.getter(name="flowLogsS3Prefix")
     def flow_logs_s3_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
-        """
         return pulumi.get(self, "flow_logs_s3_prefix")
 
     @flow_logs_s3_prefix.setter
@@ -312,13 +227,7 @@ class CustomRoutingAcceleratorAttributesArgs:
 if not MYPY:
     class CustomRoutingAcceleratorIpSetArgsDict(TypedDict):
         ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
-        """
         ip_family: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of IP addresses included in this IP set.
-        """
 elif False:
     CustomRoutingAcceleratorIpSetArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -327,10 +236,6 @@ class CustomRoutingAcceleratorIpSetArgs:
     def __init__(__self__, *,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  ip_family: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_addresses: The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
-        :param pulumi.Input[_builtins.str] ip_family: The type of IP addresses included in this IP set.
-        """
         if ip_addresses is not None:
             pulumi.set(__self__, "ip_addresses", ip_addresses)
         if ip_family is not None:
@@ -339,9 +244,6 @@ class CustomRoutingAcceleratorIpSetArgs:
     @_builtins.property
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
-        """
         return pulumi.get(self, "ip_addresses")
 
     @ip_addresses.setter
@@ -351,9 +253,6 @@ class CustomRoutingAcceleratorIpSetArgs:
     @_builtins.property
     @pulumi.getter(name="ipFamily")
     def ip_family(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of IP addresses included in this IP set.
-        """
         return pulumi.get(self, "ip_family")
 
     @ip_family.setter
@@ -364,17 +263,8 @@ class CustomRoutingAcceleratorIpSetArgs:
 if not MYPY:
     class CustomRoutingEndpointGroupDestinationConfigurationArgsDict(TypedDict):
         from_port: pulumi.Input[_builtins.int]
-        """
-        The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-        """
         protocols: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `"TCP"` or `"UDP"`.
-        """
         to_port: pulumi.Input[_builtins.int]
-        """
-        The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-        """
 elif False:
     CustomRoutingEndpointGroupDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -384,11 +274,6 @@ class CustomRoutingEndpointGroupDestinationConfigurationArgs:
                  from_port: pulumi.Input[_builtins.int],
                  protocols: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  to_port: pulumi.Input[_builtins.int]):
-        """
-        :param pulumi.Input[_builtins.int] from_port: The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `"TCP"` or `"UDP"`.
-        :param pulumi.Input[_builtins.int] to_port: The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-        """
         pulumi.set(__self__, "from_port", from_port)
         pulumi.set(__self__, "protocols", protocols)
         pulumi.set(__self__, "to_port", to_port)
@@ -396,9 +281,6 @@ class CustomRoutingEndpointGroupDestinationConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="fromPort")
     def from_port(self) -> pulumi.Input[_builtins.int]:
-        """
-        The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-        """
         return pulumi.get(self, "from_port")
 
     @from_port.setter
@@ -408,9 +290,6 @@ class CustomRoutingEndpointGroupDestinationConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def protocols(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `"TCP"` or `"UDP"`.
-        """
         return pulumi.get(self, "protocols")
 
     @protocols.setter
@@ -420,9 +299,6 @@ class CustomRoutingEndpointGroupDestinationConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="toPort")
     def to_port(self) -> pulumi.Input[_builtins.int]:
-        """
-        The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-        """
         return pulumi.get(self, "to_port")
 
     @to_port.setter
@@ -433,9 +309,6 @@ class CustomRoutingEndpointGroupDestinationConfigurationArgs:
 if not MYPY:
     class CustomRoutingEndpointGroupEndpointConfigurationArgsDict(TypedDict):
         endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.
-        """
 elif False:
     CustomRoutingEndpointGroupEndpointConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -443,18 +316,12 @@ elif False:
 class CustomRoutingEndpointGroupEndpointConfigurationArgs:
     def __init__(__self__, *,
                  endpoint_id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] endpoint_id: An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.
-        """
         if endpoint_id is not None:
             pulumi.set(__self__, "endpoint_id", endpoint_id)
 
     @_builtins.property
     @pulumi.getter(name="endpointId")
     def endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.
-        """
         return pulumi.get(self, "endpoint_id")
 
     @endpoint_id.setter
@@ -465,13 +332,7 @@ class CustomRoutingEndpointGroupEndpointConfigurationArgs:
 if not MYPY:
     class CustomRoutingListenerPortRangeArgsDict(TypedDict):
         from_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The first port in the range of ports, inclusive.
-        """
         to_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The last port in the range of ports, inclusive.
-        """
 elif False:
     CustomRoutingListenerPortRangeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -480,10 +341,6 @@ class CustomRoutingListenerPortRangeArgs:
     def __init__(__self__, *,
                  from_port: Optional[pulumi.Input[_builtins.int]] = None,
                  to_port: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.int] from_port: The first port in the range of ports, inclusive.
-        :param pulumi.Input[_builtins.int] to_port: The last port in the range of ports, inclusive.
-        """
         if from_port is not None:
             pulumi.set(__self__, "from_port", from_port)
         if to_port is not None:
@@ -492,9 +349,6 @@ class CustomRoutingListenerPortRangeArgs:
     @_builtins.property
     @pulumi.getter(name="fromPort")
     def from_port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The first port in the range of ports, inclusive.
-        """
         return pulumi.get(self, "from_port")
 
     @from_port.setter
@@ -504,9 +358,6 @@ class CustomRoutingListenerPortRangeArgs:
     @_builtins.property
     @pulumi.getter(name="toPort")
     def to_port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The last port in the range of ports, inclusive.
-        """
         return pulumi.get(self, "to_port")
 
     @to_port.setter
@@ -517,22 +368,9 @@ class CustomRoutingListenerPortRangeArgs:
 if not MYPY:
     class EndpointGroupEndpointConfigurationArgsDict(TypedDict):
         attachment_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An ARN of an exposed cross-account attachment. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html) for more details.
-        """
         client_ip_preservation_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html) for more details. The default value is `false`.
-        **Note:** When client IP address preservation is enabled, the Global Accelerator service creates an EC2 Security Group in the VPC named `GlobalAccelerator` that must be deleted (potentially outside of the provider) before the VPC will successfully delete. If this EC2 Security Group is not deleted, the provider will retry the VPC deletion for a few minutes before reporting a `DependencyViolation` error. This cannot be resolved by re-running the provider.
-        """
         endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
-        """
         weight: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
-        """
 elif False:
     EndpointGroupEndpointConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -543,13 +381,6 @@ class EndpointGroupEndpointConfigurationArgs:
                  client_ip_preservation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
                  weight: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.str] attachment_arn: An ARN of an exposed cross-account attachment. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html) for more details.
-        :param pulumi.Input[_builtins.bool] client_ip_preservation_enabled: Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html) for more details. The default value is `false`.
-               **Note:** When client IP address preservation is enabled, the Global Accelerator service creates an EC2 Security Group in the VPC named `GlobalAccelerator` that must be deleted (potentially outside of the provider) before the VPC will successfully delete. If this EC2 Security Group is not deleted, the provider will retry the VPC deletion for a few minutes before reporting a `DependencyViolation` error. This cannot be resolved by re-running the provider.
-        :param pulumi.Input[_builtins.str] endpoint_id: An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
-        :param pulumi.Input[_builtins.int] weight: The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
-        """
         if attachment_arn is not None:
             pulumi.set(__self__, "attachment_arn", attachment_arn)
         if client_ip_preservation_enabled is not None:
@@ -562,9 +393,6 @@ class EndpointGroupEndpointConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="attachmentArn")
     def attachment_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        An ARN of an exposed cross-account attachment. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html) for more details.
-        """
         return pulumi.get(self, "attachment_arn")
 
     @attachment_arn.setter
@@ -574,10 +402,6 @@ class EndpointGroupEndpointConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="clientIpPreservationEnabled")
     def client_ip_preservation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html) for more details. The default value is `false`.
-        **Note:** When client IP address preservation is enabled, the Global Accelerator service creates an EC2 Security Group in the VPC named `GlobalAccelerator` that must be deleted (potentially outside of the provider) before the VPC will successfully delete. If this EC2 Security Group is not deleted, the provider will retry the VPC deletion for a few minutes before reporting a `DependencyViolation` error. This cannot be resolved by re-running the provider.
-        """
         return pulumi.get(self, "client_ip_preservation_enabled")
 
     @client_ip_preservation_enabled.setter
@@ -587,9 +411,6 @@ class EndpointGroupEndpointConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="endpointId")
     def endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
-        """
         return pulumi.get(self, "endpoint_id")
 
     @endpoint_id.setter
@@ -599,9 +420,6 @@ class EndpointGroupEndpointConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def weight(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
-        """
         return pulumi.get(self, "weight")
 
     @weight.setter
@@ -612,13 +430,7 @@ class EndpointGroupEndpointConfigurationArgs:
 if not MYPY:
     class EndpointGroupPortOverrideArgsDict(TypedDict):
         endpoint_port: pulumi.Input[_builtins.int]
-        """
-        The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
-        """
         listener_port: pulumi.Input[_builtins.int]
-        """
-        The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
-        """
 elif False:
     EndpointGroupPortOverrideArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -627,19 +439,12 @@ class EndpointGroupPortOverrideArgs:
     def __init__(__self__, *,
                  endpoint_port: pulumi.Input[_builtins.int],
                  listener_port: pulumi.Input[_builtins.int]):
-        """
-        :param pulumi.Input[_builtins.int] endpoint_port: The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
-        :param pulumi.Input[_builtins.int] listener_port: The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
-        """
         pulumi.set(__self__, "endpoint_port", endpoint_port)
         pulumi.set(__self__, "listener_port", listener_port)
 
     @_builtins.property
     @pulumi.getter(name="endpointPort")
     def endpoint_port(self) -> pulumi.Input[_builtins.int]:
-        """
-        The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
-        """
         return pulumi.get(self, "endpoint_port")
 
     @endpoint_port.setter
@@ -649,9 +454,6 @@ class EndpointGroupPortOverrideArgs:
     @_builtins.property
     @pulumi.getter(name="listenerPort")
     def listener_port(self) -> pulumi.Input[_builtins.int]:
-        """
-        The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
-        """
         return pulumi.get(self, "listener_port")
 
     @listener_port.setter
@@ -662,13 +464,7 @@ class EndpointGroupPortOverrideArgs:
 if not MYPY:
     class ListenerPortRangeArgsDict(TypedDict):
         from_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The first port in the range of ports, inclusive.
-        """
         to_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The last port in the range of ports, inclusive.
-        """
 elif False:
     ListenerPortRangeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -677,10 +473,6 @@ class ListenerPortRangeArgs:
     def __init__(__self__, *,
                  from_port: Optional[pulumi.Input[_builtins.int]] = None,
                  to_port: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.int] from_port: The first port in the range of ports, inclusive.
-        :param pulumi.Input[_builtins.int] to_port: The last port in the range of ports, inclusive.
-        """
         if from_port is not None:
             pulumi.set(__self__, "from_port", from_port)
         if to_port is not None:
@@ -689,9 +481,6 @@ class ListenerPortRangeArgs:
     @_builtins.property
     @pulumi.getter(name="fromPort")
     def from_port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The first port in the range of ports, inclusive.
-        """
         return pulumi.get(self, "from_port")
 
     @from_port.setter
@@ -701,9 +490,6 @@ class ListenerPortRangeArgs:
     @_builtins.property
     @pulumi.getter(name="toPort")
     def to_port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The last port in the range of ports, inclusive.
-        """
         return pulumi.get(self, "to_port")
 
     @to_port.setter

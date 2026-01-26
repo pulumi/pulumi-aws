@@ -12,15 +12,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNamedQueryResult {
-    /**
-     * @return Database to which the query belongs.
-     * 
-     */
     private String database;
-    /**
-     * @return Brief explanation of the query.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -33,17 +25,9 @@ public final class GetNamedQueryResult {
     private @Nullable String workgroup;
 
     private GetNamedQueryResult() {}
-    /**
-     * @return Database to which the query belongs.
-     * 
-     */
     public String database() {
         return this.database;
     }
-    /**
-     * @return Brief explanation of the query.
-     * 
-     */
     public String description() {
         return this.description;
     }

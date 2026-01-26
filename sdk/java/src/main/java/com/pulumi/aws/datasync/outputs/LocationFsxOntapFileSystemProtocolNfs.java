@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class LocationFsxOntapFileSystemProtocolNfs {
-    /**
-     * @return Mount options that are available for DataSync to access an NFS location. See NFS Mount Options below.
-     * 
-     */
     private LocationFsxOntapFileSystemProtocolNfsMountOptions mountOptions;
 
     private LocationFsxOntapFileSystemProtocolNfs() {}
-    /**
-     * @return Mount options that are available for DataSync to access an NFS location. See NFS Mount Options below.
-     * 
-     */
     public LocationFsxOntapFileSystemProtocolNfsMountOptions mountOptions() {
         return this.mountOptions;
     }

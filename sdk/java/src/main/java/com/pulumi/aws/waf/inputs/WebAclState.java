@@ -20,122 +20,58 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
 
     public static final WebAclState Empty = new WebAclState();
 
-    /**
-     * The ARN of the WAF WebACL.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The ARN of the WAF WebACL.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Configuration block with action that you want AWS WAF to take when a request doesn&#39;t match the criteria in any of the rules that are associated with the web ACL. Detailed below.
-     * 
-     */
     @Import(name="defaultAction")
     private @Nullable Output<WebAclDefaultActionArgs> defaultAction;
 
-    /**
-     * @return Configuration block with action that you want AWS WAF to take when a request doesn&#39;t match the criteria in any of the rules that are associated with the web ACL. Detailed below.
-     * 
-     */
     public Optional<Output<WebAclDefaultActionArgs>> defaultAction() {
         return Optional.ofNullable(this.defaultAction);
     }
 
-    /**
-     * Configuration block to enable WAF logging. Detailed below.
-     * 
-     */
     @Import(name="loggingConfiguration")
     private @Nullable Output<WebAclLoggingConfigurationArgs> loggingConfiguration;
 
-    /**
-     * @return Configuration block to enable WAF logging. Detailed below.
-     * 
-     */
     public Optional<Output<WebAclLoggingConfigurationArgs>> loggingConfiguration() {
         return Optional.ofNullable(this.loggingConfiguration);
     }
 
-    /**
-     * The name or description for the Amazon CloudWatch metric of this web ACL.
-     * 
-     */
     @Import(name="metricName")
     private @Nullable Output<String> metricName;
 
-    /**
-     * @return The name or description for the Amazon CloudWatch metric of this web ACL.
-     * 
-     */
     public Optional<Output<String>> metricName() {
         return Optional.ofNullable(this.metricName);
     }
 
-    /**
-     * The name or description of the web ACL.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name or description of the web ACL.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
-     * 
-     */
     @Import(name="rules")
     private @Nullable Output<List<WebAclRuleArgs>> rules;
 
-    /**
-     * @return Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
-     * 
-     */
     public Optional<Output<List<WebAclRuleArgs>>> rules() {
         return Optional.ofNullable(this.rules);
     }
 
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -171,180 +107,78 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
             $ = new WebAclState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The ARN of the WAF WebACL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The ARN of the WAF WebACL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param defaultAction Configuration block with action that you want AWS WAF to take when a request doesn&#39;t match the criteria in any of the rules that are associated with the web ACL. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultAction(@Nullable Output<WebAclDefaultActionArgs> defaultAction) {
             $.defaultAction = defaultAction;
             return this;
         }
 
-        /**
-         * @param defaultAction Configuration block with action that you want AWS WAF to take when a request doesn&#39;t match the criteria in any of the rules that are associated with the web ACL. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultAction(WebAclDefaultActionArgs defaultAction) {
             return defaultAction(Output.of(defaultAction));
         }
 
-        /**
-         * @param loggingConfiguration Configuration block to enable WAF logging. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loggingConfiguration(@Nullable Output<WebAclLoggingConfigurationArgs> loggingConfiguration) {
             $.loggingConfiguration = loggingConfiguration;
             return this;
         }
 
-        /**
-         * @param loggingConfiguration Configuration block to enable WAF logging. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loggingConfiguration(WebAclLoggingConfigurationArgs loggingConfiguration) {
             return loggingConfiguration(Output.of(loggingConfiguration));
         }
 
-        /**
-         * @param metricName The name or description for the Amazon CloudWatch metric of this web ACL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricName(@Nullable Output<String> metricName) {
             $.metricName = metricName;
             return this;
         }
 
-        /**
-         * @param metricName The name or description for the Amazon CloudWatch metric of this web ACL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricName(String metricName) {
             return metricName(Output.of(metricName));
         }
 
-        /**
-         * @param name The name or description of the web ACL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name or description of the web ACL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param rules Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(@Nullable Output<List<WebAclRuleArgs>> rules) {
             $.rules = rules;
             return this;
         }
 
-        /**
-         * @param rules Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(List<WebAclRuleArgs> rules) {
             return rules(Output.of(rules));
         }
 
-        /**
-         * @param rules Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(WebAclRuleArgs... rules) {
             return rules(List.of(rules));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

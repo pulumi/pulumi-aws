@@ -10,53 +10,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetJobDefinitionRetryStrategyEvaluateOnExit {
-    /**
-     * @return Specifies the action to take if all of the specified conditions (onStatusReason, onReason, and onExitCode) are met. The values aren&#39;t case sensitive.
-     * 
-     */
     private String action;
-    /**
-     * @return Contains a glob pattern to match against the decimal representation of the ExitCode returned for a job.
-     * 
-     */
     private String onExitCode;
-    /**
-     * @return Contains a glob pattern to match against the Reason returned for a job.
-     * 
-     */
     private String onReason;
-    /**
-     * @return Contains a glob pattern to match against the StatusReason returned for a job.
-     * 
-     */
     private String onStatusReason;
 
     private GetJobDefinitionRetryStrategyEvaluateOnExit() {}
-    /**
-     * @return Specifies the action to take if all of the specified conditions (onStatusReason, onReason, and onExitCode) are met. The values aren&#39;t case sensitive.
-     * 
-     */
     public String action() {
         return this.action;
     }
-    /**
-     * @return Contains a glob pattern to match against the decimal representation of the ExitCode returned for a job.
-     * 
-     */
     public String onExitCode() {
         return this.onExitCode;
     }
-    /**
-     * @return Contains a glob pattern to match against the Reason returned for a job.
-     * 
-     */
     public String onReason() {
         return this.onReason;
     }
-    /**
-     * @return Contains a glob pattern to match against the StatusReason returned for a job.
-     * 
-     */
     public String onStatusReason() {
         return this.onStatusReason;
     }

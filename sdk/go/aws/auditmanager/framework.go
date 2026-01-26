@@ -11,79 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Audit Manager Framework.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/auditmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := auditmanager.NewFramework(ctx, "test", &auditmanager.FrameworkArgs{
-//				Name: pulumi.String("example"),
-//				ControlSets: auditmanager.FrameworkControlSetArray{
-//					&auditmanager.FrameworkControlSetArgs{
-//						Name: pulumi.String("example"),
-//						Controls: auditmanager.FrameworkControlSetControlArray{
-//							&auditmanager.FrameworkControlSetControlArgs{
-//								Id: pulumi.Any(test1.Id),
-//							},
-//							&auditmanager.FrameworkControlSetControlArgs{
-//								Id: pulumi.Any(test2.Id),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Audit Manager Framework using the framework `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:auditmanager/framework:Framework example abc123-de45
-// ```
 type Framework struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the framework.
-	// * `control_sets[*].id` - Unique identifier for the framework control set.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
-	ComplianceType pulumi.StringPtrOutput `pulumi:"complianceType"`
-	// Configuration block(s) for the control sets that are associated with the framework. See `controlSets` Block below for details.
-	//
-	// The following arguments are optional:
-	ControlSets FrameworkControlSetArrayOutput `pulumi:"controlSets"`
-	// Description of the framework.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Framework type, such as a custom framework or a standard framework.
-	FrameworkType pulumi.StringOutput `pulumi:"frameworkType"`
-	// Name of the framework.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the framework. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn            pulumi.StringOutput            `pulumi:"arn"`
+	ComplianceType pulumi.StringPtrOutput         `pulumi:"complianceType"`
+	ControlSets    FrameworkControlSetArrayOutput `pulumi:"controlSets"`
+	Description    pulumi.StringPtrOutput         `pulumi:"description"`
+	FrameworkType  pulumi.StringOutput            `pulumi:"frameworkType"`
+	Name           pulumi.StringOutput            `pulumi:"name"`
+	Region         pulumi.StringOutput            `pulumi:"region"`
+	Tags           pulumi.StringMapOutput         `pulumi:"tags"`
+	TagsAll        pulumi.StringMapOutput         `pulumi:"tagsAll"`
 }
 
 // NewFramework registers a new resource with the given unique name, arguments, and options.
@@ -116,49 +55,27 @@ func GetFramework(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Framework resources.
 type frameworkState struct {
-	// Amazon Resource Name (ARN) of the framework.
-	// * `control_sets[*].id` - Unique identifier for the framework control set.
-	Arn *string `pulumi:"arn"`
-	// Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
-	ComplianceType *string `pulumi:"complianceType"`
-	// Configuration block(s) for the control sets that are associated with the framework. See `controlSets` Block below for details.
-	//
-	// The following arguments are optional:
-	ControlSets []FrameworkControlSet `pulumi:"controlSets"`
-	// Description of the framework.
-	Description *string `pulumi:"description"`
-	// Framework type, such as a custom framework or a standard framework.
-	FrameworkType *string `pulumi:"frameworkType"`
-	// Name of the framework.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the framework. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn            *string               `pulumi:"arn"`
+	ComplianceType *string               `pulumi:"complianceType"`
+	ControlSets    []FrameworkControlSet `pulumi:"controlSets"`
+	Description    *string               `pulumi:"description"`
+	FrameworkType  *string               `pulumi:"frameworkType"`
+	Name           *string               `pulumi:"name"`
+	Region         *string               `pulumi:"region"`
+	Tags           map[string]string     `pulumi:"tags"`
+	TagsAll        map[string]string     `pulumi:"tagsAll"`
 }
 
 type FrameworkState struct {
-	// Amazon Resource Name (ARN) of the framework.
-	// * `control_sets[*].id` - Unique identifier for the framework control set.
-	Arn pulumi.StringPtrInput
-	// Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
+	Arn            pulumi.StringPtrInput
 	ComplianceType pulumi.StringPtrInput
-	// Configuration block(s) for the control sets that are associated with the framework. See `controlSets` Block below for details.
-	//
-	// The following arguments are optional:
-	ControlSets FrameworkControlSetArrayInput
-	// Description of the framework.
-	Description pulumi.StringPtrInput
-	// Framework type, such as a custom framework or a standard framework.
-	FrameworkType pulumi.StringPtrInput
-	// Name of the framework.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the framework. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	ControlSets    FrameworkControlSetArrayInput
+	Description    pulumi.StringPtrInput
+	FrameworkType  pulumi.StringPtrInput
+	Name           pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
+	Tags           pulumi.StringMapInput
+	TagsAll        pulumi.StringMapInput
 }
 
 func (FrameworkState) ElementType() reflect.Type {
@@ -166,38 +83,22 @@ func (FrameworkState) ElementType() reflect.Type {
 }
 
 type frameworkArgs struct {
-	// Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
-	ComplianceType *string `pulumi:"complianceType"`
-	// Configuration block(s) for the control sets that are associated with the framework. See `controlSets` Block below for details.
-	//
-	// The following arguments are optional:
-	ControlSets []FrameworkControlSet `pulumi:"controlSets"`
-	// Description of the framework.
-	Description *string `pulumi:"description"`
-	// Name of the framework.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the framework. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	ComplianceType *string               `pulumi:"complianceType"`
+	ControlSets    []FrameworkControlSet `pulumi:"controlSets"`
+	Description    *string               `pulumi:"description"`
+	Name           *string               `pulumi:"name"`
+	Region         *string               `pulumi:"region"`
+	Tags           map[string]string     `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Framework resource.
 type FrameworkArgs struct {
-	// Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
 	ComplianceType pulumi.StringPtrInput
-	// Configuration block(s) for the control sets that are associated with the framework. See `controlSets` Block below for details.
-	//
-	// The following arguments are optional:
-	ControlSets FrameworkControlSetArrayInput
-	// Description of the framework.
-	Description pulumi.StringPtrInput
-	// Name of the framework.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the framework. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	ControlSets    FrameworkControlSetArrayInput
+	Description    pulumi.StringPtrInput
+	Name           pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
+	Tags           pulumi.StringMapInput
 }
 
 func (FrameworkArgs) ElementType() reflect.Type {
@@ -287,45 +188,34 @@ func (o FrameworkOutput) ToFrameworkOutputWithContext(ctx context.Context) Frame
 	return o
 }
 
-// Amazon Resource Name (ARN) of the framework.
-// * `control_sets[*].id` - Unique identifier for the framework control set.
 func (o FrameworkOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Framework) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
 func (o FrameworkOutput) ComplianceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Framework) pulumi.StringPtrOutput { return v.ComplianceType }).(pulumi.StringPtrOutput)
 }
 
-// Configuration block(s) for the control sets that are associated with the framework. See `controlSets` Block below for details.
-//
-// The following arguments are optional:
 func (o FrameworkOutput) ControlSets() FrameworkControlSetArrayOutput {
 	return o.ApplyT(func(v *Framework) FrameworkControlSetArrayOutput { return v.ControlSets }).(FrameworkControlSetArrayOutput)
 }
 
-// Description of the framework.
 func (o FrameworkOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Framework) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Framework type, such as a custom framework or a standard framework.
 func (o FrameworkOutput) FrameworkType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Framework) pulumi.StringOutput { return v.FrameworkType }).(pulumi.StringOutput)
 }
 
-// Name of the framework.
 func (o FrameworkOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Framework) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o FrameworkOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Framework) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the framework. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o FrameworkOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Framework) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

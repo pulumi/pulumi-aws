@@ -16,32 +16,16 @@ public final class ZoneVpcArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ZoneVpcArgs Empty = new ZoneVpcArgs();
 
-    /**
-     * ID of the VPC to associate.
-     * 
-     */
     @Import(name="vpcId", required=true)
     private Output<String> vpcId;
 
-    /**
-     * @return ID of the VPC to associate.
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }
 
-    /**
-     * Region of the VPC to associate. Defaults to AWS provider region.
-     * 
-     */
     @Import(name="vpcRegion")
     private @Nullable Output<String> vpcRegion;
 
-    /**
-     * @return Region of the VPC to associate. Defaults to AWS provider region.
-     * 
-     */
     public Optional<Output<String>> vpcRegion() {
         return Optional.ofNullable(this.vpcRegion);
     }
@@ -71,44 +55,20 @@ public final class ZoneVpcArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ZoneVpcArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param vpcId ID of the VPC to associate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId ID of the VPC to associate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }
 
-        /**
-         * @param vpcRegion Region of the VPC to associate. Defaults to AWS provider region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcRegion(@Nullable Output<String> vpcRegion) {
             $.vpcRegion = vpcRegion;
             return this;
         }
 
-        /**
-         * @param vpcRegion Region of the VPC to associate. Defaults to AWS provider region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcRegion(String vpcRegion) {
             return vpcRegion(Output.of(vpcRegion));
         }

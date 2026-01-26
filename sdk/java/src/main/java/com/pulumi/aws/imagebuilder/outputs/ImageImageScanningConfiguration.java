@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ImageImageScanningConfiguration {
-    /**
-     * @return Configuration block with ECR configuration. Detailed below.
-     * 
-     */
     private @Nullable ImageImageScanningConfigurationEcrConfiguration ecrConfiguration;
-    /**
-     * @return Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image. Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean imageScanningEnabled;
 
     private ImageImageScanningConfiguration() {}
-    /**
-     * @return Configuration block with ECR configuration. Detailed below.
-     * 
-     */
     public Optional<ImageImageScanningConfigurationEcrConfiguration> ecrConfiguration() {
         return Optional.ofNullable(this.ecrConfiguration);
     }
-    /**
-     * @return Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> imageScanningEnabled() {
         return Optional.ofNullable(this.imageScanningEnabled);
     }

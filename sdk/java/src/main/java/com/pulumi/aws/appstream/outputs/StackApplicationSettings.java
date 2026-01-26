@@ -13,33 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class StackApplicationSettings {
-    /**
-     * @return Whether application settings should be persisted.
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return Name of the settings group.
-     * Required when `enabled` is `true`.
-     * Can be up to 100 characters.
-     * 
-     */
     private @Nullable String settingsGroup;
 
     private StackApplicationSettings() {}
-    /**
-     * @return Whether application settings should be persisted.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return Name of the settings group.
-     * Required when `enabled` is `true`.
-     * Can be up to 100 characters.
-     * 
-     */
     public Optional<String> settingsGroup() {
         return Optional.ofNullable(this.settingsGroup);
     }

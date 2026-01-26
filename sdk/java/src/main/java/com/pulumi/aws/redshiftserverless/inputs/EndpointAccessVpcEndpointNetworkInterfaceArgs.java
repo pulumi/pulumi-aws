@@ -15,62 +15,30 @@ public final class EndpointAccessVpcEndpointNetworkInterfaceArgs extends com.pul
 
     public static final EndpointAccessVpcEndpointNetworkInterfaceArgs Empty = new EndpointAccessVpcEndpointNetworkInterfaceArgs();
 
-    /**
-     * The availability Zone.
-     * 
-     */
     @Import(name="availabilityZone")
     private @Nullable Output<String> availabilityZone;
 
-    /**
-     * @return The availability Zone.
-     * 
-     */
     public Optional<Output<String>> availabilityZone() {
         return Optional.ofNullable(this.availabilityZone);
     }
 
-    /**
-     * The unique identifier of the network interface.
-     * 
-     */
     @Import(name="networkInterfaceId")
     private @Nullable Output<String> networkInterfaceId;
 
-    /**
-     * @return The unique identifier of the network interface.
-     * 
-     */
     public Optional<Output<String>> networkInterfaceId() {
         return Optional.ofNullable(this.networkInterfaceId);
     }
 
-    /**
-     * The IPv4 address of the network interface within the subnet.
-     * 
-     */
     @Import(name="privateIpAddress")
     private @Nullable Output<String> privateIpAddress;
 
-    /**
-     * @return The IPv4 address of the network interface within the subnet.
-     * 
-     */
     public Optional<Output<String>> privateIpAddress() {
         return Optional.ofNullable(this.privateIpAddress);
     }
 
-    /**
-     * The unique identifier of the subnet.
-     * 
-     */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
-    /**
-     * @return The unique identifier of the subnet.
-     * 
-     */
     public Optional<Output<String>> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }
@@ -102,86 +70,38 @@ public final class EndpointAccessVpcEndpointNetworkInterfaceArgs extends com.pul
             $ = new EndpointAccessVpcEndpointNetworkInterfaceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param availabilityZone The availability Zone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZone(@Nullable Output<String> availabilityZone) {
             $.availabilityZone = availabilityZone;
             return this;
         }
 
-        /**
-         * @param availabilityZone The availability Zone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZone(String availabilityZone) {
             return availabilityZone(Output.of(availabilityZone));
         }
 
-        /**
-         * @param networkInterfaceId The unique identifier of the network interface.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInterfaceId(@Nullable Output<String> networkInterfaceId) {
             $.networkInterfaceId = networkInterfaceId;
             return this;
         }
 
-        /**
-         * @param networkInterfaceId The unique identifier of the network interface.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInterfaceId(String networkInterfaceId) {
             return networkInterfaceId(Output.of(networkInterfaceId));
         }
 
-        /**
-         * @param privateIpAddress The IPv4 address of the network interface within the subnet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateIpAddress(@Nullable Output<String> privateIpAddress) {
             $.privateIpAddress = privateIpAddress;
             return this;
         }
 
-        /**
-         * @param privateIpAddress The IPv4 address of the network interface within the subnet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateIpAddress(String privateIpAddress) {
             return privateIpAddress(Output.of(privateIpAddress));
         }
 
-        /**
-         * @param subnetId The unique identifier of the subnet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(@Nullable Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
-        /**
-         * @param subnetId The unique identifier of the subnet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }

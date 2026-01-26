@@ -13,29 +13,11 @@ namespace Pulumi.Aws.CostExplorer.Outputs
     [OutputType]
     public sealed class GetCostCategoryRuleRuleOrResult
     {
-        /// <summary>
-        /// Return results that match both `Dimension` objects.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetCostCategoryRuleRuleOrAndResult> Ands;
-        /// <summary>
-        /// Configuration block for the filter that's based on `CostCategory` values. See below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetCostCategoryRuleRuleOrCostCategoryResult> CostCategories;
-        /// <summary>
-        /// Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetCostCategoryRuleRuleOrDimensionResult> Dimensions;
-        /// <summary>
-        /// Return results that do not match the `Dimension` object.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetCostCategoryRuleRuleOrNotResult> Nots;
-        /// <summary>
-        /// Return results that match either `Dimension` object.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetCostCategoryRuleRuleOrOrResult> Ors;
-        /// <summary>
-        /// Configuration block for the specific `Tag` to use for `Expression`. See below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetCostCategoryRuleRuleOrTagResult> Tags;
 
         [OutputConstructor]

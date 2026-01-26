@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class StackSetInstanceStackInstanceSummary {
-    /**
-     * @return Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
-     * 
-     */
     private @Nullable String accountId;
-    /**
-     * @return Organizational unit ID in which the stack is deployed.
-     * 
-     */
     private @Nullable String organizationalUnitId;
-    /**
-     * @return Stack identifier.
-     * 
-     */
     private @Nullable String stackId;
 
     private StackSetInstanceStackInstanceSummary() {}
-    /**
-     * @return Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
-     * 
-     */
     public Optional<String> accountId() {
         return Optional.ofNullable(this.accountId);
     }
-    /**
-     * @return Organizational unit ID in which the stack is deployed.
-     * 
-     */
     public Optional<String> organizationalUnitId() {
         return Optional.ofNullable(this.organizationalUnitId);
     }
-    /**
-     * @return Stack identifier.
-     * 
-     */
     public Optional<String> stackId() {
         return Optional.ofNullable(this.stackId);
     }

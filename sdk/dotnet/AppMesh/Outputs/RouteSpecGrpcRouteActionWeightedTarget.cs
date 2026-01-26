@@ -13,17 +13,8 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class RouteSpecGrpcRouteActionWeightedTarget
     {
-        /// <summary>
-        /// The targeted port of the weighted object.
-        /// </summary>
         public readonly int? Port;
-        /// <summary>
-        /// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
-        /// </summary>
         public readonly string VirtualNode;
-        /// <summary>
-        /// Relative weight of the weighted target. An integer between 0 and 100.
-        /// </summary>
         public readonly int Weight;
 
         [OutputConstructor]

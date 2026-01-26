@@ -14,65 +14,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainEbsOptions {
-    /**
-     * @return Whether EBS volumes are attached to data nodes in the domain.
-     * 
-     */
     private Boolean ebsEnabled;
-    /**
-     * @return Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the GP3 and Provisioned IOPS EBS volume types.
-     * 
-     */
     private @Nullable Integer iops;
-    /**
-     * @return Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type.
-     * 
-     */
     private @Nullable Integer throughput;
-    /**
-     * @return Size of EBS volumes attached to data nodes (in GiB).
-     * 
-     */
     private @Nullable Integer volumeSize;
-    /**
-     * @return Type of EBS volumes attached to data nodes.
-     * 
-     */
     private @Nullable String volumeType;
 
     private DomainEbsOptions() {}
-    /**
-     * @return Whether EBS volumes are attached to data nodes in the domain.
-     * 
-     */
     public Boolean ebsEnabled() {
         return this.ebsEnabled;
     }
-    /**
-     * @return Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the GP3 and Provisioned IOPS EBS volume types.
-     * 
-     */
     public Optional<Integer> iops() {
         return Optional.ofNullable(this.iops);
     }
-    /**
-     * @return Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type.
-     * 
-     */
     public Optional<Integer> throughput() {
         return Optional.ofNullable(this.throughput);
     }
-    /**
-     * @return Size of EBS volumes attached to data nodes (in GiB).
-     * 
-     */
     public Optional<Integer> volumeSize() {
         return Optional.ofNullable(this.volumeSize);
     }
-    /**
-     * @return Type of EBS volumes attached to data nodes.
-     * 
-     */
     public Optional<String> volumeType() {
         return Optional.ofNullable(this.volumeType);
     }

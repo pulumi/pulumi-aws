@@ -9,76 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3
 {
-    /// <summary>
-    /// Provides an S3 bucket accelerate configuration resource. See the [Requirements for using Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/transfer-acceleration.html#transfer-acceleration-requirements) for more details.
-    /// 
-    /// &gt; This resource cannot be used with S3 directory buckets.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var mybucket = new Aws.S3.Bucket("mybucket", new()
-    ///     {
-    ///         BucketName = "mybucket",
-    ///     });
-    /// 
-    ///     var example = new Aws.S3.BucketAccelerateConfiguration("example", new()
-    ///     {
-    ///         Bucket = mybucket.Id,
-    ///         Status = "Enabled",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-    /// 
-    /// __Using `pulumi import` to import.__ For example:
-    /// 
-    /// If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:s3/bucketAccelerateConfiguration:BucketAccelerateConfiguration example bucket-name
-    /// ```
-    /// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:s3/bucketAccelerateConfiguration:BucketAccelerateConfiguration example bucket-name,123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:s3/bucketAccelerateConfiguration:BucketAccelerateConfiguration")]
     public partial class BucketAccelerateConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Name of the bucket.
-        /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
-        /// <summary>
-        /// Account ID of the expected bucket owner.
-        /// </summary>
         [Output("expectedBucketOwner")]
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -132,27 +74,15 @@ namespace Pulumi.Aws.S3
 
     public sealed class BucketAccelerateConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the bucket.
-        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
-        /// <summary>
-        /// Account ID of the expected bucket owner.
-        /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
-        /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 
@@ -164,27 +94,15 @@ namespace Pulumi.Aws.S3
 
     public sealed class BucketAccelerateConfigurationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the bucket.
-        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
-        /// <summary>
-        /// Account ID of the expected bucket owner.
-        /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

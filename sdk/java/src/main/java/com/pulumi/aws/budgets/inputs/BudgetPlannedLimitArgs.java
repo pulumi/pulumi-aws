@@ -14,47 +14,23 @@ public final class BudgetPlannedLimitArgs extends com.pulumi.resources.ResourceA
 
     public static final BudgetPlannedLimitArgs Empty = new BudgetPlannedLimitArgs();
 
-    /**
-     * (Required) The amount of cost or usage being measured for a budget.
-     * 
-     */
     @Import(name="amount", required=true)
     private Output<String> amount;
 
-    /**
-     * @return (Required) The amount of cost or usage being measured for a budget.
-     * 
-     */
     public Output<String> amount() {
         return this.amount;
     }
 
-    /**
-     * (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
-     * 
-     */
     @Import(name="startTime", required=true)
     private Output<String> startTime;
 
-    /**
-     * @return (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
-     * 
-     */
     public Output<String> startTime() {
         return this.startTime;
     }
 
-    /**
-     * (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
-     * 
-     */
     @Import(name="unit", required=true)
     private Output<String> unit;
 
-    /**
-     * @return (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
-     * 
-     */
     public Output<String> unit() {
         return this.unit;
     }
@@ -85,65 +61,29 @@ public final class BudgetPlannedLimitArgs extends com.pulumi.resources.ResourceA
             $ = new BudgetPlannedLimitArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param amount (Required) The amount of cost or usage being measured for a budget.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amount(Output<String> amount) {
             $.amount = amount;
             return this;
         }
 
-        /**
-         * @param amount (Required) The amount of cost or usage being measured for a budget.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amount(String amount) {
             return amount(Output.of(amount));
         }
 
-        /**
-         * @param startTime (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startTime(Output<String> startTime) {
             $.startTime = startTime;
             return this;
         }
 
-        /**
-         * @param startTime (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startTime(String startTime) {
             return startTime(Output.of(startTime));
         }
 
-        /**
-         * @param unit (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unit(Output<String> unit) {
             $.unit = unit;
             return this;
         }
 
-        /**
-         * @param unit (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unit(String unit) {
             return unit(Output.of(unit));
         }

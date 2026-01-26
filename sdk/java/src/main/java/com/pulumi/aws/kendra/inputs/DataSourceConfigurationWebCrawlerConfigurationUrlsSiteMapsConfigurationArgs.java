@@ -15,17 +15,9 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsCon
 
     public static final DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs Empty = new DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs();
 
-    /**
-     * The list of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
-     * 
-     */
     @Import(name="siteMaps", required=true)
     private Output<List<String>> siteMaps;
 
-    /**
-     * @return The list of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
-     * 
-     */
     public Output<List<String>> siteMaps() {
         return this.siteMaps;
     }
@@ -54,33 +46,15 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsCon
             $ = new DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param siteMaps The list of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder siteMaps(Output<List<String>> siteMaps) {
             $.siteMaps = siteMaps;
             return this;
         }
 
-        /**
-         * @param siteMaps The list of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder siteMaps(List<String> siteMaps) {
             return siteMaps(Output.of(siteMaps));
         }
 
-        /**
-         * @param siteMaps The list of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder siteMaps(String... siteMaps) {
             return siteMaps(List.of(siteMaps));
         }

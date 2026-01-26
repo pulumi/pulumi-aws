@@ -14,32 +14,16 @@ public final class ConfigurationSetEventDestinationEventDestinationKinesisFireho
 
     public static final ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs Empty = new ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
-     * 
-     */
     @Import(name="deliveryStreamArn", required=true)
     private Output<String> deliveryStreamArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
-     * 
-     */
     public Output<String> deliveryStreamArn() {
         return this.deliveryStreamArn;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
-     * 
-     */
     @Import(name="iamRoleArn", required=true)
     private Output<String> iamRoleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
-     * 
-     */
     public Output<String> iamRoleArn() {
         return this.iamRoleArn;
     }
@@ -69,44 +53,20 @@ public final class ConfigurationSetEventDestinationEventDestinationKinesisFireho
             $ = new ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param deliveryStreamArn The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deliveryStreamArn(Output<String> deliveryStreamArn) {
             $.deliveryStreamArn = deliveryStreamArn;
             return this;
         }
 
-        /**
-         * @param deliveryStreamArn The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deliveryStreamArn(String deliveryStreamArn) {
             return deliveryStreamArn(Output.of(deliveryStreamArn));
         }
 
-        /**
-         * @param iamRoleArn The Amazon Resource Name (ARN) of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
-         * 
-         * @return builder
-         * 
-         */
         public Builder iamRoleArn(Output<String> iamRoleArn) {
             $.iamRoleArn = iamRoleArn;
             return this;
         }
 
-        /**
-         * @param iamRoleArn The Amazon Resource Name (ARN) of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
-         * 
-         * @return builder
-         * 
-         */
         public Builder iamRoleArn(String iamRoleArn) {
             return iamRoleArn(Output.of(iamRoleArn));
         }

@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class VirtualNodeSpecListenerTimeoutHttp2Idle {
-    /**
-     * @return Unit of time. Valid values: `ms`, `s`.
-     * 
-     */
     private String unit;
-    /**
-     * @return Number of time units. Minimum value of `0`.
-     * 
-     */
     private Integer value;
 
     private VirtualNodeSpecListenerTimeoutHttp2Idle() {}
-    /**
-     * @return Unit of time. Valid values: `ms`, `s`.
-     * 
-     */
     public String unit() {
         return this.unit;
     }
-    /**
-     * @return Number of time units. Minimum value of `0`.
-     * 
-     */
     public Integer value() {
         return this.value;
     }

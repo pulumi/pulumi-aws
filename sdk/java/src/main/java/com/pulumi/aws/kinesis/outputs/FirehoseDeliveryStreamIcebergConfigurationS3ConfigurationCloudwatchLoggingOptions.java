@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions {
-    /**
-     * @return Enables or disables the logging. Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return The CloudWatch group name for logging. This value is required if `enabled` is true.
-     * 
-     */
     private @Nullable String logGroupName;
-    /**
-     * @return The CloudWatch log stream name for logging. This value is required if `enabled` is true.
-     * 
-     */
     private @Nullable String logStreamName;
 
     private FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions() {}
-    /**
-     * @return Enables or disables the logging. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return The CloudWatch group name for logging. This value is required if `enabled` is true.
-     * 
-     */
     public Optional<String> logGroupName() {
         return Optional.ofNullable(this.logGroupName);
     }
-    /**
-     * @return The CloudWatch log stream name for logging. This value is required if `enabled` is true.
-     * 
-     */
     public Optional<String> logStreamName() {
         return Optional.ofNullable(this.logStreamName);
     }

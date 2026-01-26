@@ -15,17 +15,9 @@ public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrid
 
     public static final FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs Empty = new FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs();
 
-    /**
-     * The action that changes the rule group from DROP to ALERT . This only applies to managed rule groups.
-     * 
-     */
     @Import(name="action")
     private @Nullable Output<String> action;
 
-    /**
-     * @return The action that changes the rule group from DROP to ALERT . This only applies to managed rule groups.
-     * 
-     */
     public Optional<Output<String>> action() {
         return Optional.ofNullable(this.action);
     }
@@ -54,23 +46,11 @@ public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrid
             $ = new FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param action The action that changes the rule group from DROP to ALERT . This only applies to managed rule groups.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(@Nullable Output<String> action) {
             $.action = action;
             return this;
         }
 
-        /**
-         * @param action The action that changes the rule group from DROP to ALERT . This only applies to managed rule groups.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(String action) {
             return action(Output.of(action));
         }

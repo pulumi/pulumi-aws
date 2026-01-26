@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SubscriberSourceAwsLogSourceResource {
-    /**
-     * @return The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT` and `WAF`.
-     * 
-     */
     private String sourceName;
-    /**
-     * @return The version for a AWS source. This must be a Regionally unique value.
-     * 
-     */
     private @Nullable String sourceVersion;
 
     private SubscriberSourceAwsLogSourceResource() {}
-    /**
-     * @return The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT` and `WAF`.
-     * 
-     */
     public String sourceName() {
         return this.sourceName;
     }
-    /**
-     * @return The version for a AWS source. This must be a Regionally unique value.
-     * 
-     */
     public Optional<String> sourceVersion() {
         return Optional.ofNullable(this.sourceVersion);
     }

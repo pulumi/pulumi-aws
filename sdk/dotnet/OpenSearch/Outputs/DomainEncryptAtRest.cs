@@ -13,13 +13,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class DomainEncryptAtRest
     {
-        /// <summary>
-        /// Whether to enable encryption at rest. If the `EncryptAtRest` block is not provided then this defaults to `False`. Enabling encryption on new domains requires an `EngineVersion` of `OpenSearch_X.Y` or `Elasticsearch_5.1` or greater.
-        /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// KMS key ARN to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key. Note that KMS will accept a KMS key ID but will return the key ARN. To prevent the provider detecting unwanted changes, use the key ARN instead.
-        /// </summary>
         public readonly string? KmsKeyId;
 
         [OutputConstructor]

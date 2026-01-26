@@ -9,71 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.RedShift
 {
-    /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @default = new Aws.RedShift.Cluster("default", new()
-    ///     {
-    ///         ClusterIdentifier = "tf-redshift-cluster",
-    ///         DatabaseName = "mydb",
-    ///         MasterUsername = "foo",
-    ///         MasterPassword = "Mustbe8characters",
-    ///         NodeType = "dc1.large",
-    ///         ClusterType = "single-node",
-    ///     });
-    /// 
-    ///     var defaultSnapshotSchedule = new Aws.RedShift.SnapshotSchedule("default", new()
-    ///     {
-    ///         Identifier = "tf-redshift-snapshot-schedule",
-    ///         Definitions = new[]
-    ///         {
-    ///             "rate(12 hours)",
-    ///         },
-    ///     });
-    /// 
-    ///     var defaultSnapshotScheduleAssociation = new Aws.RedShift.SnapshotScheduleAssociation("default", new()
-    ///     {
-    ///         ClusterIdentifier = @default.Id,
-    ///         ScheduleIdentifier = defaultSnapshotSchedule.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Redshift Snapshot Schedule Association using the `&lt;cluster-identifier&gt;/&lt;schedule-identifier&gt;`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation default tf-redshift-cluster/tf-redshift-snapshot-schedule
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation")]
     public partial class SnapshotScheduleAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The cluster identifier.
-        /// </summary>
         [Output("clusterIdentifier")]
         public Output<string> ClusterIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The snapshot schedule identifier.
-        /// </summary>
         [Output("scheduleIdentifier")]
         public Output<string> ScheduleIdentifier { get; private set; } = null!;
 
@@ -123,21 +67,12 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class SnapshotScheduleAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The cluster identifier.
-        /// </summary>
         [Input("clusterIdentifier", required: true)]
         public Input<string> ClusterIdentifier { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The snapshot schedule identifier.
-        /// </summary>
         [Input("scheduleIdentifier", required: true)]
         public Input<string> ScheduleIdentifier { get; set; } = null!;
 
@@ -149,21 +84,12 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class SnapshotScheduleAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The cluster identifier.
-        /// </summary>
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The snapshot schedule identifier.
-        /// </summary>
         [Input("scheduleIdentifier")]
         public Input<string>? ScheduleIdentifier { get; set; }
 

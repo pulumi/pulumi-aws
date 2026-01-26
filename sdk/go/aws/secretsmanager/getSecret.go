@@ -11,61 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `secretsmanager.SecretVersion` data source.
-//
-// ## Example Usage
-//
-// ### ARN
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/secretsmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := secretsmanager.LookupSecret(ctx, &secretsmanager.LookupSecretArgs{
-//				Arn: pulumi.StringRef("arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Name
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/secretsmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := secretsmanager.LookupSecret(ctx, &secretsmanager.LookupSecretArgs{
-//				Name: pulumi.StringRef("example"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.InvokeOption) (*LookupSecretResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSecretResult
@@ -78,36 +23,25 @@ func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getSecret.
 type LookupSecretArgs struct {
-	// ARN of the secret to retrieve.
-	Arn *string `pulumi:"arn"`
-	// Name of the secret to retrieve.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Tags of the secret.
-	Tags map[string]string `pulumi:"tags"`
+	Arn    *string           `pulumi:"arn"`
+	Name   *string           `pulumi:"name"`
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getSecret.
 type LookupSecretResult struct {
-	// ARN of the secret.
-	Arn string `pulumi:"arn"`
-	// Created date of the secret in UTC.
+	Arn         string `pulumi:"arn"`
 	CreatedDate string `pulumi:"createdDate"`
-	// Description of the secret.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
-	KmsKeyId string `pulumi:"kmsKeyId"`
-	// Last updated date of the secret in UTC.
-	LastChangedDate string `pulumi:"lastChangedDate"`
-	Name            string `pulumi:"name"`
-	// Resource-based policy document that's attached to the secret.
-	Policy string `pulumi:"policy"`
-	Region string `pulumi:"region"`
-	// Tags of the secret.
-	Tags map[string]string `pulumi:"tags"`
+	Id              string            `pulumi:"id"`
+	KmsKeyId        string            `pulumi:"kmsKeyId"`
+	LastChangedDate string            `pulumi:"lastChangedDate"`
+	Name            string            `pulumi:"name"`
+	Policy          string            `pulumi:"policy"`
+	Region          string            `pulumi:"region"`
+	Tags            map[string]string `pulumi:"tags"`
 }
 
 func LookupSecretOutput(ctx *pulumi.Context, args LookupSecretOutputArgs, opts ...pulumi.InvokeOption) LookupSecretResultOutput {
@@ -121,14 +55,10 @@ func LookupSecretOutput(ctx *pulumi.Context, args LookupSecretOutputArgs, opts .
 
 // A collection of arguments for invoking getSecret.
 type LookupSecretOutputArgs struct {
-	// ARN of the secret to retrieve.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// Name of the secret to retrieve.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Arn    pulumi.StringPtrInput `pulumi:"arn"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Tags of the secret.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupSecretOutputArgs) ElementType() reflect.Type {
@@ -150,17 +80,14 @@ func (o LookupSecretResultOutput) ToLookupSecretResultOutputWithContext(ctx cont
 	return o
 }
 
-// ARN of the secret.
 func (o LookupSecretResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Created date of the secret in UTC.
 func (o LookupSecretResultOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
-// Description of the secret.
 func (o LookupSecretResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -170,12 +97,10 @@ func (o LookupSecretResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
 func (o LookupSecretResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// Last updated date of the secret in UTC.
 func (o LookupSecretResultOutput) LastChangedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.LastChangedDate }).(pulumi.StringOutput)
 }
@@ -184,7 +109,6 @@ func (o LookupSecretResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Resource-based policy document that's attached to the secret.
 func (o LookupSecretResultOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.Policy }).(pulumi.StringOutput)
 }
@@ -193,7 +117,6 @@ func (o LookupSecretResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Tags of the secret.
 func (o LookupSecretResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupSecretResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

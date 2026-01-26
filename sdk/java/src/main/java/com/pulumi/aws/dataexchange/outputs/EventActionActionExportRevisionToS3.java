@@ -12,33 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventActionActionExportRevisionToS3 {
-    /**
-     * @return Configures server-side encryption of the exported revision.
-     * Described in `encryption` Configuration Block below.
-     * 
-     */
     private @Nullable EventActionActionExportRevisionToS3Encryption encryption;
-    /**
-     * @return Configures the S3 destination of the exported revision.
-     * Described in `revisionDestination` Configuration Block below.
-     * 
-     */
     private @Nullable EventActionActionExportRevisionToS3RevisionDestination revisionDestination;
 
     private EventActionActionExportRevisionToS3() {}
-    /**
-     * @return Configures server-side encryption of the exported revision.
-     * Described in `encryption` Configuration Block below.
-     * 
-     */
     public Optional<EventActionActionExportRevisionToS3Encryption> encryption() {
         return Optional.ofNullable(this.encryption);
     }
-    /**
-     * @return Configures the S3 destination of the exported revision.
-     * Described in `revisionDestination` Configuration Block below.
-     * 
-     */
     public Optional<EventActionActionExportRevisionToS3RevisionDestination> revisionDestination() {
         return Optional.ofNullable(this.revisionDestination);
     }

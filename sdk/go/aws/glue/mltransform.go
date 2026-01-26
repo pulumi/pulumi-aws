@@ -12,176 +12,26 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Glue ML Transform resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glue"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testCatalogDatabase, err := glue.NewCatalogDatabase(ctx, "test", &glue.CatalogDatabaseArgs{
-//				Name: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testCatalogTable, err := glue.NewCatalogTable(ctx, "test", &glue.CatalogTableArgs{
-//				Name:             pulumi.String("example"),
-//				DatabaseName:     testCatalogDatabase.Name,
-//				Owner:            pulumi.String("my_owner"),
-//				Retention:        pulumi.Int(1),
-//				TableType:        pulumi.String("VIRTUAL_VIEW"),
-//				ViewExpandedText: pulumi.String("view_expanded_text_1"),
-//				ViewOriginalText: pulumi.String("view_original_text_1"),
-//				StorageDescriptor: &glue.CatalogTableStorageDescriptorArgs{
-//					BucketColumns: pulumi.StringArray{
-//						pulumi.String("bucket_column_1"),
-//					},
-//					Compressed:             pulumi.Bool(false),
-//					InputFormat:            pulumi.String("SequenceFileInputFormat"),
-//					Location:               pulumi.String("my_location"),
-//					NumberOfBuckets:        pulumi.Int(1),
-//					OutputFormat:           pulumi.String("SequenceFileInputFormat"),
-//					StoredAsSubDirectories: pulumi.Bool(false),
-//					Parameters: pulumi.StringMap{
-//						"param1": pulumi.String("param1_val"),
-//					},
-//					Columns: glue.CatalogTableStorageDescriptorColumnArray{
-//						&glue.CatalogTableStorageDescriptorColumnArgs{
-//							Name:    pulumi.String("my_column_1"),
-//							Type:    pulumi.String("int"),
-//							Comment: pulumi.String("my_column1_comment"),
-//						},
-//						&glue.CatalogTableStorageDescriptorColumnArgs{
-//							Name:    pulumi.String("my_column_2"),
-//							Type:    pulumi.String("string"),
-//							Comment: pulumi.String("my_column2_comment"),
-//						},
-//					},
-//					SerDeInfo: &glue.CatalogTableStorageDescriptorSerDeInfoArgs{
-//						Name: pulumi.String("ser_de_name"),
-//						Parameters: pulumi.StringMap{
-//							"param1": pulumi.String("param_val_1"),
-//						},
-//						SerializationLibrary: pulumi.String("org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe"),
-//					},
-//					SortColumns: glue.CatalogTableStorageDescriptorSortColumnArray{
-//						&glue.CatalogTableStorageDescriptorSortColumnArgs{
-//							Column:    pulumi.String("my_column_1"),
-//							SortOrder: pulumi.Int(1),
-//						},
-//					},
-//					SkewedInfo: &glue.CatalogTableStorageDescriptorSkewedInfoArgs{
-//						SkewedColumnNames: pulumi.StringArray{
-//							pulumi.String("my_column_1"),
-//						},
-//						SkewedColumnValueLocationMaps: pulumi.StringMap{
-//							"my_column_1": pulumi.String("my_column_1_val_loc_map"),
-//						},
-//						SkewedColumnValues: pulumi.StringArray{
-//							pulumi.String("skewed_val_1"),
-//						},
-//					},
-//				},
-//				PartitionKeys: glue.CatalogTablePartitionKeyArray{
-//					&glue.CatalogTablePartitionKeyArgs{
-//						Name:    pulumi.String("my_column_1"),
-//						Type:    pulumi.String("int"),
-//						Comment: pulumi.String("my_column_1_comment"),
-//					},
-//					&glue.CatalogTablePartitionKeyArgs{
-//						Name:    pulumi.String("my_column_2"),
-//						Type:    pulumi.String("string"),
-//						Comment: pulumi.String("my_column_2_comment"),
-//					},
-//				},
-//				Parameters: pulumi.StringMap{
-//					"param1": pulumi.String("param1_val"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = glue.NewMLTransform(ctx, "test", &glue.MLTransformArgs{
-//				Name:    pulumi.String("example"),
-//				RoleArn: pulumi.Any(testAwsIamRole.Arn),
-//				InputRecordTables: glue.MLTransformInputRecordTableArray{
-//					&glue.MLTransformInputRecordTableArgs{
-//						DatabaseName: testCatalogTable.DatabaseName,
-//						TableName:    testCatalogTable.Name,
-//					},
-//				},
-//				Parameters: &glue.MLTransformParametersArgs{
-//					TransformType: pulumi.String("FIND_MATCHES"),
-//					FindMatchesParameters: &glue.MLTransformParametersFindMatchesParametersArgs{
-//						PrimaryKeyColumnName: pulumi.String("my_column_1"),
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				testAwsIamRolePolicyAttachment,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Glue ML Transforms using `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:glue/mLTransform:MLTransform example tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5
-// ```
 type MLTransform struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of Glue ML Transform.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Description of the ML Transform.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
-	GlueVersion pulumi.StringOutput `pulumi:"glueVersion"`
-	// A list of AWS Glue table definitions used by the transform. see Input Record Tables.
+	Arn               pulumi.StringOutput                    `pulumi:"arn"`
+	Description       pulumi.StringPtrOutput                 `pulumi:"description"`
+	GlueVersion       pulumi.StringOutput                    `pulumi:"glueVersion"`
 	InputRecordTables MLTransformInputRecordTableArrayOutput `pulumi:"inputRecordTables"`
-	// The number of labels available for this transform.
-	LabelCount pulumi.IntOutput `pulumi:"labelCount"`
-	// The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
-	MaxCapacity pulumi.Float64Output `pulumi:"maxCapacity"`
-	// The maximum number of times to retry this ML Transform if it fails.
-	MaxRetries pulumi.IntPtrOutput `pulumi:"maxRetries"`
-	// The name you assign to this ML Transform. It must be unique in your account.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
-	NumberOfWorkers pulumi.IntPtrOutput `pulumi:"numberOfWorkers"`
-	// The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
-	Parameters MLTransformParametersOutput `pulumi:"parameters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The ARN of the IAM role associated with this ML Transform.
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// The object that represents the schema that this transform accepts. see Schema.
-	Schemas MLTransformSchemaArrayOutput `pulumi:"schemas"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
-	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
-	// The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
-	WorkerType pulumi.StringPtrOutput `pulumi:"workerType"`
+	LabelCount        pulumi.IntOutput                       `pulumi:"labelCount"`
+	MaxCapacity       pulumi.Float64Output                   `pulumi:"maxCapacity"`
+	MaxRetries        pulumi.IntPtrOutput                    `pulumi:"maxRetries"`
+	Name              pulumi.StringOutput                    `pulumi:"name"`
+	NumberOfWorkers   pulumi.IntPtrOutput                    `pulumi:"numberOfWorkers"`
+	Parameters        MLTransformParametersOutput            `pulumi:"parameters"`
+	Region            pulumi.StringOutput                    `pulumi:"region"`
+	RoleArn           pulumi.StringOutput                    `pulumi:"roleArn"`
+	Schemas           MLTransformSchemaArrayOutput           `pulumi:"schemas"`
+	Tags              pulumi.StringMapOutput                 `pulumi:"tags"`
+	TagsAll           pulumi.StringMapOutput                 `pulumi:"tagsAll"`
+	Timeout           pulumi.IntPtrOutput                    `pulumi:"timeout"`
+	WorkerType        pulumi.StringPtrOutput                 `pulumi:"workerType"`
 }
 
 // NewMLTransform registers a new resource with the given unique name, arguments, and options.
@@ -223,77 +73,43 @@ func GetMLTransform(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MLTransform resources.
 type mltransformState struct {
-	// Amazon Resource Name (ARN) of Glue ML Transform.
-	Arn *string `pulumi:"arn"`
-	// Description of the ML Transform.
-	Description *string `pulumi:"description"`
-	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
-	GlueVersion *string `pulumi:"glueVersion"`
-	// A list of AWS Glue table definitions used by the transform. see Input Record Tables.
+	Arn               *string                       `pulumi:"arn"`
+	Description       *string                       `pulumi:"description"`
+	GlueVersion       *string                       `pulumi:"glueVersion"`
 	InputRecordTables []MLTransformInputRecordTable `pulumi:"inputRecordTables"`
-	// The number of labels available for this transform.
-	LabelCount *int `pulumi:"labelCount"`
-	// The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
-	MaxCapacity *float64 `pulumi:"maxCapacity"`
-	// The maximum number of times to retry this ML Transform if it fails.
-	MaxRetries *int `pulumi:"maxRetries"`
-	// The name you assign to this ML Transform. It must be unique in your account.
-	Name *string `pulumi:"name"`
-	// The number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
-	NumberOfWorkers *int `pulumi:"numberOfWorkers"`
-	// The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
-	Parameters *MLTransformParameters `pulumi:"parameters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ARN of the IAM role associated with this ML Transform.
-	RoleArn *string `pulumi:"roleArn"`
-	// The object that represents the schema that this transform accepts. see Schema.
-	Schemas []MLTransformSchema `pulumi:"schemas"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
-	Timeout *int `pulumi:"timeout"`
-	// The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
-	WorkerType *string `pulumi:"workerType"`
+	LabelCount        *int                          `pulumi:"labelCount"`
+	MaxCapacity       *float64                      `pulumi:"maxCapacity"`
+	MaxRetries        *int                          `pulumi:"maxRetries"`
+	Name              *string                       `pulumi:"name"`
+	NumberOfWorkers   *int                          `pulumi:"numberOfWorkers"`
+	Parameters        *MLTransformParameters        `pulumi:"parameters"`
+	Region            *string                       `pulumi:"region"`
+	RoleArn           *string                       `pulumi:"roleArn"`
+	Schemas           []MLTransformSchema           `pulumi:"schemas"`
+	Tags              map[string]string             `pulumi:"tags"`
+	TagsAll           map[string]string             `pulumi:"tagsAll"`
+	Timeout           *int                          `pulumi:"timeout"`
+	WorkerType        *string                       `pulumi:"workerType"`
 }
 
 type MLTransformState struct {
-	// Amazon Resource Name (ARN) of Glue ML Transform.
-	Arn pulumi.StringPtrInput
-	// Description of the ML Transform.
-	Description pulumi.StringPtrInput
-	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
-	GlueVersion pulumi.StringPtrInput
-	// A list of AWS Glue table definitions used by the transform. see Input Record Tables.
+	Arn               pulumi.StringPtrInput
+	Description       pulumi.StringPtrInput
+	GlueVersion       pulumi.StringPtrInput
 	InputRecordTables MLTransformInputRecordTableArrayInput
-	// The number of labels available for this transform.
-	LabelCount pulumi.IntPtrInput
-	// The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
-	MaxCapacity pulumi.Float64PtrInput
-	// The maximum number of times to retry this ML Transform if it fails.
-	MaxRetries pulumi.IntPtrInput
-	// The name you assign to this ML Transform. It must be unique in your account.
-	Name pulumi.StringPtrInput
-	// The number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
-	NumberOfWorkers pulumi.IntPtrInput
-	// The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
-	Parameters MLTransformParametersPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ARN of the IAM role associated with this ML Transform.
-	RoleArn pulumi.StringPtrInput
-	// The object that represents the schema that this transform accepts. see Schema.
-	Schemas MLTransformSchemaArrayInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
-	Timeout pulumi.IntPtrInput
-	// The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
-	WorkerType pulumi.StringPtrInput
+	LabelCount        pulumi.IntPtrInput
+	MaxCapacity       pulumi.Float64PtrInput
+	MaxRetries        pulumi.IntPtrInput
+	Name              pulumi.StringPtrInput
+	NumberOfWorkers   pulumi.IntPtrInput
+	Parameters        MLTransformParametersPtrInput
+	Region            pulumi.StringPtrInput
+	RoleArn           pulumi.StringPtrInput
+	Schemas           MLTransformSchemaArrayInput
+	Tags              pulumi.StringMapInput
+	TagsAll           pulumi.StringMapInput
+	Timeout           pulumi.IntPtrInput
+	WorkerType        pulumi.StringPtrInput
 }
 
 func (MLTransformState) ElementType() reflect.Type {
@@ -301,62 +117,36 @@ func (MLTransformState) ElementType() reflect.Type {
 }
 
 type mltransformArgs struct {
-	// Description of the ML Transform.
-	Description *string `pulumi:"description"`
-	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
-	GlueVersion *string `pulumi:"glueVersion"`
-	// A list of AWS Glue table definitions used by the transform. see Input Record Tables.
+	Description       *string                       `pulumi:"description"`
+	GlueVersion       *string                       `pulumi:"glueVersion"`
 	InputRecordTables []MLTransformInputRecordTable `pulumi:"inputRecordTables"`
-	// The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
-	MaxCapacity *float64 `pulumi:"maxCapacity"`
-	// The maximum number of times to retry this ML Transform if it fails.
-	MaxRetries *int `pulumi:"maxRetries"`
-	// The name you assign to this ML Transform. It must be unique in your account.
-	Name *string `pulumi:"name"`
-	// The number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
-	NumberOfWorkers *int `pulumi:"numberOfWorkers"`
-	// The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
-	Parameters MLTransformParameters `pulumi:"parameters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ARN of the IAM role associated with this ML Transform.
-	RoleArn string `pulumi:"roleArn"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
-	Timeout *int `pulumi:"timeout"`
-	// The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
-	WorkerType *string `pulumi:"workerType"`
+	MaxCapacity       *float64                      `pulumi:"maxCapacity"`
+	MaxRetries        *int                          `pulumi:"maxRetries"`
+	Name              *string                       `pulumi:"name"`
+	NumberOfWorkers   *int                          `pulumi:"numberOfWorkers"`
+	Parameters        MLTransformParameters         `pulumi:"parameters"`
+	Region            *string                       `pulumi:"region"`
+	RoleArn           string                        `pulumi:"roleArn"`
+	Tags              map[string]string             `pulumi:"tags"`
+	Timeout           *int                          `pulumi:"timeout"`
+	WorkerType        *string                       `pulumi:"workerType"`
 }
 
 // The set of arguments for constructing a MLTransform resource.
 type MLTransformArgs struct {
-	// Description of the ML Transform.
-	Description pulumi.StringPtrInput
-	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
-	GlueVersion pulumi.StringPtrInput
-	// A list of AWS Glue table definitions used by the transform. see Input Record Tables.
+	Description       pulumi.StringPtrInput
+	GlueVersion       pulumi.StringPtrInput
 	InputRecordTables MLTransformInputRecordTableArrayInput
-	// The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
-	MaxCapacity pulumi.Float64PtrInput
-	// The maximum number of times to retry this ML Transform if it fails.
-	MaxRetries pulumi.IntPtrInput
-	// The name you assign to this ML Transform. It must be unique in your account.
-	Name pulumi.StringPtrInput
-	// The number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
-	NumberOfWorkers pulumi.IntPtrInput
-	// The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
-	Parameters MLTransformParametersInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ARN of the IAM role associated with this ML Transform.
-	RoleArn pulumi.StringInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
-	Timeout pulumi.IntPtrInput
-	// The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
-	WorkerType pulumi.StringPtrInput
+	MaxCapacity       pulumi.Float64PtrInput
+	MaxRetries        pulumi.IntPtrInput
+	Name              pulumi.StringPtrInput
+	NumberOfWorkers   pulumi.IntPtrInput
+	Parameters        MLTransformParametersInput
+	Region            pulumi.StringPtrInput
+	RoleArn           pulumi.StringInput
+	Tags              pulumi.StringMapInput
+	Timeout           pulumi.IntPtrInput
+	WorkerType        pulumi.StringPtrInput
 }
 
 func (MLTransformArgs) ElementType() reflect.Type {
@@ -446,87 +236,70 @@ func (o MLTransformOutput) ToMLTransformOutputWithContext(ctx context.Context) M
 	return o
 }
 
-// Amazon Resource Name (ARN) of Glue ML Transform.
 func (o MLTransformOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MLTransform) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description of the ML Transform.
 func (o MLTransformOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MLTransform) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 func (o MLTransformOutput) GlueVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *MLTransform) pulumi.StringOutput { return v.GlueVersion }).(pulumi.StringOutput)
 }
 
-// A list of AWS Glue table definitions used by the transform. see Input Record Tables.
 func (o MLTransformOutput) InputRecordTables() MLTransformInputRecordTableArrayOutput {
 	return o.ApplyT(func(v *MLTransform) MLTransformInputRecordTableArrayOutput { return v.InputRecordTables }).(MLTransformInputRecordTableArrayOutput)
 }
 
-// The number of labels available for this transform.
 func (o MLTransformOutput) LabelCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *MLTransform) pulumi.IntOutput { return v.LabelCount }).(pulumi.IntOutput)
 }
 
-// The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
 func (o MLTransformOutput) MaxCapacity() pulumi.Float64Output {
 	return o.ApplyT(func(v *MLTransform) pulumi.Float64Output { return v.MaxCapacity }).(pulumi.Float64Output)
 }
 
-// The maximum number of times to retry this ML Transform if it fails.
 func (o MLTransformOutput) MaxRetries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MLTransform) pulumi.IntPtrOutput { return v.MaxRetries }).(pulumi.IntPtrOutput)
 }
 
-// The name you assign to this ML Transform. It must be unique in your account.
 func (o MLTransformOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MLTransform) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
 func (o MLTransformOutput) NumberOfWorkers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MLTransform) pulumi.IntPtrOutput { return v.NumberOfWorkers }).(pulumi.IntPtrOutput)
 }
 
-// The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
 func (o MLTransformOutput) Parameters() MLTransformParametersOutput {
 	return o.ApplyT(func(v *MLTransform) MLTransformParametersOutput { return v.Parameters }).(MLTransformParametersOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MLTransformOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MLTransform) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ARN of the IAM role associated with this ML Transform.
 func (o MLTransformOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MLTransform) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// The object that represents the schema that this transform accepts. see Schema.
 func (o MLTransformOutput) Schemas() MLTransformSchemaArrayOutput {
 	return o.ApplyT(func(v *MLTransform) MLTransformSchemaArrayOutput { return v.Schemas }).(MLTransformSchemaArrayOutput)
 }
 
-// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o MLTransformOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MLTransform) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o MLTransformOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MLTransform) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
 func (o MLTransformOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MLTransform) pulumi.IntPtrOutput { return v.Timeout }).(pulumi.IntPtrOutput)
 }
 
-// The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
 func (o MLTransformOutput) WorkerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MLTransform) pulumi.StringPtrOutput { return v.WorkerType }).(pulumi.StringPtrOutput)
 }

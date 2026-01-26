@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TableImportTableInputFormatOptions {
-    /**
-     * @return This block contains the processing options for the CSV file being imported:
-     * 
-     */
     private @Nullable TableImportTableInputFormatOptionsCsv csv;
 
     private TableImportTableInputFormatOptions() {}
-    /**
-     * @return This block contains the processing options for the CSV file being imported:
-     * 
-     */
     public Optional<TableImportTableInputFormatOptionsCsv> csv() {
         return Optional.ofNullable(this.csv);
     }

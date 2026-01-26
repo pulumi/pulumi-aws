@@ -17,77 +17,37 @@ public final class NetworkInterfaceAttachmentArgs extends com.pulumi.resources.R
 
     public static final NetworkInterfaceAttachmentArgs Empty = new NetworkInterfaceAttachmentArgs();
 
-    /**
-     * Network interface index (int).
-     * 
-     */
     @Import(name="deviceIndex", required=true)
     private Output<Integer> deviceIndex;
 
-    /**
-     * @return Network interface index (int).
-     * 
-     */
     public Output<Integer> deviceIndex() {
         return this.deviceIndex;
     }
 
-    /**
-     * Instance ID to attach.
-     * 
-     */
     @Import(name="instanceId", required=true)
     private Output<String> instanceId;
 
-    /**
-     * @return Instance ID to attach.
-     * 
-     */
     public Output<String> instanceId() {
         return this.instanceId;
     }
 
-    /**
-     * Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
-     * 
-     */
     @Import(name="networkCardIndex")
     private @Nullable Output<Integer> networkCardIndex;
 
-    /**
-     * @return Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
-     * 
-     */
     public Optional<Output<Integer>> networkCardIndex() {
         return Optional.ofNullable(this.networkCardIndex);
     }
 
-    /**
-     * ENI ID to attach.
-     * 
-     */
     @Import(name="networkInterfaceId", required=true)
     private Output<String> networkInterfaceId;
 
-    /**
-     * @return ENI ID to attach.
-     * 
-     */
     public Output<String> networkInterfaceId() {
         return this.networkInterfaceId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -120,107 +80,47 @@ public final class NetworkInterfaceAttachmentArgs extends com.pulumi.resources.R
             $ = new NetworkInterfaceAttachmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param deviceIndex Network interface index (int).
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceIndex(Output<Integer> deviceIndex) {
             $.deviceIndex = deviceIndex;
             return this;
         }
 
-        /**
-         * @param deviceIndex Network interface index (int).
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceIndex(Integer deviceIndex) {
             return deviceIndex(Output.of(deviceIndex));
         }
 
-        /**
-         * @param instanceId Instance ID to attach.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceId(Output<String> instanceId) {
             $.instanceId = instanceId;
             return this;
         }
 
-        /**
-         * @param instanceId Instance ID to attach.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceId(String instanceId) {
             return instanceId(Output.of(instanceId));
         }
 
-        /**
-         * @param networkCardIndex Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkCardIndex(@Nullable Output<Integer> networkCardIndex) {
             $.networkCardIndex = networkCardIndex;
             return this;
         }
 
-        /**
-         * @param networkCardIndex Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkCardIndex(Integer networkCardIndex) {
             return networkCardIndex(Output.of(networkCardIndex));
         }
 
-        /**
-         * @param networkInterfaceId ENI ID to attach.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInterfaceId(Output<String> networkInterfaceId) {
             $.networkInterfaceId = networkInterfaceId;
             return this;
         }
 
-        /**
-         * @param networkInterfaceId ENI ID to attach.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInterfaceId(String networkInterfaceId) {
             return networkInterfaceId(Output.of(networkInterfaceId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

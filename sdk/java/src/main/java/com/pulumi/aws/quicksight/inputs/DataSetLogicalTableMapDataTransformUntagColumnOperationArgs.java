@@ -15,32 +15,16 @@ public final class DataSetLogicalTableMapDataTransformUntagColumnOperationArgs e
 
     public static final DataSetLogicalTableMapDataTransformUntagColumnOperationArgs Empty = new DataSetLogicalTableMapDataTransformUntagColumnOperationArgs();
 
-    /**
-     * Column name.
-     * 
-     */
     @Import(name="columnName", required=true)
     private Output<String> columnName;
 
-    /**
-     * @return Column name.
-     * 
-     */
     public Output<String> columnName() {
         return this.columnName;
     }
 
-    /**
-     * The column tags to remove from this column.
-     * 
-     */
     @Import(name="tagNames", required=true)
     private Output<List<String>> tagNames;
 
-    /**
-     * @return The column tags to remove from this column.
-     * 
-     */
     public Output<List<String>> tagNames() {
         return this.tagNames;
     }
@@ -70,54 +54,24 @@ public final class DataSetLogicalTableMapDataTransformUntagColumnOperationArgs e
             $ = new DataSetLogicalTableMapDataTransformUntagColumnOperationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param columnName Column name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnName(Output<String> columnName) {
             $.columnName = columnName;
             return this;
         }
 
-        /**
-         * @param columnName Column name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnName(String columnName) {
             return columnName(Output.of(columnName));
         }
 
-        /**
-         * @param tagNames The column tags to remove from this column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagNames(Output<List<String>> tagNames) {
             $.tagNames = tagNames;
             return this;
         }
 
-        /**
-         * @param tagNames The column tags to remove from this column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagNames(List<String> tagNames) {
             return tagNames(Output.of(tagNames));
         }
 
-        /**
-         * @param tagNames The column tags to remove from this column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagNames(String... tagNames) {
             return tagNames(List.of(tagNames));
         }

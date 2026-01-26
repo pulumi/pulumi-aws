@@ -13,77 +13,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig {
-    /**
-     * @return Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-     * 
-     */
     private String action;
-    /**
-     * @return Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-     * 
-     */
     private @Nullable String inputAction;
-    /**
-     * @return Whether to enable guardrail evaluation on the input. When disabled, you aren&#39;t charged for the evaluation.
-     * 
-     */
     private @Nullable Boolean inputEnabled;
-    /**
-     * @return Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-     * 
-     */
     private @Nullable String outputAction;
-    /**
-     * @return Whether to enable guardrail evaluation on the output. When disabled, you aren&#39;t charged for the evaluation.
-     * 
-     */
     private @Nullable Boolean outputEnabled;
-    /**
-     * @return The currently supported PII entities.
-     * 
-     */
     private String type;
 
     private GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig() {}
-    /**
-     * @return Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-     * 
-     */
     public String action() {
         return this.action;
     }
-    /**
-     * @return Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-     * 
-     */
     public Optional<String> inputAction() {
         return Optional.ofNullable(this.inputAction);
     }
-    /**
-     * @return Whether to enable guardrail evaluation on the input. When disabled, you aren&#39;t charged for the evaluation.
-     * 
-     */
     public Optional<Boolean> inputEnabled() {
         return Optional.ofNullable(this.inputEnabled);
     }
-    /**
-     * @return Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-     * 
-     */
     public Optional<String> outputAction() {
         return Optional.ofNullable(this.outputAction);
     }
-    /**
-     * @return Whether to enable guardrail evaluation on the output. When disabled, you aren&#39;t charged for the evaluation.
-     * 
-     */
     public Optional<Boolean> outputEnabled() {
         return Optional.ofNullable(this.outputEnabled);
     }
-    /**
-     * @return The currently supported PII entities.
-     * 
-     */
     public String type() {
         return this.type;
     }

@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventSourceMappingSelfManagedKafkaEventSourceConfig {
-    /**
-     * @return Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
-     * 
-     */
     private @Nullable String consumerGroupId;
-    /**
-     * @return Block for a Kafka schema registry setting. See below.
-     * 
-     */
     private @Nullable EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig schemaRegistryConfig;
 
     private EventSourceMappingSelfManagedKafkaEventSourceConfig() {}
-    /**
-     * @return Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
-     * 
-     */
     public Optional<String> consumerGroupId() {
         return Optional.ofNullable(this.consumerGroupId);
     }
-    /**
-     * @return Block for a Kafka schema registry setting. See below.
-     * 
-     */
     public Optional<EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig> schemaRegistryConfig() {
         return Optional.ofNullable(this.schemaRegistryConfig);
     }

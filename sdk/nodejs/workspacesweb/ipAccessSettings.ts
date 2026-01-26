@@ -7,88 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS WorkSpaces Web IP Access Settings resource. Once associated with a web portal, IP access settings control which IP addresses users can connect from.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.workspacesweb.IpAccessSettings("example", {
- *     displayName: "example",
- *     ipRules: [{
- *         ipRange: "10.0.0.0/16",
- *     }],
- * });
- * ```
- *
- * ### With Multiple IP Rules
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.workspacesweb.IpAccessSettings("example", {
- *     displayName: "example",
- *     description: "Example IP access settings",
- *     ipRules: [
- *         {
- *             ipRange: "10.0.0.0/16",
- *             description: "Main office",
- *         },
- *         {
- *             ipRange: "192.168.0.0/24",
- *             description: "Branch office",
- *         },
- *     ],
- * });
- * ```
- *
- * ### With All Arguments
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.kms.Key("example", {
- *     description: "KMS key for WorkSpaces Web IP Access Settings",
- *     deletionWindowInDays: 7,
- * });
- * const exampleIpAccessSettings = new aws.workspacesweb.IpAccessSettings("example", {
- *     displayName: "example",
- *     description: "Example IP access settings",
- *     customerManagedKey: example.arn,
- *     additionalEncryptionContext: {
- *         Environment: "Production",
- *     },
- *     ipRules: [
- *         {
- *             ipRange: "10.0.0.0/16",
- *             description: "Main office",
- *         },
- *         {
- *             ipRange: "192.168.0.0/24",
- *             description: "Branch office",
- *         },
- *     ],
- *     tags: {
- *         Name: "example-ip-access-settings",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import WorkSpaces Web IP Access Settings using the `ip_access_settings_arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:workspacesweb/ipAccessSettings:IpAccessSettings example arn:aws:workspaces-web:us-west-2:123456789012:ipAccessSettings/abcdef12345
- * ```
- */
 export class IpAccessSettings extends pulumi.CustomResource {
     /**
      * Get an existing IpAccessSettings resource's state with the given name, ID, and optional extra
@@ -117,47 +35,15 @@ export class IpAccessSettings extends pulumi.CustomResource {
         return obj['__pulumiType'] === IpAccessSettings.__pulumiType;
     }
 
-    /**
-     * Additional encryption context for the IP access settings.
-     */
     declare public readonly additionalEncryptionContext: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * List of web portal ARNs that this IP access settings resource is associated with.
-     */
     declare public /*out*/ readonly associatedPortalArns: pulumi.Output<string[]>;
-    /**
-     * ARN of the customer managed KMS key.
-     */
     declare public readonly customerManagedKey: pulumi.Output<string | undefined>;
-    /**
-     * The description of the IP access settings.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * The display name of the IP access settings.
-     */
     declare public readonly displayName: pulumi.Output<string>;
-    /**
-     * ARN of the IP access settings resource.
-     */
     declare public /*out*/ readonly ipAccessSettingsArn: pulumi.Output<string>;
-    /**
-     * The IP rules of the IP access settings. See IP Rule below.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly ipRules: pulumi.Output<outputs.workspacesweb.IpAccessSettingsIpRule[] | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -208,47 +94,15 @@ export class IpAccessSettings extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IpAccessSettings resources.
  */
 export interface IpAccessSettingsState {
-    /**
-     * Additional encryption context for the IP access settings.
-     */
     additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * List of web portal ARNs that this IP access settings resource is associated with.
-     */
     associatedPortalArns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * ARN of the customer managed KMS key.
-     */
     customerManagedKey?: pulumi.Input<string>;
-    /**
-     * The description of the IP access settings.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The display name of the IP access settings.
-     */
     displayName?: pulumi.Input<string>;
-    /**
-     * ARN of the IP access settings resource.
-     */
     ipAccessSettingsArn?: pulumi.Input<string>;
-    /**
-     * The IP rules of the IP access settings. See IP Rule below.
-     *
-     * The following arguments are optional:
-     */
     ipRules?: pulumi.Input<pulumi.Input<inputs.workspacesweb.IpAccessSettingsIpRule>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -256,34 +110,11 @@ export interface IpAccessSettingsState {
  * The set of arguments for constructing a IpAccessSettings resource.
  */
 export interface IpAccessSettingsArgs {
-    /**
-     * Additional encryption context for the IP access settings.
-     */
     additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * ARN of the customer managed KMS key.
-     */
     customerManagedKey?: pulumi.Input<string>;
-    /**
-     * The description of the IP access settings.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The display name of the IP access settings.
-     */
     displayName: pulumi.Input<string>;
-    /**
-     * The IP rules of the IP access settings. See IP Rule below.
-     *
-     * The following arguments are optional:
-     */
     ipRules?: pulumi.Input<pulumi.Input<inputs.workspacesweb.IpAccessSettingsIpRule>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

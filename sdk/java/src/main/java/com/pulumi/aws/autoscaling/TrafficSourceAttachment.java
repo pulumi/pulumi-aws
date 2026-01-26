@@ -15,93 +15,23 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Attaches a traffic source to an Auto Scaling group.
- * 
- * &gt; **NOTE on Auto Scaling Groups, Attachments and Traffic Source Attachments:** Pulumi provides standalone Attachment (for attaching Classic Load Balancers and Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target groups) and Traffic Source Attachment (for attaching Load Balancers and VPC Lattice target groups) resources and an Auto Scaling Group resource with `loadBalancers`, `targetGroupArns` and `trafficSource` attributes. Do not use the same traffic source in more than one of these resources. Doing so will cause a conflict of attachments. A `lifecycle` configuration block can be used to suppress differences if necessary.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.autoscaling.TrafficSourceAttachment;
- * import com.pulumi.aws.autoscaling.TrafficSourceAttachmentArgs;
- * import com.pulumi.aws.autoscaling.inputs.TrafficSourceAttachmentTrafficSourceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new TrafficSourceAttachment("example", TrafficSourceAttachmentArgs.builder()
- *             .autoscalingGroupName(exampleAwsAutoscalingGroup.id())
- *             .trafficSource(TrafficSourceAttachmentTrafficSourceArgs.builder()
- *                 .identifier(exampleAwsLbTargetGroup.arn())
- *                 .type("elbv2")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:autoscaling/trafficSourceAttachment:TrafficSourceAttachment")
 public class TrafficSourceAttachment extends com.pulumi.resources.CustomResource {
-    /**
-     * The name of the Auto Scaling group.
-     * 
-     */
     @Export(name="autoscalingGroupName", refs={String.class}, tree="[0]")
     private Output<String> autoscalingGroupName;
 
-    /**
-     * @return The name of the Auto Scaling group.
-     * 
-     */
     public Output<String> autoscalingGroupName() {
         return this.autoscalingGroupName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The unique identifiers of a traffic sources.
-     * 
-     */
     @Export(name="trafficSource", refs={TrafficSourceAttachmentTrafficSource.class}, tree="[0]")
     private Output</* @Nullable */ TrafficSourceAttachmentTrafficSource> trafficSource;
 
-    /**
-     * @return The unique identifiers of a traffic sources.
-     * 
-     */
     public Output<Optional<TrafficSourceAttachmentTrafficSource>> trafficSource() {
         return Codegen.optional(this.trafficSource);
     }

@@ -14,17 +14,9 @@ public final class ScheduleTargetKinesisParametersArgs extends com.pulumi.resour
 
     public static final ScheduleTargetKinesisParametersArgs Empty = new ScheduleTargetKinesisParametersArgs();
 
-    /**
-     * Specifies the shard to which EventBridge Scheduler sends the event. Up to 256 characters.
-     * 
-     */
     @Import(name="partitionKey", required=true)
     private Output<String> partitionKey;
 
-    /**
-     * @return Specifies the shard to which EventBridge Scheduler sends the event. Up to 256 characters.
-     * 
-     */
     public Output<String> partitionKey() {
         return this.partitionKey;
     }
@@ -53,23 +45,11 @@ public final class ScheduleTargetKinesisParametersArgs extends com.pulumi.resour
             $ = new ScheduleTargetKinesisParametersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param partitionKey Specifies the shard to which EventBridge Scheduler sends the event. Up to 256 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder partitionKey(Output<String> partitionKey) {
             $.partitionKey = partitionKey;
             return this;
         }
 
-        /**
-         * @param partitionKey Specifies the shard to which EventBridge Scheduler sends the event. Up to 256 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder partitionKey(String partitionKey) {
             return partitionKey(Output.of(partitionKey));
         }

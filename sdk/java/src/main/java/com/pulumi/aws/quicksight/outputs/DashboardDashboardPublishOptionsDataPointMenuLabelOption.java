@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardDashboardPublishOptionsDataPointMenuLabelOption {
-    /**
-     * @return Availability status. Possibles values: ENABLED, DISABLED.
-     * 
-     */
     private @Nullable String availabilityStatus;
 
     private DashboardDashboardPublishOptionsDataPointMenuLabelOption() {}
-    /**
-     * @return Availability status. Possibles values: ENABLED, DISABLED.
-     * 
-     */
     public Optional<String> availabilityStatus() {
         return Optional.ofNullable(this.availabilityStatus);
     }

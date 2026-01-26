@@ -17,47 +17,23 @@ public final class CidrLocationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final CidrLocationArgs Empty = new CidrLocationArgs();
 
-    /**
-     * CIDR blocks for the location.
-     * 
-     */
     @Import(name="cidrBlocks", required=true)
     private Output<List<String>> cidrBlocks;
 
-    /**
-     * @return CIDR blocks for the location.
-     * 
-     */
     public Output<List<String>> cidrBlocks() {
         return this.cidrBlocks;
     }
 
-    /**
-     * The ID of the CIDR collection to update.
-     * 
-     */
     @Import(name="cidrCollectionId", required=true)
     private Output<String> cidrCollectionId;
 
-    /**
-     * @return The ID of the CIDR collection to update.
-     * 
-     */
     public Output<String> cidrCollectionId() {
         return this.cidrCollectionId;
     }
 
-    /**
-     * Name for the CIDR location.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name for the CIDR location.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -88,75 +64,33 @@ public final class CidrLocationArgs extends com.pulumi.resources.ResourceArgs {
             $ = new CidrLocationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cidrBlocks CIDR blocks for the location.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrBlocks(Output<List<String>> cidrBlocks) {
             $.cidrBlocks = cidrBlocks;
             return this;
         }
 
-        /**
-         * @param cidrBlocks CIDR blocks for the location.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrBlocks(List<String> cidrBlocks) {
             return cidrBlocks(Output.of(cidrBlocks));
         }
 
-        /**
-         * @param cidrBlocks CIDR blocks for the location.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrBlocks(String... cidrBlocks) {
             return cidrBlocks(List.of(cidrBlocks));
         }
 
-        /**
-         * @param cidrCollectionId The ID of the CIDR collection to update.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrCollectionId(Output<String> cidrCollectionId) {
             $.cidrCollectionId = cidrCollectionId;
             return this;
         }
 
-        /**
-         * @param cidrCollectionId The ID of the CIDR collection to update.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrCollectionId(String cidrCollectionId) {
             return cidrCollectionId(Output.of(cidrCollectionId));
         }
 
-        /**
-         * @param name Name for the CIDR location.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name for the CIDR location.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

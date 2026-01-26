@@ -17,32 +17,16 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs extends com
 
     public static final ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs Empty = new ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs();
 
-    /**
-     * The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
-     * 
-     */
     @Import(name="deliveryStream")
     private @Nullable Output<String> deliveryStream;
 
-    /**
-     * @return The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
-     * 
-     */
     public Optional<Output<String>> deliveryStream() {
         return Optional.ofNullable(this.deliveryStream);
     }
 
-    /**
-     * Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
@@ -72,44 +56,20 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs extends com
             $ = new ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param deliveryStream The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deliveryStream(@Nullable Output<String> deliveryStream) {
             $.deliveryStream = deliveryStream;
             return this;
         }
 
-        /**
-         * @param deliveryStream The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deliveryStream(String deliveryStream) {
             return deliveryStream(Output.of(deliveryStream));
         }
 
-        /**
-         * @param enabled Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

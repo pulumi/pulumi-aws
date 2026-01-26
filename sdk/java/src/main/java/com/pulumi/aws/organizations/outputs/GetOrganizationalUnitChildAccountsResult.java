@@ -12,10 +12,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOrganizationalUnitChildAccountsResult {
-    /**
-     * @return List of child accounts, which have the following attributes:
-     * 
-     */
     private List<GetOrganizationalUnitChildAccountsAccount> accounts;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -25,10 +21,6 @@ public final class GetOrganizationalUnitChildAccountsResult {
     private String parentId;
 
     private GetOrganizationalUnitChildAccountsResult() {}
-    /**
-     * @return List of child accounts, which have the following attributes:
-     * 
-     */
     public List<GetOrganizationalUnitChildAccountsAccount> accounts() {
         return this.accounts;
     }

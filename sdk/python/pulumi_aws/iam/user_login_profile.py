@@ -25,10 +25,6 @@ class UserLoginProfileArgs:
                  pgp_key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserLoginProfile resource.
-        :param pulumi.Input[_builtins.str] user: The IAM user's name.
-        :param pulumi.Input[_builtins.int] password_length: The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
-        :param pulumi.Input[_builtins.bool] password_reset_required: Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
-        :param pulumi.Input[_builtins.str] pgp_key: Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
         """
         pulumi.set(__self__, "user", user)
         if password_length is not None:
@@ -41,9 +37,6 @@ class UserLoginProfileArgs:
     @_builtins.property
     @pulumi.getter
     def user(self) -> pulumi.Input[_builtins.str]:
-        """
-        The IAM user's name.
-        """
         return pulumi.get(self, "user")
 
     @user.setter
@@ -53,9 +46,6 @@ class UserLoginProfileArgs:
     @_builtins.property
     @pulumi.getter(name="passwordLength")
     def password_length(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
-        """
         return pulumi.get(self, "password_length")
 
     @password_length.setter
@@ -65,9 +55,6 @@ class UserLoginProfileArgs:
     @_builtins.property
     @pulumi.getter(name="passwordResetRequired")
     def password_reset_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
-        """
         return pulumi.get(self, "password_reset_required")
 
     @password_reset_required.setter
@@ -77,9 +64,6 @@ class UserLoginProfileArgs:
     @_builtins.property
     @pulumi.getter(name="pgpKey")
     def pgp_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
-        """
         return pulumi.get(self, "pgp_key")
 
     @pgp_key.setter
@@ -99,13 +83,6 @@ class _UserLoginProfileState:
                  user: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserLoginProfile resources.
-        :param pulumi.Input[_builtins.str] encrypted_password: The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
-        :param pulumi.Input[_builtins.str] key_fingerprint: The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
-        :param pulumi.Input[_builtins.str] password: The plain text password, only available when `pgp_key` is not provided.
-        :param pulumi.Input[_builtins.int] password_length: The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
-        :param pulumi.Input[_builtins.bool] password_reset_required: Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
-        :param pulumi.Input[_builtins.str] pgp_key: Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
-        :param pulumi.Input[_builtins.str] user: The IAM user's name.
         """
         if encrypted_password is not None:
             pulumi.set(__self__, "encrypted_password", encrypted_password)
@@ -125,9 +102,6 @@ class _UserLoginProfileState:
     @_builtins.property
     @pulumi.getter(name="encryptedPassword")
     def encrypted_password(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
-        """
         return pulumi.get(self, "encrypted_password")
 
     @encrypted_password.setter
@@ -137,9 +111,6 @@ class _UserLoginProfileState:
     @_builtins.property
     @pulumi.getter(name="keyFingerprint")
     def key_fingerprint(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
-        """
         return pulumi.get(self, "key_fingerprint")
 
     @key_fingerprint.setter
@@ -149,9 +120,6 @@ class _UserLoginProfileState:
     @_builtins.property
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The plain text password, only available when `pgp_key` is not provided.
-        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -161,9 +129,6 @@ class _UserLoginProfileState:
     @_builtins.property
     @pulumi.getter(name="passwordLength")
     def password_length(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
-        """
         return pulumi.get(self, "password_length")
 
     @password_length.setter
@@ -173,9 +138,6 @@ class _UserLoginProfileState:
     @_builtins.property
     @pulumi.getter(name="passwordResetRequired")
     def password_reset_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
-        """
         return pulumi.get(self, "password_reset_required")
 
     @password_reset_required.setter
@@ -185,9 +147,6 @@ class _UserLoginProfileState:
     @_builtins.property
     @pulumi.getter(name="pgpKey")
     def pgp_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
-        """
         return pulumi.get(self, "pgp_key")
 
     @pgp_key.setter
@@ -197,9 +156,6 @@ class _UserLoginProfileState:
     @_builtins.property
     @pulumi.getter
     def user(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The IAM user's name.
-        """
         return pulumi.get(self, "user")
 
     @user.setter
@@ -219,41 +175,9 @@ class UserLoginProfile(pulumi.CustomResource):
                  user: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an IAM User Login Profile with limited support for password creation during this provider resource creation. Uses PGP to encrypt the password for safe transport to the user. PGP keys can be obtained from Keybase.
-
-        > To reset an IAM User login password via this provider, you can use delete and recreate this resource or change any of the arguments.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.iam.User("example",
-            name="example",
-            path="/",
-            force_destroy=True)
-        example_user_login_profile = aws.iam.UserLoginProfile("example",
-            user=example.name,
-            pgp_key="keybase:some_person_that_exists")
-        pulumi.export("password", example_user_login_profile.encrypted_password)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import IAM User Login Profiles without password information via the IAM User name. For example:
-
-        ```sh
-        $ pulumi import aws:iam/userLoginProfile:UserLoginProfile example myusername
-        ```
-        Since Pulumi has no method to read the PGP or password information during import, use the resource options `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:
-
+        Create a UserLoginProfile resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] password_length: The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
-        :param pulumi.Input[_builtins.bool] password_reset_required: Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
-        :param pulumi.Input[_builtins.str] pgp_key: Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
-        :param pulumi.Input[_builtins.str] user: The IAM user's name.
         """
         ...
     @overload
@@ -262,35 +186,7 @@ class UserLoginProfile(pulumi.CustomResource):
                  args: UserLoginProfileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an IAM User Login Profile with limited support for password creation during this provider resource creation. Uses PGP to encrypt the password for safe transport to the user. PGP keys can be obtained from Keybase.
-
-        > To reset an IAM User login password via this provider, you can use delete and recreate this resource or change any of the arguments.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.iam.User("example",
-            name="example",
-            path="/",
-            force_destroy=True)
-        example_user_login_profile = aws.iam.UserLoginProfile("example",
-            user=example.name,
-            pgp_key="keybase:some_person_that_exists")
-        pulumi.export("password", example_user_login_profile.encrypted_password)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import IAM User Login Profiles without password information via the IAM User name. For example:
-
-        ```sh
-        $ pulumi import aws:iam/userLoginProfile:UserLoginProfile example myusername
-        ```
-        Since Pulumi has no method to read the PGP or password information during import, use the resource options `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:
-
+        Create a UserLoginProfile resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UserLoginProfileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -354,13 +250,6 @@ class UserLoginProfile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] encrypted_password: The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
-        :param pulumi.Input[_builtins.str] key_fingerprint: The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
-        :param pulumi.Input[_builtins.str] password: The plain text password, only available when `pgp_key` is not provided.
-        :param pulumi.Input[_builtins.int] password_length: The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
-        :param pulumi.Input[_builtins.bool] password_reset_required: Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
-        :param pulumi.Input[_builtins.str] pgp_key: Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
-        :param pulumi.Input[_builtins.str] user: The IAM user's name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -378,56 +267,35 @@ class UserLoginProfile(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="encryptedPassword")
     def encrypted_password(self) -> pulumi.Output[_builtins.str]:
-        """
-        The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
-        """
         return pulumi.get(self, "encrypted_password")
 
     @_builtins.property
     @pulumi.getter(name="keyFingerprint")
     def key_fingerprint(self) -> pulumi.Output[_builtins.str]:
-        """
-        The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
-        """
         return pulumi.get(self, "key_fingerprint")
 
     @_builtins.property
     @pulumi.getter
     def password(self) -> pulumi.Output[_builtins.str]:
-        """
-        The plain text password, only available when `pgp_key` is not provided.
-        """
         return pulumi.get(self, "password")
 
     @_builtins.property
     @pulumi.getter(name="passwordLength")
     def password_length(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
-        """
         return pulumi.get(self, "password_length")
 
     @_builtins.property
     @pulumi.getter(name="passwordResetRequired")
     def password_reset_required(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
-        """
         return pulumi.get(self, "password_reset_required")
 
     @_builtins.property
     @pulumi.getter(name="pgpKey")
     def pgp_key(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
-        """
         return pulumi.get(self, "pgp_key")
 
     @_builtins.property
     @pulumi.getter
     def user(self) -> pulumi.Output[_builtins.str]:
-        """
-        The IAM user's name.
-        """
         return pulumi.get(self, "user")
 

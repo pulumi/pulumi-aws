@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration {
-    /**
-     * @return The list of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
-     * 
-     */
     private @Nullable List<String> securityGroups;
-    /**
-     * @return The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
-     * 
-     */
     private List<String> subnets;
 
     private CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration() {}
-    /**
-     * @return The list of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
-     * 
-     */
     public List<String> securityGroups() {
         return this.securityGroups == null ? List.of() : this.securityGroups;
     }
-    /**
-     * @return The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
-     * 
-     */
     public List<String> subnets() {
         return this.subnets;
     }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Kendra.Outputs
     [OutputType]
     public sealed class IndexIndexStatisticFaqStatistic
     {
-        /// <summary>
-        /// The total number of FAQ questions and answers contained in the index.
-        /// </summary>
         public readonly int? IndexedQuestionAnswersCount;
 
         [OutputConstructor]

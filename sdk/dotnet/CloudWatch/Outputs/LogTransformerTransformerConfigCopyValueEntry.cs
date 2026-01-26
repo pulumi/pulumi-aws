@@ -13,18 +13,8 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class LogTransformerTransformerConfigCopyValueEntry
     {
-        /// <summary>
-        /// Specifies whether to overwrite the value if the destination key already exists. Defaults to `False`.
-        /// * `renameTo` - (Required) Specifies the new name of the key.
-        /// </summary>
         public readonly bool? OverwriteIfExists;
-        /// <summary>
-        /// Specifies the key to modify.
-        /// </summary>
         public readonly string Source;
-        /// <summary>
-        /// Specifies the key to move to.
-        /// </summary>
         public readonly string Target;
 
         [OutputConstructor]

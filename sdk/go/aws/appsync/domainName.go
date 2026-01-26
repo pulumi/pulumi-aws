@@ -12,57 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AppSync Domain Name.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appsync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appsync.NewDomainName(ctx, "example", &appsync.DomainNameArgs{
-//				DomainName:     pulumi.String("api.example.com"),
-//				CertificateArn: pulumi.Any(exampleAwsAcmCertificate.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_appsync_domain_name` using the AppSync domain name. For example:
-//
-// ```sh
-// $ pulumi import aws:appsync/domainName:DomainName example example.com
-// ```
 type DomainName struct {
 	pulumi.CustomResourceState
 
-	// Domain name that AppSync provides.
-	AppsyncDomainName pulumi.StringOutput `pulumi:"appsyncDomainName"`
-	// ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
-	CertificateArn pulumi.StringOutput `pulumi:"certificateArn"`
-	// A description of the Domain Name.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Domain name.
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// ID of your Amazon Route 53 hosted zone.
-	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	AppsyncDomainName pulumi.StringOutput    `pulumi:"appsyncDomainName"`
+	CertificateArn    pulumi.StringOutput    `pulumi:"certificateArn"`
+	Description       pulumi.StringPtrOutput `pulumi:"description"`
+	DomainName        pulumi.StringOutput    `pulumi:"domainName"`
+	HostedZoneId      pulumi.StringOutput    `pulumi:"hostedZoneId"`
+	Region            pulumi.StringOutput    `pulumi:"region"`
 }
 
 // NewDomainName registers a new resource with the given unique name, arguments, and options.
@@ -101,33 +59,21 @@ func GetDomainName(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainName resources.
 type domainNameState struct {
-	// Domain name that AppSync provides.
 	AppsyncDomainName *string `pulumi:"appsyncDomainName"`
-	// ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
-	CertificateArn *string `pulumi:"certificateArn"`
-	// A description of the Domain Name.
-	Description *string `pulumi:"description"`
-	// Domain name.
-	DomainName *string `pulumi:"domainName"`
-	// ID of your Amazon Route 53 hosted zone.
-	HostedZoneId *string `pulumi:"hostedZoneId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	CertificateArn    *string `pulumi:"certificateArn"`
+	Description       *string `pulumi:"description"`
+	DomainName        *string `pulumi:"domainName"`
+	HostedZoneId      *string `pulumi:"hostedZoneId"`
+	Region            *string `pulumi:"region"`
 }
 
 type DomainNameState struct {
-	// Domain name that AppSync provides.
 	AppsyncDomainName pulumi.StringPtrInput
-	// ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
-	CertificateArn pulumi.StringPtrInput
-	// A description of the Domain Name.
-	Description pulumi.StringPtrInput
-	// Domain name.
-	DomainName pulumi.StringPtrInput
-	// ID of your Amazon Route 53 hosted zone.
-	HostedZoneId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	CertificateArn    pulumi.StringPtrInput
+	Description       pulumi.StringPtrInput
+	DomainName        pulumi.StringPtrInput
+	HostedZoneId      pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
 }
 
 func (DomainNameState) ElementType() reflect.Type {
@@ -135,26 +81,18 @@ func (DomainNameState) ElementType() reflect.Type {
 }
 
 type domainNameArgs struct {
-	// ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
-	CertificateArn string `pulumi:"certificateArn"`
-	// A description of the Domain Name.
-	Description *string `pulumi:"description"`
-	// Domain name.
-	DomainName string `pulumi:"domainName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	CertificateArn string  `pulumi:"certificateArn"`
+	Description    *string `pulumi:"description"`
+	DomainName     string  `pulumi:"domainName"`
+	Region         *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a DomainName resource.
 type DomainNameArgs struct {
-	// ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
 	CertificateArn pulumi.StringInput
-	// A description of the Domain Name.
-	Description pulumi.StringPtrInput
-	// Domain name.
-	DomainName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Description    pulumi.StringPtrInput
+	DomainName     pulumi.StringInput
+	Region         pulumi.StringPtrInput
 }
 
 func (DomainNameArgs) ElementType() reflect.Type {
@@ -244,32 +182,26 @@ func (o DomainNameOutput) ToDomainNameOutputWithContext(ctx context.Context) Dom
 	return o
 }
 
-// Domain name that AppSync provides.
 func (o DomainNameOutput) AppsyncDomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.AppsyncDomainName }).(pulumi.StringOutput)
 }
 
-// ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
 func (o DomainNameOutput) CertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.CertificateArn }).(pulumi.StringOutput)
 }
 
-// A description of the Domain Name.
 func (o DomainNameOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Domain name.
 func (o DomainNameOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// ID of your Amazon Route 53 hosted zone.
 func (o DomainNameOutput) HostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.HostedZoneId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DomainNameOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

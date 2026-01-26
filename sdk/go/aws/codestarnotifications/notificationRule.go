@@ -12,123 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CodeStar Notifications Rule.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codecommit"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codestarnotifications"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sns"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			code, err := codecommit.NewRepository(ctx, "code", &codecommit.RepositoryArgs{
-//				RepositoryName: pulumi.String("example-code-repo"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			notif, err := sns.NewTopic(ctx, "notif", &sns.TopicArgs{
-//				Name: pulumi.String("notification"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			notifAccess := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Actions: pulumi.StringArray{
-//							pulumi.String("sns:Publish"),
-//						},
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("Service"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("codestar-notifications.amazonaws.com"),
-//								},
-//							},
-//						},
-//						Resources: pulumi.StringArray{
-//							notif.Arn,
-//						},
-//					},
-//				},
-//			}, nil)
-//			_, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
-//				Arn: notif.Arn,
-//				Policy: pulumi.String(notifAccess.ApplyT(func(notifAccess iam.GetPolicyDocumentResult) (*string, error) {
-//					return &notifAccess.Json, nil
-//				}).(pulumi.StringPtrOutput)),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = codestarnotifications.NewNotificationRule(ctx, "commits", &codestarnotifications.NotificationRuleArgs{
-//				DetailType: pulumi.String("BASIC"),
-//				EventTypeIds: pulumi.StringArray{
-//					pulumi.String("codecommit-repository-comments-on-commits"),
-//				},
-//				Name:     pulumi.String("example-code-repo-commits"),
-//				Resource: code.Arn,
-//				Targets: codestarnotifications.NotificationRuleTargetArray{
-//					&codestarnotifications.NotificationRuleTargetArgs{
-//						Address: notif.Arn,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the CodeStar notification rule.
-//
-// Using `pulumi import`, import CodeStar notification rule using the ARN. For example:
-//
-// % pulumi import aws_codestarnotifications_notification_rule.foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
 type NotificationRule struct {
 	pulumi.CustomResourceState
 
-	// The codestar notification rule ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.
-	DetailType pulumi.StringOutput `pulumi:"detailType"`
-	// A list of event types associated with this notification rule.
-	// For list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).
-	EventTypeIds pulumi.StringArrayOutput `pulumi:"eventTypeIds"`
-	// The name of notification rule.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The ARN of the resource to associate with the notification rule.
-	Resource pulumi.StringOutput `pulumi:"resource"`
-	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
-	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
-	Targets NotificationRuleTargetArrayOutput `pulumi:"targets"`
+	Arn          pulumi.StringOutput               `pulumi:"arn"`
+	DetailType   pulumi.StringOutput               `pulumi:"detailType"`
+	EventTypeIds pulumi.StringArrayOutput          `pulumi:"eventTypeIds"`
+	Name         pulumi.StringOutput               `pulumi:"name"`
+	Region       pulumi.StringOutput               `pulumi:"region"`
+	Resource     pulumi.StringOutput               `pulumi:"resource"`
+	Status       pulumi.StringPtrOutput            `pulumi:"status"`
+	Tags         pulumi.StringMapOutput            `pulumi:"tags"`
+	TagsAll      pulumi.StringMapOutput            `pulumi:"tagsAll"`
+	Targets      NotificationRuleTargetArrayOutput `pulumi:"targets"`
 }
 
 // NewNotificationRule registers a new resource with the given unique name, arguments, and options.
@@ -170,51 +66,29 @@ func GetNotificationRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NotificationRule resources.
 type notificationRuleState struct {
-	// The codestar notification rule ARN.
-	Arn *string `pulumi:"arn"`
-	// The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.
-	DetailType *string `pulumi:"detailType"`
-	// A list of event types associated with this notification rule.
-	// For list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).
-	EventTypeIds []string `pulumi:"eventTypeIds"`
-	// The name of notification rule.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ARN of the resource to associate with the notification rule.
-	Resource *string `pulumi:"resource"`
-	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
-	Status *string `pulumi:"status"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
-	Targets []NotificationRuleTarget `pulumi:"targets"`
+	Arn          *string                  `pulumi:"arn"`
+	DetailType   *string                  `pulumi:"detailType"`
+	EventTypeIds []string                 `pulumi:"eventTypeIds"`
+	Name         *string                  `pulumi:"name"`
+	Region       *string                  `pulumi:"region"`
+	Resource     *string                  `pulumi:"resource"`
+	Status       *string                  `pulumi:"status"`
+	Tags         map[string]string        `pulumi:"tags"`
+	TagsAll      map[string]string        `pulumi:"tagsAll"`
+	Targets      []NotificationRuleTarget `pulumi:"targets"`
 }
 
 type NotificationRuleState struct {
-	// The codestar notification rule ARN.
-	Arn pulumi.StringPtrInput
-	// The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.
-	DetailType pulumi.StringPtrInput
-	// A list of event types associated with this notification rule.
-	// For list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).
+	Arn          pulumi.StringPtrInput
+	DetailType   pulumi.StringPtrInput
 	EventTypeIds pulumi.StringArrayInput
-	// The name of notification rule.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ARN of the resource to associate with the notification rule.
-	Resource pulumi.StringPtrInput
-	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
-	Status pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
-	Targets NotificationRuleTargetArrayInput
+	Name         pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
+	Resource     pulumi.StringPtrInput
+	Status       pulumi.StringPtrInput
+	Tags         pulumi.StringMapInput
+	TagsAll      pulumi.StringMapInput
+	Targets      NotificationRuleTargetArrayInput
 }
 
 func (NotificationRuleState) ElementType() reflect.Type {
@@ -222,44 +96,26 @@ func (NotificationRuleState) ElementType() reflect.Type {
 }
 
 type notificationRuleArgs struct {
-	// The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.
-	DetailType string `pulumi:"detailType"`
-	// A list of event types associated with this notification rule.
-	// For list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).
-	EventTypeIds []string `pulumi:"eventTypeIds"`
-	// The name of notification rule.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ARN of the resource to associate with the notification rule.
-	Resource string `pulumi:"resource"`
-	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
-	Status *string `pulumi:"status"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
-	Targets []NotificationRuleTarget `pulumi:"targets"`
+	DetailType   string                   `pulumi:"detailType"`
+	EventTypeIds []string                 `pulumi:"eventTypeIds"`
+	Name         *string                  `pulumi:"name"`
+	Region       *string                  `pulumi:"region"`
+	Resource     string                   `pulumi:"resource"`
+	Status       *string                  `pulumi:"status"`
+	Tags         map[string]string        `pulumi:"tags"`
+	Targets      []NotificationRuleTarget `pulumi:"targets"`
 }
 
 // The set of arguments for constructing a NotificationRule resource.
 type NotificationRuleArgs struct {
-	// The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.
-	DetailType pulumi.StringInput
-	// A list of event types associated with this notification rule.
-	// For list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).
+	DetailType   pulumi.StringInput
 	EventTypeIds pulumi.StringArrayInput
-	// The name of notification rule.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ARN of the resource to associate with the notification rule.
-	Resource pulumi.StringInput
-	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
-	Status pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
-	Targets NotificationRuleTargetArrayInput
+	Name         pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
+	Resource     pulumi.StringInput
+	Status       pulumi.StringPtrInput
+	Tags         pulumi.StringMapInput
+	Targets      NotificationRuleTargetArrayInput
 }
 
 func (NotificationRuleArgs) ElementType() reflect.Type {
@@ -349,53 +205,42 @@ func (o NotificationRuleOutput) ToNotificationRuleOutputWithContext(ctx context.
 	return o
 }
 
-// The codestar notification rule ARN.
 func (o NotificationRuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.
 func (o NotificationRuleOutput) DetailType() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationRule) pulumi.StringOutput { return v.DetailType }).(pulumi.StringOutput)
 }
 
-// A list of event types associated with this notification rule.
-// For list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).
 func (o NotificationRuleOutput) EventTypeIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NotificationRule) pulumi.StringArrayOutput { return v.EventTypeIds }).(pulumi.StringArrayOutput)
 }
 
-// The name of notification rule.
 func (o NotificationRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o NotificationRuleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ARN of the resource to associate with the notification rule.
 func (o NotificationRuleOutput) Resource() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationRule) pulumi.StringOutput { return v.Resource }).(pulumi.StringOutput)
 }
 
-// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
 func (o NotificationRuleOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationRule) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o NotificationRuleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NotificationRule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o NotificationRuleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NotificationRule) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
 func (o NotificationRuleOutput) Targets() NotificationRuleTargetArrayOutput {
 	return o.ApplyT(func(v *NotificationRule) NotificationRuleTargetArrayOutput { return v.Targets }).(NotificationRuleTargetArrayOutput)
 }

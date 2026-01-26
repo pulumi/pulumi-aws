@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AcceleratorAttributes {
-    /**
-     * @return Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
-     * 
-     */
     private @Nullable Boolean flowLogsEnabled;
-    /**
-     * @return The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
-     * 
-     */
     private @Nullable String flowLogsS3Bucket;
-    /**
-     * @return The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
-     * 
-     */
     private @Nullable String flowLogsS3Prefix;
 
     private AcceleratorAttributes() {}
-    /**
-     * @return Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
-     * 
-     */
     public Optional<Boolean> flowLogsEnabled() {
         return Optional.ofNullable(this.flowLogsEnabled);
     }
-    /**
-     * @return The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
-     * 
-     */
     public Optional<String> flowLogsS3Bucket() {
         return Optional.ofNullable(this.flowLogsS3Bucket);
     }
-    /**
-     * @return The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
-     * 
-     */
     public Optional<String> flowLogsS3Prefix() {
         return Optional.ofNullable(this.flowLogsS3Prefix);
     }

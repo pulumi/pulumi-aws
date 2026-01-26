@@ -85,12 +85,6 @@ class SnapshotImportClientData(dict):
                  upload_end: Optional[_builtins.str] = None,
                  upload_size: Optional[_builtins.float] = None,
                  upload_start: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str comment: A user-defined comment about the disk upload.
-        :param _builtins.str upload_end: The time that the disk upload ends.
-        :param _builtins.float upload_size: The size of the uploaded disk image, in GiB.
-        :param _builtins.str upload_start: The time that the disk upload starts.
-        """
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if upload_end is not None:
@@ -103,33 +97,21 @@ class SnapshotImportClientData(dict):
     @_builtins.property
     @pulumi.getter
     def comment(self) -> Optional[_builtins.str]:
-        """
-        A user-defined comment about the disk upload.
-        """
         return pulumi.get(self, "comment")
 
     @_builtins.property
     @pulumi.getter(name="uploadEnd")
     def upload_end(self) -> Optional[_builtins.str]:
-        """
-        The time that the disk upload ends.
-        """
         return pulumi.get(self, "upload_end")
 
     @_builtins.property
     @pulumi.getter(name="uploadSize")
     def upload_size(self) -> Optional[_builtins.float]:
-        """
-        The size of the uploaded disk image, in GiB.
-        """
         return pulumi.get(self, "upload_size")
 
     @_builtins.property
     @pulumi.getter(name="uploadStart")
     def upload_start(self) -> Optional[_builtins.str]:
-        """
-        The time that the disk upload starts.
-        """
         return pulumi.get(self, "upload_start")
 
 
@@ -157,12 +139,6 @@ class SnapshotImportDiskContainer(dict):
                  description: Optional[_builtins.str] = None,
                  url: Optional[_builtins.str] = None,
                  user_bucket: Optional['outputs.SnapshotImportDiskContainerUserBucket'] = None):
-        """
-        :param _builtins.str format: The format of the disk image being imported. One of `VHD` or `VMDK`.
-        :param _builtins.str description: The description of the disk image being imported.
-        :param _builtins.str url: The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `user_bucket` must be set.
-        :param 'SnapshotImportDiskContainerUserBucketArgs' user_bucket: The Amazon S3 bucket for the disk image. One of `url` or `user_bucket` must be set. Detailed below.
-        """
         pulumi.set(__self__, "format", format)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -174,33 +150,21 @@ class SnapshotImportDiskContainer(dict):
     @_builtins.property
     @pulumi.getter
     def format(self) -> _builtins.str:
-        """
-        The format of the disk image being imported. One of `VHD` or `VMDK`.
-        """
         return pulumi.get(self, "format")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
-        """
-        The description of the disk image being imported.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def url(self) -> Optional[_builtins.str]:
-        """
-        The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `user_bucket` must be set.
-        """
         return pulumi.get(self, "url")
 
     @_builtins.property
     @pulumi.getter(name="userBucket")
     def user_bucket(self) -> Optional['outputs.SnapshotImportDiskContainerUserBucket']:
-        """
-        The Amazon S3 bucket for the disk image. One of `url` or `user_bucket` must be set. Detailed below.
-        """
         return pulumi.get(self, "user_bucket")
 
 
@@ -228,27 +192,17 @@ class SnapshotImportDiskContainerUserBucket(dict):
     def __init__(__self__, *,
                  s3_bucket: _builtins.str,
                  s3_key: _builtins.str):
-        """
-        :param _builtins.str s3_bucket: The name of the Amazon S3 bucket where the disk image is located.
-        :param _builtins.str s3_key: The file name of the disk image.
-        """
         pulumi.set(__self__, "s3_bucket", s3_bucket)
         pulumi.set(__self__, "s3_key", s3_key)
 
     @_builtins.property
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> _builtins.str:
-        """
-        The name of the Amazon S3 bucket where the disk image is located.
-        """
         return pulumi.get(self, "s3_bucket")
 
     @_builtins.property
     @pulumi.getter(name="s3Key")
     def s3_key(self) -> _builtins.str:
-        """
-        The file name of the disk image.
-        """
         return pulumi.get(self, "s3_key")
 
 
@@ -257,59 +211,17 @@ class GetEbsVolumesFilterResult(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: Name of the field to filter by, as defined by
-               [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
-               For example, if matching against the `size` filter, use:
-               
-               ```python
-               import pulumi
-               import pulumi_aws as aws
-               
-               ten_or_twenty_gb_volumes = aws.ebs.get_ebs_volumes(filters=[{
-                   "name": "size",
-                   "values": [
-                       "10",
-                       "20",
-                   ],
-               }])
-               ```
-        :param Sequence[_builtins.str] values: Set of values that are accepted for the given field.
-               EBS Volume IDs will be selected if any one of the given values match.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the field to filter by, as defined by
-        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
-        For example, if matching against the `size` filter, use:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ten_or_twenty_gb_volumes = aws.ebs.get_ebs_volumes(filters=[{
-            "name": "size",
-            "values": [
-                "10",
-                "20",
-            ],
-        }])
-        ```
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        Set of values that are accepted for the given field.
-        EBS Volume IDs will be selected if any one of the given values match.
-        """
         return pulumi.get(self, "values")
 
 

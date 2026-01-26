@@ -33,17 +33,9 @@ public final class ServerlessVpcEndpointArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -88,16 +80,12 @@ public final class ServerlessVpcEndpointArgs extends com.pulumi.resources.Resour
     /**
      * ID of the VPC from which you&#39;ll access OpenSearch Serverless.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="vpcId", required=true)
     private Output<String> vpcId;
 
     /**
      * @return ID of the VPC from which you&#39;ll access OpenSearch Serverless.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<String> vpcId() {
@@ -154,23 +142,11 @@ public final class ServerlessVpcEndpointArgs extends com.pulumi.resources.Resour
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
@@ -249,8 +225,6 @@ public final class ServerlessVpcEndpointArgs extends com.pulumi.resources.Resour
         /**
          * @param vpcId ID of the VPC from which you&#39;ll access OpenSearch Serverless.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -261,8 +235,6 @@ public final class ServerlessVpcEndpointArgs extends com.pulumi.resources.Resour
 
         /**
          * @param vpcId ID of the VPC from which you&#39;ll access OpenSearch Serverless.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -9,89 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ivs
 {
-    /// <summary>
-    /// Resource for managing an AWS IVS (Interactive Video) Playback Key Pair.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ivs.PlaybackKeyPair("example", new()
-    ///     {
-    ///         PublicKey = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "./public-key.pem",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the IVS playback key pair.
-    /// 
-    /// Using `pulumi import`, import IVS (Interactive Video) Playback Key Pair using the ARN. For example:
-    /// 
-    /// % pulumi import aws_ivs_playback_key_pair.example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
-    /// </summary>
     [AwsResourceType("aws:ivs/playbackKeyPair:PlaybackKeyPair")]
     public partial class PlaybackKeyPair : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Playback Key Pair.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-pair identifier.
-        /// </summary>
         [Output("fingerprint")]
         public Output<string> Fingerprint { get; private set; } = null!;
 
-        /// <summary>
-        /// Playback Key Pair name.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("publicKey")]
         public Output<string> PublicKey { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -141,32 +79,17 @@ namespace Pulumi.Aws.Ivs
 
     public sealed class PlaybackKeyPairArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Playback Key Pair name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("publicKey", required: true)]
         public Input<string> PublicKey { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -181,44 +104,23 @@ namespace Pulumi.Aws.Ivs
 
     public sealed class PlaybackKeyPairState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Playback Key Pair.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Key-pair identifier.
-        /// </summary>
         [Input("fingerprint")]
         public Input<string>? Fingerprint { get; set; }
 
-        /// <summary>
-        /// Playback Key Pair name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("publicKey")]
         public Input<string>? PublicKey { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -227,10 +129,6 @@ namespace Pulumi.Aws.Ivs
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

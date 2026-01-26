@@ -17,124 +17,22 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.bedrock.AgentcoreApiKeyCredentialProvider;
- * import com.pulumi.aws.bedrock.AgentcoreApiKeyCredentialProviderArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AgentcoreApiKeyCredentialProvider("example", AgentcoreApiKeyCredentialProviderArgs.builder()
- *             .name("example-api-key-provider")
- *             .apiKey("your-api-key-here")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Write-Only API Key (Recommended for Production)
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.bedrock.AgentcoreApiKeyCredentialProvider;
- * import com.pulumi.aws.bedrock.AgentcoreApiKeyCredentialProviderArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AgentcoreApiKeyCredentialProvider("example", AgentcoreApiKeyCredentialProviderArgs.builder()
- *             .name("example-api-key-provider")
- *             .apiKeyWo("your-api-key-here")
- *             .apiKeyWoVersion(1)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Bedrock AgentCore API Key Credential Provider using the provider name. For example:
- * 
- * ```sh
- * $ pulumi import aws:bedrock/agentcoreApiKeyCredentialProvider:AgentcoreApiKeyCredentialProvider example example-api-key-provider
- * ```
- * 
- */
 @ResourceType(type="aws:bedrock/agentcoreApiKeyCredentialProvider:AgentcoreApiKeyCredentialProvider")
 public class AgentcoreApiKeyCredentialProvider extends com.pulumi.resources.CustomResource {
-    /**
-     * API key value. Cannot be used with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-     * 
-     * **Write-Only API Key (choose one approach):**
-     * 
-     */
     @Export(name="apiKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiKey;
 
-    /**
-     * @return API key value. Cannot be used with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-     * 
-     * **Write-Only API Key (choose one approach):**
-     * 
-     */
     public Output<Optional<String>> apiKey() {
         return Codegen.optional(this.apiKey);
     }
-    /**
-     * ARN of the AWS Secrets Manager secret containing the API key.
-     * 
-     */
     @Export(name="apiKeySecretArns", refs={List.class,AgentcoreApiKeyCredentialProviderApiKeySecretArn.class}, tree="[0,1]")
     private Output<List<AgentcoreApiKeyCredentialProviderApiKeySecretArn>> apiKeySecretArns;
 
-    /**
-     * @return ARN of the AWS Secrets Manager secret containing the API key.
-     * 
-     */
     public Output<List<AgentcoreApiKeyCredentialProviderApiKeySecretArn>> apiKeySecretArns() {
         return this.apiKeySecretArns;
     }
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
      * 
      */
     @Export(name="apiKeyWo", refs={String.class}, tree="[0]")
@@ -142,73 +40,32 @@ public class AgentcoreApiKeyCredentialProvider extends com.pulumi.resources.Cust
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
      * 
      */
     public Output<Optional<String>> apiKeyWo() {
         return Codegen.optional(this.apiKeyWo);
     }
-    /**
-     * Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
-     * 
-     */
     @Export(name="apiKeyWoVersion", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> apiKeyWoVersion;
 
-    /**
-     * @return Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
-     * 
-     */
     public Output<Optional<Integer>> apiKeyWoVersion() {
         return Codegen.optional(this.apiKeyWoVersion);
     }
-    /**
-     * ARN of the API Key credential provider.
-     * 
-     */
     @Export(name="credentialProviderArn", refs={String.class}, tree="[0]")
     private Output<String> credentialProviderArn;
 
-    /**
-     * @return ARN of the API Key credential provider.
-     * 
-     */
     public Output<String> credentialProviderArn() {
         return this.credentialProviderArn;
     }
-    /**
-     * Name of the API Key credential provider. Forces replacement when changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the API Key credential provider. Forces replacement when changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     * **Standard API Key (choose one approach):**
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     * **Standard API Key (choose one approach):**
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

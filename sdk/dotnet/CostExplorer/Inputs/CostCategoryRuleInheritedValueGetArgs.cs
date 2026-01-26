@@ -12,15 +12,9 @@ namespace Pulumi.Aws.CostExplorer.Inputs
 
     public sealed class CostCategoryRuleInheritedValueGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Key to extract cost category values.
-        /// </summary>
         [Input("dimensionKey")]
         public Input<string>? DimensionKey { get; set; }
 
-        /// <summary>
-        /// Name of the dimension that's used to group costs. If you specify `LINKED_ACCOUNT_NAME`, the cost category value is based on account name. If you specify `TAG`, the cost category value will be based on the value of the specified tag key. Valid values are `LINKED_ACCOUNT_NAME`, `TAG`
-        /// </summary>
         [Input("dimensionName")]
         public Input<string>? DimensionName { get; set; }
 

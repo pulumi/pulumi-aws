@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings {
-    /**
-     * @return Describes whether model deployment permissions are enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     private @Nullable String status;
 
     private DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings() {}
-    /**
-     * @return Describes whether model deployment permissions are enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }

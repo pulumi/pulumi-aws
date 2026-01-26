@@ -13,13 +13,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsAvailBlanking
     {
-        /// <summary>
-        /// Blanking image to be used. See Avail Blanking Image for more details.
-        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsAvailBlankingAvailBlankingImage? AvailBlankingImage;
-        /// <summary>
-        /// When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
-        /// </summary>
         public readonly string? State;
 
         [OutputConstructor]

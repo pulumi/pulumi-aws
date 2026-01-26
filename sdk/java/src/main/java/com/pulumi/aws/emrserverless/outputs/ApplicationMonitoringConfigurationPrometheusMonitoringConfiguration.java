@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration {
-    /**
-     * @return The Prometheus remote write URL for sending metrics. Only supported in EMR 7.1.0 and later versions.
-     * 
-     */
     private @Nullable String remoteWriteUrl;
 
     private ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration() {}
-    /**
-     * @return The Prometheus remote write URL for sending metrics. Only supported in EMR 7.1.0 and later versions.
-     * 
-     */
     public Optional<String> remoteWriteUrl() {
         return Optional.ofNullable(this.remoteWriteUrl);
     }

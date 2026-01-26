@@ -14,77 +14,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification {
-    /**
-     * @return Dimensions of the metric.
-     * 
-     */
     private @Nullable List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension> dimensions;
-    /**
-     * @return Name of the metric.
-     * 
-     */
     private @Nullable String metricName;
-    /**
-     * @return Metrics to include, as a metric data query.
-     * 
-     */
     private @Nullable List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric> metrics;
-    /**
-     * @return Namespace of the metric.
-     * 
-     */
     private @Nullable String namespace;
-    /**
-     * @return Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
-     * 
-     */
     private @Nullable String statistic;
-    /**
-     * @return Unit of the metrics to return.
-     * 
-     */
     private @Nullable String unit;
 
     private PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification() {}
-    /**
-     * @return Dimensions of the metric.
-     * 
-     */
     public List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension> dimensions() {
         return this.dimensions == null ? List.of() : this.dimensions;
     }
-    /**
-     * @return Name of the metric.
-     * 
-     */
     public Optional<String> metricName() {
         return Optional.ofNullable(this.metricName);
     }
-    /**
-     * @return Metrics to include, as a metric data query.
-     * 
-     */
     public List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric> metrics() {
         return this.metrics == null ? List.of() : this.metrics;
     }
-    /**
-     * @return Namespace of the metric.
-     * 
-     */
     public Optional<String> namespace() {
         return Optional.ofNullable(this.namespace);
     }
-    /**
-     * @return Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
-     * 
-     */
     public Optional<String> statistic() {
         return Optional.ofNullable(this.statistic);
     }
-    /**
-     * @return Unit of the metrics to return.
-     * 
-     */
     public Optional<String> unit() {
         return Optional.ofNullable(this.unit);
     }

@@ -15,47 +15,23 @@ public final class GetListenerRuleConditionHttpHeaderArgs extends com.pulumi.res
 
     public static final GetListenerRuleConditionHttpHeaderArgs Empty = new GetListenerRuleConditionHttpHeaderArgs();
 
-    /**
-     * Name of the HTTP header to match.
-     * 
-     */
     @Import(name="httpHeaderName", required=true)
     private Output<String> httpHeaderName;
 
-    /**
-     * @return Name of the HTTP header to match.
-     * 
-     */
     public Output<String> httpHeaderName() {
         return this.httpHeaderName;
     }
 
-    /**
-     * Set of regular expressions to compare against the request URL.
-     * 
-     */
     @Import(name="regexValues", required=true)
     private Output<List<String>> regexValues;
 
-    /**
-     * @return Set of regular expressions to compare against the request URL.
-     * 
-     */
     public Output<List<String>> regexValues() {
         return this.regexValues;
     }
 
-    /**
-     * Set of `key`-`value` pairs indicating the query string parameters to match.
-     * 
-     */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
-    /**
-     * @return Set of `key`-`value` pairs indicating the query string parameters to match.
-     * 
-     */
     public Output<List<String>> values() {
         return this.values;
     }
@@ -86,85 +62,37 @@ public final class GetListenerRuleConditionHttpHeaderArgs extends com.pulumi.res
             $ = new GetListenerRuleConditionHttpHeaderArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param httpHeaderName Name of the HTTP header to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpHeaderName(Output<String> httpHeaderName) {
             $.httpHeaderName = httpHeaderName;
             return this;
         }
 
-        /**
-         * @param httpHeaderName Name of the HTTP header to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpHeaderName(String httpHeaderName) {
             return httpHeaderName(Output.of(httpHeaderName));
         }
 
-        /**
-         * @param regexValues Set of regular expressions to compare against the request URL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regexValues(Output<List<String>> regexValues) {
             $.regexValues = regexValues;
             return this;
         }
 
-        /**
-         * @param regexValues Set of regular expressions to compare against the request URL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regexValues(List<String> regexValues) {
             return regexValues(Output.of(regexValues));
         }
 
-        /**
-         * @param regexValues Set of regular expressions to compare against the request URL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regexValues(String... regexValues) {
             return regexValues(List.of(regexValues));
         }
 
-        /**
-         * @param values Set of `key`-`value` pairs indicating the query string parameters to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values Set of `key`-`value` pairs indicating the query string parameters to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
-        /**
-         * @param values Set of `key`-`value` pairs indicating the query string parameters to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

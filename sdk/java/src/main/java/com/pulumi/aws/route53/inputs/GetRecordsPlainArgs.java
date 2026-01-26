@@ -15,32 +15,16 @@ public final class GetRecordsPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetRecordsPlainArgs Empty = new GetRecordsPlainArgs();
 
-    /**
-     * Regex string to apply to the resource record names returned by AWS.
-     * 
-     */
     @Import(name="nameRegex")
     private @Nullable String nameRegex;
 
-    /**
-     * @return Regex string to apply to the resource record names returned by AWS.
-     * 
-     */
     public Optional<String> nameRegex() {
         return Optional.ofNullable(this.nameRegex);
     }
 
-    /**
-     * The ID of the hosted zone that contains the resource record sets that you want to list.
-     * 
-     */
     @Import(name="zoneId", required=true)
     private String zoneId;
 
-    /**
-     * @return The ID of the hosted zone that contains the resource record sets that you want to list.
-     * 
-     */
     public String zoneId() {
         return this.zoneId;
     }
@@ -70,23 +54,11 @@ public final class GetRecordsPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetRecordsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param nameRegex Regex string to apply to the resource record names returned by AWS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nameRegex(@Nullable String nameRegex) {
             $.nameRegex = nameRegex;
             return this;
         }
 
-        /**
-         * @param zoneId The ID of the hosted zone that contains the resource record sets that you want to list.
-         * 
-         * @return builder
-         * 
-         */
         public Builder zoneId(String zoneId) {
             $.zoneId = zoneId;
             return this;

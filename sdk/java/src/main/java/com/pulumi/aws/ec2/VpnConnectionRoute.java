@@ -13,114 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a static route between a VPN connection and a customer gateway.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.ec2.VpnGateway;
- * import com.pulumi.aws.ec2.VpnGatewayArgs;
- * import com.pulumi.aws.ec2.CustomerGateway;
- * import com.pulumi.aws.ec2.CustomerGatewayArgs;
- * import com.pulumi.aws.ec2.VpnConnection;
- * import com.pulumi.aws.ec2.VpnConnectionArgs;
- * import com.pulumi.aws.ec2.VpnConnectionRoute;
- * import com.pulumi.aws.ec2.VpnConnectionRouteArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var vpc = new Vpc("vpc", VpcArgs.builder()
- *             .cidrBlock("10.0.0.0/16")
- *             .build());
- * 
- *         var vpnGateway = new VpnGateway("vpnGateway", VpnGatewayArgs.builder()
- *             .vpcId(vpc.id())
- *             .build());
- * 
- *         var customerGateway = new CustomerGateway("customerGateway", CustomerGatewayArgs.builder()
- *             .bgpAsn("65000")
- *             .ipAddress("172.0.0.1")
- *             .type("ipsec.1")
- *             .build());
- * 
- *         var main = new VpnConnection("main", VpnConnectionArgs.builder()
- *             .vpnGatewayId(vpnGateway.id())
- *             .customerGatewayId(customerGateway.id())
- *             .type("ipsec.1")
- *             .staticRoutesOnly(true)
- *             .build());
- * 
- *         var office = new VpnConnectionRoute("office", VpnConnectionRouteArgs.builder()
- *             .destinationCidrBlock("192.168.10.0/24")
- *             .vpnConnectionId(main.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:ec2/vpnConnectionRoute:VpnConnectionRoute")
 public class VpnConnectionRoute extends com.pulumi.resources.CustomResource {
-    /**
-     * The CIDR block associated with the local subnet of the customer network.
-     * 
-     */
     @Export(name="destinationCidrBlock", refs={String.class}, tree="[0]")
     private Output<String> destinationCidrBlock;
 
-    /**
-     * @return The CIDR block associated with the local subnet of the customer network.
-     * 
-     */
     public Output<String> destinationCidrBlock() {
         return this.destinationCidrBlock;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The ID of the VPN connection.
-     * 
-     */
     @Export(name="vpnConnectionId", refs={String.class}, tree="[0]")
     private Output<String> vpnConnectionId;
 
-    /**
-     * @return The ID of the VPN connection.
-     * 
-     */
     public Output<String> vpnConnectionId() {
         return this.vpnConnectionId;
     }

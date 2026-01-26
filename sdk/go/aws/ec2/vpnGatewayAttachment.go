@@ -12,69 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Virtual Private Gateway attachment resource, allowing for an existing
-// hardware VPN gateway to be attached and/or detached from a VPC.
-//
-// > **Note:** The `ec2.VpnGateway`
-// resource can also automatically attach the Virtual Private Gateway it creates
-// to an existing VPC by setting the `vpcId` attribute accordingly.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			network, err := ec2.NewVpc(ctx, "network", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.0.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			vpn, err := ec2.NewVpnGateway(ctx, "vpn", &ec2.VpnGatewayArgs{
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example-vpn-gateway"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVpnGatewayAttachment(ctx, "vpn_attachment", &ec2.VpnGatewayAttachmentArgs{
-//				VpcId:        network.ID(),
-//				VpnGatewayId: vpn.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// See [Virtual Private Cloud](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html)
-// and [Virtual Private Gateway](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html) user
-// guides for more information.
-//
-// ## Import
-//
-// You cannot import this resource.
 type VpnGatewayAttachment struct {
 	pulumi.CustomResourceState
 
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The ID of the VPC.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
-	// The ID of the Virtual Private Gateway.
+	Region       pulumi.StringOutput `pulumi:"region"`
+	VpcId        pulumi.StringOutput `pulumi:"vpcId"`
 	VpnGatewayId pulumi.StringOutput `pulumi:"vpnGatewayId"`
 }
 
@@ -114,20 +56,14 @@ func GetVpnGatewayAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpnGatewayAttachment resources.
 type vpnGatewayAttachmentState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID of the VPC.
-	VpcId *string `pulumi:"vpcId"`
-	// The ID of the Virtual Private Gateway.
+	Region       *string `pulumi:"region"`
+	VpcId        *string `pulumi:"vpcId"`
 	VpnGatewayId *string `pulumi:"vpnGatewayId"`
 }
 
 type VpnGatewayAttachmentState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID of the VPC.
-	VpcId pulumi.StringPtrInput
-	// The ID of the Virtual Private Gateway.
+	Region       pulumi.StringPtrInput
+	VpcId        pulumi.StringPtrInput
 	VpnGatewayId pulumi.StringPtrInput
 }
 
@@ -136,21 +72,15 @@ func (VpnGatewayAttachmentState) ElementType() reflect.Type {
 }
 
 type vpnGatewayAttachmentArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID of the VPC.
-	VpcId string `pulumi:"vpcId"`
-	// The ID of the Virtual Private Gateway.
-	VpnGatewayId string `pulumi:"vpnGatewayId"`
+	Region       *string `pulumi:"region"`
+	VpcId        string  `pulumi:"vpcId"`
+	VpnGatewayId string  `pulumi:"vpnGatewayId"`
 }
 
 // The set of arguments for constructing a VpnGatewayAttachment resource.
 type VpnGatewayAttachmentArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID of the VPC.
-	VpcId pulumi.StringInput
-	// The ID of the Virtual Private Gateway.
+	Region       pulumi.StringPtrInput
+	VpcId        pulumi.StringInput
 	VpnGatewayId pulumi.StringInput
 }
 
@@ -241,17 +171,14 @@ func (o VpnGatewayAttachmentOutput) ToVpnGatewayAttachmentOutputWithContext(ctx 
 	return o
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpnGatewayAttachmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnGatewayAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ID of the VPC.
 func (o VpnGatewayAttachmentOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnGatewayAttachment) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }
 
-// The ID of the Virtual Private Gateway.
 func (o VpnGatewayAttachmentOutput) VpnGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnGatewayAttachment) pulumi.StringOutput { return v.VpnGatewayId }).(pulumi.StringOutput)
 }

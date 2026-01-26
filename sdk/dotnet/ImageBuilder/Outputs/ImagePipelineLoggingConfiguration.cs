@@ -13,13 +13,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class ImagePipelineLoggingConfiguration
     {
-        /// <summary>
-        /// Name of the CloudWatch Log Group to send image logs to.
-        /// </summary>
         public readonly string? ImageLogGroupName;
-        /// <summary>
-        /// Name of the CloudWatch Log Group to send pipeline logs to.
-        /// </summary>
         public readonly string? PipelineLogGroupName;
 
         [OutputConstructor]

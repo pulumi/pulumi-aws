@@ -30,9 +30,6 @@ if not MYPY:
         channel: NotRequired[pulumi.Input[_builtins.str]]
         configured_by: NotRequired[pulumi.Input[_builtins.str]]
         enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether or not the Trust Anchor should be enabled.
-        """
         event: NotRequired[pulumi.Input[_builtins.str]]
         threshold: NotRequired[pulumi.Input[_builtins.int]]
 elif False:
@@ -46,9 +43,6 @@ class TrustAnchorNotificationSettingArgs:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  event: Optional[pulumi.Input[_builtins.str]] = None,
                  threshold: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.bool] enabled: Whether or not the Trust Anchor should be enabled.
-        """
         if channel is not None:
             pulumi.set(__self__, "channel", channel)
         if configured_by is not None:
@@ -81,9 +75,6 @@ class TrustAnchorNotificationSettingArgs:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether or not the Trust Anchor should be enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -112,13 +103,7 @@ class TrustAnchorNotificationSettingArgs:
 if not MYPY:
     class TrustAnchorSourceArgsDict(TypedDict):
         source_data: pulumi.Input['TrustAnchorSourceSourceDataArgsDict']
-        """
-        The data denoting the source of trust, documented below
-        """
         source_type: pulumi.Input[_builtins.str]
-        """
-        The type of the source of trust. Must be either `AWS_ACM_PCA` or `CERTIFICATE_BUNDLE`.
-        """
 elif False:
     TrustAnchorSourceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -127,19 +112,12 @@ class TrustAnchorSourceArgs:
     def __init__(__self__, *,
                  source_data: pulumi.Input['TrustAnchorSourceSourceDataArgs'],
                  source_type: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input['TrustAnchorSourceSourceDataArgs'] source_data: The data denoting the source of trust, documented below
-        :param pulumi.Input[_builtins.str] source_type: The type of the source of trust. Must be either `AWS_ACM_PCA` or `CERTIFICATE_BUNDLE`.
-        """
         pulumi.set(__self__, "source_data", source_data)
         pulumi.set(__self__, "source_type", source_type)
 
     @_builtins.property
     @pulumi.getter(name="sourceData")
     def source_data(self) -> pulumi.Input['TrustAnchorSourceSourceDataArgs']:
-        """
-        The data denoting the source of trust, documented below
-        """
         return pulumi.get(self, "source_data")
 
     @source_data.setter
@@ -149,9 +127,6 @@ class TrustAnchorSourceArgs:
     @_builtins.property
     @pulumi.getter(name="sourceType")
     def source_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of the source of trust. Must be either `AWS_ACM_PCA` or `CERTIFICATE_BUNDLE`.
-        """
         return pulumi.get(self, "source_type")
 
     @source_type.setter
@@ -162,9 +137,6 @@ class TrustAnchorSourceArgs:
 if not MYPY:
     class TrustAnchorSourceSourceDataArgsDict(TypedDict):
         acm_pca_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of an ACM Private Certificate Authority.
-        """
         x509_certificate_data: NotRequired[pulumi.Input[_builtins.str]]
 elif False:
     TrustAnchorSourceSourceDataArgsDict: TypeAlias = Mapping[str, Any]
@@ -174,9 +146,6 @@ class TrustAnchorSourceSourceDataArgs:
     def __init__(__self__, *,
                  acm_pca_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  x509_certificate_data: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] acm_pca_arn: The ARN of an ACM Private Certificate Authority.
-        """
         if acm_pca_arn is not None:
             pulumi.set(__self__, "acm_pca_arn", acm_pca_arn)
         if x509_certificate_data is not None:
@@ -185,9 +154,6 @@ class TrustAnchorSourceSourceDataArgs:
     @_builtins.property
     @pulumi.getter(name="acmPcaArn")
     def acm_pca_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of an ACM Private Certificate Authority.
-        """
         return pulumi.get(self, "acm_pca_arn")
 
     @acm_pca_arn.setter

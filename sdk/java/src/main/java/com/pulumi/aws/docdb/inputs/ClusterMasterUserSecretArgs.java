@@ -15,17 +15,9 @@ public final class ClusterMasterUserSecretArgs extends com.pulumi.resources.Reso
 
     public static final ClusterMasterUserSecretArgs Empty = new ClusterMasterUserSecretArgs();
 
-    /**
-     * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
-     * 
-     */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
-    /**
-     * @return The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
-     * 
-     */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
@@ -70,23 +62,11 @@ public final class ClusterMasterUserSecretArgs extends com.pulumi.resources.Reso
             $ = new ClusterMasterUserSecretArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kmsKeyId The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
-        /**
-         * @param kmsKeyId The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }

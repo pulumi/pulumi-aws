@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination {
-    /**
-     * @return Reference ID for the destination.
-     * 
-     */
     private String destinationRefId;
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination() {}
-    /**
-     * @return Reference ID for the destination.
-     * 
-     */
     public String destinationRefId() {
         return this.destinationRefId;
     }

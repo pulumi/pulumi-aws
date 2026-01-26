@@ -15,32 +15,16 @@ public final class JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs exte
 
     public static final JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs Empty = new JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs();
 
-    /**
-     * The SQL file to be executed.
-     * 
-     */
     @Import(name="entryPoint")
     private @Nullable Output<String> entryPoint;
 
-    /**
-     * @return The SQL file to be executed.
-     * 
-     */
     public Optional<Output<String>> entryPoint() {
         return Optional.ofNullable(this.entryPoint);
     }
 
-    /**
-     * The Spark parameters to be included in the Spark SQL command.
-     * 
-     */
     @Import(name="sparkSqlParameters")
     private @Nullable Output<String> sparkSqlParameters;
 
-    /**
-     * @return The Spark parameters to be included in the Spark SQL command.
-     * 
-     */
     public Optional<Output<String>> sparkSqlParameters() {
         return Optional.ofNullable(this.sparkSqlParameters);
     }
@@ -70,44 +54,20 @@ public final class JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs exte
             $ = new JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param entryPoint The SQL file to be executed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entryPoint(@Nullable Output<String> entryPoint) {
             $.entryPoint = entryPoint;
             return this;
         }
 
-        /**
-         * @param entryPoint The SQL file to be executed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entryPoint(String entryPoint) {
             return entryPoint(Output.of(entryPoint));
         }
 
-        /**
-         * @param sparkSqlParameters The Spark parameters to be included in the Spark SQL command.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sparkSqlParameters(@Nullable Output<String> sparkSqlParameters) {
             $.sparkSqlParameters = sparkSqlParameters;
             return this;
         }
 
-        /**
-         * @param sparkSqlParameters The Spark parameters to be included in the Spark SQL command.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sparkSqlParameters(String sparkSqlParameters) {
             return sparkSqlParameters(Output.of(sparkSqlParameters));
         }

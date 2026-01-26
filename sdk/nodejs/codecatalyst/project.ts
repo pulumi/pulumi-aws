@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS CodeCatalyst Project.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.codecatalyst.Project("test", {
- *     spaceName: "myproject",
- *     displayName: "MyProject",
- *     description: "My CodeCatalyst Project created using Pulumi",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import CodeCatalyst Project using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:codecatalyst/project:Project example project-id-12345678
- * ```
- */
 export class Project extends pulumi.CustomResource {
     /**
      * Get an existing Project resource's state with the given name, ID, and optional extra
@@ -58,27 +32,10 @@ export class Project extends pulumi.CustomResource {
         return obj['__pulumiType'] === Project.__pulumiType;
     }
 
-    /**
-     * The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * The friendly name of the project that will be displayed to users.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly displayName: pulumi.Output<string>;
-    /**
-     * The name of the project in the space.
-     */
     declare public /*out*/ readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The name of the space.
-     */
     declare public readonly spaceName: pulumi.Output<string>;
 
     /**
@@ -122,27 +79,10 @@ export class Project extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Project resources.
  */
 export interface ProjectState {
-    /**
-     * The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The friendly name of the project that will be displayed to users.
-     *
-     * The following arguments are optional:
-     */
     displayName?: pulumi.Input<string>;
-    /**
-     * The name of the project in the space.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The name of the space.
-     */
     spaceName?: pulumi.Input<string>;
 }
 
@@ -150,22 +90,8 @@ export interface ProjectState {
  * The set of arguments for constructing a Project resource.
  */
 export interface ProjectArgs {
-    /**
-     * The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The friendly name of the project that will be displayed to users.
-     *
-     * The following arguments are optional:
-     */
     displayName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The name of the space.
-     */
     spaceName: pulumi.Input<string>;
 }

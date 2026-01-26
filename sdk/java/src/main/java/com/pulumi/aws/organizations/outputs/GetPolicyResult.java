@@ -11,69 +11,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPolicyResult {
-    /**
-     * @return The Amazon Resource Name of the policy.
-     * 
-     */
     private String arn;
-    /**
-     * @return Indicates if a policy is an AWS managed policy.
-     * 
-     */
     private Boolean awsManaged;
-    /**
-     * @return The text content of the policy.
-     * 
-     */
     private String content;
-    /**
-     * @return The description of the policy.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return The friendly name of the policy.
-     * 
-     */
     private String name;
     private String policyId;
-    /**
-     * @return The type of policy values can be `AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | CHATBOT_POLICY | DECLARATIVE_POLICY_EC2 | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY`
-     * 
-     */
     private String type;
 
     private GetPolicyResult() {}
-    /**
-     * @return The Amazon Resource Name of the policy.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Indicates if a policy is an AWS managed policy.
-     * 
-     */
     public Boolean awsManaged() {
         return this.awsManaged;
     }
-    /**
-     * @return The text content of the policy.
-     * 
-     */
     public String content() {
         return this.content;
     }
-    /**
-     * @return The description of the policy.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -84,20 +44,12 @@ public final class GetPolicyResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The friendly name of the policy.
-     * 
-     */
     public String name() {
         return this.name;
     }
     public String policyId() {
         return this.policyId;
     }
-    /**
-     * @return The type of policy values can be `AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | CHATBOT_POLICY | DECLARATIVE_POLICY_EC2 | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY`
-     * 
-     */
     public String type() {
         return this.type;
     }

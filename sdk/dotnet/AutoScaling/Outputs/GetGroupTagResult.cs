@@ -13,17 +13,8 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     [OutputType]
     public sealed class GetGroupTagResult
     {
-        /// <summary>
-        /// Key.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// Whether the tag is propagated to Amazon EC2 instances launched via this ASG.
-        /// </summary>
         public readonly bool PropagateAtLaunch;
-        /// <summary>
-        /// Value.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

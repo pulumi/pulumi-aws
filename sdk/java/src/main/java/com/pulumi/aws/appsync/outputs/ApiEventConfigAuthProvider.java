@@ -15,53 +15,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApiEventConfigAuthProvider {
-    /**
-     * @return Type of authentication provider. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
-     * 
-     */
     private String authType;
-    /**
-     * @return Configuration for Cognito user pool authentication. Required when `authType` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
-     * 
-     */
     private @Nullable ApiEventConfigAuthProviderCognitoConfig cognitoConfig;
-    /**
-     * @return Configuration for Lambda authorization. Required when `authType` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
-     * 
-     */
     private @Nullable ApiEventConfigAuthProviderLambdaAuthorizerConfig lambdaAuthorizerConfig;
-    /**
-     * @return Configuration for OpenID Connect. Required when `authType` is `OPENID_CONNECT`. See OpenID Connect Config below.
-     * 
-     */
     private @Nullable ApiEventConfigAuthProviderOpenidConnectConfig openidConnectConfig;
 
     private ApiEventConfigAuthProvider() {}
-    /**
-     * @return Type of authentication provider. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
-     * 
-     */
     public String authType() {
         return this.authType;
     }
-    /**
-     * @return Configuration for Cognito user pool authentication. Required when `authType` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
-     * 
-     */
     public Optional<ApiEventConfigAuthProviderCognitoConfig> cognitoConfig() {
         return Optional.ofNullable(this.cognitoConfig);
     }
-    /**
-     * @return Configuration for Lambda authorization. Required when `authType` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
-     * 
-     */
     public Optional<ApiEventConfigAuthProviderLambdaAuthorizerConfig> lambdaAuthorizerConfig() {
         return Optional.ofNullable(this.lambdaAuthorizerConfig);
     }
-    /**
-     * @return Configuration for OpenID Connect. Required when `authType` is `OPENID_CONNECT`. See OpenID Connect Config below.
-     * 
-     */
     public Optional<ApiEventConfigAuthProviderOpenidConnectConfig> openidConnectConfig() {
         return Optional.ofNullable(this.openidConnectConfig);
     }

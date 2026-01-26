@@ -12,15 +12,9 @@ namespace Pulumi.Aws.FinSpace.Inputs
 
     public sealed class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ICMP code. A value of `-1` means all codes for the specified ICMP type.
-        /// </summary>
         [Input("code", required: true)]
         public Input<int> Code { get; set; } = null!;
 
-        /// <summary>
-        /// ICMP type. A value of `-1` means all types.
-        /// </summary>
         [Input("type", required: true)]
         public Input<int> Type { get; set; } = null!;
 

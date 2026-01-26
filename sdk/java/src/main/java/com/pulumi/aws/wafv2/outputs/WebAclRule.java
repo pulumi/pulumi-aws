@@ -21,113 +21,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRule {
-    /**
-     * @return Action that AWS WAF should take on a web request when it matches the rule&#39;s statement. This is used only for rules whose **statements do not reference a rule group**. See `action` for details.
-     * 
-     */
     private @Nullable WebAclRuleAction action;
-    /**
-     * @return Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
-     * 
-     */
     private @Nullable WebAclRuleCaptchaConfig captchaConfig;
-    /**
-     * @return Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challengeConfig` below for details.
-     * 
-     */
     private @Nullable WebAclRuleChallengeConfig challengeConfig;
-    /**
-     * @return Friendly name of the rule. Note that the provider assumes that rules with names matching this pattern, `^ShieldMitigationRuleGroup_&lt;account-id&gt;_&lt;web-acl-guid&gt;_.*`, are AWS-added for [automatic application layer DDoS mitigation activities](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-automatic-app-layer-response-rg.html). Such rules will be ignored by the provider unless you explicitly include them in your configuration (for example, by using the AWS CLI to discover their properties and creating matching configuration). However, since these rules are owned and managed by AWS, you may get permission errors.
-     * 
-     */
     private String name;
-    /**
-     * @return Override action to apply to the rules in a rule group. Used only for rule **statements that reference a rule group**, like `ruleGroupReferenceStatement` and `managedRuleGroupStatement`. See `overrideAction` below for details.
-     * 
-     */
     private @Nullable WebAclRuleOverrideAction overrideAction;
-    /**
-     * @return If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `rules` in order based on the value of `priority`. AWS WAF processes rules with lower priority first.
-     * 
-     */
     private Integer priority;
-    /**
-     * @return Labels to apply to web requests that match the rule match statement. See `ruleLabel` below for details.
-     * 
-     */
     private @Nullable List<WebAclRuleRuleLabel> ruleLabels;
-    /**
-     * @return The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See `statement` below for details.
-     * 
-     */
     private WebAclRuleStatement statement;
-    /**
-     * @return Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
-     * 
-     */
     private WebAclRuleVisibilityConfig visibilityConfig;
 
     private WebAclRule() {}
-    /**
-     * @return Action that AWS WAF should take on a web request when it matches the rule&#39;s statement. This is used only for rules whose **statements do not reference a rule group**. See `action` for details.
-     * 
-     */
     public Optional<WebAclRuleAction> action() {
         return Optional.ofNullable(this.action);
     }
-    /**
-     * @return Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
-     * 
-     */
     public Optional<WebAclRuleCaptchaConfig> captchaConfig() {
         return Optional.ofNullable(this.captchaConfig);
     }
-    /**
-     * @return Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challengeConfig` below for details.
-     * 
-     */
     public Optional<WebAclRuleChallengeConfig> challengeConfig() {
         return Optional.ofNullable(this.challengeConfig);
     }
-    /**
-     * @return Friendly name of the rule. Note that the provider assumes that rules with names matching this pattern, `^ShieldMitigationRuleGroup_&lt;account-id&gt;_&lt;web-acl-guid&gt;_.*`, are AWS-added for [automatic application layer DDoS mitigation activities](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-automatic-app-layer-response-rg.html). Such rules will be ignored by the provider unless you explicitly include them in your configuration (for example, by using the AWS CLI to discover their properties and creating matching configuration). However, since these rules are owned and managed by AWS, you may get permission errors.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Override action to apply to the rules in a rule group. Used only for rule **statements that reference a rule group**, like `ruleGroupReferenceStatement` and `managedRuleGroupStatement`. See `overrideAction` below for details.
-     * 
-     */
     public Optional<WebAclRuleOverrideAction> overrideAction() {
         return Optional.ofNullable(this.overrideAction);
     }
-    /**
-     * @return If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `rules` in order based on the value of `priority`. AWS WAF processes rules with lower priority first.
-     * 
-     */
     public Integer priority() {
         return this.priority;
     }
-    /**
-     * @return Labels to apply to web requests that match the rule match statement. See `ruleLabel` below for details.
-     * 
-     */
     public List<WebAclRuleRuleLabel> ruleLabels() {
         return this.ruleLabels == null ? List.of() : this.ruleLabels;
     }
-    /**
-     * @return The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See `statement` below for details.
-     * 
-     */
     public WebAclRuleStatement statement() {
         return this.statement;
     }
-    /**
-     * @return Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
-     * 
-     */
     public WebAclRuleVisibilityConfig visibilityConfig() {
         return this.visibilityConfig;
     }

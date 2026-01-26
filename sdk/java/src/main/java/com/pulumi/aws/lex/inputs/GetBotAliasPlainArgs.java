@@ -15,47 +15,23 @@ public final class GetBotAliasPlainArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetBotAliasPlainArgs Empty = new GetBotAliasPlainArgs();
 
-    /**
-     * Name of the bot.
-     * 
-     */
     @Import(name="botName", required=true)
     private String botName;
 
-    /**
-     * @return Name of the bot.
-     * 
-     */
     public String botName() {
         return this.botName;
     }
 
-    /**
-     * Name of the bot alias. The name is case sensitive.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the bot alias. The name is case sensitive.
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -86,34 +62,16 @@ public final class GetBotAliasPlainArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetBotAliasPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param botName Name of the bot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder botName(String botName) {
             $.botName = botName;
             return this;
         }
 
-        /**
-         * @param name Name of the bot alias. The name is case sensitive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

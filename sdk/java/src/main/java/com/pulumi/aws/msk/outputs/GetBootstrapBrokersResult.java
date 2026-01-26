@@ -10,55 +10,15 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBootstrapBrokersResult {
-    /**
-     * @return Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster.
-     * 
-     */
     private String bootstrapBrokers;
-    /**
-     * @return One or more DNS names (or IP addresses) and SASL IAM port pairs.
-     * 
-     */
     private String bootstrapBrokersPublicSaslIam;
-    /**
-     * @return One or more DNS names (or IP addresses) and SASL SCRAM port pairs.
-     * 
-     */
     private String bootstrapBrokersPublicSaslScram;
-    /**
-     * @return One or more DNS names (or IP addresses) and TLS port pairs.
-     * 
-     */
     private String bootstrapBrokersPublicTls;
-    /**
-     * @return One or more DNS names (or IP addresses) and SASL IAM port pairs.
-     * 
-     */
     private String bootstrapBrokersSaslIam;
-    /**
-     * @return One or more DNS names (or IP addresses) and SASL SCRAM port pairs.
-     * 
-     */
     private String bootstrapBrokersSaslScram;
-    /**
-     * @return One or more DNS names (or IP addresses) and TLS port pairs.
-     * 
-     */
     private String bootstrapBrokersTls;
-    /**
-     * @return A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity.
-     * 
-     */
     private String bootstrapBrokersVpcConnectivitySaslIam;
-    /**
-     * @return A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity.
-     * 
-     */
     private String bootstrapBrokersVpcConnectivitySaslScram;
-    /**
-     * @return A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity.
-     * 
-     */
     private String bootstrapBrokersVpcConnectivityTls;
     private String clusterArn;
     /**
@@ -69,73 +29,33 @@ public final class GetBootstrapBrokersResult {
     private String region;
 
     private GetBootstrapBrokersResult() {}
-    /**
-     * @return Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster.
-     * 
-     */
     public String bootstrapBrokers() {
         return this.bootstrapBrokers;
     }
-    /**
-     * @return One or more DNS names (or IP addresses) and SASL IAM port pairs.
-     * 
-     */
     public String bootstrapBrokersPublicSaslIam() {
         return this.bootstrapBrokersPublicSaslIam;
     }
-    /**
-     * @return One or more DNS names (or IP addresses) and SASL SCRAM port pairs.
-     * 
-     */
     public String bootstrapBrokersPublicSaslScram() {
         return this.bootstrapBrokersPublicSaslScram;
     }
-    /**
-     * @return One or more DNS names (or IP addresses) and TLS port pairs.
-     * 
-     */
     public String bootstrapBrokersPublicTls() {
         return this.bootstrapBrokersPublicTls;
     }
-    /**
-     * @return One or more DNS names (or IP addresses) and SASL IAM port pairs.
-     * 
-     */
     public String bootstrapBrokersSaslIam() {
         return this.bootstrapBrokersSaslIam;
     }
-    /**
-     * @return One or more DNS names (or IP addresses) and SASL SCRAM port pairs.
-     * 
-     */
     public String bootstrapBrokersSaslScram() {
         return this.bootstrapBrokersSaslScram;
     }
-    /**
-     * @return One or more DNS names (or IP addresses) and TLS port pairs.
-     * 
-     */
     public String bootstrapBrokersTls() {
         return this.bootstrapBrokersTls;
     }
-    /**
-     * @return A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity.
-     * 
-     */
     public String bootstrapBrokersVpcConnectivitySaslIam() {
         return this.bootstrapBrokersVpcConnectivitySaslIam;
     }
-    /**
-     * @return A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity.
-     * 
-     */
     public String bootstrapBrokersVpcConnectivitySaslScram() {
         return this.bootstrapBrokersVpcConnectivitySaslScram;
     }
-    /**
-     * @return A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity.
-     * 
-     */
     public String bootstrapBrokersVpcConnectivityTls() {
         return this.bootstrapBrokersVpcConnectivityTls;
     }

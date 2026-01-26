@@ -13,13 +13,7 @@ namespace Pulumi.Aws.ElastiCache.Outputs
     [OutputType]
     public sealed class GetServerlessCacheCacheUsageLimitsResult
     {
-        /// <summary>
-        /// The maximum data storage limit in the cache, expressed in Gigabytes. See `DataStorage` Block for details.
-        /// </summary>
         public readonly Outputs.GetServerlessCacheCacheUsageLimitsDataStorageResult DataStorage;
-        /// <summary>
-        /// The configured number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `EcpuPerSecond` Block for details.
-        /// </summary>
         public readonly Outputs.GetServerlessCacheCacheUsageLimitsEcpuPerSecondResult EcpuPerSecond;
 
         [OutputConstructor]

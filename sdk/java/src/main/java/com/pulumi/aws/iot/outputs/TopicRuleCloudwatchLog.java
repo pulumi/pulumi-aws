@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TopicRuleCloudwatchLog {
-    /**
-     * @return The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
-     * 
-     */
     private @Nullable Boolean batchMode;
-    /**
-     * @return The CloudWatch log group name.
-     * 
-     */
     private String logGroupName;
-    /**
-     * @return The IAM role ARN that allows access to the CloudWatch alarm.
-     * 
-     */
     private String roleArn;
 
     private TopicRuleCloudwatchLog() {}
-    /**
-     * @return The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
-     * 
-     */
     public Optional<Boolean> batchMode() {
         return Optional.ofNullable(this.batchMode);
     }
-    /**
-     * @return The CloudWatch log group name.
-     * 
-     */
     public String logGroupName() {
         return this.logGroupName;
     }
-    /**
-     * @return The IAM role ARN that allows access to the CloudWatch alarm.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }

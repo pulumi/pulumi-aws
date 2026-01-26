@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing HostedZoneId
- * in a given region for the purpose of using in an AWS Route53 Alias.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const main = aws.elb.getHostedZoneId({});
- * const www = new aws.route53.Record("www", {
- *     zoneId: primary.zoneId,
- *     name: "example.com",
- *     type: aws.route53.RecordType.A,
- *     aliases: [{
- *         name: mainAwsElb.dnsName,
- *         zoneId: main.then(main => main.id),
- *         evaluateTargetHealth: true,
- *     }],
- * });
- * ```
- */
 export function getHostedZoneId(args?: GetHostedZoneIdArgs, opts?: pulumi.InvokeOptions): Promise<GetHostedZoneIdResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,9 +16,6 @@ export function getHostedZoneId(args?: GetHostedZoneIdArgs, opts?: pulumi.Invoke
  * A collection of arguments for invoking getHostedZoneId.
  */
 export interface GetHostedZoneIdArgs {
-    /**
-     * Name of the Region whose AWS ELB HostedZoneId is desired. Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -55,29 +29,6 @@ export interface GetHostedZoneIdResult {
     readonly id: string;
     readonly region: string;
 }
-/**
- * Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing HostedZoneId
- * in a given region for the purpose of using in an AWS Route53 Alias.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const main = aws.elb.getHostedZoneId({});
- * const www = new aws.route53.Record("www", {
- *     zoneId: primary.zoneId,
- *     name: "example.com",
- *     type: aws.route53.RecordType.A,
- *     aliases: [{
- *         name: mainAwsElb.dnsName,
- *         zoneId: main.then(main => main.id),
- *         evaluateTargetHealth: true,
- *     }],
- * });
- * ```
- */
 export function getHostedZoneIdOutput(args?: GetHostedZoneIdOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHostedZoneIdResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -90,8 +41,5 @@ export function getHostedZoneIdOutput(args?: GetHostedZoneIdOutputArgs, opts?: p
  * A collection of arguments for invoking getHostedZoneId.
  */
 export interface GetHostedZoneIdOutputArgs {
-    /**
-     * Name of the Region whose AWS ELB HostedZoneId is desired. Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

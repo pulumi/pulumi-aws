@@ -4,37 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing AWS Audit Manager Account Registration.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.auditmanager.AccountRegistration("example", {});
- * ```
- *
- * ### Deregister On Destroy
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.auditmanager.AccountRegistration("example", {deregisterOnDestroy: true});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Audit Manager Account Registration resources using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:auditmanager/accountRegistration:AccountRegistration example us-east-1
- * ```
- */
 export class AccountRegistration extends pulumi.CustomResource {
     /**
      * Get an existing AccountRegistration resource's state with the given name, ID, and optional extra
@@ -63,25 +32,10 @@ export class AccountRegistration extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccountRegistration.__pulumiType;
     }
 
-    /**
-     * Identifier for the delegated administrator account.
-     */
     declare public readonly delegatedAdminAccount: pulumi.Output<string | undefined>;
-    /**
-     * Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
-     */
     declare public readonly deregisterOnDestroy: pulumi.Output<boolean | undefined>;
-    /**
-     * KMS key identifier.
-     */
     declare public readonly kmsKey: pulumi.Output<string | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Status of the account registration request.
-     */
     declare public /*out*/ readonly status: pulumi.Output<string>;
 
     /**
@@ -119,25 +73,10 @@ export class AccountRegistration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AccountRegistration resources.
  */
 export interface AccountRegistrationState {
-    /**
-     * Identifier for the delegated administrator account.
-     */
     delegatedAdminAccount?: pulumi.Input<string>;
-    /**
-     * Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
-     */
     deregisterOnDestroy?: pulumi.Input<boolean>;
-    /**
-     * KMS key identifier.
-     */
     kmsKey?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Status of the account registration request.
-     */
     status?: pulumi.Input<string>;
 }
 
@@ -145,20 +84,8 @@ export interface AccountRegistrationState {
  * The set of arguments for constructing a AccountRegistration resource.
  */
 export interface AccountRegistrationArgs {
-    /**
-     * Identifier for the delegated administrator account.
-     */
     delegatedAdminAccount?: pulumi.Input<string>;
-    /**
-     * Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
-     */
     deregisterOnDestroy?: pulumi.Input<boolean>;
-    /**
-     * KMS key identifier.
-     */
     kmsKey?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

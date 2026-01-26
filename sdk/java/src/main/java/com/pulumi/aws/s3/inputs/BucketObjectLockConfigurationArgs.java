@@ -17,8 +17,6 @@ public final class BucketObjectLockConfigurationArgs extends com.pulumi.resource
     public static final BucketObjectLockConfigurationArgs Empty = new BucketObjectLockConfigurationArgs();
 
     /**
-     * Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
-     * 
      * @deprecated
      * object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
      * 
@@ -28,8 +26,6 @@ public final class BucketObjectLockConfigurationArgs extends com.pulumi.resource
     private @Nullable Output<String> objectLockEnabled;
 
     /**
-     * @return Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
-     * 
      * @deprecated
      * object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
      * 
@@ -40,8 +36,6 @@ public final class BucketObjectLockConfigurationArgs extends com.pulumi.resource
     }
 
     /**
-     * Object Lock rule in place for this bucket (documented below).
-     * 
      * @deprecated
      * rule is deprecated. Use the aws.s3.BucketObjectLockConfiguration resource instead.
      * 
@@ -51,8 +45,6 @@ public final class BucketObjectLockConfigurationArgs extends com.pulumi.resource
     private @Nullable Output<BucketObjectLockConfigurationRuleArgs> rule;
 
     /**
-     * @return Object Lock rule in place for this bucket (documented below).
-     * 
      * @deprecated
      * rule is deprecated. Use the aws.s3.BucketObjectLockConfiguration resource instead.
      * 
@@ -88,8 +80,6 @@ public final class BucketObjectLockConfigurationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param objectLockEnabled Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -103,8 +93,6 @@ public final class BucketObjectLockConfigurationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param objectLockEnabled Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -117,8 +105,6 @@ public final class BucketObjectLockConfigurationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param rule Object Lock rule in place for this bucket (documented below).
-         * 
          * @return builder
          * 
          * @deprecated
@@ -132,8 +118,6 @@ public final class BucketObjectLockConfigurationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param rule Object Lock rule in place for this bucket (documented below).
-         * 
          * @return builder
          * 
          * @deprecated

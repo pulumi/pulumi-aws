@@ -23,47 +23,23 @@ public final class AccessGrantsInstanceArgs extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.accountId);
     }
 
-    /**
-     * The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
-     * 
-     */
     @Import(name="identityCenterArn")
     private @Nullable Output<String> identityCenterArn;
 
-    /**
-     * @return The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
-     * 
-     */
     public Optional<Output<String>> identityCenterArn() {
         return Optional.ofNullable(this.identityCenterArn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -104,65 +80,29 @@ public final class AccessGrantsInstanceArgs extends com.pulumi.resources.Resourc
             return accountId(Output.of(accountId));
         }
 
-        /**
-         * @param identityCenterArn The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityCenterArn(@Nullable Output<String> identityCenterArn) {
             $.identityCenterArn = identityCenterArn;
             return this;
         }
 
-        /**
-         * @param identityCenterArn The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityCenterArn(String identityCenterArn) {
             return identityCenterArn(Output.of(identityCenterArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

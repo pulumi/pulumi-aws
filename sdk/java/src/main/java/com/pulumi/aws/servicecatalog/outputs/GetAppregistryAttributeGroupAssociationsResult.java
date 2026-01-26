@@ -13,20 +13,12 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAppregistryAttributeGroupAssociationsResult {
-    /**
-     * @return Set of attribute group IDs this application is associated with.
-     * 
-     */
     private List<String> attributeGroupIds;
     private @Nullable String id;
     private @Nullable String name;
     private String region;
 
     private GetAppregistryAttributeGroupAssociationsResult() {}
-    /**
-     * @return Set of attribute group IDs this application is associated with.
-     * 
-     */
     public List<String> attributeGroupIds() {
         return this.attributeGroupIds;
     }

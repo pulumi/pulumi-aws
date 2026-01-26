@@ -30,15 +30,6 @@ class AuthorizerArgs:
                  token_signing_public_keys: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Authorizer resource.
-        :param pulumi.Input[_builtins.str] authorizer_function_arn: The ARN of the authorizer's Lambda function.
-        :param pulumi.Input[_builtins.bool] enable_caching_for_http: Specifies whether the HTTP caching is enabled or not. Default: `false`.
-        :param pulumi.Input[_builtins.str] name: The name of the authorizer.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] signing_disabled: Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
-        :param pulumi.Input[_builtins.str] status: The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] token_key_name: The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] token_signing_public_keys: The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
         """
         pulumi.set(__self__, "authorizer_function_arn", authorizer_function_arn)
         if enable_caching_for_http is not None:
@@ -61,9 +52,6 @@ class AuthorizerArgs:
     @_builtins.property
     @pulumi.getter(name="authorizerFunctionArn")
     def authorizer_function_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the authorizer's Lambda function.
-        """
         return pulumi.get(self, "authorizer_function_arn")
 
     @authorizer_function_arn.setter
@@ -73,9 +61,6 @@ class AuthorizerArgs:
     @_builtins.property
     @pulumi.getter(name="enableCachingForHttp")
     def enable_caching_for_http(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether the HTTP caching is enabled or not. Default: `false`.
-        """
         return pulumi.get(self, "enable_caching_for_http")
 
     @enable_caching_for_http.setter
@@ -85,9 +70,6 @@ class AuthorizerArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the authorizer.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -97,9 +79,6 @@ class AuthorizerArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -109,9 +88,6 @@ class AuthorizerArgs:
     @_builtins.property
     @pulumi.getter(name="signingDisabled")
     def signing_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
-        """
         return pulumi.get(self, "signing_disabled")
 
     @signing_disabled.setter
@@ -121,9 +97,6 @@ class AuthorizerArgs:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -133,9 +106,6 @@ class AuthorizerArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -145,9 +115,6 @@ class AuthorizerArgs:
     @_builtins.property
     @pulumi.getter(name="tokenKeyName")
     def token_key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
-        """
         return pulumi.get(self, "token_key_name")
 
     @token_key_name.setter
@@ -157,9 +124,6 @@ class AuthorizerArgs:
     @_builtins.property
     @pulumi.getter(name="tokenSigningPublicKeys")
     def token_signing_public_keys(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
-        """
         return pulumi.get(self, "token_signing_public_keys")
 
     @token_signing_public_keys.setter
@@ -183,17 +147,6 @@ class _AuthorizerState:
                  token_signing_public_keys: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Authorizer resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the authorizer.
-        :param pulumi.Input[_builtins.str] authorizer_function_arn: The ARN of the authorizer's Lambda function.
-        :param pulumi.Input[_builtins.bool] enable_caching_for_http: Specifies whether the HTTP caching is enabled or not. Default: `false`.
-        :param pulumi.Input[_builtins.str] name: The name of the authorizer.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] signing_disabled: Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
-        :param pulumi.Input[_builtins.str] status: The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] token_key_name: The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] token_signing_public_keys: The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -221,9 +174,6 @@ class _AuthorizerState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the authorizer.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -233,9 +183,6 @@ class _AuthorizerState:
     @_builtins.property
     @pulumi.getter(name="authorizerFunctionArn")
     def authorizer_function_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the authorizer's Lambda function.
-        """
         return pulumi.get(self, "authorizer_function_arn")
 
     @authorizer_function_arn.setter
@@ -245,9 +192,6 @@ class _AuthorizerState:
     @_builtins.property
     @pulumi.getter(name="enableCachingForHttp")
     def enable_caching_for_http(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether the HTTP caching is enabled or not. Default: `false`.
-        """
         return pulumi.get(self, "enable_caching_for_http")
 
     @enable_caching_for_http.setter
@@ -257,9 +201,6 @@ class _AuthorizerState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the authorizer.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -269,9 +210,6 @@ class _AuthorizerState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -281,9 +219,6 @@ class _AuthorizerState:
     @_builtins.property
     @pulumi.getter(name="signingDisabled")
     def signing_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
-        """
         return pulumi.get(self, "signing_disabled")
 
     @signing_disabled.setter
@@ -293,9 +228,6 @@ class _AuthorizerState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -305,9 +237,6 @@ class _AuthorizerState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -317,9 +246,6 @@ class _AuthorizerState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -329,9 +255,6 @@ class _AuthorizerState:
     @_builtins.property
     @pulumi.getter(name="tokenKeyName")
     def token_key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
-        """
         return pulumi.get(self, "token_key_name")
 
     @token_key_name.setter
@@ -341,9 +264,6 @@ class _AuthorizerState:
     @_builtins.property
     @pulumi.getter(name="tokenSigningPublicKeys")
     def token_signing_public_keys(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
-        """
         return pulumi.get(self, "token_signing_public_keys")
 
     @token_signing_public_keys.setter
@@ -368,48 +288,9 @@ class Authorizer(pulumi.CustomResource):
                  token_signing_public_keys: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Creates and manages an AWS IoT Authorizer.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.iot.Authorizer("example",
-            name="example",
-            authorizer_function_arn=example_aws_lambda_function["arn"],
-            signing_disabled=False,
-            status="ACTIVE",
-            token_key_name="Token-Header",
-            token_signing_public_keys={
-                "Key1": std.file(input="test-fixtures/iot-authorizer-signing-key.pem").result,
-            },
-            tags={
-                "Name": "example",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import IOT Authorizers using the name. For example:
-
-        ```sh
-        $ pulumi import aws:iot/authorizer:Authorizer example example
-        ```
-
+        Create a Authorizer resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] authorizer_function_arn: The ARN of the authorizer's Lambda function.
-        :param pulumi.Input[_builtins.bool] enable_caching_for_http: Specifies whether the HTTP caching is enabled or not. Default: `false`.
-        :param pulumi.Input[_builtins.str] name: The name of the authorizer.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] signing_disabled: Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
-        :param pulumi.Input[_builtins.str] status: The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] token_key_name: The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] token_signing_public_keys: The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
         """
         ...
     @overload
@@ -418,37 +299,7 @@ class Authorizer(pulumi.CustomResource):
                  args: AuthorizerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates and manages an AWS IoT Authorizer.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.iot.Authorizer("example",
-            name="example",
-            authorizer_function_arn=example_aws_lambda_function["arn"],
-            signing_disabled=False,
-            status="ACTIVE",
-            token_key_name="Token-Header",
-            token_signing_public_keys={
-                "Key1": std.file(input="test-fixtures/iot-authorizer-signing-key.pem").result,
-            },
-            tags={
-                "Name": "example",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import IOT Authorizers using the name. For example:
-
-        ```sh
-        $ pulumi import aws:iot/authorizer:Authorizer example example
-        ```
-
+        Create a Authorizer resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AuthorizerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -525,17 +376,6 @@ class Authorizer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the authorizer.
-        :param pulumi.Input[_builtins.str] authorizer_function_arn: The ARN of the authorizer's Lambda function.
-        :param pulumi.Input[_builtins.bool] enable_caching_for_http: Specifies whether the HTTP caching is enabled or not. Default: `false`.
-        :param pulumi.Input[_builtins.str] name: The name of the authorizer.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] signing_disabled: Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
-        :param pulumi.Input[_builtins.str] status: The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] token_key_name: The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] token_signing_public_keys: The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -557,88 +397,55 @@ class Authorizer(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the authorizer.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="authorizerFunctionArn")
     def authorizer_function_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the authorizer's Lambda function.
-        """
         return pulumi.get(self, "authorizer_function_arn")
 
     @_builtins.property
     @pulumi.getter(name="enableCachingForHttp")
     def enable_caching_for_http(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Specifies whether the HTTP caching is enabled or not. Default: `false`.
-        """
         return pulumi.get(self, "enable_caching_for_http")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the authorizer.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="signingDisabled")
     def signing_disabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
-        """
         return pulumi.get(self, "signing_disabled")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="tokenKeyName")
     def token_key_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
-        """
         return pulumi.get(self, "token_key_name")
 
     @_builtins.property
     @pulumi.getter(name="tokenSigningPublicKeys")
     def token_signing_public_keys(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
-        """
         return pulumi.get(self, "token_signing_public_keys")
 

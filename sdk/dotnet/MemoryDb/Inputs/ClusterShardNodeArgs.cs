@@ -12,15 +12,9 @@ namespace Pulumi.Aws.MemoryDb.Inputs
 
     public sealed class ClusterShardNodeArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Availability Zone in which the node resides.
-        /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
-        /// <summary>
-        /// The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
-        /// </summary>
         [Input("createTime")]
         public Input<string>? CreateTime { get; set; }
 
@@ -32,9 +26,6 @@ namespace Pulumi.Aws.MemoryDb.Inputs
             set => _endpoints = value;
         }
 
-        /// <summary>
-        /// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

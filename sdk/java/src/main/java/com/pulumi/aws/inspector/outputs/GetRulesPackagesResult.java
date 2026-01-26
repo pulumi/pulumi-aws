@@ -11,10 +11,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRulesPackagesResult {
-    /**
-     * @return List of the Amazon Inspector Classic Rules Packages arns available in the AWS region.
-     * 
-     */
     private List<String> arns;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -24,10 +20,6 @@ public final class GetRulesPackagesResult {
     private String region;
 
     private GetRulesPackagesResult() {}
-    /**
-     * @return List of the Amazon Inspector Classic Rules Packages arns available in the AWS region.
-     * 
-     */
     public List<String> arns() {
         return this.arns;
     }

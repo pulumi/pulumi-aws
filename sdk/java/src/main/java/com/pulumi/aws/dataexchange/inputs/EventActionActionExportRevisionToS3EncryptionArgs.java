@@ -15,34 +15,16 @@ public final class EventActionActionExportRevisionToS3EncryptionArgs extends com
 
     public static final EventActionActionExportRevisionToS3EncryptionArgs Empty = new EventActionActionExportRevisionToS3EncryptionArgs();
 
-    /**
-     * ARN of the KMS key used for encryption.
-     * 
-     */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
-    /**
-     * @return ARN of the KMS key used for encryption.
-     * 
-     */
     public Optional<Output<String>> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
 
-    /**
-     * Type of server-side encryption.
-     * Valid values are `aws:kms` or `aws:s3`.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return Type of server-side encryption.
-     * Valid values are `aws:kms` or `aws:s3`.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -72,46 +54,20 @@ public final class EventActionActionExportRevisionToS3EncryptionArgs extends com
             $ = new EventActionActionExportRevisionToS3EncryptionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kmsKeyArn ARN of the KMS key used for encryption.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(@Nullable Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
         }
 
-        /**
-         * @param kmsKeyArn ARN of the KMS key used for encryption.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
         }
 
-        /**
-         * @param type Type of server-side encryption.
-         * Valid values are `aws:kms` or `aws:s3`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of server-side encryption.
-         * Valid values are `aws:kms` or `aws:s3`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

@@ -4,35 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Attaches a load balancer to an Auto Scaling group.
- *
- * > **NOTE on Auto Scaling Groups, Attachments and Traffic Source Attachments:** Pulumi provides standalone Attachment (for attaching Classic Load Balancers and Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target groups) and Traffic Source Attachment (for attaching Load Balancers and VPC Lattice target groups) resources and an Auto Scaling Group resource with `loadBalancers`, `targetGroupArns` and `trafficSource` attributes. Do not use the same traffic source in more than one of these resources. Doing so will cause a conflict of attachments. A `lifecycle` configuration block can be used to suppress differences if necessary.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // Create a new load balancer attachment
- * const example = new aws.autoscaling.Attachment("example", {
- *     autoscalingGroupName: exampleAwsAutoscalingGroup.id,
- *     elb: exampleAwsElb.id,
- * });
- * ```
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // Create a new ALB Target Group attachment
- * const example = new aws.autoscaling.Attachment("example", {
- *     autoscalingGroupName: exampleAwsAutoscalingGroup.id,
- *     lbTargetGroupArn: exampleAwsLbTargetGroup.arn,
- * });
- * ```
- */
 export class Attachment extends pulumi.CustomResource {
     /**
      * Get an existing Attachment resource's state with the given name, ID, and optional extra
@@ -61,21 +32,9 @@ export class Attachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === Attachment.__pulumiType;
     }
 
-    /**
-     * Name of ASG to associate with the ELB.
-     */
     declare public readonly autoscalingGroupName: pulumi.Output<string>;
-    /**
-     * Name of the ELB.
-     */
     declare public readonly elb: pulumi.Output<string | undefined>;
-    /**
-     * ARN of a load balancer target group.
-     */
     declare public readonly lbTargetGroupArn: pulumi.Output<string | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -114,21 +73,9 @@ export class Attachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Attachment resources.
  */
 export interface AttachmentState {
-    /**
-     * Name of ASG to associate with the ELB.
-     */
     autoscalingGroupName?: pulumi.Input<string>;
-    /**
-     * Name of the ELB.
-     */
     elb?: pulumi.Input<string>;
-    /**
-     * ARN of a load balancer target group.
-     */
     lbTargetGroupArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -136,20 +83,8 @@ export interface AttachmentState {
  * The set of arguments for constructing a Attachment resource.
  */
 export interface AttachmentArgs {
-    /**
-     * Name of ASG to associate with the ELB.
-     */
     autoscalingGroupName: pulumi.Input<string>;
-    /**
-     * Name of the ELB.
-     */
     elb?: pulumi.Input<string>;
-    /**
-     * ARN of a load balancer target group.
-     */
     lbTargetGroupArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

@@ -12,135 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Service Discovery Instance resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicediscovery"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
-//				CidrBlock:          pulumi.String("10.0.0.0/16"),
-//				EnableDnsSupport:   pulumi.Bool(true),
-//				EnableDnsHostnames: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePrivateDnsNamespace, err := servicediscovery.NewPrivateDnsNamespace(ctx, "example", &servicediscovery.PrivateDnsNamespaceArgs{
-//				Name:        pulumi.String("example.domain.local"),
-//				Description: pulumi.String("example"),
-//				Vpc:         example.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleService, err := servicediscovery.NewService(ctx, "example", &servicediscovery.ServiceArgs{
-//				Name: pulumi.String("example"),
-//				DnsConfig: &servicediscovery.ServiceDnsConfigArgs{
-//					NamespaceId: examplePrivateDnsNamespace.ID(),
-//					DnsRecords: servicediscovery.ServiceDnsConfigDnsRecordArray{
-//						&servicediscovery.ServiceDnsConfigDnsRecordArgs{
-//							Ttl:  pulumi.Int(10),
-//							Type: pulumi.String("A"),
-//						},
-//					},
-//					RoutingPolicy: pulumi.String("MULTIVALUE"),
-//				},
-//				HealthCheckCustomConfig: &servicediscovery.ServiceHealthCheckCustomConfigArgs{
-//					FailureThreshold: pulumi.Int(1),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = servicediscovery.NewInstance(ctx, "example", &servicediscovery.InstanceArgs{
-//				InstanceId: pulumi.String("example-instance-id"),
-//				ServiceId:  exampleService.ID(),
-//				Attributes: pulumi.StringMap{
-//					"AWS_INSTANCE_IPV4": pulumi.String("172.18.0.1"),
-//					"custom_attribute":  pulumi.String("custom"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicediscovery"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := servicediscovery.NewHttpNamespace(ctx, "example", &servicediscovery.HttpNamespaceArgs{
-//				Name:        pulumi.String("example.domain.test"),
-//				Description: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleService, err := servicediscovery.NewService(ctx, "example", &servicediscovery.ServiceArgs{
-//				Name:        pulumi.String("example"),
-//				NamespaceId: example.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = servicediscovery.NewInstance(ctx, "example", &servicediscovery.InstanceArgs{
-//				InstanceId: pulumi.String("example-instance-id"),
-//				ServiceId:  exampleService.ID(),
-//				Attributes: pulumi.StringMap{
-//					"AWS_EC2_INSTANCE_ID": pulumi.String("i-0abdg374kd892cj6dl"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Service Discovery Instance using the service ID and instance ID. For example:
-//
-// ```sh
-// $ pulumi import aws:servicediscovery/instance:Instance example 0123456789/i-0123
-// ```
 type Instance struct {
 	pulumi.CustomResourceState
 
-	// A map contains the attributes of the instance. Check the [doc](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#API_RegisterInstance_RequestSyntax) for the supported attributes and syntax.
 	Attributes pulumi.StringMapOutput `pulumi:"attributes"`
-	// The ID of the service instance.
-	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The ID of the service that you want to use to create the instance.
-	ServiceId pulumi.StringOutput `pulumi:"serviceId"`
+	InstanceId pulumi.StringOutput    `pulumi:"instanceId"`
+	Region     pulumi.StringOutput    `pulumi:"region"`
+	ServiceId  pulumi.StringOutput    `pulumi:"serviceId"`
 }
 
 // NewInstance registers a new resource with the given unique name, arguments, and options.
@@ -182,25 +60,17 @@ func GetInstance(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Instance resources.
 type instanceState struct {
-	// A map contains the attributes of the instance. Check the [doc](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#API_RegisterInstance_RequestSyntax) for the supported attributes and syntax.
 	Attributes map[string]string `pulumi:"attributes"`
-	// The ID of the service instance.
-	InstanceId *string `pulumi:"instanceId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID of the service that you want to use to create the instance.
-	ServiceId *string `pulumi:"serviceId"`
+	InstanceId *string           `pulumi:"instanceId"`
+	Region     *string           `pulumi:"region"`
+	ServiceId  *string           `pulumi:"serviceId"`
 }
 
 type InstanceState struct {
-	// A map contains the attributes of the instance. Check the [doc](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#API_RegisterInstance_RequestSyntax) for the supported attributes and syntax.
 	Attributes pulumi.StringMapInput
-	// The ID of the service instance.
 	InstanceId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID of the service that you want to use to create the instance.
-	ServiceId pulumi.StringPtrInput
+	Region     pulumi.StringPtrInput
+	ServiceId  pulumi.StringPtrInput
 }
 
 func (InstanceState) ElementType() reflect.Type {
@@ -208,26 +78,18 @@ func (InstanceState) ElementType() reflect.Type {
 }
 
 type instanceArgs struct {
-	// A map contains the attributes of the instance. Check the [doc](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#API_RegisterInstance_RequestSyntax) for the supported attributes and syntax.
 	Attributes map[string]string `pulumi:"attributes"`
-	// The ID of the service instance.
-	InstanceId string `pulumi:"instanceId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID of the service that you want to use to create the instance.
-	ServiceId string `pulumi:"serviceId"`
+	InstanceId string            `pulumi:"instanceId"`
+	Region     *string           `pulumi:"region"`
+	ServiceId  string            `pulumi:"serviceId"`
 }
 
 // The set of arguments for constructing a Instance resource.
 type InstanceArgs struct {
-	// A map contains the attributes of the instance. Check the [doc](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#API_RegisterInstance_RequestSyntax) for the supported attributes and syntax.
 	Attributes pulumi.StringMapInput
-	// The ID of the service instance.
 	InstanceId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID of the service that you want to use to create the instance.
-	ServiceId pulumi.StringInput
+	Region     pulumi.StringPtrInput
+	ServiceId  pulumi.StringInput
 }
 
 func (InstanceArgs) ElementType() reflect.Type {
@@ -317,22 +179,18 @@ func (o InstanceOutput) ToInstanceOutputWithContext(ctx context.Context) Instanc
 	return o
 }
 
-// A map contains the attributes of the instance. Check the [doc](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#API_RegisterInstance_RequestSyntax) for the supported attributes and syntax.
 func (o InstanceOutput) Attributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringMapOutput { return v.Attributes }).(pulumi.StringMapOutput)
 }
 
-// The ID of the service instance.
 func (o InstanceOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InstanceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ID of the service that you want to use to create the instance.
 func (o InstanceOutput) ServiceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.ServiceId }).(pulumi.StringOutput)
 }

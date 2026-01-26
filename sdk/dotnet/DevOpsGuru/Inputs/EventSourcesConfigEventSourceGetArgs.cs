@@ -14,10 +14,6 @@ namespace Pulumi.Aws.DevOpsGuru.Inputs
     {
         [Input("amazonCodeGuruProfilers")]
         private InputList<Inputs.EventSourcesConfigEventSourceAmazonCodeGuruProfilerGetArgs>? _amazonCodeGuruProfilers;
-
-        /// <summary>
-        /// Stores whether DevOps Guru is configured to consume recommendations which are generated from AWS CodeGuru Profiler. See `AmazonCodeGuruProfiler` below.
-        /// </summary>
         public InputList<Inputs.EventSourcesConfigEventSourceAmazonCodeGuruProfilerGetArgs> AmazonCodeGuruProfilers
         {
             get => _amazonCodeGuruProfilers ?? (_amazonCodeGuruProfilers = new InputList<Inputs.EventSourcesConfigEventSourceAmazonCodeGuruProfilerGetArgs>());

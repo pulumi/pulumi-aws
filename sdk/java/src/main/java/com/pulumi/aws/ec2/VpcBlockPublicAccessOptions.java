@@ -15,108 +15,29 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS VPC Block Public Access Options.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.VpcBlockPublicAccessOptions;
- * import com.pulumi.aws.ec2.VpcBlockPublicAccessOptionsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new VpcBlockPublicAccessOptions("example", VpcBlockPublicAccessOptionsArgs.builder()
- *             .internetGatewayBlockMode("block-bidirectional")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import VPC Block Public Access Options using the `aws_region`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ec2/vpcBlockPublicAccessOptions:VpcBlockPublicAccessOptions example us-east-1
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/vpcBlockPublicAccessOptions:VpcBlockPublicAccessOptions")
 public class VpcBlockPublicAccessOptions extends com.pulumi.resources.CustomResource {
-    /**
-     * The AWS account id to which these options apply.
-     * 
-     */
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
     private Output<String> awsAccountId;
 
-    /**
-     * @return The AWS account id to which these options apply.
-     * 
-     */
     public Output<String> awsAccountId() {
         return this.awsAccountId;
     }
-    /**
-     * The AWS region to which these options apply.
-     * 
-     */
     @Export(name="awsRegion", refs={String.class}, tree="[0]")
     private Output<String> awsRegion;
 
-    /**
-     * @return The AWS region to which these options apply.
-     * 
-     */
     public Output<String> awsRegion() {
         return this.awsRegion;
     }
-    /**
-     * Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
-     * 
-     */
     @Export(name="internetGatewayBlockMode", refs={String.class}, tree="[0]")
     private Output<String> internetGatewayBlockMode;
 
-    /**
-     * @return Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
-     * 
-     */
     public Output<String> internetGatewayBlockMode() {
         return this.internetGatewayBlockMode;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

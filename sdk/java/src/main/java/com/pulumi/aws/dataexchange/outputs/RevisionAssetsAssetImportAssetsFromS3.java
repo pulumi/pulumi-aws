@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RevisionAssetsAssetImportAssetsFromS3 {
-    /**
-     * @return A block specifying the source bucket and key for the asset. This block supports the following:
-     * 
-     */
     private @Nullable RevisionAssetsAssetImportAssetsFromS3AssetSource assetSource;
 
     private RevisionAssetsAssetImportAssetsFromS3() {}
-    /**
-     * @return A block specifying the source bucket and key for the asset. This block supports the following:
-     * 
-     */
     public Optional<RevisionAssetsAssetImportAssetsFromS3AssetSource> assetSource() {
         return Optional.ofNullable(this.assetSource);
     }

@@ -15,17 +15,9 @@ public final class GetDelegatedAdministratorsArgs extends com.pulumi.resources.I
 
     public static final GetDelegatedAdministratorsArgs Empty = new GetDelegatedAdministratorsArgs();
 
-    /**
-     * Specifies a service principal name. If specified, then the operation lists the delegated administrators only for the specified service. If you don&#39;t specify a service principal, the operation lists all delegated administrators for all services in your organization.
-     * 
-     */
     @Import(name="servicePrincipal")
     private @Nullable Output<String> servicePrincipal;
 
-    /**
-     * @return Specifies a service principal name. If specified, then the operation lists the delegated administrators only for the specified service. If you don&#39;t specify a service principal, the operation lists all delegated administrators for all services in your organization.
-     * 
-     */
     public Optional<Output<String>> servicePrincipal() {
         return Optional.ofNullable(this.servicePrincipal);
     }
@@ -54,23 +46,11 @@ public final class GetDelegatedAdministratorsArgs extends com.pulumi.resources.I
             $ = new GetDelegatedAdministratorsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param servicePrincipal Specifies a service principal name. If specified, then the operation lists the delegated administrators only for the specified service. If you don&#39;t specify a service principal, the operation lists all delegated administrators for all services in your organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder servicePrincipal(@Nullable Output<String> servicePrincipal) {
             $.servicePrincipal = servicePrincipal;
             return this;
         }
 
-        /**
-         * @param servicePrincipal Specifies a service principal name. If specified, then the operation lists the delegated administrators only for the specified service. If you don&#39;t specify a service principal, the operation lists all delegated administrators for all services in your organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder servicePrincipal(String servicePrincipal) {
             return servicePrincipal(Output.of(servicePrincipal));
         }

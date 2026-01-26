@@ -16,96 +16,44 @@ public final class AccessLogSubscriptionState extends com.pulumi.resources.Resou
 
     public static final AccessLogSubscriptionState Empty = new AccessLogSubscriptionState();
 
-    /**
-     * Amazon Resource Name (ARN) of the access log subscription.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the access log subscription.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the log destination.
-     * 
-     */
     @Import(name="destinationArn")
     private @Nullable Output<String> destinationArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the log destination.
-     * 
-     */
     public Optional<Output<String>> destinationArn() {
         return Optional.ofNullable(this.destinationArn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the service network or service.
-     * 
-     */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the service network or service.
-     * 
-     */
     public Optional<Output<String>> resourceArn() {
         return Optional.ofNullable(this.resourceArn);
     }
 
-    /**
-     * The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="resourceIdentifier")
     private @Nullable Output<String> resourceIdentifier;
 
-    /**
-     * @return The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> resourceIdentifier() {
         return Optional.ofNullable(this.resourceIdentifier);
     }
 
-    /**
-     * Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
-     * 
-     */
     @Import(name="serviceNetworkLogType")
     private @Nullable Output<String> serviceNetworkLogType;
 
-    /**
-     * @return Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
-     * 
-     */
     public Optional<Output<String>> serviceNetworkLogType() {
         return Optional.ofNullable(this.serviceNetworkLogType);
     }
@@ -155,132 +103,56 @@ public final class AccessLogSubscriptionState extends com.pulumi.resources.Resou
             $ = new AccessLogSubscriptionState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of the access log subscription.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of the access log subscription.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param destinationArn Amazon Resource Name (ARN) of the log destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationArn(@Nullable Output<String> destinationArn) {
             $.destinationArn = destinationArn;
             return this;
         }
 
-        /**
-         * @param destinationArn Amazon Resource Name (ARN) of the log destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationArn(String destinationArn) {
             return destinationArn(Output.of(destinationArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceArn Amazon Resource Name (ARN) of the service network or service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(@Nullable Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
-        /**
-         * @param resourceArn Amazon Resource Name (ARN) of the service network or service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }
 
-        /**
-         * @param resourceIdentifier The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceIdentifier(@Nullable Output<String> resourceIdentifier) {
             $.resourceIdentifier = resourceIdentifier;
             return this;
         }
 
-        /**
-         * @param resourceIdentifier The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceIdentifier(String resourceIdentifier) {
             return resourceIdentifier(Output.of(resourceIdentifier));
         }
 
-        /**
-         * @param serviceNetworkLogType Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceNetworkLogType(@Nullable Output<String> serviceNetworkLogType) {
             $.serviceNetworkLogType = serviceNetworkLogType;
             return this;
         }
 
-        /**
-         * @param serviceNetworkLogType Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceNetworkLogType(String serviceNetworkLogType) {
             return serviceNetworkLogType(Output.of(serviceNetworkLogType));
         }

@@ -15,47 +15,23 @@ public final class ClusterMasterUserSecretArgs extends com.pulumi.resources.Reso
 
     public static final ClusterMasterUserSecretArgs Empty = new ClusterMasterUserSecretArgs();
 
-    /**
-     * ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
-     * 
-     */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
-    /**
-     * @return ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
-     * 
-     */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the secret.
-     * 
-     */
     @Import(name="secretArn")
     private @Nullable Output<String> secretArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the secret.
-     * 
-     */
     public Optional<Output<String>> secretArn() {
         return Optional.ofNullable(this.secretArn);
     }
 
-    /**
-     * Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
-     * 
-     */
     @Import(name="secretStatus")
     private @Nullable Output<String> secretStatus;
 
-    /**
-     * @return Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
-     * 
-     */
     public Optional<Output<String>> secretStatus() {
         return Optional.ofNullable(this.secretStatus);
     }
@@ -86,65 +62,29 @@ public final class ClusterMasterUserSecretArgs extends com.pulumi.resources.Reso
             $ = new ClusterMasterUserSecretArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kmsKeyId ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
-        /**
-         * @param kmsKeyId ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }
 
-        /**
-         * @param secretArn Amazon Resource Name (ARN) of the secret.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretArn(@Nullable Output<String> secretArn) {
             $.secretArn = secretArn;
             return this;
         }
 
-        /**
-         * @param secretArn Amazon Resource Name (ARN) of the secret.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretArn(String secretArn) {
             return secretArn(Output.of(secretArn));
         }
 
-        /**
-         * @param secretStatus Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretStatus(@Nullable Output<String> secretStatus) {
             $.secretStatus = secretStatus;
             return this;
         }
 
-        /**
-         * @param secretStatus Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretStatus(String secretStatus) {
             return secretStatus(Output.of(secretStatus));
         }

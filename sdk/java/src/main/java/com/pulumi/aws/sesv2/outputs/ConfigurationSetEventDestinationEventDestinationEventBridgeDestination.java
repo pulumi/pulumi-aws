@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ConfigurationSetEventDestinationEventDestinationEventBridgeDestination {
-    /**
-     * @return The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
-     * 
-     */
     private String eventBusArn;
 
     private ConfigurationSetEventDestinationEventDestinationEventBridgeDestination() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
-     * 
-     */
     public String eventBusArn() {
         return this.eventBusArn;
     }

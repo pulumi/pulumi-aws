@@ -15,17 +15,9 @@ public final class TableCommentArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TableCommentArgs Empty = new TableCommentArgs();
 
-    /**
-     * A description of the table.
-     * 
-     */
     @Import(name="message")
     private @Nullable Output<String> message;
 
-    /**
-     * @return A description of the table.
-     * 
-     */
     public Optional<Output<String>> message() {
         return Optional.ofNullable(this.message);
     }
@@ -54,23 +46,11 @@ public final class TableCommentArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TableCommentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param message A description of the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder message(@Nullable Output<String> message) {
             $.message = message;
             return this;
         }
 
-        /**
-         * @param message A description of the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder message(String message) {
             return message(Output.of(message));
         }

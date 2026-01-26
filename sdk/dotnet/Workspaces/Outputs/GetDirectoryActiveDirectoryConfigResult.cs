@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Workspaces.Outputs
     [OutputType]
     public sealed class GetDirectoryActiveDirectoryConfigResult
     {
-        /// <summary>
-        /// Fully qualified domain name of the AWS Directory Service directory.
-        /// </summary>
         public readonly string DomainName;
-        /// <summary>
-        /// ARN of the Secrets Manager secret that contains the credentials for the service account.
-        /// </summary>
         public readonly string ServiceAccountSecretArn;
 
         [OutputConstructor]

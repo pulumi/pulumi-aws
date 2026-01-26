@@ -11,53 +11,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDomainIdentityCenterOption {
-    /**
-     * @return Boolean whether IAM Identity Center is enabled for API access.
-     * 
-     */
     private Boolean enabledApiAccess;
-    /**
-     * @return ARN of the IAM Identity Center instance to create an OpenSearch UI application that uses IAM Identity Center for authentication.
-     * 
-     */
     private String identityCenterInstanceArn;
-    /**
-     * @return Attribute that contains the backend role identifier (such as group name or group ID) in IAM Identity Center.
-     * 
-     */
     private String rolesKey;
-    /**
-     * @return Attribute that contains the subject identifier (such as username, user ID, or email) in IAM Identity Center.
-     * 
-     */
     private String subjectKey;
 
     private GetDomainIdentityCenterOption() {}
-    /**
-     * @return Boolean whether IAM Identity Center is enabled for API access.
-     * 
-     */
     public Boolean enabledApiAccess() {
         return this.enabledApiAccess;
     }
-    /**
-     * @return ARN of the IAM Identity Center instance to create an OpenSearch UI application that uses IAM Identity Center for authentication.
-     * 
-     */
     public String identityCenterInstanceArn() {
         return this.identityCenterInstanceArn;
     }
-    /**
-     * @return Attribute that contains the backend role identifier (such as group name or group ID) in IAM Identity Center.
-     * 
-     */
     public String rolesKey() {
         return this.rolesKey;
     }
-    /**
-     * @return Attribute that contains the subject identifier (such as username, user ID, or email) in IAM Identity Center.
-     * 
-     */
     public String subjectKey() {
         return this.subjectKey;
     }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentFlowDefinition
     {
-        /// <summary>
-        /// A list of connection definitions in the flow. See Connection for more information.
-        /// </summary>
         public readonly ImmutableArray<Outputs.AgentFlowDefinitionConnection> Connections;
-        /// <summary>
-        /// A list of node definitions in the flow. See Node for more information.
-        /// </summary>
         public readonly ImmutableArray<Outputs.AgentFlowDefinitionNode> Nodes;
 
         [OutputConstructor]

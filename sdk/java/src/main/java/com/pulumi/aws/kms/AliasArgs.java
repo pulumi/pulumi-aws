@@ -16,64 +16,30 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AliasArgs Empty = new AliasArgs();
 
-    /**
-     * The display name of the alias. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/)
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The display name of the alias. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/)
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Creates an unique alias beginning with the specified prefix.
-     * The name must start with the word &#34;alias&#34; followed by a forward slash (alias/).  Conflicts with `name`.
-     * 
-     */
     @Import(name="namePrefix")
     private @Nullable Output<String> namePrefix;
 
-    /**
-     * @return Creates an unique alias beginning with the specified prefix.
-     * The name must start with the word &#34;alias&#34; followed by a forward slash (alias/).  Conflicts with `name`.
-     * 
-     */
     public Optional<Output<String>> namePrefix() {
         return Optional.ofNullable(this.namePrefix);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Identifier for the key for which the alias is for, can be either an ARN or key_id.
-     * 
-     */
     @Import(name="targetKeyId", required=true)
     private Output<String> targetKeyId;
 
-    /**
-     * @return Identifier for the key for which the alias is for, can be either an ARN or key_id.
-     * 
-     */
     public Output<String> targetKeyId() {
         return this.targetKeyId;
     }
@@ -105,88 +71,38 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
             $ = new AliasArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The display name of the alias. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/)
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The display name of the alias. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/)
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param namePrefix Creates an unique alias beginning with the specified prefix.
-         * The name must start with the word &#34;alias&#34; followed by a forward slash (alias/).  Conflicts with `name`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namePrefix(@Nullable Output<String> namePrefix) {
             $.namePrefix = namePrefix;
             return this;
         }
 
-        /**
-         * @param namePrefix Creates an unique alias beginning with the specified prefix.
-         * The name must start with the word &#34;alias&#34; followed by a forward slash (alias/).  Conflicts with `name`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namePrefix(String namePrefix) {
             return namePrefix(Output.of(namePrefix));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param targetKeyId Identifier for the key for which the alias is for, can be either an ARN or key_id.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetKeyId(Output<String> targetKeyId) {
             $.targetKeyId = targetKeyId;
             return this;
         }
 
-        /**
-         * @param targetKeyId Identifier for the key for which the alias is for, can be either an ARN or key_id.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetKeyId(String targetKeyId) {
             return targetKeyId(Output.of(targetKeyId));
         }

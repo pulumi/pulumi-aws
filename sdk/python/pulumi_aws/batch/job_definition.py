@@ -38,23 +38,6 @@ class JobDefinitionArgs:
                  timeout: Optional[pulumi.Input['JobDefinitionTimeoutArgs']] = None):
         """
         The set of arguments for constructing a JobDefinition resource.
-        :param pulumi.Input[_builtins.str] type: Type of job definition. Must be `container` or `multinode`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] container_properties: Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
-        :param pulumi.Input[_builtins.bool] deregister_on_new_revision: When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] ecs_properties: Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
-        :param pulumi.Input['JobDefinitionEksPropertiesArgs'] eks_properties: Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
-        :param pulumi.Input[_builtins.str] name: Name of the job definition.
-        :param pulumi.Input[_builtins.str] node_properties: Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Parameter substitution placeholders to set in the job definition.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] platform_capabilities: Platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
-        :param pulumi.Input[_builtins.bool] propagate_tags: Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['JobDefinitionRetryStrategyArgs'] retry_strategy: Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
-        :param pulumi.Input[_builtins.int] scheduling_priority: Scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['JobDefinitionTimeoutArgs'] timeout: Timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
         """
         pulumi.set(__self__, "type", type)
         if container_properties is not None:
@@ -89,11 +72,6 @@ class JobDefinitionArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Type of job definition. Must be `container` or `multinode`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -103,9 +81,6 @@ class JobDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="containerProperties")
     def container_properties(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
-        """
         return pulumi.get(self, "container_properties")
 
     @container_properties.setter
@@ -115,9 +90,6 @@ class JobDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="deregisterOnNewRevision")
     def deregister_on_new_revision(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
-        """
         return pulumi.get(self, "deregister_on_new_revision")
 
     @deregister_on_new_revision.setter
@@ -127,9 +99,6 @@ class JobDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="ecsProperties")
     def ecs_properties(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
-        """
         return pulumi.get(self, "ecs_properties")
 
     @ecs_properties.setter
@@ -139,9 +108,6 @@ class JobDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="eksProperties")
     def eks_properties(self) -> Optional[pulumi.Input['JobDefinitionEksPropertiesArgs']]:
-        """
-        Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
-        """
         return pulumi.get(self, "eks_properties")
 
     @eks_properties.setter
@@ -151,9 +117,6 @@ class JobDefinitionArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the job definition.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -163,9 +126,6 @@ class JobDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="nodeProperties")
     def node_properties(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
-        """
         return pulumi.get(self, "node_properties")
 
     @node_properties.setter
@@ -175,9 +135,6 @@ class JobDefinitionArgs:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Parameter substitution placeholders to set in the job definition.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -187,9 +144,6 @@ class JobDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="platformCapabilities")
     def platform_capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
-        """
         return pulumi.get(self, "platform_capabilities")
 
     @platform_capabilities.setter
@@ -199,9 +153,6 @@ class JobDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="propagateTags")
     def propagate_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
-        """
         return pulumi.get(self, "propagate_tags")
 
     @propagate_tags.setter
@@ -211,9 +162,6 @@ class JobDefinitionArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -223,9 +171,6 @@ class JobDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="retryStrategy")
     def retry_strategy(self) -> Optional[pulumi.Input['JobDefinitionRetryStrategyArgs']]:
-        """
-        Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
-        """
         return pulumi.get(self, "retry_strategy")
 
     @retry_strategy.setter
@@ -235,9 +180,6 @@ class JobDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="schedulingPriority")
     def scheduling_priority(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
-        """
         return pulumi.get(self, "scheduling_priority")
 
     @scheduling_priority.setter
@@ -247,9 +189,6 @@ class JobDefinitionArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -259,9 +198,6 @@ class JobDefinitionArgs:
     @_builtins.property
     @pulumi.getter
     def timeout(self) -> Optional[pulumi.Input['JobDefinitionTimeoutArgs']]:
-        """
-        Timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
-        """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
@@ -293,27 +229,6 @@ class _JobDefinitionState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering JobDefinition resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the job definition, includes revision (`:#`).
-        :param pulumi.Input[_builtins.str] arn_prefix: ARN without the revision number.
-        :param pulumi.Input[_builtins.str] container_properties: Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
-        :param pulumi.Input[_builtins.bool] deregister_on_new_revision: When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] ecs_properties: Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
-        :param pulumi.Input['JobDefinitionEksPropertiesArgs'] eks_properties: Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
-        :param pulumi.Input[_builtins.str] name: Name of the job definition.
-        :param pulumi.Input[_builtins.str] node_properties: Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Parameter substitution placeholders to set in the job definition.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] platform_capabilities: Platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
-        :param pulumi.Input[_builtins.bool] propagate_tags: Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['JobDefinitionRetryStrategyArgs'] retry_strategy: Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
-        :param pulumi.Input[_builtins.int] revision: Revision of the job definition.
-        :param pulumi.Input[_builtins.int] scheduling_priority: Scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['JobDefinitionTimeoutArgs'] timeout: Timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
-        :param pulumi.Input[_builtins.str] type: Type of job definition. Must be `container` or `multinode`.
-               
-               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -357,9 +272,6 @@ class _JobDefinitionState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the job definition, includes revision (`:#`).
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -369,9 +281,6 @@ class _JobDefinitionState:
     @_builtins.property
     @pulumi.getter(name="arnPrefix")
     def arn_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN without the revision number.
-        """
         return pulumi.get(self, "arn_prefix")
 
     @arn_prefix.setter
@@ -381,9 +290,6 @@ class _JobDefinitionState:
     @_builtins.property
     @pulumi.getter(name="containerProperties")
     def container_properties(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
-        """
         return pulumi.get(self, "container_properties")
 
     @container_properties.setter
@@ -393,9 +299,6 @@ class _JobDefinitionState:
     @_builtins.property
     @pulumi.getter(name="deregisterOnNewRevision")
     def deregister_on_new_revision(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
-        """
         return pulumi.get(self, "deregister_on_new_revision")
 
     @deregister_on_new_revision.setter
@@ -405,9 +308,6 @@ class _JobDefinitionState:
     @_builtins.property
     @pulumi.getter(name="ecsProperties")
     def ecs_properties(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
-        """
         return pulumi.get(self, "ecs_properties")
 
     @ecs_properties.setter
@@ -417,9 +317,6 @@ class _JobDefinitionState:
     @_builtins.property
     @pulumi.getter(name="eksProperties")
     def eks_properties(self) -> Optional[pulumi.Input['JobDefinitionEksPropertiesArgs']]:
-        """
-        Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
-        """
         return pulumi.get(self, "eks_properties")
 
     @eks_properties.setter
@@ -429,9 +326,6 @@ class _JobDefinitionState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the job definition.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -441,9 +335,6 @@ class _JobDefinitionState:
     @_builtins.property
     @pulumi.getter(name="nodeProperties")
     def node_properties(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
-        """
         return pulumi.get(self, "node_properties")
 
     @node_properties.setter
@@ -453,9 +344,6 @@ class _JobDefinitionState:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Parameter substitution placeholders to set in the job definition.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -465,9 +353,6 @@ class _JobDefinitionState:
     @_builtins.property
     @pulumi.getter(name="platformCapabilities")
     def platform_capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
-        """
         return pulumi.get(self, "platform_capabilities")
 
     @platform_capabilities.setter
@@ -477,9 +362,6 @@ class _JobDefinitionState:
     @_builtins.property
     @pulumi.getter(name="propagateTags")
     def propagate_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
-        """
         return pulumi.get(self, "propagate_tags")
 
     @propagate_tags.setter
@@ -489,9 +371,6 @@ class _JobDefinitionState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -501,9 +380,6 @@ class _JobDefinitionState:
     @_builtins.property
     @pulumi.getter(name="retryStrategy")
     def retry_strategy(self) -> Optional[pulumi.Input['JobDefinitionRetryStrategyArgs']]:
-        """
-        Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
-        """
         return pulumi.get(self, "retry_strategy")
 
     @retry_strategy.setter
@@ -513,9 +389,6 @@ class _JobDefinitionState:
     @_builtins.property
     @pulumi.getter
     def revision(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Revision of the job definition.
-        """
         return pulumi.get(self, "revision")
 
     @revision.setter
@@ -525,9 +398,6 @@ class _JobDefinitionState:
     @_builtins.property
     @pulumi.getter(name="schedulingPriority")
     def scheduling_priority(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
-        """
         return pulumi.get(self, "scheduling_priority")
 
     @scheduling_priority.setter
@@ -537,9 +407,6 @@ class _JobDefinitionState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -549,9 +416,6 @@ class _JobDefinitionState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -561,9 +425,6 @@ class _JobDefinitionState:
     @_builtins.property
     @pulumi.getter
     def timeout(self) -> Optional[pulumi.Input['JobDefinitionTimeoutArgs']]:
-        """
-        Timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
-        """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
@@ -573,11 +434,6 @@ class _JobDefinitionState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of job definition. Must be `container` or `multinode`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -608,294 +464,9 @@ class JobDefinition(pulumi.CustomResource):
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a Batch Job Definition resource.
-
-        ## Example Usage
-
-        ### Job definition of type container
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        test = aws.batch.JobDefinition("test",
-            name="my_test_batch_job_definition",
-            type="container",
-            container_properties=json.dumps({
-                "command": [
-                    "ls",
-                    "-la",
-                ],
-                "image": "busybox",
-                "resourceRequirements": [
-                    {
-                        "type": "VCPU",
-                        "value": "0.25",
-                    },
-                    {
-                        "type": "MEMORY",
-                        "value": "512",
-                    },
-                ],
-                "volumes": [{
-                    "host": {
-                        "sourcePath": "/tmp",
-                    },
-                    "name": "tmp",
-                }],
-                "environment": [{
-                    "name": "VARNAME",
-                    "value": "VARVAL",
-                }],
-                "mountPoints": [{
-                    "sourceVolume": "tmp",
-                    "containerPath": "/tmp",
-                    "readOnly": False,
-                }],
-                "ulimits": [{
-                    "hardLimit": 1024,
-                    "name": "nofile",
-                    "softLimit": 1024,
-                }],
-            }))
-        ```
-
-        ### Job definition of type multinode
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        test = aws.batch.JobDefinition("test",
-            name="tf_test_batch_job_definition_multinode",
-            type="multinode",
-            node_properties=json.dumps({
-                "mainNode": 0,
-                "nodeRangeProperties": [
-                    {
-                        "container": {
-                            "command": [
-                                "ls",
-                                "-la",
-                            ],
-                            "image": "busybox",
-                            "memory": 128,
-                            "vcpus": 1,
-                        },
-                        "targetNodes": "0:",
-                    },
-                    {
-                        "container": {
-                            "command": [
-                                "echo",
-                                "test",
-                            ],
-                            "image": "busybox",
-                            "memory": 128,
-                            "vcpus": 1,
-                        },
-                        "targetNodes": "1:",
-                    },
-                ],
-                "numNodes": 2,
-            }))
-        ```
-
-        ### Job Definition of type EKS
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.batch.JobDefinition("test",
-            name=" tf_test_batch_job_definition_eks",
-            type="container",
-            eks_properties={
-                "pod_properties": {
-                    "host_network": True,
-                    "containers": [{
-                        "image": "public.ecr.aws/amazonlinux/amazonlinux:1",
-                        "commands": [
-                            "sleep",
-                            "60",
-                        ],
-                        "resources": {
-                            "limits": {
-                                "cpu": "1",
-                                "memory": "1024Mi",
-                            },
-                        },
-                    }],
-                    "metadata": {
-                        "labels": {
-                            "environment": "test",
-                        },
-                    },
-                },
-            })
-        ```
-
-        ### Fargate Platform Capability
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        assume_role_policy = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["ecs-tasks.amazonaws.com"],
-            }],
-        }])
-        ecs_task_execution_role = aws.iam.Role("ecs_task_execution_role",
-            name="my_test_batch_exec_role",
-            assume_role_policy=assume_role_policy.json)
-        ecs_task_execution_role_policy = aws.iam.RolePolicyAttachment("ecs_task_execution_role_policy",
-            role=ecs_task_execution_role.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy")
-        test = aws.batch.JobDefinition("test",
-            name="my_test_batch_job_definition",
-            type="container",
-            platform_capabilities=["FARGATE"],
-            container_properties=pulumi.Output.json_dumps({
-                "command": [
-                    "echo",
-                    "test",
-                ],
-                "image": "busybox",
-                "jobRoleArn": "arn:aws:iam::123456789012:role/AWSBatchS3ReadOnly",
-                "fargatePlatformConfiguration": {
-                    "platformVersion": "LATEST",
-                },
-                "resourceRequirements": [
-                    {
-                        "type": "VCPU",
-                        "value": "0.25",
-                    },
-                    {
-                        "type": "MEMORY",
-                        "value": "512",
-                    },
-                ],
-                "executionRoleArn": ecs_task_execution_role.arn,
-            }))
-        ```
-
-        ### Job definition of type container using `ecs_properties`
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        test = aws.batch.JobDefinition("test",
-            name="my_test_batch_job_definition",
-            type="container",
-            platform_capabilities=["FARGATE"],
-            ecs_properties=json.dumps({
-                "taskProperties": [{
-                    "executionRoleArn": ecs_task_execution_role["arn"],
-                    "containers": [
-                        {
-                            "image": "public.ecr.aws/amazonlinux/amazonlinux:1",
-                            "command": [
-                                "sleep",
-                                "60",
-                            ],
-                            "dependsOn": [{
-                                "containerName": "container_b",
-                                "condition": "COMPLETE",
-                            }],
-                            "secrets": [{
-                                "name": "TEST",
-                                "valueFrom": "DUMMY",
-                            }],
-                            "environment": [{
-                                "name": "test",
-                                "value": "Environment Variable",
-                            }],
-                            "essential": True,
-                            "logConfiguration": {
-                                "logDriver": "awslogs",
-                                "options": {
-                                    "awslogs-group": "tf_test_batch_job",
-                                    "awslogs-region": "us-west-2",
-                                    "awslogs-stream-prefix": "ecs",
-                                },
-                            },
-                            "name": "container_a",
-                            "privileged": False,
-                            "readonlyRootFilesystem": False,
-                            "resourceRequirements": [
-                                {
-                                    "value": "1.0",
-                                    "type": "VCPU",
-                                },
-                                {
-                                    "value": "2048",
-                                    "type": "MEMORY",
-                                },
-                            ],
-                        },
-                        {
-                            "image": "public.ecr.aws/amazonlinux/amazonlinux:1",
-                            "command": [
-                                "sleep",
-                                "360",
-                            ],
-                            "name": "container_b",
-                            "essential": False,
-                            "resourceRequirements": [
-                                {
-                                    "value": "1.0",
-                                    "type": "VCPU",
-                                },
-                                {
-                                    "value": "2048",
-                                    "type": "MEMORY",
-                                },
-                            ],
-                        },
-                    ],
-                }],
-            }))
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the job definition.
-
-        Using `pulumi import`, import Batch Job Definition using the `arn`. For example:
-
-        % pulumi import aws_batch_job_definition.test arn:aws:batch:us-east-1:123456789012:job-definition/sample
-
+        Create a JobDefinition resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] container_properties: Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
-        :param pulumi.Input[_builtins.bool] deregister_on_new_revision: When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] ecs_properties: Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
-        :param pulumi.Input[Union['JobDefinitionEksPropertiesArgs', 'JobDefinitionEksPropertiesArgsDict']] eks_properties: Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
-        :param pulumi.Input[_builtins.str] name: Name of the job definition.
-        :param pulumi.Input[_builtins.str] node_properties: Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Parameter substitution placeholders to set in the job definition.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] platform_capabilities: Platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
-        :param pulumi.Input[_builtins.bool] propagate_tags: Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['JobDefinitionRetryStrategyArgs', 'JobDefinitionRetryStrategyArgsDict']] retry_strategy: Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
-        :param pulumi.Input[_builtins.int] scheduling_priority: Scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['JobDefinitionTimeoutArgs', 'JobDefinitionTimeoutArgsDict']] timeout: Timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
-        :param pulumi.Input[_builtins.str] type: Type of job definition. Must be `container` or `multinode`.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -904,275 +475,7 @@ class JobDefinition(pulumi.CustomResource):
                  args: JobDefinitionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Batch Job Definition resource.
-
-        ## Example Usage
-
-        ### Job definition of type container
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        test = aws.batch.JobDefinition("test",
-            name="my_test_batch_job_definition",
-            type="container",
-            container_properties=json.dumps({
-                "command": [
-                    "ls",
-                    "-la",
-                ],
-                "image": "busybox",
-                "resourceRequirements": [
-                    {
-                        "type": "VCPU",
-                        "value": "0.25",
-                    },
-                    {
-                        "type": "MEMORY",
-                        "value": "512",
-                    },
-                ],
-                "volumes": [{
-                    "host": {
-                        "sourcePath": "/tmp",
-                    },
-                    "name": "tmp",
-                }],
-                "environment": [{
-                    "name": "VARNAME",
-                    "value": "VARVAL",
-                }],
-                "mountPoints": [{
-                    "sourceVolume": "tmp",
-                    "containerPath": "/tmp",
-                    "readOnly": False,
-                }],
-                "ulimits": [{
-                    "hardLimit": 1024,
-                    "name": "nofile",
-                    "softLimit": 1024,
-                }],
-            }))
-        ```
-
-        ### Job definition of type multinode
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        test = aws.batch.JobDefinition("test",
-            name="tf_test_batch_job_definition_multinode",
-            type="multinode",
-            node_properties=json.dumps({
-                "mainNode": 0,
-                "nodeRangeProperties": [
-                    {
-                        "container": {
-                            "command": [
-                                "ls",
-                                "-la",
-                            ],
-                            "image": "busybox",
-                            "memory": 128,
-                            "vcpus": 1,
-                        },
-                        "targetNodes": "0:",
-                    },
-                    {
-                        "container": {
-                            "command": [
-                                "echo",
-                                "test",
-                            ],
-                            "image": "busybox",
-                            "memory": 128,
-                            "vcpus": 1,
-                        },
-                        "targetNodes": "1:",
-                    },
-                ],
-                "numNodes": 2,
-            }))
-        ```
-
-        ### Job Definition of type EKS
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.batch.JobDefinition("test",
-            name=" tf_test_batch_job_definition_eks",
-            type="container",
-            eks_properties={
-                "pod_properties": {
-                    "host_network": True,
-                    "containers": [{
-                        "image": "public.ecr.aws/amazonlinux/amazonlinux:1",
-                        "commands": [
-                            "sleep",
-                            "60",
-                        ],
-                        "resources": {
-                            "limits": {
-                                "cpu": "1",
-                                "memory": "1024Mi",
-                            },
-                        },
-                    }],
-                    "metadata": {
-                        "labels": {
-                            "environment": "test",
-                        },
-                    },
-                },
-            })
-        ```
-
-        ### Fargate Platform Capability
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        assume_role_policy = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["ecs-tasks.amazonaws.com"],
-            }],
-        }])
-        ecs_task_execution_role = aws.iam.Role("ecs_task_execution_role",
-            name="my_test_batch_exec_role",
-            assume_role_policy=assume_role_policy.json)
-        ecs_task_execution_role_policy = aws.iam.RolePolicyAttachment("ecs_task_execution_role_policy",
-            role=ecs_task_execution_role.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy")
-        test = aws.batch.JobDefinition("test",
-            name="my_test_batch_job_definition",
-            type="container",
-            platform_capabilities=["FARGATE"],
-            container_properties=pulumi.Output.json_dumps({
-                "command": [
-                    "echo",
-                    "test",
-                ],
-                "image": "busybox",
-                "jobRoleArn": "arn:aws:iam::123456789012:role/AWSBatchS3ReadOnly",
-                "fargatePlatformConfiguration": {
-                    "platformVersion": "LATEST",
-                },
-                "resourceRequirements": [
-                    {
-                        "type": "VCPU",
-                        "value": "0.25",
-                    },
-                    {
-                        "type": "MEMORY",
-                        "value": "512",
-                    },
-                ],
-                "executionRoleArn": ecs_task_execution_role.arn,
-            }))
-        ```
-
-        ### Job definition of type container using `ecs_properties`
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        test = aws.batch.JobDefinition("test",
-            name="my_test_batch_job_definition",
-            type="container",
-            platform_capabilities=["FARGATE"],
-            ecs_properties=json.dumps({
-                "taskProperties": [{
-                    "executionRoleArn": ecs_task_execution_role["arn"],
-                    "containers": [
-                        {
-                            "image": "public.ecr.aws/amazonlinux/amazonlinux:1",
-                            "command": [
-                                "sleep",
-                                "60",
-                            ],
-                            "dependsOn": [{
-                                "containerName": "container_b",
-                                "condition": "COMPLETE",
-                            }],
-                            "secrets": [{
-                                "name": "TEST",
-                                "valueFrom": "DUMMY",
-                            }],
-                            "environment": [{
-                                "name": "test",
-                                "value": "Environment Variable",
-                            }],
-                            "essential": True,
-                            "logConfiguration": {
-                                "logDriver": "awslogs",
-                                "options": {
-                                    "awslogs-group": "tf_test_batch_job",
-                                    "awslogs-region": "us-west-2",
-                                    "awslogs-stream-prefix": "ecs",
-                                },
-                            },
-                            "name": "container_a",
-                            "privileged": False,
-                            "readonlyRootFilesystem": False,
-                            "resourceRequirements": [
-                                {
-                                    "value": "1.0",
-                                    "type": "VCPU",
-                                },
-                                {
-                                    "value": "2048",
-                                    "type": "MEMORY",
-                                },
-                            ],
-                        },
-                        {
-                            "image": "public.ecr.aws/amazonlinux/amazonlinux:1",
-                            "command": [
-                                "sleep",
-                                "360",
-                            ],
-                            "name": "container_b",
-                            "essential": False,
-                            "resourceRequirements": [
-                                {
-                                    "value": "1.0",
-                                    "type": "VCPU",
-                                },
-                                {
-                                    "value": "2048",
-                                    "type": "MEMORY",
-                                },
-                            ],
-                        },
-                    ],
-                }],
-            }))
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the job definition.
-
-        Using `pulumi import`, import Batch Job Definition using the `arn`. For example:
-
-        % pulumi import aws_batch_job_definition.test arn:aws:batch:us-east-1:123456789012:job-definition/sample
-
+        Create a JobDefinition resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param JobDefinitionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1269,27 +572,6 @@ class JobDefinition(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the job definition, includes revision (`:#`).
-        :param pulumi.Input[_builtins.str] arn_prefix: ARN without the revision number.
-        :param pulumi.Input[_builtins.str] container_properties: Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
-        :param pulumi.Input[_builtins.bool] deregister_on_new_revision: When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] ecs_properties: Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
-        :param pulumi.Input[Union['JobDefinitionEksPropertiesArgs', 'JobDefinitionEksPropertiesArgsDict']] eks_properties: Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
-        :param pulumi.Input[_builtins.str] name: Name of the job definition.
-        :param pulumi.Input[_builtins.str] node_properties: Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Parameter substitution placeholders to set in the job definition.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] platform_capabilities: Platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
-        :param pulumi.Input[_builtins.bool] propagate_tags: Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['JobDefinitionRetryStrategyArgs', 'JobDefinitionRetryStrategyArgsDict']] retry_strategy: Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
-        :param pulumi.Input[_builtins.int] revision: Revision of the job definition.
-        :param pulumi.Input[_builtins.int] scheduling_priority: Scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['JobDefinitionTimeoutArgs', 'JobDefinitionTimeoutArgsDict']] timeout: Timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
-        :param pulumi.Input[_builtins.str] type: Type of job definition. Must be `container` or `multinode`.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1319,154 +601,95 @@ class JobDefinition(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the job definition, includes revision (`:#`).
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="arnPrefix")
     def arn_prefix(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN without the revision number.
-        """
         return pulumi.get(self, "arn_prefix")
 
     @_builtins.property
     @pulumi.getter(name="containerProperties")
     def container_properties(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
-        """
         return pulumi.get(self, "container_properties")
 
     @_builtins.property
     @pulumi.getter(name="deregisterOnNewRevision")
     def deregister_on_new_revision(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
-        """
         return pulumi.get(self, "deregister_on_new_revision")
 
     @_builtins.property
     @pulumi.getter(name="ecsProperties")
     def ecs_properties(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
-        """
         return pulumi.get(self, "ecs_properties")
 
     @_builtins.property
     @pulumi.getter(name="eksProperties")
     def eks_properties(self) -> pulumi.Output[Optional['outputs.JobDefinitionEksProperties']]:
-        """
-        Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
-        """
         return pulumi.get(self, "eks_properties")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the job definition.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="nodeProperties")
     def node_properties(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
-        """
         return pulumi.get(self, "node_properties")
 
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Parameter substitution placeholders to set in the job definition.
-        """
         return pulumi.get(self, "parameters")
 
     @_builtins.property
     @pulumi.getter(name="platformCapabilities")
     def platform_capabilities(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        Platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
-        """
         return pulumi.get(self, "platform_capabilities")
 
     @_builtins.property
     @pulumi.getter(name="propagateTags")
     def propagate_tags(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
-        """
         return pulumi.get(self, "propagate_tags")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="retryStrategy")
     def retry_strategy(self) -> pulumi.Output[Optional['outputs.JobDefinitionRetryStrategy']]:
-        """
-        Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
-        """
         return pulumi.get(self, "retry_strategy")
 
     @_builtins.property
     @pulumi.getter
     def revision(self) -> pulumi.Output[_builtins.int]:
-        """
-        Revision of the job definition.
-        """
         return pulumi.get(self, "revision")
 
     @_builtins.property
     @pulumi.getter(name="schedulingPriority")
     def scheduling_priority(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
-        """
         return pulumi.get(self, "scheduling_priority")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def timeout(self) -> pulumi.Output[Optional['outputs.JobDefinitionTimeout']]:
-        """
-        Timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
-        """
         return pulumi.get(self, "timeout")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of job definition. Must be `container` or `multinode`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "type")
 

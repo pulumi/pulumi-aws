@@ -16,32 +16,16 @@ public final class WebAclLoggingConfigurationLoggingFilterArgs extends com.pulum
 
     public static final WebAclLoggingConfigurationLoggingFilterArgs Empty = new WebAclLoggingConfigurationLoggingFilterArgs();
 
-    /**
-     * Default handling for logs that don&#39;t match any of the specified filtering conditions. Valid values for `defaultBehavior` are `KEEP` or `DROP`.
-     * 
-     */
     @Import(name="defaultBehavior", required=true)
     private Output<String> defaultBehavior;
 
-    /**
-     * @return Default handling for logs that don&#39;t match any of the specified filtering conditions. Valid values for `defaultBehavior` are `KEEP` or `DROP`.
-     * 
-     */
     public Output<String> defaultBehavior() {
         return this.defaultBehavior;
     }
 
-    /**
-     * Filter(s) that you want to apply to the logs. See Filter below for more details.
-     * 
-     */
     @Import(name="filters", required=true)
     private Output<List<WebAclLoggingConfigurationLoggingFilterFilterArgs>> filters;
 
-    /**
-     * @return Filter(s) that you want to apply to the logs. See Filter below for more details.
-     * 
-     */
     public Output<List<WebAclLoggingConfigurationLoggingFilterFilterArgs>> filters() {
         return this.filters;
     }
@@ -71,54 +55,24 @@ public final class WebAclLoggingConfigurationLoggingFilterArgs extends com.pulum
             $ = new WebAclLoggingConfigurationLoggingFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param defaultBehavior Default handling for logs that don&#39;t match any of the specified filtering conditions. Valid values for `defaultBehavior` are `KEEP` or `DROP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultBehavior(Output<String> defaultBehavior) {
             $.defaultBehavior = defaultBehavior;
             return this;
         }
 
-        /**
-         * @param defaultBehavior Default handling for logs that don&#39;t match any of the specified filtering conditions. Valid values for `defaultBehavior` are `KEEP` or `DROP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultBehavior(String defaultBehavior) {
             return defaultBehavior(Output.of(defaultBehavior));
         }
 
-        /**
-         * @param filters Filter(s) that you want to apply to the logs. See Filter below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(Output<List<WebAclLoggingConfigurationLoggingFilterFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Filter(s) that you want to apply to the logs. See Filter below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<WebAclLoggingConfigurationLoggingFilterFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters Filter(s) that you want to apply to the logs. See Filter below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(WebAclLoggingConfigurationLoggingFilterFilterArgs... filters) {
             return filters(List.of(filters));
         }

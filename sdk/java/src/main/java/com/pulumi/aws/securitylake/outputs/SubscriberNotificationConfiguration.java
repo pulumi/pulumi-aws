@@ -12,31 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SubscriberNotificationConfiguration {
-    /**
-     * @return The configurations for HTTPS subscriber notification.
-     * 
-     */
     private @Nullable SubscriberNotificationConfigurationHttpsNotificationConfiguration httpsNotificationConfiguration;
-    /**
-     * @return The configurations for SQS subscriber notification.
-     * There are no parameters within `sqsNotificationConfiguration`.
-     * 
-     */
     private @Nullable SubscriberNotificationConfigurationSqsNotificationConfiguration sqsNotificationConfiguration;
 
     private SubscriberNotificationConfiguration() {}
-    /**
-     * @return The configurations for HTTPS subscriber notification.
-     * 
-     */
     public Optional<SubscriberNotificationConfigurationHttpsNotificationConfiguration> httpsNotificationConfiguration() {
         return Optional.ofNullable(this.httpsNotificationConfiguration);
     }
-    /**
-     * @return The configurations for SQS subscriber notification.
-     * There are no parameters within `sqsNotificationConfiguration`.
-     * 
-     */
     public Optional<SubscriberNotificationConfigurationSqsNotificationConfiguration> sqsNotificationConfiguration() {
         return Optional.ofNullable(this.sqsNotificationConfiguration);
     }

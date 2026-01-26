@@ -11,72 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for retrieving AWS SSM (Systems Manager) Patch Baselines.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.GetPatchBaselines(ctx, &ssm.GetPatchBaselinesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Filters
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.GetPatchBaselines(ctx, &ssm.GetPatchBaselinesArgs{
-//				Filters: []ssm.GetPatchBaselinesFilter{
-//					{
-//						Key: "OWNER",
-//						Values: []string{
-//							"AWS",
-//						},
-//					},
-//					{
-//						Key: "OPERATING_SYSTEM",
-//						Values: []string{
-//							"WINDOWS",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetPatchBaselines(ctx *pulumi.Context, args *GetPatchBaselinesArgs, opts ...pulumi.InvokeOption) (*GetPatchBaselinesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPatchBaselinesResult
@@ -89,17 +23,13 @@ func GetPatchBaselines(ctx *pulumi.Context, args *GetPatchBaselinesArgs, opts ..
 
 // A collection of arguments for invoking getPatchBaselines.
 type GetPatchBaselinesArgs struct {
-	// Only return baseline identities where `defaultBaseline` is `true`.
-	DefaultBaselines *bool `pulumi:"defaultBaselines"`
-	// Key-value pairs used to filter the results. See `filter` below.
-	Filters []GetPatchBaselinesFilter `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	DefaultBaselines *bool                     `pulumi:"defaultBaselines"`
+	Filters          []GetPatchBaselinesFilter `pulumi:"filters"`
+	Region           *string                   `pulumi:"region"`
 }
 
 // A collection of values returned by getPatchBaselines.
 type GetPatchBaselinesResult struct {
-	// List of baseline identities. See `baselineIdentities` below.
 	BaselineIdentities []GetPatchBaselinesBaselineIdentity `pulumi:"baselineIdentities"`
 	DefaultBaselines   *bool                               `pulumi:"defaultBaselines"`
 	Filters            []GetPatchBaselinesFilter           `pulumi:"filters"`
@@ -119,12 +49,9 @@ func GetPatchBaselinesOutput(ctx *pulumi.Context, args GetPatchBaselinesOutputAr
 
 // A collection of arguments for invoking getPatchBaselines.
 type GetPatchBaselinesOutputArgs struct {
-	// Only return baseline identities where `defaultBaseline` is `true`.
-	DefaultBaselines pulumi.BoolPtrInput `pulumi:"defaultBaselines"`
-	// Key-value pairs used to filter the results. See `filter` below.
-	Filters GetPatchBaselinesFilterArrayInput `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	DefaultBaselines pulumi.BoolPtrInput               `pulumi:"defaultBaselines"`
+	Filters          GetPatchBaselinesFilterArrayInput `pulumi:"filters"`
+	Region           pulumi.StringPtrInput             `pulumi:"region"`
 }
 
 func (GetPatchBaselinesOutputArgs) ElementType() reflect.Type {
@@ -146,7 +73,6 @@ func (o GetPatchBaselinesResultOutput) ToGetPatchBaselinesResultOutputWithContex
 	return o
 }
 
-// List of baseline identities. See `baselineIdentities` below.
 func (o GetPatchBaselinesResultOutput) BaselineIdentities() GetPatchBaselinesBaselineIdentityArrayOutput {
 	return o.ApplyT(func(v GetPatchBaselinesResult) []GetPatchBaselinesBaselineIdentity { return v.BaselineIdentities }).(GetPatchBaselinesBaselineIdentityArrayOutput)
 }

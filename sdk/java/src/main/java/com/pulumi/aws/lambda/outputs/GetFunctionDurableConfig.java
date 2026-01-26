@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFunctionDurableConfig {
-    /**
-     * @return Maximum execution time in seconds for the durable function.
-     * 
-     */
     private Integer executionTimeout;
-    /**
-     * @return Number of days to retain the function&#39;s execution state.
-     * 
-     */
     private Integer retentionPeriod;
 
     private GetFunctionDurableConfig() {}
-    /**
-     * @return Maximum execution time in seconds for the durable function.
-     * 
-     */
     public Integer executionTimeout() {
         return this.executionTimeout;
     }
-    /**
-     * @return Number of days to retain the function&#39;s execution state.
-     * 
-     */
     public Integer retentionPeriod() {
         return this.retentionPeriod;
     }

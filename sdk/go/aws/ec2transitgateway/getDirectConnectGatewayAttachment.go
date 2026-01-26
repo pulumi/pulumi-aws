@@ -11,38 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get information on an EC2 Transit Gateway's attachment to a Direct Connect Gateway.
-//
-// !> **Warning:** Using the `ec2transitgateway.getDirectConnectGatewayAttachment` data source in combination with  `ec2transitgateway.RouteTablePropagation` or `ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `transitGatewayAttachmentId` attribute directly from the `directconnect.GatewayAssociation` resource. For example, `transitGatewayAttachmentId  = aws_dx_gateway_association.example.transit_gateway_attachment_id`.
-//
-// ## Example Usage
-//
-// ### By Transit Gateway and Direct Connect Gateway Identifiers
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.GetDirectConnectGatewayAttachment(ctx, &ec2transitgateway.GetDirectConnectGatewayAttachmentArgs{
-//				TransitGatewayId: pulumi.StringRef(exampleAwsEc2TransitGateway.Id),
-//				DxGatewayId:      pulumi.StringRef(exampleAwsDxGateway.Id),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetDirectConnectGatewayAttachment(ctx *pulumi.Context, args *GetDirectConnectGatewayAttachmentArgs, opts ...pulumi.InvokeOption) (*GetDirectConnectGatewayAttachmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDirectConnectGatewayAttachmentResult
@@ -55,28 +23,21 @@ func GetDirectConnectGatewayAttachment(ctx *pulumi.Context, args *GetDirectConne
 
 // A collection of arguments for invoking getDirectConnectGatewayAttachment.
 type GetDirectConnectGatewayAttachmentArgs struct {
-	// Identifier of the Direct Connect Gateway.
-	DxGatewayId *string `pulumi:"dxGatewayId"`
-	// Configuration block(s) for filtering. Detailed below.
-	Filters []GetDirectConnectGatewayAttachmentFilter `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
-	Tags map[string]string `pulumi:"tags"`
-	// Identifier of the EC2 Transit Gateway.
-	TransitGatewayId *string `pulumi:"transitGatewayId"`
+	DxGatewayId      *string                                   `pulumi:"dxGatewayId"`
+	Filters          []GetDirectConnectGatewayAttachmentFilter `pulumi:"filters"`
+	Region           *string                                   `pulumi:"region"`
+	Tags             map[string]string                         `pulumi:"tags"`
+	TransitGatewayId *string                                   `pulumi:"transitGatewayId"`
 }
 
 // A collection of values returned by getDirectConnectGatewayAttachment.
 type GetDirectConnectGatewayAttachmentResult struct {
-	// ARN of the attachment.
 	Arn         string                                    `pulumi:"arn"`
 	DxGatewayId *string                                   `pulumi:"dxGatewayId"`
 	Filters     []GetDirectConnectGatewayAttachmentFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
-	// Key-value tags for the EC2 Transit Gateway Attachment.
+	Id               string            `pulumi:"id"`
+	Region           string            `pulumi:"region"`
 	Tags             map[string]string `pulumi:"tags"`
 	TransitGatewayId *string           `pulumi:"transitGatewayId"`
 }
@@ -92,16 +53,11 @@ func GetDirectConnectGatewayAttachmentOutput(ctx *pulumi.Context, args GetDirect
 
 // A collection of arguments for invoking getDirectConnectGatewayAttachment.
 type GetDirectConnectGatewayAttachmentOutputArgs struct {
-	// Identifier of the Direct Connect Gateway.
-	DxGatewayId pulumi.StringPtrInput `pulumi:"dxGatewayId"`
-	// Configuration block(s) for filtering. Detailed below.
-	Filters GetDirectConnectGatewayAttachmentFilterArrayInput `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Identifier of the EC2 Transit Gateway.
-	TransitGatewayId pulumi.StringPtrInput `pulumi:"transitGatewayId"`
+	DxGatewayId      pulumi.StringPtrInput                             `pulumi:"dxGatewayId"`
+	Filters          GetDirectConnectGatewayAttachmentFilterArrayInput `pulumi:"filters"`
+	Region           pulumi.StringPtrInput                             `pulumi:"region"`
+	Tags             pulumi.StringMapInput                             `pulumi:"tags"`
+	TransitGatewayId pulumi.StringPtrInput                             `pulumi:"transitGatewayId"`
 }
 
 func (GetDirectConnectGatewayAttachmentOutputArgs) ElementType() reflect.Type {
@@ -123,7 +79,6 @@ func (o GetDirectConnectGatewayAttachmentResultOutput) ToGetDirectConnectGateway
 	return o
 }
 
-// ARN of the attachment.
 func (o GetDirectConnectGatewayAttachmentResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDirectConnectGatewayAttachmentResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -147,7 +102,6 @@ func (o GetDirectConnectGatewayAttachmentResultOutput) Region() pulumi.StringOut
 	return o.ApplyT(func(v GetDirectConnectGatewayAttachmentResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value tags for the EC2 Transit Gateway Attachment.
 func (o GetDirectConnectGatewayAttachmentResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetDirectConnectGatewayAttachmentResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

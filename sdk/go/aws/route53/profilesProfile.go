@@ -11,67 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Route 53 Profile.
-//
-// ## Example Usage
-//
-// ### Empty Profile
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.NewProfilesProfile(ctx, "example", &route53.ProfilesProfileArgs{
-//				Name: pulumi.String("example"),
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("dev"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Route 53 Profiles Profile using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:route53/profilesProfile:ProfilesProfile example rp-12345678
-// ```
 type ProfilesProfile struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Profile.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Name of the Profile.
-	Name    pulumi.StringOutput `pulumi:"name"`
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Share status of the Profile.
-	ShareStatus pulumi.StringOutput `pulumi:"shareStatus"`
-	// Status of the Profile.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Status message of the Profile.
-	StatusMessage pulumi.StringOutput `pulumi:"statusMessage"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput           `pulumi:"tagsAll"`
-	Timeouts ProfilesProfileTimeoutsPtrOutput `pulumi:"timeouts"`
+	Arn           pulumi.StringOutput              `pulumi:"arn"`
+	Name          pulumi.StringOutput              `pulumi:"name"`
+	OwnerId       pulumi.StringOutput              `pulumi:"ownerId"`
+	Region        pulumi.StringOutput              `pulumi:"region"`
+	ShareStatus   pulumi.StringOutput              `pulumi:"shareStatus"`
+	Status        pulumi.StringOutput              `pulumi:"status"`
+	StatusMessage pulumi.StringOutput              `pulumi:"statusMessage"`
+	Tags          pulumi.StringMapOutput           `pulumi:"tags"`
+	TagsAll       pulumi.StringMapOutput           `pulumi:"tagsAll"`
+	Timeouts      ProfilesProfileTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewProfilesProfile registers a new resource with the given unique name, arguments, and options.
@@ -104,45 +56,29 @@ func GetProfilesProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProfilesProfile resources.
 type profilesProfileState struct {
-	// ARN of the Profile.
-	Arn *string `pulumi:"arn"`
-	// Name of the Profile.
-	Name    *string `pulumi:"name"`
-	OwnerId *string `pulumi:"ownerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Share status of the Profile.
-	ShareStatus *string `pulumi:"shareStatus"`
-	// Status of the Profile.
-	Status *string `pulumi:"status"`
-	// Status message of the Profile.
-	StatusMessage *string `pulumi:"statusMessage"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string        `pulumi:"tagsAll"`
-	Timeouts *ProfilesProfileTimeouts `pulumi:"timeouts"`
+	Arn           *string                  `pulumi:"arn"`
+	Name          *string                  `pulumi:"name"`
+	OwnerId       *string                  `pulumi:"ownerId"`
+	Region        *string                  `pulumi:"region"`
+	ShareStatus   *string                  `pulumi:"shareStatus"`
+	Status        *string                  `pulumi:"status"`
+	StatusMessage *string                  `pulumi:"statusMessage"`
+	Tags          map[string]string        `pulumi:"tags"`
+	TagsAll       map[string]string        `pulumi:"tagsAll"`
+	Timeouts      *ProfilesProfileTimeouts `pulumi:"timeouts"`
 }
 
 type ProfilesProfileState struct {
-	// ARN of the Profile.
-	Arn pulumi.StringPtrInput
-	// Name of the Profile.
-	Name    pulumi.StringPtrInput
-	OwnerId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Share status of the Profile.
-	ShareStatus pulumi.StringPtrInput
-	// Status of the Profile.
-	Status pulumi.StringPtrInput
-	// Status message of the Profile.
+	Arn           pulumi.StringPtrInput
+	Name          pulumi.StringPtrInput
+	OwnerId       pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
+	ShareStatus   pulumi.StringPtrInput
+	Status        pulumi.StringPtrInput
 	StatusMessage pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts ProfilesProfileTimeoutsPtrInput
+	Tags          pulumi.StringMapInput
+	TagsAll       pulumi.StringMapInput
+	Timeouts      ProfilesProfileTimeoutsPtrInput
 }
 
 func (ProfilesProfileState) ElementType() reflect.Type {
@@ -150,22 +86,16 @@ func (ProfilesProfileState) ElementType() reflect.Type {
 }
 
 type profilesProfileArgs struct {
-	// Name of the Profile.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Name     *string                  `pulumi:"name"`
+	Region   *string                  `pulumi:"region"`
 	Tags     map[string]string        `pulumi:"tags"`
 	Timeouts *ProfilesProfileTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a ProfilesProfile resource.
 type ProfilesProfileArgs struct {
-	// Name of the Profile.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Name     pulumi.StringPtrInput
+	Region   pulumi.StringPtrInput
 	Tags     pulumi.StringMapInput
 	Timeouts ProfilesProfileTimeoutsPtrInput
 }
@@ -257,12 +187,10 @@ func (o ProfilesProfileOutput) ToProfilesProfileOutputWithContext(ctx context.Co
 	return o
 }
 
-// ARN of the Profile.
 func (o ProfilesProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name of the Profile.
 func (o ProfilesProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -271,32 +199,26 @@ func (o ProfilesProfileOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesProfile) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ProfilesProfileOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesProfile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Share status of the Profile.
 func (o ProfilesProfileOutput) ShareStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesProfile) pulumi.StringOutput { return v.ShareStatus }).(pulumi.StringOutput)
 }
 
-// Status of the Profile.
 func (o ProfilesProfileOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesProfile) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Status message of the Profile.
 func (o ProfilesProfileOutput) StatusMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesProfile) pulumi.StringOutput { return v.StatusMessage }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ProfilesProfileOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ProfilesProfile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ProfilesProfileOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ProfilesProfile) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

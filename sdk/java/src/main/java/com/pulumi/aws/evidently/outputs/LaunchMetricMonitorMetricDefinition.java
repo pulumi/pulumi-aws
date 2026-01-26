@@ -12,65 +12,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LaunchMetricMonitorMetricDefinition {
-    /**
-     * @return Specifies the entity, such as a user or session, that does an action that causes a metric value to be recorded. An example is `userDetails.userID`.
-     * 
-     */
     private String entityIdKey;
-    /**
-     * @return Specifies The EventBridge event pattern that defines how the metric is recorded.
-     * 
-     */
     private @Nullable String eventPattern;
-    /**
-     * @return Specifies the name for the metric.
-     * 
-     */
     private String name;
-    /**
-     * @return Specifies a label for the units that the metric is measuring.
-     * 
-     */
     private @Nullable String unitLabel;
-    /**
-     * @return Specifies the value that is tracked to produce the metric.
-     * 
-     */
     private String valueKey;
 
     private LaunchMetricMonitorMetricDefinition() {}
-    /**
-     * @return Specifies the entity, such as a user or session, that does an action that causes a metric value to be recorded. An example is `userDetails.userID`.
-     * 
-     */
     public String entityIdKey() {
         return this.entityIdKey;
     }
-    /**
-     * @return Specifies The EventBridge event pattern that defines how the metric is recorded.
-     * 
-     */
     public Optional<String> eventPattern() {
         return Optional.ofNullable(this.eventPattern);
     }
-    /**
-     * @return Specifies the name for the metric.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Specifies a label for the units that the metric is measuring.
-     * 
-     */
     public Optional<String> unitLabel() {
         return Optional.ofNullable(this.unitLabel);
     }
-    /**
-     * @return Specifies the value that is tracked to produce the metric.
-     * 
-     */
     public String valueKey() {
         return this.valueKey;
     }

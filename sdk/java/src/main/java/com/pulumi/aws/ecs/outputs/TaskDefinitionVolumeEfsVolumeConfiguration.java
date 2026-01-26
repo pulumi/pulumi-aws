@@ -14,65 +14,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TaskDefinitionVolumeEfsVolumeConfiguration {
-    /**
-     * @return Configuration block for authorization for the Amazon EFS file system. Detailed below.
-     * 
-     */
     private @Nullable TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig authorizationConfig;
-    /**
-     * @return ID of the EFS File System.
-     * 
-     */
     private String fileSystemId;
-    /**
-     * @return Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorizationConfig`.
-     * 
-     */
     private @Nullable String rootDirectory;
-    /**
-     * @return Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
-     * 
-     */
     private @Nullable String transitEncryption;
-    /**
-     * @return Port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
-     * 
-     */
     private @Nullable Integer transitEncryptionPort;
 
     private TaskDefinitionVolumeEfsVolumeConfiguration() {}
-    /**
-     * @return Configuration block for authorization for the Amazon EFS file system. Detailed below.
-     * 
-     */
     public Optional<TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig> authorizationConfig() {
         return Optional.ofNullable(this.authorizationConfig);
     }
-    /**
-     * @return ID of the EFS File System.
-     * 
-     */
     public String fileSystemId() {
         return this.fileSystemId;
     }
-    /**
-     * @return Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorizationConfig`.
-     * 
-     */
     public Optional<String> rootDirectory() {
         return Optional.ofNullable(this.rootDirectory);
     }
-    /**
-     * @return Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
-     * 
-     */
     public Optional<String> transitEncryption() {
         return Optional.ofNullable(this.transitEncryption);
     }
-    /**
-     * @return Port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
-     * 
-     */
     public Optional<Integer> transitEncryptionPort() {
         return Optional.ofNullable(this.transitEncryptionPort);
     }

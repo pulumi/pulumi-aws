@@ -16,133 +16,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNetworkInterfaceResult {
-    /**
-     * @return ARN of the network interface.
-     * 
-     */
     private String arn;
-    /**
-     * @return Association information for an Elastic IP address (IPv4) associated with the network interface. See association below.
-     * 
-     */
     private List<GetNetworkInterfaceAssociation> associations;
-    /**
-     * @return Attachment of the ENI. See attachment below.
-     * 
-     */
     private List<GetNetworkInterfaceAttachment> attachments;
-    /**
-     * @return Availability Zone.
-     * 
-     */
     private String availabilityZone;
-    /**
-     * @return Description of the network interface.
-     * 
-     */
     private String description;
     private @Nullable List<GetNetworkInterfaceFilter> filters;
     private String id;
-    /**
-     * @return Type of interface.
-     * 
-     */
     private String interfaceType;
-    /**
-     * @return List of IPv6 addresses to assign to the ENI.
-     * 
-     */
     private List<String> ipv6Addresses;
-    /**
-     * @return MAC address.
-     * 
-     */
     private String macAddress;
-    /**
-     * @return ARN of the Outpost.
-     * 
-     */
     private String outpostArn;
-    /**
-     * @return AWS account ID of the owner of the network interface.
-     * 
-     */
     private String ownerId;
-    /**
-     * @return Private DNS name.
-     * 
-     */
     private String privateDnsName;
-    /**
-     * @return Private IPv4 address of the network interface within the subnet.
-     * 
-     */
     private String privateIp;
-    /**
-     * @return Private IPv4 addresses associated with the network interface.
-     * 
-     */
     private List<String> privateIps;
     private String region;
-    /**
-     * @return ID of the entity that launched the instance on your behalf.
-     * 
-     */
     private String requesterId;
-    /**
-     * @return List of security groups for the network interface.
-     * 
-     */
     private List<String> securityGroups;
-    /**
-     * @return ID of the subnet.
-     * 
-     */
     private String subnetId;
-    /**
-     * @return Any tags assigned to the network interface.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return ID of the VPC.
-     * 
-     */
     private String vpcId;
 
     private GetNetworkInterfaceResult() {}
-    /**
-     * @return ARN of the network interface.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Association information for an Elastic IP address (IPv4) associated with the network interface. See association below.
-     * 
-     */
     public List<GetNetworkInterfaceAssociation> associations() {
         return this.associations;
     }
-    /**
-     * @return Attachment of the ENI. See attachment below.
-     * 
-     */
     public List<GetNetworkInterfaceAttachment> attachments() {
         return this.attachments;
     }
-    /**
-     * @return Availability Zone.
-     * 
-     */
     public String availabilityZone() {
         return this.availabilityZone;
     }
-    /**
-     * @return Description of the network interface.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -152,97 +60,45 @@ public final class GetNetworkInterfaceResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Type of interface.
-     * 
-     */
     public String interfaceType() {
         return this.interfaceType;
     }
-    /**
-     * @return List of IPv6 addresses to assign to the ENI.
-     * 
-     */
     public List<String> ipv6Addresses() {
         return this.ipv6Addresses;
     }
-    /**
-     * @return MAC address.
-     * 
-     */
     public String macAddress() {
         return this.macAddress;
     }
-    /**
-     * @return ARN of the Outpost.
-     * 
-     */
     public String outpostArn() {
         return this.outpostArn;
     }
-    /**
-     * @return AWS account ID of the owner of the network interface.
-     * 
-     */
     public String ownerId() {
         return this.ownerId;
     }
-    /**
-     * @return Private DNS name.
-     * 
-     */
     public String privateDnsName() {
         return this.privateDnsName;
     }
-    /**
-     * @return Private IPv4 address of the network interface within the subnet.
-     * 
-     */
     public String privateIp() {
         return this.privateIp;
     }
-    /**
-     * @return Private IPv4 addresses associated with the network interface.
-     * 
-     */
     public List<String> privateIps() {
         return this.privateIps;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return ID of the entity that launched the instance on your behalf.
-     * 
-     */
     public String requesterId() {
         return this.requesterId;
     }
-    /**
-     * @return List of security groups for the network interface.
-     * 
-     */
     public List<String> securityGroups() {
         return this.securityGroups;
     }
-    /**
-     * @return ID of the subnet.
-     * 
-     */
     public String subnetId() {
         return this.subnetId;
     }
-    /**
-     * @return Any tags assigned to the network interface.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return ID of the VPC.
-     * 
-     */
     public String vpcId() {
         return this.vpcId;
     }

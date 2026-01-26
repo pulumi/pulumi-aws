@@ -13,15 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetFindingIdsResult {
     private String detectorId;
-    /**
-     * @return A list of finding IDs for the specified detector.
-     * 
-     */
     private List<String> findingIds;
-    /**
-     * @return Indicates whether findings are present for the specified detector.
-     * 
-     */
     private Boolean hasFindings;
     private String id;
     private String region;
@@ -30,17 +22,9 @@ public final class GetFindingIdsResult {
     public String detectorId() {
         return this.detectorId;
     }
-    /**
-     * @return A list of finding IDs for the specified detector.
-     * 
-     */
     public List<String> findingIds() {
         return this.findingIds;
     }
-    /**
-     * @return Indicates whether findings are present for the specified detector.
-     * 
-     */
     public Boolean hasFindings() {
         return this.hasFindings;
     }

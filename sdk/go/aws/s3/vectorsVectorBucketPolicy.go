@@ -12,71 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an Amazon S3 Vectors Vector Bucket policy.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewVectorsVectorBucketPolicy(ctx, "example", &s3.VectorsVectorBucketPolicyArgs{
-//				VectorBucketArn: pulumi.Any(exampleAwsS3vectorsVectorBucket.Arn),
-//				Policy: pulumi.String(`{
-//	  \"Version\": \"2012-10-17\",
-//	  \"Id\": \"writePolicy\",
-//	  \"Statement\": [{
-//	    \"Sid\": \"writeStatement\",
-//	    \"Effect\": \"Allow\",
-//	    \"Principal\": {
-//	      \"AWS\": \"123456789012\"
-//	    },
-//	    \"Action\": [
-//	      \"s3vectors:PutVectors\"
-//	    ],
-//	    \"Resource\": \"*\"
-//	  }]
-//	}
-//
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import S3 Vectors Vector Bucket policy using the `vector_bucket_arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:s3/vectorsVectorBucketPolicy:VectorsVectorBucketPolicy example arn:aws:s3vectors:us-west-2:123456789012:bucket/example-bucket
-// ```
 type VectorsVectorBucketPolicy struct {
 	pulumi.CustomResourceState
 
-	// The policy document.
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ARN of the vector bucket.
-	//
-	// The following arguments are optional:
+	Policy          pulumi.StringOutput `pulumi:"policy"`
+	Region          pulumi.StringOutput `pulumi:"region"`
 	VectorBucketArn pulumi.StringOutput `pulumi:"vectorBucketArn"`
 }
 
@@ -116,24 +56,14 @@ func GetVectorsVectorBucketPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VectorsVectorBucketPolicy resources.
 type vectorsVectorBucketPolicyState struct {
-	// The policy document.
-	Policy *string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the vector bucket.
-	//
-	// The following arguments are optional:
+	Policy          *string `pulumi:"policy"`
+	Region          *string `pulumi:"region"`
 	VectorBucketArn *string `pulumi:"vectorBucketArn"`
 }
 
 type VectorsVectorBucketPolicyState struct {
-	// The policy document.
-	Policy pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN of the vector bucket.
-	//
-	// The following arguments are optional:
+	Policy          pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
 	VectorBucketArn pulumi.StringPtrInput
 }
 
@@ -142,25 +72,15 @@ func (VectorsVectorBucketPolicyState) ElementType() reflect.Type {
 }
 
 type vectorsVectorBucketPolicyArgs struct {
-	// The policy document.
-	Policy string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the vector bucket.
-	//
-	// The following arguments are optional:
-	VectorBucketArn string `pulumi:"vectorBucketArn"`
+	Policy          string  `pulumi:"policy"`
+	Region          *string `pulumi:"region"`
+	VectorBucketArn string  `pulumi:"vectorBucketArn"`
 }
 
 // The set of arguments for constructing a VectorsVectorBucketPolicy resource.
 type VectorsVectorBucketPolicyArgs struct {
-	// The policy document.
-	Policy pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN of the vector bucket.
-	//
-	// The following arguments are optional:
+	Policy          pulumi.StringInput
+	Region          pulumi.StringPtrInput
 	VectorBucketArn pulumi.StringInput
 }
 
@@ -251,19 +171,14 @@ func (o VectorsVectorBucketPolicyOutput) ToVectorsVectorBucketPolicyOutputWithCo
 	return o
 }
 
-// The policy document.
 func (o VectorsVectorBucketPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *VectorsVectorBucketPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VectorsVectorBucketPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VectorsVectorBucketPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ARN of the vector bucket.
-//
-// The following arguments are optional:
 func (o VectorsVectorBucketPolicyOutput) VectorBucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VectorsVectorBucketPolicy) pulumi.StringOutput { return v.VectorBucketArn }).(pulumi.StringOutput)
 }

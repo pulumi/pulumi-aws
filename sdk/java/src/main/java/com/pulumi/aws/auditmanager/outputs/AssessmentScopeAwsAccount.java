@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AssessmentScopeAwsAccount {
-    /**
-     * @return Identifier for the Amazon Web Services account.
-     * 
-     */
     private String id;
 
     private AssessmentScopeAwsAccount() {}
-    /**
-     * @return Identifier for the Amazon Web Services account.
-     * 
-     */
     public String id() {
         return this.id;
     }

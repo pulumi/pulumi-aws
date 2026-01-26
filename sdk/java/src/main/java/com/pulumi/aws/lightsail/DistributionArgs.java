@@ -24,14 +24,14 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     public static final DistributionArgs Empty = new DistributionArgs();
 
     /**
-     * Bundle ID to use for the distribution.
+     * The bundle ID to use for the distribution.
      * 
      */
     @Import(name="bundleId", required=true)
     private Output<String> bundleId;
 
     /**
-     * @return Bundle ID to use for the distribution.
+     * @return The bundle ID to use for the distribution.
      * 
      */
     public Output<String> bundleId() {
@@ -39,14 +39,14 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Cache behavior settings of the distribution. See below.
+     * An object that describes the cache behavior settings of the distribution.
      * 
      */
     @Import(name="cacheBehaviorSettings")
     private @Nullable Output<DistributionCacheBehaviorSettingsArgs> cacheBehaviorSettings;
 
     /**
-     * @return Cache behavior settings of the distribution. See below.
+     * @return An object that describes the cache behavior settings of the distribution.
      * 
      */
     public Optional<Output<DistributionCacheBehaviorSettingsArgs>> cacheBehaviorSettings() {
@@ -54,14 +54,14 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Per-path cache behavior of the distribution. See below.
+     * An array of objects that describe the per-path cache behavior of the distribution.
      * 
      */
     @Import(name="cacheBehaviors")
     private @Nullable Output<List<DistributionCacheBehaviorArgs>> cacheBehaviors;
 
     /**
-     * @return Per-path cache behavior of the distribution. See below.
+     * @return An array of objects that describe the per-path cache behavior of the distribution.
      * 
      */
     public Optional<Output<List<DistributionCacheBehaviorArgs>>> cacheBehaviors() {
@@ -69,14 +69,14 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the SSL/TLS certificate attached to the distribution.
+     * The name of the SSL/TLS certificate attached to the distribution, if any.
      * 
      */
     @Import(name="certificateName")
     private @Nullable Output<String> certificateName;
 
     /**
-     * @return Name of the SSL/TLS certificate attached to the distribution.
+     * @return The name of the SSL/TLS certificate attached to the distribution, if any.
      * 
      */
     public Optional<Output<String>> certificateName() {
@@ -84,14 +84,14 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Default cache behavior of the distribution. See below.
+     * An object that describes the default cache behavior of the distribution.
      * 
      */
     @Import(name="defaultCacheBehavior", required=true)
     private Output<DistributionDefaultCacheBehaviorArgs> defaultCacheBehavior;
 
     /**
-     * @return Default cache behavior of the distribution. See below.
+     * @return An object that describes the default cache behavior of the distribution.
      * 
      */
     public Output<DistributionDefaultCacheBehaviorArgs> defaultCacheBehavior() {
@@ -99,14 +99,14 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
+     * The IP address type of the distribution.
      * 
      */
     @Import(name="ipAddressType")
     private @Nullable Output<String> ipAddressType;
 
     /**
-     * @return IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
+     * @return The IP address type of the distribution.
      * 
      */
     public Optional<Output<String>> ipAddressType() {
@@ -114,14 +114,14 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the distribution is enabled. Default: `true`.
+     * Indicates whether the distribution is enabled.
      * 
      */
     @Import(name="isEnabled")
     private @Nullable Output<Boolean> isEnabled;
 
     /**
-     * @return Whether the distribution is enabled. Default: `true`.
+     * @return Indicates whether the distribution is enabled.
      * 
      */
     public Optional<Output<Boolean>> isEnabled() {
@@ -129,14 +129,14 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the distribution.
+     * The name of the distribution.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the distribution.
+     * @return The name of the distribution.
      * 
      */
     public Optional<Output<String>> name() {
@@ -144,50 +144,30 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
-     * 
-     * The following arguments are optional:
+     * An object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer.
      * 
      */
     @Import(name="origin", required=true)
     private Output<DistributionOriginArgs> origin;
 
     /**
-     * @return Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
-     * 
-     * The following arguments are optional:
+     * @return An object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer.
      * 
      */
     public Output<DistributionOriginArgs> origin() {
         return this.origin;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags for the Lightsail Distribution. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags for the Lightsail Distribution. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -227,7 +207,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bundleId Bundle ID to use for the distribution.
+         * @param bundleId The bundle ID to use for the distribution.
          * 
          * @return builder
          * 
@@ -238,7 +218,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bundleId Bundle ID to use for the distribution.
+         * @param bundleId The bundle ID to use for the distribution.
          * 
          * @return builder
          * 
@@ -248,7 +228,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cacheBehaviorSettings Cache behavior settings of the distribution. See below.
+         * @param cacheBehaviorSettings An object that describes the cache behavior settings of the distribution.
          * 
          * @return builder
          * 
@@ -259,7 +239,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cacheBehaviorSettings Cache behavior settings of the distribution. See below.
+         * @param cacheBehaviorSettings An object that describes the cache behavior settings of the distribution.
          * 
          * @return builder
          * 
@@ -269,7 +249,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cacheBehaviors Per-path cache behavior of the distribution. See below.
+         * @param cacheBehaviors An array of objects that describe the per-path cache behavior of the distribution.
          * 
          * @return builder
          * 
@@ -280,7 +260,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cacheBehaviors Per-path cache behavior of the distribution. See below.
+         * @param cacheBehaviors An array of objects that describe the per-path cache behavior of the distribution.
          * 
          * @return builder
          * 
@@ -290,7 +270,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cacheBehaviors Per-path cache behavior of the distribution. See below.
+         * @param cacheBehaviors An array of objects that describe the per-path cache behavior of the distribution.
          * 
          * @return builder
          * 
@@ -300,7 +280,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateName Name of the SSL/TLS certificate attached to the distribution.
+         * @param certificateName The name of the SSL/TLS certificate attached to the distribution, if any.
          * 
          * @return builder
          * 
@@ -311,7 +291,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateName Name of the SSL/TLS certificate attached to the distribution.
+         * @param certificateName The name of the SSL/TLS certificate attached to the distribution, if any.
          * 
          * @return builder
          * 
@@ -321,7 +301,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultCacheBehavior Default cache behavior of the distribution. See below.
+         * @param defaultCacheBehavior An object that describes the default cache behavior of the distribution.
          * 
          * @return builder
          * 
@@ -332,7 +312,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultCacheBehavior Default cache behavior of the distribution. See below.
+         * @param defaultCacheBehavior An object that describes the default cache behavior of the distribution.
          * 
          * @return builder
          * 
@@ -342,7 +322,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddressType IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
+         * @param ipAddressType The IP address type of the distribution.
          * 
          * @return builder
          * 
@@ -353,7 +333,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddressType IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
+         * @param ipAddressType The IP address type of the distribution.
          * 
          * @return builder
          * 
@@ -363,7 +343,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param isEnabled Whether the distribution is enabled. Default: `true`.
+         * @param isEnabled Indicates whether the distribution is enabled.
          * 
          * @return builder
          * 
@@ -374,7 +354,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param isEnabled Whether the distribution is enabled. Default: `true`.
+         * @param isEnabled Indicates whether the distribution is enabled.
          * 
          * @return builder
          * 
@@ -384,7 +364,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the distribution.
+         * @param name The name of the distribution.
          * 
          * @return builder
          * 
@@ -395,7 +375,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the distribution.
+         * @param name The name of the distribution.
          * 
          * @return builder
          * 
@@ -405,9 +385,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param origin Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
-         * 
-         * The following arguments are optional:
+         * @param origin An object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer.
          * 
          * @return builder
          * 
@@ -418,9 +396,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param origin Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
-         * 
-         * The following arguments are optional:
+         * @param origin An object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer.
          * 
          * @return builder
          * 
@@ -429,44 +405,20 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
             return origin(Output.of(origin));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Map of tags for the Lightsail Distribution. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags for the Lightsail Distribution. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

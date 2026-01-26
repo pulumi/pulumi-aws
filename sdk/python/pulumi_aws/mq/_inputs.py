@@ -36,13 +36,7 @@ MYPY = False
 if not MYPY:
     class BrokerConfigurationArgsDict(TypedDict):
         id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Configuration ID.
-        """
         revision: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Revision of the Configuration.
-        """
 elif False:
     BrokerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -51,10 +45,6 @@ class BrokerConfigurationArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[_builtins.str]] = None,
                  revision: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.str] id: Configuration ID.
-        :param pulumi.Input[_builtins.int] revision: Revision of the Configuration.
-        """
         if id is not None:
             pulumi.set(__self__, "id", id)
         if revision is not None:
@@ -63,9 +53,6 @@ class BrokerConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Configuration ID.
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -75,9 +62,6 @@ class BrokerConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def revision(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Revision of the Configuration.
-        """
         return pulumi.get(self, "revision")
 
     @revision.setter
@@ -88,13 +72,7 @@ class BrokerConfigurationArgs:
 if not MYPY:
     class BrokerEncryptionOptionsArgsDict(TypedDict):
         kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of KMS CMK to use for encryption at rest. Requires setting `use_aws_owned_key` to `false`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
-        """
         use_aws_owned_key: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable an AWS-owned KMS CMK not in your account. Defaults to `true`. Setting to `false` without configuring `kms_key_id` creates an AWS-managed CMK aliased to `aws/mq` in your account.
-        """
 elif False:
     BrokerEncryptionOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -103,10 +81,6 @@ class BrokerEncryptionOptionsArgs:
     def __init__(__self__, *,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  use_aws_owned_key: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        :param pulumi.Input[_builtins.str] kms_key_id: ARN of KMS CMK to use for encryption at rest. Requires setting `use_aws_owned_key` to `false`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
-        :param pulumi.Input[_builtins.bool] use_aws_owned_key: Whether to enable an AWS-owned KMS CMK not in your account. Defaults to `true`. Setting to `false` without configuring `kms_key_id` creates an AWS-managed CMK aliased to `aws/mq` in your account.
-        """
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if use_aws_owned_key is not None:
@@ -115,9 +89,6 @@ class BrokerEncryptionOptionsArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of KMS CMK to use for encryption at rest. Requires setting `use_aws_owned_key` to `false`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -127,9 +98,6 @@ class BrokerEncryptionOptionsArgs:
     @_builtins.property
     @pulumi.getter(name="useAwsOwnedKey")
     def use_aws_owned_key(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable an AWS-owned KMS CMK not in your account. Defaults to `true`. Setting to `false` without configuring `kms_key_id` creates an AWS-managed CMK aliased to `aws/mq` in your account.
-        """
         return pulumi.get(self, "use_aws_owned_key")
 
     @use_aws_owned_key.setter
@@ -140,25 +108,8 @@ class BrokerEncryptionOptionsArgs:
 if not MYPY:
     class BrokerInstanceArgsDict(TypedDict):
         console_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
-        """
         endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Broker's wire-level protocol endpoints in the following order & format referenceable e.g., as `instances.0.endpoints.0` (SSL):
-        * For `ActiveMQ`:
-        * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
-        * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
-        * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
-        * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
-        * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
-        * For `RabbitMQ`:
-        * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
-        """
         ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        IP Address of the broker.
-        """
 elif False:
     BrokerInstanceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -168,19 +119,6 @@ class BrokerInstanceArgs:
                  console_url: Optional[pulumi.Input[_builtins.str]] = None,
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  ip_address: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] console_url: URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] endpoints: Broker's wire-level protocol endpoints in the following order & format referenceable e.g., as `instances.0.endpoints.0` (SSL):
-               * For `ActiveMQ`:
-               * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
-               * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
-               * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
-               * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
-               * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
-               * For `RabbitMQ`:
-               * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
-        :param pulumi.Input[_builtins.str] ip_address: IP Address of the broker.
-        """
         if console_url is not None:
             pulumi.set(__self__, "console_url", console_url)
         if endpoints is not None:
@@ -191,9 +129,6 @@ class BrokerInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="consoleUrl")
     def console_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
-        """
         return pulumi.get(self, "console_url")
 
     @console_url.setter
@@ -203,17 +138,6 @@ class BrokerInstanceArgs:
     @_builtins.property
     @pulumi.getter
     def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Broker's wire-level protocol endpoints in the following order & format referenceable e.g., as `instances.0.endpoints.0` (SSL):
-        * For `ActiveMQ`:
-        * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
-        * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
-        * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
-        * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
-        * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
-        * For `RabbitMQ`:
-        * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
-        """
         return pulumi.get(self, "endpoints")
 
     @endpoints.setter
@@ -223,9 +147,6 @@ class BrokerInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        IP Address of the broker.
-        """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
@@ -236,49 +157,16 @@ class BrokerInstanceArgs:
 if not MYPY:
     class BrokerLdapServerMetadataArgsDict(TypedDict):
         hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of fully qualified domain names of the LDAP server and optional failover server.
-        """
         role_base: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Fully qualified name of the directory to search for a user's groups.
-        """
         role_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
-        """
         role_search_matching: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Search criteria for groups.
-        """
         role_search_subtree: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the directory search scope is the entire sub-tree.
-        """
         service_account_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Service account password.
-        """
         service_account_username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Service account username.
-        """
         user_base: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Fully qualified name of the directory where you want to search for users.
-        """
         user_role_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the LDAP attribute for the user group membership.
-        """
         user_search_matching: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Search criteria for users.
-        """
         user_search_subtree: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the directory search scope is the entire sub-tree.
-        """
 elif False:
     BrokerLdapServerMetadataArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -296,19 +184,6 @@ class BrokerLdapServerMetadataArgs:
                  user_role_name: Optional[pulumi.Input[_builtins.str]] = None,
                  user_search_matching: Optional[pulumi.Input[_builtins.str]] = None,
                  user_search_subtree: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] hosts: List of fully qualified domain names of the LDAP server and optional failover server.
-        :param pulumi.Input[_builtins.str] role_base: Fully qualified name of the directory to search for a user's groups.
-        :param pulumi.Input[_builtins.str] role_name: LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
-        :param pulumi.Input[_builtins.str] role_search_matching: Search criteria for groups.
-        :param pulumi.Input[_builtins.bool] role_search_subtree: Whether the directory search scope is the entire sub-tree.
-        :param pulumi.Input[_builtins.str] service_account_password: Service account password.
-        :param pulumi.Input[_builtins.str] service_account_username: Service account username.
-        :param pulumi.Input[_builtins.str] user_base: Fully qualified name of the directory where you want to search for users.
-        :param pulumi.Input[_builtins.str] user_role_name: Name of the LDAP attribute for the user group membership.
-        :param pulumi.Input[_builtins.str] user_search_matching: Search criteria for users.
-        :param pulumi.Input[_builtins.bool] user_search_subtree: Whether the directory search scope is the entire sub-tree.
-        """
         if hosts is not None:
             pulumi.set(__self__, "hosts", hosts)
         if role_base is not None:
@@ -335,9 +210,6 @@ class BrokerLdapServerMetadataArgs:
     @_builtins.property
     @pulumi.getter
     def hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of fully qualified domain names of the LDAP server and optional failover server.
-        """
         return pulumi.get(self, "hosts")
 
     @hosts.setter
@@ -347,9 +219,6 @@ class BrokerLdapServerMetadataArgs:
     @_builtins.property
     @pulumi.getter(name="roleBase")
     def role_base(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Fully qualified name of the directory to search for a user's groups.
-        """
         return pulumi.get(self, "role_base")
 
     @role_base.setter
@@ -359,9 +228,6 @@ class BrokerLdapServerMetadataArgs:
     @_builtins.property
     @pulumi.getter(name="roleName")
     def role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
-        """
         return pulumi.get(self, "role_name")
 
     @role_name.setter
@@ -371,9 +237,6 @@ class BrokerLdapServerMetadataArgs:
     @_builtins.property
     @pulumi.getter(name="roleSearchMatching")
     def role_search_matching(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Search criteria for groups.
-        """
         return pulumi.get(self, "role_search_matching")
 
     @role_search_matching.setter
@@ -383,9 +246,6 @@ class BrokerLdapServerMetadataArgs:
     @_builtins.property
     @pulumi.getter(name="roleSearchSubtree")
     def role_search_subtree(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the directory search scope is the entire sub-tree.
-        """
         return pulumi.get(self, "role_search_subtree")
 
     @role_search_subtree.setter
@@ -395,9 +255,6 @@ class BrokerLdapServerMetadataArgs:
     @_builtins.property
     @pulumi.getter(name="serviceAccountPassword")
     def service_account_password(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Service account password.
-        """
         return pulumi.get(self, "service_account_password")
 
     @service_account_password.setter
@@ -407,9 +264,6 @@ class BrokerLdapServerMetadataArgs:
     @_builtins.property
     @pulumi.getter(name="serviceAccountUsername")
     def service_account_username(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Service account username.
-        """
         return pulumi.get(self, "service_account_username")
 
     @service_account_username.setter
@@ -419,9 +273,6 @@ class BrokerLdapServerMetadataArgs:
     @_builtins.property
     @pulumi.getter(name="userBase")
     def user_base(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Fully qualified name of the directory where you want to search for users.
-        """
         return pulumi.get(self, "user_base")
 
     @user_base.setter
@@ -431,9 +282,6 @@ class BrokerLdapServerMetadataArgs:
     @_builtins.property
     @pulumi.getter(name="userRoleName")
     def user_role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the LDAP attribute for the user group membership.
-        """
         return pulumi.get(self, "user_role_name")
 
     @user_role_name.setter
@@ -443,9 +291,6 @@ class BrokerLdapServerMetadataArgs:
     @_builtins.property
     @pulumi.getter(name="userSearchMatching")
     def user_search_matching(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Search criteria for users.
-        """
         return pulumi.get(self, "user_search_matching")
 
     @user_search_matching.setter
@@ -455,9 +300,6 @@ class BrokerLdapServerMetadataArgs:
     @_builtins.property
     @pulumi.getter(name="userSearchSubtree")
     def user_search_subtree(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the directory search scope is the entire sub-tree.
-        """
         return pulumi.get(self, "user_search_subtree")
 
     @user_search_subtree.setter
@@ -468,13 +310,7 @@ class BrokerLdapServerMetadataArgs:
 if not MYPY:
     class BrokerLogsArgsDict(TypedDict):
         audit: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable audit logging. Only possible for `engine_type` of `ActiveMQ`. Logs user management actions via JMX or ActiveMQ Web Console. Defaults to `false`.
-        """
         general: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable general logging via CloudWatch. Defaults to `false`.
-        """
 elif False:
     BrokerLogsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -483,10 +319,6 @@ class BrokerLogsArgs:
     def __init__(__self__, *,
                  audit: Optional[pulumi.Input[_builtins.bool]] = None,
                  general: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        :param pulumi.Input[_builtins.bool] audit: Whether to enable audit logging. Only possible for `engine_type` of `ActiveMQ`. Logs user management actions via JMX or ActiveMQ Web Console. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] general: Whether to enable general logging via CloudWatch. Defaults to `false`.
-        """
         if audit is not None:
             pulumi.set(__self__, "audit", audit)
         if general is not None:
@@ -495,9 +327,6 @@ class BrokerLogsArgs:
     @_builtins.property
     @pulumi.getter
     def audit(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable audit logging. Only possible for `engine_type` of `ActiveMQ`. Logs user management actions via JMX or ActiveMQ Web Console. Defaults to `false`.
-        """
         return pulumi.get(self, "audit")
 
     @audit.setter
@@ -507,9 +336,6 @@ class BrokerLogsArgs:
     @_builtins.property
     @pulumi.getter
     def general(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable general logging via CloudWatch. Defaults to `false`.
-        """
         return pulumi.get(self, "general")
 
     @general.setter
@@ -520,17 +346,8 @@ class BrokerLogsArgs:
 if not MYPY:
     class BrokerMaintenanceWindowStartTimeArgsDict(TypedDict):
         day_of_week: pulumi.Input[_builtins.str]
-        """
-        Day of the week, e.g., `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
-        """
         time_of_day: pulumi.Input[_builtins.str]
-        """
-        Time, in 24-hour format, e.g., `02:00`.
-        """
         time_zone: pulumi.Input[_builtins.str]
-        """
-        Time zone in either the Country/City format or the UTC offset format, e.g., `CET`.
-        """
 elif False:
     BrokerMaintenanceWindowStartTimeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -540,11 +357,6 @@ class BrokerMaintenanceWindowStartTimeArgs:
                  day_of_week: pulumi.Input[_builtins.str],
                  time_of_day: pulumi.Input[_builtins.str],
                  time_zone: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] day_of_week: Day of the week, e.g., `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
-        :param pulumi.Input[_builtins.str] time_of_day: Time, in 24-hour format, e.g., `02:00`.
-        :param pulumi.Input[_builtins.str] time_zone: Time zone in either the Country/City format or the UTC offset format, e.g., `CET`.
-        """
         pulumi.set(__self__, "day_of_week", day_of_week)
         pulumi.set(__self__, "time_of_day", time_of_day)
         pulumi.set(__self__, "time_zone", time_zone)
@@ -552,9 +364,6 @@ class BrokerMaintenanceWindowStartTimeArgs:
     @_builtins.property
     @pulumi.getter(name="dayOfWeek")
     def day_of_week(self) -> pulumi.Input[_builtins.str]:
-        """
-        Day of the week, e.g., `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
-        """
         return pulumi.get(self, "day_of_week")
 
     @day_of_week.setter
@@ -564,9 +373,6 @@ class BrokerMaintenanceWindowStartTimeArgs:
     @_builtins.property
     @pulumi.getter(name="timeOfDay")
     def time_of_day(self) -> pulumi.Input[_builtins.str]:
-        """
-        Time, in 24-hour format, e.g., `02:00`.
-        """
         return pulumi.get(self, "time_of_day")
 
     @time_of_day.setter
@@ -576,9 +382,6 @@ class BrokerMaintenanceWindowStartTimeArgs:
     @_builtins.property
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> pulumi.Input[_builtins.str]:
-        """
-        Time zone in either the Country/City format or the UTC offset format, e.g., `CET`.
-        """
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
@@ -589,29 +392,10 @@ class BrokerMaintenanceWindowStartTimeArgs:
 if not MYPY:
     class BrokerUserArgsDict(TypedDict):
         password: pulumi.Input[_builtins.str]
-        """
-        Password of the user. Must be 12 to 250 characters long, contain at least 4 unique characters, and must not contain commas.
-        """
         username: pulumi.Input[_builtins.str]
-        """
-        Username of the user.
-
-        The following arguments are optional:
-        """
         console_access: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engine_type` of `ActiveMQ` only.
-        """
         groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engine_type` of `ActiveMQ` only.
-        """
         replication_user: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to set replication user. Defaults to `false`.
-
-        > **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
-        """
 elif False:
     BrokerUserArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -623,17 +407,6 @@ class BrokerUserArgs:
                  console_access: Optional[pulumi.Input[_builtins.bool]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  replication_user: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        :param pulumi.Input[_builtins.str] password: Password of the user. Must be 12 to 250 characters long, contain at least 4 unique characters, and must not contain commas.
-        :param pulumi.Input[_builtins.str] username: Username of the user.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] console_access: Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engine_type` of `ActiveMQ` only.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups: List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engine_type` of `ActiveMQ` only.
-        :param pulumi.Input[_builtins.bool] replication_user: Whether to set replication user. Defaults to `false`.
-               
-               > **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
-        """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
         if console_access is not None:
@@ -646,9 +419,6 @@ class BrokerUserArgs:
     @_builtins.property
     @pulumi.getter
     def password(self) -> pulumi.Input[_builtins.str]:
-        """
-        Password of the user. Must be 12 to 250 characters long, contain at least 4 unique characters, and must not contain commas.
-        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -658,11 +428,6 @@ class BrokerUserArgs:
     @_builtins.property
     @pulumi.getter
     def username(self) -> pulumi.Input[_builtins.str]:
-        """
-        Username of the user.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -672,9 +437,6 @@ class BrokerUserArgs:
     @_builtins.property
     @pulumi.getter(name="consoleAccess")
     def console_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engine_type` of `ActiveMQ` only.
-        """
         return pulumi.get(self, "console_access")
 
     @console_access.setter
@@ -684,9 +446,6 @@ class BrokerUserArgs:
     @_builtins.property
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engine_type` of `ActiveMQ` only.
-        """
         return pulumi.get(self, "groups")
 
     @groups.setter
@@ -696,11 +455,6 @@ class BrokerUserArgs:
     @_builtins.property
     @pulumi.getter(name="replicationUser")
     def replication_user(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to set replication user. Defaults to `false`.
-
-        > **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
-        """
         return pulumi.get(self, "replication_user")
 
     @replication_user.setter

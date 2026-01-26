@@ -16,32 +16,16 @@ public final class TableImportTableInputFormatOptionsCsvArgs extends com.pulumi.
 
     public static final TableImportTableInputFormatOptionsCsvArgs Empty = new TableImportTableInputFormatOptionsCsvArgs();
 
-    /**
-     * The delimiter used for separating items in the CSV file being imported.
-     * 
-     */
     @Import(name="delimiter")
     private @Nullable Output<String> delimiter;
 
-    /**
-     * @return The delimiter used for separating items in the CSV file being imported.
-     * 
-     */
     public Optional<Output<String>> delimiter() {
         return Optional.ofNullable(this.delimiter);
     }
 
-    /**
-     * List of the headers used to specify a common header for all source CSV files being imported.
-     * 
-     */
     @Import(name="headerLists")
     private @Nullable Output<List<String>> headerLists;
 
-    /**
-     * @return List of the headers used to specify a common header for all source CSV files being imported.
-     * 
-     */
     public Optional<Output<List<String>>> headerLists() {
         return Optional.ofNullable(this.headerLists);
     }
@@ -71,54 +55,24 @@ public final class TableImportTableInputFormatOptionsCsvArgs extends com.pulumi.
             $ = new TableImportTableInputFormatOptionsCsvArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param delimiter The delimiter used for separating items in the CSV file being imported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder delimiter(@Nullable Output<String> delimiter) {
             $.delimiter = delimiter;
             return this;
         }
 
-        /**
-         * @param delimiter The delimiter used for separating items in the CSV file being imported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder delimiter(String delimiter) {
             return delimiter(Output.of(delimiter));
         }
 
-        /**
-         * @param headerLists List of the headers used to specify a common header for all source CSV files being imported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headerLists(@Nullable Output<List<String>> headerLists) {
             $.headerLists = headerLists;
             return this;
         }
 
-        /**
-         * @param headerLists List of the headers used to specify a common header for all source CSV files being imported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headerLists(List<String> headerLists) {
             return headerLists(Output.of(headerLists));
         }
 
-        /**
-         * @param headerLists List of the headers used to specify a common header for all source CSV files being imported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headerLists(String... headerLists) {
             return headerLists(List.of(headerLists));
         }

@@ -26,9 +26,6 @@ class GlobalTableArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GlobalTable resource.
-        :param pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaArgs']]] replicas: Underlying DynamoDB Table. At least 1 replica must be defined. See below.
-        :param pulumi.Input[_builtins.str] name: The name of the global table. Must match underlying DynamoDB Table names in all regions.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "replicas", replicas)
         if name is not None:
@@ -39,9 +36,6 @@ class GlobalTableArgs:
     @_builtins.property
     @pulumi.getter
     def replicas(self) -> pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaArgs']]]:
-        """
-        Underlying DynamoDB Table. At least 1 replica must be defined. See below.
-        """
         return pulumi.get(self, "replicas")
 
     @replicas.setter
@@ -51,9 +45,6 @@ class GlobalTableArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the global table. Must match underlying DynamoDB Table names in all regions.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -63,9 +54,6 @@ class GlobalTableArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -82,10 +70,6 @@ class _GlobalTableState:
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaArgs']]]] = None):
         """
         Input properties used for looking up and filtering GlobalTable resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the DynamoDB Global Table
-        :param pulumi.Input[_builtins.str] name: The name of the global table. Must match underlying DynamoDB Table names in all regions.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaArgs']]] replicas: Underlying DynamoDB Table. At least 1 replica must be defined. See below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -99,9 +83,6 @@ class _GlobalTableState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the DynamoDB Global Table
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -111,9 +92,6 @@ class _GlobalTableState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the global table. Must match underlying DynamoDB Table names in all regions.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -123,9 +101,6 @@ class _GlobalTableState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -135,9 +110,6 @@ class _GlobalTableState:
     @_builtins.property
     @pulumi.getter
     def replicas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaArgs']]]]:
-        """
-        Underlying DynamoDB Table. At least 1 replica must be defined. See below.
-        """
         return pulumi.get(self, "replicas")
 
     @replicas.setter
@@ -156,69 +128,9 @@ class GlobalTable(pulumi.CustomResource):
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableReplicaArgs', 'GlobalTableReplicaArgsDict']]]]] = None,
                  __props__=None):
         """
-        Manages [DynamoDB Global Tables V1 (version 2017.11.29)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html). These are layered on top of existing DynamoDB Tables.
-
-        > **NOTE:** To instead manage [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html), use the `dynamodb.Table` resource `replica` configuration block.
-
-        > Note: There are many restrictions before you can properly create DynamoDB Global Tables in multiple regions. See the [AWS DynamoDB Global Table Requirements](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_reqs_bestpractices.html) for more information.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        us_east_1 = aws.dynamodb.Table("us-east-1",
-            hash_key="myAttribute",
-            name="myTable",
-            stream_enabled=True,
-            stream_view_type="NEW_AND_OLD_IMAGES",
-            read_capacity=1,
-            write_capacity=1,
-            attributes=[{
-                "name": "myAttribute",
-                "type": "S",
-            }])
-        us_west_2 = aws.dynamodb.Table("us-west-2",
-            hash_key="myAttribute",
-            name="myTable",
-            stream_enabled=True,
-            stream_view_type="NEW_AND_OLD_IMAGES",
-            read_capacity=1,
-            write_capacity=1,
-            attributes=[{
-                "name": "myAttribute",
-                "type": "S",
-            }])
-        my_table = aws.dynamodb.GlobalTable("myTable",
-            name="myTable",
-            replicas=[
-                {
-                    "region_name": "us-east-1",
-                },
-                {
-                    "region_name": "us-west-2",
-                },
-            ],
-            opts = pulumi.ResourceOptions(depends_on=[
-                    us_east_1,
-                    us_west_2,
-                ]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DynamoDB Global Tables using the global table name. For example:
-
-        ```sh
-        $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
-        ```
-
+        Create a GlobalTable resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: The name of the global table. Must match underlying DynamoDB Table names in all regions.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableReplicaArgs', 'GlobalTableReplicaArgsDict']]]] replicas: Underlying DynamoDB Table. At least 1 replica must be defined. See below.
         """
         ...
     @overload
@@ -227,64 +139,7 @@ class GlobalTable(pulumi.CustomResource):
                  args: GlobalTableArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages [DynamoDB Global Tables V1 (version 2017.11.29)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html). These are layered on top of existing DynamoDB Tables.
-
-        > **NOTE:** To instead manage [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html), use the `dynamodb.Table` resource `replica` configuration block.
-
-        > Note: There are many restrictions before you can properly create DynamoDB Global Tables in multiple regions. See the [AWS DynamoDB Global Table Requirements](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_reqs_bestpractices.html) for more information.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        us_east_1 = aws.dynamodb.Table("us-east-1",
-            hash_key="myAttribute",
-            name="myTable",
-            stream_enabled=True,
-            stream_view_type="NEW_AND_OLD_IMAGES",
-            read_capacity=1,
-            write_capacity=1,
-            attributes=[{
-                "name": "myAttribute",
-                "type": "S",
-            }])
-        us_west_2 = aws.dynamodb.Table("us-west-2",
-            hash_key="myAttribute",
-            name="myTable",
-            stream_enabled=True,
-            stream_view_type="NEW_AND_OLD_IMAGES",
-            read_capacity=1,
-            write_capacity=1,
-            attributes=[{
-                "name": "myAttribute",
-                "type": "S",
-            }])
-        my_table = aws.dynamodb.GlobalTable("myTable",
-            name="myTable",
-            replicas=[
-                {
-                    "region_name": "us-east-1",
-                },
-                {
-                    "region_name": "us-west-2",
-                },
-            ],
-            opts = pulumi.ResourceOptions(depends_on=[
-                    us_east_1,
-                    us_west_2,
-                ]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DynamoDB Global Tables using the global table name. For example:
-
-        ```sh
-        $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
-        ```
-
+        Create a GlobalTable resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param GlobalTableArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -339,10 +194,6 @@ class GlobalTable(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the DynamoDB Global Table
-        :param pulumi.Input[_builtins.str] name: The name of the global table. Must match underlying DynamoDB Table names in all regions.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableReplicaArgs', 'GlobalTableReplicaArgsDict']]]] replicas: Underlying DynamoDB Table. At least 1 replica must be defined. See below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -357,32 +208,20 @@ class GlobalTable(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the DynamoDB Global Table
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the global table. Must match underlying DynamoDB Table names in all regions.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def replicas(self) -> pulumi.Output[Sequence['outputs.GlobalTableReplica']]:
-        """
-        Underlying DynamoDB Table. At least 1 replica must be defined. See below.
-        """
         return pulumi.get(self, "replicas")
 

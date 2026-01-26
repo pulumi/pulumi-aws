@@ -17,47 +17,23 @@ public final class SqlInjectionMatchSetState extends com.pulumi.resources.Resour
 
     public static final SqlInjectionMatchSetState Empty = new SqlInjectionMatchSetState();
 
-    /**
-     * Amazon Resource Name (ARN) of the SQL injection match set.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the SQL injection match set.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The name or description of the SQL Injection Match Set.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name or description of the SQL Injection Match Set.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
-     * 
-     */
     @Import(name="sqlInjectionMatchTuples")
     private @Nullable Output<List<SqlInjectionMatchSetSqlInjectionMatchTupleArgs>> sqlInjectionMatchTuples;
 
-    /**
-     * @return The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
-     * 
-     */
     public Optional<Output<List<SqlInjectionMatchSetSqlInjectionMatchTupleArgs>>> sqlInjectionMatchTuples() {
         return Optional.ofNullable(this.sqlInjectionMatchTuples);
     }
@@ -88,75 +64,33 @@ public final class SqlInjectionMatchSetState extends com.pulumi.resources.Resour
             $ = new SqlInjectionMatchSetState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of the SQL injection match set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of the SQL injection match set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param name The name or description of the SQL Injection Match Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name or description of the SQL Injection Match Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param sqlInjectionMatchTuples The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sqlInjectionMatchTuples(@Nullable Output<List<SqlInjectionMatchSetSqlInjectionMatchTupleArgs>> sqlInjectionMatchTuples) {
             $.sqlInjectionMatchTuples = sqlInjectionMatchTuples;
             return this;
         }
 
-        /**
-         * @param sqlInjectionMatchTuples The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sqlInjectionMatchTuples(List<SqlInjectionMatchSetSqlInjectionMatchTupleArgs> sqlInjectionMatchTuples) {
             return sqlInjectionMatchTuples(Output.of(sqlInjectionMatchTuples));
         }
 
-        /**
-         * @param sqlInjectionMatchTuples The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sqlInjectionMatchTuples(SqlInjectionMatchSetSqlInjectionMatchTupleArgs... sqlInjectionMatchTuples) {
             return sqlInjectionMatchTuples(List.of(sqlInjectionMatchTuples));
         }

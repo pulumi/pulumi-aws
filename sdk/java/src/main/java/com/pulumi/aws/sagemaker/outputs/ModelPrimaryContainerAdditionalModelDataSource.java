@@ -12,29 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ModelPrimaryContainerAdditionalModelDataSource {
-    /**
-     * @return Custom name for the additional model data source object. It will be stored in `/opt/ml/additional-model-data-sources/&lt;channel_name&gt;/`.
-     * 
-     */
     private String channelName;
-    /**
-     * @return S3 location of model data to deploy. See S3 Data Source.
-     * 
-     */
     private List<ModelPrimaryContainerAdditionalModelDataSourceS3DataSource> s3DataSources;
 
     private ModelPrimaryContainerAdditionalModelDataSource() {}
-    /**
-     * @return Custom name for the additional model data source object. It will be stored in `/opt/ml/additional-model-data-sources/&lt;channel_name&gt;/`.
-     * 
-     */
     public String channelName() {
         return this.channelName;
     }
-    /**
-     * @return S3 location of model data to deploy. See S3 Data Source.
-     * 
-     */
     public List<ModelPrimaryContainerAdditionalModelDataSourceS3DataSource> s3DataSources() {
         return this.s3DataSources;
     }

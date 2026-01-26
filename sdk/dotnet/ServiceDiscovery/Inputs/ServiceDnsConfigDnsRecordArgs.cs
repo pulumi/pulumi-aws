@@ -12,15 +12,9 @@ namespace Pulumi.Aws.ServiceDiscovery.Inputs
 
     public sealed class ServiceDnsConfigDnsRecordArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
-        /// </summary>
         [Input("ttl", required: true)]
         public Input<int> Ttl { get; set; } = null!;
 
-        /// <summary>
-        /// The type of the resource, which indicates the value that Amazon Route 53 returns in response to DNS queries. Valid Values: A, AAAA, SRV, CNAME
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

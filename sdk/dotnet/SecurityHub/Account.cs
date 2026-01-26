@@ -9,64 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SecurityHub
 {
-    /// <summary>
-    /// Enables Security Hub for this AWS account.
-    /// 
-    /// &gt; **NOTE:** Destroying this resource will disable Security Hub for this AWS account.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SecurityHub.Account("example");
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import an existing Security Hub enabled account using the AWS account ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:securityhub/account:Account example 123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:securityhub/account:Account")]
     public partial class Account : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the SecurityHub Hub created in the account.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
-        /// </summary>
         [Output("autoEnableControls")]
         public Output<bool?> AutoEnableControls { get; private set; } = null!;
 
-        /// <summary>
-        /// Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
-        /// </summary>
         [Output("controlFindingGenerator")]
         public Output<string> ControlFindingGenerator { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `True`.
-        /// </summary>
         [Output("enableDefaultStandards")]
         public Output<bool?> EnableDefaultStandards { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -116,27 +73,15 @@ namespace Pulumi.Aws.SecurityHub
 
     public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
-        /// </summary>
         [Input("autoEnableControls")]
         public Input<bool>? AutoEnableControls { get; set; }
 
-        /// <summary>
-        /// Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
-        /// </summary>
         [Input("controlFindingGenerator")]
         public Input<string>? ControlFindingGenerator { get; set; }
 
-        /// <summary>
-        /// Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `True`.
-        /// </summary>
         [Input("enableDefaultStandards")]
         public Input<bool>? EnableDefaultStandards { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -148,33 +93,18 @@ namespace Pulumi.Aws.SecurityHub
 
     public sealed class AccountState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the SecurityHub Hub created in the account.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
-        /// </summary>
         [Input("autoEnableControls")]
         public Input<bool>? AutoEnableControls { get; set; }
 
-        /// <summary>
-        /// Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
-        /// </summary>
         [Input("controlFindingGenerator")]
         public Input<string>? ControlFindingGenerator { get; set; }
 
-        /// <summary>
-        /// Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `True`.
-        /// </summary>
         [Input("enableDefaultStandards")]
         public Input<bool>? EnableDefaultStandards { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

@@ -12,109 +12,30 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a DAX Cluster resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dax"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dax.NewCluster(ctx, "bar", &dax.ClusterArgs{
-//				ClusterName:       pulumi.String("cluster-example"),
-//				IamRoleArn:        pulumi.Any(example.Arn),
-//				NodeType:          pulumi.String("dax.r4.large"),
-//				ReplicationFactor: pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import DAX Clusters using the `cluster_name`. For example:
-//
-// ```sh
-// $ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
-// ```
 type Cluster struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the DAX cluster
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// List of Availability Zones in which the
-	// nodes will be created
-	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
-	// The DNS name of the DAX cluster without the port appended
-	ClusterAddress pulumi.StringOutput `pulumi:"clusterAddress"`
-	// The type of encryption the
-	// cluster's endpoint should support. Valid values are: `NONE` and `TLS`.
-	// Default value is `NONE`.
-	ClusterEndpointEncryptionType pulumi.StringPtrOutput `pulumi:"clusterEndpointEncryptionType"`
-	// Group identifier. DAX converts this name to
-	// lowercase
-	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
-	// The configuration endpoint for this DAX cluster,
-	// consisting of a DNS name and a port number
-	ConfigurationEndpoint pulumi.StringOutput `pulumi:"configurationEndpoint"`
-	// Description for the cluster
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A valid Amazon Resource Name (ARN) that identifies
-	// an IAM role. At runtime, DAX will assume this role and use the role's
-	// permissions to access DynamoDB on your behalf
-	IamRoleArn pulumi.StringOutput `pulumi:"iamRoleArn"`
-	// Specifies the weekly time range for when
-	// maintenance on the cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi`
-	// (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example:
-	// `sun:05:00-sun:09:00`
-	MaintenanceWindow pulumi.StringOutput `pulumi:"maintenanceWindow"`
-	// The compute and memory capacity of the nodes. See
-	// [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
-	NodeType pulumi.StringOutput `pulumi:"nodeType"`
-	// List of node objects including `id`, `address`, `port` and
-	// `availabilityZone`. Referenceable e.g., as
-	// `${aws_dax_cluster.test.nodes.0.address}`
-	Nodes ClusterNodeArrayOutput `pulumi:"nodes"`
-	// An Amazon Resource Name (ARN) of an
-	// SNS topic to send DAX notifications to. Example:
-	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
-	NotificationTopicArn pulumi.StringPtrOutput `pulumi:"notificationTopicArn"`
-	// Name of the parameter group to associate
-	// with this DAX cluster
-	ParameterGroupName pulumi.StringOutput `pulumi:"parameterGroupName"`
-	// The port used by the configuration endpoint
-	Port pulumi.IntOutput `pulumi:"port"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The number of nodes in the DAX cluster. A
-	// replication factor of 1 will create a single-node cluster, without any read
-	// replicas
-	ReplicationFactor pulumi.IntOutput `pulumi:"replicationFactor"`
-	// One or more VPC security groups associated
-	// with the cluster
-	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	// Encrypt at rest options
-	ServerSideEncryption ClusterServerSideEncryptionPtrOutput `pulumi:"serverSideEncryption"`
-	// Name of the subnet group to be used for the
-	// cluster
-	SubnetGroupName pulumi.StringOutput `pulumi:"subnetGroupName"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                           pulumi.StringOutput                  `pulumi:"arn"`
+	AvailabilityZones             pulumi.StringArrayOutput             `pulumi:"availabilityZones"`
+	ClusterAddress                pulumi.StringOutput                  `pulumi:"clusterAddress"`
+	ClusterEndpointEncryptionType pulumi.StringPtrOutput               `pulumi:"clusterEndpointEncryptionType"`
+	ClusterName                   pulumi.StringOutput                  `pulumi:"clusterName"`
+	ConfigurationEndpoint         pulumi.StringOutput                  `pulumi:"configurationEndpoint"`
+	Description                   pulumi.StringPtrOutput               `pulumi:"description"`
+	IamRoleArn                    pulumi.StringOutput                  `pulumi:"iamRoleArn"`
+	MaintenanceWindow             pulumi.StringOutput                  `pulumi:"maintenanceWindow"`
+	NodeType                      pulumi.StringOutput                  `pulumi:"nodeType"`
+	Nodes                         ClusterNodeArrayOutput               `pulumi:"nodes"`
+	NotificationTopicArn          pulumi.StringPtrOutput               `pulumi:"notificationTopicArn"`
+	ParameterGroupName            pulumi.StringOutput                  `pulumi:"parameterGroupName"`
+	Port                          pulumi.IntOutput                     `pulumi:"port"`
+	Region                        pulumi.StringOutput                  `pulumi:"region"`
+	ReplicationFactor             pulumi.IntOutput                     `pulumi:"replicationFactor"`
+	SecurityGroupIds              pulumi.StringArrayOutput             `pulumi:"securityGroupIds"`
+	ServerSideEncryption          ClusterServerSideEncryptionPtrOutput `pulumi:"serverSideEncryption"`
+	SubnetGroupName               pulumi.StringOutput                  `pulumi:"subnetGroupName"`
+	Tags                          pulumi.StringMapOutput               `pulumi:"tags"`
+	TagsAll                       pulumi.StringMapOutput               `pulumi:"tagsAll"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -159,133 +80,51 @@ func GetCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cluster resources.
 type clusterState struct {
-	// The ARN of the DAX cluster
-	Arn *string `pulumi:"arn"`
-	// List of Availability Zones in which the
-	// nodes will be created
-	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// The DNS name of the DAX cluster without the port appended
-	ClusterAddress *string `pulumi:"clusterAddress"`
-	// The type of encryption the
-	// cluster's endpoint should support. Valid values are: `NONE` and `TLS`.
-	// Default value is `NONE`.
-	ClusterEndpointEncryptionType *string `pulumi:"clusterEndpointEncryptionType"`
-	// Group identifier. DAX converts this name to
-	// lowercase
-	ClusterName *string `pulumi:"clusterName"`
-	// The configuration endpoint for this DAX cluster,
-	// consisting of a DNS name and a port number
-	ConfigurationEndpoint *string `pulumi:"configurationEndpoint"`
-	// Description for the cluster
-	Description *string `pulumi:"description"`
-	// A valid Amazon Resource Name (ARN) that identifies
-	// an IAM role. At runtime, DAX will assume this role and use the role's
-	// permissions to access DynamoDB on your behalf
-	IamRoleArn *string `pulumi:"iamRoleArn"`
-	// Specifies the weekly time range for when
-	// maintenance on the cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi`
-	// (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example:
-	// `sun:05:00-sun:09:00`
-	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
-	// The compute and memory capacity of the nodes. See
-	// [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
-	NodeType *string `pulumi:"nodeType"`
-	// List of node objects including `id`, `address`, `port` and
-	// `availabilityZone`. Referenceable e.g., as
-	// `${aws_dax_cluster.test.nodes.0.address}`
-	Nodes []ClusterNode `pulumi:"nodes"`
-	// An Amazon Resource Name (ARN) of an
-	// SNS topic to send DAX notifications to. Example:
-	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
-	NotificationTopicArn *string `pulumi:"notificationTopicArn"`
-	// Name of the parameter group to associate
-	// with this DAX cluster
-	ParameterGroupName *string `pulumi:"parameterGroupName"`
-	// The port used by the configuration endpoint
-	Port *int `pulumi:"port"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The number of nodes in the DAX cluster. A
-	// replication factor of 1 will create a single-node cluster, without any read
-	// replicas
-	ReplicationFactor *int `pulumi:"replicationFactor"`
-	// One or more VPC security groups associated
-	// with the cluster
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// Encrypt at rest options
-	ServerSideEncryption *ClusterServerSideEncryption `pulumi:"serverSideEncryption"`
-	// Name of the subnet group to be used for the
-	// cluster
-	SubnetGroupName *string `pulumi:"subnetGroupName"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                           *string                      `pulumi:"arn"`
+	AvailabilityZones             []string                     `pulumi:"availabilityZones"`
+	ClusterAddress                *string                      `pulumi:"clusterAddress"`
+	ClusterEndpointEncryptionType *string                      `pulumi:"clusterEndpointEncryptionType"`
+	ClusterName                   *string                      `pulumi:"clusterName"`
+	ConfigurationEndpoint         *string                      `pulumi:"configurationEndpoint"`
+	Description                   *string                      `pulumi:"description"`
+	IamRoleArn                    *string                      `pulumi:"iamRoleArn"`
+	MaintenanceWindow             *string                      `pulumi:"maintenanceWindow"`
+	NodeType                      *string                      `pulumi:"nodeType"`
+	Nodes                         []ClusterNode                `pulumi:"nodes"`
+	NotificationTopicArn          *string                      `pulumi:"notificationTopicArn"`
+	ParameterGroupName            *string                      `pulumi:"parameterGroupName"`
+	Port                          *int                         `pulumi:"port"`
+	Region                        *string                      `pulumi:"region"`
+	ReplicationFactor             *int                         `pulumi:"replicationFactor"`
+	SecurityGroupIds              []string                     `pulumi:"securityGroupIds"`
+	ServerSideEncryption          *ClusterServerSideEncryption `pulumi:"serverSideEncryption"`
+	SubnetGroupName               *string                      `pulumi:"subnetGroupName"`
+	Tags                          map[string]string            `pulumi:"tags"`
+	TagsAll                       map[string]string            `pulumi:"tagsAll"`
 }
 
 type ClusterState struct {
-	// The ARN of the DAX cluster
-	Arn pulumi.StringPtrInput
-	// List of Availability Zones in which the
-	// nodes will be created
-	AvailabilityZones pulumi.StringArrayInput
-	// The DNS name of the DAX cluster without the port appended
-	ClusterAddress pulumi.StringPtrInput
-	// The type of encryption the
-	// cluster's endpoint should support. Valid values are: `NONE` and `TLS`.
-	// Default value is `NONE`.
+	Arn                           pulumi.StringPtrInput
+	AvailabilityZones             pulumi.StringArrayInput
+	ClusterAddress                pulumi.StringPtrInput
 	ClusterEndpointEncryptionType pulumi.StringPtrInput
-	// Group identifier. DAX converts this name to
-	// lowercase
-	ClusterName pulumi.StringPtrInput
-	// The configuration endpoint for this DAX cluster,
-	// consisting of a DNS name and a port number
-	ConfigurationEndpoint pulumi.StringPtrInput
-	// Description for the cluster
-	Description pulumi.StringPtrInput
-	// A valid Amazon Resource Name (ARN) that identifies
-	// an IAM role. At runtime, DAX will assume this role and use the role's
-	// permissions to access DynamoDB on your behalf
-	IamRoleArn pulumi.StringPtrInput
-	// Specifies the weekly time range for when
-	// maintenance on the cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi`
-	// (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example:
-	// `sun:05:00-sun:09:00`
-	MaintenanceWindow pulumi.StringPtrInput
-	// The compute and memory capacity of the nodes. See
-	// [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
-	NodeType pulumi.StringPtrInput
-	// List of node objects including `id`, `address`, `port` and
-	// `availabilityZone`. Referenceable e.g., as
-	// `${aws_dax_cluster.test.nodes.0.address}`
-	Nodes ClusterNodeArrayInput
-	// An Amazon Resource Name (ARN) of an
-	// SNS topic to send DAX notifications to. Example:
-	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
-	NotificationTopicArn pulumi.StringPtrInput
-	// Name of the parameter group to associate
-	// with this DAX cluster
-	ParameterGroupName pulumi.StringPtrInput
-	// The port used by the configuration endpoint
-	Port pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The number of nodes in the DAX cluster. A
-	// replication factor of 1 will create a single-node cluster, without any read
-	// replicas
-	ReplicationFactor pulumi.IntPtrInput
-	// One or more VPC security groups associated
-	// with the cluster
-	SecurityGroupIds pulumi.StringArrayInput
-	// Encrypt at rest options
-	ServerSideEncryption ClusterServerSideEncryptionPtrInput
-	// Name of the subnet group to be used for the
-	// cluster
-	SubnetGroupName pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	ClusterName                   pulumi.StringPtrInput
+	ConfigurationEndpoint         pulumi.StringPtrInput
+	Description                   pulumi.StringPtrInput
+	IamRoleArn                    pulumi.StringPtrInput
+	MaintenanceWindow             pulumi.StringPtrInput
+	NodeType                      pulumi.StringPtrInput
+	Nodes                         ClusterNodeArrayInput
+	NotificationTopicArn          pulumi.StringPtrInput
+	ParameterGroupName            pulumi.StringPtrInput
+	Port                          pulumi.IntPtrInput
+	Region                        pulumi.StringPtrInput
+	ReplicationFactor             pulumi.IntPtrInput
+	SecurityGroupIds              pulumi.StringArrayInput
+	ServerSideEncryption          ClusterServerSideEncryptionPtrInput
+	SubnetGroupName               pulumi.StringPtrInput
+	Tags                          pulumi.StringMapInput
+	TagsAll                       pulumi.StringMapInput
 }
 
 func (ClusterState) ElementType() reflect.Type {
@@ -293,104 +132,40 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	// List of Availability Zones in which the
-	// nodes will be created
-	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// The type of encryption the
-	// cluster's endpoint should support. Valid values are: `NONE` and `TLS`.
-	// Default value is `NONE`.
-	ClusterEndpointEncryptionType *string `pulumi:"clusterEndpointEncryptionType"`
-	// Group identifier. DAX converts this name to
-	// lowercase
-	ClusterName string `pulumi:"clusterName"`
-	// Description for the cluster
-	Description *string `pulumi:"description"`
-	// A valid Amazon Resource Name (ARN) that identifies
-	// an IAM role. At runtime, DAX will assume this role and use the role's
-	// permissions to access DynamoDB on your behalf
-	IamRoleArn string `pulumi:"iamRoleArn"`
-	// Specifies the weekly time range for when
-	// maintenance on the cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi`
-	// (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example:
-	// `sun:05:00-sun:09:00`
-	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
-	// The compute and memory capacity of the nodes. See
-	// [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
-	NodeType string `pulumi:"nodeType"`
-	// An Amazon Resource Name (ARN) of an
-	// SNS topic to send DAX notifications to. Example:
-	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
-	NotificationTopicArn *string `pulumi:"notificationTopicArn"`
-	// Name of the parameter group to associate
-	// with this DAX cluster
-	ParameterGroupName *string `pulumi:"parameterGroupName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The number of nodes in the DAX cluster. A
-	// replication factor of 1 will create a single-node cluster, without any read
-	// replicas
-	ReplicationFactor int `pulumi:"replicationFactor"`
-	// One or more VPC security groups associated
-	// with the cluster
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// Encrypt at rest options
-	ServerSideEncryption *ClusterServerSideEncryption `pulumi:"serverSideEncryption"`
-	// Name of the subnet group to be used for the
-	// cluster
-	SubnetGroupName *string `pulumi:"subnetGroupName"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	AvailabilityZones             []string                     `pulumi:"availabilityZones"`
+	ClusterEndpointEncryptionType *string                      `pulumi:"clusterEndpointEncryptionType"`
+	ClusterName                   string                       `pulumi:"clusterName"`
+	Description                   *string                      `pulumi:"description"`
+	IamRoleArn                    string                       `pulumi:"iamRoleArn"`
+	MaintenanceWindow             *string                      `pulumi:"maintenanceWindow"`
+	NodeType                      string                       `pulumi:"nodeType"`
+	NotificationTopicArn          *string                      `pulumi:"notificationTopicArn"`
+	ParameterGroupName            *string                      `pulumi:"parameterGroupName"`
+	Region                        *string                      `pulumi:"region"`
+	ReplicationFactor             int                          `pulumi:"replicationFactor"`
+	SecurityGroupIds              []string                     `pulumi:"securityGroupIds"`
+	ServerSideEncryption          *ClusterServerSideEncryption `pulumi:"serverSideEncryption"`
+	SubnetGroupName               *string                      `pulumi:"subnetGroupName"`
+	Tags                          map[string]string            `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
-	// List of Availability Zones in which the
-	// nodes will be created
-	AvailabilityZones pulumi.StringArrayInput
-	// The type of encryption the
-	// cluster's endpoint should support. Valid values are: `NONE` and `TLS`.
-	// Default value is `NONE`.
+	AvailabilityZones             pulumi.StringArrayInput
 	ClusterEndpointEncryptionType pulumi.StringPtrInput
-	// Group identifier. DAX converts this name to
-	// lowercase
-	ClusterName pulumi.StringInput
-	// Description for the cluster
-	Description pulumi.StringPtrInput
-	// A valid Amazon Resource Name (ARN) that identifies
-	// an IAM role. At runtime, DAX will assume this role and use the role's
-	// permissions to access DynamoDB on your behalf
-	IamRoleArn pulumi.StringInput
-	// Specifies the weekly time range for when
-	// maintenance on the cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi`
-	// (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example:
-	// `sun:05:00-sun:09:00`
-	MaintenanceWindow pulumi.StringPtrInput
-	// The compute and memory capacity of the nodes. See
-	// [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
-	NodeType pulumi.StringInput
-	// An Amazon Resource Name (ARN) of an
-	// SNS topic to send DAX notifications to. Example:
-	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
-	NotificationTopicArn pulumi.StringPtrInput
-	// Name of the parameter group to associate
-	// with this DAX cluster
-	ParameterGroupName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The number of nodes in the DAX cluster. A
-	// replication factor of 1 will create a single-node cluster, without any read
-	// replicas
-	ReplicationFactor pulumi.IntInput
-	// One or more VPC security groups associated
-	// with the cluster
-	SecurityGroupIds pulumi.StringArrayInput
-	// Encrypt at rest options
-	ServerSideEncryption ClusterServerSideEncryptionPtrInput
-	// Name of the subnet group to be used for the
-	// cluster
-	SubnetGroupName pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	ClusterName                   pulumi.StringInput
+	Description                   pulumi.StringPtrInput
+	IamRoleArn                    pulumi.StringInput
+	MaintenanceWindow             pulumi.StringPtrInput
+	NodeType                      pulumi.StringInput
+	NotificationTopicArn          pulumi.StringPtrInput
+	ParameterGroupName            pulumi.StringPtrInput
+	Region                        pulumi.StringPtrInput
+	ReplicationFactor             pulumi.IntInput
+	SecurityGroupIds              pulumi.StringArrayInput
+	ServerSideEncryption          ClusterServerSideEncryptionPtrInput
+	SubnetGroupName               pulumi.StringPtrInput
+	Tags                          pulumi.StringMapInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {
@@ -480,127 +255,86 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
-// The ARN of the DAX cluster
 func (o ClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// List of Availability Zones in which the
-// nodes will be created
 func (o ClusterOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
-// The DNS name of the DAX cluster without the port appended
 func (o ClusterOutput) ClusterAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterAddress }).(pulumi.StringOutput)
 }
 
-// The type of encryption the
-// cluster's endpoint should support. Valid values are: `NONE` and `TLS`.
-// Default value is `NONE`.
 func (o ClusterOutput) ClusterEndpointEncryptionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterEndpointEncryptionType }).(pulumi.StringPtrOutput)
 }
 
-// Group identifier. DAX converts this name to
-// lowercase
 func (o ClusterOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
 }
 
-// The configuration endpoint for this DAX cluster,
-// consisting of a DNS name and a port number
 func (o ClusterOutput) ConfigurationEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ConfigurationEndpoint }).(pulumi.StringOutput)
 }
 
-// Description for the cluster
 func (o ClusterOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// A valid Amazon Resource Name (ARN) that identifies
-// an IAM role. At runtime, DAX will assume this role and use the role's
-// permissions to access DynamoDB on your behalf
 func (o ClusterOutput) IamRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.IamRoleArn }).(pulumi.StringOutput)
 }
 
-// Specifies the weekly time range for when
-// maintenance on the cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi`
-// (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example:
-// `sun:05:00-sun:09:00`
 func (o ClusterOutput) MaintenanceWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.MaintenanceWindow }).(pulumi.StringOutput)
 }
 
-// The compute and memory capacity of the nodes. See
-// [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
 func (o ClusterOutput) NodeType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.NodeType }).(pulumi.StringOutput)
 }
 
-// List of node objects including `id`, `address`, `port` and
-// `availabilityZone`. Referenceable e.g., as
-// `${aws_dax_cluster.test.nodes.0.address}`
 func (o ClusterOutput) Nodes() ClusterNodeArrayOutput {
 	return o.ApplyT(func(v *Cluster) ClusterNodeArrayOutput { return v.Nodes }).(ClusterNodeArrayOutput)
 }
 
-// An Amazon Resource Name (ARN) of an
-// SNS topic to send DAX notifications to. Example:
-// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 func (o ClusterOutput) NotificationTopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.NotificationTopicArn }).(pulumi.StringPtrOutput)
 }
 
-// Name of the parameter group to associate
-// with this DAX cluster
 func (o ClusterOutput) ParameterGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ParameterGroupName }).(pulumi.StringOutput)
 }
 
-// The port used by the configuration endpoint
 func (o ClusterOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ClusterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The number of nodes in the DAX cluster. A
-// replication factor of 1 will create a single-node cluster, without any read
-// replicas
 func (o ClusterOutput) ReplicationFactor() pulumi.IntOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.IntOutput { return v.ReplicationFactor }).(pulumi.IntOutput)
 }
 
-// One or more VPC security groups associated
-// with the cluster
 func (o ClusterOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// Encrypt at rest options
 func (o ClusterOutput) ServerSideEncryption() ClusterServerSideEncryptionPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterServerSideEncryptionPtrOutput { return v.ServerSideEncryption }).(ClusterServerSideEncryptionPtrOutput)
 }
 
-// Name of the subnet group to be used for the
-// cluster
 func (o ClusterOutput) SubnetGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.SubnetGroupName }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ClusterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ClusterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

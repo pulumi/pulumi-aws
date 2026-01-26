@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Dlm.Outputs
     [OutputType]
     public sealed class LifecyclePolicyPolicyDetailsScheduleArchiveRule
     {
-        /// <summary>
-        /// Information about the retention period for the snapshot archiving rule. See the `ArchiveRetainRule` block.
-        /// </summary>
         public readonly Outputs.LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRule ArchiveRetainRule;
 
         [OutputConstructor]

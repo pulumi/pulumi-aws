@@ -15,47 +15,23 @@ public final class GetClusterPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetClusterPlainArgs Empty = new GetClusterPlainArgs();
 
-    /**
-     * ID of Cloud HSM v2 cluster.
-     * 
-     */
     @Import(name="clusterId", required=true)
     private String clusterId;
 
-    /**
-     * @return ID of Cloud HSM v2 cluster.
-     * 
-     */
     public String clusterId() {
         return this.clusterId;
     }
 
-    /**
-     * State of the cluster to be found.
-     * 
-     */
     @Import(name="clusterState")
     private @Nullable String clusterState;
 
-    /**
-     * @return State of the cluster to be found.
-     * 
-     */
     public Optional<String> clusterState() {
         return Optional.ofNullable(this.clusterState);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -86,34 +62,16 @@ public final class GetClusterPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetClusterPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clusterId ID of Cloud HSM v2 cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterId(String clusterId) {
             $.clusterId = clusterId;
             return this;
         }
 
-        /**
-         * @param clusterState State of the cluster to be found.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterState(@Nullable String clusterState) {
             $.clusterState = clusterState;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

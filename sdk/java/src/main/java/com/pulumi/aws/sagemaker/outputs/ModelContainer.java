@@ -17,139 +17,49 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ModelContainer {
-    /**
-     * @return Additional data sources that are available to the model in addition to those specified in `modelDataSource`. See Additional Model Data Source.
-     * 
-     */
     private @Nullable List<ModelContainerAdditionalModelDataSource> additionalModelDataSources;
-    /**
-     * @return DNS host name for the container.
-     * 
-     */
     private @Nullable String containerHostname;
-    /**
-     * @return Environment variables for the Docker container.
-     * 
-     */
     private @Nullable Map<String,String> environment;
-    /**
-     * @return Registry path where the inference code image is stored in Amazon ECR.
-     * 
-     */
     private @Nullable String image;
-    /**
-     * @return Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
-     * 
-     */
     private @Nullable ModelContainerImageConfig imageConfig;
-    /**
-     * @return Inference specification name in the model package version.
-     * 
-     */
     private @Nullable String inferenceSpecificationName;
-    /**
-     * @return Container hosts value. Allowed values are: `SingleModel` and `MultiModel`. The default value is `SingleModel`.
-     * 
-     */
     private @Nullable String mode;
-    /**
-     * @return Location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
-     * 
-     */
     private @Nullable ModelContainerModelDataSource modelDataSource;
-    /**
-     * @return URL for the S3 location where model artifacts are stored.
-     * 
-     */
     private @Nullable String modelDataUrl;
-    /**
-     * @return Amazon Resource Name (ARN) of the model package to use to create the model.
-     * A list of key value pairs.
-     * 
-     */
     private @Nullable String modelPackageName;
-    /**
-     * @return Specifies additional configuration for multi-model endpoints. see Multi Model Config.
-     * 
-     */
     private @Nullable ModelContainerMultiModelConfig multiModelConfig;
 
     private ModelContainer() {}
-    /**
-     * @return Additional data sources that are available to the model in addition to those specified in `modelDataSource`. See Additional Model Data Source.
-     * 
-     */
     public List<ModelContainerAdditionalModelDataSource> additionalModelDataSources() {
         return this.additionalModelDataSources == null ? List.of() : this.additionalModelDataSources;
     }
-    /**
-     * @return DNS host name for the container.
-     * 
-     */
     public Optional<String> containerHostname() {
         return Optional.ofNullable(this.containerHostname);
     }
-    /**
-     * @return Environment variables for the Docker container.
-     * 
-     */
     public Map<String,String> environment() {
         return this.environment == null ? Map.of() : this.environment;
     }
-    /**
-     * @return Registry path where the inference code image is stored in Amazon ECR.
-     * 
-     */
     public Optional<String> image() {
         return Optional.ofNullable(this.image);
     }
-    /**
-     * @return Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
-     * 
-     */
     public Optional<ModelContainerImageConfig> imageConfig() {
         return Optional.ofNullable(this.imageConfig);
     }
-    /**
-     * @return Inference specification name in the model package version.
-     * 
-     */
     public Optional<String> inferenceSpecificationName() {
         return Optional.ofNullable(this.inferenceSpecificationName);
     }
-    /**
-     * @return Container hosts value. Allowed values are: `SingleModel` and `MultiModel`. The default value is `SingleModel`.
-     * 
-     */
     public Optional<String> mode() {
         return Optional.ofNullable(this.mode);
     }
-    /**
-     * @return Location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
-     * 
-     */
     public Optional<ModelContainerModelDataSource> modelDataSource() {
         return Optional.ofNullable(this.modelDataSource);
     }
-    /**
-     * @return URL for the S3 location where model artifacts are stored.
-     * 
-     */
     public Optional<String> modelDataUrl() {
         return Optional.ofNullable(this.modelDataUrl);
     }
-    /**
-     * @return Amazon Resource Name (ARN) of the model package to use to create the model.
-     * A list of key value pairs.
-     * 
-     */
     public Optional<String> modelPackageName() {
         return Optional.ofNullable(this.modelPackageName);
     }
-    /**
-     * @return Specifies additional configuration for multi-model endpoints. see Multi Model Config.
-     * 
-     */
     public Optional<ModelContainerMultiModelConfig> multiModelConfig() {
         return Optional.ofNullable(this.multiModelConfig);
     }

@@ -14,17 +14,9 @@ public final class CapacityProviderPermissionsConfigArgs extends com.pulumi.reso
 
     public static final CapacityProviderPermissionsConfigArgs Empty = new CapacityProviderPermissionsConfigArgs();
 
-    /**
-     * The ARN of the IAM role that allows Lambda to manage the Capacity Provider.
-     * 
-     */
     @Import(name="capacityProviderOperatorRoleArn", required=true)
     private Output<String> capacityProviderOperatorRoleArn;
 
-    /**
-     * @return The ARN of the IAM role that allows Lambda to manage the Capacity Provider.
-     * 
-     */
     public Output<String> capacityProviderOperatorRoleArn() {
         return this.capacityProviderOperatorRoleArn;
     }
@@ -53,23 +45,11 @@ public final class CapacityProviderPermissionsConfigArgs extends com.pulumi.reso
             $ = new CapacityProviderPermissionsConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param capacityProviderOperatorRoleArn The ARN of the IAM role that allows Lambda to manage the Capacity Provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityProviderOperatorRoleArn(Output<String> capacityProviderOperatorRoleArn) {
             $.capacityProviderOperatorRoleArn = capacityProviderOperatorRoleArn;
             return this;
         }
 
-        /**
-         * @param capacityProviderOperatorRoleArn The ARN of the IAM role that allows Lambda to manage the Capacity Provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityProviderOperatorRoleArn(String capacityProviderOperatorRoleArn) {
             return capacityProviderOperatorRoleArn(Output.of(capacityProviderOperatorRoleArn));
         }

@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for exadata infrastructures in AWS for Oracle Database@AWS.
-//
-// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/odb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := odb.GetCloudExadataInfrastructures(ctx, &odb.GetCloudExadataInfrastructuresArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetCloudExadataInfrastructures(ctx *pulumi.Context, args *GetCloudExadataInfrastructuresArgs, opts ...pulumi.InvokeOption) (*GetCloudExadataInfrastructuresResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCloudExadataInfrastructuresResult
@@ -52,13 +23,11 @@ func GetCloudExadataInfrastructures(ctx *pulumi.Context, args *GetCloudExadataIn
 
 // A collection of arguments for invoking getCloudExadataInfrastructures.
 type GetCloudExadataInfrastructuresArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getCloudExadataInfrastructures.
 type GetCloudExadataInfrastructuresResult struct {
-	// List of Cloud Exadata Infrastructures. Returns basic information about the Cloud Exadata Infrastructures.
 	CloudExadataInfrastructures []GetCloudExadataInfrastructuresCloudExadataInfrastructure `pulumi:"cloudExadataInfrastructures"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string `pulumi:"id"`
@@ -76,7 +45,6 @@ func GetCloudExadataInfrastructuresOutput(ctx *pulumi.Context, args GetCloudExad
 
 // A collection of arguments for invoking getCloudExadataInfrastructures.
 type GetCloudExadataInfrastructuresOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -99,7 +67,6 @@ func (o GetCloudExadataInfrastructuresResultOutput) ToGetCloudExadataInfrastruct
 	return o
 }
 
-// List of Cloud Exadata Infrastructures. Returns basic information about the Cloud Exadata Infrastructures.
 func (o GetCloudExadataInfrastructuresResultOutput) CloudExadataInfrastructures() GetCloudExadataInfrastructuresCloudExadataInfrastructureArrayOutput {
 	return o.ApplyT(func(v GetCloudExadataInfrastructuresResult) []GetCloudExadataInfrastructuresCloudExadataInfrastructure {
 		return v.CloudExadataInfrastructures

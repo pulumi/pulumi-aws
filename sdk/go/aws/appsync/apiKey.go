@@ -12,63 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AppSync API Key.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appsync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
-//				AuthenticationType: pulumi.String("API_KEY"),
-//				Name:               pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appsync.NewApiKey(ctx, "example", &appsync.ApiKeyArgs{
-//				ApiId:   example.ID(),
-//				Expires: pulumi.String("2018-05-03T04:00:00Z"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_appsync_api_key` using the AppSync API ID and key separated by `:`. For example:
-//
-// ```sh
-// $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
-// ```
 type ApiKey struct {
 	pulumi.CustomResourceState
 
-	// ID of the associated AppSync API
-	ApiId    pulumi.StringOutput `pulumi:"apiId"`
-	ApiKeyId pulumi.StringOutput `pulumi:"apiKeyId"`
-	// API key description. Defaults to "Managed by Pulumi".
-	Description pulumi.StringOutput `pulumi:"description"`
-	// RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-	Expires pulumi.StringPtrOutput `pulumi:"expires"`
-	// API key
-	Key pulumi.StringOutput `pulumi:"key"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	ApiId       pulumi.StringOutput    `pulumi:"apiId"`
+	ApiKeyId    pulumi.StringOutput    `pulumi:"apiKeyId"`
+	Description pulumi.StringOutput    `pulumi:"description"`
+	Expires     pulumi.StringPtrOutput `pulumi:"expires"`
+	Key         pulumi.StringOutput    `pulumi:"key"`
+	Region      pulumi.StringOutput    `pulumi:"region"`
 }
 
 // NewApiKey registers a new resource with the given unique name, arguments, and options.
@@ -111,31 +63,21 @@ func GetApiKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiKey resources.
 type apiKeyState struct {
-	// ID of the associated AppSync API
-	ApiId    *string `pulumi:"apiId"`
-	ApiKeyId *string `pulumi:"apiKeyId"`
-	// API key description. Defaults to "Managed by Pulumi".
+	ApiId       *string `pulumi:"apiId"`
+	ApiKeyId    *string `pulumi:"apiKeyId"`
 	Description *string `pulumi:"description"`
-	// RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-	Expires *string `pulumi:"expires"`
-	// API key
-	Key *string `pulumi:"key"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Expires     *string `pulumi:"expires"`
+	Key         *string `pulumi:"key"`
+	Region      *string `pulumi:"region"`
 }
 
 type ApiKeyState struct {
-	// ID of the associated AppSync API
-	ApiId    pulumi.StringPtrInput
-	ApiKeyId pulumi.StringPtrInput
-	// API key description. Defaults to "Managed by Pulumi".
+	ApiId       pulumi.StringPtrInput
+	ApiKeyId    pulumi.StringPtrInput
 	Description pulumi.StringPtrInput
-	// RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-	Expires pulumi.StringPtrInput
-	// API key
-	Key pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Expires     pulumi.StringPtrInput
+	Key         pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
 }
 
 func (ApiKeyState) ElementType() reflect.Type {
@@ -143,26 +85,18 @@ func (ApiKeyState) ElementType() reflect.Type {
 }
 
 type apiKeyArgs struct {
-	// ID of the associated AppSync API
-	ApiId string `pulumi:"apiId"`
-	// API key description. Defaults to "Managed by Pulumi".
+	ApiId       string  `pulumi:"apiId"`
 	Description *string `pulumi:"description"`
-	// RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-	Expires *string `pulumi:"expires"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Expires     *string `pulumi:"expires"`
+	Region      *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ApiKey resource.
 type ApiKeyArgs struct {
-	// ID of the associated AppSync API
-	ApiId pulumi.StringInput
-	// API key description. Defaults to "Managed by Pulumi".
+	ApiId       pulumi.StringInput
 	Description pulumi.StringPtrInput
-	// RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-	Expires pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Expires     pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
 }
 
 func (ApiKeyArgs) ElementType() reflect.Type {
@@ -252,7 +186,6 @@ func (o ApiKeyOutput) ToApiKeyOutputWithContext(ctx context.Context) ApiKeyOutpu
 	return o
 }
 
-// ID of the associated AppSync API
 func (o ApiKeyOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
@@ -261,22 +194,18 @@ func (o ApiKeyOutput) ApiKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.ApiKeyId }).(pulumi.StringOutput)
 }
 
-// API key description. Defaults to "Managed by Pulumi".
 func (o ApiKeyOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
 func (o ApiKeyOutput) Expires() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringPtrOutput { return v.Expires }).(pulumi.StringPtrOutput)
 }
 
-// API key
 func (o ApiKeyOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ApiKeyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

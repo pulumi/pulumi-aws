@@ -14,17 +14,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPack
 
     public static final ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArgs();
 
-    /**
-     * A director and base filename where archive files should be written. See Destination for more details.
-     * 
-     */
     @Import(name="destination", required=true)
     private Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArgs> destination;
 
-    /**
-     * @return A director and base filename where archive files should be written. See Destination for more details.
-     * 
-     */
     public Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArgs> destination() {
         return this.destination;
     }
@@ -53,23 +45,11 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPack
             $ = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destination A director and base filename where archive files should be written. See Destination for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArgs> destination) {
             $.destination = destination;
             return this;
         }
 
-        /**
-         * @param destination A director and base filename where archive files should be written. See Destination for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArgs destination) {
             return destination(Output.of(destination));
         }

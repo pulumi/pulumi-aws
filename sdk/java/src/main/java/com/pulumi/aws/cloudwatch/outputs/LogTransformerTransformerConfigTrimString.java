@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class LogTransformerTransformerConfigTrimString {
-    /**
-     * @return Specifies the keys of the fields to trim.
-     * 
-     */
     private List<String> withKeys;
 
     private LogTransformerTransformerConfigTrimString() {}
-    /**
-     * @return Specifies the keys of the fields to trim.
-     * 
-     */
     public List<String> withKeys() {
         return this.withKeys;
     }

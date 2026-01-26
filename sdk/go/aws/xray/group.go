@@ -12,67 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates and manages an AWS XRay Group.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/xray"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := xray.NewGroup(ctx, "example", &xray.GroupArgs{
-//				GroupName:        pulumi.String("example"),
-//				FilterExpression: pulumi.String("responsetime > 5"),
-//				InsightsConfiguration: &xray.GroupInsightsConfigurationArgs{
-//					InsightsEnabled:      pulumi.Bool(true),
-//					NotificationsEnabled: pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the X-Ray group.
-//
-// Using `pulumi import`, import XRay Groups using the ARN. For example:
-//
-// % pulumi import aws_xray_group.example arn:aws:xray:us-west-2:1234567890:group/example-group/TNGX7SW5U6QY36T4ZMOUA3HVLBYCZTWDIOOXY3CJAXTHSS3YCWUA
 type Group struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the Group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
-	FilterExpression pulumi.StringOutput `pulumi:"filterExpression"`
-	// The name of the group.
-	GroupName pulumi.StringOutput `pulumi:"groupName"`
-	// Configuration options for enabling insights.
+	Arn                   pulumi.StringOutput              `pulumi:"arn"`
+	FilterExpression      pulumi.StringOutput              `pulumi:"filterExpression"`
+	GroupName             pulumi.StringOutput              `pulumi:"groupName"`
 	InsightsConfiguration GroupInsightsConfigurationOutput `pulumi:"insightsConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Region                pulumi.StringOutput              `pulumi:"region"`
+	Tags                  pulumi.StringMapOutput           `pulumi:"tags"`
+	TagsAll               pulumi.StringMapOutput           `pulumi:"tagsAll"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
@@ -111,37 +60,23 @@ func GetGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Group resources.
 type groupState struct {
-	// The ARN of the Group.
-	Arn *string `pulumi:"arn"`
-	// The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
-	FilterExpression *string `pulumi:"filterExpression"`
-	// The name of the group.
-	GroupName *string `pulumi:"groupName"`
-	// Configuration options for enabling insights.
+	Arn                   *string                     `pulumi:"arn"`
+	FilterExpression      *string                     `pulumi:"filterExpression"`
+	GroupName             *string                     `pulumi:"groupName"`
 	InsightsConfiguration *GroupInsightsConfiguration `pulumi:"insightsConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Region                *string                     `pulumi:"region"`
+	Tags                  map[string]string           `pulumi:"tags"`
+	TagsAll               map[string]string           `pulumi:"tagsAll"`
 }
 
 type GroupState struct {
-	// The ARN of the Group.
-	Arn pulumi.StringPtrInput
-	// The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
-	FilterExpression pulumi.StringPtrInput
-	// The name of the group.
-	GroupName pulumi.StringPtrInput
-	// Configuration options for enabling insights.
+	Arn                   pulumi.StringPtrInput
+	FilterExpression      pulumi.StringPtrInput
+	GroupName             pulumi.StringPtrInput
 	InsightsConfiguration GroupInsightsConfigurationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Region                pulumi.StringPtrInput
+	Tags                  pulumi.StringMapInput
+	TagsAll               pulumi.StringMapInput
 }
 
 func (GroupState) ElementType() reflect.Type {
@@ -149,30 +84,20 @@ func (GroupState) ElementType() reflect.Type {
 }
 
 type groupArgs struct {
-	// The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
-	FilterExpression string `pulumi:"filterExpression"`
-	// The name of the group.
-	GroupName string `pulumi:"groupName"`
-	// Configuration options for enabling insights.
+	FilterExpression      string                      `pulumi:"filterExpression"`
+	GroupName             string                      `pulumi:"groupName"`
 	InsightsConfiguration *GroupInsightsConfiguration `pulumi:"insightsConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-	Tags map[string]string `pulumi:"tags"`
+	Region                *string                     `pulumi:"region"`
+	Tags                  map[string]string           `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
-	// The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
-	FilterExpression pulumi.StringInput
-	// The name of the group.
-	GroupName pulumi.StringInput
-	// Configuration options for enabling insights.
+	FilterExpression      pulumi.StringInput
+	GroupName             pulumi.StringInput
 	InsightsConfiguration GroupInsightsConfigurationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-	Tags pulumi.StringMapInput
+	Region                pulumi.StringPtrInput
+	Tags                  pulumi.StringMapInput
 }
 
 func (GroupArgs) ElementType() reflect.Type {
@@ -262,37 +187,30 @@ func (o GroupOutput) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 	return o
 }
 
-// The ARN of the Group.
 func (o GroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
 func (o GroupOutput) FilterExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.FilterExpression }).(pulumi.StringOutput)
 }
 
-// The name of the group.
 func (o GroupOutput) GroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.GroupName }).(pulumi.StringOutput)
 }
 
-// Configuration options for enabling insights.
 func (o GroupOutput) InsightsConfiguration() GroupInsightsConfigurationOutput {
 	return o.ApplyT(func(v *Group) GroupInsightsConfigurationOutput { return v.InsightsConfiguration }).(GroupInsightsConfigurationOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 func (o GroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o GroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

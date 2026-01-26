@@ -9,45 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Pinpoint
 {
-    /// <summary>
-    /// Provides a Pinpoint GCM Channel resource.
-    /// 
-    /// &gt; **Note:** Credentials (Service Account JSON and API Key) will be stored in the raw state as plain-text.
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Pinpoint GCM Channel using the `application-id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:pinpoint/gcmChannel:GcmChannel")]
     public partial class GcmChannel : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Platform credential API key from Google.
-        /// </summary>
         [Output("apiKey")]
         public Output<string?> ApiKey { get; private set; } = null!;
 
-        /// <summary>
-        /// The application ID.
-        /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
         [Output("defaultAuthenticationMethod")]
         public Output<string?> DefaultAuthenticationMethod { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether the channel is enabled or disabled. Defaults to `True`.
-        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -107,10 +83,6 @@ namespace Pulumi.Aws.Pinpoint
     {
         [Input("apiKey")]
         private Input<string>? _apiKey;
-
-        /// <summary>
-        /// Platform credential API key from Google.
-        /// </summary>
         public Input<string>? ApiKey
         {
             get => _apiKey;
@@ -121,24 +93,15 @@ namespace Pulumi.Aws.Pinpoint
             }
         }
 
-        /// <summary>
-        /// The application ID.
-        /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
         [Input("defaultAuthenticationMethod")]
         public Input<string>? DefaultAuthenticationMethod { get; set; }
 
-        /// <summary>
-        /// Whether the channel is enabled or disabled. Defaults to `True`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -164,10 +127,6 @@ namespace Pulumi.Aws.Pinpoint
     {
         [Input("apiKey")]
         private Input<string>? _apiKey;
-
-        /// <summary>
-        /// Platform credential API key from Google.
-        /// </summary>
         public Input<string>? ApiKey
         {
             get => _apiKey;
@@ -178,24 +137,15 @@ namespace Pulumi.Aws.Pinpoint
             }
         }
 
-        /// <summary>
-        /// The application ID.
-        /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
 
         [Input("defaultAuthenticationMethod")]
         public Input<string>? DefaultAuthenticationMethod { get; set; }
 
-        /// <summary>
-        /// Whether the channel is enabled or disabled. Defaults to `True`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

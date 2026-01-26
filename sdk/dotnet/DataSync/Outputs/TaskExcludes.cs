@@ -13,13 +13,7 @@ namespace Pulumi.Aws.DataSync.Outputs
     [OutputType]
     public sealed class TaskExcludes
     {
-        /// <summary>
-        /// The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
-        /// </summary>
         public readonly string? FilterType;
-        /// <summary>
-        /// A single filter string that consists of the patterns to exclude. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
-        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

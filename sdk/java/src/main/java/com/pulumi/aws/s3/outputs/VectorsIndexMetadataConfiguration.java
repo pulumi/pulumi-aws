@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class VectorsIndexMetadataConfiguration {
-    /**
-     * @return List of non-filterable metadata keys.
-     * 
-     */
     private List<String> nonFilterableMetadataKeys;
 
     private VectorsIndexMetadataConfiguration() {}
-    /**
-     * @return List of non-filterable metadata keys.
-     * 
-     */
     public List<String> nonFilterableMetadataKeys() {
         return this.nonFilterableMetadataKeys;
     }

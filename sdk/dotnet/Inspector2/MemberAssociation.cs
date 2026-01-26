@@ -9,67 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Inspector2
 {
-    /// <summary>
-    /// Resource for associating accounts to existing Inspector instances.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Inspector2.MemberAssociation("example", new()
-    ///     {
-    ///         AccountId = "123456789012",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Amazon Inspector Member Association using the `account_id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:inspector2/memberAssociation:MemberAssociation example 123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:inspector2/memberAssociation:MemberAssociation")]
     public partial class MemberAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ID of the account to associate
-        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// Account ID of the delegated administrator account
-        /// </summary>
         [Output("delegatedAdminAccountId")]
         public Output<string> DelegatedAdminAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Status of the member relationship
-        /// </summary>
         [Output("relationshipStatus")]
         public Output<string> RelationshipStatus { get; private set; } = null!;
 
-        /// <summary>
-        /// Date and time of the last update of the relationship
-        /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
@@ -119,15 +73,9 @@ namespace Pulumi.Aws.Inspector2
 
     public sealed class MemberAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the account to associate
-        /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -139,33 +87,18 @@ namespace Pulumi.Aws.Inspector2
 
     public sealed class MemberAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the account to associate
-        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
-        /// <summary>
-        /// Account ID of the delegated administrator account
-        /// </summary>
         [Input("delegatedAdminAccountId")]
         public Input<string>? DelegatedAdminAccountId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Status of the member relationship
-        /// </summary>
         [Input("relationshipStatus")]
         public Input<string>? RelationshipStatus { get; set; }
 
-        /// <summary>
-        /// Date and time of the last update of the relationship
-        /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }
 

@@ -12,68 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages [Provisioned Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html) for an Amazon Bedrock model.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrock.NewProvisionedModelThroughput(ctx, "example", &bedrock.ProvisionedModelThroughputArgs{
-//				ProvisionedModelName: pulumi.String("example-model"),
-//				ModelArn:             pulumi.String("arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-v2"),
-//				CommitmentDuration:   pulumi.String("SixMonths"),
-//				ModelUnits:           pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the Bedrock provisioned model throughput.
-//
-// Using `pulumi import`, import Provisioned Throughput using the `provisioned_model_arn`. For example:
-//
-// % pulumi import aws_bedrock_provisioned_model_throughput.example arn:aws:bedrock:us-west-2:123456789012:provisioned-model/1y5n57gh5y2e
 type ProvisionedModelThroughput struct {
 	pulumi.CustomResourceState
 
-	// Commitment duration requested for the Provisioned Throughput. For custom models, you can purchase on-demand Provisioned Throughput by omitting this argument. Valid values: `OneMonth`, `SixMonths`.
-	CommitmentDuration pulumi.StringPtrOutput `pulumi:"commitmentDuration"`
-	// ARN of the model to associate with this Provisioned Throughput.
-	ModelArn pulumi.StringOutput `pulumi:"modelArn"`
-	// Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
-	ModelUnits pulumi.IntOutput `pulumi:"modelUnits"`
-	// The ARN of the Provisioned Throughput.
-	ProvisionedModelArn pulumi.StringOutput `pulumi:"provisionedModelArn"`
-	// Unique name for this Provisioned Throughput.
-	ProvisionedModelName pulumi.StringOutput `pulumi:"provisionedModelName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput                      `pulumi:"tagsAll"`
-	Timeouts ProvisionedModelThroughputTimeoutsPtrOutput `pulumi:"timeouts"`
+	CommitmentDuration   pulumi.StringPtrOutput                      `pulumi:"commitmentDuration"`
+	ModelArn             pulumi.StringOutput                         `pulumi:"modelArn"`
+	ModelUnits           pulumi.IntOutput                            `pulumi:"modelUnits"`
+	ProvisionedModelArn  pulumi.StringOutput                         `pulumi:"provisionedModelArn"`
+	ProvisionedModelName pulumi.StringOutput                         `pulumi:"provisionedModelName"`
+	Region               pulumi.StringOutput                         `pulumi:"region"`
+	Tags                 pulumi.StringMapOutput                      `pulumi:"tags"`
+	TagsAll              pulumi.StringMapOutput                      `pulumi:"tagsAll"`
+	Timeouts             ProvisionedModelThroughputTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewProvisionedModelThroughput registers a new resource with the given unique name, arguments, and options.
@@ -115,43 +65,27 @@ func GetProvisionedModelThroughput(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProvisionedModelThroughput resources.
 type provisionedModelThroughputState struct {
-	// Commitment duration requested for the Provisioned Throughput. For custom models, you can purchase on-demand Provisioned Throughput by omitting this argument. Valid values: `OneMonth`, `SixMonths`.
-	CommitmentDuration *string `pulumi:"commitmentDuration"`
-	// ARN of the model to associate with this Provisioned Throughput.
-	ModelArn *string `pulumi:"modelArn"`
-	// Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
-	ModelUnits *int `pulumi:"modelUnits"`
-	// The ARN of the Provisioned Throughput.
-	ProvisionedModelArn *string `pulumi:"provisionedModelArn"`
-	// Unique name for this Provisioned Throughput.
-	ProvisionedModelName *string `pulumi:"provisionedModelName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string                   `pulumi:"tagsAll"`
-	Timeouts *ProvisionedModelThroughputTimeouts `pulumi:"timeouts"`
+	CommitmentDuration   *string                             `pulumi:"commitmentDuration"`
+	ModelArn             *string                             `pulumi:"modelArn"`
+	ModelUnits           *int                                `pulumi:"modelUnits"`
+	ProvisionedModelArn  *string                             `pulumi:"provisionedModelArn"`
+	ProvisionedModelName *string                             `pulumi:"provisionedModelName"`
+	Region               *string                             `pulumi:"region"`
+	Tags                 map[string]string                   `pulumi:"tags"`
+	TagsAll              map[string]string                   `pulumi:"tagsAll"`
+	Timeouts             *ProvisionedModelThroughputTimeouts `pulumi:"timeouts"`
 }
 
 type ProvisionedModelThroughputState struct {
-	// Commitment duration requested for the Provisioned Throughput. For custom models, you can purchase on-demand Provisioned Throughput by omitting this argument. Valid values: `OneMonth`, `SixMonths`.
-	CommitmentDuration pulumi.StringPtrInput
-	// ARN of the model to associate with this Provisioned Throughput.
-	ModelArn pulumi.StringPtrInput
-	// Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
-	ModelUnits pulumi.IntPtrInput
-	// The ARN of the Provisioned Throughput.
-	ProvisionedModelArn pulumi.StringPtrInput
-	// Unique name for this Provisioned Throughput.
+	CommitmentDuration   pulumi.StringPtrInput
+	ModelArn             pulumi.StringPtrInput
+	ModelUnits           pulumi.IntPtrInput
+	ProvisionedModelArn  pulumi.StringPtrInput
 	ProvisionedModelName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts ProvisionedModelThroughputTimeoutsPtrInput
+	Region               pulumi.StringPtrInput
+	Tags                 pulumi.StringMapInput
+	TagsAll              pulumi.StringMapInput
+	Timeouts             ProvisionedModelThroughputTimeoutsPtrInput
 }
 
 func (ProvisionedModelThroughputState) ElementType() reflect.Type {
@@ -159,36 +93,24 @@ func (ProvisionedModelThroughputState) ElementType() reflect.Type {
 }
 
 type provisionedModelThroughputArgs struct {
-	// Commitment duration requested for the Provisioned Throughput. For custom models, you can purchase on-demand Provisioned Throughput by omitting this argument. Valid values: `OneMonth`, `SixMonths`.
-	CommitmentDuration *string `pulumi:"commitmentDuration"`
-	// ARN of the model to associate with this Provisioned Throughput.
-	ModelArn string `pulumi:"modelArn"`
-	// Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
-	ModelUnits int `pulumi:"modelUnits"`
-	// Unique name for this Provisioned Throughput.
-	ProvisionedModelName string `pulumi:"provisionedModelName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string                   `pulumi:"tags"`
-	Timeouts *ProvisionedModelThroughputTimeouts `pulumi:"timeouts"`
+	CommitmentDuration   *string                             `pulumi:"commitmentDuration"`
+	ModelArn             string                              `pulumi:"modelArn"`
+	ModelUnits           int                                 `pulumi:"modelUnits"`
+	ProvisionedModelName string                              `pulumi:"provisionedModelName"`
+	Region               *string                             `pulumi:"region"`
+	Tags                 map[string]string                   `pulumi:"tags"`
+	Timeouts             *ProvisionedModelThroughputTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a ProvisionedModelThroughput resource.
 type ProvisionedModelThroughputArgs struct {
-	// Commitment duration requested for the Provisioned Throughput. For custom models, you can purchase on-demand Provisioned Throughput by omitting this argument. Valid values: `OneMonth`, `SixMonths`.
-	CommitmentDuration pulumi.StringPtrInput
-	// ARN of the model to associate with this Provisioned Throughput.
-	ModelArn pulumi.StringInput
-	// Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
-	ModelUnits pulumi.IntInput
-	// Unique name for this Provisioned Throughput.
+	CommitmentDuration   pulumi.StringPtrInput
+	ModelArn             pulumi.StringInput
+	ModelUnits           pulumi.IntInput
 	ProvisionedModelName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts ProvisionedModelThroughputTimeoutsPtrInput
+	Region               pulumi.StringPtrInput
+	Tags                 pulumi.StringMapInput
+	Timeouts             ProvisionedModelThroughputTimeoutsPtrInput
 }
 
 func (ProvisionedModelThroughputArgs) ElementType() reflect.Type {
@@ -278,42 +200,34 @@ func (o ProvisionedModelThroughputOutput) ToProvisionedModelThroughputOutputWith
 	return o
 }
 
-// Commitment duration requested for the Provisioned Throughput. For custom models, you can purchase on-demand Provisioned Throughput by omitting this argument. Valid values: `OneMonth`, `SixMonths`.
 func (o ProvisionedModelThroughputOutput) CommitmentDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProvisionedModelThroughput) pulumi.StringPtrOutput { return v.CommitmentDuration }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the model to associate with this Provisioned Throughput.
 func (o ProvisionedModelThroughputOutput) ModelArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProvisionedModelThroughput) pulumi.StringOutput { return v.ModelArn }).(pulumi.StringOutput)
 }
 
-// Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
 func (o ProvisionedModelThroughputOutput) ModelUnits() pulumi.IntOutput {
 	return o.ApplyT(func(v *ProvisionedModelThroughput) pulumi.IntOutput { return v.ModelUnits }).(pulumi.IntOutput)
 }
 
-// The ARN of the Provisioned Throughput.
 func (o ProvisionedModelThroughputOutput) ProvisionedModelArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProvisionedModelThroughput) pulumi.StringOutput { return v.ProvisionedModelArn }).(pulumi.StringOutput)
 }
 
-// Unique name for this Provisioned Throughput.
 func (o ProvisionedModelThroughputOutput) ProvisionedModelName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProvisionedModelThroughput) pulumi.StringOutput { return v.ProvisionedModelName }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ProvisionedModelThroughputOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProvisionedModelThroughput) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ProvisionedModelThroughputOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ProvisionedModelThroughput) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ProvisionedModelThroughputOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ProvisionedModelThroughput) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

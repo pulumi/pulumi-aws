@@ -12,15 +12,9 @@ namespace Pulumi.Aws.NetworkManager.Inputs
 
     public sealed class GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Must be `routing-policy-label`.
-        /// </summary>
         [Input("type", required: true)]
         public string Type { get; set; } = null!;
 
-        /// <summary>
-        /// Routing policy label to match.
-        /// </summary>
         [Input("value", required: true)]
         public string Value { get; set; } = null!;
 

@@ -33,17 +33,9 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
         return Optional.ofNullable(this.block);
     }
 
-    /**
-     * Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
-     * 
-     */
     @Import(name="captcha")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgs> captcha;
 
-    /**
-     * @return Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgs>> captcha() {
         return Optional.ofNullable(this.captcha);
     }
@@ -108,23 +100,11 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
             return block(Output.of(block));
         }
 
-        /**
-         * @param captcha Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder captcha(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgs> captcha) {
             $.captcha = captcha;
             return this;
         }
 
-        /**
-         * @param captcha Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder captcha(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgs captcha) {
             return captcha(Output.of(captcha));
         }

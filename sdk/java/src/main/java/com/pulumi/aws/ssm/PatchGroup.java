@@ -13,92 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an SSM Patch Group resource
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ssm.PatchBaseline;
- * import com.pulumi.aws.ssm.PatchBaselineArgs;
- * import com.pulumi.aws.ssm.PatchGroup;
- * import com.pulumi.aws.ssm.PatchGroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var production = new PatchBaseline("production", PatchBaselineArgs.builder()
- *             .name("patch-baseline")
- *             .approvedPatches("KB123456")
- *             .build());
- * 
- *         var patchgroup = new PatchGroup("patchgroup", PatchGroupArgs.builder()
- *             .baselineId(production.id())
- *             .patchGroup("patch-group-name")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:ssm/patchGroup:PatchGroup")
 public class PatchGroup extends com.pulumi.resources.CustomResource {
-    /**
-     * The ID of the patch baseline to register the patch group with.
-     * 
-     */
     @Export(name="baselineId", refs={String.class}, tree="[0]")
     private Output<String> baselineId;
 
-    /**
-     * @return The ID of the patch baseline to register the patch group with.
-     * 
-     */
     public Output<String> baselineId() {
         return this.baselineId;
     }
-    /**
-     * The name of the patch group that should be registered with the patch baseline.
-     * 
-     */
     @Export(name="patchGroup", refs={String.class}, tree="[0]")
     private Output<String> patchGroup;
 
-    /**
-     * @return The name of the patch group that should be registered with the patch baseline.
-     * 
-     */
     public Output<String> patchGroup() {
         return this.patchGroup;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

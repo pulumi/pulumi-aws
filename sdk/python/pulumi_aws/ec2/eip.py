@@ -32,24 +32,6 @@ class EipArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Eip resource.
-        :param pulumi.Input[_builtins.str] address: IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
-        :param pulumi.Input[_builtins.str] associate_with_private_ip: User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
-        :param pulumi.Input[_builtins.str] customer_owned_ipv4_pool: ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
-        :param pulumi.Input[_builtins.str] domain: Indicates if this EIP is for use in VPC (`vpc`).
-        :param pulumi.Input[_builtins.str] instance: EC2 instance ID.
-        :param pulumi.Input[_builtins.str] ipam_pool_id: The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
-        :param pulumi.Input[_builtins.str] network_border_group: Location from which the IP address is advertised. Use this parameter to limit the address to this location.
-        :param pulumi.Input[_builtins.str] network_interface: Network interface ID to associate with.
-        :param pulumi.Input[_builtins.str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`.
-               This option is only available for VPC EIPs.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
-               Including both will **not** return an error from the AWS API, but will have undefined behavior.
-               See the relevant [AssociateAddress API Call][1] for more information.
-               
-               > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -77,9 +59,6 @@ class EipArgs:
     @_builtins.property
     @pulumi.getter
     def address(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
-        """
         return pulumi.get(self, "address")
 
     @address.setter
@@ -89,9 +68,6 @@ class EipArgs:
     @_builtins.property
     @pulumi.getter(name="associateWithPrivateIp")
     def associate_with_private_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
-        """
         return pulumi.get(self, "associate_with_private_ip")
 
     @associate_with_private_ip.setter
@@ -101,9 +77,6 @@ class EipArgs:
     @_builtins.property
     @pulumi.getter(name="customerOwnedIpv4Pool")
     def customer_owned_ipv4_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
-        """
         return pulumi.get(self, "customer_owned_ipv4_pool")
 
     @customer_owned_ipv4_pool.setter
@@ -113,9 +86,6 @@ class EipArgs:
     @_builtins.property
     @pulumi.getter
     def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates if this EIP is for use in VPC (`vpc`).
-        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -125,9 +95,6 @@ class EipArgs:
     @_builtins.property
     @pulumi.getter
     def instance(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        EC2 instance ID.
-        """
         return pulumi.get(self, "instance")
 
     @instance.setter
@@ -137,9 +104,6 @@ class EipArgs:
     @_builtins.property
     @pulumi.getter(name="ipamPoolId")
     def ipam_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
-        """
         return pulumi.get(self, "ipam_pool_id")
 
     @ipam_pool_id.setter
@@ -149,9 +113,6 @@ class EipArgs:
     @_builtins.property
     @pulumi.getter(name="networkBorderGroup")
     def network_border_group(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Location from which the IP address is advertised. Use this parameter to limit the address to this location.
-        """
         return pulumi.get(self, "network_border_group")
 
     @network_border_group.setter
@@ -161,9 +122,6 @@ class EipArgs:
     @_builtins.property
     @pulumi.getter(name="networkInterface")
     def network_interface(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Network interface ID to associate with.
-        """
         return pulumi.get(self, "network_interface")
 
     @network_interface.setter
@@ -173,10 +131,6 @@ class EipArgs:
     @_builtins.property
     @pulumi.getter(name="publicIpv4Pool")
     def public_ipv4_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        EC2 IPv4 address pool identifier or `amazon`.
-        This option is only available for VPC EIPs.
-        """
         return pulumi.get(self, "public_ipv4_pool")
 
     @public_ipv4_pool.setter
@@ -186,9 +140,6 @@ class EipArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -198,15 +149,6 @@ class EipArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
-        Including both will **not** return an error from the AWS API, but will have undefined behavior.
-        See the relevant [AssociateAddress API Call][1] for more information.
-
-        > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -241,34 +183,6 @@ class _EipState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Eip resources.
-        :param pulumi.Input[_builtins.str] address: IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
-        :param pulumi.Input[_builtins.str] allocation_id: ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
-        :param pulumi.Input[_builtins.str] associate_with_private_ip: User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
-        :param pulumi.Input[_builtins.str] association_id: ID representing the association of the address with an instance in a VPC.
-        :param pulumi.Input[_builtins.str] carrier_ip: Carrier IP address.
-        :param pulumi.Input[_builtins.str] customer_owned_ip: Customer owned IP.
-        :param pulumi.Input[_builtins.str] customer_owned_ipv4_pool: ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
-        :param pulumi.Input[_builtins.str] domain: Indicates if this EIP is for use in VPC (`vpc`).
-        :param pulumi.Input[_builtins.str] instance: EC2 instance ID.
-        :param pulumi.Input[_builtins.str] ipam_pool_id: The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
-        :param pulumi.Input[_builtins.str] network_border_group: Location from which the IP address is advertised. Use this parameter to limit the address to this location.
-        :param pulumi.Input[_builtins.str] network_interface: Network interface ID to associate with.
-        :param pulumi.Input[_builtins.str] private_dns: The Private DNS associated with the Elastic IP address (if in VPC).
-        :param pulumi.Input[_builtins.str] private_ip: Contains the private IP address (if in VPC).
-        :param pulumi.Input[_builtins.str] ptr_record: The DNS pointer (PTR) record for the IP address.
-        :param pulumi.Input[_builtins.str] public_dns: Public DNS associated with the Elastic IP address.
-        :param pulumi.Input[_builtins.str] public_ip: Contains the public IP address.
-        :param pulumi.Input[_builtins.str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`.
-               This option is only available for VPC EIPs.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
-               Including both will **not** return an error from the AWS API, but will have undefined behavior.
-               See the relevant [AssociateAddress API Call][1] for more information.
-               
-               > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -318,9 +232,6 @@ class _EipState:
     @_builtins.property
     @pulumi.getter
     def address(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
-        """
         return pulumi.get(self, "address")
 
     @address.setter
@@ -330,9 +241,6 @@ class _EipState:
     @_builtins.property
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
-        """
         return pulumi.get(self, "allocation_id")
 
     @allocation_id.setter
@@ -351,9 +259,6 @@ class _EipState:
     @_builtins.property
     @pulumi.getter(name="associateWithPrivateIp")
     def associate_with_private_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
-        """
         return pulumi.get(self, "associate_with_private_ip")
 
     @associate_with_private_ip.setter
@@ -363,9 +268,6 @@ class _EipState:
     @_builtins.property
     @pulumi.getter(name="associationId")
     def association_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID representing the association of the address with an instance in a VPC.
-        """
         return pulumi.get(self, "association_id")
 
     @association_id.setter
@@ -375,9 +277,6 @@ class _EipState:
     @_builtins.property
     @pulumi.getter(name="carrierIp")
     def carrier_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Carrier IP address.
-        """
         return pulumi.get(self, "carrier_ip")
 
     @carrier_ip.setter
@@ -387,9 +286,6 @@ class _EipState:
     @_builtins.property
     @pulumi.getter(name="customerOwnedIp")
     def customer_owned_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Customer owned IP.
-        """
         return pulumi.get(self, "customer_owned_ip")
 
     @customer_owned_ip.setter
@@ -399,9 +295,6 @@ class _EipState:
     @_builtins.property
     @pulumi.getter(name="customerOwnedIpv4Pool")
     def customer_owned_ipv4_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
-        """
         return pulumi.get(self, "customer_owned_ipv4_pool")
 
     @customer_owned_ipv4_pool.setter
@@ -411,9 +304,6 @@ class _EipState:
     @_builtins.property
     @pulumi.getter
     def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates if this EIP is for use in VPC (`vpc`).
-        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -423,9 +313,6 @@ class _EipState:
     @_builtins.property
     @pulumi.getter
     def instance(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        EC2 instance ID.
-        """
         return pulumi.get(self, "instance")
 
     @instance.setter
@@ -435,9 +322,6 @@ class _EipState:
     @_builtins.property
     @pulumi.getter(name="ipamPoolId")
     def ipam_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
-        """
         return pulumi.get(self, "ipam_pool_id")
 
     @ipam_pool_id.setter
@@ -447,9 +331,6 @@ class _EipState:
     @_builtins.property
     @pulumi.getter(name="networkBorderGroup")
     def network_border_group(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Location from which the IP address is advertised. Use this parameter to limit the address to this location.
-        """
         return pulumi.get(self, "network_border_group")
 
     @network_border_group.setter
@@ -459,9 +340,6 @@ class _EipState:
     @_builtins.property
     @pulumi.getter(name="networkInterface")
     def network_interface(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Network interface ID to associate with.
-        """
         return pulumi.get(self, "network_interface")
 
     @network_interface.setter
@@ -471,9 +349,6 @@ class _EipState:
     @_builtins.property
     @pulumi.getter(name="privateDns")
     def private_dns(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Private DNS associated with the Elastic IP address (if in VPC).
-        """
         return pulumi.get(self, "private_dns")
 
     @private_dns.setter
@@ -483,9 +358,6 @@ class _EipState:
     @_builtins.property
     @pulumi.getter(name="privateIp")
     def private_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Contains the private IP address (if in VPC).
-        """
         return pulumi.get(self, "private_ip")
 
     @private_ip.setter
@@ -495,9 +367,6 @@ class _EipState:
     @_builtins.property
     @pulumi.getter(name="ptrRecord")
     def ptr_record(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The DNS pointer (PTR) record for the IP address.
-        """
         return pulumi.get(self, "ptr_record")
 
     @ptr_record.setter
@@ -507,9 +376,6 @@ class _EipState:
     @_builtins.property
     @pulumi.getter(name="publicDns")
     def public_dns(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Public DNS associated with the Elastic IP address.
-        """
         return pulumi.get(self, "public_dns")
 
     @public_dns.setter
@@ -519,9 +385,6 @@ class _EipState:
     @_builtins.property
     @pulumi.getter(name="publicIp")
     def public_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Contains the public IP address.
-        """
         return pulumi.get(self, "public_ip")
 
     @public_ip.setter
@@ -531,10 +394,6 @@ class _EipState:
     @_builtins.property
     @pulumi.getter(name="publicIpv4Pool")
     def public_ipv4_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        EC2 IPv4 address pool identifier or `amazon`.
-        This option is only available for VPC EIPs.
-        """
         return pulumi.get(self, "public_ipv4_pool")
 
     @public_ipv4_pool.setter
@@ -544,9 +403,6 @@ class _EipState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -556,15 +412,6 @@ class _EipState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
-        Including both will **not** return an error from the AWS API, but will have undefined behavior.
-        See the relevant [AssociateAddress API Call][1] for more information.
-
-        > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -574,9 +421,6 @@ class _EipState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -603,124 +447,9 @@ class Eip(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides an Elastic IP resource.
-
-        > **Note:** EIP may require IGW to exist prior to association. Use `depends_on` to set an explicit dependency on the IGW.
-
-        > **Note:** Do not use `network_interface` to associate the EIP to `lb.LoadBalancer` or `ec2.NatGateway` resources. Instead use the `allocation_id` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
-
-        ## Example Usage
-
-        ### Single EIP associated with an instance
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        lb = aws.ec2.Eip("lb",
-            instance=web["id"],
-            domain="vpc")
-        ```
-
-        ### Multiple EIPs associated with a single network interface
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        multi_ip = aws.ec2.NetworkInterface("multi-ip",
-            subnet_id=main["id"],
-            private_ips=[
-                "10.0.0.10",
-                "10.0.0.11",
-            ])
-        one = aws.ec2.Eip("one",
-            domain="vpc",
-            network_interface=multi_ip.id,
-            associate_with_private_ip="10.0.0.10")
-        two = aws.ec2.Eip("two",
-            domain="vpc",
-            network_interface=multi_ip.id,
-            associate_with_private_ip="10.0.0.11")
-        ```
-
-        ### Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.ec2.Vpc("default",
-            cidr_block="10.0.0.0/16",
-            enable_dns_hostnames=True)
-        gw = aws.ec2.InternetGateway("gw", vpc_id=default.id)
-        my_test_subnet = aws.ec2.Subnet("my_test_subnet",
-            vpc_id=default.id,
-            cidr_block="10.0.0.0/24",
-            map_public_ip_on_launch=True,
-            opts = pulumi.ResourceOptions(depends_on=[gw]))
-        foo = aws.ec2.Instance("foo",
-            ami="ami-5189a661",
-            instance_type=aws.ec2.InstanceType.T2_MICRO,
-            private_ip="10.0.0.12",
-            subnet_id=my_test_subnet.id)
-        bar = aws.ec2.Eip("bar",
-            domain="vpc",
-            instance=foo.id,
-            associate_with_private_ip="10.0.0.12",
-            opts = pulumi.ResourceOptions(depends_on=[gw]))
-        ```
-
-        ### Allocating EIP from the BYOIP pool
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        byoip_ip = aws.ec2.Eip("byoip-ip",
-            domain="vpc",
-            public_ipv4_pool="ipv4pool-ec2-012345")
-        ```
-
-        ### Allocating EIP from the IPAM Pool
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ipam_ip = aws.ec2.Eip("ipam-ip",
-            domain="vpc",
-            ipam_pool_id="ipam-pool-07ccc86aa41bef7ce")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import EIPs in a VPC using their Allocation ID. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
-        ```
-
+        Create a Eip resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] address: IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
-        :param pulumi.Input[_builtins.str] associate_with_private_ip: User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
-        :param pulumi.Input[_builtins.str] customer_owned_ipv4_pool: ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
-        :param pulumi.Input[_builtins.str] domain: Indicates if this EIP is for use in VPC (`vpc`).
-        :param pulumi.Input[_builtins.str] instance: EC2 instance ID.
-        :param pulumi.Input[_builtins.str] ipam_pool_id: The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
-        :param pulumi.Input[_builtins.str] network_border_group: Location from which the IP address is advertised. Use this parameter to limit the address to this location.
-        :param pulumi.Input[_builtins.str] network_interface: Network interface ID to associate with.
-        :param pulumi.Input[_builtins.str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`.
-               This option is only available for VPC EIPs.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
-               Including both will **not** return an error from the AWS API, but will have undefined behavior.
-               See the relevant [AssociateAddress API Call][1] for more information.
-               
-               > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
         """
         ...
     @overload
@@ -729,104 +458,7 @@ class Eip(pulumi.CustomResource):
                  args: Optional[EipArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Elastic IP resource.
-
-        > **Note:** EIP may require IGW to exist prior to association. Use `depends_on` to set an explicit dependency on the IGW.
-
-        > **Note:** Do not use `network_interface` to associate the EIP to `lb.LoadBalancer` or `ec2.NatGateway` resources. Instead use the `allocation_id` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
-
-        ## Example Usage
-
-        ### Single EIP associated with an instance
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        lb = aws.ec2.Eip("lb",
-            instance=web["id"],
-            domain="vpc")
-        ```
-
-        ### Multiple EIPs associated with a single network interface
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        multi_ip = aws.ec2.NetworkInterface("multi-ip",
-            subnet_id=main["id"],
-            private_ips=[
-                "10.0.0.10",
-                "10.0.0.11",
-            ])
-        one = aws.ec2.Eip("one",
-            domain="vpc",
-            network_interface=multi_ip.id,
-            associate_with_private_ip="10.0.0.10")
-        two = aws.ec2.Eip("two",
-            domain="vpc",
-            network_interface=multi_ip.id,
-            associate_with_private_ip="10.0.0.11")
-        ```
-
-        ### Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.ec2.Vpc("default",
-            cidr_block="10.0.0.0/16",
-            enable_dns_hostnames=True)
-        gw = aws.ec2.InternetGateway("gw", vpc_id=default.id)
-        my_test_subnet = aws.ec2.Subnet("my_test_subnet",
-            vpc_id=default.id,
-            cidr_block="10.0.0.0/24",
-            map_public_ip_on_launch=True,
-            opts = pulumi.ResourceOptions(depends_on=[gw]))
-        foo = aws.ec2.Instance("foo",
-            ami="ami-5189a661",
-            instance_type=aws.ec2.InstanceType.T2_MICRO,
-            private_ip="10.0.0.12",
-            subnet_id=my_test_subnet.id)
-        bar = aws.ec2.Eip("bar",
-            domain="vpc",
-            instance=foo.id,
-            associate_with_private_ip="10.0.0.12",
-            opts = pulumi.ResourceOptions(depends_on=[gw]))
-        ```
-
-        ### Allocating EIP from the BYOIP pool
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        byoip_ip = aws.ec2.Eip("byoip-ip",
-            domain="vpc",
-            public_ipv4_pool="ipv4pool-ec2-012345")
-        ```
-
-        ### Allocating EIP from the IPAM Pool
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ipam_ip = aws.ec2.Eip("ipam-ip",
-            domain="vpc",
-            ipam_pool_id="ipam-pool-07ccc86aa41bef7ce")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import EIPs in a VPC using their Allocation ID. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
-        ```
-
+        Create a Eip resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EipArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -923,34 +555,6 @@ class Eip(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] address: IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
-        :param pulumi.Input[_builtins.str] allocation_id: ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
-        :param pulumi.Input[_builtins.str] associate_with_private_ip: User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
-        :param pulumi.Input[_builtins.str] association_id: ID representing the association of the address with an instance in a VPC.
-        :param pulumi.Input[_builtins.str] carrier_ip: Carrier IP address.
-        :param pulumi.Input[_builtins.str] customer_owned_ip: Customer owned IP.
-        :param pulumi.Input[_builtins.str] customer_owned_ipv4_pool: ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
-        :param pulumi.Input[_builtins.str] domain: Indicates if this EIP is for use in VPC (`vpc`).
-        :param pulumi.Input[_builtins.str] instance: EC2 instance ID.
-        :param pulumi.Input[_builtins.str] ipam_pool_id: The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
-        :param pulumi.Input[_builtins.str] network_border_group: Location from which the IP address is advertised. Use this parameter to limit the address to this location.
-        :param pulumi.Input[_builtins.str] network_interface: Network interface ID to associate with.
-        :param pulumi.Input[_builtins.str] private_dns: The Private DNS associated with the Elastic IP address (if in VPC).
-        :param pulumi.Input[_builtins.str] private_ip: Contains the private IP address (if in VPC).
-        :param pulumi.Input[_builtins.str] ptr_record: The DNS pointer (PTR) record for the IP address.
-        :param pulumi.Input[_builtins.str] public_dns: Public DNS associated with the Elastic IP address.
-        :param pulumi.Input[_builtins.str] public_ip: Contains the public IP address.
-        :param pulumi.Input[_builtins.str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`.
-               This option is only available for VPC EIPs.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
-               Including both will **not** return an error from the AWS API, but will have undefined behavior.
-               See the relevant [AssociateAddress API Call][1] for more information.
-               
-               > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -983,17 +587,11 @@ class Eip(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def address(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
-        """
         return pulumi.get(self, "address")
 
     @_builtins.property
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
-        """
         return pulumi.get(self, "allocation_id")
 
     @_builtins.property
@@ -1004,159 +602,95 @@ class Eip(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="associateWithPrivateIp")
     def associate_with_private_ip(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
-        """
         return pulumi.get(self, "associate_with_private_ip")
 
     @_builtins.property
     @pulumi.getter(name="associationId")
     def association_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID representing the association of the address with an instance in a VPC.
-        """
         return pulumi.get(self, "association_id")
 
     @_builtins.property
     @pulumi.getter(name="carrierIp")
     def carrier_ip(self) -> pulumi.Output[_builtins.str]:
-        """
-        Carrier IP address.
-        """
         return pulumi.get(self, "carrier_ip")
 
     @_builtins.property
     @pulumi.getter(name="customerOwnedIp")
     def customer_owned_ip(self) -> pulumi.Output[_builtins.str]:
-        """
-        Customer owned IP.
-        """
         return pulumi.get(self, "customer_owned_ip")
 
     @_builtins.property
     @pulumi.getter(name="customerOwnedIpv4Pool")
     def customer_owned_ipv4_pool(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
-        """
         return pulumi.get(self, "customer_owned_ipv4_pool")
 
     @_builtins.property
     @pulumi.getter
     def domain(self) -> pulumi.Output[_builtins.str]:
-        """
-        Indicates if this EIP is for use in VPC (`vpc`).
-        """
         return pulumi.get(self, "domain")
 
     @_builtins.property
     @pulumi.getter
     def instance(self) -> pulumi.Output[_builtins.str]:
-        """
-        EC2 instance ID.
-        """
         return pulumi.get(self, "instance")
 
     @_builtins.property
     @pulumi.getter(name="ipamPoolId")
     def ipam_pool_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
-        """
         return pulumi.get(self, "ipam_pool_id")
 
     @_builtins.property
     @pulumi.getter(name="networkBorderGroup")
     def network_border_group(self) -> pulumi.Output[_builtins.str]:
-        """
-        Location from which the IP address is advertised. Use this parameter to limit the address to this location.
-        """
         return pulumi.get(self, "network_border_group")
 
     @_builtins.property
     @pulumi.getter(name="networkInterface")
     def network_interface(self) -> pulumi.Output[_builtins.str]:
-        """
-        Network interface ID to associate with.
-        """
         return pulumi.get(self, "network_interface")
 
     @_builtins.property
     @pulumi.getter(name="privateDns")
     def private_dns(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Private DNS associated with the Elastic IP address (if in VPC).
-        """
         return pulumi.get(self, "private_dns")
 
     @_builtins.property
     @pulumi.getter(name="privateIp")
     def private_ip(self) -> pulumi.Output[_builtins.str]:
-        """
-        Contains the private IP address (if in VPC).
-        """
         return pulumi.get(self, "private_ip")
 
     @_builtins.property
     @pulumi.getter(name="ptrRecord")
     def ptr_record(self) -> pulumi.Output[_builtins.str]:
-        """
-        The DNS pointer (PTR) record for the IP address.
-        """
         return pulumi.get(self, "ptr_record")
 
     @_builtins.property
     @pulumi.getter(name="publicDns")
     def public_dns(self) -> pulumi.Output[_builtins.str]:
-        """
-        Public DNS associated with the Elastic IP address.
-        """
         return pulumi.get(self, "public_dns")
 
     @_builtins.property
     @pulumi.getter(name="publicIp")
     def public_ip(self) -> pulumi.Output[_builtins.str]:
-        """
-        Contains the public IP address.
-        """
         return pulumi.get(self, "public_ip")
 
     @_builtins.property
     @pulumi.getter(name="publicIpv4Pool")
     def public_ipv4_pool(self) -> pulumi.Output[_builtins.str]:
-        """
-        EC2 IPv4 address pool identifier or `amazon`.
-        This option is only available for VPC EIPs.
-        """
         return pulumi.get(self, "public_ipv4_pool")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
-        Including both will **not** return an error from the AWS API, but will have undefined behavior.
-        See the relevant [AssociateAddress API Call][1] for more information.
-
-        > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

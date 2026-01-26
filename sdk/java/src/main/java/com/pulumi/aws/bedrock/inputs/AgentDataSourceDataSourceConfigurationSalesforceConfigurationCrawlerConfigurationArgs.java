@@ -15,17 +15,9 @@ public final class AgentDataSourceDataSourceConfigurationSalesforceConfiguration
 
     public static final AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationArgs Empty = new AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationArgs();
 
-    /**
-     * The Salesforce standard object configuration. See `filterConfiguration` block for details.
-     * 
-     */
     @Import(name="filterConfiguration")
     private @Nullable Output<AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationArgs> filterConfiguration;
 
-    /**
-     * @return The Salesforce standard object configuration. See `filterConfiguration` block for details.
-     * 
-     */
     public Optional<Output<AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationArgs>> filterConfiguration() {
         return Optional.ofNullable(this.filterConfiguration);
     }
@@ -54,23 +46,11 @@ public final class AgentDataSourceDataSourceConfigurationSalesforceConfiguration
             $ = new AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filterConfiguration The Salesforce standard object configuration. See `filterConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filterConfiguration(@Nullable Output<AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationArgs> filterConfiguration) {
             $.filterConfiguration = filterConfiguration;
             return this;
         }
 
-        /**
-         * @param filterConfiguration The Salesforce standard object configuration. See `filterConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filterConfiguration(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationArgs filterConfiguration) {
             return filterConfiguration(Output.of(filterConfiguration));
         }

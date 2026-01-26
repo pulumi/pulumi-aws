@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Connect.Inputs
 
     public sealed class HoursOfOperationConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the day that the hours of operation applies to.
-        /// </summary>
         [Input("day", required: true)]
         public Input<string> Day { get; set; } = null!;
 
-        /// <summary>
-        /// A end time block specifies the time that your contact center closes. The `EndTime` is documented below.
-        /// </summary>
         [Input("endTime", required: true)]
         public Input<Inputs.HoursOfOperationConfigEndTimeGetArgs> EndTime { get; set; } = null!;
 
-        /// <summary>
-        /// A start time block specifies the time that your contact center opens. The `StartTime` is documented below.
-        /// </summary>
         [Input("startTime", required: true)]
         public Input<Inputs.HoursOfOperationConfigStartTimeGetArgs> StartTime { get; set; } = null!;
 

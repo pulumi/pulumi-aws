@@ -18,77 +18,37 @@ public final class BucketLifecycleConfigurationRuleFilterArgs extends com.pulumi
 
     public static final BucketLifecycleConfigurationRuleFilterArgs Empty = new BucketLifecycleConfigurationRuleFilterArgs();
 
-    /**
-     * Configuration block used to apply a logical `AND` to two or more predicates. See below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
-     * 
-     */
     @Import(name="and")
     private @Nullable Output<BucketLifecycleConfigurationRuleFilterAndArgs> and;
 
-    /**
-     * @return Configuration block used to apply a logical `AND` to two or more predicates. See below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
-     * 
-     */
     public Optional<Output<BucketLifecycleConfigurationRuleFilterAndArgs>> and() {
         return Optional.ofNullable(this.and);
     }
 
-    /**
-     * Minimum object size (in bytes) to which the rule applies.
-     * 
-     */
     @Import(name="objectSizeGreaterThan")
     private @Nullable Output<Integer> objectSizeGreaterThan;
 
-    /**
-     * @return Minimum object size (in bytes) to which the rule applies.
-     * 
-     */
     public Optional<Output<Integer>> objectSizeGreaterThan() {
         return Optional.ofNullable(this.objectSizeGreaterThan);
     }
 
-    /**
-     * Maximum object size (in bytes) to which the rule applies.
-     * 
-     */
     @Import(name="objectSizeLessThan")
     private @Nullable Output<Integer> objectSizeLessThan;
 
-    /**
-     * @return Maximum object size (in bytes) to which the rule applies.
-     * 
-     */
     public Optional<Output<Integer>> objectSizeLessThan() {
         return Optional.ofNullable(this.objectSizeLessThan);
     }
 
-    /**
-     * Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`&#34;&#34;`) if not specified.
-     * 
-     */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
-    /**
-     * @return Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`&#34;&#34;`) if not specified.
-     * 
-     */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
 
-    /**
-     * Configuration block for specifying a tag key and value. See below.
-     * 
-     */
     @Import(name="tag")
     private @Nullable Output<BucketLifecycleConfigurationRuleFilterTagArgs> tag;
 
-    /**
-     * @return Configuration block for specifying a tag key and value. See below.
-     * 
-     */
     public Optional<Output<BucketLifecycleConfigurationRuleFilterTagArgs>> tag() {
         return Optional.ofNullable(this.tag);
     }
@@ -121,107 +81,47 @@ public final class BucketLifecycleConfigurationRuleFilterArgs extends com.pulumi
             $ = new BucketLifecycleConfigurationRuleFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param and Configuration block used to apply a logical `AND` to two or more predicates. See below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder and(@Nullable Output<BucketLifecycleConfigurationRuleFilterAndArgs> and) {
             $.and = and;
             return this;
         }
 
-        /**
-         * @param and Configuration block used to apply a logical `AND` to two or more predicates. See below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder and(BucketLifecycleConfigurationRuleFilterAndArgs and) {
             return and(Output.of(and));
         }
 
-        /**
-         * @param objectSizeGreaterThan Minimum object size (in bytes) to which the rule applies.
-         * 
-         * @return builder
-         * 
-         */
         public Builder objectSizeGreaterThan(@Nullable Output<Integer> objectSizeGreaterThan) {
             $.objectSizeGreaterThan = objectSizeGreaterThan;
             return this;
         }
 
-        /**
-         * @param objectSizeGreaterThan Minimum object size (in bytes) to which the rule applies.
-         * 
-         * @return builder
-         * 
-         */
         public Builder objectSizeGreaterThan(Integer objectSizeGreaterThan) {
             return objectSizeGreaterThan(Output.of(objectSizeGreaterThan));
         }
 
-        /**
-         * @param objectSizeLessThan Maximum object size (in bytes) to which the rule applies.
-         * 
-         * @return builder
-         * 
-         */
         public Builder objectSizeLessThan(@Nullable Output<Integer> objectSizeLessThan) {
             $.objectSizeLessThan = objectSizeLessThan;
             return this;
         }
 
-        /**
-         * @param objectSizeLessThan Maximum object size (in bytes) to which the rule applies.
-         * 
-         * @return builder
-         * 
-         */
         public Builder objectSizeLessThan(Integer objectSizeLessThan) {
             return objectSizeLessThan(Output.of(objectSizeLessThan));
         }
 
-        /**
-         * @param prefix Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`&#34;&#34;`) if not specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param prefix Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`&#34;&#34;`) if not specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }
 
-        /**
-         * @param tag Configuration block for specifying a tag key and value. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tag(@Nullable Output<BucketLifecycleConfigurationRuleFilterTagArgs> tag) {
             $.tag = tag;
             return this;
         }
 
-        /**
-         * @param tag Configuration block for specifying a tag key and value. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tag(BucketLifecycleConfigurationRuleFilterTagArgs tag) {
             return tag(Output.of(tag));
         }

@@ -13,99 +13,35 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an Amazon S3 Tables Table Policy.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * ## Import
- * 
- * Using `pulumi import`, import S3 Tables Table Policy using the `table_bucket_arn`, the value of `namespace`, and the value of `name`, separated by a semicolon (`;`). For example:
- * 
- * ```sh
- * $ pulumi import aws:s3tables/tablePolicy:TablePolicy example &#39;arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket;example-namespace;example-table&#39;
- * ```
- * 
- */
 @ResourceType(type="aws:s3tables/tablePolicy:TablePolicy")
 public class TablePolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * Name of the table.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the table.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Name of the namespace for this table.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-     * 
-     */
     @Export(name="namespace", refs={String.class}, tree="[0]")
     private Output<String> namespace;
 
-    /**
-     * @return Name of the namespace for this table.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-     * 
-     */
     public Output<String> namespace() {
         return this.namespace;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Amazon Web Services resource-based policy document in JSON format.
-     * 
-     */
     @Export(name="resourcePolicy", refs={String.class}, tree="[0]")
     private Output<String> resourcePolicy;
 
-    /**
-     * @return Amazon Web Services resource-based policy document in JSON format.
-     * 
-     */
     public Output<String> resourcePolicy() {
         return this.resourcePolicy;
     }
-    /**
-     * ARN referencing the Table Bucket that contains this Namespace.
-     * 
-     */
     @Export(name="tableBucketArn", refs={String.class}, tree="[0]")
     private Output<String> tableBucketArn;
 
-    /**
-     * @return ARN referencing the Table Bucket that contains this Namespace.
-     * 
-     */
     public Output<String> tableBucketArn() {
         return this.tableBucketArn;
     }

@@ -13,37 +13,13 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentPromptVariant
     {
-        /// <summary>
-        /// Contains model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
-        /// </summary>
         public readonly string? AdditionalModelRequestFields;
-        /// <summary>
-        /// Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `GenAiResource` must be defined. See Generative AI Resource for more information.
-        /// </summary>
         public readonly Outputs.AgentPromptVariantGenAiResource? GenAiResource;
-        /// <summary>
-        /// Contains inference configurations for the prompt variant. See Inference Configuration for more information.
-        /// </summary>
         public readonly Outputs.AgentPromptVariantInferenceConfiguration? InferenceConfiguration;
-        /// <summary>
-        /// A list of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See Metadata for more information.
-        /// </summary>
         public readonly ImmutableArray<Outputs.AgentPromptVariantMetadata> Metadatas;
-        /// <summary>
-        /// Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt. If this is not supplied, then a `GenAiResource` must be defined.
-        /// </summary>
         public readonly string? ModelId;
-        /// <summary>
-        /// Name of the prompt variant.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Contains configurations for the prompt template. See Template Configuration for more information.
-        /// </summary>
         public readonly Outputs.AgentPromptVariantTemplateConfiguration? TemplateConfiguration;
-        /// <summary>
-        /// Type of prompt template to use. Valid values: `CHAT`, `TEXT`.
-        /// </summary>
         public readonly string TemplateType;
 
         [OutputConstructor]

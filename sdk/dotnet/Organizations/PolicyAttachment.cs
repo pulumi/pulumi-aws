@@ -9,106 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Organizations
 {
-    /// <summary>
-    /// Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Organization Account
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var account = new Aws.Organizations.PolicyAttachment("account", new()
-    ///     {
-    ///         PolicyId = example.Id,
-    ///         TargetId = "123456789012",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Organization Root
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var root = new Aws.Organizations.PolicyAttachment("root", new()
-    ///     {
-    ///         PolicyId = example.Id,
-    ///         TargetId = exampleAwsOrganizationsOrganization.Roots[0].Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Organization Unit
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var unit = new Aws.Organizations.PolicyAttachment("unit", new()
-    ///     {
-    ///         PolicyId = example.Id,
-    ///         TargetId = exampleAwsOrganizationsOrganizationalUnit.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// * `policy_id` (String) Organizations policy ID.
-    /// 
-    /// * `target_id` (String) Organizations target ID (account, OU, or root).
-    /// 
-    /// #### Optional
-    /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
-    /// 
-    /// Using `pulumi import`, import `aws_organizations_policy_attachment` using the target ID and policy ID. For example:
-    /// 
-    /// With an account target:
-    /// 
-    /// % pulumi import aws_organizations_policy_attachment.example 123456789012:p-12345678
-    /// </summary>
     [AwsResourceType("aws:organizations/policyAttachment:PolicyAttachment")]
     public partial class PolicyAttachment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The unique identifier (ID) of the policy that you want to attach to the target.
-        /// </summary>
         [Output("policyId")]
         public Output<string> PolicyId { get; private set; } = null!;
 
-        /// <summary>
-        /// If set to `True`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
-        /// </summary>
         [Output("skipDestroy")]
         public Output<bool?> SkipDestroy { get; private set; } = null!;
 
-        /// <summary>
-        /// The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
-        /// </summary>
         [Output("targetId")]
         public Output<string> TargetId { get; private set; } = null!;
 
@@ -158,21 +67,12 @@ namespace Pulumi.Aws.Organizations
 
     public sealed class PolicyAttachmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The unique identifier (ID) of the policy that you want to attach to the target.
-        /// </summary>
         [Input("policyId", required: true)]
         public Input<string> PolicyId { get; set; } = null!;
 
-        /// <summary>
-        /// If set to `True`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
-        /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 
-        /// <summary>
-        /// The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
-        /// </summary>
         [Input("targetId", required: true)]
         public Input<string> TargetId { get; set; } = null!;
 
@@ -184,21 +84,12 @@ namespace Pulumi.Aws.Organizations
 
     public sealed class PolicyAttachmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The unique identifier (ID) of the policy that you want to attach to the target.
-        /// </summary>
         [Input("policyId")]
         public Input<string>? PolicyId { get; set; }
 
-        /// <summary>
-        /// If set to `True`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
-        /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 
-        /// <summary>
-        /// The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
-        /// </summary>
         [Input("targetId")]
         public Input<string>? TargetId { get; set; }
 

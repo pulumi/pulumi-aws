@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Fsx.Outputs
     [OutputType]
     public sealed class GetOntapFileSystemEndpointInterclusterResult
     {
-        /// <summary>
-        /// DNS name for the file system.
-        /// </summary>
         public readonly string DnsName;
         public readonly ImmutableArray<string> IpAddresses;
 

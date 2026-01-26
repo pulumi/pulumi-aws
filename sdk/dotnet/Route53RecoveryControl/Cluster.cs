@@ -9,79 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Route53RecoveryControl
 {
-    /// <summary>
-    /// Provides an AWS Route 53 Recovery Control Config Cluster.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Route53RecoveryControl.Cluster("example", new()
-    ///     {
-    ///         Name = "georgefitzgerald",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Route53 Recovery Control Config cluster using the cluster ARN. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:route53recoverycontrol/cluster:Cluster mycluster arn:aws:route53-recovery-control::313517334327:cluster/f9ae13be-a11e-4ec7-8522-94a70468e6ea
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:route53recoverycontrol/cluster:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the cluster
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
-        /// </summary>
         [Output("clusterEndpoints")]
         public Output<ImmutableArray<Outputs.ClusterClusterEndpoint>> ClusterEndpoints { get; private set; } = null!;
 
-        /// <summary>
-        /// Unique name describing the cluster.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Network type of cluster. Valid values are `IPV4` and `DUALSTACK`. Defaults to `IPV4`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("networkType")]
         public Output<string> NetworkType { get; private set; } = null!;
 
-        /// <summary>
-        /// Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -131,26 +79,14 @@ namespace Pulumi.Aws.Route53RecoveryControl
 
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Unique name describing the cluster.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Network type of cluster. Valid values are `IPV4` and `DUALSTACK`. Defaults to `IPV4`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("networkType")]
         public Input<string>? NetworkType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -165,50 +101,28 @@ namespace Pulumi.Aws.Route53RecoveryControl
 
     public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the cluster
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("clusterEndpoints")]
         private InputList<Inputs.ClusterClusterEndpointGetArgs>? _clusterEndpoints;
-
-        /// <summary>
-        /// List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
-        /// </summary>
         public InputList<Inputs.ClusterClusterEndpointGetArgs> ClusterEndpoints
         {
             get => _clusterEndpoints ?? (_clusterEndpoints = new InputList<Inputs.ClusterClusterEndpointGetArgs>());
             set => _clusterEndpoints = value;
         }
 
-        /// <summary>
-        /// Unique name describing the cluster.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Network type of cluster. Valid values are `IPV4` and `DUALSTACK`. Defaults to `IPV4`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("networkType")]
         public Input<string>? NetworkType { get; set; }
 
-        /// <summary>
-        /// Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -217,10 +131,6 @@ namespace Pulumi.Aws.Route53RecoveryControl
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -18,234 +18,53 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a SageMaker AI Workforce resource.
- * 
- * ## Example Usage
- * 
- * ### Cognito Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cognito.UserPool;
- * import com.pulumi.aws.cognito.UserPoolArgs;
- * import com.pulumi.aws.cognito.UserPoolClient;
- * import com.pulumi.aws.cognito.UserPoolClientArgs;
- * import com.pulumi.aws.cognito.UserPoolDomain;
- * import com.pulumi.aws.cognito.UserPoolDomainArgs;
- * import com.pulumi.aws.sagemaker.Workforce;
- * import com.pulumi.aws.sagemaker.WorkforceArgs;
- * import com.pulumi.aws.sagemaker.inputs.WorkforceCognitoConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleUserPool = new UserPool("exampleUserPool", UserPoolArgs.builder()
- *             .name("example")
- *             .build());
- * 
- *         var exampleUserPoolClient = new UserPoolClient("exampleUserPoolClient", UserPoolClientArgs.builder()
- *             .name("example")
- *             .generateSecret(true)
- *             .userPoolId(exampleUserPool.id())
- *             .build());
- * 
- *         var exampleUserPoolDomain = new UserPoolDomain("exampleUserPoolDomain", UserPoolDomainArgs.builder()
- *             .domain("example")
- *             .userPoolId(exampleUserPool.id())
- *             .build());
- * 
- *         var example = new Workforce("example", WorkforceArgs.builder()
- *             .workforceName("example")
- *             .cognitoConfig(WorkforceCognitoConfigArgs.builder()
- *                 .clientId(exampleUserPoolClient.id())
- *                 .userPool(exampleUserPoolDomain.userPoolId())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Oidc Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sagemaker.Workforce;
- * import com.pulumi.aws.sagemaker.WorkforceArgs;
- * import com.pulumi.aws.sagemaker.inputs.WorkforceOidcConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Workforce("example", WorkforceArgs.builder()
- *             .workforceName("example")
- *             .oidcConfig(WorkforceOidcConfigArgs.builder()
- *                 .authorizationEndpoint("https://example.com")
- *                 .clientId("example")
- *                 .clientSecret("example")
- *                 .issuer("https://example.com")
- *                 .jwksUri("https://example.com")
- *                 .logoutEndpoint("https://example.com")
- *                 .tokenEndpoint("https://example.com")
- *                 .userInfoEndpoint("https://example.com")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import SageMaker AI Workforces using the `workforce_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:sagemaker/workforce:Workforce example example
- * ```
- * 
- */
 @ResourceType(type="aws:sagemaker/workforce:Workforce")
 public class Workforce extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidcConfig`. see Cognito Config details below.
-     * 
-     */
     @Export(name="cognitoConfig", refs={WorkforceCognitoConfig.class}, tree="[0]")
     private Output</* @Nullable */ WorkforceCognitoConfig> cognitoConfig;
 
-    /**
-     * @return Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidcConfig`. see Cognito Config details below.
-     * 
-     */
     public Output<Optional<WorkforceCognitoConfig>> cognitoConfig() {
         return Codegen.optional(this.cognitoConfig);
     }
-    /**
-     * Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognitoConfig`. see OIDC Config details below.
-     * 
-     */
     @Export(name="oidcConfig", refs={WorkforceOidcConfig.class}, tree="[0]")
     private Output</* @Nullable */ WorkforceOidcConfig> oidcConfig;
 
-    /**
-     * @return Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognitoConfig`. see OIDC Config details below.
-     * 
-     */
     public Output<Optional<WorkforceOidcConfig>> oidcConfig() {
         return Codegen.optional(this.oidcConfig);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn&#39;t restricted to specific IP addresses. see Source Ip Config details below.
-     * 
-     */
     @Export(name="sourceIpConfig", refs={WorkforceSourceIpConfig.class}, tree="[0]")
     private Output<WorkforceSourceIpConfig> sourceIpConfig;
 
-    /**
-     * @return A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn&#39;t restricted to specific IP addresses. see Source Ip Config details below.
-     * 
-     */
     public Output<WorkforceSourceIpConfig> sourceIpConfig() {
         return this.sourceIpConfig;
     }
-    /**
-     * The subdomain for your OIDC Identity Provider.
-     * 
-     */
     @Export(name="subdomain", refs={String.class}, tree="[0]")
     private Output<String> subdomain;
 
-    /**
-     * @return The subdomain for your OIDC Identity Provider.
-     * 
-     */
     public Output<String> subdomain() {
         return this.subdomain;
     }
-    /**
-     * The name of the Workforce (must be unique).
-     * 
-     */
     @Export(name="workforceName", refs={String.class}, tree="[0]")
     private Output<String> workforceName;
 
-    /**
-     * @return The name of the Workforce (must be unique).
-     * 
-     */
     public Output<String> workforceName() {
         return this.workforceName;
     }
-    /**
-     * configure a workforce using VPC. see Workforce VPC Config details below.
-     * 
-     */
     @Export(name="workforceVpcConfig", refs={WorkforceWorkforceVpcConfig.class}, tree="[0]")
     private Output</* @Nullable */ WorkforceWorkforceVpcConfig> workforceVpcConfig;
 
-    /**
-     * @return configure a workforce using VPC. see Workforce VPC Config details below.
-     * 
-     */
     public Output<Optional<WorkforceWorkforceVpcConfig>> workforceVpcConfig() {
         return Codegen.optional(this.workforceVpcConfig);
     }

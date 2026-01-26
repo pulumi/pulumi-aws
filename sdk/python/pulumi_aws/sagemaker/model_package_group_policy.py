@@ -24,8 +24,6 @@ class ModelPackageGroupPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ModelPackageGroupPolicy resource.
-        :param pulumi.Input[_builtins.str] model_package_group_name: The name of the model package group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "model_package_group_name", model_package_group_name)
         pulumi.set(__self__, "resource_policy", resource_policy)
@@ -35,9 +33,6 @@ class ModelPackageGroupPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="modelPackageGroupName")
     def model_package_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the model package group.
-        """
         return pulumi.get(self, "model_package_group_name")
 
     @model_package_group_name.setter
@@ -56,9 +51,6 @@ class ModelPackageGroupPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -74,8 +66,6 @@ class _ModelPackageGroupPolicyState:
                  resource_policy: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ModelPackageGroupPolicy resources.
-        :param pulumi.Input[_builtins.str] model_package_group_name: The name of the model package group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if model_package_group_name is not None:
             pulumi.set(__self__, "model_package_group_name", model_package_group_name)
@@ -87,9 +77,6 @@ class _ModelPackageGroupPolicyState:
     @_builtins.property
     @pulumi.getter(name="modelPackageGroupName")
     def model_package_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the model package group.
-        """
         return pulumi.get(self, "model_package_group_name")
 
     @model_package_group_name.setter
@@ -99,9 +86,6 @@ class _ModelPackageGroupPolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -129,49 +113,9 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
                  resource_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a SageMaker AI Model Package Group Policy resource.
-
-        ## Example Usage
-
-        ### Basic usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        current = aws.get_caller_identity()
-        example_model_package_group = aws.sagemaker.ModelPackageGroup("example", model_package_group_name="example")
-        example = example_model_package_group.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
-            "sid": "AddPermModelPackageGroup",
-            "actions": [
-                "sagemaker:DescribeModelPackage",
-                "sagemaker:ListModelPackages",
-            ],
-            "resources": [arn],
-            "principals": [{
-                "identifiers": [current.account_id],
-                "type": "AWS",
-            }],
-        }]))
-        example_model_package_group_policy = aws.sagemaker.ModelPackageGroupPolicy("example",
-            model_package_group_name=example_model_package_group.model_package_group_name,
-            resource_policy=pulumi.Output.json_dumps(std.jsondecode_output(input=example.json).apply(lambda invoke: invoke.result)))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SageMaker AI Model Package Groups using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy example example
-        ```
-
+        Create a ModelPackageGroupPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] model_package_group_name: The name of the model package group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -180,45 +124,7 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
                  args: ModelPackageGroupPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SageMaker AI Model Package Group Policy resource.
-
-        ## Example Usage
-
-        ### Basic usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        current = aws.get_caller_identity()
-        example_model_package_group = aws.sagemaker.ModelPackageGroup("example", model_package_group_name="example")
-        example = example_model_package_group.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
-            "sid": "AddPermModelPackageGroup",
-            "actions": [
-                "sagemaker:DescribeModelPackage",
-                "sagemaker:ListModelPackages",
-            ],
-            "resources": [arn],
-            "principals": [{
-                "identifiers": [current.account_id],
-                "type": "AWS",
-            }],
-        }]))
-        example_model_package_group_policy = aws.sagemaker.ModelPackageGroupPolicy("example",
-            model_package_group_name=example_model_package_group.model_package_group_name,
-            resource_policy=pulumi.Output.json_dumps(std.jsondecode_output(input=example.json).apply(lambda invoke: invoke.result)))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SageMaker AI Model Package Groups using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy example example
-        ```
-
+        Create a ModelPackageGroupPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ModelPackageGroupPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -273,8 +179,6 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] model_package_group_name: The name of the model package group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -288,17 +192,11 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="modelPackageGroupName")
     def model_package_group_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the model package group.
-        """
         return pulumi.get(self, "model_package_group_name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property

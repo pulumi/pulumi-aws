@@ -17,135 +17,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ProjectSource {
-    /**
-     * @return Information about the strategy CodeBuild should use when authenticating with the source code host.
-     * Detailed below.
-     * 
-     */
     private @Nullable ProjectSourceAuth auth;
-    /**
-     * @return Configuration block that contains information that defines how the build project
-     * reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub
-     * Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `buildStatusConfig` blocks are documented below.
-     * 
-     */
     private @Nullable ProjectSourceBuildStatusConfig buildStatusConfig;
-    /**
-     * @return Build specification to use for this build project&#39;s related builds. This must be set when
-     * `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be
-     * specified.
-     * 
-     */
     private @Nullable String buildspec;
-    /**
-     * @return Truncate git history to this many commits. Use `0` for a `Full` checkout which you need
-     * to run commands like `git branch --show-current`.
-     * See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html)
-     * for details.
-     * 
-     */
     private @Nullable Integer gitCloneDepth;
-    /**
-     * @return Configuration block. Detailed below.
-     * 
-     */
     private @Nullable ProjectSourceGitSubmodulesConfig gitSubmodulesConfig;
-    /**
-     * @return Ignore SSL warnings when connecting to source control.
-     * 
-     */
     private @Nullable Boolean insecureSsl;
-    /**
-     * @return Location of the source code from git or s3.
-     * 
-     */
     private @Nullable String location;
-    /**
-     * @return Whether to report the status of a build&#39;s start and finish to your source provider.
-     * This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or
-     * Bitbucket.
-     * 
-     */
     private @Nullable Boolean reportBuildStatus;
-    /**
-     * @return Type of repository that contains the source code to be built. Valid values: `BITBUCKET`,
-     * `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
-     * 
-     */
     private String type;
 
     private ProjectSource() {}
-    /**
-     * @return Information about the strategy CodeBuild should use when authenticating with the source code host.
-     * Detailed below.
-     * 
-     */
     public Optional<ProjectSourceAuth> auth() {
         return Optional.ofNullable(this.auth);
     }
-    /**
-     * @return Configuration block that contains information that defines how the build project
-     * reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub
-     * Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `buildStatusConfig` blocks are documented below.
-     * 
-     */
     public Optional<ProjectSourceBuildStatusConfig> buildStatusConfig() {
         return Optional.ofNullable(this.buildStatusConfig);
     }
-    /**
-     * @return Build specification to use for this build project&#39;s related builds. This must be set when
-     * `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be
-     * specified.
-     * 
-     */
     public Optional<String> buildspec() {
         return Optional.ofNullable(this.buildspec);
     }
-    /**
-     * @return Truncate git history to this many commits. Use `0` for a `Full` checkout which you need
-     * to run commands like `git branch --show-current`.
-     * See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html)
-     * for details.
-     * 
-     */
     public Optional<Integer> gitCloneDepth() {
         return Optional.ofNullable(this.gitCloneDepth);
     }
-    /**
-     * @return Configuration block. Detailed below.
-     * 
-     */
     public Optional<ProjectSourceGitSubmodulesConfig> gitSubmodulesConfig() {
         return Optional.ofNullable(this.gitSubmodulesConfig);
     }
-    /**
-     * @return Ignore SSL warnings when connecting to source control.
-     * 
-     */
     public Optional<Boolean> insecureSsl() {
         return Optional.ofNullable(this.insecureSsl);
     }
-    /**
-     * @return Location of the source code from git or s3.
-     * 
-     */
     public Optional<String> location() {
         return Optional.ofNullable(this.location);
     }
-    /**
-     * @return Whether to report the status of a build&#39;s start and finish to your source provider.
-     * This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or
-     * Bitbucket.
-     * 
-     */
     public Optional<Boolean> reportBuildStatus() {
         return Optional.ofNullable(this.reportBuildStatus);
     }
-    /**
-     * @return Type of repository that contains the source code to be built. Valid values: `BITBUCKET`,
-     * `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
-     * 
-     */
     public String type() {
         return this.type;
     }

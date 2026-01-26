@@ -15,17 +15,9 @@ public final class S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs exte
 
     public static final S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs Empty = new S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs();
 
-    /**
-     * VPC ID.
-     * 
-     */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
-    /**
-     * @return VPC ID.
-     * 
-     */
     public Optional<Output<String>> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
@@ -54,23 +46,11 @@ public final class S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs exte
             $ = new S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param vpcId VPC ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(@Nullable Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId VPC ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

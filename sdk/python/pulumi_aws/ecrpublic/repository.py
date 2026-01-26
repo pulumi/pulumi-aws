@@ -28,10 +28,6 @@ class RepositoryArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Repository resource.
-        :param pulumi.Input[_builtins.str] repository_name: Name of the repository.
-        :param pulumi.Input['RepositoryCatalogDataArgs'] catalog_data: Catalog data configuration for the repository. See below for schema.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "repository_name", repository_name)
         if catalog_data is not None:
@@ -46,9 +42,6 @@ class RepositoryArgs:
     @_builtins.property
     @pulumi.getter(name="repositoryName")
     def repository_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the repository.
-        """
         return pulumi.get(self, "repository_name")
 
     @repository_name.setter
@@ -58,9 +51,6 @@ class RepositoryArgs:
     @_builtins.property
     @pulumi.getter(name="catalogData")
     def catalog_data(self) -> Optional[pulumi.Input['RepositoryCatalogDataArgs']]:
-        """
-        Catalog data configuration for the repository. See below for schema.
-        """
         return pulumi.get(self, "catalog_data")
 
     @catalog_data.setter
@@ -79,9 +69,6 @@ class RepositoryArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -91,9 +78,6 @@ class RepositoryArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -115,14 +99,6 @@ class _RepositoryState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Repository resources.
-        :param pulumi.Input[_builtins.str] arn: Full ARN of the repository.
-        :param pulumi.Input['RepositoryCatalogDataArgs'] catalog_data: Catalog data configuration for the repository. See below for schema.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] registry_id: The registry ID where the repository was created.
-        :param pulumi.Input[_builtins.str] repository_name: Name of the repository.
-        :param pulumi.Input[_builtins.str] repository_uri: The URI of the repository.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -146,9 +122,6 @@ class _RepositoryState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Full ARN of the repository.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -158,9 +131,6 @@ class _RepositoryState:
     @_builtins.property
     @pulumi.getter(name="catalogData")
     def catalog_data(self) -> Optional[pulumi.Input['RepositoryCatalogDataArgs']]:
-        """
-        Catalog data configuration for the repository. See below for schema.
-        """
         return pulumi.get(self, "catalog_data")
 
     @catalog_data.setter
@@ -179,9 +149,6 @@ class _RepositoryState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -191,9 +158,6 @@ class _RepositoryState:
     @_builtins.property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The registry ID where the repository was created.
-        """
         return pulumi.get(self, "registry_id")
 
     @registry_id.setter
@@ -203,9 +167,6 @@ class _RepositoryState:
     @_builtins.property
     @pulumi.getter(name="repositoryName")
     def repository_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the repository.
-        """
         return pulumi.get(self, "repository_name")
 
     @repository_name.setter
@@ -215,9 +176,6 @@ class _RepositoryState:
     @_builtins.property
     @pulumi.getter(name="repositoryUri")
     def repository_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The URI of the repository.
-        """
         return pulumi.get(self, "repository_uri")
 
     @repository_uri.setter
@@ -227,9 +185,6 @@ class _RepositoryState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -239,9 +194,6 @@ class _RepositoryState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -262,46 +214,9 @@ class Repository(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a Public Elastic Container Registry Repository.
-
-        > **NOTE:** This resource can only be used in the `us-east-1` region.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        foo = aws.ecrpublic.Repository("foo",
-            repository_name="bar",
-            catalog_data={
-                "about_text": "About Text",
-                "architectures": ["ARM"],
-                "description": "Description",
-                "logo_image_blob": std.filebase64(input=png).result,
-                "operating_systems": ["Linux"],
-                "usage_text": "Usage Text",
-            },
-            tags={
-                "env": "production",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import ECR Public Repositories using the `repository_name`. For example:
-
-        ```sh
-        $ pulumi import aws:ecrpublic/repository:Repository example example
-        ```
-
+        Create a Repository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['RepositoryCatalogDataArgs', 'RepositoryCatalogDataArgsDict']] catalog_data: Catalog data configuration for the repository. See below for schema.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] repository_name: Name of the repository.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -310,40 +225,7 @@ class Repository(pulumi.CustomResource):
                  args: RepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Public Elastic Container Registry Repository.
-
-        > **NOTE:** This resource can only be used in the `us-east-1` region.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        foo = aws.ecrpublic.Repository("foo",
-            repository_name="bar",
-            catalog_data={
-                "about_text": "About Text",
-                "architectures": ["ARM"],
-                "description": "Description",
-                "logo_image_blob": std.filebase64(input=png).result,
-                "operating_systems": ["Linux"],
-                "usage_text": "Usage Text",
-            },
-            tags={
-                "env": "production",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import ECR Public Repositories using the `repository_name`. For example:
-
-        ```sh
-        $ pulumi import aws:ecrpublic/repository:Repository example example
-        ```
-
+        Create a Repository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -410,14 +292,6 @@ class Repository(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Full ARN of the repository.
-        :param pulumi.Input[Union['RepositoryCatalogDataArgs', 'RepositoryCatalogDataArgsDict']] catalog_data: Catalog data configuration for the repository. See below for schema.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] registry_id: The registry ID where the repository was created.
-        :param pulumi.Input[_builtins.str] repository_name: Name of the repository.
-        :param pulumi.Input[_builtins.str] repository_uri: The URI of the repository.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -437,17 +311,11 @@ class Repository(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Full ARN of the repository.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="catalogData")
     def catalog_data(self) -> pulumi.Output[Optional['outputs.RepositoryCatalogData']]:
-        """
-        Catalog data configuration for the repository. See below for schema.
-        """
         return pulumi.get(self, "catalog_data")
 
     @_builtins.property
@@ -458,48 +326,30 @@ class Repository(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The registry ID where the repository was created.
-        """
         return pulumi.get(self, "registry_id")
 
     @_builtins.property
     @pulumi.getter(name="repositoryName")
     def repository_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the repository.
-        """
         return pulumi.get(self, "repository_name")
 
     @_builtins.property
     @pulumi.getter(name="repositoryUri")
     def repository_uri(self) -> pulumi.Output[_builtins.str]:
-        """
-        The URI of the repository.
-        """
         return pulumi.get(self, "repository_uri")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

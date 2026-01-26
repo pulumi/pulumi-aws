@@ -15,51 +15,23 @@ public final class GetAliasPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetAliasPlainArgs Empty = new GetAliasPlainArgs();
 
-    /**
-     * Name of the aliased Lambda function.
-     * 
-     */
     @Import(name="functionName", required=true)
     private String functionName;
 
-    /**
-     * @return Name of the aliased Lambda function.
-     * 
-     */
     public String functionName() {
         return this.functionName;
     }
 
-    /**
-     * Name of the Lambda alias.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the Lambda alias.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -90,36 +62,16 @@ public final class GetAliasPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetAliasPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param functionName Name of the aliased Lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionName(String functionName) {
             $.functionName = functionName;
             return this;
         }
 
-        /**
-         * @param name Name of the Lambda alias.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

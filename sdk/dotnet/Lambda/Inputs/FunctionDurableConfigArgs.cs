@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Lambda.Inputs
 
     public sealed class FunctionDurableConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Maximum execution time in seconds for the durable function. Valid value between 1 and 31622400 (366 days).
-        /// </summary>
         [Input("executionTimeout", required: true)]
         public Input<int> ExecutionTimeout { get; set; } = null!;
 
-        /// <summary>
-        /// Number of days to retain the function's execution state. Valid value between 1 and 90. If not specified, the function's execution state is not retained. Defaults to 14.
-        /// </summary>
         [Input("retentionPeriod")]
         public Input<int>? RetentionPeriod { get; set; }
 

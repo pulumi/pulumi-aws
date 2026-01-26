@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Kendra.Inputs
 
     public sealed class IndexIndexStatisticFaqStatisticGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The total number of FAQ questions and answers contained in the index.
-        /// </summary>
         [Input("indexedQuestionAnswersCount")]
         public Input<int>? IndexedQuestionAnswersCount { get; set; }
 

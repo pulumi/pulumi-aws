@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CodePipeline.Outputs
     [OutputType]
     public sealed class PipelineVariable
     {
-        /// <summary>
-        /// The default value of a pipeline-level variable.
-        /// </summary>
         public readonly string? DefaultValue;
-        /// <summary>
-        /// The description of a pipeline-level variable.
-        /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The name of a pipeline-level variable.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

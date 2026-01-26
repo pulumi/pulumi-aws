@@ -31,12 +31,6 @@ class AppMonitorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AppMonitor resource.
-        :param pulumi.Input['AppMonitorAppMonitorConfigurationArgs'] app_monitor_configuration: configuration data for the app monitor. See app_monitor_configuration below.
-        :param pulumi.Input['AppMonitorCustomEventsArgs'] custom_events: Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
-        :param pulumi.Input[_builtins.bool] cw_log_enabled: Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
-        :param pulumi.Input[_builtins.str] name: The name of the log stream.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if app_monitor_configuration is not None:
             pulumi.set(__self__, "app_monitor_configuration", app_monitor_configuration)
@@ -58,9 +52,6 @@ class AppMonitorArgs:
     @_builtins.property
     @pulumi.getter(name="appMonitorConfiguration")
     def app_monitor_configuration(self) -> Optional[pulumi.Input['AppMonitorAppMonitorConfigurationArgs']]:
-        """
-        configuration data for the app monitor. See app_monitor_configuration below.
-        """
         return pulumi.get(self, "app_monitor_configuration")
 
     @app_monitor_configuration.setter
@@ -70,9 +61,6 @@ class AppMonitorArgs:
     @_builtins.property
     @pulumi.getter(name="customEvents")
     def custom_events(self) -> Optional[pulumi.Input['AppMonitorCustomEventsArgs']]:
-        """
-        Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
-        """
         return pulumi.get(self, "custom_events")
 
     @custom_events.setter
@@ -82,9 +70,6 @@ class AppMonitorArgs:
     @_builtins.property
     @pulumi.getter(name="cwLogEnabled")
     def cw_log_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
-        """
         return pulumi.get(self, "cw_log_enabled")
 
     @cw_log_enabled.setter
@@ -112,9 +97,6 @@ class AppMonitorArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the log stream.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -124,9 +106,6 @@ class AppMonitorArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -136,9 +115,6 @@ class AppMonitorArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -163,16 +139,6 @@ class _AppMonitorState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AppMonitor resources.
-        :param pulumi.Input['AppMonitorAppMonitorConfigurationArgs'] app_monitor_configuration: configuration data for the app monitor. See app_monitor_configuration below.
-        :param pulumi.Input[_builtins.str] app_monitor_id: The unique ID of the app monitor. Useful for JS templates.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the app monitor.
-        :param pulumi.Input['AppMonitorCustomEventsArgs'] custom_events: Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
-        :param pulumi.Input[_builtins.bool] cw_log_enabled: Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
-        :param pulumi.Input[_builtins.str] cw_log_group: The name of the log group where the copies are stored.
-        :param pulumi.Input[_builtins.str] name: The name of the log stream.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if app_monitor_configuration is not None:
             pulumi.set(__self__, "app_monitor_configuration", app_monitor_configuration)
@@ -202,9 +168,6 @@ class _AppMonitorState:
     @_builtins.property
     @pulumi.getter(name="appMonitorConfiguration")
     def app_monitor_configuration(self) -> Optional[pulumi.Input['AppMonitorAppMonitorConfigurationArgs']]:
-        """
-        configuration data for the app monitor. See app_monitor_configuration below.
-        """
         return pulumi.get(self, "app_monitor_configuration")
 
     @app_monitor_configuration.setter
@@ -214,9 +177,6 @@ class _AppMonitorState:
     @_builtins.property
     @pulumi.getter(name="appMonitorId")
     def app_monitor_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The unique ID of the app monitor. Useful for JS templates.
-        """
         return pulumi.get(self, "app_monitor_id")
 
     @app_monitor_id.setter
@@ -226,9 +186,6 @@ class _AppMonitorState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) specifying the app monitor.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -238,9 +195,6 @@ class _AppMonitorState:
     @_builtins.property
     @pulumi.getter(name="customEvents")
     def custom_events(self) -> Optional[pulumi.Input['AppMonitorCustomEventsArgs']]:
-        """
-        Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
-        """
         return pulumi.get(self, "custom_events")
 
     @custom_events.setter
@@ -250,9 +204,6 @@ class _AppMonitorState:
     @_builtins.property
     @pulumi.getter(name="cwLogEnabled")
     def cw_log_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
-        """
         return pulumi.get(self, "cw_log_enabled")
 
     @cw_log_enabled.setter
@@ -262,9 +213,6 @@ class _AppMonitorState:
     @_builtins.property
     @pulumi.getter(name="cwLogGroup")
     def cw_log_group(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the log group where the copies are stored.
-        """
         return pulumi.get(self, "cw_log_group")
 
     @cw_log_group.setter
@@ -292,9 +240,6 @@ class _AppMonitorState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the log stream.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -304,9 +249,6 @@ class _AppMonitorState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -316,9 +258,6 @@ class _AppMonitorState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -328,9 +267,6 @@ class _AppMonitorState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -354,35 +290,9 @@ class AppMonitor(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a CloudWatch RUM App Monitor resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rum.AppMonitor("example",
-            name="example",
-            domain="localhost")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Cloudwatch RUM App Monitor using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:rum/appMonitor:AppMonitor example example
-        ```
-
+        Create a AppMonitor resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AppMonitorAppMonitorConfigurationArgs', 'AppMonitorAppMonitorConfigurationArgsDict']] app_monitor_configuration: configuration data for the app monitor. See app_monitor_configuration below.
-        :param pulumi.Input[Union['AppMonitorCustomEventsArgs', 'AppMonitorCustomEventsArgsDict']] custom_events: Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
-        :param pulumi.Input[_builtins.bool] cw_log_enabled: Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
-        :param pulumi.Input[_builtins.str] name: The name of the log stream.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -391,27 +301,7 @@ class AppMonitor(pulumi.CustomResource):
                  args: Optional[AppMonitorArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a CloudWatch RUM App Monitor resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rum.AppMonitor("example",
-            name="example",
-            domain="localhost")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Cloudwatch RUM App Monitor using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:rum/appMonitor:AppMonitor example example
-        ```
-
+        Create a AppMonitor resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AppMonitorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -485,16 +375,6 @@ class AppMonitor(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AppMonitorAppMonitorConfigurationArgs', 'AppMonitorAppMonitorConfigurationArgsDict']] app_monitor_configuration: configuration data for the app monitor. See app_monitor_configuration below.
-        :param pulumi.Input[_builtins.str] app_monitor_id: The unique ID of the app monitor. Useful for JS templates.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the app monitor.
-        :param pulumi.Input[Union['AppMonitorCustomEventsArgs', 'AppMonitorCustomEventsArgsDict']] custom_events: Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
-        :param pulumi.Input[_builtins.bool] cw_log_enabled: Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
-        :param pulumi.Input[_builtins.str] cw_log_group: The name of the log group where the copies are stored.
-        :param pulumi.Input[_builtins.str] name: The name of the log stream.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -517,49 +397,31 @@ class AppMonitor(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="appMonitorConfiguration")
     def app_monitor_configuration(self) -> pulumi.Output['outputs.AppMonitorAppMonitorConfiguration']:
-        """
-        configuration data for the app monitor. See app_monitor_configuration below.
-        """
         return pulumi.get(self, "app_monitor_configuration")
 
     @_builtins.property
     @pulumi.getter(name="appMonitorId")
     def app_monitor_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The unique ID of the app monitor. Useful for JS templates.
-        """
         return pulumi.get(self, "app_monitor_id")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) specifying the app monitor.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="customEvents")
     def custom_events(self) -> pulumi.Output['outputs.AppMonitorCustomEvents']:
-        """
-        Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
-        """
         return pulumi.get(self, "custom_events")
 
     @_builtins.property
     @pulumi.getter(name="cwLogEnabled")
     def cw_log_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
-        """
         return pulumi.get(self, "cw_log_enabled")
 
     @_builtins.property
     @pulumi.getter(name="cwLogGroup")
     def cw_log_group(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the log group where the copies are stored.
-        """
         return pulumi.get(self, "cw_log_group")
 
     @_builtins.property
@@ -575,32 +437,20 @@ class AppMonitor(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the log stream.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

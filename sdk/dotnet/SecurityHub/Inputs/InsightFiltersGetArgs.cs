@@ -14,10 +14,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
     {
         [Input("awsAccountIds")]
         private InputList<Inputs.InsightFiltersAwsAccountIdGetArgs>? _awsAccountIds;
-
-        /// <summary>
-        /// AWS account ID that a finding is generated in. See String_Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersAwsAccountIdGetArgs> AwsAccountIds
         {
             get => _awsAccountIds ?? (_awsAccountIds = new InputList<Inputs.InsightFiltersAwsAccountIdGetArgs>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("companyNames")]
         private InputList<Inputs.InsightFiltersCompanyNameGetArgs>? _companyNames;
-
-        /// <summary>
-        /// The name of the findings provider (company) that owns the solution (product) that generates findings. See String_Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersCompanyNameGetArgs> CompanyNames
         {
             get => _companyNames ?? (_companyNames = new InputList<Inputs.InsightFiltersCompanyNameGetArgs>());
@@ -38,10 +30,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("complianceStatuses")]
         private InputList<Inputs.InsightFiltersComplianceStatusGetArgs>? _complianceStatuses;
-
-        /// <summary>
-        /// Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard, such as CIS AWS Foundations. Contains security standard-related finding details. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersComplianceStatusGetArgs> ComplianceStatuses
         {
             get => _complianceStatuses ?? (_complianceStatuses = new InputList<Inputs.InsightFiltersComplianceStatusGetArgs>());
@@ -50,10 +38,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("confidences")]
         private InputList<Inputs.InsightFiltersConfidenceGetArgs>? _confidences;
-
-        /// <summary>
-        /// A finding's confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersConfidenceGetArgs> Confidences
         {
             get => _confidences ?? (_confidences = new InputList<Inputs.InsightFiltersConfidenceGetArgs>());
@@ -62,10 +46,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("createdAts")]
         private InputList<Inputs.InsightFiltersCreatedAtGetArgs>? _createdAts;
-
-        /// <summary>
-        /// An ISO8601-formatted timestamp that indicates when the security-findings provider captured the potential security issue that a finding captured. See Date Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersCreatedAtGetArgs> CreatedAts
         {
             get => _createdAts ?? (_createdAts = new InputList<Inputs.InsightFiltersCreatedAtGetArgs>());
@@ -74,10 +54,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("criticalities")]
         private InputList<Inputs.InsightFiltersCriticalityGetArgs>? _criticalities;
-
-        /// <summary>
-        /// The level of importance assigned to the resources associated with the finding. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources. See Number Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersCriticalityGetArgs> Criticalities
         {
             get => _criticalities ?? (_criticalities = new InputList<Inputs.InsightFiltersCriticalityGetArgs>());
@@ -86,10 +62,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("descriptions")]
         private InputList<Inputs.InsightFiltersDescriptionGetArgs>? _descriptions;
-
-        /// <summary>
-        /// A finding's description. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersDescriptionGetArgs> Descriptions
         {
             get => _descriptions ?? (_descriptions = new InputList<Inputs.InsightFiltersDescriptionGetArgs>());
@@ -98,10 +70,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("findingProviderFieldsConfidences")]
         private InputList<Inputs.InsightFiltersFindingProviderFieldsConfidenceGetArgs>? _findingProviderFieldsConfidences;
-
-        /// <summary>
-        /// The finding provider value for the finding confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersFindingProviderFieldsConfidenceGetArgs> FindingProviderFieldsConfidences
         {
             get => _findingProviderFieldsConfidences ?? (_findingProviderFieldsConfidences = new InputList<Inputs.InsightFiltersFindingProviderFieldsConfidenceGetArgs>());
@@ -110,10 +78,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("findingProviderFieldsCriticalities")]
         private InputList<Inputs.InsightFiltersFindingProviderFieldsCriticalityGetArgs>? _findingProviderFieldsCriticalities;
-
-        /// <summary>
-        /// The finding provider value for the level of importance assigned to the resources associated with the findings. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources. See Number Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersFindingProviderFieldsCriticalityGetArgs> FindingProviderFieldsCriticalities
         {
             get => _findingProviderFieldsCriticalities ?? (_findingProviderFieldsCriticalities = new InputList<Inputs.InsightFiltersFindingProviderFieldsCriticalityGetArgs>());
@@ -122,10 +86,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("findingProviderFieldsRelatedFindingsIds")]
         private InputList<Inputs.InsightFiltersFindingProviderFieldsRelatedFindingsIdGetArgs>? _findingProviderFieldsRelatedFindingsIds;
-
-        /// <summary>
-        /// The finding identifier of a related finding that is identified by the finding provider. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersFindingProviderFieldsRelatedFindingsIdGetArgs> FindingProviderFieldsRelatedFindingsIds
         {
             get => _findingProviderFieldsRelatedFindingsIds ?? (_findingProviderFieldsRelatedFindingsIds = new InputList<Inputs.InsightFiltersFindingProviderFieldsRelatedFindingsIdGetArgs>());
@@ -134,10 +94,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("findingProviderFieldsRelatedFindingsProductArns")]
         private InputList<Inputs.InsightFiltersFindingProviderFieldsRelatedFindingsProductArnGetArgs>? _findingProviderFieldsRelatedFindingsProductArns;
-
-        /// <summary>
-        /// The ARN of the solution that generated a related finding that is identified by the finding provider. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersFindingProviderFieldsRelatedFindingsProductArnGetArgs> FindingProviderFieldsRelatedFindingsProductArns
         {
             get => _findingProviderFieldsRelatedFindingsProductArns ?? (_findingProviderFieldsRelatedFindingsProductArns = new InputList<Inputs.InsightFiltersFindingProviderFieldsRelatedFindingsProductArnGetArgs>());
@@ -146,10 +102,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("findingProviderFieldsSeverityLabels")]
         private InputList<Inputs.InsightFiltersFindingProviderFieldsSeverityLabelGetArgs>? _findingProviderFieldsSeverityLabels;
-
-        /// <summary>
-        /// The finding provider value for the severity label. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersFindingProviderFieldsSeverityLabelGetArgs> FindingProviderFieldsSeverityLabels
         {
             get => _findingProviderFieldsSeverityLabels ?? (_findingProviderFieldsSeverityLabels = new InputList<Inputs.InsightFiltersFindingProviderFieldsSeverityLabelGetArgs>());
@@ -158,10 +110,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("findingProviderFieldsSeverityOriginals")]
         private InputList<Inputs.InsightFiltersFindingProviderFieldsSeverityOriginalGetArgs>? _findingProviderFieldsSeverityOriginals;
-
-        /// <summary>
-        /// The finding provider's original value for the severity. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersFindingProviderFieldsSeverityOriginalGetArgs> FindingProviderFieldsSeverityOriginals
         {
             get => _findingProviderFieldsSeverityOriginals ?? (_findingProviderFieldsSeverityOriginals = new InputList<Inputs.InsightFiltersFindingProviderFieldsSeverityOriginalGetArgs>());
@@ -170,10 +118,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("findingProviderFieldsTypes")]
         private InputList<Inputs.InsightFiltersFindingProviderFieldsTypeGetArgs>? _findingProviderFieldsTypes;
-
-        /// <summary>
-        /// One or more finding types that the finding provider assigned to the finding. Uses the format of `namespace/category/classifier` that classify a finding. Valid namespace values include: `Software and Configuration Checks`, `TTPs`, `Effects`, `Unusual Behaviors`, and `Sensitive Data Identifications`. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersFindingProviderFieldsTypeGetArgs> FindingProviderFieldsTypes
         {
             get => _findingProviderFieldsTypes ?? (_findingProviderFieldsTypes = new InputList<Inputs.InsightFiltersFindingProviderFieldsTypeGetArgs>());
@@ -182,10 +126,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("firstObservedAts")]
         private InputList<Inputs.InsightFiltersFirstObservedAtGetArgs>? _firstObservedAts;
-
-        /// <summary>
-        /// An ISO8601-formatted timestamp that indicates when the security-findings provider first observed the potential security issue that a finding captured. See Date Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersFirstObservedAtGetArgs> FirstObservedAts
         {
             get => _firstObservedAts ?? (_firstObservedAts = new InputList<Inputs.InsightFiltersFirstObservedAtGetArgs>());
@@ -194,10 +134,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("generatorIds")]
         private InputList<Inputs.InsightFiltersGeneratorIdGetArgs>? _generatorIds;
-
-        /// <summary>
-        /// The identifier for the solution-specific component (a discrete unit of logic) that generated a finding. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersGeneratorIdGetArgs> GeneratorIds
         {
             get => _generatorIds ?? (_generatorIds = new InputList<Inputs.InsightFiltersGeneratorIdGetArgs>());
@@ -206,10 +142,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("ids")]
         private InputList<Inputs.InsightFiltersIdGetArgs>? _ids;
-
-        /// <summary>
-        /// The security findings provider-specific identifier for a finding. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersIdGetArgs> Ids
         {
             get => _ids ?? (_ids = new InputList<Inputs.InsightFiltersIdGetArgs>());
@@ -218,10 +150,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("keywords")]
         private InputList<Inputs.InsightFiltersKeywordGetArgs>? _keywords;
-
-        /// <summary>
-        /// A keyword for a finding. See Keyword Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersKeywordGetArgs> Keywords
         {
             get => _keywords ?? (_keywords = new InputList<Inputs.InsightFiltersKeywordGetArgs>());
@@ -230,10 +158,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("lastObservedAts")]
         private InputList<Inputs.InsightFiltersLastObservedAtGetArgs>? _lastObservedAts;
-
-        /// <summary>
-        /// An ISO8601-formatted timestamp that indicates when the security-findings provider most recently observed the potential security issue that a finding captured. See Date Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersLastObservedAtGetArgs> LastObservedAts
         {
             get => _lastObservedAts ?? (_lastObservedAts = new InputList<Inputs.InsightFiltersLastObservedAtGetArgs>());
@@ -242,10 +166,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("malwareNames")]
         private InputList<Inputs.InsightFiltersMalwareNameGetArgs>? _malwareNames;
-
-        /// <summary>
-        /// The name of the malware that was observed. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersMalwareNameGetArgs> MalwareNames
         {
             get => _malwareNames ?? (_malwareNames = new InputList<Inputs.InsightFiltersMalwareNameGetArgs>());
@@ -254,10 +174,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("malwarePaths")]
         private InputList<Inputs.InsightFiltersMalwarePathGetArgs>? _malwarePaths;
-
-        /// <summary>
-        /// The filesystem path of the malware that was observed. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersMalwarePathGetArgs> MalwarePaths
         {
             get => _malwarePaths ?? (_malwarePaths = new InputList<Inputs.InsightFiltersMalwarePathGetArgs>());
@@ -266,10 +182,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("malwareStates")]
         private InputList<Inputs.InsightFiltersMalwareStateGetArgs>? _malwareStates;
-
-        /// <summary>
-        /// The state of the malware that was observed. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersMalwareStateGetArgs> MalwareStates
         {
             get => _malwareStates ?? (_malwareStates = new InputList<Inputs.InsightFiltersMalwareStateGetArgs>());
@@ -278,10 +190,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("malwareTypes")]
         private InputList<Inputs.InsightFiltersMalwareTypeGetArgs>? _malwareTypes;
-
-        /// <summary>
-        /// The type of the malware that was observed. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersMalwareTypeGetArgs> MalwareTypes
         {
             get => _malwareTypes ?? (_malwareTypes = new InputList<Inputs.InsightFiltersMalwareTypeGetArgs>());
@@ -290,10 +198,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("networkDestinationDomains")]
         private InputList<Inputs.InsightFiltersNetworkDestinationDomainGetArgs>? _networkDestinationDomains;
-
-        /// <summary>
-        /// The destination domain of network-related information about a finding. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersNetworkDestinationDomainGetArgs> NetworkDestinationDomains
         {
             get => _networkDestinationDomains ?? (_networkDestinationDomains = new InputList<Inputs.InsightFiltersNetworkDestinationDomainGetArgs>());
@@ -302,10 +206,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("networkDestinationIpv4s")]
         private InputList<Inputs.InsightFiltersNetworkDestinationIpv4GetArgs>? _networkDestinationIpv4s;
-
-        /// <summary>
-        /// The destination IPv4 address of network-related information about a finding. See Ip Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersNetworkDestinationIpv4GetArgs> NetworkDestinationIpv4s
         {
             get => _networkDestinationIpv4s ?? (_networkDestinationIpv4s = new InputList<Inputs.InsightFiltersNetworkDestinationIpv4GetArgs>());
@@ -314,10 +214,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("networkDestinationIpv6s")]
         private InputList<Inputs.InsightFiltersNetworkDestinationIpv6GetArgs>? _networkDestinationIpv6s;
-
-        /// <summary>
-        /// The destination IPv6 address of network-related information about a finding. See Ip Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersNetworkDestinationIpv6GetArgs> NetworkDestinationIpv6s
         {
             get => _networkDestinationIpv6s ?? (_networkDestinationIpv6s = new InputList<Inputs.InsightFiltersNetworkDestinationIpv6GetArgs>());
@@ -326,10 +222,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("networkDestinationPorts")]
         private InputList<Inputs.InsightFiltersNetworkDestinationPortGetArgs>? _networkDestinationPorts;
-
-        /// <summary>
-        /// The destination port of network-related information about a finding. See Number Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersNetworkDestinationPortGetArgs> NetworkDestinationPorts
         {
             get => _networkDestinationPorts ?? (_networkDestinationPorts = new InputList<Inputs.InsightFiltersNetworkDestinationPortGetArgs>());
@@ -338,10 +230,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("networkDirections")]
         private InputList<Inputs.InsightFiltersNetworkDirectionGetArgs>? _networkDirections;
-
-        /// <summary>
-        /// Indicates the direction of network traffic associated with a finding. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersNetworkDirectionGetArgs> NetworkDirections
         {
             get => _networkDirections ?? (_networkDirections = new InputList<Inputs.InsightFiltersNetworkDirectionGetArgs>());
@@ -350,10 +238,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("networkProtocols")]
         private InputList<Inputs.InsightFiltersNetworkProtocolGetArgs>? _networkProtocols;
-
-        /// <summary>
-        /// The protocol of network-related information about a finding. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersNetworkProtocolGetArgs> NetworkProtocols
         {
             get => _networkProtocols ?? (_networkProtocols = new InputList<Inputs.InsightFiltersNetworkProtocolGetArgs>());
@@ -362,10 +246,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("networkSourceDomains")]
         private InputList<Inputs.InsightFiltersNetworkSourceDomainGetArgs>? _networkSourceDomains;
-
-        /// <summary>
-        /// The source domain of network-related information about a finding. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersNetworkSourceDomainGetArgs> NetworkSourceDomains
         {
             get => _networkSourceDomains ?? (_networkSourceDomains = new InputList<Inputs.InsightFiltersNetworkSourceDomainGetArgs>());
@@ -374,10 +254,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("networkSourceIpv4s")]
         private InputList<Inputs.InsightFiltersNetworkSourceIpv4GetArgs>? _networkSourceIpv4s;
-
-        /// <summary>
-        /// The source IPv4 address of network-related information about a finding. See Ip Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersNetworkSourceIpv4GetArgs> NetworkSourceIpv4s
         {
             get => _networkSourceIpv4s ?? (_networkSourceIpv4s = new InputList<Inputs.InsightFiltersNetworkSourceIpv4GetArgs>());
@@ -386,10 +262,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("networkSourceIpv6s")]
         private InputList<Inputs.InsightFiltersNetworkSourceIpv6GetArgs>? _networkSourceIpv6s;
-
-        /// <summary>
-        /// The source IPv6 address of network-related information about a finding. See Ip Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersNetworkSourceIpv6GetArgs> NetworkSourceIpv6s
         {
             get => _networkSourceIpv6s ?? (_networkSourceIpv6s = new InputList<Inputs.InsightFiltersNetworkSourceIpv6GetArgs>());
@@ -398,10 +270,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("networkSourceMacs")]
         private InputList<Inputs.InsightFiltersNetworkSourceMacGetArgs>? _networkSourceMacs;
-
-        /// <summary>
-        /// The source media access control (MAC) address of network-related information about a finding. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersNetworkSourceMacGetArgs> NetworkSourceMacs
         {
             get => _networkSourceMacs ?? (_networkSourceMacs = new InputList<Inputs.InsightFiltersNetworkSourceMacGetArgs>());
@@ -410,10 +278,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("networkSourcePorts")]
         private InputList<Inputs.InsightFiltersNetworkSourcePortGetArgs>? _networkSourcePorts;
-
-        /// <summary>
-        /// The source port of network-related information about a finding. See Number Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersNetworkSourcePortGetArgs> NetworkSourcePorts
         {
             get => _networkSourcePorts ?? (_networkSourcePorts = new InputList<Inputs.InsightFiltersNetworkSourcePortGetArgs>());
@@ -422,10 +286,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("noteTexts")]
         private InputList<Inputs.InsightFiltersNoteTextGetArgs>? _noteTexts;
-
-        /// <summary>
-        /// The text of a note. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersNoteTextGetArgs> NoteTexts
         {
             get => _noteTexts ?? (_noteTexts = new InputList<Inputs.InsightFiltersNoteTextGetArgs>());
@@ -434,10 +294,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("noteUpdatedAts")]
         private InputList<Inputs.InsightFiltersNoteUpdatedAtGetArgs>? _noteUpdatedAts;
-
-        /// <summary>
-        /// The timestamp of when the note was updated. See Date Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersNoteUpdatedAtGetArgs> NoteUpdatedAts
         {
             get => _noteUpdatedAts ?? (_noteUpdatedAts = new InputList<Inputs.InsightFiltersNoteUpdatedAtGetArgs>());
@@ -446,10 +302,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("noteUpdatedBies")]
         private InputList<Inputs.InsightFiltersNoteUpdatedByGetArgs>? _noteUpdatedBies;
-
-        /// <summary>
-        /// The principal that created a note. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersNoteUpdatedByGetArgs> NoteUpdatedBies
         {
             get => _noteUpdatedBies ?? (_noteUpdatedBies = new InputList<Inputs.InsightFiltersNoteUpdatedByGetArgs>());
@@ -458,10 +310,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("processLaunchedAts")]
         private InputList<Inputs.InsightFiltersProcessLaunchedAtGetArgs>? _processLaunchedAts;
-
-        /// <summary>
-        /// The date/time that the process was launched. See Date Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersProcessLaunchedAtGetArgs> ProcessLaunchedAts
         {
             get => _processLaunchedAts ?? (_processLaunchedAts = new InputList<Inputs.InsightFiltersProcessLaunchedAtGetArgs>());
@@ -470,10 +318,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("processNames")]
         private InputList<Inputs.InsightFiltersProcessNameGetArgs>? _processNames;
-
-        /// <summary>
-        /// The name of the process. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersProcessNameGetArgs> ProcessNames
         {
             get => _processNames ?? (_processNames = new InputList<Inputs.InsightFiltersProcessNameGetArgs>());
@@ -482,10 +326,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("processParentPids")]
         private InputList<Inputs.InsightFiltersProcessParentPidGetArgs>? _processParentPids;
-
-        /// <summary>
-        /// The parent process ID. See Number Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersProcessParentPidGetArgs> ProcessParentPids
         {
             get => _processParentPids ?? (_processParentPids = new InputList<Inputs.InsightFiltersProcessParentPidGetArgs>());
@@ -494,10 +334,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("processPaths")]
         private InputList<Inputs.InsightFiltersProcessPathGetArgs>? _processPaths;
-
-        /// <summary>
-        /// The path to the process executable. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersProcessPathGetArgs> ProcessPaths
         {
             get => _processPaths ?? (_processPaths = new InputList<Inputs.InsightFiltersProcessPathGetArgs>());
@@ -506,10 +342,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("processPids")]
         private InputList<Inputs.InsightFiltersProcessPidGetArgs>? _processPids;
-
-        /// <summary>
-        /// The process ID. See Number Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersProcessPidGetArgs> ProcessPids
         {
             get => _processPids ?? (_processPids = new InputList<Inputs.InsightFiltersProcessPidGetArgs>());
@@ -518,10 +350,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("processTerminatedAts")]
         private InputList<Inputs.InsightFiltersProcessTerminatedAtGetArgs>? _processTerminatedAts;
-
-        /// <summary>
-        /// The date/time that the process was terminated. See Date Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersProcessTerminatedAtGetArgs> ProcessTerminatedAts
         {
             get => _processTerminatedAts ?? (_processTerminatedAts = new InputList<Inputs.InsightFiltersProcessTerminatedAtGetArgs>());
@@ -530,10 +358,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("productArns")]
         private InputList<Inputs.InsightFiltersProductArnGetArgs>? _productArns;
-
-        /// <summary>
-        /// The ARN generated by Security Hub that uniquely identifies a third-party company (security findings provider) after this provider's product (solution that generates findings) is registered with Security Hub. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersProductArnGetArgs> ProductArns
         {
             get => _productArns ?? (_productArns = new InputList<Inputs.InsightFiltersProductArnGetArgs>());
@@ -542,10 +366,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("productFields")]
         private InputList<Inputs.InsightFiltersProductFieldGetArgs>? _productFields;
-
-        /// <summary>
-        /// A data type where security-findings providers can include additional solution-specific details that aren't part of the defined `AwsSecurityFinding` format. See Map Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersProductFieldGetArgs> ProductFields
         {
             get => _productFields ?? (_productFields = new InputList<Inputs.InsightFiltersProductFieldGetArgs>());
@@ -554,10 +374,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("productNames")]
         private InputList<Inputs.InsightFiltersProductNameGetArgs>? _productNames;
-
-        /// <summary>
-        /// The name of the solution (product) that generates findings. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersProductNameGetArgs> ProductNames
         {
             get => _productNames ?? (_productNames = new InputList<Inputs.InsightFiltersProductNameGetArgs>());
@@ -566,10 +382,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("recommendationTexts")]
         private InputList<Inputs.InsightFiltersRecommendationTextGetArgs>? _recommendationTexts;
-
-        /// <summary>
-        /// The recommendation of what to do about the issue described in a finding. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersRecommendationTextGetArgs> RecommendationTexts
         {
             get => _recommendationTexts ?? (_recommendationTexts = new InputList<Inputs.InsightFiltersRecommendationTextGetArgs>());
@@ -578,10 +390,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("recordStates")]
         private InputList<Inputs.InsightFiltersRecordStateGetArgs>? _recordStates;
-
-        /// <summary>
-        /// The updated record state for the finding. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersRecordStateGetArgs> RecordStates
         {
             get => _recordStates ?? (_recordStates = new InputList<Inputs.InsightFiltersRecordStateGetArgs>());
@@ -590,10 +398,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("relatedFindingsIds")]
         private InputList<Inputs.InsightFiltersRelatedFindingsIdGetArgs>? _relatedFindingsIds;
-
-        /// <summary>
-        /// The solution-generated identifier for a related finding. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersRelatedFindingsIdGetArgs> RelatedFindingsIds
         {
             get => _relatedFindingsIds ?? (_relatedFindingsIds = new InputList<Inputs.InsightFiltersRelatedFindingsIdGetArgs>());
@@ -602,10 +406,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("relatedFindingsProductArns")]
         private InputList<Inputs.InsightFiltersRelatedFindingsProductArnGetArgs>? _relatedFindingsProductArns;
-
-        /// <summary>
-        /// The ARN of the solution that generated a related finding. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersRelatedFindingsProductArnGetArgs> RelatedFindingsProductArns
         {
             get => _relatedFindingsProductArns ?? (_relatedFindingsProductArns = new InputList<Inputs.InsightFiltersRelatedFindingsProductArnGetArgs>());
@@ -614,10 +414,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("resourceAwsEc2InstanceIamInstanceProfileArns")]
         private InputList<Inputs.InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnGetArgs>? _resourceAwsEc2InstanceIamInstanceProfileArns;
-
-        /// <summary>
-        /// The IAM profile ARN of the instance. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnGetArgs> ResourceAwsEc2InstanceIamInstanceProfileArns
         {
             get => _resourceAwsEc2InstanceIamInstanceProfileArns ?? (_resourceAwsEc2InstanceIamInstanceProfileArns = new InputList<Inputs.InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnGetArgs>());
@@ -626,10 +422,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("resourceAwsEc2InstanceImageIds")]
         private InputList<Inputs.InsightFiltersResourceAwsEc2InstanceImageIdGetArgs>? _resourceAwsEc2InstanceImageIds;
-
-        /// <summary>
-        /// The Amazon Machine Image (AMI) ID of the instance. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersResourceAwsEc2InstanceImageIdGetArgs> ResourceAwsEc2InstanceImageIds
         {
             get => _resourceAwsEc2InstanceImageIds ?? (_resourceAwsEc2InstanceImageIds = new InputList<Inputs.InsightFiltersResourceAwsEc2InstanceImageIdGetArgs>());
@@ -638,10 +430,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("resourceAwsEc2InstanceIpv4Addresses")]
         private InputList<Inputs.InsightFiltersResourceAwsEc2InstanceIpv4AddressGetArgs>? _resourceAwsEc2InstanceIpv4Addresses;
-
-        /// <summary>
-        /// The IPv4 addresses associated with the instance. See Ip Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersResourceAwsEc2InstanceIpv4AddressGetArgs> ResourceAwsEc2InstanceIpv4Addresses
         {
             get => _resourceAwsEc2InstanceIpv4Addresses ?? (_resourceAwsEc2InstanceIpv4Addresses = new InputList<Inputs.InsightFiltersResourceAwsEc2InstanceIpv4AddressGetArgs>());
@@ -650,10 +438,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("resourceAwsEc2InstanceIpv6Addresses")]
         private InputList<Inputs.InsightFiltersResourceAwsEc2InstanceIpv6AddressGetArgs>? _resourceAwsEc2InstanceIpv6Addresses;
-
-        /// <summary>
-        /// The IPv6 addresses associated with the instance. See Ip Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersResourceAwsEc2InstanceIpv6AddressGetArgs> ResourceAwsEc2InstanceIpv6Addresses
         {
             get => _resourceAwsEc2InstanceIpv6Addresses ?? (_resourceAwsEc2InstanceIpv6Addresses = new InputList<Inputs.InsightFiltersResourceAwsEc2InstanceIpv6AddressGetArgs>());
@@ -662,10 +446,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("resourceAwsEc2InstanceKeyNames")]
         private InputList<Inputs.InsightFiltersResourceAwsEc2InstanceKeyNameGetArgs>? _resourceAwsEc2InstanceKeyNames;
-
-        /// <summary>
-        /// The key name associated with the instance. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersResourceAwsEc2InstanceKeyNameGetArgs> ResourceAwsEc2InstanceKeyNames
         {
             get => _resourceAwsEc2InstanceKeyNames ?? (_resourceAwsEc2InstanceKeyNames = new InputList<Inputs.InsightFiltersResourceAwsEc2InstanceKeyNameGetArgs>());
@@ -674,10 +454,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("resourceAwsEc2InstanceLaunchedAts")]
         private InputList<Inputs.InsightFiltersResourceAwsEc2InstanceLaunchedAtGetArgs>? _resourceAwsEc2InstanceLaunchedAts;
-
-        /// <summary>
-        /// The date and time the instance was launched. See Date Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersResourceAwsEc2InstanceLaunchedAtGetArgs> ResourceAwsEc2InstanceLaunchedAts
         {
             get => _resourceAwsEc2InstanceLaunchedAts ?? (_resourceAwsEc2InstanceLaunchedAts = new InputList<Inputs.InsightFiltersResourceAwsEc2InstanceLaunchedAtGetArgs>());
@@ -686,10 +462,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("resourceAwsEc2InstanceSubnetIds")]
         private InputList<Inputs.InsightFiltersResourceAwsEc2InstanceSubnetIdGetArgs>? _resourceAwsEc2InstanceSubnetIds;
-
-        /// <summary>
-        /// The identifier of the subnet that the instance was launched in. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersResourceAwsEc2InstanceSubnetIdGetArgs> ResourceAwsEc2InstanceSubnetIds
         {
             get => _resourceAwsEc2InstanceSubnetIds ?? (_resourceAwsEc2InstanceSubnetIds = new InputList<Inputs.InsightFiltersResourceAwsEc2InstanceSubnetIdGetArgs>());
@@ -698,10 +470,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("resourceAwsEc2InstanceTypes")]
         private InputList<Inputs.InsightFiltersResourceAwsEc2InstanceTypeGetArgs>? _resourceAwsEc2InstanceTypes;
-
-        /// <summary>
-        /// The instance type of the instance. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersResourceAwsEc2InstanceTypeGetArgs> ResourceAwsEc2InstanceTypes
         {
             get => _resourceAwsEc2InstanceTypes ?? (_resourceAwsEc2InstanceTypes = new InputList<Inputs.InsightFiltersResourceAwsEc2InstanceTypeGetArgs>());
@@ -710,10 +478,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("resourceAwsEc2InstanceVpcIds")]
         private InputList<Inputs.InsightFiltersResourceAwsEc2InstanceVpcIdGetArgs>? _resourceAwsEc2InstanceVpcIds;
-
-        /// <summary>
-        /// The identifier of the VPC that the instance was launched in. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersResourceAwsEc2InstanceVpcIdGetArgs> ResourceAwsEc2InstanceVpcIds
         {
             get => _resourceAwsEc2InstanceVpcIds ?? (_resourceAwsEc2InstanceVpcIds = new InputList<Inputs.InsightFiltersResourceAwsEc2InstanceVpcIdGetArgs>());
@@ -722,10 +486,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("resourceAwsIamAccessKeyCreatedAts")]
         private InputList<Inputs.InsightFiltersResourceAwsIamAccessKeyCreatedAtGetArgs>? _resourceAwsIamAccessKeyCreatedAts;
-
-        /// <summary>
-        /// The creation date/time of the IAM access key related to a finding. See Date Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersResourceAwsIamAccessKeyCreatedAtGetArgs> ResourceAwsIamAccessKeyCreatedAts
         {
             get => _resourceAwsIamAccessKeyCreatedAts ?? (_resourceAwsIamAccessKeyCreatedAts = new InputList<Inputs.InsightFiltersResourceAwsIamAccessKeyCreatedAtGetArgs>());
@@ -734,10 +494,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("resourceAwsIamAccessKeyStatuses")]
         private InputList<Inputs.InsightFiltersResourceAwsIamAccessKeyStatusGetArgs>? _resourceAwsIamAccessKeyStatuses;
-
-        /// <summary>
-        /// The status of the IAM access key related to a finding. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersResourceAwsIamAccessKeyStatusGetArgs> ResourceAwsIamAccessKeyStatuses
         {
             get => _resourceAwsIamAccessKeyStatuses ?? (_resourceAwsIamAccessKeyStatuses = new InputList<Inputs.InsightFiltersResourceAwsIamAccessKeyStatusGetArgs>());
@@ -746,10 +502,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("resourceAwsIamAccessKeyUserNames")]
         private InputList<Inputs.InsightFiltersResourceAwsIamAccessKeyUserNameGetArgs>? _resourceAwsIamAccessKeyUserNames;
-
-        /// <summary>
-        /// The user associated with the IAM access key related to a finding. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersResourceAwsIamAccessKeyUserNameGetArgs> ResourceAwsIamAccessKeyUserNames
         {
             get => _resourceAwsIamAccessKeyUserNames ?? (_resourceAwsIamAccessKeyUserNames = new InputList<Inputs.InsightFiltersResourceAwsIamAccessKeyUserNameGetArgs>());
@@ -758,10 +510,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("resourceAwsS3BucketOwnerIds")]
         private InputList<Inputs.InsightFiltersResourceAwsS3BucketOwnerIdGetArgs>? _resourceAwsS3BucketOwnerIds;
-
-        /// <summary>
-        /// The canonical user ID of the owner of the S3 bucket. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersResourceAwsS3BucketOwnerIdGetArgs> ResourceAwsS3BucketOwnerIds
         {
             get => _resourceAwsS3BucketOwnerIds ?? (_resourceAwsS3BucketOwnerIds = new InputList<Inputs.InsightFiltersResourceAwsS3BucketOwnerIdGetArgs>());
@@ -770,10 +518,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("resourceAwsS3BucketOwnerNames")]
         private InputList<Inputs.InsightFiltersResourceAwsS3BucketOwnerNameGetArgs>? _resourceAwsS3BucketOwnerNames;
-
-        /// <summary>
-        /// The display name of the owner of the S3 bucket. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersResourceAwsS3BucketOwnerNameGetArgs> ResourceAwsS3BucketOwnerNames
         {
             get => _resourceAwsS3BucketOwnerNames ?? (_resourceAwsS3BucketOwnerNames = new InputList<Inputs.InsightFiltersResourceAwsS3BucketOwnerNameGetArgs>());
@@ -782,10 +526,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("resourceContainerImageIds")]
         private InputList<Inputs.InsightFiltersResourceContainerImageIdGetArgs>? _resourceContainerImageIds;
-
-        /// <summary>
-        /// The identifier of the image related to a finding. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersResourceContainerImageIdGetArgs> ResourceContainerImageIds
         {
             get => _resourceContainerImageIds ?? (_resourceContainerImageIds = new InputList<Inputs.InsightFiltersResourceContainerImageIdGetArgs>());
@@ -794,10 +534,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("resourceContainerImageNames")]
         private InputList<Inputs.InsightFiltersResourceContainerImageNameGetArgs>? _resourceContainerImageNames;
-
-        /// <summary>
-        /// The name of the image related to a finding. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersResourceContainerImageNameGetArgs> ResourceContainerImageNames
         {
             get => _resourceContainerImageNames ?? (_resourceContainerImageNames = new InputList<Inputs.InsightFiltersResourceContainerImageNameGetArgs>());
@@ -806,10 +542,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("resourceContainerLaunchedAts")]
         private InputList<Inputs.InsightFiltersResourceContainerLaunchedAtGetArgs>? _resourceContainerLaunchedAts;
-
-        /// <summary>
-        /// The date/time that the container was started. See Date Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersResourceContainerLaunchedAtGetArgs> ResourceContainerLaunchedAts
         {
             get => _resourceContainerLaunchedAts ?? (_resourceContainerLaunchedAts = new InputList<Inputs.InsightFiltersResourceContainerLaunchedAtGetArgs>());
@@ -818,10 +550,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("resourceContainerNames")]
         private InputList<Inputs.InsightFiltersResourceContainerNameGetArgs>? _resourceContainerNames;
-
-        /// <summary>
-        /// The name of the container related to a finding. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersResourceContainerNameGetArgs> ResourceContainerNames
         {
             get => _resourceContainerNames ?? (_resourceContainerNames = new InputList<Inputs.InsightFiltersResourceContainerNameGetArgs>());
@@ -830,10 +558,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("resourceDetailsOthers")]
         private InputList<Inputs.InsightFiltersResourceDetailsOtherGetArgs>? _resourceDetailsOthers;
-
-        /// <summary>
-        /// The details of a resource that doesn't have a specific subfield for the resource type defined. See Map Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersResourceDetailsOtherGetArgs> ResourceDetailsOthers
         {
             get => _resourceDetailsOthers ?? (_resourceDetailsOthers = new InputList<Inputs.InsightFiltersResourceDetailsOtherGetArgs>());
@@ -842,10 +566,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("resourceIds")]
         private InputList<Inputs.InsightFiltersResourceIdGetArgs>? _resourceIds;
-
-        /// <summary>
-        /// The canonical identifier for the given resource type. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersResourceIdGetArgs> ResourceIds
         {
             get => _resourceIds ?? (_resourceIds = new InputList<Inputs.InsightFiltersResourceIdGetArgs>());
@@ -854,10 +574,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("resourcePartitions")]
         private InputList<Inputs.InsightFiltersResourcePartitionGetArgs>? _resourcePartitions;
-
-        /// <summary>
-        /// The canonical AWS partition name that the Region is assigned to. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersResourcePartitionGetArgs> ResourcePartitions
         {
             get => _resourcePartitions ?? (_resourcePartitions = new InputList<Inputs.InsightFiltersResourcePartitionGetArgs>());
@@ -866,10 +582,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("resourceRegions")]
         private InputList<Inputs.InsightFiltersResourceRegionGetArgs>? _resourceRegions;
-
-        /// <summary>
-        /// The canonical AWS external Region name where this resource is located. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersResourceRegionGetArgs> ResourceRegions
         {
             get => _resourceRegions ?? (_resourceRegions = new InputList<Inputs.InsightFiltersResourceRegionGetArgs>());
@@ -878,10 +590,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("resourceTags")]
         private InputList<Inputs.InsightFiltersResourceTagGetArgs>? _resourceTags;
-
-        /// <summary>
-        /// A list of AWS tags associated with a resource at the time the finding was processed. See Map Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersResourceTagGetArgs> ResourceTags
         {
             get => _resourceTags ?? (_resourceTags = new InputList<Inputs.InsightFiltersResourceTagGetArgs>());
@@ -890,10 +598,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("resourceTypes")]
         private InputList<Inputs.InsightFiltersResourceTypeGetArgs>? _resourceTypes;
-
-        /// <summary>
-        /// Specifies the type of the resource that details are provided for. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersResourceTypeGetArgs> ResourceTypes
         {
             get => _resourceTypes ?? (_resourceTypes = new InputList<Inputs.InsightFiltersResourceTypeGetArgs>());
@@ -902,10 +606,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("severityLabels")]
         private InputList<Inputs.InsightFiltersSeverityLabelGetArgs>? _severityLabels;
-
-        /// <summary>
-        /// The label of a finding's severity. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersSeverityLabelGetArgs> SeverityLabels
         {
             get => _severityLabels ?? (_severityLabels = new InputList<Inputs.InsightFiltersSeverityLabelGetArgs>());
@@ -914,10 +614,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("sourceUrls")]
         private InputList<Inputs.InsightFiltersSourceUrlGetArgs>? _sourceUrls;
-
-        /// <summary>
-        /// A URL that links to a page about the current finding in the security-findings provider's solution. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersSourceUrlGetArgs> SourceUrls
         {
             get => _sourceUrls ?? (_sourceUrls = new InputList<Inputs.InsightFiltersSourceUrlGetArgs>());
@@ -926,10 +622,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("threatIntelIndicatorCategories")]
         private InputList<Inputs.InsightFiltersThreatIntelIndicatorCategoryGetArgs>? _threatIntelIndicatorCategories;
-
-        /// <summary>
-        /// The category of a threat intelligence indicator. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersThreatIntelIndicatorCategoryGetArgs> ThreatIntelIndicatorCategories
         {
             get => _threatIntelIndicatorCategories ?? (_threatIntelIndicatorCategories = new InputList<Inputs.InsightFiltersThreatIntelIndicatorCategoryGetArgs>());
@@ -938,10 +630,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("threatIntelIndicatorLastObservedAts")]
         private InputList<Inputs.InsightFiltersThreatIntelIndicatorLastObservedAtGetArgs>? _threatIntelIndicatorLastObservedAts;
-
-        /// <summary>
-        /// The date/time of the last observation of a threat intelligence indicator. See Date Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersThreatIntelIndicatorLastObservedAtGetArgs> ThreatIntelIndicatorLastObservedAts
         {
             get => _threatIntelIndicatorLastObservedAts ?? (_threatIntelIndicatorLastObservedAts = new InputList<Inputs.InsightFiltersThreatIntelIndicatorLastObservedAtGetArgs>());
@@ -950,10 +638,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("threatIntelIndicatorSourceUrls")]
         private InputList<Inputs.InsightFiltersThreatIntelIndicatorSourceUrlGetArgs>? _threatIntelIndicatorSourceUrls;
-
-        /// <summary>
-        /// The URL for more details from the source of the threat intelligence. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersThreatIntelIndicatorSourceUrlGetArgs> ThreatIntelIndicatorSourceUrls
         {
             get => _threatIntelIndicatorSourceUrls ?? (_threatIntelIndicatorSourceUrls = new InputList<Inputs.InsightFiltersThreatIntelIndicatorSourceUrlGetArgs>());
@@ -962,10 +646,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("threatIntelIndicatorSources")]
         private InputList<Inputs.InsightFiltersThreatIntelIndicatorSourceGetArgs>? _threatIntelIndicatorSources;
-
-        /// <summary>
-        /// The source of the threat intelligence. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersThreatIntelIndicatorSourceGetArgs> ThreatIntelIndicatorSources
         {
             get => _threatIntelIndicatorSources ?? (_threatIntelIndicatorSources = new InputList<Inputs.InsightFiltersThreatIntelIndicatorSourceGetArgs>());
@@ -974,10 +654,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("threatIntelIndicatorTypes")]
         private InputList<Inputs.InsightFiltersThreatIntelIndicatorTypeGetArgs>? _threatIntelIndicatorTypes;
-
-        /// <summary>
-        /// The type of a threat intelligence indicator. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersThreatIntelIndicatorTypeGetArgs> ThreatIntelIndicatorTypes
         {
             get => _threatIntelIndicatorTypes ?? (_threatIntelIndicatorTypes = new InputList<Inputs.InsightFiltersThreatIntelIndicatorTypeGetArgs>());
@@ -986,10 +662,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("threatIntelIndicatorValues")]
         private InputList<Inputs.InsightFiltersThreatIntelIndicatorValueGetArgs>? _threatIntelIndicatorValues;
-
-        /// <summary>
-        /// The value of a threat intelligence indicator. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersThreatIntelIndicatorValueGetArgs> ThreatIntelIndicatorValues
         {
             get => _threatIntelIndicatorValues ?? (_threatIntelIndicatorValues = new InputList<Inputs.InsightFiltersThreatIntelIndicatorValueGetArgs>());
@@ -998,10 +670,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("titles")]
         private InputList<Inputs.InsightFiltersTitleGetArgs>? _titles;
-
-        /// <summary>
-        /// A finding's title. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersTitleGetArgs> Titles
         {
             get => _titles ?? (_titles = new InputList<Inputs.InsightFiltersTitleGetArgs>());
@@ -1010,10 +678,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("types")]
         private InputList<Inputs.InsightFiltersTypeGetArgs>? _types;
-
-        /// <summary>
-        /// A finding type in the format of `namespace/category/classifier` that classifies a finding. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersTypeGetArgs> Types
         {
             get => _types ?? (_types = new InputList<Inputs.InsightFiltersTypeGetArgs>());
@@ -1022,10 +686,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("updatedAts")]
         private InputList<Inputs.InsightFiltersUpdatedAtGetArgs>? _updatedAts;
-
-        /// <summary>
-        /// An ISO8601-formatted timestamp that indicates when the security-findings provider last updated the finding record. See Date Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersUpdatedAtGetArgs> UpdatedAts
         {
             get => _updatedAts ?? (_updatedAts = new InputList<Inputs.InsightFiltersUpdatedAtGetArgs>());
@@ -1034,10 +694,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("userDefinedValues")]
         private InputList<Inputs.InsightFiltersUserDefinedValueGetArgs>? _userDefinedValues;
-
-        /// <summary>
-        /// A list of name/value string pairs associated with the finding. These are custom, user-defined fields added to a finding. See Map Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersUserDefinedValueGetArgs> UserDefinedValues
         {
             get => _userDefinedValues ?? (_userDefinedValues = new InputList<Inputs.InsightFiltersUserDefinedValueGetArgs>());
@@ -1046,10 +702,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("verificationStates")]
         private InputList<Inputs.InsightFiltersVerificationStateGetArgs>? _verificationStates;
-
-        /// <summary>
-        /// The veracity of a finding. See String Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersVerificationStateGetArgs> VerificationStates
         {
             get => _verificationStates ?? (_verificationStates = new InputList<Inputs.InsightFiltersVerificationStateGetArgs>());
@@ -1058,10 +710,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("workflowStatuses")]
         private InputList<Inputs.InsightFiltersWorkflowStatusGetArgs>? _workflowStatuses;
-
-        /// <summary>
-        /// The status of the investigation into a finding. See Workflow Status Filter below for more details.
-        /// </summary>
         public InputList<Inputs.InsightFiltersWorkflowStatusGetArgs> WorkflowStatuses
         {
             get => _workflowStatuses ?? (_workflowStatuses = new InputList<Inputs.InsightFiltersWorkflowStatusGetArgs>());

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.AppSync.Inputs
 
     public sealed class ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Invocation type for a Lambda data source. Valid values: `REQUEST_RESPONSE`, `EVENT`.
-        /// </summary>
         [Input("invokeType")]
         public Input<string>? InvokeType { get; set; }
 

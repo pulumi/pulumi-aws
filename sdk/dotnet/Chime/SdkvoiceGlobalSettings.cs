@@ -9,46 +9,9 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Chime
 {
-    /// <summary>
-    /// Resource for managing Amazon Chime SDK Voice Global Settings.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Chime.SdkvoiceGlobalSettings("example", new()
-    ///     {
-    ///         VoiceConnector = new Aws.Chime.Inputs.SdkvoiceGlobalSettingsVoiceConnectorArgs
-    ///         {
-    ///             CdrBucket = "example-bucket-name",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import AWS Chime SDK Voice Global Settings using the `id` (AWS account ID). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings example 123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings")]
     public partial class SdkvoiceGlobalSettings : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Voice Connector settings. See voice_connector.
-        /// </summary>
         [Output("voiceConnector")]
         public Output<Outputs.SdkvoiceGlobalSettingsVoiceConnector> VoiceConnector { get; private set; } = null!;
 
@@ -98,9 +61,6 @@ namespace Pulumi.Aws.Chime
 
     public sealed class SdkvoiceGlobalSettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Voice Connector settings. See voice_connector.
-        /// </summary>
         [Input("voiceConnector", required: true)]
         public Input<Inputs.SdkvoiceGlobalSettingsVoiceConnectorArgs> VoiceConnector { get; set; } = null!;
 
@@ -112,9 +72,6 @@ namespace Pulumi.Aws.Chime
 
     public sealed class SdkvoiceGlobalSettingsState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Voice Connector settings. See voice_connector.
-        /// </summary>
         [Input("voiceConnector")]
         public Input<Inputs.SdkvoiceGlobalSettingsVoiceConnectorGetArgs>? VoiceConnector { get; set; }
 

@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DistributionTenantCustomizationsWebAcl {
-    /**
-     * @return Action to take for the web ACL. Valid values: `allow`, `block`.
-     * 
-     */
     private @Nullable String action;
-    /**
-     * @return ARN of the distribution tenant.
-     * 
-     */
     private @Nullable String arn;
 
     private DistributionTenantCustomizationsWebAcl() {}
-    /**
-     * @return Action to take for the web ACL. Valid values: `allow`, `block`.
-     * 
-     */
     public Optional<String> action() {
         return Optional.ofNullable(this.action);
     }
-    /**
-     * @return ARN of the distribution tenant.
-     * 
-     */
     public Optional<String> arn() {
         return Optional.ofNullable(this.arn);
     }

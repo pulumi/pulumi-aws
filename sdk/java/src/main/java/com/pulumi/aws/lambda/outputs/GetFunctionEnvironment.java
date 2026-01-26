@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFunctionEnvironment {
-    /**
-     * @return Map of environment variables that are accessible from the function code during execution.
-     * 
-     */
     private Map<String,String> variables;
 
     private GetFunctionEnvironment() {}
-    /**
-     * @return Map of environment variables that are accessible from the function code during execution.
-     * 
-     */
     public Map<String,String> variables() {
         return this.variables;
     }

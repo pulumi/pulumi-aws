@@ -18,81 +18,37 @@ public final class ReservedInstanceArgs extends com.pulumi.resources.ResourceArg
 
     public static final ReservedInstanceArgs Empty = new ReservedInstanceArgs();
 
-    /**
-     * Number of instances to reserve. Default value is `1`.
-     * 
-     */
     @Import(name="instanceCount")
     private @Nullable Output<Integer> instanceCount;
 
-    /**
-     * @return Number of instances to reserve. Default value is `1`.
-     * 
-     */
     public Optional<Output<Integer>> instanceCount() {
         return Optional.ofNullable(this.instanceCount);
     }
 
-    /**
-     * ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `aws.rds.getReservedInstanceOffering` data source.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="offeringId", required=true)
     private Output<String> offeringId;
 
-    /**
-     * @return ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `aws.rds.getReservedInstanceOffering` data source.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> offeringId() {
         return this.offeringId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Customer-specified identifier to track this reservation.
-     * 
-     */
     @Import(name="reservationId")
     private @Nullable Output<String> reservationId;
 
-    /**
-     * @return Customer-specified identifier to track this reservation.
-     * 
-     */
     public Optional<Output<String>> reservationId() {
         return Optional.ofNullable(this.reservationId);
     }
 
-    /**
-     * Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -125,111 +81,47 @@ public final class ReservedInstanceArgs extends com.pulumi.resources.ResourceArg
             $ = new ReservedInstanceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param instanceCount Number of instances to reserve. Default value is `1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceCount(@Nullable Output<Integer> instanceCount) {
             $.instanceCount = instanceCount;
             return this;
         }
 
-        /**
-         * @param instanceCount Number of instances to reserve. Default value is `1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceCount(Integer instanceCount) {
             return instanceCount(Output.of(instanceCount));
         }
 
-        /**
-         * @param offeringId ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `aws.rds.getReservedInstanceOffering` data source.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder offeringId(Output<String> offeringId) {
             $.offeringId = offeringId;
             return this;
         }
 
-        /**
-         * @param offeringId ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `aws.rds.getReservedInstanceOffering` data source.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder offeringId(String offeringId) {
             return offeringId(Output.of(offeringId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param reservationId Customer-specified identifier to track this reservation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder reservationId(@Nullable Output<String> reservationId) {
             $.reservationId = reservationId;
             return this;
         }
 
-        /**
-         * @param reservationId Customer-specified identifier to track this reservation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder reservationId(String reservationId) {
             return reservationId(Output.of(reservationId));
         }
 
-        /**
-         * @param tags Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

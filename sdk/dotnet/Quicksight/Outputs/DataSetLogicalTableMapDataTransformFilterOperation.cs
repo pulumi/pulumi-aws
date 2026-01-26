@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSetLogicalTableMapDataTransformFilterOperation
     {
-        /// <summary>
-        /// An expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
-        /// </summary>
         public readonly string ConditionExpression;
 
         [OutputConstructor]

@@ -28,11 +28,6 @@ class PolicyStoreArgs:
                  validation_settings: Optional[pulumi.Input['PolicyStoreValidationSettingsArgs']] = None):
         """
         The set of arguments for constructing a PolicyStore resource.
-        :param pulumi.Input[_builtins.str] deletion_protection: Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
-        :param pulumi.Input[_builtins.str] description: A description of the Policy Store.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['PolicyStoreValidationSettingsArgs'] validation_settings: Validation settings for the policy store.
         """
         if deletion_protection is not None:
             pulumi.set(__self__, "deletion_protection", deletion_protection)
@@ -48,9 +43,6 @@ class PolicyStoreArgs:
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
-        """
         return pulumi.get(self, "deletion_protection")
 
     @deletion_protection.setter
@@ -60,9 +52,6 @@ class PolicyStoreArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description of the Policy Store.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -72,9 +61,6 @@ class PolicyStoreArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -84,9 +70,6 @@ class PolicyStoreArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -96,9 +79,6 @@ class PolicyStoreArgs:
     @_builtins.property
     @pulumi.getter(name="validationSettings")
     def validation_settings(self) -> Optional[pulumi.Input['PolicyStoreValidationSettingsArgs']]:
-        """
-        Validation settings for the policy store.
-        """
         return pulumi.get(self, "validation_settings")
 
     @validation_settings.setter
@@ -119,14 +99,6 @@ class _PolicyStoreState:
                  validation_settings: Optional[pulumi.Input['PolicyStoreValidationSettingsArgs']] = None):
         """
         Input properties used for looking up and filtering PolicyStore resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the Policy Store.
-        :param pulumi.Input[_builtins.str] deletion_protection: Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
-        :param pulumi.Input[_builtins.str] description: A description of the Policy Store.
-        :param pulumi.Input[_builtins.str] policy_store_id: The ID of the Policy Store.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['PolicyStoreValidationSettingsArgs'] validation_settings: Validation settings for the policy store.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -148,9 +120,6 @@ class _PolicyStoreState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the Policy Store.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -160,9 +129,6 @@ class _PolicyStoreState:
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
-        """
         return pulumi.get(self, "deletion_protection")
 
     @deletion_protection.setter
@@ -172,9 +138,6 @@ class _PolicyStoreState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description of the Policy Store.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -184,9 +147,6 @@ class _PolicyStoreState:
     @_builtins.property
     @pulumi.getter(name="policyStoreId")
     def policy_store_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the Policy Store.
-        """
         return pulumi.get(self, "policy_store_id")
 
     @policy_store_id.setter
@@ -196,9 +156,6 @@ class _PolicyStoreState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -208,9 +165,6 @@ class _PolicyStoreState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -220,9 +174,6 @@ class _PolicyStoreState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -232,9 +183,6 @@ class _PolicyStoreState:
     @_builtins.property
     @pulumi.getter(name="validationSettings")
     def validation_settings(self) -> Optional[pulumi.Input['PolicyStoreValidationSettingsArgs']]:
-        """
-        Validation settings for the policy store.
-        """
         return pulumi.get(self, "validation_settings")
 
     @validation_settings.setter
@@ -255,32 +203,9 @@ class PolicyStore(pulumi.CustomResource):
                  validation_settings: Optional[pulumi.Input[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict']]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.verifiedpermissions.PolicyStore("example", validation_settings={
-            "mode": "STRICT",
-        })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Verified Permissions Policy Store using the `policy_store_id`. For example:
-
-         % pulumi import aws_verifiedpermissions_policy_store.example DxQg2j8xvXJQ1tQCYNWj9T
-
+        Create a PolicyStore resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] deletion_protection: Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
-        :param pulumi.Input[_builtins.str] description: A description of the Policy Store.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict']] validation_settings: Validation settings for the policy store.
         """
         ...
     @overload
@@ -289,25 +214,7 @@ class PolicyStore(pulumi.CustomResource):
                  args: Optional[PolicyStoreArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.verifiedpermissions.PolicyStore("example", validation_settings={
-            "mode": "STRICT",
-        })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Verified Permissions Policy Store using the `policy_store_id`. For example:
-
-         % pulumi import aws_verifiedpermissions_policy_store.example DxQg2j8xvXJQ1tQCYNWj9T
-
+        Create a PolicyStore resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PolicyStoreArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -370,14 +277,6 @@ class PolicyStore(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the Policy Store.
-        :param pulumi.Input[_builtins.str] deletion_protection: Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
-        :param pulumi.Input[_builtins.str] description: A description of the Policy Store.
-        :param pulumi.Input[_builtins.str] policy_store_id: The ID of the Policy Store.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict']] validation_settings: Validation settings for the policy store.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -396,64 +295,40 @@ class PolicyStore(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the Policy Store.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
-        """
         return pulumi.get(self, "deletion_protection")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A description of the Policy Store.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="policyStoreId")
     def policy_store_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the Policy Store.
-        """
         return pulumi.get(self, "policy_store_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="validationSettings")
     def validation_settings(self) -> pulumi.Output[Optional['outputs.PolicyStoreValidationSettings']]:
-        """
-        Validation settings for the policy store.
-        """
         return pulumi.get(self, "validation_settings")
 

@@ -13,41 +13,17 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentAgentMemoryConfiguration {
-    /**
-     * @return The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
-     * 
-     */
     private List<String> enabledMemoryTypes;
-    /**
-     * @return Configuration block for `SESSION_SUMMARY` memory type enabled for the agent. See `sessionSummaryConfiguration` Block for details.
-     * 
-     */
     private List<AgentAgentMemoryConfigurationSessionSummaryConfiguration> sessionSummaryConfigurations;
-    /**
-     * @return The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
-     * 
-     */
     private Integer storageDays;
 
     private AgentAgentMemoryConfiguration() {}
-    /**
-     * @return The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
-     * 
-     */
     public List<String> enabledMemoryTypes() {
         return this.enabledMemoryTypes;
     }
-    /**
-     * @return Configuration block for `SESSION_SUMMARY` memory type enabled for the agent. See `sessionSummaryConfiguration` Block for details.
-     * 
-     */
     public List<AgentAgentMemoryConfigurationSessionSummaryConfiguration> sessionSummaryConfigurations() {
         return this.sessionSummaryConfigurations;
     }
-    /**
-     * @return The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
-     * 
-     */
     public Integer storageDays() {
         return this.storageDays;
     }

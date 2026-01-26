@@ -18,62 +18,30 @@ public final class V2modelsIntentConfirmationSettingCodeHookArgs extends com.pul
 
     public static final V2modelsIntentConfirmationSettingCodeHookArgs Empty = new V2modelsIntentConfirmationSettingCodeHookArgs();
 
-    /**
-     * Whether a dialog code hook is used when the intent is activated.
-     * 
-     */
     @Import(name="active", required=true)
     private Output<Boolean> active;
 
-    /**
-     * @return Whether a dialog code hook is used when the intent is activated.
-     * 
-     */
     public Output<Boolean> active() {
         return this.active;
     }
 
-    /**
-     * Whether a Lambda function should be invoked for the dialog.
-     * 
-     */
     @Import(name="enableCodeHookInvocation", required=true)
     private Output<Boolean> enableCodeHookInvocation;
 
-    /**
-     * @return Whether a Lambda function should be invoked for the dialog.
-     * 
-     */
     public Output<Boolean> enableCodeHookInvocation() {
         return this.enableCodeHookInvocation;
     }
 
-    /**
-     * Label that indicates the dialog step from which the dialog code hook is happening.
-     * 
-     */
     @Import(name="invocationLabel")
     private @Nullable Output<String> invocationLabel;
 
-    /**
-     * @return Label that indicates the dialog step from which the dialog code hook is happening.
-     * 
-     */
     public Optional<Output<String>> invocationLabel() {
         return Optional.ofNullable(this.invocationLabel);
     }
 
-    /**
-     * Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `postCodeHookSpecification`.
-     * 
-     */
     @Import(name="postCodeHookSpecification", required=true)
     private Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgs> postCodeHookSpecification;
 
-    /**
-     * @return Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `postCodeHookSpecification`.
-     * 
-     */
     public Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgs> postCodeHookSpecification() {
         return this.postCodeHookSpecification;
     }
@@ -105,86 +73,38 @@ public final class V2modelsIntentConfirmationSettingCodeHookArgs extends com.pul
             $ = new V2modelsIntentConfirmationSettingCodeHookArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param active Whether a dialog code hook is used when the intent is activated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder active(Output<Boolean> active) {
             $.active = active;
             return this;
         }
 
-        /**
-         * @param active Whether a dialog code hook is used when the intent is activated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder active(Boolean active) {
             return active(Output.of(active));
         }
 
-        /**
-         * @param enableCodeHookInvocation Whether a Lambda function should be invoked for the dialog.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableCodeHookInvocation(Output<Boolean> enableCodeHookInvocation) {
             $.enableCodeHookInvocation = enableCodeHookInvocation;
             return this;
         }
 
-        /**
-         * @param enableCodeHookInvocation Whether a Lambda function should be invoked for the dialog.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableCodeHookInvocation(Boolean enableCodeHookInvocation) {
             return enableCodeHookInvocation(Output.of(enableCodeHookInvocation));
         }
 
-        /**
-         * @param invocationLabel Label that indicates the dialog step from which the dialog code hook is happening.
-         * 
-         * @return builder
-         * 
-         */
         public Builder invocationLabel(@Nullable Output<String> invocationLabel) {
             $.invocationLabel = invocationLabel;
             return this;
         }
 
-        /**
-         * @param invocationLabel Label that indicates the dialog step from which the dialog code hook is happening.
-         * 
-         * @return builder
-         * 
-         */
         public Builder invocationLabel(String invocationLabel) {
             return invocationLabel(Output.of(invocationLabel));
         }
 
-        /**
-         * @param postCodeHookSpecification Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `postCodeHookSpecification`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder postCodeHookSpecification(Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgs> postCodeHookSpecification) {
             $.postCodeHookSpecification = postCodeHookSpecification;
             return this;
         }
 
-        /**
-         * @param postCodeHookSpecification Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `postCodeHookSpecification`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder postCodeHookSpecification(V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgs postCodeHookSpecification) {
             return postCodeHookSpecification(Output.of(postCodeHookSpecification));
         }

@@ -11,18 +11,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOpenZfsSnapshotFilter {
-    /**
-     * @return Name of the snapshot.
-     * 
-     */
     private String name;
     private List<String> values;
 
     private GetOpenZfsSnapshotFilter() {}
-    /**
-     * @return Name of the snapshot.
-     * 
-     */
     public String name() {
         return this.name;
     }

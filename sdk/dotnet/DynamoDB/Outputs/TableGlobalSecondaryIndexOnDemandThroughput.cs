@@ -13,13 +13,7 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     [OutputType]
     public sealed class TableGlobalSecondaryIndexOnDemandThroughput
     {
-        /// <summary>
-        /// Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
-        /// </summary>
         public readonly int? MaxReadRequestUnits;
-        /// <summary>
-        /// Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
-        /// </summary>
         public readonly int? MaxWriteRequestUnits;
 
         [OutputConstructor]

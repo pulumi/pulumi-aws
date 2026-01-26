@@ -13,17 +13,8 @@ namespace Pulumi.Aws.SsoAdmin.Outputs
     [OutputType]
     public sealed class GetApplicationAssignmentsApplicationAssignmentResult
     {
-        /// <summary>
-        /// ARN of the application.
-        /// </summary>
         public readonly string ApplicationArn;
-        /// <summary>
-        /// An identifier for an object in IAM Identity Center, such as a user or group.
-        /// </summary>
         public readonly string PrincipalId;
-        /// <summary>
-        /// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-        /// </summary>
         public readonly string PrincipalType;
 
         [OutputConstructor]

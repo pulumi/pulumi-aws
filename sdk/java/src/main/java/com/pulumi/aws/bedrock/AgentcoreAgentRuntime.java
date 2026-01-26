@@ -24,456 +24,101 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an AWS Bedrock AgentCore Agent Runtime. Agent Runtime provides a containerized execution environment for AI agents.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.RolePolicy;
- * import com.pulumi.aws.iam.RolePolicyArgs;
- * import com.pulumi.aws.bedrock.AgentcoreAgentRuntime;
- * import com.pulumi.aws.bedrock.AgentcoreAgentRuntimeArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeNetworkConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .actions("sts:AssumeRole")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("bedrock-agentcore.amazonaws.com")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         final var ecrPermissions = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(            
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .actions("ecr:GetAuthorizationToken")
- *                     .effect("Allow")
- *                     .resources("*")
- *                     .build(),
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .actions(                    
- *                         "ecr:BatchGetImage",
- *                         "ecr:GetDownloadUrlForLayer")
- *                     .effect("Allow")
- *                     .resources(exampleAwsEcrRepository.arn())
- *                     .build())
- *             .build());
- * 
- *         var example = new Role("example", RoleArgs.builder()
- *             .name("bedrock-agentcore-runtime-role")
- *             .assumeRolePolicy(assumeRole.json())
- *             .build());
- * 
- *         var exampleRolePolicy = new RolePolicy("exampleRolePolicy", RolePolicyArgs.builder()
- *             .role(example.id())
- *             .policy(ecrPermissions.json())
- *             .build());
- * 
- *         var exampleAgentcoreAgentRuntime = new AgentcoreAgentRuntime("exampleAgentcoreAgentRuntime", AgentcoreAgentRuntimeArgs.builder()
- *             .agentRuntimeName("example_agent_runtime")
- *             .roleArn(example.arn())
- *             .agentRuntimeArtifact(AgentcoreAgentRuntimeAgentRuntimeArtifactArgs.builder()
- *                 .containerConfiguration(AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs.builder()
- *                     .containerUri(String.format("%s:latest", exampleAwsEcrRepository.repositoryUrl()))
- *                     .build())
- *                 .build())
- *             .networkConfiguration(AgentcoreAgentRuntimeNetworkConfigurationArgs.builder()
- *                 .networkMode("PUBLIC")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### MCP Server With Custom JWT Authorizer
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.bedrock.AgentcoreAgentRuntime;
- * import com.pulumi.aws.bedrock.AgentcoreAgentRuntimeArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeAuthorizerConfigurationArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeNetworkConfigurationArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeProtocolConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AgentcoreAgentRuntime("example", AgentcoreAgentRuntimeArgs.builder()
- *             .agentRuntimeName("example_agent_runtime")
- *             .description("Agent runtime with JWT authorization")
- *             .roleArn(exampleAwsIamRole.arn())
- *             .agentRuntimeArtifact(AgentcoreAgentRuntimeAgentRuntimeArtifactArgs.builder()
- *                 .containerConfiguration(AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs.builder()
- *                     .containerUri(String.format("%s:v1.0", exampleAwsEcrRepository.repositoryUrl()))
- *                     .build())
- *                 .build())
- *             .environmentVariables(Map.ofEntries(
- *                 Map.entry("LOG_LEVEL", "INFO"),
- *                 Map.entry("ENV", "production")
- *             ))
- *             .authorizerConfiguration(AgentcoreAgentRuntimeAuthorizerConfigurationArgs.builder()
- *                 .customJwtAuthorizer(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs.builder()
- *                     .discoveryUrl("https://accounts.google.com/.well-known/openid-configuration")
- *                     .allowedAudiences(                    
- *                         "my-app",
- *                         "mobile-app")
- *                     .allowedClients(                    
- *                         "client-123",
- *                         "client-456")
- *                     .build())
- *                 .build())
- *             .networkConfiguration(AgentcoreAgentRuntimeNetworkConfigurationArgs.builder()
- *                 .networkMode("PUBLIC")
- *                 .build())
- *             .protocolConfiguration(AgentcoreAgentRuntimeProtocolConfigurationArgs.builder()
- *                 .serverProtocol("MCP")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Agent runtime artifact from S3 with Code Configuration
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.bedrock.AgentcoreAgentRuntime;
- * import com.pulumi.aws.bedrock.AgentcoreAgentRuntimeArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeNetworkConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AgentcoreAgentRuntime("example", AgentcoreAgentRuntimeArgs.builder()
- *             .agentRuntimeName("example_agent_runtime")
- *             .roleArn(exampleAwsIamRole.arn())
- *             .agentRuntimeArtifact(AgentcoreAgentRuntimeAgentRuntimeArtifactArgs.builder()
- *                 .codeConfiguration(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs.builder()
- *                     .entryPoints("main.py")
- *                     .runtime("PYTHON_3_13")
- *                     .code(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs.builder()
- *                         .s3(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args.builder()
- *                             .bucket("example-bucket")
- *                             .prefix("example-agent-runtime-code.zip")
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .networkConfiguration(AgentcoreAgentRuntimeNetworkConfigurationArgs.builder()
- *                 .networkMode("PUBLIC")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Bedrock AgentCore Agent Runtime using `agent_runtime_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:bedrock/agentcoreAgentRuntime:AgentcoreAgentRuntime example agent-runtime-12345
- * ```
- * 
- */
 @ResourceType(type="aws:bedrock/agentcoreAgentRuntime:AgentcoreAgentRuntime")
 public class AgentcoreAgentRuntime extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Agent Runtime.
-     * 
-     */
     @Export(name="agentRuntimeArn", refs={String.class}, tree="[0]")
     private Output<String> agentRuntimeArn;
 
-    /**
-     * @return ARN of the Agent Runtime.
-     * 
-     */
     public Output<String> agentRuntimeArn() {
         return this.agentRuntimeArn;
     }
-    /**
-     * Container artifact configuration. See `agentRuntimeArtifact` below.
-     * 
-     */
     @Export(name="agentRuntimeArtifact", refs={AgentcoreAgentRuntimeAgentRuntimeArtifact.class}, tree="[0]")
     private Output</* @Nullable */ AgentcoreAgentRuntimeAgentRuntimeArtifact> agentRuntimeArtifact;
 
-    /**
-     * @return Container artifact configuration. See `agentRuntimeArtifact` below.
-     * 
-     */
     public Output<Optional<AgentcoreAgentRuntimeAgentRuntimeArtifact>> agentRuntimeArtifact() {
         return Codegen.optional(this.agentRuntimeArtifact);
     }
-    /**
-     * Unique identifier of the Agent Runtime.
-     * 
-     */
     @Export(name="agentRuntimeId", refs={String.class}, tree="[0]")
     private Output<String> agentRuntimeId;
 
-    /**
-     * @return Unique identifier of the Agent Runtime.
-     * 
-     */
     public Output<String> agentRuntimeId() {
         return this.agentRuntimeId;
     }
-    /**
-     * Name of the agent runtime.
-     * 
-     */
     @Export(name="agentRuntimeName", refs={String.class}, tree="[0]")
     private Output<String> agentRuntimeName;
 
-    /**
-     * @return Name of the agent runtime.
-     * 
-     */
     public Output<String> agentRuntimeName() {
         return this.agentRuntimeName;
     }
-    /**
-     * Version of the Agent Runtime.
-     * 
-     */
     @Export(name="agentRuntimeVersion", refs={String.class}, tree="[0]")
     private Output<String> agentRuntimeVersion;
 
-    /**
-     * @return Version of the Agent Runtime.
-     * 
-     */
     public Output<String> agentRuntimeVersion() {
         return this.agentRuntimeVersion;
     }
-    /**
-     * Authorization configuration for authenticating incoming requests. See `authorizerConfiguration` below.
-     * 
-     */
     @Export(name="authorizerConfiguration", refs={AgentcoreAgentRuntimeAuthorizerConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ AgentcoreAgentRuntimeAuthorizerConfiguration> authorizerConfiguration;
 
-    /**
-     * @return Authorization configuration for authenticating incoming requests. See `authorizerConfiguration` below.
-     * 
-     */
     public Output<Optional<AgentcoreAgentRuntimeAuthorizerConfiguration>> authorizerConfiguration() {
         return Codegen.optional(this.authorizerConfiguration);
     }
-    /**
-     * Description of the agent runtime.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the agent runtime.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Map of environment variables to pass to the container.
-     * 
-     */
     @Export(name="environmentVariables", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> environmentVariables;
 
-    /**
-     * @return Map of environment variables to pass to the container.
-     * 
-     */
     public Output<Optional<Map<String,String>>> environmentVariables() {
         return Codegen.optional(this.environmentVariables);
     }
-    /**
-     * Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycleConfiguration` below.
-     * 
-     */
     @Export(name="lifecycleConfigurations", refs={List.class,AgentcoreAgentRuntimeLifecycleConfiguration.class}, tree="[0,1]")
     private Output<List<AgentcoreAgentRuntimeLifecycleConfiguration>> lifecycleConfigurations;
 
-    /**
-     * @return Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycleConfiguration` below.
-     * 
-     */
     public Output<List<AgentcoreAgentRuntimeLifecycleConfiguration>> lifecycleConfigurations() {
         return this.lifecycleConfigurations;
     }
-    /**
-     * Network configuration for the agent runtime. See `networkConfiguration` below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="networkConfiguration", refs={AgentcoreAgentRuntimeNetworkConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ AgentcoreAgentRuntimeNetworkConfiguration> networkConfiguration;
 
-    /**
-     * @return Network configuration for the agent runtime. See `networkConfiguration` below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Optional<AgentcoreAgentRuntimeNetworkConfiguration>> networkConfiguration() {
         return Codegen.optional(this.networkConfiguration);
     }
-    /**
-     * Protocol configuration for the agent runtime. See `protocolConfiguration` below.
-     * 
-     */
     @Export(name="protocolConfiguration", refs={AgentcoreAgentRuntimeProtocolConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ AgentcoreAgentRuntimeProtocolConfiguration> protocolConfiguration;
 
-    /**
-     * @return Protocol configuration for the agent runtime. See `protocolConfiguration` below.
-     * 
-     */
     public Output<Optional<AgentcoreAgentRuntimeProtocolConfiguration>> protocolConfiguration() {
         return Codegen.optional(this.protocolConfiguration);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Configuration for HTTP request headers that will be passed through to the runtime. See `requestHeaderConfiguration` below.
-     * 
-     */
     @Export(name="requestHeaderConfiguration", refs={AgentcoreAgentRuntimeRequestHeaderConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ AgentcoreAgentRuntimeRequestHeaderConfiguration> requestHeaderConfiguration;
 
-    /**
-     * @return Configuration for HTTP request headers that will be passed through to the runtime. See `requestHeaderConfiguration` below.
-     * 
-     */
     public Output<Optional<AgentcoreAgentRuntimeRequestHeaderConfiguration>> requestHeaderConfiguration() {
         return Codegen.optional(this.requestHeaderConfiguration);
     }
-    /**
-     * ARN of the IAM role that the agent runtime assumes to access AWS services.
-     * 
-     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
-    /**
-     * @return ARN of the IAM role that the agent runtime assumes to access AWS services.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
@@ -483,17 +128,9 @@ public class AgentcoreAgentRuntime extends com.pulumi.resources.CustomResource {
     public Output<Optional<AgentcoreAgentRuntimeTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * Workload identity details for the agent runtime. See `workloadIdentityDetails` below.
-     * 
-     */
     @Export(name="workloadIdentityDetails", refs={List.class,AgentcoreAgentRuntimeWorkloadIdentityDetail.class}, tree="[0,1]")
     private Output<List<AgentcoreAgentRuntimeWorkloadIdentityDetail>> workloadIdentityDetails;
 
-    /**
-     * @return Workload identity details for the agent runtime. See `workloadIdentityDetails` below.
-     * 
-     */
     public Output<List<AgentcoreAgentRuntimeWorkloadIdentityDetail>> workloadIdentityDetails() {
         return this.workloadIdentityDetails;
     }

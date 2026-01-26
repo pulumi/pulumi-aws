@@ -25,10 +25,6 @@ class AccountRegistrationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccountRegistration resource.
-        :param pulumi.Input[_builtins.str] delegated_admin_account: Identifier for the delegated administrator account.
-        :param pulumi.Input[_builtins.bool] deregister_on_destroy: Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
-        :param pulumi.Input[_builtins.str] kms_key: KMS key identifier.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if delegated_admin_account is not None:
             pulumi.set(__self__, "delegated_admin_account", delegated_admin_account)
@@ -42,9 +38,6 @@ class AccountRegistrationArgs:
     @_builtins.property
     @pulumi.getter(name="delegatedAdminAccount")
     def delegated_admin_account(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier for the delegated administrator account.
-        """
         return pulumi.get(self, "delegated_admin_account")
 
     @delegated_admin_account.setter
@@ -54,9 +47,6 @@ class AccountRegistrationArgs:
     @_builtins.property
     @pulumi.getter(name="deregisterOnDestroy")
     def deregister_on_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
-        """
         return pulumi.get(self, "deregister_on_destroy")
 
     @deregister_on_destroy.setter
@@ -66,9 +56,6 @@ class AccountRegistrationArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        KMS key identifier.
-        """
         return pulumi.get(self, "kms_key")
 
     @kms_key.setter
@@ -78,9 +65,6 @@ class AccountRegistrationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -98,11 +82,6 @@ class _AccountRegistrationState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccountRegistration resources.
-        :param pulumi.Input[_builtins.str] delegated_admin_account: Identifier for the delegated administrator account.
-        :param pulumi.Input[_builtins.bool] deregister_on_destroy: Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
-        :param pulumi.Input[_builtins.str] kms_key: KMS key identifier.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: Status of the account registration request.
         """
         if delegated_admin_account is not None:
             pulumi.set(__self__, "delegated_admin_account", delegated_admin_account)
@@ -118,9 +97,6 @@ class _AccountRegistrationState:
     @_builtins.property
     @pulumi.getter(name="delegatedAdminAccount")
     def delegated_admin_account(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier for the delegated administrator account.
-        """
         return pulumi.get(self, "delegated_admin_account")
 
     @delegated_admin_account.setter
@@ -130,9 +106,6 @@ class _AccountRegistrationState:
     @_builtins.property
     @pulumi.getter(name="deregisterOnDestroy")
     def deregister_on_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
-        """
         return pulumi.get(self, "deregister_on_destroy")
 
     @deregister_on_destroy.setter
@@ -142,9 +115,6 @@ class _AccountRegistrationState:
     @_builtins.property
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        KMS key identifier.
-        """
         return pulumi.get(self, "kms_key")
 
     @kms_key.setter
@@ -154,9 +124,6 @@ class _AccountRegistrationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -166,9 +133,6 @@ class _AccountRegistrationState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of the account registration request.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -188,42 +152,9 @@ class AccountRegistration(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing AWS Audit Manager Account Registration.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.auditmanager.AccountRegistration("example")
-        ```
-
-        ### Deregister On Destroy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.auditmanager.AccountRegistration("example", deregister_on_destroy=True)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Audit Manager Account Registration resources using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:auditmanager/accountRegistration:AccountRegistration example us-east-1
-        ```
-
+        Create a AccountRegistration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] delegated_admin_account: Identifier for the delegated administrator account.
-        :param pulumi.Input[_builtins.bool] deregister_on_destroy: Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
-        :param pulumi.Input[_builtins.str] kms_key: KMS key identifier.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -232,36 +163,7 @@ class AccountRegistration(pulumi.CustomResource):
                  args: Optional[AccountRegistrationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing AWS Audit Manager Account Registration.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.auditmanager.AccountRegistration("example")
-        ```
-
-        ### Deregister On Destroy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.auditmanager.AccountRegistration("example", deregister_on_destroy=True)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Audit Manager Account Registration resources using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:auditmanager/accountRegistration:AccountRegistration example us-east-1
-        ```
-
+        Create a AccountRegistration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AccountRegistrationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -317,11 +219,6 @@ class AccountRegistration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] delegated_admin_account: Identifier for the delegated administrator account.
-        :param pulumi.Input[_builtins.bool] deregister_on_destroy: Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
-        :param pulumi.Input[_builtins.str] kms_key: KMS key identifier.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: Status of the account registration request.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -337,40 +234,25 @@ class AccountRegistration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="delegatedAdminAccount")
     def delegated_admin_account(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Identifier for the delegated administrator account.
-        """
         return pulumi.get(self, "delegated_admin_account")
 
     @_builtins.property
     @pulumi.getter(name="deregisterOnDestroy")
     def deregister_on_destroy(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
-        """
         return pulumi.get(self, "deregister_on_destroy")
 
     @_builtins.property
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        KMS key identifier.
-        """
         return pulumi.get(self, "kms_key")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Status of the account registration request.
-        """
         return pulumi.get(self, "status")
 

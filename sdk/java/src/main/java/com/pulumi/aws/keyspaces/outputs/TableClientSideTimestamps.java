@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class TableClientSideTimestamps {
-    /**
-     * @return Shows how to enable client-side timestamps settings for the specified table. Valid values: `ENABLED`.
-     * 
-     */
     private String status;
 
     private TableClientSideTimestamps() {}
-    /**
-     * @return Shows how to enable client-side timestamps settings for the specified table. Valid values: `ENABLED`.
-     * 
-     */
     public String status() {
         return this.status;
     }

@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection {
-    /**
-     * @return Selects a specific three-letter language code from within an audio source.
-     * 
-     */
     private String languageCode;
-    /**
-     * @return When set to “strict”, the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If “loose”, then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can’t find one with the same language.
-     * 
-     */
     private @Nullable String languageSelectionPolicy;
 
     private ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection() {}
-    /**
-     * @return Selects a specific three-letter language code from within an audio source.
-     * 
-     */
     public String languageCode() {
         return this.languageCode;
     }
-    /**
-     * @return When set to “strict”, the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If “loose”, then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can’t find one with the same language.
-     * 
-     */
     public Optional<String> languageSelectionPolicy() {
         return Optional.ofNullable(this.languageSelectionPolicy);
     }

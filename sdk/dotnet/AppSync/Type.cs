@@ -9,91 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AppSync
 {
-    /// <summary>
-    /// Provides an AppSync Type.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppSync.GraphQLApi("example", new()
-    ///     {
-    ///         AuthenticationType = "API_KEY",
-    ///         Name = "example",
-    ///     });
-    /// 
-    ///     var exampleType = new Aws.AppSync.Type("example", new()
-    ///     {
-    ///         ApiId = example.Id,
-    ///         Format = "SDL",
-    ///         Definition = @"type Mutation
-    /// 
-    /// {
-    /// putPost(id: ID!,title: String! ): Post
-    /// 
-    /// }
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Appsync Types using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:appsync/type:Type example api-id:format:name
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:appsync/type:Type")]
     public partial class Type : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// GraphQL API ID.
-        /// </summary>
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the type.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The type definition.
-        /// </summary>
         [Output("definition")]
         public Output<string> Definition { get; private set; } = null!;
 
-        /// <summary>
-        /// The type description.
-        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The type format: `SDL` or `JSON`.
-        /// </summary>
         [Output("format")]
         public Output<string> Format { get; private set; } = null!;
 
-        /// <summary>
-        /// The type name.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -143,27 +79,15 @@ namespace Pulumi.Aws.AppSync
 
     public sealed class TypeArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// GraphQL API ID.
-        /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
-        /// <summary>
-        /// The type definition.
-        /// </summary>
         [Input("definition", required: true)]
         public Input<string> Definition { get; set; } = null!;
 
-        /// <summary>
-        /// The type format: `SDL` or `JSON`.
-        /// </summary>
         [Input("format", required: true)]
         public Input<string> Format { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -175,45 +99,24 @@ namespace Pulumi.Aws.AppSync
 
     public sealed class TypeState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// GraphQL API ID.
-        /// </summary>
         [Input("apiId")]
         public Input<string>? ApiId { get; set; }
 
-        /// <summary>
-        /// The ARN of the type.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The type definition.
-        /// </summary>
         [Input("definition")]
         public Input<string>? Definition { get; set; }
 
-        /// <summary>
-        /// The type description.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The type format: `SDL` or `JSON`.
-        /// </summary>
         [Input("format")]
         public Input<string>? Format { get; set; }
 
-        /// <summary>
-        /// The type name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

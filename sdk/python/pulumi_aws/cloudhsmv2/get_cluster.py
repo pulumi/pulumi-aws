@@ -56,9 +56,6 @@ class GetClusterResult:
     @_builtins.property
     @pulumi.getter(name="clusterCertificates")
     def cluster_certificates(self) -> Sequence['outputs.GetClusterClusterCertificateResult']:
-        """
-        The list of cluster certificates.
-        """
         return pulumi.get(self, "cluster_certificates")
 
     @_builtins.property
@@ -87,25 +84,16 @@ class GetClusterResult:
     @_builtins.property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> _builtins.str:
-        """
-        ID of the security group associated with the CloudHSM cluster.
-        """
         return pulumi.get(self, "security_group_id")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[_builtins.str]:
-        """
-        IDs of subnets in which cluster operates.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> _builtins.str:
-        """
-        ID of the VPC that the CloudHSM cluster resides in.
-        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -130,21 +118,7 @@ def get_cluster(cluster_id: Optional[_builtins.str] = None,
                 region: Optional[_builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
-    Use this data source to get information about a CloudHSM v2 cluster
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    cluster = aws.cloudhsmv2.get_cluster(cluster_id="cluster-testclusterid")
-    ```
-
-
-    :param _builtins.str cluster_id: ID of Cloud HSM v2 cluster.
-    :param _builtins.str cluster_state: State of the cluster to be found.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['clusterId'] = cluster_id
@@ -167,21 +141,7 @@ def get_cluster_output(cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
-    Use this data source to get information about a CloudHSM v2 cluster
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    cluster = aws.cloudhsmv2.get_cluster(cluster_id="cluster-testclusterid")
-    ```
-
-
-    :param _builtins.str cluster_id: ID of Cloud HSM v2 cluster.
-    :param _builtins.str cluster_state: State of the cluster to be found.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['clusterId'] = cluster_id

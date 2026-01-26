@@ -59,17 +59,11 @@ class GetPipelineDefinitionResult:
     @_builtins.property
     @pulumi.getter(name="parameterObjects")
     def parameter_objects(self) -> Sequence['outputs.GetPipelineDefinitionParameterObjectResult']:
-        """
-        Parameter objects used in the pipeline definition. See below
-        """
         return pulumi.get(self, "parameter_objects")
 
     @_builtins.property
     @pulumi.getter(name="parameterValues")
     def parameter_values(self) -> Optional[Sequence['outputs.GetPipelineDefinitionParameterValueResult']]:
-        """
-        Parameter values used in the pipeline definition. See below
-        """
         return pulumi.get(self, "parameter_values")
 
     @_builtins.property
@@ -80,9 +74,6 @@ class GetPipelineDefinitionResult:
     @_builtins.property
     @pulumi.getter(name="pipelineObjects")
     def pipeline_objects(self) -> Sequence['outputs.GetPipelineDefinitionPipelineObjectResult']:
-        """
-        Objects defined in the pipeline. See below
-        """
         return pulumi.get(self, "pipeline_objects")
 
     @_builtins.property
@@ -110,21 +101,7 @@ def get_pipeline_definition(parameter_values: Optional[Sequence[Union['GetPipeli
                             region: Optional[_builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPipelineDefinitionResult:
     """
-    Provides details about a specific DataPipeline Pipeline Definition.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.datapipeline.get_pipeline_definition(pipeline_id="pipelineID")
-    ```
-
-
-    :param Sequence[Union['GetPipelineDefinitionParameterValueArgs', 'GetPipelineDefinitionParameterValueArgsDict']] parameter_values: Parameter values used in the pipeline definition. See below
-    :param _builtins.str pipeline_id: ID of the pipeline.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['parameterValues'] = parameter_values
@@ -145,21 +122,7 @@ def get_pipeline_definition_output(parameter_values: Optional[pulumi.Input[Optio
                                    region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPipelineDefinitionResult]:
     """
-    Provides details about a specific DataPipeline Pipeline Definition.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.datapipeline.get_pipeline_definition(pipeline_id="pipelineID")
-    ```
-
-
-    :param Sequence[Union['GetPipelineDefinitionParameterValueArgs', 'GetPipelineDefinitionParameterValueArgsDict']] parameter_values: Parameter values used in the pipeline definition. See below
-    :param _builtins.str pipeline_id: ID of the pipeline.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['parameterValues'] = parameter_values

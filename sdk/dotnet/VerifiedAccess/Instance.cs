@@ -9,131 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.VerifiedAccess
 {
-    /// <summary>
-    /// Resource for managing a Verified Access Instance.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.VerifiedAccess.Instance("example", new()
-    ///     {
-    ///         Description = "example",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "example" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With `FipsEnabled`
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.VerifiedAccess.Instance("example", new()
-    ///     {
-    ///         FipsEnabled = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With `CidrEndpointsCustomSubdomain`
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.VerifiedAccess.Instance("example", new()
-    ///     {
-    ///         CidrEndpointsCustomSubdomain = "test.example.com",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Verified Access Instances using the  `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:verifiedaccess/instance:Instance example vai-1234567890abcdef0
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:verifiedaccess/instance:Instance")]
     public partial class Instance : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The custom subdomain for the CIDR endpoints.
-        /// </summary>
         [Output("cidrEndpointsCustomSubdomain")]
         public Output<string?> CidrEndpointsCustomSubdomain { get; private set; } = null!;
 
-        /// <summary>
-        /// The time that the Verified Access Instance was created.
-        /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
-        /// <summary>
-        /// A description for the AWS Verified Access Instance.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
-        /// </summary>
         [Output("fipsEnabled")]
         public Output<bool?> FipsEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// The time that the Verified Access Instance was last updated.
-        /// </summary>
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
         [Output("nameServers")]
         public Output<ImmutableArray<string>> NameServers { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// One or more blocks of providing information about the AWS Verified Access Trust Providers. See VerifiedAccessTrustProviders below for details.One or more blocks
-        /// </summary>
         [Output("verifiedAccessTrustProviders")]
         public Output<ImmutableArray<Outputs.InstanceVerifiedAccessTrustProvider>> VerifiedAccessTrustProviders { get; private set; } = null!;
 
@@ -183,36 +88,20 @@ namespace Pulumi.Aws.VerifiedAccess
 
     public sealed class InstanceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The custom subdomain for the CIDR endpoints.
-        /// </summary>
         [Input("cidrEndpointsCustomSubdomain")]
         public Input<string>? CidrEndpointsCustomSubdomain { get; set; }
 
-        /// <summary>
-        /// A description for the AWS Verified Access Instance.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
-        /// </summary>
         [Input("fipsEnabled")]
         public Input<bool>? FipsEnabled { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -227,33 +116,18 @@ namespace Pulumi.Aws.VerifiedAccess
 
     public sealed class InstanceState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The custom subdomain for the CIDR endpoints.
-        /// </summary>
         [Input("cidrEndpointsCustomSubdomain")]
         public Input<string>? CidrEndpointsCustomSubdomain { get; set; }
 
-        /// <summary>
-        /// The time that the Verified Access Instance was created.
-        /// </summary>
         [Input("creationTime")]
         public Input<string>? CreationTime { get; set; }
 
-        /// <summary>
-        /// A description for the AWS Verified Access Instance.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
-        /// </summary>
         [Input("fipsEnabled")]
         public Input<bool>? FipsEnabled { get; set; }
 
-        /// <summary>
-        /// The time that the Verified Access Instance was last updated.
-        /// </summary>
         [Input("lastUpdatedTime")]
         public Input<string>? LastUpdatedTime { get; set; }
 
@@ -265,18 +139,11 @@ namespace Pulumi.Aws.VerifiedAccess
             set => _nameServers = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -293,10 +160,6 @@ namespace Pulumi.Aws.VerifiedAccess
 
         [Input("verifiedAccessTrustProviders")]
         private InputList<Inputs.InstanceVerifiedAccessTrustProviderGetArgs>? _verifiedAccessTrustProviders;
-
-        /// <summary>
-        /// One or more blocks of providing information about the AWS Verified Access Trust Providers. See VerifiedAccessTrustProviders below for details.One or more blocks
-        /// </summary>
         public InputList<Inputs.InstanceVerifiedAccessTrustProviderGetArgs> VerifiedAccessTrustProviders
         {
             get => _verifiedAccessTrustProviders ?? (_verifiedAccessTrustProviders = new InputList<Inputs.InstanceVerifiedAccessTrustProviderGetArgs>());

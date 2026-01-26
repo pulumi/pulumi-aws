@@ -12,92 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an SES domain identity resource
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ses"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ses.NewDomainIdentity(ctx, "example", &ses.DomainIdentityArgs{
-//				Domain: pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Route53 Record
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ses"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ses.NewDomainIdentity(ctx, "example", &ses.DomainIdentityArgs{
-//				Domain: pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewRecord(ctx, "example_amazonses_verification_record", &route53.RecordArgs{
-//				ZoneId: pulumi.String("ABCDEFGHIJ123"),
-//				Name:   pulumi.String("_amazonses.example.com"),
-//				Type:   pulumi.String(route53.RecordTypeTXT),
-//				Ttl:    pulumi.Int(600),
-//				Records: pulumi.StringArray{
-//					example.VerificationToken,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SES domain identities using the domain name. For example:
-//
-// ```sh
-// $ pulumi import aws:ses/domainIdentity:DomainIdentity example example.com
-// ```
 type DomainIdentity struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the domain identity.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The domain name to assign to SES
-	Domain pulumi.StringOutput `pulumi:"domain"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf. The domain identity will be in state "verification pending" until this is done. See the With Route53 Record example for how this might be achieved when the domain is hosted in Route 53 and managed by this provider.  Find out more about verifying domains in Amazon SES in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
+	Arn               pulumi.StringOutput `pulumi:"arn"`
+	Domain            pulumi.StringOutput `pulumi:"domain"`
+	Region            pulumi.StringOutput `pulumi:"region"`
 	VerificationToken pulumi.StringOutput `pulumi:"verificationToken"`
 }
 
@@ -134,24 +54,16 @@ func GetDomainIdentity(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainIdentity resources.
 type domainIdentityState struct {
-	// The ARN of the domain identity.
-	Arn *string `pulumi:"arn"`
-	// The domain name to assign to SES
-	Domain *string `pulumi:"domain"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf. The domain identity will be in state "verification pending" until this is done. See the With Route53 Record example for how this might be achieved when the domain is hosted in Route 53 and managed by this provider.  Find out more about verifying domains in Amazon SES in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
+	Arn               *string `pulumi:"arn"`
+	Domain            *string `pulumi:"domain"`
+	Region            *string `pulumi:"region"`
 	VerificationToken *string `pulumi:"verificationToken"`
 }
 
 type DomainIdentityState struct {
-	// The ARN of the domain identity.
-	Arn pulumi.StringPtrInput
-	// The domain name to assign to SES
-	Domain pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf. The domain identity will be in state "verification pending" until this is done. See the With Route53 Record example for how this might be achieved when the domain is hosted in Route 53 and managed by this provider.  Find out more about verifying domains in Amazon SES in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
+	Arn               pulumi.StringPtrInput
+	Domain            pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
 	VerificationToken pulumi.StringPtrInput
 }
 
@@ -160,17 +72,13 @@ func (DomainIdentityState) ElementType() reflect.Type {
 }
 
 type domainIdentityArgs struct {
-	// The domain name to assign to SES
-	Domain string `pulumi:"domain"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Domain string  `pulumi:"domain"`
 	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a DomainIdentity resource.
 type DomainIdentityArgs struct {
-	// The domain name to assign to SES
 	Domain pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -261,22 +169,18 @@ func (o DomainIdentityOutput) ToDomainIdentityOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The ARN of the domain identity.
 func (o DomainIdentityOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainIdentity) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The domain name to assign to SES
 func (o DomainIdentityOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainIdentity) pulumi.StringOutput { return v.Domain }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DomainIdentityOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainIdentity) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf. The domain identity will be in state "verification pending" until this is done. See the With Route53 Record example for how this might be achieved when the domain is hosted in Route 53 and managed by this provider.  Find out more about verifying domains in Amazon SES in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
 func (o DomainIdentityOutput) VerificationToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainIdentity) pulumi.StringOutput { return v.VerificationToken }).(pulumi.StringOutput)
 }

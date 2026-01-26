@@ -15,53 +15,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainMatching {
-    /**
-     * @return A block that specifies the configuration about the auto-merging process. Documented below.
-     * 
-     */
     private @Nullable DomainMatchingAutoMerging autoMerging;
-    /**
-     * @return The flag that enables the matching process of duplicate profiles.
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return A block that specifies the configuration for exporting Identity Resolution results. Documented below.
-     * 
-     */
     private @Nullable DomainMatchingExportingConfig exportingConfig;
-    /**
-     * @return A block that specifies the day and time when you want to start the Identity Resolution Job every week. Documented below.
-     * 
-     */
     private @Nullable DomainMatchingJobSchedule jobSchedule;
 
     private DomainMatching() {}
-    /**
-     * @return A block that specifies the configuration about the auto-merging process. Documented below.
-     * 
-     */
     public Optional<DomainMatchingAutoMerging> autoMerging() {
         return Optional.ofNullable(this.autoMerging);
     }
-    /**
-     * @return The flag that enables the matching process of duplicate profiles.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return A block that specifies the configuration for exporting Identity Resolution results. Documented below.
-     * 
-     */
     public Optional<DomainMatchingExportingConfig> exportingConfig() {
         return Optional.ofNullable(this.exportingConfig);
     }
-    /**
-     * @return A block that specifies the day and time when you want to start the Identity Resolution Job every week. Documented below.
-     * 
-     */
     public Optional<DomainMatchingJobSchedule> jobSchedule() {
         return Optional.ofNullable(this.jobSchedule);
     }

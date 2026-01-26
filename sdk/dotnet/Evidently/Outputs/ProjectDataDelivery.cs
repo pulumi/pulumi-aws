@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Evidently.Outputs
     [OutputType]
     public sealed class ProjectDataDelivery
     {
-        /// <summary>
-        /// A block that defines the CloudWatch Log Group that stores the evaluation events. See below.
-        /// </summary>
         public readonly Outputs.ProjectDataDeliveryCloudwatchLogs? CloudwatchLogs;
-        /// <summary>
-        /// A block that defines the S3 bucket and prefix that stores the evaluation events. See below.
-        /// </summary>
         public readonly Outputs.ProjectDataDeliveryS3Destination? S3Destination;
 
         [OutputConstructor]

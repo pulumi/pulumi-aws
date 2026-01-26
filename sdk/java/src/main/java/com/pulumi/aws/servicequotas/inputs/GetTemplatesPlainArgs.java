@@ -14,24 +14,14 @@ public final class GetTemplatesPlainArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetTemplatesPlainArgs Empty = new GetTemplatesPlainArgs();
 
-    /**
-     * AWS Region to which the quota increases apply.
-     * 
-     */
     @Import(name="awsRegion")
     private @Nullable String awsRegion;
 
-    /**
-     * @return AWS Region to which the quota increases apply.
-     * 
-     */
     public Optional<String> awsRegion() {
         return Optional.ofNullable(this.awsRegion);
     }
 
     /**
-     * AWS Region to which the quota increases apply. Use `aws.getRegion` instead.
-     * 
      * @deprecated
      * region is deprecated. Use aws.getRegion instead.
      * 
@@ -41,8 +31,6 @@ public final class GetTemplatesPlainArgs extends com.pulumi.resources.InvokeArgs
     private @Nullable String region;
 
     /**
-     * @return AWS Region to which the quota increases apply. Use `aws.getRegion` instead.
-     * 
      * @deprecated
      * region is deprecated. Use aws.getRegion instead.
      * 
@@ -77,20 +65,12 @@ public final class GetTemplatesPlainArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetTemplatesPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param awsRegion AWS Region to which the quota increases apply.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsRegion(@Nullable String awsRegion) {
             $.awsRegion = awsRegion;
             return this;
         }
 
         /**
-         * @param region AWS Region to which the quota increases apply. Use `aws.getRegion` instead.
-         * 
          * @return builder
          * 
          * @deprecated

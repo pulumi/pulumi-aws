@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStep {
-    /**
-     * @return Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
-     * 
-     */
     private @Nullable V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepDialogAction dialogAction;
-    /**
-     * @return Configuration block for override settings to configure the intent state. See `intent`.
-     * 
-     */
     private @Nullable V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepIntent intent;
-    /**
-     * @return Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
-     * 
-     */
     private @Nullable Map<String,String> sessionAttributes;
 
     private V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStep() {}
-    /**
-     * @return Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
-     * 
-     */
     public Optional<V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepDialogAction> dialogAction() {
         return Optional.ofNullable(this.dialogAction);
     }
-    /**
-     * @return Configuration block for override settings to configure the intent state. See `intent`.
-     * 
-     */
     public Optional<V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepIntent> intent() {
         return Optional.ofNullable(this.intent);
     }
-    /**
-     * @return Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
-     * 
-     */
     public Map<String,String> sessionAttributes() {
         return this.sessionAttributes == null ? Map.of() : this.sessionAttributes;
     }

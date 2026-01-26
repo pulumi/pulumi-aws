@@ -17,32 +17,16 @@ public final class GuardrailWordPolicyConfigArgs extends com.pulumi.resources.Re
 
     public static final GuardrailWordPolicyConfigArgs Empty = new GuardrailWordPolicyConfigArgs();
 
-    /**
-     * A config for the list of managed words. See Managed Word Lists Config for more information.
-     * 
-     */
     @Import(name="managedWordListsConfigs")
     private @Nullable Output<List<GuardrailWordPolicyConfigManagedWordListsConfigArgs>> managedWordListsConfigs;
 
-    /**
-     * @return A config for the list of managed words. See Managed Word Lists Config for more information.
-     * 
-     */
     public Optional<Output<List<GuardrailWordPolicyConfigManagedWordListsConfigArgs>>> managedWordListsConfigs() {
         return Optional.ofNullable(this.managedWordListsConfigs);
     }
 
-    /**
-     * List of custom word configs. See Words Config for more information.
-     * 
-     */
     @Import(name="wordsConfigs")
     private @Nullable Output<List<GuardrailWordPolicyConfigWordsConfigArgs>> wordsConfigs;
 
-    /**
-     * @return List of custom word configs. See Words Config for more information.
-     * 
-     */
     public Optional<Output<List<GuardrailWordPolicyConfigWordsConfigArgs>>> wordsConfigs() {
         return Optional.ofNullable(this.wordsConfigs);
     }
@@ -72,64 +56,28 @@ public final class GuardrailWordPolicyConfigArgs extends com.pulumi.resources.Re
             $ = new GuardrailWordPolicyConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param managedWordListsConfigs A config for the list of managed words. See Managed Word Lists Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedWordListsConfigs(@Nullable Output<List<GuardrailWordPolicyConfigManagedWordListsConfigArgs>> managedWordListsConfigs) {
             $.managedWordListsConfigs = managedWordListsConfigs;
             return this;
         }
 
-        /**
-         * @param managedWordListsConfigs A config for the list of managed words. See Managed Word Lists Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedWordListsConfigs(List<GuardrailWordPolicyConfigManagedWordListsConfigArgs> managedWordListsConfigs) {
             return managedWordListsConfigs(Output.of(managedWordListsConfigs));
         }
 
-        /**
-         * @param managedWordListsConfigs A config for the list of managed words. See Managed Word Lists Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedWordListsConfigs(GuardrailWordPolicyConfigManagedWordListsConfigArgs... managedWordListsConfigs) {
             return managedWordListsConfigs(List.of(managedWordListsConfigs));
         }
 
-        /**
-         * @param wordsConfigs List of custom word configs. See Words Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder wordsConfigs(@Nullable Output<List<GuardrailWordPolicyConfigWordsConfigArgs>> wordsConfigs) {
             $.wordsConfigs = wordsConfigs;
             return this;
         }
 
-        /**
-         * @param wordsConfigs List of custom word configs. See Words Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder wordsConfigs(List<GuardrailWordPolicyConfigWordsConfigArgs> wordsConfigs) {
             return wordsConfigs(Output.of(wordsConfigs));
         }
 
-        /**
-         * @param wordsConfigs List of custom word configs. See Words Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder wordsConfigs(GuardrailWordPolicyConfigWordsConfigArgs... wordsConfigs) {
             return wordsConfigs(List.of(wordsConfigs));
         }

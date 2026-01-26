@@ -7,26 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a CodeCommit Trigger Resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.codecommit.Repository("test", {repositoryName: "test"});
- * const testTrigger = new aws.codecommit.Trigger("test", {
- *     repositoryName: test.repositoryName,
- *     triggers: [{
- *         name: "all",
- *         events: ["all"],
- *         destinationArn: testAwsSnsTopic.arn,
- *     }],
- * });
- * ```
- */
 export class Trigger extends pulumi.CustomResource {
     /**
      * Get an existing Trigger resource's state with the given name, ID, and optional extra
@@ -55,21 +35,9 @@ export class Trigger extends pulumi.CustomResource {
         return obj['__pulumiType'] === Trigger.__pulumiType;
     }
 
-    /**
-     * System-generated unique identifier.
-     */
     declare public /*out*/ readonly configurationId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The name for the repository. This needs to be less than 100 characters.
-     */
     declare public readonly repositoryName: pulumi.Output<string>;
-    /**
-     * The name of the trigger.
-     */
     declare public readonly triggers: pulumi.Output<outputs.codecommit.TriggerTrigger[]>;
 
     /**
@@ -111,21 +79,9 @@ export class Trigger extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Trigger resources.
  */
 export interface TriggerState {
-    /**
-     * System-generated unique identifier.
-     */
     configurationId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The name for the repository. This needs to be less than 100 characters.
-     */
     repositoryName?: pulumi.Input<string>;
-    /**
-     * The name of the trigger.
-     */
     triggers?: pulumi.Input<pulumi.Input<inputs.codecommit.TriggerTrigger>[]>;
 }
 
@@ -133,16 +89,7 @@ export interface TriggerState {
  * The set of arguments for constructing a Trigger resource.
  */
 export interface TriggerArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The name for the repository. This needs to be less than 100 characters.
-     */
     repositoryName: pulumi.Input<string>;
-    /**
-     * The name of the trigger.
-     */
     triggers: pulumi.Input<pulumi.Input<inputs.codecommit.TriggerTrigger>[]>;
 }

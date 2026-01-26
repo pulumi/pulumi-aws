@@ -16,32 +16,16 @@ public final class ProvisioningTemplatePreProvisioningHookArgs extends com.pulum
 
     public static final ProvisioningTemplatePreProvisioningHookArgs Empty = new ProvisioningTemplatePreProvisioningHookArgs();
 
-    /**
-     * The version of the payload that was sent to the target function. The only valid (and the default) payload version is `&#34;2020-04-01&#34;`.
-     * 
-     */
     @Import(name="payloadVersion")
     private @Nullable Output<String> payloadVersion;
 
-    /**
-     * @return The version of the payload that was sent to the target function. The only valid (and the default) payload version is `&#34;2020-04-01&#34;`.
-     * 
-     */
     public Optional<Output<String>> payloadVersion() {
         return Optional.ofNullable(this.payloadVersion);
     }
 
-    /**
-     * The ARN of the target function.
-     * 
-     */
     @Import(name="targetArn", required=true)
     private Output<String> targetArn;
 
-    /**
-     * @return The ARN of the target function.
-     * 
-     */
     public Output<String> targetArn() {
         return this.targetArn;
     }
@@ -71,44 +55,20 @@ public final class ProvisioningTemplatePreProvisioningHookArgs extends com.pulum
             $ = new ProvisioningTemplatePreProvisioningHookArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param payloadVersion The version of the payload that was sent to the target function. The only valid (and the default) payload version is `&#34;2020-04-01&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder payloadVersion(@Nullable Output<String> payloadVersion) {
             $.payloadVersion = payloadVersion;
             return this;
         }
 
-        /**
-         * @param payloadVersion The version of the payload that was sent to the target function. The only valid (and the default) payload version is `&#34;2020-04-01&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder payloadVersion(String payloadVersion) {
             return payloadVersion(Output.of(payloadVersion));
         }
 
-        /**
-         * @param targetArn The ARN of the target function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetArn(Output<String> targetArn) {
             $.targetArn = targetArn;
             return this;
         }
 
-        /**
-         * @param targetArn The ARN of the target function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetArn(String targetArn) {
             return targetArn(Output.of(targetArn));
         }

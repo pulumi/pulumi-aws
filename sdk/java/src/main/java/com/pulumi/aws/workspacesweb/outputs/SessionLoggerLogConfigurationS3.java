@@ -12,65 +12,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SessionLoggerLogConfigurationS3 {
-    /**
-     * @return S3 bucket name where logs are delivered.
-     * 
-     */
     private String bucket;
-    /**
-     * @return Expected bucket owner of the target S3 bucket.
-     * 
-     */
     private @Nullable String bucketOwner;
-    /**
-     * @return Folder structure that defines the organizational structure for log files in S3. Valid values: `FlatStructure`, `DateBasedStructure`.
-     * 
-     */
     private String folderStructure;
-    /**
-     * @return S3 path prefix that determines where log files are stored.
-     * 
-     */
     private @Nullable String keyPrefix;
-    /**
-     * @return Format of the log file written to S3. Valid values: `Json`, `Parquet`.
-     * 
-     */
     private String logFileFormat;
 
     private SessionLoggerLogConfigurationS3() {}
-    /**
-     * @return S3 bucket name where logs are delivered.
-     * 
-     */
     public String bucket() {
         return this.bucket;
     }
-    /**
-     * @return Expected bucket owner of the target S3 bucket.
-     * 
-     */
     public Optional<String> bucketOwner() {
         return Optional.ofNullable(this.bucketOwner);
     }
-    /**
-     * @return Folder structure that defines the organizational structure for log files in S3. Valid values: `FlatStructure`, `DateBasedStructure`.
-     * 
-     */
     public String folderStructure() {
         return this.folderStructure;
     }
-    /**
-     * @return S3 path prefix that determines where log files are stored.
-     * 
-     */
     public Optional<String> keyPrefix() {
         return Optional.ofNullable(this.keyPrefix);
     }
-    /**
-     * @return Format of the log file written to S3. Valid values: `Json`, `Parquet`.
-     * 
-     */
     public String logFileFormat() {
         return this.logFileFormat;
     }

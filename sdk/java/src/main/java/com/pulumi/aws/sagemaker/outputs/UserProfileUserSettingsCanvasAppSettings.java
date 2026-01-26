@@ -19,93 +19,37 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserProfileUserSettingsCanvasAppSettings {
-    /**
-     * @return The model deployment settings for the SageMaker AI Canvas application. See Direct Deploy Settings below.
-     * 
-     */
     private @Nullable UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings directDeploySettings;
-    /**
-     * @return The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emrServerlessSettings` Block below.
-     * 
-     */
     private @Nullable UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings emrServerlessSettings;
     private @Nullable UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings generativeAiSettings;
-    /**
-     * @return The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
-     * 
-     */
     private @Nullable List<UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting> identityProviderOauthSettings;
-    /**
-     * @return The settings for document querying. See Kendra Settings below.
-     * 
-     */
     private @Nullable UserProfileUserSettingsCanvasAppSettingsKendraSettings kendraSettings;
-    /**
-     * @return The model registry settings for the SageMaker AI Canvas application. See Model Register Settings below.
-     * 
-     */
     private @Nullable UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings modelRegisterSettings;
-    /**
-     * @return Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
-     * 
-     */
     private @Nullable UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings timeSeriesForecastingSettings;
-    /**
-     * @return The workspace settings for the SageMaker AI Canvas application. See Workspace Settings below.
-     * 
-     */
     private @Nullable UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings workspaceSettings;
 
     private UserProfileUserSettingsCanvasAppSettings() {}
-    /**
-     * @return The model deployment settings for the SageMaker AI Canvas application. See Direct Deploy Settings below.
-     * 
-     */
     public Optional<UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings> directDeploySettings() {
         return Optional.ofNullable(this.directDeploySettings);
     }
-    /**
-     * @return The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emrServerlessSettings` Block below.
-     * 
-     */
     public Optional<UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings> emrServerlessSettings() {
         return Optional.ofNullable(this.emrServerlessSettings);
     }
     public Optional<UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings> generativeAiSettings() {
         return Optional.ofNullable(this.generativeAiSettings);
     }
-    /**
-     * @return The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
-     * 
-     */
     public List<UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting> identityProviderOauthSettings() {
         return this.identityProviderOauthSettings == null ? List.of() : this.identityProviderOauthSettings;
     }
-    /**
-     * @return The settings for document querying. See Kendra Settings below.
-     * 
-     */
     public Optional<UserProfileUserSettingsCanvasAppSettingsKendraSettings> kendraSettings() {
         return Optional.ofNullable(this.kendraSettings);
     }
-    /**
-     * @return The model registry settings for the SageMaker AI Canvas application. See Model Register Settings below.
-     * 
-     */
     public Optional<UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings> modelRegisterSettings() {
         return Optional.ofNullable(this.modelRegisterSettings);
     }
-    /**
-     * @return Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
-     * 
-     */
     public Optional<UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings> timeSeriesForecastingSettings() {
         return Optional.ofNullable(this.timeSeriesForecastingSettings);
     }
-    /**
-     * @return The workspace settings for the SageMaker AI Canvas application. See Workspace Settings below.
-     * 
-     */
     public Optional<UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings> workspaceSettings() {
         return Optional.ofNullable(this.workspaceSettings);
     }

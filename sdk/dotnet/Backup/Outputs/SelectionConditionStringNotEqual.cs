@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Backup.Outputs
     [OutputType]
     public sealed class SelectionConditionStringNotEqual
     {
-        /// <summary>
-        /// Key for the filter.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// Value for the filter.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

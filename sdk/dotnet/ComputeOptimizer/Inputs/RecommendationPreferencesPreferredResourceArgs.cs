@@ -14,10 +14,6 @@ namespace Pulumi.Aws.ComputeOptimizer.Inputs
     {
         [Input("excludeLists")]
         private InputList<string>? _excludeLists;
-
-        /// <summary>
-        /// The preferred resource type values to exclude from the recommendation candidates. If this isn’t specified, all supported resources are included by default.
-        /// </summary>
         public InputList<string> ExcludeLists
         {
             get => _excludeLists ?? (_excludeLists = new InputList<string>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.ComputeOptimizer.Inputs
 
         [Input("includeLists")]
         private InputList<string>? _includeLists;
-
-        /// <summary>
-        /// The preferred resource type values to include in the recommendation candidates. You can specify the exact resource type value, such as `"m5.large"`, or use wild card expressions, such as `"m5"`. If this isn’t specified, all supported resources are included by default.
-        /// </summary>
         public InputList<string> IncludeLists
         {
             get => _includeLists ?? (_includeLists = new InputList<string>());

@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class VpcEncryptionControlResourceExclusionsVirtualPrivateGateway {
-    /**
-     * @return The current state of the VPC Encryption Control.
-     * 
-     */
     private String state;
-    /**
-     * @return A message providing additional information about the state of the VPC Encryption Control.
-     * 
-     */
     private String stateMessage;
 
     private VpcEncryptionControlResourceExclusionsVirtualPrivateGateway() {}
-    /**
-     * @return The current state of the VPC Encryption Control.
-     * 
-     */
     public String state() {
         return this.state;
     }
-    /**
-     * @return A message providing additional information about the state of the VPC Encryption Control.
-     * 
-     */
     public String stateMessage() {
         return this.stateMessage;
     }

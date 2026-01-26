@@ -16,14 +16,14 @@ public final class GetImagesImageIdArgs extends com.pulumi.resources.ResourceArg
     public static final GetImagesImageIdArgs Empty = new GetImagesImageIdArgs();
 
     /**
-     * Digest of the image manifest.
+     * Image digest.
      * 
      */
     @Import(name="imageDigest")
     private @Nullable Output<String> imageDigest;
 
     /**
-     * @return Digest of the image manifest.
+     * @return Image digest.
      * 
      */
     public Optional<Output<String>> imageDigest() {
@@ -31,14 +31,14 @@ public final class GetImagesImageIdArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Tag used for the image.
+     * Image tag.
      * 
      */
     @Import(name="imageTag")
     private @Nullable Output<String> imageTag;
 
     /**
-     * @return Tag used for the image.
+     * @return Image tag.
      * 
      */
     public Optional<Output<String>> imageTag() {
@@ -71,7 +71,7 @@ public final class GetImagesImageIdArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param imageDigest Digest of the image manifest.
+         * @param imageDigest Image digest.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetImagesImageIdArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param imageDigest Digest of the image manifest.
+         * @param imageDigest Image digest.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class GetImagesImageIdArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param imageTag Tag used for the image.
+         * @param imageTag Image tag.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class GetImagesImageIdArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param imageTag Tag used for the image.
+         * @param imageTag Image tag.
          * 
          * @return builder
          * 

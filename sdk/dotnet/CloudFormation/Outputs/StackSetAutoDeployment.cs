@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudFormation.Outputs
     [OutputType]
     public sealed class StackSetAutoDeployment
     {
-        /// <summary>
-        /// Whether or not auto-deployment is enabled.
-        /// </summary>
         public readonly bool? Enabled;
-        /// <summary>
-        /// Whether or not to retain stacks when the account is removed.
-        /// </summary>
         public readonly bool? RetainStacksOnAccountRemoval;
 
         [OutputConstructor]

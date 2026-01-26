@@ -9,49 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ebs
 {
-    /// <summary>
-    /// Provides a resource to manage whether default EBS encryption is enabled for your AWS account in the current AWS region. To manage the default KMS key for the region, see the `aws.ebs.DefaultKmsKey` resource.
-    /// 
-    /// &gt; **NOTE:** Removing this resource disables default EBS encryption.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ebs.EncryptionByDefault("example", new()
-    ///     {
-    ///         Enabled = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import the default EBS encryption state. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ebs/encryptionByDefault:EncryptionByDefault example default
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ebs/encryptionByDefault:EncryptionByDefault")]
     public partial class EncryptionByDefault : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Whether or not default EBS encryption is enabled. Valid values are `True` or `False`. Defaults to `True`.
-        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -101,15 +64,9 @@ namespace Pulumi.Aws.Ebs
 
     public sealed class EncryptionByDefaultArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether or not default EBS encryption is enabled. Valid values are `True` or `False`. Defaults to `True`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -121,15 +78,9 @@ namespace Pulumi.Aws.Ebs
 
     public sealed class EncryptionByDefaultState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether or not default EBS encryption is enabled. Valid values are `True` or `False`. Defaults to `True`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

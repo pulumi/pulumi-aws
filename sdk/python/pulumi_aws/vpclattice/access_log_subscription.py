@@ -26,12 +26,6 @@ class AccessLogSubscriptionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AccessLogSubscription resource.
-        :param pulumi.Input[_builtins.str] destination_arn: Amazon Resource Name (ARN) of the log destination.
-        :param pulumi.Input[_builtins.str] resource_identifier: The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] service_network_log_type: Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
         """
         pulumi.set(__self__, "destination_arn", destination_arn)
         pulumi.set(__self__, "resource_identifier", resource_identifier)
@@ -45,9 +39,6 @@ class AccessLogSubscriptionArgs:
     @_builtins.property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the log destination.
-        """
         return pulumi.get(self, "destination_arn")
 
     @destination_arn.setter
@@ -57,11 +48,6 @@ class AccessLogSubscriptionArgs:
     @_builtins.property
     @pulumi.getter(name="resourceIdentifier")
     def resource_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "resource_identifier")
 
     @resource_identifier.setter
@@ -71,9 +57,6 @@ class AccessLogSubscriptionArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -83,9 +66,6 @@ class AccessLogSubscriptionArgs:
     @_builtins.property
     @pulumi.getter(name="serviceNetworkLogType")
     def service_network_log_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
-        """
         return pulumi.get(self, "service_network_log_type")
 
     @service_network_log_type.setter
@@ -115,14 +95,6 @@ class _AccessLogSubscriptionState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AccessLogSubscription resources.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the access log subscription.
-        :param pulumi.Input[_builtins.str] destination_arn: Amazon Resource Name (ARN) of the log destination.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: Amazon Resource Name (ARN) of the service network or service.
-        :param pulumi.Input[_builtins.str] resource_identifier: The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] service_network_log_type: Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -144,9 +116,6 @@ class _AccessLogSubscriptionState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the access log subscription.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -156,9 +125,6 @@ class _AccessLogSubscriptionState:
     @_builtins.property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the log destination.
-        """
         return pulumi.get(self, "destination_arn")
 
     @destination_arn.setter
@@ -168,9 +134,6 @@ class _AccessLogSubscriptionState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -180,9 +143,6 @@ class _AccessLogSubscriptionState:
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the service network or service.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -192,11 +152,6 @@ class _AccessLogSubscriptionState:
     @_builtins.property
     @pulumi.getter(name="resourceIdentifier")
     def resource_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "resource_identifier")
 
     @resource_identifier.setter
@@ -206,9 +161,6 @@ class _AccessLogSubscriptionState:
     @_builtins.property
     @pulumi.getter(name="serviceNetworkLogType")
     def service_network_log_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
-        """
         return pulumi.get(self, "service_network_log_type")
 
     @service_network_log_type.setter
@@ -247,37 +199,9 @@ class AccessLogSubscription(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS VPC Lattice Service Network or Service Access log subscription.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpclattice.AccessLogSubscription("example",
-            resource_identifier=example_aws_vpclattice_service_network["id"],
-            destination_arn=bucket["arn"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import VPC Lattice Access Log Subscription using the access log subscription ID. For example:
-
-        ```sh
-        $ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
-        ```
-
+        Create a AccessLogSubscription resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] destination_arn: Amazon Resource Name (ARN) of the log destination.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_identifier: The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] service_network_log_type: Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
         """
         ...
     @overload
@@ -286,29 +210,7 @@ class AccessLogSubscription(pulumi.CustomResource):
                  args: AccessLogSubscriptionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS VPC Lattice Service Network or Service Access log subscription.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpclattice.AccessLogSubscription("example",
-            resource_identifier=example_aws_vpclattice_service_network["id"],
-            destination_arn=bucket["arn"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import VPC Lattice Access Log Subscription using the access log subscription ID. For example:
-
-        ```sh
-        $ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
-        ```
-
+        Create a AccessLogSubscription resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AccessLogSubscriptionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -375,14 +277,6 @@ class AccessLogSubscription(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the access log subscription.
-        :param pulumi.Input[_builtins.str] destination_arn: Amazon Resource Name (ARN) of the log destination.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: Amazon Resource Name (ARN) of the service network or service.
-        :param pulumi.Input[_builtins.str] resource_identifier: The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] service_network_log_type: Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -401,51 +295,31 @@ class AccessLogSubscription(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the access log subscription.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the log destination.
-        """
         return pulumi.get(self, "destination_arn")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the service network or service.
-        """
         return pulumi.get(self, "resource_arn")
 
     @_builtins.property
     @pulumi.getter(name="resourceIdentifier")
     def resource_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "resource_identifier")
 
     @_builtins.property
     @pulumi.getter(name="serviceNetworkLogType")
     def service_network_log_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
-        """
         return pulumi.get(self, "service_network_log_type")
 
     @_builtins.property

@@ -39,24 +39,6 @@ class DirectoryArgs:
                  workspace_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Directory resource.
-        :param pulumi.Input['DirectoryActiveDirectoryConfigArgs'] active_directory_config: Configuration for Active Directory integration when `workspace_type` is set to `POOLS`. Defined below.
-        :param pulumi.Input['DirectoryCertificateBasedAuthPropertiesArgs'] certificate_based_auth_properties: Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
-        :param pulumi.Input[_builtins.str] directory_id: The directory identifier for registration in WorkSpaces service.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_group_ids: The identifiers of the IP access control groups associated with the directory.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['DirectorySamlPropertiesArgs'] saml_properties: Configuration of SAML authentication integration. Defined below.
-        :param pulumi.Input['DirectorySelfServicePermissionsArgs'] self_service_permissions: Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The identifiers of the subnets where the directory resides.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] tenancy: Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
-        :param pulumi.Input[_builtins.str] user_identity_type: Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
-               
-               > **Note:** When `workspace_type` is set to `POOLS`, the `directory_id` is automatically generated and cannot be manually set.
-        :param pulumi.Input['DirectoryWorkspaceAccessPropertiesArgs'] workspace_access_properties: Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
-        :param pulumi.Input['DirectoryWorkspaceCreationPropertiesArgs'] workspace_creation_properties: Default properties that are used for creating WorkSpaces. Defined below.
-        :param pulumi.Input[_builtins.str] workspace_directory_description: The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
-        :param pulumi.Input[_builtins.str] workspace_directory_name: The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
-        :param pulumi.Input[_builtins.str] workspace_type: Specifies the type of WorkSpaces directory. Valid values are `PERSONAL` and `POOLS`. Default is `PERSONAL`.
         """
         if active_directory_config is not None:
             pulumi.set(__self__, "active_directory_config", active_directory_config)
@@ -94,9 +76,6 @@ class DirectoryArgs:
     @_builtins.property
     @pulumi.getter(name="activeDirectoryConfig")
     def active_directory_config(self) -> Optional[pulumi.Input['DirectoryActiveDirectoryConfigArgs']]:
-        """
-        Configuration for Active Directory integration when `workspace_type` is set to `POOLS`. Defined below.
-        """
         return pulumi.get(self, "active_directory_config")
 
     @active_directory_config.setter
@@ -106,9 +85,6 @@ class DirectoryArgs:
     @_builtins.property
     @pulumi.getter(name="certificateBasedAuthProperties")
     def certificate_based_auth_properties(self) -> Optional[pulumi.Input['DirectoryCertificateBasedAuthPropertiesArgs']]:
-        """
-        Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
-        """
         return pulumi.get(self, "certificate_based_auth_properties")
 
     @certificate_based_auth_properties.setter
@@ -118,9 +94,6 @@ class DirectoryArgs:
     @_builtins.property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The directory identifier for registration in WorkSpaces service.
-        """
         return pulumi.get(self, "directory_id")
 
     @directory_id.setter
@@ -130,9 +103,6 @@ class DirectoryArgs:
     @_builtins.property
     @pulumi.getter(name="ipGroupIds")
     def ip_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The identifiers of the IP access control groups associated with the directory.
-        """
         return pulumi.get(self, "ip_group_ids")
 
     @ip_group_ids.setter
@@ -142,9 +112,6 @@ class DirectoryArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -154,9 +121,6 @@ class DirectoryArgs:
     @_builtins.property
     @pulumi.getter(name="samlProperties")
     def saml_properties(self) -> Optional[pulumi.Input['DirectorySamlPropertiesArgs']]:
-        """
-        Configuration of SAML authentication integration. Defined below.
-        """
         return pulumi.get(self, "saml_properties")
 
     @saml_properties.setter
@@ -166,9 +130,6 @@ class DirectoryArgs:
     @_builtins.property
     @pulumi.getter(name="selfServicePermissions")
     def self_service_permissions(self) -> Optional[pulumi.Input['DirectorySelfServicePermissionsArgs']]:
-        """
-        Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
-        """
         return pulumi.get(self, "self_service_permissions")
 
     @self_service_permissions.setter
@@ -178,9 +139,6 @@ class DirectoryArgs:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The identifiers of the subnets where the directory resides.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -190,9 +148,6 @@ class DirectoryArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -202,9 +157,6 @@ class DirectoryArgs:
     @_builtins.property
     @pulumi.getter
     def tenancy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
-        """
         return pulumi.get(self, "tenancy")
 
     @tenancy.setter
@@ -214,11 +166,6 @@ class DirectoryArgs:
     @_builtins.property
     @pulumi.getter(name="userIdentityType")
     def user_identity_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
-
-        > **Note:** When `workspace_type` is set to `POOLS`, the `directory_id` is automatically generated and cannot be manually set.
-        """
         return pulumi.get(self, "user_identity_type")
 
     @user_identity_type.setter
@@ -228,9 +175,6 @@ class DirectoryArgs:
     @_builtins.property
     @pulumi.getter(name="workspaceAccessProperties")
     def workspace_access_properties(self) -> Optional[pulumi.Input['DirectoryWorkspaceAccessPropertiesArgs']]:
-        """
-        Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
-        """
         return pulumi.get(self, "workspace_access_properties")
 
     @workspace_access_properties.setter
@@ -240,9 +184,6 @@ class DirectoryArgs:
     @_builtins.property
     @pulumi.getter(name="workspaceCreationProperties")
     def workspace_creation_properties(self) -> Optional[pulumi.Input['DirectoryWorkspaceCreationPropertiesArgs']]:
-        """
-        Default properties that are used for creating WorkSpaces. Defined below.
-        """
         return pulumi.get(self, "workspace_creation_properties")
 
     @workspace_creation_properties.setter
@@ -252,9 +193,6 @@ class DirectoryArgs:
     @_builtins.property
     @pulumi.getter(name="workspaceDirectoryDescription")
     def workspace_directory_description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
-        """
         return pulumi.get(self, "workspace_directory_description")
 
     @workspace_directory_description.setter
@@ -264,9 +202,6 @@ class DirectoryArgs:
     @_builtins.property
     @pulumi.getter(name="workspaceDirectoryName")
     def workspace_directory_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
-        """
         return pulumi.get(self, "workspace_directory_name")
 
     @workspace_directory_name.setter
@@ -276,9 +211,6 @@ class DirectoryArgs:
     @_builtins.property
     @pulumi.getter(name="workspaceType")
     def workspace_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the type of WorkSpaces directory. Valid values are `PERSONAL` and `POOLS`. Default is `PERSONAL`.
-        """
         return pulumi.get(self, "workspace_type")
 
     @workspace_type.setter
@@ -316,33 +248,6 @@ class _DirectoryState:
                  workspace_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Directory resources.
-        :param pulumi.Input['DirectoryActiveDirectoryConfigArgs'] active_directory_config: Configuration for Active Directory integration when `workspace_type` is set to `POOLS`. Defined below.
-        :param pulumi.Input[_builtins.str] alias: The directory alias.
-        :param pulumi.Input['DirectoryCertificateBasedAuthPropertiesArgs'] certificate_based_auth_properties: Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
-        :param pulumi.Input[_builtins.str] customer_user_name: The user name for the service account.
-        :param pulumi.Input[_builtins.str] directory_id: The directory identifier for registration in WorkSpaces service.
-        :param pulumi.Input[_builtins.str] directory_name: The name of the directory.
-        :param pulumi.Input[_builtins.str] directory_type: The directory type.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_ip_addresses: The IP addresses of the DNS servers for the directory.
-        :param pulumi.Input[_builtins.str] iam_role_id: The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_group_ids: The identifiers of the IP access control groups associated with the directory.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] registration_code: The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
-        :param pulumi.Input['DirectorySamlPropertiesArgs'] saml_properties: Configuration of SAML authentication integration. Defined below.
-        :param pulumi.Input['DirectorySelfServicePermissionsArgs'] self_service_permissions: Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The identifiers of the subnets where the directory resides.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] tenancy: Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
-        :param pulumi.Input[_builtins.str] user_identity_type: Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
-               
-               > **Note:** When `workspace_type` is set to `POOLS`, the `directory_id` is automatically generated and cannot be manually set.
-        :param pulumi.Input['DirectoryWorkspaceAccessPropertiesArgs'] workspace_access_properties: Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
-        :param pulumi.Input['DirectoryWorkspaceCreationPropertiesArgs'] workspace_creation_properties: Default properties that are used for creating WorkSpaces. Defined below.
-        :param pulumi.Input[_builtins.str] workspace_directory_description: The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
-        :param pulumi.Input[_builtins.str] workspace_directory_name: The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
-        :param pulumi.Input[_builtins.str] workspace_security_group_id: The identifier of the security group that is assigned to new WorkSpaces.
-        :param pulumi.Input[_builtins.str] workspace_type: Specifies the type of WorkSpaces directory. Valid values are `PERSONAL` and `POOLS`. Default is `PERSONAL`.
         """
         if active_directory_config is not None:
             pulumi.set(__self__, "active_directory_config", active_directory_config)
@@ -398,9 +303,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter(name="activeDirectoryConfig")
     def active_directory_config(self) -> Optional[pulumi.Input['DirectoryActiveDirectoryConfigArgs']]:
-        """
-        Configuration for Active Directory integration when `workspace_type` is set to `POOLS`. Defined below.
-        """
         return pulumi.get(self, "active_directory_config")
 
     @active_directory_config.setter
@@ -410,9 +312,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter
     def alias(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The directory alias.
-        """
         return pulumi.get(self, "alias")
 
     @alias.setter
@@ -422,9 +321,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter(name="certificateBasedAuthProperties")
     def certificate_based_auth_properties(self) -> Optional[pulumi.Input['DirectoryCertificateBasedAuthPropertiesArgs']]:
-        """
-        Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
-        """
         return pulumi.get(self, "certificate_based_auth_properties")
 
     @certificate_based_auth_properties.setter
@@ -434,9 +330,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter(name="customerUserName")
     def customer_user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The user name for the service account.
-        """
         return pulumi.get(self, "customer_user_name")
 
     @customer_user_name.setter
@@ -446,9 +339,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The directory identifier for registration in WorkSpaces service.
-        """
         return pulumi.get(self, "directory_id")
 
     @directory_id.setter
@@ -458,9 +348,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter(name="directoryName")
     def directory_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the directory.
-        """
         return pulumi.get(self, "directory_name")
 
     @directory_name.setter
@@ -470,9 +357,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter(name="directoryType")
     def directory_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The directory type.
-        """
         return pulumi.get(self, "directory_type")
 
     @directory_type.setter
@@ -482,9 +366,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter(name="dnsIpAddresses")
     def dns_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The IP addresses of the DNS servers for the directory.
-        """
         return pulumi.get(self, "dns_ip_addresses")
 
     @dns_ip_addresses.setter
@@ -494,9 +375,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter(name="iamRoleId")
     def iam_role_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
-        """
         return pulumi.get(self, "iam_role_id")
 
     @iam_role_id.setter
@@ -506,9 +384,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter(name="ipGroupIds")
     def ip_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The identifiers of the IP access control groups associated with the directory.
-        """
         return pulumi.get(self, "ip_group_ids")
 
     @ip_group_ids.setter
@@ -518,9 +393,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -530,9 +402,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter(name="registrationCode")
     def registration_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
-        """
         return pulumi.get(self, "registration_code")
 
     @registration_code.setter
@@ -542,9 +411,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter(name="samlProperties")
     def saml_properties(self) -> Optional[pulumi.Input['DirectorySamlPropertiesArgs']]:
-        """
-        Configuration of SAML authentication integration. Defined below.
-        """
         return pulumi.get(self, "saml_properties")
 
     @saml_properties.setter
@@ -554,9 +420,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter(name="selfServicePermissions")
     def self_service_permissions(self) -> Optional[pulumi.Input['DirectorySelfServicePermissionsArgs']]:
-        """
-        Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
-        """
         return pulumi.get(self, "self_service_permissions")
 
     @self_service_permissions.setter
@@ -566,9 +429,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The identifiers of the subnets where the directory resides.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -578,9 +438,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -590,9 +447,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -602,9 +456,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter
     def tenancy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
-        """
         return pulumi.get(self, "tenancy")
 
     @tenancy.setter
@@ -614,11 +465,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter(name="userIdentityType")
     def user_identity_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
-
-        > **Note:** When `workspace_type` is set to `POOLS`, the `directory_id` is automatically generated and cannot be manually set.
-        """
         return pulumi.get(self, "user_identity_type")
 
     @user_identity_type.setter
@@ -628,9 +474,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter(name="workspaceAccessProperties")
     def workspace_access_properties(self) -> Optional[pulumi.Input['DirectoryWorkspaceAccessPropertiesArgs']]:
-        """
-        Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
-        """
         return pulumi.get(self, "workspace_access_properties")
 
     @workspace_access_properties.setter
@@ -640,9 +483,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter(name="workspaceCreationProperties")
     def workspace_creation_properties(self) -> Optional[pulumi.Input['DirectoryWorkspaceCreationPropertiesArgs']]:
-        """
-        Default properties that are used for creating WorkSpaces. Defined below.
-        """
         return pulumi.get(self, "workspace_creation_properties")
 
     @workspace_creation_properties.setter
@@ -652,9 +492,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter(name="workspaceDirectoryDescription")
     def workspace_directory_description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
-        """
         return pulumi.get(self, "workspace_directory_description")
 
     @workspace_directory_description.setter
@@ -664,9 +501,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter(name="workspaceDirectoryName")
     def workspace_directory_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
-        """
         return pulumi.get(self, "workspace_directory_name")
 
     @workspace_directory_name.setter
@@ -676,9 +510,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter(name="workspaceSecurityGroupId")
     def workspace_security_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier of the security group that is assigned to new WorkSpaces.
-        """
         return pulumi.get(self, "workspace_security_group_id")
 
     @workspace_security_group_id.setter
@@ -688,9 +519,6 @@ class _DirectoryState:
     @_builtins.property
     @pulumi.getter(name="workspaceType")
     def workspace_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the type of WorkSpaces directory. Valid values are `PERSONAL` and `POOLS`. Default is `PERSONAL`.
-        """
         return pulumi.get(self, "workspace_type")
 
     @workspace_type.setter
@@ -722,188 +550,9 @@ class Directory(pulumi.CustomResource):
                  workspace_type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a WorkSpaces directory in AWS WorkSpaces Service.
-
-        > **NOTE:** AWS WorkSpaces service requires [`workspaces_DefaultRole`](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role) IAM role to operate normally.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_vpc = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
-        example_a = aws.ec2.Subnet("example_a",
-            vpc_id=example_vpc.id,
-            availability_zone="us-east-1a",
-            cidr_block="10.0.0.0/24")
-        example_b = aws.ec2.Subnet("example_b",
-            vpc_id=example_vpc.id,
-            availability_zone="us-east-1b",
-            cidr_block="10.0.1.0/24")
-        example_directory = aws.directoryservice.Directory("example",
-            name="corp.example.com",
-            password="#S1ncerely",
-            size="Small",
-            vpc_settings={
-                "vpc_id": example_vpc.id,
-                "subnet_ids": [
-                    example_a.id,
-                    example_b.id,
-                ],
-            })
-        workspaces = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["workspaces.amazonaws.com"],
-            }],
-        }])
-        workspaces_default = aws.iam.Role("workspaces_default",
-            name="workspaces_DefaultRole",
-            assume_role_policy=workspaces.json)
-        workspaces_default_service_access = aws.iam.RolePolicyAttachment("workspaces_default_service_access",
-            role=workspaces_default.name,
-            policy_arn="arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess")
-        workspaces_default_self_service_access = aws.iam.RolePolicyAttachment("workspaces_default_self_service_access",
-            role=workspaces_default.name,
-            policy_arn="arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess")
-        example_c = aws.ec2.Subnet("example_c",
-            vpc_id=example_vpc.id,
-            availability_zone="us-east-1c",
-            cidr_block="10.0.2.0/24")
-        example_d = aws.ec2.Subnet("example_d",
-            vpc_id=example_vpc.id,
-            availability_zone="us-east-1d",
-            cidr_block="10.0.3.0/24")
-        example = aws.workspaces.Directory("example",
-            directory_id=example_directory.id,
-            subnet_ids=[
-                example_c.id,
-                example_d.id,
-            ],
-            tags={
-                "Example": "true",
-            },
-            certificate_based_auth_properties={
-                "certificate_authority_arn": "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
-                "status": "ENABLED",
-            },
-            saml_properties={
-                "user_access_url": "https://sso.example.com/",
-                "status": "ENABLED",
-            },
-            self_service_permissions={
-                "change_compute_type": True,
-                "increase_volume_size": True,
-                "rebuild_workspace": True,
-                "restart_workspace": True,
-                "switch_running_mode": True,
-            },
-            workspace_access_properties={
-                "device_type_android": "ALLOW",
-                "device_type_chromeos": "ALLOW",
-                "device_type_ios": "ALLOW",
-                "device_type_linux": "DENY",
-                "device_type_osx": "ALLOW",
-                "device_type_web": "DENY",
-                "device_type_windows": "DENY",
-                "device_type_zeroclient": "DENY",
-            },
-            workspace_creation_properties={
-                "custom_security_group_id": example_aws_security_group["id"],
-                "default_ou": "OU=AWS,DC=Workgroup,DC=Example,DC=com",
-                "enable_internet_access": True,
-                "enable_maintenance_mode": True,
-                "user_enabled_as_local_administrator": True,
-            },
-            opts = pulumi.ResourceOptions(depends_on=[
-                    workspaces_default_service_access,
-                    workspaces_default_self_service_access,
-                ]))
-        ```
-
-        ### WorkSpaces Pools
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.workspaces.Directory("example",
-            subnet_ids=[
-                example_c["id"],
-                example_d["id"],
-            ],
-            workspace_type="POOLS",
-            workspace_directory_name="Pool directory",
-            workspace_directory_description="WorkSpaces Pools directory",
-            user_identity_type="CUSTOMER_MANAGED",
-            active_directory_config={
-                "domain_name": "example.internal",
-                "service_account_secret_arn": example_aws_secretsmanager_secret["arn"],
-            },
-            workspace_access_properties={
-                "device_type_android": "ALLOW",
-                "device_type_chromeos": "ALLOW",
-                "device_type_ios": "ALLOW",
-                "device_type_linux": "DENY",
-                "device_type_osx": "ALLOW",
-                "device_type_web": "DENY",
-                "device_type_windows": "DENY",
-                "device_type_zeroclient": "DENY",
-            },
-            workspace_creation_properties={
-                "custom_security_group_id": example_aws_security_group["id"],
-                "default_ou": "OU=AWS,DC=Workgroup,DC=Example,DC=com",
-                "enable_internet_access": True,
-            },
-            saml_properties={
-                "relay_state_parameter_name": "RelayState",
-                "user_access_url": "https://sso.example.com/",
-                "status": "ENABLED",
-            })
-        ```
-
-        ### IP Groups
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_ip_group = aws.workspaces.IpGroup("example", name="example")
-        example = aws.workspaces.Directory("example",
-            directory_id=example_aws_directory_service_directory["id"],
-            ip_group_ids=[example_ip_group.id])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Workspaces directory using the directory ID. For example:
-
-        ```sh
-        $ pulumi import aws:workspaces/directory:Directory main d-4444444444
-        ```
-
+        Create a Directory resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['DirectoryActiveDirectoryConfigArgs', 'DirectoryActiveDirectoryConfigArgsDict']] active_directory_config: Configuration for Active Directory integration when `workspace_type` is set to `POOLS`. Defined below.
-        :param pulumi.Input[Union['DirectoryCertificateBasedAuthPropertiesArgs', 'DirectoryCertificateBasedAuthPropertiesArgsDict']] certificate_based_auth_properties: Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
-        :param pulumi.Input[_builtins.str] directory_id: The directory identifier for registration in WorkSpaces service.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_group_ids: The identifiers of the IP access control groups associated with the directory.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict']] saml_properties: Configuration of SAML authentication integration. Defined below.
-        :param pulumi.Input[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']] self_service_permissions: Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The identifiers of the subnets where the directory resides.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] tenancy: Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
-        :param pulumi.Input[_builtins.str] user_identity_type: Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
-               
-               > **Note:** When `workspace_type` is set to `POOLS`, the `directory_id` is automatically generated and cannot be manually set.
-        :param pulumi.Input[Union['DirectoryWorkspaceAccessPropertiesArgs', 'DirectoryWorkspaceAccessPropertiesArgsDict']] workspace_access_properties: Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
-        :param pulumi.Input[Union['DirectoryWorkspaceCreationPropertiesArgs', 'DirectoryWorkspaceCreationPropertiesArgsDict']] workspace_creation_properties: Default properties that are used for creating WorkSpaces. Defined below.
-        :param pulumi.Input[_builtins.str] workspace_directory_description: The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
-        :param pulumi.Input[_builtins.str] workspace_directory_name: The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
-        :param pulumi.Input[_builtins.str] workspace_type: Specifies the type of WorkSpaces directory. Valid values are `PERSONAL` and `POOLS`. Default is `PERSONAL`.
         """
         ...
     @overload
@@ -912,168 +561,7 @@ class Directory(pulumi.CustomResource):
                  args: Optional[DirectoryArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a WorkSpaces directory in AWS WorkSpaces Service.
-
-        > **NOTE:** AWS WorkSpaces service requires [`workspaces_DefaultRole`](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role) IAM role to operate normally.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_vpc = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
-        example_a = aws.ec2.Subnet("example_a",
-            vpc_id=example_vpc.id,
-            availability_zone="us-east-1a",
-            cidr_block="10.0.0.0/24")
-        example_b = aws.ec2.Subnet("example_b",
-            vpc_id=example_vpc.id,
-            availability_zone="us-east-1b",
-            cidr_block="10.0.1.0/24")
-        example_directory = aws.directoryservice.Directory("example",
-            name="corp.example.com",
-            password="#S1ncerely",
-            size="Small",
-            vpc_settings={
-                "vpc_id": example_vpc.id,
-                "subnet_ids": [
-                    example_a.id,
-                    example_b.id,
-                ],
-            })
-        workspaces = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["workspaces.amazonaws.com"],
-            }],
-        }])
-        workspaces_default = aws.iam.Role("workspaces_default",
-            name="workspaces_DefaultRole",
-            assume_role_policy=workspaces.json)
-        workspaces_default_service_access = aws.iam.RolePolicyAttachment("workspaces_default_service_access",
-            role=workspaces_default.name,
-            policy_arn="arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess")
-        workspaces_default_self_service_access = aws.iam.RolePolicyAttachment("workspaces_default_self_service_access",
-            role=workspaces_default.name,
-            policy_arn="arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess")
-        example_c = aws.ec2.Subnet("example_c",
-            vpc_id=example_vpc.id,
-            availability_zone="us-east-1c",
-            cidr_block="10.0.2.0/24")
-        example_d = aws.ec2.Subnet("example_d",
-            vpc_id=example_vpc.id,
-            availability_zone="us-east-1d",
-            cidr_block="10.0.3.0/24")
-        example = aws.workspaces.Directory("example",
-            directory_id=example_directory.id,
-            subnet_ids=[
-                example_c.id,
-                example_d.id,
-            ],
-            tags={
-                "Example": "true",
-            },
-            certificate_based_auth_properties={
-                "certificate_authority_arn": "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
-                "status": "ENABLED",
-            },
-            saml_properties={
-                "user_access_url": "https://sso.example.com/",
-                "status": "ENABLED",
-            },
-            self_service_permissions={
-                "change_compute_type": True,
-                "increase_volume_size": True,
-                "rebuild_workspace": True,
-                "restart_workspace": True,
-                "switch_running_mode": True,
-            },
-            workspace_access_properties={
-                "device_type_android": "ALLOW",
-                "device_type_chromeos": "ALLOW",
-                "device_type_ios": "ALLOW",
-                "device_type_linux": "DENY",
-                "device_type_osx": "ALLOW",
-                "device_type_web": "DENY",
-                "device_type_windows": "DENY",
-                "device_type_zeroclient": "DENY",
-            },
-            workspace_creation_properties={
-                "custom_security_group_id": example_aws_security_group["id"],
-                "default_ou": "OU=AWS,DC=Workgroup,DC=Example,DC=com",
-                "enable_internet_access": True,
-                "enable_maintenance_mode": True,
-                "user_enabled_as_local_administrator": True,
-            },
-            opts = pulumi.ResourceOptions(depends_on=[
-                    workspaces_default_service_access,
-                    workspaces_default_self_service_access,
-                ]))
-        ```
-
-        ### WorkSpaces Pools
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.workspaces.Directory("example",
-            subnet_ids=[
-                example_c["id"],
-                example_d["id"],
-            ],
-            workspace_type="POOLS",
-            workspace_directory_name="Pool directory",
-            workspace_directory_description="WorkSpaces Pools directory",
-            user_identity_type="CUSTOMER_MANAGED",
-            active_directory_config={
-                "domain_name": "example.internal",
-                "service_account_secret_arn": example_aws_secretsmanager_secret["arn"],
-            },
-            workspace_access_properties={
-                "device_type_android": "ALLOW",
-                "device_type_chromeos": "ALLOW",
-                "device_type_ios": "ALLOW",
-                "device_type_linux": "DENY",
-                "device_type_osx": "ALLOW",
-                "device_type_web": "DENY",
-                "device_type_windows": "DENY",
-                "device_type_zeroclient": "DENY",
-            },
-            workspace_creation_properties={
-                "custom_security_group_id": example_aws_security_group["id"],
-                "default_ou": "OU=AWS,DC=Workgroup,DC=Example,DC=com",
-                "enable_internet_access": True,
-            },
-            saml_properties={
-                "relay_state_parameter_name": "RelayState",
-                "user_access_url": "https://sso.example.com/",
-                "status": "ENABLED",
-            })
-        ```
-
-        ### IP Groups
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_ip_group = aws.workspaces.IpGroup("example", name="example")
-        example = aws.workspaces.Directory("example",
-            directory_id=example_aws_directory_service_directory["id"],
-            ip_group_ids=[example_ip_group.id])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Workspaces directory using the directory ID. For example:
-
-        ```sh
-        $ pulumi import aws:workspaces/directory:Directory main d-4444444444
-        ```
-
+        Create a Directory resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DirectoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1181,33 +669,6 @@ class Directory(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['DirectoryActiveDirectoryConfigArgs', 'DirectoryActiveDirectoryConfigArgsDict']] active_directory_config: Configuration for Active Directory integration when `workspace_type` is set to `POOLS`. Defined below.
-        :param pulumi.Input[_builtins.str] alias: The directory alias.
-        :param pulumi.Input[Union['DirectoryCertificateBasedAuthPropertiesArgs', 'DirectoryCertificateBasedAuthPropertiesArgsDict']] certificate_based_auth_properties: Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
-        :param pulumi.Input[_builtins.str] customer_user_name: The user name for the service account.
-        :param pulumi.Input[_builtins.str] directory_id: The directory identifier for registration in WorkSpaces service.
-        :param pulumi.Input[_builtins.str] directory_name: The name of the directory.
-        :param pulumi.Input[_builtins.str] directory_type: The directory type.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_ip_addresses: The IP addresses of the DNS servers for the directory.
-        :param pulumi.Input[_builtins.str] iam_role_id: The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_group_ids: The identifiers of the IP access control groups associated with the directory.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] registration_code: The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
-        :param pulumi.Input[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict']] saml_properties: Configuration of SAML authentication integration. Defined below.
-        :param pulumi.Input[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']] self_service_permissions: Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The identifiers of the subnets where the directory resides.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] tenancy: Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
-        :param pulumi.Input[_builtins.str] user_identity_type: Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
-               
-               > **Note:** When `workspace_type` is set to `POOLS`, the `directory_id` is automatically generated and cannot be manually set.
-        :param pulumi.Input[Union['DirectoryWorkspaceAccessPropertiesArgs', 'DirectoryWorkspaceAccessPropertiesArgsDict']] workspace_access_properties: Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
-        :param pulumi.Input[Union['DirectoryWorkspaceCreationPropertiesArgs', 'DirectoryWorkspaceCreationPropertiesArgsDict']] workspace_creation_properties: Default properties that are used for creating WorkSpaces. Defined below.
-        :param pulumi.Input[_builtins.str] workspace_directory_description: The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
-        :param pulumi.Input[_builtins.str] workspace_directory_name: The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
-        :param pulumi.Input[_builtins.str] workspace_security_group_id: The identifier of the security group that is assigned to new WorkSpaces.
-        :param pulumi.Input[_builtins.str] workspace_type: Specifies the type of WorkSpaces directory. Valid values are `PERSONAL` and `POOLS`. Default is `PERSONAL`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1243,202 +704,125 @@ class Directory(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="activeDirectoryConfig")
     def active_directory_config(self) -> pulumi.Output[Optional['outputs.DirectoryActiveDirectoryConfig']]:
-        """
-        Configuration for Active Directory integration when `workspace_type` is set to `POOLS`. Defined below.
-        """
         return pulumi.get(self, "active_directory_config")
 
     @_builtins.property
     @pulumi.getter
     def alias(self) -> pulumi.Output[_builtins.str]:
-        """
-        The directory alias.
-        """
         return pulumi.get(self, "alias")
 
     @_builtins.property
     @pulumi.getter(name="certificateBasedAuthProperties")
     def certificate_based_auth_properties(self) -> pulumi.Output['outputs.DirectoryCertificateBasedAuthProperties']:
-        """
-        Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
-        """
         return pulumi.get(self, "certificate_based_auth_properties")
 
     @_builtins.property
     @pulumi.getter(name="customerUserName")
     def customer_user_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The user name for the service account.
-        """
         return pulumi.get(self, "customer_user_name")
 
     @_builtins.property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The directory identifier for registration in WorkSpaces service.
-        """
         return pulumi.get(self, "directory_id")
 
     @_builtins.property
     @pulumi.getter(name="directoryName")
     def directory_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the directory.
-        """
         return pulumi.get(self, "directory_name")
 
     @_builtins.property
     @pulumi.getter(name="directoryType")
     def directory_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The directory type.
-        """
         return pulumi.get(self, "directory_type")
 
     @_builtins.property
     @pulumi.getter(name="dnsIpAddresses")
     def dns_ip_addresses(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        The IP addresses of the DNS servers for the directory.
-        """
         return pulumi.get(self, "dns_ip_addresses")
 
     @_builtins.property
     @pulumi.getter(name="iamRoleId")
     def iam_role_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
-        """
         return pulumi.get(self, "iam_role_id")
 
     @_builtins.property
     @pulumi.getter(name="ipGroupIds")
     def ip_group_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        The identifiers of the IP access control groups associated with the directory.
-        """
         return pulumi.get(self, "ip_group_ids")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="registrationCode")
     def registration_code(self) -> pulumi.Output[_builtins.str]:
-        """
-        The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
-        """
         return pulumi.get(self, "registration_code")
 
     @_builtins.property
     @pulumi.getter(name="samlProperties")
     def saml_properties(self) -> pulumi.Output['outputs.DirectorySamlProperties']:
-        """
-        Configuration of SAML authentication integration. Defined below.
-        """
         return pulumi.get(self, "saml_properties")
 
     @_builtins.property
     @pulumi.getter(name="selfServicePermissions")
     def self_service_permissions(self) -> pulumi.Output['outputs.DirectorySelfServicePermissions']:
-        """
-        Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
-        """
         return pulumi.get(self, "self_service_permissions")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        The identifiers of the subnets where the directory resides.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def tenancy(self) -> pulumi.Output[_builtins.str]:
-        """
-        Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
-        """
         return pulumi.get(self, "tenancy")
 
     @_builtins.property
     @pulumi.getter(name="userIdentityType")
     def user_identity_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
-
-        > **Note:** When `workspace_type` is set to `POOLS`, the `directory_id` is automatically generated and cannot be manually set.
-        """
         return pulumi.get(self, "user_identity_type")
 
     @_builtins.property
     @pulumi.getter(name="workspaceAccessProperties")
     def workspace_access_properties(self) -> pulumi.Output['outputs.DirectoryWorkspaceAccessProperties']:
-        """
-        Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
-        """
         return pulumi.get(self, "workspace_access_properties")
 
     @_builtins.property
     @pulumi.getter(name="workspaceCreationProperties")
     def workspace_creation_properties(self) -> pulumi.Output['outputs.DirectoryWorkspaceCreationProperties']:
-        """
-        Default properties that are used for creating WorkSpaces. Defined below.
-        """
         return pulumi.get(self, "workspace_creation_properties")
 
     @_builtins.property
     @pulumi.getter(name="workspaceDirectoryDescription")
     def workspace_directory_description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
-        """
         return pulumi.get(self, "workspace_directory_description")
 
     @_builtins.property
     @pulumi.getter(name="workspaceDirectoryName")
     def workspace_directory_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
-        """
         return pulumi.get(self, "workspace_directory_name")
 
     @_builtins.property
     @pulumi.getter(name="workspaceSecurityGroupId")
     def workspace_security_group_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The identifier of the security group that is assigned to new WorkSpaces.
-        """
         return pulumi.get(self, "workspace_security_group_id")
 
     @_builtins.property
     @pulumi.getter(name="workspaceType")
     def workspace_type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Specifies the type of WorkSpaces directory. Valid values are `PERSONAL` and `POOLS`. Default is `PERSONAL`.
-        """
         return pulumi.get(self, "workspace_type")
 

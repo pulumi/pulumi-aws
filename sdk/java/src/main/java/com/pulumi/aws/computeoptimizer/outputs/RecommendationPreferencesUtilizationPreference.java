@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RecommendationPreferencesUtilizationPreference {
-    /**
-     * @return The name of the resource utilization metric name to customize. Valid values: `CpuUtilization`, `MemoryUtilization`.
-     * 
-     */
     private String metricName;
-    /**
-     * @return The parameters to set when customizing the resource utilization thresholds.
-     * 
-     */
     private @Nullable RecommendationPreferencesUtilizationPreferenceMetricParameters metricParameters;
 
     private RecommendationPreferencesUtilizationPreference() {}
-    /**
-     * @return The name of the resource utilization metric name to customize. Valid values: `CpuUtilization`, `MemoryUtilization`.
-     * 
-     */
     public String metricName() {
         return this.metricName;
     }
-    /**
-     * @return The parameters to set when customizing the resource utilization thresholds.
-     * 
-     */
     public Optional<RecommendationPreferencesUtilizationPreferenceMetricParameters> metricParameters() {
         return Optional.ofNullable(this.metricParameters);
     }

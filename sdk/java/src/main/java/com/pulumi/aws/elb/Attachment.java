@@ -15,93 +15,23 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Attaches an EC2 instance to an Elastic Load Balancer (ELB). For attaching resources with Application Load Balancer (ALB) or Network Load Balancer (NLB), see the `aws.lb.TargetGroupAttachment` resource.
- * 
- * &gt; **NOTE on ELB Instances and ELB Attachments:** This provider currently provides
- * both a standalone ELB Attachment resource (describing an instance attached to
- * an ELB), and an Elastic Load Balancer resource with
- * `instances` defined in-line. At this time you cannot use an ELB with in-line
- * instances in conjunction with an ELB Attachment resource. Doing so will cause a
- * conflict and will overwrite attachments.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.elb.Attachment;
- * import com.pulumi.aws.elb.AttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         // Create a new load balancer attachment
- *         var baz = new Attachment("baz", AttachmentArgs.builder()
- *             .elb(bar.id())
- *             .instance(foo.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:elb/attachment:Attachment")
 public class Attachment extends com.pulumi.resources.CustomResource {
-    /**
-     * The name of the ELB.
-     * 
-     */
     @Export(name="elb", refs={String.class}, tree="[0]")
     private Output<String> elb;
 
-    /**
-     * @return The name of the ELB.
-     * 
-     */
     public Output<String> elb() {
         return this.elb;
     }
-    /**
-     * Instance ID to place in the ELB pool.
-     * 
-     */
     @Export(name="instance", refs={String.class}, tree="[0]")
     private Output<String> instance;
 
-    /**
-     * @return Instance ID to place in the ELB pool.
-     * 
-     */
     public Output<String> instance() {
         return this.instance;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

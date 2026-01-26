@@ -46,17 +46,11 @@ class GetGlobalNetworkResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the global network.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the global network.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -75,9 +69,6 @@ class GetGlobalNetworkResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of resource tags.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -98,20 +89,7 @@ def get_global_network(global_network_id: Optional[_builtins.str] = None,
                        tags: Optional[Mapping[str, _builtins.str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGlobalNetworkResult:
     """
-    Provides details about an existing Network Manager global network.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_global_network(global_network_id=global_network_id)
-    ```
-
-
-    :param _builtins.str global_network_id: ID of the specific global network to retrieve.
-    :param Mapping[str, _builtins.str] tags: Map of resource tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['globalNetworkId'] = global_network_id
@@ -129,20 +107,7 @@ def get_global_network_output(global_network_id: Optional[pulumi.Input[_builtins
                               tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalNetworkResult]:
     """
-    Provides details about an existing Network Manager global network.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_global_network(global_network_id=global_network_id)
-    ```
-
-
-    :param _builtins.str global_network_id: ID of the specific global network to retrieve.
-    :param Mapping[str, _builtins.str] tags: Map of resource tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['globalNetworkId'] = global_network_id

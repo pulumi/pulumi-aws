@@ -7,30 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS VPC (Virtual Private Cloud) Endpoint Service Private DNS Verification.
- * This resource begins the verification process by calling the [`StartVpcEndpointServicePrivateDnsVerification`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_StartVpcEndpointServicePrivateDnsVerification.html) API.
- * The service provider should add a record to the DNS server _before_ creating this resource.
- *
- * For additional details, refer to the AWS documentation on [managing VPC endpoint service DNS names](https://docs.aws.amazon.com/vpc/latest/privatelink/manage-dns-names.html).
- *
- * > Destruction of this resource will not stop the verification process, only remove the resource from state.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.vpc.EndpointServicePrivateDnsVerification("example", {serviceId: exampleAwsVpcEndpointService.id});
- * ```
- *
- * ## Import
- *
- * You cannot import this resource.
- */
 export class EndpointServicePrivateDnsVerification extends pulumi.CustomResource {
     /**
      * Get an existing EndpointServicePrivateDnsVerification resource's state with the given name, ID, and optional extra
@@ -59,20 +35,9 @@ export class EndpointServicePrivateDnsVerification extends pulumi.CustomResource
         return obj['__pulumiType'] === EndpointServicePrivateDnsVerification.__pulumiType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ID of the endpoint service.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly serviceId: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.vpc.EndpointServicePrivateDnsVerificationTimeouts | undefined>;
-    /**
-     * Whether to wait until the endpoint service returns a `Verified` status for the configured private DNS name.
-     */
     declare public readonly waitForVerification: pulumi.Output<boolean | undefined>;
 
     /**
@@ -111,20 +76,9 @@ export class EndpointServicePrivateDnsVerification extends pulumi.CustomResource
  * Input properties used for looking up and filtering EndpointServicePrivateDnsVerification resources.
  */
 export interface EndpointServicePrivateDnsVerificationState {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ID of the endpoint service.
-     *
-     * The following arguments are optional:
-     */
     serviceId?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.vpc.EndpointServicePrivateDnsVerificationTimeouts>;
-    /**
-     * Whether to wait until the endpoint service returns a `Verified` status for the configured private DNS name.
-     */
     waitForVerification?: pulumi.Input<boolean>;
 }
 
@@ -132,19 +86,8 @@ export interface EndpointServicePrivateDnsVerificationState {
  * The set of arguments for constructing a EndpointServicePrivateDnsVerification resource.
  */
 export interface EndpointServicePrivateDnsVerificationArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ID of the endpoint service.
-     *
-     * The following arguments are optional:
-     */
     serviceId: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.vpc.EndpointServicePrivateDnsVerificationTimeouts>;
-    /**
-     * Whether to wait until the endpoint service returns a `Verified` status for the configured private DNS name.
-     */
     waitForVerification?: pulumi.Input<boolean>;
 }

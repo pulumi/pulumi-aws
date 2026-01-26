@@ -16,116 +16,29 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a DAX Parameter Group resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.dax.ParameterGroup;
- * import com.pulumi.aws.dax.ParameterGroupArgs;
- * import com.pulumi.aws.dax.inputs.ParameterGroupParameterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ParameterGroup("example", ParameterGroupArgs.builder()
- *             .name("example")
- *             .parameters(            
- *                 ParameterGroupParameterArgs.builder()
- *                     .name("query-ttl-millis")
- *                     .value("100000")
- *                     .build(),
- *                 ParameterGroupParameterArgs.builder()
- *                     .name("record-ttl-millis")
- *                     .value("100000")
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import DAX Parameter Group using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:dax/parameterGroup:ParameterGroup example my_dax_pg
- * ```
- * 
- */
 @ResourceType(type="aws:dax/parameterGroup:ParameterGroup")
 public class ParameterGroup extends com.pulumi.resources.CustomResource {
-    /**
-     * A description of the parameter group.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return A description of the parameter group.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The name of the parameter group.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the parameter group.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The parameters of the parameter group.
-     * 
-     */
     @Export(name="parameters", refs={List.class,ParameterGroupParameter.class}, tree="[0,1]")
     private Output<List<ParameterGroupParameter>> parameters;
 
-    /**
-     * @return The parameters of the parameter group.
-     * 
-     */
     public Output<List<ParameterGroupParameter>> parameters() {
         return this.parameters;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

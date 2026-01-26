@@ -4,35 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an Amazon S3 Tables Table Bucket Policy.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.iam.getPolicyDocument({
- *     statements: [{}],
- * });
- * const exampleTableBucket = new aws.s3tables.TableBucket("example", {name: "example-bucket"});
- * const exampleTableBucketPolicy = new aws.s3tables.TableBucketPolicy("example", {
- *     resourcePolicy: example.then(example => example.json),
- *     tableBucketArn: exampleTableBucket.arn,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import S3 Tables Table Bucket Policy using the `table_bucket_arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:s3tables/tableBucketPolicy:TableBucketPolicy example 'arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket;example-namespace'
- * ```
- */
 export class TableBucketPolicy extends pulumi.CustomResource {
     /**
      * Get an existing TableBucketPolicy resource's state with the given name, ID, and optional extra
@@ -61,17 +32,8 @@ export class TableBucketPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === TableBucketPolicy.__pulumiType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Amazon Web Services resource-based policy document in JSON format.
-     */
     declare public readonly resourcePolicy: pulumi.Output<string>;
-    /**
-     * ARN referencing the Table Bucket that owns this policy.
-     */
     declare public readonly tableBucketArn: pulumi.Output<string>;
 
     /**
@@ -111,17 +73,8 @@ export class TableBucketPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TableBucketPolicy resources.
  */
 export interface TableBucketPolicyState {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Amazon Web Services resource-based policy document in JSON format.
-     */
     resourcePolicy?: pulumi.Input<string>;
-    /**
-     * ARN referencing the Table Bucket that owns this policy.
-     */
     tableBucketArn?: pulumi.Input<string>;
 }
 
@@ -129,16 +82,7 @@ export interface TableBucketPolicyState {
  * The set of arguments for constructing a TableBucketPolicy resource.
  */
 export interface TableBucketPolicyArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Amazon Web Services resource-based policy document in JSON format.
-     */
     resourcePolicy: pulumi.Input<string>;
-    /**
-     * ARN referencing the Table Bucket that owns this policy.
-     */
     tableBucketArn: pulumi.Input<string>;
 }

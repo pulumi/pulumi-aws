@@ -13,97 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Service Catalog Budget Resource Association.
- * 
- * &gt; **Tip:** A &#34;resource&#34; is either a Service Catalog portfolio or product.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.servicecatalog.BudgetResourceAssociation;
- * import com.pulumi.aws.servicecatalog.BudgetResourceAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new BudgetResourceAssociation("example", BudgetResourceAssociationArgs.builder()
- *             .budgetName("budget-pjtvyakdlyo3m")
- *             .resourceId("prod-dnigbtea24ste")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_servicecatalog_budget_resource_association` using the budget name and resource ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation example budget-pjtvyakdlyo3m:prod-dnigbtea24ste
- * ```
- * 
- */
 @ResourceType(type="aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation")
 public class BudgetResourceAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * Budget name.
-     * 
-     */
     @Export(name="budgetName", refs={String.class}, tree="[0]")
     private Output<String> budgetName;
 
-    /**
-     * @return Budget name.
-     * 
-     */
     public Output<String> budgetName() {
         return this.budgetName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Resource identifier.
-     * 
-     */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
-    /**
-     * @return Resource identifier.
-     * 
-     */
     public Output<String> resourceId() {
         return this.resourceId;
     }

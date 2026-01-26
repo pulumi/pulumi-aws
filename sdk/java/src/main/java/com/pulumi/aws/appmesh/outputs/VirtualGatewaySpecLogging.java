@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VirtualGatewaySpecLogging {
-    /**
-     * @return Access log configuration for a virtual gateway.
-     * 
-     */
     private @Nullable VirtualGatewaySpecLoggingAccessLog accessLog;
 
     private VirtualGatewaySpecLogging() {}
-    /**
-     * @return Access log configuration for a virtual gateway.
-     * 
-     */
     public Optional<VirtualGatewaySpecLoggingAccessLog> accessLog() {
         return Optional.ofNullable(this.accessLog);
     }

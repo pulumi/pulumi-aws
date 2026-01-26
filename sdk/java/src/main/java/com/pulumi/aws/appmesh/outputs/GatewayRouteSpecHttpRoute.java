@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GatewayRouteSpecHttpRoute {
-    /**
-     * @return Action to take if a match is determined.
-     * 
-     */
     private GatewayRouteSpecHttpRouteAction action;
-    /**
-     * @return Criteria for determining a request match.
-     * 
-     */
     private GatewayRouteSpecHttpRouteMatch match;
 
     private GatewayRouteSpecHttpRoute() {}
-    /**
-     * @return Action to take if a match is determined.
-     * 
-     */
     public GatewayRouteSpecHttpRouteAction action() {
         return this.action;
     }
-    /**
-     * @return Criteria for determining a request match.
-     * 
-     */
     public GatewayRouteSpecHttpRouteMatch match() {
         return this.match;
     }

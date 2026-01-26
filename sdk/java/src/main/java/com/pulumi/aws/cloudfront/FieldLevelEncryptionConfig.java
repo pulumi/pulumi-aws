@@ -16,156 +16,41 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a CloudFront Field-level Encryption Config resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudfront.FieldLevelEncryptionConfig;
- * import com.pulumi.aws.cloudfront.FieldLevelEncryptionConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.FieldLevelEncryptionConfigContentTypeProfileConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs;
- * import com.pulumi.aws.cloudfront.inputs.FieldLevelEncryptionConfigQueryArgProfileConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new FieldLevelEncryptionConfig("test", FieldLevelEncryptionConfigArgs.builder()
- *             .comment("test comment")
- *             .contentTypeProfileConfig(FieldLevelEncryptionConfigContentTypeProfileConfigArgs.builder()
- *                 .forwardWhenContentTypeIsUnknown(true)
- *                 .contentTypeProfiles(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs.builder()
- *                     .items(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs.builder()
- *                         .contentType("application/x-www-form-urlencoded")
- *                         .format("URLEncoded")
- *                         .build())
- *                     .build())
- *                 .build())
- *             .queryArgProfileConfig(FieldLevelEncryptionConfigQueryArgProfileConfigArgs.builder()
- *                 .forwardWhenQueryArgProfileIsUnknown(true)
- *                 .queryArgProfiles(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs.builder()
- *                     .items(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs.builder()
- *                         .profileId(testAwsCloudfrontFieldLevelEncryptionProfile.id())
- *                         .queryArg("Arg1")
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Cloudfront Field Level Encryption Config using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig config E74FTE3AEXAMPLE
- * ```
- * 
- */
 @ResourceType(type="aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig")
 public class FieldLevelEncryptionConfig extends com.pulumi.resources.CustomResource {
-    /**
-     * The Field Level Encryption Config ARN.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Field Level Encryption Config ARN.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Internal value used by CloudFront to allow future updates to the Field Level Encryption Config.
-     * 
-     */
     @Export(name="callerReference", refs={String.class}, tree="[0]")
     private Output<String> callerReference;
 
-    /**
-     * @return Internal value used by CloudFront to allow future updates to the Field Level Encryption Config.
-     * 
-     */
     public Output<String> callerReference() {
         return this.callerReference;
     }
-    /**
-     * An optional comment about the Field Level Encryption Config.
-     * 
-     */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
-    /**
-     * @return An optional comment about the Field Level Encryption Config.
-     * 
-     */
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
     }
-    /**
-     * Content Type Profile Config specifies when to forward content if a content type isn&#39;t recognized and profiles to use as by default in a request if a query argument doesn&#39;t specify a profile to use.
-     * 
-     */
     @Export(name="contentTypeProfileConfig", refs={FieldLevelEncryptionConfigContentTypeProfileConfig.class}, tree="[0]")
     private Output<FieldLevelEncryptionConfigContentTypeProfileConfig> contentTypeProfileConfig;
 
-    /**
-     * @return Content Type Profile Config specifies when to forward content if a content type isn&#39;t recognized and profiles to use as by default in a request if a query argument doesn&#39;t specify a profile to use.
-     * 
-     */
     public Output<FieldLevelEncryptionConfigContentTypeProfileConfig> contentTypeProfileConfig() {
         return this.contentTypeProfileConfig;
     }
-    /**
-     * The current version of the Field Level Encryption Config. For example: `E2QWRUHAPOMQZL`.
-     * 
-     */
     @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
-    /**
-     * @return The current version of the Field Level Encryption Config. For example: `E2QWRUHAPOMQZL`.
-     * 
-     */
     public Output<String> etag() {
         return this.etag;
     }
-    /**
-     * Query Arg Profile Config that specifies when to forward content if a profile isn&#39;t found and the profile that can be provided as a query argument in a request.
-     * 
-     */
     @Export(name="queryArgProfileConfig", refs={FieldLevelEncryptionConfigQueryArgProfileConfig.class}, tree="[0]")
     private Output<FieldLevelEncryptionConfigQueryArgProfileConfig> queryArgProfileConfig;
 
-    /**
-     * @return Query Arg Profile Config that specifies when to forward content if a profile isn&#39;t found and the profile that can be provided as a query argument in a request.
-     * 
-     */
     public Output<FieldLevelEncryptionConfigQueryArgProfileConfig> queryArgProfileConfig() {
         return this.queryArgProfileConfig;
     }

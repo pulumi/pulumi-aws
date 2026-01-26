@@ -61,19 +61,7 @@ class AwaitableGetHostedZoneResult(GetHostedZoneResult):
 def get_hosted_zone(region: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHostedZoneResult:
     """
-    Use this data source to get the ID of an [elastic beanstalk hosted zone](http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.elasticbeanstalk.get_hosted_zone()
-    ```
-
-
-    :param _builtins.str region: Name of the Region whose hosted zone is desired. Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -86,19 +74,7 @@ def get_hosted_zone(region: Optional[_builtins.str] = None,
 def get_hosted_zone_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHostedZoneResult]:
     """
-    Use this data source to get the ID of an [elastic beanstalk hosted zone](http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.elasticbeanstalk.get_hosted_zone()
-    ```
-
-
-    :param _builtins.str region: Name of the Region whose hosted zone is desired. Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

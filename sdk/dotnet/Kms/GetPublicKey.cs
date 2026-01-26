@@ -11,120 +11,12 @@ namespace Pulumi.Aws.Kms
 {
     public static class GetPublicKey
     {
-        /// <summary>
-        /// Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var byAlias = Aws.Kms.GetPublicKey.Invoke(new()
-        ///     {
-        ///         KeyId = "alias/my-key",
-        ///     });
-        /// 
-        ///     var byId = Aws.Kms.GetPublicKey.Invoke(new()
-        ///     {
-        ///         KeyId = "1234abcd-12ab-34cd-56ef-1234567890ab",
-        ///     });
-        /// 
-        ///     var byAliasArn = Aws.Kms.GetPublicKey.Invoke(new()
-        ///     {
-        ///         KeyId = "arn:aws:kms:us-east-1:111122223333:alias/my-key",
-        ///     });
-        /// 
-        ///     var byKeyArn = Aws.Kms.GetPublicKey.Invoke(new()
-        ///     {
-        ///         KeyId = "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetPublicKeyResult> InvokeAsync(GetPublicKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublicKeyResult>("aws:kms/getPublicKey:getPublicKey", args ?? new GetPublicKeyArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var byAlias = Aws.Kms.GetPublicKey.Invoke(new()
-        ///     {
-        ///         KeyId = "alias/my-key",
-        ///     });
-        /// 
-        ///     var byId = Aws.Kms.GetPublicKey.Invoke(new()
-        ///     {
-        ///         KeyId = "1234abcd-12ab-34cd-56ef-1234567890ab",
-        ///     });
-        /// 
-        ///     var byAliasArn = Aws.Kms.GetPublicKey.Invoke(new()
-        ///     {
-        ///         KeyId = "arn:aws:kms:us-east-1:111122223333:alias/my-key",
-        ///     });
-        /// 
-        ///     var byKeyArn = Aws.Kms.GetPublicKey.Invoke(new()
-        ///     {
-        ///         KeyId = "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetPublicKeyResult> Invoke(GetPublicKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicKeyResult>("aws:kms/getPublicKey:getPublicKey", args ?? new GetPublicKeyInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var byAlias = Aws.Kms.GetPublicKey.Invoke(new()
-        ///     {
-        ///         KeyId = "alias/my-key",
-        ///     });
-        /// 
-        ///     var byId = Aws.Kms.GetPublicKey.Invoke(new()
-        ///     {
-        ///         KeyId = "1234abcd-12ab-34cd-56ef-1234567890ab",
-        ///     });
-        /// 
-        ///     var byAliasArn = Aws.Kms.GetPublicKey.Invoke(new()
-        ///     {
-        ///         KeyId = "arn:aws:kms:us-east-1:111122223333:alias/my-key",
-        ///     });
-        /// 
-        ///     var byKeyArn = Aws.Kms.GetPublicKey.Invoke(new()
-        ///     {
-        ///         KeyId = "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetPublicKeyResult> Invoke(GetPublicKeyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicKeyResult>("aws:kms/getPublicKey:getPublicKey", args ?? new GetPublicKeyInvokeArgs(), options.WithDefaults());
     }
@@ -134,29 +26,15 @@ namespace Pulumi.Aws.Kms
     {
         [Input("grantTokens")]
         private List<string>? _grantTokens;
-
-        /// <summary>
-        /// List of grant tokens
-        /// </summary>
         public List<string> GrantTokens
         {
             get => _grantTokens ?? (_grantTokens = new List<string>());
             set => _grantTokens = value;
         }
 
-        /// <summary>
-        /// Key identifier which can be one of the following format:
-        /// * Key ID. E.g - `1234abcd-12ab-34cd-56ef-1234567890ab`
-        /// * Key ARN. E.g. - `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
-        /// * Alias name. E.g. - `alias/my-key`
-        /// * Alias ARN - E.g. - `arn:aws:kms:us-east-1:111122223333:alias/my-key`
-        /// </summary>
         [Input("keyId", required: true)]
         public string KeyId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -170,29 +48,15 @@ namespace Pulumi.Aws.Kms
     {
         [Input("grantTokens")]
         private InputList<string>? _grantTokens;
-
-        /// <summary>
-        /// List of grant tokens
-        /// </summary>
         public InputList<string> GrantTokens
         {
             get => _grantTokens ?? (_grantTokens = new InputList<string>());
             set => _grantTokens = value;
         }
 
-        /// <summary>
-        /// Key identifier which can be one of the following format:
-        /// * Key ID. E.g - `1234abcd-12ab-34cd-56ef-1234567890ab`
-        /// * Key ARN. E.g. - `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
-        /// * Alias name. E.g. - `alias/my-key`
-        /// * Alias ARN - E.g. - `arn:aws:kms:us-east-1:111122223333:alias/my-key`
-        /// </summary>
         [Input("keyId", required: true)]
         public Input<string> KeyId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -206,17 +70,8 @@ namespace Pulumi.Aws.Kms
     [OutputType]
     public sealed class GetPublicKeyResult
     {
-        /// <summary>
-        /// Key ARN of the asymmetric CMK from which the public key was downloaded.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Type of the public key that was downloaded.
-        /// </summary>
         public readonly string CustomerMasterKeySpec;
-        /// <summary>
-        /// Encryption algorithms that AWS KMS supports for this key. Only set when the `KeyUsage` of the public key is `ENCRYPT_DECRYPT`.
-        /// </summary>
         public readonly ImmutableArray<string> EncryptionAlgorithms;
         public readonly ImmutableArray<string> GrantTokens;
         /// <summary>
@@ -224,22 +79,10 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         public readonly string Id;
         public readonly string KeyId;
-        /// <summary>
-        /// Permitted use of the public key. Valid values are `ENCRYPT_DECRYPT` or `SIGN_VERIFY`
-        /// </summary>
         public readonly string KeyUsage;
-        /// <summary>
-        /// Exported public key. The value is a DER-encoded X.509 public key, also known as SubjectPublicKeyInfo (SPKI), as defined in [RFC 5280](https://tools.ietf.org/html/rfc5280). The value is Base64-encoded.
-        /// </summary>
         public readonly string PublicKey;
-        /// <summary>
-        /// Exported public key. The value is Privacy Enhanced Mail (PEM) encoded.
-        /// </summary>
         public readonly string PublicKeyPem;
         public readonly string Region;
-        /// <summary>
-        /// Signing algorithms that AWS KMS supports for this key. Only set when the `KeyUsage` of the public key is `SIGN_VERIFY`.
-        /// </summary>
         public readonly ImmutableArray<string> SigningAlgorithms;
 
         [OutputConstructor]

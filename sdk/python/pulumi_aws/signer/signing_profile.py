@@ -31,12 +31,6 @@ class SigningProfileArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SigningProfile resource.
-        :param pulumi.Input[_builtins.str] platform_id: The ID of the platform that is used by the target signing profile.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['SigningProfileSignatureValidityPeriodArgs'] signature_validity_period: The validity period for a signing job. See `signature_validity_period` Block below for details.
-        :param pulumi.Input['SigningProfileSigningMaterialArgs'] signing_material: The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] signing_parameters: Map of key-value pairs for signing. These can include any information that you want to use during signing.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "platform_id", platform_id)
         if name is not None:
@@ -57,9 +51,6 @@ class SigningProfileArgs:
     @_builtins.property
     @pulumi.getter(name="platformId")
     def platform_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the platform that is used by the target signing profile.
-        """
         return pulumi.get(self, "platform_id")
 
     @platform_id.setter
@@ -87,9 +78,6 @@ class SigningProfileArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -99,9 +87,6 @@ class SigningProfileArgs:
     @_builtins.property
     @pulumi.getter(name="signatureValidityPeriod")
     def signature_validity_period(self) -> Optional[pulumi.Input['SigningProfileSignatureValidityPeriodArgs']]:
-        """
-        The validity period for a signing job. See `signature_validity_period` Block below for details.
-        """
         return pulumi.get(self, "signature_validity_period")
 
     @signature_validity_period.setter
@@ -111,9 +96,6 @@ class SigningProfileArgs:
     @_builtins.property
     @pulumi.getter(name="signingMaterial")
     def signing_material(self) -> Optional[pulumi.Input['SigningProfileSigningMaterialArgs']]:
-        """
-        The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
-        """
         return pulumi.get(self, "signing_material")
 
     @signing_material.setter
@@ -123,9 +105,6 @@ class SigningProfileArgs:
     @_builtins.property
     @pulumi.getter(name="signingParameters")
     def signing_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of key-value pairs for signing. These can include any information that you want to use during signing.
-        """
         return pulumi.get(self, "signing_parameters")
 
     @signing_parameters.setter
@@ -135,9 +114,6 @@ class SigningProfileArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -165,19 +141,6 @@ class _SigningProfileState:
                  version_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SigningProfile resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) for the signing profile.
-        :param pulumi.Input[_builtins.str] platform_display_name: A human-readable name for the signing platform associated with the signing profile.
-        :param pulumi.Input[_builtins.str] platform_id: The ID of the platform that is used by the target signing profile.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['SigningProfileRevocationRecordArgs']]] revocation_records: Revocation information for a signing profile. See `revocation_record` Block below for details.
-        :param pulumi.Input['SigningProfileSignatureValidityPeriodArgs'] signature_validity_period: The validity period for a signing job. See `signature_validity_period` Block below for details.
-        :param pulumi.Input['SigningProfileSigningMaterialArgs'] signing_material: The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] signing_parameters: Map of key-value pairs for signing. These can include any information that you want to use during signing.
-        :param pulumi.Input[_builtins.str] status: The status of the target signing profile.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] version: The current version of the signing profile.
-        :param pulumi.Input[_builtins.str] version_arn: The signing profile ARN, including the profile version.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -213,9 +176,6 @@ class _SigningProfileState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) for the signing profile.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -243,9 +203,6 @@ class _SigningProfileState:
     @_builtins.property
     @pulumi.getter(name="platformDisplayName")
     def platform_display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A human-readable name for the signing platform associated with the signing profile.
-        """
         return pulumi.get(self, "platform_display_name")
 
     @platform_display_name.setter
@@ -255,9 +212,6 @@ class _SigningProfileState:
     @_builtins.property
     @pulumi.getter(name="platformId")
     def platform_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the platform that is used by the target signing profile.
-        """
         return pulumi.get(self, "platform_id")
 
     @platform_id.setter
@@ -267,9 +221,6 @@ class _SigningProfileState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -279,9 +230,6 @@ class _SigningProfileState:
     @_builtins.property
     @pulumi.getter(name="revocationRecords")
     def revocation_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SigningProfileRevocationRecordArgs']]]]:
-        """
-        Revocation information for a signing profile. See `revocation_record` Block below for details.
-        """
         return pulumi.get(self, "revocation_records")
 
     @revocation_records.setter
@@ -291,9 +239,6 @@ class _SigningProfileState:
     @_builtins.property
     @pulumi.getter(name="signatureValidityPeriod")
     def signature_validity_period(self) -> Optional[pulumi.Input['SigningProfileSignatureValidityPeriodArgs']]:
-        """
-        The validity period for a signing job. See `signature_validity_period` Block below for details.
-        """
         return pulumi.get(self, "signature_validity_period")
 
     @signature_validity_period.setter
@@ -303,9 +248,6 @@ class _SigningProfileState:
     @_builtins.property
     @pulumi.getter(name="signingMaterial")
     def signing_material(self) -> Optional[pulumi.Input['SigningProfileSigningMaterialArgs']]:
-        """
-        The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
-        """
         return pulumi.get(self, "signing_material")
 
     @signing_material.setter
@@ -315,9 +257,6 @@ class _SigningProfileState:
     @_builtins.property
     @pulumi.getter(name="signingParameters")
     def signing_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of key-value pairs for signing. These can include any information that you want to use during signing.
-        """
         return pulumi.get(self, "signing_parameters")
 
     @signing_parameters.setter
@@ -327,9 +266,6 @@ class _SigningProfileState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The status of the target signing profile.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -339,9 +275,6 @@ class _SigningProfileState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -351,9 +284,6 @@ class _SigningProfileState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -363,9 +293,6 @@ class _SigningProfileState:
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The current version of the signing profile.
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -375,9 +302,6 @@ class _SigningProfileState:
     @_builtins.property
     @pulumi.getter(name="versionArn")
     def version_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The signing profile ARN, including the profile version.
-        """
         return pulumi.get(self, "version_arn")
 
     @version_arn.setter
@@ -401,44 +325,9 @@ class SigningProfile(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Creates a Signer Signing Profile. A signing profile contains information about the code signing configuration parameters that can be used by a given code signing user.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_sp = aws.signer.SigningProfile("test_sp", platform_id="AWSLambda-SHA384-ECDSA")
-        prod_sp = aws.signer.SigningProfile("prod_sp",
-            platform_id="AWSLambda-SHA384-ECDSA",
-            name_prefix="prod_sp_",
-            signature_validity_period={
-                "value": 5,
-                "type": "YEARS",
-            },
-            tags={
-                "tag1": "value1",
-                "tag2": "value2",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Signer signing profiles using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:signer/signingProfile:SigningProfile test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
-        ```
-
+        Create a SigningProfile resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] platform_id: The ID of the platform that is used by the target signing profile.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict']] signature_validity_period: The validity period for a signing job. See `signature_validity_period` Block below for details.
-        :param pulumi.Input[Union['SigningProfileSigningMaterialArgs', 'SigningProfileSigningMaterialArgsDict']] signing_material: The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] signing_parameters: Map of key-value pairs for signing. These can include any information that you want to use during signing.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -447,36 +336,7 @@ class SigningProfile(pulumi.CustomResource):
                  args: SigningProfileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a Signer Signing Profile. A signing profile contains information about the code signing configuration parameters that can be used by a given code signing user.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_sp = aws.signer.SigningProfile("test_sp", platform_id="AWSLambda-SHA384-ECDSA")
-        prod_sp = aws.signer.SigningProfile("prod_sp",
-            platform_id="AWSLambda-SHA384-ECDSA",
-            name_prefix="prod_sp_",
-            signature_validity_period={
-                "value": 5,
-                "type": "YEARS",
-            },
-            tags={
-                "tag1": "value1",
-                "tag2": "value2",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Signer signing profiles using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:signer/signingProfile:SigningProfile test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
-        ```
-
+        Create a SigningProfile resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SigningProfileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -558,19 +418,6 @@ class SigningProfile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) for the signing profile.
-        :param pulumi.Input[_builtins.str] platform_display_name: A human-readable name for the signing platform associated with the signing profile.
-        :param pulumi.Input[_builtins.str] platform_id: The ID of the platform that is used by the target signing profile.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SigningProfileRevocationRecordArgs', 'SigningProfileRevocationRecordArgsDict']]]] revocation_records: Revocation information for a signing profile. See `revocation_record` Block below for details.
-        :param pulumi.Input[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict']] signature_validity_period: The validity period for a signing job. See `signature_validity_period` Block below for details.
-        :param pulumi.Input[Union['SigningProfileSigningMaterialArgs', 'SigningProfileSigningMaterialArgsDict']] signing_material: The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] signing_parameters: Map of key-value pairs for signing. These can include any information that you want to use during signing.
-        :param pulumi.Input[_builtins.str] status: The status of the target signing profile.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] version: The current version of the signing profile.
-        :param pulumi.Input[_builtins.str] version_arn: The signing profile ARN, including the profile version.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -596,9 +443,6 @@ class SigningProfile(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) for the signing profile.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -614,96 +458,60 @@ class SigningProfile(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="platformDisplayName")
     def platform_display_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        A human-readable name for the signing platform associated with the signing profile.
-        """
         return pulumi.get(self, "platform_display_name")
 
     @_builtins.property
     @pulumi.getter(name="platformId")
     def platform_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the platform that is used by the target signing profile.
-        """
         return pulumi.get(self, "platform_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="revocationRecords")
     def revocation_records(self) -> pulumi.Output[Sequence['outputs.SigningProfileRevocationRecord']]:
-        """
-        Revocation information for a signing profile. See `revocation_record` Block below for details.
-        """
         return pulumi.get(self, "revocation_records")
 
     @_builtins.property
     @pulumi.getter(name="signatureValidityPeriod")
     def signature_validity_period(self) -> pulumi.Output['outputs.SigningProfileSignatureValidityPeriod']:
-        """
-        The validity period for a signing job. See `signature_validity_period` Block below for details.
-        """
         return pulumi.get(self, "signature_validity_period")
 
     @_builtins.property
     @pulumi.getter(name="signingMaterial")
     def signing_material(self) -> pulumi.Output['outputs.SigningProfileSigningMaterial']:
-        """
-        The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
-        """
         return pulumi.get(self, "signing_material")
 
     @_builtins.property
     @pulumi.getter(name="signingParameters")
     def signing_parameters(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of key-value pairs for signing. These can include any information that you want to use during signing.
-        """
         return pulumi.get(self, "signing_parameters")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        The status of the target signing profile.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> pulumi.Output[_builtins.str]:
-        """
-        The current version of the signing profile.
-        """
         return pulumi.get(self, "version")
 
     @_builtins.property
     @pulumi.getter(name="versionArn")
     def version_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The signing profile ARN, including the profile version.
-        """
         return pulumi.get(self, "version_arn")
 

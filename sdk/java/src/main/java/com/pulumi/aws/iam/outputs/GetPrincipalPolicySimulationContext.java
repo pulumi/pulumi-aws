@@ -12,46 +12,38 @@ import java.util.Objects;
 @CustomType
 public final class GetPrincipalPolicySimulationContext {
     /**
-     * @return The context _condition key_ to set.
-     * 
-     * If you have policies containing `Condition` elements or using dynamic interpolations then you will need to provide suitable values for each condition key your policies use. See [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html) to find the various condition keys that are normally provided for real requests to each action of each AWS service.
+     * @return The key name of the context entry, such as &#34;aws:CurrentTime&#34;.
      * 
      */
     private String key;
     /**
-     * @return An IAM value type that determines how the policy simulator will interpret the strings given in `values`.
-     * 
-     * For more information, see the `ContextKeyType` field of [`iam.ContextEntry`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ContextEntry.html) in the underlying API.
+     * @return The type that the simulator should use to interpret the strings given in argument &#34;values&#34;.
      * 
      */
     private String type;
     /**
-     * @return A set of one or more values for this context entry.
+     * @return One or more values to assign to the context key, given as a string in a syntax appropriate for the selected value type.
      * 
      */
     private List<String> values;
 
     private GetPrincipalPolicySimulationContext() {}
     /**
-     * @return The context _condition key_ to set.
-     * 
-     * If you have policies containing `Condition` elements or using dynamic interpolations then you will need to provide suitable values for each condition key your policies use. See [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html) to find the various condition keys that are normally provided for real requests to each action of each AWS service.
+     * @return The key name of the context entry, such as &#34;aws:CurrentTime&#34;.
      * 
      */
     public String key() {
         return this.key;
     }
     /**
-     * @return An IAM value type that determines how the policy simulator will interpret the strings given in `values`.
-     * 
-     * For more information, see the `ContextKeyType` field of [`iam.ContextEntry`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ContextEntry.html) in the underlying API.
+     * @return The type that the simulator should use to interpret the strings given in argument &#34;values&#34;.
      * 
      */
     public String type() {
         return this.type;
     }
     /**
-     * @return A set of one or more values for this context entry.
+     * @return One or more values to assign to the context key, given as a string in a syntax appropriate for the selected value type.
      * 
      */
     public List<String> values() {

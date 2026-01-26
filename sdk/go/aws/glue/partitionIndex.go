@@ -12,143 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glue"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := glue.NewCatalogDatabase(ctx, "example", &glue.CatalogDatabaseArgs{
-//				Name: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleCatalogTable, err := glue.NewCatalogTable(ctx, "example", &glue.CatalogTableArgs{
-//				Name:             pulumi.String("example"),
-//				DatabaseName:     example.Name,
-//				Owner:            pulumi.String("my_owner"),
-//				Retention:        pulumi.Int(1),
-//				TableType:        pulumi.String("VIRTUAL_VIEW"),
-//				ViewExpandedText: pulumi.String("view_expanded_text_1"),
-//				ViewOriginalText: pulumi.String("view_original_text_1"),
-//				StorageDescriptor: &glue.CatalogTableStorageDescriptorArgs{
-//					BucketColumns: pulumi.StringArray{
-//						pulumi.String("bucket_column_1"),
-//					},
-//					Compressed:             pulumi.Bool(false),
-//					InputFormat:            pulumi.String("SequenceFileInputFormat"),
-//					Location:               pulumi.String("my_location"),
-//					NumberOfBuckets:        pulumi.Int(1),
-//					OutputFormat:           pulumi.String("SequenceFileInputFormat"),
-//					StoredAsSubDirectories: pulumi.Bool(false),
-//					Parameters: pulumi.StringMap{
-//						"param1": pulumi.String("param1_val"),
-//					},
-//					Columns: glue.CatalogTableStorageDescriptorColumnArray{
-//						&glue.CatalogTableStorageDescriptorColumnArgs{
-//							Name:    pulumi.String("my_column_1"),
-//							Type:    pulumi.String("int"),
-//							Comment: pulumi.String("my_column1_comment"),
-//						},
-//						&glue.CatalogTableStorageDescriptorColumnArgs{
-//							Name:    pulumi.String("my_column_2"),
-//							Type:    pulumi.String("string"),
-//							Comment: pulumi.String("my_column2_comment"),
-//						},
-//					},
-//					SerDeInfo: &glue.CatalogTableStorageDescriptorSerDeInfoArgs{
-//						Name: pulumi.String("ser_de_name"),
-//						Parameters: pulumi.StringMap{
-//							"param1": pulumi.String("param_val_1"),
-//						},
-//						SerializationLibrary: pulumi.String("org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe"),
-//					},
-//					SortColumns: glue.CatalogTableStorageDescriptorSortColumnArray{
-//						&glue.CatalogTableStorageDescriptorSortColumnArgs{
-//							Column:    pulumi.String("my_column_1"),
-//							SortOrder: pulumi.Int(1),
-//						},
-//					},
-//					SkewedInfo: &glue.CatalogTableStorageDescriptorSkewedInfoArgs{
-//						SkewedColumnNames: pulumi.StringArray{
-//							pulumi.String("my_column_1"),
-//						},
-//						SkewedColumnValueLocationMaps: pulumi.StringMap{
-//							"my_column_1": pulumi.String("my_column_1_val_loc_map"),
-//						},
-//						SkewedColumnValues: pulumi.StringArray{
-//							pulumi.String("skewed_val_1"),
-//						},
-//					},
-//				},
-//				PartitionKeys: glue.CatalogTablePartitionKeyArray{
-//					&glue.CatalogTablePartitionKeyArgs{
-//						Name:    pulumi.String("my_column_1"),
-//						Type:    pulumi.String("int"),
-//						Comment: pulumi.String("my_column_1_comment"),
-//					},
-//					&glue.CatalogTablePartitionKeyArgs{
-//						Name:    pulumi.String("my_column_2"),
-//						Type:    pulumi.String("string"),
-//						Comment: pulumi.String("my_column_2_comment"),
-//					},
-//				},
-//				Parameters: pulumi.StringMap{
-//					"param1": pulumi.String("param1_val"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = glue.NewPartitionIndex(ctx, "example", &glue.PartitionIndexArgs{
-//				DatabaseName: example.Name,
-//				TableName:    exampleCatalogTable.Name,
-//				PartitionIndex: &glue.PartitionIndexPartitionIndexArgs{
-//					IndexName: pulumi.String("example"),
-//					Keys: pulumi.StringArray{
-//						pulumi.String("my_column_1"),
-//						pulumi.String("my_column_2"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Glue Partition Indexes using the catalog ID (usually AWS account ID), database name, table name, and index name. For example:
-//
-// ```sh
-// $ pulumi import aws:glue/partitionIndex:PartitionIndex example 123456789012:MyDatabase:MyTable:index-name
-// ```
 type PartitionIndex struct {
 	pulumi.CustomResourceState
 
-	// The catalog ID where the table resides.
-	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
-	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
-	// Configuration block for a partition index. See `partitionIndex` below.
+	CatalogId      pulumi.StringOutput                `pulumi:"catalogId"`
+	DatabaseName   pulumi.StringOutput                `pulumi:"databaseName"`
 	PartitionIndex PartitionIndexPartitionIndexOutput `pulumi:"partitionIndex"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Name of the table. For Hive compatibility, this must be entirely lowercase.
-	TableName pulumi.StringOutput `pulumi:"tableName"`
+	Region         pulumi.StringOutput                `pulumi:"region"`
+	TableName      pulumi.StringOutput                `pulumi:"tableName"`
 }
 
 // NewPartitionIndex registers a new resource with the given unique name, arguments, and options.
@@ -190,29 +61,19 @@ func GetPartitionIndex(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PartitionIndex resources.
 type partitionIndexState struct {
-	// The catalog ID where the table resides.
-	CatalogId *string `pulumi:"catalogId"`
-	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-	DatabaseName *string `pulumi:"databaseName"`
-	// Configuration block for a partition index. See `partitionIndex` below.
+	CatalogId      *string                       `pulumi:"catalogId"`
+	DatabaseName   *string                       `pulumi:"databaseName"`
 	PartitionIndex *PartitionIndexPartitionIndex `pulumi:"partitionIndex"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Name of the table. For Hive compatibility, this must be entirely lowercase.
-	TableName *string `pulumi:"tableName"`
+	Region         *string                       `pulumi:"region"`
+	TableName      *string                       `pulumi:"tableName"`
 }
 
 type PartitionIndexState struct {
-	// The catalog ID where the table resides.
-	CatalogId pulumi.StringPtrInput
-	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-	DatabaseName pulumi.StringPtrInput
-	// Configuration block for a partition index. See `partitionIndex` below.
+	CatalogId      pulumi.StringPtrInput
+	DatabaseName   pulumi.StringPtrInput
 	PartitionIndex PartitionIndexPartitionIndexPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Name of the table. For Hive compatibility, this must be entirely lowercase.
-	TableName pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
+	TableName      pulumi.StringPtrInput
 }
 
 func (PartitionIndexState) ElementType() reflect.Type {
@@ -220,30 +81,20 @@ func (PartitionIndexState) ElementType() reflect.Type {
 }
 
 type partitionIndexArgs struct {
-	// The catalog ID where the table resides.
-	CatalogId *string `pulumi:"catalogId"`
-	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-	DatabaseName string `pulumi:"databaseName"`
-	// Configuration block for a partition index. See `partitionIndex` below.
+	CatalogId      *string                      `pulumi:"catalogId"`
+	DatabaseName   string                       `pulumi:"databaseName"`
 	PartitionIndex PartitionIndexPartitionIndex `pulumi:"partitionIndex"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Name of the table. For Hive compatibility, this must be entirely lowercase.
-	TableName string `pulumi:"tableName"`
+	Region         *string                      `pulumi:"region"`
+	TableName      string                       `pulumi:"tableName"`
 }
 
 // The set of arguments for constructing a PartitionIndex resource.
 type PartitionIndexArgs struct {
-	// The catalog ID where the table resides.
-	CatalogId pulumi.StringPtrInput
-	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-	DatabaseName pulumi.StringInput
-	// Configuration block for a partition index. See `partitionIndex` below.
+	CatalogId      pulumi.StringPtrInput
+	DatabaseName   pulumi.StringInput
 	PartitionIndex PartitionIndexPartitionIndexInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Name of the table. For Hive compatibility, this must be entirely lowercase.
-	TableName pulumi.StringInput
+	Region         pulumi.StringPtrInput
+	TableName      pulumi.StringInput
 }
 
 func (PartitionIndexArgs) ElementType() reflect.Type {
@@ -333,27 +184,22 @@ func (o PartitionIndexOutput) ToPartitionIndexOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The catalog ID where the table resides.
 func (o PartitionIndexOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PartitionIndex) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
 }
 
-// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 func (o PartitionIndexOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *PartitionIndex) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// Configuration block for a partition index. See `partitionIndex` below.
 func (o PartitionIndexOutput) PartitionIndex() PartitionIndexPartitionIndexOutput {
 	return o.ApplyT(func(v *PartitionIndex) PartitionIndexPartitionIndexOutput { return v.PartitionIndex }).(PartitionIndexPartitionIndexOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PartitionIndexOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PartitionIndex) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Name of the table. For Hive compatibility, this must be entirely lowercase.
 func (o PartitionIndexOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v *PartitionIndex) pulumi.StringOutput { return v.TableName }).(pulumi.StringOutput)
 }

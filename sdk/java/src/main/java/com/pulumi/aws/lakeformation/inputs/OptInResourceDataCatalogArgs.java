@@ -15,17 +15,9 @@ public final class OptInResourceDataCatalogArgs extends com.pulumi.resources.Res
 
     public static final OptInResourceDataCatalogArgs Empty = new OptInResourceDataCatalogArgs();
 
-    /**
-     * Identifier for the catalog resource.
-     * 
-     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
-    /**
-     * @return Identifier for the catalog resource.
-     * 
-     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
@@ -54,23 +46,11 @@ public final class OptInResourceDataCatalogArgs extends com.pulumi.resources.Res
             $ = new OptInResourceDataCatalogArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id Identifier for the catalog resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id Identifier for the catalog resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }

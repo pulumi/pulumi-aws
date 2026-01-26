@@ -7,43 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Single Sign-On (SSO) ABAC Resource: https://docs.aws.amazon.com/singlesignon/latest/userguide/abac.html
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssoadmin.getInstances({});
- * const exampleInstanceAccessControlAttributes = new aws.ssoadmin.InstanceAccessControlAttributes("example", {
- *     instanceArn: example.then(example => example.arns?.[0]),
- *     attributes: [
- *         {
- *             key: "name",
- *             values: [{
- *                 sources: ["${path:name.givenName}"],
- *             }],
- *         },
- *         {
- *             key: "last",
- *             values: [{
- *                 sources: ["${path:name.familyName}"],
- *             }],
- *         },
- *     ],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import SSO Account Assignments using the `instance_arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes example arn:aws:sso:::instance/ssoins-0123456789abcdef
- * ```
- */
 export class InstanceAccessControlAttributes extends pulumi.CustomResource {
     /**
      * Get an existing InstanceAccessControlAttributes resource's state with the given name, ID, and optional extra
@@ -72,17 +35,8 @@ export class InstanceAccessControlAttributes extends pulumi.CustomResource {
         return obj['__pulumiType'] === InstanceAccessControlAttributes.__pulumiType;
     }
 
-    /**
-     * See AccessControlAttribute for more details.
-     */
     declare public readonly attributes: pulumi.Output<outputs.ssoadmin.InstanceAccessControlAttributesAttribute[]>;
-    /**
-     * The Amazon Resource Name (ARN) of the SSO Instance.
-     */
     declare public readonly instanceArn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     declare public /*out*/ readonly status: pulumi.Output<string>;
     declare public /*out*/ readonly statusReason: pulumi.Output<string>;
@@ -128,17 +82,8 @@ export class InstanceAccessControlAttributes extends pulumi.CustomResource {
  * Input properties used for looking up and filtering InstanceAccessControlAttributes resources.
  */
 export interface InstanceAccessControlAttributesState {
-    /**
-     * See AccessControlAttribute for more details.
-     */
     attributes?: pulumi.Input<pulumi.Input<inputs.ssoadmin.InstanceAccessControlAttributesAttribute>[]>;
-    /**
-     * The Amazon Resource Name (ARN) of the SSO Instance.
-     */
     instanceArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     status?: pulumi.Input<string>;
     statusReason?: pulumi.Input<string>;
@@ -148,16 +93,7 @@ export interface InstanceAccessControlAttributesState {
  * The set of arguments for constructing a InstanceAccessControlAttributes resource.
  */
 export interface InstanceAccessControlAttributesArgs {
-    /**
-     * See AccessControlAttribute for more details.
-     */
     attributes: pulumi.Input<pulumi.Input<inputs.ssoadmin.InstanceAccessControlAttributesAttribute>[]>;
-    /**
-     * The Amazon Resource Name (ARN) of the SSO Instance.
-     */
     instanceArn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

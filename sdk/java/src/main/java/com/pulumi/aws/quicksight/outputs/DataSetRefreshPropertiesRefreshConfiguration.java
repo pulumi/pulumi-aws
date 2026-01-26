@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class DataSetRefreshPropertiesRefreshConfiguration {
-    /**
-     * @return The incremental refresh for the data set. See incremental_refresh.
-     * 
-     */
     private DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh incrementalRefresh;
 
     private DataSetRefreshPropertiesRefreshConfiguration() {}
-    /**
-     * @return The incremental refresh for the data set. See incremental_refresh.
-     * 
-     */
     public DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh incrementalRefresh() {
         return this.incrementalRefresh;
     }

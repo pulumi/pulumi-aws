@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class ThemeConfigurationSheetTileGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The border around a tile. See border.
-        /// </summary>
         [Input("border")]
         public Input<Inputs.ThemeConfigurationSheetTileBorderGetArgs>? Border { get; set; }
 

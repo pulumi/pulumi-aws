@@ -32,21 +32,9 @@ MYPY = False
 if not MYPY:
     class LoadBalancerAccessLogsArgsDict(TypedDict):
         bucket: pulumi.Input[_builtins.str]
-        """
-        The S3 bucket name to store the logs in.
-        """
         bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The S3 bucket prefix. Logs are stored in the root if not configured.
-        """
         enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Boolean to enable / disable `access_logs`. Default is `true`
-        """
         interval: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The publishing interval in minutes. Valid values: `5` and `60`. Default: `60`
-        """
 elif False:
     LoadBalancerAccessLogsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -57,12 +45,6 @@ class LoadBalancerAccessLogsArgs:
                  bucket_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  interval: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.str] bucket: The S3 bucket name to store the logs in.
-        :param pulumi.Input[_builtins.str] bucket_prefix: The S3 bucket prefix. Logs are stored in the root if not configured.
-        :param pulumi.Input[_builtins.bool] enabled: Boolean to enable / disable `access_logs`. Default is `true`
-        :param pulumi.Input[_builtins.int] interval: The publishing interval in minutes. Valid values: `5` and `60`. Default: `60`
-        """
         pulumi.set(__self__, "bucket", bucket)
         if bucket_prefix is not None:
             pulumi.set(__self__, "bucket_prefix", bucket_prefix)
@@ -74,9 +56,6 @@ class LoadBalancerAccessLogsArgs:
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[_builtins.str]:
-        """
-        The S3 bucket name to store the logs in.
-        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -86,9 +65,6 @@ class LoadBalancerAccessLogsArgs:
     @_builtins.property
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The S3 bucket prefix. Logs are stored in the root if not configured.
-        """
         return pulumi.get(self, "bucket_prefix")
 
     @bucket_prefix.setter
@@ -98,9 +74,6 @@ class LoadBalancerAccessLogsArgs:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Boolean to enable / disable `access_logs`. Default is `true`
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -110,9 +83,6 @@ class LoadBalancerAccessLogsArgs:
     @_builtins.property
     @pulumi.getter
     def interval(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The publishing interval in minutes. Valid values: `5` and `60`. Default: `60`
-        """
         return pulumi.get(self, "interval")
 
     @interval.setter
@@ -123,28 +93,10 @@ class LoadBalancerAccessLogsArgs:
 if not MYPY:
     class LoadBalancerHealthCheckArgsDict(TypedDict):
         healthy_threshold: pulumi.Input[_builtins.int]
-        """
-        The number of checks before the instance is declared healthy.
-        """
         interval: pulumi.Input[_builtins.int]
-        """
-        The interval between checks.
-        """
         target: pulumi.Input[_builtins.str]
-        """
-        The target of the check. Valid pattern is "${PROTOCOL}:${PORT}${PATH}", where PROTOCOL
-        values are:
-        * `HTTP`, `HTTPS` - PORT and PATH are required
-        * `TCP`, `SSL` - PORT is required, PATH is not supported
-        """
         timeout: pulumi.Input[_builtins.int]
-        """
-        The length of time before the check times out.
-        """
         unhealthy_threshold: pulumi.Input[_builtins.int]
-        """
-        The number of checks before the instance is declared unhealthy.
-        """
 elif False:
     LoadBalancerHealthCheckArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -156,16 +108,6 @@ class LoadBalancerHealthCheckArgs:
                  target: pulumi.Input[_builtins.str],
                  timeout: pulumi.Input[_builtins.int],
                  unhealthy_threshold: pulumi.Input[_builtins.int]):
-        """
-        :param pulumi.Input[_builtins.int] healthy_threshold: The number of checks before the instance is declared healthy.
-        :param pulumi.Input[_builtins.int] interval: The interval between checks.
-        :param pulumi.Input[_builtins.str] target: The target of the check. Valid pattern is "${PROTOCOL}:${PORT}${PATH}", where PROTOCOL
-               values are:
-               * `HTTP`, `HTTPS` - PORT and PATH are required
-               * `TCP`, `SSL` - PORT is required, PATH is not supported
-        :param pulumi.Input[_builtins.int] timeout: The length of time before the check times out.
-        :param pulumi.Input[_builtins.int] unhealthy_threshold: The number of checks before the instance is declared unhealthy.
-        """
         pulumi.set(__self__, "healthy_threshold", healthy_threshold)
         pulumi.set(__self__, "interval", interval)
         pulumi.set(__self__, "target", target)
@@ -175,9 +117,6 @@ class LoadBalancerHealthCheckArgs:
     @_builtins.property
     @pulumi.getter(name="healthyThreshold")
     def healthy_threshold(self) -> pulumi.Input[_builtins.int]:
-        """
-        The number of checks before the instance is declared healthy.
-        """
         return pulumi.get(self, "healthy_threshold")
 
     @healthy_threshold.setter
@@ -187,9 +126,6 @@ class LoadBalancerHealthCheckArgs:
     @_builtins.property
     @pulumi.getter
     def interval(self) -> pulumi.Input[_builtins.int]:
-        """
-        The interval between checks.
-        """
         return pulumi.get(self, "interval")
 
     @interval.setter
@@ -199,12 +135,6 @@ class LoadBalancerHealthCheckArgs:
     @_builtins.property
     @pulumi.getter
     def target(self) -> pulumi.Input[_builtins.str]:
-        """
-        The target of the check. Valid pattern is "${PROTOCOL}:${PORT}${PATH}", where PROTOCOL
-        values are:
-        * `HTTP`, `HTTPS` - PORT and PATH are required
-        * `TCP`, `SSL` - PORT is required, PATH is not supported
-        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -214,9 +144,6 @@ class LoadBalancerHealthCheckArgs:
     @_builtins.property
     @pulumi.getter
     def timeout(self) -> pulumi.Input[_builtins.int]:
-        """
-        The length of time before the check times out.
-        """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
@@ -226,9 +153,6 @@ class LoadBalancerHealthCheckArgs:
     @_builtins.property
     @pulumi.getter(name="unhealthyThreshold")
     def unhealthy_threshold(self) -> pulumi.Input[_builtins.int]:
-        """
-        The number of checks before the instance is declared unhealthy.
-        """
         return pulumi.get(self, "unhealthy_threshold")
 
     @unhealthy_threshold.setter
@@ -239,28 +163,10 @@ class LoadBalancerHealthCheckArgs:
 if not MYPY:
     class LoadBalancerListenerArgsDict(TypedDict):
         instance_port: pulumi.Input[_builtins.int]
-        """
-        The port on the instance to route to
-        """
         instance_protocol: pulumi.Input[_builtins.str]
-        """
-        The protocol to use to the instance. Valid
-        values are `HTTP`, `HTTPS`, `TCP`, or `SSL`
-        """
         lb_port: pulumi.Input[_builtins.int]
-        """
-        The port to listen on for the load balancer
-        """
         lb_protocol: pulumi.Input[_builtins.str]
-        """
-        The protocol to listen on. Valid values are `HTTP`,
-        `HTTPS`, `TCP`, or `SSL`
-        """
         ssl_certificate_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of an SSL certificate you have
-        uploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `lb_protocol` is either HTTPS or SSL**
-        """
 elif False:
     LoadBalancerListenerArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -272,16 +178,6 @@ class LoadBalancerListenerArgs:
                  lb_port: pulumi.Input[_builtins.int],
                  lb_protocol: pulumi.Input[_builtins.str],
                  ssl_certificate_id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.int] instance_port: The port on the instance to route to
-        :param pulumi.Input[_builtins.str] instance_protocol: The protocol to use to the instance. Valid
-               values are `HTTP`, `HTTPS`, `TCP`, or `SSL`
-        :param pulumi.Input[_builtins.int] lb_port: The port to listen on for the load balancer
-        :param pulumi.Input[_builtins.str] lb_protocol: The protocol to listen on. Valid values are `HTTP`,
-               `HTTPS`, `TCP`, or `SSL`
-        :param pulumi.Input[_builtins.str] ssl_certificate_id: The ARN of an SSL certificate you have
-               uploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `lb_protocol` is either HTTPS or SSL**
-        """
         pulumi.set(__self__, "instance_port", instance_port)
         pulumi.set(__self__, "instance_protocol", instance_protocol)
         pulumi.set(__self__, "lb_port", lb_port)
@@ -292,9 +188,6 @@ class LoadBalancerListenerArgs:
     @_builtins.property
     @pulumi.getter(name="instancePort")
     def instance_port(self) -> pulumi.Input[_builtins.int]:
-        """
-        The port on the instance to route to
-        """
         return pulumi.get(self, "instance_port")
 
     @instance_port.setter
@@ -304,10 +197,6 @@ class LoadBalancerListenerArgs:
     @_builtins.property
     @pulumi.getter(name="instanceProtocol")
     def instance_protocol(self) -> pulumi.Input[_builtins.str]:
-        """
-        The protocol to use to the instance. Valid
-        values are `HTTP`, `HTTPS`, `TCP`, or `SSL`
-        """
         return pulumi.get(self, "instance_protocol")
 
     @instance_protocol.setter
@@ -317,9 +206,6 @@ class LoadBalancerListenerArgs:
     @_builtins.property
     @pulumi.getter(name="lbPort")
     def lb_port(self) -> pulumi.Input[_builtins.int]:
-        """
-        The port to listen on for the load balancer
-        """
         return pulumi.get(self, "lb_port")
 
     @lb_port.setter
@@ -329,10 +215,6 @@ class LoadBalancerListenerArgs:
     @_builtins.property
     @pulumi.getter(name="lbProtocol")
     def lb_protocol(self) -> pulumi.Input[_builtins.str]:
-        """
-        The protocol to listen on. Valid values are `HTTP`,
-        `HTTPS`, `TCP`, or `SSL`
-        """
         return pulumi.get(self, "lb_protocol")
 
     @lb_protocol.setter
@@ -342,10 +224,6 @@ class LoadBalancerListenerArgs:
     @_builtins.property
     @pulumi.getter(name="sslCertificateId")
     def ssl_certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of an SSL certificate you have
-        uploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `lb_protocol` is either HTTPS or SSL**
-        """
         return pulumi.get(self, "ssl_certificate_id")
 
     @ssl_certificate_id.setter
@@ -392,13 +270,7 @@ class LoadBalancerPolicyPolicyAttributeArgs:
 if not MYPY:
     class SslNegotiationPolicyAttributeArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        The name of the attribute
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        The value of the attribute
-        """
 elif False:
     SslNegotiationPolicyAttributeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -407,19 +279,12 @@ class SslNegotiationPolicyAttributeArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] name: The name of the attribute
-        :param pulumi.Input[_builtins.str] value: The value of the attribute
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the attribute
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -429,9 +294,6 @@ class SslNegotiationPolicyAttributeArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        The value of the attribute
-        """
         return pulumi.get(self, "value")
 
     @value.setter

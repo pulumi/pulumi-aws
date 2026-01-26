@@ -18,205 +18,59 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to create an EventBridge Global Endpoint.
- * 
- * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.EventEndpoint;
- * import com.pulumi.aws.cloudwatch.EventEndpointArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventEndpointEventBusArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventEndpointReplicationConfigArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventEndpointRoutingConfigArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventEndpointRoutingConfigFailoverConfigArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventEndpointRoutingConfigFailoverConfigPrimaryArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventEndpointRoutingConfigFailoverConfigSecondaryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var this_ = new EventEndpoint("this", EventEndpointArgs.builder()
- *             .name("global-endpoint")
- *             .roleArn(replication.arn())
- *             .eventBuses(            
- *                 EventEndpointEventBusArgs.builder()
- *                     .eventBusArn(primary.arn())
- *                     .build(),
- *                 EventEndpointEventBusArgs.builder()
- *                     .eventBusArn(secondary.arn())
- *                     .build())
- *             .replicationConfig(EventEndpointReplicationConfigArgs.builder()
- *                 .state("DISABLED")
- *                 .build())
- *             .routingConfig(EventEndpointRoutingConfigArgs.builder()
- *                 .failoverConfig(EventEndpointRoutingConfigFailoverConfigArgs.builder()
- *                     .primary(EventEndpointRoutingConfigFailoverConfigPrimaryArgs.builder()
- *                         .healthCheck(primaryAwsRoute53HealthCheck.arn())
- *                         .build())
- *                     .secondary(EventEndpointRoutingConfigFailoverConfigSecondaryArgs.builder()
- *                         .route("us-east-2")
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import EventBridge Global Endpoints using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:cloudwatch/eventEndpoint:EventEndpoint imported_endpoint example-endpoint
- * ```
- * 
- */
 @ResourceType(type="aws:cloudwatch/eventEndpoint:EventEndpoint")
 public class EventEndpoint extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the endpoint that was created.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the endpoint that was created.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * A description of the global endpoint.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return A description of the global endpoint.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The URL of the endpoint that was created.
-     * 
-     */
     @Export(name="endpointUrl", refs={String.class}, tree="[0]")
     private Output<String> endpointUrl;
 
-    /**
-     * @return The URL of the endpoint that was created.
-     * 
-     */
     public Output<String> endpointUrl() {
         return this.endpointUrl;
     }
-    /**
-     * The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
-     * 
-     */
     @Export(name="eventBuses", refs={List.class,EventEndpointEventBus.class}, tree="[0,1]")
     private Output<List<EventEndpointEventBus>> eventBuses;
 
-    /**
-     * @return The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
-     * 
-     */
     public Output<List<EventEndpointEventBus>> eventBuses() {
         return this.eventBuses;
     }
-    /**
-     * The name of the global endpoint.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the global endpoint.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Parameters used for replication. Documented below.
-     * 
-     */
     @Export(name="replicationConfig", refs={EventEndpointReplicationConfig.class}, tree="[0]")
     private Output</* @Nullable */ EventEndpointReplicationConfig> replicationConfig;
 
-    /**
-     * @return Parameters used for replication. Documented below.
-     * 
-     */
     public Output<Optional<EventEndpointReplicationConfig>> replicationConfig() {
         return Codegen.optional(this.replicationConfig);
     }
-    /**
-     * The ARN of the IAM role used for replication between event buses.
-     * 
-     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleArn;
 
-    /**
-     * @return The ARN of the IAM role used for replication between event buses.
-     * 
-     */
     public Output<Optional<String>> roleArn() {
         return Codegen.optional(this.roleArn);
     }
-    /**
-     * Parameters used for routing, including the health check and secondary Region. Documented below.
-     * 
-     */
     @Export(name="routingConfig", refs={EventEndpointRoutingConfig.class}, tree="[0]")
     private Output<EventEndpointRoutingConfig> routingConfig;
 
-    /**
-     * @return Parameters used for routing, including the health check and secondary Region. Documented below.
-     * 
-     */
     public Output<EventEndpointRoutingConfig> routingConfig() {
         return this.routingConfig;
     }

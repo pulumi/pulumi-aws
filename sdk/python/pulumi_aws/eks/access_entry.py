@@ -28,15 +28,6 @@ class AccessEntryArgs:
                  user_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccessEntry resource.
-        :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
-        :param pulumi.Input[_builtins.str] principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] kubernetes_groups: List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] type: Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
-        :param pulumi.Input[_builtins.str] user_name: Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "principal_arn", principal_arn)
@@ -54,9 +45,6 @@ class AccessEntryArgs:
     @_builtins.property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the EKS Cluster.
-        """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
@@ -66,11 +54,6 @@ class AccessEntryArgs:
     @_builtins.property
     @pulumi.getter(name="principalArn")
     def principal_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The IAM Principal ARN which requires Authentication access to the EKS cluster.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "principal_arn")
 
     @principal_arn.setter
@@ -80,9 +63,6 @@ class AccessEntryArgs:
     @_builtins.property
     @pulumi.getter(name="kubernetesGroups")
     def kubernetes_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
-        """
         return pulumi.get(self, "kubernetes_groups")
 
     @kubernetes_groups.setter
@@ -92,9 +72,6 @@ class AccessEntryArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -104,9 +81,6 @@ class AccessEntryArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -116,9 +90,6 @@ class AccessEntryArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -128,9 +99,6 @@ class AccessEntryArgs:
     @_builtins.property
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
-        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -154,19 +122,6 @@ class _AccessEntryState:
                  user_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccessEntry resources.
-        :param pulumi.Input[_builtins.str] access_entry_arn: Amazon Resource Name (ARN) of the Access Entry.
-        :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
-        :param pulumi.Input[_builtins.str] created_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] kubernetes_groups: List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
-        :param pulumi.Input[_builtins.str] modified_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
-        :param pulumi.Input[_builtins.str] principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
-        :param pulumi.Input[_builtins.str] user_name: Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
         """
         if access_entry_arn is not None:
             pulumi.set(__self__, "access_entry_arn", access_entry_arn)
@@ -194,9 +149,6 @@ class _AccessEntryState:
     @_builtins.property
     @pulumi.getter(name="accessEntryArn")
     def access_entry_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the Access Entry.
-        """
         return pulumi.get(self, "access_entry_arn")
 
     @access_entry_arn.setter
@@ -206,9 +158,6 @@ class _AccessEntryState:
     @_builtins.property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the EKS Cluster.
-        """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
@@ -218,9 +167,6 @@ class _AccessEntryState:
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
-        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -230,9 +176,6 @@ class _AccessEntryState:
     @_builtins.property
     @pulumi.getter(name="kubernetesGroups")
     def kubernetes_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
-        """
         return pulumi.get(self, "kubernetes_groups")
 
     @kubernetes_groups.setter
@@ -242,9 +185,6 @@ class _AccessEntryState:
     @_builtins.property
     @pulumi.getter(name="modifiedAt")
     def modified_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
-        """
         return pulumi.get(self, "modified_at")
 
     @modified_at.setter
@@ -254,11 +194,6 @@ class _AccessEntryState:
     @_builtins.property
     @pulumi.getter(name="principalArn")
     def principal_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The IAM Principal ARN which requires Authentication access to the EKS cluster.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "principal_arn")
 
     @principal_arn.setter
@@ -268,9 +203,6 @@ class _AccessEntryState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -280,9 +212,6 @@ class _AccessEntryState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -292,9 +221,6 @@ class _AccessEntryState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -304,9 +230,6 @@ class _AccessEntryState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -316,9 +239,6 @@ class _AccessEntryState:
     @_builtins.property
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
-        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -341,43 +261,9 @@ class AccessEntry(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Access Entry Configurations for an EKS Cluster.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.eks.AccessEntry("example",
-            cluster_name=example_aws_eks_cluster["name"],
-            principal_arn=example_aws_iam_role["arn"],
-            kubernetes_groups=[
-                "group-1",
-                "group-2",
-            ],
-            type="STANDARD")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import EKS access entry using the `cluster_name` and `principal_arn` separated by a colon (`:`). For example:
-
-        ```sh
-        $ pulumi import aws:eks/accessEntry:AccessEntry my_eks_access_entry my_cluster_name:my_principal_arn
-        ```
-
+        Create a AccessEntry resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] kubernetes_groups: List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
-        :param pulumi.Input[_builtins.str] principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] type: Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
-        :param pulumi.Input[_builtins.str] user_name: Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
         """
         ...
     @overload
@@ -386,32 +272,7 @@ class AccessEntry(pulumi.CustomResource):
                  args: AccessEntryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Access Entry Configurations for an EKS Cluster.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.eks.AccessEntry("example",
-            cluster_name=example_aws_eks_cluster["name"],
-            principal_arn=example_aws_iam_role["arn"],
-            kubernetes_groups=[
-                "group-1",
-                "group-2",
-            ],
-            type="STANDARD")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import EKS access entry using the `cluster_name` and `principal_arn` separated by a colon (`:`). For example:
-
-        ```sh
-        $ pulumi import aws:eks/accessEntry:AccessEntry my_eks_access_entry my_cluster_name:my_principal_arn
-        ```
-
+        Create a AccessEntry resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AccessEntryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -486,19 +347,6 @@ class AccessEntry(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_entry_arn: Amazon Resource Name (ARN) of the Access Entry.
-        :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
-        :param pulumi.Input[_builtins.str] created_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] kubernetes_groups: List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
-        :param pulumi.Input[_builtins.str] modified_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
-        :param pulumi.Input[_builtins.str] principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
-        :param pulumi.Input[_builtins.str] user_name: Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -520,90 +368,55 @@ class AccessEntry(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accessEntryArn")
     def access_entry_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the Access Entry.
-        """
         return pulumi.get(self, "access_entry_arn")
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the EKS Cluster.
-        """
         return pulumi.get(self, "cluster_name")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter(name="kubernetesGroups")
     def kubernetes_groups(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
-        """
         return pulumi.get(self, "kubernetes_groups")
 
     @_builtins.property
     @pulumi.getter(name="modifiedAt")
     def modified_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
-        """
         return pulumi.get(self, "modified_at")
 
     @_builtins.property
     @pulumi.getter(name="principalArn")
     def principal_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The IAM Principal ARN which requires Authentication access to the EKS cluster.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "principal_arn")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
-        """
         return pulumi.get(self, "user_name")
 

@@ -17,122 +17,58 @@ public final class HsmConfigurationArgs extends com.pulumi.resources.ResourceArg
 
     public static final HsmConfigurationArgs Empty = new HsmConfigurationArgs();
 
-    /**
-     * A text description of the HSM configuration to be created.
-     * 
-     */
     @Import(name="description", required=true)
     private Output<String> description;
 
-    /**
-     * @return A text description of the HSM configuration to be created.
-     * 
-     */
     public Output<String> description() {
         return this.description;
     }
 
-    /**
-     * The identifier to be assigned to the new Amazon Redshift HSM configuration.
-     * 
-     */
     @Import(name="hsmConfigurationIdentifier", required=true)
     private Output<String> hsmConfigurationIdentifier;
 
-    /**
-     * @return The identifier to be assigned to the new Amazon Redshift HSM configuration.
-     * 
-     */
     public Output<String> hsmConfigurationIdentifier() {
         return this.hsmConfigurationIdentifier;
     }
 
-    /**
-     * The IP address that the Amazon Redshift cluster must use to access the HSM.
-     * 
-     */
     @Import(name="hsmIpAddress", required=true)
     private Output<String> hsmIpAddress;
 
-    /**
-     * @return The IP address that the Amazon Redshift cluster must use to access the HSM.
-     * 
-     */
     public Output<String> hsmIpAddress() {
         return this.hsmIpAddress;
     }
 
-    /**
-     * The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
-     * 
-     */
     @Import(name="hsmPartitionName", required=true)
     private Output<String> hsmPartitionName;
 
-    /**
-     * @return The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
-     * 
-     */
     public Output<String> hsmPartitionName() {
         return this.hsmPartitionName;
     }
 
-    /**
-     * The password required to access the HSM partition.
-     * 
-     */
     @Import(name="hsmPartitionPassword", required=true)
     private Output<String> hsmPartitionPassword;
 
-    /**
-     * @return The password required to access the HSM partition.
-     * 
-     */
     public Output<String> hsmPartitionPassword() {
         return this.hsmPartitionPassword;
     }
 
-    /**
-     * The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
-     * 
-     */
     @Import(name="hsmServerPublicCertificate", required=true)
     private Output<String> hsmServerPublicCertificate;
 
-    /**
-     * @return The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
-     * 
-     */
     public Output<String> hsmServerPublicCertificate() {
         return this.hsmServerPublicCertificate;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -168,170 +104,74 @@ public final class HsmConfigurationArgs extends com.pulumi.resources.ResourceArg
             $ = new HsmConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description A text description of the HSM configuration to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description A text description of the HSM configuration to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param hsmConfigurationIdentifier The identifier to be assigned to the new Amazon Redshift HSM configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hsmConfigurationIdentifier(Output<String> hsmConfigurationIdentifier) {
             $.hsmConfigurationIdentifier = hsmConfigurationIdentifier;
             return this;
         }
 
-        /**
-         * @param hsmConfigurationIdentifier The identifier to be assigned to the new Amazon Redshift HSM configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hsmConfigurationIdentifier(String hsmConfigurationIdentifier) {
             return hsmConfigurationIdentifier(Output.of(hsmConfigurationIdentifier));
         }
 
-        /**
-         * @param hsmIpAddress The IP address that the Amazon Redshift cluster must use to access the HSM.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hsmIpAddress(Output<String> hsmIpAddress) {
             $.hsmIpAddress = hsmIpAddress;
             return this;
         }
 
-        /**
-         * @param hsmIpAddress The IP address that the Amazon Redshift cluster must use to access the HSM.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hsmIpAddress(String hsmIpAddress) {
             return hsmIpAddress(Output.of(hsmIpAddress));
         }
 
-        /**
-         * @param hsmPartitionName The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hsmPartitionName(Output<String> hsmPartitionName) {
             $.hsmPartitionName = hsmPartitionName;
             return this;
         }
 
-        /**
-         * @param hsmPartitionName The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hsmPartitionName(String hsmPartitionName) {
             return hsmPartitionName(Output.of(hsmPartitionName));
         }
 
-        /**
-         * @param hsmPartitionPassword The password required to access the HSM partition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hsmPartitionPassword(Output<String> hsmPartitionPassword) {
             $.hsmPartitionPassword = hsmPartitionPassword;
             return this;
         }
 
-        /**
-         * @param hsmPartitionPassword The password required to access the HSM partition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hsmPartitionPassword(String hsmPartitionPassword) {
             return hsmPartitionPassword(Output.of(hsmPartitionPassword));
         }
 
-        /**
-         * @param hsmServerPublicCertificate The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hsmServerPublicCertificate(Output<String> hsmServerPublicCertificate) {
             $.hsmServerPublicCertificate = hsmServerPublicCertificate;
             return this;
         }
 
-        /**
-         * @param hsmServerPublicCertificate The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hsmServerPublicCertificate(String hsmServerPublicCertificate) {
             return hsmServerPublicCertificate(Output.of(hsmServerPublicCertificate));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

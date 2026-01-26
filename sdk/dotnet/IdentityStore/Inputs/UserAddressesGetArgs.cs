@@ -12,51 +12,27 @@ namespace Pulumi.Aws.IdentityStore.Inputs
 
     public sealed class UserAddressesGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The country that this address is in.
-        /// </summary>
         [Input("country")]
         public Input<string>? Country { get; set; }
 
-        /// <summary>
-        /// The name that is typically displayed when the address is shown for display.
-        /// </summary>
         [Input("formatted")]
         public Input<string>? Formatted { get; set; }
 
-        /// <summary>
-        /// The address locality.
-        /// </summary>
         [Input("locality")]
         public Input<string>? Locality { get; set; }
 
-        /// <summary>
-        /// The postal code of the address.
-        /// </summary>
         [Input("postalCode")]
         public Input<string>? PostalCode { get; set; }
 
-        /// <summary>
-        /// When `True`, this is the primary address associated with the user.
-        /// </summary>
         [Input("primary")]
         public Input<bool>? Primary { get; set; }
 
-        /// <summary>
-        /// The region of the address.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The street of the address.
-        /// </summary>
         [Input("streetAddress")]
         public Input<string>? StreetAddress { get; set; }
 
-        /// <summary>
-        /// The type of address.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

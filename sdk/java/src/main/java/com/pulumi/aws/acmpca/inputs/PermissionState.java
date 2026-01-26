@@ -16,92 +16,44 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
 
     public static final PermissionState Empty = new PermissionState();
 
-    /**
-     * Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
-     * 
-     */
     @Import(name="actions")
     private @Nullable Output<List<String>> actions;
 
-    /**
-     * @return Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
-     * 
-     */
     public Optional<Output<List<String>>> actions() {
         return Optional.ofNullable(this.actions);
     }
 
-    /**
-     * ARN of the CA that grants the permissions.
-     * 
-     */
     @Import(name="certificateAuthorityArn")
     private @Nullable Output<String> certificateAuthorityArn;
 
-    /**
-     * @return ARN of the CA that grants the permissions.
-     * 
-     */
     public Optional<Output<String>> certificateAuthorityArn() {
         return Optional.ofNullable(this.certificateAuthorityArn);
     }
 
-    /**
-     * IAM policy that is associated with the permission.
-     * 
-     */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
-    /**
-     * @return IAM policy that is associated with the permission.
-     * 
-     */
     public Optional<Output<String>> policy() {
         return Optional.ofNullable(this.policy);
     }
 
-    /**
-     * AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
-     * 
-     */
     @Import(name="principal")
     private @Nullable Output<String> principal;
 
-    /**
-     * @return AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
-     * 
-     */
     public Optional<Output<String>> principal() {
         return Optional.ofNullable(this.principal);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID of the calling account
-     * 
-     */
     @Import(name="sourceAccount")
     private @Nullable Output<String> sourceAccount;
 
-    /**
-     * @return ID of the calling account
-     * 
-     */
     public Optional<Output<String>> sourceAccount() {
         return Optional.ofNullable(this.sourceAccount);
     }
@@ -135,138 +87,60 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
             $ = new PermissionState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param actions Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actions(@Nullable Output<List<String>> actions) {
             $.actions = actions;
             return this;
         }
 
-        /**
-         * @param actions Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actions(List<String> actions) {
             return actions(Output.of(actions));
         }
 
-        /**
-         * @param actions Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actions(String... actions) {
             return actions(List.of(actions));
         }
 
-        /**
-         * @param certificateAuthorityArn ARN of the CA that grants the permissions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateAuthorityArn(@Nullable Output<String> certificateAuthorityArn) {
             $.certificateAuthorityArn = certificateAuthorityArn;
             return this;
         }
 
-        /**
-         * @param certificateAuthorityArn ARN of the CA that grants the permissions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateAuthorityArn(String certificateAuthorityArn) {
             return certificateAuthorityArn(Output.of(certificateAuthorityArn));
         }
 
-        /**
-         * @param policy IAM policy that is associated with the permission.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(@Nullable Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
-        /**
-         * @param policy IAM policy that is associated with the permission.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }
 
-        /**
-         * @param principal AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principal(@Nullable Output<String> principal) {
             $.principal = principal;
             return this;
         }
 
-        /**
-         * @param principal AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principal(String principal) {
             return principal(Output.of(principal));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param sourceAccount ID of the calling account
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceAccount(@Nullable Output<String> sourceAccount) {
             $.sourceAccount = sourceAccount;
             return this;
         }
 
-        /**
-         * @param sourceAccount ID of the calling account
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceAccount(String sourceAccount) {
             return sourceAccount(Output.of(sourceAccount));
         }

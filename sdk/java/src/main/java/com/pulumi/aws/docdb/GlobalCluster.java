@@ -17,277 +17,65 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an DocumentDB Global Cluster. A global cluster consists of one primary region and up to five read-only secondary regions. You issue write operations directly to the primary cluster in the primary region and Amazon DocumentDB automatically replicates the data to the secondary regions using dedicated infrastructure.
- * 
- * More information about DocumentDB Global Clusters can be found in the [DocumentDB Developer Guide](https://docs.aws.amazon.com/documentdb/latest/developerguide/global-clusters.html).
- * 
- * ## Example Usage
- * 
- * ### New DocumentDB Global Cluster
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.docdb.GlobalCluster;
- * import com.pulumi.aws.docdb.GlobalClusterArgs;
- * import com.pulumi.aws.docdb.Cluster;
- * import com.pulumi.aws.docdb.ClusterArgs;
- * import com.pulumi.aws.docdb.ClusterInstance;
- * import com.pulumi.aws.docdb.ClusterInstanceArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new GlobalCluster("example", GlobalClusterArgs.builder()
- *             .globalClusterIdentifier("global-test")
- *             .engine("docdb")
- *             .engineVersion("4.0.0")
- *             .build());
- * 
- *         var primary = new Cluster("primary", ClusterArgs.builder()
- *             .engine(example.engine())
- *             .engineVersion(example.engineVersion())
- *             .clusterIdentifier("test-primary-cluster")
- *             .masterUsername("username")
- *             .masterPassword("somepass123")
- *             .globalClusterIdentifier(example.id())
- *             .dbSubnetGroupName("default")
- *             .build());
- * 
- *         var primaryClusterInstance = new ClusterInstance("primaryClusterInstance", ClusterInstanceArgs.builder()
- *             .engine(example.engine())
- *             .identifier("test-primary-cluster-instance")
- *             .clusterIdentifier(primary.id())
- *             .instanceClass("db.r5.large")
- *             .build());
- * 
- *         var secondary = new Cluster("secondary", ClusterArgs.builder()
- *             .engine(example.engine())
- *             .engineVersion(example.engineVersion())
- *             .clusterIdentifier("test-secondary-cluster")
- *             .globalClusterIdentifier(example.id())
- *             .dbSubnetGroupName("default")
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(primary)
- *                 .build());
- * 
- *         var secondaryClusterInstance = new ClusterInstance("secondaryClusterInstance", ClusterInstanceArgs.builder()
- *             .engine(example.engine())
- *             .identifier("test-secondary-cluster-instance")
- *             .clusterIdentifier(secondary.id())
- *             .instanceClass("db.r5.large")
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(primaryClusterInstance)
- *                 .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### New Global Cluster From Existing DB Cluster
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.docdb.Cluster;
- * import com.pulumi.aws.docdb.GlobalCluster;
- * import com.pulumi.aws.docdb.GlobalClusterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Cluster("example");
- * 
- *         var exampleGlobalCluster = new GlobalCluster("exampleGlobalCluster", GlobalClusterArgs.builder()
- *             .globalClusterIdentifier("example")
- *             .sourceDbClusterIdentifier(example.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_docdb_global_cluster` using the Global Cluster identifier. For example:
- * 
- * ```sh
- * $ pulumi import aws:docdb/globalCluster:GlobalCluster example example
- * ```
- * Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
- * 
- */
 @ResourceType(type="aws:docdb/globalCluster:GlobalCluster")
 public class GlobalCluster extends com.pulumi.resources.CustomResource {
-    /**
-     * Global Cluster Amazon Resource Name (ARN)
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Global Cluster Amazon Resource Name (ARN)
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Name for an automatically created database on cluster creation.
-     * 
-     */
     @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> databaseName;
 
-    /**
-     * @return Name for an automatically created database on cluster creation.
-     * 
-     */
     public Output<Optional<String>> databaseName() {
         return Codegen.optional(this.databaseName);
     }
-    /**
-     * If the Global Cluster should have deletion protection enabled. The database can&#39;t be deleted when this value is set to `true`. The default is `false`.
-     * 
-     */
     @Export(name="deletionProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deletionProtection;
 
-    /**
-     * @return If the Global Cluster should have deletion protection enabled. The database can&#39;t be deleted when this value is set to `true`. The default is `false`.
-     * 
-     */
     public Output<Optional<Boolean>> deletionProtection() {
         return Codegen.optional(this.deletionProtection);
     }
-    /**
-     * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `docdb`. Defaults to `docdb`. Conflicts with `sourceDbClusterIdentifier`.
-     * 
-     */
     @Export(name="engine", refs={String.class}, tree="[0]")
     private Output<String> engine;
 
-    /**
-     * @return Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `docdb`. Defaults to `docdb`. Conflicts with `sourceDbClusterIdentifier`.
-     * 
-     */
     public Output<String> engine() {
         return this.engine;
     }
-    /**
-     * Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-     * * **NOTE:** Upgrading major versions is not supported.
-     * 
-     */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
-    /**
-     * @return Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-     * * **NOTE:** Upgrading major versions is not supported.
-     * 
-     */
     public Output<String> engineVersion() {
         return this.engineVersion;
     }
-    /**
-     * The global cluster identifier.
-     * 
-     */
     @Export(name="globalClusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> globalClusterIdentifier;
 
-    /**
-     * @return The global cluster identifier.
-     * 
-     */
     public Output<String> globalClusterIdentifier() {
         return this.globalClusterIdentifier;
     }
-    /**
-     * Set of objects containing Global Cluster members.
-     * 
-     */
     @Export(name="globalClusterMembers", refs={List.class,GlobalClusterGlobalClusterMember.class}, tree="[0,1]")
     private Output<List<GlobalClusterGlobalClusterMember>> globalClusterMembers;
 
-    /**
-     * @return Set of objects containing Global Cluster members.
-     * 
-     */
     public Output<List<GlobalClusterGlobalClusterMember>> globalClusterMembers() {
         return this.globalClusterMembers;
     }
-    /**
-     * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
-     * 
-     */
     @Export(name="globalClusterResourceId", refs={String.class}, tree="[0]")
     private Output<String> globalClusterResourceId;
 
-    /**
-     * @return AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
-     * 
-     */
     public Output<String> globalClusterResourceId() {
         return this.globalClusterResourceId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
-     * 
-     */
     @Export(name="sourceDbClusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> sourceDbClusterIdentifier;
 
-    /**
-     * @return Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
-     * 
-     */
     public Output<String> sourceDbClusterIdentifier() {
         return this.sourceDbClusterIdentifier;
     }
@@ -297,17 +85,9 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
-     * 
-     */
     @Export(name="storageEncrypted", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> storageEncrypted;
 
-    /**
-     * @return Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
-     * 
-     */
     public Output<Boolean> storageEncrypted() {
         return this.storageEncrypted;
     }

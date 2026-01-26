@@ -11,92 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS CloudWatch Logs Delivery Destination.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewLogDeliveryDestination(ctx, "example", &cloudwatch.LogDeliveryDestinationArgs{
-//				Name: pulumi.String("example"),
-//				DeliveryDestinationConfiguration: &cloudwatch.LogDeliveryDestinationDeliveryDestinationConfigurationArgs{
-//					DestinationResourceArn: pulumi.Any(exampleAwsCloudwatchLogGroup.Arn),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### X-Ray Trace Delivery
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewLogDeliveryDestination(ctx, "xray", &cloudwatch.LogDeliveryDestinationArgs{
-//				Name:                    pulumi.String("xray-traces"),
-//				DeliveryDestinationType: pulumi.String("XRAY"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CloudWatch Logs Delivery Destination using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:cloudwatch/logDeliveryDestination:LogDeliveryDestination example example
-// ```
 type LogDeliveryDestination struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the delivery destination.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
+	Arn                              pulumi.StringOutput                                             `pulumi:"arn"`
 	DeliveryDestinationConfiguration LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput `pulumi:"deliveryDestinationConfiguration"`
-	// The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
-	DeliveryDestinationType pulumi.StringOutput `pulumi:"deliveryDestinationType"`
-	// The name for this delivery destination.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The format of the logs that are sent to this delivery destination. Valid values: `json`, `plain`, `w3c`, `raw`, `parquet`.
-	OutputFormat pulumi.StringPtrOutput `pulumi:"outputFormat"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	DeliveryDestinationType          pulumi.StringOutput                                             `pulumi:"deliveryDestinationType"`
+	Name                             pulumi.StringOutput                                             `pulumi:"name"`
+	OutputFormat                     pulumi.StringPtrOutput                                          `pulumi:"outputFormat"`
+	Region                           pulumi.StringOutput                                             `pulumi:"region"`
+	Tags                             pulumi.StringMapOutput                                          `pulumi:"tags"`
+	TagsAll                          pulumi.StringMapOutput                                          `pulumi:"tagsAll"`
 }
 
 // NewLogDeliveryDestination registers a new resource with the given unique name, arguments, and options.
@@ -129,41 +54,25 @@ func GetLogDeliveryDestination(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogDeliveryDestination resources.
 type logDeliveryDestinationState struct {
-	// The Amazon Resource Name (ARN) of the delivery destination.
-	Arn *string `pulumi:"arn"`
-	// The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
+	Arn                              *string                                                 `pulumi:"arn"`
 	DeliveryDestinationConfiguration *LogDeliveryDestinationDeliveryDestinationConfiguration `pulumi:"deliveryDestinationConfiguration"`
-	// The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
-	DeliveryDestinationType *string `pulumi:"deliveryDestinationType"`
-	// The name for this delivery destination.
-	Name *string `pulumi:"name"`
-	// The format of the logs that are sent to this delivery destination. Valid values: `json`, `plain`, `w3c`, `raw`, `parquet`.
-	OutputFormat *string `pulumi:"outputFormat"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	DeliveryDestinationType          *string                                                 `pulumi:"deliveryDestinationType"`
+	Name                             *string                                                 `pulumi:"name"`
+	OutputFormat                     *string                                                 `pulumi:"outputFormat"`
+	Region                           *string                                                 `pulumi:"region"`
+	Tags                             map[string]string                                       `pulumi:"tags"`
+	TagsAll                          map[string]string                                       `pulumi:"tagsAll"`
 }
 
 type LogDeliveryDestinationState struct {
-	// The Amazon Resource Name (ARN) of the delivery destination.
-	Arn pulumi.StringPtrInput
-	// The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
+	Arn                              pulumi.StringPtrInput
 	DeliveryDestinationConfiguration LogDeliveryDestinationDeliveryDestinationConfigurationPtrInput
-	// The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
-	DeliveryDestinationType pulumi.StringPtrInput
-	// The name for this delivery destination.
-	Name pulumi.StringPtrInput
-	// The format of the logs that are sent to this delivery destination. Valid values: `json`, `plain`, `w3c`, `raw`, `parquet`.
-	OutputFormat pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	DeliveryDestinationType          pulumi.StringPtrInput
+	Name                             pulumi.StringPtrInput
+	OutputFormat                     pulumi.StringPtrInput
+	Region                           pulumi.StringPtrInput
+	Tags                             pulumi.StringMapInput
+	TagsAll                          pulumi.StringMapInput
 }
 
 func (LogDeliveryDestinationState) ElementType() reflect.Type {
@@ -171,34 +80,22 @@ func (LogDeliveryDestinationState) ElementType() reflect.Type {
 }
 
 type logDeliveryDestinationArgs struct {
-	// The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
 	DeliveryDestinationConfiguration *LogDeliveryDestinationDeliveryDestinationConfiguration `pulumi:"deliveryDestinationConfiguration"`
-	// The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
-	DeliveryDestinationType *string `pulumi:"deliveryDestinationType"`
-	// The name for this delivery destination.
-	Name *string `pulumi:"name"`
-	// The format of the logs that are sent to this delivery destination. Valid values: `json`, `plain`, `w3c`, `raw`, `parquet`.
-	OutputFormat *string `pulumi:"outputFormat"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	DeliveryDestinationType          *string                                                 `pulumi:"deliveryDestinationType"`
+	Name                             *string                                                 `pulumi:"name"`
+	OutputFormat                     *string                                                 `pulumi:"outputFormat"`
+	Region                           *string                                                 `pulumi:"region"`
+	Tags                             map[string]string                                       `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LogDeliveryDestination resource.
 type LogDeliveryDestinationArgs struct {
-	// The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
 	DeliveryDestinationConfiguration LogDeliveryDestinationDeliveryDestinationConfigurationPtrInput
-	// The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
-	DeliveryDestinationType pulumi.StringPtrInput
-	// The name for this delivery destination.
-	Name pulumi.StringPtrInput
-	// The format of the logs that are sent to this delivery destination. Valid values: `json`, `plain`, `w3c`, `raw`, `parquet`.
-	OutputFormat pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	DeliveryDestinationType          pulumi.StringPtrInput
+	Name                             pulumi.StringPtrInput
+	OutputFormat                     pulumi.StringPtrInput
+	Region                           pulumi.StringPtrInput
+	Tags                             pulumi.StringMapInput
 }
 
 func (LogDeliveryDestinationArgs) ElementType() reflect.Type {
@@ -288,44 +185,36 @@ func (o LogDeliveryDestinationOutput) ToLogDeliveryDestinationOutputWithContext(
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the delivery destination.
 func (o LogDeliveryDestinationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDeliveryDestination) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
 func (o LogDeliveryDestinationOutput) DeliveryDestinationConfiguration() LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v *LogDeliveryDestination) LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput {
 		return v.DeliveryDestinationConfiguration
 	}).(LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput)
 }
 
-// The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
 func (o LogDeliveryDestinationOutput) DeliveryDestinationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDeliveryDestination) pulumi.StringOutput { return v.DeliveryDestinationType }).(pulumi.StringOutput)
 }
 
-// The name for this delivery destination.
 func (o LogDeliveryDestinationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDeliveryDestination) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The format of the logs that are sent to this delivery destination. Valid values: `json`, `plain`, `w3c`, `raw`, `parquet`.
 func (o LogDeliveryDestinationOutput) OutputFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogDeliveryDestination) pulumi.StringPtrOutput { return v.OutputFormat }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LogDeliveryDestinationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDeliveryDestination) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o LogDeliveryDestinationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LogDeliveryDestination) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o LogDeliveryDestinationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LogDeliveryDestination) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -12,23 +12,12 @@ namespace Pulumi.Aws.Transcribe.Inputs
 
     public sealed class LanguageModelInputDataConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// IAM role with access to S3 bucket.
-        /// </summary>
         [Input("dataAccessRoleArn", required: true)]
         public Input<string> DataAccessRoleArn { get; set; } = null!;
 
-        /// <summary>
-        /// S3 URI where training data is located.
-        /// </summary>
         [Input("s3Uri", required: true)]
         public Input<string> S3Uri { get; set; } = null!;
 
-        /// <summary>
-        /// S3 URI where tuning data is located.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("tuningDataS3Uri")]
         public Input<string>? TuningDataS3Uri { get; set; }
 

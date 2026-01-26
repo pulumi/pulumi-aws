@@ -67,17 +67,11 @@ class GetInstanceTypeOfferingResult:
     @_builtins.property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> _builtins.str:
-        """
-        EC2 Instance Type.
-        """
         return pulumi.get(self, "instance_type")
 
     @_builtins.property
     @pulumi.getter
     def location(self) -> _builtins.str:
-        """
-        Identifier for the location.
-        """
         return pulumi.get(self, "location")
 
     @_builtins.property
@@ -117,32 +111,7 @@ def get_instance_type_offering(filters: Optional[Sequence[Union['GetInstanceType
                                region: Optional[_builtins.str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceTypeOfferingResult:
     """
-    Information about single EC2 Instance Type Offering.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_instance_type_offering(filters=[{
-            "name": "instance-type",
-            "values": [
-                "t2.micro",
-                "t3.micro",
-            ],
-        }],
-        preferred_instance_types=[
-            "t3.micro",
-            "t2.micro",
-        ])
-    ```
-
-
-    :param Sequence[Union['GetInstanceTypeOfferingFilterArgs', 'GetInstanceTypeOfferingFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
-    :param _builtins.str location_type: Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
-    :param Sequence[_builtins.str] preferred_instance_types: Ordered list of preferred EC2 Instance Types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -166,32 +135,7 @@ def get_instance_type_offering_output(filters: Optional[pulumi.Input[Optional[Se
                                       region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceTypeOfferingResult]:
     """
-    Information about single EC2 Instance Type Offering.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_instance_type_offering(filters=[{
-            "name": "instance-type",
-            "values": [
-                "t2.micro",
-                "t3.micro",
-            ],
-        }],
-        preferred_instance_types=[
-            "t3.micro",
-            "t2.micro",
-        ])
-    ```
-
-
-    :param Sequence[Union['GetInstanceTypeOfferingFilterArgs', 'GetInstanceTypeOfferingFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
-    :param _builtins.str location_type: Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
-    :param Sequence[_builtins.str] preferred_instance_types: Ordered list of preferred EC2 Instance Types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

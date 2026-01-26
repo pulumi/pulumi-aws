@@ -11,75 +11,12 @@ namespace Pulumi.Aws.CodeCommit
 {
     public static class GetApprovalRuleTemplate
     {
-        /// <summary>
-        /// Provides details about a specific CodeCommit Approval Rule Template.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CodeCommit.GetApprovalRuleTemplate.Invoke(new()
-        ///     {
-        ///         Name = "MyExampleApprovalRuleTemplate",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetApprovalRuleTemplateResult> InvokeAsync(GetApprovalRuleTemplateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApprovalRuleTemplateResult>("aws:codecommit/getApprovalRuleTemplate:getApprovalRuleTemplate", args ?? new GetApprovalRuleTemplateArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about a specific CodeCommit Approval Rule Template.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CodeCommit.GetApprovalRuleTemplate.Invoke(new()
-        ///     {
-        ///         Name = "MyExampleApprovalRuleTemplate",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetApprovalRuleTemplateResult> Invoke(GetApprovalRuleTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApprovalRuleTemplateResult>("aws:codecommit/getApprovalRuleTemplate:getApprovalRuleTemplate", args ?? new GetApprovalRuleTemplateInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about a specific CodeCommit Approval Rule Template.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CodeCommit.GetApprovalRuleTemplate.Invoke(new()
-        ///     {
-        ///         Name = "MyExampleApprovalRuleTemplate",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetApprovalRuleTemplateResult> Invoke(GetApprovalRuleTemplateInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApprovalRuleTemplateResult>("aws:codecommit/getApprovalRuleTemplate:getApprovalRuleTemplate", args ?? new GetApprovalRuleTemplateInvokeArgs(), options.WithDefaults());
     }
@@ -87,15 +24,9 @@ namespace Pulumi.Aws.CodeCommit
 
     public sealed class GetApprovalRuleTemplateArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name for the approval rule template. This needs to be less than 100 characters.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -107,15 +38,9 @@ namespace Pulumi.Aws.CodeCommit
 
     public sealed class GetApprovalRuleTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name for the approval rule template. This needs to be less than 100 characters.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -129,39 +54,18 @@ namespace Pulumi.Aws.CodeCommit
     [OutputType]
     public sealed class GetApprovalRuleTemplateResult
     {
-        /// <summary>
-        /// The ID of the approval rule template.
-        /// </summary>
         public readonly string ApprovalRuleTemplateId;
-        /// <summary>
-        /// Content of the approval rule template.
-        /// </summary>
         public readonly string Content;
-        /// <summary>
-        /// Date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        /// </summary>
         public readonly string CreationDate;
-        /// <summary>
-        /// Description of the approval rule template.
-        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        /// </summary>
         public readonly string LastModifiedDate;
-        /// <summary>
-        /// ARN of the user who made the most recent changes to the approval rule template.
-        /// </summary>
         public readonly string LastModifiedUser;
         public readonly string Name;
         public readonly string Region;
-        /// <summary>
-        /// SHA-256 hash signature for the content of the approval rule template.
-        /// </summary>
         public readonly string RuleContentSha256;
 
         [OutputConstructor]

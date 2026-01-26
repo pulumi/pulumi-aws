@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AccessPointVpcConfiguration {
-    /**
-     * @return This access point will only allow connections from the specified VPC ID.
-     * 
-     */
     private String vpcId;
 
     private AccessPointVpcConfiguration() {}
-    /**
-     * @return This access point will only allow connections from the specified VPC ID.
-     * 
-     */
     public String vpcId() {
         return this.vpcId;
     }

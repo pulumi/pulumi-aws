@@ -17,77 +17,37 @@ public final class VaultLockConfigurationArgs extends com.pulumi.resources.Resou
 
     public static final VaultLockConfigurationArgs Empty = new VaultLockConfigurationArgs();
 
-    /**
-     * Name of the backup vault to add a lock configuration for.
-     * 
-     */
     @Import(name="backupVaultName", required=true)
     private Output<String> backupVaultName;
 
-    /**
-     * @return Name of the backup vault to add a lock configuration for.
-     * 
-     */
     public Output<String> backupVaultName() {
         return this.backupVaultName;
     }
 
-    /**
-     * The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
-     * 
-     */
     @Import(name="changeableForDays")
     private @Nullable Output<Integer> changeableForDays;
 
-    /**
-     * @return The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
-     * 
-     */
     public Optional<Output<Integer>> changeableForDays() {
         return Optional.ofNullable(this.changeableForDays);
     }
 
-    /**
-     * The maximum retention period that the vault retains its recovery points.
-     * 
-     */
     @Import(name="maxRetentionDays")
     private @Nullable Output<Integer> maxRetentionDays;
 
-    /**
-     * @return The maximum retention period that the vault retains its recovery points.
-     * 
-     */
     public Optional<Output<Integer>> maxRetentionDays() {
         return Optional.ofNullable(this.maxRetentionDays);
     }
 
-    /**
-     * The minimum retention period that the vault retains its recovery points.
-     * 
-     */
     @Import(name="minRetentionDays")
     private @Nullable Output<Integer> minRetentionDays;
 
-    /**
-     * @return The minimum retention period that the vault retains its recovery points.
-     * 
-     */
     public Optional<Output<Integer>> minRetentionDays() {
         return Optional.ofNullable(this.minRetentionDays);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -120,107 +80,47 @@ public final class VaultLockConfigurationArgs extends com.pulumi.resources.Resou
             $ = new VaultLockConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param backupVaultName Name of the backup vault to add a lock configuration for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder backupVaultName(Output<String> backupVaultName) {
             $.backupVaultName = backupVaultName;
             return this;
         }
 
-        /**
-         * @param backupVaultName Name of the backup vault to add a lock configuration for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder backupVaultName(String backupVaultName) {
             return backupVaultName(Output.of(backupVaultName));
         }
 
-        /**
-         * @param changeableForDays The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
-         * 
-         * @return builder
-         * 
-         */
         public Builder changeableForDays(@Nullable Output<Integer> changeableForDays) {
             $.changeableForDays = changeableForDays;
             return this;
         }
 
-        /**
-         * @param changeableForDays The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
-         * 
-         * @return builder
-         * 
-         */
         public Builder changeableForDays(Integer changeableForDays) {
             return changeableForDays(Output.of(changeableForDays));
         }
 
-        /**
-         * @param maxRetentionDays The maximum retention period that the vault retains its recovery points.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxRetentionDays(@Nullable Output<Integer> maxRetentionDays) {
             $.maxRetentionDays = maxRetentionDays;
             return this;
         }
 
-        /**
-         * @param maxRetentionDays The maximum retention period that the vault retains its recovery points.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxRetentionDays(Integer maxRetentionDays) {
             return maxRetentionDays(Output.of(maxRetentionDays));
         }
 
-        /**
-         * @param minRetentionDays The minimum retention period that the vault retains its recovery points.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minRetentionDays(@Nullable Output<Integer> minRetentionDays) {
             $.minRetentionDays = minRetentionDays;
             return this;
         }
 
-        /**
-         * @param minRetentionDays The minimum retention period that the vault retains its recovery points.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minRetentionDays(Integer minRetentionDays) {
             return minRetentionDays(Output.of(minRetentionDays));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

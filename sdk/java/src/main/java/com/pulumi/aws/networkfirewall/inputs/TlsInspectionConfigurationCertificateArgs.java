@@ -14,62 +14,30 @@ public final class TlsInspectionConfigurationCertificateArgs extends com.pulumi.
 
     public static final TlsInspectionConfigurationCertificateArgs Empty = new TlsInspectionConfigurationCertificateArgs();
 
-    /**
-     * ARN of the certificate.
-     * 
-     */
     @Import(name="certificateArn", required=true)
     private Output<String> certificateArn;
 
-    /**
-     * @return ARN of the certificate.
-     * 
-     */
     public Output<String> certificateArn() {
         return this.certificateArn;
     }
 
-    /**
-     * Serial number of the certificate.
-     * 
-     */
     @Import(name="certificateSerial", required=true)
     private Output<String> certificateSerial;
 
-    /**
-     * @return Serial number of the certificate.
-     * 
-     */
     public Output<String> certificateSerial() {
         return this.certificateSerial;
     }
 
-    /**
-     * Status of the certificate.
-     * 
-     */
     @Import(name="status", required=true)
     private Output<String> status;
 
-    /**
-     * @return Status of the certificate.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
 
-    /**
-     * Details about the certificate status, including information about certificate errors.
-     * 
-     */
     @Import(name="statusMessage", required=true)
     private Output<String> statusMessage;
 
-    /**
-     * @return Details about the certificate status, including information about certificate errors.
-     * 
-     */
     public Output<String> statusMessage() {
         return this.statusMessage;
     }
@@ -101,86 +69,38 @@ public final class TlsInspectionConfigurationCertificateArgs extends com.pulumi.
             $ = new TlsInspectionConfigurationCertificateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param certificateArn ARN of the certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateArn(Output<String> certificateArn) {
             $.certificateArn = certificateArn;
             return this;
         }
 
-        /**
-         * @param certificateArn ARN of the certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateArn(String certificateArn) {
             return certificateArn(Output.of(certificateArn));
         }
 
-        /**
-         * @param certificateSerial Serial number of the certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateSerial(Output<String> certificateSerial) {
             $.certificateSerial = certificateSerial;
             return this;
         }
 
-        /**
-         * @param certificateSerial Serial number of the certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateSerial(String certificateSerial) {
             return certificateSerial(Output.of(certificateSerial));
         }
 
-        /**
-         * @param status Status of the certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Status of the certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
-        /**
-         * @param statusMessage Details about the certificate status, including information about certificate errors.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusMessage(Output<String> statusMessage) {
             $.statusMessage = statusMessage;
             return this;
         }
 
-        /**
-         * @param statusMessage Details about the certificate status, including information about certificate errors.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusMessage(String statusMessage) {
             return statusMessage(Output.of(statusMessage));
         }

@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AnalyzerConfigurationInternalAccessAnalysisRule {
-    /**
-     * @return List of rules for the internal access analyzer containing criteria to include in analysis. Only resources that meet the rule criteria will generate findings. See `inclusion` Block for details.
-     * 
-     */
     private @Nullable List<AnalyzerConfigurationInternalAccessAnalysisRuleInclusion> inclusions;
 
     private AnalyzerConfigurationInternalAccessAnalysisRule() {}
-    /**
-     * @return List of rules for the internal access analyzer containing criteria to include in analysis. Only resources that meet the rule criteria will generate findings. See `inclusion` Block for details.
-     * 
-     */
     public List<AnalyzerConfigurationInternalAccessAnalysisRuleInclusion> inclusions() {
         return this.inclusions == null ? List.of() : this.inclusions;
     }

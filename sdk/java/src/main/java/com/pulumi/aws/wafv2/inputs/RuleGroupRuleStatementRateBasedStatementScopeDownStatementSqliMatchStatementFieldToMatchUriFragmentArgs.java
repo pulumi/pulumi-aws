@@ -15,17 +15,9 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSql
 
     public static final RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgs Empty = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgs();
 
-    /**
-     * What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
-     * 
-     */
     @Import(name="fallbackBehavior")
     private @Nullable Output<String> fallbackBehavior;
 
-    /**
-     * @return What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
-     * 
-     */
     public Optional<Output<String>> fallbackBehavior() {
         return Optional.ofNullable(this.fallbackBehavior);
     }
@@ -54,23 +46,11 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSql
             $ = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fallbackBehavior What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fallbackBehavior(@Nullable Output<String> fallbackBehavior) {
             $.fallbackBehavior = fallbackBehavior;
             return this;
         }
 
-        /**
-         * @param fallbackBehavior What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fallbackBehavior(String fallbackBehavior) {
             return fallbackBehavior(Output.of(fallbackBehavior));
         }

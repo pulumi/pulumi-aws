@@ -12,45 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ResolverEndpointIpAddress {
-    /**
-     * @return IPv4 address in the subnet that you want to use for DNS queries.
-     * 
-     */
     private @Nullable String ip;
     private @Nullable String ipId;
-    /**
-     * @return IPv6 address in the subnet that you want to use for DNS queries.
-     * 
-     */
     private @Nullable String ipv6;
-    /**
-     * @return ID of the subnet that contains the IP address.
-     * 
-     */
     private String subnetId;
 
     private ResolverEndpointIpAddress() {}
-    /**
-     * @return IPv4 address in the subnet that you want to use for DNS queries.
-     * 
-     */
     public Optional<String> ip() {
         return Optional.ofNullable(this.ip);
     }
     public Optional<String> ipId() {
         return Optional.ofNullable(this.ipId);
     }
-    /**
-     * @return IPv6 address in the subnet that you want to use for DNS queries.
-     * 
-     */
     public Optional<String> ipv6() {
         return Optional.ofNullable(this.ipv6);
     }
-    /**
-     * @return ID of the subnet that contains the IP address.
-     * 
-     */
     public String subnetId() {
         return this.subnetId;
     }

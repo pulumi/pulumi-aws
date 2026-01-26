@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class CrawlerJdbcTarget
     {
-        /// <summary>
-        /// The name of the connection to use to connect to the JDBC target.
-        /// </summary>
         public readonly string ConnectionName;
-        /// <summary>
-        /// Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata intable responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
-        /// </summary>
         public readonly ImmutableArray<string> EnableAdditionalMetadatas;
-        /// <summary>
-        /// A list of glob patterns used to exclude from the crawl.
-        /// </summary>
         public readonly ImmutableArray<string> Exclusions;
-        /// <summary>
-        /// The path of the JDBC target.
-        /// </summary>
         public readonly string Path;
 
         [OutputConstructor]

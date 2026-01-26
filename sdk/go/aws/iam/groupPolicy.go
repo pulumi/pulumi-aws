@@ -12,83 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an IAM policy attached to a group.
-//
-// > **NOTE:** We suggest using explicit JSON encoding or `aws.iam.getPolicyDocument` when assigning a value to `policy`. They seamlessly translate configuration to JSON, enabling you to maintain consistency within your configuration without the need for context switches. Also, you can sidestep potential complications arising from formatting discrepancies, whitespace inconsistencies, and other nuances inherent to JSON.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myDevelopers, err := iam.NewGroup(ctx, "my_developers", &iam.GroupArgs{
-//				Name: pulumi.String("developers"),
-//				Path: pulumi.String("/users/"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": []string{
-//							"ec2:Describe*",
-//						},
-//						"Effect":   "Allow",
-//						"Resource": "*",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = iam.NewGroupPolicy(ctx, "my_developer_policy", &iam.GroupPolicyArgs{
-//				Name:   pulumi.String("my_developer_policy"),
-//				Group:  myDevelopers.Name,
-//				Policy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import IAM Group Policies using the `group_name:group_policy_name`. For example:
-//
-// ```sh
-// $ pulumi import aws:iam/groupPolicy:GroupPolicy mypolicy group_of_mypolicy_name:mypolicy_name
-// ```
 type GroupPolicy struct {
 	pulumi.CustomResourceState
 
-	// The IAM group to attach to the policy.
-	Group pulumi.StringOutput `pulumi:"group"`
-	// The name of the policy. If omitted, the provider will
-	// assign a random, unique name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Creates a unique name beginning with the specified
-	// prefix. Conflicts with `name`.
+	Group      pulumi.StringOutput `pulumi:"group"`
+	Name       pulumi.StringOutput `pulumi:"name"`
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	// The policy document. This is a JSON formatted string.
-	Policy pulumi.StringOutput `pulumi:"policy"`
+	Policy     pulumi.StringOutput `pulumi:"policy"`
 }
 
 // NewGroupPolicy registers a new resource with the given unique name, arguments, and options.
@@ -127,29 +57,17 @@ func GetGroupPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GroupPolicy resources.
 type groupPolicyState struct {
-	// The IAM group to attach to the policy.
-	Group *string `pulumi:"group"`
-	// The name of the policy. If omitted, the provider will
-	// assign a random, unique name.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified
-	// prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// The policy document. This is a JSON formatted string.
-	Policy interface{} `pulumi:"policy"`
+	Group      *string     `pulumi:"group"`
+	Name       *string     `pulumi:"name"`
+	NamePrefix *string     `pulumi:"namePrefix"`
+	Policy     interface{} `pulumi:"policy"`
 }
 
 type GroupPolicyState struct {
-	// The IAM group to attach to the policy.
-	Group pulumi.StringPtrInput
-	// The name of the policy. If omitted, the provider will
-	// assign a random, unique name.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified
-	// prefix. Conflicts with `name`.
+	Group      pulumi.StringPtrInput
+	Name       pulumi.StringPtrInput
 	NamePrefix pulumi.StringPtrInput
-	// The policy document. This is a JSON formatted string.
-	Policy pulumi.Input
+	Policy     pulumi.Input
 }
 
 func (GroupPolicyState) ElementType() reflect.Type {
@@ -157,30 +75,18 @@ func (GroupPolicyState) ElementType() reflect.Type {
 }
 
 type groupPolicyArgs struct {
-	// The IAM group to attach to the policy.
-	Group string `pulumi:"group"`
-	// The name of the policy. If omitted, the provider will
-	// assign a random, unique name.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified
-	// prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// The policy document. This is a JSON formatted string.
-	Policy interface{} `pulumi:"policy"`
+	Group      string      `pulumi:"group"`
+	Name       *string     `pulumi:"name"`
+	NamePrefix *string     `pulumi:"namePrefix"`
+	Policy     interface{} `pulumi:"policy"`
 }
 
 // The set of arguments for constructing a GroupPolicy resource.
 type GroupPolicyArgs struct {
-	// The IAM group to attach to the policy.
-	Group pulumi.StringInput
-	// The name of the policy. If omitted, the provider will
-	// assign a random, unique name.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified
-	// prefix. Conflicts with `name`.
+	Group      pulumi.StringInput
+	Name       pulumi.StringPtrInput
 	NamePrefix pulumi.StringPtrInput
-	// The policy document. This is a JSON formatted string.
-	Policy pulumi.Input
+	Policy     pulumi.Input
 }
 
 func (GroupPolicyArgs) ElementType() reflect.Type {
@@ -270,24 +176,18 @@ func (o GroupPolicyOutput) ToGroupPolicyOutputWithContext(ctx context.Context) G
 	return o
 }
 
-// The IAM group to attach to the policy.
 func (o GroupPolicyOutput) Group() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupPolicy) pulumi.StringOutput { return v.Group }).(pulumi.StringOutput)
 }
 
-// The name of the policy. If omitted, the provider will
-// assign a random, unique name.
 func (o GroupPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Creates a unique name beginning with the specified
-// prefix. Conflicts with `name`.
 func (o GroupPolicyOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupPolicy) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// The policy document. This is a JSON formatted string.
 func (o GroupPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }

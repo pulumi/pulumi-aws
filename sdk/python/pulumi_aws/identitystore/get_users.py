@@ -57,17 +57,11 @@ class GetUsersResult:
     @_builtins.property
     @pulumi.getter
     def region(self) -> _builtins.str:
-        """
-        Region of the address.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def users(self) -> Sequence['outputs.GetUsersUserResult']:
-        """
-        List of Identity Store Users
-        """
         return pulumi.get(self, "users")
 
 
@@ -87,23 +81,7 @@ def get_users(identity_store_id: Optional[_builtins.str] = None,
               region: Optional[_builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUsersResult:
     """
-    Use this data source to get a list of users in an Identity Store instance.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssoadmin.get_instances()
-    example_get_users = aws.identitystore.get_users(identity_store_id=example.identity_store_ids[0])
-    ```
-
-
-    :param _builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['identityStoreId'] = identity_store_id
@@ -120,23 +98,7 @@ def get_users_output(identity_store_id: Optional[pulumi.Input[_builtins.str]] = 
                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUsersResult]:
     """
-    Use this data source to get a list of users in an Identity Store instance.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssoadmin.get_instances()
-    example_get_users = aws.identitystore.get_users(identity_store_id=example.identity_store_ids[0])
-    ```
-
-
-    :param _builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['identityStoreId'] = identity_store_id

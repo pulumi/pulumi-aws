@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig
     {
-        /// <summary>
-        /// Request header name to send to the staging distribution. The header must contain the prefix `aws-cf-cd-`.
-        /// </summary>
         public readonly string Header;
-        /// <summary>
-        /// Request header value.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

@@ -12,24 +12,14 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsOutputGroupGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Custom output group name defined by the user.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Settings associated with the output group. See Output Group Settings for more details.
-        /// </summary>
         [Input("outputGroupSettings", required: true)]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsGetArgs> OutputGroupSettings { get; set; } = null!;
 
         [Input("outputs", required: true)]
         private InputList<Inputs.ChannelEncoderSettingsOutputGroupOutputGetArgs>? _outputs;
-
-        /// <summary>
-        /// List of outputs. See Outputs for more details.
-        /// </summary>
         public InputList<Inputs.ChannelEncoderSettingsOutputGroupOutputGetArgs> Outputs
         {
             get => _outputs ?? (_outputs = new InputList<Inputs.ChannelEncoderSettingsOutputGroupOutputGetArgs>());

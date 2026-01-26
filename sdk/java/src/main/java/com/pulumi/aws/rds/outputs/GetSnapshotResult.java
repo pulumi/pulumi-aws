@@ -15,37 +15,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSnapshotResult {
-    /**
-     * @return Allocated storage size in gigabytes (GB).
-     * 
-     */
     private Integer allocatedStorage;
-    /**
-     * @return Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
-     * 
-     */
     private String availabilityZone;
     private @Nullable String dbInstanceIdentifier;
-    /**
-     * @return ARN for the DB snapshot.
-     * 
-     */
     private String dbSnapshotArn;
     private @Nullable String dbSnapshotIdentifier;
-    /**
-     * @return Whether the DB snapshot is encrypted.
-     * 
-     */
     private Boolean encrypted;
-    /**
-     * @return Name of the database engine.
-     * 
-     */
     private String engine;
-    /**
-     * @return Version of the database engine.
-     * 
-     */
     private String engineVersion;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -54,113 +30,45 @@ public final class GetSnapshotResult {
     private String id;
     private @Nullable Boolean includePublic;
     private @Nullable Boolean includeShared;
-    /**
-     * @return Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
-     * 
-     */
     private Integer iops;
-    /**
-     * @return ARN for the KMS encryption key.
-     * 
-     */
     private String kmsKeyId;
-    /**
-     * @return License model information for the restored DB instance.
-     * 
-     */
     private String licenseModel;
     private @Nullable Boolean mostRecent;
-    /**
-     * @return Provides the option group name for the DB snapshot.
-     * 
-     */
     private String optionGroupName;
-    /**
-     * @return Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC). Doesn&#39;t change when the snapshot is copied.
-     * 
-     */
     private String originalSnapshotCreateTime;
     private Integer port;
     private String region;
-    /**
-     * @return Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC). Changes for the copy when the snapshot is copied.
-     * 
-     */
     private String snapshotCreateTime;
     private @Nullable String snapshotType;
-    /**
-     * @return DB snapshot ARN that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
-     * 
-     */
     private String sourceDbSnapshotIdentifier;
-    /**
-     * @return Region that the DB snapshot was created in or copied from.
-     * 
-     */
     private String sourceRegion;
-    /**
-     * @return Status of this DB snapshot.
-     * 
-     */
     private String status;
-    /**
-     * @return Storage type associated with DB snapshot.
-     * 
-     */
     private String storageType;
     private Map<String,String> tags;
-    /**
-     * @return ID of the VPC associated with the DB snapshot.
-     * 
-     */
     private String vpcId;
 
     private GetSnapshotResult() {}
-    /**
-     * @return Allocated storage size in gigabytes (GB).
-     * 
-     */
     public Integer allocatedStorage() {
         return this.allocatedStorage;
     }
-    /**
-     * @return Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
-     * 
-     */
     public String availabilityZone() {
         return this.availabilityZone;
     }
     public Optional<String> dbInstanceIdentifier() {
         return Optional.ofNullable(this.dbInstanceIdentifier);
     }
-    /**
-     * @return ARN for the DB snapshot.
-     * 
-     */
     public String dbSnapshotArn() {
         return this.dbSnapshotArn;
     }
     public Optional<String> dbSnapshotIdentifier() {
         return Optional.ofNullable(this.dbSnapshotIdentifier);
     }
-    /**
-     * @return Whether the DB snapshot is encrypted.
-     * 
-     */
     public Boolean encrypted() {
         return this.encrypted;
     }
-    /**
-     * @return Name of the database engine.
-     * 
-     */
     public String engine() {
         return this.engine;
     }
-    /**
-     * @return Version of the database engine.
-     * 
-     */
     public String engineVersion() {
         return this.engineVersion;
     }
@@ -177,41 +85,21 @@ public final class GetSnapshotResult {
     public Optional<Boolean> includeShared() {
         return Optional.ofNullable(this.includeShared);
     }
-    /**
-     * @return Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
-     * 
-     */
     public Integer iops() {
         return this.iops;
     }
-    /**
-     * @return ARN for the KMS encryption key.
-     * 
-     */
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
-    /**
-     * @return License model information for the restored DB instance.
-     * 
-     */
     public String licenseModel() {
         return this.licenseModel;
     }
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
     }
-    /**
-     * @return Provides the option group name for the DB snapshot.
-     * 
-     */
     public String optionGroupName() {
         return this.optionGroupName;
     }
-    /**
-     * @return Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC). Doesn&#39;t change when the snapshot is copied.
-     * 
-     */
     public String originalSnapshotCreateTime() {
         return this.originalSnapshotCreateTime;
     }
@@ -221,51 +109,27 @@ public final class GetSnapshotResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC). Changes for the copy when the snapshot is copied.
-     * 
-     */
     public String snapshotCreateTime() {
         return this.snapshotCreateTime;
     }
     public Optional<String> snapshotType() {
         return Optional.ofNullable(this.snapshotType);
     }
-    /**
-     * @return DB snapshot ARN that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
-     * 
-     */
     public String sourceDbSnapshotIdentifier() {
         return this.sourceDbSnapshotIdentifier;
     }
-    /**
-     * @return Region that the DB snapshot was created in or copied from.
-     * 
-     */
     public String sourceRegion() {
         return this.sourceRegion;
     }
-    /**
-     * @return Status of this DB snapshot.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Storage type associated with DB snapshot.
-     * 
-     */
     public String storageType() {
         return this.storageType;
     }
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return ID of the VPC associated with the DB snapshot.
-     * 
-     */
     public String vpcId() {
         return this.vpcId;
     }

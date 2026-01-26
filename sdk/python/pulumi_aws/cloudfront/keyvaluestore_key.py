@@ -24,9 +24,9 @@ class KeyvaluestoreKeyArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a KeyvaluestoreKey resource.
-        :param pulumi.Input[_builtins.str] key: Key to put.
-        :param pulumi.Input[_builtins.str] key_value_store_arn: Amazon Resource Name (ARN) of the Key Value Store.
-        :param pulumi.Input[_builtins.str] value: Value to put.
+        :param pulumi.Input[_builtins.str] key: The key to put.
+        :param pulumi.Input[_builtins.str] key_value_store_arn: The Amazon Resource Name (ARN) of the Key Value Store.
+        :param pulumi.Input[_builtins.str] value: The value to put.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "key_value_store_arn", key_value_store_arn)
@@ -36,7 +36,7 @@ class KeyvaluestoreKeyArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[_builtins.str]:
         """
-        Key to put.
+        The key to put.
         """
         return pulumi.get(self, "key")
 
@@ -48,7 +48,7 @@ class KeyvaluestoreKeyArgs:
     @pulumi.getter(name="keyValueStoreArn")
     def key_value_store_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the Key Value Store.
+        The Amazon Resource Name (ARN) of the Key Value Store.
         """
         return pulumi.get(self, "key_value_store_arn")
 
@@ -60,7 +60,7 @@ class KeyvaluestoreKeyArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
         """
-        Value to put.
+        The value to put.
         """
         return pulumi.get(self, "value")
 
@@ -78,10 +78,10 @@ class _KeyvaluestoreKeyState:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering KeyvaluestoreKey resources.
-        :param pulumi.Input[_builtins.str] key: Key to put.
-        :param pulumi.Input[_builtins.str] key_value_store_arn: Amazon Resource Name (ARN) of the Key Value Store.
+        :param pulumi.Input[_builtins.str] key: The key to put.
+        :param pulumi.Input[_builtins.str] key_value_store_arn: The Amazon Resource Name (ARN) of the Key Value Store.
         :param pulumi.Input[_builtins.int] total_size_in_bytes: Total size of the Key Value Store in bytes.
-        :param pulumi.Input[_builtins.str] value: Value to put.
+        :param pulumi.Input[_builtins.str] value: The value to put.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -96,7 +96,7 @@ class _KeyvaluestoreKeyState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Key to put.
+        The key to put.
         """
         return pulumi.get(self, "key")
 
@@ -108,7 +108,7 @@ class _KeyvaluestoreKeyState:
     @pulumi.getter(name="keyValueStoreArn")
     def key_value_store_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the Key Value Store.
+        The Amazon Resource Name (ARN) of the Key Value Store.
         """
         return pulumi.get(self, "key_value_store_arn")
 
@@ -132,7 +132,7 @@ class _KeyvaluestoreKeyState:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Value to put.
+        The value to put.
         """
         return pulumi.get(self, "value")
 
@@ -152,46 +152,12 @@ class KeyvaluestoreKey(pulumi.CustomResource):
                  value: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudfront.KeyValueStore("example",
-            name="ExampleKeyValueStore",
-            comment="This is an example key value store")
-        example_keyvaluestore_key = aws.cloudfront.KeyvaluestoreKey("example",
-            key_value_store_arn=example.arn,
-            key="Test Key",
-            value="Test Value")
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `key_value_store_arn` (String) ARN of the CloudFront Key Value Store.
-
-        * `key` (String) Key name.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        Using `pulumi import`, import CloudFront KeyValueStore Key using the `key_value_store_arn` and 'key' separated by `,`. For example:
-
-        % pulumi import aws_cloudfrontkeyvaluestore_key.example arn:aws:cloudfront::111111111111:key-value-store/8562g61f-caba-2845-9d99-b97diwae5d3c,someKey
-
+        Create a KeyvaluestoreKey resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] key: Key to put.
-        :param pulumi.Input[_builtins.str] key_value_store_arn: Amazon Resource Name (ARN) of the Key Value Store.
-        :param pulumi.Input[_builtins.str] value: Value to put.
+        :param pulumi.Input[_builtins.str] key: The key to put.
+        :param pulumi.Input[_builtins.str] key_value_store_arn: The Amazon Resource Name (ARN) of the Key Value Store.
+        :param pulumi.Input[_builtins.str] value: The value to put.
         """
         ...
     @overload
@@ -200,41 +166,7 @@ class KeyvaluestoreKey(pulumi.CustomResource):
                  args: KeyvaluestoreKeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudfront.KeyValueStore("example",
-            name="ExampleKeyValueStore",
-            comment="This is an example key value store")
-        example_keyvaluestore_key = aws.cloudfront.KeyvaluestoreKey("example",
-            key_value_store_arn=example.arn,
-            key="Test Key",
-            value="Test Value")
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `key_value_store_arn` (String) ARN of the CloudFront Key Value Store.
-
-        * `key` (String) Key name.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        Using `pulumi import`, import CloudFront KeyValueStore Key using the `key_value_store_arn` and 'key' separated by `,`. For example:
-
-        % pulumi import aws_cloudfrontkeyvaluestore_key.example arn:aws:cloudfront::111111111111:key-value-store/8562g61f-caba-2845-9d99-b97diwae5d3c,someKey
-
+        Create a KeyvaluestoreKey resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param KeyvaluestoreKeyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -293,10 +225,10 @@ class KeyvaluestoreKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] key: Key to put.
-        :param pulumi.Input[_builtins.str] key_value_store_arn: Amazon Resource Name (ARN) of the Key Value Store.
+        :param pulumi.Input[_builtins.str] key: The key to put.
+        :param pulumi.Input[_builtins.str] key_value_store_arn: The Amazon Resource Name (ARN) of the Key Value Store.
         :param pulumi.Input[_builtins.int] total_size_in_bytes: Total size of the Key Value Store in bytes.
-        :param pulumi.Input[_builtins.str] value: Value to put.
+        :param pulumi.Input[_builtins.str] value: The value to put.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -312,7 +244,7 @@ class KeyvaluestoreKey(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[_builtins.str]:
         """
-        Key to put.
+        The key to put.
         """
         return pulumi.get(self, "key")
 
@@ -320,7 +252,7 @@ class KeyvaluestoreKey(pulumi.CustomResource):
     @pulumi.getter(name="keyValueStoreArn")
     def key_value_store_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the Key Value Store.
+        The Amazon Resource Name (ARN) of the Key Value Store.
         """
         return pulumi.get(self, "key_value_store_arn")
 
@@ -336,7 +268,7 @@ class KeyvaluestoreKey(pulumi.CustomResource):
     @pulumi.getter
     def value(self) -> pulumi.Output[_builtins.str]:
         """
-        Value to put.
+        The value to put.
         """
         return pulumi.get(self, "value")
 

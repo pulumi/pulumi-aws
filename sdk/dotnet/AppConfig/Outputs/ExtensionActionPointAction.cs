@@ -13,21 +13,9 @@ namespace Pulumi.Aws.AppConfig.Outputs
     [OutputType]
     public sealed class ExtensionActionPointAction
     {
-        /// <summary>
-        /// Information about the action.
-        /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The action name.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
-        /// </summary>
         public readonly string? RoleArn;
-        /// <summary>
-        /// The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
-        /// </summary>
         public readonly string Uri;
 
         [OutputConstructor]

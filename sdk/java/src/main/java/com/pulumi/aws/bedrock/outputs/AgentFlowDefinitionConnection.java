@@ -13,65 +13,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentFlowDefinitionConnection {
-    /**
-     * @return Configuration of the connection. See Connection Configuration for more information.
-     * 
-     */
     private @Nullable AgentFlowDefinitionConnectionConfiguration configuration;
-    /**
-     * @return A name for the connection that you can reference.
-     * 
-     */
     private String name;
-    /**
-     * @return The node that the connection starts at.
-     * 
-     */
     private String source;
-    /**
-     * @return The node that the connection ends at.
-     * 
-     */
     private String target;
-    /**
-     * @return Whether the source node that the connection begins from is a condition node `Conditional` or not `Data`.
-     * 
-     */
     private String type;
 
     private AgentFlowDefinitionConnection() {}
-    /**
-     * @return Configuration of the connection. See Connection Configuration for more information.
-     * 
-     */
     public Optional<AgentFlowDefinitionConnectionConfiguration> configuration() {
         return Optional.ofNullable(this.configuration);
     }
-    /**
-     * @return A name for the connection that you can reference.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The node that the connection starts at.
-     * 
-     */
     public String source() {
         return this.source;
     }
-    /**
-     * @return The node that the connection ends at.
-     * 
-     */
     public String target() {
         return this.target;
     }
-    /**
-     * @return Whether the source node that the connection begins from is a condition node `Conditional` or not `Data`.
-     * 
-     */
     public String type() {
         return this.type;
     }

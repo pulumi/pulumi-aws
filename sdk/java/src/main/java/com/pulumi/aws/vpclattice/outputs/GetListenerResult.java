@@ -14,89 +14,33 @@ import java.util.Objects;
 
 @CustomType
 public final class GetListenerResult {
-    /**
-     * @return ARN of the listener.
-     * 
-     */
     private String arn;
-    /**
-     * @return The date and time that the listener was created.
-     * 
-     */
     private String createdAt;
-    /**
-     * @return The actions for the default listener rule.
-     * 
-     */
     private List<GetListenerDefaultAction> defaultActions;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return The date and time the listener was last updated.
-     * 
-     */
     private String lastUpdatedAt;
-    /**
-     * @return The ID of the listener.
-     * 
-     */
     private String listenerId;
     private String listenerIdentifier;
-    /**
-     * @return The name of the listener.
-     * 
-     */
     private String name;
-    /**
-     * @return The listener port.
-     * 
-     */
     private Integer port;
-    /**
-     * @return The listener protocol. Either `HTTPS` or `HTTP`.
-     * 
-     */
     private String protocol;
     private String region;
-    /**
-     * @return The ARN of the service.
-     * 
-     */
     private String serviceArn;
-    /**
-     * @return The ID of the service.
-     * 
-     */
     private String serviceId;
     private String serviceIdentifier;
-    /**
-     * @return List of tags associated with the listener.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetListenerResult() {}
-    /**
-     * @return ARN of the listener.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The date and time that the listener was created.
-     * 
-     */
     public String createdAt() {
         return this.createdAt;
     }
-    /**
-     * @return The actions for the default listener rule.
-     * 
-     */
     public List<GetListenerDefaultAction> defaultActions() {
         return this.defaultActions;
     }
@@ -107,68 +51,36 @@ public final class GetListenerResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The date and time the listener was last updated.
-     * 
-     */
     public String lastUpdatedAt() {
         return this.lastUpdatedAt;
     }
-    /**
-     * @return The ID of the listener.
-     * 
-     */
     public String listenerId() {
         return this.listenerId;
     }
     public String listenerIdentifier() {
         return this.listenerIdentifier;
     }
-    /**
-     * @return The name of the listener.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The listener port.
-     * 
-     */
     public Integer port() {
         return this.port;
     }
-    /**
-     * @return The listener protocol. Either `HTTPS` or `HTTP`.
-     * 
-     */
     public String protocol() {
         return this.protocol;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return The ARN of the service.
-     * 
-     */
     public String serviceArn() {
         return this.serviceArn;
     }
-    /**
-     * @return The ID of the service.
-     * 
-     */
     public String serviceId() {
         return this.serviceId;
     }
     public String serviceIdentifier() {
         return this.serviceIdentifier;
     }
-    /**
-     * @return List of tags associated with the listener.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

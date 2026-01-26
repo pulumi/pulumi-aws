@@ -36,26 +36,11 @@ MYPY = False
 if not MYPY:
     class ExportExportArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        Name of this specific data export.
-        """
         data_queries: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExportExportDataQueryArgsDict']]]]
-        """
-        Data query for this specific data export. See the `data_query` argument reference below.
-        """
         description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description for this specific data export.
-        """
         destination_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExportExportDestinationConfigurationArgsDict']]]]
-        """
-        Destination configuration for this specific data export. See the `destination_configurations` argument reference below.
-        """
         export_arn: NotRequired[pulumi.Input[_builtins.str]]
         refresh_cadences: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExportExportRefreshCadenceArgsDict']]]]
-        """
-        Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refresh_cadence` argument reference below.
-        """
 elif False:
     ExportExportArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -68,13 +53,6 @@ class ExportExportArgs:
                  destination_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ExportExportDestinationConfigurationArgs']]]] = None,
                  export_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  refresh_cadences: Optional[pulumi.Input[Sequence[pulumi.Input['ExportExportRefreshCadenceArgs']]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] name: Name of this specific data export.
-        :param pulumi.Input[Sequence[pulumi.Input['ExportExportDataQueryArgs']]] data_queries: Data query for this specific data export. See the `data_query` argument reference below.
-        :param pulumi.Input[_builtins.str] description: Description for this specific data export.
-        :param pulumi.Input[Sequence[pulumi.Input['ExportExportDestinationConfigurationArgs']]] destination_configurations: Destination configuration for this specific data export. See the `destination_configurations` argument reference below.
-        :param pulumi.Input[Sequence[pulumi.Input['ExportExportRefreshCadenceArgs']]] refresh_cadences: Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refresh_cadence` argument reference below.
-        """
         pulumi.set(__self__, "name", name)
         if data_queries is not None:
             pulumi.set(__self__, "data_queries", data_queries)
@@ -90,9 +68,6 @@ class ExportExportArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of this specific data export.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -102,9 +77,6 @@ class ExportExportArgs:
     @_builtins.property
     @pulumi.getter(name="dataQueries")
     def data_queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExportExportDataQueryArgs']]]]:
-        """
-        Data query for this specific data export. See the `data_query` argument reference below.
-        """
         return pulumi.get(self, "data_queries")
 
     @data_queries.setter
@@ -114,9 +86,6 @@ class ExportExportArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description for this specific data export.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -126,9 +95,6 @@ class ExportExportArgs:
     @_builtins.property
     @pulumi.getter(name="destinationConfigurations")
     def destination_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExportExportDestinationConfigurationArgs']]]]:
-        """
-        Destination configuration for this specific data export. See the `destination_configurations` argument reference below.
-        """
         return pulumi.get(self, "destination_configurations")
 
     @destination_configurations.setter
@@ -147,9 +113,6 @@ class ExportExportArgs:
     @_builtins.property
     @pulumi.getter(name="refreshCadences")
     def refresh_cadences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExportExportRefreshCadenceArgs']]]]:
-        """
-        Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refresh_cadence` argument reference below.
-        """
         return pulumi.get(self, "refresh_cadences")
 
     @refresh_cadences.setter
@@ -160,13 +123,7 @@ class ExportExportArgs:
 if not MYPY:
     class ExportExportDataQueryArgsDict(TypedDict):
         query_statement: pulumi.Input[_builtins.str]
-        """
-        Query statement. The SQL table name for CUR 2.0 is `COST_AND_USAGE_REPORT`. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html) for a list of available columns.
-        """
         table_configurations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]
-        """
-        Table configuration. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html#cur2-table-configurations) for the available configurations. In addition to those listed in the documentation, `BILLING_VIEW_ARN` must also be included, as shown in the example above.
-        """
 elif False:
     ExportExportDataQueryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -175,10 +132,6 @@ class ExportExportDataQueryArgs:
     def __init__(__self__, *,
                  query_statement: pulumi.Input[_builtins.str],
                  table_configurations: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] query_statement: Query statement. The SQL table name for CUR 2.0 is `COST_AND_USAGE_REPORT`. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html) for a list of available columns.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]] table_configurations: Table configuration. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html#cur2-table-configurations) for the available configurations. In addition to those listed in the documentation, `BILLING_VIEW_ARN` must also be included, as shown in the example above.
-        """
         pulumi.set(__self__, "query_statement", query_statement)
         if table_configurations is not None:
             pulumi.set(__self__, "table_configurations", table_configurations)
@@ -186,9 +139,6 @@ class ExportExportDataQueryArgs:
     @_builtins.property
     @pulumi.getter(name="queryStatement")
     def query_statement(self) -> pulumi.Input[_builtins.str]:
-        """
-        Query statement. The SQL table name for CUR 2.0 is `COST_AND_USAGE_REPORT`. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html) for a list of available columns.
-        """
         return pulumi.get(self, "query_statement")
 
     @query_statement.setter
@@ -198,9 +148,6 @@ class ExportExportDataQueryArgs:
     @_builtins.property
     @pulumi.getter(name="tableConfigurations")
     def table_configurations(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]:
-        """
-        Table configuration. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html#cur2-table-configurations) for the available configurations. In addition to those listed in the documentation, `BILLING_VIEW_ARN` must also be included, as shown in the example above.
-        """
         return pulumi.get(self, "table_configurations")
 
     @table_configurations.setter
@@ -211,9 +158,6 @@ class ExportExportDataQueryArgs:
 if not MYPY:
     class ExportExportDestinationConfigurationArgsDict(TypedDict):
         s3_destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExportExportDestinationConfigurationS3DestinationArgsDict']]]]
-        """
-        Object that describes the destination of the data exports file. See the `s3_destination` argument reference below.
-        """
 elif False:
     ExportExportDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -221,18 +165,12 @@ elif False:
 class ExportExportDestinationConfigurationArgs:
     def __init__(__self__, *,
                  s3_destinations: Optional[pulumi.Input[Sequence[pulumi.Input['ExportExportDestinationConfigurationS3DestinationArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['ExportExportDestinationConfigurationS3DestinationArgs']]] s3_destinations: Object that describes the destination of the data exports file. See the `s3_destination` argument reference below.
-        """
         if s3_destinations is not None:
             pulumi.set(__self__, "s3_destinations", s3_destinations)
 
     @_builtins.property
     @pulumi.getter(name="s3Destinations")
     def s3_destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExportExportDestinationConfigurationS3DestinationArgs']]]]:
-        """
-        Object that describes the destination of the data exports file. See the `s3_destination` argument reference below.
-        """
         return pulumi.get(self, "s3_destinations")
 
     @s3_destinations.setter
@@ -243,21 +181,9 @@ class ExportExportDestinationConfigurationArgs:
 if not MYPY:
     class ExportExportDestinationConfigurationS3DestinationArgsDict(TypedDict):
         s3_bucket: pulumi.Input[_builtins.str]
-        """
-        Name of the Amazon S3 bucket used as the destination of a data export file.
-        """
         s3_prefix: pulumi.Input[_builtins.str]
-        """
-        S3 path prefix you want prepended to the name of your data export.
-        """
         s3_region: pulumi.Input[_builtins.str]
-        """
-        S3 bucket region.
-        """
         s3_output_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgsDict']]]]
-        """
-        Output configuration for the data export. See the `s3_output_configurations` argument reference below.
-        """
 elif False:
     ExportExportDestinationConfigurationS3DestinationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -268,12 +194,6 @@ class ExportExportDestinationConfigurationS3DestinationArgs:
                  s3_prefix: pulumi.Input[_builtins.str],
                  s3_region: pulumi.Input[_builtins.str],
                  s3_output_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs']]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] s3_bucket: Name of the Amazon S3 bucket used as the destination of a data export file.
-        :param pulumi.Input[_builtins.str] s3_prefix: S3 path prefix you want prepended to the name of your data export.
-        :param pulumi.Input[_builtins.str] s3_region: S3 bucket region.
-        :param pulumi.Input[Sequence[pulumi.Input['ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs']]] s3_output_configurations: Output configuration for the data export. See the `s3_output_configurations` argument reference below.
-        """
         pulumi.set(__self__, "s3_bucket", s3_bucket)
         pulumi.set(__self__, "s3_prefix", s3_prefix)
         pulumi.set(__self__, "s3_region", s3_region)
@@ -283,9 +203,6 @@ class ExportExportDestinationConfigurationS3DestinationArgs:
     @_builtins.property
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Amazon S3 bucket used as the destination of a data export file.
-        """
         return pulumi.get(self, "s3_bucket")
 
     @s3_bucket.setter
@@ -295,9 +212,6 @@ class ExportExportDestinationConfigurationS3DestinationArgs:
     @_builtins.property
     @pulumi.getter(name="s3Prefix")
     def s3_prefix(self) -> pulumi.Input[_builtins.str]:
-        """
-        S3 path prefix you want prepended to the name of your data export.
-        """
         return pulumi.get(self, "s3_prefix")
 
     @s3_prefix.setter
@@ -307,9 +221,6 @@ class ExportExportDestinationConfigurationS3DestinationArgs:
     @_builtins.property
     @pulumi.getter(name="s3Region")
     def s3_region(self) -> pulumi.Input[_builtins.str]:
-        """
-        S3 bucket region.
-        """
         return pulumi.get(self, "s3_region")
 
     @s3_region.setter
@@ -319,9 +230,6 @@ class ExportExportDestinationConfigurationS3DestinationArgs:
     @_builtins.property
     @pulumi.getter(name="s3OutputConfigurations")
     def s3_output_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs']]]]:
-        """
-        Output configuration for the data export. See the `s3_output_configurations` argument reference below.
-        """
         return pulumi.get(self, "s3_output_configurations")
 
     @s3_output_configurations.setter
@@ -332,21 +240,9 @@ class ExportExportDestinationConfigurationS3DestinationArgs:
 if not MYPY:
     class ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgsDict(TypedDict):
         compression: pulumi.Input[_builtins.str]
-        """
-        Compression type for the data export. Valid values `GZIP`, `PARQUET`.
-        """
         format: pulumi.Input[_builtins.str]
-        """
-        File format for the data export. Valid values `TEXT_OR_CSV` or `PARQUET`.
-        """
         output_type: pulumi.Input[_builtins.str]
-        """
-        Output type for the data export. Valid value `CUSTOM`.
-        """
         overwrite: pulumi.Input[_builtins.str]
-        """
-        The rule to follow when generating a version of the data export file. You have the choice to overwrite the previous version or to be delivered in addition to the previous versions. Overwriting exports can save on Amazon S3 storage costs. Creating new export versions allows you to track the changes in cost and usage data over time. Valid values `CREATE_NEW_REPORT` or `OVERWRITE_REPORT`.
-        """
 elif False:
     ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -357,12 +253,6 @@ class ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs
                  format: pulumi.Input[_builtins.str],
                  output_type: pulumi.Input[_builtins.str],
                  overwrite: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] compression: Compression type for the data export. Valid values `GZIP`, `PARQUET`.
-        :param pulumi.Input[_builtins.str] format: File format for the data export. Valid values `TEXT_OR_CSV` or `PARQUET`.
-        :param pulumi.Input[_builtins.str] output_type: Output type for the data export. Valid value `CUSTOM`.
-        :param pulumi.Input[_builtins.str] overwrite: The rule to follow when generating a version of the data export file. You have the choice to overwrite the previous version or to be delivered in addition to the previous versions. Overwriting exports can save on Amazon S3 storage costs. Creating new export versions allows you to track the changes in cost and usage data over time. Valid values `CREATE_NEW_REPORT` or `OVERWRITE_REPORT`.
-        """
         pulumi.set(__self__, "compression", compression)
         pulumi.set(__self__, "format", format)
         pulumi.set(__self__, "output_type", output_type)
@@ -371,9 +261,6 @@ class ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs
     @_builtins.property
     @pulumi.getter
     def compression(self) -> pulumi.Input[_builtins.str]:
-        """
-        Compression type for the data export. Valid values `GZIP`, `PARQUET`.
-        """
         return pulumi.get(self, "compression")
 
     @compression.setter
@@ -383,9 +270,6 @@ class ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs
     @_builtins.property
     @pulumi.getter
     def format(self) -> pulumi.Input[_builtins.str]:
-        """
-        File format for the data export. Valid values `TEXT_OR_CSV` or `PARQUET`.
-        """
         return pulumi.get(self, "format")
 
     @format.setter
@@ -395,9 +279,6 @@ class ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs
     @_builtins.property
     @pulumi.getter(name="outputType")
     def output_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Output type for the data export. Valid value `CUSTOM`.
-        """
         return pulumi.get(self, "output_type")
 
     @output_type.setter
@@ -407,9 +288,6 @@ class ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs
     @_builtins.property
     @pulumi.getter
     def overwrite(self) -> pulumi.Input[_builtins.str]:
-        """
-        The rule to follow when generating a version of the data export file. You have the choice to overwrite the previous version or to be delivered in addition to the previous versions. Overwriting exports can save on Amazon S3 storage costs. Creating new export versions allows you to track the changes in cost and usage data over time. Valid values `CREATE_NEW_REPORT` or `OVERWRITE_REPORT`.
-        """
         return pulumi.get(self, "overwrite")
 
     @overwrite.setter
@@ -420,9 +298,6 @@ class ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs
 if not MYPY:
     class ExportExportRefreshCadenceArgsDict(TypedDict):
         frequency: pulumi.Input[_builtins.str]
-        """
-        Frequency that data exports are updated. The export refreshes each time the source data updates, up to three times daily. Valid values `SYNCHRONOUS`.
-        """
 elif False:
     ExportExportRefreshCadenceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -430,17 +305,11 @@ elif False:
 class ExportExportRefreshCadenceArgs:
     def __init__(__self__, *,
                  frequency: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] frequency: Frequency that data exports are updated. The export refreshes each time the source data updates, up to three times daily. Valid values `SYNCHRONOUS`.
-        """
         pulumi.set(__self__, "frequency", frequency)
 
     @_builtins.property
     @pulumi.getter
     def frequency(self) -> pulumi.Input[_builtins.str]:
-        """
-        Frequency that data exports are updated. The export refreshes each time the source data updates, up to three times daily. Valid values `SYNCHRONOUS`.
-        """
         return pulumi.get(self, "frequency")
 
     @frequency.setter

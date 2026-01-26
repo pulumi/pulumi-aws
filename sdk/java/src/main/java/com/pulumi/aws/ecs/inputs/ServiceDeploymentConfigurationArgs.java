@@ -19,77 +19,37 @@ public final class ServiceDeploymentConfigurationArgs extends com.pulumi.resourc
 
     public static final ServiceDeploymentConfigurationArgs Empty = new ServiceDeploymentConfigurationArgs();
 
-    /**
-     * Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Valid range: 0-1440 minutes. Used with `BLUE_GREEN`, `LINEAR`, and `CANARY` strategies.
-     * 
-     */
     @Import(name="bakeTimeInMinutes")
     private @Nullable Output<String> bakeTimeInMinutes;
 
-    /**
-     * @return Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Valid range: 0-1440 minutes. Used with `BLUE_GREEN`, `LINEAR`, and `CANARY` strategies.
-     * 
-     */
     public Optional<Output<String>> bakeTimeInMinutes() {
         return Optional.ofNullable(this.bakeTimeInMinutes);
     }
 
-    /**
-     * Configuration block for canary deployment strategy. Required when `strategy` is set to `CANARY`. See below.
-     * 
-     */
     @Import(name="canaryConfiguration")
     private @Nullable Output<ServiceDeploymentConfigurationCanaryConfigurationArgs> canaryConfiguration;
 
-    /**
-     * @return Configuration block for canary deployment strategy. Required when `strategy` is set to `CANARY`. See below.
-     * 
-     */
     public Optional<Output<ServiceDeploymentConfigurationCanaryConfigurationArgs>> canaryConfiguration() {
         return Optional.ofNullable(this.canaryConfiguration);
     }
 
-    /**
-     * Configuration block for lifecycle hooks that are invoked during deployments. See below.
-     * 
-     */
     @Import(name="lifecycleHooks")
     private @Nullable Output<List<ServiceDeploymentConfigurationLifecycleHookArgs>> lifecycleHooks;
 
-    /**
-     * @return Configuration block for lifecycle hooks that are invoked during deployments. See below.
-     * 
-     */
     public Optional<Output<List<ServiceDeploymentConfigurationLifecycleHookArgs>>> lifecycleHooks() {
         return Optional.ofNullable(this.lifecycleHooks);
     }
 
-    /**
-     * Configuration block for linear deployment strategy. Required when `strategy` is set to `LINEAR`. See below.
-     * 
-     */
     @Import(name="linearConfiguration")
     private @Nullable Output<ServiceDeploymentConfigurationLinearConfigurationArgs> linearConfiguration;
 
-    /**
-     * @return Configuration block for linear deployment strategy. Required when `strategy` is set to `LINEAR`. See below.
-     * 
-     */
     public Optional<Output<ServiceDeploymentConfigurationLinearConfigurationArgs>> linearConfiguration() {
         return Optional.ofNullable(this.linearConfiguration);
     }
 
-    /**
-     * Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`, `LINEAR`, `CANARY`. Default: `ROLLING`.
-     * 
-     */
     @Import(name="strategy")
     private @Nullable Output<String> strategy;
 
-    /**
-     * @return Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`, `LINEAR`, `CANARY`. Default: `ROLLING`.
-     * 
-     */
     public Optional<Output<String>> strategy() {
         return Optional.ofNullable(this.strategy);
     }
@@ -122,117 +82,51 @@ public final class ServiceDeploymentConfigurationArgs extends com.pulumi.resourc
             $ = new ServiceDeploymentConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bakeTimeInMinutes Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Valid range: 0-1440 minutes. Used with `BLUE_GREEN`, `LINEAR`, and `CANARY` strategies.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bakeTimeInMinutes(@Nullable Output<String> bakeTimeInMinutes) {
             $.bakeTimeInMinutes = bakeTimeInMinutes;
             return this;
         }
 
-        /**
-         * @param bakeTimeInMinutes Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Valid range: 0-1440 minutes. Used with `BLUE_GREEN`, `LINEAR`, and `CANARY` strategies.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bakeTimeInMinutes(String bakeTimeInMinutes) {
             return bakeTimeInMinutes(Output.of(bakeTimeInMinutes));
         }
 
-        /**
-         * @param canaryConfiguration Configuration block for canary deployment strategy. Required when `strategy` is set to `CANARY`. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder canaryConfiguration(@Nullable Output<ServiceDeploymentConfigurationCanaryConfigurationArgs> canaryConfiguration) {
             $.canaryConfiguration = canaryConfiguration;
             return this;
         }
 
-        /**
-         * @param canaryConfiguration Configuration block for canary deployment strategy. Required when `strategy` is set to `CANARY`. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder canaryConfiguration(ServiceDeploymentConfigurationCanaryConfigurationArgs canaryConfiguration) {
             return canaryConfiguration(Output.of(canaryConfiguration));
         }
 
-        /**
-         * @param lifecycleHooks Configuration block for lifecycle hooks that are invoked during deployments. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lifecycleHooks(@Nullable Output<List<ServiceDeploymentConfigurationLifecycleHookArgs>> lifecycleHooks) {
             $.lifecycleHooks = lifecycleHooks;
             return this;
         }
 
-        /**
-         * @param lifecycleHooks Configuration block for lifecycle hooks that are invoked during deployments. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lifecycleHooks(List<ServiceDeploymentConfigurationLifecycleHookArgs> lifecycleHooks) {
             return lifecycleHooks(Output.of(lifecycleHooks));
         }
 
-        /**
-         * @param lifecycleHooks Configuration block for lifecycle hooks that are invoked during deployments. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lifecycleHooks(ServiceDeploymentConfigurationLifecycleHookArgs... lifecycleHooks) {
             return lifecycleHooks(List.of(lifecycleHooks));
         }
 
-        /**
-         * @param linearConfiguration Configuration block for linear deployment strategy. Required when `strategy` is set to `LINEAR`. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder linearConfiguration(@Nullable Output<ServiceDeploymentConfigurationLinearConfigurationArgs> linearConfiguration) {
             $.linearConfiguration = linearConfiguration;
             return this;
         }
 
-        /**
-         * @param linearConfiguration Configuration block for linear deployment strategy. Required when `strategy` is set to `LINEAR`. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder linearConfiguration(ServiceDeploymentConfigurationLinearConfigurationArgs linearConfiguration) {
             return linearConfiguration(Output.of(linearConfiguration));
         }
 
-        /**
-         * @param strategy Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`, `LINEAR`, `CANARY`. Default: `ROLLING`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder strategy(@Nullable Output<String> strategy) {
             $.strategy = strategy;
             return this;
         }
 
-        /**
-         * @param strategy Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`, `LINEAR`, `CANARY`. Default: `ROLLING`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder strategy(String strategy) {
             return strategy(Output.of(strategy));
         }

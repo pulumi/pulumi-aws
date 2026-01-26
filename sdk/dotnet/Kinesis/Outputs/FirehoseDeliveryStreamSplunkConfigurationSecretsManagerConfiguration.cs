@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Kinesis.Outputs
     [OutputType]
     public sealed class FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration
     {
-        /// <summary>
-        /// Enables or disables the Secrets Manager configuration.
-        /// </summary>
         public readonly bool? Enabled;
-        /// <summary>
-        /// The ARN of the role the stream assumes.
-        /// </summary>
         public readonly string? RoleArn;
-        /// <summary>
-        /// The ARN of the Secrets Manager secret. This value is required if `Enabled` is true.
-        /// </summary>
         public readonly string? SecretArn;
 
         [OutputConstructor]

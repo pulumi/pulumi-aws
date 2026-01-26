@@ -13,13 +13,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class DomainClusterConfigNodeOption
     {
-        /// <summary>
-        /// Container to specify sizing of a node type.
-        /// </summary>
         public readonly Outputs.DomainClusterConfigNodeOptionNodeConfig? NodeConfig;
-        /// <summary>
-        /// Type of node this configuration describes. Valid values: `Coordinator`.
-        /// </summary>
         public readonly string? NodeType;
 
         [OutputConstructor]

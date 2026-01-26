@@ -9,73 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.VerifiedPermissions
 {
-    /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.VerifiedPermissions.Schema("example", new()
-    ///     {
-    ///         PolicyStoreId = exampleAwsVerifiedpermissionsPolicyStore.PolicyStoreId,
-    ///         Definition = new Aws.VerifiedPermissions.Inputs.SchemaDefinitionArgs
-    ///         {
-    ///             Value = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["Namespace"] = new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["entityTypes"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                     },
-    ///                     ["actions"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                     },
-    ///                 },
-    ///             }),
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Verified Permissions Policy Store Schema using the `policy_store_id`. For example:
-    /// 
-    ///  % pulumi import aws_verifiedpermissions_schema.example DxQg2j8xvXJQ1tQCYNWj9T
-    /// </summary>
     [AwsResourceType("aws:verifiedpermissions/schema:Schema")]
     public partial class Schema : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The definition of the schema.
-        /// </summary>
         [Output("definition")]
         public Output<Outputs.SchemaDefinition?> Definition { get; private set; } = null!;
 
-        /// <summary>
-        /// (Optional) Identifies the namespaces of the entities referenced by this schema.
-        /// </summary>
         [Output("namespaces")]
         public Output<ImmutableArray<string>> Namespaces { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the Policy Store.
-        /// </summary>
         [Output("policyStoreId")]
         public Output<string> PolicyStoreId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -125,21 +70,12 @@ namespace Pulumi.Aws.VerifiedPermissions
 
     public sealed class SchemaArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The definition of the schema.
-        /// </summary>
         [Input("definition")]
         public Input<Inputs.SchemaDefinitionArgs>? Definition { get; set; }
 
-        /// <summary>
-        /// The ID of the Policy Store.
-        /// </summary>
         [Input("policyStoreId", required: true)]
         public Input<string> PolicyStoreId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -151,33 +87,20 @@ namespace Pulumi.Aws.VerifiedPermissions
 
     public sealed class SchemaState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The definition of the schema.
-        /// </summary>
         [Input("definition")]
         public Input<Inputs.SchemaDefinitionGetArgs>? Definition { get; set; }
 
         [Input("namespaces")]
         private InputList<string>? _namespaces;
-
-        /// <summary>
-        /// (Optional) Identifies the namespaces of the entities referenced by this schema.
-        /// </summary>
         public InputList<string> Namespaces
         {
             get => _namespaces ?? (_namespaces = new InputList<string>());
             set => _namespaces = value;
         }
 
-        /// <summary>
-        /// The ID of the Policy Store.
-        /// </summary>
         [Input("policyStoreId")]
         public Input<string>? PolicyStoreId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

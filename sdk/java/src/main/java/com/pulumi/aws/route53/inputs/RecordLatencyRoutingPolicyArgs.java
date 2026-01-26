@@ -14,17 +14,9 @@ public final class RecordLatencyRoutingPolicyArgs extends com.pulumi.resources.R
 
     public static final RecordLatencyRoutingPolicyArgs Empty = new RecordLatencyRoutingPolicyArgs();
 
-    /**
-     * An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
-     * 
-     */
     @Import(name="region", required=true)
     private Output<String> region;
 
-    /**
-     * @return An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
@@ -53,23 +45,11 @@ public final class RecordLatencyRoutingPolicyArgs extends com.pulumi.resources.R
             $ = new RecordLatencyRoutingPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

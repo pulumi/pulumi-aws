@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreGatewayTargetCredentialProviderConfigurationOauth
     {
-        /// <summary>
-        /// Map of custom parameters to include in OAuth requests.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? CustomParameters;
-        /// <summary>
-        /// ARN of the OIDC provider for OAuth authentication.
-        /// </summary>
         public readonly string ProviderArn;
-        /// <summary>
-        /// Set of OAuth scopes to request.
-        /// </summary>
         public readonly ImmutableArray<string> Scopes;
 
         [OutputConstructor]

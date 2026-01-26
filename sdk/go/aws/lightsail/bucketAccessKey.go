@@ -12,63 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Lightsail bucket access key. Use this resource to create credentials that allow programmatic access to your Lightsail bucket via API requests.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := lightsail.NewBucket(ctx, "example", &lightsail.BucketArgs{
-//				Name:     pulumi.String("example-bucket"),
-//				BundleId: pulumi.String("small_1_0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lightsail.NewBucketAccessKey(ctx, "example", &lightsail.BucketAccessKeyArgs{
-//				BucketName: example.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_lightsail_bucket_access_key` using the `id` attribute. For example:
-//
-// ```sh
-// $ pulumi import aws:lightsail/bucketAccessKey:BucketAccessKey example example-bucket,AKIAIOSFODNN7EXAMPLE
-// ```
 type BucketAccessKey struct {
 	pulumi.CustomResourceState
 
-	// Access key ID.
-	AccessKeyId pulumi.StringOutput `pulumi:"accessKeyId"`
-	// Name of the bucket that the access key will belong to and grant access to.
-	BucketName pulumi.StringOutput `pulumi:"bucketName"`
-	// Date and time when the access key was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
+	AccessKeyId     pulumi.StringOutput `pulumi:"accessKeyId"`
+	BucketName      pulumi.StringOutput `pulumi:"bucketName"`
+	CreatedAt       pulumi.StringOutput `pulumi:"createdAt"`
+	Region          pulumi.StringOutput `pulumi:"region"`
 	SecretAccessKey pulumi.StringOutput `pulumi:"secretAccessKey"`
-	// Status of the access key.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status          pulumi.StringOutput `pulumi:"status"`
 }
 
 // NewBucketAccessKey registers a new resource with the given unique name, arguments, and options.
@@ -104,33 +56,21 @@ func GetBucketAccessKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketAccessKey resources.
 type bucketAccessKeyState struct {
-	// Access key ID.
-	AccessKeyId *string `pulumi:"accessKeyId"`
-	// Name of the bucket that the access key will belong to and grant access to.
-	BucketName *string `pulumi:"bucketName"`
-	// Date and time when the access key was created.
-	CreatedAt *string `pulumi:"createdAt"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
+	AccessKeyId     *string `pulumi:"accessKeyId"`
+	BucketName      *string `pulumi:"bucketName"`
+	CreatedAt       *string `pulumi:"createdAt"`
+	Region          *string `pulumi:"region"`
 	SecretAccessKey *string `pulumi:"secretAccessKey"`
-	// Status of the access key.
-	Status *string `pulumi:"status"`
+	Status          *string `pulumi:"status"`
 }
 
 type BucketAccessKeyState struct {
-	// Access key ID.
-	AccessKeyId pulumi.StringPtrInput
-	// Name of the bucket that the access key will belong to and grant access to.
-	BucketName pulumi.StringPtrInput
-	// Date and time when the access key was created.
-	CreatedAt pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
+	AccessKeyId     pulumi.StringPtrInput
+	BucketName      pulumi.StringPtrInput
+	CreatedAt       pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
 	SecretAccessKey pulumi.StringPtrInput
-	// Status of the access key.
-	Status pulumi.StringPtrInput
+	Status          pulumi.StringPtrInput
 }
 
 func (BucketAccessKeyState) ElementType() reflect.Type {
@@ -138,18 +78,14 @@ func (BucketAccessKeyState) ElementType() reflect.Type {
 }
 
 type bucketAccessKeyArgs struct {
-	// Name of the bucket that the access key will belong to and grant access to.
-	BucketName string `pulumi:"bucketName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	BucketName string  `pulumi:"bucketName"`
+	Region     *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a BucketAccessKey resource.
 type BucketAccessKeyArgs struct {
-	// Name of the bucket that the access key will belong to and grant access to.
 	BucketName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region     pulumi.StringPtrInput
 }
 
 func (BucketAccessKeyArgs) ElementType() reflect.Type {
@@ -239,32 +175,26 @@ func (o BucketAccessKeyOutput) ToBucketAccessKeyOutputWithContext(ctx context.Co
 	return o
 }
 
-// Access key ID.
 func (o BucketAccessKeyOutput) AccessKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketAccessKey) pulumi.StringOutput { return v.AccessKeyId }).(pulumi.StringOutput)
 }
 
-// Name of the bucket that the access key will belong to and grant access to.
 func (o BucketAccessKeyOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketAccessKey) pulumi.StringOutput { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// Date and time when the access key was created.
 func (o BucketAccessKeyOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketAccessKey) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BucketAccessKeyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketAccessKey) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
 func (o BucketAccessKeyOutput) SecretAccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketAccessKey) pulumi.StringOutput { return v.SecretAccessKey }).(pulumi.StringOutput)
 }
 
-// Status of the access key.
 func (o BucketAccessKeyOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketAccessKey) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

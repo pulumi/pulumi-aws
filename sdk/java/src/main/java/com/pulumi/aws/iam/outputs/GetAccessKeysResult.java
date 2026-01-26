@@ -12,10 +12,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAccessKeysResult {
-    /**
-     * @return List of the IAM access keys associated with the specified user. See below.
-     * 
-     */
     private List<GetAccessKeysAccessKey> accessKeys;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -25,10 +21,6 @@ public final class GetAccessKeysResult {
     private String user;
 
     private GetAccessKeysResult() {}
-    /**
-     * @return List of the IAM access keys associated with the specified user. See below.
-     * 
-     */
     public List<GetAccessKeysAccessKey> accessKeys() {
         return this.accessKeys;
     }

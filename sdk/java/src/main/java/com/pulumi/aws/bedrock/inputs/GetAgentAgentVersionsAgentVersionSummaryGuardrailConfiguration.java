@@ -13,32 +13,16 @@ public final class GetAgentAgentVersionsAgentVersionSummaryGuardrailConfiguratio
 
     public static final GetAgentAgentVersionsAgentVersionSummaryGuardrailConfiguration Empty = new GetAgentAgentVersionsAgentVersionSummaryGuardrailConfiguration();
 
-    /**
-     * Unique identifier of the guardrail.
-     * 
-     */
     @Import(name="guardrailIdentifier", required=true)
     private String guardrailIdentifier;
 
-    /**
-     * @return Unique identifier of the guardrail.
-     * 
-     */
     public String guardrailIdentifier() {
         return this.guardrailIdentifier;
     }
 
-    /**
-     * Version of the guardrail.
-     * 
-     */
     @Import(name="guardrailVersion", required=true)
     private String guardrailVersion;
 
-    /**
-     * @return Version of the guardrail.
-     * 
-     */
     public String guardrailVersion() {
         return this.guardrailVersion;
     }
@@ -68,23 +52,11 @@ public final class GetAgentAgentVersionsAgentVersionSummaryGuardrailConfiguratio
             $ = new GetAgentAgentVersionsAgentVersionSummaryGuardrailConfiguration(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param guardrailIdentifier Unique identifier of the guardrail.
-         * 
-         * @return builder
-         * 
-         */
         public Builder guardrailIdentifier(String guardrailIdentifier) {
             $.guardrailIdentifier = guardrailIdentifier;
             return this;
         }
 
-        /**
-         * @param guardrailVersion Version of the guardrail.
-         * 
-         * @return builder
-         * 
-         */
         public Builder guardrailVersion(String guardrailVersion) {
             $.guardrailVersion = guardrailVersion;
             return this;

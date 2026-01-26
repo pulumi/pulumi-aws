@@ -12,41 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig {
-    /**
-     * @return ARN of the Capacity Provider.
-     * 
-     */
     private String capacityProviderArn;
-    /**
-     * @return Memory GiB per vCPU for the execution environment.
-     * 
-     */
     private Double executionEnvironmentMemoryGibPerVcpu;
-    /**
-     * @return Maximum concurrency per execution environment.
-     * 
-     */
     private Integer perExecutionEnvironmentMaxConcurrency;
 
     private GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig() {}
-    /**
-     * @return ARN of the Capacity Provider.
-     * 
-     */
     public String capacityProviderArn() {
         return this.capacityProviderArn;
     }
-    /**
-     * @return Memory GiB per vCPU for the execution environment.
-     * 
-     */
     public Double executionEnvironmentMemoryGibPerVcpu() {
         return this.executionEnvironmentMemoryGibPerVcpu;
     }
-    /**
-     * @return Maximum concurrency per execution environment.
-     * 
-     */
     public Integer perExecutionEnvironmentMaxConcurrency() {
         return this.perExecutionEnvironmentMaxConcurrency;
     }

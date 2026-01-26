@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WorkgroupPricePerformanceTarget {
-    /**
-     * @return Whether to enable price-performance scaling.
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return The price-performance scaling level. Valid values are `1` (LOW_COST), `25` (ECONOMICAL), `50` (BALANCED), `75` (RESOURCEFUL), and `100` (HIGH_PERFORMANCE).
-     * 
-     */
     private @Nullable Integer level;
 
     private WorkgroupPricePerformanceTarget() {}
-    /**
-     * @return Whether to enable price-performance scaling.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return The price-performance scaling level. Valid values are `1` (LOW_COST), `25` (ECONOMICAL), `50` (BALANCED), `75` (RESOURCEFUL), and `100` (HIGH_PERFORMANCE).
-     * 
-     */
     public Optional<Integer> level() {
         return Optional.ofNullable(this.level);
     }

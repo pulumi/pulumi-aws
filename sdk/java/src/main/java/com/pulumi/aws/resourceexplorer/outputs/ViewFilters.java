@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ViewFilters {
-    /**
-     * @return The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a search operation. For more details, see [Search query syntax](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html).
-     * 
-     */
     private String filterString;
 
     private ViewFilters() {}
-    /**
-     * @return The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a search operation. For more details, see [Search query syntax](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html).
-     * 
-     */
     public String filterString() {
         return this.filterString;
     }

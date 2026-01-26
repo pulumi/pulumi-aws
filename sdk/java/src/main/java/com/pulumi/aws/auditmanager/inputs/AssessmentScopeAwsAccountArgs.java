@@ -14,17 +14,9 @@ public final class AssessmentScopeAwsAccountArgs extends com.pulumi.resources.Re
 
     public static final AssessmentScopeAwsAccountArgs Empty = new AssessmentScopeAwsAccountArgs();
 
-    /**
-     * Identifier for the Amazon Web Services account.
-     * 
-     */
     @Import(name="id", required=true)
     private Output<String> id;
 
-    /**
-     * @return Identifier for the Amazon Web Services account.
-     * 
-     */
     public Output<String> id() {
         return this.id;
     }
@@ -53,23 +45,11 @@ public final class AssessmentScopeAwsAccountArgs extends com.pulumi.resources.Re
             $ = new AssessmentScopeAwsAccountArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id Identifier for the Amazon Web Services account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id Identifier for the Amazon Web Services account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }

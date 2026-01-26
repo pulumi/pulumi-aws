@@ -10,33 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPermissionsDatabase {
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     private String catalogId;
-    /**
-     * @return Name of the database resource. Unique to the Data Catalog.
-     * 
-     * The following argument is optional:
-     * 
-     */
     private String name;
 
     private GetPermissionsDatabase() {}
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     public String catalogId() {
         return this.catalogId;
     }
-    /**
-     * @return Name of the database resource. Unique to the Data Catalog.
-     * 
-     * The following argument is optional:
-     * 
-     */
     public String name() {
         return this.name;
     }

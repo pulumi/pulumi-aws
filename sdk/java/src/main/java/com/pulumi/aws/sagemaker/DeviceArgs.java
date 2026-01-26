@@ -17,47 +17,23 @@ public final class DeviceArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DeviceArgs Empty = new DeviceArgs();
 
-    /**
-     * The device to register with SageMaker AI Edge Manager. See Device details below.
-     * 
-     */
     @Import(name="device", required=true)
     private Output<DeviceDeviceArgs> device;
 
-    /**
-     * @return The device to register with SageMaker AI Edge Manager. See Device details below.
-     * 
-     */
     public Output<DeviceDeviceArgs> device() {
         return this.device;
     }
 
-    /**
-     * The name of the Device Fleet.
-     * 
-     */
     @Import(name="deviceFleetName", required=true)
     private Output<String> deviceFleetName;
 
-    /**
-     * @return The name of the Device Fleet.
-     * 
-     */
     public Output<String> deviceFleetName() {
         return this.deviceFleetName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -88,65 +64,29 @@ public final class DeviceArgs extends com.pulumi.resources.ResourceArgs {
             $ = new DeviceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param device The device to register with SageMaker AI Edge Manager. See Device details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder device(Output<DeviceDeviceArgs> device) {
             $.device = device;
             return this;
         }
 
-        /**
-         * @param device The device to register with SageMaker AI Edge Manager. See Device details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder device(DeviceDeviceArgs device) {
             return device(Output.of(device));
         }
 
-        /**
-         * @param deviceFleetName The name of the Device Fleet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceFleetName(Output<String> deviceFleetName) {
             $.deviceFleetName = deviceFleetName;
             return this;
         }
 
-        /**
-         * @param deviceFleetName The name of the Device Fleet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceFleetName(String deviceFleetName) {
             return deviceFleetName(Output.of(deviceFleetName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

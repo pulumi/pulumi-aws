@@ -6,39 +6,6 @@ import * as utilities from "../utilities";
 
 import {Policy} from "./index";
 
-/**
- * Provides an IoT policy attachment.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const pubsub = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         actions: ["iot:*"],
- *         resources: ["*"],
- *     }],
- * });
- * const pubsubPolicy = new aws.iot.Policy("pubsub", {
- *     name: "PubSubToAnyTopic",
- *     policy: pubsub.then(pubsub => pubsub.json),
- * });
- * const cert = new aws.iot.Certificate("cert", {
- *     csr: std.file({
- *         input: "csr.pem",
- *     }).then(invoke => invoke.result),
- *     active: true,
- * });
- * const att = new aws.iot.PolicyAttachment("att", {
- *     policy: pubsubPolicy.name,
- *     target: cert.arn,
- * });
- * ```
- */
 export class PolicyAttachment extends pulumi.CustomResource {
     /**
      * Get an existing PolicyAttachment resource's state with the given name, ID, and optional extra
@@ -67,17 +34,8 @@ export class PolicyAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === PolicyAttachment.__pulumiType;
     }
 
-    /**
-     * The name of the policy to attach.
-     */
     declare public readonly policy: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The identity to which the policy is attached.
-     */
     declare public readonly target: pulumi.Output<string>;
 
     /**
@@ -117,17 +75,8 @@ export class PolicyAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PolicyAttachment resources.
  */
 export interface PolicyAttachmentState {
-    /**
-     * The name of the policy to attach.
-     */
     policy?: pulumi.Input<string | Policy>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The identity to which the policy is attached.
-     */
     target?: pulumi.Input<string>;
 }
 
@@ -135,16 +84,7 @@ export interface PolicyAttachmentState {
  * The set of arguments for constructing a PolicyAttachment resource.
  */
 export interface PolicyAttachmentArgs {
-    /**
-     * The name of the policy to attach.
-     */
     policy: pulumi.Input<string | Policy>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The identity to which the policy is attached.
-     */
     target: pulumi.Input<string>;
 }

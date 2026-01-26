@@ -24,9 +24,6 @@ class LinkAssociationArgs:
                  link_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a LinkAssociation resource.
-        :param pulumi.Input[_builtins.str] device_id: ID of the device.
-        :param pulumi.Input[_builtins.str] global_network_id: ID of the global network.
-        :param pulumi.Input[_builtins.str] link_id: ID of the link.
         """
         pulumi.set(__self__, "device_id", device_id)
         pulumi.set(__self__, "global_network_id", global_network_id)
@@ -35,9 +32,6 @@ class LinkAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="deviceId")
     def device_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the device.
-        """
         return pulumi.get(self, "device_id")
 
     @device_id.setter
@@ -47,9 +41,6 @@ class LinkAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the global network.
-        """
         return pulumi.get(self, "global_network_id")
 
     @global_network_id.setter
@@ -59,9 +50,6 @@ class LinkAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="linkId")
     def link_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the link.
-        """
         return pulumi.get(self, "link_id")
 
     @link_id.setter
@@ -77,9 +65,6 @@ class _LinkAssociationState:
                  link_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LinkAssociation resources.
-        :param pulumi.Input[_builtins.str] device_id: ID of the device.
-        :param pulumi.Input[_builtins.str] global_network_id: ID of the global network.
-        :param pulumi.Input[_builtins.str] link_id: ID of the link.
         """
         if device_id is not None:
             pulumi.set(__self__, "device_id", device_id)
@@ -91,9 +76,6 @@ class _LinkAssociationState:
     @_builtins.property
     @pulumi.getter(name="deviceId")
     def device_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the device.
-        """
         return pulumi.get(self, "device_id")
 
     @device_id.setter
@@ -103,9 +85,6 @@ class _LinkAssociationState:
     @_builtins.property
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the global network.
-        """
         return pulumi.get(self, "global_network_id")
 
     @global_network_id.setter
@@ -115,9 +94,6 @@ class _LinkAssociationState:
     @_builtins.property
     @pulumi.getter(name="linkId")
     def link_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the link.
-        """
         return pulumi.get(self, "link_id")
 
     @link_id.setter
@@ -136,33 +112,9 @@ class LinkAssociation(pulumi.CustomResource):
                  link_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages a Network Manager link association. Associates a link to a device. A device can be associated to multiple links and a link can be associated to multiple devices. The device and link must be in the same global network and the same site.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.LinkAssociation("example",
-            global_network_id=example_aws_networkmanager_global_network["id"],
-            link_id=example_aws_networkmanager_link["id"],
-            device_id=example_aws_networkmanager_device["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_networkmanager_link_association` using the global network ID, link ID and device ID. For example:
-
-        ```sh
-        $ pulumi import aws:networkmanager/linkAssociation:LinkAssociation example global-network-0d47f6t230mz46dy4,link-444555aaabbb11223,device-07f6fd08867abc123
-        ```
-
+        Create a LinkAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] device_id: ID of the device.
-        :param pulumi.Input[_builtins.str] global_network_id: ID of the global network.
-        :param pulumi.Input[_builtins.str] link_id: ID of the link.
         """
         ...
     @overload
@@ -171,28 +123,7 @@ class LinkAssociation(pulumi.CustomResource):
                  args: LinkAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Network Manager link association. Associates a link to a device. A device can be associated to multiple links and a link can be associated to multiple devices. The device and link must be in the same global network and the same site.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.LinkAssociation("example",
-            global_network_id=example_aws_networkmanager_global_network["id"],
-            link_id=example_aws_networkmanager_link["id"],
-            device_id=example_aws_networkmanager_device["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_networkmanager_link_association` using the global network ID, link ID and device ID. For example:
-
-        ```sh
-        $ pulumi import aws:networkmanager/linkAssociation:LinkAssociation example global-network-0d47f6t230mz46dy4,link-444555aaabbb11223,device-07f6fd08867abc123
-        ```
-
+        Create a LinkAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LinkAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -249,9 +180,6 @@ class LinkAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] device_id: ID of the device.
-        :param pulumi.Input[_builtins.str] global_network_id: ID of the global network.
-        :param pulumi.Input[_builtins.str] link_id: ID of the link.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -265,24 +193,15 @@ class LinkAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="deviceId")
     def device_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the device.
-        """
         return pulumi.get(self, "device_id")
 
     @_builtins.property
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the global network.
-        """
         return pulumi.get(self, "global_network_id")
 
     @_builtins.property
     @pulumi.getter(name="linkId")
     def link_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the link.
-        """
         return pulumi.get(self, "link_id")
 

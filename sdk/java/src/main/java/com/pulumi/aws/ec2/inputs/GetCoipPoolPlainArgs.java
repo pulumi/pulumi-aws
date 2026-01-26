@@ -24,70 +24,30 @@ public final class GetCoipPoolPlainArgs extends com.pulumi.resources.InvokeArgs 
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Local Gateway Route Table Id assigned to desired COIP Pool
-     * 
-     */
     @Import(name="localGatewayRouteTableId")
     private @Nullable String localGatewayRouteTableId;
 
-    /**
-     * @return Local Gateway Route Table Id assigned to desired COIP Pool
-     * 
-     */
     public Optional<String> localGatewayRouteTableId() {
         return Optional.ofNullable(this.localGatewayRouteTableId);
     }
 
-    /**
-     * ID of the specific COIP Pool to retrieve.
-     * 
-     */
     @Import(name="poolId")
     private @Nullable String poolId;
 
-    /**
-     * @return ID of the specific COIP Pool to retrieve.
-     * 
-     */
     public Optional<String> poolId() {
         return Optional.ofNullable(this.poolId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Mapping of tags, each pair of which must exactly match
-     * a pair on the desired COIP Pool.
-     * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Mapping of tags, each pair of which must exactly match
-     * a pair on the desired COIP Pool.
-     * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -129,49 +89,21 @@ public final class GetCoipPoolPlainArgs extends com.pulumi.resources.InvokeArgs 
             return filters(List.of(filters));
         }
 
-        /**
-         * @param localGatewayRouteTableId Local Gateway Route Table Id assigned to desired COIP Pool
-         * 
-         * @return builder
-         * 
-         */
         public Builder localGatewayRouteTableId(@Nullable String localGatewayRouteTableId) {
             $.localGatewayRouteTableId = localGatewayRouteTableId;
             return this;
         }
 
-        /**
-         * @param poolId ID of the specific COIP Pool to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder poolId(@Nullable String poolId) {
             $.poolId = poolId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Mapping of tags, each pair of which must exactly match
-         * a pair on the desired COIP Pool.
-         * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

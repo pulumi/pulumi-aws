@@ -56,557 +56,189 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FilterFilterCriteria {
-    /**
-     * @return (Optional) The AWS account ID in which the finding was generated. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaAwsAccountId> awsAccountIds;
-    /**
-     * @return (Optional) The project name in a code repository. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaCodeRepositoryProjectName> codeRepositoryProjectNames;
-    /**
-     * @return (Optional) The repository provider type (such as GitHub, GitLab, etc.) Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaCodeRepositoryProviderType> codeRepositoryProviderTypes;
-    /**
-     * @return (Optional) The ID of the component. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaCodeVulnerabilityDetectorName> codeVulnerabilityDetectorNames;
-    /**
-     * @return (Optional) The ID of the component. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaCodeVulnerabilityDetectorTag> codeVulnerabilityDetectorTags;
-    /**
-     * @return (Optional) The ID of the component. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaCodeVulnerabilityFilePath> codeVulnerabilityFilePaths;
-    /**
-     * @return (Optional) The ID of the component. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaComponentId> componentIds;
-    /**
-     * @return (Optional) The type of the component. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaComponentType> componentTypes;
-    /**
-     * @return (Optional) The ID of the Amazon Machine Image (AMI). Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaEc2InstanceImageId> ec2InstanceImageIds;
-    /**
-     * @return (Optional) The ID of the subnet. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaEc2InstanceSubnetId> ec2InstanceSubnetIds;
-    /**
-     * @return (Optional) The ID of the VPC. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaEc2InstanceVpcId> ec2InstanceVpcIds;
-    /**
-     * @return (Optional) The architecture of the ECR image. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaEcrImageArchitecture> ecrImageArchitectures;
-    /**
-     * @return (Optional) The SHA256 hash of the ECR image. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaEcrImageHash> ecrImageHashes;
-    /**
-     * @return (Optional)  The number of the ECR images in use. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaEcrImageInUseCount> ecrImageInUseCounts;
-    /**
-     * @return (Optional) The date range when an ECR image was last used in an ECS cluster task or EKS cluster pod. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaEcrImageLastInUseAt> ecrImageLastInUseAts;
-    /**
-     * @return (Optional) The date range when the image was pushed. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaEcrImagePushedAt> ecrImagePushedAts;
-    /**
-     * @return (Optional) The registry of the ECR image. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaEcrImageRegistry> ecrImageRegistries;
-    /**
-     * @return (Optional) The name of the ECR repository. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaEcrImageRepositoryName> ecrImageRepositoryNames;
-    /**
-     * @return (Optional) The tags associated with the ECR image. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaEcrImageTag> ecrImageTags;
-    /**
-     * @return (Optional) EPSS (Exploit Prediction Scoring System) Score of the finding. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaEpssScore> epssScores;
-    /**
-     * @return (Optional) Availability of exploits. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaExploitAvailable> exploitAvailables;
-    /**
-     * @return (Optional) The ARN of the finding. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaFindingArn> findingArns;
-    /**
-     * @return (Optional) The status of the finding. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaFindingStatus> findingStatuses;
-    /**
-     * @return (Optional) The type of the finding. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaFindingType> findingTypes;
-    /**
-     * @return (Optional) When the finding was first observed. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaFirstObservedAt> firstObservedAts;
-    /**
-     * @return (Optional) Availability of the fix. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaFixAvailable> fixAvailables;
-    /**
-     * @return (Optional) The Inspector score given to the finding. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaInspectorScore> inspectorScores;
-    /**
-     * @return (Optional) Lambda execution role ARN. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaLambdaFunctionExecutionRoleArn> lambdaFunctionExecutionRoleArns;
-    /**
-     * @return (Optional) Last modified timestamp of the lambda function. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaLambdaFunctionLastModifiedAt> lambdaFunctionLastModifiedAts;
-    /**
-     * @return (Optional) Lambda function layers. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaLambdaFunctionLayer> lambdaFunctionLayers;
-    /**
-     * @return (Optional) Lambda function name. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaLambdaFunctionName> lambdaFunctionNames;
-    /**
-     * @return (Optional) Lambda function runtime. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaLambdaFunctionRuntime> lambdaFunctionRuntimes;
-    /**
-     * @return (Optional) When the finding was last observed. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaLastObservedAt> lastObservedAts;
-    /**
-     * @return (Optional) The network protocol of the finding. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaNetworkProtocol> networkProtocols;
-    /**
-     * @return (Optional) The port range of the finding. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaPortRange> portRanges;
-    /**
-     * @return (Optional) Related vulnerabilities. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaRelatedVulnerability> relatedVulnerabilities;
-    /**
-     * @return (Optional) The ID of the resource. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaResourceId> resourceIds;
-    /**
-     * @return (Optional) The tags of the resource. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaResourceTag> resourceTags;
-    /**
-     * @return (Optional) The type of the resource. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaResourceType> resourceTypes;
-    /**
-     * @return (Optional) The severity of the finding. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaSeverity> severities;
-    /**
-     * @return (Optional) The title of the finding. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaTitle> titles;
-    /**
-     * @return (Optional) When the finding was last updated. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaUpdatedAt> updatedAts;
-    /**
-     * @return (Optional) The severity as reported by the vendor. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaVendorSeverity> vendorSeverities;
-    /**
-     * @return (Optional) The ID of the vulnerability. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaVulnerabilityId> vulnerabilityIds;
-    /**
-     * @return (Optional) The source of the vulnerability. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaVulnerabilitySource> vulnerabilitySources;
-    /**
-     * @return (Optional) Details about vulnerable packages. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaVulnerablePackage> vulnerablePackages;
 
     private FilterFilterCriteria() {}
-    /**
-     * @return (Optional) The AWS account ID in which the finding was generated. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaAwsAccountId> awsAccountIds() {
         return this.awsAccountIds == null ? List.of() : this.awsAccountIds;
     }
-    /**
-     * @return (Optional) The project name in a code repository. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaCodeRepositoryProjectName> codeRepositoryProjectNames() {
         return this.codeRepositoryProjectNames == null ? List.of() : this.codeRepositoryProjectNames;
     }
-    /**
-     * @return (Optional) The repository provider type (such as GitHub, GitLab, etc.) Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaCodeRepositoryProviderType> codeRepositoryProviderTypes() {
         return this.codeRepositoryProviderTypes == null ? List.of() : this.codeRepositoryProviderTypes;
     }
-    /**
-     * @return (Optional) The ID of the component. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaCodeVulnerabilityDetectorName> codeVulnerabilityDetectorNames() {
         return this.codeVulnerabilityDetectorNames == null ? List.of() : this.codeVulnerabilityDetectorNames;
     }
-    /**
-     * @return (Optional) The ID of the component. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaCodeVulnerabilityDetectorTag> codeVulnerabilityDetectorTags() {
         return this.codeVulnerabilityDetectorTags == null ? List.of() : this.codeVulnerabilityDetectorTags;
     }
-    /**
-     * @return (Optional) The ID of the component. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaCodeVulnerabilityFilePath> codeVulnerabilityFilePaths() {
         return this.codeVulnerabilityFilePaths == null ? List.of() : this.codeVulnerabilityFilePaths;
     }
-    /**
-     * @return (Optional) The ID of the component. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaComponentId> componentIds() {
         return this.componentIds == null ? List.of() : this.componentIds;
     }
-    /**
-     * @return (Optional) The type of the component. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaComponentType> componentTypes() {
         return this.componentTypes == null ? List.of() : this.componentTypes;
     }
-    /**
-     * @return (Optional) The ID of the Amazon Machine Image (AMI). Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaEc2InstanceImageId> ec2InstanceImageIds() {
         return this.ec2InstanceImageIds == null ? List.of() : this.ec2InstanceImageIds;
     }
-    /**
-     * @return (Optional) The ID of the subnet. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaEc2InstanceSubnetId> ec2InstanceSubnetIds() {
         return this.ec2InstanceSubnetIds == null ? List.of() : this.ec2InstanceSubnetIds;
     }
-    /**
-     * @return (Optional) The ID of the VPC. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaEc2InstanceVpcId> ec2InstanceVpcIds() {
         return this.ec2InstanceVpcIds == null ? List.of() : this.ec2InstanceVpcIds;
     }
-    /**
-     * @return (Optional) The architecture of the ECR image. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaEcrImageArchitecture> ecrImageArchitectures() {
         return this.ecrImageArchitectures == null ? List.of() : this.ecrImageArchitectures;
     }
-    /**
-     * @return (Optional) The SHA256 hash of the ECR image. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaEcrImageHash> ecrImageHashes() {
         return this.ecrImageHashes == null ? List.of() : this.ecrImageHashes;
     }
-    /**
-     * @return (Optional)  The number of the ECR images in use. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaEcrImageInUseCount> ecrImageInUseCounts() {
         return this.ecrImageInUseCounts == null ? List.of() : this.ecrImageInUseCounts;
     }
-    /**
-     * @return (Optional) The date range when an ECR image was last used in an ECS cluster task or EKS cluster pod. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaEcrImageLastInUseAt> ecrImageLastInUseAts() {
         return this.ecrImageLastInUseAts == null ? List.of() : this.ecrImageLastInUseAts;
     }
-    /**
-     * @return (Optional) The date range when the image was pushed. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaEcrImagePushedAt> ecrImagePushedAts() {
         return this.ecrImagePushedAts == null ? List.of() : this.ecrImagePushedAts;
     }
-    /**
-     * @return (Optional) The registry of the ECR image. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaEcrImageRegistry> ecrImageRegistries() {
         return this.ecrImageRegistries == null ? List.of() : this.ecrImageRegistries;
     }
-    /**
-     * @return (Optional) The name of the ECR repository. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaEcrImageRepositoryName> ecrImageRepositoryNames() {
         return this.ecrImageRepositoryNames == null ? List.of() : this.ecrImageRepositoryNames;
     }
-    /**
-     * @return (Optional) The tags associated with the ECR image. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaEcrImageTag> ecrImageTags() {
         return this.ecrImageTags == null ? List.of() : this.ecrImageTags;
     }
-    /**
-     * @return (Optional) EPSS (Exploit Prediction Scoring System) Score of the finding. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaEpssScore> epssScores() {
         return this.epssScores == null ? List.of() : this.epssScores;
     }
-    /**
-     * @return (Optional) Availability of exploits. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaExploitAvailable> exploitAvailables() {
         return this.exploitAvailables == null ? List.of() : this.exploitAvailables;
     }
-    /**
-     * @return (Optional) The ARN of the finding. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaFindingArn> findingArns() {
         return this.findingArns == null ? List.of() : this.findingArns;
     }
-    /**
-     * @return (Optional) The status of the finding. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaFindingStatus> findingStatuses() {
         return this.findingStatuses == null ? List.of() : this.findingStatuses;
     }
-    /**
-     * @return (Optional) The type of the finding. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaFindingType> findingTypes() {
         return this.findingTypes == null ? List.of() : this.findingTypes;
     }
-    /**
-     * @return (Optional) When the finding was first observed. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaFirstObservedAt> firstObservedAts() {
         return this.firstObservedAts == null ? List.of() : this.firstObservedAts;
     }
-    /**
-     * @return (Optional) Availability of the fix. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaFixAvailable> fixAvailables() {
         return this.fixAvailables == null ? List.of() : this.fixAvailables;
     }
-    /**
-     * @return (Optional) The Inspector score given to the finding. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaInspectorScore> inspectorScores() {
         return this.inspectorScores == null ? List.of() : this.inspectorScores;
     }
-    /**
-     * @return (Optional) Lambda execution role ARN. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaLambdaFunctionExecutionRoleArn> lambdaFunctionExecutionRoleArns() {
         return this.lambdaFunctionExecutionRoleArns == null ? List.of() : this.lambdaFunctionExecutionRoleArns;
     }
-    /**
-     * @return (Optional) Last modified timestamp of the lambda function. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaLambdaFunctionLastModifiedAt> lambdaFunctionLastModifiedAts() {
         return this.lambdaFunctionLastModifiedAts == null ? List.of() : this.lambdaFunctionLastModifiedAts;
     }
-    /**
-     * @return (Optional) Lambda function layers. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaLambdaFunctionLayer> lambdaFunctionLayers() {
         return this.lambdaFunctionLayers == null ? List.of() : this.lambdaFunctionLayers;
     }
-    /**
-     * @return (Optional) Lambda function name. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaLambdaFunctionName> lambdaFunctionNames() {
         return this.lambdaFunctionNames == null ? List.of() : this.lambdaFunctionNames;
     }
-    /**
-     * @return (Optional) Lambda function runtime. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaLambdaFunctionRuntime> lambdaFunctionRuntimes() {
         return this.lambdaFunctionRuntimes == null ? List.of() : this.lambdaFunctionRuntimes;
     }
-    /**
-     * @return (Optional) When the finding was last observed. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaLastObservedAt> lastObservedAts() {
         return this.lastObservedAts == null ? List.of() : this.lastObservedAts;
     }
-    /**
-     * @return (Optional) The network protocol of the finding. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaNetworkProtocol> networkProtocols() {
         return this.networkProtocols == null ? List.of() : this.networkProtocols;
     }
-    /**
-     * @return (Optional) The port range of the finding. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaPortRange> portRanges() {
         return this.portRanges == null ? List.of() : this.portRanges;
     }
-    /**
-     * @return (Optional) Related vulnerabilities. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaRelatedVulnerability> relatedVulnerabilities() {
         return this.relatedVulnerabilities == null ? List.of() : this.relatedVulnerabilities;
     }
-    /**
-     * @return (Optional) The ID of the resource. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaResourceId> resourceIds() {
         return this.resourceIds == null ? List.of() : this.resourceIds;
     }
-    /**
-     * @return (Optional) The tags of the resource. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaResourceTag> resourceTags() {
         return this.resourceTags == null ? List.of() : this.resourceTags;
     }
-    /**
-     * @return (Optional) The type of the resource. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaResourceType> resourceTypes() {
         return this.resourceTypes == null ? List.of() : this.resourceTypes;
     }
-    /**
-     * @return (Optional) The severity of the finding. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaSeverity> severities() {
         return this.severities == null ? List.of() : this.severities;
     }
-    /**
-     * @return (Optional) The title of the finding. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaTitle> titles() {
         return this.titles == null ? List.of() : this.titles;
     }
-    /**
-     * @return (Optional) When the finding was last updated. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaUpdatedAt> updatedAts() {
         return this.updatedAts == null ? List.of() : this.updatedAts;
     }
-    /**
-     * @return (Optional) The severity as reported by the vendor. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaVendorSeverity> vendorSeverities() {
         return this.vendorSeverities == null ? List.of() : this.vendorSeverities;
     }
-    /**
-     * @return (Optional) The ID of the vulnerability. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaVulnerabilityId> vulnerabilityIds() {
         return this.vulnerabilityIds == null ? List.of() : this.vulnerabilityIds;
     }
-    /**
-     * @return (Optional) The source of the vulnerability. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaVulnerabilitySource> vulnerabilitySources() {
         return this.vulnerabilitySources == null ? List.of() : this.vulnerabilitySources;
     }
-    /**
-     * @return (Optional) Details about vulnerable packages. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaVulnerablePackage> vulnerablePackages() {
         return this.vulnerablePackages == null ? List.of() : this.vulnerablePackages;
     }

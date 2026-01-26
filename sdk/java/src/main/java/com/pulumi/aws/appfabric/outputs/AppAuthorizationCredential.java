@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AppAuthorizationCredential {
-    /**
-     * @return Contains API key credential information.
-     * 
-     */
     private @Nullable List<AppAuthorizationCredentialApiKeyCredential> apiKeyCredentials;
-    /**
-     * @return Contains OAuth2 client credential information.
-     * 
-     */
     private @Nullable AppAuthorizationCredentialOauth2Credential oauth2Credential;
 
     private AppAuthorizationCredential() {}
-    /**
-     * @return Contains API key credential information.
-     * 
-     */
     public List<AppAuthorizationCredentialApiKeyCredential> apiKeyCredentials() {
         return this.apiKeyCredentials == null ? List.of() : this.apiKeyCredentials;
     }
-    /**
-     * @return Contains OAuth2 client credential information.
-     * 
-     */
     public Optional<AppAuthorizationCredentialOauth2Credential> oauth2Credential() {
         return Optional.ofNullable(this.oauth2Credential);
     }

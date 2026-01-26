@@ -12,15 +12,9 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class DistributionTenantCustomizationsWebAclGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Action to take for the web ACL. Valid values: `Allow`, `Block`.
-        /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
 
-        /// <summary>
-        /// ARN of the distribution tenant.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 

@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepIntentSlotGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-        /// </summary>
         [Input("mapBlockKey", required: true)]
         public Input<string> MapBlockKey { get; set; } = null!;
 
-        /// <summary>
-        /// When the shape value is `List`, `Values` contains a list of slot values. When the value is `Scalar`, `Value` contains a single value.
-        /// </summary>
         [Input("shape")]
         public Input<string>? Shape { get; set; }
 
-        /// <summary>
-        /// Configuration block for the current value of the slot. See `Value`.
-        /// </summary>
         [Input("value")]
         public Input<Inputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValueGetArgs>? Value { get; set; }
 

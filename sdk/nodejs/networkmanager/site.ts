@@ -7,27 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Network Manager site. Use this resource to create a site in a global network.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkmanager.GlobalNetwork("example", {});
- * const exampleSite = new aws.networkmanager.Site("example", {globalNetworkId: example.id});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_networkmanager_site` using the site ARN. For example:
- *
- * ```sh
- * $ pulumi import aws:networkmanager/site:Site example arn:aws:networkmanager::123456789012:site/global-network-0d47f6t230mz46dy4/site-444555aaabbb11223
- * ```
- */
 export class Site extends pulumi.CustomResource {
     /**
      * Get an existing Site resource's state with the given name, ID, and optional extra
@@ -56,31 +35,11 @@ export class Site extends pulumi.CustomResource {
         return obj['__pulumiType'] === Site.__pulumiType;
     }
 
-    /**
-     * Site ARN.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Description of the Site.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * ID of the Global Network to create the site in.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly globalNetworkId: pulumi.Output<string>;
-    /**
-     * Site location. See below.
-     */
     declare public readonly location: pulumi.Output<outputs.networkmanager.SiteLocation | undefined>;
-    /**
-     * Key-value tags for the Site. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -123,31 +82,11 @@ export class Site extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Site resources.
  */
 export interface SiteState {
-    /**
-     * Site ARN.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Description of the Site.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * ID of the Global Network to create the site in.
-     *
-     * The following arguments are optional:
-     */
     globalNetworkId?: pulumi.Input<string>;
-    /**
-     * Site location. See below.
-     */
     location?: pulumi.Input<inputs.networkmanager.SiteLocation>;
-    /**
-     * Key-value tags for the Site. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -155,22 +94,8 @@ export interface SiteState {
  * The set of arguments for constructing a Site resource.
  */
 export interface SiteArgs {
-    /**
-     * Description of the Site.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * ID of the Global Network to create the site in.
-     *
-     * The following arguments are optional:
-     */
     globalNetworkId: pulumi.Input<string>;
-    /**
-     * Site location. See below.
-     */
     location?: pulumi.Input<inputs.networkmanager.SiteLocation>;
-    /**
-     * Key-value tags for the Site. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

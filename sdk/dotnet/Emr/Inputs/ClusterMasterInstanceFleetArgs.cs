@@ -12,33 +12,20 @@ namespace Pulumi.Aws.Emr.Inputs
 
     public sealed class ClusterMasterInstanceFleetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the cluster.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         [Input("instanceTypeConfigs")]
         private InputList<Inputs.ClusterMasterInstanceFleetInstanceTypeConfigArgs>? _instanceTypeConfigs;
-
-        /// <summary>
-        /// Configuration block for instance fleet.
-        /// </summary>
         public InputList<Inputs.ClusterMasterInstanceFleetInstanceTypeConfigArgs> InstanceTypeConfigs
         {
             get => _instanceTypeConfigs ?? (_instanceTypeConfigs = new InputList<Inputs.ClusterMasterInstanceFleetInstanceTypeConfigArgs>());
             set => _instanceTypeConfigs = value;
         }
 
-        /// <summary>
-        /// Configuration block for launch specification.
-        /// </summary>
         [Input("launchSpecifications")]
         public Input<Inputs.ClusterMasterInstanceFleetLaunchSpecificationsArgs>? LaunchSpecifications { get; set; }
 
-        /// <summary>
-        /// Friendly name given to the instance fleet.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -48,15 +35,9 @@ namespace Pulumi.Aws.Emr.Inputs
         [Input("provisionedSpotCapacity")]
         public Input<int>? ProvisionedSpotCapacity { get; set; }
 
-        /// <summary>
-        /// Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
-        /// </summary>
         [Input("targetOnDemandCapacity")]
         public Input<int>? TargetOnDemandCapacity { get; set; }
 
-        /// <summary>
-        /// Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
-        /// </summary>
         [Input("targetSpotCapacity")]
         public Input<int>? TargetSpotCapacity { get; set; }
 

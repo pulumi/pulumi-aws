@@ -31,14 +31,6 @@ class GameSessionQueueArgs:
                  timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a GameSessionQueue resource.
-        :param pulumi.Input[_builtins.str] custom_event_data: Information to be added to all events that are related to this game session queue.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destinations: List of fleet/alias ARNs used by session queue for placing game sessions.
-        :param pulumi.Input[_builtins.str] name: Name of the session queue.
-        :param pulumi.Input[_builtins.str] notification_target: An SNS topic ARN that is set up to receive game session placement notifications.
-        :param pulumi.Input[Sequence[pulumi.Input['GameSessionQueuePlayerLatencyPolicyArgs']]] player_latency_policies: One or more policies used to choose fleet based on player latency. See below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.int] timeout_in_seconds: Maximum time a game session request can remain in the queue.
         """
         if custom_event_data is not None:
             pulumi.set(__self__, "custom_event_data", custom_event_data)
@@ -60,9 +52,6 @@ class GameSessionQueueArgs:
     @_builtins.property
     @pulumi.getter(name="customEventData")
     def custom_event_data(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Information to be added to all events that are related to this game session queue.
-        """
         return pulumi.get(self, "custom_event_data")
 
     @custom_event_data.setter
@@ -72,9 +61,6 @@ class GameSessionQueueArgs:
     @_builtins.property
     @pulumi.getter
     def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of fleet/alias ARNs used by session queue for placing game sessions.
-        """
         return pulumi.get(self, "destinations")
 
     @destinations.setter
@@ -84,9 +70,6 @@ class GameSessionQueueArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the session queue.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -96,9 +79,6 @@ class GameSessionQueueArgs:
     @_builtins.property
     @pulumi.getter(name="notificationTarget")
     def notification_target(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        An SNS topic ARN that is set up to receive game session placement notifications.
-        """
         return pulumi.get(self, "notification_target")
 
     @notification_target.setter
@@ -108,9 +88,6 @@ class GameSessionQueueArgs:
     @_builtins.property
     @pulumi.getter(name="playerLatencyPolicies")
     def player_latency_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GameSessionQueuePlayerLatencyPolicyArgs']]]]:
-        """
-        One or more policies used to choose fleet based on player latency. See below.
-        """
         return pulumi.get(self, "player_latency_policies")
 
     @player_latency_policies.setter
@@ -120,9 +97,6 @@ class GameSessionQueueArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -132,9 +106,6 @@ class GameSessionQueueArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -144,9 +115,6 @@ class GameSessionQueueArgs:
     @_builtins.property
     @pulumi.getter(name="timeoutInSeconds")
     def timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Maximum time a game session request can remain in the queue.
-        """
         return pulumi.get(self, "timeout_in_seconds")
 
     @timeout_in_seconds.setter
@@ -169,16 +137,6 @@ class _GameSessionQueueState:
                  timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering GameSessionQueue resources.
-        :param pulumi.Input[_builtins.str] arn: Game Session Queue ARN.
-        :param pulumi.Input[_builtins.str] custom_event_data: Information to be added to all events that are related to this game session queue.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destinations: List of fleet/alias ARNs used by session queue for placing game sessions.
-        :param pulumi.Input[_builtins.str] name: Name of the session queue.
-        :param pulumi.Input[_builtins.str] notification_target: An SNS topic ARN that is set up to receive game session placement notifications.
-        :param pulumi.Input[Sequence[pulumi.Input['GameSessionQueuePlayerLatencyPolicyArgs']]] player_latency_policies: One or more policies used to choose fleet based on player latency. See below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.int] timeout_in_seconds: Maximum time a game session request can remain in the queue.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -204,9 +162,6 @@ class _GameSessionQueueState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Game Session Queue ARN.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -216,9 +171,6 @@ class _GameSessionQueueState:
     @_builtins.property
     @pulumi.getter(name="customEventData")
     def custom_event_data(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Information to be added to all events that are related to this game session queue.
-        """
         return pulumi.get(self, "custom_event_data")
 
     @custom_event_data.setter
@@ -228,9 +180,6 @@ class _GameSessionQueueState:
     @_builtins.property
     @pulumi.getter
     def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of fleet/alias ARNs used by session queue for placing game sessions.
-        """
         return pulumi.get(self, "destinations")
 
     @destinations.setter
@@ -240,9 +189,6 @@ class _GameSessionQueueState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the session queue.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -252,9 +198,6 @@ class _GameSessionQueueState:
     @_builtins.property
     @pulumi.getter(name="notificationTarget")
     def notification_target(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        An SNS topic ARN that is set up to receive game session placement notifications.
-        """
         return pulumi.get(self, "notification_target")
 
     @notification_target.setter
@@ -264,9 +207,6 @@ class _GameSessionQueueState:
     @_builtins.property
     @pulumi.getter(name="playerLatencyPolicies")
     def player_latency_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GameSessionQueuePlayerLatencyPolicyArgs']]]]:
-        """
-        One or more policies used to choose fleet based on player latency. See below.
-        """
         return pulumi.get(self, "player_latency_policies")
 
     @player_latency_policies.setter
@@ -276,9 +216,6 @@ class _GameSessionQueueState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -288,9 +225,6 @@ class _GameSessionQueueState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -300,9 +234,6 @@ class _GameSessionQueueState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -312,9 +243,6 @@ class _GameSessionQueueState:
     @_builtins.property
     @pulumi.getter(name="timeoutInSeconds")
     def timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Maximum time a game session request can remain in the queue.
-        """
         return pulumi.get(self, "timeout_in_seconds")
 
     @timeout_in_seconds.setter
@@ -338,51 +266,9 @@ class GameSessionQueue(pulumi.CustomResource):
                  timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
-        Provides an GameLift Game Session Queue resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.gamelift.GameSessionQueue("test",
-            name="example-session-queue",
-            destinations=[
-                us_west2_fleet["arn"],
-                eu_central1_fleet["arn"],
-            ],
-            notification_target=game_session_queue_notifications["arn"],
-            player_latency_policies=[
-                {
-                    "maximum_individual_player_latency_milliseconds": 100,
-                    "policy_duration_seconds": 5,
-                },
-                {
-                    "maximum_individual_player_latency_milliseconds": 200,
-                },
-            ],
-            timeout_in_seconds=60)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import GameLift Game Session Queues using their `name`. For example:
-
-        ```sh
-        $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
-        ```
-
+        Create a GameSessionQueue resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] custom_event_data: Information to be added to all events that are related to this game session queue.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destinations: List of fleet/alias ARNs used by session queue for placing game sessions.
-        :param pulumi.Input[_builtins.str] name: Name of the session queue.
-        :param pulumi.Input[_builtins.str] notification_target: An SNS topic ARN that is set up to receive game session placement notifications.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GameSessionQueuePlayerLatencyPolicyArgs', 'GameSessionQueuePlayerLatencyPolicyArgsDict']]]] player_latency_policies: One or more policies used to choose fleet based on player latency. See below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.int] timeout_in_seconds: Maximum time a game session request can remain in the queue.
         """
         ...
     @overload
@@ -391,41 +277,7 @@ class GameSessionQueue(pulumi.CustomResource):
                  args: Optional[GameSessionQueueArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an GameLift Game Session Queue resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.gamelift.GameSessionQueue("test",
-            name="example-session-queue",
-            destinations=[
-                us_west2_fleet["arn"],
-                eu_central1_fleet["arn"],
-            ],
-            notification_target=game_session_queue_notifications["arn"],
-            player_latency_policies=[
-                {
-                    "maximum_individual_player_latency_milliseconds": 100,
-                    "policy_duration_seconds": 5,
-                },
-                {
-                    "maximum_individual_player_latency_milliseconds": 200,
-                },
-            ],
-            timeout_in_seconds=60)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import GameLift Game Session Queues using their `name`. For example:
-
-        ```sh
-        $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
-        ```
-
+        Create a GameSessionQueue resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param GameSessionQueueArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -495,16 +347,6 @@ class GameSessionQueue(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Game Session Queue ARN.
-        :param pulumi.Input[_builtins.str] custom_event_data: Information to be added to all events that are related to this game session queue.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destinations: List of fleet/alias ARNs used by session queue for placing game sessions.
-        :param pulumi.Input[_builtins.str] name: Name of the session queue.
-        :param pulumi.Input[_builtins.str] notification_target: An SNS topic ARN that is set up to receive game session placement notifications.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GameSessionQueuePlayerLatencyPolicyArgs', 'GameSessionQueuePlayerLatencyPolicyArgsDict']]]] player_latency_policies: One or more policies used to choose fleet based on player latency. See below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.int] timeout_in_seconds: Maximum time a game session request can remain in the queue.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -525,80 +367,50 @@ class GameSessionQueue(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Game Session Queue ARN.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="customEventData")
     def custom_event_data(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Information to be added to all events that are related to this game session queue.
-        """
         return pulumi.get(self, "custom_event_data")
 
     @_builtins.property
     @pulumi.getter
     def destinations(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        List of fleet/alias ARNs used by session queue for placing game sessions.
-        """
         return pulumi.get(self, "destinations")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the session queue.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="notificationTarget")
     def notification_target(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        An SNS topic ARN that is set up to receive game session placement notifications.
-        """
         return pulumi.get(self, "notification_target")
 
     @_builtins.property
     @pulumi.getter(name="playerLatencyPolicies")
     def player_latency_policies(self) -> pulumi.Output[Optional[Sequence['outputs.GameSessionQueuePlayerLatencyPolicy']]]:
-        """
-        One or more policies used to choose fleet based on player latency. See below.
-        """
         return pulumi.get(self, "player_latency_policies")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="timeoutInSeconds")
     def timeout_in_seconds(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Maximum time a game session request can remain in the queue.
-        """
         return pulumi.get(self, "timeout_in_seconds")
 

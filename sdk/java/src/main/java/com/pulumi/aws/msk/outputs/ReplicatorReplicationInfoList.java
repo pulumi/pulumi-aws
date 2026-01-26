@@ -15,73 +15,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ReplicatorReplicationInfoList {
-    /**
-     * @return Configuration relating to consumer group replication.
-     * 
-     */
     private List<ReplicatorReplicationInfoListConsumerGroupReplication> consumerGroupReplications;
     private @Nullable String sourceKafkaClusterAlias;
-    /**
-     * @return The ARN of the source Kafka cluster.
-     * 
-     */
     private String sourceKafkaClusterArn;
-    /**
-     * @return The type of compression to use writing records to target Kafka cluster.
-     * 
-     */
     private String targetCompressionType;
     private @Nullable String targetKafkaClusterAlias;
-    /**
-     * @return The ARN of the target Kafka cluster.
-     * 
-     */
     private String targetKafkaClusterArn;
-    /**
-     * @return Configuration relating to topic replication.
-     * 
-     */
     private List<ReplicatorReplicationInfoListTopicReplication> topicReplications;
 
     private ReplicatorReplicationInfoList() {}
-    /**
-     * @return Configuration relating to consumer group replication.
-     * 
-     */
     public List<ReplicatorReplicationInfoListConsumerGroupReplication> consumerGroupReplications() {
         return this.consumerGroupReplications;
     }
     public Optional<String> sourceKafkaClusterAlias() {
         return Optional.ofNullable(this.sourceKafkaClusterAlias);
     }
-    /**
-     * @return The ARN of the source Kafka cluster.
-     * 
-     */
     public String sourceKafkaClusterArn() {
         return this.sourceKafkaClusterArn;
     }
-    /**
-     * @return The type of compression to use writing records to target Kafka cluster.
-     * 
-     */
     public String targetCompressionType() {
         return this.targetCompressionType;
     }
     public Optional<String> targetKafkaClusterAlias() {
         return Optional.ofNullable(this.targetKafkaClusterAlias);
     }
-    /**
-     * @return The ARN of the target Kafka cluster.
-     * 
-     */
     public String targetKafkaClusterArn() {
         return this.targetKafkaClusterArn;
     }
-    /**
-     * @return Configuration relating to topic replication.
-     * 
-     */
     public List<ReplicatorReplicationInfoListTopicReplication> topicReplications() {
         return this.topicReplications;
     }

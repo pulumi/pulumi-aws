@@ -7,23 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Retrieve information about EMR Release Labels.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.emr.getReleaseLabels({
- *     filters: {
- *         application: "spark@2.1.0",
- *         prefix: "emr-5",
- *     },
- * });
- * ```
- */
 export function getReleaseLabels(args?: GetReleaseLabelsArgs, opts?: pulumi.InvokeOptions): Promise<GetReleaseLabelsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,13 +20,7 @@ export function getReleaseLabels(args?: GetReleaseLabelsArgs, opts?: pulumi.Invo
  * A collection of arguments for invoking getReleaseLabels.
  */
 export interface GetReleaseLabelsArgs {
-    /**
-     * Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
-     */
     filters?: inputs.emr.GetReleaseLabelsFilters;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -57,28 +34,8 @@ export interface GetReleaseLabelsResult {
      */
     readonly id: string;
     readonly region: string;
-    /**
-     * Returned release labels.
-     */
     readonly releaseLabels: string[];
 }
-/**
- * Retrieve information about EMR Release Labels.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.emr.getReleaseLabels({
- *     filters: {
- *         application: "spark@2.1.0",
- *         prefix: "emr-5",
- *     },
- * });
- * ```
- */
 export function getReleaseLabelsOutput(args?: GetReleaseLabelsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReleaseLabelsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -92,12 +49,6 @@ export function getReleaseLabelsOutput(args?: GetReleaseLabelsOutputArgs, opts?:
  * A collection of arguments for invoking getReleaseLabels.
  */
 export interface GetReleaseLabelsOutputArgs {
-    /**
-     * Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
-     */
     filters?: pulumi.Input<inputs.emr.GetReleaseLabelsFiltersArgs>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

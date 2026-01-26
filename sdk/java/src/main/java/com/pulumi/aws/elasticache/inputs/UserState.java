@@ -19,122 +19,58 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
 
     public static final UserState Empty = new UserState();
 
-    /**
-     * Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
-     * 
-     */
     @Import(name="accessString")
     private @Nullable Output<String> accessString;
 
-    /**
-     * @return Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
-     * 
-     */
     public Optional<Output<String>> accessString() {
         return Optional.ofNullable(this.accessString);
     }
 
-    /**
-     * The ARN of the created ElastiCache User.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The ARN of the created ElastiCache User.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Denotes the user&#39;s authentication properties. Detailed below.
-     * 
-     */
     @Import(name="authenticationMode")
     private @Nullable Output<UserAuthenticationModeArgs> authenticationMode;
 
-    /**
-     * @return Denotes the user&#39;s authentication properties. Detailed below.
-     * 
-     */
     public Optional<Output<UserAuthenticationModeArgs>> authenticationMode() {
         return Optional.ofNullable(this.authenticationMode);
     }
 
-    /**
-     * The current supported values are `redis`, `valkey` (case insensitive).
-     * 
-     */
     @Import(name="engine")
     private @Nullable Output<String> engine;
 
-    /**
-     * @return The current supported values are `redis`, `valkey` (case insensitive).
-     * 
-     */
     public Optional<Output<String>> engine() {
         return Optional.ofNullable(this.engine);
     }
 
-    /**
-     * Indicates a password is not required for this user.
-     * 
-     */
     @Import(name="noPasswordRequired")
     private @Nullable Output<Boolean> noPasswordRequired;
 
-    /**
-     * @return Indicates a password is not required for this user.
-     * 
-     */
     public Optional<Output<Boolean>> noPasswordRequired() {
         return Optional.ofNullable(this.noPasswordRequired);
     }
 
-    /**
-     * Passwords used for this user. You can create up to two passwords for each user.
-     * 
-     */
     @Import(name="passwords")
     private @Nullable Output<List<String>> passwords;
 
-    /**
-     * @return Passwords used for this user. You can create up to two passwords for each user.
-     * 
-     */
     public Optional<Output<List<String>>> passwords() {
         return Optional.ofNullable(this.passwords);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A list of tags to be added to this resource. A tag is a key-value pair.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A list of tags to be added to this resource. A tag is a key-value pair.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -146,36 +82,16 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tagsAll);
     }
 
-    /**
-     * The ID of the user.
-     * 
-     */
     @Import(name="userId")
     private @Nullable Output<String> userId;
 
-    /**
-     * @return The ID of the user.
-     * 
-     */
     public Optional<Output<String>> userId() {
         return Optional.ofNullable(this.userId);
     }
 
-    /**
-     * The username of the user.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="userName")
     private @Nullable Output<String> userName;
 
-    /**
-     * @return The username of the user.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> userName() {
         return Optional.ofNullable(this.userName);
     }
@@ -214,180 +130,78 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
             $ = new UserState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessString Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessString(@Nullable Output<String> accessString) {
             $.accessString = accessString;
             return this;
         }
 
-        /**
-         * @param accessString Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessString(String accessString) {
             return accessString(Output.of(accessString));
         }
 
-        /**
-         * @param arn The ARN of the created ElastiCache User.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The ARN of the created ElastiCache User.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param authenticationMode Denotes the user&#39;s authentication properties. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticationMode(@Nullable Output<UserAuthenticationModeArgs> authenticationMode) {
             $.authenticationMode = authenticationMode;
             return this;
         }
 
-        /**
-         * @param authenticationMode Denotes the user&#39;s authentication properties. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticationMode(UserAuthenticationModeArgs authenticationMode) {
             return authenticationMode(Output.of(authenticationMode));
         }
 
-        /**
-         * @param engine The current supported values are `redis`, `valkey` (case insensitive).
-         * 
-         * @return builder
-         * 
-         */
         public Builder engine(@Nullable Output<String> engine) {
             $.engine = engine;
             return this;
         }
 
-        /**
-         * @param engine The current supported values are `redis`, `valkey` (case insensitive).
-         * 
-         * @return builder
-         * 
-         */
         public Builder engine(String engine) {
             return engine(Output.of(engine));
         }
 
-        /**
-         * @param noPasswordRequired Indicates a password is not required for this user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder noPasswordRequired(@Nullable Output<Boolean> noPasswordRequired) {
             $.noPasswordRequired = noPasswordRequired;
             return this;
         }
 
-        /**
-         * @param noPasswordRequired Indicates a password is not required for this user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder noPasswordRequired(Boolean noPasswordRequired) {
             return noPasswordRequired(Output.of(noPasswordRequired));
         }
 
-        /**
-         * @param passwords Passwords used for this user. You can create up to two passwords for each user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwords(@Nullable Output<List<String>> passwords) {
             $.passwords = passwords;
             return this;
         }
 
-        /**
-         * @param passwords Passwords used for this user. You can create up to two passwords for each user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwords(List<String> passwords) {
             return passwords(Output.of(passwords));
         }
 
-        /**
-         * @param passwords Passwords used for this user. You can create up to two passwords for each user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwords(String... passwords) {
             return passwords(List.of(passwords));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags A list of tags to be added to this resource. A tag is a key-value pair.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A list of tags to be added to this resource. A tag is a key-value pair.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
@@ -401,48 +215,20 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
             return tagsAll(Output.of(tagsAll));
         }
 
-        /**
-         * @param userId The ID of the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userId(@Nullable Output<String> userId) {
             $.userId = userId;
             return this;
         }
 
-        /**
-         * @param userId The ID of the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userId(String userId) {
             return userId(Output.of(userId));
         }
 
-        /**
-         * @param userName The username of the user.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(@Nullable Output<String> userName) {
             $.userName = userName;
             return this;
         }
 
-        /**
-         * @param userName The username of the user.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(String userName) {
             return userName(Output.of(userName));
         }

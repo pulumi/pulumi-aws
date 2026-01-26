@@ -16,36 +16,16 @@ public final class PolicyExcludeMapArgs extends com.pulumi.resources.ResourceArg
 
     public static final PolicyExcludeMapArgs Empty = new PolicyExcludeMapArgs();
 
-    /**
-     * A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
-     * 
-     */
     @Import(name="accounts")
     private @Nullable Output<List<String>> accounts;
 
-    /**
-     * @return A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
-     * 
-     */
     public Optional<Output<List<String>>> accounts() {
         return Optional.ofNullable(this.accounts);
     }
 
-    /**
-     * A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
-     * 
-     * You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
-     * 
-     */
     @Import(name="orgunits")
     private @Nullable Output<List<String>> orgunits;
 
-    /**
-     * @return A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
-     * 
-     * You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
-     * 
-     */
     public Optional<Output<List<String>>> orgunits() {
         return Optional.ofNullable(this.orgunits);
     }
@@ -75,70 +55,28 @@ public final class PolicyExcludeMapArgs extends com.pulumi.resources.ResourceArg
             $ = new PolicyExcludeMapArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accounts A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accounts(@Nullable Output<List<String>> accounts) {
             $.accounts = accounts;
             return this;
         }
 
-        /**
-         * @param accounts A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accounts(List<String> accounts) {
             return accounts(Output.of(accounts));
         }
 
-        /**
-         * @param accounts A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accounts(String... accounts) {
             return accounts(List.of(accounts));
         }
 
-        /**
-         * @param orgunits A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
-         * 
-         * You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder orgunits(@Nullable Output<List<String>> orgunits) {
             $.orgunits = orgunits;
             return this;
         }
 
-        /**
-         * @param orgunits A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
-         * 
-         * You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder orgunits(List<String> orgunits) {
             return orgunits(Output.of(orgunits));
         }
 
-        /**
-         * @param orgunits A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
-         * 
-         * You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder orgunits(String... orgunits) {
             return orgunits(List.of(orgunits));
         }

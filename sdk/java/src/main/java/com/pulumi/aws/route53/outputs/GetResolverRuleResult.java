@@ -13,10 +13,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetResolverRuleResult {
-    /**
-     * @return ARN (Amazon Resource Name) for the resolver rule.
-     * 
-     */
     private String arn;
     private String domainName;
     /**
@@ -25,37 +21,16 @@ public final class GetResolverRuleResult {
      */
     private String id;
     private String name;
-    /**
-     * @return When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
-     * 
-     */
     private String ownerId;
     private String region;
     private String resolverEndpointId;
     private String resolverRuleId;
     private String ruleType;
-    /**
-     * @return Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
-     * Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
-     * 
-     */
     private String shareStatus;
-    /**
-     * @return Map of tags assigned to the resolver rule.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return List of configurations for target IP addresses. Only applicable for `FORWARD` rules. See `targetIps` below for details.
-     * 
-     */
     private List<GetResolverRuleTargetIp> targetIps;
 
     private GetResolverRuleResult() {}
-    /**
-     * @return ARN (Amazon Resource Name) for the resolver rule.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
@@ -72,10 +47,6 @@ public final class GetResolverRuleResult {
     public String name() {
         return this.name;
     }
-    /**
-     * @return When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
-     * 
-     */
     public String ownerId() {
         return this.ownerId;
     }
@@ -91,25 +62,12 @@ public final class GetResolverRuleResult {
     public String ruleType() {
         return this.ruleType;
     }
-    /**
-     * @return Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
-     * Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
-     * 
-     */
     public String shareStatus() {
         return this.shareStatus;
     }
-    /**
-     * @return Map of tags assigned to the resolver rule.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return List of configurations for target IP addresses. Only applicable for `FORWARD` rules. See `targetIps` below for details.
-     * 
-     */
     public List<GetResolverRuleTargetIp> targetIps() {
         return this.targetIps;
     }

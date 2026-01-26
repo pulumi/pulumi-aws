@@ -13,19 +13,8 @@ namespace Pulumi.Aws.Amplify.Outputs
     [OutputType]
     public sealed class DomainAssociationCertificateSettings
     {
-        /// <summary>
-        /// DNS records for certificate verification in a space-delimited format (`&lt;record&gt; CNAME &lt;target&gt;`).
-        /// </summary>
         public readonly string? CertificateVerificationDnsRecord;
-        /// <summary>
-        /// The Amazon resource name (ARN) for the custom certificate.
-        /// Required when `Type` is `CUSTOM`.
-        /// </summary>
         public readonly string? CustomCertificateArn;
-        /// <summary>
-        /// The certificate type.
-        /// Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

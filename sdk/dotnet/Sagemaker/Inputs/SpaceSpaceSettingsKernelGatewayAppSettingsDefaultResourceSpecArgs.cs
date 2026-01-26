@@ -12,33 +12,18 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The instance type.
-        /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-        /// </summary>
         [Input("lifecycleConfigArn")]
         public Input<string>? LifecycleConfigArn { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
-        /// </summary>
         [Input("sagemakerImageArn")]
         public Input<string>? SagemakerImageArn { get; set; }
 
-        /// <summary>
-        /// The SageMaker AI Image Version Alias.
-        /// </summary>
         [Input("sagemakerImageVersionAlias")]
         public Input<string>? SagemakerImageVersionAlias { get; set; }
 
-        /// <summary>
-        /// The ARN of the image version created on the instance.
-        /// </summary>
         [Input("sagemakerImageVersionArn")]
         public Input<string>? SagemakerImageVersionArn { get; set; }
 

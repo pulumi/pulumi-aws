@@ -17,39 +17,22 @@ public final class HostKeyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final HostKeyArgs Empty = new HostKeyArgs();
 
-    /**
-     * Text description.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Text description.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Private key portion of an SSH key pair.
-     * 
-     */
     @Import(name="hostKeyBody")
     private @Nullable Output<String> hostKeyBody;
 
-    /**
-     * @return Private key portion of an SSH key pair.
-     * 
-     */
     public Optional<Output<String>> hostKeyBody() {
         return Optional.ofNullable(this.hostKeyBody);
     }
 
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
      * 
      */
     @Import(name="hostKeyBodyWo")
@@ -57,54 +40,29 @@ public final class HostKeyArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
      * 
      */
     public Optional<Output<String>> hostKeyBodyWo() {
         return Optional.ofNullable(this.hostKeyBodyWo);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Server ID.
-     * 
-     */
     @Import(name="serverId", required=true)
     private Output<String> serverId;
 
-    /**
-     * @return Server ID.
-     * 
-     */
     public Output<String> serverId() {
         return this.serverId;
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -138,51 +96,26 @@ public final class HostKeyArgs extends com.pulumi.resources.ResourceArgs {
             $ = new HostKeyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description Text description.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Text description.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param hostKeyBody Private key portion of an SSH key pair.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostKeyBody(@Nullable Output<String> hostKeyBody) {
             $.hostKeyBody = hostKeyBody;
             return this;
         }
 
-        /**
-         * @param hostKeyBody Private key portion of an SSH key pair.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostKeyBody(String hostKeyBody) {
             return hostKeyBody(Output.of(hostKeyBody));
         }
 
         /**
          * @param hostKeyBodyWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
          * 
          * @return builder
          * 
@@ -194,7 +127,6 @@ public final class HostKeyArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param hostKeyBodyWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
          * 
          * @return builder
          * 
@@ -203,65 +135,29 @@ public final class HostKeyArgs extends com.pulumi.resources.ResourceArgs {
             return hostKeyBodyWo(Output.of(hostKeyBodyWo));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param serverId Server ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverId(Output<String> serverId) {
             $.serverId = serverId;
             return this;
         }
 
-        /**
-         * @param serverId Server ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverId(String serverId) {
             return serverId(Output.of(serverId));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

@@ -17,62 +17,30 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
 
     public static final SchemaState Empty = new SchemaState();
 
-    /**
-     * The definition of the schema.
-     * 
-     */
     @Import(name="definition")
     private @Nullable Output<SchemaDefinitionArgs> definition;
 
-    /**
-     * @return The definition of the schema.
-     * 
-     */
     public Optional<Output<SchemaDefinitionArgs>> definition() {
         return Optional.ofNullable(this.definition);
     }
 
-    /**
-     * (Optional) Identifies the namespaces of the entities referenced by this schema.
-     * 
-     */
     @Import(name="namespaces")
     private @Nullable Output<List<String>> namespaces;
 
-    /**
-     * @return (Optional) Identifies the namespaces of the entities referenced by this schema.
-     * 
-     */
     public Optional<Output<List<String>>> namespaces() {
         return Optional.ofNullable(this.namespaces);
     }
 
-    /**
-     * The ID of the Policy Store.
-     * 
-     */
     @Import(name="policyStoreId")
     private @Nullable Output<String> policyStoreId;
 
-    /**
-     * @return The ID of the Policy Store.
-     * 
-     */
     public Optional<Output<String>> policyStoreId() {
         return Optional.ofNullable(this.policyStoreId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -104,96 +72,42 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
             $ = new SchemaState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param definition The definition of the schema.
-         * 
-         * @return builder
-         * 
-         */
         public Builder definition(@Nullable Output<SchemaDefinitionArgs> definition) {
             $.definition = definition;
             return this;
         }
 
-        /**
-         * @param definition The definition of the schema.
-         * 
-         * @return builder
-         * 
-         */
         public Builder definition(SchemaDefinitionArgs definition) {
             return definition(Output.of(definition));
         }
 
-        /**
-         * @param namespaces (Optional) Identifies the namespaces of the entities referenced by this schema.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespaces(@Nullable Output<List<String>> namespaces) {
             $.namespaces = namespaces;
             return this;
         }
 
-        /**
-         * @param namespaces (Optional) Identifies the namespaces of the entities referenced by this schema.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespaces(List<String> namespaces) {
             return namespaces(Output.of(namespaces));
         }
 
-        /**
-         * @param namespaces (Optional) Identifies the namespaces of the entities referenced by this schema.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespaces(String... namespaces) {
             return namespaces(List.of(namespaces));
         }
 
-        /**
-         * @param policyStoreId The ID of the Policy Store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyStoreId(@Nullable Output<String> policyStoreId) {
             $.policyStoreId = policyStoreId;
             return this;
         }
 
-        /**
-         * @param policyStoreId The ID of the Policy Store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyStoreId(String policyStoreId) {
             return policyStoreId(Output.of(policyStoreId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

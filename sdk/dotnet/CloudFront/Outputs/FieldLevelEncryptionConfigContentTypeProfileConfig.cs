@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class FieldLevelEncryptionConfigContentTypeProfileConfig
     {
-        /// <summary>
-        /// Object that contains an attribute `Items` that contains the list of configurations for a field-level encryption content type-profile. See Content Type Profile.
-        /// </summary>
         public readonly Outputs.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles ContentTypeProfiles;
-        /// <summary>
-        /// specifies what to do when an unknown content type is provided for the profile. If true, content is forwarded without being encrypted when the content type is unknown. If false (the default), an error is returned when the content type is unknown.
-        /// </summary>
         public readonly bool ForwardWhenContentTypeIsUnknown;
 
         [OutputConstructor]

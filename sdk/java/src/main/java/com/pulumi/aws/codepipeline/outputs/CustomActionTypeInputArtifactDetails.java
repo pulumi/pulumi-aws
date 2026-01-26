@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class CustomActionTypeInputArtifactDetails {
-    /**
-     * @return The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
-     * 
-     */
     private Integer maximumCount;
-    /**
-     * @return The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
-     * 
-     */
     private Integer minimumCount;
 
     private CustomActionTypeInputArtifactDetails() {}
-    /**
-     * @return The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
-     * 
-     */
     public Integer maximumCount() {
         return this.maximumCount;
     }
-    /**
-     * @return The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
-     * 
-     */
     public Integer minimumCount() {
         return this.minimumCount;
     }

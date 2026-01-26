@@ -17,54 +17,6 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.odb.NetworkPeeringConnection;
- * import com.pulumi.aws.odb.NetworkPeeringConnectionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new NetworkPeeringConnection("example", NetworkPeeringConnectionArgs.builder()
- *             .displayName("example")
- *             .odbNetworkId("my-odb-network-id")
- *             .peerNetworkId("my-vpc-id")
- *             .tags(Map.of("env", "dev"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import odb network peering using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:odb/networkPeeringConnection:NetworkPeeringConnection example example
- * ```
- * 
- */
 @ResourceType(type="aws:odb/networkPeeringConnection:NetworkPeeringConnection")
 public class NetworkPeeringConnection extends com.pulumi.resources.CustomResource {
     @Export(name="arn", refs={String.class}, tree="[0]")
@@ -74,14 +26,14 @@ public class NetworkPeeringConnection extends com.pulumi.resources.CustomResourc
         return this.arn;
     }
     /**
-     * Created time of the ODB network peering connection.
+     * Created time of the odb network peering connection.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return Created time of the ODB network peering connection.
+     * @return Created time of the odb network peering connection.
      * 
      */
     public Output<String> createdAt() {
@@ -114,14 +66,14 @@ public class NetworkPeeringConnection extends com.pulumi.resources.CustomResourc
         return this.odbNetworkId;
     }
     /**
-     * Type of the ODB peering connection.
+     * Type of the odb peering connection.
      * 
      */
     @Export(name="odbPeeringConnectionType", refs={String.class}, tree="[0]")
     private Output<String> odbPeeringConnectionType;
 
     /**
-     * @return Type of the ODB peering connection.
+     * @return Type of the odb peering connection.
      * 
      */
     public Output<String> odbPeeringConnectionType() {
@@ -148,86 +100,62 @@ public class NetworkPeeringConnection extends com.pulumi.resources.CustomResourc
         return this.peerNetworkId;
     }
     /**
-     * Progress of the ODB network peering connection.
+     * Progress of the odb network peering connection.
      * 
      */
     @Export(name="percentProgress", refs={Double.class}, tree="[0]")
     private Output<Double> percentProgress;
 
     /**
-     * @return Progress of the ODB network peering connection.
+     * @return Progress of the odb network peering connection.
      * 
      */
     public Output<Double> percentProgress() {
         return this.percentProgress;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
     /**
-     * Status of the ODB network peering connection.
+     * Status of the odb network peering connection.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return Status of the ODB network peering connection.
+     * @return Status of the odb network peering connection.
      * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
-     * The reason for the current status of the ODB peering connection.
+     * The reason for the current status of the ODB peering connection..
      * 
      */
     @Export(name="statusReason", refs={String.class}, tree="[0]")
     private Output<String> statusReason;
 
     /**
-     * @return The reason for the current status of the ODB peering connection.
+     * @return The reason for the current status of the ODB peering connection..
      * 
      */
     public Output<String> statusReason() {
         return this.statusReason;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including inherited tags.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including inherited tags.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

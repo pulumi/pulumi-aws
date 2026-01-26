@@ -15,32 +15,16 @@ public final class GetSecretRotationPlainArgs extends com.pulumi.resources.Invok
 
     public static final GetSecretRotationPlainArgs Empty = new GetSecretRotationPlainArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
-     * 
-     */
     @Import(name="secretId", required=true)
     private String secretId;
 
-    /**
-     * @return Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
-     * 
-     */
     public String secretId() {
         return this.secretId;
     }
@@ -70,23 +54,11 @@ public final class GetSecretRotationPlainArgs extends com.pulumi.resources.Invok
             $ = new GetSecretRotationPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param secretId Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretId(String secretId) {
             $.secretId = secretId;
             return this;

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.AutoScaling.Inputs
 
     public sealed class GroupAvailabilityZoneDistributionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
-        /// </summary>
         [Input("capacityDistributionStrategy")]
         public Input<string>? CapacityDistributionStrategy { get; set; }
 

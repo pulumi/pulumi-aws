@@ -15,32 +15,16 @@ public final class DeviceAwsLocationArgs extends com.pulumi.resources.ResourceAr
 
     public static final DeviceAwsLocationArgs Empty = new DeviceAwsLocationArgs();
 
-    /**
-     * ARN of the subnet that the device is located in.
-     * 
-     */
     @Import(name="subnetArn")
     private @Nullable Output<String> subnetArn;
 
-    /**
-     * @return ARN of the subnet that the device is located in.
-     * 
-     */
     public Optional<Output<String>> subnetArn() {
         return Optional.ofNullable(this.subnetArn);
     }
 
-    /**
-     * Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
-     * 
-     */
     @Import(name="zone")
     private @Nullable Output<String> zone;
 
-    /**
-     * @return Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
-     * 
-     */
     public Optional<Output<String>> zone() {
         return Optional.ofNullable(this.zone);
     }
@@ -70,44 +54,20 @@ public final class DeviceAwsLocationArgs extends com.pulumi.resources.ResourceAr
             $ = new DeviceAwsLocationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param subnetArn ARN of the subnet that the device is located in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetArn(@Nullable Output<String> subnetArn) {
             $.subnetArn = subnetArn;
             return this;
         }
 
-        /**
-         * @param subnetArn ARN of the subnet that the device is located in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetArn(String subnetArn) {
             return subnetArn(Output.of(subnetArn));
         }
 
-        /**
-         * @param zone Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
-         * 
-         * @return builder
-         * 
-         */
         public Builder zone(@Nullable Output<String> zone) {
             $.zone = zone;
             return this;
         }
 
-        /**
-         * @param zone Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
-         * 
-         * @return builder
-         * 
-         */
         public Builder zone(String zone) {
             return zone(Output.of(zone));
         }

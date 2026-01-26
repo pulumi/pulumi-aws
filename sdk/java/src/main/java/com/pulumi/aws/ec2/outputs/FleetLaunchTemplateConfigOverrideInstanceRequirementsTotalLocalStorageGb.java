@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb {
-    /**
-     * @return The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
-     * 
-     */
     private @Nullable Double max;
-    /**
-     * @return The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
-     * 
-     */
     private @Nullable Double min;
 
     private FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb() {}
-    /**
-     * @return The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
-     * 
-     */
     public Optional<Double> max() {
         return Optional.ofNullable(this.max);
     }
-    /**
-     * @return The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
-     * 
-     */
     public Optional<Double> min() {
         return Optional.ofNullable(this.min);
     }

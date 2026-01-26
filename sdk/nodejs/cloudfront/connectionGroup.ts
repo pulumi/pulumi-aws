@@ -7,32 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Creates an Amazon CloudFront Connection Group.
- *
- * For information about CloudFront Connection Groups, see the [AWS CloudFormation Documentation](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-connectiongroup.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudfront.ConnectionGroup("example", {
- *     name: "example",
- *     enabled: true,
- *     ipv6Enabled: true,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import CloudFront Connection Groups using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:cloudfront/connectionGroup:ConnectionGroup example CGROUP123EXAMPLE
- * ```
- */
 export class ConnectionGroup extends pulumi.CustomResource {
     /**
      * Get an existing ConnectionGroup resource's state with the given name, ID, and optional extra
@@ -61,53 +35,17 @@ export class ConnectionGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConnectionGroup.__pulumiType;
     }
 
-    /**
-     * ID of the associated Anycast IP List. `ipv6Enabled` must not be set to `true` in order to set this argument
-     */
     declare public readonly anycastIpListId: pulumi.Output<string | undefined>;
-    /**
-     * ARN of the connection group.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Whether the connection group is enabled. Default is `true`.
-     */
     declare public readonly enabled: pulumi.Output<boolean>;
-    /**
-     * Current version of the connection group.
-     */
     declare public /*out*/ readonly etag: pulumi.Output<string>;
-    /**
-     * Whether IPv6 is enabled for the connection group. Default is `false`.
-     */
     declare public readonly ipv6Enabled: pulumi.Output<boolean>;
-    /**
-     * Whether the connection group is the default connection group for the distribution tenants.
-     */
     declare public /*out*/ readonly isDefault: pulumi.Output<boolean>;
-    /**
-     * Date and time when the connection group was last modified.
-     */
     declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
-    /**
-     * Name of the connection group.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * The routing endpoint (also known as the DNS name) that is assigned to the connection group, such as d111111abcdef8.cloudfront.net.
-     */
     declare public /*out*/ readonly routingEndpoint: pulumi.Output<string>;
-    /**
-     * Current status of the connection group.
-     */
     declare public /*out*/ readonly status: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.cloudfront.ConnectionGroupTimeouts | undefined>;
     declare public readonly waitForDeployment: pulumi.Output<boolean>;
@@ -165,53 +103,17 @@ export class ConnectionGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ConnectionGroup resources.
  */
 export interface ConnectionGroupState {
-    /**
-     * ID of the associated Anycast IP List. `ipv6Enabled` must not be set to `true` in order to set this argument
-     */
     anycastIpListId?: pulumi.Input<string>;
-    /**
-     * ARN of the connection group.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Whether the connection group is enabled. Default is `true`.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Current version of the connection group.
-     */
     etag?: pulumi.Input<string>;
-    /**
-     * Whether IPv6 is enabled for the connection group. Default is `false`.
-     */
     ipv6Enabled?: pulumi.Input<boolean>;
-    /**
-     * Whether the connection group is the default connection group for the distribution tenants.
-     */
     isDefault?: pulumi.Input<boolean>;
-    /**
-     * Date and time when the connection group was last modified.
-     */
     lastModifiedTime?: pulumi.Input<string>;
-    /**
-     * Name of the connection group.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The routing endpoint (also known as the DNS name) that is assigned to the connection group, such as d111111abcdef8.cloudfront.net.
-     */
     routingEndpoint?: pulumi.Input<string>;
-    /**
-     * Current status of the connection group.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.cloudfront.ConnectionGroupTimeouts>;
     waitForDeployment?: pulumi.Input<boolean>;
@@ -221,25 +123,10 @@ export interface ConnectionGroupState {
  * The set of arguments for constructing a ConnectionGroup resource.
  */
 export interface ConnectionGroupArgs {
-    /**
-     * ID of the associated Anycast IP List. `ipv6Enabled` must not be set to `true` in order to set this argument
-     */
     anycastIpListId?: pulumi.Input<string>;
-    /**
-     * Whether the connection group is enabled. Default is `true`.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Whether IPv6 is enabled for the connection group. Default is `false`.
-     */
     ipv6Enabled?: pulumi.Input<boolean>;
-    /**
-     * Name of the connection group.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.cloudfront.ConnectionGroupTimeouts>;
     waitForDeployment?: pulumi.Input<boolean>;

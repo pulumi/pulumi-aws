@@ -14,17 +14,9 @@ public final class IdcApplicationServiceIntegrationRedshiftConnectArgs extends c
 
     public static final IdcApplicationServiceIntegrationRedshiftConnectArgs Empty = new IdcApplicationServiceIntegrationRedshiftConnectArgs();
 
-    /**
-     * Determines whether the connect integration is enabled or disabled.
-     * 
-     */
     @Import(name="authorization", required=true)
     private Output<String> authorization;
 
-    /**
-     * @return Determines whether the connect integration is enabled or disabled.
-     * 
-     */
     public Output<String> authorization() {
         return this.authorization;
     }
@@ -53,23 +45,11 @@ public final class IdcApplicationServiceIntegrationRedshiftConnectArgs extends c
             $ = new IdcApplicationServiceIntegrationRedshiftConnectArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authorization Determines whether the connect integration is enabled or disabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorization(Output<String> authorization) {
             $.authorization = authorization;
             return this;
         }
 
-        /**
-         * @param authorization Determines whether the connect integration is enabled or disabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorization(String authorization) {
             return authorization(Output.of(authorization));
         }

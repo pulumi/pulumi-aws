@@ -7,51 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Network Manager VPC attachment.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkmanager.VpcAttachment("example", {
- *     subnetArns: [exampleAwsSubnet.arn],
- *     coreNetworkId: exampleAwsccNetworkmanagerCoreNetwork.id,
- *     vpcArn: exampleAwsVpc.arn,
- * });
- * ```
- *
- * ### Usage with Options
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkmanager.VpcAttachment("example", {
- *     subnetArns: [exampleAwsSubnet.arn],
- *     coreNetworkId: exampleAwsccNetworkmanagerCoreNetwork.id,
- *     vpcArn: exampleAwsVpc.arn,
- *     options: {
- *         applianceModeSupport: false,
- *         dnsSupport: true,
- *         ipv6Support: false,
- *         securityGroupReferencingSupport: true,
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_networkmanager_vpc_attachment` using the attachment ID. For example:
- *
- * ```sh
- * $ pulumi import aws:networkmanager/vpcAttachment:VpcAttachment example attachment-0f8fa60d2238d1bd8
- * ```
- */
 export class VpcAttachment extends pulumi.CustomResource {
     /**
      * Get an existing VpcAttachment resource's state with the given name, ID, and optional extra
@@ -80,71 +35,21 @@ export class VpcAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpcAttachment.__pulumiType;
     }
 
-    /**
-     * ARN of the attachment.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Policy rule number associated with the attachment.
-     */
     declare public /*out*/ readonly attachmentPolicyRuleNumber: pulumi.Output<number>;
-    /**
-     * Type of attachment.
-     */
     declare public /*out*/ readonly attachmentType: pulumi.Output<string>;
-    /**
-     * ARN of a core network.
-     */
     declare public /*out*/ readonly coreNetworkArn: pulumi.Output<string>;
-    /**
-     * ID of a core network for the VPC attachment.
-     */
     declare public readonly coreNetworkId: pulumi.Output<string>;
-    /**
-     * Region where the edge is located.
-     */
     declare public /*out*/ readonly edgeLocation: pulumi.Output<string>;
-    /**
-     * Options for the VPC attachment. See below.
-     */
     declare public readonly options: pulumi.Output<outputs.networkmanager.VpcAttachmentOptions>;
-    /**
-     * ID of the attachment account owner.
-     */
     declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
-    /**
-     * Attachment resource ARN.
-     */
     declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
-    /**
-     * The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
-     */
     declare public readonly routingPolicyLabel: pulumi.Output<string | undefined>;
-    /**
-     * Name of the segment attachment.
-     */
     declare public /*out*/ readonly segmentName: pulumi.Output<string>;
-    /**
-     * State of the attachment.
-     */
     declare public /*out*/ readonly state: pulumi.Output<string>;
-    /**
-     * Subnet ARNs of the VPC attachment.
-     */
     declare public readonly subnetArns: pulumi.Output<string[]>;
-    /**
-     * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * ARN of the VPC.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly vpcArn: pulumi.Output<string>;
 
     /**
@@ -213,71 +118,21 @@ export class VpcAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpcAttachment resources.
  */
 export interface VpcAttachmentState {
-    /**
-     * ARN of the attachment.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Policy rule number associated with the attachment.
-     */
     attachmentPolicyRuleNumber?: pulumi.Input<number>;
-    /**
-     * Type of attachment.
-     */
     attachmentType?: pulumi.Input<string>;
-    /**
-     * ARN of a core network.
-     */
     coreNetworkArn?: pulumi.Input<string>;
-    /**
-     * ID of a core network for the VPC attachment.
-     */
     coreNetworkId?: pulumi.Input<string>;
-    /**
-     * Region where the edge is located.
-     */
     edgeLocation?: pulumi.Input<string>;
-    /**
-     * Options for the VPC attachment. See below.
-     */
     options?: pulumi.Input<inputs.networkmanager.VpcAttachmentOptions>;
-    /**
-     * ID of the attachment account owner.
-     */
     ownerAccountId?: pulumi.Input<string>;
-    /**
-     * Attachment resource ARN.
-     */
     resourceArn?: pulumi.Input<string>;
-    /**
-     * The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
-     */
     routingPolicyLabel?: pulumi.Input<string>;
-    /**
-     * Name of the segment attachment.
-     */
     segmentName?: pulumi.Input<string>;
-    /**
-     * State of the attachment.
-     */
     state?: pulumi.Input<string>;
-    /**
-     * Subnet ARNs of the VPC attachment.
-     */
     subnetArns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * ARN of the VPC.
-     *
-     * The following arguments are optional:
-     */
     vpcArn?: pulumi.Input<string>;
 }
 
@@ -285,30 +140,10 @@ export interface VpcAttachmentState {
  * The set of arguments for constructing a VpcAttachment resource.
  */
 export interface VpcAttachmentArgs {
-    /**
-     * ID of a core network for the VPC attachment.
-     */
     coreNetworkId: pulumi.Input<string>;
-    /**
-     * Options for the VPC attachment. See below.
-     */
     options?: pulumi.Input<inputs.networkmanager.VpcAttachmentOptions>;
-    /**
-     * The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
-     */
     routingPolicyLabel?: pulumi.Input<string>;
-    /**
-     * Subnet ARNs of the VPC attachment.
-     */
     subnetArns: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * ARN of the VPC.
-     *
-     * The following arguments are optional:
-     */
     vpcArn: pulumi.Input<string>;
 }

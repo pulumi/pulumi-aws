@@ -18,47 +18,23 @@ public final class KxDataviewSegmentConfigurationArgs extends com.pulumi.resourc
 
     public static final KxDataviewSegmentConfigurationArgs Empty = new KxDataviewSegmentConfigurationArgs();
 
-    /**
-     * The database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
-     * 
-     */
     @Import(name="dbPaths", required=true)
     private Output<List<String>> dbPaths;
 
-    /**
-     * @return The database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
-     * 
-     */
     public Output<List<String>> dbPaths() {
         return this.dbPaths;
     }
 
-    /**
-     * Enables on-demand caching on the selected database path when a particular file or a column of the database is accessed. When on demand caching is **True**, dataviews perform minimal loading of files on the filesystem as needed. When it is set to **False**, everything is cached. The default value is **False**.
-     * 
-     */
     @Import(name="onDemand")
     private @Nullable Output<Boolean> onDemand;
 
-    /**
-     * @return Enables on-demand caching on the selected database path when a particular file or a column of the database is accessed. When on demand caching is **True**, dataviews perform minimal loading of files on the filesystem as needed. When it is set to **False**, everything is cached. The default value is **False**.
-     * 
-     */
     public Optional<Output<Boolean>> onDemand() {
         return Optional.ofNullable(this.onDemand);
     }
 
-    /**
-     * The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
-     * 
-     */
     @Import(name="volumeName", required=true)
     private Output<String> volumeName;
 
-    /**
-     * @return The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
-     * 
-     */
     public Output<String> volumeName() {
         return this.volumeName;
     }
@@ -89,75 +65,33 @@ public final class KxDataviewSegmentConfigurationArgs extends com.pulumi.resourc
             $ = new KxDataviewSegmentConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dbPaths The database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbPaths(Output<List<String>> dbPaths) {
             $.dbPaths = dbPaths;
             return this;
         }
 
-        /**
-         * @param dbPaths The database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbPaths(List<String> dbPaths) {
             return dbPaths(Output.of(dbPaths));
         }
 
-        /**
-         * @param dbPaths The database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbPaths(String... dbPaths) {
             return dbPaths(List.of(dbPaths));
         }
 
-        /**
-         * @param onDemand Enables on-demand caching on the selected database path when a particular file or a column of the database is accessed. When on demand caching is **True**, dataviews perform minimal loading of files on the filesystem as needed. When it is set to **False**, everything is cached. The default value is **False**.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onDemand(@Nullable Output<Boolean> onDemand) {
             $.onDemand = onDemand;
             return this;
         }
 
-        /**
-         * @param onDemand Enables on-demand caching on the selected database path when a particular file or a column of the database is accessed. When on demand caching is **True**, dataviews perform minimal loading of files on the filesystem as needed. When it is set to **False**, everything is cached. The default value is **False**.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onDemand(Boolean onDemand) {
             return onDemand(Output.of(onDemand));
         }
 
-        /**
-         * @param volumeName The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder volumeName(Output<String> volumeName) {
             $.volumeName = volumeName;
             return this;
         }
 
-        /**
-         * @param volumeName The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder volumeName(String volumeName) {
             return volumeName(Output.of(volumeName));
         }

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon S3 storage location where the results of a monitoring job are saved. Fields are documented below.
-        /// </summary>
         [Input("s3Output", required: true)]
         public Input<Inputs.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputGetArgs> S3Output { get; set; } = null!;
 

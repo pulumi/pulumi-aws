@@ -12,18 +12,11 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclRuleStatementRuleGroupReferenceStatementArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the `aws.wafv2.RuleGroup` resource.
-        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
         [Input("ruleActionOverrides")]
         private InputList<Inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs>? _ruleActionOverrides;
-
-        /// <summary>
-        /// Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `RuleActionOverride` below for details.
-        /// </summary>
         public InputList<Inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs> RuleActionOverrides
         {
             get => _ruleActionOverrides ?? (_ruleActionOverrides = new InputList<Inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs>());

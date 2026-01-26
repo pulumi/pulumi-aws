@@ -17,140 +17,58 @@ public final class GetSnapshotArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetSnapshotArgs Empty = new GetSnapshotArgs();
 
-    /**
-     * Returns the list of snapshots created by the specific db_instance
-     * 
-     */
     @Import(name="dbInstanceIdentifier")
     private @Nullable Output<String> dbInstanceIdentifier;
 
-    /**
-     * @return Returns the list of snapshots created by the specific db_instance
-     * 
-     */
     public Optional<Output<String>> dbInstanceIdentifier() {
         return Optional.ofNullable(this.dbInstanceIdentifier);
     }
 
-    /**
-     * Returns information on a specific snapshot_id.
-     * 
-     */
     @Import(name="dbSnapshotIdentifier")
     private @Nullable Output<String> dbSnapshotIdentifier;
 
-    /**
-     * @return Returns information on a specific snapshot_id.
-     * 
-     */
     public Optional<Output<String>> dbSnapshotIdentifier() {
         return Optional.ofNullable(this.dbSnapshotIdentifier);
     }
 
-    /**
-     * Set this value to true to include manual DB snapshots that are public and can be
-     * copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
-     * 
-     */
     @Import(name="includePublic")
     private @Nullable Output<Boolean> includePublic;
 
-    /**
-     * @return Set this value to true to include manual DB snapshots that are public and can be
-     * copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
-     * 
-     */
     public Optional<Output<Boolean>> includePublic() {
         return Optional.ofNullable(this.includePublic);
     }
 
-    /**
-     * Set this value to true to include shared manual DB snapshots from other
-     * AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-     * The default is `false`.
-     * 
-     */
     @Import(name="includeShared")
     private @Nullable Output<Boolean> includeShared;
 
-    /**
-     * @return Set this value to true to include shared manual DB snapshots from other
-     * AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-     * The default is `false`.
-     * 
-     */
     public Optional<Output<Boolean>> includeShared() {
         return Optional.ofNullable(this.includeShared);
     }
 
-    /**
-     * If more than one result is returned, use the most
-     * recent Snapshot.
-     * 
-     */
     @Import(name="mostRecent")
     private @Nullable Output<Boolean> mostRecent;
 
-    /**
-     * @return If more than one result is returned, use the most
-     * recent Snapshot.
-     * 
-     */
     public Optional<Output<Boolean>> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Type of snapshots to be returned. If you don&#39;t specify a SnapshotType
-     * value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
-     * included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
-     * 
-     */
     @Import(name="snapshotType")
     private @Nullable Output<String> snapshotType;
 
-    /**
-     * @return Type of snapshots to be returned. If you don&#39;t specify a SnapshotType
-     * value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
-     * included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
-     * 
-     */
     public Optional<Output<String>> snapshotType() {
         return Optional.ofNullable(this.snapshotType);
     }
 
-    /**
-     * Mapping of tags, each pair of which must exactly match
-     * a pair on the desired DB snapshot.
-     * 
-     * &gt; **NOTE:** One of either `dbInstanceIdentifier` or `dbSnapshotIdentifier` is required.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Mapping of tags, each pair of which must exactly match
-     * a pair on the desired DB snapshot.
-     * 
-     * &gt; **NOTE:** One of either `dbInstanceIdentifier` or `dbSnapshotIdentifier` is required.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -186,188 +104,74 @@ public final class GetSnapshotArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetSnapshotArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dbInstanceIdentifier Returns the list of snapshots created by the specific db_instance
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbInstanceIdentifier(@Nullable Output<String> dbInstanceIdentifier) {
             $.dbInstanceIdentifier = dbInstanceIdentifier;
             return this;
         }
 
-        /**
-         * @param dbInstanceIdentifier Returns the list of snapshots created by the specific db_instance
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbInstanceIdentifier(String dbInstanceIdentifier) {
             return dbInstanceIdentifier(Output.of(dbInstanceIdentifier));
         }
 
-        /**
-         * @param dbSnapshotIdentifier Returns information on a specific snapshot_id.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbSnapshotIdentifier(@Nullable Output<String> dbSnapshotIdentifier) {
             $.dbSnapshotIdentifier = dbSnapshotIdentifier;
             return this;
         }
 
-        /**
-         * @param dbSnapshotIdentifier Returns information on a specific snapshot_id.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbSnapshotIdentifier(String dbSnapshotIdentifier) {
             return dbSnapshotIdentifier(Output.of(dbSnapshotIdentifier));
         }
 
-        /**
-         * @param includePublic Set this value to true to include manual DB snapshots that are public and can be
-         * copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includePublic(@Nullable Output<Boolean> includePublic) {
             $.includePublic = includePublic;
             return this;
         }
 
-        /**
-         * @param includePublic Set this value to true to include manual DB snapshots that are public and can be
-         * copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includePublic(Boolean includePublic) {
             return includePublic(Output.of(includePublic));
         }
 
-        /**
-         * @param includeShared Set this value to true to include shared manual DB snapshots from other
-         * AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-         * The default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeShared(@Nullable Output<Boolean> includeShared) {
             $.includeShared = includeShared;
             return this;
         }
 
-        /**
-         * @param includeShared Set this value to true to include shared manual DB snapshots from other
-         * AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-         * The default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeShared(Boolean includeShared) {
             return includeShared(Output.of(includeShared));
         }
 
-        /**
-         * @param mostRecent If more than one result is returned, use the most
-         * recent Snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mostRecent(@Nullable Output<Boolean> mostRecent) {
             $.mostRecent = mostRecent;
             return this;
         }
 
-        /**
-         * @param mostRecent If more than one result is returned, use the most
-         * recent Snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mostRecent(Boolean mostRecent) {
             return mostRecent(Output.of(mostRecent));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param snapshotType Type of snapshots to be returned. If you don&#39;t specify a SnapshotType
-         * value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
-         * included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snapshotType(@Nullable Output<String> snapshotType) {
             $.snapshotType = snapshotType;
             return this;
         }
 
-        /**
-         * @param snapshotType Type of snapshots to be returned. If you don&#39;t specify a SnapshotType
-         * value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
-         * included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snapshotType(String snapshotType) {
             return snapshotType(Output.of(snapshotType));
         }
 
-        /**
-         * @param tags Mapping of tags, each pair of which must exactly match
-         * a pair on the desired DB snapshot.
-         * 
-         * &gt; **NOTE:** One of either `dbInstanceIdentifier` or `dbSnapshotIdentifier` is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Mapping of tags, each pair of which must exactly match
-         * a pair on the desired DB snapshot.
-         * 
-         * &gt; **NOTE:** One of either `dbInstanceIdentifier` or `dbSnapshotIdentifier` is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

@@ -24,9 +24,6 @@ class RecorderStatusArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RecorderStatus resource.
-        :param pulumi.Input[_builtins.bool] is_enabled: Whether the configuration recorder should be enabled or disabled.
-        :param pulumi.Input[_builtins.str] name: The name of the recorder
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "is_enabled", is_enabled)
         if name is not None:
@@ -37,9 +34,6 @@ class RecorderStatusArgs:
     @_builtins.property
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> pulumi.Input[_builtins.bool]:
-        """
-        Whether the configuration recorder should be enabled or disabled.
-        """
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
@@ -49,9 +43,6 @@ class RecorderStatusArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the recorder
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -61,9 +52,6 @@ class RecorderStatusArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -79,9 +67,6 @@ class _RecorderStatusState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RecorderStatus resources.
-        :param pulumi.Input[_builtins.bool] is_enabled: Whether the configuration recorder should be enabled or disabled.
-        :param pulumi.Input[_builtins.str] name: The name of the recorder
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if is_enabled is not None:
             pulumi.set(__self__, "is_enabled", is_enabled)
@@ -93,9 +78,6 @@ class _RecorderStatusState:
     @_builtins.property
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the configuration recorder should be enabled or disabled.
-        """
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
@@ -105,9 +87,6 @@ class _RecorderStatusState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the recorder
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -117,9 +96,6 @@ class _RecorderStatusState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -138,68 +114,9 @@ class RecorderStatus(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages status (recording / stopped) of an AWS Config Configuration Recorder.
-
-        > **Note:** Starting Configuration Recorder requires a Delivery Channel to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        b = aws.s3.Bucket("b", bucket="awsconfig-example")
-        foo_delivery_channel = aws.cfg.DeliveryChannel("foo",
-            name="example",
-            s3_bucket_name=b.bucket)
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["config.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        r = aws.iam.Role("r",
-            name="example-awsconfig",
-            assume_role_policy=assume_role.json)
-        foo_recorder = aws.cfg.Recorder("foo",
-            name="example",
-            role_arn=r.arn)
-        foo = aws.cfg.RecorderStatus("foo",
-            name=foo_recorder.name,
-            is_enabled=True,
-            opts = pulumi.ResourceOptions(depends_on=[foo_delivery_channel]))
-        a = aws.iam.RolePolicyAttachment("a",
-            role=r.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWS_ConfigRole")
-        p = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "actions": ["s3:*"],
-            "resources": [
-                b.arn,
-                b.arn.apply(lambda arn: f"{arn}/*"),
-            ],
-        }])
-        p_role_policy = aws.iam.RolePolicy("p",
-            name="awsconfig-example",
-            role=r.id,
-            policy=p.json)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Configuration Recorder Status using the name of the Configuration Recorder. For example:
-
-        ```sh
-        $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
-        ```
-
+        Create a RecorderStatus resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] is_enabled: Whether the configuration recorder should be enabled or disabled.
-        :param pulumi.Input[_builtins.str] name: The name of the recorder
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -208,63 +125,7 @@ class RecorderStatus(pulumi.CustomResource):
                  args: RecorderStatusArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages status (recording / stopped) of an AWS Config Configuration Recorder.
-
-        > **Note:** Starting Configuration Recorder requires a Delivery Channel to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        b = aws.s3.Bucket("b", bucket="awsconfig-example")
-        foo_delivery_channel = aws.cfg.DeliveryChannel("foo",
-            name="example",
-            s3_bucket_name=b.bucket)
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["config.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        r = aws.iam.Role("r",
-            name="example-awsconfig",
-            assume_role_policy=assume_role.json)
-        foo_recorder = aws.cfg.Recorder("foo",
-            name="example",
-            role_arn=r.arn)
-        foo = aws.cfg.RecorderStatus("foo",
-            name=foo_recorder.name,
-            is_enabled=True,
-            opts = pulumi.ResourceOptions(depends_on=[foo_delivery_channel]))
-        a = aws.iam.RolePolicyAttachment("a",
-            role=r.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWS_ConfigRole")
-        p = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "actions": ["s3:*"],
-            "resources": [
-                b.arn,
-                b.arn.apply(lambda arn: f"{arn}/*"),
-            ],
-        }])
-        p_role_policy = aws.iam.RolePolicy("p",
-            name="awsconfig-example",
-            role=r.id,
-            policy=p.json)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Configuration Recorder Status using the name of the Configuration Recorder. For example:
-
-        ```sh
-        $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
-        ```
-
+        Create a RecorderStatus resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RecorderStatusArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -317,9 +178,6 @@ class RecorderStatus(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] is_enabled: Whether the configuration recorder should be enabled or disabled.
-        :param pulumi.Input[_builtins.str] name: The name of the recorder
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -333,24 +191,15 @@ class RecorderStatus(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether the configuration recorder should be enabled or disabled.
-        """
         return pulumi.get(self, "is_enabled")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the recorder
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

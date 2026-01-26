@@ -4,28 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a SageMaker AI Model Package Group resource.
- *
- * ## Example Usage
- *
- * ### Basic usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sagemaker.ModelPackageGroup("example", {modelPackageGroupName: "example"});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import SageMaker AI Model Package Groups using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:sagemaker/modelPackageGroup:ModelPackageGroup test_model_package_group my-code-repo
- * ```
- */
 export class ModelPackageGroup extends pulumi.CustomResource {
     /**
      * Get an existing ModelPackageGroup resource's state with the given name, ID, and optional extra
@@ -54,29 +32,11 @@ export class ModelPackageGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ModelPackageGroup.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * A description for the model group.
-     */
     declare public readonly modelPackageGroupDescription: pulumi.Output<string | undefined>;
-    /**
-     * The name of the model group.
-     */
     declare public readonly modelPackageGroupName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -119,29 +79,11 @@ export class ModelPackageGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ModelPackageGroup resources.
  */
 export interface ModelPackageGroupState {
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * A description for the model group.
-     */
     modelPackageGroupDescription?: pulumi.Input<string>;
-    /**
-     * The name of the model group.
-     */
     modelPackageGroupName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -149,20 +91,8 @@ export interface ModelPackageGroupState {
  * The set of arguments for constructing a ModelPackageGroup resource.
  */
 export interface ModelPackageGroupArgs {
-    /**
-     * A description for the model group.
-     */
     modelPackageGroupDescription?: pulumi.Input<string>;
-    /**
-     * The name of the model group.
-     */
     modelPackageGroupName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

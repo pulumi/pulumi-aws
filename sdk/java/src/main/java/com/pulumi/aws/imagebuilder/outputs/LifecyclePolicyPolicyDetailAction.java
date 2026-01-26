@@ -13,33 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LifecyclePolicyPolicyDetailAction {
-    /**
-     * @return Specifies the resources that the lifecycle policy applies to. Detailed below.
-     * 
-     */
     private @Nullable LifecyclePolicyPolicyDetailActionIncludeResources includeResources;
-    /**
-     * @return Specifies the lifecycle action to take. Valid values: `DELETE`, `DEPRECATE` or `DISABLE`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private String type;
 
     private LifecyclePolicyPolicyDetailAction() {}
-    /**
-     * @return Specifies the resources that the lifecycle policy applies to. Detailed below.
-     * 
-     */
     public Optional<LifecyclePolicyPolicyDetailActionIncludeResources> includeResources() {
         return Optional.ofNullable(this.includeResources);
     }
-    /**
-     * @return Specifies the lifecycle action to take. Valid values: `DELETE`, `DEPRECATE` or `DISABLE`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String type() {
         return this.type;
     }

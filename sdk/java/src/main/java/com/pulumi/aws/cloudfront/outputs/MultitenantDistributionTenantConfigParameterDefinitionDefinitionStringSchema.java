@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchema {
-    /**
-     * @return Comment describing the parameter.
-     * 
-     */
     private @Nullable String comment;
-    /**
-     * @return Default value for the parameter.
-     * 
-     */
     private @Nullable String defaultValue;
-    /**
-     * @return Whether the parameter is required.
-     * 
-     */
     private Boolean required;
 
     private MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchema() {}
-    /**
-     * @return Comment describing the parameter.
-     * 
-     */
     public Optional<String> comment() {
         return Optional.ofNullable(this.comment);
     }
-    /**
-     * @return Default value for the parameter.
-     * 
-     */
     public Optional<String> defaultValue() {
         return Optional.ofNullable(this.defaultValue);
     }
-    /**
-     * @return Whether the parameter is required.
-     * 
-     */
     public Boolean required() {
         return this.required;
     }

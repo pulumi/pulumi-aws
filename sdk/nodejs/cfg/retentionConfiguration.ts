@@ -4,27 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage the AWS Config retention configuration.
- * The retention configuration defines the number of days that AWS Config stores historical information.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cfg.RetentionConfiguration("example", {retentionPeriodInDays: 90});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import the AWS Config retention configuration using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:cfg/retentionConfiguration:RetentionConfiguration example default
- * ```
- */
 export class RetentionConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing RetentionConfiguration resource's state with the given name, ID, and optional extra
@@ -53,17 +32,8 @@ export class RetentionConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === RetentionConfiguration.__pulumiType;
     }
 
-    /**
-     * The name of the retention configuration object. The object is always named **default**.
-     */
     declare public /*out*/ readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The number of days AWS Config stores historical information.
-     */
     declare public readonly retentionPeriodInDays: pulumi.Output<number>;
 
     /**
@@ -100,17 +70,8 @@ export class RetentionConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RetentionConfiguration resources.
  */
 export interface RetentionConfigurationState {
-    /**
-     * The name of the retention configuration object. The object is always named **default**.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The number of days AWS Config stores historical information.
-     */
     retentionPeriodInDays?: pulumi.Input<number>;
 }
 
@@ -118,12 +79,6 @@ export interface RetentionConfigurationState {
  * The set of arguments for constructing a RetentionConfiguration resource.
  */
 export interface RetentionConfigurationArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The number of days AWS Config stores historical information.
-     */
     retentionPeriodInDays: pulumi.Input<number>;
 }

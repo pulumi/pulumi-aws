@@ -24,9 +24,6 @@ class HsmClientCertificateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a HsmClientCertificate resource.
-        :param pulumi.Input[_builtins.str] hsm_client_certificate_identifier: The identifier of the HSM client certificate.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "hsm_client_certificate_identifier", hsm_client_certificate_identifier)
         if region is not None:
@@ -37,9 +34,6 @@ class HsmClientCertificateArgs:
     @_builtins.property
     @pulumi.getter(name="hsmClientCertificateIdentifier")
     def hsm_client_certificate_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The identifier of the HSM client certificate.
-        """
         return pulumi.get(self, "hsm_client_certificate_identifier")
 
     @hsm_client_certificate_identifier.setter
@@ -49,9 +43,6 @@ class HsmClientCertificateArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -61,9 +52,6 @@ class HsmClientCertificateArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -82,12 +70,6 @@ class _HsmClientCertificateState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering HsmClientCertificate resources.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Hsm Client Certificate.
-        :param pulumi.Input[_builtins.str] hsm_client_certificate_identifier: The identifier of the HSM client certificate.
-        :param pulumi.Input[_builtins.str] hsm_client_certificate_public_key: The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -105,9 +87,6 @@ class _HsmClientCertificateState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the Hsm Client Certificate.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -117,9 +96,6 @@ class _HsmClientCertificateState:
     @_builtins.property
     @pulumi.getter(name="hsmClientCertificateIdentifier")
     def hsm_client_certificate_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier of the HSM client certificate.
-        """
         return pulumi.get(self, "hsm_client_certificate_identifier")
 
     @hsm_client_certificate_identifier.setter
@@ -129,9 +105,6 @@ class _HsmClientCertificateState:
     @_builtins.property
     @pulumi.getter(name="hsmClientCertificatePublicKey")
     def hsm_client_certificate_public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
-        """
         return pulumi.get(self, "hsm_client_certificate_public_key")
 
     @hsm_client_certificate_public_key.setter
@@ -141,9 +114,6 @@ class _HsmClientCertificateState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -153,9 +123,6 @@ class _HsmClientCertificateState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -165,9 +132,6 @@ class _HsmClientCertificateState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -186,30 +150,9 @@ class HsmClientCertificate(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Creates an HSM client certificate that an Amazon Redshift cluster will use to connect to the client's HSM in order to store and retrieve the keys used to encrypt the cluster databases.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshift.HsmClientCertificate("example", hsm_client_certificate_identifier="example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Redshift HSM Client Certificates using `hsm_client_certificate_identifier`. For example:
-
-        ```sh
-        $ pulumi import aws:redshift/hsmClientCertificate:HsmClientCertificate test example
-        ```
-
+        Create a HsmClientCertificate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] hsm_client_certificate_identifier: The identifier of the HSM client certificate.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -218,25 +161,7 @@ class HsmClientCertificate(pulumi.CustomResource):
                  args: HsmClientCertificateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates an HSM client certificate that an Amazon Redshift cluster will use to connect to the client's HSM in order to store and retrieve the keys used to encrypt the cluster databases.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshift.HsmClientCertificate("example", hsm_client_certificate_identifier="example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Redshift HSM Client Certificates using `hsm_client_certificate_identifier`. For example:
-
-        ```sh
-        $ pulumi import aws:redshift/hsmClientCertificate:HsmClientCertificate test example
-        ```
-
+        Create a HsmClientCertificate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param HsmClientCertificateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -295,12 +220,6 @@ class HsmClientCertificate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Hsm Client Certificate.
-        :param pulumi.Input[_builtins.str] hsm_client_certificate_identifier: The identifier of the HSM client certificate.
-        :param pulumi.Input[_builtins.str] hsm_client_certificate_public_key: The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -317,48 +236,30 @@ class HsmClientCertificate(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the Hsm Client Certificate.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="hsmClientCertificateIdentifier")
     def hsm_client_certificate_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The identifier of the HSM client certificate.
-        """
         return pulumi.get(self, "hsm_client_certificate_identifier")
 
     @_builtins.property
     @pulumi.getter(name="hsmClientCertificatePublicKey")
     def hsm_client_certificate_public_key(self) -> pulumi.Output[_builtins.str]:
-        """
-        The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
-        """
         return pulumi.get(self, "hsm_client_certificate_public_key")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

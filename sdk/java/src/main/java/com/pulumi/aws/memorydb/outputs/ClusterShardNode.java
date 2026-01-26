@@ -13,45 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterShardNode {
-    /**
-     * @return The Availability Zone in which the node resides.
-     * 
-     */
     private @Nullable String availabilityZone;
-    /**
-     * @return The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
-     * 
-     */
     private @Nullable String createTime;
     private @Nullable List<ClusterShardNodeEndpoint> endpoints;
-    /**
-     * @return Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     * 
-     */
     private @Nullable String name;
 
     private ClusterShardNode() {}
-    /**
-     * @return The Availability Zone in which the node resides.
-     * 
-     */
     public Optional<String> availabilityZone() {
         return Optional.ofNullable(this.availabilityZone);
     }
-    /**
-     * @return The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
-     * 
-     */
     public Optional<String> createTime() {
         return Optional.ofNullable(this.createTime);
     }
     public List<ClusterShardNodeEndpoint> endpoints() {
         return this.endpoints == null ? List.of() : this.endpoints;
     }
-    /**
-     * @return Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }

@@ -30,15 +30,6 @@ class ResolverRuleArgs:
                  target_ips: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverRuleTargetIpArgs']]]] = None):
         """
         The set of arguments for constructing a ResolverRule resource.
-        :param pulumi.Input[_builtins.str] domain_name: DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
-        :param pulumi.Input[_builtins.str] rule_type: Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
-        :param pulumi.Input[_builtins.str] name: Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resolver_endpoint_id: ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
-               This argument should only be specified for `FORWARD` type rules.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input['ResolverRuleTargetIpArgs']]] target_ips: Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
-               This argument should only be specified for `FORWARD` type rules.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "rule_type", rule_type)
@@ -56,9 +47,6 @@ class ResolverRuleArgs:
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -68,9 +56,6 @@ class ResolverRuleArgs:
     @_builtins.property
     @pulumi.getter(name="ruleType")
     def rule_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
-        """
         return pulumi.get(self, "rule_type")
 
     @rule_type.setter
@@ -80,9 +65,6 @@ class ResolverRuleArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -92,9 +74,6 @@ class ResolverRuleArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -104,10 +83,6 @@ class ResolverRuleArgs:
     @_builtins.property
     @pulumi.getter(name="resolverEndpointId")
     def resolver_endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
-        This argument should only be specified for `FORWARD` type rules.
-        """
         return pulumi.get(self, "resolver_endpoint_id")
 
     @resolver_endpoint_id.setter
@@ -117,9 +92,6 @@ class ResolverRuleArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -129,10 +101,6 @@ class ResolverRuleArgs:
     @_builtins.property
     @pulumi.getter(name="targetIps")
     def target_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResolverRuleTargetIpArgs']]]]:
-        """
-        Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
-        This argument should only be specified for `FORWARD` type rules.
-        """
         return pulumi.get(self, "target_ips")
 
     @target_ips.setter
@@ -156,20 +124,6 @@ class _ResolverRuleState:
                  target_ips: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverRuleTargetIpArgs']]]] = None):
         """
         Input properties used for looking up and filtering ResolverRule resources.
-        :param pulumi.Input[_builtins.str] arn: ARN (Amazon Resource Name) for the resolver rule.
-        :param pulumi.Input[_builtins.str] domain_name: DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
-        :param pulumi.Input[_builtins.str] name: Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
-        :param pulumi.Input[_builtins.str] owner_id: When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resolver_endpoint_id: ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
-               This argument should only be specified for `FORWARD` type rules.
-        :param pulumi.Input[_builtins.str] rule_type: Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
-        :param pulumi.Input[_builtins.str] share_status: Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
-               Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input['ResolverRuleTargetIpArgs']]] target_ips: Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
-               This argument should only be specified for `FORWARD` type rules.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -197,9 +151,6 @@ class _ResolverRuleState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN (Amazon Resource Name) for the resolver rule.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -209,9 +160,6 @@ class _ResolverRuleState:
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -221,9 +169,6 @@ class _ResolverRuleState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -233,9 +178,6 @@ class _ResolverRuleState:
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
-        """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
@@ -245,9 +187,6 @@ class _ResolverRuleState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -257,10 +196,6 @@ class _ResolverRuleState:
     @_builtins.property
     @pulumi.getter(name="resolverEndpointId")
     def resolver_endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
-        This argument should only be specified for `FORWARD` type rules.
-        """
         return pulumi.get(self, "resolver_endpoint_id")
 
     @resolver_endpoint_id.setter
@@ -270,9 +205,6 @@ class _ResolverRuleState:
     @_builtins.property
     @pulumi.getter(name="ruleType")
     def rule_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
-        """
         return pulumi.get(self, "rule_type")
 
     @rule_type.setter
@@ -282,10 +214,6 @@ class _ResolverRuleState:
     @_builtins.property
     @pulumi.getter(name="shareStatus")
     def share_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
-        Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
-        """
         return pulumi.get(self, "share_status")
 
     @share_status.setter
@@ -295,9 +223,6 @@ class _ResolverRuleState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -307,9 +232,6 @@ class _ResolverRuleState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -319,10 +241,6 @@ class _ResolverRuleState:
     @_builtins.property
     @pulumi.getter(name="targetIps")
     def target_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResolverRuleTargetIpArgs']]]]:
-        """
-        Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
-        This argument should only be specified for `FORWARD` type rules.
-        """
         return pulumi.get(self, "target_ips")
 
     @target_ips.setter
@@ -345,88 +263,9 @@ class ResolverRule(pulumi.CustomResource):
                  target_ips: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResolverRuleTargetIpArgs', 'ResolverRuleTargetIpArgsDict']]]]] = None,
                  __props__=None):
         """
-        Provides a Route53 Resolver rule.
-
-        ## Example Usage
-
-        ### System rule
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        sys = aws.route53.ResolverRule("sys",
-            domain_name="subdomain.example.com",
-            rule_type="SYSTEM")
-        ```
-
-        ### Forward rule
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        fwd = aws.route53.ResolverRule("fwd",
-            domain_name="example.com",
-            name="example",
-            rule_type="FORWARD",
-            resolver_endpoint_id=foo["id"],
-            target_ips=[{
-                "ip": "123.45.67.89",
-            }],
-            tags={
-                "Environment": "Prod",
-            })
-        ```
-
-        ### IPv6 Forward rule
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        fwd = aws.route53.ResolverRule("fwd",
-            domain_name="example.com",
-            name="example",
-            rule_type="FORWARD",
-            resolver_endpoint_id=foo["id"],
-            target_ips=[{
-                "ipv6": "2600:1f18:1686:2000:4e60:6e3e:258:da36",
-            }],
-            tags={
-                "Environment": "Prod",
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `id` - (String) ID of the Route53 Resolver rule.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `region` (String) Region where this resource is managed.
-
-        Using `pulumi import`, import Route53 Resolver rules using the `id`. For example:
-
-        % pulumi import aws_route53_resolver_rule.example rslvr-rr-0123456789abcdef0
-
+        Create a ResolverRule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] domain_name: DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
-        :param pulumi.Input[_builtins.str] name: Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resolver_endpoint_id: ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
-               This argument should only be specified for `FORWARD` type rules.
-        :param pulumi.Input[_builtins.str] rule_type: Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ResolverRuleTargetIpArgs', 'ResolverRuleTargetIpArgsDict']]]] target_ips: Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
-               This argument should only be specified for `FORWARD` type rules.
         """
         ...
     @overload
@@ -435,77 +274,7 @@ class ResolverRule(pulumi.CustomResource):
                  args: ResolverRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Route53 Resolver rule.
-
-        ## Example Usage
-
-        ### System rule
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        sys = aws.route53.ResolverRule("sys",
-            domain_name="subdomain.example.com",
-            rule_type="SYSTEM")
-        ```
-
-        ### Forward rule
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        fwd = aws.route53.ResolverRule("fwd",
-            domain_name="example.com",
-            name="example",
-            rule_type="FORWARD",
-            resolver_endpoint_id=foo["id"],
-            target_ips=[{
-                "ip": "123.45.67.89",
-            }],
-            tags={
-                "Environment": "Prod",
-            })
-        ```
-
-        ### IPv6 Forward rule
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        fwd = aws.route53.ResolverRule("fwd",
-            domain_name="example.com",
-            name="example",
-            rule_type="FORWARD",
-            resolver_endpoint_id=foo["id"],
-            target_ips=[{
-                "ipv6": "2600:1f18:1686:2000:4e60:6e3e:258:da36",
-            }],
-            tags={
-                "Environment": "Prod",
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `id` - (String) ID of the Route53 Resolver rule.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `region` (String) Region where this resource is managed.
-
-        Using `pulumi import`, import Route53 Resolver rules using the `id`. For example:
-
-        % pulumi import aws_route53_resolver_rule.example rslvr-rr-0123456789abcdef0
-
+        Create a ResolverRule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ResolverRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -580,20 +349,6 @@ class ResolverRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN (Amazon Resource Name) for the resolver rule.
-        :param pulumi.Input[_builtins.str] domain_name: DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
-        :param pulumi.Input[_builtins.str] name: Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
-        :param pulumi.Input[_builtins.str] owner_id: When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resolver_endpoint_id: ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
-               This argument should only be specified for `FORWARD` type rules.
-        :param pulumi.Input[_builtins.str] rule_type: Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
-        :param pulumi.Input[_builtins.str] share_status: Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
-               Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ResolverRuleTargetIpArgs', 'ResolverRuleTargetIpArgsDict']]]] target_ips: Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
-               This argument should only be specified for `FORWARD` type rules.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -615,91 +370,55 @@ class ResolverRule(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN (Amazon Resource Name) for the resolver rule.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
-        """
         return pulumi.get(self, "domain_name")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
-        """
         return pulumi.get(self, "owner_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resolverEndpointId")
     def resolver_endpoint_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
-        This argument should only be specified for `FORWARD` type rules.
-        """
         return pulumi.get(self, "resolver_endpoint_id")
 
     @_builtins.property
     @pulumi.getter(name="ruleType")
     def rule_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
-        """
         return pulumi.get(self, "rule_type")
 
     @_builtins.property
     @pulumi.getter(name="shareStatus")
     def share_status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
-        Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
-        """
         return pulumi.get(self, "share_status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="targetIps")
     def target_ips(self) -> pulumi.Output[Optional[Sequence['outputs.ResolverRuleTargetIp']]]:
-        """
-        Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
-        This argument should only be specified for `FORWARD` type rules.
-        """
         return pulumi.get(self, "target_ips")
 

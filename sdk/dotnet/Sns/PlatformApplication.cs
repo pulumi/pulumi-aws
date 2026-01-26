@@ -9,175 +9,51 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sns
 {
-    /// <summary>
-    /// Provides an SNS platform application resource
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Apple Push Notification Service (APNS) using certificate-based authentication
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var apnsApplication = new Aws.Sns.PlatformApplication("apns_application", new()
-    ///     {
-    ///         Name = "apns_application",
-    ///         Platform = "APNS",
-    ///         PlatformCredential = "&lt;APNS PRIVATE KEY&gt;",
-    ///         PlatformPrincipal = "&lt;APNS CERTIFICATE&gt;",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Apple Push Notification Service (APNS) using token-based authentication
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var apnsApplication = new Aws.Sns.PlatformApplication("apns_application", new()
-    ///     {
-    ///         Name = "apns_application",
-    ///         Platform = "APNS",
-    ///         PlatformCredential = "&lt;APNS SIGNING KEY&gt;",
-    ///         PlatformPrincipal = "&lt;APNS SIGNING KEY ID&gt;",
-    ///         ApplePlatformTeamId = "&lt;APPLE TEAM ID&gt;",
-    ///         ApplePlatformBundleId = "&lt;APPLE BUNDLE ID&gt;",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Google Cloud Messaging (GCM)
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var gcmApplication = new Aws.Sns.PlatformApplication("gcm_application", new()
-    ///     {
-    ///         Name = "gcm_application",
-    ///         Platform = "GCM",
-    ///         PlatformCredential = "&lt;GCM API KEY&gt;",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import SNS platform applications using the ARN. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:123456789012:app/GCM/gcm_application
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:sns/platformApplication:PlatformApplication")]
     public partial class PlatformApplication : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
-        /// </summary>
         [Output("applePlatformBundleId")]
         public Output<string?> ApplePlatformBundleId { get; private set; } = null!;
 
-        /// <summary>
-        /// The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
-        /// </summary>
         [Output("applePlatformTeamId")]
         public Output<string?> ApplePlatformTeamId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the SNS platform application
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
-        /// </summary>
         [Output("eventDeliveryFailureTopicArn")]
         public Output<string?> EventDeliveryFailureTopicArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
-        /// </summary>
         [Output("eventEndpointCreatedTopicArn")]
         public Output<string?> EventEndpointCreatedTopicArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
-        /// </summary>
         [Output("eventEndpointDeletedTopicArn")]
         public Output<string?> EventEndpointDeletedTopicArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
-        /// </summary>
         [Output("eventEndpointUpdatedTopicArn")]
         public Output<string?> EventEndpointUpdatedTopicArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
-        /// </summary>
         [Output("failureFeedbackRoleArn")]
         public Output<string?> FailureFeedbackRoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The friendly name for the SNS platform application
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
-        /// </summary>
         [Output("platform")]
         public Output<string> Platform { get; private set; } = null!;
 
-        /// <summary>
-        /// Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-        /// </summary>
         [Output("platformCredential")]
         public Output<string> PlatformCredential { get; private set; } = null!;
 
-        /// <summary>
-        /// Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-        /// </summary>
         [Output("platformPrincipal")]
         public Output<string?> PlatformPrincipal { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
-        /// </summary>
         [Output("successFeedbackRoleArn")]
         public Output<string?> SuccessFeedbackRoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The sample rate percentage (0-100) of successfully delivered messages.
-        /// 
-        /// The following attributes are needed only when using APNS token credentials:
-        /// </summary>
         [Output("successFeedbackSampleRate")]
         public Output<string?> SuccessFeedbackSampleRate { get; private set; } = null!;
 
@@ -232,66 +108,35 @@ namespace Pulumi.Aws.Sns
 
     public sealed class PlatformApplicationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
-        /// </summary>
         [Input("applePlatformBundleId")]
         public Input<string>? ApplePlatformBundleId { get; set; }
 
-        /// <summary>
-        /// The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
-        /// </summary>
         [Input("applePlatformTeamId")]
         public Input<string>? ApplePlatformTeamId { get; set; }
 
-        /// <summary>
-        /// The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
-        /// </summary>
         [Input("eventDeliveryFailureTopicArn")]
         public Input<string>? EventDeliveryFailureTopicArn { get; set; }
 
-        /// <summary>
-        /// The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
-        /// </summary>
         [Input("eventEndpointCreatedTopicArn")]
         public Input<string>? EventEndpointCreatedTopicArn { get; set; }
 
-        /// <summary>
-        /// The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
-        /// </summary>
         [Input("eventEndpointDeletedTopicArn")]
         public Input<string>? EventEndpointDeletedTopicArn { get; set; }
 
-        /// <summary>
-        /// The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
-        /// </summary>
         [Input("eventEndpointUpdatedTopicArn")]
         public Input<string>? EventEndpointUpdatedTopicArn { get; set; }
 
-        /// <summary>
-        /// The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
-        /// </summary>
         [Input("failureFeedbackRoleArn")]
         public Input<string>? FailureFeedbackRoleArn { get; set; }
 
-        /// <summary>
-        /// The friendly name for the SNS platform application
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
-        /// </summary>
         [Input("platform", required: true)]
         public Input<string> Platform { get; set; } = null!;
 
         [Input("platformCredential", required: true)]
         private Input<string>? _platformCredential;
-
-        /// <summary>
-        /// Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-        /// </summary>
         public Input<string>? PlatformCredential
         {
             get => _platformCredential;
@@ -304,10 +149,6 @@ namespace Pulumi.Aws.Sns
 
         [Input("platformPrincipal")]
         private Input<string>? _platformPrincipal;
-
-        /// <summary>
-        /// Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-        /// </summary>
         public Input<string>? PlatformPrincipal
         {
             get => _platformPrincipal;
@@ -318,23 +159,12 @@ namespace Pulumi.Aws.Sns
             }
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
-        /// </summary>
         [Input("successFeedbackRoleArn")]
         public Input<string>? SuccessFeedbackRoleArn { get; set; }
 
-        /// <summary>
-        /// The sample rate percentage (0-100) of successfully delivered messages.
-        /// 
-        /// The following attributes are needed only when using APNS token credentials:
-        /// </summary>
         [Input("successFeedbackSampleRate")]
         public Input<string>? SuccessFeedbackSampleRate { get; set; }
 
@@ -346,72 +176,38 @@ namespace Pulumi.Aws.Sns
 
     public sealed class PlatformApplicationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
-        /// </summary>
         [Input("applePlatformBundleId")]
         public Input<string>? ApplePlatformBundleId { get; set; }
 
-        /// <summary>
-        /// The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
-        /// </summary>
         [Input("applePlatformTeamId")]
         public Input<string>? ApplePlatformTeamId { get; set; }
 
-        /// <summary>
-        /// The ARN of the SNS platform application
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
-        /// </summary>
         [Input("eventDeliveryFailureTopicArn")]
         public Input<string>? EventDeliveryFailureTopicArn { get; set; }
 
-        /// <summary>
-        /// The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
-        /// </summary>
         [Input("eventEndpointCreatedTopicArn")]
         public Input<string>? EventEndpointCreatedTopicArn { get; set; }
 
-        /// <summary>
-        /// The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
-        /// </summary>
         [Input("eventEndpointDeletedTopicArn")]
         public Input<string>? EventEndpointDeletedTopicArn { get; set; }
 
-        /// <summary>
-        /// The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
-        /// </summary>
         [Input("eventEndpointUpdatedTopicArn")]
         public Input<string>? EventEndpointUpdatedTopicArn { get; set; }
 
-        /// <summary>
-        /// The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
-        /// </summary>
         [Input("failureFeedbackRoleArn")]
         public Input<string>? FailureFeedbackRoleArn { get; set; }
 
-        /// <summary>
-        /// The friendly name for the SNS platform application
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
-        /// </summary>
         [Input("platform")]
         public Input<string>? Platform { get; set; }
 
         [Input("platformCredential")]
         private Input<string>? _platformCredential;
-
-        /// <summary>
-        /// Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-        /// </summary>
         public Input<string>? PlatformCredential
         {
             get => _platformCredential;
@@ -424,10 +220,6 @@ namespace Pulumi.Aws.Sns
 
         [Input("platformPrincipal")]
         private Input<string>? _platformPrincipal;
-
-        /// <summary>
-        /// Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-        /// </summary>
         public Input<string>? PlatformPrincipal
         {
             get => _platformPrincipal;
@@ -438,23 +230,12 @@ namespace Pulumi.Aws.Sns
             }
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
-        /// </summary>
         [Input("successFeedbackRoleArn")]
         public Input<string>? SuccessFeedbackRoleArn { get; set; }
 
-        /// <summary>
-        /// The sample rate percentage (0-100) of successfully delivered messages.
-        /// 
-        /// The following attributes are needed only when using APNS token credentials:
-        /// </summary>
         [Input("successFeedbackSampleRate")]
         public Input<string>? SuccessFeedbackSampleRate { get; set; }
 

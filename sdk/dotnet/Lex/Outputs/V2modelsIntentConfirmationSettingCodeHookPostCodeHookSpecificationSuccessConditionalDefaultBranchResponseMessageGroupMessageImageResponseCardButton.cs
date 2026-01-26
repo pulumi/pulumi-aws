@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButton
     {
-        /// <summary>
-        /// Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
-        /// </summary>
         public readonly string Text;
-        /// <summary>
-        /// Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

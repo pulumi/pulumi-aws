@@ -12,15 +12,9 @@ namespace Pulumi.Aws.NetworkManager.Inputs
 
     public sealed class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionInputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Type of action to perform. Valid values: `Drop`, `Allow`, `Summarize`, `prepend-asn-list`, `remove-asn-list`, `replace-asn-list`, `add-community`, `remove-community`, `set-med`, `set-local-preference`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        /// <summary>
-        /// Value for the action, required for certain action types.
-        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

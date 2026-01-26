@@ -12,167 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS Lambda Alias. Use this resource to create an alias that points to a specific Lambda function version for traffic management and deployment strategies.
-//
-// For information about Lambda and how to use it, see [What is AWS Lambda?](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html). For information about function aliases, see [CreateAlias](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateAlias.html) and [AliasRoutingConfiguration](https://docs.aws.amazon.com/lambda/latest/dg/API_AliasRoutingConfiguration.html) in the API docs.
-//
-// ## Example Usage
-//
-// ### Basic Alias
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewAlias(ctx, "example", &lambda.AliasArgs{
-//				Name:            pulumi.String("production"),
-//				Description:     pulumi.String("Production environment alias"),
-//				FunctionName:    pulumi.Any(exampleAwsLambdaFunction.Arn),
-//				FunctionVersion: pulumi.String("1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Alias with Traffic Splitting
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewAlias(ctx, "example", &lambda.AliasArgs{
-//				Name:            pulumi.String("staging"),
-//				Description:     pulumi.String("Staging environment with traffic splitting"),
-//				FunctionName:    pulumi.Any(exampleAwsLambdaFunction.FunctionName),
-//				FunctionVersion: pulumi.String("2"),
-//				RoutingConfig: &lambda.AliasRoutingConfigArgs{
-//					AdditionalVersionWeights: pulumi.Float64Map{
-//						"1": pulumi.Float64(0.1),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Blue-Green Deployment Alias
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Alias for gradual rollout
-//			_, err := lambda.NewAlias(ctx, "example", &lambda.AliasArgs{
-//				Name:            pulumi.String("live"),
-//				Description:     pulumi.String("Live traffic with gradual rollout to new version"),
-//				FunctionName:    pulumi.Any(exampleAwsLambdaFunction.FunctionName),
-//				FunctionVersion: pulumi.String("5"),
-//				RoutingConfig: &lambda.AliasRoutingConfigArgs{
-//					AdditionalVersionWeights: pulumi.Float64Map{
-//						"6": pulumi.Float64(0.05),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Development Alias
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewAlias(ctx, "example", &lambda.AliasArgs{
-//				Name:            pulumi.String("dev"),
-//				Description:     pulumi.String("Development environment - always points to latest"),
-//				FunctionName:    pulumi.Any(exampleAwsLambdaFunction.FunctionName),
-//				FunctionVersion: pulumi.String("$LATEST"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// For backwards compatibility, the following legacy `pulumi import` command is also supported:
-//
-// ```sh
-// $ pulumi import aws:lambda/alias:Alias example example/production
-// ```
 type Alias struct {
 	pulumi.CustomResourceState
 
-	// ARN identifying your Lambda function alias.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Description of the alias.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Name or ARN of the Lambda function.
-	FunctionName pulumi.StringOutput `pulumi:"functionName"`
-	// Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
-	FunctionVersion pulumi.StringOutput `pulumi:"functionVersion"`
-	// ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
-	InvokeArn pulumi.StringOutput `pulumi:"invokeArn"`
-	// Name for the alias. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Lambda alias' route configuration settings. See below.
-	RoutingConfig AliasRoutingConfigPtrOutput `pulumi:"routingConfig"`
+	Arn             pulumi.StringOutput         `pulumi:"arn"`
+	Description     pulumi.StringPtrOutput      `pulumi:"description"`
+	FunctionName    pulumi.StringOutput         `pulumi:"functionName"`
+	FunctionVersion pulumi.StringOutput         `pulumi:"functionVersion"`
+	InvokeArn       pulumi.StringOutput         `pulumi:"invokeArn"`
+	Name            pulumi.StringOutput         `pulumi:"name"`
+	Region          pulumi.StringOutput         `pulumi:"region"`
+	RoutingConfig   AliasRoutingConfigPtrOutput `pulumi:"routingConfig"`
 }
 
 // NewAlias registers a new resource with the given unique name, arguments, and options.
@@ -211,45 +61,25 @@ func GetAlias(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Alias resources.
 type aliasState struct {
-	// ARN identifying your Lambda function alias.
-	Arn *string `pulumi:"arn"`
-	// Description of the alias.
-	Description *string `pulumi:"description"`
-	// Name or ARN of the Lambda function.
-	FunctionName *string `pulumi:"functionName"`
-	// Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
-	FunctionVersion *string `pulumi:"functionVersion"`
-	// ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
-	InvokeArn *string `pulumi:"invokeArn"`
-	// Name for the alias. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Lambda alias' route configuration settings. See below.
-	RoutingConfig *AliasRoutingConfig `pulumi:"routingConfig"`
+	Arn             *string             `pulumi:"arn"`
+	Description     *string             `pulumi:"description"`
+	FunctionName    *string             `pulumi:"functionName"`
+	FunctionVersion *string             `pulumi:"functionVersion"`
+	InvokeArn       *string             `pulumi:"invokeArn"`
+	Name            *string             `pulumi:"name"`
+	Region          *string             `pulumi:"region"`
+	RoutingConfig   *AliasRoutingConfig `pulumi:"routingConfig"`
 }
 
 type AliasState struct {
-	// ARN identifying your Lambda function alias.
-	Arn pulumi.StringPtrInput
-	// Description of the alias.
-	Description pulumi.StringPtrInput
-	// Name or ARN of the Lambda function.
-	FunctionName pulumi.StringPtrInput
-	// Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
+	Arn             pulumi.StringPtrInput
+	Description     pulumi.StringPtrInput
+	FunctionName    pulumi.StringPtrInput
 	FunctionVersion pulumi.StringPtrInput
-	// ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
-	InvokeArn pulumi.StringPtrInput
-	// Name for the alias. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Lambda alias' route configuration settings. See below.
-	RoutingConfig AliasRoutingConfigPtrInput
+	InvokeArn       pulumi.StringPtrInput
+	Name            pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
+	RoutingConfig   AliasRoutingConfigPtrInput
 }
 
 func (AliasState) ElementType() reflect.Type {
@@ -257,38 +87,22 @@ func (AliasState) ElementType() reflect.Type {
 }
 
 type aliasArgs struct {
-	// Description of the alias.
-	Description *string `pulumi:"description"`
-	// Name or ARN of the Lambda function.
-	FunctionName string `pulumi:"functionName"`
-	// Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
-	FunctionVersion string `pulumi:"functionVersion"`
-	// Name for the alias. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Lambda alias' route configuration settings. See below.
-	RoutingConfig *AliasRoutingConfig `pulumi:"routingConfig"`
+	Description     *string             `pulumi:"description"`
+	FunctionName    string              `pulumi:"functionName"`
+	FunctionVersion string              `pulumi:"functionVersion"`
+	Name            *string             `pulumi:"name"`
+	Region          *string             `pulumi:"region"`
+	RoutingConfig   *AliasRoutingConfig `pulumi:"routingConfig"`
 }
 
 // The set of arguments for constructing a Alias resource.
 type AliasArgs struct {
-	// Description of the alias.
-	Description pulumi.StringPtrInput
-	// Name or ARN of the Lambda function.
-	FunctionName pulumi.StringInput
-	// Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
+	Description     pulumi.StringPtrInput
+	FunctionName    pulumi.StringInput
 	FunctionVersion pulumi.StringInput
-	// Name for the alias. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Lambda alias' route configuration settings. See below.
-	RoutingConfig AliasRoutingConfigPtrInput
+	Name            pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
+	RoutingConfig   AliasRoutingConfigPtrInput
 }
 
 func (AliasArgs) ElementType() reflect.Type {
@@ -378,44 +192,34 @@ func (o AliasOutput) ToAliasOutputWithContext(ctx context.Context) AliasOutput {
 	return o
 }
 
-// ARN identifying your Lambda function alias.
 func (o AliasOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description of the alias.
 func (o AliasOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Name or ARN of the Lambda function.
 func (o AliasOutput) FunctionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.FunctionName }).(pulumi.StringOutput)
 }
 
-// Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
 func (o AliasOutput) FunctionVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.FunctionVersion }).(pulumi.StringOutput)
 }
 
-// ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
 func (o AliasOutput) InvokeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.InvokeArn }).(pulumi.StringOutput)
 }
 
-// Name for the alias. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`.
-//
-// The following arguments are optional:
 func (o AliasOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AliasOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Lambda alias' route configuration settings. See below.
 func (o AliasOutput) RoutingConfig() AliasRoutingConfigPtrOutput {
 	return o.ApplyT(func(v *Alias) AliasRoutingConfigPtrOutput { return v.RoutingConfig }).(AliasRoutingConfigPtrOutput)
 }

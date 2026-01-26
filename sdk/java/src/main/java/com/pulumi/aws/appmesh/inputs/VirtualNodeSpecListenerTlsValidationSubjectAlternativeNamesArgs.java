@@ -14,17 +14,9 @@ public final class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesAr
 
     public static final VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs Empty = new VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs();
 
-    /**
-     * Criteria for determining a SAN&#39;s match.
-     * 
-     */
     @Import(name="match", required=true)
     private Output<VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgs> match;
 
-    /**
-     * @return Criteria for determining a SAN&#39;s match.
-     * 
-     */
     public Output<VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgs> match() {
         return this.match;
     }
@@ -53,23 +45,11 @@ public final class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesAr
             $ = new VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param match Criteria for determining a SAN&#39;s match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder match(Output<VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgs> match) {
             $.match = match;
             return this;
         }
 
-        /**
-         * @param match Criteria for determining a SAN&#39;s match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder match(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgs match) {
             return match(Output.of(match));
         }

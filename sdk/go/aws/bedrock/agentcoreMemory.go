@@ -12,142 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS Bedrock AgentCore Memory. Memory provides persistent storage for AI agent interactions, allowing agents to retain context across conversations and sessions.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"bedrock-agentcore.amazonaws.com",
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				Name:             pulumi.String("bedrock-agentcore-memory-role"),
-//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
-//				Role:      example.Name,
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = bedrock.NewAgentcoreMemory(ctx, "example", &bedrock.AgentcoreMemoryArgs{
-//				Name:                pulumi.String("example_memory"),
-//				EventExpiryDuration: pulumi.Int(30),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Memory with Custom Encryption and Role
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
-//				Description: pulumi.String("KMS key for Bedrock AgentCore Memory"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = bedrock.NewAgentcoreMemory(ctx, "example", &bedrock.AgentcoreMemoryArgs{
-//				Name:                   pulumi.String("example_memory"),
-//				Description:            pulumi.String("Memory for customer service agent"),
-//				EventExpiryDuration:    pulumi.Int(60),
-//				EncryptionKeyArn:       example.Arn,
-//				MemoryExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				ClientToken:            "unique-client-token",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Bedrock AgentCore Memory using the memory ID. For example:
-//
-// ```sh
-// $ pulumi import aws:bedrock/agentcoreMemory:AgentcoreMemory example MEMORY1234567890
-// ```
 type AgentcoreMemory struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Memory.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Description of the memory.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
-	EncryptionKeyArn pulumi.StringPtrOutput `pulumi:"encryptionKeyArn"`
-	// Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-	//
-	// The following arguments are optional:
-	EventExpiryDuration pulumi.IntOutput `pulumi:"eventExpiryDuration"`
-	// ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
-	MemoryExecutionRoleArn pulumi.StringPtrOutput `pulumi:"memoryExecutionRoleArn"`
-	// Name of the memory.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput           `pulumi:"tagsAll"`
-	Timeouts AgentcoreMemoryTimeoutsPtrOutput `pulumi:"timeouts"`
+	Arn                    pulumi.StringOutput              `pulumi:"arn"`
+	Description            pulumi.StringPtrOutput           `pulumi:"description"`
+	EncryptionKeyArn       pulumi.StringPtrOutput           `pulumi:"encryptionKeyArn"`
+	EventExpiryDuration    pulumi.IntOutput                 `pulumi:"eventExpiryDuration"`
+	MemoryExecutionRoleArn pulumi.StringPtrOutput           `pulumi:"memoryExecutionRoleArn"`
+	Name                   pulumi.StringOutput              `pulumi:"name"`
+	Region                 pulumi.StringOutput              `pulumi:"region"`
+	Tags                   pulumi.StringMapOutput           `pulumi:"tags"`
+	TagsAll                pulumi.StringMapOutput           `pulumi:"tagsAll"`
+	Timeouts               AgentcoreMemoryTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewAgentcoreMemory registers a new resource with the given unique name, arguments, and options.
@@ -183,51 +60,29 @@ func GetAgentcoreMemory(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AgentcoreMemory resources.
 type agentcoreMemoryState struct {
-	// ARN of the Memory.
-	Arn *string `pulumi:"arn"`
-	// Description of the memory.
-	Description *string `pulumi:"description"`
-	// ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
-	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
-	// Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-	//
-	// The following arguments are optional:
-	EventExpiryDuration *int `pulumi:"eventExpiryDuration"`
-	// ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
-	MemoryExecutionRoleArn *string `pulumi:"memoryExecutionRoleArn"`
-	// Name of the memory.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string        `pulumi:"tagsAll"`
-	Timeouts *AgentcoreMemoryTimeouts `pulumi:"timeouts"`
+	Arn                    *string                  `pulumi:"arn"`
+	Description            *string                  `pulumi:"description"`
+	EncryptionKeyArn       *string                  `pulumi:"encryptionKeyArn"`
+	EventExpiryDuration    *int                     `pulumi:"eventExpiryDuration"`
+	MemoryExecutionRoleArn *string                  `pulumi:"memoryExecutionRoleArn"`
+	Name                   *string                  `pulumi:"name"`
+	Region                 *string                  `pulumi:"region"`
+	Tags                   map[string]string        `pulumi:"tags"`
+	TagsAll                map[string]string        `pulumi:"tagsAll"`
+	Timeouts               *AgentcoreMemoryTimeouts `pulumi:"timeouts"`
 }
 
 type AgentcoreMemoryState struct {
-	// ARN of the Memory.
-	Arn pulumi.StringPtrInput
-	// Description of the memory.
-	Description pulumi.StringPtrInput
-	// ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
-	EncryptionKeyArn pulumi.StringPtrInput
-	// Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-	//
-	// The following arguments are optional:
-	EventExpiryDuration pulumi.IntPtrInput
-	// ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
+	Arn                    pulumi.StringPtrInput
+	Description            pulumi.StringPtrInput
+	EncryptionKeyArn       pulumi.StringPtrInput
+	EventExpiryDuration    pulumi.IntPtrInput
 	MemoryExecutionRoleArn pulumi.StringPtrInput
-	// Name of the memory.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts AgentcoreMemoryTimeoutsPtrInput
+	Name                   pulumi.StringPtrInput
+	Region                 pulumi.StringPtrInput
+	Tags                   pulumi.StringMapInput
+	TagsAll                pulumi.StringMapInput
+	Timeouts               AgentcoreMemoryTimeoutsPtrInput
 }
 
 func (AgentcoreMemoryState) ElementType() reflect.Type {
@@ -235,44 +90,26 @@ func (AgentcoreMemoryState) ElementType() reflect.Type {
 }
 
 type agentcoreMemoryArgs struct {
-	// Description of the memory.
-	Description *string `pulumi:"description"`
-	// ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
-	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
-	// Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-	//
-	// The following arguments are optional:
-	EventExpiryDuration int `pulumi:"eventExpiryDuration"`
-	// ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
-	MemoryExecutionRoleArn *string `pulumi:"memoryExecutionRoleArn"`
-	// Name of the memory.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string        `pulumi:"tags"`
-	Timeouts *AgentcoreMemoryTimeouts `pulumi:"timeouts"`
+	Description            *string                  `pulumi:"description"`
+	EncryptionKeyArn       *string                  `pulumi:"encryptionKeyArn"`
+	EventExpiryDuration    int                      `pulumi:"eventExpiryDuration"`
+	MemoryExecutionRoleArn *string                  `pulumi:"memoryExecutionRoleArn"`
+	Name                   *string                  `pulumi:"name"`
+	Region                 *string                  `pulumi:"region"`
+	Tags                   map[string]string        `pulumi:"tags"`
+	Timeouts               *AgentcoreMemoryTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a AgentcoreMemory resource.
 type AgentcoreMemoryArgs struct {
-	// Description of the memory.
-	Description pulumi.StringPtrInput
-	// ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
-	EncryptionKeyArn pulumi.StringPtrInput
-	// Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-	//
-	// The following arguments are optional:
-	EventExpiryDuration pulumi.IntInput
-	// ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
+	Description            pulumi.StringPtrInput
+	EncryptionKeyArn       pulumi.StringPtrInput
+	EventExpiryDuration    pulumi.IntInput
 	MemoryExecutionRoleArn pulumi.StringPtrInput
-	// Name of the memory.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts AgentcoreMemoryTimeoutsPtrInput
+	Name                   pulumi.StringPtrInput
+	Region                 pulumi.StringPtrInput
+	Tags                   pulumi.StringMapInput
+	Timeouts               AgentcoreMemoryTimeoutsPtrInput
 }
 
 func (AgentcoreMemoryArgs) ElementType() reflect.Type {
@@ -362,49 +199,38 @@ func (o AgentcoreMemoryOutput) ToAgentcoreMemoryOutputWithContext(ctx context.Co
 	return o
 }
 
-// ARN of the Memory.
 func (o AgentcoreMemoryOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreMemory) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description of the memory.
 func (o AgentcoreMemoryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreMemory) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
 func (o AgentcoreMemoryOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreMemory) pulumi.StringPtrOutput { return v.EncryptionKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-//
-// The following arguments are optional:
 func (o AgentcoreMemoryOutput) EventExpiryDuration() pulumi.IntOutput {
 	return o.ApplyT(func(v *AgentcoreMemory) pulumi.IntOutput { return v.EventExpiryDuration }).(pulumi.IntOutput)
 }
 
-// ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
 func (o AgentcoreMemoryOutput) MemoryExecutionRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreMemory) pulumi.StringPtrOutput { return v.MemoryExecutionRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// Name of the memory.
 func (o AgentcoreMemoryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreMemory) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AgentcoreMemoryOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreMemory) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AgentcoreMemoryOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentcoreMemory) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AgentcoreMemoryOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentcoreMemory) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

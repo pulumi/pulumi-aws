@@ -11,38 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for manging db server linked to exadata infrastructure of Oracle Database@AWS.
-//
-// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/odb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := odb.GetDbServer(ctx, &odb.GetDbServerArgs{
-//				CloudExadataInfrastructureId: "exadata_infra_id",
-//				Id:                           "db_server_id",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetDbServer(ctx *pulumi.Context, args *GetDbServerArgs, opts ...pulumi.InvokeOption) (*GetDbServerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDbServerResult
@@ -55,59 +23,35 @@ func GetDbServer(ctx *pulumi.Context, args *GetDbServerArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getDbServer.
 type GetDbServerArgs struct {
-	// The unique identifier of the cloud vm cluster.
-	CloudExadataInfrastructureId string `pulumi:"cloudExadataInfrastructureId"`
-	// The unique identifier of db node associated with vm cluster.
-	//
-	// The following arguments are optional:
-	Id string `pulumi:"id"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	CloudExadataInfrastructureId string  `pulumi:"cloudExadataInfrastructureId"`
+	Id                           string  `pulumi:"id"`
+	Region                       *string `pulumi:"region"`
 }
 
 // A collection of values returned by getDbServer.
 type GetDbServerResult struct {
-	// The list of unique identifiers for the Autonomous VMs associated with this database server.
-	AutonomousVirtualMachineIds []string `pulumi:"autonomousVirtualMachineIds"`
-	// The OCID of the autonomous VM clusters that are associated with the database server.
-	AutonomousVmClusterIds       []string `pulumi:"autonomousVmClusterIds"`
-	CloudExadataInfrastructureId string   `pulumi:"cloudExadataInfrastructureId"`
-	// The compute model of the database server.
-	ComputeModel string `pulumi:"computeModel"`
-	// The number of CPU cores enabled on the database server.
-	CpuCoreCount int `pulumi:"cpuCoreCount"`
-	// The date and time when the database server was created.
-	CreatedAt string `pulumi:"createdAt"`
-	// The allocated local node storage in GBs on the database server.
-	DbNodeStorageSizeInGbs int `pulumi:"dbNodeStorageSizeInGbs"`
-	// The scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
-	DbServerPatchingDetails []GetDbServerDbServerPatchingDetail `pulumi:"dbServerPatchingDetails"`
-	// The display name of the database server.
-	DisplayName string `pulumi:"displayName"`
-	// The exadata infrastructure ID of the database server.
-	ExadataInfrastructureId string `pulumi:"exadataInfrastructureId"`
-	Id                      string `pulumi:"id"`
-	// The total number of CPU cores available.
-	MaxCpuCount int `pulumi:"maxCpuCount"`
-	// The total local node storage available in GBs.
-	MaxDbNodeStorageInGbs int `pulumi:"maxDbNodeStorageInGbs"`
-	// The total memory available in GBs.
-	MaxMemoryInGbs int `pulumi:"maxMemoryInGbs"`
-	// The allocated memory in GBs on the database server.
-	MemorySizeInGbs int `pulumi:"memorySizeInGbs"`
-	// The name of the OCI resource anchor.
-	OciResourceAnchorName string `pulumi:"ociResourceAnchorName"`
-	// The OCID of the database server to retrieve information about.
-	Ocid   string `pulumi:"ocid"`
-	Region string `pulumi:"region"`
-	// The shape of the database server. The shape determines the amount of CPU, storage, and memory resources available.
-	Shape string `pulumi:"shape"`
-	// The status of the database server.
-	Status string `pulumi:"status"`
-	// Additional information about the current status of the database server.
-	StatusReason string `pulumi:"statusReason"`
-	// The OCID of the VM clusters that are associated with the database server.
-	VmClusterIds []string `pulumi:"vmClusterIds"`
+	AutonomousVirtualMachineIds  []string                            `pulumi:"autonomousVirtualMachineIds"`
+	AutonomousVmClusterIds       []string                            `pulumi:"autonomousVmClusterIds"`
+	CloudExadataInfrastructureId string                              `pulumi:"cloudExadataInfrastructureId"`
+	ComputeModel                 string                              `pulumi:"computeModel"`
+	CpuCoreCount                 int                                 `pulumi:"cpuCoreCount"`
+	CreatedAt                    string                              `pulumi:"createdAt"`
+	DbNodeStorageSizeInGbs       int                                 `pulumi:"dbNodeStorageSizeInGbs"`
+	DbServerPatchingDetails      []GetDbServerDbServerPatchingDetail `pulumi:"dbServerPatchingDetails"`
+	DisplayName                  string                              `pulumi:"displayName"`
+	ExadataInfrastructureId      string                              `pulumi:"exadataInfrastructureId"`
+	Id                           string                              `pulumi:"id"`
+	MaxCpuCount                  int                                 `pulumi:"maxCpuCount"`
+	MaxDbNodeStorageInGbs        int                                 `pulumi:"maxDbNodeStorageInGbs"`
+	MaxMemoryInGbs               int                                 `pulumi:"maxMemoryInGbs"`
+	MemorySizeInGbs              int                                 `pulumi:"memorySizeInGbs"`
+	OciResourceAnchorName        string                              `pulumi:"ociResourceAnchorName"`
+	Ocid                         string                              `pulumi:"ocid"`
+	Region                       string                              `pulumi:"region"`
+	Shape                        string                              `pulumi:"shape"`
+	Status                       string                              `pulumi:"status"`
+	StatusReason                 string                              `pulumi:"statusReason"`
+	VmClusterIds                 []string                            `pulumi:"vmClusterIds"`
 }
 
 func GetDbServerOutput(ctx *pulumi.Context, args GetDbServerOutputArgs, opts ...pulumi.InvokeOption) GetDbServerResultOutput {
@@ -121,14 +65,9 @@ func GetDbServerOutput(ctx *pulumi.Context, args GetDbServerOutputArgs, opts ...
 
 // A collection of arguments for invoking getDbServer.
 type GetDbServerOutputArgs struct {
-	// The unique identifier of the cloud vm cluster.
-	CloudExadataInfrastructureId pulumi.StringInput `pulumi:"cloudExadataInfrastructureId"`
-	// The unique identifier of db node associated with vm cluster.
-	//
-	// The following arguments are optional:
-	Id pulumi.StringInput `pulumi:"id"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	CloudExadataInfrastructureId pulumi.StringInput    `pulumi:"cloudExadataInfrastructureId"`
+	Id                           pulumi.StringInput    `pulumi:"id"`
+	Region                       pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetDbServerOutputArgs) ElementType() reflect.Type {
@@ -150,12 +89,10 @@ func (o GetDbServerResultOutput) ToGetDbServerResultOutputWithContext(ctx contex
 	return o
 }
 
-// The list of unique identifiers for the Autonomous VMs associated with this database server.
 func (o GetDbServerResultOutput) AutonomousVirtualMachineIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDbServerResult) []string { return v.AutonomousVirtualMachineIds }).(pulumi.StringArrayOutput)
 }
 
-// The OCID of the autonomous VM clusters that are associated with the database server.
 func (o GetDbServerResultOutput) AutonomousVmClusterIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDbServerResult) []string { return v.AutonomousVmClusterIds }).(pulumi.StringArrayOutput)
 }
@@ -164,37 +101,30 @@ func (o GetDbServerResultOutput) CloudExadataInfrastructureId() pulumi.StringOut
 	return o.ApplyT(func(v GetDbServerResult) string { return v.CloudExadataInfrastructureId }).(pulumi.StringOutput)
 }
 
-// The compute model of the database server.
 func (o GetDbServerResultOutput) ComputeModel() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbServerResult) string { return v.ComputeModel }).(pulumi.StringOutput)
 }
 
-// The number of CPU cores enabled on the database server.
 func (o GetDbServerResultOutput) CpuCoreCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbServerResult) int { return v.CpuCoreCount }).(pulumi.IntOutput)
 }
 
-// The date and time when the database server was created.
 func (o GetDbServerResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbServerResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// The allocated local node storage in GBs on the database server.
 func (o GetDbServerResultOutput) DbNodeStorageSizeInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbServerResult) int { return v.DbNodeStorageSizeInGbs }).(pulumi.IntOutput)
 }
 
-// The scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
 func (o GetDbServerResultOutput) DbServerPatchingDetails() GetDbServerDbServerPatchingDetailArrayOutput {
 	return o.ApplyT(func(v GetDbServerResult) []GetDbServerDbServerPatchingDetail { return v.DbServerPatchingDetails }).(GetDbServerDbServerPatchingDetailArrayOutput)
 }
 
-// The display name of the database server.
 func (o GetDbServerResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbServerResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// The exadata infrastructure ID of the database server.
 func (o GetDbServerResultOutput) ExadataInfrastructureId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbServerResult) string { return v.ExadataInfrastructureId }).(pulumi.StringOutput)
 }
@@ -203,32 +133,26 @@ func (o GetDbServerResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbServerResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The total number of CPU cores available.
 func (o GetDbServerResultOutput) MaxCpuCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbServerResult) int { return v.MaxCpuCount }).(pulumi.IntOutput)
 }
 
-// The total local node storage available in GBs.
 func (o GetDbServerResultOutput) MaxDbNodeStorageInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbServerResult) int { return v.MaxDbNodeStorageInGbs }).(pulumi.IntOutput)
 }
 
-// The total memory available in GBs.
 func (o GetDbServerResultOutput) MaxMemoryInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbServerResult) int { return v.MaxMemoryInGbs }).(pulumi.IntOutput)
 }
 
-// The allocated memory in GBs on the database server.
 func (o GetDbServerResultOutput) MemorySizeInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbServerResult) int { return v.MemorySizeInGbs }).(pulumi.IntOutput)
 }
 
-// The name of the OCI resource anchor.
 func (o GetDbServerResultOutput) OciResourceAnchorName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbServerResult) string { return v.OciResourceAnchorName }).(pulumi.StringOutput)
 }
 
-// The OCID of the database server to retrieve information about.
 func (o GetDbServerResultOutput) Ocid() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbServerResult) string { return v.Ocid }).(pulumi.StringOutput)
 }
@@ -237,22 +161,18 @@ func (o GetDbServerResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbServerResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The shape of the database server. The shape determines the amount of CPU, storage, and memory resources available.
 func (o GetDbServerResultOutput) Shape() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbServerResult) string { return v.Shape }).(pulumi.StringOutput)
 }
 
-// The status of the database server.
 func (o GetDbServerResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbServerResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Additional information about the current status of the database server.
 func (o GetDbServerResultOutput) StatusReason() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbServerResult) string { return v.StatusReason }).(pulumi.StringOutput)
 }
 
-// The OCID of the VM clusters that are associated with the database server.
 func (o GetDbServerResultOutput) VmClusterIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDbServerResult) []string { return v.VmClusterIds }).(pulumi.StringArrayOutput)
 }

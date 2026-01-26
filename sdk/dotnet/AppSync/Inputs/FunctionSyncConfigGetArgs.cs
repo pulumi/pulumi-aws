@@ -12,21 +12,12 @@ namespace Pulumi.Aws.AppSync.Inputs
 
     public sealed class FunctionSyncConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
-        /// </summary>
         [Input("conflictDetection")]
         public Input<string>? ConflictDetection { get; set; }
 
-        /// <summary>
-        /// Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
-        /// </summary>
         [Input("conflictHandler")]
         public Input<string>? ConflictHandler { get; set; }
 
-        /// <summary>
-        /// Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See `LambdaConflictHandlerConfig` Block for details.
-        /// </summary>
         [Input("lambdaConflictHandlerConfig")]
         public Input<Inputs.FunctionSyncConfigLambdaConflictHandlerConfigGetArgs>? LambdaConflictHandlerConfig { get; set; }
 

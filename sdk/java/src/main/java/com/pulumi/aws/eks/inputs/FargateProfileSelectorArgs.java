@@ -17,36 +17,16 @@ public final class FargateProfileSelectorArgs extends com.pulumi.resources.Resou
 
     public static final FargateProfileSelectorArgs Empty = new FargateProfileSelectorArgs();
 
-    /**
-     * Key-value map of Kubernetes labels for selection.
-     * 
-     */
     @Import(name="labels")
     private @Nullable Output<Map<String,String>> labels;
 
-    /**
-     * @return Key-value map of Kubernetes labels for selection.
-     * 
-     */
     public Optional<Output<Map<String,String>>> labels() {
         return Optional.ofNullable(this.labels);
     }
 
-    /**
-     * Kubernetes namespace for selection.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="namespace", required=true)
     private Output<String> namespace;
 
-    /**
-     * @return Kubernetes namespace for selection.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> namespace() {
         return this.namespace;
     }
@@ -76,48 +56,20 @@ public final class FargateProfileSelectorArgs extends com.pulumi.resources.Resou
             $ = new FargateProfileSelectorArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param labels Key-value map of Kubernetes labels for selection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder labels(@Nullable Output<Map<String,String>> labels) {
             $.labels = labels;
             return this;
         }
 
-        /**
-         * @param labels Key-value map of Kubernetes labels for selection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder labels(Map<String,String> labels) {
             return labels(Output.of(labels));
         }
 
-        /**
-         * @param namespace Kubernetes namespace for selection.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(Output<String> namespace) {
             $.namespace = namespace;
             return this;
         }
 
-        /**
-         * @param namespace Kubernetes namespace for selection.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
         }

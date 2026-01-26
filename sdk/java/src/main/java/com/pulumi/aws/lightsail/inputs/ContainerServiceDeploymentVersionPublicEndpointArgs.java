@@ -16,47 +16,23 @@ public final class ContainerServiceDeploymentVersionPublicEndpointArgs extends c
 
     public static final ContainerServiceDeploymentVersionPublicEndpointArgs Empty = new ContainerServiceDeploymentVersionPublicEndpointArgs();
 
-    /**
-     * Name of the container for the endpoint.
-     * 
-     */
     @Import(name="containerName", required=true)
     private Output<String> containerName;
 
-    /**
-     * @return Name of the container for the endpoint.
-     * 
-     */
     public Output<String> containerName() {
         return this.containerName;
     }
 
-    /**
-     * Port of the container to which traffic is forwarded to.
-     * 
-     */
     @Import(name="containerPort", required=true)
     private Output<Integer> containerPort;
 
-    /**
-     * @return Port of the container to which traffic is forwarded to.
-     * 
-     */
     public Output<Integer> containerPort() {
         return this.containerPort;
     }
 
-    /**
-     * Configuration block that describes the health check configuration of the container. See below.
-     * 
-     */
     @Import(name="healthCheck", required=true)
     private Output<ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs> healthCheck;
 
-    /**
-     * @return Configuration block that describes the health check configuration of the container. See below.
-     * 
-     */
     public Output<ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs> healthCheck() {
         return this.healthCheck;
     }
@@ -87,65 +63,29 @@ public final class ContainerServiceDeploymentVersionPublicEndpointArgs extends c
             $ = new ContainerServiceDeploymentVersionPublicEndpointArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param containerName Name of the container for the endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerName(Output<String> containerName) {
             $.containerName = containerName;
             return this;
         }
 
-        /**
-         * @param containerName Name of the container for the endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerName(String containerName) {
             return containerName(Output.of(containerName));
         }
 
-        /**
-         * @param containerPort Port of the container to which traffic is forwarded to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerPort(Output<Integer> containerPort) {
             $.containerPort = containerPort;
             return this;
         }
 
-        /**
-         * @param containerPort Port of the container to which traffic is forwarded to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerPort(Integer containerPort) {
             return containerPort(Output.of(containerPort));
         }
 
-        /**
-         * @param healthCheck Configuration block that describes the health check configuration of the container. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthCheck(Output<ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs> healthCheck) {
             $.healthCheck = healthCheck;
             return this;
         }
 
-        /**
-         * @param healthCheck Configuration block that describes the health check configuration of the container. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthCheck(ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs healthCheck) {
             return healthCheck(Output.of(healthCheck));
         }

@@ -12,26 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AWS Cognito Identity Pool Roles Attachment.
-//
-// ## Import
-//
-// Using `pulumi import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID. For example:
-//
-// ```sh
-// $ pulumi import aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment example us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42
-// ```
 type IdentityPoolRoleAttachment struct {
 	pulumi.CustomResourceState
 
-	// An identity pool ID in the format `REGION_GUID`.
-	IdentityPoolId pulumi.StringOutput `pulumi:"identityPoolId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A List of Role Mapping.
-	RoleMappings IdentityPoolRoleAttachmentRoleMappingArrayOutput `pulumi:"roleMappings"`
-	// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-	Roles pulumi.StringMapOutput `pulumi:"roles"`
+	IdentityPoolId pulumi.StringOutput                              `pulumi:"identityPoolId"`
+	Region         pulumi.StringOutput                              `pulumi:"region"`
+	RoleMappings   IdentityPoolRoleAttachmentRoleMappingArrayOutput `pulumi:"roleMappings"`
+	Roles          pulumi.StringMapOutput                           `pulumi:"roles"`
 }
 
 // NewIdentityPoolRoleAttachment registers a new resource with the given unique name, arguments, and options.
@@ -70,25 +57,17 @@ func GetIdentityPoolRoleAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IdentityPoolRoleAttachment resources.
 type identityPoolRoleAttachmentState struct {
-	// An identity pool ID in the format `REGION_GUID`.
-	IdentityPoolId *string `pulumi:"identityPoolId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A List of Role Mapping.
-	RoleMappings []IdentityPoolRoleAttachmentRoleMapping `pulumi:"roleMappings"`
-	// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-	Roles map[string]string `pulumi:"roles"`
+	IdentityPoolId *string                                 `pulumi:"identityPoolId"`
+	Region         *string                                 `pulumi:"region"`
+	RoleMappings   []IdentityPoolRoleAttachmentRoleMapping `pulumi:"roleMappings"`
+	Roles          map[string]string                       `pulumi:"roles"`
 }
 
 type IdentityPoolRoleAttachmentState struct {
-	// An identity pool ID in the format `REGION_GUID`.
 	IdentityPoolId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A List of Role Mapping.
-	RoleMappings IdentityPoolRoleAttachmentRoleMappingArrayInput
-	// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-	Roles pulumi.StringMapInput
+	Region         pulumi.StringPtrInput
+	RoleMappings   IdentityPoolRoleAttachmentRoleMappingArrayInput
+	Roles          pulumi.StringMapInput
 }
 
 func (IdentityPoolRoleAttachmentState) ElementType() reflect.Type {
@@ -96,26 +75,18 @@ func (IdentityPoolRoleAttachmentState) ElementType() reflect.Type {
 }
 
 type identityPoolRoleAttachmentArgs struct {
-	// An identity pool ID in the format `REGION_GUID`.
-	IdentityPoolId string `pulumi:"identityPoolId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A List of Role Mapping.
-	RoleMappings []IdentityPoolRoleAttachmentRoleMapping `pulumi:"roleMappings"`
-	// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-	Roles map[string]string `pulumi:"roles"`
+	IdentityPoolId string                                  `pulumi:"identityPoolId"`
+	Region         *string                                 `pulumi:"region"`
+	RoleMappings   []IdentityPoolRoleAttachmentRoleMapping `pulumi:"roleMappings"`
+	Roles          map[string]string                       `pulumi:"roles"`
 }
 
 // The set of arguments for constructing a IdentityPoolRoleAttachment resource.
 type IdentityPoolRoleAttachmentArgs struct {
-	// An identity pool ID in the format `REGION_GUID`.
 	IdentityPoolId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A List of Role Mapping.
-	RoleMappings IdentityPoolRoleAttachmentRoleMappingArrayInput
-	// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-	Roles pulumi.StringMapInput
+	Region         pulumi.StringPtrInput
+	RoleMappings   IdentityPoolRoleAttachmentRoleMappingArrayInput
+	Roles          pulumi.StringMapInput
 }
 
 func (IdentityPoolRoleAttachmentArgs) ElementType() reflect.Type {
@@ -205,24 +176,20 @@ func (o IdentityPoolRoleAttachmentOutput) ToIdentityPoolRoleAttachmentOutputWith
 	return o
 }
 
-// An identity pool ID in the format `REGION_GUID`.
 func (o IdentityPoolRoleAttachmentOutput) IdentityPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityPoolRoleAttachment) pulumi.StringOutput { return v.IdentityPoolId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o IdentityPoolRoleAttachmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityPoolRoleAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A List of Role Mapping.
 func (o IdentityPoolRoleAttachmentOutput) RoleMappings() IdentityPoolRoleAttachmentRoleMappingArrayOutput {
 	return o.ApplyT(func(v *IdentityPoolRoleAttachment) IdentityPoolRoleAttachmentRoleMappingArrayOutput {
 		return v.RoleMappings
 	}).(IdentityPoolRoleAttachmentRoleMappingArrayOutput)
 }
 
-// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
 func (o IdentityPoolRoleAttachmentOutput) Roles() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IdentityPoolRoleAttachment) pulumi.StringMapOutput { return v.Roles }).(pulumi.StringMapOutput)
 }

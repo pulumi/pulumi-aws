@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFirewallEncryptionConfiguration {
-    /**
-     * @return The ID of the AWS Key Management Service (AWS KMS) customer managed key.
-     * 
-     */
     private String keyId;
-    /**
-     * @return The type of the AWS Key Management Service (AWS KMS) key use by the firewall.
-     * 
-     */
     private String type;
 
     private GetFirewallEncryptionConfiguration() {}
-    /**
-     * @return The ID of the AWS Key Management Service (AWS KMS) customer managed key.
-     * 
-     */
     public String keyId() {
         return this.keyId;
     }
-    /**
-     * @return The type of the AWS Key Management Service (AWS KMS) key use by the firewall.
-     * 
-     */
     public String type() {
         return this.type;
     }

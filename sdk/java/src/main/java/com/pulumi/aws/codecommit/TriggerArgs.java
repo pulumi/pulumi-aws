@@ -18,47 +18,23 @@ public final class TriggerArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TriggerArgs Empty = new TriggerArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The name for the repository. This needs to be less than 100 characters.
-     * 
-     */
     @Import(name="repositoryName", required=true)
     private Output<String> repositoryName;
 
-    /**
-     * @return The name for the repository. This needs to be less than 100 characters.
-     * 
-     */
     public Output<String> repositoryName() {
         return this.repositoryName;
     }
 
-    /**
-     * The name of the trigger.
-     * 
-     */
     @Import(name="triggers", required=true)
     private Output<List<TriggerTriggerArgs>> triggers;
 
-    /**
-     * @return The name of the trigger.
-     * 
-     */
     public Output<List<TriggerTriggerArgs>> triggers() {
         return this.triggers;
     }
@@ -89,75 +65,33 @@ public final class TriggerArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TriggerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param repositoryName The name for the repository. This needs to be less than 100 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryName(Output<String> repositoryName) {
             $.repositoryName = repositoryName;
             return this;
         }
 
-        /**
-         * @param repositoryName The name for the repository. This needs to be less than 100 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryName(String repositoryName) {
             return repositoryName(Output.of(repositoryName));
         }
 
-        /**
-         * @param triggers The name of the trigger.
-         * 
-         * @return builder
-         * 
-         */
         public Builder triggers(Output<List<TriggerTriggerArgs>> triggers) {
             $.triggers = triggers;
             return this;
         }
 
-        /**
-         * @param triggers The name of the trigger.
-         * 
-         * @return builder
-         * 
-         */
         public Builder triggers(List<TriggerTriggerArgs> triggers) {
             return triggers(Output.of(triggers));
         }
 
-        /**
-         * @param triggers The name of the trigger.
-         * 
-         * @return builder
-         * 
-         */
         public Builder triggers(TriggerTriggerArgs... triggers) {
             return triggers(List.of(triggers));
         }

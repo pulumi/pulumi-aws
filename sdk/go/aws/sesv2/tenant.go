@@ -12,65 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS SESv2 (Simple Email V2) Tenant.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sesv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sesv2.NewTenant(ctx, "example", &sesv2.TenantArgs{
-//				TenantName: pulumi.String("example-tenant"),
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import an SESv2 Tenant using the `tenant_name`. For example:
-//
-// ```sh
-// $ pulumi import aws:sesv2/tenant:Tenant example example-tenant
-// ```
 type Tenant struct {
 	pulumi.CustomResourceState
 
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Current sending status of the tenant.
-	SendingStatus pulumi.StringOutput `pulumi:"sendingStatus"`
-	// Map of tags to assign to the tenant.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the tenant, including provider default tags.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// ARN of the Tenant.
-	TenantArn pulumi.StringOutput `pulumi:"tenantArn"`
-	// ID of the Tenant.
-	TenantId pulumi.StringOutput `pulumi:"tenantId"`
-	// Name of the SESV2 tenant.  The name must be unique within the AWS account and Region.  Changing the tenant name forces creation of a new tenant.
-	//
-	// The following arguments are optional:
-	TenantName pulumi.StringOutput `pulumi:"tenantName"`
+	Region        pulumi.StringOutput    `pulumi:"region"`
+	SendingStatus pulumi.StringOutput    `pulumi:"sendingStatus"`
+	Tags          pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll       pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TenantArn     pulumi.StringOutput    `pulumi:"tenantArn"`
+	TenantId      pulumi.StringOutput    `pulumi:"tenantId"`
+	TenantName    pulumi.StringOutput    `pulumi:"tenantName"`
 }
 
 // NewTenant registers a new resource with the given unique name, arguments, and options.
@@ -106,41 +57,23 @@ func GetTenant(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Tenant resources.
 type tenantState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Current sending status of the tenant.
-	SendingStatus *string `pulumi:"sendingStatus"`
-	// Map of tags to assign to the tenant.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the tenant, including provider default tags.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// ARN of the Tenant.
-	TenantArn *string `pulumi:"tenantArn"`
-	// ID of the Tenant.
-	TenantId *string `pulumi:"tenantId"`
-	// Name of the SESV2 tenant.  The name must be unique within the AWS account and Region.  Changing the tenant name forces creation of a new tenant.
-	//
-	// The following arguments are optional:
-	TenantName *string `pulumi:"tenantName"`
+	Region        *string           `pulumi:"region"`
+	SendingStatus *string           `pulumi:"sendingStatus"`
+	Tags          map[string]string `pulumi:"tags"`
+	TagsAll       map[string]string `pulumi:"tagsAll"`
+	TenantArn     *string           `pulumi:"tenantArn"`
+	TenantId      *string           `pulumi:"tenantId"`
+	TenantName    *string           `pulumi:"tenantName"`
 }
 
 type TenantState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Current sending status of the tenant.
+	Region        pulumi.StringPtrInput
 	SendingStatus pulumi.StringPtrInput
-	// Map of tags to assign to the tenant.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the tenant, including provider default tags.
-	TagsAll pulumi.StringMapInput
-	// ARN of the Tenant.
-	TenantArn pulumi.StringPtrInput
-	// ID of the Tenant.
-	TenantId pulumi.StringPtrInput
-	// Name of the SESV2 tenant.  The name must be unique within the AWS account and Region.  Changing the tenant name forces creation of a new tenant.
-	//
-	// The following arguments are optional:
-	TenantName pulumi.StringPtrInput
+	Tags          pulumi.StringMapInput
+	TagsAll       pulumi.StringMapInput
+	TenantArn     pulumi.StringPtrInput
+	TenantId      pulumi.StringPtrInput
+	TenantName    pulumi.StringPtrInput
 }
 
 func (TenantState) ElementType() reflect.Type {
@@ -148,25 +81,15 @@ func (TenantState) ElementType() reflect.Type {
 }
 
 type tenantArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags to assign to the tenant.
-	Tags map[string]string `pulumi:"tags"`
-	// Name of the SESV2 tenant.  The name must be unique within the AWS account and Region.  Changing the tenant name forces creation of a new tenant.
-	//
-	// The following arguments are optional:
-	TenantName string `pulumi:"tenantName"`
+	Region     *string           `pulumi:"region"`
+	Tags       map[string]string `pulumi:"tags"`
+	TenantName string            `pulumi:"tenantName"`
 }
 
 // The set of arguments for constructing a Tenant resource.
 type TenantArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags to assign to the tenant.
-	Tags pulumi.StringMapInput
-	// Name of the SESV2 tenant.  The name must be unique within the AWS account and Region.  Changing the tenant name forces creation of a new tenant.
-	//
-	// The following arguments are optional:
+	Region     pulumi.StringPtrInput
+	Tags       pulumi.StringMapInput
 	TenantName pulumi.StringInput
 }
 
@@ -257,39 +180,30 @@ func (o TenantOutput) ToTenantOutputWithContext(ctx context.Context) TenantOutpu
 	return o
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TenantOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tenant) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Current sending status of the tenant.
 func (o TenantOutput) SendingStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tenant) pulumi.StringOutput { return v.SendingStatus }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the tenant.
 func (o TenantOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Tenant) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the tenant, including provider default tags.
 func (o TenantOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Tenant) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// ARN of the Tenant.
 func (o TenantOutput) TenantArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tenant) pulumi.StringOutput { return v.TenantArn }).(pulumi.StringOutput)
 }
 
-// ID of the Tenant.
 func (o TenantOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tenant) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// Name of the SESV2 tenant.  The name must be unique within the AWS account and Region.  Changing the tenant name forces creation of a new tenant.
-//
-// The following arguments are optional:
 func (o TenantOutput) TenantName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tenant) pulumi.StringOutput { return v.TenantName }).(pulumi.StringOutput)
 }

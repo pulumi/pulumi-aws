@@ -17,77 +17,37 @@ public final class BucketNotificationLambdaFunctionArgs extends com.pulumi.resou
 
     public static final BucketNotificationLambdaFunctionArgs Empty = new BucketNotificationLambdaFunctionArgs();
 
-    /**
-     * [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
-     * 
-     */
     @Import(name="events", required=true)
     private Output<List<String>> events;
 
-    /**
-     * @return [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
-     * 
-     */
     public Output<List<String>> events() {
         return this.events;
     }
 
-    /**
-     * Object key name prefix.
-     * 
-     */
     @Import(name="filterPrefix")
     private @Nullable Output<String> filterPrefix;
 
-    /**
-     * @return Object key name prefix.
-     * 
-     */
     public Optional<Output<String>> filterPrefix() {
         return Optional.ofNullable(this.filterPrefix);
     }
 
-    /**
-     * Object key name suffix.
-     * 
-     */
     @Import(name="filterSuffix")
     private @Nullable Output<String> filterSuffix;
 
-    /**
-     * @return Object key name suffix.
-     * 
-     */
     public Optional<Output<String>> filterSuffix() {
         return Optional.ofNullable(this.filterSuffix);
     }
 
-    /**
-     * Unique identifier for each of the notification configurations.
-     * 
-     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
-    /**
-     * @return Unique identifier for each of the notification configurations.
-     * 
-     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * Lambda function ARN.
-     * 
-     */
     @Import(name="lambdaFunctionArn")
     private @Nullable Output<String> lambdaFunctionArn;
 
-    /**
-     * @return Lambda function ARN.
-     * 
-     */
     public Optional<Output<String>> lambdaFunctionArn() {
         return Optional.ofNullable(this.lambdaFunctionArn);
     }
@@ -120,117 +80,51 @@ public final class BucketNotificationLambdaFunctionArgs extends com.pulumi.resou
             $ = new BucketNotificationLambdaFunctionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param events [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
-         * 
-         * @return builder
-         * 
-         */
         public Builder events(Output<List<String>> events) {
             $.events = events;
             return this;
         }
 
-        /**
-         * @param events [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
-         * 
-         * @return builder
-         * 
-         */
         public Builder events(List<String> events) {
             return events(Output.of(events));
         }
 
-        /**
-         * @param events [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
-         * 
-         * @return builder
-         * 
-         */
         public Builder events(String... events) {
             return events(List.of(events));
         }
 
-        /**
-         * @param filterPrefix Object key name prefix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filterPrefix(@Nullable Output<String> filterPrefix) {
             $.filterPrefix = filterPrefix;
             return this;
         }
 
-        /**
-         * @param filterPrefix Object key name prefix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filterPrefix(String filterPrefix) {
             return filterPrefix(Output.of(filterPrefix));
         }
 
-        /**
-         * @param filterSuffix Object key name suffix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filterSuffix(@Nullable Output<String> filterSuffix) {
             $.filterSuffix = filterSuffix;
             return this;
         }
 
-        /**
-         * @param filterSuffix Object key name suffix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filterSuffix(String filterSuffix) {
             return filterSuffix(Output.of(filterSuffix));
         }
 
-        /**
-         * @param id Unique identifier for each of the notification configurations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id Unique identifier for each of the notification configurations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param lambdaFunctionArn Lambda function ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaFunctionArn(@Nullable Output<String> lambdaFunctionArn) {
             $.lambdaFunctionArn = lambdaFunctionArn;
             return this;
         }
 
-        /**
-         * @param lambdaFunctionArn Lambda function ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaFunctionArn(String lambdaFunctionArn) {
             return lambdaFunctionArn(Output.of(lambdaFunctionArn));
         }

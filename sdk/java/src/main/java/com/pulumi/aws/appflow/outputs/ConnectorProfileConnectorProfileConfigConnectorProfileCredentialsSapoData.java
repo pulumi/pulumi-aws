@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData {
-    /**
-     * @return The SAPOData basic authentication credentials.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials basicAuthCredentials;
-    /**
-     * @return The SAPOData OAuth type authentication credentials.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials oauthCredentials;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData() {}
-    /**
-     * @return The SAPOData basic authentication credentials.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials> basicAuthCredentials() {
         return Optional.ofNullable(this.basicAuthCredentials);
     }
-    /**
-     * @return The SAPOData OAuth type authentication credentials.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials> oauthCredentials() {
         return Optional.ofNullable(this.oauthCredentials);
     }

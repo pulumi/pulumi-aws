@@ -14,21 +14,9 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationT
 
     public static final AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolArgs Empty = new AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolArgs();
 
-    /**
-     * Name of the prompt.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the prompt.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -57,27 +45,11 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationT
             $ = new AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the prompt.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the prompt.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

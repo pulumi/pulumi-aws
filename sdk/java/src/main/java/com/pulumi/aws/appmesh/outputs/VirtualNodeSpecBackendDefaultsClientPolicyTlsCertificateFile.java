@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile {
-    /**
-     * @return Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
-     * 
-     */
     private String certificateChain;
-    /**
-     * @return Private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
-     * 
-     */
     private String privateKey;
 
     private VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile() {}
-    /**
-     * @return Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
-     * 
-     */
     public String certificateChain() {
         return this.certificateChain;
     }
-    /**
-     * @return Private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
-     * 
-     */
     public String privateKey() {
         return this.privateKey;
     }

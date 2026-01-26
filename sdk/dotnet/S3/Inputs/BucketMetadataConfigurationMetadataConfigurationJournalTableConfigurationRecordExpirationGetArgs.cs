@@ -12,15 +12,9 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Number of days to retain journal table records.
-        /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }
 
-        /// <summary>
-        /// Whether journal table record expiration is enabled or disabled. Valid values: `ENABLED`, `DISABLED`.
-        /// </summary>
         [Input("expiration", required: true)]
         public Input<string> Expiration { get; set; } = null!;
 

@@ -12,99 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AWS Backup vault notifications resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/backup"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sns"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testTopic, err := sns.NewTopic(ctx, "test", &sns.TopicArgs{
-//				Name: pulumi.String("backup-vault-events"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			test := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				PolicyId: pulumi.String("__default_policy_ID"),
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Actions: pulumi.StringArray{
-//							pulumi.String("SNS:Publish"),
-//						},
-//						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("Service"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("backup.amazonaws.com"),
-//								},
-//							},
-//						},
-//						Resources: pulumi.StringArray{
-//							testTopic.Arn,
-//						},
-//						Sid: pulumi.String("__default_statement_ID"),
-//					},
-//				},
-//			}, nil)
-//			_, err = sns.NewTopicPolicy(ctx, "test", &sns.TopicPolicyArgs{
-//				Arn: testTopic.Arn,
-//				Policy: pulumi.String(test.ApplyT(func(test iam.GetPolicyDocumentResult) (*string, error) {
-//					return &test.Json, nil
-//				}).(pulumi.StringPtrOutput)),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = backup.NewVaultNotifications(ctx, "test", &backup.VaultNotificationsArgs{
-//				BackupVaultName: pulumi.String("example_backup_vault"),
-//				SnsTopicArn:     testTopic.Arn,
-//				BackupVaultEvents: pulumi.StringArray{
-//					pulumi.String("BACKUP_JOB_STARTED"),
-//					pulumi.String("RESTORE_JOB_COMPLETED"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Backup vault notifications using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
-// ```
 type VaultNotifications struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the vault.
-	BackupVaultArn pulumi.StringOutput `pulumi:"backupVaultArn"`
-	// An array of events that indicate the status of jobs to back up resources to the backup vault.
+	BackupVaultArn    pulumi.StringOutput      `pulumi:"backupVaultArn"`
 	BackupVaultEvents pulumi.StringArrayOutput `pulumi:"backupVaultEvents"`
-	// Name of the backup vault to add notifications for.
-	BackupVaultName pulumi.StringOutput `pulumi:"backupVaultName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
-	SnsTopicArn pulumi.StringOutput `pulumi:"snsTopicArn"`
+	BackupVaultName   pulumi.StringOutput      `pulumi:"backupVaultName"`
+	Region            pulumi.StringOutput      `pulumi:"region"`
+	SnsTopicArn       pulumi.StringOutput      `pulumi:"snsTopicArn"`
 }
 
 // NewVaultNotifications registers a new resource with the given unique name, arguments, and options.
@@ -146,29 +61,19 @@ func GetVaultNotifications(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VaultNotifications resources.
 type vaultNotificationsState struct {
-	// The ARN of the vault.
-	BackupVaultArn *string `pulumi:"backupVaultArn"`
-	// An array of events that indicate the status of jobs to back up resources to the backup vault.
+	BackupVaultArn    *string  `pulumi:"backupVaultArn"`
 	BackupVaultEvents []string `pulumi:"backupVaultEvents"`
-	// Name of the backup vault to add notifications for.
-	BackupVaultName *string `pulumi:"backupVaultName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
-	SnsTopicArn *string `pulumi:"snsTopicArn"`
+	BackupVaultName   *string  `pulumi:"backupVaultName"`
+	Region            *string  `pulumi:"region"`
+	SnsTopicArn       *string  `pulumi:"snsTopicArn"`
 }
 
 type VaultNotificationsState struct {
-	// The ARN of the vault.
-	BackupVaultArn pulumi.StringPtrInput
-	// An array of events that indicate the status of jobs to back up resources to the backup vault.
+	BackupVaultArn    pulumi.StringPtrInput
 	BackupVaultEvents pulumi.StringArrayInput
-	// Name of the backup vault to add notifications for.
-	BackupVaultName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
-	SnsTopicArn pulumi.StringPtrInput
+	BackupVaultName   pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
+	SnsTopicArn       pulumi.StringPtrInput
 }
 
 func (VaultNotificationsState) ElementType() reflect.Type {
@@ -176,26 +81,18 @@ func (VaultNotificationsState) ElementType() reflect.Type {
 }
 
 type vaultNotificationsArgs struct {
-	// An array of events that indicate the status of jobs to back up resources to the backup vault.
 	BackupVaultEvents []string `pulumi:"backupVaultEvents"`
-	// Name of the backup vault to add notifications for.
-	BackupVaultName string `pulumi:"backupVaultName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
-	SnsTopicArn string `pulumi:"snsTopicArn"`
+	BackupVaultName   string   `pulumi:"backupVaultName"`
+	Region            *string  `pulumi:"region"`
+	SnsTopicArn       string   `pulumi:"snsTopicArn"`
 }
 
 // The set of arguments for constructing a VaultNotifications resource.
 type VaultNotificationsArgs struct {
-	// An array of events that indicate the status of jobs to back up resources to the backup vault.
 	BackupVaultEvents pulumi.StringArrayInput
-	// Name of the backup vault to add notifications for.
-	BackupVaultName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
-	SnsTopicArn pulumi.StringInput
+	BackupVaultName   pulumi.StringInput
+	Region            pulumi.StringPtrInput
+	SnsTopicArn       pulumi.StringInput
 }
 
 func (VaultNotificationsArgs) ElementType() reflect.Type {
@@ -285,27 +182,22 @@ func (o VaultNotificationsOutput) ToVaultNotificationsOutputWithContext(ctx cont
 	return o
 }
 
-// The ARN of the vault.
 func (o VaultNotificationsOutput) BackupVaultArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VaultNotifications) pulumi.StringOutput { return v.BackupVaultArn }).(pulumi.StringOutput)
 }
 
-// An array of events that indicate the status of jobs to back up resources to the backup vault.
 func (o VaultNotificationsOutput) BackupVaultEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VaultNotifications) pulumi.StringArrayOutput { return v.BackupVaultEvents }).(pulumi.StringArrayOutput)
 }
 
-// Name of the backup vault to add notifications for.
 func (o VaultNotificationsOutput) BackupVaultName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VaultNotifications) pulumi.StringOutput { return v.BackupVaultName }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VaultNotificationsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VaultNotifications) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
 func (o VaultNotificationsOutput) SnsTopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VaultNotifications) pulumi.StringOutput { return v.SnsTopicArn }).(pulumi.StringOutput)
 }

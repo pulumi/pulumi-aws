@@ -15,47 +15,23 @@ public final class VpnConnectionRouteState extends com.pulumi.resources.Resource
 
     public static final VpnConnectionRouteState Empty = new VpnConnectionRouteState();
 
-    /**
-     * The CIDR block associated with the local subnet of the customer network.
-     * 
-     */
     @Import(name="destinationCidrBlock")
     private @Nullable Output<String> destinationCidrBlock;
 
-    /**
-     * @return The CIDR block associated with the local subnet of the customer network.
-     * 
-     */
     public Optional<Output<String>> destinationCidrBlock() {
         return Optional.ofNullable(this.destinationCidrBlock);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ID of the VPN connection.
-     * 
-     */
     @Import(name="vpnConnectionId")
     private @Nullable Output<String> vpnConnectionId;
 
-    /**
-     * @return The ID of the VPN connection.
-     * 
-     */
     public Optional<Output<String>> vpnConnectionId() {
         return Optional.ofNullable(this.vpnConnectionId);
     }
@@ -86,65 +62,29 @@ public final class VpnConnectionRouteState extends com.pulumi.resources.Resource
             $ = new VpnConnectionRouteState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destinationCidrBlock The CIDR block associated with the local subnet of the customer network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationCidrBlock(@Nullable Output<String> destinationCidrBlock) {
             $.destinationCidrBlock = destinationCidrBlock;
             return this;
         }
 
-        /**
-         * @param destinationCidrBlock The CIDR block associated with the local subnet of the customer network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationCidrBlock(String destinationCidrBlock) {
             return destinationCidrBlock(Output.of(destinationCidrBlock));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param vpnConnectionId The ID of the VPN connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpnConnectionId(@Nullable Output<String> vpnConnectionId) {
             $.vpnConnectionId = vpnConnectionId;
             return this;
         }
 
-        /**
-         * @param vpnConnectionId The ID of the VPN connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpnConnectionId(String vpnConnectionId) {
             return vpnConnectionId(Output.of(vpnConnectionId));
         }

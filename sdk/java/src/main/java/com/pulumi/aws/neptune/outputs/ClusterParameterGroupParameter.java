@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterParameterGroupParameter {
-    /**
-     * @return Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
-     * 
-     */
     private @Nullable String applyMethod;
-    /**
-     * @return The name of the neptune parameter.
-     * 
-     */
     private String name;
-    /**
-     * @return The value of the neptune parameter.
-     * 
-     */
     private String value;
 
     private ClusterParameterGroupParameter() {}
-    /**
-     * @return Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
-     * 
-     */
     public Optional<String> applyMethod() {
         return Optional.ofNullable(this.applyMethod);
     }
-    /**
-     * @return The name of the neptune parameter.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The value of the neptune parameter.
-     * 
-     */
     public String value() {
         return this.value;
     }

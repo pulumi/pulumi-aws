@@ -11,87 +11,12 @@ namespace Pulumi.Aws.Cur
 {
     public static class GetReportDefinition
     {
-        /// <summary>
-        /// Use this data source to get information on an AWS Cost and Usage Report Definition.
-        /// 
-        /// &gt; *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
-        /// 
-        /// &gt; *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var reportDefinition = Aws.Cur.GetReportDefinition.Invoke(new()
-        ///     {
-        ///         ReportName = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetReportDefinitionResult> InvokeAsync(GetReportDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReportDefinitionResult>("aws:cur/getReportDefinition:getReportDefinition", args ?? new GetReportDefinitionArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information on an AWS Cost and Usage Report Definition.
-        /// 
-        /// &gt; *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
-        /// 
-        /// &gt; *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var reportDefinition = Aws.Cur.GetReportDefinition.Invoke(new()
-        ///     {
-        ///         ReportName = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetReportDefinitionResult> Invoke(GetReportDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReportDefinitionResult>("aws:cur/getReportDefinition:getReportDefinition", args ?? new GetReportDefinitionInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information on an AWS Cost and Usage Report Definition.
-        /// 
-        /// &gt; *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
-        /// 
-        /// &gt; *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var reportDefinition = Aws.Cur.GetReportDefinition.Invoke(new()
-        ///     {
-        ///         ReportName = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetReportDefinitionResult> Invoke(GetReportDefinitionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetReportDefinitionResult>("aws:cur/getReportDefinition:getReportDefinition", args ?? new GetReportDefinitionInvokeArgs(), options.WithDefaults());
     }
@@ -99,18 +24,11 @@ namespace Pulumi.Aws.Cur
 
     public sealed class GetReportDefinitionArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the report definition to match.
-        /// </summary>
         [Input("reportName", required: true)]
         public string ReportName { get; set; } = null!;
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of key-value pairs assigned to the resource.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -125,18 +43,11 @@ namespace Pulumi.Aws.Cur
 
     public sealed class GetReportDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the report definition to match.
-        /// </summary>
         [Input("reportName", required: true)]
         public Input<string> ReportName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of key-value pairs assigned to the resource.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -153,54 +64,21 @@ namespace Pulumi.Aws.Cur
     [OutputType]
     public sealed class GetReportDefinitionResult
     {
-        /// <summary>
-        /// A list of additional artifacts.
-        /// </summary>
         public readonly ImmutableArray<string> AdditionalArtifacts;
-        /// <summary>
-        /// A list of schema elements.
-        /// </summary>
         public readonly ImmutableArray<string> AdditionalSchemaElements;
-        /// <summary>
-        /// Preferred format for report.
-        /// </summary>
         public readonly string Compression;
-        /// <summary>
-        /// Preferred compression format for report.
-        /// </summary>
         public readonly string Format;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// If true reports are updated after they have been finalized.
-        /// </summary>
         public readonly bool RefreshClosedReports;
         public readonly string ReportName;
-        /// <summary>
-        /// Overwrite the previous version of each report or to deliver the report in addition to the previous versions.
-        /// </summary>
         public readonly string ReportVersioning;
-        /// <summary>
-        /// Name of customer S3 bucket.
-        /// </summary>
         public readonly string S3Bucket;
-        /// <summary>
-        /// Preferred report path prefix.
-        /// </summary>
         public readonly string S3Prefix;
-        /// <summary>
-        /// Region of customer S3 bucket.
-        /// </summary>
         public readonly string S3Region;
-        /// <summary>
-        /// Map of key-value pairs assigned to the resource.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// Frequency on which report data are measured and displayed.
-        /// </summary>
         public readonly string TimeUnit;
 
         [OutputConstructor]

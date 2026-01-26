@@ -15,32 +15,16 @@ public final class DefaultAutoScalingConfigurationVersionState extends com.pulum
 
     public static final DefaultAutoScalingConfigurationVersionState Empty = new DefaultAutoScalingConfigurationVersionState();
 
-    /**
-     * The ARN of the App Runner auto scaling configuration that you want to set as the default.
-     * 
-     */
     @Import(name="autoScalingConfigurationArn")
     private @Nullable Output<String> autoScalingConfigurationArn;
 
-    /**
-     * @return The ARN of the App Runner auto scaling configuration that you want to set as the default.
-     * 
-     */
     public Optional<Output<String>> autoScalingConfigurationArn() {
         return Optional.ofNullable(this.autoScalingConfigurationArn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -70,44 +54,20 @@ public final class DefaultAutoScalingConfigurationVersionState extends com.pulum
             $ = new DefaultAutoScalingConfigurationVersionState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param autoScalingConfigurationArn The ARN of the App Runner auto scaling configuration that you want to set as the default.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoScalingConfigurationArn(@Nullable Output<String> autoScalingConfigurationArn) {
             $.autoScalingConfigurationArn = autoScalingConfigurationArn;
             return this;
         }
 
-        /**
-         * @param autoScalingConfigurationArn The ARN of the App Runner auto scaling configuration that you want to set as the default.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoScalingConfigurationArn(String autoScalingConfigurationArn) {
             return autoScalingConfigurationArn(Output.of(autoScalingConfigurationArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

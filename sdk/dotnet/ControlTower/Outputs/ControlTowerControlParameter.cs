@@ -13,13 +13,7 @@ namespace Pulumi.Aws.ControlTower.Outputs
     [OutputType]
     public sealed class ControlTowerControlParameter
     {
-        /// <summary>
-        /// The name of the parameter.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// The value of the parameter.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

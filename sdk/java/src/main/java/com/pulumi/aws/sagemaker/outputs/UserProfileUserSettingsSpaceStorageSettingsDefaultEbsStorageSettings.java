@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings {
-    /**
-     * @return The default size of the EBS storage volume for a private space.
-     * 
-     */
     private Integer defaultEbsVolumeSizeInGb;
-    /**
-     * @return The maximum size of the EBS storage volume for a private space.
-     * 
-     */
     private Integer maximumEbsVolumeSizeInGb;
 
     private UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings() {}
-    /**
-     * @return The default size of the EBS storage volume for a private space.
-     * 
-     */
     public Integer defaultEbsVolumeSizeInGb() {
         return this.defaultEbsVolumeSizeInGb;
     }
-    /**
-     * @return The maximum size of the EBS storage volume for a private space.
-     * 
-     */
     public Integer maximumEbsVolumeSizeInGb() {
         return this.maximumEbsVolumeSizeInGb;
     }

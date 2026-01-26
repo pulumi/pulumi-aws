@@ -13,53 +13,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetIndexDocumentMetadataConfigurationUpdate {
-    /**
-     * @return Name of the index field. Minimum length of 1. Maximum length of 30.
-     * 
-     */
     private String name;
-    /**
-     * @return Block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
-     * 
-     */
     private List<GetIndexDocumentMetadataConfigurationUpdateRelevance> relevances;
-    /**
-     * @return Block that provides information about how the field is used during a search. Documented below.
-     * 
-     */
     private List<GetIndexDocumentMetadataConfigurationUpdateSearch> searches;
-    /**
-     * @return Data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
-     * 
-     */
     private String type;
 
     private GetIndexDocumentMetadataConfigurationUpdate() {}
-    /**
-     * @return Name of the index field. Minimum length of 1. Maximum length of 30.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
-     * 
-     */
     public List<GetIndexDocumentMetadataConfigurationUpdateRelevance> relevances() {
         return this.relevances;
     }
-    /**
-     * @return Block that provides information about how the field is used during a search. Documented below.
-     * 
-     */
     public List<GetIndexDocumentMetadataConfigurationUpdateSearch> searches() {
         return this.searches;
     }
-    /**
-     * @return Data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
-     * 
-     */
     public String type() {
         return this.type;
     }

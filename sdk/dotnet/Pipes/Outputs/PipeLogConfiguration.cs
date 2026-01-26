@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Pipes.Outputs
     [OutputType]
     public sealed class PipeLogConfiguration
     {
-        /// <summary>
-        /// Amazon CloudWatch Logs logging configuration settings for the pipe. Detailed below.
-        /// </summary>
         public readonly Outputs.PipeLogConfigurationCloudwatchLogsLogDestination? CloudwatchLogsLogDestination;
-        /// <summary>
-        /// Amazon Kinesis Data Firehose logging configuration settings for the pipe. Detailed below.
-        /// </summary>
         public readonly Outputs.PipeLogConfigurationFirehoseLogDestination? FirehoseLogDestination;
-        /// <summary>
-        /// String list that specifies whether the execution data (specifically, the `Payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
-        /// </summary>
         public readonly ImmutableArray<string> IncludeExecutionDatas;
-        /// <summary>
-        /// The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
-        /// </summary>
         public readonly string Level;
-        /// <summary>
-        /// Amazon S3 logging configuration settings for the pipe. Detailed below.
-        /// </summary>
         public readonly Outputs.PipeLogConfigurationS3LogDestination? S3LogDestination;
 
         [OutputConstructor]

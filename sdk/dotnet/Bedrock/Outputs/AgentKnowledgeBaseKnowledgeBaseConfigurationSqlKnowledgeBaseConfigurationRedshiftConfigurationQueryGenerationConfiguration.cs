@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration
     {
-        /// <summary>
-        /// Time after which query generation will time out.
-        /// </summary>
         public readonly int? ExecutionTimeoutSeconds;
-        /// <summary>
-        /// Configurations for context to use during query generation. See `GenerationContext` block for details.
-        /// </summary>
         public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext? GenerationContext;
 
         [OutputConstructor]

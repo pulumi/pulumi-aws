@@ -13,122 +13,35 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.grafana.WorkspaceServiceAccount;
- * import com.pulumi.aws.grafana.WorkspaceServiceAccountArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new WorkspaceServiceAccount("example", WorkspaceServiceAccountArgs.builder()
- *             .name("example-admin")
- *             .grafanaRole("ADMIN")
- *             .workspaceId(exampleAwsGrafanaWorkspace.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Managed Grafana Workspace Service Account using the `workspace_id` and `service_account_id` separated by a comma (`,`). For example:
- * 
- * ```sh
- * $ pulumi import aws:grafana/workspaceServiceAccount:WorkspaceServiceAccount example g-abc12345,1
- * ```
- * 
- */
 @ResourceType(type="aws:grafana/workspaceServiceAccount:WorkspaceServiceAccount")
 public class WorkspaceServiceAccount extends com.pulumi.resources.CustomResource {
-    /**
-     * The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
-     * 
-     */
     @Export(name="grafanaRole", refs={String.class}, tree="[0]")
     private Output<String> grafanaRole;
 
-    /**
-     * @return The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
-     * 
-     */
     public Output<String> grafanaRole() {
         return this.grafanaRole;
     }
-    /**
-     * A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Identifier of the service account in the given Grafana workspace
-     * 
-     */
     @Export(name="serviceAccountId", refs={String.class}, tree="[0]")
     private Output<String> serviceAccountId;
 
-    /**
-     * @return Identifier of the service account in the given Grafana workspace
-     * 
-     */
     public Output<String> serviceAccountId() {
         return this.serviceAccountId;
     }
-    /**
-     * The Grafana workspace with which the service account is associated.
-     * 
-     */
     @Export(name="workspaceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceId;
 
-    /**
-     * @return The Grafana workspace with which the service account is associated.
-     * 
-     */
     public Output<String> workspaceId() {
         return this.workspaceId;
     }

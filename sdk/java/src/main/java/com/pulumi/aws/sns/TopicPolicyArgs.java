@@ -18,47 +18,23 @@ public final class TopicPolicyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TopicPolicyArgs Empty = new TopicPolicyArgs();
 
-    /**
-     * The ARN of the SNS topic
-     * 
-     */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the SNS topic
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
 
-    /**
-     * The fully-formed AWS policy as JSON.
-     * 
-     */
     @Import(name="policy", required=true)
     private Output<Either<String,PolicyDocumentArgs>> policy;
 
-    /**
-     * @return The fully-formed AWS policy as JSON.
-     * 
-     */
     public Output<Either<String,PolicyDocumentArgs>> policy() {
         return this.policy;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -89,85 +65,37 @@ public final class TopicPolicyArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TopicPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The ARN of the SNS topic
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The ARN of the SNS topic
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param policy The fully-formed AWS policy as JSON.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(Output<Either<String,PolicyDocumentArgs>> policy) {
             $.policy = policy;
             return this;
         }
 
-        /**
-         * @param policy The fully-formed AWS policy as JSON.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(Either<String,PolicyDocumentArgs> policy) {
             return policy(Output.of(policy));
         }
 
-        /**
-         * @param policy The fully-formed AWS policy as JSON.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(String policy) {
             return policy(Either.ofLeft(policy));
         }
 
-        /**
-         * @param policy The fully-formed AWS policy as JSON.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(PolicyDocumentArgs policy) {
             return policy(Either.ofRight(policy));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class LogTransformerTransformerConfigAddKeys
     {
-        /// <summary>
-        /// Objects containing the information about the keys to add to the log event. You must include at least one entry, and five at most. See `AddKeys` `Entry` below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.LogTransformerTransformerConfigAddKeysEntry> Entries;
 
         [OutputConstructor]

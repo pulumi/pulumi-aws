@@ -17,77 +17,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CostCategoryRuleRule {
-    /**
-     * @return Return results that match both `Dimension` objects.
-     * 
-     */
     private @Nullable List<CostCategoryRuleRuleAnd> ands;
-    /**
-     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
-     * 
-     */
     private @Nullable CostCategoryRuleRuleCostCategory costCategory;
-    /**
-     * @return Configuration block for the specific `Dimension` to use for `Expression`. See below.
-     * 
-     */
     private @Nullable CostCategoryRuleRuleDimension dimension;
-    /**
-     * @return Return results that match both `Dimension` object.
-     * 
-     */
     private @Nullable CostCategoryRuleRuleNot not;
-    /**
-     * @return Return results that match both `Dimension` object.
-     * 
-     */
     private @Nullable List<CostCategoryRuleRuleOr> ors;
-    /**
-     * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
-     * 
-     */
     private @Nullable CostCategoryRuleRuleTags tags;
 
     private CostCategoryRuleRule() {}
-    /**
-     * @return Return results that match both `Dimension` objects.
-     * 
-     */
     public List<CostCategoryRuleRuleAnd> ands() {
         return this.ands == null ? List.of() : this.ands;
     }
-    /**
-     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
-     * 
-     */
     public Optional<CostCategoryRuleRuleCostCategory> costCategory() {
         return Optional.ofNullable(this.costCategory);
     }
-    /**
-     * @return Configuration block for the specific `Dimension` to use for `Expression`. See below.
-     * 
-     */
     public Optional<CostCategoryRuleRuleDimension> dimension() {
         return Optional.ofNullable(this.dimension);
     }
-    /**
-     * @return Return results that match both `Dimension` object.
-     * 
-     */
     public Optional<CostCategoryRuleRuleNot> not() {
         return Optional.ofNullable(this.not);
     }
-    /**
-     * @return Return results that match both `Dimension` object.
-     * 
-     */
     public List<CostCategoryRuleRuleOr> ors() {
         return this.ors == null ? List.of() : this.ors;
     }
-    /**
-     * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
-     * 
-     */
     public Optional<CostCategoryRuleRuleTags> tags() {
         return Optional.ofNullable(this.tags);
     }

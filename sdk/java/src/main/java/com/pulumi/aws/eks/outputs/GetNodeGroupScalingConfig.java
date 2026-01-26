@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetNodeGroupScalingConfig {
-    /**
-     * @return Desired number of worker nodes.
-     * 
-     */
     private Integer desiredSize;
-    /**
-     * @return Maximum number of worker nodes.
-     * 
-     */
     private Integer maxSize;
-    /**
-     * @return Minimum number of worker nodes.
-     * 
-     */
     private Integer minSize;
 
     private GetNodeGroupScalingConfig() {}
-    /**
-     * @return Desired number of worker nodes.
-     * 
-     */
     public Integer desiredSize() {
         return this.desiredSize;
     }
-    /**
-     * @return Maximum number of worker nodes.
-     * 
-     */
     public Integer maxSize() {
         return this.maxSize;
     }
-    /**
-     * @return Minimum number of worker nodes.
-     * 
-     */
     public Integer minSize() {
         return this.minSize;
     }

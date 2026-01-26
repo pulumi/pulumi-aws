@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterCertificateAuthority {
-    /**
-     * @return The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
-     * 
-     */
     private String data;
 
     private GetClusterCertificateAuthority() {}
-    /**
-     * @return The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
-     * 
-     */
     public String data() {
         return this.data;
     }

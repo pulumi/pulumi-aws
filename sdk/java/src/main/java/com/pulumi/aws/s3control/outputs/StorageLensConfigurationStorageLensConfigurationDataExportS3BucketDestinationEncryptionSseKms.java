@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms {
-    /**
-     * @return KMS key ARN.
-     * 
-     */
     private String keyId;
 
     private StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms() {}
-    /**
-     * @return KMS key ARN.
-     * 
-     */
     public String keyId() {
         return this.keyId;
     }

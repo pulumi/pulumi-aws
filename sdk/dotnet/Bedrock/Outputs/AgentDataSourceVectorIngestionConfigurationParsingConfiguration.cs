@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentDataSourceVectorIngestionConfigurationParsingConfiguration
     {
-        /// <summary>
-        /// Settings for a foundation model used to parse documents in a data source. See `BedrockFoundationModelConfiguration` block for details.
-        /// </summary>
         public readonly Outputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration? BedrockFoundationModelConfiguration;
-        /// <summary>
-        /// Currently only `BEDROCK_FOUNDATION_MODEL` is supported
-        /// </summary>
         public readonly string ParsingStrategy;
 
         [OutputConstructor]

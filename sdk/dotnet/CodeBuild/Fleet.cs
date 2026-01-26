@@ -9,175 +9,57 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CodeBuild
 {
-    /// <summary>
-    /// Provides a CodeBuild Fleet Resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.CodeBuild.Fleet("test", new()
-    ///     {
-    ///         BaseCapacity = 2,
-    ///         ComputeType = "BUILD_GENERAL1_SMALL",
-    ///         EnvironmentType = "LINUX_CONTAINER",
-    ///         Name = "full-example-codebuild-fleet",
-    ///         OverflowBehavior = "QUEUE",
-    ///         ScalingConfiguration = new Aws.CodeBuild.Inputs.FleetScalingConfigurationArgs
-    ///         {
-    ///             MaxCapacity = 5,
-    ///             ScalingType = "TARGET_TRACKING_SCALING",
-    ///             TargetTrackingScalingConfigs = new[]
-    ///             {
-    ///                 new Aws.CodeBuild.Inputs.FleetScalingConfigurationTargetTrackingScalingConfigArgs
-    ///                 {
-    ///                     MetricType = "FLEET_UTILIZATION_RATE",
-    ///                     TargetValue = 97.5,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CodeBuild.Fleet("example", new()
-    ///     {
-    ///         Name = "example-codebuild-fleet",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild fleet.
-    /// 
-    /// Using `pulumi import`, import CodeBuild Fleet using the `name`. For example:
-    /// 
-    /// % pulumi import aws_codebuild_fleet.name fleet-name
-    /// </summary>
     [AwsResourceType("aws:codebuild/fleet:Fleet")]
     public partial class Fleet : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Fleet.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Number of machines allocated to the ﬂeet.
-        /// </summary>
         [Output("baseCapacity")]
         public Output<int> BaseCapacity { get; private set; } = null!;
 
-        /// <summary>
-        /// The compute configuration of the compute fleet. This is only required if `ComputeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `ComputeConfiguration` below.
-        /// </summary>
         [Output("computeConfiguration")]
         public Output<Outputs.FleetComputeConfiguration?> ComputeConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
-        /// </summary>
         [Output("computeType")]
         public Output<string> ComputeType { get; private set; } = null!;
 
-        /// <summary>
-        /// Creation time of the fleet.
-        /// </summary>
         [Output("created")]
         public Output<string> Created { get; private set; } = null!;
 
-        /// <summary>
-        /// Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("environmentType")]
         public Output<string> EnvironmentType { get; private set; } = null!;
 
-        /// <summary>
-        /// The service role associated with the compute fleet.
-        /// </summary>
         [Output("fleetServiceRole")]
         public Output<string?> FleetServiceRole { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Machine Image (AMI) of the compute fleet.
-        /// </summary>
         [Output("imageId")]
         public Output<string?> ImageId { get; private set; } = null!;
 
-        /// <summary>
-        /// Last modification time of the fleet.
-        /// </summary>
         [Output("lastModified")]
         public Output<string> LastModified { get; private set; } = null!;
 
-        /// <summary>
-        /// Fleet name.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
-        /// </summary>
         [Output("overflowBehavior")]
         public Output<string> OverflowBehavior { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `ScalingConfiguration` below.
-        /// </summary>
         [Output("scalingConfiguration")]
         public Output<Outputs.FleetScalingConfiguration?> ScalingConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Nested attribute containing information about the current status of the fleet.
-        /// </summary>
         [Output("statuses")]
         public Output<ImmutableArray<Outputs.FleetStatus>> Statuses { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block. See `VpcConfig` below.
-        /// </summary>
         [Output("vpcConfigs")]
         public Output<ImmutableArray<Outputs.FleetVpcConfig>> VpcConfigs { get; private set; } = null!;
 
@@ -227,74 +109,38 @@ namespace Pulumi.Aws.CodeBuild
 
     public sealed class FleetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Number of machines allocated to the ﬂeet.
-        /// </summary>
         [Input("baseCapacity", required: true)]
         public Input<int> BaseCapacity { get; set; } = null!;
 
-        /// <summary>
-        /// The compute configuration of the compute fleet. This is only required if `ComputeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `ComputeConfiguration` below.
-        /// </summary>
         [Input("computeConfiguration")]
         public Input<Inputs.FleetComputeConfigurationArgs>? ComputeConfiguration { get; set; }
 
-        /// <summary>
-        /// Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
-        /// </summary>
         [Input("computeType", required: true)]
         public Input<string> ComputeType { get; set; } = null!;
 
-        /// <summary>
-        /// Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("environmentType", required: true)]
         public Input<string> EnvironmentType { get; set; } = null!;
 
-        /// <summary>
-        /// The service role associated with the compute fleet.
-        /// </summary>
         [Input("fleetServiceRole")]
         public Input<string>? FleetServiceRole { get; set; }
 
-        /// <summary>
-        /// The Amazon Machine Image (AMI) of the compute fleet.
-        /// </summary>
         [Input("imageId")]
         public Input<string>? ImageId { get; set; }
 
-        /// <summary>
-        /// Fleet name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
-        /// </summary>
         [Input("overflowBehavior")]
         public Input<string>? OverflowBehavior { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `ScalingConfiguration` below.
-        /// </summary>
         [Input("scalingConfiguration")]
         public Input<Inputs.FleetScalingConfigurationArgs>? ScalingConfiguration { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -303,10 +149,6 @@ namespace Pulumi.Aws.CodeBuild
 
         [Input("vpcConfigs")]
         private InputList<Inputs.FleetVpcConfigArgs>? _vpcConfigs;
-
-        /// <summary>
-        /// Configuration block. See `VpcConfig` below.
-        /// </summary>
         public InputList<Inputs.FleetVpcConfigArgs> VpcConfigs
         {
             get => _vpcConfigs ?? (_vpcConfigs = new InputList<Inputs.FleetVpcConfigArgs>());
@@ -321,92 +163,47 @@ namespace Pulumi.Aws.CodeBuild
 
     public sealed class FleetState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Fleet.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Number of machines allocated to the ﬂeet.
-        /// </summary>
         [Input("baseCapacity")]
         public Input<int>? BaseCapacity { get; set; }
 
-        /// <summary>
-        /// The compute configuration of the compute fleet. This is only required if `ComputeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `ComputeConfiguration` below.
-        /// </summary>
         [Input("computeConfiguration")]
         public Input<Inputs.FleetComputeConfigurationGetArgs>? ComputeConfiguration { get; set; }
 
-        /// <summary>
-        /// Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
-        /// </summary>
         [Input("computeType")]
         public Input<string>? ComputeType { get; set; }
 
-        /// <summary>
-        /// Creation time of the fleet.
-        /// </summary>
         [Input("created")]
         public Input<string>? Created { get; set; }
 
-        /// <summary>
-        /// Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("environmentType")]
         public Input<string>? EnvironmentType { get; set; }
 
-        /// <summary>
-        /// The service role associated with the compute fleet.
-        /// </summary>
         [Input("fleetServiceRole")]
         public Input<string>? FleetServiceRole { get; set; }
 
-        /// <summary>
-        /// The Amazon Machine Image (AMI) of the compute fleet.
-        /// </summary>
         [Input("imageId")]
         public Input<string>? ImageId { get; set; }
 
-        /// <summary>
-        /// Last modification time of the fleet.
-        /// </summary>
         [Input("lastModified")]
         public Input<string>? LastModified { get; set; }
 
-        /// <summary>
-        /// Fleet name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
-        /// </summary>
         [Input("overflowBehavior")]
         public Input<string>? OverflowBehavior { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `ScalingConfiguration` below.
-        /// </summary>
         [Input("scalingConfiguration")]
         public Input<Inputs.FleetScalingConfigurationGetArgs>? ScalingConfiguration { get; set; }
 
         [Input("statuses")]
         private InputList<Inputs.FleetStatusGetArgs>? _statuses;
-
-        /// <summary>
-        /// Nested attribute containing information about the current status of the fleet.
-        /// </summary>
         public InputList<Inputs.FleetStatusGetArgs> Statuses
         {
             get => _statuses ?? (_statuses = new InputList<Inputs.FleetStatusGetArgs>());
@@ -415,10 +212,6 @@ namespace Pulumi.Aws.CodeBuild
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -435,10 +228,6 @@ namespace Pulumi.Aws.CodeBuild
 
         [Input("vpcConfigs")]
         private InputList<Inputs.FleetVpcConfigGetArgs>? _vpcConfigs;
-
-        /// <summary>
-        /// Configuration block. See `VpcConfig` below.
-        /// </summary>
         public InputList<Inputs.FleetVpcConfigGetArgs> VpcConfigs
         {
             get => _vpcConfigs ?? (_vpcConfigs = new InputList<Inputs.FleetVpcConfigGetArgs>());

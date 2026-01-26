@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IdcApplicationServiceIntegration {
-    /**
-     * @return List of scopes set up for Lake Formation integration. Refer to the lakeFormation documentation for more details.
-     * 
-     */
     private @Nullable IdcApplicationServiceIntegrationLakeFormation lakeFormation;
-    /**
-     * @return List of scopes set up for Redshift integration. Refer to the redshift documentation for more details.
-     * 
-     */
     private @Nullable IdcApplicationServiceIntegrationRedshift redshift;
-    /**
-     * @return List of scopes set up for S3 Access Grants integration. Refer to the s3AccessGrants documentation for more details.
-     * 
-     */
     private @Nullable IdcApplicationServiceIntegrationS3AccessGrants s3AccessGrants;
 
     private IdcApplicationServiceIntegration() {}
-    /**
-     * @return List of scopes set up for Lake Formation integration. Refer to the lakeFormation documentation for more details.
-     * 
-     */
     public Optional<IdcApplicationServiceIntegrationLakeFormation> lakeFormation() {
         return Optional.ofNullable(this.lakeFormation);
     }
-    /**
-     * @return List of scopes set up for Redshift integration. Refer to the redshift documentation for more details.
-     * 
-     */
     public Optional<IdcApplicationServiceIntegrationRedshift> redshift() {
         return Optional.ofNullable(this.redshift);
     }
-    /**
-     * @return List of scopes set up for S3 Access Grants integration. Refer to the s3AccessGrants documentation for more details.
-     * 
-     */
     public Optional<IdcApplicationServiceIntegrationS3AccessGrants> s3AccessGrants() {
         return Optional.ofNullable(this.s3AccessGrants);
     }

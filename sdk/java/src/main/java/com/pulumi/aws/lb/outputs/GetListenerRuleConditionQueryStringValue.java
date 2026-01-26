@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetListenerRuleConditionQueryStringValue {
-    /**
-     * @return Key of query parameter
-     * 
-     */
     private String key;
-    /**
-     * @return Value of query parameter
-     * 
-     */
     private String value;
 
     private GetListenerRuleConditionQueryStringValue() {}
-    /**
-     * @return Key of query parameter
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return Value of query parameter
-     * 
-     */
     public String value() {
         return this.value;
     }

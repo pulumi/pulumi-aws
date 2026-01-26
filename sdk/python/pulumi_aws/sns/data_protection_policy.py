@@ -24,9 +24,6 @@ class DataProtectionPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataProtectionPolicy resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the SNS topic
-        :param pulumi.Input[_builtins.str] policy: The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "policy", policy)
@@ -36,9 +33,6 @@ class DataProtectionPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the SNS topic
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -48,9 +42,6 @@ class DataProtectionPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Input[_builtins.str]:
-        """
-        The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -60,9 +51,6 @@ class DataProtectionPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -78,9 +66,6 @@ class _DataProtectionPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataProtectionPolicy resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the SNS topic
-        :param pulumi.Input[_builtins.str] policy: The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -92,9 +77,6 @@ class _DataProtectionPolicyState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the SNS topic
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -104,9 +86,6 @@ class _DataProtectionPolicyState:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -116,9 +95,6 @@ class _DataProtectionPolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -137,51 +113,9 @@ class DataProtectionPolicy(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an SNS data protection topic policy resource
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.sns.Topic("example", name="example")
-        example_data_protection_policy = aws.sns.DataProtectionPolicy("example",
-            arn=example.arn,
-            policy=json.dumps({
-                "Description": "Example data protection policy",
-                "Name": "__example_data_protection_policy",
-                "Statement": [{
-                    "DataDirection": "Inbound",
-                    "DataIdentifier": ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
-                    "Operation": {
-                        "Deny": {},
-                    },
-                    "Principal": ["*"],
-                    "Sid": "__deny_statement_11ba9d96",
-                }],
-                "Version": "2021-06-01",
-            }))
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the SNS topic.
-
-        Using `pulumi import`, import SNS Data Protection Topic Policy using the topic ARN. For example:
-
-        % pulumi import aws_sns_topic_data_protection_policy.example arn:aws:sns:us-west-2:123456789012:example
-
+        Create a DataProtectionPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the SNS topic
-        :param pulumi.Input[_builtins.str] policy: The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -190,46 +124,7 @@ class DataProtectionPolicy(pulumi.CustomResource):
                  args: DataProtectionPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an SNS data protection topic policy resource
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.sns.Topic("example", name="example")
-        example_data_protection_policy = aws.sns.DataProtectionPolicy("example",
-            arn=example.arn,
-            policy=json.dumps({
-                "Description": "Example data protection policy",
-                "Name": "__example_data_protection_policy",
-                "Statement": [{
-                    "DataDirection": "Inbound",
-                    "DataIdentifier": ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
-                    "Operation": {
-                        "Deny": {},
-                    },
-                    "Principal": ["*"],
-                    "Sid": "__deny_statement_11ba9d96",
-                }],
-                "Version": "2021-06-01",
-            }))
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the SNS topic.
-
-        Using `pulumi import`, import SNS Data Protection Topic Policy using the topic ARN. For example:
-
-        % pulumi import aws_sns_topic_data_protection_policy.example arn:aws:sns:us-west-2:123456789012:example
-
+        Create a DataProtectionPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DataProtectionPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -284,9 +179,6 @@ class DataProtectionPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the SNS topic
-        :param pulumi.Input[_builtins.str] policy: The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -300,24 +192,15 @@ class DataProtectionPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the SNS topic
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:
-        """
-        The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

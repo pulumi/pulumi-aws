@@ -11,87 +11,12 @@ namespace Pulumi.Aws.SsoAdmin
 {
     public static class GetPermissionSets
     {
-        /// <summary>
-        /// Data source returning the ARN of all AWS SSO Admin Permission Sets.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
-        /// 
-        ///     var exampleGetPermissionSets = Aws.SsoAdmin.GetPermissionSets.Invoke(new()
-        ///     {
-        ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetPermissionSetsResult> InvokeAsync(GetPermissionSetsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPermissionSetsResult>("aws:ssoadmin/getPermissionSets:getPermissionSets", args ?? new GetPermissionSetsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source returning the ARN of all AWS SSO Admin Permission Sets.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
-        /// 
-        ///     var exampleGetPermissionSets = Aws.SsoAdmin.GetPermissionSets.Invoke(new()
-        ///     {
-        ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetPermissionSetsResult> Invoke(GetPermissionSetsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPermissionSetsResult>("aws:ssoadmin/getPermissionSets:getPermissionSets", args ?? new GetPermissionSetsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source returning the ARN of all AWS SSO Admin Permission Sets.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
-        /// 
-        ///     var exampleGetPermissionSets = Aws.SsoAdmin.GetPermissionSets.Invoke(new()
-        ///     {
-        ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetPermissionSetsResult> Invoke(GetPermissionSetsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPermissionSetsResult>("aws:ssoadmin/getPermissionSets:getPermissionSets", args ?? new GetPermissionSetsInvokeArgs(), options.WithDefaults());
     }
@@ -99,15 +24,9 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class GetPermissionSetsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the SSO Instance associated with the permission set.
-        /// </summary>
         [Input("instanceArn", required: true)]
         public string InstanceArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -119,15 +38,9 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class GetPermissionSetsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the SSO Instance associated with the permission set.
-        /// </summary>
         [Input("instanceArn", required: true)]
         public Input<string> InstanceArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -141,9 +54,6 @@ namespace Pulumi.Aws.SsoAdmin
     [OutputType]
     public sealed class GetPermissionSetsResult
     {
-        /// <summary>
-        /// Set of string contain the ARN of all Permission Sets.
-        /// </summary>
         public readonly ImmutableArray<string> Arns;
         public readonly string Id;
         public readonly string InstanceArn;

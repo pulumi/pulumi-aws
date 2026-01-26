@@ -12,21 +12,12 @@ namespace Pulumi.Aws.CloudFormation.Inputs
 
     public sealed class StackSetInstanceStackInstanceSummaryArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
-        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
-        /// <summary>
-        /// Organizational unit ID in which the stack is deployed.
-        /// </summary>
         [Input("organizationalUnitId")]
         public Input<string>? OrganizationalUnitId { get; set; }
 
-        /// <summary>
-        /// Stack identifier.
-        /// </summary>
         [Input("stackId")]
         public Input<string>? StackId { get; set; }
 

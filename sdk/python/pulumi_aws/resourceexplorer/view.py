@@ -30,13 +30,6 @@ class ViewArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a View resource.
-        :param pulumi.Input[_builtins.bool] default_view: Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
-        :param pulumi.Input['ViewFiltersArgs'] filters: Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input['ViewIncludedPropertyArgs']]] included_properties: Optional fields to be included in search results from this view. See Included Properties below for more details.
-        :param pulumi.Input[_builtins.str] name: The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] scope: The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if default_view is not None:
             pulumi.set(__self__, "default_view", default_view)
@@ -56,9 +49,6 @@ class ViewArgs:
     @_builtins.property
     @pulumi.getter(name="defaultView")
     def default_view(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
-        """
         return pulumi.get(self, "default_view")
 
     @default_view.setter
@@ -68,9 +58,6 @@ class ViewArgs:
     @_builtins.property
     @pulumi.getter
     def filters(self) -> Optional[pulumi.Input['ViewFiltersArgs']]:
-        """
-        Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
-        """
         return pulumi.get(self, "filters")
 
     @filters.setter
@@ -80,9 +67,6 @@ class ViewArgs:
     @_builtins.property
     @pulumi.getter(name="includedProperties")
     def included_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ViewIncludedPropertyArgs']]]]:
-        """
-        Optional fields to be included in search results from this view. See Included Properties below for more details.
-        """
         return pulumi.get(self, "included_properties")
 
     @included_properties.setter
@@ -92,9 +76,6 @@ class ViewArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -104,9 +85,6 @@ class ViewArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -116,9 +94,6 @@ class ViewArgs:
     @_builtins.property
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
-        """
         return pulumi.get(self, "scope")
 
     @scope.setter
@@ -128,9 +103,6 @@ class ViewArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -152,15 +124,6 @@ class _ViewState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering View resources.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Resource Explorer view.
-        :param pulumi.Input[_builtins.bool] default_view: Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
-        :param pulumi.Input['ViewFiltersArgs'] filters: Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input['ViewIncludedPropertyArgs']]] included_properties: Optional fields to be included in search results from this view. See Included Properties below for more details.
-        :param pulumi.Input[_builtins.str] name: The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] scope: The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -184,9 +147,6 @@ class _ViewState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the Resource Explorer view.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -196,9 +156,6 @@ class _ViewState:
     @_builtins.property
     @pulumi.getter(name="defaultView")
     def default_view(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
-        """
         return pulumi.get(self, "default_view")
 
     @default_view.setter
@@ -208,9 +165,6 @@ class _ViewState:
     @_builtins.property
     @pulumi.getter
     def filters(self) -> Optional[pulumi.Input['ViewFiltersArgs']]:
-        """
-        Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
-        """
         return pulumi.get(self, "filters")
 
     @filters.setter
@@ -220,9 +174,6 @@ class _ViewState:
     @_builtins.property
     @pulumi.getter(name="includedProperties")
     def included_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ViewIncludedPropertyArgs']]]]:
-        """
-        Optional fields to be included in search results from this view. See Included Properties below for more details.
-        """
         return pulumi.get(self, "included_properties")
 
     @included_properties.setter
@@ -232,9 +183,6 @@ class _ViewState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -244,9 +192,6 @@ class _ViewState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -256,9 +201,6 @@ class _ViewState:
     @_builtins.property
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
-        """
         return pulumi.get(self, "scope")
 
     @scope.setter
@@ -268,9 +210,6 @@ class _ViewState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -280,9 +219,6 @@ class _ViewState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -305,47 +241,9 @@ class View(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a resource to manage a Resource Explorer view.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.resourceexplorer.Index("example", type="LOCAL")
-        example_view = aws.resourceexplorer.View("example",
-            name="exampleview",
-            filters={
-                "filter_string": "resourcetype:ec2:instance",
-            },
-            included_properties=[{
-                "name": "tags",
-            }],
-            opts = pulumi.ResourceOptions(depends_on=[example]))
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Resource Explorer view.
-
-        Using `pulumi import`, import Resource Explorer views using the `arn`. For example:
-
-        % pulumi import aws_resourceexplorer2_view.example arn:aws:resource-explorer-2:us-west-2:123456789012:view/exampleview/e0914f6c-6c27-4b47-b5d4-6b28381a2421
-
+        Create a View resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] default_view: Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
-        :param pulumi.Input[Union['ViewFiltersArgs', 'ViewFiltersArgsDict']] filters: Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ViewIncludedPropertyArgs', 'ViewIncludedPropertyArgsDict']]]] included_properties: Optional fields to be included in search results from this view. See Included Properties below for more details.
-        :param pulumi.Input[_builtins.str] name: The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] scope: The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -354,38 +252,7 @@ class View(pulumi.CustomResource):
                  args: Optional[ViewArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage a Resource Explorer view.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.resourceexplorer.Index("example", type="LOCAL")
-        example_view = aws.resourceexplorer.View("example",
-            name="exampleview",
-            filters={
-                "filter_string": "resourcetype:ec2:instance",
-            },
-            included_properties=[{
-                "name": "tags",
-            }],
-            opts = pulumi.ResourceOptions(depends_on=[example]))
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Resource Explorer view.
-
-        Using `pulumi import`, import Resource Explorer views using the `arn`. For example:
-
-        % pulumi import aws_resourceexplorer2_view.example arn:aws:resource-explorer-2:us-west-2:123456789012:view/exampleview/e0914f6c-6c27-4b47-b5d4-6b28381a2421
-
+        Create a View resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ViewArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -452,15 +319,6 @@ class View(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Resource Explorer view.
-        :param pulumi.Input[_builtins.bool] default_view: Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
-        :param pulumi.Input[Union['ViewFiltersArgs', 'ViewFiltersArgsDict']] filters: Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ViewIncludedPropertyArgs', 'ViewIncludedPropertyArgsDict']]]] included_properties: Optional fields to be included in search results from this view. See Included Properties below for more details.
-        :param pulumi.Input[_builtins.str] name: The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] scope: The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -480,72 +338,45 @@ class View(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the Resource Explorer view.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="defaultView")
     def default_view(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
-        """
         return pulumi.get(self, "default_view")
 
     @_builtins.property
     @pulumi.getter
     def filters(self) -> pulumi.Output[Optional['outputs.ViewFilters']]:
-        """
-        Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
-        """
         return pulumi.get(self, "filters")
 
     @_builtins.property
     @pulumi.getter(name="includedProperties")
     def included_properties(self) -> pulumi.Output[Optional[Sequence['outputs.ViewIncludedProperty']]]:
-        """
-        Optional fields to be included in search results from this view. See Included Properties below for more details.
-        """
         return pulumi.get(self, "included_properties")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def scope(self) -> pulumi.Output[_builtins.str]:
-        """
-        The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
-        """
         return pulumi.get(self, "scope")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

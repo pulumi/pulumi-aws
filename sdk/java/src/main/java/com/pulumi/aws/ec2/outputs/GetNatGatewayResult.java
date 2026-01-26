@@ -17,83 +17,23 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNatGatewayResult {
-    /**
-     * @return Allocation ID of the Elastic IP address.
-     * 
-     */
     private String allocationId;
-    /**
-     * @return Association ID of the Elastic IP address.
-     * 
-     */
     private String associationId;
-    /**
-     * @return (regional NAT gateways only) Indicates whether AWS automatically manages AZ coverage.
-     * 
-     */
     private String autoProvisionZones;
-    /**
-     * @return (regional NAT gateways only) Indicates whether AWS automatically allocates additional Elastic IP addresses (EIPs) in an AZ when the NAT gateway needs more ports due to increased concurrent connections to a single destination from that AZ.
-     * 
-     */
     private String autoScalingIps;
-    /**
-     * @return Specifies whether to create a zonal (single-AZ) or regional (multi-AZ) NAT gateway.
-     * 
-     */
     private String availabilityMode;
-    /**
-     * @return (regional NAT gateways only) Repeatable configuration block for the Elastic IP addresses (EIPs) and availability zones for the regional NAT gateway.
-     * 
-     */
     private List<GetNatGatewayAvailabilityZoneAddress> availabilityZoneAddresses;
-    /**
-     * @return Connectivity type of the NAT Gateway.
-     * 
-     */
     private String connectivityType;
     private @Nullable List<GetNatGatewayFilter> filters;
     private String id;
-    /**
-     * @return ID of the network interface.
-     * 
-     */
     private String networkInterfaceId;
-    /**
-     * @return (zonal NAT gateways only) Private IP address of the selected NAT Gateway.
-     * 
-     */
     private String privateIp;
-    /**
-     * @return Public IP address.
-     * 
-     */
     private String publicIp;
     private String region;
-    /**
-     * @return (regional NAT gateways only) Repeatable blocks for information about the IP addresses and network interface associated with the regional NAT gateway.
-     * 
-     */
     private List<GetNatGatewayRegionalNatGatewayAddress> regionalNatGatewayAddresses;
-    /**
-     * @return (regional NAT gateways only) ID of the automatically created route table.
-     * 
-     */
     private String routeTableId;
-    /**
-     * @return (zonal NAT gateways only) Secondary allocation EIP IDs for the selected NAT Gateway.
-     * 
-     */
     private List<String> secondaryAllocationIds;
-    /**
-     * @return (zonal NAT gateways only) The number of secondary private IPv4 addresses assigned to the selected NAT Gateway.
-     * 
-     */
     private Integer secondaryPrivateIpAddressCount;
-    /**
-     * @return (zonal NAT gateways only) Secondary private IPv4 addresses assigned to the selected NAT Gateway.
-     * 
-     */
     private List<String> secondaryPrivateIpAddresses;
     private String state;
     private String subnetId;
@@ -101,52 +41,24 @@ public final class GetNatGatewayResult {
     private String vpcId;
 
     private GetNatGatewayResult() {}
-    /**
-     * @return Allocation ID of the Elastic IP address.
-     * 
-     */
     public String allocationId() {
         return this.allocationId;
     }
-    /**
-     * @return Association ID of the Elastic IP address.
-     * 
-     */
     public String associationId() {
         return this.associationId;
     }
-    /**
-     * @return (regional NAT gateways only) Indicates whether AWS automatically manages AZ coverage.
-     * 
-     */
     public String autoProvisionZones() {
         return this.autoProvisionZones;
     }
-    /**
-     * @return (regional NAT gateways only) Indicates whether AWS automatically allocates additional Elastic IP addresses (EIPs) in an AZ when the NAT gateway needs more ports due to increased concurrent connections to a single destination from that AZ.
-     * 
-     */
     public String autoScalingIps() {
         return this.autoScalingIps;
     }
-    /**
-     * @return Specifies whether to create a zonal (single-AZ) or regional (multi-AZ) NAT gateway.
-     * 
-     */
     public String availabilityMode() {
         return this.availabilityMode;
     }
-    /**
-     * @return (regional NAT gateways only) Repeatable configuration block for the Elastic IP addresses (EIPs) and availability zones for the regional NAT gateway.
-     * 
-     */
     public List<GetNatGatewayAvailabilityZoneAddress> availabilityZoneAddresses() {
         return this.availabilityZoneAddresses;
     }
-    /**
-     * @return Connectivity type of the NAT Gateway.
-     * 
-     */
     public String connectivityType() {
         return this.connectivityType;
     }
@@ -156,62 +68,30 @@ public final class GetNatGatewayResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return ID of the network interface.
-     * 
-     */
     public String networkInterfaceId() {
         return this.networkInterfaceId;
     }
-    /**
-     * @return (zonal NAT gateways only) Private IP address of the selected NAT Gateway.
-     * 
-     */
     public String privateIp() {
         return this.privateIp;
     }
-    /**
-     * @return Public IP address.
-     * 
-     */
     public String publicIp() {
         return this.publicIp;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return (regional NAT gateways only) Repeatable blocks for information about the IP addresses and network interface associated with the regional NAT gateway.
-     * 
-     */
     public List<GetNatGatewayRegionalNatGatewayAddress> regionalNatGatewayAddresses() {
         return this.regionalNatGatewayAddresses;
     }
-    /**
-     * @return (regional NAT gateways only) ID of the automatically created route table.
-     * 
-     */
     public String routeTableId() {
         return this.routeTableId;
     }
-    /**
-     * @return (zonal NAT gateways only) Secondary allocation EIP IDs for the selected NAT Gateway.
-     * 
-     */
     public List<String> secondaryAllocationIds() {
         return this.secondaryAllocationIds;
     }
-    /**
-     * @return (zonal NAT gateways only) The number of secondary private IPv4 addresses assigned to the selected NAT Gateway.
-     * 
-     */
     public Integer secondaryPrivateIpAddressCount() {
         return this.secondaryPrivateIpAddressCount;
     }
-    /**
-     * @return (zonal NAT gateways only) Secondary private IPv4 addresses assigned to the selected NAT Gateway.
-     * 
-     */
     public List<String> secondaryPrivateIpAddresses() {
         return this.secondaryPrivateIpAddresses;
     }

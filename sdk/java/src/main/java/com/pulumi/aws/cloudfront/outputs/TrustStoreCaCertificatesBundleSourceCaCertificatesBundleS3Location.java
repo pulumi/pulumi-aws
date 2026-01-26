@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location {
-    /**
-     * @return S3 bucket name containing the CA certificates bundle.
-     * 
-     */
     private String bucket;
-    /**
-     * @return S3 object key for the CA certificates bundle.
-     * 
-     */
     private String key;
-    /**
-     * @return AWS region of the S3 bucket.
-     * 
-     */
     private String region;
-    /**
-     * @return S3 object version ID for the CA certificates bundle.
-     * 
-     */
     private @Nullable String version;
 
     private TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location() {}
-    /**
-     * @return S3 bucket name containing the CA certificates bundle.
-     * 
-     */
     public String bucket() {
         return this.bucket;
     }
-    /**
-     * @return S3 object key for the CA certificates bundle.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return AWS region of the S3 bucket.
-     * 
-     */
     public String region() {
         return this.region;
     }
-    /**
-     * @return S3 object version ID for the CA certificates bundle.
-     * 
-     */
     public Optional<String> version() {
         return Optional.ofNullable(this.version);
     }

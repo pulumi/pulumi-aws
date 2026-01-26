@@ -16,47 +16,23 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveO
 
     public static final ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs();
 
-    /**
-     * Settings specific to the container type of the file. See Container Settings for more details.
-     * 
-     */
     @Import(name="containerSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs> containerSettings;
 
-    /**
-     * @return Settings specific to the container type of the file. See Container Settings for more details.
-     * 
-     */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs>> containerSettings() {
         return Optional.ofNullable(this.containerSettings);
     }
 
-    /**
-     * Output file extension.
-     * 
-     */
     @Import(name="extension")
     private @Nullable Output<String> extension;
 
-    /**
-     * @return Output file extension.
-     * 
-     */
     public Optional<Output<String>> extension() {
         return Optional.ofNullable(this.extension);
     }
 
-    /**
-     * String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
-     * 
-     */
     @Import(name="nameModifier")
     private @Nullable Output<String> nameModifier;
 
-    /**
-     * @return String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
-     * 
-     */
     public Optional<Output<String>> nameModifier() {
         return Optional.ofNullable(this.nameModifier);
     }
@@ -87,65 +63,29 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveO
             $ = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param containerSettings Settings specific to the container type of the file. See Container Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerSettings(@Nullable Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs> containerSettings) {
             $.containerSettings = containerSettings;
             return this;
         }
 
-        /**
-         * @param containerSettings Settings specific to the container type of the file. See Container Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerSettings(ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs containerSettings) {
             return containerSettings(Output.of(containerSettings));
         }
 
-        /**
-         * @param extension Output file extension.
-         * 
-         * @return builder
-         * 
-         */
         public Builder extension(@Nullable Output<String> extension) {
             $.extension = extension;
             return this;
         }
 
-        /**
-         * @param extension Output file extension.
-         * 
-         * @return builder
-         * 
-         */
         public Builder extension(String extension) {
             return extension(Output.of(extension));
         }
 
-        /**
-         * @param nameModifier String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nameModifier(@Nullable Output<String> nameModifier) {
             $.nameModifier = nameModifier;
             return this;
         }
 
-        /**
-         * @param nameModifier String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nameModifier(String nameModifier) {
             return nameModifier(Output.of(nameModifier));
         }

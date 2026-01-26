@@ -9,43 +9,9 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iam
 {
-    /// <summary>
-    /// &gt; **Note:** There is only a single account alias per AWS account.
-    /// 
-    /// Manages the account alias for the AWS Account.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @alias = new Aws.Iam.AccountAlias("alias", new()
-    ///     {
-    ///         Alias = "my-account-alias",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import the current Account Alias using the `account_alias`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:iam/accountAlias:AccountAlias alias my-account-alias
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iam/accountAlias:AccountAlias")]
     public partial class AccountAlias : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The account alias
-        /// </summary>
         [Output("accountAlias")]
         public Output<string> Alias { get; private set; } = null!;
 
@@ -95,9 +61,6 @@ namespace Pulumi.Aws.Iam
 
     public sealed class AccountAliasArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The account alias
-        /// </summary>
         [Input("accountAlias", required: true)]
         public Input<string> Alias { get; set; } = null!;
 
@@ -109,9 +72,6 @@ namespace Pulumi.Aws.Iam
 
     public sealed class AccountAliasState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The account alias
-        /// </summary>
         [Input("accountAlias")]
         public Input<string>? Alias { get; set; }
 

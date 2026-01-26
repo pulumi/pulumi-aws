@@ -14,11 +14,6 @@ namespace Pulumi.Aws.Lex.Inputs
     {
         [Input("subSlots")]
         private InputList<Inputs.V2modelsSlotTypeCompositeSlotTypeSettingSubSlotGetArgs>? _subSlots;
-
-        /// <summary>
-        /// Sub slots in the composite slot.
-        /// See `SubSlots` argument reference below.
-        /// </summary>
         public InputList<Inputs.V2modelsSlotTypeCompositeSlotTypeSettingSubSlotGetArgs> SubSlots
         {
             get => _subSlots ?? (_subSlots = new InputList<Inputs.V2modelsSlotTypeCompositeSlotTypeSettingSubSlotGetArgs>());

@@ -9,60 +9,9 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CostOptimizationHub
 {
-    /// <summary>
-    /// Resource for managing AWS Cost Optimization Hub Enrollment Status.
-    /// 
-    /// &gt; **TIP:** The Cost Optimization Hub only has a `us-east-1` endpoint. However, you can access the service globally with the AWS Provider from other regions. Other tools, such as the [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cost-optimization-hub/index.html), may require you to specify the `us-east-1` region when using the service.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CostOptimizationHub.EnrollmentStatus("example");
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Usage with all the arguments
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CostOptimizationHub.EnrollmentStatus("example", new()
-    ///     {
-    ///         IncludeMemberAccounts = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Cost Optimization Hub Enrollment Status using your AWS account ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:costoptimizationhub/enrollmentStatus:EnrollmentStatus example 111222333444
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:costoptimizationhub/enrollmentStatus:EnrollmentStatus")]
     public partial class EnrollmentStatus : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `False`.
-        /// </summary>
         [Output("includeMemberAccounts")]
         public Output<bool> IncludeMemberAccounts { get; private set; } = null!;
 
@@ -115,9 +64,6 @@ namespace Pulumi.Aws.CostOptimizationHub
 
     public sealed class EnrollmentStatusArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `False`.
-        /// </summary>
         [Input("includeMemberAccounts")]
         public Input<bool>? IncludeMemberAccounts { get; set; }
 
@@ -129,9 +75,6 @@ namespace Pulumi.Aws.CostOptimizationHub
 
     public sealed class EnrollmentStatusState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `False`.
-        /// </summary>
         [Input("includeMemberAccounts")]
         public Input<bool>? IncludeMemberAccounts { get; set; }
 

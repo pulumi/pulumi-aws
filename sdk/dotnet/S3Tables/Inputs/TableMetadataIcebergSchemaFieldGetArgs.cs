@@ -19,13 +19,13 @@ namespace Pulumi.Aws.S3Tables.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// A Boolean value that specifies whether values are required for each row in this field. Defaults to `False`.
+        /// A Boolean value that specifies whether values are required for each row in this field. Default: false.
         /// </summary>
         [Input("required")]
         public Input<bool>? Required { get; set; }
 
         /// <summary>
-        /// The field type. S3 Tables supports all Apache Iceberg primitive types including: `Boolean`, `Int`, `Long`, `Float`, `Double`, `decimal(precision,scale)`, `Date`, `Time`, `Timestamp`, `Timestamptz`, `String`, `Uuid`, `fixed(length)`, `Binary`.
+        /// The field type. S3 Tables supports all Apache Iceberg primitive types.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

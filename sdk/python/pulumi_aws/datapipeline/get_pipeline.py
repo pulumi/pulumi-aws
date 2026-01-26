@@ -49,9 +49,6 @@ class GetPipelineResult:
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of Pipeline.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -65,9 +62,6 @@ class GetPipelineResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of Pipeline.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -83,9 +77,6 @@ class GetPipelineResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags assigned to the resource.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -108,21 +99,7 @@ def get_pipeline(pipeline_id: Optional[_builtins.str] = None,
                  tags: Optional[Mapping[str, _builtins.str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPipelineResult:
     """
-    Provides details about a specific DataPipeline Pipeline.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.datapipeline.get_pipeline(pipeline_id="pipelineID")
-    ```
-
-
-    :param _builtins.str pipeline_id: ID of the pipeline.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['pipelineId'] = pipeline_id
@@ -143,21 +120,7 @@ def get_pipeline_output(pipeline_id: Optional[pulumi.Input[_builtins.str]] = Non
                         tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPipelineResult]:
     """
-    Provides details about a specific DataPipeline Pipeline.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.datapipeline.get_pipeline(pipeline_id="pipelineID")
-    ```
-
-
-    :param _builtins.str pipeline_id: ID of the pipeline.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['pipelineId'] = pipeline_id

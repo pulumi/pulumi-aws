@@ -11,11 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get information on EC2 Transit Gateway Attachments.
-//
-// ## Example Usage
-//
-// ### By Filter
 func GetAttachments(ctx *pulumi.Context, args *GetAttachmentsArgs, opts ...pulumi.InvokeOption) (*GetAttachmentsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAttachmentsResult
@@ -28,19 +23,16 @@ func GetAttachments(ctx *pulumi.Context, args *GetAttachmentsArgs, opts ...pulum
 
 // A collection of arguments for invoking getAttachments.
 type GetAttachmentsArgs struct {
-	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters []GetAttachmentsFilter `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string           `pulumi:"region"`
-	Tags   map[string]string `pulumi:"tags"`
+	Region  *string                `pulumi:"region"`
+	Tags    map[string]string      `pulumi:"tags"`
 }
 
 // A collection of values returned by getAttachments.
 type GetAttachmentsResult struct {
 	Filters []GetAttachmentsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [ec2transitgateway.getAttachment][2] data source, searching by identifier.
+	Id     string            `pulumi:"id"`
 	Ids    []string          `pulumi:"ids"`
 	Region string            `pulumi:"region"`
 	Tags   map[string]string `pulumi:"tags"`
@@ -57,11 +49,9 @@ func GetAttachmentsOutput(ctx *pulumi.Context, args GetAttachmentsOutputArgs, op
 
 // A collection of arguments for invoking getAttachments.
 type GetAttachmentsOutputArgs struct {
-	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters GetAttachmentsFilterArrayInput `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	Tags   pulumi.StringMapInput `pulumi:"tags"`
+	Region  pulumi.StringPtrInput          `pulumi:"region"`
+	Tags    pulumi.StringMapInput          `pulumi:"tags"`
 }
 
 func (GetAttachmentsOutputArgs) ElementType() reflect.Type {
@@ -92,7 +82,6 @@ func (o GetAttachmentsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAttachmentsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [ec2transitgateway.getAttachment][2] data source, searching by identifier.
 func (o GetAttachmentsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAttachmentsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

@@ -17,47 +17,23 @@ public final class AgentAgentMemoryConfigurationArgs extends com.pulumi.resource
 
     public static final AgentAgentMemoryConfigurationArgs Empty = new AgentAgentMemoryConfigurationArgs();
 
-    /**
-     * The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
-     * 
-     */
     @Import(name="enabledMemoryTypes", required=true)
     private Output<List<String>> enabledMemoryTypes;
 
-    /**
-     * @return The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
-     * 
-     */
     public Output<List<String>> enabledMemoryTypes() {
         return this.enabledMemoryTypes;
     }
 
-    /**
-     * Configuration block for `SESSION_SUMMARY` memory type enabled for the agent. See `sessionSummaryConfiguration` Block for details.
-     * 
-     */
     @Import(name="sessionSummaryConfigurations", required=true)
     private Output<List<AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs>> sessionSummaryConfigurations;
 
-    /**
-     * @return Configuration block for `SESSION_SUMMARY` memory type enabled for the agent. See `sessionSummaryConfiguration` Block for details.
-     * 
-     */
     public Output<List<AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs>> sessionSummaryConfigurations() {
         return this.sessionSummaryConfigurations;
     }
 
-    /**
-     * The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
-     * 
-     */
     @Import(name="storageDays", required=true)
     private Output<Integer> storageDays;
 
-    /**
-     * @return The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
-     * 
-     */
     public Output<Integer> storageDays() {
         return this.storageDays;
     }
@@ -88,85 +64,37 @@ public final class AgentAgentMemoryConfigurationArgs extends com.pulumi.resource
             $ = new AgentAgentMemoryConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabledMemoryTypes The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabledMemoryTypes(Output<List<String>> enabledMemoryTypes) {
             $.enabledMemoryTypes = enabledMemoryTypes;
             return this;
         }
 
-        /**
-         * @param enabledMemoryTypes The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabledMemoryTypes(List<String> enabledMemoryTypes) {
             return enabledMemoryTypes(Output.of(enabledMemoryTypes));
         }
 
-        /**
-         * @param enabledMemoryTypes The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabledMemoryTypes(String... enabledMemoryTypes) {
             return enabledMemoryTypes(List.of(enabledMemoryTypes));
         }
 
-        /**
-         * @param sessionSummaryConfigurations Configuration block for `SESSION_SUMMARY` memory type enabled for the agent. See `sessionSummaryConfiguration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sessionSummaryConfigurations(Output<List<AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs>> sessionSummaryConfigurations) {
             $.sessionSummaryConfigurations = sessionSummaryConfigurations;
             return this;
         }
 
-        /**
-         * @param sessionSummaryConfigurations Configuration block for `SESSION_SUMMARY` memory type enabled for the agent. See `sessionSummaryConfiguration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sessionSummaryConfigurations(List<AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs> sessionSummaryConfigurations) {
             return sessionSummaryConfigurations(Output.of(sessionSummaryConfigurations));
         }
 
-        /**
-         * @param sessionSummaryConfigurations Configuration block for `SESSION_SUMMARY` memory type enabled for the agent. See `sessionSummaryConfiguration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sessionSummaryConfigurations(AgentAgentMemoryConfigurationSessionSummaryConfigurationArgs... sessionSummaryConfigurations) {
             return sessionSummaryConfigurations(List.of(sessionSummaryConfigurations));
         }
 
-        /**
-         * @param storageDays The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageDays(Output<Integer> storageDays) {
             $.storageDays = storageDays;
             return this;
         }
 
-        /**
-         * @param storageDays The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageDays(Integer storageDays) {
             return storageDays(Output.of(storageDays));
         }

@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class AutomationRuleActionFindingFieldsUpdateRelatedFinding {
-    /**
-     * @return The product-generated identifier for a related finding.
-     * 
-     */
     private String id;
-    /**
-     * @return The ARN of the product that generated a related finding.
-     * 
-     */
     private String productArn;
 
     private AutomationRuleActionFindingFieldsUpdateRelatedFinding() {}
-    /**
-     * @return The product-generated identifier for a related finding.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return The ARN of the product that generated a related finding.
-     * 
-     */
     public String productArn() {
         return this.productArn;
     }

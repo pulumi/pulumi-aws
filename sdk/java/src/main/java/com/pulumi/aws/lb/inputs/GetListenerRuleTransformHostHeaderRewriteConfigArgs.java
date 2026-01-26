@@ -16,17 +16,9 @@ public final class GetListenerRuleTransformHostHeaderRewriteConfigArgs extends c
 
     public static final GetListenerRuleTransformHostHeaderRewriteConfigArgs Empty = new GetListenerRuleTransformHostHeaderRewriteConfigArgs();
 
-    /**
-     * Block for URL rewrite configuration. Detailed below.
-     * 
-     */
     @Import(name="rewrites")
     private @Nullable Output<List<GetListenerRuleTransformHostHeaderRewriteConfigRewriteArgs>> rewrites;
 
-    /**
-     * @return Block for URL rewrite configuration. Detailed below.
-     * 
-     */
     public Optional<Output<List<GetListenerRuleTransformHostHeaderRewriteConfigRewriteArgs>>> rewrites() {
         return Optional.ofNullable(this.rewrites);
     }
@@ -55,33 +47,15 @@ public final class GetListenerRuleTransformHostHeaderRewriteConfigArgs extends c
             $ = new GetListenerRuleTransformHostHeaderRewriteConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param rewrites Block for URL rewrite configuration. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rewrites(@Nullable Output<List<GetListenerRuleTransformHostHeaderRewriteConfigRewriteArgs>> rewrites) {
             $.rewrites = rewrites;
             return this;
         }
 
-        /**
-         * @param rewrites Block for URL rewrite configuration. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rewrites(List<GetListenerRuleTransformHostHeaderRewriteConfigRewriteArgs> rewrites) {
             return rewrites(Output.of(rewrites));
         }
 
-        /**
-         * @param rewrites Block for URL rewrite configuration. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rewrites(GetListenerRuleTransformHostHeaderRewriteConfigRewriteArgs... rewrites) {
             return rewrites(List.of(rewrites));
         }

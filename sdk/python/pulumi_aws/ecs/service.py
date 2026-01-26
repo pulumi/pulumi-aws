@@ -58,44 +58,6 @@ class ServiceArgs:
                  wait_for_steady_state: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Service resource.
-        :param pulumi.Input['ServiceAlarmsArgs'] alarms: Information about the CloudWatch alarms. See below.
-        :param pulumi.Input[_builtins.str] availability_zone_rebalancing: ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. When creating a new service, if no value is specified, it defaults to `ENABLED` if the service is compatible with AvailabilityZoneRebalancing. When updating an existing service, if no value is specified it defaults to the existing service's AvailabilityZoneRebalancing value. If the service never had an AvailabilityZoneRebalancing value set, Amazon ECS treats this as `DISABLED`.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArgs']]] capacity_provider_strategies: Capacity provider strategies to use for the service. Can be one or more. Updating this argument requires `force_new_deployment = true`. See below. Conflicts with `launch_type`.
-        :param pulumi.Input[_builtins.str] cluster: ARN of an ECS cluster.
-        :param pulumi.Input['ServiceDeploymentCircuitBreakerArgs'] deployment_circuit_breaker: Configuration block for deployment circuit breaker. See below.
-        :param pulumi.Input['ServiceDeploymentConfigurationArgs'] deployment_configuration: Configuration block for deployment settings. See below.
-        :param pulumi.Input['ServiceDeploymentControllerArgs'] deployment_controller: Configuration block for deployment controller configuration. See below.
-        :param pulumi.Input[_builtins.int] deployment_maximum_percent: Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
-        :param pulumi.Input[_builtins.int] deployment_minimum_healthy_percent: Lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
-        :param pulumi.Input[_builtins.int] desired_count: Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
-        :param pulumi.Input[_builtins.bool] enable_ecs_managed_tags: Whether to enable Amazon ECS managed tags for the tasks within the service.
-        :param pulumi.Input[_builtins.bool] enable_execute_command: Whether to enable Amazon ECS Exec for the tasks within the service.
-        :param pulumi.Input[_builtins.bool] force_delete: Enable to delete a service even if it wasn't scaled down to zero tasks. It's only necessary to use this if the service uses the `REPLICA` scheduling strategy.
-        :param pulumi.Input[_builtins.bool] force_new_deployment: Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
-               When using the forceNewDeployment property you also need to configure the triggers property.
-        :param pulumi.Input[_builtins.int] health_check_grace_period_seconds: Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
-        :param pulumi.Input[_builtins.str] iam_role: ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
-        :param pulumi.Input[_builtins.str] launch_type: Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]] load_balancers: Configuration block for load balancers. See below.
-        :param pulumi.Input[_builtins.str] name: Name of the service (up to 255 letters, numbers, hyphens, and underscores)
-               
-               The following arguments are optional:
-        :param pulumi.Input['ServiceNetworkConfigurationArgs'] network_configuration: Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceOrderedPlacementStrategyArgs']]] ordered_placement_strategies: Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
-        :param pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]] placement_constraints: Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
-        :param pulumi.Input[_builtins.str] platform_version: Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-        :param pulumi.Input[_builtins.str] propagate_tags: Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] scheduling_strategy: Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
-        :param pulumi.Input['ServiceServiceConnectConfigurationArgs'] service_connect_configuration: ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
-        :param pulumi.Input['ServiceServiceRegistriesArgs'] service_registries: Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
-        :param pulumi.Input[_builtins.bool] sigint_rollback: Whether to enable graceful termination of deployments using SIGINT signals. When enabled, allows customers to safely cancel an in-progress deployment and automatically trigger a rollback to the previous stable state. Defaults to `false`. Only applicable when using `ECS` deployment controller and requires `wait_for_steady_state = true`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] task_definition: Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. When using the triggers property you also need to set the forceNewDeployment property to True.
-        :param pulumi.Input['ServiceVolumeConfigurationArgs'] volume_configuration: Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceVpcLatticeConfigurationArgs']]] vpc_lattice_configurations: The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
-        :param pulumi.Input[_builtins.bool] wait_for_steady_state: If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
         """
         if alarms is not None:
             pulumi.set(__self__, "alarms", alarms)
@@ -171,9 +133,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter
     def alarms(self) -> Optional[pulumi.Input['ServiceAlarmsArgs']]:
-        """
-        Information about the CloudWatch alarms. See below.
-        """
         return pulumi.get(self, "alarms")
 
     @alarms.setter
@@ -183,9 +142,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter(name="availabilityZoneRebalancing")
     def availability_zone_rebalancing(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. When creating a new service, if no value is specified, it defaults to `ENABLED` if the service is compatible with AvailabilityZoneRebalancing. When updating an existing service, if no value is specified it defaults to the existing service's AvailabilityZoneRebalancing value. If the service never had an AvailabilityZoneRebalancing value set, Amazon ECS treats this as `DISABLED`.
-        """
         return pulumi.get(self, "availability_zone_rebalancing")
 
     @availability_zone_rebalancing.setter
@@ -195,9 +151,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter(name="capacityProviderStrategies")
     def capacity_provider_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArgs']]]]:
-        """
-        Capacity provider strategies to use for the service. Can be one or more. Updating this argument requires `force_new_deployment = true`. See below. Conflicts with `launch_type`.
-        """
         return pulumi.get(self, "capacity_provider_strategies")
 
     @capacity_provider_strategies.setter
@@ -207,9 +160,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter
     def cluster(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of an ECS cluster.
-        """
         return pulumi.get(self, "cluster")
 
     @cluster.setter
@@ -219,9 +169,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter(name="deploymentCircuitBreaker")
     def deployment_circuit_breaker(self) -> Optional[pulumi.Input['ServiceDeploymentCircuitBreakerArgs']]:
-        """
-        Configuration block for deployment circuit breaker. See below.
-        """
         return pulumi.get(self, "deployment_circuit_breaker")
 
     @deployment_circuit_breaker.setter
@@ -231,9 +178,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter(name="deploymentConfiguration")
     def deployment_configuration(self) -> Optional[pulumi.Input['ServiceDeploymentConfigurationArgs']]:
-        """
-        Configuration block for deployment settings. See below.
-        """
         return pulumi.get(self, "deployment_configuration")
 
     @deployment_configuration.setter
@@ -243,9 +187,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter(name="deploymentController")
     def deployment_controller(self) -> Optional[pulumi.Input['ServiceDeploymentControllerArgs']]:
-        """
-        Configuration block for deployment controller configuration. See below.
-        """
         return pulumi.get(self, "deployment_controller")
 
     @deployment_controller.setter
@@ -255,9 +196,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter(name="deploymentMaximumPercent")
     def deployment_maximum_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
-        """
         return pulumi.get(self, "deployment_maximum_percent")
 
     @deployment_maximum_percent.setter
@@ -267,9 +205,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter(name="deploymentMinimumHealthyPercent")
     def deployment_minimum_healthy_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
-        """
         return pulumi.get(self, "deployment_minimum_healthy_percent")
 
     @deployment_minimum_healthy_percent.setter
@@ -279,9 +214,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter(name="desiredCount")
     def desired_count(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
-        """
         return pulumi.get(self, "desired_count")
 
     @desired_count.setter
@@ -291,9 +223,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter(name="enableEcsManagedTags")
     def enable_ecs_managed_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable Amazon ECS managed tags for the tasks within the service.
-        """
         return pulumi.get(self, "enable_ecs_managed_tags")
 
     @enable_ecs_managed_tags.setter
@@ -303,9 +232,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter(name="enableExecuteCommand")
     def enable_execute_command(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable Amazon ECS Exec for the tasks within the service.
-        """
         return pulumi.get(self, "enable_execute_command")
 
     @enable_execute_command.setter
@@ -315,9 +241,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter(name="forceDelete")
     def force_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enable to delete a service even if it wasn't scaled down to zero tasks. It's only necessary to use this if the service uses the `REPLICA` scheduling strategy.
-        """
         return pulumi.get(self, "force_delete")
 
     @force_delete.setter
@@ -327,10 +250,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter(name="forceNewDeployment")
     def force_new_deployment(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
-        When using the forceNewDeployment property you also need to configure the triggers property.
-        """
         return pulumi.get(self, "force_new_deployment")
 
     @force_new_deployment.setter
@@ -340,9 +259,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter(name="healthCheckGracePeriodSeconds")
     def health_check_grace_period_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
-        """
         return pulumi.get(self, "health_check_grace_period_seconds")
 
     @health_check_grace_period_seconds.setter
@@ -352,9 +268,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter(name="iamRole")
     def iam_role(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
-        """
         return pulumi.get(self, "iam_role")
 
     @iam_role.setter
@@ -364,9 +277,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter(name="launchType")
     def launch_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
-        """
         return pulumi.get(self, "launch_type")
 
     @launch_type.setter
@@ -376,9 +286,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter(name="loadBalancers")
     def load_balancers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]]]:
-        """
-        Configuration block for load balancers. See below.
-        """
         return pulumi.get(self, "load_balancers")
 
     @load_balancers.setter
@@ -388,11 +295,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the service (up to 255 letters, numbers, hyphens, and underscores)
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -402,9 +304,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional[pulumi.Input['ServiceNetworkConfigurationArgs']]:
-        """
-        Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
-        """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
@@ -414,9 +313,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter(name="orderedPlacementStrategies")
     def ordered_placement_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceOrderedPlacementStrategyArgs']]]]:
-        """
-        Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
-        """
         return pulumi.get(self, "ordered_placement_strategies")
 
     @ordered_placement_strategies.setter
@@ -426,9 +322,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter(name="placementConstraints")
     def placement_constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]]]:
-        """
-        Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
-        """
         return pulumi.get(self, "placement_constraints")
 
     @placement_constraints.setter
@@ -438,9 +331,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter(name="platformVersion")
     def platform_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-        """
         return pulumi.get(self, "platform_version")
 
     @platform_version.setter
@@ -450,9 +340,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter(name="propagateTags")
     def propagate_tags(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
-        """
         return pulumi.get(self, "propagate_tags")
 
     @propagate_tags.setter
@@ -462,9 +349,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -474,9 +358,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter(name="schedulingStrategy")
     def scheduling_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
-        """
         return pulumi.get(self, "scheduling_strategy")
 
     @scheduling_strategy.setter
@@ -486,9 +367,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter(name="serviceConnectConfiguration")
     def service_connect_configuration(self) -> Optional[pulumi.Input['ServiceServiceConnectConfigurationArgs']]:
-        """
-        ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
-        """
         return pulumi.get(self, "service_connect_configuration")
 
     @service_connect_configuration.setter
@@ -498,9 +376,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter(name="serviceRegistries")
     def service_registries(self) -> Optional[pulumi.Input['ServiceServiceRegistriesArgs']]:
-        """
-        Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
-        """
         return pulumi.get(self, "service_registries")
 
     @service_registries.setter
@@ -510,9 +385,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter(name="sigintRollback")
     def sigint_rollback(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable graceful termination of deployments using SIGINT signals. When enabled, allows customers to safely cancel an in-progress deployment and automatically trigger a rollback to the previous stable state. Defaults to `false`. Only applicable when using `ECS` deployment controller and requires `wait_for_steady_state = true`.
-        """
         return pulumi.get(self, "sigint_rollback")
 
     @sigint_rollback.setter
@@ -522,9 +394,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -534,9 +403,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter(name="taskDefinition")
     def task_definition(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
-        """
         return pulumi.get(self, "task_definition")
 
     @task_definition.setter
@@ -546,9 +412,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. When using the triggers property you also need to set the forceNewDeployment property to True.
-        """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
@@ -558,9 +421,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter(name="volumeConfiguration")
     def volume_configuration(self) -> Optional[pulumi.Input['ServiceVolumeConfigurationArgs']]:
-        """
-        Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
-        """
         return pulumi.get(self, "volume_configuration")
 
     @volume_configuration.setter
@@ -570,9 +430,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter(name="vpcLatticeConfigurations")
     def vpc_lattice_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceVpcLatticeConfigurationArgs']]]]:
-        """
-        The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
-        """
         return pulumi.get(self, "vpc_lattice_configurations")
 
     @vpc_lattice_configurations.setter
@@ -582,9 +439,6 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter(name="waitForSteadyState")
     def wait_for_steady_state(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
-        """
         return pulumi.get(self, "wait_for_steady_state")
 
     @wait_for_steady_state.setter
@@ -634,46 +488,6 @@ class _ServiceState:
                  wait_for_steady_state: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Service resources.
-        :param pulumi.Input['ServiceAlarmsArgs'] alarms: Information about the CloudWatch alarms. See below.
-        :param pulumi.Input[_builtins.str] arn: ARN that identifies the service.
-        :param pulumi.Input[_builtins.str] availability_zone_rebalancing: ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. When creating a new service, if no value is specified, it defaults to `ENABLED` if the service is compatible with AvailabilityZoneRebalancing. When updating an existing service, if no value is specified it defaults to the existing service's AvailabilityZoneRebalancing value. If the service never had an AvailabilityZoneRebalancing value set, Amazon ECS treats this as `DISABLED`.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArgs']]] capacity_provider_strategies: Capacity provider strategies to use for the service. Can be one or more. Updating this argument requires `force_new_deployment = true`. See below. Conflicts with `launch_type`.
-        :param pulumi.Input[_builtins.str] cluster: ARN of an ECS cluster.
-        :param pulumi.Input['ServiceDeploymentCircuitBreakerArgs'] deployment_circuit_breaker: Configuration block for deployment circuit breaker. See below.
-        :param pulumi.Input['ServiceDeploymentConfigurationArgs'] deployment_configuration: Configuration block for deployment settings. See below.
-        :param pulumi.Input['ServiceDeploymentControllerArgs'] deployment_controller: Configuration block for deployment controller configuration. See below.
-        :param pulumi.Input[_builtins.int] deployment_maximum_percent: Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
-        :param pulumi.Input[_builtins.int] deployment_minimum_healthy_percent: Lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
-        :param pulumi.Input[_builtins.int] desired_count: Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
-        :param pulumi.Input[_builtins.bool] enable_ecs_managed_tags: Whether to enable Amazon ECS managed tags for the tasks within the service.
-        :param pulumi.Input[_builtins.bool] enable_execute_command: Whether to enable Amazon ECS Exec for the tasks within the service.
-        :param pulumi.Input[_builtins.bool] force_delete: Enable to delete a service even if it wasn't scaled down to zero tasks. It's only necessary to use this if the service uses the `REPLICA` scheduling strategy.
-        :param pulumi.Input[_builtins.bool] force_new_deployment: Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
-               When using the forceNewDeployment property you also need to configure the triggers property.
-        :param pulumi.Input[_builtins.int] health_check_grace_period_seconds: Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
-        :param pulumi.Input[_builtins.str] iam_role: ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
-        :param pulumi.Input[_builtins.str] launch_type: Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]] load_balancers: Configuration block for load balancers. See below.
-        :param pulumi.Input[_builtins.str] name: Name of the service (up to 255 letters, numbers, hyphens, and underscores)
-               
-               The following arguments are optional:
-        :param pulumi.Input['ServiceNetworkConfigurationArgs'] network_configuration: Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceOrderedPlacementStrategyArgs']]] ordered_placement_strategies: Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
-        :param pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]] placement_constraints: Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
-        :param pulumi.Input[_builtins.str] platform_version: Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-        :param pulumi.Input[_builtins.str] propagate_tags: Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] scheduling_strategy: Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
-        :param pulumi.Input['ServiceServiceConnectConfigurationArgs'] service_connect_configuration: ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
-        :param pulumi.Input['ServiceServiceRegistriesArgs'] service_registries: Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
-        :param pulumi.Input[_builtins.bool] sigint_rollback: Whether to enable graceful termination of deployments using SIGINT signals. When enabled, allows customers to safely cancel an in-progress deployment and automatically trigger a rollback to the previous stable state. Defaults to `false`. Only applicable when using `ECS` deployment controller and requires `wait_for_steady_state = true`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] task_definition: Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. When using the triggers property you also need to set the forceNewDeployment property to True.
-        :param pulumi.Input['ServiceVolumeConfigurationArgs'] volume_configuration: Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceVpcLatticeConfigurationArgs']]] vpc_lattice_configurations: The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
-        :param pulumi.Input[_builtins.bool] wait_for_steady_state: If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
         """
         if alarms is not None:
             pulumi.set(__self__, "alarms", alarms)
@@ -753,9 +567,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter
     def alarms(self) -> Optional[pulumi.Input['ServiceAlarmsArgs']]:
-        """
-        Information about the CloudWatch alarms. See below.
-        """
         return pulumi.get(self, "alarms")
 
     @alarms.setter
@@ -765,9 +576,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN that identifies the service.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -777,9 +585,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter(name="availabilityZoneRebalancing")
     def availability_zone_rebalancing(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. When creating a new service, if no value is specified, it defaults to `ENABLED` if the service is compatible with AvailabilityZoneRebalancing. When updating an existing service, if no value is specified it defaults to the existing service's AvailabilityZoneRebalancing value. If the service never had an AvailabilityZoneRebalancing value set, Amazon ECS treats this as `DISABLED`.
-        """
         return pulumi.get(self, "availability_zone_rebalancing")
 
     @availability_zone_rebalancing.setter
@@ -789,9 +594,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter(name="capacityProviderStrategies")
     def capacity_provider_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArgs']]]]:
-        """
-        Capacity provider strategies to use for the service. Can be one or more. Updating this argument requires `force_new_deployment = true`. See below. Conflicts with `launch_type`.
-        """
         return pulumi.get(self, "capacity_provider_strategies")
 
     @capacity_provider_strategies.setter
@@ -801,9 +603,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter
     def cluster(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of an ECS cluster.
-        """
         return pulumi.get(self, "cluster")
 
     @cluster.setter
@@ -813,9 +612,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter(name="deploymentCircuitBreaker")
     def deployment_circuit_breaker(self) -> Optional[pulumi.Input['ServiceDeploymentCircuitBreakerArgs']]:
-        """
-        Configuration block for deployment circuit breaker. See below.
-        """
         return pulumi.get(self, "deployment_circuit_breaker")
 
     @deployment_circuit_breaker.setter
@@ -825,9 +621,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter(name="deploymentConfiguration")
     def deployment_configuration(self) -> Optional[pulumi.Input['ServiceDeploymentConfigurationArgs']]:
-        """
-        Configuration block for deployment settings. See below.
-        """
         return pulumi.get(self, "deployment_configuration")
 
     @deployment_configuration.setter
@@ -837,9 +630,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter(name="deploymentController")
     def deployment_controller(self) -> Optional[pulumi.Input['ServiceDeploymentControllerArgs']]:
-        """
-        Configuration block for deployment controller configuration. See below.
-        """
         return pulumi.get(self, "deployment_controller")
 
     @deployment_controller.setter
@@ -849,9 +639,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter(name="deploymentMaximumPercent")
     def deployment_maximum_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
-        """
         return pulumi.get(self, "deployment_maximum_percent")
 
     @deployment_maximum_percent.setter
@@ -861,9 +648,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter(name="deploymentMinimumHealthyPercent")
     def deployment_minimum_healthy_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
-        """
         return pulumi.get(self, "deployment_minimum_healthy_percent")
 
     @deployment_minimum_healthy_percent.setter
@@ -873,9 +657,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter(name="desiredCount")
     def desired_count(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
-        """
         return pulumi.get(self, "desired_count")
 
     @desired_count.setter
@@ -885,9 +666,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter(name="enableEcsManagedTags")
     def enable_ecs_managed_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable Amazon ECS managed tags for the tasks within the service.
-        """
         return pulumi.get(self, "enable_ecs_managed_tags")
 
     @enable_ecs_managed_tags.setter
@@ -897,9 +675,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter(name="enableExecuteCommand")
     def enable_execute_command(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable Amazon ECS Exec for the tasks within the service.
-        """
         return pulumi.get(self, "enable_execute_command")
 
     @enable_execute_command.setter
@@ -909,9 +684,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter(name="forceDelete")
     def force_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enable to delete a service even if it wasn't scaled down to zero tasks. It's only necessary to use this if the service uses the `REPLICA` scheduling strategy.
-        """
         return pulumi.get(self, "force_delete")
 
     @force_delete.setter
@@ -921,10 +693,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter(name="forceNewDeployment")
     def force_new_deployment(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
-        When using the forceNewDeployment property you also need to configure the triggers property.
-        """
         return pulumi.get(self, "force_new_deployment")
 
     @force_new_deployment.setter
@@ -934,9 +702,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter(name="healthCheckGracePeriodSeconds")
     def health_check_grace_period_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
-        """
         return pulumi.get(self, "health_check_grace_period_seconds")
 
     @health_check_grace_period_seconds.setter
@@ -946,9 +711,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter(name="iamRole")
     def iam_role(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
-        """
         return pulumi.get(self, "iam_role")
 
     @iam_role.setter
@@ -958,9 +720,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter(name="launchType")
     def launch_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
-        """
         return pulumi.get(self, "launch_type")
 
     @launch_type.setter
@@ -970,9 +729,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter(name="loadBalancers")
     def load_balancers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]]]:
-        """
-        Configuration block for load balancers. See below.
-        """
         return pulumi.get(self, "load_balancers")
 
     @load_balancers.setter
@@ -982,11 +738,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the service (up to 255 letters, numbers, hyphens, and underscores)
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -996,9 +747,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional[pulumi.Input['ServiceNetworkConfigurationArgs']]:
-        """
-        Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
-        """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
@@ -1008,9 +756,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter(name="orderedPlacementStrategies")
     def ordered_placement_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceOrderedPlacementStrategyArgs']]]]:
-        """
-        Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
-        """
         return pulumi.get(self, "ordered_placement_strategies")
 
     @ordered_placement_strategies.setter
@@ -1020,9 +765,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter(name="placementConstraints")
     def placement_constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]]]:
-        """
-        Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
-        """
         return pulumi.get(self, "placement_constraints")
 
     @placement_constraints.setter
@@ -1032,9 +774,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter(name="platformVersion")
     def platform_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-        """
         return pulumi.get(self, "platform_version")
 
     @platform_version.setter
@@ -1044,9 +783,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter(name="propagateTags")
     def propagate_tags(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
-        """
         return pulumi.get(self, "propagate_tags")
 
     @propagate_tags.setter
@@ -1056,9 +792,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -1068,9 +801,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter(name="schedulingStrategy")
     def scheduling_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
-        """
         return pulumi.get(self, "scheduling_strategy")
 
     @scheduling_strategy.setter
@@ -1080,9 +810,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter(name="serviceConnectConfiguration")
     def service_connect_configuration(self) -> Optional[pulumi.Input['ServiceServiceConnectConfigurationArgs']]:
-        """
-        ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
-        """
         return pulumi.get(self, "service_connect_configuration")
 
     @service_connect_configuration.setter
@@ -1092,9 +819,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter(name="serviceRegistries")
     def service_registries(self) -> Optional[pulumi.Input['ServiceServiceRegistriesArgs']]:
-        """
-        Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
-        """
         return pulumi.get(self, "service_registries")
 
     @service_registries.setter
@@ -1104,9 +828,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter(name="sigintRollback")
     def sigint_rollback(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable graceful termination of deployments using SIGINT signals. When enabled, allows customers to safely cancel an in-progress deployment and automatically trigger a rollback to the previous stable state. Defaults to `false`. Only applicable when using `ECS` deployment controller and requires `wait_for_steady_state = true`.
-        """
         return pulumi.get(self, "sigint_rollback")
 
     @sigint_rollback.setter
@@ -1116,9 +837,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -1128,9 +846,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -1140,9 +855,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter(name="taskDefinition")
     def task_definition(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
-        """
         return pulumi.get(self, "task_definition")
 
     @task_definition.setter
@@ -1152,9 +864,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. When using the triggers property you also need to set the forceNewDeployment property to True.
-        """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
@@ -1164,9 +873,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter(name="volumeConfiguration")
     def volume_configuration(self) -> Optional[pulumi.Input['ServiceVolumeConfigurationArgs']]:
-        """
-        Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
-        """
         return pulumi.get(self, "volume_configuration")
 
     @volume_configuration.setter
@@ -1176,9 +882,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter(name="vpcLatticeConfigurations")
     def vpc_lattice_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceVpcLatticeConfigurationArgs']]]]:
-        """
-        The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
-        """
         return pulumi.get(self, "vpc_lattice_configurations")
 
     @vpc_lattice_configurations.setter
@@ -1188,9 +891,6 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter(name="waitForSteadyState")
     def wait_for_steady_state(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
-        """
         return pulumi.get(self, "wait_for_steady_state")
 
     @wait_for_steady_state.setter
@@ -1241,211 +941,9 @@ class Service(pulumi.CustomResource):
                  wait_for_steady_state: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        > **Note:** To prevent a race condition during service deletion, make sure to set `depends_on` to the related `iam.RolePolicy`; otherwise, the policy may be destroyed too soon and the ECS service will then get stuck in the `DRAINING` state.
-
-        Provides an ECS service - effectively a task that is expected to run until an error occurs or a user terminates it (typically a webserver or a database).
-
-        See [ECS Services section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        mongo = aws.ecs.Service("mongo",
-            name="mongodb",
-            cluster=foo_aws_ecs_cluster["id"],
-            task_definition=mongo_aws_ecs_task_definition["arn"],
-            desired_count=3,
-            iam_role=foo_aws_iam_role["arn"],
-            ordered_placement_strategies=[{
-                "type": "binpack",
-                "field": "cpu",
-            }],
-            load_balancers=[{
-                "target_group_arn": foo_aws_lb_target_group["arn"],
-                "container_name": "mongo",
-                "container_port": 8080,
-            }],
-            placement_constraints=[{
-                "type": "memberOf",
-                "expression": "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
-            }],
-            opts = pulumi.ResourceOptions(depends_on=[foo]))
-        ```
-
-        ### Ignoring Changes to Desired Count
-
-        You can use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ecs.Service("example", desired_count=2)
-        ```
-
-        ### Daemon Scheduling Strategy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bar = aws.ecs.Service("bar",
-            name="bar",
-            cluster=foo["id"],
-            task_definition=bar_aws_ecs_task_definition["arn"],
-            scheduling_strategy="DAEMON")
-        ```
-
-        ### CloudWatch Deployment Alarms
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ecs.Service("example",
-            name="example",
-            cluster=example_aws_ecs_cluster["id"],
-            alarms={
-                "enable": True,
-                "rollback": True,
-                "alarm_names": [example_aws_cloudwatch_metric_alarm["alarmName"]],
-            })
-        ```
-
-        ### External Deployment Controller
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ecs.Service("example",
-            name="example",
-            cluster=example_aws_ecs_cluster["id"],
-            deployment_controller={
-                "type": "EXTERNAL",
-            })
-        ```
-
-        ### Blue/Green Deployment with SIGINT Rollback
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ecs.Service("example",
-            name="example",
-            cluster=example_aws_ecs_cluster["id"],
-            deployment_configuration={
-                "strategy": "BLUE_GREEN",
-            },
-            sigint_rollback=True,
-            wait_for_steady_state=True)
-        ```
-
-        ### Linear Deployment Strategy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ecs.Service("example",
-            name="example",
-            cluster=example_aws_ecs_cluster["id"],
-            deployment_configuration={
-                "strategy": "LINEAR",
-                "bake_time_in_minutes": "10",
-                "linear_configuration": {
-                    "step_percent": 25,
-                    "step_bake_time_in_minutes": "5",
-                },
-            })
-        ```
-
-        ### Canary Deployment Strategy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ecs.Service("example",
-            name="example",
-            cluster=example_aws_ecs_cluster["id"],
-            deployment_configuration={
-                "strategy": "CANARY",
-                "bake_time_in_minutes": "15",
-                "canary_configuration": {
-                    "canary_percent": 10,
-                    "canary_bake_time_in_minutes": "5",
-                },
-            })
-        ```
-
-        ### Redeploy Service On Every Apply
-
-        The key used with `triggers` is arbitrary.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ecs.Service("example",
-            force_new_deployment=True,
-            triggers={
-                "redeployment": "plantimestamp()",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import ECS services using the `name` together with ecs cluster `name`. For example:
-
-        ```sh
-        $ pulumi import aws:ecs/service:Service imported cluster-name/service-name
-        ```
-
+        Create a Service resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ServiceAlarmsArgs', 'ServiceAlarmsArgsDict']] alarms: Information about the CloudWatch alarms. See below.
-        :param pulumi.Input[_builtins.str] availability_zone_rebalancing: ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. When creating a new service, if no value is specified, it defaults to `ENABLED` if the service is compatible with AvailabilityZoneRebalancing. When updating an existing service, if no value is specified it defaults to the existing service's AvailabilityZoneRebalancing value. If the service never had an AvailabilityZoneRebalancing value set, Amazon ECS treats this as `DISABLED`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCapacityProviderStrategyArgs', 'ServiceCapacityProviderStrategyArgsDict']]]] capacity_provider_strategies: Capacity provider strategies to use for the service. Can be one or more. Updating this argument requires `force_new_deployment = true`. See below. Conflicts with `launch_type`.
-        :param pulumi.Input[_builtins.str] cluster: ARN of an ECS cluster.
-        :param pulumi.Input[Union['ServiceDeploymentCircuitBreakerArgs', 'ServiceDeploymentCircuitBreakerArgsDict']] deployment_circuit_breaker: Configuration block for deployment circuit breaker. See below.
-        :param pulumi.Input[Union['ServiceDeploymentConfigurationArgs', 'ServiceDeploymentConfigurationArgsDict']] deployment_configuration: Configuration block for deployment settings. See below.
-        :param pulumi.Input[Union['ServiceDeploymentControllerArgs', 'ServiceDeploymentControllerArgsDict']] deployment_controller: Configuration block for deployment controller configuration. See below.
-        :param pulumi.Input[_builtins.int] deployment_maximum_percent: Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
-        :param pulumi.Input[_builtins.int] deployment_minimum_healthy_percent: Lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
-        :param pulumi.Input[_builtins.int] desired_count: Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
-        :param pulumi.Input[_builtins.bool] enable_ecs_managed_tags: Whether to enable Amazon ECS managed tags for the tasks within the service.
-        :param pulumi.Input[_builtins.bool] enable_execute_command: Whether to enable Amazon ECS Exec for the tasks within the service.
-        :param pulumi.Input[_builtins.bool] force_delete: Enable to delete a service even if it wasn't scaled down to zero tasks. It's only necessary to use this if the service uses the `REPLICA` scheduling strategy.
-        :param pulumi.Input[_builtins.bool] force_new_deployment: Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
-               When using the forceNewDeployment property you also need to configure the triggers property.
-        :param pulumi.Input[_builtins.int] health_check_grace_period_seconds: Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
-        :param pulumi.Input[_builtins.str] iam_role: ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
-        :param pulumi.Input[_builtins.str] launch_type: Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceLoadBalancerArgs', 'ServiceLoadBalancerArgsDict']]]] load_balancers: Configuration block for load balancers. See below.
-        :param pulumi.Input[_builtins.str] name: Name of the service (up to 255 letters, numbers, hyphens, and underscores)
-               
-               The following arguments are optional:
-        :param pulumi.Input[Union['ServiceNetworkConfigurationArgs', 'ServiceNetworkConfigurationArgsDict']] network_configuration: Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceOrderedPlacementStrategyArgs', 'ServiceOrderedPlacementStrategyArgsDict']]]] ordered_placement_strategies: Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementConstraintArgs', 'ServicePlacementConstraintArgsDict']]]] placement_constraints: Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
-        :param pulumi.Input[_builtins.str] platform_version: Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-        :param pulumi.Input[_builtins.str] propagate_tags: Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] scheduling_strategy: Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
-        :param pulumi.Input[Union['ServiceServiceConnectConfigurationArgs', 'ServiceServiceConnectConfigurationArgsDict']] service_connect_configuration: ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
-        :param pulumi.Input[Union['ServiceServiceRegistriesArgs', 'ServiceServiceRegistriesArgsDict']] service_registries: Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
-        :param pulumi.Input[_builtins.bool] sigint_rollback: Whether to enable graceful termination of deployments using SIGINT signals. When enabled, allows customers to safely cancel an in-progress deployment and automatically trigger a rollback to the previous stable state. Defaults to `false`. Only applicable when using `ECS` deployment controller and requires `wait_for_steady_state = true`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] task_definition: Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. When using the triggers property you also need to set the forceNewDeployment property to True.
-        :param pulumi.Input[Union['ServiceVolumeConfigurationArgs', 'ServiceVolumeConfigurationArgsDict']] volume_configuration: Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceVpcLatticeConfigurationArgs', 'ServiceVpcLatticeConfigurationArgsDict']]]] vpc_lattice_configurations: The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
-        :param pulumi.Input[_builtins.bool] wait_for_steady_state: If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
         """
         ...
     @overload
@@ -1454,171 +952,7 @@ class Service(pulumi.CustomResource):
                  args: Optional[ServiceArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **Note:** To prevent a race condition during service deletion, make sure to set `depends_on` to the related `iam.RolePolicy`; otherwise, the policy may be destroyed too soon and the ECS service will then get stuck in the `DRAINING` state.
-
-        Provides an ECS service - effectively a task that is expected to run until an error occurs or a user terminates it (typically a webserver or a database).
-
-        See [ECS Services section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        mongo = aws.ecs.Service("mongo",
-            name="mongodb",
-            cluster=foo_aws_ecs_cluster["id"],
-            task_definition=mongo_aws_ecs_task_definition["arn"],
-            desired_count=3,
-            iam_role=foo_aws_iam_role["arn"],
-            ordered_placement_strategies=[{
-                "type": "binpack",
-                "field": "cpu",
-            }],
-            load_balancers=[{
-                "target_group_arn": foo_aws_lb_target_group["arn"],
-                "container_name": "mongo",
-                "container_port": 8080,
-            }],
-            placement_constraints=[{
-                "type": "memberOf",
-                "expression": "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
-            }],
-            opts = pulumi.ResourceOptions(depends_on=[foo]))
-        ```
-
-        ### Ignoring Changes to Desired Count
-
-        You can use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ecs.Service("example", desired_count=2)
-        ```
-
-        ### Daemon Scheduling Strategy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bar = aws.ecs.Service("bar",
-            name="bar",
-            cluster=foo["id"],
-            task_definition=bar_aws_ecs_task_definition["arn"],
-            scheduling_strategy="DAEMON")
-        ```
-
-        ### CloudWatch Deployment Alarms
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ecs.Service("example",
-            name="example",
-            cluster=example_aws_ecs_cluster["id"],
-            alarms={
-                "enable": True,
-                "rollback": True,
-                "alarm_names": [example_aws_cloudwatch_metric_alarm["alarmName"]],
-            })
-        ```
-
-        ### External Deployment Controller
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ecs.Service("example",
-            name="example",
-            cluster=example_aws_ecs_cluster["id"],
-            deployment_controller={
-                "type": "EXTERNAL",
-            })
-        ```
-
-        ### Blue/Green Deployment with SIGINT Rollback
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ecs.Service("example",
-            name="example",
-            cluster=example_aws_ecs_cluster["id"],
-            deployment_configuration={
-                "strategy": "BLUE_GREEN",
-            },
-            sigint_rollback=True,
-            wait_for_steady_state=True)
-        ```
-
-        ### Linear Deployment Strategy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ecs.Service("example",
-            name="example",
-            cluster=example_aws_ecs_cluster["id"],
-            deployment_configuration={
-                "strategy": "LINEAR",
-                "bake_time_in_minutes": "10",
-                "linear_configuration": {
-                    "step_percent": 25,
-                    "step_bake_time_in_minutes": "5",
-                },
-            })
-        ```
-
-        ### Canary Deployment Strategy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ecs.Service("example",
-            name="example",
-            cluster=example_aws_ecs_cluster["id"],
-            deployment_configuration={
-                "strategy": "CANARY",
-                "bake_time_in_minutes": "15",
-                "canary_configuration": {
-                    "canary_percent": 10,
-                    "canary_bake_time_in_minutes": "5",
-                },
-            })
-        ```
-
-        ### Redeploy Service On Every Apply
-
-        The key used with `triggers` is arbitrary.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ecs.Service("example",
-            force_new_deployment=True,
-            triggers={
-                "redeployment": "plantimestamp()",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import ECS services using the `name` together with ecs cluster `name`. For example:
-
-        ```sh
-        $ pulumi import aws:ecs/service:Service imported cluster-name/service-name
-        ```
-
+        Create a Service resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1769,46 +1103,6 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ServiceAlarmsArgs', 'ServiceAlarmsArgsDict']] alarms: Information about the CloudWatch alarms. See below.
-        :param pulumi.Input[_builtins.str] arn: ARN that identifies the service.
-        :param pulumi.Input[_builtins.str] availability_zone_rebalancing: ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. When creating a new service, if no value is specified, it defaults to `ENABLED` if the service is compatible with AvailabilityZoneRebalancing. When updating an existing service, if no value is specified it defaults to the existing service's AvailabilityZoneRebalancing value. If the service never had an AvailabilityZoneRebalancing value set, Amazon ECS treats this as `DISABLED`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCapacityProviderStrategyArgs', 'ServiceCapacityProviderStrategyArgsDict']]]] capacity_provider_strategies: Capacity provider strategies to use for the service. Can be one or more. Updating this argument requires `force_new_deployment = true`. See below. Conflicts with `launch_type`.
-        :param pulumi.Input[_builtins.str] cluster: ARN of an ECS cluster.
-        :param pulumi.Input[Union['ServiceDeploymentCircuitBreakerArgs', 'ServiceDeploymentCircuitBreakerArgsDict']] deployment_circuit_breaker: Configuration block for deployment circuit breaker. See below.
-        :param pulumi.Input[Union['ServiceDeploymentConfigurationArgs', 'ServiceDeploymentConfigurationArgsDict']] deployment_configuration: Configuration block for deployment settings. See below.
-        :param pulumi.Input[Union['ServiceDeploymentControllerArgs', 'ServiceDeploymentControllerArgsDict']] deployment_controller: Configuration block for deployment controller configuration. See below.
-        :param pulumi.Input[_builtins.int] deployment_maximum_percent: Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
-        :param pulumi.Input[_builtins.int] deployment_minimum_healthy_percent: Lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
-        :param pulumi.Input[_builtins.int] desired_count: Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
-        :param pulumi.Input[_builtins.bool] enable_ecs_managed_tags: Whether to enable Amazon ECS managed tags for the tasks within the service.
-        :param pulumi.Input[_builtins.bool] enable_execute_command: Whether to enable Amazon ECS Exec for the tasks within the service.
-        :param pulumi.Input[_builtins.bool] force_delete: Enable to delete a service even if it wasn't scaled down to zero tasks. It's only necessary to use this if the service uses the `REPLICA` scheduling strategy.
-        :param pulumi.Input[_builtins.bool] force_new_deployment: Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
-               When using the forceNewDeployment property you also need to configure the triggers property.
-        :param pulumi.Input[_builtins.int] health_check_grace_period_seconds: Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
-        :param pulumi.Input[_builtins.str] iam_role: ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
-        :param pulumi.Input[_builtins.str] launch_type: Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceLoadBalancerArgs', 'ServiceLoadBalancerArgsDict']]]] load_balancers: Configuration block for load balancers. See below.
-        :param pulumi.Input[_builtins.str] name: Name of the service (up to 255 letters, numbers, hyphens, and underscores)
-               
-               The following arguments are optional:
-        :param pulumi.Input[Union['ServiceNetworkConfigurationArgs', 'ServiceNetworkConfigurationArgsDict']] network_configuration: Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceOrderedPlacementStrategyArgs', 'ServiceOrderedPlacementStrategyArgsDict']]]] ordered_placement_strategies: Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementConstraintArgs', 'ServicePlacementConstraintArgsDict']]]] placement_constraints: Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
-        :param pulumi.Input[_builtins.str] platform_version: Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-        :param pulumi.Input[_builtins.str] propagate_tags: Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] scheduling_strategy: Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
-        :param pulumi.Input[Union['ServiceServiceConnectConfigurationArgs', 'ServiceServiceConnectConfigurationArgsDict']] service_connect_configuration: ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
-        :param pulumi.Input[Union['ServiceServiceRegistriesArgs', 'ServiceServiceRegistriesArgsDict']] service_registries: Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
-        :param pulumi.Input[_builtins.bool] sigint_rollback: Whether to enable graceful termination of deployments using SIGINT signals. When enabled, allows customers to safely cancel an in-progress deployment and automatically trigger a rollback to the previous stable state. Defaults to `false`. Only applicable when using `ECS` deployment controller and requires `wait_for_steady_state = true`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] task_definition: Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. When using the triggers property you also need to set the forceNewDeployment property to True.
-        :param pulumi.Input[Union['ServiceVolumeConfigurationArgs', 'ServiceVolumeConfigurationArgsDict']] volume_configuration: Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceVpcLatticeConfigurationArgs', 'ServiceVpcLatticeConfigurationArgsDict']]]] vpc_lattice_configurations: The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
-        :param pulumi.Input[_builtins.bool] wait_for_steady_state: If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1856,299 +1150,185 @@ class Service(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def alarms(self) -> pulumi.Output[Optional['outputs.ServiceAlarms']]:
-        """
-        Information about the CloudWatch alarms. See below.
-        """
         return pulumi.get(self, "alarms")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN that identifies the service.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneRebalancing")
     def availability_zone_rebalancing(self) -> pulumi.Output[_builtins.str]:
-        """
-        ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. When creating a new service, if no value is specified, it defaults to `ENABLED` if the service is compatible with AvailabilityZoneRebalancing. When updating an existing service, if no value is specified it defaults to the existing service's AvailabilityZoneRebalancing value. If the service never had an AvailabilityZoneRebalancing value set, Amazon ECS treats this as `DISABLED`.
-        """
         return pulumi.get(self, "availability_zone_rebalancing")
 
     @_builtins.property
     @pulumi.getter(name="capacityProviderStrategies")
     def capacity_provider_strategies(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceCapacityProviderStrategy']]]:
-        """
-        Capacity provider strategies to use for the service. Can be one or more. Updating this argument requires `force_new_deployment = true`. See below. Conflicts with `launch_type`.
-        """
         return pulumi.get(self, "capacity_provider_strategies")
 
     @_builtins.property
     @pulumi.getter
     def cluster(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of an ECS cluster.
-        """
         return pulumi.get(self, "cluster")
 
     @_builtins.property
     @pulumi.getter(name="deploymentCircuitBreaker")
     def deployment_circuit_breaker(self) -> pulumi.Output[Optional['outputs.ServiceDeploymentCircuitBreaker']]:
-        """
-        Configuration block for deployment circuit breaker. See below.
-        """
         return pulumi.get(self, "deployment_circuit_breaker")
 
     @_builtins.property
     @pulumi.getter(name="deploymentConfiguration")
     def deployment_configuration(self) -> pulumi.Output['outputs.ServiceDeploymentConfiguration']:
-        """
-        Configuration block for deployment settings. See below.
-        """
         return pulumi.get(self, "deployment_configuration")
 
     @_builtins.property
     @pulumi.getter(name="deploymentController")
     def deployment_controller(self) -> pulumi.Output[Optional['outputs.ServiceDeploymentController']]:
-        """
-        Configuration block for deployment controller configuration. See below.
-        """
         return pulumi.get(self, "deployment_controller")
 
     @_builtins.property
     @pulumi.getter(name="deploymentMaximumPercent")
     def deployment_maximum_percent(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
-        """
         return pulumi.get(self, "deployment_maximum_percent")
 
     @_builtins.property
     @pulumi.getter(name="deploymentMinimumHealthyPercent")
     def deployment_minimum_healthy_percent(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
-        """
         return pulumi.get(self, "deployment_minimum_healthy_percent")
 
     @_builtins.property
     @pulumi.getter(name="desiredCount")
     def desired_count(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
-        """
         return pulumi.get(self, "desired_count")
 
     @_builtins.property
     @pulumi.getter(name="enableEcsManagedTags")
     def enable_ecs_managed_tags(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether to enable Amazon ECS managed tags for the tasks within the service.
-        """
         return pulumi.get(self, "enable_ecs_managed_tags")
 
     @_builtins.property
     @pulumi.getter(name="enableExecuteCommand")
     def enable_execute_command(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether to enable Amazon ECS Exec for the tasks within the service.
-        """
         return pulumi.get(self, "enable_execute_command")
 
     @_builtins.property
     @pulumi.getter(name="forceDelete")
     def force_delete(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Enable to delete a service even if it wasn't scaled down to zero tasks. It's only necessary to use this if the service uses the `REPLICA` scheduling strategy.
-        """
         return pulumi.get(self, "force_delete")
 
     @_builtins.property
     @pulumi.getter(name="forceNewDeployment")
     def force_new_deployment(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
-        When using the forceNewDeployment property you also need to configure the triggers property.
-        """
         return pulumi.get(self, "force_new_deployment")
 
     @_builtins.property
     @pulumi.getter(name="healthCheckGracePeriodSeconds")
     def health_check_grace_period_seconds(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
-        """
         return pulumi.get(self, "health_check_grace_period_seconds")
 
     @_builtins.property
     @pulumi.getter(name="iamRole")
     def iam_role(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
-        """
         return pulumi.get(self, "iam_role")
 
     @_builtins.property
     @pulumi.getter(name="launchType")
     def launch_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
-        """
         return pulumi.get(self, "launch_type")
 
     @_builtins.property
     @pulumi.getter(name="loadBalancers")
     def load_balancers(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceLoadBalancer']]]:
-        """
-        Configuration block for load balancers. See below.
-        """
         return pulumi.get(self, "load_balancers")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the service (up to 255 letters, numbers, hyphens, and underscores)
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> pulumi.Output[Optional['outputs.ServiceNetworkConfiguration']]:
-        """
-        Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
-        """
         return pulumi.get(self, "network_configuration")
 
     @_builtins.property
     @pulumi.getter(name="orderedPlacementStrategies")
     def ordered_placement_strategies(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceOrderedPlacementStrategy']]]:
-        """
-        Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
-        """
         return pulumi.get(self, "ordered_placement_strategies")
 
     @_builtins.property
     @pulumi.getter(name="placementConstraints")
     def placement_constraints(self) -> pulumi.Output[Optional[Sequence['outputs.ServicePlacementConstraint']]]:
-        """
-        Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
-        """
         return pulumi.get(self, "placement_constraints")
 
     @_builtins.property
     @pulumi.getter(name="platformVersion")
     def platform_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-        """
         return pulumi.get(self, "platform_version")
 
     @_builtins.property
     @pulumi.getter(name="propagateTags")
     def propagate_tags(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
-        """
         return pulumi.get(self, "propagate_tags")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="schedulingStrategy")
     def scheduling_strategy(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
-        """
         return pulumi.get(self, "scheduling_strategy")
 
     @_builtins.property
     @pulumi.getter(name="serviceConnectConfiguration")
     def service_connect_configuration(self) -> pulumi.Output[Optional['outputs.ServiceServiceConnectConfiguration']]:
-        """
-        ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
-        """
         return pulumi.get(self, "service_connect_configuration")
 
     @_builtins.property
     @pulumi.getter(name="serviceRegistries")
     def service_registries(self) -> pulumi.Output[Optional['outputs.ServiceServiceRegistries']]:
-        """
-        Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
-        """
         return pulumi.get(self, "service_registries")
 
     @_builtins.property
     @pulumi.getter(name="sigintRollback")
     def sigint_rollback(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether to enable graceful termination of deployments using SIGINT signals. When enabled, allows customers to safely cancel an in-progress deployment and automatically trigger a rollback to the previous stable state. Defaults to `false`. Only applicable when using `ECS` deployment controller and requires `wait_for_steady_state = true`.
-        """
         return pulumi.get(self, "sigint_rollback")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="taskDefinition")
     def task_definition(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
-        """
         return pulumi.get(self, "task_definition")
 
     @_builtins.property
     @pulumi.getter
     def triggers(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. When using the triggers property you also need to set the forceNewDeployment property to True.
-        """
         return pulumi.get(self, "triggers")
 
     @_builtins.property
     @pulumi.getter(name="volumeConfiguration")
     def volume_configuration(self) -> pulumi.Output[Optional['outputs.ServiceVolumeConfiguration']]:
-        """
-        Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
-        """
         return pulumi.get(self, "volume_configuration")
 
     @_builtins.property
     @pulumi.getter(name="vpcLatticeConfigurations")
     def vpc_lattice_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceVpcLatticeConfiguration']]]:
-        """
-        The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
-        """
         return pulumi.get(self, "vpc_lattice_configurations")
 
     @_builtins.property
     @pulumi.getter(name="waitForSteadyState")
     def wait_for_steady_state(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
-        """
         return pulumi.get(self, "wait_for_steady_state")
 

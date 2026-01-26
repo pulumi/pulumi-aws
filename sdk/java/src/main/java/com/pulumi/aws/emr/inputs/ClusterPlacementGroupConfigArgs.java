@@ -16,32 +16,16 @@ public final class ClusterPlacementGroupConfigArgs extends com.pulumi.resources.
 
     public static final ClusterPlacementGroupConfigArgs Empty = new ClusterPlacementGroupConfigArgs();
 
-    /**
-     * Role of the instance in the cluster. Valid Values: `MASTER`, `CORE`, `TASK`.
-     * 
-     */
     @Import(name="instanceRole", required=true)
     private Output<String> instanceRole;
 
-    /**
-     * @return Role of the instance in the cluster. Valid Values: `MASTER`, `CORE`, `TASK`.
-     * 
-     */
     public Output<String> instanceRole() {
         return this.instanceRole;
     }
 
-    /**
-     * EC2 Placement Group strategy associated with instance role. Valid Values: `SPREAD`, `PARTITION`, `CLUSTER`, `NONE`.
-     * 
-     */
     @Import(name="placementStrategy")
     private @Nullable Output<String> placementStrategy;
 
-    /**
-     * @return EC2 Placement Group strategy associated with instance role. Valid Values: `SPREAD`, `PARTITION`, `CLUSTER`, `NONE`.
-     * 
-     */
     public Optional<Output<String>> placementStrategy() {
         return Optional.ofNullable(this.placementStrategy);
     }
@@ -71,44 +55,20 @@ public final class ClusterPlacementGroupConfigArgs extends com.pulumi.resources.
             $ = new ClusterPlacementGroupConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param instanceRole Role of the instance in the cluster. Valid Values: `MASTER`, `CORE`, `TASK`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceRole(Output<String> instanceRole) {
             $.instanceRole = instanceRole;
             return this;
         }
 
-        /**
-         * @param instanceRole Role of the instance in the cluster. Valid Values: `MASTER`, `CORE`, `TASK`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceRole(String instanceRole) {
             return instanceRole(Output.of(instanceRole));
         }
 
-        /**
-         * @param placementStrategy EC2 Placement Group strategy associated with instance role. Valid Values: `SPREAD`, `PARTITION`, `CLUSTER`, `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder placementStrategy(@Nullable Output<String> placementStrategy) {
             $.placementStrategy = placementStrategy;
             return this;
         }
 
-        /**
-         * @param placementStrategy EC2 Placement Group strategy associated with instance role. Valid Values: `SPREAD`, `PARTITION`, `CLUSTER`, `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder placementStrategy(String placementStrategy) {
             return placementStrategy(Output.of(placementStrategy));
         }

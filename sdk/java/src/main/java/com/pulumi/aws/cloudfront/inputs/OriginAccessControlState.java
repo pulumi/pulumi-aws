@@ -15,107 +15,51 @@ public final class OriginAccessControlState extends com.pulumi.resources.Resourc
 
     public static final OriginAccessControlState Empty = new OriginAccessControlState();
 
-    /**
-     * The Origin Access Control ARN.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The Origin Access Control ARN.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The description of the Origin Access Control. Defaults to &#34;Managed by Pulumi&#34; if omitted.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return The description of the Origin Access Control. Defaults to &#34;Managed by Pulumi&#34; if omitted.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The current version of this Origin Access Control.
-     * 
-     */
     @Import(name="etag")
     private @Nullable Output<String> etag;
 
-    /**
-     * @return The current version of this Origin Access Control.
-     * 
-     */
     public Optional<Output<String>> etag() {
         return Optional.ofNullable(this.etag);
     }
 
-    /**
-     * A name that identifies the Origin Access Control.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return A name that identifies the Origin Access Control.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
-     * 
-     */
     @Import(name="originAccessControlOriginType")
     private @Nullable Output<String> originAccessControlOriginType;
 
-    /**
-     * @return The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
-     * 
-     */
     public Optional<Output<String>> originAccessControlOriginType() {
         return Optional.ofNullable(this.originAccessControlOriginType);
     }
 
-    /**
-     * Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
-     * 
-     */
     @Import(name="signingBehavior")
     private @Nullable Output<String> signingBehavior;
 
-    /**
-     * @return Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
-     * 
-     */
     public Optional<Output<String>> signingBehavior() {
         return Optional.ofNullable(this.signingBehavior);
     }
 
-    /**
-     * Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
-     * 
-     */
     @Import(name="signingProtocol")
     private @Nullable Output<String> signingProtocol;
 
-    /**
-     * @return Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
-     * 
-     */
     public Optional<Output<String>> signingProtocol() {
         return Optional.ofNullable(this.signingProtocol);
     }
@@ -150,149 +94,65 @@ public final class OriginAccessControlState extends com.pulumi.resources.Resourc
             $ = new OriginAccessControlState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The Origin Access Control ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The Origin Access Control ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param description The description of the Origin Access Control. Defaults to &#34;Managed by Pulumi&#34; if omitted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description The description of the Origin Access Control. Defaults to &#34;Managed by Pulumi&#34; if omitted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param etag The current version of this Origin Access Control.
-         * 
-         * @return builder
-         * 
-         */
         public Builder etag(@Nullable Output<String> etag) {
             $.etag = etag;
             return this;
         }
 
-        /**
-         * @param etag The current version of this Origin Access Control.
-         * 
-         * @return builder
-         * 
-         */
         public Builder etag(String etag) {
             return etag(Output.of(etag));
         }
 
-        /**
-         * @param name A name that identifies the Origin Access Control.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name A name that identifies the Origin Access Control.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param originAccessControlOriginType The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originAccessControlOriginType(@Nullable Output<String> originAccessControlOriginType) {
             $.originAccessControlOriginType = originAccessControlOriginType;
             return this;
         }
 
-        /**
-         * @param originAccessControlOriginType The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originAccessControlOriginType(String originAccessControlOriginType) {
             return originAccessControlOriginType(Output.of(originAccessControlOriginType));
         }
 
-        /**
-         * @param signingBehavior Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder signingBehavior(@Nullable Output<String> signingBehavior) {
             $.signingBehavior = signingBehavior;
             return this;
         }
 
-        /**
-         * @param signingBehavior Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder signingBehavior(String signingBehavior) {
             return signingBehavior(Output.of(signingBehavior));
         }
 
-        /**
-         * @param signingProtocol Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder signingProtocol(@Nullable Output<String> signingProtocol) {
             $.signingProtocol = signingProtocol;
             return this;
         }
 
-        /**
-         * @param signingProtocol Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder signingProtocol(String signingProtocol) {
             return signingProtocol(Output.of(signingProtocol));
         }

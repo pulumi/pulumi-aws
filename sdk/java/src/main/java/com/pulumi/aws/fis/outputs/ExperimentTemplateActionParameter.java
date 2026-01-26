@@ -10,33 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ExperimentTemplateActionParameter {
-    /**
-     * @return Parameter name.
-     * 
-     */
     private String key;
-    /**
-     * @return Parameter value.
-     * 
-     * For a list of parameters supported by each action, see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
-     * 
-     */
     private String value;
 
     private ExperimentTemplateActionParameter() {}
-    /**
-     * @return Parameter name.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return Parameter value.
-     * 
-     * For a list of parameters supported by each action, see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
-     * 
-     */
     public String value() {
         return this.value;
     }

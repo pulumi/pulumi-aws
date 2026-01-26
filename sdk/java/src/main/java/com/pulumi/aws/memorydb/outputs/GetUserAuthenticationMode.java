@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserAuthenticationMode {
-    /**
-     * @return Number of passwords belonging to the user if `type` is set to `password`.
-     * 
-     */
     private Integer passwordCount;
-    /**
-     * @return Type of authentication configured.
-     * 
-     */
     private String type;
 
     private GetUserAuthenticationMode() {}
-    /**
-     * @return Number of passwords belonging to the user if `type` is set to `password`.
-     * 
-     */
     public Integer passwordCount() {
         return this.passwordCount;
     }
-    /**
-     * @return Type of authentication configured.
-     * 
-     */
     public String type() {
         return this.type;
     }

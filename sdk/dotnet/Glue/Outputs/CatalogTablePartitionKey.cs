@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class CatalogTablePartitionKey
     {
-        /// <summary>
-        /// Free-form text comment.
-        /// </summary>
         public readonly string? Comment;
-        /// <summary>
-        /// Name of the Partition Key.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Map of key-value pairs.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? Parameters;
-        /// <summary>
-        /// Datatype of data in the Partition Key.
-        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

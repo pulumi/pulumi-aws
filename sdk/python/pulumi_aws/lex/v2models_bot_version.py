@@ -29,12 +29,6 @@ class V2modelsBotVersionArgs:
                  timeouts: Optional[pulumi.Input['V2modelsBotVersionTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a V2modelsBotVersion resource.
-        :param pulumi.Input[_builtins.str] bot_id: Idientifier of the bot to create the version for.
-        :param pulumi.Input[Mapping[str, pulumi.Input['V2modelsBotVersionLocaleSpecificationArgs']]] locale_specification: Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
-        :param pulumi.Input[_builtins.str] bot_version: Version number assigned to the version.
-        :param pulumi.Input[_builtins.str] description: A description of the version. Use the description to help identify the version in lists.
-               * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "bot_id", bot_id)
         pulumi.set(__self__, "locale_specification", locale_specification)
@@ -50,9 +44,6 @@ class V2modelsBotVersionArgs:
     @_builtins.property
     @pulumi.getter(name="botId")
     def bot_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Idientifier of the bot to create the version for.
-        """
         return pulumi.get(self, "bot_id")
 
     @bot_id.setter
@@ -62,9 +53,6 @@ class V2modelsBotVersionArgs:
     @_builtins.property
     @pulumi.getter(name="localeSpecification")
     def locale_specification(self) -> pulumi.Input[Mapping[str, pulumi.Input['V2modelsBotVersionLocaleSpecificationArgs']]]:
-        """
-        Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
-        """
         return pulumi.get(self, "locale_specification")
 
     @locale_specification.setter
@@ -74,9 +62,6 @@ class V2modelsBotVersionArgs:
     @_builtins.property
     @pulumi.getter(name="botVersion")
     def bot_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Version number assigned to the version.
-        """
         return pulumi.get(self, "bot_version")
 
     @bot_version.setter
@@ -86,10 +71,6 @@ class V2modelsBotVersionArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description of the version. Use the description to help identify the version in lists.
-        * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -99,9 +80,6 @@ class V2modelsBotVersionArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -129,12 +107,6 @@ class _V2modelsBotVersionState:
                  timeouts: Optional[pulumi.Input['V2modelsBotVersionTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering V2modelsBotVersion resources.
-        :param pulumi.Input[_builtins.str] bot_id: Idientifier of the bot to create the version for.
-        :param pulumi.Input[_builtins.str] bot_version: Version number assigned to the version.
-        :param pulumi.Input[_builtins.str] description: A description of the version. Use the description to help identify the version in lists.
-               * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
-        :param pulumi.Input[Mapping[str, pulumi.Input['V2modelsBotVersionLocaleSpecificationArgs']]] locale_specification: Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if bot_id is not None:
             pulumi.set(__self__, "bot_id", bot_id)
@@ -152,9 +124,6 @@ class _V2modelsBotVersionState:
     @_builtins.property
     @pulumi.getter(name="botId")
     def bot_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Idientifier of the bot to create the version for.
-        """
         return pulumi.get(self, "bot_id")
 
     @bot_id.setter
@@ -164,9 +133,6 @@ class _V2modelsBotVersionState:
     @_builtins.property
     @pulumi.getter(name="botVersion")
     def bot_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Version number assigned to the version.
-        """
         return pulumi.get(self, "bot_version")
 
     @bot_version.setter
@@ -176,10 +142,6 @@ class _V2modelsBotVersionState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description of the version. Use the description to help identify the version in lists.
-        * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -189,9 +151,6 @@ class _V2modelsBotVersionState:
     @_builtins.property
     @pulumi.getter(name="localeSpecification")
     def locale_specification(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['V2modelsBotVersionLocaleSpecificationArgs']]]]:
-        """
-        Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
-        """
         return pulumi.get(self, "locale_specification")
 
     @locale_specification.setter
@@ -201,9 +160,6 @@ class _V2modelsBotVersionState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -234,41 +190,9 @@ class V2modelsBotVersion(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['V2modelsBotVersionTimeoutsArgs', 'V2modelsBotVersionTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Lex V2 Models Bot Version.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.lex.V2modelsBotVersion("test",
-            bot_id=test_aws_lexv2models_bot["id"],
-            locale_specification={
-                "en_US": {
-                    "source_bot_version": "DRAFT",
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Lex V2 Models Bot Version using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:lex/v2modelsBotVersion:V2modelsBotVersion example id-12345678,1
-        ```
-
+        Create a V2modelsBotVersion resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bot_id: Idientifier of the bot to create the version for.
-        :param pulumi.Input[_builtins.str] bot_version: Version number assigned to the version.
-        :param pulumi.Input[_builtins.str] description: A description of the version. Use the description to help identify the version in lists.
-               * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Union['V2modelsBotVersionLocaleSpecificationArgs', 'V2modelsBotVersionLocaleSpecificationArgsDict']]]] locale_specification: Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -277,33 +201,7 @@ class V2modelsBotVersion(pulumi.CustomResource):
                  args: V2modelsBotVersionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Lex V2 Models Bot Version.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.lex.V2modelsBotVersion("test",
-            bot_id=test_aws_lexv2models_bot["id"],
-            locale_specification={
-                "en_US": {
-                    "source_bot_version": "DRAFT",
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Lex V2 Models Bot Version using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:lex/v2modelsBotVersion:V2modelsBotVersion example id-12345678,1
-        ```
-
+        Create a V2modelsBotVersion resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param V2modelsBotVersionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -367,12 +265,6 @@ class V2modelsBotVersion(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bot_id: Idientifier of the bot to create the version for.
-        :param pulumi.Input[_builtins.str] bot_version: Version number assigned to the version.
-        :param pulumi.Input[_builtins.str] description: A description of the version. Use the description to help identify the version in lists.
-               * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Union['V2modelsBotVersionLocaleSpecificationArgs', 'V2modelsBotVersionLocaleSpecificationArgsDict']]]] locale_specification: Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -389,42 +281,26 @@ class V2modelsBotVersion(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="botId")
     def bot_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Idientifier of the bot to create the version for.
-        """
         return pulumi.get(self, "bot_id")
 
     @_builtins.property
     @pulumi.getter(name="botVersion")
     def bot_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        Version number assigned to the version.
-        """
         return pulumi.get(self, "bot_version")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A description of the version. Use the description to help identify the version in lists.
-        * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="localeSpecification")
     def locale_specification(self) -> pulumi.Output[Mapping[str, 'outputs.V2modelsBotVersionLocaleSpecification']]:
-        """
-        Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
-        """
         return pulumi.get(self, "locale_specification")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property

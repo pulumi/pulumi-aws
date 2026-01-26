@@ -13,17 +13,8 @@ namespace Pulumi.Aws.IdentityStore.Outputs
     [OutputType]
     public sealed class GetUsersUserPhoneNumberResult
     {
-        /// <summary>
-        /// When `True`, this is the primary phone number associated with the user.
-        /// </summary>
         public readonly bool Primary;
-        /// <summary>
-        /// Type of phone number.
-        /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// User's phone number.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

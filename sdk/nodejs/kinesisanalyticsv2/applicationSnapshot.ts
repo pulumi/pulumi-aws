@@ -4,30 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Kinesis Analytics v2 Application Snapshot.
- * Snapshots are the AWS implementation of [Flink Savepoints](https://ci.apache.org/projects/flink/flink-docs-release-1.11/ops/state/savepoints.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.kinesisanalyticsv2.ApplicationSnapshot("example", {
- *     applicationName: exampleAwsKinesisanalyticsv2Application.name,
- *     snapshotName: "example-snapshot",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using `application_name` together with `snapshot_name`. For example:
- *
- * ```sh
- * $ pulumi import aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot example example-application/example-snapshot
- * ```
- */
 export class ApplicationSnapshot extends pulumi.CustomResource {
     /**
      * Get an existing ApplicationSnapshot resource's state with the given name, ID, and optional extra
@@ -56,25 +32,10 @@ export class ApplicationSnapshot extends pulumi.CustomResource {
         return obj['__pulumiType'] === ApplicationSnapshot.__pulumiType;
     }
 
-    /**
-     * The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
-     */
     declare public readonly applicationName: pulumi.Output<string>;
-    /**
-     * The current application version ID when the snapshot was created.
-     */
     declare public /*out*/ readonly applicationVersionId: pulumi.Output<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The timestamp of the application snapshot.
-     */
     declare public /*out*/ readonly snapshotCreationTimestamp: pulumi.Output<string>;
-    /**
-     * The name of the application snapshot.
-     */
     declare public readonly snapshotName: pulumi.Output<string>;
 
     /**
@@ -118,25 +79,10 @@ export class ApplicationSnapshot extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ApplicationSnapshot resources.
  */
 export interface ApplicationSnapshotState {
-    /**
-     * The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
-     */
     applicationName?: pulumi.Input<string>;
-    /**
-     * The current application version ID when the snapshot was created.
-     */
     applicationVersionId?: pulumi.Input<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The timestamp of the application snapshot.
-     */
     snapshotCreationTimestamp?: pulumi.Input<string>;
-    /**
-     * The name of the application snapshot.
-     */
     snapshotName?: pulumi.Input<string>;
 }
 
@@ -144,16 +90,7 @@ export interface ApplicationSnapshotState {
  * The set of arguments for constructing a ApplicationSnapshot resource.
  */
 export interface ApplicationSnapshotArgs {
-    /**
-     * The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
-     */
     applicationName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The name of the application snapshot.
-     */
     snapshotName: pulumi.Input<string>;
 }

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.DevOpsGuru.Inputs
 
     public sealed class ServiceIntegrationLogsAnomalyDetectionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies if DevOps Guru is configured to perform log anomaly detection on CloudWatch log groups. Valid values are `DISABLED` and `ENABLED`.
-        /// </summary>
         [Input("optInStatus")]
         public Input<string>? OptInStatus { get; set; }
 

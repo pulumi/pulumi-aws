@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class RecordsExclusiveResourceRecordSetResourceRecord {
-    /**
-     * @return DNS record value.
-     * 
-     */
     private String value;
 
     private RecordsExclusiveResourceRecordSetResourceRecord() {}
-    /**
-     * @return DNS record value.
-     * 
-     */
     public String value() {
         return this.value;
     }

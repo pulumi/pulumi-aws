@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Iot.Inputs
 
     public sealed class TopicRuleDynamodbv2Args : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
-        /// </summary>
         [Input("putItem")]
         public Input<Inputs.TopicRuleDynamodbv2PutItemArgs>? PutItem { get; set; }
 
-        /// <summary>
-        /// The ARN of the IAM role that grants access to the DynamoDB table.
-        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 

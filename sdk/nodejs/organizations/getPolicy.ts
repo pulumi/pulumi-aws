@@ -4,11 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing an AWS Organizations Policy.
- *
- * ## Example Usage
- */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:organizations/getPolicy:getPolicy", {
@@ -20,9 +15,6 @@ export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Pro
  * A collection of arguments for invoking getPolicy.
  */
 export interface GetPolicyArgs {
-    /**
-     * The unique identifier (ID) of the policy that you want more details on. Policy id starts with a "p-" followed by 8-28 lowercase or uppercase letters, digits, and underscores.
-     */
     policyId: string;
 }
 
@@ -30,41 +22,18 @@ export interface GetPolicyArgs {
  * A collection of values returned by getPolicy.
  */
 export interface GetPolicyResult {
-    /**
-     * The Amazon Resource Name of the policy.
-     */
     readonly arn: string;
-    /**
-     * Indicates if a policy is an AWS managed policy.
-     */
     readonly awsManaged: boolean;
-    /**
-     * The text content of the policy.
-     */
     readonly content: string;
-    /**
-     * The description of the policy.
-     */
     readonly description: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * The friendly name of the policy.
-     */
     readonly name: string;
     readonly policyId: string;
-    /**
-     * The type of policy values can be `AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | CHATBOT_POLICY | DECLARATIVE_POLICY_EC2 | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY`
-     */
     readonly type: string;
 }
-/**
- * Data source for managing an AWS Organizations Policy.
- *
- * ## Example Usage
- */
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:organizations/getPolicy:getPolicy", {
@@ -76,8 +45,5 @@ export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getPolicy.
  */
 export interface GetPolicyOutputArgs {
-    /**
-     * The unique identifier (ID) of the policy that you want more details on. Policy id starts with a "p-" followed by 8-28 lowercase or uppercase letters, digits, and underscores.
-     */
     policyId: pulumi.Input<string>;
 }

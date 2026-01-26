@@ -15,47 +15,23 @@ public final class BucketResourceAccessState extends com.pulumi.resources.Resour
 
     public static final BucketResourceAccessState Empty = new BucketResourceAccessState();
 
-    /**
-     * Name of the bucket to grant access to.
-     * 
-     */
     @Import(name="bucketName")
     private @Nullable Output<String> bucketName;
 
-    /**
-     * @return Name of the bucket to grant access to.
-     * 
-     */
     public Optional<Output<String>> bucketName() {
         return Optional.ofNullable(this.bucketName);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Name of the resource to grant bucket access.
-     * 
-     */
     @Import(name="resourceName")
     private @Nullable Output<String> resourceName;
 
-    /**
-     * @return Name of the resource to grant bucket access.
-     * 
-     */
     public Optional<Output<String>> resourceName() {
         return Optional.ofNullable(this.resourceName);
     }
@@ -86,65 +62,29 @@ public final class BucketResourceAccessState extends com.pulumi.resources.Resour
             $ = new BucketResourceAccessState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketName Name of the bucket to grant access to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(@Nullable Output<String> bucketName) {
             $.bucketName = bucketName;
             return this;
         }
 
-        /**
-         * @param bucketName Name of the bucket to grant access to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceName Name of the resource to grant bucket access.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceName(@Nullable Output<String> resourceName) {
             $.resourceName = resourceName;
             return this;
         }
 
-        /**
-         * @param resourceName Name of the resource to grant bucket access.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceName(String resourceName) {
             return resourceName(Output.of(resourceName));
         }

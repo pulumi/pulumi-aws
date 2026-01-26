@@ -16,92 +16,44 @@ public final class RepositoryPermissionsPolicyArgs extends com.pulumi.resources.
 
     public static final RepositoryPermissionsPolicyArgs Empty = new RepositoryPermissionsPolicyArgs();
 
-    /**
-     * The name of the domain on which to set the resource policy.
-     * 
-     */
     @Import(name="domain", required=true)
     private Output<String> domain;
 
-    /**
-     * @return The name of the domain on which to set the resource policy.
-     * 
-     */
     public Output<String> domain() {
         return this.domain;
     }
 
-    /**
-     * The account number of the AWS account that owns the domain.
-     * 
-     */
     @Import(name="domainOwner")
     private @Nullable Output<String> domainOwner;
 
-    /**
-     * @return The account number of the AWS account that owns the domain.
-     * 
-     */
     public Optional<Output<String>> domainOwner() {
         return Optional.ofNullable(this.domainOwner);
     }
 
-    /**
-     * A JSON policy string to be set as the access control resource policy on the provided domain.
-     * 
-     */
     @Import(name="policyDocument", required=true)
     private Output<String> policyDocument;
 
-    /**
-     * @return A JSON policy string to be set as the access control resource policy on the provided domain.
-     * 
-     */
     public Output<String> policyDocument() {
         return this.policyDocument;
     }
 
-    /**
-     * The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain&#39;s resource policy.
-     * 
-     */
     @Import(name="policyRevision")
     private @Nullable Output<String> policyRevision;
 
-    /**
-     * @return The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain&#39;s resource policy.
-     * 
-     */
     public Optional<Output<String>> policyRevision() {
         return Optional.ofNullable(this.policyRevision);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The name of the repository to set the resource policy on.
-     * 
-     */
     @Import(name="repository", required=true)
     private Output<String> repository;
 
-    /**
-     * @return The name of the repository to set the resource policy on.
-     * 
-     */
     public Output<String> repository() {
         return this.repository;
     }
@@ -135,128 +87,56 @@ public final class RepositoryPermissionsPolicyArgs extends com.pulumi.resources.
             $ = new RepositoryPermissionsPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domain The name of the domain on which to set the resource policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domain(Output<String> domain) {
             $.domain = domain;
             return this;
         }
 
-        /**
-         * @param domain The name of the domain on which to set the resource policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domain(String domain) {
             return domain(Output.of(domain));
         }
 
-        /**
-         * @param domainOwner The account number of the AWS account that owns the domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainOwner(@Nullable Output<String> domainOwner) {
             $.domainOwner = domainOwner;
             return this;
         }
 
-        /**
-         * @param domainOwner The account number of the AWS account that owns the domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainOwner(String domainOwner) {
             return domainOwner(Output.of(domainOwner));
         }
 
-        /**
-         * @param policyDocument A JSON policy string to be set as the access control resource policy on the provided domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyDocument(Output<String> policyDocument) {
             $.policyDocument = policyDocument;
             return this;
         }
 
-        /**
-         * @param policyDocument A JSON policy string to be set as the access control resource policy on the provided domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyDocument(String policyDocument) {
             return policyDocument(Output.of(policyDocument));
         }
 
-        /**
-         * @param policyRevision The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain&#39;s resource policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyRevision(@Nullable Output<String> policyRevision) {
             $.policyRevision = policyRevision;
             return this;
         }
 
-        /**
-         * @param policyRevision The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain&#39;s resource policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyRevision(String policyRevision) {
             return policyRevision(Output.of(policyRevision));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param repository The name of the repository to set the resource policy on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(Output<String> repository) {
             $.repository = repository;
             return this;
         }
 
-        /**
-         * @param repository The name of the repository to set the resource policy on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
         }

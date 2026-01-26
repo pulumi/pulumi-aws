@@ -12,61 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Route53 CIDR location resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := route53.NewCidrCollection(ctx, "example", &route53.CidrCollectionArgs{
-//				Name: pulumi.String("collection-1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewCidrLocation(ctx, "example", &route53.CidrLocationArgs{
-//				CidrCollectionId: example.ID(),
-//				Name:             pulumi.String("office"),
-//				CidrBlocks: pulumi.StringArray{
-//					pulumi.String("200.5.3.0/24"),
-//					pulumi.String("200.6.3.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CIDR locations using their the CIDR collection ID and location name. For example:
-//
-// ```sh
-// $ pulumi import aws:route53/cidrLocation:CidrLocation example 9ac32814-3e67-0932-6048-8d779cc6f511,office
-// ```
 type CidrLocation struct {
 	pulumi.CustomResourceState
 
-	// CIDR blocks for the location.
-	CidrBlocks pulumi.StringArrayOutput `pulumi:"cidrBlocks"`
-	// The ID of the CIDR collection to update.
-	CidrCollectionId pulumi.StringOutput `pulumi:"cidrCollectionId"`
-	// Name for the CIDR location.
-	Name pulumi.StringOutput `pulumi:"name"`
+	CidrBlocks       pulumi.StringArrayOutput `pulumi:"cidrBlocks"`
+	CidrCollectionId pulumi.StringOutput      `pulumi:"cidrCollectionId"`
+	Name             pulumi.StringOutput      `pulumi:"name"`
 }
 
 // NewCidrLocation registers a new resource with the given unique name, arguments, and options.
@@ -105,21 +56,15 @@ func GetCidrLocation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CidrLocation resources.
 type cidrLocationState struct {
-	// CIDR blocks for the location.
-	CidrBlocks []string `pulumi:"cidrBlocks"`
-	// The ID of the CIDR collection to update.
-	CidrCollectionId *string `pulumi:"cidrCollectionId"`
-	// Name for the CIDR location.
-	Name *string `pulumi:"name"`
+	CidrBlocks       []string `pulumi:"cidrBlocks"`
+	CidrCollectionId *string  `pulumi:"cidrCollectionId"`
+	Name             *string  `pulumi:"name"`
 }
 
 type CidrLocationState struct {
-	// CIDR blocks for the location.
-	CidrBlocks pulumi.StringArrayInput
-	// The ID of the CIDR collection to update.
+	CidrBlocks       pulumi.StringArrayInput
 	CidrCollectionId pulumi.StringPtrInput
-	// Name for the CIDR location.
-	Name pulumi.StringPtrInput
+	Name             pulumi.StringPtrInput
 }
 
 func (CidrLocationState) ElementType() reflect.Type {
@@ -127,22 +72,16 @@ func (CidrLocationState) ElementType() reflect.Type {
 }
 
 type cidrLocationArgs struct {
-	// CIDR blocks for the location.
-	CidrBlocks []string `pulumi:"cidrBlocks"`
-	// The ID of the CIDR collection to update.
-	CidrCollectionId string `pulumi:"cidrCollectionId"`
-	// Name for the CIDR location.
-	Name *string `pulumi:"name"`
+	CidrBlocks       []string `pulumi:"cidrBlocks"`
+	CidrCollectionId string   `pulumi:"cidrCollectionId"`
+	Name             *string  `pulumi:"name"`
 }
 
 // The set of arguments for constructing a CidrLocation resource.
 type CidrLocationArgs struct {
-	// CIDR blocks for the location.
-	CidrBlocks pulumi.StringArrayInput
-	// The ID of the CIDR collection to update.
+	CidrBlocks       pulumi.StringArrayInput
 	CidrCollectionId pulumi.StringInput
-	// Name for the CIDR location.
-	Name pulumi.StringPtrInput
+	Name             pulumi.StringPtrInput
 }
 
 func (CidrLocationArgs) ElementType() reflect.Type {
@@ -232,17 +171,14 @@ func (o CidrLocationOutput) ToCidrLocationOutputWithContext(ctx context.Context)
 	return o
 }
 
-// CIDR blocks for the location.
 func (o CidrLocationOutput) CidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CidrLocation) pulumi.StringArrayOutput { return v.CidrBlocks }).(pulumi.StringArrayOutput)
 }
 
-// The ID of the CIDR collection to update.
 func (o CidrLocationOutput) CidrCollectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CidrLocation) pulumi.StringOutput { return v.CidrCollectionId }).(pulumi.StringOutput)
 }
 
-// Name for the CIDR location.
 func (o CidrLocationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CidrLocation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

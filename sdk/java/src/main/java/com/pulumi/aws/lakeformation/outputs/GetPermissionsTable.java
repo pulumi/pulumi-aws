@@ -13,57 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPermissionsTable {
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     private String catalogId;
-    /**
-     * @return Name of the database for the table. Unique to a Data Catalog.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private String databaseName;
-    /**
-     * @return Name of the table. At least one of `name` or `wildcard` is required.
-     * 
-     */
     private String name;
-    /**
-     * @return Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean wildcard;
 
     private GetPermissionsTable() {}
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     public String catalogId() {
         return this.catalogId;
     }
-    /**
-     * @return Name of the database for the table. Unique to a Data Catalog.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String databaseName() {
         return this.databaseName;
     }
-    /**
-     * @return Name of the table. At least one of `name` or `wildcard` is required.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> wildcard() {
         return Optional.ofNullable(this.wildcard);
     }

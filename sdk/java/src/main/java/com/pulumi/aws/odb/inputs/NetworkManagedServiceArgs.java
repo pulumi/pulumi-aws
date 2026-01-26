@@ -40,17 +40,9 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
         return this.resourceGatewayArn;
     }
 
-    /**
-     * Specifies the configuration for Amazon S3 access from the ODB network.
-     * 
-     */
     @Import(name="s3Accesses", required=true)
     private Output<List<NetworkManagedServiceS3AccessArgs>> s3Accesses;
 
-    /**
-     * @return Specifies the configuration for Amazon S3 access from the ODB network.
-     * 
-     */
     public Output<List<NetworkManagedServiceS3AccessArgs>> s3Accesses() {
         return this.s3Accesses;
     }
@@ -69,21 +61,9 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
         return this.serviceNetworkEndpoints;
     }
 
-    /**
-     * Specifies the configuration for Zero-ETL access from the ODB network.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="zeroEtlAccesses", required=true)
     private Output<List<NetworkManagedServiceZeroEtlAccessArgs>> zeroEtlAccesses;
 
-    /**
-     * @return Specifies the configuration for Zero-ETL access from the ODB network.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<List<NetworkManagedServiceZeroEtlAccessArgs>> zeroEtlAccesses() {
         return this.zeroEtlAccesses;
     }
@@ -153,33 +133,15 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
             return resourceGatewayArn(Output.of(resourceGatewayArn));
         }
 
-        /**
-         * @param s3Accesses Specifies the configuration for Amazon S3 access from the ODB network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Accesses(Output<List<NetworkManagedServiceS3AccessArgs>> s3Accesses) {
             $.s3Accesses = s3Accesses;
             return this;
         }
 
-        /**
-         * @param s3Accesses Specifies the configuration for Amazon S3 access from the ODB network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Accesses(List<NetworkManagedServiceS3AccessArgs> s3Accesses) {
             return s3Accesses(Output.of(s3Accesses));
         }
 
-        /**
-         * @param s3Accesses Specifies the configuration for Amazon S3 access from the ODB network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Accesses(NetworkManagedServiceS3AccessArgs... s3Accesses) {
             return s3Accesses(List.of(s3Accesses));
         }
@@ -206,39 +168,15 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
             return serviceNetworkEndpoints(List.of(serviceNetworkEndpoints));
         }
 
-        /**
-         * @param zeroEtlAccesses Specifies the configuration for Zero-ETL access from the ODB network.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder zeroEtlAccesses(Output<List<NetworkManagedServiceZeroEtlAccessArgs>> zeroEtlAccesses) {
             $.zeroEtlAccesses = zeroEtlAccesses;
             return this;
         }
 
-        /**
-         * @param zeroEtlAccesses Specifies the configuration for Zero-ETL access from the ODB network.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder zeroEtlAccesses(List<NetworkManagedServiceZeroEtlAccessArgs> zeroEtlAccesses) {
             return zeroEtlAccesses(Output.of(zeroEtlAccesses));
         }
 
-        /**
-         * @param zeroEtlAccesses Specifies the configuration for Zero-ETL access from the ODB network.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder zeroEtlAccesses(NetworkManagedServiceZeroEtlAccessArgs... zeroEtlAccesses) {
             return zeroEtlAccesses(List.of(zeroEtlAccesses));
         }

@@ -14,32 +14,16 @@ public final class DataSetLogicalTableMapDataTransformRenameColumnOperationArgs 
 
     public static final DataSetLogicalTableMapDataTransformRenameColumnOperationArgs Empty = new DataSetLogicalTableMapDataTransformRenameColumnOperationArgs();
 
-    /**
-     * Column to be renamed.
-     * 
-     */
     @Import(name="columnName", required=true)
     private Output<String> columnName;
 
-    /**
-     * @return Column to be renamed.
-     * 
-     */
     public Output<String> columnName() {
         return this.columnName;
     }
 
-    /**
-     * New name for the column.
-     * 
-     */
     @Import(name="newColumnName", required=true)
     private Output<String> newColumnName;
 
-    /**
-     * @return New name for the column.
-     * 
-     */
     public Output<String> newColumnName() {
         return this.newColumnName;
     }
@@ -69,44 +53,20 @@ public final class DataSetLogicalTableMapDataTransformRenameColumnOperationArgs 
             $ = new DataSetLogicalTableMapDataTransformRenameColumnOperationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param columnName Column to be renamed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnName(Output<String> columnName) {
             $.columnName = columnName;
             return this;
         }
 
-        /**
-         * @param columnName Column to be renamed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnName(String columnName) {
             return columnName(Output.of(columnName));
         }
 
-        /**
-         * @param newColumnName New name for the column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder newColumnName(Output<String> newColumnName) {
             $.newColumnName = newColumnName;
             return this;
         }
 
-        /**
-         * @param newColumnName New name for the column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder newColumnName(String newColumnName) {
             return newColumnName(Output.of(newColumnName));
         }

@@ -12,99 +12,32 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an Amazon Customer Profiles Profile.
-// See the [Create Profile](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateProfile.html) for more information.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/customerprofiles"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := customerprofiles.NewDomain(ctx, "example", &customerprofiles.DomainArgs{
-//				DomainName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = customerprofiles.NewProfile(ctx, "example", &customerprofiles.ProfileArgs{
-//				DomainName: example.DomainName,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Amazon Customer Profiles Profile using the resource `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:customerprofiles/profile:Profile example domain-name/5f2f473dfbe841eb8d05cfc2a4c926df
-// ```
 type Profile struct {
 	pulumi.CustomResourceState
 
-	// A unique account number that you have given to the customer.
-	AccountNumber pulumi.StringPtrOutput `pulumi:"accountNumber"`
-	// Any additional information relevant to the customer’s profile.
-	AdditionalInformation pulumi.StringPtrOutput `pulumi:"additionalInformation"`
-	// A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
-	Address ProfileAddressPtrOutput `pulumi:"address"`
-	// A key value pair of attributes of a customer profile.
-	Attributes pulumi.StringMapOutput `pulumi:"attributes"`
-	// A block that specifies the customer’s billing address. Documented below.
-	BillingAddress ProfileBillingAddressPtrOutput `pulumi:"billingAddress"`
-	// The customer’s birth date.
-	BirthDate pulumi.StringPtrOutput `pulumi:"birthDate"`
-	// The customer’s business email address.
-	BusinessEmailAddress pulumi.StringPtrOutput `pulumi:"businessEmailAddress"`
-	// The name of the customer’s business.
-	BusinessName pulumi.StringPtrOutput `pulumi:"businessName"`
-	// The customer’s business phone number.
-	BusinessPhoneNumber pulumi.StringPtrOutput `pulumi:"businessPhoneNumber"`
-	// The name of your Customer Profile domain. It must be unique for your AWS account.
-	//
-	// The following arguments are optional:
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// The customer’s email address, which has not been specified as a personal or business address.
-	EmailAddress pulumi.StringPtrOutput `pulumi:"emailAddress"`
-	// The customer’s first name.
-	FirstName pulumi.StringPtrOutput `pulumi:"firstName"`
-	// The gender with which the customer identifies.
-	GenderString pulumi.StringPtrOutput `pulumi:"genderString"`
-	// The customer’s home phone number.
-	HomePhoneNumber pulumi.StringPtrOutput `pulumi:"homePhoneNumber"`
-	// The customer’s last name.
-	LastName pulumi.StringPtrOutput `pulumi:"lastName"`
-	// A block that specifies the customer’s mailing address. Documented below.
-	MailingAddress ProfileMailingAddressPtrOutput `pulumi:"mailingAddress"`
-	// The customer’s middle name.
-	MiddleName pulumi.StringPtrOutput `pulumi:"middleName"`
-	// The customer’s mobile phone number.
-	MobilePhoneNumber pulumi.StringPtrOutput `pulumi:"mobilePhoneNumber"`
-	// The type of profile used to describe the customer.
-	PartyTypeString pulumi.StringPtrOutput `pulumi:"partyTypeString"`
-	// The customer’s personal email address.
-	PersonalEmailAddress pulumi.StringPtrOutput `pulumi:"personalEmailAddress"`
-	// The customer’s phone number, which has not been specified as a mobile, home, or business number.
-	PhoneNumber pulumi.StringPtrOutput `pulumi:"phoneNumber"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A block that specifies the customer’s shipping address. Documented below.
-	ShippingAddress ProfileShippingAddressPtrOutput `pulumi:"shippingAddress"`
+	AccountNumber         pulumi.StringPtrOutput          `pulumi:"accountNumber"`
+	AdditionalInformation pulumi.StringPtrOutput          `pulumi:"additionalInformation"`
+	Address               ProfileAddressPtrOutput         `pulumi:"address"`
+	Attributes            pulumi.StringMapOutput          `pulumi:"attributes"`
+	BillingAddress        ProfileBillingAddressPtrOutput  `pulumi:"billingAddress"`
+	BirthDate             pulumi.StringPtrOutput          `pulumi:"birthDate"`
+	BusinessEmailAddress  pulumi.StringPtrOutput          `pulumi:"businessEmailAddress"`
+	BusinessName          pulumi.StringPtrOutput          `pulumi:"businessName"`
+	BusinessPhoneNumber   pulumi.StringPtrOutput          `pulumi:"businessPhoneNumber"`
+	DomainName            pulumi.StringOutput             `pulumi:"domainName"`
+	EmailAddress          pulumi.StringPtrOutput          `pulumi:"emailAddress"`
+	FirstName             pulumi.StringPtrOutput          `pulumi:"firstName"`
+	GenderString          pulumi.StringPtrOutput          `pulumi:"genderString"`
+	HomePhoneNumber       pulumi.StringPtrOutput          `pulumi:"homePhoneNumber"`
+	LastName              pulumi.StringPtrOutput          `pulumi:"lastName"`
+	MailingAddress        ProfileMailingAddressPtrOutput  `pulumi:"mailingAddress"`
+	MiddleName            pulumi.StringPtrOutput          `pulumi:"middleName"`
+	MobilePhoneNumber     pulumi.StringPtrOutput          `pulumi:"mobilePhoneNumber"`
+	PartyTypeString       pulumi.StringPtrOutput          `pulumi:"partyTypeString"`
+	PersonalEmailAddress  pulumi.StringPtrOutput          `pulumi:"personalEmailAddress"`
+	PhoneNumber           pulumi.StringPtrOutput          `pulumi:"phoneNumber"`
+	Region                pulumi.StringOutput             `pulumi:"region"`
+	ShippingAddress       ProfileShippingAddressPtrOutput `pulumi:"shippingAddress"`
 }
 
 // NewProfile registers a new resource with the given unique name, arguments, and options.
@@ -140,105 +73,55 @@ func GetProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Profile resources.
 type profileState struct {
-	// A unique account number that you have given to the customer.
-	AccountNumber *string `pulumi:"accountNumber"`
-	// Any additional information relevant to the customer’s profile.
-	AdditionalInformation *string `pulumi:"additionalInformation"`
-	// A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
-	Address *ProfileAddress `pulumi:"address"`
-	// A key value pair of attributes of a customer profile.
-	Attributes map[string]string `pulumi:"attributes"`
-	// A block that specifies the customer’s billing address. Documented below.
-	BillingAddress *ProfileBillingAddress `pulumi:"billingAddress"`
-	// The customer’s birth date.
-	BirthDate *string `pulumi:"birthDate"`
-	// The customer’s business email address.
-	BusinessEmailAddress *string `pulumi:"businessEmailAddress"`
-	// The name of the customer’s business.
-	BusinessName *string `pulumi:"businessName"`
-	// The customer’s business phone number.
-	BusinessPhoneNumber *string `pulumi:"businessPhoneNumber"`
-	// The name of your Customer Profile domain. It must be unique for your AWS account.
-	//
-	// The following arguments are optional:
-	DomainName *string `pulumi:"domainName"`
-	// The customer’s email address, which has not been specified as a personal or business address.
-	EmailAddress *string `pulumi:"emailAddress"`
-	// The customer’s first name.
-	FirstName *string `pulumi:"firstName"`
-	// The gender with which the customer identifies.
-	GenderString *string `pulumi:"genderString"`
-	// The customer’s home phone number.
-	HomePhoneNumber *string `pulumi:"homePhoneNumber"`
-	// The customer’s last name.
-	LastName *string `pulumi:"lastName"`
-	// A block that specifies the customer’s mailing address. Documented below.
-	MailingAddress *ProfileMailingAddress `pulumi:"mailingAddress"`
-	// The customer’s middle name.
-	MiddleName *string `pulumi:"middleName"`
-	// The customer’s mobile phone number.
-	MobilePhoneNumber *string `pulumi:"mobilePhoneNumber"`
-	// The type of profile used to describe the customer.
-	PartyTypeString *string `pulumi:"partyTypeString"`
-	// The customer’s personal email address.
-	PersonalEmailAddress *string `pulumi:"personalEmailAddress"`
-	// The customer’s phone number, which has not been specified as a mobile, home, or business number.
-	PhoneNumber *string `pulumi:"phoneNumber"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A block that specifies the customer’s shipping address. Documented below.
-	ShippingAddress *ProfileShippingAddress `pulumi:"shippingAddress"`
+	AccountNumber         *string                 `pulumi:"accountNumber"`
+	AdditionalInformation *string                 `pulumi:"additionalInformation"`
+	Address               *ProfileAddress         `pulumi:"address"`
+	Attributes            map[string]string       `pulumi:"attributes"`
+	BillingAddress        *ProfileBillingAddress  `pulumi:"billingAddress"`
+	BirthDate             *string                 `pulumi:"birthDate"`
+	BusinessEmailAddress  *string                 `pulumi:"businessEmailAddress"`
+	BusinessName          *string                 `pulumi:"businessName"`
+	BusinessPhoneNumber   *string                 `pulumi:"businessPhoneNumber"`
+	DomainName            *string                 `pulumi:"domainName"`
+	EmailAddress          *string                 `pulumi:"emailAddress"`
+	FirstName             *string                 `pulumi:"firstName"`
+	GenderString          *string                 `pulumi:"genderString"`
+	HomePhoneNumber       *string                 `pulumi:"homePhoneNumber"`
+	LastName              *string                 `pulumi:"lastName"`
+	MailingAddress        *ProfileMailingAddress  `pulumi:"mailingAddress"`
+	MiddleName            *string                 `pulumi:"middleName"`
+	MobilePhoneNumber     *string                 `pulumi:"mobilePhoneNumber"`
+	PartyTypeString       *string                 `pulumi:"partyTypeString"`
+	PersonalEmailAddress  *string                 `pulumi:"personalEmailAddress"`
+	PhoneNumber           *string                 `pulumi:"phoneNumber"`
+	Region                *string                 `pulumi:"region"`
+	ShippingAddress       *ProfileShippingAddress `pulumi:"shippingAddress"`
 }
 
 type ProfileState struct {
-	// A unique account number that you have given to the customer.
-	AccountNumber pulumi.StringPtrInput
-	// Any additional information relevant to the customer’s profile.
+	AccountNumber         pulumi.StringPtrInput
 	AdditionalInformation pulumi.StringPtrInput
-	// A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
-	Address ProfileAddressPtrInput
-	// A key value pair of attributes of a customer profile.
-	Attributes pulumi.StringMapInput
-	// A block that specifies the customer’s billing address. Documented below.
-	BillingAddress ProfileBillingAddressPtrInput
-	// The customer’s birth date.
-	BirthDate pulumi.StringPtrInput
-	// The customer’s business email address.
-	BusinessEmailAddress pulumi.StringPtrInput
-	// The name of the customer’s business.
-	BusinessName pulumi.StringPtrInput
-	// The customer’s business phone number.
-	BusinessPhoneNumber pulumi.StringPtrInput
-	// The name of your Customer Profile domain. It must be unique for your AWS account.
-	//
-	// The following arguments are optional:
-	DomainName pulumi.StringPtrInput
-	// The customer’s email address, which has not been specified as a personal or business address.
-	EmailAddress pulumi.StringPtrInput
-	// The customer’s first name.
-	FirstName pulumi.StringPtrInput
-	// The gender with which the customer identifies.
-	GenderString pulumi.StringPtrInput
-	// The customer’s home phone number.
-	HomePhoneNumber pulumi.StringPtrInput
-	// The customer’s last name.
-	LastName pulumi.StringPtrInput
-	// A block that specifies the customer’s mailing address. Documented below.
-	MailingAddress ProfileMailingAddressPtrInput
-	// The customer’s middle name.
-	MiddleName pulumi.StringPtrInput
-	// The customer’s mobile phone number.
-	MobilePhoneNumber pulumi.StringPtrInput
-	// The type of profile used to describe the customer.
-	PartyTypeString pulumi.StringPtrInput
-	// The customer’s personal email address.
-	PersonalEmailAddress pulumi.StringPtrInput
-	// The customer’s phone number, which has not been specified as a mobile, home, or business number.
-	PhoneNumber pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A block that specifies the customer’s shipping address. Documented below.
-	ShippingAddress ProfileShippingAddressPtrInput
+	Address               ProfileAddressPtrInput
+	Attributes            pulumi.StringMapInput
+	BillingAddress        ProfileBillingAddressPtrInput
+	BirthDate             pulumi.StringPtrInput
+	BusinessEmailAddress  pulumi.StringPtrInput
+	BusinessName          pulumi.StringPtrInput
+	BusinessPhoneNumber   pulumi.StringPtrInput
+	DomainName            pulumi.StringPtrInput
+	EmailAddress          pulumi.StringPtrInput
+	FirstName             pulumi.StringPtrInput
+	GenderString          pulumi.StringPtrInput
+	HomePhoneNumber       pulumi.StringPtrInput
+	LastName              pulumi.StringPtrInput
+	MailingAddress        ProfileMailingAddressPtrInput
+	MiddleName            pulumi.StringPtrInput
+	MobilePhoneNumber     pulumi.StringPtrInput
+	PartyTypeString       pulumi.StringPtrInput
+	PersonalEmailAddress  pulumi.StringPtrInput
+	PhoneNumber           pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
+	ShippingAddress       ProfileShippingAddressPtrInput
 }
 
 func (ProfileState) ElementType() reflect.Type {
@@ -246,106 +129,56 @@ func (ProfileState) ElementType() reflect.Type {
 }
 
 type profileArgs struct {
-	// A unique account number that you have given to the customer.
-	AccountNumber *string `pulumi:"accountNumber"`
-	// Any additional information relevant to the customer’s profile.
-	AdditionalInformation *string `pulumi:"additionalInformation"`
-	// A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
-	Address *ProfileAddress `pulumi:"address"`
-	// A key value pair of attributes of a customer profile.
-	Attributes map[string]string `pulumi:"attributes"`
-	// A block that specifies the customer’s billing address. Documented below.
-	BillingAddress *ProfileBillingAddress `pulumi:"billingAddress"`
-	// The customer’s birth date.
-	BirthDate *string `pulumi:"birthDate"`
-	// The customer’s business email address.
-	BusinessEmailAddress *string `pulumi:"businessEmailAddress"`
-	// The name of the customer’s business.
-	BusinessName *string `pulumi:"businessName"`
-	// The customer’s business phone number.
-	BusinessPhoneNumber *string `pulumi:"businessPhoneNumber"`
-	// The name of your Customer Profile domain. It must be unique for your AWS account.
-	//
-	// The following arguments are optional:
-	DomainName string `pulumi:"domainName"`
-	// The customer’s email address, which has not been specified as a personal or business address.
-	EmailAddress *string `pulumi:"emailAddress"`
-	// The customer’s first name.
-	FirstName *string `pulumi:"firstName"`
-	// The gender with which the customer identifies.
-	GenderString *string `pulumi:"genderString"`
-	// The customer’s home phone number.
-	HomePhoneNumber *string `pulumi:"homePhoneNumber"`
-	// The customer’s last name.
-	LastName *string `pulumi:"lastName"`
-	// A block that specifies the customer’s mailing address. Documented below.
-	MailingAddress *ProfileMailingAddress `pulumi:"mailingAddress"`
-	// The customer’s middle name.
-	MiddleName *string `pulumi:"middleName"`
-	// The customer’s mobile phone number.
-	MobilePhoneNumber *string `pulumi:"mobilePhoneNumber"`
-	// The type of profile used to describe the customer.
-	PartyTypeString *string `pulumi:"partyTypeString"`
-	// The customer’s personal email address.
-	PersonalEmailAddress *string `pulumi:"personalEmailAddress"`
-	// The customer’s phone number, which has not been specified as a mobile, home, or business number.
-	PhoneNumber *string `pulumi:"phoneNumber"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A block that specifies the customer’s shipping address. Documented below.
-	ShippingAddress *ProfileShippingAddress `pulumi:"shippingAddress"`
+	AccountNumber         *string                 `pulumi:"accountNumber"`
+	AdditionalInformation *string                 `pulumi:"additionalInformation"`
+	Address               *ProfileAddress         `pulumi:"address"`
+	Attributes            map[string]string       `pulumi:"attributes"`
+	BillingAddress        *ProfileBillingAddress  `pulumi:"billingAddress"`
+	BirthDate             *string                 `pulumi:"birthDate"`
+	BusinessEmailAddress  *string                 `pulumi:"businessEmailAddress"`
+	BusinessName          *string                 `pulumi:"businessName"`
+	BusinessPhoneNumber   *string                 `pulumi:"businessPhoneNumber"`
+	DomainName            string                  `pulumi:"domainName"`
+	EmailAddress          *string                 `pulumi:"emailAddress"`
+	FirstName             *string                 `pulumi:"firstName"`
+	GenderString          *string                 `pulumi:"genderString"`
+	HomePhoneNumber       *string                 `pulumi:"homePhoneNumber"`
+	LastName              *string                 `pulumi:"lastName"`
+	MailingAddress        *ProfileMailingAddress  `pulumi:"mailingAddress"`
+	MiddleName            *string                 `pulumi:"middleName"`
+	MobilePhoneNumber     *string                 `pulumi:"mobilePhoneNumber"`
+	PartyTypeString       *string                 `pulumi:"partyTypeString"`
+	PersonalEmailAddress  *string                 `pulumi:"personalEmailAddress"`
+	PhoneNumber           *string                 `pulumi:"phoneNumber"`
+	Region                *string                 `pulumi:"region"`
+	ShippingAddress       *ProfileShippingAddress `pulumi:"shippingAddress"`
 }
 
 // The set of arguments for constructing a Profile resource.
 type ProfileArgs struct {
-	// A unique account number that you have given to the customer.
-	AccountNumber pulumi.StringPtrInput
-	// Any additional information relevant to the customer’s profile.
+	AccountNumber         pulumi.StringPtrInput
 	AdditionalInformation pulumi.StringPtrInput
-	// A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
-	Address ProfileAddressPtrInput
-	// A key value pair of attributes of a customer profile.
-	Attributes pulumi.StringMapInput
-	// A block that specifies the customer’s billing address. Documented below.
-	BillingAddress ProfileBillingAddressPtrInput
-	// The customer’s birth date.
-	BirthDate pulumi.StringPtrInput
-	// The customer’s business email address.
-	BusinessEmailAddress pulumi.StringPtrInput
-	// The name of the customer’s business.
-	BusinessName pulumi.StringPtrInput
-	// The customer’s business phone number.
-	BusinessPhoneNumber pulumi.StringPtrInput
-	// The name of your Customer Profile domain. It must be unique for your AWS account.
-	//
-	// The following arguments are optional:
-	DomainName pulumi.StringInput
-	// The customer’s email address, which has not been specified as a personal or business address.
-	EmailAddress pulumi.StringPtrInput
-	// The customer’s first name.
-	FirstName pulumi.StringPtrInput
-	// The gender with which the customer identifies.
-	GenderString pulumi.StringPtrInput
-	// The customer’s home phone number.
-	HomePhoneNumber pulumi.StringPtrInput
-	// The customer’s last name.
-	LastName pulumi.StringPtrInput
-	// A block that specifies the customer’s mailing address. Documented below.
-	MailingAddress ProfileMailingAddressPtrInput
-	// The customer’s middle name.
-	MiddleName pulumi.StringPtrInput
-	// The customer’s mobile phone number.
-	MobilePhoneNumber pulumi.StringPtrInput
-	// The type of profile used to describe the customer.
-	PartyTypeString pulumi.StringPtrInput
-	// The customer’s personal email address.
-	PersonalEmailAddress pulumi.StringPtrInput
-	// The customer’s phone number, which has not been specified as a mobile, home, or business number.
-	PhoneNumber pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A block that specifies the customer’s shipping address. Documented below.
-	ShippingAddress ProfileShippingAddressPtrInput
+	Address               ProfileAddressPtrInput
+	Attributes            pulumi.StringMapInput
+	BillingAddress        ProfileBillingAddressPtrInput
+	BirthDate             pulumi.StringPtrInput
+	BusinessEmailAddress  pulumi.StringPtrInput
+	BusinessName          pulumi.StringPtrInput
+	BusinessPhoneNumber   pulumi.StringPtrInput
+	DomainName            pulumi.StringInput
+	EmailAddress          pulumi.StringPtrInput
+	FirstName             pulumi.StringPtrInput
+	GenderString          pulumi.StringPtrInput
+	HomePhoneNumber       pulumi.StringPtrInput
+	LastName              pulumi.StringPtrInput
+	MailingAddress        ProfileMailingAddressPtrInput
+	MiddleName            pulumi.StringPtrInput
+	MobilePhoneNumber     pulumi.StringPtrInput
+	PartyTypeString       pulumi.StringPtrInput
+	PersonalEmailAddress  pulumi.StringPtrInput
+	PhoneNumber           pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
+	ShippingAddress       ProfileShippingAddressPtrInput
 }
 
 func (ProfileArgs) ElementType() reflect.Type {
@@ -435,119 +268,94 @@ func (o ProfileOutput) ToProfileOutputWithContext(ctx context.Context) ProfileOu
 	return o
 }
 
-// A unique account number that you have given to the customer.
 func (o ProfileOutput) AccountNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.AccountNumber }).(pulumi.StringPtrOutput)
 }
 
-// Any additional information relevant to the customer’s profile.
 func (o ProfileOutput) AdditionalInformation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.AdditionalInformation }).(pulumi.StringPtrOutput)
 }
 
-// A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
 func (o ProfileOutput) Address() ProfileAddressPtrOutput {
 	return o.ApplyT(func(v *Profile) ProfileAddressPtrOutput { return v.Address }).(ProfileAddressPtrOutput)
 }
 
-// A key value pair of attributes of a customer profile.
 func (o ProfileOutput) Attributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringMapOutput { return v.Attributes }).(pulumi.StringMapOutput)
 }
 
-// A block that specifies the customer’s billing address. Documented below.
 func (o ProfileOutput) BillingAddress() ProfileBillingAddressPtrOutput {
 	return o.ApplyT(func(v *Profile) ProfileBillingAddressPtrOutput { return v.BillingAddress }).(ProfileBillingAddressPtrOutput)
 }
 
-// The customer’s birth date.
 func (o ProfileOutput) BirthDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.BirthDate }).(pulumi.StringPtrOutput)
 }
 
-// The customer’s business email address.
 func (o ProfileOutput) BusinessEmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.BusinessEmailAddress }).(pulumi.StringPtrOutput)
 }
 
-// The name of the customer’s business.
 func (o ProfileOutput) BusinessName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.BusinessName }).(pulumi.StringPtrOutput)
 }
 
-// The customer’s business phone number.
 func (o ProfileOutput) BusinessPhoneNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.BusinessPhoneNumber }).(pulumi.StringPtrOutput)
 }
 
-// The name of your Customer Profile domain. It must be unique for your AWS account.
-//
-// The following arguments are optional:
 func (o ProfileOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// The customer’s email address, which has not been specified as a personal or business address.
 func (o ProfileOutput) EmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.EmailAddress }).(pulumi.StringPtrOutput)
 }
 
-// The customer’s first name.
 func (o ProfileOutput) FirstName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.FirstName }).(pulumi.StringPtrOutput)
 }
 
-// The gender with which the customer identifies.
 func (o ProfileOutput) GenderString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.GenderString }).(pulumi.StringPtrOutput)
 }
 
-// The customer’s home phone number.
 func (o ProfileOutput) HomePhoneNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.HomePhoneNumber }).(pulumi.StringPtrOutput)
 }
 
-// The customer’s last name.
 func (o ProfileOutput) LastName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.LastName }).(pulumi.StringPtrOutput)
 }
 
-// A block that specifies the customer’s mailing address. Documented below.
 func (o ProfileOutput) MailingAddress() ProfileMailingAddressPtrOutput {
 	return o.ApplyT(func(v *Profile) ProfileMailingAddressPtrOutput { return v.MailingAddress }).(ProfileMailingAddressPtrOutput)
 }
 
-// The customer’s middle name.
 func (o ProfileOutput) MiddleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.MiddleName }).(pulumi.StringPtrOutput)
 }
 
-// The customer’s mobile phone number.
 func (o ProfileOutput) MobilePhoneNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.MobilePhoneNumber }).(pulumi.StringPtrOutput)
 }
 
-// The type of profile used to describe the customer.
 func (o ProfileOutput) PartyTypeString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.PartyTypeString }).(pulumi.StringPtrOutput)
 }
 
-// The customer’s personal email address.
 func (o ProfileOutput) PersonalEmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.PersonalEmailAddress }).(pulumi.StringPtrOutput)
 }
 
-// The customer’s phone number, which has not been specified as a mobile, home, or business number.
 func (o ProfileOutput) PhoneNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.PhoneNumber }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ProfileOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A block that specifies the customer’s shipping address. Documented below.
 func (o ProfileOutput) ShippingAddress() ProfileShippingAddressPtrOutput {
 	return o.ApplyT(func(v *Profile) ProfileShippingAddressPtrOutput { return v.ShippingAddress }).(ProfileShippingAddressPtrOutput)
 }

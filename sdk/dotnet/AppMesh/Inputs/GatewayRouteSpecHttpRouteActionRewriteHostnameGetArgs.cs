@@ -12,9 +12,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class GatewayRouteSpecHttpRouteActionRewriteHostnameGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
-        /// </summary>
         [Input("defaultTargetHostname", required: true)]
         public Input<string> DefaultTargetHostname { get; set; } = null!;
 

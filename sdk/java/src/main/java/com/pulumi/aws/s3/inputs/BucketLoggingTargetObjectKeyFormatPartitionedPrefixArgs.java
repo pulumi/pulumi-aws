@@ -14,17 +14,9 @@ public final class BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs exten
 
     public static final BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs Empty = new BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs();
 
-    /**
-     * Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
-     * 
-     */
     @Import(name="partitionDateSource", required=true)
     private Output<String> partitionDateSource;
 
-    /**
-     * @return Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
-     * 
-     */
     public Output<String> partitionDateSource() {
         return this.partitionDateSource;
     }
@@ -53,23 +45,11 @@ public final class BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs exten
             $ = new BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param partitionDateSource Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder partitionDateSource(Output<String> partitionDateSource) {
             $.partitionDateSource = partitionDateSource;
             return this;
         }
 
-        /**
-         * @param partitionDateSource Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder partitionDateSource(String partitionDateSource) {
             return partitionDateSource(Output.of(partitionDateSource));
         }

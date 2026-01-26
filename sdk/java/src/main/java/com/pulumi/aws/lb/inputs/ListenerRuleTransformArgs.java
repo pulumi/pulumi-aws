@@ -18,47 +18,23 @@ public final class ListenerRuleTransformArgs extends com.pulumi.resources.Resour
 
     public static final ListenerRuleTransformArgs Empty = new ListenerRuleTransformArgs();
 
-    /**
-     * Configuration block for host header rewrite. Required if `type` is `host-header-rewrite`. See Host Header Rewrite Config Blocks below.
-     * 
-     */
     @Import(name="hostHeaderRewriteConfig")
     private @Nullable Output<ListenerRuleTransformHostHeaderRewriteConfigArgs> hostHeaderRewriteConfig;
 
-    /**
-     * @return Configuration block for host header rewrite. Required if `type` is `host-header-rewrite`. See Host Header Rewrite Config Blocks below.
-     * 
-     */
     public Optional<Output<ListenerRuleTransformHostHeaderRewriteConfigArgs>> hostHeaderRewriteConfig() {
         return Optional.ofNullable(this.hostHeaderRewriteConfig);
     }
 
-    /**
-     * Type of transform. Valid values are `host-header-rewrite` and `url-rewrite`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Type of transform. Valid values are `host-header-rewrite` and `url-rewrite`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
 
-    /**
-     * Configuration block for URL rewrite. Required if `type` is `url-rewrite`. See URL Rewrite Config Blocks below.
-     * 
-     */
     @Import(name="urlRewriteConfig")
     private @Nullable Output<ListenerRuleTransformUrlRewriteConfigArgs> urlRewriteConfig;
 
-    /**
-     * @return Configuration block for URL rewrite. Required if `type` is `url-rewrite`. See URL Rewrite Config Blocks below.
-     * 
-     */
     public Optional<Output<ListenerRuleTransformUrlRewriteConfigArgs>> urlRewriteConfig() {
         return Optional.ofNullable(this.urlRewriteConfig);
     }
@@ -89,65 +65,29 @@ public final class ListenerRuleTransformArgs extends com.pulumi.resources.Resour
             $ = new ListenerRuleTransformArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param hostHeaderRewriteConfig Configuration block for host header rewrite. Required if `type` is `host-header-rewrite`. See Host Header Rewrite Config Blocks below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostHeaderRewriteConfig(@Nullable Output<ListenerRuleTransformHostHeaderRewriteConfigArgs> hostHeaderRewriteConfig) {
             $.hostHeaderRewriteConfig = hostHeaderRewriteConfig;
             return this;
         }
 
-        /**
-         * @param hostHeaderRewriteConfig Configuration block for host header rewrite. Required if `type` is `host-header-rewrite`. See Host Header Rewrite Config Blocks below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostHeaderRewriteConfig(ListenerRuleTransformHostHeaderRewriteConfigArgs hostHeaderRewriteConfig) {
             return hostHeaderRewriteConfig(Output.of(hostHeaderRewriteConfig));
         }
 
-        /**
-         * @param type Type of transform. Valid values are `host-header-rewrite` and `url-rewrite`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of transform. Valid values are `host-header-rewrite` and `url-rewrite`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
-        /**
-         * @param urlRewriteConfig Configuration block for URL rewrite. Required if `type` is `url-rewrite`. See URL Rewrite Config Blocks below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder urlRewriteConfig(@Nullable Output<ListenerRuleTransformUrlRewriteConfigArgs> urlRewriteConfig) {
             $.urlRewriteConfig = urlRewriteConfig;
             return this;
         }
 
-        /**
-         * @param urlRewriteConfig Configuration block for URL rewrite. Required if `type` is `url-rewrite`. See URL Rewrite Config Blocks below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder urlRewriteConfig(ListenerRuleTransformUrlRewriteConfigArgs urlRewriteConfig) {
             return urlRewriteConfig(Output.of(urlRewriteConfig));
         }

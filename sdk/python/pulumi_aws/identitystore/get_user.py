@@ -90,9 +90,6 @@ class GetUserResult:
     @_builtins.property
     @pulumi.getter
     def addresses(self) -> Sequence['outputs.GetUserAddressResult']:
-        """
-        List of details about the user's address.
-        """
         return pulumi.get(self, "addresses")
 
     @_builtins.property
@@ -103,25 +100,16 @@ class GetUserResult:
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> _builtins.str:
-        """
-        The name that is typically displayed when the user is referenced.
-        """
         return pulumi.get(self, "display_name")
 
     @_builtins.property
     @pulumi.getter
     def emails(self) -> Sequence['outputs.GetUserEmailResult']:
-        """
-        List of details about the user's email.
-        """
         return pulumi.get(self, "emails")
 
     @_builtins.property
     @pulumi.getter(name="externalIds")
     def external_ids(self) -> Sequence['outputs.GetUserExternalIdResult']:
-        """
-        List of identifiers issued to this resource by an external identity provider.
-        """
         return pulumi.get(self, "external_ids")
 
     @_builtins.property
@@ -140,73 +128,46 @@ class GetUserResult:
     @_builtins.property
     @pulumi.getter
     def locale(self) -> _builtins.str:
-        """
-        The user's geographical region or location.
-        """
         return pulumi.get(self, "locale")
 
     @_builtins.property
     @pulumi.getter
     def names(self) -> Sequence['outputs.GetUserNameResult']:
-        """
-        Details about the user's full name.
-        """
         return pulumi.get(self, "names")
 
     @_builtins.property
     @pulumi.getter
     def nickname(self) -> _builtins.str:
-        """
-        An alternate name for the user.
-        """
         return pulumi.get(self, "nickname")
 
     @_builtins.property
     @pulumi.getter(name="phoneNumbers")
     def phone_numbers(self) -> Sequence['outputs.GetUserPhoneNumberResult']:
-        """
-        List of details about the user's phone number.
-        """
         return pulumi.get(self, "phone_numbers")
 
     @_builtins.property
     @pulumi.getter(name="preferredLanguage")
     def preferred_language(self) -> _builtins.str:
-        """
-        The preferred language of the user.
-        """
         return pulumi.get(self, "preferred_language")
 
     @_builtins.property
     @pulumi.getter(name="profileUrl")
     def profile_url(self) -> _builtins.str:
-        """
-        An URL that may be associated with the user.
-        """
         return pulumi.get(self, "profile_url")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> _builtins.str:
-        """
-        The region of the address.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def timezone(self) -> _builtins.str:
-        """
-        The user's time zone.
-        """
         return pulumi.get(self, "timezone")
 
     @_builtins.property
     @pulumi.getter
     def title(self) -> _builtins.str:
-        """
-        The user's title.
-        """
         return pulumi.get(self, "title")
 
     @_builtins.property
@@ -217,17 +178,11 @@ class GetUserResult:
     @_builtins.property
     @pulumi.getter(name="userName")
     def user_name(self) -> _builtins.str:
-        """
-        User's user name value.
-        """
         return pulumi.get(self, "user_name")
 
     @_builtins.property
     @pulumi.getter(name="userType")
     def user_type(self) -> _builtins.str:
-        """
-        The user type.
-        """
         return pulumi.get(self, "user_type")
 
 
@@ -264,34 +219,7 @@ def get_user(alternate_identifier: Optional[Union['GetUserAlternateIdentifierArg
              user_id: Optional[_builtins.str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
-    Use this data source to get an Identity Store User.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssoadmin.get_instances()
-    example_get_user = aws.identitystore.get_user(identity_store_id=example.identity_store_ids[0],
-        alternate_identifier={
-            "unique_attribute": {
-                "attribute_path": "UserName",
-                "attribute_value": "ExampleUser",
-            },
-        })
-    pulumi.export("userId", example_get_user.user_id)
-    ```
-
-
-    :param Union['GetUserAlternateIdentifierArgs', 'GetUserAlternateIdentifierArgsDict'] alternate_identifier: A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
-    :param _builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str user_id: The identifier for a user in the Identity Store.
-           
-           > Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['alternateIdentifier'] = alternate_identifier
@@ -327,34 +255,7 @@ def get_user_output(alternate_identifier: Optional[pulumi.Input[Optional[Union['
                     user_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
-    Use this data source to get an Identity Store User.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssoadmin.get_instances()
-    example_get_user = aws.identitystore.get_user(identity_store_id=example.identity_store_ids[0],
-        alternate_identifier={
-            "unique_attribute": {
-                "attribute_path": "UserName",
-                "attribute_value": "ExampleUser",
-            },
-        })
-    pulumi.export("userId", example_get_user.user_id)
-    ```
-
-
-    :param Union['GetUserAlternateIdentifierArgs', 'GetUserAlternateIdentifierArgsDict'] alternate_identifier: A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
-    :param _builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str user_id: The identifier for a user in the Identity Store.
-           
-           > Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['alternateIdentifier'] = alternate_identifier

@@ -15,147 +15,51 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetBotResult {
-    /**
-     * @return ARN of the bot.
-     * 
-     */
     private String arn;
-    /**
-     * @return Checksum of the bot used to identify a specific revision of the bot&#39;s `$LATEST` version.
-     * 
-     */
     private String checksum;
-    /**
-     * @return If this Amazon Lex Bot is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
-     * 
-     */
     private Boolean childDirected;
-    /**
-     * @return Date that the bot was created.
-     * 
-     */
     private String createdDate;
-    /**
-     * @return Description of the bot.
-     * 
-     */
     private String description;
-    /**
-     * @return When set to true user utterances are sent to Amazon Comprehend for sentiment analysis.
-     * 
-     */
     private Boolean detectSentiment;
-    /**
-     * @return Set to true if natural language understanding improvements are enabled.
-     * 
-     */
     private Boolean enableModelImprovements;
-    /**
-     * @return If the `status` is `FAILED`, the reason why the bot failed to build.
-     * 
-     */
     private String failureReason;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return The maximum time in seconds that Amazon Lex retains the data gathered in a conversation.
-     * 
-     */
     private Integer idleSessionTtlInSeconds;
-    /**
-     * @return Date that the bot was updated.
-     * 
-     */
     private String lastUpdatedDate;
-    /**
-     * @return Target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot.
-     * 
-     */
     private String locale;
-    /**
-     * @return Name of the bot, case sensitive.
-     * 
-     */
     private String name;
-    /**
-     * @return The threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot.
-     * 
-     */
     private Double nluIntentConfidenceThreshold;
     private String region;
-    /**
-     * @return Status of the bot.
-     * 
-     */
     private String status;
-    /**
-     * @return Version of the bot. For a new bot, the version is always `$LATEST`.
-     * 
-     */
     private @Nullable String version;
-    /**
-     * @return Amazon Polly voice ID that the Amazon Lex Bot uses for voice interactions with the user.
-     * 
-     */
     private String voiceId;
 
     private GetBotResult() {}
-    /**
-     * @return ARN of the bot.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Checksum of the bot used to identify a specific revision of the bot&#39;s `$LATEST` version.
-     * 
-     */
     public String checksum() {
         return this.checksum;
     }
-    /**
-     * @return If this Amazon Lex Bot is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
-     * 
-     */
     public Boolean childDirected() {
         return this.childDirected;
     }
-    /**
-     * @return Date that the bot was created.
-     * 
-     */
     public String createdDate() {
         return this.createdDate;
     }
-    /**
-     * @return Description of the bot.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return When set to true user utterances are sent to Amazon Comprehend for sentiment analysis.
-     * 
-     */
     public Boolean detectSentiment() {
         return this.detectSentiment;
     }
-    /**
-     * @return Set to true if natural language understanding improvements are enabled.
-     * 
-     */
     public Boolean enableModelImprovements() {
         return this.enableModelImprovements;
     }
-    /**
-     * @return If the `status` is `FAILED`, the reason why the bot failed to build.
-     * 
-     */
     public String failureReason() {
         return this.failureReason;
     }
@@ -166,62 +70,30 @@ public final class GetBotResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The maximum time in seconds that Amazon Lex retains the data gathered in a conversation.
-     * 
-     */
     public Integer idleSessionTtlInSeconds() {
         return this.idleSessionTtlInSeconds;
     }
-    /**
-     * @return Date that the bot was updated.
-     * 
-     */
     public String lastUpdatedDate() {
         return this.lastUpdatedDate;
     }
-    /**
-     * @return Target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot.
-     * 
-     */
     public String locale() {
         return this.locale;
     }
-    /**
-     * @return Name of the bot, case sensitive.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot.
-     * 
-     */
     public Double nluIntentConfidenceThreshold() {
         return this.nluIntentConfidenceThreshold;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Status of the bot.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Version of the bot. For a new bot, the version is always `$LATEST`.
-     * 
-     */
     public Optional<String> version() {
         return Optional.ofNullable(this.version);
     }
-    /**
-     * @return Amazon Polly voice ID that the Amazon Lex Bot uses for voice interactions with the user.
-     * 
-     */
     public String voiceId() {
         return this.voiceId;
     }

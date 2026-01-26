@@ -13,13 +13,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelMaintenance
     {
-        /// <summary>
-        /// The day of the week to use for maintenance.
-        /// </summary>
         public readonly string MaintenanceDay;
-        /// <summary>
-        /// The hour maintenance will start.
-        /// </summary>
         public readonly string MaintenanceStartTime;
 
         [OutputConstructor]

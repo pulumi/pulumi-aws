@@ -11,9 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS Organizations Policy.
-//
-// ## Example Usage
 func LookupPolicy(ctx *pulumi.Context, args *LookupPolicyArgs, opts ...pulumi.InvokeOption) (*LookupPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPolicyResult
@@ -26,27 +23,20 @@ func LookupPolicy(ctx *pulumi.Context, args *LookupPolicyArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getPolicy.
 type LookupPolicyArgs struct {
-	// The unique identifier (ID) of the policy that you want more details on. Policy id starts with a "p-" followed by 8-28 lowercase or uppercase letters, digits, and underscores.
 	PolicyId string `pulumi:"policyId"`
 }
 
 // A collection of values returned by getPolicy.
 type LookupPolicyResult struct {
-	// The Amazon Resource Name of the policy.
-	Arn string `pulumi:"arn"`
-	// Indicates if a policy is an AWS managed policy.
-	AwsManaged bool `pulumi:"awsManaged"`
-	// The text content of the policy.
-	Content string `pulumi:"content"`
-	// The description of the policy.
+	Arn         string `pulumi:"arn"`
+	AwsManaged  bool   `pulumi:"awsManaged"`
+	Content     string `pulumi:"content"`
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The friendly name of the policy.
+	Id       string `pulumi:"id"`
 	Name     string `pulumi:"name"`
 	PolicyId string `pulumi:"policyId"`
-	// The type of policy values can be `AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | CHATBOT_POLICY | DECLARATIVE_POLICY_EC2 | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY`
-	Type string `pulumi:"type"`
+	Type     string `pulumi:"type"`
 }
 
 func LookupPolicyOutput(ctx *pulumi.Context, args LookupPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyResultOutput {
@@ -60,7 +50,6 @@ func LookupPolicyOutput(ctx *pulumi.Context, args LookupPolicyOutputArgs, opts .
 
 // A collection of arguments for invoking getPolicy.
 type LookupPolicyOutputArgs struct {
-	// The unique identifier (ID) of the policy that you want more details on. Policy id starts with a "p-" followed by 8-28 lowercase or uppercase letters, digits, and underscores.
 	PolicyId pulumi.StringInput `pulumi:"policyId"`
 }
 
@@ -83,22 +72,18 @@ func (o LookupPolicyResultOutput) ToLookupPolicyResultOutputWithContext(ctx cont
 	return o
 }
 
-// The Amazon Resource Name of the policy.
 func (o LookupPolicyResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPolicyResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Indicates if a policy is an AWS managed policy.
 func (o LookupPolicyResultOutput) AwsManaged() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupPolicyResult) bool { return v.AwsManaged }).(pulumi.BoolOutput)
 }
 
-// The text content of the policy.
 func (o LookupPolicyResultOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPolicyResult) string { return v.Content }).(pulumi.StringOutput)
 }
 
-// The description of the policy.
 func (o LookupPolicyResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPolicyResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -108,7 +93,6 @@ func (o LookupPolicyResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPolicyResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The friendly name of the policy.
 func (o LookupPolicyResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPolicyResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -117,7 +101,6 @@ func (o LookupPolicyResultOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPolicyResult) string { return v.PolicyId }).(pulumi.StringOutput)
 }
 
-// The type of policy values can be `AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | CHATBOT_POLICY | DECLARATIVE_POLICY_EC2 | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY`
 func (o LookupPolicyResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPolicyResult) string { return v.Type }).(pulumi.StringOutput)
 }

@@ -26,7 +26,6 @@ class AppregistryAttributeGroupAssociationArgs:
         The set of arguments for constructing a AppregistryAttributeGroupAssociation resource.
         :param pulumi.Input[_builtins.str] application_id: ID of the application.
         :param pulumi.Input[_builtins.str] attribute_group_id: ID of the attribute group to associate with the application.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "attribute_group_id", attribute_group_id)
@@ -60,9 +59,6 @@ class AppregistryAttributeGroupAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -80,7 +76,6 @@ class _AppregistryAttributeGroupAssociationState:
         Input properties used for looking up and filtering AppregistryAttributeGroupAssociation resources.
         :param pulumi.Input[_builtins.str] application_id: ID of the application.
         :param pulumi.Input[_builtins.str] attribute_group_id: ID of the attribute group to associate with the application.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if application_id is not None:
             pulumi.set(__self__, "application_id", application_id)
@@ -116,9 +111,6 @@ class _AppregistryAttributeGroupAssociationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -137,43 +129,11 @@ class AppregistryAttributeGroupAssociation(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Service Catalog AppRegistry Attribute Group Association.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.servicecatalog.AppregistryApplication("example", name="example-app")
-        example_appregistry_attribute_group = aws.servicecatalog.AppregistryAttributeGroup("example",
-            name="example",
-            description="example description",
-            attributes=json.dumps({
-                "app": "exampleapp",
-                "group": "examplegroup",
-            }))
-        example_appregistry_attribute_group_association = aws.servicecatalog.AppregistryAttributeGroupAssociation("example",
-            application_id=example.id,
-            attribute_group_id=example_appregistry_attribute_group.id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Service Catalog AppRegistry Attribute Group Association using `application_id` and `attribute_group_id` arguments separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:servicecatalog/appregistryAttributeGroupAssociation:AppregistryAttributeGroupAssociation example 12456778723424sdffsdfsdq34,12234t3564dsfsdf34asff4ww3
-        ```
-
+        Create a AppregistryAttributeGroupAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: ID of the application.
         :param pulumi.Input[_builtins.str] attribute_group_id: ID of the attribute group to associate with the application.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -182,38 +142,7 @@ class AppregistryAttributeGroupAssociation(pulumi.CustomResource):
                  args: AppregistryAttributeGroupAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Service Catalog AppRegistry Attribute Group Association.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.servicecatalog.AppregistryApplication("example", name="example-app")
-        example_appregistry_attribute_group = aws.servicecatalog.AppregistryAttributeGroup("example",
-            name="example",
-            description="example description",
-            attributes=json.dumps({
-                "app": "exampleapp",
-                "group": "examplegroup",
-            }))
-        example_appregistry_attribute_group_association = aws.servicecatalog.AppregistryAttributeGroupAssociation("example",
-            application_id=example.id,
-            attribute_group_id=example_appregistry_attribute_group.id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Service Catalog AppRegistry Attribute Group Association using `application_id` and `attribute_group_id` arguments separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:servicecatalog/appregistryAttributeGroupAssociation:AppregistryAttributeGroupAssociation example 12456778723424sdffsdfsdq34,12234t3564dsfsdf34asff4ww3
-        ```
-
+        Create a AppregistryAttributeGroupAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AppregistryAttributeGroupAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -270,7 +199,6 @@ class AppregistryAttributeGroupAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: ID of the application.
         :param pulumi.Input[_builtins.str] attribute_group_id: ID of the attribute group to associate with the application.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -300,8 +228,5 @@ class AppregistryAttributeGroupAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

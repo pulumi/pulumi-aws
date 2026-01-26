@@ -14,32 +14,16 @@ public final class ControlTowerControlParameterArgs extends com.pulumi.resources
 
     public static final ControlTowerControlParameterArgs Empty = new ControlTowerControlParameterArgs();
 
-    /**
-     * The name of the parameter.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return The name of the parameter.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * The value of the parameter.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return The value of the parameter.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -69,44 +53,20 @@ public final class ControlTowerControlParameterArgs extends com.pulumi.resources
             $ = new ControlTowerControlParameterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key The name of the parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key The name of the parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param value The value of the parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value The value of the parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

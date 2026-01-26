@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class AppImageConfigKernelGatewayImageConfigKernelSpecArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The display name of the kernel.
-        /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
-        /// <summary>
-        /// The name of the kernel.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

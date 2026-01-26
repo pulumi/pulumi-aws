@@ -15,47 +15,23 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
 
     public static final WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderArgs();
 
-    /**
-     * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
-     * 
-     */
     @Import(name="matchPattern", required=true)
     private Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternArgs> matchPattern;
 
-    /**
-     * @return The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
-     * 
-     */
     public Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternArgs> matchPattern() {
         return this.matchPattern;
     }
 
-    /**
-     * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
-     * 
-     */
     @Import(name="matchScope", required=true)
     private Output<String> matchScope;
 
-    /**
-     * @return The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
-     * 
-     */
     public Output<String> matchScope() {
         return this.matchScope;
     }
 
-    /**
-     * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
-     * 
-     */
     @Import(name="oversizeHandling", required=true)
     private Output<String> oversizeHandling;
 
-    /**
-     * @return Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
-     * 
-     */
     public Output<String> oversizeHandling() {
         return this.oversizeHandling;
     }
@@ -86,65 +62,29 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
             $ = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param matchPattern The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
-         * 
-         * @return builder
-         * 
-         */
         public Builder matchPattern(Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternArgs> matchPattern) {
             $.matchPattern = matchPattern;
             return this;
         }
 
-        /**
-         * @param matchPattern The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
-         * 
-         * @return builder
-         * 
-         */
         public Builder matchPattern(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternArgs matchPattern) {
             return matchPattern(Output.of(matchPattern));
         }
 
-        /**
-         * @param matchScope The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder matchScope(Output<String> matchScope) {
             $.matchScope = matchScope;
             return this;
         }
 
-        /**
-         * @param matchScope The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder matchScope(String matchScope) {
             return matchScope(Output.of(matchScope));
         }
 
-        /**
-         * @param oversizeHandling Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oversizeHandling(Output<String> oversizeHandling) {
             $.oversizeHandling = oversizeHandling;
             return this;
         }
 
-        /**
-         * @param oversizeHandling Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oversizeHandling(String oversizeHandling) {
             return oversizeHandling(Output.of(oversizeHandling));
         }

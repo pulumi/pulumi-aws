@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class FleetSpotOptionsMaintenanceStrategiesCapacityRebalance
     {
-        /// <summary>
-        /// The replacement strategy to use. Only available for fleets of `Type` set to `Maintain`. Valid values: `Launch`.
-        /// </summary>
         public readonly string? ReplacementStrategy;
         public readonly int? TerminationDelay;
 

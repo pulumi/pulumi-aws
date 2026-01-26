@@ -9,72 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Cfg
 {
-    /// <summary>
-    /// Manages an AWS Config Aggregate Authorization
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Cfg.AggregateAuthorization("example", new()
-    ///     {
-    ///         AccountId = "123456789012",
-    ///         AuthorizedAwsRegion = "eu-west-2",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Config aggregate authorizations using `account_id:authorized_aws_region`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cfg/aggregateAuthorization:AggregateAuthorization example 123456789012:us-east-1
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cfg/aggregateAuthorization:AggregateAuthorization")]
     public partial class AggregateAuthorization : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Account ID.
-        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the authorization
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The region authorized to collect aggregated data.
-        /// </summary>
         [Output("authorizedAwsRegion")]
         public Output<string?> AuthorizedAwsRegion { get; private set; } = null!;
 
-        /// <summary>
-        /// The region authorized to collect aggregated data. Use `AuthorizedAwsRegion` instead.
-        /// </summary>
         [Output("region")]
         public Output<string?> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -124,30 +76,17 @@ namespace Pulumi.Aws.Cfg
 
     public sealed class AggregateAuthorizationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Account ID.
-        /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
-        /// <summary>
-        /// The region authorized to collect aggregated data.
-        /// </summary>
         [Input("authorizedAwsRegion")]
         public Input<string>? AuthorizedAwsRegion { get; set; }
 
-        /// <summary>
-        /// The region authorized to collect aggregated data. Use `AuthorizedAwsRegion` instead.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -162,36 +101,20 @@ namespace Pulumi.Aws.Cfg
 
     public sealed class AggregateAuthorizationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Account ID.
-        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
-        /// <summary>
-        /// The ARN of the authorization
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The region authorized to collect aggregated data.
-        /// </summary>
         [Input("authorizedAwsRegion")]
         public Input<string>? AuthorizedAwsRegion { get; set; }
 
-        /// <summary>
-        /// The region authorized to collect aggregated data. Use `AuthorizedAwsRegion` instead.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -200,10 +123,6 @@ namespace Pulumi.Aws.Cfg
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -14,10 +14,6 @@ import javax.annotation.Nullable;
 public final class RevisionAssetsAssetCreateS3DataAccessFromS3Bucket {
     private @Nullable String accessPointAlias;
     private @Nullable String accessPointArn;
-    /**
-     * @return A block specifying the source bucket for the asset. This block supports the following:
-     * 
-     */
     private @Nullable RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource assetSource;
 
     private RevisionAssetsAssetCreateS3DataAccessFromS3Bucket() {}
@@ -27,10 +23,6 @@ public final class RevisionAssetsAssetCreateS3DataAccessFromS3Bucket {
     public Optional<String> accessPointArn() {
         return Optional.ofNullable(this.accessPointArn);
     }
-    /**
-     * @return A block specifying the source bucket for the asset. This block supports the following:
-     * 
-     */
     public Optional<RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource> assetSource() {
         return Optional.ofNullable(this.assetSource);
     }

@@ -4,30 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to allow a principal to discover a VPC endpoint service.
- *
- * > **NOTE on VPC Endpoint Services and VPC Endpoint Service Allowed Principals:** This provider provides
- * both a standalone VPC Endpoint Service Allowed Principal resource
- * and a VPC Endpoint Service resource with an `allowedPrincipals` attribute. Do not use the same principal ARN in both
- * a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
- * and will overwrite the association.
- *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const allowMeToFoo = new aws.ec2.VpcEndpointServiceAllowedPrinciple("allow_me_to_foo", {
- *     vpcEndpointServiceId: foo.id,
- *     principalArn: current.then(current => current.arn),
- * });
- * ```
- */
 export class VpcEndpointServiceAllowedPrinciple extends pulumi.CustomResource {
     /**
      * Get an existing VpcEndpointServiceAllowedPrinciple resource's state with the given name, ID, and optional extra
@@ -56,17 +32,8 @@ export class VpcEndpointServiceAllowedPrinciple extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpcEndpointServiceAllowedPrinciple.__pulumiType;
     }
 
-    /**
-     * The ARN of the principal to allow permissions.
-     */
     declare public readonly principalArn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The ID of the VPC endpoint service to allow permission.
-     */
     declare public readonly vpcEndpointServiceId: pulumi.Output<string>;
 
     /**
@@ -106,17 +73,8 @@ export class VpcEndpointServiceAllowedPrinciple extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpcEndpointServiceAllowedPrinciple resources.
  */
 export interface VpcEndpointServiceAllowedPrincipleState {
-    /**
-     * The ARN of the principal to allow permissions.
-     */
     principalArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the VPC endpoint service to allow permission.
-     */
     vpcEndpointServiceId?: pulumi.Input<string>;
 }
 
@@ -124,16 +82,7 @@ export interface VpcEndpointServiceAllowedPrincipleState {
  * The set of arguments for constructing a VpcEndpointServiceAllowedPrinciple resource.
  */
 export interface VpcEndpointServiceAllowedPrincipleArgs {
-    /**
-     * The ARN of the principal to allow permissions.
-     */
     principalArn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the VPC endpoint service to allow permission.
-     */
     vpcEndpointServiceId: pulumi.Input<string>;
 }

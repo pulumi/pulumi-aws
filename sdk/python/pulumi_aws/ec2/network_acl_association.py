@@ -24,9 +24,6 @@ class NetworkAclAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkAclAssociation resource.
-        :param pulumi.Input[_builtins.str] network_acl_id: The ID of the network ACL.
-        :param pulumi.Input[_builtins.str] subnet_id: The ID of the associated Subnet.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "network_acl_id", network_acl_id)
         pulumi.set(__self__, "subnet_id", subnet_id)
@@ -36,9 +33,6 @@ class NetworkAclAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="networkAclId")
     def network_acl_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the network ACL.
-        """
         return pulumi.get(self, "network_acl_id")
 
     @network_acl_id.setter
@@ -48,9 +42,6 @@ class NetworkAclAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the associated Subnet.
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -60,9 +51,6 @@ class NetworkAclAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -78,9 +66,6 @@ class _NetworkAclAssociationState:
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkAclAssociation resources.
-        :param pulumi.Input[_builtins.str] network_acl_id: The ID of the network ACL.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] subnet_id: The ID of the associated Subnet.
         """
         if network_acl_id is not None:
             pulumi.set(__self__, "network_acl_id", network_acl_id)
@@ -92,9 +77,6 @@ class _NetworkAclAssociationState:
     @_builtins.property
     @pulumi.getter(name="networkAclId")
     def network_acl_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the network ACL.
-        """
         return pulumi.get(self, "network_acl_id")
 
     @network_acl_id.setter
@@ -104,9 +86,6 @@ class _NetworkAclAssociationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -116,9 +95,6 @@ class _NetworkAclAssociationState:
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the associated Subnet.
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -137,36 +113,9 @@ class NetworkAclAssociation(pulumi.CustomResource):
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an network ACL association resource which allows you to associate your network ACL with any subnet(s).
-
-        > **NOTE on Network ACLs and Network ACL Associations:** the provider provides both a standalone network ACL association resource
-        and a network ACL resource with a `subnet_ids` attribute. Do not use the same subnet ID in both a network ACL
-        resource and a network ACL association resource. Doing so will cause a conflict of associations and will overwrite the association.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.ec2.NetworkAclAssociation("main",
-            network_acl_id=main_aws_network_acl["id"],
-            subnet_id=main_aws_subnet["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Network ACL associations using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/networkAclAssociation:NetworkAclAssociation main aclassoc-02baf37f20966b3e6
-        ```
-
+        Create a NetworkAclAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] network_acl_id: The ID of the network ACL.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] subnet_id: The ID of the associated Subnet.
         """
         ...
     @overload
@@ -175,31 +124,7 @@ class NetworkAclAssociation(pulumi.CustomResource):
                  args: NetworkAclAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an network ACL association resource which allows you to associate your network ACL with any subnet(s).
-
-        > **NOTE on Network ACLs and Network ACL Associations:** the provider provides both a standalone network ACL association resource
-        and a network ACL resource with a `subnet_ids` attribute. Do not use the same subnet ID in both a network ACL
-        resource and a network ACL association resource. Doing so will cause a conflict of associations and will overwrite the association.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.ec2.NetworkAclAssociation("main",
-            network_acl_id=main_aws_network_acl["id"],
-            subnet_id=main_aws_subnet["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Network ACL associations using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/networkAclAssociation:NetworkAclAssociation main aclassoc-02baf37f20966b3e6
-        ```
-
+        Create a NetworkAclAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param NetworkAclAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -254,9 +179,6 @@ class NetworkAclAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] network_acl_id: The ID of the network ACL.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] subnet_id: The ID of the associated Subnet.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -270,24 +192,15 @@ class NetworkAclAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="networkAclId")
     def network_acl_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the network ACL.
-        """
         return pulumi.get(self, "network_acl_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the associated Subnet.
-        """
         return pulumi.get(self, "subnet_id")
 

@@ -16,32 +16,16 @@ public final class WorkteamMemberDefinitionArgs extends com.pulumi.resources.Res
 
     public static final WorkteamMemberDefinitionArgs Empty = new WorkteamMemberDefinitionArgs();
 
-    /**
-     * The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
-     * 
-     */
     @Import(name="cognitoMemberDefinition")
     private @Nullable Output<WorkteamMemberDefinitionCognitoMemberDefinitionArgs> cognitoMemberDefinition;
 
-    /**
-     * @return The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
-     * 
-     */
     public Optional<Output<WorkteamMemberDefinitionCognitoMemberDefinitionArgs>> cognitoMemberDefinition() {
         return Optional.ofNullable(this.cognitoMemberDefinition);
     }
 
-    /**
-     * A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. See Cognito Member Definition details below.
-     * 
-     */
     @Import(name="oidcMemberDefinition")
     private @Nullable Output<WorkteamMemberDefinitionOidcMemberDefinitionArgs> oidcMemberDefinition;
 
-    /**
-     * @return A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. See Cognito Member Definition details below.
-     * 
-     */
     public Optional<Output<WorkteamMemberDefinitionOidcMemberDefinitionArgs>> oidcMemberDefinition() {
         return Optional.ofNullable(this.oidcMemberDefinition);
     }
@@ -71,44 +55,20 @@ public final class WorkteamMemberDefinitionArgs extends com.pulumi.resources.Res
             $ = new WorkteamMemberDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cognitoMemberDefinition The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cognitoMemberDefinition(@Nullable Output<WorkteamMemberDefinitionCognitoMemberDefinitionArgs> cognitoMemberDefinition) {
             $.cognitoMemberDefinition = cognitoMemberDefinition;
             return this;
         }
 
-        /**
-         * @param cognitoMemberDefinition The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cognitoMemberDefinition(WorkteamMemberDefinitionCognitoMemberDefinitionArgs cognitoMemberDefinition) {
             return cognitoMemberDefinition(Output.of(cognitoMemberDefinition));
         }
 
-        /**
-         * @param oidcMemberDefinition A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. See Cognito Member Definition details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oidcMemberDefinition(@Nullable Output<WorkteamMemberDefinitionOidcMemberDefinitionArgs> oidcMemberDefinition) {
             $.oidcMemberDefinition = oidcMemberDefinition;
             return this;
         }
 
-        /**
-         * @param oidcMemberDefinition A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. See Cognito Member Definition details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oidcMemberDefinition(WorkteamMemberDefinitionOidcMemberDefinitionArgs oidcMemberDefinition) {
             return oidcMemberDefinition(Output.of(oidcMemberDefinition));
         }

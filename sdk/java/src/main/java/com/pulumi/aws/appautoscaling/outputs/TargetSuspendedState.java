@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TargetSuspendedState {
-    /**
-     * @return Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
-     * 
-     */
     private @Nullable Boolean dynamicScalingInSuspended;
-    /**
-     * @return Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
-     * 
-     */
     private @Nullable Boolean dynamicScalingOutSuspended;
-    /**
-     * @return Whether scheduled scaling is suspended. Default is `false`.
-     * 
-     */
     private @Nullable Boolean scheduledScalingSuspended;
 
     private TargetSuspendedState() {}
-    /**
-     * @return Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
-     * 
-     */
     public Optional<Boolean> dynamicScalingInSuspended() {
         return Optional.ofNullable(this.dynamicScalingInSuspended);
     }
-    /**
-     * @return Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
-     * 
-     */
     public Optional<Boolean> dynamicScalingOutSuspended() {
         return Optional.ofNullable(this.dynamicScalingOutSuspended);
     }
-    /**
-     * @return Whether scheduled scaling is suspended. Default is `false`.
-     * 
-     */
     public Optional<Boolean> scheduledScalingSuspended() {
         return Optional.ofNullable(this.scheduledScalingSuspended);
     }

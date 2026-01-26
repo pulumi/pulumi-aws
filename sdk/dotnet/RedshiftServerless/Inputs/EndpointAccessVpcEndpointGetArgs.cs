@@ -14,25 +14,15 @@ namespace Pulumi.Aws.RedshiftServerless.Inputs
     {
         [Input("networkInterfaces")]
         private InputList<Inputs.EndpointAccessVpcEndpointNetworkInterfaceGetArgs>? _networkInterfaces;
-
-        /// <summary>
-        /// The network interfaces of the endpoint.. See `Network Interface` below.
-        /// </summary>
         public InputList<Inputs.EndpointAccessVpcEndpointNetworkInterfaceGetArgs> NetworkInterfaces
         {
             get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.EndpointAccessVpcEndpointNetworkInterfaceGetArgs>());
             set => _networkInterfaces = value;
         }
 
-        /// <summary>
-        /// The DNS address of the VPC endpoint.
-        /// </summary>
         [Input("vpcEndpointId")]
         public Input<string>? VpcEndpointId { get; set; }
 
-        /// <summary>
-        /// The port that Amazon Redshift Serverless listens on.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class MultitenantDistributionOriginVpcOriginConfig
     {
-        /// <summary>
-        /// Custom keep-alive timeout, in seconds. By default, CloudFront uses a default timeout. Default: 5.
-        /// </summary>
         public readonly int? OriginKeepaliveTimeout;
-        /// <summary>
-        /// Custom read timeout, in seconds. By default, CloudFront uses a default timeout. Default: 30.
-        /// </summary>
         public readonly int? OriginReadTimeout;
-        /// <summary>
-        /// ID of the VPC origin that you want CloudFront to route requests to.
-        /// </summary>
         public readonly string VpcOriginId;
 
         [OutputConstructor]

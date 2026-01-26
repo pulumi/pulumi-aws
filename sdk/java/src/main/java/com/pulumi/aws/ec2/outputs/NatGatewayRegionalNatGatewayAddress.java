@@ -11,89 +11,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class NatGatewayRegionalNatGatewayAddress {
-    /**
-     * @return The Allocation ID of the Elastic IP address for the NAT Gateway. Required when `connectivityType` is set to `public` and `availabilityMode` is set to `zonal`. When `availabilityMode` is set to `regional`, this must not be set; instead, use the `availabilityZoneAddress` block to specify EIPs for each AZ.
-     * 
-     */
     private @Nullable String allocationId;
-    /**
-     * @return Association ID of the Elastic IP address.
-     * 
-     */
     private @Nullable String associationId;
-    /**
-     * @return Availability Zone where this specific NAT gateway configuration is active.
-     * 
-     */
     private @Nullable String availabilityZone;
-    /**
-     * @return Availability Zone ID where this specific NAT gateway configuration is active
-     * 
-     */
     private @Nullable String availabilityZoneId;
-    /**
-     * @return ID of the network interface.
-     * 
-     */
     private @Nullable String networkInterfaceId;
-    /**
-     * @return Public IP address.
-     * 
-     */
     private @Nullable String publicIp;
-    /**
-     * @return Status of the NAT gateway address.
-     * 
-     */
     private @Nullable String status;
 
     private NatGatewayRegionalNatGatewayAddress() {}
-    /**
-     * @return The Allocation ID of the Elastic IP address for the NAT Gateway. Required when `connectivityType` is set to `public` and `availabilityMode` is set to `zonal`. When `availabilityMode` is set to `regional`, this must not be set; instead, use the `availabilityZoneAddress` block to specify EIPs for each AZ.
-     * 
-     */
     public Optional<String> allocationId() {
         return Optional.ofNullable(this.allocationId);
     }
-    /**
-     * @return Association ID of the Elastic IP address.
-     * 
-     */
     public Optional<String> associationId() {
         return Optional.ofNullable(this.associationId);
     }
-    /**
-     * @return Availability Zone where this specific NAT gateway configuration is active.
-     * 
-     */
     public Optional<String> availabilityZone() {
         return Optional.ofNullable(this.availabilityZone);
     }
-    /**
-     * @return Availability Zone ID where this specific NAT gateway configuration is active
-     * 
-     */
     public Optional<String> availabilityZoneId() {
         return Optional.ofNullable(this.availabilityZoneId);
     }
-    /**
-     * @return ID of the network interface.
-     * 
-     */
     public Optional<String> networkInterfaceId() {
         return Optional.ofNullable(this.networkInterfaceId);
     }
-    /**
-     * @return Public IP address.
-     * 
-     */
     public Optional<String> publicIp() {
         return Optional.ofNullable(this.publicIp);
     }
-    /**
-     * @return Status of the NAT gateway address.
-     * 
-     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }

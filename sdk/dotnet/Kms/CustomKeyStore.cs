@@ -9,125 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Kms
 {
-    /// <summary>
-    /// Resource for managing an AWS KMS (Key Management) Custom Key Store.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### CloudHSM
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Kms.CustomKeyStore("test", new()
-    ///     {
-    ///         CloudHsmClusterId = cloudHsmClusterId,
-    ///         CustomKeyStoreName = "kms-custom-key-store-test",
-    ///         KeyStorePassword = "noplaintextpasswords1",
-    ///         TrustAnchorCertificate = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "anchor-certificate.crt",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### External Key Store (VPC)
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Kms.CustomKeyStore("example", new()
-    ///     {
-    ///         CustomKeyStoreName = "example-vpc-xks",
-    ///         CustomKeyStoreType = "EXTERNAL_KEY_STORE",
-    ///         XksProxyAuthenticationCredential = new Aws.Kms.Inputs.CustomKeyStoreXksProxyAuthenticationCredentialArgs
-    ///         {
-    ///             AccessKeyId = ephemeralAccessKeyId,
-    ///             RawSecretAccessKey = ephemeralSecretAccessKey,
-    ///         },
-    ///         XksProxyConnectivity = "VPC_ENDPOINT_SERVICE",
-    ///         XksProxyUriEndpoint = "https://myproxy-private.xks.example.com",
-    ///         XksProxyUriPath = "/kms/xks/v1",
-    ///         XksProxyVpcEndpointServiceName = "com.amazonaws.vpce.us-east-1.vpce-svc-example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### External Key Store (Public)
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Kms.CustomKeyStore("example", new()
-    ///     {
-    ///         CustomKeyStoreName = "example-public-xks",
-    ///         CustomKeyStoreType = "EXTERNAL_KEY_STORE",
-    ///         XksProxyAuthenticationCredential = new Aws.Kms.Inputs.CustomKeyStoreXksProxyAuthenticationCredentialArgs
-    ///         {
-    ///             AccessKeyId = ephemeralAccessKeyId,
-    ///             RawSecretAccessKey = ephemeralSecretAccessKey,
-    ///         },
-    ///         XksProxyConnectivity = "PUBLIC_ENDPOINT",
-    ///         XksProxyUriEndpoint = "https://myproxy.xks.example.com",
-    ///         XksProxyUriPath = "/kms/xks/v1",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import KMS (Key Management) Custom Key Store using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:kms/customKeyStore:CustomKeyStore example cks-5ebd4ef395a96288e
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:kms/customKeyStore:CustomKeyStore")]
     public partial class CustomKeyStore : global::Pulumi.CustomResource
     {
         [Output("cloudHsmClusterId")]
         public Output<string?> CloudHsmClusterId { get; private set; } = null!;
 
-        /// <summary>
-        /// Unique name for Custom Key Store.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("customKeyStoreName")]
         public Output<string> CustomKeyStoreName { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
-        /// </summary>
         [Output("customKeyStoreType")]
         public Output<string> CustomKeyStoreType { get; private set; } = null!;
 
         [Output("keyStorePassword")]
         public Output<string?> KeyStorePassword { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -198,26 +94,15 @@ namespace Pulumi.Aws.Kms
         [Input("cloudHsmClusterId")]
         public Input<string>? CloudHsmClusterId { get; set; }
 
-        /// <summary>
-        /// Unique name for Custom Key Store.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("customKeyStoreName", required: true)]
         public Input<string> CustomKeyStoreName { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
-        /// </summary>
         [Input("customKeyStoreType")]
         public Input<string>? CustomKeyStoreType { get; set; }
 
         [Input("keyStorePassword")]
         public Input<string>? KeyStorePassword { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -250,26 +135,15 @@ namespace Pulumi.Aws.Kms
         [Input("cloudHsmClusterId")]
         public Input<string>? CloudHsmClusterId { get; set; }
 
-        /// <summary>
-        /// Unique name for Custom Key Store.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("customKeyStoreName")]
         public Input<string>? CustomKeyStoreName { get; set; }
 
-        /// <summary>
-        /// Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
-        /// </summary>
         [Input("customKeyStoreType")]
         public Input<string>? CustomKeyStoreType { get; set; }
 
         [Input("keyStorePassword")]
         public Input<string>? KeyStorePassword { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

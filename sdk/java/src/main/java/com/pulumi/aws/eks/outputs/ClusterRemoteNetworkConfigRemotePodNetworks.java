@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterRemoteNetworkConfigRemotePodNetworks {
-    /**
-     * @return List of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.
-     * 
-     */
     private @Nullable List<String> cidrs;
 
     private ClusterRemoteNetworkConfigRemotePodNetworks() {}
-    /**
-     * @return List of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.
-     * 
-     */
     public List<String> cidrs() {
         return this.cidrs == null ? List.of() : this.cidrs;
     }

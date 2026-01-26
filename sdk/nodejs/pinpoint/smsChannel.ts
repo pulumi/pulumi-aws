@@ -4,27 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Use the `aws.pinpoint.SmsChannel` resource to manage Pinpoint SMS Channels.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const app = new aws.pinpoint.App("app", {});
- * const sms = new aws.pinpoint.SmsChannel("sms", {applicationId: app.applicationId});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import the Pinpoint SMS Channel using the `application_id`. For example:
- *
- * ```sh
- * $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
- * ```
- */
 export class SmsChannel extends pulumi.CustomResource {
     /**
      * Get an existing SmsChannel resource's state with the given name, ID, and optional extra
@@ -53,33 +32,12 @@ export class SmsChannel extends pulumi.CustomResource {
         return obj['__pulumiType'] === SmsChannel.__pulumiType;
     }
 
-    /**
-     * ID of the application.
-     */
     declare public readonly applicationId: pulumi.Output<string>;
-    /**
-     * Whether the channel is enabled or disabled. By default, it is set to `true`.
-     */
     declare public readonly enabled: pulumi.Output<boolean | undefined>;
-    /**
-     * Maximum number of promotional messages that can be sent per second.
-     */
     declare public /*out*/ readonly promotionalMessagesPerSecond: pulumi.Output<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Identifier of the sender for your messages.
-     */
     declare public readonly senderId: pulumi.Output<string | undefined>;
-    /**
-     * Short Code registered with the phone provider.
-     */
     declare public readonly shortCode: pulumi.Output<string | undefined>;
-    /**
-     * Maximum number of transactional messages per second that can be sent.
-     */
     declare public /*out*/ readonly transactionalMessagesPerSecond: pulumi.Output<number>;
 
     /**
@@ -124,33 +82,12 @@ export class SmsChannel extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SmsChannel resources.
  */
 export interface SmsChannelState {
-    /**
-     * ID of the application.
-     */
     applicationId?: pulumi.Input<string>;
-    /**
-     * Whether the channel is enabled or disabled. By default, it is set to `true`.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Maximum number of promotional messages that can be sent per second.
-     */
     promotionalMessagesPerSecond?: pulumi.Input<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Identifier of the sender for your messages.
-     */
     senderId?: pulumi.Input<string>;
-    /**
-     * Short Code registered with the phone provider.
-     */
     shortCode?: pulumi.Input<string>;
-    /**
-     * Maximum number of transactional messages per second that can be sent.
-     */
     transactionalMessagesPerSecond?: pulumi.Input<number>;
 }
 
@@ -158,24 +95,9 @@ export interface SmsChannelState {
  * The set of arguments for constructing a SmsChannel resource.
  */
 export interface SmsChannelArgs {
-    /**
-     * ID of the application.
-     */
     applicationId: pulumi.Input<string>;
-    /**
-     * Whether the channel is enabled or disabled. By default, it is set to `true`.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Identifier of the sender for your messages.
-     */
     senderId?: pulumi.Input<string>;
-    /**
-     * Short Code registered with the phone provider.
-     */
     shortCode?: pulumi.Input<string>;
 }

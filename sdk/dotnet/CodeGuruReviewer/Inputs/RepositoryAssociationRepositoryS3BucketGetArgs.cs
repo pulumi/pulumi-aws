@@ -12,15 +12,9 @@ namespace Pulumi.Aws.CodeGuruReviewer.Inputs
 
     public sealed class RepositoryAssociationRepositoryS3BucketGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
-        /// </summary>
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the repository in the S3 bucket.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

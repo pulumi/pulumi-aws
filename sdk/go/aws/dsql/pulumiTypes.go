@@ -14,10 +14,8 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ClusterEncryptionDetail struct {
-	// The status of encryption for the DSQL Cluster.
 	EncryptionStatus string `pulumi:"encryptionStatus"`
-	// The type of encryption that protects the data on the DSQL Cluster.
-	EncryptionType string `pulumi:"encryptionType"`
+	EncryptionType   string `pulumi:"encryptionType"`
 }
 
 // ClusterEncryptionDetailInput is an input type that accepts ClusterEncryptionDetailArgs and ClusterEncryptionDetailOutput values.
@@ -32,10 +30,8 @@ type ClusterEncryptionDetailInput interface {
 }
 
 type ClusterEncryptionDetailArgs struct {
-	// The status of encryption for the DSQL Cluster.
 	EncryptionStatus pulumi.StringInput `pulumi:"encryptionStatus"`
-	// The type of encryption that protects the data on the DSQL Cluster.
-	EncryptionType pulumi.StringInput `pulumi:"encryptionType"`
+	EncryptionType   pulumi.StringInput `pulumi:"encryptionType"`
 }
 
 func (ClusterEncryptionDetailArgs) ElementType() reflect.Type {
@@ -89,12 +85,10 @@ func (o ClusterEncryptionDetailOutput) ToClusterEncryptionDetailOutputWithContex
 	return o
 }
 
-// The status of encryption for the DSQL Cluster.
 func (o ClusterEncryptionDetailOutput) EncryptionStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterEncryptionDetail) string { return v.EncryptionStatus }).(pulumi.StringOutput)
 }
 
-// The type of encryption that protects the data on the DSQL Cluster.
 func (o ClusterEncryptionDetailOutput) EncryptionType() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterEncryptionDetail) string { return v.EncryptionType }).(pulumi.StringOutput)
 }
@@ -120,10 +114,8 @@ func (o ClusterEncryptionDetailArrayOutput) Index(i pulumi.IntInput) ClusterEncr
 }
 
 type ClusterMultiRegionProperties struct {
-	// List of DSQL Cluster ARNs peered to this cluster.
-	Clusters []string `pulumi:"clusters"`
-	// Witness region for the multi-region clusters. Setting this makes this cluster a multi-region cluster. Changing it recreates the resource.
-	WitnessRegion *string `pulumi:"witnessRegion"`
+	Clusters      []string `pulumi:"clusters"`
+	WitnessRegion *string  `pulumi:"witnessRegion"`
 }
 
 // ClusterMultiRegionPropertiesInput is an input type that accepts ClusterMultiRegionPropertiesArgs and ClusterMultiRegionPropertiesOutput values.
@@ -138,10 +130,8 @@ type ClusterMultiRegionPropertiesInput interface {
 }
 
 type ClusterMultiRegionPropertiesArgs struct {
-	// List of DSQL Cluster ARNs peered to this cluster.
-	Clusters pulumi.StringArrayInput `pulumi:"clusters"`
-	// Witness region for the multi-region clusters. Setting this makes this cluster a multi-region cluster. Changing it recreates the resource.
-	WitnessRegion pulumi.StringPtrInput `pulumi:"witnessRegion"`
+	Clusters      pulumi.StringArrayInput `pulumi:"clusters"`
+	WitnessRegion pulumi.StringPtrInput   `pulumi:"witnessRegion"`
 }
 
 func (ClusterMultiRegionPropertiesArgs) ElementType() reflect.Type {
@@ -221,12 +211,10 @@ func (o ClusterMultiRegionPropertiesOutput) ToClusterMultiRegionPropertiesPtrOut
 	}).(ClusterMultiRegionPropertiesPtrOutput)
 }
 
-// List of DSQL Cluster ARNs peered to this cluster.
 func (o ClusterMultiRegionPropertiesOutput) Clusters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterMultiRegionProperties) []string { return v.Clusters }).(pulumi.StringArrayOutput)
 }
 
-// Witness region for the multi-region clusters. Setting this makes this cluster a multi-region cluster. Changing it recreates the resource.
 func (o ClusterMultiRegionPropertiesOutput) WitnessRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterMultiRegionProperties) *string { return v.WitnessRegion }).(pulumi.StringPtrOutput)
 }
@@ -255,7 +243,6 @@ func (o ClusterMultiRegionPropertiesPtrOutput) Elem() ClusterMultiRegionProperti
 	}).(ClusterMultiRegionPropertiesOutput)
 }
 
-// List of DSQL Cluster ARNs peered to this cluster.
 func (o ClusterMultiRegionPropertiesPtrOutput) Clusters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterMultiRegionProperties) []string {
 		if v == nil {
@@ -265,7 +252,6 @@ func (o ClusterMultiRegionPropertiesPtrOutput) Clusters() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
-// Witness region for the multi-region clusters. Setting this makes this cluster a multi-region cluster. Changing it recreates the resource.
 func (o ClusterMultiRegionPropertiesPtrOutput) WitnessRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterMultiRegionProperties) *string {
 		if v == nil {

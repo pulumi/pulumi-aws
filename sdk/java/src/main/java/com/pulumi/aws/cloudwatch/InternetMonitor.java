@@ -19,208 +19,71 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Internet Monitor Monitor resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.InternetMonitor;
- * import com.pulumi.aws.cloudwatch.InternetMonitorArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new InternetMonitor("example", InternetMonitorArgs.builder()
- *             .monitorName("exmple")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Internet Monitor Monitors using the `monitor_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:cloudwatch/internetMonitor:InternetMonitor some some-monitor
- * ```
- * 
- */
 @ResourceType(type="aws:cloudwatch/internetMonitor:InternetMonitor")
 public class InternetMonitor extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Monitor.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Monitor.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there&#39;s an internet issue that affects your application end users. See Health Events Config below.
-     * 
-     */
     @Export(name="healthEventsConfig", refs={InternetMonitorHealthEventsConfig.class}, tree="[0]")
     private Output</* @Nullable */ InternetMonitorHealthEventsConfig> healthEventsConfig;
 
-    /**
-     * @return Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there&#39;s an internet issue that affects your application end users. See Health Events Config below.
-     * 
-     */
     public Output<Optional<InternetMonitorHealthEventsConfig>> healthEventsConfig() {
         return Codegen.optional(this.healthEventsConfig);
     }
-    /**
-     * Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
-     * 
-     */
     @Export(name="internetMeasurementsLogDelivery", refs={InternetMonitorInternetMeasurementsLogDelivery.class}, tree="[0]")
     private Output</* @Nullable */ InternetMonitorInternetMeasurementsLogDelivery> internetMeasurementsLogDelivery;
 
-    /**
-     * @return Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
-     * 
-     */
     public Output<Optional<InternetMonitorInternetMeasurementsLogDelivery>> internetMeasurementsLogDelivery() {
         return Codegen.optional(this.internetMeasurementsLogDelivery);
     }
-    /**
-     * The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
-     * 
-     */
     @Export(name="maxCityNetworksToMonitor", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxCityNetworksToMonitor;
 
-    /**
-     * @return The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
-     * 
-     */
     public Output<Optional<Integer>> maxCityNetworksToMonitor() {
         return Codegen.optional(this.maxCityNetworksToMonitor);
     }
-    /**
-     * The name of the monitor.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="monitorName", refs={String.class}, tree="[0]")
     private Output<String> monitorName;
 
-    /**
-     * @return The name of the monitor.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> monitorName() {
         return this.monitorName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
-     * 
-     */
     @Export(name="resources", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> resources;
 
-    /**
-     * @return The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
-     * 
-     */
     public Output<Optional<List<String>>> resources() {
         return Codegen.optional(this.resources);
     }
-    /**
-     * The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
-    /**
-     * @return The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
-     * 
-     */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The percentage of the internet-facing traffic for your application that you want to monitor with this monitor.
-     * 
-     */
     @Export(name="trafficPercentageToMonitor", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> trafficPercentageToMonitor;
 
-    /**
-     * @return The percentage of the internet-facing traffic for your application that you want to monitor with this monitor.
-     * 
-     */
     public Output<Optional<Integer>> trafficPercentageToMonitor() {
         return Codegen.optional(this.trafficPercentageToMonitor);
     }

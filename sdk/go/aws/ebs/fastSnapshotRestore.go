@@ -12,56 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an EBS (Elastic Block Storage) Fast Snapshot Restore.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ebs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ebs.NewFastSnapshotRestore(ctx, "example", &ebs.FastSnapshotRestoreArgs{
-//				AvailabilityZone: pulumi.String("us-west-2a"),
-//				SnapshotId:       pulumi.Any(exampleAwsEbsSnapshot.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import EC2 (Elastic Compute Cloud) EBS Fast Snapshot Restore using the `availability_zone` and `snapshot_id` separated by `,`. For example:
-//
-// ```sh
-// $ pulumi import aws:ebs/fastSnapshotRestore:FastSnapshotRestore example us-west-2a,snap-abcdef123456
-// ```
 type FastSnapshotRestore struct {
 	pulumi.CustomResourceState
 
-	// Availability zone in which to enable fast snapshot restores.
-	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ID of the snapshot.
-	SnapshotId pulumi.StringOutput `pulumi:"snapshotId"`
-	// State of fast snapshot restores. Valid values are `enabling`, `optimizing`, `enabled`, `disabling`, `disabled`.
-	State    pulumi.StringOutput                  `pulumi:"state"`
-	Timeouts FastSnapshotRestoreTimeoutsPtrOutput `pulumi:"timeouts"`
+	AvailabilityZone pulumi.StringOutput                  `pulumi:"availabilityZone"`
+	Region           pulumi.StringOutput                  `pulumi:"region"`
+	SnapshotId       pulumi.StringOutput                  `pulumi:"snapshotId"`
+	State            pulumi.StringOutput                  `pulumi:"state"`
+	Timeouts         FastSnapshotRestoreTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewFastSnapshotRestore registers a new resource with the given unique name, arguments, and options.
@@ -100,27 +58,19 @@ func GetFastSnapshotRestore(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FastSnapshotRestore resources.
 type fastSnapshotRestoreState struct {
-	// Availability zone in which to enable fast snapshot restores.
-	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID of the snapshot.
-	SnapshotId *string `pulumi:"snapshotId"`
-	// State of fast snapshot restores. Valid values are `enabling`, `optimizing`, `enabled`, `disabling`, `disabled`.
-	State    *string                      `pulumi:"state"`
-	Timeouts *FastSnapshotRestoreTimeouts `pulumi:"timeouts"`
+	AvailabilityZone *string                      `pulumi:"availabilityZone"`
+	Region           *string                      `pulumi:"region"`
+	SnapshotId       *string                      `pulumi:"snapshotId"`
+	State            *string                      `pulumi:"state"`
+	Timeouts         *FastSnapshotRestoreTimeouts `pulumi:"timeouts"`
 }
 
 type FastSnapshotRestoreState struct {
-	// Availability zone in which to enable fast snapshot restores.
 	AvailabilityZone pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ID of the snapshot.
-	SnapshotId pulumi.StringPtrInput
-	// State of fast snapshot restores. Valid values are `enabling`, `optimizing`, `enabled`, `disabling`, `disabled`.
-	State    pulumi.StringPtrInput
-	Timeouts FastSnapshotRestoreTimeoutsPtrInput
+	Region           pulumi.StringPtrInput
+	SnapshotId       pulumi.StringPtrInput
+	State            pulumi.StringPtrInput
+	Timeouts         FastSnapshotRestoreTimeoutsPtrInput
 }
 
 func (FastSnapshotRestoreState) ElementType() reflect.Type {
@@ -128,24 +78,18 @@ func (FastSnapshotRestoreState) ElementType() reflect.Type {
 }
 
 type fastSnapshotRestoreArgs struct {
-	// Availability zone in which to enable fast snapshot restores.
-	AvailabilityZone string `pulumi:"availabilityZone"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID of the snapshot.
-	SnapshotId string                       `pulumi:"snapshotId"`
-	Timeouts   *FastSnapshotRestoreTimeouts `pulumi:"timeouts"`
+	AvailabilityZone string                       `pulumi:"availabilityZone"`
+	Region           *string                      `pulumi:"region"`
+	SnapshotId       string                       `pulumi:"snapshotId"`
+	Timeouts         *FastSnapshotRestoreTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a FastSnapshotRestore resource.
 type FastSnapshotRestoreArgs struct {
-	// Availability zone in which to enable fast snapshot restores.
 	AvailabilityZone pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ID of the snapshot.
-	SnapshotId pulumi.StringInput
-	Timeouts   FastSnapshotRestoreTimeoutsPtrInput
+	Region           pulumi.StringPtrInput
+	SnapshotId       pulumi.StringInput
+	Timeouts         FastSnapshotRestoreTimeoutsPtrInput
 }
 
 func (FastSnapshotRestoreArgs) ElementType() reflect.Type {
@@ -235,22 +179,18 @@ func (o FastSnapshotRestoreOutput) ToFastSnapshotRestoreOutputWithContext(ctx co
 	return o
 }
 
-// Availability zone in which to enable fast snapshot restores.
 func (o FastSnapshotRestoreOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *FastSnapshotRestore) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o FastSnapshotRestoreOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *FastSnapshotRestore) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ID of the snapshot.
 func (o FastSnapshotRestoreOutput) SnapshotId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FastSnapshotRestore) pulumi.StringOutput { return v.SnapshotId }).(pulumi.StringOutput)
 }
 
-// State of fast snapshot restores. Valid values are `enabling`, `optimizing`, `enabled`, `disabling`, `disabled`.
 func (o FastSnapshotRestoreOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *FastSnapshotRestore) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }

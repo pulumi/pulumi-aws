@@ -9,61 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Provides a resource to create a VPC Internet Gateway Attachment.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleVpc = new Aws.Ec2.Vpc("example", new()
-    ///     {
-    ///         CidrBlock = "10.1.0.0/16",
-    ///     });
-    /// 
-    ///     var exampleInternetGateway = new Aws.Ec2.InternetGateway("example");
-    /// 
-    ///     var example = new Aws.Ec2.InternetGatewayAttachment("example", new()
-    ///     {
-    ///         InternetGatewayId = exampleInternetGateway.Id,
-    ///         VpcId = exampleVpc.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Internet Gateway Attachments using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2/internetGatewayAttachment:InternetGatewayAttachment example igw-c0a643a9:vpc-123456
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/internetGatewayAttachment:InternetGatewayAttachment")]
     public partial class InternetGatewayAttachment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ID of the internet gateway.
-        /// </summary>
         [Output("internetGatewayId")]
         public Output<string> InternetGatewayId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the VPC.
-        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -113,21 +67,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class InternetGatewayAttachmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the internet gateway.
-        /// </summary>
         [Input("internetGatewayId", required: true)]
         public Input<string> InternetGatewayId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the VPC.
-        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 
@@ -139,21 +84,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class InternetGatewayAttachmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the internet gateway.
-        /// </summary>
         [Input("internetGatewayId")]
         public Input<string>? InternetGatewayId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the VPC.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

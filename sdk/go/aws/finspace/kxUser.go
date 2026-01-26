@@ -12,106 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS FinSpace Kx User.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/finspace"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
-//				Description:          pulumi.String("Example KMS Key"),
-//				DeletionWindowInDays: pulumi.Int(7),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleKxEnvironment, err := finspace.NewKxEnvironment(ctx, "example", &finspace.KxEnvironmentArgs{
-//				Name:     pulumi.String("my-tf-kx-environment"),
-//				KmsKeyId: example.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": "sts:AssumeRole",
-//						"Effect": "Allow",
-//						"Sid":    "",
-//						"Principal": map[string]interface{}{
-//							"Service": "ec2.amazonaws.com",
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				Name:             pulumi.String("example-role"),
-//				AssumeRolePolicy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = finspace.NewKxUser(ctx, "example", &finspace.KxUserArgs{
-//				Name:          pulumi.String("my-tf-kx-user"),
-//				EnvironmentId: exampleKxEnvironment.ID(),
-//				IamRole:       exampleRole.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import an AWS FinSpace Kx User using the `id` (environment ID and user name, comma-delimited). For example:
-//
-// ```sh
-// $ pulumi import aws:finspace/kxUser:KxUser example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-user
-// ```
 type KxUser struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) identifier of the KX user.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Unique identifier for the KX environment.
-	EnvironmentId pulumi.StringOutput `pulumi:"environmentId"`
-	// IAM role ARN to be associated with the user.
-	//
-	// The following arguments are optional:
-	IamRole pulumi.StringOutput `pulumi:"iamRole"`
-	// A unique identifier for the user.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn           pulumi.StringOutput    `pulumi:"arn"`
+	EnvironmentId pulumi.StringOutput    `pulumi:"environmentId"`
+	IamRole       pulumi.StringOutput    `pulumi:"iamRole"`
+	Name          pulumi.StringOutput    `pulumi:"name"`
+	Region        pulumi.StringOutput    `pulumi:"region"`
+	Tags          pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll       pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewKxUser registers a new resource with the given unique name, arguments, and options.
@@ -150,41 +60,23 @@ func GetKxUser(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KxUser resources.
 type kxUserState struct {
-	// Amazon Resource Name (ARN) identifier of the KX user.
-	Arn *string `pulumi:"arn"`
-	// Unique identifier for the KX environment.
-	EnvironmentId *string `pulumi:"environmentId"`
-	// IAM role ARN to be associated with the user.
-	//
-	// The following arguments are optional:
-	IamRole *string `pulumi:"iamRole"`
-	// A unique identifier for the user.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn           *string           `pulumi:"arn"`
+	EnvironmentId *string           `pulumi:"environmentId"`
+	IamRole       *string           `pulumi:"iamRole"`
+	Name          *string           `pulumi:"name"`
+	Region        *string           `pulumi:"region"`
+	Tags          map[string]string `pulumi:"tags"`
+	TagsAll       map[string]string `pulumi:"tagsAll"`
 }
 
 type KxUserState struct {
-	// Amazon Resource Name (ARN) identifier of the KX user.
-	Arn pulumi.StringPtrInput
-	// Unique identifier for the KX environment.
+	Arn           pulumi.StringPtrInput
 	EnvironmentId pulumi.StringPtrInput
-	// IAM role ARN to be associated with the user.
-	//
-	// The following arguments are optional:
-	IamRole pulumi.StringPtrInput
-	// A unique identifier for the user.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	IamRole       pulumi.StringPtrInput
+	Name          pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
+	Tags          pulumi.StringMapInput
+	TagsAll       pulumi.StringMapInput
 }
 
 func (KxUserState) ElementType() reflect.Type {
@@ -192,34 +84,20 @@ func (KxUserState) ElementType() reflect.Type {
 }
 
 type kxUserArgs struct {
-	// Unique identifier for the KX environment.
-	EnvironmentId string `pulumi:"environmentId"`
-	// IAM role ARN to be associated with the user.
-	//
-	// The following arguments are optional:
-	IamRole string `pulumi:"iamRole"`
-	// A unique identifier for the user.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	EnvironmentId string            `pulumi:"environmentId"`
+	IamRole       string            `pulumi:"iamRole"`
+	Name          *string           `pulumi:"name"`
+	Region        *string           `pulumi:"region"`
+	Tags          map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a KxUser resource.
 type KxUserArgs struct {
-	// Unique identifier for the KX environment.
 	EnvironmentId pulumi.StringInput
-	// IAM role ARN to be associated with the user.
-	//
-	// The following arguments are optional:
-	IamRole pulumi.StringInput
-	// A unique identifier for the user.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	IamRole       pulumi.StringInput
+	Name          pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
+	Tags          pulumi.StringMapInput
 }
 
 func (KxUserArgs) ElementType() reflect.Type {
@@ -309,39 +187,30 @@ func (o KxUserOutput) ToKxUserOutputWithContext(ctx context.Context) KxUserOutpu
 	return o
 }
 
-// Amazon Resource Name (ARN) identifier of the KX user.
 func (o KxUserOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxUser) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Unique identifier for the KX environment.
 func (o KxUserOutput) EnvironmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxUser) pulumi.StringOutput { return v.EnvironmentId }).(pulumi.StringOutput)
 }
 
-// IAM role ARN to be associated with the user.
-//
-// The following arguments are optional:
 func (o KxUserOutput) IamRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxUser) pulumi.StringOutput { return v.IamRole }).(pulumi.StringOutput)
 }
 
-// A unique identifier for the user.
 func (o KxUserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxUser) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o KxUserOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxUser) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o KxUserOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KxUser) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o KxUserOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KxUser) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

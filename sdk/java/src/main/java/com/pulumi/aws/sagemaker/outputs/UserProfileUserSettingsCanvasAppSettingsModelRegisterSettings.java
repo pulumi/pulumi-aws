@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings {
-    /**
-     * @return The Amazon Resource Name (ARN) of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
-     * 
-     */
     private @Nullable String crossAccountModelRegisterRoleArn;
-    /**
-     * @return Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     private @Nullable String status;
 
     private UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
-     * 
-     */
     public Optional<String> crossAccountModelRegisterRoleArn() {
         return Optional.ofNullable(this.crossAccountModelRegisterRoleArn);
     }
-    /**
-     * @return Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }

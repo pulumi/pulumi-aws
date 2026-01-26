@@ -13,9 +13,6 @@ namespace Pulumi.Aws.VerifiedPermissions.Outputs
     [OutputType]
     public sealed class IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration
     {
-        /// <summary>
-        /// The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
-        /// </summary>
         public readonly string GroupEntityType;
 
         [OutputConstructor]

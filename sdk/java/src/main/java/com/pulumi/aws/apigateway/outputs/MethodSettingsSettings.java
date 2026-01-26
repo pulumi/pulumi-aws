@@ -14,125 +14,45 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MethodSettingsSettings {
-    /**
-     * @return Whether the cached responses are encrypted.
-     * 
-     */
     private @Nullable Boolean cacheDataEncrypted;
-    /**
-     * @return Time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
-     * 
-     */
     private @Nullable Integer cacheTtlInSeconds;
-    /**
-     * @return Whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
-     * 
-     */
     private @Nullable Boolean cachingEnabled;
-    /**
-     * @return Whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
-     * 
-     */
     private @Nullable Boolean dataTraceEnabled;
-    /**
-     * @return Logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
-     * 
-     */
     private @Nullable String loggingLevel;
-    /**
-     * @return Whether Amazon CloudWatch metrics are enabled for this method.
-     * 
-     */
     private @Nullable Boolean metricsEnabled;
-    /**
-     * @return Whether authorization is required for a cache invalidation request.
-     * 
-     */
     private @Nullable Boolean requireAuthorizationForCacheControl;
-    /**
-     * @return Throttling burst limit. Default: `-1` (throttling disabled).
-     * 
-     */
     private @Nullable Integer throttlingBurstLimit;
-    /**
-     * @return Throttling rate limit. Default: `-1` (throttling disabled).
-     * 
-     */
     private @Nullable Double throttlingRateLimit;
-    /**
-     * @return How to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
-     * 
-     */
     private @Nullable String unauthorizedCacheControlHeaderStrategy;
 
     private MethodSettingsSettings() {}
-    /**
-     * @return Whether the cached responses are encrypted.
-     * 
-     */
     public Optional<Boolean> cacheDataEncrypted() {
         return Optional.ofNullable(this.cacheDataEncrypted);
     }
-    /**
-     * @return Time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
-     * 
-     */
     public Optional<Integer> cacheTtlInSeconds() {
         return Optional.ofNullable(this.cacheTtlInSeconds);
     }
-    /**
-     * @return Whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
-     * 
-     */
     public Optional<Boolean> cachingEnabled() {
         return Optional.ofNullable(this.cachingEnabled);
     }
-    /**
-     * @return Whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
-     * 
-     */
     public Optional<Boolean> dataTraceEnabled() {
         return Optional.ofNullable(this.dataTraceEnabled);
     }
-    /**
-     * @return Logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
-     * 
-     */
     public Optional<String> loggingLevel() {
         return Optional.ofNullable(this.loggingLevel);
     }
-    /**
-     * @return Whether Amazon CloudWatch metrics are enabled for this method.
-     * 
-     */
     public Optional<Boolean> metricsEnabled() {
         return Optional.ofNullable(this.metricsEnabled);
     }
-    /**
-     * @return Whether authorization is required for a cache invalidation request.
-     * 
-     */
     public Optional<Boolean> requireAuthorizationForCacheControl() {
         return Optional.ofNullable(this.requireAuthorizationForCacheControl);
     }
-    /**
-     * @return Throttling burst limit. Default: `-1` (throttling disabled).
-     * 
-     */
     public Optional<Integer> throttlingBurstLimit() {
         return Optional.ofNullable(this.throttlingBurstLimit);
     }
-    /**
-     * @return Throttling rate limit. Default: `-1` (throttling disabled).
-     * 
-     */
     public Optional<Double> throttlingRateLimit() {
         return Optional.ofNullable(this.throttlingRateLimit);
     }
-    /**
-     * @return How to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
-     * 
-     */
     public Optional<String> unauthorizedCacheControlHeaderStrategy() {
         return Optional.ofNullable(this.unauthorizedCacheControlHeaderStrategy);
     }

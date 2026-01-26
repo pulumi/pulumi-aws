@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Fis.Outputs
     [OutputType]
     public sealed class ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
-        /// </summary>
         public readonly string LogGroupArn;
 
         [OutputConstructor]

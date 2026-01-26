@@ -9,94 +9,62 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LicenseManager
 {
-    /// <summary>
-    /// Accepts a License Manager grant. This allows for sharing licenses with other aws accounts.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.LicenseManager.LicenseGrantAccepter("test", new()
-    ///     {
-    ///         GrantArn = "arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_licensemanager_grant_accepter` using the grant arn. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter test arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter")]
     public partial class LicenseGrantAccepter : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of the allowed operations for the grant.
+        /// Allowed operations for the grant.
         /// </summary>
         [Output("allowedOperations")]
         public Output<ImmutableArray<string>> AllowedOperations { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the grant to accept.
+        /// Amazon Resource Name (ARN) of the grant.
         /// </summary>
         [Output("grantArn")]
         public Output<string> GrantArn { get; private set; } = null!;
 
         /// <summary>
-        /// The home region for the license.
+        /// Home Region of the grant.
         /// </summary>
         [Output("homeRegion")]
         public Output<string> HomeRegion { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the license for the grant.
+        /// License ARN.
         /// </summary>
         [Output("licenseArn")]
         public Output<string> LicenseArn { get; private set; } = null!;
 
         /// <summary>
-        /// The Name of the grant.
+        /// Name of the grant.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The parent ARN.
+        /// Parent ARN.
         /// </summary>
         [Output("parentArn")]
         public Output<string> ParentArn { get; private set; } = null!;
 
         /// <summary>
-        /// The target account for the grant.
+        /// The grantee principal ARN.
         /// </summary>
         [Output("principal")]
         public Output<string> Principal { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The grant status.
+        /// GrantAccepter status.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The grant version.
+        /// GrantAccepter version.
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
@@ -148,14 +116,11 @@ namespace Pulumi.Aws.LicenseManager
     public sealed class LicenseGrantAccepterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the grant to accept.
+        /// Amazon Resource Name (ARN) of the grant.
         /// </summary>
         [Input("grantArn", required: true)]
         public Input<string> GrantArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -171,7 +136,7 @@ namespace Pulumi.Aws.LicenseManager
         private InputList<string>? _allowedOperations;
 
         /// <summary>
-        /// A list of the allowed operations for the grant.
+        /// Allowed operations for the grant.
         /// </summary>
         public InputList<string> AllowedOperations
         {
@@ -180,55 +145,52 @@ namespace Pulumi.Aws.LicenseManager
         }
 
         /// <summary>
-        /// The ARN of the grant to accept.
+        /// Amazon Resource Name (ARN) of the grant.
         /// </summary>
         [Input("grantArn")]
         public Input<string>? GrantArn { get; set; }
 
         /// <summary>
-        /// The home region for the license.
+        /// Home Region of the grant.
         /// </summary>
         [Input("homeRegion")]
         public Input<string>? HomeRegion { get; set; }
 
         /// <summary>
-        /// The ARN of the license for the grant.
+        /// License ARN.
         /// </summary>
         [Input("licenseArn")]
         public Input<string>? LicenseArn { get; set; }
 
         /// <summary>
-        /// The Name of the grant.
+        /// Name of the grant.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The parent ARN.
+        /// Parent ARN.
         /// </summary>
         [Input("parentArn")]
         public Input<string>? ParentArn { get; set; }
 
         /// <summary>
-        /// The target account for the grant.
+        /// The grantee principal ARN.
         /// </summary>
         [Input("principal")]
         public Input<string>? Principal { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The grant status.
+        /// GrantAccepter status.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The grant version.
+        /// GrantAccepter version.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

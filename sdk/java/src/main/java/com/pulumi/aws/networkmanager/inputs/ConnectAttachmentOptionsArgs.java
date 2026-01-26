@@ -15,17 +15,9 @@ public final class ConnectAttachmentOptionsArgs extends com.pulumi.resources.Res
 
     public static final ConnectAttachmentOptionsArgs Empty = new ConnectAttachmentOptionsArgs();
 
-    /**
-     * Protocol used for the attachment connection. Valid values: `GRE`, `NO_ENCAP`.
-     * 
-     */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
-    /**
-     * @return Protocol used for the attachment connection. Valid values: `GRE`, `NO_ENCAP`.
-     * 
-     */
     public Optional<Output<String>> protocol() {
         return Optional.ofNullable(this.protocol);
     }
@@ -54,23 +46,11 @@ public final class ConnectAttachmentOptionsArgs extends com.pulumi.resources.Res
             $ = new ConnectAttachmentOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param protocol Protocol used for the attachment connection. Valid values: `GRE`, `NO_ENCAP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocol(@Nullable Output<String> protocol) {
             $.protocol = protocol;
             return this;
         }
 
-        /**
-         * @param protocol Protocol used for the attachment connection. Valid values: `GRE`, `NO_ENCAP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocol(String protocol) {
             return protocol(Output.of(protocol));
         }

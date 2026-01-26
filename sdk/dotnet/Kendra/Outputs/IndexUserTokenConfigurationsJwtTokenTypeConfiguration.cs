@@ -13,33 +13,12 @@ namespace Pulumi.Aws.Kendra.Outputs
     [OutputType]
     public sealed class IndexUserTokenConfigurationsJwtTokenTypeConfiguration
     {
-        /// <summary>
-        /// The regular expression that identifies the claim. Minimum length of 1. Maximum length of 100.
-        /// </summary>
         public readonly string? ClaimRegex;
-        /// <summary>
-        /// The group attribute field. Minimum length of 1. Maximum length of 100.
-        /// </summary>
         public readonly string? GroupAttributeField;
-        /// <summary>
-        /// The issuer of the token. Minimum length of 1. Maximum length of 65.
-        /// </summary>
         public readonly string? Issuer;
-        /// <summary>
-        /// The location of the key. Valid values are `URL` or `SECRET_MANAGER`
-        /// </summary>
         public readonly string KeyLocation;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the secret.
-        /// </summary>
         public readonly string? SecretsManagerArn;
-        /// <summary>
-        /// The signing key URL. Valid pattern is `^(https?|ftp|file):\/\/([^\s]*)`
-        /// </summary>
         public readonly string? Url;
-        /// <summary>
-        /// The user name attribute field. Minimum length of 1. Maximum length of 100.
-        /// </summary>
         public readonly string? UserNameAttributeField;
 
         [OutputConstructor]

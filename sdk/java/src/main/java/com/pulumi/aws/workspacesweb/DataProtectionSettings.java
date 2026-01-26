@@ -17,318 +17,65 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS WorkSpaces Web Data Protection Settings resource. Once associated with a web portal, data protection settings control how sensitive information is redacted in streaming sessions.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.workspacesweb.DataProtectionSettings;
- * import com.pulumi.aws.workspacesweb.DataProtectionSettingsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataProtectionSettings("example", DataProtectionSettingsArgs.builder()
- *             .displayName("example")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### With Inline Redaction Configuration
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.workspacesweb.DataProtectionSettings;
- * import com.pulumi.aws.workspacesweb.DataProtectionSettingsArgs;
- * import com.pulumi.aws.workspacesweb.inputs.DataProtectionSettingsInlineRedactionConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataProtectionSettings("example", DataProtectionSettingsArgs.builder()
- *             .displayName("example")
- *             .description("Example data protection settings")
- *             .inlineRedactionConfiguration(DataProtectionSettingsInlineRedactionConfigurationArgs.builder()
- *                 .globalConfidenceLevel(2)
- *                 .globalEnforcedUrls("https://example.com")
- *                 .inlineRedactionPatterns(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs.builder()
- *                     .builtInPatternId("ssn")
- *                     .confidenceLevel(3)
- *                     .redactionPlaceHolders(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs.builder()
- *                         .redactionPlaceHolderType("CustomText")
- *                         .redactionPlaceHolderText("REDACTED")
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Complete Example
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.workspacesweb.DataProtectionSettings;
- * import com.pulumi.aws.workspacesweb.DataProtectionSettingsArgs;
- * import com.pulumi.aws.workspacesweb.inputs.DataProtectionSettingsInlineRedactionConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Key("example", KeyArgs.builder()
- *             .description("KMS key for WorkSpaces Web Data Protection Settings")
- *             .deletionWindowInDays(7)
- *             .build());
- * 
- *         var exampleDataProtectionSettings = new DataProtectionSettings("exampleDataProtectionSettings", DataProtectionSettingsArgs.builder()
- *             .displayName("example-complete")
- *             .description("Complete example data protection settings")
- *             .customerManagedKey(example.arn())
- *             .additionalEncryptionContext(Map.of("Environment", "Production"))
- *             .inlineRedactionConfiguration(DataProtectionSettingsInlineRedactionConfigurationArgs.builder()
- *                 .globalConfidenceLevel(2)
- *                 .globalEnforcedUrls(                
- *                     "https://example.com",
- *                     "https://test.example.com")
- *                 .globalExemptUrls("https://exempt.example.com")
- *                 .inlineRedactionPatterns(                
- *                     DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs.builder()
- *                         .builtInPatternId("ssn")
- *                         .confidenceLevel(3)
- *                         .enforcedUrls("https://pattern1.example.com")
- *                         .exemptUrls("https://exempt-pattern1.example.com")
- *                         .redactionPlaceHolders(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs.builder()
- *                             .redactionPlaceHolderType("CustomText")
- *                             .redactionPlaceHolderText("REDACTED-SSN")
- *                             .build())
- *                         .build(),
- *                     DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs.builder()
- *                         .customPattern(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs.builder()
- *                             .patternName("CustomPattern")
- *                             .patternRegex("/\\d{3}-\\d{2}-\\d{4}/g")
- *                             .keywordRegex("/SSN|Social Security/gi")
- *                             .patternDescription("Custom SSN pattern")
- *                             .build())
- *                         .redactionPlaceHolders(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs.builder()
- *                             .redactionPlaceHolderType("CustomText")
- *                             .redactionPlaceHolderText("REDACTED-CUSTOM")
- *                             .build())
- *                         .build())
- *                 .build())
- *             .tags(Map.of("Name", "example-data-protection-settings"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import WorkSpaces Web Data Protection Settings using the `data_protection_settings_arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:workspacesweb/dataProtectionSettings:DataProtectionSettings example arn:aws:workspaces-web:us-west-2:123456789012:dataprotectionsettings/abcdef12345
- * ```
- * 
- */
 @ResourceType(type="aws:workspacesweb/dataProtectionSettings:DataProtectionSettings")
 public class DataProtectionSettings extends com.pulumi.resources.CustomResource {
-    /**
-     * Additional encryption context for the data protection settings.
-     * 
-     */
     @Export(name="additionalEncryptionContext", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> additionalEncryptionContext;
 
-    /**
-     * @return Additional encryption context for the data protection settings.
-     * 
-     */
     public Output<Optional<Map<String,String>>> additionalEncryptionContext() {
         return Codegen.optional(this.additionalEncryptionContext);
     }
-    /**
-     * List of web portal ARNs that this data protection settings resource is associated with.
-     * 
-     */
     @Export(name="associatedPortalArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> associatedPortalArns;
 
-    /**
-     * @return List of web portal ARNs that this data protection settings resource is associated with.
-     * 
-     */
     public Output<List<String>> associatedPortalArns() {
         return this.associatedPortalArns;
     }
-    /**
-     * ARN of the customer managed KMS key.
-     * 
-     */
     @Export(name="customerManagedKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customerManagedKey;
 
-    /**
-     * @return ARN of the customer managed KMS key.
-     * 
-     */
     public Output<Optional<String>> customerManagedKey() {
         return Codegen.optional(this.customerManagedKey);
     }
-    /**
-     * ARN of the data protection settings resource.
-     * 
-     */
     @Export(name="dataProtectionSettingsArn", refs={String.class}, tree="[0]")
     private Output<String> dataProtectionSettingsArn;
 
-    /**
-     * @return ARN of the data protection settings resource.
-     * 
-     */
     public Output<String> dataProtectionSettingsArn() {
         return this.dataProtectionSettingsArn;
     }
-    /**
-     * The description of the data protection settings.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return The description of the data protection settings.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The display name of the data protection settings.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
-    /**
-     * @return The display name of the data protection settings.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> displayName() {
         return this.displayName;
     }
-    /**
-     * The inline redaction configuration of the data protection settings. Detailed below.
-     * 
-     */
     @Export(name="inlineRedactionConfiguration", refs={DataProtectionSettingsInlineRedactionConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ DataProtectionSettingsInlineRedactionConfiguration> inlineRedactionConfiguration;
 
-    /**
-     * @return The inline redaction configuration of the data protection settings. Detailed below.
-     * 
-     */
     public Output<Optional<DataProtectionSettingsInlineRedactionConfiguration>> inlineRedactionConfiguration() {
         return Codegen.optional(this.inlineRedactionConfiguration);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

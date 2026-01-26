@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ssm.Outputs
     [OutputType]
     public sealed class GetPatchBaselinesFilterResult
     {
-        /// <summary>
-        /// Filter key. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for valid values.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// Filter values. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for example values.
-        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

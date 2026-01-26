@@ -11,78 +11,12 @@ namespace Pulumi.Aws.Odb
 {
     public static class GetCloudAutonomousVmClusters
     {
-        /// <summary>
-        /// Data source for managing cloud autonomous vm clusters in AWS for Oracle Database@AWS.
-        /// 
-        /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Odb.GetCloudAutonomousVmClusters.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetCloudAutonomousVmClustersResult> InvokeAsync(GetCloudAutonomousVmClustersArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudAutonomousVmClustersResult>("aws:odb/getCloudAutonomousVmClusters:getCloudAutonomousVmClusters", args ?? new GetCloudAutonomousVmClustersArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing cloud autonomous vm clusters in AWS for Oracle Database@AWS.
-        /// 
-        /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Odb.GetCloudAutonomousVmClusters.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetCloudAutonomousVmClustersResult> Invoke(GetCloudAutonomousVmClustersInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudAutonomousVmClustersResult>("aws:odb/getCloudAutonomousVmClusters:getCloudAutonomousVmClusters", args ?? new GetCloudAutonomousVmClustersInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing cloud autonomous vm clusters in AWS for Oracle Database@AWS.
-        /// 
-        /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Odb.GetCloudAutonomousVmClusters.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetCloudAutonomousVmClustersResult> Invoke(GetCloudAutonomousVmClustersInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudAutonomousVmClustersResult>("aws:odb/getCloudAutonomousVmClusters:getCloudAutonomousVmClusters", args ?? new GetCloudAutonomousVmClustersInvokeArgs(), options.WithDefaults());
     }
@@ -90,9 +24,6 @@ namespace Pulumi.Aws.Odb
 
     public sealed class GetCloudAutonomousVmClustersArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -104,9 +35,6 @@ namespace Pulumi.Aws.Odb
 
     public sealed class GetCloudAutonomousVmClustersInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -120,9 +48,6 @@ namespace Pulumi.Aws.Odb
     [OutputType]
     public sealed class GetCloudAutonomousVmClustersResult
     {
-        /// <summary>
-        /// List of Cloud Autonomous VM Clusters. The list going to contain basic information about the cloud autonomous VM clusters.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetCloudAutonomousVmClustersCloudAutonomousVmClusterResult> CloudAutonomousVmClusters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

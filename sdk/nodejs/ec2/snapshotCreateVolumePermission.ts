@@ -4,26 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Adds permission to create volumes off of a given EBS Snapshot.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ebs.Volume("example", {
- *     availabilityZone: "us-west-2a",
- *     size: 40,
- * });
- * const exampleSnapshot = new aws.ebs.Snapshot("example_snapshot", {volumeId: example.id});
- * const examplePerm = new aws.ec2.SnapshotCreateVolumePermission("example_perm", {
- *     snapshotId: exampleSnapshot.id,
- *     accountId: "12345678",
- * });
- * ```
- */
 export class SnapshotCreateVolumePermission extends pulumi.CustomResource {
     /**
      * Get an existing SnapshotCreateVolumePermission resource's state with the given name, ID, and optional extra
@@ -52,17 +32,8 @@ export class SnapshotCreateVolumePermission extends pulumi.CustomResource {
         return obj['__pulumiType'] === SnapshotCreateVolumePermission.__pulumiType;
     }
 
-    /**
-     * An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
-     */
     declare public readonly accountId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A snapshot ID
-     */
     declare public readonly snapshotId: pulumi.Output<string>;
 
     /**
@@ -102,17 +73,8 @@ export class SnapshotCreateVolumePermission extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SnapshotCreateVolumePermission resources.
  */
 export interface SnapshotCreateVolumePermissionState {
-    /**
-     * An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A snapshot ID
-     */
     snapshotId?: pulumi.Input<string>;
 }
 
@@ -120,16 +82,7 @@ export interface SnapshotCreateVolumePermissionState {
  * The set of arguments for constructing a SnapshotCreateVolumePermission resource.
  */
 export interface SnapshotCreateVolumePermissionArgs {
-    /**
-     * An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
-     */
     accountId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A snapshot ID
-     */
     snapshotId: pulumi.Input<string>;
 }

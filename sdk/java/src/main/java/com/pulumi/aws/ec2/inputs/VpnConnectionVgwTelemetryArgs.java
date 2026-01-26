@@ -16,92 +16,44 @@ public final class VpnConnectionVgwTelemetryArgs extends com.pulumi.resources.Re
 
     public static final VpnConnectionVgwTelemetryArgs Empty = new VpnConnectionVgwTelemetryArgs();
 
-    /**
-     * The number of accepted routes.
-     * 
-     */
     @Import(name="acceptedRouteCount")
     private @Nullable Output<Integer> acceptedRouteCount;
 
-    /**
-     * @return The number of accepted routes.
-     * 
-     */
     public Optional<Output<Integer>> acceptedRouteCount() {
         return Optional.ofNullable(this.acceptedRouteCount);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
-     * 
-     */
     @Import(name="certificateArn")
     private @Nullable Output<String> certificateArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
-     * 
-     */
     public Optional<Output<String>> certificateArn() {
         return Optional.ofNullable(this.certificateArn);
     }
 
-    /**
-     * The date and time of the last change in status.
-     * 
-     */
     @Import(name="lastStatusChange")
     private @Nullable Output<String> lastStatusChange;
 
-    /**
-     * @return The date and time of the last change in status.
-     * 
-     */
     public Optional<Output<String>> lastStatusChange() {
         return Optional.ofNullable(this.lastStatusChange);
     }
 
-    /**
-     * The Internet-routable IP address of the virtual private gateway&#39;s outside interface.
-     * 
-     */
     @Import(name="outsideIpAddress")
     private @Nullable Output<String> outsideIpAddress;
 
-    /**
-     * @return The Internet-routable IP address of the virtual private gateway&#39;s outside interface.
-     * 
-     */
     public Optional<Output<String>> outsideIpAddress() {
         return Optional.ofNullable(this.outsideIpAddress);
     }
 
-    /**
-     * The status of the VPN tunnel.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return The status of the VPN tunnel.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
-    /**
-     * If an error occurs, a description of the error.
-     * 
-     */
     @Import(name="statusMessage")
     private @Nullable Output<String> statusMessage;
 
-    /**
-     * @return If an error occurs, a description of the error.
-     * 
-     */
     public Optional<Output<String>> statusMessage() {
         return Optional.ofNullable(this.statusMessage);
     }
@@ -135,128 +87,56 @@ public final class VpnConnectionVgwTelemetryArgs extends com.pulumi.resources.Re
             $ = new VpnConnectionVgwTelemetryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param acceptedRouteCount The number of accepted routes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder acceptedRouteCount(@Nullable Output<Integer> acceptedRouteCount) {
             $.acceptedRouteCount = acceptedRouteCount;
             return this;
         }
 
-        /**
-         * @param acceptedRouteCount The number of accepted routes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder acceptedRouteCount(Integer acceptedRouteCount) {
             return acceptedRouteCount(Output.of(acceptedRouteCount));
         }
 
-        /**
-         * @param certificateArn The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateArn(@Nullable Output<String> certificateArn) {
             $.certificateArn = certificateArn;
             return this;
         }
 
-        /**
-         * @param certificateArn The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateArn(String certificateArn) {
             return certificateArn(Output.of(certificateArn));
         }
 
-        /**
-         * @param lastStatusChange The date and time of the last change in status.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lastStatusChange(@Nullable Output<String> lastStatusChange) {
             $.lastStatusChange = lastStatusChange;
             return this;
         }
 
-        /**
-         * @param lastStatusChange The date and time of the last change in status.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lastStatusChange(String lastStatusChange) {
             return lastStatusChange(Output.of(lastStatusChange));
         }
 
-        /**
-         * @param outsideIpAddress The Internet-routable IP address of the virtual private gateway&#39;s outside interface.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outsideIpAddress(@Nullable Output<String> outsideIpAddress) {
             $.outsideIpAddress = outsideIpAddress;
             return this;
         }
 
-        /**
-         * @param outsideIpAddress The Internet-routable IP address of the virtual private gateway&#39;s outside interface.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outsideIpAddress(String outsideIpAddress) {
             return outsideIpAddress(Output.of(outsideIpAddress));
         }
 
-        /**
-         * @param status The status of the VPN tunnel.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The status of the VPN tunnel.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
-        /**
-         * @param statusMessage If an error occurs, a description of the error.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusMessage(@Nullable Output<String> statusMessage) {
             $.statusMessage = statusMessage;
             return this;
         }
 
-        /**
-         * @param statusMessage If an error occurs, a description of the error.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusMessage(String statusMessage) {
             return statusMessage(Output.of(statusMessage));
         }

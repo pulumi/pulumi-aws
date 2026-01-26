@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class GetThemeConfigurationTypographyResult
     {
-        /// <summary>
-        /// Determines the list of font families. Maximum number of 5 items. See font_families.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetThemeConfigurationTypographyFontFamilyResult> FontFamilies;
 
         [OutputConstructor]

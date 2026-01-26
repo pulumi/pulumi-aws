@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CaCertificateRegistrationConfig {
-    /**
-     * @return The ARN of the role.
-     * 
-     */
     private @Nullable String roleArn;
-    /**
-     * @return The template body.
-     * 
-     */
     private @Nullable String templateBody;
-    /**
-     * @return The name of the provisioning template.
-     * 
-     */
     private @Nullable String templateName;
 
     private CaCertificateRegistrationConfig() {}
-    /**
-     * @return The ARN of the role.
-     * 
-     */
     public Optional<String> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
-    /**
-     * @return The template body.
-     * 
-     */
     public Optional<String> templateBody() {
         return Optional.ofNullable(this.templateBody);
     }
-    /**
-     * @return The name of the provisioning template.
-     * 
-     */
     public Optional<String> templateName() {
         return Optional.ofNullable(this.templateName);
     }

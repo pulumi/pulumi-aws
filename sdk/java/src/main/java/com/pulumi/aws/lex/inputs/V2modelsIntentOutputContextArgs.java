@@ -15,47 +15,23 @@ public final class V2modelsIntentOutputContextArgs extends com.pulumi.resources.
 
     public static final V2modelsIntentOutputContextArgs Empty = new V2modelsIntentOutputContextArgs();
 
-    /**
-     * Name of the output context.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the output context.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Amount of time, in seconds, that the output context should remain active. The time is figured from the first time the context is sent to the user.
-     * 
-     */
     @Import(name="timeToLiveInSeconds", required=true)
     private Output<Integer> timeToLiveInSeconds;
 
-    /**
-     * @return Amount of time, in seconds, that the output context should remain active. The time is figured from the first time the context is sent to the user.
-     * 
-     */
     public Output<Integer> timeToLiveInSeconds() {
         return this.timeToLiveInSeconds;
     }
 
-    /**
-     * Number of conversation turns that the output context should remain active. The number of turns is counted from the first time that the context is sent to the user.
-     * 
-     */
     @Import(name="turnsToLive", required=true)
     private Output<Integer> turnsToLive;
 
-    /**
-     * @return Number of conversation turns that the output context should remain active. The number of turns is counted from the first time that the context is sent to the user.
-     * 
-     */
     public Output<Integer> turnsToLive() {
         return this.turnsToLive;
     }
@@ -86,65 +62,29 @@ public final class V2modelsIntentOutputContextArgs extends com.pulumi.resources.
             $ = new V2modelsIntentOutputContextArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the output context.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the output context.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param timeToLiveInSeconds Amount of time, in seconds, that the output context should remain active. The time is figured from the first time the context is sent to the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeToLiveInSeconds(Output<Integer> timeToLiveInSeconds) {
             $.timeToLiveInSeconds = timeToLiveInSeconds;
             return this;
         }
 
-        /**
-         * @param timeToLiveInSeconds Amount of time, in seconds, that the output context should remain active. The time is figured from the first time the context is sent to the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeToLiveInSeconds(Integer timeToLiveInSeconds) {
             return timeToLiveInSeconds(Output.of(timeToLiveInSeconds));
         }
 
-        /**
-         * @param turnsToLive Number of conversation turns that the output context should remain active. The number of turns is counted from the first time that the context is sent to the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder turnsToLive(Output<Integer> turnsToLive) {
             $.turnsToLive = turnsToLive;
             return this;
         }
 
-        /**
-         * @param turnsToLive Number of conversation turns that the output context should remain active. The number of turns is counted from the first time that the context is sent to the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder turnsToLive(Integer turnsToLive) {
             return turnsToLive(Output.of(turnsToLive));
         }

@@ -34,9 +34,6 @@ MYPY = False
 if not MYPY:
     class ClusterMasterUserSecretArgsDict(TypedDict):
         kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
-        """
         secret_arn: NotRequired[pulumi.Input[_builtins.str]]
         secret_status: NotRequired[pulumi.Input[_builtins.str]]
 elif False:
@@ -48,9 +45,6 @@ class ClusterMasterUserSecretArgs:
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  secret_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  secret_status: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
-        """
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if secret_arn is not None:
@@ -61,9 +55,6 @@ class ClusterMasterUserSecretArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -92,17 +83,8 @@ class ClusterMasterUserSecretArgs:
 if not MYPY:
     class ClusterParameterGroupParameterArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        The name of the DocumentDB parameter.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        The value of the DocumentDB parameter.
-        """
         apply_method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
-        """
 elif False:
     ClusterParameterGroupParameterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -112,11 +94,6 @@ class ClusterParameterGroupParameterArgs:
                  name: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str],
                  apply_method: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] name: The name of the DocumentDB parameter.
-        :param pulumi.Input[_builtins.str] value: The value of the DocumentDB parameter.
-        :param pulumi.Input[_builtins.str] apply_method: Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
         if apply_method is not None:
@@ -125,9 +102,6 @@ class ClusterParameterGroupParameterArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the DocumentDB parameter.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -137,9 +111,6 @@ class ClusterParameterGroupParameterArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        The value of the DocumentDB parameter.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -149,9 +120,6 @@ class ClusterParameterGroupParameterArgs:
     @_builtins.property
     @pulumi.getter(name="applyMethod")
     def apply_method(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
-        """
         return pulumi.get(self, "apply_method")
 
     @apply_method.setter
@@ -162,21 +130,9 @@ class ClusterParameterGroupParameterArgs:
 if not MYPY:
     class ClusterRestoreToPointInTimeArgsDict(TypedDict):
         source_cluster_identifier: pulumi.Input[_builtins.str]
-        """
-        The identifier of the source DB cluster from which to restore. Must match the identifier of an existing DB cluster.
-        """
         restore_to_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
-        """
         restore_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of restore to be performed. Valid values are `full-copy`, `copy-on-write`.
-        """
         use_latest_restorable_time: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_to_time`.
-        """
 elif False:
     ClusterRestoreToPointInTimeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -187,12 +143,6 @@ class ClusterRestoreToPointInTimeArgs:
                  restore_to_time: Optional[pulumi.Input[_builtins.str]] = None,
                  restore_type: Optional[pulumi.Input[_builtins.str]] = None,
                  use_latest_restorable_time: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        :param pulumi.Input[_builtins.str] source_cluster_identifier: The identifier of the source DB cluster from which to restore. Must match the identifier of an existing DB cluster.
-        :param pulumi.Input[_builtins.str] restore_to_time: The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
-        :param pulumi.Input[_builtins.str] restore_type: The type of restore to be performed. Valid values are `full-copy`, `copy-on-write`.
-        :param pulumi.Input[_builtins.bool] use_latest_restorable_time: A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_to_time`.
-        """
         pulumi.set(__self__, "source_cluster_identifier", source_cluster_identifier)
         if restore_to_time is not None:
             pulumi.set(__self__, "restore_to_time", restore_to_time)
@@ -204,9 +154,6 @@ class ClusterRestoreToPointInTimeArgs:
     @_builtins.property
     @pulumi.getter(name="sourceClusterIdentifier")
     def source_cluster_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The identifier of the source DB cluster from which to restore. Must match the identifier of an existing DB cluster.
-        """
         return pulumi.get(self, "source_cluster_identifier")
 
     @source_cluster_identifier.setter
@@ -216,9 +163,6 @@ class ClusterRestoreToPointInTimeArgs:
     @_builtins.property
     @pulumi.getter(name="restoreToTime")
     def restore_to_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
-        """
         return pulumi.get(self, "restore_to_time")
 
     @restore_to_time.setter
@@ -228,9 +172,6 @@ class ClusterRestoreToPointInTimeArgs:
     @_builtins.property
     @pulumi.getter(name="restoreType")
     def restore_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of restore to be performed. Valid values are `full-copy`, `copy-on-write`.
-        """
         return pulumi.get(self, "restore_type")
 
     @restore_type.setter
@@ -240,9 +181,6 @@ class ClusterRestoreToPointInTimeArgs:
     @_builtins.property
     @pulumi.getter(name="useLatestRestorableTime")
     def use_latest_restorable_time(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_to_time`.
-        """
         return pulumi.get(self, "use_latest_restorable_time")
 
     @use_latest_restorable_time.setter
@@ -253,13 +191,7 @@ class ClusterRestoreToPointInTimeArgs:
 if not MYPY:
     class ClusterServerlessV2ScalingConfigurationArgsDict(TypedDict):
         max_capacity: pulumi.Input[_builtins.float]
-        """
-        Maximum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 1 and 256.
-        """
         min_capacity: pulumi.Input[_builtins.float]
-        """
-        Minimum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 0.5 and 256.
-        """
 elif False:
     ClusterServerlessV2ScalingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -268,19 +200,12 @@ class ClusterServerlessV2ScalingConfigurationArgs:
     def __init__(__self__, *,
                  max_capacity: pulumi.Input[_builtins.float],
                  min_capacity: pulumi.Input[_builtins.float]):
-        """
-        :param pulumi.Input[_builtins.float] max_capacity: Maximum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 1 and 256.
-        :param pulumi.Input[_builtins.float] min_capacity: Minimum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 0.5 and 256.
-        """
         pulumi.set(__self__, "max_capacity", max_capacity)
         pulumi.set(__self__, "min_capacity", min_capacity)
 
     @_builtins.property
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> pulumi.Input[_builtins.float]:
-        """
-        Maximum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 1 and 256.
-        """
         return pulumi.get(self, "max_capacity")
 
     @max_capacity.setter
@@ -290,9 +215,6 @@ class ClusterServerlessV2ScalingConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="minCapacity")
     def min_capacity(self) -> pulumi.Input[_builtins.float]:
-        """
-        Minimum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 0.5 and 256.
-        """
         return pulumi.get(self, "min_capacity")
 
     @min_capacity.setter
@@ -375,13 +297,7 @@ class ElasticClusterTimeoutsArgs:
 if not MYPY:
     class GlobalClusterGlobalClusterMemberArgsDict(TypedDict):
         db_cluster_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Amazon Resource Name (ARN) of member DB Cluster.
-        """
         is_writer: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the member is the primary DB Cluster.
-        """
 elif False:
     GlobalClusterGlobalClusterMemberArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -390,10 +306,6 @@ class GlobalClusterGlobalClusterMemberArgs:
     def __init__(__self__, *,
                  db_cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  is_writer: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        :param pulumi.Input[_builtins.str] db_cluster_arn: Amazon Resource Name (ARN) of member DB Cluster.
-        :param pulumi.Input[_builtins.bool] is_writer: Whether the member is the primary DB Cluster.
-        """
         if db_cluster_arn is not None:
             pulumi.set(__self__, "db_cluster_arn", db_cluster_arn)
         if is_writer is not None:
@@ -402,9 +314,6 @@ class GlobalClusterGlobalClusterMemberArgs:
     @_builtins.property
     @pulumi.getter(name="dbClusterArn")
     def db_cluster_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of member DB Cluster.
-        """
         return pulumi.get(self, "db_cluster_arn")
 
     @db_cluster_arn.setter
@@ -414,9 +323,6 @@ class GlobalClusterGlobalClusterMemberArgs:
     @_builtins.property
     @pulumi.getter(name="isWriter")
     def is_writer(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the member is the primary DB Cluster.
-        """
         return pulumi.get(self, "is_writer")
 
     @is_writer.setter

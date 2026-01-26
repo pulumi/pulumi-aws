@@ -19,92 +19,44 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfig
 
     public static final RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs Empty = new RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs();
 
-    /**
-     * Email template used when a detected risk event is blocked. See notify email type below.
-     * 
-     */
     @Import(name="blockEmail")
     private @Nullable Output<RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs> blockEmail;
 
-    /**
-     * @return Email template used when a detected risk event is blocked. See notify email type below.
-     * 
-     */
     public Optional<Output<RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs>> blockEmail() {
         return Optional.ofNullable(this.blockEmail);
     }
 
-    /**
-     * The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
-     * 
-     */
     @Import(name="from")
     private @Nullable Output<String> from;
 
-    /**
-     * @return The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
-     * 
-     */
     public Optional<Output<String>> from() {
         return Optional.ofNullable(this.from);
     }
 
-    /**
-     * The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk. See notify email type below.
-     * 
-     */
     @Import(name="mfaEmail")
     private @Nullable Output<RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs> mfaEmail;
 
-    /**
-     * @return The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk. See notify email type below.
-     * 
-     */
     public Optional<Output<RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs>> mfaEmail() {
         return Optional.ofNullable(this.mfaEmail);
     }
 
-    /**
-     * The email template used when a detected risk event is allowed. See notify email type below.
-     * 
-     */
     @Import(name="noActionEmail")
     private @Nullable Output<RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs> noActionEmail;
 
-    /**
-     * @return The email template used when a detected risk event is allowed. See notify email type below.
-     * 
-     */
     public Optional<Output<RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs>> noActionEmail() {
         return Optional.ofNullable(this.noActionEmail);
     }
 
-    /**
-     * The destination to which the receiver of an email should reply to.
-     * 
-     */
     @Import(name="replyTo")
     private @Nullable Output<String> replyTo;
 
-    /**
-     * @return The destination to which the receiver of an email should reply to.
-     * 
-     */
     public Optional<Output<String>> replyTo() {
         return Optional.ofNullable(this.replyTo);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
-     * 
-     */
     @Import(name="sourceArn", required=true)
     private Output<String> sourceArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
-     * 
-     */
     public Output<String> sourceArn() {
         return this.sourceArn;
     }
@@ -138,128 +90,56 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfig
             $ = new RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param blockEmail Email template used when a detected risk event is blocked. See notify email type below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder blockEmail(@Nullable Output<RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs> blockEmail) {
             $.blockEmail = blockEmail;
             return this;
         }
 
-        /**
-         * @param blockEmail Email template used when a detected risk event is blocked. See notify email type below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder blockEmail(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs blockEmail) {
             return blockEmail(Output.of(blockEmail));
         }
 
-        /**
-         * @param from The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
-         * 
-         * @return builder
-         * 
-         */
         public Builder from(@Nullable Output<String> from) {
             $.from = from;
             return this;
         }
 
-        /**
-         * @param from The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
-         * 
-         * @return builder
-         * 
-         */
         public Builder from(String from) {
             return from(Output.of(from));
         }
 
-        /**
-         * @param mfaEmail The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk. See notify email type below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mfaEmail(@Nullable Output<RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs> mfaEmail) {
             $.mfaEmail = mfaEmail;
             return this;
         }
 
-        /**
-         * @param mfaEmail The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk. See notify email type below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mfaEmail(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs mfaEmail) {
             return mfaEmail(Output.of(mfaEmail));
         }
 
-        /**
-         * @param noActionEmail The email template used when a detected risk event is allowed. See notify email type below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder noActionEmail(@Nullable Output<RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs> noActionEmail) {
             $.noActionEmail = noActionEmail;
             return this;
         }
 
-        /**
-         * @param noActionEmail The email template used when a detected risk event is allowed. See notify email type below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder noActionEmail(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs noActionEmail) {
             return noActionEmail(Output.of(noActionEmail));
         }
 
-        /**
-         * @param replyTo The destination to which the receiver of an email should reply to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replyTo(@Nullable Output<String> replyTo) {
             $.replyTo = replyTo;
             return this;
         }
 
-        /**
-         * @param replyTo The destination to which the receiver of an email should reply to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replyTo(String replyTo) {
             return replyTo(Output.of(replyTo));
         }
 
-        /**
-         * @param sourceArn The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceArn(Output<String> sourceArn) {
             $.sourceArn = sourceArn;
             return this;
         }
 
-        /**
-         * @param sourceArn The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceArn(String sourceArn) {
             return sourceArn(Output.of(sourceArn));
         }

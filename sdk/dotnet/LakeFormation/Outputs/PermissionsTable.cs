@@ -13,23 +13,9 @@ namespace Pulumi.Aws.LakeFormation.Outputs
     [OutputType]
     public sealed class PermissionsTable
     {
-        /// <summary>
-        /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        /// </summary>
         public readonly string? CatalogId;
-        /// <summary>
-        /// Name of the database for the table. Unique to a Data Catalog.
-        /// </summary>
         public readonly string DatabaseName;
-        /// <summary>
-        /// Name of the table.
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// Whether to use a wildcard representing every table under a database. Defaults to `False`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public readonly bool? Wildcard;
 
         [OutputConstructor]

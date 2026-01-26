@@ -9,134 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Connect
 {
-    /// <summary>
-    /// Provides an Amazon Connect Hours of Operation resource. For more information see
-    /// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Connect.HoursOfOperation("test", new()
-    ///     {
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///         Name = "Office Hours",
-    ///         Description = "Monday office hours",
-    ///         TimeZone = "EST",
-    ///         Configs = new[]
-    ///         {
-    ///             new Aws.Connect.Inputs.HoursOfOperationConfigArgs
-    ///             {
-    ///                 Day = "MONDAY",
-    ///                 EndTime = new Aws.Connect.Inputs.HoursOfOperationConfigEndTimeArgs
-    ///                 {
-    ///                     Hours = 23,
-    ///                     Minutes = 8,
-    ///                 },
-    ///                 StartTime = new Aws.Connect.Inputs.HoursOfOperationConfigStartTimeArgs
-    ///                 {
-    ///                     Hours = 8,
-    ///                     Minutes = 0,
-    ///                 },
-    ///             },
-    ///             new Aws.Connect.Inputs.HoursOfOperationConfigArgs
-    ///             {
-    ///                 Day = "TUESDAY",
-    ///                 EndTime = new Aws.Connect.Inputs.HoursOfOperationConfigEndTimeArgs
-    ///                 {
-    ///                     Hours = 21,
-    ///                     Minutes = 0,
-    ///                 },
-    ///                 StartTime = new Aws.Connect.Inputs.HoursOfOperationConfigStartTimeArgs
-    ///                 {
-    ///                     Hours = 9,
-    ///                     Minutes = 0,
-    ///                 },
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Example Hours of Operation" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Amazon Connect Hours of Operations using the `instance_id` and `hours_of_operation_id` separated by a colon (`:`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:connect/hoursOfOperation:HoursOfOperation example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:connect/hoursOfOperation:HoursOfOperation")]
     public partial class HoursOfOperation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Hours of Operation.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
-        /// </summary>
         [Output("configs")]
         public Output<ImmutableArray<Outputs.HoursOfOperationConfig>> Configs { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the description of the Hours of Operation.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The identifier for the hours of operation.
-        /// </summary>
         [Output("hoursOfOperationId")]
         public Output<string> HoursOfOperationId { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the identifier of the hosting Amazon Connect Instance.
-        /// </summary>
         [Output("instanceId")]
         public Output<string> InstanceId { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the name of the Hours of Operation.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Tags to apply to the Hours of Operation. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the time zone of the Hours of Operation.
-        /// </summary>
         [Output("timeZone")]
         public Output<string> TimeZone { get; private set; } = null!;
 
@@ -188,55 +90,32 @@ namespace Pulumi.Aws.Connect
     {
         [Input("configs", required: true)]
         private InputList<Inputs.HoursOfOperationConfigArgs>? _configs;
-
-        /// <summary>
-        /// One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
-        /// </summary>
         public InputList<Inputs.HoursOfOperationConfigArgs> Configs
         {
             get => _configs ?? (_configs = new InputList<Inputs.HoursOfOperationConfigArgs>());
             set => _configs = value;
         }
 
-        /// <summary>
-        /// Specifies the description of the Hours of Operation.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Specifies the identifier of the hosting Amazon Connect Instance.
-        /// </summary>
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies the name of the Hours of Operation.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags to apply to the Hours of Operation. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Specifies the time zone of the Hours of Operation.
-        /// </summary>
         [Input("timeZone", required: true)]
         public Input<string> TimeZone { get; set; } = null!;
 
@@ -248,60 +127,34 @@ namespace Pulumi.Aws.Connect
 
     public sealed class HoursOfOperationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Hours of Operation.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("configs")]
         private InputList<Inputs.HoursOfOperationConfigGetArgs>? _configs;
-
-        /// <summary>
-        /// One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
-        /// </summary>
         public InputList<Inputs.HoursOfOperationConfigGetArgs> Configs
         {
             get => _configs ?? (_configs = new InputList<Inputs.HoursOfOperationConfigGetArgs>());
             set => _configs = value;
         }
 
-        /// <summary>
-        /// Specifies the description of the Hours of Operation.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The identifier for the hours of operation.
-        /// </summary>
         [Input("hoursOfOperationId")]
         public Input<string>? HoursOfOperationId { get; set; }
 
-        /// <summary>
-        /// Specifies the identifier of the hosting Amazon Connect Instance.
-        /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
 
-        /// <summary>
-        /// Specifies the name of the Hours of Operation.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags to apply to the Hours of Operation. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -310,19 +163,12 @@ namespace Pulumi.Aws.Connect
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// Specifies the time zone of the Hours of Operation.
-        /// </summary>
         [Input("timeZone")]
         public Input<string>? TimeZone { get; set; }
 

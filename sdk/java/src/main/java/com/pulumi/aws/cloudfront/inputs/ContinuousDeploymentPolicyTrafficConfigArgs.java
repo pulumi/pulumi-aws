@@ -18,47 +18,23 @@ public final class ContinuousDeploymentPolicyTrafficConfigArgs extends com.pulum
 
     public static final ContinuousDeploymentPolicyTrafficConfigArgs Empty = new ContinuousDeploymentPolicyTrafficConfigArgs();
 
-    /**
-     * Determines which HTTP requests are sent to the staging distribution. See `singleHeaderConfig`.
-     * 
-     */
     @Import(name="singleHeaderConfig")
     private @Nullable Output<ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs> singleHeaderConfig;
 
-    /**
-     * @return Determines which HTTP requests are sent to the staging distribution. See `singleHeaderConfig`.
-     * 
-     */
     public Optional<Output<ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs>> singleHeaderConfig() {
         return Optional.ofNullable(this.singleHeaderConfig);
     }
 
-    /**
-     * Contains the percentage of traffic to send to the staging distribution. See `singleWeightConfig`.
-     * 
-     */
     @Import(name="singleWeightConfig")
     private @Nullable Output<ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs> singleWeightConfig;
 
-    /**
-     * @return Contains the percentage of traffic to send to the staging distribution. See `singleWeightConfig`.
-     * 
-     */
     public Optional<Output<ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs>> singleWeightConfig() {
         return Optional.ofNullable(this.singleWeightConfig);
     }
 
-    /**
-     * Type of traffic configuration. Valid values are `SingleWeight` and `SingleHeader`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Type of traffic configuration. Valid values are `SingleWeight` and `SingleHeader`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -89,65 +65,29 @@ public final class ContinuousDeploymentPolicyTrafficConfigArgs extends com.pulum
             $ = new ContinuousDeploymentPolicyTrafficConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param singleHeaderConfig Determines which HTTP requests are sent to the staging distribution. See `singleHeaderConfig`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder singleHeaderConfig(@Nullable Output<ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs> singleHeaderConfig) {
             $.singleHeaderConfig = singleHeaderConfig;
             return this;
         }
 
-        /**
-         * @param singleHeaderConfig Determines which HTTP requests are sent to the staging distribution. See `singleHeaderConfig`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder singleHeaderConfig(ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs singleHeaderConfig) {
             return singleHeaderConfig(Output.of(singleHeaderConfig));
         }
 
-        /**
-         * @param singleWeightConfig Contains the percentage of traffic to send to the staging distribution. See `singleWeightConfig`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder singleWeightConfig(@Nullable Output<ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs> singleWeightConfig) {
             $.singleWeightConfig = singleWeightConfig;
             return this;
         }
 
-        /**
-         * @param singleWeightConfig Contains the percentage of traffic to send to the staging distribution. See `singleWeightConfig`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder singleWeightConfig(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs singleWeightConfig) {
             return singleWeightConfig(Output.of(singleWeightConfig));
         }
 
-        /**
-         * @param type Type of traffic configuration. Valid values are `SingleWeight` and `SingleHeader`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of traffic configuration. Valid values are `SingleWeight` and `SingleHeader`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

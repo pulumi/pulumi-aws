@@ -18,62 +18,30 @@ public final class VpcIpamScopeState extends com.pulumi.resources.ResourceArgs {
 
     public static final VpcIpamScopeState Empty = new VpcIpamScopeState();
 
-    /**
-     * The Amazon Resource Name (ARN) of the scope.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the scope.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * A description for the scope you&#39;re creating.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return A description for the scope you&#39;re creating.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The ARN of the IPAM for which you&#39;re creating this scope.
-     * 
-     */
     @Import(name="ipamArn")
     private @Nullable Output<String> ipamArn;
 
-    /**
-     * @return The ARN of the IPAM for which you&#39;re creating this scope.
-     * 
-     */
     public Optional<Output<String>> ipamArn() {
         return Optional.ofNullable(this.ipamArn);
     }
 
-    /**
-     * The ID of the IPAM for which you&#39;re creating this scope.
-     * 
-     */
     @Import(name="ipamId")
     private @Nullable Output<String> ipamId;
 
-    /**
-     * @return The ID of the IPAM for which you&#39;re creating this scope.
-     * 
-     */
     public Optional<Output<String>> ipamId() {
         return Optional.ofNullable(this.ipamId);
     }
@@ -85,62 +53,30 @@ public final class VpcIpamScopeState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.ipamScopeType);
     }
 
-    /**
-     * Defines if the scope is the default scope or not.
-     * 
-     */
     @Import(name="isDefault")
     private @Nullable Output<Boolean> isDefault;
 
-    /**
-     * @return Defines if the scope is the default scope or not.
-     * 
-     */
     public Optional<Output<Boolean>> isDefault() {
         return Optional.ofNullable(this.isDefault);
     }
 
-    /**
-     * The number of pools in the scope.
-     * 
-     */
     @Import(name="poolCount")
     private @Nullable Output<Integer> poolCount;
 
-    /**
-     * @return The number of pools in the scope.
-     * 
-     */
     public Optional<Output<Integer>> poolCount() {
         return Optional.ofNullable(this.poolCount);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -185,86 +121,38 @@ public final class VpcIpamScopeState extends com.pulumi.resources.ResourceArgs {
             $ = new VpcIpamScopeState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) of the scope.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) of the scope.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param description A description for the scope you&#39;re creating.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description A description for the scope you&#39;re creating.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param ipamArn The ARN of the IPAM for which you&#39;re creating this scope.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipamArn(@Nullable Output<String> ipamArn) {
             $.ipamArn = ipamArn;
             return this;
         }
 
-        /**
-         * @param ipamArn The ARN of the IPAM for which you&#39;re creating this scope.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipamArn(String ipamArn) {
             return ipamArn(Output.of(ipamArn));
         }
 
-        /**
-         * @param ipamId The ID of the IPAM for which you&#39;re creating this scope.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipamId(@Nullable Output<String> ipamId) {
             $.ipamId = ipamId;
             return this;
         }
 
-        /**
-         * @param ipamId The ID of the IPAM for which you&#39;re creating this scope.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipamId(String ipamId) {
             return ipamId(Output.of(ipamId));
         }
@@ -278,86 +166,38 @@ public final class VpcIpamScopeState extends com.pulumi.resources.ResourceArgs {
             return ipamScopeType(Output.of(ipamScopeType));
         }
 
-        /**
-         * @param isDefault Defines if the scope is the default scope or not.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isDefault(@Nullable Output<Boolean> isDefault) {
             $.isDefault = isDefault;
             return this;
         }
 
-        /**
-         * @param isDefault Defines if the scope is the default scope or not.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isDefault(Boolean isDefault) {
             return isDefault(Output.of(isDefault));
         }
 
-        /**
-         * @param poolCount The number of pools in the scope.
-         * 
-         * @return builder
-         * 
-         */
         public Builder poolCount(@Nullable Output<Integer> poolCount) {
             $.poolCount = poolCount;
             return this;
         }
 
-        /**
-         * @param poolCount The number of pools in the scope.
-         * 
-         * @return builder
-         * 
-         */
         public Builder poolCount(Integer poolCount) {
             return poolCount(Output.of(poolCount));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

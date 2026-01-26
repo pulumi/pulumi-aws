@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS SSM Contact.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssmcontacts"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssmcontacts.LookupContact(ctx, &ssmcontacts.LookupContactArgs{
-//				Arn: "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupContact(ctx *pulumi.Context, args *LookupContactArgs, opts ...pulumi.InvokeOption) (*LookupContactResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupContactResult
@@ -52,28 +23,21 @@ func LookupContact(ctx *pulumi.Context, args *LookupContactArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getContact.
 type LookupContactArgs struct {
-	// The Amazon Resource Name (ARN) of the contact or escalation plan.
-	Arn string `pulumi:"arn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Arn    string            `pulumi:"arn"`
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getContact.
 type LookupContactResult struct {
-	// A unique and identifiable alias of the contact or escalation plan.
-	Alias string `pulumi:"alias"`
-	Arn   string `pulumi:"arn"`
-	// Full friendly name of the contact or escalation plan.
+	Alias       string `pulumi:"alias"`
+	Arn         string `pulumi:"arn"`
 	DisplayName string `pulumi:"displayName"`
 	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
-	// Map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of contact engaged. A single contact is type `PERSONAL` and an escalation plan is type `ESCALATION`.
-	Type string `pulumi:"type"`
+	Id     string            `pulumi:"id"`
+	Region string            `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
+	Type   string            `pulumi:"type"`
 }
 
 func LookupContactOutput(ctx *pulumi.Context, args LookupContactOutputArgs, opts ...pulumi.InvokeOption) LookupContactResultOutput {
@@ -87,12 +51,9 @@ func LookupContactOutput(ctx *pulumi.Context, args LookupContactOutputArgs, opts
 
 // A collection of arguments for invoking getContact.
 type LookupContactOutputArgs struct {
-	// The Amazon Resource Name (ARN) of the contact or escalation plan.
-	Arn pulumi.StringInput `pulumi:"arn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Arn    pulumi.StringInput    `pulumi:"arn"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Map of tags to assign to the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupContactOutputArgs) ElementType() reflect.Type {
@@ -114,7 +75,6 @@ func (o LookupContactResultOutput) ToLookupContactResultOutputWithContext(ctx co
 	return o
 }
 
-// A unique and identifiable alias of the contact or escalation plan.
 func (o LookupContactResultOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactResult) string { return v.Alias }).(pulumi.StringOutput)
 }
@@ -123,7 +83,6 @@ func (o LookupContactResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Full friendly name of the contact or escalation plan.
 func (o LookupContactResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
@@ -137,12 +96,10 @@ func (o LookupContactResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the resource.
 func (o LookupContactResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupContactResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The type of contact engaged. A single contact is type `PERSONAL` and an escalation plan is type `ESCALATION`.
 func (o LookupContactResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactResult) string { return v.Type }).(pulumi.StringOutput)
 }

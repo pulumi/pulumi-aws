@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetImageImagePermission {
-    /**
-     * @return Boolean indicating if the image can be used for a fleet.
-     * 
-     */
     private Boolean allowFleet;
-    /**
-     * @return indicated whether the image can be used for an image builder.
-     * 
-     */
     private Boolean allowImageBuilder;
 
     private GetImageImagePermission() {}
-    /**
-     * @return Boolean indicating if the image can be used for a fleet.
-     * 
-     */
     public Boolean allowFleet() {
         return this.allowFleet;
     }
-    /**
-     * @return indicated whether the image can be used for an image builder.
-     * 
-     */
     public Boolean allowImageBuilder() {
         return this.allowImageBuilder;
     }

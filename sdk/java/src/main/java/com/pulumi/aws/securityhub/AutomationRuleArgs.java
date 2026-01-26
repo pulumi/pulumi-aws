@@ -22,122 +22,58 @@ public final class AutomationRuleArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final AutomationRuleArgs Empty = new AutomationRuleArgs();
 
-    /**
-     * A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
-     * 
-     */
     @Import(name="actions")
     private @Nullable Output<List<AutomationRuleActionArgs>> actions;
 
-    /**
-     * @return A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
-     * 
-     */
     public Optional<Output<List<AutomationRuleActionArgs>>> actions() {
         return Optional.ofNullable(this.actions);
     }
 
-    /**
-     * A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
-     * 
-     */
     @Import(name="criteria")
     private @Nullable Output<AutomationRuleCriteriaArgs> criteria;
 
-    /**
-     * @return A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
-     * 
-     */
     public Optional<Output<AutomationRuleCriteriaArgs>> criteria() {
         return Optional.ofNullable(this.criteria);
     }
 
-    /**
-     * The description of the rule.
-     * 
-     */
     @Import(name="description", required=true)
     private Output<String> description;
 
-    /**
-     * @return The description of the rule.
-     * 
-     */
     public Output<String> description() {
         return this.description;
     }
 
-    /**
-     * Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
-     * 
-     */
     @Import(name="isTerminal")
     private @Nullable Output<Boolean> isTerminal;
 
-    /**
-     * @return Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> isTerminal() {
         return Optional.ofNullable(this.isTerminal);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The name of the rule.
-     * 
-     */
     @Import(name="ruleName", required=true)
     private Output<String> ruleName;
 
-    /**
-     * @return The name of the rule.
-     * 
-     */
     public Output<String> ruleName() {
         return this.ruleName;
     }
 
-    /**
-     * An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
-     * 
-     */
     @Import(name="ruleOrder", required=true)
     private Output<Integer> ruleOrder;
 
-    /**
-     * @return An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
-     * 
-     */
     public Output<Integer> ruleOrder() {
         return this.ruleOrder;
     }
 
-    /**
-     * Whether the rule is active after it is created.
-     * 
-     */
     @Import(name="ruleStatus")
     private @Nullable Output<String> ruleStatus;
 
-    /**
-     * @return Whether the rule is active after it is created.
-     * 
-     */
     public Optional<Output<String>> ruleStatus() {
         return Optional.ofNullable(this.ruleStatus);
     }
@@ -181,180 +117,78 @@ public final class AutomationRuleArgs extends com.pulumi.resources.ResourceArgs 
             $ = new AutomationRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param actions A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actions(@Nullable Output<List<AutomationRuleActionArgs>> actions) {
             $.actions = actions;
             return this;
         }
 
-        /**
-         * @param actions A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actions(List<AutomationRuleActionArgs> actions) {
             return actions(Output.of(actions));
         }
 
-        /**
-         * @param actions A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actions(AutomationRuleActionArgs... actions) {
             return actions(List.of(actions));
         }
 
-        /**
-         * @param criteria A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder criteria(@Nullable Output<AutomationRuleCriteriaArgs> criteria) {
             $.criteria = criteria;
             return this;
         }
 
-        /**
-         * @param criteria A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder criteria(AutomationRuleCriteriaArgs criteria) {
             return criteria(Output.of(criteria));
         }
 
-        /**
-         * @param description The description of the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description The description of the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param isTerminal Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isTerminal(@Nullable Output<Boolean> isTerminal) {
             $.isTerminal = isTerminal;
             return this;
         }
 
-        /**
-         * @param isTerminal Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isTerminal(Boolean isTerminal) {
             return isTerminal(Output.of(isTerminal));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param ruleName The name of the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleName(Output<String> ruleName) {
             $.ruleName = ruleName;
             return this;
         }
 
-        /**
-         * @param ruleName The name of the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleName(String ruleName) {
             return ruleName(Output.of(ruleName));
         }
 
-        /**
-         * @param ruleOrder An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleOrder(Output<Integer> ruleOrder) {
             $.ruleOrder = ruleOrder;
             return this;
         }
 
-        /**
-         * @param ruleOrder An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleOrder(Integer ruleOrder) {
             return ruleOrder(Output.of(ruleOrder));
         }
 
-        /**
-         * @param ruleStatus Whether the rule is active after it is created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleStatus(@Nullable Output<String> ruleStatus) {
             $.ruleStatus = ruleStatus;
             return this;
         }
 
-        /**
-         * @param ruleStatus Whether the rule is active after it is created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleStatus(String ruleStatus) {
             return ruleStatus(Output.of(ruleStatus));
         }

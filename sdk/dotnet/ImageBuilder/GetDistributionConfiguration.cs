@@ -11,75 +11,12 @@ namespace Pulumi.Aws.ImageBuilder
 {
     public static class GetDistributionConfiguration
     {
-        /// <summary>
-        /// Provides details about an Image Builder Distribution Configuration.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ImageBuilder.GetDistributionConfiguration.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetDistributionConfigurationResult> InvokeAsync(GetDistributionConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDistributionConfigurationResult>("aws:imagebuilder/getDistributionConfiguration:getDistributionConfiguration", args ?? new GetDistributionConfigurationArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about an Image Builder Distribution Configuration.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ImageBuilder.GetDistributionConfiguration.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetDistributionConfigurationResult> Invoke(GetDistributionConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDistributionConfigurationResult>("aws:imagebuilder/getDistributionConfiguration:getDistributionConfiguration", args ?? new GetDistributionConfigurationInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about an Image Builder Distribution Configuration.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ImageBuilder.GetDistributionConfiguration.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetDistributionConfigurationResult> Invoke(GetDistributionConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDistributionConfigurationResult>("aws:imagebuilder/getDistributionConfiguration:getDistributionConfiguration", args ?? new GetDistributionConfigurationInvokeArgs(), options.WithDefaults());
     }
@@ -87,24 +24,14 @@ namespace Pulumi.Aws.ImageBuilder
 
     public sealed class GetDistributionConfigurationArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the distribution configuration.
-        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags for the distribution configuration.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -119,24 +46,14 @@ namespace Pulumi.Aws.ImageBuilder
 
     public sealed class GetDistributionConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the distribution configuration.
-        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags for the distribution configuration.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -154,37 +71,16 @@ namespace Pulumi.Aws.ImageBuilder
     public sealed class GetDistributionConfigurationResult
     {
         public readonly string Arn;
-        /// <summary>
-        /// Date the distribution configuration was created.
-        /// </summary>
         public readonly string DateCreated;
-        /// <summary>
-        /// Date the distribution configuration was updated.
-        /// </summary>
         public readonly string DateUpdated;
-        /// <summary>
-        /// Description of the container distribution configuration.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// Set of distributions.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDistributionConfigurationDistributionResult> Distributions;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Name of the distribution configuration.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// AWS Region of distribution.
-        /// </summary>
         public readonly string Region;
-        /// <summary>
-        /// Key-value map of resource tags for the distribution configuration.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

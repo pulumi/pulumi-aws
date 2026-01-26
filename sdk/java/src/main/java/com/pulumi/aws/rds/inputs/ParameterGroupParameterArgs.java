@@ -17,51 +17,23 @@ public final class ParameterGroupParameterArgs extends com.pulumi.resources.Reso
 
     public static final ParameterGroupParameterArgs Empty = new ParameterGroupParameterArgs();
 
-    /**
-     * &#34;immediate&#34; (default), or &#34;pending-reboot&#34;. Some
-     * engines can&#39;t apply some parameters without a reboot, and you will need to
-     * specify &#34;pending-reboot&#34; here.
-     * 
-     */
     @Import(name="applyMethod")
     private @Nullable Output<String> applyMethod;
 
-    /**
-     * @return &#34;immediate&#34; (default), or &#34;pending-reboot&#34;. Some
-     * engines can&#39;t apply some parameters without a reboot, and you will need to
-     * specify &#34;pending-reboot&#34; here.
-     * 
-     */
     public Optional<Output<String>> applyMethod() {
         return Optional.ofNullable(this.applyMethod);
     }
 
-    /**
-     * The name of the DB parameter.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the DB parameter.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * The value of the DB parameter.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return The value of the DB parameter.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -92,69 +64,29 @@ public final class ParameterGroupParameterArgs extends com.pulumi.resources.Reso
             $ = new ParameterGroupParameterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applyMethod &#34;immediate&#34; (default), or &#34;pending-reboot&#34;. Some
-         * engines can&#39;t apply some parameters without a reboot, and you will need to
-         * specify &#34;pending-reboot&#34; here.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applyMethod(@Nullable Output<String> applyMethod) {
             $.applyMethod = applyMethod;
             return this;
         }
 
-        /**
-         * @param applyMethod &#34;immediate&#34; (default), or &#34;pending-reboot&#34;. Some
-         * engines can&#39;t apply some parameters without a reboot, and you will need to
-         * specify &#34;pending-reboot&#34; here.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applyMethod(String applyMethod) {
             return applyMethod(Output.of(applyMethod));
         }
 
-        /**
-         * @param name The name of the DB parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the DB parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param value The value of the DB parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value The value of the DB parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

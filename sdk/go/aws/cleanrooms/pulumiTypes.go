@@ -453,11 +453,7 @@ func (o ConfiguredTableTableReferencePtrOutput) TableName() pulumi.StringPtrOutp
 
 type MembershipDefaultResultConfiguration struct {
 	OutputConfiguration *MembershipDefaultResultConfigurationOutputConfiguration `pulumi:"outputConfiguration"`
-	// The ARN of the IAM role which will be used to create the membership.
-	// - `output_configuration.s3.bucket` - (Required) - The name of the S3 bucket where the query results will be stored.
-	// - `output_configuration.s3.result_format` - (Required) - The format of the query results. Valid values are `PARQUET` and `CSV`.
-	// - `output_configuration.s3.key_prefix` - (Optional) - The prefix used for the query results.
-	RoleArn *string `pulumi:"roleArn"`
+	RoleArn             *string                                                  `pulumi:"roleArn"`
 }
 
 // MembershipDefaultResultConfigurationInput is an input type that accepts MembershipDefaultResultConfigurationArgs and MembershipDefaultResultConfigurationOutput values.
@@ -473,11 +469,7 @@ type MembershipDefaultResultConfigurationInput interface {
 
 type MembershipDefaultResultConfigurationArgs struct {
 	OutputConfiguration MembershipDefaultResultConfigurationOutputConfigurationPtrInput `pulumi:"outputConfiguration"`
-	// The ARN of the IAM role which will be used to create the membership.
-	// - `output_configuration.s3.bucket` - (Required) - The name of the S3 bucket where the query results will be stored.
-	// - `output_configuration.s3.result_format` - (Required) - The format of the query results. Valid values are `PARQUET` and `CSV`.
-	// - `output_configuration.s3.key_prefix` - (Optional) - The prefix used for the query results.
-	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	RoleArn             pulumi.StringPtrInput                                           `pulumi:"roleArn"`
 }
 
 func (MembershipDefaultResultConfigurationArgs) ElementType() reflect.Type {
@@ -563,10 +555,6 @@ func (o MembershipDefaultResultConfigurationOutput) OutputConfiguration() Member
 	}).(MembershipDefaultResultConfigurationOutputConfigurationPtrOutput)
 }
 
-// The ARN of the IAM role which will be used to create the membership.
-// - `output_configuration.s3.bucket` - (Required) - The name of the S3 bucket where the query results will be stored.
-// - `output_configuration.s3.result_format` - (Required) - The format of the query results. Valid values are `PARQUET` and `CSV`.
-// - `output_configuration.s3.key_prefix` - (Optional) - The prefix used for the query results.
 func (o MembershipDefaultResultConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MembershipDefaultResultConfiguration) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
@@ -604,10 +592,6 @@ func (o MembershipDefaultResultConfigurationPtrOutput) OutputConfiguration() Mem
 	}).(MembershipDefaultResultConfigurationOutputConfigurationPtrOutput)
 }
 
-// The ARN of the IAM role which will be used to create the membership.
-// - `output_configuration.s3.bucket` - (Required) - The name of the S3 bucket where the query results will be stored.
-// - `output_configuration.s3.result_format` - (Required) - The format of the query results. Valid values are `PARQUET` and `CSV`.
-// - `output_configuration.s3.key_prefix` - (Optional) - The prefix used for the query results.
 func (o MembershipDefaultResultConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MembershipDefaultResultConfiguration) *string {
 		if v == nil {
@@ -1051,7 +1035,6 @@ func (o MembershipPaymentConfigurationPtrOutput) QueryCompute() MembershipPaymen
 }
 
 type MembershipPaymentConfigurationQueryCompute struct {
-	// Indicates whether the collaboration member has accepted to pay for query compute costs.
 	IsResponsible bool `pulumi:"isResponsible"`
 }
 
@@ -1067,7 +1050,6 @@ type MembershipPaymentConfigurationQueryComputeInput interface {
 }
 
 type MembershipPaymentConfigurationQueryComputeArgs struct {
-	// Indicates whether the collaboration member has accepted to pay for query compute costs.
 	IsResponsible pulumi.BoolInput `pulumi:"isResponsible"`
 }
 
@@ -1148,7 +1130,6 @@ func (o MembershipPaymentConfigurationQueryComputeOutput) ToMembershipPaymentCon
 	}).(MembershipPaymentConfigurationQueryComputePtrOutput)
 }
 
-// Indicates whether the collaboration member has accepted to pay for query compute costs.
 func (o MembershipPaymentConfigurationQueryComputeOutput) IsResponsible() pulumi.BoolOutput {
 	return o.ApplyT(func(v MembershipPaymentConfigurationQueryCompute) bool { return v.IsResponsible }).(pulumi.BoolOutput)
 }
@@ -1177,7 +1158,6 @@ func (o MembershipPaymentConfigurationQueryComputePtrOutput) Elem() MembershipPa
 	}).(MembershipPaymentConfigurationQueryComputeOutput)
 }
 
-// Indicates whether the collaboration member has accepted to pay for query compute costs.
 func (o MembershipPaymentConfigurationQueryComputePtrOutput) IsResponsible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MembershipPaymentConfigurationQueryCompute) *bool {
 		if v == nil {

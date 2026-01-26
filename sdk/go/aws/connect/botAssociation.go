@@ -12,139 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Allows the specified Amazon Connect instance to access the specified Amazon Lex (V1) bot. For more information see
-// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html) and [Add an Amazon Lex bot](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-lex.html).
-//
-// > **NOTE:** This resource only currently supports Amazon Lex (V1) Associations.
-//
-// ## Example Usage
-//
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewBotAssociation(ctx, "example", &connect.BotAssociationArgs{
-//				InstanceId: pulumi.Any(exampleAwsConnectInstance.Id),
-//				LexBot: &connect.BotAssociationLexBotArgs{
-//					LexRegion: pulumi.String("us-west-2"),
-//					Name:      pulumi.String("Test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Including a sample Lex bot
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lex"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := lex.NewIntent(ctx, "example", &lex.IntentArgs{
-//				CreateVersion: pulumi.Bool(true),
-//				Name:          pulumi.String("connect_lex_intent"),
-//				FulfillmentActivity: &lex.IntentFulfillmentActivityArgs{
-//					Type: pulumi.String("ReturnIntent"),
-//				},
-//				SampleUtterances: pulumi.StringArray{
-//					pulumi.String("I would like to pick up flowers."),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleBot, err := lex.NewBot(ctx, "example", &lex.BotArgs{
-//				AbortStatement: &lex.BotAbortStatementArgs{
-//					Messages: lex.BotAbortStatementMessageArray{
-//						&lex.BotAbortStatementMessageArgs{
-//							Content:     pulumi.String("Sorry, I am not able to assist at this time."),
-//							ContentType: pulumi.String("PlainText"),
-//						},
-//					},
-//				},
-//				ClarificationPrompt: &lex.BotClarificationPromptArgs{
-//					MaxAttempts: pulumi.Int(2),
-//					Messages: lex.BotClarificationPromptMessageArray{
-//						&lex.BotClarificationPromptMessageArgs{
-//							Content:     pulumi.String("I didn't understand you, what would you like to do?"),
-//							ContentType: pulumi.String("PlainText"),
-//						},
-//					},
-//				},
-//				Intents: lex.BotIntentArray{
-//					&lex.BotIntentArgs{
-//						IntentName:    example.Name,
-//						IntentVersion: pulumi.String("1"),
-//					},
-//				},
-//				ChildDirected:   pulumi.Bool(false),
-//				Name:            pulumi.String("connect_lex_bot"),
-//				ProcessBehavior: pulumi.String("BUILD"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = connect.NewBotAssociation(ctx, "example", &connect.BotAssociationArgs{
-//				InstanceId: pulumi.Any(exampleAwsConnectInstance.Id),
-//				LexBot: &connect.BotAssociationLexBotArgs{
-//					LexRegion: pulumi.String(current.Region),
-//					Name:      exampleBot.Name,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_connect_bot_association` using the Amazon Connect instance ID, Lex (V1) bot name, and Lex (V1) bot region separated by colons (`:`). For example:
-//
-// ```sh
-// $ pulumi import aws:connect/botAssociation:BotAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2
-// ```
 type BotAssociation struct {
 	pulumi.CustomResourceState
 
-	// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
-	// Configuration information of an Amazon Lex (V1) bot. Detailed below.
-	LexBot BotAssociationLexBotOutput `pulumi:"lexBot"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	InstanceId pulumi.StringOutput        `pulumi:"instanceId"`
+	LexBot     BotAssociationLexBotOutput `pulumi:"lexBot"`
+	Region     pulumi.StringOutput        `pulumi:"region"`
 }
 
 // NewBotAssociation registers a new resource with the given unique name, arguments, and options.
@@ -183,21 +56,15 @@ func GetBotAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BotAssociation resources.
 type botAssociationState struct {
-	// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-	InstanceId *string `pulumi:"instanceId"`
-	// Configuration information of an Amazon Lex (V1) bot. Detailed below.
-	LexBot *BotAssociationLexBot `pulumi:"lexBot"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	InstanceId *string               `pulumi:"instanceId"`
+	LexBot     *BotAssociationLexBot `pulumi:"lexBot"`
+	Region     *string               `pulumi:"region"`
 }
 
 type BotAssociationState struct {
-	// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
 	InstanceId pulumi.StringPtrInput
-	// Configuration information of an Amazon Lex (V1) bot. Detailed below.
-	LexBot BotAssociationLexBotPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	LexBot     BotAssociationLexBotPtrInput
+	Region     pulumi.StringPtrInput
 }
 
 func (BotAssociationState) ElementType() reflect.Type {
@@ -205,22 +72,16 @@ func (BotAssociationState) ElementType() reflect.Type {
 }
 
 type botAssociationArgs struct {
-	// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-	InstanceId string `pulumi:"instanceId"`
-	// Configuration information of an Amazon Lex (V1) bot. Detailed below.
-	LexBot BotAssociationLexBot `pulumi:"lexBot"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	InstanceId string               `pulumi:"instanceId"`
+	LexBot     BotAssociationLexBot `pulumi:"lexBot"`
+	Region     *string              `pulumi:"region"`
 }
 
 // The set of arguments for constructing a BotAssociation resource.
 type BotAssociationArgs struct {
-	// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
 	InstanceId pulumi.StringInput
-	// Configuration information of an Amazon Lex (V1) bot. Detailed below.
-	LexBot BotAssociationLexBotInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	LexBot     BotAssociationLexBotInput
+	Region     pulumi.StringPtrInput
 }
 
 func (BotAssociationArgs) ElementType() reflect.Type {
@@ -310,17 +171,14 @@ func (o BotAssociationOutput) ToBotAssociationOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
 func (o BotAssociationOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BotAssociation) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// Configuration information of an Amazon Lex (V1) bot. Detailed below.
 func (o BotAssociationOutput) LexBot() BotAssociationLexBotOutput {
 	return o.ApplyT(func(v *BotAssociation) BotAssociationLexBotOutput { return v.LexBot }).(BotAssociationLexBotOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BotAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BotAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

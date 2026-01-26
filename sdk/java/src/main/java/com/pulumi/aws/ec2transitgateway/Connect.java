@@ -16,171 +16,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an EC2 Transit Gateway Connect.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2transitgateway.VpcAttachment;
- * import com.pulumi.aws.ec2transitgateway.VpcAttachmentArgs;
- * import com.pulumi.aws.ec2transitgateway.Connect;
- * import com.pulumi.aws.ec2transitgateway.ConnectArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new VpcAttachment("example", VpcAttachmentArgs.builder()
- *             .subnetIds(exampleAwsSubnet.id())
- *             .transitGatewayId(exampleAwsEc2TransitGateway.id())
- *             .vpcId(exampleAwsVpc.id())
- *             .build());
- * 
- *         var attachment = new Connect("attachment", ConnectArgs.builder()
- *             .transportAttachmentId(example.id())
- *             .transitGatewayId(exampleAwsEc2TransitGateway.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_ec2_transit_gateway_connect` using the EC2 Transit Gateway Connect identifier. For example:
- * 
- * ```sh
- * $ pulumi import aws:ec2transitgateway/connect:Connect example tgw-attach-12345678
- * ```
- * 
- */
 @ResourceType(type="aws:ec2transitgateway/connect:Connect")
 public class Connect extends com.pulumi.resources.CustomResource {
-    /**
-     * The tunnel protocol. Valid values: `gre`. Default is `gre`.
-     * 
-     */
     @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> protocol;
 
-    /**
-     * @return The tunnel protocol. Valid values: `gre`. Default is `gre`.
-     * 
-     */
     public Output<Optional<String>> protocol() {
         return Codegen.optional(this.protocol);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-     * 
-     */
     @Export(name="transitGatewayDefaultRouteTableAssociation", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> transitGatewayDefaultRouteTableAssociation;
 
-    /**
-     * @return Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-     * 
-     */
     public Output<Optional<Boolean>> transitGatewayDefaultRouteTableAssociation() {
         return Codegen.optional(this.transitGatewayDefaultRouteTableAssociation);
     }
-    /**
-     * Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-     * 
-     */
     @Export(name="transitGatewayDefaultRouteTablePropagation", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> transitGatewayDefaultRouteTablePropagation;
 
-    /**
-     * @return Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-     * 
-     */
     public Output<Optional<Boolean>> transitGatewayDefaultRouteTablePropagation() {
         return Codegen.optional(this.transitGatewayDefaultRouteTablePropagation);
     }
-    /**
-     * Identifier of EC2 Transit Gateway.
-     * 
-     */
     @Export(name="transitGatewayId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayId;
 
-    /**
-     * @return Identifier of EC2 Transit Gateway.
-     * 
-     */
     public Output<String> transitGatewayId() {
         return this.transitGatewayId;
     }
-    /**
-     * The underlaying VPC attachment
-     * 
-     */
     @Export(name="transportAttachmentId", refs={String.class}, tree="[0]")
     private Output<String> transportAttachmentId;
 
-    /**
-     * @return The underlaying VPC attachment
-     * 
-     */
     public Output<String> transportAttachmentId() {
         return this.transportAttachmentId;
     }

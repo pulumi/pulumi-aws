@@ -15,32 +15,16 @@ public final class GetQueuesArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetQueuesArgs Empty = new GetQueuesArgs();
 
-    /**
-     * A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
-     * 
-     */
     @Import(name="queueNamePrefix")
     private @Nullable Output<String> queueNamePrefix;
 
-    /**
-     * @return A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
-     * 
-     */
     public Optional<Output<String>> queueNamePrefix() {
         return Optional.ofNullable(this.queueNamePrefix);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -70,44 +54,20 @@ public final class GetQueuesArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetQueuesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param queueNamePrefix A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queueNamePrefix(@Nullable Output<String> queueNamePrefix) {
             $.queueNamePrefix = queueNamePrefix;
             return this;
         }
 
-        /**
-         * @param queueNamePrefix A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queueNamePrefix(String queueNamePrefix) {
             return queueNamePrefix(Output.of(queueNamePrefix));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

@@ -14,17 +14,9 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
 
     public static final ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs Empty = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs();
 
-    /**
-     * Selects a specific PID from within a source.
-     * 
-     */
     @Import(name="pid", required=true)
     private Output<Integer> pid;
 
-    /**
-     * @return Selects a specific PID from within a source.
-     * 
-     */
     public Output<Integer> pid() {
         return this.pid;
     }
@@ -53,23 +45,11 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
             $ = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param pid Selects a specific PID from within a source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pid(Output<Integer> pid) {
             $.pid = pid;
             return this;
         }
 
-        /**
-         * @param pid Selects a specific PID from within a source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pid(Integer pid) {
             return pid(Output.of(pid));
         }

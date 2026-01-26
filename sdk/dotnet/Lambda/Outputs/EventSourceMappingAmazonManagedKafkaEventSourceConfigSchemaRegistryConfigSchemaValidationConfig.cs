@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig
     {
-        /// <summary>
-        /// Message attribute to validate. Valid values: `KEY`, `VALUE`.
-        /// </summary>
         public readonly string? Attribute;
 
         [OutputConstructor]

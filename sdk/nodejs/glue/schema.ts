@@ -4,36 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Glue Schema resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.glue.Schema("example", {
- *     schemaName: "example",
- *     registryArn: test.arn,
- *     dataFormat: "AVRO",
- *     compatibility: "NONE",
- *     schemaDefinition: "{\"type\": \"record\", \"name\": \"r1\", \"fields\": [ {\"name\": \"f1\", \"type\": \"int\"}, {\"name\": \"f2\", \"type\": \"string\"} ]}",
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the Glue schema.
- *
- * Using `pulumi import`, import Glue Registries using `arn`. For example:
- *
- * % pulumi import aws_glue_schema.example arn:aws:glue:us-west-2:123456789012:schema/example/example
- */
 export class Schema extends pulumi.CustomResource {
     /**
      * Get an existing Schema resource's state with the given name, ID, and optional extra
@@ -62,61 +32,19 @@ export class Schema extends pulumi.CustomResource {
         return obj['__pulumiType'] === Schema.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the schema.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
-     */
     declare public readonly compatibility: pulumi.Output<string>;
-    /**
-     * The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
-     */
     declare public readonly dataFormat: pulumi.Output<string>;
-    /**
-     * A description of the schema.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * The latest version of the schema associated with the returned schema definition.
-     */
     declare public /*out*/ readonly latestSchemaVersion: pulumi.Output<number>;
-    /**
-     * The next version of the schema associated with the returned schema definition.
-     */
     declare public /*out*/ readonly nextSchemaVersion: pulumi.Output<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The ARN of the Glue Registry to create the schema in.
-     */
     declare public readonly registryArn: pulumi.Output<string>;
-    /**
-     * The name of the Glue Registry.
-     */
     declare public /*out*/ readonly registryName: pulumi.Output<string>;
-    /**
-     * The version number of the checkpoint (the last time the compatibility mode was changed).
-     */
     declare public /*out*/ readonly schemaCheckpoint: pulumi.Output<number>;
-    /**
-     * The schema definition using the `dataFormat` setting for `schemaName`.
-     */
     declare public readonly schemaDefinition: pulumi.Output<string>;
-    /**
-     * The Name of the schema.
-     */
     declare public readonly schemaName: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -184,61 +112,19 @@ export class Schema extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Schema resources.
  */
 export interface SchemaState {
-    /**
-     * Amazon Resource Name (ARN) of the schema.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
-     */
     compatibility?: pulumi.Input<string>;
-    /**
-     * The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
-     */
     dataFormat?: pulumi.Input<string>;
-    /**
-     * A description of the schema.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The latest version of the schema associated with the returned schema definition.
-     */
     latestSchemaVersion?: pulumi.Input<number>;
-    /**
-     * The next version of the schema associated with the returned schema definition.
-     */
     nextSchemaVersion?: pulumi.Input<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ARN of the Glue Registry to create the schema in.
-     */
     registryArn?: pulumi.Input<string>;
-    /**
-     * The name of the Glue Registry.
-     */
     registryName?: pulumi.Input<string>;
-    /**
-     * The version number of the checkpoint (the last time the compatibility mode was changed).
-     */
     schemaCheckpoint?: pulumi.Input<number>;
-    /**
-     * The schema definition using the `dataFormat` setting for `schemaName`.
-     */
     schemaDefinition?: pulumi.Input<string>;
-    /**
-     * The Name of the schema.
-     */
     schemaName?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -246,36 +132,12 @@ export interface SchemaState {
  * The set of arguments for constructing a Schema resource.
  */
 export interface SchemaArgs {
-    /**
-     * The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
-     */
     compatibility: pulumi.Input<string>;
-    /**
-     * The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
-     */
     dataFormat: pulumi.Input<string>;
-    /**
-     * A description of the schema.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ARN of the Glue Registry to create the schema in.
-     */
     registryArn?: pulumi.Input<string>;
-    /**
-     * The schema definition using the `dataFormat` setting for `schemaName`.
-     */
     schemaDefinition: pulumi.Input<string>;
-    /**
-     * The Name of the schema.
-     */
     schemaName: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

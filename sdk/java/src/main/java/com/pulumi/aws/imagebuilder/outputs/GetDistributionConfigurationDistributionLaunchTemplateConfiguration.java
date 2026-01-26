@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDistributionConfigurationDistributionLaunchTemplateConfiguration {
-    /**
-     * @return The account ID that this configuration applies to.
-     * 
-     */
     private String accountId;
-    /**
-     * @return Whether the specified Amazon EC2 launch template is set as the default launch template.
-     * 
-     */
     private Boolean default_;
-    /**
-     * @return ID of the Amazon EC2 launch template.
-     * 
-     */
     private String launchTemplateId;
 
     private GetDistributionConfigurationDistributionLaunchTemplateConfiguration() {}
-    /**
-     * @return The account ID that this configuration applies to.
-     * 
-     */
     public String accountId() {
         return this.accountId;
     }
-    /**
-     * @return Whether the specified Amazon EC2 launch template is set as the default launch template.
-     * 
-     */
     public Boolean default_() {
         return this.default_;
     }
-    /**
-     * @return ID of the Amazon EC2 launch template.
-     * 
-     */
     public String launchTemplateId() {
         return this.launchTemplateId;
     }

@@ -14,10 +14,6 @@ namespace Pulumi.Aws.WafRegional.Inputs
     {
         [Input("fieldToMatches", required: true)]
         private InputList<Inputs.WebAclLoggingConfigurationRedactedFieldsFieldToMatchGetArgs>? _fieldToMatches;
-
-        /// <summary>
-        /// Set of configuration blocks for fields to redact. Detailed below.
-        /// </summary>
         public InputList<Inputs.WebAclLoggingConfigurationRedactedFieldsFieldToMatchGetArgs> FieldToMatches
         {
             get => _fieldToMatches ?? (_fieldToMatches = new InputList<Inputs.WebAclLoggingConfigurationRedactedFieldsFieldToMatchGetArgs>());

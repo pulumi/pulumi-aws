@@ -15,96 +15,44 @@ public final class RuntimeManagementConfigState extends com.pulumi.resources.Res
 
     public static final RuntimeManagementConfigState Empty = new RuntimeManagementConfigState();
 
-    /**
-     * ARN of the function.
-     * 
-     */
     @Import(name="functionArn")
     private @Nullable Output<String> functionArn;
 
-    /**
-     * @return ARN of the function.
-     * 
-     */
     public Optional<Output<String>> functionArn() {
         return Optional.ofNullable(this.functionArn);
     }
 
-    /**
-     * Name or ARN of the Lambda function.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="functionName")
     private @Nullable Output<String> functionName;
 
-    /**
-     * @return Name or ARN of the Lambda function.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> functionName() {
         return Optional.ofNullable(this.functionName);
     }
 
-    /**
-     * Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
-     * 
-     */
     @Import(name="qualifier")
     private @Nullable Output<String> qualifier;
 
-    /**
-     * @return Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
-     * 
-     */
     public Optional<Output<String>> qualifier() {
         return Optional.ofNullable(this.qualifier);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ARN of the runtime version. Only required when `updateRuntimeOn` is `Manual`.
-     * 
-     */
     @Import(name="runtimeVersionArn")
     private @Nullable Output<String> runtimeVersionArn;
 
-    /**
-     * @return ARN of the runtime version. Only required when `updateRuntimeOn` is `Manual`.
-     * 
-     */
     public Optional<Output<String>> runtimeVersionArn() {
         return Optional.ofNullable(this.runtimeVersionArn);
     }
 
-    /**
-     * Runtime update mode. Valid values are `Auto`, `FunctionUpdate`, and `Manual`. When a function is created, the default mode is `Auto`.
-     * 
-     */
     @Import(name="updateRuntimeOn")
     private @Nullable Output<String> updateRuntimeOn;
 
-    /**
-     * @return Runtime update mode. Valid values are `Auto`, `FunctionUpdate`, and `Manual`. When a function is created, the default mode is `Auto`.
-     * 
-     */
     public Optional<Output<String>> updateRuntimeOn() {
         return Optional.ofNullable(this.updateRuntimeOn);
     }
@@ -138,132 +86,56 @@ public final class RuntimeManagementConfigState extends com.pulumi.resources.Res
             $ = new RuntimeManagementConfigState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param functionArn ARN of the function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionArn(@Nullable Output<String> functionArn) {
             $.functionArn = functionArn;
             return this;
         }
 
-        /**
-         * @param functionArn ARN of the function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionArn(String functionArn) {
             return functionArn(Output.of(functionArn));
         }
 
-        /**
-         * @param functionName Name or ARN of the Lambda function.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionName(@Nullable Output<String> functionName) {
             $.functionName = functionName;
             return this;
         }
 
-        /**
-         * @param functionName Name or ARN of the Lambda function.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionName(String functionName) {
             return functionName(Output.of(functionName));
         }
 
-        /**
-         * @param qualifier Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder qualifier(@Nullable Output<String> qualifier) {
             $.qualifier = qualifier;
             return this;
         }
 
-        /**
-         * @param qualifier Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder qualifier(String qualifier) {
             return qualifier(Output.of(qualifier));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param runtimeVersionArn ARN of the runtime version. Only required when `updateRuntimeOn` is `Manual`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder runtimeVersionArn(@Nullable Output<String> runtimeVersionArn) {
             $.runtimeVersionArn = runtimeVersionArn;
             return this;
         }
 
-        /**
-         * @param runtimeVersionArn ARN of the runtime version. Only required when `updateRuntimeOn` is `Manual`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder runtimeVersionArn(String runtimeVersionArn) {
             return runtimeVersionArn(Output.of(runtimeVersionArn));
         }
 
-        /**
-         * @param updateRuntimeOn Runtime update mode. Valid values are `Auto`, `FunctionUpdate`, and `Manual`. When a function is created, the default mode is `Auto`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder updateRuntimeOn(@Nullable Output<String> updateRuntimeOn) {
             $.updateRuntimeOn = updateRuntimeOn;
             return this;
         }
 
-        /**
-         * @param updateRuntimeOn Runtime update mode. Valid values are `Auto`, `FunctionUpdate`, and `Manual`. When a function is created, the default mode is `Auto`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder updateRuntimeOn(String updateRuntimeOn) {
             return updateRuntimeOn(Output.of(updateRuntimeOn));
         }

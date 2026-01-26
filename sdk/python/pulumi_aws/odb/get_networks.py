@@ -49,9 +49,6 @@ class GetNetworksResult:
     @_builtins.property
     @pulumi.getter(name="odbNetworks")
     def odb_networks(self) -> Sequence['outputs.GetNetworksOdbNetworkResult']:
-        """
-        List of odb networks returns basic information about odb networks.
-        """
         return pulumi.get(self, "odb_networks")
 
     @_builtins.property
@@ -74,21 +71,7 @@ class AwaitableGetNetworksResult(GetNetworksResult):
 def get_networks(region: Optional[_builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworksResult:
     """
-    Data source for to retrieve networks from AWS for Oracle Database@AWS.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.odb.get_networks()
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -102,21 +85,7 @@ def get_networks(region: Optional[_builtins.str] = None,
 def get_networks_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworksResult]:
     """
-    Data source for to retrieve networks from AWS for Oracle Database@AWS.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.odb.get_networks()
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

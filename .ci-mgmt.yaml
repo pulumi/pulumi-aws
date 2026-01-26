@@ -5,7 +5,7 @@ parallel: 1
 shards: 8
 timeout: 150
 generate-nightly-test-workflow: true
-providerVersion: github.com/hashicorp/terraform-provider-aws/version.ProviderVersion
+providerVersion: github.com/blampe/patches/mirrors/aws/v6/version.ProviderVersion
 buildProviderPre: "VERSION=${VERSION_GENERIC} ./scripts/minimal_schema.sh"
 esc:
     enabled: true

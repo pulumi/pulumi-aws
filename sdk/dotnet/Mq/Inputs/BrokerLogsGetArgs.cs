@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Mq.Inputs
 
     public sealed class BrokerLogsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to enable audit logging. Only possible for `EngineType` of `ActiveMQ`. Logs user management actions via JMX or ActiveMQ Web Console. Defaults to `False`.
-        /// </summary>
         [Input("audit")]
         public Input<bool>? Audit { get; set; }
 
-        /// <summary>
-        /// Whether to enable general logging via CloudWatch. Defaults to `False`.
-        /// </summary>
         [Input("general")]
         public Input<bool>? General { get; set; }
 

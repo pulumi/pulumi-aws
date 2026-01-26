@@ -14,17 +14,9 @@ public final class BucketReplicationConfigRuleDestinationAccessControlTranslatio
 
     public static final BucketReplicationConfigRuleDestinationAccessControlTranslationArgs Empty = new BucketReplicationConfigRuleDestinationAccessControlTranslationArgs();
 
-    /**
-     * Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the Amazon S3 API Reference. Valid values: `Destination`.
-     * 
-     */
     @Import(name="owner", required=true)
     private Output<String> owner;
 
-    /**
-     * @return Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the Amazon S3 API Reference. Valid values: `Destination`.
-     * 
-     */
     public Output<String> owner() {
         return this.owner;
     }
@@ -53,23 +45,11 @@ public final class BucketReplicationConfigRuleDestinationAccessControlTranslatio
             $ = new BucketReplicationConfigRuleDestinationAccessControlTranslationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param owner Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the Amazon S3 API Reference. Valid values: `Destination`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owner(Output<String> owner) {
             $.owner = owner;
             return this;
         }
 
-        /**
-         * @param owner Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the Amazon S3 API Reference. Valid values: `Destination`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owner(String owner) {
             return owner(Output.of(owner));
         }

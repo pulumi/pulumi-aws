@@ -15,32 +15,16 @@ public final class GetInferenceProfilePlainArgs extends com.pulumi.resources.Inv
 
     public static final GetInferenceProfilePlainArgs Empty = new GetInferenceProfilePlainArgs();
 
-    /**
-     * Inference Profile identifier.
-     * 
-     */
     @Import(name="inferenceProfileId", required=true)
     private String inferenceProfileId;
 
-    /**
-     * @return Inference Profile identifier.
-     * 
-     */
     public String inferenceProfileId() {
         return this.inferenceProfileId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -70,23 +54,11 @@ public final class GetInferenceProfilePlainArgs extends com.pulumi.resources.Inv
             $ = new GetInferenceProfilePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param inferenceProfileId Inference Profile identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inferenceProfileId(String inferenceProfileId) {
             $.inferenceProfileId = inferenceProfileId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Cfg.Outputs
     [OutputType]
     public sealed class RuleScope
     {
-        /// <summary>
-        /// The IDs of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for `ComplianceResourceTypes`.
-        /// </summary>
         public readonly string? ComplianceResourceId;
-        /// <summary>
-        /// A list of resource types of only those AWS resources that you want to trigger an evaluation for the ruleE.g., `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `ComplianceResourceId`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
-        /// </summary>
         public readonly ImmutableArray<string> ComplianceResourceTypes;
-        /// <summary>
-        /// The tag key that is applied to only those AWS resources that you want you want to trigger an evaluation for the rule.
-        /// </summary>
         public readonly string? TagKey;
-        /// <summary>
-        /// The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule.
-        /// </summary>
         public readonly string? TagValue;
 
         [OutputConstructor]

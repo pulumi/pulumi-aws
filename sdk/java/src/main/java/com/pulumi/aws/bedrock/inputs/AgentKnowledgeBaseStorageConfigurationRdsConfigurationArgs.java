@@ -17,77 +17,37 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs ex
 
     public static final AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs Empty = new AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs();
 
-    /**
-     * ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
-     * 
-     */
     @Import(name="credentialsSecretArn", required=true)
     private Output<String> credentialsSecretArn;
 
-    /**
-     * @return ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
-     * 
-     */
     public Output<String> credentialsSecretArn() {
         return this.credentialsSecretArn;
     }
 
-    /**
-     * Name of your Amazon RDS database.
-     * 
-     */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
-    /**
-     * @return Name of your Amazon RDS database.
-     * 
-     */
     public Output<String> databaseName() {
         return this.databaseName;
     }
 
-    /**
-     * Names of the fields to which to map information about the vector store. This block supports the following arguments:
-     * 
-     */
     @Import(name="fieldMapping")
     private @Nullable Output<AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs> fieldMapping;
 
-    /**
-     * @return Names of the fields to which to map information about the vector store. This block supports the following arguments:
-     * 
-     */
     public Optional<Output<AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs>> fieldMapping() {
         return Optional.ofNullable(this.fieldMapping);
     }
 
-    /**
-     * ARN of the vector store.
-     * 
-     */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
-    /**
-     * @return ARN of the vector store.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
 
-    /**
-     * Name of the table in the database.
-     * 
-     */
     @Import(name="tableName", required=true)
     private Output<String> tableName;
 
-    /**
-     * @return Name of the table in the database.
-     * 
-     */
     public Output<String> tableName() {
         return this.tableName;
     }
@@ -120,107 +80,47 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs ex
             $ = new AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param credentialsSecretArn ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder credentialsSecretArn(Output<String> credentialsSecretArn) {
             $.credentialsSecretArn = credentialsSecretArn;
             return this;
         }
 
-        /**
-         * @param credentialsSecretArn ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder credentialsSecretArn(String credentialsSecretArn) {
             return credentialsSecretArn(Output.of(credentialsSecretArn));
         }
 
-        /**
-         * @param databaseName Name of your Amazon RDS database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(Output<String> databaseName) {
             $.databaseName = databaseName;
             return this;
         }
 
-        /**
-         * @param databaseName Name of your Amazon RDS database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
         }
 
-        /**
-         * @param fieldMapping Names of the fields to which to map information about the vector store. This block supports the following arguments:
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldMapping(@Nullable Output<AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs> fieldMapping) {
             $.fieldMapping = fieldMapping;
             return this;
         }
 
-        /**
-         * @param fieldMapping Names of the fields to which to map information about the vector store. This block supports the following arguments:
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldMapping(AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs fieldMapping) {
             return fieldMapping(Output.of(fieldMapping));
         }
 
-        /**
-         * @param resourceArn ARN of the vector store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
-        /**
-         * @param resourceArn ARN of the vector store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }
 
-        /**
-         * @param tableName Name of the table in the database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(Output<String> tableName) {
             $.tableName = tableName;
             return this;
         }
 
-        /**
-         * @param tableName Name of the table in the database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(String tableName) {
             return tableName(Output.of(tableName));
         }

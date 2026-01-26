@@ -11,20 +11,12 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPermissionSetsResult {
-    /**
-     * @return Set of string contain the ARN of all Permission Sets.
-     * 
-     */
     private List<String> arns;
     private String id;
     private String instanceArn;
     private String region;
 
     private GetPermissionSetsResult() {}
-    /**
-     * @return Set of string contain the ARN of all Permission Sets.
-     * 
-     */
     public List<String> arns() {
         return this.arns;
     }

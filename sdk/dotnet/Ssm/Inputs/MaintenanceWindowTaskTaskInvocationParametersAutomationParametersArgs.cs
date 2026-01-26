@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Ssm.Inputs
 
     public sealed class MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The version of an Automation document to use during task execution.
-        /// </summary>
         [Input("documentVersion")]
         public Input<string>? DocumentVersion { get; set; }
 
         [Input("parameters")]
         private InputList<Inputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs>? _parameters;
-
-        /// <summary>
-        /// The parameters for the RUN_COMMAND task execution. Documented below.
-        /// </summary>
         public InputList<Inputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs> Parameters
         {
             get => _parameters ?? (_parameters = new InputList<Inputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs>());

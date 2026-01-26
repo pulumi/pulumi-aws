@@ -14,65 +14,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketLifecycleConfigurationRuleFilter {
-    /**
-     * @return Configuration block used to apply a logical `AND` to two or more predicates. See below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
-     * 
-     */
     private @Nullable BucketLifecycleConfigurationRuleFilterAnd and;
-    /**
-     * @return Minimum object size (in bytes) to which the rule applies.
-     * 
-     */
     private @Nullable Integer objectSizeGreaterThan;
-    /**
-     * @return Maximum object size (in bytes) to which the rule applies.
-     * 
-     */
     private @Nullable Integer objectSizeLessThan;
-    /**
-     * @return Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`&#34;&#34;`) if not specified.
-     * 
-     */
     private @Nullable String prefix;
-    /**
-     * @return Configuration block for specifying a tag key and value. See below.
-     * 
-     */
     private @Nullable BucketLifecycleConfigurationRuleFilterTag tag;
 
     private BucketLifecycleConfigurationRuleFilter() {}
-    /**
-     * @return Configuration block used to apply a logical `AND` to two or more predicates. See below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
-     * 
-     */
     public Optional<BucketLifecycleConfigurationRuleFilterAnd> and() {
         return Optional.ofNullable(this.and);
     }
-    /**
-     * @return Minimum object size (in bytes) to which the rule applies.
-     * 
-     */
     public Optional<Integer> objectSizeGreaterThan() {
         return Optional.ofNullable(this.objectSizeGreaterThan);
     }
-    /**
-     * @return Maximum object size (in bytes) to which the rule applies.
-     * 
-     */
     public Optional<Integer> objectSizeLessThan() {
         return Optional.ofNullable(this.objectSizeLessThan);
     }
-    /**
-     * @return Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`&#34;&#34;`) if not specified.
-     * 
-     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }
-    /**
-     * @return Configuration block for specifying a tag key and value. See below.
-     * 
-     */
     public Optional<BucketLifecycleConfigurationRuleFilterTag> tag() {
         return Optional.ofNullable(this.tag);
     }

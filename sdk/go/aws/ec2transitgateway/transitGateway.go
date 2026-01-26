@@ -11,82 +11,27 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an EC2 Transit Gateway.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.NewTransitGateway(ctx, "example", &ec2transitgateway.TransitGatewayArgs{
-//				Description: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_ec2_transit_gateway` using the EC2 Transit Gateway identifier. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2transitgateway/transitGateway:TransitGateway example tgw-12345678
-// ```
 type TransitGateway struct {
 	pulumi.CustomResourceState
 
-	// Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
-	//
-	// > **NOTE:** Modifying `amazonSideAsn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazonSideAsn`.
-	AmazonSideAsn pulumi.IntPtrOutput `pulumi:"amazonSideAsn"`
-	// EC2 Transit Gateway Amazon Resource Name (ARN)
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Identifier of the default association route table
-	AssociationDefaultRouteTableId pulumi.StringOutput `pulumi:"associationDefaultRouteTableId"`
-	// Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
-	AutoAcceptSharedAttachments pulumi.StringPtrOutput `pulumi:"autoAcceptSharedAttachments"`
-	// Whether resource attachments are automatically associated with the default association route table. Valid values: `disable`, `enable`. Default value: `enable`.
-	DefaultRouteTableAssociation pulumi.StringPtrOutput `pulumi:"defaultRouteTableAssociation"`
-	// Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `disable`, `enable`. Default value: `enable`.
-	DefaultRouteTablePropagation pulumi.StringPtrOutput `pulumi:"defaultRouteTablePropagation"`
-	// Description of the EC2 Transit Gateway.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-	DnsSupport pulumi.StringPtrOutput `pulumi:"dnsSupport"`
-	// Whether encryption support for VPC Encryption Control is enabled. Valid values: `disable`, `enable`. Default value: `disable`. Once set, switching to `disable` requires explicitly specifying `disable` rather than removing the argument.
-	EncryptionSupport pulumi.StringOutput `pulumi:"encryptionSupport"`
-	// Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
-	MulticastSupport pulumi.StringPtrOutput `pulumi:"multicastSupport"`
-	// Identifier of the AWS account that owns the EC2 Transit Gateway
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// Identifier of the default propagation route table
-	PropagationDefaultRouteTableId pulumi.StringOutput `pulumi:"propagationDefaultRouteTableId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
-	SecurityGroupReferencingSupport pulumi.StringPtrOutput `pulumi:"securityGroupReferencingSupport"`
-	// Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
-	TransitGatewayCidrBlocks pulumi.StringArrayOutput `pulumi:"transitGatewayCidrBlocks"`
-	// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-	VpnEcmpSupport pulumi.StringPtrOutput `pulumi:"vpnEcmpSupport"`
+	AmazonSideAsn                   pulumi.IntPtrOutput      `pulumi:"amazonSideAsn"`
+	Arn                             pulumi.StringOutput      `pulumi:"arn"`
+	AssociationDefaultRouteTableId  pulumi.StringOutput      `pulumi:"associationDefaultRouteTableId"`
+	AutoAcceptSharedAttachments     pulumi.StringPtrOutput   `pulumi:"autoAcceptSharedAttachments"`
+	DefaultRouteTableAssociation    pulumi.StringPtrOutput   `pulumi:"defaultRouteTableAssociation"`
+	DefaultRouteTablePropagation    pulumi.StringPtrOutput   `pulumi:"defaultRouteTablePropagation"`
+	Description                     pulumi.StringPtrOutput   `pulumi:"description"`
+	DnsSupport                      pulumi.StringPtrOutput   `pulumi:"dnsSupport"`
+	EncryptionSupport               pulumi.StringOutput      `pulumi:"encryptionSupport"`
+	MulticastSupport                pulumi.StringPtrOutput   `pulumi:"multicastSupport"`
+	OwnerId                         pulumi.StringOutput      `pulumi:"ownerId"`
+	PropagationDefaultRouteTableId  pulumi.StringOutput      `pulumi:"propagationDefaultRouteTableId"`
+	Region                          pulumi.StringOutput      `pulumi:"region"`
+	SecurityGroupReferencingSupport pulumi.StringPtrOutput   `pulumi:"securityGroupReferencingSupport"`
+	Tags                            pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll                         pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	TransitGatewayCidrBlocks        pulumi.StringArrayOutput `pulumi:"transitGatewayCidrBlocks"`
+	VpnEcmpSupport                  pulumi.StringPtrOutput   `pulumi:"vpnEcmpSupport"`
 }
 
 // NewTransitGateway registers a new resource with the given unique name, arguments, and options.
@@ -119,85 +64,45 @@ func GetTransitGateway(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TransitGateway resources.
 type transitGatewayState struct {
-	// Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
-	//
-	// > **NOTE:** Modifying `amazonSideAsn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazonSideAsn`.
-	AmazonSideAsn *int `pulumi:"amazonSideAsn"`
-	// EC2 Transit Gateway Amazon Resource Name (ARN)
-	Arn *string `pulumi:"arn"`
-	// Identifier of the default association route table
-	AssociationDefaultRouteTableId *string `pulumi:"associationDefaultRouteTableId"`
-	// Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
-	AutoAcceptSharedAttachments *string `pulumi:"autoAcceptSharedAttachments"`
-	// Whether resource attachments are automatically associated with the default association route table. Valid values: `disable`, `enable`. Default value: `enable`.
-	DefaultRouteTableAssociation *string `pulumi:"defaultRouteTableAssociation"`
-	// Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `disable`, `enable`. Default value: `enable`.
-	DefaultRouteTablePropagation *string `pulumi:"defaultRouteTablePropagation"`
-	// Description of the EC2 Transit Gateway.
-	Description *string `pulumi:"description"`
-	// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-	DnsSupport *string `pulumi:"dnsSupport"`
-	// Whether encryption support for VPC Encryption Control is enabled. Valid values: `disable`, `enable`. Default value: `disable`. Once set, switching to `disable` requires explicitly specifying `disable` rather than removing the argument.
-	EncryptionSupport *string `pulumi:"encryptionSupport"`
-	// Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
-	MulticastSupport *string `pulumi:"multicastSupport"`
-	// Identifier of the AWS account that owns the EC2 Transit Gateway
-	OwnerId *string `pulumi:"ownerId"`
-	// Identifier of the default propagation route table
-	PropagationDefaultRouteTableId *string `pulumi:"propagationDefaultRouteTableId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
-	SecurityGroupReferencingSupport *string `pulumi:"securityGroupReferencingSupport"`
-	// Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
-	TransitGatewayCidrBlocks []string `pulumi:"transitGatewayCidrBlocks"`
-	// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-	VpnEcmpSupport *string `pulumi:"vpnEcmpSupport"`
+	AmazonSideAsn                   *int              `pulumi:"amazonSideAsn"`
+	Arn                             *string           `pulumi:"arn"`
+	AssociationDefaultRouteTableId  *string           `pulumi:"associationDefaultRouteTableId"`
+	AutoAcceptSharedAttachments     *string           `pulumi:"autoAcceptSharedAttachments"`
+	DefaultRouteTableAssociation    *string           `pulumi:"defaultRouteTableAssociation"`
+	DefaultRouteTablePropagation    *string           `pulumi:"defaultRouteTablePropagation"`
+	Description                     *string           `pulumi:"description"`
+	DnsSupport                      *string           `pulumi:"dnsSupport"`
+	EncryptionSupport               *string           `pulumi:"encryptionSupport"`
+	MulticastSupport                *string           `pulumi:"multicastSupport"`
+	OwnerId                         *string           `pulumi:"ownerId"`
+	PropagationDefaultRouteTableId  *string           `pulumi:"propagationDefaultRouteTableId"`
+	Region                          *string           `pulumi:"region"`
+	SecurityGroupReferencingSupport *string           `pulumi:"securityGroupReferencingSupport"`
+	Tags                            map[string]string `pulumi:"tags"`
+	TagsAll                         map[string]string `pulumi:"tagsAll"`
+	TransitGatewayCidrBlocks        []string          `pulumi:"transitGatewayCidrBlocks"`
+	VpnEcmpSupport                  *string           `pulumi:"vpnEcmpSupport"`
 }
 
 type TransitGatewayState struct {
-	// Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
-	//
-	// > **NOTE:** Modifying `amazonSideAsn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazonSideAsn`.
-	AmazonSideAsn pulumi.IntPtrInput
-	// EC2 Transit Gateway Amazon Resource Name (ARN)
-	Arn pulumi.StringPtrInput
-	// Identifier of the default association route table
-	AssociationDefaultRouteTableId pulumi.StringPtrInput
-	// Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
-	AutoAcceptSharedAttachments pulumi.StringPtrInput
-	// Whether resource attachments are automatically associated with the default association route table. Valid values: `disable`, `enable`. Default value: `enable`.
-	DefaultRouteTableAssociation pulumi.StringPtrInput
-	// Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `disable`, `enable`. Default value: `enable`.
-	DefaultRouteTablePropagation pulumi.StringPtrInput
-	// Description of the EC2 Transit Gateway.
-	Description pulumi.StringPtrInput
-	// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-	DnsSupport pulumi.StringPtrInput
-	// Whether encryption support for VPC Encryption Control is enabled. Valid values: `disable`, `enable`. Default value: `disable`. Once set, switching to `disable` requires explicitly specifying `disable` rather than removing the argument.
-	EncryptionSupport pulumi.StringPtrInput
-	// Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
-	MulticastSupport pulumi.StringPtrInput
-	// Identifier of the AWS account that owns the EC2 Transit Gateway
-	OwnerId pulumi.StringPtrInput
-	// Identifier of the default propagation route table
-	PropagationDefaultRouteTableId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+	AmazonSideAsn                   pulumi.IntPtrInput
+	Arn                             pulumi.StringPtrInput
+	AssociationDefaultRouteTableId  pulumi.StringPtrInput
+	AutoAcceptSharedAttachments     pulumi.StringPtrInput
+	DefaultRouteTableAssociation    pulumi.StringPtrInput
+	DefaultRouteTablePropagation    pulumi.StringPtrInput
+	Description                     pulumi.StringPtrInput
+	DnsSupport                      pulumi.StringPtrInput
+	EncryptionSupport               pulumi.StringPtrInput
+	MulticastSupport                pulumi.StringPtrInput
+	OwnerId                         pulumi.StringPtrInput
+	PropagationDefaultRouteTableId  pulumi.StringPtrInput
+	Region                          pulumi.StringPtrInput
 	SecurityGroupReferencingSupport pulumi.StringPtrInput
-	// Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
-	TransitGatewayCidrBlocks pulumi.StringArrayInput
-	// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-	VpnEcmpSupport pulumi.StringPtrInput
+	Tags                            pulumi.StringMapInput
+	TagsAll                         pulumi.StringMapInput
+	TransitGatewayCidrBlocks        pulumi.StringArrayInput
+	VpnEcmpSupport                  pulumi.StringPtrInput
 }
 
 func (TransitGatewayState) ElementType() reflect.Type {
@@ -205,66 +110,36 @@ func (TransitGatewayState) ElementType() reflect.Type {
 }
 
 type transitGatewayArgs struct {
-	// Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
-	//
-	// > **NOTE:** Modifying `amazonSideAsn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazonSideAsn`.
-	AmazonSideAsn *int `pulumi:"amazonSideAsn"`
-	// Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
-	AutoAcceptSharedAttachments *string `pulumi:"autoAcceptSharedAttachments"`
-	// Whether resource attachments are automatically associated with the default association route table. Valid values: `disable`, `enable`. Default value: `enable`.
-	DefaultRouteTableAssociation *string `pulumi:"defaultRouteTableAssociation"`
-	// Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `disable`, `enable`. Default value: `enable`.
-	DefaultRouteTablePropagation *string `pulumi:"defaultRouteTablePropagation"`
-	// Description of the EC2 Transit Gateway.
-	Description *string `pulumi:"description"`
-	// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-	DnsSupport *string `pulumi:"dnsSupport"`
-	// Whether encryption support for VPC Encryption Control is enabled. Valid values: `disable`, `enable`. Default value: `disable`. Once set, switching to `disable` requires explicitly specifying `disable` rather than removing the argument.
-	EncryptionSupport *string `pulumi:"encryptionSupport"`
-	// Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
-	MulticastSupport *string `pulumi:"multicastSupport"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
-	SecurityGroupReferencingSupport *string `pulumi:"securityGroupReferencingSupport"`
-	// Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
-	TransitGatewayCidrBlocks []string `pulumi:"transitGatewayCidrBlocks"`
-	// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-	VpnEcmpSupport *string `pulumi:"vpnEcmpSupport"`
+	AmazonSideAsn                   *int              `pulumi:"amazonSideAsn"`
+	AutoAcceptSharedAttachments     *string           `pulumi:"autoAcceptSharedAttachments"`
+	DefaultRouteTableAssociation    *string           `pulumi:"defaultRouteTableAssociation"`
+	DefaultRouteTablePropagation    *string           `pulumi:"defaultRouteTablePropagation"`
+	Description                     *string           `pulumi:"description"`
+	DnsSupport                      *string           `pulumi:"dnsSupport"`
+	EncryptionSupport               *string           `pulumi:"encryptionSupport"`
+	MulticastSupport                *string           `pulumi:"multicastSupport"`
+	Region                          *string           `pulumi:"region"`
+	SecurityGroupReferencingSupport *string           `pulumi:"securityGroupReferencingSupport"`
+	Tags                            map[string]string `pulumi:"tags"`
+	TransitGatewayCidrBlocks        []string          `pulumi:"transitGatewayCidrBlocks"`
+	VpnEcmpSupport                  *string           `pulumi:"vpnEcmpSupport"`
 }
 
 // The set of arguments for constructing a TransitGateway resource.
 type TransitGatewayArgs struct {
-	// Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
-	//
-	// > **NOTE:** Modifying `amazonSideAsn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazonSideAsn`.
-	AmazonSideAsn pulumi.IntPtrInput
-	// Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
-	AutoAcceptSharedAttachments pulumi.StringPtrInput
-	// Whether resource attachments are automatically associated with the default association route table. Valid values: `disable`, `enable`. Default value: `enable`.
-	DefaultRouteTableAssociation pulumi.StringPtrInput
-	// Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `disable`, `enable`. Default value: `enable`.
-	DefaultRouteTablePropagation pulumi.StringPtrInput
-	// Description of the EC2 Transit Gateway.
-	Description pulumi.StringPtrInput
-	// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-	DnsSupport pulumi.StringPtrInput
-	// Whether encryption support for VPC Encryption Control is enabled. Valid values: `disable`, `enable`. Default value: `disable`. Once set, switching to `disable` requires explicitly specifying `disable` rather than removing the argument.
-	EncryptionSupport pulumi.StringPtrInput
-	// Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
-	MulticastSupport pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+	AmazonSideAsn                   pulumi.IntPtrInput
+	AutoAcceptSharedAttachments     pulumi.StringPtrInput
+	DefaultRouteTableAssociation    pulumi.StringPtrInput
+	DefaultRouteTablePropagation    pulumi.StringPtrInput
+	Description                     pulumi.StringPtrInput
+	DnsSupport                      pulumi.StringPtrInput
+	EncryptionSupport               pulumi.StringPtrInput
+	MulticastSupport                pulumi.StringPtrInput
+	Region                          pulumi.StringPtrInput
 	SecurityGroupReferencingSupport pulumi.StringPtrInput
-	// Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
-	TransitGatewayCidrBlocks pulumi.StringArrayInput
-	// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-	VpnEcmpSupport pulumi.StringPtrInput
+	Tags                            pulumi.StringMapInput
+	TransitGatewayCidrBlocks        pulumi.StringArrayInput
+	VpnEcmpSupport                  pulumi.StringPtrInput
 }
 
 func (TransitGatewayArgs) ElementType() reflect.Type {
@@ -354,94 +229,74 @@ func (o TransitGatewayOutput) ToTransitGatewayOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
-//
-// > **NOTE:** Modifying `amazonSideAsn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazonSideAsn`.
 func (o TransitGatewayOutput) AmazonSideAsn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.IntPtrOutput { return v.AmazonSideAsn }).(pulumi.IntPtrOutput)
 }
 
-// EC2 Transit Gateway Amazon Resource Name (ARN)
 func (o TransitGatewayOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Identifier of the default association route table
 func (o TransitGatewayOutput) AssociationDefaultRouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringOutput { return v.AssociationDefaultRouteTableId }).(pulumi.StringOutput)
 }
 
-// Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
 func (o TransitGatewayOutput) AutoAcceptSharedAttachments() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.AutoAcceptSharedAttachments }).(pulumi.StringPtrOutput)
 }
 
-// Whether resource attachments are automatically associated with the default association route table. Valid values: `disable`, `enable`. Default value: `enable`.
 func (o TransitGatewayOutput) DefaultRouteTableAssociation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.DefaultRouteTableAssociation }).(pulumi.StringPtrOutput)
 }
 
-// Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `disable`, `enable`. Default value: `enable`.
 func (o TransitGatewayOutput) DefaultRouteTablePropagation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.DefaultRouteTablePropagation }).(pulumi.StringPtrOutput)
 }
 
-// Description of the EC2 Transit Gateway.
 func (o TransitGatewayOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
 func (o TransitGatewayOutput) DnsSupport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.DnsSupport }).(pulumi.StringPtrOutput)
 }
 
-// Whether encryption support for VPC Encryption Control is enabled. Valid values: `disable`, `enable`. Default value: `disable`. Once set, switching to `disable` requires explicitly specifying `disable` rather than removing the argument.
 func (o TransitGatewayOutput) EncryptionSupport() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringOutput { return v.EncryptionSupport }).(pulumi.StringOutput)
 }
 
-// Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
 func (o TransitGatewayOutput) MulticastSupport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.MulticastSupport }).(pulumi.StringPtrOutput)
 }
 
-// Identifier of the AWS account that owns the EC2 Transit Gateway
 func (o TransitGatewayOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// Identifier of the default propagation route table
 func (o TransitGatewayOutput) PropagationDefaultRouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringOutput { return v.PropagationDefaultRouteTableId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TransitGatewayOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
 func (o TransitGatewayOutput) SecurityGroupReferencingSupport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.SecurityGroupReferencingSupport }).(pulumi.StringPtrOutput)
 }
 
-// Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o TransitGatewayOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o TransitGatewayOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
 func (o TransitGatewayOutput) TransitGatewayCidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringArrayOutput { return v.TransitGatewayCidrBlocks }).(pulumi.StringArrayOutput)
 }
 
-// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
 func (o TransitGatewayOutput) VpnEcmpSupport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.VpnEcmpSupport }).(pulumi.StringPtrOutput)
 }

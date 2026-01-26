@@ -17,32 +17,16 @@ public final class VirtualNodeSpecLoggingAccessLogFileArgs extends com.pulumi.re
 
     public static final VirtualNodeSpecLoggingAccessLogFileArgs Empty = new VirtualNodeSpecLoggingAccessLogFileArgs();
 
-    /**
-     * The specified format for the logs.
-     * 
-     */
     @Import(name="format")
     private @Nullable Output<VirtualNodeSpecLoggingAccessLogFileFormatArgs> format;
 
-    /**
-     * @return The specified format for the logs.
-     * 
-     */
     public Optional<Output<VirtualNodeSpecLoggingAccessLogFileFormatArgs>> format() {
         return Optional.ofNullable(this.format);
     }
 
-    /**
-     * File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
-     * 
-     */
     @Import(name="path", required=true)
     private Output<String> path;
 
-    /**
-     * @return File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
-     * 
-     */
     public Output<String> path() {
         return this.path;
     }
@@ -72,44 +56,20 @@ public final class VirtualNodeSpecLoggingAccessLogFileArgs extends com.pulumi.re
             $ = new VirtualNodeSpecLoggingAccessLogFileArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param format The specified format for the logs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder format(@Nullable Output<VirtualNodeSpecLoggingAccessLogFileFormatArgs> format) {
             $.format = format;
             return this;
         }
 
-        /**
-         * @param format The specified format for the logs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder format(VirtualNodeSpecLoggingAccessLogFileFormatArgs format) {
             return format(Output.of(format));
         }
 
-        /**
-         * @param path File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(Output<String> path) {
             $.path = path;
             return this;
         }
 
-        /**
-         * @param path File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(String path) {
             return path(Output.of(path));
         }

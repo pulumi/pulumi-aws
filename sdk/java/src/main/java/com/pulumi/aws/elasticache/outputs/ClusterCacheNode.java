@@ -13,27 +13,15 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterCacheNode {
     private @Nullable String address;
-    /**
-     * @return Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
-     * 
-     */
     private @Nullable String availabilityZone;
     private @Nullable String id;
     private @Nullable String outpostArn;
-    /**
-     * @return The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
-     * 
-     */
     private @Nullable Integer port;
 
     private ClusterCacheNode() {}
     public Optional<String> address() {
         return Optional.ofNullable(this.address);
     }
-    /**
-     * @return Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
-     * 
-     */
     public Optional<String> availabilityZone() {
         return Optional.ofNullable(this.availabilityZone);
     }
@@ -43,10 +31,6 @@ public final class ClusterCacheNode {
     public Optional<String> outpostArn() {
         return Optional.ofNullable(this.outpostArn);
     }
-    /**
-     * @return The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
-     * 
-     */
     public Optional<Integer> port() {
         return Optional.ofNullable(this.port);
     }

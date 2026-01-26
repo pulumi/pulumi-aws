@@ -14,32 +14,16 @@ public final class GetInstanceTypeOfferingFilter extends com.pulumi.resources.In
 
     public static final GetInstanceTypeOfferingFilter Empty = new GetInstanceTypeOfferingFilter();
 
-    /**
-     * Name of the filter. The `location` filter depends on the top-level `locationType` argument and if not specified, defaults to the current region.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the filter. The `location` filter depends on the top-level `locationType` argument and if not specified, defaults to the current region.
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * List of one or more values for the filter.
-     * 
-     */
     @Import(name="values", required=true)
     private List<String> values;
 
-    /**
-     * @return List of one or more values for the filter.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }
@@ -69,34 +53,16 @@ public final class GetInstanceTypeOfferingFilter extends com.pulumi.resources.In
             $ = new GetInstanceTypeOfferingFilter(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the filter. The `location` filter depends on the top-level `locationType` argument and if not specified, defaults to the current region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param values List of one or more values for the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values List of one or more values for the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

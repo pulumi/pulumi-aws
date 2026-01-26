@@ -13,50 +13,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DistributionOrigin {
     /**
-     * @return Name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
+     * @return The name of the origin resource.
      * 
      */
     private String name;
     /**
-     * @return Protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
+     * @return The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
      * 
      */
     private @Nullable String protocolPolicy;
     /**
-     * @return AWS Region name of the origin resource.
+     * @return The AWS Region name of the origin resource.
      * 
      */
     private String regionName;
     /**
-     * @return Lightsail resource type (e.g., Distribution).
+     * @return The resource type of the origin resource (e.g., Instance).
      * 
      */
     private @Nullable String resourceType;
 
     private DistributionOrigin() {}
     /**
-     * @return Name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
+     * @return The name of the origin resource.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return Protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
+     * @return The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
      * 
      */
     public Optional<String> protocolPolicy() {
         return Optional.ofNullable(this.protocolPolicy);
     }
     /**
-     * @return AWS Region name of the origin resource.
+     * @return The AWS Region name of the origin resource.
      * 
      */
     public String regionName() {
         return this.regionName;
     }
     /**
-     * @return Lightsail resource type (e.g., Distribution).
+     * @return The resource type of the origin resource (e.g., Instance).
      * 
      */
     public Optional<String> resourceType() {

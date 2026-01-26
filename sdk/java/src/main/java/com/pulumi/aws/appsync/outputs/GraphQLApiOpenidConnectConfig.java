@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GraphQLApiOpenidConnectConfig {
-    /**
-     * @return Number of milliseconds a token is valid after being authenticated.
-     * 
-     */
     private @Nullable Integer authTtl;
-    /**
-     * @return Client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
-     * 
-     */
     private @Nullable String clientId;
-    /**
-     * @return Number of milliseconds a token is valid after being issued to a user.
-     * 
-     */
     private @Nullable Integer iatTtl;
-    /**
-     * @return Issuer for the OpenID Connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
-     * 
-     */
     private String issuer;
 
     private GraphQLApiOpenidConnectConfig() {}
-    /**
-     * @return Number of milliseconds a token is valid after being authenticated.
-     * 
-     */
     public Optional<Integer> authTtl() {
         return Optional.ofNullable(this.authTtl);
     }
-    /**
-     * @return Client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
-     * 
-     */
     public Optional<String> clientId() {
         return Optional.ofNullable(this.clientId);
     }
-    /**
-     * @return Number of milliseconds a token is valid after being issued to a user.
-     * 
-     */
     public Optional<Integer> iatTtl() {
         return Optional.ofNullable(this.iatTtl);
     }
-    /**
-     * @return Issuer for the OpenID Connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
-     * 
-     */
     public String issuer() {
         return this.issuer;
     }

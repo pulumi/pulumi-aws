@@ -22,78 +22,34 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LifecyclePolicyPolicyDetailsSchedule {
-    /**
-     * @return Specifies a snapshot archiving rule for a schedule. See `archiveRule` block.
-     * 
-     */
     private @Nullable LifecyclePolicyPolicyDetailsScheduleArchiveRule archiveRule;
     private @Nullable Boolean copyTags;
-    /**
-     * @return See the `createRule` block. Max of 1 per schedule.
-     * 
-     */
     private LifecyclePolicyPolicyDetailsScheduleCreateRule createRule;
-    /**
-     * @return See the `crossRegionCopyRule` block. Max of 3 per schedule.
-     * 
-     */
     private @Nullable List<LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule> crossRegionCopyRules;
     private @Nullable LifecyclePolicyPolicyDetailsScheduleDeprecateRule deprecateRule;
-    /**
-     * @return See the `fastRestoreRule` block. Max of 1 per schedule.
-     * 
-     */
     private @Nullable LifecyclePolicyPolicyDetailsScheduleFastRestoreRule fastRestoreRule;
     private String name;
     private LifecyclePolicyPolicyDetailsScheduleRetainRule retainRule;
-    /**
-     * @return See the `shareRule` block. Max of 1 per schedule.
-     * 
-     */
     private @Nullable LifecyclePolicyPolicyDetailsScheduleShareRule shareRule;
-    /**
-     * @return A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
-     * 
-     */
     private @Nullable Map<String,String> tagsToAdd;
-    /**
-     * @return A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resourceTypes` is `INSTANCE`.
-     * 
-     */
     private @Nullable Map<String,String> variableTags;
 
     private LifecyclePolicyPolicyDetailsSchedule() {}
-    /**
-     * @return Specifies a snapshot archiving rule for a schedule. See `archiveRule` block.
-     * 
-     */
     public Optional<LifecyclePolicyPolicyDetailsScheduleArchiveRule> archiveRule() {
         return Optional.ofNullable(this.archiveRule);
     }
     public Optional<Boolean> copyTags() {
         return Optional.ofNullable(this.copyTags);
     }
-    /**
-     * @return See the `createRule` block. Max of 1 per schedule.
-     * 
-     */
     public LifecyclePolicyPolicyDetailsScheduleCreateRule createRule() {
         return this.createRule;
     }
-    /**
-     * @return See the `crossRegionCopyRule` block. Max of 3 per schedule.
-     * 
-     */
     public List<LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule> crossRegionCopyRules() {
         return this.crossRegionCopyRules == null ? List.of() : this.crossRegionCopyRules;
     }
     public Optional<LifecyclePolicyPolicyDetailsScheduleDeprecateRule> deprecateRule() {
         return Optional.ofNullable(this.deprecateRule);
     }
-    /**
-     * @return See the `fastRestoreRule` block. Max of 1 per schedule.
-     * 
-     */
     public Optional<LifecyclePolicyPolicyDetailsScheduleFastRestoreRule> fastRestoreRule() {
         return Optional.ofNullable(this.fastRestoreRule);
     }
@@ -103,24 +59,12 @@ public final class LifecyclePolicyPolicyDetailsSchedule {
     public LifecyclePolicyPolicyDetailsScheduleRetainRule retainRule() {
         return this.retainRule;
     }
-    /**
-     * @return See the `shareRule` block. Max of 1 per schedule.
-     * 
-     */
     public Optional<LifecyclePolicyPolicyDetailsScheduleShareRule> shareRule() {
         return Optional.ofNullable(this.shareRule);
     }
-    /**
-     * @return A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
-     * 
-     */
     public Map<String,String> tagsToAdd() {
         return this.tagsToAdd == null ? Map.of() : this.tagsToAdd;
     }
-    /**
-     * @return A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resourceTypes` is `INSTANCE`.
-     * 
-     */
     public Map<String,String> variableTags() {
         return this.variableTags == null ? Map.of() : this.variableTags;
     }

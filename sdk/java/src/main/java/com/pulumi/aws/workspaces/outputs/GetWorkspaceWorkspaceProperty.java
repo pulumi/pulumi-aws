@@ -11,65 +11,25 @@ import java.util.Objects;
 
 @CustomType
 public final class GetWorkspaceWorkspaceProperty {
-    /**
-     * @return Compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
-     * 
-     */
     private String computeTypeName;
-    /**
-     * @return Size of the root volume.
-     * 
-     */
     private Integer rootVolumeSizeGib;
-    /**
-     * @return Running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
-     * 
-     */
     private String runningMode;
-    /**
-     * @return Time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
-     * 
-     */
     private Integer runningModeAutoStopTimeoutInMinutes;
-    /**
-     * @return Size of the user storage.
-     * 
-     */
     private Integer userVolumeSizeGib;
 
     private GetWorkspaceWorkspaceProperty() {}
-    /**
-     * @return Compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
-     * 
-     */
     public String computeTypeName() {
         return this.computeTypeName;
     }
-    /**
-     * @return Size of the root volume.
-     * 
-     */
     public Integer rootVolumeSizeGib() {
         return this.rootVolumeSizeGib;
     }
-    /**
-     * @return Running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
-     * 
-     */
     public String runningMode() {
         return this.runningMode;
     }
-    /**
-     * @return Time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
-     * 
-     */
     public Integer runningModeAutoStopTimeoutInMinutes() {
         return this.runningModeAutoStopTimeoutInMinutes;
     }
-    /**
-     * @return Size of the user storage.
-     * 
-     */
     public Integer userVolumeSizeGib() {
         return this.userVolumeSizeGib;
     }

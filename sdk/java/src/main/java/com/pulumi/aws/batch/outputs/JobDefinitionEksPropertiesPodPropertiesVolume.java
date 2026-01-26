@@ -16,10 +16,6 @@ import javax.annotation.Nullable;
 public final class JobDefinitionEksPropertiesPodPropertiesVolume {
     private @Nullable JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir emptyDir;
     private @Nullable JobDefinitionEksPropertiesPodPropertiesVolumeHostPath hostPath;
-    /**
-     * @return Name of the job definition.
-     * 
-     */
     private @Nullable String name;
     private @Nullable JobDefinitionEksPropertiesPodPropertiesVolumeSecret secret;
 
@@ -30,10 +26,6 @@ public final class JobDefinitionEksPropertiesPodPropertiesVolume {
     public Optional<JobDefinitionEksPropertiesPodPropertiesVolumeHostPath> hostPath() {
         return Optional.ofNullable(this.hostPath);
     }
-    /**
-     * @return Name of the job definition.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }

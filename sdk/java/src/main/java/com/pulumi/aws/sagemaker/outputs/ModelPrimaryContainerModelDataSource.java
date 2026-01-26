@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ModelPrimaryContainerModelDataSource {
-    /**
-     * @return S3 location of model data to deploy. See S3 Data Source.
-     * 
-     */
     private List<ModelPrimaryContainerModelDataSourceS3DataSource> s3DataSources;
 
     private ModelPrimaryContainerModelDataSource() {}
-    /**
-     * @return S3 location of model data to deploy. See S3 Data Source.
-     * 
-     */
     public List<ModelPrimaryContainerModelDataSourceS3DataSource> s3DataSources() {
         return this.s3DataSources;
     }

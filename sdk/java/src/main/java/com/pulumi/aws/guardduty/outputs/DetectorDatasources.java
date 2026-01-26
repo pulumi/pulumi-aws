@@ -13,47 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DetectorDatasources {
-    /**
-     * @return Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-     * See Kubernetes and Kubernetes Audit Logs below for more details.
-     * 
-     */
     private @Nullable DetectorDatasourcesKubernetes kubernetes;
-    /**
-     * @return Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
-     * See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
-     * 
-     */
     private @Nullable DetectorDatasourcesMalwareProtection malwareProtection;
-    /**
-     * @return Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-     * See S3 Logs below for more details.
-     * 
-     */
     private @Nullable DetectorDatasourcesS3Logs s3Logs;
 
     private DetectorDatasources() {}
-    /**
-     * @return Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-     * See Kubernetes and Kubernetes Audit Logs below for more details.
-     * 
-     */
     public Optional<DetectorDatasourcesKubernetes> kubernetes() {
         return Optional.ofNullable(this.kubernetes);
     }
-    /**
-     * @return Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
-     * See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
-     * 
-     */
     public Optional<DetectorDatasourcesMalwareProtection> malwareProtection() {
         return Optional.ofNullable(this.malwareProtection);
     }
-    /**
-     * @return Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-     * See S3 Logs below for more details.
-     * 
-     */
     public Optional<DetectorDatasourcesS3Logs> s3Logs() {
         return Optional.ofNullable(this.s3Logs);
     }

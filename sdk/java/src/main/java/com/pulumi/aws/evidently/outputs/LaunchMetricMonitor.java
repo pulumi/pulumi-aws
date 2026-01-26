@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class LaunchMetricMonitor {
-    /**
-     * @return A block that defines the metric. Detailed below.
-     * 
-     */
     private LaunchMetricMonitorMetricDefinition metricDefinition;
 
     private LaunchMetricMonitor() {}
-    /**
-     * @return A block that defines the metric. Detailed below.
-     * 
-     */
     public LaunchMetricMonitorMetricDefinition metricDefinition() {
         return this.metricDefinition;
     }

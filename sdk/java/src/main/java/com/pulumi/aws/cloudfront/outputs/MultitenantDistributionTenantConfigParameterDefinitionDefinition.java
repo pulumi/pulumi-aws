@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MultitenantDistributionTenantConfigParameterDefinitionDefinition {
-    /**
-     * @return String schema configuration. See String Schema below.
-     * 
-     */
     private @Nullable List<MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchema> stringSchemas;
 
     private MultitenantDistributionTenantConfigParameterDefinitionDefinition() {}
-    /**
-     * @return String schema configuration. See String Schema below.
-     * 
-     */
     public List<MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchema> stringSchemas() {
         return this.stringSchemas == null ? List.of() : this.stringSchemas;
     }

@@ -9,27 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iam
 {
-    /// <summary>
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import exclusive management of managed IAM policy assignments using the `user_name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:iam/userPolicyAttachmentsExclusive:UserPolicyAttachmentsExclusive example MyUser
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iam/userPolicyAttachmentsExclusive:UserPolicyAttachmentsExclusive")]
     public partial class UserPolicyAttachmentsExclusive : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
-        /// </summary>
         [Output("policyArns")]
         public Output<ImmutableArray<string>> PolicyArns { get; private set; } = null!;
 
-        /// <summary>
-        /// IAM user name.
-        /// </summary>
         [Output("userName")]
         public Output<string> UserName { get; private set; } = null!;
 
@@ -81,19 +66,12 @@ namespace Pulumi.Aws.Iam
     {
         [Input("policyArns", required: true)]
         private InputList<string>? _policyArns;
-
-        /// <summary>
-        /// A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
-        /// </summary>
         public InputList<string> PolicyArns
         {
             get => _policyArns ?? (_policyArns = new InputList<string>());
             set => _policyArns = value;
         }
 
-        /// <summary>
-        /// IAM user name.
-        /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
 
@@ -107,19 +85,12 @@ namespace Pulumi.Aws.Iam
     {
         [Input("policyArns")]
         private InputList<string>? _policyArns;
-
-        /// <summary>
-        /// A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
-        /// </summary>
         public InputList<string> PolicyArns
         {
             get => _policyArns ?? (_policyArns = new InputList<string>());
             set => _policyArns = value;
         }
 
-        /// <summary>
-        /// IAM user name.
-        /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }
 

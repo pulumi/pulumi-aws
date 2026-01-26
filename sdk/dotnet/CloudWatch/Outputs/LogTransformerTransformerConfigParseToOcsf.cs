@@ -14,13 +14,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     public sealed class LogTransformerTransformerConfigParseToOcsf
     {
         public readonly string EventSource;
-        /// <summary>
-        /// Specifies the version of the OCSF schema to use for the transformed log events. The only allowed value is `V1.1`.
-        /// </summary>
         public readonly string OcsfVersion;
-        /// <summary>
-        /// Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
-        /// </summary>
         public readonly string? Source;
 
         [OutputConstructor]

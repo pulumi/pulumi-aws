@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Pipes.Inputs
 
     public sealed class PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
-        /// </summary>
         [Input("deviceName")]
         public Input<string>? DeviceName { get; set; }
 
-        /// <summary>
-        /// The Elastic Inference accelerator type to use.
-        /// </summary>
         [Input("deviceType")]
         public Input<string>? DeviceType { get; set; }
 

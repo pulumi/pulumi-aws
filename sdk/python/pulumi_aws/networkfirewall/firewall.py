@@ -38,21 +38,6 @@ class FirewallArgs:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Firewall resource.
-        :param pulumi.Input[_builtins.str] firewall_policy_arn: The Amazon Resource Name (ARN) of the VPC Firewall policy.
-        :param pulumi.Input[_builtins.bool] availability_zone_change_protection: A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallAvailabilityZoneMappingArgs']]] availability_zone_mappings: Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
-        :param pulumi.Input[_builtins.bool] delete_protection: A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] description: A friendly description of the firewall.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_analysis_types: Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
-        :param pulumi.Input['FirewallEncryptionConfigurationArgs'] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
-        :param pulumi.Input[_builtins.bool] firewall_policy_change_protection: A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] name: A friendly name of the firewall.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] subnet_change_protection: A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]] subnet_mappings: Required when creating a VPC attached firewall. Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] transit_gateway_id: . Required when creating a transit gateway-attached firewall. The unique identifier of the transit gateway to attach to this firewall. You can provide either a transit gateway from your account or one that has been shared with you through AWS Resource Access Manager
-        :param pulumi.Input[_builtins.str] vpc_id: Required when creating a VPC attached firewall. The unique identifier of the VPC where AWS Network Firewall should create the firewall.
         """
         pulumi.set(__self__, "firewall_policy_arn", firewall_policy_arn)
         if availability_zone_change_protection is not None:
@@ -87,9 +72,6 @@ class FirewallArgs:
     @_builtins.property
     @pulumi.getter(name="firewallPolicyArn")
     def firewall_policy_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the VPC Firewall policy.
-        """
         return pulumi.get(self, "firewall_policy_arn")
 
     @firewall_policy_arn.setter
@@ -99,9 +81,6 @@ class FirewallArgs:
     @_builtins.property
     @pulumi.getter(name="availabilityZoneChangeProtection")
     def availability_zone_change_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
-        """
         return pulumi.get(self, "availability_zone_change_protection")
 
     @availability_zone_change_protection.setter
@@ -111,9 +90,6 @@ class FirewallArgs:
     @_builtins.property
     @pulumi.getter(name="availabilityZoneMappings")
     def availability_zone_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallAvailabilityZoneMappingArgs']]]]:
-        """
-        Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
-        """
         return pulumi.get(self, "availability_zone_mappings")
 
     @availability_zone_mappings.setter
@@ -123,9 +99,6 @@ class FirewallArgs:
     @_builtins.property
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
-        """
         return pulumi.get(self, "delete_protection")
 
     @delete_protection.setter
@@ -135,9 +108,6 @@ class FirewallArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A friendly description of the firewall.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -147,9 +117,6 @@ class FirewallArgs:
     @_builtins.property
     @pulumi.getter(name="enabledAnalysisTypes")
     def enabled_analysis_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
-        """
         return pulumi.get(self, "enabled_analysis_types")
 
     @enabled_analysis_types.setter
@@ -159,9 +126,6 @@ class FirewallArgs:
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional[pulumi.Input['FirewallEncryptionConfigurationArgs']]:
-        """
-        KMS encryption configuration settings. See Encryption Configuration below for details.
-        """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
@@ -171,9 +135,6 @@ class FirewallArgs:
     @_builtins.property
     @pulumi.getter(name="firewallPolicyChangeProtection")
     def firewall_policy_change_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
-        """
         return pulumi.get(self, "firewall_policy_change_protection")
 
     @firewall_policy_change_protection.setter
@@ -183,9 +144,6 @@ class FirewallArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A friendly name of the firewall.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -195,9 +153,6 @@ class FirewallArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -207,9 +162,6 @@ class FirewallArgs:
     @_builtins.property
     @pulumi.getter(name="subnetChangeProtection")
     def subnet_change_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
-        """
         return pulumi.get(self, "subnet_change_protection")
 
     @subnet_change_protection.setter
@@ -219,9 +171,6 @@ class FirewallArgs:
     @_builtins.property
     @pulumi.getter(name="subnetMappings")
     def subnet_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]]]:
-        """
-        Required when creating a VPC attached firewall. Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
-        """
         return pulumi.get(self, "subnet_mappings")
 
     @subnet_mappings.setter
@@ -231,9 +180,6 @@ class FirewallArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -243,9 +189,6 @@ class FirewallArgs:
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        . Required when creating a transit gateway-attached firewall. The unique identifier of the transit gateway to attach to this firewall. You can provide either a transit gateway from your account or one that has been shared with you through AWS Resource Access Manager
-        """
         return pulumi.get(self, "transit_gateway_id")
 
     @transit_gateway_id.setter
@@ -255,9 +198,6 @@ class FirewallArgs:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Required when creating a VPC attached firewall. The unique identifier of the VPC where AWS Network Firewall should create the firewall.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -290,26 +230,6 @@ class _FirewallState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Firewall resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) that identifies the firewall.
-        :param pulumi.Input[_builtins.bool] availability_zone_change_protection: A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallAvailabilityZoneMappingArgs']]] availability_zone_mappings: Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
-        :param pulumi.Input[_builtins.bool] delete_protection: A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] description: A friendly description of the firewall.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_analysis_types: Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
-        :param pulumi.Input['FirewallEncryptionConfigurationArgs'] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
-        :param pulumi.Input[_builtins.str] firewall_policy_arn: The Amazon Resource Name (ARN) of the VPC Firewall policy.
-        :param pulumi.Input[_builtins.bool] firewall_policy_change_protection: A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallFirewallStatusArgs']]] firewall_statuses: Nested list of information about the current status of the firewall.
-        :param pulumi.Input[_builtins.str] name: A friendly name of the firewall.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] subnet_change_protection: A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]] subnet_mappings: Required when creating a VPC attached firewall. Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] transit_gateway_id: . Required when creating a transit gateway-attached firewall. The unique identifier of the transit gateway to attach to this firewall. You can provide either a transit gateway from your account or one that has been shared with you through AWS Resource Access Manager
-        :param pulumi.Input[_builtins.str] transit_gateway_owner_account_id: The AWS account ID that owns the transit gateway.
-        :param pulumi.Input[_builtins.str] update_token: A string token used when updating a firewall.
-        :param pulumi.Input[_builtins.str] vpc_id: Required when creating a VPC attached firewall. The unique identifier of the VPC where AWS Network Firewall should create the firewall.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -355,9 +275,6 @@ class _FirewallState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) that identifies the firewall.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -367,9 +284,6 @@ class _FirewallState:
     @_builtins.property
     @pulumi.getter(name="availabilityZoneChangeProtection")
     def availability_zone_change_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
-        """
         return pulumi.get(self, "availability_zone_change_protection")
 
     @availability_zone_change_protection.setter
@@ -379,9 +293,6 @@ class _FirewallState:
     @_builtins.property
     @pulumi.getter(name="availabilityZoneMappings")
     def availability_zone_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallAvailabilityZoneMappingArgs']]]]:
-        """
-        Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
-        """
         return pulumi.get(self, "availability_zone_mappings")
 
     @availability_zone_mappings.setter
@@ -391,9 +302,6 @@ class _FirewallState:
     @_builtins.property
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
-        """
         return pulumi.get(self, "delete_protection")
 
     @delete_protection.setter
@@ -403,9 +311,6 @@ class _FirewallState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A friendly description of the firewall.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -415,9 +320,6 @@ class _FirewallState:
     @_builtins.property
     @pulumi.getter(name="enabledAnalysisTypes")
     def enabled_analysis_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
-        """
         return pulumi.get(self, "enabled_analysis_types")
 
     @enabled_analysis_types.setter
@@ -427,9 +329,6 @@ class _FirewallState:
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional[pulumi.Input['FirewallEncryptionConfigurationArgs']]:
-        """
-        KMS encryption configuration settings. See Encryption Configuration below for details.
-        """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
@@ -439,9 +338,6 @@ class _FirewallState:
     @_builtins.property
     @pulumi.getter(name="firewallPolicyArn")
     def firewall_policy_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the VPC Firewall policy.
-        """
         return pulumi.get(self, "firewall_policy_arn")
 
     @firewall_policy_arn.setter
@@ -451,9 +347,6 @@ class _FirewallState:
     @_builtins.property
     @pulumi.getter(name="firewallPolicyChangeProtection")
     def firewall_policy_change_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
-        """
         return pulumi.get(self, "firewall_policy_change_protection")
 
     @firewall_policy_change_protection.setter
@@ -463,9 +356,6 @@ class _FirewallState:
     @_builtins.property
     @pulumi.getter(name="firewallStatuses")
     def firewall_statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFirewallStatusArgs']]]]:
-        """
-        Nested list of information about the current status of the firewall.
-        """
         return pulumi.get(self, "firewall_statuses")
 
     @firewall_statuses.setter
@@ -475,9 +365,6 @@ class _FirewallState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A friendly name of the firewall.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -487,9 +374,6 @@ class _FirewallState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -499,9 +383,6 @@ class _FirewallState:
     @_builtins.property
     @pulumi.getter(name="subnetChangeProtection")
     def subnet_change_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
-        """
         return pulumi.get(self, "subnet_change_protection")
 
     @subnet_change_protection.setter
@@ -511,9 +392,6 @@ class _FirewallState:
     @_builtins.property
     @pulumi.getter(name="subnetMappings")
     def subnet_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]]]:
-        """
-        Required when creating a VPC attached firewall. Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
-        """
         return pulumi.get(self, "subnet_mappings")
 
     @subnet_mappings.setter
@@ -523,9 +401,6 @@ class _FirewallState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -535,9 +410,6 @@ class _FirewallState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -547,9 +419,6 @@ class _FirewallState:
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        . Required when creating a transit gateway-attached firewall. The unique identifier of the transit gateway to attach to this firewall. You can provide either a transit gateway from your account or one that has been shared with you through AWS Resource Access Manager
-        """
         return pulumi.get(self, "transit_gateway_id")
 
     @transit_gateway_id.setter
@@ -559,9 +428,6 @@ class _FirewallState:
     @_builtins.property
     @pulumi.getter(name="transitGatewayOwnerAccountId")
     def transit_gateway_owner_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS account ID that owns the transit gateway.
-        """
         return pulumi.get(self, "transit_gateway_owner_account_id")
 
     @transit_gateway_owner_account_id.setter
@@ -571,9 +437,6 @@ class _FirewallState:
     @_builtins.property
     @pulumi.getter(name="updateToken")
     def update_token(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A string token used when updating a firewall.
-        """
         return pulumi.get(self, "update_token")
 
     @update_token.setter
@@ -583,9 +446,6 @@ class _FirewallState:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Required when creating a VPC attached firewall. The unique identifier of the VPC where AWS Network Firewall should create the firewall.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -616,81 +476,9 @@ class Firewall(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an AWS Network Firewall Firewall Resource
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkfirewall.Firewall("example",
-            name="example",
-            firewall_policy_arn=example_aws_networkfirewall_firewall_policy["arn"],
-            vpc_id=example_aws_vpc["id"],
-            enabled_analysis_types=[
-                "TLS_SNI",
-                "HTTP_HOST",
-            ],
-            subnet_mappings=[{
-                "subnet_id": example_aws_subnet["id"],
-            }],
-            tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
-            })
-        ```
-
-        ### Transit Gateway Attached Firewall
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.get_availability_zones(state="available")
-        example_firewall = aws.networkfirewall.Firewall("example",
-            name="example",
-            firewall_policy_arn=example_aws_networkfirewall_firewall_policy["arn"],
-            transit_gateway_id=example_aws_ec2_transit_gateway["id"],
-            availability_zone_mappings=[
-                {
-                    "availability_zone_id": example.zone_ids[0],
-                },
-                {
-                    "availability_zone_id": example.zone_ids[1],
-                },
-            ])
-        ```
-
-        ### Transit Gateway Attached Firewall (Cross Account)
-
-        A full example of how to create a Transit Gateway in one AWS account, share it with a second AWS account, and create Network Firewall in the second account to the Transit Gateway via the `networkfirewall.Firewall` and `aws_networkfirewall_network_firewall_transit_gateway_attachment_accepter` resources can be found in the `./examples/network-firewall-cross-account-transit-gateway` directory within the Github Repository
-
-        ## Import
-
-        Using `pulumi import`, import Network Firewall Firewalls using their `arn`. For example:
-
-        ```sh
-        $ pulumi import aws:networkfirewall/firewall:Firewall example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
-        ```
-
+        Create a Firewall resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] availability_zone_change_protection: A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallAvailabilityZoneMappingArgs', 'FirewallAvailabilityZoneMappingArgsDict']]]] availability_zone_mappings: Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
-        :param pulumi.Input[_builtins.bool] delete_protection: A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] description: A friendly description of the firewall.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_analysis_types: Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
-        :param pulumi.Input[Union['FirewallEncryptionConfigurationArgs', 'FirewallEncryptionConfigurationArgsDict']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
-        :param pulumi.Input[_builtins.str] firewall_policy_arn: The Amazon Resource Name (ARN) of the VPC Firewall policy.
-        :param pulumi.Input[_builtins.bool] firewall_policy_change_protection: A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] name: A friendly name of the firewall.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] subnet_change_protection: A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallSubnetMappingArgs', 'FirewallSubnetMappingArgsDict']]]] subnet_mappings: Required when creating a VPC attached firewall. Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] transit_gateway_id: . Required when creating a transit gateway-attached firewall. The unique identifier of the transit gateway to attach to this firewall. You can provide either a transit gateway from your account or one that has been shared with you through AWS Resource Access Manager
-        :param pulumi.Input[_builtins.str] vpc_id: Required when creating a VPC attached firewall. The unique identifier of the VPC where AWS Network Firewall should create the firewall.
         """
         ...
     @overload
@@ -699,64 +487,7 @@ class Firewall(pulumi.CustomResource):
                  args: FirewallArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AWS Network Firewall Firewall Resource
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkfirewall.Firewall("example",
-            name="example",
-            firewall_policy_arn=example_aws_networkfirewall_firewall_policy["arn"],
-            vpc_id=example_aws_vpc["id"],
-            enabled_analysis_types=[
-                "TLS_SNI",
-                "HTTP_HOST",
-            ],
-            subnet_mappings=[{
-                "subnet_id": example_aws_subnet["id"],
-            }],
-            tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
-            })
-        ```
-
-        ### Transit Gateway Attached Firewall
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.get_availability_zones(state="available")
-        example_firewall = aws.networkfirewall.Firewall("example",
-            name="example",
-            firewall_policy_arn=example_aws_networkfirewall_firewall_policy["arn"],
-            transit_gateway_id=example_aws_ec2_transit_gateway["id"],
-            availability_zone_mappings=[
-                {
-                    "availability_zone_id": example.zone_ids[0],
-                },
-                {
-                    "availability_zone_id": example.zone_ids[1],
-                },
-            ])
-        ```
-
-        ### Transit Gateway Attached Firewall (Cross Account)
-
-        A full example of how to create a Transit Gateway in one AWS account, share it with a second AWS account, and create Network Firewall in the second account to the Transit Gateway via the `networkfirewall.Firewall` and `aws_networkfirewall_network_firewall_transit_gateway_attachment_accepter` resources can be found in the `./examples/network-firewall-cross-account-transit-gateway` directory within the Github Repository
-
-        ## Import
-
-        Using `pulumi import`, import Network Firewall Firewalls using their `arn`. For example:
-
-        ```sh
-        $ pulumi import aws:networkfirewall/firewall:Firewall example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
-        ```
-
+        Create a Firewall resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param FirewallArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -855,26 +586,6 @@ class Firewall(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) that identifies the firewall.
-        :param pulumi.Input[_builtins.bool] availability_zone_change_protection: A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallAvailabilityZoneMappingArgs', 'FirewallAvailabilityZoneMappingArgsDict']]]] availability_zone_mappings: Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
-        :param pulumi.Input[_builtins.bool] delete_protection: A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] description: A friendly description of the firewall.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_analysis_types: Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
-        :param pulumi.Input[Union['FirewallEncryptionConfigurationArgs', 'FirewallEncryptionConfigurationArgsDict']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
-        :param pulumi.Input[_builtins.str] firewall_policy_arn: The Amazon Resource Name (ARN) of the VPC Firewall policy.
-        :param pulumi.Input[_builtins.bool] firewall_policy_change_protection: A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallFirewallStatusArgs', 'FirewallFirewallStatusArgsDict']]]] firewall_statuses: Nested list of information about the current status of the firewall.
-        :param pulumi.Input[_builtins.str] name: A friendly name of the firewall.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] subnet_change_protection: A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallSubnetMappingArgs', 'FirewallSubnetMappingArgsDict']]]] subnet_mappings: Required when creating a VPC attached firewall. Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] transit_gateway_id: . Required when creating a transit gateway-attached firewall. The unique identifier of the transit gateway to attach to this firewall. You can provide either a transit gateway from your account or one that has been shared with you through AWS Resource Access Manager
-        :param pulumi.Input[_builtins.str] transit_gateway_owner_account_id: The AWS account ID that owns the transit gateway.
-        :param pulumi.Input[_builtins.str] update_token: A string token used when updating a firewall.
-        :param pulumi.Input[_builtins.str] vpc_id: Required when creating a VPC attached firewall. The unique identifier of the VPC where AWS Network Firewall should create the firewall.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -905,160 +616,100 @@ class Firewall(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) that identifies the firewall.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneChangeProtection")
     def availability_zone_change_protection(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
-        """
         return pulumi.get(self, "availability_zone_change_protection")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneMappings")
     def availability_zone_mappings(self) -> pulumi.Output[Sequence['outputs.FirewallAvailabilityZoneMapping']]:
-        """
-        Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
-        """
         return pulumi.get(self, "availability_zone_mappings")
 
     @_builtins.property
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
-        """
         return pulumi.get(self, "delete_protection")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A friendly description of the firewall.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="enabledAnalysisTypes")
     def enabled_analysis_types(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
-        """
         return pulumi.get(self, "enabled_analysis_types")
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> pulumi.Output[Optional['outputs.FirewallEncryptionConfiguration']]:
-        """
-        KMS encryption configuration settings. See Encryption Configuration below for details.
-        """
         return pulumi.get(self, "encryption_configuration")
 
     @_builtins.property
     @pulumi.getter(name="firewallPolicyArn")
     def firewall_policy_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the VPC Firewall policy.
-        """
         return pulumi.get(self, "firewall_policy_arn")
 
     @_builtins.property
     @pulumi.getter(name="firewallPolicyChangeProtection")
     def firewall_policy_change_protection(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
-        """
         return pulumi.get(self, "firewall_policy_change_protection")
 
     @_builtins.property
     @pulumi.getter(name="firewallStatuses")
     def firewall_statuses(self) -> pulumi.Output[Sequence['outputs.FirewallFirewallStatus']]:
-        """
-        Nested list of information about the current status of the firewall.
-        """
         return pulumi.get(self, "firewall_statuses")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        A friendly name of the firewall.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="subnetChangeProtection")
     def subnet_change_protection(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
-        """
         return pulumi.get(self, "subnet_change_protection")
 
     @_builtins.property
     @pulumi.getter(name="subnetMappings")
     def subnet_mappings(self) -> pulumi.Output[Optional[Sequence['outputs.FirewallSubnetMapping']]]:
-        """
-        Required when creating a VPC attached firewall. Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
-        """
         return pulumi.get(self, "subnet_mappings")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        . Required when creating a transit gateway-attached firewall. The unique identifier of the transit gateway to attach to this firewall. You can provide either a transit gateway from your account or one that has been shared with you through AWS Resource Access Manager
-        """
         return pulumi.get(self, "transit_gateway_id")
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayOwnerAccountId")
     def transit_gateway_owner_account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The AWS account ID that owns the transit gateway.
-        """
         return pulumi.get(self, "transit_gateway_owner_account_id")
 
     @_builtins.property
     @pulumi.getter(name="updateToken")
     def update_token(self) -> pulumi.Output[_builtins.str]:
-        """
-        A string token used when updating a firewall.
-        """
         return pulumi.get(self, "update_token")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Required when creating a VPC attached firewall. The unique identifier of the VPC where AWS Network Firewall should create the firewall.
-        """
         return pulumi.get(self, "vpc_id")
 

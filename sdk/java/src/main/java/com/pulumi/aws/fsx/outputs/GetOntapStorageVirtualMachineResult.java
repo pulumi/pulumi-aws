@@ -17,149 +17,61 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOntapStorageVirtualMachineResult {
-    /**
-     * @return The Microsoft Active Directory configuration to which the SVM is joined, if applicable. See Active Directory Configuration below.
-     * 
-     */
     private List<GetOntapStorageVirtualMachineActiveDirectoryConfiguration> activeDirectoryConfigurations;
-    /**
-     * @return Amazon Resource Name of the SVM.
-     * 
-     */
     private String arn;
-    /**
-     * @return The time that the SVM was created.
-     * 
-     */
     private String creationTime;
-    /**
-     * @return The endpoints that are used to access data or to manage the SVM using the NetApp ONTAP CLI, REST API, or NetApp CloudManager. They are the Iscsi, Management, Nfs, and Smb endpoints. See SVM Endpoints below.
-     * 
-     */
     private List<GetOntapStorageVirtualMachineEndpoint> endpoints;
-    /**
-     * @return Identifier of the file system (e.g. `fs-12345678`).
-     * 
-     */
     private String fileSystemId;
     private @Nullable List<GetOntapStorageVirtualMachineFilter> filters;
-    /**
-     * @return The SVM&#39;s system generated unique ID.
-     * 
-     */
     private String id;
-    /**
-     * @return The SVM&#39;s lifecycle status.
-     * 
-     */
     private String lifecycleStatus;
-    /**
-     * @return Describes why the SVM lifecycle state changed. See Lifecycle Transition Reason below.
-     * 
-     */
     private List<GetOntapStorageVirtualMachineLifecycleTransitionReason> lifecycleTransitionReasons;
-    /**
-     * @return The name of the SVM, if provisioned.
-     * 
-     */
     private String name;
     private String region;
-    /**
-     * @return The SVM&#39;s subtype.
-     * 
-     */
     private String subtype;
     private Map<String,String> tags;
-    /**
-     * @return The SVM&#39;s UUID.
-     * 
-     */
     private String uuid;
 
     private GetOntapStorageVirtualMachineResult() {}
-    /**
-     * @return The Microsoft Active Directory configuration to which the SVM is joined, if applicable. See Active Directory Configuration below.
-     * 
-     */
     public List<GetOntapStorageVirtualMachineActiveDirectoryConfiguration> activeDirectoryConfigurations() {
         return this.activeDirectoryConfigurations;
     }
-    /**
-     * @return Amazon Resource Name of the SVM.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The time that the SVM was created.
-     * 
-     */
     public String creationTime() {
         return this.creationTime;
     }
-    /**
-     * @return The endpoints that are used to access data or to manage the SVM using the NetApp ONTAP CLI, REST API, or NetApp CloudManager. They are the Iscsi, Management, Nfs, and Smb endpoints. See SVM Endpoints below.
-     * 
-     */
     public List<GetOntapStorageVirtualMachineEndpoint> endpoints() {
         return this.endpoints;
     }
-    /**
-     * @return Identifier of the file system (e.g. `fs-12345678`).
-     * 
-     */
     public String fileSystemId() {
         return this.fileSystemId;
     }
     public List<GetOntapStorageVirtualMachineFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
-    /**
-     * @return The SVM&#39;s system generated unique ID.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return The SVM&#39;s lifecycle status.
-     * 
-     */
     public String lifecycleStatus() {
         return this.lifecycleStatus;
     }
-    /**
-     * @return Describes why the SVM lifecycle state changed. See Lifecycle Transition Reason below.
-     * 
-     */
     public List<GetOntapStorageVirtualMachineLifecycleTransitionReason> lifecycleTransitionReasons() {
         return this.lifecycleTransitionReasons;
     }
-    /**
-     * @return The name of the SVM, if provisioned.
-     * 
-     */
     public String name() {
         return this.name;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return The SVM&#39;s subtype.
-     * 
-     */
     public String subtype() {
         return this.subtype;
     }
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return The SVM&#39;s UUID.
-     * 
-     */
     public String uuid() {
         return this.uuid;
     }

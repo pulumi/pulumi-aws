@@ -25,12 +25,6 @@ class AppregistryApplicationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AppregistryApplication resource.
-        :param pulumi.Input[_builtins.str] description: Description of the application.
-        :param pulumi.Input[_builtins.str] name: Name of the application. The name must be unique within an AWS region.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags assigned to the Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -44,9 +38,6 @@ class AppregistryApplicationArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the application.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -56,11 +47,6 @@ class AppregistryApplicationArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the application. The name must be unique within an AWS region.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -70,9 +56,6 @@ class AppregistryApplicationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -82,9 +65,6 @@ class AppregistryApplicationArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -104,15 +84,6 @@ class _AppregistryApplicationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AppregistryApplication resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] application_tag: A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
-        :param pulumi.Input[_builtins.str] arn: ARN (Amazon Resource Name) of the application.
-        :param pulumi.Input[_builtins.str] description: Description of the application.
-        :param pulumi.Input[_builtins.str] name: Name of the application. The name must be unique within an AWS region.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags assigned to the Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if application_tag is not None:
             pulumi.set(__self__, "application_tag", application_tag)
@@ -132,9 +103,6 @@ class _AppregistryApplicationState:
     @_builtins.property
     @pulumi.getter(name="applicationTag")
     def application_tag(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
-        """
         return pulumi.get(self, "application_tag")
 
     @application_tag.setter
@@ -144,9 +112,6 @@ class _AppregistryApplicationState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN (Amazon Resource Name) of the application.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -156,9 +121,6 @@ class _AppregistryApplicationState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the application.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -168,11 +130,6 @@ class _AppregistryApplicationState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the application. The name must be unique within an AWS region.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -182,9 +139,6 @@ class _AppregistryApplicationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -194,9 +148,6 @@ class _AppregistryApplicationState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -206,9 +157,6 @@ class _AppregistryApplicationState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -228,49 +176,9 @@ class AppregistryApplication(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Service Catalog AppRegistry Application.
-
-        > An AWS Service Catalog AppRegistry Application is displayed in the AWS Console under "MyApplications".
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicecatalog.AppregistryApplication("example", name="example-app")
-        ```
-
-        ### Connecting Resources
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicecatalog.AppregistryApplication("example", name="example-app")
-        bucket = aws.s3.Bucket("bucket",
-            bucket="example-bucket",
-            tags=example.application_tag)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AWS Service Catalog AppRegistry Application using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:servicecatalog/appregistryApplication:AppregistryApplication example application-id-12345678
-        ```
-
+        Create a AppregistryApplication resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: Description of the application.
-        :param pulumi.Input[_builtins.str] name: Name of the application. The name must be unique within an AWS region.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags assigned to the Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -279,41 +187,7 @@ class AppregistryApplication(pulumi.CustomResource):
                  args: Optional[AppregistryApplicationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Service Catalog AppRegistry Application.
-
-        > An AWS Service Catalog AppRegistry Application is displayed in the AWS Console under "MyApplications".
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicecatalog.AppregistryApplication("example", name="example-app")
-        ```
-
-        ### Connecting Resources
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicecatalog.AppregistryApplication("example", name="example-app")
-        bucket = aws.s3.Bucket("bucket",
-            bucket="example-bucket",
-            tags=example.application_tag)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AWS Service Catalog AppRegistry Application using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:servicecatalog/appregistryApplication:AppregistryApplication example application-id-12345678
-        ```
-
+        Create a AppregistryApplication resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AppregistryApplicationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -373,15 +247,6 @@ class AppregistryApplication(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] application_tag: A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
-        :param pulumi.Input[_builtins.str] arn: ARN (Amazon Resource Name) of the application.
-        :param pulumi.Input[_builtins.str] description: Description of the application.
-        :param pulumi.Input[_builtins.str] name: Name of the application. The name must be unique within an AWS region.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags assigned to the Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -399,58 +264,35 @@ class AppregistryApplication(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="applicationTag")
     def application_tag(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
-        """
         return pulumi.get(self, "application_tag")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN (Amazon Resource Name) of the application.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the application.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the application. The name must be unique within an AWS region.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags assigned to the Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

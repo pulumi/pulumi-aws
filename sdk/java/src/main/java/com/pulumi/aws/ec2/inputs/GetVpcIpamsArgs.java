@@ -17,51 +17,23 @@ public final class GetVpcIpamsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetVpcIpamsArgs Empty = new GetVpcIpamsArgs();
 
-    /**
-     * Custom filter block as described below.
-     * 
-     * The arguments of this data source act as filters for querying the available IPAMs.
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<GetVpcIpamsFilterArgs>> filters;
 
-    /**
-     * @return Custom filter block as described below.
-     * 
-     * The arguments of this data source act as filters for querying the available IPAMs.
-     * 
-     */
     public Optional<Output<List<GetVpcIpamsFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * IDs of the IPAM resources to query for.
-     * 
-     */
     @Import(name="ipamIds")
     private @Nullable Output<List<String>> ipamIds;
 
-    /**
-     * @return IDs of the IPAM resources to query for.
-     * 
-     */
     public Optional<Output<List<String>>> ipamIds() {
         return Optional.ofNullable(this.ipamIds);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -92,91 +64,37 @@ public final class GetVpcIpamsArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetVpcIpamsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * The arguments of this data source act as filters for querying the available IPAMs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<GetVpcIpamsFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * The arguments of this data source act as filters for querying the available IPAMs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<GetVpcIpamsFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * The arguments of this data source act as filters for querying the available IPAMs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetVpcIpamsFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param ipamIds IDs of the IPAM resources to query for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipamIds(@Nullable Output<List<String>> ipamIds) {
             $.ipamIds = ipamIds;
             return this;
         }
 
-        /**
-         * @param ipamIds IDs of the IPAM resources to query for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipamIds(List<String> ipamIds) {
             return ipamIds(Output.of(ipamIds));
         }
 
-        /**
-         * @param ipamIds IDs of the IPAM resources to query for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipamIds(String... ipamIds) {
             return ipamIds(List.of(ipamIds));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

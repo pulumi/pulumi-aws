@@ -32,22 +32,6 @@ class IntegrationArgs:
                  timeouts: Optional[pulumi.Input['IntegrationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Integration resource.
-        :param pulumi.Input[_builtins.str] integration_name: Name of the integration.
-        :param pulumi.Input[_builtins.str] source_arn: ARN of the database to use as the source for replication. You can specify a DynamoDB table or an S3 bucket.
-        :param pulumi.Input[_builtins.str] target_arn: ARN of the Redshift data warehouse to use as the target for replication.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Set of non-secret key–value pairs that contains additional contextual information about the data.
-               For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
-               You can only include this parameter if you specify the `kms_key_id` parameter.
-        :param pulumi.Input[_builtins.str] description: Description of the integration.
-        :param pulumi.Input[_builtins.str] kms_key_id: KMS key identifier for the key to use to encrypt the integration.
-               If you don't specify an encryption key, Redshift uses a default AWS owned key.
-               You can only include this parameter if `source_arn` references a DynamoDB table.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/redshift/create-integration.html).
         """
         pulumi.set(__self__, "integration_name", integration_name)
         pulumi.set(__self__, "source_arn", source_arn)
@@ -68,9 +52,6 @@ class IntegrationArgs:
     @_builtins.property
     @pulumi.getter(name="integrationName")
     def integration_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the integration.
-        """
         return pulumi.get(self, "integration_name")
 
     @integration_name.setter
@@ -80,9 +61,6 @@ class IntegrationArgs:
     @_builtins.property
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the database to use as the source for replication. You can specify a DynamoDB table or an S3 bucket.
-        """
         return pulumi.get(self, "source_arn")
 
     @source_arn.setter
@@ -92,11 +70,6 @@ class IntegrationArgs:
     @_builtins.property
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the Redshift data warehouse to use as the target for replication.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "target_arn")
 
     @target_arn.setter
@@ -106,11 +79,6 @@ class IntegrationArgs:
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Set of non-secret key–value pairs that contains additional contextual information about the data.
-        For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
-        You can only include this parameter if you specify the `kms_key_id` parameter.
-        """
         return pulumi.get(self, "additional_encryption_context")
 
     @additional_encryption_context.setter
@@ -120,9 +88,6 @@ class IntegrationArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the integration.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -132,11 +97,6 @@ class IntegrationArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        KMS key identifier for the key to use to encrypt the integration.
-        If you don't specify an encryption key, Redshift uses a default AWS owned key.
-        You can only include this parameter if `source_arn` references a DynamoDB table.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -146,9 +106,6 @@ class IntegrationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -158,11 +115,6 @@ class IntegrationArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/redshift/create-integration.html).
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -195,24 +147,6 @@ class _IntegrationState:
                  timeouts: Optional[pulumi.Input['IntegrationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Integration resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Set of non-secret key–value pairs that contains additional contextual information about the data.
-               For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
-               You can only include this parameter if you specify the `kms_key_id` parameter.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Integration.
-        :param pulumi.Input[_builtins.str] description: Description of the integration.
-        :param pulumi.Input[_builtins.str] integration_name: Name of the integration.
-        :param pulumi.Input[_builtins.str] kms_key_id: KMS key identifier for the key to use to encrypt the integration.
-               If you don't specify an encryption key, Redshift uses a default AWS owned key.
-               You can only include this parameter if `source_arn` references a DynamoDB table.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] source_arn: ARN of the database to use as the source for replication. You can specify a DynamoDB table or an S3 bucket.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/redshift/create-integration.html).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] target_arn: ARN of the Redshift data warehouse to use as the target for replication.
-               
-               The following arguments are optional:
         """
         if additional_encryption_context is not None:
             pulumi.set(__self__, "additional_encryption_context", additional_encryption_context)
@@ -240,11 +174,6 @@ class _IntegrationState:
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Set of non-secret key–value pairs that contains additional contextual information about the data.
-        For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
-        You can only include this parameter if you specify the `kms_key_id` parameter.
-        """
         return pulumi.get(self, "additional_encryption_context")
 
     @additional_encryption_context.setter
@@ -254,9 +183,6 @@ class _IntegrationState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Integration.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -266,9 +192,6 @@ class _IntegrationState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the integration.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -278,9 +201,6 @@ class _IntegrationState:
     @_builtins.property
     @pulumi.getter(name="integrationName")
     def integration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the integration.
-        """
         return pulumi.get(self, "integration_name")
 
     @integration_name.setter
@@ -290,11 +210,6 @@ class _IntegrationState:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        KMS key identifier for the key to use to encrypt the integration.
-        If you don't specify an encryption key, Redshift uses a default AWS owned key.
-        You can only include this parameter if `source_arn` references a DynamoDB table.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -304,9 +219,6 @@ class _IntegrationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -316,9 +228,6 @@ class _IntegrationState:
     @_builtins.property
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the database to use as the source for replication. You can specify a DynamoDB table or an S3 bucket.
-        """
         return pulumi.get(self, "source_arn")
 
     @source_arn.setter
@@ -328,11 +237,6 @@ class _IntegrationState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/redshift/create-integration.html).
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -342,9 +246,6 @@ class _IntegrationState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -354,11 +255,6 @@ class _IntegrationState:
     @_builtins.property
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Redshift data warehouse to use as the target for replication.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "target_arn")
 
     @target_arn.setter
@@ -392,130 +288,9 @@ class Integration(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['IntegrationTimeoutsArgs', 'IntegrationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing a DynamoDB zero-ETL integration or S3 event integration with Amazon Redshift. You can refer to the [User Guide](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/RedshiftforDynamoDB-zero-etl.html) for a DynamoDB zero-ETL integration or the [User Guide](https://docs.aws.amazon.com/redshift/latest/dg/loading-data-copy-job.html) for a S3 event integration.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.dynamodb.Table("example",
-            name="dynamodb-table-example",
-            read_capacity=1,
-            write_capacity=1,
-            hash_key="example",
-            attributes=[{
-                "name": "example",
-                "type": "S",
-            }],
-            point_in_time_recovery={
-                "enabled": True,
-            })
-        example_namespace = aws.redshiftserverless.Namespace("example", namespace_name="redshift-example")
-        example_workgroup = aws.redshiftserverless.Workgroup("example",
-            namespace_name=example_namespace.namespace_name,
-            workgroup_name="example-workgroup",
-            base_capacity=8,
-            publicly_accessible=False,
-            subnet_ids=[
-                example1["id"],
-                example2["id"],
-                example3["id"],
-            ],
-            config_parameters=[{
-                "parameter_key": "enable_case_sensitive_identifier",
-                "parameter_value": "true",
-            }])
-        example_integration = aws.redshift.Integration("example",
-            integration_name="example",
-            source_arn=example.arn,
-            target_arn=example_namespace.arn)
-        ```
-
-        ### Use own KMS key
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example = aws.kms.Key("example",
-            description="example",
-            deletion_window_in_days=10)
-        example_key_policy = aws.kms.KeyPolicy("example",
-            key_id=example.id,
-            policy=json.dumps({
-                "Version": "2008-10-17",
-                "Statement": [
-                    {
-                        "Effect": "Allow",
-                        "Principal": {
-                            "AWS": f"arn:aws:iam::{current.account_id}:root",
-                        },
-                        "Action": "kms:*",
-                        "Resource": "*",
-                    },
-                    {
-                        "Effect": "Allow",
-                        "Principal": {
-                            "Service": "redshift.amazonaws.com",
-                        },
-                        "Action": [
-                            "kms:Decrypt",
-                            "kms:CreateGrant",
-                        ],
-                        "Resource": "*",
-                        "Condition": {
-                            "StringEquals": {
-                                "aws:SourceAccount": current.account_id,
-                            },
-                            "ArnEquals": {
-                                "aws:SourceArn": f"arn:aws:redshift:*:{current.account_id}:integration:*",
-                            },
-                        },
-                    },
-                ],
-            }))
-        example_integration = aws.redshift.Integration("example",
-            integration_name="example",
-            source_arn=example_aws_dynamodb_table["arn"],
-            target_arn=example_aws_redshiftserverless_namespace["arn"],
-            kms_key_id=example.arn,
-            additional_encryption_context={
-                "example": "test",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Redshift Integration using the `arn`. For example:
-
-        ```sh
-        $ pulumi import aws:redshift/integration:Integration example arn:aws:redshift:us-west-2:123456789012:integration:abcdefgh-0000-1111-2222-123456789012
-        ```
-
+        Create a Integration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Set of non-secret key–value pairs that contains additional contextual information about the data.
-               For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
-               You can only include this parameter if you specify the `kms_key_id` parameter.
-        :param pulumi.Input[_builtins.str] description: Description of the integration.
-        :param pulumi.Input[_builtins.str] integration_name: Name of the integration.
-        :param pulumi.Input[_builtins.str] kms_key_id: KMS key identifier for the key to use to encrypt the integration.
-               If you don't specify an encryption key, Redshift uses a default AWS owned key.
-               You can only include this parameter if `source_arn` references a DynamoDB table.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] source_arn: ARN of the database to use as the source for replication. You can specify a DynamoDB table or an S3 bucket.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/redshift/create-integration.html).
-        :param pulumi.Input[_builtins.str] target_arn: ARN of the Redshift data warehouse to use as the target for replication.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -524,112 +299,7 @@ class Integration(pulumi.CustomResource):
                  args: IntegrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing a DynamoDB zero-ETL integration or S3 event integration with Amazon Redshift. You can refer to the [User Guide](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/RedshiftforDynamoDB-zero-etl.html) for a DynamoDB zero-ETL integration or the [User Guide](https://docs.aws.amazon.com/redshift/latest/dg/loading-data-copy-job.html) for a S3 event integration.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.dynamodb.Table("example",
-            name="dynamodb-table-example",
-            read_capacity=1,
-            write_capacity=1,
-            hash_key="example",
-            attributes=[{
-                "name": "example",
-                "type": "S",
-            }],
-            point_in_time_recovery={
-                "enabled": True,
-            })
-        example_namespace = aws.redshiftserverless.Namespace("example", namespace_name="redshift-example")
-        example_workgroup = aws.redshiftserverless.Workgroup("example",
-            namespace_name=example_namespace.namespace_name,
-            workgroup_name="example-workgroup",
-            base_capacity=8,
-            publicly_accessible=False,
-            subnet_ids=[
-                example1["id"],
-                example2["id"],
-                example3["id"],
-            ],
-            config_parameters=[{
-                "parameter_key": "enable_case_sensitive_identifier",
-                "parameter_value": "true",
-            }])
-        example_integration = aws.redshift.Integration("example",
-            integration_name="example",
-            source_arn=example.arn,
-            target_arn=example_namespace.arn)
-        ```
-
-        ### Use own KMS key
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example = aws.kms.Key("example",
-            description="example",
-            deletion_window_in_days=10)
-        example_key_policy = aws.kms.KeyPolicy("example",
-            key_id=example.id,
-            policy=json.dumps({
-                "Version": "2008-10-17",
-                "Statement": [
-                    {
-                        "Effect": "Allow",
-                        "Principal": {
-                            "AWS": f"arn:aws:iam::{current.account_id}:root",
-                        },
-                        "Action": "kms:*",
-                        "Resource": "*",
-                    },
-                    {
-                        "Effect": "Allow",
-                        "Principal": {
-                            "Service": "redshift.amazonaws.com",
-                        },
-                        "Action": [
-                            "kms:Decrypt",
-                            "kms:CreateGrant",
-                        ],
-                        "Resource": "*",
-                        "Condition": {
-                            "StringEquals": {
-                                "aws:SourceAccount": current.account_id,
-                            },
-                            "ArnEquals": {
-                                "aws:SourceArn": f"arn:aws:redshift:*:{current.account_id}:integration:*",
-                            },
-                        },
-                    },
-                ],
-            }))
-        example_integration = aws.redshift.Integration("example",
-            integration_name="example",
-            source_arn=example_aws_dynamodb_table["arn"],
-            target_arn=example_aws_redshiftserverless_namespace["arn"],
-            kms_key_id=example.arn,
-            additional_encryption_context={
-                "example": "test",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Redshift Integration using the `arn`. For example:
-
-        ```sh
-        $ pulumi import aws:redshift/integration:Integration example arn:aws:redshift:us-west-2:123456789012:integration:abcdefgh-0000-1111-2222-123456789012
-        ```
-
+        Create a Integration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param IntegrationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -708,24 +378,6 @@ class Integration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Set of non-secret key–value pairs that contains additional contextual information about the data.
-               For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
-               You can only include this parameter if you specify the `kms_key_id` parameter.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Integration.
-        :param pulumi.Input[_builtins.str] description: Description of the integration.
-        :param pulumi.Input[_builtins.str] integration_name: Name of the integration.
-        :param pulumi.Input[_builtins.str] kms_key_id: KMS key identifier for the key to use to encrypt the integration.
-               If you don't specify an encryption key, Redshift uses a default AWS owned key.
-               You can only include this parameter if `source_arn` references a DynamoDB table.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] source_arn: ARN of the database to use as the source for replication. You can specify a DynamoDB table or an S3 bucket.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/redshift/create-integration.html).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] target_arn: ARN of the Redshift data warehouse to use as the target for replication.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -747,89 +399,51 @@ class Integration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Set of non-secret key–value pairs that contains additional contextual information about the data.
-        For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
-        You can only include this parameter if you specify the `kms_key_id` parameter.
-        """
         return pulumi.get(self, "additional_encryption_context")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Integration.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the integration.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="integrationName")
     def integration_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the integration.
-        """
         return pulumi.get(self, "integration_name")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        KMS key identifier for the key to use to encrypt the integration.
-        If you don't specify an encryption key, Redshift uses a default AWS owned key.
-        You can only include this parameter if `source_arn` references a DynamoDB table.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the database to use as the source for replication. You can specify a DynamoDB table or an S3 bucket.
-        """
         return pulumi.get(self, "source_arn")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/redshift/create-integration.html).
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Redshift data warehouse to use as the target for replication.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "target_arn")
 
     @_builtins.property

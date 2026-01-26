@@ -11,81 +11,12 @@ namespace Pulumi.Aws.Sns
 {
     public static class GetTopic
     {
-        /// <summary>
-        /// Use this data source to get the ARN of a topic in AWS Simple Notification
-        /// Service (SNS). By using this data source, you can reference SNS topics
-        /// without having to hard code the ARNs as input.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Sns.GetTopic.Invoke(new()
-        ///     {
-        ///         Name = "an_example_topic",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetTopicResult> InvokeAsync(GetTopicArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("aws:sns/getTopic:getTopic", args ?? new GetTopicArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get the ARN of a topic in AWS Simple Notification
-        /// Service (SNS). By using this data source, you can reference SNS topics
-        /// without having to hard code the ARNs as input.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Sns.GetTopic.Invoke(new()
-        ///     {
-        ///         Name = "an_example_topic",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicResult>("aws:sns/getTopic:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get the ARN of a topic in AWS Simple Notification
-        /// Service (SNS). By using this data source, you can reference SNS topics
-        /// without having to hard code the ARNs as input.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Sns.GetTopic.Invoke(new()
-        ///     {
-        ///         Name = "an_example_topic",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicResult>("aws:sns/getTopic:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());
     }
@@ -93,24 +24,14 @@ namespace Pulumi.Aws.Sns
 
     public sealed class GetTopicArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Friendly name of the topic to match.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags for the resource.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -125,24 +46,14 @@ namespace Pulumi.Aws.Sns
 
     public sealed class GetTopicInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Friendly name of the topic to match.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags for the resource.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -159,9 +70,6 @@ namespace Pulumi.Aws.Sns
     [OutputType]
     public sealed class GetTopicResult
     {
-        /// <summary>
-        /// ARN of the found topic, suitable for referencing in other resources that support SNS topics.
-        /// </summary>
         public readonly string Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -169,9 +77,6 @@ namespace Pulumi.Aws.Sns
         public readonly string Id;
         public readonly string Name;
         public readonly string Region;
-        /// <summary>
-        /// Map of tags for the resource.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

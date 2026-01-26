@@ -16,47 +16,23 @@ public final class RetentionConfigurationState extends com.pulumi.resources.Reso
 
     public static final RetentionConfigurationState Empty = new RetentionConfigurationState();
 
-    /**
-     * The name of the retention configuration object. The object is always named **default**.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the retention configuration object. The object is always named **default**.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The number of days AWS Config stores historical information.
-     * 
-     */
     @Import(name="retentionPeriodInDays")
     private @Nullable Output<Integer> retentionPeriodInDays;
 
-    /**
-     * @return The number of days AWS Config stores historical information.
-     * 
-     */
     public Optional<Output<Integer>> retentionPeriodInDays() {
         return Optional.ofNullable(this.retentionPeriodInDays);
     }
@@ -87,65 +63,29 @@ public final class RetentionConfigurationState extends com.pulumi.resources.Reso
             $ = new RetentionConfigurationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of the retention configuration object. The object is always named **default**.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the retention configuration object. The object is always named **default**.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param retentionPeriodInDays The number of days AWS Config stores historical information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retentionPeriodInDays(@Nullable Output<Integer> retentionPeriodInDays) {
             $.retentionPeriodInDays = retentionPeriodInDays;
             return this;
         }
 
-        /**
-         * @param retentionPeriodInDays The number of days AWS Config stores historical information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retentionPeriodInDays(Integer retentionPeriodInDays) {
             return retentionPeriodInDays(Output.of(retentionPeriodInDays));
         }

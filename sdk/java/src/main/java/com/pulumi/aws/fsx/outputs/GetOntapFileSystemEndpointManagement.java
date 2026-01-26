@@ -11,18 +11,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOntapFileSystemEndpointManagement {
-    /**
-     * @return DNS name for the file system.
-     * 
-     */
     private String dnsName;
     private List<String> ipAddresses;
 
     private GetOntapFileSystemEndpointManagement() {}
-    /**
-     * @return DNS name for the file system.
-     * 
-     */
     public String dnsName() {
         return this.dnsName;
     }

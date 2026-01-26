@@ -16,32 +16,16 @@ public final class JobTemplateJobTemplateDataConfigurationOverridesMonitoringCon
 
     public static final JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs Empty = new JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs();
 
-    /**
-     * The name of the log group for log publishing.
-     * 
-     */
     @Import(name="logGroupName", required=true)
     private Output<String> logGroupName;
 
-    /**
-     * @return The name of the log group for log publishing.
-     * 
-     */
     public Output<String> logGroupName() {
         return this.logGroupName;
     }
 
-    /**
-     * The specified name prefix for log streams.
-     * 
-     */
     @Import(name="logStreamNamePrefix")
     private @Nullable Output<String> logStreamNamePrefix;
 
-    /**
-     * @return The specified name prefix for log streams.
-     * 
-     */
     public Optional<Output<String>> logStreamNamePrefix() {
         return Optional.ofNullable(this.logStreamNamePrefix);
     }
@@ -71,44 +55,20 @@ public final class JobTemplateJobTemplateDataConfigurationOverridesMonitoringCon
             $ = new JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param logGroupName The name of the log group for log publishing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupName(Output<String> logGroupName) {
             $.logGroupName = logGroupName;
             return this;
         }
 
-        /**
-         * @param logGroupName The name of the log group for log publishing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupName(String logGroupName) {
             return logGroupName(Output.of(logGroupName));
         }
 
-        /**
-         * @param logStreamNamePrefix The specified name prefix for log streams.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logStreamNamePrefix(@Nullable Output<String> logStreamNamePrefix) {
             $.logStreamNamePrefix = logStreamNamePrefix;
             return this;
         }
 
-        /**
-         * @param logStreamNamePrefix The specified name prefix for log streams.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logStreamNamePrefix(String logStreamNamePrefix) {
             return logStreamNamePrefix(Output.of(logStreamNamePrefix));
         }

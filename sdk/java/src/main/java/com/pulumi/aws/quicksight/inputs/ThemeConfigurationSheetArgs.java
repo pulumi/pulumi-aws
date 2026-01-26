@@ -16,32 +16,16 @@ public final class ThemeConfigurationSheetArgs extends com.pulumi.resources.Reso
 
     public static final ThemeConfigurationSheetArgs Empty = new ThemeConfigurationSheetArgs();
 
-    /**
-     * The display options for tiles. See tile.
-     * 
-     */
     @Import(name="tile")
     private @Nullable Output<ThemeConfigurationSheetTileArgs> tile;
 
-    /**
-     * @return The display options for tiles. See tile.
-     * 
-     */
     public Optional<Output<ThemeConfigurationSheetTileArgs>> tile() {
         return Optional.ofNullable(this.tile);
     }
 
-    /**
-     * The layout options for tiles. See tile_layout.
-     * 
-     */
     @Import(name="tileLayout")
     private @Nullable Output<ThemeConfigurationSheetTileLayoutArgs> tileLayout;
 
-    /**
-     * @return The layout options for tiles. See tile_layout.
-     * 
-     */
     public Optional<Output<ThemeConfigurationSheetTileLayoutArgs>> tileLayout() {
         return Optional.ofNullable(this.tileLayout);
     }
@@ -71,44 +55,20 @@ public final class ThemeConfigurationSheetArgs extends com.pulumi.resources.Reso
             $ = new ThemeConfigurationSheetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param tile The display options for tiles. See tile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tile(@Nullable Output<ThemeConfigurationSheetTileArgs> tile) {
             $.tile = tile;
             return this;
         }
 
-        /**
-         * @param tile The display options for tiles. See tile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tile(ThemeConfigurationSheetTileArgs tile) {
             return tile(Output.of(tile));
         }
 
-        /**
-         * @param tileLayout The layout options for tiles. See tile_layout.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tileLayout(@Nullable Output<ThemeConfigurationSheetTileLayoutArgs> tileLayout) {
             $.tileLayout = tileLayout;
             return this;
         }
 
-        /**
-         * @param tileLayout The layout options for tiles. See tile_layout.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tileLayout(ThemeConfigurationSheetTileLayoutArgs tileLayout) {
             return tileLayout(Output.of(tileLayout));
         }

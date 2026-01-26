@@ -17,185 +17,59 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS DataZone Asset Type.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.datazone.AssetType;
- * import com.pulumi.aws.datazone.AssetTypeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new AssetType("test", AssetTypeArgs.builder()
- *             .description("example")
- *             .domainIdentifier(testAwsDatazoneDomain.id())
- *             .name("example")
- *             .owningProjectIdentifier(testAwsDatazoneProject.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import DataZone Asset Type using the `domain_identifier,name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:datazone/assetType:AssetType example domain-id-12345678,example
- * ```
- * 
- */
 @ResourceType(type="aws:datazone/assetType:AssetType")
 public class AssetType extends com.pulumi.resources.CustomResource {
-    /**
-     * The timestamp when the custom asset type was created.
-     * 
-     */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
-    /**
-     * @return The timestamp when the custom asset type was created.
-     * 
-     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
-    /**
-     * The user who created the custom asset type.
-     * 
-     */
     @Export(name="createdBy", refs={String.class}, tree="[0]")
     private Output<String> createdBy;
 
-    /**
-     * @return The user who created the custom asset type.
-     * 
-     */
     public Output<String> createdBy() {
         return this.createdBy;
     }
-    /**
-     * The description of the custom asset type.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return The description of the custom asset type.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
-     * 
-     */
     @Export(name="domainIdentifier", refs={String.class}, tree="[0]")
     private Output<String> domainIdentifier;
 
-    /**
-     * @return The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
-     * 
-     */
     public Output<String> domainIdentifier() {
         return this.domainIdentifier;
     }
-    /**
-     * The metadata forms that are to be attached to the custom asset type.
-     * 
-     */
     @Export(name="formsInputs", refs={List.class,AssetTypeFormsInput.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AssetTypeFormsInput>> formsInputs;
 
-    /**
-     * @return The metadata forms that are to be attached to the custom asset type.
-     * 
-     */
     public Output<Optional<List<AssetTypeFormsInput>>> formsInputs() {
         return Codegen.optional(this.formsInputs);
     }
-    /**
-     * The name of the custom asset type.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the custom asset type.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The unique identifier of the Amazon DataZone project that owns the custom asset type.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="owningProjectIdentifier", refs={String.class}, tree="[0]")
     private Output<String> owningProjectIdentifier;
 
-    /**
-     * @return The unique identifier of the Amazon DataZone project that owns the custom asset type.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> owningProjectIdentifier() {
         return this.owningProjectIdentifier;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The revision of the asset type.
-     * 
-     */
     @Export(name="revision", refs={String.class}, tree="[0]")
     private Output<String> revision;
 
-    /**
-     * @return The revision of the asset type.
-     * 
-     */
     public Output<String> revision() {
         return this.revision;
     }

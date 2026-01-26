@@ -14,34 +14,16 @@ public final class GetListenerRuleActionForwardTargetGroup extends com.pulumi.re
 
     public static final GetListenerRuleActionForwardTargetGroup Empty = new GetListenerRuleActionForwardTargetGroup();
 
-    /**
-     * ARN of the Listener Rule.
-     * Either `arn` or `listenerArn` must be set.
-     * 
-     */
     @Import(name="arn", required=true)
     private String arn;
 
-    /**
-     * @return ARN of the Listener Rule.
-     * Either `arn` or `listenerArn` must be set.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
 
-    /**
-     * Weight of the target group.
-     * 
-     */
     @Import(name="weight", required=true)
     private Integer weight;
 
-    /**
-     * @return Weight of the target group.
-     * 
-     */
     public Integer weight() {
         return this.weight;
     }
@@ -71,24 +53,11 @@ public final class GetListenerRuleActionForwardTargetGroup extends com.pulumi.re
             $ = new GetListenerRuleActionForwardTargetGroup(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the Listener Rule.
-         * Either `arn` or `listenerArn` must be set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param weight Weight of the target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weight(Integer weight) {
             $.weight = weight;
             return this;

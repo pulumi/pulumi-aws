@@ -7,70 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage a CloudWatch log resource policy.
- *
- * ## Example Usage
- *
- * ### Elasticsearch Log Publishing
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const elasticsearch_log_publishing_policy = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: [
- *             "logs:CreateLogStream",
- *             "logs:PutLogEvents",
- *             "logs:PutLogEventsBatch",
- *         ],
- *         resources: ["arn:aws:logs:*"],
- *         principals: [{
- *             identifiers: ["es.amazonaws.com"],
- *             type: "Service",
- *         }],
- *     }],
- * });
- * const elasticsearch_log_publishing_policyLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("elasticsearch-log-publishing-policy", {
- *     policyDocument: elasticsearch_log_publishing_policy.then(elasticsearch_log_publishing_policy => elasticsearch_log_publishing_policy.json),
- *     policyName: "elasticsearch-log-publishing-policy",
- * });
- * ```
- *
- * ### Route53 Query Logging
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const route53_query_logging_policy = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: [
- *             "logs:CreateLogStream",
- *             "logs:PutLogEvents",
- *         ],
- *         resources: ["arn:aws:logs:*:*:log-group:/aws/route53/*"],
- *         principals: [{
- *             identifiers: ["route53.amazonaws.com"],
- *             type: "Service",
- *         }],
- *     }],
- * });
- * const route53_query_logging_policyLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("route53-query-logging-policy", {
- *     policyDocument: route53_query_logging_policy.then(route53_query_logging_policy => route53_query_logging_policy.json),
- *     policyName: "route53-query-logging-policy",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import CloudWatch log resource policies using the policy name. For example:
- *
- * ```sh
- * $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy
- * ```
- */
 export class LogResourcePolicy extends pulumi.CustomResource {
     /**
      * Get an existing LogResourcePolicy resource's state with the given name, ID, and optional extra
@@ -99,17 +35,8 @@ export class LogResourcePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === LogResourcePolicy.__pulumiType;
     }
 
-    /**
-     * Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
-     */
     declare public readonly policyDocument: pulumi.Output<string>;
-    /**
-     * Name of the resource policy.
-     */
     declare public readonly policyName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -149,17 +76,8 @@ export class LogResourcePolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LogResourcePolicy resources.
  */
 export interface LogResourcePolicyState {
-    /**
-     * Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
-     */
     policyDocument?: pulumi.Input<string | inputs.cloudwatch.PolicyDocument>;
-    /**
-     * Name of the resource policy.
-     */
     policyName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -167,16 +85,7 @@ export interface LogResourcePolicyState {
  * The set of arguments for constructing a LogResourcePolicy resource.
  */
 export interface LogResourcePolicyArgs {
-    /**
-     * Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
-     */
     policyDocument: pulumi.Input<string | inputs.cloudwatch.PolicyDocument>;
-    /**
-     * Name of the resource policy.
-     */
     policyName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

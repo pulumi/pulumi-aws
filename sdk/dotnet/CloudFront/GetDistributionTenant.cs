@@ -11,75 +11,12 @@ namespace Pulumi.Aws.CloudFront
 {
     public static class GetDistributionTenant
     {
-        /// <summary>
-        /// Use this data source to retrieve information about a CloudFront distribution tenant.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.CloudFront.GetDistributionTenant.Invoke(new()
-        ///     {
-        ///         Id = "EDFDVBD632BHDS5",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetDistributionTenantResult> InvokeAsync(GetDistributionTenantArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDistributionTenantResult>("aws:cloudfront/getDistributionTenant:getDistributionTenant", args ?? new GetDistributionTenantArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to retrieve information about a CloudFront distribution tenant.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.CloudFront.GetDistributionTenant.Invoke(new()
-        ///     {
-        ///         Id = "EDFDVBD632BHDS5",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetDistributionTenantResult> Invoke(GetDistributionTenantInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDistributionTenantResult>("aws:cloudfront/getDistributionTenant:getDistributionTenant", args ?? new GetDistributionTenantInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to retrieve information about a CloudFront distribution tenant.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.CloudFront.GetDistributionTenant.Invoke(new()
-        ///     {
-        ///         Id = "EDFDVBD632BHDS5",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetDistributionTenantResult> Invoke(GetDistributionTenantInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDistributionTenantResult>("aws:cloudfront/getDistributionTenant:getDistributionTenant", args ?? new GetDistributionTenantInvokeArgs(), options.WithDefaults());
     }
@@ -87,21 +24,12 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class GetDistributionTenantArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN (Amazon Resource Name) for the distribution tenant.
-        /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
 
-        /// <summary>
-        /// An associated domain of the distribution tenant. Exactly one of `Id` or `Domain` must be specified.
-        /// </summary>
         [Input("domain")]
         public string? Domain { get; set; }
 
-        /// <summary>
-        /// Identifier for the distribution tenant. For example: `EDFDVBD632BHDS5`. Exactly one of `Id` or `Domain` must be specified.
-        /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
@@ -116,21 +44,12 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class GetDistributionTenantInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN (Amazon Resource Name) for the distribution tenant.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// An associated domain of the distribution tenant. Exactly one of `Id` or `Domain` must be specified.
-        /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
-        /// <summary>
-        /// Identifier for the distribution tenant. For example: `EDFDVBD632BHDS5`. Exactly one of `Id` or `Domain` must be specified.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
@@ -147,42 +66,18 @@ namespace Pulumi.Aws.CloudFront
     [OutputType]
     public sealed class GetDistributionTenantResult
     {
-        /// <summary>
-        /// ARN (Amazon Resource Name) for the distribution tenant.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// The CloudFront connection group the tenant is associated with.
-        /// </summary>
         public readonly string ConnectionGroupId;
         public readonly ImmutableArray<Outputs.GetDistributionTenantCustomizationResult> Customizations;
-        /// <summary>
-        /// The ID of the CloudFront distribution the tenant is associated with.
-        /// </summary>
         public readonly string DistributionId;
         public readonly string? Domain;
-        /// <summary>
-        /// List of domains for the distribution tenant.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDistributionTenantDomainResult> Domains;
-        /// <summary>
-        /// Whether the distribution tenant is enabled.
-        /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// Current version of the distribution tenant's information. For example:
-        /// `E2QWRUHAPOMQZL`.
-        /// </summary>
         public readonly string Etag;
         public readonly string Id;
         public readonly ImmutableArray<Outputs.GetDistributionTenantManagedCertificateRequestResult> ManagedCertificateRequests;
         public readonly string Name;
         public readonly ImmutableArray<Outputs.GetDistributionTenantParameterResult> Parameters;
-        /// <summary>
-        /// Current status of the distribution tenant. `Deployed` if the
-        /// distribution tenant's information is fully propagated throughout the Amazon
-        /// CloudFront system.
-        /// </summary>
         public readonly string Status;
         public readonly ImmutableDictionary<string, string> Tags;
 

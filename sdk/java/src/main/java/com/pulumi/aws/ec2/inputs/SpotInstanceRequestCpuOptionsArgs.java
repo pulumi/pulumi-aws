@@ -16,51 +16,23 @@ public final class SpotInstanceRequestCpuOptionsArgs extends com.pulumi.resource
 
     public static final SpotInstanceRequestCpuOptionsArgs Empty = new SpotInstanceRequestCpuOptionsArgs();
 
-    /**
-     * Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
-     * 
-     */
     @Import(name="amdSevSnp")
     private @Nullable Output<String> amdSevSnp;
 
-    /**
-     * @return Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
-     * 
-     */
     public Optional<Output<String>> amdSevSnp() {
         return Optional.ofNullable(this.amdSevSnp);
     }
 
-    /**
-     * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-     * 
-     */
     @Import(name="coreCount")
     private @Nullable Output<Integer> coreCount;
 
-    /**
-     * @return Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-     * 
-     */
     public Optional<Output<Integer>> coreCount() {
         return Optional.ofNullable(this.coreCount);
     }
 
-    /**
-     * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-     * 
-     * For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
-     * 
-     */
     @Import(name="threadsPerCore")
     private @Nullable Output<Integer> threadsPerCore;
 
-    /**
-     * @return If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-     * 
-     * For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
-     * 
-     */
     public Optional<Output<Integer>> threadsPerCore() {
         return Optional.ofNullable(this.threadsPerCore);
     }
@@ -91,69 +63,29 @@ public final class SpotInstanceRequestCpuOptionsArgs extends com.pulumi.resource
             $ = new SpotInstanceRequestCpuOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param amdSevSnp Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amdSevSnp(@Nullable Output<String> amdSevSnp) {
             $.amdSevSnp = amdSevSnp;
             return this;
         }
 
-        /**
-         * @param amdSevSnp Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amdSevSnp(String amdSevSnp) {
             return amdSevSnp(Output.of(amdSevSnp));
         }
 
-        /**
-         * @param coreCount Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreCount(@Nullable Output<Integer> coreCount) {
             $.coreCount = coreCount;
             return this;
         }
 
-        /**
-         * @param coreCount Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreCount(Integer coreCount) {
             return coreCount(Output.of(coreCount));
         }
 
-        /**
-         * @param threadsPerCore If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-         * 
-         * For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder threadsPerCore(@Nullable Output<Integer> threadsPerCore) {
             $.threadsPerCore = threadsPerCore;
             return this;
         }
 
-        /**
-         * @param threadsPerCore If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-         * 
-         * For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder threadsPerCore(Integer threadsPerCore) {
             return threadsPerCore(Output.of(threadsPerCore));
         }

@@ -13,29 +13,11 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class GetResponseHeadersPolicyCorsConfigResult
     {
-        /// <summary>
-        /// A Boolean value that CloudFront uses as the value for the Access-Control-Allow-Credentials HTTP response header.
-        /// </summary>
         public readonly bool AccessControlAllowCredentials;
-        /// <summary>
-        /// Object that contains an attribute `Items` that contains a list of HTTP header names that CloudFront includes as values for the Access-Control-Allow-Headers HTTP response header.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderResult> AccessControlAllowHeaders;
-        /// <summary>
-        /// Object that contains an attribute `Items` that contains a list of HTTP methods that CloudFront includes as values for the Access-Control-Allow-Methods HTTP response header. Valid values: `GET` | `POST` | `OPTIONS` | `PUT` | `DELETE` | `HEAD` | `ALL`
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodResult> AccessControlAllowMethods;
-        /// <summary>
-        /// Object that contains an attribute `Items` that contains a list of origins that CloudFront can use as the value for the Access-Control-Allow-Origin HTTP response header.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginResult> AccessControlAllowOrigins;
-        /// <summary>
-        /// Object that contains an attribute `Items` that contains a list of HTTP headers that CloudFront includes as values for the Access-Control-Expose-Headers HTTP response header.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderResult> AccessControlExposeHeaders;
-        /// <summary>
-        /// A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
-        /// </summary>
         public readonly int AccessControlMaxAgeSec;
         public readonly bool OriginOverride;
 

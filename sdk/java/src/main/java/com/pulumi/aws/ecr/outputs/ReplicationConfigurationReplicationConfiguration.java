@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ReplicationConfigurationReplicationConfiguration {
-    /**
-     * @return The replication rules for a replication configuration. A maximum of 10 are allowed per `replicationConfiguration`. See Rule
-     * 
-     */
     private List<ReplicationConfigurationReplicationConfigurationRule> rules;
 
     private ReplicationConfigurationReplicationConfiguration() {}
-    /**
-     * @return The replication rules for a replication configuration. A maximum of 10 are allowed per `replicationConfiguration`. See Rule
-     * 
-     */
     public List<ReplicationConfigurationReplicationConfigurationRule> rules() {
         return this.rules;
     }

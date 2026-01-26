@@ -15,139 +15,29 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Elastic File System (EFS) File System Policy resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.efs.FileSystem;
- * import com.pulumi.aws.efs.FileSystemArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.efs.FileSystemPolicy;
- * import com.pulumi.aws.efs.FileSystemPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var fs = new FileSystem("fs", FileSystemArgs.builder()
- *             .creationToken("my-product")
- *             .build());
- * 
- *         final var policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid("ExampleStatement01")
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("AWS")
- *                     .identifiers("*")
- *                     .build())
- *                 .actions(                
- *                     "elasticfilesystem:ClientMount",
- *                     "elasticfilesystem:ClientWrite")
- *                 .resources(fs.arn())
- *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                     .test("Bool")
- *                     .variable("aws:SecureTransport")
- *                     .values("true")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var policyFileSystemPolicy = new FileSystemPolicy("policyFileSystemPolicy", FileSystemPolicyArgs.builder()
- *             .fileSystemId(fs.id())
- *             .policy(policy.applyValue(_policy -> _policy.json()))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import the EFS file system policies using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
- * ```
- * 
- */
 @ResourceType(type="aws:efs/fileSystemPolicy:FileSystemPolicy")
 public class FileSystemPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * A flag to indicate whether to bypass the `aws.efs.FileSystemPolicy` lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request will be locked out from making future `PutFileSystemPolicy` requests on the file system. Set `bypassPolicyLockoutSafetyCheck` to `true` only when you intend to prevent the principal that is making the request from making a subsequent `PutFileSystemPolicy` request on the file system. The default value is `false`.
-     * 
-     */
     @Export(name="bypassPolicyLockoutSafetyCheck", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> bypassPolicyLockoutSafetyCheck;
 
-    /**
-     * @return A flag to indicate whether to bypass the `aws.efs.FileSystemPolicy` lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request will be locked out from making future `PutFileSystemPolicy` requests on the file system. Set `bypassPolicyLockoutSafetyCheck` to `true` only when you intend to prevent the principal that is making the request from making a subsequent `PutFileSystemPolicy` request on the file system. The default value is `false`.
-     * 
-     */
     public Output<Optional<Boolean>> bypassPolicyLockoutSafetyCheck() {
         return Codegen.optional(this.bypassPolicyLockoutSafetyCheck);
     }
-    /**
-     * The ID of the EFS file system.
-     * 
-     */
     @Export(name="fileSystemId", refs={String.class}, tree="[0]")
     private Output<String> fileSystemId;
 
-    /**
-     * @return The ID of the EFS file system.
-     * 
-     */
     public Output<String> fileSystemId() {
         return this.fileSystemId;
     }
-    /**
-     * The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

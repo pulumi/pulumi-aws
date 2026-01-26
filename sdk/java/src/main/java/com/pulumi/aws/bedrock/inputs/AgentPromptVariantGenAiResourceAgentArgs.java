@@ -14,17 +14,9 @@ public final class AgentPromptVariantGenAiResourceAgentArgs extends com.pulumi.r
 
     public static final AgentPromptVariantGenAiResourceAgentArgs Empty = new AgentPromptVariantGenAiResourceAgentArgs();
 
-    /**
-     * ARN of the agent with which to use the prompt.
-     * 
-     */
     @Import(name="agentIdentifier", required=true)
     private Output<String> agentIdentifier;
 
-    /**
-     * @return ARN of the agent with which to use the prompt.
-     * 
-     */
     public Output<String> agentIdentifier() {
         return this.agentIdentifier;
     }
@@ -53,23 +45,11 @@ public final class AgentPromptVariantGenAiResourceAgentArgs extends com.pulumi.r
             $ = new AgentPromptVariantGenAiResourceAgentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param agentIdentifier ARN of the agent with which to use the prompt.
-         * 
-         * @return builder
-         * 
-         */
         public Builder agentIdentifier(Output<String> agentIdentifier) {
             $.agentIdentifier = agentIdentifier;
             return this;
         }
 
-        /**
-         * @param agentIdentifier ARN of the agent with which to use the prompt.
-         * 
-         * @return builder
-         * 
-         */
         public Builder agentIdentifier(String agentIdentifier) {
             return agentIdentifier(Output.of(agentIdentifier));
         }

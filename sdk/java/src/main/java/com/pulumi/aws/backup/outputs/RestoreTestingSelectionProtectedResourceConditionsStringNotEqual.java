@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class RestoreTestingSelectionProtectedResourceConditionsStringNotEqual {
-    /**
-     * @return The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
-     * 
-     */
     private String key;
-    /**
-     * @return The value of the Tag. Maximum length of 256.
-     * 
-     */
     private String value;
 
     private RestoreTestingSelectionProtectedResourceConditionsStringNotEqual() {}
-    /**
-     * @return The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return The value of the Tag. Maximum length of 256.
-     * 
-     */
     public String value() {
         return this.value;
     }

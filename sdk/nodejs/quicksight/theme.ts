@@ -7,53 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing a QuickSight Theme.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.quicksight.Theme("example", {
- *     themeId: "example",
- *     name: "example",
- *     baseThemeId: "MIDNIGHT",
- *     configuration: {
- *         dataColorPalette: {
- *             colors: [
- *                 "#FFFFFF",
- *                 "#111111",
- *                 "#222222",
- *                 "#333333",
- *                 "#444444",
- *                 "#555555",
- *                 "#666666",
- *                 "#777777",
- *                 "#888888",
- *                 "#999999",
- *             ],
- *             emptyFillColor: "#FFFFFF",
- *             minMaxGradients: [
- *                 "#FFFFFF",
- *                 "#111111",
- *             ],
- *         },
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import a QuickSight Theme using the AWS account ID and theme ID separated by a comma (`,`). For example:
- *
- * ```sh
- * $ pulumi import aws:quicksight/theme:Theme example 123456789012,example-id
- * ```
- */
 export class Theme extends pulumi.CustomResource {
     /**
      * Get an existing Theme resource's state with the given name, ID, and optional extra
@@ -82,64 +35,20 @@ export class Theme extends pulumi.CustomResource {
         return obj['__pulumiType'] === Theme.__pulumiType;
     }
 
-    /**
-     * ARN of the theme.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     declare public readonly awsAccountId: pulumi.Output<string>;
-    /**
-     * The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
-     */
     declare public readonly baseThemeId: pulumi.Output<string>;
-    /**
-     * The theme configuration, which contains the theme display properties. See configuration.
-     */
     declare public readonly configuration: pulumi.Output<outputs.quicksight.ThemeConfiguration | undefined>;
-    /**
-     * The time that the theme was created.
-     */
     declare public /*out*/ readonly createdTime: pulumi.Output<string>;
-    /**
-     * The time that the theme was last updated.
-     */
     declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
-    /**
-     * Display name of the theme.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * A set of resource permissions on the theme. Maximum of 64 items. See permissions.
-     */
     declare public readonly permissions: pulumi.Output<outputs.quicksight.ThemePermission[] | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The theme creation status.
-     */
     declare public /*out*/ readonly status: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Identifier of the theme.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly themeId: pulumi.Output<string>;
-    /**
-     * A description of the current theme version being created/updated.
-     */
     declare public readonly versionDescription: pulumi.Output<string | undefined>;
-    /**
-     * The version number of the theme version.
-     */
     declare public /*out*/ readonly versionNumber: pulumi.Output<number>;
 
     /**
@@ -203,64 +112,20 @@ export class Theme extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Theme resources.
  */
 export interface ThemeState {
-    /**
-     * ARN of the theme.
-     */
     arn?: pulumi.Input<string>;
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
-     */
     baseThemeId?: pulumi.Input<string>;
-    /**
-     * The theme configuration, which contains the theme display properties. See configuration.
-     */
     configuration?: pulumi.Input<inputs.quicksight.ThemeConfiguration>;
-    /**
-     * The time that the theme was created.
-     */
     createdTime?: pulumi.Input<string>;
-    /**
-     * The time that the theme was last updated.
-     */
     lastUpdatedTime?: pulumi.Input<string>;
-    /**
-     * Display name of the theme.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A set of resource permissions on the theme. Maximum of 64 items. See permissions.
-     */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.ThemePermission>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The theme creation status.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Identifier of the theme.
-     *
-     * The following arguments are optional:
-     */
     themeId?: pulumi.Input<string>;
-    /**
-     * A description of the current theme version being created/updated.
-     */
     versionDescription?: pulumi.Input<string>;
-    /**
-     * The version number of the theme version.
-     */
     versionNumber?: pulumi.Input<number>;
 }
 
@@ -269,38 +134,12 @@ export interface ThemeState {
  */
 export interface ThemeArgs {
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
-     */
     baseThemeId: pulumi.Input<string>;
-    /**
-     * The theme configuration, which contains the theme display properties. See configuration.
-     */
     configuration?: pulumi.Input<inputs.quicksight.ThemeConfiguration>;
-    /**
-     * Display name of the theme.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A set of resource permissions on the theme. Maximum of 64 items. See permissions.
-     */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.ThemePermission>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Identifier of the theme.
-     *
-     * The following arguments are optional:
-     */
     themeId: pulumi.Input<string>;
-    /**
-     * A description of the current theme version being created/updated.
-     */
     versionDescription?: pulumi.Input<string>;
 }

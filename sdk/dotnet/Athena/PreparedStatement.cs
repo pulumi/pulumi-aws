@@ -9,84 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Athena
 {
-    /// <summary>
-    /// Resource for managing an Athena Prepared Statement.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.S3.Bucket("test", new()
-    ///     {
-    ///         BucketName = "tf-test",
-    ///         ForceDestroy = true,
-    ///     });
-    /// 
-    ///     var testWorkgroup = new Aws.Athena.Workgroup("test", new()
-    ///     {
-    ///         Name = "tf-test",
-    ///     });
-    /// 
-    ///     var testDatabase = new Aws.Athena.Database("test", new()
-    ///     {
-    ///         Name = "example",
-    ///         Bucket = test.BucketName,
-    ///     });
-    /// 
-    ///     var testPreparedStatement = new Aws.Athena.PreparedStatement("test", new()
-    ///     {
-    ///         Name = "tf_test",
-    ///         QueryStatement = testDatabase.Name.Apply(name =&gt; $"SELECT * FROM {name} WHERE x = ?"),
-    ///         Workgroup = testWorkgroup.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Athena Prepared Statement using the `WORKGROUP-NAME/STATEMENT-NAME`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:athena/preparedStatement:PreparedStatement example 12345abcde/example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:athena/preparedStatement:PreparedStatement")]
     public partial class PreparedStatement : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Brief explanation of prepared statement. Maximum length of 1024.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the prepared statement. Maximum length of 256.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The query string for the prepared statement.
-        /// </summary>
         [Output("queryStatement")]
         public Output<string> QueryStatement { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the workgroup to which the prepared statement belongs.
-        /// </summary>
         [Output("workgroup")]
         public Output<string> Workgroup { get; private set; } = null!;
 
@@ -136,33 +73,18 @@ namespace Pulumi.Aws.Athena
 
     public sealed class PreparedStatementArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Brief explanation of prepared statement. Maximum length of 1024.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The name of the prepared statement. Maximum length of 256.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The query string for the prepared statement.
-        /// </summary>
         [Input("queryStatement", required: true)]
         public Input<string> QueryStatement { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name of the workgroup to which the prepared statement belongs.
-        /// </summary>
         [Input("workgroup", required: true)]
         public Input<string> Workgroup { get; set; } = null!;
 
@@ -174,33 +96,18 @@ namespace Pulumi.Aws.Athena
 
     public sealed class PreparedStatementState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Brief explanation of prepared statement. Maximum length of 1024.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The name of the prepared statement. Maximum length of 256.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The query string for the prepared statement.
-        /// </summary>
         [Input("queryStatement")]
         public Input<string>? QueryStatement { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name of the workgroup to which the prepared statement belongs.
-        /// </summary>
         [Input("workgroup")]
         public Input<string>? Workgroup { get; set; }
 

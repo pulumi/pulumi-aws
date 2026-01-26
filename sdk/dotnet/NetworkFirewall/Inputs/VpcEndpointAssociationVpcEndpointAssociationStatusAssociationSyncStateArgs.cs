@@ -14,19 +14,12 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
     {
         [Input("attachments", required: true)]
         private InputList<Inputs.VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArgs>? _attachments;
-
-        /// <summary>
-        /// Nested list describing the attachment status of the firewall's VPC Endpoint Association with a single VPC subnet.
-        /// </summary>
         public InputList<Inputs.VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArgs> Attachments
         {
             get => _attachments ?? (_attachments = new InputList<Inputs.VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArgs>());
             set => _attachments = value;
         }
 
-        /// <summary>
-        /// The Availability Zone where the subnet is configured.
-        /// </summary>
         [Input("availabilityZone", required: true)]
         public Input<string> AvailabilityZone { get; set; } = null!;
 

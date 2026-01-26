@@ -13,98 +13,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Security Hub administrator account for an organization. The AWS account utilizing this resource must be an Organizations primary account. More information about Organizations support in Security Hub can be found in the [Security Hub User Guide](https://docs.aws.amazon.com/securityhub/latest/userguide/designate-orgs-admin-account.html).
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.organizations.Organization;
- * import com.pulumi.aws.organizations.OrganizationArgs;
- * import com.pulumi.aws.securityhub.Account;
- * import com.pulumi.aws.securityhub.OrganizationAdminAccount;
- * import com.pulumi.aws.securityhub.OrganizationAdminAccountArgs;
- * import com.pulumi.aws.securityhub.OrganizationConfiguration;
- * import com.pulumi.aws.securityhub.OrganizationConfigurationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Organization("example", OrganizationArgs.builder()
- *             .awsServiceAccessPrincipals("securityhub.amazonaws.com")
- *             .featureSet("ALL")
- *             .build());
- * 
- *         var exampleAccount = new Account("exampleAccount");
- * 
- *         var exampleOrganizationAdminAccount = new OrganizationAdminAccount("exampleOrganizationAdminAccount", OrganizationAdminAccountArgs.builder()
- *             .adminAccountId("123456789012")
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(example)
- *                 .build());
- * 
- *         // Auto enable security hub in organization member accounts
- *         var exampleOrganizationConfiguration = new OrganizationConfiguration("exampleOrganizationConfiguration", OrganizationConfigurationArgs.builder()
- *             .autoEnable(true)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Security Hub Organization Admin Accounts using the AWS account ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:securityhub/organizationAdminAccount:OrganizationAdminAccount example 123456789012
- * ```
- * 
- */
 @ResourceType(type="aws:securityhub/organizationAdminAccount:OrganizationAdminAccount")
 public class OrganizationAdminAccount extends com.pulumi.resources.CustomResource {
-    /**
-     * The AWS account identifier of the account to designate as the Security Hub administrator account.
-     * 
-     */
     @Export(name="adminAccountId", refs={String.class}, tree="[0]")
     private Output<String> adminAccountId;
 
-    /**
-     * @return The AWS account identifier of the account to designate as the Security Hub administrator account.
-     * 
-     */
     public Output<String> adminAccountId() {
         return this.adminAccountId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

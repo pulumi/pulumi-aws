@@ -11,186 +11,12 @@ namespace Pulumi.Aws.Route53
 {
     public static class GetRecords
     {
-        /// <summary>
-        /// Use this data source to get the details of resource records in a Route 53 hosted zone.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// Return all records in the zone.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var selected = Aws.Route53.GetZone.Invoke(new()
-        ///     {
-        ///         Name = "test.com.",
-        ///         PrivateZone = true,
-        ///     });
-        /// 
-        ///     var example = Aws.Route53.GetRecords.Invoke(new()
-        ///     {
-        ///         ZoneId = selected.Apply(getZoneResult =&gt; getZoneResult.ZoneId),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Basic Usage with filter
-        /// 
-        /// Return the records that starts with `Www`.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var selected = Aws.Route53.GetZone.Invoke(new()
-        ///     {
-        ///         Name = "test.com.",
-        ///         PrivateZone = true,
-        ///     });
-        /// 
-        ///     var example = Aws.Route53.GetRecords.Invoke(new()
-        ///     {
-        ///         ZoneId = selected.Apply(getZoneResult =&gt; getZoneResult.ZoneId),
-        ///         NameRegex = "^www",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetRecordsResult> InvokeAsync(GetRecordsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRecordsResult>("aws:route53/getRecords:getRecords", args ?? new GetRecordsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get the details of resource records in a Route 53 hosted zone.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// Return all records in the zone.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var selected = Aws.Route53.GetZone.Invoke(new()
-        ///     {
-        ///         Name = "test.com.",
-        ///         PrivateZone = true,
-        ///     });
-        /// 
-        ///     var example = Aws.Route53.GetRecords.Invoke(new()
-        ///     {
-        ///         ZoneId = selected.Apply(getZoneResult =&gt; getZoneResult.ZoneId),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Basic Usage with filter
-        /// 
-        /// Return the records that starts with `Www`.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var selected = Aws.Route53.GetZone.Invoke(new()
-        ///     {
-        ///         Name = "test.com.",
-        ///         PrivateZone = true,
-        ///     });
-        /// 
-        ///     var example = Aws.Route53.GetRecords.Invoke(new()
-        ///     {
-        ///         ZoneId = selected.Apply(getZoneResult =&gt; getZoneResult.ZoneId),
-        ///         NameRegex = "^www",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetRecordsResult> Invoke(GetRecordsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRecordsResult>("aws:route53/getRecords:getRecords", args ?? new GetRecordsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get the details of resource records in a Route 53 hosted zone.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// Return all records in the zone.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var selected = Aws.Route53.GetZone.Invoke(new()
-        ///     {
-        ///         Name = "test.com.",
-        ///         PrivateZone = true,
-        ///     });
-        /// 
-        ///     var example = Aws.Route53.GetRecords.Invoke(new()
-        ///     {
-        ///         ZoneId = selected.Apply(getZoneResult =&gt; getZoneResult.ZoneId),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Basic Usage with filter
-        /// 
-        /// Return the records that starts with `Www`.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var selected = Aws.Route53.GetZone.Invoke(new()
-        ///     {
-        ///         Name = "test.com.",
-        ///         PrivateZone = true,
-        ///     });
-        /// 
-        ///     var example = Aws.Route53.GetRecords.Invoke(new()
-        ///     {
-        ///         ZoneId = selected.Apply(getZoneResult =&gt; getZoneResult.ZoneId),
-        ///         NameRegex = "^www",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetRecordsResult> Invoke(GetRecordsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRecordsResult>("aws:route53/getRecords:getRecords", args ?? new GetRecordsInvokeArgs(), options.WithDefaults());
     }
@@ -198,15 +24,9 @@ namespace Pulumi.Aws.Route53
 
     public sealed class GetRecordsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Regex string to apply to the resource record names returned by AWS.
-        /// </summary>
         [Input("nameRegex")]
         public string? NameRegex { get; set; }
 
-        /// <summary>
-        /// The ID of the hosted zone that contains the resource record sets that you want to list.
-        /// </summary>
         [Input("zoneId", required: true)]
         public string ZoneId { get; set; } = null!;
 
@@ -218,15 +38,9 @@ namespace Pulumi.Aws.Route53
 
     public sealed class GetRecordsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Regex string to apply to the resource record names returned by AWS.
-        /// </summary>
         [Input("nameRegex")]
         public Input<string>? NameRegex { get; set; }
 
-        /// <summary>
-        /// The ID of the hosted zone that contains the resource record sets that you want to list.
-        /// </summary>
         [Input("zoneId", required: true)]
         public Input<string> ZoneId { get; set; } = null!;
 
@@ -245,9 +59,6 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         public readonly string Id;
         public readonly string? NameRegex;
-        /// <summary>
-        /// The resource records sets.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetRecordsResourceRecordSetResult> ResourceRecordSets;
         public readonly string ZoneId;
 

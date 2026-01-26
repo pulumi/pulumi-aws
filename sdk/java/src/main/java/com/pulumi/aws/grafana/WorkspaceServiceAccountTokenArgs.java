@@ -17,77 +17,37 @@ public final class WorkspaceServiceAccountTokenArgs extends com.pulumi.resources
 
     public static final WorkspaceServiceAccountTokenArgs Empty = new WorkspaceServiceAccountTokenArgs();
 
-    /**
-     * A name for the token to create. The name must be unique within the workspace.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return A name for the token to create. The name must be unique within the workspace.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
-     * 
-     */
     @Import(name="secondsToLive", required=true)
     private Output<Integer> secondsToLive;
 
-    /**
-     * @return Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
-     * 
-     */
     public Output<Integer> secondsToLive() {
         return this.secondsToLive;
     }
 
-    /**
-     * The ID of the service account for which to create a token.
-     * 
-     */
     @Import(name="serviceAccountId", required=true)
     private Output<String> serviceAccountId;
 
-    /**
-     * @return The ID of the service account for which to create a token.
-     * 
-     */
     public Output<String> serviceAccountId() {
         return this.serviceAccountId;
     }
 
-    /**
-     * The Grafana workspace with which the service account token is associated.
-     * 
-     */
     @Import(name="workspaceId", required=true)
     private Output<String> workspaceId;
 
-    /**
-     * @return The Grafana workspace with which the service account token is associated.
-     * 
-     */
     public Output<String> workspaceId() {
         return this.workspaceId;
     }
@@ -120,107 +80,47 @@ public final class WorkspaceServiceAccountTokenArgs extends com.pulumi.resources
             $ = new WorkspaceServiceAccountTokenArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name A name for the token to create. The name must be unique within the workspace.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name A name for the token to create. The name must be unique within the workspace.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param secondsToLive Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secondsToLive(Output<Integer> secondsToLive) {
             $.secondsToLive = secondsToLive;
             return this;
         }
 
-        /**
-         * @param secondsToLive Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secondsToLive(Integer secondsToLive) {
             return secondsToLive(Output.of(secondsToLive));
         }
 
-        /**
-         * @param serviceAccountId The ID of the service account for which to create a token.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceAccountId(Output<String> serviceAccountId) {
             $.serviceAccountId = serviceAccountId;
             return this;
         }
 
-        /**
-         * @param serviceAccountId The ID of the service account for which to create a token.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceAccountId(String serviceAccountId) {
             return serviceAccountId(Output.of(serviceAccountId));
         }
 
-        /**
-         * @param workspaceId The Grafana workspace with which the service account token is associated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workspaceId(Output<String> workspaceId) {
             $.workspaceId = workspaceId;
             return this;
         }
 
-        /**
-         * @param workspaceId The Grafana workspace with which the service account token is associated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workspaceId(String workspaceId) {
             return workspaceId(Output.of(workspaceId));
         }

@@ -7,23 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing an AWS SFN (Step Functions) State Machine Alias.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.sfn.getAlias({
- *     name: "my_sfn_alias",
- *     statemachineArn: sfnTest.arn,
- * });
- * ```
- */
 export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetAliasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:sfn/getAlias:getAlias", {
@@ -38,21 +21,9 @@ export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promi
  * A collection of arguments for invoking getAlias.
  */
 export interface GetAliasArgs {
-    /**
-     * Description of state machine alias.
-     */
     description?: string;
-    /**
-     * Name of the State Machine alias.
-     */
     name: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * ARN of the State Machine.
-     */
     statemachineArn: string;
 }
 
@@ -60,17 +31,8 @@ export interface GetAliasArgs {
  * A collection of values returned by getAlias.
  */
 export interface GetAliasResult {
-    /**
-     * ARN identifying the State Machine alias.
-     */
     readonly arn: string;
-    /**
-     * Date the state machine Alias was created.
-     */
     readonly creationDate: string;
-    /**
-     * Description of state machine alias.
-     */
     readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -78,29 +40,9 @@ export interface GetAliasResult {
     readonly id: string;
     readonly name: string;
     readonly region: string;
-    /**
-     * Routing Configuration of state machine alias
-     */
     readonly routingConfigurations: outputs.sfn.GetAliasRoutingConfiguration[];
     readonly statemachineArn: string;
 }
-/**
- * Data source for managing an AWS SFN (Step Functions) State Machine Alias.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.sfn.getAlias({
- *     name: "my_sfn_alias",
- *     statemachineArn: sfnTest.arn,
- * });
- * ```
- */
 export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAliasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:sfn/getAlias:getAlias", {
@@ -115,20 +57,8 @@ export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOut
  * A collection of arguments for invoking getAlias.
  */
 export interface GetAliasOutputArgs {
-    /**
-     * Description of state machine alias.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Name of the State Machine alias.
-     */
     name: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the State Machine.
-     */
     statemachineArn: pulumi.Input<string>;
 }

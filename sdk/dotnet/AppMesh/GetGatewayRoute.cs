@@ -11,81 +11,12 @@ namespace Pulumi.Aws.AppMesh
 {
     public static class GetGatewayRoute
     {
-        /// <summary>
-        /// The App Mesh Gateway Route data source allows details of an App Mesh Gateway Route to be retrieved by its name, mesh_name, virtual_gateway_name, and optionally the mesh_owner.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.AppMesh.GetGatewayRoute.Invoke(new()
-        ///     {
-        ///         Name = "test-route",
-        ///         MeshName = "test-mesh",
-        ///         VirtualGatewayName = "test-gateway",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetGatewayRouteResult> InvokeAsync(GetGatewayRouteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGatewayRouteResult>("aws:appmesh/getGatewayRoute:getGatewayRoute", args ?? new GetGatewayRouteArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The App Mesh Gateway Route data source allows details of an App Mesh Gateway Route to be retrieved by its name, mesh_name, virtual_gateway_name, and optionally the mesh_owner.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.AppMesh.GetGatewayRoute.Invoke(new()
-        ///     {
-        ///         Name = "test-route",
-        ///         MeshName = "test-mesh",
-        ///         VirtualGatewayName = "test-gateway",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetGatewayRouteResult> Invoke(GetGatewayRouteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGatewayRouteResult>("aws:appmesh/getGatewayRoute:getGatewayRoute", args ?? new GetGatewayRouteInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The App Mesh Gateway Route data source allows details of an App Mesh Gateway Route to be retrieved by its name, mesh_name, virtual_gateway_name, and optionally the mesh_owner.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.AppMesh.GetGatewayRoute.Invoke(new()
-        ///     {
-        ///         Name = "test-route",
-        ///         MeshName = "test-mesh",
-        ///         VirtualGatewayName = "test-gateway",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetGatewayRouteResult> Invoke(GetGatewayRouteInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGatewayRouteResult>("aws:appmesh/getGatewayRoute:getGatewayRoute", args ?? new GetGatewayRouteInvokeArgs(), options.WithDefaults());
     }
@@ -93,45 +24,26 @@ namespace Pulumi.Aws.AppMesh
 
     public sealed class GetGatewayRouteArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the service mesh in which the virtual gateway exists.
-        /// </summary>
         [Input("meshName", required: true)]
         public string MeshName { get; set; } = null!;
 
-        /// <summary>
-        /// AWS account ID of the service mesh's owner.
-        /// </summary>
         [Input("meshOwner")]
         public string? MeshOwner { get; set; }
 
-        /// <summary>
-        /// Name of the gateway route.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Name of the virtual gateway in which the route exists.
-        /// </summary>
         [Input("virtualGatewayName", required: true)]
         public string VirtualGatewayName { get; set; } = null!;
 
@@ -143,45 +55,26 @@ namespace Pulumi.Aws.AppMesh
 
     public sealed class GetGatewayRouteInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the service mesh in which the virtual gateway exists.
-        /// </summary>
         [Input("meshName", required: true)]
         public Input<string> MeshName { get; set; } = null!;
 
-        /// <summary>
-        /// AWS account ID of the service mesh's owner.
-        /// </summary>
         [Input("meshOwner")]
         public Input<string>? MeshOwner { get; set; }
 
-        /// <summary>
-        /// Name of the gateway route.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Name of the virtual gateway in which the route exists.
-        /// </summary>
         [Input("virtualGatewayName", required: true)]
         public Input<string> VirtualGatewayName { get; set; } = null!;
 
@@ -195,37 +88,19 @@ namespace Pulumi.Aws.AppMesh
     [OutputType]
     public sealed class GetGatewayRouteResult
     {
-        /// <summary>
-        /// ARN of the gateway route.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Creation date of the gateway route.
-        /// </summary>
         public readonly string CreatedDate;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Last update date of the gateway route.
-        /// </summary>
         public readonly string LastUpdatedDate;
         public readonly string MeshName;
         public readonly string MeshOwner;
         public readonly string Name;
         public readonly string Region;
-        /// <summary>
-        /// Resource owner's AWS account ID.
-        /// </summary>
         public readonly string ResourceOwner;
-        /// <summary>
-        /// Gateway route specification. See the `aws.appmesh.GatewayRoute` resource for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetGatewayRouteSpecResult> Specs;
-        /// <summary>
-        /// Map of tags.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly string VirtualGatewayName;
 

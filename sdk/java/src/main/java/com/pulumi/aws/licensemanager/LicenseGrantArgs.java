@@ -18,14 +18,14 @@ public final class LicenseGrantArgs extends com.pulumi.resources.ResourceArgs {
     public static final LicenseGrantArgs Empty = new LicenseGrantArgs();
 
     /**
-     * A list of the allowed operations for the grant. This is a subset of the allowed operations on the license.
+     * Allowed operations for the grant. This is a subset of the allowed operations on the license.
      * 
      */
     @Import(name="allowedOperations", required=true)
     private Output<List<String>> allowedOperations;
 
     /**
-     * @return A list of the allowed operations for the grant. This is a subset of the allowed operations on the license.
+     * @return Allowed operations for the grant. This is a subset of the allowed operations on the license.
      * 
      */
     public Output<List<String>> allowedOperations() {
@@ -33,14 +33,14 @@ public final class LicenseGrantArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the license to grant.
+     * License ARN.
      * 
      */
     @Import(name="licenseArn", required=true)
     private Output<String> licenseArn;
 
     /**
-     * @return The ARN of the license to grant.
+     * @return License ARN.
      * 
      */
     public Output<String> licenseArn() {
@@ -48,14 +48,14 @@ public final class LicenseGrantArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Name of the grant.
+     * Name of the grant.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The Name of the grant.
+     * @return Name of the grant.
      * 
      */
     public Optional<Output<String>> name() {
@@ -63,31 +63,23 @@ public final class LicenseGrantArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The target account for the grant in the form of the ARN for an account principal of the root user.
+     * The grantee principal ARN. The target account for the grant in the form of the ARN for an account principal of the root user.
      * 
      */
     @Import(name="principal", required=true)
     private Output<String> principal;
 
     /**
-     * @return The target account for the grant in the form of the ARN for an account principal of the root user.
+     * @return The grantee principal ARN. The target account for the grant in the form of the ARN for an account principal of the root user.
      * 
      */
     public Output<String> principal() {
         return this.principal;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -121,7 +113,7 @@ public final class LicenseGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowedOperations A list of the allowed operations for the grant. This is a subset of the allowed operations on the license.
+         * @param allowedOperations Allowed operations for the grant. This is a subset of the allowed operations on the license.
          * 
          * @return builder
          * 
@@ -132,7 +124,7 @@ public final class LicenseGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowedOperations A list of the allowed operations for the grant. This is a subset of the allowed operations on the license.
+         * @param allowedOperations Allowed operations for the grant. This is a subset of the allowed operations on the license.
          * 
          * @return builder
          * 
@@ -142,7 +134,7 @@ public final class LicenseGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowedOperations A list of the allowed operations for the grant. This is a subset of the allowed operations on the license.
+         * @param allowedOperations Allowed operations for the grant. This is a subset of the allowed operations on the license.
          * 
          * @return builder
          * 
@@ -152,7 +144,7 @@ public final class LicenseGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param licenseArn The ARN of the license to grant.
+         * @param licenseArn License ARN.
          * 
          * @return builder
          * 
@@ -163,7 +155,7 @@ public final class LicenseGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param licenseArn The ARN of the license to grant.
+         * @param licenseArn License ARN.
          * 
          * @return builder
          * 
@@ -173,7 +165,7 @@ public final class LicenseGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The Name of the grant.
+         * @param name Name of the grant.
          * 
          * @return builder
          * 
@@ -184,7 +176,7 @@ public final class LicenseGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The Name of the grant.
+         * @param name Name of the grant.
          * 
          * @return builder
          * 
@@ -194,7 +186,7 @@ public final class LicenseGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param principal The target account for the grant in the form of the ARN for an account principal of the root user.
+         * @param principal The grantee principal ARN. The target account for the grant in the form of the ARN for an account principal of the root user.
          * 
          * @return builder
          * 
@@ -205,7 +197,7 @@ public final class LicenseGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param principal The target account for the grant in the form of the ARN for an account principal of the root user.
+         * @param principal The grantee principal ARN. The target account for the grant in the form of the ARN for an account principal of the root user.
          * 
          * @return builder
          * 
@@ -214,23 +206,11 @@ public final class LicenseGrantArgs extends com.pulumi.resources.ResourceArgs {
             return principal(Output.of(principal));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

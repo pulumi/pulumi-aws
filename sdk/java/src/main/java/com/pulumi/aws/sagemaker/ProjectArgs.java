@@ -18,77 +18,37 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ProjectArgs Empty = new ProjectArgs();
 
-    /**
-     * A description for the project.
-     * 
-     */
     @Import(name="projectDescription")
     private @Nullable Output<String> projectDescription;
 
-    /**
-     * @return A description for the project.
-     * 
-     */
     public Optional<Output<String>> projectDescription() {
         return Optional.ofNullable(this.projectDescription);
     }
 
-    /**
-     * The name of the Project.
-     * 
-     */
     @Import(name="projectName", required=true)
     private Output<String> projectName;
 
-    /**
-     * @return The name of the Project.
-     * 
-     */
     public Output<String> projectName() {
         return this.projectName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
-     * 
-     */
     @Import(name="serviceCatalogProvisioningDetails", required=true)
     private Output<ProjectServiceCatalogProvisioningDetailsArgs> serviceCatalogProvisioningDetails;
 
-    /**
-     * @return The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
-     * 
-     */
     public Output<ProjectServiceCatalogProvisioningDetailsArgs> serviceCatalogProvisioningDetails() {
         return this.serviceCatalogProvisioningDetails;
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -121,107 +81,47 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ProjectArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param projectDescription A description for the project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectDescription(@Nullable Output<String> projectDescription) {
             $.projectDescription = projectDescription;
             return this;
         }
 
-        /**
-         * @param projectDescription A description for the project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectDescription(String projectDescription) {
             return projectDescription(Output.of(projectDescription));
         }
 
-        /**
-         * @param projectName The name of the Project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectName(Output<String> projectName) {
             $.projectName = projectName;
             return this;
         }
 
-        /**
-         * @param projectName The name of the Project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectName(String projectName) {
             return projectName(Output.of(projectName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param serviceCatalogProvisioningDetails The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceCatalogProvisioningDetails(Output<ProjectServiceCatalogProvisioningDetailsArgs> serviceCatalogProvisioningDetails) {
             $.serviceCatalogProvisioningDetails = serviceCatalogProvisioningDetails;
             return this;
         }
 
-        /**
-         * @param serviceCatalogProvisioningDetails The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceCatalogProvisioningDetails(ProjectServiceCatalogProvisioningDetailsArgs serviceCatalogProvisioningDetails) {
             return serviceCatalogProvisioningDetails(Output.of(serviceCatalogProvisioningDetails));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

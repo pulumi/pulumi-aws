@@ -10,21 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class FormTypeModel {
-    /**
-     * @return Smithy document that indicates the model of the API. Must be between the lengths 1 and 100,000 and be encoded as a smithy document.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private String smithy;
 
     private FormTypeModel() {}
-    /**
-     * @return Smithy document that indicates the model of the API. Must be between the lengths 1 and 100,000 and be encoded as a smithy document.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String smithy() {
         return this.smithy;
     }

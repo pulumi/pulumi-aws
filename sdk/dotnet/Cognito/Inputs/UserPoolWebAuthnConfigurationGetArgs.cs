@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Cognito.Inputs
 
     public sealed class UserPoolWebAuthnConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The authentication domain that passkeys providers use as a relying party.
-        /// </summary>
         [Input("relyingPartyId")]
         public Input<string>? RelyingPartyId { get; set; }
 
-        /// <summary>
-        /// If your user pool should require a passkey. Must be one of `Required` or `Preferred`.
-        /// </summary>
         [Input("userVerification")]
         public Input<string>? UserVerification { get; set; }
 

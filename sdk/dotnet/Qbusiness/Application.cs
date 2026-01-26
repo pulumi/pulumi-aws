@@ -9,106 +9,51 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Qbusiness
 {
-    /// <summary>
-    /// Provides a Q Business Application resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Qbusiness.Application("example", new()
-    ///     {
-    ///         DisplayName = "example-app",
-    ///         IamServiceRoleArn = exampleAwsIamRole.Arn,
-    ///         IdentityCenterInstanceArn = exampleAwsSsoadminInstances.Arns[0],
-    ///         AttachmentsConfiguration = new Aws.Qbusiness.Inputs.ApplicationAttachmentsConfigurationArgs
-    ///         {
-    ///             AttachmentsControlMode = "ENABLED",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import a Q Business Application using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:qbusiness/application:Application example id-12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:qbusiness/application:Application")]
     public partial class Application : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Q Business application.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Information about whether file upload functionality is activated or deactivated for your end user. See `AttachmentsConfiguration` below.
-        /// </summary>
         [Output("attachmentsConfiguration")]
         public Output<Outputs.ApplicationAttachmentsConfiguration?> AttachmentsConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Description of the Amazon Q application.
+        /// A description of the Amazon Q application.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the Amazon Q application.
+        /// The display name of the Amazon Q application.
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
-        /// <summary>
-        /// Information about encryption configuration. See `EncryptionConfiguration` below.
-        /// </summary>
         [Output("encryptionConfiguration")]
         public Output<Outputs.ApplicationEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+        /// The Amazon Resource Name (ARN) of the IAM service role that provides permissions for the Amazon Q application.
         /// </summary>
         [Output("iamServiceRoleArn")]
         public Output<string> IamServiceRoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the AWS IAM Identity Center application attached to your Amazon Q Business application.
-        /// </summary>
         [Output("identityCenterApplicationArn")]
         public Output<string> IdentityCenterApplicationArn { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
-        /// 
-        /// The following arguments are optional:
+        /// ARN of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application
         /// </summary>
         [Output("identityCenterInstanceArn")]
         public Output<string> IdentityCenterInstanceArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -161,47 +106,36 @@ namespace Pulumi.Aws.Qbusiness
 
     public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Information about whether file upload functionality is activated or deactivated for your end user. See `AttachmentsConfiguration` below.
-        /// </summary>
         [Input("attachmentsConfiguration")]
         public Input<Inputs.ApplicationAttachmentsConfigurationArgs>? AttachmentsConfiguration { get; set; }
 
         /// <summary>
-        /// Description of the Amazon Q application.
+        /// A description of the Amazon Q application.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of the Amazon Q application.
+        /// The display name of the Amazon Q application.
         /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
-        /// <summary>
-        /// Information about encryption configuration. See `EncryptionConfiguration` below.
-        /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.ApplicationEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
 
         /// <summary>
-        /// ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+        /// The Amazon Resource Name (ARN) of the IAM service role that provides permissions for the Amazon Q application.
         /// </summary>
         [Input("iamServiceRoleArn", required: true)]
         public Input<string> IamServiceRoleArn { get; set; } = null!;
 
         /// <summary>
-        /// ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
-        /// 
-        /// The following arguments are optional:
+        /// ARN of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application
         /// </summary>
         [Input("identityCenterInstanceArn", required: true)]
         public Input<string> IdentityCenterInstanceArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -224,59 +158,42 @@ namespace Pulumi.Aws.Qbusiness
 
     public sealed class ApplicationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Q Business application.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Information about whether file upload functionality is activated or deactivated for your end user. See `AttachmentsConfiguration` below.
-        /// </summary>
         [Input("attachmentsConfiguration")]
         public Input<Inputs.ApplicationAttachmentsConfigurationGetArgs>? AttachmentsConfiguration { get; set; }
 
         /// <summary>
-        /// Description of the Amazon Q application.
+        /// A description of the Amazon Q application.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of the Amazon Q application.
+        /// The display name of the Amazon Q application.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
-        /// <summary>
-        /// Information about encryption configuration. See `EncryptionConfiguration` below.
-        /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.ApplicationEncryptionConfigurationGetArgs>? EncryptionConfiguration { get; set; }
 
         /// <summary>
-        /// ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+        /// The Amazon Resource Name (ARN) of the IAM service role that provides permissions for the Amazon Q application.
         /// </summary>
         [Input("iamServiceRoleArn")]
         public Input<string>? IamServiceRoleArn { get; set; }
 
-        /// <summary>
-        /// ARN of the AWS IAM Identity Center application attached to your Amazon Q Business application.
-        /// </summary>
         [Input("identityCenterApplicationArn")]
         public Input<string>? IdentityCenterApplicationArn { get; set; }
 
         /// <summary>
-        /// ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
-        /// 
-        /// The following arguments are optional:
+        /// ARN of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application
         /// </summary>
         [Input("identityCenterInstanceArn")]
         public Input<string>? IdentityCenterInstanceArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -290,10 +207,6 @@ namespace Pulumi.Aws.Qbusiness
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

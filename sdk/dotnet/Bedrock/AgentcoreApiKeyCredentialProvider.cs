@@ -9,105 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Bedrock
 {
-    /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Bedrock.AgentcoreApiKeyCredentialProvider("example", new()
-    ///     {
-    ///         Name = "example-api-key-provider",
-    ///         ApiKey = "your-api-key-here",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Write-Only API Key (Recommended for Production)
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Bedrock.AgentcoreApiKeyCredentialProvider("example", new()
-    ///     {
-    ///         Name = "example-api-key-provider",
-    ///         ApiKeyWo = "your-api-key-here",
-    ///         ApiKeyWoVersion = 1,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Bedrock AgentCore API Key Credential Provider using the provider name. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:bedrock/agentcoreApiKeyCredentialProvider:AgentcoreApiKeyCredentialProvider example example-api-key-provider
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:bedrock/agentcoreApiKeyCredentialProvider:AgentcoreApiKeyCredentialProvider")]
     public partial class AgentcoreApiKeyCredentialProvider : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// API key value. Cannot be used with `ApiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-        /// 
-        /// **Write-Only API Key (choose one approach):**
-        /// </summary>
         [Output("apiKey")]
         public Output<string?> ApiKey { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the AWS Secrets Manager secret containing the API key.
-        /// </summary>
         [Output("apiKeySecretArns")]
         public Output<ImmutableArray<Outputs.AgentcoreApiKeyCredentialProviderApiKeySecretArn>> ApiKeySecretArns { get; private set; } = null!;
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Write-only API key value. Cannot be used with `ApiKey`. Must be used together with `ApiKeyWoVersion`.
         /// </summary>
         [Output("apiKeyWo")]
         public Output<string?> ApiKeyWo { get; private set; } = null!;
 
-        /// <summary>
-        /// Used together with `ApiKeyWo` to trigger an update. Increment this value when an update to `ApiKeyWo` is required.
-        /// </summary>
         [Output("apiKeyWoVersion")]
         public Output<int?> ApiKeyWoVersion { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the API Key credential provider.
-        /// </summary>
         [Output("credentialProviderArn")]
         public Output<string> CredentialProviderArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the API Key credential provider. Forces replacement when changed.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// 
-        /// **Standard API Key (choose one approach):**
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -164,12 +89,6 @@ namespace Pulumi.Aws.Bedrock
     {
         [Input("apiKey")]
         private Input<string>? _apiKey;
-
-        /// <summary>
-        /// API key value. Cannot be used with `ApiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-        /// 
-        /// **Write-Only API Key (choose one approach):**
-        /// </summary>
         public Input<string>? ApiKey
         {
             get => _apiKey;
@@ -185,7 +104,6 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Write-only API key value. Cannot be used with `ApiKey`. Must be used together with `ApiKeyWoVersion`.
         /// </summary>
         public Input<string>? ApiKeyWo
         {
@@ -197,25 +115,12 @@ namespace Pulumi.Aws.Bedrock
             }
         }
 
-        /// <summary>
-        /// Used together with `ApiKeyWo` to trigger an update. Increment this value when an update to `ApiKeyWo` is required.
-        /// </summary>
         [Input("apiKeyWoVersion")]
         public Input<int>? ApiKeyWoVersion { get; set; }
 
-        /// <summary>
-        /// Name of the API Key credential provider. Forces replacement when changed.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// 
-        /// **Standard API Key (choose one approach):**
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -229,12 +134,6 @@ namespace Pulumi.Aws.Bedrock
     {
         [Input("apiKey")]
         private Input<string>? _apiKey;
-
-        /// <summary>
-        /// API key value. Cannot be used with `ApiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-        /// 
-        /// **Write-Only API Key (choose one approach):**
-        /// </summary>
         public Input<string>? ApiKey
         {
             get => _apiKey;
@@ -247,10 +146,6 @@ namespace Pulumi.Aws.Bedrock
 
         [Input("apiKeySecretArns")]
         private InputList<Inputs.AgentcoreApiKeyCredentialProviderApiKeySecretArnGetArgs>? _apiKeySecretArns;
-
-        /// <summary>
-        /// ARN of the AWS Secrets Manager secret containing the API key.
-        /// </summary>
         public InputList<Inputs.AgentcoreApiKeyCredentialProviderApiKeySecretArnGetArgs> ApiKeySecretArns
         {
             get => _apiKeySecretArns ?? (_apiKeySecretArns = new InputList<Inputs.AgentcoreApiKeyCredentialProviderApiKeySecretArnGetArgs>());
@@ -262,7 +157,6 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Write-only API key value. Cannot be used with `ApiKey`. Must be used together with `ApiKeyWoVersion`.
         /// </summary>
         public Input<string>? ApiKeyWo
         {
@@ -274,31 +168,15 @@ namespace Pulumi.Aws.Bedrock
             }
         }
 
-        /// <summary>
-        /// Used together with `ApiKeyWo` to trigger an update. Increment this value when an update to `ApiKeyWo` is required.
-        /// </summary>
         [Input("apiKeyWoVersion")]
         public Input<int>? ApiKeyWoVersion { get; set; }
 
-        /// <summary>
-        /// ARN of the API Key credential provider.
-        /// </summary>
         [Input("credentialProviderArn")]
         public Input<string>? CredentialProviderArn { get; set; }
 
-        /// <summary>
-        /// Name of the API Key credential provider. Forces replacement when changed.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// 
-        /// **Standard API Key (choose one approach):**
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

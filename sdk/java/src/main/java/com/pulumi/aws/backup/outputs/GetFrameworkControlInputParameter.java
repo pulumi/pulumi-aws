@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFrameworkControlInputParameter {
-    /**
-     * @return Backup framework name.
-     * 
-     */
     private String name;
-    /**
-     * @return Value of parameter, for example, hourly.
-     * 
-     */
     private String value;
 
     private GetFrameworkControlInputParameter() {}
-    /**
-     * @return Backup framework name.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Value of parameter, for example, hourly.
-     * 
-     */
     public String value() {
         return this.value;
     }

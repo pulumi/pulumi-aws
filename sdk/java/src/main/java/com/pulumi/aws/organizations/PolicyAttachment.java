@@ -15,175 +15,23 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
- * 
- * ## Example Usage
- * 
- * ### Organization Account
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.organizations.PolicyAttachment;
- * import com.pulumi.aws.organizations.PolicyAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var account = new PolicyAttachment("account", PolicyAttachmentArgs.builder()
- *             .policyId(example.id())
- *             .targetId("123456789012")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Organization Root
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.organizations.PolicyAttachment;
- * import com.pulumi.aws.organizations.PolicyAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var root = new PolicyAttachment("root", PolicyAttachmentArgs.builder()
- *             .policyId(example.id())
- *             .targetId(exampleAwsOrganizationsOrganization.roots()[0].id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Organization Unit
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.organizations.PolicyAttachment;
- * import com.pulumi.aws.organizations.PolicyAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var unit = new PolicyAttachment("unit", PolicyAttachmentArgs.builder()
- *             .policyId(example.id())
- *             .targetId(exampleAwsOrganizationsOrganizationalUnit.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * * `policy_id` (String) Organizations policy ID.
- * 
- * * `target_id` (String) Organizations target ID (account, OU, or root).
- * 
- * #### Optional
- * 
- * * `account_id` (String) AWS Account where this resource is managed.
- * 
- * Using `pulumi import`, import `aws_organizations_policy_attachment` using the target ID and policy ID. For example:
- * 
- * With an account target:
- * 
- * % pulumi import aws_organizations_policy_attachment.example 123456789012:p-12345678
- * 
- */
 @ResourceType(type="aws:organizations/policyAttachment:PolicyAttachment")
 public class PolicyAttachment extends com.pulumi.resources.CustomResource {
-    /**
-     * The unique identifier (ID) of the policy that you want to attach to the target.
-     * 
-     */
     @Export(name="policyId", refs={String.class}, tree="[0]")
     private Output<String> policyId;
 
-    /**
-     * @return The unique identifier (ID) of the policy that you want to attach to the target.
-     * 
-     */
     public Output<String> policyId() {
         return this.policyId;
     }
-    /**
-     * If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
-     * 
-     */
     @Export(name="skipDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipDestroy;
 
-    /**
-     * @return If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
-     * 
-     */
     public Output<Optional<Boolean>> skipDestroy() {
         return Codegen.optional(this.skipDestroy);
     }
-    /**
-     * The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
-     * 
-     */
     @Export(name="targetId", refs={String.class}, tree="[0]")
     private Output<String> targetId;
 
-    /**
-     * @return The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
-     * 
-     */
     public Output<String> targetId() {
         return this.targetId;
     }

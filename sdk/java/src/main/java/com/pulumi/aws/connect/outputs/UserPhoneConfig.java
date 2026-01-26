@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserPhoneConfig {
-    /**
-     * @return The After Call Work (ACW) timeout setting, in seconds. Minimum value of 0.
-     * 
-     */
     private @Nullable Integer afterContactWorkTimeLimit;
-    /**
-     * @return When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
-     * 
-     */
     private @Nullable Boolean autoAccept;
-    /**
-     * @return The phone number for the user&#39;s desk phone. Required if `phoneType` is set as `DESK_PHONE`.
-     * 
-     */
     private @Nullable String deskPhoneNumber;
-    /**
-     * @return The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
-     * 
-     */
     private String phoneType;
 
     private UserPhoneConfig() {}
-    /**
-     * @return The After Call Work (ACW) timeout setting, in seconds. Minimum value of 0.
-     * 
-     */
     public Optional<Integer> afterContactWorkTimeLimit() {
         return Optional.ofNullable(this.afterContactWorkTimeLimit);
     }
-    /**
-     * @return When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
-     * 
-     */
     public Optional<Boolean> autoAccept() {
         return Optional.ofNullable(this.autoAccept);
     }
-    /**
-     * @return The phone number for the user&#39;s desk phone. Required if `phoneType` is set as `DESK_PHONE`.
-     * 
-     */
     public Optional<String> deskPhoneNumber() {
         return Optional.ofNullable(this.deskPhoneNumber);
     }
-    /**
-     * @return The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
-     * 
-     */
     public String phoneType() {
         return this.phoneType;
     }

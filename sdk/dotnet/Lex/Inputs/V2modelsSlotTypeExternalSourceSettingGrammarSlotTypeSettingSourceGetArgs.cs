@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// KMS key required to decrypt the contents of the grammar, if any.
-        /// </summary>
         [Input("kmsKeyArn", required: true)]
         public Input<string> KmsKeyArn { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the Amazon S3 bucket that contains the grammar source.
-        /// </summary>
         [Input("s3BucketName", required: true)]
         public Input<string> S3BucketName { get; set; } = null!;
 
-        /// <summary>
-        /// Path to the grammar in the Amazon S3 bucket.
-        /// </summary>
         [Input("s3ObjectKey", required: true)]
         public Input<string> S3ObjectKey { get; set; } = null!;
 

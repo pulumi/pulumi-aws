@@ -61,9 +61,6 @@ class GetVpcsResult:
     @_builtins.property
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
-        """
-        List of all the VPC Ids found.
-        """
         return pulumi.get(self, "ids")
 
     @_builtins.property
@@ -95,46 +92,7 @@ def get_vpcs(filters: Optional[Sequence[Union['GetVpcsFilterArgs', 'GetVpcsFilte
              tags: Optional[Mapping[str, _builtins.str]] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcsResult:
     """
-    This resource can be useful for getting back a list of VPC Ids for a region.
-
-    The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
-
-    ## Example Usage
-
-    The following shows outputting all VPC Ids.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.ec2.get_vpcs(tags={
-        "service": "production",
-    })
-    pulumi.export("foo", foo.ids)
-    ```
-
-    An example use case would be interpolate the `ec2_get_vpcs` output into `count` of an ec2.FlowLog resource.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.ec2.get_vpcs()
-    foo_get_vpc = [aws.ec2.get_vpc(id=foo.ids[__index]) for __index in len(foo.ids).apply(lambda length: range(length))]
-    test_flow_log = []
-    def create_test_flow_log(range_body):
-        for range in [{"value": i} for i in range(0, range_body)]:
-            test_flow_log.append(aws.ec2.FlowLog(f"test_flow_log-{range['value']}", vpc_id=foo_get_vpc.apply(lambda foo_get_vpc: foo_get_vpc[range["value"]].id)))
-
-    (len(foo.ids)).apply(create_test_flow_log)
-    pulumi.export("foo", foo.ids)
-    ```
-
-
-    :param Sequence[Union['GetVpcsFilterArgs', 'GetVpcsFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired vpcs.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -154,46 +112,7 @@ def get_vpcs_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetV
                     tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcsResult]:
     """
-    This resource can be useful for getting back a list of VPC Ids for a region.
-
-    The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
-
-    ## Example Usage
-
-    The following shows outputting all VPC Ids.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.ec2.get_vpcs(tags={
-        "service": "production",
-    })
-    pulumi.export("foo", foo.ids)
-    ```
-
-    An example use case would be interpolate the `ec2_get_vpcs` output into `count` of an ec2.FlowLog resource.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.ec2.get_vpcs()
-    foo_get_vpc = [aws.ec2.get_vpc(id=foo.ids[__index]) for __index in len(foo.ids).apply(lambda length: range(length))]
-    test_flow_log = []
-    def create_test_flow_log(range_body):
-        for range in [{"value": i} for i in range(0, range_body)]:
-            test_flow_log.append(aws.ec2.FlowLog(f"test_flow_log-{range['value']}", vpc_id=foo_get_vpc.apply(lambda foo_get_vpc: foo_get_vpc[range["value"]].id)))
-
-    (len(foo.ids)).apply(create_test_flow_log)
-    pulumi.export("foo", foo.ids)
-    ```
-
-
-    :param Sequence[Union['GetVpcsFilterArgs', 'GetVpcsFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired vpcs.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

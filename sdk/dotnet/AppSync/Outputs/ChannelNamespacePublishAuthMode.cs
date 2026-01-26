@@ -13,9 +13,6 @@ namespace Pulumi.Aws.AppSync.Outputs
     [OutputType]
     public sealed class ChannelNamespacePublishAuthMode
     {
-        /// <summary>
-        /// Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
-        /// </summary>
         public readonly string AuthType;
 
         [OutputConstructor]

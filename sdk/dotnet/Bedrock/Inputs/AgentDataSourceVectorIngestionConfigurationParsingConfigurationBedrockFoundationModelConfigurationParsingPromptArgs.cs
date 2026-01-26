@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Instructions for interpreting the contents of the document.
-        /// </summary>
         [Input("parsingPromptString", required: true)]
         public Input<string> ParsingPromptString { get; set; } = null!;
 

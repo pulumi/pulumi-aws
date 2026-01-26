@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS OpenSearch Serverless Security Config.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opensearch.LookupServerlessSecurityConfig(ctx, &opensearch.LookupServerlessSecurityConfigArgs{
-//				Id: "saml/12345678912/example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupServerlessSecurityConfig(ctx *pulumi.Context, args *LookupServerlessSecurityConfigArgs, opts ...pulumi.InvokeOption) (*LookupServerlessSecurityConfigResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServerlessSecurityConfigResult
@@ -52,30 +23,21 @@ func LookupServerlessSecurityConfig(ctx *pulumi.Context, args *LookupServerlessS
 
 // A collection of arguments for invoking getServerlessSecurityConfig.
 type LookupServerlessSecurityConfigArgs struct {
-	// The unique identifier of the security configuration.
-	Id string `pulumi:"id"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// SAML options for the security configuration.
+	Id          string                                  `pulumi:"id"`
+	Region      *string                                 `pulumi:"region"`
 	SamlOptions []GetServerlessSecurityConfigSamlOption `pulumi:"samlOptions"`
 }
 
 // A collection of values returned by getServerlessSecurityConfig.
 type LookupServerlessSecurityConfigResult struct {
-	// The version of the security configuration.
-	ConfigVersion string `pulumi:"configVersion"`
-	// The date the configuration was created.
-	CreatedDate string `pulumi:"createdDate"`
-	// The description of the security configuration.
-	Description string `pulumi:"description"`
-	Id          string `pulumi:"id"`
-	// The date the configuration was last modified.
-	LastModifiedDate string `pulumi:"lastModifiedDate"`
-	Region           string `pulumi:"region"`
-	// SAML options for the security configuration.
-	SamlOptions []GetServerlessSecurityConfigSamlOption `pulumi:"samlOptions"`
-	// The type of security configuration.
-	Type string `pulumi:"type"`
+	ConfigVersion    string                                  `pulumi:"configVersion"`
+	CreatedDate      string                                  `pulumi:"createdDate"`
+	Description      string                                  `pulumi:"description"`
+	Id               string                                  `pulumi:"id"`
+	LastModifiedDate string                                  `pulumi:"lastModifiedDate"`
+	Region           string                                  `pulumi:"region"`
+	SamlOptions      []GetServerlessSecurityConfigSamlOption `pulumi:"samlOptions"`
+	Type             string                                  `pulumi:"type"`
 }
 
 func LookupServerlessSecurityConfigOutput(ctx *pulumi.Context, args LookupServerlessSecurityConfigOutputArgs, opts ...pulumi.InvokeOption) LookupServerlessSecurityConfigResultOutput {
@@ -89,11 +51,8 @@ func LookupServerlessSecurityConfigOutput(ctx *pulumi.Context, args LookupServer
 
 // A collection of arguments for invoking getServerlessSecurityConfig.
 type LookupServerlessSecurityConfigOutputArgs struct {
-	// The unique identifier of the security configuration.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// SAML options for the security configuration.
+	Id          pulumi.StringInput                              `pulumi:"id"`
+	Region      pulumi.StringPtrInput                           `pulumi:"region"`
 	SamlOptions GetServerlessSecurityConfigSamlOptionArrayInput `pulumi:"samlOptions"`
 }
 
@@ -116,17 +75,14 @@ func (o LookupServerlessSecurityConfigResultOutput) ToLookupServerlessSecurityCo
 	return o
 }
 
-// The version of the security configuration.
 func (o LookupServerlessSecurityConfigResultOutput) ConfigVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) string { return v.ConfigVersion }).(pulumi.StringOutput)
 }
 
-// The date the configuration was created.
 func (o LookupServerlessSecurityConfigResultOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) string { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
-// The description of the security configuration.
 func (o LookupServerlessSecurityConfigResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -135,7 +91,6 @@ func (o LookupServerlessSecurityConfigResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The date the configuration was last modified.
 func (o LookupServerlessSecurityConfigResultOutput) LastModifiedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) string { return v.LastModifiedDate }).(pulumi.StringOutput)
 }
@@ -144,14 +99,12 @@ func (o LookupServerlessSecurityConfigResultOutput) Region() pulumi.StringOutput
 	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// SAML options for the security configuration.
 func (o LookupServerlessSecurityConfigResultOutput) SamlOptions() GetServerlessSecurityConfigSamlOptionArrayOutput {
 	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) []GetServerlessSecurityConfigSamlOption {
 		return v.SamlOptions
 	}).(GetServerlessSecurityConfigSamlOptionArrayOutput)
 }
 
-// The type of security configuration.
 func (o LookupServerlessSecurityConfigResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) string { return v.Type }).(pulumi.StringOutput)
 }

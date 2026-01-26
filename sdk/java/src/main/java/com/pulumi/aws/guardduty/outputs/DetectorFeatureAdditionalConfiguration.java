@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class DetectorFeatureAdditionalConfiguration {
-    /**
-     * @return The name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
-     * 
-     */
     private String name;
-    /**
-     * @return The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     private String status;
 
     private DetectorFeatureAdditionalConfiguration() {}
-    /**
-     * @return The name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     public String status() {
         return this.status;
     }

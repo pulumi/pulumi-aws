@@ -24,9 +24,6 @@ class ClusterPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ClusterPolicy resource.
-        :param pulumi.Input[_builtins.str] cluster_arn: The Amazon Resource Name (ARN) that uniquely identifies the cluster.
-        :param pulumi.Input[_builtins.str] policy: Resource policy for cluster.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "cluster_arn", cluster_arn)
         pulumi.set(__self__, "policy", policy)
@@ -36,9 +33,6 @@ class ClusterPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) that uniquely identifies the cluster.
-        """
         return pulumi.get(self, "cluster_arn")
 
     @cluster_arn.setter
@@ -48,9 +42,6 @@ class ClusterPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Input[_builtins.str]:
-        """
-        Resource policy for cluster.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -60,9 +51,6 @@ class ClusterPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -79,9 +67,6 @@ class _ClusterPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ClusterPolicy resources.
-        :param pulumi.Input[_builtins.str] cluster_arn: The Amazon Resource Name (ARN) that uniquely identifies the cluster.
-        :param pulumi.Input[_builtins.str] policy: Resource policy for cluster.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if cluster_arn is not None:
             pulumi.set(__self__, "cluster_arn", cluster_arn)
@@ -95,9 +80,6 @@ class _ClusterPolicyState:
     @_builtins.property
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) that uniquely identifies the cluster.
-        """
         return pulumi.get(self, "cluster_arn")
 
     @cluster_arn.setter
@@ -116,9 +98,6 @@ class _ClusterPolicyState:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Resource policy for cluster.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -128,9 +107,6 @@ class _ClusterPolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -149,53 +125,9 @@ class ClusterPolicy(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Managed Streaming for Kafka Cluster Policy.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        current_get_partition = aws.get_partition()
-        example = aws.msk.ClusterPolicy("example",
-            cluster_arn=example_aws_msk_cluster["arn"],
-            policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "ExampleMskClusterPolicy",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": f"arn:{current_get_partition.partition}:iam::{current.account_id}:root",
-                    },
-                    "Action": [
-                        "kafka:Describe*",
-                        "kafka:Get*",
-                        "kafka:CreateVpcConnection",
-                        "kafka:GetBootstrapBrokers",
-                    ],
-                    "Resource": example_aws_msk_cluster["arn"],
-                }],
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Managed Streaming for Kafka Cluster Policy using the `cluster_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:msk/clusterPolicy:ClusterPolicy example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
-        ```
-
+        Create a ClusterPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cluster_arn: The Amazon Resource Name (ARN) that uniquely identifies the cluster.
-        :param pulumi.Input[_builtins.str] policy: Resource policy for cluster.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -204,48 +136,7 @@ class ClusterPolicy(pulumi.CustomResource):
                  args: ClusterPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Managed Streaming for Kafka Cluster Policy.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        current_get_partition = aws.get_partition()
-        example = aws.msk.ClusterPolicy("example",
-            cluster_arn=example_aws_msk_cluster["arn"],
-            policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "ExampleMskClusterPolicy",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": f"arn:{current_get_partition.partition}:iam::{current.account_id}:root",
-                    },
-                    "Action": [
-                        "kafka:Describe*",
-                        "kafka:Get*",
-                        "kafka:CreateVpcConnection",
-                        "kafka:GetBootstrapBrokers",
-                    ],
-                    "Resource": example_aws_msk_cluster["arn"],
-                }],
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Managed Streaming for Kafka Cluster Policy using the `cluster_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:msk/clusterPolicy:ClusterPolicy example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
-        ```
-
+        Create a ClusterPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ClusterPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -302,9 +193,6 @@ class ClusterPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cluster_arn: The Amazon Resource Name (ARN) that uniquely identifies the cluster.
-        :param pulumi.Input[_builtins.str] policy: Resource policy for cluster.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -319,9 +207,6 @@ class ClusterPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) that uniquely identifies the cluster.
-        """
         return pulumi.get(self, "cluster_arn")
 
     @_builtins.property
@@ -332,16 +217,10 @@ class ClusterPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:
-        """
-        Resource policy for cluster.
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

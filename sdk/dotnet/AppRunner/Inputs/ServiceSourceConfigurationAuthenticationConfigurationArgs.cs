@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AppRunner.Inputs
 
     public sealed class ServiceSourceConfigurationAuthenticationConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the IAM role that grants the App Runner service access to a source repository. Required for ECR image repositories (but not for ECR Public)
-        /// </summary>
         [Input("accessRoleArn")]
         public Input<string>? AccessRoleArn { get; set; }
 
-        /// <summary>
-        /// ARN of the App Runner connection that enables the App Runner service to connect to a source repository. Required for GitHub code repositories.
-        /// </summary>
         [Input("connectionArn")]
         public Input<string>? ConnectionArn { get; set; }
 

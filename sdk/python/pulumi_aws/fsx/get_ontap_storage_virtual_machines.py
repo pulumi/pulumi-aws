@@ -58,9 +58,6 @@ class GetOntapStorageVirtualMachinesResult:
     @_builtins.property
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
-        """
-        List of all SVM IDs found.
-        """
         return pulumi.get(self, "ids")
 
     @_builtins.property
@@ -85,25 +82,7 @@ def get_ontap_storage_virtual_machines(filters: Optional[Sequence[Union['GetOnta
                                        region: Optional[_builtins.str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOntapStorageVirtualMachinesResult:
     """
-    This resource can be useful for getting back a set of FSx ONTAP Storage Virtual Machine (SVM) IDs.
-
-    ## Example Usage
-
-    The following shows outputting all SVM IDs for a given FSx ONTAP File System.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.fsx.get_ontap_storage_virtual_machines(filters=[{
-        "name": "file-system-id",
-        "values": ["fs-12345678"],
-    }])
-    ```
-
-
-    :param Sequence[Union['GetOntapStorageVirtualMachinesFilterArgs', 'GetOntapStorageVirtualMachinesFilterArgsDict']] filters: Configuration block. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -120,25 +99,7 @@ def get_ontap_storage_virtual_machines_output(filters: Optional[pulumi.Input[Opt
                                               region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOntapStorageVirtualMachinesResult]:
     """
-    This resource can be useful for getting back a set of FSx ONTAP Storage Virtual Machine (SVM) IDs.
-
-    ## Example Usage
-
-    The following shows outputting all SVM IDs for a given FSx ONTAP File System.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.fsx.get_ontap_storage_virtual_machines(filters=[{
-        "name": "file-system-id",
-        "values": ["fs-12345678"],
-    }])
-    ```
-
-
-    :param Sequence[Union['GetOntapStorageVirtualMachinesFilterArgs', 'GetOntapStorageVirtualMachinesFilterArgsDict']] filters: Configuration block. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

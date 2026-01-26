@@ -17,94 +17,44 @@ public final class LogMetricFilterState extends com.pulumi.resources.ResourceArg
 
     public static final LogMetricFilterState Empty = new LogMetricFilterState();
 
-    /**
-     * Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
-     * 
-     */
     @Import(name="applyOnTransformedLogs")
     private @Nullable Output<Boolean> applyOnTransformedLogs;
 
-    /**
-     * @return Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
-     * 
-     */
     public Optional<Output<Boolean>> applyOnTransformedLogs() {
         return Optional.ofNullable(this.applyOnTransformedLogs);
     }
 
-    /**
-     * The name of the log group to associate the metric filter with.
-     * 
-     */
     @Import(name="logGroupName")
     private @Nullable Output<String> logGroupName;
 
-    /**
-     * @return The name of the log group to associate the metric filter with.
-     * 
-     */
     public Optional<Output<String>> logGroupName() {
         return Optional.ofNullable(this.logGroupName);
     }
 
-    /**
-     * A block defining collection of information needed to define how metric data gets emitted. See below.
-     * 
-     */
     @Import(name="metricTransformation")
     private @Nullable Output<LogMetricFilterMetricTransformationArgs> metricTransformation;
 
-    /**
-     * @return A block defining collection of information needed to define how metric data gets emitted. See below.
-     * 
-     */
     public Optional<Output<LogMetricFilterMetricTransformationArgs>> metricTransformation() {
         return Optional.ofNullable(this.metricTransformation);
     }
 
-    /**
-     * A name for the metric filter.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return A name for the metric filter.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
-     * for extracting metric data out of ingested log events.
-     * 
-     */
     @Import(name="pattern")
     private @Nullable Output<String> pattern;
 
-    /**
-     * @return A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
-     * for extracting metric data out of ingested log events.
-     * 
-     */
     public Optional<Output<String>> pattern() {
         return Optional.ofNullable(this.pattern);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -138,130 +88,56 @@ public final class LogMetricFilterState extends com.pulumi.resources.ResourceArg
             $ = new LogMetricFilterState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applyOnTransformedLogs Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applyOnTransformedLogs(@Nullable Output<Boolean> applyOnTransformedLogs) {
             $.applyOnTransformedLogs = applyOnTransformedLogs;
             return this;
         }
 
-        /**
-         * @param applyOnTransformedLogs Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applyOnTransformedLogs(Boolean applyOnTransformedLogs) {
             return applyOnTransformedLogs(Output.of(applyOnTransformedLogs));
         }
 
-        /**
-         * @param logGroupName The name of the log group to associate the metric filter with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupName(@Nullable Output<String> logGroupName) {
             $.logGroupName = logGroupName;
             return this;
         }
 
-        /**
-         * @param logGroupName The name of the log group to associate the metric filter with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupName(String logGroupName) {
             return logGroupName(Output.of(logGroupName));
         }
 
-        /**
-         * @param metricTransformation A block defining collection of information needed to define how metric data gets emitted. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricTransformation(@Nullable Output<LogMetricFilterMetricTransformationArgs> metricTransformation) {
             $.metricTransformation = metricTransformation;
             return this;
         }
 
-        /**
-         * @param metricTransformation A block defining collection of information needed to define how metric data gets emitted. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricTransformation(LogMetricFilterMetricTransformationArgs metricTransformation) {
             return metricTransformation(Output.of(metricTransformation));
         }
 
-        /**
-         * @param name A name for the metric filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name A name for the metric filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param pattern A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
-         * for extracting metric data out of ingested log events.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pattern(@Nullable Output<String> pattern) {
             $.pattern = pattern;
             return this;
         }
 
-        /**
-         * @param pattern A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
-         * for extracting metric data out of ingested log events.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pattern(String pattern) {
             return pattern(Output.of(pattern));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

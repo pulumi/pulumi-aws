@@ -9,70 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3Control
 {
-    /// <summary>
-    /// Provides a resource to manage an S3 Access Grants instance resource policy.
-    /// Use a resource policy to manage cross-account access to your S3 Access Grants instance.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.S3Control.AccessGrantsInstance("example");
-    /// 
-    ///     var exampleAccessGrantsInstanceResourcePolicy = new Aws.S3Control.AccessGrantsInstanceResourcePolicy("example", new()
-    ///     {
-    ///         Policy = example.AccessGrantsInstanceArn.Apply(accessGrantsInstanceArn =&gt; @$"{{
-    ///   \""Version\"": \""2012-10-17\"",
-    ///   \""Id\"": \""S3AccessGrantsPolicy\"",
-    ///   \""Statement\"": [{{
-    ///     \""Sid\"": \""AllowAccessToS3AccessGrants\"",
-    ///     \""Effect\"": \""Allow\"",
-    ///     \""Principal\"": {{
-    ///       \""AWS\"": \""123456789456\""
-    ///     }},
-    ///     \""Action\"": [
-    ///       \""s3:ListAccessGrants\"",
-    ///       \""s3:ListAccessGrantsLocations\"",
-    ///       \""s3:GetDataAccess\""
-    ///     ],
-    ///     \""Resource\"": \""{accessGrantsInstanceArn}\""
-    ///   }}]
-    /// }}
-    /// "),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import S3 Access Grants instance resource policies using the `account_id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy example 123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy")]
     public partial class AccessGrantsInstanceResourcePolicy : global::Pulumi.CustomResource
     {
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// The policy document.
-        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -125,15 +70,9 @@ namespace Pulumi.Aws.S3Control
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
-        /// <summary>
-        /// The policy document.
-        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -148,15 +87,9 @@ namespace Pulumi.Aws.S3Control
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
-        /// <summary>
-        /// The policy document.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

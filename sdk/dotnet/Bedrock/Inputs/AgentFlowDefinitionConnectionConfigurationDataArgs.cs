@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentFlowDefinitionConnectionConfigurationDataArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the output in the source node that the connection begins from.
-        /// </summary>
         [Input("sourceOutput", required: true)]
         public Input<string> SourceOutput { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the input in the target node that the connection ends at.
-        /// </summary>
         [Input("targetInput", required: true)]
         public Input<string> TargetInput { get; set; } = null!;
 

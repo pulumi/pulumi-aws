@@ -11,171 +11,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
 {
     public static class GetVpcAttachment
     {
-        /// <summary>
-        /// Get information on an EC2 Transit Gateway VPC Attachment.
-        /// 
-        /// !&gt; **Warning:** Using the `aws.ec2transitgateway.VpcAttachment` data source in combination with  `aws.ec2transitgateway.RouteTablePropagation` or `aws.ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `Id` attribute directly from the `aws.ec2transitgateway.VpcAttachment` _resource_. For example, `TransitGatewayAttachmentId  = aws_ec2_transit_gateway_vpc_attachment.example.id`.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### By Filter
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2TransitGateway.GetVpcAttachment.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2TransitGateway.Inputs.GetVpcAttachmentFilterInputArgs
-        ///             {
-        ///                 Name = "vpc-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "vpc-12345678",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### By Identifier
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2TransitGateway.GetVpcAttachment.Invoke(new()
-        ///     {
-        ///         Id = "tgw-attach-12345678",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetVpcAttachmentResult> InvokeAsync(GetVpcAttachmentArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcAttachmentResult>("aws:ec2transitgateway/getVpcAttachment:getVpcAttachment", args ?? new GetVpcAttachmentArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get information on an EC2 Transit Gateway VPC Attachment.
-        /// 
-        /// !&gt; **Warning:** Using the `aws.ec2transitgateway.VpcAttachment` data source in combination with  `aws.ec2transitgateway.RouteTablePropagation` or `aws.ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `Id` attribute directly from the `aws.ec2transitgateway.VpcAttachment` _resource_. For example, `TransitGatewayAttachmentId  = aws_ec2_transit_gateway_vpc_attachment.example.id`.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### By Filter
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2TransitGateway.GetVpcAttachment.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2TransitGateway.Inputs.GetVpcAttachmentFilterInputArgs
-        ///             {
-        ///                 Name = "vpc-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "vpc-12345678",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### By Identifier
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2TransitGateway.GetVpcAttachment.Invoke(new()
-        ///     {
-        ///         Id = "tgw-attach-12345678",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetVpcAttachmentResult> Invoke(GetVpcAttachmentInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcAttachmentResult>("aws:ec2transitgateway/getVpcAttachment:getVpcAttachment", args ?? new GetVpcAttachmentInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get information on an EC2 Transit Gateway VPC Attachment.
-        /// 
-        /// !&gt; **Warning:** Using the `aws.ec2transitgateway.VpcAttachment` data source in combination with  `aws.ec2transitgateway.RouteTablePropagation` or `aws.ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `Id` attribute directly from the `aws.ec2transitgateway.VpcAttachment` _resource_. For example, `TransitGatewayAttachmentId  = aws_ec2_transit_gateway_vpc_attachment.example.id`.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### By Filter
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2TransitGateway.GetVpcAttachment.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2TransitGateway.Inputs.GetVpcAttachmentFilterInputArgs
-        ///             {
-        ///                 Name = "vpc-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "vpc-12345678",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### By Identifier
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2TransitGateway.GetVpcAttachment.Invoke(new()
-        ///     {
-        ///         Id = "tgw-attach-12345678",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetVpcAttachmentResult> Invoke(GetVpcAttachmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcAttachmentResult>("aws:ec2transitgateway/getVpcAttachment:getVpcAttachment", args ?? new GetVpcAttachmentInvokeArgs(), options.WithDefaults());
     }
@@ -185,34 +26,20 @@ namespace Pulumi.Aws.Ec2TransitGateway
     {
         [Input("filters")]
         private List<Inputs.GetVpcAttachmentFilterArgs>? _filters;
-
-        /// <summary>
-        /// One or more configuration blocks containing name-values filters. Detailed below.
-        /// </summary>
         public List<Inputs.GetVpcAttachmentFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetVpcAttachmentFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Identifier of the EC2 Transit Gateway VPC Attachment.
-        /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the EC2 Transit Gateway VPC Attachment
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -229,34 +56,20 @@ namespace Pulumi.Aws.Ec2TransitGateway
     {
         [Input("filters")]
         private InputList<Inputs.GetVpcAttachmentFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// One or more configuration blocks containing name-values filters. Detailed below.
-        /// </summary>
         public InputList<Inputs.GetVpcAttachmentFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetVpcAttachmentFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Identifier of the EC2 Transit Gateway VPC Attachment.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the EC2 Transit Gateway VPC Attachment
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -273,51 +86,18 @@ namespace Pulumi.Aws.Ec2TransitGateway
     [OutputType]
     public sealed class GetVpcAttachmentResult
     {
-        /// <summary>
-        /// Whether Appliance Mode support is enabled.
-        /// </summary>
         public readonly string ApplianceModeSupport;
-        /// <summary>
-        /// ARN of the attachment.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Whether DNS support is enabled.
-        /// </summary>
         public readonly string DnsSupport;
         public readonly ImmutableArray<Outputs.GetVpcAttachmentFilterResult> Filters;
-        /// <summary>
-        /// EC2 Transit Gateway VPC Attachment identifier
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Whether IPv6 support is enabled.
-        /// </summary>
         public readonly string Ipv6Support;
         public readonly string Region;
-        /// <summary>
-        /// Whether Security Group Referencing Support is enabled.
-        /// </summary>
         public readonly string SecurityGroupReferencingSupport;
-        /// <summary>
-        /// Identifiers of EC2 Subnets.
-        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
-        /// <summary>
-        /// Key-value tags for the EC2 Transit Gateway VPC Attachment
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// EC2 Transit Gateway identifier
-        /// </summary>
         public readonly string TransitGatewayId;
-        /// <summary>
-        /// Identifier of EC2 VPC.
-        /// </summary>
         public readonly string VpcId;
-        /// <summary>
-        /// Identifier of the AWS account that owns the EC2 VPC.
-        /// </summary>
         public readonly string VpcOwnerId;
 
         [OutputConstructor]

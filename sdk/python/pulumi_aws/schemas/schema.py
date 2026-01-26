@@ -28,13 +28,6 @@ class SchemaArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Schema resource.
-        :param pulumi.Input[_builtins.str] content: The schema specification. Must be a valid Open API 3.0 spec.
-        :param pulumi.Input[_builtins.str] registry_name: The name of the registry in which this schema belongs.
-        :param pulumi.Input[_builtins.str] type: The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
-        :param pulumi.Input[_builtins.str] description: The description of the schema. Maximum of 256 characters.
-        :param pulumi.Input[_builtins.str] name: The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "registry_name", registry_name)
@@ -51,9 +44,6 @@ class SchemaArgs:
     @_builtins.property
     @pulumi.getter
     def content(self) -> pulumi.Input[_builtins.str]:
-        """
-        The schema specification. Must be a valid Open API 3.0 spec.
-        """
         return pulumi.get(self, "content")
 
     @content.setter
@@ -63,9 +53,6 @@ class SchemaArgs:
     @_builtins.property
     @pulumi.getter(name="registryName")
     def registry_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the registry in which this schema belongs.
-        """
         return pulumi.get(self, "registry_name")
 
     @registry_name.setter
@@ -75,9 +62,6 @@ class SchemaArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -87,9 +71,6 @@ class SchemaArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the schema. Maximum of 256 characters.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -99,9 +80,6 @@ class SchemaArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -111,9 +89,6 @@ class SchemaArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -123,9 +98,6 @@ class SchemaArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -150,18 +122,6 @@ class _SchemaState:
                  version_created_date: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Schema resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the discoverer.
-        :param pulumi.Input[_builtins.str] content: The schema specification. Must be a valid Open API 3.0 spec.
-        :param pulumi.Input[_builtins.str] description: The description of the schema. Maximum of 256 characters.
-        :param pulumi.Input[_builtins.str] last_modified: The last modified date of the schema.
-        :param pulumi.Input[_builtins.str] name: The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] registry_name: The name of the registry in which this schema belongs.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
-        :param pulumi.Input[_builtins.str] version: The version of the schema.
-        :param pulumi.Input[_builtins.str] version_created_date: The created date of the version of the schema.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -191,9 +151,6 @@ class _SchemaState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the discoverer.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -203,9 +160,6 @@ class _SchemaState:
     @_builtins.property
     @pulumi.getter
     def content(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The schema specification. Must be a valid Open API 3.0 spec.
-        """
         return pulumi.get(self, "content")
 
     @content.setter
@@ -215,9 +169,6 @@ class _SchemaState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the schema. Maximum of 256 characters.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -227,9 +178,6 @@ class _SchemaState:
     @_builtins.property
     @pulumi.getter(name="lastModified")
     def last_modified(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The last modified date of the schema.
-        """
         return pulumi.get(self, "last_modified")
 
     @last_modified.setter
@@ -239,9 +187,6 @@ class _SchemaState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -251,9 +196,6 @@ class _SchemaState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -263,9 +205,6 @@ class _SchemaState:
     @_builtins.property
     @pulumi.getter(name="registryName")
     def registry_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the registry in which this schema belongs.
-        """
         return pulumi.get(self, "registry_name")
 
     @registry_name.setter
@@ -275,9 +214,6 @@ class _SchemaState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -287,9 +223,6 @@ class _SchemaState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -299,9 +232,6 @@ class _SchemaState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -311,9 +241,6 @@ class _SchemaState:
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The version of the schema.
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -323,9 +250,6 @@ class _SchemaState:
     @_builtins.property
     @pulumi.getter(name="versionCreatedDate")
     def version_created_date(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The created date of the version of the schema.
-        """
         return pulumi.get(self, "version_created_date")
 
     @version_created_date.setter
@@ -348,62 +272,9 @@ class Schema(pulumi.CustomResource):
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an EventBridge Schema resource.
-
-        > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        test = aws.schemas.Registry("test", name="my_own_registry")
-        test_schema = aws.schemas.Schema("test",
-            name="my_schema",
-            registry_name=test.name,
-            type="OpenApi3",
-            description="The schema definition for my event",
-            content=json.dumps({
-                "openapi": "3.0.0",
-                "info": {
-                    "version": "1.0.0",
-                    "title": "Event",
-                },
-                "paths": {},
-                "components": {
-                    "schemas": {
-                        "Event": {
-                            "type": "object",
-                            "properties": {
-                                "name": {
-                                    "type": "string",
-                                },
-                            },
-                        },
-                    },
-                },
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import EventBridge schema using the `name` and `registry_name`. For example:
-
-        ```sh
-        $ pulumi import aws:schemas/schema:Schema test name/registry
-        ```
-
+        Create a Schema resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] content: The schema specification. Must be a valid Open API 3.0 spec.
-        :param pulumi.Input[_builtins.str] description: The description of the schema. Maximum of 256 characters.
-        :param pulumi.Input[_builtins.str] name: The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] registry_name: The name of the registry in which this schema belongs.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] type: The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
         """
         ...
     @overload
@@ -412,53 +283,7 @@ class Schema(pulumi.CustomResource):
                  args: SchemaArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an EventBridge Schema resource.
-
-        > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        test = aws.schemas.Registry("test", name="my_own_registry")
-        test_schema = aws.schemas.Schema("test",
-            name="my_schema",
-            registry_name=test.name,
-            type="OpenApi3",
-            description="The schema definition for my event",
-            content=json.dumps({
-                "openapi": "3.0.0",
-                "info": {
-                    "version": "1.0.0",
-                    "title": "Event",
-                },
-                "paths": {},
-                "components": {
-                    "schemas": {
-                        "Event": {
-                            "type": "object",
-                            "properties": {
-                                "name": {
-                                    "type": "string",
-                                },
-                            },
-                        },
-                    },
-                },
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import EventBridge schema using the `name` and `registry_name`. For example:
-
-        ```sh
-        $ pulumi import aws:schemas/schema:Schema test name/registry
-        ```
-
+        Create a Schema resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SchemaArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -537,18 +362,6 @@ class Schema(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the discoverer.
-        :param pulumi.Input[_builtins.str] content: The schema specification. Must be a valid Open API 3.0 spec.
-        :param pulumi.Input[_builtins.str] description: The description of the schema. Maximum of 256 characters.
-        :param pulumi.Input[_builtins.str] last_modified: The last modified date of the schema.
-        :param pulumi.Input[_builtins.str] name: The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] registry_name: The name of the registry in which this schema belongs.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
-        :param pulumi.Input[_builtins.str] version: The version of the schema.
-        :param pulumi.Input[_builtins.str] version_created_date: The created date of the version of the schema.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -571,96 +384,60 @@ class Schema(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the discoverer.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def content(self) -> pulumi.Output[_builtins.str]:
-        """
-        The schema specification. Must be a valid Open API 3.0 spec.
-        """
         return pulumi.get(self, "content")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The description of the schema. Maximum of 256 characters.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="lastModified")
     def last_modified(self) -> pulumi.Output[_builtins.str]:
-        """
-        The last modified date of the schema.
-        """
         return pulumi.get(self, "last_modified")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="registryName")
     def registry_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the registry in which this schema belongs.
-        """
         return pulumi.get(self, "registry_name")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> pulumi.Output[_builtins.str]:
-        """
-        The version of the schema.
-        """
         return pulumi.get(self, "version")
 
     @_builtins.property
     @pulumi.getter(name="versionCreatedDate")
     def version_created_date(self) -> pulumi.Output[_builtins.str]:
-        """
-        The created date of the version of the schema.
-        """
         return pulumi.get(self, "version_created_date")
 

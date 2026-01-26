@@ -15,32 +15,16 @@ public final class RuleRetentionPeriodArgs extends com.pulumi.resources.Resource
 
     public static final RuleRetentionPeriodArgs Empty = new RuleRetentionPeriodArgs();
 
-    /**
-     * Unit of time in which the retention period is measured. Currently, only DAYS is supported.
-     * 
-     */
     @Import(name="retentionPeriodUnit", required=true)
     private Output<String> retentionPeriodUnit;
 
-    /**
-     * @return Unit of time in which the retention period is measured. Currently, only DAYS is supported.
-     * 
-     */
     public Output<String> retentionPeriodUnit() {
         return this.retentionPeriodUnit;
     }
 
-    /**
-     * Period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
-     * 
-     */
     @Import(name="retentionPeriodValue", required=true)
     private Output<Integer> retentionPeriodValue;
 
-    /**
-     * @return Period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
-     * 
-     */
     public Output<Integer> retentionPeriodValue() {
         return this.retentionPeriodValue;
     }
@@ -70,44 +54,20 @@ public final class RuleRetentionPeriodArgs extends com.pulumi.resources.Resource
             $ = new RuleRetentionPeriodArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param retentionPeriodUnit Unit of time in which the retention period is measured. Currently, only DAYS is supported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retentionPeriodUnit(Output<String> retentionPeriodUnit) {
             $.retentionPeriodUnit = retentionPeriodUnit;
             return this;
         }
 
-        /**
-         * @param retentionPeriodUnit Unit of time in which the retention period is measured. Currently, only DAYS is supported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retentionPeriodUnit(String retentionPeriodUnit) {
             return retentionPeriodUnit(Output.of(retentionPeriodUnit));
         }
 
-        /**
-         * @param retentionPeriodValue Period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retentionPeriodValue(Output<Integer> retentionPeriodValue) {
             $.retentionPeriodValue = retentionPeriodValue;
             return this;
         }
 
-        /**
-         * @param retentionPeriodValue Period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retentionPeriodValue(Integer retentionPeriodValue) {
             return retentionPeriodValue(Output.of(retentionPeriodValue));
         }

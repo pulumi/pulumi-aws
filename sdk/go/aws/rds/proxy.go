@@ -12,50 +12,26 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
-//
-// Using `pulumi import`, import DB proxies using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:rds/proxy:Proxy example example
-// ```
 type Proxy struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) for the proxy.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `defaultAuthScheme` is `NONE` or unspecified. Described below.
-	Auths ProxyAuthArrayOutput `pulumi:"auths"`
-	// Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
-	DebugLogging pulumi.BoolPtrOutput `pulumi:"debugLogging"`
-	// Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database. Valid values are `NONE` and `IAM_AUTH`. Defaults to `NONE`.
-	DefaultAuthScheme pulumi.StringOutput `pulumi:"defaultAuthScheme"`
-	// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
-	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	// Network type of the DB proxy endpoint. Valid values are `IPV4`, `IPV6` and `DUAL`. Defaults to `IPV4`. If `IPV6` is specified, the subnets associated with the proxy must be IPv6-only, and `targetConnectionNetworkType` must be `IPV6`.
-	EndpointNetworkType pulumi.StringOutput `pulumi:"endpointNetworkType"`
-	// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
-	EngineFamily pulumi.StringOutput `pulumi:"engineFamily"`
-	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
-	IdleClientTimeout pulumi.IntOutput `pulumi:"idleClientTimeout"`
-	// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy. By enabling this setting, you can enforce encrypted TLS connections to the proxy.
-	RequireTls pulumi.BoolPtrOutput `pulumi:"requireTls"`
-	// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Network type that the proxy uses to connect to the target database. Valid values are `IPV4` and `IPV6`. Defaults to `IPV4`.
-	TargetConnectionNetworkType pulumi.StringOutput `pulumi:"targetConnectionNetworkType"`
-	// One or more VPC security group IDs to associate with the new proxy.
-	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
-	// One or more VPC subnet IDs to associate with the new proxy.
-	VpcSubnetIds pulumi.StringArrayOutput `pulumi:"vpcSubnetIds"`
+	Arn                         pulumi.StringOutput      `pulumi:"arn"`
+	Auths                       ProxyAuthArrayOutput     `pulumi:"auths"`
+	DebugLogging                pulumi.BoolPtrOutput     `pulumi:"debugLogging"`
+	DefaultAuthScheme           pulumi.StringOutput      `pulumi:"defaultAuthScheme"`
+	Endpoint                    pulumi.StringOutput      `pulumi:"endpoint"`
+	EndpointNetworkType         pulumi.StringOutput      `pulumi:"endpointNetworkType"`
+	EngineFamily                pulumi.StringOutput      `pulumi:"engineFamily"`
+	IdleClientTimeout           pulumi.IntOutput         `pulumi:"idleClientTimeout"`
+	Name                        pulumi.StringOutput      `pulumi:"name"`
+	Region                      pulumi.StringOutput      `pulumi:"region"`
+	RequireTls                  pulumi.BoolPtrOutput     `pulumi:"requireTls"`
+	RoleArn                     pulumi.StringOutput      `pulumi:"roleArn"`
+	Tags                        pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll                     pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	TargetConnectionNetworkType pulumi.StringOutput      `pulumi:"targetConnectionNetworkType"`
+	VpcSecurityGroupIds         pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
+	VpcSubnetIds                pulumi.StringArrayOutput `pulumi:"vpcSubnetIds"`
 }
 
 // NewProxy registers a new resource with the given unique name, arguments, and options.
@@ -97,77 +73,43 @@ func GetProxy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Proxy resources.
 type proxyState struct {
-	// The Amazon Resource Name (ARN) for the proxy.
-	Arn *string `pulumi:"arn"`
-	// Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `defaultAuthScheme` is `NONE` or unspecified. Described below.
-	Auths []ProxyAuth `pulumi:"auths"`
-	// Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
-	DebugLogging *bool `pulumi:"debugLogging"`
-	// Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database. Valid values are `NONE` and `IAM_AUTH`. Defaults to `NONE`.
-	DefaultAuthScheme *string `pulumi:"defaultAuthScheme"`
-	// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
-	Endpoint *string `pulumi:"endpoint"`
-	// Network type of the DB proxy endpoint. Valid values are `IPV4`, `IPV6` and `DUAL`. Defaults to `IPV4`. If `IPV6` is specified, the subnets associated with the proxy must be IPv6-only, and `targetConnectionNetworkType` must be `IPV6`.
-	EndpointNetworkType *string `pulumi:"endpointNetworkType"`
-	// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
-	EngineFamily *string `pulumi:"engineFamily"`
-	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
-	IdleClientTimeout *int `pulumi:"idleClientTimeout"`
-	// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy. By enabling this setting, you can enforce encrypted TLS connections to the proxy.
-	RequireTls *bool `pulumi:"requireTls"`
-	// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
-	RoleArn *string `pulumi:"roleArn"`
-	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Network type that the proxy uses to connect to the target database. Valid values are `IPV4` and `IPV6`. Defaults to `IPV4`.
-	TargetConnectionNetworkType *string `pulumi:"targetConnectionNetworkType"`
-	// One or more VPC security group IDs to associate with the new proxy.
-	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
-	// One or more VPC subnet IDs to associate with the new proxy.
-	VpcSubnetIds []string `pulumi:"vpcSubnetIds"`
+	Arn                         *string           `pulumi:"arn"`
+	Auths                       []ProxyAuth       `pulumi:"auths"`
+	DebugLogging                *bool             `pulumi:"debugLogging"`
+	DefaultAuthScheme           *string           `pulumi:"defaultAuthScheme"`
+	Endpoint                    *string           `pulumi:"endpoint"`
+	EndpointNetworkType         *string           `pulumi:"endpointNetworkType"`
+	EngineFamily                *string           `pulumi:"engineFamily"`
+	IdleClientTimeout           *int              `pulumi:"idleClientTimeout"`
+	Name                        *string           `pulumi:"name"`
+	Region                      *string           `pulumi:"region"`
+	RequireTls                  *bool             `pulumi:"requireTls"`
+	RoleArn                     *string           `pulumi:"roleArn"`
+	Tags                        map[string]string `pulumi:"tags"`
+	TagsAll                     map[string]string `pulumi:"tagsAll"`
+	TargetConnectionNetworkType *string           `pulumi:"targetConnectionNetworkType"`
+	VpcSecurityGroupIds         []string          `pulumi:"vpcSecurityGroupIds"`
+	VpcSubnetIds                []string          `pulumi:"vpcSubnetIds"`
 }
 
 type ProxyState struct {
-	// The Amazon Resource Name (ARN) for the proxy.
-	Arn pulumi.StringPtrInput
-	// Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `defaultAuthScheme` is `NONE` or unspecified. Described below.
-	Auths ProxyAuthArrayInput
-	// Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
-	DebugLogging pulumi.BoolPtrInput
-	// Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database. Valid values are `NONE` and `IAM_AUTH`. Defaults to `NONE`.
-	DefaultAuthScheme pulumi.StringPtrInput
-	// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
-	Endpoint pulumi.StringPtrInput
-	// Network type of the DB proxy endpoint. Valid values are `IPV4`, `IPV6` and `DUAL`. Defaults to `IPV4`. If `IPV6` is specified, the subnets associated with the proxy must be IPv6-only, and `targetConnectionNetworkType` must be `IPV6`.
-	EndpointNetworkType pulumi.StringPtrInput
-	// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
-	EngineFamily pulumi.StringPtrInput
-	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
-	IdleClientTimeout pulumi.IntPtrInput
-	// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy. By enabling this setting, you can enforce encrypted TLS connections to the proxy.
-	RequireTls pulumi.BoolPtrInput
-	// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
-	RoleArn pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Network type that the proxy uses to connect to the target database. Valid values are `IPV4` and `IPV6`. Defaults to `IPV4`.
+	Arn                         pulumi.StringPtrInput
+	Auths                       ProxyAuthArrayInput
+	DebugLogging                pulumi.BoolPtrInput
+	DefaultAuthScheme           pulumi.StringPtrInput
+	Endpoint                    pulumi.StringPtrInput
+	EndpointNetworkType         pulumi.StringPtrInput
+	EngineFamily                pulumi.StringPtrInput
+	IdleClientTimeout           pulumi.IntPtrInput
+	Name                        pulumi.StringPtrInput
+	Region                      pulumi.StringPtrInput
+	RequireTls                  pulumi.BoolPtrInput
+	RoleArn                     pulumi.StringPtrInput
+	Tags                        pulumi.StringMapInput
+	TagsAll                     pulumi.StringMapInput
 	TargetConnectionNetworkType pulumi.StringPtrInput
-	// One or more VPC security group IDs to associate with the new proxy.
-	VpcSecurityGroupIds pulumi.StringArrayInput
-	// One or more VPC subnet IDs to associate with the new proxy.
-	VpcSubnetIds pulumi.StringArrayInput
+	VpcSecurityGroupIds         pulumi.StringArrayInput
+	VpcSubnetIds                pulumi.StringArrayInput
 }
 
 func (ProxyState) ElementType() reflect.Type {
@@ -175,66 +117,38 @@ func (ProxyState) ElementType() reflect.Type {
 }
 
 type proxyArgs struct {
-	// Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `defaultAuthScheme` is `NONE` or unspecified. Described below.
-	Auths []ProxyAuth `pulumi:"auths"`
-	// Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
-	DebugLogging *bool `pulumi:"debugLogging"`
-	// Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database. Valid values are `NONE` and `IAM_AUTH`. Defaults to `NONE`.
-	DefaultAuthScheme *string `pulumi:"defaultAuthScheme"`
-	// Network type of the DB proxy endpoint. Valid values are `IPV4`, `IPV6` and `DUAL`. Defaults to `IPV4`. If `IPV6` is specified, the subnets associated with the proxy must be IPv6-only, and `targetConnectionNetworkType` must be `IPV6`.
-	EndpointNetworkType *string `pulumi:"endpointNetworkType"`
-	// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
-	EngineFamily string `pulumi:"engineFamily"`
-	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
-	IdleClientTimeout *int `pulumi:"idleClientTimeout"`
-	// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy. By enabling this setting, you can enforce encrypted TLS connections to the proxy.
-	RequireTls *bool `pulumi:"requireTls"`
-	// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
-	RoleArn string `pulumi:"roleArn"`
-	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Network type that the proxy uses to connect to the target database. Valid values are `IPV4` and `IPV6`. Defaults to `IPV4`.
-	TargetConnectionNetworkType *string `pulumi:"targetConnectionNetworkType"`
-	// One or more VPC security group IDs to associate with the new proxy.
-	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
-	// One or more VPC subnet IDs to associate with the new proxy.
-	VpcSubnetIds []string `pulumi:"vpcSubnetIds"`
+	Auths                       []ProxyAuth       `pulumi:"auths"`
+	DebugLogging                *bool             `pulumi:"debugLogging"`
+	DefaultAuthScheme           *string           `pulumi:"defaultAuthScheme"`
+	EndpointNetworkType         *string           `pulumi:"endpointNetworkType"`
+	EngineFamily                string            `pulumi:"engineFamily"`
+	IdleClientTimeout           *int              `pulumi:"idleClientTimeout"`
+	Name                        *string           `pulumi:"name"`
+	Region                      *string           `pulumi:"region"`
+	RequireTls                  *bool             `pulumi:"requireTls"`
+	RoleArn                     string            `pulumi:"roleArn"`
+	Tags                        map[string]string `pulumi:"tags"`
+	TargetConnectionNetworkType *string           `pulumi:"targetConnectionNetworkType"`
+	VpcSecurityGroupIds         []string          `pulumi:"vpcSecurityGroupIds"`
+	VpcSubnetIds                []string          `pulumi:"vpcSubnetIds"`
 }
 
 // The set of arguments for constructing a Proxy resource.
 type ProxyArgs struct {
-	// Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `defaultAuthScheme` is `NONE` or unspecified. Described below.
-	Auths ProxyAuthArrayInput
-	// Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
-	DebugLogging pulumi.BoolPtrInput
-	// Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database. Valid values are `NONE` and `IAM_AUTH`. Defaults to `NONE`.
-	DefaultAuthScheme pulumi.StringPtrInput
-	// Network type of the DB proxy endpoint. Valid values are `IPV4`, `IPV6` and `DUAL`. Defaults to `IPV4`. If `IPV6` is specified, the subnets associated with the proxy must be IPv6-only, and `targetConnectionNetworkType` must be `IPV6`.
-	EndpointNetworkType pulumi.StringPtrInput
-	// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
-	EngineFamily pulumi.StringInput
-	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
-	IdleClientTimeout pulumi.IntPtrInput
-	// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy. By enabling this setting, you can enforce encrypted TLS connections to the proxy.
-	RequireTls pulumi.BoolPtrInput
-	// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
-	RoleArn pulumi.StringInput
-	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Network type that the proxy uses to connect to the target database. Valid values are `IPV4` and `IPV6`. Defaults to `IPV4`.
+	Auths                       ProxyAuthArrayInput
+	DebugLogging                pulumi.BoolPtrInput
+	DefaultAuthScheme           pulumi.StringPtrInput
+	EndpointNetworkType         pulumi.StringPtrInput
+	EngineFamily                pulumi.StringInput
+	IdleClientTimeout           pulumi.IntPtrInput
+	Name                        pulumi.StringPtrInput
+	Region                      pulumi.StringPtrInput
+	RequireTls                  pulumi.BoolPtrInput
+	RoleArn                     pulumi.StringInput
+	Tags                        pulumi.StringMapInput
 	TargetConnectionNetworkType pulumi.StringPtrInput
-	// One or more VPC security group IDs to associate with the new proxy.
-	VpcSecurityGroupIds pulumi.StringArrayInput
-	// One or more VPC subnet IDs to associate with the new proxy.
-	VpcSubnetIds pulumi.StringArrayInput
+	VpcSecurityGroupIds         pulumi.StringArrayInput
+	VpcSubnetIds                pulumi.StringArrayInput
 }
 
 func (ProxyArgs) ElementType() reflect.Type {
@@ -324,87 +238,70 @@ func (o ProxyOutput) ToProxyOutputWithContext(ctx context.Context) ProxyOutput {
 	return o
 }
 
-// The Amazon Resource Name (ARN) for the proxy.
 func (o ProxyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Proxy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `defaultAuthScheme` is `NONE` or unspecified. Described below.
 func (o ProxyOutput) Auths() ProxyAuthArrayOutput {
 	return o.ApplyT(func(v *Proxy) ProxyAuthArrayOutput { return v.Auths }).(ProxyAuthArrayOutput)
 }
 
-// Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
 func (o ProxyOutput) DebugLogging() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Proxy) pulumi.BoolPtrOutput { return v.DebugLogging }).(pulumi.BoolPtrOutput)
 }
 
-// Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database. Valid values are `NONE` and `IAM_AUTH`. Defaults to `NONE`.
 func (o ProxyOutput) DefaultAuthScheme() pulumi.StringOutput {
 	return o.ApplyT(func(v *Proxy) pulumi.StringOutput { return v.DefaultAuthScheme }).(pulumi.StringOutput)
 }
 
-// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
 func (o ProxyOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Proxy) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// Network type of the DB proxy endpoint. Valid values are `IPV4`, `IPV6` and `DUAL`. Defaults to `IPV4`. If `IPV6` is specified, the subnets associated with the proxy must be IPv6-only, and `targetConnectionNetworkType` must be `IPV6`.
 func (o ProxyOutput) EndpointNetworkType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Proxy) pulumi.StringOutput { return v.EndpointNetworkType }).(pulumi.StringOutput)
 }
 
-// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
 func (o ProxyOutput) EngineFamily() pulumi.StringOutput {
 	return o.ApplyT(func(v *Proxy) pulumi.StringOutput { return v.EngineFamily }).(pulumi.StringOutput)
 }
 
-// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
 func (o ProxyOutput) IdleClientTimeout() pulumi.IntOutput {
 	return o.ApplyT(func(v *Proxy) pulumi.IntOutput { return v.IdleClientTimeout }).(pulumi.IntOutput)
 }
 
-// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
 func (o ProxyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Proxy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ProxyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Proxy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy. By enabling this setting, you can enforce encrypted TLS connections to the proxy.
 func (o ProxyOutput) RequireTls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Proxy) pulumi.BoolPtrOutput { return v.RequireTls }).(pulumi.BoolPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
 func (o ProxyOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Proxy) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ProxyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Proxy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ProxyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Proxy) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Network type that the proxy uses to connect to the target database. Valid values are `IPV4` and `IPV6`. Defaults to `IPV4`.
 func (o ProxyOutput) TargetConnectionNetworkType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Proxy) pulumi.StringOutput { return v.TargetConnectionNetworkType }).(pulumi.StringOutput)
 }
 
-// One or more VPC security group IDs to associate with the new proxy.
 func (o ProxyOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Proxy) pulumi.StringArrayOutput { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// One or more VPC subnet IDs to associate with the new proxy.
 func (o ProxyOutput) VpcSubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Proxy) pulumi.StringArrayOutput { return v.VpcSubnetIds }).(pulumi.StringArrayOutput)
 }

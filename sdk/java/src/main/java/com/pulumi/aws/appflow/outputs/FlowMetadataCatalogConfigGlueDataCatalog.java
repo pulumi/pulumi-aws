@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class FlowMetadataCatalogConfigGlueDataCatalog {
-    /**
-     * @return The name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
-     * 
-     */
     private String databaseName;
-    /**
-     * @return The ARN of an IAM role that grants AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
-     * 
-     */
     private String roleArn;
-    /**
-     * @return A naming prefix for each Data Catalog table that Amazon AppFlow creates
-     * 
-     */
     private String tablePrefix;
 
     private FlowMetadataCatalogConfigGlueDataCatalog() {}
-    /**
-     * @return The name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
-     * 
-     */
     public String databaseName() {
         return this.databaseName;
     }
-    /**
-     * @return The ARN of an IAM role that grants AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
-    /**
-     * @return A naming prefix for each Data Catalog table that Amazon AppFlow creates
-     * 
-     */
     public String tablePrefix() {
         return this.tablePrefix;
     }

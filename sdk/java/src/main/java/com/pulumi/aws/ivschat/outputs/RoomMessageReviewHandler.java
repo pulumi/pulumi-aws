@@ -11,33 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RoomMessageReviewHandler {
-    /**
-     * @return The fallback behavior (whether the message
-     * is allowed or denied) if the handler does not return a valid response,
-     * encounters an error, or times out. Valid values: `ALLOW`, `DENY`.
-     * 
-     */
     private @Nullable String fallbackResult;
-    /**
-     * @return ARN of the lambda message review handler function.
-     * 
-     */
     private @Nullable String uri;
 
     private RoomMessageReviewHandler() {}
-    /**
-     * @return The fallback behavior (whether the message
-     * is allowed or denied) if the handler does not return a valid response,
-     * encounters an error, or times out. Valid values: `ALLOW`, `DENY`.
-     * 
-     */
     public Optional<String> fallbackResult() {
         return Optional.ofNullable(this.fallbackResult);
     }
-    /**
-     * @return ARN of the lambda message review handler function.
-     * 
-     */
     public Optional<String> uri() {
         return Optional.ofNullable(this.uri);
     }

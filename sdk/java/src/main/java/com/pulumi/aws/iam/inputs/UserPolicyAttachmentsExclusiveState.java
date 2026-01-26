@@ -16,32 +16,16 @@ public final class UserPolicyAttachmentsExclusiveState extends com.pulumi.resour
 
     public static final UserPolicyAttachmentsExclusiveState Empty = new UserPolicyAttachmentsExclusiveState();
 
-    /**
-     * A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
-     * 
-     */
     @Import(name="policyArns")
     private @Nullable Output<List<String>> policyArns;
 
-    /**
-     * @return A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
-     * 
-     */
     public Optional<Output<List<String>>> policyArns() {
         return Optional.ofNullable(this.policyArns);
     }
 
-    /**
-     * IAM user name.
-     * 
-     */
     @Import(name="userName")
     private @Nullable Output<String> userName;
 
-    /**
-     * @return IAM user name.
-     * 
-     */
     public Optional<Output<String>> userName() {
         return Optional.ofNullable(this.userName);
     }
@@ -71,54 +55,24 @@ public final class UserPolicyAttachmentsExclusiveState extends com.pulumi.resour
             $ = new UserPolicyAttachmentsExclusiveState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param policyArns A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyArns(@Nullable Output<List<String>> policyArns) {
             $.policyArns = policyArns;
             return this;
         }
 
-        /**
-         * @param policyArns A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyArns(List<String> policyArns) {
             return policyArns(Output.of(policyArns));
         }
 
-        /**
-         * @param policyArns A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyArns(String... policyArns) {
             return policyArns(List.of(policyArns));
         }
 
-        /**
-         * @param userName IAM user name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(@Nullable Output<String> userName) {
             $.userName = userName;
             return this;
         }
 
-        /**
-         * @param userName IAM user name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(String userName) {
             return userName(Output.of(userName));
         }

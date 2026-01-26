@@ -16,17 +16,9 @@ public final class ScheduleTargetSagemakerPipelineParametersArgs extends com.pul
 
     public static final ScheduleTargetSagemakerPipelineParametersArgs Empty = new ScheduleTargetSagemakerPipelineParametersArgs();
 
-    /**
-     * Set of up to 200 parameter names and values to use when executing the SageMaker AI Model Building Pipeline. Detailed below.
-     * 
-     */
     @Import(name="pipelineParameters")
     private @Nullable Output<List<ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs>> pipelineParameters;
 
-    /**
-     * @return Set of up to 200 parameter names and values to use when executing the SageMaker AI Model Building Pipeline. Detailed below.
-     * 
-     */
     public Optional<Output<List<ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs>>> pipelineParameters() {
         return Optional.ofNullable(this.pipelineParameters);
     }
@@ -55,33 +47,15 @@ public final class ScheduleTargetSagemakerPipelineParametersArgs extends com.pul
             $ = new ScheduleTargetSagemakerPipelineParametersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param pipelineParameters Set of up to 200 parameter names and values to use when executing the SageMaker AI Model Building Pipeline. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pipelineParameters(@Nullable Output<List<ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs>> pipelineParameters) {
             $.pipelineParameters = pipelineParameters;
             return this;
         }
 
-        /**
-         * @param pipelineParameters Set of up to 200 parameter names and values to use when executing the SageMaker AI Model Building Pipeline. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pipelineParameters(List<ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs> pipelineParameters) {
             return pipelineParameters(Output.of(pipelineParameters));
         }
 
-        /**
-         * @param pipelineParameters Set of up to 200 parameter names and values to use when executing the SageMaker AI Model Building Pipeline. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pipelineParameters(ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs... pipelineParameters) {
             return pipelineParameters(List.of(pipelineParameters));
         }

@@ -15,17 +15,9 @@ public final class AgentcoreGatewayProtocolConfigurationArgs extends com.pulumi.
 
     public static final AgentcoreGatewayProtocolConfigurationArgs Empty = new AgentcoreGatewayProtocolConfigurationArgs();
 
-    /**
-     * Model Context Protocol (MCP) configuration block. See `mcp` below.
-     * 
-     */
     @Import(name="mcp")
     private @Nullable Output<AgentcoreGatewayProtocolConfigurationMcpArgs> mcp;
 
-    /**
-     * @return Model Context Protocol (MCP) configuration block. See `mcp` below.
-     * 
-     */
     public Optional<Output<AgentcoreGatewayProtocolConfigurationMcpArgs>> mcp() {
         return Optional.ofNullable(this.mcp);
     }
@@ -54,23 +46,11 @@ public final class AgentcoreGatewayProtocolConfigurationArgs extends com.pulumi.
             $ = new AgentcoreGatewayProtocolConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param mcp Model Context Protocol (MCP) configuration block. See `mcp` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mcp(@Nullable Output<AgentcoreGatewayProtocolConfigurationMcpArgs> mcp) {
             $.mcp = mcp;
             return this;
         }
 
-        /**
-         * @param mcp Model Context Protocol (MCP) configuration block. See `mcp` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mcp(AgentcoreGatewayProtocolConfigurationMcpArgs mcp) {
             return mcp(Output.of(mcp));
         }

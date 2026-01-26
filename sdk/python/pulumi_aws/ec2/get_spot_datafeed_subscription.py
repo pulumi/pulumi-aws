@@ -43,9 +43,6 @@ class GetSpotDatafeedSubscriptionResult:
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> _builtins.str:
-        """
-        The name of the Amazon S3 bucket where the spot instance data feed is located.
-        """
         return pulumi.get(self, "bucket")
 
     @_builtins.property
@@ -59,9 +56,6 @@ class GetSpotDatafeedSubscriptionResult:
     @_builtins.property
     @pulumi.getter
     def prefix(self) -> _builtins.str:
-        """
-        The prefix for the data feed files.
-        """
         return pulumi.get(self, "prefix")
 
     @_builtins.property
@@ -85,21 +79,7 @@ class AwaitableGetSpotDatafeedSubscriptionResult(GetSpotDatafeedSubscriptionResu
 def get_spot_datafeed_subscription(region: Optional[_builtins.str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSpotDatafeedSubscriptionResult:
     """
-    > There is only a single spot data feed subscription per account.
-
-    Data source for accessing an AWS EC2 (Elastic Compute Cloud) spot data feed subscription.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    default = aws.ec2.get_spot_datafeed_subscription()
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -114,21 +94,7 @@ def get_spot_datafeed_subscription(region: Optional[_builtins.str] = None,
 def get_spot_datafeed_subscription_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSpotDatafeedSubscriptionResult]:
     """
-    > There is only a single spot data feed subscription per account.
-
-    Data source for accessing an AWS EC2 (Elastic Compute Cloud) spot data feed subscription.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    default = aws.ec2.get_spot_datafeed_subscription()
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

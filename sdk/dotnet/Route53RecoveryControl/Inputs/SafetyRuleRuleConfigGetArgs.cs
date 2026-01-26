@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Route53RecoveryControl.Inputs
 
     public sealed class SafetyRuleRuleConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Logical negation of the rule.
-        /// </summary>
         [Input("inverted", required: true)]
         public Input<bool> Inverted { get; set; } = null!;
 
-        /// <summary>
-        /// Number of controls that must be set when you specify an `ATLEAST` type rule.
-        /// </summary>
         [Input("threshold", required: true)]
         public Input<int> Threshold { get; set; } = null!;
 
-        /// <summary>
-        /// Rule type. Valid values are `ATLEAST`, `AND`, and `OR`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

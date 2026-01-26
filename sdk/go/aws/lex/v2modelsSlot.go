@@ -12,42 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
-//
-// Using `pulumi import`, import Lex V2 Models Slot using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:lex/v2modelsSlot:V2modelsSlot example bot-1234,1,intent-5678,en-US,slot-9012
-// ```
 type V2modelsSlot struct {
 	pulumi.CustomResourceState
 
-	// Identifier of the bot associated with the slot.
-	BotId pulumi.StringOutput `pulumi:"botId"`
-	// Version of the bot associated with the slot.
-	BotVersion pulumi.StringOutput `pulumi:"botVersion"`
-	// Description of the slot.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Identifier of the intent that contains the slot.
-	IntentId pulumi.StringOutput `pulumi:"intentId"`
-	// Identifier of the language and locale that the slot will be used in.
-	LocaleId pulumi.StringOutput `pulumi:"localeId"`
-	// Whether the slot returns multiple values in one response.
-	// See the `multipleValuesSetting` argument reference below.
-	MultipleValuesSettings V2modelsSlotMultipleValuesSettingArrayOutput `pulumi:"multipleValuesSettings"`
-	// Name of the slot.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Determines how slot values are used in Amazon CloudWatch logs.
-	// See the `obfuscationSetting` argument reference below.
-	ObfuscationSettings V2modelsSlotObfuscationSettingArrayOutput `pulumi:"obfuscationSettings"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Unique identifier associated with the slot.
-	SlotId pulumi.StringOutput `pulumi:"slotId"`
-	// Unique identifier for the slot type associated with this slot.
-	SlotTypeId pulumi.StringOutput `pulumi:"slotTypeId"`
-	// Specifications for the constituent sub slots and the expression for the composite slot.
-	// See the `subSlotSetting` argument reference below.
+	BotId                   pulumi.StringOutput                          `pulumi:"botId"`
+	BotVersion              pulumi.StringOutput                          `pulumi:"botVersion"`
+	Description             pulumi.StringPtrOutput                       `pulumi:"description"`
+	IntentId                pulumi.StringOutput                          `pulumi:"intentId"`
+	LocaleId                pulumi.StringOutput                          `pulumi:"localeId"`
+	MultipleValuesSettings  V2modelsSlotMultipleValuesSettingArrayOutput `pulumi:"multipleValuesSettings"`
+	Name                    pulumi.StringOutput                          `pulumi:"name"`
+	ObfuscationSettings     V2modelsSlotObfuscationSettingArrayOutput    `pulumi:"obfuscationSettings"`
+	Region                  pulumi.StringOutput                          `pulumi:"region"`
+	SlotId                  pulumi.StringOutput                          `pulumi:"slotId"`
+	SlotTypeId              pulumi.StringOutput                          `pulumi:"slotTypeId"`
 	SubSlotSettings         V2modelsSlotSubSlotSettingArrayOutput        `pulumi:"subSlotSettings"`
 	Timeouts                V2modelsSlotTimeoutsPtrOutput                `pulumi:"timeouts"`
 	ValueElicitationSetting V2modelsSlotValueElicitationSettingPtrOutput `pulumi:"valueElicitationSetting"`
@@ -95,64 +73,34 @@ func GetV2modelsSlot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering V2modelsSlot resources.
 type v2modelsSlotState struct {
-	// Identifier of the bot associated with the slot.
-	BotId *string `pulumi:"botId"`
-	// Version of the bot associated with the slot.
-	BotVersion *string `pulumi:"botVersion"`
-	// Description of the slot.
-	Description *string `pulumi:"description"`
-	// Identifier of the intent that contains the slot.
-	IntentId *string `pulumi:"intentId"`
-	// Identifier of the language and locale that the slot will be used in.
-	LocaleId *string `pulumi:"localeId"`
-	// Whether the slot returns multiple values in one response.
-	// See the `multipleValuesSetting` argument reference below.
-	MultipleValuesSettings []V2modelsSlotMultipleValuesSetting `pulumi:"multipleValuesSettings"`
-	// Name of the slot.
-	Name *string `pulumi:"name"`
-	// Determines how slot values are used in Amazon CloudWatch logs.
-	// See the `obfuscationSetting` argument reference below.
-	ObfuscationSettings []V2modelsSlotObfuscationSetting `pulumi:"obfuscationSettings"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Unique identifier associated with the slot.
-	SlotId *string `pulumi:"slotId"`
-	// Unique identifier for the slot type associated with this slot.
-	SlotTypeId *string `pulumi:"slotTypeId"`
-	// Specifications for the constituent sub slots and the expression for the composite slot.
-	// See the `subSlotSetting` argument reference below.
+	BotId                   *string                              `pulumi:"botId"`
+	BotVersion              *string                              `pulumi:"botVersion"`
+	Description             *string                              `pulumi:"description"`
+	IntentId                *string                              `pulumi:"intentId"`
+	LocaleId                *string                              `pulumi:"localeId"`
+	MultipleValuesSettings  []V2modelsSlotMultipleValuesSetting  `pulumi:"multipleValuesSettings"`
+	Name                    *string                              `pulumi:"name"`
+	ObfuscationSettings     []V2modelsSlotObfuscationSetting     `pulumi:"obfuscationSettings"`
+	Region                  *string                              `pulumi:"region"`
+	SlotId                  *string                              `pulumi:"slotId"`
+	SlotTypeId              *string                              `pulumi:"slotTypeId"`
 	SubSlotSettings         []V2modelsSlotSubSlotSetting         `pulumi:"subSlotSettings"`
 	Timeouts                *V2modelsSlotTimeouts                `pulumi:"timeouts"`
 	ValueElicitationSetting *V2modelsSlotValueElicitationSetting `pulumi:"valueElicitationSetting"`
 }
 
 type V2modelsSlotState struct {
-	// Identifier of the bot associated with the slot.
-	BotId pulumi.StringPtrInput
-	// Version of the bot associated with the slot.
-	BotVersion pulumi.StringPtrInput
-	// Description of the slot.
-	Description pulumi.StringPtrInput
-	// Identifier of the intent that contains the slot.
-	IntentId pulumi.StringPtrInput
-	// Identifier of the language and locale that the slot will be used in.
-	LocaleId pulumi.StringPtrInput
-	// Whether the slot returns multiple values in one response.
-	// See the `multipleValuesSetting` argument reference below.
-	MultipleValuesSettings V2modelsSlotMultipleValuesSettingArrayInput
-	// Name of the slot.
-	Name pulumi.StringPtrInput
-	// Determines how slot values are used in Amazon CloudWatch logs.
-	// See the `obfuscationSetting` argument reference below.
-	ObfuscationSettings V2modelsSlotObfuscationSettingArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Unique identifier associated with the slot.
-	SlotId pulumi.StringPtrInput
-	// Unique identifier for the slot type associated with this slot.
-	SlotTypeId pulumi.StringPtrInput
-	// Specifications for the constituent sub slots and the expression for the composite slot.
-	// See the `subSlotSetting` argument reference below.
+	BotId                   pulumi.StringPtrInput
+	BotVersion              pulumi.StringPtrInput
+	Description             pulumi.StringPtrInput
+	IntentId                pulumi.StringPtrInput
+	LocaleId                pulumi.StringPtrInput
+	MultipleValuesSettings  V2modelsSlotMultipleValuesSettingArrayInput
+	Name                    pulumi.StringPtrInput
+	ObfuscationSettings     V2modelsSlotObfuscationSettingArrayInput
+	Region                  pulumi.StringPtrInput
+	SlotId                  pulumi.StringPtrInput
+	SlotTypeId              pulumi.StringPtrInput
 	SubSlotSettings         V2modelsSlotSubSlotSettingArrayInput
 	Timeouts                V2modelsSlotTimeoutsPtrInput
 	ValueElicitationSetting V2modelsSlotValueElicitationSettingPtrInput
@@ -163,30 +111,16 @@ func (V2modelsSlotState) ElementType() reflect.Type {
 }
 
 type v2modelsSlotArgs struct {
-	// Identifier of the bot associated with the slot.
-	BotId string `pulumi:"botId"`
-	// Version of the bot associated with the slot.
-	BotVersion string `pulumi:"botVersion"`
-	// Description of the slot.
-	Description *string `pulumi:"description"`
-	// Identifier of the intent that contains the slot.
-	IntentId string `pulumi:"intentId"`
-	// Identifier of the language and locale that the slot will be used in.
-	LocaleId string `pulumi:"localeId"`
-	// Whether the slot returns multiple values in one response.
-	// See the `multipleValuesSetting` argument reference below.
-	MultipleValuesSettings []V2modelsSlotMultipleValuesSetting `pulumi:"multipleValuesSettings"`
-	// Name of the slot.
-	Name *string `pulumi:"name"`
-	// Determines how slot values are used in Amazon CloudWatch logs.
-	// See the `obfuscationSetting` argument reference below.
-	ObfuscationSettings []V2modelsSlotObfuscationSetting `pulumi:"obfuscationSettings"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Unique identifier for the slot type associated with this slot.
-	SlotTypeId *string `pulumi:"slotTypeId"`
-	// Specifications for the constituent sub slots and the expression for the composite slot.
-	// See the `subSlotSetting` argument reference below.
+	BotId                   string                               `pulumi:"botId"`
+	BotVersion              string                               `pulumi:"botVersion"`
+	Description             *string                              `pulumi:"description"`
+	IntentId                string                               `pulumi:"intentId"`
+	LocaleId                string                               `pulumi:"localeId"`
+	MultipleValuesSettings  []V2modelsSlotMultipleValuesSetting  `pulumi:"multipleValuesSettings"`
+	Name                    *string                              `pulumi:"name"`
+	ObfuscationSettings     []V2modelsSlotObfuscationSetting     `pulumi:"obfuscationSettings"`
+	Region                  *string                              `pulumi:"region"`
+	SlotTypeId              *string                              `pulumi:"slotTypeId"`
 	SubSlotSettings         []V2modelsSlotSubSlotSetting         `pulumi:"subSlotSettings"`
 	Timeouts                *V2modelsSlotTimeouts                `pulumi:"timeouts"`
 	ValueElicitationSetting *V2modelsSlotValueElicitationSetting `pulumi:"valueElicitationSetting"`
@@ -194,30 +128,16 @@ type v2modelsSlotArgs struct {
 
 // The set of arguments for constructing a V2modelsSlot resource.
 type V2modelsSlotArgs struct {
-	// Identifier of the bot associated with the slot.
-	BotId pulumi.StringInput
-	// Version of the bot associated with the slot.
-	BotVersion pulumi.StringInput
-	// Description of the slot.
-	Description pulumi.StringPtrInput
-	// Identifier of the intent that contains the slot.
-	IntentId pulumi.StringInput
-	// Identifier of the language and locale that the slot will be used in.
-	LocaleId pulumi.StringInput
-	// Whether the slot returns multiple values in one response.
-	// See the `multipleValuesSetting` argument reference below.
-	MultipleValuesSettings V2modelsSlotMultipleValuesSettingArrayInput
-	// Name of the slot.
-	Name pulumi.StringPtrInput
-	// Determines how slot values are used in Amazon CloudWatch logs.
-	// See the `obfuscationSetting` argument reference below.
-	ObfuscationSettings V2modelsSlotObfuscationSettingArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Unique identifier for the slot type associated with this slot.
-	SlotTypeId pulumi.StringPtrInput
-	// Specifications for the constituent sub slots and the expression for the composite slot.
-	// See the `subSlotSetting` argument reference below.
+	BotId                   pulumi.StringInput
+	BotVersion              pulumi.StringInput
+	Description             pulumi.StringPtrInput
+	IntentId                pulumi.StringInput
+	LocaleId                pulumi.StringInput
+	MultipleValuesSettings  V2modelsSlotMultipleValuesSettingArrayInput
+	Name                    pulumi.StringPtrInput
+	ObfuscationSettings     V2modelsSlotObfuscationSettingArrayInput
+	Region                  pulumi.StringPtrInput
+	SlotTypeId              pulumi.StringPtrInput
 	SubSlotSettings         V2modelsSlotSubSlotSettingArrayInput
 	Timeouts                V2modelsSlotTimeoutsPtrInput
 	ValueElicitationSetting V2modelsSlotValueElicitationSettingPtrInput
@@ -310,65 +230,50 @@ func (o V2modelsSlotOutput) ToV2modelsSlotOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Identifier of the bot associated with the slot.
 func (o V2modelsSlotOutput) BotId() pulumi.StringOutput {
 	return o.ApplyT(func(v *V2modelsSlot) pulumi.StringOutput { return v.BotId }).(pulumi.StringOutput)
 }
 
-// Version of the bot associated with the slot.
 func (o V2modelsSlotOutput) BotVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *V2modelsSlot) pulumi.StringOutput { return v.BotVersion }).(pulumi.StringOutput)
 }
 
-// Description of the slot.
 func (o V2modelsSlotOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *V2modelsSlot) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Identifier of the intent that contains the slot.
 func (o V2modelsSlotOutput) IntentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *V2modelsSlot) pulumi.StringOutput { return v.IntentId }).(pulumi.StringOutput)
 }
 
-// Identifier of the language and locale that the slot will be used in.
 func (o V2modelsSlotOutput) LocaleId() pulumi.StringOutput {
 	return o.ApplyT(func(v *V2modelsSlot) pulumi.StringOutput { return v.LocaleId }).(pulumi.StringOutput)
 }
 
-// Whether the slot returns multiple values in one response.
-// See the `multipleValuesSetting` argument reference below.
 func (o V2modelsSlotOutput) MultipleValuesSettings() V2modelsSlotMultipleValuesSettingArrayOutput {
 	return o.ApplyT(func(v *V2modelsSlot) V2modelsSlotMultipleValuesSettingArrayOutput { return v.MultipleValuesSettings }).(V2modelsSlotMultipleValuesSettingArrayOutput)
 }
 
-// Name of the slot.
 func (o V2modelsSlotOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *V2modelsSlot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Determines how slot values are used in Amazon CloudWatch logs.
-// See the `obfuscationSetting` argument reference below.
 func (o V2modelsSlotOutput) ObfuscationSettings() V2modelsSlotObfuscationSettingArrayOutput {
 	return o.ApplyT(func(v *V2modelsSlot) V2modelsSlotObfuscationSettingArrayOutput { return v.ObfuscationSettings }).(V2modelsSlotObfuscationSettingArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o V2modelsSlotOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *V2modelsSlot) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Unique identifier associated with the slot.
 func (o V2modelsSlotOutput) SlotId() pulumi.StringOutput {
 	return o.ApplyT(func(v *V2modelsSlot) pulumi.StringOutput { return v.SlotId }).(pulumi.StringOutput)
 }
 
-// Unique identifier for the slot type associated with this slot.
 func (o V2modelsSlotOutput) SlotTypeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *V2modelsSlot) pulumi.StringOutput { return v.SlotTypeId }).(pulumi.StringOutput)
 }
 
-// Specifications for the constituent sub slots and the expression for the composite slot.
-// See the `subSlotSetting` argument reference below.
 func (o V2modelsSlotOutput) SubSlotSettings() V2modelsSlotSubSlotSettingArrayOutput {
 	return o.ApplyT(func(v *V2modelsSlot) V2modelsSlotSubSlotSettingArrayOutput { return v.SubSlotSettings }).(V2modelsSlotSubSlotSettingArrayOutput)
 }

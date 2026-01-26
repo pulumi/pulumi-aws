@@ -12,81 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS IdentityStore Group Membership.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/identitystore"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleUser, err := identitystore.NewUser(ctx, "example", &identitystore.UserArgs{
-//				IdentityStoreId: pulumi.String(example.IdentityStoreIds[0]),
-//				DisplayName:     pulumi.String("John Doe"),
-//				UserName:        pulumi.String("john.doe@example.com"),
-//				Name: &identitystore.UserNameArgs{
-//					FamilyName: pulumi.String("Doe"),
-//					GivenName:  pulumi.String("John"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleGroup, err := identitystore.NewGroup(ctx, "example", &identitystore.GroupArgs{
-//				IdentityStoreId: pulumi.String(example.IdentityStoreIds[0]),
-//				DisplayName:     pulumi.String("MyGroup"),
-//				Description:     pulumi.String("Some group name"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = identitystore.NewGroupMembership(ctx, "example", &identitystore.GroupMembershipArgs{
-//				IdentityStoreId: pulumi.String(example.IdentityStoreIds[0]),
-//				GroupId:         exampleGroup.GroupId,
-//				MemberId:        exampleUser.UserId,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_identitystore_group_membership` using the `identity_store_id/membership_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:identitystore/groupMembership:GroupMembership example d-0000000000/00000000-0000-0000-0000-000000000000
-// ```
 type GroupMembership struct {
 	pulumi.CustomResourceState
 
-	// The identifier for a group in the Identity Store.
-	GroupId pulumi.StringOutput `pulumi:"groupId"`
-	// Identity Store ID associated with the Single Sign-On Instance.
+	GroupId         pulumi.StringOutput `pulumi:"groupId"`
 	IdentityStoreId pulumi.StringOutput `pulumi:"identityStoreId"`
-	// The identifier for a user in the Identity Store.
-	MemberId pulumi.StringOutput `pulumi:"memberId"`
-	// The identifier of the newly created group membership in the Identity Store.
-	MembershipId pulumi.StringOutput `pulumi:"membershipId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	MemberId        pulumi.StringOutput `pulumi:"memberId"`
+	MembershipId    pulumi.StringOutput `pulumi:"membershipId"`
+	Region          pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewGroupMembership registers a new resource with the given unique name, arguments, and options.
@@ -128,29 +61,19 @@ func GetGroupMembership(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GroupMembership resources.
 type groupMembershipState struct {
-	// The identifier for a group in the Identity Store.
-	GroupId *string `pulumi:"groupId"`
-	// Identity Store ID associated with the Single Sign-On Instance.
+	GroupId         *string `pulumi:"groupId"`
 	IdentityStoreId *string `pulumi:"identityStoreId"`
-	// The identifier for a user in the Identity Store.
-	MemberId *string `pulumi:"memberId"`
-	// The identifier of the newly created group membership in the Identity Store.
-	MembershipId *string `pulumi:"membershipId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	MemberId        *string `pulumi:"memberId"`
+	MembershipId    *string `pulumi:"membershipId"`
+	Region          *string `pulumi:"region"`
 }
 
 type GroupMembershipState struct {
-	// The identifier for a group in the Identity Store.
-	GroupId pulumi.StringPtrInput
-	// Identity Store ID associated with the Single Sign-On Instance.
+	GroupId         pulumi.StringPtrInput
 	IdentityStoreId pulumi.StringPtrInput
-	// The identifier for a user in the Identity Store.
-	MemberId pulumi.StringPtrInput
-	// The identifier of the newly created group membership in the Identity Store.
-	MembershipId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	MemberId        pulumi.StringPtrInput
+	MembershipId    pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
 }
 
 func (GroupMembershipState) ElementType() reflect.Type {
@@ -158,26 +81,18 @@ func (GroupMembershipState) ElementType() reflect.Type {
 }
 
 type groupMembershipArgs struct {
-	// The identifier for a group in the Identity Store.
-	GroupId string `pulumi:"groupId"`
-	// Identity Store ID associated with the Single Sign-On Instance.
-	IdentityStoreId string `pulumi:"identityStoreId"`
-	// The identifier for a user in the Identity Store.
-	MemberId string `pulumi:"memberId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	GroupId         string  `pulumi:"groupId"`
+	IdentityStoreId string  `pulumi:"identityStoreId"`
+	MemberId        string  `pulumi:"memberId"`
+	Region          *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a GroupMembership resource.
 type GroupMembershipArgs struct {
-	// The identifier for a group in the Identity Store.
-	GroupId pulumi.StringInput
-	// Identity Store ID associated with the Single Sign-On Instance.
+	GroupId         pulumi.StringInput
 	IdentityStoreId pulumi.StringInput
-	// The identifier for a user in the Identity Store.
-	MemberId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	MemberId        pulumi.StringInput
+	Region          pulumi.StringPtrInput
 }
 
 func (GroupMembershipArgs) ElementType() reflect.Type {
@@ -267,27 +182,22 @@ func (o GroupMembershipOutput) ToGroupMembershipOutputWithContext(ctx context.Co
 	return o
 }
 
-// The identifier for a group in the Identity Store.
 func (o GroupMembershipOutput) GroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringOutput { return v.GroupId }).(pulumi.StringOutput)
 }
 
-// Identity Store ID associated with the Single Sign-On Instance.
 func (o GroupMembershipOutput) IdentityStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringOutput { return v.IdentityStoreId }).(pulumi.StringOutput)
 }
 
-// The identifier for a user in the Identity Store.
 func (o GroupMembershipOutput) MemberId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringOutput { return v.MemberId }).(pulumi.StringOutput)
 }
 
-// The identifier of the newly created group membership in the Identity Store.
 func (o GroupMembershipOutput) MembershipId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringOutput { return v.MembershipId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GroupMembershipOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

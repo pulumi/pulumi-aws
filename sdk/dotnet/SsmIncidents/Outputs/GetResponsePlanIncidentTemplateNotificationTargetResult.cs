@@ -13,9 +13,6 @@ namespace Pulumi.Aws.SsmIncidents.Outputs
     [OutputType]
     public sealed class GetResponsePlanIncidentTemplateNotificationTargetResult
     {
-        /// <summary>
-        /// The ARN of the Amazon SNS topic.
-        /// </summary>
         public readonly string SnsTopicArn;
 
         [OutputConstructor]

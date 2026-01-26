@@ -17,66 +17,30 @@ public final class LbStickinessPolicyState extends com.pulumi.resources.Resource
 
     public static final LbStickinessPolicyState Empty = new LbStickinessPolicyState();
 
-    /**
-     * Cookie duration in seconds. This determines the length of the session stickiness.
-     * 
-     */
     @Import(name="cookieDuration")
     private @Nullable Output<Integer> cookieDuration;
 
-    /**
-     * @return Cookie duration in seconds. This determines the length of the session stickiness.
-     * 
-     */
     public Optional<Output<Integer>> cookieDuration() {
         return Optional.ofNullable(this.cookieDuration);
     }
 
-    /**
-     * Whether to enable session stickiness for the load balancer.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Whether to enable session stickiness for the load balancer.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * Name of the load balancer to which you want to enable session stickiness.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="lbName")
     private @Nullable Output<String> lbName;
 
-    /**
-     * @return Name of the load balancer to which you want to enable session stickiness.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> lbName() {
         return Optional.ofNullable(this.lbName);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -108,90 +72,38 @@ public final class LbStickinessPolicyState extends com.pulumi.resources.Resource
             $ = new LbStickinessPolicyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cookieDuration Cookie duration in seconds. This determines the length of the session stickiness.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cookieDuration(@Nullable Output<Integer> cookieDuration) {
             $.cookieDuration = cookieDuration;
             return this;
         }
 
-        /**
-         * @param cookieDuration Cookie duration in seconds. This determines the length of the session stickiness.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cookieDuration(Integer cookieDuration) {
             return cookieDuration(Output.of(cookieDuration));
         }
 
-        /**
-         * @param enabled Whether to enable session stickiness for the load balancer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether to enable session stickiness for the load balancer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param lbName Name of the load balancer to which you want to enable session stickiness.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder lbName(@Nullable Output<String> lbName) {
             $.lbName = lbName;
             return this;
         }
 
-        /**
-         * @param lbName Name of the load balancer to which you want to enable session stickiness.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder lbName(String lbName) {
             return lbName(Output.of(lbName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

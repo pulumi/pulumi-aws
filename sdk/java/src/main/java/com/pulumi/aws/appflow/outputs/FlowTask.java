@@ -15,65 +15,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowTask {
-    /**
-     * @return Operation to be performed on the provided source fields. See Connector Operator for details.
-     * 
-     */
     private @Nullable List<FlowTaskConnectorOperator> connectorOperators;
-    /**
-     * @return Field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
-     * 
-     */
     private @Nullable String destinationField;
-    /**
-     * @return Source fields to which a particular task is applied.
-     * 
-     */
     private @Nullable List<String> sourceFields;
-    /**
-     * @return Map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
-     * 
-     */
     private @Nullable Map<String,String> taskProperties;
-    /**
-     * @return Particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
-     * 
-     */
     private String taskType;
 
     private FlowTask() {}
-    /**
-     * @return Operation to be performed on the provided source fields. See Connector Operator for details.
-     * 
-     */
     public List<FlowTaskConnectorOperator> connectorOperators() {
         return this.connectorOperators == null ? List.of() : this.connectorOperators;
     }
-    /**
-     * @return Field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
-     * 
-     */
     public Optional<String> destinationField() {
         return Optional.ofNullable(this.destinationField);
     }
-    /**
-     * @return Source fields to which a particular task is applied.
-     * 
-     */
     public List<String> sourceFields() {
         return this.sourceFields == null ? List.of() : this.sourceFields;
     }
-    /**
-     * @return Map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
-     * 
-     */
     public Map<String,String> taskProperties() {
         return this.taskProperties == null ? Map.of() : this.taskProperties;
     }
-    /**
-     * @return Particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
-     * 
-     */
     public String taskType() {
         return this.taskType;
     }

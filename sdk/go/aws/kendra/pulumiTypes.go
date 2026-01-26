@@ -14,14 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type DataSourceConfiguration struct {
-	// A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
-	//
 	// Deprecated: s3_configuration is deprecated. Use templateConfiguration instead.
-	S3Configuration *DataSourceConfigurationS3Configuration `pulumi:"s3Configuration"`
-	// A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+	S3Configuration       *DataSourceConfigurationS3Configuration       `pulumi:"s3Configuration"`
 	TemplateConfiguration *DataSourceConfigurationTemplateConfiguration `pulumi:"templateConfiguration"`
-	// A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
-	//
 	// Deprecated: web_crawler_configuration is deprecated. Use templateConfiguration instead.
 	WebCrawlerConfiguration *DataSourceConfigurationWebCrawlerConfiguration `pulumi:"webCrawlerConfiguration"`
 }
@@ -38,14 +33,9 @@ type DataSourceConfigurationInput interface {
 }
 
 type DataSourceConfigurationArgs struct {
-	// A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
-	//
 	// Deprecated: s3_configuration is deprecated. Use templateConfiguration instead.
-	S3Configuration DataSourceConfigurationS3ConfigurationPtrInput `pulumi:"s3Configuration"`
-	// A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+	S3Configuration       DataSourceConfigurationS3ConfigurationPtrInput       `pulumi:"s3Configuration"`
 	TemplateConfiguration DataSourceConfigurationTemplateConfigurationPtrInput `pulumi:"templateConfiguration"`
-	// A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
-	//
 	// Deprecated: web_crawler_configuration is deprecated. Use templateConfiguration instead.
 	WebCrawlerConfiguration DataSourceConfigurationWebCrawlerConfigurationPtrInput `pulumi:"webCrawlerConfiguration"`
 }
@@ -127,22 +117,17 @@ func (o DataSourceConfigurationOutput) ToDataSourceConfigurationPtrOutputWithCon
 	}).(DataSourceConfigurationPtrOutput)
 }
 
-// A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
-//
 // Deprecated: s3_configuration is deprecated. Use templateConfiguration instead.
 func (o DataSourceConfigurationOutput) S3Configuration() DataSourceConfigurationS3ConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceConfigurationS3Configuration { return v.S3Configuration }).(DataSourceConfigurationS3ConfigurationPtrOutput)
 }
 
-// A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
 func (o DataSourceConfigurationOutput) TemplateConfiguration() DataSourceConfigurationTemplateConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceConfigurationTemplateConfiguration {
 		return v.TemplateConfiguration
 	}).(DataSourceConfigurationTemplateConfigurationPtrOutput)
 }
 
-// A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
-//
 // Deprecated: web_crawler_configuration is deprecated. Use templateConfiguration instead.
 func (o DataSourceConfigurationOutput) WebCrawlerConfiguration() DataSourceConfigurationWebCrawlerConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceConfigurationWebCrawlerConfiguration {
@@ -174,8 +159,6 @@ func (o DataSourceConfigurationPtrOutput) Elem() DataSourceConfigurationOutput {
 	}).(DataSourceConfigurationOutput)
 }
 
-// A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
-//
 // Deprecated: s3_configuration is deprecated. Use templateConfiguration instead.
 func (o DataSourceConfigurationPtrOutput) S3Configuration() DataSourceConfigurationS3ConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceConfigurationS3Configuration {
@@ -186,7 +169,6 @@ func (o DataSourceConfigurationPtrOutput) S3Configuration() DataSourceConfigurat
 	}).(DataSourceConfigurationS3ConfigurationPtrOutput)
 }
 
-// A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
 func (o DataSourceConfigurationPtrOutput) TemplateConfiguration() DataSourceConfigurationTemplateConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceConfigurationTemplateConfiguration {
 		if v == nil {
@@ -196,8 +178,6 @@ func (o DataSourceConfigurationPtrOutput) TemplateConfiguration() DataSourceConf
 	}).(DataSourceConfigurationTemplateConfigurationPtrOutput)
 }
 
-// A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
-//
 // Deprecated: web_crawler_configuration is deprecated. Use templateConfiguration instead.
 func (o DataSourceConfigurationPtrOutput) WebCrawlerConfiguration() DataSourceConfigurationWebCrawlerConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceConfigurationWebCrawlerConfiguration {
@@ -209,18 +189,12 @@ func (o DataSourceConfigurationPtrOutput) WebCrawlerConfiguration() DataSourceCo
 }
 
 type DataSourceConfigurationS3Configuration struct {
-	// A block that provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html). Detailed below.
 	AccessControlListConfiguration *DataSourceConfigurationS3ConfigurationAccessControlListConfiguration `pulumi:"accessControlListConfiguration"`
-	// The name of the bucket that contains the documents.
-	BucketName string `pulumi:"bucketName"`
-	// A block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
+	BucketName                     string                                                                `pulumi:"bucketName"`
 	DocumentsMetadataConfiguration *DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration `pulumi:"documentsMetadataConfiguration"`
-	// A list of glob patterns for documents that should not be indexed. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Exclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns).
-	ExclusionPatterns []string `pulumi:"exclusionPatterns"`
-	// A list of glob patterns for documents that should be indexed. If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Inclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-InclusionPatterns).
-	InclusionPatterns []string `pulumi:"inclusionPatterns"`
-	// A list of S3 prefixes for the documents that should be included in the index.
-	InclusionPrefixes []string `pulumi:"inclusionPrefixes"`
+	ExclusionPatterns              []string                                                              `pulumi:"exclusionPatterns"`
+	InclusionPatterns              []string                                                              `pulumi:"inclusionPatterns"`
+	InclusionPrefixes              []string                                                              `pulumi:"inclusionPrefixes"`
 }
 
 // DataSourceConfigurationS3ConfigurationInput is an input type that accepts DataSourceConfigurationS3ConfigurationArgs and DataSourceConfigurationS3ConfigurationOutput values.
@@ -235,18 +209,12 @@ type DataSourceConfigurationS3ConfigurationInput interface {
 }
 
 type DataSourceConfigurationS3ConfigurationArgs struct {
-	// A block that provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html). Detailed below.
 	AccessControlListConfiguration DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrInput `pulumi:"accessControlListConfiguration"`
-	// The name of the bucket that contains the documents.
-	BucketName pulumi.StringInput `pulumi:"bucketName"`
-	// A block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
+	BucketName                     pulumi.StringInput                                                           `pulumi:"bucketName"`
 	DocumentsMetadataConfiguration DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrInput `pulumi:"documentsMetadataConfiguration"`
-	// A list of glob patterns for documents that should not be indexed. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Exclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns).
-	ExclusionPatterns pulumi.StringArrayInput `pulumi:"exclusionPatterns"`
-	// A list of glob patterns for documents that should be indexed. If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Inclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-InclusionPatterns).
-	InclusionPatterns pulumi.StringArrayInput `pulumi:"inclusionPatterns"`
-	// A list of S3 prefixes for the documents that should be included in the index.
-	InclusionPrefixes pulumi.StringArrayInput `pulumi:"inclusionPrefixes"`
+	ExclusionPatterns              pulumi.StringArrayInput                                                      `pulumi:"exclusionPatterns"`
+	InclusionPatterns              pulumi.StringArrayInput                                                      `pulumi:"inclusionPatterns"`
+	InclusionPrefixes              pulumi.StringArrayInput                                                      `pulumi:"inclusionPrefixes"`
 }
 
 func (DataSourceConfigurationS3ConfigurationArgs) ElementType() reflect.Type {
@@ -326,36 +294,30 @@ func (o DataSourceConfigurationS3ConfigurationOutput) ToDataSourceConfigurationS
 	}).(DataSourceConfigurationS3ConfigurationPtrOutput)
 }
 
-// A block that provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html). Detailed below.
 func (o DataSourceConfigurationS3ConfigurationOutput) AccessControlListConfiguration() DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfigurationS3Configuration) *DataSourceConfigurationS3ConfigurationAccessControlListConfiguration {
 		return v.AccessControlListConfiguration
 	}).(DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput)
 }
 
-// The name of the bucket that contains the documents.
 func (o DataSourceConfigurationS3ConfigurationOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceConfigurationS3Configuration) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// A block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
 func (o DataSourceConfigurationS3ConfigurationOutput) DocumentsMetadataConfiguration() DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfigurationS3Configuration) *DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration {
 		return v.DocumentsMetadataConfiguration
 	}).(DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput)
 }
 
-// A list of glob patterns for documents that should not be indexed. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Exclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns).
 func (o DataSourceConfigurationS3ConfigurationOutput) ExclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceConfigurationS3Configuration) []string { return v.ExclusionPatterns }).(pulumi.StringArrayOutput)
 }
 
-// A list of glob patterns for documents that should be indexed. If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Inclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-InclusionPatterns).
 func (o DataSourceConfigurationS3ConfigurationOutput) InclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceConfigurationS3Configuration) []string { return v.InclusionPatterns }).(pulumi.StringArrayOutput)
 }
 
-// A list of S3 prefixes for the documents that should be included in the index.
 func (o DataSourceConfigurationS3ConfigurationOutput) InclusionPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceConfigurationS3Configuration) []string { return v.InclusionPrefixes }).(pulumi.StringArrayOutput)
 }
@@ -384,7 +346,6 @@ func (o DataSourceConfigurationS3ConfigurationPtrOutput) Elem() DataSourceConfig
 	}).(DataSourceConfigurationS3ConfigurationOutput)
 }
 
-// A block that provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html). Detailed below.
 func (o DataSourceConfigurationS3ConfigurationPtrOutput) AccessControlListConfiguration() DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfigurationS3Configuration) *DataSourceConfigurationS3ConfigurationAccessControlListConfiguration {
 		if v == nil {
@@ -394,7 +355,6 @@ func (o DataSourceConfigurationS3ConfigurationPtrOutput) AccessControlListConfig
 	}).(DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput)
 }
 
-// The name of the bucket that contains the documents.
 func (o DataSourceConfigurationS3ConfigurationPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfigurationS3Configuration) *string {
 		if v == nil {
@@ -404,7 +364,6 @@ func (o DataSourceConfigurationS3ConfigurationPtrOutput) BucketName() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// A block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
 func (o DataSourceConfigurationS3ConfigurationPtrOutput) DocumentsMetadataConfiguration() DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfigurationS3Configuration) *DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration {
 		if v == nil {
@@ -414,7 +373,6 @@ func (o DataSourceConfigurationS3ConfigurationPtrOutput) DocumentsMetadataConfig
 	}).(DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput)
 }
 
-// A list of glob patterns for documents that should not be indexed. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Exclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns).
 func (o DataSourceConfigurationS3ConfigurationPtrOutput) ExclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceConfigurationS3Configuration) []string {
 		if v == nil {
@@ -424,7 +382,6 @@ func (o DataSourceConfigurationS3ConfigurationPtrOutput) ExclusionPatterns() pul
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of glob patterns for documents that should be indexed. If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Inclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-InclusionPatterns).
 func (o DataSourceConfigurationS3ConfigurationPtrOutput) InclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceConfigurationS3Configuration) []string {
 		if v == nil {
@@ -434,7 +391,6 @@ func (o DataSourceConfigurationS3ConfigurationPtrOutput) InclusionPatterns() pul
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of S3 prefixes for the documents that should be included in the index.
 func (o DataSourceConfigurationS3ConfigurationPtrOutput) InclusionPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceConfigurationS3Configuration) []string {
 		if v == nil {
@@ -445,7 +401,6 @@ func (o DataSourceConfigurationS3ConfigurationPtrOutput) InclusionPrefixes() pul
 }
 
 type DataSourceConfigurationS3ConfigurationAccessControlListConfiguration struct {
-	// Path to the AWS S3 bucket that contains the ACL files.
 	KeyPath *string `pulumi:"keyPath"`
 }
 
@@ -461,7 +416,6 @@ type DataSourceConfigurationS3ConfigurationAccessControlListConfigurationInput i
 }
 
 type DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs struct {
-	// Path to the AWS S3 bucket that contains the ACL files.
 	KeyPath pulumi.StringPtrInput `pulumi:"keyPath"`
 }
 
@@ -542,7 +496,6 @@ func (o DataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutp
 	}).(DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput)
 }
 
-// Path to the AWS S3 bucket that contains the ACL files.
 func (o DataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutput) KeyPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceConfigurationS3ConfigurationAccessControlListConfiguration) *string { return v.KeyPath }).(pulumi.StringPtrOutput)
 }
@@ -571,7 +524,6 @@ func (o DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrO
 	}).(DataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutput)
 }
 
-// Path to the AWS S3 bucket that contains the ACL files.
 func (o DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput) KeyPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfigurationS3ConfigurationAccessControlListConfiguration) *string {
 		if v == nil {
@@ -582,7 +534,6 @@ func (o DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrO
 }
 
 type DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration struct {
-	// A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `s3Prefix` to include only the desired metadata files.
 	S3Prefix *string `pulumi:"s3Prefix"`
 }
 
@@ -598,7 +549,6 @@ type DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationInput i
 }
 
 type DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs struct {
-	// A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `s3Prefix` to include only the desired metadata files.
 	S3Prefix pulumi.StringPtrInput `pulumi:"s3Prefix"`
 }
 
@@ -679,7 +629,6 @@ func (o DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutp
 	}).(DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput)
 }
 
-// A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `s3Prefix` to include only the desired metadata files.
 func (o DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutput) S3Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration) *string {
 		return v.S3Prefix
@@ -710,7 +659,6 @@ func (o DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrO
 	}).(DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutput)
 }
 
-// A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `s3Prefix` to include only the desired metadata files.
 func (o DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput) S3Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration) *string {
 		if v == nil {
@@ -721,7 +669,6 @@ func (o DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrO
 }
 
 type DataSourceConfigurationTemplateConfiguration struct {
-	// JSON string containing a [data source template schema](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html).
 	Template string `pulumi:"template"`
 }
 
@@ -737,7 +684,6 @@ type DataSourceConfigurationTemplateConfigurationInput interface {
 }
 
 type DataSourceConfigurationTemplateConfigurationArgs struct {
-	// JSON string containing a [data source template schema](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html).
 	Template pulumi.StringInput `pulumi:"template"`
 }
 
@@ -818,7 +764,6 @@ func (o DataSourceConfigurationTemplateConfigurationOutput) ToDataSourceConfigur
 	}).(DataSourceConfigurationTemplateConfigurationPtrOutput)
 }
 
-// JSON string containing a [data source template schema](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html).
 func (o DataSourceConfigurationTemplateConfigurationOutput) Template() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceConfigurationTemplateConfiguration) string { return v.Template }).(pulumi.StringOutput)
 }
@@ -847,7 +792,6 @@ func (o DataSourceConfigurationTemplateConfigurationPtrOutput) Elem() DataSource
 	}).(DataSourceConfigurationTemplateConfigurationOutput)
 }
 
-// JSON string containing a [data source template schema](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html).
 func (o DataSourceConfigurationTemplateConfigurationPtrOutput) Template() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfigurationTemplateConfiguration) *string {
 		if v == nil {
@@ -858,24 +802,15 @@ func (o DataSourceConfigurationTemplateConfigurationPtrOutput) Template() pulumi
 }
 
 type DataSourceConfigurationWebCrawlerConfiguration struct {
-	// A block with the configuration information required to connect to websites using authentication. You can connect to websites using basic authentication of user name and password. You use a secret in AWS Secrets Manager to store your authentication credentials. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Detailed below.
-	AuthenticationConfiguration *DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration `pulumi:"authenticationConfiguration"`
-	// Specifies the number of levels in a website that you want to crawl. The first level begins from the website seed or starting point URL. For example, if a website has 3 levels - index level (i.e. seed in this example), sections level, and subsections level - and you are only interested in crawling information up to the sections level (i.e. levels 0-1), you can set your depth to 1. The default crawl depth is set to `2`. Minimum value of `0`. Maximum value of `10`.
-	CrawlDepth *int `pulumi:"crawlDepth"`
-	// The maximum size (in MB) of a webpage or attachment to crawl. Files larger than this size (in MB) are skipped/not crawled. The default maximum size of a webpage or attachment is set to `50` MB. Minimum value of `1.0e-06`. Maximum value of `50`.
-	MaxContentSizePerPageInMegaBytes *float64 `pulumi:"maxContentSizePerPageInMegaBytes"`
-	// The maximum number of URLs on a webpage to include when crawling a website. This number is per webpage. As a website’s webpages are crawled, any URLs the webpages link to are also crawled. URLs on a webpage are crawled in order of appearance. The default maximum links per page is `100`. Minimum value of `1`. Maximum value of `1000`.
-	MaxLinksPerPage *int `pulumi:"maxLinksPerPage"`
-	// The maximum number of URLs crawled per website host per minute. The default maximum number of URLs crawled per website host per minute is `300`. Minimum value of `1`. Maximum value of `300`.
-	MaxUrlsPerMinuteCrawlRate *int `pulumi:"maxUrlsPerMinuteCrawlRate"`
-	// Configuration information required to connect to your internal websites via a web proxy. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Web proxy credentials are optional and you can use them to connect to a web proxy server that requires basic authentication. To store web proxy credentials, you use a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html). Detailed below.
-	ProxyConfiguration *DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration `pulumi:"proxyConfiguration"`
-	// A list of regular expression patterns to exclude certain URLs to crawl. URLs that match the patterns are excluded from the index. URLs that don't match the patterns are included in the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
-	UrlExclusionPatterns []string `pulumi:"urlExclusionPatterns"`
-	// A list of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don't match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
-	UrlInclusionPatterns []string `pulumi:"urlInclusionPatterns"`
-	// A block that specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl. You can include website subdomains. You can list up to `100` seed URLs and up to `3` sitemap URLs. You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when crawling a website, it could be that the website is blocked from crawling. When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index. Detailed below.
-	Urls DataSourceConfigurationWebCrawlerConfigurationUrls `pulumi:"urls"`
+	AuthenticationConfiguration      *DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration `pulumi:"authenticationConfiguration"`
+	CrawlDepth                       *int                                                                       `pulumi:"crawlDepth"`
+	MaxContentSizePerPageInMegaBytes *float64                                                                   `pulumi:"maxContentSizePerPageInMegaBytes"`
+	MaxLinksPerPage                  *int                                                                       `pulumi:"maxLinksPerPage"`
+	MaxUrlsPerMinuteCrawlRate        *int                                                                       `pulumi:"maxUrlsPerMinuteCrawlRate"`
+	ProxyConfiguration               *DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration          `pulumi:"proxyConfiguration"`
+	UrlExclusionPatterns             []string                                                                   `pulumi:"urlExclusionPatterns"`
+	UrlInclusionPatterns             []string                                                                   `pulumi:"urlInclusionPatterns"`
+	Urls                             DataSourceConfigurationWebCrawlerConfigurationUrls                         `pulumi:"urls"`
 }
 
 // DataSourceConfigurationWebCrawlerConfigurationInput is an input type that accepts DataSourceConfigurationWebCrawlerConfigurationArgs and DataSourceConfigurationWebCrawlerConfigurationOutput values.
@@ -890,24 +825,15 @@ type DataSourceConfigurationWebCrawlerConfigurationInput interface {
 }
 
 type DataSourceConfigurationWebCrawlerConfigurationArgs struct {
-	// A block with the configuration information required to connect to websites using authentication. You can connect to websites using basic authentication of user name and password. You use a secret in AWS Secrets Manager to store your authentication credentials. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Detailed below.
-	AuthenticationConfiguration DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrInput `pulumi:"authenticationConfiguration"`
-	// Specifies the number of levels in a website that you want to crawl. The first level begins from the website seed or starting point URL. For example, if a website has 3 levels - index level (i.e. seed in this example), sections level, and subsections level - and you are only interested in crawling information up to the sections level (i.e. levels 0-1), you can set your depth to 1. The default crawl depth is set to `2`. Minimum value of `0`. Maximum value of `10`.
-	CrawlDepth pulumi.IntPtrInput `pulumi:"crawlDepth"`
-	// The maximum size (in MB) of a webpage or attachment to crawl. Files larger than this size (in MB) are skipped/not crawled. The default maximum size of a webpage or attachment is set to `50` MB. Minimum value of `1.0e-06`. Maximum value of `50`.
-	MaxContentSizePerPageInMegaBytes pulumi.Float64PtrInput `pulumi:"maxContentSizePerPageInMegaBytes"`
-	// The maximum number of URLs on a webpage to include when crawling a website. This number is per webpage. As a website’s webpages are crawled, any URLs the webpages link to are also crawled. URLs on a webpage are crawled in order of appearance. The default maximum links per page is `100`. Minimum value of `1`. Maximum value of `1000`.
-	MaxLinksPerPage pulumi.IntPtrInput `pulumi:"maxLinksPerPage"`
-	// The maximum number of URLs crawled per website host per minute. The default maximum number of URLs crawled per website host per minute is `300`. Minimum value of `1`. Maximum value of `300`.
-	MaxUrlsPerMinuteCrawlRate pulumi.IntPtrInput `pulumi:"maxUrlsPerMinuteCrawlRate"`
-	// Configuration information required to connect to your internal websites via a web proxy. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Web proxy credentials are optional and you can use them to connect to a web proxy server that requires basic authentication. To store web proxy credentials, you use a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html). Detailed below.
-	ProxyConfiguration DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrInput `pulumi:"proxyConfiguration"`
-	// A list of regular expression patterns to exclude certain URLs to crawl. URLs that match the patterns are excluded from the index. URLs that don't match the patterns are included in the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
-	UrlExclusionPatterns pulumi.StringArrayInput `pulumi:"urlExclusionPatterns"`
-	// A list of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don't match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
-	UrlInclusionPatterns pulumi.StringArrayInput `pulumi:"urlInclusionPatterns"`
-	// A block that specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl. You can include website subdomains. You can list up to `100` seed URLs and up to `3` sitemap URLs. You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when crawling a website, it could be that the website is blocked from crawling. When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index. Detailed below.
-	Urls DataSourceConfigurationWebCrawlerConfigurationUrlsInput `pulumi:"urls"`
+	AuthenticationConfiguration      DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrInput `pulumi:"authenticationConfiguration"`
+	CrawlDepth                       pulumi.IntPtrInput                                                                `pulumi:"crawlDepth"`
+	MaxContentSizePerPageInMegaBytes pulumi.Float64PtrInput                                                            `pulumi:"maxContentSizePerPageInMegaBytes"`
+	MaxLinksPerPage                  pulumi.IntPtrInput                                                                `pulumi:"maxLinksPerPage"`
+	MaxUrlsPerMinuteCrawlRate        pulumi.IntPtrInput                                                                `pulumi:"maxUrlsPerMinuteCrawlRate"`
+	ProxyConfiguration               DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrInput          `pulumi:"proxyConfiguration"`
+	UrlExclusionPatterns             pulumi.StringArrayInput                                                           `pulumi:"urlExclusionPatterns"`
+	UrlInclusionPatterns             pulumi.StringArrayInput                                                           `pulumi:"urlInclusionPatterns"`
+	Urls                             DataSourceConfigurationWebCrawlerConfigurationUrlsInput                           `pulumi:"urls"`
 }
 
 func (DataSourceConfigurationWebCrawlerConfigurationArgs) ElementType() reflect.Type {
@@ -987,53 +913,44 @@ func (o DataSourceConfigurationWebCrawlerConfigurationOutput) ToDataSourceConfig
 	}).(DataSourceConfigurationWebCrawlerConfigurationPtrOutput)
 }
 
-// A block with the configuration information required to connect to websites using authentication. You can connect to websites using basic authentication of user name and password. You use a secret in AWS Secrets Manager to store your authentication credentials. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Detailed below.
 func (o DataSourceConfigurationWebCrawlerConfigurationOutput) AuthenticationConfiguration() DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfiguration) *DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration {
 		return v.AuthenticationConfiguration
 	}).(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput)
 }
 
-// Specifies the number of levels in a website that you want to crawl. The first level begins from the website seed or starting point URL. For example, if a website has 3 levels - index level (i.e. seed in this example), sections level, and subsections level - and you are only interested in crawling information up to the sections level (i.e. levels 0-1), you can set your depth to 1. The default crawl depth is set to `2`. Minimum value of `0`. Maximum value of `10`.
 func (o DataSourceConfigurationWebCrawlerConfigurationOutput) CrawlDepth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfiguration) *int { return v.CrawlDepth }).(pulumi.IntPtrOutput)
 }
 
-// The maximum size (in MB) of a webpage or attachment to crawl. Files larger than this size (in MB) are skipped/not crawled. The default maximum size of a webpage or attachment is set to `50` MB. Minimum value of `1.0e-06`. Maximum value of `50`.
 func (o DataSourceConfigurationWebCrawlerConfigurationOutput) MaxContentSizePerPageInMegaBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfiguration) *float64 {
 		return v.MaxContentSizePerPageInMegaBytes
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The maximum number of URLs on a webpage to include when crawling a website. This number is per webpage. As a website’s webpages are crawled, any URLs the webpages link to are also crawled. URLs on a webpage are crawled in order of appearance. The default maximum links per page is `100`. Minimum value of `1`. Maximum value of `1000`.
 func (o DataSourceConfigurationWebCrawlerConfigurationOutput) MaxLinksPerPage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfiguration) *int { return v.MaxLinksPerPage }).(pulumi.IntPtrOutput)
 }
 
-// The maximum number of URLs crawled per website host per minute. The default maximum number of URLs crawled per website host per minute is `300`. Minimum value of `1`. Maximum value of `300`.
 func (o DataSourceConfigurationWebCrawlerConfigurationOutput) MaxUrlsPerMinuteCrawlRate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfiguration) *int { return v.MaxUrlsPerMinuteCrawlRate }).(pulumi.IntPtrOutput)
 }
 
-// Configuration information required to connect to your internal websites via a web proxy. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Web proxy credentials are optional and you can use them to connect to a web proxy server that requires basic authentication. To store web proxy credentials, you use a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html). Detailed below.
 func (o DataSourceConfigurationWebCrawlerConfigurationOutput) ProxyConfiguration() DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfiguration) *DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration {
 		return v.ProxyConfiguration
 	}).(DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput)
 }
 
-// A list of regular expression patterns to exclude certain URLs to crawl. URLs that match the patterns are excluded from the index. URLs that don't match the patterns are included in the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
 func (o DataSourceConfigurationWebCrawlerConfigurationOutput) UrlExclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfiguration) []string { return v.UrlExclusionPatterns }).(pulumi.StringArrayOutput)
 }
 
-// A list of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don't match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
 func (o DataSourceConfigurationWebCrawlerConfigurationOutput) UrlInclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfiguration) []string { return v.UrlInclusionPatterns }).(pulumi.StringArrayOutput)
 }
 
-// A block that specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl. You can include website subdomains. You can list up to `100` seed URLs and up to `3` sitemap URLs. You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when crawling a website, it could be that the website is blocked from crawling. When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index. Detailed below.
 func (o DataSourceConfigurationWebCrawlerConfigurationOutput) Urls() DataSourceConfigurationWebCrawlerConfigurationUrlsOutput {
 	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfiguration) DataSourceConfigurationWebCrawlerConfigurationUrls {
 		return v.Urls
@@ -1064,7 +981,6 @@ func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) Elem() DataSour
 	}).(DataSourceConfigurationWebCrawlerConfigurationOutput)
 }
 
-// A block with the configuration information required to connect to websites using authentication. You can connect to websites using basic authentication of user name and password. You use a secret in AWS Secrets Manager to store your authentication credentials. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Detailed below.
 func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) AuthenticationConfiguration() DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfiguration) *DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration {
 		if v == nil {
@@ -1074,7 +990,6 @@ func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) AuthenticationC
 	}).(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput)
 }
 
-// Specifies the number of levels in a website that you want to crawl. The first level begins from the website seed or starting point URL. For example, if a website has 3 levels - index level (i.e. seed in this example), sections level, and subsections level - and you are only interested in crawling information up to the sections level (i.e. levels 0-1), you can set your depth to 1. The default crawl depth is set to `2`. Minimum value of `0`. Maximum value of `10`.
 func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) CrawlDepth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfiguration) *int {
 		if v == nil {
@@ -1084,7 +999,6 @@ func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) CrawlDepth() pu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The maximum size (in MB) of a webpage or attachment to crawl. Files larger than this size (in MB) are skipped/not crawled. The default maximum size of a webpage or attachment is set to `50` MB. Minimum value of `1.0e-06`. Maximum value of `50`.
 func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) MaxContentSizePerPageInMegaBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfiguration) *float64 {
 		if v == nil {
@@ -1094,7 +1008,6 @@ func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) MaxContentSizeP
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The maximum number of URLs on a webpage to include when crawling a website. This number is per webpage. As a website’s webpages are crawled, any URLs the webpages link to are also crawled. URLs on a webpage are crawled in order of appearance. The default maximum links per page is `100`. Minimum value of `1`. Maximum value of `1000`.
 func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) MaxLinksPerPage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfiguration) *int {
 		if v == nil {
@@ -1104,7 +1017,6 @@ func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) MaxLinksPerPage
 	}).(pulumi.IntPtrOutput)
 }
 
-// The maximum number of URLs crawled per website host per minute. The default maximum number of URLs crawled per website host per minute is `300`. Minimum value of `1`. Maximum value of `300`.
 func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) MaxUrlsPerMinuteCrawlRate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfiguration) *int {
 		if v == nil {
@@ -1114,7 +1026,6 @@ func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) MaxUrlsPerMinut
 	}).(pulumi.IntPtrOutput)
 }
 
-// Configuration information required to connect to your internal websites via a web proxy. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Web proxy credentials are optional and you can use them to connect to a web proxy server that requires basic authentication. To store web proxy credentials, you use a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html). Detailed below.
 func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) ProxyConfiguration() DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfiguration) *DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration {
 		if v == nil {
@@ -1124,7 +1035,6 @@ func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) ProxyConfigurat
 	}).(DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput)
 }
 
-// A list of regular expression patterns to exclude certain URLs to crawl. URLs that match the patterns are excluded from the index. URLs that don't match the patterns are included in the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
 func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) UrlExclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfiguration) []string {
 		if v == nil {
@@ -1134,7 +1044,6 @@ func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) UrlExclusionPat
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don't match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
 func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) UrlInclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfiguration) []string {
 		if v == nil {
@@ -1144,7 +1053,6 @@ func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) UrlInclusionPat
 	}).(pulumi.StringArrayOutput)
 }
 
-// A block that specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl. You can include website subdomains. You can list up to `100` seed URLs and up to `3` sitemap URLs. You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when crawling a website, it could be that the website is blocked from crawling. When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index. Detailed below.
 func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) Urls() DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfiguration) *DataSourceConfigurationWebCrawlerConfigurationUrls {
 		if v == nil {
@@ -1155,7 +1063,6 @@ func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) Urls() DataSour
 }
 
 type DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration struct {
-	// The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials. The list includes the name and port number of the website host. Detailed below.
 	BasicAuthentications []DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication `pulumi:"basicAuthentications"`
 }
 
@@ -1171,7 +1078,6 @@ type DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationIn
 }
 
 type DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs struct {
-	// The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials. The list includes the name and port number of the website host. Detailed below.
 	BasicAuthentications DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayInput `pulumi:"basicAuthentications"`
 }
 
@@ -1252,7 +1158,6 @@ func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguratio
 	}).(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput)
 }
 
-// The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials. The list includes the name and port number of the website host. Detailed below.
 func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutput) BasicAuthentications() DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutput {
 	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration) []DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication {
 		return v.BasicAuthentications
@@ -1283,7 +1188,6 @@ func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguratio
 	}).(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutput)
 }
 
-// The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials. The list includes the name and port number of the website host. Detailed below.
 func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput) BasicAuthentications() DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutput {
 	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration) []DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication {
 		if v == nil {
@@ -1294,12 +1198,9 @@ func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguratio
 }
 
 type DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication struct {
-	// Your secret ARN, which you can create in AWS Secrets Manager. You use a secret if basic authentication credentials are required to connect to a website. The secret stores your credentials of user name and password.
 	Credentials string `pulumi:"credentials"`
-	// The name of the website host you want to connect to using authentication credentials. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"`.
-	Host string `pulumi:"host"`
-	// The port number of the website host you want to connect to using authentication credentials. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
-	Port int `pulumi:"port"`
+	Host        string `pulumi:"host"`
+	Port        int    `pulumi:"port"`
 }
 
 // DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationInput is an input type that accepts DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs and DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutput values.
@@ -1314,12 +1215,9 @@ type DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBa
 }
 
 type DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs struct {
-	// Your secret ARN, which you can create in AWS Secrets Manager. You use a secret if basic authentication credentials are required to connect to a website. The secret stores your credentials of user name and password.
 	Credentials pulumi.StringInput `pulumi:"credentials"`
-	// The name of the website host you want to connect to using authentication credentials. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"`.
-	Host pulumi.StringInput `pulumi:"host"`
-	// The port number of the website host you want to connect to using authentication credentials. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
-	Port pulumi.IntInput `pulumi:"port"`
+	Host        pulumi.StringInput `pulumi:"host"`
+	Port        pulumi.IntInput    `pulumi:"port"`
 }
 
 func (DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs) ElementType() reflect.Type {
@@ -1373,21 +1271,18 @@ func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguratio
 	return o
 }
 
-// Your secret ARN, which you can create in AWS Secrets Manager. You use a secret if basic authentication credentials are required to connect to a website. The secret stores your credentials of user name and password.
 func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutput) Credentials() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication) string {
 		return v.Credentials
 	}).(pulumi.StringOutput)
 }
 
-// The name of the website host you want to connect to using authentication credentials. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"`.
 func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication) string {
 		return v.Host
 	}).(pulumi.StringOutput)
 }
 
-// The port number of the website host you want to connect to using authentication credentials. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
 func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication) int {
 		return v.Port
@@ -1415,12 +1310,9 @@ func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguratio
 }
 
 type DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration struct {
-	// Your secret ARN, which you can create in AWS Secrets Manager. The credentials are optional. You use a secret if web proxy credentials are required to connect to a website host. Amazon Kendra currently support basic authentication to connect to a web proxy server. The secret stores your credentials.
 	Credentials *string `pulumi:"credentials"`
-	// The name of the website host you want to connect to via a web proxy server. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"`.
-	Host string `pulumi:"host"`
-	// The port number of the website host you want to connect to via a web proxy server. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
-	Port int `pulumi:"port"`
+	Host        string  `pulumi:"host"`
+	Port        int     `pulumi:"port"`
 }
 
 // DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationInput is an input type that accepts DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs and DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput values.
@@ -1435,12 +1327,9 @@ type DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationInput inter
 }
 
 type DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs struct {
-	// Your secret ARN, which you can create in AWS Secrets Manager. The credentials are optional. You use a secret if web proxy credentials are required to connect to a website host. Amazon Kendra currently support basic authentication to connect to a web proxy server. The secret stores your credentials.
 	Credentials pulumi.StringPtrInput `pulumi:"credentials"`
-	// The name of the website host you want to connect to via a web proxy server. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"`.
-	Host pulumi.StringInput `pulumi:"host"`
-	// The port number of the website host you want to connect to via a web proxy server. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
-	Port pulumi.IntInput `pulumi:"port"`
+	Host        pulumi.StringInput    `pulumi:"host"`
+	Port        pulumi.IntInput       `pulumi:"port"`
 }
 
 func (DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs) ElementType() reflect.Type {
@@ -1520,17 +1409,14 @@ func (o DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput) 
 	}).(DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput)
 }
 
-// Your secret ARN, which you can create in AWS Secrets Manager. The credentials are optional. You use a secret if web proxy credentials are required to connect to a website host. Amazon Kendra currently support basic authentication to connect to a web proxy server. The secret stores your credentials.
 func (o DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput) Credentials() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration) *string { return v.Credentials }).(pulumi.StringPtrOutput)
 }
 
-// The name of the website host you want to connect to via a web proxy server. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"`.
 func (o DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// The port number of the website host you want to connect to via a web proxy server. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
 func (o DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -1559,7 +1445,6 @@ func (o DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutpu
 	}).(DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput)
 }
 
-// Your secret ARN, which you can create in AWS Secrets Manager. The credentials are optional. You use a secret if web proxy credentials are required to connect to a website host. Amazon Kendra currently support basic authentication to connect to a web proxy server. The secret stores your credentials.
 func (o DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput) Credentials() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration) *string {
 		if v == nil {
@@ -1569,7 +1454,6 @@ func (o DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the website host you want to connect to via a web proxy server. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"`.
 func (o DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration) *string {
 		if v == nil {
@@ -1579,7 +1463,6 @@ func (o DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port number of the website host you want to connect to via a web proxy server. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
 func (o DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration) *int {
 		if v == nil {
@@ -1590,9 +1473,7 @@ func (o DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutpu
 }
 
 type DataSourceConfigurationWebCrawlerConfigurationUrls struct {
-	// A block that specifies the configuration of the seed or starting point URLs of the websites you want to crawl. You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the webpages link to. You can list up to `100` seed URLs. Detailed below.
-	SeedUrlConfiguration *DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration `pulumi:"seedUrlConfiguration"`
-	// A block that specifies the configuration of the sitemap URLs of the websites you want to crawl. Only URLs belonging to the same website host names are crawled. You can list up to `3` sitemap URLs. Detailed below.
+	SeedUrlConfiguration  *DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration  `pulumi:"seedUrlConfiguration"`
 	SiteMapsConfiguration *DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration `pulumi:"siteMapsConfiguration"`
 }
 
@@ -1608,9 +1489,7 @@ type DataSourceConfigurationWebCrawlerConfigurationUrlsInput interface {
 }
 
 type DataSourceConfigurationWebCrawlerConfigurationUrlsArgs struct {
-	// A block that specifies the configuration of the seed or starting point URLs of the websites you want to crawl. You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the webpages link to. You can list up to `100` seed URLs. Detailed below.
-	SeedUrlConfiguration DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrInput `pulumi:"seedUrlConfiguration"`
-	// A block that specifies the configuration of the sitemap URLs of the websites you want to crawl. Only URLs belonging to the same website host names are crawled. You can list up to `3` sitemap URLs. Detailed below.
+	SeedUrlConfiguration  DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrInput  `pulumi:"seedUrlConfiguration"`
 	SiteMapsConfiguration DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrInput `pulumi:"siteMapsConfiguration"`
 }
 
@@ -1691,14 +1570,12 @@ func (o DataSourceConfigurationWebCrawlerConfigurationUrlsOutput) ToDataSourceCo
 	}).(DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput)
 }
 
-// A block that specifies the configuration of the seed or starting point URLs of the websites you want to crawl. You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the webpages link to. You can list up to `100` seed URLs. Detailed below.
 func (o DataSourceConfigurationWebCrawlerConfigurationUrlsOutput) SeedUrlConfiguration() DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfigurationUrls) *DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration {
 		return v.SeedUrlConfiguration
 	}).(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput)
 }
 
-// A block that specifies the configuration of the sitemap URLs of the websites you want to crawl. Only URLs belonging to the same website host names are crawled. You can list up to `3` sitemap URLs. Detailed below.
 func (o DataSourceConfigurationWebCrawlerConfigurationUrlsOutput) SiteMapsConfiguration() DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfigurationUrls) *DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration {
 		return v.SiteMapsConfiguration
@@ -1729,7 +1606,6 @@ func (o DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput) Elem() Data
 	}).(DataSourceConfigurationWebCrawlerConfigurationUrlsOutput)
 }
 
-// A block that specifies the configuration of the seed or starting point URLs of the websites you want to crawl. You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the webpages link to. You can list up to `100` seed URLs. Detailed below.
 func (o DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput) SeedUrlConfiguration() DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfigurationUrls) *DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration {
 		if v == nil {
@@ -1739,7 +1615,6 @@ func (o DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput) SeedUrlConf
 	}).(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput)
 }
 
-// A block that specifies the configuration of the sitemap URLs of the websites you want to crawl. Only URLs belonging to the same website host names are crawled. You can list up to `3` sitemap URLs. Detailed below.
 func (o DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput) SiteMapsConfiguration() DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfigurationUrls) *DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration {
 		if v == nil {
@@ -1750,13 +1625,8 @@ func (o DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput) SiteMapsCon
 }
 
 type DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration struct {
-	// The list of seed or starting point URLs of the websites you want to crawl. The list can include a maximum of `100` seed URLs. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `2048`.
-	SeedUrls []string `pulumi:"seedUrls"`
-	// The default mode is set to `HOST_ONLY`. You can choose one of the following modes:
-	// * `HOST_ONLY` - crawl only the website host names. For example, if the seed URL is `"abc.example.com"`, then only URLs with host name `"abc.example.com"` are crawled.
-	// * `SUBDOMAINS` - crawl the website host names with subdomains. For example, if the seed URL is `"abc.example.com"`, then `"a.abc.example.com"` and `"b.abc.example.com"` are also crawled.
-	// * `EVERYTHING` - crawl the website host names with subdomains and other domains that the webpages link to.
-	WebCrawlerMode *string `pulumi:"webCrawlerMode"`
+	SeedUrls       []string `pulumi:"seedUrls"`
+	WebCrawlerMode *string  `pulumi:"webCrawlerMode"`
 }
 
 // DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationInput is an input type that accepts DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs and DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput values.
@@ -1771,13 +1641,8 @@ type DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationInput
 }
 
 type DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs struct {
-	// The list of seed or starting point URLs of the websites you want to crawl. The list can include a maximum of `100` seed URLs. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `2048`.
-	SeedUrls pulumi.StringArrayInput `pulumi:"seedUrls"`
-	// The default mode is set to `HOST_ONLY`. You can choose one of the following modes:
-	// * `HOST_ONLY` - crawl only the website host names. For example, if the seed URL is `"abc.example.com"`, then only URLs with host name `"abc.example.com"` are crawled.
-	// * `SUBDOMAINS` - crawl the website host names with subdomains. For example, if the seed URL is `"abc.example.com"`, then `"a.abc.example.com"` and `"b.abc.example.com"` are also crawled.
-	// * `EVERYTHING` - crawl the website host names with subdomains and other domains that the webpages link to.
-	WebCrawlerMode pulumi.StringPtrInput `pulumi:"webCrawlerMode"`
+	SeedUrls       pulumi.StringArrayInput `pulumi:"seedUrls"`
+	WebCrawlerMode pulumi.StringPtrInput   `pulumi:"webCrawlerMode"`
 }
 
 func (DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs) ElementType() reflect.Type {
@@ -1857,17 +1722,12 @@ func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOu
 	}).(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput)
 }
 
-// The list of seed or starting point URLs of the websites you want to crawl. The list can include a maximum of `100` seed URLs. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `2048`.
 func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput) SeedUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration) []string {
 		return v.SeedUrls
 	}).(pulumi.StringArrayOutput)
 }
 
-// The default mode is set to `HOST_ONLY`. You can choose one of the following modes:
-// * `HOST_ONLY` - crawl only the website host names. For example, if the seed URL is `"abc.example.com"`, then only URLs with host name `"abc.example.com"` are crawled.
-// * `SUBDOMAINS` - crawl the website host names with subdomains. For example, if the seed URL is `"abc.example.com"`, then `"a.abc.example.com"` and `"b.abc.example.com"` are also crawled.
-// * `EVERYTHING` - crawl the website host names with subdomains and other domains that the webpages link to.
 func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput) WebCrawlerMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration) *string {
 		return v.WebCrawlerMode
@@ -1898,7 +1758,6 @@ func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPt
 	}).(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput)
 }
 
-// The list of seed or starting point URLs of the websites you want to crawl. The list can include a maximum of `100` seed URLs. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `2048`.
 func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput) SeedUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration) []string {
 		if v == nil {
@@ -1908,10 +1767,6 @@ func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPt
 	}).(pulumi.StringArrayOutput)
 }
 
-// The default mode is set to `HOST_ONLY`. You can choose one of the following modes:
-// * `HOST_ONLY` - crawl only the website host names. For example, if the seed URL is `"abc.example.com"`, then only URLs with host name `"abc.example.com"` are crawled.
-// * `SUBDOMAINS` - crawl the website host names with subdomains. For example, if the seed URL is `"abc.example.com"`, then `"a.abc.example.com"` and `"b.abc.example.com"` are also crawled.
-// * `EVERYTHING` - crawl the website host names with subdomains and other domains that the webpages link to.
 func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput) WebCrawlerMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration) *string {
 		if v == nil {
@@ -1922,7 +1777,6 @@ func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPt
 }
 
 type DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration struct {
-	// The list of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
 	SiteMaps []string `pulumi:"siteMaps"`
 }
 
@@ -1938,7 +1792,6 @@ type DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationInpu
 }
 
 type DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs struct {
-	// The list of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
 	SiteMaps pulumi.StringArrayInput `pulumi:"siteMaps"`
 }
 
@@ -2019,7 +1872,6 @@ func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationO
 	}).(DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput)
 }
 
-// The list of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
 func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutput) SiteMaps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration) []string {
 		return v.SiteMaps
@@ -2050,7 +1902,6 @@ func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationP
 	}).(DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutput)
 }
 
-// The list of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
 func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput) SiteMaps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration) []string {
 		if v == nil {
@@ -2061,14 +1912,10 @@ func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationP
 }
 
 type DataSourceCustomDocumentEnrichmentConfiguration struct {
-	// Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra. Minimum number of `0` items. Maximum number of `100` items. Detailed below.
-	InlineConfigurations []DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration `pulumi:"inlineConfigurations"`
-	// A block that specifies the configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
+	InlineConfigurations            []DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration            `pulumi:"inlineConfigurations"`
 	PostExtractionHookConfiguration *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration `pulumi:"postExtractionHookConfiguration"`
-	// Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
-	PreExtractionHookConfiguration *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration `pulumi:"preExtractionHookConfiguration"`
-	// The Amazon Resource Name (ARN) of a role with permission to run `preExtractionHookConfiguration` and `postExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-	RoleArn *string `pulumi:"roleArn"`
+	PreExtractionHookConfiguration  *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration  `pulumi:"preExtractionHookConfiguration"`
+	RoleArn                         *string                                                                         `pulumi:"roleArn"`
 }
 
 // DataSourceCustomDocumentEnrichmentConfigurationInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationArgs and DataSourceCustomDocumentEnrichmentConfigurationOutput values.
@@ -2083,14 +1930,10 @@ type DataSourceCustomDocumentEnrichmentConfigurationInput interface {
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationArgs struct {
-	// Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra. Minimum number of `0` items. Maximum number of `100` items. Detailed below.
-	InlineConfigurations DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayInput `pulumi:"inlineConfigurations"`
-	// A block that specifies the configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
+	InlineConfigurations            DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayInput           `pulumi:"inlineConfigurations"`
 	PostExtractionHookConfiguration DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrInput `pulumi:"postExtractionHookConfiguration"`
-	// Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
-	PreExtractionHookConfiguration DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrInput `pulumi:"preExtractionHookConfiguration"`
-	// The Amazon Resource Name (ARN) of a role with permission to run `preExtractionHookConfiguration` and `postExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	PreExtractionHookConfiguration  DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrInput  `pulumi:"preExtractionHookConfiguration"`
+	RoleArn                         pulumi.StringPtrInput                                                                  `pulumi:"roleArn"`
 }
 
 func (DataSourceCustomDocumentEnrichmentConfigurationArgs) ElementType() reflect.Type {
@@ -2170,28 +2013,24 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationOutput) ToDataSourceCusto
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPtrOutput)
 }
 
-// Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra. Minimum number of `0` items. Maximum number of `100` items. Detailed below.
 func (o DataSourceCustomDocumentEnrichmentConfigurationOutput) InlineConfigurations() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfiguration) []DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration {
 		return v.InlineConfigurations
 	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutput)
 }
 
-// A block that specifies the configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
 func (o DataSourceCustomDocumentEnrichmentConfigurationOutput) PostExtractionHookConfiguration() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfiguration) *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration {
 		return v.PostExtractionHookConfiguration
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput)
 }
 
-// Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
 func (o DataSourceCustomDocumentEnrichmentConfigurationOutput) PreExtractionHookConfiguration() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfiguration) *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration {
 		return v.PreExtractionHookConfiguration
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of a role with permission to run `preExtractionHookConfiguration` and `postExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 func (o DataSourceCustomDocumentEnrichmentConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfiguration) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
@@ -2220,7 +2059,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) Elem() DataSou
 	}).(DataSourceCustomDocumentEnrichmentConfigurationOutput)
 }
 
-// Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra. Minimum number of `0` items. Maximum number of `100` items. Detailed below.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) InlineConfigurations() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfiguration) []DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration {
 		if v == nil {
@@ -2230,7 +2068,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) InlineConfigur
 	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutput)
 }
 
-// A block that specifies the configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) PostExtractionHookConfiguration() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfiguration) *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration {
 		if v == nil {
@@ -2240,7 +2077,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) PostExtraction
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput)
 }
 
-// Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) PreExtractionHookConfiguration() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfiguration) *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration {
 		if v == nil {
@@ -2250,7 +2086,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) PreExtractionH
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of a role with permission to run `preExtractionHookConfiguration` and `postExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfiguration) *string {
 		if v == nil {
@@ -2261,12 +2096,9 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) RoleArn() pulu
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration struct {
-	// Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
-	Condition *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition `pulumi:"condition"`
-	// `TRUE` to delete content if the condition used for the target attribute is met.
-	DocumentContentDeletion *bool `pulumi:"documentContentDeletion"`
-	// Configuration of the target document attribute or metadata field when ingesting documents into Amazon Kendra. You can also include a value. Detailed below.
-	Target *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget `pulumi:"target"`
+	Condition               *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition `pulumi:"condition"`
+	DocumentContentDeletion *bool                                                                        `pulumi:"documentContentDeletion"`
+	Target                  *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget    `pulumi:"target"`
 }
 
 // DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs and DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput values.
@@ -2281,12 +2113,9 @@ type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationInput int
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs struct {
-	// Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
-	Condition DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrInput `pulumi:"condition"`
-	// `TRUE` to delete content if the condition used for the target attribute is met.
-	DocumentContentDeletion pulumi.BoolPtrInput `pulumi:"documentContentDeletion"`
-	// Configuration of the target document attribute or metadata field when ingesting documents into Amazon Kendra. You can also include a value. Detailed below.
-	Target DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrInput `pulumi:"target"`
+	Condition               DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrInput `pulumi:"condition"`
+	DocumentContentDeletion pulumi.BoolPtrInput                                                                 `pulumi:"documentContentDeletion"`
+	Target                  DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrInput    `pulumi:"target"`
 }
 
 func (DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs) ElementType() reflect.Type {
@@ -2340,21 +2169,18 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput
 	return o
 }
 
-// Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput) Condition() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration) *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition {
 		return v.Condition
 	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput)
 }
 
-// `TRUE` to delete content if the condition used for the target attribute is met.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput) DocumentContentDeletion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration) *bool {
 		return v.DocumentContentDeletion
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Configuration of the target document attribute or metadata field when ingesting documents into Amazon Kendra. You can also include a value. Detailed below.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput) Target() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration) *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget {
 		return v.Target
@@ -2382,12 +2208,9 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayO
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition struct {
-	// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
-	ConditionDocumentAttributeKey string `pulumi:"conditionDocumentAttributeKey"`
-	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
-	ConditionOnValue *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue `pulumi:"conditionOnValue"`
-	// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
-	Operator string `pulumi:"operator"`
+	ConditionDocumentAttributeKey string                                                                                       `pulumi:"conditionDocumentAttributeKey"`
+	ConditionOnValue              *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue `pulumi:"conditionOnValue"`
+	Operator                      string                                                                                       `pulumi:"operator"`
 }
 
 // DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs and DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput values.
@@ -2402,12 +2225,9 @@ type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs struct {
-	// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
-	ConditionDocumentAttributeKey pulumi.StringInput `pulumi:"conditionDocumentAttributeKey"`
-	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
-	ConditionOnValue DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrInput `pulumi:"conditionOnValue"`
-	// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
-	Operator pulumi.StringInput `pulumi:"operator"`
+	ConditionDocumentAttributeKey pulumi.StringInput                                                                                  `pulumi:"conditionDocumentAttributeKey"`
+	ConditionOnValue              DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrInput `pulumi:"conditionOnValue"`
+	Operator                      pulumi.StringInput                                                                                  `pulumi:"operator"`
 }
 
 func (DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs) ElementType() reflect.Type {
@@ -2487,21 +2307,18 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondit
 	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput)
 }
 
-// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput) ConditionDocumentAttributeKey() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition) string {
 		return v.ConditionDocumentAttributeKey
 	}).(pulumi.StringOutput)
 }
 
-// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput) ConditionOnValue() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition) *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue {
 		return v.ConditionOnValue
 	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput)
 }
 
-// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition) string {
 		return v.Operator
@@ -2532,7 +2349,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondit
 	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput)
 }
 
-// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput) ConditionDocumentAttributeKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition) *string {
 		if v == nil {
@@ -2542,7 +2358,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondit
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput) ConditionOnValue() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition) *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue {
 		if v == nil {
@@ -2552,7 +2367,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondit
 	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput)
 }
 
-// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition) *string {
 		if v == nil {
@@ -2563,11 +2377,8 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondit
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue struct {
-	// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
-	DateValue *string `pulumi:"dateValue"`
-	// A long integer value.
-	LongValue *int `pulumi:"longValue"`
-	// A list of strings.
+	DateValue        *string  `pulumi:"dateValue"`
+	LongValue        *int     `pulumi:"longValue"`
 	StringListValues []string `pulumi:"stringListValues"`
 	StringValue      *string  `pulumi:"stringValue"`
 }
@@ -2584,11 +2395,8 @@ type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArgs struct {
-	// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
-	DateValue pulumi.StringPtrInput `pulumi:"dateValue"`
-	// A long integer value.
-	LongValue pulumi.IntPtrInput `pulumi:"longValue"`
-	// A list of strings.
+	DateValue        pulumi.StringPtrInput   `pulumi:"dateValue"`
+	LongValue        pulumi.IntPtrInput      `pulumi:"longValue"`
 	StringListValues pulumi.StringArrayInput `pulumi:"stringListValues"`
 	StringValue      pulumi.StringPtrInput   `pulumi:"stringValue"`
 }
@@ -2670,21 +2478,18 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondit
 	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput)
 }
 
-// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput) DateValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue) *string {
 		return v.DateValue
 	}).(pulumi.StringPtrOutput)
 }
 
-// A long integer value.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput) LongValue() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue) *int {
 		return v.LongValue
 	}).(pulumi.IntPtrOutput)
 }
 
-// A list of strings.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput) StringListValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue) []string {
 		return v.StringListValues
@@ -2721,7 +2526,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondit
 	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput)
 }
 
-// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput) DateValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue) *string {
 		if v == nil {
@@ -2731,7 +2535,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondit
 	}).(pulumi.StringPtrOutput)
 }
 
-// A long integer value.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput) LongValue() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue) *int {
 		if v == nil {
@@ -2741,7 +2544,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondit
 	}).(pulumi.IntPtrOutput)
 }
 
-// A list of strings.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput) StringListValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue) []string {
 		if v == nil {
@@ -2761,12 +2563,9 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondit
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget struct {
-	// The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
-	TargetDocumentAttributeKey *string `pulumi:"targetDocumentAttributeKey"`
-	// The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'. See target_document_attribute_value.
-	TargetDocumentAttributeValue *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue `pulumi:"targetDocumentAttributeValue"`
-	// `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE`. To create a target value (`TargetDocumentAttributeValue`), set this to `FALSE`.
-	TargetDocumentAttributeValueDeletion *bool `pulumi:"targetDocumentAttributeValueDeletion"`
+	TargetDocumentAttributeKey           *string                                                                                               `pulumi:"targetDocumentAttributeKey"`
+	TargetDocumentAttributeValue         *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue `pulumi:"targetDocumentAttributeValue"`
+	TargetDocumentAttributeValueDeletion *bool                                                                                                 `pulumi:"targetDocumentAttributeValueDeletion"`
 }
 
 // DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs and DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput values.
@@ -2781,12 +2580,9 @@ type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetInp
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs struct {
-	// The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
-	TargetDocumentAttributeKey pulumi.StringPtrInput `pulumi:"targetDocumentAttributeKey"`
-	// The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'. See target_document_attribute_value.
-	TargetDocumentAttributeValue DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrInput `pulumi:"targetDocumentAttributeValue"`
-	// `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE`. To create a target value (`TargetDocumentAttributeValue`), set this to `FALSE`.
-	TargetDocumentAttributeValueDeletion pulumi.BoolPtrInput `pulumi:"targetDocumentAttributeValueDeletion"`
+	TargetDocumentAttributeKey           pulumi.StringPtrInput                                                                                        `pulumi:"targetDocumentAttributeKey"`
+	TargetDocumentAttributeValue         DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrInput `pulumi:"targetDocumentAttributeValue"`
+	TargetDocumentAttributeValueDeletion pulumi.BoolPtrInput                                                                                          `pulumi:"targetDocumentAttributeValueDeletion"`
 }
 
 func (DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs) ElementType() reflect.Type {
@@ -2866,21 +2662,18 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget
 	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput)
 }
 
-// The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput) TargetDocumentAttributeKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget) *string {
 		return v.TargetDocumentAttributeKey
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'. See target_document_attribute_value.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput) TargetDocumentAttributeValue() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget) *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue {
 		return v.TargetDocumentAttributeValue
 	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput)
 }
 
-// `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE`. To create a target value (`TargetDocumentAttributeValue`), set this to `FALSE`.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput) TargetDocumentAttributeValueDeletion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget) *bool {
 		return v.TargetDocumentAttributeValueDeletion
@@ -2911,7 +2704,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget
 	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput)
 }
 
-// The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput) TargetDocumentAttributeKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget) *string {
 		if v == nil {
@@ -2921,7 +2713,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'. See target_document_attribute_value.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput) TargetDocumentAttributeValue() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget) *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue {
 		if v == nil {
@@ -2931,7 +2722,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget
 	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput)
 }
 
-// `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE`. To create a target value (`TargetDocumentAttributeValue`), set this to `FALSE`.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput) TargetDocumentAttributeValueDeletion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget) *bool {
 		if v == nil {
@@ -2942,11 +2732,8 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue struct {
-	// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
-	DateValue *string `pulumi:"dateValue"`
-	// A long integer value.
-	LongValue *int `pulumi:"longValue"`
-	// A list of strings.
+	DateValue        *string  `pulumi:"dateValue"`
+	LongValue        *int     `pulumi:"longValue"`
 	StringListValues []string `pulumi:"stringListValues"`
 	StringValue      *string  `pulumi:"stringValue"`
 }
@@ -2963,11 +2750,8 @@ type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTar
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs struct {
-	// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
-	DateValue pulumi.StringPtrInput `pulumi:"dateValue"`
-	// A long integer value.
-	LongValue pulumi.IntPtrInput `pulumi:"longValue"`
-	// A list of strings.
+	DateValue        pulumi.StringPtrInput   `pulumi:"dateValue"`
+	LongValue        pulumi.IntPtrInput      `pulumi:"longValue"`
 	StringListValues pulumi.StringArrayInput `pulumi:"stringListValues"`
 	StringValue      pulumi.StringPtrInput   `pulumi:"stringValue"`
 }
@@ -3049,21 +2833,18 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget
 	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput)
 }
 
-// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput) DateValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue) *string {
 		return v.DateValue
 	}).(pulumi.StringPtrOutput)
 }
 
-// A long integer value.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput) LongValue() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue) *int {
 		return v.LongValue
 	}).(pulumi.IntPtrOutput)
 }
 
-// A list of strings.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput) StringListValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue) []string {
 		return v.StringListValues
@@ -3100,7 +2881,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget
 	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput)
 }
 
-// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput) DateValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue) *string {
 		if v == nil {
@@ -3110,7 +2890,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget
 	}).(pulumi.StringPtrOutput)
 }
 
-// A long integer value.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput) LongValue() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue) *int {
 		if v == nil {
@@ -3120,7 +2899,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget
 	}).(pulumi.IntPtrOutput)
 }
 
-// A list of strings.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput) StringListValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue) []string {
 		if v == nil {
@@ -3140,12 +2918,9 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration struct {
-	// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
 	InvocationCondition *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition `pulumi:"invocationCondition"`
-	// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
-	LambdaArn string `pulumi:"lambdaArn"`
-	// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
-	S3Bucket string `pulumi:"s3Bucket"`
+	LambdaArn           string                                                                                             `pulumi:"lambdaArn"`
+	S3Bucket            string                                                                                             `pulumi:"s3Bucket"`
 }
 
 // DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs and DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput values.
@@ -3160,12 +2935,9 @@ type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurat
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs struct {
-	// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
 	InvocationCondition DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrInput `pulumi:"invocationCondition"`
-	// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
-	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
-	// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
-	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
+	LambdaArn           pulumi.StringInput                                                                                        `pulumi:"lambdaArn"`
+	S3Bucket            pulumi.StringInput                                                                                        `pulumi:"s3Bucket"`
 }
 
 func (DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs) ElementType() reflect.Type {
@@ -3245,21 +3017,18 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput)
 }
 
-// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput) InvocationCondition() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration) *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition {
 		return v.InvocationCondition
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput) LambdaArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration) string {
 		return v.LambdaArn
 	}).(pulumi.StringOutput)
 }
 
-// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput) S3Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration) string {
 		return v.S3Bucket
@@ -3290,7 +3059,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput)
 }
 
-// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput) InvocationCondition() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration) *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition {
 		if v == nil {
@@ -3300,7 +3068,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration) *string {
 		if v == nil {
@@ -3310,7 +3077,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput) S3Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration) *string {
 		if v == nil {
@@ -3321,12 +3087,9 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition struct {
-	// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
-	ConditionDocumentAttributeKey string `pulumi:"conditionDocumentAttributeKey"`
-	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
-	ConditionOnValue *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue `pulumi:"conditionOnValue"`
-	// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
-	Operator string `pulumi:"operator"`
+	ConditionDocumentAttributeKey string                                                                                                             `pulumi:"conditionDocumentAttributeKey"`
+	ConditionOnValue              *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue `pulumi:"conditionOnValue"`
+	Operator                      string                                                                                                             `pulumi:"operator"`
 }
 
 // DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs and DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput values.
@@ -3341,12 +3104,9 @@ type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurat
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs struct {
-	// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
-	ConditionDocumentAttributeKey pulumi.StringInput `pulumi:"conditionDocumentAttributeKey"`
-	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
-	ConditionOnValue DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrInput `pulumi:"conditionOnValue"`
-	// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
-	Operator pulumi.StringInput `pulumi:"operator"`
+	ConditionDocumentAttributeKey pulumi.StringInput                                                                                                        `pulumi:"conditionDocumentAttributeKey"`
+	ConditionOnValue              DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrInput `pulumi:"conditionOnValue"`
+	Operator                      pulumi.StringInput                                                                                                        `pulumi:"operator"`
 }
 
 func (DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs) ElementType() reflect.Type {
@@ -3426,21 +3186,18 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput)
 }
 
-// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput) ConditionDocumentAttributeKey() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition) string {
 		return v.ConditionDocumentAttributeKey
 	}).(pulumi.StringOutput)
 }
 
-// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput) ConditionOnValue() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition) *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue {
 		return v.ConditionOnValue
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput)
 }
 
-// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition) string {
 		return v.Operator
@@ -3471,7 +3228,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput)
 }
 
-// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput) ConditionDocumentAttributeKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition) *string {
 		if v == nil {
@@ -3481,7 +3237,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput) ConditionOnValue() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition) *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue {
 		if v == nil {
@@ -3491,7 +3246,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput)
 }
 
-// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition) *string {
 		if v == nil {
@@ -3502,11 +3256,8 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue struct {
-	// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
-	DateValue *string `pulumi:"dateValue"`
-	// A long integer value.
-	LongValue *int `pulumi:"longValue"`
-	// A list of strings.
+	DateValue        *string  `pulumi:"dateValue"`
+	LongValue        *int     `pulumi:"longValue"`
 	StringListValues []string `pulumi:"stringListValues"`
 	StringValue      *string  `pulumi:"stringValue"`
 }
@@ -3523,11 +3274,8 @@ type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurat
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs struct {
-	// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
-	DateValue pulumi.StringPtrInput `pulumi:"dateValue"`
-	// A long integer value.
-	LongValue pulumi.IntPtrInput `pulumi:"longValue"`
-	// A list of strings.
+	DateValue        pulumi.StringPtrInput   `pulumi:"dateValue"`
+	LongValue        pulumi.IntPtrInput      `pulumi:"longValue"`
 	StringListValues pulumi.StringArrayInput `pulumi:"stringListValues"`
 	StringValue      pulumi.StringPtrInput   `pulumi:"stringValue"`
 }
@@ -3609,21 +3357,18 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput)
 }
 
-// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput) DateValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue) *string {
 		return v.DateValue
 	}).(pulumi.StringPtrOutput)
 }
 
-// A long integer value.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput) LongValue() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue) *int {
 		return v.LongValue
 	}).(pulumi.IntPtrOutput)
 }
 
-// A list of strings.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput) StringListValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue) []string {
 		return v.StringListValues
@@ -3660,7 +3405,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput)
 }
 
-// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput) DateValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue) *string {
 		if v == nil {
@@ -3670,7 +3414,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A long integer value.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput) LongValue() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue) *int {
 		if v == nil {
@@ -3680,7 +3423,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 	}).(pulumi.IntPtrOutput)
 }
 
-// A list of strings.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput) StringListValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue) []string {
 		if v == nil {
@@ -3700,12 +3442,9 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration struct {
-	// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
 	InvocationCondition *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition `pulumi:"invocationCondition"`
-	// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
-	LambdaArn string `pulumi:"lambdaArn"`
-	// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
-	S3Bucket string `pulumi:"s3Bucket"`
+	LambdaArn           string                                                                                            `pulumi:"lambdaArn"`
+	S3Bucket            string                                                                                            `pulumi:"s3Bucket"`
 }
 
 // DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs and DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput values.
@@ -3720,12 +3459,9 @@ type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurati
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs struct {
-	// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
 	InvocationCondition DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrInput `pulumi:"invocationCondition"`
-	// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
-	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
-	// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
-	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
+	LambdaArn           pulumi.StringInput                                                                                       `pulumi:"lambdaArn"`
+	S3Bucket            pulumi.StringInput                                                                                       `pulumi:"s3Bucket"`
 }
 
 func (DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs) ElementType() reflect.Type {
@@ -3805,21 +3541,18 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput)
 }
 
-// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput) InvocationCondition() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration) *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition {
 		return v.InvocationCondition
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput) LambdaArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration) string {
 		return v.LambdaArn
 	}).(pulumi.StringOutput)
 }
 
-// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput) S3Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration) string {
 		return v.S3Bucket
@@ -3850,7 +3583,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput)
 }
 
-// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput) InvocationCondition() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration) *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition {
 		if v == nil {
@@ -3860,7 +3592,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration) *string {
 		if v == nil {
@@ -3870,7 +3601,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 	}).(pulumi.StringPtrOutput)
 }
 
-// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput) S3Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration) *string {
 		if v == nil {
@@ -3881,12 +3611,9 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition struct {
-	// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
-	ConditionDocumentAttributeKey string `pulumi:"conditionDocumentAttributeKey"`
-	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
-	ConditionOnValue *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue `pulumi:"conditionOnValue"`
-	// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
-	Operator string `pulumi:"operator"`
+	ConditionDocumentAttributeKey string                                                                                                            `pulumi:"conditionDocumentAttributeKey"`
+	ConditionOnValue              *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue `pulumi:"conditionOnValue"`
+	Operator                      string                                                                                                            `pulumi:"operator"`
 }
 
 // DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs and DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput values.
@@ -3901,12 +3628,9 @@ type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurati
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs struct {
-	// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
-	ConditionDocumentAttributeKey pulumi.StringInput `pulumi:"conditionDocumentAttributeKey"`
-	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
-	ConditionOnValue DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrInput `pulumi:"conditionOnValue"`
-	// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
-	Operator pulumi.StringInput `pulumi:"operator"`
+	ConditionDocumentAttributeKey pulumi.StringInput                                                                                                       `pulumi:"conditionDocumentAttributeKey"`
+	ConditionOnValue              DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrInput `pulumi:"conditionOnValue"`
+	Operator                      pulumi.StringInput                                                                                                       `pulumi:"operator"`
 }
 
 func (DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs) ElementType() reflect.Type {
@@ -3986,21 +3710,18 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput)
 }
 
-// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput) ConditionDocumentAttributeKey() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition) string {
 		return v.ConditionDocumentAttributeKey
 	}).(pulumi.StringOutput)
 }
 
-// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput) ConditionOnValue() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition) *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue {
 		return v.ConditionOnValue
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput)
 }
 
-// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition) string {
 		return v.Operator
@@ -4031,7 +3752,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput)
 }
 
-// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput) ConditionDocumentAttributeKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition) *string {
 		if v == nil {
@@ -4041,7 +3761,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput) ConditionOnValue() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition) *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue {
 		if v == nil {
@@ -4051,7 +3770,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput)
 }
 
-// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition) *string {
 		if v == nil {
@@ -4062,11 +3780,8 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue struct {
-	// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
-	DateValue *string `pulumi:"dateValue"`
-	// A long integer value.
-	LongValue *int `pulumi:"longValue"`
-	// A list of strings.
+	DateValue        *string  `pulumi:"dateValue"`
+	LongValue        *int     `pulumi:"longValue"`
 	StringListValues []string `pulumi:"stringListValues"`
 	StringValue      *string  `pulumi:"stringValue"`
 }
@@ -4083,11 +3798,8 @@ type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurati
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgs struct {
-	// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
-	DateValue pulumi.StringPtrInput `pulumi:"dateValue"`
-	// A long integer value.
-	LongValue pulumi.IntPtrInput `pulumi:"longValue"`
-	// A list of strings.
+	DateValue        pulumi.StringPtrInput   `pulumi:"dateValue"`
+	LongValue        pulumi.IntPtrInput      `pulumi:"longValue"`
 	StringListValues pulumi.StringArrayInput `pulumi:"stringListValues"`
 	StringValue      pulumi.StringPtrInput   `pulumi:"stringValue"`
 }
@@ -4169,21 +3881,18 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput)
 }
 
-// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput) DateValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue) *string {
 		return v.DateValue
 	}).(pulumi.StringPtrOutput)
 }
 
-// A long integer value.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput) LongValue() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue) *int {
 		return v.LongValue
 	}).(pulumi.IntPtrOutput)
 }
 
-// A list of strings.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput) StringListValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue) []string {
 		return v.StringListValues
@@ -4220,7 +3929,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput)
 }
 
-// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput) DateValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue) *string {
 		if v == nil {
@@ -4230,7 +3938,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 	}).(pulumi.StringPtrOutput)
 }
 
-// A long integer value.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput) LongValue() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue) *int {
 		if v == nil {
@@ -4240,7 +3947,6 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 	}).(pulumi.IntPtrOutput)
 }
 
-// A list of strings.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput) StringListValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue) []string {
 		if v == nil {
@@ -4260,10 +3966,8 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 }
 
 type ExperienceConfiguration struct {
-	// The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
 	ContentSourceConfiguration *ExperienceConfigurationContentSourceConfiguration `pulumi:"contentSourceConfiguration"`
-	// The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
-	UserIdentityConfiguration *ExperienceConfigurationUserIdentityConfiguration `pulumi:"userIdentityConfiguration"`
+	UserIdentityConfiguration  *ExperienceConfigurationUserIdentityConfiguration  `pulumi:"userIdentityConfiguration"`
 }
 
 // ExperienceConfigurationInput is an input type that accepts ExperienceConfigurationArgs and ExperienceConfigurationOutput values.
@@ -4278,10 +3982,8 @@ type ExperienceConfigurationInput interface {
 }
 
 type ExperienceConfigurationArgs struct {
-	// The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
 	ContentSourceConfiguration ExperienceConfigurationContentSourceConfigurationPtrInput `pulumi:"contentSourceConfiguration"`
-	// The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
-	UserIdentityConfiguration ExperienceConfigurationUserIdentityConfigurationPtrInput `pulumi:"userIdentityConfiguration"`
+	UserIdentityConfiguration  ExperienceConfigurationUserIdentityConfigurationPtrInput  `pulumi:"userIdentityConfiguration"`
 }
 
 func (ExperienceConfigurationArgs) ElementType() reflect.Type {
@@ -4361,14 +4063,12 @@ func (o ExperienceConfigurationOutput) ToExperienceConfigurationPtrOutputWithCon
 	}).(ExperienceConfigurationPtrOutput)
 }
 
-// The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
 func (o ExperienceConfigurationOutput) ContentSourceConfiguration() ExperienceConfigurationContentSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v ExperienceConfiguration) *ExperienceConfigurationContentSourceConfiguration {
 		return v.ContentSourceConfiguration
 	}).(ExperienceConfigurationContentSourceConfigurationPtrOutput)
 }
 
-// The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
 func (o ExperienceConfigurationOutput) UserIdentityConfiguration() ExperienceConfigurationUserIdentityConfigurationPtrOutput {
 	return o.ApplyT(func(v ExperienceConfiguration) *ExperienceConfigurationUserIdentityConfiguration {
 		return v.UserIdentityConfiguration
@@ -4399,7 +4099,6 @@ func (o ExperienceConfigurationPtrOutput) Elem() ExperienceConfigurationOutput {
 	}).(ExperienceConfigurationOutput)
 }
 
-// The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
 func (o ExperienceConfigurationPtrOutput) ContentSourceConfiguration() ExperienceConfigurationContentSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *ExperienceConfiguration) *ExperienceConfigurationContentSourceConfiguration {
 		if v == nil {
@@ -4409,7 +4108,6 @@ func (o ExperienceConfigurationPtrOutput) ContentSourceConfiguration() Experienc
 	}).(ExperienceConfigurationContentSourceConfigurationPtrOutput)
 }
 
-// The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
 func (o ExperienceConfigurationPtrOutput) UserIdentityConfiguration() ExperienceConfigurationUserIdentityConfigurationPtrOutput {
 	return o.ApplyT(func(v *ExperienceConfiguration) *ExperienceConfigurationUserIdentityConfiguration {
 		if v == nil {
@@ -4420,12 +4118,9 @@ func (o ExperienceConfigurationPtrOutput) UserIdentityConfiguration() Experience
 }
 
 type ExperienceConfigurationContentSourceConfiguration struct {
-	// The identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
-	DataSourceIds []string `pulumi:"dataSourceIds"`
-	// Whether to use documents you indexed directly using the `BatchPutDocument API`. Defaults to `false`.
-	DirectPutContent *bool `pulumi:"directPutContent"`
-	// The identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
-	FaqIds []string `pulumi:"faqIds"`
+	DataSourceIds    []string `pulumi:"dataSourceIds"`
+	DirectPutContent *bool    `pulumi:"directPutContent"`
+	FaqIds           []string `pulumi:"faqIds"`
 }
 
 // ExperienceConfigurationContentSourceConfigurationInput is an input type that accepts ExperienceConfigurationContentSourceConfigurationArgs and ExperienceConfigurationContentSourceConfigurationOutput values.
@@ -4440,12 +4135,9 @@ type ExperienceConfigurationContentSourceConfigurationInput interface {
 }
 
 type ExperienceConfigurationContentSourceConfigurationArgs struct {
-	// The identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
-	DataSourceIds pulumi.StringArrayInput `pulumi:"dataSourceIds"`
-	// Whether to use documents you indexed directly using the `BatchPutDocument API`. Defaults to `false`.
-	DirectPutContent pulumi.BoolPtrInput `pulumi:"directPutContent"`
-	// The identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
-	FaqIds pulumi.StringArrayInput `pulumi:"faqIds"`
+	DataSourceIds    pulumi.StringArrayInput `pulumi:"dataSourceIds"`
+	DirectPutContent pulumi.BoolPtrInput     `pulumi:"directPutContent"`
+	FaqIds           pulumi.StringArrayInput `pulumi:"faqIds"`
 }
 
 func (ExperienceConfigurationContentSourceConfigurationArgs) ElementType() reflect.Type {
@@ -4525,17 +4217,14 @@ func (o ExperienceConfigurationContentSourceConfigurationOutput) ToExperienceCon
 	}).(ExperienceConfigurationContentSourceConfigurationPtrOutput)
 }
 
-// The identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
 func (o ExperienceConfigurationContentSourceConfigurationOutput) DataSourceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ExperienceConfigurationContentSourceConfiguration) []string { return v.DataSourceIds }).(pulumi.StringArrayOutput)
 }
 
-// Whether to use documents you indexed directly using the `BatchPutDocument API`. Defaults to `false`.
 func (o ExperienceConfigurationContentSourceConfigurationOutput) DirectPutContent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExperienceConfigurationContentSourceConfiguration) *bool { return v.DirectPutContent }).(pulumi.BoolPtrOutput)
 }
 
-// The identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
 func (o ExperienceConfigurationContentSourceConfigurationOutput) FaqIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ExperienceConfigurationContentSourceConfiguration) []string { return v.FaqIds }).(pulumi.StringArrayOutput)
 }
@@ -4564,7 +4253,6 @@ func (o ExperienceConfigurationContentSourceConfigurationPtrOutput) Elem() Exper
 	}).(ExperienceConfigurationContentSourceConfigurationOutput)
 }
 
-// The identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
 func (o ExperienceConfigurationContentSourceConfigurationPtrOutput) DataSourceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ExperienceConfigurationContentSourceConfiguration) []string {
 		if v == nil {
@@ -4574,7 +4262,6 @@ func (o ExperienceConfigurationContentSourceConfigurationPtrOutput) DataSourceId
 	}).(pulumi.StringArrayOutput)
 }
 
-// Whether to use documents you indexed directly using the `BatchPutDocument API`. Defaults to `false`.
 func (o ExperienceConfigurationContentSourceConfigurationPtrOutput) DirectPutContent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ExperienceConfigurationContentSourceConfiguration) *bool {
 		if v == nil {
@@ -4584,7 +4271,6 @@ func (o ExperienceConfigurationContentSourceConfigurationPtrOutput) DirectPutCon
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
 func (o ExperienceConfigurationContentSourceConfigurationPtrOutput) FaqIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ExperienceConfigurationContentSourceConfiguration) []string {
 		if v == nil {
@@ -4595,7 +4281,6 @@ func (o ExperienceConfigurationContentSourceConfigurationPtrOutput) FaqIds() pul
 }
 
 type ExperienceConfigurationUserIdentityConfiguration struct {
-	// The AWS SSO field name that contains the identifiers of your users, such as their emails.
 	IdentityAttributeName string `pulumi:"identityAttributeName"`
 }
 
@@ -4611,7 +4296,6 @@ type ExperienceConfigurationUserIdentityConfigurationInput interface {
 }
 
 type ExperienceConfigurationUserIdentityConfigurationArgs struct {
-	// The AWS SSO field name that contains the identifiers of your users, such as their emails.
 	IdentityAttributeName pulumi.StringInput `pulumi:"identityAttributeName"`
 }
 
@@ -4692,7 +4376,6 @@ func (o ExperienceConfigurationUserIdentityConfigurationOutput) ToExperienceConf
 	}).(ExperienceConfigurationUserIdentityConfigurationPtrOutput)
 }
 
-// The AWS SSO field name that contains the identifiers of your users, such as their emails.
 func (o ExperienceConfigurationUserIdentityConfigurationOutput) IdentityAttributeName() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperienceConfigurationUserIdentityConfiguration) string { return v.IdentityAttributeName }).(pulumi.StringOutput)
 }
@@ -4721,7 +4404,6 @@ func (o ExperienceConfigurationUserIdentityConfigurationPtrOutput) Elem() Experi
 	}).(ExperienceConfigurationUserIdentityConfigurationOutput)
 }
 
-// The AWS SSO field name that contains the identifiers of your users, such as their emails.
 func (o ExperienceConfigurationUserIdentityConfigurationPtrOutput) IdentityAttributeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExperienceConfigurationUserIdentityConfiguration) *string {
 		if v == nil {
@@ -4732,9 +4414,7 @@ func (o ExperienceConfigurationUserIdentityConfigurationPtrOutput) IdentityAttri
 }
 
 type ExperienceEndpoint struct {
-	// The endpoint of your Amazon Kendra experience.
-	Endpoint *string `pulumi:"endpoint"`
-	// The type of endpoint for your Amazon Kendra experience.
+	Endpoint     *string `pulumi:"endpoint"`
 	EndpointType *string `pulumi:"endpointType"`
 }
 
@@ -4750,9 +4430,7 @@ type ExperienceEndpointInput interface {
 }
 
 type ExperienceEndpointArgs struct {
-	// The endpoint of your Amazon Kendra experience.
-	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
-	// The type of endpoint for your Amazon Kendra experience.
+	Endpoint     pulumi.StringPtrInput `pulumi:"endpoint"`
 	EndpointType pulumi.StringPtrInput `pulumi:"endpointType"`
 }
 
@@ -4807,12 +4485,10 @@ func (o ExperienceEndpointOutput) ToExperienceEndpointOutputWithContext(ctx cont
 	return o
 }
 
-// The endpoint of your Amazon Kendra experience.
 func (o ExperienceEndpointOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExperienceEndpoint) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
-// The type of endpoint for your Amazon Kendra experience.
 func (o ExperienceEndpointOutput) EndpointType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExperienceEndpoint) *string { return v.EndpointType }).(pulumi.StringPtrOutput)
 }
@@ -4838,12 +4514,8 @@ func (o ExperienceEndpointArrayOutput) Index(i pulumi.IntInput) ExperienceEndpoi
 }
 
 type FaqS3Path struct {
-	// The name of the S3 bucket that contains the file.
 	Bucket string `pulumi:"bucket"`
-	// The name of the file.
-	//
-	// The following arguments are optional:
-	Key string `pulumi:"key"`
+	Key    string `pulumi:"key"`
 }
 
 // FaqS3PathInput is an input type that accepts FaqS3PathArgs and FaqS3PathOutput values.
@@ -4858,12 +4530,8 @@ type FaqS3PathInput interface {
 }
 
 type FaqS3PathArgs struct {
-	// The name of the S3 bucket that contains the file.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// The name of the file.
-	//
-	// The following arguments are optional:
-	Key pulumi.StringInput `pulumi:"key"`
+	Key    pulumi.StringInput `pulumi:"key"`
 }
 
 func (FaqS3PathArgs) ElementType() reflect.Type {
@@ -4943,14 +4611,10 @@ func (o FaqS3PathOutput) ToFaqS3PathPtrOutputWithContext(ctx context.Context) Fa
 	}).(FaqS3PathPtrOutput)
 }
 
-// The name of the S3 bucket that contains the file.
 func (o FaqS3PathOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v FaqS3Path) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// The name of the file.
-//
-// The following arguments are optional:
 func (o FaqS3PathOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v FaqS3Path) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -4979,7 +4643,6 @@ func (o FaqS3PathPtrOutput) Elem() FaqS3PathOutput {
 	}).(FaqS3PathOutput)
 }
 
-// The name of the S3 bucket that contains the file.
 func (o FaqS3PathPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FaqS3Path) *string {
 		if v == nil {
@@ -4989,9 +4652,6 @@ func (o FaqS3PathPtrOutput) Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the file.
-//
-// The following arguments are optional:
 func (o FaqS3PathPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FaqS3Path) *string {
 		if v == nil {
@@ -5002,9 +4662,7 @@ func (o FaqS3PathPtrOutput) Key() pulumi.StringPtrOutput {
 }
 
 type IndexCapacityUnits struct {
-	// The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
-	QueryCapacityUnits *int `pulumi:"queryCapacityUnits"`
-	// The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
+	QueryCapacityUnits   *int `pulumi:"queryCapacityUnits"`
 	StorageCapacityUnits *int `pulumi:"storageCapacityUnits"`
 }
 
@@ -5020,9 +4678,7 @@ type IndexCapacityUnitsInput interface {
 }
 
 type IndexCapacityUnitsArgs struct {
-	// The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
-	QueryCapacityUnits pulumi.IntPtrInput `pulumi:"queryCapacityUnits"`
-	// The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
+	QueryCapacityUnits   pulumi.IntPtrInput `pulumi:"queryCapacityUnits"`
 	StorageCapacityUnits pulumi.IntPtrInput `pulumi:"storageCapacityUnits"`
 }
 
@@ -5103,12 +4759,10 @@ func (o IndexCapacityUnitsOutput) ToIndexCapacityUnitsPtrOutputWithContext(ctx c
 	}).(IndexCapacityUnitsPtrOutput)
 }
 
-// The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
 func (o IndexCapacityUnitsOutput) QueryCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IndexCapacityUnits) *int { return v.QueryCapacityUnits }).(pulumi.IntPtrOutput)
 }
 
-// The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
 func (o IndexCapacityUnitsOutput) StorageCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IndexCapacityUnits) *int { return v.StorageCapacityUnits }).(pulumi.IntPtrOutput)
 }
@@ -5137,7 +4791,6 @@ func (o IndexCapacityUnitsPtrOutput) Elem() IndexCapacityUnitsOutput {
 	}).(IndexCapacityUnitsOutput)
 }
 
-// The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
 func (o IndexCapacityUnitsPtrOutput) QueryCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *IndexCapacityUnits) *int {
 		if v == nil {
@@ -5147,7 +4800,6 @@ func (o IndexCapacityUnitsPtrOutput) QueryCapacityUnits() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
 func (o IndexCapacityUnitsPtrOutput) StorageCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *IndexCapacityUnits) *int {
 		if v == nil {
@@ -5158,14 +4810,10 @@ func (o IndexCapacityUnitsPtrOutput) StorageCapacityUnits() pulumi.IntPtrOutput 
 }
 
 type IndexDocumentMetadataConfigurationUpdate struct {
-	// The name of the index field. Minimum length of 1. Maximum length of 30.
-	Name string `pulumi:"name"`
-	// A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
+	Name      string                                             `pulumi:"name"`
 	Relevance *IndexDocumentMetadataConfigurationUpdateRelevance `pulumi:"relevance"`
-	// A block that provides information about how the field is used during a search. Documented below. Detailed below
-	Search *IndexDocumentMetadataConfigurationUpdateSearch `pulumi:"search"`
-	// The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
-	Type string `pulumi:"type"`
+	Search    *IndexDocumentMetadataConfigurationUpdateSearch    `pulumi:"search"`
+	Type      string                                             `pulumi:"type"`
 }
 
 // IndexDocumentMetadataConfigurationUpdateInput is an input type that accepts IndexDocumentMetadataConfigurationUpdateArgs and IndexDocumentMetadataConfigurationUpdateOutput values.
@@ -5180,14 +4828,10 @@ type IndexDocumentMetadataConfigurationUpdateInput interface {
 }
 
 type IndexDocumentMetadataConfigurationUpdateArgs struct {
-	// The name of the index field. Minimum length of 1. Maximum length of 30.
-	Name pulumi.StringInput `pulumi:"name"`
-	// A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
+	Name      pulumi.StringInput                                        `pulumi:"name"`
 	Relevance IndexDocumentMetadataConfigurationUpdateRelevancePtrInput `pulumi:"relevance"`
-	// A block that provides information about how the field is used during a search. Documented below. Detailed below
-	Search IndexDocumentMetadataConfigurationUpdateSearchPtrInput `pulumi:"search"`
-	// The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
-	Type pulumi.StringInput `pulumi:"type"`
+	Search    IndexDocumentMetadataConfigurationUpdateSearchPtrInput    `pulumi:"search"`
+	Type      pulumi.StringInput                                        `pulumi:"type"`
 }
 
 func (IndexDocumentMetadataConfigurationUpdateArgs) ElementType() reflect.Type {
@@ -5241,26 +4885,22 @@ func (o IndexDocumentMetadataConfigurationUpdateOutput) ToIndexDocumentMetadataC
 	return o
 }
 
-// The name of the index field. Minimum length of 1. Maximum length of 30.
 func (o IndexDocumentMetadataConfigurationUpdateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IndexDocumentMetadataConfigurationUpdate) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
 func (o IndexDocumentMetadataConfigurationUpdateOutput) Relevance() IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput {
 	return o.ApplyT(func(v IndexDocumentMetadataConfigurationUpdate) *IndexDocumentMetadataConfigurationUpdateRelevance {
 		return v.Relevance
 	}).(IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput)
 }
 
-// A block that provides information about how the field is used during a search. Documented below. Detailed below
 func (o IndexDocumentMetadataConfigurationUpdateOutput) Search() IndexDocumentMetadataConfigurationUpdateSearchPtrOutput {
 	return o.ApplyT(func(v IndexDocumentMetadataConfigurationUpdate) *IndexDocumentMetadataConfigurationUpdateSearch {
 		return v.Search
 	}).(IndexDocumentMetadataConfigurationUpdateSearchPtrOutput)
 }
 
-// The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
 func (o IndexDocumentMetadataConfigurationUpdateOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v IndexDocumentMetadataConfigurationUpdate) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5286,15 +4926,10 @@ func (o IndexDocumentMetadataConfigurationUpdateArrayOutput) Index(i pulumi.IntI
 }
 
 type IndexDocumentMetadataConfigurationUpdateRelevance struct {
-	// Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
-	Duration *string `pulumi:"duration"`
-	// Indicates that this field determines how "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
-	Freshness *bool `pulumi:"freshness"`
-	// The relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
-	Importance *int `pulumi:"importance"`
-	// Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
-	RankOrder *string `pulumi:"rankOrder"`
-	// A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
+	Duration            *string        `pulumi:"duration"`
+	Freshness           *bool          `pulumi:"freshness"`
+	Importance          *int           `pulumi:"importance"`
+	RankOrder           *string        `pulumi:"rankOrder"`
 	ValuesImportanceMap map[string]int `pulumi:"valuesImportanceMap"`
 }
 
@@ -5310,16 +4945,11 @@ type IndexDocumentMetadataConfigurationUpdateRelevanceInput interface {
 }
 
 type IndexDocumentMetadataConfigurationUpdateRelevanceArgs struct {
-	// Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
-	Duration pulumi.StringPtrInput `pulumi:"duration"`
-	// Indicates that this field determines how "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
-	Freshness pulumi.BoolPtrInput `pulumi:"freshness"`
-	// The relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
-	Importance pulumi.IntPtrInput `pulumi:"importance"`
-	// Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
-	RankOrder pulumi.StringPtrInput `pulumi:"rankOrder"`
-	// A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
-	ValuesImportanceMap pulumi.IntMapInput `pulumi:"valuesImportanceMap"`
+	Duration            pulumi.StringPtrInput `pulumi:"duration"`
+	Freshness           pulumi.BoolPtrInput   `pulumi:"freshness"`
+	Importance          pulumi.IntPtrInput    `pulumi:"importance"`
+	RankOrder           pulumi.StringPtrInput `pulumi:"rankOrder"`
+	ValuesImportanceMap pulumi.IntMapInput    `pulumi:"valuesImportanceMap"`
 }
 
 func (IndexDocumentMetadataConfigurationUpdateRelevanceArgs) ElementType() reflect.Type {
@@ -5399,27 +5029,22 @@ func (o IndexDocumentMetadataConfigurationUpdateRelevanceOutput) ToIndexDocument
 	}).(IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput)
 }
 
-// Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
 func (o IndexDocumentMetadataConfigurationUpdateRelevanceOutput) Duration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IndexDocumentMetadataConfigurationUpdateRelevance) *string { return v.Duration }).(pulumi.StringPtrOutput)
 }
 
-// Indicates that this field determines how "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
 func (o IndexDocumentMetadataConfigurationUpdateRelevanceOutput) Freshness() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IndexDocumentMetadataConfigurationUpdateRelevance) *bool { return v.Freshness }).(pulumi.BoolPtrOutput)
 }
 
-// The relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
 func (o IndexDocumentMetadataConfigurationUpdateRelevanceOutput) Importance() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IndexDocumentMetadataConfigurationUpdateRelevance) *int { return v.Importance }).(pulumi.IntPtrOutput)
 }
 
-// Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
 func (o IndexDocumentMetadataConfigurationUpdateRelevanceOutput) RankOrder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IndexDocumentMetadataConfigurationUpdateRelevance) *string { return v.RankOrder }).(pulumi.StringPtrOutput)
 }
 
-// A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
 func (o IndexDocumentMetadataConfigurationUpdateRelevanceOutput) ValuesImportanceMap() pulumi.IntMapOutput {
 	return o.ApplyT(func(v IndexDocumentMetadataConfigurationUpdateRelevance) map[string]int { return v.ValuesImportanceMap }).(pulumi.IntMapOutput)
 }
@@ -5448,7 +5073,6 @@ func (o IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput) Elem() Index
 	}).(IndexDocumentMetadataConfigurationUpdateRelevanceOutput)
 }
 
-// Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
 func (o IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput) Duration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IndexDocumentMetadataConfigurationUpdateRelevance) *string {
 		if v == nil {
@@ -5458,7 +5082,6 @@ func (o IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput) Duration() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates that this field determines how "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
 func (o IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput) Freshness() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IndexDocumentMetadataConfigurationUpdateRelevance) *bool {
 		if v == nil {
@@ -5468,7 +5091,6 @@ func (o IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput) Freshness() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
 func (o IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput) Importance() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *IndexDocumentMetadataConfigurationUpdateRelevance) *int {
 		if v == nil {
@@ -5478,7 +5100,6 @@ func (o IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput) Importance()
 	}).(pulumi.IntPtrOutput)
 }
 
-// Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
 func (o IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput) RankOrder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IndexDocumentMetadataConfigurationUpdateRelevance) *string {
 		if v == nil {
@@ -5488,7 +5109,6 @@ func (o IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput) RankOrder() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
 func (o IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput) ValuesImportanceMap() pulumi.IntMapOutput {
 	return o.ApplyT(func(v *IndexDocumentMetadataConfigurationUpdateRelevance) map[string]int {
 		if v == nil {
@@ -5499,14 +5119,10 @@ func (o IndexDocumentMetadataConfigurationUpdateRelevancePtrOutput) ValuesImport
 }
 
 type IndexDocumentMetadataConfigurationUpdateSearch struct {
-	// Determines whether the field is returned in the query response. The default is `true`.
 	Displayable *bool `pulumi:"displayable"`
-	// Indicates that the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
-	Facetable *bool `pulumi:"facetable"`
-	// Determines whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
-	Searchable *bool `pulumi:"searchable"`
-	// Determines whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `false`.
-	Sortable *bool `pulumi:"sortable"`
+	Facetable   *bool `pulumi:"facetable"`
+	Searchable  *bool `pulumi:"searchable"`
+	Sortable    *bool `pulumi:"sortable"`
 }
 
 // IndexDocumentMetadataConfigurationUpdateSearchInput is an input type that accepts IndexDocumentMetadataConfigurationUpdateSearchArgs and IndexDocumentMetadataConfigurationUpdateSearchOutput values.
@@ -5521,14 +5137,10 @@ type IndexDocumentMetadataConfigurationUpdateSearchInput interface {
 }
 
 type IndexDocumentMetadataConfigurationUpdateSearchArgs struct {
-	// Determines whether the field is returned in the query response. The default is `true`.
 	Displayable pulumi.BoolPtrInput `pulumi:"displayable"`
-	// Indicates that the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
-	Facetable pulumi.BoolPtrInput `pulumi:"facetable"`
-	// Determines whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
-	Searchable pulumi.BoolPtrInput `pulumi:"searchable"`
-	// Determines whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `false`.
-	Sortable pulumi.BoolPtrInput `pulumi:"sortable"`
+	Facetable   pulumi.BoolPtrInput `pulumi:"facetable"`
+	Searchable  pulumi.BoolPtrInput `pulumi:"searchable"`
+	Sortable    pulumi.BoolPtrInput `pulumi:"sortable"`
 }
 
 func (IndexDocumentMetadataConfigurationUpdateSearchArgs) ElementType() reflect.Type {
@@ -5608,22 +5220,18 @@ func (o IndexDocumentMetadataConfigurationUpdateSearchOutput) ToIndexDocumentMet
 	}).(IndexDocumentMetadataConfigurationUpdateSearchPtrOutput)
 }
 
-// Determines whether the field is returned in the query response. The default is `true`.
 func (o IndexDocumentMetadataConfigurationUpdateSearchOutput) Displayable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IndexDocumentMetadataConfigurationUpdateSearch) *bool { return v.Displayable }).(pulumi.BoolPtrOutput)
 }
 
-// Indicates that the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
 func (o IndexDocumentMetadataConfigurationUpdateSearchOutput) Facetable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IndexDocumentMetadataConfigurationUpdateSearch) *bool { return v.Facetable }).(pulumi.BoolPtrOutput)
 }
 
-// Determines whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
 func (o IndexDocumentMetadataConfigurationUpdateSearchOutput) Searchable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IndexDocumentMetadataConfigurationUpdateSearch) *bool { return v.Searchable }).(pulumi.BoolPtrOutput)
 }
 
-// Determines whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `false`.
 func (o IndexDocumentMetadataConfigurationUpdateSearchOutput) Sortable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IndexDocumentMetadataConfigurationUpdateSearch) *bool { return v.Sortable }).(pulumi.BoolPtrOutput)
 }
@@ -5652,7 +5260,6 @@ func (o IndexDocumentMetadataConfigurationUpdateSearchPtrOutput) Elem() IndexDoc
 	}).(IndexDocumentMetadataConfigurationUpdateSearchOutput)
 }
 
-// Determines whether the field is returned in the query response. The default is `true`.
 func (o IndexDocumentMetadataConfigurationUpdateSearchPtrOutput) Displayable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IndexDocumentMetadataConfigurationUpdateSearch) *bool {
 		if v == nil {
@@ -5662,7 +5269,6 @@ func (o IndexDocumentMetadataConfigurationUpdateSearchPtrOutput) Displayable() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Indicates that the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
 func (o IndexDocumentMetadataConfigurationUpdateSearchPtrOutput) Facetable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IndexDocumentMetadataConfigurationUpdateSearch) *bool {
 		if v == nil {
@@ -5672,7 +5278,6 @@ func (o IndexDocumentMetadataConfigurationUpdateSearchPtrOutput) Facetable() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Determines whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
 func (o IndexDocumentMetadataConfigurationUpdateSearchPtrOutput) Searchable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IndexDocumentMetadataConfigurationUpdateSearch) *bool {
 		if v == nil {
@@ -5682,7 +5287,6 @@ func (o IndexDocumentMetadataConfigurationUpdateSearchPtrOutput) Searchable() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Determines whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `false`.
 func (o IndexDocumentMetadataConfigurationUpdateSearchPtrOutput) Sortable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IndexDocumentMetadataConfigurationUpdateSearch) *bool {
 		if v == nil {
@@ -5693,9 +5297,7 @@ func (o IndexDocumentMetadataConfigurationUpdateSearchPtrOutput) Sortable() pulu
 }
 
 type IndexIndexStatistic struct {
-	// A block that specifies the number of question and answer topics in the index. Detailed below.
-	FaqStatistics []IndexIndexStatisticFaqStatistic `pulumi:"faqStatistics"`
-	// A block that specifies the number of text documents indexed. Detailed below.
+	FaqStatistics          []IndexIndexStatisticFaqStatistic          `pulumi:"faqStatistics"`
 	TextDocumentStatistics []IndexIndexStatisticTextDocumentStatistic `pulumi:"textDocumentStatistics"`
 }
 
@@ -5711,9 +5313,7 @@ type IndexIndexStatisticInput interface {
 }
 
 type IndexIndexStatisticArgs struct {
-	// A block that specifies the number of question and answer topics in the index. Detailed below.
-	FaqStatistics IndexIndexStatisticFaqStatisticArrayInput `pulumi:"faqStatistics"`
-	// A block that specifies the number of text documents indexed. Detailed below.
+	FaqStatistics          IndexIndexStatisticFaqStatisticArrayInput          `pulumi:"faqStatistics"`
 	TextDocumentStatistics IndexIndexStatisticTextDocumentStatisticArrayInput `pulumi:"textDocumentStatistics"`
 }
 
@@ -5768,12 +5368,10 @@ func (o IndexIndexStatisticOutput) ToIndexIndexStatisticOutputWithContext(ctx co
 	return o
 }
 
-// A block that specifies the number of question and answer topics in the index. Detailed below.
 func (o IndexIndexStatisticOutput) FaqStatistics() IndexIndexStatisticFaqStatisticArrayOutput {
 	return o.ApplyT(func(v IndexIndexStatistic) []IndexIndexStatisticFaqStatistic { return v.FaqStatistics }).(IndexIndexStatisticFaqStatisticArrayOutput)
 }
 
-// A block that specifies the number of text documents indexed. Detailed below.
 func (o IndexIndexStatisticOutput) TextDocumentStatistics() IndexIndexStatisticTextDocumentStatisticArrayOutput {
 	return o.ApplyT(func(v IndexIndexStatistic) []IndexIndexStatisticTextDocumentStatistic {
 		return v.TextDocumentStatistics
@@ -5801,7 +5399,6 @@ func (o IndexIndexStatisticArrayOutput) Index(i pulumi.IntInput) IndexIndexStati
 }
 
 type IndexIndexStatisticFaqStatistic struct {
-	// The total number of FAQ questions and answers contained in the index.
 	IndexedQuestionAnswersCount *int `pulumi:"indexedQuestionAnswersCount"`
 }
 
@@ -5817,7 +5414,6 @@ type IndexIndexStatisticFaqStatisticInput interface {
 }
 
 type IndexIndexStatisticFaqStatisticArgs struct {
-	// The total number of FAQ questions and answers contained in the index.
 	IndexedQuestionAnswersCount pulumi.IntPtrInput `pulumi:"indexedQuestionAnswersCount"`
 }
 
@@ -5872,7 +5468,6 @@ func (o IndexIndexStatisticFaqStatisticOutput) ToIndexIndexStatisticFaqStatistic
 	return o
 }
 
-// The total number of FAQ questions and answers contained in the index.
 func (o IndexIndexStatisticFaqStatisticOutput) IndexedQuestionAnswersCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IndexIndexStatisticFaqStatistic) *int { return v.IndexedQuestionAnswersCount }).(pulumi.IntPtrOutput)
 }
@@ -5898,9 +5493,7 @@ func (o IndexIndexStatisticFaqStatisticArrayOutput) Index(i pulumi.IntInput) Ind
 }
 
 type IndexIndexStatisticTextDocumentStatistic struct {
-	// The total size, in bytes, of the indexed documents.
-	IndexedTextBytes *int `pulumi:"indexedTextBytes"`
-	// The number of text documents indexed.
+	IndexedTextBytes          *int `pulumi:"indexedTextBytes"`
 	IndexedTextDocumentsCount *int `pulumi:"indexedTextDocumentsCount"`
 }
 
@@ -5916,9 +5509,7 @@ type IndexIndexStatisticTextDocumentStatisticInput interface {
 }
 
 type IndexIndexStatisticTextDocumentStatisticArgs struct {
-	// The total size, in bytes, of the indexed documents.
-	IndexedTextBytes pulumi.IntPtrInput `pulumi:"indexedTextBytes"`
-	// The number of text documents indexed.
+	IndexedTextBytes          pulumi.IntPtrInput `pulumi:"indexedTextBytes"`
 	IndexedTextDocumentsCount pulumi.IntPtrInput `pulumi:"indexedTextDocumentsCount"`
 }
 
@@ -5973,12 +5564,10 @@ func (o IndexIndexStatisticTextDocumentStatisticOutput) ToIndexIndexStatisticTex
 	return o
 }
 
-// The total size, in bytes, of the indexed documents.
 func (o IndexIndexStatisticTextDocumentStatisticOutput) IndexedTextBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IndexIndexStatisticTextDocumentStatistic) *int { return v.IndexedTextBytes }).(pulumi.IntPtrOutput)
 }
 
-// The number of text documents indexed.
 func (o IndexIndexStatisticTextDocumentStatisticOutput) IndexedTextDocumentsCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IndexIndexStatisticTextDocumentStatistic) *int { return v.IndexedTextDocumentsCount }).(pulumi.IntPtrOutput)
 }
@@ -6004,7 +5593,6 @@ func (o IndexIndexStatisticTextDocumentStatisticArrayOutput) Index(i pulumi.IntI
 }
 
 type IndexServerSideEncryptionConfiguration struct {
-	// The identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn't support asymmetric CMKs.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 }
 
@@ -6020,7 +5608,6 @@ type IndexServerSideEncryptionConfigurationInput interface {
 }
 
 type IndexServerSideEncryptionConfigurationArgs struct {
-	// The identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn't support asymmetric CMKs.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 }
 
@@ -6101,7 +5688,6 @@ func (o IndexServerSideEncryptionConfigurationOutput) ToIndexServerSideEncryptio
 	}).(IndexServerSideEncryptionConfigurationPtrOutput)
 }
 
-// The identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn't support asymmetric CMKs.
 func (o IndexServerSideEncryptionConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IndexServerSideEncryptionConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -6130,7 +5716,6 @@ func (o IndexServerSideEncryptionConfigurationPtrOutput) Elem() IndexServerSideE
 	}).(IndexServerSideEncryptionConfigurationOutput)
 }
 
-// The identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn't support asymmetric CMKs.
 func (o IndexServerSideEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IndexServerSideEncryptionConfiguration) *string {
 		if v == nil {
@@ -6141,7 +5726,6 @@ func (o IndexServerSideEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.Strin
 }
 
 type IndexUserGroupResolutionConfiguration struct {
-	// The identity store provider (mode) you want to use to fetch access levels of groups and users. AWS Single Sign-On is currently the only available mode. Your users and groups must exist in an AWS SSO identity source in order to use this mode. Valid Values are `AWS_SSO` or `NONE`.
 	UserGroupResolutionMode string `pulumi:"userGroupResolutionMode"`
 }
 
@@ -6157,7 +5741,6 @@ type IndexUserGroupResolutionConfigurationInput interface {
 }
 
 type IndexUserGroupResolutionConfigurationArgs struct {
-	// The identity store provider (mode) you want to use to fetch access levels of groups and users. AWS Single Sign-On is currently the only available mode. Your users and groups must exist in an AWS SSO identity source in order to use this mode. Valid Values are `AWS_SSO` or `NONE`.
 	UserGroupResolutionMode pulumi.StringInput `pulumi:"userGroupResolutionMode"`
 }
 
@@ -6238,7 +5821,6 @@ func (o IndexUserGroupResolutionConfigurationOutput) ToIndexUserGroupResolutionC
 	}).(IndexUserGroupResolutionConfigurationPtrOutput)
 }
 
-// The identity store provider (mode) you want to use to fetch access levels of groups and users. AWS Single Sign-On is currently the only available mode. Your users and groups must exist in an AWS SSO identity source in order to use this mode. Valid Values are `AWS_SSO` or `NONE`.
 func (o IndexUserGroupResolutionConfigurationOutput) UserGroupResolutionMode() pulumi.StringOutput {
 	return o.ApplyT(func(v IndexUserGroupResolutionConfiguration) string { return v.UserGroupResolutionMode }).(pulumi.StringOutput)
 }
@@ -6267,7 +5849,6 @@ func (o IndexUserGroupResolutionConfigurationPtrOutput) Elem() IndexUserGroupRes
 	}).(IndexUserGroupResolutionConfigurationOutput)
 }
 
-// The identity store provider (mode) you want to use to fetch access levels of groups and users. AWS Single Sign-On is currently the only available mode. Your users and groups must exist in an AWS SSO identity source in order to use this mode. Valid Values are `AWS_SSO` or `NONE`.
 func (o IndexUserGroupResolutionConfigurationPtrOutput) UserGroupResolutionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IndexUserGroupResolutionConfiguration) *string {
 		if v == nil {
@@ -6278,10 +5859,8 @@ func (o IndexUserGroupResolutionConfigurationPtrOutput) UserGroupResolutionMode(
 }
 
 type IndexUserTokenConfigurations struct {
-	// A block that specifies the information about the JSON token type configuration. Detailed below.
 	JsonTokenTypeConfiguration *IndexUserTokenConfigurationsJsonTokenTypeConfiguration `pulumi:"jsonTokenTypeConfiguration"`
-	// A block that specifies the information about the JWT token type configuration. Detailed below.
-	JwtTokenTypeConfiguration *IndexUserTokenConfigurationsJwtTokenTypeConfiguration `pulumi:"jwtTokenTypeConfiguration"`
+	JwtTokenTypeConfiguration  *IndexUserTokenConfigurationsJwtTokenTypeConfiguration  `pulumi:"jwtTokenTypeConfiguration"`
 }
 
 // IndexUserTokenConfigurationsInput is an input type that accepts IndexUserTokenConfigurationsArgs and IndexUserTokenConfigurationsOutput values.
@@ -6296,10 +5875,8 @@ type IndexUserTokenConfigurationsInput interface {
 }
 
 type IndexUserTokenConfigurationsArgs struct {
-	// A block that specifies the information about the JSON token type configuration. Detailed below.
 	JsonTokenTypeConfiguration IndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrInput `pulumi:"jsonTokenTypeConfiguration"`
-	// A block that specifies the information about the JWT token type configuration. Detailed below.
-	JwtTokenTypeConfiguration IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrInput `pulumi:"jwtTokenTypeConfiguration"`
+	JwtTokenTypeConfiguration  IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrInput  `pulumi:"jwtTokenTypeConfiguration"`
 }
 
 func (IndexUserTokenConfigurationsArgs) ElementType() reflect.Type {
@@ -6379,14 +5956,12 @@ func (o IndexUserTokenConfigurationsOutput) ToIndexUserTokenConfigurationsPtrOut
 	}).(IndexUserTokenConfigurationsPtrOutput)
 }
 
-// A block that specifies the information about the JSON token type configuration. Detailed below.
 func (o IndexUserTokenConfigurationsOutput) JsonTokenTypeConfiguration() IndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrOutput {
 	return o.ApplyT(func(v IndexUserTokenConfigurations) *IndexUserTokenConfigurationsJsonTokenTypeConfiguration {
 		return v.JsonTokenTypeConfiguration
 	}).(IndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrOutput)
 }
 
-// A block that specifies the information about the JWT token type configuration. Detailed below.
 func (o IndexUserTokenConfigurationsOutput) JwtTokenTypeConfiguration() IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput {
 	return o.ApplyT(func(v IndexUserTokenConfigurations) *IndexUserTokenConfigurationsJwtTokenTypeConfiguration {
 		return v.JwtTokenTypeConfiguration
@@ -6417,7 +5992,6 @@ func (o IndexUserTokenConfigurationsPtrOutput) Elem() IndexUserTokenConfiguratio
 	}).(IndexUserTokenConfigurationsOutput)
 }
 
-// A block that specifies the information about the JSON token type configuration. Detailed below.
 func (o IndexUserTokenConfigurationsPtrOutput) JsonTokenTypeConfiguration() IndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrOutput {
 	return o.ApplyT(func(v *IndexUserTokenConfigurations) *IndexUserTokenConfigurationsJsonTokenTypeConfiguration {
 		if v == nil {
@@ -6427,7 +6001,6 @@ func (o IndexUserTokenConfigurationsPtrOutput) JsonTokenTypeConfiguration() Inde
 	}).(IndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrOutput)
 }
 
-// A block that specifies the information about the JWT token type configuration. Detailed below.
 func (o IndexUserTokenConfigurationsPtrOutput) JwtTokenTypeConfiguration() IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput {
 	return o.ApplyT(func(v *IndexUserTokenConfigurations) *IndexUserTokenConfigurationsJwtTokenTypeConfiguration {
 		if v == nil {
@@ -6438,9 +6011,7 @@ func (o IndexUserTokenConfigurationsPtrOutput) JwtTokenTypeConfiguration() Index
 }
 
 type IndexUserTokenConfigurationsJsonTokenTypeConfiguration struct {
-	// The group attribute field. Minimum length of 1. Maximum length of 2048.
-	GroupAttributeField string `pulumi:"groupAttributeField"`
-	// The user name attribute field. Minimum length of 1. Maximum length of 2048.
+	GroupAttributeField    string `pulumi:"groupAttributeField"`
 	UserNameAttributeField string `pulumi:"userNameAttributeField"`
 }
 
@@ -6456,9 +6027,7 @@ type IndexUserTokenConfigurationsJsonTokenTypeConfigurationInput interface {
 }
 
 type IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs struct {
-	// The group attribute field. Minimum length of 1. Maximum length of 2048.
-	GroupAttributeField pulumi.StringInput `pulumi:"groupAttributeField"`
-	// The user name attribute field. Minimum length of 1. Maximum length of 2048.
+	GroupAttributeField    pulumi.StringInput `pulumi:"groupAttributeField"`
 	UserNameAttributeField pulumi.StringInput `pulumi:"userNameAttributeField"`
 }
 
@@ -6539,12 +6108,10 @@ func (o IndexUserTokenConfigurationsJsonTokenTypeConfigurationOutput) ToIndexUse
 	}).(IndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrOutput)
 }
 
-// The group attribute field. Minimum length of 1. Maximum length of 2048.
 func (o IndexUserTokenConfigurationsJsonTokenTypeConfigurationOutput) GroupAttributeField() pulumi.StringOutput {
 	return o.ApplyT(func(v IndexUserTokenConfigurationsJsonTokenTypeConfiguration) string { return v.GroupAttributeField }).(pulumi.StringOutput)
 }
 
-// The user name attribute field. Minimum length of 1. Maximum length of 2048.
 func (o IndexUserTokenConfigurationsJsonTokenTypeConfigurationOutput) UserNameAttributeField() pulumi.StringOutput {
 	return o.ApplyT(func(v IndexUserTokenConfigurationsJsonTokenTypeConfiguration) string { return v.UserNameAttributeField }).(pulumi.StringOutput)
 }
@@ -6573,7 +6140,6 @@ func (o IndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrOutput) Elem() 
 	}).(IndexUserTokenConfigurationsJsonTokenTypeConfigurationOutput)
 }
 
-// The group attribute field. Minimum length of 1. Maximum length of 2048.
 func (o IndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrOutput) GroupAttributeField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IndexUserTokenConfigurationsJsonTokenTypeConfiguration) *string {
 		if v == nil {
@@ -6583,7 +6149,6 @@ func (o IndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrOutput) GroupAt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The user name attribute field. Minimum length of 1. Maximum length of 2048.
 func (o IndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrOutput) UserNameAttributeField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IndexUserTokenConfigurationsJsonTokenTypeConfiguration) *string {
 		if v == nil {
@@ -6594,19 +6159,12 @@ func (o IndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrOutput) UserNam
 }
 
 type IndexUserTokenConfigurationsJwtTokenTypeConfiguration struct {
-	// The regular expression that identifies the claim. Minimum length of 1. Maximum length of 100.
-	ClaimRegex *string `pulumi:"claimRegex"`
-	// The group attribute field. Minimum length of 1. Maximum length of 100.
-	GroupAttributeField *string `pulumi:"groupAttributeField"`
-	// The issuer of the token. Minimum length of 1. Maximum length of 65.
-	Issuer *string `pulumi:"issuer"`
-	// The location of the key. Valid values are `URL` or `SECRET_MANAGER`
-	KeyLocation string `pulumi:"keyLocation"`
-	// The Amazon Resource Name (ARN) of the secret.
-	SecretsManagerArn *string `pulumi:"secretsManagerArn"`
-	// The signing key URL. Valid pattern is `^(https?|ftp|file):\/\/([^\s]*)`
-	Url *string `pulumi:"url"`
-	// The user name attribute field. Minimum length of 1. Maximum length of 100.
+	ClaimRegex             *string `pulumi:"claimRegex"`
+	GroupAttributeField    *string `pulumi:"groupAttributeField"`
+	Issuer                 *string `pulumi:"issuer"`
+	KeyLocation            string  `pulumi:"keyLocation"`
+	SecretsManagerArn      *string `pulumi:"secretsManagerArn"`
+	Url                    *string `pulumi:"url"`
 	UserNameAttributeField *string `pulumi:"userNameAttributeField"`
 }
 
@@ -6622,19 +6180,12 @@ type IndexUserTokenConfigurationsJwtTokenTypeConfigurationInput interface {
 }
 
 type IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs struct {
-	// The regular expression that identifies the claim. Minimum length of 1. Maximum length of 100.
-	ClaimRegex pulumi.StringPtrInput `pulumi:"claimRegex"`
-	// The group attribute field. Minimum length of 1. Maximum length of 100.
-	GroupAttributeField pulumi.StringPtrInput `pulumi:"groupAttributeField"`
-	// The issuer of the token. Minimum length of 1. Maximum length of 65.
-	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
-	// The location of the key. Valid values are `URL` or `SECRET_MANAGER`
-	KeyLocation pulumi.StringInput `pulumi:"keyLocation"`
-	// The Amazon Resource Name (ARN) of the secret.
-	SecretsManagerArn pulumi.StringPtrInput `pulumi:"secretsManagerArn"`
-	// The signing key URL. Valid pattern is `^(https?|ftp|file):\/\/([^\s]*)`
-	Url pulumi.StringPtrInput `pulumi:"url"`
-	// The user name attribute field. Minimum length of 1. Maximum length of 100.
+	ClaimRegex             pulumi.StringPtrInput `pulumi:"claimRegex"`
+	GroupAttributeField    pulumi.StringPtrInput `pulumi:"groupAttributeField"`
+	Issuer                 pulumi.StringPtrInput `pulumi:"issuer"`
+	KeyLocation            pulumi.StringInput    `pulumi:"keyLocation"`
+	SecretsManagerArn      pulumi.StringPtrInput `pulumi:"secretsManagerArn"`
+	Url                    pulumi.StringPtrInput `pulumi:"url"`
 	UserNameAttributeField pulumi.StringPtrInput `pulumi:"userNameAttributeField"`
 }
 
@@ -6715,37 +6266,30 @@ func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationOutput) ToIndexUser
 	}).(IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput)
 }
 
-// The regular expression that identifies the claim. Minimum length of 1. Maximum length of 100.
 func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationOutput) ClaimRegex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IndexUserTokenConfigurationsJwtTokenTypeConfiguration) *string { return v.ClaimRegex }).(pulumi.StringPtrOutput)
 }
 
-// The group attribute field. Minimum length of 1. Maximum length of 100.
 func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationOutput) GroupAttributeField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IndexUserTokenConfigurationsJwtTokenTypeConfiguration) *string { return v.GroupAttributeField }).(pulumi.StringPtrOutput)
 }
 
-// The issuer of the token. Minimum length of 1. Maximum length of 65.
 func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IndexUserTokenConfigurationsJwtTokenTypeConfiguration) *string { return v.Issuer }).(pulumi.StringPtrOutput)
 }
 
-// The location of the key. Valid values are `URL` or `SECRET_MANAGER`
 func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationOutput) KeyLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v IndexUserTokenConfigurationsJwtTokenTypeConfiguration) string { return v.KeyLocation }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the secret.
 func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationOutput) SecretsManagerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IndexUserTokenConfigurationsJwtTokenTypeConfiguration) *string { return v.SecretsManagerArn }).(pulumi.StringPtrOutput)
 }
 
-// The signing key URL. Valid pattern is `^(https?|ftp|file):\/\/([^\s]*)`
 func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IndexUserTokenConfigurationsJwtTokenTypeConfiguration) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
 
-// The user name attribute field. Minimum length of 1. Maximum length of 100.
 func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationOutput) UserNameAttributeField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IndexUserTokenConfigurationsJwtTokenTypeConfiguration) *string { return v.UserNameAttributeField }).(pulumi.StringPtrOutput)
 }
@@ -6774,7 +6318,6 @@ func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput) Elem() I
 	}).(IndexUserTokenConfigurationsJwtTokenTypeConfigurationOutput)
 }
 
-// The regular expression that identifies the claim. Minimum length of 1. Maximum length of 100.
 func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput) ClaimRegex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IndexUserTokenConfigurationsJwtTokenTypeConfiguration) *string {
 		if v == nil {
@@ -6784,7 +6327,6 @@ func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput) ClaimReg
 	}).(pulumi.StringPtrOutput)
 }
 
-// The group attribute field. Minimum length of 1. Maximum length of 100.
 func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput) GroupAttributeField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IndexUserTokenConfigurationsJwtTokenTypeConfiguration) *string {
 		if v == nil {
@@ -6794,7 +6336,6 @@ func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput) GroupAtt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The issuer of the token. Minimum length of 1. Maximum length of 65.
 func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IndexUserTokenConfigurationsJwtTokenTypeConfiguration) *string {
 		if v == nil {
@@ -6804,7 +6345,6 @@ func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput) Issuer()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The location of the key. Valid values are `URL` or `SECRET_MANAGER`
 func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput) KeyLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IndexUserTokenConfigurationsJwtTokenTypeConfiguration) *string {
 		if v == nil {
@@ -6814,7 +6354,6 @@ func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput) KeyLocat
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the secret.
 func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput) SecretsManagerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IndexUserTokenConfigurationsJwtTokenTypeConfiguration) *string {
 		if v == nil {
@@ -6824,7 +6363,6 @@ func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput) SecretsM
 	}).(pulumi.StringPtrOutput)
 }
 
-// The signing key URL. Valid pattern is `^(https?|ftp|file):\/\/([^\s]*)`
 func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IndexUserTokenConfigurationsJwtTokenTypeConfiguration) *string {
 		if v == nil {
@@ -6834,7 +6372,6 @@ func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput) Url() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The user name attribute field. Minimum length of 1. Maximum length of 100.
 func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput) UserNameAttributeField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IndexUserTokenConfigurationsJwtTokenTypeConfiguration) *string {
 		if v == nil {
@@ -6845,12 +6382,8 @@ func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput) UserName
 }
 
 type QuerySuggestionsBlockListSourceS3Path struct {
-	// Name of the S3 bucket that contains the file.
 	Bucket string `pulumi:"bucket"`
-	// Name of the file.
-	//
-	// The following arguments are optional:
-	Key string `pulumi:"key"`
+	Key    string `pulumi:"key"`
 }
 
 // QuerySuggestionsBlockListSourceS3PathInput is an input type that accepts QuerySuggestionsBlockListSourceS3PathArgs and QuerySuggestionsBlockListSourceS3PathOutput values.
@@ -6865,12 +6398,8 @@ type QuerySuggestionsBlockListSourceS3PathInput interface {
 }
 
 type QuerySuggestionsBlockListSourceS3PathArgs struct {
-	// Name of the S3 bucket that contains the file.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// Name of the file.
-	//
-	// The following arguments are optional:
-	Key pulumi.StringInput `pulumi:"key"`
+	Key    pulumi.StringInput `pulumi:"key"`
 }
 
 func (QuerySuggestionsBlockListSourceS3PathArgs) ElementType() reflect.Type {
@@ -6950,14 +6479,10 @@ func (o QuerySuggestionsBlockListSourceS3PathOutput) ToQuerySuggestionsBlockList
 	}).(QuerySuggestionsBlockListSourceS3PathPtrOutput)
 }
 
-// Name of the S3 bucket that contains the file.
 func (o QuerySuggestionsBlockListSourceS3PathOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v QuerySuggestionsBlockListSourceS3Path) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// Name of the file.
-//
-// The following arguments are optional:
 func (o QuerySuggestionsBlockListSourceS3PathOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v QuerySuggestionsBlockListSourceS3Path) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -6986,7 +6511,6 @@ func (o QuerySuggestionsBlockListSourceS3PathPtrOutput) Elem() QuerySuggestionsB
 	}).(QuerySuggestionsBlockListSourceS3PathOutput)
 }
 
-// Name of the S3 bucket that contains the file.
 func (o QuerySuggestionsBlockListSourceS3PathPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockListSourceS3Path) *string {
 		if v == nil {
@@ -6996,9 +6520,6 @@ func (o QuerySuggestionsBlockListSourceS3PathPtrOutput) Bucket() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the file.
-//
-// The following arguments are optional:
 func (o QuerySuggestionsBlockListSourceS3PathPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockListSourceS3Path) *string {
 		if v == nil {
@@ -7009,12 +6530,8 @@ func (o QuerySuggestionsBlockListSourceS3PathPtrOutput) Key() pulumi.StringPtrOu
 }
 
 type ThesaurusSourceS3Path struct {
-	// The name of the S3 bucket that contains the file.
 	Bucket string `pulumi:"bucket"`
-	// The name of the file.
-	//
-	// The following arguments are optional:
-	Key string `pulumi:"key"`
+	Key    string `pulumi:"key"`
 }
 
 // ThesaurusSourceS3PathInput is an input type that accepts ThesaurusSourceS3PathArgs and ThesaurusSourceS3PathOutput values.
@@ -7029,12 +6546,8 @@ type ThesaurusSourceS3PathInput interface {
 }
 
 type ThesaurusSourceS3PathArgs struct {
-	// The name of the S3 bucket that contains the file.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// The name of the file.
-	//
-	// The following arguments are optional:
-	Key pulumi.StringInput `pulumi:"key"`
+	Key    pulumi.StringInput `pulumi:"key"`
 }
 
 func (ThesaurusSourceS3PathArgs) ElementType() reflect.Type {
@@ -7114,14 +6627,10 @@ func (o ThesaurusSourceS3PathOutput) ToThesaurusSourceS3PathPtrOutputWithContext
 	}).(ThesaurusSourceS3PathPtrOutput)
 }
 
-// The name of the S3 bucket that contains the file.
 func (o ThesaurusSourceS3PathOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v ThesaurusSourceS3Path) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// The name of the file.
-//
-// The following arguments are optional:
 func (o ThesaurusSourceS3PathOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ThesaurusSourceS3Path) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -7150,7 +6659,6 @@ func (o ThesaurusSourceS3PathPtrOutput) Elem() ThesaurusSourceS3PathOutput {
 	}).(ThesaurusSourceS3PathOutput)
 }
 
-// The name of the S3 bucket that contains the file.
 func (o ThesaurusSourceS3PathPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThesaurusSourceS3Path) *string {
 		if v == nil {
@@ -7160,9 +6668,6 @@ func (o ThesaurusSourceS3PathPtrOutput) Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the file.
-//
-// The following arguments are optional:
 func (o ThesaurusSourceS3PathPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThesaurusSourceS3Path) *string {
 		if v == nil {
@@ -7173,10 +6678,8 @@ func (o ThesaurusSourceS3PathPtrOutput) Key() pulumi.StringPtrOutput {
 }
 
 type GetExperienceConfiguration struct {
-	// The identifiers of your data sources and FAQs. This is the content you want to use for your Amazon Kendra Experience. Documented below.
 	ContentSourceConfigurations []GetExperienceConfigurationContentSourceConfiguration `pulumi:"contentSourceConfigurations"`
-	// The AWS SSO field name that contains the identifiers of your users, such as their emails. Documented below.
-	UserIdentityConfigurations []GetExperienceConfigurationUserIdentityConfiguration `pulumi:"userIdentityConfigurations"`
+	UserIdentityConfigurations  []GetExperienceConfigurationUserIdentityConfiguration  `pulumi:"userIdentityConfigurations"`
 }
 
 // GetExperienceConfigurationInput is an input type that accepts GetExperienceConfigurationArgs and GetExperienceConfigurationOutput values.
@@ -7191,10 +6694,8 @@ type GetExperienceConfigurationInput interface {
 }
 
 type GetExperienceConfigurationArgs struct {
-	// The identifiers of your data sources and FAQs. This is the content you want to use for your Amazon Kendra Experience. Documented below.
 	ContentSourceConfigurations GetExperienceConfigurationContentSourceConfigurationArrayInput `pulumi:"contentSourceConfigurations"`
-	// The AWS SSO field name that contains the identifiers of your users, such as their emails. Documented below.
-	UserIdentityConfigurations GetExperienceConfigurationUserIdentityConfigurationArrayInput `pulumi:"userIdentityConfigurations"`
+	UserIdentityConfigurations  GetExperienceConfigurationUserIdentityConfigurationArrayInput  `pulumi:"userIdentityConfigurations"`
 }
 
 func (GetExperienceConfigurationArgs) ElementType() reflect.Type {
@@ -7248,14 +6749,12 @@ func (o GetExperienceConfigurationOutput) ToGetExperienceConfigurationOutputWith
 	return o
 }
 
-// The identifiers of your data sources and FAQs. This is the content you want to use for your Amazon Kendra Experience. Documented below.
 func (o GetExperienceConfigurationOutput) ContentSourceConfigurations() GetExperienceConfigurationContentSourceConfigurationArrayOutput {
 	return o.ApplyT(func(v GetExperienceConfiguration) []GetExperienceConfigurationContentSourceConfiguration {
 		return v.ContentSourceConfigurations
 	}).(GetExperienceConfigurationContentSourceConfigurationArrayOutput)
 }
 
-// The AWS SSO field name that contains the identifiers of your users, such as their emails. Documented below.
 func (o GetExperienceConfigurationOutput) UserIdentityConfigurations() GetExperienceConfigurationUserIdentityConfigurationArrayOutput {
 	return o.ApplyT(func(v GetExperienceConfiguration) []GetExperienceConfigurationUserIdentityConfiguration {
 		return v.UserIdentityConfigurations
@@ -7283,12 +6782,9 @@ func (o GetExperienceConfigurationArrayOutput) Index(i pulumi.IntInput) GetExper
 }
 
 type GetExperienceConfigurationContentSourceConfiguration struct {
-	// Identifiers of the data sources you want to use for your Amazon Kendra Experience.
-	DataSourceIds []string `pulumi:"dataSourceIds"`
-	// Whether to use documents you indexed directly using the `BatchPutDocument API`.
-	DirectPutContent bool `pulumi:"directPutContent"`
-	// Identifier of the FAQs that you want to use for your Amazon Kendra Experience.
-	FaqIds []string `pulumi:"faqIds"`
+	DataSourceIds    []string `pulumi:"dataSourceIds"`
+	DirectPutContent bool     `pulumi:"directPutContent"`
+	FaqIds           []string `pulumi:"faqIds"`
 }
 
 // GetExperienceConfigurationContentSourceConfigurationInput is an input type that accepts GetExperienceConfigurationContentSourceConfigurationArgs and GetExperienceConfigurationContentSourceConfigurationOutput values.
@@ -7303,12 +6799,9 @@ type GetExperienceConfigurationContentSourceConfigurationInput interface {
 }
 
 type GetExperienceConfigurationContentSourceConfigurationArgs struct {
-	// Identifiers of the data sources you want to use for your Amazon Kendra Experience.
-	DataSourceIds pulumi.StringArrayInput `pulumi:"dataSourceIds"`
-	// Whether to use documents you indexed directly using the `BatchPutDocument API`.
-	DirectPutContent pulumi.BoolInput `pulumi:"directPutContent"`
-	// Identifier of the FAQs that you want to use for your Amazon Kendra Experience.
-	FaqIds pulumi.StringArrayInput `pulumi:"faqIds"`
+	DataSourceIds    pulumi.StringArrayInput `pulumi:"dataSourceIds"`
+	DirectPutContent pulumi.BoolInput        `pulumi:"directPutContent"`
+	FaqIds           pulumi.StringArrayInput `pulumi:"faqIds"`
 }
 
 func (GetExperienceConfigurationContentSourceConfigurationArgs) ElementType() reflect.Type {
@@ -7362,17 +6855,14 @@ func (o GetExperienceConfigurationContentSourceConfigurationOutput) ToGetExperie
 	return o
 }
 
-// Identifiers of the data sources you want to use for your Amazon Kendra Experience.
 func (o GetExperienceConfigurationContentSourceConfigurationOutput) DataSourceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetExperienceConfigurationContentSourceConfiguration) []string { return v.DataSourceIds }).(pulumi.StringArrayOutput)
 }
 
-// Whether to use documents you indexed directly using the `BatchPutDocument API`.
 func (o GetExperienceConfigurationContentSourceConfigurationOutput) DirectPutContent() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetExperienceConfigurationContentSourceConfiguration) bool { return v.DirectPutContent }).(pulumi.BoolOutput)
 }
 
-// Identifier of the FAQs that you want to use for your Amazon Kendra Experience.
 func (o GetExperienceConfigurationContentSourceConfigurationOutput) FaqIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetExperienceConfigurationContentSourceConfiguration) []string { return v.FaqIds }).(pulumi.StringArrayOutput)
 }
@@ -7398,7 +6888,6 @@ func (o GetExperienceConfigurationContentSourceConfigurationArrayOutput) Index(i
 }
 
 type GetExperienceConfigurationUserIdentityConfiguration struct {
-	// The AWS SSO field name that contains the identifiers of your users, such as their emails.
 	IdentityAttributeName string `pulumi:"identityAttributeName"`
 }
 
@@ -7414,7 +6903,6 @@ type GetExperienceConfigurationUserIdentityConfigurationInput interface {
 }
 
 type GetExperienceConfigurationUserIdentityConfigurationArgs struct {
-	// The AWS SSO field name that contains the identifiers of your users, such as their emails.
 	IdentityAttributeName pulumi.StringInput `pulumi:"identityAttributeName"`
 }
 
@@ -7469,7 +6957,6 @@ func (o GetExperienceConfigurationUserIdentityConfigurationOutput) ToGetExperien
 	return o
 }
 
-// The AWS SSO field name that contains the identifiers of your users, such as their emails.
 func (o GetExperienceConfigurationUserIdentityConfigurationOutput) IdentityAttributeName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExperienceConfigurationUserIdentityConfiguration) string { return v.IdentityAttributeName }).(pulumi.StringOutput)
 }
@@ -7495,9 +6982,7 @@ func (o GetExperienceConfigurationUserIdentityConfigurationArrayOutput) Index(i 
 }
 
 type GetExperienceEndpoint struct {
-	// Endpoint of your Amazon Kendra Experience.
-	Endpoint string `pulumi:"endpoint"`
-	// Type of endpoint for your Amazon Kendra Experience.
+	Endpoint     string `pulumi:"endpoint"`
 	EndpointType string `pulumi:"endpointType"`
 }
 
@@ -7513,9 +6998,7 @@ type GetExperienceEndpointInput interface {
 }
 
 type GetExperienceEndpointArgs struct {
-	// Endpoint of your Amazon Kendra Experience.
-	Endpoint pulumi.StringInput `pulumi:"endpoint"`
-	// Type of endpoint for your Amazon Kendra Experience.
+	Endpoint     pulumi.StringInput `pulumi:"endpoint"`
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
 }
 
@@ -7570,12 +7053,10 @@ func (o GetExperienceEndpointOutput) ToGetExperienceEndpointOutputWithContext(ct
 	return o
 }
 
-// Endpoint of your Amazon Kendra Experience.
 func (o GetExperienceEndpointOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExperienceEndpoint) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// Type of endpoint for your Amazon Kendra Experience.
 func (o GetExperienceEndpointOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExperienceEndpoint) string { return v.EndpointType }).(pulumi.StringOutput)
 }
@@ -7601,10 +7082,8 @@ func (o GetExperienceEndpointArrayOutput) Index(i pulumi.IntInput) GetExperience
 }
 
 type GetFaqS3Path struct {
-	// Name of the S3 bucket that contains the file.
 	Bucket string `pulumi:"bucket"`
-	// Name of the file.
-	Key string `pulumi:"key"`
+	Key    string `pulumi:"key"`
 }
 
 // GetFaqS3PathInput is an input type that accepts GetFaqS3PathArgs and GetFaqS3PathOutput values.
@@ -7619,10 +7098,8 @@ type GetFaqS3PathInput interface {
 }
 
 type GetFaqS3PathArgs struct {
-	// Name of the S3 bucket that contains the file.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// Name of the file.
-	Key pulumi.StringInput `pulumi:"key"`
+	Key    pulumi.StringInput `pulumi:"key"`
 }
 
 func (GetFaqS3PathArgs) ElementType() reflect.Type {
@@ -7676,12 +7153,10 @@ func (o GetFaqS3PathOutput) ToGetFaqS3PathOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Name of the S3 bucket that contains the file.
 func (o GetFaqS3PathOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFaqS3Path) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// Name of the file.
 func (o GetFaqS3PathOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFaqS3Path) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -7707,9 +7182,7 @@ func (o GetFaqS3PathArrayOutput) Index(i pulumi.IntInput) GetFaqS3PathOutput {
 }
 
 type GetIndexCapacityUnit struct {
-	// The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
-	QueryCapacityUnits int `pulumi:"queryCapacityUnits"`
-	// The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
+	QueryCapacityUnits   int `pulumi:"queryCapacityUnits"`
 	StorageCapacityUnits int `pulumi:"storageCapacityUnits"`
 }
 
@@ -7725,9 +7198,7 @@ type GetIndexCapacityUnitInput interface {
 }
 
 type GetIndexCapacityUnitArgs struct {
-	// The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
-	QueryCapacityUnits pulumi.IntInput `pulumi:"queryCapacityUnits"`
-	// The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
+	QueryCapacityUnits   pulumi.IntInput `pulumi:"queryCapacityUnits"`
 	StorageCapacityUnits pulumi.IntInput `pulumi:"storageCapacityUnits"`
 }
 
@@ -7782,12 +7253,10 @@ func (o GetIndexCapacityUnitOutput) ToGetIndexCapacityUnitOutputWithContext(ctx 
 	return o
 }
 
-// The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
 func (o GetIndexCapacityUnitOutput) QueryCapacityUnits() pulumi.IntOutput {
 	return o.ApplyT(func(v GetIndexCapacityUnit) int { return v.QueryCapacityUnits }).(pulumi.IntOutput)
 }
 
-// The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
 func (o GetIndexCapacityUnitOutput) StorageCapacityUnits() pulumi.IntOutput {
 	return o.ApplyT(func(v GetIndexCapacityUnit) int { return v.StorageCapacityUnits }).(pulumi.IntOutput)
 }
@@ -7813,14 +7282,10 @@ func (o GetIndexCapacityUnitArrayOutput) Index(i pulumi.IntInput) GetIndexCapaci
 }
 
 type GetIndexDocumentMetadataConfigurationUpdate struct {
-	// Name of the index field. Minimum length of 1. Maximum length of 30.
-	Name string `pulumi:"name"`
-	// Block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
+	Name       string                                                 `pulumi:"name"`
 	Relevances []GetIndexDocumentMetadataConfigurationUpdateRelevance `pulumi:"relevances"`
-	// Block that provides information about how the field is used during a search. Documented below.
-	Searches []GetIndexDocumentMetadataConfigurationUpdateSearch `pulumi:"searches"`
-	// Data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
-	Type string `pulumi:"type"`
+	Searches   []GetIndexDocumentMetadataConfigurationUpdateSearch    `pulumi:"searches"`
+	Type       string                                                 `pulumi:"type"`
 }
 
 // GetIndexDocumentMetadataConfigurationUpdateInput is an input type that accepts GetIndexDocumentMetadataConfigurationUpdateArgs and GetIndexDocumentMetadataConfigurationUpdateOutput values.
@@ -7835,14 +7300,10 @@ type GetIndexDocumentMetadataConfigurationUpdateInput interface {
 }
 
 type GetIndexDocumentMetadataConfigurationUpdateArgs struct {
-	// Name of the index field. Minimum length of 1. Maximum length of 30.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
+	Name       pulumi.StringInput                                             `pulumi:"name"`
 	Relevances GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayInput `pulumi:"relevances"`
-	// Block that provides information about how the field is used during a search. Documented below.
-	Searches GetIndexDocumentMetadataConfigurationUpdateSearchArrayInput `pulumi:"searches"`
-	// Data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
-	Type pulumi.StringInput `pulumi:"type"`
+	Searches   GetIndexDocumentMetadataConfigurationUpdateSearchArrayInput    `pulumi:"searches"`
+	Type       pulumi.StringInput                                             `pulumi:"type"`
 }
 
 func (GetIndexDocumentMetadataConfigurationUpdateArgs) ElementType() reflect.Type {
@@ -7896,26 +7357,22 @@ func (o GetIndexDocumentMetadataConfigurationUpdateOutput) ToGetIndexDocumentMet
 	return o
 }
 
-// Name of the index field. Minimum length of 1. Maximum length of 30.
 func (o GetIndexDocumentMetadataConfigurationUpdateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdate) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
 func (o GetIndexDocumentMetadataConfigurationUpdateOutput) Relevances() GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput {
 	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdate) []GetIndexDocumentMetadataConfigurationUpdateRelevance {
 		return v.Relevances
 	}).(GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput)
 }
 
-// Block that provides information about how the field is used during a search. Documented below.
 func (o GetIndexDocumentMetadataConfigurationUpdateOutput) Searches() GetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput {
 	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdate) []GetIndexDocumentMetadataConfigurationUpdateSearch {
 		return v.Searches
 	}).(GetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput)
 }
 
-// Data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
 func (o GetIndexDocumentMetadataConfigurationUpdateOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdate) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -7941,15 +7398,10 @@ func (o GetIndexDocumentMetadataConfigurationUpdateArrayOutput) Index(i pulumi.I
 }
 
 type GetIndexDocumentMetadataConfigurationUpdateRelevance struct {
-	// Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Duration).
-	Duration string `pulumi:"duration"`
-	// How "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Freshness).
-	Freshness bool `pulumi:"freshness"`
-	// Relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
-	Importance int `pulumi:"importance"`
-	// Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
-	RankOrder string `pulumi:"rankOrder"`
-	// A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
+	Duration            string         `pulumi:"duration"`
+	Freshness           bool           `pulumi:"freshness"`
+	Importance          int            `pulumi:"importance"`
+	RankOrder           string         `pulumi:"rankOrder"`
 	ValuesImportanceMap map[string]int `pulumi:"valuesImportanceMap"`
 }
 
@@ -7965,15 +7417,10 @@ type GetIndexDocumentMetadataConfigurationUpdateRelevanceInput interface {
 }
 
 type GetIndexDocumentMetadataConfigurationUpdateRelevanceArgs struct {
-	// Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Duration).
-	Duration pulumi.StringInput `pulumi:"duration"`
-	// How "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Freshness).
-	Freshness pulumi.BoolInput `pulumi:"freshness"`
-	// Relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
-	Importance pulumi.IntInput `pulumi:"importance"`
-	// Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
-	RankOrder pulumi.StringInput `pulumi:"rankOrder"`
-	// A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
+	Duration            pulumi.StringInput `pulumi:"duration"`
+	Freshness           pulumi.BoolInput   `pulumi:"freshness"`
+	Importance          pulumi.IntInput    `pulumi:"importance"`
+	RankOrder           pulumi.StringInput `pulumi:"rankOrder"`
 	ValuesImportanceMap pulumi.IntMapInput `pulumi:"valuesImportanceMap"`
 }
 
@@ -8028,27 +7475,22 @@ func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput) ToGetIndexDo
 	return o
 }
 
-// Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Duration).
 func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput) Duration() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateRelevance) string { return v.Duration }).(pulumi.StringOutput)
 }
 
-// How "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Freshness).
 func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput) Freshness() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateRelevance) bool { return v.Freshness }).(pulumi.BoolOutput)
 }
 
-// Relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
 func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput) Importance() pulumi.IntOutput {
 	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateRelevance) int { return v.Importance }).(pulumi.IntOutput)
 }
 
-// Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
 func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput) RankOrder() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateRelevance) string { return v.RankOrder }).(pulumi.StringOutput)
 }
 
-// A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
 func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput) ValuesImportanceMap() pulumi.IntMapOutput {
 	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateRelevance) map[string]int {
 		return v.ValuesImportanceMap
@@ -8076,14 +7518,10 @@ func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput) Index(i
 }
 
 type GetIndexDocumentMetadataConfigurationUpdateSearch struct {
-	// Determines whether the field is returned in the query response. The default is `true`.
 	Displayable bool `pulumi:"displayable"`
-	// Whether the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
-	Facetable bool `pulumi:"facetable"`
-	// Determines whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
-	Searchable bool `pulumi:"searchable"`
-	// Determines whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `false`.
-	Sortable bool `pulumi:"sortable"`
+	Facetable   bool `pulumi:"facetable"`
+	Searchable  bool `pulumi:"searchable"`
+	Sortable    bool `pulumi:"sortable"`
 }
 
 // GetIndexDocumentMetadataConfigurationUpdateSearchInput is an input type that accepts GetIndexDocumentMetadataConfigurationUpdateSearchArgs and GetIndexDocumentMetadataConfigurationUpdateSearchOutput values.
@@ -8098,14 +7536,10 @@ type GetIndexDocumentMetadataConfigurationUpdateSearchInput interface {
 }
 
 type GetIndexDocumentMetadataConfigurationUpdateSearchArgs struct {
-	// Determines whether the field is returned in the query response. The default is `true`.
 	Displayable pulumi.BoolInput `pulumi:"displayable"`
-	// Whether the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
-	Facetable pulumi.BoolInput `pulumi:"facetable"`
-	// Determines whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
-	Searchable pulumi.BoolInput `pulumi:"searchable"`
-	// Determines whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `false`.
-	Sortable pulumi.BoolInput `pulumi:"sortable"`
+	Facetable   pulumi.BoolInput `pulumi:"facetable"`
+	Searchable  pulumi.BoolInput `pulumi:"searchable"`
+	Sortable    pulumi.BoolInput `pulumi:"sortable"`
 }
 
 func (GetIndexDocumentMetadataConfigurationUpdateSearchArgs) ElementType() reflect.Type {
@@ -8159,22 +7593,18 @@ func (o GetIndexDocumentMetadataConfigurationUpdateSearchOutput) ToGetIndexDocum
 	return o
 }
 
-// Determines whether the field is returned in the query response. The default is `true`.
 func (o GetIndexDocumentMetadataConfigurationUpdateSearchOutput) Displayable() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateSearch) bool { return v.Displayable }).(pulumi.BoolOutput)
 }
 
-// Whether the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
 func (o GetIndexDocumentMetadataConfigurationUpdateSearchOutput) Facetable() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateSearch) bool { return v.Facetable }).(pulumi.BoolOutput)
 }
 
-// Determines whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
 func (o GetIndexDocumentMetadataConfigurationUpdateSearchOutput) Searchable() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateSearch) bool { return v.Searchable }).(pulumi.BoolOutput)
 }
 
-// Determines whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `false`.
 func (o GetIndexDocumentMetadataConfigurationUpdateSearchOutput) Sortable() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateSearch) bool { return v.Sortable }).(pulumi.BoolOutput)
 }
@@ -8200,9 +7630,7 @@ func (o GetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput) Index(i pu
 }
 
 type GetIndexIndexStatistic struct {
-	// Block that specifies the number of question and answer topics in the index. Documented below.
-	FaqStatistics []GetIndexIndexStatisticFaqStatistic `pulumi:"faqStatistics"`
-	// A block that specifies the number of text documents indexed.
+	FaqStatistics          []GetIndexIndexStatisticFaqStatistic          `pulumi:"faqStatistics"`
 	TextDocumentStatistics []GetIndexIndexStatisticTextDocumentStatistic `pulumi:"textDocumentStatistics"`
 }
 
@@ -8218,9 +7646,7 @@ type GetIndexIndexStatisticInput interface {
 }
 
 type GetIndexIndexStatisticArgs struct {
-	// Block that specifies the number of question and answer topics in the index. Documented below.
-	FaqStatistics GetIndexIndexStatisticFaqStatisticArrayInput `pulumi:"faqStatistics"`
-	// A block that specifies the number of text documents indexed.
+	FaqStatistics          GetIndexIndexStatisticFaqStatisticArrayInput          `pulumi:"faqStatistics"`
 	TextDocumentStatistics GetIndexIndexStatisticTextDocumentStatisticArrayInput `pulumi:"textDocumentStatistics"`
 }
 
@@ -8275,12 +7701,10 @@ func (o GetIndexIndexStatisticOutput) ToGetIndexIndexStatisticOutputWithContext(
 	return o
 }
 
-// Block that specifies the number of question and answer topics in the index. Documented below.
 func (o GetIndexIndexStatisticOutput) FaqStatistics() GetIndexIndexStatisticFaqStatisticArrayOutput {
 	return o.ApplyT(func(v GetIndexIndexStatistic) []GetIndexIndexStatisticFaqStatistic { return v.FaqStatistics }).(GetIndexIndexStatisticFaqStatisticArrayOutput)
 }
 
-// A block that specifies the number of text documents indexed.
 func (o GetIndexIndexStatisticOutput) TextDocumentStatistics() GetIndexIndexStatisticTextDocumentStatisticArrayOutput {
 	return o.ApplyT(func(v GetIndexIndexStatistic) []GetIndexIndexStatisticTextDocumentStatistic {
 		return v.TextDocumentStatistics
@@ -8308,7 +7732,6 @@ func (o GetIndexIndexStatisticArrayOutput) Index(i pulumi.IntInput) GetIndexInde
 }
 
 type GetIndexIndexStatisticFaqStatistic struct {
-	// The total number of FAQ questions and answers contained in the index.
 	IndexedQuestionAnswersCount int `pulumi:"indexedQuestionAnswersCount"`
 }
 
@@ -8324,7 +7747,6 @@ type GetIndexIndexStatisticFaqStatisticInput interface {
 }
 
 type GetIndexIndexStatisticFaqStatisticArgs struct {
-	// The total number of FAQ questions and answers contained in the index.
 	IndexedQuestionAnswersCount pulumi.IntInput `pulumi:"indexedQuestionAnswersCount"`
 }
 
@@ -8379,7 +7801,6 @@ func (o GetIndexIndexStatisticFaqStatisticOutput) ToGetIndexIndexStatisticFaqSta
 	return o
 }
 
-// The total number of FAQ questions and answers contained in the index.
 func (o GetIndexIndexStatisticFaqStatisticOutput) IndexedQuestionAnswersCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetIndexIndexStatisticFaqStatistic) int { return v.IndexedQuestionAnswersCount }).(pulumi.IntOutput)
 }
@@ -8405,9 +7826,7 @@ func (o GetIndexIndexStatisticFaqStatisticArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetIndexIndexStatisticTextDocumentStatistic struct {
-	// Total size, in bytes, of the indexed documents.
-	IndexedTextBytes int `pulumi:"indexedTextBytes"`
-	// The number of text documents indexed.
+	IndexedTextBytes          int `pulumi:"indexedTextBytes"`
 	IndexedTextDocumentsCount int `pulumi:"indexedTextDocumentsCount"`
 }
 
@@ -8423,9 +7842,7 @@ type GetIndexIndexStatisticTextDocumentStatisticInput interface {
 }
 
 type GetIndexIndexStatisticTextDocumentStatisticArgs struct {
-	// Total size, in bytes, of the indexed documents.
-	IndexedTextBytes pulumi.IntInput `pulumi:"indexedTextBytes"`
-	// The number of text documents indexed.
+	IndexedTextBytes          pulumi.IntInput `pulumi:"indexedTextBytes"`
 	IndexedTextDocumentsCount pulumi.IntInput `pulumi:"indexedTextDocumentsCount"`
 }
 
@@ -8480,12 +7897,10 @@ func (o GetIndexIndexStatisticTextDocumentStatisticOutput) ToGetIndexIndexStatis
 	return o
 }
 
-// Total size, in bytes, of the indexed documents.
 func (o GetIndexIndexStatisticTextDocumentStatisticOutput) IndexedTextBytes() pulumi.IntOutput {
 	return o.ApplyT(func(v GetIndexIndexStatisticTextDocumentStatistic) int { return v.IndexedTextBytes }).(pulumi.IntOutput)
 }
 
-// The number of text documents indexed.
 func (o GetIndexIndexStatisticTextDocumentStatisticOutput) IndexedTextDocumentsCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetIndexIndexStatisticTextDocumentStatistic) int { return v.IndexedTextDocumentsCount }).(pulumi.IntOutput)
 }
@@ -8511,7 +7926,6 @@ func (o GetIndexIndexStatisticTextDocumentStatisticArrayOutput) Index(i pulumi.I
 }
 
 type GetIndexServerSideEncryptionConfiguration struct {
-	// Identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn't support asymmetric CMKs.
 	KmsKeyId string `pulumi:"kmsKeyId"`
 }
 
@@ -8527,7 +7941,6 @@ type GetIndexServerSideEncryptionConfigurationInput interface {
 }
 
 type GetIndexServerSideEncryptionConfigurationArgs struct {
-	// Identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn't support asymmetric CMKs.
 	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 }
 
@@ -8582,7 +7995,6 @@ func (o GetIndexServerSideEncryptionConfigurationOutput) ToGetIndexServerSideEnc
 	return o
 }
 
-// Identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn't support asymmetric CMKs.
 func (o GetIndexServerSideEncryptionConfigurationOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIndexServerSideEncryptionConfiguration) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
@@ -8608,7 +8020,6 @@ func (o GetIndexServerSideEncryptionConfigurationArrayOutput) Index(i pulumi.Int
 }
 
 type GetIndexUserGroupResolutionConfiguration struct {
-	// The identity store provider (mode) you want to use to fetch access levels of groups and users. AWS Single Sign-On is currently the only available mode. Your users and groups must exist in an AWS SSO identity source in order to use this mode. Valid Values are `AWS_SSO` or `NONE`.
 	UserGroupResolutionMode string `pulumi:"userGroupResolutionMode"`
 }
 
@@ -8624,7 +8035,6 @@ type GetIndexUserGroupResolutionConfigurationInput interface {
 }
 
 type GetIndexUserGroupResolutionConfigurationArgs struct {
-	// The identity store provider (mode) you want to use to fetch access levels of groups and users. AWS Single Sign-On is currently the only available mode. Your users and groups must exist in an AWS SSO identity source in order to use this mode. Valid Values are `AWS_SSO` or `NONE`.
 	UserGroupResolutionMode pulumi.StringInput `pulumi:"userGroupResolutionMode"`
 }
 
@@ -8679,7 +8089,6 @@ func (o GetIndexUserGroupResolutionConfigurationOutput) ToGetIndexUserGroupResol
 	return o
 }
 
-// The identity store provider (mode) you want to use to fetch access levels of groups and users. AWS Single Sign-On is currently the only available mode. Your users and groups must exist in an AWS SSO identity source in order to use this mode. Valid Values are `AWS_SSO` or `NONE`.
 func (o GetIndexUserGroupResolutionConfigurationOutput) UserGroupResolutionMode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIndexUserGroupResolutionConfiguration) string { return v.UserGroupResolutionMode }).(pulumi.StringOutput)
 }
@@ -8705,10 +8114,8 @@ func (o GetIndexUserGroupResolutionConfigurationArrayOutput) Index(i pulumi.IntI
 }
 
 type GetIndexUserTokenConfiguration struct {
-	// A block that specifies the information about the JSON token type configuration.
 	JsonTokenTypeConfigurations []GetIndexUserTokenConfigurationJsonTokenTypeConfiguration `pulumi:"jsonTokenTypeConfigurations"`
-	// A block that specifies the information about the JWT token type configuration.
-	JwtTokenTypeConfigurations []GetIndexUserTokenConfigurationJwtTokenTypeConfiguration `pulumi:"jwtTokenTypeConfigurations"`
+	JwtTokenTypeConfigurations  []GetIndexUserTokenConfigurationJwtTokenTypeConfiguration  `pulumi:"jwtTokenTypeConfigurations"`
 }
 
 // GetIndexUserTokenConfigurationInput is an input type that accepts GetIndexUserTokenConfigurationArgs and GetIndexUserTokenConfigurationOutput values.
@@ -8723,10 +8130,8 @@ type GetIndexUserTokenConfigurationInput interface {
 }
 
 type GetIndexUserTokenConfigurationArgs struct {
-	// A block that specifies the information about the JSON token type configuration.
 	JsonTokenTypeConfigurations GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayInput `pulumi:"jsonTokenTypeConfigurations"`
-	// A block that specifies the information about the JWT token type configuration.
-	JwtTokenTypeConfigurations GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayInput `pulumi:"jwtTokenTypeConfigurations"`
+	JwtTokenTypeConfigurations  GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayInput  `pulumi:"jwtTokenTypeConfigurations"`
 }
 
 func (GetIndexUserTokenConfigurationArgs) ElementType() reflect.Type {
@@ -8780,14 +8185,12 @@ func (o GetIndexUserTokenConfigurationOutput) ToGetIndexUserTokenConfigurationOu
 	return o
 }
 
-// A block that specifies the information about the JSON token type configuration.
 func (o GetIndexUserTokenConfigurationOutput) JsonTokenTypeConfigurations() GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutput {
 	return o.ApplyT(func(v GetIndexUserTokenConfiguration) []GetIndexUserTokenConfigurationJsonTokenTypeConfiguration {
 		return v.JsonTokenTypeConfigurations
 	}).(GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutput)
 }
 
-// A block that specifies the information about the JWT token type configuration.
 func (o GetIndexUserTokenConfigurationOutput) JwtTokenTypeConfigurations() GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutput {
 	return o.ApplyT(func(v GetIndexUserTokenConfiguration) []GetIndexUserTokenConfigurationJwtTokenTypeConfiguration {
 		return v.JwtTokenTypeConfigurations
@@ -8815,9 +8218,7 @@ func (o GetIndexUserTokenConfigurationArrayOutput) Index(i pulumi.IntInput) GetI
 }
 
 type GetIndexUserTokenConfigurationJsonTokenTypeConfiguration struct {
-	// The group attribute field.
-	GroupAttributeField string `pulumi:"groupAttributeField"`
-	// The user name attribute field.
+	GroupAttributeField    string `pulumi:"groupAttributeField"`
 	UserNameAttributeField string `pulumi:"userNameAttributeField"`
 }
 
@@ -8833,9 +8234,7 @@ type GetIndexUserTokenConfigurationJsonTokenTypeConfigurationInput interface {
 }
 
 type GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArgs struct {
-	// The group attribute field.
-	GroupAttributeField pulumi.StringInput `pulumi:"groupAttributeField"`
-	// The user name attribute field.
+	GroupAttributeField    pulumi.StringInput `pulumi:"groupAttributeField"`
 	UserNameAttributeField pulumi.StringInput `pulumi:"userNameAttributeField"`
 }
 
@@ -8890,12 +8289,10 @@ func (o GetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutput) ToGetInd
 	return o
 }
 
-// The group attribute field.
 func (o GetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutput) GroupAttributeField() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIndexUserTokenConfigurationJsonTokenTypeConfiguration) string { return v.GroupAttributeField }).(pulumi.StringOutput)
 }
 
-// The user name attribute field.
 func (o GetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutput) UserNameAttributeField() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIndexUserTokenConfigurationJsonTokenTypeConfiguration) string {
 		return v.UserNameAttributeField
@@ -8923,19 +8320,12 @@ func (o GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutput) Ind
 }
 
 type GetIndexUserTokenConfigurationJwtTokenTypeConfiguration struct {
-	// Regular expression that identifies the claim.
-	ClaimRegex string `pulumi:"claimRegex"`
-	// The group attribute field.
-	GroupAttributeField string `pulumi:"groupAttributeField"`
-	// Issuer of the token.
-	Issuer string `pulumi:"issuer"`
-	// Location of the key. Valid values are `URL` or `SECRET_MANAGER`
-	KeyLocation string `pulumi:"keyLocation"`
-	// ARN of the secret.
-	SecretsManagerArn string `pulumi:"secretsManagerArn"`
-	// Signing key URL.
-	Url string `pulumi:"url"`
-	// The user name attribute field.
+	ClaimRegex             string `pulumi:"claimRegex"`
+	GroupAttributeField    string `pulumi:"groupAttributeField"`
+	Issuer                 string `pulumi:"issuer"`
+	KeyLocation            string `pulumi:"keyLocation"`
+	SecretsManagerArn      string `pulumi:"secretsManagerArn"`
+	Url                    string `pulumi:"url"`
 	UserNameAttributeField string `pulumi:"userNameAttributeField"`
 }
 
@@ -8951,19 +8341,12 @@ type GetIndexUserTokenConfigurationJwtTokenTypeConfigurationInput interface {
 }
 
 type GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArgs struct {
-	// Regular expression that identifies the claim.
-	ClaimRegex pulumi.StringInput `pulumi:"claimRegex"`
-	// The group attribute field.
-	GroupAttributeField pulumi.StringInput `pulumi:"groupAttributeField"`
-	// Issuer of the token.
-	Issuer pulumi.StringInput `pulumi:"issuer"`
-	// Location of the key. Valid values are `URL` or `SECRET_MANAGER`
-	KeyLocation pulumi.StringInput `pulumi:"keyLocation"`
-	// ARN of the secret.
-	SecretsManagerArn pulumi.StringInput `pulumi:"secretsManagerArn"`
-	// Signing key URL.
-	Url pulumi.StringInput `pulumi:"url"`
-	// The user name attribute field.
+	ClaimRegex             pulumi.StringInput `pulumi:"claimRegex"`
+	GroupAttributeField    pulumi.StringInput `pulumi:"groupAttributeField"`
+	Issuer                 pulumi.StringInput `pulumi:"issuer"`
+	KeyLocation            pulumi.StringInput `pulumi:"keyLocation"`
+	SecretsManagerArn      pulumi.StringInput `pulumi:"secretsManagerArn"`
+	Url                    pulumi.StringInput `pulumi:"url"`
 	UserNameAttributeField pulumi.StringInput `pulumi:"userNameAttributeField"`
 }
 
@@ -9018,37 +8401,30 @@ func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput) ToGetInde
 	return o
 }
 
-// Regular expression that identifies the claim.
 func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput) ClaimRegex() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIndexUserTokenConfigurationJwtTokenTypeConfiguration) string { return v.ClaimRegex }).(pulumi.StringOutput)
 }
 
-// The group attribute field.
 func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput) GroupAttributeField() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIndexUserTokenConfigurationJwtTokenTypeConfiguration) string { return v.GroupAttributeField }).(pulumi.StringOutput)
 }
 
-// Issuer of the token.
 func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIndexUserTokenConfigurationJwtTokenTypeConfiguration) string { return v.Issuer }).(pulumi.StringOutput)
 }
 
-// Location of the key. Valid values are `URL` or `SECRET_MANAGER`
 func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput) KeyLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIndexUserTokenConfigurationJwtTokenTypeConfiguration) string { return v.KeyLocation }).(pulumi.StringOutput)
 }
 
-// ARN of the secret.
 func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput) SecretsManagerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIndexUserTokenConfigurationJwtTokenTypeConfiguration) string { return v.SecretsManagerArn }).(pulumi.StringOutput)
 }
 
-// Signing key URL.
 func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIndexUserTokenConfigurationJwtTokenTypeConfiguration) string { return v.Url }).(pulumi.StringOutput)
 }
 
-// The user name attribute field.
 func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput) UserNameAttributeField() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIndexUserTokenConfigurationJwtTokenTypeConfiguration) string {
 		return v.UserNameAttributeField
@@ -9076,10 +8452,8 @@ func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutput) Inde
 }
 
 type GetQuerySuggestionsBlockListSourceS3Path struct {
-	// Name of the S3 bucket that contains the file.
 	Bucket string `pulumi:"bucket"`
-	// Name of the file.
-	Key string `pulumi:"key"`
+	Key    string `pulumi:"key"`
 }
 
 // GetQuerySuggestionsBlockListSourceS3PathInput is an input type that accepts GetQuerySuggestionsBlockListSourceS3PathArgs and GetQuerySuggestionsBlockListSourceS3PathOutput values.
@@ -9094,10 +8468,8 @@ type GetQuerySuggestionsBlockListSourceS3PathInput interface {
 }
 
 type GetQuerySuggestionsBlockListSourceS3PathArgs struct {
-	// Name of the S3 bucket that contains the file.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// Name of the file.
-	Key pulumi.StringInput `pulumi:"key"`
+	Key    pulumi.StringInput `pulumi:"key"`
 }
 
 func (GetQuerySuggestionsBlockListSourceS3PathArgs) ElementType() reflect.Type {
@@ -9151,12 +8523,10 @@ func (o GetQuerySuggestionsBlockListSourceS3PathOutput) ToGetQuerySuggestionsBlo
 	return o
 }
 
-// Name of the S3 bucket that contains the file.
 func (o GetQuerySuggestionsBlockListSourceS3PathOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQuerySuggestionsBlockListSourceS3Path) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// Name of the file.
 func (o GetQuerySuggestionsBlockListSourceS3PathOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQuerySuggestionsBlockListSourceS3Path) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -9182,10 +8552,8 @@ func (o GetQuerySuggestionsBlockListSourceS3PathArrayOutput) Index(i pulumi.IntI
 }
 
 type GetThesaurusSourceS3Path struct {
-	// Name of the S3 bucket that contains the file.
 	Bucket string `pulumi:"bucket"`
-	// Name of the file.
-	Key string `pulumi:"key"`
+	Key    string `pulumi:"key"`
 }
 
 // GetThesaurusSourceS3PathInput is an input type that accepts GetThesaurusSourceS3PathArgs and GetThesaurusSourceS3PathOutput values.
@@ -9200,10 +8568,8 @@ type GetThesaurusSourceS3PathInput interface {
 }
 
 type GetThesaurusSourceS3PathArgs struct {
-	// Name of the S3 bucket that contains the file.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// Name of the file.
-	Key pulumi.StringInput `pulumi:"key"`
+	Key    pulumi.StringInput `pulumi:"key"`
 }
 
 func (GetThesaurusSourceS3PathArgs) ElementType() reflect.Type {
@@ -9257,12 +8623,10 @@ func (o GetThesaurusSourceS3PathOutput) ToGetThesaurusSourceS3PathOutputWithCont
 	return o
 }
 
-// Name of the S3 bucket that contains the file.
 func (o GetThesaurusSourceS3PathOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v GetThesaurusSourceS3Path) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// Name of the file.
 func (o GetThesaurusSourceS3PathOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetThesaurusSourceS3Path) string { return v.Key }).(pulumi.StringOutput)
 }

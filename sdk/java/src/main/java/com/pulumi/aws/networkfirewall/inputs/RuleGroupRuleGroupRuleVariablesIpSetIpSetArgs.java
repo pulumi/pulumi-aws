@@ -15,17 +15,9 @@ public final class RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs extends com.pul
 
     public static final RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs Empty = new RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs();
 
-    /**
-     * Set of IP addresses and address ranges, in CIDR notation.
-     * 
-     */
     @Import(name="definitions", required=true)
     private Output<List<String>> definitions;
 
-    /**
-     * @return Set of IP addresses and address ranges, in CIDR notation.
-     * 
-     */
     public Output<List<String>> definitions() {
         return this.definitions;
     }
@@ -54,33 +46,15 @@ public final class RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs extends com.pul
             $ = new RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param definitions Set of IP addresses and address ranges, in CIDR notation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder definitions(Output<List<String>> definitions) {
             $.definitions = definitions;
             return this;
         }
 
-        /**
-         * @param definitions Set of IP addresses and address ranges, in CIDR notation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder definitions(List<String> definitions) {
             return definitions(Output.of(definitions));
         }
 
-        /**
-         * @param definitions Set of IP addresses and address ranges, in CIDR notation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder definitions(String... definitions) {
             return definitions(List.of(definitions));
         }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ecr.Outputs
     [OutputType]
     public sealed class GetRepositoryImageTagMutabilityExclusionFilterResult
     {
-        /// <summary>
-        /// The filter pattern to use for excluding image tags from the mutability setting.
-        /// </summary>
         public readonly string Filter;
-        /// <summary>
-        /// The type of filter to use.
-        /// </summary>
         public readonly string FilterType;
 
         [OutputConstructor]

@@ -15,161 +15,47 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to create a VPN Concentrator that aggregates multiple VPN connections to a transit gateway.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2transitgateway.TransitGateway;
- * import com.pulumi.aws.ec2transitgateway.TransitGatewayArgs;
- * import com.pulumi.aws.ec2.VpnConcentrator;
- * import com.pulumi.aws.ec2.VpnConcentratorArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new TransitGateway("example", TransitGatewayArgs.builder()
- *             .description("example")
- *             .tags(Map.of("Name", "example"))
- *             .build());
- * 
- *         var exampleVpnConcentrator = new VpnConcentrator("exampleVpnConcentrator", VpnConcentratorArgs.builder()
- *             .type("ipsec.1")
- *             .transitGatewayId(example.id())
- *             .tags(Map.of("Name", "example"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import VPN Concentrators using the VPN concentrator ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:ec2/vpnConcentrator:VpnConcentrator example vcn-12345678
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/vpnConcentrator:VpnConcentrator")
 public class VpnConcentrator extends com.pulumi.resources.CustomResource {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * ID of the transit gateway attachment created for the VPN concentrator.
-     * 
-     */
     @Export(name="transitGatewayAttachmentId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayAttachmentId;
 
-    /**
-     * @return ID of the transit gateway attachment created for the VPN concentrator.
-     * 
-     */
     public Output<String> transitGatewayAttachmentId() {
         return this.transitGatewayAttachmentId;
     }
-    /**
-     * ID of the transit gateway to attach the VPN concentrator to.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="transitGatewayId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayId;
 
-    /**
-     * @return ID of the transit gateway to attach the VPN concentrator to.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> transitGatewayId() {
         return this.transitGatewayId;
     }
-    /**
-     * Type of VPN concentrator. Valid value: `ipsec.1`.
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
-    /**
-     * @return Type of VPN concentrator. Valid value: `ipsec.1`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
-    /**
-     * ID of the VPN Concentrator.
-     * 
-     */
     @Export(name="vpnConcentratorId", refs={String.class}, tree="[0]")
     private Output<String> vpnConcentratorId;
 
-    /**
-     * @return ID of the VPN Concentrator.
-     * 
-     */
     public Output<String> vpnConcentratorId() {
         return this.vpnConcentratorId;
     }

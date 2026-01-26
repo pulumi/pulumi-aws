@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class TopicRuleErrorActionTimestreamTimestamp {
-    /**
-     * @return The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
-     * 
-     */
     private String unit;
-    /**
-     * @return An expression that returns a long epoch time value.
-     * 
-     */
     private String value;
 
     private TopicRuleErrorActionTimestreamTimestamp() {}
-    /**
-     * @return The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
-     * 
-     */
     public String unit() {
         return this.unit;
     }
-    /**
-     * @return An expression that returns a long epoch time value.
-     * 
-     */
     public String value() {
         return this.value;
     }

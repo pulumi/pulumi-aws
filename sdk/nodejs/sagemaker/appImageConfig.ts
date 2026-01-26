@@ -7,64 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a SageMaker AI App Image Config resource.
- *
- * ## Example Usage
- *
- * ### Basic usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.sagemaker.AppImageConfig("test", {
- *     appImageConfigName: "example",
- *     kernelGatewayImageConfig: {
- *         kernelSpecs: [{
- *             name: "example",
- *         }],
- *     },
- * });
- * ```
- *
- * ### Using Code Editor with empty configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.sagemaker.AppImageConfig("test", {
- *     appImageConfigName: "example",
- *     codeEditorAppImageConfig: {},
- * });
- * ```
- *
- * ### Default File System Config
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.sagemaker.AppImageConfig("test", {
- *     appImageConfigName: "example",
- *     kernelGatewayImageConfig: {
- *         kernelSpecs: [{
- *             name: "example",
- *         }],
- *         fileSystemConfig: {},
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import SageMaker AI App Image Configs using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
- * ```
- */
 export class AppImageConfig extends pulumi.CustomResource {
     /**
      * Get an existing AppImageConfig resource's state with the given name, ID, and optional extra
@@ -93,39 +35,13 @@ export class AppImageConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === AppImageConfig.__pulumiType;
     }
 
-    /**
-     * The name of the App Image Config.
-     */
     declare public readonly appImageConfigName: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
-     */
     declare public readonly codeEditorAppImageConfig: pulumi.Output<outputs.sagemaker.AppImageConfigCodeEditorAppImageConfig | undefined>;
-    /**
-     * The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
-     */
     declare public readonly jupyterLabImageConfig: pulumi.Output<outputs.sagemaker.AppImageConfigJupyterLabImageConfig | undefined>;
-    /**
-     * The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
-     */
     declare public readonly kernelGatewayImageConfig: pulumi.Output<outputs.sagemaker.AppImageConfigKernelGatewayImageConfig | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * > **NOTE:** Exactly one of `codeEditorAppImageConfig`, `jupyterLabImageConfig`, or `kernelGatewayImageConfig` must be configured. Empty blocks (e.g., `codeEditorAppImageConfig {}`) are valid configurations.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -172,39 +88,13 @@ export class AppImageConfig extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AppImageConfig resources.
  */
 export interface AppImageConfigState {
-    /**
-     * The name of the App Image Config.
-     */
     appImageConfigName?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
-     */
     codeEditorAppImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigCodeEditorAppImageConfig>;
-    /**
-     * The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
-     */
     jupyterLabImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigJupyterLabImageConfig>;
-    /**
-     * The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
-     */
     kernelGatewayImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigKernelGatewayImageConfig>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * > **NOTE:** Exactly one of `codeEditorAppImageConfig`, `jupyterLabImageConfig`, or `kernelGatewayImageConfig` must be configured. Empty blocks (e.g., `codeEditorAppImageConfig {}`) are valid configurations.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -212,30 +102,10 @@ export interface AppImageConfigState {
  * The set of arguments for constructing a AppImageConfig resource.
  */
 export interface AppImageConfigArgs {
-    /**
-     * The name of the App Image Config.
-     */
     appImageConfigName: pulumi.Input<string>;
-    /**
-     * The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
-     */
     codeEditorAppImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigCodeEditorAppImageConfig>;
-    /**
-     * The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
-     */
     jupyterLabImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigJupyterLabImageConfig>;
-    /**
-     * The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
-     */
     kernelGatewayImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigKernelGatewayImageConfig>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * > **NOTE:** Exactly one of `codeEditorAppImageConfig`, `jupyterLabImageConfig`, or `kernelGatewayImageConfig` must be configured. Empty blocks (e.g., `codeEditorAppImageConfig {}`) are valid configurations.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

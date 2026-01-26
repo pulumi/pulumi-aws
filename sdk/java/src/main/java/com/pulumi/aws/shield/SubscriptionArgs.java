@@ -17,31 +17,23 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
     public static final SubscriptionArgs Empty = new SubscriptionArgs();
 
     /**
-     * Toggle for automated renewal of the subscription. Valid values are `ENABLED` or `DISABLED`. Default is `ENABLED`.
+     * Whether to automatically renew the subscription when it expires.
      * 
      */
     @Import(name="autoRenew")
     private @Nullable Output<String> autoRenew;
 
     /**
-     * @return Toggle for automated renewal of the subscription. Valid values are `ENABLED` or `DISABLED`. Default is `ENABLED`.
+     * @return Whether to automatically renew the subscription when it expires.
      * 
      */
     public Optional<Output<String>> autoRenew() {
         return Optional.ofNullable(this.autoRenew);
     }
 
-    /**
-     * Skip attempting to disable automated renewal upon destruction. If set to `true`, the `autoRenew` value will be left as-is and the resource will simply be removed from state.
-     * 
-     */
     @Import(name="skipDestroy")
     private @Nullable Output<Boolean> skipDestroy;
 
-    /**
-     * @return Skip attempting to disable automated renewal upon destruction. If set to `true`, the `autoRenew` value will be left as-is and the resource will simply be removed from state.
-     * 
-     */
     public Optional<Output<Boolean>> skipDestroy() {
         return Optional.ofNullable(this.skipDestroy);
     }
@@ -72,7 +64,7 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoRenew Toggle for automated renewal of the subscription. Valid values are `ENABLED` or `DISABLED`. Default is `ENABLED`.
+         * @param autoRenew Whether to automatically renew the subscription when it expires.
          * 
          * @return builder
          * 
@@ -83,7 +75,7 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoRenew Toggle for automated renewal of the subscription. Valid values are `ENABLED` or `DISABLED`. Default is `ENABLED`.
+         * @param autoRenew Whether to automatically renew the subscription when it expires.
          * 
          * @return builder
          * 
@@ -92,23 +84,11 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
             return autoRenew(Output.of(autoRenew));
         }
 
-        /**
-         * @param skipDestroy Skip attempting to disable automated renewal upon destruction. If set to `true`, the `autoRenew` value will be left as-is and the resource will simply be removed from state.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skipDestroy(@Nullable Output<Boolean> skipDestroy) {
             $.skipDestroy = skipDestroy;
             return this;
         }
 
-        /**
-         * @param skipDestroy Skip attempting to disable automated renewal upon destruction. If set to `true`, the `autoRenew` value will be left as-is and the resource will simply be removed from state.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skipDestroy(Boolean skipDestroy) {
             return skipDestroy(Output.of(skipDestroy));
         }

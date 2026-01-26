@@ -4,30 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.grafana.WorkspaceServiceAccount("example", {
- *     name: "example-admin",
- *     grafanaRole: "ADMIN",
- *     workspaceId: exampleAwsGrafanaWorkspace.id,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Managed Grafana Workspace Service Account using the `workspace_id` and `service_account_id` separated by a comma (`,`). For example:
- *
- * ```sh
- * $ pulumi import aws:grafana/workspaceServiceAccount:WorkspaceServiceAccount example g-abc12345,1
- * ```
- */
 export class WorkspaceServiceAccount extends pulumi.CustomResource {
     /**
      * Get an existing WorkspaceServiceAccount resource's state with the given name, ID, and optional extra
@@ -56,25 +32,10 @@ export class WorkspaceServiceAccount extends pulumi.CustomResource {
         return obj['__pulumiType'] === WorkspaceServiceAccount.__pulumiType;
     }
 
-    /**
-     * The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
-     */
     declare public readonly grafanaRole: pulumi.Output<string>;
-    /**
-     * A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Identifier of the service account in the given Grafana workspace
-     */
     declare public /*out*/ readonly serviceAccountId: pulumi.Output<string>;
-    /**
-     * The Grafana workspace with which the service account is associated.
-     */
     declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
@@ -118,25 +79,10 @@ export class WorkspaceServiceAccount extends pulumi.CustomResource {
  * Input properties used for looking up and filtering WorkspaceServiceAccount resources.
  */
 export interface WorkspaceServiceAccountState {
-    /**
-     * The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
-     */
     grafanaRole?: pulumi.Input<string>;
-    /**
-     * A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Identifier of the service account in the given Grafana workspace
-     */
     serviceAccountId?: pulumi.Input<string>;
-    /**
-     * The Grafana workspace with which the service account is associated.
-     */
     workspaceId?: pulumi.Input<string>;
 }
 
@@ -144,20 +90,8 @@ export interface WorkspaceServiceAccountState {
  * The set of arguments for constructing a WorkspaceServiceAccount resource.
  */
 export interface WorkspaceServiceAccountArgs {
-    /**
-     * The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
-     */
     grafanaRole: pulumi.Input<string>;
-    /**
-     * A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The Grafana workspace with which the service account is associated.
-     */
     workspaceId: pulumi.Input<string>;
 }

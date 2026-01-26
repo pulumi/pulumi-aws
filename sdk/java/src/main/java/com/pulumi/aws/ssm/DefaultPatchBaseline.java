@@ -13,152 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for registering an AWS Systems Manager Default Patch Baseline.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ssm.PatchBaseline;
- * import com.pulumi.aws.ssm.PatchBaselineArgs;
- * import com.pulumi.aws.ssm.DefaultPatchBaseline;
- * import com.pulumi.aws.ssm.DefaultPatchBaselineArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var examplePatchBaseline = new PatchBaseline("examplePatchBaseline", PatchBaselineArgs.builder()
- *             .name("example")
- *             .approvedPatches("KB123456")
- *             .build());
- * 
- *         var example = new DefaultPatchBaseline("example", DefaultPatchBaselineArgs.builder()
- *             .baselineId(examplePatchBaseline.id())
- *             .operatingSystem(examplePatchBaseline.operatingSystem())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using the patch baseline ARN:
- * 
- * Using the operating system value:
- * 
- * __Using `pulumi import` to import__ the Systems Manager Default Patch Baseline using the patch baseline ID, patch baseline ARN, or the operating system value. For example:
- * 
- * Using the patch baseline ID:
- * 
- * ```sh
- * $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example pb-1234567890abcdef1
- * ```
- * Using the patch baseline ARN:
- * 
- * ```sh
- * $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example arn:aws:ssm:us-west-2:123456789012:patchbaseline/pb-1234567890abcdef1
- * ```
- * Using the operating system value:
- * 
- * ```sh
- * $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example CENTOS
- * ```
- * 
- */
 @ResourceType(type="aws:ssm/defaultPatchBaseline:DefaultPatchBaseline")
 public class DefaultPatchBaseline extends com.pulumi.resources.CustomResource {
-    /**
-     * ID of the patch baseline.
-     * Can be an ID or an ARN.
-     * When specifying an AWS-provided patch baseline, must be the ARN.
-     * 
-     */
     @Export(name="baselineId", refs={String.class}, tree="[0]")
     private Output<String> baselineId;
 
-    /**
-     * @return ID of the patch baseline.
-     * Can be an ID or an ARN.
-     * When specifying an AWS-provided patch baseline, must be the ARN.
-     * 
-     */
     public Output<String> baselineId() {
         return this.baselineId;
     }
-    /**
-     * The operating system the patch baseline applies to.
-     * Valid values are
-     * `AMAZON_LINUX`,
-     * `AMAZON_LINUX_2`,
-     * `AMAZON_LINUX_2022`,
-     * `AMAZON_LINUX_2023`,
-     * `CENTOS`,
-     * `DEBIAN`,
-     * `MACOS`,
-     * `ORACLE_LINUX`,
-     * `RASPBIAN`,
-     * `REDHAT_ENTERPRISE_LINUX`,
-     * `ROCKY_LINUX`,
-     * `SUSE`,
-     * `UBUNTU`, and
-     * `WINDOWS`.
-     * 
-     */
     @Export(name="operatingSystem", refs={String.class}, tree="[0]")
     private Output<String> operatingSystem;
 
-    /**
-     * @return The operating system the patch baseline applies to.
-     * Valid values are
-     * `AMAZON_LINUX`,
-     * `AMAZON_LINUX_2`,
-     * `AMAZON_LINUX_2022`,
-     * `AMAZON_LINUX_2023`,
-     * `CENTOS`,
-     * `DEBIAN`,
-     * `MACOS`,
-     * `ORACLE_LINUX`,
-     * `RASPBIAN`,
-     * `REDHAT_ENTERPRISE_LINUX`,
-     * `ROCKY_LINUX`,
-     * `SUSE`,
-     * `UBUNTU`, and
-     * `WINDOWS`.
-     * 
-     */
     public Output<String> operatingSystem() {
         return this.operatingSystem;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

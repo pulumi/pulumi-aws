@@ -17,62 +17,30 @@ public final class ApiKeyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ApiKeyArgs Empty = new ApiKeyArgs();
 
-    /**
-     * ID of the associated AppSync API
-     * 
-     */
     @Import(name="apiId", required=true)
     private Output<String> apiId;
 
-    /**
-     * @return ID of the associated AppSync API
-     * 
-     */
     public Output<String> apiId() {
         return this.apiId;
     }
 
-    /**
-     * API key description. Defaults to &#34;Managed by Pulumi&#34;.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return API key description. Defaults to &#34;Managed by Pulumi&#34;.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-     * 
-     */
     @Import(name="expires")
     private @Nullable Output<String> expires;
 
-    /**
-     * @return RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-     * 
-     */
     public Optional<Output<String>> expires() {
         return Optional.ofNullable(this.expires);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -104,86 +72,38 @@ public final class ApiKeyArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ApiKeyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param apiId ID of the associated AppSync API
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiId(Output<String> apiId) {
             $.apiId = apiId;
             return this;
         }
 
-        /**
-         * @param apiId ID of the associated AppSync API
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiId(String apiId) {
             return apiId(Output.of(apiId));
         }
 
-        /**
-         * @param description API key description. Defaults to &#34;Managed by Pulumi&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description API key description. Defaults to &#34;Managed by Pulumi&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param expires RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expires(@Nullable Output<String> expires) {
             $.expires = expires;
             return this;
         }
 
-        /**
-         * @param expires RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expires(String expires) {
             return expires(Output.of(expires));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetListenerRuleActionFixedResponse {
-    /**
-     * @return Content type of the response.
-     * 
-     */
     private String contentType;
-    /**
-     * @return Message body of the response.
-     * 
-     */
     private String messageBody;
-    /**
-     * @return The HTTP redirect code.
-     * 
-     */
     private String statusCode;
 
     private GetListenerRuleActionFixedResponse() {}
-    /**
-     * @return Content type of the response.
-     * 
-     */
     public String contentType() {
         return this.contentType;
     }
-    /**
-     * @return Message body of the response.
-     * 
-     */
     public String messageBody() {
         return this.messageBody;
     }
-    /**
-     * @return The HTTP redirect code.
-     * 
-     */
     public String statusCode() {
         return this.statusCode;
     }

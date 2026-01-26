@@ -12,76 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to accept a pending VPC Endpoint Connection accept request to VPC Endpoint Service.
-//
-// ## Example Usage
-//
-// ### Accept cross-account request
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ec2.NewVpcEndpointService(ctx, "example", &ec2.VpcEndpointServiceArgs{
-//				AcceptanceRequired: pulumi.Bool(false),
-//				NetworkLoadBalancerArns: pulumi.StringArray{
-//					exampleAwsLb.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpcEndpoint, err := ec2.NewVpcEndpoint(ctx, "example", &ec2.VpcEndpointArgs{
-//				VpcId:             pulumi.Any(testAlternate.Id),
-//				ServiceName:       pulumi.Any(testAwsVpcEndpointService.ServiceName),
-//				VpcEndpointType:   pulumi.String("Interface"),
-//				PrivateDnsEnabled: pulumi.Bool(false),
-//				SecurityGroupIds: pulumi.StringArray{
-//					test.Id,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVpcEndpointConnectionAccepter(ctx, "example", &ec2.VpcEndpointConnectionAccepterArgs{
-//				VpcEndpointServiceId: example.ID(),
-//				VpcEndpointId:        exampleVpcEndpoint.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import VPC Endpoint Services using ID of the connection, which is the `VPC Endpoint Service ID` and `VPC Endpoint ID` separated by underscore (`_`).. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter foo vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263
-// ```
 type VpcEndpointConnectionAccepter struct {
 	pulumi.CustomResourceState
 
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// AWS VPC Endpoint ID.
-	VpcEndpointId pulumi.StringOutput `pulumi:"vpcEndpointId"`
-	// AWS VPC Endpoint Service ID.
+	Region               pulumi.StringOutput `pulumi:"region"`
+	VpcEndpointId        pulumi.StringOutput `pulumi:"vpcEndpointId"`
 	VpcEndpointServiceId pulumi.StringOutput `pulumi:"vpcEndpointServiceId"`
-	// State of the VPC Endpoint.
-	VpcEndpointState pulumi.StringOutput `pulumi:"vpcEndpointState"`
+	VpcEndpointState     pulumi.StringOutput `pulumi:"vpcEndpointState"`
 }
 
 // NewVpcEndpointConnectionAccepter registers a new resource with the given unique name, arguments, and options.
@@ -120,25 +57,17 @@ func GetVpcEndpointConnectionAccepter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcEndpointConnectionAccepter resources.
 type vpcEndpointConnectionAccepterState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// AWS VPC Endpoint ID.
-	VpcEndpointId *string `pulumi:"vpcEndpointId"`
-	// AWS VPC Endpoint Service ID.
+	Region               *string `pulumi:"region"`
+	VpcEndpointId        *string `pulumi:"vpcEndpointId"`
 	VpcEndpointServiceId *string `pulumi:"vpcEndpointServiceId"`
-	// State of the VPC Endpoint.
-	VpcEndpointState *string `pulumi:"vpcEndpointState"`
+	VpcEndpointState     *string `pulumi:"vpcEndpointState"`
 }
 
 type VpcEndpointConnectionAccepterState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// AWS VPC Endpoint ID.
-	VpcEndpointId pulumi.StringPtrInput
-	// AWS VPC Endpoint Service ID.
+	Region               pulumi.StringPtrInput
+	VpcEndpointId        pulumi.StringPtrInput
 	VpcEndpointServiceId pulumi.StringPtrInput
-	// State of the VPC Endpoint.
-	VpcEndpointState pulumi.StringPtrInput
+	VpcEndpointState     pulumi.StringPtrInput
 }
 
 func (VpcEndpointConnectionAccepterState) ElementType() reflect.Type {
@@ -146,21 +75,15 @@ func (VpcEndpointConnectionAccepterState) ElementType() reflect.Type {
 }
 
 type vpcEndpointConnectionAccepterArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// AWS VPC Endpoint ID.
-	VpcEndpointId string `pulumi:"vpcEndpointId"`
-	// AWS VPC Endpoint Service ID.
-	VpcEndpointServiceId string `pulumi:"vpcEndpointServiceId"`
+	Region               *string `pulumi:"region"`
+	VpcEndpointId        string  `pulumi:"vpcEndpointId"`
+	VpcEndpointServiceId string  `pulumi:"vpcEndpointServiceId"`
 }
 
 // The set of arguments for constructing a VpcEndpointConnectionAccepter resource.
 type VpcEndpointConnectionAccepterArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// AWS VPC Endpoint ID.
-	VpcEndpointId pulumi.StringInput
-	// AWS VPC Endpoint Service ID.
+	Region               pulumi.StringPtrInput
+	VpcEndpointId        pulumi.StringInput
 	VpcEndpointServiceId pulumi.StringInput
 }
 
@@ -251,22 +174,18 @@ func (o VpcEndpointConnectionAccepterOutput) ToVpcEndpointConnectionAccepterOutp
 	return o
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpcEndpointConnectionAccepterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointConnectionAccepter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// AWS VPC Endpoint ID.
 func (o VpcEndpointConnectionAccepterOutput) VpcEndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointConnectionAccepter) pulumi.StringOutput { return v.VpcEndpointId }).(pulumi.StringOutput)
 }
 
-// AWS VPC Endpoint Service ID.
 func (o VpcEndpointConnectionAccepterOutput) VpcEndpointServiceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointConnectionAccepter) pulumi.StringOutput { return v.VpcEndpointServiceId }).(pulumi.StringOutput)
 }
 
-// State of the VPC Endpoint.
 func (o VpcEndpointConnectionAccepterOutput) VpcEndpointState() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointConnectionAccepter) pulumi.StringOutput { return v.VpcEndpointState }).(pulumi.StringOutput)
 }

@@ -16,66 +16,26 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationApplicationConfigurationSqlApplicationConfigurationOutput {
-    /**
-     * @return Describes the data format when records are written to the destination.
-     * 
-     */
     private ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema destinationSchema;
-    /**
-     * @return Identifies a Kinesis Data Firehose delivery stream as the destination.
-     * 
-     */
     private @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput kinesisFirehoseOutput;
-    /**
-     * @return Identifies a Kinesis data stream as the destination.
-     * 
-     */
     private @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput kinesisStreamsOutput;
-    /**
-     * @return Identifies a Lambda function as the destination.
-     * 
-     */
     private @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput lambdaOutput;
-    /**
-     * @return The name of the in-application stream.
-     * 
-     */
     private String name;
     private @Nullable String outputId;
 
     private ApplicationApplicationConfigurationSqlApplicationConfigurationOutput() {}
-    /**
-     * @return Describes the data format when records are written to the destination.
-     * 
-     */
     public ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema destinationSchema() {
         return this.destinationSchema;
     }
-    /**
-     * @return Identifies a Kinesis Data Firehose delivery stream as the destination.
-     * 
-     */
     public Optional<ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput> kinesisFirehoseOutput() {
         return Optional.ofNullable(this.kinesisFirehoseOutput);
     }
-    /**
-     * @return Identifies a Kinesis data stream as the destination.
-     * 
-     */
     public Optional<ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput> kinesisStreamsOutput() {
         return Optional.ofNullable(this.kinesisStreamsOutput);
     }
-    /**
-     * @return Identifies a Lambda function as the destination.
-     * 
-     */
     public Optional<ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput> lambdaOutput() {
         return Optional.ofNullable(this.lambdaOutput);
     }
-    /**
-     * @return The name of the in-application stream.
-     * 
-     */
     public String name() {
         return this.name;
     }

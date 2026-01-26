@@ -91,29 +91,7 @@ def get_outpost_instance_type(arn: Optional[_builtins.str] = None,
                               region: Optional[_builtins.str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOutpostInstanceTypeResult:
     """
-    Information about single Outpost Instance Type.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.outposts.get_outpost_instance_type(arn=example_aws_outposts_outpost["arn"],
-        preferred_instance_types=[
-            "m5.large",
-            "m5.4xlarge",
-        ])
-    example_ec2_instance = aws.index.Ec2Instance("example", instance_type=example.instance_type)
-    ```
-
-
-    :param _builtins.str arn: Outpost ARN.
-           
-           The following arguments are optional:
-    :param _builtins.str instance_type: Desired instance type. Conflicts with `preferred_instance_types`.
-    :param Sequence[_builtins.str] preferred_instance_types: Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instance_type`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -135,29 +113,7 @@ def get_outpost_instance_type_output(arn: Optional[pulumi.Input[_builtins.str]] 
                                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOutpostInstanceTypeResult]:
     """
-    Information about single Outpost Instance Type.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.outposts.get_outpost_instance_type(arn=example_aws_outposts_outpost["arn"],
-        preferred_instance_types=[
-            "m5.large",
-            "m5.4xlarge",
-        ])
-    example_ec2_instance = aws.index.Ec2Instance("example", instance_type=example.instance_type)
-    ```
-
-
-    :param _builtins.str arn: Outpost ARN.
-           
-           The following arguments are optional:
-    :param _builtins.str instance_type: Desired instance type. Conflicts with `preferred_instance_types`.
-    :param Sequence[_builtins.str] preferred_instance_types: Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instance_type`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

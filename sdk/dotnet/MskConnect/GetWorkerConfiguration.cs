@@ -11,75 +11,12 @@ namespace Pulumi.Aws.MskConnect
 {
     public static class GetWorkerConfiguration
     {
-        /// <summary>
-        /// Get information on an Amazon MSK Connect Worker Configuration.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.MskConnect.GetWorkerConfiguration.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetWorkerConfigurationResult> InvokeAsync(GetWorkerConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkerConfigurationResult>("aws:mskconnect/getWorkerConfiguration:getWorkerConfiguration", args ?? new GetWorkerConfigurationArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get information on an Amazon MSK Connect Worker Configuration.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.MskConnect.GetWorkerConfiguration.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetWorkerConfigurationResult> Invoke(GetWorkerConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkerConfigurationResult>("aws:mskconnect/getWorkerConfiguration:getWorkerConfiguration", args ?? new GetWorkerConfigurationInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get information on an Amazon MSK Connect Worker Configuration.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.MskConnect.GetWorkerConfiguration.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetWorkerConfigurationResult> Invoke(GetWorkerConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkerConfigurationResult>("aws:mskconnect/getWorkerConfiguration:getWorkerConfiguration", args ?? new GetWorkerConfigurationInvokeArgs(), options.WithDefaults());
     }
@@ -87,24 +24,14 @@ namespace Pulumi.Aws.MskConnect
 
     public sealed class GetWorkerConfigurationArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the worker configuration.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// A map of tags assigned to the resource.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -119,24 +46,14 @@ namespace Pulumi.Aws.MskConnect
 
     public sealed class GetWorkerConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the worker configuration.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags assigned to the resource.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -153,31 +70,16 @@ namespace Pulumi.Aws.MskConnect
     [OutputType]
     public sealed class GetWorkerConfigurationResult
     {
-        /// <summary>
-        /// the ARN of the worker configuration.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// a summary description of the worker configuration.
-        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// an ID of the latest successfully created revision of the worker configuration.
-        /// </summary>
         public readonly int LatestRevision;
         public readonly string Name;
-        /// <summary>
-        /// contents of connect-distributed.properties file.
-        /// </summary>
         public readonly string PropertiesFileContent;
         public readonly string Region;
-        /// <summary>
-        /// A map of tags assigned to the resource.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

@@ -9,89 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SesV2
 {
-    /// <summary>
-    /// Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Policy.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SesV2.EmailIdentity("example", new()
-    ///     {
-    ///         EmailIdentityDetails = "testing@example.com",
-    ///     });
-    /// 
-    ///     var exampleEmailIdentityPolicy = new Aws.SesV2.EmailIdentityPolicy("example", new()
-    ///     {
-    ///         EmailIdentity = example.EmailIdentityDetails,
-    ///         PolicyName = "example",
-    ///         Policy = example.Arn.Apply(arn =&gt; @$"{{
-    ///   \""Id\"":\""ExampleAuthorizationPolicy\"",
-    ///   \""Version\"":\""2012-10-17\"",
-    ///   \""Statement\"":[
-    ///     {{
-    ///       \""Sid\"":\""AuthorizeIAMUser\"",
-    ///       \""Effect\"":\""Allow\"",
-    ///       \""Resource\"":\""{arn}\"",
-    ///       \""Principal\"":{{
-    ///         \""AWS\"":[
-    ///           \""arn:aws:iam::123456789012:user/John\"",
-    ///           \""arn:aws:iam::123456789012:user/Jane\""
-    ///         ]
-    ///       }},
-    ///       \""Action\"":[
-    ///         \""ses:DeleteEmailIdentity\"",
-    ///         \""ses:PutEmailIdentityDkimSigningAttributes\""
-    ///       ]
-    ///     }}
-    ///   ]
-    /// }}
-    /// "),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Policy using the `email_identity` and `policy_name` separated by `|`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy example example_email_identity|example_policy_name
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy")]
     public partial class EmailIdentityPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The email identity.
-        /// </summary>
         [Output("emailIdentity")]
         public Output<string> EmailIdentity { get; private set; } = null!;
 
-        /// <summary>
-        /// The text of the policy in JSON format.
-        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the policy.
-        /// </summary>
         [Output("policyName")]
         public Output<string> PolicyName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -141,27 +70,15 @@ namespace Pulumi.Aws.SesV2
 
     public sealed class EmailIdentityPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The email identity.
-        /// </summary>
         [Input("emailIdentity", required: true)]
         public Input<string> EmailIdentity { get; set; } = null!;
 
-        /// <summary>
-        /// The text of the policy in JSON format.
-        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the policy.
-        /// </summary>
         [Input("policyName", required: true)]
         public Input<string> PolicyName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -173,27 +90,15 @@ namespace Pulumi.Aws.SesV2
 
     public sealed class EmailIdentityPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The email identity.
-        /// </summary>
         [Input("emailIdentity")]
         public Input<string>? EmailIdentity { get; set; }
 
-        /// <summary>
-        /// The text of the policy in JSON format.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
-        /// <summary>
-        /// The name of the policy.
-        /// </summary>
         [Input("policyName")]
         public Input<string>? PolicyName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

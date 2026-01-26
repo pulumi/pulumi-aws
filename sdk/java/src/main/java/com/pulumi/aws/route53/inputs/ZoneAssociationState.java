@@ -15,62 +15,30 @@ public final class ZoneAssociationState extends com.pulumi.resources.ResourceArg
 
     public static final ZoneAssociationState Empty = new ZoneAssociationState();
 
-    /**
-     * The account ID of the account that created the hosted zone.
-     * 
-     */
     @Import(name="owningAccount")
     private @Nullable Output<String> owningAccount;
 
-    /**
-     * @return The account ID of the account that created the hosted zone.
-     * 
-     */
     public Optional<Output<String>> owningAccount() {
         return Optional.ofNullable(this.owningAccount);
     }
 
-    /**
-     * The VPC to associate with the private hosted zone.
-     * 
-     */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
-    /**
-     * @return The VPC to associate with the private hosted zone.
-     * 
-     */
     public Optional<Output<String>> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
 
-    /**
-     * The VPC&#39;s region. Defaults to the region of the AWS provider.
-     * 
-     */
     @Import(name="vpcRegion")
     private @Nullable Output<String> vpcRegion;
 
-    /**
-     * @return The VPC&#39;s region. Defaults to the region of the AWS provider.
-     * 
-     */
     public Optional<Output<String>> vpcRegion() {
         return Optional.ofNullable(this.vpcRegion);
     }
 
-    /**
-     * The private hosted zone to associate.
-     * 
-     */
     @Import(name="zoneId")
     private @Nullable Output<String> zoneId;
 
-    /**
-     * @return The private hosted zone to associate.
-     * 
-     */
     public Optional<Output<String>> zoneId() {
         return Optional.ofNullable(this.zoneId);
     }
@@ -102,86 +70,38 @@ public final class ZoneAssociationState extends com.pulumi.resources.ResourceArg
             $ = new ZoneAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param owningAccount The account ID of the account that created the hosted zone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owningAccount(@Nullable Output<String> owningAccount) {
             $.owningAccount = owningAccount;
             return this;
         }
 
-        /**
-         * @param owningAccount The account ID of the account that created the hosted zone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owningAccount(String owningAccount) {
             return owningAccount(Output.of(owningAccount));
         }
 
-        /**
-         * @param vpcId The VPC to associate with the private hosted zone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(@Nullable Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId The VPC to associate with the private hosted zone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }
 
-        /**
-         * @param vpcRegion The VPC&#39;s region. Defaults to the region of the AWS provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcRegion(@Nullable Output<String> vpcRegion) {
             $.vpcRegion = vpcRegion;
             return this;
         }
 
-        /**
-         * @param vpcRegion The VPC&#39;s region. Defaults to the region of the AWS provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcRegion(String vpcRegion) {
             return vpcRegion(Output.of(vpcRegion));
         }
 
-        /**
-         * @param zoneId The private hosted zone to associate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder zoneId(@Nullable Output<String> zoneId) {
             $.zoneId = zoneId;
             return this;
         }
 
-        /**
-         * @param zoneId The private hosted zone to associate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder zoneId(String zoneId) {
             return zoneId(Output.of(zoneId));
         }

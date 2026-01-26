@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class GetThemeConfigurationTypographyFontFamilyResult
     {
-        /// <summary>
-        /// Font family name.
-        /// </summary>
         public readonly string FontFamily;
 
         [OutputConstructor]

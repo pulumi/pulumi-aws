@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Qldb.Inputs
 
     public sealed class StreamKinesisConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `True`.
-        /// </summary>
         [Input("aggregationEnabled")]
         public Input<bool>? AggregationEnabled { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
-        /// </summary>
         [Input("streamArn", required: true)]
         public Input<string> StreamArn { get; set; } = null!;
 

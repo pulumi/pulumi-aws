@@ -16,32 +16,16 @@ public final class S3AccessPointAttachmentS3AccessPointArgs extends com.pulumi.r
 
     public static final S3AccessPointAttachmentS3AccessPointArgs Empty = new S3AccessPointAttachmentS3AccessPointArgs();
 
-    /**
-     * Access policy associated with the S3 access point configuration.
-     * 
-     */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
-    /**
-     * @return Access policy associated with the S3 access point configuration.
-     * 
-     */
     public Optional<Output<String>> policy() {
         return Optional.ofNullable(this.policy);
     }
 
-    /**
-     * Amazon S3 restricts access to the S3 access point to requests made from the specified VPC. See `vpcConfiguration` Block for details.
-     * 
-     */
     @Import(name="vpcConfiguration")
     private @Nullable Output<S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs> vpcConfiguration;
 
-    /**
-     * @return Amazon S3 restricts access to the S3 access point to requests made from the specified VPC. See `vpcConfiguration` Block for details.
-     * 
-     */
     public Optional<Output<S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs>> vpcConfiguration() {
         return Optional.ofNullable(this.vpcConfiguration);
     }
@@ -71,44 +55,20 @@ public final class S3AccessPointAttachmentS3AccessPointArgs extends com.pulumi.r
             $ = new S3AccessPointAttachmentS3AccessPointArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param policy Access policy associated with the S3 access point configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(@Nullable Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
-        /**
-         * @param policy Access policy associated with the S3 access point configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }
 
-        /**
-         * @param vpcConfiguration Amazon S3 restricts access to the S3 access point to requests made from the specified VPC. See `vpcConfiguration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcConfiguration(@Nullable Output<S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs> vpcConfiguration) {
             $.vpcConfiguration = vpcConfiguration;
             return this;
         }
 
-        /**
-         * @param vpcConfiguration Amazon S3 restricts access to the S3 access point to requests made from the specified VPC. See `vpcConfiguration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcConfiguration(S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs vpcConfiguration) {
             return vpcConfiguration(Output.of(vpcConfiguration));
         }

@@ -31,25 +31,6 @@ class ApnsVoipSandboxChannelArgs:
                  token_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApnsVoipSandboxChannel resource.
-        :param pulumi.Input[_builtins.str] application_id: The application ID.
-        :param pulumi.Input[_builtins.str] bundle_id: The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
-        :param pulumi.Input[_builtins.str] certificate: The pem encoded TLS Certificate from Apple.
-        :param pulumi.Input[_builtins.str] default_authentication_method: The default authentication method used for APNs.
-               __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
-               You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
-               If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
-               
-               One of the following sets of credentials is also required.
-               
-               If you choose to use __Certificate credentials__ you will have to provide:
-        :param pulumi.Input[_builtins.bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] private_key: The Certificate Private Key file (ie. `.key` file).
-               
-               If you choose to use __Key credentials__ you will have to provide:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] team_id: The ID assigned to your Apple developer account team. This value is provided on the Membership page.
-        :param pulumi.Input[_builtins.str] token_key: The `.p8` file that you download from your Apple developer account when you create an authentication key.
-        :param pulumi.Input[_builtins.str] token_key_id: The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
         """
         pulumi.set(__self__, "application_id", application_id)
         if bundle_id is not None:
@@ -74,9 +55,6 @@ class ApnsVoipSandboxChannelArgs:
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The application ID.
-        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -86,9 +64,6 @@ class ApnsVoipSandboxChannelArgs:
     @_builtins.property
     @pulumi.getter(name="bundleId")
     def bundle_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
-        """
         return pulumi.get(self, "bundle_id")
 
     @bundle_id.setter
@@ -98,9 +73,6 @@ class ApnsVoipSandboxChannelArgs:
     @_builtins.property
     @pulumi.getter
     def certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The pem encoded TLS Certificate from Apple.
-        """
         return pulumi.get(self, "certificate")
 
     @certificate.setter
@@ -110,16 +82,6 @@ class ApnsVoipSandboxChannelArgs:
     @_builtins.property
     @pulumi.getter(name="defaultAuthenticationMethod")
     def default_authentication_method(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The default authentication method used for APNs.
-        __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
-        You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
-        If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
-
-        One of the following sets of credentials is also required.
-
-        If you choose to use __Certificate credentials__ you will have to provide:
-        """
         return pulumi.get(self, "default_authentication_method")
 
     @default_authentication_method.setter
@@ -129,9 +91,6 @@ class ApnsVoipSandboxChannelArgs:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the channel is enabled or disabled. Defaults to `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -141,11 +100,6 @@ class ApnsVoipSandboxChannelArgs:
     @_builtins.property
     @pulumi.getter(name="privateKey")
     def private_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Certificate Private Key file (ie. `.key` file).
-
-        If you choose to use __Key credentials__ you will have to provide:
-        """
         return pulumi.get(self, "private_key")
 
     @private_key.setter
@@ -155,9 +109,6 @@ class ApnsVoipSandboxChannelArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -167,9 +118,6 @@ class ApnsVoipSandboxChannelArgs:
     @_builtins.property
     @pulumi.getter(name="teamId")
     def team_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID assigned to your Apple developer account team. This value is provided on the Membership page.
-        """
         return pulumi.get(self, "team_id")
 
     @team_id.setter
@@ -179,9 +127,6 @@ class ApnsVoipSandboxChannelArgs:
     @_builtins.property
     @pulumi.getter(name="tokenKey")
     def token_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The `.p8` file that you download from your Apple developer account when you create an authentication key.
-        """
         return pulumi.get(self, "token_key")
 
     @token_key.setter
@@ -191,9 +136,6 @@ class ApnsVoipSandboxChannelArgs:
     @_builtins.property
     @pulumi.getter(name="tokenKeyId")
     def token_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
-        """
         return pulumi.get(self, "token_key_id")
 
     @token_key_id.setter
@@ -216,25 +158,6 @@ class _ApnsVoipSandboxChannelState:
                  token_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApnsVoipSandboxChannel resources.
-        :param pulumi.Input[_builtins.str] application_id: The application ID.
-        :param pulumi.Input[_builtins.str] bundle_id: The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
-        :param pulumi.Input[_builtins.str] certificate: The pem encoded TLS Certificate from Apple.
-        :param pulumi.Input[_builtins.str] default_authentication_method: The default authentication method used for APNs.
-               __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
-               You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
-               If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
-               
-               One of the following sets of credentials is also required.
-               
-               If you choose to use __Certificate credentials__ you will have to provide:
-        :param pulumi.Input[_builtins.bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] private_key: The Certificate Private Key file (ie. `.key` file).
-               
-               If you choose to use __Key credentials__ you will have to provide:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] team_id: The ID assigned to your Apple developer account team. This value is provided on the Membership page.
-        :param pulumi.Input[_builtins.str] token_key: The `.p8` file that you download from your Apple developer account when you create an authentication key.
-        :param pulumi.Input[_builtins.str] token_key_id: The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
         """
         if application_id is not None:
             pulumi.set(__self__, "application_id", application_id)
@@ -260,9 +183,6 @@ class _ApnsVoipSandboxChannelState:
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The application ID.
-        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -272,9 +192,6 @@ class _ApnsVoipSandboxChannelState:
     @_builtins.property
     @pulumi.getter(name="bundleId")
     def bundle_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
-        """
         return pulumi.get(self, "bundle_id")
 
     @bundle_id.setter
@@ -284,9 +201,6 @@ class _ApnsVoipSandboxChannelState:
     @_builtins.property
     @pulumi.getter
     def certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The pem encoded TLS Certificate from Apple.
-        """
         return pulumi.get(self, "certificate")
 
     @certificate.setter
@@ -296,16 +210,6 @@ class _ApnsVoipSandboxChannelState:
     @_builtins.property
     @pulumi.getter(name="defaultAuthenticationMethod")
     def default_authentication_method(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The default authentication method used for APNs.
-        __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
-        You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
-        If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
-
-        One of the following sets of credentials is also required.
-
-        If you choose to use __Certificate credentials__ you will have to provide:
-        """
         return pulumi.get(self, "default_authentication_method")
 
     @default_authentication_method.setter
@@ -315,9 +219,6 @@ class _ApnsVoipSandboxChannelState:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the channel is enabled or disabled. Defaults to `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -327,11 +228,6 @@ class _ApnsVoipSandboxChannelState:
     @_builtins.property
     @pulumi.getter(name="privateKey")
     def private_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Certificate Private Key file (ie. `.key` file).
-
-        If you choose to use __Key credentials__ you will have to provide:
-        """
         return pulumi.get(self, "private_key")
 
     @private_key.setter
@@ -341,9 +237,6 @@ class _ApnsVoipSandboxChannelState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -353,9 +246,6 @@ class _ApnsVoipSandboxChannelState:
     @_builtins.property
     @pulumi.getter(name="teamId")
     def team_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID assigned to your Apple developer account team. This value is provided on the Membership page.
-        """
         return pulumi.get(self, "team_id")
 
     @team_id.setter
@@ -365,9 +255,6 @@ class _ApnsVoipSandboxChannelState:
     @_builtins.property
     @pulumi.getter(name="tokenKey")
     def token_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The `.p8` file that you download from your Apple developer account when you create an authentication key.
-        """
         return pulumi.get(self, "token_key")
 
     @token_key.setter
@@ -377,9 +264,6 @@ class _ApnsVoipSandboxChannelState:
     @_builtins.property
     @pulumi.getter(name="tokenKeyId")
     def token_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
-        """
         return pulumi.get(self, "token_key_id")
 
     @token_key_id.setter
@@ -405,52 +289,9 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
                  token_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a Pinpoint APNs VoIP Sandbox Channel resource.
-
-        > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        app = aws.pinpoint.App("app")
-        apns_voip_sandbox = aws.pinpoint.ApnsVoipSandboxChannel("apns_voip_sandbox",
-            application_id=app.application_id,
-            certificate=std.file(input="./certificate.pem").result,
-            private_key=std.file(input="./private_key.key").result)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Pinpoint APNs VoIP Sandbox Channel using the `application-id`. For example:
-
-        ```sh
-        $ pulumi import aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel apns_voip_sandbox application-id
-        ```
-
+        Create a ApnsVoipSandboxChannel resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_id: The application ID.
-        :param pulumi.Input[_builtins.str] bundle_id: The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
-        :param pulumi.Input[_builtins.str] certificate: The pem encoded TLS Certificate from Apple.
-        :param pulumi.Input[_builtins.str] default_authentication_method: The default authentication method used for APNs.
-               __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
-               You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
-               If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
-               
-               One of the following sets of credentials is also required.
-               
-               If you choose to use __Certificate credentials__ you will have to provide:
-        :param pulumi.Input[_builtins.bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] private_key: The Certificate Private Key file (ie. `.key` file).
-               
-               If you choose to use __Key credentials__ you will have to provide:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] team_id: The ID assigned to your Apple developer account team. This value is provided on the Membership page.
-        :param pulumi.Input[_builtins.str] token_key: The `.p8` file that you download from your Apple developer account when you create an authentication key.
-        :param pulumi.Input[_builtins.str] token_key_id: The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
         """
         ...
     @overload
@@ -459,31 +300,7 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
                  args: ApnsVoipSandboxChannelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Pinpoint APNs VoIP Sandbox Channel resource.
-
-        > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        app = aws.pinpoint.App("app")
-        apns_voip_sandbox = aws.pinpoint.ApnsVoipSandboxChannel("apns_voip_sandbox",
-            application_id=app.application_id,
-            certificate=std.file(input="./certificate.pem").result,
-            private_key=std.file(input="./private_key.key").result)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Pinpoint APNs VoIP Sandbox Channel using the `application-id`. For example:
-
-        ```sh
-        $ pulumi import aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel apns_voip_sandbox application-id
-        ```
-
+        Create a ApnsVoipSandboxChannel resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ApnsVoipSandboxChannelArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -559,25 +376,6 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_id: The application ID.
-        :param pulumi.Input[_builtins.str] bundle_id: The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
-        :param pulumi.Input[_builtins.str] certificate: The pem encoded TLS Certificate from Apple.
-        :param pulumi.Input[_builtins.str] default_authentication_method: The default authentication method used for APNs.
-               __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
-               You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
-               If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
-               
-               One of the following sets of credentials is also required.
-               
-               If you choose to use __Certificate credentials__ you will have to provide:
-        :param pulumi.Input[_builtins.bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] private_key: The Certificate Private Key file (ie. `.key` file).
-               
-               If you choose to use __Key credentials__ you will have to provide:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] team_id: The ID assigned to your Apple developer account team. This value is provided on the Membership page.
-        :param pulumi.Input[_builtins.str] token_key: The `.p8` file that you download from your Apple developer account when you create an authentication key.
-        :param pulumi.Input[_builtins.str] token_key_id: The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -598,89 +396,50 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The application ID.
-        """
         return pulumi.get(self, "application_id")
 
     @_builtins.property
     @pulumi.getter(name="bundleId")
     def bundle_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
-        """
         return pulumi.get(self, "bundle_id")
 
     @_builtins.property
     @pulumi.getter
     def certificate(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The pem encoded TLS Certificate from Apple.
-        """
         return pulumi.get(self, "certificate")
 
     @_builtins.property
     @pulumi.getter(name="defaultAuthenticationMethod")
     def default_authentication_method(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The default authentication method used for APNs.
-        __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
-        You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
-        If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
-
-        One of the following sets of credentials is also required.
-
-        If you choose to use __Certificate credentials__ you will have to provide:
-        """
         return pulumi.get(self, "default_authentication_method")
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether the channel is enabled or disabled. Defaults to `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter(name="privateKey")
     def private_key(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The Certificate Private Key file (ie. `.key` file).
-
-        If you choose to use __Key credentials__ you will have to provide:
-        """
         return pulumi.get(self, "private_key")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="teamId")
     def team_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The ID assigned to your Apple developer account team. This value is provided on the Membership page.
-        """
         return pulumi.get(self, "team_id")
 
     @_builtins.property
     @pulumi.getter(name="tokenKey")
     def token_key(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The `.p8` file that you download from your Apple developer account when you create an authentication key.
-        """
         return pulumi.get(self, "token_key")
 
     @_builtins.property
     @pulumi.getter(name="tokenKeyId")
     def token_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
-        """
         return pulumi.get(self, "token_key_id")
 

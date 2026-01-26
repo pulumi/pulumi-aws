@@ -24,9 +24,6 @@ class NetworkInterfaceSecurityGroupAttachmentArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkInterfaceSecurityGroupAttachment resource.
-        :param pulumi.Input[_builtins.str] network_interface_id: The ID of the network interface to attach to.
-        :param pulumi.Input[_builtins.str] security_group_id: The ID of the security group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "network_interface_id", network_interface_id)
         pulumi.set(__self__, "security_group_id", security_group_id)
@@ -36,9 +33,6 @@ class NetworkInterfaceSecurityGroupAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the network interface to attach to.
-        """
         return pulumi.get(self, "network_interface_id")
 
     @network_interface_id.setter
@@ -48,9 +42,6 @@ class NetworkInterfaceSecurityGroupAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the security group.
-        """
         return pulumi.get(self, "security_group_id")
 
     @security_group_id.setter
@@ -60,9 +51,6 @@ class NetworkInterfaceSecurityGroupAttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -78,9 +66,6 @@ class _NetworkInterfaceSecurityGroupAttachmentState:
                  security_group_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkInterfaceSecurityGroupAttachment resources.
-        :param pulumi.Input[_builtins.str] network_interface_id: The ID of the network interface to attach to.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] security_group_id: The ID of the security group.
         """
         if network_interface_id is not None:
             pulumi.set(__self__, "network_interface_id", network_interface_id)
@@ -92,9 +77,6 @@ class _NetworkInterfaceSecurityGroupAttachmentState:
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the network interface to attach to.
-        """
         return pulumi.get(self, "network_interface_id")
 
     @network_interface_id.setter
@@ -104,9 +86,6 @@ class _NetworkInterfaceSecurityGroupAttachmentState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -116,9 +95,6 @@ class _NetworkInterfaceSecurityGroupAttachmentState:
     @_builtins.property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the security group.
-        """
         return pulumi.get(self, "security_group_id")
 
     @security_group_id.setter
@@ -137,79 +113,9 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
                  security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        This resource attaches a security group to an Elastic Network Interface (ENI).
-        It can be used to attach a security group to any existing ENI, be it a
-        secondary ENI or one attached as the primary interface on an instance.
-
-        > **NOTE on instances, interfaces, and security groups:** This provider currently
-        provides the capability to assign security groups via the [`ec2.Instance`][1]
-        and the [`ec2.NetworkInterface`][2] resources. Using this resource in
-        conjunction with security groups provided in-line in those resources will cause
-        conflicts, and will lead to spurious diffs and undefined behavior - please use
-        one or the other.
-
-        ## Example Usage
-
-        The following provides a very basic example of setting up an instance (provided
-        by `instance`) in the default security group, creating a security group
-        (provided by `sg`) and then attaching the security group to the instance's
-        primary network interface via the `ec2.NetworkInterfaceSecurityGroupAttachment` resource,
-        named `sg_attachment`:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ami = aws.ec2.get_ami(most_recent=True,
-            filters=[{
-                "name": "name",
-                "values": ["amzn-ami-hvm-*"],
-            }],
-            owners=["amazon"])
-        instance = aws.ec2.Instance("instance",
-            instance_type=aws.ec2.InstanceType.T2_MICRO,
-            ami=ami.id,
-            tags={
-                "type": "test-instance",
-            })
-        sg = aws.ec2.SecurityGroup("sg", tags={
-            "type": "test-security-group",
-        })
-        sg_attachment = aws.ec2.NetworkInterfaceSecurityGroupAttachment("sg_attachment",
-            security_group_id=sg.id,
-            network_interface_id=instance.primary_network_interface_id)
-        ```
-
-        In this example, `instance` is provided by the `ec2.Instance` data source,
-        fetching an external instance, possibly not managed by this provider.
-        `sg_attachment` then attaches to the output instance's `network_interface_id`:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        instance = aws.ec2.get_instance(instance_id="i-1234567890abcdef0")
-        sg = aws.ec2.SecurityGroup("sg", tags={
-            "type": "test-security-group",
-        })
-        sg_attachment = aws.ec2.NetworkInterfaceSecurityGroupAttachment("sg_attachment",
-            security_group_id=sg.id,
-            network_interface_id=instance.network_interface_id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Network Interface Security Group attachments using the associated network interface ID and security group ID, separated by an underscore (`_`). For example:
-
-        ```sh
-        $ pulumi import aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment sg_attachment eni-1234567890abcdef0_sg-1234567890abcdef0
-        ```
-
+        Create a NetworkInterfaceSecurityGroupAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] network_interface_id: The ID of the network interface to attach to.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] security_group_id: The ID of the security group.
         """
         ...
     @overload
@@ -218,74 +124,7 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
                  args: NetworkInterfaceSecurityGroupAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource attaches a security group to an Elastic Network Interface (ENI).
-        It can be used to attach a security group to any existing ENI, be it a
-        secondary ENI or one attached as the primary interface on an instance.
-
-        > **NOTE on instances, interfaces, and security groups:** This provider currently
-        provides the capability to assign security groups via the [`ec2.Instance`][1]
-        and the [`ec2.NetworkInterface`][2] resources. Using this resource in
-        conjunction with security groups provided in-line in those resources will cause
-        conflicts, and will lead to spurious diffs and undefined behavior - please use
-        one or the other.
-
-        ## Example Usage
-
-        The following provides a very basic example of setting up an instance (provided
-        by `instance`) in the default security group, creating a security group
-        (provided by `sg`) and then attaching the security group to the instance's
-        primary network interface via the `ec2.NetworkInterfaceSecurityGroupAttachment` resource,
-        named `sg_attachment`:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ami = aws.ec2.get_ami(most_recent=True,
-            filters=[{
-                "name": "name",
-                "values": ["amzn-ami-hvm-*"],
-            }],
-            owners=["amazon"])
-        instance = aws.ec2.Instance("instance",
-            instance_type=aws.ec2.InstanceType.T2_MICRO,
-            ami=ami.id,
-            tags={
-                "type": "test-instance",
-            })
-        sg = aws.ec2.SecurityGroup("sg", tags={
-            "type": "test-security-group",
-        })
-        sg_attachment = aws.ec2.NetworkInterfaceSecurityGroupAttachment("sg_attachment",
-            security_group_id=sg.id,
-            network_interface_id=instance.primary_network_interface_id)
-        ```
-
-        In this example, `instance` is provided by the `ec2.Instance` data source,
-        fetching an external instance, possibly not managed by this provider.
-        `sg_attachment` then attaches to the output instance's `network_interface_id`:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        instance = aws.ec2.get_instance(instance_id="i-1234567890abcdef0")
-        sg = aws.ec2.SecurityGroup("sg", tags={
-            "type": "test-security-group",
-        })
-        sg_attachment = aws.ec2.NetworkInterfaceSecurityGroupAttachment("sg_attachment",
-            security_group_id=sg.id,
-            network_interface_id=instance.network_interface_id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Network Interface Security Group attachments using the associated network interface ID and security group ID, separated by an underscore (`_`). For example:
-
-        ```sh
-        $ pulumi import aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment sg_attachment eni-1234567890abcdef0_sg-1234567890abcdef0
-        ```
-
+        Create a NetworkInterfaceSecurityGroupAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param NetworkInterfaceSecurityGroupAttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -340,9 +179,6 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] network_interface_id: The ID of the network interface to attach to.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] security_group_id: The ID of the security group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -356,24 +192,15 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the network interface to attach to.
-        """
         return pulumi.get(self, "network_interface_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the security group.
-        """
         return pulumi.get(self, "security_group_id")
 

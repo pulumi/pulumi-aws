@@ -15,17 +15,9 @@ public final class DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs
 
     public static final DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs Empty = new DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs();
 
-    /**
-     * Calculated columns to create. See columns.
-     * 
-     */
     @Import(name="columns", required=true)
     private Output<List<DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs>> columns;
 
-    /**
-     * @return Calculated columns to create. See columns.
-     * 
-     */
     public Output<List<DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs>> columns() {
         return this.columns;
     }
@@ -54,33 +46,15 @@ public final class DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs
             $ = new DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param columns Calculated columns to create. See columns.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columns(Output<List<DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs>> columns) {
             $.columns = columns;
             return this;
         }
 
-        /**
-         * @param columns Calculated columns to create. See columns.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columns(List<DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs> columns) {
             return columns(Output.of(columns));
         }
 
-        /**
-         * @param columns Calculated columns to create. See columns.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columns(DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs... columns) {
             return columns(List.of(columns));
         }

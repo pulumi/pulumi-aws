@@ -4,34 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for enabling private DNS on an AWS VPC (Virtual Private Cloud) Endpoint.
- *
- * > When using this resource, the `privateDnsEnabled` argument should be omitted on the parent `aws.ec2.VpcEndpoint` resource.
- * Setting the value both places can lead to unintended behavior and persistent differences.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.vpc.EndpointPrivateDns("example", {
- *     vpcEndpointId: exampleAwsVpcEndpoint.id,
- *     privateDnsEnabled: true,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import a VPC (Virtual Private Cloud) Endpoint Private DNS using the `vpc_endpoint_id`. For example:
- *
- * ```sh
- * $ pulumi import aws:vpc/endpointPrivateDns:EndpointPrivateDns example vpce-abcd-1234
- * ```
- */
 export class EndpointPrivateDns extends pulumi.CustomResource {
     /**
      * Get an existing EndpointPrivateDns resource's state with the given name, ID, and optional extra
@@ -60,17 +32,8 @@ export class EndpointPrivateDns extends pulumi.CustomResource {
         return obj['__pulumiType'] === EndpointPrivateDns.__pulumiType;
     }
 
-    /**
-     * Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
-     */
     declare public readonly privateDnsEnabled: pulumi.Output<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * VPC endpoint identifier.
-     */
     declare public readonly vpcEndpointId: pulumi.Output<string>;
 
     /**
@@ -110,17 +73,8 @@ export class EndpointPrivateDns extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EndpointPrivateDns resources.
  */
 export interface EndpointPrivateDnsState {
-    /**
-     * Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
-     */
     privateDnsEnabled?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * VPC endpoint identifier.
-     */
     vpcEndpointId?: pulumi.Input<string>;
 }
 
@@ -128,16 +82,7 @@ export interface EndpointPrivateDnsState {
  * The set of arguments for constructing a EndpointPrivateDns resource.
  */
 export interface EndpointPrivateDnsArgs {
-    /**
-     * Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
-     */
     privateDnsEnabled: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * VPC endpoint identifier.
-     */
     vpcEndpointId: pulumi.Input<string>;
 }

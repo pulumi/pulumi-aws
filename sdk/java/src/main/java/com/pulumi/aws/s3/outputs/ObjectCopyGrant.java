@@ -13,69 +13,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ObjectCopyGrant {
-    /**
-     * @return Email address of the grantee. Used only when `type` is `AmazonCustomerByEmail`.
-     * 
-     */
     private @Nullable String email;
-    /**
-     * @return Canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.
-     * 
-     */
     private @Nullable String id;
-    /**
-     * @return List of permissions to grant to grantee. Valid values are `READ`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
-     * 
-     */
     private List<String> permissions;
-    /**
-     * @return Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
-     * 
-     * This configuration block has the following optional arguments (one of the three is required):
-     * 
-     */
     private String type;
-    /**
-     * @return URI of the grantee group. Used only when `type` is `Group`.
-     * 
-     */
     private @Nullable String uri;
 
     private ObjectCopyGrant() {}
-    /**
-     * @return Email address of the grantee. Used only when `type` is `AmazonCustomerByEmail`.
-     * 
-     */
     public Optional<String> email() {
         return Optional.ofNullable(this.email);
     }
-    /**
-     * @return Canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
-    /**
-     * @return List of permissions to grant to grantee. Valid values are `READ`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
-     * 
-     */
     public List<String> permissions() {
         return this.permissions;
     }
-    /**
-     * @return Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
-     * 
-     * This configuration block has the following optional arguments (one of the three is required):
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return URI of the grantee group. Used only when `type` is `Group`.
-     * 
-     */
     public Optional<String> uri() {
         return Optional.ofNullable(this.uri);
     }

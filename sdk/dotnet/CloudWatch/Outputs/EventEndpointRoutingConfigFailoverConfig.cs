@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class EventEndpointRoutingConfigFailoverConfig
     {
-        /// <summary>
-        /// Parameters used for the primary Region. Documented below.
-        /// </summary>
         public readonly Outputs.EventEndpointRoutingConfigFailoverConfigPrimary Primary;
-        /// <summary>
-        /// Parameters used for the secondary Region, the Region that events are routed to when failover is triggered or event replication is enabled. Documented below.
-        /// </summary>
         public readonly Outputs.EventEndpointRoutingConfigFailoverConfigSecondary Secondary;
 
         [OutputConstructor]

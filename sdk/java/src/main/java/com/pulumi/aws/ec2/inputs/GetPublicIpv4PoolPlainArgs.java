@@ -16,47 +16,23 @@ public final class GetPublicIpv4PoolPlainArgs extends com.pulumi.resources.Invok
 
     public static final GetPublicIpv4PoolPlainArgs Empty = new GetPublicIpv4PoolPlainArgs();
 
-    /**
-     * AWS resource IDs of a public IPv4 pool (as a string) for which this data source will fetch detailed information.
-     * 
-     */
     @Import(name="poolId", required=true)
     private String poolId;
 
-    /**
-     * @return AWS resource IDs of a public IPv4 pool (as a string) for which this data source will fetch detailed information.
-     * 
-     */
     public String poolId() {
         return this.poolId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Any tags for the address pool.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Any tags for the address pool.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -87,34 +63,16 @@ public final class GetPublicIpv4PoolPlainArgs extends com.pulumi.resources.Invok
             $ = new GetPublicIpv4PoolPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param poolId AWS resource IDs of a public IPv4 pool (as a string) for which this data source will fetch detailed information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder poolId(String poolId) {
             $.poolId = poolId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Any tags for the address pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

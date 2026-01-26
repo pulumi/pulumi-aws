@@ -9,230 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Transfer
 {
-    /// <summary>
-    /// Resource for managing an AWS Transfer Family Web App.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var currentGetRegion = Aws.GetRegion.Invoke();
-    /// 
-    ///     var currentGetPartition = Aws.GetPartition.Invoke();
-    /// 
-    ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
-    /// 
-    ///     var assumeRoleTransfer = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                     "sts:SetContext",
-    ///                 },
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "transfer.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "StringEquals",
-    ///                         Values = new[]
-    ///                         {
-    ///                             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///                         },
-    ///                         Variable = "aws:SourceAccount",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleRole = new Aws.Iam.Role("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         AssumeRolePolicy = assumeRoleTransfer.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var exampleGetPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "s3:GetDataAccess",
-    ///                     "s3:ListCallerAccessGrants",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:s3:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:access-grants/*",
-    ///                 },
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "StringEquals",
-    ///                         Values = new[]
-    ///                         {
-    ///                             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///                         },
-    ///                         Variable = "s3:ResourceAccount",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "s3:ListAccessGrantsInstances",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     "*",
-    ///                 },
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "StringEquals",
-    ///                         Values = new[]
-    ///                         {
-    ///                             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///                         },
-    ///                         Variable = "s3:ResourceAccount",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("example", new()
-    ///     {
-    ///         Policy = exampleGetPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///         Role = exampleRole.Name,
-    ///     });
-    /// 
-    ///     var exampleWebApp = new Aws.Transfer.WebApp("example", new()
-    ///     {
-    ///         IdentityProviderDetails = new Aws.Transfer.Inputs.WebAppIdentityProviderDetailsArgs
-    ///         {
-    ///             IdentityCenterConfig = new Aws.Transfer.Inputs.WebAppIdentityProviderDetailsIdentityCenterConfigArgs
-    ///             {
-    ///                 InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
-    ///                 Role = exampleRole.Arn,
-    ///             },
-    ///         },
-    ///         WebAppUnits = new[]
-    ///         {
-    ///             new Aws.Transfer.Inputs.WebAppWebAppUnitArgs
-    ///             {
-    ///                 Provisioned = 1,
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "test" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Transfer Family Web App using the `web_app_id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:transfer/webApp:WebApp example web_app-id-12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:transfer/webApp:WebApp")]
     public partial class WebApp : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `AccessEndpoint` must not be provided.
-        /// </summary>
         [Output("accessEndpoint")]
         public Output<string> AccessEndpoint { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the Web App.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
-        /// </summary>
         [Output("endpointDetails")]
         public Output<Outputs.WebAppEndpointDetails?> EndpointDetails { get; private set; } = null!;
 
-        /// <summary>
-        /// Block for details of the identity provider to use with the web app. See Identity provider details below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("identityProviderDetails")]
         public Output<Outputs.WebAppIdentityProviderDetails?> IdentityProviderDetails { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value pairs that can be used to group and search for web apps.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Type of endpoint policy for the web app. Valid values are: `STANDARD`(default) or `FIPS`.
-        /// </summary>
         [Output("webAppEndpointPolicy")]
         public Output<string> WebAppEndpointPolicy { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the Wep App resource.
-        /// </summary>
         [Output("webAppId")]
         public Output<string> WebAppId { get; private set; } = null!;
 
-        /// <summary>
-        /// Block for number of concurrent connections or the user sessions on the web app.
-        /// * provisioned - (Optional) Number of units of concurrent connections.
-        /// </summary>
         [Output("webAppUnits")]
         public Output<ImmutableArray<Outputs.WebAppWebAppUnit>> WebAppUnits { get; private set; } = null!;
 
@@ -282,57 +88,31 @@ namespace Pulumi.Aws.Transfer
 
     public sealed class WebAppArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `AccessEndpoint` must not be provided.
-        /// </summary>
         [Input("accessEndpoint")]
         public Input<string>? AccessEndpoint { get; set; }
 
-        /// <summary>
-        /// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
-        /// </summary>
         [Input("endpointDetails")]
         public Input<Inputs.WebAppEndpointDetailsArgs>? EndpointDetails { get; set; }
 
-        /// <summary>
-        /// Block for details of the identity provider to use with the web app. See Identity provider details below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("identityProviderDetails")]
         public Input<Inputs.WebAppIdentityProviderDetailsArgs>? IdentityProviderDetails { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value pairs that can be used to group and search for web apps.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Type of endpoint policy for the web app. Valid values are: `STANDARD`(default) or `FIPS`.
-        /// </summary>
         [Input("webAppEndpointPolicy")]
         public Input<string>? WebAppEndpointPolicy { get; set; }
 
         [Input("webAppUnits")]
         private InputList<Inputs.WebAppWebAppUnitArgs>? _webAppUnits;
-
-        /// <summary>
-        /// Block for number of concurrent connections or the user sessions on the web app.
-        /// * provisioned - (Optional) Number of units of concurrent connections.
-        /// </summary>
         public InputList<Inputs.WebAppWebAppUnitArgs> WebAppUnits
         {
             get => _webAppUnits ?? (_webAppUnits = new InputList<Inputs.WebAppWebAppUnitArgs>());
@@ -347,44 +127,23 @@ namespace Pulumi.Aws.Transfer
 
     public sealed class WebAppState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `AccessEndpoint` must not be provided.
-        /// </summary>
         [Input("accessEndpoint")]
         public Input<string>? AccessEndpoint { get; set; }
 
-        /// <summary>
-        /// ARN of the Web App.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
-        /// </summary>
         [Input("endpointDetails")]
         public Input<Inputs.WebAppEndpointDetailsGetArgs>? EndpointDetails { get; set; }
 
-        /// <summary>
-        /// Block for details of the identity provider to use with the web app. See Identity provider details below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("identityProviderDetails")]
         public Input<Inputs.WebAppIdentityProviderDetailsGetArgs>? IdentityProviderDetails { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value pairs that can be used to group and search for web apps.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -399,25 +158,14 @@ namespace Pulumi.Aws.Transfer
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// Type of endpoint policy for the web app. Valid values are: `STANDARD`(default) or `FIPS`.
-        /// </summary>
         [Input("webAppEndpointPolicy")]
         public Input<string>? WebAppEndpointPolicy { get; set; }
 
-        /// <summary>
-        /// ID of the Wep App resource.
-        /// </summary>
         [Input("webAppId")]
         public Input<string>? WebAppId { get; set; }
 
         [Input("webAppUnits")]
         private InputList<Inputs.WebAppWebAppUnitGetArgs>? _webAppUnits;
-
-        /// <summary>
-        /// Block for number of concurrent connections or the user sessions on the web app.
-        /// * provisioned - (Optional) Number of units of concurrent connections.
-        /// </summary>
         public InputList<Inputs.WebAppWebAppUnitGetArgs> WebAppUnits
         {
             get => _webAppUnits ?? (_webAppUnits = new InputList<Inputs.WebAppWebAppUnitGetArgs>());

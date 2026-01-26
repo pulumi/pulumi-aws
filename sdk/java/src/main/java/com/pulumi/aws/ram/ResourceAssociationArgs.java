@@ -16,47 +16,23 @@ public final class ResourceAssociationArgs extends com.pulumi.resources.Resource
 
     public static final ResourceAssociationArgs Empty = new ResourceAssociationArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
-     * 
-     */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the RAM Resource Share.
-     * 
-     */
     @Import(name="resourceShareArn", required=true)
     private Output<String> resourceShareArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the RAM Resource Share.
-     * 
-     */
     public Output<String> resourceShareArn() {
         return this.resourceShareArn;
     }
@@ -87,65 +63,29 @@ public final class ResourceAssociationArgs extends com.pulumi.resources.Resource
             $ = new ResourceAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceArn Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
-        /**
-         * @param resourceArn Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }
 
-        /**
-         * @param resourceShareArn Amazon Resource Name (ARN) of the RAM Resource Share.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceShareArn(Output<String> resourceShareArn) {
             $.resourceShareArn = resourceShareArn;
             return this;
         }
 
-        /**
-         * @param resourceShareArn Amazon Resource Name (ARN) of the RAM Resource Share.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceShareArn(String resourceShareArn) {
             return resourceShareArn(Output.of(resourceShareArn));
         }

@@ -15,17 +15,9 @@ public final class AgentPromptVariantInferenceConfigurationArgs extends com.pulu
 
     public static final AgentPromptVariantInferenceConfigurationArgs Empty = new AgentPromptVariantInferenceConfigurationArgs();
 
-    /**
-     * Contains inference configurations for the prompt variant. See Text Inference Configuration for more information.
-     * 
-     */
     @Import(name="text")
     private @Nullable Output<AgentPromptVariantInferenceConfigurationTextArgs> text;
 
-    /**
-     * @return Contains inference configurations for the prompt variant. See Text Inference Configuration for more information.
-     * 
-     */
     public Optional<Output<AgentPromptVariantInferenceConfigurationTextArgs>> text() {
         return Optional.ofNullable(this.text);
     }
@@ -54,23 +46,11 @@ public final class AgentPromptVariantInferenceConfigurationArgs extends com.pulu
             $ = new AgentPromptVariantInferenceConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param text Contains inference configurations for the prompt variant. See Text Inference Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder text(@Nullable Output<AgentPromptVariantInferenceConfigurationTextArgs> text) {
             $.text = text;
             return this;
         }
 
-        /**
-         * @param text Contains inference configurations for the prompt variant. See Text Inference Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder text(AgentPromptVariantInferenceConfigurationTextArgs text) {
             return text(Output.of(text));
         }

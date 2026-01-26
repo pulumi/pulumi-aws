@@ -15,17 +15,9 @@ public final class DataLakeConfigurationLifecycleConfigurationExpirationArgs ext
 
     public static final DataLakeConfigurationLifecycleConfigurationExpirationArgs Empty = new DataLakeConfigurationLifecycleConfigurationExpirationArgs();
 
-    /**
-     * Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
-     * 
-     */
     @Import(name="days")
     private @Nullable Output<Integer> days;
 
-    /**
-     * @return Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
-     * 
-     */
     public Optional<Output<Integer>> days() {
         return Optional.ofNullable(this.days);
     }
@@ -54,23 +46,11 @@ public final class DataLakeConfigurationLifecycleConfigurationExpirationArgs ext
             $ = new DataLakeConfigurationLifecycleConfigurationExpirationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param days Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder days(@Nullable Output<Integer> days) {
             $.days = days;
             return this;
         }
 
-        /**
-         * @param days Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder days(Integer days) {
             return days(Output.of(days));
         }

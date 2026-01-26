@@ -14,43 +14,17 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * Using `pulumi import`, import exclusive management of managed IAM policy assignments using the `user_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:iam/userPolicyAttachmentsExclusive:UserPolicyAttachmentsExclusive example MyUser
- * ```
- * 
- */
 @ResourceType(type="aws:iam/userPolicyAttachmentsExclusive:UserPolicyAttachmentsExclusive")
 public class UserPolicyAttachmentsExclusive extends com.pulumi.resources.CustomResource {
-    /**
-     * A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
-     * 
-     */
     @Export(name="policyArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> policyArns;
 
-    /**
-     * @return A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
-     * 
-     */
     public Output<List<String>> policyArns() {
         return this.policyArns;
     }
-    /**
-     * IAM user name.
-     * 
-     */
     @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
-    /**
-     * @return IAM user name.
-     * 
-     */
     public Output<String> userName() {
         return this.userName;
     }

@@ -56,17 +56,11 @@ class GetClusterVersionsResult:
     @_builtins.property
     @pulumi.getter(name="clusterType")
     def cluster_type(self) -> Optional[_builtins.str]:
-        """
-        Type of cluster that the version belongs to.
-        """
         return pulumi.get(self, "cluster_type")
 
     @_builtins.property
     @pulumi.getter(name="clusterVersions")
     def cluster_versions(self) -> Sequence['outputs.GetClusterVersionsClusterVersionResult']:
-        """
-        A list of Kubernetes version information.
-        """
         return pulumi.get(self, "cluster_versions")
 
     @_builtins.property
@@ -100,9 +94,6 @@ class GetClusterVersionsResult:
     @_builtins.property
     @pulumi.getter(name="versionStatus")
     def version_status(self) -> Optional[_builtins.str]:
-        """
-        Status of the EKS cluster version.
-        """
         return pulumi.get(self, "version_status")
 
 
@@ -130,48 +121,7 @@ def get_cluster_versions(cluster_type: Optional[_builtins.str] = None,
                          version_status: Optional[_builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterVersionsResult:
     """
-    Data source for managing AWS EKS (Elastic Kubernetes) Cluster Versions.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.eks.get_cluster_versions()
-    pulumi.export("eksClusterVersions", example.cluster_versions)
-    pulumi.export("eksClusterVersionFiltered", [version for version in example.cluster_versions if version.cluster_version == "1.33"])
-    pulumi.export("eksClusterVersionList", [version.cluster_version for version in example.cluster_versions])
-    ```
-
-    ### Filter by Cluster Type
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.eks.get_cluster_versions(cluster_type="eks")
-    ```
-
-    ### Filter by Version Status
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.eks.get_cluster_versions(version_status="STANDARD_SUPPORT")
-    ```
-
-
-    :param _builtins.str cluster_type: Type of clusters to filter by.
-           Currently, the only valid value is `eks`.
-    :param _builtins.bool default_only: Whether to show only the default versions of Kubernetes supported by EKS.
-    :param _builtins.bool include_all: Whether to include all kubernetes versions in the response.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str version_status: Status of the EKS cluster versions to list.
-           Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['clusterType'] = cluster_type
@@ -200,48 +150,7 @@ def get_cluster_versions_output(cluster_type: Optional[pulumi.Input[Optional[_bu
                                 version_status: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterVersionsResult]:
     """
-    Data source for managing AWS EKS (Elastic Kubernetes) Cluster Versions.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.eks.get_cluster_versions()
-    pulumi.export("eksClusterVersions", example.cluster_versions)
-    pulumi.export("eksClusterVersionFiltered", [version for version in example.cluster_versions if version.cluster_version == "1.33"])
-    pulumi.export("eksClusterVersionList", [version.cluster_version for version in example.cluster_versions])
-    ```
-
-    ### Filter by Cluster Type
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.eks.get_cluster_versions(cluster_type="eks")
-    ```
-
-    ### Filter by Version Status
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.eks.get_cluster_versions(version_status="STANDARD_SUPPORT")
-    ```
-
-
-    :param _builtins.str cluster_type: Type of clusters to filter by.
-           Currently, the only valid value is `eks`.
-    :param _builtins.bool default_only: Whether to show only the default versions of Kubernetes supported by EKS.
-    :param _builtins.bool include_all: Whether to include all kubernetes versions in the response.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str version_status: Status of the EKS cluster versions to list.
-           Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['clusterType'] = cluster_type

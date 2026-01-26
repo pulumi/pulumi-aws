@@ -15,9 +15,6 @@ namespace Pulumi.Aws.AppFabric.Inputs
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 
-        /// <summary>
-        /// The object key to use.
-        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 

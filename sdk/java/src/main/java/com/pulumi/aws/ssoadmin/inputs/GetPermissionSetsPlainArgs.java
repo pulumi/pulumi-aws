@@ -15,32 +15,16 @@ public final class GetPermissionSetsPlainArgs extends com.pulumi.resources.Invok
 
     public static final GetPermissionSetsPlainArgs Empty = new GetPermissionSetsPlainArgs();
 
-    /**
-     * ARN of the SSO Instance associated with the permission set.
-     * 
-     */
     @Import(name="instanceArn", required=true)
     private String instanceArn;
 
-    /**
-     * @return ARN of the SSO Instance associated with the permission set.
-     * 
-     */
     public String instanceArn() {
         return this.instanceArn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -70,23 +54,11 @@ public final class GetPermissionSetsPlainArgs extends com.pulumi.resources.Invok
             $ = new GetPermissionSetsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param instanceArn ARN of the SSO Instance associated with the permission set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceArn(String instanceArn) {
             $.instanceArn = instanceArn;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

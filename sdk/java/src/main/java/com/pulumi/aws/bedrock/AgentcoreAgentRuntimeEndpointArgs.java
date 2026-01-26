@@ -18,96 +18,44 @@ public final class AgentcoreAgentRuntimeEndpointArgs extends com.pulumi.resource
 
     public static final AgentcoreAgentRuntimeEndpointArgs Empty = new AgentcoreAgentRuntimeEndpointArgs();
 
-    /**
-     * ID of the agent runtime this endpoint belongs to.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="agentRuntimeId", required=true)
     private Output<String> agentRuntimeId;
 
-    /**
-     * @return ID of the agent runtime this endpoint belongs to.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> agentRuntimeId() {
         return this.agentRuntimeId;
     }
 
-    /**
-     * Version of the agent runtime to use for this endpoint.
-     * 
-     */
     @Import(name="agentRuntimeVersion")
     private @Nullable Output<String> agentRuntimeVersion;
 
-    /**
-     * @return Version of the agent runtime to use for this endpoint.
-     * 
-     */
     public Optional<Output<String>> agentRuntimeVersion() {
         return Optional.ofNullable(this.agentRuntimeVersion);
     }
 
-    /**
-     * Description of the agent runtime endpoint.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the agent runtime endpoint.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Name of the agent runtime endpoint.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the agent runtime endpoint.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -149,132 +97,56 @@ public final class AgentcoreAgentRuntimeEndpointArgs extends com.pulumi.resource
             $ = new AgentcoreAgentRuntimeEndpointArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param agentRuntimeId ID of the agent runtime this endpoint belongs to.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder agentRuntimeId(Output<String> agentRuntimeId) {
             $.agentRuntimeId = agentRuntimeId;
             return this;
         }
 
-        /**
-         * @param agentRuntimeId ID of the agent runtime this endpoint belongs to.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder agentRuntimeId(String agentRuntimeId) {
             return agentRuntimeId(Output.of(agentRuntimeId));
         }
 
-        /**
-         * @param agentRuntimeVersion Version of the agent runtime to use for this endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder agentRuntimeVersion(@Nullable Output<String> agentRuntimeVersion) {
             $.agentRuntimeVersion = agentRuntimeVersion;
             return this;
         }
 
-        /**
-         * @param agentRuntimeVersion Version of the agent runtime to use for this endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder agentRuntimeVersion(String agentRuntimeVersion) {
             return agentRuntimeVersion(Output.of(agentRuntimeVersion));
         }
 
-        /**
-         * @param description Description of the agent runtime endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the agent runtime endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param name Name of the agent runtime endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the agent runtime endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

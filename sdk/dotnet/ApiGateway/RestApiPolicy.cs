@@ -9,105 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ApiGateway
 {
-    /// <summary>
-    /// Provides an API Gateway REST API Policy.
-    /// 
-    /// &gt; **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2 resources.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testRestApi = new Aws.ApiGateway.RestApi("test", new()
-    ///     {
-    ///         Name = "example-rest-api",
-    ///     });
-    /// 
-    ///     var test = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "AWS",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "*",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "execute-api:Invoke",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     $"{testRestApi.ExecutionArn}/*",
-    ///                 },
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "IpAddress",
-    ///                         Variable = "aws:SourceIp",
-    ///                         Values = new[]
-    ///                         {
-    ///                             "123.123.123.123/32",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var testRestApiPolicy = new Aws.ApiGateway.RestApiPolicy("test", new()
-    ///     {
-    ///         RestApiId = testRestApi.Id,
-    ///         Policy = test.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_api_gateway_rest_api_policy` using the REST API ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:apigateway/restApiPolicy:RestApiPolicy example 12345abcde
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:apigateway/restApiPolicy:RestApiPolicy")]
     public partial class RestApiPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// JSON formatted policy document that controls access to the API Gateway.
-        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the REST API.
-        /// </summary>
         [Output("restApiId")]
         public Output<string> RestApiId { get; private set; } = null!;
 
@@ -157,21 +67,12 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class RestApiPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// JSON formatted policy document that controls access to the API Gateway.
-        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID of the REST API.
-        /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;
 
@@ -183,21 +84,12 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class RestApiPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// JSON formatted policy document that controls access to the API Gateway.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID of the REST API.
-        /// </summary>
         [Input("restApiId")]
         public Input<string>? RestApiId { get; set; }
 

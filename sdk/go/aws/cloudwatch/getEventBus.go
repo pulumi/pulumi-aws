@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This data source can be used to fetch information about a specific
-// EventBridge event bus. Use this data source to compute the ARN of
-// an event bus, given the name of the bus.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.LookupEventBus(ctx, &cloudwatch.LookupEventBusArgs{
-//				Name: "example-bus-name",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupEventBus(ctx *pulumi.Context, args *LookupEventBusArgs, opts ...pulumi.InvokeOption) (*LookupEventBusResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEventBusResult
@@ -52,28 +23,21 @@ func LookupEventBus(ctx *pulumi.Context, args *LookupEventBusArgs, opts ...pulum
 
 // A collection of arguments for invoking getEventBus.
 type LookupEventBusArgs struct {
-	// Name of the event bus.
-	Name string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   string  `pulumi:"name"`
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getEventBus.
 type LookupEventBusResult struct {
-	// The ARN of the SQS queue specified as the target for the dead-letter queue.
-	Arn string `pulumi:"arn"`
-	// Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block has the following arguments:
+	Arn               string                        `pulumi:"arn"`
 	DeadLetterConfigs []GetEventBusDeadLetterConfig `pulumi:"deadLetterConfigs"`
-	// Event bus description.
-	Description string `pulumi:"description"`
+	Description       string                        `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Identifier of the AWS KMS customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.
-	KmsKeyIdentifier string `pulumi:"kmsKeyIdentifier"`
-	// Block for logging configuration settings for the event bus.
-	LogConfigs []GetEventBusLogConfig `pulumi:"logConfigs"`
-	Name       string                 `pulumi:"name"`
-	Region     string                 `pulumi:"region"`
+	Id               string                 `pulumi:"id"`
+	KmsKeyIdentifier string                 `pulumi:"kmsKeyIdentifier"`
+	LogConfigs       []GetEventBusLogConfig `pulumi:"logConfigs"`
+	Name             string                 `pulumi:"name"`
+	Region           string                 `pulumi:"region"`
 }
 
 func LookupEventBusOutput(ctx *pulumi.Context, args LookupEventBusOutputArgs, opts ...pulumi.InvokeOption) LookupEventBusResultOutput {
@@ -87,9 +51,7 @@ func LookupEventBusOutput(ctx *pulumi.Context, args LookupEventBusOutputArgs, op
 
 // A collection of arguments for invoking getEventBus.
 type LookupEventBusOutputArgs struct {
-	// Name of the event bus.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringInput    `pulumi:"name"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -112,17 +74,14 @@ func (o LookupEventBusResultOutput) ToLookupEventBusResultOutputWithContext(ctx 
 	return o
 }
 
-// The ARN of the SQS queue specified as the target for the dead-letter queue.
 func (o LookupEventBusResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEventBusResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block has the following arguments:
 func (o LookupEventBusResultOutput) DeadLetterConfigs() GetEventBusDeadLetterConfigArrayOutput {
 	return o.ApplyT(func(v LookupEventBusResult) []GetEventBusDeadLetterConfig { return v.DeadLetterConfigs }).(GetEventBusDeadLetterConfigArrayOutput)
 }
 
-// Event bus description.
 func (o LookupEventBusResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEventBusResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -132,12 +91,10 @@ func (o LookupEventBusResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEventBusResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Identifier of the AWS KMS customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.
 func (o LookupEventBusResultOutput) KmsKeyIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEventBusResult) string { return v.KmsKeyIdentifier }).(pulumi.StringOutput)
 }
 
-// Block for logging configuration settings for the event bus.
 func (o LookupEventBusResultOutput) LogConfigs() GetEventBusLogConfigArrayOutput {
 	return o.ApplyT(func(v LookupEventBusResult) []GetEventBusLogConfig { return v.LogConfigs }).(GetEventBusLogConfigArrayOutput)
 }

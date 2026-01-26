@@ -19,10 +19,6 @@ public final class GetSolutionStackResult {
      */
     private String id;
     private @Nullable Boolean mostRecent;
-    /**
-     * @return Name of the solution stack.
-     * 
-     */
     private String name;
     private String nameRegex;
     private String region;
@@ -38,10 +34,6 @@ public final class GetSolutionStackResult {
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
     }
-    /**
-     * @return Name of the solution stack.
-     * 
-     */
     public String name() {
         return this.name;
     }

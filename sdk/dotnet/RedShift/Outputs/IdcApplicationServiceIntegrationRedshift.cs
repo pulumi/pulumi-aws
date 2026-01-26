@@ -13,9 +13,6 @@ namespace Pulumi.Aws.RedShift.Outputs
     [OutputType]
     public sealed class IdcApplicationServiceIntegrationRedshift
     {
-        /// <summary>
-        /// Amazon Redshift connect service integration scope.
-        /// </summary>
         public readonly Outputs.IdcApplicationServiceIntegrationRedshiftConnect? Connect;
 
         [OutputConstructor]

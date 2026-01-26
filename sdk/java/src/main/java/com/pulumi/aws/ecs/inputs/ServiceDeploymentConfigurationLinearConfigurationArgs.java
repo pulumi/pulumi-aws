@@ -16,32 +16,16 @@ public final class ServiceDeploymentConfigurationLinearConfigurationArgs extends
 
     public static final ServiceDeploymentConfigurationLinearConfigurationArgs Empty = new ServiceDeploymentConfigurationLinearConfigurationArgs();
 
-    /**
-     * Number of minutes to wait between each step during a linear deployment. Valid range: 0-1440 minutes.
-     * 
-     */
     @Import(name="stepBakeTimeInMinutes")
     private @Nullable Output<String> stepBakeTimeInMinutes;
 
-    /**
-     * @return Number of minutes to wait between each step during a linear deployment. Valid range: 0-1440 minutes.
-     * 
-     */
     public Optional<Output<String>> stepBakeTimeInMinutes() {
         return Optional.ofNullable(this.stepBakeTimeInMinutes);
     }
 
-    /**
-     * Percentage of traffic to shift in each step during a linear deployment. Valid range: 3.0-100.0.
-     * 
-     */
     @Import(name="stepPercent")
     private @Nullable Output<Double> stepPercent;
 
-    /**
-     * @return Percentage of traffic to shift in each step during a linear deployment. Valid range: 3.0-100.0.
-     * 
-     */
     public Optional<Output<Double>> stepPercent() {
         return Optional.ofNullable(this.stepPercent);
     }
@@ -71,44 +55,20 @@ public final class ServiceDeploymentConfigurationLinearConfigurationArgs extends
             $ = new ServiceDeploymentConfigurationLinearConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param stepBakeTimeInMinutes Number of minutes to wait between each step during a linear deployment. Valid range: 0-1440 minutes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stepBakeTimeInMinutes(@Nullable Output<String> stepBakeTimeInMinutes) {
             $.stepBakeTimeInMinutes = stepBakeTimeInMinutes;
             return this;
         }
 
-        /**
-         * @param stepBakeTimeInMinutes Number of minutes to wait between each step during a linear deployment. Valid range: 0-1440 minutes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stepBakeTimeInMinutes(String stepBakeTimeInMinutes) {
             return stepBakeTimeInMinutes(Output.of(stepBakeTimeInMinutes));
         }
 
-        /**
-         * @param stepPercent Percentage of traffic to shift in each step during a linear deployment. Valid range: 3.0-100.0.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stepPercent(@Nullable Output<Double> stepPercent) {
             $.stepPercent = stepPercent;
             return this;
         }
 
-        /**
-         * @param stepPercent Percentage of traffic to shift in each step during a linear deployment. Valid range: 3.0-100.0.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stepPercent(Double stepPercent) {
             return stepPercent(Output.of(stepPercent));
         }

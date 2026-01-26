@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TablePointInTimeRecovery {
-    /**
-     * @return Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided, this defaults to `false`.
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return Number of preceding days for which continuous backups are taken and maintained. Default is 35.
-     * 
-     */
     private @Nullable Integer recoveryPeriodInDays;
 
     private TablePointInTimeRecovery() {}
-    /**
-     * @return Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided, this defaults to `false`.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return Number of preceding days for which continuous backups are taken and maintained. Default is 35.
-     * 
-     */
     public Optional<Integer> recoveryPeriodInDays() {
         return Optional.ofNullable(this.recoveryPeriodInDays);
     }

@@ -18,77 +18,37 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
 
     public static final PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs Empty = new PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs();
 
-    /**
-     * Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
-     * 
-     */
     @Import(name="expression")
     private @Nullable Output<String> expression;
 
-    /**
-     * @return Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
-     * 
-     */
     public Optional<Output<String>> expression() {
         return Optional.ofNullable(this.expression);
     }
 
-    /**
-     * Short name for the metric used in target tracking scaling policy.
-     * 
-     */
     @Import(name="id", required=true)
     private Output<String> id;
 
-    /**
-     * @return Short name for the metric used in target tracking scaling policy.
-     * 
-     */
     public Output<String> id() {
         return this.id;
     }
 
-    /**
-     * Human-readable label for this metric or expression.
-     * 
-     */
     @Import(name="label")
     private @Nullable Output<String> label;
 
-    /**
-     * @return Human-readable label for this metric or expression.
-     * 
-     */
     public Optional<Output<String>> label() {
         return Optional.ofNullable(this.label);
     }
 
-    /**
-     * Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metricStat`, but not both.
-     * 
-     */
     @Import(name="metricStat")
     private @Nullable Output<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs> metricStat;
 
-    /**
-     * @return Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metricStat`, but not both.
-     * 
-     */
     public Optional<Output<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs>> metricStat() {
         return Optional.ofNullable(this.metricStat);
     }
 
-    /**
-     * Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
-     * 
-     */
     @Import(name="returnData")
     private @Nullable Output<Boolean> returnData;
 
-    /**
-     * @return Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
-     * 
-     */
     public Optional<Output<Boolean>> returnData() {
         return Optional.ofNullable(this.returnData);
     }
@@ -121,107 +81,47 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
             $ = new PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param expression Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expression(@Nullable Output<String> expression) {
             $.expression = expression;
             return this;
         }
 
-        /**
-         * @param expression Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expression(String expression) {
             return expression(Output.of(expression));
         }
 
-        /**
-         * @param id Short name for the metric used in target tracking scaling policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id Short name for the metric used in target tracking scaling policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param label Human-readable label for this metric or expression.
-         * 
-         * @return builder
-         * 
-         */
         public Builder label(@Nullable Output<String> label) {
             $.label = label;
             return this;
         }
 
-        /**
-         * @param label Human-readable label for this metric or expression.
-         * 
-         * @return builder
-         * 
-         */
         public Builder label(String label) {
             return label(Output.of(label));
         }
 
-        /**
-         * @param metricStat Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metricStat`, but not both.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricStat(@Nullable Output<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs> metricStat) {
             $.metricStat = metricStat;
             return this;
         }
 
-        /**
-         * @param metricStat Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metricStat`, but not both.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricStat(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs metricStat) {
             return metricStat(Output.of(metricStat));
         }
 
-        /**
-         * @param returnData Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
-         * 
-         * @return builder
-         * 
-         */
         public Builder returnData(@Nullable Output<Boolean> returnData) {
             $.returnData = returnData;
             return this;
         }
 
-        /**
-         * @param returnData Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
-         * 
-         * @return builder
-         * 
-         */
         public Builder returnData(Boolean returnData) {
             return returnData(Output.of(returnData));
         }

@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages a VPC Endpoint Route Table Association
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.VpcEndpointRouteTableAssociation("example", {
- *     routeTableId: exampleAwsRouteTable.id,
- *     vpcEndpointId: exampleAwsVpcEndpoint.id,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import VPC Endpoint Route Table Associations using `vpc_endpoint_id` together with `route_table_id`. For example:
- *
- * ```sh
- * $ pulumi import aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation example vpce-aaaaaaaa/rtb-bbbbbbbb
- * ```
- */
 export class VpcEndpointRouteTableAssociation extends pulumi.CustomResource {
     /**
      * Get an existing VpcEndpointRouteTableAssociation resource's state with the given name, ID, and optional extra
@@ -55,17 +32,8 @@ export class VpcEndpointRouteTableAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpcEndpointRouteTableAssociation.__pulumiType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
-     */
     declare public readonly routeTableId: pulumi.Output<string>;
-    /**
-     * Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
-     */
     declare public readonly vpcEndpointId: pulumi.Output<string>;
 
     /**
@@ -105,17 +73,8 @@ export class VpcEndpointRouteTableAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpcEndpointRouteTableAssociation resources.
  */
 export interface VpcEndpointRouteTableAssociationState {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
-     */
     routeTableId?: pulumi.Input<string>;
-    /**
-     * Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
-     */
     vpcEndpointId?: pulumi.Input<string>;
 }
 
@@ -123,16 +82,7 @@ export interface VpcEndpointRouteTableAssociationState {
  * The set of arguments for constructing a VpcEndpointRouteTableAssociation resource.
  */
 export interface VpcEndpointRouteTableAssociationArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
-     */
     routeTableId: pulumi.Input<string>;
-    /**
-     * Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
-     */
     vpcEndpointId: pulumi.Input<string>;
 }

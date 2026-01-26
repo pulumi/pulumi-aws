@@ -11,144 +11,12 @@ namespace Pulumi.Aws.CloudFront
 {
     public static class GetOriginAccessIdentities
     {
-        /// <summary>
-        /// Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### All origin access identities in the account
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudFront.GetOriginAccessIdentities.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Origin access identities filtered by comment/name
-        /// 
-        /// Origin access identities whose comments are `example-comment1`, `example-comment2`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudFront.GetOriginAccessIdentities.Invoke(new()
-        ///     {
-        ///         Comments = new[]
-        ///         {
-        ///             "example-comment1",
-        ///             "example-comment2",
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetOriginAccessIdentitiesResult> InvokeAsync(GetOriginAccessIdentitiesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOriginAccessIdentitiesResult>("aws:cloudfront/getOriginAccessIdentities:getOriginAccessIdentities", args ?? new GetOriginAccessIdentitiesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### All origin access identities in the account
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudFront.GetOriginAccessIdentities.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Origin access identities filtered by comment/name
-        /// 
-        /// Origin access identities whose comments are `example-comment1`, `example-comment2`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudFront.GetOriginAccessIdentities.Invoke(new()
-        ///     {
-        ///         Comments = new[]
-        ///         {
-        ///             "example-comment1",
-        ///             "example-comment2",
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetOriginAccessIdentitiesResult> Invoke(GetOriginAccessIdentitiesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOriginAccessIdentitiesResult>("aws:cloudfront/getOriginAccessIdentities:getOriginAccessIdentities", args ?? new GetOriginAccessIdentitiesInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### All origin access identities in the account
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudFront.GetOriginAccessIdentities.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Origin access identities filtered by comment/name
-        /// 
-        /// Origin access identities whose comments are `example-comment1`, `example-comment2`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudFront.GetOriginAccessIdentities.Invoke(new()
-        ///     {
-        ///         Comments = new[]
-        ///         {
-        ///             "example-comment1",
-        ///             "example-comment2",
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetOriginAccessIdentitiesResult> Invoke(GetOriginAccessIdentitiesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOriginAccessIdentitiesResult>("aws:cloudfront/getOriginAccessIdentities:getOriginAccessIdentities", args ?? new GetOriginAccessIdentitiesInvokeArgs(), options.WithDefaults());
     }
@@ -158,10 +26,6 @@ namespace Pulumi.Aws.CloudFront
     {
         [Input("comments")]
         private List<string>? _comments;
-
-        /// <summary>
-        /// Filter origin access identities by comment.
-        /// </summary>
         public List<string> Comments
         {
             get => _comments ?? (_comments = new List<string>());
@@ -178,10 +42,6 @@ namespace Pulumi.Aws.CloudFront
     {
         [Input("comments")]
         private InputList<string>? _comments;
-
-        /// <summary>
-        /// Filter origin access identities by comment.
-        /// </summary>
         public InputList<string> Comments
         {
             get => _comments ?? (_comments = new InputList<string>());
@@ -199,21 +59,12 @@ namespace Pulumi.Aws.CloudFront
     public sealed class GetOriginAccessIdentitiesResult
     {
         public readonly ImmutableArray<string> Comments;
-        /// <summary>
-        /// Set of ARNs of the matched origin access identities.
-        /// </summary>
         public readonly ImmutableArray<string> IamArns;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Set of ids of the matched origin access identities.
-        /// </summary>
         public readonly ImmutableArray<string> Ids;
-        /// <summary>
-        /// Set of S3 canonical user IDs of the matched origin access identities.
-        /// </summary>
         public readonly ImmutableArray<string> S3CanonicalUserIds;
 
         [OutputConstructor]

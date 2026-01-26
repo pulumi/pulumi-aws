@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class InventoryFilter {
-    /**
-     * @return Prefix that an object must have to be included in the inventory results.
-     * 
-     */
     private @Nullable String prefix;
 
     private InventoryFilter() {}
-    /**
-     * @return Prefix that an object must have to be included in the inventory results.
-     * 
-     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }

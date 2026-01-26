@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Rds.Inputs
 
     public sealed class InstanceListenerEndpointGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the DNS address of the DB instance.
-        /// </summary>
         [Input("address")]
         public Input<string>? Address { get; set; }
 
-        /// <summary>
-        /// Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
-        /// </summary>
         [Input("hostedZoneId")]
         public Input<string>? HostedZoneId { get; set; }
 
-        /// <summary>
-        /// The port on which the DB accepts connections.
-        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 

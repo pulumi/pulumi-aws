@@ -17,92 +17,44 @@ public final class EndpointAccessArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final EndpointAccessArgs Empty = new EndpointAccessArgs();
 
-    /**
-     * The cluster identifier of the cluster to access.
-     * 
-     */
     @Import(name="clusterIdentifier", required=true)
     private Output<String> clusterIdentifier;
 
-    /**
-     * @return The cluster identifier of the cluster to access.
-     * 
-     */
     public Output<String> clusterIdentifier() {
         return this.clusterIdentifier;
     }
 
-    /**
-     * The Redshift-managed VPC endpoint name.
-     * 
-     */
     @Import(name="endpointName", required=true)
     private Output<String> endpointName;
 
-    /**
-     * @return The Redshift-managed VPC endpoint name.
-     * 
-     */
     public Output<String> endpointName() {
         return this.endpointName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
-     * 
-     */
     @Import(name="resourceOwner")
     private @Nullable Output<String> resourceOwner;
 
-    /**
-     * @return The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
-     * 
-     */
     public Optional<Output<String>> resourceOwner() {
         return Optional.ofNullable(this.resourceOwner);
     }
 
-    /**
-     * The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
-     * 
-     */
     @Import(name="subnetGroupName", required=true)
     private Output<String> subnetGroupName;
 
-    /**
-     * @return The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
-     * 
-     */
     public Output<String> subnetGroupName() {
         return this.subnetGroupName;
     }
 
-    /**
-     * The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
-     * 
-     */
     @Import(name="vpcSecurityGroupIds")
     private @Nullable Output<List<String>> vpcSecurityGroupIds;
 
-    /**
-     * @return The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
-     * 
-     */
     public Optional<Output<List<String>>> vpcSecurityGroupIds() {
         return Optional.ofNullable(this.vpcSecurityGroupIds);
     }
@@ -136,138 +88,60 @@ public final class EndpointAccessArgs extends com.pulumi.resources.ResourceArgs 
             $ = new EndpointAccessArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clusterIdentifier The cluster identifier of the cluster to access.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterIdentifier(Output<String> clusterIdentifier) {
             $.clusterIdentifier = clusterIdentifier;
             return this;
         }
 
-        /**
-         * @param clusterIdentifier The cluster identifier of the cluster to access.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterIdentifier(String clusterIdentifier) {
             return clusterIdentifier(Output.of(clusterIdentifier));
         }
 
-        /**
-         * @param endpointName The Redshift-managed VPC endpoint name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointName(Output<String> endpointName) {
             $.endpointName = endpointName;
             return this;
         }
 
-        /**
-         * @param endpointName The Redshift-managed VPC endpoint name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointName(String endpointName) {
             return endpointName(Output.of(endpointName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceOwner The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceOwner(@Nullable Output<String> resourceOwner) {
             $.resourceOwner = resourceOwner;
             return this;
         }
 
-        /**
-         * @param resourceOwner The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceOwner(String resourceOwner) {
             return resourceOwner(Output.of(resourceOwner));
         }
 
-        /**
-         * @param subnetGroupName The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetGroupName(Output<String> subnetGroupName) {
             $.subnetGroupName = subnetGroupName;
             return this;
         }
 
-        /**
-         * @param subnetGroupName The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetGroupName(String subnetGroupName) {
             return subnetGroupName(Output.of(subnetGroupName));
         }
 
-        /**
-         * @param vpcSecurityGroupIds The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcSecurityGroupIds(@Nullable Output<List<String>> vpcSecurityGroupIds) {
             $.vpcSecurityGroupIds = vpcSecurityGroupIds;
             return this;
         }
 
-        /**
-         * @param vpcSecurityGroupIds The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcSecurityGroupIds(List<String> vpcSecurityGroupIds) {
             return vpcSecurityGroupIds(Output.of(vpcSecurityGroupIds));
         }
 
-        /**
-         * @param vpcSecurityGroupIds The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcSecurityGroupIds(String... vpcSecurityGroupIds) {
             return vpcSecurityGroupIds(List.of(vpcSecurityGroupIds));
         }

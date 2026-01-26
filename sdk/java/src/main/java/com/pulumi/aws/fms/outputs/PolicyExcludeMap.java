@@ -11,33 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicyExcludeMap {
-    /**
-     * @return A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
-     * 
-     */
     private @Nullable List<String> accounts;
-    /**
-     * @return A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
-     * 
-     * You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
-     * 
-     */
     private @Nullable List<String> orgunits;
 
     private PolicyExcludeMap() {}
-    /**
-     * @return A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
-     * 
-     */
     public List<String> accounts() {
         return this.accounts == null ? List.of() : this.accounts;
     }
-    /**
-     * @return A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
-     * 
-     * You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
-     * 
-     */
     public List<String> orgunits() {
         return this.orgunits == null ? List.of() : this.orgunits;
     }

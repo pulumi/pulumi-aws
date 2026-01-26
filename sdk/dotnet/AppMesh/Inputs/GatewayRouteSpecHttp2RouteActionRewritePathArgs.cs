@@ -12,9 +12,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class GatewayRouteSpecHttp2RouteActionRewritePathArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The exact path to match on.
-        /// </summary>
         [Input("exact", required: true)]
         public Input<string> Exact { get; set; } = null!;
 

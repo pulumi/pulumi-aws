@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Msk.Inputs
     {
         [Input("securityGroupsIds")]
         private InputList<string>? _securityGroupsIds;
-
-        /// <summary>
-        /// The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
-        /// </summary>
         public InputList<string> SecurityGroupsIds
         {
             get => _securityGroupsIds ?? (_securityGroupsIds = new InputList<string>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.Msk.Inputs
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
-        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());

@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS Amazon BedrockAgent Agent Versions.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrock.GetAgentAgentVersions(ctx, &bedrock.GetAgentAgentVersionsArgs{
-//				AgentId: testAwsBedrockagentAgent.AgentId,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetAgentAgentVersions(ctx *pulumi.Context, args *GetAgentAgentVersionsArgs, opts ...pulumi.InvokeOption) (*GetAgentAgentVersionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAgentAgentVersionsResult
@@ -52,18 +23,14 @@ func GetAgentAgentVersions(ctx *pulumi.Context, args *GetAgentAgentVersionsArgs,
 
 // A collection of arguments for invoking getAgentAgentVersions.
 type GetAgentAgentVersionsArgs struct {
-	// Unique identifier of the agent.
-	AgentId string `pulumi:"agentId"`
-	// List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
+	AgentId               string                                     `pulumi:"agentId"`
 	AgentVersionSummaries []GetAgentAgentVersionsAgentVersionSummary `pulumi:"agentVersionSummaries"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region                *string                                    `pulumi:"region"`
 }
 
 // A collection of values returned by getAgentAgentVersions.
 type GetAgentAgentVersionsResult struct {
-	AgentId string `pulumi:"agentId"`
-	// List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
+	AgentId               string                                     `pulumi:"agentId"`
 	AgentVersionSummaries []GetAgentAgentVersionsAgentVersionSummary `pulumi:"agentVersionSummaries"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string `pulumi:"id"`
@@ -81,12 +48,9 @@ func GetAgentAgentVersionsOutput(ctx *pulumi.Context, args GetAgentAgentVersions
 
 // A collection of arguments for invoking getAgentAgentVersions.
 type GetAgentAgentVersionsOutputArgs struct {
-	// Unique identifier of the agent.
-	AgentId pulumi.StringInput `pulumi:"agentId"`
-	// List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
+	AgentId               pulumi.StringInput                                 `pulumi:"agentId"`
 	AgentVersionSummaries GetAgentAgentVersionsAgentVersionSummaryArrayInput `pulumi:"agentVersionSummaries"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Region                pulumi.StringPtrInput                              `pulumi:"region"`
 }
 
 func (GetAgentAgentVersionsOutputArgs) ElementType() reflect.Type {
@@ -112,7 +76,6 @@ func (o GetAgentAgentVersionsResultOutput) AgentId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAgentAgentVersionsResult) string { return v.AgentId }).(pulumi.StringOutput)
 }
 
-// List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
 func (o GetAgentAgentVersionsResultOutput) AgentVersionSummaries() GetAgentAgentVersionsAgentVersionSummaryArrayOutput {
 	return o.ApplyT(func(v GetAgentAgentVersionsResult) []GetAgentAgentVersionsAgentVersionSummary {
 		return v.AgentVersionSummaries

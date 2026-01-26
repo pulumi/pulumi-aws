@@ -14,17 +14,9 @@ public final class FlowDefinitionHumanLoopRequestSourceArgs extends com.pulumi.r
 
     public static final FlowDefinitionHumanLoopRequestSourceArgs Empty = new FlowDefinitionHumanLoopRequestSourceArgs();
 
-    /**
-     * Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source. Valid values are: `AWS/Rekognition/DetectModerationLabels/Image/V3` and `AWS/Textract/AnalyzeDocument/Forms/V1`.
-     * 
-     */
     @Import(name="awsManagedHumanLoopRequestSource", required=true)
     private Output<String> awsManagedHumanLoopRequestSource;
 
-    /**
-     * @return Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source. Valid values are: `AWS/Rekognition/DetectModerationLabels/Image/V3` and `AWS/Textract/AnalyzeDocument/Forms/V1`.
-     * 
-     */
     public Output<String> awsManagedHumanLoopRequestSource() {
         return this.awsManagedHumanLoopRequestSource;
     }
@@ -53,23 +45,11 @@ public final class FlowDefinitionHumanLoopRequestSourceArgs extends com.pulumi.r
             $ = new FlowDefinitionHumanLoopRequestSourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param awsManagedHumanLoopRequestSource Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source. Valid values are: `AWS/Rekognition/DetectModerationLabels/Image/V3` and `AWS/Textract/AnalyzeDocument/Forms/V1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsManagedHumanLoopRequestSource(Output<String> awsManagedHumanLoopRequestSource) {
             $.awsManagedHumanLoopRequestSource = awsManagedHumanLoopRequestSource;
             return this;
         }
 
-        /**
-         * @param awsManagedHumanLoopRequestSource Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source. Valid values are: `AWS/Rekognition/DetectModerationLabels/Image/V3` and `AWS/Textract/AnalyzeDocument/Forms/V1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsManagedHumanLoopRequestSource(String awsManagedHumanLoopRequestSource) {
             return awsManagedHumanLoopRequestSource(Output.of(awsManagedHumanLoopRequestSource));
         }

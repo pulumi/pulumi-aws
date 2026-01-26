@@ -12,23 +12,12 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
 
     public sealed class DeploymentGroupBlueGreenDeploymentConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment (documented below).
-        /// </summary>
         [Input("deploymentReadyOption")]
         public Input<Inputs.DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs>? DeploymentReadyOption { get; set; }
 
-        /// <summary>
-        /// Information about how instances are provisioned for a replacement environment in a blue/green deployment (documented below).
-        /// </summary>
         [Input("greenFleetProvisioningOption")]
         public Input<Inputs.DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs>? GreenFleetProvisioningOption { get; set; }
 
-        /// <summary>
-        /// Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
-        /// 
-        /// _Only one `BlueGreenDeploymentConfig` is allowed_.
-        /// </summary>
         [Input("terminateBlueInstancesOnDeploymentSuccess")]
         public Input<Inputs.DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs>? TerminateBlueInstancesOnDeploymentSuccess { get; set; }
 

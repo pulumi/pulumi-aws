@@ -16,32 +16,16 @@ public final class ClusterConfigurationArgs extends com.pulumi.resources.Resourc
 
     public static final ClusterConfigurationArgs Empty = new ClusterConfigurationArgs();
 
-    /**
-     * Details of the execute command configuration. See `executeCommandConfiguration` Block for details.
-     * 
-     */
     @Import(name="executeCommandConfiguration")
     private @Nullable Output<ClusterConfigurationExecuteCommandConfigurationArgs> executeCommandConfiguration;
 
-    /**
-     * @return Details of the execute command configuration. See `executeCommandConfiguration` Block for details.
-     * 
-     */
     public Optional<Output<ClusterConfigurationExecuteCommandConfigurationArgs>> executeCommandConfiguration() {
         return Optional.ofNullable(this.executeCommandConfiguration);
     }
 
-    /**
-     * Details of the managed storage configuration. See `managedStorageConfiguration` Block for details.
-     * 
-     */
     @Import(name="managedStorageConfiguration")
     private @Nullable Output<ClusterConfigurationManagedStorageConfigurationArgs> managedStorageConfiguration;
 
-    /**
-     * @return Details of the managed storage configuration. See `managedStorageConfiguration` Block for details.
-     * 
-     */
     public Optional<Output<ClusterConfigurationManagedStorageConfigurationArgs>> managedStorageConfiguration() {
         return Optional.ofNullable(this.managedStorageConfiguration);
     }
@@ -71,44 +55,20 @@ public final class ClusterConfigurationArgs extends com.pulumi.resources.Resourc
             $ = new ClusterConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param executeCommandConfiguration Details of the execute command configuration. See `executeCommandConfiguration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executeCommandConfiguration(@Nullable Output<ClusterConfigurationExecuteCommandConfigurationArgs> executeCommandConfiguration) {
             $.executeCommandConfiguration = executeCommandConfiguration;
             return this;
         }
 
-        /**
-         * @param executeCommandConfiguration Details of the execute command configuration. See `executeCommandConfiguration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executeCommandConfiguration(ClusterConfigurationExecuteCommandConfigurationArgs executeCommandConfiguration) {
             return executeCommandConfiguration(Output.of(executeCommandConfiguration));
         }
 
-        /**
-         * @param managedStorageConfiguration Details of the managed storage configuration. See `managedStorageConfiguration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedStorageConfiguration(@Nullable Output<ClusterConfigurationManagedStorageConfigurationArgs> managedStorageConfiguration) {
             $.managedStorageConfiguration = managedStorageConfiguration;
             return this;
         }
 
-        /**
-         * @param managedStorageConfiguration Details of the managed storage configuration. See `managedStorageConfiguration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedStorageConfiguration(ClusterConfigurationManagedStorageConfigurationArgs managedStorageConfiguration) {
             return managedStorageConfiguration(Output.of(managedStorageConfiguration));
         }

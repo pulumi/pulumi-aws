@@ -15,32 +15,16 @@ public final class CertificateRenewalSummaryArgs extends com.pulumi.resources.Re
 
     public static final CertificateRenewalSummaryArgs Empty = new CertificateRenewalSummaryArgs();
 
-    /**
-     * The status of ACM&#39;s managed renewal of the certificate
-     * 
-     */
     @Import(name="renewalStatus")
     private @Nullable Output<String> renewalStatus;
 
-    /**
-     * @return The status of ACM&#39;s managed renewal of the certificate
-     * 
-     */
     public Optional<Output<String>> renewalStatus() {
         return Optional.ofNullable(this.renewalStatus);
     }
 
-    /**
-     * The reason that a renewal request was unsuccessful or is pending
-     * 
-     */
     @Import(name="renewalStatusReason")
     private @Nullable Output<String> renewalStatusReason;
 
-    /**
-     * @return The reason that a renewal request was unsuccessful or is pending
-     * 
-     */
     public Optional<Output<String>> renewalStatusReason() {
         return Optional.ofNullable(this.renewalStatusReason);
     }
@@ -78,44 +62,20 @@ public final class CertificateRenewalSummaryArgs extends com.pulumi.resources.Re
             $ = new CertificateRenewalSummaryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param renewalStatus The status of ACM&#39;s managed renewal of the certificate
-         * 
-         * @return builder
-         * 
-         */
         public Builder renewalStatus(@Nullable Output<String> renewalStatus) {
             $.renewalStatus = renewalStatus;
             return this;
         }
 
-        /**
-         * @param renewalStatus The status of ACM&#39;s managed renewal of the certificate
-         * 
-         * @return builder
-         * 
-         */
         public Builder renewalStatus(String renewalStatus) {
             return renewalStatus(Output.of(renewalStatus));
         }
 
-        /**
-         * @param renewalStatusReason The reason that a renewal request was unsuccessful or is pending
-         * 
-         * @return builder
-         * 
-         */
         public Builder renewalStatusReason(@Nullable Output<String> renewalStatusReason) {
             $.renewalStatusReason = renewalStatusReason;
             return this;
         }
 
-        /**
-         * @param renewalStatusReason The reason that a renewal request was unsuccessful or is pending
-         * 
-         * @return builder
-         * 
-         */
         public Builder renewalStatusReason(String renewalStatusReason) {
             return renewalStatusReason(Output.of(renewalStatusReason));
         }

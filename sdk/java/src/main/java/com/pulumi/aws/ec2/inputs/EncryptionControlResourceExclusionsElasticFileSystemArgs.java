@@ -14,32 +14,16 @@ public final class EncryptionControlResourceExclusionsElasticFileSystemArgs exte
 
     public static final EncryptionControlResourceExclusionsElasticFileSystemArgs Empty = new EncryptionControlResourceExclusionsElasticFileSystemArgs();
 
-    /**
-     * The current state of the VPC Encryption Control.
-     * 
-     */
     @Import(name="state", required=true)
     private Output<String> state;
 
-    /**
-     * @return The current state of the VPC Encryption Control.
-     * 
-     */
     public Output<String> state() {
         return this.state;
     }
 
-    /**
-     * A message providing additional information about the state of the VPC Encryption Control.
-     * 
-     */
     @Import(name="stateMessage", required=true)
     private Output<String> stateMessage;
 
-    /**
-     * @return A message providing additional information about the state of the VPC Encryption Control.
-     * 
-     */
     public Output<String> stateMessage() {
         return this.stateMessage;
     }
@@ -69,44 +53,20 @@ public final class EncryptionControlResourceExclusionsElasticFileSystemArgs exte
             $ = new EncryptionControlResourceExclusionsElasticFileSystemArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param state The current state of the VPC Encryption Control.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(Output<String> state) {
             $.state = state;
             return this;
         }
 
-        /**
-         * @param state The current state of the VPC Encryption Control.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(String state) {
             return state(Output.of(state));
         }
 
-        /**
-         * @param stateMessage A message providing additional information about the state of the VPC Encryption Control.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stateMessage(Output<String> stateMessage) {
             $.stateMessage = stateMessage;
             return this;
         }
 
-        /**
-         * @param stateMessage A message providing additional information about the state of the VPC Encryption Control.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stateMessage(String stateMessage) {
             return stateMessage(Output.of(stateMessage));
         }

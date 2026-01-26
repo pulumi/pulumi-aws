@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetResourceCollectionCloudformation {
-    /**
-     * @return Array of the names of the AWS CloudFormation stacks.
-     * 
-     */
     private List<String> stackNames;
 
     private GetResourceCollectionCloudformation() {}
-    /**
-     * @return Array of the names of the AWS CloudFormation stacks.
-     * 
-     */
     public List<String> stackNames() {
         return this.stackNames;
     }

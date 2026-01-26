@@ -31,14 +31,6 @@ class SpaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Space resource.
-        :param pulumi.Input[_builtins.str] domain_id: The ID of the associated Domain.
-        :param pulumi.Input[_builtins.str] space_name: The name of the space.
-        :param pulumi.Input['SpaceOwnershipSettingsArgs'] ownership_settings: A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] space_display_name: The name of the space that appears in the SageMaker AI Studio UI.
-        :param pulumi.Input['SpaceSpaceSettingsArgs'] space_settings: A collection of space settings. See `space_settings` Block below.
-        :param pulumi.Input['SpaceSpaceSharingSettingsArgs'] space_sharing_settings: A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "domain_id", domain_id)
         pulumi.set(__self__, "space_name", space_name)
@@ -58,9 +50,6 @@ class SpaceArgs:
     @_builtins.property
     @pulumi.getter(name="domainId")
     def domain_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the associated Domain.
-        """
         return pulumi.get(self, "domain_id")
 
     @domain_id.setter
@@ -70,9 +59,6 @@ class SpaceArgs:
     @_builtins.property
     @pulumi.getter(name="spaceName")
     def space_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the space.
-        """
         return pulumi.get(self, "space_name")
 
     @space_name.setter
@@ -82,9 +68,6 @@ class SpaceArgs:
     @_builtins.property
     @pulumi.getter(name="ownershipSettings")
     def ownership_settings(self) -> Optional[pulumi.Input['SpaceOwnershipSettingsArgs']]:
-        """
-        A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
-        """
         return pulumi.get(self, "ownership_settings")
 
     @ownership_settings.setter
@@ -94,9 +77,6 @@ class SpaceArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -106,9 +86,6 @@ class SpaceArgs:
     @_builtins.property
     @pulumi.getter(name="spaceDisplayName")
     def space_display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the space that appears in the SageMaker AI Studio UI.
-        """
         return pulumi.get(self, "space_display_name")
 
     @space_display_name.setter
@@ -118,9 +95,6 @@ class SpaceArgs:
     @_builtins.property
     @pulumi.getter(name="spaceSettings")
     def space_settings(self) -> Optional[pulumi.Input['SpaceSpaceSettingsArgs']]:
-        """
-        A collection of space settings. See `space_settings` Block below.
-        """
         return pulumi.get(self, "space_settings")
 
     @space_settings.setter
@@ -130,9 +104,6 @@ class SpaceArgs:
     @_builtins.property
     @pulumi.getter(name="spaceSharingSettings")
     def space_sharing_settings(self) -> Optional[pulumi.Input['SpaceSpaceSharingSettingsArgs']]:
-        """
-        A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
-        """
         return pulumi.get(self, "space_sharing_settings")
 
     @space_sharing_settings.setter
@@ -142,9 +113,6 @@ class SpaceArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -169,18 +137,6 @@ class _SpaceState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Space resources.
-        :param pulumi.Input[_builtins.str] arn: The space's Amazon Resource Name (ARN).
-        :param pulumi.Input[_builtins.str] domain_id: The ID of the associated Domain.
-        :param pulumi.Input[_builtins.str] home_efs_file_system_uid: The ID of the space's profile in the Amazon Elastic File System volume.
-        :param pulumi.Input['SpaceOwnershipSettingsArgs'] ownership_settings: A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] space_display_name: The name of the space that appears in the SageMaker AI Studio UI.
-        :param pulumi.Input[_builtins.str] space_name: The name of the space.
-        :param pulumi.Input['SpaceSpaceSettingsArgs'] space_settings: A collection of space settings. See `space_settings` Block below.
-        :param pulumi.Input['SpaceSpaceSharingSettingsArgs'] space_sharing_settings: A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] url: Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -210,9 +166,6 @@ class _SpaceState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The space's Amazon Resource Name (ARN).
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -222,9 +175,6 @@ class _SpaceState:
     @_builtins.property
     @pulumi.getter(name="domainId")
     def domain_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the associated Domain.
-        """
         return pulumi.get(self, "domain_id")
 
     @domain_id.setter
@@ -234,9 +184,6 @@ class _SpaceState:
     @_builtins.property
     @pulumi.getter(name="homeEfsFileSystemUid")
     def home_efs_file_system_uid(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the space's profile in the Amazon Elastic File System volume.
-        """
         return pulumi.get(self, "home_efs_file_system_uid")
 
     @home_efs_file_system_uid.setter
@@ -246,9 +193,6 @@ class _SpaceState:
     @_builtins.property
     @pulumi.getter(name="ownershipSettings")
     def ownership_settings(self) -> Optional[pulumi.Input['SpaceOwnershipSettingsArgs']]:
-        """
-        A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
-        """
         return pulumi.get(self, "ownership_settings")
 
     @ownership_settings.setter
@@ -258,9 +202,6 @@ class _SpaceState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -270,9 +211,6 @@ class _SpaceState:
     @_builtins.property
     @pulumi.getter(name="spaceDisplayName")
     def space_display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the space that appears in the SageMaker AI Studio UI.
-        """
         return pulumi.get(self, "space_display_name")
 
     @space_display_name.setter
@@ -282,9 +220,6 @@ class _SpaceState:
     @_builtins.property
     @pulumi.getter(name="spaceName")
     def space_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the space.
-        """
         return pulumi.get(self, "space_name")
 
     @space_name.setter
@@ -294,9 +229,6 @@ class _SpaceState:
     @_builtins.property
     @pulumi.getter(name="spaceSettings")
     def space_settings(self) -> Optional[pulumi.Input['SpaceSpaceSettingsArgs']]:
-        """
-        A collection of space settings. See `space_settings` Block below.
-        """
         return pulumi.get(self, "space_settings")
 
     @space_settings.setter
@@ -306,9 +238,6 @@ class _SpaceState:
     @_builtins.property
     @pulumi.getter(name="spaceSharingSettings")
     def space_sharing_settings(self) -> Optional[pulumi.Input['SpaceSpaceSharingSettingsArgs']]:
-        """
-        A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
-        """
         return pulumi.get(self, "space_sharing_settings")
 
     @space_sharing_settings.setter
@@ -318,9 +247,6 @@ class _SpaceState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -330,9 +256,6 @@ class _SpaceState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -342,9 +265,6 @@ class _SpaceState:
     @_builtins.property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
-        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -368,39 +288,9 @@ class Space(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a SageMaker AI Space resource.
-
-        ## Example Usage
-
-        ### Basic usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sagemaker.Space("example",
-            domain_id=test["id"],
-            space_name="example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SageMaker AI Spaces using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:sagemaker/space:Space test_space arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name
-        ```
-
+        Create a Space resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] domain_id: The ID of the associated Domain.
-        :param pulumi.Input[Union['SpaceOwnershipSettingsArgs', 'SpaceOwnershipSettingsArgsDict']] ownership_settings: A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] space_display_name: The name of the space that appears in the SageMaker AI Studio UI.
-        :param pulumi.Input[_builtins.str] space_name: The name of the space.
-        :param pulumi.Input[Union['SpaceSpaceSettingsArgs', 'SpaceSpaceSettingsArgsDict']] space_settings: A collection of space settings. See `space_settings` Block below.
-        :param pulumi.Input[Union['SpaceSpaceSharingSettingsArgs', 'SpaceSpaceSharingSettingsArgsDict']] space_sharing_settings: A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -409,29 +299,7 @@ class Space(pulumi.CustomResource):
                  args: SpaceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SageMaker AI Space resource.
-
-        ## Example Usage
-
-        ### Basic usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sagemaker.Space("example",
-            domain_id=test["id"],
-            space_name="example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SageMaker AI Spaces using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:sagemaker/space:Space test_space arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name
-        ```
-
+        Create a Space resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SpaceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -509,18 +377,6 @@ class Space(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The space's Amazon Resource Name (ARN).
-        :param pulumi.Input[_builtins.str] domain_id: The ID of the associated Domain.
-        :param pulumi.Input[_builtins.str] home_efs_file_system_uid: The ID of the space's profile in the Amazon Elastic File System volume.
-        :param pulumi.Input[Union['SpaceOwnershipSettingsArgs', 'SpaceOwnershipSettingsArgsDict']] ownership_settings: A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] space_display_name: The name of the space that appears in the SageMaker AI Studio UI.
-        :param pulumi.Input[_builtins.str] space_name: The name of the space.
-        :param pulumi.Input[Union['SpaceSpaceSettingsArgs', 'SpaceSpaceSettingsArgsDict']] space_settings: A collection of space settings. See `space_settings` Block below.
-        :param pulumi.Input[Union['SpaceSpaceSharingSettingsArgs', 'SpaceSpaceSharingSettingsArgsDict']] space_sharing_settings: A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] url: Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -543,96 +399,60 @@ class Space(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The space's Amazon Resource Name (ARN).
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="domainId")
     def domain_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the associated Domain.
-        """
         return pulumi.get(self, "domain_id")
 
     @_builtins.property
     @pulumi.getter(name="homeEfsFileSystemUid")
     def home_efs_file_system_uid(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the space's profile in the Amazon Elastic File System volume.
-        """
         return pulumi.get(self, "home_efs_file_system_uid")
 
     @_builtins.property
     @pulumi.getter(name="ownershipSettings")
     def ownership_settings(self) -> pulumi.Output[Optional['outputs.SpaceOwnershipSettings']]:
-        """
-        A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
-        """
         return pulumi.get(self, "ownership_settings")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="spaceDisplayName")
     def space_display_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The name of the space that appears in the SageMaker AI Studio UI.
-        """
         return pulumi.get(self, "space_display_name")
 
     @_builtins.property
     @pulumi.getter(name="spaceName")
     def space_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the space.
-        """
         return pulumi.get(self, "space_name")
 
     @_builtins.property
     @pulumi.getter(name="spaceSettings")
     def space_settings(self) -> pulumi.Output[Optional['outputs.SpaceSpaceSettings']]:
-        """
-        A collection of space settings. See `space_settings` Block below.
-        """
         return pulumi.get(self, "space_settings")
 
     @_builtins.property
     @pulumi.getter(name="spaceSharingSettings")
     def space_sharing_settings(self) -> pulumi.Output[Optional['outputs.SpaceSpaceSharingSettings']]:
-        """
-        A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
-        """
         return pulumi.get(self, "space_sharing_settings")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def url(self) -> pulumi.Output[_builtins.str]:
-        """
-        Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
-        """
         return pulumi.get(self, "url")
 

@@ -24,32 +24,16 @@ public final class DirectoryVpcSettingsArgs extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.availabilityZones);
     }
 
-    /**
-     * The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
-     * 
-     */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
-    /**
-     * @return The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
-     * 
-     */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
 
-    /**
-     * The identifier of the VPC that the directory is in.
-     * 
-     */
     @Import(name="vpcId", required=true)
     private Output<String> vpcId;
 
-    /**
-     * @return The identifier of the VPC that the directory is in.
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }
@@ -93,54 +77,24 @@ public final class DirectoryVpcSettingsArgs extends com.pulumi.resources.Resourc
             return availabilityZones(List.of(availabilityZones));
         }
 
-        /**
-         * @param subnetIds The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
-        /**
-         * @param subnetIds The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
-        /**
-         * @param subnetIds The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
 
-        /**
-         * @param vpcId The identifier of the VPC that the directory is in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId The identifier of the VPC that the directory is in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

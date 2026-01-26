@@ -11,104 +11,48 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
-//
-// ## Import
-//
-// Using `pulumi import`, import Launch Templates using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2/launchTemplate:LaunchTemplate web lt-12345678
-// ```
 type LaunchTemplate struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the launch template.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Specify volumes to attach to the instance besides the volumes specified by the AMI.
-	// See Block Devices below for details.
-	BlockDeviceMappings LaunchTemplateBlockDeviceMappingArrayOutput `pulumi:"blockDeviceMappings"`
-	// Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
-	CapacityReservationSpecification LaunchTemplateCapacityReservationSpecificationPtrOutput `pulumi:"capacityReservationSpecification"`
-	// The CPU options for the instance. See CPU Options below for more details.
-	CpuOptions LaunchTemplateCpuOptionsPtrOutput `pulumi:"cpuOptions"`
-	// Customize the credit specification of the instance. See Credit
-	// Specification below for more details.
-	CreditSpecification LaunchTemplateCreditSpecificationPtrOutput `pulumi:"creditSpecification"`
-	// Default Version of the launch template.
-	DefaultVersion pulumi.IntOutput `pulumi:"defaultVersion"`
-	// Description of the launch template.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
-	DisableApiStop pulumi.BoolPtrOutput `pulumi:"disableApiStop"`
-	// If `true`, enables [EC2 Instance
-	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
-	DisableApiTermination pulumi.BoolPtrOutput `pulumi:"disableApiTermination"`
-	// If `true`, the launched EC2 instance will be EBS-optimized.
-	EbsOptimized pulumi.StringPtrOutput `pulumi:"ebsOptimized"`
-	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
-	EnclaveOptions LaunchTemplateEnclaveOptionsPtrOutput `pulumi:"enclaveOptions"`
-	// The hibernation options for the instance. See Hibernation Options below for more details.
-	HibernationOptions LaunchTemplateHibernationOptionsPtrOutput `pulumi:"hibernationOptions"`
-	// The IAM Instance Profile to launch the instance with. See Instance Profile
-	// below for more details.
-	IamInstanceProfile LaunchTemplateIamInstanceProfilePtrOutput `pulumi:"iamInstanceProfile"`
-	// The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
-	ImageId pulumi.StringPtrOutput `pulumi:"imageId"`
-	// Shutdown behavior for the instance. Can be `stop` or `terminate`.
-	// (Default: `stop`).
-	InstanceInitiatedShutdownBehavior pulumi.StringPtrOutput `pulumi:"instanceInitiatedShutdownBehavior"`
-	// The market (purchasing) option for the instance. See Market Options
-	// below for details.
-	InstanceMarketOptions LaunchTemplateInstanceMarketOptionsPtrOutput `pulumi:"instanceMarketOptions"`
-	// The attribute requirements for the type of instance. If present then `instanceType` cannot be present.
-	InstanceRequirements LaunchTemplateInstanceRequirementsPtrOutput `pulumi:"instanceRequirements"`
-	// The type of the instance. If present then `instanceRequirements` cannot be present.
-	InstanceType pulumi.StringPtrOutput `pulumi:"instanceType"`
-	// The kernel ID.
-	KernelId pulumi.StringPtrOutput `pulumi:"kernelId"`
-	// The key name to use for the instance.
-	KeyName pulumi.StringPtrOutput `pulumi:"keyName"`
-	// The latest version of the launch template.
-	LatestVersion pulumi.IntOutput `pulumi:"latestVersion"`
-	// A list of license specifications to associate with. See License Specification below for more details.
-	LicenseSpecifications LaunchTemplateLicenseSpecificationArrayOutput `pulumi:"licenseSpecifications"`
-	// The maintenance options for the instance. See Maintenance Options below for more details.
-	MaintenanceOptions LaunchTemplateMaintenanceOptionsPtrOutput `pulumi:"maintenanceOptions"`
-	// Customize the metadata options for the instance. See Metadata Options below for more details.
-	MetadataOptions LaunchTemplateMetadataOptionsOutput `pulumi:"metadataOptions"`
-	// The monitoring option for the instance. See Monitoring below for more details.
-	Monitoring LaunchTemplateMonitoringPtrOutput `pulumi:"monitoring"`
-	// The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	// Customize network interfaces to be attached at instance boot time. See Network
-	// Interfaces below for more details.
-	NetworkInterfaces LaunchTemplateNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
-	// The placement of the instance. See Placement below for more details.
-	Placement LaunchTemplatePlacementPtrOutput `pulumi:"placement"`
-	// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
-	PrivateDnsNameOptions LaunchTemplatePrivateDnsNameOptionsPtrOutput `pulumi:"privateDnsNameOptions"`
-	// The ID of the RAM disk.
-	RamDiskId pulumi.StringPtrOutput `pulumi:"ramDiskId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A list of security group names to associate with. If you are creating Instances in a VPC, use
-	// `vpcSecurityGroupIds` instead.
-	SecurityGroupNames pulumi.StringArrayOutput `pulumi:"securityGroupNames"`
-	// The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
-	TagSpecifications LaunchTemplateTagSpecificationArrayOutput `pulumi:"tagSpecifications"`
-	// A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Whether to update Default Version each update. Conflicts with `defaultVersion`.
-	UpdateDefaultVersion pulumi.BoolPtrOutput `pulumi:"updateDefaultVersion"`
-	// The base64-encoded user data to provide when launching the instance.
-	UserData pulumi.StringPtrOutput `pulumi:"userData"`
-	// A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
-	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
+	Arn                               pulumi.StringOutput                                     `pulumi:"arn"`
+	BlockDeviceMappings               LaunchTemplateBlockDeviceMappingArrayOutput             `pulumi:"blockDeviceMappings"`
+	CapacityReservationSpecification  LaunchTemplateCapacityReservationSpecificationPtrOutput `pulumi:"capacityReservationSpecification"`
+	CpuOptions                        LaunchTemplateCpuOptionsPtrOutput                       `pulumi:"cpuOptions"`
+	CreditSpecification               LaunchTemplateCreditSpecificationPtrOutput              `pulumi:"creditSpecification"`
+	DefaultVersion                    pulumi.IntOutput                                        `pulumi:"defaultVersion"`
+	Description                       pulumi.StringPtrOutput                                  `pulumi:"description"`
+	DisableApiStop                    pulumi.BoolPtrOutput                                    `pulumi:"disableApiStop"`
+	DisableApiTermination             pulumi.BoolPtrOutput                                    `pulumi:"disableApiTermination"`
+	EbsOptimized                      pulumi.StringPtrOutput                                  `pulumi:"ebsOptimized"`
+	EnclaveOptions                    LaunchTemplateEnclaveOptionsPtrOutput                   `pulumi:"enclaveOptions"`
+	HibernationOptions                LaunchTemplateHibernationOptionsPtrOutput               `pulumi:"hibernationOptions"`
+	IamInstanceProfile                LaunchTemplateIamInstanceProfilePtrOutput               `pulumi:"iamInstanceProfile"`
+	ImageId                           pulumi.StringPtrOutput                                  `pulumi:"imageId"`
+	InstanceInitiatedShutdownBehavior pulumi.StringPtrOutput                                  `pulumi:"instanceInitiatedShutdownBehavior"`
+	InstanceMarketOptions             LaunchTemplateInstanceMarketOptionsPtrOutput            `pulumi:"instanceMarketOptions"`
+	InstanceRequirements              LaunchTemplateInstanceRequirementsPtrOutput             `pulumi:"instanceRequirements"`
+	InstanceType                      pulumi.StringPtrOutput                                  `pulumi:"instanceType"`
+	KernelId                          pulumi.StringPtrOutput                                  `pulumi:"kernelId"`
+	KeyName                           pulumi.StringPtrOutput                                  `pulumi:"keyName"`
+	LatestVersion                     pulumi.IntOutput                                        `pulumi:"latestVersion"`
+	LicenseSpecifications             LaunchTemplateLicenseSpecificationArrayOutput           `pulumi:"licenseSpecifications"`
+	MaintenanceOptions                LaunchTemplateMaintenanceOptionsPtrOutput               `pulumi:"maintenanceOptions"`
+	MetadataOptions                   LaunchTemplateMetadataOptionsOutput                     `pulumi:"metadataOptions"`
+	Monitoring                        LaunchTemplateMonitoringPtrOutput                       `pulumi:"monitoring"`
+	Name                              pulumi.StringOutput                                     `pulumi:"name"`
+	NamePrefix                        pulumi.StringOutput                                     `pulumi:"namePrefix"`
+	NetworkInterfaces                 LaunchTemplateNetworkInterfaceArrayOutput               `pulumi:"networkInterfaces"`
+	Placement                         LaunchTemplatePlacementPtrOutput                        `pulumi:"placement"`
+	PrivateDnsNameOptions             LaunchTemplatePrivateDnsNameOptionsPtrOutput            `pulumi:"privateDnsNameOptions"`
+	RamDiskId                         pulumi.StringPtrOutput                                  `pulumi:"ramDiskId"`
+	Region                            pulumi.StringOutput                                     `pulumi:"region"`
+	SecurityGroupNames                pulumi.StringArrayOutput                                `pulumi:"securityGroupNames"`
+	TagSpecifications                 LaunchTemplateTagSpecificationArrayOutput               `pulumi:"tagSpecifications"`
+	Tags                              pulumi.StringMapOutput                                  `pulumi:"tags"`
+	TagsAll                           pulumi.StringMapOutput                                  `pulumi:"tagsAll"`
+	UpdateDefaultVersion              pulumi.BoolPtrOutput                                    `pulumi:"updateDefaultVersion"`
+	UserData                          pulumi.StringPtrOutput                                  `pulumi:"userData"`
+	VpcSecurityGroupIds               pulumi.StringArrayOutput                                `pulumi:"vpcSecurityGroupIds"`
 }
 
 // NewLaunchTemplate registers a new resource with the given unique name, arguments, and options.
@@ -141,181 +85,87 @@ func GetLaunchTemplate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LaunchTemplate resources.
 type launchTemplateState struct {
-	// Amazon Resource Name (ARN) of the launch template.
-	Arn *string `pulumi:"arn"`
-	// Specify volumes to attach to the instance besides the volumes specified by the AMI.
-	// See Block Devices below for details.
-	BlockDeviceMappings []LaunchTemplateBlockDeviceMapping `pulumi:"blockDeviceMappings"`
-	// Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
-	CapacityReservationSpecification *LaunchTemplateCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
-	// The CPU options for the instance. See CPU Options below for more details.
-	CpuOptions *LaunchTemplateCpuOptions `pulumi:"cpuOptions"`
-	// Customize the credit specification of the instance. See Credit
-	// Specification below for more details.
-	CreditSpecification *LaunchTemplateCreditSpecification `pulumi:"creditSpecification"`
-	// Default Version of the launch template.
-	DefaultVersion *int `pulumi:"defaultVersion"`
-	// Description of the launch template.
-	Description *string `pulumi:"description"`
-	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
-	DisableApiStop *bool `pulumi:"disableApiStop"`
-	// If `true`, enables [EC2 Instance
-	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
-	DisableApiTermination *bool `pulumi:"disableApiTermination"`
-	// If `true`, the launched EC2 instance will be EBS-optimized.
-	EbsOptimized *string `pulumi:"ebsOptimized"`
-	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
-	EnclaveOptions *LaunchTemplateEnclaveOptions `pulumi:"enclaveOptions"`
-	// The hibernation options for the instance. See Hibernation Options below for more details.
-	HibernationOptions *LaunchTemplateHibernationOptions `pulumi:"hibernationOptions"`
-	// The IAM Instance Profile to launch the instance with. See Instance Profile
-	// below for more details.
-	IamInstanceProfile *LaunchTemplateIamInstanceProfile `pulumi:"iamInstanceProfile"`
-	// The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
-	ImageId *string `pulumi:"imageId"`
-	// Shutdown behavior for the instance. Can be `stop` or `terminate`.
-	// (Default: `stop`).
-	InstanceInitiatedShutdownBehavior *string `pulumi:"instanceInitiatedShutdownBehavior"`
-	// The market (purchasing) option for the instance. See Market Options
-	// below for details.
-	InstanceMarketOptions *LaunchTemplateInstanceMarketOptions `pulumi:"instanceMarketOptions"`
-	// The attribute requirements for the type of instance. If present then `instanceType` cannot be present.
-	InstanceRequirements *LaunchTemplateInstanceRequirements `pulumi:"instanceRequirements"`
-	// The type of the instance. If present then `instanceRequirements` cannot be present.
-	InstanceType *string `pulumi:"instanceType"`
-	// The kernel ID.
-	KernelId *string `pulumi:"kernelId"`
-	// The key name to use for the instance.
-	KeyName *string `pulumi:"keyName"`
-	// The latest version of the launch template.
-	LatestVersion *int `pulumi:"latestVersion"`
-	// A list of license specifications to associate with. See License Specification below for more details.
-	LicenseSpecifications []LaunchTemplateLicenseSpecification `pulumi:"licenseSpecifications"`
-	// The maintenance options for the instance. See Maintenance Options below for more details.
-	MaintenanceOptions *LaunchTemplateMaintenanceOptions `pulumi:"maintenanceOptions"`
-	// Customize the metadata options for the instance. See Metadata Options below for more details.
-	MetadataOptions *LaunchTemplateMetadataOptions `pulumi:"metadataOptions"`
-	// The monitoring option for the instance. See Monitoring below for more details.
-	Monitoring *LaunchTemplateMonitoring `pulumi:"monitoring"`
-	// The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// Customize network interfaces to be attached at instance boot time. See Network
-	// Interfaces below for more details.
-	NetworkInterfaces []LaunchTemplateNetworkInterface `pulumi:"networkInterfaces"`
-	// The placement of the instance. See Placement below for more details.
-	Placement *LaunchTemplatePlacement `pulumi:"placement"`
-	// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
-	PrivateDnsNameOptions *LaunchTemplatePrivateDnsNameOptions `pulumi:"privateDnsNameOptions"`
-	// The ID of the RAM disk.
-	RamDiskId *string `pulumi:"ramDiskId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A list of security group names to associate with. If you are creating Instances in a VPC, use
-	// `vpcSecurityGroupIds` instead.
-	SecurityGroupNames []string `pulumi:"securityGroupNames"`
-	// The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
-	TagSpecifications []LaunchTemplateTagSpecification `pulumi:"tagSpecifications"`
-	// A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Whether to update Default Version each update. Conflicts with `defaultVersion`.
-	UpdateDefaultVersion *bool `pulumi:"updateDefaultVersion"`
-	// The base64-encoded user data to provide when launching the instance.
-	UserData *string `pulumi:"userData"`
-	// A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
-	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
+	Arn                               *string                                         `pulumi:"arn"`
+	BlockDeviceMappings               []LaunchTemplateBlockDeviceMapping              `pulumi:"blockDeviceMappings"`
+	CapacityReservationSpecification  *LaunchTemplateCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
+	CpuOptions                        *LaunchTemplateCpuOptions                       `pulumi:"cpuOptions"`
+	CreditSpecification               *LaunchTemplateCreditSpecification              `pulumi:"creditSpecification"`
+	DefaultVersion                    *int                                            `pulumi:"defaultVersion"`
+	Description                       *string                                         `pulumi:"description"`
+	DisableApiStop                    *bool                                           `pulumi:"disableApiStop"`
+	DisableApiTermination             *bool                                           `pulumi:"disableApiTermination"`
+	EbsOptimized                      *string                                         `pulumi:"ebsOptimized"`
+	EnclaveOptions                    *LaunchTemplateEnclaveOptions                   `pulumi:"enclaveOptions"`
+	HibernationOptions                *LaunchTemplateHibernationOptions               `pulumi:"hibernationOptions"`
+	IamInstanceProfile                *LaunchTemplateIamInstanceProfile               `pulumi:"iamInstanceProfile"`
+	ImageId                           *string                                         `pulumi:"imageId"`
+	InstanceInitiatedShutdownBehavior *string                                         `pulumi:"instanceInitiatedShutdownBehavior"`
+	InstanceMarketOptions             *LaunchTemplateInstanceMarketOptions            `pulumi:"instanceMarketOptions"`
+	InstanceRequirements              *LaunchTemplateInstanceRequirements             `pulumi:"instanceRequirements"`
+	InstanceType                      *string                                         `pulumi:"instanceType"`
+	KernelId                          *string                                         `pulumi:"kernelId"`
+	KeyName                           *string                                         `pulumi:"keyName"`
+	LatestVersion                     *int                                            `pulumi:"latestVersion"`
+	LicenseSpecifications             []LaunchTemplateLicenseSpecification            `pulumi:"licenseSpecifications"`
+	MaintenanceOptions                *LaunchTemplateMaintenanceOptions               `pulumi:"maintenanceOptions"`
+	MetadataOptions                   *LaunchTemplateMetadataOptions                  `pulumi:"metadataOptions"`
+	Monitoring                        *LaunchTemplateMonitoring                       `pulumi:"monitoring"`
+	Name                              *string                                         `pulumi:"name"`
+	NamePrefix                        *string                                         `pulumi:"namePrefix"`
+	NetworkInterfaces                 []LaunchTemplateNetworkInterface                `pulumi:"networkInterfaces"`
+	Placement                         *LaunchTemplatePlacement                        `pulumi:"placement"`
+	PrivateDnsNameOptions             *LaunchTemplatePrivateDnsNameOptions            `pulumi:"privateDnsNameOptions"`
+	RamDiskId                         *string                                         `pulumi:"ramDiskId"`
+	Region                            *string                                         `pulumi:"region"`
+	SecurityGroupNames                []string                                        `pulumi:"securityGroupNames"`
+	TagSpecifications                 []LaunchTemplateTagSpecification                `pulumi:"tagSpecifications"`
+	Tags                              map[string]string                               `pulumi:"tags"`
+	TagsAll                           map[string]string                               `pulumi:"tagsAll"`
+	UpdateDefaultVersion              *bool                                           `pulumi:"updateDefaultVersion"`
+	UserData                          *string                                         `pulumi:"userData"`
+	VpcSecurityGroupIds               []string                                        `pulumi:"vpcSecurityGroupIds"`
 }
 
 type LaunchTemplateState struct {
-	// Amazon Resource Name (ARN) of the launch template.
-	Arn pulumi.StringPtrInput
-	// Specify volumes to attach to the instance besides the volumes specified by the AMI.
-	// See Block Devices below for details.
-	BlockDeviceMappings LaunchTemplateBlockDeviceMappingArrayInput
-	// Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
-	CapacityReservationSpecification LaunchTemplateCapacityReservationSpecificationPtrInput
-	// The CPU options for the instance. See CPU Options below for more details.
-	CpuOptions LaunchTemplateCpuOptionsPtrInput
-	// Customize the credit specification of the instance. See Credit
-	// Specification below for more details.
-	CreditSpecification LaunchTemplateCreditSpecificationPtrInput
-	// Default Version of the launch template.
-	DefaultVersion pulumi.IntPtrInput
-	// Description of the launch template.
-	Description pulumi.StringPtrInput
-	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
-	DisableApiStop pulumi.BoolPtrInput
-	// If `true`, enables [EC2 Instance
-	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
-	DisableApiTermination pulumi.BoolPtrInput
-	// If `true`, the launched EC2 instance will be EBS-optimized.
-	EbsOptimized pulumi.StringPtrInput
-	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
-	EnclaveOptions LaunchTemplateEnclaveOptionsPtrInput
-	// The hibernation options for the instance. See Hibernation Options below for more details.
-	HibernationOptions LaunchTemplateHibernationOptionsPtrInput
-	// The IAM Instance Profile to launch the instance with. See Instance Profile
-	// below for more details.
-	IamInstanceProfile LaunchTemplateIamInstanceProfilePtrInput
-	// The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
-	ImageId pulumi.StringPtrInput
-	// Shutdown behavior for the instance. Can be `stop` or `terminate`.
-	// (Default: `stop`).
+	Arn                               pulumi.StringPtrInput
+	BlockDeviceMappings               LaunchTemplateBlockDeviceMappingArrayInput
+	CapacityReservationSpecification  LaunchTemplateCapacityReservationSpecificationPtrInput
+	CpuOptions                        LaunchTemplateCpuOptionsPtrInput
+	CreditSpecification               LaunchTemplateCreditSpecificationPtrInput
+	DefaultVersion                    pulumi.IntPtrInput
+	Description                       pulumi.StringPtrInput
+	DisableApiStop                    pulumi.BoolPtrInput
+	DisableApiTermination             pulumi.BoolPtrInput
+	EbsOptimized                      pulumi.StringPtrInput
+	EnclaveOptions                    LaunchTemplateEnclaveOptionsPtrInput
+	HibernationOptions                LaunchTemplateHibernationOptionsPtrInput
+	IamInstanceProfile                LaunchTemplateIamInstanceProfilePtrInput
+	ImageId                           pulumi.StringPtrInput
 	InstanceInitiatedShutdownBehavior pulumi.StringPtrInput
-	// The market (purchasing) option for the instance. See Market Options
-	// below for details.
-	InstanceMarketOptions LaunchTemplateInstanceMarketOptionsPtrInput
-	// The attribute requirements for the type of instance. If present then `instanceType` cannot be present.
-	InstanceRequirements LaunchTemplateInstanceRequirementsPtrInput
-	// The type of the instance. If present then `instanceRequirements` cannot be present.
-	InstanceType pulumi.StringPtrInput
-	// The kernel ID.
-	KernelId pulumi.StringPtrInput
-	// The key name to use for the instance.
-	KeyName pulumi.StringPtrInput
-	// The latest version of the launch template.
-	LatestVersion pulumi.IntPtrInput
-	// A list of license specifications to associate with. See License Specification below for more details.
-	LicenseSpecifications LaunchTemplateLicenseSpecificationArrayInput
-	// The maintenance options for the instance. See Maintenance Options below for more details.
-	MaintenanceOptions LaunchTemplateMaintenanceOptionsPtrInput
-	// Customize the metadata options for the instance. See Metadata Options below for more details.
-	MetadataOptions LaunchTemplateMetadataOptionsPtrInput
-	// The monitoring option for the instance. See Monitoring below for more details.
-	Monitoring LaunchTemplateMonitoringPtrInput
-	// The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrInput
-	// Customize network interfaces to be attached at instance boot time. See Network
-	// Interfaces below for more details.
-	NetworkInterfaces LaunchTemplateNetworkInterfaceArrayInput
-	// The placement of the instance. See Placement below for more details.
-	Placement LaunchTemplatePlacementPtrInput
-	// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
-	PrivateDnsNameOptions LaunchTemplatePrivateDnsNameOptionsPtrInput
-	// The ID of the RAM disk.
-	RamDiskId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A list of security group names to associate with. If you are creating Instances in a VPC, use
-	// `vpcSecurityGroupIds` instead.
-	SecurityGroupNames pulumi.StringArrayInput
-	// The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
-	TagSpecifications LaunchTemplateTagSpecificationArrayInput
-	// A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Whether to update Default Version each update. Conflicts with `defaultVersion`.
-	UpdateDefaultVersion pulumi.BoolPtrInput
-	// The base64-encoded user data to provide when launching the instance.
-	UserData pulumi.StringPtrInput
-	// A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
-	VpcSecurityGroupIds pulumi.StringArrayInput
+	InstanceMarketOptions             LaunchTemplateInstanceMarketOptionsPtrInput
+	InstanceRequirements              LaunchTemplateInstanceRequirementsPtrInput
+	InstanceType                      pulumi.StringPtrInput
+	KernelId                          pulumi.StringPtrInput
+	KeyName                           pulumi.StringPtrInput
+	LatestVersion                     pulumi.IntPtrInput
+	LicenseSpecifications             LaunchTemplateLicenseSpecificationArrayInput
+	MaintenanceOptions                LaunchTemplateMaintenanceOptionsPtrInput
+	MetadataOptions                   LaunchTemplateMetadataOptionsPtrInput
+	Monitoring                        LaunchTemplateMonitoringPtrInput
+	Name                              pulumi.StringPtrInput
+	NamePrefix                        pulumi.StringPtrInput
+	NetworkInterfaces                 LaunchTemplateNetworkInterfaceArrayInput
+	Placement                         LaunchTemplatePlacementPtrInput
+	PrivateDnsNameOptions             LaunchTemplatePrivateDnsNameOptionsPtrInput
+	RamDiskId                         pulumi.StringPtrInput
+	Region                            pulumi.StringPtrInput
+	SecurityGroupNames                pulumi.StringArrayInput
+	TagSpecifications                 LaunchTemplateTagSpecificationArrayInput
+	Tags                              pulumi.StringMapInput
+	TagsAll                           pulumi.StringMapInput
+	UpdateDefaultVersion              pulumi.BoolPtrInput
+	UserData                          pulumi.StringPtrInput
+	VpcSecurityGroupIds               pulumi.StringArrayInput
 }
 
 func (LaunchTemplateState) ElementType() reflect.Type {
@@ -323,170 +173,82 @@ func (LaunchTemplateState) ElementType() reflect.Type {
 }
 
 type launchTemplateArgs struct {
-	// Specify volumes to attach to the instance besides the volumes specified by the AMI.
-	// See Block Devices below for details.
-	BlockDeviceMappings []LaunchTemplateBlockDeviceMapping `pulumi:"blockDeviceMappings"`
-	// Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
-	CapacityReservationSpecification *LaunchTemplateCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
-	// The CPU options for the instance. See CPU Options below for more details.
-	CpuOptions *LaunchTemplateCpuOptions `pulumi:"cpuOptions"`
-	// Customize the credit specification of the instance. See Credit
-	// Specification below for more details.
-	CreditSpecification *LaunchTemplateCreditSpecification `pulumi:"creditSpecification"`
-	// Default Version of the launch template.
-	DefaultVersion *int `pulumi:"defaultVersion"`
-	// Description of the launch template.
-	Description *string `pulumi:"description"`
-	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
-	DisableApiStop *bool `pulumi:"disableApiStop"`
-	// If `true`, enables [EC2 Instance
-	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
-	DisableApiTermination *bool `pulumi:"disableApiTermination"`
-	// If `true`, the launched EC2 instance will be EBS-optimized.
-	EbsOptimized *string `pulumi:"ebsOptimized"`
-	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
-	EnclaveOptions *LaunchTemplateEnclaveOptions `pulumi:"enclaveOptions"`
-	// The hibernation options for the instance. See Hibernation Options below for more details.
-	HibernationOptions *LaunchTemplateHibernationOptions `pulumi:"hibernationOptions"`
-	// The IAM Instance Profile to launch the instance with. See Instance Profile
-	// below for more details.
-	IamInstanceProfile *LaunchTemplateIamInstanceProfile `pulumi:"iamInstanceProfile"`
-	// The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
-	ImageId *string `pulumi:"imageId"`
-	// Shutdown behavior for the instance. Can be `stop` or `terminate`.
-	// (Default: `stop`).
-	InstanceInitiatedShutdownBehavior *string `pulumi:"instanceInitiatedShutdownBehavior"`
-	// The market (purchasing) option for the instance. See Market Options
-	// below for details.
-	InstanceMarketOptions *LaunchTemplateInstanceMarketOptions `pulumi:"instanceMarketOptions"`
-	// The attribute requirements for the type of instance. If present then `instanceType` cannot be present.
-	InstanceRequirements *LaunchTemplateInstanceRequirements `pulumi:"instanceRequirements"`
-	// The type of the instance. If present then `instanceRequirements` cannot be present.
-	InstanceType *string `pulumi:"instanceType"`
-	// The kernel ID.
-	KernelId *string `pulumi:"kernelId"`
-	// The key name to use for the instance.
-	KeyName *string `pulumi:"keyName"`
-	// A list of license specifications to associate with. See License Specification below for more details.
-	LicenseSpecifications []LaunchTemplateLicenseSpecification `pulumi:"licenseSpecifications"`
-	// The maintenance options for the instance. See Maintenance Options below for more details.
-	MaintenanceOptions *LaunchTemplateMaintenanceOptions `pulumi:"maintenanceOptions"`
-	// Customize the metadata options for the instance. See Metadata Options below for more details.
-	MetadataOptions *LaunchTemplateMetadataOptions `pulumi:"metadataOptions"`
-	// The monitoring option for the instance. See Monitoring below for more details.
-	Monitoring *LaunchTemplateMonitoring `pulumi:"monitoring"`
-	// The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// Customize network interfaces to be attached at instance boot time. See Network
-	// Interfaces below for more details.
-	NetworkInterfaces []LaunchTemplateNetworkInterface `pulumi:"networkInterfaces"`
-	// The placement of the instance. See Placement below for more details.
-	Placement *LaunchTemplatePlacement `pulumi:"placement"`
-	// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
-	PrivateDnsNameOptions *LaunchTemplatePrivateDnsNameOptions `pulumi:"privateDnsNameOptions"`
-	// The ID of the RAM disk.
-	RamDiskId *string `pulumi:"ramDiskId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A list of security group names to associate with. If you are creating Instances in a VPC, use
-	// `vpcSecurityGroupIds` instead.
-	SecurityGroupNames []string `pulumi:"securityGroupNames"`
-	// The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
-	TagSpecifications []LaunchTemplateTagSpecification `pulumi:"tagSpecifications"`
-	// A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Whether to update Default Version each update. Conflicts with `defaultVersion`.
-	UpdateDefaultVersion *bool `pulumi:"updateDefaultVersion"`
-	// The base64-encoded user data to provide when launching the instance.
-	UserData *string `pulumi:"userData"`
-	// A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
-	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
+	BlockDeviceMappings               []LaunchTemplateBlockDeviceMapping              `pulumi:"blockDeviceMappings"`
+	CapacityReservationSpecification  *LaunchTemplateCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
+	CpuOptions                        *LaunchTemplateCpuOptions                       `pulumi:"cpuOptions"`
+	CreditSpecification               *LaunchTemplateCreditSpecification              `pulumi:"creditSpecification"`
+	DefaultVersion                    *int                                            `pulumi:"defaultVersion"`
+	Description                       *string                                         `pulumi:"description"`
+	DisableApiStop                    *bool                                           `pulumi:"disableApiStop"`
+	DisableApiTermination             *bool                                           `pulumi:"disableApiTermination"`
+	EbsOptimized                      *string                                         `pulumi:"ebsOptimized"`
+	EnclaveOptions                    *LaunchTemplateEnclaveOptions                   `pulumi:"enclaveOptions"`
+	HibernationOptions                *LaunchTemplateHibernationOptions               `pulumi:"hibernationOptions"`
+	IamInstanceProfile                *LaunchTemplateIamInstanceProfile               `pulumi:"iamInstanceProfile"`
+	ImageId                           *string                                         `pulumi:"imageId"`
+	InstanceInitiatedShutdownBehavior *string                                         `pulumi:"instanceInitiatedShutdownBehavior"`
+	InstanceMarketOptions             *LaunchTemplateInstanceMarketOptions            `pulumi:"instanceMarketOptions"`
+	InstanceRequirements              *LaunchTemplateInstanceRequirements             `pulumi:"instanceRequirements"`
+	InstanceType                      *string                                         `pulumi:"instanceType"`
+	KernelId                          *string                                         `pulumi:"kernelId"`
+	KeyName                           *string                                         `pulumi:"keyName"`
+	LicenseSpecifications             []LaunchTemplateLicenseSpecification            `pulumi:"licenseSpecifications"`
+	MaintenanceOptions                *LaunchTemplateMaintenanceOptions               `pulumi:"maintenanceOptions"`
+	MetadataOptions                   *LaunchTemplateMetadataOptions                  `pulumi:"metadataOptions"`
+	Monitoring                        *LaunchTemplateMonitoring                       `pulumi:"monitoring"`
+	Name                              *string                                         `pulumi:"name"`
+	NamePrefix                        *string                                         `pulumi:"namePrefix"`
+	NetworkInterfaces                 []LaunchTemplateNetworkInterface                `pulumi:"networkInterfaces"`
+	Placement                         *LaunchTemplatePlacement                        `pulumi:"placement"`
+	PrivateDnsNameOptions             *LaunchTemplatePrivateDnsNameOptions            `pulumi:"privateDnsNameOptions"`
+	RamDiskId                         *string                                         `pulumi:"ramDiskId"`
+	Region                            *string                                         `pulumi:"region"`
+	SecurityGroupNames                []string                                        `pulumi:"securityGroupNames"`
+	TagSpecifications                 []LaunchTemplateTagSpecification                `pulumi:"tagSpecifications"`
+	Tags                              map[string]string                               `pulumi:"tags"`
+	UpdateDefaultVersion              *bool                                           `pulumi:"updateDefaultVersion"`
+	UserData                          *string                                         `pulumi:"userData"`
+	VpcSecurityGroupIds               []string                                        `pulumi:"vpcSecurityGroupIds"`
 }
 
 // The set of arguments for constructing a LaunchTemplate resource.
 type LaunchTemplateArgs struct {
-	// Specify volumes to attach to the instance besides the volumes specified by the AMI.
-	// See Block Devices below for details.
-	BlockDeviceMappings LaunchTemplateBlockDeviceMappingArrayInput
-	// Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
-	CapacityReservationSpecification LaunchTemplateCapacityReservationSpecificationPtrInput
-	// The CPU options for the instance. See CPU Options below for more details.
-	CpuOptions LaunchTemplateCpuOptionsPtrInput
-	// Customize the credit specification of the instance. See Credit
-	// Specification below for more details.
-	CreditSpecification LaunchTemplateCreditSpecificationPtrInput
-	// Default Version of the launch template.
-	DefaultVersion pulumi.IntPtrInput
-	// Description of the launch template.
-	Description pulumi.StringPtrInput
-	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
-	DisableApiStop pulumi.BoolPtrInput
-	// If `true`, enables [EC2 Instance
-	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
-	DisableApiTermination pulumi.BoolPtrInput
-	// If `true`, the launched EC2 instance will be EBS-optimized.
-	EbsOptimized pulumi.StringPtrInput
-	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
-	EnclaveOptions LaunchTemplateEnclaveOptionsPtrInput
-	// The hibernation options for the instance. See Hibernation Options below for more details.
-	HibernationOptions LaunchTemplateHibernationOptionsPtrInput
-	// The IAM Instance Profile to launch the instance with. See Instance Profile
-	// below for more details.
-	IamInstanceProfile LaunchTemplateIamInstanceProfilePtrInput
-	// The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
-	ImageId pulumi.StringPtrInput
-	// Shutdown behavior for the instance. Can be `stop` or `terminate`.
-	// (Default: `stop`).
+	BlockDeviceMappings               LaunchTemplateBlockDeviceMappingArrayInput
+	CapacityReservationSpecification  LaunchTemplateCapacityReservationSpecificationPtrInput
+	CpuOptions                        LaunchTemplateCpuOptionsPtrInput
+	CreditSpecification               LaunchTemplateCreditSpecificationPtrInput
+	DefaultVersion                    pulumi.IntPtrInput
+	Description                       pulumi.StringPtrInput
+	DisableApiStop                    pulumi.BoolPtrInput
+	DisableApiTermination             pulumi.BoolPtrInput
+	EbsOptimized                      pulumi.StringPtrInput
+	EnclaveOptions                    LaunchTemplateEnclaveOptionsPtrInput
+	HibernationOptions                LaunchTemplateHibernationOptionsPtrInput
+	IamInstanceProfile                LaunchTemplateIamInstanceProfilePtrInput
+	ImageId                           pulumi.StringPtrInput
 	InstanceInitiatedShutdownBehavior pulumi.StringPtrInput
-	// The market (purchasing) option for the instance. See Market Options
-	// below for details.
-	InstanceMarketOptions LaunchTemplateInstanceMarketOptionsPtrInput
-	// The attribute requirements for the type of instance. If present then `instanceType` cannot be present.
-	InstanceRequirements LaunchTemplateInstanceRequirementsPtrInput
-	// The type of the instance. If present then `instanceRequirements` cannot be present.
-	InstanceType pulumi.StringPtrInput
-	// The kernel ID.
-	KernelId pulumi.StringPtrInput
-	// The key name to use for the instance.
-	KeyName pulumi.StringPtrInput
-	// A list of license specifications to associate with. See License Specification below for more details.
-	LicenseSpecifications LaunchTemplateLicenseSpecificationArrayInput
-	// The maintenance options for the instance. See Maintenance Options below for more details.
-	MaintenanceOptions LaunchTemplateMaintenanceOptionsPtrInput
-	// Customize the metadata options for the instance. See Metadata Options below for more details.
-	MetadataOptions LaunchTemplateMetadataOptionsPtrInput
-	// The monitoring option for the instance. See Monitoring below for more details.
-	Monitoring LaunchTemplateMonitoringPtrInput
-	// The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrInput
-	// Customize network interfaces to be attached at instance boot time. See Network
-	// Interfaces below for more details.
-	NetworkInterfaces LaunchTemplateNetworkInterfaceArrayInput
-	// The placement of the instance. See Placement below for more details.
-	Placement LaunchTemplatePlacementPtrInput
-	// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
-	PrivateDnsNameOptions LaunchTemplatePrivateDnsNameOptionsPtrInput
-	// The ID of the RAM disk.
-	RamDiskId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A list of security group names to associate with. If you are creating Instances in a VPC, use
-	// `vpcSecurityGroupIds` instead.
-	SecurityGroupNames pulumi.StringArrayInput
-	// The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
-	TagSpecifications LaunchTemplateTagSpecificationArrayInput
-	// A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Whether to update Default Version each update. Conflicts with `defaultVersion`.
-	UpdateDefaultVersion pulumi.BoolPtrInput
-	// The base64-encoded user data to provide when launching the instance.
-	UserData pulumi.StringPtrInput
-	// A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
-	VpcSecurityGroupIds pulumi.StringArrayInput
+	InstanceMarketOptions             LaunchTemplateInstanceMarketOptionsPtrInput
+	InstanceRequirements              LaunchTemplateInstanceRequirementsPtrInput
+	InstanceType                      pulumi.StringPtrInput
+	KernelId                          pulumi.StringPtrInput
+	KeyName                           pulumi.StringPtrInput
+	LicenseSpecifications             LaunchTemplateLicenseSpecificationArrayInput
+	MaintenanceOptions                LaunchTemplateMaintenanceOptionsPtrInput
+	MetadataOptions                   LaunchTemplateMetadataOptionsPtrInput
+	Monitoring                        LaunchTemplateMonitoringPtrInput
+	Name                              pulumi.StringPtrInput
+	NamePrefix                        pulumi.StringPtrInput
+	NetworkInterfaces                 LaunchTemplateNetworkInterfaceArrayInput
+	Placement                         LaunchTemplatePlacementPtrInput
+	PrivateDnsNameOptions             LaunchTemplatePrivateDnsNameOptionsPtrInput
+	RamDiskId                         pulumi.StringPtrInput
+	Region                            pulumi.StringPtrInput
+	SecurityGroupNames                pulumi.StringArrayInput
+	TagSpecifications                 LaunchTemplateTagSpecificationArrayInput
+	Tags                              pulumi.StringMapInput
+	UpdateDefaultVersion              pulumi.BoolPtrInput
+	UserData                          pulumi.StringPtrInput
+	VpcSecurityGroupIds               pulumi.StringArrayInput
 }
 
 func (LaunchTemplateArgs) ElementType() reflect.Type {
@@ -576,207 +338,160 @@ func (o LaunchTemplateOutput) ToLaunchTemplateOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Amazon Resource Name (ARN) of the launch template.
 func (o LaunchTemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Specify volumes to attach to the instance besides the volumes specified by the AMI.
-// See Block Devices below for details.
 func (o LaunchTemplateOutput) BlockDeviceMappings() LaunchTemplateBlockDeviceMappingArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateBlockDeviceMappingArrayOutput { return v.BlockDeviceMappings }).(LaunchTemplateBlockDeviceMappingArrayOutput)
 }
 
-// Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
 func (o LaunchTemplateOutput) CapacityReservationSpecification() LaunchTemplateCapacityReservationSpecificationPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateCapacityReservationSpecificationPtrOutput {
 		return v.CapacityReservationSpecification
 	}).(LaunchTemplateCapacityReservationSpecificationPtrOutput)
 }
 
-// The CPU options for the instance. See CPU Options below for more details.
 func (o LaunchTemplateOutput) CpuOptions() LaunchTemplateCpuOptionsPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateCpuOptionsPtrOutput { return v.CpuOptions }).(LaunchTemplateCpuOptionsPtrOutput)
 }
 
-// Customize the credit specification of the instance. See Credit
-// Specification below for more details.
 func (o LaunchTemplateOutput) CreditSpecification() LaunchTemplateCreditSpecificationPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateCreditSpecificationPtrOutput { return v.CreditSpecification }).(LaunchTemplateCreditSpecificationPtrOutput)
 }
 
-// Default Version of the launch template.
 func (o LaunchTemplateOutput) DefaultVersion() pulumi.IntOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.IntOutput { return v.DefaultVersion }).(pulumi.IntOutput)
 }
 
-// Description of the launch template.
 func (o LaunchTemplateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
 func (o LaunchTemplateOutput) DisableApiStop() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.BoolPtrOutput { return v.DisableApiStop }).(pulumi.BoolPtrOutput)
 }
 
-// If `true`, enables [EC2 Instance
-// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
 func (o LaunchTemplateOutput) DisableApiTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.BoolPtrOutput { return v.DisableApiTermination }).(pulumi.BoolPtrOutput)
 }
 
-// If `true`, the launched EC2 instance will be EBS-optimized.
 func (o LaunchTemplateOutput) EbsOptimized() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringPtrOutput { return v.EbsOptimized }).(pulumi.StringPtrOutput)
 }
 
-// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
 func (o LaunchTemplateOutput) EnclaveOptions() LaunchTemplateEnclaveOptionsPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateEnclaveOptionsPtrOutput { return v.EnclaveOptions }).(LaunchTemplateEnclaveOptionsPtrOutput)
 }
 
-// The hibernation options for the instance. See Hibernation Options below for more details.
 func (o LaunchTemplateOutput) HibernationOptions() LaunchTemplateHibernationOptionsPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateHibernationOptionsPtrOutput { return v.HibernationOptions }).(LaunchTemplateHibernationOptionsPtrOutput)
 }
 
-// The IAM Instance Profile to launch the instance with. See Instance Profile
-// below for more details.
 func (o LaunchTemplateOutput) IamInstanceProfile() LaunchTemplateIamInstanceProfilePtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateIamInstanceProfilePtrOutput { return v.IamInstanceProfile }).(LaunchTemplateIamInstanceProfilePtrOutput)
 }
 
-// The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
 func (o LaunchTemplateOutput) ImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringPtrOutput { return v.ImageId }).(pulumi.StringPtrOutput)
 }
 
-// Shutdown behavior for the instance. Can be `stop` or `terminate`.
-// (Default: `stop`).
 func (o LaunchTemplateOutput) InstanceInitiatedShutdownBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringPtrOutput { return v.InstanceInitiatedShutdownBehavior }).(pulumi.StringPtrOutput)
 }
 
-// The market (purchasing) option for the instance. See Market Options
-// below for details.
 func (o LaunchTemplateOutput) InstanceMarketOptions() LaunchTemplateInstanceMarketOptionsPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateInstanceMarketOptionsPtrOutput { return v.InstanceMarketOptions }).(LaunchTemplateInstanceMarketOptionsPtrOutput)
 }
 
-// The attribute requirements for the type of instance. If present then `instanceType` cannot be present.
 func (o LaunchTemplateOutput) InstanceRequirements() LaunchTemplateInstanceRequirementsPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateInstanceRequirementsPtrOutput { return v.InstanceRequirements }).(LaunchTemplateInstanceRequirementsPtrOutput)
 }
 
-// The type of the instance. If present then `instanceRequirements` cannot be present.
 func (o LaunchTemplateOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringPtrOutput { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// The kernel ID.
 func (o LaunchTemplateOutput) KernelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringPtrOutput { return v.KernelId }).(pulumi.StringPtrOutput)
 }
 
-// The key name to use for the instance.
 func (o LaunchTemplateOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringPtrOutput { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
-// The latest version of the launch template.
 func (o LaunchTemplateOutput) LatestVersion() pulumi.IntOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.IntOutput { return v.LatestVersion }).(pulumi.IntOutput)
 }
 
-// A list of license specifications to associate with. See License Specification below for more details.
 func (o LaunchTemplateOutput) LicenseSpecifications() LaunchTemplateLicenseSpecificationArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateLicenseSpecificationArrayOutput { return v.LicenseSpecifications }).(LaunchTemplateLicenseSpecificationArrayOutput)
 }
 
-// The maintenance options for the instance. See Maintenance Options below for more details.
 func (o LaunchTemplateOutput) MaintenanceOptions() LaunchTemplateMaintenanceOptionsPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateMaintenanceOptionsPtrOutput { return v.MaintenanceOptions }).(LaunchTemplateMaintenanceOptionsPtrOutput)
 }
 
-// Customize the metadata options for the instance. See Metadata Options below for more details.
 func (o LaunchTemplateOutput) MetadataOptions() LaunchTemplateMetadataOptionsOutput {
 	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateMetadataOptionsOutput { return v.MetadataOptions }).(LaunchTemplateMetadataOptionsOutput)
 }
 
-// The monitoring option for the instance. See Monitoring below for more details.
 func (o LaunchTemplateOutput) Monitoring() LaunchTemplateMonitoringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateMonitoringPtrOutput { return v.Monitoring }).(LaunchTemplateMonitoringPtrOutput)
 }
 
-// The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
 func (o LaunchTemplateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 func (o LaunchTemplateOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// Customize network interfaces to be attached at instance boot time. See Network
-// Interfaces below for more details.
 func (o LaunchTemplateOutput) NetworkInterfaces() LaunchTemplateNetworkInterfaceArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateNetworkInterfaceArrayOutput { return v.NetworkInterfaces }).(LaunchTemplateNetworkInterfaceArrayOutput)
 }
 
-// The placement of the instance. See Placement below for more details.
 func (o LaunchTemplateOutput) Placement() LaunchTemplatePlacementPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplatePlacementPtrOutput { return v.Placement }).(LaunchTemplatePlacementPtrOutput)
 }
 
-// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
 func (o LaunchTemplateOutput) PrivateDnsNameOptions() LaunchTemplatePrivateDnsNameOptionsPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplatePrivateDnsNameOptionsPtrOutput { return v.PrivateDnsNameOptions }).(LaunchTemplatePrivateDnsNameOptionsPtrOutput)
 }
 
-// The ID of the RAM disk.
 func (o LaunchTemplateOutput) RamDiskId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringPtrOutput { return v.RamDiskId }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LaunchTemplateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A list of security group names to associate with. If you are creating Instances in a VPC, use
-// `vpcSecurityGroupIds` instead.
 func (o LaunchTemplateOutput) SecurityGroupNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringArrayOutput { return v.SecurityGroupNames }).(pulumi.StringArrayOutput)
 }
 
-// The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
 func (o LaunchTemplateOutput) TagSpecifications() LaunchTemplateTagSpecificationArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateTagSpecificationArrayOutput { return v.TagSpecifications }).(LaunchTemplateTagSpecificationArrayOutput)
 }
 
-// A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o LaunchTemplateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o LaunchTemplateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Whether to update Default Version each update. Conflicts with `defaultVersion`.
 func (o LaunchTemplateOutput) UpdateDefaultVersion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.BoolPtrOutput { return v.UpdateDefaultVersion }).(pulumi.BoolPtrOutput)
 }
 
-// The base64-encoded user data to provide when launching the instance.
 func (o LaunchTemplateOutput) UserData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringPtrOutput { return v.UserData }).(pulumi.StringPtrOutput)
 }
 
-// A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
 func (o LaunchTemplateOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringArrayOutput { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
 }

@@ -16,32 +16,16 @@ public final class DomainRuleBasedMatchingConflictResolutionArgs extends com.pul
 
     public static final DomainRuleBasedMatchingConflictResolutionArgs Empty = new DomainRuleBasedMatchingConflictResolutionArgs();
 
-    /**
-     * How the auto-merging process should resolve conflicts between different profiles. Valid values are `RECENCY` and `SOURCE`
-     * 
-     */
     @Import(name="conflictResolvingModel", required=true)
     private Output<String> conflictResolvingModel;
 
-    /**
-     * @return How the auto-merging process should resolve conflicts between different profiles. Valid values are `RECENCY` and `SOURCE`
-     * 
-     */
     public Output<String> conflictResolvingModel() {
         return this.conflictResolvingModel;
     }
 
-    /**
-     * The `ObjectType` name that is used to resolve profile merging conflicts when choosing `SOURCE` as the `ConflictResolvingModel`.
-     * 
-     */
     @Import(name="sourceName")
     private @Nullable Output<String> sourceName;
 
-    /**
-     * @return The `ObjectType` name that is used to resolve profile merging conflicts when choosing `SOURCE` as the `ConflictResolvingModel`.
-     * 
-     */
     public Optional<Output<String>> sourceName() {
         return Optional.ofNullable(this.sourceName);
     }
@@ -71,44 +55,20 @@ public final class DomainRuleBasedMatchingConflictResolutionArgs extends com.pul
             $ = new DomainRuleBasedMatchingConflictResolutionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param conflictResolvingModel How the auto-merging process should resolve conflicts between different profiles. Valid values are `RECENCY` and `SOURCE`
-         * 
-         * @return builder
-         * 
-         */
         public Builder conflictResolvingModel(Output<String> conflictResolvingModel) {
             $.conflictResolvingModel = conflictResolvingModel;
             return this;
         }
 
-        /**
-         * @param conflictResolvingModel How the auto-merging process should resolve conflicts between different profiles. Valid values are `RECENCY` and `SOURCE`
-         * 
-         * @return builder
-         * 
-         */
         public Builder conflictResolvingModel(String conflictResolvingModel) {
             return conflictResolvingModel(Output.of(conflictResolvingModel));
         }
 
-        /**
-         * @param sourceName The `ObjectType` name that is used to resolve profile merging conflicts when choosing `SOURCE` as the `ConflictResolvingModel`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceName(@Nullable Output<String> sourceName) {
             $.sourceName = sourceName;
             return this;
         }
 
-        /**
-         * @param sourceName The `ObjectType` name that is used to resolve profile merging conflicts when choosing `SOURCE` as the `ConflictResolvingModel`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceName(String sourceName) {
             return sourceName(Output.of(sourceName));
         }

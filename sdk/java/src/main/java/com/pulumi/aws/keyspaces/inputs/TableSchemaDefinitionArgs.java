@@ -20,62 +20,30 @@ public final class TableSchemaDefinitionArgs extends com.pulumi.resources.Resour
 
     public static final TableSchemaDefinitionArgs Empty = new TableSchemaDefinitionArgs();
 
-    /**
-     * The columns that are part of the clustering key of the table.
-     * 
-     */
     @Import(name="clusteringKeys")
     private @Nullable Output<List<TableSchemaDefinitionClusteringKeyArgs>> clusteringKeys;
 
-    /**
-     * @return The columns that are part of the clustering key of the table.
-     * 
-     */
     public Optional<Output<List<TableSchemaDefinitionClusteringKeyArgs>>> clusteringKeys() {
         return Optional.ofNullable(this.clusteringKeys);
     }
 
-    /**
-     * The regular columns of the table.
-     * 
-     */
     @Import(name="columns", required=true)
     private Output<List<TableSchemaDefinitionColumnArgs>> columns;
 
-    /**
-     * @return The regular columns of the table.
-     * 
-     */
     public Output<List<TableSchemaDefinitionColumnArgs>> columns() {
         return this.columns;
     }
 
-    /**
-     * The columns that are part of the partition key of the table .
-     * 
-     */
     @Import(name="partitionKeys", required=true)
     private Output<List<TableSchemaDefinitionPartitionKeyArgs>> partitionKeys;
 
-    /**
-     * @return The columns that are part of the partition key of the table .
-     * 
-     */
     public Output<List<TableSchemaDefinitionPartitionKeyArgs>> partitionKeys() {
         return this.partitionKeys;
     }
 
-    /**
-     * The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
-     * 
-     */
     @Import(name="staticColumns")
     private @Nullable Output<List<TableSchemaDefinitionStaticColumnArgs>> staticColumns;
 
-    /**
-     * @return The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
-     * 
-     */
     public Optional<Output<List<TableSchemaDefinitionStaticColumnArgs>>> staticColumns() {
         return Optional.ofNullable(this.staticColumns);
     }
@@ -107,126 +75,54 @@ public final class TableSchemaDefinitionArgs extends com.pulumi.resources.Resour
             $ = new TableSchemaDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clusteringKeys The columns that are part of the clustering key of the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusteringKeys(@Nullable Output<List<TableSchemaDefinitionClusteringKeyArgs>> clusteringKeys) {
             $.clusteringKeys = clusteringKeys;
             return this;
         }
 
-        /**
-         * @param clusteringKeys The columns that are part of the clustering key of the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusteringKeys(List<TableSchemaDefinitionClusteringKeyArgs> clusteringKeys) {
             return clusteringKeys(Output.of(clusteringKeys));
         }
 
-        /**
-         * @param clusteringKeys The columns that are part of the clustering key of the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusteringKeys(TableSchemaDefinitionClusteringKeyArgs... clusteringKeys) {
             return clusteringKeys(List.of(clusteringKeys));
         }
 
-        /**
-         * @param columns The regular columns of the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columns(Output<List<TableSchemaDefinitionColumnArgs>> columns) {
             $.columns = columns;
             return this;
         }
 
-        /**
-         * @param columns The regular columns of the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columns(List<TableSchemaDefinitionColumnArgs> columns) {
             return columns(Output.of(columns));
         }
 
-        /**
-         * @param columns The regular columns of the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columns(TableSchemaDefinitionColumnArgs... columns) {
             return columns(List.of(columns));
         }
 
-        /**
-         * @param partitionKeys The columns that are part of the partition key of the table .
-         * 
-         * @return builder
-         * 
-         */
         public Builder partitionKeys(Output<List<TableSchemaDefinitionPartitionKeyArgs>> partitionKeys) {
             $.partitionKeys = partitionKeys;
             return this;
         }
 
-        /**
-         * @param partitionKeys The columns that are part of the partition key of the table .
-         * 
-         * @return builder
-         * 
-         */
         public Builder partitionKeys(List<TableSchemaDefinitionPartitionKeyArgs> partitionKeys) {
             return partitionKeys(Output.of(partitionKeys));
         }
 
-        /**
-         * @param partitionKeys The columns that are part of the partition key of the table .
-         * 
-         * @return builder
-         * 
-         */
         public Builder partitionKeys(TableSchemaDefinitionPartitionKeyArgs... partitionKeys) {
             return partitionKeys(List.of(partitionKeys));
         }
 
-        /**
-         * @param staticColumns The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder staticColumns(@Nullable Output<List<TableSchemaDefinitionStaticColumnArgs>> staticColumns) {
             $.staticColumns = staticColumns;
             return this;
         }
 
-        /**
-         * @param staticColumns The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder staticColumns(List<TableSchemaDefinitionStaticColumnArgs> staticColumns) {
             return staticColumns(Output.of(staticColumns));
         }
 
-        /**
-         * @param staticColumns The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder staticColumns(TableSchemaDefinitionStaticColumnArgs... staticColumns) {
             return staticColumns(List.of(staticColumns));
         }

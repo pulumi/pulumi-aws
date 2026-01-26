@@ -9,95 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Bedrock
 {
-    /// <summary>
-    /// Manages an AWS Bedrock AgentCore Agent Runtime Endpoint. Agent Runtime Endpoints provide a network-accessible interface for interacting with agent runtimes, enabling external systems to communicate with and invoke agent capabilities.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Bedrock.AgentcoreAgentRuntimeEndpoint("example", new()
-    ///     {
-    ///         Name = "example-endpoint",
-    ///         AgentRuntimeId = exampleAwsBedrockagentcoreAgentRuntime.AgentRuntimeId,
-    ///         Description = "Endpoint for agent runtime communication",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Bedrock AgentCore Agent Runtime Endpoint using the `agent_runtime_id` and `name` separated by a comma. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:bedrock/agentcoreAgentRuntimeEndpoint:AgentcoreAgentRuntimeEndpoint example AGENTRUNTIME1234567890,example-endpoint
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:bedrock/agentcoreAgentRuntimeEndpoint:AgentcoreAgentRuntimeEndpoint")]
     public partial class AgentcoreAgentRuntimeEndpoint : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the associated Agent Runtime.
-        /// </summary>
         [Output("agentRuntimeArn")]
         public Output<string> AgentRuntimeArn { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the Agent Runtime Endpoint.
-        /// </summary>
         [Output("agentRuntimeEndpointArn")]
         public Output<string> AgentRuntimeEndpointArn { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the agent runtime this endpoint belongs to.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("agentRuntimeId")]
         public Output<string> AgentRuntimeId { get; private set; } = null!;
 
-        /// <summary>
-        /// Version of the agent runtime to use for this endpoint.
-        /// </summary>
         [Output("agentRuntimeVersion")]
         public Output<string> AgentRuntimeVersion { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the agent runtime endpoint.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the agent runtime endpoint.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -150,44 +88,23 @@ namespace Pulumi.Aws.Bedrock
 
     public sealed class AgentcoreAgentRuntimeEndpointArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the agent runtime this endpoint belongs to.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("agentRuntimeId", required: true)]
         public Input<string> AgentRuntimeId { get; set; } = null!;
 
-        /// <summary>
-        /// Version of the agent runtime to use for this endpoint.
-        /// </summary>
         [Input("agentRuntimeVersion")]
         public Input<string>? AgentRuntimeVersion { get; set; }
 
-        /// <summary>
-        /// Description of the agent runtime endpoint.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name of the agent runtime endpoint.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -205,56 +122,29 @@ namespace Pulumi.Aws.Bedrock
 
     public sealed class AgentcoreAgentRuntimeEndpointState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the associated Agent Runtime.
-        /// </summary>
         [Input("agentRuntimeArn")]
         public Input<string>? AgentRuntimeArn { get; set; }
 
-        /// <summary>
-        /// ARN of the Agent Runtime Endpoint.
-        /// </summary>
         [Input("agentRuntimeEndpointArn")]
         public Input<string>? AgentRuntimeEndpointArn { get; set; }
 
-        /// <summary>
-        /// ID of the agent runtime this endpoint belongs to.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("agentRuntimeId")]
         public Input<string>? AgentRuntimeId { get; set; }
 
-        /// <summary>
-        /// Version of the agent runtime to use for this endpoint.
-        /// </summary>
         [Input("agentRuntimeVersion")]
         public Input<string>? AgentRuntimeVersion { get; set; }
 
-        /// <summary>
-        /// Description of the agent runtime endpoint.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name of the agent runtime endpoint.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -263,10 +153,6 @@ namespace Pulumi.Aws.Bedrock
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

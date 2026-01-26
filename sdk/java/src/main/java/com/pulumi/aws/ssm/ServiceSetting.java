@@ -13,121 +13,35 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * This setting defines how a user interacts with or uses a service or a feature of a service.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ssm.ServiceSetting;
- * import com.pulumi.aws.ssm.ServiceSettingArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testSetting = new ServiceSetting("testSetting", ServiceSettingArgs.builder()
- *             .settingId("arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled")
- *             .settingValue("true")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import AWS SSM Service Setting using the `setting_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ssm/serviceSetting:ServiceSetting example arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled
- * ```
- * 
- */
 @ResourceType(type="aws:ssm/serviceSetting:ServiceSetting")
 public class ServiceSetting extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the service setting.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the service setting.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
-     * 
-     */
     @Export(name="settingId", refs={String.class}, tree="[0]")
     private Output<String> settingId;
 
-    /**
-     * @return ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
-     * 
-     */
     public Output<String> settingId() {
         return this.settingId;
     }
-    /**
-     * Value of the service setting.
-     * 
-     */
     @Export(name="settingValue", refs={String.class}, tree="[0]")
     private Output<String> settingValue;
 
-    /**
-     * @return Value of the service setting.
-     * 
-     */
     public Output<String> settingValue() {
         return this.settingValue;
     }
-    /**
-     * Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }

@@ -16,62 +16,30 @@ public final class LaunchGroupArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final LaunchGroupArgs Empty = new LaunchGroupArgs();
 
-    /**
-     * Specifies the description of the launch group.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Specifies the description of the launch group.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Specifies the name of the feature that the launch is using.
-     * 
-     */
     @Import(name="feature", required=true)
     private Output<String> feature;
 
-    /**
-     * @return Specifies the name of the feature that the launch is using.
-     * 
-     */
     public Output<String> feature() {
         return this.feature;
     }
 
-    /**
-     * Specifies the name of the lahnch group.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Specifies the name of the lahnch group.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Specifies the feature variation to use for this launch group.
-     * 
-     */
     @Import(name="variation", required=true)
     private Output<String> variation;
 
-    /**
-     * @return Specifies the feature variation to use for this launch group.
-     * 
-     */
     public Output<String> variation() {
         return this.variation;
     }
@@ -103,86 +71,38 @@ public final class LaunchGroupArgs extends com.pulumi.resources.ResourceArgs {
             $ = new LaunchGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description Specifies the description of the launch group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Specifies the description of the launch group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param feature Specifies the name of the feature that the launch is using.
-         * 
-         * @return builder
-         * 
-         */
         public Builder feature(Output<String> feature) {
             $.feature = feature;
             return this;
         }
 
-        /**
-         * @param feature Specifies the name of the feature that the launch is using.
-         * 
-         * @return builder
-         * 
-         */
         public Builder feature(String feature) {
             return feature(Output.of(feature));
         }
 
-        /**
-         * @param name Specifies the name of the lahnch group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Specifies the name of the lahnch group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param variation Specifies the feature variation to use for this launch group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder variation(Output<String> variation) {
             $.variation = variation;
             return this;
         }
 
-        /**
-         * @param variation Specifies the feature variation to use for this launch group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder variation(String variation) {
             return variation(Output.of(variation));
         }

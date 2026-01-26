@@ -14,47 +14,23 @@ public final class GetApplicationPlainArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetApplicationPlainArgs Empty = new GetApplicationPlainArgs();
 
-    /**
-     * ID of the Application. Either `id` or `name` must be specified.
-     * 
-     */
     @Import(name="id")
     private @Nullable String id;
 
-    /**
-     * @return ID of the Application. Either `id` or `name` must be specified.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * AWS AppConfig Application name. Either `name` or `id` must be specified.
-     * 
-     */
     @Import(name="name")
     private @Nullable String name;
 
-    /**
-     * @return AWS AppConfig Application name. Either `name` or `id` must be specified.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -85,34 +61,16 @@ public final class GetApplicationPlainArgs extends com.pulumi.resources.InvokeAr
             $ = new GetApplicationPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id ID of the Application. Either `id` or `name` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param name AWS AppConfig Application name. Either `name` or `id` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SpotInstanceRequestCreditSpecification {
-    /**
-     * @return Credit option for CPU usage. Valid values include `standard` or `unlimited`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
-     * 
-     */
     private @Nullable String cpuCredits;
 
     private SpotInstanceRequestCreditSpecification() {}
-    /**
-     * @return Credit option for CPU usage. Valid values include `standard` or `unlimited`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
-     * 
-     */
     public Optional<String> cpuCredits() {
         return Optional.ofNullable(this.cpuCredits);
     }

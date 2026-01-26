@@ -11,96 +11,12 @@ namespace Pulumi.Aws.ControlTower
 {
     public static class GetControls
     {
-        /// <summary>
-        /// List of Control Tower controls applied to an OU.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var @this = Aws.Organizations.GetOrganization.Invoke();
-        /// 
-        ///     var thisGetOrganizationalUnits = Aws.Organizations.GetOrganizationalUnits.Invoke(new()
-        ///     {
-        ///         ParentId = @this.Apply(getOrganizationResult =&gt; getOrganizationResult.Roots[0]?.Id),
-        ///     });
-        /// 
-        ///     var thisGetControls = Aws.ControlTower.GetControls.Invoke(new()
-        ///     {
-        ///         TargetIdentifier = [0],
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetControlsResult> InvokeAsync(GetControlsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetControlsResult>("aws:controltower/getControls:getControls", args ?? new GetControlsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// List of Control Tower controls applied to an OU.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var @this = Aws.Organizations.GetOrganization.Invoke();
-        /// 
-        ///     var thisGetOrganizationalUnits = Aws.Organizations.GetOrganizationalUnits.Invoke(new()
-        ///     {
-        ///         ParentId = @this.Apply(getOrganizationResult =&gt; getOrganizationResult.Roots[0]?.Id),
-        ///     });
-        /// 
-        ///     var thisGetControls = Aws.ControlTower.GetControls.Invoke(new()
-        ///     {
-        ///         TargetIdentifier = [0],
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetControlsResult> Invoke(GetControlsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetControlsResult>("aws:controltower/getControls:getControls", args ?? new GetControlsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// List of Control Tower controls applied to an OU.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var @this = Aws.Organizations.GetOrganization.Invoke();
-        /// 
-        ///     var thisGetOrganizationalUnits = Aws.Organizations.GetOrganizationalUnits.Invoke(new()
-        ///     {
-        ///         ParentId = @this.Apply(getOrganizationResult =&gt; getOrganizationResult.Roots[0]?.Id),
-        ///     });
-        /// 
-        ///     var thisGetControls = Aws.ControlTower.GetControls.Invoke(new()
-        ///     {
-        ///         TargetIdentifier = [0],
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetControlsResult> Invoke(GetControlsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetControlsResult>("aws:controltower/getControls:getControls", args ?? new GetControlsInvokeArgs(), options.WithDefaults());
     }
@@ -108,15 +24,9 @@ namespace Pulumi.Aws.ControlTower
 
     public sealed class GetControlsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// The ARN of the organizational unit.
-        /// </summary>
         [Input("targetIdentifier", required: true)]
         public string TargetIdentifier { get; set; } = null!;
 
@@ -128,15 +38,9 @@ namespace Pulumi.Aws.ControlTower
 
     public sealed class GetControlsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ARN of the organizational unit.
-        /// </summary>
         [Input("targetIdentifier", required: true)]
         public Input<string> TargetIdentifier { get; set; } = null!;
 
@@ -150,9 +54,6 @@ namespace Pulumi.Aws.ControlTower
     [OutputType]
     public sealed class GetControlsResult
     {
-        /// <summary>
-        /// List of all the ARNs for the controls applied to the `TargetIdentifier`.
-        /// </summary>
         public readonly ImmutableArray<string> EnabledControls;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

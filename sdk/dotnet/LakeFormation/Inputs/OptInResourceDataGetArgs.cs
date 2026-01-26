@@ -14,10 +14,6 @@ namespace Pulumi.Aws.LakeFormation.Inputs
     {
         [Input("catalogs")]
         private InputList<Inputs.OptInResourceDataCatalogGetArgs>? _catalogs;
-
-        /// <summary>
-        /// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See Catalog for more details.
-        /// </summary>
         public InputList<Inputs.OptInResourceDataCatalogGetArgs> Catalogs
         {
             get => _catalogs ?? (_catalogs = new InputList<Inputs.OptInResourceDataCatalogGetArgs>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.LakeFormation.Inputs
 
         [Input("dataCellsFilters")]
         private InputList<Inputs.OptInResourceDataDataCellsFilterGetArgs>? _dataCellsFilters;
-
-        /// <summary>
-        /// Data cell filter. See Data Cells Filter for more details.
-        /// </summary>
         public InputList<Inputs.OptInResourceDataDataCellsFilterGetArgs> DataCellsFilters
         {
             get => _dataCellsFilters ?? (_dataCellsFilters = new InputList<Inputs.OptInResourceDataDataCellsFilterGetArgs>());
@@ -38,34 +30,20 @@ namespace Pulumi.Aws.LakeFormation.Inputs
 
         [Input("dataLocations")]
         private InputList<Inputs.OptInResourceDataDataLocationGetArgs>? _dataLocations;
-
-        /// <summary>
-        /// Location of an Amazon S3 path where permissions are granted or revoked. See Data Location for more details.
-        /// </summary>
         public InputList<Inputs.OptInResourceDataDataLocationGetArgs> DataLocations
         {
             get => _dataLocations ?? (_dataLocations = new InputList<Inputs.OptInResourceDataDataLocationGetArgs>());
             set => _dataLocations = value;
         }
 
-        /// <summary>
-        /// Database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. See Database for more details.
-        /// </summary>
         [Input("database")]
         public Input<Inputs.OptInResourceDataDatabaseGetArgs>? Database { get; set; }
 
-        /// <summary>
-        /// LF-tag key and values attached to a resource.
-        /// </summary>
         [Input("lfTag")]
         public Input<Inputs.OptInResourceDataLfTagGetArgs>? LfTag { get; set; }
 
         [Input("lfTagExpressions")]
         private InputList<Inputs.OptInResourceDataLfTagExpressionGetArgs>? _lfTagExpressions;
-
-        /// <summary>
-        /// Logical expression composed of one or more LF-Tag key:value pairs. See LF-Tag Expression for more details.
-        /// </summary>
         public InputList<Inputs.OptInResourceDataLfTagExpressionGetArgs> LfTagExpressions
         {
             get => _lfTagExpressions ?? (_lfTagExpressions = new InputList<Inputs.OptInResourceDataLfTagExpressionGetArgs>());
@@ -74,25 +52,15 @@ namespace Pulumi.Aws.LakeFormation.Inputs
 
         [Input("lfTagPolicies")]
         private InputList<Inputs.OptInResourceDataLfTagPolicyGetArgs>? _lfTagPolicies;
-
-        /// <summary>
-        /// List of LF-Tag conditions or saved LF-Tag expressions that define a resource's LF-Tag policy. See LF-Tag Policy for more details.
-        /// </summary>
         public InputList<Inputs.OptInResourceDataLfTagPolicyGetArgs> LfTagPolicies
         {
             get => _lfTagPolicies ?? (_lfTagPolicies = new InputList<Inputs.OptInResourceDataLfTagPolicyGetArgs>());
             set => _lfTagPolicies = value;
         }
 
-        /// <summary>
-        /// Table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. See Table for more details.
-        /// </summary>
         [Input("table")]
         public Input<Inputs.OptInResourceDataTableGetArgs>? Table { get; set; }
 
-        /// <summary>
-        /// Table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3. See Table With Columns for more details.
-        /// </summary>
         [Input("tableWithColumns")]
         public Input<Inputs.OptInResourceDataTableWithColumnsGetArgs>? TableWithColumns { get; set; }
 

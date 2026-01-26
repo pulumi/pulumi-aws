@@ -12,59 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Service Catalog Principal Portfolio Association.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicecatalog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.NewPrincipalPortfolioAssociation(ctx, "example", &servicecatalog.PrincipalPortfolioAssociationArgs{
-//				PortfolioId:  pulumi.String("port-68656c6c6f"),
-//				PrincipalArn: pulumi.String("arn:aws:iam::123456789012:user/Eleanor"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_servicecatalog_principal_portfolio_association` using `accept_language`, `principal_arn`, `portfolio_id`, and `principal_type` separated by a comma. For example:
-//
-// ```sh
-// $ pulumi import aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation example en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f,IAM
-// ```
 type PrincipalPortfolioAssociation struct {
 	pulumi.CustomResourceState
 
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage pulumi.StringPtrOutput `pulumi:"acceptLanguage"`
-	// Portfolio identifier.
-	PortfolioId pulumi.StringOutput `pulumi:"portfolioId"`
-	// Principal ARN.
-	//
-	// The following arguments are optional:
-	PrincipalArn pulumi.StringOutput `pulumi:"principalArn"`
-	// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
-	PrincipalType pulumi.StringPtrOutput `pulumi:"principalType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	PortfolioId    pulumi.StringOutput    `pulumi:"portfolioId"`
+	PrincipalArn   pulumi.StringOutput    `pulumi:"principalArn"`
+	PrincipalType  pulumi.StringPtrOutput `pulumi:"principalType"`
+	Region         pulumi.StringOutput    `pulumi:"region"`
 }
 
 // NewPrincipalPortfolioAssociation registers a new resource with the given unique name, arguments, and options.
@@ -103,33 +58,19 @@ func GetPrincipalPortfolioAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrincipalPortfolioAssociation resources.
 type principalPortfolioAssociationState struct {
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage *string `pulumi:"acceptLanguage"`
-	// Portfolio identifier.
-	PortfolioId *string `pulumi:"portfolioId"`
-	// Principal ARN.
-	//
-	// The following arguments are optional:
-	PrincipalArn *string `pulumi:"principalArn"`
-	// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
-	PrincipalType *string `pulumi:"principalType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	PortfolioId    *string `pulumi:"portfolioId"`
+	PrincipalArn   *string `pulumi:"principalArn"`
+	PrincipalType  *string `pulumi:"principalType"`
+	Region         *string `pulumi:"region"`
 }
 
 type PrincipalPortfolioAssociationState struct {
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage pulumi.StringPtrInput
-	// Portfolio identifier.
-	PortfolioId pulumi.StringPtrInput
-	// Principal ARN.
-	//
-	// The following arguments are optional:
-	PrincipalArn pulumi.StringPtrInput
-	// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
-	PrincipalType pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	PortfolioId    pulumi.StringPtrInput
+	PrincipalArn   pulumi.StringPtrInput
+	PrincipalType  pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
 }
 
 func (PrincipalPortfolioAssociationState) ElementType() reflect.Type {
@@ -137,34 +78,20 @@ func (PrincipalPortfolioAssociationState) ElementType() reflect.Type {
 }
 
 type principalPortfolioAssociationArgs struct {
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage *string `pulumi:"acceptLanguage"`
-	// Portfolio identifier.
-	PortfolioId string `pulumi:"portfolioId"`
-	// Principal ARN.
-	//
-	// The following arguments are optional:
-	PrincipalArn string `pulumi:"principalArn"`
-	// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
-	PrincipalType *string `pulumi:"principalType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	PortfolioId    string  `pulumi:"portfolioId"`
+	PrincipalArn   string  `pulumi:"principalArn"`
+	PrincipalType  *string `pulumi:"principalType"`
+	Region         *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a PrincipalPortfolioAssociation resource.
 type PrincipalPortfolioAssociationArgs struct {
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage pulumi.StringPtrInput
-	// Portfolio identifier.
-	PortfolioId pulumi.StringInput
-	// Principal ARN.
-	//
-	// The following arguments are optional:
-	PrincipalArn pulumi.StringInput
-	// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
-	PrincipalType pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	PortfolioId    pulumi.StringInput
+	PrincipalArn   pulumi.StringInput
+	PrincipalType  pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
 }
 
 func (PrincipalPortfolioAssociationArgs) ElementType() reflect.Type {
@@ -254,29 +181,22 @@ func (o PrincipalPortfolioAssociationOutput) ToPrincipalPortfolioAssociationOutp
 	return o
 }
 
-// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 func (o PrincipalPortfolioAssociationOutput) AcceptLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrincipalPortfolioAssociation) pulumi.StringPtrOutput { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
 }
 
-// Portfolio identifier.
 func (o PrincipalPortfolioAssociationOutput) PortfolioId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrincipalPortfolioAssociation) pulumi.StringOutput { return v.PortfolioId }).(pulumi.StringOutput)
 }
 
-// Principal ARN.
-//
-// The following arguments are optional:
 func (o PrincipalPortfolioAssociationOutput) PrincipalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrincipalPortfolioAssociation) pulumi.StringOutput { return v.PrincipalArn }).(pulumi.StringOutput)
 }
 
-// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
 func (o PrincipalPortfolioAssociationOutput) PrincipalType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrincipalPortfolioAssociation) pulumi.StringPtrOutput { return v.PrincipalType }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PrincipalPortfolioAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrincipalPortfolioAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

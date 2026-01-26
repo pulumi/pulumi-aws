@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS Glue Registry.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glue"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := glue.LookupRegistry(ctx, &glue.LookupRegistryArgs{
-//				Name: "example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRegistry(ctx *pulumi.Context, args *LookupRegistryArgs, opts ...pulumi.InvokeOption) (*LookupRegistryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRegistryResult
@@ -52,17 +23,13 @@ func LookupRegistry(ctx *pulumi.Context, args *LookupRegistryArgs, opts ...pulum
 
 // A collection of arguments for invoking getRegistry.
 type LookupRegistryArgs struct {
-	// Name of the Glue Registry.
-	Name string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   string  `pulumi:"name"`
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getRegistry.
 type LookupRegistryResult struct {
-	// Amazon Resource Name (ARN) of Glue Registry.
-	Arn string `pulumi:"arn"`
-	// A description of the registry.
+	Arn         string `pulumi:"arn"`
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string `pulumi:"id"`
@@ -81,9 +48,7 @@ func LookupRegistryOutput(ctx *pulumi.Context, args LookupRegistryOutputArgs, op
 
 // A collection of arguments for invoking getRegistry.
 type LookupRegistryOutputArgs struct {
-	// Name of the Glue Registry.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringInput    `pulumi:"name"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -106,12 +71,10 @@ func (o LookupRegistryResultOutput) ToLookupRegistryResultOutputWithContext(ctx 
 	return o
 }
 
-// Amazon Resource Name (ARN) of Glue Registry.
 func (o LookupRegistryResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRegistryResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A description of the registry.
 func (o LookupRegistryResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRegistryResult) string { return v.Description }).(pulumi.StringOutput)
 }

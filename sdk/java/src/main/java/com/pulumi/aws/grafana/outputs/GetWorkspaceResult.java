@@ -12,159 +12,55 @@ import java.util.Objects;
 
 @CustomType
 public final class GetWorkspaceResult {
-    /**
-     * @return (Required) Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
-     * 
-     */
     private String accountAccessType;
-    /**
-     * @return ARN of the Grafana workspace.
-     * 
-     */
     private String arn;
-    /**
-     * @return (Required) Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
-     * 
-     */
     private List<String> authenticationProviders;
-    /**
-     * @return Creation date of the Grafana workspace.
-     * 
-     */
     private String createdDate;
-    /**
-     * @return Data sources for the workspace.
-     * 
-     */
     private List<String> dataSources;
-    /**
-     * @return Workspace description.
-     * 
-     */
     private String description;
-    /**
-     * @return Endpoint of the Grafana workspace.
-     * 
-     */
     private String endpoint;
-    /**
-     * @return Version of Grafana running on the workspace.
-     * 
-     */
     private String grafanaVersion;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Last updated date of the Grafana workspace.
-     * 
-     */
     private String lastUpdatedDate;
-    /**
-     * @return Grafana workspace name.
-     * 
-     */
     private String name;
-    /**
-     * @return The notification destinations.
-     * 
-     */
     private List<String> notificationDestinations;
-    /**
-     * @return The role name that the workspace uses to access resources through Amazon Organizations.
-     * 
-     */
     private String organizationRoleName;
-    /**
-     * @return The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
-     * 
-     */
     private List<String> organizationalUnits;
-    /**
-     * @return Permission type of the workspace.
-     * 
-     */
     private String permissionType;
     private String region;
-    /**
-     * @return IAM role ARN that the workspace assumes.
-     * 
-     */
     private String roleArn;
     private String samlConfigurationStatus;
-    /**
-     * @return AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
-     * 
-     */
     private String stackSetName;
-    /**
-     * @return Status of the Grafana workspace.
-     * 
-     */
     private String status;
-    /**
-     * @return Tags assigned to the resource
-     * 
-     */
     private Map<String,String> tags;
     private String workspaceId;
 
     private GetWorkspaceResult() {}
-    /**
-     * @return (Required) Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
-     * 
-     */
     public String accountAccessType() {
         return this.accountAccessType;
     }
-    /**
-     * @return ARN of the Grafana workspace.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return (Required) Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
-     * 
-     */
     public List<String> authenticationProviders() {
         return this.authenticationProviders;
     }
-    /**
-     * @return Creation date of the Grafana workspace.
-     * 
-     */
     public String createdDate() {
         return this.createdDate;
     }
-    /**
-     * @return Data sources for the workspace.
-     * 
-     */
     public List<String> dataSources() {
         return this.dataSources;
     }
-    /**
-     * @return Workspace description.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Endpoint of the Grafana workspace.
-     * 
-     */
     public String endpoint() {
         return this.endpoint;
     }
-    /**
-     * @return Version of Grafana running on the workspace.
-     * 
-     */
     public String grafanaVersion() {
         return this.grafanaVersion;
     }
@@ -175,79 +71,39 @@ public final class GetWorkspaceResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Last updated date of the Grafana workspace.
-     * 
-     */
     public String lastUpdatedDate() {
         return this.lastUpdatedDate;
     }
-    /**
-     * @return Grafana workspace name.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The notification destinations.
-     * 
-     */
     public List<String> notificationDestinations() {
         return this.notificationDestinations;
     }
-    /**
-     * @return The role name that the workspace uses to access resources through Amazon Organizations.
-     * 
-     */
     public String organizationRoleName() {
         return this.organizationRoleName;
     }
-    /**
-     * @return The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
-     * 
-     */
     public List<String> organizationalUnits() {
         return this.organizationalUnits;
     }
-    /**
-     * @return Permission type of the workspace.
-     * 
-     */
     public String permissionType() {
         return this.permissionType;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return IAM role ARN that the workspace assumes.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
     public String samlConfigurationStatus() {
         return this.samlConfigurationStatus;
     }
-    /**
-     * @return AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
-     * 
-     */
     public String stackSetName() {
         return this.stackSetName;
     }
-    /**
-     * @return Status of the Grafana workspace.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Tags assigned to the resource
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

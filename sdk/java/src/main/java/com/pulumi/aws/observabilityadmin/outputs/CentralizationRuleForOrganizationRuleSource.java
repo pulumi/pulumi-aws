@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CentralizationRuleForOrganizationRuleSource {
-    /**
-     * @return Set of AWS regions from which to centralize logs. Must contain at least one region.
-     * 
-     */
     private List<String> regions;
-    /**
-     * @return Scope defining which resources to include. Use organization ID format: `OrganizationId = &#39;o-example123456&#39;`.
-     * 
-     */
     private String scope;
-    /**
-     * @return Configuration block for source logs settings. See `sourceLogsConfiguration` below.
-     * 
-     */
     private @Nullable CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration sourceLogsConfiguration;
 
     private CentralizationRuleForOrganizationRuleSource() {}
-    /**
-     * @return Set of AWS regions from which to centralize logs. Must contain at least one region.
-     * 
-     */
     public List<String> regions() {
         return this.regions;
     }
-    /**
-     * @return Scope defining which resources to include. Use organization ID format: `OrganizationId = &#39;o-example123456&#39;`.
-     * 
-     */
     public String scope() {
         return this.scope;
     }
-    /**
-     * @return Configuration block for source logs settings. See `sourceLogsConfiguration` below.
-     * 
-     */
     public Optional<CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration> sourceLogsConfiguration() {
         return Optional.ofNullable(this.sourceLogsConfiguration);
     }

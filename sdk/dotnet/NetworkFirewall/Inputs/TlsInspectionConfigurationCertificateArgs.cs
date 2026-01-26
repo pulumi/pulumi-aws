@@ -12,27 +12,15 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
 
     public sealed class TlsInspectionConfigurationCertificateArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the certificate.
-        /// </summary>
         [Input("certificateArn", required: true)]
         public Input<string> CertificateArn { get; set; } = null!;
 
-        /// <summary>
-        /// Serial number of the certificate.
-        /// </summary>
         [Input("certificateSerial", required: true)]
         public Input<string> CertificateSerial { get; set; } = null!;
 
-        /// <summary>
-        /// Status of the certificate.
-        /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 
-        /// <summary>
-        /// Details about the certificate status, including information about certificate errors.
-        /// </summary>
         [Input("statusMessage", required: true)]
         public Input<string> StatusMessage { get; set; } = null!;
 

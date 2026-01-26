@@ -18,77 +18,37 @@ public final class LoadBalancerPolicyArgs extends com.pulumi.resources.ResourceA
 
     public static final LoadBalancerPolicyArgs Empty = new LoadBalancerPolicyArgs();
 
-    /**
-     * The load balancer on which the policy is defined.
-     * 
-     */
     @Import(name="loadBalancerName", required=true)
     private Output<String> loadBalancerName;
 
-    /**
-     * @return The load balancer on which the policy is defined.
-     * 
-     */
     public Output<String> loadBalancerName() {
         return this.loadBalancerName;
     }
 
-    /**
-     * Policy attribute to apply to the policy.
-     * 
-     */
     @Import(name="policyAttributes")
     private @Nullable Output<List<LoadBalancerPolicyPolicyAttributeArgs>> policyAttributes;
 
-    /**
-     * @return Policy attribute to apply to the policy.
-     * 
-     */
     public Optional<Output<List<LoadBalancerPolicyPolicyAttributeArgs>>> policyAttributes() {
         return Optional.ofNullable(this.policyAttributes);
     }
 
-    /**
-     * The name of the load balancer policy.
-     * 
-     */
     @Import(name="policyName", required=true)
     private Output<String> policyName;
 
-    /**
-     * @return The name of the load balancer policy.
-     * 
-     */
     public Output<String> policyName() {
         return this.policyName;
     }
 
-    /**
-     * The policy type.
-     * 
-     */
     @Import(name="policyTypeName", required=true)
     private Output<String> policyTypeName;
 
-    /**
-     * @return The policy type.
-     * 
-     */
     public Output<String> policyTypeName() {
         return this.policyTypeName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -121,117 +81,51 @@ public final class LoadBalancerPolicyArgs extends com.pulumi.resources.ResourceA
             $ = new LoadBalancerPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param loadBalancerName The load balancer on which the policy is defined.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loadBalancerName(Output<String> loadBalancerName) {
             $.loadBalancerName = loadBalancerName;
             return this;
         }
 
-        /**
-         * @param loadBalancerName The load balancer on which the policy is defined.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loadBalancerName(String loadBalancerName) {
             return loadBalancerName(Output.of(loadBalancerName));
         }
 
-        /**
-         * @param policyAttributes Policy attribute to apply to the policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyAttributes(@Nullable Output<List<LoadBalancerPolicyPolicyAttributeArgs>> policyAttributes) {
             $.policyAttributes = policyAttributes;
             return this;
         }
 
-        /**
-         * @param policyAttributes Policy attribute to apply to the policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyAttributes(List<LoadBalancerPolicyPolicyAttributeArgs> policyAttributes) {
             return policyAttributes(Output.of(policyAttributes));
         }
 
-        /**
-         * @param policyAttributes Policy attribute to apply to the policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyAttributes(LoadBalancerPolicyPolicyAttributeArgs... policyAttributes) {
             return policyAttributes(List.of(policyAttributes));
         }
 
-        /**
-         * @param policyName The name of the load balancer policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyName(Output<String> policyName) {
             $.policyName = policyName;
             return this;
         }
 
-        /**
-         * @param policyName The name of the load balancer policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyName(String policyName) {
             return policyName(Output.of(policyName));
         }
 
-        /**
-         * @param policyTypeName The policy type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyTypeName(Output<String> policyTypeName) {
             $.policyTypeName = policyTypeName;
             return this;
         }
 
-        /**
-         * @param policyTypeName The policy type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyTypeName(String policyTypeName) {
             return policyTypeName(Output.of(policyTypeName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

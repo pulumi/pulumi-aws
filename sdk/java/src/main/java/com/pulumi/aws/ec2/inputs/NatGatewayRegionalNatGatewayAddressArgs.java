@@ -15,107 +15,51 @@ public final class NatGatewayRegionalNatGatewayAddressArgs extends com.pulumi.re
 
     public static final NatGatewayRegionalNatGatewayAddressArgs Empty = new NatGatewayRegionalNatGatewayAddressArgs();
 
-    /**
-     * The Allocation ID of the Elastic IP address for the NAT Gateway. Required when `connectivityType` is set to `public` and `availabilityMode` is set to `zonal`. When `availabilityMode` is set to `regional`, this must not be set; instead, use the `availabilityZoneAddress` block to specify EIPs for each AZ.
-     * 
-     */
     @Import(name="allocationId")
     private @Nullable Output<String> allocationId;
 
-    /**
-     * @return The Allocation ID of the Elastic IP address for the NAT Gateway. Required when `connectivityType` is set to `public` and `availabilityMode` is set to `zonal`. When `availabilityMode` is set to `regional`, this must not be set; instead, use the `availabilityZoneAddress` block to specify EIPs for each AZ.
-     * 
-     */
     public Optional<Output<String>> allocationId() {
         return Optional.ofNullable(this.allocationId);
     }
 
-    /**
-     * Association ID of the Elastic IP address.
-     * 
-     */
     @Import(name="associationId")
     private @Nullable Output<String> associationId;
 
-    /**
-     * @return Association ID of the Elastic IP address.
-     * 
-     */
     public Optional<Output<String>> associationId() {
         return Optional.ofNullable(this.associationId);
     }
 
-    /**
-     * Availability Zone where this specific NAT gateway configuration is active.
-     * 
-     */
     @Import(name="availabilityZone")
     private @Nullable Output<String> availabilityZone;
 
-    /**
-     * @return Availability Zone where this specific NAT gateway configuration is active.
-     * 
-     */
     public Optional<Output<String>> availabilityZone() {
         return Optional.ofNullable(this.availabilityZone);
     }
 
-    /**
-     * Availability Zone ID where this specific NAT gateway configuration is active
-     * 
-     */
     @Import(name="availabilityZoneId")
     private @Nullable Output<String> availabilityZoneId;
 
-    /**
-     * @return Availability Zone ID where this specific NAT gateway configuration is active
-     * 
-     */
     public Optional<Output<String>> availabilityZoneId() {
         return Optional.ofNullable(this.availabilityZoneId);
     }
 
-    /**
-     * ID of the network interface.
-     * 
-     */
     @Import(name="networkInterfaceId")
     private @Nullable Output<String> networkInterfaceId;
 
-    /**
-     * @return ID of the network interface.
-     * 
-     */
     public Optional<Output<String>> networkInterfaceId() {
         return Optional.ofNullable(this.networkInterfaceId);
     }
 
-    /**
-     * Public IP address.
-     * 
-     */
     @Import(name="publicIp")
     private @Nullable Output<String> publicIp;
 
-    /**
-     * @return Public IP address.
-     * 
-     */
     public Optional<Output<String>> publicIp() {
         return Optional.ofNullable(this.publicIp);
     }
 
-    /**
-     * Status of the NAT gateway address.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return Status of the NAT gateway address.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -150,149 +94,65 @@ public final class NatGatewayRegionalNatGatewayAddressArgs extends com.pulumi.re
             $ = new NatGatewayRegionalNatGatewayAddressArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allocationId The Allocation ID of the Elastic IP address for the NAT Gateway. Required when `connectivityType` is set to `public` and `availabilityMode` is set to `zonal`. When `availabilityMode` is set to `regional`, this must not be set; instead, use the `availabilityZoneAddress` block to specify EIPs for each AZ.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allocationId(@Nullable Output<String> allocationId) {
             $.allocationId = allocationId;
             return this;
         }
 
-        /**
-         * @param allocationId The Allocation ID of the Elastic IP address for the NAT Gateway. Required when `connectivityType` is set to `public` and `availabilityMode` is set to `zonal`. When `availabilityMode` is set to `regional`, this must not be set; instead, use the `availabilityZoneAddress` block to specify EIPs for each AZ.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allocationId(String allocationId) {
             return allocationId(Output.of(allocationId));
         }
 
-        /**
-         * @param associationId Association ID of the Elastic IP address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder associationId(@Nullable Output<String> associationId) {
             $.associationId = associationId;
             return this;
         }
 
-        /**
-         * @param associationId Association ID of the Elastic IP address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder associationId(String associationId) {
             return associationId(Output.of(associationId));
         }
 
-        /**
-         * @param availabilityZone Availability Zone where this specific NAT gateway configuration is active.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZone(@Nullable Output<String> availabilityZone) {
             $.availabilityZone = availabilityZone;
             return this;
         }
 
-        /**
-         * @param availabilityZone Availability Zone where this specific NAT gateway configuration is active.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZone(String availabilityZone) {
             return availabilityZone(Output.of(availabilityZone));
         }
 
-        /**
-         * @param availabilityZoneId Availability Zone ID where this specific NAT gateway configuration is active
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZoneId(@Nullable Output<String> availabilityZoneId) {
             $.availabilityZoneId = availabilityZoneId;
             return this;
         }
 
-        /**
-         * @param availabilityZoneId Availability Zone ID where this specific NAT gateway configuration is active
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZoneId(String availabilityZoneId) {
             return availabilityZoneId(Output.of(availabilityZoneId));
         }
 
-        /**
-         * @param networkInterfaceId ID of the network interface.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInterfaceId(@Nullable Output<String> networkInterfaceId) {
             $.networkInterfaceId = networkInterfaceId;
             return this;
         }
 
-        /**
-         * @param networkInterfaceId ID of the network interface.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInterfaceId(String networkInterfaceId) {
             return networkInterfaceId(Output.of(networkInterfaceId));
         }
 
-        /**
-         * @param publicIp Public IP address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publicIp(@Nullable Output<String> publicIp) {
             $.publicIp = publicIp;
             return this;
         }
 
-        /**
-         * @param publicIp Public IP address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publicIp(String publicIp) {
             return publicIp(Output.of(publicIp));
         }
 
-        /**
-         * @param status Status of the NAT gateway address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Status of the NAT gateway address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

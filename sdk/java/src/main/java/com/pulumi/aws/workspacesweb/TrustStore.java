@@ -17,190 +17,41 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS WorkSpaces Web Trust Store.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.workspacesweb.TrustStore;
- * import com.pulumi.aws.workspacesweb.TrustStoreArgs;
- * import com.pulumi.aws.workspacesweb.inputs.TrustStoreCertificateArgs;
- * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.FileArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new TrustStore("example", TrustStoreArgs.builder()
- *             .certificates(TrustStoreCertificateArgs.builder()
- *                 .body(StdFunctions.file(FileArgs.builder()
- *                     .input("certificate.pem")
- *                     .build()).result())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Multiple Certificates
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.workspacesweb.TrustStore;
- * import com.pulumi.aws.workspacesweb.TrustStoreArgs;
- * import com.pulumi.aws.workspacesweb.inputs.TrustStoreCertificateArgs;
- * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.FileArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new TrustStore("example", TrustStoreArgs.builder()
- *             .certificates(            
- *                 TrustStoreCertificateArgs.builder()
- *                     .body(StdFunctions.file(FileArgs.builder()
- *                         .input("certificate1.pem")
- *                         .build()).result())
- *                     .build(),
- *                 TrustStoreCertificateArgs.builder()
- *                     .body(StdFunctions.file(FileArgs.builder()
- *                         .input("certificate2.pem")
- *                         .build()).result())
- *                     .build())
- *             .tags(Map.of("Name", "example-trust-store"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import WorkSpaces Web Trust Store using the `trust_store_arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:workspacesweb/trustStore:TrustStore example arn:aws:workspaces-web:us-west-2:123456789012:trustStore/trust_store-id-12345678
- * ```
- * 
- */
 @ResourceType(type="aws:workspacesweb/trustStore:TrustStore")
 public class TrustStore extends com.pulumi.resources.CustomResource {
-    /**
-     * List of ARNs of the web portals associated with the trust store.
-     * 
-     */
     @Export(name="associatedPortalArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> associatedPortalArns;
 
-    /**
-     * @return List of ARNs of the web portals associated with the trust store.
-     * 
-     */
     public Output<List<String>> associatedPortalArns() {
         return this.associatedPortalArns;
     }
-    /**
-     * Set of certificates to include in the trust store. See Certificate below.
-     * 
-     */
     @Export(name="certificates", refs={List.class,TrustStoreCertificate.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TrustStoreCertificate>> certificates;
 
-    /**
-     * @return Set of certificates to include in the trust store. See Certificate below.
-     * 
-     */
     public Output<Optional<List<TrustStoreCertificate>>> certificates() {
         return Codegen.optional(this.certificates);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * ARN of the trust store.
-     * 
-     */
     @Export(name="trustStoreArn", refs={String.class}, tree="[0]")
     private Output<String> trustStoreArn;
 
-    /**
-     * @return ARN of the trust store.
-     * 
-     */
     public Output<String> trustStoreArn() {
         return this.trustStoreArn;
     }

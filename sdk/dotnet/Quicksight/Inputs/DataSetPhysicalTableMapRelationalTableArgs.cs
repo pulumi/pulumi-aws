@@ -12,39 +12,23 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class DataSetPhysicalTableMapRelationalTableArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Catalog associated with the table.
-        /// </summary>
         [Input("catalog")]
         public Input<string>? Catalog { get; set; }
 
-        /// <summary>
-        /// ARN of the data source.
-        /// </summary>
         [Input("dataSourceArn", required: true)]
         public Input<string> DataSourceArn { get; set; } = null!;
 
         [Input("inputColumns", required: true)]
         private InputList<Inputs.DataSetPhysicalTableMapRelationalTableInputColumnArgs>? _inputColumns;
-
-        /// <summary>
-        /// Column schema of the table. See input_columns.
-        /// </summary>
         public InputList<Inputs.DataSetPhysicalTableMapRelationalTableInputColumnArgs> InputColumns
         {
             get => _inputColumns ?? (_inputColumns = new InputList<Inputs.DataSetPhysicalTableMapRelationalTableInputColumnArgs>());
             set => _inputColumns = value;
         }
 
-        /// <summary>
-        /// Name of the relational table.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Schema name. This name applies to certain relational database engines.
-        /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }
 

@@ -9,41 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Cognito
 {
-    /// <summary>
-    /// Provides an AWS Cognito Identity Pool Roles Attachment.
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment example us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment")]
     public partial class IdentityPoolRoleAttachment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// An identity pool ID in the format `REGION_GUID`.
-        /// </summary>
         [Output("identityPoolId")]
         public Output<string> IdentityPoolId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// A List of Role Mapping.
-        /// </summary>
         [Output("roleMappings")]
         public Output<ImmutableArray<Outputs.IdentityPoolRoleAttachmentRoleMapping>> RoleMappings { get; private set; } = null!;
 
-        /// <summary>
-        /// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-        /// </summary>
         [Output("roles")]
         public Output<ImmutableDictionary<string, string>> Roles { get; private set; } = null!;
 
@@ -93,24 +70,14 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class IdentityPoolRoleAttachmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An identity pool ID in the format `REGION_GUID`.
-        /// </summary>
         [Input("identityPoolId", required: true)]
         public Input<string> IdentityPoolId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("roleMappings")]
         private InputList<Inputs.IdentityPoolRoleAttachmentRoleMappingArgs>? _roleMappings;
-
-        /// <summary>
-        /// A List of Role Mapping.
-        /// </summary>
         public InputList<Inputs.IdentityPoolRoleAttachmentRoleMappingArgs> RoleMappings
         {
             get => _roleMappings ?? (_roleMappings = new InputList<Inputs.IdentityPoolRoleAttachmentRoleMappingArgs>());
@@ -119,10 +86,6 @@ namespace Pulumi.Aws.Cognito
 
         [Input("roles", required: true)]
         private InputMap<string>? _roles;
-
-        /// <summary>
-        /// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-        /// </summary>
         public InputMap<string> Roles
         {
             get => _roles ?? (_roles = new InputMap<string>());
@@ -137,24 +100,14 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class IdentityPoolRoleAttachmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An identity pool ID in the format `REGION_GUID`.
-        /// </summary>
         [Input("identityPoolId")]
         public Input<string>? IdentityPoolId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("roleMappings")]
         private InputList<Inputs.IdentityPoolRoleAttachmentRoleMappingGetArgs>? _roleMappings;
-
-        /// <summary>
-        /// A List of Role Mapping.
-        /// </summary>
         public InputList<Inputs.IdentityPoolRoleAttachmentRoleMappingGetArgs> RoleMappings
         {
             get => _roleMappings ?? (_roleMappings = new InputList<Inputs.IdentityPoolRoleAttachmentRoleMappingGetArgs>());
@@ -163,10 +116,6 @@ namespace Pulumi.Aws.Cognito
 
         [Input("roles")]
         private InputMap<string>? _roles;
-
-        /// <summary>
-        /// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-        /// </summary>
         public InputMap<string> Roles
         {
             get => _roles ?? (_roles = new InputMap<string>());

@@ -15,57 +15,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainAutoTuneOptions {
-    /**
-     * @return Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
-     * 
-     */
     private String desiredState;
-    /**
-     * @return Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
-     * 
-     * **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenanceSchedule` configuration blocks cannot be specified when `useOffPeakWindow` is set to `true`.
-     * 
-     */
     private @Nullable List<DomainAutoTuneOptionsMaintenanceSchedule> maintenanceSchedules;
-    /**
-     * @return Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
-     * 
-     */
     private @Nullable String rollbackOnDisable;
-    /**
-     * @return Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain&#39;s configured daily off-peak window. Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean useOffPeakWindow;
 
     private DomainAutoTuneOptions() {}
-    /**
-     * @return Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
-     * 
-     */
     public String desiredState() {
         return this.desiredState;
     }
-    /**
-     * @return Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
-     * 
-     * **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenanceSchedule` configuration blocks cannot be specified when `useOffPeakWindow` is set to `true`.
-     * 
-     */
     public List<DomainAutoTuneOptionsMaintenanceSchedule> maintenanceSchedules() {
         return this.maintenanceSchedules == null ? List.of() : this.maintenanceSchedules;
     }
-    /**
-     * @return Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
-     * 
-     */
     public Optional<String> rollbackOnDisable() {
         return Optional.ofNullable(this.rollbackOnDisable);
     }
-    /**
-     * @return Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain&#39;s configured daily off-peak window. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> useOffPeakWindow() {
         return Optional.ofNullable(this.useOffPeakWindow);
     }

@@ -61,19 +61,7 @@ class AwaitableGetRuleResult(GetRuleResult):
 def get_rule(name: Optional[_builtins.str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuleResult:
     """
-    `waf.Rule` Retrieves a WAF Rule Resource Id.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.waf.get_rule(name="tfWAFRule")
-    ```
-
-
-    :param _builtins.str name: Name of the WAF rule.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -86,19 +74,7 @@ def get_rule(name: Optional[_builtins.str] = None,
 def get_rule_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuleResult]:
     """
-    `waf.Rule` Retrieves a WAF Rule Resource Id.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.waf.get_rule(name="tfWAFRule")
-    ```
-
-
-    :param _builtins.str name: Name of the WAF rule.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

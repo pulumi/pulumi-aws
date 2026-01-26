@@ -35,18 +35,6 @@ class NatGatewayArgs:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NatGateway resource.
-        :param pulumi.Input[_builtins.str] allocation_id: The Allocation ID of the Elastic IP address for the NAT Gateway. Required when `connectivity_type` is set to `public` and `availability_mode` is set to `zonal`. When `availability_mode` is set to `regional`, this must not be set; instead, use the `availability_zone_address` block to specify EIPs for each AZ.
-        :param pulumi.Input[_builtins.str] availability_mode: Specifies whether to create a zonal (single-AZ) or regional (multi-AZ) NAT gateway. Valid values are `zonal` and `regional`. Defaults to `zonal`.
-        :param pulumi.Input[Sequence[pulumi.Input['NatGatewayAvailabilityZoneAddressArgs']]] availability_zone_addresses: Repeatable configuration block for the Elastic IP addresses (EIPs) and availability zones for the regional NAT gateway. When not specified, the regional NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface (auto mode). When specified, auto-expansion is disabled (manual mode). See `availability_zone_address` below for details.
-        :param pulumi.Input[_builtins.str] connectivity_type: Connectivity type for the NAT Gateway. Valid values are `private` and `public`. When `availability_mode` is set to `regional`, this must be set to `public`. Defaults to `public`.
-        :param pulumi.Input[_builtins.str] private_ip: The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_allocation_ids: A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
-        :param pulumi.Input[_builtins.int] secondary_private_ip_address_count: The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_private_ip_addresses: A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
-        :param pulumi.Input[_builtins.str] subnet_id: The Subnet ID of the subnet in which to place the NAT Gateway. Required when `availability_mode` is set to `zonal`. Must not be set when `availability_mode` is set to `regional`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vpc_id: VPC ID where this NAT Gateway will be created. Required when `availability_mode` is set to `regional`.
         """
         if allocation_id is not None:
             pulumi.set(__self__, "allocation_id", allocation_id)
@@ -76,9 +64,6 @@ class NatGatewayArgs:
     @_builtins.property
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Allocation ID of the Elastic IP address for the NAT Gateway. Required when `connectivity_type` is set to `public` and `availability_mode` is set to `zonal`. When `availability_mode` is set to `regional`, this must not be set; instead, use the `availability_zone_address` block to specify EIPs for each AZ.
-        """
         return pulumi.get(self, "allocation_id")
 
     @allocation_id.setter
@@ -88,9 +73,6 @@ class NatGatewayArgs:
     @_builtins.property
     @pulumi.getter(name="availabilityMode")
     def availability_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies whether to create a zonal (single-AZ) or regional (multi-AZ) NAT gateway. Valid values are `zonal` and `regional`. Defaults to `zonal`.
-        """
         return pulumi.get(self, "availability_mode")
 
     @availability_mode.setter
@@ -100,9 +82,6 @@ class NatGatewayArgs:
     @_builtins.property
     @pulumi.getter(name="availabilityZoneAddresses")
     def availability_zone_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NatGatewayAvailabilityZoneAddressArgs']]]]:
-        """
-        Repeatable configuration block for the Elastic IP addresses (EIPs) and availability zones for the regional NAT gateway. When not specified, the regional NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface (auto mode). When specified, auto-expansion is disabled (manual mode). See `availability_zone_address` below for details.
-        """
         return pulumi.get(self, "availability_zone_addresses")
 
     @availability_zone_addresses.setter
@@ -112,9 +91,6 @@ class NatGatewayArgs:
     @_builtins.property
     @pulumi.getter(name="connectivityType")
     def connectivity_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Connectivity type for the NAT Gateway. Valid values are `private` and `public`. When `availability_mode` is set to `regional`, this must be set to `public`. Defaults to `public`.
-        """
         return pulumi.get(self, "connectivity_type")
 
     @connectivity_type.setter
@@ -124,9 +100,6 @@ class NatGatewayArgs:
     @_builtins.property
     @pulumi.getter(name="privateIp")
     def private_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
-        """
         return pulumi.get(self, "private_ip")
 
     @private_ip.setter
@@ -136,9 +109,6 @@ class NatGatewayArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -148,9 +118,6 @@ class NatGatewayArgs:
     @_builtins.property
     @pulumi.getter(name="secondaryAllocationIds")
     def secondary_allocation_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
-        """
         return pulumi.get(self, "secondary_allocation_ids")
 
     @secondary_allocation_ids.setter
@@ -160,9 +127,6 @@ class NatGatewayArgs:
     @_builtins.property
     @pulumi.getter(name="secondaryPrivateIpAddressCount")
     def secondary_private_ip_address_count(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
-        """
         return pulumi.get(self, "secondary_private_ip_address_count")
 
     @secondary_private_ip_address_count.setter
@@ -172,9 +136,6 @@ class NatGatewayArgs:
     @_builtins.property
     @pulumi.getter(name="secondaryPrivateIpAddresses")
     def secondary_private_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
-        """
         return pulumi.get(self, "secondary_private_ip_addresses")
 
     @secondary_private_ip_addresses.setter
@@ -184,9 +145,6 @@ class NatGatewayArgs:
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Subnet ID of the subnet in which to place the NAT Gateway. Required when `availability_mode` is set to `zonal`. Must not be set when `availability_mode` is set to `regional`.
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -196,9 +154,6 @@ class NatGatewayArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -208,9 +163,6 @@ class NatGatewayArgs:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        VPC ID where this NAT Gateway will be created. Required when `availability_mode` is set to `regional`.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -244,26 +196,6 @@ class _NatGatewayState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NatGateway resources.
-        :param pulumi.Input[_builtins.str] allocation_id: The Allocation ID of the Elastic IP address for the NAT Gateway. Required when `connectivity_type` is set to `public` and `availability_mode` is set to `zonal`. When `availability_mode` is set to `regional`, this must not be set; instead, use the `availability_zone_address` block to specify EIPs for each AZ.
-        :param pulumi.Input[_builtins.str] association_id: Association ID of the Elastic IP address.
-        :param pulumi.Input[_builtins.str] auto_provision_zones: (regional NAT gateways only) Indicates whether AWS automatically manages AZ coverage.
-        :param pulumi.Input[_builtins.str] auto_scaling_ips: (regional NAT gateways only) Indicates whether AWS automatically allocates additional Elastic IP addresses (EIPs) in an AZ when the NAT gateway needs more ports due to increased concurrent connections to a single destination from that AZ.
-        :param pulumi.Input[_builtins.str] availability_mode: Specifies whether to create a zonal (single-AZ) or regional (multi-AZ) NAT gateway. Valid values are `zonal` and `regional`. Defaults to `zonal`.
-        :param pulumi.Input[Sequence[pulumi.Input['NatGatewayAvailabilityZoneAddressArgs']]] availability_zone_addresses: Repeatable configuration block for the Elastic IP addresses (EIPs) and availability zones for the regional NAT gateway. When not specified, the regional NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface (auto mode). When specified, auto-expansion is disabled (manual mode). See `availability_zone_address` below for details.
-        :param pulumi.Input[_builtins.str] connectivity_type: Connectivity type for the NAT Gateway. Valid values are `private` and `public`. When `availability_mode` is set to `regional`, this must be set to `public`. Defaults to `public`.
-        :param pulumi.Input[_builtins.str] network_interface_id: ID of the network interface.
-        :param pulumi.Input[_builtins.str] private_ip: The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
-        :param pulumi.Input[_builtins.str] public_ip: Public IP address.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['NatGatewayRegionalNatGatewayAddressArgs']]] regional_nat_gateway_addresses: (regional NAT gateways only) Repeatable blocks for information about the IP addresses and network interface associated with the regional NAT gateway.
-        :param pulumi.Input[_builtins.str] route_table_id: (regional NAT gateways only) ID of the automatically created route table.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_allocation_ids: A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
-        :param pulumi.Input[_builtins.int] secondary_private_ip_address_count: The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_private_ip_addresses: A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
-        :param pulumi.Input[_builtins.str] subnet_id: The Subnet ID of the subnet in which to place the NAT Gateway. Required when `availability_mode` is set to `zonal`. Must not be set when `availability_mode` is set to `regional`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_id: VPC ID where this NAT Gateway will be created. Required when `availability_mode` is set to `regional`.
         """
         if allocation_id is not None:
             pulumi.set(__self__, "allocation_id", allocation_id)
@@ -311,9 +243,6 @@ class _NatGatewayState:
     @_builtins.property
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Allocation ID of the Elastic IP address for the NAT Gateway. Required when `connectivity_type` is set to `public` and `availability_mode` is set to `zonal`. When `availability_mode` is set to `regional`, this must not be set; instead, use the `availability_zone_address` block to specify EIPs for each AZ.
-        """
         return pulumi.get(self, "allocation_id")
 
     @allocation_id.setter
@@ -323,9 +252,6 @@ class _NatGatewayState:
     @_builtins.property
     @pulumi.getter(name="associationId")
     def association_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Association ID of the Elastic IP address.
-        """
         return pulumi.get(self, "association_id")
 
     @association_id.setter
@@ -335,9 +261,6 @@ class _NatGatewayState:
     @_builtins.property
     @pulumi.getter(name="autoProvisionZones")
     def auto_provision_zones(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (regional NAT gateways only) Indicates whether AWS automatically manages AZ coverage.
-        """
         return pulumi.get(self, "auto_provision_zones")
 
     @auto_provision_zones.setter
@@ -347,9 +270,6 @@ class _NatGatewayState:
     @_builtins.property
     @pulumi.getter(name="autoScalingIps")
     def auto_scaling_ips(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (regional NAT gateways only) Indicates whether AWS automatically allocates additional Elastic IP addresses (EIPs) in an AZ when the NAT gateway needs more ports due to increased concurrent connections to a single destination from that AZ.
-        """
         return pulumi.get(self, "auto_scaling_ips")
 
     @auto_scaling_ips.setter
@@ -359,9 +279,6 @@ class _NatGatewayState:
     @_builtins.property
     @pulumi.getter(name="availabilityMode")
     def availability_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies whether to create a zonal (single-AZ) or regional (multi-AZ) NAT gateway. Valid values are `zonal` and `regional`. Defaults to `zonal`.
-        """
         return pulumi.get(self, "availability_mode")
 
     @availability_mode.setter
@@ -371,9 +288,6 @@ class _NatGatewayState:
     @_builtins.property
     @pulumi.getter(name="availabilityZoneAddresses")
     def availability_zone_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NatGatewayAvailabilityZoneAddressArgs']]]]:
-        """
-        Repeatable configuration block for the Elastic IP addresses (EIPs) and availability zones for the regional NAT gateway. When not specified, the regional NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface (auto mode). When specified, auto-expansion is disabled (manual mode). See `availability_zone_address` below for details.
-        """
         return pulumi.get(self, "availability_zone_addresses")
 
     @availability_zone_addresses.setter
@@ -383,9 +297,6 @@ class _NatGatewayState:
     @_builtins.property
     @pulumi.getter(name="connectivityType")
     def connectivity_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Connectivity type for the NAT Gateway. Valid values are `private` and `public`. When `availability_mode` is set to `regional`, this must be set to `public`. Defaults to `public`.
-        """
         return pulumi.get(self, "connectivity_type")
 
     @connectivity_type.setter
@@ -395,9 +306,6 @@ class _NatGatewayState:
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the network interface.
-        """
         return pulumi.get(self, "network_interface_id")
 
     @network_interface_id.setter
@@ -407,9 +315,6 @@ class _NatGatewayState:
     @_builtins.property
     @pulumi.getter(name="privateIp")
     def private_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
-        """
         return pulumi.get(self, "private_ip")
 
     @private_ip.setter
@@ -419,9 +324,6 @@ class _NatGatewayState:
     @_builtins.property
     @pulumi.getter(name="publicIp")
     def public_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Public IP address.
-        """
         return pulumi.get(self, "public_ip")
 
     @public_ip.setter
@@ -431,9 +333,6 @@ class _NatGatewayState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -443,9 +342,6 @@ class _NatGatewayState:
     @_builtins.property
     @pulumi.getter(name="regionalNatGatewayAddresses")
     def regional_nat_gateway_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NatGatewayRegionalNatGatewayAddressArgs']]]]:
-        """
-        (regional NAT gateways only) Repeatable blocks for information about the IP addresses and network interface associated with the regional NAT gateway.
-        """
         return pulumi.get(self, "regional_nat_gateway_addresses")
 
     @regional_nat_gateway_addresses.setter
@@ -464,9 +360,6 @@ class _NatGatewayState:
     @_builtins.property
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (regional NAT gateways only) ID of the automatically created route table.
-        """
         return pulumi.get(self, "route_table_id")
 
     @route_table_id.setter
@@ -476,9 +369,6 @@ class _NatGatewayState:
     @_builtins.property
     @pulumi.getter(name="secondaryAllocationIds")
     def secondary_allocation_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
-        """
         return pulumi.get(self, "secondary_allocation_ids")
 
     @secondary_allocation_ids.setter
@@ -488,9 +378,6 @@ class _NatGatewayState:
     @_builtins.property
     @pulumi.getter(name="secondaryPrivateIpAddressCount")
     def secondary_private_ip_address_count(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
-        """
         return pulumi.get(self, "secondary_private_ip_address_count")
 
     @secondary_private_ip_address_count.setter
@@ -500,9 +387,6 @@ class _NatGatewayState:
     @_builtins.property
     @pulumi.getter(name="secondaryPrivateIpAddresses")
     def secondary_private_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
-        """
         return pulumi.get(self, "secondary_private_ip_addresses")
 
     @secondary_private_ip_addresses.setter
@@ -512,9 +396,6 @@ class _NatGatewayState:
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Subnet ID of the subnet in which to place the NAT Gateway. Required when `availability_mode` is set to `zonal`. Must not be set when `availability_mode` is set to `regional`.
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -524,9 +405,6 @@ class _NatGatewayState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -536,9 +414,6 @@ class _NatGatewayState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -548,9 +423,6 @@ class _NatGatewayState:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        VPC ID where this NAT Gateway will be created. Required when `availability_mode` is set to `regional`.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -578,129 +450,9 @@ class NatGateway(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a resource to create a VPC NAT Gateway.
-
-        !> **WARNING:** You should not use the `ec2.NatGateway` resource that has `secondary_allocation_ids` in conjunction with an `ec2.NatGatewayEipAssociation` resource. Doing so may cause perpetual differences, and result in associations being overwritten.
-
-        ## Example Usage
-
-        ### Public NAT
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.NatGateway("example",
-            allocation_id=example_aws_eip["id"],
-            subnet_id=example_aws_subnet["id"],
-            tags={
-                "Name": "gw NAT",
-            },
-            opts = pulumi.ResourceOptions(depends_on=[example_aws_internet_gateway]))
-        ```
-
-        ### Public NAT with Secondary Private IP Addresses
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.NatGateway("example",
-            allocation_id=example_aws_eip["id"],
-            subnet_id=example_aws_subnet["id"],
-            secondary_allocation_ids=[secondary["id"]],
-            secondary_private_ip_addresses=["10.0.1.5"])
-        ```
-
-        ### Private NAT
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.NatGateway("example",
-            connectivity_type="private",
-            subnet_id=example_aws_subnet["id"])
-        ```
-
-        ### Private NAT with Secondary Private IP Addresses
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.NatGateway("example",
-            connectivity_type="private",
-            subnet_id=example_aws_subnet["id"],
-            secondary_private_ip_address_count=7)
-        ```
-
-        ### Regional NAT Gateway with auto mode
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones()
-        example = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
-        example_internet_gateway = aws.ec2.InternetGateway("example", vpc_id=example.id)
-        example_nat_gateway = aws.ec2.NatGateway("example",
-            vpc_id=example.id,
-            availability_mode="regional")
-        ```
-
-        ### Regional NAT Gateway with manual mode
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones()
-        example = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
-        example_internet_gateway = aws.ec2.InternetGateway("example", vpc_id=example.id)
-        example_eip = []
-        for range in [{"value": i} for i in range(0, 3)]:
-            example_eip.append(aws.ec2.Eip(f"example-{range['value']}", domain="vpc"))
-        example_nat_gateway = aws.ec2.NatGateway("example",
-            vpc_id=example.id,
-            availability_mode="regional",
-            availability_zone_addresses=[
-                {
-                    "allocation_ids": [example_eip[0].id],
-                    "availability_zone": available.names[0],
-                },
-                {
-                    "allocation_ids": [
-                        example_eip[1].id,
-                        example_eip[2].id,
-                    ],
-                    "availability_zone": available.names[1],
-                },
-            ])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import NAT Gateways using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
-        ```
-
+        Create a NatGateway resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] allocation_id: The Allocation ID of the Elastic IP address for the NAT Gateway. Required when `connectivity_type` is set to `public` and `availability_mode` is set to `zonal`. When `availability_mode` is set to `regional`, this must not be set; instead, use the `availability_zone_address` block to specify EIPs for each AZ.
-        :param pulumi.Input[_builtins.str] availability_mode: Specifies whether to create a zonal (single-AZ) or regional (multi-AZ) NAT gateway. Valid values are `zonal` and `regional`. Defaults to `zonal`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NatGatewayAvailabilityZoneAddressArgs', 'NatGatewayAvailabilityZoneAddressArgsDict']]]] availability_zone_addresses: Repeatable configuration block for the Elastic IP addresses (EIPs) and availability zones for the regional NAT gateway. When not specified, the regional NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface (auto mode). When specified, auto-expansion is disabled (manual mode). See `availability_zone_address` below for details.
-        :param pulumi.Input[_builtins.str] connectivity_type: Connectivity type for the NAT Gateway. Valid values are `private` and `public`. When `availability_mode` is set to `regional`, this must be set to `public`. Defaults to `public`.
-        :param pulumi.Input[_builtins.str] private_ip: The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_allocation_ids: A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
-        :param pulumi.Input[_builtins.int] secondary_private_ip_address_count: The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_private_ip_addresses: A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
-        :param pulumi.Input[_builtins.str] subnet_id: The Subnet ID of the subnet in which to place the NAT Gateway. Required when `availability_mode` is set to `zonal`. Must not be set when `availability_mode` is set to `regional`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vpc_id: VPC ID where this NAT Gateway will be created. Required when `availability_mode` is set to `regional`.
         """
         ...
     @overload
@@ -709,115 +461,7 @@ class NatGateway(pulumi.CustomResource):
                  args: Optional[NatGatewayArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to create a VPC NAT Gateway.
-
-        !> **WARNING:** You should not use the `ec2.NatGateway` resource that has `secondary_allocation_ids` in conjunction with an `ec2.NatGatewayEipAssociation` resource. Doing so may cause perpetual differences, and result in associations being overwritten.
-
-        ## Example Usage
-
-        ### Public NAT
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.NatGateway("example",
-            allocation_id=example_aws_eip["id"],
-            subnet_id=example_aws_subnet["id"],
-            tags={
-                "Name": "gw NAT",
-            },
-            opts = pulumi.ResourceOptions(depends_on=[example_aws_internet_gateway]))
-        ```
-
-        ### Public NAT with Secondary Private IP Addresses
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.NatGateway("example",
-            allocation_id=example_aws_eip["id"],
-            subnet_id=example_aws_subnet["id"],
-            secondary_allocation_ids=[secondary["id"]],
-            secondary_private_ip_addresses=["10.0.1.5"])
-        ```
-
-        ### Private NAT
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.NatGateway("example",
-            connectivity_type="private",
-            subnet_id=example_aws_subnet["id"])
-        ```
-
-        ### Private NAT with Secondary Private IP Addresses
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.NatGateway("example",
-            connectivity_type="private",
-            subnet_id=example_aws_subnet["id"],
-            secondary_private_ip_address_count=7)
-        ```
-
-        ### Regional NAT Gateway with auto mode
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones()
-        example = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
-        example_internet_gateway = aws.ec2.InternetGateway("example", vpc_id=example.id)
-        example_nat_gateway = aws.ec2.NatGateway("example",
-            vpc_id=example.id,
-            availability_mode="regional")
-        ```
-
-        ### Regional NAT Gateway with manual mode
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones()
-        example = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
-        example_internet_gateway = aws.ec2.InternetGateway("example", vpc_id=example.id)
-        example_eip = []
-        for range in [{"value": i} for i in range(0, 3)]:
-            example_eip.append(aws.ec2.Eip(f"example-{range['value']}", domain="vpc"))
-        example_nat_gateway = aws.ec2.NatGateway("example",
-            vpc_id=example.id,
-            availability_mode="regional",
-            availability_zone_addresses=[
-                {
-                    "allocation_ids": [example_eip[0].id],
-                    "availability_zone": available.names[0],
-                },
-                {
-                    "allocation_ids": [
-                        example_eip[1].id,
-                        example_eip[2].id,
-                    ],
-                    "availability_zone": available.names[1],
-                },
-            ])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import NAT Gateways using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
-        ```
-
+        Create a NatGateway resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param NatGatewayArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -913,26 +557,6 @@ class NatGateway(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] allocation_id: The Allocation ID of the Elastic IP address for the NAT Gateway. Required when `connectivity_type` is set to `public` and `availability_mode` is set to `zonal`. When `availability_mode` is set to `regional`, this must not be set; instead, use the `availability_zone_address` block to specify EIPs for each AZ.
-        :param pulumi.Input[_builtins.str] association_id: Association ID of the Elastic IP address.
-        :param pulumi.Input[_builtins.str] auto_provision_zones: (regional NAT gateways only) Indicates whether AWS automatically manages AZ coverage.
-        :param pulumi.Input[_builtins.str] auto_scaling_ips: (regional NAT gateways only) Indicates whether AWS automatically allocates additional Elastic IP addresses (EIPs) in an AZ when the NAT gateway needs more ports due to increased concurrent connections to a single destination from that AZ.
-        :param pulumi.Input[_builtins.str] availability_mode: Specifies whether to create a zonal (single-AZ) or regional (multi-AZ) NAT gateway. Valid values are `zonal` and `regional`. Defaults to `zonal`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NatGatewayAvailabilityZoneAddressArgs', 'NatGatewayAvailabilityZoneAddressArgsDict']]]] availability_zone_addresses: Repeatable configuration block for the Elastic IP addresses (EIPs) and availability zones for the regional NAT gateway. When not specified, the regional NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface (auto mode). When specified, auto-expansion is disabled (manual mode). See `availability_zone_address` below for details.
-        :param pulumi.Input[_builtins.str] connectivity_type: Connectivity type for the NAT Gateway. Valid values are `private` and `public`. When `availability_mode` is set to `regional`, this must be set to `public`. Defaults to `public`.
-        :param pulumi.Input[_builtins.str] network_interface_id: ID of the network interface.
-        :param pulumi.Input[_builtins.str] private_ip: The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
-        :param pulumi.Input[_builtins.str] public_ip: Public IP address.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NatGatewayRegionalNatGatewayAddressArgs', 'NatGatewayRegionalNatGatewayAddressArgsDict']]]] regional_nat_gateway_addresses: (regional NAT gateways only) Repeatable blocks for information about the IP addresses and network interface associated with the regional NAT gateway.
-        :param pulumi.Input[_builtins.str] route_table_id: (regional NAT gateways only) ID of the automatically created route table.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_allocation_ids: A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
-        :param pulumi.Input[_builtins.int] secondary_private_ip_address_count: The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_private_ip_addresses: A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
-        :param pulumi.Input[_builtins.str] subnet_id: The Subnet ID of the subnet in which to place the NAT Gateway. Required when `availability_mode` is set to `zonal`. Must not be set when `availability_mode` is set to `regional`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_id: VPC ID where this NAT Gateway will be created. Required when `availability_mode` is set to `regional`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -964,97 +588,61 @@ class NatGateway(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The Allocation ID of the Elastic IP address for the NAT Gateway. Required when `connectivity_type` is set to `public` and `availability_mode` is set to `zonal`. When `availability_mode` is set to `regional`, this must not be set; instead, use the `availability_zone_address` block to specify EIPs for each AZ.
-        """
         return pulumi.get(self, "allocation_id")
 
     @_builtins.property
     @pulumi.getter(name="associationId")
     def association_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Association ID of the Elastic IP address.
-        """
         return pulumi.get(self, "association_id")
 
     @_builtins.property
     @pulumi.getter(name="autoProvisionZones")
     def auto_provision_zones(self) -> pulumi.Output[_builtins.str]:
-        """
-        (regional NAT gateways only) Indicates whether AWS automatically manages AZ coverage.
-        """
         return pulumi.get(self, "auto_provision_zones")
 
     @_builtins.property
     @pulumi.getter(name="autoScalingIps")
     def auto_scaling_ips(self) -> pulumi.Output[_builtins.str]:
-        """
-        (regional NAT gateways only) Indicates whether AWS automatically allocates additional Elastic IP addresses (EIPs) in an AZ when the NAT gateway needs more ports due to increased concurrent connections to a single destination from that AZ.
-        """
         return pulumi.get(self, "auto_scaling_ips")
 
     @_builtins.property
     @pulumi.getter(name="availabilityMode")
     def availability_mode(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies whether to create a zonal (single-AZ) or regional (multi-AZ) NAT gateway. Valid values are `zonal` and `regional`. Defaults to `zonal`.
-        """
         return pulumi.get(self, "availability_mode")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneAddresses")
     def availability_zone_addresses(self) -> pulumi.Output[Optional[Sequence['outputs.NatGatewayAvailabilityZoneAddress']]]:
-        """
-        Repeatable configuration block for the Elastic IP addresses (EIPs) and availability zones for the regional NAT gateway. When not specified, the regional NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface (auto mode). When specified, auto-expansion is disabled (manual mode). See `availability_zone_address` below for details.
-        """
         return pulumi.get(self, "availability_zone_addresses")
 
     @_builtins.property
     @pulumi.getter(name="connectivityType")
     def connectivity_type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Connectivity type for the NAT Gateway. Valid values are `private` and `public`. When `availability_mode` is set to `regional`, this must be set to `public`. Defaults to `public`.
-        """
         return pulumi.get(self, "connectivity_type")
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the network interface.
-        """
         return pulumi.get(self, "network_interface_id")
 
     @_builtins.property
     @pulumi.getter(name="privateIp")
     def private_ip(self) -> pulumi.Output[_builtins.str]:
-        """
-        The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
-        """
         return pulumi.get(self, "private_ip")
 
     @_builtins.property
     @pulumi.getter(name="publicIp")
     def public_ip(self) -> pulumi.Output[_builtins.str]:
-        """
-        Public IP address.
-        """
         return pulumi.get(self, "public_ip")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="regionalNatGatewayAddresses")
     def regional_nat_gateway_addresses(self) -> pulumi.Output[Sequence['outputs.NatGatewayRegionalNatGatewayAddress']]:
-        """
-        (regional NAT gateways only) Repeatable blocks for information about the IP addresses and network interface associated with the regional NAT gateway.
-        """
         return pulumi.get(self, "regional_nat_gateway_addresses")
 
     @_builtins.property
@@ -1065,64 +653,40 @@ class NatGateway(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        (regional NAT gateways only) ID of the automatically created route table.
-        """
         return pulumi.get(self, "route_table_id")
 
     @_builtins.property
     @pulumi.getter(name="secondaryAllocationIds")
     def secondary_allocation_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        A list of secondary allocation EIP IDs for this NAT Gateway. To remove all secondary allocations an empty list should be specified.
-        """
         return pulumi.get(self, "secondary_allocation_ids")
 
     @_builtins.property
     @pulumi.getter(name="secondaryPrivateIpAddressCount")
     def secondary_private_ip_address_count(self) -> pulumi.Output[_builtins.int]:
-        """
-        The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
-        """
         return pulumi.get(self, "secondary_private_ip_address_count")
 
     @_builtins.property
     @pulumi.getter(name="secondaryPrivateIpAddresses")
     def secondary_private_ip_addresses(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        A list of secondary private IPv4 addresses to assign to the NAT Gateway. To remove all secondary private addresses an empty list should be specified.
-        """
         return pulumi.get(self, "secondary_private_ip_addresses")
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The Subnet ID of the subnet in which to place the NAT Gateway. Required when `availability_mode` is set to `zonal`. Must not be set when `availability_mode` is set to `regional`.
-        """
         return pulumi.get(self, "subnet_id")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        VPC ID where this NAT Gateway will be created. Required when `availability_mode` is set to `regional`.
-        """
         return pulumi.get(self, "vpc_id")
 

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class WorkteamMemberDefinitionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
-        /// </summary>
         [Input("cognitoMemberDefinition")]
         public Input<Inputs.WorkteamMemberDefinitionCognitoMemberDefinitionArgs>? CognitoMemberDefinition { get; set; }
 
-        /// <summary>
-        /// A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. See Cognito Member Definition details below.
-        /// </summary>
         [Input("oidcMemberDefinition")]
         public Input<Inputs.WorkteamMemberDefinitionOidcMemberDefinitionArgs>? OidcMemberDefinition { get; set; }
 

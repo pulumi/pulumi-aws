@@ -19,77 +19,37 @@ public final class UserProfileUserSettingsCodeEditorAppSettingsArgs extends com.
 
     public static final UserProfileUserSettingsCodeEditorAppSettingsArgs Empty = new UserProfileUserSettingsCodeEditorAppSettingsArgs();
 
-    /**
-     * Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
-     * 
-     */
     @Import(name="appLifecycleManagement")
     private @Nullable Output<UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs> appLifecycleManagement;
 
-    /**
-     * @return Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
-     * 
-     */
     public Optional<Output<UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs>> appLifecycleManagement() {
         return Optional.ofNullable(this.appLifecycleManagement);
     }
 
-    /**
-     * The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
-     * 
-     */
     @Import(name="builtInLifecycleConfigArn")
     private @Nullable Output<String> builtInLifecycleConfigArn;
 
-    /**
-     * @return The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
-     * 
-     */
     public Optional<Output<String>> builtInLifecycleConfigArn() {
         return Optional.ofNullable(this.builtInLifecycleConfigArn);
     }
 
-    /**
-     * A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see Custom Image below.
-     * 
-     */
     @Import(name="customImages")
     private @Nullable Output<List<UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs>> customImages;
 
-    /**
-     * @return A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see Custom Image below.
-     * 
-     */
     public Optional<Output<List<UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs>>> customImages() {
         return Optional.ofNullable(this.customImages);
     }
 
-    /**
-     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
-     * 
-     */
     @Import(name="defaultResourceSpec")
     private @Nullable Output<UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs> defaultResourceSpec;
 
-    /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
-     * 
-     */
     public Optional<Output<UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs>> defaultResourceSpec() {
         return Optional.ofNullable(this.defaultResourceSpec);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
-     * 
-     */
     @Import(name="lifecycleConfigArns")
     private @Nullable Output<List<String>> lifecycleConfigArns;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Lifecycle Configurations.
-     * 
-     */
     public Optional<Output<List<String>>> lifecycleConfigArns() {
         return Optional.ofNullable(this.lifecycleConfigArns);
     }
@@ -122,127 +82,55 @@ public final class UserProfileUserSettingsCodeEditorAppSettingsArgs extends com.
             $ = new UserProfileUserSettingsCodeEditorAppSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param appLifecycleManagement Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appLifecycleManagement(@Nullable Output<UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs> appLifecycleManagement) {
             $.appLifecycleManagement = appLifecycleManagement;
             return this;
         }
 
-        /**
-         * @param appLifecycleManagement Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appLifecycleManagement(UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs appLifecycleManagement) {
             return appLifecycleManagement(Output.of(appLifecycleManagement));
         }
 
-        /**
-         * @param builtInLifecycleConfigArn The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder builtInLifecycleConfigArn(@Nullable Output<String> builtInLifecycleConfigArn) {
             $.builtInLifecycleConfigArn = builtInLifecycleConfigArn;
             return this;
         }
 
-        /**
-         * @param builtInLifecycleConfigArn The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder builtInLifecycleConfigArn(String builtInLifecycleConfigArn) {
             return builtInLifecycleConfigArn(Output.of(builtInLifecycleConfigArn));
         }
 
-        /**
-         * @param customImages A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see Custom Image below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customImages(@Nullable Output<List<UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs>> customImages) {
             $.customImages = customImages;
             return this;
         }
 
-        /**
-         * @param customImages A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see Custom Image below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customImages(List<UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs> customImages) {
             return customImages(Output.of(customImages));
         }
 
-        /**
-         * @param customImages A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see Custom Image below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customImages(UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs... customImages) {
             return customImages(List.of(customImages));
         }
 
-        /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultResourceSpec(@Nullable Output<UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs> defaultResourceSpec) {
             $.defaultResourceSpec = defaultResourceSpec;
             return this;
         }
 
-        /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultResourceSpec(UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs defaultResourceSpec) {
             return defaultResourceSpec(Output.of(defaultResourceSpec));
         }
 
-        /**
-         * @param lifecycleConfigArns The Amazon Resource Name (ARN) of the Lifecycle Configurations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lifecycleConfigArns(@Nullable Output<List<String>> lifecycleConfigArns) {
             $.lifecycleConfigArns = lifecycleConfigArns;
             return this;
         }
 
-        /**
-         * @param lifecycleConfigArns The Amazon Resource Name (ARN) of the Lifecycle Configurations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lifecycleConfigArns(List<String> lifecycleConfigArns) {
             return lifecycleConfigArns(Output.of(lifecycleConfigArns));
         }
 
-        /**
-         * @param lifecycleConfigArns The Amazon Resource Name (ARN) of the Lifecycle Configurations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lifecycleConfigArns(String... lifecycleConfigArns) {
             return lifecycleConfigArns(List.of(lifecycleConfigArns));
         }

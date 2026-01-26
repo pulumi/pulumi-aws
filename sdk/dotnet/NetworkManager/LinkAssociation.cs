@@ -9,55 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.NetworkManager
 {
-    /// <summary>
-    /// Manages a Network Manager link association. Associates a link to a device. A device can be associated to multiple links and a link can be associated to multiple devices. The device and link must be in the same global network and the same site.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkManager.LinkAssociation("example", new()
-    ///     {
-    ///         GlobalNetworkId = exampleAwsNetworkmanagerGlobalNetwork.Id,
-    ///         LinkId = exampleAwsNetworkmanagerLink.Id,
-    ///         DeviceId = exampleAwsNetworkmanagerDevice.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_networkmanager_link_association` using the global network ID, link ID and device ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:networkmanager/linkAssociation:LinkAssociation example global-network-0d47f6t230mz46dy4,link-444555aaabbb11223,device-07f6fd08867abc123
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:networkmanager/linkAssociation:LinkAssociation")]
     public partial class LinkAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ID of the device.
-        /// </summary>
         [Output("deviceId")]
         public Output<string> DeviceId { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the global network.
-        /// </summary>
         [Output("globalNetworkId")]
         public Output<string> GlobalNetworkId { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the link.
-        /// </summary>
         [Output("linkId")]
         public Output<string> LinkId { get; private set; } = null!;
 
@@ -107,21 +67,12 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class LinkAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the device.
-        /// </summary>
         [Input("deviceId", required: true)]
         public Input<string> DeviceId { get; set; } = null!;
 
-        /// <summary>
-        /// ID of the global network.
-        /// </summary>
         [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
 
-        /// <summary>
-        /// ID of the link.
-        /// </summary>
         [Input("linkId", required: true)]
         public Input<string> LinkId { get; set; } = null!;
 
@@ -133,21 +84,12 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class LinkAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the device.
-        /// </summary>
         [Input("deviceId")]
         public Input<string>? DeviceId { get; set; }
 
-        /// <summary>
-        /// ID of the global network.
-        /// </summary>
         [Input("globalNetworkId")]
         public Input<string>? GlobalNetworkId { get; set; }
 
-        /// <summary>
-        /// ID of the link.
-        /// </summary>
         [Input("linkId")]
         public Input<string>? LinkId { get; set; }
 

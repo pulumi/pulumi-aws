@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class AllowedImagesSettingsImageCriterionCreationDateConditionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Maximum number of days since the AMI was created.
-        /// </summary>
         [Input("maximumDaysSinceCreated")]
         public Input<int>? MaximumDaysSinceCreated { get; set; }
 

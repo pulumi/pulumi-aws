@@ -13,109 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.redshift.Cluster;
- * import com.pulumi.aws.redshift.ClusterArgs;
- * import com.pulumi.aws.redshift.SnapshotSchedule;
- * import com.pulumi.aws.redshift.SnapshotScheduleArgs;
- * import com.pulumi.aws.redshift.SnapshotScheduleAssociation;
- * import com.pulumi.aws.redshift.SnapshotScheduleAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var default_ = new Cluster("default", ClusterArgs.builder()
- *             .clusterIdentifier("tf-redshift-cluster")
- *             .databaseName("mydb")
- *             .masterUsername("foo")
- *             .masterPassword("Mustbe8characters")
- *             .nodeType("dc1.large")
- *             .clusterType("single-node")
- *             .build());
- * 
- *         var defaultSnapshotSchedule = new SnapshotSchedule("defaultSnapshotSchedule", SnapshotScheduleArgs.builder()
- *             .identifier("tf-redshift-snapshot-schedule")
- *             .definitions("rate(12 hours)")
- *             .build());
- * 
- *         var defaultSnapshotScheduleAssociation = new SnapshotScheduleAssociation("defaultSnapshotScheduleAssociation", SnapshotScheduleAssociationArgs.builder()
- *             .clusterIdentifier(default_.id())
- *             .scheduleIdentifier(defaultSnapshotSchedule.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Redshift Snapshot Schedule Association using the `&lt;cluster-identifier&gt;/&lt;schedule-identifier&gt;`. For example:
- * 
- * ```sh
- * $ pulumi import aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation default tf-redshift-cluster/tf-redshift-snapshot-schedule
- * ```
- * 
- */
 @ResourceType(type="aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation")
 public class SnapshotScheduleAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * The cluster identifier.
-     * 
-     */
     @Export(name="clusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> clusterIdentifier;
 
-    /**
-     * @return The cluster identifier.
-     * 
-     */
     public Output<String> clusterIdentifier() {
         return this.clusterIdentifier;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The snapshot schedule identifier.
-     * 
-     */
     @Export(name="scheduleIdentifier", refs={String.class}, tree="[0]")
     private Output<String> scheduleIdentifier;
 
-    /**
-     * @return The snapshot schedule identifier.
-     * 
-     */
     public Output<String> scheduleIdentifier() {
         return this.scheduleIdentifier;
     }

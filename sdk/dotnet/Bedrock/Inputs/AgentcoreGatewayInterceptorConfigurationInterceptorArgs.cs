@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreGatewayInterceptorConfigurationInterceptorArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Lambda function configuration for the interceptor. See `Lambda` below.
-        /// </summary>
         [Input("lambda")]
         public Input<Inputs.AgentcoreGatewayInterceptorConfigurationInterceptorLambdaArgs>? Lambda { get; set; }
 

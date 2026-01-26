@@ -9,104 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3Tables
 {
-    /// <summary>
-    /// Resource for managing an Amazon S3 Tables Table Bucket.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.S3Tables.TableBucket("example", new()
-    ///     {
-    ///         Name = "example-bucket",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import S3 Tables Table Bucket using the `arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:s3tables/tableBucket:TableBucket example arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:s3tables/tableBucket:TableBucket")]
     public partial class TableBucket : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the table bucket.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Date and time when the bucket was created.
-        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// A single table bucket encryption configuration object.
-        /// See `EncryptionConfiguration` below.
-        /// </summary>
         [Output("encryptionConfiguration")]
         public Output<Outputs.TableBucketEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether all tables and namespaces within the table bucket should be deleted *when the table bucket is destroyed* so that the table bucket can be destroyed without error. These tables and namespaces are *not* recoverable. This only deletes tables and namespaces when the table bucket is destroyed, *not* when setting this parameter to `True`. Once this parameter is set to `True`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the table bucket or destroying the table bucket, this flag will not work. Additionally when importing a table bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-        /// </summary>
         [Output("forceDestroy")]
         public Output<bool> ForceDestroy { get; private set; } = null!;
 
-        /// <summary>
-        /// A single table bucket maintenance configuration object.
-        /// See `MaintenanceConfiguration` below.
-        /// </summary>
         [Output("maintenanceConfiguration")]
         public Output<Outputs.TableBucketMaintenanceConfiguration> MaintenanceConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the table bucket.
-        /// Must be between 3 and 63 characters in length.
-        /// Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-        /// A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Account ID of the account that owns the table bucket.
-        /// </summary>
         [Output("ownerAccountId")]
         public Output<string> OwnerAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -156,49 +88,23 @@ namespace Pulumi.Aws.S3Tables
 
     public sealed class TableBucketArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A single table bucket encryption configuration object.
-        /// See `EncryptionConfiguration` below.
-        /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.TableBucketEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
 
-        /// <summary>
-        /// Whether all tables and namespaces within the table bucket should be deleted *when the table bucket is destroyed* so that the table bucket can be destroyed without error. These tables and namespaces are *not* recoverable. This only deletes tables and namespaces when the table bucket is destroyed, *not* when setting this parameter to `True`. Once this parameter is set to `True`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the table bucket or destroying the table bucket, this flag will not work. Additionally when importing a table bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-        /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
 
-        /// <summary>
-        /// A single table bucket maintenance configuration object.
-        /// See `MaintenanceConfiguration` below.
-        /// </summary>
         [Input("maintenanceConfiguration")]
         public Input<Inputs.TableBucketMaintenanceConfigurationArgs>? MaintenanceConfiguration { get; set; }
 
-        /// <summary>
-        /// Name of the table bucket.
-        /// Must be between 3 and 63 characters in length.
-        /// Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-        /// A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -213,67 +119,32 @@ namespace Pulumi.Aws.S3Tables
 
     public sealed class TableBucketState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the table bucket.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Date and time when the bucket was created.
-        /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
-        /// <summary>
-        /// A single table bucket encryption configuration object.
-        /// See `EncryptionConfiguration` below.
-        /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.TableBucketEncryptionConfigurationGetArgs>? EncryptionConfiguration { get; set; }
 
-        /// <summary>
-        /// Whether all tables and namespaces within the table bucket should be deleted *when the table bucket is destroyed* so that the table bucket can be destroyed without error. These tables and namespaces are *not* recoverable. This only deletes tables and namespaces when the table bucket is destroyed, *not* when setting this parameter to `True`. Once this parameter is set to `True`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the table bucket or destroying the table bucket, this flag will not work. Additionally when importing a table bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-        /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
 
-        /// <summary>
-        /// A single table bucket maintenance configuration object.
-        /// See `MaintenanceConfiguration` below.
-        /// </summary>
         [Input("maintenanceConfiguration")]
         public Input<Inputs.TableBucketMaintenanceConfigurationGetArgs>? MaintenanceConfiguration { get; set; }
 
-        /// <summary>
-        /// Name of the table bucket.
-        /// Must be between 3 and 63 characters in length.
-        /// Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-        /// A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Account ID of the account that owns the table bucket.
-        /// </summary>
         [Input("ownerAccountId")]
         public Input<string>? OwnerAccountId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -282,10 +153,6 @@ namespace Pulumi.Aws.S3Tables
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Inspector2.Outputs
     [OutputType]
     public sealed class FilterFilterCriteriaPortRange
     {
-        /// <summary>
-        /// (Required) The beginning of the port range, inclusive.
-        /// </summary>
         public readonly int BeginInclusive;
-        /// <summary>
-        /// (Required) The end of the port range, inclusive.
-        /// </summary>
         public readonly int EndInclusive;
 
         [OutputConstructor]

@@ -12,60 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Elastic File System (EFS) Backup Policy resource.
-// Backup policies turn automatic backups on or off for an existing file system.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/efs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fs, err := efs.NewFileSystem(ctx, "fs", &efs.FileSystemArgs{
-//				CreationToken: pulumi.String("my-product"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = efs.NewBackupPolicy(ctx, "policy", &efs.BackupPolicyArgs{
-//				FileSystemId: fs.ID(),
-//				BackupPolicy: &efs.BackupPolicyBackupPolicyArgs{
-//					Status: pulumi.String("ENABLED"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import the EFS backup policies using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:efs/backupPolicy:BackupPolicy example fs-6fa144c6
-// ```
 type BackupPolicy struct {
 	pulumi.CustomResourceState
 
-	// A backupPolicy object (documented below).
 	BackupPolicy BackupPolicyBackupPolicyOutput `pulumi:"backupPolicy"`
-	// The ID of the EFS file system.
-	FileSystemId pulumi.StringOutput `pulumi:"fileSystemId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	FileSystemId pulumi.StringOutput            `pulumi:"fileSystemId"`
+	Region       pulumi.StringOutput            `pulumi:"region"`
 }
 
 // NewBackupPolicy registers a new resource with the given unique name, arguments, and options.
@@ -104,21 +56,15 @@ func GetBackupPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BackupPolicy resources.
 type backupPolicyState struct {
-	// A backupPolicy object (documented below).
 	BackupPolicy *BackupPolicyBackupPolicy `pulumi:"backupPolicy"`
-	// The ID of the EFS file system.
-	FileSystemId *string `pulumi:"fileSystemId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	FileSystemId *string                   `pulumi:"fileSystemId"`
+	Region       *string                   `pulumi:"region"`
 }
 
 type BackupPolicyState struct {
-	// A backupPolicy object (documented below).
 	BackupPolicy BackupPolicyBackupPolicyPtrInput
-	// The ID of the EFS file system.
 	FileSystemId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
 }
 
 func (BackupPolicyState) ElementType() reflect.Type {
@@ -126,22 +72,16 @@ func (BackupPolicyState) ElementType() reflect.Type {
 }
 
 type backupPolicyArgs struct {
-	// A backupPolicy object (documented below).
 	BackupPolicy BackupPolicyBackupPolicy `pulumi:"backupPolicy"`
-	// The ID of the EFS file system.
-	FileSystemId string `pulumi:"fileSystemId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	FileSystemId string                   `pulumi:"fileSystemId"`
+	Region       *string                  `pulumi:"region"`
 }
 
 // The set of arguments for constructing a BackupPolicy resource.
 type BackupPolicyArgs struct {
-	// A backupPolicy object (documented below).
 	BackupPolicy BackupPolicyBackupPolicyInput
-	// The ID of the EFS file system.
 	FileSystemId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
 }
 
 func (BackupPolicyArgs) ElementType() reflect.Type {
@@ -231,17 +171,14 @@ func (o BackupPolicyOutput) ToBackupPolicyOutputWithContext(ctx context.Context)
 	return o
 }
 
-// A backupPolicy object (documented below).
 func (o BackupPolicyOutput) BackupPolicy() BackupPolicyBackupPolicyOutput {
 	return o.ApplyT(func(v *BackupPolicy) BackupPolicyBackupPolicyOutput { return v.BackupPolicy }).(BackupPolicyBackupPolicyOutput)
 }
 
-// The ID of the EFS file system.
 func (o BackupPolicyOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupPolicy) pulumi.StringOutput { return v.FileSystemId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BackupPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

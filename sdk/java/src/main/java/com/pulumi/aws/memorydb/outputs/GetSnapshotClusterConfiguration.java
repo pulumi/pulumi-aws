@@ -11,173 +11,61 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSnapshotClusterConfiguration {
-    /**
-     * @return Description for the cluster.
-     * 
-     */
     private String description;
-    /**
-     * @return The engine that will run on cluster nodes.
-     * 
-     */
     private String engine;
-    /**
-     * @return Version number of the engine used by the cluster.
-     * 
-     */
     private String engineVersion;
-    /**
-     * @return The weekly time range during which maintenance on the cluster is performed.
-     * 
-     */
     private String maintenanceWindow;
-    /**
-     * @return Name of the snapshot.
-     * 
-     */
     private String name;
-    /**
-     * @return Compute and memory capacity of the nodes in the cluster.
-     * 
-     */
     private String nodeType;
-    /**
-     * @return Number of shards in the cluster.
-     * 
-     */
     private Integer numShards;
-    /**
-     * @return Name of the parameter group associated with the cluster.
-     * 
-     */
     private String parameterGroupName;
-    /**
-     * @return Port number on which the cluster accepts connections.
-     * 
-     */
     private Integer port;
-    /**
-     * @return Number of days for which MemoryDB retains automatic snapshots before deleting them.
-     * 
-     */
     private Integer snapshotRetentionLimit;
-    /**
-     * @return The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
-     * 
-     */
     private String snapshotWindow;
-    /**
-     * @return Name of the subnet group used by the cluster.
-     * 
-     */
     private String subnetGroupName;
-    /**
-     * @return ARN of the SNS topic to which cluster notifications are sent.
-     * 
-     */
     private String topicArn;
-    /**
-     * @return The VPC in which the cluster exists.
-     * 
-     */
     private String vpcId;
 
     private GetSnapshotClusterConfiguration() {}
-    /**
-     * @return Description for the cluster.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return The engine that will run on cluster nodes.
-     * 
-     */
     public String engine() {
         return this.engine;
     }
-    /**
-     * @return Version number of the engine used by the cluster.
-     * 
-     */
     public String engineVersion() {
         return this.engineVersion;
     }
-    /**
-     * @return The weekly time range during which maintenance on the cluster is performed.
-     * 
-     */
     public String maintenanceWindow() {
         return this.maintenanceWindow;
     }
-    /**
-     * @return Name of the snapshot.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Compute and memory capacity of the nodes in the cluster.
-     * 
-     */
     public String nodeType() {
         return this.nodeType;
     }
-    /**
-     * @return Number of shards in the cluster.
-     * 
-     */
     public Integer numShards() {
         return this.numShards;
     }
-    /**
-     * @return Name of the parameter group associated with the cluster.
-     * 
-     */
     public String parameterGroupName() {
         return this.parameterGroupName;
     }
-    /**
-     * @return Port number on which the cluster accepts connections.
-     * 
-     */
     public Integer port() {
         return this.port;
     }
-    /**
-     * @return Number of days for which MemoryDB retains automatic snapshots before deleting them.
-     * 
-     */
     public Integer snapshotRetentionLimit() {
         return this.snapshotRetentionLimit;
     }
-    /**
-     * @return The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
-     * 
-     */
     public String snapshotWindow() {
         return this.snapshotWindow;
     }
-    /**
-     * @return Name of the subnet group used by the cluster.
-     * 
-     */
     public String subnetGroupName() {
         return this.subnetGroupName;
     }
-    /**
-     * @return ARN of the SNS topic to which cluster notifications are sent.
-     * 
-     */
     public String topicArn() {
         return this.topicArn;
     }
-    /**
-     * @return The VPC in which the cluster exists.
-     * 
-     */
     public String vpcId() {
         return this.vpcId;
     }

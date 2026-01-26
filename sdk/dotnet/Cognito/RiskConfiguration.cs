@@ -9,87 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Cognito
 {
-    /// <summary>
-    /// Provides a Cognito Risk Configuration resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Cognito.RiskConfiguration("example", new()
-    ///     {
-    ///         UserPoolId = exampleAwsCognitoUserPool.Id,
-    ///         RiskExceptionConfiguration = new Aws.Cognito.Inputs.RiskConfigurationRiskExceptionConfigurationArgs
-    ///         {
-    ///             BlockedIpRangeLists = new[]
-    ///             {
-    ///                 "10.10.10.10/32",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Import using the user pool ID and Client ID separated by a `:`:
-    /// 
-    /// __Using `pulumi import` to import__ Cognito Risk Configurations using the user pool ID or the user pool ID and Client Id separated by a `:`. For example:
-    /// 
-    /// Import using the user pool ID:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example
-    /// ```
-    /// Import using the user pool ID and Client ID separated by a `:`:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example:example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cognito/riskConfiguration:RiskConfiguration")]
     public partial class RiskConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The account takeover risk configuration. See details below.
-        /// </summary>
         [Output("accountTakeoverRiskConfiguration")]
         public Output<Outputs.RiskConfigurationAccountTakeoverRiskConfiguration?> AccountTakeoverRiskConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
-        /// </summary>
         [Output("clientId")]
         public Output<string?> ClientId { get; private set; } = null!;
 
-        /// <summary>
-        /// The compromised credentials risk configuration. See details below.
-        /// </summary>
         [Output("compromisedCredentialsRiskConfiguration")]
         public Output<Outputs.RiskConfigurationCompromisedCredentialsRiskConfiguration?> CompromisedCredentialsRiskConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The configuration to override the risk decision. See details below.
-        /// </summary>
         [Output("riskExceptionConfiguration")]
         public Output<Outputs.RiskConfigurationRiskExceptionConfiguration?> RiskExceptionConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// The user pool ID.
-        /// </summary>
         [Output("userPoolId")]
         public Output<string> UserPoolId { get; private set; } = null!;
 
@@ -139,39 +76,21 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class RiskConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The account takeover risk configuration. See details below.
-        /// </summary>
         [Input("accountTakeoverRiskConfiguration")]
         public Input<Inputs.RiskConfigurationAccountTakeoverRiskConfigurationArgs>? AccountTakeoverRiskConfiguration { get; set; }
 
-        /// <summary>
-        /// The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
-        /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
-        /// <summary>
-        /// The compromised credentials risk configuration. See details below.
-        /// </summary>
         [Input("compromisedCredentialsRiskConfiguration")]
         public Input<Inputs.RiskConfigurationCompromisedCredentialsRiskConfigurationArgs>? CompromisedCredentialsRiskConfiguration { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The configuration to override the risk decision. See details below.
-        /// </summary>
         [Input("riskExceptionConfiguration")]
         public Input<Inputs.RiskConfigurationRiskExceptionConfigurationArgs>? RiskExceptionConfiguration { get; set; }
 
-        /// <summary>
-        /// The user pool ID.
-        /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
 
@@ -183,39 +102,21 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class RiskConfigurationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The account takeover risk configuration. See details below.
-        /// </summary>
         [Input("accountTakeoverRiskConfiguration")]
         public Input<Inputs.RiskConfigurationAccountTakeoverRiskConfigurationGetArgs>? AccountTakeoverRiskConfiguration { get; set; }
 
-        /// <summary>
-        /// The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
-        /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
-        /// <summary>
-        /// The compromised credentials risk configuration. See details below.
-        /// </summary>
         [Input("compromisedCredentialsRiskConfiguration")]
         public Input<Inputs.RiskConfigurationCompromisedCredentialsRiskConfigurationGetArgs>? CompromisedCredentialsRiskConfiguration { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The configuration to override the risk decision. See details below.
-        /// </summary>
         [Input("riskExceptionConfiguration")]
         public Input<Inputs.RiskConfigurationRiskExceptionConfigurationGetArgs>? RiskExceptionConfiguration { get; set; }
 
-        /// <summary>
-        /// The user pool ID.
-        /// </summary>
         [Input("userPoolId")]
         public Input<string>? UserPoolId { get; set; }
 

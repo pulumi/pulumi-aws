@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ProjectEnvironmentEnvironmentVariable {
-    /**
-     * @return Environment variable&#39;s name or key.
-     * 
-     */
     private String name;
-    /**
-     * @return Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
-     * 
-     */
     private @Nullable String type;
-    /**
-     * @return Environment variable&#39;s value.
-     * 
-     */
     private String value;
 
     private ProjectEnvironmentEnvironmentVariable() {}
-    /**
-     * @return Environment variable&#39;s name or key.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }
-    /**
-     * @return Environment variable&#39;s value.
-     * 
-     */
     public String value() {
         return this.value;
     }

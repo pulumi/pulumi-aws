@@ -66,9 +66,6 @@ class GetResourceShareResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the resource share.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -92,9 +89,6 @@ class GetResourceShareResult:
     @_builtins.property
     @pulumi.getter(name="owningAccountId")
     def owning_account_id(self) -> _builtins.str:
-        """
-        ID of the AWS account that owns the resource share.
-        """
         return pulumi.get(self, "owning_account_id")
 
     @_builtins.property
@@ -105,9 +99,6 @@ class GetResourceShareResult:
     @_builtins.property
     @pulumi.getter(name="resourceArns")
     def resource_arns(self) -> Sequence[_builtins.str]:
-        """
-        A list of resource ARNs associated with the resource share.
-        """
         return pulumi.get(self, "resource_arns")
 
     @_builtins.property
@@ -123,17 +114,11 @@ class GetResourceShareResult:
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Status of the resource share.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Tags attached to the resource share.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -164,38 +149,7 @@ def get_resource_share(filters: Optional[Sequence[Union['GetResourceShareFilterA
                        tags: Optional[Mapping[str, _builtins.str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceShareResult:
     """
-    `ram.ResourceShare` Retrieve information about a RAM Resource Share.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ram.get_resource_share(name="example",
-        resource_owner="SELF")
-    ```
-
-    ## Search by filters
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    tag_filter = aws.ram.get_resource_share(resource_owner="SELF",
-        filters=[{
-            "name": "NameOfTag",
-            "values": ["exampleNameTagValue"],
-        }])
-    ```
-
-
-    :param Sequence[Union['GetResourceShareFilterArgs', 'GetResourceShareFilterArgsDict']] filters: Filter used to scope the list of owned shares e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
-    :param _builtins.str name: Name of the resource share to retrieve.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str resource_owner: Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
-    :param _builtins.str resource_share_status: Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
-    :param Mapping[str, _builtins.str] tags: Tags attached to the resource share.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -227,38 +181,7 @@ def get_resource_share_output(filters: Optional[pulumi.Input[Optional[Sequence[U
                               tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceShareResult]:
     """
-    `ram.ResourceShare` Retrieve information about a RAM Resource Share.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ram.get_resource_share(name="example",
-        resource_owner="SELF")
-    ```
-
-    ## Search by filters
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    tag_filter = aws.ram.get_resource_share(resource_owner="SELF",
-        filters=[{
-            "name": "NameOfTag",
-            "values": ["exampleNameTagValue"],
-        }])
-    ```
-
-
-    :param Sequence[Union['GetResourceShareFilterArgs', 'GetResourceShareFilterArgsDict']] filters: Filter used to scope the list of owned shares e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
-    :param _builtins.str name: Name of the resource share to retrieve.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str resource_owner: Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
-    :param _builtins.str resource_share_status: Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
-    :param Mapping[str, _builtins.str] tags: Tags attached to the resource share.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

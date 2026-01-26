@@ -17,198 +17,47 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Lex V2 Models Bot Locale.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lex.V2modelsBotLocale;
- * import com.pulumi.aws.lex.V2modelsBotLocaleArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new V2modelsBotLocale("example", V2modelsBotLocaleArgs.builder()
- *             .botId(exampleAwsLexv2modelsBot.id())
- *             .botVersion("DRAFT")
- *             .localeId("en_US")
- *             .nLuIntentConfidenceThreshold(0.7)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Voice Settings
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lex.V2modelsBotLocale;
- * import com.pulumi.aws.lex.V2modelsBotLocaleArgs;
- * import com.pulumi.aws.lex.inputs.V2modelsBotLocaleVoiceSettingsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new V2modelsBotLocale("example", V2modelsBotLocaleArgs.builder()
- *             .botId(exampleAwsLexv2modelsBot.id())
- *             .botVersion("DRAFT")
- *             .localeId("en_US")
- *             .nLuIntentConfidenceThreshold(0.7)
- *             .voiceSettings(V2modelsBotLocaleVoiceSettingsArgs.builder()
- *                 .voiceId("Kendra")
- *                 .engine("standard")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Lex V2 Models Bot Locale using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:lex/v2modelsBotLocale:V2modelsBotLocale example en_US,abcd-12345678,1
- * ```
- * 
- */
 @ResourceType(type="aws:lex/v2modelsBotLocale:V2modelsBotLocale")
 public class V2modelsBotLocale extends com.pulumi.resources.CustomResource {
-    /**
-     * Identifier of the bot to create the locale for.
-     * 
-     */
     @Export(name="botId", refs={String.class}, tree="[0]")
     private Output<String> botId;
 
-    /**
-     * @return Identifier of the bot to create the locale for.
-     * 
-     */
     public Output<String> botId() {
         return this.botId;
     }
-    /**
-     * Version of the bot to create the locale for. This can only be the draft version of the bot.
-     * 
-     */
     @Export(name="botVersion", refs={String.class}, tree="[0]")
     private Output<String> botVersion;
 
-    /**
-     * @return Version of the bot to create the locale for. This can only be the draft version of the bot.
-     * 
-     */
     public Output<String> botVersion() {
         return this.botVersion;
     }
-    /**
-     * Description of the bot locale. Use this to help identify the bot locale in lists.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the bot locale. Use this to help identify the bot locale in lists.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)
-     * 
-     */
     @Export(name="localeId", refs={String.class}, tree="[0]")
     private Output<String> localeId;
 
-    /**
-     * @return Identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)
-     * 
-     */
     public Output<String> localeId() {
         return this.localeId;
     }
-    /**
-     * Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="nLuIntentConfidenceThreshold", refs={Double.class}, tree="[0]")
     private Output<Double> nLuIntentConfidenceThreshold;
 
-    /**
-     * @return Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Double> nLuIntentConfidenceThreshold() {
         return this.nLuIntentConfidenceThreshold;
     }
-    /**
-     * Specified locale name.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Specified locale name.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
@@ -218,17 +67,9 @@ public class V2modelsBotLocale extends com.pulumi.resources.CustomResource {
     public Output<Optional<V2modelsBotLocaleTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
-     * 
-     */
     @Export(name="voiceSettings", refs={V2modelsBotLocaleVoiceSettings.class}, tree="[0]")
     private Output</* @Nullable */ V2modelsBotLocaleVoiceSettings> voiceSettings;
 
-    /**
-     * @return Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
-     * 
-     */
     public Output<Optional<V2modelsBotLocaleVoiceSettings>> voiceSettings() {
         return Codegen.optional(this.voiceSettings);
     }

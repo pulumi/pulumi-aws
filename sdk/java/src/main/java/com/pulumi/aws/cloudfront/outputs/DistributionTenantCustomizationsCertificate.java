@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DistributionTenantCustomizationsCertificate {
-    /**
-     * @return ARN of the distribution tenant.
-     * 
-     */
     private @Nullable String arn;
 
     private DistributionTenantCustomizationsCertificate() {}
-    /**
-     * @return ARN of the distribution tenant.
-     * 
-     */
     public Optional<String> arn() {
         return Optional.ofNullable(this.arn);
     }

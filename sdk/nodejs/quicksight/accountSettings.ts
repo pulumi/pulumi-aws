@@ -7,36 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS QuickSight Account Settings.
- *
- * > Deletion of this resource will not modify any settings, only remove the resource from state.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const subscription = new aws.quicksight.AccountSubscription("subscription", {
- *     accountName: "quicksight-terraform",
- *     authenticationMethod: "IAM_AND_QUICKSIGHT",
- *     edition: "ENTERPRISE",
- *     notificationEmail: "notification@email.com",
- * });
- * const example = new aws.quicksight.AccountSettings("example", {terminationProtectionEnabled: false}, {
- *     dependsOn: [subscription],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import QuickSight Account Settings using the AWS account ID. For example:
- *
- * ```sh
- * $ pulumi import aws:quicksight/accountSettings:AccountSettings example "012345678901"
- * ```
- */
 export class AccountSettings extends pulumi.CustomResource {
     /**
      * Get an existing AccountSettings resource's state with the given name, ID, and optional extra
@@ -66,17 +36,8 @@ export class AccountSettings extends pulumi.CustomResource {
     }
 
     declare public readonly awsAccountId: pulumi.Output<string>;
-    /**
-     * The default namespace for this Amazon Web Services account. Currently, the default is `default`.
-     */
     declare public readonly defaultNamespace: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
-     */
     declare public readonly terminationProtectionEnabled: pulumi.Output<boolean>;
     declare public readonly timeouts: pulumi.Output<outputs.quicksight.AccountSettingsTimeouts | undefined>;
 
@@ -116,17 +77,8 @@ export class AccountSettings extends pulumi.CustomResource {
  */
 export interface AccountSettingsState {
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * The default namespace for this Amazon Web Services account. Currently, the default is `default`.
-     */
     defaultNamespace?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
-     */
     terminationProtectionEnabled?: pulumi.Input<boolean>;
     timeouts?: pulumi.Input<inputs.quicksight.AccountSettingsTimeouts>;
 }
@@ -136,17 +88,8 @@ export interface AccountSettingsState {
  */
 export interface AccountSettingsArgs {
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * The default namespace for this Amazon Web Services account. Currently, the default is `default`.
-     */
     defaultNamespace?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
-     */
     terminationProtectionEnabled?: pulumi.Input<boolean>;
     timeouts?: pulumi.Input<inputs.quicksight.AccountSettingsTimeouts>;
 }

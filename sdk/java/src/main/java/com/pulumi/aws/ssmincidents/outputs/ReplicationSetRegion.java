@@ -12,55 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ReplicationSetRegion {
-    /**
-     * @return The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
-     * 
-     */
     private @Nullable String kmsKeyArn;
-    /**
-     * @return The name of the Region, such as `ap-southeast-2`.
-     * 
-     */
     private String name;
-    /**
-     * @return The current status of the Region.
-     * * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-     * 
-     */
     private @Nullable String status;
-    /**
-     * @return More information about the status of a Region.
-     * 
-     */
     private @Nullable String statusMessage;
 
     private ReplicationSetRegion() {}
-    /**
-     * @return The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
-     * 
-     */
     public Optional<String> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
-    /**
-     * @return The name of the Region, such as `ap-southeast-2`.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The current status of the Region.
-     * * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-     * 
-     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }
-    /**
-     * @return More information about the status of a Region.
-     * 
-     */
     public Optional<String> statusMessage() {
         return Optional.ofNullable(this.statusMessage);
     }

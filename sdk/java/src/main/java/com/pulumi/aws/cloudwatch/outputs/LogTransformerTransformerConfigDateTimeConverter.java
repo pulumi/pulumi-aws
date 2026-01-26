@@ -13,89 +13,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LogTransformerTransformerConfigDateTimeConverter {
-    /**
-     * @return Specifies the locale of the source field. Defaults to `locale.ROOT`.
-     * 
-     */
     private @Nullable String locale;
-    /**
-     * @return Specifies the list of patterns to match against the `source` field.
-     * 
-     */
     private List<String> matchPatterns;
-    /**
-     * @return Specifies the key to apply the date conversion to.
-     * 
-     */
     private String source;
-    /**
-     * @return Specifies the time zone of the source field. Defaults to `UTC`.
-     * 
-     */
     private @Nullable String sourceTimezone;
-    /**
-     * @return Specifies the JSON field to store the result in.
-     * 
-     */
     private String target;
-    /**
-     * @return Specifies the datetime format to use for the converted data in the target field. Defaults to `yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z`.
-     * 
-     */
     private @Nullable String targetFormat;
-    /**
-     * @return Specifies the time zone of the target field. Defaults to `UTC`.
-     * 
-     */
     private @Nullable String targetTimezone;
 
     private LogTransformerTransformerConfigDateTimeConverter() {}
-    /**
-     * @return Specifies the locale of the source field. Defaults to `locale.ROOT`.
-     * 
-     */
     public Optional<String> locale() {
         return Optional.ofNullable(this.locale);
     }
-    /**
-     * @return Specifies the list of patterns to match against the `source` field.
-     * 
-     */
     public List<String> matchPatterns() {
         return this.matchPatterns;
     }
-    /**
-     * @return Specifies the key to apply the date conversion to.
-     * 
-     */
     public String source() {
         return this.source;
     }
-    /**
-     * @return Specifies the time zone of the source field. Defaults to `UTC`.
-     * 
-     */
     public Optional<String> sourceTimezone() {
         return Optional.ofNullable(this.sourceTimezone);
     }
-    /**
-     * @return Specifies the JSON field to store the result in.
-     * 
-     */
     public String target() {
         return this.target;
     }
-    /**
-     * @return Specifies the datetime format to use for the converted data in the target field. Defaults to `yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z`.
-     * 
-     */
     public Optional<String> targetFormat() {
         return Optional.ofNullable(this.targetFormat);
     }
-    /**
-     * @return Specifies the time zone of the target field. Defaults to `UTC`.
-     * 
-     */
     public Optional<String> targetTimezone() {
         return Optional.ofNullable(this.targetTimezone);
     }

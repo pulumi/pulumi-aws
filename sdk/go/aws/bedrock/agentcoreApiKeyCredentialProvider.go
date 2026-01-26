@@ -11,94 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrock.NewAgentcoreApiKeyCredentialProvider(ctx, "example", &bedrock.AgentcoreApiKeyCredentialProviderArgs{
-//				Name:   pulumi.String("example-api-key-provider"),
-//				ApiKey: pulumi.String("your-api-key-here"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Write-Only API Key (Recommended for Production)
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrock.NewAgentcoreApiKeyCredentialProvider(ctx, "example", &bedrock.AgentcoreApiKeyCredentialProviderArgs{
-//				Name:            pulumi.String("example-api-key-provider"),
-//				ApiKeyWo:        pulumi.String("your-api-key-here"),
-//				ApiKeyWoVersion: pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Bedrock AgentCore API Key Credential Provider using the provider name. For example:
-//
-// ```sh
-// $ pulumi import aws:bedrock/agentcoreApiKeyCredentialProvider:AgentcoreApiKeyCredentialProvider example example-api-key-provider
-// ```
 type AgentcoreApiKeyCredentialProvider struct {
 	pulumi.CustomResourceState
 
-	// API key value. Cannot be used with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-	//
-	// **Write-Only API Key (choose one approach):**
-	ApiKey pulumi.StringPtrOutput `pulumi:"apiKey"`
-	// ARN of the AWS Secrets Manager secret containing the API key.
+	ApiKey           pulumi.StringPtrOutput                                      `pulumi:"apiKey"`
 	ApiKeySecretArns AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutput `pulumi:"apiKeySecretArns"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
-	ApiKeyWo pulumi.StringPtrOutput `pulumi:"apiKeyWo"`
-	// Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
-	ApiKeyWoVersion pulumi.IntPtrOutput `pulumi:"apiKeyWoVersion"`
-	// ARN of the API Key credential provider.
-	CredentialProviderArn pulumi.StringOutput `pulumi:"credentialProviderArn"`
-	// Name of the API Key credential provider. Forces replacement when changed.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	//
-	// **Standard API Key (choose one approach):**
-	Region pulumi.StringOutput `pulumi:"region"`
+	ApiKeyWo              pulumi.StringPtrOutput `pulumi:"apiKeyWo"`
+	ApiKeyWoVersion       pulumi.IntPtrOutput    `pulumi:"apiKeyWoVersion"`
+	CredentialProviderArn pulumi.StringOutput    `pulumi:"credentialProviderArn"`
+	Name                  pulumi.StringOutput    `pulumi:"name"`
+	Region                pulumi.StringOutput    `pulumi:"region"`
 }
 
 // NewAgentcoreApiKeyCredentialProvider registers a new resource with the given unique name, arguments, and options.
@@ -142,51 +65,25 @@ func GetAgentcoreApiKeyCredentialProvider(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AgentcoreApiKeyCredentialProvider resources.
 type agentcoreApiKeyCredentialProviderState struct {
-	// API key value. Cannot be used with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-	//
-	// **Write-Only API Key (choose one approach):**
-	ApiKey *string `pulumi:"apiKey"`
-	// ARN of the AWS Secrets Manager secret containing the API key.
+	ApiKey           *string                                            `pulumi:"apiKey"`
 	ApiKeySecretArns []AgentcoreApiKeyCredentialProviderApiKeySecretArn `pulumi:"apiKeySecretArns"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
-	ApiKeyWo *string `pulumi:"apiKeyWo"`
-	// Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
-	ApiKeyWoVersion *int `pulumi:"apiKeyWoVersion"`
-	// ARN of the API Key credential provider.
+	ApiKeyWo              *string `pulumi:"apiKeyWo"`
+	ApiKeyWoVersion       *int    `pulumi:"apiKeyWoVersion"`
 	CredentialProviderArn *string `pulumi:"credentialProviderArn"`
-	// Name of the API Key credential provider. Forces replacement when changed.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	//
-	// **Standard API Key (choose one approach):**
-	Region *string `pulumi:"region"`
+	Name                  *string `pulumi:"name"`
+	Region                *string `pulumi:"region"`
 }
 
 type AgentcoreApiKeyCredentialProviderState struct {
-	// API key value. Cannot be used with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-	//
-	// **Write-Only API Key (choose one approach):**
-	ApiKey pulumi.StringPtrInput
-	// ARN of the AWS Secrets Manager secret containing the API key.
+	ApiKey           pulumi.StringPtrInput
 	ApiKeySecretArns AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
-	ApiKeyWo pulumi.StringPtrInput
-	// Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
-	ApiKeyWoVersion pulumi.IntPtrInput
-	// ARN of the API Key credential provider.
+	ApiKeyWo              pulumi.StringPtrInput
+	ApiKeyWoVersion       pulumi.IntPtrInput
 	CredentialProviderArn pulumi.StringPtrInput
-	// Name of the API Key credential provider. Forces replacement when changed.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	//
-	// **Standard API Key (choose one approach):**
-	Region pulumi.StringPtrInput
+	Name                  pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
 }
 
 func (AgentcoreApiKeyCredentialProviderState) ElementType() reflect.Type {
@@ -194,44 +91,22 @@ func (AgentcoreApiKeyCredentialProviderState) ElementType() reflect.Type {
 }
 
 type agentcoreApiKeyCredentialProviderArgs struct {
-	// API key value. Cannot be used with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-	//
-	// **Write-Only API Key (choose one approach):**
 	ApiKey *string `pulumi:"apiKey"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
-	ApiKeyWo *string `pulumi:"apiKeyWo"`
-	// Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
-	ApiKeyWoVersion *int `pulumi:"apiKeyWoVersion"`
-	// Name of the API Key credential provider. Forces replacement when changed.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	//
-	// **Standard API Key (choose one approach):**
-	Region *string `pulumi:"region"`
+	ApiKeyWo        *string `pulumi:"apiKeyWo"`
+	ApiKeyWoVersion *int    `pulumi:"apiKeyWoVersion"`
+	Name            *string `pulumi:"name"`
+	Region          *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a AgentcoreApiKeyCredentialProvider resource.
 type AgentcoreApiKeyCredentialProviderArgs struct {
-	// API key value. Cannot be used with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-	//
-	// **Write-Only API Key (choose one approach):**
 	ApiKey pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
-	ApiKeyWo pulumi.StringPtrInput
-	// Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
+	ApiKeyWo        pulumi.StringPtrInput
 	ApiKeyWoVersion pulumi.IntPtrInput
-	// Name of the API Key credential provider. Forces replacement when changed.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	//
-	// **Standard API Key (choose one approach):**
-	Region pulumi.StringPtrInput
+	Name            pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
 }
 
 func (AgentcoreApiKeyCredentialProviderArgs) ElementType() reflect.Type {
@@ -321,14 +196,10 @@ func (o AgentcoreApiKeyCredentialProviderOutput) ToAgentcoreApiKeyCredentialProv
 	return o
 }
 
-// API key value. Cannot be used with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-//
-// **Write-Only API Key (choose one approach):**
 func (o AgentcoreApiKeyCredentialProviderOutput) ApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreApiKeyCredentialProvider) pulumi.StringPtrOutput { return v.ApiKey }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the AWS Secrets Manager secret containing the API key.
 func (o AgentcoreApiKeyCredentialProviderOutput) ApiKeySecretArns() AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutput {
 	return o.ApplyT(func(v *AgentcoreApiKeyCredentialProvider) AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutput {
 		return v.ApiKeySecretArns
@@ -336,31 +207,22 @@ func (o AgentcoreApiKeyCredentialProviderOutput) ApiKeySecretArns() AgentcoreApi
 }
 
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
 func (o AgentcoreApiKeyCredentialProviderOutput) ApiKeyWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreApiKeyCredentialProvider) pulumi.StringPtrOutput { return v.ApiKeyWo }).(pulumi.StringPtrOutput)
 }
 
-// Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
 func (o AgentcoreApiKeyCredentialProviderOutput) ApiKeyWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AgentcoreApiKeyCredentialProvider) pulumi.IntPtrOutput { return v.ApiKeyWoVersion }).(pulumi.IntPtrOutput)
 }
 
-// ARN of the API Key credential provider.
 func (o AgentcoreApiKeyCredentialProviderOutput) CredentialProviderArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreApiKeyCredentialProvider) pulumi.StringOutput { return v.CredentialProviderArn }).(pulumi.StringOutput)
 }
 
-// Name of the API Key credential provider. Forces replacement when changed.
-//
-// The following arguments are optional:
 func (o AgentcoreApiKeyCredentialProviderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreApiKeyCredentialProvider) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-//
-// **Standard API Key (choose one approach):**
 func (o AgentcoreApiKeyCredentialProviderOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreApiKeyCredentialProvider) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

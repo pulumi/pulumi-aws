@@ -13,9 +13,6 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketReplicationConfigRuleDestinationEncryptionConfiguration
     {
-        /// <summary>
-        /// ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
-        /// </summary>
         public readonly string ReplicaKmsKeyId;
 
         [OutputConstructor]

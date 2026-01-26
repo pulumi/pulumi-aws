@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Ssm.Outputs
     [OutputType]
     public sealed class DocumentParameter
     {
-        /// <summary>
-        /// If specified, the default values for the parameters. Parameters without a default value are required. Parameters with a default value are optional.
-        /// </summary>
         public readonly string? DefaultValue;
-        /// <summary>
-        /// A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
-        /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The name of the document.
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// The type of parameter. Valid values: `String`, `StringList`.
-        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

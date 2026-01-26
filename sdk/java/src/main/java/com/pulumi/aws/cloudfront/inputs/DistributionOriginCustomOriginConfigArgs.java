@@ -18,47 +18,23 @@ public final class DistributionOriginCustomOriginConfigArgs extends com.pulumi.r
 
     public static final DistributionOriginCustomOriginConfigArgs Empty = new DistributionOriginCustomOriginConfigArgs();
 
-    /**
-     * HTTP port the custom origin listens on.
-     * 
-     */
     @Import(name="httpPort", required=true)
     private Output<Integer> httpPort;
 
-    /**
-     * @return HTTP port the custom origin listens on.
-     * 
-     */
     public Output<Integer> httpPort() {
         return this.httpPort;
     }
 
-    /**
-     * HTTPS port the custom origin listens on.
-     * 
-     */
     @Import(name="httpsPort", required=true)
     private Output<Integer> httpsPort;
 
-    /**
-     * @return HTTPS port the custom origin listens on.
-     * 
-     */
     public Output<Integer> httpsPort() {
         return this.httpsPort;
     }
 
-    /**
-     * IP protocol CloudFront uses when connecting to your origin. Valid values: `ipv4`, `ipv6`, `dualstack`.
-     * 
-     */
     @Import(name="ipAddressType")
     private @Nullable Output<String> ipAddressType;
 
-    /**
-     * @return IP protocol CloudFront uses when connecting to your origin. Valid values: `ipv4`, `ipv6`, `dualstack`.
-     * 
-     */
     public Optional<Output<String>> ipAddressType() {
         return Optional.ofNullable(this.ipAddressType);
     }
@@ -70,17 +46,9 @@ public final class DistributionOriginCustomOriginConfigArgs extends com.pulumi.r
         return Optional.ofNullable(this.originKeepaliveTimeout);
     }
 
-    /**
-     * Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
-     * 
-     */
     @Import(name="originProtocolPolicy", required=true)
     private Output<String> originProtocolPolicy;
 
-    /**
-     * @return Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
-     * 
-     */
     public Output<String> originProtocolPolicy() {
         return this.originProtocolPolicy;
     }
@@ -92,17 +60,9 @@ public final class DistributionOriginCustomOriginConfigArgs extends com.pulumi.r
         return Optional.ofNullable(this.originReadTimeout);
     }
 
-    /**
-     * List of SSL/TLS protocols that CloudFront can use when connecting to your origin over HTTPS. Valid values: `SSLv3`, `TLSv1`, `TLSv1.1`, `TLSv1.2`. For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the Amazon CloudFront Developer Guide.
-     * 
-     */
     @Import(name="originSslProtocols", required=true)
     private Output<List<String>> originSslProtocols;
 
-    /**
-     * @return List of SSL/TLS protocols that CloudFront can use when connecting to your origin over HTTPS. Valid values: `SSLv3`, `TLSv1`, `TLSv1.1`, `TLSv1.2`. For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the Amazon CloudFront Developer Guide.
-     * 
-     */
     public Output<List<String>> originSslProtocols() {
         return this.originSslProtocols;
     }
@@ -137,65 +97,29 @@ public final class DistributionOriginCustomOriginConfigArgs extends com.pulumi.r
             $ = new DistributionOriginCustomOriginConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param httpPort HTTP port the custom origin listens on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpPort(Output<Integer> httpPort) {
             $.httpPort = httpPort;
             return this;
         }
 
-        /**
-         * @param httpPort HTTP port the custom origin listens on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpPort(Integer httpPort) {
             return httpPort(Output.of(httpPort));
         }
 
-        /**
-         * @param httpsPort HTTPS port the custom origin listens on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpsPort(Output<Integer> httpsPort) {
             $.httpsPort = httpsPort;
             return this;
         }
 
-        /**
-         * @param httpsPort HTTPS port the custom origin listens on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpsPort(Integer httpsPort) {
             return httpsPort(Output.of(httpsPort));
         }
 
-        /**
-         * @param ipAddressType IP protocol CloudFront uses when connecting to your origin. Valid values: `ipv4`, `ipv6`, `dualstack`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddressType(@Nullable Output<String> ipAddressType) {
             $.ipAddressType = ipAddressType;
             return this;
         }
 
-        /**
-         * @param ipAddressType IP protocol CloudFront uses when connecting to your origin. Valid values: `ipv4`, `ipv6`, `dualstack`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddressType(String ipAddressType) {
             return ipAddressType(Output.of(ipAddressType));
         }
@@ -209,23 +133,11 @@ public final class DistributionOriginCustomOriginConfigArgs extends com.pulumi.r
             return originKeepaliveTimeout(Output.of(originKeepaliveTimeout));
         }
 
-        /**
-         * @param originProtocolPolicy Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originProtocolPolicy(Output<String> originProtocolPolicy) {
             $.originProtocolPolicy = originProtocolPolicy;
             return this;
         }
 
-        /**
-         * @param originProtocolPolicy Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originProtocolPolicy(String originProtocolPolicy) {
             return originProtocolPolicy(Output.of(originProtocolPolicy));
         }
@@ -239,33 +151,15 @@ public final class DistributionOriginCustomOriginConfigArgs extends com.pulumi.r
             return originReadTimeout(Output.of(originReadTimeout));
         }
 
-        /**
-         * @param originSslProtocols List of SSL/TLS protocols that CloudFront can use when connecting to your origin over HTTPS. Valid values: `SSLv3`, `TLSv1`, `TLSv1.1`, `TLSv1.2`. For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the Amazon CloudFront Developer Guide.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originSslProtocols(Output<List<String>> originSslProtocols) {
             $.originSslProtocols = originSslProtocols;
             return this;
         }
 
-        /**
-         * @param originSslProtocols List of SSL/TLS protocols that CloudFront can use when connecting to your origin over HTTPS. Valid values: `SSLv3`, `TLSv1`, `TLSv1.1`, `TLSv1.2`. For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the Amazon CloudFront Developer Guide.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originSslProtocols(List<String> originSslProtocols) {
             return originSslProtocols(Output.of(originSslProtocols));
         }
 
-        /**
-         * @param originSslProtocols List of SSL/TLS protocols that CloudFront can use when connecting to your origin over HTTPS. Valid values: `SSLv3`, `TLSv1`, `TLSv1.1`, `TLSv1.2`. For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the Amazon CloudFront Developer Guide.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originSslProtocols(String... originSslProtocols) {
             return originSslProtocols(List.of(originSslProtocols));
         }

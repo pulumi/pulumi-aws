@@ -12,9 +12,6 @@ namespace Pulumi.Aws.AppRunner.Inputs
 
     public sealed class ObservabilityConfigurationTraceConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
-        /// </summary>
         [Input("vendor")]
         public Input<string>? Vendor { get; set; }
 

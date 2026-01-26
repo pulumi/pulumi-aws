@@ -9,86 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LakeFormation
 {
-    /// <summary>
-    /// Resource for managing an AWS Lake Formation LF Tag Expression.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.LakeFormation.LfTag("example", new()
-    ///     {
-    ///         Key = "example",
-    ///         Values = new[]
-    ///         {
-    ///             "value",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleLfTagExpression = new Aws.LakeFormation.LfTagExpression("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Expressions = new[]
-    ///         {
-    ///             new Aws.LakeFormation.Inputs.LfTagExpressionExpressionArgs
-    ///             {
-    ///                 TagKey = example.Key,
-    ///                 TagValues = example.Values,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Lake Formation LF Tag Expression using the `name,catalog_id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:lakeformation/lfTagExpression:LfTagExpression example example-tag-expression,123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:lakeformation/lfTagExpression:LfTagExpression")]
     public partial class LfTagExpression : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// ID of the Data Catalog. Defaults to the account ID if not specified.
+        /// The ID of the Data Catalog.
         /// </summary>
         [Output("catalogId")]
         public Output<string> CatalogId { get; private set; } = null!;
 
         /// <summary>
-        /// Description of the LF-Tag Expression.
+        /// A description of the LF-Tag Expression.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of LF-Tag conditions (key-value pairs). See expression for more details.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("expressions")]
         public Output<ImmutableArray<Outputs.LfTagExpressionExpression>> Expressions { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the LF-Tag Expression.
+        /// The name of the LF-Tag Expression.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -139,25 +83,19 @@ namespace Pulumi.Aws.LakeFormation
     public sealed class LfTagExpressionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of the Data Catalog. Defaults to the account ID if not specified.
+        /// The ID of the Data Catalog.
         /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
 
         /// <summary>
-        /// Description of the LF-Tag Expression.
+        /// A description of the LF-Tag Expression.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("expressions")]
         private InputList<Inputs.LfTagExpressionExpressionArgs>? _expressions;
-
-        /// <summary>
-        /// A list of LF-Tag conditions (key-value pairs). See expression for more details.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public InputList<Inputs.LfTagExpressionExpressionArgs> Expressions
         {
             get => _expressions ?? (_expressions = new InputList<Inputs.LfTagExpressionExpressionArgs>());
@@ -165,14 +103,11 @@ namespace Pulumi.Aws.LakeFormation
         }
 
         /// <summary>
-        /// Name of the LF-Tag Expression.
+        /// The name of the LF-Tag Expression.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -185,25 +120,19 @@ namespace Pulumi.Aws.LakeFormation
     public sealed class LfTagExpressionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of the Data Catalog. Defaults to the account ID if not specified.
+        /// The ID of the Data Catalog.
         /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
 
         /// <summary>
-        /// Description of the LF-Tag Expression.
+        /// A description of the LF-Tag Expression.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("expressions")]
         private InputList<Inputs.LfTagExpressionExpressionGetArgs>? _expressions;
-
-        /// <summary>
-        /// A list of LF-Tag conditions (key-value pairs). See expression for more details.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public InputList<Inputs.LfTagExpressionExpressionGetArgs> Expressions
         {
             get => _expressions ?? (_expressions = new InputList<Inputs.LfTagExpressionExpressionGetArgs>());
@@ -211,14 +140,11 @@ namespace Pulumi.Aws.LakeFormation
         }
 
         /// <summary>
-        /// Name of the LF-Tag Expression.
+        /// The name of the LF-Tag Expression.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

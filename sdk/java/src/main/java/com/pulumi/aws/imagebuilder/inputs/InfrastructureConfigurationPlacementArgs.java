@@ -15,62 +15,30 @@ public final class InfrastructureConfigurationPlacementArgs extends com.pulumi.r
 
     public static final InfrastructureConfigurationPlacementArgs Empty = new InfrastructureConfigurationPlacementArgs();
 
-    /**
-     * Availability Zone where your build and test instances will launch.
-     * 
-     */
     @Import(name="availabilityZone")
     private @Nullable Output<String> availabilityZone;
 
-    /**
-     * @return Availability Zone where your build and test instances will launch.
-     * 
-     */
     public Optional<Output<String>> availabilityZone() {
         return Optional.ofNullable(this.availabilityZone);
     }
 
-    /**
-     * ID of the Dedicated Host on which build and test instances run. Conflicts with `hostResourceGroupArn`.
-     * 
-     */
     @Import(name="hostId")
     private @Nullable Output<String> hostId;
 
-    /**
-     * @return ID of the Dedicated Host on which build and test instances run. Conflicts with `hostResourceGroupArn`.
-     * 
-     */
     public Optional<Output<String>> hostId() {
         return Optional.ofNullable(this.hostId);
     }
 
-    /**
-     * ARN of the host resource group in which to launch build and test instances. Conflicts with `hostId`.
-     * 
-     */
     @Import(name="hostResourceGroupArn")
     private @Nullable Output<String> hostResourceGroupArn;
 
-    /**
-     * @return ARN of the host resource group in which to launch build and test instances. Conflicts with `hostId`.
-     * 
-     */
     public Optional<Output<String>> hostResourceGroupArn() {
         return Optional.ofNullable(this.hostResourceGroupArn);
     }
 
-    /**
-     * Placement tenancy of the instance. Valid values: `default`, `dedicated` and `host`.
-     * 
-     */
     @Import(name="tenancy")
     private @Nullable Output<String> tenancy;
 
-    /**
-     * @return Placement tenancy of the instance. Valid values: `default`, `dedicated` and `host`.
-     * 
-     */
     public Optional<Output<String>> tenancy() {
         return Optional.ofNullable(this.tenancy);
     }
@@ -102,86 +70,38 @@ public final class InfrastructureConfigurationPlacementArgs extends com.pulumi.r
             $ = new InfrastructureConfigurationPlacementArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param availabilityZone Availability Zone where your build and test instances will launch.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZone(@Nullable Output<String> availabilityZone) {
             $.availabilityZone = availabilityZone;
             return this;
         }
 
-        /**
-         * @param availabilityZone Availability Zone where your build and test instances will launch.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZone(String availabilityZone) {
             return availabilityZone(Output.of(availabilityZone));
         }
 
-        /**
-         * @param hostId ID of the Dedicated Host on which build and test instances run. Conflicts with `hostResourceGroupArn`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostId(@Nullable Output<String> hostId) {
             $.hostId = hostId;
             return this;
         }
 
-        /**
-         * @param hostId ID of the Dedicated Host on which build and test instances run. Conflicts with `hostResourceGroupArn`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostId(String hostId) {
             return hostId(Output.of(hostId));
         }
 
-        /**
-         * @param hostResourceGroupArn ARN of the host resource group in which to launch build and test instances. Conflicts with `hostId`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostResourceGroupArn(@Nullable Output<String> hostResourceGroupArn) {
             $.hostResourceGroupArn = hostResourceGroupArn;
             return this;
         }
 
-        /**
-         * @param hostResourceGroupArn ARN of the host resource group in which to launch build and test instances. Conflicts with `hostId`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostResourceGroupArn(String hostResourceGroupArn) {
             return hostResourceGroupArn(Output.of(hostResourceGroupArn));
         }
 
-        /**
-         * @param tenancy Placement tenancy of the instance. Valid values: `default`, `dedicated` and `host`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tenancy(@Nullable Output<String> tenancy) {
             $.tenancy = tenancy;
             return this;
         }
 
-        /**
-         * @param tenancy Placement tenancy of the instance. Valid values: `default`, `dedicated` and `host`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tenancy(String tenancy) {
             return tenancy(Output.of(tenancy));
         }

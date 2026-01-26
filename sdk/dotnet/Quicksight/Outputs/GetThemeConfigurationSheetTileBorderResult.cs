@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class GetThemeConfigurationSheetTileBorderResult
     {
-        /// <summary>
-        /// This Boolean value controls whether to display sheet margins.
-        /// </summary>
         public readonly bool Show;
 
         [OutputConstructor]

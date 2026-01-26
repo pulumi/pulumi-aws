@@ -15,17 +15,9 @@ public final class ListenerRuleTransformUrlRewriteConfigArgs extends com.pulumi.
 
     public static final ListenerRuleTransformUrlRewriteConfigArgs Empty = new ListenerRuleTransformUrlRewriteConfigArgs();
 
-    /**
-     * Block for URL rewrite configuration. Only one block is accepted. See Rewrite Blocks below.
-     * 
-     */
     @Import(name="rewrite")
     private @Nullable Output<ListenerRuleTransformUrlRewriteConfigRewriteArgs> rewrite;
 
-    /**
-     * @return Block for URL rewrite configuration. Only one block is accepted. See Rewrite Blocks below.
-     * 
-     */
     public Optional<Output<ListenerRuleTransformUrlRewriteConfigRewriteArgs>> rewrite() {
         return Optional.ofNullable(this.rewrite);
     }
@@ -54,23 +46,11 @@ public final class ListenerRuleTransformUrlRewriteConfigArgs extends com.pulumi.
             $ = new ListenerRuleTransformUrlRewriteConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param rewrite Block for URL rewrite configuration. Only one block is accepted. See Rewrite Blocks below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rewrite(@Nullable Output<ListenerRuleTransformUrlRewriteConfigRewriteArgs> rewrite) {
             $.rewrite = rewrite;
             return this;
         }
 
-        /**
-         * @param rewrite Block for URL rewrite configuration. Only one block is accepted. See Rewrite Blocks below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rewrite(ListenerRuleTransformUrlRewriteConfigRewriteArgs rewrite) {
             return rewrite(Output.of(rewrite));
         }

@@ -9,74 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Quicksight
 {
-    /// <summary>
-    /// Resource for managing an AWS QuickSight Template Alias.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Quicksight.TemplateAlias("example", new()
-    ///     {
-    ///         AliasName = "example-alias",
-    ///         TemplateId = test.TemplateId,
-    ///         TemplateVersionNumber = test.VersionNumber,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import QuickSight Template Alias using the AWS account ID, template ID, and alias name separated by a comma (`,`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:quicksight/templateAlias:TemplateAlias example 123456789012,example-id,example-alias
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:quicksight/templateAlias:TemplateAlias")]
     public partial class TemplateAlias : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Display name of the template alias.
-        /// </summary>
         [Output("aliasName")]
         public Output<string> AliasName { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the template alias.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the template.
-        /// </summary>
         [Output("templateId")]
         public Output<string> TemplateId { get; private set; } = null!;
 
-        /// <summary>
-        /// Version number of the template.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("templateVersionNumber")]
         public Output<int> TemplateVersionNumber { get; private set; } = null!;
 
@@ -126,32 +76,18 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class TemplateAliasArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Display name of the template alias.
-        /// </summary>
         [Input("aliasName", required: true)]
         public Input<string> AliasName { get; set; } = null!;
 
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID of the template.
-        /// </summary>
         [Input("templateId", required: true)]
         public Input<string> TemplateId { get; set; } = null!;
 
-        /// <summary>
-        /// Version number of the template.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("templateVersionNumber", required: true)]
         public Input<int> TemplateVersionNumber { get; set; } = null!;
 
@@ -163,38 +99,21 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class TemplateAliasState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Display name of the template alias.
-        /// </summary>
         [Input("aliasName")]
         public Input<string>? AliasName { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the template alias.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID of the template.
-        /// </summary>
         [Input("templateId")]
         public Input<string>? TemplateId { get; set; }
 
-        /// <summary>
-        /// Version number of the template.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("templateVersionNumber")]
         public Input<int>? TemplateVersionNumber { get; set; }
 

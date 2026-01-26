@@ -11,89 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `secretsmanager.Secret` data source.
-//
-// ## Example Usage
-//
-// ### Retrieve Current Secret Version
-//
-// By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/secretsmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := secretsmanager.LookupSecretVersion(ctx, &secretsmanager.LookupSecretVersionArgs{
-//				SecretId: example.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Retrieve Specific Secret Version
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/secretsmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := secretsmanager.LookupSecretVersion(ctx, &secretsmanager.LookupSecretVersionArgs{
-//				SecretId:     example.Id,
-//				VersionStage: pulumi.StringRef("example"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Handling Key-Value Secret Strings in JSON
-//
-// # Reading key-value pairs from JSON back into a native map
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			ctx.Export("example", pulumi.Any(std.Jsondecode(ctx, &std.JsondecodeArgs{
-//				Input: exampleAwsSecretsmanagerSecretVersion.SecretString,
-//			}, nil).Result.Key1))
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupSecretVersion(ctx *pulumi.Context, args *LookupSecretVersionArgs, opts ...pulumi.InvokeOption) (*LookupSecretVersionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSecretVersionResult
@@ -106,31 +23,22 @@ func LookupSecretVersion(ctx *pulumi.Context, args *LookupSecretVersionArgs, opt
 
 // A collection of arguments for invoking getSecretVersion.
 type LookupSecretVersionArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
-	SecretId string `pulumi:"secretId"`
-	// Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `versionStage`.
-	VersionId *string `pulumi:"versionId"`
-	// Specifies the secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
+	Region       *string `pulumi:"region"`
+	SecretId     string  `pulumi:"secretId"`
+	VersionId    *string `pulumi:"versionId"`
 	VersionStage *string `pulumi:"versionStage"`
 }
 
 // A collection of values returned by getSecretVersion.
 type LookupSecretVersionResult struct {
-	// ARN of the secret.
-	Arn string `pulumi:"arn"`
-	// Created date of the secret in UTC.
+	Arn         string `pulumi:"arn"`
 	CreatedDate string `pulumi:"createdDate"`
 	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
-	// Decrypted part of the protected secret information that was originally provided as a binary.
-	SecretBinary string `pulumi:"secretBinary"`
-	SecretId     string `pulumi:"secretId"`
-	// Decrypted part of the protected secret information that was originally provided as a string.
-	SecretString string `pulumi:"secretString"`
-	// Unique identifier of this version of the secret.
+	Id            string   `pulumi:"id"`
+	Region        string   `pulumi:"region"`
+	SecretBinary  string   `pulumi:"secretBinary"`
+	SecretId      string   `pulumi:"secretId"`
+	SecretString  string   `pulumi:"secretString"`
 	VersionId     string   `pulumi:"versionId"`
 	VersionStage  *string  `pulumi:"versionStage"`
 	VersionStages []string `pulumi:"versionStages"`
@@ -147,13 +55,9 @@ func LookupSecretVersionOutput(ctx *pulumi.Context, args LookupSecretVersionOutp
 
 // A collection of arguments for invoking getSecretVersion.
 type LookupSecretVersionOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
-	SecretId pulumi.StringInput `pulumi:"secretId"`
-	// Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `versionStage`.
-	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
-	// Specifies the secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
+	Region       pulumi.StringPtrInput `pulumi:"region"`
+	SecretId     pulumi.StringInput    `pulumi:"secretId"`
+	VersionId    pulumi.StringPtrInput `pulumi:"versionId"`
 	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
 }
 
@@ -176,12 +80,10 @@ func (o LookupSecretVersionResultOutput) ToLookupSecretVersionResultOutputWithCo
 	return o
 }
 
-// ARN of the secret.
 func (o LookupSecretVersionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Created date of the secret in UTC.
 func (o LookupSecretVersionResultOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.CreatedDate }).(pulumi.StringOutput)
 }
@@ -195,7 +97,6 @@ func (o LookupSecretVersionResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Decrypted part of the protected secret information that was originally provided as a binary.
 func (o LookupSecretVersionResultOutput) SecretBinary() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.SecretBinary }).(pulumi.StringOutput)
 }
@@ -204,12 +105,10 @@ func (o LookupSecretVersionResultOutput) SecretId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.SecretId }).(pulumi.StringOutput)
 }
 
-// Decrypted part of the protected secret information that was originally provided as a string.
 func (o LookupSecretVersionResultOutput) SecretString() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.SecretString }).(pulumi.StringOutput)
 }
 
-// Unique identifier of this version of the secret.
 func (o LookupSecretVersionResultOutput) VersionId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.VersionId }).(pulumi.StringOutput)
 }

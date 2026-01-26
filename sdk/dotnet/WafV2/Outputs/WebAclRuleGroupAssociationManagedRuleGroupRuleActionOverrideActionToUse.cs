@@ -13,25 +13,10 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUse
     {
-        /// <summary>
-        /// Allow the request. See below.
-        /// </summary>
         public readonly Outputs.WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllow? Allow;
-        /// <summary>
-        /// Block the request. See below.
-        /// </summary>
         public readonly Outputs.WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlock? Block;
-        /// <summary>
-        /// Require CAPTCHA verification. See below.
-        /// </summary>
         public readonly Outputs.WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptcha? Captcha;
-        /// <summary>
-        /// Require challenge verification. See below.
-        /// </summary>
         public readonly Outputs.WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallenge? Challenge;
-        /// <summary>
-        /// Count the request without taking action. See below.
-        /// </summary>
         public readonly Outputs.WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCount? Count;
 
         [OutputConstructor]

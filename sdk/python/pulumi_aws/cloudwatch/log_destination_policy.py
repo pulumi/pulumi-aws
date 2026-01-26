@@ -25,10 +25,6 @@ class LogDestinationPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LogDestinationPolicy resource.
-        :param pulumi.Input[_builtins.str] access_policy: The policy document. This is a JSON formatted string.
-        :param pulumi.Input[_builtins.str] destination_name: A name for the subscription filter
-        :param pulumi.Input[_builtins.bool] force_update: Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "access_policy", access_policy)
         pulumi.set(__self__, "destination_name", destination_name)
@@ -40,9 +36,6 @@ class LogDestinationPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="accessPolicy")
     def access_policy(self) -> pulumi.Input[_builtins.str]:
-        """
-        The policy document. This is a JSON formatted string.
-        """
         return pulumi.get(self, "access_policy")
 
     @access_policy.setter
@@ -52,9 +45,6 @@ class LogDestinationPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="destinationName")
     def destination_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        A name for the subscription filter
-        """
         return pulumi.get(self, "destination_name")
 
     @destination_name.setter
@@ -64,9 +54,6 @@ class LogDestinationPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="forceUpdate")
     def force_update(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
-        """
         return pulumi.get(self, "force_update")
 
     @force_update.setter
@@ -76,9 +63,6 @@ class LogDestinationPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -95,10 +79,6 @@ class _LogDestinationPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LogDestinationPolicy resources.
-        :param pulumi.Input[_builtins.str] access_policy: The policy document. This is a JSON formatted string.
-        :param pulumi.Input[_builtins.str] destination_name: A name for the subscription filter
-        :param pulumi.Input[_builtins.bool] force_update: Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if access_policy is not None:
             pulumi.set(__self__, "access_policy", access_policy)
@@ -112,9 +92,6 @@ class _LogDestinationPolicyState:
     @_builtins.property
     @pulumi.getter(name="accessPolicy")
     def access_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The policy document. This is a JSON formatted string.
-        """
         return pulumi.get(self, "access_policy")
 
     @access_policy.setter
@@ -124,9 +101,6 @@ class _LogDestinationPolicyState:
     @_builtins.property
     @pulumi.getter(name="destinationName")
     def destination_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A name for the subscription filter
-        """
         return pulumi.get(self, "destination_name")
 
     @destination_name.setter
@@ -136,9 +110,6 @@ class _LogDestinationPolicyState:
     @_builtins.property
     @pulumi.getter(name="forceUpdate")
     def force_update(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
-        """
         return pulumi.get(self, "force_update")
 
     @force_update.setter
@@ -148,9 +119,6 @@ class _LogDestinationPolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -170,46 +138,9 @@ class LogDestinationPolicy(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a CloudWatch Logs destination policy resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_destination = aws.cloudwatch.LogDestination("test_destination",
-            name="test_destination",
-            role_arn=iam_for_cloudwatch["arn"],
-            target_arn=kinesis_for_cloudwatch["arn"])
-        test_destination_policy = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": ["123456789012"],
-            }],
-            "actions": ["logs:PutSubscriptionFilter"],
-            "resources": [test_destination.arn],
-        }])
-        test_destination_policy_log_destination_policy = aws.cloudwatch.LogDestinationPolicy("test_destination_policy",
-            destination_name=test_destination.name,
-            access_policy=test_destination_policy.json)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudWatch Logs destination policies using the `destination_name`. For example:
-
-        ```sh
-        $ pulumi import aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy test_destination_policy test_destination
-        ```
-
+        Create a LogDestinationPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_policy: The policy document. This is a JSON formatted string.
-        :param pulumi.Input[_builtins.str] destination_name: A name for the subscription filter
-        :param pulumi.Input[_builtins.bool] force_update: Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -218,40 +149,7 @@ class LogDestinationPolicy(pulumi.CustomResource):
                  args: LogDestinationPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a CloudWatch Logs destination policy resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_destination = aws.cloudwatch.LogDestination("test_destination",
-            name="test_destination",
-            role_arn=iam_for_cloudwatch["arn"],
-            target_arn=kinesis_for_cloudwatch["arn"])
-        test_destination_policy = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": ["123456789012"],
-            }],
-            "actions": ["logs:PutSubscriptionFilter"],
-            "resources": [test_destination.arn],
-        }])
-        test_destination_policy_log_destination_policy = aws.cloudwatch.LogDestinationPolicy("test_destination_policy",
-            destination_name=test_destination.name,
-            access_policy=test_destination_policy.json)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudWatch Logs destination policies using the `destination_name`. For example:
-
-        ```sh
-        $ pulumi import aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy test_destination_policy test_destination
-        ```
-
+        Create a LogDestinationPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LogDestinationPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -309,10 +207,6 @@ class LogDestinationPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_policy: The policy document. This is a JSON formatted string.
-        :param pulumi.Input[_builtins.str] destination_name: A name for the subscription filter
-        :param pulumi.Input[_builtins.bool] force_update: Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -327,32 +221,20 @@ class LogDestinationPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accessPolicy")
     def access_policy(self) -> pulumi.Output[_builtins.str]:
-        """
-        The policy document. This is a JSON formatted string.
-        """
         return pulumi.get(self, "access_policy")
 
     @_builtins.property
     @pulumi.getter(name="destinationName")
     def destination_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        A name for the subscription filter
-        """
         return pulumi.get(self, "destination_name")
 
     @_builtins.property
     @pulumi.getter(name="forceUpdate")
     def force_update(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
-        """
         return pulumi.get(self, "force_update")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

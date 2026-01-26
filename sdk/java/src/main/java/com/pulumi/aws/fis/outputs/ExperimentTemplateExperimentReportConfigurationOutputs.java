@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ExperimentTemplateExperimentReportConfigurationOutputs {
-    /**
-     * @return The data sources for the experiment report. See below.
-     * 
-     */
     private @Nullable ExperimentTemplateExperimentReportConfigurationOutputsS3Configuration s3Configuration;
 
     private ExperimentTemplateExperimentReportConfigurationOutputs() {}
-    /**
-     * @return The data sources for the experiment report. See below.
-     * 
-     */
     public Optional<ExperimentTemplateExperimentReportConfigurationOutputsS3Configuration> s3Configuration() {
         return Optional.ofNullable(this.s3Configuration);
     }

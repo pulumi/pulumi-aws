@@ -9,88 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Schemas
 {
-    /// <summary>
-    /// Resource for managing an AWS EventBridge Schemas Registry Policy.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Sid = "example",
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "AWS",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "109876543210",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "schemas:*",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     "arn:aws:schemas:us-east-1:123456789012:registry/example",
-    ///                     "arn:aws:schemas:us-east-1:123456789012:schema/example*",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleRegistryPolicy = new Aws.Schemas.RegistryPolicy("example", new()
-    ///     {
-    ///         RegistryName = "example",
-    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import EventBridge Schema Registry Policy using the `registry_name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:schemas/registryPolicy:RegistryPolicy example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:schemas/registryPolicy:RegistryPolicy")]
     public partial class RegistryPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Resource Policy for EventBridge Schema Registry
-        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of EventBridge Schema Registry
-        /// </summary>
         [Output("registryName")]
         public Output<string> RegistryName { get; private set; } = null!;
 
@@ -140,21 +67,12 @@ namespace Pulumi.Aws.Schemas
 
     public sealed class RegistryPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Resource Policy for EventBridge Schema Registry
-        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Name of EventBridge Schema Registry
-        /// </summary>
         [Input("registryName", required: true)]
         public Input<string> RegistryName { get; set; } = null!;
 
@@ -166,21 +84,12 @@ namespace Pulumi.Aws.Schemas
 
     public sealed class RegistryPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Resource Policy for EventBridge Schema Registry
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Name of EventBridge Schema Registry
-        /// </summary>
         [Input("registryName")]
         public Input<string>? RegistryName { get; set; }
 

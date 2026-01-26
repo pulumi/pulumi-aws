@@ -9,180 +9,51 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Scheduler
 {
-    /// <summary>
-    /// Provides an EventBridge Scheduler Schedule resource.
-    /// 
-    /// You can find out more about EventBridge Scheduler in the [User Guide](https://docs.aws.amazon.com/scheduler/latest/UserGuide/what-is-scheduler.html).
-    /// 
-    /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Scheduler.Schedule("example", new()
-    ///     {
-    ///         Name = "my-schedule",
-    ///         GroupName = "default",
-    ///         FlexibleTimeWindow = new Aws.Scheduler.Inputs.ScheduleFlexibleTimeWindowArgs
-    ///         {
-    ///             Mode = "OFF",
-    ///         },
-    ///         ScheduleExpression = "rate(1 hours)",
-    ///         Target = new Aws.Scheduler.Inputs.ScheduleTargetArgs
-    ///         {
-    ///             Arn = exampleAwsSqsQueue.Arn,
-    ///             RoleArn = exampleAwsIamRole.Arn,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Universal Target
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Sqs.Queue("example");
-    /// 
-    ///     var exampleSchedule = new Aws.Scheduler.Schedule("example", new()
-    ///     {
-    ///         Name = "my-schedule",
-    ///         FlexibleTimeWindow = new Aws.Scheduler.Inputs.ScheduleFlexibleTimeWindowArgs
-    ///         {
-    ///             Mode = "OFF",
-    ///         },
-    ///         ScheduleExpression = "rate(1 hours)",
-    ///         Target = new Aws.Scheduler.Inputs.ScheduleTargetArgs
-    ///         {
-    ///             Arn = "arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
-    ///             RoleArn = exampleAwsIamRole.Arn,
-    ///             Input = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["MessageBody"] = "Greetings, programs!",
-    ///                 ["QueueUrl"] = example.Url,
-    ///             })),
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import schedules using the combination `group_name/name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:scheduler/schedule:Schedule")]
     public partial class Schedule : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
-        /// </summary>
         [Output("actionAfterCompletion")]
         public Output<string> ActionAfterCompletion { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the schedule.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Brief description of the schedule.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the end date you specify. EventBridge Scheduler ignores the end date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
-        /// </summary>
         [Output("endDate")]
         public Output<string?> EndDate { get; private set; } = null!;
 
-        /// <summary>
-        /// Configures a time window during which EventBridge Scheduler invokes the schedule. Detailed below.
-        /// </summary>
         [Output("flexibleTimeWindow")]
         public Output<Outputs.ScheduleFlexibleTimeWindow> FlexibleTimeWindow { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the schedule group to associate with this schedule. When omitted, the `Default` schedule group is used.
-        /// </summary>
         [Output("groupName")]
         public Output<string> GroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
-        /// </summary>
         [Output("kmsKeyArn")]
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
-        /// </summary>
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Defines when the schedule runs. Read more in [Schedule types on EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html).
-        /// </summary>
         [Output("scheduleExpression")]
         public Output<string> ScheduleExpression { get; private set; } = null!;
 
-        /// <summary>
-        /// Timezone in which the scheduling expression is evaluated. Defaults to `UTC`. Example: `Australia/Sydney`.
-        /// </summary>
         [Output("scheduleExpressionTimezone")]
         public Output<string?> ScheduleExpressionTimezone { get; private set; } = null!;
 
-        /// <summary>
-        /// The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the start date you specify. EventBridge Scheduler ignores the start date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
-        /// </summary>
         [Output("startDate")]
         public Output<string?> StartDate { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
-        /// </summary>
         [Output("state")]
         public Output<string?> State { get; private set; } = null!;
 
-        /// <summary>
-        /// Configures the target of the schedule. Detailed below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("target")]
         public Output<Outputs.ScheduleTarget> Target { get; private set; } = null!;
 
@@ -232,89 +103,45 @@ namespace Pulumi.Aws.Scheduler
 
     public sealed class ScheduleArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
-        /// </summary>
         [Input("actionAfterCompletion")]
         public Input<string>? ActionAfterCompletion { get; set; }
 
-        /// <summary>
-        /// Brief description of the schedule.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the end date you specify. EventBridge Scheduler ignores the end date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
-        /// </summary>
         [Input("endDate")]
         public Input<string>? EndDate { get; set; }
 
-        /// <summary>
-        /// Configures a time window during which EventBridge Scheduler invokes the schedule. Detailed below.
-        /// </summary>
         [Input("flexibleTimeWindow", required: true)]
         public Input<Inputs.ScheduleFlexibleTimeWindowArgs> FlexibleTimeWindow { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the schedule group to associate with this schedule. When omitted, the `Default` schedule group is used.
-        /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
 
-        /// <summary>
-        /// ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
-        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
-        /// <summary>
-        /// Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
-        /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Defines when the schedule runs. Read more in [Schedule types on EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html).
-        /// </summary>
         [Input("scheduleExpression", required: true)]
         public Input<string> ScheduleExpression { get; set; } = null!;
 
-        /// <summary>
-        /// Timezone in which the scheduling expression is evaluated. Defaults to `UTC`. Example: `Australia/Sydney`.
-        /// </summary>
         [Input("scheduleExpressionTimezone")]
         public Input<string>? ScheduleExpressionTimezone { get; set; }
 
-        /// <summary>
-        /// The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the start date you specify. EventBridge Scheduler ignores the start date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
-        /// </summary>
         [Input("startDate")]
         public Input<string>? StartDate { get; set; }
 
-        /// <summary>
-        /// Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
-        /// <summary>
-        /// Configures the target of the schedule. Detailed below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("target", required: true)]
         public Input<Inputs.ScheduleTargetArgs> Target { get; set; } = null!;
 
@@ -326,95 +153,48 @@ namespace Pulumi.Aws.Scheduler
 
     public sealed class ScheduleState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
-        /// </summary>
         [Input("actionAfterCompletion")]
         public Input<string>? ActionAfterCompletion { get; set; }
 
-        /// <summary>
-        /// ARN of the schedule.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Brief description of the schedule.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the end date you specify. EventBridge Scheduler ignores the end date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
-        /// </summary>
         [Input("endDate")]
         public Input<string>? EndDate { get; set; }
 
-        /// <summary>
-        /// Configures a time window during which EventBridge Scheduler invokes the schedule. Detailed below.
-        /// </summary>
         [Input("flexibleTimeWindow")]
         public Input<Inputs.ScheduleFlexibleTimeWindowGetArgs>? FlexibleTimeWindow { get; set; }
 
-        /// <summary>
-        /// Name of the schedule group to associate with this schedule. When omitted, the `Default` schedule group is used.
-        /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
 
-        /// <summary>
-        /// ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
-        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
-        /// <summary>
-        /// Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
-        /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Defines when the schedule runs. Read more in [Schedule types on EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html).
-        /// </summary>
         [Input("scheduleExpression")]
         public Input<string>? ScheduleExpression { get; set; }
 
-        /// <summary>
-        /// Timezone in which the scheduling expression is evaluated. Defaults to `UTC`. Example: `Australia/Sydney`.
-        /// </summary>
         [Input("scheduleExpressionTimezone")]
         public Input<string>? ScheduleExpressionTimezone { get; set; }
 
-        /// <summary>
-        /// The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the start date you specify. EventBridge Scheduler ignores the start date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
-        /// </summary>
         [Input("startDate")]
         public Input<string>? StartDate { get; set; }
 
-        /// <summary>
-        /// Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
-        /// <summary>
-        /// Configures the target of the schedule. Detailed below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("target")]
         public Input<Inputs.ScheduleTargetGetArgs>? Target { get; set; }
 

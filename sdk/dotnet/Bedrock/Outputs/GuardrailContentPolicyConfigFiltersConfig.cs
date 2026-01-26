@@ -13,41 +13,14 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class GuardrailContentPolicyConfigFiltersConfig
     {
-        /// <summary>
-        /// Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
-        /// </summary>
         public readonly string? InputAction;
-        /// <summary>
-        /// Toggles guardrail evaluation on input.
-        /// </summary>
         public readonly bool? InputEnabled;
-        /// <summary>
-        /// List of selected input modalities. Valid values: `IMAGE`, `TEXT`.
-        /// </summary>
         public readonly ImmutableArray<string> InputModalities;
-        /// <summary>
-        /// Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
-        /// </summary>
         public readonly string InputStrength;
-        /// <summary>
-        /// Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
-        /// </summary>
         public readonly string? OutputAction;
-        /// <summary>
-        /// Toggles guardrail evaluation on output.
-        /// </summary>
         public readonly bool? OutputEnabled;
-        /// <summary>
-        /// List of selected output modalities. Valid values: `IMAGE`, `TEXT`.
-        /// </summary>
         public readonly ImmutableArray<string> OutputModalities;
-        /// <summary>
-        /// Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
-        /// </summary>
         public readonly string OutputStrength;
-        /// <summary>
-        /// Type of contextual grounding filter.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

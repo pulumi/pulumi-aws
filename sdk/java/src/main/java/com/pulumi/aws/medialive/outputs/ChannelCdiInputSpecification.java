@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ChannelCdiInputSpecification {
-    /**
-     * @return Maximum CDI input resolution.
-     * 
-     */
     private String resolution;
 
     private ChannelCdiInputSpecification() {}
-    /**
-     * @return Maximum CDI input resolution.
-     * 
-     */
     public String resolution() {
         return this.resolution;
     }

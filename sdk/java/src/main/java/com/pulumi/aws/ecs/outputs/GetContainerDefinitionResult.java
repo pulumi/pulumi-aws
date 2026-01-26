@@ -14,50 +14,18 @@ import java.util.Objects;
 @CustomType
 public final class GetContainerDefinitionResult {
     private String containerName;
-    /**
-     * @return CPU limit for this container definition
-     * 
-     */
     private Integer cpu;
-    /**
-     * @return Indicator if networking is disabled
-     * 
-     */
     private Boolean disableNetworking;
-    /**
-     * @return Set docker labels
-     * 
-     */
     private Map<String,String> dockerLabels;
-    /**
-     * @return Environment in use
-     * 
-     */
     private Map<String,String> environment;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Docker image in use, including the digest
-     * 
-     */
     private String image;
-    /**
-     * @return Digest of the docker image in use
-     * 
-     */
     private String imageDigest;
-    /**
-     * @return Memory limit for this container definition
-     * 
-     */
     private Integer memory;
-    /**
-     * @return Soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit
-     * 
-     */
     private Integer memoryReservation;
     private String region;
     private String taskDefinition;
@@ -66,31 +34,15 @@ public final class GetContainerDefinitionResult {
     public String containerName() {
         return this.containerName;
     }
-    /**
-     * @return CPU limit for this container definition
-     * 
-     */
     public Integer cpu() {
         return this.cpu;
     }
-    /**
-     * @return Indicator if networking is disabled
-     * 
-     */
     public Boolean disableNetworking() {
         return this.disableNetworking;
     }
-    /**
-     * @return Set docker labels
-     * 
-     */
     public Map<String,String> dockerLabels() {
         return this.dockerLabels;
     }
-    /**
-     * @return Environment in use
-     * 
-     */
     public Map<String,String> environment() {
         return this.environment;
     }
@@ -101,31 +53,15 @@ public final class GetContainerDefinitionResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Docker image in use, including the digest
-     * 
-     */
     public String image() {
         return this.image;
     }
-    /**
-     * @return Digest of the docker image in use
-     * 
-     */
     public String imageDigest() {
         return this.imageDigest;
     }
-    /**
-     * @return Memory limit for this container definition
-     * 
-     */
     public Integer memory() {
         return this.memory;
     }
-    /**
-     * @return Soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit
-     * 
-     */
     public Integer memoryReservation() {
         return this.memoryReservation;
     }

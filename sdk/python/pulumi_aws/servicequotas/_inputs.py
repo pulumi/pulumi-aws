@@ -26,21 +26,9 @@ MYPY = False
 if not MYPY:
     class ServiceQuotaUsageMetricArgsDict(TypedDict):
         metric_dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceQuotaUsageMetricMetricDimensionArgsDict']]]]
-        """
-        The metric dimensions.
-        """
         metric_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the metric.
-        """
         metric_namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The namespace of the metric.
-        """
         metric_statistic_recommendation: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The metric statistic that AWS recommend you use when determining quota usage.
-        """
 elif False:
     ServiceQuotaUsageMetricArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -51,12 +39,6 @@ class ServiceQuotaUsageMetricArgs:
                  metric_name: Optional[pulumi.Input[_builtins.str]] = None,
                  metric_namespace: Optional[pulumi.Input[_builtins.str]] = None,
                  metric_statistic_recommendation: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceQuotaUsageMetricMetricDimensionArgs']]] metric_dimensions: The metric dimensions.
-        :param pulumi.Input[_builtins.str] metric_name: The name of the metric.
-        :param pulumi.Input[_builtins.str] metric_namespace: The namespace of the metric.
-        :param pulumi.Input[_builtins.str] metric_statistic_recommendation: The metric statistic that AWS recommend you use when determining quota usage.
-        """
         if metric_dimensions is not None:
             pulumi.set(__self__, "metric_dimensions", metric_dimensions)
         if metric_name is not None:
@@ -69,9 +51,6 @@ class ServiceQuotaUsageMetricArgs:
     @_builtins.property
     @pulumi.getter(name="metricDimensions")
     def metric_dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceQuotaUsageMetricMetricDimensionArgs']]]]:
-        """
-        The metric dimensions.
-        """
         return pulumi.get(self, "metric_dimensions")
 
     @metric_dimensions.setter
@@ -81,9 +60,6 @@ class ServiceQuotaUsageMetricArgs:
     @_builtins.property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the metric.
-        """
         return pulumi.get(self, "metric_name")
 
     @metric_name.setter
@@ -93,9 +69,6 @@ class ServiceQuotaUsageMetricArgs:
     @_builtins.property
     @pulumi.getter(name="metricNamespace")
     def metric_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The namespace of the metric.
-        """
         return pulumi.get(self, "metric_namespace")
 
     @metric_namespace.setter
@@ -105,9 +78,6 @@ class ServiceQuotaUsageMetricArgs:
     @_builtins.property
     @pulumi.getter(name="metricStatisticRecommendation")
     def metric_statistic_recommendation(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The metric statistic that AWS recommend you use when determining quota usage.
-        """
         return pulumi.get(self, "metric_statistic_recommendation")
 
     @metric_statistic_recommendation.setter

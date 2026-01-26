@@ -63,9 +63,6 @@ class GetReleaseLabelsResult:
     @_builtins.property
     @pulumi.getter(name="releaseLabels")
     def release_labels(self) -> Sequence[_builtins.str]:
-        """
-        Returned release labels.
-        """
         return pulumi.get(self, "release_labels")
 
 
@@ -85,23 +82,7 @@ def get_release_labels(filters: Optional[Union['GetReleaseLabelsFiltersArgs', 'G
                        region: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReleaseLabelsResult:
     """
-    Retrieve information about EMR Release Labels.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.emr.get_release_labels(filters={
-        "application": "spark@2.1.0",
-        "prefix": "emr-5",
-    })
-    ```
-
-
-    :param Union['GetReleaseLabelsFiltersArgs', 'GetReleaseLabelsFiltersArgsDict'] filters: Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -118,23 +99,7 @@ def get_release_labels_output(filters: Optional[pulumi.Input[Optional[Union['Get
                               region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReleaseLabelsResult]:
     """
-    Retrieve information about EMR Release Labels.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.emr.get_release_labels(filters={
-        "application": "spark@2.1.0",
-        "prefix": "emr-5",
-    })
-    ```
-
-
-    :param Union['GetReleaseLabelsFiltersArgs', 'GetReleaseLabelsFiltersArgsDict'] filters: Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

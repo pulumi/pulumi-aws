@@ -18,232 +18,83 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an EC2 Instance Connect Endpoint.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2transitgateway.InstanceConnectEndpoint;
- * import com.pulumi.aws.ec2transitgateway.InstanceConnectEndpointArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new InstanceConnectEndpoint("example", InstanceConnectEndpointArgs.builder()
- *             .subnetId(exampleAwsSubnet.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import EC2 Instance Connect Endpoints using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint example eice-012345678
- * ```
- * 
- */
 @ResourceType(type="aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint")
 public class InstanceConnectEndpoint extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The Availability Zone of the EC2 Instance Connect Endpoint.
-     * 
-     */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
-    /**
-     * @return The Availability Zone of the EC2 Instance Connect Endpoint.
-     * 
-     */
     public Output<String> availabilityZone() {
         return this.availabilityZone;
     }
-    /**
-     * The DNS name of the EC2 Instance Connect Endpoint.
-     * 
-     */
     @Export(name="dnsName", refs={String.class}, tree="[0]")
     private Output<String> dnsName;
 
-    /**
-     * @return The DNS name of the EC2 Instance Connect Endpoint.
-     * 
-     */
     public Output<String> dnsName() {
         return this.dnsName;
     }
-    /**
-     * The DNS name of the EC2 Instance Connect FIPS Endpoint.
-     * 
-     */
     @Export(name="fipsDnsName", refs={String.class}, tree="[0]")
     private Output<String> fipsDnsName;
 
-    /**
-     * @return The DNS name of the EC2 Instance Connect FIPS Endpoint.
-     * 
-     */
     public Output<String> fipsDnsName() {
         return this.fipsDnsName;
     }
-    /**
-     * IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
-     * 
-     */
     @Export(name="ipAddressType", refs={String.class}, tree="[0]")
     private Output<String> ipAddressType;
 
-    /**
-     * @return IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
-     * 
-     */
     public Output<String> ipAddressType() {
         return this.ipAddressType;
     }
-    /**
-     * The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
-     * 
-     */
     @Export(name="networkInterfaceIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> networkInterfaceIds;
 
-    /**
-     * @return The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
-     * 
-     */
     public Output<List<String>> networkInterfaceIds() {
         return this.networkInterfaceIds;
     }
-    /**
-     * The ID of the AWS account that created the EC2 Instance Connect Endpoint.
-     * 
-     */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
-    /**
-     * @return The ID of the AWS account that created the EC2 Instance Connect Endpoint.
-     * 
-     */
     public Output<String> ownerId() {
         return this.ownerId;
     }
-    /**
-     * Indicates whether your client&#39;s IP address is preserved as the source. Default: `true`.
-     * 
-     */
     @Export(name="preserveClientIp", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> preserveClientIp;
 
-    /**
-     * @return Indicates whether your client&#39;s IP address is preserved as the source. Default: `true`.
-     * 
-     */
     public Output<Boolean> preserveClientIp() {
         return this.preserveClientIp;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * One or more security groups to associate with the endpoint. If you don&#39;t specify a security group, the default security group for the VPC will be associated with the endpoint.
-     * 
-     */
     @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroupIds;
 
-    /**
-     * @return One or more security groups to associate with the endpoint. If you don&#39;t specify a security group, the default security group for the VPC will be associated with the endpoint.
-     * 
-     */
     public Output<List<String>> securityGroupIds() {
         return this.securityGroupIds;
     }
-    /**
-     * The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
-     * 
-     */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
-    /**
-     * @return The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
-     * 
-     */
     public Output<String> subnetId() {
         return this.subnetId;
     }
-    /**
-     * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
@@ -253,17 +104,9 @@ public class InstanceConnectEndpoint extends com.pulumi.resources.CustomResource
     public Output<Optional<InstanceConnectEndpointTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * The ID of the VPC in which the EC2 Instance Connect Endpoint was created.
-     * 
-     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
-    /**
-     * @return The ID of the VPC in which the EC2 Instance Connect Endpoint was created.
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }

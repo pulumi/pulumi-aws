@@ -18,92 +18,44 @@ public final class InstancePublicPortsPortInfoArgs extends com.pulumi.resources.
 
     public static final InstancePublicPortsPortInfoArgs Empty = new InstancePublicPortsPortInfoArgs();
 
-    /**
-     * Set of CIDR aliases that define access for a preconfigured range of IP addresses.
-     * 
-     */
     @Import(name="cidrListAliases")
     private @Nullable Output<List<String>> cidrListAliases;
 
-    /**
-     * @return Set of CIDR aliases that define access for a preconfigured range of IP addresses.
-     * 
-     */
     public Optional<Output<List<String>>> cidrListAliases() {
         return Optional.ofNullable(this.cidrListAliases);
     }
 
-    /**
-     * Set of IPv4 addresses or ranges of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
-     * 
-     */
     @Import(name="cidrs")
     private @Nullable Output<List<String>> cidrs;
 
-    /**
-     * @return Set of IPv4 addresses or ranges of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
-     * 
-     */
     public Optional<Output<List<String>>> cidrs() {
         return Optional.ofNullable(this.cidrs);
     }
 
-    /**
-     * First port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
-     * 
-     */
     @Import(name="fromPort", required=true)
     private Output<Integer> fromPort;
 
-    /**
-     * @return First port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
-     * 
-     */
     public Output<Integer> fromPort() {
         return this.fromPort;
     }
 
-    /**
-     * Set of IPv6 addresses or ranges of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
-     * 
-     */
     @Import(name="ipv6Cidrs")
     private @Nullable Output<List<String>> ipv6Cidrs;
 
-    /**
-     * @return Set of IPv6 addresses or ranges of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
-     * 
-     */
     public Optional<Output<List<String>>> ipv6Cidrs() {
         return Optional.ofNullable(this.ipv6Cidrs);
     }
 
-    /**
-     * IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`, `icmpv6`. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
-     * 
-     */
     @Import(name="protocol", required=true)
     private Output<String> protocol;
 
-    /**
-     * @return IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`, `icmpv6`. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
-     * 
-     */
     public Output<String> protocol() {
         return this.protocol;
     }
 
-    /**
-     * Last port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
-     * 
-     */
     @Import(name="toPort", required=true)
     private Output<Integer> toPort;
 
-    /**
-     * @return Last port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
-     * 
-     */
     public Output<Integer> toPort() {
         return this.toPort;
     }
@@ -137,158 +89,68 @@ public final class InstancePublicPortsPortInfoArgs extends com.pulumi.resources.
             $ = new InstancePublicPortsPortInfoArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cidrListAliases Set of CIDR aliases that define access for a preconfigured range of IP addresses.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrListAliases(@Nullable Output<List<String>> cidrListAliases) {
             $.cidrListAliases = cidrListAliases;
             return this;
         }
 
-        /**
-         * @param cidrListAliases Set of CIDR aliases that define access for a preconfigured range of IP addresses.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrListAliases(List<String> cidrListAliases) {
             return cidrListAliases(Output.of(cidrListAliases));
         }
 
-        /**
-         * @param cidrListAliases Set of CIDR aliases that define access for a preconfigured range of IP addresses.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrListAliases(String... cidrListAliases) {
             return cidrListAliases(List.of(cidrListAliases));
         }
 
-        /**
-         * @param cidrs Set of IPv4 addresses or ranges of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrs(@Nullable Output<List<String>> cidrs) {
             $.cidrs = cidrs;
             return this;
         }
 
-        /**
-         * @param cidrs Set of IPv4 addresses or ranges of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrs(List<String> cidrs) {
             return cidrs(Output.of(cidrs));
         }
 
-        /**
-         * @param cidrs Set of IPv4 addresses or ranges of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrs(String... cidrs) {
             return cidrs(List.of(cidrs));
         }
 
-        /**
-         * @param fromPort First port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fromPort(Output<Integer> fromPort) {
             $.fromPort = fromPort;
             return this;
         }
 
-        /**
-         * @param fromPort First port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fromPort(Integer fromPort) {
             return fromPort(Output.of(fromPort));
         }
 
-        /**
-         * @param ipv6Cidrs Set of IPv6 addresses or ranges of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipv6Cidrs(@Nullable Output<List<String>> ipv6Cidrs) {
             $.ipv6Cidrs = ipv6Cidrs;
             return this;
         }
 
-        /**
-         * @param ipv6Cidrs Set of IPv6 addresses or ranges of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipv6Cidrs(List<String> ipv6Cidrs) {
             return ipv6Cidrs(Output.of(ipv6Cidrs));
         }
 
-        /**
-         * @param ipv6Cidrs Set of IPv6 addresses or ranges of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipv6Cidrs(String... ipv6Cidrs) {
             return ipv6Cidrs(List.of(ipv6Cidrs));
         }
 
-        /**
-         * @param protocol IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`, `icmpv6`. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocol(Output<String> protocol) {
             $.protocol = protocol;
             return this;
         }
 
-        /**
-         * @param protocol IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`, `icmpv6`. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocol(String protocol) {
             return protocol(Output.of(protocol));
         }
 
-        /**
-         * @param toPort Last port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder toPort(Output<Integer> toPort) {
             $.toPort = toPort;
             return this;
         }
 
-        /**
-         * @param toPort Last port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder toPort(Integer toPort) {
             return toPort(Output.of(toPort));
         }

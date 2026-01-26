@@ -18,96 +18,44 @@ public final class PermissionsTableWithColumnsArgs extends com.pulumi.resources.
 
     public static final PermissionsTableWithColumnsArgs Empty = new PermissionsTableWithColumnsArgs();
 
-    /**
-     * Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     @Import(name="catalogId")
     private @Nullable Output<String> catalogId;
 
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     public Optional<Output<String>> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
 
-    /**
-     * Set of column names for the table.
-     * 
-     */
     @Import(name="columnNames")
     private @Nullable Output<List<String>> columnNames;
 
-    /**
-     * @return Set of column names for the table.
-     * 
-     */
     public Optional<Output<List<String>>> columnNames() {
         return Optional.ofNullable(this.columnNames);
     }
 
-    /**
-     * Name of the database for the table with columns resource. Unique to the Data Catalog.
-     * 
-     */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
-    /**
-     * @return Name of the database for the table with columns resource. Unique to the Data Catalog.
-     * 
-     */
     public Output<String> databaseName() {
         return this.databaseName;
     }
 
-    /**
-     * Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
-     * 
-     */
     @Import(name="excludedColumnNames")
     private @Nullable Output<List<String>> excludedColumnNames;
 
-    /**
-     * @return Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
-     * 
-     */
     public Optional<Output<List<String>>> excludedColumnNames() {
         return Optional.ofNullable(this.excludedColumnNames);
     }
 
-    /**
-     * Name of the table resource.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the table resource.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="wildcard")
     private @Nullable Output<Boolean> wildcard;
 
-    /**
-     * @return Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<Boolean>> wildcard() {
         return Optional.ofNullable(this.wildcard);
     }
@@ -141,152 +89,64 @@ public final class PermissionsTableWithColumnsArgs extends com.pulumi.resources.
             $ = new PermissionsTableWithColumnsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param catalogId Identifier for the Data Catalog. By default, it is the account ID of the caller.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(@Nullable Output<String> catalogId) {
             $.catalogId = catalogId;
             return this;
         }
 
-        /**
-         * @param catalogId Identifier for the Data Catalog. By default, it is the account ID of the caller.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(String catalogId) {
             return catalogId(Output.of(catalogId));
         }
 
-        /**
-         * @param columnNames Set of column names for the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnNames(@Nullable Output<List<String>> columnNames) {
             $.columnNames = columnNames;
             return this;
         }
 
-        /**
-         * @param columnNames Set of column names for the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnNames(List<String> columnNames) {
             return columnNames(Output.of(columnNames));
         }
 
-        /**
-         * @param columnNames Set of column names for the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnNames(String... columnNames) {
             return columnNames(List.of(columnNames));
         }
 
-        /**
-         * @param databaseName Name of the database for the table with columns resource. Unique to the Data Catalog.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(Output<String> databaseName) {
             $.databaseName = databaseName;
             return this;
         }
 
-        /**
-         * @param databaseName Name of the database for the table with columns resource. Unique to the Data Catalog.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
         }
 
-        /**
-         * @param excludedColumnNames Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludedColumnNames(@Nullable Output<List<String>> excludedColumnNames) {
             $.excludedColumnNames = excludedColumnNames;
             return this;
         }
 
-        /**
-         * @param excludedColumnNames Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludedColumnNames(List<String> excludedColumnNames) {
             return excludedColumnNames(Output.of(excludedColumnNames));
         }
 
-        /**
-         * @param excludedColumnNames Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludedColumnNames(String... excludedColumnNames) {
             return excludedColumnNames(List.of(excludedColumnNames));
         }
 
-        /**
-         * @param name Name of the table resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the table resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param wildcard Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder wildcard(@Nullable Output<Boolean> wildcard) {
             $.wildcard = wildcard;
             return this;
         }
 
-        /**
-         * @param wildcard Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder wildcard(Boolean wildcard) {
             return wildcard(Output.of(wildcard));
         }

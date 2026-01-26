@@ -16,32 +16,16 @@ public final class RolePolicyAttachmentsExclusiveState extends com.pulumi.resour
 
     public static final RolePolicyAttachmentsExclusiveState Empty = new RolePolicyAttachmentsExclusiveState();
 
-    /**
-     * A list of managed IAM policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
-     * 
-     */
     @Import(name="policyArns")
     private @Nullable Output<List<String>> policyArns;
 
-    /**
-     * @return A list of managed IAM policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
-     * 
-     */
     public Optional<Output<List<String>>> policyArns() {
         return Optional.ofNullable(this.policyArns);
     }
 
-    /**
-     * IAM role name.
-     * 
-     */
     @Import(name="roleName")
     private @Nullable Output<String> roleName;
 
-    /**
-     * @return IAM role name.
-     * 
-     */
     public Optional<Output<String>> roleName() {
         return Optional.ofNullable(this.roleName);
     }
@@ -71,54 +55,24 @@ public final class RolePolicyAttachmentsExclusiveState extends com.pulumi.resour
             $ = new RolePolicyAttachmentsExclusiveState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param policyArns A list of managed IAM policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyArns(@Nullable Output<List<String>> policyArns) {
             $.policyArns = policyArns;
             return this;
         }
 
-        /**
-         * @param policyArns A list of managed IAM policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyArns(List<String> policyArns) {
             return policyArns(Output.of(policyArns));
         }
 
-        /**
-         * @param policyArns A list of managed IAM policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyArns(String... policyArns) {
             return policyArns(List.of(policyArns));
         }
 
-        /**
-         * @param roleName IAM role name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleName(@Nullable Output<String> roleName) {
             $.roleName = roleName;
             return this;
         }
 
-        /**
-         * @param roleName IAM role name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleName(String roleName) {
             return roleName(Output.of(roleName));
         }

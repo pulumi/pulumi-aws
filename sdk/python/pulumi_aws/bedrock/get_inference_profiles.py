@@ -52,9 +52,6 @@ class GetInferenceProfilesResult:
     @_builtins.property
     @pulumi.getter(name="inferenceProfileSummaries")
     def inference_profile_summaries(self) -> Sequence['outputs.GetInferenceProfilesInferenceProfileSummaryResult']:
-        """
-        List of inference profile summary objects. See `inference_profile_summaries`.
-        """
         return pulumi.get(self, "inference_profile_summaries")
 
     @_builtins.property
@@ -65,9 +62,6 @@ class GetInferenceProfilesResult:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
-        """
-        Type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means the inference profile was created by a user.
-        """
         return pulumi.get(self, "type")
 
 
@@ -87,31 +81,7 @@ def get_inference_profiles(region: Optional[_builtins.str] = None,
                            type: Optional[_builtins.str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInferenceProfilesResult:
     """
-    Data source for managing AWS Bedrock Inference Profiles.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.bedrock.get_inference_profiles()
-    ```
-
-    ### Filter by Type
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.bedrock.get_inference_profiles(type="APPLICATION")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str type: Filters for inference profiles that match the type you specify. Valid values are: `SYSTEM_DEFINED`, `APPLICATION`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -128,31 +98,7 @@ def get_inference_profiles_output(region: Optional[pulumi.Input[Optional[_builti
                                   type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInferenceProfilesResult]:
     """
-    Data source for managing AWS Bedrock Inference Profiles.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.bedrock.get_inference_profiles()
-    ```
-
-    ### Filter by Type
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.bedrock.get_inference_profiles(type="APPLICATION")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str type: Filters for inference profiles that match the type you specify. Valid values are: `SYSTEM_DEFINED`, `APPLICATION`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

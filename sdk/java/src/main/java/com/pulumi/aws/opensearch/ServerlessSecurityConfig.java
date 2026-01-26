@@ -15,20 +15,6 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS OpenSearch Serverless Security Config.
- * 
- * ## Example Usage
- * 
- * ## Import
- * 
- * Using `pulumi import`, import OpenSearchServerless Access Policy using the `name` argument prefixed with the string `saml/account_id/`. For example:
- * 
- * ```sh
- * $ pulumi import aws:opensearch/serverlessSecurityConfig:ServerlessSecurityConfig example saml/123456789012/example
- * ```
- * 
- */
 @ResourceType(type="aws:opensearch/serverlessSecurityConfig:ServerlessSecurityConfig")
 public class ServerlessSecurityConfig extends com.pulumi.resources.CustomResource {
     /**
@@ -73,38 +59,20 @@ public class ServerlessSecurityConfig extends com.pulumi.resources.CustomResourc
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Configuration block for SAML options.
-     * 
-     */
     @Export(name="samlOptions", refs={ServerlessSecurityConfigSamlOptions.class}, tree="[0]")
     private Output</* @Nullable */ ServerlessSecurityConfigSamlOptions> samlOptions;
 
-    /**
-     * @return Configuration block for SAML options.
-     * 
-     */
     public Output<Optional<ServerlessSecurityConfigSamlOptions>> samlOptions() {
         return Codegen.optional(this.samlOptions);
     }
     /**
      * Type of configuration. Must be `saml`.
-     * 
-     * The following arguments are optional:
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
@@ -112,8 +80,6 @@ public class ServerlessSecurityConfig extends com.pulumi.resources.CustomResourc
 
     /**
      * @return Type of configuration. Must be `saml`.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<String> type() {

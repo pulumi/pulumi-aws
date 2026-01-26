@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class VirtualNodeSpecLoggingAccessLogFileFormatJson
     {
-        /// <summary>
-        /// The specified key for the JSON. Must be between 1 and 100 characters in length.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// The specified value for the JSON. Must be between 1 and 100 characters in length.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

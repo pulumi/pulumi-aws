@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get the ARN of a KMS key alias.
-// By using this data source, you can reference key alias
-// without having to hard code the ARN as input.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kms.LookupAlias(ctx, &kms.LookupAliasArgs{
-//				Name: "alias/aws/s3",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupAlias(ctx *pulumi.Context, args *LookupAliasArgs, opts ...pulumi.InvokeOption) (*LookupAliasResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAliasResult
@@ -52,25 +23,19 @@ func LookupAlias(ctx *pulumi.Context, args *LookupAliasArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getAlias.
 type LookupAliasArgs struct {
-	// Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-	Name string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   string  `pulumi:"name"`
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getAlias.
 type LookupAliasResult struct {
-	// Amazon Resource Name(ARN) of the key alias.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Name of the alias
-	Name   string `pulumi:"name"`
-	Region string `pulumi:"region"`
-	// ARN pointed to by the alias.
+	Id           string `pulumi:"id"`
+	Name         string `pulumi:"name"`
+	Region       string `pulumi:"region"`
 	TargetKeyArn string `pulumi:"targetKeyArn"`
-	// Key identifier pointed to by the alias.
-	TargetKeyId string `pulumi:"targetKeyId"`
+	TargetKeyId  string `pulumi:"targetKeyId"`
 }
 
 func LookupAliasOutput(ctx *pulumi.Context, args LookupAliasOutputArgs, opts ...pulumi.InvokeOption) LookupAliasResultOutput {
@@ -84,9 +49,7 @@ func LookupAliasOutput(ctx *pulumi.Context, args LookupAliasOutputArgs, opts ...
 
 // A collection of arguments for invoking getAlias.
 type LookupAliasOutputArgs struct {
-	// Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringInput    `pulumi:"name"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -109,7 +72,6 @@ func (o LookupAliasResultOutput) ToLookupAliasResultOutputWithContext(ctx contex
 	return o
 }
 
-// Amazon Resource Name(ARN) of the key alias.
 func (o LookupAliasResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAliasResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -119,7 +81,6 @@ func (o LookupAliasResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAliasResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Name of the alias
 func (o LookupAliasResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAliasResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -128,12 +89,10 @@ func (o LookupAliasResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAliasResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// ARN pointed to by the alias.
 func (o LookupAliasResultOutput) TargetKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAliasResult) string { return v.TargetKeyArn }).(pulumi.StringOutput)
 }
 
-// Key identifier pointed to by the alias.
 func (o LookupAliasResultOutput) TargetKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAliasResult) string { return v.TargetKeyId }).(pulumi.StringOutput)
 }

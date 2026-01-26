@@ -13,21 +13,9 @@ namespace Pulumi.Aws.VerifiedAccess.Outputs
     [OutputType]
     public sealed class InstanceLoggingConfigurationAccessLogsS3
     {
-        /// <summary>
-        /// The name of S3 bucket.
-        /// </summary>
         public readonly string? BucketName;
-        /// <summary>
-        /// The ID of the AWS account that owns the Amazon S3 bucket.
-        /// </summary>
         public readonly string? BucketOwner;
-        /// <summary>
-        /// Indicates whether logging is enabled.
-        /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// The bucket prefix.
-        /// </summary>
         public readonly string? Prefix;
 
         [OutputConstructor]

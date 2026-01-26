@@ -89,65 +89,41 @@ class GetServerlessCacheResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the serverless cache.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="cacheUsageLimits")
     def cache_usage_limits(self) -> 'outputs.GetServerlessCacheCacheUsageLimitsResult':
-        """
-        The cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
-        """
         return pulumi.get(self, "cache_usage_limits")
 
     @_builtins.property
     @pulumi.getter(name="createTime")
     def create_time(self) -> _builtins.str:
-        """
-        Timestamp of when the serverless cache was created.
-        """
         return pulumi.get(self, "create_time")
 
     @_builtins.property
     @pulumi.getter(name="dailySnapshotTime")
     def daily_snapshot_time(self) -> _builtins.str:
-        """
-        The daily time that snapshots will be created from the new serverless cache. Only available for engine types `"redis"` and `"valkey"`.
-        """
         return pulumi.get(self, "daily_snapshot_time")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the serverless cache.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> 'outputs.GetServerlessCacheEndpointResult':
-        """
-        Represents the information required for client programs to connect to the cache. See `endpoint` Block for details.
-        """
         return pulumi.get(self, "endpoint")
 
     @_builtins.property
     @pulumi.getter
     def engine(self) -> _builtins.str:
-        """
-        Name of the cache engine.
-        """
         return pulumi.get(self, "engine")
 
     @_builtins.property
     @pulumi.getter(name="fullEngineVersion")
     def full_engine_version(self) -> _builtins.str:
-        """
-        The name and version number of the engine the serverless cache is compatible with.
-        """
         return pulumi.get(self, "full_engine_version")
 
     @_builtins.property
@@ -161,17 +137,11 @@ class GetServerlessCacheResult:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> _builtins.str:
-        """
-        ARN of the customer managed key for encrypting the data at rest.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="majorEngineVersion")
     def major_engine_version(self) -> _builtins.str:
-        """
-        The version number of the engine the serverless cache is compatible with.
-        """
         return pulumi.get(self, "major_engine_version")
 
     @_builtins.property
@@ -182,9 +152,6 @@ class GetServerlessCacheResult:
     @_builtins.property
     @pulumi.getter(name="readerEndpoint")
     def reader_endpoint(self) -> 'outputs.GetServerlessCacheReaderEndpointResult':
-        """
-        Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
-        """
         return pulumi.get(self, "reader_endpoint")
 
     @_builtins.property
@@ -195,41 +162,26 @@ class GetServerlessCacheResult:
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[_builtins.str]:
-        """
-        A list of the one or more VPC security groups associated with the serverless cache.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @_builtins.property
     @pulumi.getter(name="snapshotRetentionLimit")
     def snapshot_retention_limit(self) -> _builtins.int:
-        """
-        The number of snapshots that will be retained for the serverless cache. Available for Redis only.
-        """
         return pulumi.get(self, "snapshot_retention_limit")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        The current status of the serverless cache.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[_builtins.str]:
-        """
-        A list of the identifiers of the subnets where the VPC endpoint for the serverless cache are deployed.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
     @pulumi.getter(name="userGroupId")
     def user_group_id(self) -> _builtins.str:
-        """
-        The identifier of the UserGroup associated with the serverless cache. Available for Redis only.
-        """
         return pulumi.get(self, "user_group_id")
 
 
@@ -264,20 +216,7 @@ def get_serverless_cache(name: Optional[_builtins.str] = None,
                          region: Optional[_builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerlessCacheResult:
     """
-    Use this data source to get information about an ElastiCache Serverless Cache.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.elasticache.get_serverless_cache(name="example")
-    ```
-
-
-    :param _builtins.str name: Identifier for the serverless cache.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -309,20 +248,7 @@ def get_serverless_cache_output(name: Optional[pulumi.Input[_builtins.str]] = No
                                 region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessCacheResult]:
     """
-    Use this data source to get information about an ElastiCache Serverless Cache.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.elasticache.get_serverless_cache(name="example")
-    ```
-
-
-    :param _builtins.str name: Identifier for the serverless cache.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

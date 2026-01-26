@@ -7,67 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Bedrock Agents Prompt.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.bedrock.AgentPrompt("example", {
- *     name: "MyPrompt",
- *     description: "My prompt description.",
- * });
- * ```
- *
- * ### With Variants
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.bedrock.AgentPrompt("example", {
- *     name: "MakePlaylist",
- *     description: "My first prompt.",
- *     defaultVariant: "Variant1",
- *     variants: [{
- *         name: "Variant1",
- *         modelId: "amazon.titan-text-express-v1",
- *         inferenceConfiguration: {
- *             text: {
- *                 temperature: 0.8,
- *             },
- *         },
- *         templateType: "TEXT",
- *         templateConfiguration: {
- *             text: {
- *                 text: "Make me a {{genre}} playlist consisting of the following number of songs: {{number}}.",
- *                 inputVariables: [
- *                     {
- *                         name: "genre",
- *                     },
- *                     {
- *                         name: "number",
- *                     },
- *                 ],
- *             },
- *         },
- *     }],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Bedrock Agents Prompt using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:bedrock/agentPrompt:AgentPrompt example 1A2BC3DEFG
- * ```
- */
 export class AgentPrompt extends pulumi.CustomResource {
     /**
      * Get an existing AgentPrompt resource's state with the given name, ID, and optional extra
@@ -96,55 +35,17 @@ export class AgentPrompt extends pulumi.CustomResource {
         return obj['__pulumiType'] === AgentPrompt.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the prompt.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Time at which the prompt was created.
-     */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
-    /**
-     * Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
-     */
     declare public readonly customerEncryptionKeyArn: pulumi.Output<string | undefined>;
-    /**
-     * Name of the default variant for your prompt.
-     */
     declare public readonly defaultVariant: pulumi.Output<string | undefined>;
-    /**
-     * Description of the prompt.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Name of the prompt.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Time at which the prompt was last updated.
-     */
     declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
-    /**
-     * A list of objects, each containing details about a variant of the prompt. See Variant for more information.
-     */
     declare public readonly variants: pulumi.Output<outputs.bedrock.AgentPromptVariant[] | undefined>;
-    /**
-     * Version of the prompt. When you create a prompt, the version created is the `DRAFT` version.
-     */
     declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
@@ -196,55 +97,17 @@ export class AgentPrompt extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AgentPrompt resources.
  */
 export interface AgentPromptState {
-    /**
-     * Amazon Resource Name (ARN) of the prompt.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Time at which the prompt was created.
-     */
     createdAt?: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
-     */
     customerEncryptionKeyArn?: pulumi.Input<string>;
-    /**
-     * Name of the default variant for your prompt.
-     */
     defaultVariant?: pulumi.Input<string>;
-    /**
-     * Description of the prompt.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Name of the prompt.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Time at which the prompt was last updated.
-     */
     updatedAt?: pulumi.Input<string>;
-    /**
-     * A list of objects, each containing details about a variant of the prompt. See Variant for more information.
-     */
     variants?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentPromptVariant>[]>;
-    /**
-     * Version of the prompt. When you create a prompt, the version created is the `DRAFT` version.
-     */
     version?: pulumi.Input<string>;
 }
 
@@ -252,34 +115,11 @@ export interface AgentPromptState {
  * The set of arguments for constructing a AgentPrompt resource.
  */
 export interface AgentPromptArgs {
-    /**
-     * Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
-     */
     customerEncryptionKeyArn?: pulumi.Input<string>;
-    /**
-     * Name of the default variant for your prompt.
-     */
     defaultVariant?: pulumi.Input<string>;
-    /**
-     * Description of the prompt.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Name of the prompt.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A list of objects, each containing details about a variant of the prompt. See Variant for more information.
-     */
     variants?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentPromptVariant>[]>;
 }

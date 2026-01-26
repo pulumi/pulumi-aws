@@ -22,16 +22,12 @@ class OrganizationDelegatedAdminAccountArgs:
                  account_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a OrganizationDelegatedAdminAccount resource.
-        :param pulumi.Input[_builtins.str] account_id: An organization member account ID that you want to designate as a delegated administrator.
         """
         pulumi.set(__self__, "account_id", account_id)
 
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        An organization member account ID that you want to designate as a delegated administrator.
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -49,11 +45,6 @@ class _OrganizationDelegatedAdminAccountState:
                  service_principal: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrganizationDelegatedAdminAccount resources.
-        :param pulumi.Input[_builtins.str] account_id: An organization member account ID that you want to designate as a delegated administrator.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the delegated administrator's account.
-        :param pulumi.Input[_builtins.str] email: The email address that is associated with the delegated administrator's AWS account.
-        :param pulumi.Input[_builtins.str] name: The friendly name of the delegated administrator's account.
-        :param pulumi.Input[_builtins.str] service_principal: The AWS CloudTrail service principal name.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -69,9 +60,6 @@ class _OrganizationDelegatedAdminAccountState:
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        An organization member account ID that you want to designate as a delegated administrator.
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -81,9 +69,6 @@ class _OrganizationDelegatedAdminAccountState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the delegated administrator's account.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -93,9 +78,6 @@ class _OrganizationDelegatedAdminAccountState:
     @_builtins.property
     @pulumi.getter
     def email(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The email address that is associated with the delegated administrator's AWS account.
-        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -105,9 +87,6 @@ class _OrganizationDelegatedAdminAccountState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The friendly name of the delegated administrator's account.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -117,9 +96,6 @@ class _OrganizationDelegatedAdminAccountState:
     @_builtins.property
     @pulumi.getter(name="servicePrincipal")
     def service_principal(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS CloudTrail service principal name.
-        """
         return pulumi.get(self, "service_principal")
 
     @service_principal.setter
@@ -136,31 +112,9 @@ class OrganizationDelegatedAdminAccount(pulumi.CustomResource):
                  account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a resource to manage an AWS CloudTrail Delegated Administrator.
-
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        delegated = aws.get_caller_identity()
-        example = aws.cloudtrail.OrganizationDelegatedAdminAccount("example", account_id=delegated.account_id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import delegated administrators using the delegate account `id`. For example:
-
-        ```sh
-        $ pulumi import aws:cloudtrail/organizationDelegatedAdminAccount:OrganizationDelegatedAdminAccount example 12345678901
-        ```
-
+        Create a OrganizationDelegatedAdminAccount resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: An organization member account ID that you want to designate as a delegated administrator.
         """
         ...
     @overload
@@ -169,28 +123,7 @@ class OrganizationDelegatedAdminAccount(pulumi.CustomResource):
                  args: OrganizationDelegatedAdminAccountArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage an AWS CloudTrail Delegated Administrator.
-
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        delegated = aws.get_caller_identity()
-        example = aws.cloudtrail.OrganizationDelegatedAdminAccount("example", account_id=delegated.account_id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import delegated administrators using the delegate account `id`. For example:
-
-        ```sh
-        $ pulumi import aws:cloudtrail/organizationDelegatedAdminAccount:OrganizationDelegatedAdminAccount example 12345678901
-        ```
-
+        Create a OrganizationDelegatedAdminAccount resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param OrganizationDelegatedAdminAccountArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -245,11 +178,6 @@ class OrganizationDelegatedAdminAccount(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: An organization member account ID that you want to designate as a delegated administrator.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the delegated administrator's account.
-        :param pulumi.Input[_builtins.str] email: The email address that is associated with the delegated administrator's AWS account.
-        :param pulumi.Input[_builtins.str] name: The friendly name of the delegated administrator's account.
-        :param pulumi.Input[_builtins.str] service_principal: The AWS CloudTrail service principal name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -265,40 +193,25 @@ class OrganizationDelegatedAdminAccount(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        An organization member account ID that you want to designate as a delegated administrator.
-        """
         return pulumi.get(self, "account_id")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the delegated administrator's account.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def email(self) -> pulumi.Output[_builtins.str]:
-        """
-        The email address that is associated with the delegated administrator's AWS account.
-        """
         return pulumi.get(self, "email")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The friendly name of the delegated administrator's account.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="servicePrincipal")
     def service_principal(self) -> pulumi.Output[_builtins.str]:
-        """
-        The AWS CloudTrail service principal name.
-        """
         return pulumi.get(self, "service_principal")
 

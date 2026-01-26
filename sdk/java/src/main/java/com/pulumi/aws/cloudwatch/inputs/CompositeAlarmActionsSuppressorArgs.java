@@ -15,47 +15,23 @@ public final class CompositeAlarmActionsSuppressorArgs extends com.pulumi.resour
 
     public static final CompositeAlarmActionsSuppressorArgs Empty = new CompositeAlarmActionsSuppressorArgs();
 
-    /**
-     * Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
-     * 
-     */
     @Import(name="alarm", required=true)
     private Output<String> alarm;
 
-    /**
-     * @return Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
-     * 
-     */
     public Output<String> alarm() {
         return this.alarm;
     }
 
-    /**
-     * The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
-     * 
-     */
     @Import(name="extensionPeriod", required=true)
     private Output<Integer> extensionPeriod;
 
-    /**
-     * @return The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
-     * 
-     */
     public Output<Integer> extensionPeriod() {
         return this.extensionPeriod;
     }
 
-    /**
-     * The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state. After this time, the composite alarm performs its actions.
-     * 
-     */
     @Import(name="waitPeriod", required=true)
     private Output<Integer> waitPeriod;
 
-    /**
-     * @return The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state. After this time, the composite alarm performs its actions.
-     * 
-     */
     public Output<Integer> waitPeriod() {
         return this.waitPeriod;
     }
@@ -86,65 +62,29 @@ public final class CompositeAlarmActionsSuppressorArgs extends com.pulumi.resour
             $ = new CompositeAlarmActionsSuppressorArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param alarm Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alarm(Output<String> alarm) {
             $.alarm = alarm;
             return this;
         }
 
-        /**
-         * @param alarm Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alarm(String alarm) {
             return alarm(Output.of(alarm));
         }
 
-        /**
-         * @param extensionPeriod The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder extensionPeriod(Output<Integer> extensionPeriod) {
             $.extensionPeriod = extensionPeriod;
             return this;
         }
 
-        /**
-         * @param extensionPeriod The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder extensionPeriod(Integer extensionPeriod) {
             return extensionPeriod(Output.of(extensionPeriod));
         }
 
-        /**
-         * @param waitPeriod The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state. After this time, the composite alarm performs its actions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder waitPeriod(Output<Integer> waitPeriod) {
             $.waitPeriod = waitPeriod;
             return this;
         }
 
-        /**
-         * @param waitPeriod The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state. After this time, the composite alarm performs its actions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder waitPeriod(Integer waitPeriod) {
             return waitPeriod(Output.of(waitPeriod));
         }

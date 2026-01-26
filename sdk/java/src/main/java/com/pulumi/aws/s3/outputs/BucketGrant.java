@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketGrant {
-    /**
-     * @return Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
-     * 
-     */
     private @Nullable String id;
-    /**
-     * @return List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
-     * 
-     */
     private List<String> permissions;
-    /**
-     * @return Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
-     * 
-     */
     private String type;
-    /**
-     * @return Uri address to grant for. Used only when `type` is `Group`.
-     * 
-     */
     private @Nullable String uri;
 
     private BucketGrant() {}
-    /**
-     * @return Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
-    /**
-     * @return List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
-     * 
-     */
     public List<String> permissions() {
         return this.permissions;
     }
-    /**
-     * @return Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return Uri address to grant for. Used only when `type` is `Group`.
-     * 
-     */
     public Optional<String> uri() {
         return Optional.ofNullable(this.uri);
     }

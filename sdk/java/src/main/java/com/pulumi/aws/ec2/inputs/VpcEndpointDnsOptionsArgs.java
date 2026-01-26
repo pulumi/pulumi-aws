@@ -17,62 +17,30 @@ public final class VpcEndpointDnsOptionsArgs extends com.pulumi.resources.Resour
 
     public static final VpcEndpointDnsOptionsArgs Empty = new VpcEndpointDnsOptionsArgs();
 
-    /**
-     * The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
-     * 
-     */
     @Import(name="dnsRecordIpType")
     private @Nullable Output<String> dnsRecordIpType;
 
-    /**
-     * @return The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
-     * 
-     */
     public Optional<Output<String>> dnsRecordIpType() {
         return Optional.ofNullable(this.dnsRecordIpType);
     }
 
-    /**
-     * Boolean indicating whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `privateDnsEnabled` is `true`.
-     * 
-     */
     @Import(name="privateDnsOnlyForInboundResolverEndpoint")
     private @Nullable Output<Boolean> privateDnsOnlyForInboundResolverEndpoint;
 
-    /**
-     * @return Boolean indicating whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `privateDnsEnabled` is `true`.
-     * 
-     */
     public Optional<Output<Boolean>> privateDnsOnlyForInboundResolverEndpoint() {
         return Optional.ofNullable(this.privateDnsOnlyForInboundResolverEndpoint);
     }
 
-    /**
-     * Preference for which private domains have a private hosted zone created for and associated with the specified VPC. Valid values are `ALL_DOMAINS`, `VERIFIED_DOMAINS_ONLY`, `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS`, and `SPECIFIED_DOMAINS_ONLY`. Only supported when `privateDnsEnabled` is `true` and when the `vpcEndpointType` is `ServiceNetwork` or `Resource`.
-     * 
-     */
     @Import(name="privateDnsPreference")
     private @Nullable Output<String> privateDnsPreference;
 
-    /**
-     * @return Preference for which private domains have a private hosted zone created for and associated with the specified VPC. Valid values are `ALL_DOMAINS`, `VERIFIED_DOMAINS_ONLY`, `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS`, and `SPECIFIED_DOMAINS_ONLY`. Only supported when `privateDnsEnabled` is `true` and when the `vpcEndpointType` is `ServiceNetwork` or `Resource`.
-     * 
-     */
     public Optional<Output<String>> privateDnsPreference() {
         return Optional.ofNullable(this.privateDnsPreference);
     }
 
-    /**
-     * List of private domains to create private hosted zones for and associate with the specified VPC. Must be specified when `privateDnsEnabled` is `true` and `privateDnsPreference` is set to either `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY`. In all other cases, this argument must not be specified.
-     * 
-     */
     @Import(name="privateDnsSpecifiedDomains")
     private @Nullable Output<List<String>> privateDnsSpecifiedDomains;
 
-    /**
-     * @return List of private domains to create private hosted zones for and associate with the specified VPC. Must be specified when `privateDnsEnabled` is `true` and `privateDnsPreference` is set to either `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY`. In all other cases, this argument must not be specified.
-     * 
-     */
     public Optional<Output<List<String>>> privateDnsSpecifiedDomains() {
         return Optional.ofNullable(this.privateDnsSpecifiedDomains);
     }
@@ -104,96 +72,42 @@ public final class VpcEndpointDnsOptionsArgs extends com.pulumi.resources.Resour
             $ = new VpcEndpointDnsOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dnsRecordIpType The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsRecordIpType(@Nullable Output<String> dnsRecordIpType) {
             $.dnsRecordIpType = dnsRecordIpType;
             return this;
         }
 
-        /**
-         * @param dnsRecordIpType The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsRecordIpType(String dnsRecordIpType) {
             return dnsRecordIpType(Output.of(dnsRecordIpType));
         }
 
-        /**
-         * @param privateDnsOnlyForInboundResolverEndpoint Boolean indicating whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `privateDnsEnabled` is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateDnsOnlyForInboundResolverEndpoint(@Nullable Output<Boolean> privateDnsOnlyForInboundResolverEndpoint) {
             $.privateDnsOnlyForInboundResolverEndpoint = privateDnsOnlyForInboundResolverEndpoint;
             return this;
         }
 
-        /**
-         * @param privateDnsOnlyForInboundResolverEndpoint Boolean indicating whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `privateDnsEnabled` is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateDnsOnlyForInboundResolverEndpoint(Boolean privateDnsOnlyForInboundResolverEndpoint) {
             return privateDnsOnlyForInboundResolverEndpoint(Output.of(privateDnsOnlyForInboundResolverEndpoint));
         }
 
-        /**
-         * @param privateDnsPreference Preference for which private domains have a private hosted zone created for and associated with the specified VPC. Valid values are `ALL_DOMAINS`, `VERIFIED_DOMAINS_ONLY`, `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS`, and `SPECIFIED_DOMAINS_ONLY`. Only supported when `privateDnsEnabled` is `true` and when the `vpcEndpointType` is `ServiceNetwork` or `Resource`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateDnsPreference(@Nullable Output<String> privateDnsPreference) {
             $.privateDnsPreference = privateDnsPreference;
             return this;
         }
 
-        /**
-         * @param privateDnsPreference Preference for which private domains have a private hosted zone created for and associated with the specified VPC. Valid values are `ALL_DOMAINS`, `VERIFIED_DOMAINS_ONLY`, `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS`, and `SPECIFIED_DOMAINS_ONLY`. Only supported when `privateDnsEnabled` is `true` and when the `vpcEndpointType` is `ServiceNetwork` or `Resource`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateDnsPreference(String privateDnsPreference) {
             return privateDnsPreference(Output.of(privateDnsPreference));
         }
 
-        /**
-         * @param privateDnsSpecifiedDomains List of private domains to create private hosted zones for and associate with the specified VPC. Must be specified when `privateDnsEnabled` is `true` and `privateDnsPreference` is set to either `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY`. In all other cases, this argument must not be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateDnsSpecifiedDomains(@Nullable Output<List<String>> privateDnsSpecifiedDomains) {
             $.privateDnsSpecifiedDomains = privateDnsSpecifiedDomains;
             return this;
         }
 
-        /**
-         * @param privateDnsSpecifiedDomains List of private domains to create private hosted zones for and associate with the specified VPC. Must be specified when `privateDnsEnabled` is `true` and `privateDnsPreference` is set to either `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY`. In all other cases, this argument must not be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateDnsSpecifiedDomains(List<String> privateDnsSpecifiedDomains) {
             return privateDnsSpecifiedDomains(Output.of(privateDnsSpecifiedDomains));
         }
 
-        /**
-         * @param privateDnsSpecifiedDomains List of private domains to create private hosted zones for and associate with the specified VPC. Must be specified when `privateDnsEnabled` is `true` and `privateDnsPreference` is set to either `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY`. In all other cases, this argument must not be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateDnsSpecifiedDomains(String... privateDnsSpecifiedDomains) {
             return privateDnsSpecifiedDomains(List.of(privateDnsSpecifiedDomains));
         }

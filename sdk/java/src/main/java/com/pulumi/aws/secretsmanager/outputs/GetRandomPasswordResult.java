@@ -26,10 +26,6 @@ public final class GetRandomPasswordResult {
     private String id;
     private @Nullable Boolean includeSpace;
     private @Nullable Integer passwordLength;
-    /**
-     * @return Random password.
-     * 
-     */
     private String randomPassword;
     private String region;
     private @Nullable Boolean requireEachIncludedType;
@@ -63,10 +59,6 @@ public final class GetRandomPasswordResult {
     public Optional<Integer> passwordLength() {
         return Optional.ofNullable(this.passwordLength);
     }
-    /**
-     * @return Random password.
-     * 
-     */
     public String randomPassword() {
         return this.randomPassword;
     }

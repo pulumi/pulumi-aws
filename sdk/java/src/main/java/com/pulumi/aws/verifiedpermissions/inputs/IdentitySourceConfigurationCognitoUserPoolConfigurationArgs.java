@@ -18,47 +18,23 @@ public final class IdentitySourceConfigurationCognitoUserPoolConfigurationArgs e
 
     public static final IdentitySourceConfigurationCognitoUserPoolConfigurationArgs Empty = new IdentitySourceConfigurationCognitoUserPoolConfigurationArgs();
 
-    /**
-     * The unique application client IDs that are associated with the specified Amazon Cognito user pool.
-     * 
-     */
     @Import(name="clientIds")
     private @Nullable Output<List<String>> clientIds;
 
-    /**
-     * @return The unique application client IDs that are associated with the specified Amazon Cognito user pool.
-     * 
-     */
     public Optional<Output<List<String>>> clientIds() {
         return Optional.ofNullable(this.clientIds);
     }
 
-    /**
-     * The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
-     * 
-     */
     @Import(name="groupConfiguration")
     private @Nullable Output<IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs> groupConfiguration;
 
-    /**
-     * @return The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
-     * 
-     */
     public Optional<Output<IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs>> groupConfiguration() {
         return Optional.ofNullable(this.groupConfiguration);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
-     * 
-     */
     @Import(name="userPoolArn", required=true)
     private Output<String> userPoolArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
-     * 
-     */
     public Output<String> userPoolArn() {
         return this.userPoolArn;
     }
@@ -89,75 +65,33 @@ public final class IdentitySourceConfigurationCognitoUserPoolConfigurationArgs e
             $ = new IdentitySourceConfigurationCognitoUserPoolConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clientIds The unique application client IDs that are associated with the specified Amazon Cognito user pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientIds(@Nullable Output<List<String>> clientIds) {
             $.clientIds = clientIds;
             return this;
         }
 
-        /**
-         * @param clientIds The unique application client IDs that are associated with the specified Amazon Cognito user pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientIds(List<String> clientIds) {
             return clientIds(Output.of(clientIds));
         }
 
-        /**
-         * @param clientIds The unique application client IDs that are associated with the specified Amazon Cognito user pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientIds(String... clientIds) {
             return clientIds(List.of(clientIds));
         }
 
-        /**
-         * @param groupConfiguration The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupConfiguration(@Nullable Output<IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs> groupConfiguration) {
             $.groupConfiguration = groupConfiguration;
             return this;
         }
 
-        /**
-         * @param groupConfiguration The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupConfiguration(IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs groupConfiguration) {
             return groupConfiguration(Output.of(groupConfiguration));
         }
 
-        /**
-         * @param userPoolArn The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userPoolArn(Output<String> userPoolArn) {
             $.userPoolArn = userPoolArn;
             return this;
         }
 
-        /**
-         * @param userPoolArn The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userPoolArn(String userPoolArn) {
             return userPoolArn(Output.of(userPoolArn));
         }

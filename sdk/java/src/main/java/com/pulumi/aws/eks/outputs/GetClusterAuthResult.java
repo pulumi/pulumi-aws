@@ -17,10 +17,6 @@ public final class GetClusterAuthResult {
     private String id;
     private String name;
     private String region;
-    /**
-     * @return Token to use to authenticate with the cluster.
-     * 
-     */
     private String token;
 
     private GetClusterAuthResult() {}
@@ -37,10 +33,6 @@ public final class GetClusterAuthResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Token to use to authenticate with the cluster.
-     * 
-     */
     public String token() {
         return this.token;
     }

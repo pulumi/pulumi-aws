@@ -12,109 +12,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage a domain that has been [registered](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html) and associated with the current AWS account. To register, renew and deregister a domain use the `route53domains.Domain` resource instead.
-//
-// **This is an advanced resource** and has special caveats to be aware of when using it. Please read this document in its entirety before using this resource.
-//
-// The `route53domains.RegisteredDomain` resource behaves differently from normal resources in that if a domain has been registered, the provider does not _register_ this domain, but instead "adopts" it into management. A destroy does not delete the domain but does remove the resource from state.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53domains"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53domains.NewRegisteredDomain(ctx, "example", &route53domains.RegisteredDomainArgs{
-//				DomainName: pulumi.String("example.com"),
-//				NameServers: route53domains.RegisteredDomainNameServerArray{
-//					&route53domains.RegisteredDomainNameServerArgs{
-//						Name: pulumi.String("ns-195.awsdns-24.com"),
-//					},
-//					&route53domains.RegisteredDomainNameServerArgs{
-//						Name: pulumi.String("ns-874.awsdns-45.net"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import domains using the domain name. For example:
-//
-// ```sh
-// $ pulumi import aws:route53domains/registeredDomain:RegisteredDomain example example.com
-// ```
 type RegisteredDomain struct {
 	pulumi.CustomResourceState
 
-	// Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.
-	AbuseContactEmail pulumi.StringOutput `pulumi:"abuseContactEmail"`
-	// Phone number for reporting abuse.
-	AbuseContactPhone pulumi.StringOutput `pulumi:"abuseContactPhone"`
-	// Details about the domain administrative contact. See Contact Blocks for more details.
-	AdminContact RegisteredDomainAdminContactOutput `pulumi:"adminContact"`
-	// Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
-	AdminPrivacy pulumi.BoolPtrOutput `pulumi:"adminPrivacy"`
-	// Whether the domain registration is set to renew automatically. Default: `true`.
-	AutoRenew pulumi.BoolPtrOutput `pulumi:"autoRenew"`
-	// Details about the domain billing contact. See Contact Blocks for more details.
-	BillingContact RegisteredDomainBillingContactOutput `pulumi:"billingContact"`
-	// Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
-	BillingPrivacy pulumi.BoolPtrOutput `pulumi:"billingPrivacy"`
-	// The date when the domain was created as found in the response to a WHOIS query.
-	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
-	// The name of the registered domain.
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// The date when the registration for the domain is set to expire.
-	ExpirationDate pulumi.StringOutput `pulumi:"expirationDate"`
-	// The list of nameservers for the domain. See `nameServer` Blocks for more details.
-	NameServers RegisteredDomainNameServerArrayOutput `pulumi:"nameServers"`
-	// Details about the domain registrant. See Contact Blocks for more details.
+	AbuseContactEmail pulumi.StringOutput                     `pulumi:"abuseContactEmail"`
+	AbuseContactPhone pulumi.StringOutput                     `pulumi:"abuseContactPhone"`
+	AdminContact      RegisteredDomainAdminContactOutput      `pulumi:"adminContact"`
+	AdminPrivacy      pulumi.BoolPtrOutput                    `pulumi:"adminPrivacy"`
+	AutoRenew         pulumi.BoolPtrOutput                    `pulumi:"autoRenew"`
+	BillingContact    RegisteredDomainBillingContactOutput    `pulumi:"billingContact"`
+	BillingPrivacy    pulumi.BoolPtrOutput                    `pulumi:"billingPrivacy"`
+	CreationDate      pulumi.StringOutput                     `pulumi:"creationDate"`
+	DomainName        pulumi.StringOutput                     `pulumi:"domainName"`
+	ExpirationDate    pulumi.StringOutput                     `pulumi:"expirationDate"`
+	NameServers       RegisteredDomainNameServerArrayOutput   `pulumi:"nameServers"`
 	RegistrantContact RegisteredDomainRegistrantContactOutput `pulumi:"registrantContact"`
-	// Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
-	RegistrantPrivacy pulumi.BoolPtrOutput `pulumi:"registrantPrivacy"`
-	// Name of the registrar of the domain as identified in the registry.
-	RegistrarName pulumi.StringOutput `pulumi:"registrarName"`
-	// Web address of the registrar.
-	RegistrarUrl pulumi.StringOutput `pulumi:"registrarUrl"`
-	// Reseller of the domain.
-	Reseller pulumi.StringOutput `pulumi:"reseller"`
-	// List of [domain name status codes](https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en).
-	StatusLists pulumi.StringArrayOutput `pulumi:"statusLists"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Details about the domain technical contact. See Contact Blocks for more details.
-	TechContact RegisteredDomainTechContactOutput `pulumi:"techContact"`
-	// Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
-	TechPrivacy pulumi.BoolPtrOutput `pulumi:"techPrivacy"`
-	// Whether the domain is locked for transfer. Default: `true`.
-	//
-	// > **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
-	TransferLock pulumi.BoolPtrOutput `pulumi:"transferLock"`
-	// The last updated date of the domain as found in the response to a WHOIS query.
-	UpdatedDate pulumi.StringOutput `pulumi:"updatedDate"`
-	// The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.
-	WhoisServer pulumi.StringOutput `pulumi:"whoisServer"`
+	RegistrantPrivacy pulumi.BoolPtrOutput                    `pulumi:"registrantPrivacy"`
+	RegistrarName     pulumi.StringOutput                     `pulumi:"registrarName"`
+	RegistrarUrl      pulumi.StringOutput                     `pulumi:"registrarUrl"`
+	Reseller          pulumi.StringOutput                     `pulumi:"reseller"`
+	StatusLists       pulumi.StringArrayOutput                `pulumi:"statusLists"`
+	Tags              pulumi.StringMapOutput                  `pulumi:"tags"`
+	TagsAll           pulumi.StringMapOutput                  `pulumi:"tagsAll"`
+	TechContact       RegisteredDomainTechContactOutput       `pulumi:"techContact"`
+	TechPrivacy       pulumi.BoolPtrOutput                    `pulumi:"techPrivacy"`
+	TransferLock      pulumi.BoolPtrOutput                    `pulumi:"transferLock"`
+	UpdatedDate       pulumi.StringOutput                     `pulumi:"updatedDate"`
+	WhoisServer       pulumi.StringOutput                     `pulumi:"whoisServer"`
 }
 
 // NewRegisteredDomain registers a new resource with the given unique name, arguments, and options.
@@ -150,109 +74,57 @@ func GetRegisteredDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RegisteredDomain resources.
 type registeredDomainState struct {
-	// Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.
-	AbuseContactEmail *string `pulumi:"abuseContactEmail"`
-	// Phone number for reporting abuse.
-	AbuseContactPhone *string `pulumi:"abuseContactPhone"`
-	// Details about the domain administrative contact. See Contact Blocks for more details.
-	AdminContact *RegisteredDomainAdminContact `pulumi:"adminContact"`
-	// Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
-	AdminPrivacy *bool `pulumi:"adminPrivacy"`
-	// Whether the domain registration is set to renew automatically. Default: `true`.
-	AutoRenew *bool `pulumi:"autoRenew"`
-	// Details about the domain billing contact. See Contact Blocks for more details.
-	BillingContact *RegisteredDomainBillingContact `pulumi:"billingContact"`
-	// Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
-	BillingPrivacy *bool `pulumi:"billingPrivacy"`
-	// The date when the domain was created as found in the response to a WHOIS query.
-	CreationDate *string `pulumi:"creationDate"`
-	// The name of the registered domain.
-	DomainName *string `pulumi:"domainName"`
-	// The date when the registration for the domain is set to expire.
-	ExpirationDate *string `pulumi:"expirationDate"`
-	// The list of nameservers for the domain. See `nameServer` Blocks for more details.
-	NameServers []RegisteredDomainNameServer `pulumi:"nameServers"`
-	// Details about the domain registrant. See Contact Blocks for more details.
+	AbuseContactEmail *string                            `pulumi:"abuseContactEmail"`
+	AbuseContactPhone *string                            `pulumi:"abuseContactPhone"`
+	AdminContact      *RegisteredDomainAdminContact      `pulumi:"adminContact"`
+	AdminPrivacy      *bool                              `pulumi:"adminPrivacy"`
+	AutoRenew         *bool                              `pulumi:"autoRenew"`
+	BillingContact    *RegisteredDomainBillingContact    `pulumi:"billingContact"`
+	BillingPrivacy    *bool                              `pulumi:"billingPrivacy"`
+	CreationDate      *string                            `pulumi:"creationDate"`
+	DomainName        *string                            `pulumi:"domainName"`
+	ExpirationDate    *string                            `pulumi:"expirationDate"`
+	NameServers       []RegisteredDomainNameServer       `pulumi:"nameServers"`
 	RegistrantContact *RegisteredDomainRegistrantContact `pulumi:"registrantContact"`
-	// Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
-	RegistrantPrivacy *bool `pulumi:"registrantPrivacy"`
-	// Name of the registrar of the domain as identified in the registry.
-	RegistrarName *string `pulumi:"registrarName"`
-	// Web address of the registrar.
-	RegistrarUrl *string `pulumi:"registrarUrl"`
-	// Reseller of the domain.
-	Reseller *string `pulumi:"reseller"`
-	// List of [domain name status codes](https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en).
-	StatusLists []string `pulumi:"statusLists"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Details about the domain technical contact. See Contact Blocks for more details.
-	TechContact *RegisteredDomainTechContact `pulumi:"techContact"`
-	// Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
-	TechPrivacy *bool `pulumi:"techPrivacy"`
-	// Whether the domain is locked for transfer. Default: `true`.
-	//
-	// > **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
-	TransferLock *bool `pulumi:"transferLock"`
-	// The last updated date of the domain as found in the response to a WHOIS query.
-	UpdatedDate *string `pulumi:"updatedDate"`
-	// The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.
-	WhoisServer *string `pulumi:"whoisServer"`
+	RegistrantPrivacy *bool                              `pulumi:"registrantPrivacy"`
+	RegistrarName     *string                            `pulumi:"registrarName"`
+	RegistrarUrl      *string                            `pulumi:"registrarUrl"`
+	Reseller          *string                            `pulumi:"reseller"`
+	StatusLists       []string                           `pulumi:"statusLists"`
+	Tags              map[string]string                  `pulumi:"tags"`
+	TagsAll           map[string]string                  `pulumi:"tagsAll"`
+	TechContact       *RegisteredDomainTechContact       `pulumi:"techContact"`
+	TechPrivacy       *bool                              `pulumi:"techPrivacy"`
+	TransferLock      *bool                              `pulumi:"transferLock"`
+	UpdatedDate       *string                            `pulumi:"updatedDate"`
+	WhoisServer       *string                            `pulumi:"whoisServer"`
 }
 
 type RegisteredDomainState struct {
-	// Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.
 	AbuseContactEmail pulumi.StringPtrInput
-	// Phone number for reporting abuse.
 	AbuseContactPhone pulumi.StringPtrInput
-	// Details about the domain administrative contact. See Contact Blocks for more details.
-	AdminContact RegisteredDomainAdminContactPtrInput
-	// Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
-	AdminPrivacy pulumi.BoolPtrInput
-	// Whether the domain registration is set to renew automatically. Default: `true`.
-	AutoRenew pulumi.BoolPtrInput
-	// Details about the domain billing contact. See Contact Blocks for more details.
-	BillingContact RegisteredDomainBillingContactPtrInput
-	// Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
-	BillingPrivacy pulumi.BoolPtrInput
-	// The date when the domain was created as found in the response to a WHOIS query.
-	CreationDate pulumi.StringPtrInput
-	// The name of the registered domain.
-	DomainName pulumi.StringPtrInput
-	// The date when the registration for the domain is set to expire.
-	ExpirationDate pulumi.StringPtrInput
-	// The list of nameservers for the domain. See `nameServer` Blocks for more details.
-	NameServers RegisteredDomainNameServerArrayInput
-	// Details about the domain registrant. See Contact Blocks for more details.
+	AdminContact      RegisteredDomainAdminContactPtrInput
+	AdminPrivacy      pulumi.BoolPtrInput
+	AutoRenew         pulumi.BoolPtrInput
+	BillingContact    RegisteredDomainBillingContactPtrInput
+	BillingPrivacy    pulumi.BoolPtrInput
+	CreationDate      pulumi.StringPtrInput
+	DomainName        pulumi.StringPtrInput
+	ExpirationDate    pulumi.StringPtrInput
+	NameServers       RegisteredDomainNameServerArrayInput
 	RegistrantContact RegisteredDomainRegistrantContactPtrInput
-	// Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
 	RegistrantPrivacy pulumi.BoolPtrInput
-	// Name of the registrar of the domain as identified in the registry.
-	RegistrarName pulumi.StringPtrInput
-	// Web address of the registrar.
-	RegistrarUrl pulumi.StringPtrInput
-	// Reseller of the domain.
-	Reseller pulumi.StringPtrInput
-	// List of [domain name status codes](https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en).
-	StatusLists pulumi.StringArrayInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Details about the domain technical contact. See Contact Blocks for more details.
-	TechContact RegisteredDomainTechContactPtrInput
-	// Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
-	TechPrivacy pulumi.BoolPtrInput
-	// Whether the domain is locked for transfer. Default: `true`.
-	//
-	// > **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
-	TransferLock pulumi.BoolPtrInput
-	// The last updated date of the domain as found in the response to a WHOIS query.
-	UpdatedDate pulumi.StringPtrInput
-	// The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.
-	WhoisServer pulumi.StringPtrInput
+	RegistrarName     pulumi.StringPtrInput
+	RegistrarUrl      pulumi.StringPtrInput
+	Reseller          pulumi.StringPtrInput
+	StatusLists       pulumi.StringArrayInput
+	Tags              pulumi.StringMapInput
+	TagsAll           pulumi.StringMapInput
+	TechContact       RegisteredDomainTechContactPtrInput
+	TechPrivacy       pulumi.BoolPtrInput
+	TransferLock      pulumi.BoolPtrInput
+	UpdatedDate       pulumi.StringPtrInput
+	WhoisServer       pulumi.StringPtrInput
 }
 
 func (RegisteredDomainState) ElementType() reflect.Type {
@@ -260,66 +132,36 @@ func (RegisteredDomainState) ElementType() reflect.Type {
 }
 
 type registeredDomainArgs struct {
-	// Details about the domain administrative contact. See Contact Blocks for more details.
-	AdminContact *RegisteredDomainAdminContact `pulumi:"adminContact"`
-	// Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
-	AdminPrivacy *bool `pulumi:"adminPrivacy"`
-	// Whether the domain registration is set to renew automatically. Default: `true`.
-	AutoRenew *bool `pulumi:"autoRenew"`
-	// Details about the domain billing contact. See Contact Blocks for more details.
-	BillingContact *RegisteredDomainBillingContact `pulumi:"billingContact"`
-	// Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
-	BillingPrivacy *bool `pulumi:"billingPrivacy"`
-	// The name of the registered domain.
-	DomainName string `pulumi:"domainName"`
-	// The list of nameservers for the domain. See `nameServer` Blocks for more details.
-	NameServers []RegisteredDomainNameServer `pulumi:"nameServers"`
-	// Details about the domain registrant. See Contact Blocks for more details.
+	AdminContact      *RegisteredDomainAdminContact      `pulumi:"adminContact"`
+	AdminPrivacy      *bool                              `pulumi:"adminPrivacy"`
+	AutoRenew         *bool                              `pulumi:"autoRenew"`
+	BillingContact    *RegisteredDomainBillingContact    `pulumi:"billingContact"`
+	BillingPrivacy    *bool                              `pulumi:"billingPrivacy"`
+	DomainName        string                             `pulumi:"domainName"`
+	NameServers       []RegisteredDomainNameServer       `pulumi:"nameServers"`
 	RegistrantContact *RegisteredDomainRegistrantContact `pulumi:"registrantContact"`
-	// Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
-	RegistrantPrivacy *bool `pulumi:"registrantPrivacy"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Details about the domain technical contact. See Contact Blocks for more details.
-	TechContact *RegisteredDomainTechContact `pulumi:"techContact"`
-	// Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
-	TechPrivacy *bool `pulumi:"techPrivacy"`
-	// Whether the domain is locked for transfer. Default: `true`.
-	//
-	// > **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
-	TransferLock *bool `pulumi:"transferLock"`
+	RegistrantPrivacy *bool                              `pulumi:"registrantPrivacy"`
+	Tags              map[string]string                  `pulumi:"tags"`
+	TechContact       *RegisteredDomainTechContact       `pulumi:"techContact"`
+	TechPrivacy       *bool                              `pulumi:"techPrivacy"`
+	TransferLock      *bool                              `pulumi:"transferLock"`
 }
 
 // The set of arguments for constructing a RegisteredDomain resource.
 type RegisteredDomainArgs struct {
-	// Details about the domain administrative contact. See Contact Blocks for more details.
-	AdminContact RegisteredDomainAdminContactPtrInput
-	// Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
-	AdminPrivacy pulumi.BoolPtrInput
-	// Whether the domain registration is set to renew automatically. Default: `true`.
-	AutoRenew pulumi.BoolPtrInput
-	// Details about the domain billing contact. See Contact Blocks for more details.
-	BillingContact RegisteredDomainBillingContactPtrInput
-	// Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
-	BillingPrivacy pulumi.BoolPtrInput
-	// The name of the registered domain.
-	DomainName pulumi.StringInput
-	// The list of nameservers for the domain. See `nameServer` Blocks for more details.
-	NameServers RegisteredDomainNameServerArrayInput
-	// Details about the domain registrant. See Contact Blocks for more details.
+	AdminContact      RegisteredDomainAdminContactPtrInput
+	AdminPrivacy      pulumi.BoolPtrInput
+	AutoRenew         pulumi.BoolPtrInput
+	BillingContact    RegisteredDomainBillingContactPtrInput
+	BillingPrivacy    pulumi.BoolPtrInput
+	DomainName        pulumi.StringInput
+	NameServers       RegisteredDomainNameServerArrayInput
 	RegistrantContact RegisteredDomainRegistrantContactPtrInput
-	// Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
 	RegistrantPrivacy pulumi.BoolPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Details about the domain technical contact. See Contact Blocks for more details.
-	TechContact RegisteredDomainTechContactPtrInput
-	// Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
-	TechPrivacy pulumi.BoolPtrInput
-	// Whether the domain is locked for transfer. Default: `true`.
-	//
-	// > **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
-	TransferLock pulumi.BoolPtrInput
+	Tags              pulumi.StringMapInput
+	TechContact       RegisteredDomainTechContactPtrInput
+	TechPrivacy       pulumi.BoolPtrInput
+	TransferLock      pulumi.BoolPtrInput
 }
 
 func (RegisteredDomainArgs) ElementType() reflect.Type {
@@ -409,124 +251,98 @@ func (o RegisteredDomainOutput) ToRegisteredDomainOutputWithContext(ctx context.
 	return o
 }
 
-// Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.
 func (o RegisteredDomainOutput) AbuseContactEmail() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringOutput { return v.AbuseContactEmail }).(pulumi.StringOutput)
 }
 
-// Phone number for reporting abuse.
 func (o RegisteredDomainOutput) AbuseContactPhone() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringOutput { return v.AbuseContactPhone }).(pulumi.StringOutput)
 }
 
-// Details about the domain administrative contact. See Contact Blocks for more details.
 func (o RegisteredDomainOutput) AdminContact() RegisteredDomainAdminContactOutput {
 	return o.ApplyT(func(v *RegisteredDomain) RegisteredDomainAdminContactOutput { return v.AdminContact }).(RegisteredDomainAdminContactOutput)
 }
 
-// Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
 func (o RegisteredDomainOutput) AdminPrivacy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomain) pulumi.BoolPtrOutput { return v.AdminPrivacy }).(pulumi.BoolPtrOutput)
 }
 
-// Whether the domain registration is set to renew automatically. Default: `true`.
 func (o RegisteredDomainOutput) AutoRenew() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomain) pulumi.BoolPtrOutput { return v.AutoRenew }).(pulumi.BoolPtrOutput)
 }
 
-// Details about the domain billing contact. See Contact Blocks for more details.
 func (o RegisteredDomainOutput) BillingContact() RegisteredDomainBillingContactOutput {
 	return o.ApplyT(func(v *RegisteredDomain) RegisteredDomainBillingContactOutput { return v.BillingContact }).(RegisteredDomainBillingContactOutput)
 }
 
-// Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
 func (o RegisteredDomainOutput) BillingPrivacy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomain) pulumi.BoolPtrOutput { return v.BillingPrivacy }).(pulumi.BoolPtrOutput)
 }
 
-// The date when the domain was created as found in the response to a WHOIS query.
 func (o RegisteredDomainOutput) CreationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
 }
 
-// The name of the registered domain.
 func (o RegisteredDomainOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// The date when the registration for the domain is set to expire.
 func (o RegisteredDomainOutput) ExpirationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringOutput { return v.ExpirationDate }).(pulumi.StringOutput)
 }
 
-// The list of nameservers for the domain. See `nameServer` Blocks for more details.
 func (o RegisteredDomainOutput) NameServers() RegisteredDomainNameServerArrayOutput {
 	return o.ApplyT(func(v *RegisteredDomain) RegisteredDomainNameServerArrayOutput { return v.NameServers }).(RegisteredDomainNameServerArrayOutput)
 }
 
-// Details about the domain registrant. See Contact Blocks for more details.
 func (o RegisteredDomainOutput) RegistrantContact() RegisteredDomainRegistrantContactOutput {
 	return o.ApplyT(func(v *RegisteredDomain) RegisteredDomainRegistrantContactOutput { return v.RegistrantContact }).(RegisteredDomainRegistrantContactOutput)
 }
 
-// Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
 func (o RegisteredDomainOutput) RegistrantPrivacy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomain) pulumi.BoolPtrOutput { return v.RegistrantPrivacy }).(pulumi.BoolPtrOutput)
 }
 
-// Name of the registrar of the domain as identified in the registry.
 func (o RegisteredDomainOutput) RegistrarName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringOutput { return v.RegistrarName }).(pulumi.StringOutput)
 }
 
-// Web address of the registrar.
 func (o RegisteredDomainOutput) RegistrarUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringOutput { return v.RegistrarUrl }).(pulumi.StringOutput)
 }
 
-// Reseller of the domain.
 func (o RegisteredDomainOutput) Reseller() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringOutput { return v.Reseller }).(pulumi.StringOutput)
 }
 
-// List of [domain name status codes](https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en).
 func (o RegisteredDomainOutput) StatusLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringArrayOutput { return v.StatusLists }).(pulumi.StringArrayOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RegisteredDomainOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RegisteredDomainOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Details about the domain technical contact. See Contact Blocks for more details.
 func (o RegisteredDomainOutput) TechContact() RegisteredDomainTechContactOutput {
 	return o.ApplyT(func(v *RegisteredDomain) RegisteredDomainTechContactOutput { return v.TechContact }).(RegisteredDomainTechContactOutput)
 }
 
-// Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
 func (o RegisteredDomainOutput) TechPrivacy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomain) pulumi.BoolPtrOutput { return v.TechPrivacy }).(pulumi.BoolPtrOutput)
 }
 
-// Whether the domain is locked for transfer. Default: `true`.
-//
-// > **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
 func (o RegisteredDomainOutput) TransferLock() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomain) pulumi.BoolPtrOutput { return v.TransferLock }).(pulumi.BoolPtrOutput)
 }
 
-// The last updated date of the domain as found in the response to a WHOIS query.
 func (o RegisteredDomainOutput) UpdatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringOutput { return v.UpdatedDate }).(pulumi.StringOutput)
 }
 
-// The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.
 func (o RegisteredDomainOutput) WhoisServer() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringOutput { return v.WhoisServer }).(pulumi.StringOutput)
 }

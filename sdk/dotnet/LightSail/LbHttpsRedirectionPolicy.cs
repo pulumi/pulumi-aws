@@ -9,82 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LightSail
 {
-    /// <summary>
-    /// Manages HTTPS redirection for a Lightsail Load Balancer.
-    /// 
-    /// Use this resource to configure automatic redirection of HTTP traffic to HTTPS on a Lightsail Load Balancer. A valid certificate must be attached to the load balancer before enabling HTTPS redirection.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.LightSail.Lb("example", new()
-    ///     {
-    ///         Name = "example-load-balancer",
-    ///         HealthCheckPath = "/",
-    ///         InstancePort = 80,
-    ///         Tags = 
-    ///         {
-    ///             { "foo", "bar" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleLbCertificate = new Aws.LightSail.LbCertificate("example", new()
-    ///     {
-    ///         Name = "example-load-balancer-certificate",
-    ///         LbName = example.Id,
-    ///         DomainName = "example.com",
-    ///     });
-    /// 
-    ///     var exampleLbCertificateAttachment = new Aws.LightSail.LbCertificateAttachment("example", new()
-    ///     {
-    ///         LbName = example.Name,
-    ///         CertificateName = exampleLbCertificate.Name,
-    ///     });
-    /// 
-    ///     var exampleLbHttpsRedirectionPolicy = new Aws.LightSail.LbHttpsRedirectionPolicy("example", new()
-    ///     {
-    ///         LbName = example.Name,
-    ///         Enabled = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_lightsail_lb_https_redirection_policy` using the `lb_name` attribute. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy example example-load-balancer
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy")]
     public partial class LbHttpsRedirectionPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Whether to enable HTTP to HTTPS redirection. `True` to activate HTTP to HTTPS redirection or `False` to deactivate HTTP to HTTPS redirection.
-        /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("lbName")]
         public Output<string> LbName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -134,23 +67,12 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class LbHttpsRedirectionPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to enable HTTP to HTTPS redirection. `True` to activate HTTP to HTTPS redirection or `False` to deactivate HTTP to HTTPS redirection.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("lbName", required: true)]
         public Input<string> LbName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -162,23 +84,12 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class LbHttpsRedirectionPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to enable HTTP to HTTPS redirection. `True` to activate HTTP to HTTPS redirection or `False` to deactivate HTTP to HTTPS redirection.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("lbName")]
         public Input<string>? LbName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

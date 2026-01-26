@@ -66,25 +66,16 @@ class GetExportResult:
     @_builtins.property
     @pulumi.getter
     def body(self) -> _builtins.str:
-        """
-        API Spec.
-        """
         return pulumi.get(self, "body")
 
     @_builtins.property
     @pulumi.getter(name="contentDisposition")
     def content_disposition(self) -> _builtins.str:
-        """
-        Content-disposition header value in the HTTP response.
-        """
         return pulumi.get(self, "content_disposition")
 
     @_builtins.property
     @pulumi.getter(name="contentType")
     def content_type(self) -> _builtins.str:
-        """
-        Content-type header value in the HTTP response.
-        """
         return pulumi.get(self, "content_type")
 
     @_builtins.property
@@ -147,24 +138,7 @@ def get_export(accepts: Optional[_builtins.str] = None,
                stage_name: Optional[_builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExportResult:
     """
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.apigateway.get_export(rest_api_id=example_aws_api_gateway_stage["restApiId"],
-        stage_name=example_aws_api_gateway_stage["stageName"],
-        export_type="oas30")
-    ```
-
-
-    :param _builtins.str accepts: Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
-    :param _builtins.str export_type: Type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
-    :param Mapping[str, _builtins.str] parameters: Key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions='integrations'` or `extensions='apigateway'` will export the API with x-amazon-apigateway-integration extensions. `extensions='authorizers'` will export the API with x-amazon-apigateway-authorizer extensions.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str rest_api_id: Identifier of the associated REST API.
-    :param _builtins.str stage_name: Name of the Stage that will be exported.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['accepts'] = accepts
@@ -195,24 +169,7 @@ def get_export_output(accepts: Optional[pulumi.Input[Optional[_builtins.str]]] =
                       stage_name: Optional[pulumi.Input[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExportResult]:
     """
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.apigateway.get_export(rest_api_id=example_aws_api_gateway_stage["restApiId"],
-        stage_name=example_aws_api_gateway_stage["stageName"],
-        export_type="oas30")
-    ```
-
-
-    :param _builtins.str accepts: Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
-    :param _builtins.str export_type: Type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
-    :param Mapping[str, _builtins.str] parameters: Key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions='integrations'` or `extensions='apigateway'` will export the API with x-amazon-apigateway-integration extensions. `extensions='authorizers'` will export the API with x-amazon-apigateway-authorizer extensions.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str rest_api_id: Identifier of the associated REST API.
-    :param _builtins.str stage_name: Name of the Stage that will be exported.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['accepts'] = accepts

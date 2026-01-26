@@ -14,25 +14,15 @@ namespace Pulumi.Aws.Quicksight.Inputs
     {
         [Input("columns")]
         private InputList<string>? _columns;
-
-        /// <summary>
-        /// An array of column names to add to the folder. A column can only be in one folder.
-        /// </summary>
         public InputList<string> Columns
         {
             get => _columns ?? (_columns = new InputList<string>());
             set => _columns = value;
         }
 
-        /// <summary>
-        /// Field folder description.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Key of the field folder map.
-        /// </summary>
         [Input("fieldFoldersId", required: true)]
         public Input<string> FieldFoldersId { get; set; } = null!;
 

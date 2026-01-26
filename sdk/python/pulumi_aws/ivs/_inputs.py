@@ -28,9 +28,6 @@ MYPY = False
 if not MYPY:
     class RecordingConfigurationDestinationConfigurationArgsDict(TypedDict):
         s3: pulumi.Input['RecordingConfigurationDestinationConfigurationS3ArgsDict']
-        """
-        S3 destination configuration where recorded videos will be stored.
-        """
 elif False:
     RecordingConfigurationDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -38,17 +35,11 @@ elif False:
 class RecordingConfigurationDestinationConfigurationArgs:
     def __init__(__self__, *,
                  s3: pulumi.Input['RecordingConfigurationDestinationConfigurationS3Args']):
-        """
-        :param pulumi.Input['RecordingConfigurationDestinationConfigurationS3Args'] s3: S3 destination configuration where recorded videos will be stored.
-        """
         pulumi.set(__self__, "s3", s3)
 
     @_builtins.property
     @pulumi.getter
     def s3(self) -> pulumi.Input['RecordingConfigurationDestinationConfigurationS3Args']:
-        """
-        S3 destination configuration where recorded videos will be stored.
-        """
         return pulumi.get(self, "s3")
 
     @s3.setter
@@ -59,11 +50,6 @@ class RecordingConfigurationDestinationConfigurationArgs:
 if not MYPY:
     class RecordingConfigurationDestinationConfigurationS3ArgsDict(TypedDict):
         bucket_name: pulumi.Input[_builtins.str]
-        """
-        S3 bucket name where recorded videos will be stored.
-
-        The following arguments are optional:
-        """
 elif False:
     RecordingConfigurationDestinationConfigurationS3ArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -71,21 +57,11 @@ elif False:
 class RecordingConfigurationDestinationConfigurationS3Args:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] bucket_name: S3 bucket name where recorded videos will be stored.
-               
-               The following arguments are optional:
-        """
         pulumi.set(__self__, "bucket_name", bucket_name)
 
     @_builtins.property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        S3 bucket name where recorded videos will be stored.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -96,13 +72,7 @@ class RecordingConfigurationDestinationConfigurationS3Args:
 if not MYPY:
     class RecordingConfigurationThumbnailConfigurationArgsDict(TypedDict):
         recording_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Thumbnail recording mode. Valid values: `DISABLED`, `INTERVAL`.
-        """
         target_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The targeted thumbnail-generation interval in seconds.
-        """
 elif False:
     RecordingConfigurationThumbnailConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -111,10 +81,6 @@ class RecordingConfigurationThumbnailConfigurationArgs:
     def __init__(__self__, *,
                  recording_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  target_interval_seconds: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.str] recording_mode: Thumbnail recording mode. Valid values: `DISABLED`, `INTERVAL`.
-        :param pulumi.Input[_builtins.int] target_interval_seconds: The targeted thumbnail-generation interval in seconds.
-        """
         if recording_mode is not None:
             pulumi.set(__self__, "recording_mode", recording_mode)
         if target_interval_seconds is not None:
@@ -123,9 +89,6 @@ class RecordingConfigurationThumbnailConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="recordingMode")
     def recording_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Thumbnail recording mode. Valid values: `DISABLED`, `INTERVAL`.
-        """
         return pulumi.get(self, "recording_mode")
 
     @recording_mode.setter
@@ -135,9 +98,6 @@ class RecordingConfigurationThumbnailConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="targetIntervalSeconds")
     def target_interval_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The targeted thumbnail-generation interval in seconds.
-        """
         return pulumi.get(self, "target_interval_seconds")
 
     @target_interval_seconds.setter

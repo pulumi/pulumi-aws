@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DistributionTrustedKeyGroup {
-    /**
-     * @return Whether the distribution is enabled to accept end user requests for content.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return List of nested attributes for each trusted signer
-     * 
-     */
     private @Nullable List<DistributionTrustedKeyGroupItem> items;
 
     private DistributionTrustedKeyGroup() {}
-    /**
-     * @return Whether the distribution is enabled to accept end user requests for content.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return List of nested attributes for each trusted signer
-     * 
-     */
     public List<DistributionTrustedKeyGroupItem> items() {
         return this.items == null ? List.of() : this.items;
     }

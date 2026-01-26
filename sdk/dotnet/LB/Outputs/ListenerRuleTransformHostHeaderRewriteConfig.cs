@@ -13,9 +13,6 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class ListenerRuleTransformHostHeaderRewriteConfig
     {
-        /// <summary>
-        /// Block for host header rewrite configuration. Only one block is accepted. See Rewrite Blocks below.
-        /// </summary>
         public readonly Outputs.ListenerRuleTransformHostHeaderRewriteConfigRewrite? Rewrite;
 
         [OutputConstructor]

@@ -43,34 +43,6 @@ class HealthCheckArgs:
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a HealthCheck resource.
-        :param pulumi.Input[_builtins.str] type: The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
-        :param pulumi.Input[_builtins.int] child_health_threshold: The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] child_healthchecks: For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
-        :param pulumi.Input[_builtins.str] cloudwatch_alarm_name: The name of the CloudWatch alarm.
-        :param pulumi.Input[_builtins.str] cloudwatch_alarm_region: The region that the CloudWatch alarm was created in.
-        :param pulumi.Input[_builtins.bool] disabled: A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
-               * For health checks that check the health of endpoints, Route53 stops submitting requests to your application, server, or other resource.
-               * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
-               * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
-               
-               > **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invert_healthcheck`.
-        :param pulumi.Input[_builtins.bool] enable_sni: A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
-        :param pulumi.Input[_builtins.int] failure_threshold: The number of consecutive health checks that an endpoint must pass or fail.
-        :param pulumi.Input[_builtins.str] fqdn: The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
-        :param pulumi.Input[_builtins.str] insufficient_data_health_status: The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
-        :param pulumi.Input[_builtins.bool] invert_healthcheck: A boolean value that indicates whether the status of health check should be inverted. For example, if a health check is healthy but Inverted is True , then Route 53 considers the health check to be unhealthy.
-        :param pulumi.Input[_builtins.str] ip_address: The IP address of the endpoint to be checked.
-        :param pulumi.Input[_builtins.bool] measure_latency: A Boolean value that indicates whether you want Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint and to display CloudWatch latency graphs in the Route 53 console.
-        :param pulumi.Input[_builtins.int] port: The port of the endpoint to be checked.
-        :param pulumi.Input[_builtins.str] reference_name: This is a reference name used in Caller Reference
-               (helpful for identifying single health_check set amongst others)
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
-        :param pulumi.Input[_builtins.int] request_interval: The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
-        :param pulumi.Input[_builtins.str] resource_path: The path that you want Amazon Route 53 to request when performing health checks.
-        :param pulumi.Input[_builtins.str] routing_control_arn: The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
-        :param pulumi.Input[_builtins.str] search_string: String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an in-place update of the CloudWatch alarm arguments. Use this argument to synchronize the health check when an alarm is changed. See example above.
         """
         pulumi.set(__self__, "type", type)
         if child_health_threshold is not None:
@@ -119,9 +91,6 @@ class HealthCheckArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -131,9 +100,6 @@ class HealthCheckArgs:
     @_builtins.property
     @pulumi.getter(name="childHealthThreshold")
     def child_health_threshold(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
-        """
         return pulumi.get(self, "child_health_threshold")
 
     @child_health_threshold.setter
@@ -143,9 +109,6 @@ class HealthCheckArgs:
     @_builtins.property
     @pulumi.getter(name="childHealthchecks")
     def child_healthchecks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
-        """
         return pulumi.get(self, "child_healthchecks")
 
     @child_healthchecks.setter
@@ -155,9 +118,6 @@ class HealthCheckArgs:
     @_builtins.property
     @pulumi.getter(name="cloudwatchAlarmName")
     def cloudwatch_alarm_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the CloudWatch alarm.
-        """
         return pulumi.get(self, "cloudwatch_alarm_name")
 
     @cloudwatch_alarm_name.setter
@@ -167,9 +127,6 @@ class HealthCheckArgs:
     @_builtins.property
     @pulumi.getter(name="cloudwatchAlarmRegion")
     def cloudwatch_alarm_region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The region that the CloudWatch alarm was created in.
-        """
         return pulumi.get(self, "cloudwatch_alarm_region")
 
     @cloudwatch_alarm_region.setter
@@ -179,14 +136,6 @@ class HealthCheckArgs:
     @_builtins.property
     @pulumi.getter
     def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
-        * For health checks that check the health of endpoints, Route53 stops submitting requests to your application, server, or other resource.
-        * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
-        * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
-
-        > **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invert_healthcheck`.
-        """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
@@ -196,9 +145,6 @@ class HealthCheckArgs:
     @_builtins.property
     @pulumi.getter(name="enableSni")
     def enable_sni(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
-        """
         return pulumi.get(self, "enable_sni")
 
     @enable_sni.setter
@@ -208,9 +154,6 @@ class HealthCheckArgs:
     @_builtins.property
     @pulumi.getter(name="failureThreshold")
     def failure_threshold(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of consecutive health checks that an endpoint must pass or fail.
-        """
         return pulumi.get(self, "failure_threshold")
 
     @failure_threshold.setter
@@ -220,9 +163,6 @@ class HealthCheckArgs:
     @_builtins.property
     @pulumi.getter
     def fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
-        """
         return pulumi.get(self, "fqdn")
 
     @fqdn.setter
@@ -232,9 +172,6 @@ class HealthCheckArgs:
     @_builtins.property
     @pulumi.getter(name="insufficientDataHealthStatus")
     def insufficient_data_health_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
-        """
         return pulumi.get(self, "insufficient_data_health_status")
 
     @insufficient_data_health_status.setter
@@ -244,9 +181,6 @@ class HealthCheckArgs:
     @_builtins.property
     @pulumi.getter(name="invertHealthcheck")
     def invert_healthcheck(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A boolean value that indicates whether the status of health check should be inverted. For example, if a health check is healthy but Inverted is True , then Route 53 considers the health check to be unhealthy.
-        """
         return pulumi.get(self, "invert_healthcheck")
 
     @invert_healthcheck.setter
@@ -256,9 +190,6 @@ class HealthCheckArgs:
     @_builtins.property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The IP address of the endpoint to be checked.
-        """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
@@ -268,9 +199,6 @@ class HealthCheckArgs:
     @_builtins.property
     @pulumi.getter(name="measureLatency")
     def measure_latency(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value that indicates whether you want Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint and to display CloudWatch latency graphs in the Route 53 console.
-        """
         return pulumi.get(self, "measure_latency")
 
     @measure_latency.setter
@@ -280,9 +208,6 @@ class HealthCheckArgs:
     @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The port of the endpoint to be checked.
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -292,10 +217,6 @@ class HealthCheckArgs:
     @_builtins.property
     @pulumi.getter(name="referenceName")
     def reference_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        This is a reference name used in Caller Reference
-        (helpful for identifying single health_check set amongst others)
-        """
         return pulumi.get(self, "reference_name")
 
     @reference_name.setter
@@ -305,9 +226,6 @@ class HealthCheckArgs:
     @_builtins.property
     @pulumi.getter
     def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
-        """
         return pulumi.get(self, "regions")
 
     @regions.setter
@@ -317,9 +235,6 @@ class HealthCheckArgs:
     @_builtins.property
     @pulumi.getter(name="requestInterval")
     def request_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
-        """
         return pulumi.get(self, "request_interval")
 
     @request_interval.setter
@@ -329,9 +244,6 @@ class HealthCheckArgs:
     @_builtins.property
     @pulumi.getter(name="resourcePath")
     def resource_path(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The path that you want Amazon Route 53 to request when performing health checks.
-        """
         return pulumi.get(self, "resource_path")
 
     @resource_path.setter
@@ -341,9 +253,6 @@ class HealthCheckArgs:
     @_builtins.property
     @pulumi.getter(name="routingControlArn")
     def routing_control_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
-        """
         return pulumi.get(self, "routing_control_arn")
 
     @routing_control_arn.setter
@@ -353,9 +262,6 @@ class HealthCheckArgs:
     @_builtins.property
     @pulumi.getter(name="searchString")
     def search_string(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
-        """
         return pulumi.get(self, "search_string")
 
     @search_string.setter
@@ -365,9 +271,6 @@ class HealthCheckArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -377,9 +280,6 @@ class HealthCheckArgs:
     @_builtins.property
     @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of arbitrary keys and values that, when changed, will trigger an in-place update of the CloudWatch alarm arguments. Use this argument to synchronize the health check when an alarm is changed. See example above.
-        """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
@@ -416,36 +316,6 @@ class _HealthCheckState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering HealthCheck resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Health Check.
-        :param pulumi.Input[_builtins.int] child_health_threshold: The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] child_healthchecks: For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
-        :param pulumi.Input[_builtins.str] cloudwatch_alarm_name: The name of the CloudWatch alarm.
-        :param pulumi.Input[_builtins.str] cloudwatch_alarm_region: The region that the CloudWatch alarm was created in.
-        :param pulumi.Input[_builtins.bool] disabled: A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
-               * For health checks that check the health of endpoints, Route53 stops submitting requests to your application, server, or other resource.
-               * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
-               * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
-               
-               > **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invert_healthcheck`.
-        :param pulumi.Input[_builtins.bool] enable_sni: A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
-        :param pulumi.Input[_builtins.int] failure_threshold: The number of consecutive health checks that an endpoint must pass or fail.
-        :param pulumi.Input[_builtins.str] fqdn: The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
-        :param pulumi.Input[_builtins.str] insufficient_data_health_status: The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
-        :param pulumi.Input[_builtins.bool] invert_healthcheck: A boolean value that indicates whether the status of health check should be inverted. For example, if a health check is healthy but Inverted is True , then Route 53 considers the health check to be unhealthy.
-        :param pulumi.Input[_builtins.str] ip_address: The IP address of the endpoint to be checked.
-        :param pulumi.Input[_builtins.bool] measure_latency: A Boolean value that indicates whether you want Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint and to display CloudWatch latency graphs in the Route 53 console.
-        :param pulumi.Input[_builtins.int] port: The port of the endpoint to be checked.
-        :param pulumi.Input[_builtins.str] reference_name: This is a reference name used in Caller Reference
-               (helpful for identifying single health_check set amongst others)
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
-        :param pulumi.Input[_builtins.int] request_interval: The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
-        :param pulumi.Input[_builtins.str] resource_path: The path that you want Amazon Route 53 to request when performing health checks.
-        :param pulumi.Input[_builtins.str] routing_control_arn: The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
-        :param pulumi.Input[_builtins.str] search_string: String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an in-place update of the CloudWatch alarm arguments. Use this argument to synchronize the health check when an alarm is changed. See example above.
-        :param pulumi.Input[_builtins.str] type: The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -499,9 +369,6 @@ class _HealthCheckState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the Health Check.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -511,9 +378,6 @@ class _HealthCheckState:
     @_builtins.property
     @pulumi.getter(name="childHealthThreshold")
     def child_health_threshold(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
-        """
         return pulumi.get(self, "child_health_threshold")
 
     @child_health_threshold.setter
@@ -523,9 +387,6 @@ class _HealthCheckState:
     @_builtins.property
     @pulumi.getter(name="childHealthchecks")
     def child_healthchecks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
-        """
         return pulumi.get(self, "child_healthchecks")
 
     @child_healthchecks.setter
@@ -535,9 +396,6 @@ class _HealthCheckState:
     @_builtins.property
     @pulumi.getter(name="cloudwatchAlarmName")
     def cloudwatch_alarm_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the CloudWatch alarm.
-        """
         return pulumi.get(self, "cloudwatch_alarm_name")
 
     @cloudwatch_alarm_name.setter
@@ -547,9 +405,6 @@ class _HealthCheckState:
     @_builtins.property
     @pulumi.getter(name="cloudwatchAlarmRegion")
     def cloudwatch_alarm_region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The region that the CloudWatch alarm was created in.
-        """
         return pulumi.get(self, "cloudwatch_alarm_region")
 
     @cloudwatch_alarm_region.setter
@@ -559,14 +414,6 @@ class _HealthCheckState:
     @_builtins.property
     @pulumi.getter
     def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
-        * For health checks that check the health of endpoints, Route53 stops submitting requests to your application, server, or other resource.
-        * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
-        * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
-
-        > **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invert_healthcheck`.
-        """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
@@ -576,9 +423,6 @@ class _HealthCheckState:
     @_builtins.property
     @pulumi.getter(name="enableSni")
     def enable_sni(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
-        """
         return pulumi.get(self, "enable_sni")
 
     @enable_sni.setter
@@ -588,9 +432,6 @@ class _HealthCheckState:
     @_builtins.property
     @pulumi.getter(name="failureThreshold")
     def failure_threshold(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of consecutive health checks that an endpoint must pass or fail.
-        """
         return pulumi.get(self, "failure_threshold")
 
     @failure_threshold.setter
@@ -600,9 +441,6 @@ class _HealthCheckState:
     @_builtins.property
     @pulumi.getter
     def fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
-        """
         return pulumi.get(self, "fqdn")
 
     @fqdn.setter
@@ -612,9 +450,6 @@ class _HealthCheckState:
     @_builtins.property
     @pulumi.getter(name="insufficientDataHealthStatus")
     def insufficient_data_health_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
-        """
         return pulumi.get(self, "insufficient_data_health_status")
 
     @insufficient_data_health_status.setter
@@ -624,9 +459,6 @@ class _HealthCheckState:
     @_builtins.property
     @pulumi.getter(name="invertHealthcheck")
     def invert_healthcheck(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A boolean value that indicates whether the status of health check should be inverted. For example, if a health check is healthy but Inverted is True , then Route 53 considers the health check to be unhealthy.
-        """
         return pulumi.get(self, "invert_healthcheck")
 
     @invert_healthcheck.setter
@@ -636,9 +468,6 @@ class _HealthCheckState:
     @_builtins.property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The IP address of the endpoint to be checked.
-        """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
@@ -648,9 +477,6 @@ class _HealthCheckState:
     @_builtins.property
     @pulumi.getter(name="measureLatency")
     def measure_latency(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value that indicates whether you want Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint and to display CloudWatch latency graphs in the Route 53 console.
-        """
         return pulumi.get(self, "measure_latency")
 
     @measure_latency.setter
@@ -660,9 +486,6 @@ class _HealthCheckState:
     @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The port of the endpoint to be checked.
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -672,10 +495,6 @@ class _HealthCheckState:
     @_builtins.property
     @pulumi.getter(name="referenceName")
     def reference_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        This is a reference name used in Caller Reference
-        (helpful for identifying single health_check set amongst others)
-        """
         return pulumi.get(self, "reference_name")
 
     @reference_name.setter
@@ -685,9 +504,6 @@ class _HealthCheckState:
     @_builtins.property
     @pulumi.getter
     def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
-        """
         return pulumi.get(self, "regions")
 
     @regions.setter
@@ -697,9 +513,6 @@ class _HealthCheckState:
     @_builtins.property
     @pulumi.getter(name="requestInterval")
     def request_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
-        """
         return pulumi.get(self, "request_interval")
 
     @request_interval.setter
@@ -709,9 +522,6 @@ class _HealthCheckState:
     @_builtins.property
     @pulumi.getter(name="resourcePath")
     def resource_path(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The path that you want Amazon Route 53 to request when performing health checks.
-        """
         return pulumi.get(self, "resource_path")
 
     @resource_path.setter
@@ -721,9 +531,6 @@ class _HealthCheckState:
     @_builtins.property
     @pulumi.getter(name="routingControlArn")
     def routing_control_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
-        """
         return pulumi.get(self, "routing_control_arn")
 
     @routing_control_arn.setter
@@ -733,9 +540,6 @@ class _HealthCheckState:
     @_builtins.property
     @pulumi.getter(name="searchString")
     def search_string(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
-        """
         return pulumi.get(self, "search_string")
 
     @search_string.setter
@@ -745,9 +549,6 @@ class _HealthCheckState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -757,9 +558,6 @@ class _HealthCheckState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -769,9 +567,6 @@ class _HealthCheckState:
     @_builtins.property
     @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of arbitrary keys and values that, when changed, will trigger an in-place update of the CloudWatch alarm arguments. Use this argument to synchronize the health check when an alarm is changed. See example above.
-        """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
@@ -781,9 +576,6 @@ class _HealthCheckState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -821,149 +613,9 @@ class HealthCheck(pulumi.CustomResource):
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a Route53 health check.
-
-        ## Example Usage
-
-        ### Connectivity and HTTP Status Code Check
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53.HealthCheck("example",
-            fqdn="example.com",
-            port=80,
-            type="HTTP",
-            resource_path="/",
-            failure_threshold=5,
-            request_interval=30,
-            tags={
-                "Name": "tf-test-health-check",
-            })
-        ```
-
-        ### Connectivity and String Matching Check
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53.HealthCheck("example",
-            failure_threshold=5,
-            fqdn="example.com",
-            port=443,
-            request_interval=30,
-            resource_path="/",
-            search_string="example",
-            type="HTTPS_STR_MATCH")
-        ```
-
-        ### Aggregate Check
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        parent = aws.route53.HealthCheck("parent",
-            type="CALCULATED",
-            child_health_threshold=1,
-            child_healthchecks=[child["id"]],
-            tags={
-                "Name": "tf-test-calculated-health-check",
-            })
-        ```
-
-        ### CloudWatch Alarm Check
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foobar = aws.cloudwatch.MetricAlarm("foobar",
-            name="test-foobar5",
-            comparison_operator="GreaterThanOrEqualToThreshold",
-            evaluation_periods=2,
-            metric_name="CPUUtilization",
-            namespace="AWS/EC2",
-            period=120,
-            statistic="Average",
-            threshold=80,
-            alarm_description="This metric monitors ec2 cpu utilization")
-        foo = aws.route53.HealthCheck("foo",
-            type="CLOUDWATCH_METRIC",
-            cloudwatch_alarm_name=foobar.name,
-            cloudwatch_alarm_region="us-west-2",
-            insufficient_data_health_status="Healthy")
-        ```
-
-        ### CloudWatch Alarm Check With Triggers
-
-        The `triggers` argument allows the Route53 health check to be synchronized when a change to the upstream CloudWatch alarm is made.
-        In the configuration below, the health check will be synchronized any time the `threshold` of the alarm is changed.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudwatch.MetricAlarm("example",
-            name="example",
-            comparison_operator="GreaterThanOrEqualToThreshold",
-            evaluation_periods=2,
-            metric_name="CPUUtilization",
-            namespace="AWS/EC2",
-            period=120,
-            statistic="Average",
-            threshold=80,
-            alarm_description="This metric monitors ec2 cpu utilization")
-        example_health_check = aws.route53.HealthCheck("example",
-            type="CLOUDWATCH_METRIC",
-            cloudwatch_alarm_name=example.name,
-            cloudwatch_alarm_region="us-west-2",
-            insufficient_data_health_status="Healthy",
-            triggers={
-                "threshold": example.threshold,
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Route53 Health Checks using the health check `id`. For example:
-
-        ```sh
-        $ pulumi import aws:route53/healthCheck:HealthCheck http_check abcdef11-2222-3333-4444-555555fedcba
-        ```
-
+        Create a HealthCheck resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] child_health_threshold: The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] child_healthchecks: For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
-        :param pulumi.Input[_builtins.str] cloudwatch_alarm_name: The name of the CloudWatch alarm.
-        :param pulumi.Input[_builtins.str] cloudwatch_alarm_region: The region that the CloudWatch alarm was created in.
-        :param pulumi.Input[_builtins.bool] disabled: A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
-               * For health checks that check the health of endpoints, Route53 stops submitting requests to your application, server, or other resource.
-               * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
-               * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
-               
-               > **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invert_healthcheck`.
-        :param pulumi.Input[_builtins.bool] enable_sni: A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
-        :param pulumi.Input[_builtins.int] failure_threshold: The number of consecutive health checks that an endpoint must pass or fail.
-        :param pulumi.Input[_builtins.str] fqdn: The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
-        :param pulumi.Input[_builtins.str] insufficient_data_health_status: The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
-        :param pulumi.Input[_builtins.bool] invert_healthcheck: A boolean value that indicates whether the status of health check should be inverted. For example, if a health check is healthy but Inverted is True , then Route 53 considers the health check to be unhealthy.
-        :param pulumi.Input[_builtins.str] ip_address: The IP address of the endpoint to be checked.
-        :param pulumi.Input[_builtins.bool] measure_latency: A Boolean value that indicates whether you want Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint and to display CloudWatch latency graphs in the Route 53 console.
-        :param pulumi.Input[_builtins.int] port: The port of the endpoint to be checked.
-        :param pulumi.Input[_builtins.str] reference_name: This is a reference name used in Caller Reference
-               (helpful for identifying single health_check set amongst others)
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
-        :param pulumi.Input[_builtins.int] request_interval: The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
-        :param pulumi.Input[_builtins.str] resource_path: The path that you want Amazon Route 53 to request when performing health checks.
-        :param pulumi.Input[_builtins.str] routing_control_arn: The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
-        :param pulumi.Input[_builtins.str] search_string: String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an in-place update of the CloudWatch alarm arguments. Use this argument to synchronize the health check when an alarm is changed. See example above.
-        :param pulumi.Input[_builtins.str] type: The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
         """
         ...
     @overload
@@ -972,119 +624,7 @@ class HealthCheck(pulumi.CustomResource):
                  args: HealthCheckArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Route53 health check.
-
-        ## Example Usage
-
-        ### Connectivity and HTTP Status Code Check
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53.HealthCheck("example",
-            fqdn="example.com",
-            port=80,
-            type="HTTP",
-            resource_path="/",
-            failure_threshold=5,
-            request_interval=30,
-            tags={
-                "Name": "tf-test-health-check",
-            })
-        ```
-
-        ### Connectivity and String Matching Check
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53.HealthCheck("example",
-            failure_threshold=5,
-            fqdn="example.com",
-            port=443,
-            request_interval=30,
-            resource_path="/",
-            search_string="example",
-            type="HTTPS_STR_MATCH")
-        ```
-
-        ### Aggregate Check
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        parent = aws.route53.HealthCheck("parent",
-            type="CALCULATED",
-            child_health_threshold=1,
-            child_healthchecks=[child["id"]],
-            tags={
-                "Name": "tf-test-calculated-health-check",
-            })
-        ```
-
-        ### CloudWatch Alarm Check
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foobar = aws.cloudwatch.MetricAlarm("foobar",
-            name="test-foobar5",
-            comparison_operator="GreaterThanOrEqualToThreshold",
-            evaluation_periods=2,
-            metric_name="CPUUtilization",
-            namespace="AWS/EC2",
-            period=120,
-            statistic="Average",
-            threshold=80,
-            alarm_description="This metric monitors ec2 cpu utilization")
-        foo = aws.route53.HealthCheck("foo",
-            type="CLOUDWATCH_METRIC",
-            cloudwatch_alarm_name=foobar.name,
-            cloudwatch_alarm_region="us-west-2",
-            insufficient_data_health_status="Healthy")
-        ```
-
-        ### CloudWatch Alarm Check With Triggers
-
-        The `triggers` argument allows the Route53 health check to be synchronized when a change to the upstream CloudWatch alarm is made.
-        In the configuration below, the health check will be synchronized any time the `threshold` of the alarm is changed.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudwatch.MetricAlarm("example",
-            name="example",
-            comparison_operator="GreaterThanOrEqualToThreshold",
-            evaluation_periods=2,
-            metric_name="CPUUtilization",
-            namespace="AWS/EC2",
-            period=120,
-            statistic="Average",
-            threshold=80,
-            alarm_description="This metric monitors ec2 cpu utilization")
-        example_health_check = aws.route53.HealthCheck("example",
-            type="CLOUDWATCH_METRIC",
-            cloudwatch_alarm_name=example.name,
-            cloudwatch_alarm_region="us-west-2",
-            insufficient_data_health_status="Healthy",
-            triggers={
-                "threshold": example.threshold,
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Route53 Health Checks using the health check `id`. For example:
-
-        ```sh
-        $ pulumi import aws:route53/healthCheck:HealthCheck http_check abcdef11-2222-3333-4444-555555fedcba
-        ```
-
+        Create a HealthCheck resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param HealthCheckArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1198,36 +738,6 @@ class HealthCheck(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Health Check.
-        :param pulumi.Input[_builtins.int] child_health_threshold: The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] child_healthchecks: For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
-        :param pulumi.Input[_builtins.str] cloudwatch_alarm_name: The name of the CloudWatch alarm.
-        :param pulumi.Input[_builtins.str] cloudwatch_alarm_region: The region that the CloudWatch alarm was created in.
-        :param pulumi.Input[_builtins.bool] disabled: A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
-               * For health checks that check the health of endpoints, Route53 stops submitting requests to your application, server, or other resource.
-               * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
-               * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
-               
-               > **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invert_healthcheck`.
-        :param pulumi.Input[_builtins.bool] enable_sni: A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
-        :param pulumi.Input[_builtins.int] failure_threshold: The number of consecutive health checks that an endpoint must pass or fail.
-        :param pulumi.Input[_builtins.str] fqdn: The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
-        :param pulumi.Input[_builtins.str] insufficient_data_health_status: The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
-        :param pulumi.Input[_builtins.bool] invert_healthcheck: A boolean value that indicates whether the status of health check should be inverted. For example, if a health check is healthy but Inverted is True , then Route 53 considers the health check to be unhealthy.
-        :param pulumi.Input[_builtins.str] ip_address: The IP address of the endpoint to be checked.
-        :param pulumi.Input[_builtins.bool] measure_latency: A Boolean value that indicates whether you want Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint and to display CloudWatch latency graphs in the Route 53 console.
-        :param pulumi.Input[_builtins.int] port: The port of the endpoint to be checked.
-        :param pulumi.Input[_builtins.str] reference_name: This is a reference name used in Caller Reference
-               (helpful for identifying single health_check set amongst others)
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
-        :param pulumi.Input[_builtins.int] request_interval: The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
-        :param pulumi.Input[_builtins.str] resource_path: The path that you want Amazon Route 53 to request when performing health checks.
-        :param pulumi.Input[_builtins.str] routing_control_arn: The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
-        :param pulumi.Input[_builtins.str] search_string: String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an in-place update of the CloudWatch alarm arguments. Use this argument to synchronize the health check when an alarm is changed. See example above.
-        :param pulumi.Input[_builtins.str] type: The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1262,198 +772,120 @@ class HealthCheck(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the Health Check.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="childHealthThreshold")
     def child_health_threshold(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
-        """
         return pulumi.get(self, "child_health_threshold")
 
     @_builtins.property
     @pulumi.getter(name="childHealthchecks")
     def child_healthchecks(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
-        """
         return pulumi.get(self, "child_healthchecks")
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchAlarmName")
     def cloudwatch_alarm_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The name of the CloudWatch alarm.
-        """
         return pulumi.get(self, "cloudwatch_alarm_name")
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchAlarmRegion")
     def cloudwatch_alarm_region(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The region that the CloudWatch alarm was created in.
-        """
         return pulumi.get(self, "cloudwatch_alarm_region")
 
     @_builtins.property
     @pulumi.getter
     def disabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
-        * For health checks that check the health of endpoints, Route53 stops submitting requests to your application, server, or other resource.
-        * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
-        * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
-
-        > **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invert_healthcheck`.
-        """
         return pulumi.get(self, "disabled")
 
     @_builtins.property
     @pulumi.getter(name="enableSni")
     def enable_sni(self) -> pulumi.Output[_builtins.bool]:
-        """
-        A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
-        """
         return pulumi.get(self, "enable_sni")
 
     @_builtins.property
     @pulumi.getter(name="failureThreshold")
     def failure_threshold(self) -> pulumi.Output[_builtins.int]:
-        """
-        The number of consecutive health checks that an endpoint must pass or fail.
-        """
         return pulumi.get(self, "failure_threshold")
 
     @_builtins.property
     @pulumi.getter
     def fqdn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
-        """
         return pulumi.get(self, "fqdn")
 
     @_builtins.property
     @pulumi.getter(name="insufficientDataHealthStatus")
     def insufficient_data_health_status(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
-        """
         return pulumi.get(self, "insufficient_data_health_status")
 
     @_builtins.property
     @pulumi.getter(name="invertHealthcheck")
     def invert_healthcheck(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        A boolean value that indicates whether the status of health check should be inverted. For example, if a health check is healthy but Inverted is True , then Route 53 considers the health check to be unhealthy.
-        """
         return pulumi.get(self, "invert_healthcheck")
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The IP address of the endpoint to be checked.
-        """
         return pulumi.get(self, "ip_address")
 
     @_builtins.property
     @pulumi.getter(name="measureLatency")
     def measure_latency(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        A Boolean value that indicates whether you want Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint and to display CloudWatch latency graphs in the Route 53 console.
-        """
         return pulumi.get(self, "measure_latency")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The port of the endpoint to be checked.
-        """
         return pulumi.get(self, "port")
 
     @_builtins.property
     @pulumi.getter(name="referenceName")
     def reference_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        This is a reference name used in Caller Reference
-        (helpful for identifying single health_check set amongst others)
-        """
         return pulumi.get(self, "reference_name")
 
     @_builtins.property
     @pulumi.getter
     def regions(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
-        """
         return pulumi.get(self, "regions")
 
     @_builtins.property
     @pulumi.getter(name="requestInterval")
     def request_interval(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
-        """
         return pulumi.get(self, "request_interval")
 
     @_builtins.property
     @pulumi.getter(name="resourcePath")
     def resource_path(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The path that you want Amazon Route 53 to request when performing health checks.
-        """
         return pulumi.get(self, "resource_path")
 
     @_builtins.property
     @pulumi.getter(name="routingControlArn")
     def routing_control_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
-        """
         return pulumi.get(self, "routing_control_arn")
 
     @_builtins.property
     @pulumi.getter(name="searchString")
     def search_string(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
-        """
         return pulumi.get(self, "search_string")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def triggers(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of arbitrary keys and values that, when changed, will trigger an in-place update of the CloudWatch alarm arguments. Use this argument to synchronize the health check when an alarm is changed. See example above.
-        """
         return pulumi.get(self, "triggers")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
-        """
         return pulumi.get(self, "type")
 

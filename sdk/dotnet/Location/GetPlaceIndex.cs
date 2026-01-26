@@ -11,75 +11,12 @@ namespace Pulumi.Aws.Location
 {
     public static class GetPlaceIndex
     {
-        /// <summary>
-        /// Retrieve information about a Location Service Place Index.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Location.GetPlaceIndex.Invoke(new()
-        ///     {
-        ///         IndexName = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetPlaceIndexResult> InvokeAsync(GetPlaceIndexArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPlaceIndexResult>("aws:location/getPlaceIndex:getPlaceIndex", args ?? new GetPlaceIndexArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve information about a Location Service Place Index.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Location.GetPlaceIndex.Invoke(new()
-        ///     {
-        ///         IndexName = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetPlaceIndexResult> Invoke(GetPlaceIndexInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlaceIndexResult>("aws:location/getPlaceIndex:getPlaceIndex", args ?? new GetPlaceIndexInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve information about a Location Service Place Index.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Location.GetPlaceIndex.Invoke(new()
-        ///     {
-        ///         IndexName = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetPlaceIndexResult> Invoke(GetPlaceIndexInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlaceIndexResult>("aws:location/getPlaceIndex:getPlaceIndex", args ?? new GetPlaceIndexInvokeArgs(), options.WithDefaults());
     }
@@ -87,24 +24,14 @@ namespace Pulumi.Aws.Location
 
     public sealed class GetPlaceIndexArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the place index resource.
-        /// </summary>
         [Input("indexName", required: true)]
         public string IndexName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags for the place index.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -119,24 +46,14 @@ namespace Pulumi.Aws.Location
 
     public sealed class GetPlaceIndexInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the place index resource.
-        /// </summary>
         [Input("indexName", required: true)]
         public Input<string> IndexName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags for the place index.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -153,39 +70,18 @@ namespace Pulumi.Aws.Location
     [OutputType]
     public sealed class GetPlaceIndexResult
     {
-        /// <summary>
-        /// Timestamp for when the place index resource was created in ISO 8601 format.
-        /// </summary>
         public readonly string CreateTime;
-        /// <summary>
-        /// Data provider of geospatial data.
-        /// </summary>
         public readonly string DataSource;
-        /// <summary>
-        /// List of configurations that specify data storage option for requesting Places.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetPlaceIndexDataSourceConfigurationResult> DataSourceConfigurations;
-        /// <summary>
-        /// Optional description for the place index resource.
-        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// ARN for the place index resource.
-        /// </summary>
         public readonly string IndexArn;
         public readonly string IndexName;
         public readonly string Region;
-        /// <summary>
-        /// Key-value map of resource tags for the place index.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// Timestamp for when the place index resource was last updated in ISO 8601 format.
-        /// </summary>
         public readonly string UpdateTime;
 
         [OutputConstructor]

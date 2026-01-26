@@ -16,77 +16,37 @@ public final class LaunchMetricMonitorMetricDefinitionArgs extends com.pulumi.re
 
     public static final LaunchMetricMonitorMetricDefinitionArgs Empty = new LaunchMetricMonitorMetricDefinitionArgs();
 
-    /**
-     * Specifies the entity, such as a user or session, that does an action that causes a metric value to be recorded. An example is `userDetails.userID`.
-     * 
-     */
     @Import(name="entityIdKey", required=true)
     private Output<String> entityIdKey;
 
-    /**
-     * @return Specifies the entity, such as a user or session, that does an action that causes a metric value to be recorded. An example is `userDetails.userID`.
-     * 
-     */
     public Output<String> entityIdKey() {
         return this.entityIdKey;
     }
 
-    /**
-     * Specifies The EventBridge event pattern that defines how the metric is recorded.
-     * 
-     */
     @Import(name="eventPattern")
     private @Nullable Output<String> eventPattern;
 
-    /**
-     * @return Specifies The EventBridge event pattern that defines how the metric is recorded.
-     * 
-     */
     public Optional<Output<String>> eventPattern() {
         return Optional.ofNullable(this.eventPattern);
     }
 
-    /**
-     * Specifies the name for the metric.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Specifies the name for the metric.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Specifies a label for the units that the metric is measuring.
-     * 
-     */
     @Import(name="unitLabel")
     private @Nullable Output<String> unitLabel;
 
-    /**
-     * @return Specifies a label for the units that the metric is measuring.
-     * 
-     */
     public Optional<Output<String>> unitLabel() {
         return Optional.ofNullable(this.unitLabel);
     }
 
-    /**
-     * Specifies the value that is tracked to produce the metric.
-     * 
-     */
     @Import(name="valueKey", required=true)
     private Output<String> valueKey;
 
-    /**
-     * @return Specifies the value that is tracked to produce the metric.
-     * 
-     */
     public Output<String> valueKey() {
         return this.valueKey;
     }
@@ -119,107 +79,47 @@ public final class LaunchMetricMonitorMetricDefinitionArgs extends com.pulumi.re
             $ = new LaunchMetricMonitorMetricDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param entityIdKey Specifies the entity, such as a user or session, that does an action that causes a metric value to be recorded. An example is `userDetails.userID`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entityIdKey(Output<String> entityIdKey) {
             $.entityIdKey = entityIdKey;
             return this;
         }
 
-        /**
-         * @param entityIdKey Specifies the entity, such as a user or session, that does an action that causes a metric value to be recorded. An example is `userDetails.userID`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entityIdKey(String entityIdKey) {
             return entityIdKey(Output.of(entityIdKey));
         }
 
-        /**
-         * @param eventPattern Specifies The EventBridge event pattern that defines how the metric is recorded.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventPattern(@Nullable Output<String> eventPattern) {
             $.eventPattern = eventPattern;
             return this;
         }
 
-        /**
-         * @param eventPattern Specifies The EventBridge event pattern that defines how the metric is recorded.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventPattern(String eventPattern) {
             return eventPattern(Output.of(eventPattern));
         }
 
-        /**
-         * @param name Specifies the name for the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Specifies the name for the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param unitLabel Specifies a label for the units that the metric is measuring.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unitLabel(@Nullable Output<String> unitLabel) {
             $.unitLabel = unitLabel;
             return this;
         }
 
-        /**
-         * @param unitLabel Specifies a label for the units that the metric is measuring.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unitLabel(String unitLabel) {
             return unitLabel(Output.of(unitLabel));
         }
 
-        /**
-         * @param valueKey Specifies the value that is tracked to produce the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder valueKey(Output<String> valueKey) {
             $.valueKey = valueKey;
             return this;
         }
 
-        /**
-         * @param valueKey Specifies the value that is tracked to produce the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder valueKey(String valueKey) {
             return valueKey(Output.of(valueKey));
         }

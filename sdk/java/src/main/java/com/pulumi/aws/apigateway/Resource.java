@@ -13,129 +13,35 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an API Gateway Resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigateway.RestApi;
- * import com.pulumi.aws.apigateway.RestApiArgs;
- * import com.pulumi.aws.apigateway.Resource;
- * import com.pulumi.aws.apigateway.ResourceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var myDemoAPI = new RestApi("myDemoAPI", RestApiArgs.builder()
- *             .name("MyDemoAPI")
- *             .description("This is my API for demonstration purposes")
- *             .build());
- * 
- *         var myDemoResource = new Resource("myDemoResource", ResourceArgs.builder()
- *             .restApi(myDemoAPI.id())
- *             .parentId(myDemoAPI.rootResourceId())
- *             .pathPart("mydemoresource")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_api_gateway_resource` using `REST-API-ID/RESOURCE-ID`. For example:
- * 
- * ```sh
- * $ pulumi import aws:apigateway/resource:Resource example 12345abcde/67890fghij
- * ```
- * 
- */
 @ResourceType(type="aws:apigateway/resource:Resource")
 public class Resource extends com.pulumi.resources.CustomResource {
-    /**
-     * ID of the parent API resource
-     * 
-     */
     @Export(name="parentId", refs={String.class}, tree="[0]")
     private Output<String> parentId;
 
-    /**
-     * @return ID of the parent API resource
-     * 
-     */
     public Output<String> parentId() {
         return this.parentId;
     }
-    /**
-     * Complete path for this API resource, including all parent paths.
-     * 
-     */
     @Export(name="path", refs={String.class}, tree="[0]")
     private Output<String> path;
 
-    /**
-     * @return Complete path for this API resource, including all parent paths.
-     * 
-     */
     public Output<String> path() {
         return this.path;
     }
-    /**
-     * Last path segment of this API resource.
-     * 
-     */
     @Export(name="pathPart", refs={String.class}, tree="[0]")
     private Output<String> pathPart;
 
-    /**
-     * @return Last path segment of this API resource.
-     * 
-     */
     public Output<String> pathPart() {
         return this.pathPart;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * ID of the associated REST API
-     * 
-     */
     @Export(name="restApi", refs={String.class}, tree="[0]")
     private Output<String> restApi;
 
-    /**
-     * @return ID of the associated REST API
-     * 
-     */
     public Output<String> restApi() {
         return this.restApi;
     }

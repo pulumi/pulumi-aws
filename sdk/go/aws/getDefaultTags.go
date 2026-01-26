@@ -11,37 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get the default tags configured on the provider.
-//
-// With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.GetDefaultTags(ctx, &aws.GetDefaultTagsArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Dynamically Apply Default Tags to Auto Scaling Group
 func GetDefaultTags(ctx *pulumi.Context, args *GetDefaultTagsArgs, opts ...pulumi.InvokeOption) (*GetDefaultTagsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDefaultTagsResult
@@ -59,8 +28,7 @@ type GetDefaultTagsArgs struct {
 
 // A collection of values returned by getDefaultTags.
 type GetDefaultTagsResult struct {
-	Id string `pulumi:"id"`
-	// Key-value mapping of provider default tags.
+	Id   string            `pulumi:"id"`
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -101,7 +69,6 @@ func (o GetDefaultTagsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDefaultTagsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of provider default tags.
 func (o GetDefaultTagsResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetDefaultTagsResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

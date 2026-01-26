@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class GetServicePlacementConstraintResult
     {
-        /// <summary>
-        /// Cluster query language expression
-        /// </summary>
         public readonly string Expression;
-        /// <summary>
-        /// Constraint type
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

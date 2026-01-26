@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OutboundConnectionConnectionProperties {
-    /**
-     * @return Configuration block for cross cluster search.
-     * 
-     */
     private @Nullable OutboundConnectionConnectionPropertiesCrossClusterSearch crossClusterSearch;
-    /**
-     * @return The endpoint of the remote domain, is only set when `connectionMode` is `VPC_ENDPOINT` and `acceptConnection` is `TRUE`.
-     * 
-     */
     private @Nullable String endpoint;
 
     private OutboundConnectionConnectionProperties() {}
-    /**
-     * @return Configuration block for cross cluster search.
-     * 
-     */
     public Optional<OutboundConnectionConnectionPropertiesCrossClusterSearch> crossClusterSearch() {
         return Optional.ofNullable(this.crossClusterSearch);
     }
-    /**
-     * @return The endpoint of the remote domain, is only set when `connectionMode` is `VPC_ENDPOINT` and `acceptConnection` is `TRUE`.
-     * 
-     */
     public Optional<String> endpoint() {
         return Optional.ofNullable(this.endpoint);
     }

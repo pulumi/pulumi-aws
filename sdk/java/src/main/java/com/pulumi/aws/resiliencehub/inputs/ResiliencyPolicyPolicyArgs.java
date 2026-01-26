@@ -19,14 +19,14 @@ public final class ResiliencyPolicyPolicyArgs extends com.pulumi.resources.Resou
     public static final ResiliencyPolicyPolicyArgs Empty = new ResiliencyPolicyPolicyArgs();
 
     /**
-     * Specifies Availability Zone failure policy. See `policy.az`
+     * The RTO and RPO target to measure resiliency for potential availability zone disruptions.
      * 
      */
     @Import(name="az")
     private @Nullable Output<ResiliencyPolicyPolicyAzArgs> az;
 
     /**
-     * @return Specifies Availability Zone failure policy. See `policy.az`
+     * @return The RTO and RPO target to measure resiliency for potential availability zone disruptions.
      * 
      */
     public Optional<Output<ResiliencyPolicyPolicyAzArgs>> az() {
@@ -34,14 +34,14 @@ public final class ResiliencyPolicyPolicyArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies Infrastructure failure policy. See `policy.hardware`
+     * The RTO and RPO target to measure resiliency for potential infrastructure disruptions.
      * 
      */
     @Import(name="hardware")
     private @Nullable Output<ResiliencyPolicyPolicyHardwareArgs> hardware;
 
     /**
-     * @return Specifies Infrastructure failure policy. See `policy.hardware`
+     * @return The RTO and RPO target to measure resiliency for potential infrastructure disruptions.
      * 
      */
     public Optional<Output<ResiliencyPolicyPolicyHardwareArgs>> hardware() {
@@ -49,14 +49,14 @@ public final class ResiliencyPolicyPolicyArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies Region failure policy. `policy.region`
+     * The RTO and RPO target to measure resiliency for potential region disruptions.
      * 
      */
     @Import(name="region")
     private @Nullable Output<ResiliencyPolicyPolicyRegionArgs> region;
 
     /**
-     * @return Specifies Region failure policy. `policy.region`
+     * @return The RTO and RPO target to measure resiliency for potential region disruptions.
      * 
      */
     public Optional<Output<ResiliencyPolicyPolicyRegionArgs>> region() {
@@ -64,18 +64,14 @@ public final class ResiliencyPolicyPolicyArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies Application failure policy. See `policy.software`
-     * 
-     * The following arguments are optional:
+     * The RTO and RPO target to measure resiliency for potential application disruptions.
      * 
      */
     @Import(name="software")
     private @Nullable Output<ResiliencyPolicyPolicySoftwareArgs> software;
 
     /**
-     * @return Specifies Application failure policy. See `policy.software`
-     * 
-     * The following arguments are optional:
+     * @return The RTO and RPO target to measure resiliency for potential application disruptions.
      * 
      */
     public Optional<Output<ResiliencyPolicyPolicySoftwareArgs>> software() {
@@ -110,7 +106,7 @@ public final class ResiliencyPolicyPolicyArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param az Specifies Availability Zone failure policy. See `policy.az`
+         * @param az The RTO and RPO target to measure resiliency for potential availability zone disruptions.
          * 
          * @return builder
          * 
@@ -121,7 +117,7 @@ public final class ResiliencyPolicyPolicyArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param az Specifies Availability Zone failure policy. See `policy.az`
+         * @param az The RTO and RPO target to measure resiliency for potential availability zone disruptions.
          * 
          * @return builder
          * 
@@ -131,7 +127,7 @@ public final class ResiliencyPolicyPolicyArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param hardware Specifies Infrastructure failure policy. See `policy.hardware`
+         * @param hardware The RTO and RPO target to measure resiliency for potential infrastructure disruptions.
          * 
          * @return builder
          * 
@@ -142,7 +138,7 @@ public final class ResiliencyPolicyPolicyArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param hardware Specifies Infrastructure failure policy. See `policy.hardware`
+         * @param hardware The RTO and RPO target to measure resiliency for potential infrastructure disruptions.
          * 
          * @return builder
          * 
@@ -152,7 +148,7 @@ public final class ResiliencyPolicyPolicyArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param region Specifies Region failure policy. `policy.region`
+         * @param region The RTO and RPO target to measure resiliency for potential region disruptions.
          * 
          * @return builder
          * 
@@ -163,7 +159,7 @@ public final class ResiliencyPolicyPolicyArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param region Specifies Region failure policy. `policy.region`
+         * @param region The RTO and RPO target to measure resiliency for potential region disruptions.
          * 
          * @return builder
          * 
@@ -173,9 +169,7 @@ public final class ResiliencyPolicyPolicyArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param software Specifies Application failure policy. See `policy.software`
-         * 
-         * The following arguments are optional:
+         * @param software The RTO and RPO target to measure resiliency for potential application disruptions.
          * 
          * @return builder
          * 
@@ -186,9 +180,7 @@ public final class ResiliencyPolicyPolicyArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param software Specifies Application failure policy. See `policy.software`
-         * 
-         * The following arguments are optional:
+         * @param software The RTO and RPO target to measure resiliency for potential application disruptions.
          * 
          * @return builder
          * 

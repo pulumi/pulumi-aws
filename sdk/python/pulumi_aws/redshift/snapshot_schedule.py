@@ -28,14 +28,6 @@ class SnapshotScheduleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SnapshotSchedule resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] definitions: The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
-        :param pulumi.Input[_builtins.str] description: The description of the snapshot schedule.
-        :param pulumi.Input[_builtins.bool] force_destroy: Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
-        :param pulumi.Input[_builtins.str] identifier: The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
-        :param pulumi.Input[_builtins.str] identifier_prefix: Creates a unique
-               identifier beginning with the specified prefix. Conflicts with `identifier`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "definitions", definitions)
         if description is not None:
@@ -54,9 +46,6 @@ class SnapshotScheduleArgs:
     @_builtins.property
     @pulumi.getter
     def definitions(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
-        """
         return pulumi.get(self, "definitions")
 
     @definitions.setter
@@ -66,9 +55,6 @@ class SnapshotScheduleArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the snapshot schedule.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -78,9 +64,6 @@ class SnapshotScheduleArgs:
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
-        """
         return pulumi.get(self, "force_destroy")
 
     @force_destroy.setter
@@ -90,9 +73,6 @@ class SnapshotScheduleArgs:
     @_builtins.property
     @pulumi.getter
     def identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
-        """
         return pulumi.get(self, "identifier")
 
     @identifier.setter
@@ -102,10 +82,6 @@ class SnapshotScheduleArgs:
     @_builtins.property
     @pulumi.getter(name="identifierPrefix")
     def identifier_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creates a unique
-        identifier beginning with the specified prefix. Conflicts with `identifier`.
-        """
         return pulumi.get(self, "identifier_prefix")
 
     @identifier_prefix.setter
@@ -115,9 +91,6 @@ class SnapshotScheduleArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -127,9 +100,6 @@ class SnapshotScheduleArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -151,16 +121,6 @@ class _SnapshotScheduleState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering SnapshotSchedule resources.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] definitions: The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
-        :param pulumi.Input[_builtins.str] description: The description of the snapshot schedule.
-        :param pulumi.Input[_builtins.bool] force_destroy: Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
-        :param pulumi.Input[_builtins.str] identifier: The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
-        :param pulumi.Input[_builtins.str] identifier_prefix: Creates a unique
-               identifier beginning with the specified prefix. Conflicts with `identifier`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -184,9 +144,6 @@ class _SnapshotScheduleState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -196,9 +153,6 @@ class _SnapshotScheduleState:
     @_builtins.property
     @pulumi.getter
     def definitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
-        """
         return pulumi.get(self, "definitions")
 
     @definitions.setter
@@ -208,9 +162,6 @@ class _SnapshotScheduleState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the snapshot schedule.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -220,9 +171,6 @@ class _SnapshotScheduleState:
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
-        """
         return pulumi.get(self, "force_destroy")
 
     @force_destroy.setter
@@ -232,9 +180,6 @@ class _SnapshotScheduleState:
     @_builtins.property
     @pulumi.getter
     def identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
-        """
         return pulumi.get(self, "identifier")
 
     @identifier.setter
@@ -244,10 +189,6 @@ class _SnapshotScheduleState:
     @_builtins.property
     @pulumi.getter(name="identifierPrefix")
     def identifier_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creates a unique
-        identifier beginning with the specified prefix. Conflicts with `identifier`.
-        """
         return pulumi.get(self, "identifier_prefix")
 
     @identifier_prefix.setter
@@ -257,9 +198,6 @@ class _SnapshotScheduleState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -269,9 +207,6 @@ class _SnapshotScheduleState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -281,9 +216,6 @@ class _SnapshotScheduleState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -306,35 +238,9 @@ class SnapshotSchedule(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.redshift.SnapshotSchedule("default",
-            identifier="tf-redshift-snapshot-schedule",
-            definitions=["rate(12 hours)"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Redshift Snapshot Schedule using the `identifier`. For example:
-
-        ```sh
-        $ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule
-        ```
-
+        Create a SnapshotSchedule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] definitions: The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
-        :param pulumi.Input[_builtins.str] description: The description of the snapshot schedule.
-        :param pulumi.Input[_builtins.bool] force_destroy: Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
-        :param pulumi.Input[_builtins.str] identifier: The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
-        :param pulumi.Input[_builtins.str] identifier_prefix: Creates a unique
-               identifier beginning with the specified prefix. Conflicts with `identifier`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -343,25 +249,7 @@ class SnapshotSchedule(pulumi.CustomResource):
                  args: SnapshotScheduleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.redshift.SnapshotSchedule("default",
-            identifier="tf-redshift-snapshot-schedule",
-            definitions=["rate(12 hours)"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Redshift Snapshot Schedule using the `identifier`. For example:
-
-        ```sh
-        $ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule
-        ```
-
+        Create a SnapshotSchedule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SnapshotScheduleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -430,16 +318,6 @@ class SnapshotSchedule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] definitions: The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
-        :param pulumi.Input[_builtins.str] description: The description of the snapshot schedule.
-        :param pulumi.Input[_builtins.bool] force_destroy: Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
-        :param pulumi.Input[_builtins.str] identifier: The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
-        :param pulumi.Input[_builtins.str] identifier_prefix: Creates a unique
-               identifier beginning with the specified prefix. Conflicts with `identifier`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -459,73 +337,45 @@ class SnapshotSchedule(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def definitions(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
-        """
         return pulumi.get(self, "definitions")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The description of the snapshot schedule.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
     def force_destroy(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
-        """
         return pulumi.get(self, "force_destroy")
 
     @_builtins.property
     @pulumi.getter
     def identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
-        """
         return pulumi.get(self, "identifier")
 
     @_builtins.property
     @pulumi.getter(name="identifierPrefix")
     def identifier_prefix(self) -> pulumi.Output[_builtins.str]:
-        """
-        Creates a unique
-        identifier beginning with the specified prefix. Conflicts with `identifier`.
-        """
         return pulumi.get(self, "identifier_prefix")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

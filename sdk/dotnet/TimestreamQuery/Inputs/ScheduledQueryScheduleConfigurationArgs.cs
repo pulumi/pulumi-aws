@@ -12,9 +12,6 @@ namespace Pulumi.Aws.TimestreamQuery.Inputs
 
     public sealed class ScheduledQueryScheduleConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// When to trigger the scheduled query run. This can be a cron expression or a rate expression.
-        /// </summary>
         [Input("scheduleExpression", required: true)]
         public Input<string> ScheduleExpression { get; set; } = null!;
 

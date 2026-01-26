@@ -13,69 +13,21 @@ namespace Pulumi.Aws.IdentityStore.Outputs
     [OutputType]
     public sealed class GetUsersUserResult
     {
-        /// <summary>
-        /// List of details about the user's address.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetUsersUserAddressResult> Addresses;
-        /// <summary>
-        /// Name that is typically displayed when the user is referenced.
-        /// </summary>
         public readonly string DisplayName;
-        /// <summary>
-        /// List of details about the user's email.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetUsersUserEmailResult> Emails;
-        /// <summary>
-        /// List of identifiers issued to this resource by an external identity provider.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetUsersUserExternalIdResult> ExternalIds;
-        /// <summary>
-        /// Identity Store ID associated with the Single Sign-On Instance.
-        /// </summary>
         public readonly string IdentityStoreId;
-        /// <summary>
-        /// User's geographical region or location.
-        /// </summary>
         public readonly string Locale;
-        /// <summary>
-        /// Details about the user's full name.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetUsersUserNameResult> Names;
-        /// <summary>
-        /// An alternate name for the user.
-        /// </summary>
         public readonly string Nickname;
-        /// <summary>
-        /// List of details about the user's phone number.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetUsersUserPhoneNumberResult> PhoneNumbers;
-        /// <summary>
-        /// Preferred language of the user.
-        /// </summary>
         public readonly string PreferredLanguage;
-        /// <summary>
-        /// An URL that may be associated with the user.
-        /// </summary>
         public readonly string ProfileUrl;
-        /// <summary>
-        /// User's time zone.
-        /// </summary>
         public readonly string Timezone;
-        /// <summary>
-        /// User's title.
-        /// </summary>
         public readonly string Title;
-        /// <summary>
-        /// Identifier of the user in the Identity Store.
-        /// </summary>
         public readonly string UserId;
-        /// <summary>
-        /// User's user name value.
-        /// </summary>
         public readonly string UserName;
-        /// <summary>
-        /// User type.
-        /// </summary>
         public readonly string UserType;
 
         [OutputConstructor]

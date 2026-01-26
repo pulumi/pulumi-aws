@@ -61,25 +61,16 @@ class GetConnectionResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the connection.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="connectedDeviceId")
     def connected_device_id(self) -> _builtins.str:
-        """
-        ID of the second device in the connection.
-        """
         return pulumi.get(self, "connected_device_id")
 
     @_builtins.property
     @pulumi.getter(name="connectedLinkId")
     def connected_link_id(self) -> _builtins.str:
-        """
-        ID of the link for the second device.
-        """
         return pulumi.get(self, "connected_link_id")
 
     @_builtins.property
@@ -90,17 +81,11 @@ class GetConnectionResult:
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the connection.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="deviceId")
     def device_id(self) -> _builtins.str:
-        """
-        ID of the first device in the connection.
-        """
         return pulumi.get(self, "device_id")
 
     @_builtins.property
@@ -119,17 +104,11 @@ class GetConnectionResult:
     @_builtins.property
     @pulumi.getter(name="linkId")
     def link_id(self) -> _builtins.str:
-        """
-        ID of the link for the first device.
-        """
         return pulumi.get(self, "link_id")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value tags for the connection.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -156,22 +135,7 @@ def get_connection(connection_id: Optional[_builtins.str] = None,
                    tags: Optional[Mapping[str, _builtins.str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionResult:
     """
-    Provides details about an existing Network Manager connection.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_connection(global_network_id=global_network_id,
-        connection_id=connection_id)
-    ```
-
-
-    :param _builtins.str connection_id: ID of the specific connection to retrieve.
-    :param _builtins.str global_network_id: ID of the Global Network of the connection to retrieve.
-    :param Mapping[str, _builtins.str] tags: Key-value tags for the connection.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['connectionId'] = connection_id
@@ -196,22 +160,7 @@ def get_connection_output(connection_id: Optional[pulumi.Input[_builtins.str]] =
                           tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionResult]:
     """
-    Provides details about an existing Network Manager connection.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_connection(global_network_id=global_network_id,
-        connection_id=connection_id)
-    ```
-
-
-    :param _builtins.str connection_id: ID of the specific connection to retrieve.
-    :param _builtins.str global_network_id: ID of the Global Network of the connection to retrieve.
-    :param Mapping[str, _builtins.str] tags: Key-value tags for the connection.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['connectionId'] = connection_id

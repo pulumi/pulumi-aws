@@ -16,19 +16,9 @@ public final class V2modelsSlotTypeExternalSourceSettingArgs extends com.pulumi.
 
     public static final V2modelsSlotTypeExternalSourceSettingArgs Empty = new V2modelsSlotTypeExternalSourceSettingArgs();
 
-    /**
-     * Settings required for a slot type based on a grammar that you provide.
-     * See `grammarSlotTypeSetting` argument reference below.
-     * 
-     */
     @Import(name="grammarSlotTypeSettings")
     private @Nullable Output<List<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs>> grammarSlotTypeSettings;
 
-    /**
-     * @return Settings required for a slot type based on a grammar that you provide.
-     * See `grammarSlotTypeSetting` argument reference below.
-     * 
-     */
     public Optional<Output<List<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs>>> grammarSlotTypeSettings() {
         return Optional.ofNullable(this.grammarSlotTypeSettings);
     }
@@ -57,36 +47,15 @@ public final class V2modelsSlotTypeExternalSourceSettingArgs extends com.pulumi.
             $ = new V2modelsSlotTypeExternalSourceSettingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param grammarSlotTypeSettings Settings required for a slot type based on a grammar that you provide.
-         * See `grammarSlotTypeSetting` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder grammarSlotTypeSettings(@Nullable Output<List<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs>> grammarSlotTypeSettings) {
             $.grammarSlotTypeSettings = grammarSlotTypeSettings;
             return this;
         }
 
-        /**
-         * @param grammarSlotTypeSettings Settings required for a slot type based on a grammar that you provide.
-         * See `grammarSlotTypeSetting` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder grammarSlotTypeSettings(List<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs> grammarSlotTypeSettings) {
             return grammarSlotTypeSettings(Output.of(grammarSlotTypeSettings));
         }
 
-        /**
-         * @param grammarSlotTypeSettings Settings required for a slot type based on a grammar that you provide.
-         * See `grammarSlotTypeSetting` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder grammarSlotTypeSettings(V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs... grammarSlotTypeSettings) {
             return grammarSlotTypeSettings(List.of(grammarSlotTypeSettings));
         }

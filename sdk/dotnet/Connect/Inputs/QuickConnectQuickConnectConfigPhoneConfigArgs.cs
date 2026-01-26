@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Connect.Inputs
 
     public sealed class QuickConnectQuickConnectConfigPhoneConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the phone number in in E.164 format.
-        /// </summary>
         [Input("phoneNumber", required: true)]
         public Input<string> PhoneNumber { get; set; } = null!;
 

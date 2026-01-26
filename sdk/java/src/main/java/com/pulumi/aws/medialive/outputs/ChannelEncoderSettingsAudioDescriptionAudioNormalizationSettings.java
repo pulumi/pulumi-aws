@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings {
-    /**
-     * @return Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 to the EBU R-128 specification.
-     * 
-     */
     private @Nullable String algorithm;
-    /**
-     * @return Algorithm control for the audio description.
-     * 
-     */
     private @Nullable String algorithmControl;
-    /**
-     * @return Target LKFS (loudness) to adjust volume to.
-     * 
-     */
     private @Nullable Double targetLkfs;
 
     private ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings() {}
-    /**
-     * @return Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 to the EBU R-128 specification.
-     * 
-     */
     public Optional<String> algorithm() {
         return Optional.ofNullable(this.algorithm);
     }
-    /**
-     * @return Algorithm control for the audio description.
-     * 
-     */
     public Optional<String> algorithmControl() {
         return Optional.ofNullable(this.algorithmControl);
     }
-    /**
-     * @return Target LKFS (loudness) to adjust volume to.
-     * 
-     */
     public Optional<Double> targetLkfs() {
         return Optional.ofNullable(this.targetLkfs);
     }

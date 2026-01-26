@@ -35,22 +35,6 @@ class WorkspaceSamlConfigurationArgs:
                  role_assertion: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceSamlConfiguration resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] editor_role_values: The editor role values.
-        :param pulumi.Input[_builtins.str] workspace_id: The workspace id.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_role_values: The admin role values.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_organizations: The allowed organizations.
-        :param pulumi.Input[_builtins.str] email_assertion: The email assertion.
-        :param pulumi.Input[_builtins.str] groups_assertion: The groups assertion.
-        :param pulumi.Input[_builtins.str] idp_metadata_url: The IDP Metadata URL. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
-        :param pulumi.Input[_builtins.str] idp_metadata_xml: The IDP Metadata XML. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
-        :param pulumi.Input[_builtins.str] login_assertion: The login assertion.
-        :param pulumi.Input[_builtins.int] login_validity_duration: The login validity duration.
-        :param pulumi.Input[_builtins.str] name_assertion: The name assertion.
-        :param pulumi.Input[_builtins.str] org_assertion: The org assertion.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_assertion: The role assertion.
         """
         pulumi.set(__self__, "editor_role_values", editor_role_values)
         pulumi.set(__self__, "workspace_id", workspace_id)
@@ -82,9 +66,6 @@ class WorkspaceSamlConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="editorRoleValues")
     def editor_role_values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        The editor role values.
-        """
         return pulumi.get(self, "editor_role_values")
 
     @editor_role_values.setter
@@ -94,11 +75,6 @@ class WorkspaceSamlConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The workspace id.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
@@ -108,9 +84,6 @@ class WorkspaceSamlConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="adminRoleValues")
     def admin_role_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The admin role values.
-        """
         return pulumi.get(self, "admin_role_values")
 
     @admin_role_values.setter
@@ -120,9 +93,6 @@ class WorkspaceSamlConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="allowedOrganizations")
     def allowed_organizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The allowed organizations.
-        """
         return pulumi.get(self, "allowed_organizations")
 
     @allowed_organizations.setter
@@ -132,9 +102,6 @@ class WorkspaceSamlConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="emailAssertion")
     def email_assertion(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The email assertion.
-        """
         return pulumi.get(self, "email_assertion")
 
     @email_assertion.setter
@@ -144,9 +111,6 @@ class WorkspaceSamlConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="groupsAssertion")
     def groups_assertion(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The groups assertion.
-        """
         return pulumi.get(self, "groups_assertion")
 
     @groups_assertion.setter
@@ -156,9 +120,6 @@ class WorkspaceSamlConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="idpMetadataUrl")
     def idp_metadata_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The IDP Metadata URL. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
-        """
         return pulumi.get(self, "idp_metadata_url")
 
     @idp_metadata_url.setter
@@ -168,9 +129,6 @@ class WorkspaceSamlConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="idpMetadataXml")
     def idp_metadata_xml(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The IDP Metadata XML. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
-        """
         return pulumi.get(self, "idp_metadata_xml")
 
     @idp_metadata_xml.setter
@@ -180,9 +138,6 @@ class WorkspaceSamlConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="loginAssertion")
     def login_assertion(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The login assertion.
-        """
         return pulumi.get(self, "login_assertion")
 
     @login_assertion.setter
@@ -192,9 +147,6 @@ class WorkspaceSamlConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="loginValidityDuration")
     def login_validity_duration(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The login validity duration.
-        """
         return pulumi.get(self, "login_validity_duration")
 
     @login_validity_duration.setter
@@ -204,9 +156,6 @@ class WorkspaceSamlConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="nameAssertion")
     def name_assertion(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name assertion.
-        """
         return pulumi.get(self, "name_assertion")
 
     @name_assertion.setter
@@ -216,9 +165,6 @@ class WorkspaceSamlConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="orgAssertion")
     def org_assertion(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The org assertion.
-        """
         return pulumi.get(self, "org_assertion")
 
     @org_assertion.setter
@@ -228,9 +174,6 @@ class WorkspaceSamlConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -240,9 +183,6 @@ class WorkspaceSamlConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="roleAssertion")
     def role_assertion(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The role assertion.
-        """
         return pulumi.get(self, "role_assertion")
 
     @role_assertion.setter
@@ -270,23 +210,6 @@ class _WorkspaceSamlConfigurationState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceSamlConfiguration resources.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_role_values: The admin role values.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_organizations: The allowed organizations.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] editor_role_values: The editor role values.
-        :param pulumi.Input[_builtins.str] email_assertion: The email assertion.
-        :param pulumi.Input[_builtins.str] groups_assertion: The groups assertion.
-        :param pulumi.Input[_builtins.str] idp_metadata_url: The IDP Metadata URL. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
-        :param pulumi.Input[_builtins.str] idp_metadata_xml: The IDP Metadata XML. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
-        :param pulumi.Input[_builtins.str] login_assertion: The login assertion.
-        :param pulumi.Input[_builtins.int] login_validity_duration: The login validity duration.
-        :param pulumi.Input[_builtins.str] name_assertion: The name assertion.
-        :param pulumi.Input[_builtins.str] org_assertion: The org assertion.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_assertion: The role assertion.
-        :param pulumi.Input[_builtins.str] status: The status of the SAML configuration.
-        :param pulumi.Input[_builtins.str] workspace_id: The workspace id.
-               
-               The following arguments are optional:
         """
         if admin_role_values is not None:
             pulumi.set(__self__, "admin_role_values", admin_role_values)
@@ -322,9 +245,6 @@ class _WorkspaceSamlConfigurationState:
     @_builtins.property
     @pulumi.getter(name="adminRoleValues")
     def admin_role_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The admin role values.
-        """
         return pulumi.get(self, "admin_role_values")
 
     @admin_role_values.setter
@@ -334,9 +254,6 @@ class _WorkspaceSamlConfigurationState:
     @_builtins.property
     @pulumi.getter(name="allowedOrganizations")
     def allowed_organizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The allowed organizations.
-        """
         return pulumi.get(self, "allowed_organizations")
 
     @allowed_organizations.setter
@@ -346,9 +263,6 @@ class _WorkspaceSamlConfigurationState:
     @_builtins.property
     @pulumi.getter(name="editorRoleValues")
     def editor_role_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The editor role values.
-        """
         return pulumi.get(self, "editor_role_values")
 
     @editor_role_values.setter
@@ -358,9 +272,6 @@ class _WorkspaceSamlConfigurationState:
     @_builtins.property
     @pulumi.getter(name="emailAssertion")
     def email_assertion(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The email assertion.
-        """
         return pulumi.get(self, "email_assertion")
 
     @email_assertion.setter
@@ -370,9 +281,6 @@ class _WorkspaceSamlConfigurationState:
     @_builtins.property
     @pulumi.getter(name="groupsAssertion")
     def groups_assertion(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The groups assertion.
-        """
         return pulumi.get(self, "groups_assertion")
 
     @groups_assertion.setter
@@ -382,9 +290,6 @@ class _WorkspaceSamlConfigurationState:
     @_builtins.property
     @pulumi.getter(name="idpMetadataUrl")
     def idp_metadata_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The IDP Metadata URL. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
-        """
         return pulumi.get(self, "idp_metadata_url")
 
     @idp_metadata_url.setter
@@ -394,9 +299,6 @@ class _WorkspaceSamlConfigurationState:
     @_builtins.property
     @pulumi.getter(name="idpMetadataXml")
     def idp_metadata_xml(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The IDP Metadata XML. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
-        """
         return pulumi.get(self, "idp_metadata_xml")
 
     @idp_metadata_xml.setter
@@ -406,9 +308,6 @@ class _WorkspaceSamlConfigurationState:
     @_builtins.property
     @pulumi.getter(name="loginAssertion")
     def login_assertion(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The login assertion.
-        """
         return pulumi.get(self, "login_assertion")
 
     @login_assertion.setter
@@ -418,9 +317,6 @@ class _WorkspaceSamlConfigurationState:
     @_builtins.property
     @pulumi.getter(name="loginValidityDuration")
     def login_validity_duration(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The login validity duration.
-        """
         return pulumi.get(self, "login_validity_duration")
 
     @login_validity_duration.setter
@@ -430,9 +326,6 @@ class _WorkspaceSamlConfigurationState:
     @_builtins.property
     @pulumi.getter(name="nameAssertion")
     def name_assertion(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name assertion.
-        """
         return pulumi.get(self, "name_assertion")
 
     @name_assertion.setter
@@ -442,9 +335,6 @@ class _WorkspaceSamlConfigurationState:
     @_builtins.property
     @pulumi.getter(name="orgAssertion")
     def org_assertion(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The org assertion.
-        """
         return pulumi.get(self, "org_assertion")
 
     @org_assertion.setter
@@ -454,9 +344,6 @@ class _WorkspaceSamlConfigurationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -466,9 +353,6 @@ class _WorkspaceSamlConfigurationState:
     @_builtins.property
     @pulumi.getter(name="roleAssertion")
     def role_assertion(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The role assertion.
-        """
         return pulumi.get(self, "role_assertion")
 
     @role_assertion.setter
@@ -478,9 +362,6 @@ class _WorkspaceSamlConfigurationState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The status of the SAML configuration.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -490,11 +371,6 @@ class _WorkspaceSamlConfigurationState:
     @_builtins.property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The workspace id.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
@@ -524,67 +400,9 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an Amazon Managed Grafana workspace SAML configuration resource.
-
-        ## Example Usage
-
-        ### Basic configuration
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        assume = aws.iam.Role("assume",
-            name="grafana-assume",
-            assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "sts:AssumeRole",
-                    "Effect": "Allow",
-                    "Sid": "",
-                    "Principal": {
-                        "Service": "grafana.amazonaws.com",
-                    },
-                }],
-            }))
-        example_workspace = aws.grafana.Workspace("example",
-            account_access_type="CURRENT_ACCOUNT",
-            authentication_providers=["SAML"],
-            permission_type="SERVICE_MANAGED",
-            role_arn=assume.arn)
-        example = aws.grafana.WorkspaceSamlConfiguration("example",
-            editor_role_values=["editor"],
-            idp_metadata_url="https://my_idp_metadata.url",
-            workspace_id=example_workspace.id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Grafana Workspace SAML configuration using the workspace's `id`. For example:
-
-        ```sh
-        $ pulumi import aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration example g-2054c75a02
-        ```
-
+        Create a WorkspaceSamlConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_role_values: The admin role values.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_organizations: The allowed organizations.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] editor_role_values: The editor role values.
-        :param pulumi.Input[_builtins.str] email_assertion: The email assertion.
-        :param pulumi.Input[_builtins.str] groups_assertion: The groups assertion.
-        :param pulumi.Input[_builtins.str] idp_metadata_url: The IDP Metadata URL. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
-        :param pulumi.Input[_builtins.str] idp_metadata_xml: The IDP Metadata XML. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
-        :param pulumi.Input[_builtins.str] login_assertion: The login assertion.
-        :param pulumi.Input[_builtins.int] login_validity_duration: The login validity duration.
-        :param pulumi.Input[_builtins.str] name_assertion: The name assertion.
-        :param pulumi.Input[_builtins.str] org_assertion: The org assertion.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_assertion: The role assertion.
-        :param pulumi.Input[_builtins.str] workspace_id: The workspace id.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -593,49 +411,7 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
                  args: WorkspaceSamlConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Amazon Managed Grafana workspace SAML configuration resource.
-
-        ## Example Usage
-
-        ### Basic configuration
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        assume = aws.iam.Role("assume",
-            name="grafana-assume",
-            assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "sts:AssumeRole",
-                    "Effect": "Allow",
-                    "Sid": "",
-                    "Principal": {
-                        "Service": "grafana.amazonaws.com",
-                    },
-                }],
-            }))
-        example_workspace = aws.grafana.Workspace("example",
-            account_access_type="CURRENT_ACCOUNT",
-            authentication_providers=["SAML"],
-            permission_type="SERVICE_MANAGED",
-            role_arn=assume.arn)
-        example = aws.grafana.WorkspaceSamlConfiguration("example",
-            editor_role_values=["editor"],
-            idp_metadata_url="https://my_idp_metadata.url",
-            workspace_id=example_workspace.id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Grafana Workspace SAML configuration using the workspace's `id`. For example:
-
-        ```sh
-        $ pulumi import aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration example g-2054c75a02
-        ```
-
+        Create a WorkspaceSamlConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param WorkspaceSamlConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -725,23 +501,6 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_role_values: The admin role values.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_organizations: The allowed organizations.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] editor_role_values: The editor role values.
-        :param pulumi.Input[_builtins.str] email_assertion: The email assertion.
-        :param pulumi.Input[_builtins.str] groups_assertion: The groups assertion.
-        :param pulumi.Input[_builtins.str] idp_metadata_url: The IDP Metadata URL. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
-        :param pulumi.Input[_builtins.str] idp_metadata_xml: The IDP Metadata XML. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
-        :param pulumi.Input[_builtins.str] login_assertion: The login assertion.
-        :param pulumi.Input[_builtins.int] login_validity_duration: The login validity duration.
-        :param pulumi.Input[_builtins.str] name_assertion: The name assertion.
-        :param pulumi.Input[_builtins.str] org_assertion: The org assertion.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_assertion: The role assertion.
-        :param pulumi.Input[_builtins.str] status: The status of the SAML configuration.
-        :param pulumi.Input[_builtins.str] workspace_id: The workspace id.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -767,122 +526,75 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="adminRoleValues")
     def admin_role_values(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        The admin role values.
-        """
         return pulumi.get(self, "admin_role_values")
 
     @_builtins.property
     @pulumi.getter(name="allowedOrganizations")
     def allowed_organizations(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        The allowed organizations.
-        """
         return pulumi.get(self, "allowed_organizations")
 
     @_builtins.property
     @pulumi.getter(name="editorRoleValues")
     def editor_role_values(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        The editor role values.
-        """
         return pulumi.get(self, "editor_role_values")
 
     @_builtins.property
     @pulumi.getter(name="emailAssertion")
     def email_assertion(self) -> pulumi.Output[_builtins.str]:
-        """
-        The email assertion.
-        """
         return pulumi.get(self, "email_assertion")
 
     @_builtins.property
     @pulumi.getter(name="groupsAssertion")
     def groups_assertion(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The groups assertion.
-        """
         return pulumi.get(self, "groups_assertion")
 
     @_builtins.property
     @pulumi.getter(name="idpMetadataUrl")
     def idp_metadata_url(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The IDP Metadata URL. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
-        """
         return pulumi.get(self, "idp_metadata_url")
 
     @_builtins.property
     @pulumi.getter(name="idpMetadataXml")
     def idp_metadata_xml(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The IDP Metadata XML. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
-        """
         return pulumi.get(self, "idp_metadata_xml")
 
     @_builtins.property
     @pulumi.getter(name="loginAssertion")
     def login_assertion(self) -> pulumi.Output[_builtins.str]:
-        """
-        The login assertion.
-        """
         return pulumi.get(self, "login_assertion")
 
     @_builtins.property
     @pulumi.getter(name="loginValidityDuration")
     def login_validity_duration(self) -> pulumi.Output[_builtins.int]:
-        """
-        The login validity duration.
-        """
         return pulumi.get(self, "login_validity_duration")
 
     @_builtins.property
     @pulumi.getter(name="nameAssertion")
     def name_assertion(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name assertion.
-        """
         return pulumi.get(self, "name_assertion")
 
     @_builtins.property
     @pulumi.getter(name="orgAssertion")
     def org_assertion(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The org assertion.
-        """
         return pulumi.get(self, "org_assertion")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="roleAssertion")
     def role_assertion(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The role assertion.
-        """
         return pulumi.get(self, "role_assertion")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        The status of the SAML configuration.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The workspace id.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "workspace_id")
 

@@ -11,33 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVpcDhcpOptionsFilter {
-    /**
-     * @return Name of the field to filter.
-     * 
-     */
     private String name;
-    /**
-     * @return Set of values for filtering.
-     * 
-     * For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
-     * 
-     */
     private List<String> values;
 
     private GetVpcDhcpOptionsFilter() {}
-    /**
-     * @return Name of the field to filter.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Set of values for filtering.
-     * 
-     * For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

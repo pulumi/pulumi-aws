@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AnalyzerConfigurationUnusedAccess {
-    /**
-     * @return Information about analysis rules for the analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule. See `analysisRule` Block for Unused Access Analyzer for details.
-     * 
-     */
     private @Nullable AnalyzerConfigurationUnusedAccessAnalysisRule analysisRule;
-    /**
-     * @return Specified access age in days for which to generate findings for unused access.
-     * 
-     */
     private @Nullable Integer unusedAccessAge;
 
     private AnalyzerConfigurationUnusedAccess() {}
-    /**
-     * @return Information about analysis rules for the analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule. See `analysisRule` Block for Unused Access Analyzer for details.
-     * 
-     */
     public Optional<AnalyzerConfigurationUnusedAccessAnalysisRule> analysisRule() {
         return Optional.ofNullable(this.analysisRule);
     }
-    /**
-     * @return Specified access age in days for which to generate findings for unused access.
-     * 
-     */
     public Optional<Integer> unusedAccessAge() {
         return Optional.ofNullable(this.unusedAccessAge);
     }

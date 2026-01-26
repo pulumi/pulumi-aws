@@ -11,44 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides information about a Global Accelerator custom routing accelerator.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/globalaccelerator"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			acceleratorArn := ""
-//			if param := cfg.Get("acceleratorArn"); param != "" {
-//				acceleratorArn = param
-//			}
-//			acceleratorName := ""
-//			if param := cfg.Get("acceleratorName"); param != "" {
-//				acceleratorName = param
-//			}
-//			_, err := globalaccelerator.LookupCustomRoutingAccelerator(ctx, &globalaccelerator.LookupCustomRoutingAcceleratorArgs{
-//				Arn:  pulumi.StringRef(acceleratorArn),
-//				Name: pulumi.StringRef(acceleratorName),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupCustomRoutingAccelerator(ctx *pulumi.Context, args *LookupCustomRoutingAcceleratorArgs, opts ...pulumi.InvokeOption) (*LookupCustomRoutingAcceleratorResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCustomRoutingAcceleratorResult
@@ -61,11 +23,7 @@ func LookupCustomRoutingAccelerator(ctx *pulumi.Context, args *LookupCustomRouti
 
 // A collection of arguments for invoking getCustomRoutingAccelerator.
 type LookupCustomRoutingAcceleratorArgs struct {
-	// Full ARN of the custom routing accelerator.
-	Arn *string `pulumi:"arn"`
-	// Unique name of the custom routing accelerator.
-	//
-	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
+	Arn  *string           `pulumi:"arn"`
 	Name *string           `pulumi:"name"`
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -96,11 +54,7 @@ func LookupCustomRoutingAcceleratorOutput(ctx *pulumi.Context, args LookupCustom
 
 // A collection of arguments for invoking getCustomRoutingAccelerator.
 type LookupCustomRoutingAcceleratorOutputArgs struct {
-	// Full ARN of the custom routing accelerator.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// Unique name of the custom routing accelerator.
-	//
-	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
+	Arn  pulumi.StringPtrInput `pulumi:"arn"`
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

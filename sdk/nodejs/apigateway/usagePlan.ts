@@ -7,17 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an API Gateway Usage Plan.
- *
- * ## Import
- *
- * Using `pulumi import`, import AWS API Gateway Usage Plan using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan <usage_plan_id>
- * ```
- */
 export class UsagePlan extends pulumi.CustomResource {
     /**
      * Get an existing UsagePlan resource's state with the given name, ID, and optional extra
@@ -46,45 +35,15 @@ export class UsagePlan extends pulumi.CustomResource {
         return obj['__pulumiType'] === UsagePlan.__pulumiType;
     }
 
-    /**
-     * Associated API stages of the usage plan.
-     */
     declare public readonly apiStages: pulumi.Output<outputs.apigateway.UsagePlanApiStage[] | undefined>;
-    /**
-     * ARN
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Description of a usage plan.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Name of the usage plan.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
-     */
     declare public readonly productCode: pulumi.Output<string | undefined>;
-    /**
-     * The quota settings of the usage plan.
-     */
     declare public readonly quotaSettings: pulumi.Output<outputs.apigateway.UsagePlanQuotaSettings | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The throttling limits of the usage plan.
-     */
     declare public readonly throttleSettings: pulumi.Output<outputs.apigateway.UsagePlanThrottleSettings | undefined>;
 
     /**
@@ -132,45 +91,15 @@ export class UsagePlan extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UsagePlan resources.
  */
 export interface UsagePlanState {
-    /**
-     * Associated API stages of the usage plan.
-     */
     apiStages?: pulumi.Input<pulumi.Input<inputs.apigateway.UsagePlanApiStage>[]>;
-    /**
-     * ARN
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Description of a usage plan.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Name of the usage plan.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
-     */
     productCode?: pulumi.Input<string>;
-    /**
-     * The quota settings of the usage plan.
-     */
     quotaSettings?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettings>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The throttling limits of the usage plan.
-     */
     throttleSettings?: pulumi.Input<inputs.apigateway.UsagePlanThrottleSettings>;
 }
 
@@ -178,36 +107,12 @@ export interface UsagePlanState {
  * The set of arguments for constructing a UsagePlan resource.
  */
 export interface UsagePlanArgs {
-    /**
-     * Associated API stages of the usage plan.
-     */
     apiStages?: pulumi.Input<pulumi.Input<inputs.apigateway.UsagePlanApiStage>[]>;
-    /**
-     * Description of a usage plan.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Name of the usage plan.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
-     */
     productCode?: pulumi.Input<string>;
-    /**
-     * The quota settings of the usage plan.
-     */
     quotaSettings?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettings>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The throttling limits of the usage plan.
-     */
     throttleSettings?: pulumi.Input<inputs.apigateway.UsagePlanThrottleSettings>;
 }

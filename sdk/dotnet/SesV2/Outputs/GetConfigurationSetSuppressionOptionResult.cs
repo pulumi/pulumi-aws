@@ -13,9 +13,6 @@ namespace Pulumi.Aws.SesV2.Outputs
     [OutputType]
     public sealed class GetConfigurationSetSuppressionOptionResult
     {
-        /// <summary>
-        /// A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
-        /// </summary>
         public readonly ImmutableArray<string> SuppressedReasons;
 
         [OutputConstructor]

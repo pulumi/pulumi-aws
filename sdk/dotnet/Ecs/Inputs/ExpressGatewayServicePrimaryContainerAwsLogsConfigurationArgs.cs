@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// CloudWatch log group name.
-        /// </summary>
         [Input("logGroup", required: true)]
         public Input<string> LogGroup { get; set; } = null!;
 
-        /// <summary>
-        /// Prefix for log stream names. If not specified, a default prefix will be used.
-        /// </summary>
         [Input("logStreamPrefix", required: true)]
         public Input<string> LogStreamPrefix { get; set; } = null!;
 

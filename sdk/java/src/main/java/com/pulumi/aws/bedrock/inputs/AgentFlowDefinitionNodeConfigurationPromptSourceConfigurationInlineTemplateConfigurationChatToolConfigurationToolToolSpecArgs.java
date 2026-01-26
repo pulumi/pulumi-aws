@@ -17,47 +17,23 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
 
     public static final AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs Empty = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs();
 
-    /**
-     * A description for the flow.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return A description for the flow.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The input schema of the tool. See Tool Input Schema for more information.
-     * 
-     */
     @Import(name="inputSchema")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs> inputSchema;
 
-    /**
-     * @return The input schema of the tool. See Tool Input Schema for more information.
-     * 
-     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs>> inputSchema() {
         return Optional.ofNullable(this.inputSchema);
     }
 
-    /**
-     * A name for the flow.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return A name for the flow.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -88,65 +64,29 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
             $ = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description A description for the flow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description A description for the flow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param inputSchema The input schema of the tool. See Tool Input Schema for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputSchema(@Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs> inputSchema) {
             $.inputSchema = inputSchema;
             return this;
         }
 
-        /**
-         * @param inputSchema The input schema of the tool. See Tool Input Schema for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputSchema(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs inputSchema) {
             return inputSchema(Output.of(inputSchema));
         }
 
-        /**
-         * @param name A name for the flow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name A name for the flow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

@@ -14,17 +14,9 @@ public final class AgentFlowDefinitionNodeOutputArgs extends com.pulumi.resource
 
     public static final AgentFlowDefinitionNodeOutputArgs Empty = new AgentFlowDefinitionNodeOutputArgs();
 
-    /**
-     * A name for the flow.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return A name for the flow.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -61,23 +53,11 @@ public final class AgentFlowDefinitionNodeOutputArgs extends com.pulumi.resource
             $ = new AgentFlowDefinitionNodeOutputArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name A name for the flow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name A name for the flow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

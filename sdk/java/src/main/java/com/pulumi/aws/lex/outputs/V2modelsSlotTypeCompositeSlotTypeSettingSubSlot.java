@@ -10,31 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class V2modelsSlotTypeCompositeSlotTypeSettingSubSlot {
-    /**
-     * @return Name of a constituent sub slot inside a composite slot.
-     * 
-     */
     private String name;
-    /**
-     * @return Unique identifier assigned to a slot type.
-     * This refers to either a built-in slot type or the unique `slotTypeId` of a custom slot type.
-     * 
-     */
     private String slotTypeId;
 
     private V2modelsSlotTypeCompositeSlotTypeSettingSubSlot() {}
-    /**
-     * @return Name of a constituent sub slot inside a composite slot.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Unique identifier assigned to a slot type.
-     * This refers to either a built-in slot type or the unique `slotTypeId` of a custom slot type.
-     * 
-     */
     public String slotTypeId() {
         return this.slotTypeId;
     }

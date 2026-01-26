@@ -11,56 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/devopsguru"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := devopsguru.NewEventSourcesConfig(ctx, "example", &devopsguru.EventSourcesConfigArgs{
-//				EventSources: devopsguru.EventSourcesConfigEventSourceArray{
-//					&devopsguru.EventSourcesConfigEventSourceArgs{
-//						AmazonCodeGuruProfilers: devopsguru.EventSourcesConfigEventSourceAmazonCodeGuruProfilerArray{
-//							&devopsguru.EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs{
-//								Status: pulumi.String("ENABLED"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import DevOps Guru Event Sources Config using the region. For example:
-//
-// ```sh
-// $ pulumi import aws:devopsguru/eventSourcesConfig:EventSourcesConfig example us-east-1
-// ```
 type EventSourcesConfig struct {
 	pulumi.CustomResourceState
 
-	// Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
 	EventSources EventSourcesConfigEventSourceArrayOutput `pulumi:"eventSources"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region       pulumi.StringOutput                      `pulumi:"region"`
 }
 
 // NewEventSourcesConfig registers a new resource with the given unique name, arguments, and options.
@@ -93,17 +48,13 @@ func GetEventSourcesConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventSourcesConfig resources.
 type eventSourcesConfigState struct {
-	// Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
 	EventSources []EventSourcesConfigEventSource `pulumi:"eventSources"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region       *string                         `pulumi:"region"`
 }
 
 type EventSourcesConfigState struct {
-	// Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
 	EventSources EventSourcesConfigEventSourceArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
 }
 
 func (EventSourcesConfigState) ElementType() reflect.Type {
@@ -111,18 +62,14 @@ func (EventSourcesConfigState) ElementType() reflect.Type {
 }
 
 type eventSourcesConfigArgs struct {
-	// Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
 	EventSources []EventSourcesConfigEventSource `pulumi:"eventSources"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region       *string                         `pulumi:"region"`
 }
 
 // The set of arguments for constructing a EventSourcesConfig resource.
 type EventSourcesConfigArgs struct {
-	// Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
 	EventSources EventSourcesConfigEventSourceArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
 }
 
 func (EventSourcesConfigArgs) ElementType() reflect.Type {
@@ -212,12 +159,10 @@ func (o EventSourcesConfigOutput) ToEventSourcesConfigOutputWithContext(ctx cont
 	return o
 }
 
-// Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
 func (o EventSourcesConfigOutput) EventSources() EventSourcesConfigEventSourceArrayOutput {
 	return o.ApplyT(func(v *EventSourcesConfig) EventSourcesConfigEventSourceArrayOutput { return v.EventSources }).(EventSourcesConfigEventSourceArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EventSourcesConfigOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventSourcesConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

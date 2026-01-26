@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class DomainDefaultSpaceSettingsCustomFileSystemConfig
     {
-        /// <summary>
-        /// The default EBS storage settings for a private space. See `EfsFileSystemConfig` Block below.
-        /// </summary>
         public readonly Outputs.DomainDefaultSpaceSettingsCustomFileSystemConfigEfsFileSystemConfig? EfsFileSystemConfig;
 
         [OutputConstructor]

@@ -64,33 +64,21 @@ class GetCertificateResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the certificate.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="certificateType")
     def certificate_type(self) -> _builtins.str:
-        """
-        Type of certificate. For example, `CA`.
-        """
         return pulumi.get(self, "certificate_type")
 
     @_builtins.property
     @pulumi.getter(name="customerOverride")
     def customer_override(self) -> _builtins.bool:
-        """
-        Boolean whether there is an override for the default certificate identifier.
-        """
         return pulumi.get(self, "customer_override")
 
     @_builtins.property
     @pulumi.getter(name="customerOverrideValidTill")
     def customer_override_valid_till(self) -> _builtins.str:
-        """
-        If there is an override for the default certificate identifier, when the override expires.
-        """
         return pulumi.get(self, "customer_override_valid_till")
 
     @_builtins.property
@@ -116,25 +104,16 @@ class GetCertificateResult:
     @_builtins.property
     @pulumi.getter
     def thumbprint(self) -> _builtins.str:
-        """
-        Thumbprint of the certificate.
-        """
         return pulumi.get(self, "thumbprint")
 
     @_builtins.property
     @pulumi.getter(name="validFrom")
     def valid_from(self) -> _builtins.str:
-        """
-        [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate starting validity date.
-        """
         return pulumi.get(self, "valid_from")
 
     @_builtins.property
     @pulumi.getter(name="validTill")
     def valid_till(self) -> _builtins.str:
-        """
-        [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate ending validity date.
-        """
         return pulumi.get(self, "valid_till")
 
 
@@ -163,22 +142,7 @@ def get_certificate(default_for_new_launches: Optional[_builtins.bool] = None,
                     region: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
-    Information about an RDS Certificate.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.rds.get_certificate(latest_valid_till=True)
-    ```
-
-
-    :param _builtins.bool default_for_new_launches: When enabled, returns the default certificate for new RDS instances.
-    :param _builtins.str id: Certificate identifier. For example, `rds-ca-2019`.
-    :param _builtins.bool latest_valid_till: When enabled, returns the certificate with the latest `ValidTill`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['defaultForNewLaunches'] = default_for_new_launches
@@ -206,22 +170,7 @@ def get_certificate_output(default_for_new_launches: Optional[pulumi.Input[Optio
                            region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
-    Information about an RDS Certificate.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.rds.get_certificate(latest_valid_till=True)
-    ```
-
-
-    :param _builtins.bool default_for_new_launches: When enabled, returns the default certificate for new RDS instances.
-    :param _builtins.str id: Certificate identifier. For example, `rds-ca-2019`.
-    :param _builtins.bool latest_valid_till: When enabled, returns the certificate with the latest `ValidTill`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['defaultForNewLaunches'] = default_for_new_launches

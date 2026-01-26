@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Alb.Inputs
 
     public sealed class ListenerRuleActionForwardArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The target group stickiness for the rule.
-        /// </summary>
         [Input("stickiness")]
         public Input<Inputs.ListenerRuleActionForwardStickinessArgs>? Stickiness { get; set; }
 
         [Input("targetGroups", required: true)]
         private InputList<Inputs.ListenerRuleActionForwardTargetGroupArgs>? _targetGroups;
-
-        /// <summary>
-        /// One or more target group blocks.
-        /// </summary>
         public InputList<Inputs.ListenerRuleActionForwardTargetGroupArgs> TargetGroups
         {
             get => _targetGroups ?? (_targetGroups = new InputList<Inputs.ListenerRuleActionForwardTargetGroupArgs>());

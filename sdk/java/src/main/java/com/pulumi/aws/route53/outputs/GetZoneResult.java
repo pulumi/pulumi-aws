@@ -16,104 +16,36 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetZoneResult {
-    /**
-     * @return ARN of the Hosted Zone.
-     * 
-     */
     private String arn;
-    /**
-     * @return Caller Reference of the Hosted Zone.
-     * 
-     */
     private String callerReference;
-    /**
-     * @return Comment field of the Hosted Zone.
-     * 
-     */
     private String comment;
-    /**
-     * @return Boolean to indicate whether to enable accelerated recovery for the hosted zone.
-     * 
-     */
     private @Nullable Boolean enableAcceleratedRecovery;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return The description provided by the service that created the Hosted Zone (e.g., `arn:aws:servicediscovery:us-east-1:1234567890:namespace/ns-xxxxxxxxxxxxxxxx`).
-     * 
-     */
     private String linkedServiceDescription;
-    /**
-     * @return The service that created the Hosted Zone (e.g., `servicediscovery.amazonaws.com`).
-     * 
-     */
     private String linkedServicePrincipal;
-    /**
-     * @return The Hosted Zone name.
-     * 
-     */
     private String name;
-    /**
-     * @return List of DNS name servers for the Hosted Zone.
-     * 
-     */
     private List<String> nameServers;
-    /**
-     * @return The Route 53 name server that created the SOA record.
-     * 
-     */
     private String primaryNameServer;
-    /**
-     * @return Indicates whether this is a private hosted zone.
-     * 
-     */
     private @Nullable Boolean privateZone;
-    /**
-     * @return The number of Record Set in the Hosted Zone.
-     * 
-     */
     private Integer resourceRecordSetCount;
-    /**
-     * @return A map of tags assigned to the Hosted Zone.
-     * 
-     */
     private Map<String,String> tags;
     private @Nullable String vpcId;
-    /**
-     * @return The Hosted Zone identifier.
-     * 
-     */
     private String zoneId;
 
     private GetZoneResult() {}
-    /**
-     * @return ARN of the Hosted Zone.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Caller Reference of the Hosted Zone.
-     * 
-     */
     public String callerReference() {
         return this.callerReference;
     }
-    /**
-     * @return Comment field of the Hosted Zone.
-     * 
-     */
     public String comment() {
         return this.comment;
     }
-    /**
-     * @return Boolean to indicate whether to enable accelerated recovery for the hosted zone.
-     * 
-     */
     public Optional<Boolean> enableAcceleratedRecovery() {
         return Optional.ofNullable(this.enableAcceleratedRecovery);
     }
@@ -124,69 +56,33 @@ public final class GetZoneResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The description provided by the service that created the Hosted Zone (e.g., `arn:aws:servicediscovery:us-east-1:1234567890:namespace/ns-xxxxxxxxxxxxxxxx`).
-     * 
-     */
     public String linkedServiceDescription() {
         return this.linkedServiceDescription;
     }
-    /**
-     * @return The service that created the Hosted Zone (e.g., `servicediscovery.amazonaws.com`).
-     * 
-     */
     public String linkedServicePrincipal() {
         return this.linkedServicePrincipal;
     }
-    /**
-     * @return The Hosted Zone name.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return List of DNS name servers for the Hosted Zone.
-     * 
-     */
     public List<String> nameServers() {
         return this.nameServers;
     }
-    /**
-     * @return The Route 53 name server that created the SOA record.
-     * 
-     */
     public String primaryNameServer() {
         return this.primaryNameServer;
     }
-    /**
-     * @return Indicates whether this is a private hosted zone.
-     * 
-     */
     public Optional<Boolean> privateZone() {
         return Optional.ofNullable(this.privateZone);
     }
-    /**
-     * @return The number of Record Set in the Hosted Zone.
-     * 
-     */
     public Integer resourceRecordSetCount() {
         return this.resourceRecordSetCount;
     }
-    /**
-     * @return A map of tags assigned to the Hosted Zone.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
     public Optional<String> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
-    /**
-     * @return The Hosted Zone identifier.
-     * 
-     */
     public String zoneId() {
         return this.zoneId;
     }

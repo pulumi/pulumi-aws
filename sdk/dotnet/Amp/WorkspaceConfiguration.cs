@@ -9,129 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Amp
 {
-    /// <summary>
-    /// Manages an AWS Managed Service for Prometheus Workspace Configuration.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Amp.Workspace("example");
-    /// 
-    ///     var exampleWorkspaceConfiguration = new Aws.Amp.WorkspaceConfiguration("example", new()
-    ///     {
-    ///         WorkspaceId = example.Id,
-    ///         RetentionPeriodInDays = 60,
-    ///         LimitsPerLabelSets = new[]
-    ///         {
-    ///             new Aws.Amp.Inputs.WorkspaceConfigurationLimitsPerLabelSetArgs
-    ///             {
-    ///                 LabelSet = 
-    ///                 {
-    ///                     { "env", "dev" },
-    ///                 },
-    ///                 Limits = new Aws.Amp.Inputs.WorkspaceConfigurationLimitsPerLabelSetLimitsArgs
-    ///                 {
-    ///                     MaxSeries = 100000,
-    ///                 },
-    ///             },
-    ///             new Aws.Amp.Inputs.WorkspaceConfigurationLimitsPerLabelSetArgs
-    ///             {
-    ///                 LabelSet = 
-    ///                 {
-    ///                     { "env", "prod" },
-    ///                 },
-    ///                 Limits = new Aws.Amp.Inputs.WorkspaceConfigurationLimitsPerLabelSetLimitsArgs
-    ///                 {
-    ///                     MaxSeries = 400000,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Setting up default bucket
-    /// 
-    /// The default bucket limit is the maximum number of active time series that can be
-    /// ingested in the workspace, counting only time series that don’t match a defined
-    /// label set.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Amp.Workspace("example");
-    /// 
-    ///     var exampleWorkspaceConfiguration = new Aws.Amp.WorkspaceConfiguration("example", new()
-    ///     {
-    ///         WorkspaceId = example.Id,
-    ///         LimitsPerLabelSets = new[]
-    ///         {
-    ///             new Aws.Amp.Inputs.WorkspaceConfigurationLimitsPerLabelSetArgs
-    ///             {
-    ///                 LabelSet = null,
-    ///                 Limits = new Aws.Amp.Inputs.WorkspaceConfigurationLimitsPerLabelSetLimitsArgs
-    ///                 {
-    ///                     MaxSeries = 50000,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import AMP (Managed Prometheus) Workspace Configuration using the `workspace_id`. For example
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:amp/workspaceConfiguration:WorkspaceConfiguration example ws-12345678-abcd-1234-abcd-123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:amp/workspaceConfiguration:WorkspaceConfiguration")]
     public partial class WorkspaceConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Configuration block for setting limits on metrics with specific label sets. Detailed below.
-        /// </summary>
         [Output("limitsPerLabelSets")]
         public Output<ImmutableArray<Outputs.WorkspaceConfigurationLimitsPerLabelSet>> LimitsPerLabelSets { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Number of days to retain metric data in the workspace.
-        /// </summary>
         [Output("retentionPeriodInDays")]
         public Output<int> RetentionPeriodInDays { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.WorkspaceConfigurationTimeouts?> Timeouts { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the workspace to configure.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("workspaceId")]
         public Output<string> WorkspaceId { get; private set; } = null!;
 
@@ -183,36 +75,21 @@ namespace Pulumi.Aws.Amp
     {
         [Input("limitsPerLabelSets")]
         private InputList<Inputs.WorkspaceConfigurationLimitsPerLabelSetArgs>? _limitsPerLabelSets;
-
-        /// <summary>
-        /// Configuration block for setting limits on metrics with specific label sets. Detailed below.
-        /// </summary>
         public InputList<Inputs.WorkspaceConfigurationLimitsPerLabelSetArgs> LimitsPerLabelSets
         {
             get => _limitsPerLabelSets ?? (_limitsPerLabelSets = new InputList<Inputs.WorkspaceConfigurationLimitsPerLabelSetArgs>());
             set => _limitsPerLabelSets = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Number of days to retain metric data in the workspace.
-        /// </summary>
         [Input("retentionPeriodInDays")]
         public Input<int>? RetentionPeriodInDays { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.WorkspaceConfigurationTimeoutsArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// ID of the workspace to configure.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("workspaceId", required: true)]
         public Input<string> WorkspaceId { get; set; } = null!;
 
@@ -226,36 +103,21 @@ namespace Pulumi.Aws.Amp
     {
         [Input("limitsPerLabelSets")]
         private InputList<Inputs.WorkspaceConfigurationLimitsPerLabelSetGetArgs>? _limitsPerLabelSets;
-
-        /// <summary>
-        /// Configuration block for setting limits on metrics with specific label sets. Detailed below.
-        /// </summary>
         public InputList<Inputs.WorkspaceConfigurationLimitsPerLabelSetGetArgs> LimitsPerLabelSets
         {
             get => _limitsPerLabelSets ?? (_limitsPerLabelSets = new InputList<Inputs.WorkspaceConfigurationLimitsPerLabelSetGetArgs>());
             set => _limitsPerLabelSets = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Number of days to retain metric data in the workspace.
-        /// </summary>
         [Input("retentionPeriodInDays")]
         public Input<int>? RetentionPeriodInDays { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.WorkspaceConfigurationTimeoutsGetArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// ID of the workspace to configure.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }
 

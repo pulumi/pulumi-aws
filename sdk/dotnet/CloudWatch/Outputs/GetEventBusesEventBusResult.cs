@@ -13,29 +13,11 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class GetEventBusesEventBusResult
     {
-        /// <summary>
-        /// The ARN of the event bus.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// The time the event bus was created.
-        /// </summary>
         public readonly string CreationTime;
-        /// <summary>
-        /// The event bus description.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// The time the event bus was last modified.
-        /// </summary>
         public readonly string LastModifiedTime;
-        /// <summary>
-        /// The name of the event bus.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The permissions policy of the event bus, describing which other AWS accounts can write events to this event bus.
-        /// </summary>
         public readonly string Policy;
 
         [OutputConstructor]

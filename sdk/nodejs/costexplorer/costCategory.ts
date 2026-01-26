@@ -7,65 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a CE Cost Category.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.costexplorer.CostCategory("test", {
- *     name: "NAME",
- *     ruleVersion: "CostCategoryExpression.v1",
- *     rules: [
- *         {
- *             value: "production",
- *             rule: {
- *                 dimension: {
- *                     key: "LINKED_ACCOUNT_NAME",
- *                     values: ["-prod"],
- *                     matchOptions: ["ENDS_WITH"],
- *                 },
- *             },
- *         },
- *         {
- *             value: "staging",
- *             rule: {
- *                 dimension: {
- *                     key: "LINKED_ACCOUNT_NAME",
- *                     values: ["-stg"],
- *                     matchOptions: ["ENDS_WITH"],
- *                 },
- *             },
- *         },
- *         {
- *             value: "testing",
- *             rule: {
- *                 dimension: {
- *                     key: "LINKED_ACCOUNT_NAME",
- *                     values: ["-dev"],
- *                     matchOptions: ["ENDS_WITH"],
- *                 },
- *             },
- *         },
- *     ],
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the Cost Explorer cost category.
- *
- * Using `pulumi import`, import `aws_ce_cost_category` using the id. For example:
- *
- * % pulumi import aws_ce_cost_category.example costCategoryARN
- */
 export class CostCategory extends pulumi.CustomResource {
     /**
      * Get an existing CostCategory resource's state with the given name, ID, and optional extra
@@ -94,47 +35,15 @@ export class CostCategory extends pulumi.CustomResource {
         return obj['__pulumiType'] === CostCategory.__pulumiType;
     }
 
-    /**
-     * ARN of the cost category.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Default value for the cost category.
-     */
     declare public readonly defaultValue: pulumi.Output<string | undefined>;
-    /**
-     * Effective end data of your Cost Category.
-     */
     declare public /*out*/ readonly effectiveEnd: pulumi.Output<string>;
-    /**
-     * The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
-     */
     declare public readonly effectiveStart: pulumi.Output<string>;
-    /**
-     * Unique name for the Cost Category.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Rule schema version in this particular Cost Category.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly ruleVersion: pulumi.Output<string>;
-    /**
-     * Configuration block for the Cost Category rules used to categorize costs. See below.
-     */
     declare public readonly rules: pulumi.Output<outputs.costexplorer.CostCategoryRule[]>;
-    /**
-     * Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
-     */
     declare public readonly splitChargeRules: pulumi.Output<outputs.costexplorer.CostCategorySplitChargeRule[] | undefined>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -188,47 +97,15 @@ export class CostCategory extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CostCategory resources.
  */
 export interface CostCategoryState {
-    /**
-     * ARN of the cost category.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Default value for the cost category.
-     */
     defaultValue?: pulumi.Input<string>;
-    /**
-     * Effective end data of your Cost Category.
-     */
     effectiveEnd?: pulumi.Input<string>;
-    /**
-     * The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
-     */
     effectiveStart?: pulumi.Input<string>;
-    /**
-     * Unique name for the Cost Category.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Rule schema version in this particular Cost Category.
-     *
-     * The following arguments are optional:
-     */
     ruleVersion?: pulumi.Input<string>;
-    /**
-     * Configuration block for the Cost Category rules used to categorize costs. See below.
-     */
     rules?: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategoryRule>[]>;
-    /**
-     * Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
-     */
     splitChargeRules?: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategorySplitChargeRule>[]>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -236,34 +113,11 @@ export interface CostCategoryState {
  * The set of arguments for constructing a CostCategory resource.
  */
 export interface CostCategoryArgs {
-    /**
-     * Default value for the cost category.
-     */
     defaultValue?: pulumi.Input<string>;
-    /**
-     * The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
-     */
     effectiveStart?: pulumi.Input<string>;
-    /**
-     * Unique name for the Cost Category.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Rule schema version in this particular Cost Category.
-     *
-     * The following arguments are optional:
-     */
     ruleVersion: pulumi.Input<string>;
-    /**
-     * Configuration block for the Cost Category rules used to categorize costs. See below.
-     */
     rules: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategoryRule>[]>;
-    /**
-     * Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
-     */
     splitChargeRules?: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategorySplitChargeRule>[]>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

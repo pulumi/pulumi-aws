@@ -20,10 +20,6 @@ public final class GetPublicIpv4PoolsResult {
      * 
      */
     private String id;
-    /**
-     * @return List of all the pool IDs found.
-     * 
-     */
     private List<String> poolIds;
     private String region;
     private Map<String,String> tags;
@@ -39,10 +35,6 @@ public final class GetPublicIpv4PoolsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return List of all the pool IDs found.
-     * 
-     */
     public List<String> poolIds() {
         return this.poolIds;
     }

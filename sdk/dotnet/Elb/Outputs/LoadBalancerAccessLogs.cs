@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Elb.Outputs
     [OutputType]
     public sealed class LoadBalancerAccessLogs
     {
-        /// <summary>
-        /// The S3 bucket name to store the logs in.
-        /// </summary>
         public readonly string Bucket;
-        /// <summary>
-        /// The S3 bucket prefix. Logs are stored in the root if not configured.
-        /// </summary>
         public readonly string? BucketPrefix;
-        /// <summary>
-        /// Boolean to enable / disable `AccessLogs`. Default is `True`
-        /// </summary>
         public readonly bool? Enabled;
-        /// <summary>
-        /// The publishing interval in minutes. Valid values: `5` and `60`. Default: `60`
-        /// </summary>
         public readonly int? Interval;
 
         [OutputConstructor]

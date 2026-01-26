@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration
     {
-        /// <summary>
-        /// The dissimilarity threshold for splitting chunks.
-        /// </summary>
         public readonly int BreakpointPercentileThreshold;
-        /// <summary>
-        /// The buffer size.
-        /// </summary>
         public readonly int BufferSize;
-        /// <summary>
-        /// The maximum number of tokens a chunk can contain.
-        /// </summary>
         public readonly int MaxToken;
 
         [OutputConstructor]

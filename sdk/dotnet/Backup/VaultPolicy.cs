@@ -9,104 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Backup
 {
-    /// <summary>
-    /// Provides an AWS Backup vault policy resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var exampleVault = new Aws.Backup.Vault("example", new()
-    ///     {
-    ///         Name = "example",
-    ///     });
-    /// 
-    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
-    ///                     {
-    ///                         Type = "AWS",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "backup:DescribeBackupVault",
-    ///                     "backup:DeleteBackupVault",
-    ///                     "backup:PutBackupVaultAccessPolicy",
-    ///                     "backup:DeleteBackupVaultAccessPolicy",
-    ///                     "backup:GetBackupVaultAccessPolicy",
-    ///                     "backup:StartBackupJob",
-    ///                     "backup:GetBackupVaultNotifications",
-    ///                     "backup:PutBackupVaultNotifications",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     exampleVault.Arn,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleVaultPolicy = new Aws.Backup.VaultPolicy("example", new()
-    ///     {
-    ///         BackupVaultName = exampleVault.Name,
-    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Backup vault policy using the `name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:backup/vaultPolicy:VaultPolicy")]
     public partial class VaultPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the vault.
-        /// </summary>
         [Output("backupVaultArn")]
         public Output<string> BackupVaultArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the backup vault to add policy for.
-        /// </summary>
         [Output("backupVaultName")]
         public Output<string> BackupVaultName { get; private set; } = null!;
 
-        /// <summary>
-        /// The backup vault access policy document in JSON format.
-        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -156,21 +70,12 @@ namespace Pulumi.Aws.Backup
 
     public sealed class VaultPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the backup vault to add policy for.
-        /// </summary>
         [Input("backupVaultName", required: true)]
         public Input<string> BackupVaultName { get; set; } = null!;
 
-        /// <summary>
-        /// The backup vault access policy document in JSON format.
-        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -182,27 +87,15 @@ namespace Pulumi.Aws.Backup
 
     public sealed class VaultPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the vault.
-        /// </summary>
         [Input("backupVaultArn")]
         public Input<string>? BackupVaultArn { get; set; }
 
-        /// <summary>
-        /// Name of the backup vault to add policy for.
-        /// </summary>
         [Input("backupVaultName")]
         public Input<string>? BackupVaultName { get; set; }
 
-        /// <summary>
-        /// The backup vault access policy document in JSON format.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

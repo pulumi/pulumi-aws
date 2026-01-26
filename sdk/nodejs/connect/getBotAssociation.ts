@@ -7,25 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides details about a specific Lex (V1) Bot associated with an Amazon Connect instance.
- *
- * ## Example Usage
- *
- * ### By name
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.connect.getBotAssociation({
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     lexBot: {
- *         name: "Test",
- *     },
- * });
- * ```
- */
 export function getBotAssociation(args: GetBotAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetBotAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:connect/getBotAssociation:getBotAssociation", {
@@ -39,17 +20,8 @@ export function getBotAssociation(args: GetBotAssociationArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getBotAssociation.
  */
 export interface GetBotAssociationArgs {
-    /**
-     * Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-     */
     instanceId: string;
-    /**
-     * Configuration information of an Amazon Lex (V1) bot. Detailed below.
-     */
     lexBot: inputs.connect.GetBotAssociationLexBot;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -65,25 +37,6 @@ export interface GetBotAssociationResult {
     readonly lexBot: outputs.connect.GetBotAssociationLexBot;
     readonly region: string;
 }
-/**
- * Provides details about a specific Lex (V1) Bot associated with an Amazon Connect instance.
- *
- * ## Example Usage
- *
- * ### By name
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.connect.getBotAssociation({
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     lexBot: {
- *         name: "Test",
- *     },
- * });
- * ```
- */
 export function getBotAssociationOutput(args: GetBotAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBotAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:connect/getBotAssociation:getBotAssociation", {
@@ -97,16 +50,7 @@ export function getBotAssociationOutput(args: GetBotAssociationOutputArgs, opts?
  * A collection of arguments for invoking getBotAssociation.
  */
 export interface GetBotAssociationOutputArgs {
-    /**
-     * Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-     */
     instanceId: pulumi.Input<string>;
-    /**
-     * Configuration information of an Amazon Lex (V1) bot. Detailed below.
-     */
     lexBot: pulumi.Input<inputs.connect.GetBotAssociationLexBotArgs>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

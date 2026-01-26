@@ -11,146 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage a default security group. This resource can manage the default security group of the default or a non-default VPC.
-//
-// > **NOTE:** This is an advanced resource with special caveats. Please read this document in its entirety before using this resource. The `ec2.DefaultSecurityGroup` resource behaves differently from normal resources. This provider does not _create_ this resource but instead attempts to "adopt" it into management.
-//
-// When the provider first begins managing the default security group, it **immediately removes all ingress and egress rules in the Security Group**. It then creates any rules specified in the configuration. This way only the rules specified in the configuration are created.
-//
-// This resource treats its inline rules as absolute; only the rules defined inline are created, and any additions/removals external to this resource will result in diff shown. For these reasons, this resource is incompatible with the `ec2.SecurityGroupRule` resource.
-//
-// For more information about default security groups, see the AWS documentation on [Default Security Groups][aws-default-security-groups]. To manage normal security groups, see the `ec2.SecurityGroup` resource.
-//
-// ## Example Usage
-//
-// The following config gives the default security group the same rules that AWS provides by default but under management by this provider. This means that any ingress or egress rules added or changed will be detected as drift.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			mainvpc, err := ec2.NewVpc(ctx, "mainvpc", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.1.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewDefaultSecurityGroup(ctx, "default", &ec2.DefaultSecurityGroupArgs{
-//				VpcId: mainvpc.ID(),
-//				Ingress: ec2.DefaultSecurityGroupIngressArray{
-//					&ec2.DefaultSecurityGroupIngressArgs{
-//						Protocol: pulumi.String("-1"),
-//						Self:     pulumi.Bool(true),
-//						FromPort: pulumi.Int(0),
-//						ToPort:   pulumi.Int(0),
-//					},
-//				},
-//				Egress: ec2.DefaultSecurityGroupEgressArray{
-//					&ec2.DefaultSecurityGroupEgressArgs{
-//						FromPort: pulumi.Int(0),
-//						ToPort:   pulumi.Int(0),
-//						Protocol: pulumi.String("-1"),
-//						CidrBlocks: pulumi.StringArray{
-//							pulumi.String("0.0.0.0/0"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Example Config To Deny All Egress Traffic, Allowing Ingress
-//
-// The following denies all Egress traffic by omitting any `egress` rules, while including the default `ingress` rule to allow all traffic.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			mainvpc, err := ec2.NewVpc(ctx, "mainvpc", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.1.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewDefaultSecurityGroup(ctx, "default", &ec2.DefaultSecurityGroupArgs{
-//				VpcId: mainvpc.ID(),
-//				Ingress: ec2.DefaultSecurityGroupIngressArray{
-//					&ec2.DefaultSecurityGroupIngressArgs{
-//						Protocol: pulumi.String("-1"),
-//						Self:     pulumi.Bool(true),
-//						FromPort: pulumi.Int(0),
-//						ToPort:   pulumi.Int(0),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Removing `ec2.DefaultSecurityGroup` From Your Configuration
-//
-// Removing this resource from your configuration will remove it from your statefile and management, but will not destroy the Security Group. All ingress or egress rules will be left as they are at the time of removal. You can resume managing them via the AWS Console.
-//
-// ## Import
-//
-// Using `pulumi import`, import Security Groups using the security group `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2/defaultSecurityGroup:DefaultSecurityGroup default_sg sg-903004f8
-// ```
 type DefaultSecurityGroup struct {
 	pulumi.CustomResourceState
 
-	// ARN of the security group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Description of the security group.
-	Description pulumi.StringOutput `pulumi:"description"`
-	// Configuration block. Detailed below.
-	Egress DefaultSecurityGroupEgressArrayOutput `pulumi:"egress"`
-	// Configuration block. Detailed below.
-	Ingress DefaultSecurityGroupIngressArrayOutput `pulumi:"ingress"`
-	// Name of the security group.
-	Name       pulumi.StringOutput `pulumi:"name"`
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	// Owner ID.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region              pulumi.StringOutput  `pulumi:"region"`
-	RevokeRulesOnDelete pulumi.BoolPtrOutput `pulumi:"revokeRulesOnDelete"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	Arn                 pulumi.StringOutput                    `pulumi:"arn"`
+	Description         pulumi.StringOutput                    `pulumi:"description"`
+	Egress              DefaultSecurityGroupEgressArrayOutput  `pulumi:"egress"`
+	Ingress             DefaultSecurityGroupIngressArrayOutput `pulumi:"ingress"`
+	Name                pulumi.StringOutput                    `pulumi:"name"`
+	NamePrefix          pulumi.StringOutput                    `pulumi:"namePrefix"`
+	OwnerId             pulumi.StringOutput                    `pulumi:"ownerId"`
+	Region              pulumi.StringOutput                    `pulumi:"region"`
+	RevokeRulesOnDelete pulumi.BoolPtrOutput                   `pulumi:"revokeRulesOnDelete"`
+	Tags                pulumi.StringMapOutput                 `pulumi:"tags"`
+	TagsAll             pulumi.StringMapOutput                 `pulumi:"tagsAll"`
+	VpcId               pulumi.StringOutput                    `pulumi:"vpcId"`
 }
 
 // NewDefaultSecurityGroup registers a new resource with the given unique name, arguments, and options.
@@ -183,53 +58,33 @@ func GetDefaultSecurityGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DefaultSecurityGroup resources.
 type defaultSecurityGroupState struct {
-	// ARN of the security group.
-	Arn *string `pulumi:"arn"`
-	// Description of the security group.
-	Description *string `pulumi:"description"`
-	// Configuration block. Detailed below.
-	Egress []DefaultSecurityGroupEgress `pulumi:"egress"`
-	// Configuration block. Detailed below.
-	Ingress []DefaultSecurityGroupIngress `pulumi:"ingress"`
-	// Name of the security group.
-	Name       *string `pulumi:"name"`
-	NamePrefix *string `pulumi:"namePrefix"`
-	// Owner ID.
-	OwnerId *string `pulumi:"ownerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region              *string `pulumi:"region"`
-	RevokeRulesOnDelete *bool   `pulumi:"revokeRulesOnDelete"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
-	VpcId *string `pulumi:"vpcId"`
+	Arn                 *string                       `pulumi:"arn"`
+	Description         *string                       `pulumi:"description"`
+	Egress              []DefaultSecurityGroupEgress  `pulumi:"egress"`
+	Ingress             []DefaultSecurityGroupIngress `pulumi:"ingress"`
+	Name                *string                       `pulumi:"name"`
+	NamePrefix          *string                       `pulumi:"namePrefix"`
+	OwnerId             *string                       `pulumi:"ownerId"`
+	Region              *string                       `pulumi:"region"`
+	RevokeRulesOnDelete *bool                         `pulumi:"revokeRulesOnDelete"`
+	Tags                map[string]string             `pulumi:"tags"`
+	TagsAll             map[string]string             `pulumi:"tagsAll"`
+	VpcId               *string                       `pulumi:"vpcId"`
 }
 
 type DefaultSecurityGroupState struct {
-	// ARN of the security group.
-	Arn pulumi.StringPtrInput
-	// Description of the security group.
-	Description pulumi.StringPtrInput
-	// Configuration block. Detailed below.
-	Egress DefaultSecurityGroupEgressArrayInput
-	// Configuration block. Detailed below.
-	Ingress DefaultSecurityGroupIngressArrayInput
-	// Name of the security group.
-	Name       pulumi.StringPtrInput
-	NamePrefix pulumi.StringPtrInput
-	// Owner ID.
-	OwnerId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Arn                 pulumi.StringPtrInput
+	Description         pulumi.StringPtrInput
+	Egress              DefaultSecurityGroupEgressArrayInput
+	Ingress             DefaultSecurityGroupIngressArrayInput
+	Name                pulumi.StringPtrInput
+	NamePrefix          pulumi.StringPtrInput
+	OwnerId             pulumi.StringPtrInput
 	Region              pulumi.StringPtrInput
 	RevokeRulesOnDelete pulumi.BoolPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
-	VpcId pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
+	TagsAll             pulumi.StringMapInput
+	VpcId               pulumi.StringPtrInput
 }
 
 func (DefaultSecurityGroupState) ElementType() reflect.Type {
@@ -237,32 +92,22 @@ func (DefaultSecurityGroupState) ElementType() reflect.Type {
 }
 
 type defaultSecurityGroupArgs struct {
-	// Configuration block. Detailed below.
-	Egress []DefaultSecurityGroupEgress `pulumi:"egress"`
-	// Configuration block. Detailed below.
-	Ingress []DefaultSecurityGroupIngress `pulumi:"ingress"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region              *string `pulumi:"region"`
-	RevokeRulesOnDelete *bool   `pulumi:"revokeRulesOnDelete"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
-	VpcId *string `pulumi:"vpcId"`
+	Egress              []DefaultSecurityGroupEgress  `pulumi:"egress"`
+	Ingress             []DefaultSecurityGroupIngress `pulumi:"ingress"`
+	Region              *string                       `pulumi:"region"`
+	RevokeRulesOnDelete *bool                         `pulumi:"revokeRulesOnDelete"`
+	Tags                map[string]string             `pulumi:"tags"`
+	VpcId               *string                       `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a DefaultSecurityGroup resource.
 type DefaultSecurityGroupArgs struct {
-	// Configuration block. Detailed below.
-	Egress DefaultSecurityGroupEgressArrayInput
-	// Configuration block. Detailed below.
-	Ingress DefaultSecurityGroupIngressArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Egress              DefaultSecurityGroupEgressArrayInput
+	Ingress             DefaultSecurityGroupIngressArrayInput
 	Region              pulumi.StringPtrInput
 	RevokeRulesOnDelete pulumi.BoolPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
-	VpcId pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
+	VpcId               pulumi.StringPtrInput
 }
 
 func (DefaultSecurityGroupArgs) ElementType() reflect.Type {
@@ -352,27 +197,22 @@ func (o DefaultSecurityGroupOutput) ToDefaultSecurityGroupOutputWithContext(ctx 
 	return o
 }
 
-// ARN of the security group.
 func (o DefaultSecurityGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultSecurityGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description of the security group.
 func (o DefaultSecurityGroupOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultSecurityGroup) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// Configuration block. Detailed below.
 func (o DefaultSecurityGroupOutput) Egress() DefaultSecurityGroupEgressArrayOutput {
 	return o.ApplyT(func(v *DefaultSecurityGroup) DefaultSecurityGroupEgressArrayOutput { return v.Egress }).(DefaultSecurityGroupEgressArrayOutput)
 }
 
-// Configuration block. Detailed below.
 func (o DefaultSecurityGroupOutput) Ingress() DefaultSecurityGroupIngressArrayOutput {
 	return o.ApplyT(func(v *DefaultSecurityGroup) DefaultSecurityGroupIngressArrayOutput { return v.Ingress }).(DefaultSecurityGroupIngressArrayOutput)
 }
 
-// Name of the security group.
 func (o DefaultSecurityGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultSecurityGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -381,12 +221,10 @@ func (o DefaultSecurityGroupOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultSecurityGroup) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// Owner ID.
 func (o DefaultSecurityGroupOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultSecurityGroup) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DefaultSecurityGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultSecurityGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -395,17 +233,14 @@ func (o DefaultSecurityGroupOutput) RevokeRulesOnDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DefaultSecurityGroup) pulumi.BoolPtrOutput { return v.RevokeRulesOnDelete }).(pulumi.BoolPtrOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DefaultSecurityGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DefaultSecurityGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DefaultSecurityGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DefaultSecurityGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
 func (o DefaultSecurityGroupOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultSecurityGroup) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

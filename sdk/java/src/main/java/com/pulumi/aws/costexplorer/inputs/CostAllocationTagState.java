@@ -15,47 +15,23 @@ public final class CostAllocationTagState extends com.pulumi.resources.ResourceA
 
     public static final CostAllocationTagState Empty = new CostAllocationTagState();
 
-    /**
-     * The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
-    /**
-     * The key for the cost allocation tag.
-     * 
-     */
     @Import(name="tagKey")
     private @Nullable Output<String> tagKey;
 
-    /**
-     * @return The key for the cost allocation tag.
-     * 
-     */
     public Optional<Output<String>> tagKey() {
         return Optional.ofNullable(this.tagKey);
     }
 
-    /**
-     * The type of cost allocation tag.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return The type of cost allocation tag.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -86,65 +62,29 @@ public final class CostAllocationTagState extends com.pulumi.resources.ResourceA
             $ = new CostAllocationTagState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param status The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
-        /**
-         * @param tagKey The key for the cost allocation tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagKey(@Nullable Output<String> tagKey) {
             $.tagKey = tagKey;
             return this;
         }
 
-        /**
-         * @param tagKey The key for the cost allocation tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagKey(String tagKey) {
             return tagKey(Output.of(tagKey));
         }
 
-        /**
-         * @param type The type of cost allocation tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of cost allocation tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

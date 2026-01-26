@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema {
-    /**
-     * @return Inline tool definition. See `inlinePayload` below.
-     * 
-     */
     private @Nullable List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload> inlinePayloads;
-    /**
-     * @return S3-based tool definition. See `s3` below.
-     * 
-     */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3 s3;
 
     private AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema() {}
-    /**
-     * @return Inline tool definition. See `inlinePayload` below.
-     * 
-     */
     public List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload> inlinePayloads() {
         return this.inlinePayloads == null ? List.of() : this.inlinePayloads;
     }
-    /**
-     * @return S3-based tool definition. See `s3` below.
-     * 
-     */
     public Optional<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3> s3() {
         return Optional.ofNullable(this.s3);
     }

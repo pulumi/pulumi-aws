@@ -17,77 +17,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AnomalySubscriptionThresholdExpression {
-    /**
-     * @return Return results that match both Dimension objects.
-     * 
-     */
     private @Nullable List<AnomalySubscriptionThresholdExpressionAnd> ands;
-    /**
-     * @return Configuration block for the filter that&#39;s based on  values. See Cost Category below.
-     * 
-     */
     private @Nullable AnomalySubscriptionThresholdExpressionCostCategory costCategory;
-    /**
-     * @return Configuration block for the specific Dimension to use for.
-     * 
-     */
     private @Nullable AnomalySubscriptionThresholdExpressionDimension dimension;
-    /**
-     * @return Return results that do not match the Dimension object.
-     * 
-     */
     private @Nullable AnomalySubscriptionThresholdExpressionNot not;
-    /**
-     * @return Return results that match either Dimension object.
-     * 
-     */
     private @Nullable List<AnomalySubscriptionThresholdExpressionOr> ors;
-    /**
-     * @return Configuration block for the specific Tag to use for. See Tags below.
-     * 
-     */
     private @Nullable AnomalySubscriptionThresholdExpressionTags tags;
 
     private AnomalySubscriptionThresholdExpression() {}
-    /**
-     * @return Return results that match both Dimension objects.
-     * 
-     */
     public List<AnomalySubscriptionThresholdExpressionAnd> ands() {
         return this.ands == null ? List.of() : this.ands;
     }
-    /**
-     * @return Configuration block for the filter that&#39;s based on  values. See Cost Category below.
-     * 
-     */
     public Optional<AnomalySubscriptionThresholdExpressionCostCategory> costCategory() {
         return Optional.ofNullable(this.costCategory);
     }
-    /**
-     * @return Configuration block for the specific Dimension to use for.
-     * 
-     */
     public Optional<AnomalySubscriptionThresholdExpressionDimension> dimension() {
         return Optional.ofNullable(this.dimension);
     }
-    /**
-     * @return Return results that do not match the Dimension object.
-     * 
-     */
     public Optional<AnomalySubscriptionThresholdExpressionNot> not() {
         return Optional.ofNullable(this.not);
     }
-    /**
-     * @return Return results that match either Dimension object.
-     * 
-     */
     public List<AnomalySubscriptionThresholdExpressionOr> ors() {
         return this.ors == null ? List.of() : this.ors;
     }
-    /**
-     * @return Configuration block for the specific Tag to use for. See Tags below.
-     * 
-     */
     public Optional<AnomalySubscriptionThresholdExpressionTags> tags() {
         return Optional.ofNullable(this.tags);
     }

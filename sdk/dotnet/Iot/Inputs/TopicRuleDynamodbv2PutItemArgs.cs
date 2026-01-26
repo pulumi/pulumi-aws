@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Iot.Inputs
 
     public sealed class TopicRuleDynamodbv2PutItemArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the DynamoDB table.
-        /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
 

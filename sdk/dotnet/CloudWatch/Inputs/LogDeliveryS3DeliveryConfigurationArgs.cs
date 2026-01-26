@@ -12,15 +12,9 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class LogDeliveryS3DeliveryConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
-        /// </summary>
         [Input("enableHiveCompatiblePath", required: true)]
         public Input<bool> EnableHiveCompatiblePath { get; set; } = null!;
 
-        /// <summary>
-        /// This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
-        /// </summary>
         [Input("suffixPath", required: true)]
         public Input<string> SuffixPath { get; set; } = null!;
 

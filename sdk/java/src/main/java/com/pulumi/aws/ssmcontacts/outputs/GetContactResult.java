@@ -11,16 +11,8 @@ import java.util.Objects;
 
 @CustomType
 public final class GetContactResult {
-    /**
-     * @return A unique and identifiable alias of the contact or escalation plan.
-     * 
-     */
     private String alias;
     private String arn;
-    /**
-     * @return Full friendly name of the contact or escalation plan.
-     * 
-     */
     private String displayName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -28,32 +20,16 @@ public final class GetContactResult {
      */
     private String id;
     private String region;
-    /**
-     * @return Map of tags to assign to the resource.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return The type of contact engaged. A single contact is type `PERSONAL` and an escalation plan is type `ESCALATION`.
-     * 
-     */
     private String type;
 
     private GetContactResult() {}
-    /**
-     * @return A unique and identifiable alias of the contact or escalation plan.
-     * 
-     */
     public String alias() {
         return this.alias;
     }
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Full friendly name of the contact or escalation plan.
-     * 
-     */
     public String displayName() {
         return this.displayName;
     }
@@ -67,17 +43,9 @@ public final class GetContactResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Map of tags to assign to the resource.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return The type of contact engaged. A single contact is type `PERSONAL` and an escalation plan is type `ESCALATION`.
-     * 
-     */
     public String type() {
         return this.type;
     }

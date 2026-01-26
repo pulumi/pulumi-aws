@@ -25,11 +25,6 @@ class DevicePoolRule(dict):
                  attribute: Optional[_builtins.str] = None,
                  operator: Optional[_builtins.str] = None,
                  value: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str attribute: The rule's stringified attribute. Valid values are: `APPIUM_VERSION`, `ARN`, `AVAILABILITY`, `FLEET_TYPE`, `FORM_FACTOR`, `INSTANCE_ARN`, `INSTANCE_LABELS`, `MANUFACTURER`, `MODEL`, `OS_VERSION`, `PLATFORM`, `REMOTE_ACCESS_ENABLED`, `REMOTE_DEBUG_ENABLED`.
-        :param _builtins.str operator: Specifies how Device Farm compares the rule's attribute to the value. For the operators that are supported by each attribute. Valid values are: `EQUALS`, `NOT_IN`, `IN`, `GREATER_THAN`, `GREATER_THAN_OR_EQUALS`, `LESS_THAN`, `LESS_THAN_OR_EQUALS`, `CONTAINS`.
-        :param _builtins.str value: The rule's value.
-        """
         if attribute is not None:
             pulumi.set(__self__, "attribute", attribute)
         if operator is not None:
@@ -40,25 +35,16 @@ class DevicePoolRule(dict):
     @_builtins.property
     @pulumi.getter
     def attribute(self) -> Optional[_builtins.str]:
-        """
-        The rule's stringified attribute. Valid values are: `APPIUM_VERSION`, `ARN`, `AVAILABILITY`, `FLEET_TYPE`, `FORM_FACTOR`, `INSTANCE_ARN`, `INSTANCE_LABELS`, `MANUFACTURER`, `MODEL`, `OS_VERSION`, `PLATFORM`, `REMOTE_ACCESS_ENABLED`, `REMOTE_DEBUG_ENABLED`.
-        """
         return pulumi.get(self, "attribute")
 
     @_builtins.property
     @pulumi.getter
     def operator(self) -> Optional[_builtins.str]:
-        """
-        Specifies how Device Farm compares the rule's attribute to the value. For the operators that are supported by each attribute. Valid values are: `EQUALS`, `NOT_IN`, `IN`, `GREATER_THAN`, `GREATER_THAN_OR_EQUALS`, `LESS_THAN`, `LESS_THAN_OR_EQUALS`, `CONTAINS`.
-        """
         return pulumi.get(self, "operator")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[_builtins.str]:
-        """
-        The rule's value.
-        """
         return pulumi.get(self, "value")
 
 
@@ -89,11 +75,6 @@ class TestGridProjectVpcConfig(dict):
                  security_group_ids: Sequence[_builtins.str],
                  subnet_ids: Sequence[_builtins.str],
                  vpc_id: _builtins.str):
-        """
-        :param Sequence[_builtins.str] security_group_ids: A list of VPC security group IDs in your Amazon VPC.
-        :param Sequence[_builtins.str] subnet_ids: A list of VPC subnet IDs in your Amazon VPC.
-        :param _builtins.str vpc_id: The ID of the Amazon VPC.
-        """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         pulumi.set(__self__, "vpc_id", vpc_id)
@@ -101,25 +82,16 @@ class TestGridProjectVpcConfig(dict):
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[_builtins.str]:
-        """
-        A list of VPC security group IDs in your Amazon VPC.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[_builtins.str]:
-        """
-        A list of VPC subnet IDs in your Amazon VPC.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> _builtins.str:
-        """
-        The ID of the Amazon VPC.
-        """
         return pulumi.get(self, "vpc_id")
 
 

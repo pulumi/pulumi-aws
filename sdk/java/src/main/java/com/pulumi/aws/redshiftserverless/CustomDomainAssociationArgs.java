@@ -16,62 +16,30 @@ public final class CustomDomainAssociationArgs extends com.pulumi.resources.Reso
 
     public static final CustomDomainAssociationArgs Empty = new CustomDomainAssociationArgs();
 
-    /**
-     * ARN of the certificate for the custom domain association.
-     * 
-     */
     @Import(name="customDomainCertificateArn", required=true)
     private Output<String> customDomainCertificateArn;
 
-    /**
-     * @return ARN of the certificate for the custom domain association.
-     * 
-     */
     public Output<String> customDomainCertificateArn() {
         return this.customDomainCertificateArn;
     }
 
-    /**
-     * Custom domain to associate with the workgroup.
-     * 
-     */
     @Import(name="customDomainName", required=true)
     private Output<String> customDomainName;
 
-    /**
-     * @return Custom domain to associate with the workgroup.
-     * 
-     */
     public Output<String> customDomainName() {
         return this.customDomainName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Name of the workgroup.
-     * 
-     */
     @Import(name="workgroupName", required=true)
     private Output<String> workgroupName;
 
-    /**
-     * @return Name of the workgroup.
-     * 
-     */
     public Output<String> workgroupName() {
         return this.workgroupName;
     }
@@ -103,86 +71,38 @@ public final class CustomDomainAssociationArgs extends com.pulumi.resources.Reso
             $ = new CustomDomainAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customDomainCertificateArn ARN of the certificate for the custom domain association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customDomainCertificateArn(Output<String> customDomainCertificateArn) {
             $.customDomainCertificateArn = customDomainCertificateArn;
             return this;
         }
 
-        /**
-         * @param customDomainCertificateArn ARN of the certificate for the custom domain association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customDomainCertificateArn(String customDomainCertificateArn) {
             return customDomainCertificateArn(Output.of(customDomainCertificateArn));
         }
 
-        /**
-         * @param customDomainName Custom domain to associate with the workgroup.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customDomainName(Output<String> customDomainName) {
             $.customDomainName = customDomainName;
             return this;
         }
 
-        /**
-         * @param customDomainName Custom domain to associate with the workgroup.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customDomainName(String customDomainName) {
             return customDomainName(Output.of(customDomainName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param workgroupName Name of the workgroup.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workgroupName(Output<String> workgroupName) {
             $.workgroupName = workgroupName;
             return this;
         }
 
-        /**
-         * @param workgroupName Name of the workgroup.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workgroupName(String workgroupName) {
             return workgroupName(Output.of(workgroupName));
         }

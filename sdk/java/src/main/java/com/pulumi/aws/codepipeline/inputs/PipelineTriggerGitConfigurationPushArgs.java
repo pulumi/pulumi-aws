@@ -17,47 +17,23 @@ public final class PipelineTriggerGitConfigurationPushArgs extends com.pulumi.re
 
     public static final PipelineTriggerGitConfigurationPushArgs Empty = new PipelineTriggerGitConfigurationPushArgs();
 
-    /**
-     * The field that specifies to filter on branches for the push trigger configuration. A `branches` block is documented below.
-     * 
-     */
     @Import(name="branches")
     private @Nullable Output<PipelineTriggerGitConfigurationPushBranchesArgs> branches;
 
-    /**
-     * @return The field that specifies to filter on branches for the push trigger configuration. A `branches` block is documented below.
-     * 
-     */
     public Optional<Output<PipelineTriggerGitConfigurationPushBranchesArgs>> branches() {
         return Optional.ofNullable(this.branches);
     }
 
-    /**
-     * The field that specifies to filter on file paths for the push trigger configuration. A `filePaths` block is documented below.
-     * 
-     */
     @Import(name="filePaths")
     private @Nullable Output<PipelineTriggerGitConfigurationPushFilePathsArgs> filePaths;
 
-    /**
-     * @return The field that specifies to filter on file paths for the push trigger configuration. A `filePaths` block is documented below.
-     * 
-     */
     public Optional<Output<PipelineTriggerGitConfigurationPushFilePathsArgs>> filePaths() {
         return Optional.ofNullable(this.filePaths);
     }
 
-    /**
-     * The field that contains the details for the Git tags trigger configuration. A `tags` block is documented below.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<PipelineTriggerGitConfigurationPushTagsArgs> tags;
 
-    /**
-     * @return The field that contains the details for the Git tags trigger configuration. A `tags` block is documented below.
-     * 
-     */
     public Optional<Output<PipelineTriggerGitConfigurationPushTagsArgs>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -88,65 +64,29 @@ public final class PipelineTriggerGitConfigurationPushArgs extends com.pulumi.re
             $ = new PipelineTriggerGitConfigurationPushArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param branches The field that specifies to filter on branches for the push trigger configuration. A `branches` block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder branches(@Nullable Output<PipelineTriggerGitConfigurationPushBranchesArgs> branches) {
             $.branches = branches;
             return this;
         }
 
-        /**
-         * @param branches The field that specifies to filter on branches for the push trigger configuration. A `branches` block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder branches(PipelineTriggerGitConfigurationPushBranchesArgs branches) {
             return branches(Output.of(branches));
         }
 
-        /**
-         * @param filePaths The field that specifies to filter on file paths for the push trigger configuration. A `filePaths` block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filePaths(@Nullable Output<PipelineTriggerGitConfigurationPushFilePathsArgs> filePaths) {
             $.filePaths = filePaths;
             return this;
         }
 
-        /**
-         * @param filePaths The field that specifies to filter on file paths for the push trigger configuration. A `filePaths` block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filePaths(PipelineTriggerGitConfigurationPushFilePathsArgs filePaths) {
             return filePaths(Output.of(filePaths));
         }
 
-        /**
-         * @param tags The field that contains the details for the Git tags trigger configuration. A `tags` block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<PipelineTriggerGitConfigurationPushTagsArgs> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags The field that contains the details for the Git tags trigger configuration. A `tags` block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(PipelineTriggerGitConfigurationPushTagsArgs tags) {
             return tags(Output.of(tags));
         }

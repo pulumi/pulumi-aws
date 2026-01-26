@@ -16,32 +16,16 @@ public final class AccessGrantsInstanceState extends com.pulumi.resources.Resour
 
     public static final AccessGrantsInstanceState Empty = new AccessGrantsInstanceState();
 
-    /**
-     * Amazon Resource Name (ARN) of the S3 Access Grants instance.
-     * 
-     */
     @Import(name="accessGrantsInstanceArn")
     private @Nullable Output<String> accessGrantsInstanceArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the S3 Access Grants instance.
-     * 
-     */
     public Optional<Output<String>> accessGrantsInstanceArn() {
         return Optional.ofNullable(this.accessGrantsInstanceArn);
     }
 
-    /**
-     * Unique ID of the S3 Access Grants instance.
-     * 
-     */
     @Import(name="accessGrantsInstanceId")
     private @Nullable Output<String> accessGrantsInstanceId;
 
-    /**
-     * @return Unique ID of the S3 Access Grants instance.
-     * 
-     */
     public Optional<Output<String>> accessGrantsInstanceId() {
         return Optional.ofNullable(this.accessGrantsInstanceId);
     }
@@ -53,77 +37,37 @@ public final class AccessGrantsInstanceState extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.accountId);
     }
 
-    /**
-     * The ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
-     * 
-     */
     @Import(name="identityCenterApplicationArn")
     private @Nullable Output<String> identityCenterApplicationArn;
 
-    /**
-     * @return The ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
-     * 
-     */
     public Optional<Output<String>> identityCenterApplicationArn() {
         return Optional.ofNullable(this.identityCenterApplicationArn);
     }
 
-    /**
-     * The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
-     * 
-     */
     @Import(name="identityCenterArn")
     private @Nullable Output<String> identityCenterArn;
 
-    /**
-     * @return The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
-     * 
-     */
     public Optional<Output<String>> identityCenterArn() {
         return Optional.ofNullable(this.identityCenterArn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -159,44 +103,20 @@ public final class AccessGrantsInstanceState extends com.pulumi.resources.Resour
             $ = new AccessGrantsInstanceState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessGrantsInstanceArn Amazon Resource Name (ARN) of the S3 Access Grants instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessGrantsInstanceArn(@Nullable Output<String> accessGrantsInstanceArn) {
             $.accessGrantsInstanceArn = accessGrantsInstanceArn;
             return this;
         }
 
-        /**
-         * @param accessGrantsInstanceArn Amazon Resource Name (ARN) of the S3 Access Grants instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessGrantsInstanceArn(String accessGrantsInstanceArn) {
             return accessGrantsInstanceArn(Output.of(accessGrantsInstanceArn));
         }
 
-        /**
-         * @param accessGrantsInstanceId Unique ID of the S3 Access Grants instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessGrantsInstanceId(@Nullable Output<String> accessGrantsInstanceId) {
             $.accessGrantsInstanceId = accessGrantsInstanceId;
             return this;
         }
 
-        /**
-         * @param accessGrantsInstanceId Unique ID of the S3 Access Grants instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessGrantsInstanceId(String accessGrantsInstanceId) {
             return accessGrantsInstanceId(Output.of(accessGrantsInstanceId));
         }
@@ -210,107 +130,47 @@ public final class AccessGrantsInstanceState extends com.pulumi.resources.Resour
             return accountId(Output.of(accountId));
         }
 
-        /**
-         * @param identityCenterApplicationArn The ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityCenterApplicationArn(@Nullable Output<String> identityCenterApplicationArn) {
             $.identityCenterApplicationArn = identityCenterApplicationArn;
             return this;
         }
 
-        /**
-         * @param identityCenterApplicationArn The ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityCenterApplicationArn(String identityCenterApplicationArn) {
             return identityCenterApplicationArn(Output.of(identityCenterApplicationArn));
         }
 
-        /**
-         * @param identityCenterArn The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityCenterArn(@Nullable Output<String> identityCenterArn) {
             $.identityCenterArn = identityCenterArn;
             return this;
         }
 
-        /**
-         * @param identityCenterArn The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityCenterArn(String identityCenterArn) {
             return identityCenterArn(Output.of(identityCenterArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

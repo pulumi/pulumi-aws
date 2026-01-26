@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfiguration
     {
-        /// <summary>
-        /// List of names of the tables to use.
-        /// </summary>
         public readonly ImmutableArray<string> TableNames;
 
         [OutputConstructor]

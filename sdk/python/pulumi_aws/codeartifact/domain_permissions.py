@@ -26,11 +26,6 @@ class DomainPermissionsArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DomainPermissions resource.
-        :param pulumi.Input[_builtins.str] domain: The name of the domain on which to set the resource policy.
-        :param pulumi.Input[_builtins.str] domain_owner: The account number of the AWS account that owns the domain.
-        :param pulumi.Input[_builtins.str] policy_document: A JSON policy string to be set as the access control resource policy on the provided domain.
-        :param pulumi.Input[_builtins.str] policy_revision: The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "domain", domain)
         if domain_owner is not None:
@@ -45,9 +40,6 @@ class DomainPermissionsArgs:
     @_builtins.property
     @pulumi.getter
     def domain(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the domain on which to set the resource policy.
-        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -57,9 +49,6 @@ class DomainPermissionsArgs:
     @_builtins.property
     @pulumi.getter(name="domainOwner")
     def domain_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The account number of the AWS account that owns the domain.
-        """
         return pulumi.get(self, "domain_owner")
 
     @domain_owner.setter
@@ -69,9 +58,6 @@ class DomainPermissionsArgs:
     @_builtins.property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A JSON policy string to be set as the access control resource policy on the provided domain.
-        """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
@@ -81,9 +67,6 @@ class DomainPermissionsArgs:
     @_builtins.property
     @pulumi.getter(name="policyRevision")
     def policy_revision(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
-        """
         return pulumi.get(self, "policy_revision")
 
     @policy_revision.setter
@@ -93,9 +76,6 @@ class DomainPermissionsArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -114,12 +94,6 @@ class _DomainPermissionsState:
                  resource_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DomainPermissions resources.
-        :param pulumi.Input[_builtins.str] domain: The name of the domain on which to set the resource policy.
-        :param pulumi.Input[_builtins.str] domain_owner: The account number of the AWS account that owns the domain.
-        :param pulumi.Input[_builtins.str] policy_document: A JSON policy string to be set as the access control resource policy on the provided domain.
-        :param pulumi.Input[_builtins.str] policy_revision: The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: The ARN of the resource associated with the resource policy.
         """
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
@@ -137,9 +111,6 @@ class _DomainPermissionsState:
     @_builtins.property
     @pulumi.getter
     def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the domain on which to set the resource policy.
-        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -149,9 +120,6 @@ class _DomainPermissionsState:
     @_builtins.property
     @pulumi.getter(name="domainOwner")
     def domain_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The account number of the AWS account that owns the domain.
-        """
         return pulumi.get(self, "domain_owner")
 
     @domain_owner.setter
@@ -161,9 +129,6 @@ class _DomainPermissionsState:
     @_builtins.property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A JSON policy string to be set as the access control resource policy on the provided domain.
-        """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
@@ -173,9 +138,6 @@ class _DomainPermissionsState:
     @_builtins.property
     @pulumi.getter(name="policyRevision")
     def policy_revision(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
-        """
         return pulumi.get(self, "policy_revision")
 
     @policy_revision.setter
@@ -185,9 +147,6 @@ class _DomainPermissionsState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -197,9 +156,6 @@ class _DomainPermissionsState:
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the resource associated with the resource policy.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -220,51 +176,9 @@ class DomainPermissions(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a CodeArtifact Domains Permissions Policy Resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kms.Key("example", description="domain key")
-        example_domain = aws.codeartifact.Domain("example",
-            domain="example",
-            encryption_key=example.arn)
-        test = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "*",
-                "identifiers": ["*"],
-            }],
-            "actions": ["codeartifact:CreateRepository"],
-            "resources": [example_domain.arn],
-        }])
-        test_domain_permissions = aws.codeartifact.DomainPermissions("test",
-            domain=example_domain.domain,
-            policy_document=test.json)
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the CodeArtifact domain.
-
-        Using `pulumi import`, import CodeArtifact Domain Permissions Policies using the CodeArtifact Domain ARN. For example:
-
-        % pulumi import aws_codeartifact_domain_permissions_policy.example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
-
+        Create a DomainPermissions resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] domain: The name of the domain on which to set the resource policy.
-        :param pulumi.Input[_builtins.str] domain_owner: The account number of the AWS account that owns the domain.
-        :param pulumi.Input[_builtins.str] policy_document: A JSON policy string to be set as the access control resource policy on the provided domain.
-        :param pulumi.Input[_builtins.str] policy_revision: The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -273,44 +187,7 @@ class DomainPermissions(pulumi.CustomResource):
                  args: DomainPermissionsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a CodeArtifact Domains Permissions Policy Resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kms.Key("example", description="domain key")
-        example_domain = aws.codeartifact.Domain("example",
-            domain="example",
-            encryption_key=example.arn)
-        test = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "*",
-                "identifiers": ["*"],
-            }],
-            "actions": ["codeartifact:CreateRepository"],
-            "resources": [example_domain.arn],
-        }])
-        test_domain_permissions = aws.codeartifact.DomainPermissions("test",
-            domain=example_domain.domain,
-            policy_document=test.json)
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the CodeArtifact domain.
-
-        Using `pulumi import`, import CodeArtifact Domain Permissions Policies using the CodeArtifact Domain ARN. For example:
-
-        % pulumi import aws_codeartifact_domain_permissions_policy.example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
-
+        Create a DomainPermissions resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DomainPermissionsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -371,12 +248,6 @@ class DomainPermissions(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] domain: The name of the domain on which to set the resource policy.
-        :param pulumi.Input[_builtins.str] domain_owner: The account number of the AWS account that owns the domain.
-        :param pulumi.Input[_builtins.str] policy_document: A JSON policy string to be set as the access control resource policy on the provided domain.
-        :param pulumi.Input[_builtins.str] policy_revision: The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: The ARN of the resource associated with the resource policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -393,48 +264,30 @@ class DomainPermissions(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def domain(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the domain on which to set the resource policy.
-        """
         return pulumi.get(self, "domain")
 
     @_builtins.property
     @pulumi.getter(name="domainOwner")
     def domain_owner(self) -> pulumi.Output[_builtins.str]:
-        """
-        The account number of the AWS account that owns the domain.
-        """
         return pulumi.get(self, "domain_owner")
 
     @_builtins.property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> pulumi.Output[_builtins.str]:
-        """
-        A JSON policy string to be set as the access control resource policy on the provided domain.
-        """
         return pulumi.get(self, "policy_document")
 
     @_builtins.property
     @pulumi.getter(name="policyRevision")
     def policy_revision(self) -> pulumi.Output[_builtins.str]:
-        """
-        The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
-        """
         return pulumi.get(self, "policy_revision")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the resource associated with the resource policy.
-        """
         return pulumi.get(self, "resource_arn")
 

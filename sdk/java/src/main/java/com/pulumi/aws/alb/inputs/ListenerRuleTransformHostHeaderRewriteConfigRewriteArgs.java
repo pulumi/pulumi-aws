@@ -14,32 +14,16 @@ public final class ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs exten
 
     public static final ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs Empty = new ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs();
 
-    /**
-     * Regular expression to match in the input string. Length constraints: Between 1 and 1024 characters.
-     * 
-     */
     @Import(name="regex", required=true)
     private Output<String> regex;
 
-    /**
-     * @return Regular expression to match in the input string. Length constraints: Between 1 and 1024 characters.
-     * 
-     */
     public Output<String> regex() {
         return this.regex;
     }
 
-    /**
-     * Replacement string to use when rewriting the matched input. Capture groups in the regular expression (for example, `$1` and `$2`) can be specified. Length constraints: Between 0 and 1024 characters.
-     * 
-     */
     @Import(name="replace", required=true)
     private Output<String> replace;
 
-    /**
-     * @return Replacement string to use when rewriting the matched input. Capture groups in the regular expression (for example, `$1` and `$2`) can be specified. Length constraints: Between 0 and 1024 characters.
-     * 
-     */
     public Output<String> replace() {
         return this.replace;
     }
@@ -69,44 +53,20 @@ public final class ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs exten
             $ = new ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param regex Regular expression to match in the input string. Length constraints: Between 1 and 1024 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regex(Output<String> regex) {
             $.regex = regex;
             return this;
         }
 
-        /**
-         * @param regex Regular expression to match in the input string. Length constraints: Between 1 and 1024 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regex(String regex) {
             return regex(Output.of(regex));
         }
 
-        /**
-         * @param replace Replacement string to use when rewriting the matched input. Capture groups in the regular expression (for example, `$1` and `$2`) can be specified. Length constraints: Between 0 and 1024 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replace(Output<String> replace) {
             $.replace = replace;
             return this;
         }
 
-        /**
-         * @param replace Replacement string to use when rewriting the matched input. Capture groups in the regular expression (for example, `$1` and `$2`) can be specified. Length constraints: Between 0 and 1024 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replace(String replace) {
             return replace(Output.of(replace));
         }

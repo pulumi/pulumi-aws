@@ -17,47 +17,23 @@ public final class InstanceStorageConfigStorageConfigS3ConfigArgs extends com.pu
 
     public static final InstanceStorageConfigStorageConfigS3ConfigArgs Empty = new InstanceStorageConfigStorageConfigS3ConfigArgs();
 
-    /**
-     * The S3 bucket name.
-     * 
-     */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
-    /**
-     * @return The S3 bucket name.
-     * 
-     */
     public Output<String> bucketName() {
         return this.bucketName;
     }
 
-    /**
-     * The S3 bucket prefix.
-     * 
-     */
     @Import(name="bucketPrefix", required=true)
     private Output<String> bucketPrefix;
 
-    /**
-     * @return The S3 bucket prefix.
-     * 
-     */
     public Output<String> bucketPrefix() {
         return this.bucketPrefix;
     }
 
-    /**
-     * The encryption configuration. Documented below.
-     * 
-     */
     @Import(name="encryptionConfig")
     private @Nullable Output<InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs> encryptionConfig;
 
-    /**
-     * @return The encryption configuration. Documented below.
-     * 
-     */
     public Optional<Output<InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs>> encryptionConfig() {
         return Optional.ofNullable(this.encryptionConfig);
     }
@@ -88,65 +64,29 @@ public final class InstanceStorageConfigStorageConfigS3ConfigArgs extends com.pu
             $ = new InstanceStorageConfigStorageConfigS3ConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketName The S3 bucket name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(Output<String> bucketName) {
             $.bucketName = bucketName;
             return this;
         }
 
-        /**
-         * @param bucketName The S3 bucket name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
         }
 
-        /**
-         * @param bucketPrefix The S3 bucket prefix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketPrefix(Output<String> bucketPrefix) {
             $.bucketPrefix = bucketPrefix;
             return this;
         }
 
-        /**
-         * @param bucketPrefix The S3 bucket prefix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketPrefix(String bucketPrefix) {
             return bucketPrefix(Output.of(bucketPrefix));
         }
 
-        /**
-         * @param encryptionConfig The encryption configuration. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionConfig(@Nullable Output<InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs> encryptionConfig) {
             $.encryptionConfig = encryptionConfig;
             return this;
         }
 
-        /**
-         * @param encryptionConfig The encryption configuration. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionConfig(InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs encryptionConfig) {
             return encryptionConfig(Output.of(encryptionConfig));
         }

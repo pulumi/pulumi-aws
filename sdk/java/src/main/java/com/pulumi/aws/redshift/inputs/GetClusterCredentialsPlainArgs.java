@@ -18,107 +18,51 @@ public final class GetClusterCredentialsPlainArgs extends com.pulumi.resources.I
 
     public static final GetClusterCredentialsPlainArgs Empty = new GetClusterCredentialsPlainArgs();
 
-    /**
-     * Create a database user with the name specified for the user named in `dbUser` if one does not exist.
-     * 
-     */
     @Import(name="autoCreate")
     private @Nullable Boolean autoCreate;
 
-    /**
-     * @return Create a database user with the name specified for the user named in `dbUser` if one does not exist.
-     * 
-     */
     public Optional<Boolean> autoCreate() {
         return Optional.ofNullable(this.autoCreate);
     }
 
-    /**
-     * Unique identifier of the cluster that contains the database for which your are requesting credentials.
-     * 
-     */
     @Import(name="clusterIdentifier", required=true)
     private String clusterIdentifier;
 
-    /**
-     * @return Unique identifier of the cluster that contains the database for which your are requesting credentials.
-     * 
-     */
     public String clusterIdentifier() {
         return this.clusterIdentifier;
     }
 
-    /**
-     * List of the names of existing database groups that the user named in `dbUser` will join for the current session, in addition to any group memberships for an existing user. If not specified, a new user is added only to `PUBLIC`.
-     * 
-     */
     @Import(name="dbGroups")
     private @Nullable List<String> dbGroups;
 
-    /**
-     * @return List of the names of existing database groups that the user named in `dbUser` will join for the current session, in addition to any group memberships for an existing user. If not specified, a new user is added only to `PUBLIC`.
-     * 
-     */
     public Optional<List<String>> dbGroups() {
         return Optional.ofNullable(this.dbGroups);
     }
 
-    /**
-     * Name of a database that DbUser is authorized to log on to. If `dbName` is not specified, `dbUser` can log on to any existing database.
-     * 
-     */
     @Import(name="dbName")
     private @Nullable String dbName;
 
-    /**
-     * @return Name of a database that DbUser is authorized to log on to. If `dbName` is not specified, `dbUser` can log on to any existing database.
-     * 
-     */
     public Optional<String> dbName() {
         return Optional.ofNullable(this.dbName);
     }
 
-    /**
-     * Name of a database user. If a user name matching `dbUser` exists in the database, the temporary user credentials have the same permissions as the  existing user. If `dbUser` doesn&#39;t exist in the database and `autoCreate` is `True`, a new user is created using the value for `dbUser` with `PUBLIC` permissions.  If a database user matching the value for `dbUser` doesn&#39;t exist and `not` is `False`, then the command succeeds but the connection attempt will fail because the user doesn&#39;t exist in the database.
-     * 
-     */
     @Import(name="dbUser", required=true)
     private String dbUser;
 
-    /**
-     * @return Name of a database user. If a user name matching `dbUser` exists in the database, the temporary user credentials have the same permissions as the  existing user. If `dbUser` doesn&#39;t exist in the database and `autoCreate` is `True`, a new user is created using the value for `dbUser` with `PUBLIC` permissions.  If a database user matching the value for `dbUser` doesn&#39;t exist and `not` is `False`, then the command succeeds but the connection attempt will fail because the user doesn&#39;t exist in the database.
-     * 
-     */
     public String dbUser() {
         return this.dbUser;
     }
 
-    /**
-     * The number of seconds until the returned temporary password expires. Valid values are between `900` and `3600`. Default value is `900`.
-     * 
-     */
     @Import(name="durationSeconds")
     private @Nullable Integer durationSeconds;
 
-    /**
-     * @return The number of seconds until the returned temporary password expires. Valid values are between `900` and `3600`. Default value is `900`.
-     * 
-     */
     public Optional<Integer> durationSeconds() {
         return Optional.ofNullable(this.durationSeconds);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -153,88 +97,40 @@ public final class GetClusterCredentialsPlainArgs extends com.pulumi.resources.I
             $ = new GetClusterCredentialsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param autoCreate Create a database user with the name specified for the user named in `dbUser` if one does not exist.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoCreate(@Nullable Boolean autoCreate) {
             $.autoCreate = autoCreate;
             return this;
         }
 
-        /**
-         * @param clusterIdentifier Unique identifier of the cluster that contains the database for which your are requesting credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterIdentifier(String clusterIdentifier) {
             $.clusterIdentifier = clusterIdentifier;
             return this;
         }
 
-        /**
-         * @param dbGroups List of the names of existing database groups that the user named in `dbUser` will join for the current session, in addition to any group memberships for an existing user. If not specified, a new user is added only to `PUBLIC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbGroups(@Nullable List<String> dbGroups) {
             $.dbGroups = dbGroups;
             return this;
         }
 
-        /**
-         * @param dbGroups List of the names of existing database groups that the user named in `dbUser` will join for the current session, in addition to any group memberships for an existing user. If not specified, a new user is added only to `PUBLIC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbGroups(String... dbGroups) {
             return dbGroups(List.of(dbGroups));
         }
 
-        /**
-         * @param dbName Name of a database that DbUser is authorized to log on to. If `dbName` is not specified, `dbUser` can log on to any existing database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbName(@Nullable String dbName) {
             $.dbName = dbName;
             return this;
         }
 
-        /**
-         * @param dbUser Name of a database user. If a user name matching `dbUser` exists in the database, the temporary user credentials have the same permissions as the  existing user. If `dbUser` doesn&#39;t exist in the database and `autoCreate` is `True`, a new user is created using the value for `dbUser` with `PUBLIC` permissions.  If a database user matching the value for `dbUser` doesn&#39;t exist and `not` is `False`, then the command succeeds but the connection attempt will fail because the user doesn&#39;t exist in the database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbUser(String dbUser) {
             $.dbUser = dbUser;
             return this;
         }
 
-        /**
-         * @param durationSeconds The number of seconds until the returned temporary password expires. Valid values are between `900` and `3600`. Default value is `900`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder durationSeconds(@Nullable Integer durationSeconds) {
             $.durationSeconds = durationSeconds;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

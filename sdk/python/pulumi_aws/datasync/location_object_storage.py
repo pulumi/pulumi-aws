@@ -32,17 +32,6 @@ class LocationObjectStorageArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LocationObjectStorage resource.
-        :param pulumi.Input[_builtins.str] bucket_name: The bucket on the self-managed object storage server that is used to read data from.
-        :param pulumi.Input[_builtins.str] server_hostname: The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network.
-        :param pulumi.Input[_builtins.str] access_key: The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] secret_key: The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
-        :param pulumi.Input[_builtins.str] server_certificate: Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
-        :param pulumi.Input[_builtins.int] server_port: The port that your self-managed object storage server accepts inbound network traffic on. The server port is set by default to TCP 80 (`HTTP`) or TCP 443 (`HTTPS`). You can specify a custom port if your self-managed object storage server requires one.
-        :param pulumi.Input[_builtins.str] server_protocol: The protocol that the object storage server uses to communicate. Valid values are `HTTP` or `HTTPS`.
-        :param pulumi.Input[_builtins.str] subdirectory: A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "server_hostname", server_hostname)
@@ -68,9 +57,6 @@ class LocationObjectStorageArgs:
     @_builtins.property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The bucket on the self-managed object storage server that is used to read data from.
-        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -80,9 +66,6 @@ class LocationObjectStorageArgs:
     @_builtins.property
     @pulumi.getter(name="serverHostname")
     def server_hostname(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network.
-        """
         return pulumi.get(self, "server_hostname")
 
     @server_hostname.setter
@@ -92,9 +75,6 @@ class LocationObjectStorageArgs:
     @_builtins.property
     @pulumi.getter(name="accessKey")
     def access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
-        """
         return pulumi.get(self, "access_key")
 
     @access_key.setter
@@ -104,9 +84,6 @@ class LocationObjectStorageArgs:
     @_builtins.property
     @pulumi.getter(name="agentArns")
     def agent_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
-        """
         return pulumi.get(self, "agent_arns")
 
     @agent_arns.setter
@@ -116,9 +93,6 @@ class LocationObjectStorageArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -128,9 +102,6 @@ class LocationObjectStorageArgs:
     @_builtins.property
     @pulumi.getter(name="secretKey")
     def secret_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
-        """
         return pulumi.get(self, "secret_key")
 
     @secret_key.setter
@@ -140,9 +111,6 @@ class LocationObjectStorageArgs:
     @_builtins.property
     @pulumi.getter(name="serverCertificate")
     def server_certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
-        """
         return pulumi.get(self, "server_certificate")
 
     @server_certificate.setter
@@ -152,9 +120,6 @@ class LocationObjectStorageArgs:
     @_builtins.property
     @pulumi.getter(name="serverPort")
     def server_port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The port that your self-managed object storage server accepts inbound network traffic on. The server port is set by default to TCP 80 (`HTTP`) or TCP 443 (`HTTPS`). You can specify a custom port if your self-managed object storage server requires one.
-        """
         return pulumi.get(self, "server_port")
 
     @server_port.setter
@@ -164,9 +129,6 @@ class LocationObjectStorageArgs:
     @_builtins.property
     @pulumi.getter(name="serverProtocol")
     def server_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The protocol that the object storage server uses to communicate. Valid values are `HTTP` or `HTTPS`.
-        """
         return pulumi.get(self, "server_protocol")
 
     @server_protocol.setter
@@ -176,9 +138,6 @@ class LocationObjectStorageArgs:
     @_builtins.property
     @pulumi.getter
     def subdirectory(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
-        """
         return pulumi.get(self, "subdirectory")
 
     @subdirectory.setter
@@ -188,9 +147,6 @@ class LocationObjectStorageArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -217,20 +173,6 @@ class _LocationObjectStorageState:
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LocationObjectStorage resources.
-        :param pulumi.Input[_builtins.str] access_key: The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Location.
-        :param pulumi.Input[_builtins.str] bucket_name: The bucket on the self-managed object storage server that is used to read data from.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] secret_key: The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
-        :param pulumi.Input[_builtins.str] server_certificate: Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
-        :param pulumi.Input[_builtins.str] server_hostname: The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network.
-        :param pulumi.Input[_builtins.int] server_port: The port that your self-managed object storage server accepts inbound network traffic on. The server port is set by default to TCP 80 (`HTTP`) or TCP 443 (`HTTPS`). You can specify a custom port if your self-managed object storage server requires one.
-        :param pulumi.Input[_builtins.str] server_protocol: The protocol that the object storage server uses to communicate. Valid values are `HTTP` or `HTTPS`.
-        :param pulumi.Input[_builtins.str] subdirectory: A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] uri: The URL of the Object Storage location that was described.
         """
         if access_key is not None:
             pulumi.set(__self__, "access_key", access_key)
@@ -264,9 +206,6 @@ class _LocationObjectStorageState:
     @_builtins.property
     @pulumi.getter(name="accessKey")
     def access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
-        """
         return pulumi.get(self, "access_key")
 
     @access_key.setter
@@ -276,9 +215,6 @@ class _LocationObjectStorageState:
     @_builtins.property
     @pulumi.getter(name="agentArns")
     def agent_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
-        """
         return pulumi.get(self, "agent_arns")
 
     @agent_arns.setter
@@ -288,9 +224,6 @@ class _LocationObjectStorageState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the DataSync Location.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -300,9 +233,6 @@ class _LocationObjectStorageState:
     @_builtins.property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The bucket on the self-managed object storage server that is used to read data from.
-        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -312,9 +242,6 @@ class _LocationObjectStorageState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -324,9 +251,6 @@ class _LocationObjectStorageState:
     @_builtins.property
     @pulumi.getter(name="secretKey")
     def secret_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
-        """
         return pulumi.get(self, "secret_key")
 
     @secret_key.setter
@@ -336,9 +260,6 @@ class _LocationObjectStorageState:
     @_builtins.property
     @pulumi.getter(name="serverCertificate")
     def server_certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
-        """
         return pulumi.get(self, "server_certificate")
 
     @server_certificate.setter
@@ -348,9 +269,6 @@ class _LocationObjectStorageState:
     @_builtins.property
     @pulumi.getter(name="serverHostname")
     def server_hostname(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network.
-        """
         return pulumi.get(self, "server_hostname")
 
     @server_hostname.setter
@@ -360,9 +278,6 @@ class _LocationObjectStorageState:
     @_builtins.property
     @pulumi.getter(name="serverPort")
     def server_port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The port that your self-managed object storage server accepts inbound network traffic on. The server port is set by default to TCP 80 (`HTTP`) or TCP 443 (`HTTPS`). You can specify a custom port if your self-managed object storage server requires one.
-        """
         return pulumi.get(self, "server_port")
 
     @server_port.setter
@@ -372,9 +287,6 @@ class _LocationObjectStorageState:
     @_builtins.property
     @pulumi.getter(name="serverProtocol")
     def server_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The protocol that the object storage server uses to communicate. Valid values are `HTTP` or `HTTPS`.
-        """
         return pulumi.get(self, "server_protocol")
 
     @server_protocol.setter
@@ -384,9 +296,6 @@ class _LocationObjectStorageState:
     @_builtins.property
     @pulumi.getter
     def subdirectory(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
-        """
         return pulumi.get(self, "subdirectory")
 
     @subdirectory.setter
@@ -396,9 +305,6 @@ class _LocationObjectStorageState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -408,9 +314,6 @@ class _LocationObjectStorageState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -420,9 +323,6 @@ class _LocationObjectStorageState:
     @_builtins.property
     @pulumi.getter
     def uri(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The URL of the Object Storage location that was described.
-        """
         return pulumi.get(self, "uri")
 
     @uri.setter
@@ -449,47 +349,9 @@ class LocationObjectStorage(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Manages a Object Storage Location within AWS DataSync.
-
-        > **NOTE:** The DataSync Agents must be available before creating this resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.datasync.LocationObjectStorage("example",
-            agent_arns=[example_aws_datasync_agent["arn"]],
-            server_hostname="example",
-            bucket_name="example")
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the DataSync object storage location.
-
-        Using `pulumi import`, import `aws_datasync_location_object_storage` using the Amazon Resource Name (ARN). For example:
-
-        % pulumi import aws_datasync_location_object_storage.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-
+        Create a LocationObjectStorage resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_key: The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
-        :param pulumi.Input[_builtins.str] bucket_name: The bucket on the self-managed object storage server that is used to read data from.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] secret_key: The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
-        :param pulumi.Input[_builtins.str] server_certificate: Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
-        :param pulumi.Input[_builtins.str] server_hostname: The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network.
-        :param pulumi.Input[_builtins.int] server_port: The port that your self-managed object storage server accepts inbound network traffic on. The server port is set by default to TCP 80 (`HTTP`) or TCP 443 (`HTTPS`). You can specify a custom port if your self-managed object storage server requires one.
-        :param pulumi.Input[_builtins.str] server_protocol: The protocol that the object storage server uses to communicate. Valid values are `HTTP` or `HTTPS`.
-        :param pulumi.Input[_builtins.str] subdirectory: A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -498,34 +360,7 @@ class LocationObjectStorage(pulumi.CustomResource):
                  args: LocationObjectStorageArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Object Storage Location within AWS DataSync.
-
-        > **NOTE:** The DataSync Agents must be available before creating this resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.datasync.LocationObjectStorage("example",
-            agent_arns=[example_aws_datasync_agent["arn"]],
-            server_hostname="example",
-            bucket_name="example")
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the DataSync object storage location.
-
-        Using `pulumi import`, import `aws_datasync_location_object_storage` using the Amazon Resource Name (ARN). For example:
-
-        % pulumi import aws_datasync_location_object_storage.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-
+        Create a LocationObjectStorage resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LocationObjectStorageArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -612,20 +447,6 @@ class LocationObjectStorage(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_key: The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Location.
-        :param pulumi.Input[_builtins.str] bucket_name: The bucket on the self-managed object storage server that is used to read data from.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] secret_key: The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
-        :param pulumi.Input[_builtins.str] server_certificate: Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
-        :param pulumi.Input[_builtins.str] server_hostname: The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network.
-        :param pulumi.Input[_builtins.int] server_port: The port that your self-managed object storage server accepts inbound network traffic on. The server port is set by default to TCP 80 (`HTTP`) or TCP 443 (`HTTPS`). You can specify a custom port if your self-managed object storage server requires one.
-        :param pulumi.Input[_builtins.str] server_protocol: The protocol that the object storage server uses to communicate. Valid values are `HTTP` or `HTTPS`.
-        :param pulumi.Input[_builtins.str] subdirectory: A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] uri: The URL of the Object Storage location that was described.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -650,112 +471,70 @@ class LocationObjectStorage(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accessKey")
     def access_key(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
-        """
         return pulumi.get(self, "access_key")
 
     @_builtins.property
     @pulumi.getter(name="agentArns")
     def agent_arns(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
-        """
         return pulumi.get(self, "agent_arns")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the DataSync Location.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The bucket on the self-managed object storage server that is used to read data from.
-        """
         return pulumi.get(self, "bucket_name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="secretKey")
     def secret_key(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
-        """
         return pulumi.get(self, "secret_key")
 
     @_builtins.property
     @pulumi.getter(name="serverCertificate")
     def server_certificate(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
-        """
         return pulumi.get(self, "server_certificate")
 
     @_builtins.property
     @pulumi.getter(name="serverHostname")
     def server_hostname(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network.
-        """
         return pulumi.get(self, "server_hostname")
 
     @_builtins.property
     @pulumi.getter(name="serverPort")
     def server_port(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The port that your self-managed object storage server accepts inbound network traffic on. The server port is set by default to TCP 80 (`HTTP`) or TCP 443 (`HTTPS`). You can specify a custom port if your self-managed object storage server requires one.
-        """
         return pulumi.get(self, "server_port")
 
     @_builtins.property
     @pulumi.getter(name="serverProtocol")
     def server_protocol(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The protocol that the object storage server uses to communicate. Valid values are `HTTP` or `HTTPS`.
-        """
         return pulumi.get(self, "server_protocol")
 
     @_builtins.property
     @pulumi.getter
     def subdirectory(self) -> pulumi.Output[_builtins.str]:
-        """
-        A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
-        """
         return pulumi.get(self, "subdirectory")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def uri(self) -> pulumi.Output[_builtins.str]:
-        """
-        The URL of the Object Storage location that was described.
-        """
         return pulumi.get(self, "uri")
 

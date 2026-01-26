@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetMulticastDomainMember {
-    /**
-     * @return The IP address assigned to the transit gateway multicast group.
-     * 
-     */
     private String groupIpAddress;
-    /**
-     * @return The group members&#39; network interface ID.
-     * 
-     */
     private String networkInterfaceId;
 
     private GetMulticastDomainMember() {}
-    /**
-     * @return The IP address assigned to the transit gateway multicast group.
-     * 
-     */
     public String groupIpAddress() {
         return this.groupIpAddress;
     }
-    /**
-     * @return The group members&#39; network interface ID.
-     * 
-     */
     public String networkInterfaceId() {
         return this.networkInterfaceId;
     }

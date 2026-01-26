@@ -17,182 +17,86 @@ public final class EnvironmentProfileState extends com.pulumi.resources.Resource
 
     public static final EnvironmentProfileState Empty = new EnvironmentProfileState();
 
-    /**
-     * Id of the AWS account being used.
-     * 
-     */
     @Import(name="awsAccountId")
     private @Nullable Output<String> awsAccountId;
 
-    /**
-     * @return Id of the AWS account being used.
-     * 
-     */
     public Optional<Output<String>> awsAccountId() {
         return Optional.ofNullable(this.awsAccountId);
     }
 
-    /**
-     * Desired region for environment profile.
-     * 
-     */
     @Import(name="awsAccountRegion")
     private @Nullable Output<String> awsAccountRegion;
 
-    /**
-     * @return Desired region for environment profile.
-     * 
-     */
     public Optional<Output<String>> awsAccountRegion() {
         return Optional.ofNullable(this.awsAccountRegion);
     }
 
-    /**
-     * Creation time of environment profile.
-     * 
-     */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
-    /**
-     * @return Creation time of environment profile.
-     * 
-     */
     public Optional<Output<String>> createdAt() {
         return Optional.ofNullable(this.createdAt);
     }
 
-    /**
-     * Creator of environment profile.
-     * 
-     */
     @Import(name="createdBy")
     private @Nullable Output<String> createdBy;
 
-    /**
-     * @return Creator of environment profile.
-     * 
-     */
     public Optional<Output<String>> createdBy() {
         return Optional.ofNullable(this.createdBy);
     }
 
-    /**
-     * Description of environment profile.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of environment profile.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Domain Identifier for environment profile.
-     * 
-     */
     @Import(name="domainIdentifier")
     private @Nullable Output<String> domainIdentifier;
 
-    /**
-     * @return Domain Identifier for environment profile.
-     * 
-     */
     public Optional<Output<String>> domainIdentifier() {
         return Optional.ofNullable(this.domainIdentifier);
     }
 
-    /**
-     * ID of the blueprint which the environment will be created with.
-     * 
-     */
     @Import(name="environmentBlueprintIdentifier")
     private @Nullable Output<String> environmentBlueprintIdentifier;
 
-    /**
-     * @return ID of the blueprint which the environment will be created with.
-     * 
-     */
     public Optional<Output<String>> environmentBlueprintIdentifier() {
         return Optional.ofNullable(this.environmentBlueprintIdentifier);
     }
 
-    /**
-     * Name of the environment profile.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the environment profile.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Project identifier for environment profile.
-     * 
-     */
     @Import(name="projectIdentifier")
     private @Nullable Output<String> projectIdentifier;
 
-    /**
-     * @return Project identifier for environment profile.
-     * 
-     */
     public Optional<Output<String>> projectIdentifier() {
         return Optional.ofNullable(this.projectIdentifier);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Time of last update to environment profile.
-     * 
-     */
     @Import(name="updatedAt")
     private @Nullable Output<String> updatedAt;
 
-    /**
-     * @return Time of last update to environment profile.
-     * 
-     */
     public Optional<Output<String>> updatedAt() {
         return Optional.ofNullable(this.updatedAt);
     }
 
-    /**
-     * Array of user parameters of the environment profile with the following attributes:
-     * 
-     */
     @Import(name="userParameters")
     private @Nullable Output<List<EnvironmentProfileUserParameterArgs>> userParameters;
 
-    /**
-     * @return Array of user parameters of the environment profile with the following attributes:
-     * 
-     */
     public Optional<Output<List<EnvironmentProfileUserParameterArgs>>> userParameters() {
         return Optional.ofNullable(this.userParameters);
     }
@@ -232,264 +136,114 @@ public final class EnvironmentProfileState extends com.pulumi.resources.Resource
             $ = new EnvironmentProfileState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param awsAccountId Id of the AWS account being used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsAccountId(@Nullable Output<String> awsAccountId) {
             $.awsAccountId = awsAccountId;
             return this;
         }
 
-        /**
-         * @param awsAccountId Id of the AWS account being used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsAccountId(String awsAccountId) {
             return awsAccountId(Output.of(awsAccountId));
         }
 
-        /**
-         * @param awsAccountRegion Desired region for environment profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsAccountRegion(@Nullable Output<String> awsAccountRegion) {
             $.awsAccountRegion = awsAccountRegion;
             return this;
         }
 
-        /**
-         * @param awsAccountRegion Desired region for environment profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsAccountRegion(String awsAccountRegion) {
             return awsAccountRegion(Output.of(awsAccountRegion));
         }
 
-        /**
-         * @param createdAt Creation time of environment profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdAt(@Nullable Output<String> createdAt) {
             $.createdAt = createdAt;
             return this;
         }
 
-        /**
-         * @param createdAt Creation time of environment profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdAt(String createdAt) {
             return createdAt(Output.of(createdAt));
         }
 
-        /**
-         * @param createdBy Creator of environment profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdBy(@Nullable Output<String> createdBy) {
             $.createdBy = createdBy;
             return this;
         }
 
-        /**
-         * @param createdBy Creator of environment profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdBy(String createdBy) {
             return createdBy(Output.of(createdBy));
         }
 
-        /**
-         * @param description Description of environment profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of environment profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param domainIdentifier Domain Identifier for environment profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainIdentifier(@Nullable Output<String> domainIdentifier) {
             $.domainIdentifier = domainIdentifier;
             return this;
         }
 
-        /**
-         * @param domainIdentifier Domain Identifier for environment profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainIdentifier(String domainIdentifier) {
             return domainIdentifier(Output.of(domainIdentifier));
         }
 
-        /**
-         * @param environmentBlueprintIdentifier ID of the blueprint which the environment will be created with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder environmentBlueprintIdentifier(@Nullable Output<String> environmentBlueprintIdentifier) {
             $.environmentBlueprintIdentifier = environmentBlueprintIdentifier;
             return this;
         }
 
-        /**
-         * @param environmentBlueprintIdentifier ID of the blueprint which the environment will be created with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder environmentBlueprintIdentifier(String environmentBlueprintIdentifier) {
             return environmentBlueprintIdentifier(Output.of(environmentBlueprintIdentifier));
         }
 
-        /**
-         * @param name Name of the environment profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the environment profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param projectIdentifier Project identifier for environment profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectIdentifier(@Nullable Output<String> projectIdentifier) {
             $.projectIdentifier = projectIdentifier;
             return this;
         }
 
-        /**
-         * @param projectIdentifier Project identifier for environment profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectIdentifier(String projectIdentifier) {
             return projectIdentifier(Output.of(projectIdentifier));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param updatedAt Time of last update to environment profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder updatedAt(@Nullable Output<String> updatedAt) {
             $.updatedAt = updatedAt;
             return this;
         }
 
-        /**
-         * @param updatedAt Time of last update to environment profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder updatedAt(String updatedAt) {
             return updatedAt(Output.of(updatedAt));
         }
 
-        /**
-         * @param userParameters Array of user parameters of the environment profile with the following attributes:
-         * 
-         * @return builder
-         * 
-         */
         public Builder userParameters(@Nullable Output<List<EnvironmentProfileUserParameterArgs>> userParameters) {
             $.userParameters = userParameters;
             return this;
         }
 
-        /**
-         * @param userParameters Array of user parameters of the environment profile with the following attributes:
-         * 
-         * @return builder
-         * 
-         */
         public Builder userParameters(List<EnvironmentProfileUserParameterArgs> userParameters) {
             return userParameters(Output.of(userParameters));
         }
 
-        /**
-         * @param userParameters Array of user parameters of the environment profile with the following attributes:
-         * 
-         * @return builder
-         * 
-         */
         public Builder userParameters(EnvironmentProfileUserParameterArgs... userParameters) {
             return userParameters(List.of(userParameters));
         }

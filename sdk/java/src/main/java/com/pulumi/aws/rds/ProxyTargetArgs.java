@@ -16,81 +16,37 @@ public final class ProxyTargetArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ProxyTargetArgs Empty = new ProxyTargetArgs();
 
-    /**
-     * DB cluster identifier.
-     * 
-     * **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
-     * 
-     */
     @Import(name="dbClusterIdentifier")
     private @Nullable Output<String> dbClusterIdentifier;
 
-    /**
-     * @return DB cluster identifier.
-     * 
-     * **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
-     * 
-     */
     public Optional<Output<String>> dbClusterIdentifier() {
         return Optional.ofNullable(this.dbClusterIdentifier);
     }
 
-    /**
-     * DB instance identifier.
-     * 
-     */
     @Import(name="dbInstanceIdentifier")
     private @Nullable Output<String> dbInstanceIdentifier;
 
-    /**
-     * @return DB instance identifier.
-     * 
-     */
     public Optional<Output<String>> dbInstanceIdentifier() {
         return Optional.ofNullable(this.dbInstanceIdentifier);
     }
 
-    /**
-     * The name of the DB proxy.
-     * 
-     */
     @Import(name="dbProxyName", required=true)
     private Output<String> dbProxyName;
 
-    /**
-     * @return The name of the DB proxy.
-     * 
-     */
     public Output<String> dbProxyName() {
         return this.dbProxyName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The name of the target group.
-     * 
-     */
     @Import(name="targetGroupName", required=true)
     private Output<String> targetGroupName;
 
-    /**
-     * @return The name of the target group.
-     * 
-     */
     public Output<String> targetGroupName() {
         return this.targetGroupName;
     }
@@ -123,111 +79,47 @@ public final class ProxyTargetArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ProxyTargetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dbClusterIdentifier DB cluster identifier.
-         * 
-         * **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbClusterIdentifier(@Nullable Output<String> dbClusterIdentifier) {
             $.dbClusterIdentifier = dbClusterIdentifier;
             return this;
         }
 
-        /**
-         * @param dbClusterIdentifier DB cluster identifier.
-         * 
-         * **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbClusterIdentifier(String dbClusterIdentifier) {
             return dbClusterIdentifier(Output.of(dbClusterIdentifier));
         }
 
-        /**
-         * @param dbInstanceIdentifier DB instance identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbInstanceIdentifier(@Nullable Output<String> dbInstanceIdentifier) {
             $.dbInstanceIdentifier = dbInstanceIdentifier;
             return this;
         }
 
-        /**
-         * @param dbInstanceIdentifier DB instance identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbInstanceIdentifier(String dbInstanceIdentifier) {
             return dbInstanceIdentifier(Output.of(dbInstanceIdentifier));
         }
 
-        /**
-         * @param dbProxyName The name of the DB proxy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbProxyName(Output<String> dbProxyName) {
             $.dbProxyName = dbProxyName;
             return this;
         }
 
-        /**
-         * @param dbProxyName The name of the DB proxy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbProxyName(String dbProxyName) {
             return dbProxyName(Output.of(dbProxyName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param targetGroupName The name of the target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetGroupName(Output<String> targetGroupName) {
             $.targetGroupName = targetGroupName;
             return this;
         }
 
-        /**
-         * @param targetGroupName The name of the target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetGroupName(String targetGroupName) {
             return targetGroupName(Output.of(targetGroupName));
         }

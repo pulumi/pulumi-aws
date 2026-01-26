@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Lambda function to invoke.
-        /// </summary>
         [Input("lambdaArn", required: true)]
         public Input<string> LambdaArn { get; set; } = null!;
 
-        /// <summary>
-        /// Schema definition for the tool. See `ToolSchema` below.
-        /// </summary>
         [Input("toolSchema")]
         public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs>? ToolSchema { get; set; }
 

@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS SSM Contacts Contact Channel.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssmcontacts"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssmcontacts.LookupContactChannel(ctx, &ssmcontacts.LookupContactChannelArgs{
-//				Arn: "arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupContactChannel(ctx *pulumi.Context, args *LookupContactChannelArgs, opts ...pulumi.InvokeOption) (*LookupContactChannelResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupContactChannelResult
@@ -52,28 +23,21 @@ func LookupContactChannel(ctx *pulumi.Context, args *LookupContactChannelArgs, o
 
 // A collection of arguments for invoking getContactChannel.
 type LookupContactChannelArgs struct {
-	// Amazon Resource Name (ARN) of the contact channel.
-	Arn string `pulumi:"arn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Arn    string  `pulumi:"arn"`
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getContactChannel.
 type LookupContactChannelResult struct {
-	// Whether the contact channel is activated.
-	ActivationStatus string `pulumi:"activationStatus"`
-	Arn              string `pulumi:"arn"`
-	// Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
-	ContactId string `pulumi:"contactId"`
-	// Details used to engage the contact channel.
+	ActivationStatus  string                             `pulumi:"activationStatus"`
+	Arn               string                             `pulumi:"arn"`
+	ContactId         string                             `pulumi:"contactId"`
 	DeliveryAddresses []GetContactChannelDeliveryAddress `pulumi:"deliveryAddresses"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Name of the contact channel.
+	Id     string `pulumi:"id"`
 	Name   string `pulumi:"name"`
 	Region string `pulumi:"region"`
-	// Type of the contact channel.
-	Type string `pulumi:"type"`
+	Type   string `pulumi:"type"`
 }
 
 func LookupContactChannelOutput(ctx *pulumi.Context, args LookupContactChannelOutputArgs, opts ...pulumi.InvokeOption) LookupContactChannelResultOutput {
@@ -87,9 +51,7 @@ func LookupContactChannelOutput(ctx *pulumi.Context, args LookupContactChannelOu
 
 // A collection of arguments for invoking getContactChannel.
 type LookupContactChannelOutputArgs struct {
-	// Amazon Resource Name (ARN) of the contact channel.
-	Arn pulumi.StringInput `pulumi:"arn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Arn    pulumi.StringInput    `pulumi:"arn"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -112,7 +74,6 @@ func (o LookupContactChannelResultOutput) ToLookupContactChannelResultOutputWith
 	return o
 }
 
-// Whether the contact channel is activated.
 func (o LookupContactChannelResultOutput) ActivationStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactChannelResult) string { return v.ActivationStatus }).(pulumi.StringOutput)
 }
@@ -121,12 +82,10 @@ func (o LookupContactChannelResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactChannelResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
 func (o LookupContactChannelResultOutput) ContactId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactChannelResult) string { return v.ContactId }).(pulumi.StringOutput)
 }
 
-// Details used to engage the contact channel.
 func (o LookupContactChannelResultOutput) DeliveryAddresses() GetContactChannelDeliveryAddressArrayOutput {
 	return o.ApplyT(func(v LookupContactChannelResult) []GetContactChannelDeliveryAddress { return v.DeliveryAddresses }).(GetContactChannelDeliveryAddressArrayOutput)
 }
@@ -136,7 +95,6 @@ func (o LookupContactChannelResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactChannelResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Name of the contact channel.
 func (o LookupContactChannelResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactChannelResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -145,7 +103,6 @@ func (o LookupContactChannelResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactChannelResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Type of the contact channel.
 func (o LookupContactChannelResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactChannelResult) string { return v.Type }).(pulumi.StringOutput)
 }

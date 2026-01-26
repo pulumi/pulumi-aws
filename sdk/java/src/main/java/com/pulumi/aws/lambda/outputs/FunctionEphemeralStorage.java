@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FunctionEphemeralStorage {
-    /**
-     * @return Amount of ephemeral storage (`/tmp`) in MB. Valid between 512 MB and 10,240 MB (10 GB).
-     * 
-     */
     private @Nullable Integer size;
 
     private FunctionEphemeralStorage() {}
-    /**
-     * @return Amount of ephemeral storage (`/tmp`) in MB. Valid between 512 MB and 10,240 MB (10 GB).
-     * 
-     */
     public Optional<Integer> size() {
         return Optional.ofNullable(this.size);
     }

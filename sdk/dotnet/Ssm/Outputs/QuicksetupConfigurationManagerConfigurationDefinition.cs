@@ -15,21 +15,9 @@ namespace Pulumi.Aws.Ssm.Outputs
     {
         public readonly string? Id;
         public readonly string? LocalDeploymentAdministrationRoleArn;
-        /// <summary>
-        /// Name of the IAM role used to deploy local configurations.
-        /// </summary>
         public readonly string? LocalDeploymentExecutionRoleName;
-        /// <summary>
-        /// Parameters for the configuration definition type. Parameters for configuration definitions vary based the configuration type. See the [AWS API documentation](https://docs.aws.amazon.com/quick-setup/latest/APIReference/API_ConfigurationDefinitionInput.html) for a complete list of parameters for each configuration type.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Parameters;
-        /// <summary>
-        /// Type of the Quick Setup configuration.
-        /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Version of the Quick Setup type to use.
-        /// </summary>
         public readonly string? TypeVersion;
 
         [OutputConstructor]

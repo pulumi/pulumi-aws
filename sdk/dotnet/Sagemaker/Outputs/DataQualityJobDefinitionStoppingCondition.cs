@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class DataQualityJobDefinitionStoppingCondition
     {
-        /// <summary>
-        /// The maximum runtime allowed in seconds.
-        /// </summary>
         public readonly int? MaxRuntimeInSeconds;
 
         [OutputConstructor]

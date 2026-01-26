@@ -15,62 +15,30 @@ public final class IdentityPolicyState extends com.pulumi.resources.ResourceArgs
 
     public static final IdentityPolicyState Empty = new IdentityPolicyState();
 
-    /**
-     * Name or Amazon Resource Name (ARN) of the SES Identity.
-     * 
-     */
     @Import(name="identity")
     private @Nullable Output<String> identity;
 
-    /**
-     * @return Name or Amazon Resource Name (ARN) of the SES Identity.
-     * 
-     */
     public Optional<Output<String>> identity() {
         return Optional.ofNullable(this.identity);
     }
 
-    /**
-     * Name of the policy.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the policy.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * JSON string of the policy.
-     * 
-     */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
-    /**
-     * @return JSON string of the policy.
-     * 
-     */
     public Optional<Output<String>> policy() {
         return Optional.ofNullable(this.policy);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -102,86 +70,38 @@ public final class IdentityPolicyState extends com.pulumi.resources.ResourceArgs
             $ = new IdentityPolicyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param identity Name or Amazon Resource Name (ARN) of the SES Identity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identity(@Nullable Output<String> identity) {
             $.identity = identity;
             return this;
         }
 
-        /**
-         * @param identity Name or Amazon Resource Name (ARN) of the SES Identity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identity(String identity) {
             return identity(Output.of(identity));
         }
 
-        /**
-         * @param name Name of the policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param policy JSON string of the policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(@Nullable Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
-        /**
-         * @param policy JSON string of the policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

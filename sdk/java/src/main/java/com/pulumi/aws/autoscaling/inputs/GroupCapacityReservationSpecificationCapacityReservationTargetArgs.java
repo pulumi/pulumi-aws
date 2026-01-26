@@ -16,32 +16,16 @@ public final class GroupCapacityReservationSpecificationCapacityReservationTarge
 
     public static final GroupCapacityReservationSpecificationCapacityReservationTargetArgs Empty = new GroupCapacityReservationSpecificationCapacityReservationTargetArgs();
 
-    /**
-     * List of On-Demand Capacity Reservation Ids. Conflicts with `capacityReservationResourceGroupArns`.
-     * 
-     */
     @Import(name="capacityReservationIds")
     private @Nullable Output<List<String>> capacityReservationIds;
 
-    /**
-     * @return List of On-Demand Capacity Reservation Ids. Conflicts with `capacityReservationResourceGroupArns`.
-     * 
-     */
     public Optional<Output<List<String>>> capacityReservationIds() {
         return Optional.ofNullable(this.capacityReservationIds);
     }
 
-    /**
-     * List of On-Demand Capacity Reservation Resource Group Arns. Conflicts with `capacityReservationIds`.
-     * 
-     */
     @Import(name="capacityReservationResourceGroupArns")
     private @Nullable Output<List<String>> capacityReservationResourceGroupArns;
 
-    /**
-     * @return List of On-Demand Capacity Reservation Resource Group Arns. Conflicts with `capacityReservationIds`.
-     * 
-     */
     public Optional<Output<List<String>>> capacityReservationResourceGroupArns() {
         return Optional.ofNullable(this.capacityReservationResourceGroupArns);
     }
@@ -71,64 +55,28 @@ public final class GroupCapacityReservationSpecificationCapacityReservationTarge
             $ = new GroupCapacityReservationSpecificationCapacityReservationTargetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param capacityReservationIds List of On-Demand Capacity Reservation Ids. Conflicts with `capacityReservationResourceGroupArns`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityReservationIds(@Nullable Output<List<String>> capacityReservationIds) {
             $.capacityReservationIds = capacityReservationIds;
             return this;
         }
 
-        /**
-         * @param capacityReservationIds List of On-Demand Capacity Reservation Ids. Conflicts with `capacityReservationResourceGroupArns`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityReservationIds(List<String> capacityReservationIds) {
             return capacityReservationIds(Output.of(capacityReservationIds));
         }
 
-        /**
-         * @param capacityReservationIds List of On-Demand Capacity Reservation Ids. Conflicts with `capacityReservationResourceGroupArns`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityReservationIds(String... capacityReservationIds) {
             return capacityReservationIds(List.of(capacityReservationIds));
         }
 
-        /**
-         * @param capacityReservationResourceGroupArns List of On-Demand Capacity Reservation Resource Group Arns. Conflicts with `capacityReservationIds`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityReservationResourceGroupArns(@Nullable Output<List<String>> capacityReservationResourceGroupArns) {
             $.capacityReservationResourceGroupArns = capacityReservationResourceGroupArns;
             return this;
         }
 
-        /**
-         * @param capacityReservationResourceGroupArns List of On-Demand Capacity Reservation Resource Group Arns. Conflicts with `capacityReservationIds`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityReservationResourceGroupArns(List<String> capacityReservationResourceGroupArns) {
             return capacityReservationResourceGroupArns(Output.of(capacityReservationResourceGroupArns));
         }
 
-        /**
-         * @param capacityReservationResourceGroupArns List of On-Demand Capacity Reservation Resource Group Arns. Conflicts with `capacityReservationIds`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityReservationResourceGroupArns(String... capacityReservationResourceGroupArns) {
             return capacityReservationResourceGroupArns(List.of(capacityReservationResourceGroupArns));
         }

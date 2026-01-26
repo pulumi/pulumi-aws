@@ -22,173 +22,79 @@ public final class V2modelsSlotArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final V2modelsSlotArgs Empty = new V2modelsSlotArgs();
 
-    /**
-     * Identifier of the bot associated with the slot.
-     * 
-     */
     @Import(name="botId", required=true)
     private Output<String> botId;
 
-    /**
-     * @return Identifier of the bot associated with the slot.
-     * 
-     */
     public Output<String> botId() {
         return this.botId;
     }
 
-    /**
-     * Version of the bot associated with the slot.
-     * 
-     */
     @Import(name="botVersion", required=true)
     private Output<String> botVersion;
 
-    /**
-     * @return Version of the bot associated with the slot.
-     * 
-     */
     public Output<String> botVersion() {
         return this.botVersion;
     }
 
-    /**
-     * Description of the slot.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the slot.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Identifier of the intent that contains the slot.
-     * 
-     */
     @Import(name="intentId", required=true)
     private Output<String> intentId;
 
-    /**
-     * @return Identifier of the intent that contains the slot.
-     * 
-     */
     public Output<String> intentId() {
         return this.intentId;
     }
 
-    /**
-     * Identifier of the language and locale that the slot will be used in.
-     * 
-     */
     @Import(name="localeId", required=true)
     private Output<String> localeId;
 
-    /**
-     * @return Identifier of the language and locale that the slot will be used in.
-     * 
-     */
     public Output<String> localeId() {
         return this.localeId;
     }
 
-    /**
-     * Whether the slot returns multiple values in one response.
-     * See the `multipleValuesSetting` argument reference below.
-     * 
-     */
     @Import(name="multipleValuesSettings")
     private @Nullable Output<List<V2modelsSlotMultipleValuesSettingArgs>> multipleValuesSettings;
 
-    /**
-     * @return Whether the slot returns multiple values in one response.
-     * See the `multipleValuesSetting` argument reference below.
-     * 
-     */
     public Optional<Output<List<V2modelsSlotMultipleValuesSettingArgs>>> multipleValuesSettings() {
         return Optional.ofNullable(this.multipleValuesSettings);
     }
 
-    /**
-     * Name of the slot.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the slot.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Determines how slot values are used in Amazon CloudWatch logs.
-     * See the `obfuscationSetting` argument reference below.
-     * 
-     */
     @Import(name="obfuscationSettings")
     private @Nullable Output<List<V2modelsSlotObfuscationSettingArgs>> obfuscationSettings;
 
-    /**
-     * @return Determines how slot values are used in Amazon CloudWatch logs.
-     * See the `obfuscationSetting` argument reference below.
-     * 
-     */
     public Optional<Output<List<V2modelsSlotObfuscationSettingArgs>>> obfuscationSettings() {
         return Optional.ofNullable(this.obfuscationSettings);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Unique identifier for the slot type associated with this slot.
-     * 
-     */
     @Import(name="slotTypeId")
     private @Nullable Output<String> slotTypeId;
 
-    /**
-     * @return Unique identifier for the slot type associated with this slot.
-     * 
-     */
     public Optional<Output<String>> slotTypeId() {
         return Optional.ofNullable(this.slotTypeId);
     }
 
-    /**
-     * Specifications for the constituent sub slots and the expression for the composite slot.
-     * See the `subSlotSetting` argument reference below.
-     * 
-     */
     @Import(name="subSlotSettings")
     private @Nullable Output<List<V2modelsSlotSubSlotSettingArgs>> subSlotSettings;
 
-    /**
-     * @return Specifications for the constituent sub slots and the expression for the composite slot.
-     * See the `subSlotSetting` argument reference below.
-     * 
-     */
     public Optional<Output<List<V2modelsSlotSubSlotSettingArgs>>> subSlotSettings() {
         return Optional.ofNullable(this.subSlotSettings);
     }
@@ -243,272 +149,113 @@ public final class V2modelsSlotArgs extends com.pulumi.resources.ResourceArgs {
             $ = new V2modelsSlotArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param botId Identifier of the bot associated with the slot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder botId(Output<String> botId) {
             $.botId = botId;
             return this;
         }
 
-        /**
-         * @param botId Identifier of the bot associated with the slot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder botId(String botId) {
             return botId(Output.of(botId));
         }
 
-        /**
-         * @param botVersion Version of the bot associated with the slot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder botVersion(Output<String> botVersion) {
             $.botVersion = botVersion;
             return this;
         }
 
-        /**
-         * @param botVersion Version of the bot associated with the slot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder botVersion(String botVersion) {
             return botVersion(Output.of(botVersion));
         }
 
-        /**
-         * @param description Description of the slot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the slot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param intentId Identifier of the intent that contains the slot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder intentId(Output<String> intentId) {
             $.intentId = intentId;
             return this;
         }
 
-        /**
-         * @param intentId Identifier of the intent that contains the slot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder intentId(String intentId) {
             return intentId(Output.of(intentId));
         }
 
-        /**
-         * @param localeId Identifier of the language and locale that the slot will be used in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder localeId(Output<String> localeId) {
             $.localeId = localeId;
             return this;
         }
 
-        /**
-         * @param localeId Identifier of the language and locale that the slot will be used in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder localeId(String localeId) {
             return localeId(Output.of(localeId));
         }
 
-        /**
-         * @param multipleValuesSettings Whether the slot returns multiple values in one response.
-         * See the `multipleValuesSetting` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder multipleValuesSettings(@Nullable Output<List<V2modelsSlotMultipleValuesSettingArgs>> multipleValuesSettings) {
             $.multipleValuesSettings = multipleValuesSettings;
             return this;
         }
 
-        /**
-         * @param multipleValuesSettings Whether the slot returns multiple values in one response.
-         * See the `multipleValuesSetting` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder multipleValuesSettings(List<V2modelsSlotMultipleValuesSettingArgs> multipleValuesSettings) {
             return multipleValuesSettings(Output.of(multipleValuesSettings));
         }
 
-        /**
-         * @param multipleValuesSettings Whether the slot returns multiple values in one response.
-         * See the `multipleValuesSetting` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder multipleValuesSettings(V2modelsSlotMultipleValuesSettingArgs... multipleValuesSettings) {
             return multipleValuesSettings(List.of(multipleValuesSettings));
         }
 
-        /**
-         * @param name Name of the slot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the slot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param obfuscationSettings Determines how slot values are used in Amazon CloudWatch logs.
-         * See the `obfuscationSetting` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder obfuscationSettings(@Nullable Output<List<V2modelsSlotObfuscationSettingArgs>> obfuscationSettings) {
             $.obfuscationSettings = obfuscationSettings;
             return this;
         }
 
-        /**
-         * @param obfuscationSettings Determines how slot values are used in Amazon CloudWatch logs.
-         * See the `obfuscationSetting` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder obfuscationSettings(List<V2modelsSlotObfuscationSettingArgs> obfuscationSettings) {
             return obfuscationSettings(Output.of(obfuscationSettings));
         }
 
-        /**
-         * @param obfuscationSettings Determines how slot values are used in Amazon CloudWatch logs.
-         * See the `obfuscationSetting` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder obfuscationSettings(V2modelsSlotObfuscationSettingArgs... obfuscationSettings) {
             return obfuscationSettings(List.of(obfuscationSettings));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param slotTypeId Unique identifier for the slot type associated with this slot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder slotTypeId(@Nullable Output<String> slotTypeId) {
             $.slotTypeId = slotTypeId;
             return this;
         }
 
-        /**
-         * @param slotTypeId Unique identifier for the slot type associated with this slot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder slotTypeId(String slotTypeId) {
             return slotTypeId(Output.of(slotTypeId));
         }
 
-        /**
-         * @param subSlotSettings Specifications for the constituent sub slots and the expression for the composite slot.
-         * See the `subSlotSetting` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subSlotSettings(@Nullable Output<List<V2modelsSlotSubSlotSettingArgs>> subSlotSettings) {
             $.subSlotSettings = subSlotSettings;
             return this;
         }
 
-        /**
-         * @param subSlotSettings Specifications for the constituent sub slots and the expression for the composite slot.
-         * See the `subSlotSetting` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subSlotSettings(List<V2modelsSlotSubSlotSettingArgs> subSlotSettings) {
             return subSlotSettings(Output.of(subSlotSettings));
         }
 
-        /**
-         * @param subSlotSettings Specifications for the constituent sub slots and the expression for the composite slot.
-         * See the `subSlotSetting` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subSlotSettings(V2modelsSlotSubSlotSettingArgs... subSlotSettings) {
             return subSlotSettings(List.of(subSlotSettings));
         }

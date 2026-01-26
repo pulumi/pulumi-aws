@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Evidently.Inputs
 
     public sealed class LaunchMetricMonitorArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A block that defines the metric. Detailed below.
-        /// </summary>
         [Input("metricDefinition", required: true)]
         public Input<Inputs.LaunchMetricMonitorMetricDefinitionArgs> MetricDefinition { get; set; } = null!;
 

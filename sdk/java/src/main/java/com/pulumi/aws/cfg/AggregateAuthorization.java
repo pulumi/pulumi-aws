@@ -15,99 +15,27 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an AWS Config Aggregate Authorization
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cfg.AggregateAuthorization;
- * import com.pulumi.aws.cfg.AggregateAuthorizationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AggregateAuthorization("example", AggregateAuthorizationArgs.builder()
- *             .accountId("123456789012")
- *             .authorizedAwsRegion("eu-west-2")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Config aggregate authorizations using `account_id:authorized_aws_region`. For example:
- * 
- * ```sh
- * $ pulumi import aws:cfg/aggregateAuthorization:AggregateAuthorization example 123456789012:us-east-1
- * ```
- * 
- */
 @ResourceType(type="aws:cfg/aggregateAuthorization:AggregateAuthorization")
 public class AggregateAuthorization extends com.pulumi.resources.CustomResource {
-    /**
-     * Account ID.
-     * 
-     */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
-    /**
-     * @return Account ID.
-     * 
-     */
     public Output<String> accountId() {
         return this.accountId;
     }
-    /**
-     * The ARN of the authorization
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the authorization
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The region authorized to collect aggregated data.
-     * 
-     */
     @Export(name="authorizedAwsRegion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authorizedAwsRegion;
 
-    /**
-     * @return The region authorized to collect aggregated data.
-     * 
-     */
     public Output<Optional<String>> authorizedAwsRegion() {
         return Codegen.optional(this.authorizedAwsRegion);
     }
     /**
-     * The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
-     * 
      * @deprecated
      * region is deprecated. Use authorizedAwsRegion instead.
      * 
@@ -116,38 +44,18 @@ public class AggregateAuthorization extends com.pulumi.resources.CustomResource 
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> region;
 
-    /**
-     * @return The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
-     * 
-     */
     public Output<Optional<String>> region() {
         return Codegen.optional(this.region);
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

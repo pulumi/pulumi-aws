@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS Redshift Serverless Namespace.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshiftserverless"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshiftserverless.LookupNamespace(ctx, &redshiftserverless.LookupNamespaceArgs{
-//				NamespaceName: "example-namespace",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupNamespace(ctx *pulumi.Context, args *LookupNamespaceArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNamespaceResult
@@ -50,34 +23,24 @@ func LookupNamespace(ctx *pulumi.Context, args *LookupNamespaceArgs, opts ...pul
 
 // A collection of arguments for invoking getNamespace.
 type LookupNamespaceArgs struct {
-	// The name of the namespace.
-	NamespaceName string `pulumi:"namespaceName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	NamespaceName string  `pulumi:"namespaceName"`
+	Region        *string `pulumi:"region"`
 }
 
 // A collection of values returned by getNamespace.
 type LookupNamespaceResult struct {
-	// The username of the administrator for the first database created in the namespace.
-	AdminUsername string `pulumi:"adminUsername"`
-	// Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
-	Arn string `pulumi:"arn"`
-	// The name of the first database created in the namespace.
-	DbName string `pulumi:"dbName"`
-	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
-	DefaultIamRoleArn string `pulumi:"defaultIamRoleArn"`
-	// A list of IAM roles to associate with the namespace.
-	IamRoles []string `pulumi:"iamRoles"`
+	AdminUsername     string   `pulumi:"adminUsername"`
+	Arn               string   `pulumi:"arn"`
+	DbName            string   `pulumi:"dbName"`
+	DefaultIamRoleArn string   `pulumi:"defaultIamRoleArn"`
+	IamRoles          []string `pulumi:"iamRoles"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
-	KmsKeyId string `pulumi:"kmsKeyId"`
-	// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
-	LogExports []string `pulumi:"logExports"`
-	// The Redshift Namespace ID.
-	NamespaceId   string `pulumi:"namespaceId"`
-	NamespaceName string `pulumi:"namespaceName"`
-	Region        string `pulumi:"region"`
+	Id            string   `pulumi:"id"`
+	KmsKeyId      string   `pulumi:"kmsKeyId"`
+	LogExports    []string `pulumi:"logExports"`
+	NamespaceId   string   `pulumi:"namespaceId"`
+	NamespaceName string   `pulumi:"namespaceName"`
+	Region        string   `pulumi:"region"`
 }
 
 func LookupNamespaceOutput(ctx *pulumi.Context, args LookupNamespaceOutputArgs, opts ...pulumi.InvokeOption) LookupNamespaceResultOutput {
@@ -91,10 +54,8 @@ func LookupNamespaceOutput(ctx *pulumi.Context, args LookupNamespaceOutputArgs, 
 
 // A collection of arguments for invoking getNamespace.
 type LookupNamespaceOutputArgs struct {
-	// The name of the namespace.
-	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	NamespaceName pulumi.StringInput    `pulumi:"namespaceName"`
+	Region        pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupNamespaceOutputArgs) ElementType() reflect.Type {
@@ -116,27 +77,22 @@ func (o LookupNamespaceResultOutput) ToLookupNamespaceResultOutputWithContext(ct
 	return o
 }
 
-// The username of the administrator for the first database created in the namespace.
 func (o LookupNamespaceResultOutput) AdminUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamespaceResult) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
 func (o LookupNamespaceResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamespaceResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name of the first database created in the namespace.
 func (o LookupNamespaceResultOutput) DbName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamespaceResult) string { return v.DbName }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
 func (o LookupNamespaceResultOutput) DefaultIamRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamespaceResult) string { return v.DefaultIamRoleArn }).(pulumi.StringOutput)
 }
 
-// A list of IAM roles to associate with the namespace.
 func (o LookupNamespaceResultOutput) IamRoles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupNamespaceResult) []string { return v.IamRoles }).(pulumi.StringArrayOutput)
 }
@@ -146,17 +102,14 @@ func (o LookupNamespaceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamespaceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
 func (o LookupNamespaceResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamespaceResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
 func (o LookupNamespaceResultOutput) LogExports() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupNamespaceResult) []string { return v.LogExports }).(pulumi.StringArrayOutput)
 }
 
-// The Redshift Namespace ID.
 func (o LookupNamespaceResultOutput) NamespaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamespaceResult) string { return v.NamespaceId }).(pulumi.StringOutput)
 }

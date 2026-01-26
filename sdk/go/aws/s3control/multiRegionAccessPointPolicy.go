@@ -12,32 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage an S3 Multi-Region Access Point access control policy.
-//
-// ## Example Usage
-//
-// ### Basic Example
-//
-// ## Import
-//
-// Using `pulumi import`, import Multi-Region Access Point Policies using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`). For example:
-//
-// ```sh
-// $ pulumi import aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy example 123456789012:example
-// ```
 type MultiRegionAccessPointPolicy struct {
 	pulumi.CustomResourceState
 
-	// The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
-	Details MultiRegionAccessPointPolicyDetailsOutput `pulumi:"details"`
-	// The last established policy for the Multi-Region Access Point.
-	Established pulumi.StringOutput `pulumi:"established"`
-	// The proposed policy for the Multi-Region Access Point.
-	Proposed pulumi.StringOutput `pulumi:"proposed"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	AccountId   pulumi.StringOutput                       `pulumi:"accountId"`
+	Details     MultiRegionAccessPointPolicyDetailsOutput `pulumi:"details"`
+	Established pulumi.StringOutput                       `pulumi:"established"`
+	Proposed    pulumi.StringOutput                       `pulumi:"proposed"`
+	Region      pulumi.StringOutput                       `pulumi:"region"`
 }
 
 // NewMultiRegionAccessPointPolicy registers a new resource with the given unique name, arguments, and options.
@@ -73,29 +55,19 @@ func GetMultiRegionAccessPointPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MultiRegionAccessPointPolicy resources.
 type multiRegionAccessPointPolicyState struct {
-	// The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
-	AccountId *string `pulumi:"accountId"`
-	// A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
-	Details *MultiRegionAccessPointPolicyDetails `pulumi:"details"`
-	// The last established policy for the Multi-Region Access Point.
-	Established *string `pulumi:"established"`
-	// The proposed policy for the Multi-Region Access Point.
-	Proposed *string `pulumi:"proposed"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	AccountId   *string                              `pulumi:"accountId"`
+	Details     *MultiRegionAccessPointPolicyDetails `pulumi:"details"`
+	Established *string                              `pulumi:"established"`
+	Proposed    *string                              `pulumi:"proposed"`
+	Region      *string                              `pulumi:"region"`
 }
 
 type MultiRegionAccessPointPolicyState struct {
-	// The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
-	AccountId pulumi.StringPtrInput
-	// A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
-	Details MultiRegionAccessPointPolicyDetailsPtrInput
-	// The last established policy for the Multi-Region Access Point.
+	AccountId   pulumi.StringPtrInput
+	Details     MultiRegionAccessPointPolicyDetailsPtrInput
 	Established pulumi.StringPtrInput
-	// The proposed policy for the Multi-Region Access Point.
-	Proposed pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Proposed    pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
 }
 
 func (MultiRegionAccessPointPolicyState) ElementType() reflect.Type {
@@ -103,22 +75,16 @@ func (MultiRegionAccessPointPolicyState) ElementType() reflect.Type {
 }
 
 type multiRegionAccessPointPolicyArgs struct {
-	// The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
-	AccountId *string `pulumi:"accountId"`
-	// A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
-	Details MultiRegionAccessPointPolicyDetails `pulumi:"details"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	AccountId *string                             `pulumi:"accountId"`
+	Details   MultiRegionAccessPointPolicyDetails `pulumi:"details"`
+	Region    *string                             `pulumi:"region"`
 }
 
 // The set of arguments for constructing a MultiRegionAccessPointPolicy resource.
 type MultiRegionAccessPointPolicyArgs struct {
-	// The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId pulumi.StringPtrInput
-	// A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
-	Details MultiRegionAccessPointPolicyDetailsInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Details   MultiRegionAccessPointPolicyDetailsInput
+	Region    pulumi.StringPtrInput
 }
 
 func (MultiRegionAccessPointPolicyArgs) ElementType() reflect.Type {
@@ -208,27 +174,22 @@ func (o MultiRegionAccessPointPolicyOutput) ToMultiRegionAccessPointPolicyOutput
 	return o
 }
 
-// The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
 func (o MultiRegionAccessPointPolicyOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointPolicy) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
 func (o MultiRegionAccessPointPolicyOutput) Details() MultiRegionAccessPointPolicyDetailsOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointPolicy) MultiRegionAccessPointPolicyDetailsOutput { return v.Details }).(MultiRegionAccessPointPolicyDetailsOutput)
 }
 
-// The last established policy for the Multi-Region Access Point.
 func (o MultiRegionAccessPointPolicyOutput) Established() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointPolicy) pulumi.StringOutput { return v.Established }).(pulumi.StringOutput)
 }
 
-// The proposed policy for the Multi-Region Access Point.
 func (o MultiRegionAccessPointPolicyOutput) Proposed() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointPolicy) pulumi.StringOutput { return v.Proposed }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MultiRegionAccessPointPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

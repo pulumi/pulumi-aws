@@ -15,32 +15,16 @@ public final class UserPolicyAttachmentsExclusiveArgs extends com.pulumi.resourc
 
     public static final UserPolicyAttachmentsExclusiveArgs Empty = new UserPolicyAttachmentsExclusiveArgs();
 
-    /**
-     * A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
-     * 
-     */
     @Import(name="policyArns", required=true)
     private Output<List<String>> policyArns;
 
-    /**
-     * @return A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
-     * 
-     */
     public Output<List<String>> policyArns() {
         return this.policyArns;
     }
 
-    /**
-     * IAM user name.
-     * 
-     */
     @Import(name="userName", required=true)
     private Output<String> userName;
 
-    /**
-     * @return IAM user name.
-     * 
-     */
     public Output<String> userName() {
         return this.userName;
     }
@@ -70,54 +54,24 @@ public final class UserPolicyAttachmentsExclusiveArgs extends com.pulumi.resourc
             $ = new UserPolicyAttachmentsExclusiveArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param policyArns A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyArns(Output<List<String>> policyArns) {
             $.policyArns = policyArns;
             return this;
         }
 
-        /**
-         * @param policyArns A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyArns(List<String> policyArns) {
             return policyArns(Output.of(policyArns));
         }
 
-        /**
-         * @param policyArns A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyArns(String... policyArns) {
             return policyArns(List.of(policyArns));
         }
 
-        /**
-         * @param userName IAM user name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(Output<String> userName) {
             $.userName = userName;
             return this;
         }
 
-        /**
-         * @param userName IAM user name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(String userName) {
             return userName(Output.of(userName));
         }

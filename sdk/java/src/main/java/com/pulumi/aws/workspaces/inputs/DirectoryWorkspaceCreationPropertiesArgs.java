@@ -16,77 +16,37 @@ public final class DirectoryWorkspaceCreationPropertiesArgs extends com.pulumi.r
 
     public static final DirectoryWorkspaceCreationPropertiesArgs Empty = new DirectoryWorkspaceCreationPropertiesArgs();
 
-    /**
-     * The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
-     * 
-     */
     @Import(name="customSecurityGroupId")
     private @Nullable Output<String> customSecurityGroupId;
 
-    /**
-     * @return The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
-     * 
-     */
     public Optional<Output<String>> customSecurityGroupId() {
         return Optional.ofNullable(this.customSecurityGroupId);
     }
 
-    /**
-     * The default organizational unit (OU) for your WorkSpace directories. Should conform `&#34;OU=&lt;value&gt;,DC=&lt;value&gt;,...,DC=&lt;value&gt;&#34;` pattern.
-     * 
-     */
     @Import(name="defaultOu")
     private @Nullable Output<String> defaultOu;
 
-    /**
-     * @return The default organizational unit (OU) for your WorkSpace directories. Should conform `&#34;OU=&lt;value&gt;,DC=&lt;value&gt;,...,DC=&lt;value&gt;&#34;` pattern.
-     * 
-     */
     public Optional<Output<String>> defaultOu() {
         return Optional.ofNullable(this.defaultOu);
     }
 
-    /**
-     * Indicates whether internet access is enabled for your WorkSpaces.
-     * 
-     */
     @Import(name="enableInternetAccess")
     private @Nullable Output<Boolean> enableInternetAccess;
 
-    /**
-     * @return Indicates whether internet access is enabled for your WorkSpaces.
-     * 
-     */
     public Optional<Output<Boolean>> enableInternetAccess() {
         return Optional.ofNullable(this.enableInternetAccess);
     }
 
-    /**
-     * Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspaceType` is set to `PERSONAL`.
-     * 
-     */
     @Import(name="enableMaintenanceMode")
     private @Nullable Output<Boolean> enableMaintenanceMode;
 
-    /**
-     * @return Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspaceType` is set to `PERSONAL`.
-     * 
-     */
     public Optional<Output<Boolean>> enableMaintenanceMode() {
         return Optional.ofNullable(this.enableMaintenanceMode);
     }
 
-    /**
-     * Indicates whether users are local administrators of their WorkSpaces. Valid only if `workspaceType` is set to `PERSONAL`.
-     * 
-     */
     @Import(name="userEnabledAsLocalAdministrator")
     private @Nullable Output<Boolean> userEnabledAsLocalAdministrator;
 
-    /**
-     * @return Indicates whether users are local administrators of their WorkSpaces. Valid only if `workspaceType` is set to `PERSONAL`.
-     * 
-     */
     public Optional<Output<Boolean>> userEnabledAsLocalAdministrator() {
         return Optional.ofNullable(this.userEnabledAsLocalAdministrator);
     }
@@ -119,107 +79,47 @@ public final class DirectoryWorkspaceCreationPropertiesArgs extends com.pulumi.r
             $ = new DirectoryWorkspaceCreationPropertiesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customSecurityGroupId The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customSecurityGroupId(@Nullable Output<String> customSecurityGroupId) {
             $.customSecurityGroupId = customSecurityGroupId;
             return this;
         }
 
-        /**
-         * @param customSecurityGroupId The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customSecurityGroupId(String customSecurityGroupId) {
             return customSecurityGroupId(Output.of(customSecurityGroupId));
         }
 
-        /**
-         * @param defaultOu The default organizational unit (OU) for your WorkSpace directories. Should conform `&#34;OU=&lt;value&gt;,DC=&lt;value&gt;,...,DC=&lt;value&gt;&#34;` pattern.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultOu(@Nullable Output<String> defaultOu) {
             $.defaultOu = defaultOu;
             return this;
         }
 
-        /**
-         * @param defaultOu The default organizational unit (OU) for your WorkSpace directories. Should conform `&#34;OU=&lt;value&gt;,DC=&lt;value&gt;,...,DC=&lt;value&gt;&#34;` pattern.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultOu(String defaultOu) {
             return defaultOu(Output.of(defaultOu));
         }
 
-        /**
-         * @param enableInternetAccess Indicates whether internet access is enabled for your WorkSpaces.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableInternetAccess(@Nullable Output<Boolean> enableInternetAccess) {
             $.enableInternetAccess = enableInternetAccess;
             return this;
         }
 
-        /**
-         * @param enableInternetAccess Indicates whether internet access is enabled for your WorkSpaces.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableInternetAccess(Boolean enableInternetAccess) {
             return enableInternetAccess(Output.of(enableInternetAccess));
         }
 
-        /**
-         * @param enableMaintenanceMode Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspaceType` is set to `PERSONAL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableMaintenanceMode(@Nullable Output<Boolean> enableMaintenanceMode) {
             $.enableMaintenanceMode = enableMaintenanceMode;
             return this;
         }
 
-        /**
-         * @param enableMaintenanceMode Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspaceType` is set to `PERSONAL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableMaintenanceMode(Boolean enableMaintenanceMode) {
             return enableMaintenanceMode(Output.of(enableMaintenanceMode));
         }
 
-        /**
-         * @param userEnabledAsLocalAdministrator Indicates whether users are local administrators of their WorkSpaces. Valid only if `workspaceType` is set to `PERSONAL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userEnabledAsLocalAdministrator(@Nullable Output<Boolean> userEnabledAsLocalAdministrator) {
             $.userEnabledAsLocalAdministrator = userEnabledAsLocalAdministrator;
             return this;
         }
 
-        /**
-         * @param userEnabledAsLocalAdministrator Indicates whether users are local administrators of their WorkSpaces. Valid only if `workspaceType` is set to `PERSONAL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userEnabledAsLocalAdministrator(Boolean userEnabledAsLocalAdministrator) {
             return userEnabledAsLocalAdministrator(Output.of(userEnabledAsLocalAdministrator));
         }

@@ -4,47 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS User Notifications Event Rule.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.notifications.NotificationConfiguration("example", {
- *     name: "example",
- *     description: "example configuration",
- * });
- * const exampleEventRule = new aws.notifications.EventRule("example", {
- *     eventPattern: JSON.stringify({
- *         detail: {
- *             state: {
- *                 value: ["ALARM"],
- *             },
- *         },
- *     }),
- *     eventType: "CloudWatch Alarm State Change",
- *     notificationConfigurationArn: example.arn,
- *     regions: [
- *         "us-east-1",
- *         "us-west-2",
- *     ],
- *     source: "aws.cloudwatch",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import User Notifications Event Rule using the `arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:notifications/eventRule:EventRule example arn:aws:notifications::123456789012:configuration/abc123def456ghi789jkl012mno345/rule/abc123def456ghi789jkl012mno345
- * ```
- */
 export class EventRule extends pulumi.CustomResource {
     /**
      * Get an existing EventRule resource's state with the given name, ID, and optional extra
@@ -73,31 +32,11 @@ export class EventRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === EventRule.__pulumiType;
     }
 
-    /**
-     * ARN of the Event Rule.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * JSON string defining the event pattern to match. Maximum length is 4096 characters.
-     */
     declare public readonly eventPattern: pulumi.Output<string | undefined>;
-    /**
-     * Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 \-\(\)])+`.
-     */
     declare public readonly eventType: pulumi.Output<string>;
-    /**
-     * ARN of the notification configuration to associate with this event rule. Must match the pattern `arn:aws:notifications::[0-9]{12}:configuration/[a-z0-9]{27}`.
-     */
     declare public readonly notificationConfigurationArn: pulumi.Output<string>;
-    /**
-     * Set of AWS regions where the event rule will be applied. Each region must be between 2 and 25 characters, and match the pattern `([a-z]{1,2})-([a-z]{1,15}-)+([0-9])`.
-     */
     declare public readonly regions: pulumi.Output<string[]>;
-    /**
-     * Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9\-])+`.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly source: pulumi.Output<string>;
 
     /**
@@ -149,31 +88,11 @@ export class EventRule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EventRule resources.
  */
 export interface EventRuleState {
-    /**
-     * ARN of the Event Rule.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * JSON string defining the event pattern to match. Maximum length is 4096 characters.
-     */
     eventPattern?: pulumi.Input<string>;
-    /**
-     * Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 \-\(\)])+`.
-     */
     eventType?: pulumi.Input<string>;
-    /**
-     * ARN of the notification configuration to associate with this event rule. Must match the pattern `arn:aws:notifications::[0-9]{12}:configuration/[a-z0-9]{27}`.
-     */
     notificationConfigurationArn?: pulumi.Input<string>;
-    /**
-     * Set of AWS regions where the event rule will be applied. Each region must be between 2 and 25 characters, and match the pattern `([a-z]{1,2})-([a-z]{1,15}-)+([0-9])`.
-     */
     regions?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9\-])+`.
-     *
-     * The following arguments are optional:
-     */
     source?: pulumi.Input<string>;
 }
 
@@ -181,26 +100,9 @@ export interface EventRuleState {
  * The set of arguments for constructing a EventRule resource.
  */
 export interface EventRuleArgs {
-    /**
-     * JSON string defining the event pattern to match. Maximum length is 4096 characters.
-     */
     eventPattern?: pulumi.Input<string>;
-    /**
-     * Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 \-\(\)])+`.
-     */
     eventType: pulumi.Input<string>;
-    /**
-     * ARN of the notification configuration to associate with this event rule. Must match the pattern `arn:aws:notifications::[0-9]{12}:configuration/[a-z0-9]{27}`.
-     */
     notificationConfigurationArn: pulumi.Input<string>;
-    /**
-     * Set of AWS regions where the event rule will be applied. Each region must be between 2 and 25 characters, and match the pattern `([a-z]{1,2})-([a-z]{1,15}-)+([0-9])`.
-     */
     regions: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9\-])+`.
-     *
-     * The following arguments are optional:
-     */
     source: pulumi.Input<string>;
 }

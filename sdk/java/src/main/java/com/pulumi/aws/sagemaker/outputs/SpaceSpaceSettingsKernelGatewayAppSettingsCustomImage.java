@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SpaceSpaceSettingsKernelGatewayAppSettingsCustomImage {
-    /**
-     * @return The name of the App Image Config.
-     * 
-     */
     private String appImageConfigName;
-    /**
-     * @return The name of the Custom Image.
-     * 
-     */
     private String imageName;
-    /**
-     * @return The version number of the Custom Image.
-     * 
-     */
     private @Nullable Integer imageVersionNumber;
 
     private SpaceSpaceSettingsKernelGatewayAppSettingsCustomImage() {}
-    /**
-     * @return The name of the App Image Config.
-     * 
-     */
     public String appImageConfigName() {
         return this.appImageConfigName;
     }
-    /**
-     * @return The name of the Custom Image.
-     * 
-     */
     public String imageName() {
         return this.imageName;
     }
-    /**
-     * @return The version number of the Custom Image.
-     * 
-     */
     public Optional<Integer> imageVersionNumber() {
         return Optional.ofNullable(this.imageVersionNumber);
     }

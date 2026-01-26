@@ -10,65 +10,25 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserPoolEmailConfiguration {
-    /**
-     * @return - Configuration set used for sending emails.
-     * 
-     */
     private String configurationSet;
-    /**
-     * @return - Email sending account.
-     * 
-     */
     private String emailSendingAccount;
-    /**
-     * @return - Email sender address.
-     * 
-     */
     private String from;
-    /**
-     * @return - Reply-to email address.
-     * 
-     */
     private String replyToEmailAddress;
-    /**
-     * @return - Source Amazon Resource Name (ARN) for emails.
-     * 
-     */
     private String sourceArn;
 
     private GetUserPoolEmailConfiguration() {}
-    /**
-     * @return - Configuration set used for sending emails.
-     * 
-     */
     public String configurationSet() {
         return this.configurationSet;
     }
-    /**
-     * @return - Email sending account.
-     * 
-     */
     public String emailSendingAccount() {
         return this.emailSendingAccount;
     }
-    /**
-     * @return - Email sender address.
-     * 
-     */
     public String from() {
         return this.from;
     }
-    /**
-     * @return - Reply-to email address.
-     * 
-     */
     public String replyToEmailAddress() {
         return this.replyToEmailAddress;
     }
-    /**
-     * @return - Source Amazon Resource Name (ARN) for emails.
-     * 
-     */
     public String sourceArn() {
         return this.sourceArn;
     }

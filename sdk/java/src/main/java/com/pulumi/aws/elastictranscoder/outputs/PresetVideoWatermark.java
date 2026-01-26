@@ -11,125 +11,45 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PresetVideoWatermark {
-    /**
-     * @return The horizontal position of the watermark unless you specify a nonzero value for `horzontalOffset`.
-     * 
-     */
     private @Nullable String horizontalAlign;
-    /**
-     * @return The amount by which you want the horizontal position of the watermark to be offset from the position specified by `horizontalAlign`.
-     * 
-     */
     private @Nullable String horizontalOffset;
-    /**
-     * @return A unique identifier for the settings for one watermark. The value of Id can be up to 40 characters long. You can specify settings for up to four watermarks.
-     * 
-     */
     private @Nullable String id;
-    /**
-     * @return The maximum height of the watermark.
-     * 
-     */
     private @Nullable String maxHeight;
-    /**
-     * @return The maximum width of the watermark.
-     * 
-     */
     private @Nullable String maxWidth;
-    /**
-     * @return A percentage that indicates how much you want a watermark to obscure the video in the location where it appears.
-     * 
-     */
     private @Nullable String opacity;
-    /**
-     * @return A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
-     * 
-     */
     private @Nullable String sizingPolicy;
-    /**
-     * @return A value that determines how Elastic Transcoder interprets values that you specified for `video_watermarks.horizontal_offset`, `video_watermarks.vertical_offset`, `video_watermarks.max_width`, and `video_watermarks.max_height`. Valid values are `Content` and `Frame`.
-     * 
-     */
     private @Nullable String target;
-    /**
-     * @return The vertical position of the watermark unless you specify a nonzero value for `verticalAlign`. Valid values are `Top`, `Bottom`, `Center`.
-     * 
-     */
     private @Nullable String verticalAlign;
-    /**
-     * @return The amount by which you want the vertical position of the watermark to be offset from the position specified by `verticalAlign`
-     * 
-     */
     private @Nullable String verticalOffset;
 
     private PresetVideoWatermark() {}
-    /**
-     * @return The horizontal position of the watermark unless you specify a nonzero value for `horzontalOffset`.
-     * 
-     */
     public Optional<String> horizontalAlign() {
         return Optional.ofNullable(this.horizontalAlign);
     }
-    /**
-     * @return The amount by which you want the horizontal position of the watermark to be offset from the position specified by `horizontalAlign`.
-     * 
-     */
     public Optional<String> horizontalOffset() {
         return Optional.ofNullable(this.horizontalOffset);
     }
-    /**
-     * @return A unique identifier for the settings for one watermark. The value of Id can be up to 40 characters long. You can specify settings for up to four watermarks.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
-    /**
-     * @return The maximum height of the watermark.
-     * 
-     */
     public Optional<String> maxHeight() {
         return Optional.ofNullable(this.maxHeight);
     }
-    /**
-     * @return The maximum width of the watermark.
-     * 
-     */
     public Optional<String> maxWidth() {
         return Optional.ofNullable(this.maxWidth);
     }
-    /**
-     * @return A percentage that indicates how much you want a watermark to obscure the video in the location where it appears.
-     * 
-     */
     public Optional<String> opacity() {
         return Optional.ofNullable(this.opacity);
     }
-    /**
-     * @return A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
-     * 
-     */
     public Optional<String> sizingPolicy() {
         return Optional.ofNullable(this.sizingPolicy);
     }
-    /**
-     * @return A value that determines how Elastic Transcoder interprets values that you specified for `video_watermarks.horizontal_offset`, `video_watermarks.vertical_offset`, `video_watermarks.max_width`, and `video_watermarks.max_height`. Valid values are `Content` and `Frame`.
-     * 
-     */
     public Optional<String> target() {
         return Optional.ofNullable(this.target);
     }
-    /**
-     * @return The vertical position of the watermark unless you specify a nonzero value for `verticalAlign`. Valid values are `Top`, `Bottom`, `Center`.
-     * 
-     */
     public Optional<String> verticalAlign() {
         return Optional.ofNullable(this.verticalAlign);
     }
-    /**
-     * @return The amount by which you want the vertical position of the watermark to be offset from the position specified by `verticalAlign`
-     * 
-     */
     public Optional<String> verticalOffset() {
         return Optional.ofNullable(this.verticalOffset);
     }

@@ -11,71 +11,25 @@ import java.util.Objects;
 
 @CustomType
 public final class LoadBalancerHealthCheck {
-    /**
-     * @return The number of checks before the instance is declared healthy.
-     * 
-     */
     private Integer healthyThreshold;
-    /**
-     * @return The interval between checks.
-     * 
-     */
     private Integer interval;
-    /**
-     * @return The target of the check. Valid pattern is &#34;${PROTOCOL}:${PORT}${PATH}&#34;, where PROTOCOL
-     * values are:
-     * * `HTTP`, `HTTPS` - PORT and PATH are required
-     * * `TCP`, `SSL` - PORT is required, PATH is not supported
-     * 
-     */
     private String target;
-    /**
-     * @return The length of time before the check times out.
-     * 
-     */
     private Integer timeout;
-    /**
-     * @return The number of checks before the instance is declared unhealthy.
-     * 
-     */
     private Integer unhealthyThreshold;
 
     private LoadBalancerHealthCheck() {}
-    /**
-     * @return The number of checks before the instance is declared healthy.
-     * 
-     */
     public Integer healthyThreshold() {
         return this.healthyThreshold;
     }
-    /**
-     * @return The interval between checks.
-     * 
-     */
     public Integer interval() {
         return this.interval;
     }
-    /**
-     * @return The target of the check. Valid pattern is &#34;${PROTOCOL}:${PORT}${PATH}&#34;, where PROTOCOL
-     * values are:
-     * * `HTTP`, `HTTPS` - PORT and PATH are required
-     * * `TCP`, `SSL` - PORT is required, PATH is not supported
-     * 
-     */
     public String target() {
         return this.target;
     }
-    /**
-     * @return The length of time before the check times out.
-     * 
-     */
     public Integer timeout() {
         return this.timeout;
     }
-    /**
-     * @return The number of checks before the instance is declared unhealthy.
-     * 
-     */
     public Integer unhealthyThreshold() {
         return this.unhealthyThreshold;
     }

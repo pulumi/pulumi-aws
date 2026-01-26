@@ -14,56 +14,32 @@ namespace Pulumi.Aws.AppMesh.Inputs
     {
         [Input("headers")]
         private InputList<Inputs.RouteSpecHttpRouteMatchHeaderGetArgs>? _headers;
-
-        /// <summary>
-        /// Client request headers to match on.
-        /// </summary>
         public InputList<Inputs.RouteSpecHttpRouteMatchHeaderGetArgs> Headers
         {
             get => _headers ?? (_headers = new InputList<Inputs.RouteSpecHttpRouteMatchHeaderGetArgs>());
             set => _headers = value;
         }
 
-        /// <summary>
-        /// Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
-        /// </summary>
         [Input("method")]
         public Input<string>? Method { get; set; }
 
-        /// <summary>
-        /// Client request path to match on.
-        /// </summary>
         [Input("path")]
         public Input<Inputs.RouteSpecHttpRouteMatchPathGetArgs>? Path { get; set; }
 
-        /// <summary>
-        /// The port number to match from the request.
-        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
-        /// <summary>
-        /// Path with which to match requests.
-        /// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
         [Input("queryParameters")]
         private InputList<Inputs.RouteSpecHttpRouteMatchQueryParameterGetArgs>? _queryParameters;
-
-        /// <summary>
-        /// Client request query parameters to match on.
-        /// </summary>
         public InputList<Inputs.RouteSpecHttpRouteMatchQueryParameterGetArgs> QueryParameters
         {
             get => _queryParameters ?? (_queryParameters = new InputList<Inputs.RouteSpecHttpRouteMatchQueryParameterGetArgs>());
             set => _queryParameters = value;
         }
 
-        /// <summary>
-        /// Client request header scheme to match on. Valid values: `Http`, `Https`.
-        /// </summary>
         [Input("scheme")]
         public Input<string>? Scheme { get; set; }
 

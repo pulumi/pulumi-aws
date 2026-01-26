@@ -7,68 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Creates a replica of an existing EFS file system in the same or another region. Creating this resource causes the source EFS file system to be replicated to a new read-only destination EFS file system (unless using the `destination.file_system_id` attribute). Deleting this resource will cause the replication from source to destination to stop and the destination file system will no longer be read only.
- *
- * > **NOTE:** Deleting this resource does **not** delete the destination file system that was created.
- *
- * ## Example Usage
- *
- * Will create a replica using regional storage in us-west-2 that will be encrypted by the default EFS KMS key `/aws/elasticfilesystem`.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.efs.FileSystem("example", {});
- * const exampleReplicationConfiguration = new aws.efs.ReplicationConfiguration("example", {
- *     sourceFileSystemId: example.id,
- *     destination: {
- *         region: "us-west-2",
- *     },
- * });
- * ```
- *
- * Replica will be created as One Zone storage in the us-west-2b Availability Zone and encrypted with the specified KMS key.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.efs.FileSystem("example", {});
- * const exampleReplicationConfiguration = new aws.efs.ReplicationConfiguration("example", {
- *     sourceFileSystemId: example.id,
- *     destination: {
- *         availabilityZoneName: "us-west-2b",
- *         kmsKeyId: "1234abcd-12ab-34cd-56ef-1234567890ab",
- *     },
- * });
- * ```
- *
- * Will create a replica and set the existing file system with id `fs-1234567890` in us-west-2 as destination.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.efs.FileSystem("example", {});
- * const exampleReplicationConfiguration = new aws.efs.ReplicationConfiguration("example", {
- *     sourceFileSystemId: example.id,
- *     destination: {
- *         fileSystemId: "fs-1234567890",
- *         region: "us-west-2",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import EFS Replication Configurations using the file system ID of either the source or destination file system. When importing, the `availability_zone_name` and `kms_key_id` attributes must __not__ be set in the configuration. The AWS API does not return these values when querying the replication configuration and their presence will therefore show as a diff in a subsequent plan. For example:
- *
- * ```sh
- * $ pulumi import aws:efs/replicationConfiguration:ReplicationConfiguration example fs-id
- * ```
- */
 export class ReplicationConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing ReplicationConfiguration resource's state with the given name, ID, and optional extra
@@ -97,35 +35,12 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === ReplicationConfiguration.__pulumiType;
     }
 
-    /**
-     * When the replication configuration was created.
-     * * `destination[0].file_system_id` - The fs ID of the replica.
-     * * `destination[0].status` - The status of the replication.
-     */
     declare public /*out*/ readonly creationTime: pulumi.Output<string>;
-    /**
-     * A destination configuration block (documented below).
-     */
     declare public readonly destination: pulumi.Output<outputs.efs.ReplicationConfigurationDestination>;
-    /**
-     * The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
-     */
     declare public /*out*/ readonly originalSourceFileSystemArn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
-     */
     declare public /*out*/ readonly sourceFileSystemArn: pulumi.Output<string>;
-    /**
-     * The ID of the file system that is to be replicated.
-     */
     declare public readonly sourceFileSystemId: pulumi.Output<string>;
-    /**
-     * The AWS Region in which the source Amazon EFS file system is located.
-     */
     declare public /*out*/ readonly sourceFileSystemRegion: pulumi.Output<string>;
 
     /**
@@ -173,35 +88,12 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ReplicationConfiguration resources.
  */
 export interface ReplicationConfigurationState {
-    /**
-     * When the replication configuration was created.
-     * * `destination[0].file_system_id` - The fs ID of the replica.
-     * * `destination[0].status` - The status of the replication.
-     */
     creationTime?: pulumi.Input<string>;
-    /**
-     * A destination configuration block (documented below).
-     */
     destination?: pulumi.Input<inputs.efs.ReplicationConfigurationDestination>;
-    /**
-     * The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
-     */
     originalSourceFileSystemArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
-     */
     sourceFileSystemArn?: pulumi.Input<string>;
-    /**
-     * The ID of the file system that is to be replicated.
-     */
     sourceFileSystemId?: pulumi.Input<string>;
-    /**
-     * The AWS Region in which the source Amazon EFS file system is located.
-     */
     sourceFileSystemRegion?: pulumi.Input<string>;
 }
 
@@ -209,16 +101,7 @@ export interface ReplicationConfigurationState {
  * The set of arguments for constructing a ReplicationConfiguration resource.
  */
 export interface ReplicationConfigurationArgs {
-    /**
-     * A destination configuration block (documented below).
-     */
     destination: pulumi.Input<inputs.efs.ReplicationConfigurationDestination>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the file system that is to be replicated.
-     */
     sourceFileSystemId: pulumi.Input<string>;
 }

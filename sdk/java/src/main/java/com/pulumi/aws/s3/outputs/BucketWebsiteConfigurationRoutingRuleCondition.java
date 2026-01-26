@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketWebsiteConfigurationRoutingRuleCondition {
-    /**
-     * @return HTTP error code when the redirect is applied. If specified with `keyPrefixEquals`, then both must be true for the redirect to be applied.
-     * 
-     */
     private @Nullable String httpErrorCodeReturnedEquals;
-    /**
-     * @return Object key name prefix when the redirect is applied. If specified with `httpErrorCodeReturnedEquals`, then both must be true for the redirect to be applied.
-     * 
-     */
     private @Nullable String keyPrefixEquals;
 
     private BucketWebsiteConfigurationRoutingRuleCondition() {}
-    /**
-     * @return HTTP error code when the redirect is applied. If specified with `keyPrefixEquals`, then both must be true for the redirect to be applied.
-     * 
-     */
     public Optional<String> httpErrorCodeReturnedEquals() {
         return Optional.ofNullable(this.httpErrorCodeReturnedEquals);
     }
-    /**
-     * @return Object key name prefix when the redirect is applied. If specified with `httpErrorCodeReturnedEquals`, then both must be true for the redirect to be applied.
-     * 
-     */
     public Optional<String> keyPrefixEquals() {
         return Optional.ofNullable(this.keyPrefixEquals);
     }

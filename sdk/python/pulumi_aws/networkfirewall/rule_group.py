@@ -32,15 +32,6 @@ class RuleGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RuleGroup resource.
-        :param pulumi.Input[_builtins.int] capacity: The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
-        :param pulumi.Input[_builtins.str] type: Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
-        :param pulumi.Input[_builtins.str] description: A friendly description of the rule group.
-        :param pulumi.Input['RuleGroupEncryptionConfigurationArgs'] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
-        :param pulumi.Input[_builtins.str] name: A friendly name of the rule group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['RuleGroupRuleGroupArgs'] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
-        :param pulumi.Input[_builtins.str] rules: The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "capacity", capacity)
         pulumi.set(__self__, "type", type)
@@ -62,9 +53,6 @@ class RuleGroupArgs:
     @_builtins.property
     @pulumi.getter
     def capacity(self) -> pulumi.Input[_builtins.int]:
-        """
-        The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
-        """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
@@ -74,9 +62,6 @@ class RuleGroupArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -86,9 +71,6 @@ class RuleGroupArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A friendly description of the rule group.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -98,9 +80,6 @@ class RuleGroupArgs:
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional[pulumi.Input['RuleGroupEncryptionConfigurationArgs']]:
-        """
-        KMS encryption configuration settings. See Encryption Configuration below for details.
-        """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
@@ -110,9 +89,6 @@ class RuleGroupArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A friendly name of the rule group.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -122,9 +98,6 @@ class RuleGroupArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -134,9 +107,6 @@ class RuleGroupArgs:
     @_builtins.property
     @pulumi.getter(name="ruleGroup")
     def rule_group(self) -> Optional[pulumi.Input['RuleGroupRuleGroupArgs']]:
-        """
-        A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
-        """
         return pulumi.get(self, "rule_group")
 
     @rule_group.setter
@@ -146,9 +116,6 @@ class RuleGroupArgs:
     @_builtins.property
     @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
-        """
         return pulumi.get(self, "rules")
 
     @rules.setter
@@ -158,9 +125,6 @@ class RuleGroupArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -185,18 +149,6 @@ class _RuleGroupState:
                  update_token: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RuleGroup resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) that identifies the rule group.
-        :param pulumi.Input[_builtins.int] capacity: The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
-        :param pulumi.Input[_builtins.str] description: A friendly description of the rule group.
-        :param pulumi.Input['RuleGroupEncryptionConfigurationArgs'] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
-        :param pulumi.Input[_builtins.str] name: A friendly name of the rule group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['RuleGroupRuleGroupArgs'] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
-        :param pulumi.Input[_builtins.str] rules: The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
-        :param pulumi.Input[_builtins.str] update_token: A string token used when updating the rule group.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -226,9 +178,6 @@ class _RuleGroupState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) that identifies the rule group.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -238,9 +187,6 @@ class _RuleGroupState:
     @_builtins.property
     @pulumi.getter
     def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
-        """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
@@ -250,9 +196,6 @@ class _RuleGroupState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A friendly description of the rule group.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -262,9 +205,6 @@ class _RuleGroupState:
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional[pulumi.Input['RuleGroupEncryptionConfigurationArgs']]:
-        """
-        KMS encryption configuration settings. See Encryption Configuration below for details.
-        """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
@@ -274,9 +214,6 @@ class _RuleGroupState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A friendly name of the rule group.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -286,9 +223,6 @@ class _RuleGroupState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -298,9 +232,6 @@ class _RuleGroupState:
     @_builtins.property
     @pulumi.getter(name="ruleGroup")
     def rule_group(self) -> Optional[pulumi.Input['RuleGroupRuleGroupArgs']]:
-        """
-        A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
-        """
         return pulumi.get(self, "rule_group")
 
     @rule_group.setter
@@ -310,9 +241,6 @@ class _RuleGroupState:
     @_builtins.property
     @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
-        """
         return pulumi.get(self, "rules")
 
     @rules.setter
@@ -322,9 +250,6 @@ class _RuleGroupState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -334,9 +259,6 @@ class _RuleGroupState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -346,9 +268,6 @@ class _RuleGroupState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -358,9 +277,6 @@ class _RuleGroupState:
     @_builtins.property
     @pulumi.getter(name="updateToken")
     def update_token(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A string token used when updating the rule group.
-        """
         return pulumi.get(self, "update_token")
 
     @update_token.setter
@@ -385,339 +301,9 @@ class RuleGroup(pulumi.CustomResource):
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an AWS Network Firewall Rule Group Resource
-
-        ## Example Usage
-
-        ### Stateful Inspection for denying access to a domain
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkfirewall.RuleGroup("example",
-            capacity=100,
-            name="example",
-            type="STATEFUL",
-            rule_group={
-                "rules_source": {
-                    "rules_source_list": {
-                        "generated_rules_type": "DENYLIST",
-                        "target_types": ["HTTP_HOST"],
-                        "targets": ["test.example.com"],
-                    },
-                },
-            },
-            tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
-            })
-        ```
-
-        ### Stateful Inspection for permitting packets from a source IP address
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ips = [
-            "1.1.1.1/32",
-            "1.0.0.1/32",
-        ]
-        example = aws.networkfirewall.RuleGroup("example",
-            capacity=50,
-            description="Permits http traffic from source",
-            name="example",
-            type="STATEFUL",
-            rule_group={
-                "rules_source": {
-                    "stateful_rules": [{
-                        "action": "PASS",
-                        "header": {
-                            "destination": "ANY",
-                            "destination_port": "ANY",
-                            "protocol": "HTTP",
-                            "direction": "ANY",
-                            "source_port": "ANY",
-                            "source": entry["value"],
-                        },
-                        "rule_options": [{
-                            "keyword": "sid",
-                            "settings": ["1"],
-                        }],
-                    } for entry in [{"key": k, "value": v} for k, v in ips]],
-                },
-            },
-            tags={
-                "Name": "permit HTTP from source",
-            })
-        ```
-
-        ### Stateful Inspection for blocking packets from going to an intended destination
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkfirewall.RuleGroup("example",
-            capacity=100,
-            name="example",
-            type="STATEFUL",
-            rule_group={
-                "rules_source": {
-                    "stateful_rules": [{
-                        "action": "DROP",
-                        "header": {
-                            "destination": "124.1.1.24/32",
-                            "destination_port": "53",
-                            "direction": "ANY",
-                            "protocol": "TCP",
-                            "source": "1.2.3.4/32",
-                            "source_port": "53",
-                        },
-                        "rule_options": [{
-                            "keyword": "sid",
-                            "settings": ["1"],
-                        }],
-                    }],
-                },
-            },
-            tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
-            })
-        ```
-
-        ### Stateful Inspection from rules specifications defined in Suricata flat format
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.networkfirewall.RuleGroup("example",
-            capacity=100,
-            name="example",
-            type="STATEFUL",
-            rules=std.file(input="example.rules").result,
-            tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
-            })
-        ```
-
-        ### Stateful Inspection from rule group specifications using rule variables and Suricata format rules
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.networkfirewall.RuleGroup("example",
-            capacity=100,
-            name="example",
-            type="STATEFUL",
-            rule_group={
-                "rule_variables": {
-                    "ip_sets": [
-                        {
-                            "key": "WEBSERVERS_HOSTS",
-                            "ip_set": {
-                                "definitions": [
-                                    "10.0.0.0/16",
-                                    "10.0.1.0/24",
-                                    "192.168.0.0/16",
-                                ],
-                            },
-                        },
-                        {
-                            "key": "EXTERNAL_HOST",
-                            "ip_set": {
-                                "definitions": ["1.2.3.4/32"],
-                            },
-                        },
-                    ],
-                    "port_sets": [{
-                        "key": "HTTP_PORTS",
-                        "port_set": {
-                            "definitions": [
-                                "443",
-                                "80",
-                            ],
-                        },
-                    }],
-                },
-                "rules_source": {
-                    "rules_string": std.file(input="suricata_rules_file").result,
-                },
-            },
-            tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
-            })
-        ```
-
-        ### Stateless Inspection with a Custom Action
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkfirewall.RuleGroup("example",
-            description="Stateless Rate Limiting Rule",
-            capacity=100,
-            name="example",
-            type="STATELESS",
-            rule_group={
-                "rules_source": {
-                    "stateless_rules_and_custom_actions": {
-                        "custom_actions": [{
-                            "action_definition": {
-                                "publish_metric_action": {
-                                    "dimensions": [{
-                                        "value": "2",
-                                    }],
-                                },
-                            },
-                            "action_name": "ExampleMetricsAction",
-                        }],
-                        "stateless_rules": [{
-                            "priority": 1,
-                            "rule_definition": {
-                                "actions": [
-                                    "aws:pass",
-                                    "ExampleMetricsAction",
-                                ],
-                                "match_attributes": {
-                                    "sources": [{
-                                        "address_definition": "1.2.3.4/32",
-                                    }],
-                                    "source_ports": [{
-                                        "from_port": 443,
-                                        "to_port": 443,
-                                    }],
-                                    "destinations": [{
-                                        "address_definition": "124.1.1.5/32",
-                                    }],
-                                    "destination_ports": [{
-                                        "from_port": 443,
-                                        "to_port": 443,
-                                    }],
-                                    "protocols": [6],
-                                    "tcp_flags": [{
-                                        "flags": ["SYN"],
-                                        "masks": [
-                                            "SYN",
-                                            "ACK",
-                                        ],
-                                    }],
-                                },
-                            },
-                        }],
-                    },
-                },
-            },
-            tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
-            })
-        ```
-
-        ### IP Set References to the Rule Group
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkfirewall.RuleGroup("example",
-            capacity=100,
-            name="example",
-            type="STATEFUL",
-            rule_group={
-                "rules_source": {
-                    "rules_source_list": {
-                        "generated_rules_type": "DENYLIST",
-                        "target_types": ["HTTP_HOST"],
-                        "targets": ["test.example.com"],
-                    },
-                },
-                "reference_sets": {
-                    "ip_set_references": [{
-                        "key": "example",
-                        "ip_set_references": [{
-                            "reference_arn": this["arn"],
-                        }],
-                    }],
-                },
-            },
-            tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
-            })
-        ```
-
-        ### Example with S3 as source for the suricata rules
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        suricata_rules = aws.s3.get_object(bucket=suricata_rules_aws_s3_bucket["id"],
-            key="rules/custom.rules")
-        s3_rules_example = aws.networkfirewall.RuleGroup("s3_rules_example",
-            capacity=1000,
-            name="my-terraform-s3-rules",
-            type="STATEFUL",
-            rule_group={
-                "rule_variables": {
-                    "ip_sets": [{
-                        "key": "HOME_NET",
-                        "ip_set": {
-                            "definitions": [
-                                "10.0.0.0/16",
-                                "192.168.0.0/16",
-                                "172.16.0.0/12",
-                            ],
-                        },
-                    }],
-                    "port_sets": [{
-                        "key": "HTTP_PORTS",
-                        "port_set": {
-                            "definitions": [
-                                "443",
-                                "80",
-                            ],
-                        },
-                    }],
-                },
-                "rules_source": {
-                    "rules_string": suricata_rules.body,
-                },
-            },
-            tags={
-                "ManagedBy": "terraform",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Network Firewall Rule Groups using their `arn`. For example:
-
-        ```sh
-        $ pulumi import aws:networkfirewall/ruleGroup:RuleGroup example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
-        ```
-
+        Create a RuleGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] capacity: The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
-        :param pulumi.Input[_builtins.str] description: A friendly description of the rule group.
-        :param pulumi.Input[Union['RuleGroupEncryptionConfigurationArgs', 'RuleGroupEncryptionConfigurationArgsDict']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
-        :param pulumi.Input[_builtins.str] name: A friendly name of the rule group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['RuleGroupRuleGroupArgs', 'RuleGroupRuleGroupArgsDict']] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
-        :param pulumi.Input[_builtins.str] rules: The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] type: Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
         """
         ...
     @overload
@@ -726,328 +312,7 @@ class RuleGroup(pulumi.CustomResource):
                  args: RuleGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AWS Network Firewall Rule Group Resource
-
-        ## Example Usage
-
-        ### Stateful Inspection for denying access to a domain
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkfirewall.RuleGroup("example",
-            capacity=100,
-            name="example",
-            type="STATEFUL",
-            rule_group={
-                "rules_source": {
-                    "rules_source_list": {
-                        "generated_rules_type": "DENYLIST",
-                        "target_types": ["HTTP_HOST"],
-                        "targets": ["test.example.com"],
-                    },
-                },
-            },
-            tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
-            })
-        ```
-
-        ### Stateful Inspection for permitting packets from a source IP address
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ips = [
-            "1.1.1.1/32",
-            "1.0.0.1/32",
-        ]
-        example = aws.networkfirewall.RuleGroup("example",
-            capacity=50,
-            description="Permits http traffic from source",
-            name="example",
-            type="STATEFUL",
-            rule_group={
-                "rules_source": {
-                    "stateful_rules": [{
-                        "action": "PASS",
-                        "header": {
-                            "destination": "ANY",
-                            "destination_port": "ANY",
-                            "protocol": "HTTP",
-                            "direction": "ANY",
-                            "source_port": "ANY",
-                            "source": entry["value"],
-                        },
-                        "rule_options": [{
-                            "keyword": "sid",
-                            "settings": ["1"],
-                        }],
-                    } for entry in [{"key": k, "value": v} for k, v in ips]],
-                },
-            },
-            tags={
-                "Name": "permit HTTP from source",
-            })
-        ```
-
-        ### Stateful Inspection for blocking packets from going to an intended destination
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkfirewall.RuleGroup("example",
-            capacity=100,
-            name="example",
-            type="STATEFUL",
-            rule_group={
-                "rules_source": {
-                    "stateful_rules": [{
-                        "action": "DROP",
-                        "header": {
-                            "destination": "124.1.1.24/32",
-                            "destination_port": "53",
-                            "direction": "ANY",
-                            "protocol": "TCP",
-                            "source": "1.2.3.4/32",
-                            "source_port": "53",
-                        },
-                        "rule_options": [{
-                            "keyword": "sid",
-                            "settings": ["1"],
-                        }],
-                    }],
-                },
-            },
-            tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
-            })
-        ```
-
-        ### Stateful Inspection from rules specifications defined in Suricata flat format
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.networkfirewall.RuleGroup("example",
-            capacity=100,
-            name="example",
-            type="STATEFUL",
-            rules=std.file(input="example.rules").result,
-            tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
-            })
-        ```
-
-        ### Stateful Inspection from rule group specifications using rule variables and Suricata format rules
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.networkfirewall.RuleGroup("example",
-            capacity=100,
-            name="example",
-            type="STATEFUL",
-            rule_group={
-                "rule_variables": {
-                    "ip_sets": [
-                        {
-                            "key": "WEBSERVERS_HOSTS",
-                            "ip_set": {
-                                "definitions": [
-                                    "10.0.0.0/16",
-                                    "10.0.1.0/24",
-                                    "192.168.0.0/16",
-                                ],
-                            },
-                        },
-                        {
-                            "key": "EXTERNAL_HOST",
-                            "ip_set": {
-                                "definitions": ["1.2.3.4/32"],
-                            },
-                        },
-                    ],
-                    "port_sets": [{
-                        "key": "HTTP_PORTS",
-                        "port_set": {
-                            "definitions": [
-                                "443",
-                                "80",
-                            ],
-                        },
-                    }],
-                },
-                "rules_source": {
-                    "rules_string": std.file(input="suricata_rules_file").result,
-                },
-            },
-            tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
-            })
-        ```
-
-        ### Stateless Inspection with a Custom Action
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkfirewall.RuleGroup("example",
-            description="Stateless Rate Limiting Rule",
-            capacity=100,
-            name="example",
-            type="STATELESS",
-            rule_group={
-                "rules_source": {
-                    "stateless_rules_and_custom_actions": {
-                        "custom_actions": [{
-                            "action_definition": {
-                                "publish_metric_action": {
-                                    "dimensions": [{
-                                        "value": "2",
-                                    }],
-                                },
-                            },
-                            "action_name": "ExampleMetricsAction",
-                        }],
-                        "stateless_rules": [{
-                            "priority": 1,
-                            "rule_definition": {
-                                "actions": [
-                                    "aws:pass",
-                                    "ExampleMetricsAction",
-                                ],
-                                "match_attributes": {
-                                    "sources": [{
-                                        "address_definition": "1.2.3.4/32",
-                                    }],
-                                    "source_ports": [{
-                                        "from_port": 443,
-                                        "to_port": 443,
-                                    }],
-                                    "destinations": [{
-                                        "address_definition": "124.1.1.5/32",
-                                    }],
-                                    "destination_ports": [{
-                                        "from_port": 443,
-                                        "to_port": 443,
-                                    }],
-                                    "protocols": [6],
-                                    "tcp_flags": [{
-                                        "flags": ["SYN"],
-                                        "masks": [
-                                            "SYN",
-                                            "ACK",
-                                        ],
-                                    }],
-                                },
-                            },
-                        }],
-                    },
-                },
-            },
-            tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
-            })
-        ```
-
-        ### IP Set References to the Rule Group
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkfirewall.RuleGroup("example",
-            capacity=100,
-            name="example",
-            type="STATEFUL",
-            rule_group={
-                "rules_source": {
-                    "rules_source_list": {
-                        "generated_rules_type": "DENYLIST",
-                        "target_types": ["HTTP_HOST"],
-                        "targets": ["test.example.com"],
-                    },
-                },
-                "reference_sets": {
-                    "ip_set_references": [{
-                        "key": "example",
-                        "ip_set_references": [{
-                            "reference_arn": this["arn"],
-                        }],
-                    }],
-                },
-            },
-            tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
-            })
-        ```
-
-        ### Example with S3 as source for the suricata rules
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        suricata_rules = aws.s3.get_object(bucket=suricata_rules_aws_s3_bucket["id"],
-            key="rules/custom.rules")
-        s3_rules_example = aws.networkfirewall.RuleGroup("s3_rules_example",
-            capacity=1000,
-            name="my-terraform-s3-rules",
-            type="STATEFUL",
-            rule_group={
-                "rule_variables": {
-                    "ip_sets": [{
-                        "key": "HOME_NET",
-                        "ip_set": {
-                            "definitions": [
-                                "10.0.0.0/16",
-                                "192.168.0.0/16",
-                                "172.16.0.0/12",
-                            ],
-                        },
-                    }],
-                    "port_sets": [{
-                        "key": "HTTP_PORTS",
-                        "port_set": {
-                            "definitions": [
-                                "443",
-                                "80",
-                            ],
-                        },
-                    }],
-                },
-                "rules_source": {
-                    "rules_string": suricata_rules.body,
-                },
-            },
-            tags={
-                "ManagedBy": "terraform",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Network Firewall Rule Groups using their `arn`. For example:
-
-        ```sh
-        $ pulumi import aws:networkfirewall/ruleGroup:RuleGroup example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
-        ```
-
+        Create a RuleGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RuleGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1126,18 +391,6 @@ class RuleGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) that identifies the rule group.
-        :param pulumi.Input[_builtins.int] capacity: The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
-        :param pulumi.Input[_builtins.str] description: A friendly description of the rule group.
-        :param pulumi.Input[Union['RuleGroupEncryptionConfigurationArgs', 'RuleGroupEncryptionConfigurationArgsDict']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
-        :param pulumi.Input[_builtins.str] name: A friendly name of the rule group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['RuleGroupRuleGroupArgs', 'RuleGroupRuleGroupArgsDict']] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
-        :param pulumi.Input[_builtins.str] rules: The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
-        :param pulumi.Input[_builtins.str] update_token: A string token used when updating the rule group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1160,96 +413,60 @@ class RuleGroup(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) that identifies the rule group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def capacity(self) -> pulumi.Output[_builtins.int]:
-        """
-        The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
-        """
         return pulumi.get(self, "capacity")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A friendly description of the rule group.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> pulumi.Output[Optional['outputs.RuleGroupEncryptionConfiguration']]:
-        """
-        KMS encryption configuration settings. See Encryption Configuration below for details.
-        """
         return pulumi.get(self, "encryption_configuration")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        A friendly name of the rule group.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="ruleGroup")
     def rule_group(self) -> pulumi.Output['outputs.RuleGroupRuleGroup']:
-        """
-        A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
-        """
         return pulumi.get(self, "rule_group")
 
     @_builtins.property
     @pulumi.getter
     def rules(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
-        """
         return pulumi.get(self, "rules")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="updateToken")
     def update_token(self) -> pulumi.Output[_builtins.str]:
-        """
-        A string token used when updating the rule group.
-        """
         return pulumi.get(self, "update_token")
 

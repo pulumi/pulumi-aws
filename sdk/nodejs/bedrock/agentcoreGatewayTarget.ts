@@ -7,287 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages an AWS Bedrock AgentCore Gateway Target. Gateway targets define the endpoints and configurations that a gateway can invoke, such as Lambda functions or APIs, allowing agents to interact with external services through the Model Context Protocol (MCP).
- *
- * ## Example Usage
- *
- * ### Lambda Target with Gateway IAM Role
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const gatewayAssume = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         actions: ["sts:AssumeRole"],
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["bedrock-agentcore.amazonaws.com"],
- *         }],
- *     }],
- * });
- * const gatewayRole = new aws.iam.Role("gateway_role", {
- *     name: "bedrock-gateway-role",
- *     assumeRolePolicy: gatewayAssume.then(gatewayAssume => gatewayAssume.json),
- * });
- * const lambdaAssume = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         actions: ["sts:AssumeRole"],
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["lambda.amazonaws.com"],
- *         }],
- *     }],
- * });
- * const lambdaRole = new aws.iam.Role("lambda_role", {
- *     name: "example-lambda-role",
- *     assumeRolePolicy: lambdaAssume.then(lambdaAssume => lambdaAssume.json),
- * });
- * const example = new aws.lambda.Function("example", {
- *     code: new pulumi.asset.FileArchive("example.zip"),
- *     name: "example-function",
- *     role: lambdaRole.arn,
- *     handler: "index.handler",
- *     runtime: aws.lambda.Runtime.NodeJS20dX,
- * });
- * const exampleAgentcoreGateway = new aws.bedrock.AgentcoreGateway("example", {
- *     name: "example-gateway",
- *     roleArn: gatewayRole.arn,
- *     authorizerConfiguration: {
- *         customJwtAuthorizer: {
- *             discoveryUrl: "https://accounts.google.com/.well-known/openid-configuration",
- *         },
- *     },
- * });
- * const exampleAgentcoreGatewayTarget = new aws.bedrock.AgentcoreGatewayTarget("example", {
- *     name: "example-target",
- *     gatewayIdentifier: exampleAgentcoreGateway.gatewayId,
- *     description: "Lambda function target for processing requests",
- *     credentialProviderConfiguration: {
- *         gatewayIamRole: {},
- *     },
- *     targetConfiguration: {
- *         mcp: {
- *             lambda: {
- *                 lambdaArn: example.arn,
- *                 toolSchema: {
- *                     inlinePayloads: [{
- *                         name: "process_request",
- *                         description: "Process incoming requests",
- *                         inputSchema: {
- *                             type: "object",
- *                             description: "Request processing schema",
- *                             properties: [
- *                                 {
- *                                     name: "message",
- *                                     type: "string",
- *                                     description: "Message to process",
- *                                     required: true,
- *                                 },
- *                                 {
- *                                     name: "options",
- *                                     type: "object",
- *                                     properties: [
- *                                         {
- *                                             name: "priority",
- *                                             type: "string",
- *                                         },
- *                                         {
- *                                             name: "tags",
- *                                             type: "array",
- *                                             items: [{
- *                                                 type: "string",
- *                                             }],
- *                                         },
- *                                     ],
- *                                 },
- *                             ],
- *                         },
- *                         outputSchema: {
- *                             type: "object",
- *                             properties: [
- *                                 {
- *                                     name: "status",
- *                                     type: "string",
- *                                     required: true,
- *                                 },
- *                                 {
- *                                     name: "result",
- *                                     type: "string",
- *                                 },
- *                             ],
- *                         },
- *                     }],
- *                 },
- *             },
- *         },
- *     },
- * });
- * ```
- *
- * ### Target with API Key Authentication
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const apiKeyExample = new aws.bedrock.AgentcoreGatewayTarget("api_key_example", {
- *     name: "api-target",
- *     gatewayIdentifier: exampleAwsBedrockagentcoreGateway.gatewayId,
- *     description: "External API target with API key authentication",
- *     credentialProviderConfiguration: {
- *         apiKey: {
- *             providerArn: "arn:aws:iam::123456789012:oidc-provider/example.com",
- *             credentialLocation: "HEADER",
- *             credentialParameterName: "X-API-Key",
- *             credentialPrefix: "Bearer",
- *         },
- *     },
- *     targetConfiguration: {
- *         mcp: {
- *             lambda: {
- *                 lambdaArn: example.arn,
- *                 toolSchema: {
- *                     inlinePayloads: [{
- *                         name: "api_tool",
- *                         description: "External API integration tool",
- *                         inputSchema: {
- *                             type: "string",
- *                             description: "Simple string input for API calls",
- *                         },
- *                     }],
- *                 },
- *             },
- *         },
- *     },
- * });
- * ```
- *
- * ### Target with OAuth Authentication
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const oauthExample = new aws.bedrock.AgentcoreGatewayTarget("oauth_example", {
- *     name: "oauth-target",
- *     gatewayIdentifier: exampleAwsBedrockagentcoreGateway.gatewayId,
- *     credentialProviderConfiguration: {
- *         oauth: {
- *             providerArn: "arn:aws:iam::123456789012:oidc-provider/oauth.example.com",
- *             scopes: [
- *                 "read",
- *                 "write",
- *             ],
- *             customParameters: {
- *                 client_type: "confidential",
- *                 grant_type: "authorization_code",
- *             },
- *         },
- *     },
- *     targetConfiguration: {
- *         mcp: {
- *             lambda: {
- *                 lambdaArn: example.arn,
- *                 toolSchema: {
- *                     inlinePayloads: [{
- *                         name: "oauth_tool",
- *                         description: "OAuth-authenticated service",
- *                         inputSchema: {
- *                             type: "array",
- *                             items: {
- *                                 type: "object",
- *                                 properties: [
- *                                     {
- *                                         name: "id",
- *                                         type: "string",
- *                                         required: true,
- *                                     },
- *                                     {
- *                                         name: "value",
- *                                         type: "number",
- *                                     },
- *                                 ],
- *                             },
- *                         },
- *                     }],
- *                 },
- *             },
- *         },
- *     },
- * });
- * ```
- *
- * ### Complex Schema with JSON Serialization
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const complexSchema = new aws.bedrock.AgentcoreGatewayTarget("complex_schema", {
- *     name: "complex-target",
- *     gatewayIdentifier: exampleAwsBedrockagentcoreGateway.gatewayId,
- *     credentialProviderConfiguration: {
- *         gatewayIamRole: {},
- *     },
- *     targetConfiguration: {
- *         mcp: {
- *             lambda: {
- *                 lambdaArn: example.arn,
- *                 toolSchema: {
- *                     inlinePayloads: [{
- *                         name: "complex_tool",
- *                         description: "Tool with complex nested schema",
- *                         inputSchema: {
- *                             type: "object",
- *                             properties: [{
- *                                 name: "profile",
- *                                 type: "object",
- *                                 properties: [
- *                                     {
- *                                         name: "nested_tags",
- *                                         type: "array",
- *                                         itemsJson: JSON.stringify({
- *                                             type: "string",
- *                                         }),
- *                                     },
- *                                     {
- *                                         name: "metadata",
- *                                         type: "object",
- *                                         propertiesJson: JSON.stringify({
- *                                             properties: {
- *                                                 created_at: {
- *                                                     type: "string",
- *                                                 },
- *                                                 version: {
- *                                                     type: "number",
- *                                                 },
- *                                             },
- *                                             required: ["created_at"],
- *                                         }),
- *                                     },
- *                                 ],
- *                             }],
- *                         },
- *                     }],
- *                 },
- *             },
- *         },
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Bedrock AgentCore Gateway Target using the gateway identifier and target ID separated by a comma. For example:
- *
- * ```sh
- * $ pulumi import aws:bedrock/agentcoreGatewayTarget:AgentcoreGatewayTarget example GATEWAY1234567890,TARGET0987654321
- * ```
- */
 export class AgentcoreGatewayTarget extends pulumi.CustomResource {
     /**
      * Get an existing AgentcoreGatewayTarget resource's state with the given name, ID, and optional extra
@@ -316,35 +35,12 @@ export class AgentcoreGatewayTarget extends pulumi.CustomResource {
         return obj['__pulumiType'] === AgentcoreGatewayTarget.__pulumiType;
     }
 
-    /**
-     * Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
-     */
     declare public readonly credentialProviderConfiguration: pulumi.Output<outputs.bedrock.AgentcoreGatewayTargetCredentialProviderConfiguration | undefined>;
-    /**
-     * Description of the gateway target.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Identifier of the gateway that this target belongs to.
-     */
     declare public readonly gatewayIdentifier: pulumi.Output<string>;
-    /**
-     * Name of the gateway target.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Configuration for the target endpoint. See `targetConfiguration` below.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly targetConfiguration: pulumi.Output<outputs.bedrock.AgentcoreGatewayTargetTargetConfiguration | undefined>;
-    /**
-     * Unique identifier of the gateway target.
-     */
     declare public /*out*/ readonly targetId: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.bedrock.AgentcoreGatewayTargetTimeouts | undefined>;
 
@@ -392,35 +88,12 @@ export class AgentcoreGatewayTarget extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AgentcoreGatewayTarget resources.
  */
 export interface AgentcoreGatewayTargetState {
-    /**
-     * Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
-     */
     credentialProviderConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetCredentialProviderConfiguration>;
-    /**
-     * Description of the gateway target.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Identifier of the gateway that this target belongs to.
-     */
     gatewayIdentifier?: pulumi.Input<string>;
-    /**
-     * Name of the gateway target.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Configuration for the target endpoint. See `targetConfiguration` below.
-     *
-     * The following arguments are optional:
-     */
     targetConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfiguration>;
-    /**
-     * Unique identifier of the gateway target.
-     */
     targetId?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTimeouts>;
 }
@@ -429,31 +102,11 @@ export interface AgentcoreGatewayTargetState {
  * The set of arguments for constructing a AgentcoreGatewayTarget resource.
  */
 export interface AgentcoreGatewayTargetArgs {
-    /**
-     * Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
-     */
     credentialProviderConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetCredentialProviderConfiguration>;
-    /**
-     * Description of the gateway target.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Identifier of the gateway that this target belongs to.
-     */
     gatewayIdentifier: pulumi.Input<string>;
-    /**
-     * Name of the gateway target.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Configuration for the target endpoint. See `targetConfiguration` below.
-     *
-     * The following arguments are optional:
-     */
     targetConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfiguration>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTimeouts>;
 }

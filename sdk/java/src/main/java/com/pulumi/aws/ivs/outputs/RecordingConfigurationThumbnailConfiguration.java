@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RecordingConfigurationThumbnailConfiguration {
-    /**
-     * @return Thumbnail recording mode. Valid values: `DISABLED`, `INTERVAL`.
-     * 
-     */
     private @Nullable String recordingMode;
-    /**
-     * @return The targeted thumbnail-generation interval in seconds.
-     * 
-     */
     private @Nullable Integer targetIntervalSeconds;
 
     private RecordingConfigurationThumbnailConfiguration() {}
-    /**
-     * @return Thumbnail recording mode. Valid values: `DISABLED`, `INTERVAL`.
-     * 
-     */
     public Optional<String> recordingMode() {
         return Optional.ofNullable(this.recordingMode);
     }
-    /**
-     * @return The targeted thumbnail-generation interval in seconds.
-     * 
-     */
     public Optional<Integer> targetIntervalSeconds() {
         return Optional.ofNullable(this.targetIntervalSeconds);
     }

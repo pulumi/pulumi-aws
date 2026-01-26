@@ -56,9 +56,6 @@ class GetCodeSigningConfigResult:
     @_builtins.property
     @pulumi.getter(name="allowedPublishers")
     def allowed_publishers(self) -> Sequence['outputs.GetCodeSigningConfigAllowedPublisherResult']:
-        """
-        List of allowed publishers as signing profiles for this code signing configuration. See below.
-        """
         return pulumi.get(self, "allowed_publishers")
 
     @_builtins.property
@@ -69,17 +66,11 @@ class GetCodeSigningConfigResult:
     @_builtins.property
     @pulumi.getter(name="configId")
     def config_id(self) -> _builtins.str:
-        """
-        Unique identifier for the code signing configuration.
-        """
         return pulumi.get(self, "config_id")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Code signing configuration description.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -93,17 +84,11 @@ class GetCodeSigningConfigResult:
     @_builtins.property
     @pulumi.getter(name="lastModified")
     def last_modified(self) -> _builtins.str:
-        """
-        Date and time that the code signing configuration was last modified.
-        """
         return pulumi.get(self, "last_modified")
 
     @_builtins.property
     @pulumi.getter
     def policies(self) -> Sequence['outputs.GetCodeSigningConfigPolicyResult']:
-        """
-        List of code signing policies that control the validation failure action for signature mismatch or expiry. See below.
-        """
         return pulumi.get(self, "policies")
 
     @_builtins.property
@@ -132,102 +117,7 @@ def get_code_signing_config(arn: Optional[_builtins.str] = None,
                             region: Optional[_builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCodeSigningConfigResult:
     """
-    Provides details about an AWS Lambda Code Signing Config. Use this data source to retrieve information about an existing code signing configuration for Lambda functions to ensure code integrity and authenticity.
-
-    For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html).
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.lambda.get_code_signing_config(arn="arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b")
-    pulumi.export("configDetails", {
-        "configId": example.config_id,
-        "description": example.description,
-        "policy": example.policies[0].untrusted_artifact_on_deployment,
-    })
-    ```
-
-    ### Use in Lambda Function
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    # Get existing code signing configuration
-    security_config = aws.lambda.get_code_signing_config(arn=code_signing_config_arn)
-    # Create Lambda function with code signing
-    example = aws.lambda_.Function("example",
-        code=pulumi.FileArchive("function.zip"),
-        name="secure-function",
-        role=lambda_role["arn"],
-        handler="index.handler",
-        runtime=aws.lambda_.Runtime.NODE_JS20D_X,
-        code_signing_config_arn=security_config.arn,
-        tags={
-            "Environment": "production",
-            "Security": "code-signed",
-        })
-    ```
-
-    ### Validate Signing Profiles
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-    import pulumi_std as std
-
-    example = aws.lambda.get_code_signing_config(arn=code_signing_config_arn)
-    allowed_profiles = example.allowed_publishers[0].signing_profile_version_arns
-    required_profile = "arn:aws:signer:us-west-2:123456789012:/signing-profiles/MyProfile"
-    profile_allowed = std.contains(input=allowed_profiles,
-        element=required_profile).result
-    # Conditional resource creation based on signing profile validation
-    conditional = []
-    for range in [{"value": i} for i in range(0, 1 if profile_allowed else 0)]:
-        conditional.append(aws.lambda_.Function(f"conditional-{range['value']}",
-            code=pulumi.FileArchive("function.zip"),
-            name="conditional-function",
-            role=lambda_role["arn"],
-            handler="index.handler",
-            runtime=aws.lambda_.Runtime.PYTHON3D12,
-            code_signing_config_arn=example.arn))
-    pulumi.export("deploymentStatus", {
-        "profileAllowed": profile_allowed,
-        "functionCreated": profile_allowed,
-        "message": "Function deployed with valid signing profile" if profile_allowed else "Deployment blocked - signing profile not allowed",
-    })
-    ```
-
-    ### Multi-Environment Configuration
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    # Production code signing config
-    prod = aws.lambda.get_code_signing_config(arn="arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-prod-123")
-    # Development code signing config
-    dev = aws.lambda.get_code_signing_config(arn="arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-dev-456")
-    prod_policy = prod.policies[0].untrusted_artifact_on_deployment
-    dev_policy = dev.policies[0].untrusted_artifact_on_deployment
-    config_comparison = {
-        "prodEnforcement": prod_policy,
-        "devEnforcement": dev_policy,
-        "policiesMatch": prod_policy == dev_policy,
-    }
-    pulumi.export("environmentComparison", config_comparison)
-    ```
-
-
-    :param _builtins.str arn: ARN of the code signing configuration.
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -248,102 +138,7 @@ def get_code_signing_config_output(arn: Optional[pulumi.Input[_builtins.str]] = 
                                    region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCodeSigningConfigResult]:
     """
-    Provides details about an AWS Lambda Code Signing Config. Use this data source to retrieve information about an existing code signing configuration for Lambda functions to ensure code integrity and authenticity.
-
-    For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html).
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.lambda.get_code_signing_config(arn="arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b")
-    pulumi.export("configDetails", {
-        "configId": example.config_id,
-        "description": example.description,
-        "policy": example.policies[0].untrusted_artifact_on_deployment,
-    })
-    ```
-
-    ### Use in Lambda Function
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    # Get existing code signing configuration
-    security_config = aws.lambda.get_code_signing_config(arn=code_signing_config_arn)
-    # Create Lambda function with code signing
-    example = aws.lambda_.Function("example",
-        code=pulumi.FileArchive("function.zip"),
-        name="secure-function",
-        role=lambda_role["arn"],
-        handler="index.handler",
-        runtime=aws.lambda_.Runtime.NODE_JS20D_X,
-        code_signing_config_arn=security_config.arn,
-        tags={
-            "Environment": "production",
-            "Security": "code-signed",
-        })
-    ```
-
-    ### Validate Signing Profiles
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-    import pulumi_std as std
-
-    example = aws.lambda.get_code_signing_config(arn=code_signing_config_arn)
-    allowed_profiles = example.allowed_publishers[0].signing_profile_version_arns
-    required_profile = "arn:aws:signer:us-west-2:123456789012:/signing-profiles/MyProfile"
-    profile_allowed = std.contains(input=allowed_profiles,
-        element=required_profile).result
-    # Conditional resource creation based on signing profile validation
-    conditional = []
-    for range in [{"value": i} for i in range(0, 1 if profile_allowed else 0)]:
-        conditional.append(aws.lambda_.Function(f"conditional-{range['value']}",
-            code=pulumi.FileArchive("function.zip"),
-            name="conditional-function",
-            role=lambda_role["arn"],
-            handler="index.handler",
-            runtime=aws.lambda_.Runtime.PYTHON3D12,
-            code_signing_config_arn=example.arn))
-    pulumi.export("deploymentStatus", {
-        "profileAllowed": profile_allowed,
-        "functionCreated": profile_allowed,
-        "message": "Function deployed with valid signing profile" if profile_allowed else "Deployment blocked - signing profile not allowed",
-    })
-    ```
-
-    ### Multi-Environment Configuration
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    # Production code signing config
-    prod = aws.lambda.get_code_signing_config(arn="arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-prod-123")
-    # Development code signing config
-    dev = aws.lambda.get_code_signing_config(arn="arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-dev-456")
-    prod_policy = prod.policies[0].untrusted_artifact_on_deployment
-    dev_policy = dev.policies[0].untrusted_artifact_on_deployment
-    config_comparison = {
-        "prodEnforcement": prod_policy,
-        "devEnforcement": dev_policy,
-        "policiesMatch": prod_policy == dev_policy,
-    }
-    pulumi.export("environmentComparison", config_comparison)
-    ```
-
-
-    :param _builtins.str arn: ARN of the code signing configuration.
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

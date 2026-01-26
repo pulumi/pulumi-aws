@@ -14,17 +14,9 @@ public final class CanaryScheduleRetryConfigArgs extends com.pulumi.resources.Re
 
     public static final CanaryScheduleRetryConfigArgs Empty = new CanaryScheduleRetryConfigArgs();
 
-    /**
-     * Maximum number of retries. The value must be less than or equal to `2`. If `maxRetries` is `2`, `run_config.timeout_in_seconds` should be less than 600 seconds. Defaults to `0`.
-     * 
-     */
     @Import(name="maxRetries", required=true)
     private Output<Integer> maxRetries;
 
-    /**
-     * @return Maximum number of retries. The value must be less than or equal to `2`. If `maxRetries` is `2`, `run_config.timeout_in_seconds` should be less than 600 seconds. Defaults to `0`.
-     * 
-     */
     public Output<Integer> maxRetries() {
         return this.maxRetries;
     }
@@ -53,23 +45,11 @@ public final class CanaryScheduleRetryConfigArgs extends com.pulumi.resources.Re
             $ = new CanaryScheduleRetryConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maxRetries Maximum number of retries. The value must be less than or equal to `2`. If `maxRetries` is `2`, `run_config.timeout_in_seconds` should be less than 600 seconds. Defaults to `0`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxRetries(Output<Integer> maxRetries) {
             $.maxRetries = maxRetries;
             return this;
         }
 
-        /**
-         * @param maxRetries Maximum number of retries. The value must be less than or equal to `2`. If `maxRetries` is `2`, `run_config.timeout_in_seconds` should be less than 600 seconds. Defaults to `0`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxRetries(Integer maxRetries) {
             return maxRetries(Output.of(maxRetries));
         }

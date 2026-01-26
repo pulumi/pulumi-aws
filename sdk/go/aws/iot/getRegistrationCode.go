@@ -11,50 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Gets a registration code used to register a CA certificate with AWS IoT.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iot"
-//	"github.com/pulumi/pulumi-tls/sdk/v5/go/tls"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := iot.GetRegistrationCode(ctx, &iot.GetRegistrationCodeArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			verification, err := tls.NewPrivateKey(ctx, "verification", &tls.PrivateKeyArgs{
-//				Algorithm: pulumi.String("RSA"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = tls.NewCertRequest(ctx, "verification", &tls.CertRequestArgs{
-//				KeyAlgorithm:  "RSA",
-//				PrivateKeyPem: verification.PrivateKeyPem,
-//				Subject: tls.CertRequestSubjectArgs{
-//					map[string]interface{}{
-//						"commonName": example.RegistrationCode,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetRegistrationCode(ctx *pulumi.Context, args *GetRegistrationCodeArgs, opts ...pulumi.InvokeOption) (*GetRegistrationCodeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRegistrationCodeResult
@@ -67,16 +23,14 @@ func GetRegistrationCode(ctx *pulumi.Context, args *GetRegistrationCodeArgs, opt
 
 // A collection of arguments for invoking getRegistrationCode.
 type GetRegistrationCodeArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getRegistrationCode.
 type GetRegistrationCodeResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
-	// The CA certificate registration code.
+	Id               string `pulumi:"id"`
+	Region           string `pulumi:"region"`
 	RegistrationCode string `pulumi:"registrationCode"`
 }
 
@@ -91,7 +45,6 @@ func GetRegistrationCodeOutput(ctx *pulumi.Context, args GetRegistrationCodeOutp
 
 // A collection of arguments for invoking getRegistrationCode.
 type GetRegistrationCodeOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -123,7 +76,6 @@ func (o GetRegistrationCodeResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRegistrationCodeResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The CA certificate registration code.
 func (o GetRegistrationCodeResultOutput) RegistrationCode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRegistrationCodeResult) string { return v.RegistrationCode }).(pulumi.StringOutput)
 }

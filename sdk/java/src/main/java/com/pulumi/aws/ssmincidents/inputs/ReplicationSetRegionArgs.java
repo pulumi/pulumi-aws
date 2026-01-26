@@ -16,64 +16,30 @@ public final class ReplicationSetRegionArgs extends com.pulumi.resources.Resourc
 
     public static final ReplicationSetRegionArgs Empty = new ReplicationSetRegionArgs();
 
-    /**
-     * The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
-     * 
-     */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
-    /**
-     * @return The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
-     * 
-     */
     public Optional<Output<String>> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
 
-    /**
-     * The name of the Region, such as `ap-southeast-2`.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the Region, such as `ap-southeast-2`.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * The current status of the Region.
-     * * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return The current status of the Region.
-     * * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
-    /**
-     * More information about the status of a Region.
-     * 
-     */
     @Import(name="statusMessage")
     private @Nullable Output<String> statusMessage;
 
-    /**
-     * @return More information about the status of a Region.
-     * 
-     */
     public Optional<Output<String>> statusMessage() {
         return Optional.ofNullable(this.statusMessage);
     }
@@ -105,88 +71,38 @@ public final class ReplicationSetRegionArgs extends com.pulumi.resources.Resourc
             $ = new ReplicationSetRegionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kmsKeyArn The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(@Nullable Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
         }
 
-        /**
-         * @param kmsKeyArn The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
         }
 
-        /**
-         * @param name The name of the Region, such as `ap-southeast-2`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the Region, such as `ap-southeast-2`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param status The current status of the Region.
-         * * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The current status of the Region.
-         * * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
-        /**
-         * @param statusMessage More information about the status of a Region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusMessage(@Nullable Output<String> statusMessage) {
             $.statusMessage = statusMessage;
             return this;
         }
 
-        /**
-         * @param statusMessage More information about the status of a Region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusMessage(String statusMessage) {
             return statusMessage(Output.of(statusMessage));
         }

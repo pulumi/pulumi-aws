@@ -28,10 +28,6 @@ class TrustAnchorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a TrustAnchor resource.
-        :param pulumi.Input['TrustAnchorSourceArgs'] source: The source of trust, documented below
-        :param pulumi.Input[_builtins.bool] enabled: Whether or not the Trust Anchor should be enabled.
-        :param pulumi.Input[_builtins.str] name: The name of the Trust Anchor.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "source", source)
         if enabled is not None:
@@ -46,9 +42,6 @@ class TrustAnchorArgs:
     @_builtins.property
     @pulumi.getter
     def source(self) -> pulumi.Input['TrustAnchorSourceArgs']:
-        """
-        The source of trust, documented below
-        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -58,9 +51,6 @@ class TrustAnchorArgs:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether or not the Trust Anchor should be enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -70,9 +60,6 @@ class TrustAnchorArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the Trust Anchor.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -91,9 +78,6 @@ class TrustAnchorArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -113,12 +97,6 @@ class _TrustAnchorState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering TrustAnchor resources.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Trust Anchor
-        :param pulumi.Input[_builtins.bool] enabled: Whether or not the Trust Anchor should be enabled.
-        :param pulumi.Input[_builtins.str] name: The name of the Trust Anchor.
-        :param pulumi.Input['TrustAnchorSourceArgs'] source: The source of trust, documented below
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -138,9 +116,6 @@ class _TrustAnchorState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the Trust Anchor
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -150,9 +125,6 @@ class _TrustAnchorState:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether or not the Trust Anchor should be enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -162,9 +134,6 @@ class _TrustAnchorState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the Trust Anchor.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -183,9 +152,6 @@ class _TrustAnchorState:
     @_builtins.property
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input['TrustAnchorSourceArgs']]:
-        """
-        The source of trust, documented below
-        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -195,9 +161,6 @@ class _TrustAnchorState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -207,9 +170,6 @@ class _TrustAnchorState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -230,63 +190,9 @@ class TrustAnchor(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing a Roles Anywhere Trust Anchor.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.acmpca.CertificateAuthority("example",
-            permanent_deletion_time_in_days=7,
-            type="ROOT",
-            certificate_authority_configuration={
-                "key_algorithm": "RSA_4096",
-                "signing_algorithm": "SHA512WITHRSA",
-                "subject": {
-                    "common_name": "example.com",
-                },
-            })
-        current = aws.get_partition()
-        test = aws.acmpca.Certificate("test",
-            certificate_authority_arn=example.arn,
-            certificate_signing_request=example.certificate_signing_request,
-            signing_algorithm="SHA512WITHRSA",
-            template_arn=f"arn:{current.partition}:acm-pca:::template/RootCACertificate/V1",
-            validity={
-                "type": "YEARS",
-                "value": "1",
-            })
-        example_certificate_authority_certificate = aws.acmpca.CertificateAuthorityCertificate("example",
-            certificate_authority_arn=example.arn,
-            certificate=example_aws_acmpca_certificate["certificate"],
-            certificate_chain=example_aws_acmpca_certificate["certificateChain"])
-        test_trust_anchor = aws.rolesanywhere.TrustAnchor("test",
-            name="example",
-            source={
-                "source_data": {
-                    "acm_pca_arn": example.arn,
-                },
-                "source_type": "AWS_ACM_PCA",
-            },
-            opts = pulumi.ResourceOptions(depends_on=[example_certificate_authority_certificate]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_rolesanywhere_trust_anchor` using its `id`. For example:
-
-        ```sh
-        $ pulumi import aws:rolesanywhere/trustAnchor:TrustAnchor example 92b2fbbb-984d-41a3-a765-e3cbdb69ebb1
-        ```
-
+        Create a TrustAnchor resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] enabled: Whether or not the Trust Anchor should be enabled.
-        :param pulumi.Input[_builtins.str] name: The name of the Trust Anchor.
-        :param pulumi.Input[Union['TrustAnchorSourceArgs', 'TrustAnchorSourceArgsDict']] source: The source of trust, documented below
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -295,57 +201,7 @@ class TrustAnchor(pulumi.CustomResource):
                  args: TrustAnchorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing a Roles Anywhere Trust Anchor.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.acmpca.CertificateAuthority("example",
-            permanent_deletion_time_in_days=7,
-            type="ROOT",
-            certificate_authority_configuration={
-                "key_algorithm": "RSA_4096",
-                "signing_algorithm": "SHA512WITHRSA",
-                "subject": {
-                    "common_name": "example.com",
-                },
-            })
-        current = aws.get_partition()
-        test = aws.acmpca.Certificate("test",
-            certificate_authority_arn=example.arn,
-            certificate_signing_request=example.certificate_signing_request,
-            signing_algorithm="SHA512WITHRSA",
-            template_arn=f"arn:{current.partition}:acm-pca:::template/RootCACertificate/V1",
-            validity={
-                "type": "YEARS",
-                "value": "1",
-            })
-        example_certificate_authority_certificate = aws.acmpca.CertificateAuthorityCertificate("example",
-            certificate_authority_arn=example.arn,
-            certificate=example_aws_acmpca_certificate["certificate"],
-            certificate_chain=example_aws_acmpca_certificate["certificateChain"])
-        test_trust_anchor = aws.rolesanywhere.TrustAnchor("test",
-            name="example",
-            source={
-                "source_data": {
-                    "acm_pca_arn": example.arn,
-                },
-                "source_type": "AWS_ACM_PCA",
-            },
-            opts = pulumi.ResourceOptions(depends_on=[example_certificate_authority_certificate]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_rolesanywhere_trust_anchor` using its `id`. For example:
-
-        ```sh
-        $ pulumi import aws:rolesanywhere/trustAnchor:TrustAnchor example 92b2fbbb-984d-41a3-a765-e3cbdb69ebb1
-        ```
-
+        Create a TrustAnchor resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TrustAnchorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -408,12 +264,6 @@ class TrustAnchor(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Trust Anchor
-        :param pulumi.Input[_builtins.bool] enabled: Whether or not the Trust Anchor should be enabled.
-        :param pulumi.Input[_builtins.str] name: The name of the Trust Anchor.
-        :param pulumi.Input[Union['TrustAnchorSourceArgs', 'TrustAnchorSourceArgsDict']] source: The source of trust, documented below
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -431,25 +281,16 @@ class TrustAnchor(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the Trust Anchor
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether or not the Trust Anchor should be enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the Trust Anchor.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -460,24 +301,15 @@ class TrustAnchor(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def source(self) -> pulumi.Output['outputs.TrustAnchorSource']:
-        """
-        The source of trust, documented below
-        """
         return pulumi.get(self, "source")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

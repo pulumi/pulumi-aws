@@ -48,13 +48,7 @@ MYPY = False
 if not MYPY:
     class DirectoryConfigCertificateBasedAuthPropertiesArgsDict(TypedDict):
         certificate_authority_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the AWS Certificate Manager Private CA resource.
-        """
         status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The status of the certificate-based authentication properties. Valid values - ["DISABLED", "ENABLED", "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK"].
-        """
 elif False:
     DirectoryConfigCertificateBasedAuthPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -63,10 +57,6 @@ class DirectoryConfigCertificateBasedAuthPropertiesArgs:
     def __init__(__self__, *,
                  certificate_authority_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] certificate_authority_arn: The ARN of the AWS Certificate Manager Private CA resource.
-        :param pulumi.Input[_builtins.str] status: The status of the certificate-based authentication properties. Valid values - ["DISABLED", "ENABLED", "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK"].
-        """
         if certificate_authority_arn is not None:
             pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
         if status is not None:
@@ -75,9 +65,6 @@ class DirectoryConfigCertificateBasedAuthPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="certificateAuthorityArn")
     def certificate_authority_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the AWS Certificate Manager Private CA resource.
-        """
         return pulumi.get(self, "certificate_authority_arn")
 
     @certificate_authority_arn.setter
@@ -87,9 +74,6 @@ class DirectoryConfigCertificateBasedAuthPropertiesArgs:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The status of the certificate-based authentication properties. Valid values - ["DISABLED", "ENABLED", "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK"].
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -100,13 +84,7 @@ class DirectoryConfigCertificateBasedAuthPropertiesArgs:
 if not MYPY:
     class DirectoryConfigServiceAccountCredentialsArgsDict(TypedDict):
         account_name: pulumi.Input[_builtins.str]
-        """
-        User name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
-        """
         account_password: pulumi.Input[_builtins.str]
-        """
-        Password for the account.
-        """
 elif False:
     DirectoryConfigServiceAccountCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -115,19 +93,12 @@ class DirectoryConfigServiceAccountCredentialsArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  account_password: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] account_name: User name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
-        :param pulumi.Input[_builtins.str] account_password: Password for the account.
-        """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "account_password", account_password)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
     def account_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        User name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
-        """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
@@ -137,9 +108,6 @@ class DirectoryConfigServiceAccountCredentialsArgs:
     @_builtins.property
     @pulumi.getter(name="accountPassword")
     def account_password(self) -> pulumi.Input[_builtins.str]:
-        """
-        Password for the account.
-        """
         return pulumi.get(self, "account_password")
 
     @account_password.setter
@@ -150,25 +118,10 @@ class DirectoryConfigServiceAccountCredentialsArgs:
 if not MYPY:
     class FleetComputeCapacityArgsDict(TypedDict):
         available: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of currently available instances that can be used to stream sessions.
-        """
         desired_instances: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Desired number of streaming instances.
-        """
         desired_sessions: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.
-        """
         in_use: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of instances in use for streaming.
-        """
         running: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Total number of simultaneous streaming instances that are running.
-        """
 elif False:
     FleetComputeCapacityArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -180,13 +133,6 @@ class FleetComputeCapacityArgs:
                  desired_sessions: Optional[pulumi.Input[_builtins.int]] = None,
                  in_use: Optional[pulumi.Input[_builtins.int]] = None,
                  running: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.int] available: Number of currently available instances that can be used to stream sessions.
-        :param pulumi.Input[_builtins.int] desired_instances: Desired number of streaming instances.
-        :param pulumi.Input[_builtins.int] desired_sessions: Desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.
-        :param pulumi.Input[_builtins.int] in_use: Number of instances in use for streaming.
-        :param pulumi.Input[_builtins.int] running: Total number of simultaneous streaming instances that are running.
-        """
         if available is not None:
             pulumi.set(__self__, "available", available)
         if desired_instances is not None:
@@ -201,9 +147,6 @@ class FleetComputeCapacityArgs:
     @_builtins.property
     @pulumi.getter
     def available(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of currently available instances that can be used to stream sessions.
-        """
         return pulumi.get(self, "available")
 
     @available.setter
@@ -213,9 +156,6 @@ class FleetComputeCapacityArgs:
     @_builtins.property
     @pulumi.getter(name="desiredInstances")
     def desired_instances(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Desired number of streaming instances.
-        """
         return pulumi.get(self, "desired_instances")
 
     @desired_instances.setter
@@ -225,9 +165,6 @@ class FleetComputeCapacityArgs:
     @_builtins.property
     @pulumi.getter(name="desiredSessions")
     def desired_sessions(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.
-        """
         return pulumi.get(self, "desired_sessions")
 
     @desired_sessions.setter
@@ -237,9 +174,6 @@ class FleetComputeCapacityArgs:
     @_builtins.property
     @pulumi.getter(name="inUse")
     def in_use(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of instances in use for streaming.
-        """
         return pulumi.get(self, "in_use")
 
     @in_use.setter
@@ -249,9 +183,6 @@ class FleetComputeCapacityArgs:
     @_builtins.property
     @pulumi.getter
     def running(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Total number of simultaneous streaming instances that are running.
-        """
         return pulumi.get(self, "running")
 
     @running.setter
@@ -262,13 +193,7 @@ class FleetComputeCapacityArgs:
 if not MYPY:
     class FleetDomainJoinInfoArgsDict(TypedDict):
         directory_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Fully qualified name of the directory (for example, corp.example.com).
-        """
         organizational_unit_distinguished_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Distinguished name of the organizational unit for computer accounts.
-        """
 elif False:
     FleetDomainJoinInfoArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -277,10 +202,6 @@ class FleetDomainJoinInfoArgs:
     def __init__(__self__, *,
                  directory_name: Optional[pulumi.Input[_builtins.str]] = None,
                  organizational_unit_distinguished_name: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] directory_name: Fully qualified name of the directory (for example, corp.example.com).
-        :param pulumi.Input[_builtins.str] organizational_unit_distinguished_name: Distinguished name of the organizational unit for computer accounts.
-        """
         if directory_name is not None:
             pulumi.set(__self__, "directory_name", directory_name)
         if organizational_unit_distinguished_name is not None:
@@ -289,9 +210,6 @@ class FleetDomainJoinInfoArgs:
     @_builtins.property
     @pulumi.getter(name="directoryName")
     def directory_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Fully qualified name of the directory (for example, corp.example.com).
-        """
         return pulumi.get(self, "directory_name")
 
     @directory_name.setter
@@ -301,9 +219,6 @@ class FleetDomainJoinInfoArgs:
     @_builtins.property
     @pulumi.getter(name="organizationalUnitDistinguishedName")
     def organizational_unit_distinguished_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Distinguished name of the organizational unit for computer accounts.
-        """
         return pulumi.get(self, "organizational_unit_distinguished_name")
 
     @organizational_unit_distinguished_name.setter
@@ -314,13 +229,7 @@ class FleetDomainJoinInfoArgs:
 if not MYPY:
     class FleetVpcConfigArgsDict(TypedDict):
         security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Identifiers of the security groups for the fleet or image builder.
-        """
         subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
-        """
 elif False:
     FleetVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -329,10 +238,6 @@ class FleetVpcConfigArgs:
     def __init__(__self__, *,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Identifiers of the security groups for the fleet or image builder.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
-        """
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if subnet_ids is not None:
@@ -341,9 +246,6 @@ class FleetVpcConfigArgs:
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Identifiers of the security groups for the fleet or image builder.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -353,9 +255,6 @@ class FleetVpcConfigArgs:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -366,13 +265,7 @@ class FleetVpcConfigArgs:
 if not MYPY:
     class ImageBuilderAccessEndpointArgsDict(TypedDict):
         endpoint_type: pulumi.Input[_builtins.str]
-        """
-        Type of interface endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html).
-        """
         vpce_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier (ID) of the interface VPC endpoint.
-        """
 elif False:
     ImageBuilderAccessEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -381,10 +274,6 @@ class ImageBuilderAccessEndpointArgs:
     def __init__(__self__, *,
                  endpoint_type: pulumi.Input[_builtins.str],
                  vpce_id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] endpoint_type: Type of interface endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html).
-        :param pulumi.Input[_builtins.str] vpce_id: Identifier (ID) of the interface VPC endpoint.
-        """
         pulumi.set(__self__, "endpoint_type", endpoint_type)
         if vpce_id is not None:
             pulumi.set(__self__, "vpce_id", vpce_id)
@@ -392,9 +281,6 @@ class ImageBuilderAccessEndpointArgs:
     @_builtins.property
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Type of interface endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html).
-        """
         return pulumi.get(self, "endpoint_type")
 
     @endpoint_type.setter
@@ -404,9 +290,6 @@ class ImageBuilderAccessEndpointArgs:
     @_builtins.property
     @pulumi.getter(name="vpceId")
     def vpce_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier (ID) of the interface VPC endpoint.
-        """
         return pulumi.get(self, "vpce_id")
 
     @vpce_id.setter
@@ -417,13 +300,7 @@ class ImageBuilderAccessEndpointArgs:
 if not MYPY:
     class ImageBuilderDomainJoinInfoArgsDict(TypedDict):
         directory_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Fully qualified name of the directory (for example, corp.example.com).
-        """
         organizational_unit_distinguished_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Distinguished name of the organizational unit for computer accounts.
-        """
 elif False:
     ImageBuilderDomainJoinInfoArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -432,10 +309,6 @@ class ImageBuilderDomainJoinInfoArgs:
     def __init__(__self__, *,
                  directory_name: Optional[pulumi.Input[_builtins.str]] = None,
                  organizational_unit_distinguished_name: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] directory_name: Fully qualified name of the directory (for example, corp.example.com).
-        :param pulumi.Input[_builtins.str] organizational_unit_distinguished_name: Distinguished name of the organizational unit for computer accounts.
-        """
         if directory_name is not None:
             pulumi.set(__self__, "directory_name", directory_name)
         if organizational_unit_distinguished_name is not None:
@@ -444,9 +317,6 @@ class ImageBuilderDomainJoinInfoArgs:
     @_builtins.property
     @pulumi.getter(name="directoryName")
     def directory_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Fully qualified name of the directory (for example, corp.example.com).
-        """
         return pulumi.get(self, "directory_name")
 
     @directory_name.setter
@@ -456,9 +326,6 @@ class ImageBuilderDomainJoinInfoArgs:
     @_builtins.property
     @pulumi.getter(name="organizationalUnitDistinguishedName")
     def organizational_unit_distinguished_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Distinguished name of the organizational unit for computer accounts.
-        """
         return pulumi.get(self, "organizational_unit_distinguished_name")
 
     @organizational_unit_distinguished_name.setter
@@ -469,13 +336,7 @@ class ImageBuilderDomainJoinInfoArgs:
 if not MYPY:
     class ImageBuilderVpcConfigArgsDict(TypedDict):
         security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Identifiers of the security groups for the image builder or image builder.
-        """
         subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Identifier of the subnet to which a network interface is attached from the image builder instance.
-        """
 elif False:
     ImageBuilderVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -484,10 +345,6 @@ class ImageBuilderVpcConfigArgs:
     def __init__(__self__, *,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Identifiers of the security groups for the image builder or image builder.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: Identifier of the subnet to which a network interface is attached from the image builder instance.
-        """
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if subnet_ids is not None:
@@ -496,9 +353,6 @@ class ImageBuilderVpcConfigArgs:
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Identifiers of the security groups for the image builder or image builder.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -508,9 +362,6 @@ class ImageBuilderVpcConfigArgs:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Identifier of the subnet to which a network interface is attached from the image builder instance.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -521,14 +372,7 @@ class ImageBuilderVpcConfigArgs:
 if not MYPY:
     class StackAccessEndpointArgsDict(TypedDict):
         endpoint_type: pulumi.Input[_builtins.str]
-        """
-        Type of the interface endpoint.
-        See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
-        """
         vpce_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ID of the VPC in which the interface endpoint is used.
-        """
 elif False:
     StackAccessEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -537,11 +381,6 @@ class StackAccessEndpointArgs:
     def __init__(__self__, *,
                  endpoint_type: pulumi.Input[_builtins.str],
                  vpce_id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] endpoint_type: Type of the interface endpoint.
-               See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
-        :param pulumi.Input[_builtins.str] vpce_id: ID of the VPC in which the interface endpoint is used.
-        """
         pulumi.set(__self__, "endpoint_type", endpoint_type)
         if vpce_id is not None:
             pulumi.set(__self__, "vpce_id", vpce_id)
@@ -549,10 +388,6 @@ class StackAccessEndpointArgs:
     @_builtins.property
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Type of the interface endpoint.
-        See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
-        """
         return pulumi.get(self, "endpoint_type")
 
     @endpoint_type.setter
@@ -562,9 +397,6 @@ class StackAccessEndpointArgs:
     @_builtins.property
     @pulumi.getter(name="vpceId")
     def vpce_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the VPC in which the interface endpoint is used.
-        """
         return pulumi.get(self, "vpce_id")
 
     @vpce_id.setter
@@ -575,15 +407,7 @@ class StackAccessEndpointArgs:
 if not MYPY:
     class StackApplicationSettingsArgsDict(TypedDict):
         enabled: pulumi.Input[_builtins.bool]
-        """
-        Whether application settings should be persisted.
-        """
         settings_group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the settings group.
-        Required when `enabled` is `true`.
-        Can be up to 100 characters.
-        """
 elif False:
     StackApplicationSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -592,12 +416,6 @@ class StackApplicationSettingsArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
                  settings_group: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.bool] enabled: Whether application settings should be persisted.
-        :param pulumi.Input[_builtins.str] settings_group: Name of the settings group.
-               Required when `enabled` is `true`.
-               Can be up to 100 characters.
-        """
         pulumi.set(__self__, "enabled", enabled)
         if settings_group is not None:
             pulumi.set(__self__, "settings_group", settings_group)
@@ -605,9 +423,6 @@ class StackApplicationSettingsArgs:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[_builtins.bool]:
-        """
-        Whether application settings should be persisted.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -617,11 +432,6 @@ class StackApplicationSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="settingsGroup")
     def settings_group(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the settings group.
-        Required when `enabled` is `true`.
-        Can be up to 100 characters.
-        """
         return pulumi.get(self, "settings_group")
 
     @settings_group.setter
@@ -632,18 +442,8 @@ class StackApplicationSettingsArgs:
 if not MYPY:
     class StackStorageConnectorArgsDict(TypedDict):
         connector_type: pulumi.Input[_builtins.str]
-        """
-        Type of storage connector.
-        Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
-        """
         domains: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Names of the domains for the account.
-        """
         resource_identifier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the storage connector.
-        """
 elif False:
     StackStorageConnectorArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -653,12 +453,6 @@ class StackStorageConnectorArgs:
                  connector_type: pulumi.Input[_builtins.str],
                  domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  resource_identifier: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] connector_type: Type of storage connector.
-               Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domains: Names of the domains for the account.
-        :param pulumi.Input[_builtins.str] resource_identifier: ARN of the storage connector.
-        """
         pulumi.set(__self__, "connector_type", connector_type)
         if domains is not None:
             pulumi.set(__self__, "domains", domains)
@@ -668,10 +462,6 @@ class StackStorageConnectorArgs:
     @_builtins.property
     @pulumi.getter(name="connectorType")
     def connector_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Type of storage connector.
-        Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
-        """
         return pulumi.get(self, "connector_type")
 
     @connector_type.setter
@@ -681,9 +471,6 @@ class StackStorageConnectorArgs:
     @_builtins.property
     @pulumi.getter
     def domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Names of the domains for the account.
-        """
         return pulumi.get(self, "domains")
 
     @domains.setter
@@ -693,9 +480,6 @@ class StackStorageConnectorArgs:
     @_builtins.property
     @pulumi.getter(name="resourceIdentifier")
     def resource_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the storage connector.
-        """
         return pulumi.get(self, "resource_identifier")
 
     @resource_identifier.setter
@@ -706,10 +490,6 @@ class StackStorageConnectorArgs:
 if not MYPY:
     class StackStreamingExperienceSettingsArgsDict(TypedDict):
         preferred_protocol: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The preferred protocol that you want to use while streaming your application.
-        Valid values are `TCP` and `UDP`.
-        """
 elif False:
     StackStreamingExperienceSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -717,20 +497,12 @@ elif False:
 class StackStreamingExperienceSettingsArgs:
     def __init__(__self__, *,
                  preferred_protocol: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] preferred_protocol: The preferred protocol that you want to use while streaming your application.
-               Valid values are `TCP` and `UDP`.
-        """
         if preferred_protocol is not None:
             pulumi.set(__self__, "preferred_protocol", preferred_protocol)
 
     @_builtins.property
     @pulumi.getter(name="preferredProtocol")
     def preferred_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The preferred protocol that you want to use while streaming your application.
-        Valid values are `TCP` and `UDP`.
-        """
         return pulumi.get(self, "preferred_protocol")
 
     @preferred_protocol.setter
@@ -741,15 +513,7 @@ class StackStreamingExperienceSettingsArgs:
 if not MYPY:
     class StackUserSettingArgsDict(TypedDict):
         action: pulumi.Input[_builtins.str]
-        """
-        Action that is enabled or disabled.
-        Valid values are `AUTO_TIME_ZONE_REDIRECTION`, `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`, `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, or `PRINTING_TO_LOCAL_DEVICE`.
-        """
         permission: pulumi.Input[_builtins.str]
-        """
-        Whether the action is enabled or disabled.
-        Valid values are `ENABLED` or `DISABLED`.
-        """
 elif False:
     StackUserSettingArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -758,22 +522,12 @@ class StackUserSettingArgs:
     def __init__(__self__, *,
                  action: pulumi.Input[_builtins.str],
                  permission: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] action: Action that is enabled or disabled.
-               Valid values are `AUTO_TIME_ZONE_REDIRECTION`, `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`, `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, or `PRINTING_TO_LOCAL_DEVICE`.
-        :param pulumi.Input[_builtins.str] permission: Whether the action is enabled or disabled.
-               Valid values are `ENABLED` or `DISABLED`.
-        """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "permission", permission)
 
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Input[_builtins.str]:
-        """
-        Action that is enabled or disabled.
-        Valid values are `AUTO_TIME_ZONE_REDIRECTION`, `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`, `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, or `PRINTING_TO_LOCAL_DEVICE`.
-        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -783,10 +537,6 @@ class StackUserSettingArgs:
     @_builtins.property
     @pulumi.getter
     def permission(self) -> pulumi.Input[_builtins.str]:
-        """
-        Whether the action is enabled or disabled.
-        Valid values are `ENABLED` or `DISABLED`.
-        """
         return pulumi.get(self, "permission")
 
     @permission.setter

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage
     {
-        /// <summary>
-        /// Message to send to the user.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

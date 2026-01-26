@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class EventTargetHttpTarget
     {
-        /// <summary>
-        /// Enables you to specify HTTP headers to add to the request.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? HeaderParameters;
-        /// <summary>
-        /// The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*/POST/pets/*`).
-        /// </summary>
         public readonly ImmutableArray<string> PathParameterValues;
-        /// <summary>
-        /// Represents keys/values of query string parameters that are appended to the invoked endpoint.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? QueryStringParameters;
 
         [OutputConstructor]

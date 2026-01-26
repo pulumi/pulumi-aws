@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceDeploymentConfigurationCanaryConfiguration {
-    /**
-     * @return Number of minutes to wait before shifting all traffic to the new deployment. Valid range: 0-1440 minutes.
-     * 
-     */
     private @Nullable String canaryBakeTimeInMinutes;
-    /**
-     * @return Percentage of traffic to route to the canary deployment. Valid range: 0.1-100.0.
-     * 
-     */
     private @Nullable Double canaryPercent;
 
     private ServiceDeploymentConfigurationCanaryConfiguration() {}
-    /**
-     * @return Number of minutes to wait before shifting all traffic to the new deployment. Valid range: 0-1440 minutes.
-     * 
-     */
     public Optional<String> canaryBakeTimeInMinutes() {
         return Optional.ofNullable(this.canaryBakeTimeInMinutes);
     }
-    /**
-     * @return Percentage of traffic to route to the canary deployment. Valid range: 0.1-100.0.
-     * 
-     */
     public Optional<Double> canaryPercent() {
         return Optional.ofNullable(this.canaryPercent);
     }

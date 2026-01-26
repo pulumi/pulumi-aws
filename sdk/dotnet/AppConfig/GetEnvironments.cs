@@ -11,84 +11,12 @@ namespace Pulumi.Aws.AppConfig
 {
     public static class GetEnvironments
     {
-        /// <summary>
-        /// Provides access to all Environments for an AppConfig Application. This will allow you to pass Environment IDs to another
-        /// resource.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.AppConfig.GetEnvironments.Invoke(new()
-        ///     {
-        ///         ApplicationId = "a1d3rpe",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetEnvironmentsResult> InvokeAsync(GetEnvironmentsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentsResult>("aws:appconfig/getEnvironments:getEnvironments", args ?? new GetEnvironmentsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides access to all Environments for an AppConfig Application. This will allow you to pass Environment IDs to another
-        /// resource.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.AppConfig.GetEnvironments.Invoke(new()
-        ///     {
-        ///         ApplicationId = "a1d3rpe",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetEnvironmentsResult> Invoke(GetEnvironmentsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentsResult>("aws:appconfig/getEnvironments:getEnvironments", args ?? new GetEnvironmentsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides access to all Environments for an AppConfig Application. This will allow you to pass Environment IDs to another
-        /// resource.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.AppConfig.GetEnvironments.Invoke(new()
-        ///     {
-        ///         ApplicationId = "a1d3rpe",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetEnvironmentsResult> Invoke(GetEnvironmentsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentsResult>("aws:appconfig/getEnvironments:getEnvironments", args ?? new GetEnvironmentsInvokeArgs(), options.WithDefaults());
     }
@@ -96,15 +24,9 @@ namespace Pulumi.Aws.AppConfig
 
     public sealed class GetEnvironmentsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the AppConfig Application.
-        /// </summary>
         [Input("applicationId", required: true)]
         public string ApplicationId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -116,15 +38,9 @@ namespace Pulumi.Aws.AppConfig
 
     public sealed class GetEnvironmentsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the AppConfig Application.
-        /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -139,9 +55,6 @@ namespace Pulumi.Aws.AppConfig
     public sealed class GetEnvironmentsResult
     {
         public readonly string ApplicationId;
-        /// <summary>
-        /// Set of Environment IDs associated with this AppConfig Application.
-        /// </summary>
         public readonly ImmutableArray<string> EnvironmentIds;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

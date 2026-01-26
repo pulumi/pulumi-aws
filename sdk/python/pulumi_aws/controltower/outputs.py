@@ -26,27 +26,17 @@ class BaselineParameters(dict):
     def __init__(__self__, *,
                  key: _builtins.str,
                  value: _builtins.str):
-        """
-        :param _builtins.str key: The key of the parameter.
-        :param _builtins.str value: The value of the parameter.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> _builtins.str:
-        """
-        The key of the parameter.
-        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        The value of the parameter.
-        """
         return pulumi.get(self, "value")
 
 
@@ -98,27 +88,17 @@ class ControlTowerControlParameter(dict):
     def __init__(__self__, *,
                  key: _builtins.str,
                  value: _builtins.str):
-        """
-        :param _builtins.str key: The name of the parameter.
-        :param _builtins.str value: The value of the parameter.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> _builtins.str:
-        """
-        The name of the parameter.
-        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        The value of the parameter.
-        """
         return pulumi.get(self, "value")
 
 
@@ -126,18 +106,12 @@ class ControlTowerControlParameter(dict):
 class LandingZoneDriftStatus(dict):
     def __init__(__self__, *,
                  status: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str status: The drift status of the landing zone.
-        """
         if status is not None:
             pulumi.set(__self__, "status", status)
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[_builtins.str]:
-        """
-        The drift status of the landing zone.
-        """
         return pulumi.get(self, "status")
 
 

@@ -9,63 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LakeFormation
 {
-    /// <summary>
-    /// Resource for managing an AWS Lake Formation Data Cells Filter.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.LakeFormation.DataCellsFilter("example", new()
-    ///     {
-    ///         TableData = new Aws.LakeFormation.Inputs.DataCellsFilterTableDataArgs
-    ///         {
-    ///             DatabaseName = test.Name,
-    ///             Name = "example",
-    ///             TableCatalogId = current.AccountId,
-    ///             TableName = testAwsGlueCatalogTable.Name,
-    ///             ColumnNames = new[]
-    ///             {
-    ///                 "my_column",
-    ///             },
-    ///             RowFilter = new Aws.LakeFormation.Inputs.DataCellsFilterTableDataRowFilterArgs
-    ///             {
-    ///                 FilterExpression = "my_column='example'",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Lake Formation Data Cells Filter using the `database_name`, `name`, `table_catalog_id`, and `table_name` separated by `,`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:lakeformation/dataCellsFilter:DataCellsFilter example database_name,name,table_catalog_id,table_name
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:lakeformation/dataCellsFilter:DataCellsFilter")]
     public partial class DataCellsFilter : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Information about the data cells filter. See Table Data below for details.
-        /// </summary>
         [Output("tableData")]
         public Output<Outputs.DataCellsFilterTableData?> TableData { get; private set; } = null!;
 
@@ -118,15 +67,9 @@ namespace Pulumi.Aws.LakeFormation
 
     public sealed class DataCellsFilterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Information about the data cells filter. See Table Data below for details.
-        /// </summary>
         [Input("tableData")]
         public Input<Inputs.DataCellsFilterTableDataArgs>? TableData { get; set; }
 
@@ -141,15 +84,9 @@ namespace Pulumi.Aws.LakeFormation
 
     public sealed class DataCellsFilterState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Information about the data cells filter. See Table Data below for details.
-        /// </summary>
         [Input("tableData")]
         public Input<Inputs.DataCellsFilterTableDataGetArgs>? TableData { get; set; }
 

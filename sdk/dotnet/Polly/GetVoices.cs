@@ -11,126 +11,12 @@ namespace Pulumi.Aws.Polly
 {
     public static class GetVoices
     {
-        /// <summary>
-        /// Data source for managing an AWS Polly Voices.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Polly.GetVoices.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### With Language Code
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Polly.GetVoices.Invoke(new()
-        ///     {
-        ///         LanguageCode = "en-GB",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetVoicesResult> InvokeAsync(GetVoicesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVoicesResult>("aws:polly/getVoices:getVoices", args ?? new GetVoicesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Polly Voices.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Polly.GetVoices.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### With Language Code
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Polly.GetVoices.Invoke(new()
-        ///     {
-        ///         LanguageCode = "en-GB",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetVoicesResult> Invoke(GetVoicesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVoicesResult>("aws:polly/getVoices:getVoices", args ?? new GetVoicesInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Polly Voices.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Polly.GetVoices.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### With Language Code
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Polly.GetVoices.Invoke(new()
-        ///     {
-        ///         LanguageCode = "en-GB",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetVoicesResult> Invoke(GetVoicesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVoicesResult>("aws:polly/getVoices:getVoices", args ?? new GetVoicesInvokeArgs(), options.WithDefaults());
     }
@@ -138,36 +24,20 @@ namespace Pulumi.Aws.Polly
 
     public sealed class GetVoicesArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Engine used by Amazon Polly when processing input text for speech synthesis. Valid values are `Standard`, `Neural`, and `long-form`.
-        /// </summary>
         [Input("engine")]
         public string? Engine { get; set; }
 
-        /// <summary>
-        /// Whether to return any bilingual voices that use the specified language as an additional language.
-        /// </summary>
         [Input("includeAdditionalLanguageCodes")]
         public bool? IncludeAdditionalLanguageCodes { get; set; }
 
-        /// <summary>
-        /// Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
-        /// </summary>
         [Input("languageCode")]
         public string? LanguageCode { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("voices")]
         private List<Inputs.GetVoicesVoiceArgs>? _voices;
-
-        /// <summary>
-        /// List of voices with their properties. See `Voices` Attribute Reference below.
-        /// </summary>
         public List<Inputs.GetVoicesVoiceArgs> Voices
         {
             get => _voices ?? (_voices = new List<Inputs.GetVoicesVoiceArgs>());
@@ -182,36 +52,20 @@ namespace Pulumi.Aws.Polly
 
     public sealed class GetVoicesInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Engine used by Amazon Polly when processing input text for speech synthesis. Valid values are `Standard`, `Neural`, and `long-form`.
-        /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
 
-        /// <summary>
-        /// Whether to return any bilingual voices that use the specified language as an additional language.
-        /// </summary>
         [Input("includeAdditionalLanguageCodes")]
         public Input<bool>? IncludeAdditionalLanguageCodes { get; set; }
 
-        /// <summary>
-        /// Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
-        /// </summary>
         [Input("languageCode")]
         public Input<string>? LanguageCode { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("voices")]
         private InputList<Inputs.GetVoicesVoiceInputArgs>? _voices;
-
-        /// <summary>
-        /// List of voices with their properties. See `Voices` Attribute Reference below.
-        /// </summary>
         public InputList<Inputs.GetVoicesVoiceInputArgs> Voices
         {
             get => _voices ?? (_voices = new InputList<Inputs.GetVoicesVoiceInputArgs>());
@@ -229,19 +83,10 @@ namespace Pulumi.Aws.Polly
     public sealed class GetVoicesResult
     {
         public readonly string? Engine;
-        /// <summary>
-        /// Amazon Polly assigned voice ID.
-        /// </summary>
         public readonly string Id;
         public readonly bool? IncludeAdditionalLanguageCodes;
-        /// <summary>
-        /// Language code of the voice.
-        /// </summary>
         public readonly string? LanguageCode;
         public readonly string Region;
-        /// <summary>
-        /// List of voices with their properties. See `Voices` Attribute Reference below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetVoicesVoiceResult> Voices;
 
         [OutputConstructor]

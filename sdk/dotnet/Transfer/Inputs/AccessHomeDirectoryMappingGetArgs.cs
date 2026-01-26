@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Transfer.Inputs
 
     public sealed class AccessHomeDirectoryMappingGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Represents an entry and a target.
-        /// </summary>
         [Input("entry", required: true)]
         public Input<string> Entry { get; set; } = null!;
 
-        /// <summary>
-        /// Represents the map target.
-        /// </summary>
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;
 

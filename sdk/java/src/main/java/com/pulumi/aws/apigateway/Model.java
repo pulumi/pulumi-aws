@@ -14,149 +14,41 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Model for a REST API Gateway.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigateway.RestApi;
- * import com.pulumi.aws.apigateway.RestApiArgs;
- * import com.pulumi.aws.apigateway.Model;
- * import com.pulumi.aws.apigateway.ModelArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var myDemoAPI = new RestApi("myDemoAPI", RestApiArgs.builder()
- *             .name("MyDemoAPI")
- *             .description("This is my API for demonstration purposes")
- *             .build());
- * 
- *         var myDemoModel = new Model("myDemoModel", ModelArgs.builder()
- *             .restApi(myDemoAPI.id())
- *             .name("user")
- *             .description("a JSON schema")
- *             .contentType("application/json")
- *             .schema(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("type", "object")
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_api_gateway_model` using `REST-API-ID/NAME`. For example:
- * 
- * ```sh
- * $ pulumi import aws:apigateway/model:Model example 12345abcde/example
- * ```
- * 
- */
 @ResourceType(type="aws:apigateway/model:Model")
 public class Model extends com.pulumi.resources.CustomResource {
-    /**
-     * Content type of the model
-     * 
-     */
     @Export(name="contentType", refs={String.class}, tree="[0]")
     private Output<String> contentType;
 
-    /**
-     * @return Content type of the model
-     * 
-     */
     public Output<String> contentType() {
         return this.contentType;
     }
-    /**
-     * Description of the model
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the model
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Name of the model
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the model
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * ID of the associated REST API
-     * 
-     */
     @Export(name="restApi", refs={String.class}, tree="[0]")
     private Output<String> restApi;
 
-    /**
-     * @return ID of the associated REST API
-     * 
-     */
     public Output<String> restApi() {
         return this.restApi;
     }
-    /**
-     * Schema of the model in a JSON form
-     * 
-     */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> schema;
 
-    /**
-     * @return Schema of the model in a JSON form
-     * 
-     */
     public Output<Optional<String>> schema() {
         return Codegen.optional(this.schema);
     }

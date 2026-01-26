@@ -15,17 +15,9 @@ public final class FunctionEphemeralStorageArgs extends com.pulumi.resources.Res
 
     public static final FunctionEphemeralStorageArgs Empty = new FunctionEphemeralStorageArgs();
 
-    /**
-     * Amount of ephemeral storage (`/tmp`) in MB. Valid between 512 MB and 10,240 MB (10 GB).
-     * 
-     */
     @Import(name="size")
     private @Nullable Output<Integer> size;
 
-    /**
-     * @return Amount of ephemeral storage (`/tmp`) in MB. Valid between 512 MB and 10,240 MB (10 GB).
-     * 
-     */
     public Optional<Output<Integer>> size() {
         return Optional.ofNullable(this.size);
     }
@@ -54,23 +46,11 @@ public final class FunctionEphemeralStorageArgs extends com.pulumi.resources.Res
             $ = new FunctionEphemeralStorageArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param size Amount of ephemeral storage (`/tmp`) in MB. Valid between 512 MB and 10,240 MB (10 GB).
-         * 
-         * @return builder
-         * 
-         */
         public Builder size(@Nullable Output<Integer> size) {
             $.size = size;
             return this;
         }
 
-        /**
-         * @param size Amount of ephemeral storage (`/tmp`) in MB. Valid between 512 MB and 10,240 MB (10 GB).
-         * 
-         * @return builder
-         * 
-         */
         public Builder size(Integer size) {
             return size(Output.of(size));
         }

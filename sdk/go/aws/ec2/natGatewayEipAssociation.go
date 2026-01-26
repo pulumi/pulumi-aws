@@ -12,59 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS VPC NAT Gateway EIP Association.
-//
-// !> **WARNING:** You should not use the `ec2.NatGatewayEipAssociation` resource in conjunction with an `ec2.NatGateway` resource that has `secondaryAllocationIds` configured. Doing so may cause perpetual differences, and result in associations being overwritten.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewNatGatewayEipAssociation(ctx, "example", &ec2.NatGatewayEipAssociationArgs{
-//				AllocationId: pulumi.Any(exampleAwsEip.Id),
-//				NatGatewayId: pulumi.Any(exampleAwsNatGateway.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import VPC NAT Gateway EIP Association using the `nat_gateway_id,allocation_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2/natGatewayEipAssociation:NatGatewayEipAssociation example nat-1234567890abcdef1,eipalloc-1234567890abcdef1
-// ```
 type NatGatewayEipAssociation struct {
 	pulumi.CustomResourceState
 
-	// The ID of the Elastic IP Allocation to associate with the NAT Gateway.
-	AllocationId  pulumi.StringOutput `pulumi:"allocationId"`
-	AssociationId pulumi.StringOutput `pulumi:"associationId"`
-	// The ID of the NAT Gateway to associate the Elastic IP Allocation to.
-	//
-	// The following arguments are optional:
-	NatGatewayId pulumi.StringOutput `pulumi:"natGatewayId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringOutput                       `pulumi:"region"`
-	Timeouts NatGatewayEipAssociationTimeoutsPtrOutput `pulumi:"timeouts"`
+	AllocationId  pulumi.StringOutput                       `pulumi:"allocationId"`
+	AssociationId pulumi.StringOutput                       `pulumi:"associationId"`
+	NatGatewayId  pulumi.StringOutput                       `pulumi:"natGatewayId"`
+	Region        pulumi.StringOutput                       `pulumi:"region"`
+	Timeouts      NatGatewayEipAssociationTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewNatGatewayEipAssociation registers a new resource with the given unique name, arguments, and options.
@@ -103,29 +58,19 @@ func GetNatGatewayEipAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NatGatewayEipAssociation resources.
 type natGatewayEipAssociationState struct {
-	// The ID of the Elastic IP Allocation to associate with the NAT Gateway.
-	AllocationId  *string `pulumi:"allocationId"`
-	AssociationId *string `pulumi:"associationId"`
-	// The ID of the NAT Gateway to associate the Elastic IP Allocation to.
-	//
-	// The following arguments are optional:
-	NatGatewayId *string `pulumi:"natGatewayId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   *string                           `pulumi:"region"`
-	Timeouts *NatGatewayEipAssociationTimeouts `pulumi:"timeouts"`
+	AllocationId  *string                           `pulumi:"allocationId"`
+	AssociationId *string                           `pulumi:"associationId"`
+	NatGatewayId  *string                           `pulumi:"natGatewayId"`
+	Region        *string                           `pulumi:"region"`
+	Timeouts      *NatGatewayEipAssociationTimeouts `pulumi:"timeouts"`
 }
 
 type NatGatewayEipAssociationState struct {
-	// The ID of the Elastic IP Allocation to associate with the NAT Gateway.
 	AllocationId  pulumi.StringPtrInput
 	AssociationId pulumi.StringPtrInput
-	// The ID of the NAT Gateway to associate the Elastic IP Allocation to.
-	//
-	// The following arguments are optional:
-	NatGatewayId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringPtrInput
-	Timeouts NatGatewayEipAssociationTimeoutsPtrInput
+	NatGatewayId  pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
+	Timeouts      NatGatewayEipAssociationTimeoutsPtrInput
 }
 
 func (NatGatewayEipAssociationState) ElementType() reflect.Type {
@@ -133,28 +78,18 @@ func (NatGatewayEipAssociationState) ElementType() reflect.Type {
 }
 
 type natGatewayEipAssociationArgs struct {
-	// The ID of the Elastic IP Allocation to associate with the NAT Gateway.
-	AllocationId string `pulumi:"allocationId"`
-	// The ID of the NAT Gateway to associate the Elastic IP Allocation to.
-	//
-	// The following arguments are optional:
-	NatGatewayId string `pulumi:"natGatewayId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   *string                           `pulumi:"region"`
-	Timeouts *NatGatewayEipAssociationTimeouts `pulumi:"timeouts"`
+	AllocationId string                            `pulumi:"allocationId"`
+	NatGatewayId string                            `pulumi:"natGatewayId"`
+	Region       *string                           `pulumi:"region"`
+	Timeouts     *NatGatewayEipAssociationTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a NatGatewayEipAssociation resource.
 type NatGatewayEipAssociationArgs struct {
-	// The ID of the Elastic IP Allocation to associate with the NAT Gateway.
 	AllocationId pulumi.StringInput
-	// The ID of the NAT Gateway to associate the Elastic IP Allocation to.
-	//
-	// The following arguments are optional:
 	NatGatewayId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringPtrInput
-	Timeouts NatGatewayEipAssociationTimeoutsPtrInput
+	Region       pulumi.StringPtrInput
+	Timeouts     NatGatewayEipAssociationTimeoutsPtrInput
 }
 
 func (NatGatewayEipAssociationArgs) ElementType() reflect.Type {
@@ -244,7 +179,6 @@ func (o NatGatewayEipAssociationOutput) ToNatGatewayEipAssociationOutputWithCont
 	return o
 }
 
-// The ID of the Elastic IP Allocation to associate with the NAT Gateway.
 func (o NatGatewayEipAssociationOutput) AllocationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NatGatewayEipAssociation) pulumi.StringOutput { return v.AllocationId }).(pulumi.StringOutput)
 }
@@ -253,14 +187,10 @@ func (o NatGatewayEipAssociationOutput) AssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NatGatewayEipAssociation) pulumi.StringOutput { return v.AssociationId }).(pulumi.StringOutput)
 }
 
-// The ID of the NAT Gateway to associate the Elastic IP Allocation to.
-//
-// The following arguments are optional:
 func (o NatGatewayEipAssociationOutput) NatGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NatGatewayEipAssociation) pulumi.StringOutput { return v.NatGatewayId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o NatGatewayEipAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *NatGatewayEipAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

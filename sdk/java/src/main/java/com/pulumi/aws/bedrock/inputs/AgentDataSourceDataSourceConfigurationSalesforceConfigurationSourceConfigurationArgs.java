@@ -14,47 +14,23 @@ public final class AgentDataSourceDataSourceConfigurationSalesforceConfiguration
 
     public static final AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationArgs Empty = new AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationArgs();
 
-    /**
-     * The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
-     * 
-     */
     @Import(name="authType", required=true)
     private Output<String> authType;
 
-    /**
-     * @return The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
-     * 
-     */
     public Output<String> authType() {
         return this.authType;
     }
 
-    /**
-     * The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.{@literal @}-]{1,512}$.
-     * 
-     */
     @Import(name="credentialsSecretArn", required=true)
     private Output<String> credentialsSecretArn;
 
-    /**
-     * @return The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.{@literal @}-]{1,512}$.
-     * 
-     */
     public Output<String> credentialsSecretArn() {
         return this.credentialsSecretArn;
     }
 
-    /**
-     * The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
-     * 
-     */
     @Import(name="hostUrl", required=true)
     private Output<String> hostUrl;
 
-    /**
-     * @return The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
-     * 
-     */
     public Output<String> hostUrl() {
         return this.hostUrl;
     }
@@ -85,65 +61,29 @@ public final class AgentDataSourceDataSourceConfigurationSalesforceConfiguration
             $ = new AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authType The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authType(Output<String> authType) {
             $.authType = authType;
             return this;
         }
 
-        /**
-         * @param authType The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authType(String authType) {
             return authType(Output.of(authType));
         }
 
-        /**
-         * @param credentialsSecretArn The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.{@literal @}-]{1,512}$.
-         * 
-         * @return builder
-         * 
-         */
         public Builder credentialsSecretArn(Output<String> credentialsSecretArn) {
             $.credentialsSecretArn = credentialsSecretArn;
             return this;
         }
 
-        /**
-         * @param credentialsSecretArn The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.{@literal @}-]{1,512}$.
-         * 
-         * @return builder
-         * 
-         */
         public Builder credentialsSecretArn(String credentialsSecretArn) {
             return credentialsSecretArn(Output.of(credentialsSecretArn));
         }
 
-        /**
-         * @param hostUrl The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostUrl(Output<String> hostUrl) {
             $.hostUrl = hostUrl;
             return this;
         }
 
-        /**
-         * @param hostUrl The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostUrl(String hostUrl) {
             return hostUrl(Output.of(hostUrl));
         }

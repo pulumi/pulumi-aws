@@ -7,78 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Transcribe LanguageModel.
- *
- * > This resource can take a significant amount of time to provision. See Language Model [FAQ](https://aws.amazon.com/transcribe/faqs/) for more details.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["transcribe.amazonaws.com"],
- *         }],
- *     }],
- * });
- * const exampleRole = new aws.iam.Role("example", {
- *     name: "example",
- *     assumeRolePolicy: example.then(example => example.json),
- * });
- * const testPolicy = new aws.iam.RolePolicy("test_policy", {
- *     name: "example",
- *     role: exampleRole.id,
- *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: [
- *                 "s3:GetObject",
- *                 "s3:ListBucket",
- *             ],
- *             Effect: "Allow",
- *             Resource: ["*"],
- *         }],
- *     }),
- * });
- * const exampleBucket = new aws.s3.Bucket("example", {
- *     bucket: "example-transcribe",
- *     forceDestroy: true,
- * });
- * const object = new aws.s3.BucketObjectv2("object", {
- *     bucket: exampleBucket.id,
- *     key: "transcribe/test1.txt",
- *     source: new pulumi.asset.FileAsset("test1.txt"),
- * });
- * const exampleLanguageModel = new aws.transcribe.LanguageModel("example", {
- *     modelName: "example",
- *     baseModelName: "NarrowBand",
- *     inputDataConfig: {
- *         dataAccessRoleArn: exampleRole.arn,
- *         s3Uri: pulumi.interpolate`s3://${exampleBucket.id}/transcribe/`,
- *     },
- *     languageCode: "en-US",
- *     tags: {
- *         ENVIRONMENT: "development",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Transcribe LanguageModel using the `model_name`. For example:
- *
- * ```sh
- * $ pulumi import aws:transcribe/languageModel:LanguageModel example example-name
- * ```
- */
 export class LanguageModel extends pulumi.CustomResource {
     /**
      * Get an existing LanguageModel resource's state with the given name, ID, and optional extra
@@ -107,29 +35,11 @@ export class LanguageModel extends pulumi.CustomResource {
         return obj['__pulumiType'] === LanguageModel.__pulumiType;
     }
 
-    /**
-     * ARN of the LanguageModel.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Name of reference base model.
-     */
     declare public readonly baseModelName: pulumi.Output<string>;
-    /**
-     * The input data config for the LanguageModel. See Input Data Config for more details.
-     */
     declare public readonly inputDataConfig: pulumi.Output<outputs.transcribe.LanguageModelInputDataConfig>;
-    /**
-     * The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-     */
     declare public readonly languageCode: pulumi.Output<string>;
-    /**
-     * The model name.
-     */
     declare public readonly modelName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
@@ -187,29 +97,11 @@ export class LanguageModel extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LanguageModel resources.
  */
 export interface LanguageModelState {
-    /**
-     * ARN of the LanguageModel.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Name of reference base model.
-     */
     baseModelName?: pulumi.Input<string>;
-    /**
-     * The input data config for the LanguageModel. See Input Data Config for more details.
-     */
     inputDataConfig?: pulumi.Input<inputs.transcribe.LanguageModelInputDataConfig>;
-    /**
-     * The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-     */
     languageCode?: pulumi.Input<string>;
-    /**
-     * The model name.
-     */
     modelName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -219,25 +111,10 @@ export interface LanguageModelState {
  * The set of arguments for constructing a LanguageModel resource.
  */
 export interface LanguageModelArgs {
-    /**
-     * Name of reference base model.
-     */
     baseModelName: pulumi.Input<string>;
-    /**
-     * The input data config for the LanguageModel. See Input Data Config for more details.
-     */
     inputDataConfig: pulumi.Input<inputs.transcribe.LanguageModelInputDataConfig>;
-    /**
-     * The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-     */
     languageCode: pulumi.Input<string>;
-    /**
-     * The model name.
-     */
     modelName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

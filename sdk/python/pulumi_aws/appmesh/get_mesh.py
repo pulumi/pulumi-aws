@@ -62,17 +62,11 @@ class GetMeshResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the service mesh.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> _builtins.str:
-        """
-        Creation date of the service mesh.
-        """
         return pulumi.get(self, "created_date")
 
     @_builtins.property
@@ -86,9 +80,6 @@ class GetMeshResult:
     @_builtins.property
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> _builtins.str:
-        """
-        Last update date of the service mesh.
-        """
         return pulumi.get(self, "last_updated_date")
 
     @_builtins.property
@@ -109,25 +100,16 @@ class GetMeshResult:
     @_builtins.property
     @pulumi.getter(name="resourceOwner")
     def resource_owner(self) -> _builtins.str:
-        """
-        Resource owner's AWS account ID.
-        """
         return pulumi.get(self, "resource_owner")
 
     @_builtins.property
     @pulumi.getter
     def specs(self) -> Sequence['outputs.GetMeshSpecResult']:
-        """
-        Service mesh specification. See the `appmesh.Mesh` resource for details.
-        """
         return pulumi.get(self, "specs")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -155,31 +137,7 @@ def get_mesh(mesh_owner: Optional[_builtins.str] = None,
              tags: Optional[Mapping[str, _builtins.str]] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMeshResult:
     """
-    The App Mesh Mesh data source allows details of an App Mesh Mesh to be retrieved by its name and optionally the mesh_owner.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    simple = aws.appmesh.get_mesh(name="simpleapp")
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_caller_identity()
-    simple = aws.appmesh.get_mesh(name="simpleapp",
-        mesh_owner=current.account_id)
-    ```
-
-
-    :param _builtins.str mesh_owner: AWS account ID of the service mesh's owner.
-    :param _builtins.str name: Name of the service mesh.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['meshOwner'] = mesh_owner
@@ -206,31 +164,7 @@ def get_mesh_output(mesh_owner: Optional[pulumi.Input[Optional[_builtins.str]]] 
                     tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMeshResult]:
     """
-    The App Mesh Mesh data source allows details of an App Mesh Mesh to be retrieved by its name and optionally the mesh_owner.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    simple = aws.appmesh.get_mesh(name="simpleapp")
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_caller_identity()
-    simple = aws.appmesh.get_mesh(name="simpleapp",
-        mesh_owner=current.account_id)
-    ```
-
-
-    :param _builtins.str mesh_owner: AWS account ID of the service mesh's owner.
-    :param _builtins.str name: Name of the service mesh.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['meshOwner'] = mesh_owner

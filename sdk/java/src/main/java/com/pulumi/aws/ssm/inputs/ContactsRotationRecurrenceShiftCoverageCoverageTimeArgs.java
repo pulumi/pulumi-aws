@@ -16,32 +16,16 @@ public final class ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs exten
 
     public static final ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs Empty = new ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs();
 
-    /**
-     * (Required) The end time of the on-call shift. See Hand Off Time for more details.
-     * 
-     */
     @Import(name="end")
     private @Nullable Output<ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs> end;
 
-    /**
-     * @return (Required) The end time of the on-call shift. See Hand Off Time for more details.
-     * 
-     */
     public Optional<Output<ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs>> end() {
         return Optional.ofNullable(this.end);
     }
 
-    /**
-     * (Required) The start time of the on-call shift. See Hand Off Time for more details.
-     * 
-     */
     @Import(name="start")
     private @Nullable Output<ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs> start;
 
-    /**
-     * @return (Required) The start time of the on-call shift. See Hand Off Time for more details.
-     * 
-     */
     public Optional<Output<ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs>> start() {
         return Optional.ofNullable(this.start);
     }
@@ -71,44 +55,20 @@ public final class ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs exten
             $ = new ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param end (Required) The end time of the on-call shift. See Hand Off Time for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder end(@Nullable Output<ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs> end) {
             $.end = end;
             return this;
         }
 
-        /**
-         * @param end (Required) The end time of the on-call shift. See Hand Off Time for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder end(ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs end) {
             return end(Output.of(end));
         }
 
-        /**
-         * @param start (Required) The start time of the on-call shift. See Hand Off Time for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder start(@Nullable Output<ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs> start) {
             $.start = start;
             return this;
         }
 
-        /**
-         * @param start (Required) The start time of the on-call shift. See Hand Off Time for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder start(ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs start) {
             return start(Output.of(start));
         }

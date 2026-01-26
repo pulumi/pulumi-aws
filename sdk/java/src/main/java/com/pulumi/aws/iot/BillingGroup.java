@@ -19,69 +19,11 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an AWS IoT Billing Group.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iot.BillingGroup;
- * import com.pulumi.aws.iot.BillingGroupArgs;
- * import com.pulumi.aws.iot.inputs.BillingGroupPropertiesArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new BillingGroup("example", BillingGroupArgs.builder()
- *             .name("example")
- *             .properties(BillingGroupPropertiesArgs.builder()
- *                 .description("This is my billing group")
- *                 .build())
- *             .tags(Map.of("terraform", "true"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import IoT Billing Groups using the name. For example:
- * 
- * ```sh
- * $ pulumi import aws:iot/billingGroup:BillingGroup example example
- * ```
- * 
- */
 @ResourceType(type="aws:iot/billingGroup:BillingGroup")
 public class BillingGroup extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the Billing Group.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the Billing Group.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -91,59 +33,27 @@ public class BillingGroup extends com.pulumi.resources.CustomResource {
     public Output<List<BillingGroupMetadata>> metadatas() {
         return this.metadatas;
     }
-    /**
-     * The name of the Billing Group.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the Billing Group.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The Billing Group properties. Defined below.
-     * 
-     */
     @Export(name="properties", refs={BillingGroupProperties.class}, tree="[0]")
     private Output</* @Nullable */ BillingGroupProperties> properties;
 
-    /**
-     * @return The Billing Group properties. Defined below.
-     * 
-     */
     public Output<Optional<BillingGroupProperties>> properties() {
         return Codegen.optional(this.properties);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Key-value mapping of resource tags
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
@@ -153,17 +63,9 @@ public class BillingGroup extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The current version of the Billing Group record in the registry.
-     * 
-     */
     @Export(name="version", refs={Integer.class}, tree="[0]")
     private Output<Integer> version;
 
-    /**
-     * @return The current version of the Billing Group record in the registry.
-     * 
-     */
     public Output<Integer> version() {
         return this.version;
     }

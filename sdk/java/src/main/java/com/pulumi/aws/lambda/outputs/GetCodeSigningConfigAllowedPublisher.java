@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCodeSigningConfigAllowedPublisher {
-    /**
-     * @return Set of ARNs for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
-     * 
-     */
     private List<String> signingProfileVersionArns;
 
     private GetCodeSigningConfigAllowedPublisher() {}
-    /**
-     * @return Set of ARNs for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
-     * 
-     */
     public List<String> signingProfileVersionArns() {
         return this.signingProfileVersionArns;
     }

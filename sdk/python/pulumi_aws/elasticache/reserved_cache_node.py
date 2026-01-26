@@ -28,14 +28,6 @@ class ReservedCacheNodeArgs:
                  timeouts: Optional[pulumi.Input['ReservedCacheNodeTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ReservedCacheNode resource.
-        :param pulumi.Input[_builtins.str] reserved_cache_nodes_offering_id: ID of the reserved cache node offering to purchase.
-               To determine an `reserved_cache_nodes_offering_id`, see the `elasticache_get_reserved_cache_node_offering` data source.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.int] cache_node_count: Number of cache node instances to reserve.
-               Default value is `1`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "reserved_cache_nodes_offering_id", reserved_cache_nodes_offering_id)
         if cache_node_count is not None:
@@ -50,12 +42,6 @@ class ReservedCacheNodeArgs:
     @_builtins.property
     @pulumi.getter(name="reservedCacheNodesOfferingId")
     def reserved_cache_nodes_offering_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the reserved cache node offering to purchase.
-        To determine an `reserved_cache_nodes_offering_id`, see the `elasticache_get_reserved_cache_node_offering` data source.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "reserved_cache_nodes_offering_id")
 
     @reserved_cache_nodes_offering_id.setter
@@ -65,10 +51,6 @@ class ReservedCacheNodeArgs:
     @_builtins.property
     @pulumi.getter(name="cacheNodeCount")
     def cache_node_count(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of cache node instances to reserve.
-        Default value is `1`.
-        """
         return pulumi.get(self, "cache_node_count")
 
     @cache_node_count.setter
@@ -78,9 +60,6 @@ class ReservedCacheNodeArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -90,9 +69,6 @@ class ReservedCacheNodeArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -130,25 +106,6 @@ class _ReservedCacheNodeState:
                  usage_price: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Input properties used for looking up and filtering ReservedCacheNode resources.
-        :param pulumi.Input[_builtins.str] arn: ARN for the reserved cache node.
-        :param pulumi.Input[_builtins.int] cache_node_count: Number of cache node instances to reserve.
-               Default value is `1`.
-        :param pulumi.Input[_builtins.str] cache_node_type: Node type for the reserved cache nodes.
-        :param pulumi.Input[_builtins.str] duration: Duration of the reservation as an RFC3339 duration.
-        :param pulumi.Input[_builtins.float] fixed_price: Fixed price charged for this reserved cache node.
-        :param pulumi.Input[_builtins.str] offering_type: Offering type of this reserved cache node.
-        :param pulumi.Input[_builtins.str] product_description: Engine type for the reserved cache node.
-        :param pulumi.Input[Sequence[pulumi.Input['ReservedCacheNodeRecurringChargeArgs']]] recurring_charges: Recurring price charged to run this reserved cache node.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] reserved_cache_nodes_offering_id: ID of the reserved cache node offering to purchase.
-               To determine an `reserved_cache_nodes_offering_id`, see the `elasticache_get_reserved_cache_node_offering` data source.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] start_time: Time the reservation started.
-        :param pulumi.Input[_builtins.str] state: State of the reserved cache node.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.float] usage_price: Hourly price charged for this reserved cache node.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -186,9 +143,6 @@ class _ReservedCacheNodeState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN for the reserved cache node.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -198,10 +152,6 @@ class _ReservedCacheNodeState:
     @_builtins.property
     @pulumi.getter(name="cacheNodeCount")
     def cache_node_count(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of cache node instances to reserve.
-        Default value is `1`.
-        """
         return pulumi.get(self, "cache_node_count")
 
     @cache_node_count.setter
@@ -211,9 +161,6 @@ class _ReservedCacheNodeState:
     @_builtins.property
     @pulumi.getter(name="cacheNodeType")
     def cache_node_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Node type for the reserved cache nodes.
-        """
         return pulumi.get(self, "cache_node_type")
 
     @cache_node_type.setter
@@ -223,9 +170,6 @@ class _ReservedCacheNodeState:
     @_builtins.property
     @pulumi.getter
     def duration(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Duration of the reservation as an RFC3339 duration.
-        """
         return pulumi.get(self, "duration")
 
     @duration.setter
@@ -235,9 +179,6 @@ class _ReservedCacheNodeState:
     @_builtins.property
     @pulumi.getter(name="fixedPrice")
     def fixed_price(self) -> Optional[pulumi.Input[_builtins.float]]:
-        """
-        Fixed price charged for this reserved cache node.
-        """
         return pulumi.get(self, "fixed_price")
 
     @fixed_price.setter
@@ -247,9 +188,6 @@ class _ReservedCacheNodeState:
     @_builtins.property
     @pulumi.getter(name="offeringType")
     def offering_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Offering type of this reserved cache node.
-        """
         return pulumi.get(self, "offering_type")
 
     @offering_type.setter
@@ -259,9 +197,6 @@ class _ReservedCacheNodeState:
     @_builtins.property
     @pulumi.getter(name="productDescription")
     def product_description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Engine type for the reserved cache node.
-        """
         return pulumi.get(self, "product_description")
 
     @product_description.setter
@@ -271,9 +206,6 @@ class _ReservedCacheNodeState:
     @_builtins.property
     @pulumi.getter(name="recurringCharges")
     def recurring_charges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReservedCacheNodeRecurringChargeArgs']]]]:
-        """
-        Recurring price charged to run this reserved cache node.
-        """
         return pulumi.get(self, "recurring_charges")
 
     @recurring_charges.setter
@@ -283,9 +215,6 @@ class _ReservedCacheNodeState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -295,12 +224,6 @@ class _ReservedCacheNodeState:
     @_builtins.property
     @pulumi.getter(name="reservedCacheNodesOfferingId")
     def reserved_cache_nodes_offering_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the reserved cache node offering to purchase.
-        To determine an `reserved_cache_nodes_offering_id`, see the `elasticache_get_reserved_cache_node_offering` data source.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "reserved_cache_nodes_offering_id")
 
     @reserved_cache_nodes_offering_id.setter
@@ -310,9 +233,6 @@ class _ReservedCacheNodeState:
     @_builtins.property
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Time the reservation started.
-        """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
@@ -322,9 +242,6 @@ class _ReservedCacheNodeState:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        State of the reserved cache node.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -334,9 +251,6 @@ class _ReservedCacheNodeState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -346,9 +260,6 @@ class _ReservedCacheNodeState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -367,9 +278,6 @@ class _ReservedCacheNodeState:
     @_builtins.property
     @pulumi.getter(name="usagePrice")
     def usage_price(self) -> Optional[pulumi.Input[_builtins.float]]:
-        """
-        Hourly price charged for this reserved cache node.
-        """
         return pulumi.get(self, "usage_price")
 
     @usage_price.setter
@@ -390,46 +298,9 @@ class ReservedCacheNode(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['ReservedCacheNodeTimeoutsArgs', 'ReservedCacheNodeTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Manages an ElastiCache Reserved Cache Node.
-
-        > **NOTE:** Once created, a reservation is valid for the `duration` of the provided `offering_id` and cannot be deleted. Performing a `destroy` will only remove the resource from state. For more information see [ElastiCache Reserved Nodes Documentation](https://aws.amazon.com/elasticache/reserved-cache-nodes/) and [PurchaseReservedCacheNodesOffering](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_PurchaseReservedCacheNodesOffering.html).
-
-        > **NOTE:** Due to the expense of testing this resource, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.elasticache.get_reserved_cache_node_offering(cache_node_type="cache.t4g.small",
-            duration="P1Y",
-            offering_type="No Upfront",
-            product_description="redis")
-        example_reserved_cache_node = aws.elasticache.ReservedCacheNode("example",
-            reserved_cache_nodes_offering_id=example.offering_id,
-            id="optionalCustomReservationID",
-            cache_node_count=3)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import ElastiCache Reserved Cache Node using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:elasticache/reservedCacheNode:ReservedCacheNode example CustomReservationID
-        ```
-
+        Create a ReservedCacheNode resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] cache_node_count: Number of cache node instances to reserve.
-               Default value is `1`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] reserved_cache_nodes_offering_id: ID of the reserved cache node offering to purchase.
-               To determine an `reserved_cache_nodes_offering_id`, see the `elasticache_get_reserved_cache_node_offering` data source.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -438,36 +309,7 @@ class ReservedCacheNode(pulumi.CustomResource):
                  args: ReservedCacheNodeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an ElastiCache Reserved Cache Node.
-
-        > **NOTE:** Once created, a reservation is valid for the `duration` of the provided `offering_id` and cannot be deleted. Performing a `destroy` will only remove the resource from state. For more information see [ElastiCache Reserved Nodes Documentation](https://aws.amazon.com/elasticache/reserved-cache-nodes/) and [PurchaseReservedCacheNodesOffering](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_PurchaseReservedCacheNodesOffering.html).
-
-        > **NOTE:** Due to the expense of testing this resource, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.elasticache.get_reserved_cache_node_offering(cache_node_type="cache.t4g.small",
-            duration="P1Y",
-            offering_type="No Upfront",
-            product_description="redis")
-        example_reserved_cache_node = aws.elasticache.ReservedCacheNode("example",
-            reserved_cache_nodes_offering_id=example.offering_id,
-            id="optionalCustomReservationID",
-            cache_node_count=3)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import ElastiCache Reserved Cache Node using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:elasticache/reservedCacheNode:ReservedCacheNode example CustomReservationID
-        ```
-
+        Create a ReservedCacheNode resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ReservedCacheNodeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -548,25 +390,6 @@ class ReservedCacheNode(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN for the reserved cache node.
-        :param pulumi.Input[_builtins.int] cache_node_count: Number of cache node instances to reserve.
-               Default value is `1`.
-        :param pulumi.Input[_builtins.str] cache_node_type: Node type for the reserved cache nodes.
-        :param pulumi.Input[_builtins.str] duration: Duration of the reservation as an RFC3339 duration.
-        :param pulumi.Input[_builtins.float] fixed_price: Fixed price charged for this reserved cache node.
-        :param pulumi.Input[_builtins.str] offering_type: Offering type of this reserved cache node.
-        :param pulumi.Input[_builtins.str] product_description: Engine type for the reserved cache node.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReservedCacheNodeRecurringChargeArgs', 'ReservedCacheNodeRecurringChargeArgsDict']]]] recurring_charges: Recurring price charged to run this reserved cache node.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] reserved_cache_nodes_offering_id: ID of the reserved cache node offering to purchase.
-               To determine an `reserved_cache_nodes_offering_id`, see the `elasticache_get_reserved_cache_node_offering` data source.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] start_time: Time the reservation started.
-        :param pulumi.Input[_builtins.str] state: State of the reserved cache node.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.float] usage_price: Hourly price charged for this reserved cache node.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -593,117 +416,71 @@ class ReservedCacheNode(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN for the reserved cache node.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="cacheNodeCount")
     def cache_node_count(self) -> pulumi.Output[_builtins.int]:
-        """
-        Number of cache node instances to reserve.
-        Default value is `1`.
-        """
         return pulumi.get(self, "cache_node_count")
 
     @_builtins.property
     @pulumi.getter(name="cacheNodeType")
     def cache_node_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Node type for the reserved cache nodes.
-        """
         return pulumi.get(self, "cache_node_type")
 
     @_builtins.property
     @pulumi.getter
     def duration(self) -> pulumi.Output[_builtins.str]:
-        """
-        Duration of the reservation as an RFC3339 duration.
-        """
         return pulumi.get(self, "duration")
 
     @_builtins.property
     @pulumi.getter(name="fixedPrice")
     def fixed_price(self) -> pulumi.Output[_builtins.float]:
-        """
-        Fixed price charged for this reserved cache node.
-        """
         return pulumi.get(self, "fixed_price")
 
     @_builtins.property
     @pulumi.getter(name="offeringType")
     def offering_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Offering type of this reserved cache node.
-        """
         return pulumi.get(self, "offering_type")
 
     @_builtins.property
     @pulumi.getter(name="productDescription")
     def product_description(self) -> pulumi.Output[_builtins.str]:
-        """
-        Engine type for the reserved cache node.
-        """
         return pulumi.get(self, "product_description")
 
     @_builtins.property
     @pulumi.getter(name="recurringCharges")
     def recurring_charges(self) -> pulumi.Output[Sequence['outputs.ReservedCacheNodeRecurringCharge']]:
-        """
-        Recurring price charged to run this reserved cache node.
-        """
         return pulumi.get(self, "recurring_charges")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="reservedCacheNodesOfferingId")
     def reserved_cache_nodes_offering_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the reserved cache node offering to purchase.
-        To determine an `reserved_cache_nodes_offering_id`, see the `elasticache_get_reserved_cache_node_offering` data source.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "reserved_cache_nodes_offering_id")
 
     @_builtins.property
     @pulumi.getter(name="startTime")
     def start_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        Time the reservation started.
-        """
         return pulumi.get(self, "start_time")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[_builtins.str]:
-        """
-        State of the reserved cache node.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
@@ -714,8 +491,5 @@ class ReservedCacheNode(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="usagePrice")
     def usage_price(self) -> pulumi.Output[_builtins.float]:
-        """
-        Hourly price charged for this reserved cache node.
-        """
         return pulumi.get(self, "usage_price")
 

@@ -17,32 +17,16 @@ public final class GetResourceTagsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetResourceTagsArgs Empty = new GetResourceTagsArgs();
 
-    /**
-     * ID of the resource with the tags to list. See details below.
-     * 
-     */
     @Import(name="resourceId", required=true)
     private Output<String> resourceId;
 
-    /**
-     * @return ID of the resource with the tags to list. See details below.
-     * 
-     */
     public Output<String> resourceId() {
         return this.resourceId;
     }
 
-    /**
-     * Map of key=value pairs for each tag set on the resource.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of key=value pairs for each tag set on the resource.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -72,44 +56,20 @@ public final class GetResourceTagsArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetResourceTagsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param resourceId ID of the resource with the tags to list. See details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceId(Output<String> resourceId) {
             $.resourceId = resourceId;
             return this;
         }
 
-        /**
-         * @param resourceId ID of the resource with the tags to list. See details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceId(String resourceId) {
             return resourceId(Output.of(resourceId));
         }
 
-        /**
-         * @param tags Map of key=value pairs for each tag set on the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of key=value pairs for each tag set on the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

@@ -9,134 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ServiceDiscovery
 {
-    /// <summary>
-    /// Provides a Service Discovery Instance resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.Vpc("example", new()
-    ///     {
-    ///         CidrBlock = "10.0.0.0/16",
-    ///         EnableDnsSupport = true,
-    ///         EnableDnsHostnames = true,
-    ///     });
-    /// 
-    ///     var examplePrivateDnsNamespace = new Aws.ServiceDiscovery.PrivateDnsNamespace("example", new()
-    ///     {
-    ///         Name = "example.domain.local",
-    ///         Description = "example",
-    ///         Vpc = example.Id,
-    ///     });
-    /// 
-    ///     var exampleService = new Aws.ServiceDiscovery.Service("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         DnsConfig = new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigArgs
-    ///         {
-    ///             NamespaceId = examplePrivateDnsNamespace.Id,
-    ///             DnsRecords = new[]
-    ///             {
-    ///                 new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigDnsRecordArgs
-    ///                 {
-    ///                     Ttl = 10,
-    ///                     Type = "A",
-    ///                 },
-    ///             },
-    ///             RoutingPolicy = "MULTIVALUE",
-    ///         },
-    ///         HealthCheckCustomConfig = new Aws.ServiceDiscovery.Inputs.ServiceHealthCheckCustomConfigArgs
-    ///         {
-    ///             FailureThreshold = 1,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleInstance = new Aws.ServiceDiscovery.Instance("example", new()
-    ///     {
-    ///         InstanceId = "example-instance-id",
-    ///         ServiceId = exampleService.Id,
-    ///         Attributes = 
-    ///         {
-    ///             { "AWS_INSTANCE_IPV4", "172.18.0.1" },
-    ///             { "custom_attribute", "custom" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ServiceDiscovery.HttpNamespace("example", new()
-    ///     {
-    ///         Name = "example.domain.test",
-    ///         Description = "example",
-    ///     });
-    /// 
-    ///     var exampleService = new Aws.ServiceDiscovery.Service("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         NamespaceId = example.Id,
-    ///     });
-    /// 
-    ///     var exampleInstance = new Aws.ServiceDiscovery.Instance("example", new()
-    ///     {
-    ///         InstanceId = "example-instance-id",
-    ///         ServiceId = exampleService.Id,
-    ///         Attributes = 
-    ///         {
-    ///             { "AWS_EC2_INSTANCE_ID", "i-0abdg374kd892cj6dl" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Service Discovery Instance using the service ID and instance ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:servicediscovery/instance:Instance example 0123456789/i-0123
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:servicediscovery/instance:Instance")]
     public partial class Instance : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A map contains the attributes of the instance. Check the [doc](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#API_RegisterInstance_RequestSyntax) for the supported attributes and syntax.
-        /// </summary>
         [Output("attributes")]
         public Output<ImmutableDictionary<string, string>> Attributes { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the service instance.
-        /// </summary>
         [Output("instanceId")]
         public Output<string> InstanceId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the service that you want to use to create the instance.
-        /// </summary>
         [Output("serviceId")]
         public Output<string> ServiceId { get; private set; } = null!;
 
@@ -188,31 +72,18 @@ namespace Pulumi.Aws.ServiceDiscovery
     {
         [Input("attributes", required: true)]
         private InputMap<string>? _attributes;
-
-        /// <summary>
-        /// A map contains the attributes of the instance. Check the [doc](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#API_RegisterInstance_RequestSyntax) for the supported attributes and syntax.
-        /// </summary>
         public InputMap<string> Attributes
         {
             get => _attributes ?? (_attributes = new InputMap<string>());
             set => _attributes = value;
         }
 
-        /// <summary>
-        /// The ID of the service instance.
-        /// </summary>
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the service that you want to use to create the instance.
-        /// </summary>
         [Input("serviceId", required: true)]
         public Input<string> ServiceId { get; set; } = null!;
 
@@ -226,31 +97,18 @@ namespace Pulumi.Aws.ServiceDiscovery
     {
         [Input("attributes")]
         private InputMap<string>? _attributes;
-
-        /// <summary>
-        /// A map contains the attributes of the instance. Check the [doc](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#API_RegisterInstance_RequestSyntax) for the supported attributes and syntax.
-        /// </summary>
         public InputMap<string> Attributes
         {
             get => _attributes ?? (_attributes = new InputMap<string>());
             set => _attributes = value;
         }
 
-        /// <summary>
-        /// The ID of the service instance.
-        /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the service that you want to use to create the instance.
-        /// </summary>
         [Input("serviceId")]
         public Input<string>? ServiceId { get; set; }
 

@@ -17,407 +17,95 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS RDS (Relational Database) Export Task.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.rds.ExportTask;
- * import com.pulumi.aws.rds.ExportTaskArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ExportTask("example", ExportTaskArgs.builder()
- *             .exportTaskIdentifier("example")
- *             .sourceArn(exampleAwsDbSnapshot.dbSnapshotArn())
- *             .s3BucketName(exampleAwsS3Bucket.id())
- *             .iamRoleArn(exampleAwsIamRole.arn())
- *             .kmsKeyId(exampleAwsKmsKey.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Complete Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.Bucket;
- * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3.BucketAcl;
- * import com.pulumi.aws.s3.BucketAclArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Policy;
- * import com.pulumi.aws.iam.PolicyArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.rds.Instance;
- * import com.pulumi.aws.rds.InstanceArgs;
- * import com.pulumi.aws.rds.Snapshot;
- * import com.pulumi.aws.rds.SnapshotArgs;
- * import com.pulumi.aws.rds.ExportTask;
- * import com.pulumi.aws.rds.ExportTaskArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
- *             .bucket("example")
- *             .forceDestroy(true)
- *             .build());
- * 
- *         var exampleBucketAcl = new BucketAcl("exampleBucketAcl", BucketAclArgs.builder()
- *             .bucket(exampleBucket.id())
- *             .acl("private")
- *             .build());
- * 
- *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
- *             .name("example")
- *             .assumeRolePolicy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Version", "2012-10-17"),
- *                     jsonProperty("Statement", jsonArray(jsonObject(
- *                         jsonProperty("Action", "sts:AssumeRole"),
- *                         jsonProperty("Effect", "Allow"),
- *                         jsonProperty("Sid", ""),
- *                         jsonProperty("Principal", jsonObject(
- *                             jsonProperty("Service", "export.rds.amazonaws.com")
- *                         ))
- *                     )))
- *                 )))
- *             .build());
- * 
- *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(            
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .actions("s3:ListAllMyBuckets")
- *                     .resources("*")
- *                     .build(),
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .actions(                    
- *                         "s3:GetBucketLocation",
- *                         "s3:ListBucket")
- *                     .resources(exampleBucket.arn())
- *                     .build(),
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .actions(                    
- *                         "s3:GetObject",
- *                         "s3:PutObject",
- *                         "s3:DeleteObject")
- *                     .resources(exampleBucket.arn().applyValue(_arn -> String.format("%s/*", _arn)))
- *                     .build())
- *             .build());
- * 
- *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()
- *             .name("example")
- *             .policy(example.applyValue(_example -> _example.json()))
- *             .build());
- * 
- *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
- *             .role(exampleRole.name())
- *             .policyArn(examplePolicy.arn())
- *             .build());
- * 
- *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
- *             .deletionWindowInDays(10)
- *             .build());
- * 
- *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()
- *             .identifier("example")
- *             .allocatedStorage(10)
- *             .dbName("test")
- *             .engine("mysql")
- *             .engineVersion("5.7")
- *             .instanceClass("db.t3.micro")
- *             .username("foo")
- *             .password("foobarbaz")
- *             .parameterGroupName("default.mysql5.7")
- *             .skipFinalSnapshot(true)
- *             .build());
- * 
- *         var exampleSnapshot = new Snapshot("exampleSnapshot", SnapshotArgs.builder()
- *             .dbInstanceIdentifier(exampleInstance.identifier())
- *             .dbSnapshotIdentifier("example")
- *             .build());
- * 
- *         var exampleExportTask = new ExportTask("exampleExportTask", ExportTaskArgs.builder()
- *             .exportTaskIdentifier("example")
- *             .sourceArn(exampleSnapshot.dbSnapshotArn())
- *             .s3BucketName(exampleBucket.id())
- *             .iamRoleArn(exampleRole.arn())
- *             .kmsKeyId(exampleKey.arn())
- *             .exportOnlies("database")
- *             .s3Prefix("my_prefix/example")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import a RDS (Relational Database) Export Task using the `export_task_identifier`. For example:
- * 
- * ```sh
- * $ pulumi import aws:rds/exportTask:ExportTask example example
- * ```
- * 
- */
 @ResourceType(type="aws:rds/exportTask:ExportTask")
 public class ExportTask extends com.pulumi.resources.CustomResource {
-    /**
-     * Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
-     * 
-     */
     @Export(name="exportOnlies", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> exportOnlies;
 
-    /**
-     * @return Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
-     * 
-     */
     public Output<Optional<List<String>>> exportOnlies() {
         return Codegen.optional(this.exportOnlies);
     }
-    /**
-     * Unique identifier for the snapshot export task.
-     * 
-     */
     @Export(name="exportTaskIdentifier", refs={String.class}, tree="[0]")
     private Output<String> exportTaskIdentifier;
 
-    /**
-     * @return Unique identifier for the snapshot export task.
-     * 
-     */
     public Output<String> exportTaskIdentifier() {
         return this.exportTaskIdentifier;
     }
-    /**
-     * Reason the export failed, if it failed.
-     * 
-     */
     @Export(name="failureCause", refs={String.class}, tree="[0]")
     private Output<String> failureCause;
 
-    /**
-     * @return Reason the export failed, if it failed.
-     * 
-     */
     public Output<String> failureCause() {
         return this.failureCause;
     }
-    /**
-     * ARN of the IAM role to use for writing to the Amazon S3 bucket.
-     * 
-     */
     @Export(name="iamRoleArn", refs={String.class}, tree="[0]")
     private Output<String> iamRoleArn;
 
-    /**
-     * @return ARN of the IAM role to use for writing to the Amazon S3 bucket.
-     * 
-     */
     public Output<String> iamRoleArn() {
         return this.iamRoleArn;
     }
-    /**
-     * ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
-     * 
-     */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
-    /**
-     * @return ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
-     * 
-     */
     public Output<String> kmsKeyId() {
         return this.kmsKeyId;
     }
-    /**
-     * Progress of the snapshot export task as a percentage.
-     * 
-     */
     @Export(name="percentProgress", refs={Integer.class}, tree="[0]")
     private Output<Integer> percentProgress;
 
-    /**
-     * @return Progress of the snapshot export task as a percentage.
-     * 
-     */
     public Output<Integer> percentProgress() {
         return this.percentProgress;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Name of the Amazon S3 bucket to export the snapshot to.
-     * 
-     */
     @Export(name="s3BucketName", refs={String.class}, tree="[0]")
     private Output<String> s3BucketName;
 
-    /**
-     * @return Name of the Amazon S3 bucket to export the snapshot to.
-     * 
-     */
     public Output<String> s3BucketName() {
         return this.s3BucketName;
     }
-    /**
-     * Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
-     * 
-     */
     @Export(name="s3Prefix", refs={String.class}, tree="[0]")
     private Output<String> s3Prefix;
 
-    /**
-     * @return Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
-     * 
-     */
     public Output<String> s3Prefix() {
         return this.s3Prefix;
     }
-    /**
-     * Time that the snapshot was created.
-     * 
-     */
     @Export(name="snapshotTime", refs={String.class}, tree="[0]")
     private Output<String> snapshotTime;
 
-    /**
-     * @return Time that the snapshot was created.
-     * 
-     */
     public Output<String> snapshotTime() {
         return this.snapshotTime;
     }
-    /**
-     * Amazon Resource Name (ARN) of the snapshot to export.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="sourceArn", refs={String.class}, tree="[0]")
     private Output<String> sourceArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the snapshot to export.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> sourceArn() {
         return this.sourceArn;
     }
-    /**
-     * Type of source for the export.
-     * 
-     */
     @Export(name="sourceType", refs={String.class}, tree="[0]")
     private Output<String> sourceType;
 
-    /**
-     * @return Type of source for the export.
-     * 
-     */
     public Output<String> sourceType() {
         return this.sourceType;
     }
-    /**
-     * Status of the export task.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return Status of the export task.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * Time that the snapshot export task completed.
-     * 
-     */
     @Export(name="taskEndTime", refs={String.class}, tree="[0]")
     private Output<String> taskEndTime;
 
-    /**
-     * @return Time that the snapshot export task completed.
-     * 
-     */
     public Output<String> taskEndTime() {
         return this.taskEndTime;
     }
-    /**
-     * Time that the snapshot export task started.
-     * 
-     */
     @Export(name="taskStartTime", refs={String.class}, tree="[0]")
     private Output<String> taskStartTime;
 
-    /**
-     * @return Time that the snapshot export task started.
-     * 
-     */
     public Output<String> taskStartTime() {
         return this.taskStartTime;
     }
@@ -427,17 +115,9 @@ public class ExportTask extends com.pulumi.resources.CustomResource {
     public Output<Optional<ExportTaskTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * Warning about the snapshot export task, if any.
-     * 
-     */
     @Export(name="warningMessage", refs={String.class}, tree="[0]")
     private Output<String> warningMessage;
 
-    /**
-     * @return Warning about the snapshot export task, if any.
-     * 
-     */
     public Output<String> warningMessage() {
         return this.warningMessage;
     }

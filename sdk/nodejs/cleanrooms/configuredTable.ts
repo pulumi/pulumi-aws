@@ -7,54 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a AWS Clean Rooms configured table. Configured tables are used to represent references to existing tables in the AWS Glue Data Catalog.
- *
- * ## Example Usage
- *
- * ### Configured table with tags
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testConfiguredTable = new aws.cleanrooms.ConfiguredTable("test_configured_table", {
- *     name: "pulumi-example-table",
- *     description: "I made this table with Pulumi!",
- *     analysisMethod: "DIRECT_QUERY",
- *     allowedColumns: [
- *         "column1",
- *         "column2",
- *         "column3",
- *     ],
- *     tableReference: {
- *         databaseName: "example_database",
- *         tableName: "example_table",
- *     },
- *     tags: {
- *         Project: "Pulumi",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * * `id` - (String) ID of the cleanrooms configured table.
- *
- * #### Optional
- *
- * * `account_id` (String) AWS Account where this resource is managed.
- *
- * * `region` (String) Region where this resource is managed.
- *
- * Using `pulumi import`, import `aws_cleanrooms_configured_table` using the `id`. For example:
- *
- * % pulumi import aws_cleanrooms_configured_table.table 1234abcd-12ab-34cd-56ef-1234567890ab
- */
 export class ConfiguredTable extends pulumi.CustomResource {
     /**
      * Get an existing ConfiguredTable resource's state with the given name, ID, and optional extra
@@ -83,48 +35,16 @@ export class ConfiguredTable extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConfiguredTable.__pulumiType;
     }
 
-    /**
-     * The columns of the references table which will be included in the configured table.
-     */
     declare public readonly allowedColumns: pulumi.Output<string[]>;
-    /**
-     * The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
-     */
     declare public readonly analysisMethod: pulumi.Output<string>;
-    /**
-     * The ARN of the configured table.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The date and time the configured table was created.
-     */
     declare public /*out*/ readonly createTime: pulumi.Output<string>;
-    /**
-     * A description for the configured table.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * The name of the configured table.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A reference to the AWS Glue table which will be used to create the configured table.
-     * * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-     * * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
-     */
     declare public readonly tableReference: pulumi.Output<outputs.cleanrooms.ConfiguredTableTableReference>;
-    /**
-     * Key value pairs which tag the configured table.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The date and time the configured table was last updated.
-     */
     declare public /*out*/ readonly updateTime: pulumi.Output<string>;
 
     /**
@@ -183,48 +103,16 @@ export class ConfiguredTable extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ConfiguredTable resources.
  */
 export interface ConfiguredTableState {
-    /**
-     * The columns of the references table which will be included in the configured table.
-     */
     allowedColumns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
-     */
     analysisMethod?: pulumi.Input<string>;
-    /**
-     * The ARN of the configured table.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The date and time the configured table was created.
-     */
     createTime?: pulumi.Input<string>;
-    /**
-     * A description for the configured table.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The name of the configured table.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A reference to the AWS Glue table which will be used to create the configured table.
-     * * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-     * * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
-     */
     tableReference?: pulumi.Input<inputs.cleanrooms.ConfiguredTableTableReference>;
-    /**
-     * Key value pairs which tag the configured table.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The date and time the configured table was last updated.
-     */
     updateTime?: pulumi.Input<string>;
 }
 
@@ -232,34 +120,11 @@ export interface ConfiguredTableState {
  * The set of arguments for constructing a ConfiguredTable resource.
  */
 export interface ConfiguredTableArgs {
-    /**
-     * The columns of the references table which will be included in the configured table.
-     */
     allowedColumns: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
-     */
     analysisMethod: pulumi.Input<string>;
-    /**
-     * A description for the configured table.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The name of the configured table.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A reference to the AWS Glue table which will be used to create the configured table.
-     * * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-     * * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
-     */
     tableReference: pulumi.Input<inputs.cleanrooms.ConfiguredTableTableReference>;
-    /**
-     * Key value pairs which tag the configured table.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VirtualGatewaySpecListenerTls {
-    /**
-     * @return Listener&#39;s TLS certificate.
-     * 
-     */
     private VirtualGatewaySpecListenerTlsCertificate certificate;
-    /**
-     * @return Listener&#39;s TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
-     * 
-     */
     private String mode;
-    /**
-     * @return Listener&#39;s Transport Layer Security (TLS) validation context.
-     * 
-     */
     private @Nullable VirtualGatewaySpecListenerTlsValidation validation;
 
     private VirtualGatewaySpecListenerTls() {}
-    /**
-     * @return Listener&#39;s TLS certificate.
-     * 
-     */
     public VirtualGatewaySpecListenerTlsCertificate certificate() {
         return this.certificate;
     }
-    /**
-     * @return Listener&#39;s TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
-     * 
-     */
     public String mode() {
         return this.mode;
     }
-    /**
-     * @return Listener&#39;s Transport Layer Security (TLS) validation context.
-     * 
-     */
     public Optional<VirtualGatewaySpecListenerTlsValidation> validation() {
         return Optional.ofNullable(this.validation);
     }

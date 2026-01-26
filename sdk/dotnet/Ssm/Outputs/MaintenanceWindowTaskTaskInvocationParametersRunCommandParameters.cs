@@ -13,49 +13,16 @@ namespace Pulumi.Aws.Ssm.Outputs
     [OutputType]
     public sealed class MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters
     {
-        /// <summary>
-        /// Configuration options for sending command output to CloudWatch Logs. Documented below.
-        /// </summary>
         public readonly Outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig? CloudwatchConfig;
-        /// <summary>
-        /// Information about the command(s) to execute.
-        /// </summary>
         public readonly string? Comment;
-        /// <summary>
-        /// The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
-        /// </summary>
         public readonly string? DocumentHash;
-        /// <summary>
-        /// SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
-        /// </summary>
         public readonly string? DocumentHashType;
-        /// <summary>
-        /// The version of an Automation document to use during task execution.
-        /// </summary>
         public readonly string? DocumentVersion;
-        /// <summary>
-        /// Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
-        /// </summary>
         public readonly Outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig? NotificationConfig;
-        /// <summary>
-        /// The name of the Amazon S3 bucket.
-        /// </summary>
         public readonly string? OutputS3Bucket;
-        /// <summary>
-        /// The Amazon S3 bucket subfolder.
-        /// </summary>
         public readonly string? OutputS3KeyPrefix;
-        /// <summary>
-        /// The parameters for the RUN_COMMAND task execution. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter> Parameters;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
-        /// </summary>
         public readonly string? ServiceRoleArn;
-        /// <summary>
-        /// If this time is reached and the command has not already started executing, it doesn't run.
-        /// </summary>
         public readonly int? TimeoutSeconds;
 
         [OutputConstructor]

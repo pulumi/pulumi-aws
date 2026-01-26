@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Location.Outputs
     [OutputType]
     public sealed class GetMapConfigurationResult
     {
-        /// <summary>
-        /// The map style selected from an available data provider.
-        /// </summary>
         public readonly string Style;
 
         [OutputConstructor]

@@ -17,30 +17,22 @@ public final class ApiKeyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ApiKeyArgs Empty = new ApiKeyArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
     /**
-     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. Changing this forces a new resource to be created. **NOTE:** WAFv2 API Keys deployed for `CLOUDFRONT` must be created within the `us-east-1` region.
+     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are CLOUDFRONT or REGIONAL.
      * 
      */
     @Import(name="scope", required=true)
     private Output<String> scope;
 
     /**
-     * @return Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. Changing this forces a new resource to be created. **NOTE:** WAFv2 API Keys deployed for `CLOUDFRONT` must be created within the `us-east-1` region.
+     * @return Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are CLOUDFRONT or REGIONAL.
      * 
      */
     public Output<String> scope() {
@@ -48,14 +40,14 @@ public final class ApiKeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The domains that you want to be able to use the API key with, for example `example.com`. You can specify up to 5 domains. Changing this forces a new resource to be created.
+     * The domains that you want to be able to use the API key with, for example example.com. Maximum of 5 domains.
      * 
      */
     @Import(name="tokenDomains", required=true)
     private Output<List<String>> tokenDomains;
 
     /**
-     * @return The domains that you want to be able to use the API key with, for example `example.com`. You can specify up to 5 domains. Changing this forces a new resource to be created.
+     * @return The domains that you want to be able to use the API key with, for example example.com. Maximum of 5 domains.
      * 
      */
     public Output<List<String>> tokenDomains() {
@@ -88,29 +80,17 @@ public final class ApiKeyArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ApiKeyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
         /**
-         * @param scope Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. Changing this forces a new resource to be created. **NOTE:** WAFv2 API Keys deployed for `CLOUDFRONT` must be created within the `us-east-1` region.
+         * @param scope Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are CLOUDFRONT or REGIONAL.
          * 
          * @return builder
          * 
@@ -121,7 +101,7 @@ public final class ApiKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scope Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. Changing this forces a new resource to be created. **NOTE:** WAFv2 API Keys deployed for `CLOUDFRONT` must be created within the `us-east-1` region.
+         * @param scope Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are CLOUDFRONT or REGIONAL.
          * 
          * @return builder
          * 
@@ -131,7 +111,7 @@ public final class ApiKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tokenDomains The domains that you want to be able to use the API key with, for example `example.com`. You can specify up to 5 domains. Changing this forces a new resource to be created.
+         * @param tokenDomains The domains that you want to be able to use the API key with, for example example.com. Maximum of 5 domains.
          * 
          * @return builder
          * 
@@ -142,7 +122,7 @@ public final class ApiKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tokenDomains The domains that you want to be able to use the API key with, for example `example.com`. You can specify up to 5 domains. Changing this forces a new resource to be created.
+         * @param tokenDomains The domains that you want to be able to use the API key with, for example example.com. Maximum of 5 domains.
          * 
          * @return builder
          * 
@@ -152,7 +132,7 @@ public final class ApiKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tokenDomains The domains that you want to be able to use the API key with, for example `example.com`. You can specify up to 5 domains. Changing this forces a new resource to be created.
+         * @param tokenDomains The domains that you want to be able to use the API key with, for example example.com. Maximum of 5 domains.
          * 
          * @return builder
          * 

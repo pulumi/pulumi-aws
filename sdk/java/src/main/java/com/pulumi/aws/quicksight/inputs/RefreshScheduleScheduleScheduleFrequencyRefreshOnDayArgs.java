@@ -15,32 +15,16 @@ public final class RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs exte
 
     public static final RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs Empty = new RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs();
 
-    /**
-     * The day of the month that you want to schedule refresh on.
-     * 
-     */
     @Import(name="dayOfMonth")
     private @Nullable Output<String> dayOfMonth;
 
-    /**
-     * @return The day of the month that you want to schedule refresh on.
-     * 
-     */
     public Optional<Output<String>> dayOfMonth() {
         return Optional.ofNullable(this.dayOfMonth);
     }
 
-    /**
-     * The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
-     * 
-     */
     @Import(name="dayOfWeek")
     private @Nullable Output<String> dayOfWeek;
 
-    /**
-     * @return The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
-     * 
-     */
     public Optional<Output<String>> dayOfWeek() {
         return Optional.ofNullable(this.dayOfWeek);
     }
@@ -70,44 +54,20 @@ public final class RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs exte
             $ = new RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dayOfMonth The day of the month that you want to schedule refresh on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dayOfMonth(@Nullable Output<String> dayOfMonth) {
             $.dayOfMonth = dayOfMonth;
             return this;
         }
 
-        /**
-         * @param dayOfMonth The day of the month that you want to schedule refresh on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dayOfMonth(String dayOfMonth) {
             return dayOfMonth(Output.of(dayOfMonth));
         }
 
-        /**
-         * @param dayOfWeek The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dayOfWeek(@Nullable Output<String> dayOfWeek) {
             $.dayOfWeek = dayOfWeek;
             return this;
         }
 
-        /**
-         * @param dayOfWeek The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dayOfWeek(String dayOfWeek) {
             return dayOfWeek(Output.of(dayOfWeek));
         }

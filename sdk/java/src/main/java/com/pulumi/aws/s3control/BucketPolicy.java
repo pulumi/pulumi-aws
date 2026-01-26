@@ -13,109 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage an S3 Control Bucket Policy.
- * 
- * &gt; This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Bucket Policies in an AWS Partition, see the `aws.s3.BucketPolicy` resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3control.BucketPolicy;
- * import com.pulumi.aws.s3control.BucketPolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new BucketPolicy("example", BucketPolicyArgs.builder()
- *             .bucket(exampleAwsS3controlBucket.arn())
- *             .policy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Id", "testBucketPolicy"),
- *                     jsonProperty("Statement", jsonArray(jsonObject(
- *                         jsonProperty("Action", "s3-outposts:PutBucketLifecycleConfiguration"),
- *                         jsonProperty("Effect", "Deny"),
- *                         jsonProperty("Principal", jsonObject(
- *                             jsonProperty("AWS", "*")
- *                         )),
- *                         jsonProperty("Resource", exampleAwsS3controlBucket.arn()),
- *                         jsonProperty("Sid", "statement1")
- *                     ))),
- *                     jsonProperty("Version", "2012-10-17")
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import S3 Control Bucket Policies using the Amazon Resource Name (ARN). For example:
- * 
- * ```sh
- * $ pulumi import aws:s3control/bucketPolicy:BucketPolicy example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
- * ```
- * 
- */
 @ResourceType(type="aws:s3control/bucketPolicy:BucketPolicy")
 public class BucketPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the bucket.
-     * 
-     */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the bucket.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
-    /**
-     * JSON string of the resource policy.
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return JSON string of the resource policy.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

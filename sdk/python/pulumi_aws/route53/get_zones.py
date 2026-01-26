@@ -42,9 +42,6 @@ class GetZonesResult:
     @_builtins.property
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
-        """
-        A list of all the Route53 Hosted Zone IDs found.
-        """
         return pulumi.get(self, "ids")
 
 
@@ -60,19 +57,7 @@ class AwaitableGetZonesResult(GetZonesResult):
 
 def get_zones(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetZonesResult:
     """
-    This resource can be useful for getting back a list of Route53 Hosted Zone IDs for a Region.
-
-    ## Example Usage
-
-    The following example retrieves a list of all Hosted Zone IDs.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    all = aws.route53.get_zones()
-    pulumi.export("example", all.ids)
-    ```
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -83,19 +68,7 @@ def get_zones(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetZonesR
         ids=pulumi.get(__ret__, 'ids'))
 def get_zones_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetZonesResult]:
     """
-    This resource can be useful for getting back a list of Route53 Hosted Zone IDs for a Region.
-
-    ## Example Usage
-
-    The following example retrieves a list of all Hosted Zone IDs.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    all = aws.route53.get_zones()
-    pulumi.export("example", all.ids)
-    ```
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

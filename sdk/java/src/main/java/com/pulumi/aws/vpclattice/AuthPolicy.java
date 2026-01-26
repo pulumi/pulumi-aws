@@ -14,132 +14,29 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS VPC Lattice Auth Policy.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.vpclattice.Service;
- * import com.pulumi.aws.vpclattice.ServiceArgs;
- * import com.pulumi.aws.vpclattice.AuthPolicy;
- * import com.pulumi.aws.vpclattice.AuthPolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Service("example", ServiceArgs.builder()
- *             .name("example-vpclattice-service")
- *             .authType("AWS_IAM")
- *             .customDomainName("example.com")
- *             .build());
- * 
- *         var exampleAuthPolicy = new AuthPolicy("exampleAuthPolicy", AuthPolicyArgs.builder()
- *             .resourceIdentifier(example.arn())
- *             .policy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Version", "2012-10-17"),
- *                     jsonProperty("Statement", jsonArray(jsonObject(
- *                         jsonProperty("Action", "*"),
- *                         jsonProperty("Effect", "Allow"),
- *                         jsonProperty("Principal", "*"),
- *                         jsonProperty("Resource", "*"),
- *                         jsonProperty("Condition", jsonObject(
- *                             jsonProperty("StringNotEqualsIgnoreCase", jsonObject(
- *                                 jsonProperty("aws:PrincipalType", "anonymous")
- *                             ))
- *                         ))
- *                     )))
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import VPC Lattice Auth Policy using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:vpclattice/authPolicy:AuthPolicy example abcd-12345678
- * ```
- * 
- */
 @ResourceType(type="aws:vpclattice/authPolicy:AuthPolicy")
 public class AuthPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The auth policy. The policy string in JSON must not contain newlines or blank lines.
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return The auth policy. The policy string in JSON must not contain newlines or blank lines.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
-     * 
-     */
     @Export(name="resourceIdentifier", refs={String.class}, tree="[0]")
     private Output<String> resourceIdentifier;
 
-    /**
-     * @return The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
-     * 
-     */
     public Output<String> resourceIdentifier() {
         return this.resourceIdentifier;
     }
-    /**
-     * The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client&#39;s IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
-     * 
-     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> state;
 
-    /**
-     * @return The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client&#39;s IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
-     * 
-     */
     public Output<Optional<String>> state() {
         return Codegen.optional(this.state);
     }

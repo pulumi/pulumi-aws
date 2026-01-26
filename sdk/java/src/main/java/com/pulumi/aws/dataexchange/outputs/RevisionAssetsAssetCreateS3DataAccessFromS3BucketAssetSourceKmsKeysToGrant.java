@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrant {
-    /**
-     * @return The ARN of the KMS key.
-     * 
-     */
     private String kmsKeyArn;
 
     private RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrant() {}
-    /**
-     * @return The ARN of the KMS key.
-     * 
-     */
     public String kmsKeyArn() {
         return this.kmsKeyArn;
     }

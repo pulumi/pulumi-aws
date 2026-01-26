@@ -15,108 +15,23 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a [Route53 Delegation Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API-actions-by-function.html#actions-by-function-reusable-delegation-sets) resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.route53.DelegationSet;
- * import com.pulumi.aws.route53.DelegationSetArgs;
- * import com.pulumi.aws.route53.Zone;
- * import com.pulumi.aws.route53.ZoneArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var main = new DelegationSet("main", DelegationSetArgs.builder()
- *             .referenceName("DynDNS")
- *             .build());
- * 
- *         var primary = new Zone("primary", ZoneArgs.builder()
- *             .name("mydomain.com")
- *             .delegationSetId(main.id())
- *             .build());
- * 
- *         var secondary = new Zone("secondary", ZoneArgs.builder()
- *             .name("coolcompany.io")
- *             .delegationSetId(main.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Route53 Delegation Sets using the delegation set `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
- * ```
- * 
- */
 @ResourceType(type="aws:route53/delegationSet:DelegationSet")
 public class DelegationSet extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) of the Delegation Set.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Delegation Set.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * A list of authoritative name servers for the hosted zone
-     * (effectively a list of NS records).
-     * 
-     */
     @Export(name="nameServers", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> nameServers;
 
-    /**
-     * @return A list of authoritative name servers for the hosted zone
-     * (effectively a list of NS records).
-     * 
-     */
     public Output<List<String>> nameServers() {
         return this.nameServers;
     }
-    /**
-     * This is a reference name used in Caller Reference
-     * (helpful for identifying single delegation set amongst others)
-     * 
-     */
     @Export(name="referenceName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> referenceName;
 
-    /**
-     * @return This is a reference name used in Caller Reference
-     * (helpful for identifying single delegation set amongst others)
-     * 
-     */
     public Output<Optional<String>> referenceName() {
         return Codegen.optional(this.referenceName);
     }

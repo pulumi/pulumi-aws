@@ -11,117 +11,12 @@ namespace Pulumi.Aws.LicenseManager
 {
     public static class GetLicenseGrants
     {
-        /// <summary>
-        /// This resource can be used to get a set of license grant ARNs matching a filter.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following shows getting all license grant ARNs granted to your account.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Aws.GetCallerIdentity.Invoke();
-        /// 
-        ///     var test = Aws.LicenseManager.GetLicenseGrants.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.LicenseManager.Inputs.GetLicenseGrantsFilterInputArgs
-        ///             {
-        ///                 Name = "GranteePrincipalARN",
-        ///                 Values = new[]
-        ///                 {
-        ///                     $"arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetLicenseGrantsResult> InvokeAsync(GetLicenseGrantsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLicenseGrantsResult>("aws:licensemanager/getLicenseGrants:getLicenseGrants", args ?? new GetLicenseGrantsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// This resource can be used to get a set of license grant ARNs matching a filter.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following shows getting all license grant ARNs granted to your account.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Aws.GetCallerIdentity.Invoke();
-        /// 
-        ///     var test = Aws.LicenseManager.GetLicenseGrants.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.LicenseManager.Inputs.GetLicenseGrantsFilterInputArgs
-        ///             {
-        ///                 Name = "GranteePrincipalARN",
-        ///                 Values = new[]
-        ///                 {
-        ///                     $"arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetLicenseGrantsResult> Invoke(GetLicenseGrantsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLicenseGrantsResult>("aws:licensemanager/getLicenseGrants:getLicenseGrants", args ?? new GetLicenseGrantsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// This resource can be used to get a set of license grant ARNs matching a filter.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following shows getting all license grant ARNs granted to your account.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Aws.GetCallerIdentity.Invoke();
-        /// 
-        ///     var test = Aws.LicenseManager.GetLicenseGrants.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.LicenseManager.Inputs.GetLicenseGrantsFilterInputArgs
-        ///             {
-        ///                 Name = "GranteePrincipalARN",
-        ///                 Values = new[]
-        ///                 {
-        ///                     $"arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetLicenseGrantsResult> Invoke(GetLicenseGrantsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLicenseGrantsResult>("aws:licensemanager/getLicenseGrants:getLicenseGrants", args ?? new GetLicenseGrantsInvokeArgs(), options.WithDefaults());
     }
@@ -131,19 +26,12 @@ namespace Pulumi.Aws.LicenseManager
     {
         [Input("filters")]
         private List<Inputs.GetLicenseGrantsFilterArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// </summary>
         public List<Inputs.GetLicenseGrantsFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetLicenseGrantsFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -157,19 +45,12 @@ namespace Pulumi.Aws.LicenseManager
     {
         [Input("filters")]
         private InputList<Inputs.GetLicenseGrantsFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// </summary>
         public InputList<Inputs.GetLicenseGrantsFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetLicenseGrantsFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -183,9 +64,6 @@ namespace Pulumi.Aws.LicenseManager
     [OutputType]
     public sealed class GetLicenseGrantsResult
     {
-        /// <summary>
-        /// List of all the license grant ARNs found.
-        /// </summary>
         public readonly ImmutableArray<string> Arns;
         public readonly ImmutableArray<Outputs.GetLicenseGrantsFilterResult> Filters;
         /// <summary>

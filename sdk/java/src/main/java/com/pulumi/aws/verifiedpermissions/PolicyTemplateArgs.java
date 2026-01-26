@@ -16,66 +16,30 @@ public final class PolicyTemplateArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final PolicyTemplateArgs Empty = new PolicyTemplateArgs();
 
-    /**
-     * Provides a description for the policy template.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Provides a description for the policy template.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The ID of the Policy Store.
-     * 
-     */
     @Import(name="policyStoreId", required=true)
     private Output<String> policyStoreId;
 
-    /**
-     * @return The ID of the Policy Store.
-     * 
-     */
     public Output<String> policyStoreId() {
         return this.policyStoreId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Defines the content of the statement, written in Cedar policy language.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="statement", required=true)
     private Output<String> statement;
 
-    /**
-     * @return Defines the content of the statement, written in Cedar policy language.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> statement() {
         return this.statement;
     }
@@ -107,90 +71,38 @@ public final class PolicyTemplateArgs extends com.pulumi.resources.ResourceArgs 
             $ = new PolicyTemplateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description Provides a description for the policy template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Provides a description for the policy template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param policyStoreId The ID of the Policy Store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyStoreId(Output<String> policyStoreId) {
             $.policyStoreId = policyStoreId;
             return this;
         }
 
-        /**
-         * @param policyStoreId The ID of the Policy Store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyStoreId(String policyStoreId) {
             return policyStoreId(Output.of(policyStoreId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param statement Defines the content of the statement, written in Cedar policy language.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder statement(Output<String> statement) {
             $.statement = statement;
             return this;
         }
 
-        /**
-         * @param statement Defines the content of the statement, written in Cedar policy language.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder statement(String statement) {
             return statement(Output.of(statement));
         }

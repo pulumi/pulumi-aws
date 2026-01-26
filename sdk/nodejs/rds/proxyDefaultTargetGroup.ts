@@ -7,17 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * ## Import
- *
- * Using `pulumi import`, import DB proxy default target groups using the `db_proxy_name`. For example:
- *
- * ```sh
- * $ pulumi import aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup example example
- * ```
- */
 export class ProxyDefaultTargetGroup extends pulumi.CustomResource {
     /**
      * Get an existing ProxyDefaultTargetGroup resource's state with the given name, ID, and optional extra
@@ -46,25 +35,10 @@ export class ProxyDefaultTargetGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ProxyDefaultTargetGroup.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) representing the target group.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The settings that determine the size and behavior of the connection pool for the target group.
-     */
     declare public readonly connectionPoolConfig: pulumi.Output<outputs.rds.ProxyDefaultTargetGroupConnectionPoolConfig>;
-    /**
-     * Name of the RDS DB Proxy.
-     */
     declare public readonly dbProxyName: pulumi.Output<string>;
-    /**
-     * The name of the default target group.
-     */
     declare public /*out*/ readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -105,25 +79,10 @@ export class ProxyDefaultTargetGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ProxyDefaultTargetGroup resources.
  */
 export interface ProxyDefaultTargetGroupState {
-    /**
-     * The Amazon Resource Name (ARN) representing the target group.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The settings that determine the size and behavior of the connection pool for the target group.
-     */
     connectionPoolConfig?: pulumi.Input<inputs.rds.ProxyDefaultTargetGroupConnectionPoolConfig>;
-    /**
-     * Name of the RDS DB Proxy.
-     */
     dbProxyName?: pulumi.Input<string>;
-    /**
-     * The name of the default target group.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -131,16 +90,7 @@ export interface ProxyDefaultTargetGroupState {
  * The set of arguments for constructing a ProxyDefaultTargetGroup resource.
  */
 export interface ProxyDefaultTargetGroupArgs {
-    /**
-     * The settings that determine the size and behavior of the connection pool for the target group.
-     */
     connectionPoolConfig?: pulumi.Input<inputs.rds.ProxyDefaultTargetGroupConnectionPoolConfig>;
-    /**
-     * Name of the RDS DB Proxy.
-     */
     dbProxyName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

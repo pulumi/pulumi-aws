@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class GuardrailContextualGroundingPolicyConfigFiltersConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The threshold for this filter.
-        /// </summary>
         [Input("threshold", required: true)]
         public Input<double> Threshold { get; set; } = null!;
 
-        /// <summary>
-        /// Type of contextual grounding filter.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

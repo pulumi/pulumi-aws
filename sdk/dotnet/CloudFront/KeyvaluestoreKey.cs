@@ -9,64 +9,17 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudFront
 {
-    /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudFront.KeyValueStore("example", new()
-    ///     {
-    ///         Name = "ExampleKeyValueStore",
-    ///         Comment = "This is an example key value store",
-    ///     });
-    /// 
-    ///     var exampleKeyvaluestoreKey = new Aws.CloudFront.KeyvaluestoreKey("example", new()
-    ///     {
-    ///         KeyValueStoreArn = example.Arn,
-    ///         Key = "Test Key",
-    ///         Value = "Test Value",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// * `key_value_store_arn` (String) ARN of the CloudFront Key Value Store.
-    /// 
-    /// * `key` (String) Key name.
-    /// 
-    /// #### Optional
-    /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
-    /// 
-    /// Using `pulumi import`, import CloudFront KeyValueStore Key using the `key_value_store_arn` and 'key' separated by `,`. For example:
-    /// 
-    /// % pulumi import aws_cloudfrontkeyvaluestore_key.example arn:aws:cloudfront::111111111111:key-value-store/8562g61f-caba-2845-9d99-b97diwae5d3c,someKey
-    /// </summary>
     [AwsResourceType("aws:cloudfront/keyvaluestoreKey:KeyvaluestoreKey")]
     public partial class KeyvaluestoreKey : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Key to put.
+        /// The key to put.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Key Value Store.
+        /// The Amazon Resource Name (ARN) of the Key Value Store.
         /// </summary>
         [Output("keyValueStoreArn")]
         public Output<string> KeyValueStoreArn { get; private set; } = null!;
@@ -78,7 +31,7 @@ namespace Pulumi.Aws.CloudFront
         public Output<int> TotalSizeInBytes { get; private set; } = null!;
 
         /// <summary>
-        /// Value to put.
+        /// The value to put.
         /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
@@ -130,19 +83,19 @@ namespace Pulumi.Aws.CloudFront
     public sealed class KeyvaluestoreKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Key to put.
+        /// The key to put.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Key Value Store.
+        /// The Amazon Resource Name (ARN) of the Key Value Store.
         /// </summary>
         [Input("keyValueStoreArn", required: true)]
         public Input<string> KeyValueStoreArn { get; set; } = null!;
 
         /// <summary>
-        /// Value to put.
+        /// The value to put.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
@@ -156,13 +109,13 @@ namespace Pulumi.Aws.CloudFront
     public sealed class KeyvaluestoreKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Key to put.
+        /// The key to put.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Key Value Store.
+        /// The Amazon Resource Name (ARN) of the Key Value Store.
         /// </summary>
         [Input("keyValueStoreArn")]
         public Input<string>? KeyValueStoreArn { get; set; }
@@ -174,7 +127,7 @@ namespace Pulumi.Aws.CloudFront
         public Input<int>? TotalSizeInBytes { get; set; }
 
         /// <summary>
-        /// Value to put.
+        /// The value to put.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

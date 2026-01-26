@@ -17,127 +17,35 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Lex V2 Models Bot Version.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lex.V2modelsBotVersion;
- * import com.pulumi.aws.lex.V2modelsBotVersionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new V2modelsBotVersion("test", V2modelsBotVersionArgs.builder()
- *             .botId(testAwsLexv2modelsBot.id())
- *             .localeSpecification(Map.of("en_US", V2modelsBotVersionLocaleSpecificationArgs.builder()
- *                 .sourceBotVersion("DRAFT")
- *                 .build()))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Lex V2 Models Bot Version using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:lex/v2modelsBotVersion:V2modelsBotVersion example id-12345678,1
- * ```
- * 
- */
 @ResourceType(type="aws:lex/v2modelsBotVersion:V2modelsBotVersion")
 public class V2modelsBotVersion extends com.pulumi.resources.CustomResource {
-    /**
-     * Idientifier of the bot to create the version for.
-     * 
-     */
     @Export(name="botId", refs={String.class}, tree="[0]")
     private Output<String> botId;
 
-    /**
-     * @return Idientifier of the bot to create the version for.
-     * 
-     */
     public Output<String> botId() {
         return this.botId;
     }
-    /**
-     * Version number assigned to the version.
-     * 
-     */
     @Export(name="botVersion", refs={String.class}, tree="[0]")
     private Output<String> botVersion;
 
-    /**
-     * @return Version number assigned to the version.
-     * 
-     */
     public Output<String> botVersion() {
         return this.botVersion;
     }
-    /**
-     * A description of the version. Use the description to help identify the version in lists.
-     * * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return A description of the version. Use the description to help identify the version in lists.
-     * * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
-     * 
-     */
     @Export(name="localeSpecification", refs={Map.class,String.class,V2modelsBotVersionLocaleSpecification.class}, tree="[0,1,2]")
     private Output<Map<String,V2modelsBotVersionLocaleSpecification>> localeSpecification;
 
-    /**
-     * @return Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
-     * 
-     */
     public Output<Map<String,V2modelsBotVersionLocaleSpecification>> localeSpecification() {
         return this.localeSpecification;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

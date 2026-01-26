@@ -15,32 +15,16 @@ public final class GetContributorManagedInsightRulesPlainArgs extends com.pulumi
 
     public static final GetContributorManagedInsightRulesPlainArgs Empty = new GetContributorManagedInsightRulesPlainArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-     * 
-     */
     @Import(name="resourceArn", required=true)
     private String resourceArn;
 
-    /**
-     * @return ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-     * 
-     */
     public String resourceArn() {
         return this.resourceArn;
     }
@@ -70,23 +54,11 @@ public final class GetContributorManagedInsightRulesPlainArgs extends com.pulumi
             $ = new GetContributorManagedInsightRulesPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param resourceArn ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(String resourceArn) {
             $.resourceArn = resourceArn;
             return this;

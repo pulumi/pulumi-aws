@@ -13,13 +13,7 @@ namespace Pulumi.Aws.SesV2.Outputs
     [OutputType]
     public sealed class ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
-        /// </summary>
         public readonly string DeliveryStreamArn;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
-        /// </summary>
         public readonly string IamRoleArn;
 
         [OutputConstructor]

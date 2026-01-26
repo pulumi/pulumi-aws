@@ -9,134 +9,19 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3
 {
-    /// <summary>
-    /// Provides an S3 bucket CORS configuration resource. For more information about CORS, go to [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/userguide/cors.html) in the Amazon S3 User Guide.
-    /// 
-    /// &gt; **NOTE:** S3 Buckets only support a single CORS configuration. Declaring multiple `aws.s3.BucketCorsConfiguration` resources to the same S3 Bucket will cause a perpetual difference in configuration.
-    /// 
-    /// &gt; This resource cannot be used with S3 directory buckets.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.S3.Bucket("example", new()
-    ///     {
-    ///         BucketName = "mybucket",
-    ///     });
-    /// 
-    ///     var exampleBucketCorsConfiguration = new Aws.S3.BucketCorsConfiguration("example", new()
-    ///     {
-    ///         Bucket = example.Id,
-    ///         CorsRules = new[]
-    ///         {
-    ///             new Aws.S3.Inputs.BucketCorsConfigurationCorsRuleArgs
-    ///             {
-    ///                 AllowedHeaders = new[]
-    ///                 {
-    ///                     "*",
-    ///                 },
-    ///                 AllowedMethods = new[]
-    ///                 {
-    ///                     "PUT",
-    ///                     "POST",
-    ///                 },
-    ///                 AllowedOrigins = new[]
-    ///                 {
-    ///                     "https://s3-website-test.domain.example",
-    ///                 },
-    ///                 ExposeHeaders = new[]
-    ///                 {
-    ///                     "ETag",
-    ///                 },
-    ///                 MaxAgeSeconds = 3000,
-    ///             },
-    ///             new Aws.S3.Inputs.BucketCorsConfigurationCorsRuleArgs
-    ///             {
-    ///                 AllowedMethods = new[]
-    ///                 {
-    ///                     "GET",
-    ///                 },
-    ///                 AllowedOrigins = new[]
-    ///                 {
-    ///                     "*",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// * `bucket` (String) S3 bucket name.
-    /// 
-    /// #### Optional
-    /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
-    /// 
-    /// * `expected_bucket_owner` (String) Account ID of the expected bucket owner.
-    /// 
-    /// * `region` (String) Region where this resource is managed.
-    /// 
-    /// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-    /// 
-    /// terraform
-    /// 
-    /// import {
-    /// 
-    ///   to = aws_s3_bucket_cors_configuration.example
-    /// 
-    ///   id = "bucket-name,123456789012"
-    /// 
-    /// }
-    /// 
-    /// **Using `pulumi import` to import** S3 bucket CORS configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
-    /// 
-    /// If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
-    /// 
-    /// % pulumi import aws_s3_bucket_cors_configuration.example bucket-name
-    /// 
-    /// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-    /// 
-    /// % pulumi import aws_s3_bucket_cors_configuration.example bucket-name,123456789012
-    /// </summary>
     [Obsolete(@"aws.s3/bucketcorsconfigurationv2.BucketCorsConfigurationV2 has been deprecated in favor of aws.s3/bucketcorsconfiguration.BucketCorsConfiguration")]
     [AwsResourceType("aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2")]
     public partial class BucketCorsConfigurationV2 : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Name of the bucket.
-        /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
-        /// <summary>
-        /// Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
-        /// </summary>
         [Output("corsRules")]
         public Output<ImmutableArray<Outputs.BucketCorsConfigurationV2CorsRule>> CorsRules { get; private set; } = null!;
 
-        /// <summary>
-        /// Account ID of the expected bucket owner.
-        /// </summary>
         [Output("expectedBucketOwner")]
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -190,33 +75,20 @@ namespace Pulumi.Aws.S3
 
     public sealed class BucketCorsConfigurationV2Args : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the bucket.
-        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
         [Input("corsRules", required: true)]
         private InputList<Inputs.BucketCorsConfigurationV2CorsRuleArgs>? _corsRules;
-
-        /// <summary>
-        /// Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
-        /// </summary>
         public InputList<Inputs.BucketCorsConfigurationV2CorsRuleArgs> CorsRules
         {
             get => _corsRules ?? (_corsRules = new InputList<Inputs.BucketCorsConfigurationV2CorsRuleArgs>());
             set => _corsRules = value;
         }
 
-        /// <summary>
-        /// Account ID of the expected bucket owner.
-        /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -228,33 +100,20 @@ namespace Pulumi.Aws.S3
 
     public sealed class BucketCorsConfigurationV2State : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the bucket.
-        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
         [Input("corsRules")]
         private InputList<Inputs.BucketCorsConfigurationV2CorsRuleGetArgs>? _corsRules;
-
-        /// <summary>
-        /// Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
-        /// </summary>
         public InputList<Inputs.BucketCorsConfigurationV2CorsRuleGetArgs> CorsRules
         {
             get => _corsRules ?? (_corsRules = new InputList<Inputs.BucketCorsConfigurationV2CorsRuleGetArgs>());
             set => _corsRules = value;
         }
 
-        /// <summary>
-        /// Account ID of the expected bucket owner.
-        /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

@@ -17,32 +17,16 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
     public static final WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetArgs();
 
-    /**
-     * Configuration for the request handling that&#39;s applied by the managed rule group rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` during a distributed denial of service (DDoS) attack. See `clientSideActionConfig` for more details.
-     * 
-     */
     @Import(name="clientSideActionConfig", required=true)
     private Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigArgs> clientSideActionConfig;
 
-    /**
-     * @return Configuration for the request handling that&#39;s applied by the managed rule group rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` during a distributed denial of service (DDoS) attack. See `clientSideActionConfig` for more details.
-     * 
-     */
     public Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigArgs> clientSideActionConfig() {
         return this.clientSideActionConfig;
     }
 
-    /**
-     * Sensitivity that the rule group rule DDoSRequests uses when matching against the DDoS suspicion labeling on a request. Valid values are `LOW` (Default), `MEDIUM`, and `HIGH`.
-     * 
-     */
     @Import(name="sensitivityToBlock")
     private @Nullable Output<String> sensitivityToBlock;
 
-    /**
-     * @return Sensitivity that the rule group rule DDoSRequests uses when matching against the DDoS suspicion labeling on a request. Valid values are `LOW` (Default), `MEDIUM`, and `HIGH`.
-     * 
-     */
     public Optional<Output<String>> sensitivityToBlock() {
         return Optional.ofNullable(this.sensitivityToBlock);
     }
@@ -72,44 +56,20 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
             $ = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clientSideActionConfig Configuration for the request handling that&#39;s applied by the managed rule group rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` during a distributed denial of service (DDoS) attack. See `clientSideActionConfig` for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientSideActionConfig(Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigArgs> clientSideActionConfig) {
             $.clientSideActionConfig = clientSideActionConfig;
             return this;
         }
 
-        /**
-         * @param clientSideActionConfig Configuration for the request handling that&#39;s applied by the managed rule group rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` during a distributed denial of service (DDoS) attack. See `clientSideActionConfig` for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientSideActionConfig(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigArgs clientSideActionConfig) {
             return clientSideActionConfig(Output.of(clientSideActionConfig));
         }
 
-        /**
-         * @param sensitivityToBlock Sensitivity that the rule group rule DDoSRequests uses when matching against the DDoS suspicion labeling on a request. Valid values are `LOW` (Default), `MEDIUM`, and `HIGH`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sensitivityToBlock(@Nullable Output<String> sensitivityToBlock) {
             $.sensitivityToBlock = sensitivityToBlock;
             return this;
         }
 
-        /**
-         * @param sensitivityToBlock Sensitivity that the rule group rule DDoSRequests uses when matching against the DDoS suspicion labeling on a request. Valid values are `LOW` (Default), `MEDIUM`, and `HIGH`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sensitivityToBlock(String sensitivityToBlock) {
             return sensitivityToBlock(Output.of(sensitivityToBlock));
         }

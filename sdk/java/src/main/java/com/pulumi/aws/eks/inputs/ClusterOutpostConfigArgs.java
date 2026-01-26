@@ -18,65 +18,23 @@ public final class ClusterOutpostConfigArgs extends com.pulumi.resources.Resourc
 
     public static final ClusterOutpostConfigArgs Empty = new ClusterOutpostConfigArgs();
 
-    /**
-     * The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can&#39;t be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
-     * 
-     * * 1–20 nodes, then we recommend specifying a large instance type.
-     * 
-     * * 21–100 nodes, then we recommend specifying an xlarge instance type.
-     * 
-     * * 101–250 nodes, then we recommend specifying a 2xlarge instance type.
-     * 
-     * For a list of the available Amazon EC2 instance types, see Compute and storage in AWS Outposts rack features  The control plane is not automatically scaled by Amazon EKS.
-     * 
-     */
     @Import(name="controlPlaneInstanceType", required=true)
     private Output<String> controlPlaneInstanceType;
 
-    /**
-     * @return The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can&#39;t be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
-     * 
-     * * 1–20 nodes, then we recommend specifying a large instance type.
-     * 
-     * * 21–100 nodes, then we recommend specifying an xlarge instance type.
-     * 
-     * * 101–250 nodes, then we recommend specifying a 2xlarge instance type.
-     * 
-     * For a list of the available Amazon EC2 instance types, see Compute and storage in AWS Outposts rack features  The control plane is not automatically scaled by Amazon EKS.
-     * 
-     */
     public Output<String> controlPlaneInstanceType() {
         return this.controlPlaneInstanceType;
     }
 
-    /**
-     * An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
-     * The `controlPlanePlacement` configuration block supports the following arguments:
-     * 
-     */
     @Import(name="controlPlanePlacement")
     private @Nullable Output<ClusterOutpostConfigControlPlanePlacementArgs> controlPlanePlacement;
 
-    /**
-     * @return An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
-     * The `controlPlanePlacement` configuration block supports the following arguments:
-     * 
-     */
     public Optional<Output<ClusterOutpostConfigControlPlanePlacementArgs>> controlPlanePlacement() {
         return Optional.ofNullable(this.controlPlanePlacement);
     }
 
-    /**
-     * The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
-     * 
-     */
     @Import(name="outpostArns", required=true)
     private Output<List<String>> outpostArns;
 
-    /**
-     * @return The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
-     * 
-     */
     public Output<List<String>> outpostArns() {
         return this.outpostArns;
     }
@@ -107,93 +65,33 @@ public final class ClusterOutpostConfigArgs extends com.pulumi.resources.Resourc
             $ = new ClusterOutpostConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param controlPlaneInstanceType The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can&#39;t be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
-         * 
-         * * 1–20 nodes, then we recommend specifying a large instance type.
-         * 
-         * * 21–100 nodes, then we recommend specifying an xlarge instance type.
-         * 
-         * * 101–250 nodes, then we recommend specifying a 2xlarge instance type.
-         * 
-         * For a list of the available Amazon EC2 instance types, see Compute and storage in AWS Outposts rack features  The control plane is not automatically scaled by Amazon EKS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder controlPlaneInstanceType(Output<String> controlPlaneInstanceType) {
             $.controlPlaneInstanceType = controlPlaneInstanceType;
             return this;
         }
 
-        /**
-         * @param controlPlaneInstanceType The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can&#39;t be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
-         * 
-         * * 1–20 nodes, then we recommend specifying a large instance type.
-         * 
-         * * 21–100 nodes, then we recommend specifying an xlarge instance type.
-         * 
-         * * 101–250 nodes, then we recommend specifying a 2xlarge instance type.
-         * 
-         * For a list of the available Amazon EC2 instance types, see Compute and storage in AWS Outposts rack features  The control plane is not automatically scaled by Amazon EKS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder controlPlaneInstanceType(String controlPlaneInstanceType) {
             return controlPlaneInstanceType(Output.of(controlPlaneInstanceType));
         }
 
-        /**
-         * @param controlPlanePlacement An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
-         * The `controlPlanePlacement` configuration block supports the following arguments:
-         * 
-         * @return builder
-         * 
-         */
         public Builder controlPlanePlacement(@Nullable Output<ClusterOutpostConfigControlPlanePlacementArgs> controlPlanePlacement) {
             $.controlPlanePlacement = controlPlanePlacement;
             return this;
         }
 
-        /**
-         * @param controlPlanePlacement An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
-         * The `controlPlanePlacement` configuration block supports the following arguments:
-         * 
-         * @return builder
-         * 
-         */
         public Builder controlPlanePlacement(ClusterOutpostConfigControlPlanePlacementArgs controlPlanePlacement) {
             return controlPlanePlacement(Output.of(controlPlanePlacement));
         }
 
-        /**
-         * @param outpostArns The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outpostArns(Output<List<String>> outpostArns) {
             $.outpostArns = outpostArns;
             return this;
         }
 
-        /**
-         * @param outpostArns The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outpostArns(List<String> outpostArns) {
             return outpostArns(Output.of(outpostArns));
         }
 
-        /**
-         * @param outpostArns The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outpostArns(String... outpostArns) {
             return outpostArns(List.of(outpostArns));
         }

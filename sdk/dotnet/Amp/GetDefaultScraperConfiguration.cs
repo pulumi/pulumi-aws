@@ -11,66 +11,12 @@ namespace Pulumi.Aws.Amp
 {
     public static class GetDefaultScraperConfiguration
     {
-        /// <summary>
-        /// Returns the default scraper configuration used when Amazon EKS creates a scraper for you.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Amp.GetDefaultScraperConfiguration.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetDefaultScraperConfigurationResult> InvokeAsync(GetDefaultScraperConfigurationArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDefaultScraperConfigurationResult>("aws:amp/getDefaultScraperConfiguration:getDefaultScraperConfiguration", args ?? new GetDefaultScraperConfigurationArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Returns the default scraper configuration used when Amazon EKS creates a scraper for you.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Amp.GetDefaultScraperConfiguration.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetDefaultScraperConfigurationResult> Invoke(GetDefaultScraperConfigurationInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDefaultScraperConfigurationResult>("aws:amp/getDefaultScraperConfiguration:getDefaultScraperConfiguration", args ?? new GetDefaultScraperConfigurationInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Returns the default scraper configuration used when Amazon EKS creates a scraper for you.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Amp.GetDefaultScraperConfiguration.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetDefaultScraperConfigurationResult> Invoke(GetDefaultScraperConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDefaultScraperConfigurationResult>("aws:amp/getDefaultScraperConfiguration:getDefaultScraperConfiguration", args ?? new GetDefaultScraperConfigurationInvokeArgs(), options.WithDefaults());
     }
@@ -78,9 +24,6 @@ namespace Pulumi.Aws.Amp
 
     public sealed class GetDefaultScraperConfigurationArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -92,9 +35,6 @@ namespace Pulumi.Aws.Amp
 
     public sealed class GetDefaultScraperConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -108,9 +48,6 @@ namespace Pulumi.Aws.Amp
     [OutputType]
     public sealed class GetDefaultScraperConfigurationResult
     {
-        /// <summary>
-        /// The configuration file.
-        /// </summary>
         public readonly string Configuration;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

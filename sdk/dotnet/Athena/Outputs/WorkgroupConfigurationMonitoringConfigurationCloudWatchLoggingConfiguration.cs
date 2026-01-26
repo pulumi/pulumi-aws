@@ -14,17 +14,8 @@ namespace Pulumi.Aws.Athena.Outputs
     public sealed class WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfiguration
     {
         public readonly bool Enabled;
-        /// <summary>
-        /// Name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
-        /// </summary>
         public readonly string? LogGroup;
-        /// <summary>
-        /// Prefix for the CloudWatch log stream name.
-        /// </summary>
         public readonly string? LogStreamNamePrefix;
-        /// <summary>
-        /// Repeatable block defining log types to be delivered to CloudWatch.
-        /// </summary>
         public readonly ImmutableArray<Outputs.WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogType> LogTypes;
 
         [OutputConstructor]

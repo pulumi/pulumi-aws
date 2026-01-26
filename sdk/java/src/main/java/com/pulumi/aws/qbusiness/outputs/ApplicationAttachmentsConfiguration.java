@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class ApplicationAttachmentsConfiguration {
     /**
-     * @return Status information about whether file upload functionality is activated or deactivated for your end user. Valid values are `ENABLED` and `DISABLED`.
+     * @return Status information about whether file upload functionality is activated or deactivated for your end user.
      * 
      */
     private String attachmentsControlMode;
 
     private ApplicationAttachmentsConfiguration() {}
     /**
-     * @return Status information about whether file upload functionality is activated or deactivated for your end user. Valid values are `ENABLED` and `DISABLED`.
+     * @return Status information about whether file upload functionality is activated or deactivated for your end user.
      * 
      */
     public String attachmentsControlMode() {

@@ -11,84 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource can be useful for getting back a set of FIS experiment template IDs.
-//
-// ## Example Usage
-//
-// # The following shows outputting a list of all FIS experiment template IDs
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/fis"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			all, err := fis.GetExperimentTemplates(ctx, &fis.GetExperimentTemplatesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("all", all.Ids)
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// # The following shows filtering FIS experiment templates by tag
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/fis"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := fis.GetExperimentTemplates(ctx, &fis.GetExperimentTemplatesArgs{
-//				Tags: map[string]interface{}{
-//					"Name": "example",
-//					"Tier": "1",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Sid:    pulumi.StringRef("StartFISExperiment"),
-//						Effect: pulumi.StringRef("Allow"),
-//						Actions: []string{
-//							"fis:StartExperiment",
-//						},
-//						Resources: []string{
-//							fmt.Sprintf("arn:aws:fis:*:*:experiment-template/%v", example.Ids[0]),
-//							"arn:aws:fis:*:*:experiment/*",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetExperimentTemplates(ctx *pulumi.Context, args *GetExperimentTemplatesArgs, opts ...pulumi.InvokeOption) (*GetExperimentTemplatesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetExperimentTemplatesResult
@@ -101,18 +23,14 @@ func GetExperimentTemplates(ctx *pulumi.Context, args *GetExperimentTemplatesArg
 
 // A collection of arguments for invoking getExperimentTemplates.
 type GetExperimentTemplatesArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired experiment templates.
-	Tags map[string]string `pulumi:"tags"`
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getExperimentTemplates.
 type GetExperimentTemplatesResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// List of all the experiment template ids found.
+	Id     string            `pulumi:"id"`
 	Ids    []string          `pulumi:"ids"`
 	Region string            `pulumi:"region"`
 	Tags   map[string]string `pulumi:"tags"`
@@ -129,11 +47,8 @@ func GetExperimentTemplatesOutput(ctx *pulumi.Context, args GetExperimentTemplat
 
 // A collection of arguments for invoking getExperimentTemplates.
 type GetExperimentTemplatesOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired experiment templates.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (GetExperimentTemplatesOutputArgs) ElementType() reflect.Type {
@@ -160,7 +75,6 @@ func (o GetExperimentTemplatesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExperimentTemplatesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of all the experiment template ids found.
 func (o GetExperimentTemplatesResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetExperimentTemplatesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

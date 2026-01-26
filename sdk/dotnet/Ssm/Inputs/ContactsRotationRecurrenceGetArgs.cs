@@ -22,34 +22,20 @@ namespace Pulumi.Aws.Ssm.Inputs
 
         [Input("monthlySettings")]
         private InputList<Inputs.ContactsRotationRecurrenceMonthlySettingGetArgs>? _monthlySettings;
-
-        /// <summary>
-        /// (Optional) Information about on-call rotations that recur monthly. See Monthly Settings for more details.
-        /// </summary>
         public InputList<Inputs.ContactsRotationRecurrenceMonthlySettingGetArgs> MonthlySettings
         {
             get => _monthlySettings ?? (_monthlySettings = new InputList<Inputs.ContactsRotationRecurrenceMonthlySettingGetArgs>());
             set => _monthlySettings = value;
         }
 
-        /// <summary>
-        /// (Required) The number of contacts, or shift team members designated to be on call concurrently during a shift.
-        /// </summary>
         [Input("numberOfOnCalls", required: true)]
         public Input<int> NumberOfOnCalls { get; set; } = null!;
 
-        /// <summary>
-        /// (Required) The number of days, weeks, or months a single rotation lasts.
-        /// </summary>
         [Input("recurrenceMultiplier", required: true)]
         public Input<int> RecurrenceMultiplier { get; set; } = null!;
 
         [Input("shiftCoverages")]
         private InputList<Inputs.ContactsRotationRecurrenceShiftCoverageGetArgs>? _shiftCoverages;
-
-        /// <summary>
-        /// (Optional) Information about the days of the week that the on-call rotation coverage includes. See Shift Coverages for more details.
-        /// </summary>
         public InputList<Inputs.ContactsRotationRecurrenceShiftCoverageGetArgs> ShiftCoverages
         {
             get => _shiftCoverages ?? (_shiftCoverages = new InputList<Inputs.ContactsRotationRecurrenceShiftCoverageGetArgs>());
@@ -58,10 +44,6 @@ namespace Pulumi.Aws.Ssm.Inputs
 
         [Input("weeklySettings")]
         private InputList<Inputs.ContactsRotationRecurrenceWeeklySettingGetArgs>? _weeklySettings;
-
-        /// <summary>
-        /// (Optional) Information about on-call rotations that recur weekly. See Weekly Settings for more details.
-        /// </summary>
         public InputList<Inputs.ContactsRotationRecurrenceWeeklySettingGetArgs> WeeklySettings
         {
             get => _weeklySettings ?? (_weeklySettings = new InputList<Inputs.ContactsRotationRecurrenceWeeklySettingGetArgs>());

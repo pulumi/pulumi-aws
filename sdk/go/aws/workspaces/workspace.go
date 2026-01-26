@@ -12,100 +12,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service
-//
-// > **NOTE:** AWS WorkSpaces service requires [`workspaces_DefaultRole`](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role) IAM role to operate normally.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspaces"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			valueWindows10, err := workspaces.GetBundle(ctx, &workspaces.GetBundleArgs{
-//				BundleId: pulumi.StringRef("wsb-bh8rsxt14"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			workspaces, err := kms.LookupKey(ctx, &kms.LookupKeyArgs{
-//				KeyId: "alias/aws/workspaces",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = workspaces.NewWorkspace(ctx, "example", &workspaces.WorkspaceArgs{
-//				DirectoryId:                 pulumi.Any(exampleAwsWorkspacesDirectory.Id),
-//				BundleId:                    pulumi.String(valueWindows10.Id),
-//				UserName:                    pulumi.String("john.doe"),
-//				RootVolumeEncryptionEnabled: pulumi.Bool(true),
-//				UserVolumeEncryptionEnabled: pulumi.Bool(true),
-//				VolumeEncryptionKey:         pulumi.String(workspaces.Arn),
-//				WorkspaceProperties: &workspaces.WorkspaceWorkspacePropertiesArgs{
-//					ComputeTypeName:                     pulumi.String("VALUE"),
-//					UserVolumeSizeGib:                   pulumi.Int(10),
-//					RootVolumeSizeGib:                   pulumi.Int(80),
-//					RunningMode:                         pulumi.String("AUTO_STOP"),
-//					RunningModeAutoStopTimeoutInMinutes: pulumi.Int(60),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Department": pulumi.String("IT"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Workspaces using their ID. For example:
-//
-// ```sh
-// $ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv
-// ```
 type Workspace struct {
 	pulumi.CustomResourceState
 
-	// The ID of the bundle for the WorkSpace.
-	BundleId pulumi.StringOutput `pulumi:"bundleId"`
-	// The name of the WorkSpace, as seen by the operating system.
-	ComputerName pulumi.StringOutput `pulumi:"computerName"`
-	// The ID of the directory for the WorkSpace.
-	DirectoryId pulumi.StringOutput `pulumi:"directoryId"`
-	// The IP address of the WorkSpace.
-	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Indicates whether the data stored on the root volume is encrypted.
-	RootVolumeEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"rootVolumeEncryptionEnabled"`
-	// The operational state of the WorkSpace.
-	State pulumi.StringOutput `pulumi:"state"`
-	// The tags for the WorkSpace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
-	UserName pulumi.StringOutput `pulumi:"userName"`
-	// Indicates whether the data stored on the user volume is encrypted.
-	UserVolumeEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"userVolumeEncryptionEnabled"`
-	// The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
-	VolumeEncryptionKey pulumi.StringPtrOutput `pulumi:"volumeEncryptionKey"`
-	// The WorkSpace properties.
-	WorkspaceProperties WorkspaceWorkspacePropertiesOutput `pulumi:"workspaceProperties"`
+	BundleId                    pulumi.StringOutput                `pulumi:"bundleId"`
+	ComputerName                pulumi.StringOutput                `pulumi:"computerName"`
+	DirectoryId                 pulumi.StringOutput                `pulumi:"directoryId"`
+	IpAddress                   pulumi.StringOutput                `pulumi:"ipAddress"`
+	Region                      pulumi.StringOutput                `pulumi:"region"`
+	RootVolumeEncryptionEnabled pulumi.BoolPtrOutput               `pulumi:"rootVolumeEncryptionEnabled"`
+	State                       pulumi.StringOutput                `pulumi:"state"`
+	Tags                        pulumi.StringMapOutput             `pulumi:"tags"`
+	TagsAll                     pulumi.StringMapOutput             `pulumi:"tagsAll"`
+	UserName                    pulumi.StringOutput                `pulumi:"userName"`
+	UserVolumeEncryptionEnabled pulumi.BoolPtrOutput               `pulumi:"userVolumeEncryptionEnabled"`
+	VolumeEncryptionKey         pulumi.StringPtrOutput             `pulumi:"volumeEncryptionKey"`
+	WorkspaceProperties         WorkspaceWorkspacePropertiesOutput `pulumi:"workspaceProperties"`
 }
 
 // NewWorkspace registers a new resource with the given unique name, arguments, and options.
@@ -147,61 +69,35 @@ func GetWorkspace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workspace resources.
 type workspaceState struct {
-	// The ID of the bundle for the WorkSpace.
-	BundleId *string `pulumi:"bundleId"`
-	// The name of the WorkSpace, as seen by the operating system.
-	ComputerName *string `pulumi:"computerName"`
-	// The ID of the directory for the WorkSpace.
-	DirectoryId *string `pulumi:"directoryId"`
-	// The IP address of the WorkSpace.
-	IpAddress *string `pulumi:"ipAddress"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Indicates whether the data stored on the root volume is encrypted.
-	RootVolumeEncryptionEnabled *bool `pulumi:"rootVolumeEncryptionEnabled"`
-	// The operational state of the WorkSpace.
-	State *string `pulumi:"state"`
-	// The tags for the WorkSpace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
-	UserName *string `pulumi:"userName"`
-	// Indicates whether the data stored on the user volume is encrypted.
-	UserVolumeEncryptionEnabled *bool `pulumi:"userVolumeEncryptionEnabled"`
-	// The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
-	VolumeEncryptionKey *string `pulumi:"volumeEncryptionKey"`
-	// The WorkSpace properties.
-	WorkspaceProperties *WorkspaceWorkspaceProperties `pulumi:"workspaceProperties"`
+	BundleId                    *string                       `pulumi:"bundleId"`
+	ComputerName                *string                       `pulumi:"computerName"`
+	DirectoryId                 *string                       `pulumi:"directoryId"`
+	IpAddress                   *string                       `pulumi:"ipAddress"`
+	Region                      *string                       `pulumi:"region"`
+	RootVolumeEncryptionEnabled *bool                         `pulumi:"rootVolumeEncryptionEnabled"`
+	State                       *string                       `pulumi:"state"`
+	Tags                        map[string]string             `pulumi:"tags"`
+	TagsAll                     map[string]string             `pulumi:"tagsAll"`
+	UserName                    *string                       `pulumi:"userName"`
+	UserVolumeEncryptionEnabled *bool                         `pulumi:"userVolumeEncryptionEnabled"`
+	VolumeEncryptionKey         *string                       `pulumi:"volumeEncryptionKey"`
+	WorkspaceProperties         *WorkspaceWorkspaceProperties `pulumi:"workspaceProperties"`
 }
 
 type WorkspaceState struct {
-	// The ID of the bundle for the WorkSpace.
-	BundleId pulumi.StringPtrInput
-	// The name of the WorkSpace, as seen by the operating system.
-	ComputerName pulumi.StringPtrInput
-	// The ID of the directory for the WorkSpace.
-	DirectoryId pulumi.StringPtrInput
-	// The IP address of the WorkSpace.
-	IpAddress pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Indicates whether the data stored on the root volume is encrypted.
+	BundleId                    pulumi.StringPtrInput
+	ComputerName                pulumi.StringPtrInput
+	DirectoryId                 pulumi.StringPtrInput
+	IpAddress                   pulumi.StringPtrInput
+	Region                      pulumi.StringPtrInput
 	RootVolumeEncryptionEnabled pulumi.BoolPtrInput
-	// The operational state of the WorkSpace.
-	State pulumi.StringPtrInput
-	// The tags for the WorkSpace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
-	UserName pulumi.StringPtrInput
-	// Indicates whether the data stored on the user volume is encrypted.
+	State                       pulumi.StringPtrInput
+	Tags                        pulumi.StringMapInput
+	TagsAll                     pulumi.StringMapInput
+	UserName                    pulumi.StringPtrInput
 	UserVolumeEncryptionEnabled pulumi.BoolPtrInput
-	// The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
-	VolumeEncryptionKey pulumi.StringPtrInput
-	// The WorkSpace properties.
-	WorkspaceProperties WorkspaceWorkspacePropertiesPtrInput
+	VolumeEncryptionKey         pulumi.StringPtrInput
+	WorkspaceProperties         WorkspaceWorkspacePropertiesPtrInput
 }
 
 func (WorkspaceState) ElementType() reflect.Type {
@@ -209,46 +105,28 @@ func (WorkspaceState) ElementType() reflect.Type {
 }
 
 type workspaceArgs struct {
-	// The ID of the bundle for the WorkSpace.
-	BundleId string `pulumi:"bundleId"`
-	// The ID of the directory for the WorkSpace.
-	DirectoryId string `pulumi:"directoryId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Indicates whether the data stored on the root volume is encrypted.
-	RootVolumeEncryptionEnabled *bool `pulumi:"rootVolumeEncryptionEnabled"`
-	// The tags for the WorkSpace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
-	UserName string `pulumi:"userName"`
-	// Indicates whether the data stored on the user volume is encrypted.
-	UserVolumeEncryptionEnabled *bool `pulumi:"userVolumeEncryptionEnabled"`
-	// The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
-	VolumeEncryptionKey *string `pulumi:"volumeEncryptionKey"`
-	// The WorkSpace properties.
-	WorkspaceProperties *WorkspaceWorkspaceProperties `pulumi:"workspaceProperties"`
+	BundleId                    string                        `pulumi:"bundleId"`
+	DirectoryId                 string                        `pulumi:"directoryId"`
+	Region                      *string                       `pulumi:"region"`
+	RootVolumeEncryptionEnabled *bool                         `pulumi:"rootVolumeEncryptionEnabled"`
+	Tags                        map[string]string             `pulumi:"tags"`
+	UserName                    string                        `pulumi:"userName"`
+	UserVolumeEncryptionEnabled *bool                         `pulumi:"userVolumeEncryptionEnabled"`
+	VolumeEncryptionKey         *string                       `pulumi:"volumeEncryptionKey"`
+	WorkspaceProperties         *WorkspaceWorkspaceProperties `pulumi:"workspaceProperties"`
 }
 
 // The set of arguments for constructing a Workspace resource.
 type WorkspaceArgs struct {
-	// The ID of the bundle for the WorkSpace.
-	BundleId pulumi.StringInput
-	// The ID of the directory for the WorkSpace.
-	DirectoryId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Indicates whether the data stored on the root volume is encrypted.
+	BundleId                    pulumi.StringInput
+	DirectoryId                 pulumi.StringInput
+	Region                      pulumi.StringPtrInput
 	RootVolumeEncryptionEnabled pulumi.BoolPtrInput
-	// The tags for the WorkSpace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
-	UserName pulumi.StringInput
-	// Indicates whether the data stored on the user volume is encrypted.
+	Tags                        pulumi.StringMapInput
+	UserName                    pulumi.StringInput
 	UserVolumeEncryptionEnabled pulumi.BoolPtrInput
-	// The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
-	VolumeEncryptionKey pulumi.StringPtrInput
-	// The WorkSpace properties.
-	WorkspaceProperties WorkspaceWorkspacePropertiesPtrInput
+	VolumeEncryptionKey         pulumi.StringPtrInput
+	WorkspaceProperties         WorkspaceWorkspacePropertiesPtrInput
 }
 
 func (WorkspaceArgs) ElementType() reflect.Type {
@@ -338,67 +216,54 @@ func (o WorkspaceOutput) ToWorkspaceOutputWithContext(ctx context.Context) Works
 	return o
 }
 
-// The ID of the bundle for the WorkSpace.
 func (o WorkspaceOutput) BundleId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.BundleId }).(pulumi.StringOutput)
 }
 
-// The name of the WorkSpace, as seen by the operating system.
 func (o WorkspaceOutput) ComputerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.ComputerName }).(pulumi.StringOutput)
 }
 
-// The ID of the directory for the WorkSpace.
 func (o WorkspaceOutput) DirectoryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.DirectoryId }).(pulumi.StringOutput)
 }
 
-// The IP address of the WorkSpace.
 func (o WorkspaceOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o WorkspaceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Indicates whether the data stored on the root volume is encrypted.
 func (o WorkspaceOutput) RootVolumeEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.BoolPtrOutput { return v.RootVolumeEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The operational state of the WorkSpace.
 func (o WorkspaceOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
-// The tags for the WorkSpace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o WorkspaceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o WorkspaceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
 func (o WorkspaceOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
 }
 
-// Indicates whether the data stored on the user volume is encrypted.
 func (o WorkspaceOutput) UserVolumeEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.BoolPtrOutput { return v.UserVolumeEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
 func (o WorkspaceOutput) VolumeEncryptionKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.VolumeEncryptionKey }).(pulumi.StringPtrOutput)
 }
 
-// The WorkSpace properties.
 func (o WorkspaceOutput) WorkspaceProperties() WorkspaceWorkspacePropertiesOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceWorkspacePropertiesOutput { return v.WorkspaceProperties }).(WorkspaceWorkspacePropertiesOutput)
 }

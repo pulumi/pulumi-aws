@@ -27,15 +27,6 @@ class IdentityProviderArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IdentityProvider resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] identity_provider_details: Identity provider details. The following list describes the provider detail keys for each identity provider type:
-               * For Google and Login with Amazon:
-        :param pulumi.Input[_builtins.str] identity_provider_name: Identity provider name.
-        :param pulumi.Input[_builtins.str] identity_provider_type: Identity provider type. Valid values: `SAML`, `Facebook`, `Google`, `LoginWithAmazon`, `SignInWithApple`, `OIDC`.
-        :param pulumi.Input[_builtins.str] portal_arn: ARN of the web portal. Forces replacement if changed.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "identity_provider_details", identity_provider_details)
         pulumi.set(__self__, "identity_provider_name", identity_provider_name)
@@ -49,10 +40,6 @@ class IdentityProviderArgs:
     @_builtins.property
     @pulumi.getter(name="identityProviderDetails")
     def identity_provider_details(self) -> pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]:
-        """
-        Identity provider details. The following list describes the provider detail keys for each identity provider type:
-        * For Google and Login with Amazon:
-        """
         return pulumi.get(self, "identity_provider_details")
 
     @identity_provider_details.setter
@@ -62,9 +49,6 @@ class IdentityProviderArgs:
     @_builtins.property
     @pulumi.getter(name="identityProviderName")
     def identity_provider_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identity provider name.
-        """
         return pulumi.get(self, "identity_provider_name")
 
     @identity_provider_name.setter
@@ -74,9 +58,6 @@ class IdentityProviderArgs:
     @_builtins.property
     @pulumi.getter(name="identityProviderType")
     def identity_provider_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identity provider type. Valid values: `SAML`, `Facebook`, `Google`, `LoginWithAmazon`, `SignInWithApple`, `OIDC`.
-        """
         return pulumi.get(self, "identity_provider_type")
 
     @identity_provider_type.setter
@@ -86,11 +67,6 @@ class IdentityProviderArgs:
     @_builtins.property
     @pulumi.getter(name="portalArn")
     def portal_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the web portal. Forces replacement if changed.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "portal_arn")
 
     @portal_arn.setter
@@ -100,9 +76,6 @@ class IdentityProviderArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -112,9 +85,6 @@ class IdentityProviderArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -135,17 +105,6 @@ class _IdentityProviderState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering IdentityProvider resources.
-        :param pulumi.Input[_builtins.str] identity_provider_arn: ARN of the identity provider.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] identity_provider_details: Identity provider details. The following list describes the provider detail keys for each identity provider type:
-               * For Google and Login with Amazon:
-        :param pulumi.Input[_builtins.str] identity_provider_name: Identity provider name.
-        :param pulumi.Input[_builtins.str] identity_provider_type: Identity provider type. Valid values: `SAML`, `Facebook`, `Google`, `LoginWithAmazon`, `SignInWithApple`, `OIDC`.
-        :param pulumi.Input[_builtins.str] portal_arn: ARN of the web portal. Forces replacement if changed.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if identity_provider_arn is not None:
             pulumi.set(__self__, "identity_provider_arn", identity_provider_arn)
@@ -167,9 +126,6 @@ class _IdentityProviderState:
     @_builtins.property
     @pulumi.getter(name="identityProviderArn")
     def identity_provider_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the identity provider.
-        """
         return pulumi.get(self, "identity_provider_arn")
 
     @identity_provider_arn.setter
@@ -179,10 +135,6 @@ class _IdentityProviderState:
     @_builtins.property
     @pulumi.getter(name="identityProviderDetails")
     def identity_provider_details(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Identity provider details. The following list describes the provider detail keys for each identity provider type:
-        * For Google and Login with Amazon:
-        """
         return pulumi.get(self, "identity_provider_details")
 
     @identity_provider_details.setter
@@ -192,9 +144,6 @@ class _IdentityProviderState:
     @_builtins.property
     @pulumi.getter(name="identityProviderName")
     def identity_provider_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identity provider name.
-        """
         return pulumi.get(self, "identity_provider_name")
 
     @identity_provider_name.setter
@@ -204,9 +153,6 @@ class _IdentityProviderState:
     @_builtins.property
     @pulumi.getter(name="identityProviderType")
     def identity_provider_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identity provider type. Valid values: `SAML`, `Facebook`, `Google`, `LoginWithAmazon`, `SignInWithApple`, `OIDC`.
-        """
         return pulumi.get(self, "identity_provider_type")
 
     @identity_provider_type.setter
@@ -216,11 +162,6 @@ class _IdentityProviderState:
     @_builtins.property
     @pulumi.getter(name="portalArn")
     def portal_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the web portal. Forces replacement if changed.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "portal_arn")
 
     @portal_arn.setter
@@ -230,9 +171,6 @@ class _IdentityProviderState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -242,9 +180,6 @@ class _IdentityProviderState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -254,9 +189,6 @@ class _IdentityProviderState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -278,65 +210,9 @@ class IdentityProvider(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS WorkSpaces Web Identity Provider.
-
-        ## Example Usage
-
-        ### Basic Usage with SAML
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.workspacesweb.Portal("example", display_name="example")
-        example_identity_provider = aws.workspacesweb.IdentityProvider("example",
-            identity_provider_name="example-saml",
-            identity_provider_type="SAML",
-            portal_arn=example.portal_arn,
-            identity_provider_details={
-                "MetadataURL": "https://example.com/metadata",
-            })
-        ```
-
-        ### OIDC Identity Provider
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.workspacesweb.Portal("test", display_name="test")
-        test_identity_provider = aws.workspacesweb.IdentityProvider("test",
-            identity_provider_name="test-updated",
-            identity_provider_type="OIDC",
-            portal_arn=test.portal_arn,
-            identity_provider_details={
-                "client_id": "test-client-id",
-                "client_secret": "test-client-secret",
-                "oidc_issuer": "https://accounts.google.com",
-                "attributes_request_method": "POST",
-                "authorize_scopes": "openid, email",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import WorkSpaces Web Identity Provider using the `identity_provider_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:workspacesweb/identityProvider:IdentityProvider example arn:aws:workspaces-web:us-west-2:123456789012:identityprovider/abcdef12345678/12345678-1234-1234-1234-123456789012
-        ```
-
+        Create a IdentityProvider resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] identity_provider_details: Identity provider details. The following list describes the provider detail keys for each identity provider type:
-               * For Google and Login with Amazon:
-        :param pulumi.Input[_builtins.str] identity_provider_name: Identity provider name.
-        :param pulumi.Input[_builtins.str] identity_provider_type: Identity provider type. Valid values: `SAML`, `Facebook`, `Google`, `LoginWithAmazon`, `SignInWithApple`, `OIDC`.
-        :param pulumi.Input[_builtins.str] portal_arn: ARN of the web portal. Forces replacement if changed.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -345,54 +221,7 @@ class IdentityProvider(pulumi.CustomResource):
                  args: IdentityProviderArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS WorkSpaces Web Identity Provider.
-
-        ## Example Usage
-
-        ### Basic Usage with SAML
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.workspacesweb.Portal("example", display_name="example")
-        example_identity_provider = aws.workspacesweb.IdentityProvider("example",
-            identity_provider_name="example-saml",
-            identity_provider_type="SAML",
-            portal_arn=example.portal_arn,
-            identity_provider_details={
-                "MetadataURL": "https://example.com/metadata",
-            })
-        ```
-
-        ### OIDC Identity Provider
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.workspacesweb.Portal("test", display_name="test")
-        test_identity_provider = aws.workspacesweb.IdentityProvider("test",
-            identity_provider_name="test-updated",
-            identity_provider_type="OIDC",
-            portal_arn=test.portal_arn,
-            identity_provider_details={
-                "client_id": "test-client-id",
-                "client_secret": "test-client-secret",
-                "oidc_issuer": "https://accounts.google.com",
-                "attributes_request_method": "POST",
-                "authorize_scopes": "openid, email",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import WorkSpaces Web Identity Provider using the `identity_provider_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:workspacesweb/identityProvider:IdentityProvider example arn:aws:workspaces-web:us-west-2:123456789012:identityprovider/abcdef12345678/12345678-1234-1234-1234-123456789012
-        ```
-
+        Create a IdentityProvider resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param IdentityProviderArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -464,17 +293,6 @@ class IdentityProvider(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] identity_provider_arn: ARN of the identity provider.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] identity_provider_details: Identity provider details. The following list describes the provider detail keys for each identity provider type:
-               * For Google and Login with Amazon:
-        :param pulumi.Input[_builtins.str] identity_provider_name: Identity provider name.
-        :param pulumi.Input[_builtins.str] identity_provider_type: Identity provider type. Valid values: `SAML`, `Facebook`, `Google`, `LoginWithAmazon`, `SignInWithApple`, `OIDC`.
-        :param pulumi.Input[_builtins.str] portal_arn: ARN of the web portal. Forces replacement if changed.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -493,67 +311,40 @@ class IdentityProvider(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="identityProviderArn")
     def identity_provider_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the identity provider.
-        """
         return pulumi.get(self, "identity_provider_arn")
 
     @_builtins.property
     @pulumi.getter(name="identityProviderDetails")
     def identity_provider_details(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Identity provider details. The following list describes the provider detail keys for each identity provider type:
-        * For Google and Login with Amazon:
-        """
         return pulumi.get(self, "identity_provider_details")
 
     @_builtins.property
     @pulumi.getter(name="identityProviderName")
     def identity_provider_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identity provider name.
-        """
         return pulumi.get(self, "identity_provider_name")
 
     @_builtins.property
     @pulumi.getter(name="identityProviderType")
     def identity_provider_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identity provider type. Valid values: `SAML`, `Facebook`, `Google`, `LoginWithAmazon`, `SignInWithApple`, `OIDC`.
-        """
         return pulumi.get(self, "identity_provider_type")
 
     @_builtins.property
     @pulumi.getter(name="portalArn")
     def portal_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the web portal. Forces replacement if changed.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "portal_arn")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

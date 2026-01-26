@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Invoicing.Outputs
     [OutputType]
     public sealed class InvoiceUnitRule
     {
-        /// <summary>
-        /// Set of AWS account IDs included in this invoice unit.
-        /// </summary>
         public readonly ImmutableArray<string> LinkedAccounts;
 
         [OutputConstructor]

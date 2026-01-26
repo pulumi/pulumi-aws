@@ -16,92 +16,44 @@ public final class TrafficPolicyInstanceState extends com.pulumi.resources.Resou
 
     public static final TrafficPolicyInstanceState Empty = new TrafficPolicyInstanceState();
 
-    /**
-     * Amazon Resource Name (ARN) of the traffic policy instance.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the traffic policy instance.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
-     * 
-     */
     @Import(name="hostedZoneId")
     private @Nullable Output<String> hostedZoneId;
 
-    /**
-     * @return ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
-     * 
-     */
     public Optional<Output<String>> hostedZoneId() {
         return Optional.ofNullable(this.hostedZoneId);
     }
 
-    /**
-     * Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
-     * 
-     */
     @Import(name="trafficPolicyId")
     private @Nullable Output<String> trafficPolicyId;
 
-    /**
-     * @return ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
-     * 
-     */
     public Optional<Output<String>> trafficPolicyId() {
         return Optional.ofNullable(this.trafficPolicyId);
     }
 
-    /**
-     * Version of the traffic policy
-     * 
-     */
     @Import(name="trafficPolicyVersion")
     private @Nullable Output<Integer> trafficPolicyVersion;
 
-    /**
-     * @return Version of the traffic policy
-     * 
-     */
     public Optional<Output<Integer>> trafficPolicyVersion() {
         return Optional.ofNullable(this.trafficPolicyVersion);
     }
 
-    /**
-     * TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
-     * 
-     */
     @Import(name="ttl")
     private @Nullable Output<Integer> ttl;
 
-    /**
-     * @return TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
-     * 
-     */
     public Optional<Output<Integer>> ttl() {
         return Optional.ofNullable(this.ttl);
     }
@@ -135,128 +87,56 @@ public final class TrafficPolicyInstanceState extends com.pulumi.resources.Resou
             $ = new TrafficPolicyInstanceState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of the traffic policy instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of the traffic policy instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param hostedZoneId ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostedZoneId(@Nullable Output<String> hostedZoneId) {
             $.hostedZoneId = hostedZoneId;
             return this;
         }
 
-        /**
-         * @param hostedZoneId ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostedZoneId(String hostedZoneId) {
             return hostedZoneId(Output.of(hostedZoneId));
         }
 
-        /**
-         * @param name Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param trafficPolicyId ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trafficPolicyId(@Nullable Output<String> trafficPolicyId) {
             $.trafficPolicyId = trafficPolicyId;
             return this;
         }
 
-        /**
-         * @param trafficPolicyId ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trafficPolicyId(String trafficPolicyId) {
             return trafficPolicyId(Output.of(trafficPolicyId));
         }
 
-        /**
-         * @param trafficPolicyVersion Version of the traffic policy
-         * 
-         * @return builder
-         * 
-         */
         public Builder trafficPolicyVersion(@Nullable Output<Integer> trafficPolicyVersion) {
             $.trafficPolicyVersion = trafficPolicyVersion;
             return this;
         }
 
-        /**
-         * @param trafficPolicyVersion Version of the traffic policy
-         * 
-         * @return builder
-         * 
-         */
         public Builder trafficPolicyVersion(Integer trafficPolicyVersion) {
             return trafficPolicyVersion(Output.of(trafficPolicyVersion));
         }
 
-        /**
-         * @param ttl TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ttl(@Nullable Output<Integer> ttl) {
             $.ttl = ttl;
             return this;
         }
 
-        /**
-         * @param ttl TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ttl(Integer ttl) {
             return ttl(Output.of(ttl));
         }

@@ -12,70 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Network Manager link. Use this resource to create a link for a site.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkmanager.NewLink(ctx, "example", &networkmanager.LinkArgs{
-//				GlobalNetworkId: pulumi.Any(exampleAwsNetworkmanagerGlobalNetwork.Id),
-//				SiteId:          pulumi.Any(exampleAwsNetworkmanagerSite.Id),
-//				Bandwidth: &networkmanager.LinkBandwidthArgs{
-//					UploadSpeed:   pulumi.Int(10),
-//					DownloadSpeed: pulumi.Int(50),
-//				},
-//				ProviderName: pulumi.String("MegaCorp"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_networkmanager_link` using the link ARN. For example:
-//
-// ```sh
-// $ pulumi import aws:networkmanager/link:Link example arn:aws:networkmanager::123456789012:link/global-network-0d47f6t230mz46dy4/link-444555aaabbb11223
-// ```
 type Link struct {
 	pulumi.CustomResourceState
 
-	// Link ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Upload speed and download speed in Mbps. See below.
-	Bandwidth LinkBandwidthOutput `pulumi:"bandwidth"`
-	// Description of the link.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// ID of the global network.
-	GlobalNetworkId pulumi.StringOutput `pulumi:"globalNetworkId"`
-	// Provider of the link.
-	ProviderName pulumi.StringPtrOutput `pulumi:"providerName"`
-	// ID of the site.
-	//
-	// The following arguments are optional:
-	SiteId pulumi.StringOutput `pulumi:"siteId"`
-	// Key-value tags for the link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Type of the link.
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	Arn             pulumi.StringOutput    `pulumi:"arn"`
+	Bandwidth       LinkBandwidthOutput    `pulumi:"bandwidth"`
+	Description     pulumi.StringPtrOutput `pulumi:"description"`
+	GlobalNetworkId pulumi.StringOutput    `pulumi:"globalNetworkId"`
+	ProviderName    pulumi.StringPtrOutput `pulumi:"providerName"`
+	SiteId          pulumi.StringOutput    `pulumi:"siteId"`
+	Tags            pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll         pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Type            pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewLink registers a new resource with the given unique name, arguments, and options.
@@ -117,49 +65,27 @@ func GetLink(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Link resources.
 type linkState struct {
-	// Link ARN.
-	Arn *string `pulumi:"arn"`
-	// Upload speed and download speed in Mbps. See below.
-	Bandwidth *LinkBandwidth `pulumi:"bandwidth"`
-	// Description of the link.
-	Description *string `pulumi:"description"`
-	// ID of the global network.
-	GlobalNetworkId *string `pulumi:"globalNetworkId"`
-	// Provider of the link.
-	ProviderName *string `pulumi:"providerName"`
-	// ID of the site.
-	//
-	// The following arguments are optional:
-	SiteId *string `pulumi:"siteId"`
-	// Key-value tags for the link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Type of the link.
-	Type *string `pulumi:"type"`
+	Arn             *string           `pulumi:"arn"`
+	Bandwidth       *LinkBandwidth    `pulumi:"bandwidth"`
+	Description     *string           `pulumi:"description"`
+	GlobalNetworkId *string           `pulumi:"globalNetworkId"`
+	ProviderName    *string           `pulumi:"providerName"`
+	SiteId          *string           `pulumi:"siteId"`
+	Tags            map[string]string `pulumi:"tags"`
+	TagsAll         map[string]string `pulumi:"tagsAll"`
+	Type            *string           `pulumi:"type"`
 }
 
 type LinkState struct {
-	// Link ARN.
-	Arn pulumi.StringPtrInput
-	// Upload speed and download speed in Mbps. See below.
-	Bandwidth LinkBandwidthPtrInput
-	// Description of the link.
-	Description pulumi.StringPtrInput
-	// ID of the global network.
+	Arn             pulumi.StringPtrInput
+	Bandwidth       LinkBandwidthPtrInput
+	Description     pulumi.StringPtrInput
 	GlobalNetworkId pulumi.StringPtrInput
-	// Provider of the link.
-	ProviderName pulumi.StringPtrInput
-	// ID of the site.
-	//
-	// The following arguments are optional:
-	SiteId pulumi.StringPtrInput
-	// Key-value tags for the link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Type of the link.
-	Type pulumi.StringPtrInput
+	ProviderName    pulumi.StringPtrInput
+	SiteId          pulumi.StringPtrInput
+	Tags            pulumi.StringMapInput
+	TagsAll         pulumi.StringMapInput
+	Type            pulumi.StringPtrInput
 }
 
 func (LinkState) ElementType() reflect.Type {
@@ -167,42 +93,24 @@ func (LinkState) ElementType() reflect.Type {
 }
 
 type linkArgs struct {
-	// Upload speed and download speed in Mbps. See below.
-	Bandwidth LinkBandwidth `pulumi:"bandwidth"`
-	// Description of the link.
-	Description *string `pulumi:"description"`
-	// ID of the global network.
-	GlobalNetworkId string `pulumi:"globalNetworkId"`
-	// Provider of the link.
-	ProviderName *string `pulumi:"providerName"`
-	// ID of the site.
-	//
-	// The following arguments are optional:
-	SiteId string `pulumi:"siteId"`
-	// Key-value tags for the link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Type of the link.
-	Type *string `pulumi:"type"`
+	Bandwidth       LinkBandwidth     `pulumi:"bandwidth"`
+	Description     *string           `pulumi:"description"`
+	GlobalNetworkId string            `pulumi:"globalNetworkId"`
+	ProviderName    *string           `pulumi:"providerName"`
+	SiteId          string            `pulumi:"siteId"`
+	Tags            map[string]string `pulumi:"tags"`
+	Type            *string           `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Link resource.
 type LinkArgs struct {
-	// Upload speed and download speed in Mbps. See below.
-	Bandwidth LinkBandwidthInput
-	// Description of the link.
-	Description pulumi.StringPtrInput
-	// ID of the global network.
+	Bandwidth       LinkBandwidthInput
+	Description     pulumi.StringPtrInput
 	GlobalNetworkId pulumi.StringInput
-	// Provider of the link.
-	ProviderName pulumi.StringPtrInput
-	// ID of the site.
-	//
-	// The following arguments are optional:
-	SiteId pulumi.StringInput
-	// Key-value tags for the link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Type of the link.
-	Type pulumi.StringPtrInput
+	ProviderName    pulumi.StringPtrInput
+	SiteId          pulumi.StringInput
+	Tags            pulumi.StringMapInput
+	Type            pulumi.StringPtrInput
 }
 
 func (LinkArgs) ElementType() reflect.Type {
@@ -292,49 +200,38 @@ func (o LinkOutput) ToLinkOutputWithContext(ctx context.Context) LinkOutput {
 	return o
 }
 
-// Link ARN.
 func (o LinkOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Upload speed and download speed in Mbps. See below.
 func (o LinkOutput) Bandwidth() LinkBandwidthOutput {
 	return o.ApplyT(func(v *Link) LinkBandwidthOutput { return v.Bandwidth }).(LinkBandwidthOutput)
 }
 
-// Description of the link.
 func (o LinkOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// ID of the global network.
 func (o LinkOutput) GlobalNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.GlobalNetworkId }).(pulumi.StringOutput)
 }
 
-// Provider of the link.
 func (o LinkOutput) ProviderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringPtrOutput { return v.ProviderName }).(pulumi.StringPtrOutput)
 }
 
-// ID of the site.
-//
-// The following arguments are optional:
 func (o LinkOutput) SiteId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.SiteId }).(pulumi.StringOutput)
 }
 
-// Key-value tags for the link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o LinkOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o LinkOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Type of the link.
 func (o LinkOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }

@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserPoolDeviceConfiguration {
-    /**
-     * @return - Whether a challenge is required on new devices.
-     * 
-     */
     private Boolean challengeRequiredOnNewDevice;
-    /**
-     * @return - Whether devices are only remembered if the user prompts it.
-     * 
-     */
     private Boolean deviceOnlyRememberedOnUserPrompt;
 
     private GetUserPoolDeviceConfiguration() {}
-    /**
-     * @return - Whether a challenge is required on new devices.
-     * 
-     */
     public Boolean challengeRequiredOnNewDevice() {
         return this.challengeRequiredOnNewDevice;
     }
-    /**
-     * @return - Whether devices are only remembered if the user prompts it.
-     * 
-     */
     public Boolean deviceOnlyRememberedOnUserPrompt() {
         return this.deviceOnlyRememberedOnUserPrompt;
     }

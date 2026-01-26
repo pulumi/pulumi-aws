@@ -9,75 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.NetworkManager
 {
-    /// <summary>
-    /// Manages a Network Manager site. Use this resource to create a site in a global network.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkManager.GlobalNetwork("example");
-    /// 
-    ///     var exampleSite = new Aws.NetworkManager.Site("example", new()
-    ///     {
-    ///         GlobalNetworkId = example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_networkmanager_site` using the site ARN. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:networkmanager/site:Site example arn:aws:networkmanager::123456789012:site/global-network-0d47f6t230mz46dy4/site-444555aaabbb11223
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:networkmanager/site:Site")]
     public partial class Site : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Site ARN.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the Site.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the Global Network to create the site in.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("globalNetworkId")]
         public Output<string> GlobalNetworkId { get; private set; } = null!;
 
-        /// <summary>
-        /// Site location. See below.
-        /// </summary>
         [Output("location")]
         public Output<Outputs.SiteLocation?> Location { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value tags for the Site. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -127,32 +76,17 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class SiteArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of the Site.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// ID of the Global Network to create the site in.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
 
-        /// <summary>
-        /// Site location. See below.
-        /// </summary>
         [Input("location")]
         public Input<Inputs.SiteLocationArgs>? Location { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the Site. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -167,38 +101,20 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class SiteState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Site ARN.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Description of the Site.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// ID of the Global Network to create the site in.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("globalNetworkId")]
         public Input<string>? GlobalNetworkId { get; set; }
 
-        /// <summary>
-        /// Site location. See below.
-        /// </summary>
         [Input("location")]
         public Input<Inputs.SiteLocationGetArgs>? Location { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the Site. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -207,10 +123,6 @@ namespace Pulumi.Aws.NetworkManager
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

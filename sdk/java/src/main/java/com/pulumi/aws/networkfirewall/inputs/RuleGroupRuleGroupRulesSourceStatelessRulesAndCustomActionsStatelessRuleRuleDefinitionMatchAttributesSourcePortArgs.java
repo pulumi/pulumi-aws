@@ -16,32 +16,16 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
 
     public static final RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgs Empty = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgs();
 
-    /**
-     * The lower limit of the port range. This must be less than or equal to the `toPort`.
-     * 
-     */
     @Import(name="fromPort", required=true)
     private Output<Integer> fromPort;
 
-    /**
-     * @return The lower limit of the port range. This must be less than or equal to the `toPort`.
-     * 
-     */
     public Output<Integer> fromPort() {
         return this.fromPort;
     }
 
-    /**
-     * The upper limit of the port range. This must be greater than or equal to the `fromPort`.
-     * 
-     */
     @Import(name="toPort")
     private @Nullable Output<Integer> toPort;
 
-    /**
-     * @return The upper limit of the port range. This must be greater than or equal to the `fromPort`.
-     * 
-     */
     public Optional<Output<Integer>> toPort() {
         return Optional.ofNullable(this.toPort);
     }
@@ -71,44 +55,20 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
             $ = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fromPort The lower limit of the port range. This must be less than or equal to the `toPort`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fromPort(Output<Integer> fromPort) {
             $.fromPort = fromPort;
             return this;
         }
 
-        /**
-         * @param fromPort The lower limit of the port range. This must be less than or equal to the `toPort`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fromPort(Integer fromPort) {
             return fromPort(Output.of(fromPort));
         }
 
-        /**
-         * @param toPort The upper limit of the port range. This must be greater than or equal to the `fromPort`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder toPort(@Nullable Output<Integer> toPort) {
             $.toPort = toPort;
             return this;
         }
 
-        /**
-         * @param toPort The upper limit of the port range. This must be greater than or equal to the `fromPort`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder toPort(Integer toPort) {
             return toPort(Output.of(toPort));
         }

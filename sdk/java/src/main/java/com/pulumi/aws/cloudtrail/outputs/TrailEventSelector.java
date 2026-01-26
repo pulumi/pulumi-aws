@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TrailEventSelector {
-    /**
-     * @return Configuration block for data events. See details below.
-     * 
-     */
     private @Nullable List<TrailEventSelectorDataResource> dataResources;
-    /**
-     * @return A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `includeManagementEvents` must be set to`true` to allow this.
-     * 
-     */
     private @Nullable List<String> excludeManagementEventSources;
-    /**
-     * @return Whether to include management events for your trail. Defaults to `true`.
-     * 
-     */
     private @Nullable Boolean includeManagementEvents;
-    /**
-     * @return Type of events to log. Valid values are `ReadOnly`, `WriteOnly`, `All`. Default value is `All`.
-     * 
-     */
     private @Nullable String readWriteType;
 
     private TrailEventSelector() {}
-    /**
-     * @return Configuration block for data events. See details below.
-     * 
-     */
     public List<TrailEventSelectorDataResource> dataResources() {
         return this.dataResources == null ? List.of() : this.dataResources;
     }
-    /**
-     * @return A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `includeManagementEvents` must be set to`true` to allow this.
-     * 
-     */
     public List<String> excludeManagementEventSources() {
         return this.excludeManagementEventSources == null ? List.of() : this.excludeManagementEventSources;
     }
-    /**
-     * @return Whether to include management events for your trail. Defaults to `true`.
-     * 
-     */
     public Optional<Boolean> includeManagementEvents() {
         return Optional.ofNullable(this.includeManagementEvents);
     }
-    /**
-     * @return Type of events to log. Valid values are `ReadOnly`, `WriteOnly`, `All`. Default value is `All`.
-     * 
-     */
     public Optional<String> readWriteType() {
         return Optional.ofNullable(this.readWriteType);
     }

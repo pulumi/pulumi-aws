@@ -12,15 +12,9 @@ namespace Pulumi.Aws.S3Control.Inputs
 
     public sealed class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS Lambda function.
-        /// </summary>
         [Input("functionArn", required: true)]
         public Input<string> FunctionArn { get; set; } = null!;
 
-        /// <summary>
-        /// Additional JSON that provides supplemental data to the Lambda function used to transform objects.
-        /// </summary>
         [Input("functionPayload")]
         public Input<string>? FunctionPayload { get; set; }
 

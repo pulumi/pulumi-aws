@@ -10,53 +10,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceLoadBalancerAdvancedConfiguration {
-    /**
-     * @return ARN of the alternate target group to use for Blue/Green deployments.
-     * 
-     */
     private String alternateTargetGroupArn;
-    /**
-     * @return ARN of the listener rule that routes production traffic.
-     * 
-     */
     private String productionListenerRule;
-    /**
-     * @return ARN of the IAM role that allows ECS to manage the target groups.
-     * 
-     */
     private String roleArn;
-    /**
-     * @return ARN of the listener rule that routes test traffic.
-     * 
-     */
     private String testListenerRule;
 
     private GetServiceLoadBalancerAdvancedConfiguration() {}
-    /**
-     * @return ARN of the alternate target group to use for Blue/Green deployments.
-     * 
-     */
     public String alternateTargetGroupArn() {
         return this.alternateTargetGroupArn;
     }
-    /**
-     * @return ARN of the listener rule that routes production traffic.
-     * 
-     */
     public String productionListenerRule() {
         return this.productionListenerRule;
     }
-    /**
-     * @return ARN of the IAM role that allows ECS to manage the target groups.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
-    /**
-     * @return ARN of the listener rule that routes test traffic.
-     * 
-     */
     public String testListenerRule() {
         return this.testListenerRule;
     }

@@ -12,69 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Service Discovery Private DNS Namespace resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicediscovery"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.0.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = servicediscovery.NewPrivateDnsNamespace(ctx, "example", &servicediscovery.PrivateDnsNamespaceArgs{
-//				Name:        pulumi.String("hoge.example.local"),
-//				Description: pulumi.String("example"),
-//				Vpc:         example.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Service Discovery Private DNS Namespace using the namespace ID and VPC ID. For example:
-//
-// ```sh
-// $ pulumi import aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace example 0123456789:vpc-123345
-// ```
 type PrivateDnsNamespace struct {
 	pulumi.CustomResourceState
 
-	// The ARN that Amazon Route 53 assigns to the namespace when you create it.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The description that you specify for the namespace when you create it.
+	Arn         pulumi.StringOutput    `pulumi:"arn"`
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
-	HostedZone pulumi.StringOutput `pulumi:"hostedZone"`
-	// The name of the namespace.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The ID of VPC that you want to associate the namespace with.
-	Vpc pulumi.StringOutput `pulumi:"vpc"`
+	HostedZone  pulumi.StringOutput    `pulumi:"hostedZone"`
+	Name        pulumi.StringOutput    `pulumi:"name"`
+	Region      pulumi.StringOutput    `pulumi:"region"`
+	Tags        pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Vpc         pulumi.StringOutput    `pulumi:"vpc"`
 }
 
 // NewPrivateDnsNamespace registers a new resource with the given unique name, arguments, and options.
@@ -110,41 +58,25 @@ func GetPrivateDnsNamespace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrivateDnsNamespace resources.
 type privateDnsNamespaceState struct {
-	// The ARN that Amazon Route 53 assigns to the namespace when you create it.
-	Arn *string `pulumi:"arn"`
-	// The description that you specify for the namespace when you create it.
-	Description *string `pulumi:"description"`
-	// The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
-	HostedZone *string `pulumi:"hostedZone"`
-	// The name of the namespace.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The ID of VPC that you want to associate the namespace with.
-	Vpc *string `pulumi:"vpc"`
+	Arn         *string           `pulumi:"arn"`
+	Description *string           `pulumi:"description"`
+	HostedZone  *string           `pulumi:"hostedZone"`
+	Name        *string           `pulumi:"name"`
+	Region      *string           `pulumi:"region"`
+	Tags        map[string]string `pulumi:"tags"`
+	TagsAll     map[string]string `pulumi:"tagsAll"`
+	Vpc         *string           `pulumi:"vpc"`
 }
 
 type PrivateDnsNamespaceState struct {
-	// The ARN that Amazon Route 53 assigns to the namespace when you create it.
-	Arn pulumi.StringPtrInput
-	// The description that you specify for the namespace when you create it.
+	Arn         pulumi.StringPtrInput
 	Description pulumi.StringPtrInput
-	// The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
-	HostedZone pulumi.StringPtrInput
-	// The name of the namespace.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The ID of VPC that you want to associate the namespace with.
-	Vpc pulumi.StringPtrInput
+	HostedZone  pulumi.StringPtrInput
+	Name        pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
+	Vpc         pulumi.StringPtrInput
 }
 
 func (PrivateDnsNamespaceState) ElementType() reflect.Type {
@@ -152,30 +84,20 @@ func (PrivateDnsNamespaceState) ElementType() reflect.Type {
 }
 
 type privateDnsNamespaceArgs struct {
-	// The description that you specify for the namespace when you create it.
-	Description *string `pulumi:"description"`
-	// The name of the namespace.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The ID of VPC that you want to associate the namespace with.
-	Vpc string `pulumi:"vpc"`
+	Description *string           `pulumi:"description"`
+	Name        *string           `pulumi:"name"`
+	Region      *string           `pulumi:"region"`
+	Tags        map[string]string `pulumi:"tags"`
+	Vpc         string            `pulumi:"vpc"`
 }
 
 // The set of arguments for constructing a PrivateDnsNamespace resource.
 type PrivateDnsNamespaceArgs struct {
-	// The description that you specify for the namespace when you create it.
 	Description pulumi.StringPtrInput
-	// The name of the namespace.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The ID of VPC that you want to associate the namespace with.
-	Vpc pulumi.StringInput
+	Name        pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
+	Vpc         pulumi.StringInput
 }
 
 func (PrivateDnsNamespaceArgs) ElementType() reflect.Type {
@@ -265,42 +187,34 @@ func (o PrivateDnsNamespaceOutput) ToPrivateDnsNamespaceOutputWithContext(ctx co
 	return o
 }
 
-// The ARN that Amazon Route 53 assigns to the namespace when you create it.
 func (o PrivateDnsNamespaceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateDnsNamespace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The description that you specify for the namespace when you create it.
 func (o PrivateDnsNamespaceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateDnsNamespace) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
 func (o PrivateDnsNamespaceOutput) HostedZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateDnsNamespace) pulumi.StringOutput { return v.HostedZone }).(pulumi.StringOutput)
 }
 
-// The name of the namespace.
 func (o PrivateDnsNamespaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateDnsNamespace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PrivateDnsNamespaceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateDnsNamespace) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o PrivateDnsNamespaceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PrivateDnsNamespace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o PrivateDnsNamespaceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PrivateDnsNamespace) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The ID of VPC that you want to associate the namespace with.
 func (o PrivateDnsNamespaceOutput) Vpc() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateDnsNamespace) pulumi.StringOutput { return v.Vpc }).(pulumi.StringOutput)
 }

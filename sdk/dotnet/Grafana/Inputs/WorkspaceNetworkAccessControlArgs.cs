@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Grafana.Inputs
     {
         [Input("prefixListIds", required: true)]
         private InputList<string>? _prefixListIds;
-
-        /// <summary>
-        /// An array of prefix list IDs.
-        /// </summary>
         public InputList<string> PrefixListIds
         {
             get => _prefixListIds ?? (_prefixListIds = new InputList<string>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.Grafana.Inputs
 
         [Input("vpceIds", required: true)]
         private InputList<string>? _vpceIds;
-
-        /// <summary>
-        /// An array of Amazon VPC endpoint IDs for the workspace. The only VPC endpoints that can be specified here are interface VPC endpoints for Grafana workspaces (using the com.amazonaws.[region].grafana-workspace service endpoint). Other VPC endpoints will be ignored.
-        /// </summary>
         public InputList<string> VpceIds
         {
             get => _vpceIds ?? (_vpceIds = new InputList<string>());

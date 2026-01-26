@@ -16,169 +16,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Amazon AppIntegrations Event Integration resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appconfig.EventIntegration;
- * import com.pulumi.aws.appconfig.EventIntegrationArgs;
- * import com.pulumi.aws.appconfig.inputs.EventIntegrationEventFilterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new EventIntegration("example", EventIntegrationArgs.builder()
- *             .name("example-name")
- *             .description("Example Description")
- *             .eventbridgeBus("default")
- *             .eventFilter(EventIntegrationEventFilterArgs.builder()
- *                 .source("aws.partner/examplepartner.com")
- *                 .build())
- *             .tags(Map.of("Name", "Example Event Integration"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Amazon AppIntegrations Event Integrations using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
- * ```
- * 
- */
 @ResourceType(type="aws:appconfig/eventIntegration:EventIntegration")
 public class EventIntegration extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Event Integration.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Event Integration.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Description of the Event Integration.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the Event Integration.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Block that defines the configuration information for the event filter. The Event Filter block is documented below.
-     * 
-     */
     @Export(name="eventFilter", refs={EventIntegrationEventFilter.class}, tree="[0]")
     private Output<EventIntegrationEventFilter> eventFilter;
 
-    /**
-     * @return Block that defines the configuration information for the event filter. The Event Filter block is documented below.
-     * 
-     */
     public Output<EventIntegrationEventFilter> eventFilter() {
         return this.eventFilter;
     }
-    /**
-     * EventBridge bus.
-     * 
-     */
     @Export(name="eventbridgeBus", refs={String.class}, tree="[0]")
     private Output<String> eventbridgeBus;
 
-    /**
-     * @return EventBridge bus.
-     * 
-     */
     public Output<String> eventbridgeBus() {
         return this.eventbridgeBus;
     }
-    /**
-     * Name of the Event Integration.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the Event Integration.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Tags to apply to the Event Integration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Tags to apply to the Event Integration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

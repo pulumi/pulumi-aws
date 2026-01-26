@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location
     {
-        /// <summary>
-        /// URI of the location.
-        /// </summary>
         public readonly string Uri;
 
         [OutputConstructor]

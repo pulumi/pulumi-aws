@@ -14,125 +14,35 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an Amazon API Gateway Version 2 API mapping.
- * More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
- * 
- * ## Example Usage
- * 
- * ### Basic
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigatewayv2.ApiMapping;
- * import com.pulumi.aws.apigatewayv2.ApiMappingArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ApiMapping("example", ApiMappingArgs.builder()
- *             .apiId(exampleAwsApigatewayv2Api.id())
- *             .domainName(exampleAwsApigatewayv2DomainName.id())
- *             .stage(exampleAwsApigatewayv2Stage.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_apigatewayv2_api_mapping` using the API mapping identifier and domain name. For example:
- * 
- * ```sh
- * $ pulumi import aws:apigatewayv2/apiMapping:ApiMapping example 1122334/ws-api.example.com
- * ```
- * 
- */
 @ResourceType(type="aws:apigatewayv2/apiMapping:ApiMapping")
 public class ApiMapping extends com.pulumi.resources.CustomResource {
-    /**
-     * API identifier.
-     * 
-     */
     @Export(name="apiId", refs={String.class}, tree="[0]")
     private Output<String> apiId;
 
-    /**
-     * @return API identifier.
-     * 
-     */
     public Output<String> apiId() {
         return this.apiId;
     }
-    /**
-     * The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
-     * 
-     */
     @Export(name="apiMappingKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiMappingKey;
 
-    /**
-     * @return The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
-     * 
-     */
     public Output<Optional<String>> apiMappingKey() {
         return Codegen.optional(this.apiMappingKey);
     }
-    /**
-     * Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
-     * 
-     */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
-    /**
-     * @return Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
-     * 
-     */
     @Export(name="stage", refs={String.class}, tree="[0]")
     private Output<String> stage;
 
-    /**
-     * @return API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
-     * 
-     */
     public Output<String> stage() {
         return this.stage;
     }

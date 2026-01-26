@@ -33,15 +33,6 @@ class PortalArgs:
                  timeouts: Optional[pulumi.Input['PortalTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Portal resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context for the customer managed key. Forces replacement if changed.
-        :param pulumi.Input[_builtins.str] authentication_type: Authentication type for the portal. Valid values: `Standard`, `IAM_Identity_Center`.
-        :param pulumi.Input[_builtins.str] browser_settings_arn: ARN of the browser settings to use for the portal.
-        :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed key. Forces replacement if changed.
-        :param pulumi.Input[_builtins.str] display_name: Display name of the portal.
-        :param pulumi.Input[_builtins.str] instance_type: Instance type for the portal. Valid values: `standard.regular`, `standard.large`.
-        :param pulumi.Input[_builtins.int] max_concurrent_sessions: Maximum number of concurrent sessions for the portal.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if additional_encryption_context is not None:
             pulumi.set(__self__, "additional_encryption_context", additional_encryption_context)
@@ -67,9 +58,6 @@ class PortalArgs:
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Additional encryption context for the customer managed key. Forces replacement if changed.
-        """
         return pulumi.get(self, "additional_encryption_context")
 
     @additional_encryption_context.setter
@@ -79,9 +67,6 @@ class PortalArgs:
     @_builtins.property
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Authentication type for the portal. Valid values: `Standard`, `IAM_Identity_Center`.
-        """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
@@ -91,9 +76,6 @@ class PortalArgs:
     @_builtins.property
     @pulumi.getter(name="browserSettingsArn")
     def browser_settings_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the browser settings to use for the portal.
-        """
         return pulumi.get(self, "browser_settings_arn")
 
     @browser_settings_arn.setter
@@ -103,9 +85,6 @@ class PortalArgs:
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the customer managed key. Forces replacement if changed.
-        """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
@@ -115,9 +94,6 @@ class PortalArgs:
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Display name of the portal.
-        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -127,9 +103,6 @@ class PortalArgs:
     @_builtins.property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Instance type for the portal. Valid values: `standard.regular`, `standard.large`.
-        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -139,9 +112,6 @@ class PortalArgs:
     @_builtins.property
     @pulumi.getter(name="maxConcurrentSessions")
     def max_concurrent_sessions(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Maximum number of concurrent sessions for the portal.
-        """
         return pulumi.get(self, "max_concurrent_sessions")
 
     @max_concurrent_sessions.setter
@@ -151,9 +121,6 @@ class PortalArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -163,9 +130,6 @@ class PortalArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -212,30 +176,6 @@ class _PortalState:
                  user_settings_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Portal resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context for the customer managed key. Forces replacement if changed.
-        :param pulumi.Input[_builtins.str] authentication_type: Authentication type for the portal. Valid values: `Standard`, `IAM_Identity_Center`.
-        :param pulumi.Input[_builtins.str] browser_settings_arn: ARN of the browser settings to use for the portal.
-        :param pulumi.Input[_builtins.str] browser_type: Browser type of the portal.
-        :param pulumi.Input[_builtins.str] creation_date: Creation date of the portal.
-        :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed key. Forces replacement if changed.
-        :param pulumi.Input[_builtins.str] data_protection_settings_arn: ARN of the data protection settings associated with the portal.
-        :param pulumi.Input[_builtins.str] display_name: Display name of the portal.
-        :param pulumi.Input[_builtins.str] instance_type: Instance type for the portal. Valid values: `standard.regular`, `standard.large`.
-        :param pulumi.Input[_builtins.str] ip_access_settings_arn: ARN of the IP access settings associated with the portal.
-        :param pulumi.Input[_builtins.int] max_concurrent_sessions: Maximum number of concurrent sessions for the portal.
-        :param pulumi.Input[_builtins.str] network_settings_arn: ARN of the network settings associated with the portal.
-        :param pulumi.Input[_builtins.str] portal_arn: ARN of the portal.
-        :param pulumi.Input[_builtins.str] portal_endpoint: Endpoint URL of the portal.
-        :param pulumi.Input[_builtins.str] portal_status: Status of the portal.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] renderer_type: Renderer type of the portal.
-        :param pulumi.Input[_builtins.str] session_logger_arn: ARN of the session logger associated with the portal.
-        :param pulumi.Input[_builtins.str] status_reason: Reason for the current status of the portal.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] trust_store_arn: ARN of the trust store associated with the portal.
-        :param pulumi.Input[_builtins.str] user_access_logging_settings_arn: ARN of the user access logging settings associated with the portal.
-        :param pulumi.Input[_builtins.str] user_settings_arn: ARN of the user settings associated with the portal.
         """
         if additional_encryption_context is not None:
             pulumi.set(__self__, "additional_encryption_context", additional_encryption_context)
@@ -291,9 +231,6 @@ class _PortalState:
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Additional encryption context for the customer managed key. Forces replacement if changed.
-        """
         return pulumi.get(self, "additional_encryption_context")
 
     @additional_encryption_context.setter
@@ -303,9 +240,6 @@ class _PortalState:
     @_builtins.property
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Authentication type for the portal. Valid values: `Standard`, `IAM_Identity_Center`.
-        """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
@@ -315,9 +249,6 @@ class _PortalState:
     @_builtins.property
     @pulumi.getter(name="browserSettingsArn")
     def browser_settings_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the browser settings to use for the portal.
-        """
         return pulumi.get(self, "browser_settings_arn")
 
     @browser_settings_arn.setter
@@ -327,9 +258,6 @@ class _PortalState:
     @_builtins.property
     @pulumi.getter(name="browserType")
     def browser_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Browser type of the portal.
-        """
         return pulumi.get(self, "browser_type")
 
     @browser_type.setter
@@ -339,9 +267,6 @@ class _PortalState:
     @_builtins.property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creation date of the portal.
-        """
         return pulumi.get(self, "creation_date")
 
     @creation_date.setter
@@ -351,9 +276,6 @@ class _PortalState:
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the customer managed key. Forces replacement if changed.
-        """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
@@ -363,9 +285,6 @@ class _PortalState:
     @_builtins.property
     @pulumi.getter(name="dataProtectionSettingsArn")
     def data_protection_settings_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the data protection settings associated with the portal.
-        """
         return pulumi.get(self, "data_protection_settings_arn")
 
     @data_protection_settings_arn.setter
@@ -375,9 +294,6 @@ class _PortalState:
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Display name of the portal.
-        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -387,9 +303,6 @@ class _PortalState:
     @_builtins.property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Instance type for the portal. Valid values: `standard.regular`, `standard.large`.
-        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -399,9 +312,6 @@ class _PortalState:
     @_builtins.property
     @pulumi.getter(name="ipAccessSettingsArn")
     def ip_access_settings_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IP access settings associated with the portal.
-        """
         return pulumi.get(self, "ip_access_settings_arn")
 
     @ip_access_settings_arn.setter
@@ -411,9 +321,6 @@ class _PortalState:
     @_builtins.property
     @pulumi.getter(name="maxConcurrentSessions")
     def max_concurrent_sessions(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Maximum number of concurrent sessions for the portal.
-        """
         return pulumi.get(self, "max_concurrent_sessions")
 
     @max_concurrent_sessions.setter
@@ -423,9 +330,6 @@ class _PortalState:
     @_builtins.property
     @pulumi.getter(name="networkSettingsArn")
     def network_settings_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the network settings associated with the portal.
-        """
         return pulumi.get(self, "network_settings_arn")
 
     @network_settings_arn.setter
@@ -435,9 +339,6 @@ class _PortalState:
     @_builtins.property
     @pulumi.getter(name="portalArn")
     def portal_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the portal.
-        """
         return pulumi.get(self, "portal_arn")
 
     @portal_arn.setter
@@ -447,9 +348,6 @@ class _PortalState:
     @_builtins.property
     @pulumi.getter(name="portalEndpoint")
     def portal_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Endpoint URL of the portal.
-        """
         return pulumi.get(self, "portal_endpoint")
 
     @portal_endpoint.setter
@@ -459,9 +357,6 @@ class _PortalState:
     @_builtins.property
     @pulumi.getter(name="portalStatus")
     def portal_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of the portal.
-        """
         return pulumi.get(self, "portal_status")
 
     @portal_status.setter
@@ -471,9 +366,6 @@ class _PortalState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -483,9 +375,6 @@ class _PortalState:
     @_builtins.property
     @pulumi.getter(name="rendererType")
     def renderer_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Renderer type of the portal.
-        """
         return pulumi.get(self, "renderer_type")
 
     @renderer_type.setter
@@ -495,9 +384,6 @@ class _PortalState:
     @_builtins.property
     @pulumi.getter(name="sessionLoggerArn")
     def session_logger_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the session logger associated with the portal.
-        """
         return pulumi.get(self, "session_logger_arn")
 
     @session_logger_arn.setter
@@ -507,9 +393,6 @@ class _PortalState:
     @_builtins.property
     @pulumi.getter(name="statusReason")
     def status_reason(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Reason for the current status of the portal.
-        """
         return pulumi.get(self, "status_reason")
 
     @status_reason.setter
@@ -519,9 +402,6 @@ class _PortalState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -531,9 +411,6 @@ class _PortalState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -552,9 +429,6 @@ class _PortalState:
     @_builtins.property
     @pulumi.getter(name="trustStoreArn")
     def trust_store_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the trust store associated with the portal.
-        """
         return pulumi.get(self, "trust_store_arn")
 
     @trust_store_arn.setter
@@ -564,9 +438,6 @@ class _PortalState:
     @_builtins.property
     @pulumi.getter(name="userAccessLoggingSettingsArn")
     def user_access_logging_settings_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the user access logging settings associated with the portal.
-        """
         return pulumi.get(self, "user_access_logging_settings_arn")
 
     @user_access_logging_settings_arn.setter
@@ -576,9 +447,6 @@ class _PortalState:
     @_builtins.property
     @pulumi.getter(name="userSettingsArn")
     def user_settings_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the user settings associated with the portal.
-        """
         return pulumi.get(self, "user_settings_arn")
 
     @user_settings_arn.setter
@@ -604,63 +472,9 @@ class Portal(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['PortalTimeoutsArgs', 'PortalTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS WorkSpaces Web Portal.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.workspacesweb.Portal("example",
-            display_name="example-portal",
-            instance_type="standard.regular")
-        ```
-
-        ### Complete Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kms.Key("example",
-            description="KMS key for WorkSpaces Web Portal",
-            deletion_window_in_days=7)
-        example_portal = aws.workspacesweb.Portal("example",
-            display_name="example-portal",
-            instance_type="standard.large",
-            authentication_type="IAM_Identity_Center",
-            customer_managed_key=example.arn,
-            max_concurrent_sessions=10,
-            additional_encryption_context={
-                "Environment": "Production",
-            },
-            tags={
-                "Name": "example-portal",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import WorkSpaces Web Portal using the `portal_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:workspacesweb/portal:Portal example arn:aws:workspaces-web:us-west-2:123456789012:portal/abcdef12345678
-        ```
-
+        Create a Portal resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context for the customer managed key. Forces replacement if changed.
-        :param pulumi.Input[_builtins.str] authentication_type: Authentication type for the portal. Valid values: `Standard`, `IAM_Identity_Center`.
-        :param pulumi.Input[_builtins.str] browser_settings_arn: ARN of the browser settings to use for the portal.
-        :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed key. Forces replacement if changed.
-        :param pulumi.Input[_builtins.str] display_name: Display name of the portal.
-        :param pulumi.Input[_builtins.str] instance_type: Instance type for the portal. Valid values: `standard.regular`, `standard.large`.
-        :param pulumi.Input[_builtins.int] max_concurrent_sessions: Maximum number of concurrent sessions for the portal.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -669,52 +483,7 @@ class Portal(pulumi.CustomResource):
                  args: Optional[PortalArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS WorkSpaces Web Portal.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.workspacesweb.Portal("example",
-            display_name="example-portal",
-            instance_type="standard.regular")
-        ```
-
-        ### Complete Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kms.Key("example",
-            description="KMS key for WorkSpaces Web Portal",
-            deletion_window_in_days=7)
-        example_portal = aws.workspacesweb.Portal("example",
-            display_name="example-portal",
-            instance_type="standard.large",
-            authentication_type="IAM_Identity_Center",
-            customer_managed_key=example.arn,
-            max_concurrent_sessions=10,
-            additional_encryption_context={
-                "Environment": "Production",
-            },
-            tags={
-                "Name": "example-portal",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import WorkSpaces Web Portal using the `portal_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:workspacesweb/portal:Portal example arn:aws:workspaces-web:us-west-2:123456789012:portal/abcdef12345678
-        ```
-
+        Create a Portal resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PortalArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -816,30 +585,6 @@ class Portal(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context for the customer managed key. Forces replacement if changed.
-        :param pulumi.Input[_builtins.str] authentication_type: Authentication type for the portal. Valid values: `Standard`, `IAM_Identity_Center`.
-        :param pulumi.Input[_builtins.str] browser_settings_arn: ARN of the browser settings to use for the portal.
-        :param pulumi.Input[_builtins.str] browser_type: Browser type of the portal.
-        :param pulumi.Input[_builtins.str] creation_date: Creation date of the portal.
-        :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed key. Forces replacement if changed.
-        :param pulumi.Input[_builtins.str] data_protection_settings_arn: ARN of the data protection settings associated with the portal.
-        :param pulumi.Input[_builtins.str] display_name: Display name of the portal.
-        :param pulumi.Input[_builtins.str] instance_type: Instance type for the portal. Valid values: `standard.regular`, `standard.large`.
-        :param pulumi.Input[_builtins.str] ip_access_settings_arn: ARN of the IP access settings associated with the portal.
-        :param pulumi.Input[_builtins.int] max_concurrent_sessions: Maximum number of concurrent sessions for the portal.
-        :param pulumi.Input[_builtins.str] network_settings_arn: ARN of the network settings associated with the portal.
-        :param pulumi.Input[_builtins.str] portal_arn: ARN of the portal.
-        :param pulumi.Input[_builtins.str] portal_endpoint: Endpoint URL of the portal.
-        :param pulumi.Input[_builtins.str] portal_status: Status of the portal.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] renderer_type: Renderer type of the portal.
-        :param pulumi.Input[_builtins.str] session_logger_arn: ARN of the session logger associated with the portal.
-        :param pulumi.Input[_builtins.str] status_reason: Reason for the current status of the portal.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] trust_store_arn: ARN of the trust store associated with the portal.
-        :param pulumi.Input[_builtins.str] user_access_logging_settings_arn: ARN of the user access logging settings associated with the portal.
-        :param pulumi.Input[_builtins.str] user_settings_arn: ARN of the user settings associated with the portal.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -875,169 +620,106 @@ class Portal(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Additional encryption context for the customer managed key. Forces replacement if changed.
-        """
         return pulumi.get(self, "additional_encryption_context")
 
     @_builtins.property
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Authentication type for the portal. Valid values: `Standard`, `IAM_Identity_Center`.
-        """
         return pulumi.get(self, "authentication_type")
 
     @_builtins.property
     @pulumi.getter(name="browserSettingsArn")
     def browser_settings_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the browser settings to use for the portal.
-        """
         return pulumi.get(self, "browser_settings_arn")
 
     @_builtins.property
     @pulumi.getter(name="browserType")
     def browser_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Browser type of the portal.
-        """
         return pulumi.get(self, "browser_type")
 
     @_builtins.property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> pulumi.Output[_builtins.str]:
-        """
-        Creation date of the portal.
-        """
         return pulumi.get(self, "creation_date")
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ARN of the customer managed key. Forces replacement if changed.
-        """
         return pulumi.get(self, "customer_managed_key")
 
     @_builtins.property
     @pulumi.getter(name="dataProtectionSettingsArn")
     def data_protection_settings_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the data protection settings associated with the portal.
-        """
         return pulumi.get(self, "data_protection_settings_arn")
 
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Display name of the portal.
-        """
         return pulumi.get(self, "display_name")
 
     @_builtins.property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Instance type for the portal. Valid values: `standard.regular`, `standard.large`.
-        """
         return pulumi.get(self, "instance_type")
 
     @_builtins.property
     @pulumi.getter(name="ipAccessSettingsArn")
     def ip_access_settings_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the IP access settings associated with the portal.
-        """
         return pulumi.get(self, "ip_access_settings_arn")
 
     @_builtins.property
     @pulumi.getter(name="maxConcurrentSessions")
     def max_concurrent_sessions(self) -> pulumi.Output[_builtins.int]:
-        """
-        Maximum number of concurrent sessions for the portal.
-        """
         return pulumi.get(self, "max_concurrent_sessions")
 
     @_builtins.property
     @pulumi.getter(name="networkSettingsArn")
     def network_settings_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the network settings associated with the portal.
-        """
         return pulumi.get(self, "network_settings_arn")
 
     @_builtins.property
     @pulumi.getter(name="portalArn")
     def portal_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the portal.
-        """
         return pulumi.get(self, "portal_arn")
 
     @_builtins.property
     @pulumi.getter(name="portalEndpoint")
     def portal_endpoint(self) -> pulumi.Output[_builtins.str]:
-        """
-        Endpoint URL of the portal.
-        """
         return pulumi.get(self, "portal_endpoint")
 
     @_builtins.property
     @pulumi.getter(name="portalStatus")
     def portal_status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Status of the portal.
-        """
         return pulumi.get(self, "portal_status")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="rendererType")
     def renderer_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Renderer type of the portal.
-        """
         return pulumi.get(self, "renderer_type")
 
     @_builtins.property
     @pulumi.getter(name="sessionLoggerArn")
     def session_logger_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the session logger associated with the portal.
-        """
         return pulumi.get(self, "session_logger_arn")
 
     @_builtins.property
     @pulumi.getter(name="statusReason")
     def status_reason(self) -> pulumi.Output[_builtins.str]:
-        """
-        Reason for the current status of the portal.
-        """
         return pulumi.get(self, "status_reason")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
@@ -1048,24 +730,15 @@ class Portal(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="trustStoreArn")
     def trust_store_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the trust store associated with the portal.
-        """
         return pulumi.get(self, "trust_store_arn")
 
     @_builtins.property
     @pulumi.getter(name="userAccessLoggingSettingsArn")
     def user_access_logging_settings_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the user access logging settings associated with the portal.
-        """
         return pulumi.get(self, "user_access_logging_settings_arn")
 
     @_builtins.property
     @pulumi.getter(name="userSettingsArn")
     def user_settings_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the user settings associated with the portal.
-        """
         return pulumi.get(self, "user_settings_arn")
 

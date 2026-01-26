@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class QueryLoggingConfigurationDestinationCloudwatchLogs {
-    /**
-     * @return The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
-     * 
-     */
     private String logGroupArn;
 
     private QueryLoggingConfigurationDestinationCloudwatchLogs() {}
-    /**
-     * @return The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
-     * 
-     */
     public String logGroupArn() {
         return this.logGroupArn;
     }

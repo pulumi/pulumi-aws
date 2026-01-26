@@ -12,64 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS Lake Formation Identity Center Configuration.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lakeformation"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			identityCenterInstanceArn := example.Arns[0]
-//			_, err = lakeformation.NewIdentityCenterConfiguration(ctx, "example", &lakeformation.IdentityCenterConfigurationArgs{
-//				InstanceArn: pulumi.String(identityCenterInstanceArn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Lake Formation Identity Center Configuration using the `catalog_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:lakeformation/identityCenterConfiguration:IdentityCenterConfiguration example 123456789012
-// ```
 type IdentityCenterConfiguration struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Lake Formation applicated integrated with IAM Identity Center.
 	ApplicationArn pulumi.StringOutput `pulumi:"applicationArn"`
-	// Identifier for the Data Catalog.
-	// By default, the account ID.
+	// The ID of the Data Catalog.
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
-	// ARN of the IAM Identity Center Instance to associate.
-	//
-	// The following arguments are optional:
-	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ARN of the Resource Access Manager (RAM) resource share.
+	// The ARN of the Identity Center instance.
+	InstanceArn   pulumi.StringOutput `pulumi:"instanceArn"`
+	Region        pulumi.StringOutput `pulumi:"region"`
 	ResourceShare pulumi.StringOutput `pulumi:"resourceShare"`
 }
 
@@ -106,34 +57,22 @@ func GetIdentityCenterConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IdentityCenterConfiguration resources.
 type identityCenterConfigurationState struct {
-	// ARN of the Lake Formation applicated integrated with IAM Identity Center.
 	ApplicationArn *string `pulumi:"applicationArn"`
-	// Identifier for the Data Catalog.
-	// By default, the account ID.
+	// The ID of the Data Catalog.
 	CatalogId *string `pulumi:"catalogId"`
-	// ARN of the IAM Identity Center Instance to associate.
-	//
-	// The following arguments are optional:
-	InstanceArn *string `pulumi:"instanceArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the Resource Access Manager (RAM) resource share.
+	// The ARN of the Identity Center instance.
+	InstanceArn   *string `pulumi:"instanceArn"`
+	Region        *string `pulumi:"region"`
 	ResourceShare *string `pulumi:"resourceShare"`
 }
 
 type IdentityCenterConfigurationState struct {
-	// ARN of the Lake Formation applicated integrated with IAM Identity Center.
 	ApplicationArn pulumi.StringPtrInput
-	// Identifier for the Data Catalog.
-	// By default, the account ID.
+	// The ID of the Data Catalog.
 	CatalogId pulumi.StringPtrInput
-	// ARN of the IAM Identity Center Instance to associate.
-	//
-	// The following arguments are optional:
-	InstanceArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN of the Resource Access Manager (RAM) resource share.
+	// The ARN of the Identity Center instance.
+	InstanceArn   pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
 	ResourceShare pulumi.StringPtrInput
 }
 
@@ -142,28 +81,20 @@ func (IdentityCenterConfigurationState) ElementType() reflect.Type {
 }
 
 type identityCenterConfigurationArgs struct {
-	// Identifier for the Data Catalog.
-	// By default, the account ID.
+	// The ID of the Data Catalog.
 	CatalogId *string `pulumi:"catalogId"`
-	// ARN of the IAM Identity Center Instance to associate.
-	//
-	// The following arguments are optional:
-	InstanceArn string `pulumi:"instanceArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	// The ARN of the Identity Center instance.
+	InstanceArn string  `pulumi:"instanceArn"`
+	Region      *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a IdentityCenterConfiguration resource.
 type IdentityCenterConfigurationArgs struct {
-	// Identifier for the Data Catalog.
-	// By default, the account ID.
+	// The ID of the Data Catalog.
 	CatalogId pulumi.StringPtrInput
-	// ARN of the IAM Identity Center Instance to associate.
-	//
-	// The following arguments are optional:
+	// The ARN of the Identity Center instance.
 	InstanceArn pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
 }
 
 func (IdentityCenterConfigurationArgs) ElementType() reflect.Type {
@@ -253,30 +184,24 @@ func (o IdentityCenterConfigurationOutput) ToIdentityCenterConfigurationOutputWi
 	return o
 }
 
-// ARN of the Lake Formation applicated integrated with IAM Identity Center.
 func (o IdentityCenterConfigurationOutput) ApplicationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityCenterConfiguration) pulumi.StringOutput { return v.ApplicationArn }).(pulumi.StringOutput)
 }
 
-// Identifier for the Data Catalog.
-// By default, the account ID.
+// The ID of the Data Catalog.
 func (o IdentityCenterConfigurationOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityCenterConfiguration) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
 }
 
-// ARN of the IAM Identity Center Instance to associate.
-//
-// The following arguments are optional:
+// The ARN of the Identity Center instance.
 func (o IdentityCenterConfigurationOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityCenterConfiguration) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o IdentityCenterConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityCenterConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ARN of the Resource Access Manager (RAM) resource share.
 func (o IdentityCenterConfigurationOutput) ResourceShare() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityCenterConfiguration) pulumi.StringOutput { return v.ResourceShare }).(pulumi.StringOutput)
 }

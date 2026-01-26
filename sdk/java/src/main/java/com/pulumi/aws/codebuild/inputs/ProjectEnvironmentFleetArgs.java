@@ -15,17 +15,9 @@ public final class ProjectEnvironmentFleetArgs extends com.pulumi.resources.Reso
 
     public static final ProjectEnvironmentFleetArgs Empty = new ProjectEnvironmentFleetArgs();
 
-    /**
-     * Compute fleet ARN for the build project.
-     * 
-     */
     @Import(name="fleetArn")
     private @Nullable Output<String> fleetArn;
 
-    /**
-     * @return Compute fleet ARN for the build project.
-     * 
-     */
     public Optional<Output<String>> fleetArn() {
         return Optional.ofNullable(this.fleetArn);
     }
@@ -54,23 +46,11 @@ public final class ProjectEnvironmentFleetArgs extends com.pulumi.resources.Reso
             $ = new ProjectEnvironmentFleetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fleetArn Compute fleet ARN for the build project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fleetArn(@Nullable Output<String> fleetArn) {
             $.fleetArn = fleetArn;
             return this;
         }
 
-        /**
-         * @param fleetArn Compute fleet ARN for the build project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fleetArn(String fleetArn) {
             return fleetArn(Output.of(fleetArn));
         }

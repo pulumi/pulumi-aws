@@ -4,31 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Associates a Direct Connect Connection with a LAG.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.directconnect.Connection("example", {
- *     name: "example",
- *     bandwidth: "1Gbps",
- *     location: "EqSe2-EQ",
- * });
- * const exampleLinkAggregationGroup = new aws.directconnect.LinkAggregationGroup("example", {
- *     name: "example",
- *     connectionsBandwidth: "1Gbps",
- *     location: "EqSe2-EQ",
- * });
- * const exampleConnectionAssociation = new aws.directconnect.ConnectionAssociation("example", {
- *     connectionId: example.id,
- *     lagId: exampleLinkAggregationGroup.id,
- * });
- * ```
- */
 export class ConnectionAssociation extends pulumi.CustomResource {
     /**
      * Get an existing ConnectionAssociation resource's state with the given name, ID, and optional extra
@@ -57,17 +32,8 @@ export class ConnectionAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConnectionAssociation.__pulumiType;
     }
 
-    /**
-     * The ID of the connection.
-     */
     declare public readonly connectionId: pulumi.Output<string>;
-    /**
-     * The ID of the LAG with which to associate the connection.
-     */
     declare public readonly lagId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -107,17 +73,8 @@ export class ConnectionAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ConnectionAssociation resources.
  */
 export interface ConnectionAssociationState {
-    /**
-     * The ID of the connection.
-     */
     connectionId?: pulumi.Input<string>;
-    /**
-     * The ID of the LAG with which to associate the connection.
-     */
     lagId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -125,16 +82,7 @@ export interface ConnectionAssociationState {
  * The set of arguments for constructing a ConnectionAssociation resource.
  */
 export interface ConnectionAssociationArgs {
-    /**
-     * The ID of the connection.
-     */
     connectionId: pulumi.Input<string>;
-    /**
-     * The ID of the LAG with which to associate the connection.
-     */
     lagId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

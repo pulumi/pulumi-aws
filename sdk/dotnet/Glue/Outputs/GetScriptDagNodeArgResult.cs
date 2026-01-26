@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class GetScriptDagNodeArgResult
     {
-        /// <summary>
-        /// Name of the argument or property.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Boolean if the value is used as a parameter. Defaults to `False`.
-        /// </summary>
         public readonly bool? Param;
-        /// <summary>
-        /// Value of the argument or property.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

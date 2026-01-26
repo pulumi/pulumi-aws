@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationSsmlMessage {
-    /**
-     * @return SSML text that defines the prompt.
-     * 
-     */
     private String value;
 
     private V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationSsmlMessage() {}
-    /**
-     * @return SSML text that defines the prompt.
-     * 
-     */
     public String value() {
         return this.value;
     }

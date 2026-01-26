@@ -12,41 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceDeploymentConfigurationAlarm {
-    /**
-     * @return List of CloudWatch alarm names
-     * 
-     */
     private List<String> alarmNames;
-    /**
-     * @return Whether circuit breaker is enabled
-     * 
-     */
     private Boolean enable;
-    /**
-     * @return Whether to rollback on failure
-     * 
-     */
     private Boolean rollback;
 
     private GetServiceDeploymentConfigurationAlarm() {}
-    /**
-     * @return List of CloudWatch alarm names
-     * 
-     */
     public List<String> alarmNames() {
         return this.alarmNames;
     }
-    /**
-     * @return Whether circuit breaker is enabled
-     * 
-     */
     public Boolean enable() {
         return this.enable;
     }
-    /**
-     * @return Whether to rollback on failure
-     * 
-     */
     public Boolean rollback() {
         return this.rollback;
     }

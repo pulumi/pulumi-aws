@@ -12,29 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetNodeGroupResource {
-    /**
-     * @return List of objects containing information about AutoScaling Groups.
-     * 
-     */
     private List<GetNodeGroupResourceAutoscalingGroup> autoscalingGroups;
-    /**
-     * @return Identifier of the remote access EC2 Security Group.
-     * 
-     */
     private String remoteAccessSecurityGroupId;
 
     private GetNodeGroupResource() {}
-    /**
-     * @return List of objects containing information about AutoScaling Groups.
-     * 
-     */
     public List<GetNodeGroupResourceAutoscalingGroup> autoscalingGroups() {
         return this.autoscalingGroups;
     }
-    /**
-     * @return Identifier of the remote access EC2 Security Group.
-     * 
-     */
     public String remoteAccessSecurityGroupId() {
         return this.remoteAccessSecurityGroupId;
     }

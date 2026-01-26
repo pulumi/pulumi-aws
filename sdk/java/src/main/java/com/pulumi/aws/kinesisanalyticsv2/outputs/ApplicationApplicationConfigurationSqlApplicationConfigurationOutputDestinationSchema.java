@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema {
-    /**
-     * @return Specifies the format of the records on the output stream. Valid values: `CSV`, `JSON`.
-     * 
-     */
     private String recordFormatType;
 
     private ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema() {}
-    /**
-     * @return Specifies the format of the records on the output stream. Valid values: `CSV`, `JSON`.
-     * 
-     */
     public String recordFormatType() {
         return this.recordFormatType;
     }

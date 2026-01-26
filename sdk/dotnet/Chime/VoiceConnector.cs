@@ -9,87 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Chime
 {
-    /// <summary>
-    /// Enables you to connect your phone system to the telephone network at a substantial cost savings by using SIP trunking.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Chime.VoiceConnector("test", new()
-    ///     {
-    ///         Name = "connector-test-1",
-    ///         RequireEncryption = true,
-    ///         AwsRegion = "us-east-1",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Configuration Recorder using the name. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:chime/voiceConnector:VoiceConnector test example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:chime/voiceConnector:VoiceConnector")]
     public partial class VoiceConnector : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
-        /// </summary>
         [Output("awsRegion")]
         public Output<string> AwsRegion { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the Amazon Chime Voice Connector.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The outbound host name for the Amazon Chime Voice Connector.
-        /// </summary>
         [Output("outboundHostName")]
         public Output<string> OutboundHostName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// When enabled, requires encryption for the Amazon Chime Voice Connector.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("requireEncryption")]
         public Output<bool> RequireEncryption { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -139,38 +82,20 @@ namespace Pulumi.Aws.Chime
 
     public sealed class VoiceConnectorArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
-        /// </summary>
         [Input("awsRegion")]
         public Input<string>? AwsRegion { get; set; }
 
-        /// <summary>
-        /// The name of the Amazon Chime Voice Connector.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// When enabled, requires encryption for the Amazon Chime Voice Connector.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("requireEncryption", required: true)]
         public Input<bool> RequireEncryption { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -185,50 +110,26 @@ namespace Pulumi.Aws.Chime
 
     public sealed class VoiceConnectorState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
-        /// </summary>
         [Input("awsRegion")]
         public Input<string>? AwsRegion { get; set; }
 
-        /// <summary>
-        /// The name of the Amazon Chime Voice Connector.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The outbound host name for the Amazon Chime Voice Connector.
-        /// </summary>
         [Input("outboundHostName")]
         public Input<string>? OutboundHostName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// When enabled, requires encryption for the Amazon Chime Voice Connector.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("requireEncryption")]
         public Input<bool>? RequireEncryption { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -237,10 +138,6 @@ namespace Pulumi.Aws.Chime
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

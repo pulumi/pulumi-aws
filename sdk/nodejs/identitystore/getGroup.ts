@@ -7,28 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to get an Identity Store Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssoadmin.getInstances({});
- * const exampleGetGroup = example.then(example => aws.identitystore.getGroup({
- *     identityStoreId: example.identityStoreIds?.[0],
- *     alternateIdentifier: {
- *         uniqueAttribute: {
- *             attributePath: "DisplayName",
- *             attributeValue: "ExampleGroup",
- *         },
- *     },
- * }));
- * export const groupId = exampleGetGroup.then(exampleGetGroup => exampleGetGroup.groupId);
- * ```
- */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:identitystore/getGroup:getGroup", {
@@ -43,25 +21,9 @@ export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promi
  * A collection of arguments for invoking getGroup.
  */
 export interface GetGroupArgs {
-    /**
-     * A unique identifier for the group that is not the primary identifier. Conflicts with `groupId` and `filter`. Detailed below.
-     */
     alternateIdentifier?: inputs.identitystore.GetGroupAlternateIdentifier;
-    /**
-     * The identifier for a group in the Identity Store.
-     *
-     * > Exactly one of the above arguments must be provided. Passing both `filter` and `groupId` is allowed for backwards compatibility.
-     */
     groupId?: string;
-    /**
-     * Identity Store ID associated with the Single Sign-On Instance.
-     *
-     * The following arguments are optional:
-     */
     identityStoreId: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -70,17 +32,8 @@ export interface GetGroupArgs {
  */
 export interface GetGroupResult {
     readonly alternateIdentifier?: outputs.identitystore.GetGroupAlternateIdentifier;
-    /**
-     * Description of the specified group.
-     */
     readonly description: string;
-    /**
-     * Group's display name value.
-     */
     readonly displayName: string;
-    /**
-     * List of identifiers issued to this resource by an external identity provider.
-     */
     readonly externalIds: outputs.identitystore.GetGroupExternalId[];
     readonly groupId: string;
     /**
@@ -90,28 +43,6 @@ export interface GetGroupResult {
     readonly identityStoreId: string;
     readonly region: string;
 }
-/**
- * Use this data source to get an Identity Store Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssoadmin.getInstances({});
- * const exampleGetGroup = example.then(example => aws.identitystore.getGroup({
- *     identityStoreId: example.identityStoreIds?.[0],
- *     alternateIdentifier: {
- *         uniqueAttribute: {
- *             attributePath: "DisplayName",
- *             attributeValue: "ExampleGroup",
- *         },
- *     },
- * }));
- * export const groupId = exampleGetGroup.then(exampleGetGroup => exampleGetGroup.groupId);
- * ```
- */
 export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:identitystore/getGroup:getGroup", {
@@ -126,24 +57,8 @@ export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOut
  * A collection of arguments for invoking getGroup.
  */
 export interface GetGroupOutputArgs {
-    /**
-     * A unique identifier for the group that is not the primary identifier. Conflicts with `groupId` and `filter`. Detailed below.
-     */
     alternateIdentifier?: pulumi.Input<inputs.identitystore.GetGroupAlternateIdentifierArgs>;
-    /**
-     * The identifier for a group in the Identity Store.
-     *
-     * > Exactly one of the above arguments must be provided. Passing both `filter` and `groupId` is allowed for backwards compatibility.
-     */
     groupId?: pulumi.Input<string>;
-    /**
-     * Identity Store ID associated with the Single Sign-On Instance.
-     *
-     * The following arguments are optional:
-     */
     identityStoreId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

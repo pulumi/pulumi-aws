@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class SpaceSpaceSharingSettings
     {
-        /// <summary>
-        /// Specifies the sharing type of the space. Valid values are `Private` and `Shared`.
-        /// </summary>
         public readonly string SharingType;
 
         [OutputConstructor]

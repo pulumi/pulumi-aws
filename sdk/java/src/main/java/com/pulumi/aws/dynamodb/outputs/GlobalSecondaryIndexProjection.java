@@ -12,33 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GlobalSecondaryIndexProjection {
-    /**
-     * @return Specifies which additional attributes to include in the index.
-     * Only valid when `projectionType` is `INCLUDE`.`
-     * 
-     */
     private @Nullable List<String> nonKeyAttributes;
-    /**
-     * @return The set of attributes represented in the index.
-     * One of `ALL`, `INCLUDE`, or `KEYS_ONLY`.
-     * 
-     */
     private String projectionType;
 
     private GlobalSecondaryIndexProjection() {}
-    /**
-     * @return Specifies which additional attributes to include in the index.
-     * Only valid when `projectionType` is `INCLUDE`.`
-     * 
-     */
     public List<String> nonKeyAttributes() {
         return this.nonKeyAttributes == null ? List.of() : this.nonKeyAttributes;
     }
-    /**
-     * @return The set of attributes represented in the index.
-     * One of `ALL`, `INCLUDE`, or `KEYS_ONLY`.
-     * 
-     */
     public String projectionType() {
         return this.projectionType;
     }

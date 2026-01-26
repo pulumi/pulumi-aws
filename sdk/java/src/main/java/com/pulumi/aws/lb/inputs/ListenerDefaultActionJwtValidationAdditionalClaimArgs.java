@@ -15,47 +15,23 @@ public final class ListenerDefaultActionJwtValidationAdditionalClaimArgs extends
 
     public static final ListenerDefaultActionJwtValidationAdditionalClaimArgs Empty = new ListenerDefaultActionJwtValidationAdditionalClaimArgs();
 
-    /**
-     * Format of the claim value. Valid values are `single-string`, `string-array` and `space-separated-values`.
-     * 
-     */
     @Import(name="format", required=true)
     private Output<String> format;
 
-    /**
-     * @return Format of the claim value. Valid values are `single-string`, `string-array` and `space-separated-values`.
-     * 
-     */
     public Output<String> format() {
         return this.format;
     }
 
-    /**
-     * Name of the claim to validate. `exp`, `iss`, `nbf`, or `iat` cannot be specified because they are validated by default.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the claim to validate. `exp`, `iss`, `nbf`, or `iat` cannot be specified because they are validated by default.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * List of expected values of the claim.
-     * 
-     */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
-    /**
-     * @return List of expected values of the claim.
-     * 
-     */
     public Output<List<String>> values() {
         return this.values;
     }
@@ -86,75 +62,33 @@ public final class ListenerDefaultActionJwtValidationAdditionalClaimArgs extends
             $ = new ListenerDefaultActionJwtValidationAdditionalClaimArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param format Format of the claim value. Valid values are `single-string`, `string-array` and `space-separated-values`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder format(Output<String> format) {
             $.format = format;
             return this;
         }
 
-        /**
-         * @param format Format of the claim value. Valid values are `single-string`, `string-array` and `space-separated-values`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder format(String format) {
             return format(Output.of(format));
         }
 
-        /**
-         * @param name Name of the claim to validate. `exp`, `iss`, `nbf`, or `iat` cannot be specified because they are validated by default.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the claim to validate. `exp`, `iss`, `nbf`, or `iat` cannot be specified because they are validated by default.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param values List of expected values of the claim.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values List of expected values of the claim.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
-        /**
-         * @param values List of expected values of the claim.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

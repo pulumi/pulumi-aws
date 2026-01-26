@@ -28,13 +28,6 @@ class ClusterEndpointArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ClusterEndpoint resource.
-        :param pulumi.Input[_builtins.str] cluster_endpoint_identifier: The identifier of the endpoint.
-        :param pulumi.Input[_builtins.str] cluster_identifier: The DB cluster identifier of the DB cluster associated with the endpoint.
-        :param pulumi.Input[_builtins.str] endpoint_type: The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_members: List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] static_members: List of DB instance identifiers that are part of the custom endpoint group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "cluster_endpoint_identifier", cluster_endpoint_identifier)
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
@@ -51,9 +44,6 @@ class ClusterEndpointArgs:
     @_builtins.property
     @pulumi.getter(name="clusterEndpointIdentifier")
     def cluster_endpoint_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The identifier of the endpoint.
-        """
         return pulumi.get(self, "cluster_endpoint_identifier")
 
     @cluster_endpoint_identifier.setter
@@ -63,9 +53,6 @@ class ClusterEndpointArgs:
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The DB cluster identifier of the DB cluster associated with the endpoint.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -75,9 +62,6 @@ class ClusterEndpointArgs:
     @_builtins.property
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
-        """
         return pulumi.get(self, "endpoint_type")
 
     @endpoint_type.setter
@@ -87,9 +71,6 @@ class ClusterEndpointArgs:
     @_builtins.property
     @pulumi.getter(name="excludedMembers")
     def excluded_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
-        """
         return pulumi.get(self, "excluded_members")
 
     @excluded_members.setter
@@ -99,9 +80,6 @@ class ClusterEndpointArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -111,9 +89,6 @@ class ClusterEndpointArgs:
     @_builtins.property
     @pulumi.getter(name="staticMembers")
     def static_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of DB instance identifiers that are part of the custom endpoint group.
-        """
         return pulumi.get(self, "static_members")
 
     @static_members.setter
@@ -123,9 +98,6 @@ class ClusterEndpointArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -148,16 +120,6 @@ class _ClusterEndpointState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ClusterEndpoint resources.
-        :param pulumi.Input[_builtins.str] arn: The Neptune Cluster Endpoint Amazon Resource Name (ARN).
-        :param pulumi.Input[_builtins.str] cluster_endpoint_identifier: The identifier of the endpoint.
-        :param pulumi.Input[_builtins.str] cluster_identifier: The DB cluster identifier of the DB cluster associated with the endpoint.
-        :param pulumi.Input[_builtins.str] endpoint: The DNS address of the endpoint.
-        :param pulumi.Input[_builtins.str] endpoint_type: The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_members: List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] static_members: List of DB instance identifiers that are part of the custom endpoint group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -183,9 +145,6 @@ class _ClusterEndpointState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Neptune Cluster Endpoint Amazon Resource Name (ARN).
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -195,9 +154,6 @@ class _ClusterEndpointState:
     @_builtins.property
     @pulumi.getter(name="clusterEndpointIdentifier")
     def cluster_endpoint_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier of the endpoint.
-        """
         return pulumi.get(self, "cluster_endpoint_identifier")
 
     @cluster_endpoint_identifier.setter
@@ -207,9 +163,6 @@ class _ClusterEndpointState:
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The DB cluster identifier of the DB cluster associated with the endpoint.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -219,9 +172,6 @@ class _ClusterEndpointState:
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The DNS address of the endpoint.
-        """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
@@ -231,9 +181,6 @@ class _ClusterEndpointState:
     @_builtins.property
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
-        """
         return pulumi.get(self, "endpoint_type")
 
     @endpoint_type.setter
@@ -243,9 +190,6 @@ class _ClusterEndpointState:
     @_builtins.property
     @pulumi.getter(name="excludedMembers")
     def excluded_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
-        """
         return pulumi.get(self, "excluded_members")
 
     @excluded_members.setter
@@ -255,9 +199,6 @@ class _ClusterEndpointState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -267,9 +208,6 @@ class _ClusterEndpointState:
     @_builtins.property
     @pulumi.getter(name="staticMembers")
     def static_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of DB instance identifiers that are part of the custom endpoint group.
-        """
         return pulumi.get(self, "static_members")
 
     @static_members.setter
@@ -279,9 +217,6 @@ class _ClusterEndpointState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -291,9 +226,6 @@ class _ClusterEndpointState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -316,37 +248,9 @@ class ClusterEndpoint(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides an Neptune Cluster Endpoint Resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.neptune.ClusterEndpoint("example",
-            cluster_identifier=test["clusterIdentifier"],
-            cluster_endpoint_identifier="example",
-            endpoint_type="READER")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_neptune_cluster_endpoint` using the `cluster-identifier:endpoint-identfier`. For example:
-
-        ```sh
-        $ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint
-        ```
-
+        Create a ClusterEndpoint resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cluster_endpoint_identifier: The identifier of the endpoint.
-        :param pulumi.Input[_builtins.str] cluster_identifier: The DB cluster identifier of the DB cluster associated with the endpoint.
-        :param pulumi.Input[_builtins.str] endpoint_type: The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_members: List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] static_members: List of DB instance identifiers that are part of the custom endpoint group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -355,28 +259,7 @@ class ClusterEndpoint(pulumi.CustomResource):
                  args: ClusterEndpointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Neptune Cluster Endpoint Resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.neptune.ClusterEndpoint("example",
-            cluster_identifier=test["clusterIdentifier"],
-            cluster_endpoint_identifier="example",
-            endpoint_type="READER")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_neptune_cluster_endpoint` using the `cluster-identifier:endpoint-identfier`. For example:
-
-        ```sh
-        $ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint
-        ```
-
+        Create a ClusterEndpoint resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ClusterEndpointArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -451,16 +334,6 @@ class ClusterEndpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Neptune Cluster Endpoint Amazon Resource Name (ARN).
-        :param pulumi.Input[_builtins.str] cluster_endpoint_identifier: The identifier of the endpoint.
-        :param pulumi.Input[_builtins.str] cluster_identifier: The DB cluster identifier of the DB cluster associated with the endpoint.
-        :param pulumi.Input[_builtins.str] endpoint: The DNS address of the endpoint.
-        :param pulumi.Input[_builtins.str] endpoint_type: The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_members: List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] static_members: List of DB instance identifiers that are part of the custom endpoint group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -481,80 +354,50 @@ class ClusterEndpoint(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Neptune Cluster Endpoint Amazon Resource Name (ARN).
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="clusterEndpointIdentifier")
     def cluster_endpoint_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The identifier of the endpoint.
-        """
         return pulumi.get(self, "cluster_endpoint_identifier")
 
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The DB cluster identifier of the DB cluster associated with the endpoint.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[_builtins.str]:
-        """
-        The DNS address of the endpoint.
-        """
         return pulumi.get(self, "endpoint")
 
     @_builtins.property
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
-        """
         return pulumi.get(self, "endpoint_type")
 
     @_builtins.property
     @pulumi.getter(name="excludedMembers")
     def excluded_members(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
-        """
         return pulumi.get(self, "excluded_members")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="staticMembers")
     def static_members(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        List of DB instance identifiers that are part of the custom endpoint group.
-        """
         return pulumi.get(self, "static_members")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

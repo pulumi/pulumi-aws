@@ -14,188 +14,59 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a CodeCommit Approval Rule Template Resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.codecommit.ApprovalRuleTemplate;
- * import com.pulumi.aws.codecommit.ApprovalRuleTemplateArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ApprovalRuleTemplate("example", ApprovalRuleTemplateArgs.builder()
- *             .name("MyExampleApprovalRuleTemplate")
- *             .description("This is an example approval rule template")
- *             .content(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Version", "2018-11-08"),
- *                     jsonProperty("DestinationReferences", jsonArray("refs/heads/master")),
- *                     jsonProperty("Statements", jsonArray(jsonObject(
- *                         jsonProperty("Type", "Approvers"),
- *                         jsonProperty("NumberOfApprovalsNeeded", 2),
- *                         jsonProperty("ApprovalPoolMembers", jsonArray("arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*"))
- *                     )))
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import CodeCommit approval rule templates using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate imported ExistingApprovalRuleTemplateName
- * ```
- * 
- */
 @ResourceType(type="aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate")
 public class ApprovalRuleTemplate extends com.pulumi.resources.CustomResource {
-    /**
-     * The ID of the approval rule template
-     * 
-     */
     @Export(name="approvalRuleTemplateId", refs={String.class}, tree="[0]")
     private Output<String> approvalRuleTemplateId;
 
-    /**
-     * @return The ID of the approval rule template
-     * 
-     */
     public Output<String> approvalRuleTemplateId() {
         return this.approvalRuleTemplateId;
     }
-    /**
-     * The content of the approval rule template. Maximum of 3000 characters.
-     * 
-     */
     @Export(name="content", refs={String.class}, tree="[0]")
     private Output<String> content;
 
-    /**
-     * @return The content of the approval rule template. Maximum of 3000 characters.
-     * 
-     */
     public Output<String> content() {
         return this.content;
     }
-    /**
-     * The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     * 
-     */
     @Export(name="creationDate", refs={String.class}, tree="[0]")
     private Output<String> creationDate;
 
-    /**
-     * @return The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     * 
-     */
     public Output<String> creationDate() {
         return this.creationDate;
     }
-    /**
-     * The description of the approval rule template. Maximum of 1000 characters.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return The description of the approval rule template. Maximum of 1000 characters.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     * 
-     */
     @Export(name="lastModifiedDate", refs={String.class}, tree="[0]")
     private Output<String> lastModifiedDate;
 
-    /**
-     * @return The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     * 
-     */
     public Output<String> lastModifiedDate() {
         return this.lastModifiedDate;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
-     * 
-     */
     @Export(name="lastModifiedUser", refs={String.class}, tree="[0]")
     private Output<String> lastModifiedUser;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
-     * 
-     */
     public Output<String> lastModifiedUser() {
         return this.lastModifiedUser;
     }
-    /**
-     * The name for the approval rule template. Maximum of 100 characters.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name for the approval rule template. Maximum of 100 characters.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The SHA-256 hash signature for the content of the approval rule template.
-     * 
-     */
     @Export(name="ruleContentSha256", refs={String.class}, tree="[0]")
     private Output<String> ruleContentSha256;
 
-    /**
-     * @return The SHA-256 hash signature for the content of the approval rule template.
-     * 
-     */
     public Output<String> ruleContentSha256() {
         return this.ruleContentSha256;
     }

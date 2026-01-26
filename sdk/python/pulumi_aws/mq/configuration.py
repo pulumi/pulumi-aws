@@ -29,16 +29,6 @@ class ConfigurationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Configuration resource.
-        :param pulumi.Input[_builtins.str] data: Broker configuration in XML format for ActiveMQ or Cuttlefish format for RabbitMQ. See [AWS documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
-        :param pulumi.Input[_builtins.str] engine_type: Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
-        :param pulumi.Input[_builtins.str] engine_version: Version of the broker engine.
-        :param pulumi.Input[_builtins.str] authentication_strategy: Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for RabbitMQ engine type.
-        :param pulumi.Input[_builtins.str] description: Description of the configuration.
-        :param pulumi.Input[_builtins.str] name: Name of the configuration.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "data", data)
         pulumi.set(__self__, "engine_type", engine_type)
@@ -57,9 +47,6 @@ class ConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def data(self) -> pulumi.Input[_builtins.str]:
-        """
-        Broker configuration in XML format for ActiveMQ or Cuttlefish format for RabbitMQ. See [AWS documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
-        """
         return pulumi.get(self, "data")
 
     @data.setter
@@ -69,9 +56,6 @@ class ConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="engineType")
     def engine_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
-        """
         return pulumi.get(self, "engine_type")
 
     @engine_type.setter
@@ -81,9 +65,6 @@ class ConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Input[_builtins.str]:
-        """
-        Version of the broker engine.
-        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -93,9 +74,6 @@ class ConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="authenticationStrategy")
     def authentication_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for RabbitMQ engine type.
-        """
         return pulumi.get(self, "authentication_strategy")
 
     @authentication_strategy.setter
@@ -105,9 +83,6 @@ class ConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the configuration.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -117,11 +92,6 @@ class ConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the configuration.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -131,9 +101,6 @@ class ConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -143,9 +110,6 @@ class ConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -169,19 +133,6 @@ class _ConfigurationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Configuration resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the configuration.
-        :param pulumi.Input[_builtins.str] authentication_strategy: Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for RabbitMQ engine type.
-        :param pulumi.Input[_builtins.str] data: Broker configuration in XML format for ActiveMQ or Cuttlefish format for RabbitMQ. See [AWS documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
-        :param pulumi.Input[_builtins.str] description: Description of the configuration.
-        :param pulumi.Input[_builtins.str] engine_type: Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
-        :param pulumi.Input[_builtins.str] engine_version: Version of the broker engine.
-        :param pulumi.Input[_builtins.int] latest_revision: Latest revision of the configuration.
-        :param pulumi.Input[_builtins.str] name: Name of the configuration.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -209,9 +160,6 @@ class _ConfigurationState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the configuration.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -221,9 +169,6 @@ class _ConfigurationState:
     @_builtins.property
     @pulumi.getter(name="authenticationStrategy")
     def authentication_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for RabbitMQ engine type.
-        """
         return pulumi.get(self, "authentication_strategy")
 
     @authentication_strategy.setter
@@ -233,9 +178,6 @@ class _ConfigurationState:
     @_builtins.property
     @pulumi.getter
     def data(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Broker configuration in XML format for ActiveMQ or Cuttlefish format for RabbitMQ. See [AWS documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
-        """
         return pulumi.get(self, "data")
 
     @data.setter
@@ -245,9 +187,6 @@ class _ConfigurationState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the configuration.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -257,9 +196,6 @@ class _ConfigurationState:
     @_builtins.property
     @pulumi.getter(name="engineType")
     def engine_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
-        """
         return pulumi.get(self, "engine_type")
 
     @engine_type.setter
@@ -269,9 +205,6 @@ class _ConfigurationState:
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Version of the broker engine.
-        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -281,9 +214,6 @@ class _ConfigurationState:
     @_builtins.property
     @pulumi.getter(name="latestRevision")
     def latest_revision(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Latest revision of the configuration.
-        """
         return pulumi.get(self, "latest_revision")
 
     @latest_revision.setter
@@ -293,11 +223,6 @@ class _ConfigurationState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the configuration.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -307,9 +232,6 @@ class _ConfigurationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -319,9 +241,6 @@ class _ConfigurationState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -331,9 +250,6 @@ class _ConfigurationState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -357,68 +273,9 @@ class Configuration(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Manages an Amazon MQ configuration. Use this resource to create and manage broker configurations for ActiveMQ and RabbitMQ brokers.
-
-        ## Example Usage
-
-        ### ActiveMQ
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.mq.Configuration("example",
-            description="Example Configuration",
-            name="example",
-            engine_type="ActiveMQ",
-            engine_version="5.17.6",
-            data=\"\"\"<?xml version=\\"1.0\\" encoding=\\"UTF-8\\" standalone=\\"yes\\"?>
-        <broker xmlns=\\"http://activemq.apache.org/schema/core\\">
-          <plugins>
-            <forcePersistencyModeBrokerPlugin persistenceFlag=\\"true\\"/>
-            <statisticsBrokerPlugin/>
-            <timeStampingBrokerPlugin ttlCeiling=\\"86400000\\" zeroExpirationOverride=\\"86400000\\"/>
-          </plugins>
-        </broker>
-        \"\"\")
-        ```
-
-        ### RabbitMQ
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.mq.Configuration("example",
-            description="Example Configuration",
-            name="example",
-            engine_type="RabbitMQ",
-            engine_version="3.11.20",
-            data=\"\"\"# Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds
-        consumer_timeout = 1800000
-        \"\"\")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import MQ Configurations using the configuration ID. For example:
-
-        ```sh
-        $ pulumi import aws:mq/configuration:Configuration example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
-        ```
-
+        Create a Configuration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] authentication_strategy: Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for RabbitMQ engine type.
-        :param pulumi.Input[_builtins.str] data: Broker configuration in XML format for ActiveMQ or Cuttlefish format for RabbitMQ. See [AWS documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
-        :param pulumi.Input[_builtins.str] description: Description of the configuration.
-        :param pulumi.Input[_builtins.str] engine_type: Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
-        :param pulumi.Input[_builtins.str] engine_version: Version of the broker engine.
-        :param pulumi.Input[_builtins.str] name: Name of the configuration.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -427,56 +284,7 @@ class Configuration(pulumi.CustomResource):
                  args: ConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Amazon MQ configuration. Use this resource to create and manage broker configurations for ActiveMQ and RabbitMQ brokers.
-
-        ## Example Usage
-
-        ### ActiveMQ
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.mq.Configuration("example",
-            description="Example Configuration",
-            name="example",
-            engine_type="ActiveMQ",
-            engine_version="5.17.6",
-            data=\"\"\"<?xml version=\\"1.0\\" encoding=\\"UTF-8\\" standalone=\\"yes\\"?>
-        <broker xmlns=\\"http://activemq.apache.org/schema/core\\">
-          <plugins>
-            <forcePersistencyModeBrokerPlugin persistenceFlag=\\"true\\"/>
-            <statisticsBrokerPlugin/>
-            <timeStampingBrokerPlugin ttlCeiling=\\"86400000\\" zeroExpirationOverride=\\"86400000\\"/>
-          </plugins>
-        </broker>
-        \"\"\")
-        ```
-
-        ### RabbitMQ
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.mq.Configuration("example",
-            description="Example Configuration",
-            name="example",
-            engine_type="RabbitMQ",
-            engine_version="3.11.20",
-            data=\"\"\"# Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds
-        consumer_timeout = 1800000
-        \"\"\")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import MQ Configurations using the configuration ID. For example:
-
-        ```sh
-        $ pulumi import aws:mq/configuration:Configuration example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
-        ```
-
+        Create a Configuration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -554,19 +362,6 @@ class Configuration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the configuration.
-        :param pulumi.Input[_builtins.str] authentication_strategy: Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for RabbitMQ engine type.
-        :param pulumi.Input[_builtins.str] data: Broker configuration in XML format for ActiveMQ or Cuttlefish format for RabbitMQ. See [AWS documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
-        :param pulumi.Input[_builtins.str] description: Description of the configuration.
-        :param pulumi.Input[_builtins.str] engine_type: Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
-        :param pulumi.Input[_builtins.str] engine_version: Version of the broker engine.
-        :param pulumi.Input[_builtins.int] latest_revision: Latest revision of the configuration.
-        :param pulumi.Input[_builtins.str] name: Name of the configuration.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -588,90 +383,55 @@ class Configuration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the configuration.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="authenticationStrategy")
     def authentication_strategy(self) -> pulumi.Output[_builtins.str]:
-        """
-        Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for RabbitMQ engine type.
-        """
         return pulumi.get(self, "authentication_strategy")
 
     @_builtins.property
     @pulumi.getter
     def data(self) -> pulumi.Output[_builtins.str]:
-        """
-        Broker configuration in XML format for ActiveMQ or Cuttlefish format for RabbitMQ. See [AWS documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
-        """
         return pulumi.get(self, "data")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the configuration.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="engineType")
     def engine_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
-        """
         return pulumi.get(self, "engine_type")
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        Version of the broker engine.
-        """
         return pulumi.get(self, "engine_version")
 
     @_builtins.property
     @pulumi.getter(name="latestRevision")
     def latest_revision(self) -> pulumi.Output[_builtins.int]:
-        """
-        Latest revision of the configuration.
-        """
         return pulumi.get(self, "latest_revision")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the configuration.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

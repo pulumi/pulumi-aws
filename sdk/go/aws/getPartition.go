@@ -11,51 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to lookup information about the current AWS partition in
-// which the provider is working.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Sid: pulumi.StringRef("1"),
-//						Actions: []string{
-//							"s3:ListBucket",
-//						},
-//						Resources: []string{
-//							fmt.Sprintf("arn:%v:s3:::my-bucket", current.Partition),
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetPartition(ctx *pulumi.Context, args *GetPartitionArgs, opts ...pulumi.InvokeOption) (*GetPartitionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPartitionResult
@@ -68,19 +23,14 @@ func GetPartition(ctx *pulumi.Context, args *GetPartitionArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getPartition.
 type GetPartitionArgs struct {
-	// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
 	Id *string `pulumi:"id"`
 }
 
 // A collection of values returned by getPartition.
 type GetPartitionResult struct {
-	// Base DNS domain name for the current partition (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
-	DnsSuffix string `pulumi:"dnsSuffix"`
-	// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-	Id string `pulumi:"id"`
-	// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-	Partition string `pulumi:"partition"`
-	// Prefix of service names (e.g., `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
+	DnsSuffix        string `pulumi:"dnsSuffix"`
+	Id               string `pulumi:"id"`
+	Partition        string `pulumi:"partition"`
 	ReverseDnsPrefix string `pulumi:"reverseDnsPrefix"`
 }
 
@@ -95,7 +45,6 @@ func GetPartitionOutput(ctx *pulumi.Context, args GetPartitionOutputArgs, opts .
 
 // A collection of arguments for invoking getPartition.
 type GetPartitionOutputArgs struct {
-	// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -118,22 +67,18 @@ func (o GetPartitionResultOutput) ToGetPartitionResultOutputWithContext(ctx cont
 	return o
 }
 
-// Base DNS domain name for the current partition (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
 func (o GetPartitionResultOutput) DnsSuffix() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPartitionResult) string { return v.DnsSuffix }).(pulumi.StringOutput)
 }
 
-// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
 func (o GetPartitionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPartitionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
 func (o GetPartitionResultOutput) Partition() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPartitionResult) string { return v.Partition }).(pulumi.StringOutput)
 }
 
-// Prefix of service names (e.g., `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
 func (o GetPartitionResultOutput) ReverseDnsPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPartitionResult) string { return v.ReverseDnsPrefix }).(pulumi.StringOutput)
 }

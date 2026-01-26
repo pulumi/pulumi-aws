@@ -7,23 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to get the ARNs and names of Image Builder Infrastructure Configurations matching the specified criteria.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.imagebuilder.getInfrastructureConfigurations({
- *     filters: [{
- *         name: "name",
- *         values: ["example"],
- *     }],
- * });
- * ```
- */
 export function getInfrastructureConfigurations(args?: GetInfrastructureConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<GetInfrastructureConfigurationsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,13 +20,7 @@ export function getInfrastructureConfigurations(args?: GetInfrastructureConfigur
  * A collection of arguments for invoking getInfrastructureConfigurations.
  */
 export interface GetInfrastructureConfigurationsArgs {
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     */
     filters?: inputs.imagebuilder.GetInfrastructureConfigurationsFilter[];
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -51,38 +28,15 @@ export interface GetInfrastructureConfigurationsArgs {
  * A collection of values returned by getInfrastructureConfigurations.
  */
 export interface GetInfrastructureConfigurationsResult {
-    /**
-     * Set of ARNs of the matched Image Builder Infrastructure Configurations.
-     */
     readonly arns: string[];
     readonly filters?: outputs.imagebuilder.GetInfrastructureConfigurationsFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Set of names of the matched Image Builder Infrastructure Configurations.
-     */
     readonly names: string[];
     readonly region: string;
 }
-/**
- * Use this data source to get the ARNs and names of Image Builder Infrastructure Configurations matching the specified criteria.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.imagebuilder.getInfrastructureConfigurations({
- *     filters: [{
- *         name: "name",
- *         values: ["example"],
- *     }],
- * });
- * ```
- */
 export function getInfrastructureConfigurationsOutput(args?: GetInfrastructureConfigurationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInfrastructureConfigurationsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -96,12 +50,6 @@ export function getInfrastructureConfigurationsOutput(args?: GetInfrastructureCo
  * A collection of arguments for invoking getInfrastructureConfigurations.
  */
 export interface GetInfrastructureConfigurationsOutputArgs {
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.imagebuilder.GetInfrastructureConfigurationsFilterArgs>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

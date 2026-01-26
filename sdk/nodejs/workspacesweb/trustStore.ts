@@ -7,59 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS WorkSpaces Web Trust Store.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = new aws.workspacesweb.TrustStore("example", {certificates: [{
- *     body: std.file({
- *         input: "certificate.pem",
- *     }).then(invoke => invoke.result),
- * }]});
- * ```
- *
- * ### Multiple Certificates
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = new aws.workspacesweb.TrustStore("example", {
- *     certificates: [
- *         {
- *             body: std.file({
- *                 input: "certificate1.pem",
- *             }).then(invoke => invoke.result),
- *         },
- *         {
- *             body: std.file({
- *                 input: "certificate2.pem",
- *             }).then(invoke => invoke.result),
- *         },
- *     ],
- *     tags: {
- *         Name: "example-trust-store",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import WorkSpaces Web Trust Store using the `trust_store_arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:workspacesweb/trustStore:TrustStore example arn:aws:workspaces-web:us-west-2:123456789012:trustStore/trust_store-id-12345678
- * ```
- */
 export class TrustStore extends pulumi.CustomResource {
     /**
      * Get an existing TrustStore resource's state with the given name, ID, and optional extra
@@ -88,29 +35,11 @@ export class TrustStore extends pulumi.CustomResource {
         return obj['__pulumiType'] === TrustStore.__pulumiType;
     }
 
-    /**
-     * List of ARNs of the web portals associated with the trust store.
-     */
     declare public /*out*/ readonly associatedPortalArns: pulumi.Output<string[]>;
-    /**
-     * Set of certificates to include in the trust store. See Certificate below.
-     */
     declare public readonly certificates: pulumi.Output<outputs.workspacesweb.TrustStoreCertificate[] | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * ARN of the trust store.
-     */
     declare public /*out*/ readonly trustStoreArn: pulumi.Output<string>;
 
     /**
@@ -150,29 +79,11 @@ export class TrustStore extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TrustStore resources.
  */
 export interface TrustStoreState {
-    /**
-     * List of ARNs of the web portals associated with the trust store.
-     */
     associatedPortalArns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Set of certificates to include in the trust store. See Certificate below.
-     */
     certificates?: pulumi.Input<pulumi.Input<inputs.workspacesweb.TrustStoreCertificate>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * ARN of the trust store.
-     */
     trustStoreArn?: pulumi.Input<string>;
 }
 
@@ -180,16 +91,7 @@ export interface TrustStoreState {
  * The set of arguments for constructing a TrustStore resource.
  */
 export interface TrustStoreArgs {
-    /**
-     * Set of certificates to include in the trust store. See Certificate below.
-     */
     certificates?: pulumi.Input<pulumi.Input<inputs.workspacesweb.TrustStoreCertificate>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

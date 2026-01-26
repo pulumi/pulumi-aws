@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class EventTargetSagemakerPipelineTarget
     {
-        /// <summary>
-        /// List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
-        /// </summary>
         public readonly ImmutableArray<Outputs.EventTargetSagemakerPipelineTargetPipelineParameterList> PipelineParameterLists;
 
         [OutputConstructor]

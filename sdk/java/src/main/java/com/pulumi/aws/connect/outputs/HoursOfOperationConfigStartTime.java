@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class HoursOfOperationConfigStartTime {
-    /**
-     * @return Specifies the hour of opening.
-     * 
-     */
     private Integer hours;
-    /**
-     * @return Specifies the minute of opening.
-     * 
-     */
     private Integer minutes;
 
     private HoursOfOperationConfigStartTime() {}
-    /**
-     * @return Specifies the hour of opening.
-     * 
-     */
     public Integer hours() {
         return this.hours;
     }
-    /**
-     * @return Specifies the minute of opening.
-     * 
-     */
     public Integer minutes() {
         return this.minutes;
     }

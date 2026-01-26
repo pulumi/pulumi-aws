@@ -14,32 +14,16 @@ public final class GetPipelineDefinitionParameterValueArgs extends com.pulumi.re
 
     public static final GetPipelineDefinitionParameterValueArgs Empty = new GetPipelineDefinitionParameterValueArgs();
 
-    /**
-     * ID of the object.
-     * 
-     */
     @Import(name="id", required=true)
     private Output<String> id;
 
-    /**
-     * @return ID of the object.
-     * 
-     */
     public Output<String> id() {
         return this.id;
     }
 
-    /**
-     * Field value, expressed as a String.
-     * 
-     */
     @Import(name="stringValue", required=true)
     private Output<String> stringValue;
 
-    /**
-     * @return Field value, expressed as a String.
-     * 
-     */
     public Output<String> stringValue() {
         return this.stringValue;
     }
@@ -69,44 +53,20 @@ public final class GetPipelineDefinitionParameterValueArgs extends com.pulumi.re
             $ = new GetPipelineDefinitionParameterValueArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id ID of the object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id ID of the object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param stringValue Field value, expressed as a String.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stringValue(Output<String> stringValue) {
             $.stringValue = stringValue;
             return this;
         }
 
-        /**
-         * @param stringValue Field value, expressed as a String.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stringValue(String stringValue) {
             return stringValue(Output.of(stringValue));
         }

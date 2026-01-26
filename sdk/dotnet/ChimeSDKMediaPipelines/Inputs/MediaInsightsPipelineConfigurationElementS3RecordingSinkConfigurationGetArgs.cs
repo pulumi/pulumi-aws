@@ -12,9 +12,6 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines.Inputs
 
     public sealed class MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// S3 URI to deliver recordings.
-        /// </summary>
         [Input("destination")]
         public Input<string>? Destination { get; set; }
 

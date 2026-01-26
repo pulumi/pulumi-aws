@@ -9,122 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.WorkSpacesWeb
 {
-    /// <summary>
-    /// Resource for managing an AWS WorkSpaces Web Trust Store.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.WorkSpacesWeb.TrustStore("example", new()
-    ///     {
-    ///         Certificates = new[]
-    ///         {
-    ///             new Aws.WorkSpacesWeb.Inputs.TrustStoreCertificateArgs
-    ///             {
-    ///                 Body = Std.File.Invoke(new()
-    ///                 {
-    ///                     Input = "certificate.pem",
-    ///                 }).Apply(invoke =&gt; invoke.Result),
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Multiple Certificates
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.WorkSpacesWeb.TrustStore("example", new()
-    ///     {
-    ///         Certificates = new[]
-    ///         {
-    ///             new Aws.WorkSpacesWeb.Inputs.TrustStoreCertificateArgs
-    ///             {
-    ///                 Body = Std.File.Invoke(new()
-    ///                 {
-    ///                     Input = "certificate1.pem",
-    ///                 }).Apply(invoke =&gt; invoke.Result),
-    ///             },
-    ///             new Aws.WorkSpacesWeb.Inputs.TrustStoreCertificateArgs
-    ///             {
-    ///                 Body = Std.File.Invoke(new()
-    ///                 {
-    ///                     Input = "certificate2.pem",
-    ///                 }).Apply(invoke =&gt; invoke.Result),
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "example-trust-store" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import WorkSpaces Web Trust Store using the `trust_store_arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:workspacesweb/trustStore:TrustStore example arn:aws:workspaces-web:us-west-2:123456789012:trustStore/trust_store-id-12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:workspacesweb/trustStore:TrustStore")]
     public partial class TrustStore : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// List of ARNs of the web portals associated with the trust store.
-        /// </summary>
         [Output("associatedPortalArns")]
         public Output<ImmutableArray<string>> AssociatedPortalArns { get; private set; } = null!;
 
-        /// <summary>
-        /// Set of certificates to include in the trust store. See Certificate below.
-        /// </summary>
         [Output("certificates")]
         public Output<ImmutableArray<Outputs.TrustStoreCertificate>> Certificates { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the trust store.
-        /// </summary>
         [Output("trustStoreArn")]
         public Output<string> TrustStoreArn { get; private set; } = null!;
 
@@ -176,28 +78,17 @@ namespace Pulumi.Aws.WorkSpacesWeb
     {
         [Input("certificates")]
         private InputList<Inputs.TrustStoreCertificateArgs>? _certificates;
-
-        /// <summary>
-        /// Set of certificates to include in the trust store. See Certificate below.
-        /// </summary>
         public InputList<Inputs.TrustStoreCertificateArgs> Certificates
         {
             get => _certificates ?? (_certificates = new InputList<Inputs.TrustStoreCertificateArgs>());
             set => _certificates = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -214,10 +105,6 @@ namespace Pulumi.Aws.WorkSpacesWeb
     {
         [Input("associatedPortalArns")]
         private InputList<string>? _associatedPortalArns;
-
-        /// <summary>
-        /// List of ARNs of the web portals associated with the trust store.
-        /// </summary>
         public InputList<string> AssociatedPortalArns
         {
             get => _associatedPortalArns ?? (_associatedPortalArns = new InputList<string>());
@@ -226,28 +113,17 @@ namespace Pulumi.Aws.WorkSpacesWeb
 
         [Input("certificates")]
         private InputList<Inputs.TrustStoreCertificateGetArgs>? _certificates;
-
-        /// <summary>
-        /// Set of certificates to include in the trust store. See Certificate below.
-        /// </summary>
         public InputList<Inputs.TrustStoreCertificateGetArgs> Certificates
         {
             get => _certificates ?? (_certificates = new InputList<Inputs.TrustStoreCertificateGetArgs>());
             set => _certificates = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -256,19 +132,12 @@ namespace Pulumi.Aws.WorkSpacesWeb
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// ARN of the trust store.
-        /// </summary>
         [Input("trustStoreArn")]
         public Input<string>? TrustStoreArn { get; set; }
 

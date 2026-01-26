@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DashboardParametersDateTimeParameter
     {
-        /// <summary>
-        /// Display name for the dashboard.
-        /// </summary>
         public readonly string Name;
         public readonly ImmutableArray<string> Values;
 

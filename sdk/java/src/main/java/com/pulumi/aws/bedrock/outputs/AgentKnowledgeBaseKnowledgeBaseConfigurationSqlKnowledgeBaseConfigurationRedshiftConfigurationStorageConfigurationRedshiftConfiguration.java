@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfiguration {
-    /**
-     * @return Name of the Amazon Redshift database.
-     * 
-     */
     private String databaseName;
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfiguration() {}
-    /**
-     * @return Name of the Amazon Redshift database.
-     * 
-     */
     public String databaseName() {
         return this.databaseName;
     }

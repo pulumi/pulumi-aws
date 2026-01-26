@@ -12,67 +12,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterRestoreToPointInTime {
-    /**
-     * @return Date and time in UTC format to restore the database cluster to. Conflicts with `useLatestRestorableTime`.
-     * 
-     */
     private @Nullable String restoreToTime;
-    /**
-     * @return Type of restore to be performed.
-     * Valid options are `full-copy` (default) and `copy-on-write`.
-     * 
-     */
     private @Nullable String restoreType;
-    /**
-     * @return Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
-     * 
-     */
     private @Nullable String sourceClusterIdentifier;
-    /**
-     * @return Cluster resource ID of the source database cluster from which to restore. To be used for restoring a deleted cluster in the same account which still has a retained automatic backup available.
-     * 
-     */
     private @Nullable String sourceClusterResourceId;
-    /**
-     * @return Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restoreToTime`.
-     * 
-     */
     private @Nullable Boolean useLatestRestorableTime;
 
     private ClusterRestoreToPointInTime() {}
-    /**
-     * @return Date and time in UTC format to restore the database cluster to. Conflicts with `useLatestRestorableTime`.
-     * 
-     */
     public Optional<String> restoreToTime() {
         return Optional.ofNullable(this.restoreToTime);
     }
-    /**
-     * @return Type of restore to be performed.
-     * Valid options are `full-copy` (default) and `copy-on-write`.
-     * 
-     */
     public Optional<String> restoreType() {
         return Optional.ofNullable(this.restoreType);
     }
-    /**
-     * @return Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
-     * 
-     */
     public Optional<String> sourceClusterIdentifier() {
         return Optional.ofNullable(this.sourceClusterIdentifier);
     }
-    /**
-     * @return Cluster resource ID of the source database cluster from which to restore. To be used for restoring a deleted cluster in the same account which still has a retained automatic backup available.
-     * 
-     */
     public Optional<String> sourceClusterResourceId() {
         return Optional.ofNullable(this.sourceClusterResourceId);
     }
-    /**
-     * @return Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restoreToTime`.
-     * 
-     */
     public Optional<Boolean> useLatestRestorableTime() {
         return Optional.ofNullable(this.useLatestRestorableTime);
     }

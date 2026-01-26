@@ -13,22 +13,9 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     [OutputType]
     public sealed class GetGroupMixedInstancesPolicyLaunchTemplateOverrideResult
     {
-        /// <summary>
-        /// List of instance requirements objects.
-        /// * `AcceleratorCount - List of objects describing the minimum and maximum number of accelerators for an instance type.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult> InstanceRequirements;
-        /// <summary>
-        /// Overriding instance type.
-        /// </summary>
         public readonly string InstanceType;
-        /// <summary>
-        /// List of overriding launch template specification objects.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationResult> LaunchTemplateSpecifications;
-        /// <summary>
-        /// Number of capacity units, which gives the instance type a proportional weight to other instance types.
-        /// </summary>
         public readonly string WeightedCapacity;
 
         [OutputConstructor]

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn
     {
-        /// <summary>
-        /// A unique ID to identify a calculated column. During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
-        /// </summary>
         public readonly string ColumnId;
-        /// <summary>
-        /// Column name.
-        /// </summary>
         public readonly string ColumnName;
-        /// <summary>
-        /// An expression that defines the calculated column.
-        /// </summary>
         public readonly string Expression;
 
         [OutputConstructor]

@@ -7,20 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides information about an RDS cluster.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const clusterName = aws.rds.getCluster({
- *     clusterIdentifier: "clusterName",
- * });
- * ```
- */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getCluster:getCluster", {
@@ -34,17 +20,8 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getCluster.
  */
 export interface GetClusterArgs {
-    /**
-     * Cluster identifier of the RDS cluster.
-     */
     clusterIdentifier: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * A map of tags assigned to the resource.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -91,27 +68,10 @@ export interface GetClusterResult {
     readonly region: string;
     readonly replicationSourceIdentifier: string;
     readonly storageEncrypted: boolean;
-    /**
-     * A map of tags assigned to the resource.
-     */
     readonly tags: {[key: string]: string};
     readonly upgradeRolloutOrder: string;
     readonly vpcSecurityGroupIds: string[];
 }
-/**
- * Provides information about an RDS cluster.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const clusterName = aws.rds.getCluster({
- *     clusterIdentifier: "clusterName",
- * });
- * ```
- */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:rds/getCluster:getCluster", {
@@ -125,16 +85,7 @@ export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getCluster.
  */
 export interface GetClusterOutputArgs {
-    /**
-     * Cluster identifier of the RDS cluster.
-     */
     clusterIdentifier: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags assigned to the resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

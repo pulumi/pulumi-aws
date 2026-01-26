@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSchedulingPolicyFairSharePolicyShareDistribution {
-    /**
-     * @return Fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-     * 
-     */
     private String shareIdentifier;
-    /**
-     * @return Weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-     * 
-     */
     private Double weightFactor;
 
     private GetSchedulingPolicyFairSharePolicyShareDistribution() {}
-    /**
-     * @return Fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-     * 
-     */
     public String shareIdentifier() {
         return this.shareIdentifier;
     }
-    /**
-     * @return Weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-     * 
-     */
     public Double weightFactor() {
         return this.weightFactor;
     }

@@ -16,246 +16,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an Amazon Managed Service for Prometheus (AMP) Workspace.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.amp.Workspace;
- * import com.pulumi.aws.amp.WorkspaceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Workspace("example", WorkspaceArgs.builder()
- *             .alias("example")
- *             .tags(Map.of("Environment", "production"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### CloudWatch Logging
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.LogGroup;
- * import com.pulumi.aws.cloudwatch.LogGroupArgs;
- * import com.pulumi.aws.amp.Workspace;
- * import com.pulumi.aws.amp.WorkspaceArgs;
- * import com.pulumi.aws.amp.inputs.WorkspaceLoggingConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new LogGroup("example", LogGroupArgs.builder()
- *             .name("example")
- *             .build());
- * 
- *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
- *             .loggingConfiguration(WorkspaceLoggingConfigurationArgs.builder()
- *                 .logGroupArn(example.arn().applyValue(_arn -> String.format("%s:*", _arn)))
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### AWS KMS Customer Managed Keys (CMK)
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.amp.Workspace;
- * import com.pulumi.aws.amp.WorkspaceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
- *             .description("example")
- *             .deletionWindowInDays(7)
- *             .build());
- * 
- *         var example = new Workspace("example", WorkspaceArgs.builder()
- *             .alias("example")
- *             .kmsKeyArn(exampleKey.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import AMP Workspaces using the identifier. For example:
- * 
- * ```sh
- * $ pulumi import aws:amp/workspace:Workspace demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
- * ```
- * 
- */
 @ResourceType(type="aws:amp/workspace:Workspace")
 public class Workspace extends com.pulumi.resources.CustomResource {
-    /**
-     * The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
-     * 
-     */
     @Export(name="alias", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> alias;
 
-    /**
-     * @return The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
-     * 
-     */
     public Output<Optional<String>> alias() {
         return Codegen.optional(this.alias);
     }
-    /**
-     * Amazon Resource Name (ARN) of the workspace.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the workspace.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
-     * 
-     */
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyArn;
 
-    /**
-     * @return The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
-     * 
-     */
     public Output<Optional<String>> kmsKeyArn() {
         return Codegen.optional(this.kmsKeyArn);
     }
-    /**
-     * Logging configuration for the workspace. See Logging Configuration below for details.
-     * 
-     */
     @Export(name="loggingConfiguration", refs={WorkspaceLoggingConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ WorkspaceLoggingConfiguration> loggingConfiguration;
 
-    /**
-     * @return Logging configuration for the workspace. See Logging Configuration below for details.
-     * 
-     */
     public Output<Optional<WorkspaceLoggingConfiguration>> loggingConfiguration() {
         return Codegen.optional(this.loggingConfiguration);
     }
-    /**
-     * Prometheus endpoint available for this workspace.
-     * 
-     */
     @Export(name="prometheusEndpoint", refs={String.class}, tree="[0]")
     private Output<String> prometheusEndpoint;
 
-    /**
-     * @return Prometheus endpoint available for this workspace.
-     * 
-     */
     public Output<String> prometheusEndpoint() {
         return this.prometheusEndpoint;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

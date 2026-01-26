@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class FeatureVariation {
-    /**
-     * @return The name of the variation. Minimum length of `1`. Maximum length of `127`.
-     * 
-     */
     private String name;
-    /**
-     * @return A block that specifies the value assigned to this variation. Detailed below
-     * 
-     */
     private FeatureVariationValue value;
 
     private FeatureVariation() {}
-    /**
-     * @return The name of the variation. Minimum length of `1`. Maximum length of `127`.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return A block that specifies the value assigned to this variation. Detailed below
-     * 
-     */
     public FeatureVariationValue value() {
         return this.value;
     }

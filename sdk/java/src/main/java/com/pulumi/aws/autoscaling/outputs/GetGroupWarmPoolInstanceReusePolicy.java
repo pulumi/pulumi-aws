@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGroupWarmPoolInstanceReusePolicy {
-    /**
-     * @return Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
-     * 
-     */
     private Boolean reuseOnScaleIn;
 
     private GetGroupWarmPoolInstanceReusePolicy() {}
-    /**
-     * @return Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
-     * 
-     */
     public Boolean reuseOnScaleIn() {
         return this.reuseOnScaleIn;
     }

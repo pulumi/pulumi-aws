@@ -13,138 +13,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Policy.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sesv2.EmailIdentity;
- * import com.pulumi.aws.sesv2.EmailIdentityArgs;
- * import com.pulumi.aws.sesv2.EmailIdentityPolicy;
- * import com.pulumi.aws.sesv2.EmailIdentityPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App }{{@code
- *     public static void main(String[] args) }{{@code
- *         Pulumi.run(App::stack);
- *     }}{@code
- * 
- *     public static void stack(Context ctx) }{{@code
- *         var example = new EmailIdentity("example", EmailIdentityArgs.builder()
- *             .emailIdentity("testing}{@literal @}{@code example.com")
- *             .build());
- * 
- *         var exampleEmailIdentityPolicy = new EmailIdentityPolicy("exampleEmailIdentityPolicy", EmailIdentityPolicyArgs.builder()
- *             .emailIdentity(example.emailIdentity())
- *             .policyName("example")
- *             .policy(example.arn().applyValue(_arn -> """
- * }{{@code
- *   \"Id\":\"ExampleAuthorizationPolicy\",
- *   \"Version\":\"2012-10-17\",
- *   \"Statement\":[
- *     }{{@code
- *       \"Sid\":\"AuthorizeIAMUser\",
- *       \"Effect\":\"Allow\",
- *       \"Resource\":\"%s\",
- *       \"Principal\":}{{@code
- *         \"AWS\":[
- *           \"arn:aws:iam::123456789012:user/John\",
- *           \"arn:aws:iam::123456789012:user/Jane\"
- *         ]
- *       }}{@code ,
- *       \"Action\":[
- *         \"ses:DeleteEmailIdentity\",
- *         \"ses:PutEmailIdentityDkimSigningAttributes\"
- *       ]
- *     }}{@code
- *   ]
- * }}{@code
- * ", _arn)))
- *             .build());
- * 
- *     }}{@code
- * }}{@code
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Policy using the `email_identity` and `policy_name` separated by `|`. For example:
- * 
- * ```sh
- * $ pulumi import aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy example example_email_identity|example_policy_name
- * ```
- * 
- */
 @ResourceType(type="aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy")
 public class EmailIdentityPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The email identity.
-     * 
-     */
     @Export(name="emailIdentity", refs={String.class}, tree="[0]")
     private Output<String> emailIdentity;
 
-    /**
-     * @return The email identity.
-     * 
-     */
     public Output<String> emailIdentity() {
         return this.emailIdentity;
     }
-    /**
-     * The text of the policy in JSON format.
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return The text of the policy in JSON format.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
-    /**
-     * The name of the policy.
-     * 
-     */
     @Export(name="policyName", refs={String.class}, tree="[0]")
     private Output<String> policyName;
 
-    /**
-     * @return The name of the policy.
-     * 
-     */
     public Output<String> policyName() {
         return this.policyName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

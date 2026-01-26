@@ -15,47 +15,23 @@ public final class ResolverQueryLogConfigAssociationState extends com.pulumi.res
 
     public static final ResolverQueryLogConfigAssociationState Empty = new ResolverQueryLogConfigAssociationState();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
-     * 
-     */
     @Import(name="resolverQueryLogConfigId")
     private @Nullable Output<String> resolverQueryLogConfigId;
 
-    /**
-     * @return The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
-     * 
-     */
     public Optional<Output<String>> resolverQueryLogConfigId() {
         return Optional.ofNullable(this.resolverQueryLogConfigId);
     }
 
-    /**
-     * The ID of a VPC that you want this query logging configuration to log queries for.
-     * 
-     */
     @Import(name="resourceId")
     private @Nullable Output<String> resourceId;
 
-    /**
-     * @return The ID of a VPC that you want this query logging configuration to log queries for.
-     * 
-     */
     public Optional<Output<String>> resourceId() {
         return Optional.ofNullable(this.resourceId);
     }
@@ -86,65 +62,29 @@ public final class ResolverQueryLogConfigAssociationState extends com.pulumi.res
             $ = new ResolverQueryLogConfigAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resolverQueryLogConfigId The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resolverQueryLogConfigId(@Nullable Output<String> resolverQueryLogConfigId) {
             $.resolverQueryLogConfigId = resolverQueryLogConfigId;
             return this;
         }
 
-        /**
-         * @param resolverQueryLogConfigId The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resolverQueryLogConfigId(String resolverQueryLogConfigId) {
             return resolverQueryLogConfigId(Output.of(resolverQueryLogConfigId));
         }
 
-        /**
-         * @param resourceId The ID of a VPC that you want this query logging configuration to log queries for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceId(@Nullable Output<String> resourceId) {
             $.resourceId = resourceId;
             return this;
         }
 
-        /**
-         * @param resourceId The ID of a VPC that you want this query logging configuration to log queries for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceId(String resourceId) {
             return resourceId(Output.of(resourceId));
         }

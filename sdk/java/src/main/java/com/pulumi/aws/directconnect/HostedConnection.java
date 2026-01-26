@@ -15,234 +15,87 @@ import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a hosted connection on the specified interconnect or a link aggregation group (LAG) of interconnects. Intended for use by AWS Direct Connect Partners only.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.directconnect.HostedConnection;
- * import com.pulumi.aws.directconnect.HostedConnectionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var hosted = new HostedConnection("hosted", HostedConnectionArgs.builder()
- *             .connectionId("dxcon-ffabc123")
- *             .bandwidth("100Mbps")
- *             .name("tf-dx-hosted-connection")
- *             .ownerAccountId("123456789012")
- *             .vlan(1)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:directconnect/hostedConnection:HostedConnection")
 public class HostedConnection extends com.pulumi.resources.CustomResource {
-    /**
-     * The Direct Connect endpoint on which the physical connection terminates.
-     * 
-     */
     @Export(name="awsDevice", refs={String.class}, tree="[0]")
     private Output<String> awsDevice;
 
-    /**
-     * @return The Direct Connect endpoint on which the physical connection terminates.
-     * 
-     */
     public Output<String> awsDevice() {
         return this.awsDevice;
     }
-    /**
-     * The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
-     * 
-     */
     @Export(name="bandwidth", refs={String.class}, tree="[0]")
     private Output<String> bandwidth;
 
-    /**
-     * @return The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
-     * 
-     */
     public Output<String> bandwidth() {
         return this.bandwidth;
     }
-    /**
-     * The ID of the interconnect or LAG.
-     * 
-     */
     @Export(name="connectionId", refs={String.class}, tree="[0]")
     private Output<String> connectionId;
 
-    /**
-     * @return The ID of the interconnect or LAG.
-     * 
-     */
     public Output<String> connectionId() {
         return this.connectionId;
     }
-    /**
-     * The AWS Region where the connection is located.
-     * 
-     */
     @Export(name="connectionRegion", refs={String.class}, tree="[0]")
     private Output<String> connectionRegion;
 
-    /**
-     * @return The AWS Region where the connection is located.
-     * 
-     */
     public Output<String> connectionRegion() {
         return this.connectionRegion;
     }
-    /**
-     * Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
-     * 
-     */
     @Export(name="hasLogicalRedundancy", refs={String.class}, tree="[0]")
     private Output<String> hasLogicalRedundancy;
 
-    /**
-     * @return Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
-     * 
-     */
     public Output<String> hasLogicalRedundancy() {
         return this.hasLogicalRedundancy;
     }
-    /**
-     * Boolean value representing if jumbo frames have been enabled for this connection.
-     * 
-     */
     @Export(name="jumboFrameCapable", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> jumboFrameCapable;
 
-    /**
-     * @return Boolean value representing if jumbo frames have been enabled for this connection.
-     * 
-     */
     public Output<Boolean> jumboFrameCapable() {
         return this.jumboFrameCapable;
     }
-    /**
-     * The ID of the LAG.
-     * 
-     */
     @Export(name="lagId", refs={String.class}, tree="[0]")
     private Output<String> lagId;
 
-    /**
-     * @return The ID of the LAG.
-     * 
-     */
     public Output<String> lagId() {
         return this.lagId;
     }
-    /**
-     * The time of the most recent call to [DescribeLoa](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLoa.html) for this connection.
-     * 
-     */
     @Export(name="loaIssueTime", refs={String.class}, tree="[0]")
     private Output<String> loaIssueTime;
 
-    /**
-     * @return The time of the most recent call to [DescribeLoa](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLoa.html) for this connection.
-     * 
-     */
     public Output<String> loaIssueTime() {
         return this.loaIssueTime;
     }
-    /**
-     * The location of the connection.
-     * 
-     */
     @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
-    /**
-     * @return The location of the connection.
-     * 
-     */
     public Output<String> location() {
         return this.location;
     }
-    /**
-     * The name of the connection.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the connection.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The ID of the AWS account of the customer for the connection.
-     * 
-     */
     @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
     private Output<String> ownerAccountId;
 
-    /**
-     * @return The ID of the AWS account of the customer for the connection.
-     * 
-     */
     public Output<String> ownerAccountId() {
         return this.ownerAccountId;
     }
-    /**
-     * The name of the AWS Direct Connect service provider associated with the connection.
-     * 
-     */
     @Export(name="partnerName", refs={String.class}, tree="[0]")
     private Output<String> partnerName;
 
-    /**
-     * @return The name of the AWS Direct Connect service provider associated with the connection.
-     * 
-     */
     public Output<String> partnerName() {
         return this.partnerName;
     }
-    /**
-     * The name of the service provider associated with the connection.
-     * 
-     */
     @Export(name="providerName", refs={String.class}, tree="[0]")
     private Output<String> providerName;
 
-    /**
-     * @return The name of the service provider associated with the connection.
-     * 
-     */
     public Output<String> providerName() {
         return this.providerName;
     }
     /**
-     * (**Deprecated**) The AWS Region where the connection is located. Use `connectionRegion` instead.
-     * 
      * @deprecated
      * region is deprecated. Use connectionRegion instead.
      * 
@@ -251,38 +104,18 @@ public class HostedConnection extends com.pulumi.resources.CustomResource {
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return (**Deprecated**) The AWS Region where the connection is located. Use `connectionRegion` instead.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The state of the connection. Possible values include: ordering, requested, pending, available, down, deleting, deleted, rejected, unknown. See [AllocateHostedConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateHostedConnection.html) for a description of each connection state.
-     * 
-     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
-    /**
-     * @return The state of the connection. Possible values include: ordering, requested, pending, available, down, deleting, deleted, rejected, unknown. See [AllocateHostedConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateHostedConnection.html) for a description of each connection state.
-     * 
-     */
     public Output<String> state() {
         return this.state;
     }
-    /**
-     * The dedicated VLAN provisioned to the hosted connection.
-     * 
-     */
     @Export(name="vlan", refs={Integer.class}, tree="[0]")
     private Output<Integer> vlan;
 
-    /**
-     * @return The dedicated VLAN provisioned to the hosted connection.
-     * 
-     */
     public Output<Integer> vlan() {
         return this.vlan;
     }

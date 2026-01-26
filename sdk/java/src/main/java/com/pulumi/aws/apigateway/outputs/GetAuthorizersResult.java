@@ -16,10 +16,6 @@ public final class GetAuthorizersResult {
      * 
      */
     private String id;
-    /**
-     * @return List of Authorizer identifiers.
-     * 
-     */
     private List<String> ids;
     private String region;
     private String restApiId;
@@ -32,10 +28,6 @@ public final class GetAuthorizersResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return List of Authorizer identifiers.
-     * 
-     */
     public List<String> ids() {
         return this.ids;
     }

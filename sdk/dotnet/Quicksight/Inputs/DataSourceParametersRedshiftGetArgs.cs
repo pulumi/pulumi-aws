@@ -12,27 +12,15 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class DataSourceParametersRedshiftGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the cluster to which to connect.
-        /// </summary>
         [Input("clusterId")]
         public Input<string>? ClusterId { get; set; }
 
-        /// <summary>
-        /// The database to which to connect.
-        /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
-        /// <summary>
-        /// The host to which to connect.
-        /// </summary>
         [Input("host")]
         public Input<string>? Host { get; set; }
 
-        /// <summary>
-        /// The port to which to connect.
-        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 

@@ -15,51 +15,23 @@ public final class GetPermissionsLfTagPolicy extends com.pulumi.resources.Invoke
 
     public static final GetPermissionsLfTagPolicy Empty = new GetPermissionsLfTagPolicy();
 
-    /**
-     * Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     @Import(name="catalogId", required=true)
     private String catalogId;
 
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     public String catalogId() {
         return this.catalogId;
     }
 
-    /**
-     * List of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
-     * 
-     * The following argument is optional:
-     * 
-     */
     @Import(name="expressions", required=true)
     private List<GetPermissionsLfTagPolicyExpression> expressions;
 
-    /**
-     * @return List of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
-     * 
-     * The following argument is optional:
-     * 
-     */
     public List<GetPermissionsLfTagPolicyExpression> expressions() {
         return this.expressions;
     }
 
-    /**
-     * Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
-     * 
-     */
     @Import(name="resourceType", required=true)
     private String resourceType;
 
-    /**
-     * @return Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
-     * 
-     */
     public String resourceType() {
         return this.resourceType;
     }
@@ -90,48 +62,20 @@ public final class GetPermissionsLfTagPolicy extends com.pulumi.resources.Invoke
             $ = new GetPermissionsLfTagPolicy(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param catalogId Identifier for the Data Catalog. By default, it is the account ID of the caller.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(String catalogId) {
             $.catalogId = catalogId;
             return this;
         }
 
-        /**
-         * @param expressions List of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
-         * 
-         * The following argument is optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder expressions(List<GetPermissionsLfTagPolicyExpression> expressions) {
             $.expressions = expressions;
             return this;
         }
 
-        /**
-         * @param expressions List of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
-         * 
-         * The following argument is optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder expressions(GetPermissionsLfTagPolicyExpression... expressions) {
             return expressions(List.of(expressions));
         }
 
-        /**
-         * @param resourceType Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceType(String resourceType) {
             $.resourceType = resourceType;
             return this;

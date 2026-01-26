@@ -18,62 +18,30 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
 
     public static final V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageArgs Empty = new V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageArgs();
 
-    /**
-     * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-     * 
-     */
     @Import(name="customPayload")
     private @Nullable Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageCustomPayloadArgs> customPayload;
 
-    /**
-     * @return Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-     * 
-     */
     public Optional<Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageCustomPayloadArgs>> customPayload() {
         return Optional.ofNullable(this.customPayload);
     }
 
-    /**
-     * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-     * 
-     */
     @Import(name="imageResponseCard")
     private @Nullable Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardArgs> imageResponseCard;
 
-    /**
-     * @return Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-     * 
-     */
     public Optional<Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardArgs>> imageResponseCard() {
         return Optional.ofNullable(this.imageResponseCard);
     }
 
-    /**
-     * Configuration block for a message in plain text format. See `plainTextMessage`.
-     * 
-     */
     @Import(name="plainTextMessage")
     private @Nullable Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessageArgs> plainTextMessage;
 
-    /**
-     * @return Configuration block for a message in plain text format. See `plainTextMessage`.
-     * 
-     */
     public Optional<Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessageArgs>> plainTextMessage() {
         return Optional.ofNullable(this.plainTextMessage);
     }
 
-    /**
-     * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-     * 
-     */
     @Import(name="ssmlMessage")
     private @Nullable Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgs> ssmlMessage;
 
-    /**
-     * @return Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-     * 
-     */
     public Optional<Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgs>> ssmlMessage() {
         return Optional.ofNullable(this.ssmlMessage);
     }
@@ -105,86 +73,38 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
             $ = new V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customPayload Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customPayload(@Nullable Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageCustomPayloadArgs> customPayload) {
             $.customPayload = customPayload;
             return this;
         }
 
-        /**
-         * @param customPayload Configuration block for a message in a custom format defined by the client application. See `customPayload`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customPayload(V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageCustomPayloadArgs customPayload) {
             return customPayload(Output.of(customPayload));
         }
 
-        /**
-         * @param imageResponseCard Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageResponseCard(@Nullable Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardArgs> imageResponseCard) {
             $.imageResponseCard = imageResponseCard;
             return this;
         }
 
-        /**
-         * @param imageResponseCard Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageResponseCard(V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardArgs imageResponseCard) {
             return imageResponseCard(Output.of(imageResponseCard));
         }
 
-        /**
-         * @param plainTextMessage Configuration block for a message in plain text format. See `plainTextMessage`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder plainTextMessage(@Nullable Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessageArgs> plainTextMessage) {
             $.plainTextMessage = plainTextMessage;
             return this;
         }
 
-        /**
-         * @param plainTextMessage Configuration block for a message in plain text format. See `plainTextMessage`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder plainTextMessage(V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessageArgs plainTextMessage) {
             return plainTextMessage(Output.of(plainTextMessage));
         }
 
-        /**
-         * @param ssmlMessage Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ssmlMessage(@Nullable Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgs> ssmlMessage) {
             $.ssmlMessage = ssmlMessage;
             return this;
         }
 
-        /**
-         * @param ssmlMessage Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ssmlMessage(V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgs ssmlMessage) {
             return ssmlMessage(Output.of(ssmlMessage));
         }

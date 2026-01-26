@@ -14,7 +14,6 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ClusterMasterUserSecret struct {
-	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId     *string `pulumi:"kmsKeyId"`
 	SecretArn    *string `pulumi:"secretArn"`
 	SecretStatus *string `pulumi:"secretStatus"`
@@ -32,7 +31,6 @@ type ClusterMasterUserSecretInput interface {
 }
 
 type ClusterMasterUserSecretArgs struct {
-	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId     pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	SecretArn    pulumi.StringPtrInput `pulumi:"secretArn"`
 	SecretStatus pulumi.StringPtrInput `pulumi:"secretStatus"`
@@ -89,7 +87,6 @@ func (o ClusterMasterUserSecretOutput) ToClusterMasterUserSecretOutputWithContex
 	return o
 }
 
-// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 func (o ClusterMasterUserSecretOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterMasterUserSecret) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -123,12 +120,9 @@ func (o ClusterMasterUserSecretArrayOutput) Index(i pulumi.IntInput) ClusterMast
 }
 
 type ClusterParameterGroupParameter struct {
-	// Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
 	ApplyMethod *string `pulumi:"applyMethod"`
-	// The name of the DocumentDB parameter.
-	Name string `pulumi:"name"`
-	// The value of the DocumentDB parameter.
-	Value string `pulumi:"value"`
+	Name        string  `pulumi:"name"`
+	Value       string  `pulumi:"value"`
 }
 
 // ClusterParameterGroupParameterInput is an input type that accepts ClusterParameterGroupParameterArgs and ClusterParameterGroupParameterOutput values.
@@ -143,12 +137,9 @@ type ClusterParameterGroupParameterInput interface {
 }
 
 type ClusterParameterGroupParameterArgs struct {
-	// Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
 	ApplyMethod pulumi.StringPtrInput `pulumi:"applyMethod"`
-	// The name of the DocumentDB parameter.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The value of the DocumentDB parameter.
-	Value pulumi.StringInput `pulumi:"value"`
+	Name        pulumi.StringInput    `pulumi:"name"`
+	Value       pulumi.StringInput    `pulumi:"value"`
 }
 
 func (ClusterParameterGroupParameterArgs) ElementType() reflect.Type {
@@ -202,17 +193,14 @@ func (o ClusterParameterGroupParameterOutput) ToClusterParameterGroupParameterOu
 	return o
 }
 
-// Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
 func (o ClusterParameterGroupParameterOutput) ApplyMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterParameterGroupParameter) *string { return v.ApplyMethod }).(pulumi.StringPtrOutput)
 }
 
-// The name of the DocumentDB parameter.
 func (o ClusterParameterGroupParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterParameterGroupParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of the DocumentDB parameter.
 func (o ClusterParameterGroupParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterParameterGroupParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -238,14 +226,10 @@ func (o ClusterParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) Clus
 }
 
 type ClusterRestoreToPointInTime struct {
-	// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
-	RestoreToTime *string `pulumi:"restoreToTime"`
-	// The type of restore to be performed. Valid values are `full-copy`, `copy-on-write`.
-	RestoreType *string `pulumi:"restoreType"`
-	// The identifier of the source DB cluster from which to restore. Must match the identifier of an existing DB cluster.
-	SourceClusterIdentifier string `pulumi:"sourceClusterIdentifier"`
-	// A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreToTime`.
-	UseLatestRestorableTime *bool `pulumi:"useLatestRestorableTime"`
+	RestoreToTime           *string `pulumi:"restoreToTime"`
+	RestoreType             *string `pulumi:"restoreType"`
+	SourceClusterIdentifier string  `pulumi:"sourceClusterIdentifier"`
+	UseLatestRestorableTime *bool   `pulumi:"useLatestRestorableTime"`
 }
 
 // ClusterRestoreToPointInTimeInput is an input type that accepts ClusterRestoreToPointInTimeArgs and ClusterRestoreToPointInTimeOutput values.
@@ -260,14 +244,10 @@ type ClusterRestoreToPointInTimeInput interface {
 }
 
 type ClusterRestoreToPointInTimeArgs struct {
-	// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
-	RestoreToTime pulumi.StringPtrInput `pulumi:"restoreToTime"`
-	// The type of restore to be performed. Valid values are `full-copy`, `copy-on-write`.
-	RestoreType pulumi.StringPtrInput `pulumi:"restoreType"`
-	// The identifier of the source DB cluster from which to restore. Must match the identifier of an existing DB cluster.
-	SourceClusterIdentifier pulumi.StringInput `pulumi:"sourceClusterIdentifier"`
-	// A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreToTime`.
-	UseLatestRestorableTime pulumi.BoolPtrInput `pulumi:"useLatestRestorableTime"`
+	RestoreToTime           pulumi.StringPtrInput `pulumi:"restoreToTime"`
+	RestoreType             pulumi.StringPtrInput `pulumi:"restoreType"`
+	SourceClusterIdentifier pulumi.StringInput    `pulumi:"sourceClusterIdentifier"`
+	UseLatestRestorableTime pulumi.BoolPtrInput   `pulumi:"useLatestRestorableTime"`
 }
 
 func (ClusterRestoreToPointInTimeArgs) ElementType() reflect.Type {
@@ -347,22 +327,18 @@ func (o ClusterRestoreToPointInTimeOutput) ToClusterRestoreToPointInTimePtrOutpu
 	}).(ClusterRestoreToPointInTimePtrOutput)
 }
 
-// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
 func (o ClusterRestoreToPointInTimeOutput) RestoreToTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterRestoreToPointInTime) *string { return v.RestoreToTime }).(pulumi.StringPtrOutput)
 }
 
-// The type of restore to be performed. Valid values are `full-copy`, `copy-on-write`.
 func (o ClusterRestoreToPointInTimeOutput) RestoreType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterRestoreToPointInTime) *string { return v.RestoreType }).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the source DB cluster from which to restore. Must match the identifier of an existing DB cluster.
 func (o ClusterRestoreToPointInTimeOutput) SourceClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterRestoreToPointInTime) string { return v.SourceClusterIdentifier }).(pulumi.StringOutput)
 }
 
-// A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreToTime`.
 func (o ClusterRestoreToPointInTimeOutput) UseLatestRestorableTime() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterRestoreToPointInTime) *bool { return v.UseLatestRestorableTime }).(pulumi.BoolPtrOutput)
 }
@@ -391,7 +367,6 @@ func (o ClusterRestoreToPointInTimePtrOutput) Elem() ClusterRestoreToPointInTime
 	}).(ClusterRestoreToPointInTimeOutput)
 }
 
-// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
 func (o ClusterRestoreToPointInTimePtrOutput) RestoreToTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterRestoreToPointInTime) *string {
 		if v == nil {
@@ -401,7 +376,6 @@ func (o ClusterRestoreToPointInTimePtrOutput) RestoreToTime() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of restore to be performed. Valid values are `full-copy`, `copy-on-write`.
 func (o ClusterRestoreToPointInTimePtrOutput) RestoreType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterRestoreToPointInTime) *string {
 		if v == nil {
@@ -411,7 +385,6 @@ func (o ClusterRestoreToPointInTimePtrOutput) RestoreType() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the source DB cluster from which to restore. Must match the identifier of an existing DB cluster.
 func (o ClusterRestoreToPointInTimePtrOutput) SourceClusterIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterRestoreToPointInTime) *string {
 		if v == nil {
@@ -421,7 +394,6 @@ func (o ClusterRestoreToPointInTimePtrOutput) SourceClusterIdentifier() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreToTime`.
 func (o ClusterRestoreToPointInTimePtrOutput) UseLatestRestorableTime() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterRestoreToPointInTime) *bool {
 		if v == nil {
@@ -432,9 +404,7 @@ func (o ClusterRestoreToPointInTimePtrOutput) UseLatestRestorableTime() pulumi.B
 }
 
 type ClusterServerlessV2ScalingConfiguration struct {
-	// Maximum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 1 and 256.
 	MaxCapacity float64 `pulumi:"maxCapacity"`
-	// Minimum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 0.5 and 256.
 	MinCapacity float64 `pulumi:"minCapacity"`
 }
 
@@ -450,9 +420,7 @@ type ClusterServerlessV2ScalingConfigurationInput interface {
 }
 
 type ClusterServerlessV2ScalingConfigurationArgs struct {
-	// Maximum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 1 and 256.
 	MaxCapacity pulumi.Float64Input `pulumi:"maxCapacity"`
-	// Minimum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 0.5 and 256.
 	MinCapacity pulumi.Float64Input `pulumi:"minCapacity"`
 }
 
@@ -533,12 +501,10 @@ func (o ClusterServerlessV2ScalingConfigurationOutput) ToClusterServerlessV2Scal
 	}).(ClusterServerlessV2ScalingConfigurationPtrOutput)
 }
 
-// Maximum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 1 and 256.
 func (o ClusterServerlessV2ScalingConfigurationOutput) MaxCapacity() pulumi.Float64Output {
 	return o.ApplyT(func(v ClusterServerlessV2ScalingConfiguration) float64 { return v.MaxCapacity }).(pulumi.Float64Output)
 }
 
-// Minimum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 0.5 and 256.
 func (o ClusterServerlessV2ScalingConfigurationOutput) MinCapacity() pulumi.Float64Output {
 	return o.ApplyT(func(v ClusterServerlessV2ScalingConfiguration) float64 { return v.MinCapacity }).(pulumi.Float64Output)
 }
@@ -567,7 +533,6 @@ func (o ClusterServerlessV2ScalingConfigurationPtrOutput) Elem() ClusterServerle
 	}).(ClusterServerlessV2ScalingConfigurationOutput)
 }
 
-// Maximum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 1 and 256.
 func (o ClusterServerlessV2ScalingConfigurationPtrOutput) MaxCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ClusterServerlessV2ScalingConfiguration) *float64 {
 		if v == nil {
@@ -577,7 +542,6 @@ func (o ClusterServerlessV2ScalingConfigurationPtrOutput) MaxCapacity() pulumi.F
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Minimum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 0.5 and 256.
 func (o ClusterServerlessV2ScalingConfigurationPtrOutput) MinCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ClusterServerlessV2ScalingConfiguration) *float64 {
 		if v == nil {
@@ -763,10 +727,8 @@ func (o ElasticClusterTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type GlobalClusterGlobalClusterMember struct {
-	// Amazon Resource Name (ARN) of member DB Cluster.
 	DbClusterArn *string `pulumi:"dbClusterArn"`
-	// Whether the member is the primary DB Cluster.
-	IsWriter *bool `pulumi:"isWriter"`
+	IsWriter     *bool   `pulumi:"isWriter"`
 }
 
 // GlobalClusterGlobalClusterMemberInput is an input type that accepts GlobalClusterGlobalClusterMemberArgs and GlobalClusterGlobalClusterMemberOutput values.
@@ -781,10 +743,8 @@ type GlobalClusterGlobalClusterMemberInput interface {
 }
 
 type GlobalClusterGlobalClusterMemberArgs struct {
-	// Amazon Resource Name (ARN) of member DB Cluster.
 	DbClusterArn pulumi.StringPtrInput `pulumi:"dbClusterArn"`
-	// Whether the member is the primary DB Cluster.
-	IsWriter pulumi.BoolPtrInput `pulumi:"isWriter"`
+	IsWriter     pulumi.BoolPtrInput   `pulumi:"isWriter"`
 }
 
 func (GlobalClusterGlobalClusterMemberArgs) ElementType() reflect.Type {
@@ -838,12 +798,10 @@ func (o GlobalClusterGlobalClusterMemberOutput) ToGlobalClusterGlobalClusterMemb
 	return o
 }
 
-// Amazon Resource Name (ARN) of member DB Cluster.
 func (o GlobalClusterGlobalClusterMemberOutput) DbClusterArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GlobalClusterGlobalClusterMember) *string { return v.DbClusterArn }).(pulumi.StringPtrOutput)
 }
 
-// Whether the member is the primary DB Cluster.
 func (o GlobalClusterGlobalClusterMemberOutput) IsWriter() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GlobalClusterGlobalClusterMember) *bool { return v.IsWriter }).(pulumi.BoolPtrOutput)
 }

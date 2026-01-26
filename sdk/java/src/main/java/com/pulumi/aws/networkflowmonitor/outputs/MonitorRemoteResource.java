@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class MonitorRemoteResource {
-    /**
-     * @return The identifier of the resource. For VPC resources, this is the VPC ARN.
-     * 
-     */
     private String identifier;
-    /**
-     * @return The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
-     * 
-     */
     private String type;
 
     private MonitorRemoteResource() {}
-    /**
-     * @return The identifier of the resource. For VPC resources, this is the VPC ARN.
-     * 
-     */
     public String identifier() {
         return this.identifier;
     }
-    /**
-     * @return The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
-     * 
-     */
     public String type() {
         return this.type;
     }

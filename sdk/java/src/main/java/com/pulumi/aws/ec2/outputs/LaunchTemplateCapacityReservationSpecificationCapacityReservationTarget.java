@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget {
-    /**
-     * @return The ID of the Capacity Reservation in which to run the instance.
-     * 
-     */
     private @Nullable String capacityReservationId;
-    /**
-     * @return The ARN of the Capacity Reservation resource group in which to run the instance.
-     * 
-     */
     private @Nullable String capacityReservationResourceGroupArn;
 
     private LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget() {}
-    /**
-     * @return The ID of the Capacity Reservation in which to run the instance.
-     * 
-     */
     public Optional<String> capacityReservationId() {
         return Optional.ofNullable(this.capacityReservationId);
     }
-    /**
-     * @return The ARN of the Capacity Reservation resource group in which to run the instance.
-     * 
-     */
     public Optional<String> capacityReservationResourceGroupArn() {
         return Optional.ofNullable(this.capacityReservationResourceGroupArn);
     }

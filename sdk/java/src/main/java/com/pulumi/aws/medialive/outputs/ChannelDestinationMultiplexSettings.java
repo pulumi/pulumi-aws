@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ChannelDestinationMultiplexSettings {
-    /**
-     * @return The ID of the Multiplex that the encoder is providing output to.
-     * 
-     */
     private String multiplexId;
-    /**
-     * @return The program name of the Multiplex program that the encoder is providing output to.
-     * 
-     */
     private String programName;
 
     private ChannelDestinationMultiplexSettings() {}
-    /**
-     * @return The ID of the Multiplex that the encoder is providing output to.
-     * 
-     */
     public String multiplexId() {
         return this.multiplexId;
     }
-    /**
-     * @return The program name of the Multiplex program that the encoder is providing output to.
-     * 
-     */
     public String programName() {
         return this.programName;
     }

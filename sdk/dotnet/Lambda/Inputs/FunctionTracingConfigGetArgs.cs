@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Lambda.Inputs
 
     public sealed class FunctionTracingConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// X-Ray tracing mode. Valid values: `Active`, `PassThrough`.
-        /// </summary>
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;
 

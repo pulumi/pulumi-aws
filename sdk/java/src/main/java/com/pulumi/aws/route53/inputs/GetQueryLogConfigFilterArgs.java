@@ -15,17 +15,9 @@ public final class GetQueryLogConfigFilterArgs extends com.pulumi.resources.Reso
 
     public static final GetQueryLogConfigFilterArgs Empty = new GetQueryLogConfigFilterArgs();
 
-    /**
-     * The name of the query logging configuration.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the query logging configuration.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -62,23 +54,11 @@ public final class GetQueryLogConfigFilterArgs extends com.pulumi.resources.Reso
             $ = new GetQueryLogConfigFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of the query logging configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the query logging configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

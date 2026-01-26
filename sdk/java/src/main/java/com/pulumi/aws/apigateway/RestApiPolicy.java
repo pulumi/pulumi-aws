@@ -13,122 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an API Gateway REST API Policy.
- * 
- * &gt; **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2 resources.
- * 
- * ## Example Usage
- * 
- * ### Basic
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigateway.RestApi;
- * import com.pulumi.aws.apigateway.RestApiArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.apigateway.RestApiPolicy;
- * import com.pulumi.aws.apigateway.RestApiPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testRestApi = new RestApi("testRestApi", RestApiArgs.builder()
- *             .name("example-rest-api")
- *             .build());
- * 
- *         final var test = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("AWS")
- *                     .identifiers("*")
- *                     .build())
- *                 .actions("execute-api:Invoke")
- *                 .resources(testRestApi.executionArn().applyValue(_executionArn -> String.format("%s/*", _executionArn)))
- *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                     .test("IpAddress")
- *                     .variable("aws:SourceIp")
- *                     .values("123.123.123.123/32")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var testRestApiPolicy = new RestApiPolicy("testRestApiPolicy", RestApiPolicyArgs.builder()
- *             .restApiId(testRestApi.id())
- *             .policy(test.applyValue(_test -> _test.json()))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_api_gateway_rest_api_policy` using the REST API ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:apigateway/restApiPolicy:RestApiPolicy example 12345abcde
- * ```
- * 
- */
 @ResourceType(type="aws:apigateway/restApiPolicy:RestApiPolicy")
 public class RestApiPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * JSON formatted policy document that controls access to the API Gateway.
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return JSON formatted policy document that controls access to the API Gateway.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * ID of the REST API.
-     * 
-     */
     @Export(name="restApiId", refs={String.class}, tree="[0]")
     private Output<String> restApiId;
 
-    /**
-     * @return ID of the REST API.
-     * 
-     */
     public Output<String> restApiId() {
         return this.restApiId;
     }

@@ -7,52 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage an S3 Control Bucket Lifecycle Configuration.
- *
- * > **NOTE:** Each S3 Control Bucket can only have one Lifecycle Configuration. Using multiple of this resource against the same S3 Control Bucket will result in perpetual differences each provider run.
- *
- * > This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Bucket Lifecycle Configurations in an AWS Partition, see the `aws.s3.Bucket` resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3control.BucketLifecycleConfiguration("example", {
- *     bucket: exampleAwsS3controlBucket.arn,
- *     rules: [
- *         {
- *             expiration: {
- *                 days: 365,
- *             },
- *             filter: {
- *                 prefix: "logs/",
- *             },
- *             id: "logs",
- *         },
- *         {
- *             expiration: {
- *                 days: 7,
- *             },
- *             filter: {
- *                 prefix: "temp/",
- *             },
- *             id: "temp",
- *         },
- *     ],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import S3 Control Bucket Lifecycle Configurations using the Amazon Resource Name (ARN). For example:
- *
- * ```sh
- * $ pulumi import aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
- * ```
- */
 export class BucketLifecycleConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing BucketLifecycleConfiguration resource's state with the given name, ID, and optional extra
@@ -81,17 +35,8 @@ export class BucketLifecycleConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === BucketLifecycleConfiguration.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the bucket.
-     */
     declare public readonly bucket: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Configuration block(s) containing lifecycle rules for the bucket.
-     */
     declare public readonly rules: pulumi.Output<outputs.s3control.BucketLifecycleConfigurationRule[]>;
 
     /**
@@ -131,17 +76,8 @@ export class BucketLifecycleConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BucketLifecycleConfiguration resources.
  */
 export interface BucketLifecycleConfigurationState {
-    /**
-     * Amazon Resource Name (ARN) of the bucket.
-     */
     bucket?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Configuration block(s) containing lifecycle rules for the bucket.
-     */
     rules?: pulumi.Input<pulumi.Input<inputs.s3control.BucketLifecycleConfigurationRule>[]>;
 }
 
@@ -149,16 +85,7 @@ export interface BucketLifecycleConfigurationState {
  * The set of arguments for constructing a BucketLifecycleConfiguration resource.
  */
 export interface BucketLifecycleConfigurationArgs {
-    /**
-     * Amazon Resource Name (ARN) of the bucket.
-     */
     bucket: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Configuration block(s) containing lifecycle rules for the bucket.
-     */
     rules: pulumi.Input<pulumi.Input<inputs.s3control.BucketLifecycleConfigurationRule>[]>;
 }

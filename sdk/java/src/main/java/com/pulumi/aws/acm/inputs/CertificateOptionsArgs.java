@@ -15,32 +15,16 @@ public final class CertificateOptionsArgs extends com.pulumi.resources.ResourceA
 
     public static final CertificateOptionsArgs Empty = new CertificateOptionsArgs();
 
-    /**
-     * Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
-     * 
-     */
     @Import(name="certificateTransparencyLoggingPreference")
     private @Nullable Output<String> certificateTransparencyLoggingPreference;
 
-    /**
-     * @return Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
-     * 
-     */
     public Optional<Output<String>> certificateTransparencyLoggingPreference() {
         return Optional.ofNullable(this.certificateTransparencyLoggingPreference);
     }
 
-    /**
-     * Whether the certificate can be exported. Valid values are `ENABLED` or `DISABLED` (default). **Note** Issuing an exportable certificate is subject to additional charges. See [AWS Certificate Manager pricing](https://aws.amazon.com/certificate-manager/pricing/) for more details.
-     * 
-     */
     @Import(name="export")
     private @Nullable Output<String> export;
 
-    /**
-     * @return Whether the certificate can be exported. Valid values are `ENABLED` or `DISABLED` (default). **Note** Issuing an exportable certificate is subject to additional charges. See [AWS Certificate Manager pricing](https://aws.amazon.com/certificate-manager/pricing/) for more details.
-     * 
-     */
     public Optional<Output<String>> export() {
         return Optional.ofNullable(this.export);
     }
@@ -70,44 +54,20 @@ public final class CertificateOptionsArgs extends com.pulumi.resources.ResourceA
             $ = new CertificateOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param certificateTransparencyLoggingPreference Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateTransparencyLoggingPreference(@Nullable Output<String> certificateTransparencyLoggingPreference) {
             $.certificateTransparencyLoggingPreference = certificateTransparencyLoggingPreference;
             return this;
         }
 
-        /**
-         * @param certificateTransparencyLoggingPreference Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateTransparencyLoggingPreference(String certificateTransparencyLoggingPreference) {
             return certificateTransparencyLoggingPreference(Output.of(certificateTransparencyLoggingPreference));
         }
 
-        /**
-         * @param export Whether the certificate can be exported. Valid values are `ENABLED` or `DISABLED` (default). **Note** Issuing an exportable certificate is subject to additional charges. See [AWS Certificate Manager pricing](https://aws.amazon.com/certificate-manager/pricing/) for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder export(@Nullable Output<String> export) {
             $.export = export;
             return this;
         }
 
-        /**
-         * @param export Whether the certificate can be exported. Valid values are `ENABLED` or `DISABLED` (default). **Note** Issuing an exportable certificate is subject to additional charges. See [AWS Certificate Manager pricing](https://aws.amazon.com/certificate-manager/pricing/) for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder export(String export) {
             return export(Output.of(export));
         }

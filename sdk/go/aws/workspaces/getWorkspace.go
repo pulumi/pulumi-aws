@@ -11,62 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
-//
-// ## Example Usage
-//
-// ### Filter By Workspace ID
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspaces"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := workspaces.LookupWorkspace(ctx, &workspaces.LookupWorkspaceArgs{
-//				WorkspaceId: pulumi.StringRef("ws-cj5xcxsz5"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Filter By Directory ID & User Name
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspaces"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := workspaces.LookupWorkspace(ctx, &workspaces.LookupWorkspaceArgs{
-//				DirectoryId: pulumi.StringRef("d-9967252f57"),
-//				UserName:    pulumi.StringRef("Example"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWorkspaceResult
@@ -79,45 +23,30 @@ func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pul
 
 // A collection of arguments for invoking getWorkspace.
 type LookupWorkspaceArgs struct {
-	// ID of the directory for the WorkSpace. You have to specify `userName` along with `directoryId`. You cannot combine this parameter with `workspaceId`.
-	DirectoryId *string `pulumi:"directoryId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Tags for the WorkSpace.
-	Tags map[string]string `pulumi:"tags"`
-	// User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspaceId`.
-	UserName *string `pulumi:"userName"`
-	// ID of the WorkSpace. You cannot combine this parameter with `directoryId`.
-	WorkspaceId *string `pulumi:"workspaceId"`
+	DirectoryId *string           `pulumi:"directoryId"`
+	Region      *string           `pulumi:"region"`
+	Tags        map[string]string `pulumi:"tags"`
+	UserName    *string           `pulumi:"userName"`
+	WorkspaceId *string           `pulumi:"workspaceId"`
 }
 
 // A collection of values returned by getWorkspace.
 type LookupWorkspaceResult struct {
-	// ID of the bundle for the WorkSpace.
-	BundleId string `pulumi:"bundleId"`
-	// Name of the WorkSpace, as seen by the operating system.
+	BundleId     string `pulumi:"bundleId"`
 	ComputerName string `pulumi:"computerName"`
 	DirectoryId  string `pulumi:"directoryId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// IP address of the WorkSpace.
-	IpAddress string `pulumi:"ipAddress"`
-	Region    string `pulumi:"region"`
-	// Indicates whether the data stored on the root volume is encrypted.
-	RootVolumeEncryptionEnabled bool `pulumi:"rootVolumeEncryptionEnabled"`
-	// Operational state of the WorkSpace.
-	State string `pulumi:"state"`
-	// Tags for the WorkSpace.
-	Tags     map[string]string `pulumi:"tags"`
-	UserName string            `pulumi:"userName"`
-	// Indicates whether the data stored on the user volume
-	// is encrypted.
-	UserVolumeEncryptionEnabled bool `pulumi:"userVolumeEncryptionEnabled"`
-	// Symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
-	VolumeEncryptionKey string `pulumi:"volumeEncryptionKey"`
-	WorkspaceId         string `pulumi:"workspaceId"`
-	// WorkSpace properties.
-	WorkspaceProperties []GetWorkspaceWorkspaceProperty `pulumi:"workspaceProperties"`
+	Id                          string                          `pulumi:"id"`
+	IpAddress                   string                          `pulumi:"ipAddress"`
+	Region                      string                          `pulumi:"region"`
+	RootVolumeEncryptionEnabled bool                            `pulumi:"rootVolumeEncryptionEnabled"`
+	State                       string                          `pulumi:"state"`
+	Tags                        map[string]string               `pulumi:"tags"`
+	UserName                    string                          `pulumi:"userName"`
+	UserVolumeEncryptionEnabled bool                            `pulumi:"userVolumeEncryptionEnabled"`
+	VolumeEncryptionKey         string                          `pulumi:"volumeEncryptionKey"`
+	WorkspaceId                 string                          `pulumi:"workspaceId"`
+	WorkspaceProperties         []GetWorkspaceWorkspaceProperty `pulumi:"workspaceProperties"`
 }
 
 func LookupWorkspaceOutput(ctx *pulumi.Context, args LookupWorkspaceOutputArgs, opts ...pulumi.InvokeOption) LookupWorkspaceResultOutput {
@@ -131,15 +60,10 @@ func LookupWorkspaceOutput(ctx *pulumi.Context, args LookupWorkspaceOutputArgs, 
 
 // A collection of arguments for invoking getWorkspace.
 type LookupWorkspaceOutputArgs struct {
-	// ID of the directory for the WorkSpace. You have to specify `userName` along with `directoryId`. You cannot combine this parameter with `workspaceId`.
 	DirectoryId pulumi.StringPtrInput `pulumi:"directoryId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Tags for the WorkSpace.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspaceId`.
-	UserName pulumi.StringPtrInput `pulumi:"userName"`
-	// ID of the WorkSpace. You cannot combine this parameter with `directoryId`.
+	Region      pulumi.StringPtrInput `pulumi:"region"`
+	Tags        pulumi.StringMapInput `pulumi:"tags"`
+	UserName    pulumi.StringPtrInput `pulumi:"userName"`
 	WorkspaceId pulumi.StringPtrInput `pulumi:"workspaceId"`
 }
 
@@ -162,12 +86,10 @@ func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutputWithContext(ct
 	return o
 }
 
-// ID of the bundle for the WorkSpace.
 func (o LookupWorkspaceResultOutput) BundleId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.BundleId }).(pulumi.StringOutput)
 }
 
-// Name of the WorkSpace, as seen by the operating system.
 func (o LookupWorkspaceResultOutput) ComputerName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.ComputerName }).(pulumi.StringOutput)
 }
@@ -181,7 +103,6 @@ func (o LookupWorkspaceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// IP address of the WorkSpace.
 func (o LookupWorkspaceResultOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.IpAddress }).(pulumi.StringOutput)
 }
@@ -190,17 +111,14 @@ func (o LookupWorkspaceResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Indicates whether the data stored on the root volume is encrypted.
 func (o LookupWorkspaceResultOutput) RootVolumeEncryptionEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) bool { return v.RootVolumeEncryptionEnabled }).(pulumi.BoolOutput)
 }
 
-// Operational state of the WorkSpace.
 func (o LookupWorkspaceResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.State }).(pulumi.StringOutput)
 }
 
-// Tags for the WorkSpace.
 func (o LookupWorkspaceResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -209,13 +127,10 @@ func (o LookupWorkspaceResultOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.UserName }).(pulumi.StringOutput)
 }
 
-// Indicates whether the data stored on the user volume
-// is encrypted.
 func (o LookupWorkspaceResultOutput) UserVolumeEncryptionEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) bool { return v.UserVolumeEncryptionEnabled }).(pulumi.BoolOutput)
 }
 
-// Symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
 func (o LookupWorkspaceResultOutput) VolumeEncryptionKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.VolumeEncryptionKey }).(pulumi.StringOutput)
 }
@@ -224,7 +139,6 @@ func (o LookupWorkspaceResultOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.WorkspaceId }).(pulumi.StringOutput)
 }
 
-// WorkSpace properties.
 func (o LookupWorkspaceResultOutput) WorkspaceProperties() GetWorkspaceWorkspacePropertyArrayOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) []GetWorkspaceWorkspaceProperty { return v.WorkspaceProperties }).(GetWorkspaceWorkspacePropertyArrayOutput)
 }

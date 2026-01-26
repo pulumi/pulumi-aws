@@ -12,21 +12,12 @@ namespace Pulumi.Aws.MediaConvert.Inputs
 
     public sealed class QueueReservationPlanSettingsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
-        /// </summary>
         [Input("commitment", required: true)]
         public Input<string> Commitment { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies whether the term of your reserved queue pricing plan. Valid values are `AUTO_RENEW` or `EXPIRE`.
-        /// </summary>
         [Input("renewalType", required: true)]
         public Input<string> RenewalType { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies the number of reserved transcode slots (RTS) for queue.
-        /// </summary>
         [Input("reservedSlots", required: true)]
         public Input<int> ReservedSlots { get; set; } = null!;
 

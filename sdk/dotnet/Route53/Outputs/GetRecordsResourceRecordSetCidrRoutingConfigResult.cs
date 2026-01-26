@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Route53.Outputs
     [OutputType]
     public sealed class GetRecordsResourceRecordSetCidrRoutingConfigResult
     {
-        /// <summary>
-        /// The CIDR collection ID.
-        /// </summary>
         public readonly string CollectionId;
-        /// <summary>
-        /// The CIDR collection location name.
-        /// </summary>
         public readonly string LocationName;
 
         [OutputConstructor]

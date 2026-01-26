@@ -13,13 +13,7 @@ namespace Pulumi.Aws.GlobalAccelerator.Outputs
     [OutputType]
     public sealed class CustomRoutingAcceleratorIpSet
     {
-        /// <summary>
-        /// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
-        /// </summary>
         public readonly ImmutableArray<string> IpAddresses;
-        /// <summary>
-        /// The type of IP addresses included in this IP set.
-        /// </summary>
         public readonly string? IpFamily;
 
         [OutputConstructor]

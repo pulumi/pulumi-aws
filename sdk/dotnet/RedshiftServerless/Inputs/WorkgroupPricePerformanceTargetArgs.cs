@@ -12,15 +12,9 @@ namespace Pulumi.Aws.RedshiftServerless.Inputs
 
     public sealed class WorkgroupPricePerformanceTargetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to enable price-performance scaling.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
-        /// <summary>
-        /// The price-performance scaling level. Valid values are `1` (LOW_COST), `25` (ECONOMICAL), `50` (BALANCED), `75` (RESOURCEFUL), and `100` (HIGH_PERFORMANCE).
-        /// </summary>
         [Input("level")]
         public Input<int>? Level { get; set; }
 

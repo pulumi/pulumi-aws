@@ -7,52 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to create an EventBridge Global Endpoint.
- *
- * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _this = new aws.cloudwatch.EventEndpoint("this", {
- *     name: "global-endpoint",
- *     roleArn: replication.arn,
- *     eventBuses: [
- *         {
- *             eventBusArn: primary.arn,
- *         },
- *         {
- *             eventBusArn: secondary.arn,
- *         },
- *     ],
- *     replicationConfig: {
- *         state: "DISABLED",
- *     },
- *     routingConfig: {
- *         failoverConfig: {
- *             primary: {
- *                 healthCheck: primaryAwsRoute53HealthCheck.arn,
- *             },
- *             secondary: {
- *                 route: "us-east-2",
- *             },
- *         },
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import EventBridge Global Endpoints using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:cloudwatch/eventEndpoint:EventEndpoint imported_endpoint example-endpoint
- * ```
- */
 export class EventEndpoint extends pulumi.CustomResource {
     /**
      * Get an existing EventEndpoint resource's state with the given name, ID, and optional extra
@@ -81,41 +35,14 @@ export class EventEndpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === EventEndpoint.__pulumiType;
     }
 
-    /**
-     * The ARN of the endpoint that was created.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * A description of the global endpoint.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * The URL of the endpoint that was created.
-     */
     declare public /*out*/ readonly endpointUrl: pulumi.Output<string>;
-    /**
-     * The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
-     */
     declare public readonly eventBuses: pulumi.Output<outputs.cloudwatch.EventEndpointEventBus[]>;
-    /**
-     * The name of the global endpoint.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Parameters used for replication. Documented below.
-     */
     declare public readonly replicationConfig: pulumi.Output<outputs.cloudwatch.EventEndpointReplicationConfig | undefined>;
-    /**
-     * The ARN of the IAM role used for replication between event buses.
-     */
     declare public readonly roleArn: pulumi.Output<string | undefined>;
-    /**
-     * Parameters used for routing, including the health check and secondary Region. Documented below.
-     */
     declare public readonly routingConfig: pulumi.Output<outputs.cloudwatch.EventEndpointRoutingConfig>;
 
     /**
@@ -167,41 +94,14 @@ export class EventEndpoint extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EventEndpoint resources.
  */
 export interface EventEndpointState {
-    /**
-     * The ARN of the endpoint that was created.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * A description of the global endpoint.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The URL of the endpoint that was created.
-     */
     endpointUrl?: pulumi.Input<string>;
-    /**
-     * The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
-     */
     eventBuses?: pulumi.Input<pulumi.Input<inputs.cloudwatch.EventEndpointEventBus>[]>;
-    /**
-     * The name of the global endpoint.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Parameters used for replication. Documented below.
-     */
     replicationConfig?: pulumi.Input<inputs.cloudwatch.EventEndpointReplicationConfig>;
-    /**
-     * The ARN of the IAM role used for replication between event buses.
-     */
     roleArn?: pulumi.Input<string>;
-    /**
-     * Parameters used for routing, including the health check and secondary Region. Documented below.
-     */
     routingConfig?: pulumi.Input<inputs.cloudwatch.EventEndpointRoutingConfig>;
 }
 
@@ -209,32 +109,11 @@ export interface EventEndpointState {
  * The set of arguments for constructing a EventEndpoint resource.
  */
 export interface EventEndpointArgs {
-    /**
-     * A description of the global endpoint.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
-     */
     eventBuses: pulumi.Input<pulumi.Input<inputs.cloudwatch.EventEndpointEventBus>[]>;
-    /**
-     * The name of the global endpoint.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Parameters used for replication. Documented below.
-     */
     replicationConfig?: pulumi.Input<inputs.cloudwatch.EventEndpointReplicationConfig>;
-    /**
-     * The ARN of the IAM role used for replication between event buses.
-     */
     roleArn?: pulumi.Input<string>;
-    /**
-     * Parameters used for routing, including the health check and secondary Region. Documented below.
-     */
     routingConfig: pulumi.Input<inputs.cloudwatch.EventEndpointRoutingConfig>;
 }

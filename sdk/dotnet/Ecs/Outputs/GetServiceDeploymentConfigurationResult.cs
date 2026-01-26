@@ -13,41 +13,14 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class GetServiceDeploymentConfigurationResult
     {
-        /// <summary>
-        /// CloudWatch alarms configuration. See `Alarms` Block for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceDeploymentConfigurationAlarmResult> Alarms;
-        /// <summary>
-        /// Time to wait after deployment before terminating old tasks
-        /// </summary>
         public readonly string BakeTimeInMinutes;
-        /// <summary>
-        /// Canary deployment configuration. See `CanaryConfiguration` Block for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceDeploymentConfigurationCanaryConfigurationResult> CanaryConfigurations;
-        /// <summary>
-        /// Circuit breaker configuration. See `DeploymentCircuitBreaker` Block for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceDeploymentConfigurationDeploymentCircuitBreakerResult> DeploymentCircuitBreakers;
-        /// <summary>
-        /// Lifecycle hooks for deployments. See `LifecycleHook` Block for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceDeploymentConfigurationLifecycleHookResult> LifecycleHooks;
-        /// <summary>
-        /// Linear deployment configuration. See `LinearConfiguration` Block for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceDeploymentConfigurationLinearConfigurationResult> LinearConfigurations;
-        /// <summary>
-        /// Upper limit on tasks during deployment
-        /// </summary>
         public readonly int MaximumPercent;
-        /// <summary>
-        /// Lower limit on healthy tasks during deployment
-        /// </summary>
         public readonly int MinimumHealthyPercent;
-        /// <summary>
-        /// Deployment strategy (ROLLING, BLUE_GREEN, LINEAR, or CANARY)
-        /// </summary>
         public readonly string Strategy;
 
         [OutputConstructor]

@@ -12,77 +12,29 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentAgentPromptOverrideConfigurationPromptConfiguration {
-    /**
-     * @return prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
-     * 
-     */
     private String basePromptTemplate;
-    /**
-     * @return Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inferenceConfiguration` Block for details.
-     * 
-     */
     private List<AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration> inferenceConfigurations;
-    /**
-     * @return Whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType`. If you set the argument as `OVERRIDDEN`, the `overrideLambda` argument in the `promptOverrideConfiguration` block must be specified with the ARN of a Lambda function. Valid values: `DEFAULT`, `OVERRIDDEN`.
-     * 
-     */
     private String parserMode;
-    /**
-     * @return Whether to override the default prompt template for this `promptType`. Set this argument to `OVERRIDDEN` to use the prompt that you provide in the `basePromptTemplate`. If you leave it as `DEFAULT`, the agent uses a default prompt template. Valid values: `DEFAULT`, `OVERRIDDEN`.
-     * 
-     */
     private String promptCreationMode;
-    /**
-     * @return Whether to allow the agent to carry out the step specified in the `promptType`. If you set this argument to `DISABLED`, the agent skips that step. Valid Values: `ENABLED`, `DISABLED`.
-     * 
-     */
     private String promptState;
-    /**
-     * @return Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`.
-     * 
-     */
     private String promptType;
 
     private AgentAgentPromptOverrideConfigurationPromptConfiguration() {}
-    /**
-     * @return prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
-     * 
-     */
     public String basePromptTemplate() {
         return this.basePromptTemplate;
     }
-    /**
-     * @return Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inferenceConfiguration` Block for details.
-     * 
-     */
     public List<AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration> inferenceConfigurations() {
         return this.inferenceConfigurations;
     }
-    /**
-     * @return Whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType`. If you set the argument as `OVERRIDDEN`, the `overrideLambda` argument in the `promptOverrideConfiguration` block must be specified with the ARN of a Lambda function. Valid values: `DEFAULT`, `OVERRIDDEN`.
-     * 
-     */
     public String parserMode() {
         return this.parserMode;
     }
-    /**
-     * @return Whether to override the default prompt template for this `promptType`. Set this argument to `OVERRIDDEN` to use the prompt that you provide in the `basePromptTemplate`. If you leave it as `DEFAULT`, the agent uses a default prompt template. Valid values: `DEFAULT`, `OVERRIDDEN`.
-     * 
-     */
     public String promptCreationMode() {
         return this.promptCreationMode;
     }
-    /**
-     * @return Whether to allow the agent to carry out the step specified in the `promptType`. If you set this argument to `DISABLED`, the agent skips that step. Valid Values: `ENABLED`, `DISABLED`.
-     * 
-     */
     public String promptState() {
         return this.promptState;
     }
-    /**
-     * @return Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`.
-     * 
-     */
     public String promptType() {
         return this.promptType;
     }

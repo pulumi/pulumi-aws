@@ -14,109 +14,29 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Redshift Cluster IAM Roles resource.
- * 
- * &gt; **NOTE:** A Redshift cluster&#39;s default IAM role can be managed both by this resource&#39;s `defaultIamRoleArn` argument and the `aws.redshift.Cluster` resource&#39;s `defaultIamRoleArn` argument. Do not configure different values for both arguments. Doing so will cause a conflict of default IAM roles.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.redshift.ClusterIamRoles;
- * import com.pulumi.aws.redshift.ClusterIamRolesArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ClusterIamRoles("example", ClusterIamRolesArgs.builder()
- *             .clusterIdentifier(exampleAwsRedshiftCluster.clusterIdentifier())
- *             .iamRoleArns(exampleAwsIamRole.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Redshift Cluster IAM Roless using the `cluster_identifier`. For example:
- * 
- * ```sh
- * $ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example
- * ```
- * 
- */
 @ResourceType(type="aws:redshift/clusterIamRoles:ClusterIamRoles")
 public class ClusterIamRoles extends com.pulumi.resources.CustomResource {
-    /**
-     * The name of the Redshift Cluster IAM Roles.
-     * 
-     */
     @Export(name="clusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> clusterIdentifier;
 
-    /**
-     * @return The name of the Redshift Cluster IAM Roles.
-     * 
-     */
     public Output<String> clusterIdentifier() {
         return this.clusterIdentifier;
     }
-    /**
-     * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
-     * 
-     */
     @Export(name="defaultIamRoleArn", refs={String.class}, tree="[0]")
     private Output<String> defaultIamRoleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
-     * 
-     */
     public Output<String> defaultIamRoleArn() {
         return this.defaultIamRoleArn;
     }
-    /**
-     * A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
-     * 
-     */
     @Export(name="iamRoleArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> iamRoleArns;
 
-    /**
-     * @return A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
-     * 
-     */
     public Output<List<String>> iamRoleArns() {
         return this.iamRoleArns;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

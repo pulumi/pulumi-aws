@@ -12,70 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CloudWatch Log Metric Filter resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			dada, err := cloudwatch.NewLogGroup(ctx, "dada", &cloudwatch.LogGroupArgs{
-//				Name: pulumi.String("MyApp/access.log"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudwatch.NewLogMetricFilter(ctx, "yada", &cloudwatch.LogMetricFilterArgs{
-//				Name:         pulumi.String("MyAppAccessCount"),
-//				Pattern:      pulumi.String(""),
-//				LogGroupName: dada.Name,
-//				MetricTransformation: &cloudwatch.LogMetricFilterMetricTransformationArgs{
-//					Name:      pulumi.String("EventCount"),
-//					Namespace: pulumi.String("YourNamespace"),
-//					Value:     pulumi.String("1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CloudWatch Log Metric Filter using the `log_group_name:name`. For example:
-//
-// ```sh
-// $ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test
-// ```
 type LogMetricFilter struct {
 	pulumi.CustomResourceState
 
-	// Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
-	ApplyOnTransformedLogs pulumi.BoolOutput `pulumi:"applyOnTransformedLogs"`
-	// The name of the log group to associate the metric filter with.
-	LogGroupName pulumi.StringOutput `pulumi:"logGroupName"`
-	// A block defining collection of information needed to define how metric data gets emitted. See below.
-	MetricTransformation LogMetricFilterMetricTransformationOutput `pulumi:"metricTransformation"`
-	// A name for the metric filter.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
-	// for extracting metric data out of ingested log events.
-	Pattern pulumi.StringOutput `pulumi:"pattern"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	ApplyOnTransformedLogs pulumi.BoolOutput                         `pulumi:"applyOnTransformedLogs"`
+	LogGroupName           pulumi.StringOutput                       `pulumi:"logGroupName"`
+	MetricTransformation   LogMetricFilterMetricTransformationOutput `pulumi:"metricTransformation"`
+	Name                   pulumi.StringOutput                       `pulumi:"name"`
+	Pattern                pulumi.StringOutput                       `pulumi:"pattern"`
+	Region                 pulumi.StringOutput                       `pulumi:"region"`
 }
 
 // NewLogMetricFilter registers a new resource with the given unique name, arguments, and options.
@@ -117,35 +62,21 @@ func GetLogMetricFilter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogMetricFilter resources.
 type logMetricFilterState struct {
-	// Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
-	ApplyOnTransformedLogs *bool `pulumi:"applyOnTransformedLogs"`
-	// The name of the log group to associate the metric filter with.
-	LogGroupName *string `pulumi:"logGroupName"`
-	// A block defining collection of information needed to define how metric data gets emitted. See below.
-	MetricTransformation *LogMetricFilterMetricTransformation `pulumi:"metricTransformation"`
-	// A name for the metric filter.
-	Name *string `pulumi:"name"`
-	// A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
-	// for extracting metric data out of ingested log events.
-	Pattern *string `pulumi:"pattern"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	ApplyOnTransformedLogs *bool                                `pulumi:"applyOnTransformedLogs"`
+	LogGroupName           *string                              `pulumi:"logGroupName"`
+	MetricTransformation   *LogMetricFilterMetricTransformation `pulumi:"metricTransformation"`
+	Name                   *string                              `pulumi:"name"`
+	Pattern                *string                              `pulumi:"pattern"`
+	Region                 *string                              `pulumi:"region"`
 }
 
 type LogMetricFilterState struct {
-	// Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
 	ApplyOnTransformedLogs pulumi.BoolPtrInput
-	// The name of the log group to associate the metric filter with.
-	LogGroupName pulumi.StringPtrInput
-	// A block defining collection of information needed to define how metric data gets emitted. See below.
-	MetricTransformation LogMetricFilterMetricTransformationPtrInput
-	// A name for the metric filter.
-	Name pulumi.StringPtrInput
-	// A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
-	// for extracting metric data out of ingested log events.
-	Pattern pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	LogGroupName           pulumi.StringPtrInput
+	MetricTransformation   LogMetricFilterMetricTransformationPtrInput
+	Name                   pulumi.StringPtrInput
+	Pattern                pulumi.StringPtrInput
+	Region                 pulumi.StringPtrInput
 }
 
 func (LogMetricFilterState) ElementType() reflect.Type {
@@ -153,36 +84,22 @@ func (LogMetricFilterState) ElementType() reflect.Type {
 }
 
 type logMetricFilterArgs struct {
-	// Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
-	ApplyOnTransformedLogs *bool `pulumi:"applyOnTransformedLogs"`
-	// The name of the log group to associate the metric filter with.
-	LogGroupName string `pulumi:"logGroupName"`
-	// A block defining collection of information needed to define how metric data gets emitted. See below.
-	MetricTransformation LogMetricFilterMetricTransformation `pulumi:"metricTransformation"`
-	// A name for the metric filter.
-	Name *string `pulumi:"name"`
-	// A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
-	// for extracting metric data out of ingested log events.
-	Pattern string `pulumi:"pattern"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	ApplyOnTransformedLogs *bool                               `pulumi:"applyOnTransformedLogs"`
+	LogGroupName           string                              `pulumi:"logGroupName"`
+	MetricTransformation   LogMetricFilterMetricTransformation `pulumi:"metricTransformation"`
+	Name                   *string                             `pulumi:"name"`
+	Pattern                string                              `pulumi:"pattern"`
+	Region                 *string                             `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LogMetricFilter resource.
 type LogMetricFilterArgs struct {
-	// Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
 	ApplyOnTransformedLogs pulumi.BoolPtrInput
-	// The name of the log group to associate the metric filter with.
-	LogGroupName pulumi.StringInput
-	// A block defining collection of information needed to define how metric data gets emitted. See below.
-	MetricTransformation LogMetricFilterMetricTransformationInput
-	// A name for the metric filter.
-	Name pulumi.StringPtrInput
-	// A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
-	// for extracting metric data out of ingested log events.
-	Pattern pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	LogGroupName           pulumi.StringInput
+	MetricTransformation   LogMetricFilterMetricTransformationInput
+	Name                   pulumi.StringPtrInput
+	Pattern                pulumi.StringInput
+	Region                 pulumi.StringPtrInput
 }
 
 func (LogMetricFilterArgs) ElementType() reflect.Type {
@@ -272,33 +189,26 @@ func (o LogMetricFilterOutput) ToLogMetricFilterOutputWithContext(ctx context.Co
 	return o
 }
 
-// Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
 func (o LogMetricFilterOutput) ApplyOnTransformedLogs() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LogMetricFilter) pulumi.BoolOutput { return v.ApplyOnTransformedLogs }).(pulumi.BoolOutput)
 }
 
-// The name of the log group to associate the metric filter with.
 func (o LogMetricFilterOutput) LogGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogMetricFilter) pulumi.StringOutput { return v.LogGroupName }).(pulumi.StringOutput)
 }
 
-// A block defining collection of information needed to define how metric data gets emitted. See below.
 func (o LogMetricFilterOutput) MetricTransformation() LogMetricFilterMetricTransformationOutput {
 	return o.ApplyT(func(v *LogMetricFilter) LogMetricFilterMetricTransformationOutput { return v.MetricTransformation }).(LogMetricFilterMetricTransformationOutput)
 }
 
-// A name for the metric filter.
 func (o LogMetricFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogMetricFilter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
-// for extracting metric data out of ingested log events.
 func (o LogMetricFilterOutput) Pattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogMetricFilter) pulumi.StringOutput { return v.Pattern }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LogMetricFilterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogMetricFilter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -14,19 +14,12 @@ namespace Pulumi.Aws.CloudWatch.Inputs
     {
         [Input("metricNames")]
         private InputList<string>? _metricNames;
-
-        /// <summary>
-        /// An array that defines the metrics you want to include for this metric namespace
-        /// </summary>
         public InputList<string> MetricNames
         {
             get => _metricNames ?? (_metricNames = new InputList<string>());
             set => _metricNames = value;
         }
 
-        /// <summary>
-        /// Name of the metric namespace in the filter.
-        /// </summary>
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;
 

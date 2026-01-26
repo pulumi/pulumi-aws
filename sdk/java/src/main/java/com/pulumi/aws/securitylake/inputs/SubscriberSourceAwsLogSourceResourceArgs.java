@@ -16,32 +16,16 @@ public final class SubscriberSourceAwsLogSourceResourceArgs extends com.pulumi.r
 
     public static final SubscriberSourceAwsLogSourceResourceArgs Empty = new SubscriberSourceAwsLogSourceResourceArgs();
 
-    /**
-     * The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT` and `WAF`.
-     * 
-     */
     @Import(name="sourceName", required=true)
     private Output<String> sourceName;
 
-    /**
-     * @return The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT` and `WAF`.
-     * 
-     */
     public Output<String> sourceName() {
         return this.sourceName;
     }
 
-    /**
-     * The version for a AWS source. This must be a Regionally unique value.
-     * 
-     */
     @Import(name="sourceVersion")
     private @Nullable Output<String> sourceVersion;
 
-    /**
-     * @return The version for a AWS source. This must be a Regionally unique value.
-     * 
-     */
     public Optional<Output<String>> sourceVersion() {
         return Optional.ofNullable(this.sourceVersion);
     }
@@ -71,44 +55,20 @@ public final class SubscriberSourceAwsLogSourceResourceArgs extends com.pulumi.r
             $ = new SubscriberSourceAwsLogSourceResourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param sourceName The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT` and `WAF`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceName(Output<String> sourceName) {
             $.sourceName = sourceName;
             return this;
         }
 
-        /**
-         * @param sourceName The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT` and `WAF`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceName(String sourceName) {
             return sourceName(Output.of(sourceName));
         }
 
-        /**
-         * @param sourceVersion The version for a AWS source. This must be a Regionally unique value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceVersion(@Nullable Output<String> sourceVersion) {
             $.sourceVersion = sourceVersion;
             return this;
         }
 
-        /**
-         * @param sourceVersion The version for a AWS source. This must be a Regionally unique value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceVersion(String sourceVersion) {
             return sourceVersion(Output.of(sourceVersion));
         }

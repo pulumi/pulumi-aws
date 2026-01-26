@@ -12,52 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Network Manager link association. Associates a link to a device. A device can be associated to multiple links and a link can be associated to multiple devices. The device and link must be in the same global network and the same site.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkmanager.NewLinkAssociation(ctx, "example", &networkmanager.LinkAssociationArgs{
-//				GlobalNetworkId: pulumi.Any(exampleAwsNetworkmanagerGlobalNetwork.Id),
-//				LinkId:          pulumi.Any(exampleAwsNetworkmanagerLink.Id),
-//				DeviceId:        pulumi.Any(exampleAwsNetworkmanagerDevice.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_networkmanager_link_association` using the global network ID, link ID and device ID. For example:
-//
-// ```sh
-// $ pulumi import aws:networkmanager/linkAssociation:LinkAssociation example global-network-0d47f6t230mz46dy4,link-444555aaabbb11223,device-07f6fd08867abc123
-// ```
 type LinkAssociation struct {
 	pulumi.CustomResourceState
 
-	// ID of the device.
-	DeviceId pulumi.StringOutput `pulumi:"deviceId"`
-	// ID of the global network.
+	DeviceId        pulumi.StringOutput `pulumi:"deviceId"`
 	GlobalNetworkId pulumi.StringOutput `pulumi:"globalNetworkId"`
-	// ID of the link.
-	LinkId pulumi.StringOutput `pulumi:"linkId"`
+	LinkId          pulumi.StringOutput `pulumi:"linkId"`
 }
 
 // NewLinkAssociation registers a new resource with the given unique name, arguments, and options.
@@ -99,21 +59,15 @@ func GetLinkAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LinkAssociation resources.
 type linkAssociationState struct {
-	// ID of the device.
-	DeviceId *string `pulumi:"deviceId"`
-	// ID of the global network.
+	DeviceId        *string `pulumi:"deviceId"`
 	GlobalNetworkId *string `pulumi:"globalNetworkId"`
-	// ID of the link.
-	LinkId *string `pulumi:"linkId"`
+	LinkId          *string `pulumi:"linkId"`
 }
 
 type LinkAssociationState struct {
-	// ID of the device.
-	DeviceId pulumi.StringPtrInput
-	// ID of the global network.
+	DeviceId        pulumi.StringPtrInput
 	GlobalNetworkId pulumi.StringPtrInput
-	// ID of the link.
-	LinkId pulumi.StringPtrInput
+	LinkId          pulumi.StringPtrInput
 }
 
 func (LinkAssociationState) ElementType() reflect.Type {
@@ -121,22 +75,16 @@ func (LinkAssociationState) ElementType() reflect.Type {
 }
 
 type linkAssociationArgs struct {
-	// ID of the device.
-	DeviceId string `pulumi:"deviceId"`
-	// ID of the global network.
+	DeviceId        string `pulumi:"deviceId"`
 	GlobalNetworkId string `pulumi:"globalNetworkId"`
-	// ID of the link.
-	LinkId string `pulumi:"linkId"`
+	LinkId          string `pulumi:"linkId"`
 }
 
 // The set of arguments for constructing a LinkAssociation resource.
 type LinkAssociationArgs struct {
-	// ID of the device.
-	DeviceId pulumi.StringInput
-	// ID of the global network.
+	DeviceId        pulumi.StringInput
 	GlobalNetworkId pulumi.StringInput
-	// ID of the link.
-	LinkId pulumi.StringInput
+	LinkId          pulumi.StringInput
 }
 
 func (LinkAssociationArgs) ElementType() reflect.Type {
@@ -226,17 +174,14 @@ func (o LinkAssociationOutput) ToLinkAssociationOutputWithContext(ctx context.Co
 	return o
 }
 
-// ID of the device.
 func (o LinkAssociationOutput) DeviceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkAssociation) pulumi.StringOutput { return v.DeviceId }).(pulumi.StringOutput)
 }
 
-// ID of the global network.
 func (o LinkAssociationOutput) GlobalNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkAssociation) pulumi.StringOutput { return v.GlobalNetworkId }).(pulumi.StringOutput)
 }
 
-// ID of the link.
 func (o LinkAssociationOutput) LinkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkAssociation) pulumi.StringOutput { return v.LinkId }).(pulumi.StringOutput)
 }

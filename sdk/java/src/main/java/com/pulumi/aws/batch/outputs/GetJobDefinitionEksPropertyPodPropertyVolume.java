@@ -14,53 +14,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetJobDefinitionEksPropertyPodPropertyVolume {
-    /**
-     * @return Specifies the configuration of a Kubernetes emptyDir volume.
-     * 
-     */
     private List<GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDir> emptyDirs;
-    /**
-     * @return The path for the device on the host container instance.
-     * 
-     */
     private List<GetJobDefinitionEksPropertyPodPropertyVolumeHostPath> hostPaths;
-    /**
-     * @return The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-     * 
-     */
     private String name;
-    /**
-     * @return Specifies the configuration of a Kubernetes secret volume.
-     * 
-     */
     private List<GetJobDefinitionEksPropertyPodPropertyVolumeSecret> secrets;
 
     private GetJobDefinitionEksPropertyPodPropertyVolume() {}
-    /**
-     * @return Specifies the configuration of a Kubernetes emptyDir volume.
-     * 
-     */
     public List<GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDir> emptyDirs() {
         return this.emptyDirs;
     }
-    /**
-     * @return The path for the device on the host container instance.
-     * 
-     */
     public List<GetJobDefinitionEksPropertyPodPropertyVolumeHostPath> hostPaths() {
         return this.hostPaths;
     }
-    /**
-     * @return The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Specifies the configuration of a Kubernetes secret volume.
-     * 
-     */
     public List<GetJobDefinitionEksPropertyPodPropertyVolumeSecret> secrets() {
         return this.secrets;
     }

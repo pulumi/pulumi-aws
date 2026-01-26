@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipeTargetParametersBatchJobParametersContainerOverridesEnvironment {
-    /**
-     * @return Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
-     * 
-     */
     private @Nullable String value;
 
     private PipeTargetParametersBatchJobParametersContainerOverridesEnvironment() {}
-    /**
-     * @return Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
-     * 
-     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

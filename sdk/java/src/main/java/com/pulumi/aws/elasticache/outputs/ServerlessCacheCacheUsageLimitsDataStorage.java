@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServerlessCacheCacheUsageLimitsDataStorage {
-    /**
-     * @return The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
-     * 
-     */
     private @Nullable Integer maximum;
-    /**
-     * @return The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
-     * 
-     */
     private @Nullable Integer minimum;
-    /**
-     * @return The unit that the storage is measured in, in GB.
-     * 
-     */
     private String unit;
 
     private ServerlessCacheCacheUsageLimitsDataStorage() {}
-    /**
-     * @return The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
-     * 
-     */
     public Optional<Integer> maximum() {
         return Optional.ofNullable(this.maximum);
     }
-    /**
-     * @return The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
-     * 
-     */
     public Optional<Integer> minimum() {
         return Optional.ofNullable(this.minimum);
     }
-    /**
-     * @return The unit that the storage is measured in, in GB.
-     * 
-     */
     public String unit() {
         return this.unit;
     }

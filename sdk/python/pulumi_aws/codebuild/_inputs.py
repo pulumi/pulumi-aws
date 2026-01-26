@@ -92,25 +92,10 @@ MYPY = False
 if not MYPY:
     class FleetComputeConfigurationArgsDict(TypedDict):
         disk: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Amount of disk space of the instance type included in the fleet.
-        """
         instance_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        EC2 instance type to be launched in the fleet. Specify only if `compute_type` is set to `CUSTOM_INSTANCE_TYPE`. See [Supported instance families](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.instance-types).
-        """
         machine_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
-        """
         memory: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Amount of memory of the instance type included in the fleet. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
-        """
         vcpu: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of vCPUs of the instance type included in the fleet. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
-        """
 elif False:
     FleetComputeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -122,13 +107,6 @@ class FleetComputeConfigurationArgs:
                  machine_type: Optional[pulumi.Input[_builtins.str]] = None,
                  memory: Optional[pulumi.Input[_builtins.int]] = None,
                  vcpu: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.int] disk: Amount of disk space of the instance type included in the fleet.
-        :param pulumi.Input[_builtins.str] instance_type: EC2 instance type to be launched in the fleet. Specify only if `compute_type` is set to `CUSTOM_INSTANCE_TYPE`. See [Supported instance families](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.instance-types).
-        :param pulumi.Input[_builtins.str] machine_type: Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
-        :param pulumi.Input[_builtins.int] memory: Amount of memory of the instance type included in the fleet. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
-        :param pulumi.Input[_builtins.int] vcpu: Number of vCPUs of the instance type included in the fleet. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
-        """
         if disk is not None:
             pulumi.set(__self__, "disk", disk)
         if instance_type is not None:
@@ -143,9 +121,6 @@ class FleetComputeConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def disk(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Amount of disk space of the instance type included in the fleet.
-        """
         return pulumi.get(self, "disk")
 
     @disk.setter
@@ -155,9 +130,6 @@ class FleetComputeConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        EC2 instance type to be launched in the fleet. Specify only if `compute_type` is set to `CUSTOM_INSTANCE_TYPE`. See [Supported instance families](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.instance-types).
-        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -167,9 +139,6 @@ class FleetComputeConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="machineType")
     def machine_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
-        """
         return pulumi.get(self, "machine_type")
 
     @machine_type.setter
@@ -179,9 +148,6 @@ class FleetComputeConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def memory(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Amount of memory of the instance type included in the fleet. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
-        """
         return pulumi.get(self, "memory")
 
     @memory.setter
@@ -191,9 +157,6 @@ class FleetComputeConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def vcpu(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of vCPUs of the instance type included in the fleet. Specify only if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`.
-        """
         return pulumi.get(self, "vcpu")
 
     @vcpu.setter
@@ -205,17 +168,8 @@ if not MYPY:
     class FleetScalingConfigurationArgsDict(TypedDict):
         desired_capacity: NotRequired[pulumi.Input[_builtins.int]]
         max_capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum number of instances in the ﬂeet when auto-scaling.
-        """
         scaling_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Scaling type for a compute fleet. Valid value: `TARGET_TRACKING_SCALING`.
-        """
         target_tracking_scaling_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['FleetScalingConfigurationTargetTrackingScalingConfigArgsDict']]]]
-        """
-        Configuration block. Detailed below.
-        """
 elif False:
     FleetScalingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -226,11 +180,6 @@ class FleetScalingConfigurationArgs:
                  max_capacity: Optional[pulumi.Input[_builtins.int]] = None,
                  scaling_type: Optional[pulumi.Input[_builtins.str]] = None,
                  target_tracking_scaling_configs: Optional[pulumi.Input[Sequence[pulumi.Input['FleetScalingConfigurationTargetTrackingScalingConfigArgs']]]] = None):
-        """
-        :param pulumi.Input[_builtins.int] max_capacity: Maximum number of instances in the ﬂeet when auto-scaling.
-        :param pulumi.Input[_builtins.str] scaling_type: Scaling type for a compute fleet. Valid value: `TARGET_TRACKING_SCALING`.
-        :param pulumi.Input[Sequence[pulumi.Input['FleetScalingConfigurationTargetTrackingScalingConfigArgs']]] target_tracking_scaling_configs: Configuration block. Detailed below.
-        """
         if desired_capacity is not None:
             pulumi.set(__self__, "desired_capacity", desired_capacity)
         if max_capacity is not None:
@@ -252,9 +201,6 @@ class FleetScalingConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Maximum number of instances in the ﬂeet when auto-scaling.
-        """
         return pulumi.get(self, "max_capacity")
 
     @max_capacity.setter
@@ -264,9 +210,6 @@ class FleetScalingConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="scalingType")
     def scaling_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Scaling type for a compute fleet. Valid value: `TARGET_TRACKING_SCALING`.
-        """
         return pulumi.get(self, "scaling_type")
 
     @scaling_type.setter
@@ -276,9 +219,6 @@ class FleetScalingConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="targetTrackingScalingConfigs")
     def target_tracking_scaling_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetScalingConfigurationTargetTrackingScalingConfigArgs']]]]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "target_tracking_scaling_configs")
 
     @target_tracking_scaling_configs.setter
@@ -289,13 +229,7 @@ class FleetScalingConfigurationArgs:
 if not MYPY:
     class FleetScalingConfigurationTargetTrackingScalingConfigArgsDict(TypedDict):
         metric_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Metric type to determine auto-scaling. Valid value: `FLEET_UTILIZATION_RATE`.
-        """
         target_value: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Value of metricType when to start scaling.
-        """
 elif False:
     FleetScalingConfigurationTargetTrackingScalingConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -304,10 +238,6 @@ class FleetScalingConfigurationTargetTrackingScalingConfigArgs:
     def __init__(__self__, *,
                  metric_type: Optional[pulumi.Input[_builtins.str]] = None,
                  target_value: Optional[pulumi.Input[_builtins.float]] = None):
-        """
-        :param pulumi.Input[_builtins.str] metric_type: Metric type to determine auto-scaling. Valid value: `FLEET_UTILIZATION_RATE`.
-        :param pulumi.Input[_builtins.float] target_value: Value of metricType when to start scaling.
-        """
         if metric_type is not None:
             pulumi.set(__self__, "metric_type", metric_type)
         if target_value is not None:
@@ -316,9 +246,6 @@ class FleetScalingConfigurationTargetTrackingScalingConfigArgs:
     @_builtins.property
     @pulumi.getter(name="metricType")
     def metric_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Metric type to determine auto-scaling. Valid value: `FLEET_UTILIZATION_RATE`.
-        """
         return pulumi.get(self, "metric_type")
 
     @metric_type.setter
@@ -328,9 +255,6 @@ class FleetScalingConfigurationTargetTrackingScalingConfigArgs:
     @_builtins.property
     @pulumi.getter(name="targetValue")
     def target_value(self) -> Optional[pulumi.Input[_builtins.float]]:
-        """
-        Value of metricType when to start scaling.
-        """
         return pulumi.get(self, "target_value")
 
     @target_value.setter
@@ -341,17 +265,8 @@ class FleetScalingConfigurationTargetTrackingScalingConfigArgs:
 if not MYPY:
     class FleetStatusArgsDict(TypedDict):
         context: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Additional information about a compute fleet.
-        """
         message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Message associated with the status of a compute fleet.
-        """
         status_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Status code of the compute fleet.
-        """
 elif False:
     FleetStatusArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -361,11 +276,6 @@ class FleetStatusArgs:
                  context: Optional[pulumi.Input[_builtins.str]] = None,
                  message: Optional[pulumi.Input[_builtins.str]] = None,
                  status_code: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] context: Additional information about a compute fleet.
-        :param pulumi.Input[_builtins.str] message: Message associated with the status of a compute fleet.
-        :param pulumi.Input[_builtins.str] status_code: Status code of the compute fleet.
-        """
         if context is not None:
             pulumi.set(__self__, "context", context)
         if message is not None:
@@ -376,9 +286,6 @@ class FleetStatusArgs:
     @_builtins.property
     @pulumi.getter
     def context(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Additional information about a compute fleet.
-        """
         return pulumi.get(self, "context")
 
     @context.setter
@@ -388,9 +295,6 @@ class FleetStatusArgs:
     @_builtins.property
     @pulumi.getter
     def message(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Message associated with the status of a compute fleet.
-        """
         return pulumi.get(self, "message")
 
     @message.setter
@@ -400,9 +304,6 @@ class FleetStatusArgs:
     @_builtins.property
     @pulumi.getter(name="statusCode")
     def status_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status code of the compute fleet.
-        """
         return pulumi.get(self, "status_code")
 
     @status_code.setter
@@ -413,17 +314,8 @@ class FleetStatusArgs:
 if not MYPY:
     class FleetVpcConfigArgsDict(TypedDict):
         security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of one or more security groups IDs in your Amazon VPC.
-        """
         subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of one or more subnet IDs in your Amazon VPC.
-        """
         vpc_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Amazon VPC.
-        """
 elif False:
     FleetVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -433,11 +325,6 @@ class FleetVpcConfigArgs:
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  vpc_id: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of one or more security groups IDs in your Amazon VPC.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnets: A list of one or more subnet IDs in your Amazon VPC.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the Amazon VPC.
-        """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnets", subnets)
         pulumi.set(__self__, "vpc_id", vpc_id)
@@ -445,9 +332,6 @@ class FleetVpcConfigArgs:
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        A list of one or more security groups IDs in your Amazon VPC.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -457,9 +341,6 @@ class FleetVpcConfigArgs:
     @_builtins.property
     @pulumi.getter
     def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        A list of one or more subnet IDs in your Amazon VPC.
-        """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
@@ -469,9 +350,6 @@ class FleetVpcConfigArgs:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the Amazon VPC.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -482,54 +360,15 @@ class FleetVpcConfigArgs:
 if not MYPY:
     class ProjectArtifactsArgsDict(TypedDict):
         type: pulumi.Input[_builtins.str]
-        """
-        Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
-        """
         artifact_identifier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Artifact identifier. Must be the same specified inside the AWS CodeBuild build
-        specification.
-        """
         bucket_owner_access: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the bucket owner's access for objects that another account uploads to
-        their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these
-        objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`,
-        `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission
-        allows CodeBuild to modify the access control list for the bucket.
-        """
         encryption_disabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`,
-        this value is ignored. Defaults to `false`.
-        """
         location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or
-        `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
-        """
         name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
-        """
         namespace_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values
-        are `BUILD_ID`, `NONE`.
-        """
         override_artifact_name: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether a name specified in the build specification overrides the artifact name.
-        """
         packaging: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of build output artifact to create. If `type` is set to `S3`, valid values are `NONE`,
-        `ZIP`
-        """
         path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If `type` is set to `S3`, this is the path to the output artifact.
-        """
 elif False:
     ProjectArtifactsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -546,27 +385,6 @@ class ProjectArtifactsArgs:
                  override_artifact_name: Optional[pulumi.Input[_builtins.bool]] = None,
                  packaging: Optional[pulumi.Input[_builtins.str]] = None,
                  path: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] type: Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
-        :param pulumi.Input[_builtins.str] artifact_identifier: Artifact identifier. Must be the same specified inside the AWS CodeBuild build
-               specification.
-        :param pulumi.Input[_builtins.str] bucket_owner_access: Specifies the bucket owner's access for objects that another account uploads to
-               their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these
-               objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`,
-               `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission
-               allows CodeBuild to modify the access control list for the bucket.
-        :param pulumi.Input[_builtins.bool] encryption_disabled: Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`,
-               this value is ignored. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] location: Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or
-               `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
-        :param pulumi.Input[_builtins.str] name: Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
-        :param pulumi.Input[_builtins.str] namespace_type: Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values
-               are `BUILD_ID`, `NONE`.
-        :param pulumi.Input[_builtins.bool] override_artifact_name: Whether a name specified in the build specification overrides the artifact name.
-        :param pulumi.Input[_builtins.str] packaging: Type of build output artifact to create. If `type` is set to `S3`, valid values are `NONE`,
-               `ZIP`
-        :param pulumi.Input[_builtins.str] path: If `type` is set to `S3`, this is the path to the output artifact.
-        """
         pulumi.set(__self__, "type", type)
         if artifact_identifier is not None:
             pulumi.set(__self__, "artifact_identifier", artifact_identifier)
@@ -590,9 +408,6 @@ class ProjectArtifactsArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -602,10 +417,6 @@ class ProjectArtifactsArgs:
     @_builtins.property
     @pulumi.getter(name="artifactIdentifier")
     def artifact_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Artifact identifier. Must be the same specified inside the AWS CodeBuild build
-        specification.
-        """
         return pulumi.get(self, "artifact_identifier")
 
     @artifact_identifier.setter
@@ -615,13 +426,6 @@ class ProjectArtifactsArgs:
     @_builtins.property
     @pulumi.getter(name="bucketOwnerAccess")
     def bucket_owner_access(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the bucket owner's access for objects that another account uploads to
-        their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these
-        objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`,
-        `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission
-        allows CodeBuild to modify the access control list for the bucket.
-        """
         return pulumi.get(self, "bucket_owner_access")
 
     @bucket_owner_access.setter
@@ -631,10 +435,6 @@ class ProjectArtifactsArgs:
     @_builtins.property
     @pulumi.getter(name="encryptionDisabled")
     def encryption_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`,
-        this value is ignored. Defaults to `false`.
-        """
         return pulumi.get(self, "encryption_disabled")
 
     @encryption_disabled.setter
@@ -644,10 +444,6 @@ class ProjectArtifactsArgs:
     @_builtins.property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or
-        `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
-        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -657,9 +453,6 @@ class ProjectArtifactsArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -669,10 +462,6 @@ class ProjectArtifactsArgs:
     @_builtins.property
     @pulumi.getter(name="namespaceType")
     def namespace_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values
-        are `BUILD_ID`, `NONE`.
-        """
         return pulumi.get(self, "namespace_type")
 
     @namespace_type.setter
@@ -682,9 +471,6 @@ class ProjectArtifactsArgs:
     @_builtins.property
     @pulumi.getter(name="overrideArtifactName")
     def override_artifact_name(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether a name specified in the build specification overrides the artifact name.
-        """
         return pulumi.get(self, "override_artifact_name")
 
     @override_artifact_name.setter
@@ -694,10 +480,6 @@ class ProjectArtifactsArgs:
     @_builtins.property
     @pulumi.getter
     def packaging(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of build output artifact to create. If `type` is set to `S3`, valid values are `NONE`,
-        `ZIP`
-        """
         return pulumi.get(self, "packaging")
 
     @packaging.setter
@@ -707,9 +489,6 @@ class ProjectArtifactsArgs:
     @_builtins.property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        If `type` is set to `S3`, this is the path to the output artifact.
-        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -720,23 +499,9 @@ class ProjectArtifactsArgs:
 if not MYPY:
     class ProjectBuildBatchConfigArgsDict(TypedDict):
         service_role: pulumi.Input[_builtins.str]
-        """
-        Specifies the service role ARN for the batch build project.
-        """
         combine_artifacts: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies if the build artifacts for the batch build should be combined into a single
-        artifact location.
-        """
         restrictions: NotRequired[pulumi.Input['ProjectBuildBatchConfigRestrictionsArgsDict']]
-        """
-        Configuration block specifying the restrictions for the batch build. Detailed below.
-        """
         timeout_in_mins: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the maximum amount of time, in minutes, that the batch build must be
-        completed in.
-        """
 elif False:
     ProjectBuildBatchConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -747,14 +512,6 @@ class ProjectBuildBatchConfigArgs:
                  combine_artifacts: Optional[pulumi.Input[_builtins.bool]] = None,
                  restrictions: Optional[pulumi.Input['ProjectBuildBatchConfigRestrictionsArgs']] = None,
                  timeout_in_mins: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.str] service_role: Specifies the service role ARN for the batch build project.
-        :param pulumi.Input[_builtins.bool] combine_artifacts: Specifies if the build artifacts for the batch build should be combined into a single
-               artifact location.
-        :param pulumi.Input['ProjectBuildBatchConfigRestrictionsArgs'] restrictions: Configuration block specifying the restrictions for the batch build. Detailed below.
-        :param pulumi.Input[_builtins.int] timeout_in_mins: Specifies the maximum amount of time, in minutes, that the batch build must be
-               completed in.
-        """
         pulumi.set(__self__, "service_role", service_role)
         if combine_artifacts is not None:
             pulumi.set(__self__, "combine_artifacts", combine_artifacts)
@@ -766,9 +523,6 @@ class ProjectBuildBatchConfigArgs:
     @_builtins.property
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies the service role ARN for the batch build project.
-        """
         return pulumi.get(self, "service_role")
 
     @service_role.setter
@@ -778,10 +532,6 @@ class ProjectBuildBatchConfigArgs:
     @_builtins.property
     @pulumi.getter(name="combineArtifacts")
     def combine_artifacts(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies if the build artifacts for the batch build should be combined into a single
-        artifact location.
-        """
         return pulumi.get(self, "combine_artifacts")
 
     @combine_artifacts.setter
@@ -791,9 +541,6 @@ class ProjectBuildBatchConfigArgs:
     @_builtins.property
     @pulumi.getter
     def restrictions(self) -> Optional[pulumi.Input['ProjectBuildBatchConfigRestrictionsArgs']]:
-        """
-        Configuration block specifying the restrictions for the batch build. Detailed below.
-        """
         return pulumi.get(self, "restrictions")
 
     @restrictions.setter
@@ -803,10 +550,6 @@ class ProjectBuildBatchConfigArgs:
     @_builtins.property
     @pulumi.getter(name="timeoutInMins")
     def timeout_in_mins(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Specifies the maximum amount of time, in minutes, that the batch build must be
-        completed in.
-        """
         return pulumi.get(self, "timeout_in_mins")
 
     @timeout_in_mins.setter
@@ -817,16 +560,7 @@ class ProjectBuildBatchConfigArgs:
 if not MYPY:
     class ProjectBuildBatchConfigRestrictionsArgsDict(TypedDict):
         compute_types_alloweds: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An array of strings that specify the compute types that are allowed for the batch
-        build.
-        See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html)
-        in the AWS CodeBuild User Guide for these values.
-        """
         maximum_builds_allowed: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the maximum number of builds allowed.
-        """
 elif False:
     ProjectBuildBatchConfigRestrictionsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -835,13 +569,6 @@ class ProjectBuildBatchConfigRestrictionsArgs:
     def __init__(__self__, *,
                  compute_types_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  maximum_builds_allowed: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] compute_types_alloweds: An array of strings that specify the compute types that are allowed for the batch
-               build.
-               See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html)
-               in the AWS CodeBuild User Guide for these values.
-        :param pulumi.Input[_builtins.int] maximum_builds_allowed: Specifies the maximum number of builds allowed.
-        """
         if compute_types_alloweds is not None:
             pulumi.set(__self__, "compute_types_alloweds", compute_types_alloweds)
         if maximum_builds_allowed is not None:
@@ -850,12 +577,6 @@ class ProjectBuildBatchConfigRestrictionsArgs:
     @_builtins.property
     @pulumi.getter(name="computeTypesAlloweds")
     def compute_types_alloweds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        An array of strings that specify the compute types that are allowed for the batch
-        build.
-        See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html)
-        in the AWS CodeBuild User Guide for these values.
-        """
         return pulumi.get(self, "compute_types_alloweds")
 
     @compute_types_alloweds.setter
@@ -865,9 +586,6 @@ class ProjectBuildBatchConfigRestrictionsArgs:
     @_builtins.property
     @pulumi.getter(name="maximumBuildsAllowed")
     def maximum_builds_allowed(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Specifies the maximum number of builds allowed.
-        """
         return pulumi.get(self, "maximum_builds_allowed")
 
     @maximum_builds_allowed.setter
@@ -878,24 +596,9 @@ class ProjectBuildBatchConfigRestrictionsArgs:
 if not MYPY:
     class ProjectCacheArgsDict(TypedDict):
         cache_namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Namespace that determines the scope in which a cache is shared across multiple projects.
-        """
         location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Location where the AWS CodeBuild project stores cached resources. For
-        type `S3`, the value must be a valid S3 bucket name/prefix.
-        """
         modes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies settings that AWS CodeBuild uses to store and reuse build
-        dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
-        """
         type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`,
-        `LOCAL`, `S3`. Defaults to `NO_CACHE`.
-        """
 elif False:
     ProjectCacheArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -906,15 +609,6 @@ class ProjectCacheArgs:
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  modes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] cache_namespace: Namespace that determines the scope in which a cache is shared across multiple projects.
-        :param pulumi.Input[_builtins.str] location: Location where the AWS CodeBuild project stores cached resources. For
-               type `S3`, the value must be a valid S3 bucket name/prefix.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] modes: Specifies settings that AWS CodeBuild uses to store and reuse build
-               dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
-        :param pulumi.Input[_builtins.str] type: Type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`,
-               `LOCAL`, `S3`. Defaults to `NO_CACHE`.
-        """
         if cache_namespace is not None:
             pulumi.set(__self__, "cache_namespace", cache_namespace)
         if location is not None:
@@ -927,9 +621,6 @@ class ProjectCacheArgs:
     @_builtins.property
     @pulumi.getter(name="cacheNamespace")
     def cache_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Namespace that determines the scope in which a cache is shared across multiple projects.
-        """
         return pulumi.get(self, "cache_namespace")
 
     @cache_namespace.setter
@@ -939,10 +630,6 @@ class ProjectCacheArgs:
     @_builtins.property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Location where the AWS CodeBuild project stores cached resources. For
-        type `S3`, the value must be a valid S3 bucket name/prefix.
-        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -952,10 +639,6 @@ class ProjectCacheArgs:
     @_builtins.property
     @pulumi.getter
     def modes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specifies settings that AWS CodeBuild uses to store and reuse build
-        dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
-        """
         return pulumi.get(self, "modes")
 
     @modes.setter
@@ -965,10 +648,6 @@ class ProjectCacheArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`,
-        `LOCAL`, `S3`. Defaults to `NO_CACHE`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -979,58 +658,15 @@ class ProjectCacheArgs:
 if not MYPY:
     class ProjectEnvironmentArgsDict(TypedDict):
         compute_type: pulumi.Input[_builtins.str]
-        """
-        Information about the compute resources the build project will use. Valid values:
-        `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_XLARGE`, `BUILD_GENERAL1_2XLARGE`, `BUILD_LAMBDA_1GB`,
-        `BUILD_LAMBDA_2GB`, `BUILD_LAMBDA_4GB`, `BUILD_LAMBDA_8GB`, `BUILD_LAMBDA_10GB`. For additional information, see
-        the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
-        """
         image: pulumi.Input[_builtins.str]
-        """
-        Docker image to use for this build project. Valid values
-        include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (
-        e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g.,
-        `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g.,
-        `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
-        """
         type: pulumi.Input[_builtins.str]
-        """
-        Type of build environment to use for related builds. Valid values: `WINDOWS_CONTAINER` (deprecated), `LINUX_CONTAINER`,
-        `LINUX_GPU_CONTAINER`, `ARM_CONTAINER`, `WINDOWS_SERVER_2019_CONTAINER`, `WINDOWS_SERVER_2022_CONTAINER`,
-        `LINUX_LAMBDA_CONTAINER`, `ARM_LAMBDA_CONTAINER`, `LINUX_EC2`, `ARM_EC2`, `WINDOWS_EC2`, `MAC_ARM`. For additional information, see
-        the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
-        """
         certificate: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
-        """
         docker_server: NotRequired[pulumi.Input['ProjectEnvironmentDockerServerArgsDict']]
-        """
-        Configuration block. Detailed below.
-        """
         environment_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentEnvironmentVariableArgsDict']]]]
-        """
-        Configuration block. Detailed below.
-        """
         fleet: NotRequired[pulumi.Input['ProjectEnvironmentFleetArgsDict']]
-        """
-        Configuration block. Detailed below.
-        """
         image_pull_credentials_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of credentials AWS CodeBuild uses to pull images in your build. Valid
-        values: `CODEBUILD`, `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE
-        credentials. When you use an AWS CodeBuild curated image, you must use CodeBuild credentials. Defaults to `CODEBUILD`.
-        """
         privileged_mode: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable running the Docker daemon inside a Docker container. Defaults to
-        `false`.
-        """
         registry_credential: NotRequired[pulumi.Input['ProjectEnvironmentRegistryCredentialArgsDict']]
-        """
-        Configuration block. Detailed below.
-        """
 elif False:
     ProjectEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1047,31 +683,6 @@ class ProjectEnvironmentArgs:
                  image_pull_credentials_type: Optional[pulumi.Input[_builtins.str]] = None,
                  privileged_mode: Optional[pulumi.Input[_builtins.bool]] = None,
                  registry_credential: Optional[pulumi.Input['ProjectEnvironmentRegistryCredentialArgs']] = None):
-        """
-        :param pulumi.Input[_builtins.str] compute_type: Information about the compute resources the build project will use. Valid values:
-               `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_XLARGE`, `BUILD_GENERAL1_2XLARGE`, `BUILD_LAMBDA_1GB`,
-               `BUILD_LAMBDA_2GB`, `BUILD_LAMBDA_4GB`, `BUILD_LAMBDA_8GB`, `BUILD_LAMBDA_10GB`. For additional information, see
-               the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
-        :param pulumi.Input[_builtins.str] image: Docker image to use for this build project. Valid values
-               include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (
-               e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g.,
-               `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g.,
-               `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
-        :param pulumi.Input[_builtins.str] type: Type of build environment to use for related builds. Valid values: `WINDOWS_CONTAINER` (deprecated), `LINUX_CONTAINER`,
-               `LINUX_GPU_CONTAINER`, `ARM_CONTAINER`, `WINDOWS_SERVER_2019_CONTAINER`, `WINDOWS_SERVER_2022_CONTAINER`,
-               `LINUX_LAMBDA_CONTAINER`, `ARM_LAMBDA_CONTAINER`, `LINUX_EC2`, `ARM_EC2`, `WINDOWS_EC2`, `MAC_ARM`. For additional information, see
-               the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
-        :param pulumi.Input[_builtins.str] certificate: ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
-        :param pulumi.Input['ProjectEnvironmentDockerServerArgs'] docker_server: Configuration block. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentEnvironmentVariableArgs']]] environment_variables: Configuration block. Detailed below.
-        :param pulumi.Input['ProjectEnvironmentFleetArgs'] fleet: Configuration block. Detailed below.
-        :param pulumi.Input[_builtins.str] image_pull_credentials_type: Type of credentials AWS CodeBuild uses to pull images in your build. Valid
-               values: `CODEBUILD`, `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE
-               credentials. When you use an AWS CodeBuild curated image, you must use CodeBuild credentials. Defaults to `CODEBUILD`.
-        :param pulumi.Input[_builtins.bool] privileged_mode: Whether to enable running the Docker daemon inside a Docker container. Defaults to
-               `false`.
-        :param pulumi.Input['ProjectEnvironmentRegistryCredentialArgs'] registry_credential: Configuration block. Detailed below.
-        """
         pulumi.set(__self__, "compute_type", compute_type)
         pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "type", type)
@@ -1093,12 +704,6 @@ class ProjectEnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="computeType")
     def compute_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Information about the compute resources the build project will use. Valid values:
-        `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_XLARGE`, `BUILD_GENERAL1_2XLARGE`, `BUILD_LAMBDA_1GB`,
-        `BUILD_LAMBDA_2GB`, `BUILD_LAMBDA_4GB`, `BUILD_LAMBDA_8GB`, `BUILD_LAMBDA_10GB`. For additional information, see
-        the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
-        """
         return pulumi.get(self, "compute_type")
 
     @compute_type.setter
@@ -1108,13 +713,6 @@ class ProjectEnvironmentArgs:
     @_builtins.property
     @pulumi.getter
     def image(self) -> pulumi.Input[_builtins.str]:
-        """
-        Docker image to use for this build project. Valid values
-        include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (
-        e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g.,
-        `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g.,
-        `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
-        """
         return pulumi.get(self, "image")
 
     @image.setter
@@ -1124,12 +722,6 @@ class ProjectEnvironmentArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Type of build environment to use for related builds. Valid values: `WINDOWS_CONTAINER` (deprecated), `LINUX_CONTAINER`,
-        `LINUX_GPU_CONTAINER`, `ARM_CONTAINER`, `WINDOWS_SERVER_2019_CONTAINER`, `WINDOWS_SERVER_2022_CONTAINER`,
-        `LINUX_LAMBDA_CONTAINER`, `ARM_LAMBDA_CONTAINER`, `LINUX_EC2`, `ARM_EC2`, `WINDOWS_EC2`, `MAC_ARM`. For additional information, see
-        the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1139,9 +731,6 @@ class ProjectEnvironmentArgs:
     @_builtins.property
     @pulumi.getter
     def certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
-        """
         return pulumi.get(self, "certificate")
 
     @certificate.setter
@@ -1151,9 +740,6 @@ class ProjectEnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="dockerServer")
     def docker_server(self) -> Optional[pulumi.Input['ProjectEnvironmentDockerServerArgs']]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "docker_server")
 
     @docker_server.setter
@@ -1163,9 +749,6 @@ class ProjectEnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentEnvironmentVariableArgs']]]]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
@@ -1175,9 +758,6 @@ class ProjectEnvironmentArgs:
     @_builtins.property
     @pulumi.getter
     def fleet(self) -> Optional[pulumi.Input['ProjectEnvironmentFleetArgs']]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "fleet")
 
     @fleet.setter
@@ -1187,11 +767,6 @@ class ProjectEnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="imagePullCredentialsType")
     def image_pull_credentials_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of credentials AWS CodeBuild uses to pull images in your build. Valid
-        values: `CODEBUILD`, `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE
-        credentials. When you use an AWS CodeBuild curated image, you must use CodeBuild credentials. Defaults to `CODEBUILD`.
-        """
         return pulumi.get(self, "image_pull_credentials_type")
 
     @image_pull_credentials_type.setter
@@ -1201,10 +776,6 @@ class ProjectEnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="privilegedMode")
     def privileged_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable running the Docker daemon inside a Docker container. Defaults to
-        `false`.
-        """
         return pulumi.get(self, "privileged_mode")
 
     @privileged_mode.setter
@@ -1214,9 +785,6 @@ class ProjectEnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="registryCredential")
     def registry_credential(self) -> Optional[pulumi.Input['ProjectEnvironmentRegistryCredentialArgs']]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "registry_credential")
 
     @registry_credential.setter
@@ -1227,13 +795,7 @@ class ProjectEnvironmentArgs:
 if not MYPY:
     class ProjectEnvironmentDockerServerArgsDict(TypedDict):
         compute_type: pulumi.Input[_builtins.str]
-        """
-        Compute type for the Docker server. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_XLARGE`, and `BUILD_GENERAL1_2XLARGE`.
-        """
         security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of security group IDs to assign to the Docker server.
-        """
 elif False:
     ProjectEnvironmentDockerServerArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1242,10 +804,6 @@ class ProjectEnvironmentDockerServerArgs:
     def __init__(__self__, *,
                  compute_type: pulumi.Input[_builtins.str],
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] compute_type: Compute type for the Docker server. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_XLARGE`, and `BUILD_GENERAL1_2XLARGE`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of security group IDs to assign to the Docker server.
-        """
         pulumi.set(__self__, "compute_type", compute_type)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
@@ -1253,9 +811,6 @@ class ProjectEnvironmentDockerServerArgs:
     @_builtins.property
     @pulumi.getter(name="computeType")
     def compute_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Compute type for the Docker server. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_XLARGE`, and `BUILD_GENERAL1_2XLARGE`.
-        """
         return pulumi.get(self, "compute_type")
 
     @compute_type.setter
@@ -1265,9 +820,6 @@ class ProjectEnvironmentDockerServerArgs:
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of security group IDs to assign to the Docker server.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -1278,17 +830,8 @@ class ProjectEnvironmentDockerServerArgs:
 if not MYPY:
     class ProjectEnvironmentEnvironmentVariableArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        Environment variable's name or key.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        Environment variable's value.
-        """
         type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
-        """
 elif False:
     ProjectEnvironmentEnvironmentVariableArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1298,11 +841,6 @@ class ProjectEnvironmentEnvironmentVariableArgs:
                  name: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str],
                  type: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] name: Environment variable's name or key.
-        :param pulumi.Input[_builtins.str] value: Environment variable's value.
-        :param pulumi.Input[_builtins.str] type: Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
         if type is not None:
@@ -1311,9 +849,6 @@ class ProjectEnvironmentEnvironmentVariableArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Environment variable's name or key.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1323,9 +858,6 @@ class ProjectEnvironmentEnvironmentVariableArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        Environment variable's value.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1335,9 +867,6 @@ class ProjectEnvironmentEnvironmentVariableArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1348,9 +877,6 @@ class ProjectEnvironmentEnvironmentVariableArgs:
 if not MYPY:
     class ProjectEnvironmentFleetArgsDict(TypedDict):
         fleet_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Compute fleet ARN for the build project.
-        """
 elif False:
     ProjectEnvironmentFleetArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1358,18 +884,12 @@ elif False:
 class ProjectEnvironmentFleetArgs:
     def __init__(__self__, *,
                  fleet_arn: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] fleet_arn: Compute fleet ARN for the build project.
-        """
         if fleet_arn is not None:
             pulumi.set(__self__, "fleet_arn", fleet_arn)
 
     @_builtins.property
     @pulumi.getter(name="fleetArn")
     def fleet_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Compute fleet ARN for the build project.
-        """
         return pulumi.get(self, "fleet_arn")
 
     @fleet_arn.setter
@@ -1380,14 +900,7 @@ class ProjectEnvironmentFleetArgs:
 if not MYPY:
     class ProjectEnvironmentRegistryCredentialArgsDict(TypedDict):
         credential: pulumi.Input[_builtins.str]
-        """
-        ARN or name of credentials created using AWS Secrets Manager.
-        """
         credential_provider: pulumi.Input[_builtins.str]
-        """
-        Service that created the credentials to access a private Docker registry. Valid
-        value: `SECRETS_MANAGER` (AWS Secrets Manager).
-        """
 elif False:
     ProjectEnvironmentRegistryCredentialArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1396,20 +909,12 @@ class ProjectEnvironmentRegistryCredentialArgs:
     def __init__(__self__, *,
                  credential: pulumi.Input[_builtins.str],
                  credential_provider: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] credential: ARN or name of credentials created using AWS Secrets Manager.
-        :param pulumi.Input[_builtins.str] credential_provider: Service that created the credentials to access a private Docker registry. Valid
-               value: `SECRETS_MANAGER` (AWS Secrets Manager).
-        """
         pulumi.set(__self__, "credential", credential)
         pulumi.set(__self__, "credential_provider", credential_provider)
 
     @_builtins.property
     @pulumi.getter
     def credential(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN or name of credentials created using AWS Secrets Manager.
-        """
         return pulumi.get(self, "credential")
 
     @credential.setter
@@ -1419,10 +924,6 @@ class ProjectEnvironmentRegistryCredentialArgs:
     @_builtins.property
     @pulumi.getter(name="credentialProvider")
     def credential_provider(self) -> pulumi.Input[_builtins.str]:
-        """
-        Service that created the credentials to access a private Docker registry. Valid
-        value: `SECRETS_MANAGER` (AWS Secrets Manager).
-        """
         return pulumi.get(self, "credential_provider")
 
     @credential_provider.setter
@@ -1433,28 +934,10 @@ class ProjectEnvironmentRegistryCredentialArgs:
 if not MYPY:
     class ProjectFileSystemLocationArgsDict(TypedDict):
         identifier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name used to access a file system created by Amazon EFS. CodeBuild creates an
-        environment variable by appending the identifier in all capital letters to CODEBUILD\\_. For example, if you specify
-        my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
-        """
         location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that specifies the location of the file system created by Amazon EFS. Its format is
-        `efs-dns-name:/directory-path`.
-        """
         mount_options: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The mount options for a file system created by AWS EFS.
-        """
         mount_point: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The location in the container where you mount the file system.
-        """
         type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of the file system. The one supported type is `EFS`.
-        """
 elif False:
     ProjectFileSystemLocationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1466,16 +949,6 @@ class ProjectFileSystemLocationArgs:
                  mount_options: Optional[pulumi.Input[_builtins.str]] = None,
                  mount_point: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] identifier: The name used to access a file system created by Amazon EFS. CodeBuild creates an
-               environment variable by appending the identifier in all capital letters to CODEBUILD\\_. For example, if you specify
-               my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
-        :param pulumi.Input[_builtins.str] location: A string that specifies the location of the file system created by Amazon EFS. Its format is
-               `efs-dns-name:/directory-path`.
-        :param pulumi.Input[_builtins.str] mount_options: The mount options for a file system created by AWS EFS.
-        :param pulumi.Input[_builtins.str] mount_point: The location in the container where you mount the file system.
-        :param pulumi.Input[_builtins.str] type: The type of the file system. The one supported type is `EFS`.
-        """
         if identifier is not None:
             pulumi.set(__self__, "identifier", identifier)
         if location is not None:
@@ -1490,11 +963,6 @@ class ProjectFileSystemLocationArgs:
     @_builtins.property
     @pulumi.getter
     def identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name used to access a file system created by Amazon EFS. CodeBuild creates an
-        environment variable by appending the identifier in all capital letters to CODEBUILD\\_. For example, if you specify
-        my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
-        """
         return pulumi.get(self, "identifier")
 
     @identifier.setter
@@ -1504,10 +972,6 @@ class ProjectFileSystemLocationArgs:
     @_builtins.property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A string that specifies the location of the file system created by Amazon EFS. Its format is
-        `efs-dns-name:/directory-path`.
-        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -1517,9 +981,6 @@ class ProjectFileSystemLocationArgs:
     @_builtins.property
     @pulumi.getter(name="mountOptions")
     def mount_options(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The mount options for a file system created by AWS EFS.
-        """
         return pulumi.get(self, "mount_options")
 
     @mount_options.setter
@@ -1529,9 +990,6 @@ class ProjectFileSystemLocationArgs:
     @_builtins.property
     @pulumi.getter(name="mountPoint")
     def mount_point(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The location in the container where you mount the file system.
-        """
         return pulumi.get(self, "mount_point")
 
     @mount_point.setter
@@ -1541,9 +999,6 @@ class ProjectFileSystemLocationArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of the file system. The one supported type is `EFS`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1554,13 +1009,7 @@ class ProjectFileSystemLocationArgs:
 if not MYPY:
     class ProjectLogsConfigArgsDict(TypedDict):
         cloudwatch_logs: NotRequired[pulumi.Input['ProjectLogsConfigCloudwatchLogsArgsDict']]
-        """
-        Configuration block. Detailed below.
-        """
         s3_logs: NotRequired[pulumi.Input['ProjectLogsConfigS3LogsArgsDict']]
-        """
-        Configuration block. Detailed below.
-        """
 elif False:
     ProjectLogsConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1569,10 +1018,6 @@ class ProjectLogsConfigArgs:
     def __init__(__self__, *,
                  cloudwatch_logs: Optional[pulumi.Input['ProjectLogsConfigCloudwatchLogsArgs']] = None,
                  s3_logs: Optional[pulumi.Input['ProjectLogsConfigS3LogsArgs']] = None):
-        """
-        :param pulumi.Input['ProjectLogsConfigCloudwatchLogsArgs'] cloudwatch_logs: Configuration block. Detailed below.
-        :param pulumi.Input['ProjectLogsConfigS3LogsArgs'] s3_logs: Configuration block. Detailed below.
-        """
         if cloudwatch_logs is not None:
             pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
         if s3_logs is not None:
@@ -1581,9 +1026,6 @@ class ProjectLogsConfigArgs:
     @_builtins.property
     @pulumi.getter(name="cloudwatchLogs")
     def cloudwatch_logs(self) -> Optional[pulumi.Input['ProjectLogsConfigCloudwatchLogsArgs']]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "cloudwatch_logs")
 
     @cloudwatch_logs.setter
@@ -1593,9 +1035,6 @@ class ProjectLogsConfigArgs:
     @_builtins.property
     @pulumi.getter(name="s3Logs")
     def s3_logs(self) -> Optional[pulumi.Input['ProjectLogsConfigS3LogsArgs']]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "s3_logs")
 
     @s3_logs.setter
@@ -1606,18 +1045,8 @@ class ProjectLogsConfigArgs:
 if not MYPY:
     class ProjectLogsConfigCloudwatchLogsArgsDict(TypedDict):
         group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Group name of the logs in CloudWatch Logs.
-        """
         status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`,
-        `DISABLED`. Defaults to `ENABLED`.
-        """
         stream_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Prefix of the log stream name of the logs in CloudWatch Logs.
-        """
 elif False:
     ProjectLogsConfigCloudwatchLogsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1627,12 +1056,6 @@ class ProjectLogsConfigCloudwatchLogsArgs:
                  group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  stream_name: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] group_name: Group name of the logs in CloudWatch Logs.
-        :param pulumi.Input[_builtins.str] status: Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`,
-               `DISABLED`. Defaults to `ENABLED`.
-        :param pulumi.Input[_builtins.str] stream_name: Prefix of the log stream name of the logs in CloudWatch Logs.
-        """
         if group_name is not None:
             pulumi.set(__self__, "group_name", group_name)
         if status is not None:
@@ -1643,9 +1066,6 @@ class ProjectLogsConfigCloudwatchLogsArgs:
     @_builtins.property
     @pulumi.getter(name="groupName")
     def group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Group name of the logs in CloudWatch Logs.
-        """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
@@ -1655,10 +1075,6 @@ class ProjectLogsConfigCloudwatchLogsArgs:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`,
-        `DISABLED`. Defaults to `ENABLED`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -1668,9 +1084,6 @@ class ProjectLogsConfigCloudwatchLogsArgs:
     @_builtins.property
     @pulumi.getter(name="streamName")
     def stream_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Prefix of the log stream name of the logs in CloudWatch Logs.
-        """
         return pulumi.get(self, "stream_name")
 
     @stream_name.setter
@@ -1681,27 +1094,9 @@ class ProjectLogsConfigCloudwatchLogsArgs:
 if not MYPY:
     class ProjectLogsConfigS3LogsArgsDict(TypedDict):
         bucket_owner_access: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the bucket owner's access for objects that another account uploads to
-        their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these
-        objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`,
-        `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission
-        allows CodeBuild to modify the access control list for the bucket.
-        """
         encryption_disabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to disable encrypting S3 logs. Defaults to `false`.
-        """
         location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the S3 bucket and the path prefix for S3 logs. Must be set if status is `ENABLED`,
-        otherwise it must be empty.
-        """
         status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults
-        to `DISABLED`.
-        """
 elif False:
     ProjectLogsConfigS3LogsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1712,18 +1107,6 @@ class ProjectLogsConfigS3LogsArgs:
                  encryption_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] bucket_owner_access: Specifies the bucket owner's access for objects that another account uploads to
-               their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these
-               objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`,
-               `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission
-               allows CodeBuild to modify the access control list for the bucket.
-        :param pulumi.Input[_builtins.bool] encryption_disabled: Whether to disable encrypting S3 logs. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] location: Name of the S3 bucket and the path prefix for S3 logs. Must be set if status is `ENABLED`,
-               otherwise it must be empty.
-        :param pulumi.Input[_builtins.str] status: Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults
-               to `DISABLED`.
-        """
         if bucket_owner_access is not None:
             pulumi.set(__self__, "bucket_owner_access", bucket_owner_access)
         if encryption_disabled is not None:
@@ -1736,13 +1119,6 @@ class ProjectLogsConfigS3LogsArgs:
     @_builtins.property
     @pulumi.getter(name="bucketOwnerAccess")
     def bucket_owner_access(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the bucket owner's access for objects that another account uploads to
-        their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these
-        objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`,
-        `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission
-        allows CodeBuild to modify the access control list for the bucket.
-        """
         return pulumi.get(self, "bucket_owner_access")
 
     @bucket_owner_access.setter
@@ -1752,9 +1128,6 @@ class ProjectLogsConfigS3LogsArgs:
     @_builtins.property
     @pulumi.getter(name="encryptionDisabled")
     def encryption_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to disable encrypting S3 logs. Defaults to `false`.
-        """
         return pulumi.get(self, "encryption_disabled")
 
     @encryption_disabled.setter
@@ -1764,10 +1137,6 @@ class ProjectLogsConfigS3LogsArgs:
     @_builtins.property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the S3 bucket and the path prefix for S3 logs. Must be set if status is `ENABLED`,
-        otherwise it must be empty.
-        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -1777,10 +1146,6 @@ class ProjectLogsConfigS3LogsArgs:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults
-        to `DISABLED`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -1791,58 +1156,15 @@ class ProjectLogsConfigS3LogsArgs:
 if not MYPY:
     class ProjectSecondaryArtifactArgsDict(TypedDict):
         artifact_identifier: pulumi.Input[_builtins.str]
-        """
-        Artifact identifier. Must be the same specified inside the AWS CodeBuild build
-        specification.
-        """
         type: pulumi.Input[_builtins.str]
-        """
-        Build output artifact's type. Valid values `CODEPIPELINE`, `NO_ARTIFACTS`, and `S3`.
-        """
         bucket_owner_access: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the bucket owner's access for objects that another account uploads to
-        their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these
-        objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`,
-        `READ_ONLY`, and `FULL`. The CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows
-        CodeBuild to modify the access control list for the bucket.
-        """
         encryption_disabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`,
-        this value is ignored. Defaults to `false`.
-        """
         location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or
-        `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, this is the name of the output bucket.
-        If `path` is not specified, `location` can specify the path of the output artifact in the output bucket.
-        """
         name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the project. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored
-        if specified. If `type` is set to `S3`, this is the name of the output artifact object.
-        """
         namespace_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Namespace to use in storing build artifacts. If `type` is set to `CODEPIPELINE` or
-        `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, valid values are `BUILD_ID` or `NONE`.
-        """
         override_artifact_name: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether a name specified in the build specification overrides the artifact name.
-        """
         packaging: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of build output artifact to create. If `type` is set to `CODEPIPELINE` or
-        `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, valid values are `NONE` or `ZIP`.
-        """
         path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Along with `namespace_type` and `name`, the pattern that AWS CodeBuild uses to name and store the
-        output artifact. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type`
-        is set to `S3`, this is the path to the output artifact.
-        """
 elif False:
     ProjectSecondaryArtifactArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1859,31 +1181,6 @@ class ProjectSecondaryArtifactArgs:
                  override_artifact_name: Optional[pulumi.Input[_builtins.bool]] = None,
                  packaging: Optional[pulumi.Input[_builtins.str]] = None,
                  path: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] artifact_identifier: Artifact identifier. Must be the same specified inside the AWS CodeBuild build
-               specification.
-        :param pulumi.Input[_builtins.str] type: Build output artifact's type. Valid values `CODEPIPELINE`, `NO_ARTIFACTS`, and `S3`.
-        :param pulumi.Input[_builtins.str] bucket_owner_access: Specifies the bucket owner's access for objects that another account uploads to
-               their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these
-               objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`,
-               `READ_ONLY`, and `FULL`. The CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows
-               CodeBuild to modify the access control list for the bucket.
-        :param pulumi.Input[_builtins.bool] encryption_disabled: Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`,
-               this value is ignored. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] location: Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or
-               `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, this is the name of the output bucket.
-               If `path` is not specified, `location` can specify the path of the output artifact in the output bucket.
-        :param pulumi.Input[_builtins.str] name: Name of the project. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored
-               if specified. If `type` is set to `S3`, this is the name of the output artifact object.
-        :param pulumi.Input[_builtins.str] namespace_type: Namespace to use in storing build artifacts. If `type` is set to `CODEPIPELINE` or
-               `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, valid values are `BUILD_ID` or `NONE`.
-        :param pulumi.Input[_builtins.bool] override_artifact_name: Whether a name specified in the build specification overrides the artifact name.
-        :param pulumi.Input[_builtins.str] packaging: Type of build output artifact to create. If `type` is set to `CODEPIPELINE` or
-               `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, valid values are `NONE` or `ZIP`.
-        :param pulumi.Input[_builtins.str] path: Along with `namespace_type` and `name`, the pattern that AWS CodeBuild uses to name and store the
-               output artifact. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type`
-               is set to `S3`, this is the path to the output artifact.
-        """
         pulumi.set(__self__, "artifact_identifier", artifact_identifier)
         pulumi.set(__self__, "type", type)
         if bucket_owner_access is not None:
@@ -1906,10 +1203,6 @@ class ProjectSecondaryArtifactArgs:
     @_builtins.property
     @pulumi.getter(name="artifactIdentifier")
     def artifact_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        Artifact identifier. Must be the same specified inside the AWS CodeBuild build
-        specification.
-        """
         return pulumi.get(self, "artifact_identifier")
 
     @artifact_identifier.setter
@@ -1919,9 +1212,6 @@ class ProjectSecondaryArtifactArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Build output artifact's type. Valid values `CODEPIPELINE`, `NO_ARTIFACTS`, and `S3`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1931,13 +1221,6 @@ class ProjectSecondaryArtifactArgs:
     @_builtins.property
     @pulumi.getter(name="bucketOwnerAccess")
     def bucket_owner_access(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the bucket owner's access for objects that another account uploads to
-        their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these
-        objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`,
-        `READ_ONLY`, and `FULL`. The CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows
-        CodeBuild to modify the access control list for the bucket.
-        """
         return pulumi.get(self, "bucket_owner_access")
 
     @bucket_owner_access.setter
@@ -1947,10 +1230,6 @@ class ProjectSecondaryArtifactArgs:
     @_builtins.property
     @pulumi.getter(name="encryptionDisabled")
     def encryption_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`,
-        this value is ignored. Defaults to `false`.
-        """
         return pulumi.get(self, "encryption_disabled")
 
     @encryption_disabled.setter
@@ -1960,11 +1239,6 @@ class ProjectSecondaryArtifactArgs:
     @_builtins.property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or
-        `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, this is the name of the output bucket.
-        If `path` is not specified, `location` can specify the path of the output artifact in the output bucket.
-        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -1974,10 +1248,6 @@ class ProjectSecondaryArtifactArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the project. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored
-        if specified. If `type` is set to `S3`, this is the name of the output artifact object.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1987,10 +1257,6 @@ class ProjectSecondaryArtifactArgs:
     @_builtins.property
     @pulumi.getter(name="namespaceType")
     def namespace_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Namespace to use in storing build artifacts. If `type` is set to `CODEPIPELINE` or
-        `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, valid values are `BUILD_ID` or `NONE`.
-        """
         return pulumi.get(self, "namespace_type")
 
     @namespace_type.setter
@@ -2000,9 +1266,6 @@ class ProjectSecondaryArtifactArgs:
     @_builtins.property
     @pulumi.getter(name="overrideArtifactName")
     def override_artifact_name(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether a name specified in the build specification overrides the artifact name.
-        """
         return pulumi.get(self, "override_artifact_name")
 
     @override_artifact_name.setter
@@ -2012,10 +1275,6 @@ class ProjectSecondaryArtifactArgs:
     @_builtins.property
     @pulumi.getter
     def packaging(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of build output artifact to create. If `type` is set to `CODEPIPELINE` or
-        `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, valid values are `NONE` or `ZIP`.
-        """
         return pulumi.get(self, "packaging")
 
     @packaging.setter
@@ -2025,11 +1284,6 @@ class ProjectSecondaryArtifactArgs:
     @_builtins.property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Along with `namespace_type` and `name`, the pattern that AWS CodeBuild uses to name and store the
-        output artifact. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type`
-        is set to `S3`, this is the path to the output artifact.
-        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -2040,57 +1294,15 @@ class ProjectSecondaryArtifactArgs:
 if not MYPY:
     class ProjectSecondarySourceArgsDict(TypedDict):
         source_identifier: pulumi.Input[_builtins.str]
-        """
-        An identifier for this project source. The identifier can only contain alphanumeric
-        characters and underscores, and must be less than 128 characters in length.
-        """
         type: pulumi.Input[_builtins.str]
-        """
-        Type of repository that contains the source code to be built. Valid values: `BITBUCKET`,
-        `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
-        """
         auth: NotRequired[pulumi.Input['ProjectSecondarySourceAuthArgsDict']]
-        """
-        Information about the strategy CodeBuild should use when authenticating with the source code host.
-        Detailed below.
-        """
         build_status_config: NotRequired[pulumi.Input['ProjectSecondarySourceBuildStatusConfigArgsDict']]
-        """
-        Configuration block that contains information that defines how the build project
-        reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub
-        Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
-        """
         buildspec: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The build spec declaration to use for this build project's related builds. This must be set
-        when `type` is `NO_SOURCE`. It can either be a path to a file residing in the repository to be built or a local file
-        path leveraging the `file()` built-in.
-        """
         git_clone_depth: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Truncate git history to this many commits. Use `0` for a `Full` checkout which you need
-        to run commands like `git branch --show-current`.
-        See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html)
-        for details.
-        """
         git_submodules_config: NotRequired[pulumi.Input['ProjectSecondarySourceGitSubmodulesConfigArgsDict']]
-        """
-        Configuration block. Detailed below.
-        """
         insecure_ssl: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Ignore SSL warnings when connecting to source control.
-        """
         location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Location of the source code from git or s3.
-        """
         report_build_status: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to report the status of a build's start and finish to your source provider.
-        This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or
-        Bitbucket.
-        """
 elif False:
     ProjectSecondarySourceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2107,30 +1319,6 @@ class ProjectSecondarySourceArgs:
                  insecure_ssl: Optional[pulumi.Input[_builtins.bool]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  report_build_status: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        :param pulumi.Input[_builtins.str] source_identifier: An identifier for this project source. The identifier can only contain alphanumeric
-               characters and underscores, and must be less than 128 characters in length.
-        :param pulumi.Input[_builtins.str] type: Type of repository that contains the source code to be built. Valid values: `BITBUCKET`,
-               `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
-        :param pulumi.Input['ProjectSecondarySourceAuthArgs'] auth: Information about the strategy CodeBuild should use when authenticating with the source code host.
-               Detailed below.
-        :param pulumi.Input['ProjectSecondarySourceBuildStatusConfigArgs'] build_status_config: Configuration block that contains information that defines how the build project
-               reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub
-               Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
-        :param pulumi.Input[_builtins.str] buildspec: The build spec declaration to use for this build project's related builds. This must be set
-               when `type` is `NO_SOURCE`. It can either be a path to a file residing in the repository to be built or a local file
-               path leveraging the `file()` built-in.
-        :param pulumi.Input[_builtins.int] git_clone_depth: Truncate git history to this many commits. Use `0` for a `Full` checkout which you need
-               to run commands like `git branch --show-current`.
-               See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html)
-               for details.
-        :param pulumi.Input['ProjectSecondarySourceGitSubmodulesConfigArgs'] git_submodules_config: Configuration block. Detailed below.
-        :param pulumi.Input[_builtins.bool] insecure_ssl: Ignore SSL warnings when connecting to source control.
-        :param pulumi.Input[_builtins.str] location: Location of the source code from git or s3.
-        :param pulumi.Input[_builtins.bool] report_build_status: Whether to report the status of a build's start and finish to your source provider.
-               This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or
-               Bitbucket.
-        """
         pulumi.set(__self__, "source_identifier", source_identifier)
         pulumi.set(__self__, "type", type)
         if auth is not None:
@@ -2153,10 +1341,6 @@ class ProjectSecondarySourceArgs:
     @_builtins.property
     @pulumi.getter(name="sourceIdentifier")
     def source_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        An identifier for this project source. The identifier can only contain alphanumeric
-        characters and underscores, and must be less than 128 characters in length.
-        """
         return pulumi.get(self, "source_identifier")
 
     @source_identifier.setter
@@ -2166,10 +1350,6 @@ class ProjectSecondarySourceArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Type of repository that contains the source code to be built. Valid values: `BITBUCKET`,
-        `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -2179,10 +1359,6 @@ class ProjectSecondarySourceArgs:
     @_builtins.property
     @pulumi.getter
     def auth(self) -> Optional[pulumi.Input['ProjectSecondarySourceAuthArgs']]:
-        """
-        Information about the strategy CodeBuild should use when authenticating with the source code host.
-        Detailed below.
-        """
         return pulumi.get(self, "auth")
 
     @auth.setter
@@ -2192,11 +1368,6 @@ class ProjectSecondarySourceArgs:
     @_builtins.property
     @pulumi.getter(name="buildStatusConfig")
     def build_status_config(self) -> Optional[pulumi.Input['ProjectSecondarySourceBuildStatusConfigArgs']]:
-        """
-        Configuration block that contains information that defines how the build project
-        reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub
-        Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
-        """
         return pulumi.get(self, "build_status_config")
 
     @build_status_config.setter
@@ -2206,11 +1377,6 @@ class ProjectSecondarySourceArgs:
     @_builtins.property
     @pulumi.getter
     def buildspec(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The build spec declaration to use for this build project's related builds. This must be set
-        when `type` is `NO_SOURCE`. It can either be a path to a file residing in the repository to be built or a local file
-        path leveraging the `file()` built-in.
-        """
         return pulumi.get(self, "buildspec")
 
     @buildspec.setter
@@ -2220,12 +1386,6 @@ class ProjectSecondarySourceArgs:
     @_builtins.property
     @pulumi.getter(name="gitCloneDepth")
     def git_clone_depth(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Truncate git history to this many commits. Use `0` for a `Full` checkout which you need
-        to run commands like `git branch --show-current`.
-        See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html)
-        for details.
-        """
         return pulumi.get(self, "git_clone_depth")
 
     @git_clone_depth.setter
@@ -2235,9 +1395,6 @@ class ProjectSecondarySourceArgs:
     @_builtins.property
     @pulumi.getter(name="gitSubmodulesConfig")
     def git_submodules_config(self) -> Optional[pulumi.Input['ProjectSecondarySourceGitSubmodulesConfigArgs']]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "git_submodules_config")
 
     @git_submodules_config.setter
@@ -2247,9 +1404,6 @@ class ProjectSecondarySourceArgs:
     @_builtins.property
     @pulumi.getter(name="insecureSsl")
     def insecure_ssl(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Ignore SSL warnings when connecting to source control.
-        """
         return pulumi.get(self, "insecure_ssl")
 
     @insecure_ssl.setter
@@ -2259,9 +1413,6 @@ class ProjectSecondarySourceArgs:
     @_builtins.property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Location of the source code from git or s3.
-        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -2271,11 +1422,6 @@ class ProjectSecondarySourceArgs:
     @_builtins.property
     @pulumi.getter(name="reportBuildStatus")
     def report_build_status(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to report the status of a build's start and finish to your source provider.
-        This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or
-        Bitbucket.
-        """
         return pulumi.get(self, "report_build_status")
 
     @report_build_status.setter
@@ -2286,15 +1432,7 @@ class ProjectSecondarySourceArgs:
 if not MYPY:
     class ProjectSecondarySourceAuthArgsDict(TypedDict):
         resource: pulumi.Input[_builtins.str]
-        """
-        The ARN of the resource to use for authentication. For type `CODECONNECTIONS` this should be
-        an AWS CodeStar Connection. For type `SECRETS_MANAGER` this should be an AWS Secrets Manager secret.
-        """
         type: pulumi.Input[_builtins.str]
-        """
-        The type of authentication AWS CodeBuild should perform. Valid values are `CODECONNECTIONS` and
-        `SECRETS_MANAGER`.
-        """
 elif False:
     ProjectSecondarySourceAuthArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2303,22 +1441,12 @@ class ProjectSecondarySourceAuthArgs:
     def __init__(__self__, *,
                  resource: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] resource: The ARN of the resource to use for authentication. For type `CODECONNECTIONS` this should be
-               an AWS CodeStar Connection. For type `SECRETS_MANAGER` this should be an AWS Secrets Manager secret.
-        :param pulumi.Input[_builtins.str] type: The type of authentication AWS CodeBuild should perform. Valid values are `CODECONNECTIONS` and
-               `SECRETS_MANAGER`.
-        """
         pulumi.set(__self__, "resource", resource)
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
     def resource(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the resource to use for authentication. For type `CODECONNECTIONS` this should be
-        an AWS CodeStar Connection. For type `SECRETS_MANAGER` this should be an AWS Secrets Manager secret.
-        """
         return pulumi.get(self, "resource")
 
     @resource.setter
@@ -2328,10 +1456,6 @@ class ProjectSecondarySourceAuthArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of authentication AWS CodeBuild should perform. Valid values are `CODECONNECTIONS` and
-        `SECRETS_MANAGER`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -2342,15 +1466,7 @@ class ProjectSecondarySourceAuthArgs:
 if not MYPY:
     class ProjectSecondarySourceBuildStatusConfigArgsDict(TypedDict):
         context: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the context of the build status CodeBuild sends to the source provider. The usage of
-        this parameter depends on the source provider.
-        """
         target_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the target url of the build status CodeBuild sends to the source provider. The
-        usage of this parameter depends on the source provider.
-        """
 elif False:
     ProjectSecondarySourceBuildStatusConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2359,12 +1475,6 @@ class ProjectSecondarySourceBuildStatusConfigArgs:
     def __init__(__self__, *,
                  context: Optional[pulumi.Input[_builtins.str]] = None,
                  target_url: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] context: Specifies the context of the build status CodeBuild sends to the source provider. The usage of
-               this parameter depends on the source provider.
-        :param pulumi.Input[_builtins.str] target_url: Specifies the target url of the build status CodeBuild sends to the source provider. The
-               usage of this parameter depends on the source provider.
-        """
         if context is not None:
             pulumi.set(__self__, "context", context)
         if target_url is not None:
@@ -2373,10 +1483,6 @@ class ProjectSecondarySourceBuildStatusConfigArgs:
     @_builtins.property
     @pulumi.getter
     def context(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the context of the build status CodeBuild sends to the source provider. The usage of
-        this parameter depends on the source provider.
-        """
         return pulumi.get(self, "context")
 
     @context.setter
@@ -2386,10 +1492,6 @@ class ProjectSecondarySourceBuildStatusConfigArgs:
     @_builtins.property
     @pulumi.getter(name="targetUrl")
     def target_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the target url of the build status CodeBuild sends to the source provider. The
-        usage of this parameter depends on the source provider.
-        """
         return pulumi.get(self, "target_url")
 
     @target_url.setter
@@ -2400,9 +1502,6 @@ class ProjectSecondarySourceBuildStatusConfigArgs:
 if not MYPY:
     class ProjectSecondarySourceGitSubmodulesConfigArgsDict(TypedDict):
         fetch_submodules: pulumi.Input[_builtins.bool]
-        """
-        Whether to fetch Git submodules for the AWS CodeBuild build project.
-        """
 elif False:
     ProjectSecondarySourceGitSubmodulesConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2410,17 +1509,11 @@ elif False:
 class ProjectSecondarySourceGitSubmodulesConfigArgs:
     def __init__(__self__, *,
                  fetch_submodules: pulumi.Input[_builtins.bool]):
-        """
-        :param pulumi.Input[_builtins.bool] fetch_submodules: Whether to fetch Git submodules for the AWS CodeBuild build project.
-        """
         pulumi.set(__self__, "fetch_submodules", fetch_submodules)
 
     @_builtins.property
     @pulumi.getter(name="fetchSubmodules")
     def fetch_submodules(self) -> pulumi.Input[_builtins.bool]:
-        """
-        Whether to fetch Git submodules for the AWS CodeBuild build project.
-        """
         return pulumi.get(self, "fetch_submodules")
 
     @fetch_submodules.setter
@@ -2431,15 +1524,7 @@ class ProjectSecondarySourceGitSubmodulesConfigArgs:
 if not MYPY:
     class ProjectSecondarySourceVersionArgsDict(TypedDict):
         source_identifier: pulumi.Input[_builtins.str]
-        """
-        An identifier for a source in the build project.
-        """
         source_version: pulumi.Input[_builtins.str]
-        """
-        The source version for the corresponding source identifier.
-        See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion)
-        for more details.
-        """
 elif False:
     ProjectSecondarySourceVersionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2448,21 +1533,12 @@ class ProjectSecondarySourceVersionArgs:
     def __init__(__self__, *,
                  source_identifier: pulumi.Input[_builtins.str],
                  source_version: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] source_identifier: An identifier for a source in the build project.
-        :param pulumi.Input[_builtins.str] source_version: The source version for the corresponding source identifier.
-               See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion)
-               for more details.
-        """
         pulumi.set(__self__, "source_identifier", source_identifier)
         pulumi.set(__self__, "source_version", source_version)
 
     @_builtins.property
     @pulumi.getter(name="sourceIdentifier")
     def source_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        An identifier for a source in the build project.
-        """
         return pulumi.get(self, "source_identifier")
 
     @source_identifier.setter
@@ -2472,11 +1548,6 @@ class ProjectSecondarySourceVersionArgs:
     @_builtins.property
     @pulumi.getter(name="sourceVersion")
     def source_version(self) -> pulumi.Input[_builtins.str]:
-        """
-        The source version for the corresponding source identifier.
-        See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion)
-        for more details.
-        """
         return pulumi.get(self, "source_version")
 
     @source_version.setter
@@ -2487,52 +1558,14 @@ class ProjectSecondarySourceVersionArgs:
 if not MYPY:
     class ProjectSourceArgsDict(TypedDict):
         type: pulumi.Input[_builtins.str]
-        """
-        Type of repository that contains the source code to be built. Valid values: `BITBUCKET`,
-        `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
-        """
         auth: NotRequired[pulumi.Input['ProjectSourceAuthArgsDict']]
-        """
-        Information about the strategy CodeBuild should use when authenticating with the source code host.
-        Detailed below.
-        """
         build_status_config: NotRequired[pulumi.Input['ProjectSourceBuildStatusConfigArgsDict']]
-        """
-        Configuration block that contains information that defines how the build project
-        reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub
-        Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
-        """
         buildspec: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Build specification to use for this build project's related builds. This must be set when
-        `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be
-        specified.
-        """
         git_clone_depth: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Truncate git history to this many commits. Use `0` for a `Full` checkout which you need
-        to run commands like `git branch --show-current`.
-        See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html)
-        for details.
-        """
         git_submodules_config: NotRequired[pulumi.Input['ProjectSourceGitSubmodulesConfigArgsDict']]
-        """
-        Configuration block. Detailed below.
-        """
         insecure_ssl: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Ignore SSL warnings when connecting to source control.
-        """
         location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Location of the source code from git or s3.
-        """
         report_build_status: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to report the status of a build's start and finish to your source provider.
-        This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or
-        Bitbucket.
-        """
 elif False:
     ProjectSourceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2548,28 +1581,6 @@ class ProjectSourceArgs:
                  insecure_ssl: Optional[pulumi.Input[_builtins.bool]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  report_build_status: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        :param pulumi.Input[_builtins.str] type: Type of repository that contains the source code to be built. Valid values: `BITBUCKET`,
-               `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
-        :param pulumi.Input['ProjectSourceAuthArgs'] auth: Information about the strategy CodeBuild should use when authenticating with the source code host.
-               Detailed below.
-        :param pulumi.Input['ProjectSourceBuildStatusConfigArgs'] build_status_config: Configuration block that contains information that defines how the build project
-               reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub
-               Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
-        :param pulumi.Input[_builtins.str] buildspec: Build specification to use for this build project's related builds. This must be set when
-               `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be
-               specified.
-        :param pulumi.Input[_builtins.int] git_clone_depth: Truncate git history to this many commits. Use `0` for a `Full` checkout which you need
-               to run commands like `git branch --show-current`.
-               See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html)
-               for details.
-        :param pulumi.Input['ProjectSourceGitSubmodulesConfigArgs'] git_submodules_config: Configuration block. Detailed below.
-        :param pulumi.Input[_builtins.bool] insecure_ssl: Ignore SSL warnings when connecting to source control.
-        :param pulumi.Input[_builtins.str] location: Location of the source code from git or s3.
-        :param pulumi.Input[_builtins.bool] report_build_status: Whether to report the status of a build's start and finish to your source provider.
-               This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or
-               Bitbucket.
-        """
         pulumi.set(__self__, "type", type)
         if auth is not None:
             pulumi.set(__self__, "auth", auth)
@@ -2591,10 +1602,6 @@ class ProjectSourceArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Type of repository that contains the source code to be built. Valid values: `BITBUCKET`,
-        `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -2604,10 +1611,6 @@ class ProjectSourceArgs:
     @_builtins.property
     @pulumi.getter
     def auth(self) -> Optional[pulumi.Input['ProjectSourceAuthArgs']]:
-        """
-        Information about the strategy CodeBuild should use when authenticating with the source code host.
-        Detailed below.
-        """
         return pulumi.get(self, "auth")
 
     @auth.setter
@@ -2617,11 +1620,6 @@ class ProjectSourceArgs:
     @_builtins.property
     @pulumi.getter(name="buildStatusConfig")
     def build_status_config(self) -> Optional[pulumi.Input['ProjectSourceBuildStatusConfigArgs']]:
-        """
-        Configuration block that contains information that defines how the build project
-        reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub
-        Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
-        """
         return pulumi.get(self, "build_status_config")
 
     @build_status_config.setter
@@ -2631,11 +1629,6 @@ class ProjectSourceArgs:
     @_builtins.property
     @pulumi.getter
     def buildspec(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Build specification to use for this build project's related builds. This must be set when
-        `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be
-        specified.
-        """
         return pulumi.get(self, "buildspec")
 
     @buildspec.setter
@@ -2645,12 +1638,6 @@ class ProjectSourceArgs:
     @_builtins.property
     @pulumi.getter(name="gitCloneDepth")
     def git_clone_depth(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Truncate git history to this many commits. Use `0` for a `Full` checkout which you need
-        to run commands like `git branch --show-current`.
-        See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html)
-        for details.
-        """
         return pulumi.get(self, "git_clone_depth")
 
     @git_clone_depth.setter
@@ -2660,9 +1647,6 @@ class ProjectSourceArgs:
     @_builtins.property
     @pulumi.getter(name="gitSubmodulesConfig")
     def git_submodules_config(self) -> Optional[pulumi.Input['ProjectSourceGitSubmodulesConfigArgs']]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "git_submodules_config")
 
     @git_submodules_config.setter
@@ -2672,9 +1656,6 @@ class ProjectSourceArgs:
     @_builtins.property
     @pulumi.getter(name="insecureSsl")
     def insecure_ssl(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Ignore SSL warnings when connecting to source control.
-        """
         return pulumi.get(self, "insecure_ssl")
 
     @insecure_ssl.setter
@@ -2684,9 +1665,6 @@ class ProjectSourceArgs:
     @_builtins.property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Location of the source code from git or s3.
-        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -2696,11 +1674,6 @@ class ProjectSourceArgs:
     @_builtins.property
     @pulumi.getter(name="reportBuildStatus")
     def report_build_status(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to report the status of a build's start and finish to your source provider.
-        This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or
-        Bitbucket.
-        """
         return pulumi.get(self, "report_build_status")
 
     @report_build_status.setter
@@ -2711,15 +1684,7 @@ class ProjectSourceArgs:
 if not MYPY:
     class ProjectSourceAuthArgsDict(TypedDict):
         resource: pulumi.Input[_builtins.str]
-        """
-        The ARN of the resource to use for authentication. For type `CODECONNECTIONS` this should be
-        an AWS CodeStar Connection. For type `SECRETS_MANAGER` this should be an AWS Secrets Manager secret.
-        """
         type: pulumi.Input[_builtins.str]
-        """
-        The type of authentication AWS CodeBuild should perform. Valid values are `CODECONNECTIONS` and
-        `SECRETS_MANAGER`.
-        """
 elif False:
     ProjectSourceAuthArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2728,22 +1693,12 @@ class ProjectSourceAuthArgs:
     def __init__(__self__, *,
                  resource: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] resource: The ARN of the resource to use for authentication. For type `CODECONNECTIONS` this should be
-               an AWS CodeStar Connection. For type `SECRETS_MANAGER` this should be an AWS Secrets Manager secret.
-        :param pulumi.Input[_builtins.str] type: The type of authentication AWS CodeBuild should perform. Valid values are `CODECONNECTIONS` and
-               `SECRETS_MANAGER`.
-        """
         pulumi.set(__self__, "resource", resource)
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
     def resource(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the resource to use for authentication. For type `CODECONNECTIONS` this should be
-        an AWS CodeStar Connection. For type `SECRETS_MANAGER` this should be an AWS Secrets Manager secret.
-        """
         return pulumi.get(self, "resource")
 
     @resource.setter
@@ -2753,10 +1708,6 @@ class ProjectSourceAuthArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of authentication AWS CodeBuild should perform. Valid values are `CODECONNECTIONS` and
-        `SECRETS_MANAGER`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -2767,15 +1718,7 @@ class ProjectSourceAuthArgs:
 if not MYPY:
     class ProjectSourceBuildStatusConfigArgsDict(TypedDict):
         context: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the context of the build status CodeBuild sends to the source provider. The usage of
-        this parameter depends on the source provider.
-        """
         target_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the target url of the build status CodeBuild sends to the source provider. The
-        usage of this parameter depends on the source provider.
-        """
 elif False:
     ProjectSourceBuildStatusConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2784,12 +1727,6 @@ class ProjectSourceBuildStatusConfigArgs:
     def __init__(__self__, *,
                  context: Optional[pulumi.Input[_builtins.str]] = None,
                  target_url: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] context: Specifies the context of the build status CodeBuild sends to the source provider. The usage of
-               this parameter depends on the source provider.
-        :param pulumi.Input[_builtins.str] target_url: Specifies the target url of the build status CodeBuild sends to the source provider. The
-               usage of this parameter depends on the source provider.
-        """
         if context is not None:
             pulumi.set(__self__, "context", context)
         if target_url is not None:
@@ -2798,10 +1735,6 @@ class ProjectSourceBuildStatusConfigArgs:
     @_builtins.property
     @pulumi.getter
     def context(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the context of the build status CodeBuild sends to the source provider. The usage of
-        this parameter depends on the source provider.
-        """
         return pulumi.get(self, "context")
 
     @context.setter
@@ -2811,10 +1744,6 @@ class ProjectSourceBuildStatusConfigArgs:
     @_builtins.property
     @pulumi.getter(name="targetUrl")
     def target_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the target url of the build status CodeBuild sends to the source provider. The
-        usage of this parameter depends on the source provider.
-        """
         return pulumi.get(self, "target_url")
 
     @target_url.setter
@@ -2825,9 +1754,6 @@ class ProjectSourceBuildStatusConfigArgs:
 if not MYPY:
     class ProjectSourceGitSubmodulesConfigArgsDict(TypedDict):
         fetch_submodules: pulumi.Input[_builtins.bool]
-        """
-        Whether to fetch Git submodules for the AWS CodeBuild build project.
-        """
 elif False:
     ProjectSourceGitSubmodulesConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2835,17 +1761,11 @@ elif False:
 class ProjectSourceGitSubmodulesConfigArgs:
     def __init__(__self__, *,
                  fetch_submodules: pulumi.Input[_builtins.bool]):
-        """
-        :param pulumi.Input[_builtins.bool] fetch_submodules: Whether to fetch Git submodules for the AWS CodeBuild build project.
-        """
         pulumi.set(__self__, "fetch_submodules", fetch_submodules)
 
     @_builtins.property
     @pulumi.getter(name="fetchSubmodules")
     def fetch_submodules(self) -> pulumi.Input[_builtins.bool]:
-        """
-        Whether to fetch Git submodules for the AWS CodeBuild build project.
-        """
         return pulumi.get(self, "fetch_submodules")
 
     @fetch_submodules.setter
@@ -2856,17 +1776,8 @@ class ProjectSourceGitSubmodulesConfigArgs:
 if not MYPY:
     class ProjectVpcConfigArgsDict(TypedDict):
         security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Security group IDs to assign to running builds.
-        """
         subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Subnet IDs within which to run builds.
-        """
         vpc_id: pulumi.Input[_builtins.str]
-        """
-        ID of the VPC within which to run builds.
-        """
 elif False:
     ProjectVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2876,11 +1787,6 @@ class ProjectVpcConfigArgs:
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  vpc_id: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Security group IDs to assign to running builds.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnets: Subnet IDs within which to run builds.
-        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC within which to run builds.
-        """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnets", subnets)
         pulumi.set(__self__, "vpc_id", vpc_id)
@@ -2888,9 +1794,6 @@ class ProjectVpcConfigArgs:
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        Security group IDs to assign to running builds.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -2900,9 +1803,6 @@ class ProjectVpcConfigArgs:
     @_builtins.property
     @pulumi.getter
     def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        Subnet IDs within which to run builds.
-        """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
@@ -2912,9 +1812,6 @@ class ProjectVpcConfigArgs:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the VPC within which to run builds.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -2925,13 +1822,7 @@ class ProjectVpcConfigArgs:
 if not MYPY:
     class ReportGroupExportConfigArgsDict(TypedDict):
         type: pulumi.Input[_builtins.str]
-        """
-        The export configuration type. Valid values are `S3` and `NO_EXPORT`.
-        """
         s3_destination: NotRequired[pulumi.Input['ReportGroupExportConfigS3DestinationArgsDict']]
-        """
-        contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
-        """
 elif False:
     ReportGroupExportConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2940,10 +1831,6 @@ class ReportGroupExportConfigArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
                  s3_destination: Optional[pulumi.Input['ReportGroupExportConfigS3DestinationArgs']] = None):
-        """
-        :param pulumi.Input[_builtins.str] type: The export configuration type. Valid values are `S3` and `NO_EXPORT`.
-        :param pulumi.Input['ReportGroupExportConfigS3DestinationArgs'] s3_destination: contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
-        """
         pulumi.set(__self__, "type", type)
         if s3_destination is not None:
             pulumi.set(__self__, "s3_destination", s3_destination)
@@ -2951,9 +1838,6 @@ class ReportGroupExportConfigArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The export configuration type. Valid values are `S3` and `NO_EXPORT`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -2963,9 +1847,6 @@ class ReportGroupExportConfigArgs:
     @_builtins.property
     @pulumi.getter(name="s3Destination")
     def s3_destination(self) -> Optional[pulumi.Input['ReportGroupExportConfigS3DestinationArgs']]:
-        """
-        contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
-        """
         return pulumi.get(self, "s3_destination")
 
     @s3_destination.setter
@@ -2976,26 +1857,10 @@ class ReportGroupExportConfigArgs:
 if not MYPY:
     class ReportGroupExportConfigS3DestinationArgsDict(TypedDict):
         bucket: pulumi.Input[_builtins.str]
-        """
-        The name of the S3 bucket where the raw data of a report are exported.
-        """
         encryption_key: pulumi.Input[_builtins.str]
-        """
-        The encryption key for the report's encrypted raw data. The KMS key ARN.
-        """
         encryption_disabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A boolean value that specifies if the results of a report are encrypted.
-        **Note: the API does not currently allow setting encryption as disabled**
-        """
         packaging: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of build output artifact to create. Valid values are: `NONE` (default) and `ZIP`.
-        """
         path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The path to the exported report's raw data results.
-        """
 elif False:
     ReportGroupExportConfigS3DestinationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3007,14 +1872,6 @@ class ReportGroupExportConfigS3DestinationArgs:
                  encryption_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  packaging: Optional[pulumi.Input[_builtins.str]] = None,
                  path: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] bucket: The name of the S3 bucket where the raw data of a report are exported.
-        :param pulumi.Input[_builtins.str] encryption_key: The encryption key for the report's encrypted raw data. The KMS key ARN.
-        :param pulumi.Input[_builtins.bool] encryption_disabled: A boolean value that specifies if the results of a report are encrypted.
-               **Note: the API does not currently allow setting encryption as disabled**
-        :param pulumi.Input[_builtins.str] packaging: The type of build output artifact to create. Valid values are: `NONE` (default) and `ZIP`.
-        :param pulumi.Input[_builtins.str] path: The path to the exported report's raw data results.
-        """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "encryption_key", encryption_key)
         if encryption_disabled is not None:
@@ -3027,9 +1884,6 @@ class ReportGroupExportConfigS3DestinationArgs:
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the S3 bucket where the raw data of a report are exported.
-        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -3039,9 +1893,6 @@ class ReportGroupExportConfigS3DestinationArgs:
     @_builtins.property
     @pulumi.getter(name="encryptionKey")
     def encryption_key(self) -> pulumi.Input[_builtins.str]:
-        """
-        The encryption key for the report's encrypted raw data. The KMS key ARN.
-        """
         return pulumi.get(self, "encryption_key")
 
     @encryption_key.setter
@@ -3051,10 +1902,6 @@ class ReportGroupExportConfigS3DestinationArgs:
     @_builtins.property
     @pulumi.getter(name="encryptionDisabled")
     def encryption_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A boolean value that specifies if the results of a report are encrypted.
-        **Note: the API does not currently allow setting encryption as disabled**
-        """
         return pulumi.get(self, "encryption_disabled")
 
     @encryption_disabled.setter
@@ -3064,9 +1911,6 @@ class ReportGroupExportConfigS3DestinationArgs:
     @_builtins.property
     @pulumi.getter
     def packaging(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of build output artifact to create. Valid values are: `NONE` (default) and `ZIP`.
-        """
         return pulumi.get(self, "packaging")
 
     @packaging.setter
@@ -3076,9 +1920,6 @@ class ReportGroupExportConfigS3DestinationArgs:
     @_builtins.property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The path to the exported report's raw data results.
-        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -3089,9 +1930,6 @@ class ReportGroupExportConfigS3DestinationArgs:
 if not MYPY:
     class WebhookFilterGroupArgsDict(TypedDict):
         filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupFilterArgsDict']]]]
-        """
-        A webhook filter for the group. See filter for details.
-        """
 elif False:
     WebhookFilterGroupArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3099,18 +1937,12 @@ elif False:
 class WebhookFilterGroupArgs:
     def __init__(__self__, *,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupFilterArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupFilterArgs']]] filters: A webhook filter for the group. See filter for details.
-        """
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
 
     @_builtins.property
     @pulumi.getter
     def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupFilterArgs']]]]:
-        """
-        A webhook filter for the group. See filter for details.
-        """
         return pulumi.get(self, "filters")
 
     @filters.setter
@@ -3121,17 +1953,8 @@ class WebhookFilterGroupArgs:
 if not MYPY:
     class WebhookFilterGroupFilterArgsDict(TypedDict):
         pattern: pulumi.Input[_builtins.str]
-        """
-        For a filter that uses `EVENT` type, a comma-separated string that specifies one event: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, `PULL_REQUEST_REOPENED`. `PULL_REQUEST_MERGED`, `WORKFLOW_JOB_QUEUED` works with GitHub & GitHub Enterprise only. For a filter that uses any of the other filter types, a regular expression.
-        """
         type: pulumi.Input[_builtins.str]
-        """
-        The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`, `WORKFLOW_NAME`, `TAG_NAME`, `RELEASE_NAME`. At least one filter group must specify `EVENT` as its type.
-        """
         exclude_matched_pattern: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If set to `true`, the specified filter does *not* trigger a build. Defaults to `false`.
-        """
 elif False:
     WebhookFilterGroupFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3141,11 +1964,6 @@ class WebhookFilterGroupFilterArgs:
                  pattern: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
                  exclude_matched_pattern: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        :param pulumi.Input[_builtins.str] pattern: For a filter that uses `EVENT` type, a comma-separated string that specifies one event: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, `PULL_REQUEST_REOPENED`. `PULL_REQUEST_MERGED`, `WORKFLOW_JOB_QUEUED` works with GitHub & GitHub Enterprise only. For a filter that uses any of the other filter types, a regular expression.
-        :param pulumi.Input[_builtins.str] type: The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`, `WORKFLOW_NAME`, `TAG_NAME`, `RELEASE_NAME`. At least one filter group must specify `EVENT` as its type.
-        :param pulumi.Input[_builtins.bool] exclude_matched_pattern: If set to `true`, the specified filter does *not* trigger a build. Defaults to `false`.
-        """
         pulumi.set(__self__, "pattern", pattern)
         pulumi.set(__self__, "type", type)
         if exclude_matched_pattern is not None:
@@ -3154,9 +1972,6 @@ class WebhookFilterGroupFilterArgs:
     @_builtins.property
     @pulumi.getter
     def pattern(self) -> pulumi.Input[_builtins.str]:
-        """
-        For a filter that uses `EVENT` type, a comma-separated string that specifies one event: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, `PULL_REQUEST_REOPENED`. `PULL_REQUEST_MERGED`, `WORKFLOW_JOB_QUEUED` works with GitHub & GitHub Enterprise only. For a filter that uses any of the other filter types, a regular expression.
-        """
         return pulumi.get(self, "pattern")
 
     @pattern.setter
@@ -3166,9 +1981,6 @@ class WebhookFilterGroupFilterArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`, `WORKFLOW_NAME`, `TAG_NAME`, `RELEASE_NAME`. At least one filter group must specify `EVENT` as its type.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -3178,9 +1990,6 @@ class WebhookFilterGroupFilterArgs:
     @_builtins.property
     @pulumi.getter(name="excludeMatchedPattern")
     def exclude_matched_pattern(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If set to `true`, the specified filter does *not* trigger a build. Defaults to `false`.
-        """
         return pulumi.get(self, "exclude_matched_pattern")
 
     @exclude_matched_pattern.setter
@@ -3191,13 +2000,7 @@ class WebhookFilterGroupFilterArgs:
 if not MYPY:
     class WebhookPullRequestBuildPolicyArgsDict(TypedDict):
         requires_comment_approval: pulumi.Input[_builtins.str]
-        """
-        Specifies when comment-based approval is required before triggering a build on pull requests. Valid values are: `DISABLED`, `ALL_PULL_REQUESTS`, and `FORK_PULL_REQUESTS`.
-        """
         approver_roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of repository roles that have approval privileges for pull request builds when comment approval is required. This argument must be specified only when `requires_comment_approval` is not `DISABLED`. See the [AWS documentation](https://docs.aws.amazon.com/codebuild/latest/userguide/pull-request-build-policy.html#pull-request-build-policy.configuration) for valid values and defaults.
-        """
 elif False:
     WebhookPullRequestBuildPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3206,10 +2009,6 @@ class WebhookPullRequestBuildPolicyArgs:
     def __init__(__self__, *,
                  requires_comment_approval: pulumi.Input[_builtins.str],
                  approver_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] requires_comment_approval: Specifies when comment-based approval is required before triggering a build on pull requests. Valid values are: `DISABLED`, `ALL_PULL_REQUESTS`, and `FORK_PULL_REQUESTS`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] approver_roles: List of repository roles that have approval privileges for pull request builds when comment approval is required. This argument must be specified only when `requires_comment_approval` is not `DISABLED`. See the [AWS documentation](https://docs.aws.amazon.com/codebuild/latest/userguide/pull-request-build-policy.html#pull-request-build-policy.configuration) for valid values and defaults.
-        """
         pulumi.set(__self__, "requires_comment_approval", requires_comment_approval)
         if approver_roles is not None:
             pulumi.set(__self__, "approver_roles", approver_roles)
@@ -3217,9 +2016,6 @@ class WebhookPullRequestBuildPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="requiresCommentApproval")
     def requires_comment_approval(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies when comment-based approval is required before triggering a build on pull requests. Valid values are: `DISABLED`, `ALL_PULL_REQUESTS`, and `FORK_PULL_REQUESTS`.
-        """
         return pulumi.get(self, "requires_comment_approval")
 
     @requires_comment_approval.setter
@@ -3229,9 +2025,6 @@ class WebhookPullRequestBuildPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="approverRoles")
     def approver_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of repository roles that have approval privileges for pull request builds when comment approval is required. This argument must be specified only when `requires_comment_approval` is not `DISABLED`. See the [AWS documentation](https://docs.aws.amazon.com/codebuild/latest/userguide/pull-request-build-policy.html#pull-request-build-policy.configuration) for valid values and defaults.
-        """
         return pulumi.get(self, "approver_roles")
 
     @approver_roles.setter
@@ -3242,17 +2035,8 @@ class WebhookPullRequestBuildPolicyArgs:
 if not MYPY:
     class WebhookScopeConfigurationArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        The name of either the enterprise or organization.
-        """
         scope: pulumi.Input[_builtins.str]
-        """
-        The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
-        """
         domain: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The domain of the GitHub Enterprise organization. Required if your project's source type is GITHUB_ENTERPRISE.
-        """
 elif False:
     WebhookScopeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3262,11 +2046,6 @@ class WebhookScopeConfigurationArgs:
                  name: pulumi.Input[_builtins.str],
                  scope: pulumi.Input[_builtins.str],
                  domain: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] name: The name of either the enterprise or organization.
-        :param pulumi.Input[_builtins.str] scope: The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
-        :param pulumi.Input[_builtins.str] domain: The domain of the GitHub Enterprise organization. Required if your project's source type is GITHUB_ENTERPRISE.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "scope", scope)
         if domain is not None:
@@ -3275,9 +2054,6 @@ class WebhookScopeConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of either the enterprise or organization.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -3287,9 +2063,6 @@ class WebhookScopeConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def scope(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
-        """
         return pulumi.get(self, "scope")
 
     @scope.setter
@@ -3299,9 +2072,6 @@ class WebhookScopeConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The domain of the GitHub Enterprise organization. Required if your project's source type is GITHUB_ENTERPRISE.
-        """
         return pulumi.get(self, "domain")
 
     @domain.setter

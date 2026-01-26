@@ -15,32 +15,16 @@ public final class LfTagExpressionExpressionArgs extends com.pulumi.resources.Re
 
     public static final LfTagExpressionExpressionArgs Empty = new LfTagExpressionExpressionArgs();
 
-    /**
-     * The key-name for the LF-Tag.
-     * 
-     */
     @Import(name="tagKey", required=true)
     private Output<String> tagKey;
 
-    /**
-     * @return The key-name for the LF-Tag.
-     * 
-     */
     public Output<String> tagKey() {
         return this.tagKey;
     }
 
-    /**
-     * A list of possible values for the LF-Tag
-     * 
-     */
     @Import(name="tagValues", required=true)
     private Output<List<String>> tagValues;
 
-    /**
-     * @return A list of possible values for the LF-Tag
-     * 
-     */
     public Output<List<String>> tagValues() {
         return this.tagValues;
     }
@@ -70,54 +54,24 @@ public final class LfTagExpressionExpressionArgs extends com.pulumi.resources.Re
             $ = new LfTagExpressionExpressionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param tagKey The key-name for the LF-Tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagKey(Output<String> tagKey) {
             $.tagKey = tagKey;
             return this;
         }
 
-        /**
-         * @param tagKey The key-name for the LF-Tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagKey(String tagKey) {
             return tagKey(Output.of(tagKey));
         }
 
-        /**
-         * @param tagValues A list of possible values for the LF-Tag
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagValues(Output<List<String>> tagValues) {
             $.tagValues = tagValues;
             return this;
         }
 
-        /**
-         * @param tagValues A list of possible values for the LF-Tag
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagValues(List<String> tagValues) {
             return tagValues(Output.of(tagValues));
         }
 
-        /**
-         * @param tagValues A list of possible values for the LF-Tag
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagValues(String... tagValues) {
             return tagValues(List.of(tagValues));
         }

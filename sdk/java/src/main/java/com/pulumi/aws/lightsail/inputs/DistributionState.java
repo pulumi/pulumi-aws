@@ -24,14 +24,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     public static final DistributionState Empty = new DistributionState();
 
     /**
-     * Alternate domain names of the distribution.
+     * The alternate domain names of the distribution.
      * 
      */
     @Import(name="alternativeDomainNames")
     private @Nullable Output<List<String>> alternativeDomainNames;
 
     /**
-     * @return Alternate domain names of the distribution.
+     * @return The alternate domain names of the distribution.
      * 
      */
     public Optional<Output<List<String>>> alternativeDomainNames() {
@@ -39,14 +39,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of the distribution.
+     * The Amazon Resource Name (ARN) of the distribution.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN of the distribution.
+     * @return The Amazon Resource Name (ARN) of the distribution.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -54,14 +54,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Bundle ID to use for the distribution.
+     * The bundle ID to use for the distribution.
      * 
      */
     @Import(name="bundleId")
     private @Nullable Output<String> bundleId;
 
     /**
-     * @return Bundle ID to use for the distribution.
+     * @return The bundle ID to use for the distribution.
      * 
      */
     public Optional<Output<String>> bundleId() {
@@ -69,14 +69,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Cache behavior settings of the distribution. See below.
+     * An object that describes the cache behavior settings of the distribution.
      * 
      */
     @Import(name="cacheBehaviorSettings")
     private @Nullable Output<DistributionCacheBehaviorSettingsArgs> cacheBehaviorSettings;
 
     /**
-     * @return Cache behavior settings of the distribution. See below.
+     * @return An object that describes the cache behavior settings of the distribution.
      * 
      */
     public Optional<Output<DistributionCacheBehaviorSettingsArgs>> cacheBehaviorSettings() {
@@ -84,14 +84,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Per-path cache behavior of the distribution. See below.
+     * An array of objects that describe the per-path cache behavior of the distribution.
      * 
      */
     @Import(name="cacheBehaviors")
     private @Nullable Output<List<DistributionCacheBehaviorArgs>> cacheBehaviors;
 
     /**
-     * @return Per-path cache behavior of the distribution. See below.
+     * @return An array of objects that describe the per-path cache behavior of the distribution.
      * 
      */
     public Optional<Output<List<DistributionCacheBehaviorArgs>>> cacheBehaviors() {
@@ -99,14 +99,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the SSL/TLS certificate attached to the distribution.
+     * The name of the SSL/TLS certificate attached to the distribution, if any.
      * 
      */
     @Import(name="certificateName")
     private @Nullable Output<String> certificateName;
 
     /**
-     * @return Name of the SSL/TLS certificate attached to the distribution.
+     * @return The name of the SSL/TLS certificate attached to the distribution, if any.
      * 
      */
     public Optional<Output<String>> certificateName() {
@@ -114,14 +114,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Timestamp when the distribution was created.
+     * The timestamp when the distribution was created.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return Timestamp when the distribution was created.
+     * @return The timestamp when the distribution was created.
      * 
      */
     public Optional<Output<String>> createdAt() {
@@ -129,14 +129,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Default cache behavior of the distribution. See below.
+     * An object that describes the default cache behavior of the distribution.
      * 
      */
     @Import(name="defaultCacheBehavior")
     private @Nullable Output<DistributionDefaultCacheBehaviorArgs> defaultCacheBehavior;
 
     /**
-     * @return Default cache behavior of the distribution. See below.
+     * @return An object that describes the default cache behavior of the distribution.
      * 
      */
     public Optional<Output<DistributionDefaultCacheBehaviorArgs>> defaultCacheBehavior() {
@@ -144,14 +144,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Domain name of the distribution.
+     * The domain name of the distribution.
      * 
      */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
     /**
-     * @return Domain name of the distribution.
+     * @return The domain name of the distribution.
      * 
      */
     public Optional<Output<String>> domainName() {
@@ -159,14 +159,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
+     * The IP address type of the distribution.
      * 
      */
     @Import(name="ipAddressType")
     private @Nullable Output<String> ipAddressType;
 
     /**
-     * @return IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
+     * @return The IP address type of the distribution.
      * 
      */
     public Optional<Output<String>> ipAddressType() {
@@ -174,14 +174,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the distribution is enabled. Default: `true`.
+     * Indicates whether the distribution is enabled.
      * 
      */
     @Import(name="isEnabled")
     private @Nullable Output<Boolean> isEnabled;
 
     /**
-     * @return Whether the distribution is enabled. Default: `true`.
+     * @return Indicates whether the distribution is enabled.
      * 
      */
     public Optional<Output<Boolean>> isEnabled() {
@@ -189,14 +189,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Location of the distribution, such as the AWS Region and Availability Zone. See below.
+     * An object that describes the location of the distribution, such as the AWS Region and Availability Zone.
      * 
      */
     @Import(name="locations")
     private @Nullable Output<List<DistributionLocationArgs>> locations;
 
     /**
-     * @return Location of the distribution, such as the AWS Region and Availability Zone. See below.
+     * @return An object that describes the location of the distribution, such as the AWS Region and Availability Zone.
      * 
      */
     public Optional<Output<List<DistributionLocationArgs>>> locations() {
@@ -204,14 +204,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the distribution.
+     * The name of the distribution.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the distribution.
+     * @return The name of the distribution.
      * 
      */
     public Optional<Output<String>> name() {
@@ -219,18 +219,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
-     * 
-     * The following arguments are optional:
+     * An object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer.
      * 
      */
     @Import(name="origin")
     private @Nullable Output<DistributionOriginArgs> origin;
 
     /**
-     * @return Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
-     * 
-     * The following arguments are optional:
+     * @return An object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer.
      * 
      */
     public Optional<Output<DistributionOriginArgs>> origin() {
@@ -238,46 +234,36 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Public DNS of the origin.
-     * * `origin[0].resource_type` - Resource type of the origin resource (e.g., Instance).
+     * The public DNS of the origin.
      * 
      */
     @Import(name="originPublicDns")
     private @Nullable Output<String> originPublicDns;
 
     /**
-     * @return Public DNS of the origin.
-     * * `origin[0].resource_type` - Resource type of the origin resource (e.g., Instance).
+     * @return The public DNS of the origin.
      * 
      */
     public Optional<Output<String>> originPublicDns() {
         return Optional.ofNullable(this.originPublicDns);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
     /**
-     * Lightsail resource type (e.g., Distribution).
+     * The Lightsail resource type (e.g., Distribution).
      * 
      */
     @Import(name="resourceType")
     private @Nullable Output<String> resourceType;
 
     /**
-     * @return Lightsail resource type (e.g., Distribution).
+     * @return The Lightsail resource type (e.g., Distribution).
      * 
      */
     public Optional<Output<String>> resourceType() {
@@ -285,14 +271,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Status of the distribution.
+     * The status of the distribution.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Status of the distribution.
+     * @return The status of the distribution.
      * 
      */
     public Optional<Output<String>> status() {
@@ -300,46 +286,30 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
+     * The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
      * 
      */
     @Import(name="supportCode")
     private @Nullable Output<String> supportCode;
 
     /**
-     * @return Support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
+     * @return The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
      * 
      */
     public Optional<Output<String>> supportCode() {
         return Optional.ofNullable(this.supportCode);
     }
 
-    /**
-     * Map of tags for the Lightsail Distribution. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags for the Lightsail Distribution. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -389,7 +359,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alternativeDomainNames Alternate domain names of the distribution.
+         * @param alternativeDomainNames The alternate domain names of the distribution.
          * 
          * @return builder
          * 
@@ -400,7 +370,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alternativeDomainNames Alternate domain names of the distribution.
+         * @param alternativeDomainNames The alternate domain names of the distribution.
          * 
          * @return builder
          * 
@@ -410,7 +380,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alternativeDomainNames Alternate domain names of the distribution.
+         * @param alternativeDomainNames The alternate domain names of the distribution.
          * 
          * @return builder
          * 
@@ -420,7 +390,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the distribution.
+         * @param arn The Amazon Resource Name (ARN) of the distribution.
          * 
          * @return builder
          * 
@@ -431,7 +401,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the distribution.
+         * @param arn The Amazon Resource Name (ARN) of the distribution.
          * 
          * @return builder
          * 
@@ -441,7 +411,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bundleId Bundle ID to use for the distribution.
+         * @param bundleId The bundle ID to use for the distribution.
          * 
          * @return builder
          * 
@@ -452,7 +422,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bundleId Bundle ID to use for the distribution.
+         * @param bundleId The bundle ID to use for the distribution.
          * 
          * @return builder
          * 
@@ -462,7 +432,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cacheBehaviorSettings Cache behavior settings of the distribution. See below.
+         * @param cacheBehaviorSettings An object that describes the cache behavior settings of the distribution.
          * 
          * @return builder
          * 
@@ -473,7 +443,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cacheBehaviorSettings Cache behavior settings of the distribution. See below.
+         * @param cacheBehaviorSettings An object that describes the cache behavior settings of the distribution.
          * 
          * @return builder
          * 
@@ -483,7 +453,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cacheBehaviors Per-path cache behavior of the distribution. See below.
+         * @param cacheBehaviors An array of objects that describe the per-path cache behavior of the distribution.
          * 
          * @return builder
          * 
@@ -494,7 +464,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cacheBehaviors Per-path cache behavior of the distribution. See below.
+         * @param cacheBehaviors An array of objects that describe the per-path cache behavior of the distribution.
          * 
          * @return builder
          * 
@@ -504,7 +474,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cacheBehaviors Per-path cache behavior of the distribution. See below.
+         * @param cacheBehaviors An array of objects that describe the per-path cache behavior of the distribution.
          * 
          * @return builder
          * 
@@ -514,7 +484,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateName Name of the SSL/TLS certificate attached to the distribution.
+         * @param certificateName The name of the SSL/TLS certificate attached to the distribution, if any.
          * 
          * @return builder
          * 
@@ -525,7 +495,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateName Name of the SSL/TLS certificate attached to the distribution.
+         * @param certificateName The name of the SSL/TLS certificate attached to the distribution, if any.
          * 
          * @return builder
          * 
@@ -535,7 +505,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdAt Timestamp when the distribution was created.
+         * @param createdAt The timestamp when the distribution was created.
          * 
          * @return builder
          * 
@@ -546,7 +516,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdAt Timestamp when the distribution was created.
+         * @param createdAt The timestamp when the distribution was created.
          * 
          * @return builder
          * 
@@ -556,7 +526,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultCacheBehavior Default cache behavior of the distribution. See below.
+         * @param defaultCacheBehavior An object that describes the default cache behavior of the distribution.
          * 
          * @return builder
          * 
@@ -567,7 +537,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultCacheBehavior Default cache behavior of the distribution. See below.
+         * @param defaultCacheBehavior An object that describes the default cache behavior of the distribution.
          * 
          * @return builder
          * 
@@ -577,7 +547,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainName Domain name of the distribution.
+         * @param domainName The domain name of the distribution.
          * 
          * @return builder
          * 
@@ -588,7 +558,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainName Domain name of the distribution.
+         * @param domainName The domain name of the distribution.
          * 
          * @return builder
          * 
@@ -598,7 +568,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddressType IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
+         * @param ipAddressType The IP address type of the distribution.
          * 
          * @return builder
          * 
@@ -609,7 +579,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddressType IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
+         * @param ipAddressType The IP address type of the distribution.
          * 
          * @return builder
          * 
@@ -619,7 +589,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param isEnabled Whether the distribution is enabled. Default: `true`.
+         * @param isEnabled Indicates whether the distribution is enabled.
          * 
          * @return builder
          * 
@@ -630,7 +600,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param isEnabled Whether the distribution is enabled. Default: `true`.
+         * @param isEnabled Indicates whether the distribution is enabled.
          * 
          * @return builder
          * 
@@ -640,7 +610,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param locations Location of the distribution, such as the AWS Region and Availability Zone. See below.
+         * @param locations An object that describes the location of the distribution, such as the AWS Region and Availability Zone.
          * 
          * @return builder
          * 
@@ -651,7 +621,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param locations Location of the distribution, such as the AWS Region and Availability Zone. See below.
+         * @param locations An object that describes the location of the distribution, such as the AWS Region and Availability Zone.
          * 
          * @return builder
          * 
@@ -661,7 +631,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param locations Location of the distribution, such as the AWS Region and Availability Zone. See below.
+         * @param locations An object that describes the location of the distribution, such as the AWS Region and Availability Zone.
          * 
          * @return builder
          * 
@@ -671,7 +641,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the distribution.
+         * @param name The name of the distribution.
          * 
          * @return builder
          * 
@@ -682,7 +652,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the distribution.
+         * @param name The name of the distribution.
          * 
          * @return builder
          * 
@@ -692,9 +662,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param origin Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
-         * 
-         * The following arguments are optional:
+         * @param origin An object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer.
          * 
          * @return builder
          * 
@@ -705,9 +673,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param origin Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
-         * 
-         * The following arguments are optional:
+         * @param origin An object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer.
          * 
          * @return builder
          * 
@@ -717,8 +683,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param originPublicDns Public DNS of the origin.
-         * * `origin[0].resource_type` - Resource type of the origin resource (e.g., Instance).
+         * @param originPublicDns The public DNS of the origin.
          * 
          * @return builder
          * 
@@ -729,8 +694,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param originPublicDns Public DNS of the origin.
-         * * `origin[0].resource_type` - Resource type of the origin resource (e.g., Instance).
+         * @param originPublicDns The public DNS of the origin.
          * 
          * @return builder
          * 
@@ -739,29 +703,17 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
             return originPublicDns(Output.of(originPublicDns));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
         /**
-         * @param resourceType Lightsail resource type (e.g., Distribution).
+         * @param resourceType The Lightsail resource type (e.g., Distribution).
          * 
          * @return builder
          * 
@@ -772,7 +724,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceType Lightsail resource type (e.g., Distribution).
+         * @param resourceType The Lightsail resource type (e.g., Distribution).
          * 
          * @return builder
          * 
@@ -782,7 +734,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Status of the distribution.
+         * @param status The status of the distribution.
          * 
          * @return builder
          * 
@@ -793,7 +745,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Status of the distribution.
+         * @param status The status of the distribution.
          * 
          * @return builder
          * 
@@ -803,7 +755,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param supportCode Support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
+         * @param supportCode The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
          * 
          * @return builder
          * 
@@ -814,7 +766,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param supportCode Support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
+         * @param supportCode The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
          * 
          * @return builder
          * 
@@ -823,44 +775,20 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
             return supportCode(Output.of(supportCode));
         }
 
-        /**
-         * @param tags Map of tags for the Lightsail Distribution. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags for the Lightsail Distribution. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

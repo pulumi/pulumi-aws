@@ -14,53 +14,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetThemeConfiguration {
-    /**
-     * @return Color properties that apply to chart data colors. See data_color_palette.
-     * 
-     */
     private List<GetThemeConfigurationDataColorPalette> dataColorPalettes;
-    /**
-     * @return Display options related to sheets. See sheet.
-     * 
-     */
     private List<GetThemeConfigurationSheet> sheets;
-    /**
-     * @return Determines the typography options. See typography.
-     * 
-     */
     private List<GetThemeConfigurationTypography> typographies;
-    /**
-     * @return Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
-     * 
-     */
     private List<GetThemeConfigurationUiColorPalette> uiColorPalettes;
 
     private GetThemeConfiguration() {}
-    /**
-     * @return Color properties that apply to chart data colors. See data_color_palette.
-     * 
-     */
     public List<GetThemeConfigurationDataColorPalette> dataColorPalettes() {
         return this.dataColorPalettes;
     }
-    /**
-     * @return Display options related to sheets. See sheet.
-     * 
-     */
     public List<GetThemeConfigurationSheet> sheets() {
         return this.sheets;
     }
-    /**
-     * @return Determines the typography options. See typography.
-     * 
-     */
     public List<GetThemeConfigurationTypography> typographies() {
         return this.typographies;
     }
-    /**
-     * @return Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
-     * 
-     */
     public List<GetThemeConfigurationUiColorPalette> uiColorPalettes() {
         return this.uiColorPalettes;
     }

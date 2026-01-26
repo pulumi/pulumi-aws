@@ -13,13 +13,7 @@ namespace Pulumi.Aws.ElastiCache.Outputs
     [OutputType]
     public sealed class GetServerlessCacheReaderEndpointResult
     {
-        /// <summary>
-        /// The DNS hostname of the cache node.
-        /// </summary>
         public readonly string Address;
-        /// <summary>
-        /// The port number that the cache engine is listening on. Set as integer.
-        /// </summary>
         public readonly int Port;
 
         [OutputConstructor]

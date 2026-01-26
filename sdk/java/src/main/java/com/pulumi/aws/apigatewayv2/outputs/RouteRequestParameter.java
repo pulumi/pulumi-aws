@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class RouteRequestParameter {
-    /**
-     * @return Request parameter key. This is a [request data mapping parameter](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-data-mapping.html#websocket-mapping-request-parameters).
-     * 
-     */
     private String requestParameterKey;
-    /**
-     * @return Boolean whether or not the parameter is required.
-     * 
-     */
     private Boolean required;
 
     private RouteRequestParameter() {}
-    /**
-     * @return Request parameter key. This is a [request data mapping parameter](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-data-mapping.html#websocket-mapping-request-parameters).
-     * 
-     */
     public String requestParameterKey() {
         return this.requestParameterKey;
     }
-    /**
-     * @return Boolean whether or not the parameter is required.
-     * 
-     */
     public Boolean required() {
         return this.required;
     }

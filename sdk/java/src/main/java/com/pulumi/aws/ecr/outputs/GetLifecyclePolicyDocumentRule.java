@@ -15,53 +15,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLifecyclePolicyDocumentRule {
-    /**
-     * @return Specifies the action to take.
-     * 
-     */
     private @Nullable GetLifecyclePolicyDocumentRuleAction action;
-    /**
-     * @return Describes the purpose of a rule within a lifecycle policy.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of `any` must have the highest value for `priority` and be evaluated last.
-     * 
-     */
     private Integer priority;
-    /**
-     * @return Collects parameters describing the selection criteria for the ECR lifecycle policy:
-     * 
-     */
     private @Nullable GetLifecyclePolicyDocumentRuleSelection selection;
 
     private GetLifecyclePolicyDocumentRule() {}
-    /**
-     * @return Specifies the action to take.
-     * 
-     */
     public Optional<GetLifecyclePolicyDocumentRuleAction> action() {
         return Optional.ofNullable(this.action);
     }
-    /**
-     * @return Describes the purpose of a rule within a lifecycle policy.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of `any` must have the highest value for `priority` and be evaluated last.
-     * 
-     */
     public Integer priority() {
         return this.priority;
     }
-    /**
-     * @return Collects parameters describing the selection criteria for the ECR lifecycle policy:
-     * 
-     */
     public Optional<GetLifecyclePolicyDocumentRuleSelection> selection() {
         return Optional.ofNullable(this.selection);
     }

@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentAgentAliasRoutingConfiguration {
-    /**
-     * @return Version of the agent with which the alias is associated.
-     * 
-     */
     private String agentVersion;
-    /**
-     * @return ARN of the Provisioned Throughput assigned to the agent alias.
-     * 
-     */
     private String provisionedThroughput;
 
     private AgentAgentAliasRoutingConfiguration() {}
-    /**
-     * @return Version of the agent with which the alias is associated.
-     * 
-     */
     public String agentVersion() {
         return this.agentVersion;
     }
-    /**
-     * @return ARN of the Provisioned Throughput assigned to the agent alias.
-     * 
-     */
     public String provisionedThroughput() {
         return this.provisionedThroughput;
     }

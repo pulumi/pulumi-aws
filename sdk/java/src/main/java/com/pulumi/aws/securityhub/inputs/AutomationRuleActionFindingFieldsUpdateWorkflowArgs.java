@@ -15,17 +15,9 @@ public final class AutomationRuleActionFindingFieldsUpdateWorkflowArgs extends c
 
     public static final AutomationRuleActionFindingFieldsUpdateWorkflowArgs Empty = new AutomationRuleActionFindingFieldsUpdateWorkflowArgs();
 
-    /**
-     * The status of the investigation into the finding. The allowed values are the following `NEW`, `NOTIFIED`, `RESOLVED` and `SUPPRESSED`.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return The status of the investigation into the finding. The allowed values are the following `NEW`, `NOTIFIED`, `RESOLVED` and `SUPPRESSED`.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -54,23 +46,11 @@ public final class AutomationRuleActionFindingFieldsUpdateWorkflowArgs extends c
             $ = new AutomationRuleActionFindingFieldsUpdateWorkflowArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param status The status of the investigation into the finding. The allowed values are the following `NEW`, `NOTIFIED`, `RESOLVED` and `SUPPRESSED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The status of the investigation into the finding. The allowed values are the following `NEW`, `NOTIFIED`, `RESOLVED` and `SUPPRESSED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

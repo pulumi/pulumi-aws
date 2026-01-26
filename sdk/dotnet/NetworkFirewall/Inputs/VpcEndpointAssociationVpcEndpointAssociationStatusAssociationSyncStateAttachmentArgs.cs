@@ -12,9 +12,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
 
     public sealed class VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The identifier of the VPC endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
-        /// </summary>
         [Input("endpointId", required: true)]
         public Input<string> EndpointId { get; set; } = null!;
 
@@ -24,9 +21,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
         [Input("statusMessage", required: true)]
         public Input<string> StatusMessage { get; set; } = null!;
 
-        /// <summary>
-        /// The unique identifier of the subnet that you've specified to be used for a VPC Endpoint Association endpoint.
-        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 

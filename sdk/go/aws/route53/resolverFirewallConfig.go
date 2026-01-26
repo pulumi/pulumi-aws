@@ -12,62 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Route 53 Resolver DNS Firewall config resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
-//				CidrBlock:          pulumi.String("10.0.0.0/16"),
-//				EnableDnsSupport:   pulumi.Bool(true),
-//				EnableDnsHostnames: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewResolverFirewallConfig(ctx, "example", &route53.ResolverFirewallConfigArgs{
-//				ResourceId:       example.ID(),
-//				FirewallFailOpen: pulumi.String("ENABLED"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Route 53 Resolver DNS Firewall configs using the Route 53 Resolver DNS Firewall config ID. For example:
-//
-// ```sh
-// $ pulumi import aws:route53/resolverFirewallConfig:ResolverFirewallConfig example rdsc-be1866ecc1683e95
-// ```
 type ResolverFirewallConfig struct {
 	pulumi.CustomResourceState
 
-	// Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
 	FirewallFailOpen pulumi.StringOutput `pulumi:"firewallFailOpen"`
-	// The AWS account ID of the owner of the VPC that this firewall configuration applies to.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The ID of the VPC that the configuration is for.
-	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
+	OwnerId          pulumi.StringOutput `pulumi:"ownerId"`
+	Region           pulumi.StringOutput `pulumi:"region"`
+	ResourceId       pulumi.StringOutput `pulumi:"resourceId"`
 }
 
 // NewResolverFirewallConfig registers a new resource with the given unique name, arguments, and options.
@@ -103,25 +54,17 @@ func GetResolverFirewallConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResolverFirewallConfig resources.
 type resolverFirewallConfigState struct {
-	// Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
 	FirewallFailOpen *string `pulumi:"firewallFailOpen"`
-	// The AWS account ID of the owner of the VPC that this firewall configuration applies to.
-	OwnerId *string `pulumi:"ownerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID of the VPC that the configuration is for.
-	ResourceId *string `pulumi:"resourceId"`
+	OwnerId          *string `pulumi:"ownerId"`
+	Region           *string `pulumi:"region"`
+	ResourceId       *string `pulumi:"resourceId"`
 }
 
 type ResolverFirewallConfigState struct {
-	// Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
 	FirewallFailOpen pulumi.StringPtrInput
-	// The AWS account ID of the owner of the VPC that this firewall configuration applies to.
-	OwnerId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID of the VPC that the configuration is for.
-	ResourceId pulumi.StringPtrInput
+	OwnerId          pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
+	ResourceId       pulumi.StringPtrInput
 }
 
 func (ResolverFirewallConfigState) ElementType() reflect.Type {
@@ -129,22 +72,16 @@ func (ResolverFirewallConfigState) ElementType() reflect.Type {
 }
 
 type resolverFirewallConfigArgs struct {
-	// Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
 	FirewallFailOpen *string `pulumi:"firewallFailOpen"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID of the VPC that the configuration is for.
-	ResourceId string `pulumi:"resourceId"`
+	Region           *string `pulumi:"region"`
+	ResourceId       string  `pulumi:"resourceId"`
 }
 
 // The set of arguments for constructing a ResolverFirewallConfig resource.
 type ResolverFirewallConfigArgs struct {
-	// Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
 	FirewallFailOpen pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID of the VPC that the configuration is for.
-	ResourceId pulumi.StringInput
+	Region           pulumi.StringPtrInput
+	ResourceId       pulumi.StringInput
 }
 
 func (ResolverFirewallConfigArgs) ElementType() reflect.Type {
@@ -234,22 +171,18 @@ func (o ResolverFirewallConfigOutput) ToResolverFirewallConfigOutputWithContext(
 	return o
 }
 
-// Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
 func (o ResolverFirewallConfigOutput) FirewallFailOpen() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverFirewallConfig) pulumi.StringOutput { return v.FirewallFailOpen }).(pulumi.StringOutput)
 }
 
-// The AWS account ID of the owner of the VPC that this firewall configuration applies to.
 func (o ResolverFirewallConfigOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverFirewallConfig) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResolverFirewallConfigOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverFirewallConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ID of the VPC that the configuration is for.
 func (o ResolverFirewallConfigOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverFirewallConfig) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }

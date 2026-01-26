@@ -13,9 +13,6 @@ namespace Pulumi.Aws.RedShift.Outputs
     [OutputType]
     public sealed class IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery
     {
-        /// <summary>
-        /// Determines whether the query scope is enabled or disabled.
-        /// </summary>
         public readonly string Authorization;
 
         [OutputConstructor]

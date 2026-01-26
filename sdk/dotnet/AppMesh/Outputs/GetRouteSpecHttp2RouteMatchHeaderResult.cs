@@ -15,9 +15,6 @@ namespace Pulumi.Aws.AppMesh.Outputs
     {
         public readonly bool Invert;
         public readonly ImmutableArray<Outputs.GetRouteSpecHttp2RouteMatchHeaderMatchResult> Matches;
-        /// <summary>
-        /// Name of the route.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

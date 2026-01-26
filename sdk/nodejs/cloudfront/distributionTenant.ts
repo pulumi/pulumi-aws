@@ -7,78 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Creates an Amazon CloudFront distribution tenant.
- *
- * Distribution tenants allow you to create isolated configurations within a multi-tenant CloudFront distribution. Each tenant can have its own domains, customizations, and parameters while sharing the underlying distribution infrastructure.
- *
- * For information about CloudFront distribution tenants, see the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-tenants.html).
- *
- * ## Example Usage
- *
- * ### Basic Distribution Tenant
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudfront.DistributionTenant("example", {
- *     name: "example-tenant",
- *     distributionId: exampleAwsCloudfrontMultitenantDistribution.id,
- *     enabled: true,
- *     domains: [{
- *         domain: "tenant.example.com",
- *     }],
- *     tags: {
- *         Environment: "production",
- *     },
- * });
- * ```
- *
- * ### Distribution Tenant with Customizations
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudfront.DistributionTenant("example", {
- *     name: "example-tenant",
- *     distributionId: exampleAwsCloudfrontMultitenantDistribution.id,
- *     enabled: false,
- *     domains: [{
- *         domain: "tenant.example.com",
- *     }],
- *     customizations: {
- *         geoRestriction: {
- *             restrictionType: "whitelist",
- *             locations: [
- *                 "US",
- *                 "CA",
- *             ],
- *         },
- *         certificate: {
- *             arn: tenantCert.arn,
- *         },
- *         webAcl: {
- *             action: "override",
- *             arn: tenantWaf.arn,
- *         },
- *     },
- *     tags: {
- *         Environment: "production",
- *         Tenant: "example",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import CloudFront Distribution Tenants using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:cloudfront/distributionTenant:DistributionTenant example TENANT123EXAMPLE
- * ```
- */
 export class DistributionTenant extends pulumi.CustomResource {
     /**
      * Get an existing DistributionTenant resource's state with the given name, ID, and optional extra
@@ -107,62 +35,20 @@ export class DistributionTenant extends pulumi.CustomResource {
         return obj['__pulumiType'] === DistributionTenant.__pulumiType;
     }
 
-    /**
-     * ARN of the distribution tenant.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * ID of the connection group for the distribution tenant. If not specified, CloudFront uses the default connection group.
-     */
     declare public readonly connectionGroupId: pulumi.Output<string>;
-    /**
-     * Customizations for the distribution tenant (maximum one).
-     */
     declare public readonly customizations: pulumi.Output<outputs.cloudfront.DistributionTenantCustomizations | undefined>;
-    /**
-     * ID of the multi-tenant distribution.
-     */
     declare public readonly distributionId: pulumi.Output<string>;
-    /**
-     * Set of domains associated with the distribution tenant.
-     */
     declare public readonly domains: pulumi.Output<outputs.cloudfront.DistributionTenantDomain[] | undefined>;
-    /**
-     * Whether the distribution tenant is enabled to serve traffic. Defaults to `true`.
-     */
     declare public readonly enabled: pulumi.Output<boolean>;
-    /**
-     * Current version of the distribution tenant.
-     */
     declare public /*out*/ readonly etag: pulumi.Output<string>;
-    /**
-     * Managed certificate request for CloudFront managed ACM certificate (maximum one).
-     */
     declare public readonly managedCertificateRequest: pulumi.Output<outputs.cloudfront.DistributionTenantManagedCertificateRequest | undefined>;
-    /**
-     * Name of the distribution tenant.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Set of parameter values for the distribution tenant.
-     */
     declare public readonly parameters: pulumi.Output<outputs.cloudfront.DistributionTenantParameter[] | undefined>;
-    /**
-     * Current status of the distribution tenant.
-     */
     declare public /*out*/ readonly status: pulumi.Output<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.cloudfront.DistributionTenantTimeouts | undefined>;
-    /**
-     * If enabled, the resource will wait for the distribution tenant status to change from `InProgress` to `Deployed`. Setting this to `false` will skip the process. Default: `true`.
-     */
     declare public readonly waitForDeployment: pulumi.Output<boolean>;
 
     /**
@@ -223,62 +109,20 @@ export class DistributionTenant extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DistributionTenant resources.
  */
 export interface DistributionTenantState {
-    /**
-     * ARN of the distribution tenant.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * ID of the connection group for the distribution tenant. If not specified, CloudFront uses the default connection group.
-     */
     connectionGroupId?: pulumi.Input<string>;
-    /**
-     * Customizations for the distribution tenant (maximum one).
-     */
     customizations?: pulumi.Input<inputs.cloudfront.DistributionTenantCustomizations>;
-    /**
-     * ID of the multi-tenant distribution.
-     */
     distributionId?: pulumi.Input<string>;
-    /**
-     * Set of domains associated with the distribution tenant.
-     */
     domains?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionTenantDomain>[]>;
-    /**
-     * Whether the distribution tenant is enabled to serve traffic. Defaults to `true`.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Current version of the distribution tenant.
-     */
     etag?: pulumi.Input<string>;
-    /**
-     * Managed certificate request for CloudFront managed ACM certificate (maximum one).
-     */
     managedCertificateRequest?: pulumi.Input<inputs.cloudfront.DistributionTenantManagedCertificateRequest>;
-    /**
-     * Name of the distribution tenant.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Set of parameter values for the distribution tenant.
-     */
     parameters?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionTenantParameter>[]>;
-    /**
-     * Current status of the distribution tenant.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.cloudfront.DistributionTenantTimeouts>;
-    /**
-     * If enabled, the resource will wait for the distribution tenant status to change from `InProgress` to `Deployed`. Setting this to `false` will skip the process. Default: `true`.
-     */
     waitForDeployment?: pulumi.Input<boolean>;
 }
 
@@ -286,45 +130,15 @@ export interface DistributionTenantState {
  * The set of arguments for constructing a DistributionTenant resource.
  */
 export interface DistributionTenantArgs {
-    /**
-     * ID of the connection group for the distribution tenant. If not specified, CloudFront uses the default connection group.
-     */
     connectionGroupId?: pulumi.Input<string>;
-    /**
-     * Customizations for the distribution tenant (maximum one).
-     */
     customizations?: pulumi.Input<inputs.cloudfront.DistributionTenantCustomizations>;
-    /**
-     * ID of the multi-tenant distribution.
-     */
     distributionId: pulumi.Input<string>;
-    /**
-     * Set of domains associated with the distribution tenant.
-     */
     domains?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionTenantDomain>[]>;
-    /**
-     * Whether the distribution tenant is enabled to serve traffic. Defaults to `true`.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Managed certificate request for CloudFront managed ACM certificate (maximum one).
-     */
     managedCertificateRequest?: pulumi.Input<inputs.cloudfront.DistributionTenantManagedCertificateRequest>;
-    /**
-     * Name of the distribution tenant.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Set of parameter values for the distribution tenant.
-     */
     parameters?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionTenantParameter>[]>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.cloudfront.DistributionTenantTimeouts>;
-    /**
-     * If enabled, the resource will wait for the distribution tenant status to change from `InProgress` to `Deployed`. Setting this to `false` will skip the process. Default: `true`.
-     */
     waitForDeployment?: pulumi.Input<boolean>;
 }

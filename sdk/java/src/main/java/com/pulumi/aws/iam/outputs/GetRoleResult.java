@@ -14,89 +14,33 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRoleResult {
-    /**
-     * @return ARN of the role.
-     * 
-     */
     private String arn;
-    /**
-     * @return Policy document associated with the role.
-     * 
-     */
     private String assumeRolePolicy;
-    /**
-     * @return Creation date of the role in RFC 3339 format.
-     * 
-     */
     private String createDate;
-    /**
-     * @return Description for the role.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Maximum session duration.
-     * 
-     */
     private Integer maxSessionDuration;
     private String name;
-    /**
-     * @return Path to the role.
-     * 
-     */
     private String path;
-    /**
-     * @return The ARN of the policy that is used to set the permissions boundary for the role.
-     * 
-     */
     private String permissionsBoundary;
-    /**
-     * @return Contains information about the last time that an IAM role was used. See `roleLastUsed` for details.
-     * 
-     */
     private List<GetRoleRoleLastUsed> roleLastUseds;
-    /**
-     * @return Tags attached to the role.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Stable and unique string identifying the role.
-     * 
-     */
     private String uniqueId;
 
     private GetRoleResult() {}
-    /**
-     * @return ARN of the role.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Policy document associated with the role.
-     * 
-     */
     public String assumeRolePolicy() {
         return this.assumeRolePolicy;
     }
-    /**
-     * @return Creation date of the role in RFC 3339 format.
-     * 
-     */
     public String createDate() {
         return this.createDate;
     }
-    /**
-     * @return Description for the role.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -107,48 +51,24 @@ public final class GetRoleResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Maximum session duration.
-     * 
-     */
     public Integer maxSessionDuration() {
         return this.maxSessionDuration;
     }
     public String name() {
         return this.name;
     }
-    /**
-     * @return Path to the role.
-     * 
-     */
     public String path() {
         return this.path;
     }
-    /**
-     * @return The ARN of the policy that is used to set the permissions boundary for the role.
-     * 
-     */
     public String permissionsBoundary() {
         return this.permissionsBoundary;
     }
-    /**
-     * @return Contains information about the last time that an IAM role was used. See `roleLastUsed` for details.
-     * 
-     */
     public List<GetRoleRoleLastUsed> roleLastUseds() {
         return this.roleLastUseds;
     }
-    /**
-     * @return Tags attached to the role.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Stable and unique string identifying the role.
-     * 
-     */
     public String uniqueId() {
         return this.uniqueId;
     }

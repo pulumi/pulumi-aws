@@ -11,9 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
-//
-// ## Example Usage
 func LookupDataCatalogEncryptionSettings(ctx *pulumi.Context, args *LookupDataCatalogEncryptionSettingsArgs, opts ...pulumi.InvokeOption) (*LookupDataCatalogEncryptionSettingsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDataCatalogEncryptionSettingsResult
@@ -26,16 +23,13 @@ func LookupDataCatalogEncryptionSettings(ctx *pulumi.Context, args *LookupDataCa
 
 // A collection of arguments for invoking getDataCatalogEncryptionSettings.
 type LookupDataCatalogEncryptionSettingsArgs struct {
-	// ID of the Data Catalog. This is typically the AWS account ID.
-	CatalogId string `pulumi:"catalogId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	CatalogId string  `pulumi:"catalogId"`
+	Region    *string `pulumi:"region"`
 }
 
 // A collection of values returned by getDataCatalogEncryptionSettings.
 type LookupDataCatalogEncryptionSettingsResult struct {
-	CatalogId string `pulumi:"catalogId"`
-	// The security configuration to set. see Data Catalog Encryption Settings.
+	CatalogId                     string                                                         `pulumi:"catalogId"`
 	DataCatalogEncryptionSettings []GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting `pulumi:"dataCatalogEncryptionSettings"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string `pulumi:"id"`
@@ -53,10 +47,8 @@ func LookupDataCatalogEncryptionSettingsOutput(ctx *pulumi.Context, args LookupD
 
 // A collection of arguments for invoking getDataCatalogEncryptionSettings.
 type LookupDataCatalogEncryptionSettingsOutputArgs struct {
-	// ID of the Data Catalog. This is typically the AWS account ID.
-	CatalogId pulumi.StringInput `pulumi:"catalogId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	CatalogId pulumi.StringInput    `pulumi:"catalogId"`
+	Region    pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupDataCatalogEncryptionSettingsOutputArgs) ElementType() reflect.Type {
@@ -82,7 +74,6 @@ func (o LookupDataCatalogEncryptionSettingsResultOutput) CatalogId() pulumi.Stri
 	return o.ApplyT(func(v LookupDataCatalogEncryptionSettingsResult) string { return v.CatalogId }).(pulumi.StringOutput)
 }
 
-// The security configuration to set. see Data Catalog Encryption Settings.
 func (o LookupDataCatalogEncryptionSettingsResultOutput) DataCatalogEncryptionSettings() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutput {
 	return o.ApplyT(func(v LookupDataCatalogEncryptionSettingsResult) []GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting {
 		return v.DataCatalogEncryptionSettings

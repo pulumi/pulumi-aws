@@ -15,77 +15,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OptionGroupOption {
-    /**
-     * @return List of DB Security Groups for which the option is enabled.
-     * 
-     */
     private @Nullable List<String> dbSecurityGroupMemberships;
-    /**
-     * @return Name of the option (e.g., MEMCACHED).
-     * 
-     */
     private String optionName;
-    /**
-     * @return The option settings to apply. See `optionSettings` Block below for more details.
-     * 
-     */
     private @Nullable List<OptionGroupOptionOptionSetting> optionSettings;
-    /**
-     * @return Port number when connecting to the option (e.g., 11211). Leaving out or removing `port` from your configuration does not remove or clear a port from the option in AWS. AWS may assign a default port. Not including `port` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any port changes.
-     * 
-     */
     private @Nullable Integer port;
-    /**
-     * @return Version of the option (e.g., 13.1.0.0). Leaving out or removing `version` from your configuration does not remove or clear a version from the option in AWS. AWS may assign a default version. Not including `version` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any version changes.
-     * 
-     */
     private @Nullable String version;
-    /**
-     * @return List of VPC Security Groups for which the option is enabled.
-     * 
-     */
     private @Nullable List<String> vpcSecurityGroupMemberships;
 
     private OptionGroupOption() {}
-    /**
-     * @return List of DB Security Groups for which the option is enabled.
-     * 
-     */
     public List<String> dbSecurityGroupMemberships() {
         return this.dbSecurityGroupMemberships == null ? List.of() : this.dbSecurityGroupMemberships;
     }
-    /**
-     * @return Name of the option (e.g., MEMCACHED).
-     * 
-     */
     public String optionName() {
         return this.optionName;
     }
-    /**
-     * @return The option settings to apply. See `optionSettings` Block below for more details.
-     * 
-     */
     public List<OptionGroupOptionOptionSetting> optionSettings() {
         return this.optionSettings == null ? List.of() : this.optionSettings;
     }
-    /**
-     * @return Port number when connecting to the option (e.g., 11211). Leaving out or removing `port` from your configuration does not remove or clear a port from the option in AWS. AWS may assign a default port. Not including `port` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any port changes.
-     * 
-     */
     public Optional<Integer> port() {
         return Optional.ofNullable(this.port);
     }
-    /**
-     * @return Version of the option (e.g., 13.1.0.0). Leaving out or removing `version` from your configuration does not remove or clear a version from the option in AWS. AWS may assign a default version. Not including `version` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any version changes.
-     * 
-     */
     public Optional<String> version() {
         return Optional.ofNullable(this.version);
     }
-    /**
-     * @return List of VPC Security Groups for which the option is enabled.
-     * 
-     */
     public List<String> vpcSecurityGroupMemberships() {
         return this.vpcSecurityGroupMemberships == null ? List.of() : this.vpcSecurityGroupMemberships;
     }

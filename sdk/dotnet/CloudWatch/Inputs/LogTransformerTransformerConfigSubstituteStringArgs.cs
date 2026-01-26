@@ -14,10 +14,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
     {
         [Input("entries", required: true)]
         private InputList<Inputs.LogTransformerTransformerConfigSubstituteStringEntryArgs>? _entries;
-
-        /// <summary>
-        /// Objects containing the information about the fields to substitute. You must include at least one entry, and ten at most. See `SubstituteString` `Entry` below for details.
-        /// </summary>
         public InputList<Inputs.LogTransformerTransformerConfigSubstituteStringEntryArgs> Entries
         {
             get => _entries ?? (_entries = new InputList<Inputs.LogTransformerTransformerConfigSubstituteStringEntryArgs>());

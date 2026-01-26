@@ -13,21 +13,8 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsSlotTypeValueSelectionSetting
     {
-        /// <summary>
-        /// Provides settings that enable advanced recognition settings for slot values.
-        /// You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
-        /// See `AdvancedRecognitionSetting` argument reference below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting> AdvancedRecognitionSettings;
-        /// <summary>
-        /// Used to validate the value of the slot.
-        /// See `RegexFilter` argument reference below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsSlotTypeValueSelectionSettingRegexFilter> RegexFilters;
-        /// <summary>
-        /// Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
-        /// Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
-        /// </summary>
         public readonly string ResolutionStrategy;
 
         [OutputConstructor]

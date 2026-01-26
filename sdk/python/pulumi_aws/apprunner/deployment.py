@@ -26,8 +26,6 @@ class DeploymentArgs:
                  timeouts: Optional[pulumi.Input['DeploymentTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Deployment resource.
-        :param pulumi.Input[_builtins.str] service_arn: The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "service_arn", service_arn)
         if region is not None:
@@ -38,9 +36,6 @@ class DeploymentArgs:
     @_builtins.property
     @pulumi.getter(name="serviceArn")
     def service_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
-        """
         return pulumi.get(self, "service_arn")
 
     @service_arn.setter
@@ -50,9 +45,6 @@ class DeploymentArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -79,10 +71,6 @@ class _DeploymentState:
                  timeouts: Optional[pulumi.Input['DeploymentTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Deployment resources.
-        :param pulumi.Input[_builtins.str] operation_id: The unique ID of the operation associated with deployment.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] service_arn: The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
-        :param pulumi.Input[_builtins.str] status: The current status of the App Runner service deployment.
         """
         if operation_id is not None:
             pulumi.set(__self__, "operation_id", operation_id)
@@ -98,9 +86,6 @@ class _DeploymentState:
     @_builtins.property
     @pulumi.getter(name="operationId")
     def operation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The unique ID of the operation associated with deployment.
-        """
         return pulumi.get(self, "operation_id")
 
     @operation_id.setter
@@ -110,9 +95,6 @@ class _DeploymentState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -122,9 +104,6 @@ class _DeploymentState:
     @_builtins.property
     @pulumi.getter(name="serviceArn")
     def service_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
-        """
         return pulumi.get(self, "service_arn")
 
     @service_arn.setter
@@ -134,9 +113,6 @@ class _DeploymentState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The current status of the App Runner service deployment.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -164,21 +140,9 @@ class Deployment(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['DeploymentTimeoutsArgs', 'DeploymentTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Manages an App Runner Deployment Operation.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apprunner.Deployment("example", service_arn=example_aws_apprunner_service["arn"])
-        ```
-
+        Create a Deployment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] service_arn: The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
         """
         ...
     @overload
@@ -187,17 +151,7 @@ class Deployment(pulumi.CustomResource):
                  args: DeploymentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an App Runner Deployment Operation.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apprunner.Deployment("example", service_arn=example_aws_apprunner_service["arn"])
-        ```
-
+        Create a Deployment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -254,10 +208,6 @@ class Deployment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] operation_id: The unique ID of the operation associated with deployment.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] service_arn: The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
-        :param pulumi.Input[_builtins.str] status: The current status of the App Runner service deployment.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -273,33 +223,21 @@ class Deployment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="operationId")
     def operation_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The unique ID of the operation associated with deployment.
-        """
         return pulumi.get(self, "operation_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="serviceArn")
     def service_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
-        """
         return pulumi.get(self, "service_arn")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        The current status of the App Runner service deployment.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property

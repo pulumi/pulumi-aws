@@ -13,27 +13,10 @@ namespace Pulumi.Aws.Connect.Outputs
     [OutputType]
     public sealed class UserHierarchyStructureHierarchyStructure
     {
-        /// <summary>
-        /// A block that defines the details of level five. The level block is documented below.
-        /// 
-        /// Each level block supports the following arguments:
-        /// </summary>
         public readonly Outputs.UserHierarchyStructureHierarchyStructureLevelFive? LevelFive;
-        /// <summary>
-        /// A block that defines the details of level four. The level block is documented below.
-        /// </summary>
         public readonly Outputs.UserHierarchyStructureHierarchyStructureLevelFour? LevelFour;
-        /// <summary>
-        /// A block that defines the details of level one. The level block is documented below.
-        /// </summary>
         public readonly Outputs.UserHierarchyStructureHierarchyStructureLevelOne? LevelOne;
-        /// <summary>
-        /// A block that defines the details of level three. The level block is documented below.
-        /// </summary>
         public readonly Outputs.UserHierarchyStructureHierarchyStructureLevelThree? LevelThree;
-        /// <summary>
-        /// A block that defines the details of level two. The level block is documented below.
-        /// </summary>
         public readonly Outputs.UserHierarchyStructureHierarchyStructureLevelTwo? LevelTwo;
 
         [OutputConstructor]

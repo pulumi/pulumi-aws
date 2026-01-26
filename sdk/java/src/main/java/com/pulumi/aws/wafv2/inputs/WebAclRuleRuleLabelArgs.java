@@ -14,17 +14,9 @@ public final class WebAclRuleRuleLabelArgs extends com.pulumi.resources.Resource
 
     public static final WebAclRuleRuleLabelArgs Empty = new WebAclRuleRuleLabelArgs();
 
-    /**
-     * Label string.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Label string.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -53,23 +45,11 @@ public final class WebAclRuleRuleLabelArgs extends com.pulumi.resources.Resource
             $ = new WebAclRuleRuleLabelArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Label string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Label string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

@@ -62,33 +62,21 @@ class GetReportPlanResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the backup report plan.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> _builtins.str:
-        """
-        Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
-        """
         return pulumi.get(self, "creation_time")
 
     @_builtins.property
     @pulumi.getter(name="deploymentStatus")
     def deployment_status(self) -> _builtins.str:
-        """
-        Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
-        """
         return pulumi.get(self, "deployment_status")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the report plan.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -112,25 +100,16 @@ class GetReportPlanResult:
     @_builtins.property
     @pulumi.getter(name="reportDeliveryChannels")
     def report_delivery_channels(self) -> Sequence['outputs.GetReportPlanReportDeliveryChannelResult']:
-        """
-        An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
-        """
         return pulumi.get(self, "report_delivery_channels")
 
     @_builtins.property
     @pulumi.getter(name="reportSettings")
     def report_settings(self) -> Sequence['outputs.GetReportPlanReportSettingResult']:
-        """
-        An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
-        """
         return pulumi.get(self, "report_settings")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Metadata that you can assign to help organize the report plans you create.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -157,21 +136,7 @@ def get_report_plan(name: Optional[_builtins.str] = None,
                     tags: Optional[Mapping[str, _builtins.str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReportPlanResult:
     """
-    Use this data source to get information on an existing backup report plan.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.backup.get_report_plan(name="my_example_backup_report_plan_name")
-    ```
-
-
-    :param _builtins.str name: Backup report plan name.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Metadata that you can assign to help organize the report plans you create.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -196,21 +161,7 @@ def get_report_plan_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReportPlanResult]:
     """
-    Use this data source to get information on an existing backup report plan.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.backup.get_report_plan(name="my_example_backup_report_plan_name")
-    ```
-
-
-    :param _builtins.str name: Backup report plan name.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Metadata that you can assign to help organize the report plans you create.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

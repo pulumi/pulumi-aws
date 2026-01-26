@@ -7,33 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Athena Capacity Reservation.
- *
- * > Destruction of this resource will both [cancel](https://docs.aws.amazon.com/athena/latest/ug/capacity-management-cancelling-a-capacity-reservation.html) and [delete](https://docs.aws.amazon.com/athena/latest/ug/capacity-management-deleting-a-capacity-reservation.html) the capacity reservation.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.athena.CapacityReservation("example", {
- *     name: "example-reservation",
- *     targetDpus: 24,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Athena Capacity Reservation using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:athena/capacityReservation:CapacityReservation example example-reservation
- * ```
- */
 export class CapacityReservation extends pulumi.CustomResource {
     /**
      * Get an existing CapacityReservation resource's state with the given name, ID, and optional extra
@@ -62,39 +35,13 @@ export class CapacityReservation extends pulumi.CustomResource {
         return obj['__pulumiType'] === CapacityReservation.__pulumiType;
     }
 
-    /**
-     * Number of data processing units currently allocated.
-     */
     declare public /*out*/ readonly allocatedDpus: pulumi.Output<number>;
-    /**
-     * ARN of the Capacity Reservation.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Name of the capacity reservation.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Status of the capacity reservation.
-     */
     declare public /*out*/ readonly status: pulumi.Output<string>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Number of data processing units requested. Must be at least `24` units.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly targetDpus: pulumi.Output<number>;
     declare public readonly timeouts: pulumi.Output<outputs.athena.CapacityReservationTimeouts | undefined>;
 
@@ -144,39 +91,13 @@ export class CapacityReservation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CapacityReservation resources.
  */
 export interface CapacityReservationState {
-    /**
-     * Number of data processing units currently allocated.
-     */
     allocatedDpus?: pulumi.Input<number>;
-    /**
-     * ARN of the Capacity Reservation.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Name of the capacity reservation.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Status of the capacity reservation.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Number of data processing units requested. Must be at least `24` units.
-     *
-     * The following arguments are optional:
-     */
     targetDpus?: pulumi.Input<number>;
     timeouts?: pulumi.Input<inputs.athena.CapacityReservationTimeouts>;
 }
@@ -185,23 +106,9 @@ export interface CapacityReservationState {
  * The set of arguments for constructing a CapacityReservation resource.
  */
 export interface CapacityReservationArgs {
-    /**
-     * Name of the capacity reservation.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Number of data processing units requested. Must be at least `24` units.
-     *
-     * The following arguments are optional:
-     */
     targetDpus: pulumi.Input<number>;
     timeouts?: pulumi.Input<inputs.athena.CapacityReservationTimeouts>;
 }

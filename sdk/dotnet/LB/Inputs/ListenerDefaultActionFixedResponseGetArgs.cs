@@ -12,23 +12,12 @@ namespace Pulumi.Aws.LB.Inputs
 
     public sealed class ListenerDefaultActionFixedResponseGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("contentType", required: true)]
         public Input<string> ContentType { get; set; } = null!;
 
-        /// <summary>
-        /// Message body.
-        /// </summary>
         [Input("messageBody")]
         public Input<string>? MessageBody { get; set; }
 
-        /// <summary>
-        /// HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
-        /// </summary>
         [Input("statusCode")]
         public Input<string>? StatusCode { get; set; }
 

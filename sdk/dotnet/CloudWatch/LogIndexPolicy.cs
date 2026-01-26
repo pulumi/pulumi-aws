@@ -9,68 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudWatch
 {
-    /// <summary>
-    /// Resource for managing an AWS CloudWatch Logs Index Policy.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudWatch.LogGroup("example", new()
-    ///     {
-    ///         Name = "example",
-    ///     });
-    /// 
-    ///     var exampleLogIndexPolicy = new Aws.CloudWatch.LogIndexPolicy("example", new()
-    ///     {
-    ///         LogGroupName = example.Name,
-    ///         PolicyDocument = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Fields"] = new[]
-    ///             {
-    ///                 "eventName",
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import CloudWatch Logs Index Policy using the `log_group_name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cloudwatch/logIndexPolicy:LogIndexPolicy example /aws/log/group/name
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cloudwatch/logIndexPolicy:LogIndexPolicy")]
     public partial class LogIndexPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Log group name to set the policy for.
-        /// </summary>
         [Output("logGroupName")]
         public Output<string> LogGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// JSON policy document. This is a JSON formatted string.
+        /// Field index filter policy, in JSON
         /// </summary>
         [Output("policyDocument")]
         public Output<string> PolicyDocument { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -120,21 +70,15 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class LogIndexPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Log group name to set the policy for.
-        /// </summary>
         [Input("logGroupName", required: true)]
         public Input<string> LogGroupName { get; set; } = null!;
 
         /// <summary>
-        /// JSON policy document. This is a JSON formatted string.
+        /// Field index filter policy, in JSON
         /// </summary>
         [Input("policyDocument", required: true)]
         public Input<string> PolicyDocument { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -146,21 +90,15 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class LogIndexPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Log group name to set the policy for.
-        /// </summary>
         [Input("logGroupName")]
         public Input<string>? LogGroupName { get; set; }
 
         /// <summary>
-        /// JSON policy document. This is a JSON formatted string.
+        /// Field index filter policy, in JSON
         /// </summary>
         [Input("policyDocument")]
         public Input<string>? PolicyDocument { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

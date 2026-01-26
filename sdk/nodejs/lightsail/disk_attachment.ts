@@ -4,48 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Lightsail disk attachment. Use this resource to attach additional storage disks to your Lightsail instances for expanded storage capacity.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const available = aws.getAvailabilityZones({
- *     state: "available",
- *     filters: [{
- *         name: "opt-in-status",
- *         values: ["opt-in-not-required"],
- *     }],
- * });
- * const example = new aws.lightsail.Disk("example", {
- *     name: "example-disk",
- *     sizeInGb: 8,
- *     availabilityZone: available.then(available => available.names?.[0]),
- * });
- * const exampleInstance = new aws.lightsail.Instance("example", {
- *     name: "example-instance",
- *     availabilityZone: available.then(available => available.names?.[0]),
- *     blueprintId: "amazon_linux_2",
- *     bundleId: "nano_3_0",
- * });
- * const exampleDisk_attachment = new aws.lightsail.Disk_attachment("example", {
- *     diskName: example.name,
- *     instanceName: exampleInstance.name,
- *     diskPath: "/dev/xvdf",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_lightsail_disk_attachment` using the id attribute. For example:
- *
- * ```sh
- * $ pulumi import aws:lightsail/disk_attachment:Disk_attachment example example-disk,example-instance
- * ```
- */
 export class Disk_attachment extends pulumi.CustomResource {
     /**
      * Get an existing Disk_attachment resource's state with the given name, ID, and optional extra
@@ -74,21 +32,9 @@ export class Disk_attachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === Disk_attachment.__pulumiType;
     }
 
-    /**
-     * Name of the Lightsail disk.
-     */
     declare public readonly diskName: pulumi.Output<string>;
-    /**
-     * Disk path to expose to the instance.
-     */
     declare public readonly diskPath: pulumi.Output<string>;
-    /**
-     * Name of the Lightsail instance to attach to.
-     */
     declare public readonly instanceName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -133,21 +79,9 @@ export class Disk_attachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Disk_attachment resources.
  */
 export interface Disk_attachmentState {
-    /**
-     * Name of the Lightsail disk.
-     */
     diskName?: pulumi.Input<string>;
-    /**
-     * Disk path to expose to the instance.
-     */
     diskPath?: pulumi.Input<string>;
-    /**
-     * Name of the Lightsail instance to attach to.
-     */
     instanceName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -155,20 +89,8 @@ export interface Disk_attachmentState {
  * The set of arguments for constructing a Disk_attachment resource.
  */
 export interface Disk_attachmentArgs {
-    /**
-     * Name of the Lightsail disk.
-     */
     diskName: pulumi.Input<string>;
-    /**
-     * Disk path to expose to the instance.
-     */
     diskPath: pulumi.Input<string>;
-    /**
-     * Name of the Lightsail instance to attach to.
-     */
     instanceName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

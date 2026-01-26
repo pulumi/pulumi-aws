@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class CapabilityConfigurationArgoCdNetworkAccess
     {
-        /// <summary>
-        /// VPC Endpoint IDs.
-        /// </summary>
         public readonly ImmutableArray<string> VpceIds;
 
         [OutputConstructor]

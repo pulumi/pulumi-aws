@@ -11,47 +11,21 @@ import java.util.Objects;
 
 @CustomType
 public final class KxClusterVpcConfiguration {
-    /**
-     * @return IP address type for cluster network configuration parameters. The following type is available: IP_V4 - IP address version 4.
-     * 
-     */
     private String ipAddressType;
-    /**
-     * @return Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-     * * ` subnetIds  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
-     * 
-     */
     private List<String> securityGroupIds;
     private List<String> subnetIds;
-    /**
-     * @return Identifier of the VPC endpoint
-     * 
-     */
     private String vpcId;
 
     private KxClusterVpcConfiguration() {}
-    /**
-     * @return IP address type for cluster network configuration parameters. The following type is available: IP_V4 - IP address version 4.
-     * 
-     */
     public String ipAddressType() {
         return this.ipAddressType;
     }
-    /**
-     * @return Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-     * * ` subnetIds  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds;
     }
     public List<String> subnetIds() {
         return this.subnetIds;
     }
-    /**
-     * @return Identifier of the VPC endpoint
-     * 
-     */
     public String vpcId() {
         return this.vpcId;
     }

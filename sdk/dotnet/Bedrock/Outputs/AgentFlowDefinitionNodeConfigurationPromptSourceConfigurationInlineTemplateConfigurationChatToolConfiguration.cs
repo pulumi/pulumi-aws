@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration
     {
-        /// <summary>
-        /// Defines which tools the model should request when invoked. See Tool Choice for more information.
-        /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice? ToolChoice;
-        /// <summary>
-        /// A list of tools to pass to a model. See Tool for more information.
-        /// </summary>
         public readonly ImmutableArray<Outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationTool> Tools;
 
         [OutputConstructor]

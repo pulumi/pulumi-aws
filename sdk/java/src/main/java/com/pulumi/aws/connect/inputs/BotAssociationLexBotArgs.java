@@ -16,32 +16,16 @@ public final class BotAssociationLexBotArgs extends com.pulumi.resources.Resourc
 
     public static final BotAssociationLexBotArgs Empty = new BotAssociationLexBotArgs();
 
-    /**
-     * The Region that the Amazon Lex (V1) bot was created in. Defaults to current region.
-     * 
-     */
     @Import(name="lexRegion")
     private @Nullable Output<String> lexRegion;
 
-    /**
-     * @return The Region that the Amazon Lex (V1) bot was created in. Defaults to current region.
-     * 
-     */
     public Optional<Output<String>> lexRegion() {
         return Optional.ofNullable(this.lexRegion);
     }
 
-    /**
-     * The name of the Amazon Lex (V1) bot.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the Amazon Lex (V1) bot.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -71,44 +55,20 @@ public final class BotAssociationLexBotArgs extends com.pulumi.resources.Resourc
             $ = new BotAssociationLexBotArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param lexRegion The Region that the Amazon Lex (V1) bot was created in. Defaults to current region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lexRegion(@Nullable Output<String> lexRegion) {
             $.lexRegion = lexRegion;
             return this;
         }
 
-        /**
-         * @param lexRegion The Region that the Amazon Lex (V1) bot was created in. Defaults to current region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lexRegion(String lexRegion) {
             return lexRegion(Output.of(lexRegion));
         }
 
-        /**
-         * @param name The name of the Amazon Lex (V1) bot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the Amazon Lex (V1) bot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

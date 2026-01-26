@@ -9,76 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.VpcLattice
 {
-    /// <summary>
-    /// Resource for managing an AWS VPC Lattice Service Network or Service Access log subscription.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.VpcLattice.AccessLogSubscription("example", new()
-    ///     {
-    ///         ResourceIdentifier = exampleAwsVpclatticeServiceNetwork.Id,
-    ///         DestinationArn = bucket.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import VPC Lattice Access Log Subscription using the access log subscription ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:vpclattice/accessLogSubscription:AccessLogSubscription")]
     public partial class AccessLogSubscription : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the access log subscription.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the log destination.
-        /// </summary>
         [Output("destinationArn")]
         public Output<string> DestinationArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the service network or service.
-        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("resourceIdentifier")]
         public Output<string> ResourceIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
-        /// </summary>
         [Output("serviceNetworkLogType")]
         public Output<string> ServiceNetworkLogType { get; private set; } = null!;
 
@@ -134,29 +82,15 @@ namespace Pulumi.Aws.VpcLattice
 
     public sealed class AccessLogSubscriptionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the log destination.
-        /// </summary>
         [Input("destinationArn", required: true)]
         public Input<string> DestinationArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("resourceIdentifier", required: true)]
         public Input<string> ResourceIdentifier { get; set; } = null!;
 
-        /// <summary>
-        /// Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
-        /// </summary>
         [Input("serviceNetworkLogType")]
         public Input<string>? ServiceNetworkLogType { get; set; }
 
@@ -176,41 +110,21 @@ namespace Pulumi.Aws.VpcLattice
 
     public sealed class AccessLogSubscriptionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the access log subscription.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the log destination.
-        /// </summary>
         [Input("destinationArn")]
         public Input<string>? DestinationArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the service network or service.
-        /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 
-        /// <summary>
-        /// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("resourceIdentifier")]
         public Input<string>? ResourceIdentifier { get; set; }
 
-        /// <summary>
-        /// Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
-        /// </summary>
         [Input("serviceNetworkLogType")]
         public Input<string>? ServiceNetworkLogType { get; set; }
 

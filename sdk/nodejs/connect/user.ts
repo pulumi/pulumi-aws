@@ -7,135 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an Amazon Connect User resource. For more information see
- * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
- *
- * ## Example Usage
- *
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.connect.User("example", {
- *     instanceId: exampleAwsConnectInstance.id,
- *     name: "example",
- *     password: "Password123",
- *     routingProfileId: exampleAwsConnectRoutingProfile.routingProfileId,
- *     securityProfileIds: [exampleAwsConnectSecurityProfile.securityProfileId],
- *     identityInfo: {
- *         firstName: "example",
- *         lastName: "example2",
- *     },
- *     phoneConfig: {
- *         afterContactWorkTimeLimit: 0,
- *         phoneType: "SOFT_PHONE",
- *     },
- * });
- * ```
- *
- * ### With hierarchyGroupId
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.connect.User("example", {
- *     instanceId: exampleAwsConnectInstance.id,
- *     name: "example",
- *     password: "Password123",
- *     routingProfileId: exampleAwsConnectRoutingProfile.routingProfileId,
- *     hierarchyGroupId: exampleAwsConnectUserHierarchyGroup.hierarchyGroupId,
- *     securityProfileIds: [exampleAwsConnectSecurityProfile.securityProfileId],
- *     identityInfo: {
- *         firstName: "example",
- *         lastName: "example2",
- *     },
- *     phoneConfig: {
- *         afterContactWorkTimeLimit: 0,
- *         phoneType: "SOFT_PHONE",
- *     },
- * });
- * ```
- *
- * ### With identityInfo filled
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.connect.User("example", {
- *     instanceId: exampleAwsConnectInstance.id,
- *     name: "example",
- *     password: "Password123",
- *     routingProfileId: exampleAwsConnectRoutingProfile.routingProfileId,
- *     securityProfileIds: [exampleAwsConnectSecurityProfile.securityProfileId],
- *     identityInfo: {
- *         email: "example@example.com",
- *         firstName: "example",
- *         lastName: "example2",
- *         secondaryEmail: "secondary@example.com",
- *     },
- *     phoneConfig: {
- *         afterContactWorkTimeLimit: 0,
- *         phoneType: "SOFT_PHONE",
- *     },
- * });
- * ```
- *
- * ### With phoneConfig phone type as desk phone
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.connect.User("example", {
- *     instanceId: exampleAwsConnectInstance.id,
- *     name: "example",
- *     password: "Password123",
- *     routingProfileId: exampleAwsConnectRoutingProfile.routingProfileId,
- *     securityProfileIds: [exampleAwsConnectSecurityProfile.securityProfileId],
- *     phoneConfig: {
- *         afterContactWorkTimeLimit: 0,
- *         phoneType: "SOFT_PHONE",
- *     },
- * });
- * ```
- *
- * ### With multiple Security profile ids specified in securityProfileIds
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.connect.User("example", {
- *     instanceId: exampleAwsConnectInstance.id,
- *     name: "example",
- *     password: "Password123",
- *     routingProfileId: exampleAwsConnectRoutingProfile.routingProfileId,
- *     securityProfileIds: [
- *         exampleAwsConnectSecurityProfile.securityProfileId,
- *         example2.securityProfileId,
- *     ],
- *     phoneConfig: {
- *         afterContactWorkTimeLimit: 0,
- *         autoAccept: false,
- *         deskPhoneNumber: "+112345678912",
- *         phoneType: "DESK_PHONE",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Amazon Connect Users using the `instance_id` and `user_id` separated by a colon (`:`). For example:
- *
- * ```sh
- * $ pulumi import aws:connect/user:User example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
- * ```
- */
 export class User extends pulumi.CustomResource {
     /**
      * Get an existing User resource's state with the given name, ID, and optional extra
@@ -164,62 +35,19 @@ export class User extends pulumi.CustomResource {
         return obj['__pulumiType'] === User.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the user.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
-     */
     declare public readonly directoryUserId: pulumi.Output<string>;
-    /**
-     * The identifier of the hierarchy group for the user.
-     */
     declare public readonly hierarchyGroupId: pulumi.Output<string | undefined>;
-    /**
-     * A block that contains information about the identity of the user. Documented below.
-     */
     declare public readonly identityInfo: pulumi.Output<outputs.connect.UserIdentityInfo | undefined>;
-    /**
-     * Specifies the identifier of the hosting Amazon Connect Instance.
-     */
     declare public readonly instanceId: pulumi.Output<string>;
-    /**
-     * The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\@]+`.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
-     */
     declare public readonly password: pulumi.Output<string | undefined>;
-    /**
-     * A block that contains information about the phone settings for the user. Documented below.
-     */
     declare public readonly phoneConfig: pulumi.Output<outputs.connect.UserPhoneConfig>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The identifier of the routing profile for the user.
-     */
     declare public readonly routingProfileId: pulumi.Output<string>;
-    /**
-     * A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
-     */
     declare public readonly securityProfileIds: pulumi.Output<string[]>;
-    /**
-     * Tags to apply to the user. If configured with a provider
-     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The identifier for the user.
-     */
     declare public /*out*/ readonly userId: pulumi.Output<string>;
 
     /**
@@ -289,62 +117,19 @@ export class User extends pulumi.CustomResource {
  * Input properties used for looking up and filtering User resources.
  */
 export interface UserState {
-    /**
-     * The Amazon Resource Name (ARN) of the user.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
-     */
     directoryUserId?: pulumi.Input<string>;
-    /**
-     * The identifier of the hierarchy group for the user.
-     */
     hierarchyGroupId?: pulumi.Input<string>;
-    /**
-     * A block that contains information about the identity of the user. Documented below.
-     */
     identityInfo?: pulumi.Input<inputs.connect.UserIdentityInfo>;
-    /**
-     * Specifies the identifier of the hosting Amazon Connect Instance.
-     */
     instanceId?: pulumi.Input<string>;
-    /**
-     * The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\@]+`.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
-     */
     password?: pulumi.Input<string>;
-    /**
-     * A block that contains information about the phone settings for the user. Documented below.
-     */
     phoneConfig?: pulumi.Input<inputs.connect.UserPhoneConfig>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The identifier of the routing profile for the user.
-     */
     routingProfileId?: pulumi.Input<string>;
-    /**
-     * A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
-     */
     securityProfileIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Tags to apply to the user. If configured with a provider
-     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The identifier for the user.
-     */
     userId?: pulumi.Input<string>;
 }
 
@@ -352,49 +137,15 @@ export interface UserState {
  * The set of arguments for constructing a User resource.
  */
 export interface UserArgs {
-    /**
-     * The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
-     */
     directoryUserId?: pulumi.Input<string>;
-    /**
-     * The identifier of the hierarchy group for the user.
-     */
     hierarchyGroupId?: pulumi.Input<string>;
-    /**
-     * A block that contains information about the identity of the user. Documented below.
-     */
     identityInfo?: pulumi.Input<inputs.connect.UserIdentityInfo>;
-    /**
-     * Specifies the identifier of the hosting Amazon Connect Instance.
-     */
     instanceId: pulumi.Input<string>;
-    /**
-     * The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\@]+`.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
-     */
     password?: pulumi.Input<string>;
-    /**
-     * A block that contains information about the phone settings for the user. Documented below.
-     */
     phoneConfig: pulumi.Input<inputs.connect.UserPhoneConfig>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The identifier of the routing profile for the user.
-     */
     routingProfileId: pulumi.Input<string>;
-    /**
-     * A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
-     */
     securityProfileIds: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Tags to apply to the user. If configured with a provider
-     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

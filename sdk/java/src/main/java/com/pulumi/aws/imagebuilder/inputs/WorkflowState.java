@@ -16,152 +16,72 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
 
     public static final WorkflowState Empty = new WorkflowState();
 
-    /**
-     * Amazon Resource Name (ARN) of the workflow.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the workflow.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Change description of the workflow.
-     * 
-     */
     @Import(name="changeDescription")
     private @Nullable Output<String> changeDescription;
 
-    /**
-     * @return Change description of the workflow.
-     * 
-     */
     public Optional<Output<String>> changeDescription() {
         return Optional.ofNullable(this.changeDescription);
     }
 
-    /**
-     * Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
-     * 
-     */
     @Import(name="data")
     private @Nullable Output<String> data;
 
-    /**
-     * @return Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
-     * 
-     */
     public Optional<Output<String>> data() {
         return Optional.ofNullable(this.data);
     }
 
-    /**
-     * Date the workflow was created.
-     * 
-     */
     @Import(name="dateCreated")
     private @Nullable Output<String> dateCreated;
 
-    /**
-     * @return Date the workflow was created.
-     * 
-     */
     public Optional<Output<String>> dateCreated() {
         return Optional.ofNullable(this.dateCreated);
     }
 
-    /**
-     * Description of the workflow.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the workflow.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
-     * 
-     */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
-     * 
-     */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
 
-    /**
-     * Name of the workflow.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the workflow.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Owner of the workflow.
-     * 
-     */
     @Import(name="owner")
     private @Nullable Output<String> owner;
 
-    /**
-     * @return Owner of the workflow.
-     * 
-     */
     public Optional<Output<String>> owner() {
         return Optional.ofNullable(this.owner);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags for the workflow. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags for the workflow. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -173,51 +93,23 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tagsAll);
     }
 
-    /**
-     * Type of the workflow. Valid values: `BUILD`, `TEST`.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return Type of the workflow. Valid values: `BUILD`, `TEST`.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
 
-    /**
-     * S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
-     * 
-     */
     @Import(name="uri")
     private @Nullable Output<String> uri;
 
-    /**
-     * @return S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
-     * 
-     */
     public Optional<Output<String>> uri() {
         return Optional.ofNullable(this.uri);
     }
 
-    /**
-     * Version of the workflow.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="version")
     private @Nullable Output<String> version;
 
-    /**
-     * @return Version of the workflow.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> version() {
         return Optional.ofNullable(this.version);
     }
@@ -259,212 +151,92 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
             $ = new WorkflowState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of the workflow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of the workflow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param changeDescription Change description of the workflow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder changeDescription(@Nullable Output<String> changeDescription) {
             $.changeDescription = changeDescription;
             return this;
         }
 
-        /**
-         * @param changeDescription Change description of the workflow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder changeDescription(String changeDescription) {
             return changeDescription(Output.of(changeDescription));
         }
 
-        /**
-         * @param data Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder data(@Nullable Output<String> data) {
             $.data = data;
             return this;
         }
 
-        /**
-         * @param data Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder data(String data) {
             return data(Output.of(data));
         }
 
-        /**
-         * @param dateCreated Date the workflow was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dateCreated(@Nullable Output<String> dateCreated) {
             $.dateCreated = dateCreated;
             return this;
         }
 
-        /**
-         * @param dateCreated Date the workflow was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dateCreated(String dateCreated) {
             return dateCreated(Output.of(dateCreated));
         }
 
-        /**
-         * @param description Description of the workflow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the workflow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param kmsKeyId Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
-        /**
-         * @param kmsKeyId Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }
 
-        /**
-         * @param name Name of the workflow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the workflow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param owner Owner of the workflow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owner(@Nullable Output<String> owner) {
             $.owner = owner;
             return this;
         }
 
-        /**
-         * @param owner Owner of the workflow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owner(String owner) {
             return owner(Output.of(owner));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value map of resource tags for the workflow. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags for the workflow. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
@@ -478,69 +250,29 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
             return tagsAll(Output.of(tagsAll));
         }
 
-        /**
-         * @param type Type of the workflow. Valid values: `BUILD`, `TEST`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of the workflow. Valid values: `BUILD`, `TEST`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
-        /**
-         * @param uri S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uri(@Nullable Output<String> uri) {
             $.uri = uri;
             return this;
         }
 
-        /**
-         * @param uri S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uri(String uri) {
             return uri(Output.of(uri));
         }
 
-        /**
-         * @param version Version of the workflow.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(@Nullable Output<String> version) {
             $.version = version;
             return this;
         }
 
-        /**
-         * @param version Version of the workflow.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(String version) {
             return version(Output.of(version));
         }

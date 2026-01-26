@@ -12,9 +12,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
 
     public sealed class TlsInspectionConfigurationTlsInspectionConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Server certificate configurations that are associated with the TLS configuration. Detailed below.
-        /// </summary>
         [Input("serverCertificateConfiguration")]
         public Input<Inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationGetArgs>? ServerCertificateConfiguration { get; set; }
 

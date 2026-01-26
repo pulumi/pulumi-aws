@@ -26,9 +26,6 @@ class ResourceDataSyncArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourceDataSync resource.
-        :param pulumi.Input['ResourceDataSyncS3DestinationArgs'] s3_destination: Amazon S3 configuration details for the sync.
-        :param pulumi.Input[_builtins.str] name: Name for the configuration.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "s3_destination", s3_destination)
         if name is not None:
@@ -39,9 +36,6 @@ class ResourceDataSyncArgs:
     @_builtins.property
     @pulumi.getter(name="s3Destination")
     def s3_destination(self) -> pulumi.Input['ResourceDataSyncS3DestinationArgs']:
-        """
-        Amazon S3 configuration details for the sync.
-        """
         return pulumi.get(self, "s3_destination")
 
     @s3_destination.setter
@@ -51,9 +45,6 @@ class ResourceDataSyncArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name for the configuration.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -63,9 +54,6 @@ class ResourceDataSyncArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -81,9 +69,6 @@ class _ResourceDataSyncState:
                  s3_destination: Optional[pulumi.Input['ResourceDataSyncS3DestinationArgs']] = None):
         """
         Input properties used for looking up and filtering ResourceDataSync resources.
-        :param pulumi.Input[_builtins.str] name: Name for the configuration.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['ResourceDataSyncS3DestinationArgs'] s3_destination: Amazon S3 configuration details for the sync.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -95,9 +80,6 @@ class _ResourceDataSyncState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name for the configuration.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -107,9 +89,6 @@ class _ResourceDataSyncState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -119,9 +98,6 @@ class _ResourceDataSyncState:
     @_builtins.property
     @pulumi.getter(name="s3Destination")
     def s3_destination(self) -> Optional[pulumi.Input['ResourceDataSyncS3DestinationArgs']]:
-        """
-        Amazon S3 configuration details for the sync.
-        """
         return pulumi.get(self, "s3_destination")
 
     @s3_destination.setter
@@ -140,66 +116,9 @@ class ResourceDataSync(pulumi.CustomResource):
                  s3_destination: Optional[pulumi.Input[Union['ResourceDataSyncS3DestinationArgs', 'ResourceDataSyncS3DestinationArgsDict']]] = None,
                  __props__=None):
         """
-        Provides a SSM resource data sync.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        hoge_bucket = aws.s3.Bucket("hoge", bucket="tf-test-bucket-1234")
-        hoge = aws.iam.get_policy_document(statements=[
-            {
-                "sid": "SSMBucketPermissionsCheck",
-                "effect": "Allow",
-                "principals": [{
-                    "type": "Service",
-                    "identifiers": ["ssm.amazonaws.com"],
-                }],
-                "actions": ["s3:GetBucketAcl"],
-                "resources": ["arn:aws:s3:::tf-test-bucket-1234"],
-            },
-            {
-                "sid": "SSMBucketDelivery",
-                "effect": "Allow",
-                "principals": [{
-                    "type": "Service",
-                    "identifiers": ["ssm.amazonaws.com"],
-                }],
-                "actions": ["s3:PutObject"],
-                "resources": ["arn:aws:s3:::tf-test-bucket-1234/*"],
-                "conditions": [{
-                    "test": "StringEquals",
-                    "variable": "s3:x-amz-acl",
-                    "values": ["bucket-owner-full-control"],
-                }],
-            },
-        ])
-        hoge_bucket_policy = aws.s3.BucketPolicy("hoge",
-            bucket=hoge_bucket.id,
-            policy=hoge.json)
-        foo = aws.ssm.ResourceDataSync("foo",
-            name="foo",
-            s3_destination={
-                "bucket_name": hoge_bucket.bucket,
-                "region": hoge_bucket.region,
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SSM resource data sync using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
-        ```
-
+        Create a ResourceDataSync resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: Name for the configuration.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ResourceDataSyncS3DestinationArgs', 'ResourceDataSyncS3DestinationArgsDict']] s3_destination: Amazon S3 configuration details for the sync.
         """
         ...
     @overload
@@ -208,61 +127,7 @@ class ResourceDataSync(pulumi.CustomResource):
                  args: ResourceDataSyncArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SSM resource data sync.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        hoge_bucket = aws.s3.Bucket("hoge", bucket="tf-test-bucket-1234")
-        hoge = aws.iam.get_policy_document(statements=[
-            {
-                "sid": "SSMBucketPermissionsCheck",
-                "effect": "Allow",
-                "principals": [{
-                    "type": "Service",
-                    "identifiers": ["ssm.amazonaws.com"],
-                }],
-                "actions": ["s3:GetBucketAcl"],
-                "resources": ["arn:aws:s3:::tf-test-bucket-1234"],
-            },
-            {
-                "sid": "SSMBucketDelivery",
-                "effect": "Allow",
-                "principals": [{
-                    "type": "Service",
-                    "identifiers": ["ssm.amazonaws.com"],
-                }],
-                "actions": ["s3:PutObject"],
-                "resources": ["arn:aws:s3:::tf-test-bucket-1234/*"],
-                "conditions": [{
-                    "test": "StringEquals",
-                    "variable": "s3:x-amz-acl",
-                    "values": ["bucket-owner-full-control"],
-                }],
-            },
-        ])
-        hoge_bucket_policy = aws.s3.BucketPolicy("hoge",
-            bucket=hoge_bucket.id,
-            policy=hoge.json)
-        foo = aws.ssm.ResourceDataSync("foo",
-            name="foo",
-            s3_destination={
-                "bucket_name": hoge_bucket.bucket,
-                "region": hoge_bucket.region,
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SSM resource data sync using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
-        ```
-
+        Create a ResourceDataSync resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ResourceDataSyncArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -315,9 +180,6 @@ class ResourceDataSync(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: Name for the configuration.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ResourceDataSyncS3DestinationArgs', 'ResourceDataSyncS3DestinationArgsDict']] s3_destination: Amazon S3 configuration details for the sync.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -331,24 +193,15 @@ class ResourceDataSync(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name for the configuration.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="s3Destination")
     def s3_destination(self) -> pulumi.Output['outputs.ResourceDataSyncS3Destination']:
-        """
-        Amazon S3 configuration details for the sync.
-        """
         return pulumi.get(self, "s3_destination")
 

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class PipelineParallelismConfiguration
     {
-        /// <summary>
-        /// The max number of steps that can be executed in parallel.
-        /// </summary>
         public readonly int MaxParallelExecutionSteps;
 
         [OutputConstructor]

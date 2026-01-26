@@ -13,33 +13,12 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class ResponseHeadersPolicyCorsConfig
     {
-        /// <summary>
-        /// A Boolean value that CloudFront uses as the value for the `Access-Control-Allow-Credentials` HTTP response header.
-        /// </summary>
         public readonly bool AccessControlAllowCredentials;
-        /// <summary>
-        /// Object that contains an attribute `Items` that contains a list of HTTP header names that CloudFront includes as values for the `Access-Control-Allow-Headers` HTTP response header.
-        /// </summary>
         public readonly Outputs.ResponseHeadersPolicyCorsConfigAccessControlAllowHeaders AccessControlAllowHeaders;
-        /// <summary>
-        /// Object that contains an attribute `Items` that contains a list of HTTP methods that CloudFront includes as values for the `Access-Control-Allow-Methods` HTTP response header. Valid values: `GET` | `POST` | `OPTIONS` | `PUT` | `DELETE` | `HEAD` | `ALL`
-        /// </summary>
         public readonly Outputs.ResponseHeadersPolicyCorsConfigAccessControlAllowMethods AccessControlAllowMethods;
-        /// <summary>
-        /// Object that contains an attribute `Items` that contains a list of origins that CloudFront can use as the value for the `Access-Control-Allow-Origin` HTTP response header.
-        /// </summary>
         public readonly Outputs.ResponseHeadersPolicyCorsConfigAccessControlAllowOrigins AccessControlAllowOrigins;
-        /// <summary>
-        /// Object that contains an attribute `Items` that contains a list of HTTP headers that CloudFront includes as values for the `Access-Control-Expose-Headers` HTTP response header.
-        /// </summary>
         public readonly Outputs.ResponseHeadersPolicyCorsConfigAccessControlExposeHeaders? AccessControlExposeHeaders;
-        /// <summary>
-        /// A number that CloudFront uses as the value for the `Access-Control-Max-Age` HTTP response header.
-        /// </summary>
         public readonly int? AccessControlMaxAgeSec;
-        /// <summary>
-        /// A Boolean value that determines how CloudFront behaves for the HTTP response header.
-        /// </summary>
         public readonly bool OriginOverride;
 
         [OutputConstructor]

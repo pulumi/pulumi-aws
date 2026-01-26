@@ -15,32 +15,16 @@ public final class RouteSpecHttpRouteMatchPathArgs extends com.pulumi.resources.
 
     public static final RouteSpecHttpRouteMatchPathArgs Empty = new RouteSpecHttpRouteMatchPathArgs();
 
-    /**
-     * The exact path to match on.
-     * 
-     */
     @Import(name="exact")
     private @Nullable Output<String> exact;
 
-    /**
-     * @return The exact path to match on.
-     * 
-     */
     public Optional<Output<String>> exact() {
         return Optional.ofNullable(this.exact);
     }
 
-    /**
-     * The regex used to match the path.
-     * 
-     */
     @Import(name="regex")
     private @Nullable Output<String> regex;
 
-    /**
-     * @return The regex used to match the path.
-     * 
-     */
     public Optional<Output<String>> regex() {
         return Optional.ofNullable(this.regex);
     }
@@ -70,44 +54,20 @@ public final class RouteSpecHttpRouteMatchPathArgs extends com.pulumi.resources.
             $ = new RouteSpecHttpRouteMatchPathArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param exact The exact path to match on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exact(@Nullable Output<String> exact) {
             $.exact = exact;
             return this;
         }
 
-        /**
-         * @param exact The exact path to match on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exact(String exact) {
             return exact(Output.of(exact));
         }
 
-        /**
-         * @param regex The regex used to match the path.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regex(@Nullable Output<String> regex) {
             $.regex = regex;
             return this;
         }
 
-        /**
-         * @param regex The regex used to match the path.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regex(String regex) {
             return regex(Output.of(regex));
         }

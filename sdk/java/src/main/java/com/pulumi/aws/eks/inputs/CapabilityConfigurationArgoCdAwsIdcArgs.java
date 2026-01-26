@@ -16,17 +16,9 @@ public final class CapabilityConfigurationArgoCdAwsIdcArgs extends com.pulumi.re
 
     public static final CapabilityConfigurationArgoCdAwsIdcArgs Empty = new CapabilityConfigurationArgoCdAwsIdcArgs();
 
-    /**
-     * ARN of the IAM Identity Center instance.
-     * 
-     */
     @Import(name="idcInstanceArn", required=true)
     private Output<String> idcInstanceArn;
 
-    /**
-     * @return ARN of the IAM Identity Center instance.
-     * 
-     */
     public Output<String> idcInstanceArn() {
         return this.idcInstanceArn;
     }
@@ -38,17 +30,9 @@ public final class CapabilityConfigurationArgoCdAwsIdcArgs extends com.pulumi.re
         return Optional.ofNullable(this.idcManagedApplicationArn);
     }
 
-    /**
-     * Region of the IAM Identity Center instance.
-     * 
-     */
     @Import(name="idcRegion")
     private @Nullable Output<String> idcRegion;
 
-    /**
-     * @return Region of the IAM Identity Center instance.
-     * 
-     */
     public Optional<Output<String>> idcRegion() {
         return Optional.ofNullable(this.idcRegion);
     }
@@ -79,23 +63,11 @@ public final class CapabilityConfigurationArgoCdAwsIdcArgs extends com.pulumi.re
             $ = new CapabilityConfigurationArgoCdAwsIdcArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param idcInstanceArn ARN of the IAM Identity Center instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idcInstanceArn(Output<String> idcInstanceArn) {
             $.idcInstanceArn = idcInstanceArn;
             return this;
         }
 
-        /**
-         * @param idcInstanceArn ARN of the IAM Identity Center instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idcInstanceArn(String idcInstanceArn) {
             return idcInstanceArn(Output.of(idcInstanceArn));
         }
@@ -109,23 +81,11 @@ public final class CapabilityConfigurationArgoCdAwsIdcArgs extends com.pulumi.re
             return idcManagedApplicationArn(Output.of(idcManagedApplicationArn));
         }
 
-        /**
-         * @param idcRegion Region of the IAM Identity Center instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idcRegion(@Nullable Output<String> idcRegion) {
             $.idcRegion = idcRegion;
             return this;
         }
 
-        /**
-         * @param idcRegion Region of the IAM Identity Center instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idcRegion(String idcRegion) {
             return idcRegion(Output.of(idcRegion));
         }

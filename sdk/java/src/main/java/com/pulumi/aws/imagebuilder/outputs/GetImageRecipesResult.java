@@ -14,10 +14,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetImageRecipesResult {
-    /**
-     * @return Set of ARNs of the matched Image Builder Image Recipes.
-     * 
-     */
     private List<String> arns;
     private @Nullable List<GetImageRecipesFilter> filters;
     /**
@@ -25,19 +21,11 @@ public final class GetImageRecipesResult {
      * 
      */
     private String id;
-    /**
-     * @return Set of names of the matched Image Builder Image Recipes.
-     * 
-     */
     private List<String> names;
     private @Nullable String owner;
     private String region;
 
     private GetImageRecipesResult() {}
-    /**
-     * @return Set of ARNs of the matched Image Builder Image Recipes.
-     * 
-     */
     public List<String> arns() {
         return this.arns;
     }
@@ -51,10 +39,6 @@ public final class GetImageRecipesResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Set of names of the matched Image Builder Image Recipes.
-     * 
-     */
     public List<String> names() {
         return this.names;
     }

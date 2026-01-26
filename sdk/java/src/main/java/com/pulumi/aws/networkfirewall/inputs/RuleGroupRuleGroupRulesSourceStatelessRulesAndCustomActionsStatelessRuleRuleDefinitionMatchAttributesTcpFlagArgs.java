@@ -17,36 +17,16 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
 
     public static final RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgs Empty = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgs();
 
-    /**
-     * Set of flags to look for in a packet. This setting can only specify values that are also specified in `masks`.
-     * Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
-     * 
-     */
     @Import(name="flags", required=true)
     private Output<List<String>> flags;
 
-    /**
-     * @return Set of flags to look for in a packet. This setting can only specify values that are also specified in `masks`.
-     * Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
-     * 
-     */
     public Output<List<String>> flags() {
         return this.flags;
     }
 
-    /**
-     * Set of flags to consider in the inspection. To inspect all flags, leave this empty.
-     * Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
-     * 
-     */
     @Import(name="masks")
     private @Nullable Output<List<String>> masks;
 
-    /**
-     * @return Set of flags to consider in the inspection. To inspect all flags, leave this empty.
-     * Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
-     * 
-     */
     public Optional<Output<List<String>>> masks() {
         return Optional.ofNullable(this.masks);
     }
@@ -76,70 +56,28 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
             $ = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param flags Set of flags to look for in a packet. This setting can only specify values that are also specified in `masks`.
-         * Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder flags(Output<List<String>> flags) {
             $.flags = flags;
             return this;
         }
 
-        /**
-         * @param flags Set of flags to look for in a packet. This setting can only specify values that are also specified in `masks`.
-         * Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder flags(List<String> flags) {
             return flags(Output.of(flags));
         }
 
-        /**
-         * @param flags Set of flags to look for in a packet. This setting can only specify values that are also specified in `masks`.
-         * Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder flags(String... flags) {
             return flags(List.of(flags));
         }
 
-        /**
-         * @param masks Set of flags to consider in the inspection. To inspect all flags, leave this empty.
-         * Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder masks(@Nullable Output<List<String>> masks) {
             $.masks = masks;
             return this;
         }
 
-        /**
-         * @param masks Set of flags to consider in the inspection. To inspect all flags, leave this empty.
-         * Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder masks(List<String> masks) {
             return masks(Output.of(masks));
         }
 
-        /**
-         * @param masks Set of flags to consider in the inspection. To inspect all flags, leave this empty.
-         * Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder masks(String... masks) {
             return masks(List.of(masks));
         }

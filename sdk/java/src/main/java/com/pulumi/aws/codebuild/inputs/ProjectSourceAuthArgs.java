@@ -14,36 +14,16 @@ public final class ProjectSourceAuthArgs extends com.pulumi.resources.ResourceAr
 
     public static final ProjectSourceAuthArgs Empty = new ProjectSourceAuthArgs();
 
-    /**
-     * The ARN of the resource to use for authentication. For type `CODECONNECTIONS` this should be
-     * an AWS CodeStar Connection. For type `SECRETS_MANAGER` this should be an AWS Secrets Manager secret.
-     * 
-     */
     @Import(name="resource", required=true)
     private Output<String> resource;
 
-    /**
-     * @return The ARN of the resource to use for authentication. For type `CODECONNECTIONS` this should be
-     * an AWS CodeStar Connection. For type `SECRETS_MANAGER` this should be an AWS Secrets Manager secret.
-     * 
-     */
     public Output<String> resource() {
         return this.resource;
     }
 
-    /**
-     * The type of authentication AWS CodeBuild should perform. Valid values are `CODECONNECTIONS` and
-     * `SECRETS_MANAGER`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return The type of authentication AWS CodeBuild should perform. Valid values are `CODECONNECTIONS` and
-     * `SECRETS_MANAGER`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -73,48 +53,20 @@ public final class ProjectSourceAuthArgs extends com.pulumi.resources.ResourceAr
             $ = new ProjectSourceAuthArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param resource The ARN of the resource to use for authentication. For type `CODECONNECTIONS` this should be
-         * an AWS CodeStar Connection. For type `SECRETS_MANAGER` this should be an AWS Secrets Manager secret.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resource(Output<String> resource) {
             $.resource = resource;
             return this;
         }
 
-        /**
-         * @param resource The ARN of the resource to use for authentication. For type `CODECONNECTIONS` this should be
-         * an AWS CodeStar Connection. For type `SECRETS_MANAGER` this should be an AWS Secrets Manager secret.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resource(String resource) {
             return resource(Output.of(resource));
         }
 
-        /**
-         * @param type The type of authentication AWS CodeBuild should perform. Valid values are `CODECONNECTIONS` and
-         * `SECRETS_MANAGER`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of authentication AWS CodeBuild should perform. Valid values are `CODECONNECTIONS` and
-         * `SECRETS_MANAGER`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

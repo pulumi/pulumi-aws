@@ -12,67 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an EMR Containers (EMR on EKS) Virtual Cluster.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emrcontainers"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emrcontainers.NewVirtualCluster(ctx, "example", &emrcontainers.VirtualClusterArgs{
-//				ContainerProvider: &emrcontainers.VirtualClusterContainerProviderArgs{
-//					Id:   pulumi.Any(exampleAwsEksCluster.Name),
-//					Type: pulumi.String("EKS"),
-//					Info: &emrcontainers.VirtualClusterContainerProviderInfoArgs{
-//						EksInfo: &emrcontainers.VirtualClusterContainerProviderInfoEksInfoArgs{
-//							Namespace: pulumi.String("default"),
-//						},
-//					},
-//				},
-//				Name: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import EKS Clusters using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example a1b2c3d4e5f6g7h8i9j10k11l
-// ```
 type VirtualCluster struct {
 	pulumi.CustomResourceState
 
-	// ARN of the cluster.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Configuration block for the container provider associated with your cluster.
+	Arn               pulumi.StringOutput                   `pulumi:"arn"`
 	ContainerProvider VirtualClusterContainerProviderOutput `pulumi:"containerProvider"`
-	// Name of the virtual cluster.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Name              pulumi.StringOutput                   `pulumi:"name"`
+	Region            pulumi.StringOutput                   `pulumi:"region"`
+	Tags              pulumi.StringMapOutput                `pulumi:"tags"`
+	TagsAll           pulumi.StringMapOutput                `pulumi:"tagsAll"`
 }
 
 // NewVirtualCluster registers a new resource with the given unique name, arguments, and options.
@@ -108,33 +56,21 @@ func GetVirtualCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualCluster resources.
 type virtualClusterState struct {
-	// ARN of the cluster.
-	Arn *string `pulumi:"arn"`
-	// Configuration block for the container provider associated with your cluster.
+	Arn               *string                          `pulumi:"arn"`
 	ContainerProvider *VirtualClusterContainerProvider `pulumi:"containerProvider"`
-	// Name of the virtual cluster.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Name              *string                          `pulumi:"name"`
+	Region            *string                          `pulumi:"region"`
+	Tags              map[string]string                `pulumi:"tags"`
+	TagsAll           map[string]string                `pulumi:"tagsAll"`
 }
 
 type VirtualClusterState struct {
-	// ARN of the cluster.
-	Arn pulumi.StringPtrInput
-	// Configuration block for the container provider associated with your cluster.
+	Arn               pulumi.StringPtrInput
 	ContainerProvider VirtualClusterContainerProviderPtrInput
-	// Name of the virtual cluster.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Name              pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	TagsAll           pulumi.StringMapInput
 }
 
 func (VirtualClusterState) ElementType() reflect.Type {
@@ -142,26 +78,18 @@ func (VirtualClusterState) ElementType() reflect.Type {
 }
 
 type virtualClusterArgs struct {
-	// Configuration block for the container provider associated with your cluster.
 	ContainerProvider VirtualClusterContainerProvider `pulumi:"containerProvider"`
-	// Name of the virtual cluster.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Name              *string                         `pulumi:"name"`
+	Region            *string                         `pulumi:"region"`
+	Tags              map[string]string               `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VirtualCluster resource.
 type VirtualClusterArgs struct {
-	// Configuration block for the container provider associated with your cluster.
 	ContainerProvider VirtualClusterContainerProviderInput
-	// Name of the virtual cluster.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name              pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (VirtualClusterArgs) ElementType() reflect.Type {
@@ -251,32 +179,26 @@ func (o VirtualClusterOutput) ToVirtualClusterOutputWithContext(ctx context.Cont
 	return o
 }
 
-// ARN of the cluster.
 func (o VirtualClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualCluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Configuration block for the container provider associated with your cluster.
 func (o VirtualClusterOutput) ContainerProvider() VirtualClusterContainerProviderOutput {
 	return o.ApplyT(func(v *VirtualCluster) VirtualClusterContainerProviderOutput { return v.ContainerProvider }).(VirtualClusterContainerProviderOutput)
 }
 
-// Name of the virtual cluster.
 func (o VirtualClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualCluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VirtualClusterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualCluster) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VirtualClusterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VirtualCluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VirtualClusterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VirtualCluster) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -17,17 +17,9 @@ public final class BucketMetadataConfigurationState extends com.pulumi.resources
 
     public static final BucketMetadataConfigurationState Empty = new BucketMetadataConfigurationState();
 
-    /**
-     * General purpose bucket that you want to create the metadata configuration for.
-     * 
-     */
     @Import(name="bucket")
     private @Nullable Output<String> bucket;
 
-    /**
-     * @return General purpose bucket that you want to create the metadata configuration for.
-     * 
-     */
     public Optional<Output<String>> bucket() {
         return Optional.ofNullable(this.bucket);
     }
@@ -39,36 +31,16 @@ public final class BucketMetadataConfigurationState extends com.pulumi.resources
         return Optional.ofNullable(this.expectedBucketOwner);
     }
 
-    /**
-     * Metadata configuration. See `metadataConfiguration` Block for details.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="metadataConfiguration")
     private @Nullable Output<BucketMetadataConfigurationMetadataConfigurationArgs> metadataConfiguration;
 
-    /**
-     * @return Metadata configuration. See `metadataConfiguration` Block for details.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<BucketMetadataConfigurationMetadataConfigurationArgs>> metadataConfiguration() {
         return Optional.ofNullable(this.metadataConfiguration);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -108,23 +80,11 @@ public final class BucketMetadataConfigurationState extends com.pulumi.resources
             $ = new BucketMetadataConfigurationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket General purpose bucket that you want to create the metadata configuration for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(@Nullable Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket General purpose bucket that you want to create the metadata configuration for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
@@ -138,48 +98,20 @@ public final class BucketMetadataConfigurationState extends com.pulumi.resources
             return expectedBucketOwner(Output.of(expectedBucketOwner));
         }
 
-        /**
-         * @param metadataConfiguration Metadata configuration. See `metadataConfiguration` Block for details.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder metadataConfiguration(@Nullable Output<BucketMetadataConfigurationMetadataConfigurationArgs> metadataConfiguration) {
             $.metadataConfiguration = metadataConfiguration;
             return this;
         }
 
-        /**
-         * @param metadataConfiguration Metadata configuration. See `metadataConfiguration` Block for details.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder metadataConfiguration(BucketMetadataConfigurationMetadataConfigurationArgs metadataConfiguration) {
             return metadataConfiguration(Output.of(metadataConfiguration));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

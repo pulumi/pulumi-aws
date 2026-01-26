@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class UserProfileUserSettingsSpaceStorageSettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The default EBS storage settings for a private space. See Default EBS Storage Settings below.
-        /// </summary>
         [Input("defaultEbsStorageSettings")]
         public Input<Inputs.UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs>? DefaultEbsStorageSettings { get; set; }
 

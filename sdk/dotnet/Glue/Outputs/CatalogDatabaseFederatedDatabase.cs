@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class CatalogDatabaseFederatedDatabase
     {
-        /// <summary>
-        /// Name of the connection to the external metastore.
-        /// </summary>
         public readonly string? ConnectionName;
-        /// <summary>
-        /// Unique identifier for the federated database.
-        /// </summary>
         public readonly string? Identifier;
 
         [OutputConstructor]

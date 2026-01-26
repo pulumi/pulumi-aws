@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclLoggingConfiguration {
-    /**
-     * @return Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
-     * 
-     */
     private String logDestination;
-    /**
-     * @return Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
-     * 
-     */
     private @Nullable WebAclLoggingConfigurationRedactedFields redactedFields;
 
     private WebAclLoggingConfiguration() {}
-    /**
-     * @return Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
-     * 
-     */
     public String logDestination() {
         return this.logDestination;
     }
-    /**
-     * @return Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
-     * 
-     */
     public Optional<WebAclLoggingConfigurationRedactedFields> redactedFields() {
         return Optional.ofNullable(this.redactedFields);
     }

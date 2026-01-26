@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipeSourceParametersDynamodbStreamParametersDeadLetterConfig {
-    /**
-     * @return ARN of this pipe.
-     * 
-     */
     private @Nullable String arn;
 
     private PipeSourceParametersDynamodbStreamParametersDeadLetterConfig() {}
-    /**
-     * @return ARN of this pipe.
-     * 
-     */
     public Optional<String> arn() {
         return Optional.ofNullable(this.arn);
     }

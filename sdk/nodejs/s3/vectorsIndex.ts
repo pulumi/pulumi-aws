@@ -7,34 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an Amazon S3 Vectors Index.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3.VectorsIndex("example", {
- *     indexName: "example-index",
- *     vectorBucketName: exampleAwsS3vectorsVectorBucket.vectorBucketName,
- *     dataType: "float32",
- *     dimension: 2,
- *     distanceMetric: "euclidean",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import S3 Vectors Index using the `index_arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:s3/vectorsIndex:VectorsIndex example arn:aws:s3vectors:us-west-2:123456789012:bucket/example-bucket/index/example-index
- * ```
- */
 export class VectorsIndex extends pulumi.CustomResource {
     /**
      * Get an existing VectorsIndex resource's state with the given name, ID, and optional extra
@@ -63,55 +35,17 @@ export class VectorsIndex extends pulumi.CustomResource {
         return obj['__pulumiType'] === VectorsIndex.__pulumiType;
     }
 
-    /**
-     * Date and time when the vector index was created.
-     */
     declare public /*out*/ readonly creationTime: pulumi.Output<string>;
-    /**
-     * Data type of the vectors to be inserted into the vector index. Valid values: `float32`.
-     */
     declare public readonly dataType: pulumi.Output<string>;
-    /**
-     * Dimensions of the vectors to be inserted into the vector index.
-     */
     declare public readonly dimension: pulumi.Output<number>;
-    /**
-     * Distance metric to be used for similarity search. Valid values: `cosine`, `euclidean`.
-     */
     declare public readonly distanceMetric: pulumi.Output<string>;
-    /**
-     * Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
-     */
     declare public readonly encryptionConfigurations: pulumi.Output<outputs.s3.VectorsIndexEncryptionConfiguration[]>;
-    /**
-     * ARN of the vector index.
-     */
     declare public /*out*/ readonly indexArn: pulumi.Output<string>;
-    /**
-     * Name of the vector index.
-     */
     declare public readonly indexName: pulumi.Output<string>;
-    /**
-     * Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
-     */
     declare public readonly metadataConfiguration: pulumi.Output<outputs.s3.VectorsIndexMetadataConfiguration | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Name of the vector bucket for the vector index.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly vectorBucketName: pulumi.Output<string>;
 
     /**
@@ -178,55 +112,17 @@ export class VectorsIndex extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VectorsIndex resources.
  */
 export interface VectorsIndexState {
-    /**
-     * Date and time when the vector index was created.
-     */
     creationTime?: pulumi.Input<string>;
-    /**
-     * Data type of the vectors to be inserted into the vector index. Valid values: `float32`.
-     */
     dataType?: pulumi.Input<string>;
-    /**
-     * Dimensions of the vectors to be inserted into the vector index.
-     */
     dimension?: pulumi.Input<number>;
-    /**
-     * Distance metric to be used for similarity search. Valid values: `cosine`, `euclidean`.
-     */
     distanceMetric?: pulumi.Input<string>;
-    /**
-     * Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
-     */
     encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.VectorsIndexEncryptionConfiguration>[]>;
-    /**
-     * ARN of the vector index.
-     */
     indexArn?: pulumi.Input<string>;
-    /**
-     * Name of the vector index.
-     */
     indexName?: pulumi.Input<string>;
-    /**
-     * Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
-     */
     metadataConfiguration?: pulumi.Input<inputs.s3.VectorsIndexMetadataConfiguration>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Name of the vector bucket for the vector index.
-     *
-     * The following arguments are optional:
-     */
     vectorBucketName?: pulumi.Input<string>;
 }
 
@@ -234,42 +130,13 @@ export interface VectorsIndexState {
  * The set of arguments for constructing a VectorsIndex resource.
  */
 export interface VectorsIndexArgs {
-    /**
-     * Data type of the vectors to be inserted into the vector index. Valid values: `float32`.
-     */
     dataType: pulumi.Input<string>;
-    /**
-     * Dimensions of the vectors to be inserted into the vector index.
-     */
     dimension: pulumi.Input<number>;
-    /**
-     * Distance metric to be used for similarity search. Valid values: `cosine`, `euclidean`.
-     */
     distanceMetric: pulumi.Input<string>;
-    /**
-     * Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
-     */
     encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.VectorsIndexEncryptionConfiguration>[]>;
-    /**
-     * Name of the vector index.
-     */
     indexName: pulumi.Input<string>;
-    /**
-     * Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
-     */
     metadataConfiguration?: pulumi.Input<inputs.s3.VectorsIndexMetadataConfiguration>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Name of the vector bucket for the vector index.
-     *
-     * The following arguments are optional:
-     */
     vectorBucketName: pulumi.Input<string>;
 }

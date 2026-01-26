@@ -12,96 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an Amazon S3 Vectors Vector Bucket.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewVectorsVectorBucket(ctx, "example", &s3.VectorsVectorBucketArgs{
-//				VectorBucketName: pulumi.String("example-bucket"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Encryption
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewVectorsVectorBucket(ctx, "example", &s3.VectorsVectorBucketArgs{
-//				VectorBucketName: pulumi.String("example-bucket"),
-//				EncryptionConfigurations: s3.VectorsVectorBucketEncryptionConfigurationArray{
-//					&s3.VectorsVectorBucketEncryptionConfigurationArgs{
-//						SseType:   pulumi.String("aws:kms"),
-//						KmsKeyArn: pulumi.Any(exampleAwsKmsKey.Arn),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import S3 Vectors Vector Bucket using the `vector_bucket_arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:s3/vectorsVectorBucket:VectorsVectorBucket example arn:aws:s3vectors:us-west-2:123456789012:bucket/example-bucket
-// ```
 type VectorsVectorBucket struct {
 	pulumi.CustomResourceState
 
-	// Date and time when the vector bucket was created.
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
+	CreationTime             pulumi.StringOutput                                   `pulumi:"creationTime"`
 	EncryptionConfigurations VectorsVectorBucketEncryptionConfigurationArrayOutput `pulumi:"encryptionConfigurations"`
-	// Boolean that indicates all indexes and vectors should be deleted from the vector bucket *when the vector bucket is destroyed* so that the vector bucket can be destroyed without error. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the vector bucket or destroying the vector bucket, this flag will not work.
-	ForceDestroy pulumi.BoolOutput `pulumi:"forceDestroy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// ARN of the vector bucket.
-	VectorBucketArn pulumi.StringOutput `pulumi:"vectorBucketArn"`
-	// Name of the vector bucket.
-	//
-	// The following arguments are optional:
-	VectorBucketName pulumi.StringOutput `pulumi:"vectorBucketName"`
+	ForceDestroy             pulumi.BoolOutput                                     `pulumi:"forceDestroy"`
+	Region                   pulumi.StringOutput                                   `pulumi:"region"`
+	Tags                     pulumi.StringMapOutput                                `pulumi:"tags"`
+	TagsAll                  pulumi.StringMapOutput                                `pulumi:"tagsAll"`
+	VectorBucketArn          pulumi.StringOutput                                   `pulumi:"vectorBucketArn"`
+	VectorBucketName         pulumi.StringOutput                                   `pulumi:"vectorBucketName"`
 }
 
 // NewVectorsVectorBucket registers a new resource with the given unique name, arguments, and options.
@@ -137,45 +58,25 @@ func GetVectorsVectorBucket(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VectorsVectorBucket resources.
 type vectorsVectorBucketState struct {
-	// Date and time when the vector bucket was created.
-	CreationTime *string `pulumi:"creationTime"`
-	// Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
+	CreationTime             *string                                      `pulumi:"creationTime"`
 	EncryptionConfigurations []VectorsVectorBucketEncryptionConfiguration `pulumi:"encryptionConfigurations"`
-	// Boolean that indicates all indexes and vectors should be deleted from the vector bucket *when the vector bucket is destroyed* so that the vector bucket can be destroyed without error. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the vector bucket or destroying the vector bucket, this flag will not work.
-	ForceDestroy *bool `pulumi:"forceDestroy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// ARN of the vector bucket.
-	VectorBucketArn *string `pulumi:"vectorBucketArn"`
-	// Name of the vector bucket.
-	//
-	// The following arguments are optional:
-	VectorBucketName *string `pulumi:"vectorBucketName"`
+	ForceDestroy             *bool                                        `pulumi:"forceDestroy"`
+	Region                   *string                                      `pulumi:"region"`
+	Tags                     map[string]string                            `pulumi:"tags"`
+	TagsAll                  map[string]string                            `pulumi:"tagsAll"`
+	VectorBucketArn          *string                                      `pulumi:"vectorBucketArn"`
+	VectorBucketName         *string                                      `pulumi:"vectorBucketName"`
 }
 
 type VectorsVectorBucketState struct {
-	// Date and time when the vector bucket was created.
-	CreationTime pulumi.StringPtrInput
-	// Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
+	CreationTime             pulumi.StringPtrInput
 	EncryptionConfigurations VectorsVectorBucketEncryptionConfigurationArrayInput
-	// Boolean that indicates all indexes and vectors should be deleted from the vector bucket *when the vector bucket is destroyed* so that the vector bucket can be destroyed without error. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the vector bucket or destroying the vector bucket, this flag will not work.
-	ForceDestroy pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// ARN of the vector bucket.
-	VectorBucketArn pulumi.StringPtrInput
-	// Name of the vector bucket.
-	//
-	// The following arguments are optional:
-	VectorBucketName pulumi.StringPtrInput
+	ForceDestroy             pulumi.BoolPtrInput
+	Region                   pulumi.StringPtrInput
+	Tags                     pulumi.StringMapInput
+	TagsAll                  pulumi.StringMapInput
+	VectorBucketArn          pulumi.StringPtrInput
+	VectorBucketName         pulumi.StringPtrInput
 }
 
 func (VectorsVectorBucketState) ElementType() reflect.Type {
@@ -183,34 +84,20 @@ func (VectorsVectorBucketState) ElementType() reflect.Type {
 }
 
 type vectorsVectorBucketArgs struct {
-	// Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
 	EncryptionConfigurations []VectorsVectorBucketEncryptionConfiguration `pulumi:"encryptionConfigurations"`
-	// Boolean that indicates all indexes and vectors should be deleted from the vector bucket *when the vector bucket is destroyed* so that the vector bucket can be destroyed without error. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the vector bucket or destroying the vector bucket, this flag will not work.
-	ForceDestroy *bool `pulumi:"forceDestroy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Name of the vector bucket.
-	//
-	// The following arguments are optional:
-	VectorBucketName string `pulumi:"vectorBucketName"`
+	ForceDestroy             *bool                                        `pulumi:"forceDestroy"`
+	Region                   *string                                      `pulumi:"region"`
+	Tags                     map[string]string                            `pulumi:"tags"`
+	VectorBucketName         string                                       `pulumi:"vectorBucketName"`
 }
 
 // The set of arguments for constructing a VectorsVectorBucket resource.
 type VectorsVectorBucketArgs struct {
-	// Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
 	EncryptionConfigurations VectorsVectorBucketEncryptionConfigurationArrayInput
-	// Boolean that indicates all indexes and vectors should be deleted from the vector bucket *when the vector bucket is destroyed* so that the vector bucket can be destroyed without error. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the vector bucket or destroying the vector bucket, this flag will not work.
-	ForceDestroy pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Name of the vector bucket.
-	//
-	// The following arguments are optional:
-	VectorBucketName pulumi.StringInput
+	ForceDestroy             pulumi.BoolPtrInput
+	Region                   pulumi.StringPtrInput
+	Tags                     pulumi.StringMapInput
+	VectorBucketName         pulumi.StringInput
 }
 
 func (VectorsVectorBucketArgs) ElementType() reflect.Type {
@@ -300,46 +187,36 @@ func (o VectorsVectorBucketOutput) ToVectorsVectorBucketOutputWithContext(ctx co
 	return o
 }
 
-// Date and time when the vector bucket was created.
 func (o VectorsVectorBucketOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *VectorsVectorBucket) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
 
-// Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
 func (o VectorsVectorBucketOutput) EncryptionConfigurations() VectorsVectorBucketEncryptionConfigurationArrayOutput {
 	return o.ApplyT(func(v *VectorsVectorBucket) VectorsVectorBucketEncryptionConfigurationArrayOutput {
 		return v.EncryptionConfigurations
 	}).(VectorsVectorBucketEncryptionConfigurationArrayOutput)
 }
 
-// Boolean that indicates all indexes and vectors should be deleted from the vector bucket *when the vector bucket is destroyed* so that the vector bucket can be destroyed without error. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the vector bucket or destroying the vector bucket, this flag will not work.
 func (o VectorsVectorBucketOutput) ForceDestroy() pulumi.BoolOutput {
 	return o.ApplyT(func(v *VectorsVectorBucket) pulumi.BoolOutput { return v.ForceDestroy }).(pulumi.BoolOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VectorsVectorBucketOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VectorsVectorBucket) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VectorsVectorBucketOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VectorsVectorBucket) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VectorsVectorBucketOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VectorsVectorBucket) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// ARN of the vector bucket.
 func (o VectorsVectorBucketOutput) VectorBucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VectorsVectorBucket) pulumi.StringOutput { return v.VectorBucketArn }).(pulumi.StringOutput)
 }
 
-// Name of the vector bucket.
-//
-// The following arguments are optional:
 func (o VectorsVectorBucketOutput) VectorBucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VectorsVectorBucket) pulumi.StringOutput { return v.VectorBucketName }).(pulumi.StringOutput)
 }

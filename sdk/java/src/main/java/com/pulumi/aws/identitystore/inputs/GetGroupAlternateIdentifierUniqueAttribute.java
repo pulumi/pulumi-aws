@@ -13,32 +13,16 @@ public final class GetGroupAlternateIdentifierUniqueAttribute extends com.pulumi
 
     public static final GetGroupAlternateIdentifierUniqueAttribute Empty = new GetGroupAlternateIdentifierUniqueAttribute();
 
-    /**
-     * Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
-     * 
-     */
     @Import(name="attributePath", required=true)
     private String attributePath;
 
-    /**
-     * @return Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
-     * 
-     */
     public String attributePath() {
         return this.attributePath;
     }
 
-    /**
-     * Value for an attribute.
-     * 
-     */
     @Import(name="attributeValue", required=true)
     private String attributeValue;
 
-    /**
-     * @return Value for an attribute.
-     * 
-     */
     public String attributeValue() {
         return this.attributeValue;
     }
@@ -68,23 +52,11 @@ public final class GetGroupAlternateIdentifierUniqueAttribute extends com.pulumi
             $ = new GetGroupAlternateIdentifierUniqueAttribute(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param attributePath Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributePath(String attributePath) {
             $.attributePath = attributePath;
             return this;
         }
 
-        /**
-         * @param attributeValue Value for an attribute.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributeValue(String attributeValue) {
             $.attributeValue = attributeValue;
             return this;

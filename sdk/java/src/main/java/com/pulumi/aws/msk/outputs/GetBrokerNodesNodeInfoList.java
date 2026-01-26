@@ -12,77 +12,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBrokerNodesNodeInfoList {
-    /**
-     * @return Attached elastic network interface of the broker
-     * 
-     */
     private String attachedEniId;
-    /**
-     * @return ID of the broker
-     * 
-     */
     private Double brokerId;
-    /**
-     * @return Client subnet to which this broker node belongs
-     * 
-     */
     private String clientSubnet;
-    /**
-     * @return The client virtual private cloud (VPC) IP address
-     * 
-     */
     private String clientVpcIpAddress;
-    /**
-     * @return Set of endpoints for accessing the broker. This does not include ports
-     * 
-     */
     private List<String> endpoints;
-    /**
-     * @return ARN of the node
-     * 
-     */
     private String nodeArn;
 
     private GetBrokerNodesNodeInfoList() {}
-    /**
-     * @return Attached elastic network interface of the broker
-     * 
-     */
     public String attachedEniId() {
         return this.attachedEniId;
     }
-    /**
-     * @return ID of the broker
-     * 
-     */
     public Double brokerId() {
         return this.brokerId;
     }
-    /**
-     * @return Client subnet to which this broker node belongs
-     * 
-     */
     public String clientSubnet() {
         return this.clientSubnet;
     }
-    /**
-     * @return The client virtual private cloud (VPC) IP address
-     * 
-     */
     public String clientVpcIpAddress() {
         return this.clientVpcIpAddress;
     }
-    /**
-     * @return Set of endpoints for accessing the broker. This does not include ports
-     * 
-     */
     public List<String> endpoints() {
         return this.endpoints;
     }
-    /**
-     * @return ARN of the node
-     * 
-     */
     public String nodeArn() {
         return this.nodeArn;
     }

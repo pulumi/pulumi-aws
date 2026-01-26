@@ -17,51 +17,23 @@ public final class LifecyclePolicyPolicyDetailArgs extends com.pulumi.resources.
 
     public static final LifecyclePolicyPolicyDetailArgs Empty = new LifecyclePolicyPolicyDetailArgs();
 
-    /**
-     * Configuration details for the policy action.
-     * 
-     */
     @Import(name="action")
     private @Nullable Output<LifecyclePolicyPolicyDetailActionArgs> action;
 
-    /**
-     * @return Configuration details for the policy action.
-     * 
-     */
     public Optional<Output<LifecyclePolicyPolicyDetailActionArgs>> action() {
         return Optional.ofNullable(this.action);
     }
 
-    /**
-     * Additional rules to specify resources that should be exempt from policy actions.
-     * 
-     */
     @Import(name="exclusionRules")
     private @Nullable Output<LifecyclePolicyPolicyDetailExclusionRulesArgs> exclusionRules;
 
-    /**
-     * @return Additional rules to specify resources that should be exempt from policy actions.
-     * 
-     */
     public Optional<Output<LifecyclePolicyPolicyDetailExclusionRulesArgs>> exclusionRules() {
         return Optional.ofNullable(this.exclusionRules);
     }
 
-    /**
-     * Specifies the resources that the lifecycle policy applies to.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="filter")
     private @Nullable Output<LifecyclePolicyPolicyDetailFilterArgs> filter;
 
-    /**
-     * @return Specifies the resources that the lifecycle policy applies to.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<LifecyclePolicyPolicyDetailFilterArgs>> filter() {
         return Optional.ofNullable(this.filter);
     }
@@ -92,69 +64,29 @@ public final class LifecyclePolicyPolicyDetailArgs extends com.pulumi.resources.
             $ = new LifecyclePolicyPolicyDetailArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param action Configuration details for the policy action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(@Nullable Output<LifecyclePolicyPolicyDetailActionArgs> action) {
             $.action = action;
             return this;
         }
 
-        /**
-         * @param action Configuration details for the policy action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(LifecyclePolicyPolicyDetailActionArgs action) {
             return action(Output.of(action));
         }
 
-        /**
-         * @param exclusionRules Additional rules to specify resources that should be exempt from policy actions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exclusionRules(@Nullable Output<LifecyclePolicyPolicyDetailExclusionRulesArgs> exclusionRules) {
             $.exclusionRules = exclusionRules;
             return this;
         }
 
-        /**
-         * @param exclusionRules Additional rules to specify resources that should be exempt from policy actions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exclusionRules(LifecyclePolicyPolicyDetailExclusionRulesArgs exclusionRules) {
             return exclusionRules(Output.of(exclusionRules));
         }
 
-        /**
-         * @param filter Specifies the resources that the lifecycle policy applies to.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder filter(@Nullable Output<LifecyclePolicyPolicyDetailFilterArgs> filter) {
             $.filter = filter;
             return this;
         }
 
-        /**
-         * @param filter Specifies the resources that the lifecycle policy applies to.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder filter(LifecyclePolicyPolicyDetailFilterArgs filter) {
             return filter(Output.of(filter));
         }

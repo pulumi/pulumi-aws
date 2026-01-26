@@ -15,17 +15,9 @@ public final class DistributionConfigurationDistributionFastLaunchConfigurationS
 
     public static final DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs Empty = new DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs();
 
-    /**
-     * The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
-     * 
-     */
     @Import(name="targetResourceCount")
     private @Nullable Output<Integer> targetResourceCount;
 
-    /**
-     * @return The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
-     * 
-     */
     public Optional<Output<Integer>> targetResourceCount() {
         return Optional.ofNullable(this.targetResourceCount);
     }
@@ -54,23 +46,11 @@ public final class DistributionConfigurationDistributionFastLaunchConfigurationS
             $ = new DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param targetResourceCount The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetResourceCount(@Nullable Output<Integer> targetResourceCount) {
             $.targetResourceCount = targetResourceCount;
             return this;
         }
 
-        /**
-         * @param targetResourceCount The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetResourceCount(Integer targetResourceCount) {
             return targetResourceCount(Output.of(targetResourceCount));
         }

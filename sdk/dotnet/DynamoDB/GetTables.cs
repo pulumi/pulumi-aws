@@ -11,84 +11,12 @@ namespace Pulumi.Aws.DynamoDB
 {
     public static class GetTables
     {
-        /// <summary>
-        /// Returns a list of all AWS DynamoDB table names in a region.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example retrieves a list of all DynamoDB table names in a region.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var all = Aws.DynamoDB.GetTables.Invoke();
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["tableNames"] = all.Apply(getTablesResult =&gt; getTablesResult.Names),
-        ///     };
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetTablesResult> InvokeAsync(GetTablesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTablesResult>("aws:dynamodb/getTables:getTables", args ?? new GetTablesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Returns a list of all AWS DynamoDB table names in a region.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example retrieves a list of all DynamoDB table names in a region.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var all = Aws.DynamoDB.GetTables.Invoke();
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["tableNames"] = all.Apply(getTablesResult =&gt; getTablesResult.Names),
-        ///     };
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetTablesResult> Invoke(GetTablesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTablesResult>("aws:dynamodb/getTables:getTables", args ?? new GetTablesInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Returns a list of all AWS DynamoDB table names in a region.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example retrieves a list of all DynamoDB table names in a region.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var all = Aws.DynamoDB.GetTables.Invoke();
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["tableNames"] = all.Apply(getTablesResult =&gt; getTablesResult.Names),
-        ///     };
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetTablesResult> Invoke(GetTablesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTablesResult>("aws:dynamodb/getTables:getTables", args ?? new GetTablesInvokeArgs(), options.WithDefaults());
     }
@@ -96,9 +24,6 @@ namespace Pulumi.Aws.DynamoDB
 
     public sealed class GetTablesArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -110,9 +35,6 @@ namespace Pulumi.Aws.DynamoDB
 
     public sealed class GetTablesInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -130,9 +52,6 @@ namespace Pulumi.Aws.DynamoDB
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// A list of all the DynamoDB table names found.
-        /// </summary>
         public readonly ImmutableArray<string> Names;
         public readonly string Region;
 

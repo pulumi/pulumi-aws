@@ -13,67 +13,11 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Synthetics Group Association resource.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.synthetics.GroupAssociation;
- * import com.pulumi.aws.synthetics.GroupAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new GroupAssociation("example", GroupAssociationArgs.builder()
- *             .groupName(exampleAwsSyntheticsGroup.name())
- *             .canaryArn(exampleAwsSyntheticsCanary.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import CloudWatch Synthetics Group Association using the `canary_arn,group_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:synthetics/groupAssociation:GroupAssociation example arn:aws:synthetics:us-west-2:123456789012:canary:tf-acc-test-abcd1234,examplename
- * ```
- * 
- */
 @ResourceType(type="aws:synthetics/groupAssociation:GroupAssociation")
 public class GroupAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the canary.
-     * 
-     */
     @Export(name="canaryArn", refs={String.class}, tree="[0]")
     private Output<String> canaryArn;
 
-    /**
-     * @return ARN of the canary.
-     * 
-     */
     public Output<String> canaryArn() {
         return this.canaryArn;
     }
@@ -83,45 +27,21 @@ public class GroupAssociation extends com.pulumi.resources.CustomResource {
     public Output<String> groupArn() {
         return this.groupArn;
     }
-    /**
-     * ID of the Group.
-     * 
-     */
     @Export(name="groupId", refs={String.class}, tree="[0]")
     private Output<String> groupId;
 
-    /**
-     * @return ID of the Group.
-     * 
-     */
     public Output<String> groupId() {
         return this.groupId;
     }
-    /**
-     * Name of the group that the canary will be associated with.
-     * 
-     */
     @Export(name="groupName", refs={String.class}, tree="[0]")
     private Output<String> groupName;
 
-    /**
-     * @return Name of the group that the canary will be associated with.
-     * 
-     */
     public Output<String> groupName() {
         return this.groupName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

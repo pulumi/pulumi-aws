@@ -22,17 +22,9 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
 
     public static final FirehoseDeliveryStreamExtendedS3ConfigurationArgs Empty = new FirehoseDeliveryStreamExtendedS3ConfigurationArgs();
 
-    /**
-     * The ARN of the S3 bucket
-     * 
-     */
     @Import(name="bucketArn", required=true)
     private Output<String> bucketArn;
 
-    /**
-     * @return The ARN of the S3 bucket
-     * 
-     */
     public Output<String> bucketArn() {
         return this.bucketArn;
     }
@@ -58,139 +50,65 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         return Optional.ofNullable(this.cloudwatchLoggingOptions);
     }
 
-    /**
-     * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
-     * 
-     */
     @Import(name="compressionFormat")
     private @Nullable Output<String> compressionFormat;
 
-    /**
-     * @return The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
-     * 
-     */
     public Optional<Output<String>> compressionFormat() {
         return Optional.ofNullable(this.compressionFormat);
     }
 
-    /**
-     * The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
-     * 
-     */
     @Import(name="customTimeZone")
     private @Nullable Output<String> customTimeZone;
 
-    /**
-     * @return The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
-     * 
-     */
     public Optional<Output<String>> customTimeZone() {
         return Optional.ofNullable(this.customTimeZone);
     }
 
-    /**
-     * Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. See `dataFormatConversionConfiguration` block below for details.
-     * 
-     */
     @Import(name="dataFormatConversionConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs> dataFormatConversionConfiguration;
 
-    /**
-     * @return Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. See `dataFormatConversionConfiguration` block below for details.
-     * 
-     */
     public Optional<Output<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs>> dataFormatConversionConfiguration() {
         return Optional.ofNullable(this.dataFormatConversionConfiguration);
     }
 
-    /**
-     * The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamicPartitioningConfiguration` block below for details.
-     * 
-     */
     @Import(name="dynamicPartitioningConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs> dynamicPartitioningConfiguration;
 
-    /**
-     * @return The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamicPartitioningConfiguration` block below for details.
-     * 
-     */
     public Optional<Output<FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs>> dynamicPartitioningConfiguration() {
         return Optional.ofNullable(this.dynamicPartitioningConfiguration);
     }
 
-    /**
-     * Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
-     * 
-     */
     @Import(name="errorOutputPrefix")
     private @Nullable Output<String> errorOutputPrefix;
 
-    /**
-     * @return Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
-     * 
-     */
     public Optional<Output<String>> errorOutputPrefix() {
         return Optional.ofNullable(this.errorOutputPrefix);
     }
 
-    /**
-     * The file extension to override the default file extension (for example, `.json`).
-     * 
-     */
     @Import(name="fileExtension")
     private @Nullable Output<String> fileExtension;
 
-    /**
-     * @return The file extension to override the default file extension (for example, `.json`).
-     * 
-     */
     public Optional<Output<String>> fileExtension() {
         return Optional.ofNullable(this.fileExtension);
     }
 
-    /**
-     * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-     * be used.
-     * 
-     */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
-    /**
-     * @return Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-     * be used.
-     * 
-     */
     public Optional<Output<String>> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
 
-    /**
-     * The &#34;YYYY/MM/DD/HH&#34; time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
-     * 
-     */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
-    /**
-     * @return The &#34;YYYY/MM/DD/HH&#34; time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
-     * 
-     */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
 
-    /**
-     * The data processing configuration.  See `processingConfiguration` block below for details.
-     * 
-     */
     @Import(name="processingConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs> processingConfiguration;
 
-    /**
-     * @return The data processing configuration.  See `processingConfiguration` block below for details.
-     * 
-     */
     public Optional<Output<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs>> processingConfiguration() {
         return Optional.ofNullable(this.processingConfiguration);
     }
@@ -202,32 +120,16 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         return this.roleArn;
     }
 
-    /**
-     * The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
-     * 
-     */
     @Import(name="s3BackupConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs> s3BackupConfiguration;
 
-    /**
-     * @return The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
-     * 
-     */
     public Optional<Output<FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs>> s3BackupConfiguration() {
         return Optional.ofNullable(this.s3BackupConfiguration);
     }
 
-    /**
-     * The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
-     * 
-     */
     @Import(name="s3BackupMode")
     private @Nullable Output<String> s3BackupMode;
 
-    /**
-     * @return The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
-     * 
-     */
     public Optional<Output<String>> s3BackupMode() {
         return Optional.ofNullable(this.s3BackupMode);
     }
@@ -271,23 +173,11 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
             $ = new FirehoseDeliveryStreamExtendedS3ConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketArn The ARN of the S3 bucket
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketArn(Output<String> bucketArn) {
             $.bucketArn = bucketArn;
             return this;
         }
 
-        /**
-         * @param bucketArn The ARN of the S3 bucket
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketArn(String bucketArn) {
             return bucketArn(Output.of(bucketArn));
         }
@@ -319,193 +209,83 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
             return cloudwatchLoggingOptions(Output.of(cloudwatchLoggingOptions));
         }
 
-        /**
-         * @param compressionFormat The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder compressionFormat(@Nullable Output<String> compressionFormat) {
             $.compressionFormat = compressionFormat;
             return this;
         }
 
-        /**
-         * @param compressionFormat The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder compressionFormat(String compressionFormat) {
             return compressionFormat(Output.of(compressionFormat));
         }
 
-        /**
-         * @param customTimeZone The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customTimeZone(@Nullable Output<String> customTimeZone) {
             $.customTimeZone = customTimeZone;
             return this;
         }
 
-        /**
-         * @param customTimeZone The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customTimeZone(String customTimeZone) {
             return customTimeZone(Output.of(customTimeZone));
         }
 
-        /**
-         * @param dataFormatConversionConfiguration Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. See `dataFormatConversionConfiguration` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataFormatConversionConfiguration(@Nullable Output<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs> dataFormatConversionConfiguration) {
             $.dataFormatConversionConfiguration = dataFormatConversionConfiguration;
             return this;
         }
 
-        /**
-         * @param dataFormatConversionConfiguration Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. See `dataFormatConversionConfiguration` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataFormatConversionConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs dataFormatConversionConfiguration) {
             return dataFormatConversionConfiguration(Output.of(dataFormatConversionConfiguration));
         }
 
-        /**
-         * @param dynamicPartitioningConfiguration The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamicPartitioningConfiguration` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dynamicPartitioningConfiguration(@Nullable Output<FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs> dynamicPartitioningConfiguration) {
             $.dynamicPartitioningConfiguration = dynamicPartitioningConfiguration;
             return this;
         }
 
-        /**
-         * @param dynamicPartitioningConfiguration The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamicPartitioningConfiguration` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dynamicPartitioningConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs dynamicPartitioningConfiguration) {
             return dynamicPartitioningConfiguration(Output.of(dynamicPartitioningConfiguration));
         }
 
-        /**
-         * @param errorOutputPrefix Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorOutputPrefix(@Nullable Output<String> errorOutputPrefix) {
             $.errorOutputPrefix = errorOutputPrefix;
             return this;
         }
 
-        /**
-         * @param errorOutputPrefix Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorOutputPrefix(String errorOutputPrefix) {
             return errorOutputPrefix(Output.of(errorOutputPrefix));
         }
 
-        /**
-         * @param fileExtension The file extension to override the default file extension (for example, `.json`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileExtension(@Nullable Output<String> fileExtension) {
             $.fileExtension = fileExtension;
             return this;
         }
 
-        /**
-         * @param fileExtension The file extension to override the default file extension (for example, `.json`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileExtension(String fileExtension) {
             return fileExtension(Output.of(fileExtension));
         }
 
-        /**
-         * @param kmsKeyArn Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-         * be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(@Nullable Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
         }
 
-        /**
-         * @param kmsKeyArn Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-         * be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
         }
 
-        /**
-         * @param prefix The &#34;YYYY/MM/DD/HH&#34; time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param prefix The &#34;YYYY/MM/DD/HH&#34; time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }
 
-        /**
-         * @param processingConfiguration The data processing configuration.  See `processingConfiguration` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder processingConfiguration(@Nullable Output<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs> processingConfiguration) {
             $.processingConfiguration = processingConfiguration;
             return this;
         }
 
-        /**
-         * @param processingConfiguration The data processing configuration.  See `processingConfiguration` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder processingConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs processingConfiguration) {
             return processingConfiguration(Output.of(processingConfiguration));
         }
@@ -519,44 +299,20 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param s3BackupConfiguration The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3BackupConfiguration(@Nullable Output<FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs> s3BackupConfiguration) {
             $.s3BackupConfiguration = s3BackupConfiguration;
             return this;
         }
 
-        /**
-         * @param s3BackupConfiguration The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3BackupConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs s3BackupConfiguration) {
             return s3BackupConfiguration(Output.of(s3BackupConfiguration));
         }
 
-        /**
-         * @param s3BackupMode The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3BackupMode(@Nullable Output<String> s3BackupMode) {
             $.s3BackupMode = s3BackupMode;
             return this;
         }
 
-        /**
-         * @param s3BackupMode The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3BackupMode(String s3BackupMode) {
             return s3BackupMode(Output.of(s3BackupMode));
         }

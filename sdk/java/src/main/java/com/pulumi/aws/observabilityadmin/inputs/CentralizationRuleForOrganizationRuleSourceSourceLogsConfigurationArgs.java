@@ -14,32 +14,16 @@ public final class CentralizationRuleForOrganizationRuleSourceSourceLogsConfigur
 
     public static final CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs Empty = new CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs();
 
-    /**
-     * Strategy for handling encrypted log groups. Valid values: `ALLOW`, `SKIP`.
-     * 
-     */
     @Import(name="encryptedLogGroupStrategy", required=true)
     private Output<String> encryptedLogGroupStrategy;
 
-    /**
-     * @return Strategy for handling encrypted log groups. Valid values: `ALLOW`, `SKIP`.
-     * 
-     */
     public Output<String> encryptedLogGroupStrategy() {
         return this.encryptedLogGroupStrategy;
     }
 
-    /**
-     * Criteria for selecting log groups. Use `*` for all log groups or OAM filter syntax like `LogGroupName LIKE &#39;/aws/lambda%&#39;`. Must be between 1 and 2000 characters.
-     * 
-     */
     @Import(name="logGroupSelectionCriteria", required=true)
     private Output<String> logGroupSelectionCriteria;
 
-    /**
-     * @return Criteria for selecting log groups. Use `*` for all log groups or OAM filter syntax like `LogGroupName LIKE &#39;/aws/lambda%&#39;`. Must be between 1 and 2000 characters.
-     * 
-     */
     public Output<String> logGroupSelectionCriteria() {
         return this.logGroupSelectionCriteria;
     }
@@ -69,44 +53,20 @@ public final class CentralizationRuleForOrganizationRuleSourceSourceLogsConfigur
             $ = new CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param encryptedLogGroupStrategy Strategy for handling encrypted log groups. Valid values: `ALLOW`, `SKIP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptedLogGroupStrategy(Output<String> encryptedLogGroupStrategy) {
             $.encryptedLogGroupStrategy = encryptedLogGroupStrategy;
             return this;
         }
 
-        /**
-         * @param encryptedLogGroupStrategy Strategy for handling encrypted log groups. Valid values: `ALLOW`, `SKIP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptedLogGroupStrategy(String encryptedLogGroupStrategy) {
             return encryptedLogGroupStrategy(Output.of(encryptedLogGroupStrategy));
         }
 
-        /**
-         * @param logGroupSelectionCriteria Criteria for selecting log groups. Use `*` for all log groups or OAM filter syntax like `LogGroupName LIKE &#39;/aws/lambda%&#39;`. Must be between 1 and 2000 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupSelectionCriteria(Output<String> logGroupSelectionCriteria) {
             $.logGroupSelectionCriteria = logGroupSelectionCriteria;
             return this;
         }
 
-        /**
-         * @param logGroupSelectionCriteria Criteria for selecting log groups. Use `*` for all log groups or OAM filter syntax like `LogGroupName LIKE &#39;/aws/lambda%&#39;`. Must be between 1 and 2000 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupSelectionCriteria(String logGroupSelectionCriteria) {
             return logGroupSelectionCriteria(Output.of(logGroupSelectionCriteria));
         }

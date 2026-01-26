@@ -15,17 +15,9 @@ public final class EndpointClientRouteEnforcementOptionsArgs extends com.pulumi.
 
     public static final EndpointClientRouteEnforcementOptionsArgs Empty = new EndpointClientRouteEnforcementOptionsArgs();
 
-    /**
-     * Enable or disable Client Route Enforcement. The default is `false` (not enabled).
-     * 
-     */
     @Import(name="enforced")
     private @Nullable Output<Boolean> enforced;
 
-    /**
-     * @return Enable or disable Client Route Enforcement. The default is `false` (not enabled).
-     * 
-     */
     public Optional<Output<Boolean>> enforced() {
         return Optional.ofNullable(this.enforced);
     }
@@ -54,23 +46,11 @@ public final class EndpointClientRouteEnforcementOptionsArgs extends com.pulumi.
             $ = new EndpointClientRouteEnforcementOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enforced Enable or disable Client Route Enforcement. The default is `false` (not enabled).
-         * 
-         * @return builder
-         * 
-         */
         public Builder enforced(@Nullable Output<Boolean> enforced) {
             $.enforced = enforced;
             return this;
         }
 
-        /**
-         * @param enforced Enable or disable Client Route Enforcement. The default is `false` (not enabled).
-         * 
-         * @return builder
-         * 
-         */
         public Builder enforced(Boolean enforced) {
             return enforced(Output.of(enforced));
         }

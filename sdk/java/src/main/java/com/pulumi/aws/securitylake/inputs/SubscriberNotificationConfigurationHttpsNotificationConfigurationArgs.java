@@ -16,83 +16,37 @@ public final class SubscriberNotificationConfigurationHttpsNotificationConfigura
 
     public static final SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs Empty = new SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs();
 
-    /**
-     * The API key name for the notification subscription.
-     * 
-     */
     @Import(name="authorizationApiKeyName")
     private @Nullable Output<String> authorizationApiKeyName;
 
-    /**
-     * @return The API key name for the notification subscription.
-     * 
-     */
     public Optional<Output<String>> authorizationApiKeyName() {
         return Optional.ofNullable(this.authorizationApiKeyName);
     }
 
-    /**
-     * The API key value for the notification subscription.
-     * 
-     */
     @Import(name="authorizationApiKeyValue")
     private @Nullable Output<String> authorizationApiKeyValue;
 
-    /**
-     * @return The API key value for the notification subscription.
-     * 
-     */
     public Optional<Output<String>> authorizationApiKeyValue() {
         return Optional.ofNullable(this.authorizationApiKeyValue);
     }
 
-    /**
-     * The subscription endpoint in Security Lake.
-     * If you prefer notification with an HTTPS endpoint, populate this field.
-     * 
-     */
     @Import(name="endpoint", required=true)
     private Output<String> endpoint;
 
-    /**
-     * @return The subscription endpoint in Security Lake.
-     * If you prefer notification with an HTTPS endpoint, populate this field.
-     * 
-     */
     public Output<String> endpoint() {
         return this.endpoint;
     }
 
-    /**
-     * The HTTP method used for the notification subscription.
-     * Valid values are `POST` and `PUT`.
-     * 
-     */
     @Import(name="httpMethod")
     private @Nullable Output<String> httpMethod;
 
-    /**
-     * @return The HTTP method used for the notification subscription.
-     * Valid values are `POST` and `PUT`.
-     * 
-     */
     public Optional<Output<String>> httpMethod() {
         return Optional.ofNullable(this.httpMethod);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
-     * For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
-     * 
-     */
     @Import(name="targetRoleArn", required=true)
     private Output<String> targetRoleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
-     * For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
-     * 
-     */
     public Output<String> targetRoleArn() {
         return this.targetRoleArn;
     }
@@ -125,113 +79,47 @@ public final class SubscriberNotificationConfigurationHttpsNotificationConfigura
             $ = new SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authorizationApiKeyName The API key name for the notification subscription.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizationApiKeyName(@Nullable Output<String> authorizationApiKeyName) {
             $.authorizationApiKeyName = authorizationApiKeyName;
             return this;
         }
 
-        /**
-         * @param authorizationApiKeyName The API key name for the notification subscription.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizationApiKeyName(String authorizationApiKeyName) {
             return authorizationApiKeyName(Output.of(authorizationApiKeyName));
         }
 
-        /**
-         * @param authorizationApiKeyValue The API key value for the notification subscription.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizationApiKeyValue(@Nullable Output<String> authorizationApiKeyValue) {
             $.authorizationApiKeyValue = authorizationApiKeyValue;
             return this;
         }
 
-        /**
-         * @param authorizationApiKeyValue The API key value for the notification subscription.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizationApiKeyValue(String authorizationApiKeyValue) {
             return authorizationApiKeyValue(Output.of(authorizationApiKeyValue));
         }
 
-        /**
-         * @param endpoint The subscription endpoint in Security Lake.
-         * If you prefer notification with an HTTPS endpoint, populate this field.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpoint(Output<String> endpoint) {
             $.endpoint = endpoint;
             return this;
         }
 
-        /**
-         * @param endpoint The subscription endpoint in Security Lake.
-         * If you prefer notification with an HTTPS endpoint, populate this field.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpoint(String endpoint) {
             return endpoint(Output.of(endpoint));
         }
 
-        /**
-         * @param httpMethod The HTTP method used for the notification subscription.
-         * Valid values are `POST` and `PUT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpMethod(@Nullable Output<String> httpMethod) {
             $.httpMethod = httpMethod;
             return this;
         }
 
-        /**
-         * @param httpMethod The HTTP method used for the notification subscription.
-         * Valid values are `POST` and `PUT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpMethod(String httpMethod) {
             return httpMethod(Output.of(httpMethod));
         }
 
-        /**
-         * @param targetRoleArn The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
-         * For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetRoleArn(Output<String> targetRoleArn) {
             $.targetRoleArn = targetRoleArn;
             return this;
         }
 
-        /**
-         * @param targetRoleArn The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
-         * For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetRoleArn(String targetRoleArn) {
             return targetRoleArn(Output.of(targetRoleArn));
         }

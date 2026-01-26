@@ -12,10 +12,6 @@ namespace Pulumi.Aws.DataExchange.Inputs
 
     public sealed class EventActionEventArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration for a Revision Published event.
-        /// Described in `RevisionPublished` Configuration Block below.
-        /// </summary>
         [Input("revisionPublished")]
         public Input<Inputs.EventActionEventRevisionPublishedArgs>? RevisionPublished { get; set; }
 

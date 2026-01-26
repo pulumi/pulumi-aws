@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class FlowDefinitionHumanLoopActivationConfig
     {
-        /// <summary>
-        /// defines under what conditions SageMaker AI creates a human loop. See Human Loop Activation Conditions Config details below.
-        /// </summary>
         public readonly Outputs.FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig? HumanLoopActivationConditionsConfig;
 
         [OutputConstructor]

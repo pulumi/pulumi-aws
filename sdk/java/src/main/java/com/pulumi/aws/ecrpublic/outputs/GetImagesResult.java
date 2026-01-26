@@ -21,21 +21,9 @@ public final class GetImagesResult {
      */
     private String id;
     private @Nullable List<GetImagesImageId> imageIds;
-    /**
-     * @return List of images returned. Each image contains:
-     * 
-     */
     private List<GetImagesImage> images;
     private String region;
-    /**
-     * @return AWS account ID associated with the public registry.
-     * 
-     */
     private @Nullable String registryId;
-    /**
-     * @return Name of the repository.
-     * 
-     */
     private String repositoryName;
 
     private GetImagesResult() {}
@@ -49,27 +37,15 @@ public final class GetImagesResult {
     public List<GetImagesImageId> imageIds() {
         return this.imageIds == null ? List.of() : this.imageIds;
     }
-    /**
-     * @return List of images returned. Each image contains:
-     * 
-     */
     public List<GetImagesImage> images() {
         return this.images;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return AWS account ID associated with the public registry.
-     * 
-     */
     public Optional<String> registryId() {
         return Optional.ofNullable(this.registryId);
     }
-    /**
-     * @return Name of the repository.
-     * 
-     */
     public String repositoryName() {
         return this.repositoryName;
     }

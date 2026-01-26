@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of the gateway target.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

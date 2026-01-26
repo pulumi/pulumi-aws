@@ -15,62 +15,30 @@ public final class GetTrafficPolicyDocumentEndpoint extends com.pulumi.resources
 
     public static final GetTrafficPolicyDocumentEndpoint Empty = new GetTrafficPolicyDocumentEndpoint();
 
-    /**
-     * ID of an endpoint you want to assign.
-     * 
-     */
     @Import(name="id", required=true)
     private String id;
 
-    /**
-     * @return ID of an endpoint you want to assign.
-     * 
-     */
     public String id() {
         return this.id;
     }
 
-    /**
-     * To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Type of the endpoint. Valid values are `value`, `cloudfront`, `elastic-load-balancer`, `s3-website`, `application-load-balancer`, `network-load-balancer` and `elastic-beanstalk`
-     * 
-     */
     @Import(name="type")
     private @Nullable String type;
 
-    /**
-     * @return Type of the endpoint. Valid values are `value`, `cloudfront`, `elastic-load-balancer`, `s3-website`, `application-load-balancer`, `network-load-balancer` and `elastic-beanstalk`
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }
 
-    /**
-     * Value of the `type`.
-     * 
-     */
     @Import(name="value")
     private @Nullable String value;
 
-    /**
-     * @return Value of the `type`.
-     * 
-     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }
@@ -102,45 +70,21 @@ public final class GetTrafficPolicyDocumentEndpoint extends com.pulumi.resources
             $ = new GetTrafficPolicyDocumentEndpoint(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id ID of an endpoint you want to assign.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param region To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param type Type of the endpoint. Valid values are `value`, `cloudfront`, `elastic-load-balancer`, `s3-website`, `application-load-balancer`, `network-load-balancer` and `elastic-beanstalk`
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable String type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param value Value of the `type`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(@Nullable String value) {
             $.value = value;
             return this;

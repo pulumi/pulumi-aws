@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig
     {
-        /// <summary>
-        /// Name of the Amazon S3 bucket.
-        /// </summary>
         public readonly string? BucketName;
-        /// <summary>
-        /// Amazon S3 bucket prefix.
-        /// </summary>
         public readonly string? BucketPrefix;
 
         [OutputConstructor]

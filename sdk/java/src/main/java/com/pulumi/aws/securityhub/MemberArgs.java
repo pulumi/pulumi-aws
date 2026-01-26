@@ -17,62 +17,30 @@ public final class MemberArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final MemberArgs Empty = new MemberArgs();
 
-    /**
-     * The ID of the member AWS account.
-     * 
-     */
     @Import(name="accountId", required=true)
     private Output<String> accountId;
 
-    /**
-     * @return The ID of the member AWS account.
-     * 
-     */
     public Output<String> accountId() {
         return this.accountId;
     }
 
-    /**
-     * The email of the member AWS account.
-     * 
-     */
     @Import(name="email")
     private @Nullable Output<String> email;
 
-    /**
-     * @return The email of the member AWS account.
-     * 
-     */
     public Optional<Output<String>> email() {
         return Optional.ofNullable(this.email);
     }
 
-    /**
-     * Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
-     * 
-     */
     @Import(name="invite")
     private @Nullable Output<Boolean> invite;
 
-    /**
-     * @return Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> invite() {
         return Optional.ofNullable(this.invite);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -104,86 +72,38 @@ public final class MemberArgs extends com.pulumi.resources.ResourceArgs {
             $ = new MemberArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountId The ID of the member AWS account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        /**
-         * @param accountId The ID of the member AWS account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
-        /**
-         * @param email The email of the member AWS account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder email(@Nullable Output<String> email) {
             $.email = email;
             return this;
         }
 
-        /**
-         * @param email The email of the member AWS account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder email(String email) {
             return email(Output.of(email));
         }
 
-        /**
-         * @param invite Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder invite(@Nullable Output<Boolean> invite) {
             $.invite = invite;
             return this;
         }
 
-        /**
-         * @param invite Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder invite(Boolean invite) {
             return invite(Output.of(invite));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

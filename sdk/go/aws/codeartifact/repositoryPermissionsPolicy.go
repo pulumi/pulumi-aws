@@ -12,109 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CodeArtifact Repostory Permissions Policy Resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codeartifact"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
-//				Description: pulumi.String("domain key"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDomain, err := codeartifact.NewDomain(ctx, "example", &codeartifact.DomainArgs{
-//				Domain:        pulumi.String("example"),
-//				EncryptionKey: exampleKey.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleRepository, err := codeartifact.NewRepository(ctx, "example", &codeartifact.RepositoryArgs{
-//				Repository: pulumi.String("example"),
-//				Domain:     exampleDomain.Domain,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("*"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("*"),
-//								},
-//							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("codeartifact:ReadFromRepository"),
-//						},
-//						Resources: pulumi.StringArray{
-//							exampleRepository.Arn,
-//						},
-//					},
-//				},
-//			}, nil)
-//			_, err = codeartifact.NewRepositoryPermissionsPolicy(ctx, "example", &codeartifact.RepositoryPermissionsPolicyArgs{
-//				Repository: exampleRepository.Repository,
-//				Domain:     exampleDomain.Domain,
-//				PolicyDocument: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-//					return &example.Json, nil
-//				}).(pulumi.StringPtrOutput)),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the CodeArtifact repository.
-//
-// Using `pulumi import`, import CodeArtifact Repository Permissions Policies using the CodeArtifact Repository ARN. For example:
-//
-// % pulumi import aws_codeartifact_repository_permissions_policy.example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
 type RepositoryPermissionsPolicy struct {
 	pulumi.CustomResourceState
 
-	// The name of the domain on which to set the resource policy.
-	Domain pulumi.StringOutput `pulumi:"domain"`
-	// The account number of the AWS account that owns the domain.
-	DomainOwner pulumi.StringOutput `pulumi:"domainOwner"`
-	// A JSON policy string to be set as the access control resource policy on the provided domain.
+	Domain         pulumi.StringOutput `pulumi:"domain"`
+	DomainOwner    pulumi.StringOutput `pulumi:"domainOwner"`
 	PolicyDocument pulumi.StringOutput `pulumi:"policyDocument"`
-	// The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
 	PolicyRevision pulumi.StringOutput `pulumi:"policyRevision"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The name of the repository to set the resource policy on.
-	Repository pulumi.StringOutput `pulumi:"repository"`
-	// The ARN of the resource associated with the resource policy.
-	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
+	Region         pulumi.StringOutput `pulumi:"region"`
+	Repository     pulumi.StringOutput `pulumi:"repository"`
+	ResourceArn    pulumi.StringOutput `pulumi:"resourceArn"`
 }
 
 // NewRepositoryPermissionsPolicy registers a new resource with the given unique name, arguments, and options.
@@ -156,37 +63,23 @@ func GetRepositoryPermissionsPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RepositoryPermissionsPolicy resources.
 type repositoryPermissionsPolicyState struct {
-	// The name of the domain on which to set the resource policy.
-	Domain *string `pulumi:"domain"`
-	// The account number of the AWS account that owns the domain.
-	DomainOwner *string `pulumi:"domainOwner"`
-	// A JSON policy string to be set as the access control resource policy on the provided domain.
+	Domain         *string `pulumi:"domain"`
+	DomainOwner    *string `pulumi:"domainOwner"`
 	PolicyDocument *string `pulumi:"policyDocument"`
-	// The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
 	PolicyRevision *string `pulumi:"policyRevision"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The name of the repository to set the resource policy on.
-	Repository *string `pulumi:"repository"`
-	// The ARN of the resource associated with the resource policy.
-	ResourceArn *string `pulumi:"resourceArn"`
+	Region         *string `pulumi:"region"`
+	Repository     *string `pulumi:"repository"`
+	ResourceArn    *string `pulumi:"resourceArn"`
 }
 
 type RepositoryPermissionsPolicyState struct {
-	// The name of the domain on which to set the resource policy.
-	Domain pulumi.StringPtrInput
-	// The account number of the AWS account that owns the domain.
-	DomainOwner pulumi.StringPtrInput
-	// A JSON policy string to be set as the access control resource policy on the provided domain.
+	Domain         pulumi.StringPtrInput
+	DomainOwner    pulumi.StringPtrInput
 	PolicyDocument pulumi.StringPtrInput
-	// The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
 	PolicyRevision pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The name of the repository to set the resource policy on.
-	Repository pulumi.StringPtrInput
-	// The ARN of the resource associated with the resource policy.
-	ResourceArn pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
+	Repository     pulumi.StringPtrInput
+	ResourceArn    pulumi.StringPtrInput
 }
 
 func (RepositoryPermissionsPolicyState) ElementType() reflect.Type {
@@ -194,34 +87,22 @@ func (RepositoryPermissionsPolicyState) ElementType() reflect.Type {
 }
 
 type repositoryPermissionsPolicyArgs struct {
-	// The name of the domain on which to set the resource policy.
-	Domain string `pulumi:"domain"`
-	// The account number of the AWS account that owns the domain.
-	DomainOwner *string `pulumi:"domainOwner"`
-	// A JSON policy string to be set as the access control resource policy on the provided domain.
-	PolicyDocument string `pulumi:"policyDocument"`
-	// The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
+	Domain         string  `pulumi:"domain"`
+	DomainOwner    *string `pulumi:"domainOwner"`
+	PolicyDocument string  `pulumi:"policyDocument"`
 	PolicyRevision *string `pulumi:"policyRevision"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The name of the repository to set the resource policy on.
-	Repository string `pulumi:"repository"`
+	Region         *string `pulumi:"region"`
+	Repository     string  `pulumi:"repository"`
 }
 
 // The set of arguments for constructing a RepositoryPermissionsPolicy resource.
 type RepositoryPermissionsPolicyArgs struct {
-	// The name of the domain on which to set the resource policy.
-	Domain pulumi.StringInput
-	// The account number of the AWS account that owns the domain.
-	DomainOwner pulumi.StringPtrInput
-	// A JSON policy string to be set as the access control resource policy on the provided domain.
+	Domain         pulumi.StringInput
+	DomainOwner    pulumi.StringPtrInput
 	PolicyDocument pulumi.StringInput
-	// The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
 	PolicyRevision pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The name of the repository to set the resource policy on.
-	Repository pulumi.StringInput
+	Region         pulumi.StringPtrInput
+	Repository     pulumi.StringInput
 }
 
 func (RepositoryPermissionsPolicyArgs) ElementType() reflect.Type {
@@ -311,37 +192,30 @@ func (o RepositoryPermissionsPolicyOutput) ToRepositoryPermissionsPolicyOutputWi
 	return o
 }
 
-// The name of the domain on which to set the resource policy.
 func (o RepositoryPermissionsPolicyOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryPermissionsPolicy) pulumi.StringOutput { return v.Domain }).(pulumi.StringOutput)
 }
 
-// The account number of the AWS account that owns the domain.
 func (o RepositoryPermissionsPolicyOutput) DomainOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryPermissionsPolicy) pulumi.StringOutput { return v.DomainOwner }).(pulumi.StringOutput)
 }
 
-// A JSON policy string to be set as the access control resource policy on the provided domain.
 func (o RepositoryPermissionsPolicyOutput) PolicyDocument() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryPermissionsPolicy) pulumi.StringOutput { return v.PolicyDocument }).(pulumi.StringOutput)
 }
 
-// The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
 func (o RepositoryPermissionsPolicyOutput) PolicyRevision() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryPermissionsPolicy) pulumi.StringOutput { return v.PolicyRevision }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RepositoryPermissionsPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryPermissionsPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The name of the repository to set the resource policy on.
 func (o RepositoryPermissionsPolicyOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryPermissionsPolicy) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
 }
 
-// The ARN of the resource associated with the resource policy.
 func (o RepositoryPermissionsPolicyOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryPermissionsPolicy) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }

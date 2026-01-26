@@ -14,32 +14,16 @@ public final class ServerWorkflowDetailsOnUploadArgs extends com.pulumi.resource
 
     public static final ServerWorkflowDetailsOnUploadArgs Empty = new ServerWorkflowDetailsOnUploadArgs();
 
-    /**
-     * Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources.
-     * 
-     */
     @Import(name="executionRole", required=true)
     private Output<String> executionRole;
 
-    /**
-     * @return Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources.
-     * 
-     */
     public Output<String> executionRole() {
         return this.executionRole;
     }
 
-    /**
-     * A unique identifier for the workflow.
-     * 
-     */
     @Import(name="workflowId", required=true)
     private Output<String> workflowId;
 
-    /**
-     * @return A unique identifier for the workflow.
-     * 
-     */
     public Output<String> workflowId() {
         return this.workflowId;
     }
@@ -69,44 +53,20 @@ public final class ServerWorkflowDetailsOnUploadArgs extends com.pulumi.resource
             $ = new ServerWorkflowDetailsOnUploadArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param executionRole Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executionRole(Output<String> executionRole) {
             $.executionRole = executionRole;
             return this;
         }
 
-        /**
-         * @param executionRole Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executionRole(String executionRole) {
             return executionRole(Output.of(executionRole));
         }
 
-        /**
-         * @param workflowId A unique identifier for the workflow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workflowId(Output<String> workflowId) {
             $.workflowId = workflowId;
             return this;
         }
 
-        /**
-         * @param workflowId A unique identifier for the workflow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workflowId(String workflowId) {
             return workflowId(Output.of(workflowId));
         }

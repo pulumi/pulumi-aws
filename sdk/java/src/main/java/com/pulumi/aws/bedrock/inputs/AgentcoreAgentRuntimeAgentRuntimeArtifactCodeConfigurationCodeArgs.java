@@ -15,17 +15,9 @@ public final class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCod
 
     public static final AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs Empty = new AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs();
 
-    /**
-     * Configuration block for the Amazon S3 object that contains the source code for the agent runtime. See `s3` below.
-     * 
-     */
     @Import(name="s3")
     private @Nullable Output<AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args> s3;
 
-    /**
-     * @return Configuration block for the Amazon S3 object that contains the source code for the agent runtime. See `s3` below.
-     * 
-     */
     public Optional<Output<AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args>> s3() {
         return Optional.ofNullable(this.s3);
     }
@@ -54,23 +46,11 @@ public final class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCod
             $ = new AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param s3 Configuration block for the Amazon S3 object that contains the source code for the agent runtime. See `s3` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3(@Nullable Output<AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args> s3) {
             $.s3 = s3;
             return this;
         }
 
-        /**
-         * @param s3 Configuration block for the Amazon S3 object that contains the source code for the agent runtime. See `s3` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3(AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args s3) {
             return s3(Output.of(s3));
         }

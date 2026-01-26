@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentPromptVariantTemplateConfiguration
     {
-        /// <summary>
-        /// Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
-        /// </summary>
         public readonly Outputs.AgentPromptVariantTemplateConfigurationChat? Chat;
-        /// <summary>
-        /// Contains configurations for the text in a message for a prompt. See Text Template Configuration
-        /// </summary>
         public readonly Outputs.AgentPromptVariantTemplateConfigurationText? Text;
 
         [OutputConstructor]

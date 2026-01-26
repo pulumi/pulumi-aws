@@ -15,47 +15,23 @@ public final class GetAuthorizerPlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetAuthorizerPlainArgs Empty = new GetAuthorizerPlainArgs();
 
-    /**
-     * Authorizer identifier.
-     * 
-     */
     @Import(name="authorizerId", required=true)
     private String authorizerId;
 
-    /**
-     * @return Authorizer identifier.
-     * 
-     */
     public String authorizerId() {
         return this.authorizerId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID of the associated REST API.
-     * 
-     */
     @Import(name="restApiId", required=true)
     private String restApiId;
 
-    /**
-     * @return ID of the associated REST API.
-     * 
-     */
     public String restApiId() {
         return this.restApiId;
     }
@@ -86,34 +62,16 @@ public final class GetAuthorizerPlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetAuthorizerPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authorizerId Authorizer identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizerId(String authorizerId) {
             $.authorizerId = authorizerId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param restApiId ID of the associated REST API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restApiId(String restApiId) {
             $.restApiId = restApiId;
             return this;

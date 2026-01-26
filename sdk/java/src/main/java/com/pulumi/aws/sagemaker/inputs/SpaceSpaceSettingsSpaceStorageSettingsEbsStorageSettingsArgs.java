@@ -14,17 +14,9 @@ public final class SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs 
 
     public static final SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs Empty = new SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs();
 
-    /**
-     * The size of an EBS storage volume for a space.
-     * 
-     */
     @Import(name="ebsVolumeSizeInGb", required=true)
     private Output<Integer> ebsVolumeSizeInGb;
 
-    /**
-     * @return The size of an EBS storage volume for a space.
-     * 
-     */
     public Output<Integer> ebsVolumeSizeInGb() {
         return this.ebsVolumeSizeInGb;
     }
@@ -53,23 +45,11 @@ public final class SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs 
             $ = new SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ebsVolumeSizeInGb The size of an EBS storage volume for a space.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ebsVolumeSizeInGb(Output<Integer> ebsVolumeSizeInGb) {
             $.ebsVolumeSizeInGb = ebsVolumeSizeInGb;
             return this;
         }
 
-        /**
-         * @param ebsVolumeSizeInGb The size of an EBS storage volume for a space.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ebsVolumeSizeInGb(Integer ebsVolumeSizeInGb) {
             return ebsVolumeSizeInGb(Output.of(ebsVolumeSizeInGb));
         }

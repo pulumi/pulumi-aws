@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IndexCapacityUnits {
-    /**
-     * @return The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
-     * 
-     */
     private @Nullable Integer queryCapacityUnits;
-    /**
-     * @return The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
-     * 
-     */
     private @Nullable Integer storageCapacityUnits;
 
     private IndexCapacityUnits() {}
-    /**
-     * @return The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
-     * 
-     */
     public Optional<Integer> queryCapacityUnits() {
         return Optional.ofNullable(this.queryCapacityUnits);
     }
-    /**
-     * @return The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
-     * 
-     */
     public Optional<Integer> storageCapacityUnits() {
         return Optional.ofNullable(this.storageCapacityUnits);
     }

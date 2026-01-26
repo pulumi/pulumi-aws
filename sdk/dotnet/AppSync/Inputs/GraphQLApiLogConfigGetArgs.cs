@@ -12,21 +12,12 @@ namespace Pulumi.Aws.AppSync.Inputs
 
     public sealed class GraphQLApiLogConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
-        /// </summary>
         [Input("cloudwatchLogsRoleArn", required: true)]
         public Input<string> CloudwatchLogsRoleArn { get; set; } = null!;
 
-        /// <summary>
-        /// Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging  level. Valid values: `True`, `False`. Default value: `False`
-        /// </summary>
         [Input("excludeVerboseContent")]
         public Input<bool>? ExcludeVerboseContent { get; set; }
 
-        /// <summary>
-        /// Field logging level. Valid values: `ALL`, `ERROR`, `NONE`.
-        /// </summary>
         [Input("fieldLogLevel", required: true)]
         public Input<string> FieldLogLevel { get; set; } = null!;
 

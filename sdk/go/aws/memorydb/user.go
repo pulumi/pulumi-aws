@@ -12,80 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a MemoryDB User.
-//
-// More information about users and ACL-s can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/clusters.acls.html).
-//
-// > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/memorydb"
-//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := random.NewPassword(ctx, "example", &random.PasswordArgs{
-//				Length: 16,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = memorydb.NewUser(ctx, "example", &memorydb.UserArgs{
-//				UserName:     pulumi.String("my-user"),
-//				AccessString: pulumi.String("on ~* &* +@all"),
-//				AuthenticationMode: &memorydb.UserAuthenticationModeArgs{
-//					Type: pulumi.String("password"),
-//					Passwords: pulumi.StringArray{
-//						example.Result,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import a user using the `user_name`. For example:
-//
-// ```sh
-// $ pulumi import aws:memorydb/user:User example my-user
-// ```
-// The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
 type User struct {
 	pulumi.CustomResourceState
 
-	// Access permissions string used for this user.
-	AccessString pulumi.StringOutput `pulumi:"accessString"`
-	// ARN of the user.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Denotes the user's authentication properties. Detailed below.
-	AuthenticationMode UserAuthenticationModeOutput `pulumi:"authenticationMode"`
-	// Minimum engine version supported for the user.
-	MinimumEngineVersion pulumi.StringOutput `pulumi:"minimumEngineVersion"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Name of the MemoryDB user. Up to 40 characters.
-	//
-	// The following arguments are optional:
-	UserName pulumi.StringOutput `pulumi:"userName"`
+	AccessString         pulumi.StringOutput          `pulumi:"accessString"`
+	Arn                  pulumi.StringOutput          `pulumi:"arn"`
+	AuthenticationMode   UserAuthenticationModeOutput `pulumi:"authenticationMode"`
+	MinimumEngineVersion pulumi.StringOutput          `pulumi:"minimumEngineVersion"`
+	Region               pulumi.StringOutput          `pulumi:"region"`
+	Tags                 pulumi.StringMapOutput       `pulumi:"tags"`
+	TagsAll              pulumi.StringMapOutput       `pulumi:"tagsAll"`
+	UserName             pulumi.StringOutput          `pulumi:"userName"`
 }
 
 // NewUser registers a new resource with the given unique name, arguments, and options.
@@ -127,45 +64,25 @@ func GetUser(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering User resources.
 type userState struct {
-	// Access permissions string used for this user.
-	AccessString *string `pulumi:"accessString"`
-	// ARN of the user.
-	Arn *string `pulumi:"arn"`
-	// Denotes the user's authentication properties. Detailed below.
-	AuthenticationMode *UserAuthenticationMode `pulumi:"authenticationMode"`
-	// Minimum engine version supported for the user.
-	MinimumEngineVersion *string `pulumi:"minimumEngineVersion"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Name of the MemoryDB user. Up to 40 characters.
-	//
-	// The following arguments are optional:
-	UserName *string `pulumi:"userName"`
+	AccessString         *string                 `pulumi:"accessString"`
+	Arn                  *string                 `pulumi:"arn"`
+	AuthenticationMode   *UserAuthenticationMode `pulumi:"authenticationMode"`
+	MinimumEngineVersion *string                 `pulumi:"minimumEngineVersion"`
+	Region               *string                 `pulumi:"region"`
+	Tags                 map[string]string       `pulumi:"tags"`
+	TagsAll              map[string]string       `pulumi:"tagsAll"`
+	UserName             *string                 `pulumi:"userName"`
 }
 
 type UserState struct {
-	// Access permissions string used for this user.
-	AccessString pulumi.StringPtrInput
-	// ARN of the user.
-	Arn pulumi.StringPtrInput
-	// Denotes the user's authentication properties. Detailed below.
-	AuthenticationMode UserAuthenticationModePtrInput
-	// Minimum engine version supported for the user.
+	AccessString         pulumi.StringPtrInput
+	Arn                  pulumi.StringPtrInput
+	AuthenticationMode   UserAuthenticationModePtrInput
 	MinimumEngineVersion pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Name of the MemoryDB user. Up to 40 characters.
-	//
-	// The following arguments are optional:
-	UserName pulumi.StringPtrInput
+	Region               pulumi.StringPtrInput
+	Tags                 pulumi.StringMapInput
+	TagsAll              pulumi.StringMapInput
+	UserName             pulumi.StringPtrInput
 }
 
 func (UserState) ElementType() reflect.Type {
@@ -173,34 +90,20 @@ func (UserState) ElementType() reflect.Type {
 }
 
 type userArgs struct {
-	// Access permissions string used for this user.
-	AccessString string `pulumi:"accessString"`
-	// Denotes the user's authentication properties. Detailed below.
+	AccessString       string                 `pulumi:"accessString"`
 	AuthenticationMode UserAuthenticationMode `pulumi:"authenticationMode"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Name of the MemoryDB user. Up to 40 characters.
-	//
-	// The following arguments are optional:
-	UserName string `pulumi:"userName"`
+	Region             *string                `pulumi:"region"`
+	Tags               map[string]string      `pulumi:"tags"`
+	UserName           string                 `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
-	// Access permissions string used for this user.
-	AccessString pulumi.StringInput
-	// Denotes the user's authentication properties. Detailed below.
+	AccessString       pulumi.StringInput
 	AuthenticationMode UserAuthenticationModeInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Name of the MemoryDB user. Up to 40 characters.
-	//
-	// The following arguments are optional:
-	UserName pulumi.StringInput
+	Region             pulumi.StringPtrInput
+	Tags               pulumi.StringMapInput
+	UserName           pulumi.StringInput
 }
 
 func (UserArgs) ElementType() reflect.Type {
@@ -290,44 +193,34 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
 }
 
-// Access permissions string used for this user.
 func (o UserOutput) AccessString() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.AccessString }).(pulumi.StringOutput)
 }
 
-// ARN of the user.
 func (o UserOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Denotes the user's authentication properties. Detailed below.
 func (o UserOutput) AuthenticationMode() UserAuthenticationModeOutput {
 	return o.ApplyT(func(v *User) UserAuthenticationModeOutput { return v.AuthenticationMode }).(UserAuthenticationModeOutput)
 }
 
-// Minimum engine version supported for the user.
 func (o UserOutput) MinimumEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.MinimumEngineVersion }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o UserOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o UserOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *User) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o UserOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *User) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Name of the MemoryDB user. Up to 40 characters.
-//
-// The following arguments are optional:
 func (o UserOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
 }

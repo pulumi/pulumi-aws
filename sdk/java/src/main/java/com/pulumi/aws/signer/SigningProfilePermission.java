@@ -13,181 +13,47 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Creates a Signer Signing Profile Permission. That is, a cross-account permission for a signing profile.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.signer.SigningProfile;
- * import com.pulumi.aws.signer.SigningProfileArgs;
- * import com.pulumi.aws.signer.inputs.SigningProfileSignatureValidityPeriodArgs;
- * import com.pulumi.aws.signer.SigningProfilePermission;
- * import com.pulumi.aws.signer.SigningProfilePermissionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var prodSp = new SigningProfile("prodSp", SigningProfileArgs.builder()
- *             .platformId("AWSLambda-SHA384-ECDSA")
- *             .namePrefix("prod_sp_")
- *             .signatureValidityPeriod(SigningProfileSignatureValidityPeriodArgs.builder()
- *                 .value(5)
- *                 .type("YEARS")
- *                 .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry("tag1", "value1"),
- *                 Map.entry("tag2", "value2")
- *             ))
- *             .build());
- * 
- *         var spPermission1 = new SigningProfilePermission("spPermission1", SigningProfilePermissionArgs.builder()
- *             .profileName(prodSp.name())
- *             .action("signer:StartSigningJob")
- *             .principal(awsAccount)
- *             .build());
- * 
- *         var spPermission2 = new SigningProfilePermission("spPermission2", SigningProfilePermissionArgs.builder()
- *             .profileName(prodSp.name())
- *             .action("signer:GetSigningProfile")
- *             .principal(awsTeamRoleArn)
- *             .statementId("ProdAccountStartSigningJob_StatementId")
- *             .build());
- * 
- *         var spPermission3 = new SigningProfilePermission("spPermission3", SigningProfilePermissionArgs.builder()
- *             .profileName(prodSp.name())
- *             .action("signer:RevokeSignature")
- *             .principal("123456789012")
- *             .profileVersion(prodSp.version())
- *             .statementIdPrefix("version-permission-")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Signer signing profile permission statements using profile_name/statement_id. For example:
- * 
- * ```sh
- * $ pulumi import aws:signer/signingProfilePermission:SigningProfilePermission test_signer_signing_profile_permission prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK/ProdAccountStartSigningJobStatementId
- * ```
- * 
- */
 @ResourceType(type="aws:signer/signingProfilePermission:SigningProfilePermission")
 public class SigningProfilePermission extends com.pulumi.resources.CustomResource {
-    /**
-     * An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, `signer:RevokeSignature`, or `signer:SignPayload`.
-     * 
-     */
     @Export(name="action", refs={String.class}, tree="[0]")
     private Output<String> action;
 
-    /**
-     * @return An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, `signer:RevokeSignature`, or `signer:SignPayload`.
-     * 
-     */
     public Output<String> action() {
         return this.action;
     }
-    /**
-     * The AWS principal to be granted a cross-account permission.
-     * 
-     */
     @Export(name="principal", refs={String.class}, tree="[0]")
     private Output<String> principal;
 
-    /**
-     * @return The AWS principal to be granted a cross-account permission.
-     * 
-     */
     public Output<String> principal() {
         return this.principal;
     }
-    /**
-     * Name of the signing profile to add the cross-account permissions.
-     * 
-     */
     @Export(name="profileName", refs={String.class}, tree="[0]")
     private Output<String> profileName;
 
-    /**
-     * @return Name of the signing profile to add the cross-account permissions.
-     * 
-     */
     public Output<String> profileName() {
         return this.profileName;
     }
-    /**
-     * The signing profile version that a permission applies to.
-     * 
-     */
     @Export(name="profileVersion", refs={String.class}, tree="[0]")
     private Output<String> profileVersion;
 
-    /**
-     * @return The signing profile version that a permission applies to.
-     * 
-     */
     public Output<String> profileVersion() {
         return this.profileVersion;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A unique statement identifier. By default generated by the provider.
-     * 
-     */
     @Export(name="statementId", refs={String.class}, tree="[0]")
     private Output<String> statementId;
 
-    /**
-     * @return A unique statement identifier. By default generated by the provider.
-     * 
-     */
     public Output<String> statementId() {
         return this.statementId;
     }
-    /**
-     * A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statementId`.
-     * 
-     */
     @Export(name="statementIdPrefix", refs={String.class}, tree="[0]")
     private Output<String> statementIdPrefix;
 
-    /**
-     * @return A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statementId`.
-     * 
-     */
     public Output<String> statementIdPrefix() {
         return this.statementIdPrefix;
     }

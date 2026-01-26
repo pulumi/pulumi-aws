@@ -19,27 +19,15 @@ public final class GetAvailabilityZonesResult {
     private @Nullable List<String> excludeNames;
     private @Nullable List<String> excludeZoneIds;
     private @Nullable List<GetAvailabilityZonesFilter> filters;
-    /**
-     * @return A set of the Availability Zone Group names. For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
-     * 
-     */
     private List<String> groupNames;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return List of the Availability Zone names available to the account.
-     * 
-     */
     private List<String> names;
     private String region;
     private @Nullable String state;
-    /**
-     * @return List of the Availability Zone IDs available to the account.
-     * 
-     */
     private List<String> zoneIds;
 
     private GetAvailabilityZonesResult() {}
@@ -55,10 +43,6 @@ public final class GetAvailabilityZonesResult {
     public List<GetAvailabilityZonesFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
-    /**
-     * @return A set of the Availability Zone Group names. For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
-     * 
-     */
     public List<String> groupNames() {
         return this.groupNames;
     }
@@ -69,10 +53,6 @@ public final class GetAvailabilityZonesResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return List of the Availability Zone names available to the account.
-     * 
-     */
     public List<String> names() {
         return this.names;
     }
@@ -82,10 +62,6 @@ public final class GetAvailabilityZonesResult {
     public Optional<String> state() {
         return Optional.ofNullable(this.state);
     }
-    /**
-     * @return List of the Availability Zone IDs available to the account.
-     * 
-     */
     public List<String> zoneIds() {
         return this.zoneIds;
     }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ssm.Outputs
     [OutputType]
     public sealed class ContactsRotationRecurrenceMonthlySettingHandOffTime
     {
-        /// <summary>
-        /// (Required) The hour of the day.
-        /// </summary>
         public readonly int HourOfDay;
-        /// <summary>
-        /// (Required) The minutes of the hour.
-        /// </summary>
         public readonly int MinuteOfHour;
 
         [OutputConstructor]

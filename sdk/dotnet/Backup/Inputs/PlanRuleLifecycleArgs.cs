@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Backup.Inputs
 
     public sealed class PlanRuleLifecycleArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the number of days after creation that a recovery point is moved to cold storage.
-        /// </summary>
         [Input("coldStorageAfter")]
         public Input<int>? ColdStorageAfter { get; set; }
 
-        /// <summary>
-        /// Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `ColdStorageAfter`.
-        /// </summary>
         [Input("deleteAfter")]
         public Input<int>? DeleteAfter { get; set; }
 
-        /// <summary>
-        /// This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
-        /// </summary>
         [Input("optInToArchiveForSupportedResources")]
         public Input<bool>? OptInToArchiveForSupportedResources { get; set; }
 

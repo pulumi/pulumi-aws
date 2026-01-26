@@ -12,34 +12,18 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class GetAgentAgentVersionsAgentVersionSummaryArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of agent to which the version belongs.
-        /// </summary>
         [Input("agentName", required: true)]
         public string AgentName { get; set; } = null!;
 
-        /// <summary>
-        /// Status of the agent to which the version belongs.
-        /// </summary>
         [Input("agentStatus", required: true)]
         public string AgentStatus { get; set; } = null!;
 
-        /// <summary>
-        /// Version of the agent.
-        /// </summary>
         [Input("agentVersion", required: true)]
         public string AgentVersion { get; set; } = null!;
 
-        /// <summary>
-        /// Time at which the version was created.
-        /// </summary>
         [Input("createdAt", required: true)]
         public string CreatedAt { get; set; } = null!;
 
-        /// <summary>
-        /// Description of the version of the agent.
-        /// * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
-        /// </summary>
         [Input("description", required: true)]
         public string Description { get; set; } = null!;
 
@@ -51,9 +35,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
             set => _guardrailConfigurations = value;
         }
 
-        /// <summary>
-        /// Time at which the version was last updated.
-        /// </summary>
         [Input("updatedAt", required: true)]
         public string UpdatedAt { get; set; } = null!;
 

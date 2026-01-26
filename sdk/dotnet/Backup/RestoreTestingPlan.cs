@@ -9,101 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Backup
 {
-    /// <summary>
-    /// Resource for managing an AWS Backup Restore Testing Plan.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Backup.RestoreTestingPlan("example", new()
-    ///     {
-    ///         Name = "example_restore_testing_plan",
-    ///         RecoveryPointSelection = new Aws.Backup.Inputs.RestoreTestingPlanRecoveryPointSelectionArgs
-    ///         {
-    ///             Algorithm = "LATEST_WITHIN_WINDOW",
-    ///             IncludeVaults = new[]
-    ///             {
-    ///                 "*",
-    ///             },
-    ///             RecoveryPointTypes = new[]
-    ///             {
-    ///                 "CONTINUOUS",
-    ///             },
-    ///         },
-    ///         ScheduleExpression = "cron(0 12 ? * * *)",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Backup Restore Testing Plan using the `name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:backup/restoreTestingPlan:RestoreTestingPlan example my_testing_plan
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:backup/restoreTestingPlan:RestoreTestingPlan")]
     public partial class RestoreTestingPlan : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Restore Testing Plan.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-        /// </summary>
         [Output("recoveryPointSelection")]
         public Output<Outputs.RestoreTestingPlanRecoveryPointSelection?> RecoveryPointSelection { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The schedule expression for the restore testing plan.
-        /// </summary>
         [Output("scheduleExpression")]
         public Output<string> ScheduleExpression { get; private set; } = null!;
 
-        /// <summary>
-        /// The timezone for the schedule expression. If not provided, the state value will be used.
-        /// </summary>
         [Output("scheduleExpressionTimezone")]
         public Output<string> ScheduleExpressionTimezone { get; private set; } = null!;
 
-        /// <summary>
-        /// The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
-        /// </summary>
         [Output("startWindowHours")]
         public Output<int> StartWindowHours { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -153,39 +85,21 @@ namespace Pulumi.Aws.Backup
 
     public sealed class RestoreTestingPlanArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-        /// </summary>
         [Input("recoveryPointSelection")]
         public Input<Inputs.RestoreTestingPlanRecoveryPointSelectionArgs>? RecoveryPointSelection { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The schedule expression for the restore testing plan.
-        /// </summary>
         [Input("scheduleExpression", required: true)]
         public Input<string> ScheduleExpression { get; set; } = null!;
 
-        /// <summary>
-        /// The timezone for the schedule expression. If not provided, the state value will be used.
-        /// </summary>
         [Input("scheduleExpressionTimezone")]
         public Input<string>? ScheduleExpressionTimezone { get; set; }
 
-        /// <summary>
-        /// The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
-        /// </summary>
         [Input("startWindowHours")]
         public Input<int>? StartWindowHours { get; set; }
 
@@ -205,45 +119,24 @@ namespace Pulumi.Aws.Backup
 
     public sealed class RestoreTestingPlanState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Restore Testing Plan.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-        /// </summary>
         [Input("recoveryPointSelection")]
         public Input<Inputs.RestoreTestingPlanRecoveryPointSelectionGetArgs>? RecoveryPointSelection { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The schedule expression for the restore testing plan.
-        /// </summary>
         [Input("scheduleExpression")]
         public Input<string>? ScheduleExpression { get; set; }
 
-        /// <summary>
-        /// The timezone for the schedule expression. If not provided, the state value will be used.
-        /// </summary>
         [Input("scheduleExpressionTimezone")]
         public Input<string>? ScheduleExpressionTimezone { get; set; }
 
-        /// <summary>
-        /// The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
-        /// </summary>
         [Input("startWindowHours")]
         public Input<int>? StartWindowHours { get; set; }
 
@@ -257,10 +150,6 @@ namespace Pulumi.Aws.Backup
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

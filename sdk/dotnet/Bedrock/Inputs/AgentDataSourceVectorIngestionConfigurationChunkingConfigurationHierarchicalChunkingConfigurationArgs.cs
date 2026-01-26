@@ -14,19 +14,12 @@ namespace Pulumi.Aws.Bedrock.Inputs
     {
         [Input("levelConfigurations", required: true)]
         private InputList<Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs>? _levelConfigurations;
-
-        /// <summary>
-        /// Maximum number of tokens to include in a chunk. Must contain two `LevelConfigurations`. See `LevelConfigurations` for details.
-        /// </summary>
         public InputList<Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs> LevelConfigurations
         {
             get => _levelConfigurations ?? (_levelConfigurations = new InputList<Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs>());
             set => _levelConfigurations = value;
         }
 
-        /// <summary>
-        /// The number of tokens to repeat across chunks in the same layer.
-        /// </summary>
         [Input("overlapTokens", required: true)]
         public Input<int> OverlapTokens { get; set; } = null!;
 

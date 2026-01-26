@@ -13,9 +13,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     [OutputType]
     public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration
     {
-        /// <summary>
-        /// The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
-        /// </summary>
         public readonly string? InputStartingPosition;
 
         [OutputConstructor]

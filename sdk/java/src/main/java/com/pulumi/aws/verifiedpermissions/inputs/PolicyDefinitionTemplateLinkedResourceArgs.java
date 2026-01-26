@@ -14,32 +14,16 @@ public final class PolicyDefinitionTemplateLinkedResourceArgs extends com.pulumi
 
     public static final PolicyDefinitionTemplateLinkedResourceArgs Empty = new PolicyDefinitionTemplateLinkedResourceArgs();
 
-    /**
-     * The entity ID of the resource.
-     * 
-     */
     @Import(name="entityId", required=true)
     private Output<String> entityId;
 
-    /**
-     * @return The entity ID of the resource.
-     * 
-     */
     public Output<String> entityId() {
         return this.entityId;
     }
 
-    /**
-     * The entity type of the resource.
-     * 
-     */
     @Import(name="entityType", required=true)
     private Output<String> entityType;
 
-    /**
-     * @return The entity type of the resource.
-     * 
-     */
     public Output<String> entityType() {
         return this.entityType;
     }
@@ -69,44 +53,20 @@ public final class PolicyDefinitionTemplateLinkedResourceArgs extends com.pulumi
             $ = new PolicyDefinitionTemplateLinkedResourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param entityId The entity ID of the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entityId(Output<String> entityId) {
             $.entityId = entityId;
             return this;
         }
 
-        /**
-         * @param entityId The entity ID of the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entityId(String entityId) {
             return entityId(Output.of(entityId));
         }
 
-        /**
-         * @param entityType The entity type of the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entityType(Output<String> entityType) {
             $.entityType = entityType;
             return this;
         }
 
-        /**
-         * @param entityType The entity type of the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entityType(String entityType) {
             return entityType(Output.of(entityType));
         }

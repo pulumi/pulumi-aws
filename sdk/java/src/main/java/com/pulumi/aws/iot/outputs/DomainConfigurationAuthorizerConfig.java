@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainConfigurationAuthorizerConfig {
-    /**
-     * @return A Boolean that specifies whether the domain configuration&#39;s authorization service can be overridden.
-     * 
-     */
     private @Nullable Boolean allowAuthorizerOverride;
-    /**
-     * @return The name of the authorization service for a domain configuration.
-     * 
-     */
     private @Nullable String defaultAuthorizerName;
 
     private DomainConfigurationAuthorizerConfig() {}
-    /**
-     * @return A Boolean that specifies whether the domain configuration&#39;s authorization service can be overridden.
-     * 
-     */
     public Optional<Boolean> allowAuthorizerOverride() {
         return Optional.ofNullable(this.allowAuthorizerOverride);
     }
-    /**
-     * @return The name of the authorization service for a domain configuration.
-     * 
-     */
     public Optional<String> defaultAuthorizerName() {
         return Optional.ofNullable(this.defaultAuthorizerName);
     }

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Backup.Outputs
     [OutputType]
     public sealed class PlanScanSetting
     {
-        /// <summary>
-        /// Malware scanner to use for the scan setting. Currently only `GUARDDUTY` is supported.
-        /// </summary>
         public readonly string MalwareScanner;
-        /// <summary>
-        /// List of resource types to apply the scan setting to. Valid values are `EBS`, `EC2`, `S3` and `ALL`.
-        /// </summary>
         public readonly ImmutableArray<string> ResourceTypes;
-        /// <summary>
-        /// ARN of the IAM role that AWS Backup uses to scan resources. See [the AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection-backup-iam-permissions.html) for details.
-        /// </summary>
         public readonly string ScannerRoleArn;
 
         [OutputConstructor]

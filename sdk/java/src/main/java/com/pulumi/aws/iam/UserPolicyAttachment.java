@@ -13,95 +13,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Attaches a Managed IAM Policy to an IAM user
- * 
- * &gt; **NOTE:** The usage of this resource conflicts with the `aws.iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.User;
- * import com.pulumi.aws.iam.UserArgs;
- * import com.pulumi.aws.iam.Policy;
- * import com.pulumi.aws.iam.PolicyArgs;
- * import com.pulumi.aws.iam.UserPolicyAttachment;
- * import com.pulumi.aws.iam.UserPolicyAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var user = new User("user", UserArgs.builder()
- *             .name("test-user")
- *             .build());
- * 
- *         var policy = new Policy("policy", PolicyArgs.builder()
- *             .name("test-policy")
- *             .description("A test policy")
- *             .policy("{ ... policy JSON ... }")
- *             .build());
- * 
- *         var test_attach = new UserPolicyAttachment("test-attach", UserPolicyAttachmentArgs.builder()
- *             .user(user.name())
- *             .policyArn(policy.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import IAM user policy attachments using the user name and policy arn separated by `/`. For example:
- * 
- * ```sh
- * $ pulumi import aws:iam/userPolicyAttachment:UserPolicyAttachment test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
- * ```
- * 
- */
 @ResourceType(type="aws:iam/userPolicyAttachment:UserPolicyAttachment")
 public class UserPolicyAttachment extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the policy you want to apply
-     * 
-     */
     @Export(name="policyArn", refs={String.class}, tree="[0]")
     private Output<String> policyArn;
 
-    /**
-     * @return The ARN of the policy you want to apply
-     * 
-     */
     public Output<String> policyArn() {
         return this.policyArn;
     }
-    /**
-     * The user the policy should be applied to
-     * 
-     */
     @Export(name="user", refs={String.class}, tree="[0]")
     private Output<String> user;
 
-    /**
-     * @return The user the policy should be applied to
-     * 
-     */
     public Output<String> user() {
         return this.user;
     }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CodePipeline.Outputs
     [OutputType]
     public sealed class PipelineTriggerAllGitConfigurationPushTag
     {
-        /// <summary>
-        /// A list of patterns of Git tags that, when pushed, are to be excluded from starting the pipeline.
-        /// </summary>
         public readonly ImmutableArray<string> Excludes;
-        /// <summary>
-        /// A list of patterns of Git tags that, when pushed, are to be included as criteria that starts the pipeline.
-        /// </summary>
         public readonly ImmutableArray<string> Includes;
 
         [OutputConstructor]

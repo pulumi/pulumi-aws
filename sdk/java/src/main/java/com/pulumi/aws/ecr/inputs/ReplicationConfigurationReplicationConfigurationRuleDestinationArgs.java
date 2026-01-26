@@ -14,32 +14,16 @@ public final class ReplicationConfigurationReplicationConfigurationRuleDestinati
 
     public static final ReplicationConfigurationReplicationConfigurationRuleDestinationArgs Empty = new ReplicationConfigurationReplicationConfigurationRuleDestinationArgs();
 
-    /**
-     * A Region to replicate to.
-     * 
-     */
     @Import(name="region", required=true)
     private Output<String> region;
 
-    /**
-     * @return A Region to replicate to.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
 
-    /**
-     * The account ID of the destination registry to replicate to.
-     * 
-     */
     @Import(name="registryId", required=true)
     private Output<String> registryId;
 
-    /**
-     * @return The account ID of the destination registry to replicate to.
-     * 
-     */
     public Output<String> registryId() {
         return this.registryId;
     }
@@ -69,44 +53,20 @@ public final class ReplicationConfigurationReplicationConfigurationRuleDestinati
             $ = new ReplicationConfigurationReplicationConfigurationRuleDestinationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region A Region to replicate to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region A Region to replicate to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param registryId The account ID of the destination registry to replicate to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder registryId(Output<String> registryId) {
             $.registryId = registryId;
             return this;
         }
 
-        /**
-         * @param registryId The account ID of the destination registry to replicate to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder registryId(String registryId) {
             return registryId(Output.of(registryId));
         }

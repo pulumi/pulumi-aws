@@ -16,47 +16,31 @@ public final class LogIndexPolicyArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final LogIndexPolicyArgs Empty = new LogIndexPolicyArgs();
 
-    /**
-     * Log group name to set the policy for.
-     * 
-     */
     @Import(name="logGroupName", required=true)
     private Output<String> logGroupName;
 
-    /**
-     * @return Log group name to set the policy for.
-     * 
-     */
     public Output<String> logGroupName() {
         return this.logGroupName;
     }
 
     /**
-     * JSON policy document. This is a JSON formatted string.
+     * Field index filter policy, in JSON
      * 
      */
     @Import(name="policyDocument", required=true)
     private Output<String> policyDocument;
 
     /**
-     * @return JSON policy document. This is a JSON formatted string.
+     * @return Field index filter policy, in JSON
      * 
      */
     public Output<String> policyDocument() {
         return this.policyDocument;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -87,29 +71,17 @@ public final class LogIndexPolicyArgs extends com.pulumi.resources.ResourceArgs 
             $ = new LogIndexPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param logGroupName Log group name to set the policy for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupName(Output<String> logGroupName) {
             $.logGroupName = logGroupName;
             return this;
         }
 
-        /**
-         * @param logGroupName Log group name to set the policy for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupName(String logGroupName) {
             return logGroupName(Output.of(logGroupName));
         }
 
         /**
-         * @param policyDocument JSON policy document. This is a JSON formatted string.
+         * @param policyDocument Field index filter policy, in JSON
          * 
          * @return builder
          * 
@@ -120,7 +92,7 @@ public final class LogIndexPolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param policyDocument JSON policy document. This is a JSON formatted string.
+         * @param policyDocument Field index filter policy, in JSON
          * 
          * @return builder
          * 
@@ -129,23 +101,11 @@ public final class LogIndexPolicyArgs extends com.pulumi.resources.ResourceArgs 
             return policyDocument(Output.of(policyDocument));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

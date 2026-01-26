@@ -9,102 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Provides a customer gateway inside a VPC. These objects can be connected to VPN gateways via VPN connections, and allow you to establish tunnels between your network and the VPC.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var main = new Aws.Ec2.CustomerGateway("main", new()
-    ///     {
-    ///         BgpAsn = "65000",
-    ///         IpAddress = "172.83.124.10",
-    ///         Type = "ipsec.1",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "main-customer-gateway" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Customer Gateways using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/customerGateway:CustomerGateway")]
     public partial class CustomerGateway : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the customer gateway.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `BgpAsnExtended`.
-        /// </summary>
         [Output("bgpAsn")]
         public Output<string?> BgpAsn { get; private set; } = null!;
 
-        /// <summary>
-        /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `BgpAsn`.
-        /// </summary>
         [Output("bgpAsnExtended")]
         public Output<string?> BgpAsnExtended { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the customer gateway certificate.
-        /// </summary>
         [Output("certificateArn")]
         public Output<string?> CertificateArn { get; private set; } = null!;
 
-        /// <summary>
-        /// A name for the customer gateway device.
-        /// </summary>
         [Output("deviceName")]
         public Output<string?> DeviceName { get; private set; } = null!;
 
-        /// <summary>
-        /// The IPv4 address for the customer gateway device's outside interface.
-        /// </summary>
         [Output("ipAddress")]
         public Output<string?> IpAddress { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Tags to apply to the gateway. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of customer gateway. The only type AWS
-        /// supports at this time is "ipsec.1".
-        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -154,58 +88,32 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class CustomerGatewayArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `BgpAsnExtended`.
-        /// </summary>
         [Input("bgpAsn")]
         public Input<string>? BgpAsn { get; set; }
 
-        /// <summary>
-        /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `BgpAsn`.
-        /// </summary>
         [Input("bgpAsnExtended")]
         public Input<string>? BgpAsnExtended { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the customer gateway certificate.
-        /// </summary>
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
 
-        /// <summary>
-        /// A name for the customer gateway device.
-        /// </summary>
         [Input("deviceName")]
         public Input<string>? DeviceName { get; set; }
 
-        /// <summary>
-        /// The IPv4 address for the customer gateway device's outside interface.
-        /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags to apply to the gateway. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The type of customer gateway. The only type AWS
-        /// supports at this time is "ipsec.1".
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -217,54 +125,29 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class CustomerGatewayState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the customer gateway.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `BgpAsnExtended`.
-        /// </summary>
         [Input("bgpAsn")]
         public Input<string>? BgpAsn { get; set; }
 
-        /// <summary>
-        /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `BgpAsn`.
-        /// </summary>
         [Input("bgpAsnExtended")]
         public Input<string>? BgpAsnExtended { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the customer gateway certificate.
-        /// </summary>
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
 
-        /// <summary>
-        /// A name for the customer gateway device.
-        /// </summary>
         [Input("deviceName")]
         public Input<string>? DeviceName { get; set; }
 
-        /// <summary>
-        /// The IPv4 address for the customer gateway device's outside interface.
-        /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags to apply to the gateway. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -273,20 +156,12 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The type of customer gateway. The only type AWS
-        /// supports at this time is "ipsec.1".
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

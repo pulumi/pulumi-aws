@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EmailTemplateEmailTemplateHeader {
-    /**
-     * @return Name of the message header. The header name can contain up to 126 characters.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return Value of the message header. The header value can contain up to 870 characters, including the length of any rendered attributes. For example if you add the {CreationDate} attribute, it renders as YYYY-MM-DDTHH:MM:SS.SSSZ and is 24 characters in length.
-     * 
-     */
     private @Nullable String value;
 
     private EmailTemplateEmailTemplateHeader() {}
-    /**
-     * @return Name of the message header. The header name can contain up to 126 characters.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return Value of the message header. The header value can contain up to 870 characters, including the length of any rendered attributes. For example if you add the {CreationDate} attribute, it renders as YYYY-MM-DDTHH:MM:SS.SSSZ and is 24 characters in length.
-     * 
-     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

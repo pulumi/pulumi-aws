@@ -19,47 +19,23 @@ public final class FrameworkControlArgs extends com.pulumi.resources.ResourceArg
 
     public static final FrameworkControlArgs Empty = new FrameworkControlArgs();
 
-    /**
-     * One or more input parameter blocks. An example of a control with two parameters is: &#34;backup plan frequency is at least daily and the retention period is at least 1 year&#34;. The first parameter is daily. The second parameter is 1 year. Detailed below.
-     * 
-     */
     @Import(name="inputParameters")
     private @Nullable Output<List<FrameworkControlInputParameterArgs>> inputParameters;
 
-    /**
-     * @return One or more input parameter blocks. An example of a control with two parameters is: &#34;backup plan frequency is at least daily and the retention period is at least 1 year&#34;. The first parameter is daily. The second parameter is 1 year. Detailed below.
-     * 
-     */
     public Optional<Output<List<FrameworkControlInputParameterArgs>>> inputParameters() {
         return Optional.ofNullable(this.inputParameters);
     }
 
-    /**
-     * The name of a control. This name is between 1 and 256 characters.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of a control. This name is between 1 and 256 characters.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
-     * 
-     */
     @Import(name="scope")
     private @Nullable Output<FrameworkControlScopeArgs> scope;
 
-    /**
-     * @return The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
-     * 
-     */
     public Optional<Output<FrameworkControlScopeArgs>> scope() {
         return Optional.ofNullable(this.scope);
     }
@@ -90,75 +66,33 @@ public final class FrameworkControlArgs extends com.pulumi.resources.ResourceArg
             $ = new FrameworkControlArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param inputParameters One or more input parameter blocks. An example of a control with two parameters is: &#34;backup plan frequency is at least daily and the retention period is at least 1 year&#34;. The first parameter is daily. The second parameter is 1 year. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputParameters(@Nullable Output<List<FrameworkControlInputParameterArgs>> inputParameters) {
             $.inputParameters = inputParameters;
             return this;
         }
 
-        /**
-         * @param inputParameters One or more input parameter blocks. An example of a control with two parameters is: &#34;backup plan frequency is at least daily and the retention period is at least 1 year&#34;. The first parameter is daily. The second parameter is 1 year. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputParameters(List<FrameworkControlInputParameterArgs> inputParameters) {
             return inputParameters(Output.of(inputParameters));
         }
 
-        /**
-         * @param inputParameters One or more input parameter blocks. An example of a control with two parameters is: &#34;backup plan frequency is at least daily and the retention period is at least 1 year&#34;. The first parameter is daily. The second parameter is 1 year. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputParameters(FrameworkControlInputParameterArgs... inputParameters) {
             return inputParameters(List.of(inputParameters));
         }
 
-        /**
-         * @param name The name of a control. This name is between 1 and 256 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of a control. This name is between 1 and 256 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param scope The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scope(@Nullable Output<FrameworkControlScopeArgs> scope) {
             $.scope = scope;
             return this;
         }
 
-        /**
-         * @param scope The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scope(FrameworkControlScopeArgs scope) {
             return scope(Output.of(scope));
         }

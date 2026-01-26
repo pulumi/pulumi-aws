@@ -25,47 +25,23 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         return Optional.ofNullable(this.referenceId);
     }
 
-    /**
-     * Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
-     * 
-     */
     @Import(name="referenceSchema", required=true)
     private Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs> referenceSchema;
 
-    /**
-     * @return Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
-     * 
-     */
     public Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs> referenceSchema() {
         return this.referenceSchema;
     }
 
-    /**
-     * Identifies the S3 bucket and object that contains the reference data.
-     * 
-     */
     @Import(name="s3ReferenceDataSource", required=true)
     private Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs> s3ReferenceDataSource;
 
-    /**
-     * @return Identifies the S3 bucket and object that contains the reference data.
-     * 
-     */
     public Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs> s3ReferenceDataSource() {
         return this.s3ReferenceDataSource;
     }
 
-    /**
-     * The name of the in-application table to create.
-     * 
-     */
     @Import(name="tableName", required=true)
     private Output<String> tableName;
 
-    /**
-     * @return The name of the in-application table to create.
-     * 
-     */
     public Output<String> tableName() {
         return this.tableName;
     }
@@ -106,65 +82,29 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
             return referenceId(Output.of(referenceId));
         }
 
-        /**
-         * @param referenceSchema Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
-         * 
-         * @return builder
-         * 
-         */
         public Builder referenceSchema(Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs> referenceSchema) {
             $.referenceSchema = referenceSchema;
             return this;
         }
 
-        /**
-         * @param referenceSchema Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
-         * 
-         * @return builder
-         * 
-         */
         public Builder referenceSchema(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs referenceSchema) {
             return referenceSchema(Output.of(referenceSchema));
         }
 
-        /**
-         * @param s3ReferenceDataSource Identifies the S3 bucket and object that contains the reference data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3ReferenceDataSource(Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs> s3ReferenceDataSource) {
             $.s3ReferenceDataSource = s3ReferenceDataSource;
             return this;
         }
 
-        /**
-         * @param s3ReferenceDataSource Identifies the S3 bucket and object that contains the reference data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3ReferenceDataSource(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs s3ReferenceDataSource) {
             return s3ReferenceDataSource(Output.of(s3ReferenceDataSource));
         }
 
-        /**
-         * @param tableName The name of the in-application table to create.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(Output<String> tableName) {
             $.tableName = tableName;
             return this;
         }
 
-        /**
-         * @param tableName The name of the in-application table to create.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(String tableName) {
             return tableName(Output.of(tableName));
         }

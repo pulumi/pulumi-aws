@@ -13,61 +13,19 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementXssMatchStatementFieldToMatch
     {
-        /// <summary>
-        /// Inspect all query arguments.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArguments? AllQueryArguments;
-        /// <summary>
-        /// Inspect the request body, which immediately follows the request headers. See `Body` below for details.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementXssMatchStatementFieldToMatchBody? Body;
-        /// <summary>
-        /// Inspect the cookies in the web request. See `Cookies` below for details.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementXssMatchStatementFieldToMatchCookies? Cookies;
-        /// <summary>
-        /// Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `HeaderOrder` below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrder> HeaderOrders;
-        /// <summary>
-        /// Inspect the request headers. See `Headers` below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementXssMatchStatementFieldToMatchHeader> Headers;
-        /// <summary>
-        /// Inspect the JA3 fingerprint. See `Ja3Fingerprint` below for details.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint? Ja3Fingerprint;
-        /// <summary>
-        /// Inspect the JA3 fingerprint. See `Ja4Fingerprint` below for details.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint? Ja4Fingerprint;
-        /// <summary>
-        /// Inspect the request body as JSON. See `JsonBody` for details.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody? JsonBody;
-        /// <summary>
-        /// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementXssMatchStatementFieldToMatchMethod? Method;
-        /// <summary>
-        /// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementXssMatchStatementFieldToMatchQueryString? QueryString;
-        /// <summary>
-        /// Inspect a single header. See `SingleHeader` below for details.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader? SingleHeader;
-        /// <summary>
-        /// Inspect a single query argument. See `SingleQueryArgument` below for details.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument? SingleQueryArgument;
-        /// <summary>
-        /// Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `UriFragment` below for details.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementXssMatchStatementFieldToMatchUriFragment? UriFragment;
-        /// <summary>
-        /// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementXssMatchStatementFieldToMatchUriPath? UriPath;
 
         [OutputConstructor]

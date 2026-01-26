@@ -20,137 +20,65 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ConnectorArgs Empty = new ConnectorArgs();
 
-    /**
-     * The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
-     * 
-     */
     @Import(name="accessRole", required=true)
     private Output<String> accessRole;
 
-    /**
-     * @return The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
-     * 
-     */
     public Output<String> accessRole() {
         return this.accessRole;
     }
 
-    /**
-     * Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
-     * 
-     */
     @Import(name="as2Config")
     private @Nullable Output<ConnectorAs2ConfigArgs> as2Config;
 
-    /**
-     * @return Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
-     * 
-     */
     public Optional<Output<ConnectorAs2ConfigArgs>> as2Config() {
         return Optional.ofNullable(this.as2Config);
     }
 
-    /**
-     * Specifies the egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. Fields documented below.
-     * 
-     */
     @Import(name="egressConfig")
     private @Nullable Output<ConnectorEgressConfigArgs> egressConfig;
 
-    /**
-     * @return Specifies the egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. Fields documented below.
-     * 
-     */
     public Optional<Output<ConnectorEgressConfigArgs>> egressConfig() {
         return Optional.ofNullable(this.egressConfig);
     }
 
-    /**
-     * The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
-     * 
-     */
     @Import(name="loggingRole")
     private @Nullable Output<String> loggingRole;
 
-    /**
-     * @return The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
-     * 
-     */
     public Optional<Output<String>> loggingRole() {
         return Optional.ofNullable(this.loggingRole);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Name of the security policy for the connector.
-     * 
-     */
     @Import(name="securityPolicyName")
     private @Nullable Output<String> securityPolicyName;
 
-    /**
-     * @return Name of the security policy for the connector.
-     * 
-     */
     public Optional<Output<String>> securityPolicyName() {
         return Optional.ofNullable(this.securityPolicyName);
     }
 
-    /**
-     * Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
-     * 
-     */
     @Import(name="sftpConfig")
     private @Nullable Output<ConnectorSftpConfigArgs> sftpConfig;
 
-    /**
-     * @return Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
-     * 
-     */
     public Optional<Output<ConnectorSftpConfigArgs>> sftpConfig() {
         return Optional.ofNullable(this.sftpConfig);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * The URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
-     * 
-     */
     @Import(name="url")
     private @Nullable Output<String> url;
 
-    /**
-     * @return The URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
-     * 
-     */
     public Optional<Output<String>> url() {
         return Optional.ofNullable(this.url);
     }
@@ -187,191 +115,83 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ConnectorArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessRole The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessRole(Output<String> accessRole) {
             $.accessRole = accessRole;
             return this;
         }
 
-        /**
-         * @param accessRole The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessRole(String accessRole) {
             return accessRole(Output.of(accessRole));
         }
 
-        /**
-         * @param as2Config Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder as2Config(@Nullable Output<ConnectorAs2ConfigArgs> as2Config) {
             $.as2Config = as2Config;
             return this;
         }
 
-        /**
-         * @param as2Config Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder as2Config(ConnectorAs2ConfigArgs as2Config) {
             return as2Config(Output.of(as2Config));
         }
 
-        /**
-         * @param egressConfig Specifies the egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder egressConfig(@Nullable Output<ConnectorEgressConfigArgs> egressConfig) {
             $.egressConfig = egressConfig;
             return this;
         }
 
-        /**
-         * @param egressConfig Specifies the egress configuration for the connector. When set, enables routing through customer VPCs using VPC Lattice for private connectivity. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder egressConfig(ConnectorEgressConfigArgs egressConfig) {
             return egressConfig(Output.of(egressConfig));
         }
 
-        /**
-         * @param loggingRole The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loggingRole(@Nullable Output<String> loggingRole) {
             $.loggingRole = loggingRole;
             return this;
         }
 
-        /**
-         * @param loggingRole The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loggingRole(String loggingRole) {
             return loggingRole(Output.of(loggingRole));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param securityPolicyName Name of the security policy for the connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityPolicyName(@Nullable Output<String> securityPolicyName) {
             $.securityPolicyName = securityPolicyName;
             return this;
         }
 
-        /**
-         * @param securityPolicyName Name of the security policy for the connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityPolicyName(String securityPolicyName) {
             return securityPolicyName(Output.of(securityPolicyName));
         }
 
-        /**
-         * @param sftpConfig Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sftpConfig(@Nullable Output<ConnectorSftpConfigArgs> sftpConfig) {
             $.sftpConfig = sftpConfig;
             return this;
         }
 
-        /**
-         * @param sftpConfig Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sftpConfig(ConnectorSftpConfigArgs sftpConfig) {
             return sftpConfig(Output.of(sftpConfig));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param url The URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder url(@Nullable Output<String> url) {
             $.url = url;
             return this;
         }
 
-        /**
-         * @param url The URL of the partners AS2 endpoint or SFTP endpoint. Required for AS2 connectors and service-managed SFTP connectors. Must be null when using VPC Lattice egress configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder url(String url) {
             return url(Output.of(url));
         }

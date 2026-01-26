@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class InputVpc {
-    /**
-     * @return A list of up to 5 EC2 VPC security group IDs to attach to the Input.
-     * 
-     */
     private @Nullable List<String> securityGroupIds;
-    /**
-     * @return A list of 2 VPC subnet IDs from the same VPC.
-     * 
-     */
     private List<String> subnetIds;
 
     private InputVpc() {}
-    /**
-     * @return A list of up to 5 EC2 VPC security group IDs to attach to the Input.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds == null ? List.of() : this.securityGroupIds;
     }
-    /**
-     * @return A list of 2 VPC subnet IDs from the same VPC.
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }

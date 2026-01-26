@@ -15,62 +15,30 @@ public final class GetFileSystemPlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetFileSystemPlainArgs Empty = new GetFileSystemPlainArgs();
 
-    /**
-     * Restricts the list to the file system with this creation token.
-     * 
-     */
     @Import(name="creationToken")
     private @Nullable String creationToken;
 
-    /**
-     * @return Restricts the list to the file system with this creation token.
-     * 
-     */
     public Optional<String> creationToken() {
         return Optional.ofNullable(this.creationToken);
     }
 
-    /**
-     * ID that identifies the file system (e.g., fs-ccfc0d65).
-     * 
-     */
     @Import(name="fileSystemId")
     private @Nullable String fileSystemId;
 
-    /**
-     * @return ID that identifies the file system (e.g., fs-ccfc0d65).
-     * 
-     */
     public Optional<String> fileSystemId() {
         return Optional.ofNullable(this.fileSystemId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Restricts the list to the file system with these tags.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Restricts the list to the file system with these tags.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -102,45 +70,21 @@ public final class GetFileSystemPlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetFileSystemPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param creationToken Restricts the list to the file system with this creation token.
-         * 
-         * @return builder
-         * 
-         */
         public Builder creationToken(@Nullable String creationToken) {
             $.creationToken = creationToken;
             return this;
         }
 
-        /**
-         * @param fileSystemId ID that identifies the file system (e.g., fs-ccfc0d65).
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileSystemId(@Nullable String fileSystemId) {
             $.fileSystemId = fileSystemId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Restricts the list to the file system with these tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

@@ -7,26 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to get information about an Amazon FSx for OpenZFS Snapshot for use when provisioning new Volumes.
- *
- * ## Example Usage
- *
- * ### Root volume Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.fsx.getOpenZfsSnapshot({
- *     mostRecent: true,
- *     filters: [{
- *         name: "volume-id",
- *         values: ["fsvol-073a32b6098a73feb"],
- *     }],
- * });
- * ```
- */
 export function getOpenZfsSnapshot(args?: GetOpenZfsSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenZfsSnapshotResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -44,30 +24,11 @@ export function getOpenZfsSnapshot(args?: GetOpenZfsSnapshotArgs, opts?: pulumi.
  * A collection of arguments for invoking getOpenZfsSnapshot.
  */
 export interface GetOpenZfsSnapshotArgs {
-    /**
-     * One or more name/value pairs to filter off of. The
-     * supported names are file-system-id or volume-id.
-     */
     filters?: inputs.fsx.GetOpenZfsSnapshotFilter[];
-    /**
-     * If more than one result is returned, use the most recent snapshot.
-     */
     mostRecent?: boolean;
-    /**
-     * Name of the snapshot.
-     */
     name?: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Returns information on a specific snapshot_id.
-     */
     snapshotIds?: string[];
-    /**
-     * List of Tag values, with a maximum of 50 elements.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -75,13 +36,7 @@ export interface GetOpenZfsSnapshotArgs {
  * A collection of values returned by getOpenZfsSnapshot.
  */
 export interface GetOpenZfsSnapshotResult {
-    /**
-     * Amazon Resource Name of the snapshot.
-     */
     readonly arn: string;
-    /**
-     * Time that the resource was created.
-     */
     readonly creationTime: string;
     readonly filters?: outputs.fsx.GetOpenZfsSnapshotFilter[];
     /**
@@ -89,45 +44,13 @@ export interface GetOpenZfsSnapshotResult {
      */
     readonly id: string;
     readonly mostRecent?: boolean;
-    /**
-     * Name of the snapshot.
-     */
     readonly name?: string;
     readonly region: string;
-    /**
-     * ID of the snapshot.
-     */
     readonly snapshotId: string;
     readonly snapshotIds?: string[];
-    /**
-     * List of Tag values, with a maximum of 50 elements.
-     */
     readonly tags: {[key: string]: string};
-    /**
-     * ID of the volume that the snapshot is of.
-     */
     readonly volumeId: string;
 }
-/**
- * Use this data source to get information about an Amazon FSx for OpenZFS Snapshot for use when provisioning new Volumes.
- *
- * ## Example Usage
- *
- * ### Root volume Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.fsx.getOpenZfsSnapshot({
- *     mostRecent: true,
- *     filters: [{
- *         name: "volume-id",
- *         values: ["fsvol-073a32b6098a73feb"],
- *     }],
- * });
- * ```
- */
 export function getOpenZfsSnapshotOutput(args?: GetOpenZfsSnapshotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOpenZfsSnapshotResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -145,29 +68,10 @@ export function getOpenZfsSnapshotOutput(args?: GetOpenZfsSnapshotOutputArgs, op
  * A collection of arguments for invoking getOpenZfsSnapshot.
  */
 export interface GetOpenZfsSnapshotOutputArgs {
-    /**
-     * One or more name/value pairs to filter off of. The
-     * supported names are file-system-id or volume-id.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.fsx.GetOpenZfsSnapshotFilterArgs>[]>;
-    /**
-     * If more than one result is returned, use the most recent snapshot.
-     */
     mostRecent?: pulumi.Input<boolean>;
-    /**
-     * Name of the snapshot.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Returns information on a specific snapshot_id.
-     */
     snapshotIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * List of Tag values, with a maximum of 50 elements.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

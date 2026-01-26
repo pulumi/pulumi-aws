@@ -13,21 +13,9 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
     [OutputType]
     public sealed class GetDomainVpcOptionResult
     {
-        /// <summary>
-        /// The availability zones used by the domain.
-        /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
-        /// <summary>
-        /// The security groups used by the domain.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
-        /// <summary>
-        /// The subnets used by the domain.
-        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
-        /// <summary>
-        /// The VPC used by the domain.
-        /// </summary>
         public readonly string VpcId;
 
         [OutputConstructor]

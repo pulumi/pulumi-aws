@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class DataQualityJobDefinitionDataQualityBaselineConfig
     {
-        /// <summary>
-        /// The constraints resource for a monitoring job. Fields are documented below.
-        /// </summary>
         public readonly Outputs.DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResource? ConstraintsResource;
-        /// <summary>
-        /// The statistics resource for a monitoring job. Fields are documented below.
-        /// </summary>
         public readonly Outputs.DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResource? StatisticsResource;
 
         [OutputConstructor]

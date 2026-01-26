@@ -28,77 +28,37 @@ public final class ContactsRotationRecurrenceArgs extends com.pulumi.resources.R
         return Optional.ofNullable(this.dailySettings);
     }
 
-    /**
-     * (Optional) Information about on-call rotations that recur monthly. See Monthly Settings for more details.
-     * 
-     */
     @Import(name="monthlySettings")
     private @Nullable Output<List<ContactsRotationRecurrenceMonthlySettingArgs>> monthlySettings;
 
-    /**
-     * @return (Optional) Information about on-call rotations that recur monthly. See Monthly Settings for more details.
-     * 
-     */
     public Optional<Output<List<ContactsRotationRecurrenceMonthlySettingArgs>>> monthlySettings() {
         return Optional.ofNullable(this.monthlySettings);
     }
 
-    /**
-     * (Required) The number of contacts, or shift team members designated to be on call concurrently during a shift.
-     * 
-     */
     @Import(name="numberOfOnCalls", required=true)
     private Output<Integer> numberOfOnCalls;
 
-    /**
-     * @return (Required) The number of contacts, or shift team members designated to be on call concurrently during a shift.
-     * 
-     */
     public Output<Integer> numberOfOnCalls() {
         return this.numberOfOnCalls;
     }
 
-    /**
-     * (Required) The number of days, weeks, or months a single rotation lasts.
-     * 
-     */
     @Import(name="recurrenceMultiplier", required=true)
     private Output<Integer> recurrenceMultiplier;
 
-    /**
-     * @return (Required) The number of days, weeks, or months a single rotation lasts.
-     * 
-     */
     public Output<Integer> recurrenceMultiplier() {
         return this.recurrenceMultiplier;
     }
 
-    /**
-     * (Optional) Information about the days of the week that the on-call rotation coverage includes. See Shift Coverages for more details.
-     * 
-     */
     @Import(name="shiftCoverages")
     private @Nullable Output<List<ContactsRotationRecurrenceShiftCoverageArgs>> shiftCoverages;
 
-    /**
-     * @return (Optional) Information about the days of the week that the on-call rotation coverage includes. See Shift Coverages for more details.
-     * 
-     */
     public Optional<Output<List<ContactsRotationRecurrenceShiftCoverageArgs>>> shiftCoverages() {
         return Optional.ofNullable(this.shiftCoverages);
     }
 
-    /**
-     * (Optional) Information about on-call rotations that recur weekly. See Weekly Settings for more details.
-     * 
-     */
     @Import(name="weeklySettings")
     private @Nullable Output<List<ContactsRotationRecurrenceWeeklySettingArgs>> weeklySettings;
 
-    /**
-     * @return (Optional) Information about on-call rotations that recur weekly. See Weekly Settings for more details.
-     * 
-     */
     public Optional<Output<List<ContactsRotationRecurrenceWeeklySettingArgs>>> weeklySettings() {
         return Optional.ofNullable(this.weeklySettings);
     }
@@ -145,137 +105,59 @@ public final class ContactsRotationRecurrenceArgs extends com.pulumi.resources.R
             return dailySettings(List.of(dailySettings));
         }
 
-        /**
-         * @param monthlySettings (Optional) Information about on-call rotations that recur monthly. See Monthly Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder monthlySettings(@Nullable Output<List<ContactsRotationRecurrenceMonthlySettingArgs>> monthlySettings) {
             $.monthlySettings = monthlySettings;
             return this;
         }
 
-        /**
-         * @param monthlySettings (Optional) Information about on-call rotations that recur monthly. See Monthly Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder monthlySettings(List<ContactsRotationRecurrenceMonthlySettingArgs> monthlySettings) {
             return monthlySettings(Output.of(monthlySettings));
         }
 
-        /**
-         * @param monthlySettings (Optional) Information about on-call rotations that recur monthly. See Monthly Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder monthlySettings(ContactsRotationRecurrenceMonthlySettingArgs... monthlySettings) {
             return monthlySettings(List.of(monthlySettings));
         }
 
-        /**
-         * @param numberOfOnCalls (Required) The number of contacts, or shift team members designated to be on call concurrently during a shift.
-         * 
-         * @return builder
-         * 
-         */
         public Builder numberOfOnCalls(Output<Integer> numberOfOnCalls) {
             $.numberOfOnCalls = numberOfOnCalls;
             return this;
         }
 
-        /**
-         * @param numberOfOnCalls (Required) The number of contacts, or shift team members designated to be on call concurrently during a shift.
-         * 
-         * @return builder
-         * 
-         */
         public Builder numberOfOnCalls(Integer numberOfOnCalls) {
             return numberOfOnCalls(Output.of(numberOfOnCalls));
         }
 
-        /**
-         * @param recurrenceMultiplier (Required) The number of days, weeks, or months a single rotation lasts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recurrenceMultiplier(Output<Integer> recurrenceMultiplier) {
             $.recurrenceMultiplier = recurrenceMultiplier;
             return this;
         }
 
-        /**
-         * @param recurrenceMultiplier (Required) The number of days, weeks, or months a single rotation lasts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recurrenceMultiplier(Integer recurrenceMultiplier) {
             return recurrenceMultiplier(Output.of(recurrenceMultiplier));
         }
 
-        /**
-         * @param shiftCoverages (Optional) Information about the days of the week that the on-call rotation coverage includes. See Shift Coverages for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder shiftCoverages(@Nullable Output<List<ContactsRotationRecurrenceShiftCoverageArgs>> shiftCoverages) {
             $.shiftCoverages = shiftCoverages;
             return this;
         }
 
-        /**
-         * @param shiftCoverages (Optional) Information about the days of the week that the on-call rotation coverage includes. See Shift Coverages for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder shiftCoverages(List<ContactsRotationRecurrenceShiftCoverageArgs> shiftCoverages) {
             return shiftCoverages(Output.of(shiftCoverages));
         }
 
-        /**
-         * @param shiftCoverages (Optional) Information about the days of the week that the on-call rotation coverage includes. See Shift Coverages for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder shiftCoverages(ContactsRotationRecurrenceShiftCoverageArgs... shiftCoverages) {
             return shiftCoverages(List.of(shiftCoverages));
         }
 
-        /**
-         * @param weeklySettings (Optional) Information about on-call rotations that recur weekly. See Weekly Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weeklySettings(@Nullable Output<List<ContactsRotationRecurrenceWeeklySettingArgs>> weeklySettings) {
             $.weeklySettings = weeklySettings;
             return this;
         }
 
-        /**
-         * @param weeklySettings (Optional) Information about on-call rotations that recur weekly. See Weekly Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weeklySettings(List<ContactsRotationRecurrenceWeeklySettingArgs> weeklySettings) {
             return weeklySettings(Output.of(weeklySettings));
         }
 
-        /**
-         * @param weeklySettings (Optional) Information about on-call rotations that recur weekly. See Weekly Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weeklySettings(ContactsRotationRecurrenceWeeklySettingArgs... weeklySettings) {
             return weeklySettings(List.of(weeklySettings));
         }

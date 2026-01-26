@@ -12,9 +12,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class EventEndpointRoutingConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Parameters used for failover. This includes what triggers failover and what happens when it's triggered. Documented below.
-        /// </summary>
         [Input("failoverConfig", required: true)]
         public Input<Inputs.EventEndpointRoutingConfigFailoverConfigGetArgs> FailoverConfig { get; set; } = null!;
 

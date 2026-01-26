@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery
     {
-        /// <summary>
-        /// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `DiscoveryUrl`. See `AuthorizationServerMetadata` below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata> AuthorizationServerMetadatas;
-        /// <summary>
-        /// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `AuthorizationServerMetadata`.
-        /// </summary>
         public readonly string DiscoveryUrl;
 
         [OutputConstructor]

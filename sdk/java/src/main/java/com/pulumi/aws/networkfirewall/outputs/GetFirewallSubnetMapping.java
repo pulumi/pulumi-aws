@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFirewallSubnetMapping {
-    /**
-     * @return The unique identifier for the subnet.
-     * 
-     */
     private String subnetId;
 
     private GetFirewallSubnetMapping() {}
-    /**
-     * @return The unique identifier for the subnet.
-     * 
-     */
     public String subnetId() {
         return this.subnetId;
     }

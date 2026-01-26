@@ -13,13 +13,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class MultiplexProgramMultiplexProgramSettingsVideoSettings
     {
-        /// <summary>
-        /// Constant bitrate value.
-        /// </summary>
         public readonly int? ConstantBitrate;
-        /// <summary>
-        /// Statmux settings. See Statmux Settings for more details.
-        /// </summary>
         public readonly Outputs.MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings? StatmuxSettings;
 
         [OutputConstructor]

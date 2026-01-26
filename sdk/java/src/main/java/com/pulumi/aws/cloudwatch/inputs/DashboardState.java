@@ -15,62 +15,30 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
 
     public static final DashboardState Empty = new DashboardState();
 
-    /**
-     * The Amazon Resource Name (ARN) of the dashboard.
-     * 
-     */
     @Import(name="dashboardArn")
     private @Nullable Output<String> dashboardArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the dashboard.
-     * 
-     */
     public Optional<Output<String>> dashboardArn() {
         return Optional.ofNullable(this.dashboardArn);
     }
 
-    /**
-     * The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
-     * 
-     */
     @Import(name="dashboardBody")
     private @Nullable Output<String> dashboardBody;
 
-    /**
-     * @return The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
-     * 
-     */
     public Optional<Output<String>> dashboardBody() {
         return Optional.ofNullable(this.dashboardBody);
     }
 
-    /**
-     * The name of the dashboard.
-     * 
-     */
     @Import(name="dashboardName")
     private @Nullable Output<String> dashboardName;
 
-    /**
-     * @return The name of the dashboard.
-     * 
-     */
     public Optional<Output<String>> dashboardName() {
         return Optional.ofNullable(this.dashboardName);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -102,86 +70,38 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
             $ = new DashboardState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dashboardArn The Amazon Resource Name (ARN) of the dashboard.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dashboardArn(@Nullable Output<String> dashboardArn) {
             $.dashboardArn = dashboardArn;
             return this;
         }
 
-        /**
-         * @param dashboardArn The Amazon Resource Name (ARN) of the dashboard.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dashboardArn(String dashboardArn) {
             return dashboardArn(Output.of(dashboardArn));
         }
 
-        /**
-         * @param dashboardBody The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder dashboardBody(@Nullable Output<String> dashboardBody) {
             $.dashboardBody = dashboardBody;
             return this;
         }
 
-        /**
-         * @param dashboardBody The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder dashboardBody(String dashboardBody) {
             return dashboardBody(Output.of(dashboardBody));
         }
 
-        /**
-         * @param dashboardName The name of the dashboard.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dashboardName(@Nullable Output<String> dashboardName) {
             $.dashboardName = dashboardName;
             return this;
         }
 
-        /**
-         * @param dashboardName The name of the dashboard.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dashboardName(String dashboardName) {
             return dashboardName(Output.of(dashboardName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

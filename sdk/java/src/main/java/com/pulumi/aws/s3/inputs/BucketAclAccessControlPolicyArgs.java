@@ -18,32 +18,16 @@ public final class BucketAclAccessControlPolicyArgs extends com.pulumi.resources
 
     public static final BucketAclAccessControlPolicyArgs Empty = new BucketAclAccessControlPolicyArgs();
 
-    /**
-     * Set of `grant` configuration blocks. See below.
-     * 
-     */
     @Import(name="grants")
     private @Nullable Output<List<BucketAclAccessControlPolicyGrantArgs>> grants;
 
-    /**
-     * @return Set of `grant` configuration blocks. See below.
-     * 
-     */
     public Optional<Output<List<BucketAclAccessControlPolicyGrantArgs>>> grants() {
         return Optional.ofNullable(this.grants);
     }
 
-    /**
-     * Configuration block for the bucket owner&#39;s display name and ID. See below.
-     * 
-     */
     @Import(name="owner", required=true)
     private Output<BucketAclAccessControlPolicyOwnerArgs> owner;
 
-    /**
-     * @return Configuration block for the bucket owner&#39;s display name and ID. See below.
-     * 
-     */
     public Output<BucketAclAccessControlPolicyOwnerArgs> owner() {
         return this.owner;
     }
@@ -73,54 +57,24 @@ public final class BucketAclAccessControlPolicyArgs extends com.pulumi.resources
             $ = new BucketAclAccessControlPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param grants Set of `grant` configuration blocks. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder grants(@Nullable Output<List<BucketAclAccessControlPolicyGrantArgs>> grants) {
             $.grants = grants;
             return this;
         }
 
-        /**
-         * @param grants Set of `grant` configuration blocks. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder grants(List<BucketAclAccessControlPolicyGrantArgs> grants) {
             return grants(Output.of(grants));
         }
 
-        /**
-         * @param grants Set of `grant` configuration blocks. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder grants(BucketAclAccessControlPolicyGrantArgs... grants) {
             return grants(List.of(grants));
         }
 
-        /**
-         * @param owner Configuration block for the bucket owner&#39;s display name and ID. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owner(Output<BucketAclAccessControlPolicyOwnerArgs> owner) {
             $.owner = owner;
             return this;
         }
 
-        /**
-         * @param owner Configuration block for the bucket owner&#39;s display name and ID. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owner(BucketAclAccessControlPolicyOwnerArgs owner) {
             return owner(Output.of(owner));
         }

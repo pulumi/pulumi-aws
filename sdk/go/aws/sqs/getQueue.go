@@ -11,37 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get the ARN and URL of queue in AWS Simple Queue Service (SQS).
-// By using this data source, you can reference SQS queues without having to hardcode
-// the ARNs as input.
-//
-// > **NOTE:** To use this data source, you must have the `sqs:GetQueueAttributes` and `sqs:GetQueueURL` permissions.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sqs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sqs.LookupQueue(ctx, &sqs.LookupQueueArgs{
-//				Name: "queue",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupQueue(ctx *pulumi.Context, args *LookupQueueArgs, opts ...pulumi.InvokeOption) (*LookupQueueResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupQueueResult
@@ -54,26 +23,20 @@ func LookupQueue(ctx *pulumi.Context, args *LookupQueueArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getQueue.
 type LookupQueueArgs struct {
-	// Name of the queue to match.
-	Name string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags for the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Name   string            `pulumi:"name"`
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getQueue.
 type LookupQueueResult struct {
-	// ARN of the queue.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Name   string `pulumi:"name"`
-	Region string `pulumi:"region"`
-	// Map of tags for the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// URL of the queue.
-	Url string `pulumi:"url"`
+	Id     string            `pulumi:"id"`
+	Name   string            `pulumi:"name"`
+	Region string            `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
+	Url    string            `pulumi:"url"`
 }
 
 func LookupQueueOutput(ctx *pulumi.Context, args LookupQueueOutputArgs, opts ...pulumi.InvokeOption) LookupQueueResultOutput {
@@ -87,12 +50,9 @@ func LookupQueueOutput(ctx *pulumi.Context, args LookupQueueOutputArgs, opts ...
 
 // A collection of arguments for invoking getQueue.
 type LookupQueueOutputArgs struct {
-	// Name of the queue to match.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringInput    `pulumi:"name"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Map of tags for the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupQueueOutputArgs) ElementType() reflect.Type {
@@ -114,7 +74,6 @@ func (o LookupQueueResultOutput) ToLookupQueueResultOutputWithContext(ctx contex
 	return o
 }
 
-// ARN of the queue.
 func (o LookupQueueResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -132,12 +91,10 @@ func (o LookupQueueResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of tags for the resource.
 func (o LookupQueueResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupQueueResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// URL of the queue.
 func (o LookupQueueResultOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.Url }).(pulumi.StringOutput)
 }

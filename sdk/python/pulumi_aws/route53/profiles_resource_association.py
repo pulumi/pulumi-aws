@@ -29,11 +29,6 @@ class ProfilesResourceAssociationArgs:
                  timeouts: Optional[pulumi.Input['ProfilesResourceAssociationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ProfilesResourceAssociation resource.
-        :param pulumi.Input[_builtins.str] profile_id: ID of the profile associated with the VPC.
-        :param pulumi.Input[_builtins.str] resource_arn: Resource ID of the resource to be associated with the profile.
-        :param pulumi.Input[_builtins.str] name: Name of the Profile Resource Association.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_properties: Resource properties for the resource to be associated with the profile.
         """
         pulumi.set(__self__, "profile_id", profile_id)
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -49,9 +44,6 @@ class ProfilesResourceAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="profileId")
     def profile_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the profile associated with the VPC.
-        """
         return pulumi.get(self, "profile_id")
 
     @profile_id.setter
@@ -61,9 +53,6 @@ class ProfilesResourceAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        Resource ID of the resource to be associated with the profile.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -73,9 +62,6 @@ class ProfilesResourceAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Profile Resource Association.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -85,9 +71,6 @@ class ProfilesResourceAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -97,9 +80,6 @@ class ProfilesResourceAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="resourceProperties")
     def resource_properties(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Resource properties for the resource to be associated with the profile.
-        """
         return pulumi.get(self, "resource_properties")
 
     @resource_properties.setter
@@ -131,14 +111,6 @@ class _ProfilesResourceAssociationState:
                  timeouts: Optional[pulumi.Input['ProfilesResourceAssociationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering ProfilesResourceAssociation resources.
-        :param pulumi.Input[_builtins.str] name: Name of the Profile Resource Association.
-        :param pulumi.Input[_builtins.str] profile_id: ID of the profile associated with the VPC.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: Resource ID of the resource to be associated with the profile.
-        :param pulumi.Input[_builtins.str] resource_properties: Resource properties for the resource to be associated with the profile.
-        :param pulumi.Input[_builtins.str] resource_type: Type of resource associated with the profile.
-        :param pulumi.Input[_builtins.str] status: Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
-        :param pulumi.Input[_builtins.str] status_message: Status message of the Profile Resource Association.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -164,9 +136,6 @@ class _ProfilesResourceAssociationState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Profile Resource Association.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -185,9 +154,6 @@ class _ProfilesResourceAssociationState:
     @_builtins.property
     @pulumi.getter(name="profileId")
     def profile_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the profile associated with the VPC.
-        """
         return pulumi.get(self, "profile_id")
 
     @profile_id.setter
@@ -197,9 +163,6 @@ class _ProfilesResourceAssociationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -209,9 +172,6 @@ class _ProfilesResourceAssociationState:
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Resource ID of the resource to be associated with the profile.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -221,9 +181,6 @@ class _ProfilesResourceAssociationState:
     @_builtins.property
     @pulumi.getter(name="resourceProperties")
     def resource_properties(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Resource properties for the resource to be associated with the profile.
-        """
         return pulumi.get(self, "resource_properties")
 
     @resource_properties.setter
@@ -233,9 +190,6 @@ class _ProfilesResourceAssociationState:
     @_builtins.property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of resource associated with the profile.
-        """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
@@ -245,9 +199,6 @@ class _ProfilesResourceAssociationState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -257,9 +208,6 @@ class _ProfilesResourceAssociationState:
     @_builtins.property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status message of the Profile Resource Association.
-        """
         return pulumi.get(self, "status_message")
 
     @status_message.setter
@@ -290,44 +238,9 @@ class ProfilesResourceAssociation(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['ProfilesResourceAssociationTimeoutsArgs', 'ProfilesResourceAssociationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Route 53 Profiles Resource Association.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53.ProfilesProfile("example", name="example")
-        example_vpc = aws.ec2.Vpc("example", cidr="10.0.0.0/16")
-        example_zone = aws.route53.Zone("example",
-            name="example.com",
-            vpcs=[{
-                "vpc_id": example_vpc.id,
-            }])
-        example_profiles_resource_association = aws.route53.ProfilesResourceAssociation("example",
-            name="example",
-            profile_id=example.id,
-            resource_arn=example_zone.arn)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Route 53 Profiles Resource Association using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:route53/profilesResourceAssociation:ProfilesResourceAssociation example rpa-id-12345678
-        ```
-
+        Create a ProfilesResourceAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: Name of the Profile Resource Association.
-        :param pulumi.Input[_builtins.str] profile_id: ID of the profile associated with the VPC.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: Resource ID of the resource to be associated with the profile.
-        :param pulumi.Input[_builtins.str] resource_properties: Resource properties for the resource to be associated with the profile.
         """
         ...
     @overload
@@ -336,37 +249,7 @@ class ProfilesResourceAssociation(pulumi.CustomResource):
                  args: ProfilesResourceAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Route 53 Profiles Resource Association.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53.ProfilesProfile("example", name="example")
-        example_vpc = aws.ec2.Vpc("example", cidr="10.0.0.0/16")
-        example_zone = aws.route53.Zone("example",
-            name="example.com",
-            vpcs=[{
-                "vpc_id": example_vpc.id,
-            }])
-        example_profiles_resource_association = aws.route53.ProfilesResourceAssociation("example",
-            name="example",
-            profile_id=example.id,
-            resource_arn=example_zone.arn)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Route 53 Profiles Resource Association using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:route53/profilesResourceAssociation:ProfilesResourceAssociation example rpa-id-12345678
-        ```
-
+        Create a ProfilesResourceAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ProfilesResourceAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -438,14 +321,6 @@ class ProfilesResourceAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: Name of the Profile Resource Association.
-        :param pulumi.Input[_builtins.str] profile_id: ID of the profile associated with the VPC.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: Resource ID of the resource to be associated with the profile.
-        :param pulumi.Input[_builtins.str] resource_properties: Resource properties for the resource to be associated with the profile.
-        :param pulumi.Input[_builtins.str] resource_type: Type of resource associated with the profile.
-        :param pulumi.Input[_builtins.str] status: Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
-        :param pulumi.Input[_builtins.str] status_message: Status message of the Profile Resource Association.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -466,9 +341,6 @@ class ProfilesResourceAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the Profile Resource Association.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -479,57 +351,36 @@ class ProfilesResourceAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="profileId")
     def profile_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the profile associated with the VPC.
-        """
         return pulumi.get(self, "profile_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Resource ID of the resource to be associated with the profile.
-        """
         return pulumi.get(self, "resource_arn")
 
     @_builtins.property
     @pulumi.getter(name="resourceProperties")
     def resource_properties(self) -> pulumi.Output[_builtins.str]:
-        """
-        Resource properties for the resource to be associated with the profile.
-        """
         return pulumi.get(self, "resource_properties")
 
     @_builtins.property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of resource associated with the profile.
-        """
         return pulumi.get(self, "resource_type")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> pulumi.Output[_builtins.str]:
-        """
-        Status message of the Profile Resource Association.
-        """
         return pulumi.get(self, "status_message")
 
     @_builtins.property

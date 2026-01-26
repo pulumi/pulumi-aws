@@ -12,22 +12,12 @@ namespace Pulumi.Aws.Rds.Inputs
 
     public sealed class InstanceMasterUserSecretGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN for the KMS encryption key. If creating an
-        /// encrypted replica, set this to the destination KMS ARN.
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the secret.
-        /// </summary>
         [Input("secretArn")]
         public Input<string>? SecretArn { get; set; }
 
-        /// <summary>
-        /// The status of the secret. Valid Values: `Creating` | `Active` | `Rotating` | `Impaired`.
-        /// </summary>
         [Input("secretStatus")]
         public Input<string>? SecretStatus { get; set; }
 

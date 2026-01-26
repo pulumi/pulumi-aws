@@ -15,51 +15,23 @@ public final class SessionLoggerAssociationState extends com.pulumi.resources.Re
 
     public static final SessionLoggerAssociationState Empty = new SessionLoggerAssociationState();
 
-    /**
-     * ARN of the web portal.
-     * 
-     */
     @Import(name="portalArn")
     private @Nullable Output<String> portalArn;
 
-    /**
-     * @return ARN of the web portal.
-     * 
-     */
     public Optional<Output<String>> portalArn() {
         return Optional.ofNullable(this.portalArn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ARN of the session logger.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="sessionLoggerArn")
     private @Nullable Output<String> sessionLoggerArn;
 
-    /**
-     * @return ARN of the session logger.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> sessionLoggerArn() {
         return Optional.ofNullable(this.sessionLoggerArn);
     }
@@ -90,69 +62,29 @@ public final class SessionLoggerAssociationState extends com.pulumi.resources.Re
             $ = new SessionLoggerAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param portalArn ARN of the web portal.
-         * 
-         * @return builder
-         * 
-         */
         public Builder portalArn(@Nullable Output<String> portalArn) {
             $.portalArn = portalArn;
             return this;
         }
 
-        /**
-         * @param portalArn ARN of the web portal.
-         * 
-         * @return builder
-         * 
-         */
         public Builder portalArn(String portalArn) {
             return portalArn(Output.of(portalArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param sessionLoggerArn ARN of the session logger.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder sessionLoggerArn(@Nullable Output<String> sessionLoggerArn) {
             $.sessionLoggerArn = sessionLoggerArn;
             return this;
         }
 
-        /**
-         * @param sessionLoggerArn ARN of the session logger.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder sessionLoggerArn(String sessionLoggerArn) {
             return sessionLoggerArn(Output.of(sessionLoggerArn));
         }

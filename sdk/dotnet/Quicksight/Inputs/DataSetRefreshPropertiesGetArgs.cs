@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class DataSetRefreshPropertiesGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The refresh configuration for the data set. See refresh_configuration.
-        /// </summary>
         [Input("refreshConfiguration", required: true)]
         public Input<Inputs.DataSetRefreshPropertiesRefreshConfigurationGetArgs> RefreshConfiguration { get; set; } = null!;
 

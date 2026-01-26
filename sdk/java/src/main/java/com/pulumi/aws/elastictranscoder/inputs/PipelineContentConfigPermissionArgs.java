@@ -16,47 +16,23 @@ public final class PipelineContentConfigPermissionArgs extends com.pulumi.resour
 
     public static final PipelineContentConfigPermissionArgs Empty = new PipelineContentConfigPermissionArgs();
 
-    /**
-     * The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
-     * 
-     */
     @Import(name="accesses")
     private @Nullable Output<List<String>> accesses;
 
-    /**
-     * @return The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
-     * 
-     */
     public Optional<Output<List<String>>> accesses() {
         return Optional.ofNullable(this.accesses);
     }
 
-    /**
-     * The AWS user or group that you want to have access to transcoded files and playlists.
-     * 
-     */
     @Import(name="grantee")
     private @Nullable Output<String> grantee;
 
-    /**
-     * @return The AWS user or group that you want to have access to transcoded files and playlists.
-     * 
-     */
     public Optional<Output<String>> grantee() {
         return Optional.ofNullable(this.grantee);
     }
 
-    /**
-     * Specify the type of value that appears in the `content_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
-     * 
-     */
     @Import(name="granteeType")
     private @Nullable Output<String> granteeType;
 
-    /**
-     * @return Specify the type of value that appears in the `content_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
-     * 
-     */
     public Optional<Output<String>> granteeType() {
         return Optional.ofNullable(this.granteeType);
     }
@@ -87,75 +63,33 @@ public final class PipelineContentConfigPermissionArgs extends com.pulumi.resour
             $ = new PipelineContentConfigPermissionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accesses The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accesses(@Nullable Output<List<String>> accesses) {
             $.accesses = accesses;
             return this;
         }
 
-        /**
-         * @param accesses The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accesses(List<String> accesses) {
             return accesses(Output.of(accesses));
         }
 
-        /**
-         * @param accesses The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accesses(String... accesses) {
             return accesses(List.of(accesses));
         }
 
-        /**
-         * @param grantee The AWS user or group that you want to have access to transcoded files and playlists.
-         * 
-         * @return builder
-         * 
-         */
         public Builder grantee(@Nullable Output<String> grantee) {
             $.grantee = grantee;
             return this;
         }
 
-        /**
-         * @param grantee The AWS user or group that you want to have access to transcoded files and playlists.
-         * 
-         * @return builder
-         * 
-         */
         public Builder grantee(String grantee) {
             return grantee(Output.of(grantee));
         }
 
-        /**
-         * @param granteeType Specify the type of value that appears in the `content_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder granteeType(@Nullable Output<String> granteeType) {
             $.granteeType = granteeType;
             return this;
         }
 
-        /**
-         * @param granteeType Specify the type of value that appears in the `content_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder granteeType(String granteeType) {
             return granteeType(Output.of(granteeType));
         }

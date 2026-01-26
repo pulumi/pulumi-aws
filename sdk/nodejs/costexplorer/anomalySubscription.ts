@@ -7,182 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a CE Anomaly Subscription.
- *
- * ## Example Usage
- *
- * ### Basic Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.costexplorer.AnomalyMonitor("test", {
- *     name: "AWSServiceMonitor",
- *     monitorType: "DIMENSIONAL",
- *     monitorDimension: "SERVICE",
- * });
- * const testAnomalySubscription = new aws.costexplorer.AnomalySubscription("test", {
- *     name: "DAILYSUBSCRIPTION",
- *     frequency: "DAILY",
- *     monitorArnLists: [test.arn],
- *     subscribers: [{
- *         type: "EMAIL",
- *         address: "abc@example.com",
- *     }],
- *     thresholdExpression: {
- *         dimension: {
- *             key: "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
- *             matchOptions: ["GREATER_THAN_OR_EQUAL"],
- *             values: ["100"],
- *         },
- *     },
- * });
- * ```
- *
- * ### Threshold Expression Example
- *
- * ### Using a Percentage Threshold
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.costexplorer.AnomalySubscription("test", {
- *     name: "AWSServiceMonitor",
- *     frequency: "DAILY",
- *     monitorArnLists: [testAwsCeAnomalyMonitor.arn],
- *     subscribers: [{
- *         type: "EMAIL",
- *         address: "abc@example.com",
- *     }],
- *     thresholdExpression: {
- *         dimension: {
- *             key: "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
- *             matchOptions: ["GREATER_THAN_OR_EQUAL"],
- *             values: ["100"],
- *         },
- *     },
- * });
- * ```
- *
- * ### Using an `and` Expression
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.costexplorer.AnomalySubscription("test", {
- *     name: "AWSServiceMonitor",
- *     frequency: "DAILY",
- *     monitorArnLists: [testAwsCeAnomalyMonitor.arn],
- *     subscribers: [{
- *         type: "EMAIL",
- *         address: "abc@example.com",
- *     }],
- *     thresholdExpression: {
- *         ands: [
- *             {
- *                 dimension: {
- *                     key: "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
- *                     matchOptions: ["GREATER_THAN_OR_EQUAL"],
- *                     values: ["100"],
- *                 },
- *             },
- *             {
- *                 dimension: {
- *                     key: "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
- *                     matchOptions: ["GREATER_THAN_OR_EQUAL"],
- *                     values: ["50"],
- *                 },
- *             },
- *         ],
- *     },
- * });
- * ```
- *
- * ### SNS Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const costAnomalyUpdates = new aws.sns.Topic("cost_anomaly_updates", {name: "CostAnomalyUpdates"});
- * const snsTopicPolicy = pulumi.all([costAnomalyUpdates.arn, costAnomalyUpdates.arn]).apply(([costAnomalyUpdatesArn, costAnomalyUpdatesArn1]) => aws.iam.getPolicyDocumentOutput({
- *     policyId: "__default_policy_ID",
- *     statements: [
- *         {
- *             sid: "AWSAnomalyDetectionSNSPublishingPermissions",
- *             actions: ["SNS:Publish"],
- *             effect: "Allow",
- *             principals: [{
- *                 type: "Service",
- *                 identifiers: ["costalerts.amazonaws.com"],
- *             }],
- *             resources: [costAnomalyUpdatesArn],
- *         },
- *         {
- *             sid: "__default_statement_ID",
- *             actions: [
- *                 "SNS:Subscribe",
- *                 "SNS:SetTopicAttributes",
- *                 "SNS:RemovePermission",
- *                 "SNS:Receive",
- *                 "SNS:Publish",
- *                 "SNS:ListSubscriptionsByTopic",
- *                 "SNS:GetTopicAttributes",
- *                 "SNS:DeleteTopic",
- *                 "SNS:AddPermission",
- *             ],
- *             conditions: [{
- *                 test: "StringEquals",
- *                 variable: "AWS:SourceOwner",
- *                 values: [accountId],
- *             }],
- *             effect: "Allow",
- *             principals: [{
- *                 type: "AWS",
- *                 identifiers: ["*"],
- *             }],
- *             resources: [costAnomalyUpdatesArn1],
- *         },
- *     ],
- * }));
- * const _default = new aws.sns.TopicPolicy("default", {
- *     arn: costAnomalyUpdates.arn,
- *     policy: snsTopicPolicy.apply(snsTopicPolicy => snsTopicPolicy.json),
- * });
- * const anomalyMonitor = new aws.costexplorer.AnomalyMonitor("anomaly_monitor", {
- *     name: "AWSServiceMonitor",
- *     monitorType: "DIMENSIONAL",
- *     monitorDimension: "SERVICE",
- * });
- * const realtimeSubscription = new aws.costexplorer.AnomalySubscription("realtime_subscription", {
- *     name: "RealtimeAnomalySubscription",
- *     frequency: "IMMEDIATE",
- *     monitorArnLists: [anomalyMonitor.arn],
- *     subscribers: [{
- *         type: "SNS",
- *         address: costAnomalyUpdates.arn,
- *     }],
- * }, {
- *     dependsOn: [_default],
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the Cost Explorer anomaly subscription.
- *
- * Using `pulumi import`, import `aws_ce_anomaly_subscription` using the `id`. For example:
- *
- * % pulumi import aws_ce_anomaly_subscription.example AnomalySubscriptionARN
- */
 export class AnomalySubscription extends pulumi.CustomResource {
     /**
      * Get an existing AnomalySubscription resource's state with the given name, ID, and optional extra
@@ -211,41 +35,14 @@ export class AnomalySubscription extends pulumi.CustomResource {
         return obj['__pulumiType'] === AnomalySubscription.__pulumiType;
     }
 
-    /**
-     * The unique identifier for the AWS account in which the anomaly subscription ought to be created.
-     */
     declare public readonly accountId: pulumi.Output<string>;
-    /**
-     * ARN of the anomaly subscription.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
-     */
     declare public readonly frequency: pulumi.Output<string>;
-    /**
-     * A list of cost anomaly monitors.
-     */
     declare public readonly monitorArnLists: pulumi.Output<string[]>;
-    /**
-     * The name for the subscription.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * A subscriber configuration. Multiple subscribers can be defined.
-     */
     declare public readonly subscribers: pulumi.Output<outputs.costexplorer.AnomalySubscriptionSubscriber[]>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
-     */
     declare public readonly thresholdExpression: pulumi.Output<outputs.costexplorer.AnomalySubscriptionThresholdExpression>;
 
     /**
@@ -300,41 +97,14 @@ export class AnomalySubscription extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AnomalySubscription resources.
  */
 export interface AnomalySubscriptionState {
-    /**
-     * The unique identifier for the AWS account in which the anomaly subscription ought to be created.
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * ARN of the anomaly subscription.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
-     */
     frequency?: pulumi.Input<string>;
-    /**
-     * A list of cost anomaly monitors.
-     */
     monitorArnLists?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The name for the subscription.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A subscriber configuration. Multiple subscribers can be defined.
-     */
     subscribers?: pulumi.Input<pulumi.Input<inputs.costexplorer.AnomalySubscriptionSubscriber>[]>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
-     */
     thresholdExpression?: pulumi.Input<inputs.costexplorer.AnomalySubscriptionThresholdExpression>;
 }
 
@@ -342,32 +112,11 @@ export interface AnomalySubscriptionState {
  * The set of arguments for constructing a AnomalySubscription resource.
  */
 export interface AnomalySubscriptionArgs {
-    /**
-     * The unique identifier for the AWS account in which the anomaly subscription ought to be created.
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
-     */
     frequency: pulumi.Input<string>;
-    /**
-     * A list of cost anomaly monitors.
-     */
     monitorArnLists: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The name for the subscription.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A subscriber configuration. Multiple subscribers can be defined.
-     */
     subscribers: pulumi.Input<pulumi.Input<inputs.costexplorer.AnomalySubscriptionSubscriber>[]>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
-     */
     thresholdExpression?: pulumi.Input<inputs.costexplorer.AnomalySubscriptionThresholdExpression>;
 }

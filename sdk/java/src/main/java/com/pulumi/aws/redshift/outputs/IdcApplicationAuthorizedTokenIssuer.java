@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IdcApplicationAuthorizedTokenIssuer {
-    /**
-     * @return List of audiences for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
-     * 
-     */
     private @Nullable List<String> authorizedAudiencesLists;
-    /**
-     * @return ARN for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
-     * 
-     */
     private @Nullable String trustedTokenIssuerArn;
 
     private IdcApplicationAuthorizedTokenIssuer() {}
-    /**
-     * @return List of audiences for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
-     * 
-     */
     public List<String> authorizedAudiencesLists() {
         return this.authorizedAudiencesLists == null ? List.of() : this.authorizedAudiencesLists;
     }
-    /**
-     * @return ARN for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
-     * 
-     */
     public Optional<String> trustedTokenIssuerArn() {
         return Optional.ofNullable(this.trustedTokenIssuerArn);
     }

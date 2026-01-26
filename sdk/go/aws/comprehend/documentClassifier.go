@@ -12,121 +12,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Comprehend Document Classifier.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/comprehend"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			documents, err := s3.NewBucketObjectv2(ctx, "documents", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = comprehend.NewDocumentClassifier(ctx, "example", &comprehend.DocumentClassifierArgs{
-//				Name:              pulumi.String("example"),
-//				DataAccessRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				LanguageCode:      pulumi.String("en"),
-//				InputDataConfig: &comprehend.DocumentClassifierInputDataConfigArgs{
-//					S3Uri: documents.Key.ApplyT(func(key string) (string, error) {
-//						return fmt.Sprintf("s3://%v/%v", test.Bucket, key), nil
-//					}).(pulumi.StringOutput),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAwsIamRolePolicy,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketObjectv2(ctx, "entities", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the Comprehend document classifier.
-//
-// Using `pulumi import`, import Comprehend Document Classifier using the ARN. For example:
-//
-// % pulumi import aws_comprehend_document_classifier.example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
 type DocumentClassifier struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Document Classifier version.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ARN for an IAM Role which allows Comprehend to read the training and testing data.
-	DataAccessRoleArn pulumi.StringOutput `pulumi:"dataAccessRoleArn"`
-	// Configuration for the training and testing data.
-	// See the `inputDataConfig` Configuration Block section below.
-	InputDataConfig DocumentClassifierInputDataConfigOutput `pulumi:"inputDataConfig"`
-	// Two-letter language code for the language.
-	// One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
-	LanguageCode pulumi.StringOutput `pulumi:"languageCode"`
-	// The document classification mode.
-	// One of `MULTI_CLASS` or `MULTI_LABEL`.
-	// `MULTI_CLASS` is also known as "Single Label" in the AWS Console.
-	Mode pulumi.StringPtrOutput `pulumi:"mode"`
-	// KMS Key used to encrypt trained Document Classifiers.
-	// Can be a KMS Key ID or a KMS Key ARN.
-	ModelKmsKeyId pulumi.StringPtrOutput `pulumi:"modelKmsKeyId"`
-	// Name for the Document Classifier.
-	// Has a maximum length of 63 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Configuration for the output results of training.
-	// See the `outputDataConfig` Configuration Block section below.
-	OutputDataConfig DocumentClassifierOutputDataConfigOutput `pulumi:"outputDataConfig"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Name for the version of the Document Classifier.
-	// Each version must have a unique name within the Document Classifier.
-	// If omitted, the provider will assign a random, unique version name.
-	// If explicitly set to `""`, no version name will be set.
-	// Has a maximum length of 63 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-	// Conflicts with `versionNamePrefix`.
-	VersionName pulumi.StringOutput `pulumi:"versionName"`
-	// Creates a unique version name beginning with the specified prefix.
-	// Has a maximum length of 37 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-	// Conflicts with `versionName`.
-	VersionNamePrefix pulumi.StringOutput `pulumi:"versionNamePrefix"`
-	// KMS Key used to encrypt storage volumes during job processing.
-	// Can be a KMS Key ID or a KMS Key ARN.
-	VolumeKmsKeyId pulumi.StringPtrOutput `pulumi:"volumeKmsKeyId"`
-	// Configuration parameters for VPC to contain Document Classifier resources.
-	// See the `vpcConfig` Configuration Block section below.
-	VpcConfig DocumentClassifierVpcConfigPtrOutput `pulumi:"vpcConfig"`
+	Arn               pulumi.StringOutput                      `pulumi:"arn"`
+	DataAccessRoleArn pulumi.StringOutput                      `pulumi:"dataAccessRoleArn"`
+	InputDataConfig   DocumentClassifierInputDataConfigOutput  `pulumi:"inputDataConfig"`
+	LanguageCode      pulumi.StringOutput                      `pulumi:"languageCode"`
+	Mode              pulumi.StringPtrOutput                   `pulumi:"mode"`
+	ModelKmsKeyId     pulumi.StringPtrOutput                   `pulumi:"modelKmsKeyId"`
+	Name              pulumi.StringOutput                      `pulumi:"name"`
+	OutputDataConfig  DocumentClassifierOutputDataConfigOutput `pulumi:"outputDataConfig"`
+	Region            pulumi.StringOutput                      `pulumi:"region"`
+	Tags              pulumi.StringMapOutput                   `pulumi:"tags"`
+	TagsAll           pulumi.StringMapOutput                   `pulumi:"tagsAll"`
+	VersionName       pulumi.StringOutput                      `pulumi:"versionName"`
+	VersionNamePrefix pulumi.StringOutput                      `pulumi:"versionNamePrefix"`
+	VolumeKmsKeyId    pulumi.StringPtrOutput                   `pulumi:"volumeKmsKeyId"`
+	VpcConfig         DocumentClassifierVpcConfigPtrOutput     `pulumi:"vpcConfig"`
 }
 
 // NewDocumentClassifier registers a new resource with the given unique name, arguments, and options.
@@ -168,111 +71,39 @@ func GetDocumentClassifier(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DocumentClassifier resources.
 type documentClassifierState struct {
-	// ARN of the Document Classifier version.
-	Arn *string `pulumi:"arn"`
-	// The ARN for an IAM Role which allows Comprehend to read the training and testing data.
-	DataAccessRoleArn *string `pulumi:"dataAccessRoleArn"`
-	// Configuration for the training and testing data.
-	// See the `inputDataConfig` Configuration Block section below.
-	InputDataConfig *DocumentClassifierInputDataConfig `pulumi:"inputDataConfig"`
-	// Two-letter language code for the language.
-	// One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
-	LanguageCode *string `pulumi:"languageCode"`
-	// The document classification mode.
-	// One of `MULTI_CLASS` or `MULTI_LABEL`.
-	// `MULTI_CLASS` is also known as "Single Label" in the AWS Console.
-	Mode *string `pulumi:"mode"`
-	// KMS Key used to encrypt trained Document Classifiers.
-	// Can be a KMS Key ID or a KMS Key ARN.
-	ModelKmsKeyId *string `pulumi:"modelKmsKeyId"`
-	// Name for the Document Classifier.
-	// Has a maximum length of 63 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Configuration for the output results of training.
-	// See the `outputDataConfig` Configuration Block section below.
-	OutputDataConfig *DocumentClassifierOutputDataConfig `pulumi:"outputDataConfig"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Name for the version of the Document Classifier.
-	// Each version must have a unique name within the Document Classifier.
-	// If omitted, the provider will assign a random, unique version name.
-	// If explicitly set to `""`, no version name will be set.
-	// Has a maximum length of 63 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-	// Conflicts with `versionNamePrefix`.
-	VersionName *string `pulumi:"versionName"`
-	// Creates a unique version name beginning with the specified prefix.
-	// Has a maximum length of 37 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-	// Conflicts with `versionName`.
-	VersionNamePrefix *string `pulumi:"versionNamePrefix"`
-	// KMS Key used to encrypt storage volumes during job processing.
-	// Can be a KMS Key ID or a KMS Key ARN.
-	VolumeKmsKeyId *string `pulumi:"volumeKmsKeyId"`
-	// Configuration parameters for VPC to contain Document Classifier resources.
-	// See the `vpcConfig` Configuration Block section below.
-	VpcConfig *DocumentClassifierVpcConfig `pulumi:"vpcConfig"`
+	Arn               *string                             `pulumi:"arn"`
+	DataAccessRoleArn *string                             `pulumi:"dataAccessRoleArn"`
+	InputDataConfig   *DocumentClassifierInputDataConfig  `pulumi:"inputDataConfig"`
+	LanguageCode      *string                             `pulumi:"languageCode"`
+	Mode              *string                             `pulumi:"mode"`
+	ModelKmsKeyId     *string                             `pulumi:"modelKmsKeyId"`
+	Name              *string                             `pulumi:"name"`
+	OutputDataConfig  *DocumentClassifierOutputDataConfig `pulumi:"outputDataConfig"`
+	Region            *string                             `pulumi:"region"`
+	Tags              map[string]string                   `pulumi:"tags"`
+	TagsAll           map[string]string                   `pulumi:"tagsAll"`
+	VersionName       *string                             `pulumi:"versionName"`
+	VersionNamePrefix *string                             `pulumi:"versionNamePrefix"`
+	VolumeKmsKeyId    *string                             `pulumi:"volumeKmsKeyId"`
+	VpcConfig         *DocumentClassifierVpcConfig        `pulumi:"vpcConfig"`
 }
 
 type DocumentClassifierState struct {
-	// ARN of the Document Classifier version.
-	Arn pulumi.StringPtrInput
-	// The ARN for an IAM Role which allows Comprehend to read the training and testing data.
+	Arn               pulumi.StringPtrInput
 	DataAccessRoleArn pulumi.StringPtrInput
-	// Configuration for the training and testing data.
-	// See the `inputDataConfig` Configuration Block section below.
-	InputDataConfig DocumentClassifierInputDataConfigPtrInput
-	// Two-letter language code for the language.
-	// One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
-	LanguageCode pulumi.StringPtrInput
-	// The document classification mode.
-	// One of `MULTI_CLASS` or `MULTI_LABEL`.
-	// `MULTI_CLASS` is also known as "Single Label" in the AWS Console.
-	Mode pulumi.StringPtrInput
-	// KMS Key used to encrypt trained Document Classifiers.
-	// Can be a KMS Key ID or a KMS Key ARN.
-	ModelKmsKeyId pulumi.StringPtrInput
-	// Name for the Document Classifier.
-	// Has a maximum length of 63 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Configuration for the output results of training.
-	// See the `outputDataConfig` Configuration Block section below.
-	OutputDataConfig DocumentClassifierOutputDataConfigPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Name for the version of the Document Classifier.
-	// Each version must have a unique name within the Document Classifier.
-	// If omitted, the provider will assign a random, unique version name.
-	// If explicitly set to `""`, no version name will be set.
-	// Has a maximum length of 63 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-	// Conflicts with `versionNamePrefix`.
-	VersionName pulumi.StringPtrInput
-	// Creates a unique version name beginning with the specified prefix.
-	// Has a maximum length of 37 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-	// Conflicts with `versionName`.
+	InputDataConfig   DocumentClassifierInputDataConfigPtrInput
+	LanguageCode      pulumi.StringPtrInput
+	Mode              pulumi.StringPtrInput
+	ModelKmsKeyId     pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	OutputDataConfig  DocumentClassifierOutputDataConfigPtrInput
+	Region            pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	TagsAll           pulumi.StringMapInput
+	VersionName       pulumi.StringPtrInput
 	VersionNamePrefix pulumi.StringPtrInput
-	// KMS Key used to encrypt storage volumes during job processing.
-	// Can be a KMS Key ID or a KMS Key ARN.
-	VolumeKmsKeyId pulumi.StringPtrInput
-	// Configuration parameters for VPC to contain Document Classifier resources.
-	// See the `vpcConfig` Configuration Block section below.
-	VpcConfig DocumentClassifierVpcConfigPtrInput
+	VolumeKmsKeyId    pulumi.StringPtrInput
+	VpcConfig         DocumentClassifierVpcConfigPtrInput
 }
 
 func (DocumentClassifierState) ElementType() reflect.Type {
@@ -280,104 +111,36 @@ func (DocumentClassifierState) ElementType() reflect.Type {
 }
 
 type documentClassifierArgs struct {
-	// The ARN for an IAM Role which allows Comprehend to read the training and testing data.
-	DataAccessRoleArn string `pulumi:"dataAccessRoleArn"`
-	// Configuration for the training and testing data.
-	// See the `inputDataConfig` Configuration Block section below.
-	InputDataConfig DocumentClassifierInputDataConfig `pulumi:"inputDataConfig"`
-	// Two-letter language code for the language.
-	// One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
-	LanguageCode string `pulumi:"languageCode"`
-	// The document classification mode.
-	// One of `MULTI_CLASS` or `MULTI_LABEL`.
-	// `MULTI_CLASS` is also known as "Single Label" in the AWS Console.
-	Mode *string `pulumi:"mode"`
-	// KMS Key used to encrypt trained Document Classifiers.
-	// Can be a KMS Key ID or a KMS Key ARN.
-	ModelKmsKeyId *string `pulumi:"modelKmsKeyId"`
-	// Name for the Document Classifier.
-	// Has a maximum length of 63 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Configuration for the output results of training.
-	// See the `outputDataConfig` Configuration Block section below.
-	OutputDataConfig *DocumentClassifierOutputDataConfig `pulumi:"outputDataConfig"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Name for the version of the Document Classifier.
-	// Each version must have a unique name within the Document Classifier.
-	// If omitted, the provider will assign a random, unique version name.
-	// If explicitly set to `""`, no version name will be set.
-	// Has a maximum length of 63 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-	// Conflicts with `versionNamePrefix`.
-	VersionName *string `pulumi:"versionName"`
-	// Creates a unique version name beginning with the specified prefix.
-	// Has a maximum length of 37 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-	// Conflicts with `versionName`.
-	VersionNamePrefix *string `pulumi:"versionNamePrefix"`
-	// KMS Key used to encrypt storage volumes during job processing.
-	// Can be a KMS Key ID or a KMS Key ARN.
-	VolumeKmsKeyId *string `pulumi:"volumeKmsKeyId"`
-	// Configuration parameters for VPC to contain Document Classifier resources.
-	// See the `vpcConfig` Configuration Block section below.
-	VpcConfig *DocumentClassifierVpcConfig `pulumi:"vpcConfig"`
+	DataAccessRoleArn string                              `pulumi:"dataAccessRoleArn"`
+	InputDataConfig   DocumentClassifierInputDataConfig   `pulumi:"inputDataConfig"`
+	LanguageCode      string                              `pulumi:"languageCode"`
+	Mode              *string                             `pulumi:"mode"`
+	ModelKmsKeyId     *string                             `pulumi:"modelKmsKeyId"`
+	Name              *string                             `pulumi:"name"`
+	OutputDataConfig  *DocumentClassifierOutputDataConfig `pulumi:"outputDataConfig"`
+	Region            *string                             `pulumi:"region"`
+	Tags              map[string]string                   `pulumi:"tags"`
+	VersionName       *string                             `pulumi:"versionName"`
+	VersionNamePrefix *string                             `pulumi:"versionNamePrefix"`
+	VolumeKmsKeyId    *string                             `pulumi:"volumeKmsKeyId"`
+	VpcConfig         *DocumentClassifierVpcConfig        `pulumi:"vpcConfig"`
 }
 
 // The set of arguments for constructing a DocumentClassifier resource.
 type DocumentClassifierArgs struct {
-	// The ARN for an IAM Role which allows Comprehend to read the training and testing data.
 	DataAccessRoleArn pulumi.StringInput
-	// Configuration for the training and testing data.
-	// See the `inputDataConfig` Configuration Block section below.
-	InputDataConfig DocumentClassifierInputDataConfigInput
-	// Two-letter language code for the language.
-	// One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
-	LanguageCode pulumi.StringInput
-	// The document classification mode.
-	// One of `MULTI_CLASS` or `MULTI_LABEL`.
-	// `MULTI_CLASS` is also known as "Single Label" in the AWS Console.
-	Mode pulumi.StringPtrInput
-	// KMS Key used to encrypt trained Document Classifiers.
-	// Can be a KMS Key ID or a KMS Key ARN.
-	ModelKmsKeyId pulumi.StringPtrInput
-	// Name for the Document Classifier.
-	// Has a maximum length of 63 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Configuration for the output results of training.
-	// See the `outputDataConfig` Configuration Block section below.
-	OutputDataConfig DocumentClassifierOutputDataConfigPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Name for the version of the Document Classifier.
-	// Each version must have a unique name within the Document Classifier.
-	// If omitted, the provider will assign a random, unique version name.
-	// If explicitly set to `""`, no version name will be set.
-	// Has a maximum length of 63 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-	// Conflicts with `versionNamePrefix`.
-	VersionName pulumi.StringPtrInput
-	// Creates a unique version name beginning with the specified prefix.
-	// Has a maximum length of 37 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-	// Conflicts with `versionName`.
+	InputDataConfig   DocumentClassifierInputDataConfigInput
+	LanguageCode      pulumi.StringInput
+	Mode              pulumi.StringPtrInput
+	ModelKmsKeyId     pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	OutputDataConfig  DocumentClassifierOutputDataConfigPtrInput
+	Region            pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	VersionName       pulumi.StringPtrInput
 	VersionNamePrefix pulumi.StringPtrInput
-	// KMS Key used to encrypt storage volumes during job processing.
-	// Can be a KMS Key ID or a KMS Key ARN.
-	VolumeKmsKeyId pulumi.StringPtrInput
-	// Configuration parameters for VPC to contain Document Classifier resources.
-	// See the `vpcConfig` Configuration Block section below.
-	VpcConfig DocumentClassifierVpcConfigPtrInput
+	VolumeKmsKeyId    pulumi.StringPtrInput
+	VpcConfig         DocumentClassifierVpcConfigPtrInput
 }
 
 func (DocumentClassifierArgs) ElementType() reflect.Type {
@@ -467,98 +230,62 @@ func (o DocumentClassifierOutput) ToDocumentClassifierOutputWithContext(ctx cont
 	return o
 }
 
-// ARN of the Document Classifier version.
 func (o DocumentClassifierOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The ARN for an IAM Role which allows Comprehend to read the training and testing data.
 func (o DocumentClassifierOutput) DataAccessRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringOutput { return v.DataAccessRoleArn }).(pulumi.StringOutput)
 }
 
-// Configuration for the training and testing data.
-// See the `inputDataConfig` Configuration Block section below.
 func (o DocumentClassifierOutput) InputDataConfig() DocumentClassifierInputDataConfigOutput {
 	return o.ApplyT(func(v *DocumentClassifier) DocumentClassifierInputDataConfigOutput { return v.InputDataConfig }).(DocumentClassifierInputDataConfigOutput)
 }
 
-// Two-letter language code for the language.
-// One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
 func (o DocumentClassifierOutput) LanguageCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringOutput { return v.LanguageCode }).(pulumi.StringOutput)
 }
 
-// The document classification mode.
-// One of `MULTI_CLASS` or `MULTI_LABEL`.
-// `MULTI_CLASS` is also known as "Single Label" in the AWS Console.
 func (o DocumentClassifierOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringPtrOutput { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
-// KMS Key used to encrypt trained Document Classifiers.
-// Can be a KMS Key ID or a KMS Key ARN.
 func (o DocumentClassifierOutput) ModelKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringPtrOutput { return v.ModelKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Name for the Document Classifier.
-// Has a maximum length of 63 characters.
-// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-//
-// The following arguments are optional:
 func (o DocumentClassifierOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Configuration for the output results of training.
-// See the `outputDataConfig` Configuration Block section below.
 func (o DocumentClassifierOutput) OutputDataConfig() DocumentClassifierOutputDataConfigOutput {
 	return o.ApplyT(func(v *DocumentClassifier) DocumentClassifierOutputDataConfigOutput { return v.OutputDataConfig }).(DocumentClassifierOutputDataConfigOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DocumentClassifierOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DocumentClassifierOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DocumentClassifierOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Name for the version of the Document Classifier.
-// Each version must have a unique name within the Document Classifier.
-// If omitted, the provider will assign a random, unique version name.
-// If explicitly set to `""`, no version name will be set.
-// Has a maximum length of 63 characters.
-// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-// Conflicts with `versionNamePrefix`.
 func (o DocumentClassifierOutput) VersionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringOutput { return v.VersionName }).(pulumi.StringOutput)
 }
 
-// Creates a unique version name beginning with the specified prefix.
-// Has a maximum length of 37 characters.
-// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-// Conflicts with `versionName`.
 func (o DocumentClassifierOutput) VersionNamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringOutput { return v.VersionNamePrefix }).(pulumi.StringOutput)
 }
 
-// KMS Key used to encrypt storage volumes during job processing.
-// Can be a KMS Key ID or a KMS Key ARN.
 func (o DocumentClassifierOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringPtrOutput { return v.VolumeKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Configuration parameters for VPC to contain Document Classifier resources.
-// See the `vpcConfig` Configuration Block section below.
 func (o DocumentClassifierOutput) VpcConfig() DocumentClassifierVpcConfigPtrOutput {
 	return o.ApplyT(func(v *DocumentClassifier) DocumentClassifierVpcConfigPtrOutput { return v.VpcConfig }).(DocumentClassifierVpcConfigPtrOutput)
 }

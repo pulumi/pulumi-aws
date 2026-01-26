@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventBusLogConfig {
-    /**
-     * @return Whether EventBridge include detailed event information in the records it generates. Valid values are `NONE` and `FULL`.
-     * 
-     */
     private @Nullable String includeDetail;
-    /**
-     * @return Level of logging detail to include. Valid values are `OFF`, `ERROR`, `INFO`, and `TRACE`.
-     * 
-     */
     private @Nullable String level;
 
     private EventBusLogConfig() {}
-    /**
-     * @return Whether EventBridge include detailed event information in the records it generates. Valid values are `NONE` and `FULL`.
-     * 
-     */
     public Optional<String> includeDetail() {
         return Optional.ofNullable(this.includeDetail);
     }
-    /**
-     * @return Level of logging detail to include. Valid values are `OFF`, `ERROR`, `INFO`, and `TRACE`.
-     * 
-     */
     public Optional<String> level() {
         return Optional.ofNullable(this.level);
     }

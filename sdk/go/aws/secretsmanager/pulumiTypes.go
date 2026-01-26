@@ -14,16 +14,11 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type SecretReplica struct {
-	// ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Date that you last accessed the secret in the Region.
+	KmsKeyId         *string `pulumi:"kmsKeyId"`
 	LastAccessedDate *string `pulumi:"lastAccessedDate"`
-	// Region for replicating the secret.
-	Region string `pulumi:"region"`
-	// Status can be `InProgress`, `Failed`, or `InSync`.
-	Status *string `pulumi:"status"`
-	// Message such as `Replication succeeded` or `Secret with this name already exists in this region`.
-	StatusMessage *string `pulumi:"statusMessage"`
+	Region           string  `pulumi:"region"`
+	Status           *string `pulumi:"status"`
+	StatusMessage    *string `pulumi:"statusMessage"`
 }
 
 // SecretReplicaInput is an input type that accepts SecretReplicaArgs and SecretReplicaOutput values.
@@ -38,16 +33,11 @@ type SecretReplicaInput interface {
 }
 
 type SecretReplicaArgs struct {
-	// ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
-	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// Date that you last accessed the secret in the Region.
+	KmsKeyId         pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	LastAccessedDate pulumi.StringPtrInput `pulumi:"lastAccessedDate"`
-	// Region for replicating the secret.
-	Region pulumi.StringInput `pulumi:"region"`
-	// Status can be `InProgress`, `Failed`, or `InSync`.
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// Message such as `Replication succeeded` or `Secret with this name already exists in this region`.
-	StatusMessage pulumi.StringPtrInput `pulumi:"statusMessage"`
+	Region           pulumi.StringInput    `pulumi:"region"`
+	Status           pulumi.StringPtrInput `pulumi:"status"`
+	StatusMessage    pulumi.StringPtrInput `pulumi:"statusMessage"`
 }
 
 func (SecretReplicaArgs) ElementType() reflect.Type {
@@ -101,27 +91,22 @@ func (o SecretReplicaOutput) ToSecretReplicaOutputWithContext(ctx context.Contex
 	return o
 }
 
-// ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
 func (o SecretReplicaOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecretReplica) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Date that you last accessed the secret in the Region.
 func (o SecretReplicaOutput) LastAccessedDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecretReplica) *string { return v.LastAccessedDate }).(pulumi.StringPtrOutput)
 }
 
-// Region for replicating the secret.
 func (o SecretReplicaOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v SecretReplica) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Status can be `InProgress`, `Failed`, or `InSync`.
 func (o SecretReplicaOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecretReplica) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Message such as `Replication succeeded` or `Secret with this name already exists in this region`.
 func (o SecretReplicaOutput) StatusMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecretReplica) *string { return v.StatusMessage }).(pulumi.StringPtrOutput)
 }
@@ -147,12 +132,9 @@ func (o SecretReplicaArrayOutput) Index(i pulumi.IntInput) SecretReplicaOutput {
 }
 
 type SecretRotationRotationRules struct {
-	// Specifies the number of days between automatic scheduled rotations of the secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
-	AutomaticallyAfterDays *int `pulumi:"automaticallyAfterDays"`
-	// The length of the rotation window in hours. For example, `3h` for a three hour window.
-	Duration *string `pulumi:"duration"`
-	// A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
-	ScheduleExpression *string `pulumi:"scheduleExpression"`
+	AutomaticallyAfterDays *int    `pulumi:"automaticallyAfterDays"`
+	Duration               *string `pulumi:"duration"`
+	ScheduleExpression     *string `pulumi:"scheduleExpression"`
 }
 
 // SecretRotationRotationRulesInput is an input type that accepts SecretRotationRotationRulesArgs and SecretRotationRotationRulesOutput values.
@@ -167,12 +149,9 @@ type SecretRotationRotationRulesInput interface {
 }
 
 type SecretRotationRotationRulesArgs struct {
-	// Specifies the number of days between automatic scheduled rotations of the secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
-	AutomaticallyAfterDays pulumi.IntPtrInput `pulumi:"automaticallyAfterDays"`
-	// The length of the rotation window in hours. For example, `3h` for a three hour window.
-	Duration pulumi.StringPtrInput `pulumi:"duration"`
-	// A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
-	ScheduleExpression pulumi.StringPtrInput `pulumi:"scheduleExpression"`
+	AutomaticallyAfterDays pulumi.IntPtrInput    `pulumi:"automaticallyAfterDays"`
+	Duration               pulumi.StringPtrInput `pulumi:"duration"`
+	ScheduleExpression     pulumi.StringPtrInput `pulumi:"scheduleExpression"`
 }
 
 func (SecretRotationRotationRulesArgs) ElementType() reflect.Type {
@@ -252,17 +231,14 @@ func (o SecretRotationRotationRulesOutput) ToSecretRotationRotationRulesPtrOutpu
 	}).(SecretRotationRotationRulesPtrOutput)
 }
 
-// Specifies the number of days between automatic scheduled rotations of the secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
 func (o SecretRotationRotationRulesOutput) AutomaticallyAfterDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SecretRotationRotationRules) *int { return v.AutomaticallyAfterDays }).(pulumi.IntPtrOutput)
 }
 
-// The length of the rotation window in hours. For example, `3h` for a three hour window.
 func (o SecretRotationRotationRulesOutput) Duration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecretRotationRotationRules) *string { return v.Duration }).(pulumi.StringPtrOutput)
 }
 
-// A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
 func (o SecretRotationRotationRulesOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecretRotationRotationRules) *string { return v.ScheduleExpression }).(pulumi.StringPtrOutput)
 }
@@ -291,7 +267,6 @@ func (o SecretRotationRotationRulesPtrOutput) Elem() SecretRotationRotationRules
 	}).(SecretRotationRotationRulesOutput)
 }
 
-// Specifies the number of days between automatic scheduled rotations of the secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
 func (o SecretRotationRotationRulesPtrOutput) AutomaticallyAfterDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SecretRotationRotationRules) *int {
 		if v == nil {
@@ -301,7 +276,6 @@ func (o SecretRotationRotationRulesPtrOutput) AutomaticallyAfterDays() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-// The length of the rotation window in hours. For example, `3h` for a three hour window.
 func (o SecretRotationRotationRulesPtrOutput) Duration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretRotationRotationRules) *string {
 		if v == nil {
@@ -311,7 +285,6 @@ func (o SecretRotationRotationRulesPtrOutput) Duration() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
 func (o SecretRotationRotationRulesPtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretRotationRotationRules) *string {
 		if v == nil {
@@ -322,12 +295,9 @@ func (o SecretRotationRotationRulesPtrOutput) ScheduleExpression() pulumi.String
 }
 
 type GetSecretRotationRotationRule struct {
-	// Number of days between automatic scheduled rotations of the secret.
-	AutomaticallyAfterDays int `pulumi:"automaticallyAfterDays"`
-	// Length of the rotation window in hours.
-	Duration string `pulumi:"duration"`
-	// A `cron()` or `rate()` expression that defines the schedule for rotating the secret.
-	ScheduleExpression string `pulumi:"scheduleExpression"`
+	AutomaticallyAfterDays int    `pulumi:"automaticallyAfterDays"`
+	Duration               string `pulumi:"duration"`
+	ScheduleExpression     string `pulumi:"scheduleExpression"`
 }
 
 // GetSecretRotationRotationRuleInput is an input type that accepts GetSecretRotationRotationRuleArgs and GetSecretRotationRotationRuleOutput values.
@@ -342,12 +312,9 @@ type GetSecretRotationRotationRuleInput interface {
 }
 
 type GetSecretRotationRotationRuleArgs struct {
-	// Number of days between automatic scheduled rotations of the secret.
-	AutomaticallyAfterDays pulumi.IntInput `pulumi:"automaticallyAfterDays"`
-	// Length of the rotation window in hours.
-	Duration pulumi.StringInput `pulumi:"duration"`
-	// A `cron()` or `rate()` expression that defines the schedule for rotating the secret.
-	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
+	AutomaticallyAfterDays pulumi.IntInput    `pulumi:"automaticallyAfterDays"`
+	Duration               pulumi.StringInput `pulumi:"duration"`
+	ScheduleExpression     pulumi.StringInput `pulumi:"scheduleExpression"`
 }
 
 func (GetSecretRotationRotationRuleArgs) ElementType() reflect.Type {
@@ -401,17 +368,14 @@ func (o GetSecretRotationRotationRuleOutput) ToGetSecretRotationRotationRuleOutp
 	return o
 }
 
-// Number of days between automatic scheduled rotations of the secret.
 func (o GetSecretRotationRotationRuleOutput) AutomaticallyAfterDays() pulumi.IntOutput {
 	return o.ApplyT(func(v GetSecretRotationRotationRule) int { return v.AutomaticallyAfterDays }).(pulumi.IntOutput)
 }
 
-// Length of the rotation window in hours.
 func (o GetSecretRotationRotationRuleOutput) Duration() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretRotationRotationRule) string { return v.Duration }).(pulumi.StringOutput)
 }
 
-// A `cron()` or `rate()` expression that defines the schedule for rotating the secret.
 func (o GetSecretRotationRotationRuleOutput) ScheduleExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretRotationRotationRule) string { return v.ScheduleExpression }).(pulumi.StringOutput)
 }
@@ -437,14 +401,10 @@ func (o GetSecretRotationRotationRuleArrayOutput) Index(i pulumi.IntInput) GetSe
 }
 
 type GetSecretVersionsVersion struct {
-	// Date and time this version of the secret was created.
-	CreatedTime string `pulumi:"createdTime"`
-	// Date that this version of the secret was last accessed.
-	LastAccessedDate string `pulumi:"lastAccessedDate"`
-	// Unique version identifier of this version of the secret.
-	VersionId string `pulumi:"versionId"`
-	// List of staging labels attached to the version.
-	VersionStages []string `pulumi:"versionStages"`
+	CreatedTime      string   `pulumi:"createdTime"`
+	LastAccessedDate string   `pulumi:"lastAccessedDate"`
+	VersionId        string   `pulumi:"versionId"`
+	VersionStages    []string `pulumi:"versionStages"`
 }
 
 // GetSecretVersionsVersionInput is an input type that accepts GetSecretVersionsVersionArgs and GetSecretVersionsVersionOutput values.
@@ -459,14 +419,10 @@ type GetSecretVersionsVersionInput interface {
 }
 
 type GetSecretVersionsVersionArgs struct {
-	// Date and time this version of the secret was created.
-	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
-	// Date that this version of the secret was last accessed.
-	LastAccessedDate pulumi.StringInput `pulumi:"lastAccessedDate"`
-	// Unique version identifier of this version of the secret.
-	VersionId pulumi.StringInput `pulumi:"versionId"`
-	// List of staging labels attached to the version.
-	VersionStages pulumi.StringArrayInput `pulumi:"versionStages"`
+	CreatedTime      pulumi.StringInput      `pulumi:"createdTime"`
+	LastAccessedDate pulumi.StringInput      `pulumi:"lastAccessedDate"`
+	VersionId        pulumi.StringInput      `pulumi:"versionId"`
+	VersionStages    pulumi.StringArrayInput `pulumi:"versionStages"`
 }
 
 func (GetSecretVersionsVersionArgs) ElementType() reflect.Type {
@@ -520,22 +476,18 @@ func (o GetSecretVersionsVersionOutput) ToGetSecretVersionsVersionOutputWithCont
 	return o
 }
 
-// Date and time this version of the secret was created.
 func (o GetSecretVersionsVersionOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretVersionsVersion) string { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// Date that this version of the secret was last accessed.
 func (o GetSecretVersionsVersionOutput) LastAccessedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretVersionsVersion) string { return v.LastAccessedDate }).(pulumi.StringOutput)
 }
 
-// Unique version identifier of this version of the secret.
 func (o GetSecretVersionsVersionOutput) VersionId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretVersionsVersion) string { return v.VersionId }).(pulumi.StringOutput)
 }
 
-// List of staging labels attached to the version.
 func (o GetSecretVersionsVersionOutput) VersionStages() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSecretVersionsVersion) []string { return v.VersionStages }).(pulumi.StringArrayOutput)
 }
@@ -561,9 +513,7 @@ func (o GetSecretVersionsVersionArrayOutput) Index(i pulumi.IntInput) GetSecretV
 }
 
 type GetSecretsFilter struct {
-	// Name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
-	Name string `pulumi:"name"`
-	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
 }
 
@@ -579,9 +529,7 @@ type GetSecretsFilterInput interface {
 }
 
 type GetSecretsFilterArgs struct {
-	// Name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
-	Name pulumi.StringInput `pulumi:"name"`
-	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Name   pulumi.StringInput      `pulumi:"name"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -636,12 +584,10 @@ func (o GetSecretsFilterOutput) ToGetSecretsFilterOutputWithContext(ctx context.
 	return o
 }
 
-// Name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
 func (o GetSecretsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretsFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 func (o GetSecretsFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSecretsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }

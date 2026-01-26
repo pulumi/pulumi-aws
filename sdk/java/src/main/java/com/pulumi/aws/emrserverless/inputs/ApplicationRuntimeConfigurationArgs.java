@@ -17,32 +17,16 @@ public final class ApplicationRuntimeConfigurationArgs extends com.pulumi.resour
 
     public static final ApplicationRuntimeConfigurationArgs Empty = new ApplicationRuntimeConfigurationArgs();
 
-    /**
-     * The classification within a configuration.
-     * 
-     */
     @Import(name="classification", required=true)
     private Output<String> classification;
 
-    /**
-     * @return The classification within a configuration.
-     * 
-     */
     public Output<String> classification() {
         return this.classification;
     }
 
-    /**
-     * A set of properties specified within a configuration classification.
-     * 
-     */
     @Import(name="properties")
     private @Nullable Output<Map<String,String>> properties;
 
-    /**
-     * @return A set of properties specified within a configuration classification.
-     * 
-     */
     public Optional<Output<Map<String,String>>> properties() {
         return Optional.ofNullable(this.properties);
     }
@@ -72,44 +56,20 @@ public final class ApplicationRuntimeConfigurationArgs extends com.pulumi.resour
             $ = new ApplicationRuntimeConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param classification The classification within a configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder classification(Output<String> classification) {
             $.classification = classification;
             return this;
         }
 
-        /**
-         * @param classification The classification within a configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder classification(String classification) {
             return classification(Output.of(classification));
         }
 
-        /**
-         * @param properties A set of properties specified within a configuration classification.
-         * 
-         * @return builder
-         * 
-         */
         public Builder properties(@Nullable Output<Map<String,String>> properties) {
             $.properties = properties;
             return this;
         }
 
-        /**
-         * @param properties A set of properties specified within a configuration classification.
-         * 
-         * @return builder
-         * 
-         */
         public Builder properties(Map<String,String> properties) {
             return properties(Output.of(properties));
         }

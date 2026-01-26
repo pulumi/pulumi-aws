@@ -26,47 +26,23 @@ public final class WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggin
         return this.enabled;
     }
 
-    /**
-     * Name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
-     * 
-     */
     @Import(name="logGroup")
     private @Nullable Output<String> logGroup;
 
-    /**
-     * @return Name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
-     * 
-     */
     public Optional<Output<String>> logGroup() {
         return Optional.ofNullable(this.logGroup);
     }
 
-    /**
-     * Prefix for the CloudWatch log stream name.
-     * 
-     */
     @Import(name="logStreamNamePrefix")
     private @Nullable Output<String> logStreamNamePrefix;
 
-    /**
-     * @return Prefix for the CloudWatch log stream name.
-     * 
-     */
     public Optional<Output<String>> logStreamNamePrefix() {
         return Optional.ofNullable(this.logStreamNamePrefix);
     }
 
-    /**
-     * Repeatable block defining log types to be delivered to CloudWatch.
-     * 
-     */
     @Import(name="logTypes")
     private @Nullable Output<List<WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogTypeArgs>> logTypes;
 
-    /**
-     * @return Repeatable block defining log types to be delivered to CloudWatch.
-     * 
-     */
     public Optional<Output<List<WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogTypeArgs>>> logTypes() {
         return Optional.ofNullable(this.logTypes);
     }
@@ -107,75 +83,33 @@ public final class WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggin
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param logGroup Name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroup(@Nullable Output<String> logGroup) {
             $.logGroup = logGroup;
             return this;
         }
 
-        /**
-         * @param logGroup Name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroup(String logGroup) {
             return logGroup(Output.of(logGroup));
         }
 
-        /**
-         * @param logStreamNamePrefix Prefix for the CloudWatch log stream name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logStreamNamePrefix(@Nullable Output<String> logStreamNamePrefix) {
             $.logStreamNamePrefix = logStreamNamePrefix;
             return this;
         }
 
-        /**
-         * @param logStreamNamePrefix Prefix for the CloudWatch log stream name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logStreamNamePrefix(String logStreamNamePrefix) {
             return logStreamNamePrefix(Output.of(logStreamNamePrefix));
         }
 
-        /**
-         * @param logTypes Repeatable block defining log types to be delivered to CloudWatch.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logTypes(@Nullable Output<List<WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogTypeArgs>> logTypes) {
             $.logTypes = logTypes;
             return this;
         }
 
-        /**
-         * @param logTypes Repeatable block defining log types to be delivered to CloudWatch.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logTypes(List<WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogTypeArgs> logTypes) {
             return logTypes(Output.of(logTypes));
         }
 
-        /**
-         * @param logTypes Repeatable block defining log types to be delivered to CloudWatch.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logTypes(WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogTypeArgs... logTypes) {
             return logTypes(List.of(logTypes));
         }

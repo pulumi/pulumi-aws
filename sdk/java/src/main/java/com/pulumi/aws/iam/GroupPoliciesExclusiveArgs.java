@@ -15,32 +15,16 @@ public final class GroupPoliciesExclusiveArgs extends com.pulumi.resources.Resou
 
     public static final GroupPoliciesExclusiveArgs Empty = new GroupPoliciesExclusiveArgs();
 
-    /**
-     * IAM group name.
-     * 
-     */
     @Import(name="groupName", required=true)
     private Output<String> groupName;
 
-    /**
-     * @return IAM group name.
-     * 
-     */
     public Output<String> groupName() {
         return this.groupName;
     }
 
-    /**
-     * A list of inline policy names to be assigned to the group. Policies attached to this group but not configured in this argument will be removed.
-     * 
-     */
     @Import(name="policyNames", required=true)
     private Output<List<String>> policyNames;
 
-    /**
-     * @return A list of inline policy names to be assigned to the group. Policies attached to this group but not configured in this argument will be removed.
-     * 
-     */
     public Output<List<String>> policyNames() {
         return this.policyNames;
     }
@@ -70,54 +54,24 @@ public final class GroupPoliciesExclusiveArgs extends com.pulumi.resources.Resou
             $ = new GroupPoliciesExclusiveArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param groupName IAM group name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupName(Output<String> groupName) {
             $.groupName = groupName;
             return this;
         }
 
-        /**
-         * @param groupName IAM group name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupName(String groupName) {
             return groupName(Output.of(groupName));
         }
 
-        /**
-         * @param policyNames A list of inline policy names to be assigned to the group. Policies attached to this group but not configured in this argument will be removed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyNames(Output<List<String>> policyNames) {
             $.policyNames = policyNames;
             return this;
         }
 
-        /**
-         * @param policyNames A list of inline policy names to be assigned to the group. Policies attached to this group but not configured in this argument will be removed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyNames(List<String> policyNames) {
             return policyNames(Output.of(policyNames));
         }
 
-        /**
-         * @param policyNames A list of inline policy names to be assigned to the group. Policies attached to this group but not configured in this argument will be removed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyNames(String... policyNames) {
             return policyNames(List.of(policyNames));
         }

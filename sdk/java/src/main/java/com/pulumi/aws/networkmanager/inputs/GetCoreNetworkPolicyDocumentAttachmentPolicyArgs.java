@@ -20,77 +20,37 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyArgs extends com.
 
     public static final GetCoreNetworkPolicyDocumentAttachmentPolicyArgs Empty = new GetCoreNetworkPolicyDocumentAttachmentPolicyArgs();
 
-    /**
-     * Action to take when a condition is true. Detailed Below.
-     * 
-     */
     @Import(name="action", required=true)
     private Output<GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs> action;
 
-    /**
-     * @return Action to take when a condition is true. Detailed Below.
-     * 
-     */
     public Output<GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs> action() {
         return this.action;
     }
 
-    /**
-     * Valid values include `and` or `or`. This is a mandatory parameter only if you have more than one condition. The `conditionLogic` apply to all of the conditions for a rule, which also means nested conditions of `and` or `or` are not supported. Use `or` if you want to associate the attachment with the segment by either the segment name or attachment tag value, or by the chosen conditions. Use `and` if you want to associate the attachment with the segment by either the segment name or attachment tag value and by the chosen conditions. Detailed Below.
-     * 
-     */
     @Import(name="conditionLogic")
     private @Nullable Output<String> conditionLogic;
 
-    /**
-     * @return Valid values include `and` or `or`. This is a mandatory parameter only if you have more than one condition. The `conditionLogic` apply to all of the conditions for a rule, which also means nested conditions of `and` or `or` are not supported. Use `or` if you want to associate the attachment with the segment by either the segment name or attachment tag value, or by the chosen conditions. Use `and` if you want to associate the attachment with the segment by either the segment name or attachment tag value and by the chosen conditions. Detailed Below.
-     * 
-     */
     public Optional<Output<String>> conditionLogic() {
         return Optional.ofNullable(this.conditionLogic);
     }
 
-    /**
-     * A block argument. Detailed Below.
-     * 
-     */
     @Import(name="conditions", required=true)
     private Output<List<GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs>> conditions;
 
-    /**
-     * @return A block argument. Detailed Below.
-     * 
-     */
     public Output<List<GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs>> conditions() {
         return this.conditions;
     }
 
-    /**
-     * A user-defined description that further helps identify the rule.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return A user-defined description that further helps identify the rule.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * An integer from `1` to `65535` indicating the rule&#39;s order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched. It&#39;s important to make sure that you number your rules in the exact order that you want them processed.
-     * 
-     */
     @Import(name="ruleNumber", required=true)
     private Output<Integer> ruleNumber;
 
-    /**
-     * @return An integer from `1` to `65535` indicating the rule&#39;s order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched. It&#39;s important to make sure that you number your rules in the exact order that you want them processed.
-     * 
-     */
     public Output<Integer> ruleNumber() {
         return this.ruleNumber;
     }
@@ -123,117 +83,51 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyArgs extends com.
             $ = new GetCoreNetworkPolicyDocumentAttachmentPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param action Action to take when a condition is true. Detailed Below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(Output<GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs> action) {
             $.action = action;
             return this;
         }
 
-        /**
-         * @param action Action to take when a condition is true. Detailed Below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs action) {
             return action(Output.of(action));
         }
 
-        /**
-         * @param conditionLogic Valid values include `and` or `or`. This is a mandatory parameter only if you have more than one condition. The `conditionLogic` apply to all of the conditions for a rule, which also means nested conditions of `and` or `or` are not supported. Use `or` if you want to associate the attachment with the segment by either the segment name or attachment tag value, or by the chosen conditions. Use `and` if you want to associate the attachment with the segment by either the segment name or attachment tag value and by the chosen conditions. Detailed Below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditionLogic(@Nullable Output<String> conditionLogic) {
             $.conditionLogic = conditionLogic;
             return this;
         }
 
-        /**
-         * @param conditionLogic Valid values include `and` or `or`. This is a mandatory parameter only if you have more than one condition. The `conditionLogic` apply to all of the conditions for a rule, which also means nested conditions of `and` or `or` are not supported. Use `or` if you want to associate the attachment with the segment by either the segment name or attachment tag value, or by the chosen conditions. Use `and` if you want to associate the attachment with the segment by either the segment name or attachment tag value and by the chosen conditions. Detailed Below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditionLogic(String conditionLogic) {
             return conditionLogic(Output.of(conditionLogic));
         }
 
-        /**
-         * @param conditions A block argument. Detailed Below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditions(Output<List<GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs>> conditions) {
             $.conditions = conditions;
             return this;
         }
 
-        /**
-         * @param conditions A block argument. Detailed Below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditions(List<GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs> conditions) {
             return conditions(Output.of(conditions));
         }
 
-        /**
-         * @param conditions A block argument. Detailed Below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs... conditions) {
             return conditions(List.of(conditions));
         }
 
-        /**
-         * @param description A user-defined description that further helps identify the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description A user-defined description that further helps identify the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param ruleNumber An integer from `1` to `65535` indicating the rule&#39;s order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched. It&#39;s important to make sure that you number your rules in the exact order that you want them processed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleNumber(Output<Integer> ruleNumber) {
             $.ruleNumber = ruleNumber;
             return this;
         }
 
-        /**
-         * @param ruleNumber An integer from `1` to `65535` indicating the rule&#39;s order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched. It&#39;s important to make sure that you number your rules in the exact order that you want them processed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleNumber(Integer ruleNumber) {
             return ruleNumber(Output.of(ruleNumber));
         }

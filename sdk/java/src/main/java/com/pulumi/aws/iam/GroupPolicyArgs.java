@@ -18,66 +18,30 @@ public final class GroupPolicyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GroupPolicyArgs Empty = new GroupPolicyArgs();
 
-    /**
-     * The IAM group to attach to the policy.
-     * 
-     */
     @Import(name="group", required=true)
     private Output<String> group;
 
-    /**
-     * @return The IAM group to attach to the policy.
-     * 
-     */
     public Output<String> group() {
         return this.group;
     }
 
-    /**
-     * The name of the policy. If omitted, the provider will
-     * assign a random, unique name.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the policy. If omitted, the provider will
-     * assign a random, unique name.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Creates a unique name beginning with the specified
-     * prefix. Conflicts with `name`.
-     * 
-     */
     @Import(name="namePrefix")
     private @Nullable Output<String> namePrefix;
 
-    /**
-     * @return Creates a unique name beginning with the specified
-     * prefix. Conflicts with `name`.
-     * 
-     */
     public Optional<Output<String>> namePrefix() {
         return Optional.ofNullable(this.namePrefix);
     }
 
-    /**
-     * The policy document. This is a JSON formatted string.
-     * 
-     */
     @Import(name="policy", required=true)
     private Output<Either<String,PolicyDocumentArgs>> policy;
 
-    /**
-     * @return The policy document. This is a JSON formatted string.
-     * 
-     */
     public Output<Either<String,PolicyDocumentArgs>> policy() {
         return this.policy;
     }
@@ -109,110 +73,46 @@ public final class GroupPolicyArgs extends com.pulumi.resources.ResourceArgs {
             $ = new GroupPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param group The IAM group to attach to the policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder group(Output<String> group) {
             $.group = group;
             return this;
         }
 
-        /**
-         * @param group The IAM group to attach to the policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder group(String group) {
             return group(Output.of(group));
         }
 
-        /**
-         * @param name The name of the policy. If omitted, the provider will
-         * assign a random, unique name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the policy. If omitted, the provider will
-         * assign a random, unique name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param namePrefix Creates a unique name beginning with the specified
-         * prefix. Conflicts with `name`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namePrefix(@Nullable Output<String> namePrefix) {
             $.namePrefix = namePrefix;
             return this;
         }
 
-        /**
-         * @param namePrefix Creates a unique name beginning with the specified
-         * prefix. Conflicts with `name`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namePrefix(String namePrefix) {
             return namePrefix(Output.of(namePrefix));
         }
 
-        /**
-         * @param policy The policy document. This is a JSON formatted string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(Output<Either<String,PolicyDocumentArgs>> policy) {
             $.policy = policy;
             return this;
         }
 
-        /**
-         * @param policy The policy document. This is a JSON formatted string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(Either<String,PolicyDocumentArgs> policy) {
             return policy(Output.of(policy));
         }
 
-        /**
-         * @param policy The policy document. This is a JSON formatted string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(String policy) {
             return policy(Either.ofLeft(policy));
         }
 
-        /**
-         * @param policy The policy document. This is a JSON formatted string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(PolicyDocumentArgs policy) {
             return policy(Either.ofRight(policy));
         }

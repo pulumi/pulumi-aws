@@ -18,77 +18,37 @@ public final class KxClusterScalingGroupConfigurationArgs extends com.pulumi.res
 
     public static final KxClusterScalingGroupConfigurationArgs Empty = new KxClusterScalingGroupConfigurationArgs();
 
-    /**
-     * The number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
-     * 
-     */
     @Import(name="cpu")
     private @Nullable Output<Double> cpu;
 
-    /**
-     * @return The number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
-     * 
-     */
     public Optional<Output<Double>> cpu() {
         return Optional.ofNullable(this.cpu);
     }
 
-    /**
-     * An optional hard limit on the amount of memory a kdb cluster can use.
-     * 
-     */
     @Import(name="memoryLimit")
     private @Nullable Output<Integer> memoryLimit;
 
-    /**
-     * @return An optional hard limit on the amount of memory a kdb cluster can use.
-     * 
-     */
     public Optional<Output<Integer>> memoryLimit() {
         return Optional.ofNullable(this.memoryLimit);
     }
 
-    /**
-     * A reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
-     * 
-     */
     @Import(name="memoryReservation", required=true)
     private Output<Integer> memoryReservation;
 
-    /**
-     * @return A reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
-     * 
-     */
     public Output<Integer> memoryReservation() {
         return this.memoryReservation;
     }
 
-    /**
-     * The number of kdb cluster nodes.
-     * 
-     */
     @Import(name="nodeCount", required=true)
     private Output<Integer> nodeCount;
 
-    /**
-     * @return The number of kdb cluster nodes.
-     * 
-     */
     public Output<Integer> nodeCount() {
         return this.nodeCount;
     }
 
-    /**
-     * A unique identifier for the kdb scaling group.
-     * 
-     */
     @Import(name="scalingGroupName", required=true)
     private Output<String> scalingGroupName;
 
-    /**
-     * @return A unique identifier for the kdb scaling group.
-     * 
-     */
     public Output<String> scalingGroupName() {
         return this.scalingGroupName;
     }
@@ -121,107 +81,47 @@ public final class KxClusterScalingGroupConfigurationArgs extends com.pulumi.res
             $ = new KxClusterScalingGroupConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cpu The number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cpu(@Nullable Output<Double> cpu) {
             $.cpu = cpu;
             return this;
         }
 
-        /**
-         * @param cpu The number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cpu(Double cpu) {
             return cpu(Output.of(cpu));
         }
 
-        /**
-         * @param memoryLimit An optional hard limit on the amount of memory a kdb cluster can use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memoryLimit(@Nullable Output<Integer> memoryLimit) {
             $.memoryLimit = memoryLimit;
             return this;
         }
 
-        /**
-         * @param memoryLimit An optional hard limit on the amount of memory a kdb cluster can use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memoryLimit(Integer memoryLimit) {
             return memoryLimit(Output.of(memoryLimit));
         }
 
-        /**
-         * @param memoryReservation A reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memoryReservation(Output<Integer> memoryReservation) {
             $.memoryReservation = memoryReservation;
             return this;
         }
 
-        /**
-         * @param memoryReservation A reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memoryReservation(Integer memoryReservation) {
             return memoryReservation(Output.of(memoryReservation));
         }
 
-        /**
-         * @param nodeCount The number of kdb cluster nodes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nodeCount(Output<Integer> nodeCount) {
             $.nodeCount = nodeCount;
             return this;
         }
 
-        /**
-         * @param nodeCount The number of kdb cluster nodes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nodeCount(Integer nodeCount) {
             return nodeCount(Output.of(nodeCount));
         }
 
-        /**
-         * @param scalingGroupName A unique identifier for the kdb scaling group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scalingGroupName(Output<String> scalingGroupName) {
             $.scalingGroupName = scalingGroupName;
             return this;
         }
 
-        /**
-         * @param scalingGroupName A unique identifier for the kdb scaling group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scalingGroupName(String scalingGroupName) {
             return scalingGroupName(Output.of(scalingGroupName));
         }

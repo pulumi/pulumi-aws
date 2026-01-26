@@ -19,17 +19,9 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetUserArgs Empty = new GetUserArgs();
 
-    /**
-     * String for what access a user possesses within the associated ElastiCache replication groups or clusters.
-     * 
-     */
     @Import(name="accessString")
     private @Nullable Output<String> accessString;
 
-    /**
-     * @return String for what access a user possesses within the associated ElastiCache replication groups or clusters.
-     * 
-     */
     public Optional<Output<String>> accessString() {
         return Optional.ofNullable(this.accessString);
     }
@@ -62,47 +54,23 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.passwords);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Identifier for the user.
-     * 
-     */
     @Import(name="userId", required=true)
     private Output<String> userId;
 
-    /**
-     * @return Identifier for the user.
-     * 
-     */
     public Output<String> userId() {
         return this.userId;
     }
 
-    /**
-     * User name of the user.
-     * 
-     */
     @Import(name="userName")
     private @Nullable Output<String> userName;
 
-    /**
-     * @return User name of the user.
-     * 
-     */
     public Optional<Output<String>> userName() {
         return Optional.ofNullable(this.userName);
     }
@@ -138,23 +106,11 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetUserArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessString String for what access a user possesses within the associated ElastiCache replication groups or clusters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessString(@Nullable Output<String> accessString) {
             $.accessString = accessString;
             return this;
         }
 
-        /**
-         * @param accessString String for what access a user possesses within the associated ElastiCache replication groups or clusters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessString(String accessString) {
             return accessString(Output.of(accessString));
         }
@@ -203,65 +159,29 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
             return passwords(List.of(passwords));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param userId Identifier for the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userId(Output<String> userId) {
             $.userId = userId;
             return this;
         }
 
-        /**
-         * @param userId Identifier for the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userId(String userId) {
             return userId(Output.of(userId));
         }
 
-        /**
-         * @param userName User name of the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(@Nullable Output<String> userName) {
             $.userName = userName;
             return this;
         }
 
-        /**
-         * @param userName User name of the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(String userName) {
             return userName(Output.of(userName));
         }

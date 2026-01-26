@@ -18,77 +18,37 @@ public final class ClusterSnapshotArgs extends com.pulumi.resources.ResourceArgs
 
     public static final ClusterSnapshotArgs Empty = new ClusterSnapshotArgs();
 
-    /**
-     * The DB Cluster Identifier from which to take the snapshot.
-     * 
-     */
     @Import(name="dbClusterIdentifier", required=true)
     private Output<String> dbClusterIdentifier;
 
-    /**
-     * @return The DB Cluster Identifier from which to take the snapshot.
-     * 
-     */
     public Output<String> dbClusterIdentifier() {
         return this.dbClusterIdentifier;
     }
 
-    /**
-     * The Identifier for the snapshot.
-     * 
-     */
     @Import(name="dbClusterSnapshotIdentifier", required=true)
     private Output<String> dbClusterSnapshotIdentifier;
 
-    /**
-     * @return The Identifier for the snapshot.
-     * 
-     */
     public Output<String> dbClusterSnapshotIdentifier() {
         return this.dbClusterSnapshotIdentifier;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
-     * 
-     */
     @Import(name="sharedAccounts")
     private @Nullable Output<List<String>> sharedAccounts;
 
-    /**
-     * @return List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
-     * 
-     */
     public Optional<Output<List<String>>> sharedAccounts() {
         return Optional.ofNullable(this.sharedAccounts);
     }
 
-    /**
-     * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -121,117 +81,51 @@ public final class ClusterSnapshotArgs extends com.pulumi.resources.ResourceArgs
             $ = new ClusterSnapshotArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dbClusterIdentifier The DB Cluster Identifier from which to take the snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbClusterIdentifier(Output<String> dbClusterIdentifier) {
             $.dbClusterIdentifier = dbClusterIdentifier;
             return this;
         }
 
-        /**
-         * @param dbClusterIdentifier The DB Cluster Identifier from which to take the snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbClusterIdentifier(String dbClusterIdentifier) {
             return dbClusterIdentifier(Output.of(dbClusterIdentifier));
         }
 
-        /**
-         * @param dbClusterSnapshotIdentifier The Identifier for the snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbClusterSnapshotIdentifier(Output<String> dbClusterSnapshotIdentifier) {
             $.dbClusterSnapshotIdentifier = dbClusterSnapshotIdentifier;
             return this;
         }
 
-        /**
-         * @param dbClusterSnapshotIdentifier The Identifier for the snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbClusterSnapshotIdentifier(String dbClusterSnapshotIdentifier) {
             return dbClusterSnapshotIdentifier(Output.of(dbClusterSnapshotIdentifier));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param sharedAccounts List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sharedAccounts(@Nullable Output<List<String>> sharedAccounts) {
             $.sharedAccounts = sharedAccounts;
             return this;
         }
 
-        /**
-         * @param sharedAccounts List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sharedAccounts(List<String> sharedAccounts) {
             return sharedAccounts(Output.of(sharedAccounts));
         }
 
-        /**
-         * @param sharedAccounts List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sharedAccounts(String... sharedAccounts) {
             return sharedAccounts(List.of(sharedAccounts));
         }
 
-        /**
-         * @param tags A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

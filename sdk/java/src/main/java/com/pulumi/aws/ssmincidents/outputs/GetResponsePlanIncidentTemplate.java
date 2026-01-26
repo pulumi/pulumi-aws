@@ -14,77 +14,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetResponsePlanIncidentTemplate {
-    /**
-     * @return A string used to stop Incident Manager from creating multiple incident records for the same incident.
-     * 
-     */
     private String dedupeString;
-    /**
-     * @return The impact value of a generated incident. The following values are supported:
-     * 
-     */
     private Integer impact;
-    /**
-     * @return The tags assigned to an incident template. When an incident starts, Incident Manager assigns the tags specified in the template to the incident.
-     * 
-     */
     private Map<String,String> incidentTags;
-    /**
-     * @return The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notificationTarget` configuration block supports the following argument:
-     * 
-     */
     private List<GetResponsePlanIncidentTemplateNotificationTarget> notificationTargets;
-    /**
-     * @return The summary of an incident.
-     * 
-     */
     private String summary;
-    /**
-     * @return The title of a generated incident.
-     * 
-     */
     private String title;
 
     private GetResponsePlanIncidentTemplate() {}
-    /**
-     * @return A string used to stop Incident Manager from creating multiple incident records for the same incident.
-     * 
-     */
     public String dedupeString() {
         return this.dedupeString;
     }
-    /**
-     * @return The impact value of a generated incident. The following values are supported:
-     * 
-     */
     public Integer impact() {
         return this.impact;
     }
-    /**
-     * @return The tags assigned to an incident template. When an incident starts, Incident Manager assigns the tags specified in the template to the incident.
-     * 
-     */
     public Map<String,String> incidentTags() {
         return this.incidentTags;
     }
-    /**
-     * @return The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notificationTarget` configuration block supports the following argument:
-     * 
-     */
     public List<GetResponsePlanIncidentTemplateNotificationTarget> notificationTargets() {
         return this.notificationTargets;
     }
-    /**
-     * @return The summary of an incident.
-     * 
-     */
     public String summary() {
         return this.summary;
     }
-    /**
-     * @return The title of a generated incident.
-     * 
-     */
     public String title() {
         return this.title;
     }

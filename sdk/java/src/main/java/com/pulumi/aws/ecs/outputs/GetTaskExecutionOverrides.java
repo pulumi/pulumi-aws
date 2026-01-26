@@ -13,65 +13,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTaskExecutionOverrides {
-    /**
-     * @return One or more container overrides that are sent to a task. See below.
-     * 
-     */
     private @Nullable List<GetTaskExecutionOverridesContainerOverride> containerOverrides;
-    /**
-     * @return The CPU override for the task.
-     * 
-     */
     private @Nullable String cpu;
-    /**
-     * @return Amazon Resource Name (ARN) of the task execution role override for the task.
-     * 
-     */
     private @Nullable String executionRoleArn;
-    /**
-     * @return The memory override for the task.
-     * 
-     */
     private @Nullable String memory;
-    /**
-     * @return Amazon Resource Name (ARN) of the role that containers in this task can assume.
-     * 
-     */
     private @Nullable String taskRoleArn;
 
     private GetTaskExecutionOverrides() {}
-    /**
-     * @return One or more container overrides that are sent to a task. See below.
-     * 
-     */
     public List<GetTaskExecutionOverridesContainerOverride> containerOverrides() {
         return this.containerOverrides == null ? List.of() : this.containerOverrides;
     }
-    /**
-     * @return The CPU override for the task.
-     * 
-     */
     public Optional<String> cpu() {
         return Optional.ofNullable(this.cpu);
     }
-    /**
-     * @return Amazon Resource Name (ARN) of the task execution role override for the task.
-     * 
-     */
     public Optional<String> executionRoleArn() {
         return Optional.ofNullable(this.executionRoleArn);
     }
-    /**
-     * @return The memory override for the task.
-     * 
-     */
     public Optional<String> memory() {
         return Optional.ofNullable(this.memory);
     }
-    /**
-     * @return Amazon Resource Name (ARN) of the role that containers in this task can assume.
-     * 
-     */
     public Optional<String> taskRoleArn() {
         return Optional.ofNullable(this.taskRoleArn);
     }

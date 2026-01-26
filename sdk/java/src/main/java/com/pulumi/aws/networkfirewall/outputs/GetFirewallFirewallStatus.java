@@ -14,65 +14,25 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFirewallFirewallStatus {
-    /**
-     * @return Aggregated count of all resources used by reference sets in a firewall.
-     * 
-     */
     private List<GetFirewallFirewallStatusCapacityUsageSummary> capacityUsageSummaries;
-    /**
-     * @return Summary of sync states for all availability zones in which the firewall is configured.
-     * 
-     */
     private String configurationSyncStateSummary;
-    /**
-     * @return The current status of the firewall endpoint instantiation in the subnet.
-     * 
-     */
     private String status;
-    /**
-     * @return Set of subnets configured for use by the firewall.
-     * 
-     */
     private List<GetFirewallFirewallStatusSyncState> syncStates;
-    /**
-     * @return Set of transit gateway configured for use by the firewall.
-     * 
-     */
     private List<GetFirewallFirewallStatusTransitGatewayAttachmentSyncState> transitGatewayAttachmentSyncStates;
 
     private GetFirewallFirewallStatus() {}
-    /**
-     * @return Aggregated count of all resources used by reference sets in a firewall.
-     * 
-     */
     public List<GetFirewallFirewallStatusCapacityUsageSummary> capacityUsageSummaries() {
         return this.capacityUsageSummaries;
     }
-    /**
-     * @return Summary of sync states for all availability zones in which the firewall is configured.
-     * 
-     */
     public String configurationSyncStateSummary() {
         return this.configurationSyncStateSummary;
     }
-    /**
-     * @return The current status of the firewall endpoint instantiation in the subnet.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Set of subnets configured for use by the firewall.
-     * 
-     */
     public List<GetFirewallFirewallStatusSyncState> syncStates() {
         return this.syncStates;
     }
-    /**
-     * @return Set of transit gateway configured for use by the firewall.
-     * 
-     */
     public List<GetFirewallFirewallStatusTransitGatewayAttachmentSyncState> transitGatewayAttachmentSyncStates() {
         return this.transitGatewayAttachmentSyncStates;
     }

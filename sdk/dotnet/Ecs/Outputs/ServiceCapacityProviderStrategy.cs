@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class ServiceCapacityProviderStrategy
     {
-        /// <summary>
-        /// Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
-        /// </summary>
         public readonly int? Base;
-        /// <summary>
-        /// Short name of the capacity provider.
-        /// </summary>
         public readonly string CapacityProvider;
-        /// <summary>
-        /// Relative percentage of the total number of launched tasks that should use the specified capacity provider.
-        /// </summary>
         public readonly int? Weight;
 
         [OutputConstructor]

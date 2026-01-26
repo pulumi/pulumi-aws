@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Iot.Outputs
     [OutputType]
     public sealed class TopicRuleDestinationVpcConfiguration
     {
-        /// <summary>
-        /// The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
-        /// </summary>
         public readonly string RoleArn;
-        /// <summary>
-        /// The security groups of the VPC destination.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
-        /// <summary>
-        /// The subnet IDs of the VPC destination.
-        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
-        /// <summary>
-        /// The ID of the VPC.
-        /// </summary>
         public readonly string VpcId;
 
         [OutputConstructor]

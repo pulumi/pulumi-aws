@@ -24,9 +24,6 @@ class AttachmentArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Attachment resource.
-        :param pulumi.Input[_builtins.str] elb: The name of the ELB.
-        :param pulumi.Input[_builtins.str] instance: Instance ID to place in the ELB pool.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "elb", elb)
         pulumi.set(__self__, "instance", instance)
@@ -36,9 +33,6 @@ class AttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def elb(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the ELB.
-        """
         return pulumi.get(self, "elb")
 
     @elb.setter
@@ -48,9 +42,6 @@ class AttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def instance(self) -> pulumi.Input[_builtins.str]:
-        """
-        Instance ID to place in the ELB pool.
-        """
         return pulumi.get(self, "instance")
 
     @instance.setter
@@ -60,9 +51,6 @@ class AttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -78,9 +66,6 @@ class _AttachmentState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Attachment resources.
-        :param pulumi.Input[_builtins.str] elb: The name of the ELB.
-        :param pulumi.Input[_builtins.str] instance: Instance ID to place in the ELB pool.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if elb is not None:
             pulumi.set(__self__, "elb", elb)
@@ -92,9 +77,6 @@ class _AttachmentState:
     @_builtins.property
     @pulumi.getter
     def elb(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the ELB.
-        """
         return pulumi.get(self, "elb")
 
     @elb.setter
@@ -104,9 +86,6 @@ class _AttachmentState:
     @_builtins.property
     @pulumi.getter
     def instance(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Instance ID to place in the ELB pool.
-        """
         return pulumi.get(self, "instance")
 
     @instance.setter
@@ -116,9 +95,6 @@ class _AttachmentState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -137,32 +113,9 @@ class Attachment(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Attaches an EC2 instance to an Elastic Load Balancer (ELB). For attaching resources with Application Load Balancer (ALB) or Network Load Balancer (NLB), see the `lb.TargetGroupAttachment` resource.
-
-        > **NOTE on ELB Instances and ELB Attachments:** This provider currently provides
-        both a standalone ELB Attachment resource (describing an instance attached to
-        an ELB), and an Elastic Load Balancer resource with
-        `instances` defined in-line. At this time you cannot use an ELB with in-line
-        instances in conjunction with an ELB Attachment resource. Doing so will cause a
-        conflict and will overwrite attachments.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # Create a new load balancer attachment
-        baz = aws.elb.Attachment("baz",
-            elb=bar["id"],
-            instance=foo["id"])
-        ```
-
+        Create a Attachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] elb: The name of the ELB.
-        :param pulumi.Input[_builtins.str] instance: Instance ID to place in the ELB pool.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -171,27 +124,7 @@ class Attachment(pulumi.CustomResource):
                  args: AttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Attaches an EC2 instance to an Elastic Load Balancer (ELB). For attaching resources with Application Load Balancer (ALB) or Network Load Balancer (NLB), see the `lb.TargetGroupAttachment` resource.
-
-        > **NOTE on ELB Instances and ELB Attachments:** This provider currently provides
-        both a standalone ELB Attachment resource (describing an instance attached to
-        an ELB), and an Elastic Load Balancer resource with
-        `instances` defined in-line. At this time you cannot use an ELB with in-line
-        instances in conjunction with an ELB Attachment resource. Doing so will cause a
-        conflict and will overwrite attachments.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # Create a new load balancer attachment
-        baz = aws.elb.Attachment("baz",
-            elb=bar["id"],
-            instance=foo["id"])
-        ```
-
+        Create a Attachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -248,9 +181,6 @@ class Attachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] elb: The name of the ELB.
-        :param pulumi.Input[_builtins.str] instance: Instance ID to place in the ELB pool.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -264,24 +194,15 @@ class Attachment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def elb(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the ELB.
-        """
         return pulumi.get(self, "elb")
 
     @_builtins.property
     @pulumi.getter
     def instance(self) -> pulumi.Output[_builtins.str]:
-        """
-        Instance ID to place in the ELB pool.
-        """
         return pulumi.get(self, "instance")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

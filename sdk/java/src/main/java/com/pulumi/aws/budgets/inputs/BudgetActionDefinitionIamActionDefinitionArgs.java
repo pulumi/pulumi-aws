@@ -17,62 +17,30 @@ public final class BudgetActionDefinitionIamActionDefinitionArgs extends com.pul
 
     public static final BudgetActionDefinitionIamActionDefinitionArgs Empty = new BudgetActionDefinitionIamActionDefinitionArgs();
 
-    /**
-     * A list of groups to be attached. There must be at least one group.
-     * 
-     */
     @Import(name="groups")
     private @Nullable Output<List<String>> groups;
 
-    /**
-     * @return A list of groups to be attached. There must be at least one group.
-     * 
-     */
     public Optional<Output<List<String>>> groups() {
         return Optional.ofNullable(this.groups);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the policy to be attached.
-     * 
-     */
     @Import(name="policyArn", required=true)
     private Output<String> policyArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the policy to be attached.
-     * 
-     */
     public Output<String> policyArn() {
         return this.policyArn;
     }
 
-    /**
-     * A list of roles to be attached. There must be at least one role.
-     * 
-     */
     @Import(name="roles")
     private @Nullable Output<List<String>> roles;
 
-    /**
-     * @return A list of roles to be attached. There must be at least one role.
-     * 
-     */
     public Optional<Output<List<String>>> roles() {
         return Optional.ofNullable(this.roles);
     }
 
-    /**
-     * A list of users to be attached. There must be at least one user.
-     * 
-     */
     @Import(name="users")
     private @Nullable Output<List<String>> users;
 
-    /**
-     * @return A list of users to be attached. There must be at least one user.
-     * 
-     */
     public Optional<Output<List<String>>> users() {
         return Optional.ofNullable(this.users);
     }
@@ -104,116 +72,50 @@ public final class BudgetActionDefinitionIamActionDefinitionArgs extends com.pul
             $ = new BudgetActionDefinitionIamActionDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param groups A list of groups to be attached. There must be at least one group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groups(@Nullable Output<List<String>> groups) {
             $.groups = groups;
             return this;
         }
 
-        /**
-         * @param groups A list of groups to be attached. There must be at least one group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groups(List<String> groups) {
             return groups(Output.of(groups));
         }
 
-        /**
-         * @param groups A list of groups to be attached. There must be at least one group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groups(String... groups) {
             return groups(List.of(groups));
         }
 
-        /**
-         * @param policyArn The Amazon Resource Name (ARN) of the policy to be attached.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyArn(Output<String> policyArn) {
             $.policyArn = policyArn;
             return this;
         }
 
-        /**
-         * @param policyArn The Amazon Resource Name (ARN) of the policy to be attached.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyArn(String policyArn) {
             return policyArn(Output.of(policyArn));
         }
 
-        /**
-         * @param roles A list of roles to be attached. There must be at least one role.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roles(@Nullable Output<List<String>> roles) {
             $.roles = roles;
             return this;
         }
 
-        /**
-         * @param roles A list of roles to be attached. There must be at least one role.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roles(List<String> roles) {
             return roles(Output.of(roles));
         }
 
-        /**
-         * @param roles A list of roles to be attached. There must be at least one role.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roles(String... roles) {
             return roles(List.of(roles));
         }
 
-        /**
-         * @param users A list of users to be attached. There must be at least one user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder users(@Nullable Output<List<String>> users) {
             $.users = users;
             return this;
         }
 
-        /**
-         * @param users A list of users to be attached. There must be at least one user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder users(List<String> users) {
             return users(Output.of(users));
         }
 
-        /**
-         * @param users A list of users to be attached. There must be at least one user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder users(String... users) {
             return users(List.of(users));
         }

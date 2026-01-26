@@ -12,69 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS AppFabric Ingestion.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appfabric"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appfabric.NewIngestion(ctx, "example", &appfabric.IngestionArgs{
-//				App:           pulumi.String("OKTA"),
-//				AppBundleArn:  pulumi.Any(exampleAwsAppfabricAppBundle.Arn),
-//				TenantId:      pulumi.String("example.okta.com"),
-//				IngestionType: pulumi.String("auditLog"),
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import AppFabric Ingestion using the `app_bundle_identifier` and `arn` separated by `,`. For example:
-//
-// ```sh
-// $ pulumi import aws:appfabric/ingestion:Ingestion example arn:aws:appfabric:[region]:[account]:appbundle/a9b91477-8831-43c0-970c-xxxxxxxxxx,arn:aws:appfabric:[region]:[account]:appbundle/a9b91477-8831-43c0-970c-xxxxxxxxxx/ingestion/32251416-710b-4425-96ca-xxxxxxxxxx
-// ```
 type Ingestion struct {
 	pulumi.CustomResourceState
 
-	// Name of the application.
-	// Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
-	App pulumi.StringOutput `pulumi:"app"`
-	// Amazon Resource Name (ARN) of the app bundle to use for the request.
-	AppBundleArn pulumi.StringOutput `pulumi:"appBundleArn"`
-	// ARN of the Ingestion.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Ingestion type. Valid values are `auditLog`.
-	IngestionType pulumi.StringOutput `pulumi:"ingestionType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// ID of the application tenant.
-	TenantId pulumi.StringOutput `pulumi:"tenantId"`
+	App           pulumi.StringOutput    `pulumi:"app"`
+	AppBundleArn  pulumi.StringOutput    `pulumi:"appBundleArn"`
+	Arn           pulumi.StringOutput    `pulumi:"arn"`
+	IngestionType pulumi.StringOutput    `pulumi:"ingestionType"`
+	Region        pulumi.StringOutput    `pulumi:"region"`
+	Tags          pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll       pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TenantId      pulumi.StringOutput    `pulumi:"tenantId"`
 }
 
 // NewIngestion registers a new resource with the given unique name, arguments, and options.
@@ -119,43 +67,25 @@ func GetIngestion(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Ingestion resources.
 type ingestionState struct {
-	// Name of the application.
-	// Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
-	App *string `pulumi:"app"`
-	// Amazon Resource Name (ARN) of the app bundle to use for the request.
-	AppBundleArn *string `pulumi:"appBundleArn"`
-	// ARN of the Ingestion.
-	Arn *string `pulumi:"arn"`
-	// Ingestion type. Valid values are `auditLog`.
-	IngestionType *string `pulumi:"ingestionType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// ID of the application tenant.
-	TenantId *string `pulumi:"tenantId"`
+	App           *string           `pulumi:"app"`
+	AppBundleArn  *string           `pulumi:"appBundleArn"`
+	Arn           *string           `pulumi:"arn"`
+	IngestionType *string           `pulumi:"ingestionType"`
+	Region        *string           `pulumi:"region"`
+	Tags          map[string]string `pulumi:"tags"`
+	TagsAll       map[string]string `pulumi:"tagsAll"`
+	TenantId      *string           `pulumi:"tenantId"`
 }
 
 type IngestionState struct {
-	// Name of the application.
-	// Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
-	App pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the app bundle to use for the request.
-	AppBundleArn pulumi.StringPtrInput
-	// ARN of the Ingestion.
-	Arn pulumi.StringPtrInput
-	// Ingestion type. Valid values are `auditLog`.
+	App           pulumi.StringPtrInput
+	AppBundleArn  pulumi.StringPtrInput
+	Arn           pulumi.StringPtrInput
 	IngestionType pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// ID of the application tenant.
-	TenantId pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
+	Tags          pulumi.StringMapInput
+	TagsAll       pulumi.StringMapInput
+	TenantId      pulumi.StringPtrInput
 }
 
 func (IngestionState) ElementType() reflect.Type {
@@ -163,36 +93,22 @@ func (IngestionState) ElementType() reflect.Type {
 }
 
 type ingestionArgs struct {
-	// Name of the application.
-	// Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
-	App string `pulumi:"app"`
-	// Amazon Resource Name (ARN) of the app bundle to use for the request.
-	AppBundleArn string `pulumi:"appBundleArn"`
-	// Ingestion type. Valid values are `auditLog`.
-	IngestionType string `pulumi:"ingestionType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// ID of the application tenant.
-	TenantId string `pulumi:"tenantId"`
+	App           string            `pulumi:"app"`
+	AppBundleArn  string            `pulumi:"appBundleArn"`
+	IngestionType string            `pulumi:"ingestionType"`
+	Region        *string           `pulumi:"region"`
+	Tags          map[string]string `pulumi:"tags"`
+	TenantId      string            `pulumi:"tenantId"`
 }
 
 // The set of arguments for constructing a Ingestion resource.
 type IngestionArgs struct {
-	// Name of the application.
-	// Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
-	App pulumi.StringInput
-	// Amazon Resource Name (ARN) of the app bundle to use for the request.
-	AppBundleArn pulumi.StringInput
-	// Ingestion type. Valid values are `auditLog`.
+	App           pulumi.StringInput
+	AppBundleArn  pulumi.StringInput
 	IngestionType pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// ID of the application tenant.
-	TenantId pulumi.StringInput
+	Region        pulumi.StringPtrInput
+	Tags          pulumi.StringMapInput
+	TenantId      pulumi.StringInput
 }
 
 func (IngestionArgs) ElementType() reflect.Type {
@@ -282,43 +198,34 @@ func (o IngestionOutput) ToIngestionOutputWithContext(ctx context.Context) Inges
 	return o
 }
 
-// Name of the application.
-// Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
 func (o IngestionOutput) App() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ingestion) pulumi.StringOutput { return v.App }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the app bundle to use for the request.
 func (o IngestionOutput) AppBundleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ingestion) pulumi.StringOutput { return v.AppBundleArn }).(pulumi.StringOutput)
 }
 
-// ARN of the Ingestion.
 func (o IngestionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ingestion) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Ingestion type. Valid values are `auditLog`.
 func (o IngestionOutput) IngestionType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ingestion) pulumi.StringOutput { return v.IngestionType }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o IngestionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ingestion) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o IngestionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Ingestion) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o IngestionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Ingestion) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// ID of the application tenant.
 func (o IngestionOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ingestion) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
 }

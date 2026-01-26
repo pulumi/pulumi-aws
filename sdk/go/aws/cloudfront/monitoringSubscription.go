@@ -12,52 +12,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CloudFront real-time log configuration resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.NewMonitoringSubscription(ctx, "example", &cloudfront.MonitoringSubscriptionArgs{
-//				DistributionId: pulumi.Any(exampleAwsCloudfrontDistribution.Id),
-//				MonitoringSubscription: &cloudfront.MonitoringSubscriptionMonitoringSubscriptionArgs{
-//					RealtimeMetricsSubscriptionConfig: &cloudfront.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs{
-//						RealtimeMetricsSubscriptionStatus: pulumi.String("Enabled"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CloudFront monitoring subscription using the id. For example:
-//
-// ```sh
-// $ pulumi import aws:cloudfront/monitoringSubscription:MonitoringSubscription example E3QYSUHO4VYRGB
-// ```
 type MonitoringSubscription struct {
 	pulumi.CustomResourceState
 
-	// The ID of the distribution that you are enabling metrics for.
-	DistributionId pulumi.StringOutput `pulumi:"distributionId"`
-	// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+	DistributionId         pulumi.StringOutput                                `pulumi:"distributionId"`
 	MonitoringSubscription MonitoringSubscriptionMonitoringSubscriptionOutput `pulumi:"monitoringSubscription"`
 }
 
@@ -97,16 +55,12 @@ func GetMonitoringSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MonitoringSubscription resources.
 type monitoringSubscriptionState struct {
-	// The ID of the distribution that you are enabling metrics for.
-	DistributionId *string `pulumi:"distributionId"`
-	// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+	DistributionId         *string                                       `pulumi:"distributionId"`
 	MonitoringSubscription *MonitoringSubscriptionMonitoringSubscription `pulumi:"monitoringSubscription"`
 }
 
 type MonitoringSubscriptionState struct {
-	// The ID of the distribution that you are enabling metrics for.
-	DistributionId pulumi.StringPtrInput
-	// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+	DistributionId         pulumi.StringPtrInput
 	MonitoringSubscription MonitoringSubscriptionMonitoringSubscriptionPtrInput
 }
 
@@ -115,17 +69,13 @@ func (MonitoringSubscriptionState) ElementType() reflect.Type {
 }
 
 type monitoringSubscriptionArgs struct {
-	// The ID of the distribution that you are enabling metrics for.
-	DistributionId string `pulumi:"distributionId"`
-	// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+	DistributionId         string                                       `pulumi:"distributionId"`
 	MonitoringSubscription MonitoringSubscriptionMonitoringSubscription `pulumi:"monitoringSubscription"`
 }
 
 // The set of arguments for constructing a MonitoringSubscription resource.
 type MonitoringSubscriptionArgs struct {
-	// The ID of the distribution that you are enabling metrics for.
-	DistributionId pulumi.StringInput
-	// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+	DistributionId         pulumi.StringInput
 	MonitoringSubscription MonitoringSubscriptionMonitoringSubscriptionInput
 }
 
@@ -216,12 +166,10 @@ func (o MonitoringSubscriptionOutput) ToMonitoringSubscriptionOutputWithContext(
 	return o
 }
 
-// The ID of the distribution that you are enabling metrics for.
 func (o MonitoringSubscriptionOutput) DistributionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MonitoringSubscription) pulumi.StringOutput { return v.DistributionId }).(pulumi.StringOutput)
 }
 
-// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
 func (o MonitoringSubscriptionOutput) MonitoringSubscription() MonitoringSubscriptionMonitoringSubscriptionOutput {
 	return o.ApplyT(func(v *MonitoringSubscription) MonitoringSubscriptionMonitoringSubscriptionOutput {
 		return v.MonitoringSubscription

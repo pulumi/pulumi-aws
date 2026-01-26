@@ -32,16 +32,6 @@ class V2modelsBotLocaleArgs:
                  voice_settings: Optional[pulumi.Input['V2modelsBotLocaleVoiceSettingsArgs']] = None):
         """
         The set of arguments for constructing a V2modelsBotLocale resource.
-        :param pulumi.Input[_builtins.str] bot_id: Identifier of the bot to create the locale for.
-        :param pulumi.Input[_builtins.str] bot_version: Version of the bot to create the locale for. This can only be the draft version of the bot.
-        :param pulumi.Input[_builtins.str] locale_id: Identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)
-        :param pulumi.Input[_builtins.float] n_lu_intent_confidence_threshold: Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] description: Description of the bot locale. Use this to help identify the bot locale in lists.
-        :param pulumi.Input[_builtins.str] name: Specified locale name.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['V2modelsBotLocaleVoiceSettingsArgs'] voice_settings: Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
         """
         pulumi.set(__self__, "bot_id", bot_id)
         pulumi.set(__self__, "bot_version", bot_version)
@@ -61,9 +51,6 @@ class V2modelsBotLocaleArgs:
     @_builtins.property
     @pulumi.getter(name="botId")
     def bot_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of the bot to create the locale for.
-        """
         return pulumi.get(self, "bot_id")
 
     @bot_id.setter
@@ -73,9 +60,6 @@ class V2modelsBotLocaleArgs:
     @_builtins.property
     @pulumi.getter(name="botVersion")
     def bot_version(self) -> pulumi.Input[_builtins.str]:
-        """
-        Version of the bot to create the locale for. This can only be the draft version of the bot.
-        """
         return pulumi.get(self, "bot_version")
 
     @bot_version.setter
@@ -85,9 +69,6 @@ class V2modelsBotLocaleArgs:
     @_builtins.property
     @pulumi.getter(name="localeId")
     def locale_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)
-        """
         return pulumi.get(self, "locale_id")
 
     @locale_id.setter
@@ -97,11 +78,6 @@ class V2modelsBotLocaleArgs:
     @_builtins.property
     @pulumi.getter(name="nLuIntentConfidenceThreshold")
     def n_lu_intent_confidence_threshold(self) -> pulumi.Input[_builtins.float]:
-        """
-        Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "n_lu_intent_confidence_threshold")
 
     @n_lu_intent_confidence_threshold.setter
@@ -111,9 +87,6 @@ class V2modelsBotLocaleArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the bot locale. Use this to help identify the bot locale in lists.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -123,9 +96,6 @@ class V2modelsBotLocaleArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specified locale name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -135,9 +105,6 @@ class V2modelsBotLocaleArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -156,9 +123,6 @@ class V2modelsBotLocaleArgs:
     @_builtins.property
     @pulumi.getter(name="voiceSettings")
     def voice_settings(self) -> Optional[pulumi.Input['V2modelsBotLocaleVoiceSettingsArgs']]:
-        """
-        Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
-        """
         return pulumi.get(self, "voice_settings")
 
     @voice_settings.setter
@@ -180,16 +144,6 @@ class _V2modelsBotLocaleState:
                  voice_settings: Optional[pulumi.Input['V2modelsBotLocaleVoiceSettingsArgs']] = None):
         """
         Input properties used for looking up and filtering V2modelsBotLocale resources.
-        :param pulumi.Input[_builtins.str] bot_id: Identifier of the bot to create the locale for.
-        :param pulumi.Input[_builtins.str] bot_version: Version of the bot to create the locale for. This can only be the draft version of the bot.
-        :param pulumi.Input[_builtins.str] description: Description of the bot locale. Use this to help identify the bot locale in lists.
-        :param pulumi.Input[_builtins.str] locale_id: Identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)
-        :param pulumi.Input[_builtins.float] n_lu_intent_confidence_threshold: Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] name: Specified locale name.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['V2modelsBotLocaleVoiceSettingsArgs'] voice_settings: Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
         """
         if bot_id is not None:
             pulumi.set(__self__, "bot_id", bot_id)
@@ -213,9 +167,6 @@ class _V2modelsBotLocaleState:
     @_builtins.property
     @pulumi.getter(name="botId")
     def bot_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the bot to create the locale for.
-        """
         return pulumi.get(self, "bot_id")
 
     @bot_id.setter
@@ -225,9 +176,6 @@ class _V2modelsBotLocaleState:
     @_builtins.property
     @pulumi.getter(name="botVersion")
     def bot_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Version of the bot to create the locale for. This can only be the draft version of the bot.
-        """
         return pulumi.get(self, "bot_version")
 
     @bot_version.setter
@@ -237,9 +185,6 @@ class _V2modelsBotLocaleState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the bot locale. Use this to help identify the bot locale in lists.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -249,9 +194,6 @@ class _V2modelsBotLocaleState:
     @_builtins.property
     @pulumi.getter(name="localeId")
     def locale_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)
-        """
         return pulumi.get(self, "locale_id")
 
     @locale_id.setter
@@ -261,11 +203,6 @@ class _V2modelsBotLocaleState:
     @_builtins.property
     @pulumi.getter(name="nLuIntentConfidenceThreshold")
     def n_lu_intent_confidence_threshold(self) -> Optional[pulumi.Input[_builtins.float]]:
-        """
-        Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "n_lu_intent_confidence_threshold")
 
     @n_lu_intent_confidence_threshold.setter
@@ -275,9 +212,6 @@ class _V2modelsBotLocaleState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specified locale name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -287,9 +221,6 @@ class _V2modelsBotLocaleState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -308,9 +239,6 @@ class _V2modelsBotLocaleState:
     @_builtins.property
     @pulumi.getter(name="voiceSettings")
     def voice_settings(self) -> Optional[pulumi.Input['V2modelsBotLocaleVoiceSettingsArgs']]:
-        """
-        Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
-        """
         return pulumi.get(self, "voice_settings")
 
     @voice_settings.setter
@@ -335,60 +263,9 @@ class V2modelsBotLocale(pulumi.CustomResource):
                  voice_settings: Optional[pulumi.Input[Union['V2modelsBotLocaleVoiceSettingsArgs', 'V2modelsBotLocaleVoiceSettingsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Lex V2 Models Bot Locale.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lex.V2modelsBotLocale("example",
-            bot_id=example_aws_lexv2models_bot["id"],
-            bot_version="DRAFT",
-            locale_id="en_US",
-            n_lu_intent_confidence_threshold=0.7)
-        ```
-
-        ### Voice Settings
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lex.V2modelsBotLocale("example",
-            bot_id=example_aws_lexv2models_bot["id"],
-            bot_version="DRAFT",
-            locale_id="en_US",
-            n_lu_intent_confidence_threshold=0.7,
-            voice_settings={
-                "voice_id": "Kendra",
-                "engine": "standard",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Lex V2 Models Bot Locale using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:lex/v2modelsBotLocale:V2modelsBotLocale example en_US,abcd-12345678,1
-        ```
-
+        Create a V2modelsBotLocale resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bot_id: Identifier of the bot to create the locale for.
-        :param pulumi.Input[_builtins.str] bot_version: Version of the bot to create the locale for. This can only be the draft version of the bot.
-        :param pulumi.Input[_builtins.str] description: Description of the bot locale. Use this to help identify the bot locale in lists.
-        :param pulumi.Input[_builtins.str] locale_id: Identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)
-        :param pulumi.Input[_builtins.float] n_lu_intent_confidence_threshold: Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] name: Specified locale name.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['V2modelsBotLocaleVoiceSettingsArgs', 'V2modelsBotLocaleVoiceSettingsArgsDict']] voice_settings: Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
         """
         ...
     @overload
@@ -397,48 +274,7 @@ class V2modelsBotLocale(pulumi.CustomResource):
                  args: V2modelsBotLocaleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Lex V2 Models Bot Locale.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lex.V2modelsBotLocale("example",
-            bot_id=example_aws_lexv2models_bot["id"],
-            bot_version="DRAFT",
-            locale_id="en_US",
-            n_lu_intent_confidence_threshold=0.7)
-        ```
-
-        ### Voice Settings
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lex.V2modelsBotLocale("example",
-            bot_id=example_aws_lexv2models_bot["id"],
-            bot_version="DRAFT",
-            locale_id="en_US",
-            n_lu_intent_confidence_threshold=0.7,
-            voice_settings={
-                "voice_id": "Kendra",
-                "engine": "standard",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Lex V2 Models Bot Locale using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:lex/v2modelsBotLocale:V2modelsBotLocale example en_US,abcd-12345678,1
-        ```
-
+        Create a V2modelsBotLocale resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param V2modelsBotLocaleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -515,16 +351,6 @@ class V2modelsBotLocale(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bot_id: Identifier of the bot to create the locale for.
-        :param pulumi.Input[_builtins.str] bot_version: Version of the bot to create the locale for. This can only be the draft version of the bot.
-        :param pulumi.Input[_builtins.str] description: Description of the bot locale. Use this to help identify the bot locale in lists.
-        :param pulumi.Input[_builtins.str] locale_id: Identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)
-        :param pulumi.Input[_builtins.float] n_lu_intent_confidence_threshold: Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] name: Specified locale name.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['V2modelsBotLocaleVoiceSettingsArgs', 'V2modelsBotLocaleVoiceSettingsArgsDict']] voice_settings: Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -544,59 +370,36 @@ class V2modelsBotLocale(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="botId")
     def bot_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of the bot to create the locale for.
-        """
         return pulumi.get(self, "bot_id")
 
     @_builtins.property
     @pulumi.getter(name="botVersion")
     def bot_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        Version of the bot to create the locale for. This can only be the draft version of the bot.
-        """
         return pulumi.get(self, "bot_version")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the bot locale. Use this to help identify the bot locale in lists.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="localeId")
     def locale_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)
-        """
         return pulumi.get(self, "locale_id")
 
     @_builtins.property
     @pulumi.getter(name="nLuIntentConfidenceThreshold")
     def n_lu_intent_confidence_threshold(self) -> pulumi.Output[_builtins.float]:
-        """
-        Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "n_lu_intent_confidence_threshold")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specified locale name.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
@@ -607,8 +410,5 @@ class V2modelsBotLocale(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="voiceSettings")
     def voice_settings(self) -> pulumi.Output[Optional['outputs.V2modelsBotLocaleVoiceSettings']]:
-        """
-        Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
-        """
         return pulumi.get(self, "voice_settings")
 

@@ -14,32 +14,16 @@ public final class ComputeEnvironmentEksConfigurationArgs extends com.pulumi.res
 
     public static final ComputeEnvironmentEksConfigurationArgs Empty = new ComputeEnvironmentEksConfigurationArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) of the Amazon EKS cluster.
-     * 
-     */
     @Import(name="eksClusterArn", required=true)
     private Output<String> eksClusterArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Amazon EKS cluster.
-     * 
-     */
     public Output<String> eksClusterArn() {
         return this.eksClusterArn;
     }
 
-    /**
-     * The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
-     * 
-     */
     @Import(name="kubernetesNamespace", required=true)
     private Output<String> kubernetesNamespace;
 
-    /**
-     * @return The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
-     * 
-     */
     public Output<String> kubernetesNamespace() {
         return this.kubernetesNamespace;
     }
@@ -69,44 +53,20 @@ public final class ComputeEnvironmentEksConfigurationArgs extends com.pulumi.res
             $ = new ComputeEnvironmentEksConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param eksClusterArn The Amazon Resource Name (ARN) of the Amazon EKS cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eksClusterArn(Output<String> eksClusterArn) {
             $.eksClusterArn = eksClusterArn;
             return this;
         }
 
-        /**
-         * @param eksClusterArn The Amazon Resource Name (ARN) of the Amazon EKS cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eksClusterArn(String eksClusterArn) {
             return eksClusterArn(Output.of(eksClusterArn));
         }
 
-        /**
-         * @param kubernetesNamespace The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kubernetesNamespace(Output<String> kubernetesNamespace) {
             $.kubernetesNamespace = kubernetesNamespace;
             return this;
         }
 
-        /**
-         * @param kubernetesNamespace The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kubernetesNamespace(String kubernetesNamespace) {
             return kubernetesNamespace(Output.of(kubernetesNamespace));
         }

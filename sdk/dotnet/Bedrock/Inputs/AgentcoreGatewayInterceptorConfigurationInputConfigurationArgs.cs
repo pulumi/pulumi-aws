@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreGatewayInterceptorConfigurationInputConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to pass request headers to the interceptor.
-        /// </summary>
         [Input("passRequestHeaders", required: true)]
         public Input<bool> PassRequestHeaders { get; set; } = null!;
 

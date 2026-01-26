@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionAction {
-    /**
-     * @return Type of action to perform. Valid values: `drop`, `allow`, `summarize`, `prepend-asn-list`, `remove-asn-list`, `replace-asn-list`, `add-community`, `remove-community`, `set-med`, `set-local-preference`.
-     * 
-     */
     private String type;
-    /**
-     * @return Value for the action, required for certain action types.
-     * 
-     */
     private @Nullable String value;
 
     private GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionAction() {}
-    /**
-     * @return Type of action to perform. Valid values: `drop`, `allow`, `summarize`, `prepend-asn-list`, `remove-asn-list`, `replace-asn-list`, `add-community`, `remove-community`, `set-med`, `set-local-preference`.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return Value for the action, required for certain action types.
-     * 
-     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

@@ -15,214 +15,71 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Network Manager transit gateway peering connection. Creates a peering connection between an AWS Cloud WAN core network and an AWS Transit Gateway.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkmanager.TransitGatewayPeering;
- * import com.pulumi.aws.networkmanager.TransitGatewayPeeringArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new TransitGatewayPeering("example", TransitGatewayPeeringArgs.builder()
- *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
- *             .transitGatewayArn(exampleAwsEc2TransitGateway.arn())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     exampleAwsEc2TransitGatewayPolicyTable,
- *                     exampleAwsNetworkmanagerCoreNetworkPolicyAttachment)
- *                 .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_networkmanager_transit_gateway_peering` using the peering ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:networkmanager/transitGatewayPeering:TransitGatewayPeering example peering-444555aaabbb11223
- * ```
- * 
- */
 @ResourceType(type="aws:networkmanager/transitGatewayPeering:TransitGatewayPeering")
 public class TransitGatewayPeering extends com.pulumi.resources.CustomResource {
-    /**
-     * Peering ARN.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Peering ARN.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * ARN of the core network.
-     * 
-     */
     @Export(name="coreNetworkArn", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkArn;
 
-    /**
-     * @return ARN of the core network.
-     * 
-     */
     public Output<String> coreNetworkArn() {
         return this.coreNetworkArn;
     }
-    /**
-     * ID of a core network.
-     * 
-     */
     @Export(name="coreNetworkId", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkId;
 
-    /**
-     * @return ID of a core network.
-     * 
-     */
     public Output<String> coreNetworkId() {
         return this.coreNetworkId;
     }
-    /**
-     * Edge location for the peer.
-     * 
-     */
     @Export(name="edgeLocation", refs={String.class}, tree="[0]")
     private Output<String> edgeLocation;
 
-    /**
-     * @return Edge location for the peer.
-     * 
-     */
     public Output<String> edgeLocation() {
         return this.edgeLocation;
     }
-    /**
-     * ID of the account owner.
-     * 
-     */
     @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
     private Output<String> ownerAccountId;
 
-    /**
-     * @return ID of the account owner.
-     * 
-     */
     public Output<String> ownerAccountId() {
         return this.ownerAccountId;
     }
-    /**
-     * Type of peering. This will be `TRANSIT_GATEWAY`.
-     * 
-     */
     @Export(name="peeringType", refs={String.class}, tree="[0]")
     private Output<String> peeringType;
 
-    /**
-     * @return Type of peering. This will be `TRANSIT_GATEWAY`.
-     * 
-     */
     public Output<String> peeringType() {
         return this.peeringType;
     }
-    /**
-     * Resource ARN of the peer.
-     * 
-     */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
-    /**
-     * @return Resource ARN of the peer.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
-    /**
-     * Key-value tags for the peering. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the peering. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * ARN of the transit gateway for the peering request.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="transitGatewayArn", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayArn;
 
-    /**
-     * @return ARN of the transit gateway for the peering request.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> transitGatewayArn() {
         return this.transitGatewayArn;
     }
-    /**
-     * ID of the transit gateway peering attachment.
-     * 
-     */
     @Export(name="transitGatewayPeeringAttachmentId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayPeeringAttachmentId;
 
-    /**
-     * @return ID of the transit gateway peering attachment.
-     * 
-     */
     public Output<String> transitGatewayPeeringAttachmentId() {
         return this.transitGatewayPeeringAttachmentId;
     }

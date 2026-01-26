@@ -39,26 +39,6 @@ class FlowLogArgs:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FlowLog resource.
-        :param pulumi.Input[_builtins.str] deliver_cross_account_role: ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
-        :param pulumi.Input['FlowLogDestinationOptionsArgs'] destination_options: Describes the destination options for a flow log. More details below.
-        :param pulumi.Input[_builtins.str] eni_id: Elastic Network Interface ID to attach to.
-        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
-        :param pulumi.Input[_builtins.str] log_destination: ARN of the logging destination.
-        :param pulumi.Input[_builtins.str] log_destination_type: Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
-        :param pulumi.Input[_builtins.str] log_format: The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
-        :param pulumi.Input[_builtins.int] max_aggregation_interval: The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
-               Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
-               When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] regional_nat_gateway_id: Regional NAT Gateway ID to attach to.
-        :param pulumi.Input[_builtins.str] subnet_id: Subnet ID to attach to.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
-        :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: Transit Gateway Attachment ID to attach to.
-        :param pulumi.Input[_builtins.str] transit_gateway_id: Transit Gateway ID to attach to.
-        :param pulumi.Input[_builtins.str] vpc_id: VPC ID to attach to.
-               
-               > **NOTE:** One of `eni_id`, `regional_nat_gateway_id`, `subnet_id`, `transit_gateway_id`, `transit_gateway_attachment_id`, or `vpc_id` must be specified.
         """
         if deliver_cross_account_role is not None:
             pulumi.set(__self__, "deliver_cross_account_role", deliver_cross_account_role)
@@ -96,9 +76,6 @@ class FlowLogArgs:
     @_builtins.property
     @pulumi.getter(name="deliverCrossAccountRole")
     def deliver_cross_account_role(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
-        """
         return pulumi.get(self, "deliver_cross_account_role")
 
     @deliver_cross_account_role.setter
@@ -108,9 +85,6 @@ class FlowLogArgs:
     @_builtins.property
     @pulumi.getter(name="destinationOptions")
     def destination_options(self) -> Optional[pulumi.Input['FlowLogDestinationOptionsArgs']]:
-        """
-        Describes the destination options for a flow log. More details below.
-        """
         return pulumi.get(self, "destination_options")
 
     @destination_options.setter
@@ -120,9 +94,6 @@ class FlowLogArgs:
     @_builtins.property
     @pulumi.getter(name="eniId")
     def eni_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Elastic Network Interface ID to attach to.
-        """
         return pulumi.get(self, "eni_id")
 
     @eni_id.setter
@@ -132,9 +103,6 @@ class FlowLogArgs:
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
@@ -144,9 +112,6 @@ class FlowLogArgs:
     @_builtins.property
     @pulumi.getter(name="logDestination")
     def log_destination(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the logging destination.
-        """
         return pulumi.get(self, "log_destination")
 
     @log_destination.setter
@@ -156,9 +121,6 @@ class FlowLogArgs:
     @_builtins.property
     @pulumi.getter(name="logDestinationType")
     def log_destination_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
-        """
         return pulumi.get(self, "log_destination_type")
 
     @log_destination_type.setter
@@ -168,9 +130,6 @@ class FlowLogArgs:
     @_builtins.property
     @pulumi.getter(name="logFormat")
     def log_format(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
-        """
         return pulumi.get(self, "log_format")
 
     @log_format.setter
@@ -180,11 +139,6 @@ class FlowLogArgs:
     @_builtins.property
     @pulumi.getter(name="maxAggregationInterval")
     def max_aggregation_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
-        Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
-        When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
-        """
         return pulumi.get(self, "max_aggregation_interval")
 
     @max_aggregation_interval.setter
@@ -194,9 +148,6 @@ class FlowLogArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -206,9 +157,6 @@ class FlowLogArgs:
     @_builtins.property
     @pulumi.getter(name="regionalNatGatewayId")
     def regional_nat_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Regional NAT Gateway ID to attach to.
-        """
         return pulumi.get(self, "regional_nat_gateway_id")
 
     @regional_nat_gateway_id.setter
@@ -218,9 +166,6 @@ class FlowLogArgs:
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Subnet ID to attach to.
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -230,9 +175,6 @@ class FlowLogArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -242,9 +184,6 @@ class FlowLogArgs:
     @_builtins.property
     @pulumi.getter(name="trafficType")
     def traffic_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
-        """
         return pulumi.get(self, "traffic_type")
 
     @traffic_type.setter
@@ -254,9 +193,6 @@ class FlowLogArgs:
     @_builtins.property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Transit Gateway Attachment ID to attach to.
-        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @transit_gateway_attachment_id.setter
@@ -266,9 +202,6 @@ class FlowLogArgs:
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Transit Gateway ID to attach to.
-        """
         return pulumi.get(self, "transit_gateway_id")
 
     @transit_gateway_id.setter
@@ -278,11 +211,6 @@ class FlowLogArgs:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        VPC ID to attach to.
-
-        > **NOTE:** One of `eni_id`, `regional_nat_gateway_id`, `subnet_id`, `transit_gateway_id`, `transit_gateway_attachment_id`, or `vpc_id` must be specified.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -313,28 +241,6 @@ class _FlowLogState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FlowLog resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Flow Log.
-        :param pulumi.Input[_builtins.str] deliver_cross_account_role: ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
-        :param pulumi.Input['FlowLogDestinationOptionsArgs'] destination_options: Describes the destination options for a flow log. More details below.
-        :param pulumi.Input[_builtins.str] eni_id: Elastic Network Interface ID to attach to.
-        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
-        :param pulumi.Input[_builtins.str] log_destination: ARN of the logging destination.
-        :param pulumi.Input[_builtins.str] log_destination_type: Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
-        :param pulumi.Input[_builtins.str] log_format: The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
-        :param pulumi.Input[_builtins.int] max_aggregation_interval: The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
-               Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
-               When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] regional_nat_gateway_id: Regional NAT Gateway ID to attach to.
-        :param pulumi.Input[_builtins.str] subnet_id: Subnet ID to attach to.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
-        :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: Transit Gateway Attachment ID to attach to.
-        :param pulumi.Input[_builtins.str] transit_gateway_id: Transit Gateway ID to attach to.
-        :param pulumi.Input[_builtins.str] vpc_id: VPC ID to attach to.
-               
-               > **NOTE:** One of `eni_id`, `regional_nat_gateway_id`, `subnet_id`, `transit_gateway_id`, `transit_gateway_attachment_id`, or `vpc_id` must be specified.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -376,9 +282,6 @@ class _FlowLogState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Flow Log.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -388,9 +291,6 @@ class _FlowLogState:
     @_builtins.property
     @pulumi.getter(name="deliverCrossAccountRole")
     def deliver_cross_account_role(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
-        """
         return pulumi.get(self, "deliver_cross_account_role")
 
     @deliver_cross_account_role.setter
@@ -400,9 +300,6 @@ class _FlowLogState:
     @_builtins.property
     @pulumi.getter(name="destinationOptions")
     def destination_options(self) -> Optional[pulumi.Input['FlowLogDestinationOptionsArgs']]:
-        """
-        Describes the destination options for a flow log. More details below.
-        """
         return pulumi.get(self, "destination_options")
 
     @destination_options.setter
@@ -412,9 +309,6 @@ class _FlowLogState:
     @_builtins.property
     @pulumi.getter(name="eniId")
     def eni_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Elastic Network Interface ID to attach to.
-        """
         return pulumi.get(self, "eni_id")
 
     @eni_id.setter
@@ -424,9 +318,6 @@ class _FlowLogState:
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
@@ -436,9 +327,6 @@ class _FlowLogState:
     @_builtins.property
     @pulumi.getter(name="logDestination")
     def log_destination(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the logging destination.
-        """
         return pulumi.get(self, "log_destination")
 
     @log_destination.setter
@@ -448,9 +336,6 @@ class _FlowLogState:
     @_builtins.property
     @pulumi.getter(name="logDestinationType")
     def log_destination_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
-        """
         return pulumi.get(self, "log_destination_type")
 
     @log_destination_type.setter
@@ -460,9 +345,6 @@ class _FlowLogState:
     @_builtins.property
     @pulumi.getter(name="logFormat")
     def log_format(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
-        """
         return pulumi.get(self, "log_format")
 
     @log_format.setter
@@ -472,11 +354,6 @@ class _FlowLogState:
     @_builtins.property
     @pulumi.getter(name="maxAggregationInterval")
     def max_aggregation_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
-        Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
-        When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
-        """
         return pulumi.get(self, "max_aggregation_interval")
 
     @max_aggregation_interval.setter
@@ -486,9 +363,6 @@ class _FlowLogState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -498,9 +372,6 @@ class _FlowLogState:
     @_builtins.property
     @pulumi.getter(name="regionalNatGatewayId")
     def regional_nat_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Regional NAT Gateway ID to attach to.
-        """
         return pulumi.get(self, "regional_nat_gateway_id")
 
     @regional_nat_gateway_id.setter
@@ -510,9 +381,6 @@ class _FlowLogState:
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Subnet ID to attach to.
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -522,9 +390,6 @@ class _FlowLogState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -534,9 +399,6 @@ class _FlowLogState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -546,9 +408,6 @@ class _FlowLogState:
     @_builtins.property
     @pulumi.getter(name="trafficType")
     def traffic_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
-        """
         return pulumi.get(self, "traffic_type")
 
     @traffic_type.setter
@@ -558,9 +417,6 @@ class _FlowLogState:
     @_builtins.property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Transit Gateway Attachment ID to attach to.
-        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @transit_gateway_attachment_id.setter
@@ -570,9 +426,6 @@ class _FlowLogState:
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Transit Gateway ID to attach to.
-        """
         return pulumi.get(self, "transit_gateway_id")
 
     @transit_gateway_id.setter
@@ -582,11 +435,6 @@ class _FlowLogState:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        VPC ID to attach to.
-
-        > **NOTE:** One of `eni_id`, `regional_nat_gateway_id`, `subnet_id`, `transit_gateway_id`, `transit_gateway_attachment_id`, or `vpc_id` must be specified.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -618,211 +466,9 @@ class FlowLog(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a VPC/Subnet/ENI/Transit Gateway/Transit Gateway Attachment Flow Log to capture IP traffic for a specific network
-        interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group, a S3 Bucket, or Amazon Data Firehose
-
-        ## Example Usage
-
-        ### CloudWatch Logging
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_log_group = aws.cloudwatch.LogGroup("example", name="example")
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["vpc-flow-logs.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        example_role = aws.iam.Role("example",
-            name="example",
-            assume_role_policy=assume_role.json)
-        example_flow_log = aws.ec2.FlowLog("example",
-            iam_role_arn=example_role.arn,
-            log_destination=example_log_group.arn,
-            traffic_type="ALL",
-            vpc_id=example_aws_vpc["id"])
-        example = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": [
-                "logs:CreateLogGroup",
-                "logs:CreateLogStream",
-                "logs:PutLogEvents",
-                "logs:DescribeLogGroups",
-                "logs:DescribeLogStreams",
-            ],
-            "resources": ["*"],
-        }])
-        example_role_policy = aws.iam.RolePolicy("example",
-            name="example",
-            role=example_role.id,
-            policy=example.json)
-        ```
-
-        ### Amazon Data Firehose logging
-
-        ### S3 Logging
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket = aws.s3.Bucket("example", bucket="example")
-        example = aws.ec2.FlowLog("example",
-            log_destination=example_bucket.arn,
-            log_destination_type="s3",
-            traffic_type="ALL",
-            vpc_id=example_aws_vpc["id"])
-        ```
-
-        ### S3 Logging in Apache Parquet format with per-hour partitions
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket = aws.s3.Bucket("example", bucket="example")
-        example = aws.ec2.FlowLog("example",
-            log_destination=example_bucket.arn,
-            log_destination_type="s3",
-            traffic_type="ALL",
-            vpc_id=example_aws_vpc["id"],
-            destination_options={
-                "file_format": "parquet",
-                "per_hour_partition": True,
-            })
-        ```
-
-        ### Cross-Account Amazon Data Firehose Logging
-
-        The following example shows how to set up a flow log in one AWS account (source) that sends logs to an Amazon Data Firehose delivery stream in another AWS account (destination).
-        See the [AWS Documentation](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-firehose.html).
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # For source account
-        src = aws.ec2.Vpc("src")
-        src_assume_role_policy = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["delivery.logs.amazonaws.com"],
-            }],
-        }])
-        src_role = aws.iam.Role("src",
-            name="tf-example-mySourceRole",
-            assume_role_policy=src_assume_role_policy.json)
-        # For destination account
-        dst_assume_role_policy = aws.iam.get_policy_document_output(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": [src_role.arn],
-            }],
-        }])
-        dst = aws.iam.Role("dst",
-            name="AWSLogDeliveryFirehoseCrossAccountRole",
-            assume_role_policy=dst_assume_role_policy.json)
-        src_role_policy = aws.iam.get_policy_document_output(statements=[
-            {
-                "effect": "Allow",
-                "actions": ["iam:PassRole"],
-                "resources": [src_role.arn],
-                "conditions": [
-                    {
-                        "test": "StringEquals",
-                        "variable": "iam:PassedToService",
-                        "values": ["delivery.logs.amazonaws.com"],
-                    },
-                    {
-                        "test": "StringLike",
-                        "variable": "iam:AssociatedResourceARN",
-                        "values": [src.arn],
-                    },
-                ],
-            },
-            {
-                "effect": "Allow",
-                "actions": [
-                    "logs:CreateLogDelivery",
-                    "logs:DeleteLogDelivery",
-                    "logs:ListLogDeliveries",
-                    "logs:GetLogDelivery",
-                ],
-                "resources": ["*"],
-            },
-            {
-                "effect": "Allow",
-                "actions": ["sts:AssumeRole"],
-                "resources": [dst.arn],
-            },
-        ])
-        src_policy = aws.iam.RolePolicy("src_policy",
-            name="tf-example-mySourceRolePolicy",
-            role=src_role.name,
-            policy=src_role_policy.json)
-        dst_firehose_delivery_stream = aws.kinesis.FirehoseDeliveryStream("dst", tags={
-            "LogDeliveryEnabled": "true",
-        })
-        src_flow_log = aws.ec2.FlowLog("src",
-            log_destination_type="kinesis-data-firehose",
-            log_destination=dst_firehose_delivery_stream.arn,
-            traffic_type="ALL",
-            vpc_id=src.id,
-            iam_role_arn=src_role.arn,
-            deliver_cross_account_role=dst.arn)
-        dst_role_policy = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": [
-                "iam:CreateServiceLinkedRole",
-                "firehose:TagDeliveryStream",
-            ],
-            "resources": ["*"],
-        }])
-        dst_role_policy2 = aws.iam.RolePolicy("dst",
-            name="AWSLogDeliveryFirehoseCrossAccountRolePolicy",
-            role=dst.name,
-            policy=dst_role_policy.json)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Flow Logs using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
-        ```
-
+        Create a FlowLog resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] deliver_cross_account_role: ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
-        :param pulumi.Input[Union['FlowLogDestinationOptionsArgs', 'FlowLogDestinationOptionsArgsDict']] destination_options: Describes the destination options for a flow log. More details below.
-        :param pulumi.Input[_builtins.str] eni_id: Elastic Network Interface ID to attach to.
-        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
-        :param pulumi.Input[_builtins.str] log_destination: ARN of the logging destination.
-        :param pulumi.Input[_builtins.str] log_destination_type: Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
-        :param pulumi.Input[_builtins.str] log_format: The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
-        :param pulumi.Input[_builtins.int] max_aggregation_interval: The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
-               Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
-               When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] regional_nat_gateway_id: Regional NAT Gateway ID to attach to.
-        :param pulumi.Input[_builtins.str] subnet_id: Subnet ID to attach to.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
-        :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: Transit Gateway Attachment ID to attach to.
-        :param pulumi.Input[_builtins.str] transit_gateway_id: Transit Gateway ID to attach to.
-        :param pulumi.Input[_builtins.str] vpc_id: VPC ID to attach to.
-               
-               > **NOTE:** One of `eni_id`, `regional_nat_gateway_id`, `subnet_id`, `transit_gateway_id`, `transit_gateway_attachment_id`, or `vpc_id` must be specified.
         """
         ...
     @overload
@@ -831,189 +477,7 @@ class FlowLog(pulumi.CustomResource):
                  args: Optional[FlowLogArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a VPC/Subnet/ENI/Transit Gateway/Transit Gateway Attachment Flow Log to capture IP traffic for a specific network
-        interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group, a S3 Bucket, or Amazon Data Firehose
-
-        ## Example Usage
-
-        ### CloudWatch Logging
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_log_group = aws.cloudwatch.LogGroup("example", name="example")
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["vpc-flow-logs.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        example_role = aws.iam.Role("example",
-            name="example",
-            assume_role_policy=assume_role.json)
-        example_flow_log = aws.ec2.FlowLog("example",
-            iam_role_arn=example_role.arn,
-            log_destination=example_log_group.arn,
-            traffic_type="ALL",
-            vpc_id=example_aws_vpc["id"])
-        example = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": [
-                "logs:CreateLogGroup",
-                "logs:CreateLogStream",
-                "logs:PutLogEvents",
-                "logs:DescribeLogGroups",
-                "logs:DescribeLogStreams",
-            ],
-            "resources": ["*"],
-        }])
-        example_role_policy = aws.iam.RolePolicy("example",
-            name="example",
-            role=example_role.id,
-            policy=example.json)
-        ```
-
-        ### Amazon Data Firehose logging
-
-        ### S3 Logging
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket = aws.s3.Bucket("example", bucket="example")
-        example = aws.ec2.FlowLog("example",
-            log_destination=example_bucket.arn,
-            log_destination_type="s3",
-            traffic_type="ALL",
-            vpc_id=example_aws_vpc["id"])
-        ```
-
-        ### S3 Logging in Apache Parquet format with per-hour partitions
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket = aws.s3.Bucket("example", bucket="example")
-        example = aws.ec2.FlowLog("example",
-            log_destination=example_bucket.arn,
-            log_destination_type="s3",
-            traffic_type="ALL",
-            vpc_id=example_aws_vpc["id"],
-            destination_options={
-                "file_format": "parquet",
-                "per_hour_partition": True,
-            })
-        ```
-
-        ### Cross-Account Amazon Data Firehose Logging
-
-        The following example shows how to set up a flow log in one AWS account (source) that sends logs to an Amazon Data Firehose delivery stream in another AWS account (destination).
-        See the [AWS Documentation](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-firehose.html).
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # For source account
-        src = aws.ec2.Vpc("src")
-        src_assume_role_policy = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["delivery.logs.amazonaws.com"],
-            }],
-        }])
-        src_role = aws.iam.Role("src",
-            name="tf-example-mySourceRole",
-            assume_role_policy=src_assume_role_policy.json)
-        # For destination account
-        dst_assume_role_policy = aws.iam.get_policy_document_output(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": [src_role.arn],
-            }],
-        }])
-        dst = aws.iam.Role("dst",
-            name="AWSLogDeliveryFirehoseCrossAccountRole",
-            assume_role_policy=dst_assume_role_policy.json)
-        src_role_policy = aws.iam.get_policy_document_output(statements=[
-            {
-                "effect": "Allow",
-                "actions": ["iam:PassRole"],
-                "resources": [src_role.arn],
-                "conditions": [
-                    {
-                        "test": "StringEquals",
-                        "variable": "iam:PassedToService",
-                        "values": ["delivery.logs.amazonaws.com"],
-                    },
-                    {
-                        "test": "StringLike",
-                        "variable": "iam:AssociatedResourceARN",
-                        "values": [src.arn],
-                    },
-                ],
-            },
-            {
-                "effect": "Allow",
-                "actions": [
-                    "logs:CreateLogDelivery",
-                    "logs:DeleteLogDelivery",
-                    "logs:ListLogDeliveries",
-                    "logs:GetLogDelivery",
-                ],
-                "resources": ["*"],
-            },
-            {
-                "effect": "Allow",
-                "actions": ["sts:AssumeRole"],
-                "resources": [dst.arn],
-            },
-        ])
-        src_policy = aws.iam.RolePolicy("src_policy",
-            name="tf-example-mySourceRolePolicy",
-            role=src_role.name,
-            policy=src_role_policy.json)
-        dst_firehose_delivery_stream = aws.kinesis.FirehoseDeliveryStream("dst", tags={
-            "LogDeliveryEnabled": "true",
-        })
-        src_flow_log = aws.ec2.FlowLog("src",
-            log_destination_type="kinesis-data-firehose",
-            log_destination=dst_firehose_delivery_stream.arn,
-            traffic_type="ALL",
-            vpc_id=src.id,
-            iam_role_arn=src_role.arn,
-            deliver_cross_account_role=dst.arn)
-        dst_role_policy = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": [
-                "iam:CreateServiceLinkedRole",
-                "firehose:TagDeliveryStream",
-            ],
-            "resources": ["*"],
-        }])
-        dst_role_policy2 = aws.iam.RolePolicy("dst",
-            name="AWSLogDeliveryFirehoseCrossAccountRolePolicy",
-            role=dst.name,
-            policy=dst_role_policy.json)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Flow Logs using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
-        ```
-
+        Create a FlowLog resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param FlowLogArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1107,28 +571,6 @@ class FlowLog(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Flow Log.
-        :param pulumi.Input[_builtins.str] deliver_cross_account_role: ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
-        :param pulumi.Input[Union['FlowLogDestinationOptionsArgs', 'FlowLogDestinationOptionsArgsDict']] destination_options: Describes the destination options for a flow log. More details below.
-        :param pulumi.Input[_builtins.str] eni_id: Elastic Network Interface ID to attach to.
-        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
-        :param pulumi.Input[_builtins.str] log_destination: ARN of the logging destination.
-        :param pulumi.Input[_builtins.str] log_destination_type: Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
-        :param pulumi.Input[_builtins.str] log_format: The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
-        :param pulumi.Input[_builtins.int] max_aggregation_interval: The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
-               Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
-               When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] regional_nat_gateway_id: Regional NAT Gateway ID to attach to.
-        :param pulumi.Input[_builtins.str] subnet_id: Subnet ID to attach to.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
-        :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: Transit Gateway Attachment ID to attach to.
-        :param pulumi.Input[_builtins.str] transit_gateway_id: Transit Gateway ID to attach to.
-        :param pulumi.Input[_builtins.str] vpc_id: VPC ID to attach to.
-               
-               > **NOTE:** One of `eni_id`, `regional_nat_gateway_id`, `subnet_id`, `transit_gateway_id`, `transit_gateway_attachment_id`, or `vpc_id` must be specified.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1157,148 +599,90 @@ class FlowLog(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Flow Log.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="deliverCrossAccountRole")
     def deliver_cross_account_role(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
-        """
         return pulumi.get(self, "deliver_cross_account_role")
 
     @_builtins.property
     @pulumi.getter(name="destinationOptions")
     def destination_options(self) -> pulumi.Output[Optional['outputs.FlowLogDestinationOptions']]:
-        """
-        Describes the destination options for a flow log. More details below.
-        """
         return pulumi.get(self, "destination_options")
 
     @_builtins.property
     @pulumi.getter(name="eniId")
     def eni_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Elastic Network Interface ID to attach to.
-        """
         return pulumi.get(self, "eni_id")
 
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="logDestination")
     def log_destination(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the logging destination.
-        """
         return pulumi.get(self, "log_destination")
 
     @_builtins.property
     @pulumi.getter(name="logDestinationType")
     def log_destination_type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
-        """
         return pulumi.get(self, "log_destination_type")
 
     @_builtins.property
     @pulumi.getter(name="logFormat")
     def log_format(self) -> pulumi.Output[_builtins.str]:
-        """
-        The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
-        """
         return pulumi.get(self, "log_format")
 
     @_builtins.property
     @pulumi.getter(name="maxAggregationInterval")
     def max_aggregation_interval(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
-        Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
-        When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
-        """
         return pulumi.get(self, "max_aggregation_interval")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="regionalNatGatewayId")
     def regional_nat_gateway_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Regional NAT Gateway ID to attach to.
-        """
         return pulumi.get(self, "regional_nat_gateway_id")
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Subnet ID to attach to.
-        """
         return pulumi.get(self, "subnet_id")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="trafficType")
     def traffic_type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
-        """
         return pulumi.get(self, "traffic_type")
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Transit Gateway Attachment ID to attach to.
-        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Transit Gateway ID to attach to.
-        """
         return pulumi.get(self, "transit_gateway_id")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        VPC ID to attach to.
-
-        > **NOTE:** One of `eni_id`, `regional_nat_gateway_id`, `subnet_id`, `transit_gateway_id`, `transit_gateway_attachment_id`, or `vpc_id` must be specified.
-        """
         return pulumi.get(self, "vpc_id")
 

@@ -14,32 +14,16 @@ public final class AgentcoreBrowserRecordingS3LocationArgs extends com.pulumi.re
 
     public static final AgentcoreBrowserRecordingS3LocationArgs Empty = new AgentcoreBrowserRecordingS3LocationArgs();
 
-    /**
-     * Name of the S3 bucket where recordings are stored.
-     * 
-     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
-    /**
-     * @return Name of the S3 bucket where recordings are stored.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
-    /**
-     * S3 key prefix for recording files.
-     * 
-     */
     @Import(name="prefix", required=true)
     private Output<String> prefix;
 
-    /**
-     * @return S3 key prefix for recording files.
-     * 
-     */
     public Output<String> prefix() {
         return this.prefix;
     }
@@ -69,44 +53,20 @@ public final class AgentcoreBrowserRecordingS3LocationArgs extends com.pulumi.re
             $ = new AgentcoreBrowserRecordingS3LocationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket Name of the S3 bucket where recordings are stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket Name of the S3 bucket where recordings are stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param prefix S3 key prefix for recording files.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param prefix S3 key prefix for recording files.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }

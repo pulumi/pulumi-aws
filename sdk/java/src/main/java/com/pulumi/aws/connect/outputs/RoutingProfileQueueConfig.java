@@ -13,77 +13,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RoutingProfileQueueConfig {
-    /**
-     * @return Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
-     * 
-     */
     private String channel;
-    /**
-     * @return Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
-     * 
-     */
     private Integer delay;
-    /**
-     * @return Specifies the order in which contacts are to be handled for the queue.
-     * 
-     */
     private Integer priority;
-    /**
-     * @return ARN for the queue.
-     * 
-     */
     private @Nullable String queueArn;
-    /**
-     * @return Specifies the identifier for the queue.
-     * 
-     */
     private String queueId;
-    /**
-     * @return Name for the queue.
-     * 
-     */
     private @Nullable String queueName;
 
     private RoutingProfileQueueConfig() {}
-    /**
-     * @return Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
-     * 
-     */
     public String channel() {
         return this.channel;
     }
-    /**
-     * @return Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
-     * 
-     */
     public Integer delay() {
         return this.delay;
     }
-    /**
-     * @return Specifies the order in which contacts are to be handled for the queue.
-     * 
-     */
     public Integer priority() {
         return this.priority;
     }
-    /**
-     * @return ARN for the queue.
-     * 
-     */
     public Optional<String> queueArn() {
         return Optional.ofNullable(this.queueArn);
     }
-    /**
-     * @return Specifies the identifier for the queue.
-     * 
-     */
     public String queueId() {
         return this.queueId;
     }
-    /**
-     * @return Name for the queue.
-     * 
-     */
     public Optional<String> queueName() {
         return Optional.ofNullable(this.queueName);
     }

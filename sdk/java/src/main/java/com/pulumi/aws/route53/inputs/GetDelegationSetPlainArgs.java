@@ -13,17 +13,9 @@ public final class GetDelegationSetPlainArgs extends com.pulumi.resources.Invoke
 
     public static final GetDelegationSetPlainArgs Empty = new GetDelegationSetPlainArgs();
 
-    /**
-     * Delegation set ID.
-     * 
-     */
     @Import(name="id", required=true)
     private String id;
 
-    /**
-     * @return Delegation set ID.
-     * 
-     */
     public String id() {
         return this.id;
     }
@@ -52,12 +44,6 @@ public final class GetDelegationSetPlainArgs extends com.pulumi.resources.Invoke
             $ = new GetDelegationSetPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id Delegation set ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             $.id = id;
             return this;

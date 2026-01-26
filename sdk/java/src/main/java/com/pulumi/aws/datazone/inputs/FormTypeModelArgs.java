@@ -14,21 +14,9 @@ public final class FormTypeModelArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final FormTypeModelArgs Empty = new FormTypeModelArgs();
 
-    /**
-     * Smithy document that indicates the model of the API. Must be between the lengths 1 and 100,000 and be encoded as a smithy document.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="smithy", required=true)
     private Output<String> smithy;
 
-    /**
-     * @return Smithy document that indicates the model of the API. Must be between the lengths 1 and 100,000 and be encoded as a smithy document.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> smithy() {
         return this.smithy;
     }
@@ -57,27 +45,11 @@ public final class FormTypeModelArgs extends com.pulumi.resources.ResourceArgs {
             $ = new FormTypeModelArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param smithy Smithy document that indicates the model of the API. Must be between the lengths 1 and 100,000 and be encoded as a smithy document.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder smithy(Output<String> smithy) {
             $.smithy = smithy;
             return this;
         }
 
-        /**
-         * @param smithy Smithy document that indicates the model of the API. Must be between the lengths 1 and 100,000 and be encoded as a smithy document.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder smithy(String smithy) {
             return smithy(Output.of(smithy));
         }

@@ -13,21 +13,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetContactFlowResult {
-    /**
-     * @return ARN of the Contact Flow.
-     * 
-     */
     private String arn;
     private String contactFlowId;
-    /**
-     * @return Logic of the Contact Flow.
-     * 
-     */
     private String content;
-    /**
-     * @return Description of the Contact Flow.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -37,39 +25,19 @@ public final class GetContactFlowResult {
     private String instanceId;
     private String name;
     private String region;
-    /**
-     * @return Tags to assign to the Contact Flow.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Type of Contact Flow.
-     * 
-     */
     private @Nullable String type;
 
     private GetContactFlowResult() {}
-    /**
-     * @return ARN of the Contact Flow.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
     public String contactFlowId() {
         return this.contactFlowId;
     }
-    /**
-     * @return Logic of the Contact Flow.
-     * 
-     */
     public String content() {
         return this.content;
     }
-    /**
-     * @return Description of the Contact Flow.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -89,17 +57,9 @@ public final class GetContactFlowResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Tags to assign to the Contact Flow.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Type of Contact Flow.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

@@ -18,62 +18,30 @@ public final class DataSetPhysicalTableMapCustomSqlArgs extends com.pulumi.resou
 
     public static final DataSetPhysicalTableMapCustomSqlArgs Empty = new DataSetPhysicalTableMapCustomSqlArgs();
 
-    /**
-     * Column schema from the SQL query result set. See columns.
-     * 
-     */
     @Import(name="columns")
     private @Nullable Output<List<DataSetPhysicalTableMapCustomSqlColumnArgs>> columns;
 
-    /**
-     * @return Column schema from the SQL query result set. See columns.
-     * 
-     */
     public Optional<Output<List<DataSetPhysicalTableMapCustomSqlColumnArgs>>> columns() {
         return Optional.ofNullable(this.columns);
     }
 
-    /**
-     * ARN of the data source.
-     * 
-     */
     @Import(name="dataSourceArn", required=true)
     private Output<String> dataSourceArn;
 
-    /**
-     * @return ARN of the data source.
-     * 
-     */
     public Output<String> dataSourceArn() {
         return this.dataSourceArn;
     }
 
-    /**
-     * Display name for the SQL query result.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Display name for the SQL query result.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * SQL query.
-     * 
-     */
     @Import(name="sqlQuery", required=true)
     private Output<String> sqlQuery;
 
-    /**
-     * @return SQL query.
-     * 
-     */
     public Output<String> sqlQuery() {
         return this.sqlQuery;
     }
@@ -105,96 +73,42 @@ public final class DataSetPhysicalTableMapCustomSqlArgs extends com.pulumi.resou
             $ = new DataSetPhysicalTableMapCustomSqlArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param columns Column schema from the SQL query result set. See columns.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columns(@Nullable Output<List<DataSetPhysicalTableMapCustomSqlColumnArgs>> columns) {
             $.columns = columns;
             return this;
         }
 
-        /**
-         * @param columns Column schema from the SQL query result set. See columns.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columns(List<DataSetPhysicalTableMapCustomSqlColumnArgs> columns) {
             return columns(Output.of(columns));
         }
 
-        /**
-         * @param columns Column schema from the SQL query result set. See columns.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columns(DataSetPhysicalTableMapCustomSqlColumnArgs... columns) {
             return columns(List.of(columns));
         }
 
-        /**
-         * @param dataSourceArn ARN of the data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSourceArn(Output<String> dataSourceArn) {
             $.dataSourceArn = dataSourceArn;
             return this;
         }
 
-        /**
-         * @param dataSourceArn ARN of the data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSourceArn(String dataSourceArn) {
             return dataSourceArn(Output.of(dataSourceArn));
         }
 
-        /**
-         * @param name Display name for the SQL query result.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Display name for the SQL query result.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param sqlQuery SQL query.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sqlQuery(Output<String> sqlQuery) {
             $.sqlQuery = sqlQuery;
             return this;
         }
 
-        /**
-         * @param sqlQuery SQL query.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sqlQuery(String sqlQuery) {
             return sqlQuery(Output.of(sqlQuery));
         }

@@ -12,61 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := organizations.LookupOrganization(ctx, map[string]interface{}{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleOrganizationalUnit, err := organizations.NewOrganizationalUnit(ctx, "example", &organizations.OrganizationalUnitArgs{
-//				Name:     pulumi.String("ExampleOU"),
-//				ParentId: pulumi.String(example.Roots[0].Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = organizations.NewTag(ctx, "example", &organizations.TagArgs{
-//				ResourceId: exampleOrganizationalUnit.ID(),
-//				Key:        pulumi.String("ExampleKey"),
-//				Value:      pulumi.String("ExampleValue"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_organizations_tag` using the Organizations resource identifier and key, separated by a comma (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:organizations/tag:Tag example ou-1234567,ExampleKey
-// ```
 type Tag struct {
 	pulumi.CustomResourceState
 
-	// Tag name.
-	Key pulumi.StringOutput `pulumi:"key"`
-	// Id of the Organizations resource to tag.
+	Key        pulumi.StringOutput `pulumi:"key"`
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
-	// Tag value.
-	Value pulumi.StringOutput `pulumi:"value"`
+	Value      pulumi.StringOutput `pulumi:"value"`
 }
 
 // NewTag registers a new resource with the given unique name, arguments, and options.
@@ -108,21 +59,15 @@ func GetTag(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Tag resources.
 type tagState struct {
-	// Tag name.
-	Key *string `pulumi:"key"`
-	// Id of the Organizations resource to tag.
+	Key        *string `pulumi:"key"`
 	ResourceId *string `pulumi:"resourceId"`
-	// Tag value.
-	Value *string `pulumi:"value"`
+	Value      *string `pulumi:"value"`
 }
 
 type TagState struct {
-	// Tag name.
-	Key pulumi.StringPtrInput
-	// Id of the Organizations resource to tag.
+	Key        pulumi.StringPtrInput
 	ResourceId pulumi.StringPtrInput
-	// Tag value.
-	Value pulumi.StringPtrInput
+	Value      pulumi.StringPtrInput
 }
 
 func (TagState) ElementType() reflect.Type {
@@ -130,22 +75,16 @@ func (TagState) ElementType() reflect.Type {
 }
 
 type tagArgs struct {
-	// Tag name.
-	Key string `pulumi:"key"`
-	// Id of the Organizations resource to tag.
+	Key        string `pulumi:"key"`
 	ResourceId string `pulumi:"resourceId"`
-	// Tag value.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // The set of arguments for constructing a Tag resource.
 type TagArgs struct {
-	// Tag name.
-	Key pulumi.StringInput
-	// Id of the Organizations resource to tag.
+	Key        pulumi.StringInput
 	ResourceId pulumi.StringInput
-	// Tag value.
-	Value pulumi.StringInput
+	Value      pulumi.StringInput
 }
 
 func (TagArgs) ElementType() reflect.Type {
@@ -235,17 +174,14 @@ func (o TagOutput) ToTagOutputWithContext(ctx context.Context) TagOutput {
 	return o
 }
 
-// Tag name.
 func (o TagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
-// Id of the Organizations resource to tag.
 func (o TagOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// Tag value.
 func (o TagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
 }

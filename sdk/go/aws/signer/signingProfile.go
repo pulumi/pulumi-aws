@@ -12,87 +12,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a Signer Signing Profile. A signing profile contains information about the code signing configuration parameters that can be used by a given code signing user.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/signer"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := signer.NewSigningProfile(ctx, "test_sp", &signer.SigningProfileArgs{
-//				PlatformId: pulumi.String("AWSLambda-SHA384-ECDSA"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = signer.NewSigningProfile(ctx, "prod_sp", &signer.SigningProfileArgs{
-//				PlatformId: pulumi.String("AWSLambda-SHA384-ECDSA"),
-//				NamePrefix: pulumi.String("prod_sp_"),
-//				SignatureValidityPeriod: &signer.SigningProfileSignatureValidityPeriodArgs{
-//					Value: pulumi.Int(5),
-//					Type:  pulumi.String("YEARS"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"tag1": pulumi.String("value1"),
-//					"tag2": pulumi.String("value2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Signer signing profiles using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:signer/signingProfile:SigningProfile test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
-// ```
 type SigningProfile struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) for the signing profile.
-	Arn        pulumi.StringOutput `pulumi:"arn"`
-	Name       pulumi.StringOutput `pulumi:"name"`
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	// A human-readable name for the signing platform associated with the signing profile.
-	PlatformDisplayName pulumi.StringOutput `pulumi:"platformDisplayName"`
-	// The ID of the platform that is used by the target signing profile.
-	PlatformId pulumi.StringOutput `pulumi:"platformId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Revocation information for a signing profile. See `revocationRecord` Block below for details.
-	RevocationRecords SigningProfileRevocationRecordArrayOutput `pulumi:"revocationRecords"`
-	// The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
+	Arn                     pulumi.StringOutput                         `pulumi:"arn"`
+	Name                    pulumi.StringOutput                         `pulumi:"name"`
+	NamePrefix              pulumi.StringOutput                         `pulumi:"namePrefix"`
+	PlatformDisplayName     pulumi.StringOutput                         `pulumi:"platformDisplayName"`
+	PlatformId              pulumi.StringOutput                         `pulumi:"platformId"`
+	Region                  pulumi.StringOutput                         `pulumi:"region"`
+	RevocationRecords       SigningProfileRevocationRecordArrayOutput   `pulumi:"revocationRecords"`
 	SignatureValidityPeriod SigningProfileSignatureValidityPeriodOutput `pulumi:"signatureValidityPeriod"`
-	// The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
-	SigningMaterial SigningProfileSigningMaterialOutput `pulumi:"signingMaterial"`
-	// Map of key-value pairs for signing. These can include any information that you want to use during signing.
-	SigningParameters pulumi.StringMapOutput `pulumi:"signingParameters"`
-	// The status of the target signing profile.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The current version of the signing profile.
-	Version pulumi.StringOutput `pulumi:"version"`
-	// The signing profile ARN, including the profile version.
-	VersionArn pulumi.StringOutput `pulumi:"versionArn"`
+	SigningMaterial         SigningProfileSigningMaterialOutput         `pulumi:"signingMaterial"`
+	SigningParameters       pulumi.StringMapOutput                      `pulumi:"signingParameters"`
+	Status                  pulumi.StringOutput                         `pulumi:"status"`
+	Tags                    pulumi.StringMapOutput                      `pulumi:"tags"`
+	TagsAll                 pulumi.StringMapOutput                      `pulumi:"tagsAll"`
+	Version                 pulumi.StringOutput                         `pulumi:"version"`
+	VersionArn              pulumi.StringOutput                         `pulumi:"versionArn"`
 }
 
 // NewSigningProfile registers a new resource with the given unique name, arguments, and options.
@@ -128,65 +65,39 @@ func GetSigningProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SigningProfile resources.
 type signingProfileState struct {
-	// The Amazon Resource Name (ARN) for the signing profile.
-	Arn        *string `pulumi:"arn"`
-	Name       *string `pulumi:"name"`
-	NamePrefix *string `pulumi:"namePrefix"`
-	// A human-readable name for the signing platform associated with the signing profile.
-	PlatformDisplayName *string `pulumi:"platformDisplayName"`
-	// The ID of the platform that is used by the target signing profile.
-	PlatformId *string `pulumi:"platformId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Revocation information for a signing profile. See `revocationRecord` Block below for details.
-	RevocationRecords []SigningProfileRevocationRecord `pulumi:"revocationRecords"`
-	// The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
+	Arn                     *string                                `pulumi:"arn"`
+	Name                    *string                                `pulumi:"name"`
+	NamePrefix              *string                                `pulumi:"namePrefix"`
+	PlatformDisplayName     *string                                `pulumi:"platformDisplayName"`
+	PlatformId              *string                                `pulumi:"platformId"`
+	Region                  *string                                `pulumi:"region"`
+	RevocationRecords       []SigningProfileRevocationRecord       `pulumi:"revocationRecords"`
 	SignatureValidityPeriod *SigningProfileSignatureValidityPeriod `pulumi:"signatureValidityPeriod"`
-	// The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
-	SigningMaterial *SigningProfileSigningMaterial `pulumi:"signingMaterial"`
-	// Map of key-value pairs for signing. These can include any information that you want to use during signing.
-	SigningParameters map[string]string `pulumi:"signingParameters"`
-	// The status of the target signing profile.
-	Status *string `pulumi:"status"`
-	// A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The current version of the signing profile.
-	Version *string `pulumi:"version"`
-	// The signing profile ARN, including the profile version.
-	VersionArn *string `pulumi:"versionArn"`
+	SigningMaterial         *SigningProfileSigningMaterial         `pulumi:"signingMaterial"`
+	SigningParameters       map[string]string                      `pulumi:"signingParameters"`
+	Status                  *string                                `pulumi:"status"`
+	Tags                    map[string]string                      `pulumi:"tags"`
+	TagsAll                 map[string]string                      `pulumi:"tagsAll"`
+	Version                 *string                                `pulumi:"version"`
+	VersionArn              *string                                `pulumi:"versionArn"`
 }
 
 type SigningProfileState struct {
-	// The Amazon Resource Name (ARN) for the signing profile.
-	Arn        pulumi.StringPtrInput
-	Name       pulumi.StringPtrInput
-	NamePrefix pulumi.StringPtrInput
-	// A human-readable name for the signing platform associated with the signing profile.
-	PlatformDisplayName pulumi.StringPtrInput
-	// The ID of the platform that is used by the target signing profile.
-	PlatformId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Revocation information for a signing profile. See `revocationRecord` Block below for details.
-	RevocationRecords SigningProfileRevocationRecordArrayInput
-	// The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
+	Arn                     pulumi.StringPtrInput
+	Name                    pulumi.StringPtrInput
+	NamePrefix              pulumi.StringPtrInput
+	PlatformDisplayName     pulumi.StringPtrInput
+	PlatformId              pulumi.StringPtrInput
+	Region                  pulumi.StringPtrInput
+	RevocationRecords       SigningProfileRevocationRecordArrayInput
 	SignatureValidityPeriod SigningProfileSignatureValidityPeriodPtrInput
-	// The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
-	SigningMaterial SigningProfileSigningMaterialPtrInput
-	// Map of key-value pairs for signing. These can include any information that you want to use during signing.
-	SigningParameters pulumi.StringMapInput
-	// The status of the target signing profile.
-	Status pulumi.StringPtrInput
-	// A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The current version of the signing profile.
-	Version pulumi.StringPtrInput
-	// The signing profile ARN, including the profile version.
-	VersionArn pulumi.StringPtrInput
+	SigningMaterial         SigningProfileSigningMaterialPtrInput
+	SigningParameters       pulumi.StringMapInput
+	Status                  pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
+	TagsAll                 pulumi.StringMapInput
+	Version                 pulumi.StringPtrInput
+	VersionArn              pulumi.StringPtrInput
 }
 
 func (SigningProfileState) ElementType() reflect.Type {
@@ -194,38 +105,26 @@ func (SigningProfileState) ElementType() reflect.Type {
 }
 
 type signingProfileArgs struct {
-	Name       *string `pulumi:"name"`
-	NamePrefix *string `pulumi:"namePrefix"`
-	// The ID of the platform that is used by the target signing profile.
-	PlatformId string `pulumi:"platformId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
+	Name                    *string                                `pulumi:"name"`
+	NamePrefix              *string                                `pulumi:"namePrefix"`
+	PlatformId              string                                 `pulumi:"platformId"`
+	Region                  *string                                `pulumi:"region"`
 	SignatureValidityPeriod *SigningProfileSignatureValidityPeriod `pulumi:"signatureValidityPeriod"`
-	// The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
-	SigningMaterial *SigningProfileSigningMaterial `pulumi:"signingMaterial"`
-	// Map of key-value pairs for signing. These can include any information that you want to use during signing.
-	SigningParameters map[string]string `pulumi:"signingParameters"`
-	// A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	SigningMaterial         *SigningProfileSigningMaterial         `pulumi:"signingMaterial"`
+	SigningParameters       map[string]string                      `pulumi:"signingParameters"`
+	Tags                    map[string]string                      `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SigningProfile resource.
 type SigningProfileArgs struct {
-	Name       pulumi.StringPtrInput
-	NamePrefix pulumi.StringPtrInput
-	// The ID of the platform that is used by the target signing profile.
-	PlatformId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
+	Name                    pulumi.StringPtrInput
+	NamePrefix              pulumi.StringPtrInput
+	PlatformId              pulumi.StringInput
+	Region                  pulumi.StringPtrInput
 	SignatureValidityPeriod SigningProfileSignatureValidityPeriodPtrInput
-	// The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
-	SigningMaterial SigningProfileSigningMaterialPtrInput
-	// Map of key-value pairs for signing. These can include any information that you want to use during signing.
-	SigningParameters pulumi.StringMapInput
-	// A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	SigningMaterial         SigningProfileSigningMaterialPtrInput
+	SigningParameters       pulumi.StringMapInput
+	Tags                    pulumi.StringMapInput
 }
 
 func (SigningProfileArgs) ElementType() reflect.Type {
@@ -315,7 +214,6 @@ func (o SigningProfileOutput) ToSigningProfileOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The Amazon Resource Name (ARN) for the signing profile.
 func (o SigningProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SigningProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -328,62 +226,50 @@ func (o SigningProfileOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *SigningProfile) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// A human-readable name for the signing platform associated with the signing profile.
 func (o SigningProfileOutput) PlatformDisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SigningProfile) pulumi.StringOutput { return v.PlatformDisplayName }).(pulumi.StringOutput)
 }
 
-// The ID of the platform that is used by the target signing profile.
 func (o SigningProfileOutput) PlatformId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SigningProfile) pulumi.StringOutput { return v.PlatformId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SigningProfileOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SigningProfile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Revocation information for a signing profile. See `revocationRecord` Block below for details.
 func (o SigningProfileOutput) RevocationRecords() SigningProfileRevocationRecordArrayOutput {
 	return o.ApplyT(func(v *SigningProfile) SigningProfileRevocationRecordArrayOutput { return v.RevocationRecords }).(SigningProfileRevocationRecordArrayOutput)
 }
 
-// The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
 func (o SigningProfileOutput) SignatureValidityPeriod() SigningProfileSignatureValidityPeriodOutput {
 	return o.ApplyT(func(v *SigningProfile) SigningProfileSignatureValidityPeriodOutput { return v.SignatureValidityPeriod }).(SigningProfileSignatureValidityPeriodOutput)
 }
 
-// The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
 func (o SigningProfileOutput) SigningMaterial() SigningProfileSigningMaterialOutput {
 	return o.ApplyT(func(v *SigningProfile) SigningProfileSigningMaterialOutput { return v.SigningMaterial }).(SigningProfileSigningMaterialOutput)
 }
 
-// Map of key-value pairs for signing. These can include any information that you want to use during signing.
 func (o SigningProfileOutput) SigningParameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SigningProfile) pulumi.StringMapOutput { return v.SigningParameters }).(pulumi.StringMapOutput)
 }
 
-// The status of the target signing profile.
 func (o SigningProfileOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *SigningProfile) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o SigningProfileOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SigningProfile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SigningProfileOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SigningProfile) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The current version of the signing profile.
 func (o SigningProfileOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *SigningProfile) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }
 
-// The signing profile ARN, including the profile version.
 func (o SigningProfileOutput) VersionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SigningProfile) pulumi.StringOutput { return v.VersionArn }).(pulumi.StringOutput)
 }

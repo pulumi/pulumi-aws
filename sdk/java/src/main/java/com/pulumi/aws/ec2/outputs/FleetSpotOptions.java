@@ -14,101 +14,37 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FleetSpotOptions {
-    /**
-     * @return How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized`, `capacity-optimized-prioritized` and `price-capacity-optimized`. Default: `lowestPrice`.
-     * 
-     */
     private @Nullable String allocationStrategy;
-    /**
-     * @return Behavior when a Spot Instance is interrupted. Valid values: `hibernate`, `stop`, `terminate`. Default: `terminate`.
-     * 
-     */
     private @Nullable String instanceInterruptionBehavior;
-    /**
-     * @return Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocationStrategy` is set to `lowestPrice`. Default: `1`.
-     * 
-     */
     private @Nullable Integer instancePoolsToUseCount;
-    /**
-     * @return Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
-     * 
-     */
     private @Nullable FleetSpotOptionsMaintenanceStrategies maintenanceStrategies;
-    /**
-     * @return The maximum amount per hour for Spot Instances that you&#39;re willing to pay.
-     * 
-     */
     private @Nullable String maxTotalPrice;
-    /**
-     * @return The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
-     * 
-     */
     private @Nullable Integer minTargetCapacity;
-    /**
-     * @return Indicates that the fleet launches all Spot Instances into a single Availability Zone. Supported only for fleets of type `instant`.
-     * 
-     */
     private @Nullable Boolean singleAvailabilityZone;
-    /**
-     * @return Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet. Supported only for fleets of type `instant`.
-     * 
-     */
     private @Nullable Boolean singleInstanceType;
 
     private FleetSpotOptions() {}
-    /**
-     * @return How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized`, `capacity-optimized-prioritized` and `price-capacity-optimized`. Default: `lowestPrice`.
-     * 
-     */
     public Optional<String> allocationStrategy() {
         return Optional.ofNullable(this.allocationStrategy);
     }
-    /**
-     * @return Behavior when a Spot Instance is interrupted. Valid values: `hibernate`, `stop`, `terminate`. Default: `terminate`.
-     * 
-     */
     public Optional<String> instanceInterruptionBehavior() {
         return Optional.ofNullable(this.instanceInterruptionBehavior);
     }
-    /**
-     * @return Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocationStrategy` is set to `lowestPrice`. Default: `1`.
-     * 
-     */
     public Optional<Integer> instancePoolsToUseCount() {
         return Optional.ofNullable(this.instancePoolsToUseCount);
     }
-    /**
-     * @return Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
-     * 
-     */
     public Optional<FleetSpotOptionsMaintenanceStrategies> maintenanceStrategies() {
         return Optional.ofNullable(this.maintenanceStrategies);
     }
-    /**
-     * @return The maximum amount per hour for Spot Instances that you&#39;re willing to pay.
-     * 
-     */
     public Optional<String> maxTotalPrice() {
         return Optional.ofNullable(this.maxTotalPrice);
     }
-    /**
-     * @return The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
-     * 
-     */
     public Optional<Integer> minTargetCapacity() {
         return Optional.ofNullable(this.minTargetCapacity);
     }
-    /**
-     * @return Indicates that the fleet launches all Spot Instances into a single Availability Zone. Supported only for fleets of type `instant`.
-     * 
-     */
     public Optional<Boolean> singleAvailabilityZone() {
         return Optional.ofNullable(this.singleAvailabilityZone);
     }
-    /**
-     * @return Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet. Supported only for fleets of type `instant`.
-     * 
-     */
     public Optional<Boolean> singleInstanceType() {
         return Optional.ofNullable(this.singleInstanceType);
     }

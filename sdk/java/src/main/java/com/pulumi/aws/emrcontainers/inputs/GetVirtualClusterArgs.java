@@ -17,47 +17,23 @@ public final class GetVirtualClusterArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetVirtualClusterArgs Empty = new GetVirtualClusterArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value mapping of resource tags.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * ID of the cluster.
-     * 
-     */
     @Import(name="virtualClusterId", required=true)
     private Output<String> virtualClusterId;
 
-    /**
-     * @return ID of the cluster.
-     * 
-     */
     public Output<String> virtualClusterId() {
         return this.virtualClusterId;
     }
@@ -88,65 +64,29 @@ public final class GetVirtualClusterArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetVirtualClusterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param virtualClusterId ID of the cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder virtualClusterId(Output<String> virtualClusterId) {
             $.virtualClusterId = virtualClusterId;
             return this;
         }
 
-        /**
-         * @param virtualClusterId ID of the cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder virtualClusterId(String virtualClusterId) {
             return virtualClusterId(Output.of(virtualClusterId));
         }

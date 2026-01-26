@@ -14,32 +14,16 @@ public final class GetTagsTimePeriodArgs extends com.pulumi.resources.ResourceAr
 
     public static final GetTagsTimePeriodArgs Empty = new GetTagsTimePeriodArgs();
 
-    /**
-     * Beginning of the time period.
-     * 
-     */
     @Import(name="end", required=true)
     private Output<String> end;
 
-    /**
-     * @return Beginning of the time period.
-     * 
-     */
     public Output<String> end() {
         return this.end;
     }
 
-    /**
-     * End of the time period.
-     * 
-     */
     @Import(name="start", required=true)
     private Output<String> start;
 
-    /**
-     * @return End of the time period.
-     * 
-     */
     public Output<String> start() {
         return this.start;
     }
@@ -69,44 +53,20 @@ public final class GetTagsTimePeriodArgs extends com.pulumi.resources.ResourceAr
             $ = new GetTagsTimePeriodArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param end Beginning of the time period.
-         * 
-         * @return builder
-         * 
-         */
         public Builder end(Output<String> end) {
             $.end = end;
             return this;
         }
 
-        /**
-         * @param end Beginning of the time period.
-         * 
-         * @return builder
-         * 
-         */
         public Builder end(String end) {
             return end(Output.of(end));
         }
 
-        /**
-         * @param start End of the time period.
-         * 
-         * @return builder
-         * 
-         */
         public Builder start(Output<String> start) {
             $.start = start;
             return this;
         }
 
-        /**
-         * @param start End of the time period.
-         * 
-         * @return builder
-         * 
-         */
         public Builder start(String start) {
             return start(Output.of(start));
         }

@@ -15,32 +15,16 @@ public final class GetEndpointAssociationsPlainArgs extends com.pulumi.resources
 
     public static final GetEndpointAssociationsPlainArgs Empty = new GetEndpointAssociationsPlainArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID of the specific VPC Endpoint to retrieve.
-     * 
-     */
     @Import(name="vpcEndpointId", required=true)
     private String vpcEndpointId;
 
-    /**
-     * @return ID of the specific VPC Endpoint to retrieve.
-     * 
-     */
     public String vpcEndpointId() {
         return this.vpcEndpointId;
     }
@@ -70,23 +54,11 @@ public final class GetEndpointAssociationsPlainArgs extends com.pulumi.resources
             $ = new GetEndpointAssociationsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param vpcEndpointId ID of the specific VPC Endpoint to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointId(String vpcEndpointId) {
             $.vpcEndpointId = vpcEndpointId;
             return this;

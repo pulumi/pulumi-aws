@@ -16,17 +16,9 @@ public final class UserProfileUserSettingsCustomFileSystemConfigArgs extends com
 
     public static final UserProfileUserSettingsCustomFileSystemConfigArgs Empty = new UserProfileUserSettingsCustomFileSystemConfigArgs();
 
-    /**
-     * The default EBS storage settings for a private space. See EFS File System Config below.
-     * 
-     */
     @Import(name="efsFileSystemConfigs")
     private @Nullable Output<List<UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs>> efsFileSystemConfigs;
 
-    /**
-     * @return The default EBS storage settings for a private space. See EFS File System Config below.
-     * 
-     */
     public Optional<Output<List<UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs>>> efsFileSystemConfigs() {
         return Optional.ofNullable(this.efsFileSystemConfigs);
     }
@@ -55,33 +47,15 @@ public final class UserProfileUserSettingsCustomFileSystemConfigArgs extends com
             $ = new UserProfileUserSettingsCustomFileSystemConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param efsFileSystemConfigs The default EBS storage settings for a private space. See EFS File System Config below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder efsFileSystemConfigs(@Nullable Output<List<UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs>> efsFileSystemConfigs) {
             $.efsFileSystemConfigs = efsFileSystemConfigs;
             return this;
         }
 
-        /**
-         * @param efsFileSystemConfigs The default EBS storage settings for a private space. See EFS File System Config below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder efsFileSystemConfigs(List<UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs> efsFileSystemConfigs) {
             return efsFileSystemConfigs(Output.of(efsFileSystemConfigs));
         }
 
-        /**
-         * @param efsFileSystemConfigs The default EBS storage settings for a private space. See EFS File System Config below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder efsFileSystemConfigs(UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs... efsFileSystemConfigs) {
             return efsFileSystemConfigs(List.of(efsFileSystemConfigs));
         }

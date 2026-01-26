@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class CapacityProviderPermissionsConfig {
-    /**
-     * @return The ARN of the IAM role that allows Lambda to manage the Capacity Provider.
-     * 
-     */
     private String capacityProviderOperatorRoleArn;
 
     private CapacityProviderPermissionsConfig() {}
-    /**
-     * @return The ARN of the IAM role that allows Lambda to manage the Capacity Provider.
-     * 
-     */
     public String capacityProviderOperatorRoleArn() {
         return this.capacityProviderOperatorRoleArn;
     }

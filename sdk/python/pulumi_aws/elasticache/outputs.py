@@ -70,10 +70,6 @@ class ClusterCacheNode(dict):
                  id: Optional[_builtins.str] = None,
                  outpost_arn: Optional[_builtins.str] = None,
                  port: Optional[_builtins.int] = None):
-        """
-        :param _builtins.str availability_zone: Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
-        :param _builtins.int port: The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
-        """
         if address is not None:
             pulumi.set(__self__, "address", address)
         if availability_zone is not None:
@@ -93,9 +89,6 @@ class ClusterCacheNode(dict):
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[_builtins.str]:
-        """
-        Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
-        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
@@ -111,9 +104,6 @@ class ClusterCacheNode(dict):
     @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[_builtins.int]:
-        """
-        The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
-        """
         return pulumi.get(self, "port")
 
 
@@ -145,12 +135,6 @@ class ClusterLogDeliveryConfiguration(dict):
                  destination_type: _builtins.str,
                  log_format: _builtins.str,
                  log_type: _builtins.str):
-        """
-        :param _builtins.str destination: Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
-        :param _builtins.str destination_type: For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
-        :param _builtins.str log_format: Valid values are `json` or `text`
-        :param _builtins.str log_type: Valid values are  `slow-log` or `engine-log`. Max 1 of each.
-        """
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "destination_type", destination_type)
         pulumi.set(__self__, "log_format", log_format)
@@ -159,33 +143,21 @@ class ClusterLogDeliveryConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def destination(self) -> _builtins.str:
-        """
-        Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
-        """
         return pulumi.get(self, "destination")
 
     @_builtins.property
     @pulumi.getter(name="destinationType")
     def destination_type(self) -> _builtins.str:
-        """
-        For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
-        """
         return pulumi.get(self, "destination_type")
 
     @_builtins.property
     @pulumi.getter(name="logFormat")
     def log_format(self) -> _builtins.str:
-        """
-        Valid values are `json` or `text`
-        """
         return pulumi.get(self, "log_format")
 
     @_builtins.property
     @pulumi.getter(name="logType")
     def log_type(self) -> _builtins.str:
-        """
-        Valid values are  `slow-log` or `engine-log`. Max 1 of each.
-        """
         return pulumi.get(self, "log_type")
 
 
@@ -211,10 +183,6 @@ class GlobalReplicationGroupGlobalNodeGroup(dict):
     def __init__(__self__, *,
                  global_node_group_id: Optional[_builtins.str] = None,
                  slots: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str global_node_group_id: The ID of the global node group.
-        :param _builtins.str slots: The keyspace for this node group.
-        """
         if global_node_group_id is not None:
             pulumi.set(__self__, "global_node_group_id", global_node_group_id)
         if slots is not None:
@@ -223,17 +191,11 @@ class GlobalReplicationGroupGlobalNodeGroup(dict):
     @_builtins.property
     @pulumi.getter(name="globalNodeGroupId")
     def global_node_group_id(self) -> Optional[_builtins.str]:
-        """
-        The ID of the global node group.
-        """
         return pulumi.get(self, "global_node_group_id")
 
     @_builtins.property
     @pulumi.getter
     def slots(self) -> Optional[_builtins.str]:
-        """
-        The keyspace for this node group.
-        """
         return pulumi.get(self, "slots")
 
 
@@ -242,27 +204,17 @@ class ParameterGroupParameter(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  value: _builtins.str):
-        """
-        :param _builtins.str name: The name of the ElastiCache parameter.
-        :param _builtins.str value: The value of the ElastiCache parameter.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the ElastiCache parameter.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        The value of the ElastiCache parameter.
-        """
         return pulumi.get(self, "value")
 
 
@@ -294,12 +246,6 @@ class ReplicationGroupLogDeliveryConfiguration(dict):
                  destination_type: _builtins.str,
                  log_format: _builtins.str,
                  log_type: _builtins.str):
-        """
-        :param _builtins.str destination: Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
-        :param _builtins.str destination_type: For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
-        :param _builtins.str log_format: Valid values are `json` or `text`
-        :param _builtins.str log_type: Valid values are  `slow-log` or `engine-log`. Max 1 of each.
-        """
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "destination_type", destination_type)
         pulumi.set(__self__, "log_format", log_format)
@@ -308,33 +254,21 @@ class ReplicationGroupLogDeliveryConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def destination(self) -> _builtins.str:
-        """
-        Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
-        """
         return pulumi.get(self, "destination")
 
     @_builtins.property
     @pulumi.getter(name="destinationType")
     def destination_type(self) -> _builtins.str:
-        """
-        For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
-        """
         return pulumi.get(self, "destination_type")
 
     @_builtins.property
     @pulumi.getter(name="logFormat")
     def log_format(self) -> _builtins.str:
-        """
-        Valid values are `json` or `text`
-        """
         return pulumi.get(self, "log_format")
 
     @_builtins.property
     @pulumi.getter(name="logType")
     def log_type(self) -> _builtins.str:
-        """
-        Valid values are  `slow-log` or `engine-log`. Max 1 of each.
-        """
         return pulumi.get(self, "log_type")
 
 
@@ -375,15 +309,6 @@ class ReplicationGroupNodeGroupConfiguration(dict):
                  replica_count: Optional[_builtins.int] = None,
                  replica_outpost_arns: Optional[Sequence[_builtins.str]] = None,
                  slots: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str node_group_id: ID for the node group. Redis (cluster mode disabled) replication groups don't have node group IDs, so this value is ignored. For Redis (cluster mode enabled) replication groups, the node group ID is a 1 to 4 character alphanumeric string.
-        :param _builtins.str primary_availability_zone: Availability zone for the primary node.
-        :param _builtins.str primary_outpost_arn: ARN of the Outpost for the primary node.
-        :param Sequence[_builtins.str] replica_availability_zones: List of availability zones for the replica nodes.
-        :param _builtins.int replica_count: Number of replica nodes in this node group.
-        :param Sequence[_builtins.str] replica_outpost_arns: List of ARNs of the Outposts for the replica nodes.
-        :param _builtins.str slots: Keyspace for this node group. Format is `start-end` (e.g., `0-5460`). For Redis (cluster mode disabled) replication groups, this value is ignored.
-        """
         if node_group_id is not None:
             pulumi.set(__self__, "node_group_id", node_group_id)
         if primary_availability_zone is not None:
@@ -402,57 +327,36 @@ class ReplicationGroupNodeGroupConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="nodeGroupId")
     def node_group_id(self) -> Optional[_builtins.str]:
-        """
-        ID for the node group. Redis (cluster mode disabled) replication groups don't have node group IDs, so this value is ignored. For Redis (cluster mode enabled) replication groups, the node group ID is a 1 to 4 character alphanumeric string.
-        """
         return pulumi.get(self, "node_group_id")
 
     @_builtins.property
     @pulumi.getter(name="primaryAvailabilityZone")
     def primary_availability_zone(self) -> Optional[_builtins.str]:
-        """
-        Availability zone for the primary node.
-        """
         return pulumi.get(self, "primary_availability_zone")
 
     @_builtins.property
     @pulumi.getter(name="primaryOutpostArn")
     def primary_outpost_arn(self) -> Optional[_builtins.str]:
-        """
-        ARN of the Outpost for the primary node.
-        """
         return pulumi.get(self, "primary_outpost_arn")
 
     @_builtins.property
     @pulumi.getter(name="replicaAvailabilityZones")
     def replica_availability_zones(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of availability zones for the replica nodes.
-        """
         return pulumi.get(self, "replica_availability_zones")
 
     @_builtins.property
     @pulumi.getter(name="replicaCount")
     def replica_count(self) -> Optional[_builtins.int]:
-        """
-        Number of replica nodes in this node group.
-        """
         return pulumi.get(self, "replica_count")
 
     @_builtins.property
     @pulumi.getter(name="replicaOutpostArns")
     def replica_outpost_arns(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of ARNs of the Outposts for the replica nodes.
-        """
         return pulumi.get(self, "replica_outpost_arns")
 
     @_builtins.property
     @pulumi.getter
     def slots(self) -> Optional[_builtins.str]:
-        """
-        Keyspace for this node group. Format is `start-end` (e.g., `0-5460`). For Redis (cluster mode disabled) replication groups, this value is ignored.
-        """
         return pulumi.get(self, "slots")
 
 
@@ -561,10 +465,6 @@ class ServerlessCacheCacheUsageLimits(dict):
     def __init__(__self__, *,
                  data_storage: Optional['outputs.ServerlessCacheCacheUsageLimitsDataStorage'] = None,
                  ecpu_per_seconds: Optional[Sequence['outputs.ServerlessCacheCacheUsageLimitsEcpuPerSecond']] = None):
-        """
-        :param 'ServerlessCacheCacheUsageLimitsDataStorageArgs' data_storage: The maximum data storage limit in the cache, expressed in Gigabytes. See `data_storage` Block for details.
-        :param Sequence['ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs'] ecpu_per_seconds: The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpu_per_second` Block for details.
-        """
         if data_storage is not None:
             pulumi.set(__self__, "data_storage", data_storage)
         if ecpu_per_seconds is not None:
@@ -573,17 +473,11 @@ class ServerlessCacheCacheUsageLimits(dict):
     @_builtins.property
     @pulumi.getter(name="dataStorage")
     def data_storage(self) -> Optional['outputs.ServerlessCacheCacheUsageLimitsDataStorage']:
-        """
-        The maximum data storage limit in the cache, expressed in Gigabytes. See `data_storage` Block for details.
-        """
         return pulumi.get(self, "data_storage")
 
     @_builtins.property
     @pulumi.getter(name="ecpuPerSeconds")
     def ecpu_per_seconds(self) -> Optional[Sequence['outputs.ServerlessCacheCacheUsageLimitsEcpuPerSecond']]:
-        """
-        The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpu_per_second` Block for details.
-        """
         return pulumi.get(self, "ecpu_per_seconds")
 
 
@@ -593,11 +487,6 @@ class ServerlessCacheCacheUsageLimitsDataStorage(dict):
                  unit: _builtins.str,
                  maximum: Optional[_builtins.int] = None,
                  minimum: Optional[_builtins.int] = None):
-        """
-        :param _builtins.str unit: The unit that the storage is measured in, in GB.
-        :param _builtins.int maximum: The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
-        :param _builtins.int minimum: The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
-        """
         pulumi.set(__self__, "unit", unit)
         if maximum is not None:
             pulumi.set(__self__, "maximum", maximum)
@@ -607,25 +496,16 @@ class ServerlessCacheCacheUsageLimitsDataStorage(dict):
     @_builtins.property
     @pulumi.getter
     def unit(self) -> _builtins.str:
-        """
-        The unit that the storage is measured in, in GB.
-        """
         return pulumi.get(self, "unit")
 
     @_builtins.property
     @pulumi.getter
     def maximum(self) -> Optional[_builtins.int]:
-        """
-        The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
-        """
         return pulumi.get(self, "maximum")
 
     @_builtins.property
     @pulumi.getter
     def minimum(self) -> Optional[_builtins.int]:
-        """
-        The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
-        """
         return pulumi.get(self, "minimum")
 
 
@@ -634,10 +514,6 @@ class ServerlessCacheCacheUsageLimitsEcpuPerSecond(dict):
     def __init__(__self__, *,
                  maximum: Optional[_builtins.int] = None,
                  minimum: Optional[_builtins.int] = None):
-        """
-        :param _builtins.int maximum: The maximum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
-        :param _builtins.int minimum: The minimum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
-        """
         if maximum is not None:
             pulumi.set(__self__, "maximum", maximum)
         if minimum is not None:
@@ -646,17 +522,11 @@ class ServerlessCacheCacheUsageLimitsEcpuPerSecond(dict):
     @_builtins.property
     @pulumi.getter
     def maximum(self) -> Optional[_builtins.int]:
-        """
-        The maximum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
-        """
         return pulumi.get(self, "maximum")
 
     @_builtins.property
     @pulumi.getter
     def minimum(self) -> Optional[_builtins.int]:
-        """
-        The minimum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
-        """
         return pulumi.get(self, "minimum")
 
 
@@ -665,27 +535,17 @@ class ServerlessCacheEndpoint(dict):
     def __init__(__self__, *,
                  address: _builtins.str,
                  port: _builtins.int):
-        """
-        :param _builtins.str address: The DNS hostname of the cache node.
-        :param _builtins.int port: The port number that the cache engine is listening on. Set as integer.
-        """
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "port", port)
 
     @_builtins.property
     @pulumi.getter
     def address(self) -> _builtins.str:
-        """
-        The DNS hostname of the cache node.
-        """
         return pulumi.get(self, "address")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> _builtins.int:
-        """
-        The port number that the cache engine is listening on. Set as integer.
-        """
         return pulumi.get(self, "port")
 
 
@@ -694,27 +554,17 @@ class ServerlessCacheReaderEndpoint(dict):
     def __init__(__self__, *,
                  address: _builtins.str,
                  port: _builtins.int):
-        """
-        :param _builtins.str address: The DNS hostname of the cache node.
-        :param _builtins.int port: The port number that the cache engine is listening on. Set as integer.
-        """
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "port", port)
 
     @_builtins.property
     @pulumi.getter
     def address(self) -> _builtins.str:
-        """
-        The DNS hostname of the cache node.
-        """
         return pulumi.get(self, "address")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> _builtins.int:
-        """
-        The port number that the cache engine is listening on. Set as integer.
-        """
         return pulumi.get(self, "port")
 
 
@@ -784,10 +634,6 @@ class UserAuthenticationMode(dict):
                  type: _builtins.str,
                  password_count: Optional[_builtins.int] = None,
                  passwords: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str type: Specifies the authentication type. Possible options are: `password`, `no-password-required` or `iam`.
-        :param Sequence[_builtins.str] passwords: Specifies the passwords to use for authentication if `type` is set to `password`.
-        """
         pulumi.set(__self__, "type", type)
         if password_count is not None:
             pulumi.set(__self__, "password_count", password_count)
@@ -797,9 +643,6 @@ class UserAuthenticationMode(dict):
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Specifies the authentication type. Possible options are: `password`, `no-password-required` or `iam`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
@@ -810,9 +653,6 @@ class UserAuthenticationMode(dict):
     @_builtins.property
     @pulumi.getter
     def passwords(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Specifies the passwords to use for authentication if `type` is set to `password`.
-        """
         return pulumi.get(self, "passwords")
 
 
@@ -824,11 +664,6 @@ class GetClusterCacheNodeResult(dict):
                  id: _builtins.str,
                  outpost_arn: _builtins.str,
                  port: _builtins.int):
-        """
-        :param _builtins.str availability_zone: Availability Zone for the cache cluster.
-        :param _builtins.int port: The port number on which each of the cache nodes will
-               accept connections.
-        """
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "availability_zone", availability_zone)
         pulumi.set(__self__, "id", id)
@@ -843,9 +678,6 @@ class GetClusterCacheNodeResult(dict):
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> _builtins.str:
-        """
-        Availability Zone for the cache cluster.
-        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
@@ -861,10 +693,6 @@ class GetClusterCacheNodeResult(dict):
     @_builtins.property
     @pulumi.getter
     def port(self) -> _builtins.int:
-        """
-        The port number on which each of the cache nodes will
-        accept connections.
-        """
         return pulumi.get(self, "port")
 
 
@@ -944,15 +772,6 @@ class GetReplicationGroupNodeGroupConfigurationResult(dict):
                  replica_count: _builtins.int,
                  replica_outpost_arns: Sequence[_builtins.str],
                  slots: _builtins.str):
-        """
-        :param _builtins.str node_group_id: ID of the node group.
-        :param _builtins.str primary_availability_zone: Availability Zone for the primary node.
-        :param _builtins.str primary_outpost_arn: Outpost ARN of the primary node.
-        :param Sequence[_builtins.str] replica_availability_zones: List of Availability Zones for the replica nodes.
-        :param _builtins.int replica_count: Number of replica nodes in this node group.
-        :param Sequence[_builtins.str] replica_outpost_arns: List of outpost ARNs for the replica nodes.
-        :param _builtins.str slots: Keyspace for this node group (shard).
-        """
         pulumi.set(__self__, "node_group_id", node_group_id)
         pulumi.set(__self__, "primary_availability_zone", primary_availability_zone)
         pulumi.set(__self__, "primary_outpost_arn", primary_outpost_arn)
@@ -964,57 +783,36 @@ class GetReplicationGroupNodeGroupConfigurationResult(dict):
     @_builtins.property
     @pulumi.getter(name="nodeGroupId")
     def node_group_id(self) -> _builtins.str:
-        """
-        ID of the node group.
-        """
         return pulumi.get(self, "node_group_id")
 
     @_builtins.property
     @pulumi.getter(name="primaryAvailabilityZone")
     def primary_availability_zone(self) -> _builtins.str:
-        """
-        Availability Zone for the primary node.
-        """
         return pulumi.get(self, "primary_availability_zone")
 
     @_builtins.property
     @pulumi.getter(name="primaryOutpostArn")
     def primary_outpost_arn(self) -> _builtins.str:
-        """
-        Outpost ARN of the primary node.
-        """
         return pulumi.get(self, "primary_outpost_arn")
 
     @_builtins.property
     @pulumi.getter(name="replicaAvailabilityZones")
     def replica_availability_zones(self) -> Sequence[_builtins.str]:
-        """
-        List of Availability Zones for the replica nodes.
-        """
         return pulumi.get(self, "replica_availability_zones")
 
     @_builtins.property
     @pulumi.getter(name="replicaCount")
     def replica_count(self) -> _builtins.int:
-        """
-        Number of replica nodes in this node group.
-        """
         return pulumi.get(self, "replica_count")
 
     @_builtins.property
     @pulumi.getter(name="replicaOutpostArns")
     def replica_outpost_arns(self) -> Sequence[_builtins.str]:
-        """
-        List of outpost ARNs for the replica nodes.
-        """
         return pulumi.get(self, "replica_outpost_arns")
 
     @_builtins.property
     @pulumi.getter
     def slots(self) -> _builtins.str:
-        """
-        Keyspace for this node group (shard).
-        """
         return pulumi.get(self, "slots")
 
 
@@ -1023,27 +821,17 @@ class GetServerlessCacheCacheUsageLimitsResult(dict):
     def __init__(__self__, *,
                  data_storage: 'outputs.GetServerlessCacheCacheUsageLimitsDataStorageResult',
                  ecpu_per_second: 'outputs.GetServerlessCacheCacheUsageLimitsEcpuPerSecondResult'):
-        """
-        :param 'GetServerlessCacheCacheUsageLimitsDataStorageArgs' data_storage: The maximum data storage limit in the cache, expressed in Gigabytes. See `data_storage` Block for details.
-        :param 'GetServerlessCacheCacheUsageLimitsEcpuPerSecondArgs' ecpu_per_second: The configured number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpu_per_second` Block for details.
-        """
         pulumi.set(__self__, "data_storage", data_storage)
         pulumi.set(__self__, "ecpu_per_second", ecpu_per_second)
 
     @_builtins.property
     @pulumi.getter(name="dataStorage")
     def data_storage(self) -> 'outputs.GetServerlessCacheCacheUsageLimitsDataStorageResult':
-        """
-        The maximum data storage limit in the cache, expressed in Gigabytes. See `data_storage` Block for details.
-        """
         return pulumi.get(self, "data_storage")
 
     @_builtins.property
     @pulumi.getter(name="ecpuPerSecond")
     def ecpu_per_second(self) -> 'outputs.GetServerlessCacheCacheUsageLimitsEcpuPerSecondResult':
-        """
-        The configured number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpu_per_second` Block for details.
-        """
         return pulumi.get(self, "ecpu_per_second")
 
 
@@ -1053,11 +841,6 @@ class GetServerlessCacheCacheUsageLimitsDataStorageResult(dict):
                  maximum: _builtins.int,
                  minimum: _builtins.int,
                  unit: _builtins.str):
-        """
-        :param _builtins.int maximum: The maximum number of ECPUs the cache can consume per second.
-        :param _builtins.int minimum: The minimum number of ECPUs the cache can consume per second.
-        :param _builtins.str unit: The unit that the storage is measured in.
-        """
         pulumi.set(__self__, "maximum", maximum)
         pulumi.set(__self__, "minimum", minimum)
         pulumi.set(__self__, "unit", unit)
@@ -1065,25 +848,16 @@ class GetServerlessCacheCacheUsageLimitsDataStorageResult(dict):
     @_builtins.property
     @pulumi.getter
     def maximum(self) -> _builtins.int:
-        """
-        The maximum number of ECPUs the cache can consume per second.
-        """
         return pulumi.get(self, "maximum")
 
     @_builtins.property
     @pulumi.getter
     def minimum(self) -> _builtins.int:
-        """
-        The minimum number of ECPUs the cache can consume per second.
-        """
         return pulumi.get(self, "minimum")
 
     @_builtins.property
     @pulumi.getter
     def unit(self) -> _builtins.str:
-        """
-        The unit that the storage is measured in.
-        """
         return pulumi.get(self, "unit")
 
 
@@ -1092,27 +866,17 @@ class GetServerlessCacheCacheUsageLimitsEcpuPerSecondResult(dict):
     def __init__(__self__, *,
                  maximum: _builtins.int,
                  minimum: _builtins.int):
-        """
-        :param _builtins.int maximum: The maximum number of ECPUs the cache can consume per second.
-        :param _builtins.int minimum: The minimum number of ECPUs the cache can consume per second.
-        """
         pulumi.set(__self__, "maximum", maximum)
         pulumi.set(__self__, "minimum", minimum)
 
     @_builtins.property
     @pulumi.getter
     def maximum(self) -> _builtins.int:
-        """
-        The maximum number of ECPUs the cache can consume per second.
-        """
         return pulumi.get(self, "maximum")
 
     @_builtins.property
     @pulumi.getter
     def minimum(self) -> _builtins.int:
-        """
-        The minimum number of ECPUs the cache can consume per second.
-        """
         return pulumi.get(self, "minimum")
 
 
@@ -1121,27 +885,17 @@ class GetServerlessCacheEndpointResult(dict):
     def __init__(__self__, *,
                  address: _builtins.str,
                  port: _builtins.int):
-        """
-        :param _builtins.str address: The DNS hostname of the cache node.
-        :param _builtins.int port: The port number that the cache engine is listening on. Set as integer.
-        """
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "port", port)
 
     @_builtins.property
     @pulumi.getter
     def address(self) -> _builtins.str:
-        """
-        The DNS hostname of the cache node.
-        """
         return pulumi.get(self, "address")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> _builtins.int:
-        """
-        The port number that the cache engine is listening on. Set as integer.
-        """
         return pulumi.get(self, "port")
 
 
@@ -1150,27 +904,17 @@ class GetServerlessCacheReaderEndpointResult(dict):
     def __init__(__self__, *,
                  address: _builtins.str,
                  port: _builtins.int):
-        """
-        :param _builtins.str address: The DNS hostname of the cache node.
-        :param _builtins.int port: The port number that the cache engine is listening on. Set as integer.
-        """
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "port", port)
 
     @_builtins.property
     @pulumi.getter
     def address(self) -> _builtins.str:
-        """
-        The DNS hostname of the cache node.
-        """
         return pulumi.get(self, "address")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> _builtins.int:
-        """
-        The port number that the cache engine is listening on. Set as integer.
-        """
         return pulumi.get(self, "port")
 
 

@@ -12,237 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Access Analyzer Analyzer. More information can be found in the [Access Analyzer User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html).
-//
-// ## Example Usage
-//
-// ### Account Analyzer
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/accessanalyzer"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := accessanalyzer.NewAnalyzer(ctx, "example", &accessanalyzer.AnalyzerArgs{
-//				AnalyzerName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Organization Analyzer
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/accessanalyzer"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := organizations.NewOrganization(ctx, "example", &organizations.OrganizationArgs{
-//				AwsServiceAccessPrincipals: pulumi.StringArray{
-//					pulumi.String("access-analyzer.amazonaws.com"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = accessanalyzer.NewAnalyzer(ctx, "example", &accessanalyzer.AnalyzerArgs{
-//				AnalyzerName: pulumi.String("example"),
-//				Type:         pulumi.String("ORGANIZATION"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Organization Unused Access Analyzer With Analysis Rule
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/accessanalyzer"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := accessanalyzer.NewAnalyzer(ctx, "example", &accessanalyzer.AnalyzerArgs{
-//				AnalyzerName: pulumi.String("example"),
-//				Type:         pulumi.String("ORGANIZATION_UNUSED_ACCESS"),
-//				Configuration: &accessanalyzer.AnalyzerConfigurationArgs{
-//					UnusedAccess: &accessanalyzer.AnalyzerConfigurationUnusedAccessArgs{
-//						UnusedAccessAge: pulumi.Int(180),
-//						AnalysisRule: &accessanalyzer.AnalyzerConfigurationUnusedAccessAnalysisRuleArgs{
-//							Exclusions: accessanalyzer.AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArray{
-//								&accessanalyzer.AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs{
-//									AccountIds: pulumi.StringArray{
-//										pulumi.String("123456789012"),
-//										pulumi.String("234567890123"),
-//									},
-//								},
-//								&accessanalyzer.AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs{
-//									ResourceTags: pulumi.StringMapArray{
-//										pulumi.StringMap{
-//											"key1": pulumi.String("value1"),
-//										},
-//										pulumi.StringMap{
-//											"key2": pulumi.String("value2"),
-//										},
-//									},
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Account Internal Access Analyzer by Resource Types
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/accessanalyzer"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := accessanalyzer.NewAnalyzer(ctx, "test", &accessanalyzer.AnalyzerArgs{
-//				AnalyzerName: pulumi.String("example"),
-//				Type:         pulumi.String("ORGANIZATION_INTERNAL_ACCESS"),
-//				Configuration: &accessanalyzer.AnalyzerConfigurationArgs{
-//					InternalAccess: &accessanalyzer.AnalyzerConfigurationInternalAccessArgs{
-//						AnalysisRule: &accessanalyzer.AnalyzerConfigurationInternalAccessAnalysisRuleArgs{
-//							Inclusions: accessanalyzer.AnalyzerConfigurationInternalAccessAnalysisRuleInclusionArray{
-//								&accessanalyzer.AnalyzerConfigurationInternalAccessAnalysisRuleInclusionArgs{
-//									ResourceTypes: pulumi.StringArray{
-//										pulumi.String("AWS::S3::Bucket"),
-//										pulumi.String("AWS::RDS::DBSnapshot"),
-//										pulumi.String("AWS::DynamoDB::Table"),
-//									},
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Organization Internal Access Analyzer by Account ID and Resource ARN
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/accessanalyzer"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := accessanalyzer.NewAnalyzer(ctx, "test", &accessanalyzer.AnalyzerArgs{
-//				AnalyzerName: pulumi.String("example"),
-//				Type:         pulumi.String("ORGANIZATION_INTERNAL_ACCESS"),
-//				Configuration: &accessanalyzer.AnalyzerConfigurationArgs{
-//					InternalAccess: &accessanalyzer.AnalyzerConfigurationInternalAccessArgs{
-//						AnalysisRule: &accessanalyzer.AnalyzerConfigurationInternalAccessAnalysisRuleArgs{
-//							Inclusions: accessanalyzer.AnalyzerConfigurationInternalAccessAnalysisRuleInclusionArray{
-//								&accessanalyzer.AnalyzerConfigurationInternalAccessAnalysisRuleInclusionArgs{
-//									AccountIds: pulumi.StringArray{
-//										pulumi.String("123456789012"),
-//									},
-//									ResourceArns: pulumi.StringArray{
-//										pulumi.String("arn:aws:s3:::my-example-bucket"),
-//									},
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Access Analyzer Analyzers using the `analyzer_name`. For example:
-//
-// ```sh
-// $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
-// ```
 type Analyzer struct {
 	pulumi.CustomResourceState
 
-	// Name of the Analyzer.
-	//
-	// The following arguments are optional:
-	AnalyzerName pulumi.StringOutput `pulumi:"analyzerName"`
-	// ARN of the Analyzer.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A block that specifies the configuration of the analyzer. See `configuration` Block for details.
+	AnalyzerName  pulumi.StringOutput            `pulumi:"analyzerName"`
+	Arn           pulumi.StringOutput            `pulumi:"arn"`
 	Configuration AnalyzerConfigurationPtrOutput `pulumi:"configuration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Type that represents the zone of trust or scope for the analyzer. Valid values are `ACCOUNT`, `ACCOUNT_INTERNAL_ACCESS`, `ACCOUNT_UNUSED_ACCESS`, `ORGANIZATION`, `ORGANIZATION_INTERNAL_ACCESS`, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	Region        pulumi.StringOutput            `pulumi:"region"`
+	Tags          pulumi.StringMapOutput         `pulumi:"tags"`
+	TagsAll       pulumi.StringMapOutput         `pulumi:"tagsAll"`
+	Type          pulumi.StringPtrOutput         `pulumi:"type"`
 }
 
 // NewAnalyzer registers a new resource with the given unique name, arguments, and options.
@@ -278,41 +57,23 @@ func GetAnalyzer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Analyzer resources.
 type analyzerState struct {
-	// Name of the Analyzer.
-	//
-	// The following arguments are optional:
-	AnalyzerName *string `pulumi:"analyzerName"`
-	// ARN of the Analyzer.
-	Arn *string `pulumi:"arn"`
-	// A block that specifies the configuration of the analyzer. See `configuration` Block for details.
+	AnalyzerName  *string                `pulumi:"analyzerName"`
+	Arn           *string                `pulumi:"arn"`
 	Configuration *AnalyzerConfiguration `pulumi:"configuration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Type that represents the zone of trust or scope for the analyzer. Valid values are `ACCOUNT`, `ACCOUNT_INTERNAL_ACCESS`, `ACCOUNT_UNUSED_ACCESS`, `ORGANIZATION`, `ORGANIZATION_INTERNAL_ACCESS`, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
-	Type *string `pulumi:"type"`
+	Region        *string                `pulumi:"region"`
+	Tags          map[string]string      `pulumi:"tags"`
+	TagsAll       map[string]string      `pulumi:"tagsAll"`
+	Type          *string                `pulumi:"type"`
 }
 
 type AnalyzerState struct {
-	// Name of the Analyzer.
-	//
-	// The following arguments are optional:
-	AnalyzerName pulumi.StringPtrInput
-	// ARN of the Analyzer.
-	Arn pulumi.StringPtrInput
-	// A block that specifies the configuration of the analyzer. See `configuration` Block for details.
+	AnalyzerName  pulumi.StringPtrInput
+	Arn           pulumi.StringPtrInput
 	Configuration AnalyzerConfigurationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Type that represents the zone of trust or scope for the analyzer. Valid values are `ACCOUNT`, `ACCOUNT_INTERNAL_ACCESS`, `ACCOUNT_UNUSED_ACCESS`, `ORGANIZATION`, `ORGANIZATION_INTERNAL_ACCESS`, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
-	Type pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
+	Tags          pulumi.StringMapInput
+	TagsAll       pulumi.StringMapInput
+	Type          pulumi.StringPtrInput
 }
 
 func (AnalyzerState) ElementType() reflect.Type {
@@ -320,34 +81,20 @@ func (AnalyzerState) ElementType() reflect.Type {
 }
 
 type analyzerArgs struct {
-	// Name of the Analyzer.
-	//
-	// The following arguments are optional:
-	AnalyzerName string `pulumi:"analyzerName"`
-	// A block that specifies the configuration of the analyzer. See `configuration` Block for details.
+	AnalyzerName  string                 `pulumi:"analyzerName"`
 	Configuration *AnalyzerConfiguration `pulumi:"configuration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Type that represents the zone of trust or scope for the analyzer. Valid values are `ACCOUNT`, `ACCOUNT_INTERNAL_ACCESS`, `ACCOUNT_UNUSED_ACCESS`, `ORGANIZATION`, `ORGANIZATION_INTERNAL_ACCESS`, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
-	Type *string `pulumi:"type"`
+	Region        *string                `pulumi:"region"`
+	Tags          map[string]string      `pulumi:"tags"`
+	Type          *string                `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Analyzer resource.
 type AnalyzerArgs struct {
-	// Name of the Analyzer.
-	//
-	// The following arguments are optional:
-	AnalyzerName pulumi.StringInput
-	// A block that specifies the configuration of the analyzer. See `configuration` Block for details.
+	AnalyzerName  pulumi.StringInput
 	Configuration AnalyzerConfigurationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Type that represents the zone of trust or scope for the analyzer. Valid values are `ACCOUNT`, `ACCOUNT_INTERNAL_ACCESS`, `ACCOUNT_UNUSED_ACCESS`, `ORGANIZATION`, `ORGANIZATION_INTERNAL_ACCESS`, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
-	Type pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
+	Tags          pulumi.StringMapInput
+	Type          pulumi.StringPtrInput
 }
 
 func (AnalyzerArgs) ElementType() reflect.Type {
@@ -437,39 +184,30 @@ func (o AnalyzerOutput) ToAnalyzerOutputWithContext(ctx context.Context) Analyze
 	return o
 }
 
-// Name of the Analyzer.
-//
-// The following arguments are optional:
 func (o AnalyzerOutput) AnalyzerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analyzer) pulumi.StringOutput { return v.AnalyzerName }).(pulumi.StringOutput)
 }
 
-// ARN of the Analyzer.
 func (o AnalyzerOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analyzer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A block that specifies the configuration of the analyzer. See `configuration` Block for details.
 func (o AnalyzerOutput) Configuration() AnalyzerConfigurationPtrOutput {
 	return o.ApplyT(func(v *Analyzer) AnalyzerConfigurationPtrOutput { return v.Configuration }).(AnalyzerConfigurationPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AnalyzerOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analyzer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AnalyzerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Analyzer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AnalyzerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Analyzer) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Type that represents the zone of trust or scope for the analyzer. Valid values are `ACCOUNT`, `ACCOUNT_INTERNAL_ACCESS`, `ACCOUNT_UNUSED_ACCESS`, `ORGANIZATION`, `ORGANIZATION_INTERNAL_ACCESS`, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
 func (o AnalyzerOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Analyzer) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }

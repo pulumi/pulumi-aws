@@ -11,66 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an EventBridge Scheduler Schedule Group resource.
-//
-// You can find out more about EventBridge Scheduler in the [User Guide](https://docs.aws.amazon.com/scheduler/latest/UserGuide/what-is-scheduler.html).
-//
-// > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/scheduler"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := scheduler.NewScheduleGroup(ctx, "example", &scheduler.ScheduleGroupArgs{
-//				Name: pulumi.String("my-schedule-group"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import schedule groups using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:scheduler/scheduleGroup:ScheduleGroup example my-schedule-group
-// ```
 type ScheduleGroup struct {
 	pulumi.CustomResourceState
 
-	// ARN of the schedule group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Time at which the schedule group was created.
-	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
-	// Time at which the schedule group was last modified.
-	LastModificationDate pulumi.StringOutput `pulumi:"lastModificationDate"`
-	// Name of the schedule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// State of the schedule group. Can be `ACTIVE` or `DELETING`.
-	State pulumi.StringOutput `pulumi:"state"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                  pulumi.StringOutput    `pulumi:"arn"`
+	CreationDate         pulumi.StringOutput    `pulumi:"creationDate"`
+	LastModificationDate pulumi.StringOutput    `pulumi:"lastModificationDate"`
+	Name                 pulumi.StringOutput    `pulumi:"name"`
+	NamePrefix           pulumi.StringOutput    `pulumi:"namePrefix"`
+	Region               pulumi.StringOutput    `pulumi:"region"`
+	State                pulumi.StringOutput    `pulumi:"state"`
+	Tags                 pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll              pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewScheduleGroup registers a new resource with the given unique name, arguments, and options.
@@ -103,45 +55,27 @@ func GetScheduleGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ScheduleGroup resources.
 type scheduleGroupState struct {
-	// ARN of the schedule group.
-	Arn *string `pulumi:"arn"`
-	// Time at which the schedule group was created.
-	CreationDate *string `pulumi:"creationDate"`
-	// Time at which the schedule group was last modified.
-	LastModificationDate *string `pulumi:"lastModificationDate"`
-	// Name of the schedule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// State of the schedule group. Can be `ACTIVE` or `DELETING`.
-	State *string `pulumi:"state"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                  *string           `pulumi:"arn"`
+	CreationDate         *string           `pulumi:"creationDate"`
+	LastModificationDate *string           `pulumi:"lastModificationDate"`
+	Name                 *string           `pulumi:"name"`
+	NamePrefix           *string           `pulumi:"namePrefix"`
+	Region               *string           `pulumi:"region"`
+	State                *string           `pulumi:"state"`
+	Tags                 map[string]string `pulumi:"tags"`
+	TagsAll              map[string]string `pulumi:"tagsAll"`
 }
 
 type ScheduleGroupState struct {
-	// ARN of the schedule group.
-	Arn pulumi.StringPtrInput
-	// Time at which the schedule group was created.
-	CreationDate pulumi.StringPtrInput
-	// Time at which the schedule group was last modified.
+	Arn                  pulumi.StringPtrInput
+	CreationDate         pulumi.StringPtrInput
 	LastModificationDate pulumi.StringPtrInput
-	// Name of the schedule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// State of the schedule group. Can be `ACTIVE` or `DELETING`.
-	State pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Name                 pulumi.StringPtrInput
+	NamePrefix           pulumi.StringPtrInput
+	Region               pulumi.StringPtrInput
+	State                pulumi.StringPtrInput
+	Tags                 pulumi.StringMapInput
+	TagsAll              pulumi.StringMapInput
 }
 
 func (ScheduleGroupState) ElementType() reflect.Type {
@@ -149,26 +83,18 @@ func (ScheduleGroupState) ElementType() reflect.Type {
 }
 
 type scheduleGroupArgs struct {
-	// Name of the schedule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Name       *string           `pulumi:"name"`
+	NamePrefix *string           `pulumi:"namePrefix"`
+	Region     *string           `pulumi:"region"`
+	Tags       map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ScheduleGroup resource.
 type ScheduleGroupArgs struct {
-	// Name of the schedule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	Name       pulumi.StringPtrInput
 	NamePrefix pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Region     pulumi.StringPtrInput
+	Tags       pulumi.StringMapInput
 }
 
 func (ScheduleGroupArgs) ElementType() reflect.Type {
@@ -258,47 +184,38 @@ func (o ScheduleGroupOutput) ToScheduleGroupOutputWithContext(ctx context.Contex
 	return o
 }
 
-// ARN of the schedule group.
 func (o ScheduleGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduleGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Time at which the schedule group was created.
 func (o ScheduleGroupOutput) CreationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduleGroup) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
 }
 
-// Time at which the schedule group was last modified.
 func (o ScheduleGroupOutput) LastModificationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduleGroup) pulumi.StringOutput { return v.LastModificationDate }).(pulumi.StringOutput)
 }
 
-// Name of the schedule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 func (o ScheduleGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduleGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 func (o ScheduleGroupOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduleGroup) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ScheduleGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduleGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// State of the schedule group. Can be `ACTIVE` or `DELETING`.
 func (o ScheduleGroupOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduleGroup) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ScheduleGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ScheduleGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ScheduleGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ScheduleGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -9,77 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sqs
 {
-    /// <summary>
-    /// Provides a SQS Queue Redrive Allow Policy resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Sqs.Queue("example", new()
-    ///     {
-    ///         Name = "examplequeue",
-    ///     });
-    /// 
-    ///     var src = new Aws.Sqs.Queue("src", new()
-    ///     {
-    ///         Name = "srcqueue",
-    ///         RedrivePolicy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["deadLetterTargetArn"] = example.Arn,
-    ///             ["maxReceiveCount"] = 4,
-    ///         })),
-    ///     });
-    /// 
-    ///     var exampleRedriveAllowPolicy = new Aws.Sqs.RedriveAllowPolicy("example", new()
-    ///     {
-    ///         QueueUrl = example.Id,
-    ///         RedriveAllowPolicyName = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["redrivePermission"] = "byQueue",
-    ///             ["sourceQueueArns"] = new[]
-    ///             {
-    ///                 src.Arn,
-    ///             },
-    ///         })),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import SQS Queue Redrive Allow Policies using the queue URL. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:sqs/redriveAllowPolicy:RedriveAllowPolicy test https://queue.amazonaws.com/123456789012/myqueue
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:sqs/redriveAllowPolicy:RedriveAllowPolicy")]
     public partial class RedriveAllowPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The URL of the SQS Queue to which to attach the policy
-        /// </summary>
         [Output("queueUrl")]
         public Output<string> QueueUrl { get; private set; } = null!;
 
-        /// <summary>
-        /// The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
-        /// </summary>
         [Output("redriveAllowPolicy")]
         public Output<string> RedriveAllowPolicyName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -129,21 +67,12 @@ namespace Pulumi.Aws.Sqs
 
     public sealed class RedriveAllowPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The URL of the SQS Queue to which to attach the policy
-        /// </summary>
         [Input("queueUrl", required: true)]
         public Input<string> QueueUrl { get; set; } = null!;
 
-        /// <summary>
-        /// The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
-        /// </summary>
         [Input("redriveAllowPolicy", required: true)]
         public Input<string> RedriveAllowPolicyName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -155,21 +84,12 @@ namespace Pulumi.Aws.Sqs
 
     public sealed class RedriveAllowPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The URL of the SQS Queue to which to attach the policy
-        /// </summary>
         [Input("queueUrl")]
         public Input<string>? QueueUrl { get; set; }
 
-        /// <summary>
-        /// The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
-        /// </summary>
         [Input("redriveAllowPolicy")]
         public Input<string>? RedriveAllowPolicyName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

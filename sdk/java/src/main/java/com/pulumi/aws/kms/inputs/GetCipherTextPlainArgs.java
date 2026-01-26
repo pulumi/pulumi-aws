@@ -16,62 +16,30 @@ public final class GetCipherTextPlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetCipherTextPlainArgs Empty = new GetCipherTextPlainArgs();
 
-    /**
-     * An optional mapping that makes up the encryption context.
-     * 
-     */
     @Import(name="context")
     private @Nullable Map<String,String> context;
 
-    /**
-     * @return An optional mapping that makes up the encryption context.
-     * 
-     */
     public Optional<Map<String,String>> context() {
         return Optional.ofNullable(this.context);
     }
 
-    /**
-     * Globally unique key ID for the customer master key.
-     * 
-     */
     @Import(name="keyId", required=true)
     private String keyId;
 
-    /**
-     * @return Globally unique key ID for the customer master key.
-     * 
-     */
     public String keyId() {
         return this.keyId;
     }
 
-    /**
-     * Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-     * 
-     */
     @Import(name="plaintext", required=true)
     private String plaintext;
 
-    /**
-     * @return Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-     * 
-     */
     public String plaintext() {
         return this.plaintext;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -103,45 +71,21 @@ public final class GetCipherTextPlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetCipherTextPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param context An optional mapping that makes up the encryption context.
-         * 
-         * @return builder
-         * 
-         */
         public Builder context(@Nullable Map<String,String> context) {
             $.context = context;
             return this;
         }
 
-        /**
-         * @param keyId Globally unique key ID for the customer master key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyId(String keyId) {
             $.keyId = keyId;
             return this;
         }
 
-        /**
-         * @param plaintext Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-         * 
-         * @return builder
-         * 
-         */
         public Builder plaintext(String plaintext) {
             $.plaintext = plaintext;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

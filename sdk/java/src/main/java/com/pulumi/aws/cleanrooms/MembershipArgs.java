@@ -19,32 +19,16 @@ public final class MembershipArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final MembershipArgs Empty = new MembershipArgs();
 
-    /**
-     * The ID of the collaboration to which the member was invited.
-     * 
-     */
     @Import(name="collaborationId", required=true)
     private Output<String> collaborationId;
 
-    /**
-     * @return The ID of the collaboration to which the member was invited.
-     * 
-     */
     public Output<String> collaborationId() {
         return this.collaborationId;
     }
 
-    /**
-     * The default configuration for a query result.
-     * 
-     */
     @Import(name="defaultResultConfiguration")
     private @Nullable Output<MembershipDefaultResultConfigurationArgs> defaultResultConfiguration;
 
-    /**
-     * @return The default configuration for a query result.
-     * 
-     */
     public Optional<Output<MembershipDefaultResultConfigurationArgs>> defaultResultConfiguration() {
         return Optional.ofNullable(this.defaultResultConfiguration);
     }
@@ -56,47 +40,23 @@ public final class MembershipArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.paymentConfiguration);
     }
 
-    /**
-     * An indicator as to whether query logging has been enabled or disabled for the membership.
-     * 
-     */
     @Import(name="queryLogStatus", required=true)
     private Output<String> queryLogStatus;
 
-    /**
-     * @return An indicator as to whether query logging has been enabled or disabled for the membership.
-     * 
-     */
     public Output<String> queryLogStatus() {
         return this.queryLogStatus;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key value pairs which tag the membership.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key value pairs which tag the membership.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -130,44 +90,20 @@ public final class MembershipArgs extends com.pulumi.resources.ResourceArgs {
             $ = new MembershipArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param collaborationId The ID of the collaboration to which the member was invited.
-         * 
-         * @return builder
-         * 
-         */
         public Builder collaborationId(Output<String> collaborationId) {
             $.collaborationId = collaborationId;
             return this;
         }
 
-        /**
-         * @param collaborationId The ID of the collaboration to which the member was invited.
-         * 
-         * @return builder
-         * 
-         */
         public Builder collaborationId(String collaborationId) {
             return collaborationId(Output.of(collaborationId));
         }
 
-        /**
-         * @param defaultResultConfiguration The default configuration for a query result.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultResultConfiguration(@Nullable Output<MembershipDefaultResultConfigurationArgs> defaultResultConfiguration) {
             $.defaultResultConfiguration = defaultResultConfiguration;
             return this;
         }
 
-        /**
-         * @param defaultResultConfiguration The default configuration for a query result.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultResultConfiguration(MembershipDefaultResultConfigurationArgs defaultResultConfiguration) {
             return defaultResultConfiguration(Output.of(defaultResultConfiguration));
         }
@@ -181,65 +117,29 @@ public final class MembershipArgs extends com.pulumi.resources.ResourceArgs {
             return paymentConfiguration(Output.of(paymentConfiguration));
         }
 
-        /**
-         * @param queryLogStatus An indicator as to whether query logging has been enabled or disabled for the membership.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryLogStatus(Output<String> queryLogStatus) {
             $.queryLogStatus = queryLogStatus;
             return this;
         }
 
-        /**
-         * @param queryLogStatus An indicator as to whether query logging has been enabled or disabled for the membership.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryLogStatus(String queryLogStatus) {
             return queryLogStatus(Output.of(queryLogStatus));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key value pairs which tag the membership.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key value pairs which tag the membership.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

@@ -17,47 +17,23 @@ public final class ServiceNetworkConfigurationArgs extends com.pulumi.resources.
 
     public static final ServiceNetworkConfigurationArgs Empty = new ServiceNetworkConfigurationArgs();
 
-    /**
-     * Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
-     * 
-     */
     @Import(name="egressConfiguration")
     private @Nullable Output<ServiceNetworkConfigurationEgressConfigurationArgs> egressConfiguration;
 
-    /**
-     * @return Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
-     * 
-     */
     public Optional<Output<ServiceNetworkConfigurationEgressConfigurationArgs>> egressConfiguration() {
         return Optional.ofNullable(this.egressConfiguration);
     }
 
-    /**
-     * Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
-     * 
-     */
     @Import(name="ingressConfiguration")
     private @Nullable Output<ServiceNetworkConfigurationIngressConfigurationArgs> ingressConfiguration;
 
-    /**
-     * @return Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
-     * 
-     */
     public Optional<Output<ServiceNetworkConfigurationIngressConfigurationArgs>> ingressConfiguration() {
         return Optional.ofNullable(this.ingressConfiguration);
     }
 
-    /**
-     * App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
-     * 
-     */
     @Import(name="ipAddressType")
     private @Nullable Output<String> ipAddressType;
 
-    /**
-     * @return App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
-     * 
-     */
     public Optional<Output<String>> ipAddressType() {
         return Optional.ofNullable(this.ipAddressType);
     }
@@ -88,65 +64,29 @@ public final class ServiceNetworkConfigurationArgs extends com.pulumi.resources.
             $ = new ServiceNetworkConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param egressConfiguration Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder egressConfiguration(@Nullable Output<ServiceNetworkConfigurationEgressConfigurationArgs> egressConfiguration) {
             $.egressConfiguration = egressConfiguration;
             return this;
         }
 
-        /**
-         * @param egressConfiguration Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder egressConfiguration(ServiceNetworkConfigurationEgressConfigurationArgs egressConfiguration) {
             return egressConfiguration(Output.of(egressConfiguration));
         }
 
-        /**
-         * @param ingressConfiguration Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ingressConfiguration(@Nullable Output<ServiceNetworkConfigurationIngressConfigurationArgs> ingressConfiguration) {
             $.ingressConfiguration = ingressConfiguration;
             return this;
         }
 
-        /**
-         * @param ingressConfiguration Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ingressConfiguration(ServiceNetworkConfigurationIngressConfigurationArgs ingressConfiguration) {
             return ingressConfiguration(Output.of(ingressConfiguration));
         }
 
-        /**
-         * @param ipAddressType App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddressType(@Nullable Output<String> ipAddressType) {
             $.ipAddressType = ipAddressType;
             return this;
         }
 
-        /**
-         * @param ipAddressType App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddressType(String ipAddressType) {
             return ipAddressType(Output.of(ipAddressType));
         }

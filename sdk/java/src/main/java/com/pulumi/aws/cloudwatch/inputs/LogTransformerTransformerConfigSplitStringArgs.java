@@ -15,17 +15,9 @@ public final class LogTransformerTransformerConfigSplitStringArgs extends com.pu
 
     public static final LogTransformerTransformerConfigSplitStringArgs Empty = new LogTransformerTransformerConfigSplitStringArgs();
 
-    /**
-     * Objects containing the information about the fields to split. You must include at least one entry, and ten at most. See `splitString` `entry` below for details.
-     * 
-     */
     @Import(name="entries", required=true)
     private Output<List<LogTransformerTransformerConfigSplitStringEntryArgs>> entries;
 
-    /**
-     * @return Objects containing the information about the fields to split. You must include at least one entry, and ten at most. See `splitString` `entry` below for details.
-     * 
-     */
     public Output<List<LogTransformerTransformerConfigSplitStringEntryArgs>> entries() {
         return this.entries;
     }
@@ -54,33 +46,15 @@ public final class LogTransformerTransformerConfigSplitStringArgs extends com.pu
             $ = new LogTransformerTransformerConfigSplitStringArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param entries Objects containing the information about the fields to split. You must include at least one entry, and ten at most. See `splitString` `entry` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entries(Output<List<LogTransformerTransformerConfigSplitStringEntryArgs>> entries) {
             $.entries = entries;
             return this;
         }
 
-        /**
-         * @param entries Objects containing the information about the fields to split. You must include at least one entry, and ten at most. See `splitString` `entry` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entries(List<LogTransformerTransformerConfigSplitStringEntryArgs> entries) {
             return entries(Output.of(entries));
         }
 
-        /**
-         * @param entries Objects containing the information about the fields to split. You must include at least one entry, and ten at most. See `splitString` `entry` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entries(LogTransformerTransformerConfigSplitStringEntryArgs... entries) {
             return entries(List.of(entries));
         }

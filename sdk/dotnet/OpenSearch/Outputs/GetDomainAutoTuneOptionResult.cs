@@ -13,21 +13,9 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class GetDomainAutoTuneOptionResult
     {
-        /// <summary>
-        /// Auto-Tune desired state for the domain.
-        /// </summary>
         public readonly string DesiredState;
-        /// <summary>
-        /// A list of the nested configurations for the Auto-Tune maintenance windows of the domain.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainAutoTuneOptionMaintenanceScheduleResult> MaintenanceSchedules;
-        /// <summary>
-        /// Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
-        /// </summary>
         public readonly string RollbackOnDisable;
-        /// <summary>
-        /// Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window.
-        /// </summary>
         public readonly bool UseOffPeakWindow;
 
         [OutputConstructor]

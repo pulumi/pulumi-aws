@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPatchBaselineGlobalFilter {
-    /**
-     * @return Key for the filter.
-     * 
-     */
     private String key;
-    /**
-     * @return Value for the filter.
-     * 
-     */
     private List<String> values;
 
     private GetPatchBaselineGlobalFilter() {}
-    /**
-     * @return Key for the filter.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return Value for the filter.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

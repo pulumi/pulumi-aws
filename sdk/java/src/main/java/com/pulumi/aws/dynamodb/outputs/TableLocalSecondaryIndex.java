@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TableLocalSecondaryIndex {
-    /**
-     * @return Name of the index
-     * 
-     */
     private String name;
-    /**
-     * @return Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
-     * 
-     */
     private @Nullable List<String> nonKeyAttributes;
-    /**
-     * @return One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
-     * 
-     */
     private String projectionType;
-    /**
-     * @return Name of the range key.
-     * 
-     */
     private String rangeKey;
 
     private TableLocalSecondaryIndex() {}
-    /**
-     * @return Name of the index
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
-     * 
-     */
     public List<String> nonKeyAttributes() {
         return this.nonKeyAttributes == null ? List.of() : this.nonKeyAttributes;
     }
-    /**
-     * @return One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
-     * 
-     */
     public String projectionType() {
         return this.projectionType;
     }
-    /**
-     * @return Name of the range key.
-     * 
-     */
     public String rangeKey() {
         return this.rangeKey;
     }

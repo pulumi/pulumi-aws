@@ -12,107 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an SNS topic policy resource
-//
-// > **NOTE:** If a Principal is specified as just an AWS account ID rather than an ARN, AWS silently converts it to the ARN for the root user, causing future deployments to differ. To avoid this problem, just specify the full ARN, e.g. `arn:aws:iam::123456789012:root`
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sns"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// test, err := sns.NewTopic(ctx, "test", &sns.TopicArgs{
-// Name: pulumi.String("my-topic-with-policy"),
-// })
-// if err != nil {
-// return err
-// }
-// snsTopicPolicy := test.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// PolicyId: pulumi.StringRef(pulumi.StringRef("__default_policy_ID")),
-// Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
-// {
-// Actions: []string{
-// "SNS:Subscribe",
-// "SNS:SetTopicAttributes",
-// "SNS:RemovePermission",
-// "SNS:Receive",
-// "SNS:Publish",
-// "SNS:ListSubscriptionsByTopic",
-// "SNS:GetTopicAttributes",
-// "SNS:DeleteTopic",
-// "SNS:AddPermission",
-// },
-// Conditions: []iam.GetPolicyDocumentStatementCondition{
-// {
-// Test: "StringEquals",
-// Variable: "AWS:SourceOwner",
-// Values: interface{}{
-// account_id,
-// },
-// },
-// },
-// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "AWS",
-// Identifiers: []string{
-// "*",
-// },
-// },
-// },
-// Resources: []string{
-// arn,
-// },
-// Sid: pulumi.StringRef(pulumi.String(pulumi.StringRef("__default_statement_ID"))),
-// },
-// }),
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
-// _, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
-// Arn: test.Arn,
-// Policy: pulumi.String(snsTopicPolicy.ApplyT(func(snsTopicPolicy iam.GetPolicyDocumentResult) (*string, error) {
-// return &snsTopicPolicy.Json, nil
-// }).(pulumi.StringPtrOutput)),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the SNS topic.
-//
-// Using `pulumi import`, import SNS Topic Policy using the topic ARN. For example:
-//
-// % pulumi import aws_sns_topic_policy.user_updates arn:aws:sns:us-west-2:123456789012:my-topic
 type TopicPolicy struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the SNS topic
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The AWS Account ID of the SNS topic owner
-	Owner pulumi.StringOutput `pulumi:"owner"`
-	// The fully-formed AWS policy as JSON.
+	Arn    pulumi.StringOutput `pulumi:"arn"`
+	Owner  pulumi.StringOutput `pulumi:"owner"`
 	Policy pulumi.StringOutput `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -152,24 +57,16 @@ func GetTopicPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TopicPolicy resources.
 type topicPolicyState struct {
-	// The ARN of the SNS topic
-	Arn *string `pulumi:"arn"`
-	// The AWS Account ID of the SNS topic owner
-	Owner *string `pulumi:"owner"`
-	// The fully-formed AWS policy as JSON.
+	Arn    *string     `pulumi:"arn"`
+	Owner  *string     `pulumi:"owner"`
 	Policy interface{} `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region *string     `pulumi:"region"`
 }
 
 type TopicPolicyState struct {
-	// The ARN of the SNS topic
-	Arn pulumi.StringPtrInput
-	// The AWS Account ID of the SNS topic owner
-	Owner pulumi.StringPtrInput
-	// The fully-formed AWS policy as JSON.
+	Arn    pulumi.StringPtrInput
+	Owner  pulumi.StringPtrInput
 	Policy pulumi.Input
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -178,21 +75,15 @@ func (TopicPolicyState) ElementType() reflect.Type {
 }
 
 type topicPolicyArgs struct {
-	// The ARN of the SNS topic
-	Arn string `pulumi:"arn"`
-	// The fully-formed AWS policy as JSON.
+	Arn    string      `pulumi:"arn"`
 	Policy interface{} `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region *string     `pulumi:"region"`
 }
 
 // The set of arguments for constructing a TopicPolicy resource.
 type TopicPolicyArgs struct {
-	// The ARN of the SNS topic
-	Arn pulumi.StringInput
-	// The fully-formed AWS policy as JSON.
+	Arn    pulumi.StringInput
 	Policy pulumi.Input
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -283,22 +174,18 @@ func (o TopicPolicyOutput) ToTopicPolicyOutputWithContext(ctx context.Context) T
 	return o
 }
 
-// The ARN of the SNS topic
 func (o TopicPolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TopicPolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The AWS Account ID of the SNS topic owner
 func (o TopicPolicyOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v *TopicPolicy) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
 }
 
-// The fully-formed AWS policy as JSON.
 func (o TopicPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *TopicPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TopicPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TopicPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -15,17 +15,9 @@ public final class ResourceCollectionCloudformationArgs extends com.pulumi.resou
 
     public static final ResourceCollectionCloudformationArgs Empty = new ResourceCollectionCloudformationArgs();
 
-    /**
-     * Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`&#34;*&#34;`).
-     * 
-     */
     @Import(name="stackNames", required=true)
     private Output<List<String>> stackNames;
 
-    /**
-     * @return Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`&#34;*&#34;`).
-     * 
-     */
     public Output<List<String>> stackNames() {
         return this.stackNames;
     }
@@ -54,33 +46,15 @@ public final class ResourceCollectionCloudformationArgs extends com.pulumi.resou
             $ = new ResourceCollectionCloudformationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param stackNames Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`&#34;*&#34;`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder stackNames(Output<List<String>> stackNames) {
             $.stackNames = stackNames;
             return this;
         }
 
-        /**
-         * @param stackNames Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`&#34;*&#34;`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder stackNames(List<String> stackNames) {
             return stackNames(Output.of(stackNames));
         }
 
-        /**
-         * @param stackNames Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`&#34;*&#34;`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder stackNames(String... stackNames) {
             return stackNames(List.of(stackNames));
         }

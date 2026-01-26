@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS Verified Permissions Policy Store.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/verifiedpermissions"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := verifiedpermissions.LookupPolicyStore(ctx, &verifiedpermissions.LookupPolicyStoreArgs{
-//				Id: "example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupPolicyStore(ctx *pulumi.Context, args *LookupPolicyStoreArgs, opts ...pulumi.InvokeOption) (*LookupPolicyStoreResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPolicyStoreResult
@@ -52,28 +23,20 @@ func LookupPolicyStore(ctx *pulumi.Context, args *LookupPolicyStoreArgs, opts ..
 
 // A collection of arguments for invoking getPolicyStore.
 type LookupPolicyStoreArgs struct {
-	// The ID of the Policy Store.
-	Id string `pulumi:"id"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Id     string  `pulumi:"id"`
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getPolicyStore.
 type LookupPolicyStoreResult struct {
-	// The ARN of the Policy Store.
-	Arn string `pulumi:"arn"`
-	// The date the Policy Store was created.
-	CreatedDate string `pulumi:"createdDate"`
-	// Whether the policy store can be deleted.
-	DeletionProtection string `pulumi:"deletionProtection"`
-	Description        string `pulumi:"description"`
-	Id                 string `pulumi:"id"`
-	// The date the Policy Store was last updated.
-	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
-	Region          string `pulumi:"region"`
-	// Map of key-value pairs associated with the policy store.
-	Tags map[string]string `pulumi:"tags"`
-	// Validation settings for the policy store.
+	Arn                string                            `pulumi:"arn"`
+	CreatedDate        string                            `pulumi:"createdDate"`
+	DeletionProtection string                            `pulumi:"deletionProtection"`
+	Description        string                            `pulumi:"description"`
+	Id                 string                            `pulumi:"id"`
+	LastUpdatedDate    string                            `pulumi:"lastUpdatedDate"`
+	Region             string                            `pulumi:"region"`
+	Tags               map[string]string                 `pulumi:"tags"`
 	ValidationSettings []GetPolicyStoreValidationSetting `pulumi:"validationSettings"`
 }
 
@@ -88,9 +51,7 @@ func LookupPolicyStoreOutput(ctx *pulumi.Context, args LookupPolicyStoreOutputAr
 
 // A collection of arguments for invoking getPolicyStore.
 type LookupPolicyStoreOutputArgs struct {
-	// The ID of the Policy Store.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Id     pulumi.StringInput    `pulumi:"id"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -113,17 +74,14 @@ func (o LookupPolicyStoreResultOutput) ToLookupPolicyStoreResultOutputWithContex
 	return o
 }
 
-// The ARN of the Policy Store.
 func (o LookupPolicyStoreResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPolicyStoreResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The date the Policy Store was created.
 func (o LookupPolicyStoreResultOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPolicyStoreResult) string { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
-// Whether the policy store can be deleted.
 func (o LookupPolicyStoreResultOutput) DeletionProtection() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPolicyStoreResult) string { return v.DeletionProtection }).(pulumi.StringOutput)
 }
@@ -136,7 +94,6 @@ func (o LookupPolicyStoreResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPolicyStoreResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The date the Policy Store was last updated.
 func (o LookupPolicyStoreResultOutput) LastUpdatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPolicyStoreResult) string { return v.LastUpdatedDate }).(pulumi.StringOutput)
 }
@@ -145,12 +102,10 @@ func (o LookupPolicyStoreResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPolicyStoreResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of key-value pairs associated with the policy store.
 func (o LookupPolicyStoreResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupPolicyStoreResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Validation settings for the policy store.
 func (o LookupPolicyStoreResultOutput) ValidationSettings() GetPolicyStoreValidationSettingArrayOutput {
 	return o.ApplyT(func(v LookupPolicyStoreResult) []GetPolicyStoreValidationSetting { return v.ValidationSettings }).(GetPolicyStoreValidationSettingArrayOutput)
 }

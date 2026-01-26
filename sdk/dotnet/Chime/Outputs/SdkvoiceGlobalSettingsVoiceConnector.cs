@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Chime.Outputs
     [OutputType]
     public sealed class SdkvoiceGlobalSettingsVoiceConnector
     {
-        /// <summary>
-        /// The S3 bucket that stores the Voice Connector's call detail records.
-        /// </summary>
         public readonly string? CdrBucket;
 
         [OutputConstructor]

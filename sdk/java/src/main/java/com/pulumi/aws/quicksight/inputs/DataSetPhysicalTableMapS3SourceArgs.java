@@ -17,47 +17,23 @@ public final class DataSetPhysicalTableMapS3SourceArgs extends com.pulumi.resour
 
     public static final DataSetPhysicalTableMapS3SourceArgs Empty = new DataSetPhysicalTableMapS3SourceArgs();
 
-    /**
-     * ARN of the data source.
-     * 
-     */
     @Import(name="dataSourceArn", required=true)
     private Output<String> dataSourceArn;
 
-    /**
-     * @return ARN of the data source.
-     * 
-     */
     public Output<String> dataSourceArn() {
         return this.dataSourceArn;
     }
 
-    /**
-     * Column schema of the table. See input_columns.
-     * 
-     */
     @Import(name="inputColumns", required=true)
     private Output<List<DataSetPhysicalTableMapS3SourceInputColumnArgs>> inputColumns;
 
-    /**
-     * @return Column schema of the table. See input_columns.
-     * 
-     */
     public Output<List<DataSetPhysicalTableMapS3SourceInputColumnArgs>> inputColumns() {
         return this.inputColumns;
     }
 
-    /**
-     * Information about the format for the S3 source file or files. See upload_settings.
-     * 
-     */
     @Import(name="uploadSettings", required=true)
     private Output<DataSetPhysicalTableMapS3SourceUploadSettingsArgs> uploadSettings;
 
-    /**
-     * @return Information about the format for the S3 source file or files. See upload_settings.
-     * 
-     */
     public Output<DataSetPhysicalTableMapS3SourceUploadSettingsArgs> uploadSettings() {
         return this.uploadSettings;
     }
@@ -88,75 +64,33 @@ public final class DataSetPhysicalTableMapS3SourceArgs extends com.pulumi.resour
             $ = new DataSetPhysicalTableMapS3SourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dataSourceArn ARN of the data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSourceArn(Output<String> dataSourceArn) {
             $.dataSourceArn = dataSourceArn;
             return this;
         }
 
-        /**
-         * @param dataSourceArn ARN of the data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSourceArn(String dataSourceArn) {
             return dataSourceArn(Output.of(dataSourceArn));
         }
 
-        /**
-         * @param inputColumns Column schema of the table. See input_columns.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputColumns(Output<List<DataSetPhysicalTableMapS3SourceInputColumnArgs>> inputColumns) {
             $.inputColumns = inputColumns;
             return this;
         }
 
-        /**
-         * @param inputColumns Column schema of the table. See input_columns.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputColumns(List<DataSetPhysicalTableMapS3SourceInputColumnArgs> inputColumns) {
             return inputColumns(Output.of(inputColumns));
         }
 
-        /**
-         * @param inputColumns Column schema of the table. See input_columns.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputColumns(DataSetPhysicalTableMapS3SourceInputColumnArgs... inputColumns) {
             return inputColumns(List.of(inputColumns));
         }
 
-        /**
-         * @param uploadSettings Information about the format for the S3 source file or files. See upload_settings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uploadSettings(Output<DataSetPhysicalTableMapS3SourceUploadSettingsArgs> uploadSettings) {
             $.uploadSettings = uploadSettings;
             return this;
         }
 
-        /**
-         * @param uploadSettings Information about the format for the S3 source file or files. See upload_settings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uploadSettings(DataSetPhysicalTableMapS3SourceUploadSettingsArgs uploadSettings) {
             return uploadSettings(Output.of(uploadSettings));
         }

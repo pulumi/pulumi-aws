@@ -17,32 +17,16 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
 
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs();
 
-    /**
-     * Configurations for authentication to Amazon Redshift. See `authConfiguration` block for details.
-     * 
-     */
     @Import(name="authConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs> authConfiguration;
 
-    /**
-     * @return Configurations for authentication to Amazon Redshift. See `authConfiguration` block for details.
-     * 
-     */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs>> authConfiguration() {
         return Optional.ofNullable(this.authConfiguration);
     }
 
-    /**
-     * ID of the Amazon Redshift cluster.
-     * 
-     */
     @Import(name="clusterIdentifier", required=true)
     private Output<String> clusterIdentifier;
 
-    /**
-     * @return ID of the Amazon Redshift cluster.
-     * 
-     */
     public Output<String> clusterIdentifier() {
         return this.clusterIdentifier;
     }
@@ -72,44 +56,20 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
             $ = new AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authConfiguration Configurations for authentication to Amazon Redshift. See `authConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authConfiguration(@Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs> authConfiguration) {
             $.authConfiguration = authConfiguration;
             return this;
         }
 
-        /**
-         * @param authConfiguration Configurations for authentication to Amazon Redshift. See `authConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs authConfiguration) {
             return authConfiguration(Output.of(authConfiguration));
         }
 
-        /**
-         * @param clusterIdentifier ID of the Amazon Redshift cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterIdentifier(Output<String> clusterIdentifier) {
             $.clusterIdentifier = clusterIdentifier;
             return this;
         }
 
-        /**
-         * @param clusterIdentifier ID of the Amazon Redshift cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterIdentifier(String clusterIdentifier) {
             return clusterIdentifier(Output.of(clusterIdentifier));
         }

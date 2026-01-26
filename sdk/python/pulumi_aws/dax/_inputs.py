@@ -31,9 +31,6 @@ if not MYPY:
         availability_zone: NotRequired[pulumi.Input[_builtins.str]]
         id: NotRequired[pulumi.Input[_builtins.str]]
         port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port used by the configuration endpoint
-        """
 elif False:
     ClusterNodeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -44,9 +41,6 @@ class ClusterNodeArgs:
                  availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
                  id: Optional[pulumi.Input[_builtins.str]] = None,
                  port: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.int] port: The port used by the configuration endpoint
-        """
         if address is not None:
             pulumi.set(__self__, "address", address)
         if availability_zone is not None:
@@ -86,9 +80,6 @@ class ClusterNodeArgs:
     @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The port used by the configuration endpoint
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -99,9 +90,6 @@ class ClusterNodeArgs:
 if not MYPY:
     class ClusterServerSideEncryptionArgsDict(TypedDict):
         enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable encryption at rest. Defaults to `false`.
-        """
 elif False:
     ClusterServerSideEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -109,18 +97,12 @@ elif False:
 class ClusterServerSideEncryptionArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        :param pulumi.Input[_builtins.bool] enabled: Whether to enable encryption at rest. Defaults to `false`.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable encryption at rest. Defaults to `false`.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -131,13 +113,7 @@ class ClusterServerSideEncryptionArgs:
 if not MYPY:
     class ParameterGroupParameterArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        The name of the parameter.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        The value for the parameter.
-        """
 elif False:
     ParameterGroupParameterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -146,19 +122,12 @@ class ParameterGroupParameterArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] name: The name of the parameter.
-        :param pulumi.Input[_builtins.str] value: The value for the parameter.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the parameter.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -168,9 +137,6 @@ class ParameterGroupParameterArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        The value for the parameter.
-        """
         return pulumi.get(self, "value")
 
     @value.setter

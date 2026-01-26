@@ -11,129 +11,12 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetVpcPeeringConnections
     {
-        /// <summary>
-        /// Use this data source to get IDs of Amazon VPC peering connections
-        /// To get more details on each connection, use the data resource aws.ec2.VpcPeeringConnection
-        /// 
-        /// Note: To use this data source in a count, the resources should exist before trying to access
-        /// the data source.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     // Declare the data source
-        ///     var pcs = Aws.Ec2.GetVpcPeeringConnections.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetVpcPeeringConnectionsFilterInputArgs
-        ///             {
-        ///                 Name = "requester-vpc-info.vpc-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     foo.Id,
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     // get the details of each resource
-        ///     var pc = ;
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetVpcPeeringConnectionsResult> InvokeAsync(GetVpcPeeringConnectionsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcPeeringConnectionsResult>("aws:ec2/getVpcPeeringConnections:getVpcPeeringConnections", args ?? new GetVpcPeeringConnectionsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get IDs of Amazon VPC peering connections
-        /// To get more details on each connection, use the data resource aws.ec2.VpcPeeringConnection
-        /// 
-        /// Note: To use this data source in a count, the resources should exist before trying to access
-        /// the data source.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     // Declare the data source
-        ///     var pcs = Aws.Ec2.GetVpcPeeringConnections.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetVpcPeeringConnectionsFilterInputArgs
-        ///             {
-        ///                 Name = "requester-vpc-info.vpc-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     foo.Id,
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     // get the details of each resource
-        ///     var pc = ;
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetVpcPeeringConnectionsResult> Invoke(GetVpcPeeringConnectionsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcPeeringConnectionsResult>("aws:ec2/getVpcPeeringConnections:getVpcPeeringConnections", args ?? new GetVpcPeeringConnectionsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get IDs of Amazon VPC peering connections
-        /// To get more details on each connection, use the data resource aws.ec2.VpcPeeringConnection
-        /// 
-        /// Note: To use this data source in a count, the resources should exist before trying to access
-        /// the data source.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     // Declare the data source
-        ///     var pcs = Aws.Ec2.GetVpcPeeringConnections.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetVpcPeeringConnectionsFilterInputArgs
-        ///             {
-        ///                 Name = "requester-vpc-info.vpc-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     foo.Id,
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     // get the details of each resource
-        ///     var pc = ;
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetVpcPeeringConnectionsResult> Invoke(GetVpcPeeringConnectionsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcPeeringConnectionsResult>("aws:ec2/getVpcPeeringConnections:getVpcPeeringConnections", args ?? new GetVpcPeeringConnectionsInvokeArgs(), options.WithDefaults());
     }
@@ -143,31 +26,17 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private List<Inputs.GetVpcPeeringConnectionsFilterArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// </summary>
         public List<Inputs.GetVpcPeeringConnectionsFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetVpcPeeringConnectionsFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Mapping of tags, each pair of which must exactly match
-        /// a pair on the desired VPC Peering Connection.
-        /// 
-        /// The arguments of this data source act as filters for querying the available VPC peering connections.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -184,31 +53,17 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private InputList<Inputs.GetVpcPeeringConnectionsFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// </summary>
         public InputList<Inputs.GetVpcPeeringConnectionsFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetVpcPeeringConnectionsFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Mapping of tags, each pair of which must exactly match
-        /// a pair on the desired VPC Peering Connection.
-        /// 
-        /// The arguments of this data source act as filters for querying the available VPC peering connections.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -230,9 +85,6 @@ namespace Pulumi.Aws.Ec2
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// IDs of the VPC Peering Connections.
-        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string Region;
         public readonly ImmutableDictionary<string, string> Tags;

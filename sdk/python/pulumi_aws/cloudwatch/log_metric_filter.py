@@ -29,13 +29,6 @@ class LogMetricFilterArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LogMetricFilter resource.
-        :param pulumi.Input[_builtins.str] log_group_name: The name of the log group to associate the metric filter with.
-        :param pulumi.Input['LogMetricFilterMetricTransformationArgs'] metric_transformation: A block defining collection of information needed to define how metric data gets emitted. See below.
-        :param pulumi.Input[_builtins.str] pattern: A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
-               for extracting metric data out of ingested log events.
-        :param pulumi.Input[_builtins.bool] apply_on_transformed_logs: Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
-        :param pulumi.Input[_builtins.str] name: A name for the metric filter.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "log_group_name", log_group_name)
         pulumi.set(__self__, "metric_transformation", metric_transformation)
@@ -50,9 +43,6 @@ class LogMetricFilterArgs:
     @_builtins.property
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the log group to associate the metric filter with.
-        """
         return pulumi.get(self, "log_group_name")
 
     @log_group_name.setter
@@ -62,9 +52,6 @@ class LogMetricFilterArgs:
     @_builtins.property
     @pulumi.getter(name="metricTransformation")
     def metric_transformation(self) -> pulumi.Input['LogMetricFilterMetricTransformationArgs']:
-        """
-        A block defining collection of information needed to define how metric data gets emitted. See below.
-        """
         return pulumi.get(self, "metric_transformation")
 
     @metric_transformation.setter
@@ -74,10 +61,6 @@ class LogMetricFilterArgs:
     @_builtins.property
     @pulumi.getter
     def pattern(self) -> pulumi.Input[_builtins.str]:
-        """
-        A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
-        for extracting metric data out of ingested log events.
-        """
         return pulumi.get(self, "pattern")
 
     @pattern.setter
@@ -87,9 +70,6 @@ class LogMetricFilterArgs:
     @_builtins.property
     @pulumi.getter(name="applyOnTransformedLogs")
     def apply_on_transformed_logs(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
-        """
         return pulumi.get(self, "apply_on_transformed_logs")
 
     @apply_on_transformed_logs.setter
@@ -99,9 +79,6 @@ class LogMetricFilterArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A name for the metric filter.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -111,9 +88,6 @@ class LogMetricFilterArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -132,13 +106,6 @@ class _LogMetricFilterState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LogMetricFilter resources.
-        :param pulumi.Input[_builtins.bool] apply_on_transformed_logs: Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
-        :param pulumi.Input[_builtins.str] log_group_name: The name of the log group to associate the metric filter with.
-        :param pulumi.Input['LogMetricFilterMetricTransformationArgs'] metric_transformation: A block defining collection of information needed to define how metric data gets emitted. See below.
-        :param pulumi.Input[_builtins.str] name: A name for the metric filter.
-        :param pulumi.Input[_builtins.str] pattern: A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
-               for extracting metric data out of ingested log events.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if apply_on_transformed_logs is not None:
             pulumi.set(__self__, "apply_on_transformed_logs", apply_on_transformed_logs)
@@ -156,9 +123,6 @@ class _LogMetricFilterState:
     @_builtins.property
     @pulumi.getter(name="applyOnTransformedLogs")
     def apply_on_transformed_logs(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
-        """
         return pulumi.get(self, "apply_on_transformed_logs")
 
     @apply_on_transformed_logs.setter
@@ -168,9 +132,6 @@ class _LogMetricFilterState:
     @_builtins.property
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the log group to associate the metric filter with.
-        """
         return pulumi.get(self, "log_group_name")
 
     @log_group_name.setter
@@ -180,9 +141,6 @@ class _LogMetricFilterState:
     @_builtins.property
     @pulumi.getter(name="metricTransformation")
     def metric_transformation(self) -> Optional[pulumi.Input['LogMetricFilterMetricTransformationArgs']]:
-        """
-        A block defining collection of information needed to define how metric data gets emitted. See below.
-        """
         return pulumi.get(self, "metric_transformation")
 
     @metric_transformation.setter
@@ -192,9 +150,6 @@ class _LogMetricFilterState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A name for the metric filter.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -204,10 +159,6 @@ class _LogMetricFilterState:
     @_builtins.property
     @pulumi.getter
     def pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
-        for extracting metric data out of ingested log events.
-        """
         return pulumi.get(self, "pattern")
 
     @pattern.setter
@@ -217,9 +168,6 @@ class _LogMetricFilterState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -241,43 +189,9 @@ class LogMetricFilter(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a CloudWatch Log Metric Filter resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        dada = aws.cloudwatch.LogGroup("dada", name="MyApp/access.log")
-        yada = aws.cloudwatch.LogMetricFilter("yada",
-            name="MyAppAccessCount",
-            pattern="",
-            log_group_name=dada.name,
-            metric_transformation={
-                "name": "EventCount",
-                "namespace": "YourNamespace",
-                "value": "1",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudWatch Log Metric Filter using the `log_group_name:name`. For example:
-
-        ```sh
-        $ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test
-        ```
-
+        Create a LogMetricFilter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] apply_on_transformed_logs: Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
-        :param pulumi.Input[_builtins.str] log_group_name: The name of the log group to associate the metric filter with.
-        :param pulumi.Input[Union['LogMetricFilterMetricTransformationArgs', 'LogMetricFilterMetricTransformationArgsDict']] metric_transformation: A block defining collection of information needed to define how metric data gets emitted. See below.
-        :param pulumi.Input[_builtins.str] name: A name for the metric filter.
-        :param pulumi.Input[_builtins.str] pattern: A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
-               for extracting metric data out of ingested log events.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -286,34 +200,7 @@ class LogMetricFilter(pulumi.CustomResource):
                  args: LogMetricFilterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a CloudWatch Log Metric Filter resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        dada = aws.cloudwatch.LogGroup("dada", name="MyApp/access.log")
-        yada = aws.cloudwatch.LogMetricFilter("yada",
-            name="MyAppAccessCount",
-            pattern="",
-            log_group_name=dada.name,
-            metric_transformation={
-                "name": "EventCount",
-                "namespace": "YourNamespace",
-                "value": "1",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudWatch Log Metric Filter using the `log_group_name:name`. For example:
-
-        ```sh
-        $ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test
-        ```
-
+        Create a LogMetricFilter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LogMetricFilterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -379,13 +266,6 @@ class LogMetricFilter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] apply_on_transformed_logs: Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
-        :param pulumi.Input[_builtins.str] log_group_name: The name of the log group to associate the metric filter with.
-        :param pulumi.Input[Union['LogMetricFilterMetricTransformationArgs', 'LogMetricFilterMetricTransformationArgsDict']] metric_transformation: A block defining collection of information needed to define how metric data gets emitted. See below.
-        :param pulumi.Input[_builtins.str] name: A name for the metric filter.
-        :param pulumi.Input[_builtins.str] pattern: A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
-               for extracting metric data out of ingested log events.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -402,49 +282,30 @@ class LogMetricFilter(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="applyOnTransformedLogs")
     def apply_on_transformed_logs(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
-        """
         return pulumi.get(self, "apply_on_transformed_logs")
 
     @_builtins.property
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the log group to associate the metric filter with.
-        """
         return pulumi.get(self, "log_group_name")
 
     @_builtins.property
     @pulumi.getter(name="metricTransformation")
     def metric_transformation(self) -> pulumi.Output['outputs.LogMetricFilterMetricTransformation']:
-        """
-        A block defining collection of information needed to define how metric data gets emitted. See below.
-        """
         return pulumi.get(self, "metric_transformation")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        A name for the metric filter.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def pattern(self) -> pulumi.Output[_builtins.str]:
-        """
-        A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
-        for extracting metric data out of ingested log events.
-        """
         return pulumi.get(self, "pattern")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

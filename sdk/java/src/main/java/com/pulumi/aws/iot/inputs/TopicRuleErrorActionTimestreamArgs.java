@@ -19,77 +19,37 @@ public final class TopicRuleErrorActionTimestreamArgs extends com.pulumi.resourc
 
     public static final TopicRuleErrorActionTimestreamArgs Empty = new TopicRuleErrorActionTimestreamArgs();
 
-    /**
-     * The name of an Amazon Timestream database.
-     * 
-     */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
-    /**
-     * @return The name of an Amazon Timestream database.
-     * 
-     */
     public Output<String> databaseName() {
         return this.databaseName;
     }
 
-    /**
-     * Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
-     * 
-     */
     @Import(name="dimensions", required=true)
     private Output<List<TopicRuleErrorActionTimestreamDimensionArgs>> dimensions;
 
-    /**
-     * @return Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
-     * 
-     */
     public Output<List<TopicRuleErrorActionTimestreamDimensionArgs>> dimensions() {
         return this.dimensions;
     }
 
-    /**
-     * The ARN of the role that grants permission to write to the Amazon Timestream database table.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return The ARN of the role that grants permission to write to the Amazon Timestream database table.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
 
-    /**
-     * The name of the database table into which to write the measure records.
-     * 
-     */
     @Import(name="tableName", required=true)
     private Output<String> tableName;
 
-    /**
-     * @return The name of the database table into which to write the measure records.
-     * 
-     */
     public Output<String> tableName() {
         return this.tableName;
     }
 
-    /**
-     * Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record&#39;s timestamp in the time column. Nested arguments below.
-     * 
-     */
     @Import(name="timestamp")
     private @Nullable Output<TopicRuleErrorActionTimestreamTimestampArgs> timestamp;
 
-    /**
-     * @return Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record&#39;s timestamp in the time column. Nested arguments below.
-     * 
-     */
     public Optional<Output<TopicRuleErrorActionTimestreamTimestampArgs>> timestamp() {
         return Optional.ofNullable(this.timestamp);
     }
@@ -122,117 +82,51 @@ public final class TopicRuleErrorActionTimestreamArgs extends com.pulumi.resourc
             $ = new TopicRuleErrorActionTimestreamArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param databaseName The name of an Amazon Timestream database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(Output<String> databaseName) {
             $.databaseName = databaseName;
             return this;
         }
 
-        /**
-         * @param databaseName The name of an Amazon Timestream database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
         }
 
-        /**
-         * @param dimensions Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimensions(Output<List<TopicRuleErrorActionTimestreamDimensionArgs>> dimensions) {
             $.dimensions = dimensions;
             return this;
         }
 
-        /**
-         * @param dimensions Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimensions(List<TopicRuleErrorActionTimestreamDimensionArgs> dimensions) {
             return dimensions(Output.of(dimensions));
         }
 
-        /**
-         * @param dimensions Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimensions(TopicRuleErrorActionTimestreamDimensionArgs... dimensions) {
             return dimensions(List.of(dimensions));
         }
 
-        /**
-         * @param roleArn The ARN of the role that grants permission to write to the Amazon Timestream database table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The ARN of the role that grants permission to write to the Amazon Timestream database table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param tableName The name of the database table into which to write the measure records.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(Output<String> tableName) {
             $.tableName = tableName;
             return this;
         }
 
-        /**
-         * @param tableName The name of the database table into which to write the measure records.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(String tableName) {
             return tableName(Output.of(tableName));
         }
 
-        /**
-         * @param timestamp Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record&#39;s timestamp in the time column. Nested arguments below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timestamp(@Nullable Output<TopicRuleErrorActionTimestreamTimestampArgs> timestamp) {
             $.timestamp = timestamp;
             return this;
         }
 
-        /**
-         * @param timestamp Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record&#39;s timestamp in the time column. Nested arguments below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timestamp(TopicRuleErrorActionTimestreamTimestampArgs timestamp) {
             return timestamp(Output.of(timestamp));
         }

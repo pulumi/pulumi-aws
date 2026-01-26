@@ -23,284 +23,100 @@ import java.util.Objects;
 @CustomType
 public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement {
     private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount> acceleratorCounts;
-    /**
-     * @return List of accelerator manufacturer names.
-     * 
-     */
     private List<String> acceleratorManufacturers;
-    /**
-     * @return List of accelerator names.
-     * 
-     */
     private List<String> acceleratorNames;
-    /**
-     * @return List of objects describing the minimum and maximum total memory of the accelerators.
-     * 
-     */
     private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib> acceleratorTotalMemoryMibs;
-    /**
-     * @return List of accelerator types.
-     * 
-     */
     private List<String> acceleratorTypes;
-    /**
-     * @return List of instance types to apply the specified attributes against.
-     * 
-     */
     private List<String> allowedInstanceTypes;
-    /**
-     * @return Indicates whether bare metal instances are included, excluded, or required.
-     * 
-     */
     private String bareMetal;
-    /**
-     * @return List of objects describing the minimum and maximum baseline EBS bandwidth (Mbps).
-     * 
-     */
     private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp> baselineEbsBandwidthMbps;
-    /**
-     * @return Indicates whether burstable performance instance types are included, excluded, or required.
-     * 
-     */
     private String burstablePerformance;
-    /**
-     * @return List of CPU manufacturer names.
-     * 
-     */
     private List<String> cpuManufacturers;
-    /**
-     * @return List of excluded instance types.
-     * 
-     */
     private List<String> excludedInstanceTypes;
-    /**
-     * @return List of instance generation names.
-     * 
-     */
     private List<String> instanceGenerations;
-    /**
-     * @return Indicates whether instance types with instance store volumes are included, excluded, or required.
-     * 
-     */
     private String localStorage;
-    /**
-     * @return List of local storage type names.
-     * 
-     */
     private List<String> localStorageTypes;
-    /**
-     * @return Price protection threshold for Spot Instances.
-     * 
-     */
     private Integer maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
-    /**
-     * @return List of objects describing the minimum and maximum amount of memory (GiB) per vCPU.
-     * 
-     */
     private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus> memoryGibPerVcpus;
-    /**
-     * @return List of objects describing the minimum and maximum amount of memory (MiB).
-     * 
-     */
     private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib> memoryMibs;
-    /**
-     * @return List of objects describing the minimum and maximum amount of network bandwidth (Gbps).
-     * 
-     */
     private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp> networkBandwidthGbps;
-    /**
-     * @return List of objects describing the minimum and maximum amount of network interfaces.
-     * 
-     */
     private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount> networkInterfaceCounts;
-    /**
-     * @return Price protection threshold for On-Demand Instances.
-     * 
-     */
     private Integer onDemandMaxPricePercentageOverLowestPrice;
-    /**
-     * @return Indicates whether instance types must support On-Demand Instance Hibernation.
-     * 
-     */
     private Boolean requireHibernateSupport;
-    /**
-     * @return Price protection threshold for Spot Instances.
-     * 
-     */
     private Integer spotMaxPricePercentageOverLowestPrice;
-    /**
-     * @return List of objects describing the minimum and maximum total storage (GB).
-     * 
-     */
     private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb> totalLocalStorageGbs;
-    /**
-     * @return List of objects describing the minimum and maximum number of vCPUs.
-     * 
-     */
     private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount> vcpuCounts;
 
     private GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement() {}
     public List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount> acceleratorCounts() {
         return this.acceleratorCounts;
     }
-    /**
-     * @return List of accelerator manufacturer names.
-     * 
-     */
     public List<String> acceleratorManufacturers() {
         return this.acceleratorManufacturers;
     }
-    /**
-     * @return List of accelerator names.
-     * 
-     */
     public List<String> acceleratorNames() {
         return this.acceleratorNames;
     }
-    /**
-     * @return List of objects describing the minimum and maximum total memory of the accelerators.
-     * 
-     */
     public List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib> acceleratorTotalMemoryMibs() {
         return this.acceleratorTotalMemoryMibs;
     }
-    /**
-     * @return List of accelerator types.
-     * 
-     */
     public List<String> acceleratorTypes() {
         return this.acceleratorTypes;
     }
-    /**
-     * @return List of instance types to apply the specified attributes against.
-     * 
-     */
     public List<String> allowedInstanceTypes() {
         return this.allowedInstanceTypes;
     }
-    /**
-     * @return Indicates whether bare metal instances are included, excluded, or required.
-     * 
-     */
     public String bareMetal() {
         return this.bareMetal;
     }
-    /**
-     * @return List of objects describing the minimum and maximum baseline EBS bandwidth (Mbps).
-     * 
-     */
     public List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp> baselineEbsBandwidthMbps() {
         return this.baselineEbsBandwidthMbps;
     }
-    /**
-     * @return Indicates whether burstable performance instance types are included, excluded, or required.
-     * 
-     */
     public String burstablePerformance() {
         return this.burstablePerformance;
     }
-    /**
-     * @return List of CPU manufacturer names.
-     * 
-     */
     public List<String> cpuManufacturers() {
         return this.cpuManufacturers;
     }
-    /**
-     * @return List of excluded instance types.
-     * 
-     */
     public List<String> excludedInstanceTypes() {
         return this.excludedInstanceTypes;
     }
-    /**
-     * @return List of instance generation names.
-     * 
-     */
     public List<String> instanceGenerations() {
         return this.instanceGenerations;
     }
-    /**
-     * @return Indicates whether instance types with instance store volumes are included, excluded, or required.
-     * 
-     */
     public String localStorage() {
         return this.localStorage;
     }
-    /**
-     * @return List of local storage type names.
-     * 
-     */
     public List<String> localStorageTypes() {
         return this.localStorageTypes;
     }
-    /**
-     * @return Price protection threshold for Spot Instances.
-     * 
-     */
     public Integer maxSpotPriceAsPercentageOfOptimalOnDemandPrice() {
         return this.maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
     }
-    /**
-     * @return List of objects describing the minimum and maximum amount of memory (GiB) per vCPU.
-     * 
-     */
     public List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus> memoryGibPerVcpus() {
         return this.memoryGibPerVcpus;
     }
-    /**
-     * @return List of objects describing the minimum and maximum amount of memory (MiB).
-     * 
-     */
     public List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib> memoryMibs() {
         return this.memoryMibs;
     }
-    /**
-     * @return List of objects describing the minimum and maximum amount of network bandwidth (Gbps).
-     * 
-     */
     public List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp> networkBandwidthGbps() {
         return this.networkBandwidthGbps;
     }
-    /**
-     * @return List of objects describing the minimum and maximum amount of network interfaces.
-     * 
-     */
     public List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount> networkInterfaceCounts() {
         return this.networkInterfaceCounts;
     }
-    /**
-     * @return Price protection threshold for On-Demand Instances.
-     * 
-     */
     public Integer onDemandMaxPricePercentageOverLowestPrice() {
         return this.onDemandMaxPricePercentageOverLowestPrice;
     }
-    /**
-     * @return Indicates whether instance types must support On-Demand Instance Hibernation.
-     * 
-     */
     public Boolean requireHibernateSupport() {
         return this.requireHibernateSupport;
     }
-    /**
-     * @return Price protection threshold for Spot Instances.
-     * 
-     */
     public Integer spotMaxPricePercentageOverLowestPrice() {
         return this.spotMaxPricePercentageOverLowestPrice;
     }
-    /**
-     * @return List of objects describing the minimum and maximum total storage (GB).
-     * 
-     */
     public List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb> totalLocalStorageGbs() {
         return this.totalLocalStorageGbs;
     }
-    /**
-     * @return List of objects describing the minimum and maximum number of vCPUs.
-     * 
-     */
     public List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount> vcpuCounts() {
         return this.vcpuCounts;
     }

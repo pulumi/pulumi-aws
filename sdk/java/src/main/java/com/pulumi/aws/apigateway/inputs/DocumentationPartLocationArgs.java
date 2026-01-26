@@ -16,77 +16,37 @@ public final class DocumentationPartLocationArgs extends com.pulumi.resources.Re
 
     public static final DocumentationPartLocationArgs Empty = new DocumentationPartLocationArgs();
 
-    /**
-     * HTTP verb of a method. The default value is `*` for any method.
-     * 
-     */
     @Import(name="method")
     private @Nullable Output<String> method;
 
-    /**
-     * @return HTTP verb of a method. The default value is `*` for any method.
-     * 
-     */
     public Optional<Output<String>> method() {
         return Optional.ofNullable(this.method);
     }
 
-    /**
-     * Name of the targeted API entity.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the targeted API entity.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * URL path of the target. The default value is `/` for the root resource.
-     * 
-     */
     @Import(name="path")
     private @Nullable Output<String> path;
 
-    /**
-     * @return URL path of the target. The default value is `/` for the root resource.
-     * 
-     */
     public Optional<Output<String>> path() {
         return Optional.ofNullable(this.path);
     }
 
-    /**
-     * HTTP status code of a response. The default value is `*` for any status code.
-     * 
-     */
     @Import(name="statusCode")
     private @Nullable Output<String> statusCode;
 
-    /**
-     * @return HTTP status code of a response. The default value is `*` for any status code.
-     * 
-     */
     public Optional<Output<String>> statusCode() {
         return Optional.ofNullable(this.statusCode);
     }
 
-    /**
-     * Type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -119,107 +79,47 @@ public final class DocumentationPartLocationArgs extends com.pulumi.resources.Re
             $ = new DocumentationPartLocationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param method HTTP verb of a method. The default value is `*` for any method.
-         * 
-         * @return builder
-         * 
-         */
         public Builder method(@Nullable Output<String> method) {
             $.method = method;
             return this;
         }
 
-        /**
-         * @param method HTTP verb of a method. The default value is `*` for any method.
-         * 
-         * @return builder
-         * 
-         */
         public Builder method(String method) {
             return method(Output.of(method));
         }
 
-        /**
-         * @param name Name of the targeted API entity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the targeted API entity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param path URL path of the target. The default value is `/` for the root resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(@Nullable Output<String> path) {
             $.path = path;
             return this;
         }
 
-        /**
-         * @param path URL path of the target. The default value is `/` for the root resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(String path) {
             return path(Output.of(path));
         }
 
-        /**
-         * @param statusCode HTTP status code of a response. The default value is `*` for any status code.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusCode(@Nullable Output<String> statusCode) {
             $.statusCode = statusCode;
             return this;
         }
 
-        /**
-         * @param statusCode HTTP status code of a response. The default value is `*` for any status code.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusCode(String statusCode) {
             return statusCode(Output.of(statusCode));
         }
 
-        /**
-         * @param type Type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

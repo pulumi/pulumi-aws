@@ -14,17 +14,9 @@ public final class TableBucketReplicationRuleDestinationArgs extends com.pulumi.
 
     public static final TableBucketReplicationRuleDestinationArgs Empty = new TableBucketReplicationRuleDestinationArgs();
 
-    /**
-     * ARN of destination table bucket to replicate source tables to.
-     * 
-     */
     @Import(name="destinationTableBucketArn", required=true)
     private Output<String> destinationTableBucketArn;
 
-    /**
-     * @return ARN of destination table bucket to replicate source tables to.
-     * 
-     */
     public Output<String> destinationTableBucketArn() {
         return this.destinationTableBucketArn;
     }
@@ -53,23 +45,11 @@ public final class TableBucketReplicationRuleDestinationArgs extends com.pulumi.
             $ = new TableBucketReplicationRuleDestinationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destinationTableBucketArn ARN of destination table bucket to replicate source tables to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationTableBucketArn(Output<String> destinationTableBucketArn) {
             $.destinationTableBucketArn = destinationTableBucketArn;
             return this;
         }
 
-        /**
-         * @param destinationTableBucketArn ARN of destination table bucket to replicate source tables to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationTableBucketArn(String destinationTableBucketArn) {
             return destinationTableBucketArn(Output.of(destinationTableBucketArn));
         }

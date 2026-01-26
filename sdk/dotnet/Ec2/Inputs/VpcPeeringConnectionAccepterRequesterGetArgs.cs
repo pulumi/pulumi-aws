@@ -12,10 +12,6 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class VpcPeeringConnectionAccepterRequesterGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Indicates whether a local VPC can resolve public DNS hostnames to
-        /// private IP addresses when queried from instances in a peer VPC.
-        /// </summary>
         [Input("allowRemoteVpcDnsResolution")]
         public Input<bool>? AllowRemoteVpcDnsResolution { get; set; }
 

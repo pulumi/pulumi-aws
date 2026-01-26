@@ -12,39 +12,21 @@ namespace Pulumi.Aws.Cognito.Inputs
 
     public sealed class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Email template used when a detected risk event is blocked. See notify email type below.
-        /// </summary>
         [Input("blockEmail")]
         public Input<Inputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailGetArgs>? BlockEmail { get; set; }
 
-        /// <summary>
-        /// The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
-        /// </summary>
         [Input("from")]
         public Input<string>? From { get; set; }
 
-        /// <summary>
-        /// The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk. See notify email type below.
-        /// </summary>
         [Input("mfaEmail")]
         public Input<Inputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailGetArgs>? MfaEmail { get; set; }
 
-        /// <summary>
-        /// The email template used when a detected risk event is allowed. See notify email type below.
-        /// </summary>
         [Input("noActionEmail")]
         public Input<Inputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailGetArgs>? NoActionEmail { get; set; }
 
-        /// <summary>
-        /// The destination to which the receiver of an email should reply to.
-        /// </summary>
         [Input("replyTo")]
         public Input<string>? ReplyTo { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
-        /// </summary>
         [Input("sourceArn", required: true)]
         public Input<string> SourceArn { get; set; } = null!;
 

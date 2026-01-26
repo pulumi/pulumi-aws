@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecr.LookupPullThroughCacheRule(ctx, &ecr.LookupPullThroughCacheRuleArgs{
-//				EcrRepositoryPrefix: "ecr-public",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupPullThroughCacheRule(ctx *pulumi.Context, args *LookupPullThroughCacheRuleArgs, opts ...pulumi.InvokeOption) (*LookupPullThroughCacheRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPullThroughCacheRuleResult
@@ -50,27 +23,20 @@ func LookupPullThroughCacheRule(ctx *pulumi.Context, args *LookupPullThroughCach
 
 // A collection of arguments for invoking getPullThroughCacheRule.
 type LookupPullThroughCacheRuleArgs struct {
-	// The repository name prefix to use when caching images from the source registry.
-	EcrRepositoryPrefix string `pulumi:"ecrRepositoryPrefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	EcrRepositoryPrefix string  `pulumi:"ecrRepositoryPrefix"`
+	Region              *string `pulumi:"region"`
 }
 
 // A collection of values returned by getPullThroughCacheRule.
 type LookupPullThroughCacheRuleResult struct {
-	// ARN of the Secret which will be used to authenticate against the registry.
-	CredentialArn string `pulumi:"credentialArn"`
-	// The ARN of the IAM role associated with the pull through cache rule. Used if the upstream registry is a cross-account ECR private registry.
+	CredentialArn       string `pulumi:"credentialArn"`
 	CustomRoleArn       string `pulumi:"customRoleArn"`
 	EcrRepositoryPrefix string `pulumi:"ecrRepositoryPrefix"`
 	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
-	// The registry ID where the repository was created.
-	RegistryId string `pulumi:"registryId"`
-	// The registry URL of the upstream registry to use as the source.
-	UpstreamRegistryUrl string `pulumi:"upstreamRegistryUrl"`
-	// The upstream repository prefix associated with the pull through cache rule.
+	Id                       string `pulumi:"id"`
+	Region                   string `pulumi:"region"`
+	RegistryId               string `pulumi:"registryId"`
+	UpstreamRegistryUrl      string `pulumi:"upstreamRegistryUrl"`
 	UpstreamRepositoryPrefix string `pulumi:"upstreamRepositoryPrefix"`
 }
 
@@ -85,10 +51,8 @@ func LookupPullThroughCacheRuleOutput(ctx *pulumi.Context, args LookupPullThroug
 
 // A collection of arguments for invoking getPullThroughCacheRule.
 type LookupPullThroughCacheRuleOutputArgs struct {
-	// The repository name prefix to use when caching images from the source registry.
-	EcrRepositoryPrefix pulumi.StringInput `pulumi:"ecrRepositoryPrefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	EcrRepositoryPrefix pulumi.StringInput    `pulumi:"ecrRepositoryPrefix"`
+	Region              pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupPullThroughCacheRuleOutputArgs) ElementType() reflect.Type {
@@ -110,12 +74,10 @@ func (o LookupPullThroughCacheRuleResultOutput) ToLookupPullThroughCacheRuleResu
 	return o
 }
 
-// ARN of the Secret which will be used to authenticate against the registry.
 func (o LookupPullThroughCacheRuleResultOutput) CredentialArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPullThroughCacheRuleResult) string { return v.CredentialArn }).(pulumi.StringOutput)
 }
 
-// The ARN of the IAM role associated with the pull through cache rule. Used if the upstream registry is a cross-account ECR private registry.
 func (o LookupPullThroughCacheRuleResultOutput) CustomRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPullThroughCacheRuleResult) string { return v.CustomRoleArn }).(pulumi.StringOutput)
 }
@@ -133,17 +95,14 @@ func (o LookupPullThroughCacheRuleResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPullThroughCacheRuleResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The registry ID where the repository was created.
 func (o LookupPullThroughCacheRuleResultOutput) RegistryId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPullThroughCacheRuleResult) string { return v.RegistryId }).(pulumi.StringOutput)
 }
 
-// The registry URL of the upstream registry to use as the source.
 func (o LookupPullThroughCacheRuleResultOutput) UpstreamRegistryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPullThroughCacheRuleResult) string { return v.UpstreamRegistryUrl }).(pulumi.StringOutput)
 }
 
-// The upstream repository prefix associated with the pull through cache rule.
 func (o LookupPullThroughCacheRuleResultOutput) UpstreamRepositoryPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPullThroughCacheRuleResult) string { return v.UpstreamRepositoryPrefix }).(pulumi.StringOutput)
 }

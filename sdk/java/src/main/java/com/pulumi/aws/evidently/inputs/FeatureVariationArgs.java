@@ -15,32 +15,16 @@ public final class FeatureVariationArgs extends com.pulumi.resources.ResourceArg
 
     public static final FeatureVariationArgs Empty = new FeatureVariationArgs();
 
-    /**
-     * The name of the variation. Minimum length of `1`. Maximum length of `127`.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the variation. Minimum length of `1`. Maximum length of `127`.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * A block that specifies the value assigned to this variation. Detailed below
-     * 
-     */
     @Import(name="value", required=true)
     private Output<FeatureVariationValueArgs> value;
 
-    /**
-     * @return A block that specifies the value assigned to this variation. Detailed below
-     * 
-     */
     public Output<FeatureVariationValueArgs> value() {
         return this.value;
     }
@@ -70,44 +54,20 @@ public final class FeatureVariationArgs extends com.pulumi.resources.ResourceArg
             $ = new FeatureVariationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of the variation. Minimum length of `1`. Maximum length of `127`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the variation. Minimum length of `1`. Maximum length of `127`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param value A block that specifies the value assigned to this variation. Detailed below
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<FeatureVariationValueArgs> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value A block that specifies the value assigned to this variation. Detailed below
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(FeatureVariationValueArgs value) {
             return value(Output.of(value));
         }

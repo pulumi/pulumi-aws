@@ -12,126 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CodeBuild Report Groups Resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codebuild"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Sid:    pulumi.StringRef("Enable IAM User Permissions"),
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "AWS",
-//								Identifiers: []string{
-//									fmt.Sprintf("arn:aws:iam::%v:root", current.AccountId),
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"kms:*",
-//						},
-//						Resources: []string{
-//							"*",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleKey, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
-//				Description:          pulumi.String("my test kms key"),
-//				DeletionWindowInDays: pulumi.Int(7),
-//				Policy:               pulumi.String(example.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
-//				Bucket: pulumi.String("my-test"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = codebuild.NewReportGroup(ctx, "example", &codebuild.ReportGroupArgs{
-//				Name: pulumi.String("my test report group"),
-//				Type: pulumi.String("TEST"),
-//				ExportConfig: &codebuild.ReportGroupExportConfigArgs{
-//					Type: pulumi.String("S3"),
-//					S3Destination: &codebuild.ReportGroupExportConfigS3DestinationArgs{
-//						Bucket:             exampleBucket.ID(),
-//						EncryptionDisabled: pulumi.Bool(false),
-//						EncryptionKey:      exampleKey.Arn,
-//						Packaging:          pulumi.String("NONE"),
-//						Path:               pulumi.String("/some"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild report group.
-//
-// Using `pulumi import`, import CodeBuild Report Group using the CodeBuild Report Group arn. For example:
-//
-// % pulumi import aws_codebuild_report_group.example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
 type ReportGroup struct {
 	pulumi.CustomResourceState
 
-	// The ARN of Report Group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The date and time this Report Group was created.
-	Created pulumi.StringOutput `pulumi:"created"`
-	// If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
-	DeleteReports pulumi.BoolPtrOutput `pulumi:"deleteReports"`
-	// Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
-	ExportConfig ReportGroupExportConfigOutput `pulumi:"exportConfig"`
-	// The name of a Report Group.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Arn           pulumi.StringOutput           `pulumi:"arn"`
+	Created       pulumi.StringOutput           `pulumi:"created"`
+	DeleteReports pulumi.BoolPtrOutput          `pulumi:"deleteReports"`
+	ExportConfig  ReportGroupExportConfigOutput `pulumi:"exportConfig"`
+	Name          pulumi.StringOutput           `pulumi:"name"`
+	Region        pulumi.StringOutput           `pulumi:"region"`
+	Tags          pulumi.StringMapOutput        `pulumi:"tags"`
+	TagsAll       pulumi.StringMapOutput        `pulumi:"tagsAll"`
+	Type          pulumi.StringOutput           `pulumi:"type"`
 }
 
 // NewReportGroup registers a new resource with the given unique name, arguments, and options.
@@ -170,45 +62,27 @@ func GetReportGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReportGroup resources.
 type reportGroupState struct {
-	// The ARN of Report Group.
-	Arn *string `pulumi:"arn"`
-	// The date and time this Report Group was created.
-	Created *string `pulumi:"created"`
-	// If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
-	DeleteReports *bool `pulumi:"deleteReports"`
-	// Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
-	ExportConfig *ReportGroupExportConfig `pulumi:"exportConfig"`
-	// The name of a Report Group.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
-	Type *string `pulumi:"type"`
+	Arn           *string                  `pulumi:"arn"`
+	Created       *string                  `pulumi:"created"`
+	DeleteReports *bool                    `pulumi:"deleteReports"`
+	ExportConfig  *ReportGroupExportConfig `pulumi:"exportConfig"`
+	Name          *string                  `pulumi:"name"`
+	Region        *string                  `pulumi:"region"`
+	Tags          map[string]string        `pulumi:"tags"`
+	TagsAll       map[string]string        `pulumi:"tagsAll"`
+	Type          *string                  `pulumi:"type"`
 }
 
 type ReportGroupState struct {
-	// The ARN of Report Group.
-	Arn pulumi.StringPtrInput
-	// The date and time this Report Group was created.
-	Created pulumi.StringPtrInput
-	// If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
+	Arn           pulumi.StringPtrInput
+	Created       pulumi.StringPtrInput
 	DeleteReports pulumi.BoolPtrInput
-	// Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
-	ExportConfig ReportGroupExportConfigPtrInput
-	// The name of a Report Group.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
-	Type pulumi.StringPtrInput
+	ExportConfig  ReportGroupExportConfigPtrInput
+	Name          pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
+	Tags          pulumi.StringMapInput
+	TagsAll       pulumi.StringMapInput
+	Type          pulumi.StringPtrInput
 }
 
 func (ReportGroupState) ElementType() reflect.Type {
@@ -216,34 +90,22 @@ func (ReportGroupState) ElementType() reflect.Type {
 }
 
 type reportGroupArgs struct {
-	// If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
-	DeleteReports *bool `pulumi:"deleteReports"`
-	// Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
-	ExportConfig ReportGroupExportConfig `pulumi:"exportConfig"`
-	// The name of a Report Group.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
-	Type string `pulumi:"type"`
+	DeleteReports *bool                   `pulumi:"deleteReports"`
+	ExportConfig  ReportGroupExportConfig `pulumi:"exportConfig"`
+	Name          *string                 `pulumi:"name"`
+	Region        *string                 `pulumi:"region"`
+	Tags          map[string]string       `pulumi:"tags"`
+	Type          string                  `pulumi:"type"`
 }
 
 // The set of arguments for constructing a ReportGroup resource.
 type ReportGroupArgs struct {
-	// If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
 	DeleteReports pulumi.BoolPtrInput
-	// Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
-	ExportConfig ReportGroupExportConfigInput
-	// The name of a Report Group.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
-	Type pulumi.StringInput
+	ExportConfig  ReportGroupExportConfigInput
+	Name          pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
+	Tags          pulumi.StringMapInput
+	Type          pulumi.StringInput
 }
 
 func (ReportGroupArgs) ElementType() reflect.Type {
@@ -333,47 +195,38 @@ func (o ReportGroupOutput) ToReportGroupOutputWithContext(ctx context.Context) R
 	return o
 }
 
-// The ARN of Report Group.
 func (o ReportGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReportGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The date and time this Report Group was created.
 func (o ReportGroupOutput) Created() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReportGroup) pulumi.StringOutput { return v.Created }).(pulumi.StringOutput)
 }
 
-// If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
 func (o ReportGroupOutput) DeleteReports() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ReportGroup) pulumi.BoolPtrOutput { return v.DeleteReports }).(pulumi.BoolPtrOutput)
 }
 
-// Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
 func (o ReportGroupOutput) ExportConfig() ReportGroupExportConfigOutput {
 	return o.ApplyT(func(v *ReportGroup) ReportGroupExportConfigOutput { return v.ExportConfig }).(ReportGroupExportConfigOutput)
 }
 
-// The name of a Report Group.
 func (o ReportGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReportGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ReportGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReportGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ReportGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReportGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ReportGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReportGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
 func (o ReportGroupOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReportGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

@@ -172,21 +172,9 @@ class HostTimeoutsArgs:
 if not MYPY:
     class HostVpcConfigurationArgsDict(TypedDict):
         security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
-        """
         subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
-        """
         vpc_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
-        """
         tls_certificate: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
-        """
 elif False:
     HostVpcConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -197,12 +185,6 @@ class HostVpcConfigurationArgs:
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  vpc_id: pulumi.Input[_builtins.str],
                  tls_certificate: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
-        :param pulumi.Input[_builtins.str] tls_certificate: The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
-        """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         pulumi.set(__self__, "vpc_id", vpc_id)
@@ -212,9 +194,6 @@ class HostVpcConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -224,9 +203,6 @@ class HostVpcConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -236,9 +212,6 @@ class HostVpcConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -248,9 +221,6 @@ class HostVpcConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="tlsCertificate")
     def tls_certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
-        """
         return pulumi.get(self, "tls_certificate")
 
     @tls_certificate.setter

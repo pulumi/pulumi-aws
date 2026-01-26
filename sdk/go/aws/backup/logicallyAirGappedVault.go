@@ -12,65 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Backup Logically Air Gapped Vault.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/backup"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := backup.NewLogicallyAirGappedVault(ctx, "example", &backup.LogicallyAirGappedVaultArgs{
-//				Name:             pulumi.String("lag-example-vault"),
-//				MaxRetentionDays: pulumi.Int(7),
-//				MinRetentionDays: pulumi.Int(7),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Backup Logically Air Gapped Vault using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:backup/logicallyAirGappedVault:LogicallyAirGappedVault example lag-example-vault
-// ```
 type LogicallyAirGappedVault struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the Logically Air Gapped Backup Vault.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
-	EncryptionKeyArn pulumi.StringOutput `pulumi:"encryptionKeyArn"`
-	// Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-	MaxRetentionDays pulumi.IntOutput `pulumi:"maxRetentionDays"`
-	// Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-	MinRetentionDays pulumi.IntOutput `pulumi:"minRetentionDays"`
-	// Name of the Logically Air Gapped Backup Vault to create.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Metadata that you can assign to help organize the resources that you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput                   `pulumi:"tagsAll"`
-	Timeouts LogicallyAirGappedVaultTimeoutsPtrOutput `pulumi:"timeouts"`
+	Arn              pulumi.StringOutput                      `pulumi:"arn"`
+	EncryptionKeyArn pulumi.StringOutput                      `pulumi:"encryptionKeyArn"`
+	MaxRetentionDays pulumi.IntOutput                         `pulumi:"maxRetentionDays"`
+	MinRetentionDays pulumi.IntOutput                         `pulumi:"minRetentionDays"`
+	Name             pulumi.StringOutput                      `pulumi:"name"`
+	Region           pulumi.StringOutput                      `pulumi:"region"`
+	Tags             pulumi.StringMapOutput                   `pulumi:"tags"`
+	TagsAll          pulumi.StringMapOutput                   `pulumi:"tagsAll"`
+	Timeouts         LogicallyAirGappedVaultTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewLogicallyAirGappedVault registers a new resource with the given unique name, arguments, and options.
@@ -109,43 +62,27 @@ func GetLogicallyAirGappedVault(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogicallyAirGappedVault resources.
 type logicallyAirGappedVaultState struct {
-	// The ARN of the Logically Air Gapped Backup Vault.
-	Arn *string `pulumi:"arn"`
-	// The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
-	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
-	// Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-	MaxRetentionDays *int `pulumi:"maxRetentionDays"`
-	// Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-	MinRetentionDays *int `pulumi:"minRetentionDays"`
-	// Name of the Logically Air Gapped Backup Vault to create.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Metadata that you can assign to help organize the resources that you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string                `pulumi:"tagsAll"`
-	Timeouts *LogicallyAirGappedVaultTimeouts `pulumi:"timeouts"`
+	Arn              *string                          `pulumi:"arn"`
+	EncryptionKeyArn *string                          `pulumi:"encryptionKeyArn"`
+	MaxRetentionDays *int                             `pulumi:"maxRetentionDays"`
+	MinRetentionDays *int                             `pulumi:"minRetentionDays"`
+	Name             *string                          `pulumi:"name"`
+	Region           *string                          `pulumi:"region"`
+	Tags             map[string]string                `pulumi:"tags"`
+	TagsAll          map[string]string                `pulumi:"tagsAll"`
+	Timeouts         *LogicallyAirGappedVaultTimeouts `pulumi:"timeouts"`
 }
 
 type LogicallyAirGappedVaultState struct {
-	// The ARN of the Logically Air Gapped Backup Vault.
-	Arn pulumi.StringPtrInput
-	// The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
+	Arn              pulumi.StringPtrInput
 	EncryptionKeyArn pulumi.StringPtrInput
-	// Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
 	MaxRetentionDays pulumi.IntPtrInput
-	// Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
 	MinRetentionDays pulumi.IntPtrInput
-	// Name of the Logically Air Gapped Backup Vault to create.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Metadata that you can assign to help organize the resources that you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts LogicallyAirGappedVaultTimeoutsPtrInput
+	Name             pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
+	Tags             pulumi.StringMapInput
+	TagsAll          pulumi.StringMapInput
+	Timeouts         LogicallyAirGappedVaultTimeoutsPtrInput
 }
 
 func (LogicallyAirGappedVaultState) ElementType() reflect.Type {
@@ -153,36 +90,24 @@ func (LogicallyAirGappedVaultState) ElementType() reflect.Type {
 }
 
 type logicallyAirGappedVaultArgs struct {
-	// The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
-	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
-	// Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-	MaxRetentionDays int `pulumi:"maxRetentionDays"`
-	// Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-	MinRetentionDays int `pulumi:"minRetentionDays"`
-	// Name of the Logically Air Gapped Backup Vault to create.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Metadata that you can assign to help organize the resources that you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string                `pulumi:"tags"`
-	Timeouts *LogicallyAirGappedVaultTimeouts `pulumi:"timeouts"`
+	EncryptionKeyArn *string                          `pulumi:"encryptionKeyArn"`
+	MaxRetentionDays int                              `pulumi:"maxRetentionDays"`
+	MinRetentionDays int                              `pulumi:"minRetentionDays"`
+	Name             *string                          `pulumi:"name"`
+	Region           *string                          `pulumi:"region"`
+	Tags             map[string]string                `pulumi:"tags"`
+	Timeouts         *LogicallyAirGappedVaultTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a LogicallyAirGappedVault resource.
 type LogicallyAirGappedVaultArgs struct {
-	// The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
 	EncryptionKeyArn pulumi.StringPtrInput
-	// Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
 	MaxRetentionDays pulumi.IntInput
-	// Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
 	MinRetentionDays pulumi.IntInput
-	// Name of the Logically Air Gapped Backup Vault to create.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Metadata that you can assign to help organize the resources that you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts LogicallyAirGappedVaultTimeoutsPtrInput
+	Name             pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
+	Tags             pulumi.StringMapInput
+	Timeouts         LogicallyAirGappedVaultTimeoutsPtrInput
 }
 
 func (LogicallyAirGappedVaultArgs) ElementType() reflect.Type {
@@ -272,42 +197,34 @@ func (o LogicallyAirGappedVaultOutput) ToLogicallyAirGappedVaultOutputWithContex
 	return o
 }
 
-// The ARN of the Logically Air Gapped Backup Vault.
 func (o LogicallyAirGappedVaultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedVault) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
 func (o LogicallyAirGappedVaultOutput) EncryptionKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedVault) pulumi.StringOutput { return v.EncryptionKeyArn }).(pulumi.StringOutput)
 }
 
-// Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
 func (o LogicallyAirGappedVaultOutput) MaxRetentionDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedVault) pulumi.IntOutput { return v.MaxRetentionDays }).(pulumi.IntOutput)
 }
 
-// Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
 func (o LogicallyAirGappedVaultOutput) MinRetentionDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedVault) pulumi.IntOutput { return v.MinRetentionDays }).(pulumi.IntOutput)
 }
 
-// Name of the Logically Air Gapped Backup Vault to create.
 func (o LogicallyAirGappedVaultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedVault) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LogicallyAirGappedVaultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedVault) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Metadata that you can assign to help organize the resources that you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o LogicallyAirGappedVaultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedVault) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o LogicallyAirGappedVaultOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedVault) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

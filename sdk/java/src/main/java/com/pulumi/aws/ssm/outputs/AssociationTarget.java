@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class AssociationTarget {
-    /**
-     * @return Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
-     * 
-     */
     private String key;
-    /**
-     * @return User-defined criteria that maps to Key. A list of instance IDs or tag values.
-     * 
-     */
     private List<String> values;
 
     private AssociationTarget() {}
-    /**
-     * @return Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return User-defined criteria that maps to Key. A list of instance IDs or tag values.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

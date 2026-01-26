@@ -14,75 +14,11 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Manages centralized root access features across AWS member accounts managed using AWS Organizations. More information about managing root access in IAM can be found in the [Centralize root access for member accounts](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-enable-root-access.html).
- * 
- * &gt; **NOTE:** The AWS account utilizing this resource must be an Organizations management account. Also, you must enable trusted access for AWS Identity and Access Management in AWS Organizations.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.organizations.Organization;
- * import com.pulumi.aws.organizations.OrganizationArgs;
- * import com.pulumi.aws.iam.OrganizationsFeatures;
- * import com.pulumi.aws.iam.OrganizationsFeaturesArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Organization("example", OrganizationArgs.builder()
- *             .awsServiceAccessPrincipals("iam.amazonaws.com")
- *             .featureSet("ALL")
- *             .build());
- * 
- *         var exampleOrganizationsFeatures = new OrganizationsFeatures("exampleOrganizationsFeatures", OrganizationsFeaturesArgs.builder()
- *             .enabledFeatures(            
- *                 "RootCredentialsManagement",
- *                 "RootSessions")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import root access features using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:iam/organizationsFeatures:OrganizationsFeatures example o-1234567
- * ```
- * 
- */
 @ResourceType(type="aws:iam/organizationsFeatures:OrganizationsFeatures")
 public class OrganizationsFeatures extends com.pulumi.resources.CustomResource {
-    /**
-     * List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
-     * 
-     */
     @Export(name="enabledFeatures", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> enabledFeatures;
 
-    /**
-     * @return List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
-     * 
-     */
     public Output<List<String>> enabledFeatures() {
         return this.enabledFeatures;
     }

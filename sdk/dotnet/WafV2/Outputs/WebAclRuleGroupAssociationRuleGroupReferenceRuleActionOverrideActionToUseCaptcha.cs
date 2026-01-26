@@ -13,9 +13,6 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptcha
     {
-        /// <summary>
-        /// Custom handling for CAPTCHA requests. See below.
-        /// </summary>
         public readonly Outputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandling? CustomRequestHandling;
 
         [OutputConstructor]

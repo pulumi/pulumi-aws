@@ -14,32 +14,16 @@ public final class DomainMatchingJobScheduleArgs extends com.pulumi.resources.Re
 
     public static final DomainMatchingJobScheduleArgs Empty = new DomainMatchingJobScheduleArgs();
 
-    /**
-     * The day when the Identity Resolution Job should run every week.
-     * 
-     */
     @Import(name="dayOfTheWeek", required=true)
     private Output<String> dayOfTheWeek;
 
-    /**
-     * @return The day when the Identity Resolution Job should run every week.
-     * 
-     */
     public Output<String> dayOfTheWeek() {
         return this.dayOfTheWeek;
     }
 
-    /**
-     * The time when the Identity Resolution Job should run every week.
-     * 
-     */
     @Import(name="time", required=true)
     private Output<String> time;
 
-    /**
-     * @return The time when the Identity Resolution Job should run every week.
-     * 
-     */
     public Output<String> time() {
         return this.time;
     }
@@ -69,44 +53,20 @@ public final class DomainMatchingJobScheduleArgs extends com.pulumi.resources.Re
             $ = new DomainMatchingJobScheduleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dayOfTheWeek The day when the Identity Resolution Job should run every week.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dayOfTheWeek(Output<String> dayOfTheWeek) {
             $.dayOfTheWeek = dayOfTheWeek;
             return this;
         }
 
-        /**
-         * @param dayOfTheWeek The day when the Identity Resolution Job should run every week.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dayOfTheWeek(String dayOfTheWeek) {
             return dayOfTheWeek(Output.of(dayOfTheWeek));
         }
 
-        /**
-         * @param time The time when the Identity Resolution Job should run every week.
-         * 
-         * @return builder
-         * 
-         */
         public Builder time(Output<String> time) {
             $.time = time;
             return this;
         }
 
-        /**
-         * @param time The time when the Identity Resolution Job should run every week.
-         * 
-         * @return builder
-         * 
-         */
         public Builder time(String time) {
             return time(Output.of(time));
         }

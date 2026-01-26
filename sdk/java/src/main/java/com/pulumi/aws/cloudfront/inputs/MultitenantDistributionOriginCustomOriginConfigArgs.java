@@ -18,107 +18,51 @@ public final class MultitenantDistributionOriginCustomOriginConfigArgs extends c
 
     public static final MultitenantDistributionOriginCustomOriginConfigArgs Empty = new MultitenantDistributionOriginCustomOriginConfigArgs();
 
-    /**
-     * HTTP port the custom origin listens on.
-     * 
-     */
     @Import(name="httpPort", required=true)
     private Output<Integer> httpPort;
 
-    /**
-     * @return HTTP port the custom origin listens on.
-     * 
-     */
     public Output<Integer> httpPort() {
         return this.httpPort;
     }
 
-    /**
-     * HTTPS port the custom origin listens on.
-     * 
-     */
     @Import(name="httpsPort", required=true)
     private Output<Integer> httpsPort;
 
-    /**
-     * @return HTTPS port the custom origin listens on.
-     * 
-     */
     public Output<Integer> httpsPort() {
         return this.httpsPort;
     }
 
-    /**
-     * Type of IP addresses used by your origins. Valid values are `ipv4` and `dualstack`.
-     * 
-     */
     @Import(name="ipAddressType")
     private @Nullable Output<String> ipAddressType;
 
-    /**
-     * @return Type of IP addresses used by your origins. Valid values are `ipv4` and `dualstack`.
-     * 
-     */
     public Optional<Output<String>> ipAddressType() {
         return Optional.ofNullable(this.ipAddressType);
     }
 
-    /**
-     * Custom keep-alive timeout, in seconds. Default: 5.
-     * 
-     */
     @Import(name="originKeepaliveTimeout")
     private @Nullable Output<Integer> originKeepaliveTimeout;
 
-    /**
-     * @return Custom keep-alive timeout, in seconds. Default: 5.
-     * 
-     */
     public Optional<Output<Integer>> originKeepaliveTimeout() {
         return Optional.ofNullable(this.originKeepaliveTimeout);
     }
 
-    /**
-     * Origin protocol policy to apply to your origin. Valid values are `http-only`, `https-only`, and `match-viewer`.
-     * 
-     */
     @Import(name="originProtocolPolicy", required=true)
     private Output<String> originProtocolPolicy;
 
-    /**
-     * @return Origin protocol policy to apply to your origin. Valid values are `http-only`, `https-only`, and `match-viewer`.
-     * 
-     */
     public Output<String> originProtocolPolicy() {
         return this.originProtocolPolicy;
     }
 
-    /**
-     * Custom read timeout, in seconds. Default: 30.
-     * 
-     */
     @Import(name="originReadTimeout")
     private @Nullable Output<Integer> originReadTimeout;
 
-    /**
-     * @return Custom read timeout, in seconds. Default: 30.
-     * 
-     */
     public Optional<Output<Integer>> originReadTimeout() {
         return Optional.ofNullable(this.originReadTimeout);
     }
 
-    /**
-     * List of SSL/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS.
-     * 
-     */
     @Import(name="originSslProtocols", required=true)
     private Output<List<String>> originSslProtocols;
 
-    /**
-     * @return List of SSL/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS.
-     * 
-     */
     public Output<List<String>> originSslProtocols() {
         return this.originSslProtocols;
     }
@@ -153,159 +97,69 @@ public final class MultitenantDistributionOriginCustomOriginConfigArgs extends c
             $ = new MultitenantDistributionOriginCustomOriginConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param httpPort HTTP port the custom origin listens on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpPort(Output<Integer> httpPort) {
             $.httpPort = httpPort;
             return this;
         }
 
-        /**
-         * @param httpPort HTTP port the custom origin listens on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpPort(Integer httpPort) {
             return httpPort(Output.of(httpPort));
         }
 
-        /**
-         * @param httpsPort HTTPS port the custom origin listens on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpsPort(Output<Integer> httpsPort) {
             $.httpsPort = httpsPort;
             return this;
         }
 
-        /**
-         * @param httpsPort HTTPS port the custom origin listens on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpsPort(Integer httpsPort) {
             return httpsPort(Output.of(httpsPort));
         }
 
-        /**
-         * @param ipAddressType Type of IP addresses used by your origins. Valid values are `ipv4` and `dualstack`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddressType(@Nullable Output<String> ipAddressType) {
             $.ipAddressType = ipAddressType;
             return this;
         }
 
-        /**
-         * @param ipAddressType Type of IP addresses used by your origins. Valid values are `ipv4` and `dualstack`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddressType(String ipAddressType) {
             return ipAddressType(Output.of(ipAddressType));
         }
 
-        /**
-         * @param originKeepaliveTimeout Custom keep-alive timeout, in seconds. Default: 5.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originKeepaliveTimeout(@Nullable Output<Integer> originKeepaliveTimeout) {
             $.originKeepaliveTimeout = originKeepaliveTimeout;
             return this;
         }
 
-        /**
-         * @param originKeepaliveTimeout Custom keep-alive timeout, in seconds. Default: 5.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originKeepaliveTimeout(Integer originKeepaliveTimeout) {
             return originKeepaliveTimeout(Output.of(originKeepaliveTimeout));
         }
 
-        /**
-         * @param originProtocolPolicy Origin protocol policy to apply to your origin. Valid values are `http-only`, `https-only`, and `match-viewer`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originProtocolPolicy(Output<String> originProtocolPolicy) {
             $.originProtocolPolicy = originProtocolPolicy;
             return this;
         }
 
-        /**
-         * @param originProtocolPolicy Origin protocol policy to apply to your origin. Valid values are `http-only`, `https-only`, and `match-viewer`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originProtocolPolicy(String originProtocolPolicy) {
             return originProtocolPolicy(Output.of(originProtocolPolicy));
         }
 
-        /**
-         * @param originReadTimeout Custom read timeout, in seconds. Default: 30.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originReadTimeout(@Nullable Output<Integer> originReadTimeout) {
             $.originReadTimeout = originReadTimeout;
             return this;
         }
 
-        /**
-         * @param originReadTimeout Custom read timeout, in seconds. Default: 30.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originReadTimeout(Integer originReadTimeout) {
             return originReadTimeout(Output.of(originReadTimeout));
         }
 
-        /**
-         * @param originSslProtocols List of SSL/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originSslProtocols(Output<List<String>> originSslProtocols) {
             $.originSslProtocols = originSslProtocols;
             return this;
         }
 
-        /**
-         * @param originSslProtocols List of SSL/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originSslProtocols(List<String> originSslProtocols) {
             return originSslProtocols(Output.of(originSslProtocols));
         }
 
-        /**
-         * @param originSslProtocols List of SSL/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originSslProtocols(String... originSslProtocols) {
             return originSslProtocols(List.of(originSslProtocols));
         }

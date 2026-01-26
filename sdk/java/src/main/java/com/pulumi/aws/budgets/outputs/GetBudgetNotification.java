@@ -12,77 +12,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBudgetNotification {
-    /**
-     * @return (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
-     * 
-     */
     private String comparisonOperator;
-    /**
-     * @return (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
-     * 
-     */
     private String notificationType;
-    /**
-     * @return (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
-     * 
-     */
     private List<String> subscriberEmailAddresses;
-    /**
-     * @return (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
-     * 
-     */
     private List<String> subscriberSnsTopicArns;
-    /**
-     * @return (Required) Threshold when the notification should be sent.
-     * 
-     */
     private Double threshold;
-    /**
-     * @return (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
-     * 
-     */
     private String thresholdType;
 
     private GetBudgetNotification() {}
-    /**
-     * @return (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
-     * 
-     */
     public String comparisonOperator() {
         return this.comparisonOperator;
     }
-    /**
-     * @return (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
-     * 
-     */
     public String notificationType() {
         return this.notificationType;
     }
-    /**
-     * @return (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
-     * 
-     */
     public List<String> subscriberEmailAddresses() {
         return this.subscriberEmailAddresses;
     }
-    /**
-     * @return (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
-     * 
-     */
     public List<String> subscriberSnsTopicArns() {
         return this.subscriberSnsTopicArns;
     }
-    /**
-     * @return (Required) Threshold when the notification should be sent.
-     * 
-     */
     public Double threshold() {
         return this.threshold;
     }
-    /**
-     * @return (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
-     * 
-     */
     public String thresholdType() {
         return this.thresholdType;
     }

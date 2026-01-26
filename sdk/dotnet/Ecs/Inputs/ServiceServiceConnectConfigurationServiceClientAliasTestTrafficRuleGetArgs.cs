@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block for header-based routing rules. See below.
-        /// </summary>
         [Input("header")]
         public Input<Inputs.ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderGetArgs>? Header { get; set; }
 

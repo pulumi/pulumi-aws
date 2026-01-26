@@ -4,51 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an CloudSearch domain service access policy resource.
- *
- * The provider waits for the domain service access policy to become `Active` when applying a configuration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleDomain = new aws.cloudsearch.Domain("example", {name: "example-domain"});
- * const example = aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "search_only",
- *         effect: "Allow",
- *         principals: [{
- *             type: "*",
- *             identifiers: ["*"],
- *         }],
- *         actions: [
- *             "cloudsearch:search",
- *             "cloudsearch:document",
- *         ],
- *         conditions: [{
- *             test: "IpAddress",
- *             variable: "aws:SourceIp",
- *             values: ["192.0.2.0/32"],
- *         }],
- *     }],
- * });
- * const exampleDomainServiceAccessPolicy = new aws.cloudsearch.DomainServiceAccessPolicy("example", {
- *     domainName: exampleDomain.id,
- *     accessPolicy: example.then(example => example.json),
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import CloudSearch domain service access policies using the domain name. For example:
- *
- * ```sh
- * $ pulumi import aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy example example-domain
- * ```
- */
 export class DomainServiceAccessPolicy extends pulumi.CustomResource {
     /**
      * Get an existing DomainServiceAccessPolicy resource's state with the given name, ID, and optional extra
@@ -77,17 +32,8 @@ export class DomainServiceAccessPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === DomainServiceAccessPolicy.__pulumiType;
     }
 
-    /**
-     * The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-     */
     declare public readonly accessPolicy: pulumi.Output<string>;
-    /**
-     * The CloudSearch domain name the policy applies to.
-     */
     declare public readonly domainName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -127,17 +73,8 @@ export class DomainServiceAccessPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DomainServiceAccessPolicy resources.
  */
 export interface DomainServiceAccessPolicyState {
-    /**
-     * The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-     */
     accessPolicy?: pulumi.Input<string>;
-    /**
-     * The CloudSearch domain name the policy applies to.
-     */
     domainName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -145,16 +82,7 @@ export interface DomainServiceAccessPolicyState {
  * The set of arguments for constructing a DomainServiceAccessPolicy resource.
  */
 export interface DomainServiceAccessPolicyArgs {
-    /**
-     * The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-     */
     accessPolicy: pulumi.Input<string>;
-    /**
-     * The CloudSearch domain name the policy applies to.
-     */
     domainName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

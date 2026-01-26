@@ -11,34 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get the ARN of an AWS Transfer Server for use in other
-// resources.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/transfer"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := transfer.LookupServer(ctx, &transfer.LookupServerArgs{
-//				ServerId: "s-1234567",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.InvokeOption) (*LookupServerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServerResult
@@ -51,46 +23,30 @@ func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getServer.
 type LookupServerArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID for an SFTP server.
-	ServerId string `pulumi:"serverId"`
-	// Map of tags assigned to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Region   *string           `pulumi:"region"`
+	ServerId string            `pulumi:"serverId"`
+	Tags     map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getServer.
 type LookupServerResult struct {
-	// ARN of Transfer Server.
-	Arn string `pulumi:"arn"`
-	// ARN of any certificate.
-	Certificate string `pulumi:"certificate"`
-	// The domain of the storage system that is used for file transfers.
-	Domain string `pulumi:"domain"`
-	// Endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`).
-	Endpoint string `pulumi:"endpoint"`
-	// Type of endpoint that the server is connected to.
+	Arn          string `pulumi:"arn"`
+	Certificate  string `pulumi:"certificate"`
+	Domain       string `pulumi:"domain"`
+	Endpoint     string `pulumi:"endpoint"`
 	EndpointType string `pulumi:"endpointType"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
-	IdentityProviderType string `pulumi:"identityProviderType"`
-	// ARN of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
-	InvocationRole string `pulumi:"invocationRole"`
-	// ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
-	LoggingRole string `pulumi:"loggingRole"`
-	// File transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint.
-	Protocols []string `pulumi:"protocols"`
-	Region    string   `pulumi:"region"`
-	// The name of the security policy that is attached to the server.
-	SecurityPolicyName string `pulumi:"securityPolicyName"`
-	ServerId           string `pulumi:"serverId"`
-	// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs.
-	StructuredLogDestinations []string `pulumi:"structuredLogDestinations"`
-	// Map of tags assigned to the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
-	Url string `pulumi:"url"`
+	Id                        string            `pulumi:"id"`
+	IdentityProviderType      string            `pulumi:"identityProviderType"`
+	InvocationRole            string            `pulumi:"invocationRole"`
+	LoggingRole               string            `pulumi:"loggingRole"`
+	Protocols                 []string          `pulumi:"protocols"`
+	Region                    string            `pulumi:"region"`
+	SecurityPolicyName        string            `pulumi:"securityPolicyName"`
+	ServerId                  string            `pulumi:"serverId"`
+	StructuredLogDestinations []string          `pulumi:"structuredLogDestinations"`
+	Tags                      map[string]string `pulumi:"tags"`
+	Url                       string            `pulumi:"url"`
 }
 
 func LookupServerOutput(ctx *pulumi.Context, args LookupServerOutputArgs, opts ...pulumi.InvokeOption) LookupServerResultOutput {
@@ -104,12 +60,9 @@ func LookupServerOutput(ctx *pulumi.Context, args LookupServerOutputArgs, opts .
 
 // A collection of arguments for invoking getServer.
 type LookupServerOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// ID for an SFTP server.
-	ServerId pulumi.StringInput `pulumi:"serverId"`
-	// Map of tags assigned to the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Region   pulumi.StringPtrInput `pulumi:"region"`
+	ServerId pulumi.StringInput    `pulumi:"serverId"`
+	Tags     pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupServerOutputArgs) ElementType() reflect.Type {
@@ -131,27 +84,22 @@ func (o LookupServerResultOutput) ToLookupServerResultOutputWithContext(ctx cont
 	return o
 }
 
-// ARN of Transfer Server.
 func (o LookupServerResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// ARN of any certificate.
 func (o LookupServerResultOutput) Certificate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Certificate }).(pulumi.StringOutput)
 }
 
-// The domain of the storage system that is used for file transfers.
 func (o LookupServerResultOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Domain }).(pulumi.StringOutput)
 }
 
-// Endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`).
 func (o LookupServerResultOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// Type of endpoint that the server is connected to.
 func (o LookupServerResultOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.EndpointType }).(pulumi.StringOutput)
 }
@@ -161,22 +109,18 @@ func (o LookupServerResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
 func (o LookupServerResultOutput) IdentityProviderType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.IdentityProviderType }).(pulumi.StringOutput)
 }
 
-// ARN of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
 func (o LookupServerResultOutput) InvocationRole() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.InvocationRole }).(pulumi.StringOutput)
 }
 
-// ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
 func (o LookupServerResultOutput) LoggingRole() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.LoggingRole }).(pulumi.StringOutput)
 }
 
-// File transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint.
 func (o LookupServerResultOutput) Protocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupServerResult) []string { return v.Protocols }).(pulumi.StringArrayOutput)
 }
@@ -185,7 +129,6 @@ func (o LookupServerResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The name of the security policy that is attached to the server.
 func (o LookupServerResultOutput) SecurityPolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.SecurityPolicyName }).(pulumi.StringOutput)
 }
@@ -194,17 +137,14 @@ func (o LookupServerResultOutput) ServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.ServerId }).(pulumi.StringOutput)
 }
 
-// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs.
 func (o LookupServerResultOutput) StructuredLogDestinations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupServerResult) []string { return v.StructuredLogDestinations }).(pulumi.StringArrayOutput)
 }
 
-// Map of tags assigned to the resource.
 func (o LookupServerResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupServerResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 func (o LookupServerResultOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Url }).(pulumi.StringOutput)
 }

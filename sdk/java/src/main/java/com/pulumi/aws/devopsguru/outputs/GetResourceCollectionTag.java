@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetResourceCollectionTag {
-    /**
-     * @return An AWS tag key that is used to identify the AWS resources that DevOps Guru analyzes.
-     * 
-     */
     private String appBoundaryKey;
-    /**
-     * @return Array of tag values.
-     * 
-     */
     private List<String> tagValues;
 
     private GetResourceCollectionTag() {}
-    /**
-     * @return An AWS tag key that is used to identify the AWS resources that DevOps Guru analyzes.
-     * 
-     */
     public String appBoundaryKey() {
         return this.appBoundaryKey;
     }
-    /**
-     * @return Array of tag values.
-     * 
-     */
     public List<String> tagValues() {
         return this.tagValues;
     }

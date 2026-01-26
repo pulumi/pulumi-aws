@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class InvoiceUnitRule {
-    /**
-     * @return Set of AWS account IDs included in this invoice unit.
-     * 
-     */
     private List<String> linkedAccounts;
 
     private InvoiceUnitRule() {}
-    /**
-     * @return Set of AWS account IDs included in this invoice unit.
-     * 
-     */
     public List<String> linkedAccounts() {
         return this.linkedAccounts;
     }

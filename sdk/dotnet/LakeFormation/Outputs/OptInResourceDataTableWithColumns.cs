@@ -13,25 +13,10 @@ namespace Pulumi.Aws.LakeFormation.Outputs
     [OutputType]
     public sealed class OptInResourceDataTableWithColumns
     {
-        /// <summary>
-        /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        /// </summary>
         public readonly string? CatalogId;
-        /// <summary>
-        /// List of column names for the table. At least one of ColumnNames or ColumnWildcard is required.
-        /// </summary>
         public readonly ImmutableArray<string> ColumnNames;
-        /// <summary>
-        /// Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required.
-        /// </summary>
         public readonly Outputs.OptInResourceDataTableWithColumnsColumnWildcard? ColumnWildcard;
-        /// <summary>
-        /// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
-        /// </summary>
         public readonly string DatabaseName;
-        /// <summary>
-        /// Name of the table.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

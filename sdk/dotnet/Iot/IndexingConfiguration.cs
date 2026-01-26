@@ -9,81 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iot
 {
-    /// <summary>
-    /// Managing [IoT Thing indexing](https://docs.aws.amazon.com/iot/latest/developerguide/managing-index.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Iot.IndexingConfiguration("example", new()
-    ///     {
-    ///         ThingIndexingConfiguration = new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationArgs
-    ///         {
-    ///             ThingIndexingMode = "REGISTRY_AND_SHADOW",
-    ///             ThingConnectivityIndexingMode = "STATUS",
-    ///             DeviceDefenderIndexingMode = "VIOLATIONS",
-    ///             NamedShadowIndexingMode = "ON",
-    ///             Filter = new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationFilterArgs
-    ///             {
-    ///                 NamedShadowNames = new[]
-    ///                 {
-    ///                     "thing1shadow",
-    ///                 },
-    ///             },
-    ///             CustomFields = new[]
-    ///             {
-    ///                 new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs
-    ///                 {
-    ///                     Name = "shadow.desired.power",
-    ///                     Type = "Boolean",
-    ///                 },
-    ///                 new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs
-    ///                 {
-    ///                     Name = "attributes.version",
-    ///                     Type = "Number",
-    ///                 },
-    ///                 new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs
-    ///                 {
-    ///                     Name = "shadow.name.thing1shadow.desired.DefaultDesired",
-    ///                     Type = "String",
-    ///                 },
-    ///                 new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs
-    ///                 {
-    ///                     Name = "deviceDefender.securityProfile1.NUMBER_VALUE_BEHAVIOR.lastViolationValue.number",
-    ///                     Type = "Number",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iot/indexingConfiguration:IndexingConfiguration")]
     public partial class IndexingConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Thing group indexing configuration. See below.
-        /// </summary>
         [Output("thingGroupIndexingConfiguration")]
         public Output<Outputs.IndexingConfigurationThingGroupIndexingConfiguration> ThingGroupIndexingConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Thing indexing configuration. See below.
-        /// </summary>
         [Output("thingIndexingConfiguration")]
         public Output<Outputs.IndexingConfigurationThingIndexingConfiguration> ThingIndexingConfiguration { get; private set; } = null!;
 
@@ -133,21 +67,12 @@ namespace Pulumi.Aws.Iot
 
     public sealed class IndexingConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Thing group indexing configuration. See below.
-        /// </summary>
         [Input("thingGroupIndexingConfiguration")]
         public Input<Inputs.IndexingConfigurationThingGroupIndexingConfigurationArgs>? ThingGroupIndexingConfiguration { get; set; }
 
-        /// <summary>
-        /// Thing indexing configuration. See below.
-        /// </summary>
         [Input("thingIndexingConfiguration")]
         public Input<Inputs.IndexingConfigurationThingIndexingConfigurationArgs>? ThingIndexingConfiguration { get; set; }
 
@@ -159,21 +84,12 @@ namespace Pulumi.Aws.Iot
 
     public sealed class IndexingConfigurationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Thing group indexing configuration. See below.
-        /// </summary>
         [Input("thingGroupIndexingConfiguration")]
         public Input<Inputs.IndexingConfigurationThingGroupIndexingConfigurationGetArgs>? ThingGroupIndexingConfiguration { get; set; }
 
-        /// <summary>
-        /// Thing indexing configuration. See below.
-        /// </summary>
         [Input("thingIndexingConfiguration")]
         public Input<Inputs.IndexingConfigurationThingIndexingConfigurationGetArgs>? ThingIndexingConfiguration { get; set; }
 

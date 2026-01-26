@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class SnapshotImportDiskContainerUserBucket {
-    /**
-     * @return The name of the Amazon S3 bucket where the disk image is located.
-     * 
-     */
     private String s3Bucket;
-    /**
-     * @return The file name of the disk image.
-     * 
-     */
     private String s3Key;
 
     private SnapshotImportDiskContainerUserBucket() {}
-    /**
-     * @return The name of the Amazon S3 bucket where the disk image is located.
-     * 
-     */
     public String s3Bucket() {
         return this.s3Bucket;
     }
-    /**
-     * @return The file name of the disk image.
-     * 
-     */
     public String s3Key() {
         return this.s3Key;
     }

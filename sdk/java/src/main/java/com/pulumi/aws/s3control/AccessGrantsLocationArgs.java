@@ -24,64 +24,30 @@ public final class AccessGrantsLocationArgs extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.accountId);
     }
 
-    /**
-     * The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-     * requests to the location.
-     * 
-     */
     @Import(name="iamRoleArn", required=true)
     private Output<String> iamRoleArn;
 
-    /**
-     * @return The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-     * requests to the location.
-     * 
-     */
     public Output<String> iamRoleArn() {
         return this.iamRoleArn;
     }
 
-    /**
-     * The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
-     * 
-     */
     @Import(name="locationScope", required=true)
     private Output<String> locationScope;
 
-    /**
-     * @return The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
-     * 
-     */
     public Output<String> locationScope() {
         return this.locationScope;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -123,88 +89,38 @@ public final class AccessGrantsLocationArgs extends com.pulumi.resources.Resourc
             return accountId(Output.of(accountId));
         }
 
-        /**
-         * @param iamRoleArn The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-         * requests to the location.
-         * 
-         * @return builder
-         * 
-         */
         public Builder iamRoleArn(Output<String> iamRoleArn) {
             $.iamRoleArn = iamRoleArn;
             return this;
         }
 
-        /**
-         * @param iamRoleArn The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-         * requests to the location.
-         * 
-         * @return builder
-         * 
-         */
         public Builder iamRoleArn(String iamRoleArn) {
             return iamRoleArn(Output.of(iamRoleArn));
         }
 
-        /**
-         * @param locationScope The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder locationScope(Output<String> locationScope) {
             $.locationScope = locationScope;
             return this;
         }
 
-        /**
-         * @param locationScope The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder locationScope(String locationScope) {
             return locationScope(Output.of(locationScope));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

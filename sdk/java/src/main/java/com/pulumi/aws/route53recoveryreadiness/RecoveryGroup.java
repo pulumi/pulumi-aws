@@ -16,124 +16,35 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AWS Route 53 Recovery Readiness Recovery Group.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.route53recoveryreadiness.RecoveryGroup;
- * import com.pulumi.aws.route53recoveryreadiness.RecoveryGroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RecoveryGroup("example", RecoveryGroupArgs.builder()
- *             .recoveryGroupName("my-high-availability-app")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Route53 Recovery Readiness recovery groups using the recovery group name. For example:
- * 
- * ```sh
- * $ pulumi import aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup my-high-availability-app my-high-availability-app
- * ```
- * 
- */
 @ResourceType(type="aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup")
 public class RecoveryGroup extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the recovery group
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the recovery group
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * List of cell arns to add as nested fault domains within this recovery group
-     * 
-     */
     @Export(name="cells", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> cells;
 
-    /**
-     * @return List of cell arns to add as nested fault domains within this recovery group
-     * 
-     */
     public Output<Optional<List<String>>> cells() {
         return Codegen.optional(this.cells);
     }
-    /**
-     * A unique name describing the recovery group.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="recoveryGroupName", refs={String.class}, tree="[0]")
     private Output<String> recoveryGroupName;
 
-    /**
-     * @return A unique name describing the recovery group.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> recoveryGroupName() {
         return this.recoveryGroupName;
     }
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

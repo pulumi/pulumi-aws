@@ -7,75 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages Bedrock model invocation logging configuration.
- *
- * > Model invocation logging is configured per AWS region. To avoid overwriting settings, this resource should not be defined in multiple configurations.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const example = new aws.s3.Bucket("example", {
- *     bucket: "example",
- *     forceDestroy: true,
- * });
- * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
- *     bucket: example.bucket,
- *     policy: Promise.all([example.arn, current, current]).then(([arn, current, current1]) => `{
- *   \"Version\": \"2012-10-17\",
- *   \"Statement\": [
- *     {
- *       \"Effect\": \"Allow\",
- *       \"Principal\": {
- *         \"Service\": \"bedrock.amazonaws.com\"
- *       },
- *       \"Action\": [
- *         \"s3:*\"
- *       ],
- *       \"Resource\": [
- *         \"${arn}/*\"
- *       ],
- *       \"Condition\": {
- *         \"StringEquals\": {
- *           \"aws:SourceAccount\": \"${current.accountId}\"
- *         },
- *         \"ArnLike\": {
- *           \"aws:SourceArn\": \"arn:aws:bedrock:us-east-1:${current1.accountId}:*\"
- *         }
- *       }
- *     }
- *   ]
- * }
- * `),
- * });
- * const exampleInvocationLoggingConfiguration = new aws.bedrockmodel.InvocationLoggingConfiguration("example", {loggingConfig: {
- *     embeddingDataDeliveryEnabled: true,
- *     imageDataDeliveryEnabled: true,
- *     textDataDeliveryEnabled: true,
- *     videoDataDeliveryEnabled: true,
- *     s3Config: {
- *         bucketName: example.id,
- *         keyPrefix: "bedrock",
- *     },
- * }}, {
- *     dependsOn: [exampleBucketPolicy],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Bedrock custom model using the `id` set to the AWS Region. For example:
- *
- * ```sh
- * $ pulumi import aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration my_config us-east-1
- * ```
- */
 export class InvocationLoggingConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing InvocationLoggingConfiguration resource's state with the given name, ID, and optional extra
@@ -104,13 +35,7 @@ export class InvocationLoggingConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === InvocationLoggingConfiguration.__pulumiType;
     }
 
-    /**
-     * The logging configuration values to set. See `loggingConfig` Block for details.
-     */
     declare public readonly loggingConfig: pulumi.Output<outputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfig | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -142,13 +67,7 @@ export class InvocationLoggingConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering InvocationLoggingConfiguration resources.
  */
 export interface InvocationLoggingConfigurationState {
-    /**
-     * The logging configuration values to set. See `loggingConfig` Block for details.
-     */
     loggingConfig?: pulumi.Input<inputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfig>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -156,12 +75,6 @@ export interface InvocationLoggingConfigurationState {
  * The set of arguments for constructing a InvocationLoggingConfiguration resource.
  */
 export interface InvocationLoggingConfigurationArgs {
-    /**
-     * The logging configuration values to set. See `loggingConfig` Block for details.
-     */
     loggingConfig?: pulumi.Input<inputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfig>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieve information about a Service Quotas Service.
-//
-// > **NOTE:** Global quotas apply to all AWS regions, but can only be accessed in `us-east-1` in the Commercial partition or `us-gov-west-1` in the GovCloud partition. In other regions, the AWS API will return the error `The request failed because the specified service does not exist.`
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicequotas"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicequotas.GetService(ctx, &servicequotas.GetServiceArgs{
-//				ServiceName: "Amazon Virtual Private Cloud (Amazon VPC)",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetService(ctx *pulumi.Context, args *GetServiceArgs, opts ...pulumi.InvokeOption) (*GetServiceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetServiceResult
@@ -52,18 +23,15 @@ func GetService(ctx *pulumi.Context, args *GetServiceArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getService.
 type GetServiceArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Service name to lookup within Service Quotas. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-	ServiceName string `pulumi:"serviceName"`
+	Region      *string `pulumi:"region"`
+	ServiceName string  `pulumi:"serviceName"`
 }
 
 // A collection of values returned by getService.
 type GetServiceResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
-	// Code of the service.
+	Id          string `pulumi:"id"`
+	Region      string `pulumi:"region"`
 	ServiceCode string `pulumi:"serviceCode"`
 	ServiceName string `pulumi:"serviceName"`
 }
@@ -79,10 +47,8 @@ func GetServiceOutput(ctx *pulumi.Context, args GetServiceOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getService.
 type GetServiceOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Service name to lookup within Service Quotas. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+	Region      pulumi.StringPtrInput `pulumi:"region"`
+	ServiceName pulumi.StringInput    `pulumi:"serviceName"`
 }
 
 func (GetServiceOutputArgs) ElementType() reflect.Type {
@@ -113,7 +79,6 @@ func (o GetServiceResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Code of the service.
 func (o GetServiceResultOutput) ServiceCode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceResult) string { return v.ServiceCode }).(pulumi.StringOutput)
 }

@@ -11,49 +11,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AutomationRuleCriteriaCriticality {
-    /**
-     * @return The equal-to condition to be applied to a single field when querying for findings, provided as a String.
-     * 
-     */
     private @Nullable Double eq;
     private @Nullable Double gt;
-    /**
-     * @return The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
-     * 
-     */
     private @Nullable Double gte;
     private @Nullable Double lt;
-    /**
-     * @return The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
-     * 
-     */
     private @Nullable Double lte;
 
     private AutomationRuleCriteriaCriticality() {}
-    /**
-     * @return The equal-to condition to be applied to a single field when querying for findings, provided as a String.
-     * 
-     */
     public Optional<Double> eq() {
         return Optional.ofNullable(this.eq);
     }
     public Optional<Double> gt() {
         return Optional.ofNullable(this.gt);
     }
-    /**
-     * @return The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
-     * 
-     */
     public Optional<Double> gte() {
         return Optional.ofNullable(this.gte);
     }
     public Optional<Double> lt() {
         return Optional.ofNullable(this.lt);
     }
-    /**
-     * @return The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
-     * 
-     */
     public Optional<Double> lte() {
         return Optional.ofNullable(this.lte);
     }

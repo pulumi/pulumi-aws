@@ -61,32 +61,16 @@ public final class ServerlessSecurityConfigState extends com.pulumi.resources.Re
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Configuration block for SAML options.
-     * 
-     */
     @Import(name="samlOptions")
     private @Nullable Output<ServerlessSecurityConfigSamlOptionsArgs> samlOptions;
 
-    /**
-     * @return Configuration block for SAML options.
-     * 
-     */
     public Optional<Output<ServerlessSecurityConfigSamlOptionsArgs>> samlOptions() {
         return Optional.ofNullable(this.samlOptions);
     }
@@ -94,16 +78,12 @@ public final class ServerlessSecurityConfigState extends com.pulumi.resources.Re
     /**
      * Type of configuration. Must be `saml`.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
      * @return Type of configuration. Must be `saml`.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> type() {
@@ -202,52 +182,26 @@ public final class ServerlessSecurityConfigState extends com.pulumi.resources.Re
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param samlOptions Configuration block for SAML options.
-         * 
-         * @return builder
-         * 
-         */
         public Builder samlOptions(@Nullable Output<ServerlessSecurityConfigSamlOptionsArgs> samlOptions) {
             $.samlOptions = samlOptions;
             return this;
         }
 
-        /**
-         * @param samlOptions Configuration block for SAML options.
-         * 
-         * @return builder
-         * 
-         */
         public Builder samlOptions(ServerlessSecurityConfigSamlOptionsArgs samlOptions) {
             return samlOptions(Output.of(samlOptions));
         }
 
         /**
          * @param type Type of configuration. Must be `saml`.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -259,8 +213,6 @@ public final class ServerlessSecurityConfigState extends com.pulumi.resources.Re
 
         /**
          * @param type Type of configuration. Must be `saml`.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 

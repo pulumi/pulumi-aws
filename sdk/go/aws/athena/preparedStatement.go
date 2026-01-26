@@ -12,81 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an Athena Prepared Statement.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/athena"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := s3.NewBucket(ctx, "test", &s3.BucketArgs{
-//				Bucket:       pulumi.String("tf-test"),
-//				ForceDestroy: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testWorkgroup, err := athena.NewWorkgroup(ctx, "test", &athena.WorkgroupArgs{
-//				Name: pulumi.String("tf-test"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testDatabase, err := athena.NewDatabase(ctx, "test", &athena.DatabaseArgs{
-//				Name:   pulumi.String("example"),
-//				Bucket: test.Bucket,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = athena.NewPreparedStatement(ctx, "test", &athena.PreparedStatementArgs{
-//				Name: pulumi.String("tf_test"),
-//				QueryStatement: testDatabase.Name.ApplyT(func(name string) (string, error) {
-//					return fmt.Sprintf("SELECT * FROM %v WHERE x = ?", name), nil
-//				}).(pulumi.StringOutput),
-//				Workgroup: testWorkgroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Athena Prepared Statement using the `WORKGROUP-NAME/STATEMENT-NAME`. For example:
-//
-// ```sh
-// $ pulumi import aws:athena/preparedStatement:PreparedStatement example 12345abcde/example
-// ```
 type PreparedStatement struct {
 	pulumi.CustomResourceState
 
-	// Brief explanation of prepared statement. Maximum length of 1024.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name of the prepared statement. Maximum length of 256.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The query string for the prepared statement.
-	QueryStatement pulumi.StringOutput `pulumi:"queryStatement"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The name of the workgroup to which the prepared statement belongs.
-	Workgroup pulumi.StringOutput `pulumi:"workgroup"`
+	Description    pulumi.StringPtrOutput `pulumi:"description"`
+	Name           pulumi.StringOutput    `pulumi:"name"`
+	QueryStatement pulumi.StringOutput    `pulumi:"queryStatement"`
+	Region         pulumi.StringOutput    `pulumi:"region"`
+	Workgroup      pulumi.StringOutput    `pulumi:"workgroup"`
 }
 
 // NewPreparedStatement registers a new resource with the given unique name, arguments, and options.
@@ -125,29 +58,19 @@ func GetPreparedStatement(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PreparedStatement resources.
 type preparedStatementState struct {
-	// Brief explanation of prepared statement. Maximum length of 1024.
-	Description *string `pulumi:"description"`
-	// The name of the prepared statement. Maximum length of 256.
-	Name *string `pulumi:"name"`
-	// The query string for the prepared statement.
+	Description    *string `pulumi:"description"`
+	Name           *string `pulumi:"name"`
 	QueryStatement *string `pulumi:"queryStatement"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The name of the workgroup to which the prepared statement belongs.
-	Workgroup *string `pulumi:"workgroup"`
+	Region         *string `pulumi:"region"`
+	Workgroup      *string `pulumi:"workgroup"`
 }
 
 type PreparedStatementState struct {
-	// Brief explanation of prepared statement. Maximum length of 1024.
-	Description pulumi.StringPtrInput
-	// The name of the prepared statement. Maximum length of 256.
-	Name pulumi.StringPtrInput
-	// The query string for the prepared statement.
+	Description    pulumi.StringPtrInput
+	Name           pulumi.StringPtrInput
 	QueryStatement pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The name of the workgroup to which the prepared statement belongs.
-	Workgroup pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
+	Workgroup      pulumi.StringPtrInput
 }
 
 func (PreparedStatementState) ElementType() reflect.Type {
@@ -155,30 +78,20 @@ func (PreparedStatementState) ElementType() reflect.Type {
 }
 
 type preparedStatementArgs struct {
-	// Brief explanation of prepared statement. Maximum length of 1024.
-	Description *string `pulumi:"description"`
-	// The name of the prepared statement. Maximum length of 256.
-	Name *string `pulumi:"name"`
-	// The query string for the prepared statement.
-	QueryStatement string `pulumi:"queryStatement"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The name of the workgroup to which the prepared statement belongs.
-	Workgroup string `pulumi:"workgroup"`
+	Description    *string `pulumi:"description"`
+	Name           *string `pulumi:"name"`
+	QueryStatement string  `pulumi:"queryStatement"`
+	Region         *string `pulumi:"region"`
+	Workgroup      string  `pulumi:"workgroup"`
 }
 
 // The set of arguments for constructing a PreparedStatement resource.
 type PreparedStatementArgs struct {
-	// Brief explanation of prepared statement. Maximum length of 1024.
-	Description pulumi.StringPtrInput
-	// The name of the prepared statement. Maximum length of 256.
-	Name pulumi.StringPtrInput
-	// The query string for the prepared statement.
+	Description    pulumi.StringPtrInput
+	Name           pulumi.StringPtrInput
 	QueryStatement pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The name of the workgroup to which the prepared statement belongs.
-	Workgroup pulumi.StringInput
+	Region         pulumi.StringPtrInput
+	Workgroup      pulumi.StringInput
 }
 
 func (PreparedStatementArgs) ElementType() reflect.Type {
@@ -268,27 +181,22 @@ func (o PreparedStatementOutput) ToPreparedStatementOutputWithContext(ctx contex
 	return o
 }
 
-// Brief explanation of prepared statement. Maximum length of 1024.
 func (o PreparedStatementOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PreparedStatement) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name of the prepared statement. Maximum length of 256.
 func (o PreparedStatementOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PreparedStatement) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The query string for the prepared statement.
 func (o PreparedStatementOutput) QueryStatement() pulumi.StringOutput {
 	return o.ApplyT(func(v *PreparedStatement) pulumi.StringOutput { return v.QueryStatement }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PreparedStatementOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PreparedStatement) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The name of the workgroup to which the prepared statement belongs.
 func (o PreparedStatementOutput) Workgroup() pulumi.StringOutput {
 	return o.ApplyT(func(v *PreparedStatement) pulumi.StringOutput { return v.Workgroup }).(pulumi.StringOutput)
 }

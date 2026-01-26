@@ -13,86 +13,34 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFrameworkResult {
-    /**
-     * @return ARN of the backup framework.
-     * 
-     */
     private String arn;
-    /**
-     * @return One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
-     * 
-     */
     private List<GetFrameworkControl> controls;
-    /**
-     * @return Date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
-     * 
-     */
     private String creationTime;
-    /**
-     * @return Deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`| `FAILED`.
-     * 
-     */
     private String deploymentStatus;
-    /**
-     * @return Description of the framework.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Name of a parameter, for example, BackupPlanFrequency.
-     * 
-     */
     private String name;
     private String region;
-    /**
-     * @return Framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. The statuses are: `ACTIVE`, `PARTIALLY_ACTIVE`, `INACTIVE`, `UNAVAILABLE`. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
-     * 
-     */
     private String status;
-    /**
-     * @return Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetFrameworkResult() {}
-    /**
-     * @return ARN of the backup framework.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
-     * 
-     */
     public List<GetFrameworkControl> controls() {
         return this.controls;
     }
-    /**
-     * @return Date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
-     * 
-     */
     public String creationTime() {
         return this.creationTime;
     }
-    /**
-     * @return Deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`| `FAILED`.
-     * 
-     */
     public String deploymentStatus() {
         return this.deploymentStatus;
     }
-    /**
-     * @return Description of the framework.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -103,27 +51,15 @@ public final class GetFrameworkResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Name of a parameter, for example, BackupPlanFrequency.
-     * 
-     */
     public String name() {
         return this.name;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. The statuses are: `ACTIVE`, `PARTIALLY_ACTIVE`, `INACTIVE`, `UNAVAILABLE`. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

@@ -76,17 +76,11 @@ class GetReplicationTaskResult:
     @_builtins.property
     @pulumi.getter(name="cdcStartPosition")
     def cdc_start_position(self) -> _builtins.str:
-        """
-        (Conflicts with `cdc_start_time`) Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
-        """
         return pulumi.get(self, "cdc_start_position")
 
     @_builtins.property
     @pulumi.getter(name="cdcStartTime")
     def cdc_start_time(self) -> _builtins.str:
-        """
-        (Conflicts with `cdc_start_position`) The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
-        """
         return pulumi.get(self, "cdc_start_time")
 
     @_builtins.property
@@ -100,9 +94,6 @@ class GetReplicationTaskResult:
     @_builtins.property
     @pulumi.getter(name="migrationType")
     def migration_type(self) -> _builtins.str:
-        """
-        The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
-        """
         return pulumi.get(self, "migration_type")
 
     @_builtins.property
@@ -113,17 +104,11 @@ class GetReplicationTaskResult:
     @_builtins.property
     @pulumi.getter(name="replicationInstanceArn")
     def replication_instance_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the replication instance.
-        """
         return pulumi.get(self, "replication_instance_arn")
 
     @_builtins.property
     @pulumi.getter(name="replicationTaskArn")
     def replication_task_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) for the replication task.
-        """
         return pulumi.get(self, "replication_task_arn")
 
     @_builtins.property
@@ -134,41 +119,26 @@ class GetReplicationTaskResult:
     @_builtins.property
     @pulumi.getter(name="replicationTaskSettings")
     def replication_task_settings(self) -> _builtins.str:
-        """
-        An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
-        """
         return pulumi.get(self, "replication_task_settings")
 
     @_builtins.property
     @pulumi.getter(name="sourceEndpointArn")
     def source_endpoint_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
-        """
         return pulumi.get(self, "source_endpoint_arn")
 
     @_builtins.property
     @pulumi.getter(name="startReplicationTask")
     def start_replication_task(self) -> _builtins.bool:
-        """
-        Whether to run or stop the replication task.
-        """
         return pulumi.get(self, "start_replication_task")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Replication Task status.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="tableMappings")
     def table_mappings(self) -> _builtins.str:
-        """
-        An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
-        """
         return pulumi.get(self, "table_mappings")
 
     @_builtins.property
@@ -179,9 +149,6 @@ class GetReplicationTaskResult:
     @_builtins.property
     @pulumi.getter(name="targetEndpointArn")
     def target_endpoint_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
-        """
         return pulumi.get(self, "target_endpoint_arn")
 
 
@@ -213,22 +180,7 @@ def get_replication_task(region: Optional[_builtins.str] = None,
                          tags: Optional[Mapping[str, _builtins.str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationTaskResult:
     """
-    Data source for managing an AWS DMS (Database Migration) Replication Task.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.dms.get_replication_task(replication_task_id=test_aws_dms_replication_task["replicationTaskId"])
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str replication_task_id: The replication task identifier.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -258,22 +210,7 @@ def get_replication_task_output(region: Optional[pulumi.Input[Optional[_builtins
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationTaskResult]:
     """
-    Data source for managing an AWS DMS (Database Migration) Replication Task.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.dms.get_replication_task(replication_task_id=test_aws_dms_replication_task["replicationTaskId"])
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str replication_task_id: The replication task identifier.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

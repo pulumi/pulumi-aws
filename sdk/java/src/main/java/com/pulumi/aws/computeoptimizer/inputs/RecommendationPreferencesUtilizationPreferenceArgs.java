@@ -17,32 +17,16 @@ public final class RecommendationPreferencesUtilizationPreferenceArgs extends co
 
     public static final RecommendationPreferencesUtilizationPreferenceArgs Empty = new RecommendationPreferencesUtilizationPreferenceArgs();
 
-    /**
-     * The name of the resource utilization metric name to customize. Valid values: `CpuUtilization`, `MemoryUtilization`.
-     * 
-     */
     @Import(name="metricName", required=true)
     private Output<String> metricName;
 
-    /**
-     * @return The name of the resource utilization metric name to customize. Valid values: `CpuUtilization`, `MemoryUtilization`.
-     * 
-     */
     public Output<String> metricName() {
         return this.metricName;
     }
 
-    /**
-     * The parameters to set when customizing the resource utilization thresholds.
-     * 
-     */
     @Import(name="metricParameters")
     private @Nullable Output<RecommendationPreferencesUtilizationPreferenceMetricParametersArgs> metricParameters;
 
-    /**
-     * @return The parameters to set when customizing the resource utilization thresholds.
-     * 
-     */
     public Optional<Output<RecommendationPreferencesUtilizationPreferenceMetricParametersArgs>> metricParameters() {
         return Optional.ofNullable(this.metricParameters);
     }
@@ -72,44 +56,20 @@ public final class RecommendationPreferencesUtilizationPreferenceArgs extends co
             $ = new RecommendationPreferencesUtilizationPreferenceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param metricName The name of the resource utilization metric name to customize. Valid values: `CpuUtilization`, `MemoryUtilization`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricName(Output<String> metricName) {
             $.metricName = metricName;
             return this;
         }
 
-        /**
-         * @param metricName The name of the resource utilization metric name to customize. Valid values: `CpuUtilization`, `MemoryUtilization`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricName(String metricName) {
             return metricName(Output.of(metricName));
         }
 
-        /**
-         * @param metricParameters The parameters to set when customizing the resource utilization thresholds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricParameters(@Nullable Output<RecommendationPreferencesUtilizationPreferenceMetricParametersArgs> metricParameters) {
             $.metricParameters = metricParameters;
             return this;
         }
 
-        /**
-         * @param metricParameters The parameters to set when customizing the resource utilization thresholds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricParameters(RecommendationPreferencesUtilizationPreferenceMetricParametersArgs metricParameters) {
             return metricParameters(Output.of(metricParameters));
         }

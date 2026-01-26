@@ -12,15 +12,9 @@ namespace Pulumi.Aws.OpenSearch.Inputs
 
     public sealed class DomainClusterConfigNodeOptionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Container to specify sizing of a node type.
-        /// </summary>
         [Input("nodeConfig")]
         public Input<Inputs.DomainClusterConfigNodeOptionNodeConfigArgs>? NodeConfig { get; set; }
 
-        /// <summary>
-        /// Type of node this configuration describes. Valid values: `Coordinator`.
-        /// </summary>
         [Input("nodeType")]
         public Input<string>? NodeType { get; set; }
 

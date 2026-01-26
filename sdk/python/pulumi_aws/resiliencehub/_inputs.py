@@ -35,21 +35,19 @@ if not MYPY:
     class ResiliencyPolicyPolicyArgsDict(TypedDict):
         az: NotRequired[pulumi.Input['ResiliencyPolicyPolicyAzArgsDict']]
         """
-        Specifies Availability Zone failure policy. See `policy.az`
+        The RTO and RPO target to measure resiliency for potential availability zone disruptions.
         """
         hardware: NotRequired[pulumi.Input['ResiliencyPolicyPolicyHardwareArgsDict']]
         """
-        Specifies Infrastructure failure policy. See `policy.hardware`
+        The RTO and RPO target to measure resiliency for potential infrastructure disruptions.
         """
         region: NotRequired[pulumi.Input['ResiliencyPolicyPolicyRegionArgsDict']]
         """
-        Specifies Region failure policy. `policy.region`
+        The RTO and RPO target to measure resiliency for potential region disruptions.
         """
         software: NotRequired[pulumi.Input['ResiliencyPolicyPolicySoftwareArgsDict']]
         """
-        Specifies Application failure policy. See `policy.software`
-
-        The following arguments are optional:
+        The RTO and RPO target to measure resiliency for potential application disruptions.
         """
 elif False:
     ResiliencyPolicyPolicyArgsDict: TypeAlias = Mapping[str, Any]
@@ -62,12 +60,10 @@ class ResiliencyPolicyPolicyArgs:
                  region: Optional[pulumi.Input['ResiliencyPolicyPolicyRegionArgs']] = None,
                  software: Optional[pulumi.Input['ResiliencyPolicyPolicySoftwareArgs']] = None):
         """
-        :param pulumi.Input['ResiliencyPolicyPolicyAzArgs'] az: Specifies Availability Zone failure policy. See `policy.az`
-        :param pulumi.Input['ResiliencyPolicyPolicyHardwareArgs'] hardware: Specifies Infrastructure failure policy. See `policy.hardware`
-        :param pulumi.Input['ResiliencyPolicyPolicyRegionArgs'] region: Specifies Region failure policy. `policy.region`
-        :param pulumi.Input['ResiliencyPolicyPolicySoftwareArgs'] software: Specifies Application failure policy. See `policy.software`
-               
-               The following arguments are optional:
+        :param pulumi.Input['ResiliencyPolicyPolicyAzArgs'] az: The RTO and RPO target to measure resiliency for potential availability zone disruptions.
+        :param pulumi.Input['ResiliencyPolicyPolicyHardwareArgs'] hardware: The RTO and RPO target to measure resiliency for potential infrastructure disruptions.
+        :param pulumi.Input['ResiliencyPolicyPolicyRegionArgs'] region: The RTO and RPO target to measure resiliency for potential region disruptions.
+        :param pulumi.Input['ResiliencyPolicyPolicySoftwareArgs'] software: The RTO and RPO target to measure resiliency for potential application disruptions.
         """
         if az is not None:
             pulumi.set(__self__, "az", az)
@@ -82,7 +78,7 @@ class ResiliencyPolicyPolicyArgs:
     @pulumi.getter
     def az(self) -> Optional[pulumi.Input['ResiliencyPolicyPolicyAzArgs']]:
         """
-        Specifies Availability Zone failure policy. See `policy.az`
+        The RTO and RPO target to measure resiliency for potential availability zone disruptions.
         """
         return pulumi.get(self, "az")
 
@@ -94,7 +90,7 @@ class ResiliencyPolicyPolicyArgs:
     @pulumi.getter
     def hardware(self) -> Optional[pulumi.Input['ResiliencyPolicyPolicyHardwareArgs']]:
         """
-        Specifies Infrastructure failure policy. See `policy.hardware`
+        The RTO and RPO target to measure resiliency for potential infrastructure disruptions.
         """
         return pulumi.get(self, "hardware")
 
@@ -106,7 +102,7 @@ class ResiliencyPolicyPolicyArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input['ResiliencyPolicyPolicyRegionArgs']]:
         """
-        Specifies Region failure policy. `policy.region`
+        The RTO and RPO target to measure resiliency for potential region disruptions.
         """
         return pulumi.get(self, "region")
 
@@ -118,9 +114,7 @@ class ResiliencyPolicyPolicyArgs:
     @pulumi.getter
     def software(self) -> Optional[pulumi.Input['ResiliencyPolicyPolicySoftwareArgs']]:
         """
-        Specifies Application failure policy. See `policy.software`
-
-        The following arguments are optional:
+        The RTO and RPO target to measure resiliency for potential application disruptions.
         """
         return pulumi.get(self, "software")
 

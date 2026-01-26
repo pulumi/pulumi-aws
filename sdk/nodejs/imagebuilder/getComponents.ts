@@ -7,24 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to get the ARNs and names of Image Builder Components matching the specified criteria.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.imagebuilder.getComponents({
- *     owner: "Self",
- *     filters: [{
- *         name: "platform",
- *         values: ["Linux"],
- *     }],
- * });
- * ```
- */
 export function getComponents(args?: GetComponentsArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,17 +21,8 @@ export function getComponents(args?: GetComponentsArgs, opts?: pulumi.InvokeOpti
  * A collection of arguments for invoking getComponents.
  */
 export interface GetComponentsArgs {
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     */
     filters?: inputs.imagebuilder.GetComponentsFilter[];
-    /**
-     * Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
-     */
     owner?: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -57,40 +30,16 @@ export interface GetComponentsArgs {
  * A collection of values returned by getComponents.
  */
 export interface GetComponentsResult {
-    /**
-     * Set of ARNs of the matched Image Builder Components.
-     */
     readonly arns: string[];
     readonly filters?: outputs.imagebuilder.GetComponentsFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Set of names of the matched Image Builder Components.
-     */
     readonly names: string[];
     readonly owner?: string;
     readonly region: string;
 }
-/**
- * Use this data source to get the ARNs and names of Image Builder Components matching the specified criteria.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.imagebuilder.getComponents({
- *     owner: "Self",
- *     filters: [{
- *         name: "platform",
- *         values: ["Linux"],
- *     }],
- * });
- * ```
- */
 export function getComponentsOutput(args?: GetComponentsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetComponentsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -105,16 +54,7 @@ export function getComponentsOutput(args?: GetComponentsOutputArgs, opts?: pulum
  * A collection of arguments for invoking getComponents.
  */
 export interface GetComponentsOutputArgs {
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.imagebuilder.GetComponentsFilterArgs>[]>;
-    /**
-     * Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
-     */
     owner?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

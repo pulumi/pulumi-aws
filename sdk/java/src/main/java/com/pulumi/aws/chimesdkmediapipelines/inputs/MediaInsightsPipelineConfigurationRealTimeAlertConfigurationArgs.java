@@ -18,32 +18,16 @@ public final class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationA
 
     public static final MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs Empty = new MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs();
 
-    /**
-     * Disables real time alert rules.
-     * 
-     */
     @Import(name="disabled")
     private @Nullable Output<Boolean> disabled;
 
-    /**
-     * @return Disables real time alert rules.
-     * 
-     */
     public Optional<Output<Boolean>> disabled() {
         return Optional.ofNullable(this.disabled);
     }
 
-    /**
-     * Collection of real time alert rules
-     * 
-     */
     @Import(name="rules", required=true)
     private Output<List<MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs>> rules;
 
-    /**
-     * @return Collection of real time alert rules
-     * 
-     */
     public Output<List<MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs>> rules() {
         return this.rules;
     }
@@ -73,54 +57,24 @@ public final class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationA
             $ = new MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param disabled Disables real time alert rules.
-         * 
-         * @return builder
-         * 
-         */
         public Builder disabled(@Nullable Output<Boolean> disabled) {
             $.disabled = disabled;
             return this;
         }
 
-        /**
-         * @param disabled Disables real time alert rules.
-         * 
-         * @return builder
-         * 
-         */
         public Builder disabled(Boolean disabled) {
             return disabled(Output.of(disabled));
         }
 
-        /**
-         * @param rules Collection of real time alert rules
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(Output<List<MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs>> rules) {
             $.rules = rules;
             return this;
         }
 
-        /**
-         * @param rules Collection of real time alert rules
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(List<MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs> rules) {
             return rules(Output.of(rules));
         }
 
-        /**
-         * @param rules Collection of real time alert rules
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs... rules) {
             return rules(List.of(rules));
         }

@@ -14,32 +14,16 @@ public final class ClusterServerlessV2ScalingConfigurationArgs extends com.pulum
 
     public static final ClusterServerlessV2ScalingConfigurationArgs Empty = new ClusterServerlessV2ScalingConfigurationArgs();
 
-    /**
-     * Maximum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 1 and 256.
-     * 
-     */
     @Import(name="maxCapacity", required=true)
     private Output<Double> maxCapacity;
 
-    /**
-     * @return Maximum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 1 and 256.
-     * 
-     */
     public Output<Double> maxCapacity() {
         return this.maxCapacity;
     }
 
-    /**
-     * Minimum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 0.5 and 256.
-     * 
-     */
     @Import(name="minCapacity", required=true)
     private Output<Double> minCapacity;
 
-    /**
-     * @return Minimum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 0.5 and 256.
-     * 
-     */
     public Output<Double> minCapacity() {
         return this.minCapacity;
     }
@@ -69,44 +53,20 @@ public final class ClusterServerlessV2ScalingConfigurationArgs extends com.pulum
             $ = new ClusterServerlessV2ScalingConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maxCapacity Maximum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 1 and 256.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxCapacity(Output<Double> maxCapacity) {
             $.maxCapacity = maxCapacity;
             return this;
         }
 
-        /**
-         * @param maxCapacity Maximum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 1 and 256.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxCapacity(Double maxCapacity) {
             return maxCapacity(Output.of(maxCapacity));
         }
 
-        /**
-         * @param minCapacity Minimum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 0.5 and 256.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minCapacity(Output<Double> minCapacity) {
             $.minCapacity = minCapacity;
             return this;
         }
 
-        /**
-         * @param minCapacity Minimum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 0.5 and 256.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minCapacity(Double minCapacity) {
             return minCapacity(Output.of(minCapacity));
         }

@@ -61,25 +61,16 @@ class GetPolicyResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the policy.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="attachmentCount")
     def attachment_count(self) -> _builtins.int:
-        """
-        Number of entities (users, groups, and roles) that the policy is attached to.
-        """
         return pulumi.get(self, "attachment_count")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the policy.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -98,9 +89,6 @@ class GetPolicyResult:
     @_builtins.property
     @pulumi.getter
     def path(self) -> _builtins.str:
-        """
-        Path to the policy.
-        """
         return pulumi.get(self, "path")
 
     @_builtins.property
@@ -111,25 +99,16 @@ class GetPolicyResult:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> _builtins.str:
-        """
-        Policy document of the policy.
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
     @pulumi.getter(name="policyId")
     def policy_id(self) -> _builtins.str:
-        """
-        Policy's ID.
-        """
         return pulumi.get(self, "policy_id")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value mapping of tags for the IAM Policy.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -157,38 +136,7 @@ def get_policy(arn: Optional[_builtins.str] = None,
                tags: Optional[Mapping[str, _builtins.str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyResult:
     """
-    This data source can be used to fetch information about a specific
-    IAM policy.
-
-    ## Example Usage
-
-    ### By ARN
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.iam.get_policy(arn="arn:aws:iam::123456789012:policy/UsersManageOwnCredentials")
-    ```
-
-    ### By Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.iam.get_policy(name="test_policy")
-    ```
-
-
-    :param _builtins.str arn: ARN of the IAM policy.
-           Conflicts with `name` and `path_prefix`.
-    :param _builtins.str name: Name of the IAM policy.
-           Conflicts with `arn`.
-    :param _builtins.str path_prefix: Prefix of the path to the IAM policy.
-           Defaults to a slash (`/`).
-           Conflicts with `arn`.
-    :param Mapping[str, _builtins.str] tags: Key-value mapping of tags for the IAM Policy.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -215,38 +163,7 @@ def get_policy_output(arn: Optional[pulumi.Input[Optional[_builtins.str]]] = Non
                       tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyResult]:
     """
-    This data source can be used to fetch information about a specific
-    IAM policy.
-
-    ## Example Usage
-
-    ### By ARN
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.iam.get_policy(arn="arn:aws:iam::123456789012:policy/UsersManageOwnCredentials")
-    ```
-
-    ### By Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.iam.get_policy(name="test_policy")
-    ```
-
-
-    :param _builtins.str arn: ARN of the IAM policy.
-           Conflicts with `name` and `path_prefix`.
-    :param _builtins.str name: Name of the IAM policy.
-           Conflicts with `arn`.
-    :param _builtins.str path_prefix: Prefix of the path to the IAM policy.
-           Defaults to a slash (`/`).
-           Conflicts with `arn`.
-    :param Mapping[str, _builtins.str] tags: Key-value mapping of tags for the IAM Policy.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

@@ -12,273 +12,48 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Lightsail content delivery network (CDN) distribution. Use this resource to cache content at edge locations and reduce latency for users accessing your content.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := lightsail.NewBucket(ctx, "example", &lightsail.BucketArgs{
-//				Name:     pulumi.String("example-bucket"),
-//				BundleId: pulumi.String("small_1_0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lightsail.NewDistribution(ctx, "example", &lightsail.DistributionArgs{
-//				Name:     pulumi.String("example-distribution"),
-//				BundleId: pulumi.String("small_1_0"),
-//				Origin: &lightsail.DistributionOriginArgs{
-//					Name:       example.Name,
-//					RegionName: example.Region,
-//				},
-//				DefaultCacheBehavior: &lightsail.DistributionDefaultCacheBehaviorArgs{
-//					Behavior: pulumi.String("cache"),
-//				},
-//				CacheBehaviorSettings: &lightsail.DistributionCacheBehaviorSettingsArgs{
-//					AllowedHttpMethods: pulumi.String("GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE"),
-//					CachedHttpMethods:  pulumi.String("GET,HEAD"),
-//					DefaultTtl:         pulumi.Int(86400),
-//					MaximumTtl:         pulumi.Int(31536000),
-//					MinimumTtl:         pulumi.Int(0),
-//					ForwardedCookies: &lightsail.DistributionCacheBehaviorSettingsForwardedCookiesArgs{
-//						Option: pulumi.String("none"),
-//					},
-//					ForwardedHeaders: &lightsail.DistributionCacheBehaviorSettingsForwardedHeadersArgs{
-//						Option: pulumi.String("default"),
-//					},
-//					ForwardedQueryStrings: &lightsail.DistributionCacheBehaviorSettingsForwardedQueryStringsArgs{
-//						Option: pulumi.Bool(false),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Instance Origin
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
-//				State: pulumi.StringRef("available"),
-//				Filters: []aws.GetAvailabilityZonesFilter{
-//					{
-//						Name: "opt-in-status",
-//						Values: []string{
-//							"opt-in-not-required",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleStaticIp, err := lightsail.NewStaticIp(ctx, "example", &lightsail.StaticIpArgs{
-//				Name: pulumi.String("example-static-ip"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleInstance, err := lightsail.NewInstance(ctx, "example", &lightsail.InstanceArgs{
-//				Name:             pulumi.String("example-instance"),
-//				AvailabilityZone: pulumi.String(available.Names[0]),
-//				BlueprintId:      pulumi.String("amazon_linux_2"),
-//				BundleId:         pulumi.String("micro_1_0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := lightsail.NewStaticIpAttachment(ctx, "example", &lightsail.StaticIpAttachmentArgs{
-//				StaticIpName: exampleStaticIp.Name,
-//				InstanceName: exampleInstance.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lightsail.NewDistribution(ctx, "example", &lightsail.DistributionArgs{
-//				Name:     pulumi.String("example-distribution"),
-//				BundleId: pulumi.String("small_1_0"),
-//				Origin: &lightsail.DistributionOriginArgs{
-//					Name:       exampleInstance.Name,
-//					RegionName: pulumi.String(available.Id),
-//				},
-//				DefaultCacheBehavior: &lightsail.DistributionDefaultCacheBehaviorArgs{
-//					Behavior: pulumi.String("cache"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Load Balancer Origin
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
-//				State: pulumi.StringRef("available"),
-//				Filters: []aws.GetAvailabilityZonesFilter{
-//					{
-//						Name: "opt-in-status",
-//						Values: []string{
-//							"opt-in-not-required",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := lightsail.NewLb(ctx, "example", &lightsail.LbArgs{
-//				Name:            pulumi.String("example-load-balancer"),
-//				HealthCheckPath: pulumi.String("/"),
-//				InstancePort:    pulumi.Int(80),
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleInstance, err := lightsail.NewInstance(ctx, "example", &lightsail.InstanceArgs{
-//				Name:             pulumi.String("example-instance"),
-//				AvailabilityZone: pulumi.String(available.Names[0]),
-//				BlueprintId:      pulumi.String("amazon_linux_2"),
-//				BundleId:         pulumi.String("nano_3_0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLbAttachment, err := lightsail.NewLbAttachment(ctx, "example", &lightsail.LbAttachmentArgs{
-//				LbName:       example.Name,
-//				InstanceName: exampleInstance.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lightsail.NewDistribution(ctx, "example", &lightsail.DistributionArgs{
-//				Name:     pulumi.String("example-distribution"),
-//				BundleId: pulumi.String("small_1_0"),
-//				Origin: &lightsail.DistributionOriginArgs{
-//					Name:       example.Name,
-//					RegionName: pulumi.String(available.Id),
-//				},
-//				DefaultCacheBehavior: &lightsail.DistributionDefaultCacheBehaviorArgs{
-//					Behavior: pulumi.String("cache"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleLbAttachment,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Lightsail Distribution using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:lightsail/distribution:Distribution example example-distribution
-// ```
 type Distribution struct {
 	pulumi.CustomResourceState
 
-	// Alternate domain names of the distribution.
+	// The alternate domain names of the distribution.
 	AlternativeDomainNames pulumi.StringArrayOutput `pulumi:"alternativeDomainNames"`
-	// ARN of the distribution.
+	// The Amazon Resource Name (ARN) of the distribution.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Bundle ID to use for the distribution.
+	// The bundle ID to use for the distribution.
 	BundleId pulumi.StringOutput `pulumi:"bundleId"`
-	// Cache behavior settings of the distribution. See below.
+	// An object that describes the cache behavior settings of the distribution.
 	CacheBehaviorSettings DistributionCacheBehaviorSettingsPtrOutput `pulumi:"cacheBehaviorSettings"`
-	// Per-path cache behavior of the distribution. See below.
+	// An array of objects that describe the per-path cache behavior of the distribution.
 	CacheBehaviors DistributionCacheBehaviorArrayOutput `pulumi:"cacheBehaviors"`
-	// Name of the SSL/TLS certificate attached to the distribution.
+	// The name of the SSL/TLS certificate attached to the distribution, if any.
 	CertificateName pulumi.StringPtrOutput `pulumi:"certificateName"`
-	// Timestamp when the distribution was created.
+	// The timestamp when the distribution was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Default cache behavior of the distribution. See below.
+	// An object that describes the default cache behavior of the distribution.
 	DefaultCacheBehavior DistributionDefaultCacheBehaviorOutput `pulumi:"defaultCacheBehavior"`
-	// Domain name of the distribution.
+	// The domain name of the distribution.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
+	// The IP address type of the distribution.
 	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
-	// Whether the distribution is enabled. Default: `true`.
+	// Indicates whether the distribution is enabled.
 	IsEnabled pulumi.BoolPtrOutput `pulumi:"isEnabled"`
-	// Location of the distribution, such as the AWS Region and Availability Zone. See below.
+	// An object that describes the location of the distribution, such as the AWS Region and Availability Zone.
 	Locations DistributionLocationArrayOutput `pulumi:"locations"`
-	// Name of the distribution.
+	// The name of the distribution.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
-	//
-	// The following arguments are optional:
+	// An object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer.
 	Origin DistributionOriginOutput `pulumi:"origin"`
-	// Public DNS of the origin.
-	// * `origin[0].resource_type` - Resource type of the origin resource (e.g., Instance).
+	// The public DNS of the origin.
 	OriginPublicDns pulumi.StringOutput `pulumi:"originPublicDns"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Lightsail resource type (e.g., Distribution).
+	Region          pulumi.StringOutput `pulumi:"region"`
+	// The Lightsail resource type (e.g., Distribution).
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
-	// Status of the distribution.
+	// The status of the distribution.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// Support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
-	SupportCode pulumi.StringOutput `pulumi:"supportCode"`
-	// Map of tags for the Lightsail Distribution. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
+	SupportCode pulumi.StringOutput    `pulumi:"supportCode"`
+	Tags        pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewDistribution registers a new resource with the given unique name, arguments, and options.
@@ -320,99 +95,87 @@ func GetDistribution(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Distribution resources.
 type distributionState struct {
-	// Alternate domain names of the distribution.
+	// The alternate domain names of the distribution.
 	AlternativeDomainNames []string `pulumi:"alternativeDomainNames"`
-	// ARN of the distribution.
+	// The Amazon Resource Name (ARN) of the distribution.
 	Arn *string `pulumi:"arn"`
-	// Bundle ID to use for the distribution.
+	// The bundle ID to use for the distribution.
 	BundleId *string `pulumi:"bundleId"`
-	// Cache behavior settings of the distribution. See below.
+	// An object that describes the cache behavior settings of the distribution.
 	CacheBehaviorSettings *DistributionCacheBehaviorSettings `pulumi:"cacheBehaviorSettings"`
-	// Per-path cache behavior of the distribution. See below.
+	// An array of objects that describe the per-path cache behavior of the distribution.
 	CacheBehaviors []DistributionCacheBehavior `pulumi:"cacheBehaviors"`
-	// Name of the SSL/TLS certificate attached to the distribution.
+	// The name of the SSL/TLS certificate attached to the distribution, if any.
 	CertificateName *string `pulumi:"certificateName"`
-	// Timestamp when the distribution was created.
+	// The timestamp when the distribution was created.
 	CreatedAt *string `pulumi:"createdAt"`
-	// Default cache behavior of the distribution. See below.
+	// An object that describes the default cache behavior of the distribution.
 	DefaultCacheBehavior *DistributionDefaultCacheBehavior `pulumi:"defaultCacheBehavior"`
-	// Domain name of the distribution.
+	// The domain name of the distribution.
 	DomainName *string `pulumi:"domainName"`
-	// IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
+	// The IP address type of the distribution.
 	IpAddressType *string `pulumi:"ipAddressType"`
-	// Whether the distribution is enabled. Default: `true`.
+	// Indicates whether the distribution is enabled.
 	IsEnabled *bool `pulumi:"isEnabled"`
-	// Location of the distribution, such as the AWS Region and Availability Zone. See below.
+	// An object that describes the location of the distribution, such as the AWS Region and Availability Zone.
 	Locations []DistributionLocation `pulumi:"locations"`
-	// Name of the distribution.
+	// The name of the distribution.
 	Name *string `pulumi:"name"`
-	// Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
-	//
-	// The following arguments are optional:
+	// An object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer.
 	Origin *DistributionOrigin `pulumi:"origin"`
-	// Public DNS of the origin.
-	// * `origin[0].resource_type` - Resource type of the origin resource (e.g., Instance).
+	// The public DNS of the origin.
 	OriginPublicDns *string `pulumi:"originPublicDns"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Lightsail resource type (e.g., Distribution).
+	Region          *string `pulumi:"region"`
+	// The Lightsail resource type (e.g., Distribution).
 	ResourceType *string `pulumi:"resourceType"`
-	// Status of the distribution.
+	// The status of the distribution.
 	Status *string `pulumi:"status"`
-	// Support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
-	SupportCode *string `pulumi:"supportCode"`
-	// Map of tags for the Lightsail Distribution. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	// The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
+	SupportCode *string           `pulumi:"supportCode"`
+	Tags        map[string]string `pulumi:"tags"`
+	TagsAll     map[string]string `pulumi:"tagsAll"`
 }
 
 type DistributionState struct {
-	// Alternate domain names of the distribution.
+	// The alternate domain names of the distribution.
 	AlternativeDomainNames pulumi.StringArrayInput
-	// ARN of the distribution.
+	// The Amazon Resource Name (ARN) of the distribution.
 	Arn pulumi.StringPtrInput
-	// Bundle ID to use for the distribution.
+	// The bundle ID to use for the distribution.
 	BundleId pulumi.StringPtrInput
-	// Cache behavior settings of the distribution. See below.
+	// An object that describes the cache behavior settings of the distribution.
 	CacheBehaviorSettings DistributionCacheBehaviorSettingsPtrInput
-	// Per-path cache behavior of the distribution. See below.
+	// An array of objects that describe the per-path cache behavior of the distribution.
 	CacheBehaviors DistributionCacheBehaviorArrayInput
-	// Name of the SSL/TLS certificate attached to the distribution.
+	// The name of the SSL/TLS certificate attached to the distribution, if any.
 	CertificateName pulumi.StringPtrInput
-	// Timestamp when the distribution was created.
+	// The timestamp when the distribution was created.
 	CreatedAt pulumi.StringPtrInput
-	// Default cache behavior of the distribution. See below.
+	// An object that describes the default cache behavior of the distribution.
 	DefaultCacheBehavior DistributionDefaultCacheBehaviorPtrInput
-	// Domain name of the distribution.
+	// The domain name of the distribution.
 	DomainName pulumi.StringPtrInput
-	// IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
+	// The IP address type of the distribution.
 	IpAddressType pulumi.StringPtrInput
-	// Whether the distribution is enabled. Default: `true`.
+	// Indicates whether the distribution is enabled.
 	IsEnabled pulumi.BoolPtrInput
-	// Location of the distribution, such as the AWS Region and Availability Zone. See below.
+	// An object that describes the location of the distribution, such as the AWS Region and Availability Zone.
 	Locations DistributionLocationArrayInput
-	// Name of the distribution.
+	// The name of the distribution.
 	Name pulumi.StringPtrInput
-	// Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
-	//
-	// The following arguments are optional:
+	// An object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer.
 	Origin DistributionOriginPtrInput
-	// Public DNS of the origin.
-	// * `origin[0].resource_type` - Resource type of the origin resource (e.g., Instance).
+	// The public DNS of the origin.
 	OriginPublicDns pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Lightsail resource type (e.g., Distribution).
+	Region          pulumi.StringPtrInput
+	// The Lightsail resource type (e.g., Distribution).
 	ResourceType pulumi.StringPtrInput
-	// Status of the distribution.
+	// The status of the distribution.
 	Status pulumi.StringPtrInput
-	// Support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
+	// The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
 	SupportCode pulumi.StringPtrInput
-	// Map of tags for the Lightsail Distribution. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Tags        pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
 }
 
 func (DistributionState) ElementType() reflect.Type {
@@ -420,58 +183,50 @@ func (DistributionState) ElementType() reflect.Type {
 }
 
 type distributionArgs struct {
-	// Bundle ID to use for the distribution.
+	// The bundle ID to use for the distribution.
 	BundleId string `pulumi:"bundleId"`
-	// Cache behavior settings of the distribution. See below.
+	// An object that describes the cache behavior settings of the distribution.
 	CacheBehaviorSettings *DistributionCacheBehaviorSettings `pulumi:"cacheBehaviorSettings"`
-	// Per-path cache behavior of the distribution. See below.
+	// An array of objects that describe the per-path cache behavior of the distribution.
 	CacheBehaviors []DistributionCacheBehavior `pulumi:"cacheBehaviors"`
-	// Name of the SSL/TLS certificate attached to the distribution.
+	// The name of the SSL/TLS certificate attached to the distribution, if any.
 	CertificateName *string `pulumi:"certificateName"`
-	// Default cache behavior of the distribution. See below.
+	// An object that describes the default cache behavior of the distribution.
 	DefaultCacheBehavior DistributionDefaultCacheBehavior `pulumi:"defaultCacheBehavior"`
-	// IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
+	// The IP address type of the distribution.
 	IpAddressType *string `pulumi:"ipAddressType"`
-	// Whether the distribution is enabled. Default: `true`.
+	// Indicates whether the distribution is enabled.
 	IsEnabled *bool `pulumi:"isEnabled"`
-	// Name of the distribution.
+	// The name of the distribution.
 	Name *string `pulumi:"name"`
-	// Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
-	//
-	// The following arguments are optional:
+	// An object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer.
 	Origin DistributionOrigin `pulumi:"origin"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags for the Lightsail Distribution. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Region *string            `pulumi:"region"`
+	Tags   map[string]string  `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Distribution resource.
 type DistributionArgs struct {
-	// Bundle ID to use for the distribution.
+	// The bundle ID to use for the distribution.
 	BundleId pulumi.StringInput
-	// Cache behavior settings of the distribution. See below.
+	// An object that describes the cache behavior settings of the distribution.
 	CacheBehaviorSettings DistributionCacheBehaviorSettingsPtrInput
-	// Per-path cache behavior of the distribution. See below.
+	// An array of objects that describe the per-path cache behavior of the distribution.
 	CacheBehaviors DistributionCacheBehaviorArrayInput
-	// Name of the SSL/TLS certificate attached to the distribution.
+	// The name of the SSL/TLS certificate attached to the distribution, if any.
 	CertificateName pulumi.StringPtrInput
-	// Default cache behavior of the distribution. See below.
+	// An object that describes the default cache behavior of the distribution.
 	DefaultCacheBehavior DistributionDefaultCacheBehaviorInput
-	// IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
+	// The IP address type of the distribution.
 	IpAddressType pulumi.StringPtrInput
-	// Whether the distribution is enabled. Default: `true`.
+	// Indicates whether the distribution is enabled.
 	IsEnabled pulumi.BoolPtrInput
-	// Name of the distribution.
+	// The name of the distribution.
 	Name pulumi.StringPtrInput
-	// Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
-	//
-	// The following arguments are optional:
+	// An object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer.
 	Origin DistributionOriginInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Map of tags for the Lightsail Distribution. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags   pulumi.StringMapInput
 }
 
 func (DistributionArgs) ElementType() reflect.Type {
@@ -561,110 +316,104 @@ func (o DistributionOutput) ToDistributionOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Alternate domain names of the distribution.
+// The alternate domain names of the distribution.
 func (o DistributionOutput) AlternativeDomainNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringArrayOutput { return v.AlternativeDomainNames }).(pulumi.StringArrayOutput)
 }
 
-// ARN of the distribution.
+// The Amazon Resource Name (ARN) of the distribution.
 func (o DistributionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Bundle ID to use for the distribution.
+// The bundle ID to use for the distribution.
 func (o DistributionOutput) BundleId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.BundleId }).(pulumi.StringOutput)
 }
 
-// Cache behavior settings of the distribution. See below.
+// An object that describes the cache behavior settings of the distribution.
 func (o DistributionOutput) CacheBehaviorSettings() DistributionCacheBehaviorSettingsPtrOutput {
 	return o.ApplyT(func(v *Distribution) DistributionCacheBehaviorSettingsPtrOutput { return v.CacheBehaviorSettings }).(DistributionCacheBehaviorSettingsPtrOutput)
 }
 
-// Per-path cache behavior of the distribution. See below.
+// An array of objects that describe the per-path cache behavior of the distribution.
 func (o DistributionOutput) CacheBehaviors() DistributionCacheBehaviorArrayOutput {
 	return o.ApplyT(func(v *Distribution) DistributionCacheBehaviorArrayOutput { return v.CacheBehaviors }).(DistributionCacheBehaviorArrayOutput)
 }
 
-// Name of the SSL/TLS certificate attached to the distribution.
+// The name of the SSL/TLS certificate attached to the distribution, if any.
 func (o DistributionOutput) CertificateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.CertificateName }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp when the distribution was created.
+// The timestamp when the distribution was created.
 func (o DistributionOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Default cache behavior of the distribution. See below.
+// An object that describes the default cache behavior of the distribution.
 func (o DistributionOutput) DefaultCacheBehavior() DistributionDefaultCacheBehaviorOutput {
 	return o.ApplyT(func(v *Distribution) DistributionDefaultCacheBehaviorOutput { return v.DefaultCacheBehavior }).(DistributionDefaultCacheBehaviorOutput)
 }
 
-// Domain name of the distribution.
+// The domain name of the distribution.
 func (o DistributionOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
+// The IP address type of the distribution.
 func (o DistributionOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
 
-// Whether the distribution is enabled. Default: `true`.
+// Indicates whether the distribution is enabled.
 func (o DistributionOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.BoolPtrOutput { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Location of the distribution, such as the AWS Region and Availability Zone. See below.
+// An object that describes the location of the distribution, such as the AWS Region and Availability Zone.
 func (o DistributionOutput) Locations() DistributionLocationArrayOutput {
 	return o.ApplyT(func(v *Distribution) DistributionLocationArrayOutput { return v.Locations }).(DistributionLocationArrayOutput)
 }
 
-// Name of the distribution.
+// The name of the distribution.
 func (o DistributionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
-//
-// The following arguments are optional:
+// An object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer.
 func (o DistributionOutput) Origin() DistributionOriginOutput {
 	return o.ApplyT(func(v *Distribution) DistributionOriginOutput { return v.Origin }).(DistributionOriginOutput)
 }
 
-// Public DNS of the origin.
-// * `origin[0].resource_type` - Resource type of the origin resource (e.g., Instance).
+// The public DNS of the origin.
 func (o DistributionOutput) OriginPublicDns() pulumi.StringOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.OriginPublicDns }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DistributionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Lightsail resource type (e.g., Distribution).
+// The Lightsail resource type (e.g., Distribution).
 func (o DistributionOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Status of the distribution.
+// The status of the distribution.
 func (o DistributionOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
+// The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
 func (o DistributionOutput) SupportCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.SupportCode }).(pulumi.StringOutput)
 }
 
-// Map of tags for the Lightsail Distribution. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DistributionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DistributionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

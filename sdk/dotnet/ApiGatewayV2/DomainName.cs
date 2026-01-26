@@ -9,135 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ApiGatewayV2
 {
-    /// <summary>
-    /// Manages an Amazon API Gateway Version 2 domain name.
-    /// More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
-    /// 
-    /// &gt; **Note:** This resource establishes ownership of and the TLS settings for
-    /// a particular domain name. An API stage can be associated with the domain name using the `aws.apigatewayv2.ApiMapping` resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ApiGatewayV2.DomainName("example", new()
-    ///     {
-    ///         Domain = "ws-api.example.com",
-    ///         DomainNameConfiguration = new Aws.ApiGatewayV2.Inputs.DomainNameDomainNameConfigurationArgs
-    ///         {
-    ///             CertificateArn = exampleAwsAcmCertificate.Arn,
-    ///             EndpointType = "REGIONAL",
-    ///             SecurityPolicy = "TLS_1_2",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Associated Route 53 Resource Record
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ApiGatewayV2.DomainName("example", new()
-    ///     {
-    ///         Domain = "http-api.example.com",
-    ///         DomainNameConfiguration = new Aws.ApiGatewayV2.Inputs.DomainNameDomainNameConfigurationArgs
-    ///         {
-    ///             CertificateArn = exampleAwsAcmCertificate.Arn,
-    ///             EndpointType = "REGIONAL",
-    ///             SecurityPolicy = "TLS_1_2",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleRecord = new Aws.Route53.Record("example", new()
-    ///     {
-    ///         Name = example.Domain,
-    ///         Type = Aws.Route53.RecordType.A,
-    ///         ZoneId = exampleAwsRoute53Zone.ZoneId,
-    ///         Aliases = new[]
-    ///         {
-    ///             new Aws.Route53.Inputs.RecordAliasArgs
-    ///             {
-    ///                 Name = example.DomainNameConfiguration.Apply(domainNameConfiguration =&gt; domainNameConfiguration.TargetDomainName),
-    ///                 ZoneId = example.DomainNameConfiguration.Apply(domainNameConfiguration =&gt; domainNameConfiguration.HostedZoneId),
-    ///                 EvaluateTargetHealth = false,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_apigatewayv2_domain_name` using the domain name. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:apigatewayv2/domainName:DomainName")]
     public partial class DomainName : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
-        /// </summary>
         [Output("apiMappingSelectionExpression")]
         public Output<string> ApiMappingSelectionExpression { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the domain name.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Domain name. Must be between 1 and 512 characters in length.
-        /// </summary>
         [Output("domainName")]
         public Output<string> Domain { get; private set; } = null!;
 
-        /// <summary>
-        /// Domain name configuration. See below.
-        /// </summary>
         [Output("domainNameConfiguration")]
         public Output<Outputs.DomainNameDomainNameConfiguration> DomainNameConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Mutual TLS authentication configuration for the domain name.
-        /// </summary>
         [Output("mutualTlsAuthentication")]
         public Output<Outputs.DomainNameMutualTlsAuthentication?> MutualTlsAuthentication { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags to assign to the domain name. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -187,36 +82,20 @@ namespace Pulumi.Aws.ApiGatewayV2
 
     public sealed class DomainNameArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Domain name. Must be between 1 and 512 characters in length.
-        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> Domain { get; set; } = null!;
 
-        /// <summary>
-        /// Domain name configuration. See below.
-        /// </summary>
         [Input("domainNameConfiguration", required: true)]
         public Input<Inputs.DomainNameDomainNameConfigurationArgs> DomainNameConfiguration { get; set; } = null!;
 
-        /// <summary>
-        /// Mutual TLS authentication configuration for the domain name.
-        /// </summary>
         [Input("mutualTlsAuthentication")]
         public Input<Inputs.DomainNameMutualTlsAuthenticationArgs>? MutualTlsAuthentication { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the domain name. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -231,48 +110,26 @@ namespace Pulumi.Aws.ApiGatewayV2
 
     public sealed class DomainNameState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
-        /// </summary>
         [Input("apiMappingSelectionExpression")]
         public Input<string>? ApiMappingSelectionExpression { get; set; }
 
-        /// <summary>
-        /// ARN of the domain name.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Domain name. Must be between 1 and 512 characters in length.
-        /// </summary>
         [Input("domainName")]
         public Input<string>? Domain { get; set; }
 
-        /// <summary>
-        /// Domain name configuration. See below.
-        /// </summary>
         [Input("domainNameConfiguration")]
         public Input<Inputs.DomainNameDomainNameConfigurationGetArgs>? DomainNameConfiguration { get; set; }
 
-        /// <summary>
-        /// Mutual TLS authentication configuration for the domain name.
-        /// </summary>
         [Input("mutualTlsAuthentication")]
         public Input<Inputs.DomainNameMutualTlsAuthenticationGetArgs>? MutualTlsAuthentication { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the domain name. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -281,10 +138,6 @@ namespace Pulumi.Aws.ApiGatewayV2
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

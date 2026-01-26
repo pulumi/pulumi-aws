@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppSync.Outputs
     [OutputType]
     public sealed class ChannelNamespaceHandlerConfigs
     {
-        /// <summary>
-        /// Handler configuration. See Handler Config below.
-        /// </summary>
         public readonly Outputs.ChannelNamespaceHandlerConfigsOnPublish? OnPublish;
-        /// <summary>
-        /// Handler configuration. See Handler Config below.
-        /// </summary>
         public readonly Outputs.ChannelNamespaceHandlerConfigsOnSubscribe? OnSubscribe;
 
         [OutputConstructor]

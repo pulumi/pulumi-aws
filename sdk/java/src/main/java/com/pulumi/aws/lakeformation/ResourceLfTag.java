@@ -19,148 +19,41 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Lake Formation Resource LF Tag.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lakeformation.ResourceLfTag;
- * import com.pulumi.aws.lakeformation.ResourceLfTagArgs;
- * import com.pulumi.aws.lakeformation.inputs.ResourceLfTagDatabaseArgs;
- * import com.pulumi.aws.lakeformation.inputs.ResourceLfTagLfTagArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceLfTag("example", ResourceLfTagArgs.builder()
- *             .database(ResourceLfTagDatabaseArgs.builder()
- *                 .name(exampleAwsGlueCatalogDatabase.name())
- *                 .build())
- *             .lfTag(ResourceLfTagLfTagArgs.builder()
- *                 .key(exampleAwsLakeformationLfTag.key())
- *                 .value("stowe")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * You cannot import this resource.
- * 
- */
 @ResourceType(type="aws:lakeformation/resourceLfTag:ResourceLfTag")
 public class ResourceLfTag extends com.pulumi.resources.CustomResource {
-    /**
-     * Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
-     * 
-     */
     @Export(name="catalogId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> catalogId;
 
-    /**
-     * @return Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
-     * 
-     */
     public Output<Optional<String>> catalogId() {
         return Codegen.optional(this.catalogId);
     }
-    /**
-     * Configuration block for a database resource. See Database for more details.
-     * 
-     */
     @Export(name="database", refs={ResourceLfTagDatabase.class}, tree="[0]")
     private Output</* @Nullable */ ResourceLfTagDatabase> database;
 
-    /**
-     * @return Configuration block for a database resource. See Database for more details.
-     * 
-     */
     public Output<Optional<ResourceLfTagDatabase>> database() {
         return Codegen.optional(this.database);
     }
-    /**
-     * Set of LF-tags to attach to the resource. See LF Tag for more details.
-     * 
-     * Exactly one of the following is required:
-     * 
-     */
     @Export(name="lfTag", refs={ResourceLfTagLfTag.class}, tree="[0]")
     private Output</* @Nullable */ ResourceLfTagLfTag> lfTag;
 
-    /**
-     * @return Set of LF-tags to attach to the resource. See LF Tag for more details.
-     * 
-     * Exactly one of the following is required:
-     * 
-     */
     public Output<Optional<ResourceLfTagLfTag>> lfTag() {
         return Codegen.optional(this.lfTag);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Configuration block for a table resource. See Table for more details.
-     * 
-     */
     @Export(name="table", refs={ResourceLfTagTable.class}, tree="[0]")
     private Output</* @Nullable */ ResourceLfTagTable> table;
 
-    /**
-     * @return Configuration block for a table resource. See Table for more details.
-     * 
-     */
     public Output<Optional<ResourceLfTagTable>> table() {
         return Codegen.optional(this.table);
     }
-    /**
-     * Configuration block for a table with columns resource. See Table With Columns for more details.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="tableWithColumns", refs={ResourceLfTagTableWithColumns.class}, tree="[0]")
     private Output</* @Nullable */ ResourceLfTagTableWithColumns> tableWithColumns;
 
-    /**
-     * @return Configuration block for a table with columns resource. See Table With Columns for more details.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Optional<ResourceLfTagTableWithColumns>> tableWithColumns() {
         return Codegen.optional(this.tableWithColumns);
     }

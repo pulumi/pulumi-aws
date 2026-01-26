@@ -16,62 +16,30 @@ public final class GetEnvironmentBlueprintPlainArgs extends com.pulumi.resources
 
     public static final GetEnvironmentBlueprintPlainArgs Empty = new GetEnvironmentBlueprintPlainArgs();
 
-    /**
-     * ID of the domain.
-     * 
-     */
     @Import(name="domainId", required=true)
     private String domainId;
 
-    /**
-     * @return ID of the domain.
-     * 
-     */
     public String domainId() {
         return this.domainId;
     }
 
-    /**
-     * Whether the blueprint is managed by Amazon DataZone.
-     * 
-     */
     @Import(name="managed", required=true)
     private Boolean managed;
 
-    /**
-     * @return Whether the blueprint is managed by Amazon DataZone.
-     * 
-     */
     public Boolean managed() {
         return this.managed;
     }
 
-    /**
-     * Name of the blueprint.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the blueprint.
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -103,45 +71,21 @@ public final class GetEnvironmentBlueprintPlainArgs extends com.pulumi.resources
             $ = new GetEnvironmentBlueprintPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domainId ID of the domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainId(String domainId) {
             $.domainId = domainId;
             return this;
         }
 
-        /**
-         * @param managed Whether the blueprint is managed by Amazon DataZone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managed(Boolean managed) {
             $.managed = managed;
             return this;
         }
 
-        /**
-         * @param name Name of the blueprint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

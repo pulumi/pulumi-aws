@@ -16,32 +16,16 @@ public final class GroupPoliciesExclusiveState extends com.pulumi.resources.Reso
 
     public static final GroupPoliciesExclusiveState Empty = new GroupPoliciesExclusiveState();
 
-    /**
-     * IAM group name.
-     * 
-     */
     @Import(name="groupName")
     private @Nullable Output<String> groupName;
 
-    /**
-     * @return IAM group name.
-     * 
-     */
     public Optional<Output<String>> groupName() {
         return Optional.ofNullable(this.groupName);
     }
 
-    /**
-     * A list of inline policy names to be assigned to the group. Policies attached to this group but not configured in this argument will be removed.
-     * 
-     */
     @Import(name="policyNames")
     private @Nullable Output<List<String>> policyNames;
 
-    /**
-     * @return A list of inline policy names to be assigned to the group. Policies attached to this group but not configured in this argument will be removed.
-     * 
-     */
     public Optional<Output<List<String>>> policyNames() {
         return Optional.ofNullable(this.policyNames);
     }
@@ -71,54 +55,24 @@ public final class GroupPoliciesExclusiveState extends com.pulumi.resources.Reso
             $ = new GroupPoliciesExclusiveState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param groupName IAM group name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupName(@Nullable Output<String> groupName) {
             $.groupName = groupName;
             return this;
         }
 
-        /**
-         * @param groupName IAM group name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupName(String groupName) {
             return groupName(Output.of(groupName));
         }
 
-        /**
-         * @param policyNames A list of inline policy names to be assigned to the group. Policies attached to this group but not configured in this argument will be removed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyNames(@Nullable Output<List<String>> policyNames) {
             $.policyNames = policyNames;
             return this;
         }
 
-        /**
-         * @param policyNames A list of inline policy names to be assigned to the group. Policies attached to this group but not configured in this argument will be removed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyNames(List<String> policyNames) {
             return policyNames(Output.of(policyNames));
         }
 
-        /**
-         * @param policyNames A list of inline policy names to be assigned to the group. Policies attached to this group but not configured in this argument will be removed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyNames(String... policyNames) {
             return policyNames(List.of(policyNames));
         }

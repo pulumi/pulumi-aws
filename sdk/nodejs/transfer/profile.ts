@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a AWS Transfer AS2 Profile resource.
- *
- * ## Example Usage
- *
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.transfer.Profile("example", {
- *     as2Id: "example",
- *     certificateIds: [exampleAwsTransferCertificate.certificateId],
- *     usage: "LOCAL",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Transfer AS2 Profile using the `profile_id`. For example:
- *
- * ```sh
- * $ pulumi import aws:transfer/profile:Profile example p-4221a88afd5f4362a
- * ```
- */
 export class Profile extends pulumi.CustomResource {
     /**
      * Get an existing Profile resource's state with the given name, ID, and optional extra
@@ -58,33 +32,12 @@ export class Profile extends pulumi.CustomResource {
         return obj['__pulumiType'] === Profile.__pulumiType;
     }
 
-    /**
-     * The ARN of the profile.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
-     */
     declare public readonly as2Id: pulumi.Output<string>;
-    /**
-     * The list of certificate Ids from the imported certificate operation.
-     */
     declare public readonly certificateIds: pulumi.Output<string[] | undefined>;
-    /**
-     * The unique identifier for the AS2 profile.
-     */
     declare public /*out*/ readonly profileId: pulumi.Output<string>;
-    /**
-     * The profile type should be LOCAL or PARTNER.
-     */
     declare public readonly profileType: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -135,33 +88,12 @@ export class Profile extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Profile resources.
  */
 export interface ProfileState {
-    /**
-     * The ARN of the profile.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
-     */
     as2Id?: pulumi.Input<string>;
-    /**
-     * The list of certificate Ids from the imported certificate operation.
-     */
     certificateIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The unique identifier for the AS2 profile.
-     */
     profileId?: pulumi.Input<string>;
-    /**
-     * The profile type should be LOCAL or PARTNER.
-     */
     profileType?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -170,24 +102,9 @@ export interface ProfileState {
  * The set of arguments for constructing a Profile resource.
  */
 export interface ProfileArgs {
-    /**
-     * The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
-     */
     as2Id: pulumi.Input<string>;
-    /**
-     * The list of certificate Ids from the imported certificate operation.
-     */
     certificateIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The profile type should be LOCAL or PARTNER.
-     */
     profileType: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

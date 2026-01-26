@@ -33,16 +33,6 @@ class CatalogDatabaseArgs:
                  target_database: Optional[pulumi.Input['CatalogDatabaseTargetDatabaseArgs']] = None):
         """
         The set of arguments for constructing a CatalogDatabase resource.
-        :param pulumi.Input[_builtins.str] catalog_id: ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
-        :param pulumi.Input[Sequence[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionArgs']]] create_table_default_permissions: Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
-        :param pulumi.Input[_builtins.str] description: Description of the database.
-        :param pulumi.Input['CatalogDatabaseFederatedDatabaseArgs'] federated_database: Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
-        :param pulumi.Input[_builtins.str] location_uri: Location of the database (for example, an HDFS path).
-        :param pulumi.Input[_builtins.str] name: Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: List of key-value pairs that define parameters and properties of the database.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['CatalogDatabaseTargetDatabaseArgs'] target_database: Configuration block for a target database for resource linking. See `target_database` below.
         """
         if catalog_id is not None:
             pulumi.set(__self__, "catalog_id", catalog_id)
@@ -68,9 +58,6 @@ class CatalogDatabaseArgs:
     @_builtins.property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -80,9 +67,6 @@ class CatalogDatabaseArgs:
     @_builtins.property
     @pulumi.getter(name="createTableDefaultPermissions")
     def create_table_default_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionArgs']]]]:
-        """
-        Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
-        """
         return pulumi.get(self, "create_table_default_permissions")
 
     @create_table_default_permissions.setter
@@ -92,9 +76,6 @@ class CatalogDatabaseArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the database.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -104,9 +85,6 @@ class CatalogDatabaseArgs:
     @_builtins.property
     @pulumi.getter(name="federatedDatabase")
     def federated_database(self) -> Optional[pulumi.Input['CatalogDatabaseFederatedDatabaseArgs']]:
-        """
-        Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
-        """
         return pulumi.get(self, "federated_database")
 
     @federated_database.setter
@@ -116,9 +94,6 @@ class CatalogDatabaseArgs:
     @_builtins.property
     @pulumi.getter(name="locationUri")
     def location_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Location of the database (for example, an HDFS path).
-        """
         return pulumi.get(self, "location_uri")
 
     @location_uri.setter
@@ -128,9 +103,6 @@ class CatalogDatabaseArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -140,9 +112,6 @@ class CatalogDatabaseArgs:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        List of key-value pairs that define parameters and properties of the database.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -152,9 +121,6 @@ class CatalogDatabaseArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -164,9 +130,6 @@ class CatalogDatabaseArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -176,9 +139,6 @@ class CatalogDatabaseArgs:
     @_builtins.property
     @pulumi.getter(name="targetDatabase")
     def target_database(self) -> Optional[pulumi.Input['CatalogDatabaseTargetDatabaseArgs']]:
-        """
-        Configuration block for a target database for resource linking. See `target_database` below.
-        """
         return pulumi.get(self, "target_database")
 
     @target_database.setter
@@ -203,18 +163,6 @@ class _CatalogDatabaseState:
                  target_database: Optional[pulumi.Input['CatalogDatabaseTargetDatabaseArgs']] = None):
         """
         Input properties used for looking up and filtering CatalogDatabase resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Glue Catalog Database.
-        :param pulumi.Input[_builtins.str] catalog_id: ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
-        :param pulumi.Input[Sequence[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionArgs']]] create_table_default_permissions: Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
-        :param pulumi.Input[_builtins.str] description: Description of the database.
-        :param pulumi.Input['CatalogDatabaseFederatedDatabaseArgs'] federated_database: Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
-        :param pulumi.Input[_builtins.str] location_uri: Location of the database (for example, an HDFS path).
-        :param pulumi.Input[_builtins.str] name: Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: List of key-value pairs that define parameters and properties of the database.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['CatalogDatabaseTargetDatabaseArgs'] target_database: Configuration block for a target database for resource linking. See `target_database` below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -244,9 +192,6 @@ class _CatalogDatabaseState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Glue Catalog Database.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -256,9 +201,6 @@ class _CatalogDatabaseState:
     @_builtins.property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -268,9 +210,6 @@ class _CatalogDatabaseState:
     @_builtins.property
     @pulumi.getter(name="createTableDefaultPermissions")
     def create_table_default_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionArgs']]]]:
-        """
-        Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
-        """
         return pulumi.get(self, "create_table_default_permissions")
 
     @create_table_default_permissions.setter
@@ -280,9 +219,6 @@ class _CatalogDatabaseState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the database.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -292,9 +228,6 @@ class _CatalogDatabaseState:
     @_builtins.property
     @pulumi.getter(name="federatedDatabase")
     def federated_database(self) -> Optional[pulumi.Input['CatalogDatabaseFederatedDatabaseArgs']]:
-        """
-        Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
-        """
         return pulumi.get(self, "federated_database")
 
     @federated_database.setter
@@ -304,9 +237,6 @@ class _CatalogDatabaseState:
     @_builtins.property
     @pulumi.getter(name="locationUri")
     def location_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Location of the database (for example, an HDFS path).
-        """
         return pulumi.get(self, "location_uri")
 
     @location_uri.setter
@@ -316,9 +246,6 @@ class _CatalogDatabaseState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -328,9 +255,6 @@ class _CatalogDatabaseState:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        List of key-value pairs that define parameters and properties of the database.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -340,9 +264,6 @@ class _CatalogDatabaseState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -352,9 +273,6 @@ class _CatalogDatabaseState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -364,9 +282,6 @@ class _CatalogDatabaseState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -376,9 +291,6 @@ class _CatalogDatabaseState:
     @_builtins.property
     @pulumi.getter(name="targetDatabase")
     def target_database(self) -> Optional[pulumi.Input['CatalogDatabaseTargetDatabaseArgs']]:
-        """
-        Configuration block for a target database for resource linking. See `target_database` below.
-        """
         return pulumi.get(self, "target_database")
 
     @target_database.setter
@@ -404,53 +316,9 @@ class CatalogDatabase(pulumi.CustomResource):
                  target_database: Optional[pulumi.Input[Union['CatalogDatabaseTargetDatabaseArgs', 'CatalogDatabaseTargetDatabaseArgsDict']]] = None,
                  __props__=None):
         """
-        Provides a Glue Catalog Database Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.CatalogDatabase("example", name="MyCatalogDatabase")
-        ```
-
-        ### Create Table Default Permissions
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.CatalogDatabase("example",
-            name="MyCatalogDatabase",
-            create_table_default_permissions=[{
-                "permissions": ["SELECT"],
-                "principal": {
-                    "data_lake_principal_identifier": "IAM_ALLOWED_PRINCIPALS",
-                },
-            }])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Glue Catalog Databases using the `catalog_id:name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:
-
-        ```sh
-        $ pulumi import aws:glue/catalogDatabase:CatalogDatabase database 123456789012:my_database
-        ```
-
+        Create a CatalogDatabase resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] catalog_id: ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogDatabaseCreateTableDefaultPermissionArgs', 'CatalogDatabaseCreateTableDefaultPermissionArgsDict']]]] create_table_default_permissions: Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
-        :param pulumi.Input[_builtins.str] description: Description of the database.
-        :param pulumi.Input[Union['CatalogDatabaseFederatedDatabaseArgs', 'CatalogDatabaseFederatedDatabaseArgsDict']] federated_database: Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
-        :param pulumi.Input[_builtins.str] location_uri: Location of the database (for example, an HDFS path).
-        :param pulumi.Input[_builtins.str] name: Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: List of key-value pairs that define parameters and properties of the database.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['CatalogDatabaseTargetDatabaseArgs', 'CatalogDatabaseTargetDatabaseArgsDict']] target_database: Configuration block for a target database for resource linking. See `target_database` below.
         """
         ...
     @overload
@@ -459,41 +327,7 @@ class CatalogDatabase(pulumi.CustomResource):
                  args: Optional[CatalogDatabaseArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Glue Catalog Database Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.CatalogDatabase("example", name="MyCatalogDatabase")
-        ```
-
-        ### Create Table Default Permissions
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.CatalogDatabase("example",
-            name="MyCatalogDatabase",
-            create_table_default_permissions=[{
-                "permissions": ["SELECT"],
-                "principal": {
-                    "data_lake_principal_identifier": "IAM_ALLOWED_PRINCIPALS",
-                },
-            }])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Glue Catalog Databases using the `catalog_id:name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:
-
-        ```sh
-        $ pulumi import aws:glue/catalogDatabase:CatalogDatabase database 123456789012:my_database
-        ```
-
+        Create a CatalogDatabase resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CatalogDatabaseArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -569,18 +403,6 @@ class CatalogDatabase(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Glue Catalog Database.
-        :param pulumi.Input[_builtins.str] catalog_id: ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogDatabaseCreateTableDefaultPermissionArgs', 'CatalogDatabaseCreateTableDefaultPermissionArgsDict']]]] create_table_default_permissions: Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
-        :param pulumi.Input[_builtins.str] description: Description of the database.
-        :param pulumi.Input[Union['CatalogDatabaseFederatedDatabaseArgs', 'CatalogDatabaseFederatedDatabaseArgsDict']] federated_database: Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
-        :param pulumi.Input[_builtins.str] location_uri: Location of the database (for example, an HDFS path).
-        :param pulumi.Input[_builtins.str] name: Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: List of key-value pairs that define parameters and properties of the database.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['CatalogDatabaseTargetDatabaseArgs', 'CatalogDatabaseTargetDatabaseArgsDict']] target_database: Configuration block for a target database for resource linking. See `target_database` below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -603,96 +425,60 @@ class CatalogDatabase(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Glue Catalog Database.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
-        """
         return pulumi.get(self, "catalog_id")
 
     @_builtins.property
     @pulumi.getter(name="createTableDefaultPermissions")
     def create_table_default_permissions(self) -> pulumi.Output[Sequence['outputs.CatalogDatabaseCreateTableDefaultPermission']]:
-        """
-        Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
-        """
         return pulumi.get(self, "create_table_default_permissions")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the database.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="federatedDatabase")
     def federated_database(self) -> pulumi.Output[Optional['outputs.CatalogDatabaseFederatedDatabase']]:
-        """
-        Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
-        """
         return pulumi.get(self, "federated_database")
 
     @_builtins.property
     @pulumi.getter(name="locationUri")
     def location_uri(self) -> pulumi.Output[_builtins.str]:
-        """
-        Location of the database (for example, an HDFS path).
-        """
         return pulumi.get(self, "location_uri")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        List of key-value pairs that define parameters and properties of the database.
-        """
         return pulumi.get(self, "parameters")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="targetDatabase")
     def target_database(self) -> pulumi.Output[Optional['outputs.CatalogDatabaseTargetDatabase']]:
-        """
-        Configuration block for a target database for resource linking. See `target_database` below.
-        """
         return pulumi.get(self, "target_database")
 

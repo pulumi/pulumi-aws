@@ -13,21 +13,9 @@ namespace Pulumi.Aws.FinSpace.Outputs
     [OutputType]
     public sealed class KxClusterDatabase
     {
-        /// <summary>
-        /// Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
-        /// </summary>
         public readonly ImmutableArray<Outputs.KxClusterDatabaseCacheConfiguration> CacheConfigurations;
-        /// <summary>
-        /// A unique identifier of the changeset that is associated with the cluster.
-        /// </summary>
         public readonly string? ChangesetId;
-        /// <summary>
-        /// Name of the KX database.
-        /// </summary>
         public readonly string DatabaseName;
-        /// <summary>
-        /// The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `Lifecycle` `IgnoreChanges` for database to prevent any undesirable behaviors.
-        /// </summary>
         public readonly string? DataviewName;
 
         [OutputConstructor]

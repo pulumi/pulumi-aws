@@ -9,92 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.VpcLattice
 {
-    /// <summary>
-    /// Resource for managing an AWS VPC Lattice Service Network Resource Association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.VpcLattice.ServiceNetworkResourceAssociation("example", new()
-    ///     {
-    ///         ResourceConfigurationIdentifier = exampleAwsVpclatticeResourceConfiguration.Id,
-    ///         ServiceNetworkIdentifier = exampleAwsVpclatticeServiceNetwork.Id,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Example" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import VPC Lattice Service Network Resource Association using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:vpclattice/serviceNetworkResourceAssociation:ServiceNetworkResourceAssociation example snra-1234567890abcef12
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:vpclattice/serviceNetworkResourceAssociation:ServiceNetworkResourceAssociation")]
     public partial class ServiceNetworkResourceAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Service Network Resource Association.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// DNS entry of the association in the service network.
-        /// </summary>
         [Output("dnsEntries")]
         public Output<ImmutableArray<Outputs.ServiceNetworkResourceAssociationDnsEntry>> DnsEntries { get; private set; } = null!;
 
-        /// <summary>
-        /// Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `False`. When set to `True`, the resource configuration identified by `ResourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
-        /// </summary>
         [Output("privateDnsEnabled")]
         public Output<bool> PrivateDnsEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of Resource Configuration to associate to the Service Network.
-        /// </summary>
         [Output("resourceConfigurationIdentifier")]
         public Output<string> ResourceConfigurationIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of the Service Network to associate the Resource to.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("serviceNetworkIdentifier")]
         public Output<string> ServiceNetworkIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -147,38 +85,20 @@ namespace Pulumi.Aws.VpcLattice
 
     public sealed class ServiceNetworkResourceAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `False`. When set to `True`, the resource configuration identified by `ResourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
-        /// </summary>
         [Input("privateDnsEnabled")]
         public Input<bool>? PrivateDnsEnabled { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Identifier of Resource Configuration to associate to the Service Network.
-        /// </summary>
         [Input("resourceConfigurationIdentifier", required: true)]
         public Input<string> ResourceConfigurationIdentifier { get; set; } = null!;
 
-        /// <summary>
-        /// Identifier of the Service Network to associate the Resource to.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("serviceNetworkIdentifier", required: true)]
         public Input<string> ServiceNetworkIdentifier { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -196,56 +116,31 @@ namespace Pulumi.Aws.VpcLattice
 
     public sealed class ServiceNetworkResourceAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Service Network Resource Association.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("dnsEntries")]
         private InputList<Inputs.ServiceNetworkResourceAssociationDnsEntryGetArgs>? _dnsEntries;
-
-        /// <summary>
-        /// DNS entry of the association in the service network.
-        /// </summary>
         public InputList<Inputs.ServiceNetworkResourceAssociationDnsEntryGetArgs> DnsEntries
         {
             get => _dnsEntries ?? (_dnsEntries = new InputList<Inputs.ServiceNetworkResourceAssociationDnsEntryGetArgs>());
             set => _dnsEntries = value;
         }
 
-        /// <summary>
-        /// Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `False`. When set to `True`, the resource configuration identified by `ResourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
-        /// </summary>
         [Input("privateDnsEnabled")]
         public Input<bool>? PrivateDnsEnabled { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Identifier of Resource Configuration to associate to the Service Network.
-        /// </summary>
         [Input("resourceConfigurationIdentifier")]
         public Input<string>? ResourceConfigurationIdentifier { get; set; }
 
-        /// <summary>
-        /// Identifier of the Service Network to associate the Resource to.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("serviceNetworkIdentifier")]
         public Input<string>? ServiceNetworkIdentifier { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -254,10 +149,6 @@ namespace Pulumi.Aws.VpcLattice
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

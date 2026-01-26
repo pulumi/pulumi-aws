@@ -15,32 +15,16 @@ public final class PipelineTriggerArgs extends com.pulumi.resources.ResourceArgs
 
     public static final PipelineTriggerArgs Empty = new PipelineTriggerArgs();
 
-    /**
-     * Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `gitConfiguration` block is documented below.
-     * 
-     */
     @Import(name="gitConfiguration", required=true)
     private Output<PipelineTriggerGitConfigurationArgs> gitConfiguration;
 
-    /**
-     * @return Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `gitConfiguration` block is documented below.
-     * 
-     */
     public Output<PipelineTriggerGitConfigurationArgs> gitConfiguration() {
         return this.gitConfiguration;
     }
 
-    /**
-     * The source provider for the event. Possible value is `CodeStarSourceConnection`.
-     * 
-     */
     @Import(name="providerType", required=true)
     private Output<String> providerType;
 
-    /**
-     * @return The source provider for the event. Possible value is `CodeStarSourceConnection`.
-     * 
-     */
     public Output<String> providerType() {
         return this.providerType;
     }
@@ -70,44 +54,20 @@ public final class PipelineTriggerArgs extends com.pulumi.resources.ResourceArgs
             $ = new PipelineTriggerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param gitConfiguration Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `gitConfiguration` block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gitConfiguration(Output<PipelineTriggerGitConfigurationArgs> gitConfiguration) {
             $.gitConfiguration = gitConfiguration;
             return this;
         }
 
-        /**
-         * @param gitConfiguration Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `gitConfiguration` block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gitConfiguration(PipelineTriggerGitConfigurationArgs gitConfiguration) {
             return gitConfiguration(Output.of(gitConfiguration));
         }
 
-        /**
-         * @param providerType The source provider for the event. Possible value is `CodeStarSourceConnection`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder providerType(Output<String> providerType) {
             $.providerType = providerType;
             return this;
         }
 
-        /**
-         * @param providerType The source provider for the event. Possible value is `CodeStarSourceConnection`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder providerType(String providerType) {
             return providerType(Output.of(providerType));
         }

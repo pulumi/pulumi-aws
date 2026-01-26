@@ -7,47 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Step Function State Machine Alias.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const sfnAlias = new aws.sfn.Alias("sfn_alias", {
- *     name: "my_sfn_alias",
- *     routingConfigurations: [{
- *         stateMachineVersionArn: sfnTest.stateMachineVersionArn,
- *         weight: 100,
- *     }],
- * });
- * const mySfnAlias = new aws.sfn.Alias("my_sfn_alias", {
- *     name: "my_sfn_alias",
- *     routingConfigurations: [
- *         {
- *             stateMachineVersionArn: "arn:aws:states:us-east-1:12345:stateMachine:demo:3",
- *             weight: 50,
- *         },
- *         {
- *             stateMachineVersionArn: "arn:aws:states:us-east-1:12345:stateMachine:demo:2",
- *             weight: 50,
- *         },
- *     ],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import SFN (Step Functions) Alias using the `arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:sfn/alias:Alias foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
- * ```
- */
 export class Alias extends pulumi.CustomResource {
     /**
      * Get an existing Alias resource's state with the given name, ID, and optional extra
@@ -76,29 +35,11 @@ export class Alias extends pulumi.CustomResource {
         return obj['__pulumiType'] === Alias.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) identifying your state machine alias.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The date the state machine alias was created.
-     */
     declare public /*out*/ readonly creationDate: pulumi.Output<string>;
-    /**
-     * Description of the alias.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Name for the alias you are creating.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The StateMachine alias' route configuration settings. Fields documented below
-     */
     declare public readonly routingConfigurations: pulumi.Output<outputs.sfn.AliasRoutingConfiguration[]>;
 
     /**
@@ -141,29 +82,11 @@ export class Alias extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Alias resources.
  */
 export interface AliasState {
-    /**
-     * The Amazon Resource Name (ARN) identifying your state machine alias.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The date the state machine alias was created.
-     */
     creationDate?: pulumi.Input<string>;
-    /**
-     * Description of the alias.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Name for the alias you are creating.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The StateMachine alias' route configuration settings. Fields documented below
-     */
     routingConfigurations?: pulumi.Input<pulumi.Input<inputs.sfn.AliasRoutingConfiguration>[]>;
 }
 
@@ -171,20 +94,8 @@ export interface AliasState {
  * The set of arguments for constructing a Alias resource.
  */
 export interface AliasArgs {
-    /**
-     * Description of the alias.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Name for the alias you are creating.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The StateMachine alias' route configuration settings. Fields documented below
-     */
     routingConfigurations: pulumi.Input<pulumi.Input<inputs.sfn.AliasRoutingConfiguration>[]>;
 }

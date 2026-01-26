@@ -19,17 +19,9 @@ public final class ReplicatorReplicationInfoListArgs extends com.pulumi.resource
 
     public static final ReplicatorReplicationInfoListArgs Empty = new ReplicatorReplicationInfoListArgs();
 
-    /**
-     * Configuration relating to consumer group replication.
-     * 
-     */
     @Import(name="consumerGroupReplications", required=true)
     private Output<List<ReplicatorReplicationInfoListConsumerGroupReplicationArgs>> consumerGroupReplications;
 
-    /**
-     * @return Configuration relating to consumer group replication.
-     * 
-     */
     public Output<List<ReplicatorReplicationInfoListConsumerGroupReplicationArgs>> consumerGroupReplications() {
         return this.consumerGroupReplications;
     }
@@ -41,32 +33,16 @@ public final class ReplicatorReplicationInfoListArgs extends com.pulumi.resource
         return Optional.ofNullable(this.sourceKafkaClusterAlias);
     }
 
-    /**
-     * The ARN of the source Kafka cluster.
-     * 
-     */
     @Import(name="sourceKafkaClusterArn", required=true)
     private Output<String> sourceKafkaClusterArn;
 
-    /**
-     * @return The ARN of the source Kafka cluster.
-     * 
-     */
     public Output<String> sourceKafkaClusterArn() {
         return this.sourceKafkaClusterArn;
     }
 
-    /**
-     * The type of compression to use writing records to target Kafka cluster.
-     * 
-     */
     @Import(name="targetCompressionType", required=true)
     private Output<String> targetCompressionType;
 
-    /**
-     * @return The type of compression to use writing records to target Kafka cluster.
-     * 
-     */
     public Output<String> targetCompressionType() {
         return this.targetCompressionType;
     }
@@ -78,32 +54,16 @@ public final class ReplicatorReplicationInfoListArgs extends com.pulumi.resource
         return Optional.ofNullable(this.targetKafkaClusterAlias);
     }
 
-    /**
-     * The ARN of the target Kafka cluster.
-     * 
-     */
     @Import(name="targetKafkaClusterArn", required=true)
     private Output<String> targetKafkaClusterArn;
 
-    /**
-     * @return The ARN of the target Kafka cluster.
-     * 
-     */
     public Output<String> targetKafkaClusterArn() {
         return this.targetKafkaClusterArn;
     }
 
-    /**
-     * Configuration relating to topic replication.
-     * 
-     */
     @Import(name="topicReplications", required=true)
     private Output<List<ReplicatorReplicationInfoListTopicReplicationArgs>> topicReplications;
 
-    /**
-     * @return Configuration relating to topic replication.
-     * 
-     */
     public Output<List<ReplicatorReplicationInfoListTopicReplicationArgs>> topicReplications() {
         return this.topicReplications;
     }
@@ -138,33 +98,15 @@ public final class ReplicatorReplicationInfoListArgs extends com.pulumi.resource
             $ = new ReplicatorReplicationInfoListArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param consumerGroupReplications Configuration relating to consumer group replication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder consumerGroupReplications(Output<List<ReplicatorReplicationInfoListConsumerGroupReplicationArgs>> consumerGroupReplications) {
             $.consumerGroupReplications = consumerGroupReplications;
             return this;
         }
 
-        /**
-         * @param consumerGroupReplications Configuration relating to consumer group replication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder consumerGroupReplications(List<ReplicatorReplicationInfoListConsumerGroupReplicationArgs> consumerGroupReplications) {
             return consumerGroupReplications(Output.of(consumerGroupReplications));
         }
 
-        /**
-         * @param consumerGroupReplications Configuration relating to consumer group replication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder consumerGroupReplications(ReplicatorReplicationInfoListConsumerGroupReplicationArgs... consumerGroupReplications) {
             return consumerGroupReplications(List.of(consumerGroupReplications));
         }
@@ -178,44 +120,20 @@ public final class ReplicatorReplicationInfoListArgs extends com.pulumi.resource
             return sourceKafkaClusterAlias(Output.of(sourceKafkaClusterAlias));
         }
 
-        /**
-         * @param sourceKafkaClusterArn The ARN of the source Kafka cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceKafkaClusterArn(Output<String> sourceKafkaClusterArn) {
             $.sourceKafkaClusterArn = sourceKafkaClusterArn;
             return this;
         }
 
-        /**
-         * @param sourceKafkaClusterArn The ARN of the source Kafka cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceKafkaClusterArn(String sourceKafkaClusterArn) {
             return sourceKafkaClusterArn(Output.of(sourceKafkaClusterArn));
         }
 
-        /**
-         * @param targetCompressionType The type of compression to use writing records to target Kafka cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetCompressionType(Output<String> targetCompressionType) {
             $.targetCompressionType = targetCompressionType;
             return this;
         }
 
-        /**
-         * @param targetCompressionType The type of compression to use writing records to target Kafka cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetCompressionType(String targetCompressionType) {
             return targetCompressionType(Output.of(targetCompressionType));
         }
@@ -229,54 +147,24 @@ public final class ReplicatorReplicationInfoListArgs extends com.pulumi.resource
             return targetKafkaClusterAlias(Output.of(targetKafkaClusterAlias));
         }
 
-        /**
-         * @param targetKafkaClusterArn The ARN of the target Kafka cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetKafkaClusterArn(Output<String> targetKafkaClusterArn) {
             $.targetKafkaClusterArn = targetKafkaClusterArn;
             return this;
         }
 
-        /**
-         * @param targetKafkaClusterArn The ARN of the target Kafka cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetKafkaClusterArn(String targetKafkaClusterArn) {
             return targetKafkaClusterArn(Output.of(targetKafkaClusterArn));
         }
 
-        /**
-         * @param topicReplications Configuration relating to topic replication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicReplications(Output<List<ReplicatorReplicationInfoListTopicReplicationArgs>> topicReplications) {
             $.topicReplications = topicReplications;
             return this;
         }
 
-        /**
-         * @param topicReplications Configuration relating to topic replication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicReplications(List<ReplicatorReplicationInfoListTopicReplicationArgs> topicReplications) {
             return topicReplications(Output.of(topicReplications));
         }
 
-        /**
-         * @param topicReplications Configuration relating to topic replication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicReplications(ReplicatorReplicationInfoListTopicReplicationArgs... topicReplications) {
             return topicReplications(List.of(topicReplications));
         }

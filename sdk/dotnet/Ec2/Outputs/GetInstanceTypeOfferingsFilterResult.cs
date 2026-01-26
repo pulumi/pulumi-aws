@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetInstanceTypeOfferingsFilterResult
     {
-        /// <summary>
-        /// Name of the filter. The `Location` filter depends on the top-level `LocationType` argument and if not specified, defaults to the current region.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// List of one or more values for the filter.
-        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

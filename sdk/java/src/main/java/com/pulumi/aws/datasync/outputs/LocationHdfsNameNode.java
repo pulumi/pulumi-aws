@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class LocationHdfsNameNode {
-    /**
-     * @return The hostname of the NameNode in the HDFS cluster. This value is the IP address or Domain Name Service (DNS) name of the NameNode. An agent that&#39;s installed on-premises uses this hostname to communicate with the NameNode in the network.
-     * 
-     */
     private String hostname;
-    /**
-     * @return The port that the NameNode uses to listen to client requests.
-     * 
-     */
     private Integer port;
 
     private LocationHdfsNameNode() {}
-    /**
-     * @return The hostname of the NameNode in the HDFS cluster. This value is the IP address or Domain Name Service (DNS) name of the NameNode. An agent that&#39;s installed on-premises uses this hostname to communicate with the NameNode in the network.
-     * 
-     */
     public String hostname() {
         return this.hostname;
     }
-    /**
-     * @return The port that the NameNode uses to listen to client requests.
-     * 
-     */
     public Integer port() {
         return this.port;
     }

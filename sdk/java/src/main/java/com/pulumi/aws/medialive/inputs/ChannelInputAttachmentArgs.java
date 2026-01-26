@@ -18,62 +18,30 @@ public final class ChannelInputAttachmentArgs extends com.pulumi.resources.Resou
 
     public static final ChannelInputAttachmentArgs Empty = new ChannelInputAttachmentArgs();
 
-    /**
-     * User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
-     * 
-     */
     @Import(name="automaticInputFailoverSettings")
     private @Nullable Output<ChannelInputAttachmentAutomaticInputFailoverSettingsArgs> automaticInputFailoverSettings;
 
-    /**
-     * @return User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
-     * 
-     */
     public Optional<Output<ChannelInputAttachmentAutomaticInputFailoverSettingsArgs>> automaticInputFailoverSettings() {
         return Optional.ofNullable(this.automaticInputFailoverSettings);
     }
 
-    /**
-     * User-specified name for the attachment.
-     * 
-     */
     @Import(name="inputAttachmentName", required=true)
     private Output<String> inputAttachmentName;
 
-    /**
-     * @return User-specified name for the attachment.
-     * 
-     */
     public Output<String> inputAttachmentName() {
         return this.inputAttachmentName;
     }
 
-    /**
-     * The ID of the input.
-     * 
-     */
     @Import(name="inputId", required=true)
     private Output<String> inputId;
 
-    /**
-     * @return The ID of the input.
-     * 
-     */
     public Output<String> inputId() {
         return this.inputId;
     }
 
-    /**
-     * Settings of an input. See Input Settings for more details.
-     * 
-     */
     @Import(name="inputSettings")
     private @Nullable Output<ChannelInputAttachmentInputSettingsArgs> inputSettings;
 
-    /**
-     * @return Settings of an input. See Input Settings for more details.
-     * 
-     */
     public Optional<Output<ChannelInputAttachmentInputSettingsArgs>> inputSettings() {
         return Optional.ofNullable(this.inputSettings);
     }
@@ -105,86 +73,38 @@ public final class ChannelInputAttachmentArgs extends com.pulumi.resources.Resou
             $ = new ChannelInputAttachmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param automaticInputFailoverSettings User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder automaticInputFailoverSettings(@Nullable Output<ChannelInputAttachmentAutomaticInputFailoverSettingsArgs> automaticInputFailoverSettings) {
             $.automaticInputFailoverSettings = automaticInputFailoverSettings;
             return this;
         }
 
-        /**
-         * @param automaticInputFailoverSettings User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder automaticInputFailoverSettings(ChannelInputAttachmentAutomaticInputFailoverSettingsArgs automaticInputFailoverSettings) {
             return automaticInputFailoverSettings(Output.of(automaticInputFailoverSettings));
         }
 
-        /**
-         * @param inputAttachmentName User-specified name for the attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputAttachmentName(Output<String> inputAttachmentName) {
             $.inputAttachmentName = inputAttachmentName;
             return this;
         }
 
-        /**
-         * @param inputAttachmentName User-specified name for the attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputAttachmentName(String inputAttachmentName) {
             return inputAttachmentName(Output.of(inputAttachmentName));
         }
 
-        /**
-         * @param inputId The ID of the input.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputId(Output<String> inputId) {
             $.inputId = inputId;
             return this;
         }
 
-        /**
-         * @param inputId The ID of the input.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputId(String inputId) {
             return inputId(Output.of(inputId));
         }
 
-        /**
-         * @param inputSettings Settings of an input. See Input Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputSettings(@Nullable Output<ChannelInputAttachmentInputSettingsArgs> inputSettings) {
             $.inputSettings = inputSettings;
             return this;
         }
 
-        /**
-         * @param inputSettings Settings of an input. See Input Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputSettings(ChannelInputAttachmentInputSettingsArgs inputSettings) {
             return inputSettings(Output.of(inputSettings));
         }

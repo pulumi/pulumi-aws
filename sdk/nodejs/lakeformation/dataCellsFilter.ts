@@ -7,37 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Lake Formation Data Cells Filter.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.lakeformation.DataCellsFilter("example", {tableData: {
- *     databaseName: test.name,
- *     name: "example",
- *     tableCatalogId: current.accountId,
- *     tableName: testAwsGlueCatalogTable.name,
- *     columnNames: ["my_column"],
- *     rowFilter: {
- *         filterExpression: "my_column='example'",
- *     },
- * }});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Lake Formation Data Cells Filter using the `database_name`, `name`, `table_catalog_id`, and `table_name` separated by `,`. For example:
- *
- * ```sh
- * $ pulumi import aws:lakeformation/dataCellsFilter:DataCellsFilter example database_name,name,table_catalog_id,table_name
- * ```
- */
 export class DataCellsFilter extends pulumi.CustomResource {
     /**
      * Get an existing DataCellsFilter resource's state with the given name, ID, and optional extra
@@ -66,13 +35,7 @@ export class DataCellsFilter extends pulumi.CustomResource {
         return obj['__pulumiType'] === DataCellsFilter.__pulumiType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Information about the data cells filter. See Table Data below for details.
-     */
     declare public readonly tableData: pulumi.Output<outputs.lakeformation.DataCellsFilterTableData | undefined>;
     declare public readonly timeouts: pulumi.Output<outputs.lakeformation.DataCellsFilterTimeouts | undefined>;
 
@@ -107,13 +70,7 @@ export class DataCellsFilter extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DataCellsFilter resources.
  */
 export interface DataCellsFilterState {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Information about the data cells filter. See Table Data below for details.
-     */
     tableData?: pulumi.Input<inputs.lakeformation.DataCellsFilterTableData>;
     timeouts?: pulumi.Input<inputs.lakeformation.DataCellsFilterTimeouts>;
 }
@@ -122,13 +79,7 @@ export interface DataCellsFilterState {
  * The set of arguments for constructing a DataCellsFilter resource.
  */
 export interface DataCellsFilterArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Information about the data cells filter. See Table Data below for details.
-     */
     tableData?: pulumi.Input<inputs.lakeformation.DataCellsFilterTableData>;
     timeouts?: pulumi.Input<inputs.lakeformation.DataCellsFilterTimeouts>;
 }

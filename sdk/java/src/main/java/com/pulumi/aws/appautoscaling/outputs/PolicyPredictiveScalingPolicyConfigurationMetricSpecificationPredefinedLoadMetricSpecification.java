@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecification {
-    /**
-     * @return Metric type.
-     * 
-     */
     private String predefinedMetricType;
-    /**
-     * @return Label that uniquely identifies a target group.
-     * 
-     */
     private @Nullable String resourceLabel;
 
     private PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecification() {}
-    /**
-     * @return Metric type.
-     * 
-     */
     public String predefinedMetricType() {
         return this.predefinedMetricType;
     }
-    /**
-     * @return Label that uniquely identifies a target group.
-     * 
-     */
     public Optional<String> resourceLabel() {
         return Optional.ofNullable(this.resourceLabel);
     }

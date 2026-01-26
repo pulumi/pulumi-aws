@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     {
         [Input("alarms")]
         private InputList<Inputs.EndpointDeploymentConfigAutoRollbackConfigurationAlarmGetArgs>? _alarms;
-
-        /// <summary>
-        /// List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker AI rolls back the deployment. See Alarms.
-        /// </summary>
         public InputList<Inputs.EndpointDeploymentConfigAutoRollbackConfigurationAlarmGetArgs> Alarms
         {
             get => _alarms ?? (_alarms = new InputList<Inputs.EndpointDeploymentConfigAutoRollbackConfigurationAlarmGetArgs>());

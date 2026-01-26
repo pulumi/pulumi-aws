@@ -12,18 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationPrompt {
-    /**
-     * @return Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
-     * 
-     */
     private @Nullable AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration guardrailConfiguration;
     private @Nullable AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration sourceConfiguration;
 
     private AgentFlowDefinitionNodeConfigurationPrompt() {}
-    /**
-     * @return Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
-     * 
-     */
     public Optional<AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration> guardrailConfiguration() {
         return Optional.ofNullable(this.guardrailConfiguration);
     }

@@ -7,20 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to retrieve information about a CloudFront distribution tenant.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.cloudfront.getDistributionTenant({
- *     id: "EDFDVBD632BHDS5",
- * });
- * ```
- */
 export function getDistributionTenant(args?: GetDistributionTenantArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributionTenantResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -36,17 +22,8 @@ export function getDistributionTenant(args?: GetDistributionTenantArgs, opts?: p
  * A collection of arguments for invoking getDistributionTenant.
  */
 export interface GetDistributionTenantArgs {
-    /**
-     * ARN (Amazon Resource Name) for the distribution tenant.
-     */
     arn?: string;
-    /**
-     * An associated domain of the distribution tenant. Exactly one of `id` or `domain` must be specified.
-     */
     domain?: string;
-    /**
-     * Identifier for the distribution tenant. For example: `EDFDVBD632BHDS5`. Exactly one of `id` or `domain` must be specified.
-     */
     id?: string;
     name?: string;
 }
@@ -55,59 +32,21 @@ export interface GetDistributionTenantArgs {
  * A collection of values returned by getDistributionTenant.
  */
 export interface GetDistributionTenantResult {
-    /**
-     * ARN (Amazon Resource Name) for the distribution tenant.
-     */
     readonly arn: string;
-    /**
-     * The CloudFront connection group the tenant is associated with.
-     */
     readonly connectionGroupId: string;
     readonly customizations: outputs.cloudfront.GetDistributionTenantCustomization[];
-    /**
-     * The ID of the CloudFront distribution the tenant is associated with.
-     */
     readonly distributionId: string;
     readonly domain?: string;
-    /**
-     * List of domains for the distribution tenant.
-     */
     readonly domains: outputs.cloudfront.GetDistributionTenantDomain[];
-    /**
-     * Whether the distribution tenant is enabled.
-     */
     readonly enabled: boolean;
-    /**
-     * Current version of the distribution tenant's information. For example:
-     * `E2QWRUHAPOMQZL`.
-     */
     readonly etag: string;
     readonly id: string;
     readonly managedCertificateRequests: outputs.cloudfront.GetDistributionTenantManagedCertificateRequest[];
     readonly name: string;
     readonly parameters: outputs.cloudfront.GetDistributionTenantParameter[];
-    /**
-     * Current status of the distribution tenant. `Deployed` if the
-     * distribution tenant's information is fully propagated throughout the Amazon
-     * CloudFront system.
-     */
     readonly status: string;
     readonly tags: {[key: string]: string};
 }
-/**
- * Use this data source to retrieve information about a CloudFront distribution tenant.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.cloudfront.getDistributionTenant({
- *     id: "EDFDVBD632BHDS5",
- * });
- * ```
- */
 export function getDistributionTenantOutput(args?: GetDistributionTenantOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDistributionTenantResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -123,17 +62,8 @@ export function getDistributionTenantOutput(args?: GetDistributionTenantOutputAr
  * A collection of arguments for invoking getDistributionTenant.
  */
 export interface GetDistributionTenantOutputArgs {
-    /**
-     * ARN (Amazon Resource Name) for the distribution tenant.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * An associated domain of the distribution tenant. Exactly one of `id` or `domain` must be specified.
-     */
     domain?: pulumi.Input<string>;
-    /**
-     * Identifier for the distribution tenant. For example: `EDFDVBD632BHDS5`. Exactly one of `id` or `domain` must be specified.
-     */
     id?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
 }

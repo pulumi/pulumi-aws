@@ -15,62 +15,30 @@ public final class GetLocalDiskPlainArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetLocalDiskPlainArgs Empty = new GetLocalDiskPlainArgs();
 
-    /**
-     * Device node of the local disk to retrieve. For example, `/dev/sdb`.
-     * 
-     */
     @Import(name="diskNode")
     private @Nullable String diskNode;
 
-    /**
-     * @return Device node of the local disk to retrieve. For example, `/dev/sdb`.
-     * 
-     */
     public Optional<String> diskNode() {
         return Optional.ofNullable(this.diskNode);
     }
 
-    /**
-     * Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
-     * 
-     */
     @Import(name="diskPath")
     private @Nullable String diskPath;
 
-    /**
-     * @return Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
-     * 
-     */
     public Optional<String> diskPath() {
         return Optional.ofNullable(this.diskPath);
     }
 
-    /**
-     * ARN of the gateway.
-     * 
-     */
     @Import(name="gatewayArn", required=true)
     private String gatewayArn;
 
-    /**
-     * @return ARN of the gateway.
-     * 
-     */
     public String gatewayArn() {
         return this.gatewayArn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -102,45 +70,21 @@ public final class GetLocalDiskPlainArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetLocalDiskPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param diskNode Device node of the local disk to retrieve. For example, `/dev/sdb`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder diskNode(@Nullable String diskNode) {
             $.diskNode = diskNode;
             return this;
         }
 
-        /**
-         * @param diskPath Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder diskPath(@Nullable String diskPath) {
             $.diskPath = diskPath;
             return this;
         }
 
-        /**
-         * @param gatewayArn ARN of the gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gatewayArn(String gatewayArn) {
             $.gatewayArn = gatewayArn;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

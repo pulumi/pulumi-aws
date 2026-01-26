@@ -15,32 +15,16 @@ public final class TargetGroupTargetGroupHealthDnsFailoverArgs extends com.pulum
 
     public static final TargetGroupTargetGroupHealthDnsFailoverArgs Empty = new TargetGroupTargetGroupHealthDnsFailoverArgs();
 
-    /**
-     * The minimum number of targets that must be healthy. If the number of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to the maximum number of targets. The default is `off`.
-     * 
-     */
     @Import(name="minimumHealthyTargetsCount")
     private @Nullable Output<String> minimumHealthyTargetsCount;
 
-    /**
-     * @return The minimum number of targets that must be healthy. If the number of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to the maximum number of targets. The default is `off`.
-     * 
-     */
     public Optional<Output<String>> minimumHealthyTargetsCount() {
         return Optional.ofNullable(this.minimumHealthyTargetsCount);
     }
 
-    /**
-     * The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to `100`. The default is `off`.
-     * 
-     */
     @Import(name="minimumHealthyTargetsPercentage")
     private @Nullable Output<String> minimumHealthyTargetsPercentage;
 
-    /**
-     * @return The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to `100`. The default is `off`.
-     * 
-     */
     public Optional<Output<String>> minimumHealthyTargetsPercentage() {
         return Optional.ofNullable(this.minimumHealthyTargetsPercentage);
     }
@@ -70,44 +54,20 @@ public final class TargetGroupTargetGroupHealthDnsFailoverArgs extends com.pulum
             $ = new TargetGroupTargetGroupHealthDnsFailoverArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param minimumHealthyTargetsCount The minimum number of targets that must be healthy. If the number of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to the maximum number of targets. The default is `off`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minimumHealthyTargetsCount(@Nullable Output<String> minimumHealthyTargetsCount) {
             $.minimumHealthyTargetsCount = minimumHealthyTargetsCount;
             return this;
         }
 
-        /**
-         * @param minimumHealthyTargetsCount The minimum number of targets that must be healthy. If the number of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to the maximum number of targets. The default is `off`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minimumHealthyTargetsCount(String minimumHealthyTargetsCount) {
             return minimumHealthyTargetsCount(Output.of(minimumHealthyTargetsCount));
         }
 
-        /**
-         * @param minimumHealthyTargetsPercentage The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to `100`. The default is `off`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minimumHealthyTargetsPercentage(@Nullable Output<String> minimumHealthyTargetsPercentage) {
             $.minimumHealthyTargetsPercentage = minimumHealthyTargetsPercentage;
             return this;
         }
 
-        /**
-         * @param minimumHealthyTargetsPercentage The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to `100`. The default is `off`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minimumHealthyTargetsPercentage(String minimumHealthyTargetsPercentage) {
             return minimumHealthyTargetsPercentage(Output.of(minimumHealthyTargetsPercentage));
         }

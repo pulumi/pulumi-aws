@@ -4,51 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS WorkSpaces Web User Access Logging Settings resource. Once associated with a web portal, user access logging settings control how user access events are logged to Amazon Kinesis.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.kinesis.Stream("example", {
- *     name: "amazon-workspaces-web-example-stream",
- *     shardCount: 1,
- * });
- * const exampleUserAccessLoggingSettings = new aws.workspacesweb.UserAccessLoggingSettings("example", {kinesisStreamArn: example.arn});
- * ```
- *
- * ### With Tags
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.kinesis.Stream("example", {
- *     name: "example-stream",
- *     shardCount: 1,
- * });
- * const exampleUserAccessLoggingSettings = new aws.workspacesweb.UserAccessLoggingSettings("example", {
- *     kinesisStreamArn: example.arn,
- *     tags: {
- *         Name: "example-user-access-logging-settings",
- *         Environment: "Production",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import WorkSpaces Web User Access Logging Settings using the `user_access_logging_settings_arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:workspacesweb/userAccessLoggingSettings:UserAccessLoggingSettings example arn:aws:workspaces-web:us-west-2:123456789012:userAccessLoggingSettings/abcdef12345
- * ```
- */
 export class UserAccessLoggingSettings extends pulumi.CustomResource {
     /**
      * Get an existing UserAccessLoggingSettings resource's state with the given name, ID, and optional extra
@@ -77,31 +32,11 @@ export class UserAccessLoggingSettings extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserAccessLoggingSettings.__pulumiType;
     }
 
-    /**
-     * List of web portal ARNs that this user access logging settings resource is associated with.
-     */
     declare public /*out*/ readonly associatedPortalArns: pulumi.Output<string[]>;
-    /**
-     * ARN of the Kinesis stream.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly kinesisStreamArn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * ARN of the user access logging settings resource.
-     */
     declare public /*out*/ readonly userAccessLoggingSettingsArn: pulumi.Output<string>;
 
     /**
@@ -144,31 +79,11 @@ export class UserAccessLoggingSettings extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserAccessLoggingSettings resources.
  */
 export interface UserAccessLoggingSettingsState {
-    /**
-     * List of web portal ARNs that this user access logging settings resource is associated with.
-     */
     associatedPortalArns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * ARN of the Kinesis stream.
-     *
-     * The following arguments are optional:
-     */
     kinesisStreamArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * ARN of the user access logging settings resource.
-     */
     userAccessLoggingSettingsArn?: pulumi.Input<string>;
 }
 
@@ -176,18 +91,7 @@ export interface UserAccessLoggingSettingsState {
  * The set of arguments for constructing a UserAccessLoggingSettings resource.
  */
 export interface UserAccessLoggingSettingsArgs {
-    /**
-     * ARN of the Kinesis stream.
-     *
-     * The following arguments are optional:
-     */
     kinesisStreamArn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

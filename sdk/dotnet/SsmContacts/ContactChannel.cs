@@ -9,121 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SsmContacts
 {
-    /// <summary>
-    /// Resource for managing an AWS SSM Contacts Contact Channel.
-    /// 
-    /// &gt; **NOTE:** The contact channel needs to be activated in the AWS Systems Manager console, otherwise it can't be used to engage the contact. See the [Contacts section of the Incident Manager User Guide](https://docs.aws.amazon.com/incident-manager/latest/userguide/contacts.html) for more information.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SsmContacts.ContactChannel("example", new()
-    ///     {
-    ///         ContactId = "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
-    ///         DeliveryAddress = new Aws.SsmContacts.Inputs.ContactChannelDeliveryAddressArgs
-    ///         {
-    ///             SimpleAddress = "email@example.com",
-    ///         },
-    ///         Name = "Example contact channel",
-    ///         Type = "EMAIL",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Usage with SSM Contact
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleContact = new Aws.SsmContacts.Contact("example_contact", new()
-    ///     {
-    ///         Alias = "example_contact",
-    ///         Type = "PERSONAL",
-    ///     });
-    /// 
-    ///     var example = new Aws.SsmContacts.ContactChannel("example", new()
-    ///     {
-    ///         ContactId = exampleContact.Arn,
-    ///         DeliveryAddress = new Aws.SsmContacts.Inputs.ContactChannelDeliveryAddressArgs
-    ///         {
-    ///             SimpleAddress = "email@example.com",
-    ///         },
-    ///         Name = "Example contact channel",
-    ///         Type = "EMAIL",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the contact channel.
-    /// 
-    /// Using `pulumi import`, import SSM Contact Channel using the `arn`. For example:
-    /// 
-    /// % pulumi import aws_ssmcontacts_contact_channel.example arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example
-    /// </summary>
     [AwsResourceType("aws:ssmcontacts/contactChannel:ContactChannel")]
     public partial class ContactChannel : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Whether the contact channel is activated. The contact channel must be activated to use it to engage the contact. One of `ACTIVATED` or `NOT_ACTIVATED`.
-        /// </summary>
         [Output("activationStatus")]
         public Output<string> ActivationStatus { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the contact channel.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
-        /// </summary>
         [Output("contactId")]
         public Output<string> ContactId { get; private set; } = null!;
 
-        /// <summary>
-        /// Block that contains contact engagement details. See details below.
-        /// </summary>
         [Output("deliveryAddress")]
         public Output<Outputs.ContactChannelDeliveryAddress> DeliveryAddress { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
-        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -173,33 +79,18 @@ namespace Pulumi.Aws.SsmContacts
 
     public sealed class ContactChannelArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
-        /// </summary>
         [Input("contactId", required: true)]
         public Input<string> ContactId { get; set; } = null!;
 
-        /// <summary>
-        /// Block that contains contact engagement details. See details below.
-        /// </summary>
         [Input("deliveryAddress", required: true)]
         public Input<Inputs.ContactChannelDeliveryAddressArgs> DeliveryAddress { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -211,45 +102,24 @@ namespace Pulumi.Aws.SsmContacts
 
     public sealed class ContactChannelState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether the contact channel is activated. The contact channel must be activated to use it to engage the contact. One of `ACTIVATED` or `NOT_ACTIVATED`.
-        /// </summary>
         [Input("activationStatus")]
         public Input<string>? ActivationStatus { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the contact channel.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
-        /// </summary>
         [Input("contactId")]
         public Input<string>? ContactId { get; set; }
 
-        /// <summary>
-        /// Block that contains contact engagement details. See details below.
-        /// </summary>
         [Input("deliveryAddress")]
         public Input<Inputs.ContactChannelDeliveryAddressGetArgs>? DeliveryAddress { get; set; }
 
-        /// <summary>
-        /// Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

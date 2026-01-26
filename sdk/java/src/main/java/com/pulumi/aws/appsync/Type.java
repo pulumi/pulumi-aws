@@ -13,164 +13,47 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AppSync Type.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appsync.GraphQLApi;
- * import com.pulumi.aws.appsync.GraphQLApiArgs;
- * import com.pulumi.aws.appsync.Type;
- * import com.pulumi.aws.appsync.TypeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new GraphQLApi("example", GraphQLApiArgs.builder()
- *             .authenticationType("API_KEY")
- *             .name("example")
- *             .build());
- * 
- *         var exampleType = new Type("exampleType", TypeArgs.builder()
- *             .apiId(example.id())
- *             .format("SDL")
- *             .definition("""
- * type Mutation
- * 
- * {
- * putPost(id: ID!,title: String! ): Post
- * 
- * }
- *             """)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Appsync Types using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:appsync/type:Type example api-id:format:name
- * ```
- * 
- */
 @ResourceType(type="aws:appsync/type:Type")
 public class Type extends com.pulumi.resources.CustomResource {
-    /**
-     * GraphQL API ID.
-     * 
-     */
     @Export(name="apiId", refs={String.class}, tree="[0]")
     private Output<String> apiId;
 
-    /**
-     * @return GraphQL API ID.
-     * 
-     */
     public Output<String> apiId() {
         return this.apiId;
     }
-    /**
-     * The ARN of the type.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the type.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The type definition.
-     * 
-     */
     @Export(name="definition", refs={String.class}, tree="[0]")
     private Output<String> definition;
 
-    /**
-     * @return The type definition.
-     * 
-     */
     public Output<String> definition() {
         return this.definition;
     }
-    /**
-     * The type description.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
-    /**
-     * @return The type description.
-     * 
-     */
     public Output<String> description() {
         return this.description;
     }
-    /**
-     * The type format: `SDL` or `JSON`.
-     * 
-     */
     @Export(name="format", refs={String.class}, tree="[0]")
     private Output<String> format;
 
-    /**
-     * @return The type format: `SDL` or `JSON`.
-     * 
-     */
     public Output<String> format() {
         return this.format;
     }
-    /**
-     * The type name.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The type name.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

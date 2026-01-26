@@ -15,32 +15,16 @@ public final class TableWarmThroughputArgs extends com.pulumi.resources.Resource
 
     public static final TableWarmThroughputArgs Empty = new TableWarmThroughputArgs();
 
-    /**
-     * Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
-     * 
-     */
     @Import(name="readUnitsPerSecond")
     private @Nullable Output<Integer> readUnitsPerSecond;
 
-    /**
-     * @return Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
-     * 
-     */
     public Optional<Output<Integer>> readUnitsPerSecond() {
         return Optional.ofNullable(this.readUnitsPerSecond);
     }
 
-    /**
-     * Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
-     * 
-     */
     @Import(name="writeUnitsPerSecond")
     private @Nullable Output<Integer> writeUnitsPerSecond;
 
-    /**
-     * @return Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
-     * 
-     */
     public Optional<Output<Integer>> writeUnitsPerSecond() {
         return Optional.ofNullable(this.writeUnitsPerSecond);
     }
@@ -70,44 +54,20 @@ public final class TableWarmThroughputArgs extends com.pulumi.resources.Resource
             $ = new TableWarmThroughputArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param readUnitsPerSecond Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
-         * 
-         * @return builder
-         * 
-         */
         public Builder readUnitsPerSecond(@Nullable Output<Integer> readUnitsPerSecond) {
             $.readUnitsPerSecond = readUnitsPerSecond;
             return this;
         }
 
-        /**
-         * @param readUnitsPerSecond Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
-         * 
-         * @return builder
-         * 
-         */
         public Builder readUnitsPerSecond(Integer readUnitsPerSecond) {
             return readUnitsPerSecond(Output.of(readUnitsPerSecond));
         }
 
-        /**
-         * @param writeUnitsPerSecond Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
-         * 
-         * @return builder
-         * 
-         */
         public Builder writeUnitsPerSecond(@Nullable Output<Integer> writeUnitsPerSecond) {
             $.writeUnitsPerSecond = writeUnitsPerSecond;
             return this;
         }
 
-        /**
-         * @param writeUnitsPerSecond Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
-         * 
-         * @return builder
-         * 
-         */
         public Builder writeUnitsPerSecond(Integer writeUnitsPerSecond) {
             return writeUnitsPerSecond(Output.of(writeUnitsPerSecond));
         }

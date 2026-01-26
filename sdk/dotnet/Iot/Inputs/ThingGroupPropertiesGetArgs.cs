@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Iot.Inputs
 
     public sealed class ThingGroupPropertiesGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Thing Group attributes. Defined below.
-        /// </summary>
         [Input("attributePayload")]
         public Input<Inputs.ThingGroupPropertiesAttributePayloadGetArgs>? AttributePayload { get; set; }
 
-        /// <summary>
-        /// A description of the Thing Group.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

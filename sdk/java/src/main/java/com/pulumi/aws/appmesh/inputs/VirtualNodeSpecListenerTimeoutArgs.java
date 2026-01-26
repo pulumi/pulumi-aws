@@ -18,62 +18,30 @@ public final class VirtualNodeSpecListenerTimeoutArgs extends com.pulumi.resourc
 
     public static final VirtualNodeSpecListenerTimeoutArgs Empty = new VirtualNodeSpecListenerTimeoutArgs();
 
-    /**
-     * Timeouts for gRPC listeners.
-     * 
-     */
     @Import(name="grpc")
     private @Nullable Output<VirtualNodeSpecListenerTimeoutGrpcArgs> grpc;
 
-    /**
-     * @return Timeouts for gRPC listeners.
-     * 
-     */
     public Optional<Output<VirtualNodeSpecListenerTimeoutGrpcArgs>> grpc() {
         return Optional.ofNullable(this.grpc);
     }
 
-    /**
-     * Timeouts for HTTP listeners.
-     * 
-     */
     @Import(name="http")
     private @Nullable Output<VirtualNodeSpecListenerTimeoutHttpArgs> http;
 
-    /**
-     * @return Timeouts for HTTP listeners.
-     * 
-     */
     public Optional<Output<VirtualNodeSpecListenerTimeoutHttpArgs>> http() {
         return Optional.ofNullable(this.http);
     }
 
-    /**
-     * Timeouts for HTTP2 listeners.
-     * 
-     */
     @Import(name="http2")
     private @Nullable Output<VirtualNodeSpecListenerTimeoutHttp2Args> http2;
 
-    /**
-     * @return Timeouts for HTTP2 listeners.
-     * 
-     */
     public Optional<Output<VirtualNodeSpecListenerTimeoutHttp2Args>> http2() {
         return Optional.ofNullable(this.http2);
     }
 
-    /**
-     * Timeouts for TCP listeners.
-     * 
-     */
     @Import(name="tcp")
     private @Nullable Output<VirtualNodeSpecListenerTimeoutTcpArgs> tcp;
 
-    /**
-     * @return Timeouts for TCP listeners.
-     * 
-     */
     public Optional<Output<VirtualNodeSpecListenerTimeoutTcpArgs>> tcp() {
         return Optional.ofNullable(this.tcp);
     }
@@ -105,86 +73,38 @@ public final class VirtualNodeSpecListenerTimeoutArgs extends com.pulumi.resourc
             $ = new VirtualNodeSpecListenerTimeoutArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param grpc Timeouts for gRPC listeners.
-         * 
-         * @return builder
-         * 
-         */
         public Builder grpc(@Nullable Output<VirtualNodeSpecListenerTimeoutGrpcArgs> grpc) {
             $.grpc = grpc;
             return this;
         }
 
-        /**
-         * @param grpc Timeouts for gRPC listeners.
-         * 
-         * @return builder
-         * 
-         */
         public Builder grpc(VirtualNodeSpecListenerTimeoutGrpcArgs grpc) {
             return grpc(Output.of(grpc));
         }
 
-        /**
-         * @param http Timeouts for HTTP listeners.
-         * 
-         * @return builder
-         * 
-         */
         public Builder http(@Nullable Output<VirtualNodeSpecListenerTimeoutHttpArgs> http) {
             $.http = http;
             return this;
         }
 
-        /**
-         * @param http Timeouts for HTTP listeners.
-         * 
-         * @return builder
-         * 
-         */
         public Builder http(VirtualNodeSpecListenerTimeoutHttpArgs http) {
             return http(Output.of(http));
         }
 
-        /**
-         * @param http2 Timeouts for HTTP2 listeners.
-         * 
-         * @return builder
-         * 
-         */
         public Builder http2(@Nullable Output<VirtualNodeSpecListenerTimeoutHttp2Args> http2) {
             $.http2 = http2;
             return this;
         }
 
-        /**
-         * @param http2 Timeouts for HTTP2 listeners.
-         * 
-         * @return builder
-         * 
-         */
         public Builder http2(VirtualNodeSpecListenerTimeoutHttp2Args http2) {
             return http2(Output.of(http2));
         }
 
-        /**
-         * @param tcp Timeouts for TCP listeners.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tcp(@Nullable Output<VirtualNodeSpecListenerTimeoutTcpArgs> tcp) {
             $.tcp = tcp;
             return this;
         }
 
-        /**
-         * @param tcp Timeouts for TCP listeners.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tcp(VirtualNodeSpecListenerTimeoutTcpArgs tcp) {
             return tcp(Output.of(tcp));
         }

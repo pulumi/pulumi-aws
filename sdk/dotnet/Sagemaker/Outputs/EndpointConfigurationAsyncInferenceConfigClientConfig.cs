@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class EndpointConfigurationAsyncInferenceConfigClientConfig
     {
-        /// <summary>
-        /// Maximum number of concurrent requests sent by the SageMaker AI client to the model container. If no value is provided, SageMaker AI will choose an optimal value for you.
-        /// </summary>
         public readonly int? MaxConcurrentInvocationsPerInstance;
 
         [OutputConstructor]

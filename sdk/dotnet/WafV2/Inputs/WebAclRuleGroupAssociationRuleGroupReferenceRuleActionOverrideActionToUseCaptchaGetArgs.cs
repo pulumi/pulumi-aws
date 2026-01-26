@@ -12,9 +12,6 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Custom handling for CAPTCHA requests. See below.
-        /// </summary>
         [Input("customRequestHandling")]
         public Input<Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingGetArgs>? CustomRequestHandling { get; set; }
 

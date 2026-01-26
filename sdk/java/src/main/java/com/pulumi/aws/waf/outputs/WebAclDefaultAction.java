@@ -10,19 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclDefaultAction {
-    /**
-     * @return Specifies how you want AWS WAF to respond to requests that don&#39;t match the criteria in any of the `rules`.
-     * e.g., `ALLOW` or `BLOCK`
-     * 
-     */
     private String type;
 
     private WebAclDefaultAction() {}
-    /**
-     * @return Specifies how you want AWS WAF to respond to requests that don&#39;t match the criteria in any of the `rules`.
-     * e.g., `ALLOW` or `BLOCK`
-     * 
-     */
     public String type() {
         return this.type;
     }

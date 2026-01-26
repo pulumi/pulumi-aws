@@ -9,123 +9,42 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Eks
 {
-    /// <summary>
-    /// Manages an EKS Capability for an EKS cluster.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Eks.Capability("example", new()
-    ///     {
-    ///         ClusterName = exampleAwsEksCluster.Name,
-    ///         CapabilityName = "argocd",
-    ///         Type = "ARGOCD",
-    ///         RoleArn = exampleAwsIamRole.Arn,
-    ///         DeletePropagationPolicy = "RETAIN",
-    ///         Configuration = new Aws.Eks.Inputs.CapabilityConfigurationArgs
-    ///         {
-    ///             ArgoCd = new Aws.Eks.Inputs.CapabilityConfigurationArgoCdArgs
-    ///             {
-    ///                 AwsIdc = new Aws.Eks.Inputs.CapabilityConfigurationArgoCdAwsIdcArgs
-    ///                 {
-    ///                     IdcInstanceArn = "arn:aws:sso:::instance/ssoins-1234567890abcdef0",
-    ///                 },
-    ///                 Namespace = "argocd",
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "example-capability" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import EKS Capability using the `cluster_name` and `capability_name` separated by a comma (`,`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:eks/capability:Capability example my-cluster,my-capability
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:eks/capability:Capability")]
     public partial class Capability : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the capability.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the capability. Must be unique within the cluster.
-        /// </summary>
         [Output("capabilityName")]
         public Output<string> CapabilityName { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the EKS cluster.
-        /// </summary>
         [Output("clusterName")]
         public Output<string> ClusterName { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration for the capability. See `Configuration` below.
-        /// </summary>
         [Output("configuration")]
         public Output<Outputs.CapabilityConfiguration?> Configuration { get; private set; } = null!;
 
-        /// <summary>
-        /// Delete propagation policy for the capability. Valid values: `RETAIN`.
-        /// </summary>
         [Output("deletePropagationPolicy")]
         public Output<string> DeletePropagationPolicy { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the IAM role to associate with the capability.
-        /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.CapabilityTimeouts?> Timeouts { get; private set; } = null!;
 
-        /// <summary>
-        /// Type of the capability. Valid values: `ACK`, `KRO`, `ARGOCD`.
-        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
-        /// <summary>
-        /// Version of the capability.
-        /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
 
@@ -175,48 +94,26 @@ namespace Pulumi.Aws.Eks
 
     public sealed class CapabilityArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the capability. Must be unique within the cluster.
-        /// </summary>
         [Input("capabilityName", required: true)]
         public Input<string> CapabilityName { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the EKS cluster.
-        /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
 
-        /// <summary>
-        /// Configuration for the capability. See `Configuration` below.
-        /// </summary>
         [Input("configuration")]
         public Input<Inputs.CapabilityConfigurationArgs>? Configuration { get; set; }
 
-        /// <summary>
-        /// Delete propagation policy for the capability. Valid values: `RETAIN`.
-        /// </summary>
         [Input("deletePropagationPolicy", required: true)]
         public Input<string> DeletePropagationPolicy { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the IAM role to associate with the capability.
-        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -226,9 +123,6 @@ namespace Pulumi.Aws.Eks
         [Input("timeouts")]
         public Input<Inputs.CapabilityTimeoutsArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// Type of the capability. Valid values: `ACK`, `KRO`, `ARGOCD`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -240,54 +134,29 @@ namespace Pulumi.Aws.Eks
 
     public sealed class CapabilityState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the capability.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Name of the capability. Must be unique within the cluster.
-        /// </summary>
         [Input("capabilityName")]
         public Input<string>? CapabilityName { get; set; }
 
-        /// <summary>
-        /// Name of the EKS cluster.
-        /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
 
-        /// <summary>
-        /// Configuration for the capability. See `Configuration` below.
-        /// </summary>
         [Input("configuration")]
         public Input<Inputs.CapabilityConfigurationGetArgs>? Configuration { get; set; }
 
-        /// <summary>
-        /// Delete propagation policy for the capability. Valid values: `RETAIN`.
-        /// </summary>
         [Input("deletePropagationPolicy")]
         public Input<string>? DeletePropagationPolicy { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the IAM role to associate with the capability.
-        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -296,10 +165,6 @@ namespace Pulumi.Aws.Eks
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -309,15 +174,9 @@ namespace Pulumi.Aws.Eks
         [Input("timeouts")]
         public Input<Inputs.CapabilityTimeoutsGetArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// Type of the capability. Valid values: `ACK`, `KRO`, `ARGOCD`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// Version of the capability.
-        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

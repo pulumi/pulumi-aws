@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ConnectorKafkaClusterApacheKafkaCluster {
-    /**
-     * @return The bootstrap servers of the cluster.
-     * 
-     */
     private String bootstrapServers;
-    /**
-     * @return Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster. See `vpc` Block for details.
-     * 
-     */
     private ConnectorKafkaClusterApacheKafkaClusterVpc vpc;
 
     private ConnectorKafkaClusterApacheKafkaCluster() {}
-    /**
-     * @return The bootstrap servers of the cluster.
-     * 
-     */
     public String bootstrapServers() {
         return this.bootstrapServers;
     }
-    /**
-     * @return Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster. See `vpc` Block for details.
-     * 
-     */
     public ConnectorKafkaClusterApacheKafkaClusterVpc vpc() {
         return this.vpc;
     }

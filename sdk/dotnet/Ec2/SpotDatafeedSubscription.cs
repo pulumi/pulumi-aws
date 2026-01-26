@@ -9,62 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// &gt; **Note:** There is only a single subscription allowed per account.
-    /// 
-    /// To help you understand the charges for your Spot instances, Amazon EC2 provides a data feed that describes your Spot instance usage and pricing.
-    /// This data feed is sent to an Amazon S3 bucket that you specify when you subscribe to the data feed.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @default = new Aws.S3.Bucket("default", new()
-    ///     {
-    ///         BucketName = "tf-spot-datafeed",
-    ///     });
-    /// 
-    ///     var defaultSpotDatafeedSubscription = new Aws.Ec2.SpotDatafeedSubscription("default", new()
-    ///     {
-    ///         Bucket = @default.Id,
-    ///         Prefix = "my_subdirectory",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import a Spot Datafeed Subscription using the word `spot-datafeed-subscription`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription")]
     public partial class SpotDatafeedSubscription : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon S3 bucket in which to store the Spot instance data feed.
-        /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
-        /// <summary>
-        /// Path of folder inside bucket to place spot pricing data.
-        /// </summary>
         [Output("prefix")]
         public Output<string?> Prefix { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -114,21 +67,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class SpotDatafeedSubscriptionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon S3 bucket in which to store the Spot instance data feed.
-        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
-        /// <summary>
-        /// Path of folder inside bucket to place spot pricing data.
-        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -140,21 +84,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class SpotDatafeedSubscriptionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon S3 bucket in which to store the Spot instance data feed.
-        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
-        /// <summary>
-        /// Path of folder inside bucket to place spot pricing data.
-        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

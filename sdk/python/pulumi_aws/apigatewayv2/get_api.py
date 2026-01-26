@@ -80,9 +80,6 @@ class GetApiResult:
     @_builtins.property
     @pulumi.getter(name="apiEndpoint")
     def api_endpoint(self) -> _builtins.str:
-        """
-        URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
-        """
         return pulumi.get(self, "api_endpoint")
 
     @_builtins.property
@@ -93,53 +90,31 @@ class GetApiResult:
     @_builtins.property
     @pulumi.getter(name="apiKeySelectionExpression")
     def api_key_selection_expression(self) -> _builtins.str:
-        """
-        An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
-        Applicable for WebSocket APIs.
-        """
         return pulumi.get(self, "api_key_selection_expression")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the API.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="corsConfigurations")
     def cors_configurations(self) -> Sequence['outputs.GetApiCorsConfigurationResult']:
-        """
-        Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html).
-        Applicable for HTTP APIs.
-        """
         return pulumi.get(self, "cors_configurations")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the API.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="disableExecuteApiEndpoint")
     def disable_execute_api_endpoint(self) -> _builtins.bool:
-        """
-        Whether clients can invoke the API by using the default `execute-api` endpoint.
-        """
         return pulumi.get(self, "disable_execute_api_endpoint")
 
     @_builtins.property
     @pulumi.getter(name="executionArn")
     def execution_arn(self) -> _builtins.str:
-        """
-        ARN prefix to be used in an `lambda.Permission`'s `source_arn` attribute
-        or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
-        See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
-        """
         return pulumi.get(self, "execution_arn")
 
     @_builtins.property
@@ -158,17 +133,11 @@ class GetApiResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the API.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="protocolType")
     def protocol_type(self) -> _builtins.str:
-        """
-        API protocol.
-        """
         return pulumi.get(self, "protocol_type")
 
     @_builtins.property
@@ -179,25 +148,16 @@ class GetApiResult:
     @_builtins.property
     @pulumi.getter(name="routeSelectionExpression")
     def route_selection_expression(self) -> _builtins.str:
-        """
-        The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
-        """
         return pulumi.get(self, "route_selection_expression")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of resource tags.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> _builtins.str:
-        """
-        Version identifier for the API.
-        """
         return pulumi.get(self, "version")
 
 
@@ -230,21 +190,7 @@ def get_api(api_id: Optional[_builtins.str] = None,
             tags: Optional[Mapping[str, _builtins.str]] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiResult:
     """
-    Provides details about a specific Amazon API Gateway Version 2 API.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.apigatewayv2.get_api(api_id="aabbccddee")
-    ```
-
-
-    :param _builtins.str api_id: API identifier.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of resource tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['apiId'] = api_id
@@ -275,21 +221,7 @@ def get_api_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
                    tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiResult]:
     """
-    Provides details about a specific Amazon API Gateway Version 2 API.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.apigatewayv2.get_api(api_id="aabbccddee")
-    ```
-
-
-    :param _builtins.str api_id: API identifier.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of resource tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['apiId'] = api_id

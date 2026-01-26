@@ -32,16 +32,6 @@ class ShardGroupArgs:
                  timeouts: Optional[pulumi.Input['ShardGroupTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ShardGroup resource.
-        :param pulumi.Input[_builtins.str] db_cluster_identifier: The name of the primary DB cluster for the DB shard group.
-        :param pulumi.Input[_builtins.str] db_shard_group_identifier: The name of the DB shard group.
-        :param pulumi.Input[_builtins.float] max_acu: The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
-        :param pulumi.Input[_builtins.int] compute_redundancy: Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
-        :param pulumi.Input[_builtins.float] min_acu: The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
-        :param pulumi.Input[_builtins.bool] publicly_accessible: Indicates whether the DB shard group is publicly accessible.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
         """
         pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
         pulumi.set(__self__, "db_shard_group_identifier", db_shard_group_identifier)
@@ -62,9 +52,6 @@ class ShardGroupArgs:
     @_builtins.property
     @pulumi.getter(name="dbClusterIdentifier")
     def db_cluster_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the primary DB cluster for the DB shard group.
-        """
         return pulumi.get(self, "db_cluster_identifier")
 
     @db_cluster_identifier.setter
@@ -74,9 +61,6 @@ class ShardGroupArgs:
     @_builtins.property
     @pulumi.getter(name="dbShardGroupIdentifier")
     def db_shard_group_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the DB shard group.
-        """
         return pulumi.get(self, "db_shard_group_identifier")
 
     @db_shard_group_identifier.setter
@@ -86,9 +70,6 @@ class ShardGroupArgs:
     @_builtins.property
     @pulumi.getter(name="maxAcu")
     def max_acu(self) -> pulumi.Input[_builtins.float]:
-        """
-        The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
-        """
         return pulumi.get(self, "max_acu")
 
     @max_acu.setter
@@ -98,9 +79,6 @@ class ShardGroupArgs:
     @_builtins.property
     @pulumi.getter(name="computeRedundancy")
     def compute_redundancy(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
-        """
         return pulumi.get(self, "compute_redundancy")
 
     @compute_redundancy.setter
@@ -110,9 +88,6 @@ class ShardGroupArgs:
     @_builtins.property
     @pulumi.getter(name="minAcu")
     def min_acu(self) -> Optional[pulumi.Input[_builtins.float]]:
-        """
-        The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
-        """
         return pulumi.get(self, "min_acu")
 
     @min_acu.setter
@@ -122,9 +97,6 @@ class ShardGroupArgs:
     @_builtins.property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether the DB shard group is publicly accessible.
-        """
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
@@ -134,9 +106,6 @@ class ShardGroupArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -146,11 +115,6 @@ class ShardGroupArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -185,20 +149,6 @@ class _ShardGroupState:
                  timeouts: Optional[pulumi.Input['ShardGroupTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering ShardGroup resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the shard group.
-        :param pulumi.Input[_builtins.int] compute_redundancy: Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
-        :param pulumi.Input[_builtins.str] db_cluster_identifier: The name of the primary DB cluster for the DB shard group.
-        :param pulumi.Input[_builtins.str] db_shard_group_identifier: The name of the DB shard group.
-        :param pulumi.Input[_builtins.str] db_shard_group_resource_id: The AWS Region-unique, immutable identifier for the DB shard group.
-        :param pulumi.Input[_builtins.str] endpoint: The connection endpoint for the DB shard group.
-        :param pulumi.Input[_builtins.float] max_acu: The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
-        :param pulumi.Input[_builtins.float] min_acu: The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
-        :param pulumi.Input[_builtins.bool] publicly_accessible: Indicates whether the DB shard group is publicly accessible.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -230,9 +180,6 @@ class _ShardGroupState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the shard group.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -242,9 +189,6 @@ class _ShardGroupState:
     @_builtins.property
     @pulumi.getter(name="computeRedundancy")
     def compute_redundancy(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
-        """
         return pulumi.get(self, "compute_redundancy")
 
     @compute_redundancy.setter
@@ -254,9 +198,6 @@ class _ShardGroupState:
     @_builtins.property
     @pulumi.getter(name="dbClusterIdentifier")
     def db_cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the primary DB cluster for the DB shard group.
-        """
         return pulumi.get(self, "db_cluster_identifier")
 
     @db_cluster_identifier.setter
@@ -266,9 +207,6 @@ class _ShardGroupState:
     @_builtins.property
     @pulumi.getter(name="dbShardGroupIdentifier")
     def db_shard_group_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the DB shard group.
-        """
         return pulumi.get(self, "db_shard_group_identifier")
 
     @db_shard_group_identifier.setter
@@ -278,9 +216,6 @@ class _ShardGroupState:
     @_builtins.property
     @pulumi.getter(name="dbShardGroupResourceId")
     def db_shard_group_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS Region-unique, immutable identifier for the DB shard group.
-        """
         return pulumi.get(self, "db_shard_group_resource_id")
 
     @db_shard_group_resource_id.setter
@@ -290,9 +225,6 @@ class _ShardGroupState:
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The connection endpoint for the DB shard group.
-        """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
@@ -302,9 +234,6 @@ class _ShardGroupState:
     @_builtins.property
     @pulumi.getter(name="maxAcu")
     def max_acu(self) -> Optional[pulumi.Input[_builtins.float]]:
-        """
-        The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
-        """
         return pulumi.get(self, "max_acu")
 
     @max_acu.setter
@@ -314,9 +243,6 @@ class _ShardGroupState:
     @_builtins.property
     @pulumi.getter(name="minAcu")
     def min_acu(self) -> Optional[pulumi.Input[_builtins.float]]:
-        """
-        The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
-        """
         return pulumi.get(self, "min_acu")
 
     @min_acu.setter
@@ -326,9 +252,6 @@ class _ShardGroupState:
     @_builtins.property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether the DB shard group is publicly accessible.
-        """
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
@@ -338,9 +261,6 @@ class _ShardGroupState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -350,11 +270,6 @@ class _ShardGroupState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -364,9 +279,6 @@ class _ShardGroupState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -400,56 +312,9 @@ class ShardGroup(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['ShardGroupTimeoutsArgs', 'ShardGroupTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an Amazon Aurora Limitless Database DB shard group
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rds.Cluster("example",
-            cluster_identifier="example-limitless-cluster",
-            engine=aws.rds.EngineType.AURORA_POSTGRESQL,
-            engine_version="16.6-limitless",
-            engine_mode="",
-            storage_type="aurora-iopt1",
-            cluster_scalability_type="limitless",
-            master_username="foo",
-            master_password="must_be_eight_characters",
-            performance_insights_enabled=True,
-            performance_insights_retention_period=31,
-            enabled_cloudwatch_logs_exports=["postgresql"],
-            monitoring_interval=5,
-            monitoring_role_arn=example_aws_iam_role["arn"])
-        example_shard_group = aws.rds.ShardGroup("example",
-            db_shard_group_identifier="example-shard-group",
-            db_cluster_identifier=example.id,
-            max_acu=1200)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import shard group using the `db_shard_group_identifier`. For example:
-
-        ```sh
-        $ pulumi import aws:rds/shardGroup:ShardGroup example example-shard-group
-        ```
-
+        Create a ShardGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] compute_redundancy: Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
-        :param pulumi.Input[_builtins.str] db_cluster_identifier: The name of the primary DB cluster for the DB shard group.
-        :param pulumi.Input[_builtins.str] db_shard_group_identifier: The name of the DB shard group.
-        :param pulumi.Input[_builtins.float] max_acu: The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
-        :param pulumi.Input[_builtins.float] min_acu: The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
-        :param pulumi.Input[_builtins.bool] publicly_accessible: Indicates whether the DB shard group is publicly accessible.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
         """
         ...
     @overload
@@ -458,44 +323,7 @@ class ShardGroup(pulumi.CustomResource):
                  args: ShardGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an Amazon Aurora Limitless Database DB shard group
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rds.Cluster("example",
-            cluster_identifier="example-limitless-cluster",
-            engine=aws.rds.EngineType.AURORA_POSTGRESQL,
-            engine_version="16.6-limitless",
-            engine_mode="",
-            storage_type="aurora-iopt1",
-            cluster_scalability_type="limitless",
-            master_username="foo",
-            master_password="must_be_eight_characters",
-            performance_insights_enabled=True,
-            performance_insights_retention_period=31,
-            enabled_cloudwatch_logs_exports=["postgresql"],
-            monitoring_interval=5,
-            monitoring_role_arn=example_aws_iam_role["arn"])
-        example_shard_group = aws.rds.ShardGroup("example",
-            db_shard_group_identifier="example-shard-group",
-            db_cluster_identifier=example.id,
-            max_acu=1200)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import shard group using the `db_shard_group_identifier`. For example:
-
-        ```sh
-        $ pulumi import aws:rds/shardGroup:ShardGroup example example-shard-group
-        ```
-
+        Create a ShardGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ShardGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -578,20 +406,6 @@ class ShardGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the shard group.
-        :param pulumi.Input[_builtins.int] compute_redundancy: Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
-        :param pulumi.Input[_builtins.str] db_cluster_identifier: The name of the primary DB cluster for the DB shard group.
-        :param pulumi.Input[_builtins.str] db_shard_group_identifier: The name of the DB shard group.
-        :param pulumi.Input[_builtins.str] db_shard_group_resource_id: The AWS Region-unique, immutable identifier for the DB shard group.
-        :param pulumi.Input[_builtins.str] endpoint: The connection endpoint for the DB shard group.
-        :param pulumi.Input[_builtins.float] max_acu: The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
-        :param pulumi.Input[_builtins.float] min_acu: The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
-        :param pulumi.Input[_builtins.bool] publicly_accessible: Indicates whether the DB shard group is publicly accessible.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -615,99 +429,61 @@ class ShardGroup(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the shard group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="computeRedundancy")
     def compute_redundancy(self) -> pulumi.Output[_builtins.int]:
-        """
-        Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
-        """
         return pulumi.get(self, "compute_redundancy")
 
     @_builtins.property
     @pulumi.getter(name="dbClusterIdentifier")
     def db_cluster_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the primary DB cluster for the DB shard group.
-        """
         return pulumi.get(self, "db_cluster_identifier")
 
     @_builtins.property
     @pulumi.getter(name="dbShardGroupIdentifier")
     def db_shard_group_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the DB shard group.
-        """
         return pulumi.get(self, "db_shard_group_identifier")
 
     @_builtins.property
     @pulumi.getter(name="dbShardGroupResourceId")
     def db_shard_group_resource_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The AWS Region-unique, immutable identifier for the DB shard group.
-        """
         return pulumi.get(self, "db_shard_group_resource_id")
 
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[_builtins.str]:
-        """
-        The connection endpoint for the DB shard group.
-        """
         return pulumi.get(self, "endpoint")
 
     @_builtins.property
     @pulumi.getter(name="maxAcu")
     def max_acu(self) -> pulumi.Output[_builtins.float]:
-        """
-        The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
-        """
         return pulumi.get(self, "max_acu")
 
     @_builtins.property
     @pulumi.getter(name="minAcu")
     def min_acu(self) -> pulumi.Output[_builtins.float]:
-        """
-        The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
-        """
         return pulumi.get(self, "min_acu")
 
     @_builtins.property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Indicates whether the DB shard group is publicly accessible.
-        """
         return pulumi.get(self, "publicly_accessible")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property

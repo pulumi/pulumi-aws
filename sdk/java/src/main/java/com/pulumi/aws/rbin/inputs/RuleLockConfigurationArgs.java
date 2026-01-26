@@ -14,17 +14,9 @@ public final class RuleLockConfigurationArgs extends com.pulumi.resources.Resour
 
     public static final RuleLockConfigurationArgs Empty = new RuleLockConfigurationArgs();
 
-    /**
-     * Information about the retention rule unlock delay. See `unlockDelay` below.
-     * 
-     */
     @Import(name="unlockDelay", required=true)
     private Output<RuleLockConfigurationUnlockDelayArgs> unlockDelay;
 
-    /**
-     * @return Information about the retention rule unlock delay. See `unlockDelay` below.
-     * 
-     */
     public Output<RuleLockConfigurationUnlockDelayArgs> unlockDelay() {
         return this.unlockDelay;
     }
@@ -53,23 +45,11 @@ public final class RuleLockConfigurationArgs extends com.pulumi.resources.Resour
             $ = new RuleLockConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param unlockDelay Information about the retention rule unlock delay. See `unlockDelay` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unlockDelay(Output<RuleLockConfigurationUnlockDelayArgs> unlockDelay) {
             $.unlockDelay = unlockDelay;
             return this;
         }
 
-        /**
-         * @param unlockDelay Information about the retention rule unlock delay. See `unlockDelay` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unlockDelay(RuleLockConfigurationUnlockDelayArgs unlockDelay) {
             return unlockDelay(Output.of(unlockDelay));
         }

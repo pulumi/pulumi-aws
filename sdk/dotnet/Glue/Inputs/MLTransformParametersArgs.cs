@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class MLTransformParametersArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The parameters for the find matches algorithm. see Find Matches Parameters.
-        /// </summary>
         [Input("findMatchesParameters", required: true)]
         public Input<Inputs.MLTransformParametersFindMatchesParametersArgs> FindMatchesParameters { get; set; } = null!;
 
-        /// <summary>
-        /// The type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
-        /// </summary>
         [Input("transformType", required: true)]
         public Input<string> TransformType { get; set; } = null!;
 

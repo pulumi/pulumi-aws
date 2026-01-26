@@ -14,17 +14,9 @@ public final class WorkspaceConfigurationLimitsPerLabelSetLimitsArgs extends com
 
     public static final WorkspaceConfigurationLimitsPerLabelSetLimitsArgs Empty = new WorkspaceConfigurationLimitsPerLabelSetLimitsArgs();
 
-    /**
-     * Maximum number of active time series that can be ingested for metrics matching the label set.
-     * 
-     */
     @Import(name="maxSeries", required=true)
     private Output<Integer> maxSeries;
 
-    /**
-     * @return Maximum number of active time series that can be ingested for metrics matching the label set.
-     * 
-     */
     public Output<Integer> maxSeries() {
         return this.maxSeries;
     }
@@ -53,23 +45,11 @@ public final class WorkspaceConfigurationLimitsPerLabelSetLimitsArgs extends com
             $ = new WorkspaceConfigurationLimitsPerLabelSetLimitsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maxSeries Maximum number of active time series that can be ingested for metrics matching the label set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxSeries(Output<Integer> maxSeries) {
             $.maxSeries = maxSeries;
             return this;
         }
 
-        /**
-         * @param maxSeries Maximum number of active time series that can be ingested for metrics matching the label set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxSeries(Integer maxSeries) {
             return maxSeries(Output.of(maxSeries));
         }

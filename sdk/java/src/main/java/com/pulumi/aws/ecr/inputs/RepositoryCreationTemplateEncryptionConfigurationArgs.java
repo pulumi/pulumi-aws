@@ -15,32 +15,16 @@ public final class RepositoryCreationTemplateEncryptionConfigurationArgs extends
 
     public static final RepositoryCreationTemplateEncryptionConfigurationArgs Empty = new RepositoryCreationTemplateEncryptionConfigurationArgs();
 
-    /**
-     * The encryption type to use for any created repositories. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
-     * 
-     */
     @Import(name="encryptionType")
     private @Nullable Output<String> encryptionType;
 
-    /**
-     * @return The encryption type to use for any created repositories. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
-     * 
-     */
     public Optional<Output<String>> encryptionType() {
         return Optional.ofNullable(this.encryptionType);
     }
 
-    /**
-     * The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
-     * 
-     */
     @Import(name="kmsKey")
     private @Nullable Output<String> kmsKey;
 
-    /**
-     * @return The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
-     * 
-     */
     public Optional<Output<String>> kmsKey() {
         return Optional.ofNullable(this.kmsKey);
     }
@@ -70,44 +54,20 @@ public final class RepositoryCreationTemplateEncryptionConfigurationArgs extends
             $ = new RepositoryCreationTemplateEncryptionConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param encryptionType The encryption type to use for any created repositories. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionType(@Nullable Output<String> encryptionType) {
             $.encryptionType = encryptionType;
             return this;
         }
 
-        /**
-         * @param encryptionType The encryption type to use for any created repositories. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionType(String encryptionType) {
             return encryptionType(Output.of(encryptionType));
         }
 
-        /**
-         * @param kmsKey The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKey(@Nullable Output<String> kmsKey) {
             $.kmsKey = kmsKey;
             return this;
         }
 
-        /**
-         * @param kmsKey The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKey(String kmsKey) {
             return kmsKey(Output.of(kmsKey));
         }

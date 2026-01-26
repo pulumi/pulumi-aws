@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterOutpostConfigControlPlanePlacement {
-    /**
-     * @return The name of the placement group for the Kubernetes control plane instances.
-     * 
-     */
     private String groupName;
 
     private GetClusterOutpostConfigControlPlanePlacement() {}
-    /**
-     * @return The name of the placement group for the Kubernetes control plane instances.
-     * 
-     */
     public String groupName() {
         return this.groupName;
     }

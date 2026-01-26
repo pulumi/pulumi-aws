@@ -18,33 +18,20 @@ namespace Pulumi.Aws.Ssm.Inputs
         [Input("localDeploymentAdministrationRoleArn")]
         public Input<string>? LocalDeploymentAdministrationRoleArn { get; set; }
 
-        /// <summary>
-        /// Name of the IAM role used to deploy local configurations.
-        /// </summary>
         [Input("localDeploymentExecutionRoleName")]
         public Input<string>? LocalDeploymentExecutionRoleName { get; set; }
 
         [Input("parameters", required: true)]
         private InputMap<string>? _parameters;
-
-        /// <summary>
-        /// Parameters for the configuration definition type. Parameters for configuration definitions vary based the configuration type. See the [AWS API documentation](https://docs.aws.amazon.com/quick-setup/latest/APIReference/API_ConfigurationDefinitionInput.html) for a complete list of parameters for each configuration type.
-        /// </summary>
         public InputMap<string> Parameters
         {
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
 
-        /// <summary>
-        /// Type of the Quick Setup configuration.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        /// <summary>
-        /// Version of the Quick Setup type to use.
-        /// </summary>
         [Input("typeVersion")]
         public Input<string>? TypeVersion { get; set; }
 

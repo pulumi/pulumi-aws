@@ -16,120 +16,34 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * The KMS ciphertext resource allows you to encrypt plaintext into ciphertext
- * by using an AWS KMS customer master key. The value returned by this resource
- * is stable across every apply. For a changing ciphertext value each apply, see
- * the `aws.kms.Ciphertext` data source.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.kms.Ciphertext;
- * import com.pulumi.aws.kms.CiphertextArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var oauthConfig = new Key("oauthConfig", KeyArgs.builder()
- *             .description("oauth config")
- *             .isEnabled(true)
- *             .build());
- * 
- *         var oauth = new Ciphertext("oauth", CiphertextArgs.builder()
- *             .keyId(oauthConfig.keyId())
- *             .plaintext("""
- * {
- *   \"client_id\": \"e587dbae22222f55da22\",
- *   \"client_secret\": \"8289575d00000ace55e1815ec13673955721b8a5\"
- * }
- *             """)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:kms/ciphertext:Ciphertext")
 public class Ciphertext extends com.pulumi.resources.CustomResource {
-    /**
-     * Base64 encoded ciphertext
-     * 
-     */
     @Export(name="ciphertextBlob", refs={String.class}, tree="[0]")
     private Output<String> ciphertextBlob;
 
-    /**
-     * @return Base64 encoded ciphertext
-     * 
-     */
     public Output<String> ciphertextBlob() {
         return this.ciphertextBlob;
     }
-    /**
-     * An optional mapping that makes up the encryption context.
-     * 
-     */
     @Export(name="context", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> context;
 
-    /**
-     * @return An optional mapping that makes up the encryption context.
-     * 
-     */
     public Output<Optional<Map<String,String>>> context() {
         return Codegen.optional(this.context);
     }
-    /**
-     * Globally unique key ID for the customer master key.
-     * 
-     */
     @Export(name="keyId", refs={String.class}, tree="[0]")
     private Output<String> keyId;
 
-    /**
-     * @return Globally unique key ID for the customer master key.
-     * 
-     */
     public Output<String> keyId() {
         return this.keyId;
     }
-    /**
-     * Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-     * 
-     */
     @Export(name="plaintext", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> plaintext;
 
-    /**
-     * @return Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-     * 
-     */
     public Output<Optional<String>> plaintext() {
         return Codegen.optional(this.plaintext);
     }
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
      * 
      */
     @Export(name="plaintextWo", refs={String.class}, tree="[0]")
@@ -137,37 +51,20 @@ public class Ciphertext extends com.pulumi.resources.CustomResource {
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
      * 
      */
     public Output<Optional<String>> plaintextWo() {
         return Codegen.optional(this.plaintextWo);
     }
-    /**
-     * Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
-     * 
-     */
     @Export(name="plaintextWoVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> plaintextWoVersion;
 
-    /**
-     * @return Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
-     * 
-     */
     public Output<Optional<String>> plaintextWoVersion() {
         return Codegen.optional(this.plaintextWoVersion);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

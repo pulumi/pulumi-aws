@@ -7,21 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Get all direct child organizational units under a parent organizational unit. This provides all children.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const org = aws.organizations.getOrganization({});
- * const ous = org.then(org => aws.organizations.getOrganizationalUnitDescendantOrganizationalUnits({
- *     parentId: org.roots?.[0]?.id,
- * }));
- * ```
- */
 export function getOrganizationalUnitDescendantOrganizationalUnits(args: GetOrganizationalUnitDescendantOrganizationalUnitsArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationalUnitDescendantOrganizationalUnitsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:organizations/getOrganizationalUnitDescendantOrganizationalUnits:getOrganizationalUnitDescendantOrganizationalUnits", {
@@ -33,9 +18,6 @@ export function getOrganizationalUnitDescendantOrganizationalUnits(args: GetOrga
  * A collection of arguments for invoking getOrganizationalUnitDescendantOrganizationalUnits.
  */
 export interface GetOrganizationalUnitDescendantOrganizationalUnitsArgs {
-    /**
-     * Parent ID of the organizational unit.
-     */
     parentId: string;
 }
 
@@ -43,9 +25,6 @@ export interface GetOrganizationalUnitDescendantOrganizationalUnitsArgs {
  * A collection of values returned by getOrganizationalUnitDescendantOrganizationalUnits.
  */
 export interface GetOrganizationalUnitDescendantOrganizationalUnitsResult {
-    /**
-     * List of child organizational units, which have the following attributes:
-     */
     readonly childrens: outputs.organizations.GetOrganizationalUnitDescendantOrganizationalUnitsChildren[];
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -53,21 +32,6 @@ export interface GetOrganizationalUnitDescendantOrganizationalUnitsResult {
     readonly id: string;
     readonly parentId: string;
 }
-/**
- * Get all direct child organizational units under a parent organizational unit. This provides all children.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const org = aws.organizations.getOrganization({});
- * const ous = org.then(org => aws.organizations.getOrganizationalUnitDescendantOrganizationalUnits({
- *     parentId: org.roots?.[0]?.id,
- * }));
- * ```
- */
 export function getOrganizationalUnitDescendantOrganizationalUnitsOutput(args: GetOrganizationalUnitDescendantOrganizationalUnitsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrganizationalUnitDescendantOrganizationalUnitsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:organizations/getOrganizationalUnitDescendantOrganizationalUnits:getOrganizationalUnitDescendantOrganizationalUnits", {
@@ -79,8 +43,5 @@ export function getOrganizationalUnitDescendantOrganizationalUnitsOutput(args: G
  * A collection of arguments for invoking getOrganizationalUnitDescendantOrganizationalUnits.
  */
 export interface GetOrganizationalUnitDescendantOrganizationalUnitsOutputArgs {
-    /**
-     * Parent ID of the organizational unit.
-     */
     parentId: pulumi.Input<string>;
 }

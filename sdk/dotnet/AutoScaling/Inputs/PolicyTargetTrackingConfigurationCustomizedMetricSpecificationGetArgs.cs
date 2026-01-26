@@ -14,55 +14,32 @@ namespace Pulumi.Aws.AutoScaling.Inputs
     {
         [Input("metricDimensions")]
         private InputList<Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionGetArgs>? _metricDimensions;
-
-        /// <summary>
-        /// Dimensions of the metric.
-        /// </summary>
         public InputList<Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionGetArgs> MetricDimensions
         {
             get => _metricDimensions ?? (_metricDimensions = new InputList<Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionGetArgs>());
             set => _metricDimensions = value;
         }
 
-        /// <summary>
-        /// Name of the metric.
-        /// </summary>
         [Input("metricName")]
         public Input<string>? MetricName { get; set; }
 
         [Input("metrics")]
         private InputList<Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricGetArgs>? _metrics;
-
-        /// <summary>
-        /// Metrics to include, as a metric data query.
-        /// </summary>
         public InputList<Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricGetArgs> Metrics
         {
             get => _metrics ?? (_metrics = new InputList<Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricGetArgs>());
             set => _metrics = value;
         }
 
-        /// <summary>
-        /// Namespace of the metric.
-        /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
 
-        /// <summary>
-        /// The period of the metric in seconds.
-        /// </summary>
         [Input("period")]
         public Input<int>? Period { get; set; }
 
-        /// <summary>
-        /// Statistic of the metric.
-        /// </summary>
         [Input("statistic")]
         public Input<string>? Statistic { get; set; }
 
-        /// <summary>
-        /// Unit of the metric.
-        /// </summary>
         [Input("unit")]
         public Input<string>? Unit { get; set; }
 

@@ -19,12 +19,12 @@ public final class TableMetadataIcebergSchemaField {
      */
     private String name;
     /**
-     * @return A Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
+     * @return A Boolean value that specifies whether values are required for each row in this field. Default: false.
      * 
      */
     private @Nullable Boolean required;
     /**
-     * @return The field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
+     * @return The field type. S3 Tables supports all Apache Iceberg primitive types.
      * 
      */
     private String type;
@@ -38,14 +38,14 @@ public final class TableMetadataIcebergSchemaField {
         return this.name;
     }
     /**
-     * @return A Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
+     * @return A Boolean value that specifies whether values are required for each row in this field. Default: false.
      * 
      */
     public Optional<Boolean> required() {
         return Optional.ofNullable(this.required);
     }
     /**
-     * @return The field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
+     * @return The field type. S3 Tables supports all Apache Iceberg primitive types.
      * 
      */
     public String type() {

@@ -14,65 +14,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScheduledQueryRecentlyFailedRunQueryInsightsResponse {
-    /**
-     * @return Size of query result set in bytes. You can use this data to validate if the result set has changed as part of the query tuning exercise.
-     * 
-     */
     private @Nullable Integer outputBytes;
-    /**
-     * @return Total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.
-     * 
-     */
     private @Nullable Integer outputRows;
-    /**
-     * @return Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
-     * 
-     */
     private @Nullable List<ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverage> querySpatialCoverages;
-    /**
-     * @return Number of tables in the query.
-     * 
-     */
     private @Nullable Integer queryTableCount;
-    /**
-     * @return Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
-     * 
-     */
     private @Nullable List<ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRange> queryTemporalRanges;
 
     private ScheduledQueryRecentlyFailedRunQueryInsightsResponse() {}
-    /**
-     * @return Size of query result set in bytes. You can use this data to validate if the result set has changed as part of the query tuning exercise.
-     * 
-     */
     public Optional<Integer> outputBytes() {
         return Optional.ofNullable(this.outputBytes);
     }
-    /**
-     * @return Total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.
-     * 
-     */
     public Optional<Integer> outputRows() {
         return Optional.ofNullable(this.outputRows);
     }
-    /**
-     * @return Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
-     * 
-     */
     public List<ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverage> querySpatialCoverages() {
         return this.querySpatialCoverages == null ? List.of() : this.querySpatialCoverages;
     }
-    /**
-     * @return Number of tables in the query.
-     * 
-     */
     public Optional<Integer> queryTableCount() {
         return Optional.ofNullable(this.queryTableCount);
     }
-    /**
-     * @return Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
-     * 
-     */
     public List<ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRange> queryTemporalRanges() {
         return this.queryTemporalRanges == null ? List.of() : this.queryTemporalRanges;
     }

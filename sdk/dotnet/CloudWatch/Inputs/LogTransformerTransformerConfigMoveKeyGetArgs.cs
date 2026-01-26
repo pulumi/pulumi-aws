@@ -14,10 +14,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
     {
         [Input("entries", required: true)]
         private InputList<Inputs.LogTransformerTransformerConfigMoveKeyEntryGetArgs>? _entries;
-
-        /// <summary>
-        /// Objects containing the information about the keys to move to the log event. You must include at least one entry, and five at most. See `MoveKeys` `Entry` below for details.
-        /// </summary>
         public InputList<Inputs.LogTransformerTransformerConfigMoveKeyEntryGetArgs> Entries
         {
             get => _entries ?? (_entries = new InputList<Inputs.LogTransformerTransformerConfigMoveKeyEntryGetArgs>());

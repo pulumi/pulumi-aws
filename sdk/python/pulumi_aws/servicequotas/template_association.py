@@ -23,7 +23,6 @@ class TemplateAssociationArgs:
                  skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a TemplateAssociation resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -33,9 +32,6 @@ class TemplateAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -60,8 +56,6 @@ class _TemplateAssociationState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TemplateAssociation resources.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: Association status. Creating this resource will result in an `ASSOCIATED` status, and quota increase requests in the template are automatically applied to new AWS accounts in the organization.
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -73,9 +67,6 @@ class _TemplateAssociationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -94,9 +85,6 @@ class _TemplateAssociationState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Association status. Creating this resource will result in an `ASSOCIATED` status, and quota increase requests in the template are automatically applied to new AWS accounts in the organization.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -114,32 +102,9 @@ class TemplateAssociation(pulumi.CustomResource):
                  skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Service Quotas Template Association.
-
-        > Only the management account of an organization can associate Service Quota templates, and this must be done from the `us-east-1` region.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicequotas.TemplateAssociation("example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Service Quotas Template Association using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:servicequotas/templateAssociation:TemplateAssociation example 123456789012
-        ```
-
+        Create a TemplateAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -148,29 +113,7 @@ class TemplateAssociation(pulumi.CustomResource):
                  args: Optional[TemplateAssociationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Service Quotas Template Association.
-
-        > Only the management account of an organization can associate Service Quota templates, and this must be done from the `us-east-1` region.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicequotas.TemplateAssociation("example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Service Quotas Template Association using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:servicequotas/templateAssociation:TemplateAssociation example 123456789012
-        ```
-
+        Create a TemplateAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TemplateAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -220,8 +163,6 @@ class TemplateAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: Association status. Creating this resource will result in an `ASSOCIATED` status, and quota increase requests in the template are automatically applied to new AWS accounts in the organization.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -235,9 +176,6 @@ class TemplateAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
@@ -248,8 +186,5 @@ class TemplateAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Association status. Creating this resource will result in an `ASSOCIATED` status, and quota increase requests in the template are automatically applied to new AWS accounts in the organization.
-        """
         return pulumi.get(self, "status")
 

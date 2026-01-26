@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CatalogTableOptimizerConfigurationRetentionConfiguration {
-    /**
-     * @return The configuration for an Iceberg snapshot retention optimizer.
-     * 
-     */
     private @Nullable CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration icebergConfiguration;
 
     private CatalogTableOptimizerConfigurationRetentionConfiguration() {}
-    /**
-     * @return The configuration for an Iceberg snapshot retention optimizer.
-     * 
-     */
     public Optional<CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration> icebergConfiguration() {
         return Optional.ofNullable(this.icebergConfiguration);
     }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Iot.Outputs
     [OutputType]
     public sealed class DomainConfigurationTlsConfig
     {
-        /// <summary>
-        /// The security policy for a domain configuration.
-        /// </summary>
         public readonly string? SecurityPolicy;
 
         [OutputConstructor]

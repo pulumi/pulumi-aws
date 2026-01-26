@@ -12,18 +12,11 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines.Inputs
 
     public sealed class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Disables real time alert rules.
-        /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
 
         [Input("rules", required: true)]
         private InputList<Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs>? _rules;
-
-        /// <summary>
-        /// Collection of real time alert rules
-        /// </summary>
         public InputList<Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs>());

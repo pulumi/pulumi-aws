@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class CertificateValidity {
-    /**
-     * @return Determines how `value` is interpreted. Valid values: `DAYS`, `MONTHS`, `YEARS`, `ABSOLUTE`, `END_DATE`.
-     * 
-     */
     private String type;
-    /**
-     * @return If `type` is `DAYS`, `MONTHS`, or `YEARS`, the relative time until the certificate expires. If `type` is `ABSOLUTE`, the date in seconds since the Unix epoch. If `type` is `END_DATE`, the  date in RFC 3339 format.
-     * 
-     */
     private String value;
 
     private CertificateValidity() {}
-    /**
-     * @return Determines how `value` is interpreted. Valid values: `DAYS`, `MONTHS`, `YEARS`, `ABSOLUTE`, `END_DATE`.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return If `type` is `DAYS`, `MONTHS`, or `YEARS`, the relative time until the certificate expires. If `type` is `ABSOLUTE`, the date in seconds since the Unix epoch. If `type` is `END_DATE`, the  date in RFC 3339 format.
-     * 
-     */
     public String value() {
         return this.value;
     }

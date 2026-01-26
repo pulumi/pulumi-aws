@@ -14,28 +14,17 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     {
         [Input("codeRepositories")]
         private InputList<Inputs.DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs>? _codeRepositories;
-
-        /// <summary>
-        /// A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see `CodeRepository` Block below.
-        /// </summary>
         public InputList<Inputs.DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs> CodeRepositories
         {
             get => _codeRepositories ?? (_codeRepositories = new InputList<Inputs.DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs>());
             set => _codeRepositories = value;
         }
 
-        /// <summary>
-        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `DefaultResourceSpec` Block below.
-        /// </summary>
         [Input("defaultResourceSpec")]
         public Input<Inputs.DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs>? DefaultResourceSpec { get; set; }
 
         [Input("lifecycleConfigArns")]
         private InputList<string>? _lifecycleConfigArns;
-
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
-        /// </summary>
         public InputList<string> LifecycleConfigArns
         {
             get => _lifecycleConfigArns ?? (_lifecycleConfigArns = new InputList<string>());

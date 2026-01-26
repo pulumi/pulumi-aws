@@ -111,9 +111,6 @@ MYPY = False
 if not MYPY:
     class AliasRoutingConfigArgsDict(TypedDict):
         additional_version_weights: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.float]]]]
-        """
-        Map that defines the proportion of events that should be sent to different versions of a Lambda function.
-        """
 elif False:
     AliasRoutingConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -121,18 +118,12 @@ elif False:
 class AliasRoutingConfigArgs:
     def __init__(__self__, *,
                  additional_version_weights: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.float]]]] = None):
-        """
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.float]]] additional_version_weights: Map that defines the proportion of events that should be sent to different versions of a Lambda function.
-        """
         if additional_version_weights is not None:
             pulumi.set(__self__, "additional_version_weights", additional_version_weights)
 
     @_builtins.property
     @pulumi.getter(name="additionalVersionWeights")
     def additional_version_weights(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.float]]]]:
-        """
-        Map that defines the proportion of events that should be sent to different versions of a Lambda function.
-        """
         return pulumi.get(self, "additional_version_weights")
 
     @additional_version_weights.setter
@@ -144,13 +135,7 @@ if not MYPY:
     class CapacityProviderCapacityProviderScalingConfigArgsDict(TypedDict):
         max_vcpu_count: pulumi.Input[_builtins.int]
         scaling_mode: pulumi.Input[_builtins.str]
-        """
-        The scaling mode for the Capacity Provider. Valid values are `AUTO` and `MANUAL`. Defaults to `AUTO`.
-        """
         scaling_policies: pulumi.Input[Sequence[pulumi.Input['CapacityProviderCapacityProviderScalingConfigScalingPolicyArgsDict']]]
-        """
-        List of scaling policies. See Scaling Policies below.
-        """
 elif False:
     CapacityProviderCapacityProviderScalingConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -160,10 +145,6 @@ class CapacityProviderCapacityProviderScalingConfigArgs:
                  max_vcpu_count: pulumi.Input[_builtins.int],
                  scaling_mode: pulumi.Input[_builtins.str],
                  scaling_policies: pulumi.Input[Sequence[pulumi.Input['CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs']]]):
-        """
-        :param pulumi.Input[_builtins.str] scaling_mode: The scaling mode for the Capacity Provider. Valid values are `AUTO` and `MANUAL`. Defaults to `AUTO`.
-        :param pulumi.Input[Sequence[pulumi.Input['CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs']]] scaling_policies: List of scaling policies. See Scaling Policies below.
-        """
         pulumi.set(__self__, "max_vcpu_count", max_vcpu_count)
         pulumi.set(__self__, "scaling_mode", scaling_mode)
         pulumi.set(__self__, "scaling_policies", scaling_policies)
@@ -180,9 +161,6 @@ class CapacityProviderCapacityProviderScalingConfigArgs:
     @_builtins.property
     @pulumi.getter(name="scalingMode")
     def scaling_mode(self) -> pulumi.Input[_builtins.str]:
-        """
-        The scaling mode for the Capacity Provider. Valid values are `AUTO` and `MANUAL`. Defaults to `AUTO`.
-        """
         return pulumi.get(self, "scaling_mode")
 
     @scaling_mode.setter
@@ -192,9 +170,6 @@ class CapacityProviderCapacityProviderScalingConfigArgs:
     @_builtins.property
     @pulumi.getter(name="scalingPolicies")
     def scaling_policies(self) -> pulumi.Input[Sequence[pulumi.Input['CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs']]]:
-        """
-        List of scaling policies. See Scaling Policies below.
-        """
         return pulumi.get(self, "scaling_policies")
 
     @scaling_policies.setter
@@ -205,13 +180,7 @@ class CapacityProviderCapacityProviderScalingConfigArgs:
 if not MYPY:
     class CapacityProviderCapacityProviderScalingConfigScalingPolicyArgsDict(TypedDict):
         predefined_metric_type: pulumi.Input[_builtins.str]
-        """
-        The predefined metric type for the scaling policy. Valid values are `LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION`.
-        """
         target_value: pulumi.Input[_builtins.float]
-        """
-        The target value for the scaling policy.
-        """
 elif False:
     CapacityProviderCapacityProviderScalingConfigScalingPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -220,19 +189,12 @@ class CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs:
     def __init__(__self__, *,
                  predefined_metric_type: pulumi.Input[_builtins.str],
                  target_value: pulumi.Input[_builtins.float]):
-        """
-        :param pulumi.Input[_builtins.str] predefined_metric_type: The predefined metric type for the scaling policy. Valid values are `LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION`.
-        :param pulumi.Input[_builtins.float] target_value: The target value for the scaling policy.
-        """
         pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
         pulumi.set(__self__, "target_value", target_value)
 
     @_builtins.property
     @pulumi.getter(name="predefinedMetricType")
     def predefined_metric_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The predefined metric type for the scaling policy. Valid values are `LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION`.
-        """
         return pulumi.get(self, "predefined_metric_type")
 
     @predefined_metric_type.setter
@@ -242,9 +204,6 @@ class CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="targetValue")
     def target_value(self) -> pulumi.Input[_builtins.float]:
-        """
-        The target value for the scaling policy.
-        """
         return pulumi.get(self, "target_value")
 
     @target_value.setter
@@ -255,17 +214,8 @@ class CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs:
 if not MYPY:
     class CapacityProviderInstanceRequirementArgsDict(TypedDict):
         allowed_instance_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of allowed instance types.
-        """
         architectures: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of CPU architectures. Valid values are `X86_64` and `ARM64`.
-        """
         excluded_instance_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of excluded instance types.
-        """
 elif False:
     CapacityProviderInstanceRequirementArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -275,11 +225,6 @@ class CapacityProviderInstanceRequirementArgs:
                  allowed_instance_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  architectures: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  excluded_instance_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_instance_types: List of allowed instance types.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] architectures: List of CPU architectures. Valid values are `X86_64` and `ARM64`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_instance_types: List of excluded instance types.
-        """
         pulumi.set(__self__, "allowed_instance_types", allowed_instance_types)
         pulumi.set(__self__, "architectures", architectures)
         pulumi.set(__self__, "excluded_instance_types", excluded_instance_types)
@@ -287,9 +232,6 @@ class CapacityProviderInstanceRequirementArgs:
     @_builtins.property
     @pulumi.getter(name="allowedInstanceTypes")
     def allowed_instance_types(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        List of allowed instance types.
-        """
         return pulumi.get(self, "allowed_instance_types")
 
     @allowed_instance_types.setter
@@ -299,9 +241,6 @@ class CapacityProviderInstanceRequirementArgs:
     @_builtins.property
     @pulumi.getter
     def architectures(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        List of CPU architectures. Valid values are `X86_64` and `ARM64`.
-        """
         return pulumi.get(self, "architectures")
 
     @architectures.setter
@@ -311,9 +250,6 @@ class CapacityProviderInstanceRequirementArgs:
     @_builtins.property
     @pulumi.getter(name="excludedInstanceTypes")
     def excluded_instance_types(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        List of excluded instance types.
-        """
         return pulumi.get(self, "excluded_instance_types")
 
     @excluded_instance_types.setter
@@ -324,9 +260,6 @@ class CapacityProviderInstanceRequirementArgs:
 if not MYPY:
     class CapacityProviderPermissionsConfigArgsDict(TypedDict):
         capacity_provider_operator_role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM role that allows Lambda to manage the Capacity Provider.
-        """
 elif False:
     CapacityProviderPermissionsConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -334,17 +267,11 @@ elif False:
 class CapacityProviderPermissionsConfigArgs:
     def __init__(__self__, *,
                  capacity_provider_operator_role_arn: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] capacity_provider_operator_role_arn: The ARN of the IAM role that allows Lambda to manage the Capacity Provider.
-        """
         pulumi.set(__self__, "capacity_provider_operator_role_arn", capacity_provider_operator_role_arn)
 
     @_builtins.property
     @pulumi.getter(name="capacityProviderOperatorRoleArn")
     def capacity_provider_operator_role_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the IAM role that allows Lambda to manage the Capacity Provider.
-        """
         return pulumi.get(self, "capacity_provider_operator_role_arn")
 
     @capacity_provider_operator_role_arn.setter
@@ -427,13 +354,7 @@ class CapacityProviderTimeoutsArgs:
 if not MYPY:
     class CapacityProviderVpcConfigArgsDict(TypedDict):
         security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of security group IDs for the VPC.
-        """
         subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of subnet IDs for the VPC.
-        """
 elif False:
     CapacityProviderVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -442,19 +363,12 @@ class CapacityProviderVpcConfigArgs:
     def __init__(__self__, *,
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of security group IDs for the VPC.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnet IDs for the VPC.
-        """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        List of security group IDs for the VPC.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -464,9 +378,6 @@ class CapacityProviderVpcConfigArgs:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        List of subnet IDs for the VPC.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -477,9 +388,6 @@ class CapacityProviderVpcConfigArgs:
 if not MYPY:
     class CodeSigningConfigAllowedPublishersArgsDict(TypedDict):
         signing_profile_version_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Set of ARNs for each of the signing profiles. A signing profile defines a trusted user who can sign a code package. Maximum of 20 signing profiles.
-        """
 elif False:
     CodeSigningConfigAllowedPublishersArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -487,17 +395,11 @@ elif False:
 class CodeSigningConfigAllowedPublishersArgs:
     def __init__(__self__, *,
                  signing_profile_version_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] signing_profile_version_arns: Set of ARNs for each of the signing profiles. A signing profile defines a trusted user who can sign a code package. Maximum of 20 signing profiles.
-        """
         pulumi.set(__self__, "signing_profile_version_arns", signing_profile_version_arns)
 
     @_builtins.property
     @pulumi.getter(name="signingProfileVersionArns")
     def signing_profile_version_arns(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        Set of ARNs for each of the signing profiles. A signing profile defines a trusted user who can sign a code package. Maximum of 20 signing profiles.
-        """
         return pulumi.get(self, "signing_profile_version_arns")
 
     @signing_profile_version_arns.setter
@@ -508,9 +410,6 @@ class CodeSigningConfigAllowedPublishersArgs:
 if not MYPY:
     class CodeSigningConfigPoliciesArgsDict(TypedDict):
         untrusted_artifact_on_deployment: pulumi.Input[_builtins.str]
-        """
-        Code signing configuration policy for deployment validation failure. If you set the policy to `Enforce`, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to `Warn`, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
-        """
 elif False:
     CodeSigningConfigPoliciesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -518,17 +417,11 @@ elif False:
 class CodeSigningConfigPoliciesArgs:
     def __init__(__self__, *,
                  untrusted_artifact_on_deployment: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] untrusted_artifact_on_deployment: Code signing configuration policy for deployment validation failure. If you set the policy to `Enforce`, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to `Warn`, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
-        """
         pulumi.set(__self__, "untrusted_artifact_on_deployment", untrusted_artifact_on_deployment)
 
     @_builtins.property
     @pulumi.getter(name="untrustedArtifactOnDeployment")
     def untrusted_artifact_on_deployment(self) -> pulumi.Input[_builtins.str]:
-        """
-        Code signing configuration policy for deployment validation failure. If you set the policy to `Enforce`, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to `Warn`, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
-        """
         return pulumi.get(self, "untrusted_artifact_on_deployment")
 
     @untrusted_artifact_on_deployment.setter
@@ -539,13 +432,7 @@ class CodeSigningConfigPoliciesArgs:
 if not MYPY:
     class EventSourceMappingAmazonManagedKafkaEventSourceConfigArgsDict(TypedDict):
         consumer_group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [AmazonManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_AmazonManagedKafkaEventSourceConfig.html).
-        """
         schema_registry_config: NotRequired[pulumi.Input['EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgsDict']]
-        """
-        Block for a Kafka schema registry setting. See below.
-        """
 elif False:
     EventSourceMappingAmazonManagedKafkaEventSourceConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -554,10 +441,6 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs:
     def __init__(__self__, *,
                  consumer_group_id: Optional[pulumi.Input[_builtins.str]] = None,
                  schema_registry_config: Optional[pulumi.Input['EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgs']] = None):
-        """
-        :param pulumi.Input[_builtins.str] consumer_group_id: Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [AmazonManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_AmazonManagedKafkaEventSourceConfig.html).
-        :param pulumi.Input['EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgs'] schema_registry_config: Block for a Kafka schema registry setting. See below.
-        """
         if consumer_group_id is not None:
             pulumi.set(__self__, "consumer_group_id", consumer_group_id)
         if schema_registry_config is not None:
@@ -566,9 +449,6 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs:
     @_builtins.property
     @pulumi.getter(name="consumerGroupId")
     def consumer_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [AmazonManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_AmazonManagedKafkaEventSourceConfig.html).
-        """
         return pulumi.get(self, "consumer_group_id")
 
     @consumer_group_id.setter
@@ -578,9 +458,6 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs:
     @_builtins.property
     @pulumi.getter(name="schemaRegistryConfig")
     def schema_registry_config(self) -> Optional[pulumi.Input['EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgs']]:
-        """
-        Block for a Kafka schema registry setting. See below.
-        """
         return pulumi.get(self, "schema_registry_config")
 
     @schema_registry_config.setter
@@ -591,21 +468,9 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs:
 if not MYPY:
     class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgsDict(TypedDict):
         access_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgsDict']]]]
-        """
-        Configuration block for authentication Lambda uses to access the schema registry.
-        """
         event_record_format: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
-        """
         schema_registry_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
-        """
         schema_validation_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgsDict']]]]
-        """
-        Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
-        """
 elif False:
     EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -616,12 +481,6 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigA
                  event_record_format: Optional[pulumi.Input[_builtins.str]] = None,
                  schema_registry_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  schema_validation_configs: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs']]] access_configs: Configuration block for authentication Lambda uses to access the schema registry.
-        :param pulumi.Input[_builtins.str] event_record_format: Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
-        :param pulumi.Input[_builtins.str] schema_registry_uri: URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
-        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs']]] schema_validation_configs: Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
-        """
         if access_configs is not None:
             pulumi.set(__self__, "access_configs", access_configs)
         if event_record_format is not None:
@@ -634,9 +493,6 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigA
     @_builtins.property
     @pulumi.getter(name="accessConfigs")
     def access_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs']]]]:
-        """
-        Configuration block for authentication Lambda uses to access the schema registry.
-        """
         return pulumi.get(self, "access_configs")
 
     @access_configs.setter
@@ -646,9 +502,6 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigA
     @_builtins.property
     @pulumi.getter(name="eventRecordFormat")
     def event_record_format(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
-        """
         return pulumi.get(self, "event_record_format")
 
     @event_record_format.setter
@@ -658,9 +511,6 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigA
     @_builtins.property
     @pulumi.getter(name="schemaRegistryUri")
     def schema_registry_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
-        """
         return pulumi.get(self, "schema_registry_uri")
 
     @schema_registry_uri.setter
@@ -670,9 +520,6 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigA
     @_builtins.property
     @pulumi.getter(name="schemaValidationConfigs")
     def schema_validation_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs']]]]:
-        """
-        Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
-        """
         return pulumi.get(self, "schema_validation_configs")
 
     @schema_validation_configs.setter
@@ -683,13 +530,7 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigA
 if not MYPY:
     class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgsDict(TypedDict):
         type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Authentication type Lambda uses to access the schema registry.
-        """
         uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
-        """
 elif False:
     EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -698,10 +539,6 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigA
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] type: Authentication type Lambda uses to access the schema registry.
-        :param pulumi.Input[_builtins.str] uri: URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
-        """
         if type is not None:
             pulumi.set(__self__, "type", type)
         if uri is not None:
@@ -710,9 +547,6 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigA
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Authentication type Lambda uses to access the schema registry.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -722,9 +556,6 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigA
     @_builtins.property
     @pulumi.getter
     def uri(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
-        """
         return pulumi.get(self, "uri")
 
     @uri.setter
@@ -735,9 +566,6 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigA
 if not MYPY:
     class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgsDict(TypedDict):
         attribute: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Message attribute to validate. Valid values: `KEY`, `VALUE`.
-        """
 elif False:
     EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -745,18 +573,12 @@ elif False:
 class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs:
     def __init__(__self__, *,
                  attribute: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] attribute: Message attribute to validate. Valid values: `KEY`, `VALUE`.
-        """
         if attribute is not None:
             pulumi.set(__self__, "attribute", attribute)
 
     @_builtins.property
     @pulumi.getter
     def attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Message attribute to validate. Valid values: `KEY`, `VALUE`.
-        """
         return pulumi.get(self, "attribute")
 
     @attribute.setter
@@ -767,9 +589,6 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigS
 if not MYPY:
     class EventSourceMappingDestinationConfigArgsDict(TypedDict):
         on_failure: NotRequired[pulumi.Input['EventSourceMappingDestinationConfigOnFailureArgsDict']]
-        """
-        Destination configuration for failed invocations. See below.
-        """
 elif False:
     EventSourceMappingDestinationConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -777,18 +596,12 @@ elif False:
 class EventSourceMappingDestinationConfigArgs:
     def __init__(__self__, *,
                  on_failure: Optional[pulumi.Input['EventSourceMappingDestinationConfigOnFailureArgs']] = None):
-        """
-        :param pulumi.Input['EventSourceMappingDestinationConfigOnFailureArgs'] on_failure: Destination configuration for failed invocations. See below.
-        """
         if on_failure is not None:
             pulumi.set(__self__, "on_failure", on_failure)
 
     @_builtins.property
     @pulumi.getter(name="onFailure")
     def on_failure(self) -> Optional[pulumi.Input['EventSourceMappingDestinationConfigOnFailureArgs']]:
-        """
-        Destination configuration for failed invocations. See below.
-        """
         return pulumi.get(self, "on_failure")
 
     @on_failure.setter
@@ -799,9 +612,6 @@ class EventSourceMappingDestinationConfigArgs:
 if not MYPY:
     class EventSourceMappingDestinationConfigOnFailureArgsDict(TypedDict):
         destination_arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the destination resource, or `kafka://your-topic-name` for Amazon MSK and self-managed Apache Kafka destinations.
-        """
 elif False:
     EventSourceMappingDestinationConfigOnFailureArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -809,17 +619,11 @@ elif False:
 class EventSourceMappingDestinationConfigOnFailureArgs:
     def __init__(__self__, *,
                  destination_arn: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] destination_arn: ARN of the destination resource, or `kafka://your-topic-name` for Amazon MSK and self-managed Apache Kafka destinations.
-        """
         pulumi.set(__self__, "destination_arn", destination_arn)
 
     @_builtins.property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the destination resource, or `kafka://your-topic-name` for Amazon MSK and self-managed Apache Kafka destinations.
-        """
         return pulumi.get(self, "destination_arn")
 
     @destination_arn.setter
@@ -830,17 +634,8 @@ class EventSourceMappingDestinationConfigOnFailureArgs:
 if not MYPY:
     class EventSourceMappingDocumentDbEventSourceConfigArgsDict(TypedDict):
         database_name: pulumi.Input[_builtins.str]
-        """
-        Name of the database to consume within the DocumentDB cluster.
-        """
         collection_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
-        """
         full_document: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
-        """
 elif False:
     EventSourceMappingDocumentDbEventSourceConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -850,11 +645,6 @@ class EventSourceMappingDocumentDbEventSourceConfigArgs:
                  database_name: pulumi.Input[_builtins.str],
                  collection_name: Optional[pulumi.Input[_builtins.str]] = None,
                  full_document: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] database_name: Name of the database to consume within the DocumentDB cluster.
-        :param pulumi.Input[_builtins.str] collection_name: Name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
-        :param pulumi.Input[_builtins.str] full_document: Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
-        """
         pulumi.set(__self__, "database_name", database_name)
         if collection_name is not None:
             pulumi.set(__self__, "collection_name", collection_name)
@@ -864,9 +654,6 @@ class EventSourceMappingDocumentDbEventSourceConfigArgs:
     @_builtins.property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the database to consume within the DocumentDB cluster.
-        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -876,9 +663,6 @@ class EventSourceMappingDocumentDbEventSourceConfigArgs:
     @_builtins.property
     @pulumi.getter(name="collectionName")
     def collection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
-        """
         return pulumi.get(self, "collection_name")
 
     @collection_name.setter
@@ -888,9 +672,6 @@ class EventSourceMappingDocumentDbEventSourceConfigArgs:
     @_builtins.property
     @pulumi.getter(name="fullDocument")
     def full_document(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
-        """
         return pulumi.get(self, "full_document")
 
     @full_document.setter
@@ -901,9 +682,6 @@ class EventSourceMappingDocumentDbEventSourceConfigArgs:
 if not MYPY:
     class EventSourceMappingFilterCriteriaArgsDict(TypedDict):
         filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterCriteriaFilterArgsDict']]]]
-        """
-        Set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. See below.
-        """
 elif False:
     EventSourceMappingFilterCriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -911,18 +689,12 @@ elif False:
 class EventSourceMappingFilterCriteriaArgs:
     def __init__(__self__, *,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterCriteriaFilterArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterCriteriaFilterArgs']]] filters: Set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. See below.
-        """
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
 
     @_builtins.property
     @pulumi.getter
     def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterCriteriaFilterArgs']]]]:
-        """
-        Set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. See below.
-        """
         return pulumi.get(self, "filters")
 
     @filters.setter
@@ -933,9 +705,6 @@ class EventSourceMappingFilterCriteriaArgs:
 if not MYPY:
     class EventSourceMappingFilterCriteriaFilterArgsDict(TypedDict):
         pattern: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
-        """
 elif False:
     EventSourceMappingFilterCriteriaFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -943,18 +712,12 @@ elif False:
 class EventSourceMappingFilterCriteriaFilterArgs:
     def __init__(__self__, *,
                  pattern: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] pattern: Filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
-        """
         if pattern is not None:
             pulumi.set(__self__, "pattern", pattern)
 
     @_builtins.property
     @pulumi.getter
     def pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
-        """
         return pulumi.get(self, "pattern")
 
     @pattern.setter
@@ -965,9 +728,6 @@ class EventSourceMappingFilterCriteriaFilterArgs:
 if not MYPY:
     class EventSourceMappingMetricsConfigArgsDict(TypedDict):
         metrics: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
-        """
 elif False:
     EventSourceMappingMetricsConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -975,17 +735,11 @@ elif False:
 class EventSourceMappingMetricsConfigArgs:
     def __init__(__self__, *,
                  metrics: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] metrics: List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
-        """
         pulumi.set(__self__, "metrics", metrics)
 
     @_builtins.property
     @pulumi.getter
     def metrics(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
-        """
         return pulumi.get(self, "metrics")
 
     @metrics.setter
@@ -996,17 +750,8 @@ class EventSourceMappingMetricsConfigArgs:
 if not MYPY:
     class EventSourceMappingProvisionedPollerConfigArgsDict(TypedDict):
         maximum_pollers: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
-        """
         minimum_pollers: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
-        """
         poller_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the provisioned poller group used to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
-        """
 elif False:
     EventSourceMappingProvisionedPollerConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1016,11 +761,6 @@ class EventSourceMappingProvisionedPollerConfigArgs:
                  maximum_pollers: Optional[pulumi.Input[_builtins.int]] = None,
                  minimum_pollers: Optional[pulumi.Input[_builtins.int]] = None,
                  poller_group_name: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.int] maximum_pollers: Maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
-        :param pulumi.Input[_builtins.int] minimum_pollers: Minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
-        :param pulumi.Input[_builtins.str] poller_group_name: The name of the provisioned poller group used to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
-        """
         if maximum_pollers is not None:
             pulumi.set(__self__, "maximum_pollers", maximum_pollers)
         if minimum_pollers is not None:
@@ -1031,9 +771,6 @@ class EventSourceMappingProvisionedPollerConfigArgs:
     @_builtins.property
     @pulumi.getter(name="maximumPollers")
     def maximum_pollers(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
-        """
         return pulumi.get(self, "maximum_pollers")
 
     @maximum_pollers.setter
@@ -1043,9 +780,6 @@ class EventSourceMappingProvisionedPollerConfigArgs:
     @_builtins.property
     @pulumi.getter(name="minimumPollers")
     def minimum_pollers(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
-        """
         return pulumi.get(self, "minimum_pollers")
 
     @minimum_pollers.setter
@@ -1055,9 +789,6 @@ class EventSourceMappingProvisionedPollerConfigArgs:
     @_builtins.property
     @pulumi.getter(name="pollerGroupName")
     def poller_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the provisioned poller group used to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
-        """
         return pulumi.get(self, "poller_group_name")
 
     @poller_group_name.setter
@@ -1068,9 +799,6 @@ class EventSourceMappingProvisionedPollerConfigArgs:
 if not MYPY:
     class EventSourceMappingScalingConfigArgsDict(TypedDict):
         maximum_concurrency: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Limits the number of concurrent instances that the Amazon SQS event source can invoke. Must be greater than or equal to 2. See [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency). You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase the concurrency beyond 1000.
-        """
 elif False:
     EventSourceMappingScalingConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1078,18 +806,12 @@ elif False:
 class EventSourceMappingScalingConfigArgs:
     def __init__(__self__, *,
                  maximum_concurrency: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.int] maximum_concurrency: Limits the number of concurrent instances that the Amazon SQS event source can invoke. Must be greater than or equal to 2. See [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency). You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase the concurrency beyond 1000.
-        """
         if maximum_concurrency is not None:
             pulumi.set(__self__, "maximum_concurrency", maximum_concurrency)
 
     @_builtins.property
     @pulumi.getter(name="maximumConcurrency")
     def maximum_concurrency(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Limits the number of concurrent instances that the Amazon SQS event source can invoke. Must be greater than or equal to 2. See [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency). You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase the concurrency beyond 1000.
-        """
         return pulumi.get(self, "maximum_concurrency")
 
     @maximum_concurrency.setter
@@ -1100,9 +822,6 @@ class EventSourceMappingScalingConfigArgs:
 if not MYPY:
     class EventSourceMappingSelfManagedEventSourceArgsDict(TypedDict):
         endpoints: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
-        """
-        Map of endpoints for the self managed source. For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
-        """
 elif False:
     EventSourceMappingSelfManagedEventSourceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1110,17 +829,11 @@ elif False:
 class EventSourceMappingSelfManagedEventSourceArgs:
     def __init__(__self__, *,
                  endpoints: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]):
-        """
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] endpoints: Map of endpoints for the self managed source. For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
-        """
         pulumi.set(__self__, "endpoints", endpoints)
 
     @_builtins.property
     @pulumi.getter
     def endpoints(self) -> pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]:
-        """
-        Map of endpoints for the self managed source. For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
-        """
         return pulumi.get(self, "endpoints")
 
     @endpoints.setter
@@ -1131,13 +844,7 @@ class EventSourceMappingSelfManagedEventSourceArgs:
 if not MYPY:
     class EventSourceMappingSelfManagedKafkaEventSourceConfigArgsDict(TypedDict):
         consumer_group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
-        """
         schema_registry_config: NotRequired[pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgsDict']]
-        """
-        Block for a Kafka schema registry setting. See below.
-        """
 elif False:
     EventSourceMappingSelfManagedKafkaEventSourceConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1146,10 +853,6 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigArgs:
     def __init__(__self__, *,
                  consumer_group_id: Optional[pulumi.Input[_builtins.str]] = None,
                  schema_registry_config: Optional[pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgs']] = None):
-        """
-        :param pulumi.Input[_builtins.str] consumer_group_id: Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
-        :param pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgs'] schema_registry_config: Block for a Kafka schema registry setting. See below.
-        """
         if consumer_group_id is not None:
             pulumi.set(__self__, "consumer_group_id", consumer_group_id)
         if schema_registry_config is not None:
@@ -1158,9 +861,6 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigArgs:
     @_builtins.property
     @pulumi.getter(name="consumerGroupId")
     def consumer_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
-        """
         return pulumi.get(self, "consumer_group_id")
 
     @consumer_group_id.setter
@@ -1170,9 +870,6 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigArgs:
     @_builtins.property
     @pulumi.getter(name="schemaRegistryConfig")
     def schema_registry_config(self) -> Optional[pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgs']]:
-        """
-        Block for a Kafka schema registry setting. See below.
-        """
         return pulumi.get(self, "schema_registry_config")
 
     @schema_registry_config.setter
@@ -1183,21 +880,9 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigArgs:
 if not MYPY:
     class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgsDict(TypedDict):
         access_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgsDict']]]]
-        """
-        Configuration block for authentication Lambda uses to access the schema registry.
-        """
         event_record_format: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
-        """
         schema_registry_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
-        """
         schema_validation_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgsDict']]]]
-        """
-        Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
-        """
 elif False:
     EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1208,12 +893,6 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArg
                  event_record_format: Optional[pulumi.Input[_builtins.str]] = None,
                  schema_registry_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  schema_validation_configs: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs']]] access_configs: Configuration block for authentication Lambda uses to access the schema registry.
-        :param pulumi.Input[_builtins.str] event_record_format: Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
-        :param pulumi.Input[_builtins.str] schema_registry_uri: URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
-        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs']]] schema_validation_configs: Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
-        """
         if access_configs is not None:
             pulumi.set(__self__, "access_configs", access_configs)
         if event_record_format is not None:
@@ -1226,9 +905,6 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArg
     @_builtins.property
     @pulumi.getter(name="accessConfigs")
     def access_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs']]]]:
-        """
-        Configuration block for authentication Lambda uses to access the schema registry.
-        """
         return pulumi.get(self, "access_configs")
 
     @access_configs.setter
@@ -1238,9 +914,6 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArg
     @_builtins.property
     @pulumi.getter(name="eventRecordFormat")
     def event_record_format(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
-        """
         return pulumi.get(self, "event_record_format")
 
     @event_record_format.setter
@@ -1250,9 +923,6 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArg
     @_builtins.property
     @pulumi.getter(name="schemaRegistryUri")
     def schema_registry_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
-        """
         return pulumi.get(self, "schema_registry_uri")
 
     @schema_registry_uri.setter
@@ -1262,9 +932,6 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArg
     @_builtins.property
     @pulumi.getter(name="schemaValidationConfigs")
     def schema_validation_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs']]]]:
-        """
-        Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
-        """
         return pulumi.get(self, "schema_validation_configs")
 
     @schema_validation_configs.setter
@@ -1275,13 +942,7 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArg
 if not MYPY:
     class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgsDict(TypedDict):
         type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Authentication type Lambda uses to access the schema registry.
-        """
         uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
-        """
 elif False:
     EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1290,10 +951,6 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAcc
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] type: Authentication type Lambda uses to access the schema registry.
-        :param pulumi.Input[_builtins.str] uri: URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
-        """
         if type is not None:
             pulumi.set(__self__, "type", type)
         if uri is not None:
@@ -1302,9 +959,6 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAcc
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Authentication type Lambda uses to access the schema registry.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1314,9 +968,6 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAcc
     @_builtins.property
     @pulumi.getter
     def uri(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
-        """
         return pulumi.get(self, "uri")
 
     @uri.setter
@@ -1327,9 +978,6 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAcc
 if not MYPY:
     class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgsDict(TypedDict):
         attribute: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Message attribute to validate. Valid values: `KEY`, `VALUE`.
-        """
 elif False:
     EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1337,18 +985,12 @@ elif False:
 class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs:
     def __init__(__self__, *,
                  attribute: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] attribute: Message attribute to validate. Valid values: `KEY`, `VALUE`.
-        """
         if attribute is not None:
             pulumi.set(__self__, "attribute", attribute)
 
     @_builtins.property
     @pulumi.getter
     def attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Message attribute to validate. Valid values: `KEY`, `VALUE`.
-        """
         return pulumi.get(self, "attribute")
 
     @attribute.setter
@@ -1359,13 +1001,7 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSch
 if not MYPY:
     class EventSourceMappingSourceAccessConfigurationArgsDict(TypedDict):
         type: pulumi.Input[_builtins.str]
-        """
-        Type of authentication protocol, VPC components, or virtual host for your event source. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html).
-        """
         uri: pulumi.Input[_builtins.str]
-        """
-        URI for this configuration. For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnet_id` is the value you would find in an ec2.Subnet resource's id attribute. For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `security_group_id` is the value you would find in an ec2.SecurityGroup resource's id attribute.
-        """
 elif False:
     EventSourceMappingSourceAccessConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1374,19 +1010,12 @@ class EventSourceMappingSourceAccessConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
                  uri: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] type: Type of authentication protocol, VPC components, or virtual host for your event source. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html).
-        :param pulumi.Input[_builtins.str] uri: URI for this configuration. For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnet_id` is the value you would find in an ec2.Subnet resource's id attribute. For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `security_group_id` is the value you would find in an ec2.SecurityGroup resource's id attribute.
-        """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "uri", uri)
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Type of authentication protocol, VPC components, or virtual host for your event source. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html).
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1396,9 +1025,6 @@ class EventSourceMappingSourceAccessConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def uri(self) -> pulumi.Input[_builtins.str]:
-        """
-        URI for this configuration. For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnet_id` is the value you would find in an ec2.Subnet resource's id attribute. For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `security_group_id` is the value you would find in an ec2.SecurityGroup resource's id attribute.
-        """
         return pulumi.get(self, "uri")
 
     @uri.setter
@@ -1409,9 +1035,6 @@ class EventSourceMappingSourceAccessConfigurationArgs:
 if not MYPY:
     class FunctionCapacityProviderConfigArgsDict(TypedDict):
         lambda_managed_instances_capacity_provider_config: pulumi.Input['FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgsDict']
-        """
-        Configuration block for Lambda Managed Instances Capacity Provider. See below.
-        """
 elif False:
     FunctionCapacityProviderConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1419,17 +1042,11 @@ elif False:
 class FunctionCapacityProviderConfigArgs:
     def __init__(__self__, *,
                  lambda_managed_instances_capacity_provider_config: pulumi.Input['FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs']):
-        """
-        :param pulumi.Input['FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs'] lambda_managed_instances_capacity_provider_config: Configuration block for Lambda Managed Instances Capacity Provider. See below.
-        """
         pulumi.set(__self__, "lambda_managed_instances_capacity_provider_config", lambda_managed_instances_capacity_provider_config)
 
     @_builtins.property
     @pulumi.getter(name="lambdaManagedInstancesCapacityProviderConfig")
     def lambda_managed_instances_capacity_provider_config(self) -> pulumi.Input['FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs']:
-        """
-        Configuration block for Lambda Managed Instances Capacity Provider. See below.
-        """
         return pulumi.get(self, "lambda_managed_instances_capacity_provider_config")
 
     @lambda_managed_instances_capacity_provider_config.setter
@@ -1440,17 +1057,8 @@ class FunctionCapacityProviderConfigArgs:
 if not MYPY:
     class FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgsDict(TypedDict):
         capacity_provider_arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the Capacity Provider.
-        """
         execution_environment_memory_gib_per_vcpu: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Memory GiB per vCPU for the execution environment.
-        """
         per_execution_environment_max_concurrency: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum concurrency per execution environment.
-        """
 elif False:
     FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1460,11 +1068,6 @@ class FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig
                  capacity_provider_arn: pulumi.Input[_builtins.str],
                  execution_environment_memory_gib_per_vcpu: Optional[pulumi.Input[_builtins.float]] = None,
                  per_execution_environment_max_concurrency: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.str] capacity_provider_arn: ARN of the Capacity Provider.
-        :param pulumi.Input[_builtins.float] execution_environment_memory_gib_per_vcpu: Memory GiB per vCPU for the execution environment.
-        :param pulumi.Input[_builtins.int] per_execution_environment_max_concurrency: Maximum concurrency per execution environment.
-        """
         pulumi.set(__self__, "capacity_provider_arn", capacity_provider_arn)
         if execution_environment_memory_gib_per_vcpu is not None:
             pulumi.set(__self__, "execution_environment_memory_gib_per_vcpu", execution_environment_memory_gib_per_vcpu)
@@ -1474,9 +1077,6 @@ class FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig
     @_builtins.property
     @pulumi.getter(name="capacityProviderArn")
     def capacity_provider_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the Capacity Provider.
-        """
         return pulumi.get(self, "capacity_provider_arn")
 
     @capacity_provider_arn.setter
@@ -1486,9 +1086,6 @@ class FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig
     @_builtins.property
     @pulumi.getter(name="executionEnvironmentMemoryGibPerVcpu")
     def execution_environment_memory_gib_per_vcpu(self) -> Optional[pulumi.Input[_builtins.float]]:
-        """
-        Memory GiB per vCPU for the execution environment.
-        """
         return pulumi.get(self, "execution_environment_memory_gib_per_vcpu")
 
     @execution_environment_memory_gib_per_vcpu.setter
@@ -1498,9 +1095,6 @@ class FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig
     @_builtins.property
     @pulumi.getter(name="perExecutionEnvironmentMaxConcurrency")
     def per_execution_environment_max_concurrency(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Maximum concurrency per execution environment.
-        """
         return pulumi.get(self, "per_execution_environment_max_concurrency")
 
     @per_execution_environment_max_concurrency.setter
@@ -1511,9 +1105,6 @@ class FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig
 if not MYPY:
     class FunctionDeadLetterConfigArgsDict(TypedDict):
         target_arn: pulumi.Input[_builtins.str]
-        """
-        ARN of an SNS topic or SQS queue to notify when an invocation fails.
-        """
 elif False:
     FunctionDeadLetterConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1521,17 +1112,11 @@ elif False:
 class FunctionDeadLetterConfigArgs:
     def __init__(__self__, *,
                  target_arn: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] target_arn: ARN of an SNS topic or SQS queue to notify when an invocation fails.
-        """
         pulumi.set(__self__, "target_arn", target_arn)
 
     @_builtins.property
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of an SNS topic or SQS queue to notify when an invocation fails.
-        """
         return pulumi.get(self, "target_arn")
 
     @target_arn.setter
@@ -1542,13 +1127,7 @@ class FunctionDeadLetterConfigArgs:
 if not MYPY:
     class FunctionDurableConfigArgsDict(TypedDict):
         execution_timeout: pulumi.Input[_builtins.int]
-        """
-        Maximum execution time in seconds for the durable function. Valid value between 1 and 31622400 (366 days).
-        """
         retention_period: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of days to retain the function's execution state. Valid value between 1 and 90. If not specified, the function's execution state is not retained. Defaults to 14.
-        """
 elif False:
     FunctionDurableConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1557,10 +1136,6 @@ class FunctionDurableConfigArgs:
     def __init__(__self__, *,
                  execution_timeout: pulumi.Input[_builtins.int],
                  retention_period: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.int] execution_timeout: Maximum execution time in seconds for the durable function. Valid value between 1 and 31622400 (366 days).
-        :param pulumi.Input[_builtins.int] retention_period: Number of days to retain the function's execution state. Valid value between 1 and 90. If not specified, the function's execution state is not retained. Defaults to 14.
-        """
         pulumi.set(__self__, "execution_timeout", execution_timeout)
         if retention_period is not None:
             pulumi.set(__self__, "retention_period", retention_period)
@@ -1568,9 +1143,6 @@ class FunctionDurableConfigArgs:
     @_builtins.property
     @pulumi.getter(name="executionTimeout")
     def execution_timeout(self) -> pulumi.Input[_builtins.int]:
-        """
-        Maximum execution time in seconds for the durable function. Valid value between 1 and 31622400 (366 days).
-        """
         return pulumi.get(self, "execution_timeout")
 
     @execution_timeout.setter
@@ -1580,9 +1152,6 @@ class FunctionDurableConfigArgs:
     @_builtins.property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of days to retain the function's execution state. Valid value between 1 and 90. If not specified, the function's execution state is not retained. Defaults to 14.
-        """
         return pulumi.get(self, "retention_period")
 
     @retention_period.setter
@@ -1593,9 +1162,6 @@ class FunctionDurableConfigArgs:
 if not MYPY:
     class FunctionEnvironmentArgsDict(TypedDict):
         variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Map of environment variables available to your Lambda function during execution.
-        """
 elif False:
     FunctionEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1603,18 +1169,12 @@ elif False:
 class FunctionEnvironmentArgs:
     def __init__(__self__, *,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] variables: Map of environment variables available to your Lambda function during execution.
-        """
         if variables is not None:
             pulumi.set(__self__, "variables", variables)
 
     @_builtins.property
     @pulumi.getter
     def variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of environment variables available to your Lambda function during execution.
-        """
         return pulumi.get(self, "variables")
 
     @variables.setter
@@ -1625,9 +1185,6 @@ class FunctionEnvironmentArgs:
 if not MYPY:
     class FunctionEphemeralStorageArgsDict(TypedDict):
         size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Amount of ephemeral storage (`/tmp`) in MB. Valid between 512 MB and 10,240 MB (10 GB).
-        """
 elif False:
     FunctionEphemeralStorageArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1635,18 +1192,12 @@ elif False:
 class FunctionEphemeralStorageArgs:
     def __init__(__self__, *,
                  size: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.int] size: Amount of ephemeral storage (`/tmp`) in MB. Valid between 512 MB and 10,240 MB (10 GB).
-        """
         if size is not None:
             pulumi.set(__self__, "size", size)
 
     @_builtins.property
     @pulumi.getter
     def size(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Amount of ephemeral storage (`/tmp`) in MB. Valid between 512 MB and 10,240 MB (10 GB).
-        """
         return pulumi.get(self, "size")
 
     @size.setter
@@ -1657,13 +1208,7 @@ class FunctionEphemeralStorageArgs:
 if not MYPY:
     class FunctionEventInvokeConfigDestinationConfigArgsDict(TypedDict):
         on_failure: NotRequired[pulumi.Input['FunctionEventInvokeConfigDestinationConfigOnFailureArgsDict']]
-        """
-        Configuration block with destination configuration for failed asynchronous invocations. See below.
-        """
         on_success: NotRequired[pulumi.Input['FunctionEventInvokeConfigDestinationConfigOnSuccessArgsDict']]
-        """
-        Configuration block with destination configuration for successful asynchronous invocations. See below.
-        """
 elif False:
     FunctionEventInvokeConfigDestinationConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1672,10 +1217,6 @@ class FunctionEventInvokeConfigDestinationConfigArgs:
     def __init__(__self__, *,
                  on_failure: Optional[pulumi.Input['FunctionEventInvokeConfigDestinationConfigOnFailureArgs']] = None,
                  on_success: Optional[pulumi.Input['FunctionEventInvokeConfigDestinationConfigOnSuccessArgs']] = None):
-        """
-        :param pulumi.Input['FunctionEventInvokeConfigDestinationConfigOnFailureArgs'] on_failure: Configuration block with destination configuration for failed asynchronous invocations. See below.
-        :param pulumi.Input['FunctionEventInvokeConfigDestinationConfigOnSuccessArgs'] on_success: Configuration block with destination configuration for successful asynchronous invocations. See below.
-        """
         if on_failure is not None:
             pulumi.set(__self__, "on_failure", on_failure)
         if on_success is not None:
@@ -1684,9 +1225,6 @@ class FunctionEventInvokeConfigDestinationConfigArgs:
     @_builtins.property
     @pulumi.getter(name="onFailure")
     def on_failure(self) -> Optional[pulumi.Input['FunctionEventInvokeConfigDestinationConfigOnFailureArgs']]:
-        """
-        Configuration block with destination configuration for failed asynchronous invocations. See below.
-        """
         return pulumi.get(self, "on_failure")
 
     @on_failure.setter
@@ -1696,9 +1234,6 @@ class FunctionEventInvokeConfigDestinationConfigArgs:
     @_builtins.property
     @pulumi.getter(name="onSuccess")
     def on_success(self) -> Optional[pulumi.Input['FunctionEventInvokeConfigDestinationConfigOnSuccessArgs']]:
-        """
-        Configuration block with destination configuration for successful asynchronous invocations. See below.
-        """
         return pulumi.get(self, "on_success")
 
     @on_success.setter
@@ -1709,9 +1244,6 @@ class FunctionEventInvokeConfigDestinationConfigArgs:
 if not MYPY:
     class FunctionEventInvokeConfigDestinationConfigOnFailureArgsDict(TypedDict):
         destination: pulumi.Input[_builtins.str]
-        """
-        ARN of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-        """
 elif False:
     FunctionEventInvokeConfigDestinationConfigOnFailureArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1719,17 +1251,11 @@ elif False:
 class FunctionEventInvokeConfigDestinationConfigOnFailureArgs:
     def __init__(__self__, *,
                  destination: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] destination: ARN of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-        """
         pulumi.set(__self__, "destination", destination)
 
     @_builtins.property
     @pulumi.getter
     def destination(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -1740,9 +1266,6 @@ class FunctionEventInvokeConfigDestinationConfigOnFailureArgs:
 if not MYPY:
     class FunctionEventInvokeConfigDestinationConfigOnSuccessArgsDict(TypedDict):
         destination: pulumi.Input[_builtins.str]
-        """
-        ARN of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-        """
 elif False:
     FunctionEventInvokeConfigDestinationConfigOnSuccessArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1750,17 +1273,11 @@ elif False:
 class FunctionEventInvokeConfigDestinationConfigOnSuccessArgs:
     def __init__(__self__, *,
                  destination: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] destination: ARN of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-        """
         pulumi.set(__self__, "destination", destination)
 
     @_builtins.property
     @pulumi.getter
     def destination(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -1771,13 +1288,7 @@ class FunctionEventInvokeConfigDestinationConfigOnSuccessArgs:
 if not MYPY:
     class FunctionFileSystemConfigArgsDict(TypedDict):
         arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the Amazon EFS Access Point.
-        """
         local_mount_path: pulumi.Input[_builtins.str]
-        """
-        Path where the function can access the file system. Must start with `/mnt/`.
-        """
 elif False:
     FunctionFileSystemConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1786,19 +1297,12 @@ class FunctionFileSystemConfigArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[_builtins.str],
                  local_mount_path: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] arn: ARN of the Amazon EFS Access Point.
-        :param pulumi.Input[_builtins.str] local_mount_path: Path where the function can access the file system. Must start with `/mnt/`.
-        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "local_mount_path", local_mount_path)
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the Amazon EFS Access Point.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -1808,9 +1312,6 @@ class FunctionFileSystemConfigArgs:
     @_builtins.property
     @pulumi.getter(name="localMountPath")
     def local_mount_path(self) -> pulumi.Input[_builtins.str]:
-        """
-        Path where the function can access the file system. Must start with `/mnt/`.
-        """
         return pulumi.get(self, "local_mount_path")
 
     @local_mount_path.setter
@@ -1821,17 +1322,8 @@ class FunctionFileSystemConfigArgs:
 if not MYPY:
     class FunctionImageConfigArgsDict(TypedDict):
         commands: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Parameters to pass to the container image.
-        """
         entry_points: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Entry point to your application.
-        """
         working_directory: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Working directory for the container image.
-        """
 elif False:
     FunctionImageConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1841,11 +1333,6 @@ class FunctionImageConfigArgs:
                  commands: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  entry_points: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  working_directory: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] commands: Parameters to pass to the container image.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] entry_points: Entry point to your application.
-        :param pulumi.Input[_builtins.str] working_directory: Working directory for the container image.
-        """
         if commands is not None:
             pulumi.set(__self__, "commands", commands)
         if entry_points is not None:
@@ -1856,9 +1343,6 @@ class FunctionImageConfigArgs:
     @_builtins.property
     @pulumi.getter
     def commands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Parameters to pass to the container image.
-        """
         return pulumi.get(self, "commands")
 
     @commands.setter
@@ -1868,9 +1352,6 @@ class FunctionImageConfigArgs:
     @_builtins.property
     @pulumi.getter(name="entryPoints")
     def entry_points(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Entry point to your application.
-        """
         return pulumi.get(self, "entry_points")
 
     @entry_points.setter
@@ -1880,9 +1361,6 @@ class FunctionImageConfigArgs:
     @_builtins.property
     @pulumi.getter(name="workingDirectory")
     def working_directory(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Working directory for the container image.
-        """
         return pulumi.get(self, "working_directory")
 
     @working_directory.setter
@@ -1893,21 +1371,9 @@ class FunctionImageConfigArgs:
 if not MYPY:
     class FunctionLoggingConfigArgsDict(TypedDict):
         log_format: pulumi.Input[_builtins.str]
-        """
-        Log format. Valid values: `Text`, `JSON`.
-        """
         application_log_level: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Detail level of application logs. Valid values: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`.
-        """
         log_group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        CloudWatch log group where logs are sent.
-        """
         system_log_level: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Detail level of Lambda platform logs. Valid values: `DEBUG`, `INFO`, `WARN`.
-        """
 elif False:
     FunctionLoggingConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1918,12 +1384,6 @@ class FunctionLoggingConfigArgs:
                  application_log_level: Optional[pulumi.Input[_builtins.str]] = None,
                  log_group: Optional[pulumi.Input[_builtins.str]] = None,
                  system_log_level: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] log_format: Log format. Valid values: `Text`, `JSON`.
-        :param pulumi.Input[_builtins.str] application_log_level: Detail level of application logs. Valid values: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`.
-        :param pulumi.Input[_builtins.str] log_group: CloudWatch log group where logs are sent.
-        :param pulumi.Input[_builtins.str] system_log_level: Detail level of Lambda platform logs. Valid values: `DEBUG`, `INFO`, `WARN`.
-        """
         pulumi.set(__self__, "log_format", log_format)
         if application_log_level is not None:
             pulumi.set(__self__, "application_log_level", application_log_level)
@@ -1935,9 +1395,6 @@ class FunctionLoggingConfigArgs:
     @_builtins.property
     @pulumi.getter(name="logFormat")
     def log_format(self) -> pulumi.Input[_builtins.str]:
-        """
-        Log format. Valid values: `Text`, `JSON`.
-        """
         return pulumi.get(self, "log_format")
 
     @log_format.setter
@@ -1947,9 +1404,6 @@ class FunctionLoggingConfigArgs:
     @_builtins.property
     @pulumi.getter(name="applicationLogLevel")
     def application_log_level(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Detail level of application logs. Valid values: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`.
-        """
         return pulumi.get(self, "application_log_level")
 
     @application_log_level.setter
@@ -1959,9 +1413,6 @@ class FunctionLoggingConfigArgs:
     @_builtins.property
     @pulumi.getter(name="logGroup")
     def log_group(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        CloudWatch log group where logs are sent.
-        """
         return pulumi.get(self, "log_group")
 
     @log_group.setter
@@ -1971,9 +1422,6 @@ class FunctionLoggingConfigArgs:
     @_builtins.property
     @pulumi.getter(name="systemLogLevel")
     def system_log_level(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Detail level of Lambda platform logs. Valid values: `DEBUG`, `INFO`, `WARN`.
-        """
         return pulumi.get(self, "system_log_level")
 
     @system_log_level.setter
@@ -1984,13 +1432,7 @@ class FunctionLoggingConfigArgs:
 if not MYPY:
     class FunctionSnapStartArgsDict(TypedDict):
         apply_on: pulumi.Input[_builtins.str]
-        """
-        When to apply snap start optimization. Valid value: `PublishedVersions`.
-        """
         optimization_status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optimization status of the snap start configuration. Valid values are `On` and `Off`.
-        """
 elif False:
     FunctionSnapStartArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1999,10 +1441,6 @@ class FunctionSnapStartArgs:
     def __init__(__self__, *,
                  apply_on: pulumi.Input[_builtins.str],
                  optimization_status: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] apply_on: When to apply snap start optimization. Valid value: `PublishedVersions`.
-        :param pulumi.Input[_builtins.str] optimization_status: Optimization status of the snap start configuration. Valid values are `On` and `Off`.
-        """
         pulumi.set(__self__, "apply_on", apply_on)
         if optimization_status is not None:
             pulumi.set(__self__, "optimization_status", optimization_status)
@@ -2010,9 +1448,6 @@ class FunctionSnapStartArgs:
     @_builtins.property
     @pulumi.getter(name="applyOn")
     def apply_on(self) -> pulumi.Input[_builtins.str]:
-        """
-        When to apply snap start optimization. Valid value: `PublishedVersions`.
-        """
         return pulumi.get(self, "apply_on")
 
     @apply_on.setter
@@ -2022,9 +1457,6 @@ class FunctionSnapStartArgs:
     @_builtins.property
     @pulumi.getter(name="optimizationStatus")
     def optimization_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Optimization status of the snap start configuration. Valid values are `On` and `Off`.
-        """
         return pulumi.get(self, "optimization_status")
 
     @optimization_status.setter
@@ -2035,9 +1467,6 @@ class FunctionSnapStartArgs:
 if not MYPY:
     class FunctionTenancyConfigArgsDict(TypedDict):
         tenant_isolation_mode: pulumi.Input[_builtins.str]
-        """
-        Tenant Isolation Mode. Valid values: `PER_TENANT`.
-        """
 elif False:
     FunctionTenancyConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2045,17 +1474,11 @@ elif False:
 class FunctionTenancyConfigArgs:
     def __init__(__self__, *,
                  tenant_isolation_mode: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] tenant_isolation_mode: Tenant Isolation Mode. Valid values: `PER_TENANT`.
-        """
         pulumi.set(__self__, "tenant_isolation_mode", tenant_isolation_mode)
 
     @_builtins.property
     @pulumi.getter(name="tenantIsolationMode")
     def tenant_isolation_mode(self) -> pulumi.Input[_builtins.str]:
-        """
-        Tenant Isolation Mode. Valid values: `PER_TENANT`.
-        """
         return pulumi.get(self, "tenant_isolation_mode")
 
     @tenant_isolation_mode.setter
@@ -2066,9 +1489,6 @@ class FunctionTenancyConfigArgs:
 if not MYPY:
     class FunctionTracingConfigArgsDict(TypedDict):
         mode: pulumi.Input[_builtins.str]
-        """
-        X-Ray tracing mode. Valid values: `Active`, `PassThrough`.
-        """
 elif False:
     FunctionTracingConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2076,17 +1496,11 @@ elif False:
 class FunctionTracingConfigArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] mode: X-Ray tracing mode. Valid values: `Active`, `PassThrough`.
-        """
         pulumi.set(__self__, "mode", mode)
 
     @_builtins.property
     @pulumi.getter
     def mode(self) -> pulumi.Input[_builtins.str]:
-        """
-        X-Ray tracing mode. Valid values: `Active`, `PassThrough`.
-        """
         return pulumi.get(self, "mode")
 
     @mode.setter
@@ -2097,29 +1511,11 @@ class FunctionTracingConfigArgs:
 if not MYPY:
     class FunctionUrlCorsArgsDict(TypedDict):
         allow_credentials: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to allow cookies or other credentials in requests to the function URL.
-        """
         allow_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        HTTP headers that origins can include in requests to the function URL.
-        """
         allow_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        HTTP methods that are allowed when calling the function URL.
-        """
         allow_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Origins that can access the function URL.
-        """
         expose_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        HTTP headers in your function response that you want to expose to origins that call the function URL.
-        """
         max_age: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum amount of time, in seconds, that web browsers can cache results of a preflight request. Maximum value is `86400`.
-        """
 elif False:
     FunctionUrlCorsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2132,14 +1528,6 @@ class FunctionUrlCorsArgs:
                  allow_origins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  expose_headers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  max_age: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.bool] allow_credentials: Whether to allow cookies or other credentials in requests to the function URL.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allow_headers: HTTP headers that origins can include in requests to the function URL.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allow_methods: HTTP methods that are allowed when calling the function URL.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allow_origins: Origins that can access the function URL.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] expose_headers: HTTP headers in your function response that you want to expose to origins that call the function URL.
-        :param pulumi.Input[_builtins.int] max_age: Maximum amount of time, in seconds, that web browsers can cache results of a preflight request. Maximum value is `86400`.
-        """
         if allow_credentials is not None:
             pulumi.set(__self__, "allow_credentials", allow_credentials)
         if allow_headers is not None:
@@ -2156,9 +1544,6 @@ class FunctionUrlCorsArgs:
     @_builtins.property
     @pulumi.getter(name="allowCredentials")
     def allow_credentials(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to allow cookies or other credentials in requests to the function URL.
-        """
         return pulumi.get(self, "allow_credentials")
 
     @allow_credentials.setter
@@ -2168,9 +1553,6 @@ class FunctionUrlCorsArgs:
     @_builtins.property
     @pulumi.getter(name="allowHeaders")
     def allow_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        HTTP headers that origins can include in requests to the function URL.
-        """
         return pulumi.get(self, "allow_headers")
 
     @allow_headers.setter
@@ -2180,9 +1562,6 @@ class FunctionUrlCorsArgs:
     @_builtins.property
     @pulumi.getter(name="allowMethods")
     def allow_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        HTTP methods that are allowed when calling the function URL.
-        """
         return pulumi.get(self, "allow_methods")
 
     @allow_methods.setter
@@ -2192,9 +1571,6 @@ class FunctionUrlCorsArgs:
     @_builtins.property
     @pulumi.getter(name="allowOrigins")
     def allow_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Origins that can access the function URL.
-        """
         return pulumi.get(self, "allow_origins")
 
     @allow_origins.setter
@@ -2204,9 +1580,6 @@ class FunctionUrlCorsArgs:
     @_builtins.property
     @pulumi.getter(name="exposeHeaders")
     def expose_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        HTTP headers in your function response that you want to expose to origins that call the function URL.
-        """
         return pulumi.get(self, "expose_headers")
 
     @expose_headers.setter
@@ -2216,9 +1589,6 @@ class FunctionUrlCorsArgs:
     @_builtins.property
     @pulumi.getter(name="maxAge")
     def max_age(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Maximum amount of time, in seconds, that web browsers can cache results of a preflight request. Maximum value is `86400`.
-        """
         return pulumi.get(self, "max_age")
 
     @max_age.setter
@@ -2229,21 +1599,9 @@ class FunctionUrlCorsArgs:
 if not MYPY:
     class FunctionVpcConfigArgsDict(TypedDict):
         security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of security group IDs associated with the Lambda function.
-        """
         subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of subnet IDs associated with the Lambda function.
-        """
         ipv6_allowed_for_dual_stack: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to allow outbound IPv6 traffic on VPC functions connected to dual-stack subnets. Default: `false`.
-        """
         vpc_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ID of the VPC.
-        """
 elif False:
     FunctionVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2254,12 +1612,6 @@ class FunctionVpcConfigArgs:
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  ipv6_allowed_for_dual_stack: Optional[pulumi.Input[_builtins.bool]] = None,
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of security group IDs associated with the Lambda function.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnet IDs associated with the Lambda function.
-        :param pulumi.Input[_builtins.bool] ipv6_allowed_for_dual_stack: Whether to allow outbound IPv6 traffic on VPC functions connected to dual-stack subnets. Default: `false`.
-        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC.
-        """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if ipv6_allowed_for_dual_stack is not None:
@@ -2270,9 +1622,6 @@ class FunctionVpcConfigArgs:
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        List of security group IDs associated with the Lambda function.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -2282,9 +1631,6 @@ class FunctionVpcConfigArgs:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        List of subnet IDs associated with the Lambda function.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -2294,9 +1640,6 @@ class FunctionVpcConfigArgs:
     @_builtins.property
     @pulumi.getter(name="ipv6AllowedForDualStack")
     def ipv6_allowed_for_dual_stack(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to allow outbound IPv6 traffic on VPC functions connected to dual-stack subnets. Default: `false`.
-        """
         return pulumi.get(self, "ipv6_allowed_for_dual_stack")
 
     @ipv6_allowed_for_dual_stack.setter
@@ -2306,9 +1649,6 @@ class FunctionVpcConfigArgs:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the VPC.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter

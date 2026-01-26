@@ -9,54 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Resource for managing an AWS EC2 (Elastic Compute Cloud) Default Credit Specification.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.DefaultCreditSpecification("example", new()
-    ///     {
-    ///         InstanceFamily = "t2",
-    ///         CpuCredits = "standard",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import EC2 (Elastic Compute Cloud) Default Credit Specification using the `instance_family`. For example:
-    /// 
-    /// % pulumi import aws_ec2_default_credit_specification.example t2
-    /// </summary>
     [AwsResourceType("aws:ec2/defaultCreditSpecification:DefaultCreditSpecification")]
     public partial class DefaultCreditSpecification : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Credit option for CPU usage of the instance family. Valid values: `Standard`, `Unlimited`.
-        /// </summary>
         [Output("cpuCredits")]
         public Output<string> CpuCredits { get; private set; } = null!;
 
-        /// <summary>
-        /// Instance family. Valid values are `T2`, `T3`, `T3a`, `T4g`.
-        /// </summary>
         [Output("instanceFamily")]
         public Output<string> InstanceFamily { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -109,21 +70,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class DefaultCreditSpecificationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Credit option for CPU usage of the instance family. Valid values: `Standard`, `Unlimited`.
-        /// </summary>
         [Input("cpuCredits", required: true)]
         public Input<string> CpuCredits { get; set; } = null!;
 
-        /// <summary>
-        /// Instance family. Valid values are `T2`, `T3`, `T3a`, `T4g`.
-        /// </summary>
         [Input("instanceFamily", required: true)]
         public Input<string> InstanceFamily { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -138,21 +90,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class DefaultCreditSpecificationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Credit option for CPU usage of the instance family. Valid values: `Standard`, `Unlimited`.
-        /// </summary>
         [Input("cpuCredits")]
         public Input<string>? CpuCredits { get; set; }
 
-        /// <summary>
-        /// Instance family. Valid values are `T2`, `T3`, `T3a`, `T4g`.
-        /// </summary>
         [Input("instanceFamily")]
         public Input<string>? InstanceFamily { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

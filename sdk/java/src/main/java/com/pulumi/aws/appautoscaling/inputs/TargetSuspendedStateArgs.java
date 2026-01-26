@@ -15,47 +15,23 @@ public final class TargetSuspendedStateArgs extends com.pulumi.resources.Resourc
 
     public static final TargetSuspendedStateArgs Empty = new TargetSuspendedStateArgs();
 
-    /**
-     * Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
-     * 
-     */
     @Import(name="dynamicScalingInSuspended")
     private @Nullable Output<Boolean> dynamicScalingInSuspended;
 
-    /**
-     * @return Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
-     * 
-     */
     public Optional<Output<Boolean>> dynamicScalingInSuspended() {
         return Optional.ofNullable(this.dynamicScalingInSuspended);
     }
 
-    /**
-     * Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
-     * 
-     */
     @Import(name="dynamicScalingOutSuspended")
     private @Nullable Output<Boolean> dynamicScalingOutSuspended;
 
-    /**
-     * @return Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
-     * 
-     */
     public Optional<Output<Boolean>> dynamicScalingOutSuspended() {
         return Optional.ofNullable(this.dynamicScalingOutSuspended);
     }
 
-    /**
-     * Whether scheduled scaling is suspended. Default is `false`.
-     * 
-     */
     @Import(name="scheduledScalingSuspended")
     private @Nullable Output<Boolean> scheduledScalingSuspended;
 
-    /**
-     * @return Whether scheduled scaling is suspended. Default is `false`.
-     * 
-     */
     public Optional<Output<Boolean>> scheduledScalingSuspended() {
         return Optional.ofNullable(this.scheduledScalingSuspended);
     }
@@ -86,65 +62,29 @@ public final class TargetSuspendedStateArgs extends com.pulumi.resources.Resourc
             $ = new TargetSuspendedStateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dynamicScalingInSuspended Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dynamicScalingInSuspended(@Nullable Output<Boolean> dynamicScalingInSuspended) {
             $.dynamicScalingInSuspended = dynamicScalingInSuspended;
             return this;
         }
 
-        /**
-         * @param dynamicScalingInSuspended Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dynamicScalingInSuspended(Boolean dynamicScalingInSuspended) {
             return dynamicScalingInSuspended(Output.of(dynamicScalingInSuspended));
         }
 
-        /**
-         * @param dynamicScalingOutSuspended Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dynamicScalingOutSuspended(@Nullable Output<Boolean> dynamicScalingOutSuspended) {
             $.dynamicScalingOutSuspended = dynamicScalingOutSuspended;
             return this;
         }
 
-        /**
-         * @param dynamicScalingOutSuspended Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dynamicScalingOutSuspended(Boolean dynamicScalingOutSuspended) {
             return dynamicScalingOutSuspended(Output.of(dynamicScalingOutSuspended));
         }
 
-        /**
-         * @param scheduledScalingSuspended Whether scheduled scaling is suspended. Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scheduledScalingSuspended(@Nullable Output<Boolean> scheduledScalingSuspended) {
             $.scheduledScalingSuspended = scheduledScalingSuspended;
             return this;
         }
 
-        /**
-         * @param scheduledScalingSuspended Whether scheduled scaling is suspended. Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scheduledScalingSuspended(Boolean scheduledScalingSuspended) {
             return scheduledScalingSuspended(Output.of(scheduledScalingSuspended));
         }

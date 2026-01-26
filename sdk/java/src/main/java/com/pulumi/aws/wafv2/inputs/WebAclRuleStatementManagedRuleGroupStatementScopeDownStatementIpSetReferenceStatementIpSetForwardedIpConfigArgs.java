@@ -14,47 +14,23 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
 
     public static final WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs();
 
-    /**
-     * Match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-     * 
-     */
     @Import(name="fallbackBehavior", required=true)
     private Output<String> fallbackBehavior;
 
-    /**
-     * @return Match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-     * 
-     */
     public Output<String> fallbackBehavior() {
         return this.fallbackBehavior;
     }
 
-    /**
-     * Name of the HTTP header to use for the IP address.
-     * 
-     */
     @Import(name="headerName", required=true)
     private Output<String> headerName;
 
-    /**
-     * @return Name of the HTTP header to use for the IP address.
-     * 
-     */
     public Output<String> headerName() {
         return this.headerName;
     }
 
-    /**
-     * Position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
-     * 
-     */
     @Import(name="position", required=true)
     private Output<String> position;
 
-    /**
-     * @return Position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
-     * 
-     */
     public Output<String> position() {
         return this.position;
     }
@@ -85,65 +61,29 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
             $ = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fallbackBehavior Match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fallbackBehavior(Output<String> fallbackBehavior) {
             $.fallbackBehavior = fallbackBehavior;
             return this;
         }
 
-        /**
-         * @param fallbackBehavior Match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fallbackBehavior(String fallbackBehavior) {
             return fallbackBehavior(Output.of(fallbackBehavior));
         }
 
-        /**
-         * @param headerName Name of the HTTP header to use for the IP address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headerName(Output<String> headerName) {
             $.headerName = headerName;
             return this;
         }
 
-        /**
-         * @param headerName Name of the HTTP header to use for the IP address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headerName(String headerName) {
             return headerName(Output.of(headerName));
         }
 
-        /**
-         * @param position Position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
-         * 
-         * @return builder
-         * 
-         */
         public Builder position(Output<String> position) {
             $.position = position;
             return this;
         }
 
-        /**
-         * @param position Position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
-         * 
-         * @return builder
-         * 
-         */
         public Builder position(String position) {
             return position(Output.of(position));
         }

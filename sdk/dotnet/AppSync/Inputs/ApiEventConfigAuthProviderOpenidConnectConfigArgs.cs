@@ -12,27 +12,15 @@ namespace Pulumi.Aws.AppSync.Inputs
 
     public sealed class ApiEventConfigAuthProviderOpenidConnectConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// TTL in seconds for the authentication token.
-        /// </summary>
         [Input("authTtl")]
         public Input<int>? AuthTtl { get; set; }
 
-        /// <summary>
-        /// Client ID for the OpenID Connect provider.
-        /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
-        /// <summary>
-        /// TTL in seconds for the issued at time.
-        /// </summary>
         [Input("iatTtl")]
         public Input<int>? IatTtl { get; set; }
 
-        /// <summary>
-        /// Issuer URL for the OpenID Connect provider.
-        /// </summary>
         [Input("issuer", required: true)]
         public Input<string> Issuer { get; set; } = null!;
 

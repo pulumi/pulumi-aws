@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowLogDestinationOptions {
-    /**
-     * @return File format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
-     * 
-     */
     private @Nullable String fileFormat;
-    /**
-     * @return Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
-     * 
-     */
     private @Nullable Boolean hiveCompatiblePartitions;
-    /**
-     * @return Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
-     * 
-     */
     private @Nullable Boolean perHourPartition;
 
     private FlowLogDestinationOptions() {}
-    /**
-     * @return File format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
-     * 
-     */
     public Optional<String> fileFormat() {
         return Optional.ofNullable(this.fileFormat);
     }
-    /**
-     * @return Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
-     * 
-     */
     public Optional<Boolean> hiveCompatiblePartitions() {
         return Optional.ofNullable(this.hiveCompatiblePartitions);
     }
-    /**
-     * @return Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
-     * 
-     */
     public Optional<Boolean> perHourPartition() {
         return Optional.ofNullable(this.perHourPartition);
     }

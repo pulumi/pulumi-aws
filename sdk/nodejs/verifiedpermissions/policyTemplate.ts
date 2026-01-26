@@ -4,31 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Verified Permissions Policy Template.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.verifiedpermissions.PolicyTemplate("example", {
- *     policyStoreId: exampleAwsVerifiedpermissionsPolicyStore.id,
- *     statement: "permit (principal in ?principal, action in PhotoFlash::Action::\"FullPhotoAccess\", resource == ?resource) unless { resource.IsPrivate };",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Verified Permissions Policy Store using the `policy_store_id:policy_template_id`. For example:
- *
- * ```sh
- * $ pulumi import aws:verifiedpermissions/policyTemplate:PolicyTemplate example policyStoreId:policyTemplateId
- * ```
- */
 export class PolicyTemplate extends pulumi.CustomResource {
     /**
      * Get an existing PolicyTemplate resource's state with the given name, ID, and optional extra
@@ -57,31 +32,11 @@ export class PolicyTemplate extends pulumi.CustomResource {
         return obj['__pulumiType'] === PolicyTemplate.__pulumiType;
     }
 
-    /**
-     * The date the Policy Store was created.
-     */
     declare public /*out*/ readonly createdDate: pulumi.Output<string>;
-    /**
-     * Provides a description for the policy template.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * The ID of the Policy Store.
-     */
     declare public readonly policyStoreId: pulumi.Output<string>;
-    /**
-     * The ID of the Policy Store.
-     */
     declare public /*out*/ readonly policyTemplateId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Defines the content of the statement, written in Cedar policy language.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly statement: pulumi.Output<string>;
 
     /**
@@ -127,31 +82,11 @@ export class PolicyTemplate extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PolicyTemplate resources.
  */
 export interface PolicyTemplateState {
-    /**
-     * The date the Policy Store was created.
-     */
     createdDate?: pulumi.Input<string>;
-    /**
-     * Provides a description for the policy template.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The ID of the Policy Store.
-     */
     policyStoreId?: pulumi.Input<string>;
-    /**
-     * The ID of the Policy Store.
-     */
     policyTemplateId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Defines the content of the statement, written in Cedar policy language.
-     *
-     * The following arguments are optional:
-     */
     statement?: pulumi.Input<string>;
 }
 
@@ -159,22 +94,8 @@ export interface PolicyTemplateState {
  * The set of arguments for constructing a PolicyTemplate resource.
  */
 export interface PolicyTemplateArgs {
-    /**
-     * Provides a description for the policy template.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The ID of the Policy Store.
-     */
     policyStoreId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Defines the content of the statement, written in Cedar policy language.
-     *
-     * The following arguments are optional:
-     */
     statement: pulumi.Input<string>;
 }

@@ -59,25 +59,16 @@ class GetBundleResult:
     @_builtins.property
     @pulumi.getter(name="bundleId")
     def bundle_id(self) -> Optional[_builtins.str]:
-        """
-        The ID of the bundle.
-        """
         return pulumi.get(self, "bundle_id")
 
     @_builtins.property
     @pulumi.getter(name="computeTypes")
     def compute_types(self) -> Sequence['outputs.GetBundleComputeTypeResult']:
-        """
-        The compute type. See supported fields below.
-        """
         return pulumi.get(self, "compute_types")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        The description of the bundle.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -91,17 +82,11 @@ class GetBundleResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
-        """
-        Name of the compute type.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def owner(self) -> Optional[_builtins.str]:
-        """
-        The owner of the bundle.
-        """
         return pulumi.get(self, "owner")
 
     @_builtins.property
@@ -112,17 +97,11 @@ class GetBundleResult:
     @_builtins.property
     @pulumi.getter(name="rootStorages")
     def root_storages(self) -> Sequence['outputs.GetBundleRootStorageResult']:
-        """
-        The root volume. See supported fields below.
-        """
         return pulumi.get(self, "root_storages")
 
     @_builtins.property
     @pulumi.getter(name="userStorages")
     def user_storages(self) -> Sequence['outputs.GetBundleUserStorageResult']:
-        """
-        The user storage. See supported fields below.
-        """
         return pulumi.get(self, "user_storages")
 
 
@@ -149,34 +128,7 @@ def get_bundle(bundle_id: Optional[_builtins.str] = None,
                region: Optional[_builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBundleResult:
     """
-    Retrieve information about an AWS WorkSpaces bundle.
-
-    ## Example Usage
-
-    ### By ID
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.workspaces.get_bundle(bundle_id="wsb-b0s22j3d7")
-    ```
-
-    ### By Owner & Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.workspaces.get_bundle(owner="AMAZON",
-        name="Value with Windows 10 and Office 2016")
-    ```
-
-
-    :param _builtins.str bundle_id: ID of the bundle.
-    :param _builtins.str name: Name of the bundle. You cannot combine this parameter with `bundle_id`.
-    :param _builtins.str owner: Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['bundleId'] = bundle_id
@@ -202,34 +154,7 @@ def get_bundle_output(bundle_id: Optional[pulumi.Input[Optional[_builtins.str]]]
                       region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBundleResult]:
     """
-    Retrieve information about an AWS WorkSpaces bundle.
-
-    ## Example Usage
-
-    ### By ID
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.workspaces.get_bundle(bundle_id="wsb-b0s22j3d7")
-    ```
-
-    ### By Owner & Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.workspaces.get_bundle(owner="AMAZON",
-        name="Value with Windows 10 and Office 2016")
-    ```
-
-
-    :param _builtins.str bundle_id: ID of the bundle.
-    :param _builtins.str name: Name of the bundle. You cannot combine this parameter with `bundle_id`.
-    :param _builtins.str owner: Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['bundleId'] = bundle_id

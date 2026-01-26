@@ -14,17 +14,9 @@ public final class EventConnectionInvocationConnectivityParametersArgs extends c
 
     public static final EventConnectionInvocationConnectivityParametersArgs Empty = new EventConnectionInvocationConnectivityParametersArgs();
 
-    /**
-     * The parameters for EventBridge to use when invoking the resource endpoint. Documented below.
-     * 
-     */
     @Import(name="resourceParameters", required=true)
     private Output<EventConnectionInvocationConnectivityParametersResourceParametersArgs> resourceParameters;
 
-    /**
-     * @return The parameters for EventBridge to use when invoking the resource endpoint. Documented below.
-     * 
-     */
     public Output<EventConnectionInvocationConnectivityParametersResourceParametersArgs> resourceParameters() {
         return this.resourceParameters;
     }
@@ -53,23 +45,11 @@ public final class EventConnectionInvocationConnectivityParametersArgs extends c
             $ = new EventConnectionInvocationConnectivityParametersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param resourceParameters The parameters for EventBridge to use when invoking the resource endpoint. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceParameters(Output<EventConnectionInvocationConnectivityParametersResourceParametersArgs> resourceParameters) {
             $.resourceParameters = resourceParameters;
             return this;
         }
 
-        /**
-         * @param resourceParameters The parameters for EventBridge to use when invoking the resource endpoint. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceParameters(EventConnectionInvocationConnectivityParametersResourceParametersArgs resourceParameters) {
             return resourceParameters(Output.of(resourceParameters));
         }

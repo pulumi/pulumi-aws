@@ -14,93 +14,37 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RevisionAssetsAsset {
-    /**
-     * @return The ARN of the Data Exchange Revision Assets.
-     * 
-     */
     private @Nullable String arn;
-    /**
-     * @return A block to create S3 data access from an S3 bucket. See Create S3 Data Access from S3 Bucket for more details.
-     * 
-     */
     private @Nullable RevisionAssetsAssetCreateS3DataAccessFromS3Bucket createS3DataAccessFromS3Bucket;
-    /**
-     * @return The timestamp when the revision was created, in RFC3339 format.
-     * 
-     */
     private @Nullable String createdAt;
-    /**
-     * @return The unique identifier for the revision.
-     * 
-     */
     private @Nullable String id;
-    /**
-     * @return A block to import assets from S3. See Import Assets from S3 for more details.
-     * 
-     */
     private @Nullable RevisionAssetsAssetImportAssetsFromS3 importAssetsFromS3;
-    /**
-     * @return A block to import assets from a signed URL. See Import Assets from Signed URL for more details.
-     * 
-     */
     private @Nullable RevisionAssetsAssetImportAssetsFromSignedUrl importAssetsFromSignedUrl;
     private @Nullable String name;
-    /**
-     * @return The timestamp when the revision was last updated, in RFC3339 format.
-     * 
-     */
     private @Nullable String updatedAt;
 
     private RevisionAssetsAsset() {}
-    /**
-     * @return The ARN of the Data Exchange Revision Assets.
-     * 
-     */
     public Optional<String> arn() {
         return Optional.ofNullable(this.arn);
     }
-    /**
-     * @return A block to create S3 data access from an S3 bucket. See Create S3 Data Access from S3 Bucket for more details.
-     * 
-     */
     public Optional<RevisionAssetsAssetCreateS3DataAccessFromS3Bucket> createS3DataAccessFromS3Bucket() {
         return Optional.ofNullable(this.createS3DataAccessFromS3Bucket);
     }
-    /**
-     * @return The timestamp when the revision was created, in RFC3339 format.
-     * 
-     */
     public Optional<String> createdAt() {
         return Optional.ofNullable(this.createdAt);
     }
-    /**
-     * @return The unique identifier for the revision.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
-    /**
-     * @return A block to import assets from S3. See Import Assets from S3 for more details.
-     * 
-     */
     public Optional<RevisionAssetsAssetImportAssetsFromS3> importAssetsFromS3() {
         return Optional.ofNullable(this.importAssetsFromS3);
     }
-    /**
-     * @return A block to import assets from a signed URL. See Import Assets from Signed URL for more details.
-     * 
-     */
     public Optional<RevisionAssetsAssetImportAssetsFromSignedUrl> importAssetsFromSignedUrl() {
         return Optional.ofNullable(this.importAssetsFromSignedUrl);
     }
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return The timestamp when the revision was last updated, in RFC3339 format.
-     * 
-     */
     public Optional<String> updatedAt() {
         return Optional.ofNullable(this.updatedAt);
     }

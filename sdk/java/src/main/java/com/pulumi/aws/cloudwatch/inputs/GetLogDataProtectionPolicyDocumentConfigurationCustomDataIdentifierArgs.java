@@ -14,32 +14,16 @@ public final class GetLogDataProtectionPolicyDocumentConfigurationCustomDataIden
 
     public static final GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs Empty = new GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs();
 
-    /**
-     * Name of the custom data idenfitier
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the custom data idenfitier
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Regular expression to match sensitive data
-     * 
-     */
     @Import(name="regex", required=true)
     private Output<String> regex;
 
-    /**
-     * @return Regular expression to match sensitive data
-     * 
-     */
     public Output<String> regex() {
         return this.regex;
     }
@@ -69,44 +53,20 @@ public final class GetLogDataProtectionPolicyDocumentConfigurationCustomDataIden
             $ = new GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the custom data idenfitier
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the custom data idenfitier
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param regex Regular expression to match sensitive data
-         * 
-         * @return builder
-         * 
-         */
         public Builder regex(Output<String> regex) {
             $.regex = regex;
             return this;
         }
 
-        /**
-         * @param regex Regular expression to match sensitive data
-         * 
-         * @return builder
-         * 
-         */
         public Builder regex(String regex) {
             return regex(Output.of(regex));
         }

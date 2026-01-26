@@ -13,13 +13,7 @@ namespace Pulumi.Aws.LicenseManager.Outputs
     [OutputType]
     public sealed class GetReceivedLicenseConsumptionConfigurationResult
     {
-        /// <summary>
-        /// Details about a borrow configuration. Detailed below
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetReceivedLicenseConsumptionConfigurationBorrowConfigurationResult> BorrowConfigurations;
-        /// <summary>
-        /// Details about a provisional configuration. Detailed below
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationResult> ProvisionalConfigurations;
         public readonly string RenewType;
 

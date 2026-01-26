@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRestApiEndpointConfiguration {
-    /**
-     * @return The IP address types that can invoke an API (RestApi).
-     * 
-     */
     private String ipAddressType;
-    /**
-     * @return List of endpoint types.
-     * 
-     */
     private List<String> types;
-    /**
-     * @return Set of VPC Endpoint identifiers.
-     * 
-     */
     private List<String> vpcEndpointIds;
 
     private GetRestApiEndpointConfiguration() {}
-    /**
-     * @return The IP address types that can invoke an API (RestApi).
-     * 
-     */
     public String ipAddressType() {
         return this.ipAddressType;
     }
-    /**
-     * @return List of endpoint types.
-     * 
-     */
     public List<String> types() {
         return this.types;
     }
-    /**
-     * @return Set of VPC Endpoint identifiers.
-     * 
-     */
     public List<String> vpcEndpointIds() {
         return this.vpcEndpointIds;
     }

@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class MLTransformInputRecordTable
     {
-        /// <summary>
-        /// A unique identifier for the AWS Glue Data Catalog.
-        /// </summary>
         public readonly string? CatalogId;
-        /// <summary>
-        /// The name of the connection to the AWS Glue Data Catalog.
-        /// </summary>
         public readonly string? ConnectionName;
-        /// <summary>
-        /// A database name in the AWS Glue Data Catalog.
-        /// </summary>
         public readonly string DatabaseName;
-        /// <summary>
-        /// A table name in the AWS Glue Data Catalog.
-        /// </summary>
         public readonly string TableName;
 
         [OutputConstructor]

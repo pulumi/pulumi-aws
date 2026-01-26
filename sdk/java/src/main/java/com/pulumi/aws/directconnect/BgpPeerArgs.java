@@ -17,111 +17,51 @@ public final class BgpPeerArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final BgpPeerArgs Empty = new BgpPeerArgs();
 
-    /**
-     * The address family for the BGP peer. ` ipv4  ` or `ipv6`.
-     * 
-     */
     @Import(name="addressFamily", required=true)
     private Output<String> addressFamily;
 
-    /**
-     * @return The address family for the BGP peer. ` ipv4  ` or `ipv6`.
-     * 
-     */
     public Output<String> addressFamily() {
         return this.addressFamily;
     }
 
-    /**
-     * The IPv4 CIDR address to use to send traffic to Amazon.
-     * Required for IPv4 BGP peers on public virtual interfaces.
-     * 
-     */
     @Import(name="amazonAddress")
     private @Nullable Output<String> amazonAddress;
 
-    /**
-     * @return The IPv4 CIDR address to use to send traffic to Amazon.
-     * Required for IPv4 BGP peers on public virtual interfaces.
-     * 
-     */
     public Optional<Output<String>> amazonAddress() {
         return Optional.ofNullable(this.amazonAddress);
     }
 
-    /**
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-     * 
-     */
     @Import(name="bgpAsn", required=true)
     private Output<Integer> bgpAsn;
 
-    /**
-     * @return The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-     * 
-     */
     public Output<Integer> bgpAsn() {
         return this.bgpAsn;
     }
 
-    /**
-     * The authentication key for BGP configuration.
-     * 
-     */
     @Import(name="bgpAuthKey")
     private @Nullable Output<String> bgpAuthKey;
 
-    /**
-     * @return The authentication key for BGP configuration.
-     * 
-     */
     public Optional<Output<String>> bgpAuthKey() {
         return Optional.ofNullable(this.bgpAuthKey);
     }
 
-    /**
-     * The IPv4 CIDR destination address to which Amazon should send traffic.
-     * Required for IPv4 BGP peers on public virtual interfaces.
-     * 
-     */
     @Import(name="customerAddress")
     private @Nullable Output<String> customerAddress;
 
-    /**
-     * @return The IPv4 CIDR destination address to which Amazon should send traffic.
-     * Required for IPv4 BGP peers on public virtual interfaces.
-     * 
-     */
     public Optional<Output<String>> customerAddress() {
         return Optional.ofNullable(this.customerAddress);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ID of the Direct Connect virtual interface on which to create the BGP peer.
-     * 
-     */
     @Import(name="virtualInterfaceId", required=true)
     private Output<String> virtualInterfaceId;
 
-    /**
-     * @return The ID of the Direct Connect virtual interface on which to create the BGP peer.
-     * 
-     */
     public Output<String> virtualInterfaceId() {
         return this.virtualInterfaceId;
     }
@@ -156,153 +96,65 @@ public final class BgpPeerArgs extends com.pulumi.resources.ResourceArgs {
             $ = new BgpPeerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param addressFamily The address family for the BGP peer. ` ipv4  ` or `ipv6`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder addressFamily(Output<String> addressFamily) {
             $.addressFamily = addressFamily;
             return this;
         }
 
-        /**
-         * @param addressFamily The address family for the BGP peer. ` ipv4  ` or `ipv6`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder addressFamily(String addressFamily) {
             return addressFamily(Output.of(addressFamily));
         }
 
-        /**
-         * @param amazonAddress The IPv4 CIDR address to use to send traffic to Amazon.
-         * Required for IPv4 BGP peers on public virtual interfaces.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amazonAddress(@Nullable Output<String> amazonAddress) {
             $.amazonAddress = amazonAddress;
             return this;
         }
 
-        /**
-         * @param amazonAddress The IPv4 CIDR address to use to send traffic to Amazon.
-         * Required for IPv4 BGP peers on public virtual interfaces.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amazonAddress(String amazonAddress) {
             return amazonAddress(Output.of(amazonAddress));
         }
 
-        /**
-         * @param bgpAsn The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bgpAsn(Output<Integer> bgpAsn) {
             $.bgpAsn = bgpAsn;
             return this;
         }
 
-        /**
-         * @param bgpAsn The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bgpAsn(Integer bgpAsn) {
             return bgpAsn(Output.of(bgpAsn));
         }
 
-        /**
-         * @param bgpAuthKey The authentication key for BGP configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bgpAuthKey(@Nullable Output<String> bgpAuthKey) {
             $.bgpAuthKey = bgpAuthKey;
             return this;
         }
 
-        /**
-         * @param bgpAuthKey The authentication key for BGP configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bgpAuthKey(String bgpAuthKey) {
             return bgpAuthKey(Output.of(bgpAuthKey));
         }
 
-        /**
-         * @param customerAddress The IPv4 CIDR destination address to which Amazon should send traffic.
-         * Required for IPv4 BGP peers on public virtual interfaces.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customerAddress(@Nullable Output<String> customerAddress) {
             $.customerAddress = customerAddress;
             return this;
         }
 
-        /**
-         * @param customerAddress The IPv4 CIDR destination address to which Amazon should send traffic.
-         * Required for IPv4 BGP peers on public virtual interfaces.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customerAddress(String customerAddress) {
             return customerAddress(Output.of(customerAddress));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param virtualInterfaceId The ID of the Direct Connect virtual interface on which to create the BGP peer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder virtualInterfaceId(Output<String> virtualInterfaceId) {
             $.virtualInterfaceId = virtualInterfaceId;
             return this;
         }
 
-        /**
-         * @param virtualInterfaceId The ID of the Direct Connect virtual interface on which to create the BGP peer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder virtualInterfaceId(String virtualInterfaceId) {
             return virtualInterfaceId(Output.of(virtualInterfaceId));
         }

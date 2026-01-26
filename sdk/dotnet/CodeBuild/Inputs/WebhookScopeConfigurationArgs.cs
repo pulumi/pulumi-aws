@@ -12,21 +12,12 @@ namespace Pulumi.Aws.CodeBuild.Inputs
 
     public sealed class WebhookScopeConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The domain of the GitHub Enterprise organization. Required if your project's source type is GITHUB_ENTERPRISE.
-        /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
-        /// <summary>
-        /// The name of either the enterprise or organization.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
-        /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
 

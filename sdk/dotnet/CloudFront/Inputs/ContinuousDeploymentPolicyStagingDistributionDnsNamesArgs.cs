@@ -14,19 +14,12 @@ namespace Pulumi.Aws.CloudFront.Inputs
     {
         [Input("items")]
         private InputList<string>? _items;
-
-        /// <summary>
-        /// A list of CloudFront domain names for the staging distribution.
-        /// </summary>
         public InputList<string> Items
         {
             get => _items ?? (_items = new InputList<string>());
             set => _items = value;
         }
 
-        /// <summary>
-        /// Number of CloudFront domain names in the staging distribution.
-        /// </summary>
         [Input("quantity", required: true)]
         public Input<int> Quantity { get; set; } = null!;
 

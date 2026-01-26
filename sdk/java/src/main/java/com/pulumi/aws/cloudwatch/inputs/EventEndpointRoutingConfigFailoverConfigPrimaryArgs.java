@@ -15,17 +15,9 @@ public final class EventEndpointRoutingConfigFailoverConfigPrimaryArgs extends c
 
     public static final EventEndpointRoutingConfigFailoverConfigPrimaryArgs Empty = new EventEndpointRoutingConfigFailoverConfigPrimaryArgs();
 
-    /**
-     * The ARN of the health check used by the endpoint to determine whether failover is triggered.
-     * 
-     */
     @Import(name="healthCheck")
     private @Nullable Output<String> healthCheck;
 
-    /**
-     * @return The ARN of the health check used by the endpoint to determine whether failover is triggered.
-     * 
-     */
     public Optional<Output<String>> healthCheck() {
         return Optional.ofNullable(this.healthCheck);
     }
@@ -54,23 +46,11 @@ public final class EventEndpointRoutingConfigFailoverConfigPrimaryArgs extends c
             $ = new EventEndpointRoutingConfigFailoverConfigPrimaryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param healthCheck The ARN of the health check used by the endpoint to determine whether failover is triggered.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthCheck(@Nullable Output<String> healthCheck) {
             $.healthCheck = healthCheck;
             return this;
         }
 
-        /**
-         * @param healthCheck The ARN of the health check used by the endpoint to determine whether failover is triggered.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthCheck(String healthCheck) {
             return healthCheck(Output.of(healthCheck));
         }

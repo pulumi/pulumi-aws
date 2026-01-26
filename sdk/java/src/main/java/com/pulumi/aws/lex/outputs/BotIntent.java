@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class BotIntent {
-    /**
-     * @return The name of the intent. Must be less than or equal to 100 characters in length.
-     * 
-     */
     private String intentName;
-    /**
-     * @return The version of the intent. Must be less than or equal to 64 characters in length.
-     * 
-     */
     private String intentVersion;
 
     private BotIntent() {}
-    /**
-     * @return The name of the intent. Must be less than or equal to 100 characters in length.
-     * 
-     */
     public String intentName() {
         return this.intentName;
     }
-    /**
-     * @return The version of the intent. Must be less than or equal to 64 characters in length.
-     * 
-     */
     public String intentVersion() {
         return this.intentVersion;
     }

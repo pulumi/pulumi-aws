@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess {
-    /**
-     * @return Determines whether read/write scope is enabled or disabled.
-     * 
-     */
     private String authorization;
 
     private IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess() {}
-    /**
-     * @return Determines whether read/write scope is enabled or disabled.
-     * 
-     */
     public String authorization() {
         return this.authorization;
     }

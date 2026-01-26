@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Backup.Inputs
 
     public sealed class PlanRuleScanActionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Malware scanner to use for the scan action. Currently only `GUARDDUTY` is supported.
-        /// </summary>
         [Input("malwareScanner", required: true)]
         public Input<string> MalwareScanner { get; set; } = null!;
 
-        /// <summary>
-        /// Scanning mode to use for the scan action. Valid values are `FULL_SCAN` and `INCREMENTAL_SCAN`.
-        /// </summary>
         [Input("scanMode", required: true)]
         public Input<string> ScanMode { get; set; } = null!;
 

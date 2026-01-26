@@ -12,58 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS Network Firewall Firewall Transit Gateway Attachment Accepter.
-//
-// When a cross-account (requester's AWS account differs from the accepter's AWS account) requester creates a Network Firewall with Transit Gateway ID using `networkfirewall.Firewall`. Then an EC2 Transit Gateway VPC Attachment resource is automatically created in the accepter's account.
-// The accepter can use the `networkfirewall.FirewallTransitGatewayAttachmentAccepter` resource to "adopt" its side of the connection into management.
-//
-// > **NOTE:** If the `transitGatewayId` argument in the `networkfirewall.Firewall` resource is used to attach a firewall to a transit gateway in a cross-account setup (where **Auto accept shared attachments** is disabled), the resource will be considered created when the transit gateway attachment is in the *Pending Acceptance* state and the firewall is in the *Provisioning* status. At this point, you can use the `networkfirewall.FirewallTransitGatewayAttachmentAccepter` resource to finalize the network firewall deployment. Once the transit gateway attachment reaches the *Available* state, the firewall status *Ready*.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkfirewall.NewFirewallTransitGatewayAttachmentAccepter(ctx, "example", &networkfirewall.FirewallTransitGatewayAttachmentAccepterArgs{
-//				TransitGatewayAttachmentId: pulumi.Any(exampleAwsNetworkfirewallFirewall.FirewallStatus[0].TransitGatewayAttachmentSyncState[0].AttachmentId),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// A full example of how to create a Transit Gateway in one AWS account, share it with a second AWS account, and create Network Firewall in the second account to the Transit Gateway via the `networkfirewall.Firewall` and `networkfirewall.FirewallTransitGatewayAttachmentAccepter` resources can be found in the `./examples/network-firewall-cross-account-transit-gateway` directory within the Github Repository
-//
-// ## Import
-//
-// Using `pulumi import`, import Network Firewall Firewall Transit Gateway Attachment Accepter using the `transit_gateway_attachment_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:networkfirewall/firewallTransitGatewayAttachmentAccepter:FirewallTransitGatewayAttachmentAccepter example tgw-attach-0c3b7e9570eee089c
-// ```
 type FirewallTransitGatewayAttachmentAccepter struct {
 	pulumi.CustomResourceState
 
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringOutput                                       `pulumi:"region"`
-	Timeouts FirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutput `pulumi:"timeouts"`
-	// The unique identifier of the transit gateway attachment to accept. This ID is returned in the response when creating a transit gateway-attached firewall.
-	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
+	Region                     pulumi.StringOutput                                       `pulumi:"region"`
+	Timeouts                   FirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutput `pulumi:"timeouts"`
+	TransitGatewayAttachmentId pulumi.StringOutput                                       `pulumi:"transitGatewayAttachmentId"`
 }
 
 // NewFirewallTransitGatewayAttachmentAccepter registers a new resource with the given unique name, arguments, and options.
@@ -99,18 +53,14 @@ func GetFirewallTransitGatewayAttachmentAccepter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FirewallTransitGatewayAttachmentAccepter resources.
 type firewallTransitGatewayAttachmentAccepterState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   *string                                           `pulumi:"region"`
-	Timeouts *FirewallTransitGatewayAttachmentAccepterTimeouts `pulumi:"timeouts"`
-	// The unique identifier of the transit gateway attachment to accept. This ID is returned in the response when creating a transit gateway-attached firewall.
-	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
+	Region                     *string                                           `pulumi:"region"`
+	Timeouts                   *FirewallTransitGatewayAttachmentAccepterTimeouts `pulumi:"timeouts"`
+	TransitGatewayAttachmentId *string                                           `pulumi:"transitGatewayAttachmentId"`
 }
 
 type FirewallTransitGatewayAttachmentAccepterState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringPtrInput
-	Timeouts FirewallTransitGatewayAttachmentAccepterTimeoutsPtrInput
-	// The unique identifier of the transit gateway attachment to accept. This ID is returned in the response when creating a transit gateway-attached firewall.
+	Region                     pulumi.StringPtrInput
+	Timeouts                   FirewallTransitGatewayAttachmentAccepterTimeoutsPtrInput
 	TransitGatewayAttachmentId pulumi.StringPtrInput
 }
 
@@ -119,19 +69,15 @@ func (FirewallTransitGatewayAttachmentAccepterState) ElementType() reflect.Type 
 }
 
 type firewallTransitGatewayAttachmentAccepterArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   *string                                           `pulumi:"region"`
-	Timeouts *FirewallTransitGatewayAttachmentAccepterTimeouts `pulumi:"timeouts"`
-	// The unique identifier of the transit gateway attachment to accept. This ID is returned in the response when creating a transit gateway-attached firewall.
-	TransitGatewayAttachmentId string `pulumi:"transitGatewayAttachmentId"`
+	Region                     *string                                           `pulumi:"region"`
+	Timeouts                   *FirewallTransitGatewayAttachmentAccepterTimeouts `pulumi:"timeouts"`
+	TransitGatewayAttachmentId string                                            `pulumi:"transitGatewayAttachmentId"`
 }
 
 // The set of arguments for constructing a FirewallTransitGatewayAttachmentAccepter resource.
 type FirewallTransitGatewayAttachmentAccepterArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringPtrInput
-	Timeouts FirewallTransitGatewayAttachmentAccepterTimeoutsPtrInput
-	// The unique identifier of the transit gateway attachment to accept. This ID is returned in the response when creating a transit gateway-attached firewall.
+	Region                     pulumi.StringPtrInput
+	Timeouts                   FirewallTransitGatewayAttachmentAccepterTimeoutsPtrInput
 	TransitGatewayAttachmentId pulumi.StringInput
 }
 
@@ -222,7 +168,6 @@ func (o FirewallTransitGatewayAttachmentAccepterOutput) ToFirewallTransitGateway
 	return o
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o FirewallTransitGatewayAttachmentAccepterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallTransitGatewayAttachmentAccepter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -233,7 +178,6 @@ func (o FirewallTransitGatewayAttachmentAccepterOutput) Timeouts() FirewallTrans
 	}).(FirewallTransitGatewayAttachmentAccepterTimeoutsPtrOutput)
 }
 
-// The unique identifier of the transit gateway attachment to accept. This ID is returned in the response when creating a transit gateway-attached firewall.
 func (o FirewallTransitGatewayAttachmentAccepterOutput) TransitGatewayAttachmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallTransitGatewayAttachmentAccepter) pulumi.StringOutput {
 		return v.TransitGatewayAttachmentId

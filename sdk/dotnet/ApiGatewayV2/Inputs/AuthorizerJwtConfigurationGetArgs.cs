@@ -14,19 +14,12 @@ namespace Pulumi.Aws.ApiGatewayV2.Inputs
     {
         [Input("audiences")]
         private InputList<string>? _audiences;
-
-        /// <summary>
-        /// List of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
-        /// </summary>
         public InputList<string> Audiences
         {
             get => _audiences ?? (_audiences = new InputList<string>());
             set => _audiences = value;
         }
 
-        /// <summary>
-        /// Base domain of the identity provider that issues JSON Web Tokens, such as the `Endpoint` attribute of the `aws.cognito.UserPool` resource.
-        /// </summary>
         [Input("issuer")]
         public Input<string>? Issuer { get; set; }
 

@@ -11,61 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// `ec2.Vpc` provides details about a specific VPC.
-//
-// This resource can prove useful when a module accepts a vpc id as
-// an input variable and needs to, for example, determine the CIDR block of that
-// VPC.
-//
-// ## Example Usage
-//
-// The following example shows how one might accept a VPC id as a variable
-// and use this data source to obtain the data necessary to create a subnet
-// within it.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			vpcId := cfg.RequireObject("vpcId")
-//			selected, err := ec2.LookupVpc(ctx, &ec2.LookupVpcArgs{
-//				Id: pulumi.StringRef(vpcId),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			invokeCidrsubnet, err := std.Cidrsubnet(ctx, &std.CidrsubnetArgs{
-//				Input:   selected.CidrBlock,
-//				Newbits: 4,
-//				Netnum:  1,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewSubnet(ctx, "example", &ec2.SubnetArgs{
-//				VpcId:            pulumi.String(selected.Id),
-//				AvailabilityZone: pulumi.String("us-west-2a"),
-//				CidrBlock:        pulumi.String(invokeCidrsubnet.Result),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVpc(ctx *pulumi.Context, args *LookupVpcArgs, opts ...pulumi.InvokeOption) (*LookupVpcResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpcResult
@@ -78,62 +23,36 @@ func LookupVpc(ctx *pulumi.Context, args *LookupVpcArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getVpc.
 type LookupVpcArgs struct {
-	// Cidr block of the desired VPC.
-	CidrBlock *string `pulumi:"cidrBlock"`
-	// Boolean constraint on whether the desired VPC is
-	// the default VPC for the region.
-	Default *bool `pulumi:"default"`
-	// DHCP options id of the desired VPC.
-	DhcpOptionsId *string `pulumi:"dhcpOptionsId"`
-	// Custom filter block as described below.
-	Filters []GetVpcFilter `pulumi:"filters"`
-	// ID of the specific VPC to retrieve.
-	Id *string `pulumi:"id"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Current state of the desired VPC.
-	// Can be either `"pending"` or `"available"`.
-	State *string `pulumi:"state"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired VPC.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
-	Tags map[string]string `pulumi:"tags"`
+	CidrBlock     *string           `pulumi:"cidrBlock"`
+	Default       *bool             `pulumi:"default"`
+	DhcpOptionsId *string           `pulumi:"dhcpOptionsId"`
+	Filters       []GetVpcFilter    `pulumi:"filters"`
+	Id            *string           `pulumi:"id"`
+	Region        *string           `pulumi:"region"`
+	State         *string           `pulumi:"state"`
+	Tags          map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getVpc.
 type LookupVpcResult struct {
-	// ARN of VPC
-	Arn string `pulumi:"arn"`
-	// CIDR block for the association.
-	CidrBlock             string                       `pulumi:"cidrBlock"`
-	CidrBlockAssociations []GetVpcCidrBlockAssociation `pulumi:"cidrBlockAssociations"`
-	Default               bool                         `pulumi:"default"`
-	DhcpOptionsId         string                       `pulumi:"dhcpOptionsId"`
-	// Whether or not the VPC has DNS hostname support
-	EnableDnsHostnames bool `pulumi:"enableDnsHostnames"`
-	// Whether or not the VPC has DNS support
-	EnableDnsSupport bool `pulumi:"enableDnsSupport"`
-	// Whether Network Address Usage metrics are enabled for your VPC
-	EnableNetworkAddressUsageMetrics bool           `pulumi:"enableNetworkAddressUsageMetrics"`
-	Filters                          []GetVpcFilter `pulumi:"filters"`
-	Id                               string         `pulumi:"id"`
-	// Allowed tenancy of instances launched into the
-	// selected VPC. May be any of `"default"`, `"dedicated"`, or `"host"`.
-	InstanceTenancy string `pulumi:"instanceTenancy"`
-	// Association ID for the IPv6 CIDR block.
-	Ipv6AssociationId string `pulumi:"ipv6AssociationId"`
-	// IPv6 CIDR block.
-	Ipv6CidrBlock string `pulumi:"ipv6CidrBlock"`
-	// ID of the main route table associated with this VPC.
-	MainRouteTableId string `pulumi:"mainRouteTableId"`
-	// ID of the AWS account that owns the VPC.
-	OwnerId string `pulumi:"ownerId"`
-	Region  string `pulumi:"region"`
-	// State of the association.
-	State string            `pulumi:"state"`
-	Tags  map[string]string `pulumi:"tags"`
+	Arn                              string                       `pulumi:"arn"`
+	CidrBlock                        string                       `pulumi:"cidrBlock"`
+	CidrBlockAssociations            []GetVpcCidrBlockAssociation `pulumi:"cidrBlockAssociations"`
+	Default                          bool                         `pulumi:"default"`
+	DhcpOptionsId                    string                       `pulumi:"dhcpOptionsId"`
+	EnableDnsHostnames               bool                         `pulumi:"enableDnsHostnames"`
+	EnableDnsSupport                 bool                         `pulumi:"enableDnsSupport"`
+	EnableNetworkAddressUsageMetrics bool                         `pulumi:"enableNetworkAddressUsageMetrics"`
+	Filters                          []GetVpcFilter               `pulumi:"filters"`
+	Id                               string                       `pulumi:"id"`
+	InstanceTenancy                  string                       `pulumi:"instanceTenancy"`
+	Ipv6AssociationId                string                       `pulumi:"ipv6AssociationId"`
+	Ipv6CidrBlock                    string                       `pulumi:"ipv6CidrBlock"`
+	MainRouteTableId                 string                       `pulumi:"mainRouteTableId"`
+	OwnerId                          string                       `pulumi:"ownerId"`
+	Region                           string                       `pulumi:"region"`
+	State                            string                       `pulumi:"state"`
+	Tags                             map[string]string            `pulumi:"tags"`
 }
 
 func LookupVpcOutput(ctx *pulumi.Context, args LookupVpcOutputArgs, opts ...pulumi.InvokeOption) LookupVpcResultOutput {
@@ -147,28 +66,14 @@ func LookupVpcOutput(ctx *pulumi.Context, args LookupVpcOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getVpc.
 type LookupVpcOutputArgs struct {
-	// Cidr block of the desired VPC.
-	CidrBlock pulumi.StringPtrInput `pulumi:"cidrBlock"`
-	// Boolean constraint on whether the desired VPC is
-	// the default VPC for the region.
-	Default pulumi.BoolPtrInput `pulumi:"default"`
-	// DHCP options id of the desired VPC.
-	DhcpOptionsId pulumi.StringPtrInput `pulumi:"dhcpOptionsId"`
-	// Custom filter block as described below.
-	Filters GetVpcFilterArrayInput `pulumi:"filters"`
-	// ID of the specific VPC to retrieve.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Current state of the desired VPC.
-	// Can be either `"pending"` or `"available"`.
-	State pulumi.StringPtrInput `pulumi:"state"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired VPC.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	CidrBlock     pulumi.StringPtrInput  `pulumi:"cidrBlock"`
+	Default       pulumi.BoolPtrInput    `pulumi:"default"`
+	DhcpOptionsId pulumi.StringPtrInput  `pulumi:"dhcpOptionsId"`
+	Filters       GetVpcFilterArrayInput `pulumi:"filters"`
+	Id            pulumi.StringPtrInput  `pulumi:"id"`
+	Region        pulumi.StringPtrInput  `pulumi:"region"`
+	State         pulumi.StringPtrInput  `pulumi:"state"`
+	Tags          pulumi.StringMapInput  `pulumi:"tags"`
 }
 
 func (LookupVpcOutputArgs) ElementType() reflect.Type {
@@ -190,12 +95,10 @@ func (o LookupVpcResultOutput) ToLookupVpcResultOutputWithContext(ctx context.Co
 	return o
 }
 
-// ARN of VPC
 func (o LookupVpcResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// CIDR block for the association.
 func (o LookupVpcResultOutput) CidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcResult) string { return v.CidrBlock }).(pulumi.StringOutput)
 }
@@ -212,17 +115,14 @@ func (o LookupVpcResultOutput) DhcpOptionsId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcResult) string { return v.DhcpOptionsId }).(pulumi.StringOutput)
 }
 
-// Whether or not the VPC has DNS hostname support
 func (o LookupVpcResultOutput) EnableDnsHostnames() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupVpcResult) bool { return v.EnableDnsHostnames }).(pulumi.BoolOutput)
 }
 
-// Whether or not the VPC has DNS support
 func (o LookupVpcResultOutput) EnableDnsSupport() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupVpcResult) bool { return v.EnableDnsSupport }).(pulumi.BoolOutput)
 }
 
-// Whether Network Address Usage metrics are enabled for your VPC
 func (o LookupVpcResultOutput) EnableNetworkAddressUsageMetrics() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupVpcResult) bool { return v.EnableNetworkAddressUsageMetrics }).(pulumi.BoolOutput)
 }
@@ -235,28 +135,22 @@ func (o LookupVpcResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Allowed tenancy of instances launched into the
-// selected VPC. May be any of `"default"`, `"dedicated"`, or `"host"`.
 func (o LookupVpcResultOutput) InstanceTenancy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcResult) string { return v.InstanceTenancy }).(pulumi.StringOutput)
 }
 
-// Association ID for the IPv6 CIDR block.
 func (o LookupVpcResultOutput) Ipv6AssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcResult) string { return v.Ipv6AssociationId }).(pulumi.StringOutput)
 }
 
-// IPv6 CIDR block.
 func (o LookupVpcResultOutput) Ipv6CidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcResult) string { return v.Ipv6CidrBlock }).(pulumi.StringOutput)
 }
 
-// ID of the main route table associated with this VPC.
 func (o LookupVpcResultOutput) MainRouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcResult) string { return v.MainRouteTableId }).(pulumi.StringOutput)
 }
 
-// ID of the AWS account that owns the VPC.
 func (o LookupVpcResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcResult) string { return v.OwnerId }).(pulumi.StringOutput)
 }
@@ -265,7 +159,6 @@ func (o LookupVpcResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// State of the association.
 func (o LookupVpcResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcResult) string { return v.State }).(pulumi.StringOutput)
 }

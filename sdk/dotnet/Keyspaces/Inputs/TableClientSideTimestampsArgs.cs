@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Keyspaces.Inputs
 
     public sealed class TableClientSideTimestampsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Shows how to enable client-side timestamps settings for the specified table. Valid values: `ENABLED`.
-        /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 

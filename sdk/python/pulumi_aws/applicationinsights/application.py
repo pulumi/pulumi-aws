@@ -30,17 +30,6 @@ class ApplicationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Application resource.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] auto_config_enabled: Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
-        :param pulumi.Input[_builtins.bool] auto_create: Configures all of the resources in the resource group by applying the recommended configurations.
-        :param pulumi.Input[_builtins.bool] cwe_monitor_enabled: Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
-        :param pulumi.Input[_builtins.str] grouping_type: Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
-        :param pulumi.Input[_builtins.bool] ops_center_enabled: When set to `true`, creates opsItems for any problems detected on an application.
-        :param pulumi.Input[_builtins.str] ops_item_sns_topic_arn: SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if auto_config_enabled is not None:
@@ -63,11 +52,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the resource group.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
@@ -77,9 +61,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="autoConfigEnabled")
     def auto_config_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
-        """
         return pulumi.get(self, "auto_config_enabled")
 
     @auto_config_enabled.setter
@@ -89,9 +70,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="autoCreate")
     def auto_create(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Configures all of the resources in the resource group by applying the recommended configurations.
-        """
         return pulumi.get(self, "auto_create")
 
     @auto_create.setter
@@ -101,9 +79,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="cweMonitorEnabled")
     def cwe_monitor_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
-        """
         return pulumi.get(self, "cwe_monitor_enabled")
 
     @cwe_monitor_enabled.setter
@@ -113,9 +88,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="groupingType")
     def grouping_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
-        """
         return pulumi.get(self, "grouping_type")
 
     @grouping_type.setter
@@ -125,9 +97,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="opsCenterEnabled")
     def ops_center_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        When set to `true`, creates opsItems for any problems detected on an application.
-        """
         return pulumi.get(self, "ops_center_enabled")
 
     @ops_center_enabled.setter
@@ -137,9 +106,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="opsItemSnsTopicArn")
     def ops_item_sns_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
-        """
         return pulumi.get(self, "ops_item_sns_topic_arn")
 
     @ops_item_sns_topic_arn.setter
@@ -149,9 +115,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -161,9 +124,6 @@ class ApplicationArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -187,19 +147,6 @@ class _ApplicationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Application resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Application.
-        :param pulumi.Input[_builtins.bool] auto_config_enabled: Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
-        :param pulumi.Input[_builtins.bool] auto_create: Configures all of the resources in the resource group by applying the recommended configurations.
-        :param pulumi.Input[_builtins.bool] cwe_monitor_enabled: Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
-        :param pulumi.Input[_builtins.str] grouping_type: Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
-        :param pulumi.Input[_builtins.bool] ops_center_enabled: When set to `true`, creates opsItems for any problems detected on an application.
-        :param pulumi.Input[_builtins.str] ops_item_sns_topic_arn: SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -227,9 +174,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Application.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -239,9 +183,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="autoConfigEnabled")
     def auto_config_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
-        """
         return pulumi.get(self, "auto_config_enabled")
 
     @auto_config_enabled.setter
@@ -251,9 +192,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="autoCreate")
     def auto_create(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Configures all of the resources in the resource group by applying the recommended configurations.
-        """
         return pulumi.get(self, "auto_create")
 
     @auto_create.setter
@@ -263,9 +201,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="cweMonitorEnabled")
     def cwe_monitor_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
-        """
         return pulumi.get(self, "cwe_monitor_enabled")
 
     @cwe_monitor_enabled.setter
@@ -275,9 +210,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="groupingType")
     def grouping_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
-        """
         return pulumi.get(self, "grouping_type")
 
     @grouping_type.setter
@@ -287,9 +219,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="opsCenterEnabled")
     def ops_center_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        When set to `true`, creates opsItems for any problems detected on an application.
-        """
         return pulumi.get(self, "ops_center_enabled")
 
     @ops_center_enabled.setter
@@ -299,9 +228,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="opsItemSnsTopicArn")
     def ops_item_sns_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
-        """
         return pulumi.get(self, "ops_item_sns_topic_arn")
 
     @ops_item_sns_topic_arn.setter
@@ -311,9 +237,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -323,11 +246,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the resource group.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
@@ -337,9 +255,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -349,9 +264,6 @@ class _ApplicationState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -376,50 +288,9 @@ class Application(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a ApplicationInsights Application resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_group = aws.resourcegroups.Group("example",
-            name="example",
-            resource_query={
-                "query": json.dumps({
-                    "ResourceTypeFilters": ["AWS::EC2::Instance"],
-                    "TagFilters": [{
-                        "Key": "Stage",
-                        "Values": ["Test"],
-                    }],
-                }),
-            })
-        example = aws.applicationinsights.Application("example", resource_group_name=example_group.name)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import ApplicationInsights Applications using the `resource_group_name`. For example:
-
-        ```sh
-        $ pulumi import aws:applicationinsights/application:Application some some-application
-        ```
-
+        Create a Application resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] auto_config_enabled: Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
-        :param pulumi.Input[_builtins.bool] auto_create: Configures all of the resources in the resource group by applying the recommended configurations.
-        :param pulumi.Input[_builtins.bool] cwe_monitor_enabled: Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
-        :param pulumi.Input[_builtins.str] grouping_type: Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
-        :param pulumi.Input[_builtins.bool] ops_center_enabled: When set to `true`, creates opsItems for any problems detected on an application.
-        :param pulumi.Input[_builtins.str] ops_item_sns_topic_arn: SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -428,37 +299,7 @@ class Application(pulumi.CustomResource):
                  args: ApplicationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a ApplicationInsights Application resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_group = aws.resourcegroups.Group("example",
-            name="example",
-            resource_query={
-                "query": json.dumps({
-                    "ResourceTypeFilters": ["AWS::EC2::Instance"],
-                    "TagFilters": [{
-                        "Key": "Stage",
-                        "Values": ["Test"],
-                    }],
-                }),
-            })
-        example = aws.applicationinsights.Application("example", resource_group_name=example_group.name)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import ApplicationInsights Applications using the `resource_group_name`. For example:
-
-        ```sh
-        $ pulumi import aws:applicationinsights/application:Application some some-application
-        ```
-
+        Create a Application resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -533,19 +374,6 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Application.
-        :param pulumi.Input[_builtins.bool] auto_config_enabled: Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
-        :param pulumi.Input[_builtins.bool] auto_create: Configures all of the resources in the resource group by applying the recommended configurations.
-        :param pulumi.Input[_builtins.bool] cwe_monitor_enabled: Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
-        :param pulumi.Input[_builtins.str] grouping_type: Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
-        :param pulumi.Input[_builtins.bool] ops_center_enabled: When set to `true`, creates opsItems for any problems detected on an application.
-        :param pulumi.Input[_builtins.str] ops_item_sns_topic_arn: SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -567,90 +395,55 @@ class Application(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Application.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="autoConfigEnabled")
     def auto_config_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
-        """
         return pulumi.get(self, "auto_config_enabled")
 
     @_builtins.property
     @pulumi.getter(name="autoCreate")
     def auto_create(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Configures all of the resources in the resource group by applying the recommended configurations.
-        """
         return pulumi.get(self, "auto_create")
 
     @_builtins.property
     @pulumi.getter(name="cweMonitorEnabled")
     def cwe_monitor_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
-        """
         return pulumi.get(self, "cwe_monitor_enabled")
 
     @_builtins.property
     @pulumi.getter(name="groupingType")
     def grouping_type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
-        """
         return pulumi.get(self, "grouping_type")
 
     @_builtins.property
     @pulumi.getter(name="opsCenterEnabled")
     def ops_center_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        When set to `true`, creates opsItems for any problems detected on an application.
-        """
         return pulumi.get(self, "ops_center_enabled")
 
     @_builtins.property
     @pulumi.getter(name="opsItemSnsTopicArn")
     def ops_item_sns_topic_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
-        """
         return pulumi.get(self, "ops_item_sns_topic_arn")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the resource group.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "resource_group_name")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

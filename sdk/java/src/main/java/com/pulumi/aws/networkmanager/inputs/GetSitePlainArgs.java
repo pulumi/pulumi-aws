@@ -16,47 +16,23 @@ public final class GetSitePlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetSitePlainArgs Empty = new GetSitePlainArgs();
 
-    /**
-     * ID of the Global Network of the site to retrieve.
-     * 
-     */
     @Import(name="globalNetworkId", required=true)
     private String globalNetworkId;
 
-    /**
-     * @return ID of the Global Network of the site to retrieve.
-     * 
-     */
     public String globalNetworkId() {
         return this.globalNetworkId;
     }
 
-    /**
-     * ID of the specific site to retrieve.
-     * 
-     */
     @Import(name="siteId", required=true)
     private String siteId;
 
-    /**
-     * @return ID of the specific site to retrieve.
-     * 
-     */
     public String siteId() {
         return this.siteId;
     }
 
-    /**
-     * Key-value tags for the Site.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Key-value tags for the Site.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -87,34 +63,16 @@ public final class GetSitePlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetSitePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param globalNetworkId ID of the Global Network of the site to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNetworkId(String globalNetworkId) {
             $.globalNetworkId = globalNetworkId;
             return this;
         }
 
-        /**
-         * @param siteId ID of the specific site to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder siteId(String siteId) {
             $.siteId = siteId;
             return this;
         }
 
-        /**
-         * @param tags Key-value tags for the Site.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

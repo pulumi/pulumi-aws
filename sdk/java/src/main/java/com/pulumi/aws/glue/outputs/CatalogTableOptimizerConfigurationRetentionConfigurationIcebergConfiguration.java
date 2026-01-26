@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration {
-    /**
-     * @return If set to `false`, snapshots are only deleted from table metadata, and the underlying data and metadata files are not deleted. Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean cleanExpiredFiles;
-    /**
-     * @return The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
-     * 
-     */
     private @Nullable Integer numberOfSnapshotsToRetain;
-    /**
-     * @return Interval in hours between retention job runs. Defaults to `24`.
-     * 
-     */
     private @Nullable Integer runRateInHours;
-    /**
-     * @return The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
-     * 
-     */
     private @Nullable Integer snapshotRetentionPeriodInDays;
 
     private CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration() {}
-    /**
-     * @return If set to `false`, snapshots are only deleted from table metadata, and the underlying data and metadata files are not deleted. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> cleanExpiredFiles() {
         return Optional.ofNullable(this.cleanExpiredFiles);
     }
-    /**
-     * @return The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
-     * 
-     */
     public Optional<Integer> numberOfSnapshotsToRetain() {
         return Optional.ofNullable(this.numberOfSnapshotsToRetain);
     }
-    /**
-     * @return Interval in hours between retention job runs. Defaults to `24`.
-     * 
-     */
     public Optional<Integer> runRateInHours() {
         return Optional.ofNullable(this.runRateInHours);
     }
-    /**
-     * @return The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
-     * 
-     */
     public Optional<Integer> snapshotRetentionPeriodInDays() {
         return Optional.ofNullable(this.snapshotRetentionPeriodInDays);
     }

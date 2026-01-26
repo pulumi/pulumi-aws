@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Connect.Outputs
     [OutputType]
     public sealed class RoutingProfileMediaConcurrencyCrossChannelBehavior
     {
-        /// <summary>
-        /// Specifies the cross-channel behavior for routing contacts across multiple channels. Valid values are `ROUTE_CURRENT_CHANNEL_ONLY` and `ROUTE_ANY_CHANNEL`. `ROUTE_CURRENT_CHANNEL_ONLY` restricts agents to receive contacts only from the channel they are currently handling. `ROUTE_ANY_CHANNEL` allows agents to receive contacts from any channel regardless of what they are currently handling.
-        /// </summary>
         public readonly string BehaviorType;
 
         [OutputConstructor]

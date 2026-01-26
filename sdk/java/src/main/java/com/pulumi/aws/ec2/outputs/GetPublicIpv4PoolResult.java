@@ -14,46 +14,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPublicIpv4PoolResult {
-    /**
-     * @return Description of the pool, if any.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Name of the location from which the address pool is advertised.
-     * * poolAddressRanges` - List of Address Ranges in the Pool; each address range record contains:
-     * 
-     */
     private String networkBorderGroup;
     private List<GetPublicIpv4PoolPoolAddressRange> poolAddressRanges;
     private String poolId;
     private String region;
-    /**
-     * @return Any tags for the address pool.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Total number of addresses in the pool.
-     * 
-     */
     private Integer totalAddressCount;
-    /**
-     * @return Total number of available addresses in the pool.
-     * 
-     */
     private Integer totalAvailableAddressCount;
 
     private GetPublicIpv4PoolResult() {}
-    /**
-     * @return Description of the pool, if any.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -64,11 +39,6 @@ public final class GetPublicIpv4PoolResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Name of the location from which the address pool is advertised.
-     * * poolAddressRanges` - List of Address Ranges in the Pool; each address range record contains:
-     * 
-     */
     public String networkBorderGroup() {
         return this.networkBorderGroup;
     }
@@ -81,24 +51,12 @@ public final class GetPublicIpv4PoolResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Any tags for the address pool.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Total number of addresses in the pool.
-     * 
-     */
     public Integer totalAddressCount() {
         return this.totalAddressCount;
     }
-    /**
-     * @return Total number of available addresses in the pool.
-     * 
-     */
     public Integer totalAvailableAddressCount() {
         return this.totalAvailableAddressCount;
     }

@@ -14,47 +14,23 @@ public final class DataSetLogicalTableMapDataTransformCreateColumnsOperationColu
 
     public static final DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs Empty = new DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs();
 
-    /**
-     * A unique ID to identify a calculated column. During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
-     * 
-     */
     @Import(name="columnId", required=true)
     private Output<String> columnId;
 
-    /**
-     * @return A unique ID to identify a calculated column. During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
-     * 
-     */
     public Output<String> columnId() {
         return this.columnId;
     }
 
-    /**
-     * Column name.
-     * 
-     */
     @Import(name="columnName", required=true)
     private Output<String> columnName;
 
-    /**
-     * @return Column name.
-     * 
-     */
     public Output<String> columnName() {
         return this.columnName;
     }
 
-    /**
-     * An expression that defines the calculated column.
-     * 
-     */
     @Import(name="expression", required=true)
     private Output<String> expression;
 
-    /**
-     * @return An expression that defines the calculated column.
-     * 
-     */
     public Output<String> expression() {
         return this.expression;
     }
@@ -85,65 +61,29 @@ public final class DataSetLogicalTableMapDataTransformCreateColumnsOperationColu
             $ = new DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param columnId A unique ID to identify a calculated column. During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnId(Output<String> columnId) {
             $.columnId = columnId;
             return this;
         }
 
-        /**
-         * @param columnId A unique ID to identify a calculated column. During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnId(String columnId) {
             return columnId(Output.of(columnId));
         }
 
-        /**
-         * @param columnName Column name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnName(Output<String> columnName) {
             $.columnName = columnName;
             return this;
         }
 
-        /**
-         * @param columnName Column name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnName(String columnName) {
             return columnName(Output.of(columnName));
         }
 
-        /**
-         * @param expression An expression that defines the calculated column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expression(Output<String> expression) {
             $.expression = expression;
             return this;
         }
 
-        /**
-         * @param expression An expression that defines the calculated column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expression(String expression) {
             return expression(Output.of(expression));
         }

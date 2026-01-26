@@ -13,24 +13,16 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketAclV2AccessControlPolicyOwner {
     /**
-     * @return Display name of the owner.
-     * 
      * @deprecated
      * display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
      * 
      */
     @Deprecated /* display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version. */
     private @Nullable String displayName;
-    /**
-     * @return ID of the owner.
-     * 
-     */
     private String id;
 
     private BucketAclV2AccessControlPolicyOwner() {}
     /**
-     * @return Display name of the owner.
-     * 
      * @deprecated
      * display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
      * 
@@ -39,10 +31,6 @@ public final class BucketAclV2AccessControlPolicyOwner {
     public Optional<String> displayName() {
         return Optional.ofNullable(this.displayName);
     }
-    /**
-     * @return ID of the owner.
-     * 
-     */
     public String id() {
         return this.id;
     }

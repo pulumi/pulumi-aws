@@ -18,122 +18,58 @@ public final class FleetSpotOptionsArgs extends com.pulumi.resources.ResourceArg
 
     public static final FleetSpotOptionsArgs Empty = new FleetSpotOptionsArgs();
 
-    /**
-     * How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized`, `capacity-optimized-prioritized` and `price-capacity-optimized`. Default: `lowestPrice`.
-     * 
-     */
     @Import(name="allocationStrategy")
     private @Nullable Output<String> allocationStrategy;
 
-    /**
-     * @return How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized`, `capacity-optimized-prioritized` and `price-capacity-optimized`. Default: `lowestPrice`.
-     * 
-     */
     public Optional<Output<String>> allocationStrategy() {
         return Optional.ofNullable(this.allocationStrategy);
     }
 
-    /**
-     * Behavior when a Spot Instance is interrupted. Valid values: `hibernate`, `stop`, `terminate`. Default: `terminate`.
-     * 
-     */
     @Import(name="instanceInterruptionBehavior")
     private @Nullable Output<String> instanceInterruptionBehavior;
 
-    /**
-     * @return Behavior when a Spot Instance is interrupted. Valid values: `hibernate`, `stop`, `terminate`. Default: `terminate`.
-     * 
-     */
     public Optional<Output<String>> instanceInterruptionBehavior() {
         return Optional.ofNullable(this.instanceInterruptionBehavior);
     }
 
-    /**
-     * Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocationStrategy` is set to `lowestPrice`. Default: `1`.
-     * 
-     */
     @Import(name="instancePoolsToUseCount")
     private @Nullable Output<Integer> instancePoolsToUseCount;
 
-    /**
-     * @return Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocationStrategy` is set to `lowestPrice`. Default: `1`.
-     * 
-     */
     public Optional<Output<Integer>> instancePoolsToUseCount() {
         return Optional.ofNullable(this.instancePoolsToUseCount);
     }
 
-    /**
-     * Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
-     * 
-     */
     @Import(name="maintenanceStrategies")
     private @Nullable Output<FleetSpotOptionsMaintenanceStrategiesArgs> maintenanceStrategies;
 
-    /**
-     * @return Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
-     * 
-     */
     public Optional<Output<FleetSpotOptionsMaintenanceStrategiesArgs>> maintenanceStrategies() {
         return Optional.ofNullable(this.maintenanceStrategies);
     }
 
-    /**
-     * The maximum amount per hour for Spot Instances that you&#39;re willing to pay.
-     * 
-     */
     @Import(name="maxTotalPrice")
     private @Nullable Output<String> maxTotalPrice;
 
-    /**
-     * @return The maximum amount per hour for Spot Instances that you&#39;re willing to pay.
-     * 
-     */
     public Optional<Output<String>> maxTotalPrice() {
         return Optional.ofNullable(this.maxTotalPrice);
     }
 
-    /**
-     * The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
-     * 
-     */
     @Import(name="minTargetCapacity")
     private @Nullable Output<Integer> minTargetCapacity;
 
-    /**
-     * @return The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
-     * 
-     */
     public Optional<Output<Integer>> minTargetCapacity() {
         return Optional.ofNullable(this.minTargetCapacity);
     }
 
-    /**
-     * Indicates that the fleet launches all Spot Instances into a single Availability Zone. Supported only for fleets of type `instant`.
-     * 
-     */
     @Import(name="singleAvailabilityZone")
     private @Nullable Output<Boolean> singleAvailabilityZone;
 
-    /**
-     * @return Indicates that the fleet launches all Spot Instances into a single Availability Zone. Supported only for fleets of type `instant`.
-     * 
-     */
     public Optional<Output<Boolean>> singleAvailabilityZone() {
         return Optional.ofNullable(this.singleAvailabilityZone);
     }
 
-    /**
-     * Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet. Supported only for fleets of type `instant`.
-     * 
-     */
     @Import(name="singleInstanceType")
     private @Nullable Output<Boolean> singleInstanceType;
 
-    /**
-     * @return Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet. Supported only for fleets of type `instant`.
-     * 
-     */
     public Optional<Output<Boolean>> singleInstanceType() {
         return Optional.ofNullable(this.singleInstanceType);
     }
@@ -169,170 +105,74 @@ public final class FleetSpotOptionsArgs extends com.pulumi.resources.ResourceArg
             $ = new FleetSpotOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allocationStrategy How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized`, `capacity-optimized-prioritized` and `price-capacity-optimized`. Default: `lowestPrice`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allocationStrategy(@Nullable Output<String> allocationStrategy) {
             $.allocationStrategy = allocationStrategy;
             return this;
         }
 
-        /**
-         * @param allocationStrategy How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized`, `capacity-optimized-prioritized` and `price-capacity-optimized`. Default: `lowestPrice`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allocationStrategy(String allocationStrategy) {
             return allocationStrategy(Output.of(allocationStrategy));
         }
 
-        /**
-         * @param instanceInterruptionBehavior Behavior when a Spot Instance is interrupted. Valid values: `hibernate`, `stop`, `terminate`. Default: `terminate`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceInterruptionBehavior(@Nullable Output<String> instanceInterruptionBehavior) {
             $.instanceInterruptionBehavior = instanceInterruptionBehavior;
             return this;
         }
 
-        /**
-         * @param instanceInterruptionBehavior Behavior when a Spot Instance is interrupted. Valid values: `hibernate`, `stop`, `terminate`. Default: `terminate`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceInterruptionBehavior(String instanceInterruptionBehavior) {
             return instanceInterruptionBehavior(Output.of(instanceInterruptionBehavior));
         }
 
-        /**
-         * @param instancePoolsToUseCount Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocationStrategy` is set to `lowestPrice`. Default: `1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instancePoolsToUseCount(@Nullable Output<Integer> instancePoolsToUseCount) {
             $.instancePoolsToUseCount = instancePoolsToUseCount;
             return this;
         }
 
-        /**
-         * @param instancePoolsToUseCount Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocationStrategy` is set to `lowestPrice`. Default: `1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instancePoolsToUseCount(Integer instancePoolsToUseCount) {
             return instancePoolsToUseCount(Output.of(instancePoolsToUseCount));
         }
 
-        /**
-         * @param maintenanceStrategies Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maintenanceStrategies(@Nullable Output<FleetSpotOptionsMaintenanceStrategiesArgs> maintenanceStrategies) {
             $.maintenanceStrategies = maintenanceStrategies;
             return this;
         }
 
-        /**
-         * @param maintenanceStrategies Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maintenanceStrategies(FleetSpotOptionsMaintenanceStrategiesArgs maintenanceStrategies) {
             return maintenanceStrategies(Output.of(maintenanceStrategies));
         }
 
-        /**
-         * @param maxTotalPrice The maximum amount per hour for Spot Instances that you&#39;re willing to pay.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxTotalPrice(@Nullable Output<String> maxTotalPrice) {
             $.maxTotalPrice = maxTotalPrice;
             return this;
         }
 
-        /**
-         * @param maxTotalPrice The maximum amount per hour for Spot Instances that you&#39;re willing to pay.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxTotalPrice(String maxTotalPrice) {
             return maxTotalPrice(Output.of(maxTotalPrice));
         }
 
-        /**
-         * @param minTargetCapacity The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minTargetCapacity(@Nullable Output<Integer> minTargetCapacity) {
             $.minTargetCapacity = minTargetCapacity;
             return this;
         }
 
-        /**
-         * @param minTargetCapacity The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minTargetCapacity(Integer minTargetCapacity) {
             return minTargetCapacity(Output.of(minTargetCapacity));
         }
 
-        /**
-         * @param singleAvailabilityZone Indicates that the fleet launches all Spot Instances into a single Availability Zone. Supported only for fleets of type `instant`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder singleAvailabilityZone(@Nullable Output<Boolean> singleAvailabilityZone) {
             $.singleAvailabilityZone = singleAvailabilityZone;
             return this;
         }
 
-        /**
-         * @param singleAvailabilityZone Indicates that the fleet launches all Spot Instances into a single Availability Zone. Supported only for fleets of type `instant`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder singleAvailabilityZone(Boolean singleAvailabilityZone) {
             return singleAvailabilityZone(Output.of(singleAvailabilityZone));
         }
 
-        /**
-         * @param singleInstanceType Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet. Supported only for fleets of type `instant`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder singleInstanceType(@Nullable Output<Boolean> singleInstanceType) {
             $.singleInstanceType = singleInstanceType;
             return this;
         }
 
-        /**
-         * @param singleInstanceType Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet. Supported only for fleets of type `instant`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder singleInstanceType(Boolean singleInstanceType) {
             return singleInstanceType(Output.of(singleInstanceType));
         }

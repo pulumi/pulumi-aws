@@ -18,89 +18,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SpaceSpaceSettings {
-    /**
-     * @return The type of app created within the space.
-     * 
-     */
     private @Nullable String appType;
-    /**
-     * @return The Code Editor application settings. See `codeEditorAppSettings` Block below.
-     * 
-     */
     private @Nullable SpaceSpaceSettingsCodeEditorAppSettings codeEditorAppSettings;
-    /**
-     * @return A file system, created by you, that you assign to a space for an Amazon SageMaker AI Domain. See `customFileSystem` Block below.
-     * 
-     */
     private @Nullable List<SpaceSpaceSettingsCustomFileSystem> customFileSystems;
-    /**
-     * @return The settings for the JupyterLab application. See `jupyterLabAppSettings` Block below.
-     * 
-     */
     private @Nullable SpaceSpaceSettingsJupyterLabAppSettings jupyterLabAppSettings;
-    /**
-     * @return The Jupyter server&#39;s app settings. See `jupyterServerAppSettings` Block below.
-     * 
-     */
     private @Nullable SpaceSpaceSettingsJupyterServerAppSettings jupyterServerAppSettings;
-    /**
-     * @return The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
-     * 
-     */
     private @Nullable SpaceSpaceSettingsKernelGatewayAppSettings kernelGatewayAppSettings;
-    /**
-     * @return The storage settings. See `spaceStorageSettings` Block below.
-     * 
-     */
     private @Nullable SpaceSpaceSettingsSpaceStorageSettings spaceStorageSettings;
 
     private SpaceSpaceSettings() {}
-    /**
-     * @return The type of app created within the space.
-     * 
-     */
     public Optional<String> appType() {
         return Optional.ofNullable(this.appType);
     }
-    /**
-     * @return The Code Editor application settings. See `codeEditorAppSettings` Block below.
-     * 
-     */
     public Optional<SpaceSpaceSettingsCodeEditorAppSettings> codeEditorAppSettings() {
         return Optional.ofNullable(this.codeEditorAppSettings);
     }
-    /**
-     * @return A file system, created by you, that you assign to a space for an Amazon SageMaker AI Domain. See `customFileSystem` Block below.
-     * 
-     */
     public List<SpaceSpaceSettingsCustomFileSystem> customFileSystems() {
         return this.customFileSystems == null ? List.of() : this.customFileSystems;
     }
-    /**
-     * @return The settings for the JupyterLab application. See `jupyterLabAppSettings` Block below.
-     * 
-     */
     public Optional<SpaceSpaceSettingsJupyterLabAppSettings> jupyterLabAppSettings() {
         return Optional.ofNullable(this.jupyterLabAppSettings);
     }
-    /**
-     * @return The Jupyter server&#39;s app settings. See `jupyterServerAppSettings` Block below.
-     * 
-     */
     public Optional<SpaceSpaceSettingsJupyterServerAppSettings> jupyterServerAppSettings() {
         return Optional.ofNullable(this.jupyterServerAppSettings);
     }
-    /**
-     * @return The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
-     * 
-     */
     public Optional<SpaceSpaceSettingsKernelGatewayAppSettings> kernelGatewayAppSettings() {
         return Optional.ofNullable(this.kernelGatewayAppSettings);
     }
-    /**
-     * @return The storage settings. See `spaceStorageSettings` Block below.
-     * 
-     */
     public Optional<SpaceSpaceSettingsSpaceStorageSettings> spaceStorageSettings() {
         return Optional.ofNullable(this.spaceStorageSettings);
     }

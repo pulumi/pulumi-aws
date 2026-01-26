@@ -12,33 +12,18 @@ namespace Pulumi.Aws.AppSync.Inputs
 
     public sealed class DataSourceRelationalDatabaseConfigHttpEndpointConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// AWS secret store ARN for database credentials.
-        /// </summary>
         [Input("awsSecretStoreArn", required: true)]
         public Input<string> AwsSecretStoreArn { get; set; } = null!;
 
-        /// <summary>
-        /// Logical database name.
-        /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
 
-        /// <summary>
-        /// Amazon RDS cluster identifier.
-        /// </summary>
         [Input("dbClusterIdentifier", required: true)]
         public Input<string> DbClusterIdentifier { get; set; } = null!;
 
-        /// <summary>
-        /// AWS Region for RDS HTTP endpoint. Defaults to current region.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Logical schema name.
-        /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }
 

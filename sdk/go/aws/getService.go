@@ -11,92 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to compose and decompose AWS service DNS names.
-//
-// ## Example Usage
-//
-// ### Get Service DNS Name
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = aws.GetService(ctx, &aws.GetServiceArgs{
-//				Region:    pulumi.StringRef(current.Region),
-//				ServiceId: pulumi.StringRef("ec2"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Use Service Reverse DNS Name to Get Components
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.GetService(ctx, &aws.GetServiceArgs{
-//				ReverseDnsName: pulumi.StringRef("cn.com.amazonaws.cn-north-1.s3"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Determine Regional Support for a Service
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.GetService(ctx, &aws.GetServiceArgs{
-//				ReverseDnsName: pulumi.StringRef("com.amazonaws.us-gov-west-1.waf"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetService(ctx *pulumi.Context, args *GetServiceArgs, opts ...pulumi.InvokeOption) (*GetServiceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetServiceResult
@@ -109,17 +23,12 @@ func GetService(ctx *pulumi.Context, args *GetServiceArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getService.
 type GetServiceArgs struct {
-	// DNS name of the service (_e.g.,_ `rds.us-east-1.amazonaws.com`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required.
-	DnsName *string `pulumi:"dnsName"`
-	Id      *string `pulumi:"id"`
-	// Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Reverse DNS name of the service (_e.g.,_ `com.amazonaws.us-west-2.s3`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required.
-	ReverseDnsName *string `pulumi:"reverseDnsName"`
-	// Prefix of the service (_e.g.,_ `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
+	DnsName          *string `pulumi:"dnsName"`
+	Id               *string `pulumi:"id"`
+	Region           *string `pulumi:"region"`
+	ReverseDnsName   *string `pulumi:"reverseDnsName"`
 	ReverseDnsPrefix *string `pulumi:"reverseDnsPrefix"`
-	// Service endpoint ID (_e.g.,_ `s3`, `rds`, `ec2`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required. A service's endpoint ID can be found in the [_AWS General Reference_](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html).
-	ServiceId *string `pulumi:"serviceId"`
+	ServiceId        *string `pulumi:"serviceId"`
 }
 
 // A collection of values returned by getService.
@@ -131,8 +40,7 @@ type GetServiceResult struct {
 	ReverseDnsName   string `pulumi:"reverseDnsName"`
 	ReverseDnsPrefix string `pulumi:"reverseDnsPrefix"`
 	ServiceId        string `pulumi:"serviceId"`
-	// Whether the service is supported in the region's partition. New services may not be listed immediately as supported.
-	Supported bool `pulumi:"supported"`
+	Supported        bool   `pulumi:"supported"`
 }
 
 func GetServiceOutput(ctx *pulumi.Context, args GetServiceOutputArgs, opts ...pulumi.InvokeOption) GetServiceResultOutput {
@@ -146,17 +54,12 @@ func GetServiceOutput(ctx *pulumi.Context, args GetServiceOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getService.
 type GetServiceOutputArgs struct {
-	// DNS name of the service (_e.g.,_ `rds.us-east-1.amazonaws.com`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required.
-	DnsName pulumi.StringPtrInput `pulumi:"dnsName"`
-	Id      pulumi.StringPtrInput `pulumi:"id"`
-	// Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Reverse DNS name of the service (_e.g.,_ `com.amazonaws.us-west-2.s3`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required.
-	ReverseDnsName pulumi.StringPtrInput `pulumi:"reverseDnsName"`
-	// Prefix of the service (_e.g.,_ `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
+	DnsName          pulumi.StringPtrInput `pulumi:"dnsName"`
+	Id               pulumi.StringPtrInput `pulumi:"id"`
+	Region           pulumi.StringPtrInput `pulumi:"region"`
+	ReverseDnsName   pulumi.StringPtrInput `pulumi:"reverseDnsName"`
 	ReverseDnsPrefix pulumi.StringPtrInput `pulumi:"reverseDnsPrefix"`
-	// Service endpoint ID (_e.g.,_ `s3`, `rds`, `ec2`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required. A service's endpoint ID can be found in the [_AWS General Reference_](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html).
-	ServiceId pulumi.StringPtrInput `pulumi:"serviceId"`
+	ServiceId        pulumi.StringPtrInput `pulumi:"serviceId"`
 }
 
 func (GetServiceOutputArgs) ElementType() reflect.Type {
@@ -206,7 +109,6 @@ func (o GetServiceResultOutput) ServiceId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceResult) string { return v.ServiceId }).(pulumi.StringOutput)
 }
 
-// Whether the service is supported in the region's partition. New services may not be listed immediately as supported.
 func (o GetServiceResultOutput) Supported() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetServiceResult) bool { return v.Supported }).(pulumi.BoolOutput)
 }

@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentcoreBrowserRecordingS3Location {
-    /**
-     * @return Name of the S3 bucket where recordings are stored.
-     * 
-     */
     private String bucket;
-    /**
-     * @return S3 key prefix for recording files.
-     * 
-     */
     private String prefix;
 
     private AgentcoreBrowserRecordingS3Location() {}
-    /**
-     * @return Name of the S3 bucket where recordings are stored.
-     * 
-     */
     public String bucket() {
         return this.bucket;
     }
-    /**
-     * @return S3 key prefix for recording files.
-     * 
-     */
     public String prefix() {
         return this.prefix;
     }

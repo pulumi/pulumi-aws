@@ -12,15 +12,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Unique provider name.
-        /// </summary>
         [Input("providerName", required: true)]
         public Input<string> ProviderName { get; set; } = null!;
 
-        /// <summary>
-        /// Unique service name.
-        /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
 

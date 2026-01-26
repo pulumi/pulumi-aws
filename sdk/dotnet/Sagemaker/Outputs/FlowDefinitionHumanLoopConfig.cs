@@ -13,41 +13,14 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class FlowDefinitionHumanLoopConfig
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the human task user interface.
-        /// </summary>
         public readonly string HumanTaskUiArn;
-        /// <summary>
-        /// Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed. See Public Workforce Task Price details below.
-        /// </summary>
         public readonly Outputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice? PublicWorkforceTaskPrice;
-        /// <summary>
-        /// The length of time that a task remains available for review by human workers. Valid value range between `1` and `864000`.
-        /// </summary>
         public readonly int? TaskAvailabilityLifetimeInSeconds;
-        /// <summary>
-        /// The number of distinct workers who will perform the same task on each object. Valid value range between `1` and `3`.
-        /// </summary>
         public readonly int TaskCount;
-        /// <summary>
-        /// A description for the human worker task.
-        /// </summary>
         public readonly string TaskDescription;
-        /// <summary>
-        /// An array of keywords used to describe the task so that workers can discover the task.
-        /// </summary>
         public readonly ImmutableArray<string> TaskKeywords;
-        /// <summary>
-        /// The amount of time that a worker has to complete a task. The default value is `3600` seconds.
-        /// </summary>
         public readonly int? TaskTimeLimitInSeconds;
-        /// <summary>
-        /// A title for the human worker task.
-        /// </summary>
         public readonly string TaskTitle;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
-        /// </summary>
         public readonly string WorkteamArn;
 
         [OutputConstructor]

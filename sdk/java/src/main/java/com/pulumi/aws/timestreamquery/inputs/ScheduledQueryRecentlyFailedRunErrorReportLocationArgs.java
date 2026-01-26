@@ -16,17 +16,9 @@ public final class ScheduledQueryRecentlyFailedRunErrorReportLocationArgs extend
 
     public static final ScheduledQueryRecentlyFailedRunErrorReportLocationArgs Empty = new ScheduledQueryRecentlyFailedRunErrorReportLocationArgs();
 
-    /**
-     * S3 location where error reports are written.
-     * 
-     */
     @Import(name="s3ReportLocations")
     private @Nullable Output<List<ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArgs>> s3ReportLocations;
 
-    /**
-     * @return S3 location where error reports are written.
-     * 
-     */
     public Optional<Output<List<ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArgs>>> s3ReportLocations() {
         return Optional.ofNullable(this.s3ReportLocations);
     }
@@ -55,33 +47,15 @@ public final class ScheduledQueryRecentlyFailedRunErrorReportLocationArgs extend
             $ = new ScheduledQueryRecentlyFailedRunErrorReportLocationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param s3ReportLocations S3 location where error reports are written.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3ReportLocations(@Nullable Output<List<ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArgs>> s3ReportLocations) {
             $.s3ReportLocations = s3ReportLocations;
             return this;
         }
 
-        /**
-         * @param s3ReportLocations S3 location where error reports are written.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3ReportLocations(List<ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArgs> s3ReportLocations) {
             return s3ReportLocations(Output.of(s3ReportLocations));
         }
 
-        /**
-         * @param s3ReportLocations S3 location where error reports are written.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3ReportLocations(ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArgs... s3ReportLocations) {
             return s3ReportLocations(List.of(s3ReportLocations));
         }

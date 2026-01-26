@@ -13,9 +13,6 @@ namespace Pulumi.Aws.RedShift.Outputs
     [OutputType]
     public sealed class IdcApplicationServiceIntegrationRedshiftConnect
     {
-        /// <summary>
-        /// Determines whether the connect integration is enabled or disabled.
-        /// </summary>
         public readonly string Authorization;
 
         [OutputConstructor]

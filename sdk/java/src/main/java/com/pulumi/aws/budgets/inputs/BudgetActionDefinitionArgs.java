@@ -17,47 +17,23 @@ public final class BudgetActionDefinitionArgs extends com.pulumi.resources.Resou
 
     public static final BudgetActionDefinitionArgs Empty = new BudgetActionDefinitionArgs();
 
-    /**
-     * The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
-     * 
-     */
     @Import(name="iamActionDefinition")
     private @Nullable Output<BudgetActionDefinitionIamActionDefinitionArgs> iamActionDefinition;
 
-    /**
-     * @return The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
-     * 
-     */
     public Optional<Output<BudgetActionDefinitionIamActionDefinitionArgs>> iamActionDefinition() {
         return Optional.ofNullable(this.iamActionDefinition);
     }
 
-    /**
-     * The service control policies (SCPs) action definition details. See SCP Action Definition.
-     * 
-     */
     @Import(name="scpActionDefinition")
     private @Nullable Output<BudgetActionDefinitionScpActionDefinitionArgs> scpActionDefinition;
 
-    /**
-     * @return The service control policies (SCPs) action definition details. See SCP Action Definition.
-     * 
-     */
     public Optional<Output<BudgetActionDefinitionScpActionDefinitionArgs>> scpActionDefinition() {
         return Optional.ofNullable(this.scpActionDefinition);
     }
 
-    /**
-     * The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
-     * 
-     */
     @Import(name="ssmActionDefinition")
     private @Nullable Output<BudgetActionDefinitionSsmActionDefinitionArgs> ssmActionDefinition;
 
-    /**
-     * @return The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
-     * 
-     */
     public Optional<Output<BudgetActionDefinitionSsmActionDefinitionArgs>> ssmActionDefinition() {
         return Optional.ofNullable(this.ssmActionDefinition);
     }
@@ -88,65 +64,29 @@ public final class BudgetActionDefinitionArgs extends com.pulumi.resources.Resou
             $ = new BudgetActionDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param iamActionDefinition The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder iamActionDefinition(@Nullable Output<BudgetActionDefinitionIamActionDefinitionArgs> iamActionDefinition) {
             $.iamActionDefinition = iamActionDefinition;
             return this;
         }
 
-        /**
-         * @param iamActionDefinition The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder iamActionDefinition(BudgetActionDefinitionIamActionDefinitionArgs iamActionDefinition) {
             return iamActionDefinition(Output.of(iamActionDefinition));
         }
 
-        /**
-         * @param scpActionDefinition The service control policies (SCPs) action definition details. See SCP Action Definition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scpActionDefinition(@Nullable Output<BudgetActionDefinitionScpActionDefinitionArgs> scpActionDefinition) {
             $.scpActionDefinition = scpActionDefinition;
             return this;
         }
 
-        /**
-         * @param scpActionDefinition The service control policies (SCPs) action definition details. See SCP Action Definition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scpActionDefinition(BudgetActionDefinitionScpActionDefinitionArgs scpActionDefinition) {
             return scpActionDefinition(Output.of(scpActionDefinition));
         }
 
-        /**
-         * @param ssmActionDefinition The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ssmActionDefinition(@Nullable Output<BudgetActionDefinitionSsmActionDefinitionArgs> ssmActionDefinition) {
             $.ssmActionDefinition = ssmActionDefinition;
             return this;
         }
 
-        /**
-         * @param ssmActionDefinition The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ssmActionDefinition(BudgetActionDefinitionSsmActionDefinitionArgs ssmActionDefinition) {
             return ssmActionDefinition(Output.of(ssmActionDefinition));
         }

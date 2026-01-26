@@ -17,122 +17,58 @@ public final class GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs ex
 
     public static final GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs Empty = new GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs();
 
-    /**
-     * Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-     * 
-     */
     @Import(name="action", required=true)
     private Output<String> action;
 
-    /**
-     * @return Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-     * 
-     */
     public Output<String> action() {
         return this.action;
     }
 
-    /**
-     * The regex description.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return The regex description.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-     * 
-     */
     @Import(name="inputAction")
     private @Nullable Output<String> inputAction;
 
-    /**
-     * @return Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-     * 
-     */
     public Optional<Output<String>> inputAction() {
         return Optional.ofNullable(this.inputAction);
     }
 
-    /**
-     * Whether to enable guardrail evaluation on the input. When disabled, you aren&#39;t charged for the evaluation.
-     * 
-     */
     @Import(name="inputEnabled")
     private @Nullable Output<Boolean> inputEnabled;
 
-    /**
-     * @return Whether to enable guardrail evaluation on the input. When disabled, you aren&#39;t charged for the evaluation.
-     * 
-     */
     public Optional<Output<Boolean>> inputEnabled() {
         return Optional.ofNullable(this.inputEnabled);
     }
 
-    /**
-     * The regex name.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The regex name.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-     * 
-     */
     @Import(name="outputAction")
     private @Nullable Output<String> outputAction;
 
-    /**
-     * @return Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-     * 
-     */
     public Optional<Output<String>> outputAction() {
         return Optional.ofNullable(this.outputAction);
     }
 
-    /**
-     * Whether to enable guardrail evaluation on the output. When disabled, you aren&#39;t charged for the evaluation.
-     * 
-     */
     @Import(name="outputEnabled")
     private @Nullable Output<Boolean> outputEnabled;
 
-    /**
-     * @return Whether to enable guardrail evaluation on the output. When disabled, you aren&#39;t charged for the evaluation.
-     * 
-     */
     public Optional<Output<Boolean>> outputEnabled() {
         return Optional.ofNullable(this.outputEnabled);
     }
 
-    /**
-     * The regex pattern.
-     * 
-     */
     @Import(name="pattern", required=true)
     private Output<String> pattern;
 
-    /**
-     * @return The regex pattern.
-     * 
-     */
     public Output<String> pattern() {
         return this.pattern;
     }
@@ -168,170 +104,74 @@ public final class GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs ex
             $ = new GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param action Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(Output<String> action) {
             $.action = action;
             return this;
         }
 
-        /**
-         * @param action Options for sensitive information action. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(String action) {
             return action(Output.of(action));
         }
 
-        /**
-         * @param description The regex description.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description The regex description.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param inputAction Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputAction(@Nullable Output<String> inputAction) {
             $.inputAction = inputAction;
             return this;
         }
 
-        /**
-         * @param inputAction Action to take when harmful content is detected in the input. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputAction(String inputAction) {
             return inputAction(Output.of(inputAction));
         }
 
-        /**
-         * @param inputEnabled Whether to enable guardrail evaluation on the input. When disabled, you aren&#39;t charged for the evaluation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputEnabled(@Nullable Output<Boolean> inputEnabled) {
             $.inputEnabled = inputEnabled;
             return this;
         }
 
-        /**
-         * @param inputEnabled Whether to enable guardrail evaluation on the input. When disabled, you aren&#39;t charged for the evaluation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputEnabled(Boolean inputEnabled) {
             return inputEnabled(Output.of(inputEnabled));
         }
 
-        /**
-         * @param name The regex name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The regex name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param outputAction Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputAction(@Nullable Output<String> outputAction) {
             $.outputAction = outputAction;
             return this;
         }
 
-        /**
-         * @param outputAction Action to take when harmful content is detected in the output. Valid values: `BLOCK`, `ANONYMIZE`, `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputAction(String outputAction) {
             return outputAction(Output.of(outputAction));
         }
 
-        /**
-         * @param outputEnabled Whether to enable guardrail evaluation on the output. When disabled, you aren&#39;t charged for the evaluation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputEnabled(@Nullable Output<Boolean> outputEnabled) {
             $.outputEnabled = outputEnabled;
             return this;
         }
 
-        /**
-         * @param outputEnabled Whether to enable guardrail evaluation on the output. When disabled, you aren&#39;t charged for the evaluation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputEnabled(Boolean outputEnabled) {
             return outputEnabled(Output.of(outputEnabled));
         }
 
-        /**
-         * @param pattern The regex pattern.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pattern(Output<String> pattern) {
             $.pattern = pattern;
             return this;
         }
 
-        /**
-         * @param pattern The regex pattern.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pattern(String pattern) {
             return pattern(Output.of(pattern));
         }

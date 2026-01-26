@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Pipes.Outputs
     [OutputType]
     public sealed class PipeSourceParametersDynamodbStreamParametersDeadLetterConfig
     {
-        /// <summary>
-        /// ARN of this pipe.
-        /// </summary>
         public readonly string? Arn;
 
         [OutputConstructor]

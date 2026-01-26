@@ -12,27 +12,17 @@ namespace Pulumi.Aws.Fsx.Inputs
 
     public sealed class S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPosixUserGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// GID of the file system user.
-        /// </summary>
         [Input("gid", required: true)]
         public Input<int> Gid { get; set; } = null!;
 
         [Input("secondaryGids")]
         private InputList<int>? _secondaryGids;
-
-        /// <summary>
-        /// List of secondary GIDs for the file system user..
-        /// </summary>
         public InputList<int> SecondaryGids
         {
             get => _secondaryGids ?? (_secondaryGids = new InputList<int>());
             set => _secondaryGids = value;
         }
 
-        /// <summary>
-        /// UID of the file system user.
-        /// </summary>
         [Input("uid", required: true)]
         public Input<int> Uid { get; set; } = null!;
 

@@ -17,77 +17,37 @@ public final class HostedPrivateVirtualInterfaceAccepterArgs extends com.pulumi.
 
     public static final HostedPrivateVirtualInterfaceAccepterArgs Empty = new HostedPrivateVirtualInterfaceAccepterArgs();
 
-    /**
-     * The ID of the Direct Connect gateway to which to connect the virtual interface.
-     * 
-     */
     @Import(name="dxGatewayId")
     private @Nullable Output<String> dxGatewayId;
 
-    /**
-     * @return The ID of the Direct Connect gateway to which to connect the virtual interface.
-     * 
-     */
     public Optional<Output<String>> dxGatewayId() {
         return Optional.ofNullable(this.dxGatewayId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * The ID of the Direct Connect virtual interface to accept.
-     * 
-     */
     @Import(name="virtualInterfaceId", required=true)
     private Output<String> virtualInterfaceId;
 
-    /**
-     * @return The ID of the Direct Connect virtual interface to accept.
-     * 
-     */
     public Output<String> virtualInterfaceId() {
         return this.virtualInterfaceId;
     }
 
-    /**
-     * The ID of the virtual private gateway to which to connect the virtual interface.
-     * 
-     */
     @Import(name="vpnGatewayId")
     private @Nullable Output<String> vpnGatewayId;
 
-    /**
-     * @return The ID of the virtual private gateway to which to connect the virtual interface.
-     * 
-     */
     public Optional<Output<String>> vpnGatewayId() {
         return Optional.ofNullable(this.vpnGatewayId);
     }
@@ -120,107 +80,47 @@ public final class HostedPrivateVirtualInterfaceAccepterArgs extends com.pulumi.
             $ = new HostedPrivateVirtualInterfaceAccepterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dxGatewayId The ID of the Direct Connect gateway to which to connect the virtual interface.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dxGatewayId(@Nullable Output<String> dxGatewayId) {
             $.dxGatewayId = dxGatewayId;
             return this;
         }
 
-        /**
-         * @param dxGatewayId The ID of the Direct Connect gateway to which to connect the virtual interface.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dxGatewayId(String dxGatewayId) {
             return dxGatewayId(Output.of(dxGatewayId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param virtualInterfaceId The ID of the Direct Connect virtual interface to accept.
-         * 
-         * @return builder
-         * 
-         */
         public Builder virtualInterfaceId(Output<String> virtualInterfaceId) {
             $.virtualInterfaceId = virtualInterfaceId;
             return this;
         }
 
-        /**
-         * @param virtualInterfaceId The ID of the Direct Connect virtual interface to accept.
-         * 
-         * @return builder
-         * 
-         */
         public Builder virtualInterfaceId(String virtualInterfaceId) {
             return virtualInterfaceId(Output.of(virtualInterfaceId));
         }
 
-        /**
-         * @param vpnGatewayId The ID of the virtual private gateway to which to connect the virtual interface.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpnGatewayId(@Nullable Output<String> vpnGatewayId) {
             $.vpnGatewayId = vpnGatewayId;
             return this;
         }
 
-        /**
-         * @param vpnGatewayId The ID of the virtual private gateway to which to connect the virtual interface.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpnGatewayId(String vpnGatewayId) {
             return vpnGatewayId(Output.of(vpnGatewayId));
         }

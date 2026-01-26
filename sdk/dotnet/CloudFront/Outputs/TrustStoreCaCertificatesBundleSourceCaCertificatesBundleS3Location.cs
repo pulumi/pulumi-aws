@@ -13,21 +13,9 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location
     {
-        /// <summary>
-        /// S3 bucket name containing the CA certificates bundle.
-        /// </summary>
         public readonly string Bucket;
-        /// <summary>
-        /// S3 object key for the CA certificates bundle.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// AWS region of the S3 bucket.
-        /// </summary>
         public readonly string Region;
-        /// <summary>
-        /// S3 object version ID for the CA certificates bundle.
-        /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]

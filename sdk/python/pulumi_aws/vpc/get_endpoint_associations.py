@@ -44,9 +44,6 @@ class GetEndpointAssociationsResult:
     @_builtins.property
     @pulumi.getter
     def associations(self) -> Sequence['outputs.GetEndpointAssociationsAssociationResult']:
-        """
-        Associations for the VPC Endpoint. Association blocks are documented below.
-        """
         return pulumi.get(self, "associations")
 
     @_builtins.property
@@ -84,22 +81,7 @@ def get_endpoint_associations(region: Optional[_builtins.str] = None,
                               vpc_endpoint_id: Optional[_builtins.str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEndpointAssociationsResult:
     """
-    Data source for managing an AWS EC2 (Elastic Compute Cloud) Vpc Endpoint Associations.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.vpc.get_endpoint_associations(vpc_endpoint_id=example_aws_vpc_endpoint["id"])
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str vpc_endpoint_id: ID of the specific VPC Endpoint to retrieve.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -116,22 +98,7 @@ def get_endpoint_associations_output(region: Optional[pulumi.Input[Optional[_bui
                                      vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointAssociationsResult]:
     """
-    Data source for managing an AWS EC2 (Elastic Compute Cloud) Vpc Endpoint Associations.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.vpc.get_endpoint_associations(vpc_endpoint_id=example_aws_vpc_endpoint["id"])
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str vpc_endpoint_id: ID of the specific VPC Endpoint to retrieve.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

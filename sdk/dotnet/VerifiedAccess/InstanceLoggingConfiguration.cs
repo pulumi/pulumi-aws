@@ -9,196 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.VerifiedAccess
 {
-    /// <summary>
-    /// Resource for managing a Verified Access Logging Configuration.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### With CloudWatch Logging
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.VerifiedAccess.InstanceLoggingConfiguration("example", new()
-    ///     {
-    ///         AccessLogs = new Aws.VerifiedAccess.Inputs.InstanceLoggingConfigurationAccessLogsArgs
-    ///         {
-    ///             CloudwatchLogs = new Aws.VerifiedAccess.Inputs.InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs
-    ///             {
-    ///                 Enabled = true,
-    ///                 LogGroup = exampleAwsCloudwatchLogGroup.Id,
-    ///             },
-    ///         },
-    ///         VerifiedaccessInstanceId = exampleAwsVerifiedaccessInstance.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With Kinesis Data Firehose Logging
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.VerifiedAccess.InstanceLoggingConfiguration("example", new()
-    ///     {
-    ///         AccessLogs = new Aws.VerifiedAccess.Inputs.InstanceLoggingConfigurationAccessLogsArgs
-    ///         {
-    ///             KinesisDataFirehose = new Aws.VerifiedAccess.Inputs.InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs
-    ///             {
-    ///                 DeliveryStream = exampleAwsKinesisFirehoseDeliveryStream.Name,
-    ///                 Enabled = true,
-    ///             },
-    ///         },
-    ///         VerifiedaccessInstanceId = exampleAwsVerifiedaccessInstance.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With S3 logging
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.VerifiedAccess.InstanceLoggingConfiguration("example", new()
-    ///     {
-    ///         AccessLogs = new Aws.VerifiedAccess.Inputs.InstanceLoggingConfigurationAccessLogsArgs
-    ///         {
-    ///             S3 = new Aws.VerifiedAccess.Inputs.InstanceLoggingConfigurationAccessLogsS3Args
-    ///             {
-    ///                 BucketName = exampleAwsS3Bucket.Id,
-    ///                 Enabled = true,
-    ///                 Prefix = "example",
-    ///             },
-    ///         },
-    ///         VerifiedaccessInstanceId = exampleAwsVerifiedaccessInstance.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With all three logging options
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.VerifiedAccess.InstanceLoggingConfiguration("example", new()
-    ///     {
-    ///         AccessLogs = new Aws.VerifiedAccess.Inputs.InstanceLoggingConfigurationAccessLogsArgs
-    ///         {
-    ///             CloudwatchLogs = new Aws.VerifiedAccess.Inputs.InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs
-    ///             {
-    ///                 Enabled = true,
-    ///                 LogGroup = exampleAwsCloudwatchLogGroup.Id,
-    ///             },
-    ///             KinesisDataFirehose = new Aws.VerifiedAccess.Inputs.InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs
-    ///             {
-    ///                 DeliveryStream = exampleAwsKinesisFirehoseDeliveryStream.Name,
-    ///                 Enabled = true,
-    ///             },
-    ///             S3 = new Aws.VerifiedAccess.Inputs.InstanceLoggingConfigurationAccessLogsS3Args
-    ///             {
-    ///                 BucketName = exampleAwsS3Bucket.Id,
-    ///                 Enabled = true,
-    ///             },
-    ///         },
-    ///         VerifiedaccessInstanceId = exampleAwsVerifiedaccessInstance.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With `IncludeTrustContext`
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.VerifiedAccess.InstanceLoggingConfiguration("example", new()
-    ///     {
-    ///         AccessLogs = new Aws.VerifiedAccess.Inputs.InstanceLoggingConfigurationAccessLogsArgs
-    ///         {
-    ///             IncludeTrustContext = true,
-    ///         },
-    ///         VerifiedaccessInstanceId = exampleAwsVerifiedaccessInstance.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With `LogVersion`
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.VerifiedAccess.InstanceLoggingConfiguration("example", new()
-    ///     {
-    ///         AccessLogs = new Aws.VerifiedAccess.Inputs.InstanceLoggingConfigurationAccessLogsArgs
-    ///         {
-    ///             LogVersion = "ocsf-1.0.0-rc.2",
-    ///         },
-    ///         VerifiedaccessInstanceId = exampleAwsVerifiedaccessInstance.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Verified Access Logging Configuration using the Verified Access Instance `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration example vai-1234567890abcdef0
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration")]
     public partial class InstanceLoggingConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A block that specifies the configuration options for Verified Access instances. Detailed below.
-        /// </summary>
         [Output("accessLogs")]
         public Output<Outputs.InstanceLoggingConfigurationAccessLogs> AccessLogs { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the Verified Access instance.
-        /// </summary>
         [Output("verifiedaccessInstanceId")]
         public Output<string> VerifiedaccessInstanceId { get; private set; } = null!;
 
@@ -248,21 +67,12 @@ namespace Pulumi.Aws.VerifiedAccess
 
     public sealed class InstanceLoggingConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A block that specifies the configuration options for Verified Access instances. Detailed below.
-        /// </summary>
         [Input("accessLogs", required: true)]
         public Input<Inputs.InstanceLoggingConfigurationAccessLogsArgs> AccessLogs { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the Verified Access instance.
-        /// </summary>
         [Input("verifiedaccessInstanceId", required: true)]
         public Input<string> VerifiedaccessInstanceId { get; set; } = null!;
 
@@ -274,21 +84,12 @@ namespace Pulumi.Aws.VerifiedAccess
 
     public sealed class InstanceLoggingConfigurationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A block that specifies the configuration options for Verified Access instances. Detailed below.
-        /// </summary>
         [Input("accessLogs")]
         public Input<Inputs.InstanceLoggingConfigurationAccessLogsGetArgs>? AccessLogs { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the Verified Access instance.
-        /// </summary>
         [Input("verifiedaccessInstanceId")]
         public Input<string>? VerifiedaccessInstanceId { get; set; }
 

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationSsmlMessage
     {
-        /// <summary>
-        /// SSML text that defines the prompt.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

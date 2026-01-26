@@ -12,27 +12,15 @@ namespace Pulumi.Aws.AppRunner.Inputs
 
     public sealed class ServiceSourceConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
-        /// </summary>
         [Input("authenticationConfiguration")]
         public Input<Inputs.ServiceSourceConfigurationAuthenticationConfigurationArgs>? AuthenticationConfiguration { get; set; }
 
-        /// <summary>
-        /// Whether continuous integration from the source repository is enabled for the App Runner service. If set to `True`, each repository change (source code commit or new image version) starts a deployment. Defaults to `True`.
-        /// </summary>
         [Input("autoDeploymentsEnabled")]
         public Input<bool>? AutoDeploymentsEnabled { get; set; }
 
-        /// <summary>
-        /// Description of a source code repository. See Code Repository below for more details.
-        /// </summary>
         [Input("codeRepository")]
         public Input<Inputs.ServiceSourceConfigurationCodeRepositoryArgs>? CodeRepository { get; set; }
 
-        /// <summary>
-        /// Description of a source image repository. See Image Repository below for more details.
-        /// </summary>
         [Input("imageRepository")]
         public Input<Inputs.ServiceSourceConfigurationImageRepositoryArgs>? ImageRepository { get; set; }
 

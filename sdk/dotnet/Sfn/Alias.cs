@@ -9,99 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sfn
 {
-    /// <summary>
-    /// Provides a Step Function State Machine Alias.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var sfnAlias = new Aws.Sfn.Alias("sfn_alias", new()
-    ///     {
-    ///         Name = "my_sfn_alias",
-    ///         RoutingConfigurations = new[]
-    ///         {
-    ///             new Aws.Sfn.Inputs.AliasRoutingConfigurationArgs
-    ///             {
-    ///                 StateMachineVersionArn = sfnTest.StateMachineVersionArn,
-    ///                 Weight = 100,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var mySfnAlias = new Aws.Sfn.Alias("my_sfn_alias", new()
-    ///     {
-    ///         Name = "my_sfn_alias",
-    ///         RoutingConfigurations = new[]
-    ///         {
-    ///             new Aws.Sfn.Inputs.AliasRoutingConfigurationArgs
-    ///             {
-    ///                 StateMachineVersionArn = "arn:aws:states:us-east-1:12345:stateMachine:demo:3",
-    ///                 Weight = 50,
-    ///             },
-    ///             new Aws.Sfn.Inputs.AliasRoutingConfigurationArgs
-    ///             {
-    ///                 StateMachineVersionArn = "arn:aws:states:us-east-1:12345:stateMachine:demo:2",
-    ///                 Weight = 50,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import SFN (Step Functions) Alias using the `arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:sfn/alias:Alias foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:sfn/alias:Alias")]
     public partial class Alias : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) identifying your state machine alias.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The date the state machine alias was created.
-        /// </summary>
         [Output("creationDate")]
         public Output<string> CreationDate { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the alias.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Name for the alias you are creating.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The StateMachine alias' route configuration settings. Fields documented below
-        /// </summary>
         [Output("routingConfigurations")]
         public Output<ImmutableArray<Outputs.AliasRoutingConfiguration>> RoutingConfigurations { get; private set; } = null!;
 
@@ -151,30 +76,17 @@ namespace Pulumi.Aws.Sfn
 
     public sealed class AliasArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of the alias.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name for the alias you are creating.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("routingConfigurations", required: true)]
         private InputList<Inputs.AliasRoutingConfigurationArgs>? _routingConfigurations;
-
-        /// <summary>
-        /// The StateMachine alias' route configuration settings. Fields documented below
-        /// </summary>
         public InputList<Inputs.AliasRoutingConfigurationArgs> RoutingConfigurations
         {
             get => _routingConfigurations ?? (_routingConfigurations = new InputList<Inputs.AliasRoutingConfigurationArgs>());
@@ -189,42 +101,23 @@ namespace Pulumi.Aws.Sfn
 
     public sealed class AliasState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) identifying your state machine alias.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The date the state machine alias was created.
-        /// </summary>
         [Input("creationDate")]
         public Input<string>? CreationDate { get; set; }
 
-        /// <summary>
-        /// Description of the alias.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name for the alias you are creating.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("routingConfigurations")]
         private InputList<Inputs.AliasRoutingConfigurationGetArgs>? _routingConfigurations;
-
-        /// <summary>
-        /// The StateMachine alias' route configuration settings. Fields documented below
-        /// </summary>
         public InputList<Inputs.AliasRoutingConfigurationGetArgs> RoutingConfigurations
         {
             get => _routingConfigurations ?? (_routingConfigurations = new InputList<Inputs.AliasRoutingConfigurationGetArgs>());

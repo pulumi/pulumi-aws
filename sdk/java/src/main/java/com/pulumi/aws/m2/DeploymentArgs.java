@@ -19,47 +19,23 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DeploymentArgs Empty = new DeploymentArgs();
 
-    /**
-     * Application to deploy.
-     * 
-     */
     @Import(name="applicationId", required=true)
     private Output<String> applicationId;
 
-    /**
-     * @return Application to deploy.
-     * 
-     */
     public Output<String> applicationId() {
         return this.applicationId;
     }
 
-    /**
-     * Version to application to deploy
-     * 
-     */
     @Import(name="applicationVersion", required=true)
     private Output<Integer> applicationVersion;
 
-    /**
-     * @return Version to application to deploy
-     * 
-     */
     public Output<Integer> applicationVersion() {
         return this.applicationVersion;
     }
 
-    /**
-     * Environment to deploy application to.
-     * 
-     */
     @Import(name="environmentId", required=true)
     private Output<String> environmentId;
 
-    /**
-     * @return Environment to deploy application to.
-     * 
-     */
     public Output<String> environmentId() {
         return this.environmentId;
     }
@@ -71,32 +47,16 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.forceStop);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Start the application once deployed.
-     * 
-     */
     @Import(name="start", required=true)
     private Output<Boolean> start;
 
-    /**
-     * @return Start the application once deployed.
-     * 
-     */
     public Output<Boolean> start() {
         return this.start;
     }
@@ -138,65 +98,29 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
             $ = new DeploymentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applicationId Application to deploy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationId(Output<String> applicationId) {
             $.applicationId = applicationId;
             return this;
         }
 
-        /**
-         * @param applicationId Application to deploy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationId(String applicationId) {
             return applicationId(Output.of(applicationId));
         }
 
-        /**
-         * @param applicationVersion Version to application to deploy
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationVersion(Output<Integer> applicationVersion) {
             $.applicationVersion = applicationVersion;
             return this;
         }
 
-        /**
-         * @param applicationVersion Version to application to deploy
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationVersion(Integer applicationVersion) {
             return applicationVersion(Output.of(applicationVersion));
         }
 
-        /**
-         * @param environmentId Environment to deploy application to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder environmentId(Output<String> environmentId) {
             $.environmentId = environmentId;
             return this;
         }
 
-        /**
-         * @param environmentId Environment to deploy application to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder environmentId(String environmentId) {
             return environmentId(Output.of(environmentId));
         }
@@ -210,44 +134,20 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
             return forceStop(Output.of(forceStop));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param start Start the application once deployed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder start(Output<Boolean> start) {
             $.start = start;
             return this;
         }
 
-        /**
-         * @param start Start the application once deployed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder start(Boolean start) {
             return start(Output.of(start));
         }

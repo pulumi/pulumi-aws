@@ -48,10 +48,6 @@ class ApplicationDefinition(dict):
     def __init__(__self__, *,
                  content: Optional[_builtins.str] = None,
                  s3_location: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str content: JSON application definition. Either this or `s3_location` must be specified.
-        :param _builtins.str s3_location: Location of the application definition in S3. Either this or `content` must be specified.
-        """
         if content is not None:
             pulumi.set(__self__, "content", content)
         if s3_location is not None:
@@ -60,17 +56,11 @@ class ApplicationDefinition(dict):
     @_builtins.property
     @pulumi.getter
     def content(self) -> Optional[_builtins.str]:
-        """
-        JSON application definition. Either this or `s3_location` must be specified.
-        """
         return pulumi.get(self, "content")
 
     @_builtins.property
     @pulumi.getter(name="s3Location")
     def s3_location(self) -> Optional[_builtins.str]:
-        """
-        Location of the application definition in S3. Either this or `content` must be specified.
-        """
         return pulumi.get(self, "s3_location")
 
 
@@ -181,17 +171,11 @@ class EnvironmentHighAvailabilityConfig(dict):
 
     def __init__(__self__, *,
                  desired_capacity: _builtins.int):
-        """
-        :param _builtins.int desired_capacity: Desired number of instances for the Environment.
-        """
         pulumi.set(__self__, "desired_capacity", desired_capacity)
 
     @_builtins.property
     @pulumi.getter(name="desiredCapacity")
     def desired_capacity(self) -> _builtins.int:
-        """
-        Desired number of instances for the Environment.
-        """
         return pulumi.get(self, "desired_capacity")
 
 
@@ -240,27 +224,17 @@ class EnvironmentStorageConfigurationEfs(dict):
     def __init__(__self__, *,
                  file_system_id: _builtins.str,
                  mount_point: _builtins.str):
-        """
-        :param _builtins.str file_system_id: Id of the EFS filesystem to mount.
-        :param _builtins.str mount_point: Path to mount the filesystem on, must start with `/m2/mount/`.
-        """
         pulumi.set(__self__, "file_system_id", file_system_id)
         pulumi.set(__self__, "mount_point", mount_point)
 
     @_builtins.property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> _builtins.str:
-        """
-        Id of the EFS filesystem to mount.
-        """
         return pulumi.get(self, "file_system_id")
 
     @_builtins.property
     @pulumi.getter(name="mountPoint")
     def mount_point(self) -> _builtins.str:
-        """
-        Path to mount the filesystem on, must start with `/m2/mount/`.
-        """
         return pulumi.get(self, "mount_point")
 
 
@@ -288,27 +262,17 @@ class EnvironmentStorageConfigurationFsx(dict):
     def __init__(__self__, *,
                  file_system_id: _builtins.str,
                  mount_point: _builtins.str):
-        """
-        :param _builtins.str file_system_id: Id of the FSX filesystem to mount.
-        :param _builtins.str mount_point: Path to mount the filesystem on, must start with `/m2/mount/`.
-        """
         pulumi.set(__self__, "file_system_id", file_system_id)
         pulumi.set(__self__, "mount_point", mount_point)
 
     @_builtins.property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> _builtins.str:
-        """
-        Id of the FSX filesystem to mount.
-        """
         return pulumi.get(self, "file_system_id")
 
     @_builtins.property
     @pulumi.getter(name="mountPoint")
     def mount_point(self) -> _builtins.str:
-        """
-        Path to mount the filesystem on, must start with `/m2/mount/`.
-        """
         return pulumi.get(self, "mount_point")
 
 

@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class ServiceDeploymentConfiguration
     {
-        /// <summary>
-        /// Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Valid range: 0-1440 minutes. Used with `BLUE_GREEN`, `LINEAR`, and `CANARY` strategies.
-        /// </summary>
         public readonly string? BakeTimeInMinutes;
-        /// <summary>
-        /// Configuration block for canary deployment strategy. Required when `Strategy` is set to `CANARY`. See below.
-        /// </summary>
         public readonly Outputs.ServiceDeploymentConfigurationCanaryConfiguration? CanaryConfiguration;
-        /// <summary>
-        /// Configuration block for lifecycle hooks that are invoked during deployments. See below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ServiceDeploymentConfigurationLifecycleHook> LifecycleHooks;
-        /// <summary>
-        /// Configuration block for linear deployment strategy. Required when `Strategy` is set to `LINEAR`. See below.
-        /// </summary>
         public readonly Outputs.ServiceDeploymentConfigurationLinearConfiguration? LinearConfiguration;
-        /// <summary>
-        /// Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`, `LINEAR`, `CANARY`. Default: `ROLLING`.
-        /// </summary>
         public readonly string? Strategy;
 
         [OutputConstructor]

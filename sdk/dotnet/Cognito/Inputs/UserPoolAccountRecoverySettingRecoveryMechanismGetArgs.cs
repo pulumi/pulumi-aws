@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Cognito.Inputs
 
     public sealed class UserPoolAccountRecoverySettingRecoveryMechanismGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Recovery method for a user. Can be of the following: `VerifiedEmail`, `VerifiedPhoneNumber`, and `AdminOnly`.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Positive integer specifying priority of a method with 1 being the highest priority.
-        /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 

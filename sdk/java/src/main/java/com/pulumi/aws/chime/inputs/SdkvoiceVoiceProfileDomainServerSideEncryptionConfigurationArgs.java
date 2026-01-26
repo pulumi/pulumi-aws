@@ -14,21 +14,9 @@ public final class SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationAr
 
     public static final SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs Empty = new SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs();
 
-    /**
-     * ARN for KMS Key.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="kmsKeyArn", required=true)
     private Output<String> kmsKeyArn;
 
-    /**
-     * @return ARN for KMS Key.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> kmsKeyArn() {
         return this.kmsKeyArn;
     }
@@ -57,27 +45,11 @@ public final class SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationAr
             $ = new SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kmsKeyArn ARN for KMS Key.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
         }
 
-        /**
-         * @param kmsKeyArn ARN for KMS Key.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
         }

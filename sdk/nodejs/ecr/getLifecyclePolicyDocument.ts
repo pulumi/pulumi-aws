@@ -7,35 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Generates an ECR lifecycle policy document in JSON format. Can be used with resources such as the `aws.ecr.LifecyclePolicy` resource.
- *
- * > For more information about building AWS ECR lifecycle policy documents, see the [AWS ECR Lifecycle Policy Document Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ecr.getLifecyclePolicyDocument({
- *     rules: [{
- *         priority: 1,
- *         description: "This is a test.",
- *         selection: {
- *             tagStatus: "tagged",
- *             tagPrefixLists: ["prod"],
- *             countType: "imageCountMoreThan",
- *             countNumber: 100,
- *         },
- *     }],
- * });
- * const exampleLifecyclePolicy = new aws.ecr.LifecyclePolicy("example", {
- *     repository: exampleAwsEcrRepository.name,
- *     policy: example.then(example => example.json),
- * });
- * ```
- */
 export function getLifecyclePolicyDocument(args?: GetLifecyclePolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetLifecyclePolicyDocumentResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -59,41 +30,9 @@ export interface GetLifecyclePolicyDocumentResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * The above arguments serialized as a standard JSON policy document.
-     */
     readonly json: string;
     readonly rules?: outputs.ecr.GetLifecyclePolicyDocumentRule[];
 }
-/**
- * Generates an ECR lifecycle policy document in JSON format. Can be used with resources such as the `aws.ecr.LifecyclePolicy` resource.
- *
- * > For more information about building AWS ECR lifecycle policy documents, see the [AWS ECR Lifecycle Policy Document Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ecr.getLifecyclePolicyDocument({
- *     rules: [{
- *         priority: 1,
- *         description: "This is a test.",
- *         selection: {
- *             tagStatus: "tagged",
- *             tagPrefixLists: ["prod"],
- *             countType: "imageCountMoreThan",
- *             countNumber: 100,
- *         },
- *     }],
- * });
- * const exampleLifecyclePolicy = new aws.ecr.LifecyclePolicy("example", {
- *     repository: exampleAwsEcrRepository.name,
- *     policy: example.then(example => example.json),
- * });
- * ```
- */
 export function getLifecyclePolicyDocumentOutput(args?: GetLifecyclePolicyDocumentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLifecyclePolicyDocumentResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

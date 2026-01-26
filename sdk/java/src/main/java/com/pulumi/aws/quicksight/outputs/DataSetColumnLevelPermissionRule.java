@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSetColumnLevelPermissionRule {
-    /**
-     * @return An array of column names.
-     * 
-     */
     private @Nullable List<String> columnNames;
-    /**
-     * @return An array of ARNs for Amazon QuickSight users or groups.
-     * 
-     */
     private @Nullable List<String> principals;
 
     private DataSetColumnLevelPermissionRule() {}
-    /**
-     * @return An array of column names.
-     * 
-     */
     public List<String> columnNames() {
         return this.columnNames == null ? List.of() : this.columnNames;
     }
-    /**
-     * @return An array of ARNs for Amazon QuickSight users or groups.
-     * 
-     */
     public List<String> principals() {
         return this.principals == null ? List.of() : this.principals;
     }

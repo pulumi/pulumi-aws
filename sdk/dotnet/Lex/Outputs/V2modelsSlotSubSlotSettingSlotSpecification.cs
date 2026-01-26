@@ -14,14 +14,7 @@ namespace Pulumi.Aws.Lex.Outputs
     public sealed class V2modelsSlotSubSlotSettingSlotSpecification
     {
         public readonly string MapBlockKey;
-        /// <summary>
-        /// Unique identifier assigned to the slot type.
-        /// </summary>
         public readonly string SlotTypeId;
-        /// <summary>
-        /// Elicitation setting details for constituent sub slots of a composite slot.
-        /// See the `ValueElicitationSetting` argument reference below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting> ValueElicitationSettings;
 
         [OutputConstructor]

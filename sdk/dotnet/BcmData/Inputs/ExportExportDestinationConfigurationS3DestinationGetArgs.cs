@@ -12,33 +12,20 @@ namespace Pulumi.Aws.BcmData.Inputs
 
     public sealed class ExportExportDestinationConfigurationS3DestinationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the Amazon S3 bucket used as the destination of a data export file.
-        /// </summary>
         [Input("s3Bucket", required: true)]
         public Input<string> S3Bucket { get; set; } = null!;
 
         [Input("s3OutputConfigurations")]
         private InputList<Inputs.ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationGetArgs>? _s3OutputConfigurations;
-
-        /// <summary>
-        /// Output configuration for the data export. See the `S3OutputConfigurations` argument reference below.
-        /// </summary>
         public InputList<Inputs.ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationGetArgs> S3OutputConfigurations
         {
             get => _s3OutputConfigurations ?? (_s3OutputConfigurations = new InputList<Inputs.ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationGetArgs>());
             set => _s3OutputConfigurations = value;
         }
 
-        /// <summary>
-        /// S3 path prefix you want prepended to the name of your data export.
-        /// </summary>
         [Input("s3Prefix", required: true)]
         public Input<string> S3Prefix { get; set; } = null!;
 
-        /// <summary>
-        /// S3 bucket region.
-        /// </summary>
         [Input("s3Region", required: true)]
         public Input<string> S3Region { get; set; } = null!;
 

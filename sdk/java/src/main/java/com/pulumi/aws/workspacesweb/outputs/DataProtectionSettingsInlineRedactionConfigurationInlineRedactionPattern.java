@@ -15,77 +15,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern {
-    /**
-     * @return The built-in pattern from the list of preconfigured patterns. Either a `customPattern` or `builtInPatternId` is required.
-     * 
-     */
     private @Nullable String builtInPatternId;
-    /**
-     * @return The confidence level for inline redaction pattern. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
-     * 
-     */
     private @Nullable Integer confidenceLevel;
-    /**
-     * @return The configuration for a custom pattern. Either a `customPattern` or `builtInPatternId` is required. Detailed below.
-     * 
-     */
     private @Nullable DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern customPattern;
-    /**
-     * @return The enforced URL configuration for the inline redaction pattern.
-     * 
-     */
     private @Nullable List<String> enforcedUrls;
-    /**
-     * @return The exempt URL configuration for the inline redaction pattern.
-     * 
-     */
     private @Nullable List<String> exemptUrls;
-    /**
-     * @return The redaction placeholder that will replace the redacted text in session. Detailed below.
-     * 
-     */
     private @Nullable List<DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolder> redactionPlaceHolders;
 
     private DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern() {}
-    /**
-     * @return The built-in pattern from the list of preconfigured patterns. Either a `customPattern` or `builtInPatternId` is required.
-     * 
-     */
     public Optional<String> builtInPatternId() {
         return Optional.ofNullable(this.builtInPatternId);
     }
-    /**
-     * @return The confidence level for inline redaction pattern. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
-     * 
-     */
     public Optional<Integer> confidenceLevel() {
         return Optional.ofNullable(this.confidenceLevel);
     }
-    /**
-     * @return The configuration for a custom pattern. Either a `customPattern` or `builtInPatternId` is required. Detailed below.
-     * 
-     */
     public Optional<DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern> customPattern() {
         return Optional.ofNullable(this.customPattern);
     }
-    /**
-     * @return The enforced URL configuration for the inline redaction pattern.
-     * 
-     */
     public List<String> enforcedUrls() {
         return this.enforcedUrls == null ? List.of() : this.enforcedUrls;
     }
-    /**
-     * @return The exempt URL configuration for the inline redaction pattern.
-     * 
-     */
     public List<String> exemptUrls() {
         return this.exemptUrls == null ? List.of() : this.exemptUrls;
     }
-    /**
-     * @return The redaction placeholder that will replace the redacted text in session. Detailed below.
-     * 
-     */
     public List<DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolder> redactionPlaceHolders() {
         return this.redactionPlaceHolders == null ? List.of() : this.redactionPlaceHolders;
     }

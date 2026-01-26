@@ -15,9 +15,6 @@ namespace Pulumi.Aws.MediaLive.Outputs
     {
         public readonly double? Bitrate;
         public readonly string? CodingMode;
-        /// <summary>
-        /// Sample rate in Hz.
-        /// </summary>
         public readonly double? SampleRate;
 
         [OutputConstructor]

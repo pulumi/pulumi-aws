@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to create a SES template.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const myTemplate = new aws.ses.Template("MyTemplate", {
- *     name: "MyTemplate",
- *     subject: "Greetings, {{name}}!",
- *     html: "<h1>Hello {{name}},</h1><p>Your favorite animal is {{favoriteanimal}}.</p>",
- *     text: `Hello {{name}},\x0d
- * Your favorite animal is {{favoriteanimal}}.`,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import SES templates using the template name. For example:
- *
- * ```sh
- * $ pulumi import aws:ses/template:Template MyTemplate MyTemplate
- * ```
- */
 export class Template extends pulumi.CustomResource {
     /**
      * Get an existing Template resource's state with the given name, ID, and optional extra
@@ -58,29 +32,11 @@ export class Template extends pulumi.CustomResource {
         return obj['__pulumiType'] === Template.__pulumiType;
     }
 
-    /**
-     * The ARN of the SES template
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
-     */
     declare public readonly html: pulumi.Output<string | undefined>;
-    /**
-     * The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The subject line of the email.
-     */
     declare public readonly subject: pulumi.Output<string | undefined>;
-    /**
-     * The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
-     */
     declare public readonly text: pulumi.Output<string | undefined>;
 
     /**
@@ -120,29 +76,11 @@ export class Template extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Template resources.
  */
 export interface TemplateState {
-    /**
-     * The ARN of the SES template
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
-     */
     html?: pulumi.Input<string>;
-    /**
-     * The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The subject line of the email.
-     */
     subject?: pulumi.Input<string>;
-    /**
-     * The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
-     */
     text?: pulumi.Input<string>;
 }
 
@@ -150,24 +88,9 @@ export interface TemplateState {
  * The set of arguments for constructing a Template resource.
  */
 export interface TemplateArgs {
-    /**
-     * The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
-     */
     html?: pulumi.Input<string>;
-    /**
-     * The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The subject line of the email.
-     */
     subject?: pulumi.Input<string>;
-    /**
-     * The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
-     */
     text?: pulumi.Input<string>;
 }

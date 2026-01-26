@@ -14,27 +14,15 @@ namespace Pulumi.Aws.Alb.Inputs
     {
         [Input("additionalClaims")]
         private InputList<Inputs.ListenerDefaultActionJwtValidationAdditionalClaimGetArgs>? _additionalClaims;
-
-        /// <summary>
-        /// Repeatable configuration block for additional claims to validate.
-        /// </summary>
         public InputList<Inputs.ListenerDefaultActionJwtValidationAdditionalClaimGetArgs> AdditionalClaims
         {
             get => _additionalClaims ?? (_additionalClaims = new InputList<Inputs.ListenerDefaultActionJwtValidationAdditionalClaimGetArgs>());
             set => _additionalClaims = value;
         }
 
-        /// <summary>
-        /// Issuer of the JWT.
-        /// </summary>
         [Input("issuer", required: true)]
         public Input<string> Issuer { get; set; } = null!;
 
-        /// <summary>
-        /// JSON Web Key Set (JWKS) endpoint. This endpoint contains JSON Web Keys (JWK) that are used to validate signatures from the provider. This must be a full URL, including the HTTPS protocol, the domain, and the path.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("jwksEndpoint", required: true)]
         public Input<string> JwksEndpoint { get; set; } = null!;
 

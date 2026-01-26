@@ -14,17 +14,9 @@ public final class BucketReplicationConfigurationRuleSourceSelectionCriteriaSseK
 
     public static final BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs Empty = new BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs();
 
-    /**
-     * Boolean which indicates if this criteria is enabled.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return Boolean which indicates if this criteria is enabled.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
@@ -53,23 +45,11 @@ public final class BucketReplicationConfigurationRuleSourceSelectionCriteriaSseK
             $ = new BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Boolean which indicates if this criteria is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Boolean which indicates if this criteria is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

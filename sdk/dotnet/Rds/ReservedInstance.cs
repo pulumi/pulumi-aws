@@ -9,166 +9,63 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Rds
 {
-    /// <summary>
-    /// Manages an RDS DB Reserved Instance.
-    /// 
-    /// &gt; **NOTE:** Once created, a reservation is valid for the `Duration` of the provided `OfferingId` and cannot be deleted. Performing a `Destroy` will only remove the resource from state. For more information see [RDS Reserved Instances Documentation](https://aws.amazon.com/rds/reserved-instances/) and [PurchaseReservedDBInstancesOffering](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_PurchaseReservedDBInstancesOffering.html).
-    /// 
-    /// &gt; **NOTE:** Due to the expense of testing this resource, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = Aws.Rds.GetReservedInstanceOffering.Invoke(new()
-    ///     {
-    ///         DbInstanceClass = "db.t2.micro",
-    ///         Duration = 31536000,
-    ///         MultiAz = false,
-    ///         OfferingType = "All Upfront",
-    ///         ProductDescription = "mysql",
-    ///     });
-    /// 
-    ///     var example = new Aws.Rds.ReservedInstance("example", new()
-    ///     {
-    ///         OfferingId = test.Apply(getReservedInstanceOfferingResult =&gt; getReservedInstanceOfferingResult.OfferingId),
-    ///         ReservationId = "optionalCustomReservationID",
-    ///         InstanceCount = 3,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import RDS DB Instance Reservations using the `instance_id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:rds/reservedInstance:ReservedInstance reservation_instance CustomReservationID
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:rds/reservedInstance:ReservedInstance")]
     public partial class ReservedInstance : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN for the reserved DB instance.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Currency code for the reserved DB instance.
-        /// </summary>
         [Output("currencyCode")]
         public Output<string> CurrencyCode { get; private set; } = null!;
 
-        /// <summary>
-        /// DB instance class for the reserved DB instance.
-        /// </summary>
         [Output("dbInstanceClass")]
         public Output<string> DbInstanceClass { get; private set; } = null!;
 
-        /// <summary>
-        /// Duration of the reservation in seconds.
-        /// </summary>
         [Output("duration")]
         public Output<int> Duration { get; private set; } = null!;
 
-        /// <summary>
-        /// Fixed price charged for this reserved DB instance.
-        /// </summary>
         [Output("fixedPrice")]
         public Output<double> FixedPrice { get; private set; } = null!;
 
-        /// <summary>
-        /// Number of instances to reserve. Default value is `1`.
-        /// </summary>
         [Output("instanceCount")]
         public Output<int?> InstanceCount { get; private set; } = null!;
 
-        /// <summary>
-        /// Unique identifier for the lease associated with the reserved DB instance. Amazon Web Services Support might request the lease ID for an issue related to a reserved DB instance.
-        /// </summary>
         [Output("leaseId")]
         public Output<string> LeaseId { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether the reservation applies to Multi-AZ deployments.
-        /// </summary>
         [Output("multiAz")]
         public Output<bool> MultiAz { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the Reserved DB instance offering to purchase. To determine an `OfferingId`, see the `aws.rds.getReservedInstanceOffering` data source.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("offeringId")]
         public Output<string> OfferingId { get; private set; } = null!;
 
-        /// <summary>
-        /// Offering type of this reserved DB instance.
-        /// </summary>
         [Output("offeringType")]
         public Output<string> OfferingType { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the reserved DB instance.
-        /// </summary>
         [Output("productDescription")]
         public Output<string> ProductDescription { get; private set; } = null!;
 
-        /// <summary>
-        /// Recurring price charged to run this reserved DB instance.
-        /// </summary>
         [Output("recurringCharges")]
         public Output<ImmutableArray<Outputs.ReservedInstanceRecurringCharge>> RecurringCharges { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Customer-specified identifier to track this reservation.
-        /// </summary>
         [Output("reservationId")]
         public Output<string?> ReservationId { get; private set; } = null!;
 
-        /// <summary>
-        /// Time the reservation started.
-        /// </summary>
         [Output("startTime")]
         public Output<string> StartTime { get; private set; } = null!;
 
-        /// <summary>
-        /// State of the reserved DB instance.
-        /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags to assign to the DB reservation. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Hourly price charged for this reserved DB instance.
-        /// </summary>
         [Output("usagePrice")]
         public Output<double> UsagePrice { get; private set; } = null!;
 
@@ -218,38 +115,20 @@ namespace Pulumi.Aws.Rds
 
     public sealed class ReservedInstanceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Number of instances to reserve. Default value is `1`.
-        /// </summary>
         [Input("instanceCount")]
         public Input<int>? InstanceCount { get; set; }
 
-        /// <summary>
-        /// ID of the Reserved DB instance offering to purchase. To determine an `OfferingId`, see the `aws.rds.getReservedInstanceOffering` data source.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("offeringId", required: true)]
         public Input<string> OfferingId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Customer-specified identifier to track this reservation.
-        /// </summary>
         [Input("reservationId")]
         public Input<string>? ReservationId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the DB reservation. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -264,116 +143,61 @@ namespace Pulumi.Aws.Rds
 
     public sealed class ReservedInstanceState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN for the reserved DB instance.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Currency code for the reserved DB instance.
-        /// </summary>
         [Input("currencyCode")]
         public Input<string>? CurrencyCode { get; set; }
 
-        /// <summary>
-        /// DB instance class for the reserved DB instance.
-        /// </summary>
         [Input("dbInstanceClass")]
         public Input<string>? DbInstanceClass { get; set; }
 
-        /// <summary>
-        /// Duration of the reservation in seconds.
-        /// </summary>
         [Input("duration")]
         public Input<int>? Duration { get; set; }
 
-        /// <summary>
-        /// Fixed price charged for this reserved DB instance.
-        /// </summary>
         [Input("fixedPrice")]
         public Input<double>? FixedPrice { get; set; }
 
-        /// <summary>
-        /// Number of instances to reserve. Default value is `1`.
-        /// </summary>
         [Input("instanceCount")]
         public Input<int>? InstanceCount { get; set; }
 
-        /// <summary>
-        /// Unique identifier for the lease associated with the reserved DB instance. Amazon Web Services Support might request the lease ID for an issue related to a reserved DB instance.
-        /// </summary>
         [Input("leaseId")]
         public Input<string>? LeaseId { get; set; }
 
-        /// <summary>
-        /// Whether the reservation applies to Multi-AZ deployments.
-        /// </summary>
         [Input("multiAz")]
         public Input<bool>? MultiAz { get; set; }
 
-        /// <summary>
-        /// ID of the Reserved DB instance offering to purchase. To determine an `OfferingId`, see the `aws.rds.getReservedInstanceOffering` data source.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("offeringId")]
         public Input<string>? OfferingId { get; set; }
 
-        /// <summary>
-        /// Offering type of this reserved DB instance.
-        /// </summary>
         [Input("offeringType")]
         public Input<string>? OfferingType { get; set; }
 
-        /// <summary>
-        /// Description of the reserved DB instance.
-        /// </summary>
         [Input("productDescription")]
         public Input<string>? ProductDescription { get; set; }
 
         [Input("recurringCharges")]
         private InputList<Inputs.ReservedInstanceRecurringChargeGetArgs>? _recurringCharges;
-
-        /// <summary>
-        /// Recurring price charged to run this reserved DB instance.
-        /// </summary>
         public InputList<Inputs.ReservedInstanceRecurringChargeGetArgs> RecurringCharges
         {
             get => _recurringCharges ?? (_recurringCharges = new InputList<Inputs.ReservedInstanceRecurringChargeGetArgs>());
             set => _recurringCharges = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Customer-specified identifier to track this reservation.
-        /// </summary>
         [Input("reservationId")]
         public Input<string>? ReservationId { get; set; }
 
-        /// <summary>
-        /// Time the reservation started.
-        /// </summary>
         [Input("startTime")]
         public Input<string>? StartTime { get; set; }
 
-        /// <summary>
-        /// State of the reserved DB instance.
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the DB reservation. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -382,19 +206,12 @@ namespace Pulumi.Aws.Rds
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// Hourly price charged for this reserved DB instance.
-        /// </summary>
         [Input("usagePrice")]
         public Input<double>? UsagePrice { get; set; }
 

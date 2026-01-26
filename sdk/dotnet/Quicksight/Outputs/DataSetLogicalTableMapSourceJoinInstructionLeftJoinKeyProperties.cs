@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties
     {
-        /// <summary>
-        /// A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
-        /// </summary>
         public readonly bool? UniqueKey;
 
         [OutputConstructor]

@@ -9,134 +9,66 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Lex
 {
-    /// <summary>
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Lex V2 Models Intent using the `intent_id:bot_id:bot_version:locale_id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:lex/v2modelsIntent:V2modelsIntent example intent-42874:bot-11376:DRAFT:en_US
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:lex/v2modelsIntent:V2modelsIntent")]
     public partial class V2modelsIntent : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Identifier of the bot associated with this intent.
-        /// </summary>
         [Output("botId")]
         public Output<string> BotId { get; private set; } = null!;
 
-        /// <summary>
-        /// Version of the bot associated with this intent.
-        /// </summary>
         [Output("botVersion")]
         public Output<string> BotVersion { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `ClosingSetting`.
-        /// </summary>
         [Output("closingSetting")]
         public Output<Outputs.V2modelsIntentClosingSetting?> ClosingSetting { get; private set; } = null!;
 
         [Output("confirmationSetting")]
         public Output<Outputs.V2modelsIntentConfirmationSetting?> ConfirmationSetting { get; private set; } = null!;
 
-        /// <summary>
-        /// Timestamp of the date and time that the intent was created.
-        /// </summary>
         [Output("creationDateTime")]
         public Output<string> CreationDateTime { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the intent. Use the description to help identify the intent in lists.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for invoking the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction. See `DialogCodeHook`.
-        /// </summary>
         [Output("dialogCodeHook")]
         public Output<Outputs.V2modelsIntentDialogCodeHook?> DialogCodeHook { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for invoking the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user. See `FulfillmentCodeHook`.
-        /// </summary>
         [Output("fulfillmentCodeHook")]
         public Output<Outputs.V2modelsIntentFulfillmentCodeHook?> FulfillmentCodeHook { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for the response that is sent to the user at the beginning of a conversation, before eliciting slot values. See `InitialResponseSetting`.
-        /// </summary>
         [Output("initialResponseSetting")]
         public Output<Outputs.V2modelsIntentInitialResponseSetting?> InitialResponseSetting { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `InputContext`.
-        /// </summary>
         [Output("inputContexts")]
         public Output<ImmutableArray<Outputs.V2modelsIntentInputContext>> InputContexts { get; private set; } = null!;
 
-        /// <summary>
-        /// Unique identifier for the intent.
-        /// </summary>
         [Output("intentId")]
         public Output<string> IntentId { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `KendraConfiguration`.
-        /// </summary>
         [Output("kendraConfiguration")]
         public Output<Outputs.V2modelsIntentKendraConfiguration?> KendraConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Timestamp of the last time that the intent was modified.
-        /// </summary>
         [Output("lastUpdatedDateTime")]
         public Output<string> LastUpdatedDateTime { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of the language and locale where this intent is used. All of the bots, slot types, and slots used by the intent must have the same locale.
-        /// </summary>
         [Output("localeId")]
         public Output<string> LocaleId { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the intent. Intent names must be unique in the locale that contains the intent and cannot match the name of any built-in intent.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `OutputContext`.
-        /// </summary>
         [Output("outputContexts")]
         public Output<ImmutableArray<Outputs.V2modelsIntentOutputContext>> OutputContexts { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier for the built-in intent to base this intent on.
-        /// </summary>
         [Output("parentIntentSignature")]
         public Output<string?> ParentIntentSignature { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for strings that a user might say to signal the intent. See `SampleUtterance`.
-        /// </summary>
         [Output("sampleUtterances")]
         public Output<ImmutableArray<Outputs.V2modelsIntentSampleUtterance>> SampleUtterances { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `SlotPriority`.
-        /// </summary>
         [Output("slotPriorities")]
         public Output<ImmutableArray<Outputs.V2modelsIntentSlotPriority>> SlotPriorities { get; private set; } = null!;
 
@@ -189,113 +121,63 @@ namespace Pulumi.Aws.Lex
 
     public sealed class V2modelsIntentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Identifier of the bot associated with this intent.
-        /// </summary>
         [Input("botId", required: true)]
         public Input<string> BotId { get; set; } = null!;
 
-        /// <summary>
-        /// Version of the bot associated with this intent.
-        /// </summary>
         [Input("botVersion", required: true)]
         public Input<string> BotVersion { get; set; } = null!;
 
-        /// <summary>
-        /// Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `ClosingSetting`.
-        /// </summary>
         [Input("closingSetting")]
         public Input<Inputs.V2modelsIntentClosingSettingArgs>? ClosingSetting { get; set; }
 
         [Input("confirmationSetting")]
         public Input<Inputs.V2modelsIntentConfirmationSettingArgs>? ConfirmationSetting { get; set; }
 
-        /// <summary>
-        /// Description of the intent. Use the description to help identify the intent in lists.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Configuration block for invoking the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction. See `DialogCodeHook`.
-        /// </summary>
         [Input("dialogCodeHook")]
         public Input<Inputs.V2modelsIntentDialogCodeHookArgs>? DialogCodeHook { get; set; }
 
-        /// <summary>
-        /// Configuration block for invoking the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user. See `FulfillmentCodeHook`.
-        /// </summary>
         [Input("fulfillmentCodeHook")]
         public Input<Inputs.V2modelsIntentFulfillmentCodeHookArgs>? FulfillmentCodeHook { get; set; }
 
-        /// <summary>
-        /// Configuration block for the response that is sent to the user at the beginning of a conversation, before eliciting slot values. See `InitialResponseSetting`.
-        /// </summary>
         [Input("initialResponseSetting")]
         public Input<Inputs.V2modelsIntentInitialResponseSettingArgs>? InitialResponseSetting { get; set; }
 
         [Input("inputContexts")]
         private InputList<Inputs.V2modelsIntentInputContextArgs>? _inputContexts;
-
-        /// <summary>
-        /// Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `InputContext`.
-        /// </summary>
         public InputList<Inputs.V2modelsIntentInputContextArgs> InputContexts
         {
             get => _inputContexts ?? (_inputContexts = new InputList<Inputs.V2modelsIntentInputContextArgs>());
             set => _inputContexts = value;
         }
 
-        /// <summary>
-        /// Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `KendraConfiguration`.
-        /// </summary>
         [Input("kendraConfiguration")]
         public Input<Inputs.V2modelsIntentKendraConfigurationArgs>? KendraConfiguration { get; set; }
 
-        /// <summary>
-        /// Identifier of the language and locale where this intent is used. All of the bots, slot types, and slots used by the intent must have the same locale.
-        /// </summary>
         [Input("localeId", required: true)]
         public Input<string> LocaleId { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the intent. Intent names must be unique in the locale that contains the intent and cannot match the name of any built-in intent.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("outputContexts")]
         private InputList<Inputs.V2modelsIntentOutputContextArgs>? _outputContexts;
-
-        /// <summary>
-        /// Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `OutputContext`.
-        /// </summary>
         public InputList<Inputs.V2modelsIntentOutputContextArgs> OutputContexts
         {
             get => _outputContexts ?? (_outputContexts = new InputList<Inputs.V2modelsIntentOutputContextArgs>());
             set => _outputContexts = value;
         }
 
-        /// <summary>
-        /// Identifier for the built-in intent to base this intent on.
-        /// </summary>
         [Input("parentIntentSignature")]
         public Input<string>? ParentIntentSignature { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("sampleUtterances")]
         private InputList<Inputs.V2modelsIntentSampleUtteranceArgs>? _sampleUtterances;
-
-        /// <summary>
-        /// Configuration block for strings that a user might say to signal the intent. See `SampleUtterance`.
-        /// </summary>
         public InputList<Inputs.V2modelsIntentSampleUtteranceArgs> SampleUtterances
         {
             get => _sampleUtterances ?? (_sampleUtterances = new InputList<Inputs.V2modelsIntentSampleUtteranceArgs>());
@@ -304,10 +186,6 @@ namespace Pulumi.Aws.Lex
 
         [Input("slotPriorities")]
         private InputList<Inputs.V2modelsIntentSlotPriorityArgs>? _slotPriorities;
-
-        /// <summary>
-        /// Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `SlotPriority`.
-        /// </summary>
         public InputList<Inputs.V2modelsIntentSlotPriorityArgs> SlotPriorities
         {
             get => _slotPriorities ?? (_slotPriorities = new InputList<Inputs.V2modelsIntentSlotPriorityArgs>());
@@ -325,131 +203,72 @@ namespace Pulumi.Aws.Lex
 
     public sealed class V2modelsIntentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Identifier of the bot associated with this intent.
-        /// </summary>
         [Input("botId")]
         public Input<string>? BotId { get; set; }
 
-        /// <summary>
-        /// Version of the bot associated with this intent.
-        /// </summary>
         [Input("botVersion")]
         public Input<string>? BotVersion { get; set; }
 
-        /// <summary>
-        /// Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `ClosingSetting`.
-        /// </summary>
         [Input("closingSetting")]
         public Input<Inputs.V2modelsIntentClosingSettingGetArgs>? ClosingSetting { get; set; }
 
         [Input("confirmationSetting")]
         public Input<Inputs.V2modelsIntentConfirmationSettingGetArgs>? ConfirmationSetting { get; set; }
 
-        /// <summary>
-        /// Timestamp of the date and time that the intent was created.
-        /// </summary>
         [Input("creationDateTime")]
         public Input<string>? CreationDateTime { get; set; }
 
-        /// <summary>
-        /// Description of the intent. Use the description to help identify the intent in lists.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Configuration block for invoking the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction. See `DialogCodeHook`.
-        /// </summary>
         [Input("dialogCodeHook")]
         public Input<Inputs.V2modelsIntentDialogCodeHookGetArgs>? DialogCodeHook { get; set; }
 
-        /// <summary>
-        /// Configuration block for invoking the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user. See `FulfillmentCodeHook`.
-        /// </summary>
         [Input("fulfillmentCodeHook")]
         public Input<Inputs.V2modelsIntentFulfillmentCodeHookGetArgs>? FulfillmentCodeHook { get; set; }
 
-        /// <summary>
-        /// Configuration block for the response that is sent to the user at the beginning of a conversation, before eliciting slot values. See `InitialResponseSetting`.
-        /// </summary>
         [Input("initialResponseSetting")]
         public Input<Inputs.V2modelsIntentInitialResponseSettingGetArgs>? InitialResponseSetting { get; set; }
 
         [Input("inputContexts")]
         private InputList<Inputs.V2modelsIntentInputContextGetArgs>? _inputContexts;
-
-        /// <summary>
-        /// Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `InputContext`.
-        /// </summary>
         public InputList<Inputs.V2modelsIntentInputContextGetArgs> InputContexts
         {
             get => _inputContexts ?? (_inputContexts = new InputList<Inputs.V2modelsIntentInputContextGetArgs>());
             set => _inputContexts = value;
         }
 
-        /// <summary>
-        /// Unique identifier for the intent.
-        /// </summary>
         [Input("intentId")]
         public Input<string>? IntentId { get; set; }
 
-        /// <summary>
-        /// Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `KendraConfiguration`.
-        /// </summary>
         [Input("kendraConfiguration")]
         public Input<Inputs.V2modelsIntentKendraConfigurationGetArgs>? KendraConfiguration { get; set; }
 
-        /// <summary>
-        /// Timestamp of the last time that the intent was modified.
-        /// </summary>
         [Input("lastUpdatedDateTime")]
         public Input<string>? LastUpdatedDateTime { get; set; }
 
-        /// <summary>
-        /// Identifier of the language and locale where this intent is used. All of the bots, slot types, and slots used by the intent must have the same locale.
-        /// </summary>
         [Input("localeId")]
         public Input<string>? LocaleId { get; set; }
 
-        /// <summary>
-        /// Name of the intent. Intent names must be unique in the locale that contains the intent and cannot match the name of any built-in intent.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("outputContexts")]
         private InputList<Inputs.V2modelsIntentOutputContextGetArgs>? _outputContexts;
-
-        /// <summary>
-        /// Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `OutputContext`.
-        /// </summary>
         public InputList<Inputs.V2modelsIntentOutputContextGetArgs> OutputContexts
         {
             get => _outputContexts ?? (_outputContexts = new InputList<Inputs.V2modelsIntentOutputContextGetArgs>());
             set => _outputContexts = value;
         }
 
-        /// <summary>
-        /// Identifier for the built-in intent to base this intent on.
-        /// </summary>
         [Input("parentIntentSignature")]
         public Input<string>? ParentIntentSignature { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("sampleUtterances")]
         private InputList<Inputs.V2modelsIntentSampleUtteranceGetArgs>? _sampleUtterances;
-
-        /// <summary>
-        /// Configuration block for strings that a user might say to signal the intent. See `SampleUtterance`.
-        /// </summary>
         public InputList<Inputs.V2modelsIntentSampleUtteranceGetArgs> SampleUtterances
         {
             get => _sampleUtterances ?? (_sampleUtterances = new InputList<Inputs.V2modelsIntentSampleUtteranceGetArgs>());
@@ -458,10 +277,6 @@ namespace Pulumi.Aws.Lex
 
         [Input("slotPriorities")]
         private InputList<Inputs.V2modelsIntentSlotPriorityGetArgs>? _slotPriorities;
-
-        /// <summary>
-        /// Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `SlotPriority`.
-        /// </summary>
         public InputList<Inputs.V2modelsIntentSlotPriorityGetArgs> SlotPriorities
         {
             get => _slotPriorities ?? (_slotPriorities = new InputList<Inputs.V2modelsIntentSlotPriorityGetArgs>());

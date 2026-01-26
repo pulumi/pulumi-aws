@@ -14,17 +14,9 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
 
     public static final StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs Empty = new StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs();
 
-    /**
-     * KMS key ARN.
-     * 
-     */
     @Import(name="keyId", required=true)
     private Output<String> keyId;
 
-    /**
-     * @return KMS key ARN.
-     * 
-     */
     public Output<String> keyId() {
         return this.keyId;
     }
@@ -53,23 +45,11 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
             $ = new StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param keyId KMS key ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyId(Output<String> keyId) {
             $.keyId = keyId;
             return this;
         }
 
-        /**
-         * @param keyId KMS key ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyId(String keyId) {
             return keyId(Output.of(keyId));
         }

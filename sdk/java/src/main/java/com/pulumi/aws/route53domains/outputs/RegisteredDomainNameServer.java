@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RegisteredDomainNameServer {
-    /**
-     * @return Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
-     * 
-     */
     private @Nullable List<String> glueIps;
-    /**
-     * @return The fully qualified host name of the name server.
-     * 
-     */
     private String name;
 
     private RegisteredDomainNameServer() {}
-    /**
-     * @return Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
-     * 
-     */
     public List<String> glueIps() {
         return this.glueIps == null ? List.of() : this.glueIps;
     }
-    /**
-     * @return The fully qualified host name of the name server.
-     * 
-     */
     public String name() {
         return this.name;
     }

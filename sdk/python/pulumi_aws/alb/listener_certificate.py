@@ -24,9 +24,6 @@ class ListenerCertificateArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ListenerCertificate resource.
-        :param pulumi.Input[_builtins.str] certificate_arn: The ARN of the certificate to attach to the listener.
-        :param pulumi.Input[_builtins.str] listener_arn: The ARN of the listener to which to attach the certificate.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "certificate_arn", certificate_arn)
         pulumi.set(__self__, "listener_arn", listener_arn)
@@ -36,9 +33,6 @@ class ListenerCertificateArgs:
     @_builtins.property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the certificate to attach to the listener.
-        """
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
@@ -48,9 +42,6 @@ class ListenerCertificateArgs:
     @_builtins.property
     @pulumi.getter(name="listenerArn")
     def listener_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the listener to which to attach the certificate.
-        """
         return pulumi.get(self, "listener_arn")
 
     @listener_arn.setter
@@ -60,9 +51,6 @@ class ListenerCertificateArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -78,9 +66,6 @@ class _ListenerCertificateState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ListenerCertificate resources.
-        :param pulumi.Input[_builtins.str] certificate_arn: The ARN of the certificate to attach to the listener.
-        :param pulumi.Input[_builtins.str] listener_arn: The ARN of the listener to which to attach the certificate.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if certificate_arn is not None:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
@@ -92,9 +77,6 @@ class _ListenerCertificateState:
     @_builtins.property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the certificate to attach to the listener.
-        """
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
@@ -104,9 +86,6 @@ class _ListenerCertificateState:
     @_builtins.property
     @pulumi.getter(name="listenerArn")
     def listener_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the listener to which to attach the certificate.
-        """
         return pulumi.get(self, "listener_arn")
 
     @listener_arn.setter
@@ -116,9 +95,6 @@ class _ListenerCertificateState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -137,39 +113,9 @@ class ListenerCertificate(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a Load Balancer Listener Certificate resource.
-
-        This resource is for additional certificates and does not replace the default certificate on the listener.
-
-        > **Note:** `alb.ListenerCertificate` is known as `lb.ListenerCertificate`. The functionality is identical.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.acm.Certificate("example")
-        front_end = aws.lb.LoadBalancer("front_end")
-        front_end_listener = aws.lb.Listener("front_end")
-        example_listener_certificate = aws.lb.ListenerCertificate("example",
-            listener_arn=front_end_listener.arn,
-            certificate_arn=example.arn)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Listener Certificates using the listener arn and certificate arn, separated by an underscore (`_`). For example:
-
-        ```sh
-        $ pulumi import aws:alb/listenerCertificate:ListenerCertificate example arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b_arn:aws:iam::123456789012:server-certificate/tf-acc-test-6453083910015726063
-        ```
-
+        Create a ListenerCertificate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] certificate_arn: The ARN of the certificate to attach to the listener.
-        :param pulumi.Input[_builtins.str] listener_arn: The ARN of the listener to which to attach the certificate.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -178,34 +124,7 @@ class ListenerCertificate(pulumi.CustomResource):
                  args: ListenerCertificateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Load Balancer Listener Certificate resource.
-
-        This resource is for additional certificates and does not replace the default certificate on the listener.
-
-        > **Note:** `alb.ListenerCertificate` is known as `lb.ListenerCertificate`. The functionality is identical.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.acm.Certificate("example")
-        front_end = aws.lb.LoadBalancer("front_end")
-        front_end_listener = aws.lb.Listener("front_end")
-        example_listener_certificate = aws.lb.ListenerCertificate("example",
-            listener_arn=front_end_listener.arn,
-            certificate_arn=example.arn)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Listener Certificates using the listener arn and certificate arn, separated by an underscore (`_`). For example:
-
-        ```sh
-        $ pulumi import aws:alb/listenerCertificate:ListenerCertificate example arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b_arn:aws:iam::123456789012:server-certificate/tf-acc-test-6453083910015726063
-        ```
-
+        Create a ListenerCertificate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ListenerCertificateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -262,9 +181,6 @@ class ListenerCertificate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] certificate_arn: The ARN of the certificate to attach to the listener.
-        :param pulumi.Input[_builtins.str] listener_arn: The ARN of the listener to which to attach the certificate.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -278,24 +194,15 @@ class ListenerCertificate(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the certificate to attach to the listener.
-        """
         return pulumi.get(self, "certificate_arn")
 
     @_builtins.property
     @pulumi.getter(name="listenerArn")
     def listener_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the listener to which to attach the certificate.
-        """
         return pulumi.get(self, "listener_arn")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

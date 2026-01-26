@@ -43,17 +43,11 @@ class ProfilingGroupAgentOrchestrationConfig(dict):
 
     def __init__(__self__, *,
                  profiling_enabled: _builtins.bool):
-        """
-        :param _builtins.bool profiling_enabled: (Required) Boolean that specifies whether the profiling agent collects profiling data or
-        """
         pulumi.set(__self__, "profiling_enabled", profiling_enabled)
 
     @_builtins.property
     @pulumi.getter(name="profilingEnabled")
     def profiling_enabled(self) -> _builtins.bool:
-        """
-        (Required) Boolean that specifies whether the profiling agent collects profiling data or
-        """
         return pulumi.get(self, "profiling_enabled")
 
 

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Comprehend.Inputs
 
     public sealed class EntityRecognizerInputDataConfigAnnotationsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Location of training annotations.
-        /// </summary>
         [Input("s3Uri", required: true)]
         public Input<string> S3Uri { get; set; } = null!;
 

@@ -15,53 +15,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class QuickConnectQuickConnectConfig {
-    /**
-     * @return Specifies the phone configuration of the Quick Connect. This is required only if `quickConnectType` is `PHONE_NUMBER`. The `phoneConfig` block is documented below.
-     * 
-     */
     private @Nullable List<QuickConnectQuickConnectConfigPhoneConfig> phoneConfigs;
-    /**
-     * @return Specifies the queue configuration of the Quick Connect. This is required only if `quickConnectType` is `QUEUE`. The `queueConfig` block is documented below.
-     * 
-     */
     private @Nullable List<QuickConnectQuickConnectConfigQueueConfig> queueConfigs;
-    /**
-     * @return Specifies the configuration type of the quick connect. valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
-     * 
-     */
     private String quickConnectType;
-    /**
-     * @return Specifies the user configuration of the Quick Connect. This is required only if `quickConnectType` is `USER`. The `userConfig` block is documented below.
-     * 
-     */
     private @Nullable List<QuickConnectQuickConnectConfigUserConfig> userConfigs;
 
     private QuickConnectQuickConnectConfig() {}
-    /**
-     * @return Specifies the phone configuration of the Quick Connect. This is required only if `quickConnectType` is `PHONE_NUMBER`. The `phoneConfig` block is documented below.
-     * 
-     */
     public List<QuickConnectQuickConnectConfigPhoneConfig> phoneConfigs() {
         return this.phoneConfigs == null ? List.of() : this.phoneConfigs;
     }
-    /**
-     * @return Specifies the queue configuration of the Quick Connect. This is required only if `quickConnectType` is `QUEUE`. The `queueConfig` block is documented below.
-     * 
-     */
     public List<QuickConnectQuickConnectConfigQueueConfig> queueConfigs() {
         return this.queueConfigs == null ? List.of() : this.queueConfigs;
     }
-    /**
-     * @return Specifies the configuration type of the quick connect. valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
-     * 
-     */
     public String quickConnectType() {
         return this.quickConnectType;
     }
-    /**
-     * @return Specifies the user configuration of the Quick Connect. This is required only if `quickConnectType` is `USER`. The `userConfig` block is documented below.
-     * 
-     */
     public List<QuickConnectQuickConnectConfigUserConfig> userConfigs() {
         return this.userConfigs == null ? List.of() : this.userConfigs;
     }

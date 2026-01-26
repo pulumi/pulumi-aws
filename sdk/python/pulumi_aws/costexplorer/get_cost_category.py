@@ -67,25 +67,16 @@ class GetCostCategoryResult:
     @_builtins.property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> _builtins.str:
-        """
-        Default value for the cost category.
-        """
         return pulumi.get(self, "default_value")
 
     @_builtins.property
     @pulumi.getter(name="effectiveEnd")
     def effective_end(self) -> _builtins.str:
-        """
-        Effective end data of your Cost Category.
-        """
         return pulumi.get(self, "effective_end")
 
     @_builtins.property
     @pulumi.getter(name="effectiveStart")
     def effective_start(self) -> _builtins.str:
-        """
-        Effective state data of your Cost Category.
-        """
         return pulumi.get(self, "effective_start")
 
     @_builtins.property
@@ -104,33 +95,21 @@ class GetCostCategoryResult:
     @_builtins.property
     @pulumi.getter(name="ruleVersion")
     def rule_version(self) -> _builtins.str:
-        """
-        Rule schema version in this particular Cost Category.
-        """
         return pulumi.get(self, "rule_version")
 
     @_builtins.property
     @pulumi.getter
     def rules(self) -> Sequence['outputs.GetCostCategoryRuleResult']:
-        """
-        Configuration block for the `Expression` object used to categorize costs. See below.
-        """
         return pulumi.get(self, "rules")
 
     @_builtins.property
     @pulumi.getter(name="splitChargeRules")
     def split_charge_rules(self) -> Sequence['outputs.GetCostCategorySplitChargeRuleResult']:
-        """
-        Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
-        """
         return pulumi.get(self, "split_charge_rules")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Configuration block for the specific `Tag` to use for `Expression`. See below.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -156,20 +135,7 @@ def get_cost_category(cost_category_arn: Optional[_builtins.str] = None,
                       tags: Optional[Mapping[str, _builtins.str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCostCategoryResult:
     """
-    Provides details about a specific CostExplorer Cost Category.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.costexplorer.get_cost_category(cost_category_arn="costCategoryARN")
-    ```
-
-
-    :param _builtins.str cost_category_arn: Unique name for the Cost Category.
-    :param Mapping[str, _builtins.str] tags: Configuration block for the specific `Tag` to use for `Expression`. See below.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['costCategoryArn'] = cost_category_arn
@@ -192,20 +158,7 @@ def get_cost_category_output(cost_category_arn: Optional[pulumi.Input[_builtins.
                              tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCostCategoryResult]:
     """
-    Provides details about a specific CostExplorer Cost Category.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.costexplorer.get_cost_category(cost_category_arn="costCategoryARN")
-    ```
-
-
-    :param _builtins.str cost_category_arn: Unique name for the Cost Category.
-    :param Mapping[str, _builtins.str] tags: Configuration block for the specific `Tag` to use for `Expression`. See below.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['costCategoryArn'] = cost_category_arn

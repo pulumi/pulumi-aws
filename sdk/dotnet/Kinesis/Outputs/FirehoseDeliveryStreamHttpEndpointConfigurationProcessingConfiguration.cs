@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
     [OutputType]
     public sealed class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration
     {
-        /// <summary>
-        /// Enables or disables data processing.
-        /// </summary>
         public readonly bool? Enabled;
-        /// <summary>
-        /// Specifies the data processors as multiple blocks. See `Processors` block below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor> Processors;
 
         [OutputConstructor]

@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS CloudWatch Logs Delivery Source.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudwatch.LogDeliverySource("example", {
- *     name: "example",
- *     logType: "APPLICATION_LOGS",
- *     resourceArn: exampleAwsBedrockagentKnowledgeBase.arn,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import CloudWatch Logs Delivery Source using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:cloudwatch/logDeliverySource:LogDeliverySource example example
- * ```
- */
 export class LogDeliverySource extends pulumi.CustomResource {
     /**
      * Get an existing LogDeliverySource resource's state with the given name, ID, and optional extra
@@ -58,37 +32,13 @@ export class LogDeliverySource extends pulumi.CustomResource {
         return obj['__pulumiType'] === LogDeliverySource.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the delivery source.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The type of log that the source is sending. For Amazon Bedrock, the valid value is `APPLICATION_LOGS`. For Amazon CodeWhisperer, the valid value is `EVENT_LOGS`. For IAM Identity Center, the valid value is `ERROR_LOGS`. For Amazon WorkMail, the valid values are `ACCESS_CONTROL_LOGS`, `AUTHENTICATION_LOGS`, `WORKMAIL_AVAILABILITY_PROVIDER_LOGS`, and `WORKMAIL_MAILBOX_ACCESS_LOGS`.
-     */
     declare public readonly logType: pulumi.Output<string>;
-    /**
-     * The name for this delivery source.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The ARN of the AWS resource that is generating and sending logs.
-     */
     declare public readonly resourceArn: pulumi.Output<string>;
-    /**
-     * The AWS service that is sending logs.
-     */
     declare public /*out*/ readonly service: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -138,37 +88,13 @@ export class LogDeliverySource extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LogDeliverySource resources.
  */
 export interface LogDeliverySourceState {
-    /**
-     * The Amazon Resource Name (ARN) of the delivery source.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The type of log that the source is sending. For Amazon Bedrock, the valid value is `APPLICATION_LOGS`. For Amazon CodeWhisperer, the valid value is `EVENT_LOGS`. For IAM Identity Center, the valid value is `ERROR_LOGS`. For Amazon WorkMail, the valid values are `ACCESS_CONTROL_LOGS`, `AUTHENTICATION_LOGS`, `WORKMAIL_AVAILABILITY_PROVIDER_LOGS`, and `WORKMAIL_MAILBOX_ACCESS_LOGS`.
-     */
     logType?: pulumi.Input<string>;
-    /**
-     * The name for this delivery source.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ARN of the AWS resource that is generating and sending logs.
-     */
     resourceArn?: pulumi.Input<string>;
-    /**
-     * The AWS service that is sending logs.
-     */
     service?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -176,24 +102,9 @@ export interface LogDeliverySourceState {
  * The set of arguments for constructing a LogDeliverySource resource.
  */
 export interface LogDeliverySourceArgs {
-    /**
-     * The type of log that the source is sending. For Amazon Bedrock, the valid value is `APPLICATION_LOGS`. For Amazon CodeWhisperer, the valid value is `EVENT_LOGS`. For IAM Identity Center, the valid value is `ERROR_LOGS`. For Amazon WorkMail, the valid values are `ACCESS_CONTROL_LOGS`, `AUTHENTICATION_LOGS`, `WORKMAIL_AVAILABILITY_PROVIDER_LOGS`, and `WORKMAIL_MAILBOX_ACCESS_LOGS`.
-     */
     logType: pulumi.Input<string>;
-    /**
-     * The name for this delivery source.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ARN of the AWS resource that is generating and sending logs.
-     */
     resourceArn: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

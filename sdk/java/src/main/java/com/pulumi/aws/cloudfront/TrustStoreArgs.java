@@ -18,51 +18,23 @@ public final class TrustStoreArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TrustStoreArgs Empty = new TrustStoreArgs();
 
-    /**
-     * Configuration block for the CA certificates bundle source. See `caCertificatesBundleSource` below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="caCertificatesBundleSource")
     private @Nullable Output<TrustStoreCaCertificatesBundleSourceArgs> caCertificatesBundleSource;
 
-    /**
-     * @return Configuration block for the CA certificates bundle source. See `caCertificatesBundleSource` below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<TrustStoreCaCertificatesBundleSourceArgs>> caCertificatesBundleSource() {
         return Optional.ofNullable(this.caCertificatesBundleSource);
     }
 
-    /**
-     * Name of the trust store. Changing this forces a new resource to be created.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the trust store. Changing this forces a new resource to be created.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -101,69 +73,29 @@ public final class TrustStoreArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TrustStoreArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param caCertificatesBundleSource Configuration block for the CA certificates bundle source. See `caCertificatesBundleSource` below.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder caCertificatesBundleSource(@Nullable Output<TrustStoreCaCertificatesBundleSourceArgs> caCertificatesBundleSource) {
             $.caCertificatesBundleSource = caCertificatesBundleSource;
             return this;
         }
 
-        /**
-         * @param caCertificatesBundleSource Configuration block for the CA certificates bundle source. See `caCertificatesBundleSource` below.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder caCertificatesBundleSource(TrustStoreCaCertificatesBundleSourceArgs caCertificatesBundleSource) {
             return caCertificatesBundleSource(Output.of(caCertificatesBundleSource));
         }
 
-        /**
-         * @param name Name of the trust store. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the trust store. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param tags Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

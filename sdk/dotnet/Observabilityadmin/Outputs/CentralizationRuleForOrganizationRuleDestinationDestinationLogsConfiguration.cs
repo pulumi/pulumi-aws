@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Observabilityadmin.Outputs
     [OutputType]
     public sealed class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguration
     {
-        /// <summary>
-        /// Configuration block for backup settings. See `BackupConfiguration` below.
-        /// </summary>
         public readonly Outputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfiguration? BackupConfiguration;
-        /// <summary>
-        /// Configuration block for logs encryption settings. See `LogsEncryptionConfiguration` below.
-        /// </summary>
         public readonly Outputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration? LogsEncryptionConfiguration;
 
         [OutputConstructor]

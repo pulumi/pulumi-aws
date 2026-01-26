@@ -12,97 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a ApplicationInsights Application resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/applicationinsights"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/resourcegroups"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"ResourceTypeFilters": []string{
-//					"AWS::EC2::Instance",
-//				},
-//				"TagFilters": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Key": "Stage",
-//						"Values": []string{
-//							"Test",
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			exampleGroup, err := resourcegroups.NewGroup(ctx, "example", &resourcegroups.GroupArgs{
-//				Name: pulumi.String("example"),
-//				ResourceQuery: &resourcegroups.GroupResourceQueryArgs{
-//					Query: pulumi.String(json0),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = applicationinsights.NewApplication(ctx, "example", &applicationinsights.ApplicationArgs{
-//				ResourceGroupName: exampleGroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import ApplicationInsights Applications using the `resource_group_name`. For example:
-//
-// ```sh
-// $ pulumi import aws:applicationinsights/application:Application some some-application
-// ```
 type Application struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Application.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
-	AutoConfigEnabled pulumi.BoolPtrOutput `pulumi:"autoConfigEnabled"`
-	// Configures all of the resources in the resource group by applying the recommended configurations.
-	AutoCreate pulumi.BoolPtrOutput `pulumi:"autoCreate"`
-	// Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
-	CweMonitorEnabled pulumi.BoolPtrOutput `pulumi:"cweMonitorEnabled"`
-	// Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
-	GroupingType pulumi.StringPtrOutput `pulumi:"groupingType"`
-	// When set to `true`, creates opsItems for any problems detected on an application.
-	OpsCenterEnabled pulumi.BoolPtrOutput `pulumi:"opsCenterEnabled"`
-	// SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+	Arn                pulumi.StringOutput    `pulumi:"arn"`
+	AutoConfigEnabled  pulumi.BoolPtrOutput   `pulumi:"autoConfigEnabled"`
+	AutoCreate         pulumi.BoolPtrOutput   `pulumi:"autoCreate"`
+	CweMonitorEnabled  pulumi.BoolPtrOutput   `pulumi:"cweMonitorEnabled"`
+	GroupingType       pulumi.StringPtrOutput `pulumi:"groupingType"`
+	OpsCenterEnabled   pulumi.BoolPtrOutput   `pulumi:"opsCenterEnabled"`
 	OpsItemSnsTopicArn pulumi.StringPtrOutput `pulumi:"opsItemSnsTopicArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Name of the resource group.
-	//
-	// The following arguments are optional:
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Region             pulumi.StringOutput    `pulumi:"region"`
+	ResourceGroupName  pulumi.StringOutput    `pulumi:"resourceGroupName"`
+	Tags               pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll            pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -138,57 +61,31 @@ func GetApplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Application resources.
 type applicationState struct {
-	// ARN of the Application.
-	Arn *string `pulumi:"arn"`
-	// Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
-	AutoConfigEnabled *bool `pulumi:"autoConfigEnabled"`
-	// Configures all of the resources in the resource group by applying the recommended configurations.
-	AutoCreate *bool `pulumi:"autoCreate"`
-	// Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
-	CweMonitorEnabled *bool `pulumi:"cweMonitorEnabled"`
-	// Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
-	GroupingType *string `pulumi:"groupingType"`
-	// When set to `true`, creates opsItems for any problems detected on an application.
-	OpsCenterEnabled *bool `pulumi:"opsCenterEnabled"`
-	// SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
-	OpsItemSnsTopicArn *string `pulumi:"opsItemSnsTopicArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Name of the resource group.
-	//
-	// The following arguments are optional:
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                *string           `pulumi:"arn"`
+	AutoConfigEnabled  *bool             `pulumi:"autoConfigEnabled"`
+	AutoCreate         *bool             `pulumi:"autoCreate"`
+	CweMonitorEnabled  *bool             `pulumi:"cweMonitorEnabled"`
+	GroupingType       *string           `pulumi:"groupingType"`
+	OpsCenterEnabled   *bool             `pulumi:"opsCenterEnabled"`
+	OpsItemSnsTopicArn *string           `pulumi:"opsItemSnsTopicArn"`
+	Region             *string           `pulumi:"region"`
+	ResourceGroupName  *string           `pulumi:"resourceGroupName"`
+	Tags               map[string]string `pulumi:"tags"`
+	TagsAll            map[string]string `pulumi:"tagsAll"`
 }
 
 type ApplicationState struct {
-	// ARN of the Application.
-	Arn pulumi.StringPtrInput
-	// Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
-	AutoConfigEnabled pulumi.BoolPtrInput
-	// Configures all of the resources in the resource group by applying the recommended configurations.
-	AutoCreate pulumi.BoolPtrInput
-	// Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
-	CweMonitorEnabled pulumi.BoolPtrInput
-	// Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
-	GroupingType pulumi.StringPtrInput
-	// When set to `true`, creates opsItems for any problems detected on an application.
-	OpsCenterEnabled pulumi.BoolPtrInput
-	// SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+	Arn                pulumi.StringPtrInput
+	AutoConfigEnabled  pulumi.BoolPtrInput
+	AutoCreate         pulumi.BoolPtrInput
+	CweMonitorEnabled  pulumi.BoolPtrInput
+	GroupingType       pulumi.StringPtrInput
+	OpsCenterEnabled   pulumi.BoolPtrInput
 	OpsItemSnsTopicArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Name of the resource group.
-	//
-	// The following arguments are optional:
-	ResourceGroupName pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Region             pulumi.StringPtrInput
+	ResourceGroupName  pulumi.StringPtrInput
+	Tags               pulumi.StringMapInput
+	TagsAll            pulumi.StringMapInput
 }
 
 func (ApplicationState) ElementType() reflect.Type {
@@ -196,50 +93,28 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	// Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
-	AutoConfigEnabled *bool `pulumi:"autoConfigEnabled"`
-	// Configures all of the resources in the resource group by applying the recommended configurations.
-	AutoCreate *bool `pulumi:"autoCreate"`
-	// Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
-	CweMonitorEnabled *bool `pulumi:"cweMonitorEnabled"`
-	// Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
-	GroupingType *string `pulumi:"groupingType"`
-	// When set to `true`, creates opsItems for any problems detected on an application.
-	OpsCenterEnabled *bool `pulumi:"opsCenterEnabled"`
-	// SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
-	OpsItemSnsTopicArn *string `pulumi:"opsItemSnsTopicArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Name of the resource group.
-	//
-	// The following arguments are optional:
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	AutoConfigEnabled  *bool             `pulumi:"autoConfigEnabled"`
+	AutoCreate         *bool             `pulumi:"autoCreate"`
+	CweMonitorEnabled  *bool             `pulumi:"cweMonitorEnabled"`
+	GroupingType       *string           `pulumi:"groupingType"`
+	OpsCenterEnabled   *bool             `pulumi:"opsCenterEnabled"`
+	OpsItemSnsTopicArn *string           `pulumi:"opsItemSnsTopicArn"`
+	Region             *string           `pulumi:"region"`
+	ResourceGroupName  string            `pulumi:"resourceGroupName"`
+	Tags               map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
-	// Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
-	AutoConfigEnabled pulumi.BoolPtrInput
-	// Configures all of the resources in the resource group by applying the recommended configurations.
-	AutoCreate pulumi.BoolPtrInput
-	// Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
-	CweMonitorEnabled pulumi.BoolPtrInput
-	// Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
-	GroupingType pulumi.StringPtrInput
-	// When set to `true`, creates opsItems for any problems detected on an application.
-	OpsCenterEnabled pulumi.BoolPtrInput
-	// SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+	AutoConfigEnabled  pulumi.BoolPtrInput
+	AutoCreate         pulumi.BoolPtrInput
+	CweMonitorEnabled  pulumi.BoolPtrInput
+	GroupingType       pulumi.StringPtrInput
+	OpsCenterEnabled   pulumi.BoolPtrInput
 	OpsItemSnsTopicArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Name of the resource group.
-	//
-	// The following arguments are optional:
-	ResourceGroupName pulumi.StringInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Region             pulumi.StringPtrInput
+	ResourceGroupName  pulumi.StringInput
+	Tags               pulumi.StringMapInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -329,59 +204,46 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
-// ARN of the Application.
 func (o ApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
 func (o ApplicationOutput) AutoConfigEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.BoolPtrOutput { return v.AutoConfigEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Configures all of the resources in the resource group by applying the recommended configurations.
 func (o ApplicationOutput) AutoCreate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.BoolPtrOutput { return v.AutoCreate }).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
 func (o ApplicationOutput) CweMonitorEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.BoolPtrOutput { return v.CweMonitorEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
 func (o ApplicationOutput) GroupingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.GroupingType }).(pulumi.StringPtrOutput)
 }
 
-// When set to `true`, creates opsItems for any problems detected on an application.
 func (o ApplicationOutput) OpsCenterEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.BoolPtrOutput { return v.OpsCenterEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
 func (o ApplicationOutput) OpsItemSnsTopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.OpsItemSnsTopicArn }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ApplicationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Name of the resource group.
-//
-// The following arguments are optional:
 func (o ApplicationOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ApplicationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ApplicationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

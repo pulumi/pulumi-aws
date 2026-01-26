@@ -16,195 +16,65 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Location Service Place Index.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.location.PlaceIndex;
- * import com.pulumi.aws.location.PlaceIndexArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new PlaceIndex("example", PlaceIndexArgs.builder()
- *             .dataSource("Here")
- *             .indexName("example")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_location_place_index` resources using the place index name. For example:
- * 
- * ```sh
- * $ pulumi import aws:location/placeIndex:PlaceIndex example example
- * ```
- * 
- */
 @ResourceType(type="aws:location/placeIndex:PlaceIndex")
 public class PlaceIndex extends com.pulumi.resources.CustomResource {
-    /**
-     * The timestamp for when the place index resource was created in ISO 8601 format.
-     * 
-     */
     @Export(name="createTime", refs={String.class}, tree="[0]")
     private Output<String> createTime;
 
-    /**
-     * @return The timestamp for when the place index resource was created in ISO 8601 format.
-     * 
-     */
     public Output<String> createTime() {
         return this.createTime;
     }
-    /**
-     * Specifies the geospatial data provider for the new place index.
-     * 
-     */
     @Export(name="dataSource", refs={String.class}, tree="[0]")
     private Output<String> dataSource;
 
-    /**
-     * @return Specifies the geospatial data provider for the new place index.
-     * 
-     */
     public Output<String> dataSource() {
         return this.dataSource;
     }
-    /**
-     * Configuration block with the data storage option chosen for requesting Places. Detailed below.
-     * 
-     */
     @Export(name="dataSourceConfiguration", refs={PlaceIndexDataSourceConfiguration.class}, tree="[0]")
     private Output<PlaceIndexDataSourceConfiguration> dataSourceConfiguration;
 
-    /**
-     * @return Configuration block with the data storage option chosen for requesting Places. Detailed below.
-     * 
-     */
     public Output<PlaceIndexDataSourceConfiguration> dataSourceConfiguration() {
         return this.dataSourceConfiguration;
     }
-    /**
-     * The optional description for the place index resource.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return The optional description for the place index resource.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
-     * 
-     */
     @Export(name="indexArn", refs={String.class}, tree="[0]")
     private Output<String> indexArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
-     * 
-     */
     public Output<String> indexArn() {
         return this.indexArn;
     }
-    /**
-     * The name of the place index resource.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="indexName", refs={String.class}, tree="[0]")
     private Output<String> indexName;
 
-    /**
-     * @return The name of the place index resource.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> indexName() {
         return this.indexName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The timestamp for when the place index resource was last update in ISO 8601.
-     * 
-     */
     @Export(name="updateTime", refs={String.class}, tree="[0]")
     private Output<String> updateTime;
 
-    /**
-     * @return The timestamp for when the place index resource was last update in ISO 8601.
-     * 
-     */
     public Output<String> updateTime() {
         return this.updateTime;
     }

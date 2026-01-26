@@ -16,32 +16,16 @@ public final class PipelineLogPublishingOptionsArgs extends com.pulumi.resources
 
     public static final PipelineLogPublishingOptionsArgs Empty = new PipelineLogPublishingOptionsArgs();
 
-    /**
-     * The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch Logs. This parameter is required if IsLoggingEnabled is set to true. See `cloudwatchLogDestination` below.
-     * 
-     */
     @Import(name="cloudwatchLogDestination")
     private @Nullable Output<PipelineLogPublishingOptionsCloudwatchLogDestinationArgs> cloudwatchLogDestination;
 
-    /**
-     * @return The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch Logs. This parameter is required if IsLoggingEnabled is set to true. See `cloudwatchLogDestination` below.
-     * 
-     */
     public Optional<Output<PipelineLogPublishingOptionsCloudwatchLogDestinationArgs>> cloudwatchLogDestination() {
         return Optional.ofNullable(this.cloudwatchLogDestination);
     }
 
-    /**
-     * Whether logs should be published.
-     * 
-     */
     @Import(name="isLoggingEnabled")
     private @Nullable Output<Boolean> isLoggingEnabled;
 
-    /**
-     * @return Whether logs should be published.
-     * 
-     */
     public Optional<Output<Boolean>> isLoggingEnabled() {
         return Optional.ofNullable(this.isLoggingEnabled);
     }
@@ -71,44 +55,20 @@ public final class PipelineLogPublishingOptionsArgs extends com.pulumi.resources
             $ = new PipelineLogPublishingOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cloudwatchLogDestination The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch Logs. This parameter is required if IsLoggingEnabled is set to true. See `cloudwatchLogDestination` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLogDestination(@Nullable Output<PipelineLogPublishingOptionsCloudwatchLogDestinationArgs> cloudwatchLogDestination) {
             $.cloudwatchLogDestination = cloudwatchLogDestination;
             return this;
         }
 
-        /**
-         * @param cloudwatchLogDestination The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch Logs. This parameter is required if IsLoggingEnabled is set to true. See `cloudwatchLogDestination` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLogDestination(PipelineLogPublishingOptionsCloudwatchLogDestinationArgs cloudwatchLogDestination) {
             return cloudwatchLogDestination(Output.of(cloudwatchLogDestination));
         }
 
-        /**
-         * @param isLoggingEnabled Whether logs should be published.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isLoggingEnabled(@Nullable Output<Boolean> isLoggingEnabled) {
             $.isLoggingEnabled = isLoggingEnabled;
             return this;
         }
 
-        /**
-         * @param isLoggingEnabled Whether logs should be published.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isLoggingEnabled(Boolean isLoggingEnabled) {
             return isLoggingEnabled(Output.of(isLoggingEnabled));
         }

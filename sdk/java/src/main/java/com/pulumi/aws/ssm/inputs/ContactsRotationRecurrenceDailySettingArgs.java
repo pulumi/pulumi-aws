@@ -14,32 +14,16 @@ public final class ContactsRotationRecurrenceDailySettingArgs extends com.pulumi
 
     public static final ContactsRotationRecurrenceDailySettingArgs Empty = new ContactsRotationRecurrenceDailySettingArgs();
 
-    /**
-     * (Required) The hour of the day.
-     * 
-     */
     @Import(name="hourOfDay", required=true)
     private Output<Integer> hourOfDay;
 
-    /**
-     * @return (Required) The hour of the day.
-     * 
-     */
     public Output<Integer> hourOfDay() {
         return this.hourOfDay;
     }
 
-    /**
-     * (Required) The minutes of the hour.
-     * 
-     */
     @Import(name="minuteOfHour", required=true)
     private Output<Integer> minuteOfHour;
 
-    /**
-     * @return (Required) The minutes of the hour.
-     * 
-     */
     public Output<Integer> minuteOfHour() {
         return this.minuteOfHour;
     }
@@ -69,44 +53,20 @@ public final class ContactsRotationRecurrenceDailySettingArgs extends com.pulumi
             $ = new ContactsRotationRecurrenceDailySettingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param hourOfDay (Required) The hour of the day.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hourOfDay(Output<Integer> hourOfDay) {
             $.hourOfDay = hourOfDay;
             return this;
         }
 
-        /**
-         * @param hourOfDay (Required) The hour of the day.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hourOfDay(Integer hourOfDay) {
             return hourOfDay(Output.of(hourOfDay));
         }
 
-        /**
-         * @param minuteOfHour (Required) The minutes of the hour.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minuteOfHour(Output<Integer> minuteOfHour) {
             $.minuteOfHour = minuteOfHour;
             return this;
         }
 
-        /**
-         * @param minuteOfHour (Required) The minutes of the hour.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minuteOfHour(Integer minuteOfHour) {
             return minuteOfHour(Output.of(minuteOfHour));
         }

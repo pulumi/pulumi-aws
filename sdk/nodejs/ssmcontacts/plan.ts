@@ -7,97 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS SSM Contact Plan.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ssmcontacts.Plan("example", {
- *     contactId: "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
- *     stages: [{
- *         durationInMinutes: 1,
- *     }],
- * });
- * ```
- *
- * ### Usage with SSM Contact
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const contact = new aws.ssmcontacts.Contact("contact", {
- *     alias: "alias",
- *     type: "PERSONAL",
- * });
- * const plan = new aws.ssmcontacts.Plan("plan", {
- *     contactId: contact.arn,
- *     stages: [{
- *         durationInMinutes: 1,
- *     }],
- * });
- * ```
- *
- * ### Usage With All Fields
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const escalationPlan = new aws.ssmcontacts.Contact("escalation_plan", {
- *     alias: "escalation-plan-alias",
- *     type: "ESCALATION",
- * });
- * const contactOne = new aws.ssmcontacts.Contact("contact_one", {
- *     alias: "alias",
- *     type: "PERSONAL",
- * });
- * const contactTwo = new aws.ssmcontacts.Contact("contact_two", {
- *     alias: "alias",
- *     type: "PERSONAL",
- * });
- * const test = new aws.ssmcontacts.Plan("test", {
- *     contactId: escalationPlan.arn,
- *     stages: [{
- *         durationInMinutes: 0,
- *         targets: [
- *             {
- *                 contactTargetInfo: {
- *                     isEssential: false,
- *                     contactId: contactOne.arn,
- *                 },
- *             },
- *             {
- *                 contactTargetInfo: {
- *                     isEssential: true,
- *                     contactId: contactTwo.arn,
- *                 },
- *             },
- *             {
- *                 channelTargetInfo: {
- *                     retryIntervalInMinutes: 2,
- *                     contactChannelId: channel.arn,
- *                 },
- *             },
- *         ],
- *     }],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import SSM Contact Plan using the Contact ARN. For example:
- *
- * ```sh
- * $ pulumi import aws:ssmcontacts/plan:Plan example {ARNValue}
- * ```
- */
 export class Plan extends pulumi.CustomResource {
     /**
      * Get an existing Plan resource's state with the given name, ID, and optional extra
@@ -126,17 +35,8 @@ export class Plan extends pulumi.CustomResource {
         return obj['__pulumiType'] === Plan.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the contact or escalation plan.
-     */
     declare public readonly contactId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
-     */
     declare public readonly stages: pulumi.Output<outputs.ssmcontacts.PlanStage[]>;
 
     /**
@@ -176,17 +76,8 @@ export class Plan extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Plan resources.
  */
 export interface PlanState {
-    /**
-     * The Amazon Resource Name (ARN) of the contact or escalation plan.
-     */
     contactId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
-     */
     stages?: pulumi.Input<pulumi.Input<inputs.ssmcontacts.PlanStage>[]>;
 }
 
@@ -194,16 +85,7 @@ export interface PlanState {
  * The set of arguments for constructing a Plan resource.
  */
 export interface PlanArgs {
-    /**
-     * The Amazon Resource Name (ARN) of the contact or escalation plan.
-     */
     contactId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
-     */
     stages: pulumi.Input<pulumi.Input<inputs.ssmcontacts.PlanStage>[]>;
 }

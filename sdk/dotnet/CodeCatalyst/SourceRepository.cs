@@ -9,71 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CodeCatalyst
 {
-    /// <summary>
-    /// Resource for managing an AWS CodeCatalyst Source Repository.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CodeCatalyst.SourceRepository("example", new()
-    ///     {
-    ///         Name = "example-repo",
-    ///         ProjectName = "example-project",
-    ///         SpaceName = "example-space",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import CodeCatalyst Source Repository using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:codecatalyst/sourceRepository:SourceRepository example example-repo
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:codecatalyst/sourceRepository:SourceRepository")]
     public partial class SourceRepository : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the project in the CodeCatalyst space.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("projectName")]
         public Output<string> ProjectName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the CodeCatalyst space.
-        /// </summary>
         [Output("spaceName")]
         public Output<string> SpaceName { get; private set; } = null!;
 
@@ -123,35 +73,18 @@ namespace Pulumi.Aws.CodeCatalyst
 
     public sealed class SourceRepositoryArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The name of the project in the CodeCatalyst space.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("projectName", required: true)]
         public Input<string> ProjectName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name of the CodeCatalyst space.
-        /// </summary>
         [Input("spaceName", required: true)]
         public Input<string> SpaceName { get; set; } = null!;
 
@@ -163,35 +96,18 @@ namespace Pulumi.Aws.CodeCatalyst
 
     public sealed class SourceRepositoryState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The name of the project in the CodeCatalyst space.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("projectName")]
         public Input<string>? ProjectName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name of the CodeCatalyst space.
-        /// </summary>
         [Input("spaceName")]
         public Input<string>? SpaceName { get; set; }
 

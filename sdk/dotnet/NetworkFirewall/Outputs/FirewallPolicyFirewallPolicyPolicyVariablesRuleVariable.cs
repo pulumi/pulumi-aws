@@ -13,13 +13,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable
     {
-        /// <summary>
-        /// A configuration block that defines a set of IP addresses. See IP Set below for details.
-        /// </summary>
         public readonly Outputs.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet IpSet;
-        /// <summary>
-        /// An alphanumeric string to identify the `IpSet`. Valid values: `HOME_NET`
-        /// </summary>
         public readonly string Key;
 
         [OutputConstructor]

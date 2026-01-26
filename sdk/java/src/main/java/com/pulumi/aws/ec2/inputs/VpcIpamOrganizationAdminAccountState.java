@@ -15,17 +15,9 @@ public final class VpcIpamOrganizationAdminAccountState extends com.pulumi.resou
 
     public static final VpcIpamOrganizationAdminAccountState Empty = new VpcIpamOrganizationAdminAccountState();
 
-    /**
-     * The Organizations ARN for the delegate account.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The Organizations ARN for the delegate account.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
@@ -37,47 +29,23 @@ public final class VpcIpamOrganizationAdminAccountState extends com.pulumi.resou
         return Optional.ofNullable(this.delegatedAdminAccountId);
     }
 
-    /**
-     * The Organizations email for the delegate account.
-     * 
-     */
     @Import(name="email")
     private @Nullable Output<String> email;
 
-    /**
-     * @return The Organizations email for the delegate account.
-     * 
-     */
     public Optional<Output<String>> email() {
         return Optional.ofNullable(this.email);
     }
 
-    /**
-     * The Organizations name for the delegate account.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The Organizations name for the delegate account.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The AWS service principal.
-     * 
-     */
     @Import(name="servicePrincipal")
     private @Nullable Output<String> servicePrincipal;
 
-    /**
-     * @return The AWS service principal.
-     * 
-     */
     public Optional<Output<String>> servicePrincipal() {
         return Optional.ofNullable(this.servicePrincipal);
     }
@@ -110,23 +78,11 @@ public final class VpcIpamOrganizationAdminAccountState extends com.pulumi.resou
             $ = new VpcIpamOrganizationAdminAccountState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The Organizations ARN for the delegate account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The Organizations ARN for the delegate account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
@@ -140,65 +96,29 @@ public final class VpcIpamOrganizationAdminAccountState extends com.pulumi.resou
             return delegatedAdminAccountId(Output.of(delegatedAdminAccountId));
         }
 
-        /**
-         * @param email The Organizations email for the delegate account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder email(@Nullable Output<String> email) {
             $.email = email;
             return this;
         }
 
-        /**
-         * @param email The Organizations email for the delegate account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder email(String email) {
             return email(Output.of(email));
         }
 
-        /**
-         * @param name The Organizations name for the delegate account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The Organizations name for the delegate account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param servicePrincipal The AWS service principal.
-         * 
-         * @return builder
-         * 
-         */
         public Builder servicePrincipal(@Nullable Output<String> servicePrincipal) {
             $.servicePrincipal = servicePrincipal;
             return this;
         }
 
-        /**
-         * @param servicePrincipal The AWS service principal.
-         * 
-         * @return builder
-         * 
-         */
         public Builder servicePrincipal(String servicePrincipal) {
             return servicePrincipal(Output.of(servicePrincipal));
         }

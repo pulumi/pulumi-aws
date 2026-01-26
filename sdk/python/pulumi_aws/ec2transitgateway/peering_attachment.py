@@ -30,13 +30,6 @@ class PeeringAttachmentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PeeringAttachment resource.
-        :param pulumi.Input[_builtins.str] peer_region: Region of EC2 Transit Gateway to peer with.
-        :param pulumi.Input[_builtins.str] peer_transit_gateway_id: Identifier of EC2 Transit Gateway to peer with.
-        :param pulumi.Input[_builtins.str] transit_gateway_id: Identifier of EC2 Transit Gateway.
-        :param pulumi.Input['PeeringAttachmentOptionsArgs'] options: Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
-        :param pulumi.Input[_builtins.str] peer_account_id: Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "peer_region", peer_region)
         pulumi.set(__self__, "peer_transit_gateway_id", peer_transit_gateway_id)
@@ -53,9 +46,6 @@ class PeeringAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="peerRegion")
     def peer_region(self) -> pulumi.Input[_builtins.str]:
-        """
-        Region of EC2 Transit Gateway to peer with.
-        """
         return pulumi.get(self, "peer_region")
 
     @peer_region.setter
@@ -65,9 +55,6 @@ class PeeringAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="peerTransitGatewayId")
     def peer_transit_gateway_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of EC2 Transit Gateway to peer with.
-        """
         return pulumi.get(self, "peer_transit_gateway_id")
 
     @peer_transit_gateway_id.setter
@@ -77,9 +64,6 @@ class PeeringAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of EC2 Transit Gateway.
-        """
         return pulumi.get(self, "transit_gateway_id")
 
     @transit_gateway_id.setter
@@ -89,9 +73,6 @@ class PeeringAttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def options(self) -> Optional[pulumi.Input['PeeringAttachmentOptionsArgs']]:
-        """
-        Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
-        """
         return pulumi.get(self, "options")
 
     @options.setter
@@ -101,9 +82,6 @@ class PeeringAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="peerAccountId")
     def peer_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
-        """
         return pulumi.get(self, "peer_account_id")
 
     @peer_account_id.setter
@@ -113,9 +91,6 @@ class PeeringAttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -125,9 +100,6 @@ class PeeringAttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -150,15 +122,6 @@ class _PeeringAttachmentState:
                  transit_gateway_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PeeringAttachment resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the attachment.
-        :param pulumi.Input['PeeringAttachmentOptionsArgs'] options: Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
-        :param pulumi.Input[_builtins.str] peer_account_id: Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
-        :param pulumi.Input[_builtins.str] peer_region: Region of EC2 Transit Gateway to peer with.
-        :param pulumi.Input[_builtins.str] peer_transit_gateway_id: Identifier of EC2 Transit Gateway to peer with.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] transit_gateway_id: Identifier of EC2 Transit Gateway.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -184,9 +147,6 @@ class _PeeringAttachmentState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the attachment.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -196,9 +156,6 @@ class _PeeringAttachmentState:
     @_builtins.property
     @pulumi.getter
     def options(self) -> Optional[pulumi.Input['PeeringAttachmentOptionsArgs']]:
-        """
-        Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
-        """
         return pulumi.get(self, "options")
 
     @options.setter
@@ -208,9 +165,6 @@ class _PeeringAttachmentState:
     @_builtins.property
     @pulumi.getter(name="peerAccountId")
     def peer_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
-        """
         return pulumi.get(self, "peer_account_id")
 
     @peer_account_id.setter
@@ -220,9 +174,6 @@ class _PeeringAttachmentState:
     @_builtins.property
     @pulumi.getter(name="peerRegion")
     def peer_region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region of EC2 Transit Gateway to peer with.
-        """
         return pulumi.get(self, "peer_region")
 
     @peer_region.setter
@@ -232,9 +183,6 @@ class _PeeringAttachmentState:
     @_builtins.property
     @pulumi.getter(name="peerTransitGatewayId")
     def peer_transit_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of EC2 Transit Gateway to peer with.
-        """
         return pulumi.get(self, "peer_transit_gateway_id")
 
     @peer_transit_gateway_id.setter
@@ -244,9 +192,6 @@ class _PeeringAttachmentState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -265,9 +210,6 @@ class _PeeringAttachmentState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -277,9 +219,6 @@ class _PeeringAttachmentState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -289,9 +228,6 @@ class _PeeringAttachmentState:
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of EC2 Transit Gateway.
-        """
         return pulumi.get(self, "transit_gateway_id")
 
     @transit_gateway_id.setter
@@ -314,49 +250,9 @@ class PeeringAttachment(pulumi.CustomResource):
                  transit_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an EC2 Transit Gateway Peering Attachment.
-        For examples of custom route table association and propagation, see the [EC2 Transit Gateway Networking Examples Guide](https://docs.aws.amazon.com/vpc/latest/tgw/TGW_Scenarios.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        peer = aws.get_region()
-        local = aws.ec2transitgateway.TransitGateway("local", tags={
-            "Name": "Local TGW",
-        })
-        peer_transit_gateway = aws.ec2transitgateway.TransitGateway("peer", tags={
-            "Name": "Peer TGW",
-        })
-        example = aws.ec2transitgateway.PeeringAttachment("example",
-            peer_account_id=peer_transit_gateway.owner_id,
-            peer_region=peer.name,
-            peer_transit_gateway_id=peer_transit_gateway.id,
-            transit_gateway_id=local.id,
-            tags={
-                "Name": "TGW Peering Requestor",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_ec2_transit_gateway_peering_attachment` using the EC2 Transit Gateway Attachment identifier. For example:
-
-        ```sh
-        $ pulumi import aws:ec2transitgateway/peeringAttachment:PeeringAttachment example tgw-attach-12345678
-        ```
-
+        Create a PeeringAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['PeeringAttachmentOptionsArgs', 'PeeringAttachmentOptionsArgsDict']] options: Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
-        :param pulumi.Input[_builtins.str] peer_account_id: Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
-        :param pulumi.Input[_builtins.str] peer_region: Region of EC2 Transit Gateway to peer with.
-        :param pulumi.Input[_builtins.str] peer_transit_gateway_id: Identifier of EC2 Transit Gateway to peer with.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] transit_gateway_id: Identifier of EC2 Transit Gateway.
         """
         ...
     @overload
@@ -365,40 +261,7 @@ class PeeringAttachment(pulumi.CustomResource):
                  args: PeeringAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an EC2 Transit Gateway Peering Attachment.
-        For examples of custom route table association and propagation, see the [EC2 Transit Gateway Networking Examples Guide](https://docs.aws.amazon.com/vpc/latest/tgw/TGW_Scenarios.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        peer = aws.get_region()
-        local = aws.ec2transitgateway.TransitGateway("local", tags={
-            "Name": "Local TGW",
-        })
-        peer_transit_gateway = aws.ec2transitgateway.TransitGateway("peer", tags={
-            "Name": "Peer TGW",
-        })
-        example = aws.ec2transitgateway.PeeringAttachment("example",
-            peer_account_id=peer_transit_gateway.owner_id,
-            peer_region=peer.name,
-            peer_transit_gateway_id=peer_transit_gateway.id,
-            transit_gateway_id=local.id,
-            tags={
-                "Name": "TGW Peering Requestor",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_ec2_transit_gateway_peering_attachment` using the EC2 Transit Gateway Attachment identifier. For example:
-
-        ```sh
-        $ pulumi import aws:ec2transitgateway/peeringAttachment:PeeringAttachment example tgw-attach-12345678
-        ```
-
+        Create a PeeringAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PeeringAttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -473,15 +336,6 @@ class PeeringAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the attachment.
-        :param pulumi.Input[Union['PeeringAttachmentOptionsArgs', 'PeeringAttachmentOptionsArgsDict']] options: Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
-        :param pulumi.Input[_builtins.str] peer_account_id: Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
-        :param pulumi.Input[_builtins.str] peer_region: Region of EC2 Transit Gateway to peer with.
-        :param pulumi.Input[_builtins.str] peer_transit_gateway_id: Identifier of EC2 Transit Gateway to peer with.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] transit_gateway_id: Identifier of EC2 Transit Gateway.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -502,49 +356,31 @@ class PeeringAttachment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the attachment.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def options(self) -> pulumi.Output[Optional['outputs.PeeringAttachmentOptions']]:
-        """
-        Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
-        """
         return pulumi.get(self, "options")
 
     @_builtins.property
     @pulumi.getter(name="peerAccountId")
     def peer_account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
-        """
         return pulumi.get(self, "peer_account_id")
 
     @_builtins.property
     @pulumi.getter(name="peerRegion")
     def peer_region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region of EC2 Transit Gateway to peer with.
-        """
         return pulumi.get(self, "peer_region")
 
     @_builtins.property
     @pulumi.getter(name="peerTransitGatewayId")
     def peer_transit_gateway_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of EC2 Transit Gateway to peer with.
-        """
         return pulumi.get(self, "peer_transit_gateway_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
@@ -555,24 +391,15 @@ class PeeringAttachment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of EC2 Transit Gateway.
-        """
         return pulumi.get(self, "transit_gateway_id")
 

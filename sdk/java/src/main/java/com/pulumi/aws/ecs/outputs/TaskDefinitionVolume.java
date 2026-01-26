@@ -16,79 +16,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TaskDefinitionVolume {
-    /**
-     * @return Whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
-     * 
-     */
     private @Nullable Boolean configureAtLaunch;
-    /**
-     * @return Configuration block to configure a docker volume. Detailed below.
-     * 
-     */
     private @Nullable TaskDefinitionVolumeDockerVolumeConfiguration dockerVolumeConfiguration;
-    /**
-     * @return Configuration block for an EFS volume. Detailed below.
-     * 
-     */
     private @Nullable TaskDefinitionVolumeEfsVolumeConfiguration efsVolumeConfiguration;
-    /**
-     * @return Configuration block for an FSX Windows File Server volume. Detailed below.
-     * 
-     */
     private @Nullable TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration fsxWindowsFileServerVolumeConfiguration;
-    /**
-     * @return Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
-     * 
-     */
     private @Nullable String hostPath;
-    /**
-     * @return Name of the volume. This name is referenced in the `sourceVolume`
-     * parameter of container definition in the `mountPoints` section.
-     * 
-     */
     private String name;
 
     private TaskDefinitionVolume() {}
-    /**
-     * @return Whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
-     * 
-     */
     public Optional<Boolean> configureAtLaunch() {
         return Optional.ofNullable(this.configureAtLaunch);
     }
-    /**
-     * @return Configuration block to configure a docker volume. Detailed below.
-     * 
-     */
     public Optional<TaskDefinitionVolumeDockerVolumeConfiguration> dockerVolumeConfiguration() {
         return Optional.ofNullable(this.dockerVolumeConfiguration);
     }
-    /**
-     * @return Configuration block for an EFS volume. Detailed below.
-     * 
-     */
     public Optional<TaskDefinitionVolumeEfsVolumeConfiguration> efsVolumeConfiguration() {
         return Optional.ofNullable(this.efsVolumeConfiguration);
     }
-    /**
-     * @return Configuration block for an FSX Windows File Server volume. Detailed below.
-     * 
-     */
     public Optional<TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration> fsxWindowsFileServerVolumeConfiguration() {
         return Optional.ofNullable(this.fsxWindowsFileServerVolumeConfiguration);
     }
-    /**
-     * @return Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
-     * 
-     */
     public Optional<String> hostPath() {
         return Optional.ofNullable(this.hostPath);
     }
-    /**
-     * @return Name of the volume. This name is referenced in the `sourceVolume`
-     * parameter of container definition in the `mountPoints` section.
-     * 
-     */
     public String name() {
         return this.name;
     }

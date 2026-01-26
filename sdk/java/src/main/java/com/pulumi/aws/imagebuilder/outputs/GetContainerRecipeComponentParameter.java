@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetContainerRecipeComponentParameter {
-    /**
-     * @return Name of the container recipe.
-     * 
-     */
     private String name;
-    /**
-     * @return Value of the component parameter.
-     * 
-     */
     private String value;
 
     private GetContainerRecipeComponentParameter() {}
-    /**
-     * @return Name of the container recipe.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Value of the component parameter.
-     * 
-     */
     public String value() {
         return this.value;
     }

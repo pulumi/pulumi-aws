@@ -13,30 +13,14 @@ import java.util.Objects;
 public final class GetAssetResult {
     private String arn;
     private String assetId;
-    /**
-     * @return Type of the asset.
-     * 
-     */
     private String assetType;
-    /**
-     * @return Host ID of the Dedicated Hosts on the asset, if a Dedicated Host is provisioned.
-     * 
-     */
     private String hostId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Position of an asset in a rack measured in rack units.
-     * 
-     */
     private Integer rackElevation;
-    /**
-     * @return Rack ID of the asset.
-     * 
-     */
     private String rackId;
     private String region;
 
@@ -47,17 +31,9 @@ public final class GetAssetResult {
     public String assetId() {
         return this.assetId;
     }
-    /**
-     * @return Type of the asset.
-     * 
-     */
     public String assetType() {
         return this.assetType;
     }
-    /**
-     * @return Host ID of the Dedicated Hosts on the asset, if a Dedicated Host is provisioned.
-     * 
-     */
     public String hostId() {
         return this.hostId;
     }
@@ -68,17 +44,9 @@ public final class GetAssetResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Position of an asset in a rack measured in rack units.
-     * 
-     */
     public Integer rackElevation() {
         return this.rackElevation;
     }
-    /**
-     * @return Rack ID of the asset.
-     * 
-     */
     public String rackId() {
         return this.rackId;
     }

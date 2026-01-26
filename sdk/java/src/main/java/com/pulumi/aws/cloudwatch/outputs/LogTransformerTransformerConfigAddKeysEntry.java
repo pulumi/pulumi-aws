@@ -13,43 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LogTransformerTransformerConfigAddKeysEntry {
-    /**
-     * @return Specifies the key with the value that will be converted to a different type.
-     * 
-     */
     private String key;
-    /**
-     * @return Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-     * * `renameTo` - (Required) Specifies the new name of the key.
-     * 
-     */
     private @Nullable Boolean overwriteIfExists;
-    /**
-     * @return Specifies the value of the new entry to be added to the log event.
-     * 
-     */
     private String value;
 
     private LogTransformerTransformerConfigAddKeysEntry() {}
-    /**
-     * @return Specifies the key with the value that will be converted to a different type.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-     * * `renameTo` - (Required) Specifies the new name of the key.
-     * 
-     */
     public Optional<Boolean> overwriteIfExists() {
         return Optional.ofNullable(this.overwriteIfExists);
     }
-    /**
-     * @return Specifies the value of the new entry to be added to the log event.
-     * 
-     */
     public String value() {
         return this.value;
     }

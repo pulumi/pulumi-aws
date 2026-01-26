@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class LocationAzureBlobSasConfiguration {
-    /**
-     * @return A SAS token that provides permissions to access your Azure Blob Storage.
-     * 
-     */
     private String token;
 
     private LocationAzureBlobSasConfiguration() {}
-    /**
-     * @return A SAS token that provides permissions to access your Azure Blob Storage.
-     * 
-     */
     public String token() {
         return this.token;
     }

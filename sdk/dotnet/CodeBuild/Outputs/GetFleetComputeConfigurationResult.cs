@@ -13,25 +13,10 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     [OutputType]
     public sealed class GetFleetComputeConfigurationResult
     {
-        /// <summary>
-        /// Amount of disk space of the instance type included in the fleet.
-        /// </summary>
         public readonly int Disk;
-        /// <summary>
-        /// EC2 instance type in the fleet.
-        /// </summary>
         public readonly string InstanceType;
-        /// <summary>
-        /// Machine type of the instance type included in the fleet.
-        /// </summary>
         public readonly string MachineType;
-        /// <summary>
-        /// Amount of memory of the instance type included in the fleet.
-        /// </summary>
         public readonly int Memory;
-        /// <summary>
-        /// Number of vCPUs of the instance type included in the fleet.
-        /// </summary>
         public readonly int Vcpu;
 
         [OutputConstructor]

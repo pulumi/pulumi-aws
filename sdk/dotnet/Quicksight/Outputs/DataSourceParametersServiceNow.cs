@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSourceParametersServiceNow
     {
-        /// <summary>
-        /// The base URL of the Jira instance's site to which to connect.
-        /// </summary>
         public readonly string SiteBaseUrl;
 
         [OutputConstructor]

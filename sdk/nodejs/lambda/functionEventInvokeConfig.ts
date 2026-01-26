@@ -7,186 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages an AWS Lambda Function Event Invoke Config. Use this resource to configure error handling and destinations for asynchronous Lambda function invocations.
- *
- * More information about asynchronous invocations and the configurable values can be found in the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html).
- *
- * ## Example Usage
- *
- * ### Complete Error Handling and Destinations
- *
- * > **Note:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // SQS queue for failed invocations
- * const dlq = new aws.sqs.Queue("dlq", {
- *     name: "lambda-dlq",
- *     tags: {
- *         Environment: "production",
- *         Purpose: "lambda-error-handling",
- *     },
- * });
- * // SNS topic for successful invocations
- * const success = new aws.sns.Topic("success", {
- *     name: "lambda-success-notifications",
- *     tags: {
- *         Environment: "production",
- *         Purpose: "lambda-success-notifications",
- *     },
- * });
- * // Complete event invoke configuration
- * const example = new aws.lambda.FunctionEventInvokeConfig("example", {
- *     functionName: exampleAwsLambdaFunction.functionName,
- *     maximumEventAgeInSeconds: 300,
- *     maximumRetryAttempts: 1,
- *     destinationConfig: {
- *         onFailure: {
- *             destination: dlq.arn,
- *         },
- *         onSuccess: {
- *             destination: success.arn,
- *         },
- *     },
- * });
- * ```
- *
- * ### Error Handling Only
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.lambda.FunctionEventInvokeConfig("example", {
- *     functionName: exampleAwsLambdaFunction.functionName,
- *     maximumEventAgeInSeconds: 60,
- *     maximumRetryAttempts: 0,
- * });
- * ```
- *
- * ### Configuration for Lambda Alias
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.lambda.Alias("example", {
- *     name: "production",
- *     description: "Production alias",
- *     functionName: exampleAwsLambdaFunction.functionName,
- *     functionVersion: exampleAwsLambdaFunction.version,
- * });
- * const exampleFunctionEventInvokeConfig = new aws.lambda.FunctionEventInvokeConfig("example", {
- *     functionName: exampleAwsLambdaFunction.functionName,
- *     qualifier: example.name,
- *     maximumEventAgeInSeconds: 1800,
- *     maximumRetryAttempts: 2,
- *     destinationConfig: {
- *         onFailure: {
- *             destination: productionDlq.arn,
- *         },
- *     },
- * });
- * ```
- *
- * ### Configuration for Published Version
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.lambda.FunctionEventInvokeConfig("example", {
- *     functionName: exampleAwsLambdaFunction.functionName,
- *     qualifier: exampleAwsLambdaFunction.version,
- *     maximumEventAgeInSeconds: 21600,
- *     maximumRetryAttempts: 2,
- *     destinationConfig: {
- *         onFailure: {
- *             destination: versionDlq.arn,
- *         },
- *         onSuccess: {
- *             destination: versionSuccess.arn,
- *         },
- *     },
- * });
- * ```
- *
- * ### Configuration for Latest Version
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.lambda.FunctionEventInvokeConfig("example", {
- *     functionName: exampleAwsLambdaFunction.functionName,
- *     qualifier: "$LATEST",
- *     maximumEventAgeInSeconds: 120,
- *     maximumRetryAttempts: 0,
- *     destinationConfig: {
- *         onFailure: {
- *             destination: devDlq.arn,
- *         },
- *     },
- * });
- * ```
- *
- * ### Multiple Destination Types
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // S3 bucket for archiving successful events
- * const lambdaSuccessArchive = new aws.s3.Bucket("lambda_success_archive", {bucket: `lambda-success-archive-${bucketSuffix.hex}`});
- * // EventBridge custom bus for failed events
- * const lambdaFailures = new aws.cloudwatch.EventBus("lambda_failures", {name: "lambda-failure-events"});
- * const example = new aws.lambda.FunctionEventInvokeConfig("example", {
- *     functionName: exampleAwsLambdaFunction.functionName,
- *     destinationConfig: {
- *         onFailure: {
- *             destination: lambdaFailures.arn,
- *         },
- *         onSuccess: {
- *             destination: lambdaSuccessArchive.arn,
- *         },
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * ARN with qualifier:
- *
- * Name without qualifier (all versions and aliases):
- *
- * Name with qualifier:
- *
- * For backwards compatibility, the following legacy `pulumi import` commands are also supported:
- *
- * Using ARN without qualifier:
- *
- * ```sh
- * $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:lambda:us-east-1:123456789012:function:example
- * ```
- * Using ARN with qualifier:
- *
- * ```sh
- * $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:lambda:us-east-1:123456789012:function:example:production
- * ```
- * Name without qualifier (all versions and aliases):
- *
- * ```sh
- * $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example example
- * ```
- * Name with qualifier:
- *
- * ```sh
- * $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example example:production
- * ```
- */
 export class FunctionEventInvokeConfig extends pulumi.CustomResource {
     /**
      * Get an existing FunctionEventInvokeConfig resource's state with the given name, ID, and optional extra
@@ -215,31 +35,11 @@ export class FunctionEventInvokeConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === FunctionEventInvokeConfig.__pulumiType;
     }
 
-    /**
-     * Configuration block with destination configuration. See below.
-     */
     declare public readonly destinationConfig: pulumi.Output<outputs.lambda.FunctionEventInvokeConfigDestinationConfig | undefined>;
-    /**
-     * Name or ARN of the Lambda Function, omitting any version or alias qualifier.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly functionName: pulumi.Output<string>;
-    /**
-     * Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
-     */
     declare public readonly maximumEventAgeInSeconds: pulumi.Output<number | undefined>;
-    /**
-     * Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
-     */
     declare public readonly maximumRetryAttempts: pulumi.Output<number | undefined>;
-    /**
-     * Lambda Function published version, `$LATEST`, or Lambda Alias name.
-     */
     declare public readonly qualifier: pulumi.Output<string | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -282,31 +82,11 @@ export class FunctionEventInvokeConfig extends pulumi.CustomResource {
  * Input properties used for looking up and filtering FunctionEventInvokeConfig resources.
  */
 export interface FunctionEventInvokeConfigState {
-    /**
-     * Configuration block with destination configuration. See below.
-     */
     destinationConfig?: pulumi.Input<inputs.lambda.FunctionEventInvokeConfigDestinationConfig>;
-    /**
-     * Name or ARN of the Lambda Function, omitting any version or alias qualifier.
-     *
-     * The following arguments are optional:
-     */
     functionName?: pulumi.Input<string>;
-    /**
-     * Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
-     */
     maximumEventAgeInSeconds?: pulumi.Input<number>;
-    /**
-     * Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
-     */
     maximumRetryAttempts?: pulumi.Input<number>;
-    /**
-     * Lambda Function published version, `$LATEST`, or Lambda Alias name.
-     */
     qualifier?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -314,30 +94,10 @@ export interface FunctionEventInvokeConfigState {
  * The set of arguments for constructing a FunctionEventInvokeConfig resource.
  */
 export interface FunctionEventInvokeConfigArgs {
-    /**
-     * Configuration block with destination configuration. See below.
-     */
     destinationConfig?: pulumi.Input<inputs.lambda.FunctionEventInvokeConfigDestinationConfig>;
-    /**
-     * Name or ARN of the Lambda Function, omitting any version or alias qualifier.
-     *
-     * The following arguments are optional:
-     */
     functionName: pulumi.Input<string>;
-    /**
-     * Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
-     */
     maximumEventAgeInSeconds?: pulumi.Input<number>;
-    /**
-     * Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
-     */
     maximumRetryAttempts?: pulumi.Input<number>;
-    /**
-     * Lambda Function published version, `$LATEST`, or Lambda Alias name.
-     */
     qualifier?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

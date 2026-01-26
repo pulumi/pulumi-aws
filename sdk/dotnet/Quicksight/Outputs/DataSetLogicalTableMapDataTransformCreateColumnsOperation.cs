@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSetLogicalTableMapDataTransformCreateColumnsOperation
     {
-        /// <summary>
-        /// Calculated columns to create. See columns.
-        /// </summary>
         public readonly ImmutableArray<Outputs.DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn> Columns;
 
         [OutputConstructor]

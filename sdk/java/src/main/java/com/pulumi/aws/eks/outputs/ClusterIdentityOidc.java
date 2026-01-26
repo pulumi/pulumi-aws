@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterIdentityOidc {
-    /**
-     * @return Issuer URL for the OpenID Connect identity provider.
-     * 
-     */
     private @Nullable String issuer;
 
     private ClusterIdentityOidc() {}
-    /**
-     * @return Issuer URL for the OpenID Connect identity provider.
-     * 
-     */
     public Optional<String> issuer() {
         return Optional.ofNullable(this.issuer);
     }

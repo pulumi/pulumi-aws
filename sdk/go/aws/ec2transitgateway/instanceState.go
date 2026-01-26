@@ -12,91 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an EC2 instance state resource. This allows managing an instance power state.
-//
-// > **NOTE on Instance State Management:** AWS does not currently have an EC2 API operation to determine an instance has finished processing user data. As a result, this resource can interfere with user data processing. For example, this resource may stop an instance while the user data script is in mid run.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			ubuntu, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
-//				MostRecent: pulumi.BoolRef(true),
-//				Filters: []ec2.GetAmiFilter{
-//					{
-//						Name: "name",
-//						Values: []string{
-//							"ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*",
-//						},
-//					},
-//					{
-//						Name: "virtualization-type",
-//						Values: []string{
-//							"hvm",
-//						},
-//					},
-//				},
-//				Owners: []string{
-//					"099720109477",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			test, err := ec2.NewInstance(ctx, "test", &ec2.InstanceArgs{
-//				Ami:          pulumi.String(ubuntu.Id),
-//				InstanceType: pulumi.String(ec2.InstanceType_T3_Micro),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("HelloWorld"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2transitgateway.NewInstanceState(ctx, "test", &ec2transitgateway.InstanceStateArgs{
-//				InstanceId: test.ID(),
-//				State:      pulumi.String("stopped"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_ec2_instance_state` using the `instance_id` attribute. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2transitgateway/instanceState:InstanceState test i-02cae6557dfcf2f96
-// ```
 type InstanceState struct {
 	pulumi.CustomResourceState
 
-	// Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
-	Force pulumi.BoolPtrOutput `pulumi:"force"`
-	// ID of the instance.
-	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// State of the instance. Valid values are `stopped`, `running`.
-	//
-	// The following arguments are optional:
-	State pulumi.StringOutput `pulumi:"state"`
+	Force      pulumi.BoolPtrOutput `pulumi:"force"`
+	InstanceId pulumi.StringOutput  `pulumi:"instanceId"`
+	Region     pulumi.StringOutput  `pulumi:"region"`
+	State      pulumi.StringOutput  `pulumi:"state"`
 }
 
 // NewInstanceState registers a new resource with the given unique name, arguments, and options.
@@ -135,29 +57,17 @@ func GetInstanceState(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InstanceState resources.
 type instanceStateState struct {
-	// Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
-	Force *bool `pulumi:"force"`
-	// ID of the instance.
+	Force      *bool   `pulumi:"force"`
 	InstanceId *string `pulumi:"instanceId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// State of the instance. Valid values are `stopped`, `running`.
-	//
-	// The following arguments are optional:
-	State *string `pulumi:"state"`
+	Region     *string `pulumi:"region"`
+	State      *string `pulumi:"state"`
 }
 
 type InstanceStateState struct {
-	// Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
-	Force pulumi.BoolPtrInput
-	// ID of the instance.
+	Force      pulumi.BoolPtrInput
 	InstanceId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// State of the instance. Valid values are `stopped`, `running`.
-	//
-	// The following arguments are optional:
-	State pulumi.StringPtrInput
+	Region     pulumi.StringPtrInput
+	State      pulumi.StringPtrInput
 }
 
 func (InstanceStateState) ElementType() reflect.Type {
@@ -165,30 +75,18 @@ func (InstanceStateState) ElementType() reflect.Type {
 }
 
 type instanceStateArgs struct {
-	// Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
-	Force *bool `pulumi:"force"`
-	// ID of the instance.
-	InstanceId string `pulumi:"instanceId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// State of the instance. Valid values are `stopped`, `running`.
-	//
-	// The following arguments are optional:
-	State string `pulumi:"state"`
+	Force      *bool   `pulumi:"force"`
+	InstanceId string  `pulumi:"instanceId"`
+	Region     *string `pulumi:"region"`
+	State      string  `pulumi:"state"`
 }
 
 // The set of arguments for constructing a InstanceState resource.
 type InstanceStateArgs struct {
-	// Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
-	Force pulumi.BoolPtrInput
-	// ID of the instance.
+	Force      pulumi.BoolPtrInput
 	InstanceId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// State of the instance. Valid values are `stopped`, `running`.
-	//
-	// The following arguments are optional:
-	State pulumi.StringInput
+	Region     pulumi.StringPtrInput
+	State      pulumi.StringInput
 }
 
 func (InstanceStateArgs) ElementType() reflect.Type {
@@ -278,24 +176,18 @@ func (o InstanceStateOutput) ToInstanceStateOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
 func (o InstanceStateOutput) Force() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstanceState) pulumi.BoolPtrOutput { return v.Force }).(pulumi.BoolPtrOutput)
 }
 
-// ID of the instance.
 func (o InstanceStateOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceState) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InstanceStateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceState) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// State of the instance. Valid values are `stopped`, `running`.
-//
-// The following arguments are optional:
 func (o InstanceStateOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceState) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }

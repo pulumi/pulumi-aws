@@ -12,57 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BrokerInstance {
-    /**
-     * @return URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engineType`.
-     * 
-     */
     private @Nullable String consoleUrl;
-    /**
-     * @return Broker&#39;s wire-level protocol endpoints in the following order &amp; format referenceable e.g., as `instances.0.endpoints.0` (SSL):
-     * * For `ActiveMQ`:
-     * * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
-     * * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
-     * * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
-     * * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
-     * * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
-     * * For `RabbitMQ`:
-     * * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
-     * 
-     */
     private @Nullable List<String> endpoints;
-    /**
-     * @return IP Address of the broker.
-     * 
-     */
     private @Nullable String ipAddress;
 
     private BrokerInstance() {}
-    /**
-     * @return URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engineType`.
-     * 
-     */
     public Optional<String> consoleUrl() {
         return Optional.ofNullable(this.consoleUrl);
     }
-    /**
-     * @return Broker&#39;s wire-level protocol endpoints in the following order &amp; format referenceable e.g., as `instances.0.endpoints.0` (SSL):
-     * * For `ActiveMQ`:
-     * * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
-     * * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
-     * * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
-     * * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
-     * * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
-     * * For `RabbitMQ`:
-     * * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
-     * 
-     */
     public List<String> endpoints() {
         return this.endpoints == null ? List.of() : this.endpoints;
     }
-    /**
-     * @return IP Address of the broker.
-     * 
-     */
     public Optional<String> ipAddress() {
         return Optional.ofNullable(this.ipAddress);
     }

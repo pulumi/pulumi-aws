@@ -13,117 +13,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Route53 Resolver rule association.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.route53.ResolverRuleAssociation;
- * import com.pulumi.aws.route53.ResolverRuleAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResolverRuleAssociation("example", ResolverRuleAssociationArgs.builder()
- *             .resolverRuleId(sys.id())
- *             .vpcId(foo.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * * `id` - (String) ID of the Route53 Resolver rule association.
- * 
- * #### Optional
- * 
- * * `account_id` (String) AWS Account where this resource is managed.
- * 
- * * `region` (String) Region where this resource is managed.
- * 
- * Using `pulumi import`, import Route53 Resolver rule associations using the `id`. For example:
- * 
- * % pulumi import aws_route53_resolver_rule_association.example rslvr-rrassoc-97242eaf88example
- * 
- */
 @ResourceType(type="aws:route53/resolverRuleAssociation:ResolverRuleAssociation")
 public class ResolverRuleAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * A name for the association that you&#39;re creating between a resolver rule and a VPC.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return A name for the association that you&#39;re creating between a resolver rule and a VPC.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The ID of the resolver rule that you want to associate with the VPC.
-     * 
-     */
     @Export(name="resolverRuleId", refs={String.class}, tree="[0]")
     private Output<String> resolverRuleId;
 
-    /**
-     * @return The ID of the resolver rule that you want to associate with the VPC.
-     * 
-     */
     public Output<String> resolverRuleId() {
         return this.resolverRuleId;
     }
-    /**
-     * The ID of the VPC that you want to associate the resolver rule with.
-     * 
-     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
-    /**
-     * @return The ID of the VPC that you want to associate the resolver rule with.
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }

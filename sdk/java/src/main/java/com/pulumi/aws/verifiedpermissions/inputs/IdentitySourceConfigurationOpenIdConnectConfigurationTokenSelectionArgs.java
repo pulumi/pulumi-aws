@@ -16,32 +16,16 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
 
     public static final IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs Empty = new IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs();
 
-    /**
-     * The OIDC configuration for processing access tokens. See Access Token Only below.
-     * 
-     */
     @Import(name="accessTokenOnly")
     private @Nullable Output<IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs> accessTokenOnly;
 
-    /**
-     * @return The OIDC configuration for processing access tokens. See Access Token Only below.
-     * 
-     */
     public Optional<Output<IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs>> accessTokenOnly() {
         return Optional.ofNullable(this.accessTokenOnly);
     }
 
-    /**
-     * The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
-     * 
-     */
     @Import(name="identityTokenOnly")
     private @Nullable Output<IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs> identityTokenOnly;
 
-    /**
-     * @return The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
-     * 
-     */
     public Optional<Output<IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs>> identityTokenOnly() {
         return Optional.ofNullable(this.identityTokenOnly);
     }
@@ -71,44 +55,20 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
             $ = new IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessTokenOnly The OIDC configuration for processing access tokens. See Access Token Only below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessTokenOnly(@Nullable Output<IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs> accessTokenOnly) {
             $.accessTokenOnly = accessTokenOnly;
             return this;
         }
 
-        /**
-         * @param accessTokenOnly The OIDC configuration for processing access tokens. See Access Token Only below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessTokenOnly(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs accessTokenOnly) {
             return accessTokenOnly(Output.of(accessTokenOnly));
         }
 
-        /**
-         * @param identityTokenOnly The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityTokenOnly(@Nullable Output<IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs> identityTokenOnly) {
             $.identityTokenOnly = identityTokenOnly;
             return this;
         }
 
-        /**
-         * @param identityTokenOnly The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityTokenOnly(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs identityTokenOnly) {
             return identityTokenOnly(Output.of(identityTokenOnly));
         }

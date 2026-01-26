@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of your Amazon EFS file system.
-        /// </summary>
         [Input("fileSystemId", required: true)]
         public Input<string> FileSystemId { get; set; } = null!;
 

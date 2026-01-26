@@ -55,9 +55,6 @@ class GetVpcLinkResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the VPC Link.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -71,9 +68,6 @@ class GetVpcLinkResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        VPC Link Name.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -84,25 +78,16 @@ class GetVpcLinkResult:
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[_builtins.str]:
-        """
-        List of security groups associated with the VPC Link.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[_builtins.str]:
-        """
-        List of subnets attached to the VPC Link.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        VPC Link Tags.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -132,23 +117,7 @@ def get_vpc_link(region: Optional[_builtins.str] = None,
                  vpc_link_id: Optional[_builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcLinkResult:
     """
-    Data source for managing an AWS API Gateway V2 VPC Link.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.apigatewayv2.get_vpc_link(vpc_link_id="example")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: VPC Link Tags.
-    :param _builtins.str vpc_link_id: VPC Link ID
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -171,23 +140,7 @@ def get_vpc_link_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] 
                         vpc_link_id: Optional[pulumi.Input[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcLinkResult]:
     """
-    Data source for managing an AWS API Gateway V2 VPC Link.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.apigatewayv2.get_vpc_link(vpc_link_id="example")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: VPC Link Tags.
-    :param _builtins.str vpc_link_id: VPC Link ID
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

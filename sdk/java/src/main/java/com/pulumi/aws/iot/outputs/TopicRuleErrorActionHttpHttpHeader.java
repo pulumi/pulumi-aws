@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class TopicRuleErrorActionHttpHttpHeader {
-    /**
-     * @return The name of the HTTP header.
-     * 
-     */
     private String key;
-    /**
-     * @return The value of the HTTP header.
-     * 
-     */
     private String value;
 
     private TopicRuleErrorActionHttpHttpHeader() {}
-    /**
-     * @return The name of the HTTP header.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return The value of the HTTP header.
-     * 
-     */
     public String value() {
         return this.value;
     }

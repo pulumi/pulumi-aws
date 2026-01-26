@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AutomationRuleActionFindingFieldsUpdateWorkflow {
-    /**
-     * @return The status of the investigation into the finding. The allowed values are the following `NEW`, `NOTIFIED`, `RESOLVED` and `SUPPRESSED`.
-     * 
-     */
     private @Nullable String status;
 
     private AutomationRuleActionFindingFieldsUpdateWorkflow() {}
-    /**
-     * @return The status of the investigation into the finding. The allowed values are the following `NEW`, `NOTIFIED`, `RESOLVED` and `SUPPRESSED`.
-     * 
-     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }

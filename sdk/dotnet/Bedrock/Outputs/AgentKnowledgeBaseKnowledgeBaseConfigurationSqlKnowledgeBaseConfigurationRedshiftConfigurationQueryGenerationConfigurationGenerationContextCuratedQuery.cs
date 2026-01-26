@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQuery
     {
-        /// <summary>
-        /// Example natural language query.
-        /// </summary>
         public readonly string NaturalLanguage;
-        /// <summary>
-        /// SQL equivalent of `NaturalLanguage`.
-        /// </summary>
         public readonly string Sql;
 
         [OutputConstructor]

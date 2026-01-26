@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ssm.Outputs
     [OutputType]
     public sealed class MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters
     {
-        /// <summary>
-        /// The inputs for the STEP_FUNCTION task.
-        /// </summary>
         public readonly string? Input;
-        /// <summary>
-        /// The name of the STEP_FUNCTION task.
-        /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]

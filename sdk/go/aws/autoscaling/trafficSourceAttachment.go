@@ -12,50 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Attaches a traffic source to an Auto Scaling group.
-//
-// > **NOTE on Auto Scaling Groups, Attachments and Traffic Source Attachments:** Pulumi provides standalone Attachment (for attaching Classic Load Balancers and Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target groups) and Traffic Source Attachment (for attaching Load Balancers and VPC Lattice target groups) resources and an Auto Scaling Group resource with `loadBalancers`, `targetGroupArns` and `trafficSource` attributes. Do not use the same traffic source in more than one of these resources. Doing so will cause a conflict of attachments. A `lifecycle` configuration block can be used to suppress differences if necessary.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := autoscaling.NewTrafficSourceAttachment(ctx, "example", &autoscaling.TrafficSourceAttachmentArgs{
-//				AutoscalingGroupName: pulumi.Any(exampleAwsAutoscalingGroup.Id),
-//				TrafficSource: &autoscaling.TrafficSourceAttachmentTrafficSourceArgs{
-//					Identifier: pulumi.Any(exampleAwsLbTargetGroup.Arn),
-//					Type:       pulumi.String("elbv2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type TrafficSourceAttachment struct {
 	pulumi.CustomResourceState
 
-	// The name of the Auto Scaling group.
-	AutoscalingGroupName pulumi.StringOutput `pulumi:"autoscalingGroupName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The unique identifiers of a traffic sources.
-	TrafficSource TrafficSourceAttachmentTrafficSourcePtrOutput `pulumi:"trafficSource"`
+	AutoscalingGroupName pulumi.StringOutput                           `pulumi:"autoscalingGroupName"`
+	Region               pulumi.StringOutput                           `pulumi:"region"`
+	TrafficSource        TrafficSourceAttachmentTrafficSourcePtrOutput `pulumi:"trafficSource"`
 }
 
 // NewTrafficSourceAttachment registers a new resource with the given unique name, arguments, and options.
@@ -91,21 +53,15 @@ func GetTrafficSourceAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TrafficSourceAttachment resources.
 type trafficSourceAttachmentState struct {
-	// The name of the Auto Scaling group.
-	AutoscalingGroupName *string `pulumi:"autoscalingGroupName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The unique identifiers of a traffic sources.
-	TrafficSource *TrafficSourceAttachmentTrafficSource `pulumi:"trafficSource"`
+	AutoscalingGroupName *string                               `pulumi:"autoscalingGroupName"`
+	Region               *string                               `pulumi:"region"`
+	TrafficSource        *TrafficSourceAttachmentTrafficSource `pulumi:"trafficSource"`
 }
 
 type TrafficSourceAttachmentState struct {
-	// The name of the Auto Scaling group.
 	AutoscalingGroupName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The unique identifiers of a traffic sources.
-	TrafficSource TrafficSourceAttachmentTrafficSourcePtrInput
+	Region               pulumi.StringPtrInput
+	TrafficSource        TrafficSourceAttachmentTrafficSourcePtrInput
 }
 
 func (TrafficSourceAttachmentState) ElementType() reflect.Type {
@@ -113,22 +69,16 @@ func (TrafficSourceAttachmentState) ElementType() reflect.Type {
 }
 
 type trafficSourceAttachmentArgs struct {
-	// The name of the Auto Scaling group.
-	AutoscalingGroupName string `pulumi:"autoscalingGroupName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The unique identifiers of a traffic sources.
-	TrafficSource *TrafficSourceAttachmentTrafficSource `pulumi:"trafficSource"`
+	AutoscalingGroupName string                                `pulumi:"autoscalingGroupName"`
+	Region               *string                               `pulumi:"region"`
+	TrafficSource        *TrafficSourceAttachmentTrafficSource `pulumi:"trafficSource"`
 }
 
 // The set of arguments for constructing a TrafficSourceAttachment resource.
 type TrafficSourceAttachmentArgs struct {
-	// The name of the Auto Scaling group.
 	AutoscalingGroupName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The unique identifiers of a traffic sources.
-	TrafficSource TrafficSourceAttachmentTrafficSourcePtrInput
+	Region               pulumi.StringPtrInput
+	TrafficSource        TrafficSourceAttachmentTrafficSourcePtrInput
 }
 
 func (TrafficSourceAttachmentArgs) ElementType() reflect.Type {
@@ -218,17 +168,14 @@ func (o TrafficSourceAttachmentOutput) ToTrafficSourceAttachmentOutputWithContex
 	return o
 }
 
-// The name of the Auto Scaling group.
 func (o TrafficSourceAttachmentOutput) AutoscalingGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrafficSourceAttachment) pulumi.StringOutput { return v.AutoscalingGroupName }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TrafficSourceAttachmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrafficSourceAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The unique identifiers of a traffic sources.
 func (o TrafficSourceAttachmentOutput) TrafficSource() TrafficSourceAttachmentTrafficSourcePtrOutput {
 	return o.ApplyT(func(v *TrafficSourceAttachment) TrafficSourceAttachmentTrafficSourcePtrOutput { return v.TrafficSource }).(TrafficSourceAttachmentTrafficSourcePtrOutput)
 }

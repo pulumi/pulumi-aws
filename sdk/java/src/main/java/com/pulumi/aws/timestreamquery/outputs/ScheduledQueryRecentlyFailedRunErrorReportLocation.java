@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScheduledQueryRecentlyFailedRunErrorReportLocation {
-    /**
-     * @return S3 location where error reports are written.
-     * 
-     */
     private @Nullable List<ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocation> s3ReportLocations;
 
     private ScheduledQueryRecentlyFailedRunErrorReportLocation() {}
-    /**
-     * @return S3 location where error reports are written.
-     * 
-     */
     public List<ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocation> s3ReportLocations() {
         return this.s3ReportLocations == null ? List.of() : this.s3ReportLocations;
     }

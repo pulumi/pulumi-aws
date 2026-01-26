@@ -12,15 +12,9 @@ namespace Pulumi.Aws.OpenSearch.Inputs
 
     public sealed class PackagePackageSourceGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the Amazon S3 bucket containing the package.
-        /// </summary>
         [Input("s3BucketName", required: true)]
         public Input<string> S3BucketName { get; set; } = null!;
 
-        /// <summary>
-        /// Key (file name) of the package.
-        /// </summary>
         [Input("s3Key", required: true)]
         public Input<string> S3Key { get; set; } = null!;
 

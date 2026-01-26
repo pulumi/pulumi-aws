@@ -17,169 +17,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages [Provisioned Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html) for an Amazon Bedrock model.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.bedrock.ProvisionedModelThroughput;
- * import com.pulumi.aws.bedrock.ProvisionedModelThroughputArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ProvisionedModelThroughput("example", ProvisionedModelThroughputArgs.builder()
- *             .provisionedModelName("example-model")
- *             .modelArn("arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-v2")
- *             .commitmentDuration("SixMonths")
- *             .modelUnits(1)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Bedrock provisioned model throughput.
- * 
- * Using `pulumi import`, import Provisioned Throughput using the `provisioned_model_arn`. For example:
- * 
- * % pulumi import aws_bedrock_provisioned_model_throughput.example arn:aws:bedrock:us-west-2:123456789012:provisioned-model/1y5n57gh5y2e
- * 
- */
 @ResourceType(type="aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput")
 public class ProvisionedModelThroughput extends com.pulumi.resources.CustomResource {
-    /**
-     * Commitment duration requested for the Provisioned Throughput. For custom models, you can purchase on-demand Provisioned Throughput by omitting this argument. Valid values: `OneMonth`, `SixMonths`.
-     * 
-     */
     @Export(name="commitmentDuration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> commitmentDuration;
 
-    /**
-     * @return Commitment duration requested for the Provisioned Throughput. For custom models, you can purchase on-demand Provisioned Throughput by omitting this argument. Valid values: `OneMonth`, `SixMonths`.
-     * 
-     */
     public Output<Optional<String>> commitmentDuration() {
         return Codegen.optional(this.commitmentDuration);
     }
-    /**
-     * ARN of the model to associate with this Provisioned Throughput.
-     * 
-     */
     @Export(name="modelArn", refs={String.class}, tree="[0]")
     private Output<String> modelArn;
 
-    /**
-     * @return ARN of the model to associate with this Provisioned Throughput.
-     * 
-     */
     public Output<String> modelArn() {
         return this.modelArn;
     }
-    /**
-     * Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
-     * 
-     */
     @Export(name="modelUnits", refs={Integer.class}, tree="[0]")
     private Output<Integer> modelUnits;
 
-    /**
-     * @return Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
-     * 
-     */
     public Output<Integer> modelUnits() {
         return this.modelUnits;
     }
-    /**
-     * The ARN of the Provisioned Throughput.
-     * 
-     */
     @Export(name="provisionedModelArn", refs={String.class}, tree="[0]")
     private Output<String> provisionedModelArn;
 
-    /**
-     * @return The ARN of the Provisioned Throughput.
-     * 
-     */
     public Output<String> provisionedModelArn() {
         return this.provisionedModelArn;
     }
-    /**
-     * Unique name for this Provisioned Throughput.
-     * 
-     */
     @Export(name="provisionedModelName", refs={String.class}, tree="[0]")
     private Output<String> provisionedModelName;
 
-    /**
-     * @return Unique name for this Provisioned Throughput.
-     * 
-     */
     public Output<String> provisionedModelName() {
         return this.provisionedModelName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

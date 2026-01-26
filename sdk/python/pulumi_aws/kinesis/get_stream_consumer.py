@@ -60,9 +60,6 @@ class GetStreamConsumerResult:
     @_builtins.property
     @pulumi.getter(name="creationTimestamp")
     def creation_timestamp(self) -> _builtins.str:
-        """
-        Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
-        """
         return pulumi.get(self, "creation_timestamp")
 
     @_builtins.property
@@ -86,9 +83,6 @@ class GetStreamConsumerResult:
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Current status of the stream consumer.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
@@ -125,25 +119,7 @@ def get_stream_consumer(arn: Optional[_builtins.str] = None,
                         tags: Optional[Mapping[str, _builtins.str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStreamConsumerResult:
     """
-    Provides details about a Kinesis Stream Consumer.
-
-    For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.kinesis.get_stream_consumer(name="example-consumer",
-        stream_arn=example_aws_kinesis_stream["arn"])
-    ```
-
-
-    :param _builtins.str arn: ARN of the stream consumer.
-    :param _builtins.str name: Name of the stream consumer.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str stream_arn: ARN of the data stream the consumer is registered with.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -170,25 +146,7 @@ def get_stream_consumer_output(arn: Optional[pulumi.Input[Optional[_builtins.str
                                tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamConsumerResult]:
     """
-    Provides details about a Kinesis Stream Consumer.
-
-    For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.kinesis.get_stream_consumer(name="example-consumer",
-        stream_arn=example_aws_kinesis_stream["arn"])
-    ```
-
-
-    :param _builtins.str arn: ARN of the stream consumer.
-    :param _builtins.str name: Name of the stream consumer.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str stream_arn: ARN of the data stream the consumer is registered with.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

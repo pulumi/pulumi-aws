@@ -18,62 +18,30 @@ public final class CapacityProviderManagedInstancesProviderArgs extends com.pulu
 
     public static final CapacityProviderManagedInstancesProviderArgs Empty = new CapacityProviderManagedInstancesProviderArgs();
 
-    /**
-     * Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
-     * 
-     */
     @Import(name="infrastructureOptimization")
     private @Nullable Output<CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs> infrastructureOptimization;
 
-    /**
-     * @return Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
-     * 
-     */
     public Optional<Output<CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs>> infrastructureOptimization() {
         return Optional.ofNullable(this.infrastructureOptimization);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
-     * 
-     */
     @Import(name="infrastructureRoleArn", required=true)
     private Output<String> infrastructureRoleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
-     * 
-     */
     public Output<String> infrastructureRoleArn() {
         return this.infrastructureRoleArn;
     }
 
-    /**
-     * The launch template configuration that specifies how Amazon ECS should launch Amazon EC2 instances. This includes the instance profile, network configuration, storage settings, and instance requirements for attribute-based instance type selection. For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the Amazon EC2 User Guide. Detailed below.
-     * 
-     */
     @Import(name="instanceLaunchTemplate", required=true)
     private Output<CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs> instanceLaunchTemplate;
 
-    /**
-     * @return The launch template configuration that specifies how Amazon ECS should launch Amazon EC2 instances. This includes the instance profile, network configuration, storage settings, and instance requirements for attribute-based instance type selection. For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the Amazon EC2 User Guide. Detailed below.
-     * 
-     */
     public Output<CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs> instanceLaunchTemplate() {
         return this.instanceLaunchTemplate;
     }
 
-    /**
-     * Specifies whether to propagate tags from the capacity provider to the Amazon ECS Managed Instances. When enabled, tags applied to the capacity provider are automatically applied to all instances launched by this provider. Valid values are `CAPACITY_PROVIDER` and `NONE`.
-     * 
-     */
     @Import(name="propagateTags")
     private @Nullable Output<String> propagateTags;
 
-    /**
-     * @return Specifies whether to propagate tags from the capacity provider to the Amazon ECS Managed Instances. When enabled, tags applied to the capacity provider are automatically applied to all instances launched by this provider. Valid values are `CAPACITY_PROVIDER` and `NONE`.
-     * 
-     */
     public Optional<Output<String>> propagateTags() {
         return Optional.ofNullable(this.propagateTags);
     }
@@ -105,86 +73,38 @@ public final class CapacityProviderManagedInstancesProviderArgs extends com.pulu
             $ = new CapacityProviderManagedInstancesProviderArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param infrastructureOptimization Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
-         * 
-         * @return builder
-         * 
-         */
         public Builder infrastructureOptimization(@Nullable Output<CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs> infrastructureOptimization) {
             $.infrastructureOptimization = infrastructureOptimization;
             return this;
         }
 
-        /**
-         * @param infrastructureOptimization Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
-         * 
-         * @return builder
-         * 
-         */
         public Builder infrastructureOptimization(CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs infrastructureOptimization) {
             return infrastructureOptimization(Output.of(infrastructureOptimization));
         }
 
-        /**
-         * @param infrastructureRoleArn The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
-         * 
-         * @return builder
-         * 
-         */
         public Builder infrastructureRoleArn(Output<String> infrastructureRoleArn) {
             $.infrastructureRoleArn = infrastructureRoleArn;
             return this;
         }
 
-        /**
-         * @param infrastructureRoleArn The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
-         * 
-         * @return builder
-         * 
-         */
         public Builder infrastructureRoleArn(String infrastructureRoleArn) {
             return infrastructureRoleArn(Output.of(infrastructureRoleArn));
         }
 
-        /**
-         * @param instanceLaunchTemplate The launch template configuration that specifies how Amazon ECS should launch Amazon EC2 instances. This includes the instance profile, network configuration, storage settings, and instance requirements for attribute-based instance type selection. For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the Amazon EC2 User Guide. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceLaunchTemplate(Output<CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs> instanceLaunchTemplate) {
             $.instanceLaunchTemplate = instanceLaunchTemplate;
             return this;
         }
 
-        /**
-         * @param instanceLaunchTemplate The launch template configuration that specifies how Amazon ECS should launch Amazon EC2 instances. This includes the instance profile, network configuration, storage settings, and instance requirements for attribute-based instance type selection. For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the Amazon EC2 User Guide. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceLaunchTemplate(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs instanceLaunchTemplate) {
             return instanceLaunchTemplate(Output.of(instanceLaunchTemplate));
         }
 
-        /**
-         * @param propagateTags Specifies whether to propagate tags from the capacity provider to the Amazon ECS Managed Instances. When enabled, tags applied to the capacity provider are automatically applied to all instances launched by this provider. Valid values are `CAPACITY_PROVIDER` and `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder propagateTags(@Nullable Output<String> propagateTags) {
             $.propagateTags = propagateTags;
             return this;
         }
 
-        /**
-         * @param propagateTags Specifies whether to propagate tags from the capacity provider to the Amazon ECS Managed Instances. When enabled, tags applied to the capacity provider are automatically applied to all instances launched by this provider. Valid values are `CAPACITY_PROVIDER` and `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder propagateTags(String propagateTags) {
             return propagateTags(Output.of(propagateTags));
         }

@@ -12,62 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates Security Hub custom action.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := securityhub.NewAccount(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = securityhub.NewActionTarget(ctx, "example", &securityhub.ActionTargetArgs{
-//				Name:        pulumi.String("Send notification to chat"),
-//				Identifier:  pulumi.String("SendToChat"),
-//				Description: pulumi.String("This is custom action sends selected findings to chat"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Security Hub custom action using the action target ARN. For example:
-//
-// ```sh
-// $ pulumi import aws:securityhub/actionTarget:ActionTarget example arn:aws:securityhub:eu-west-1:312940875350:action/custom/a
-// ```
 type ActionTarget struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the Security Hub custom action target.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of the custom action target.
+	Arn         pulumi.StringOutput `pulumi:"arn"`
 	Description pulumi.StringOutput `pulumi:"description"`
-	// The ID for the custom action target.
-	Identifier pulumi.StringOutput `pulumi:"identifier"`
-	// The description for the custom action target.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Identifier  pulumi.StringOutput `pulumi:"identifier"`
+	Name        pulumi.StringOutput `pulumi:"name"`
+	Region      pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewActionTarget registers a new resource with the given unique name, arguments, and options.
@@ -106,29 +58,19 @@ func GetActionTarget(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ActionTarget resources.
 type actionTargetState struct {
-	// Amazon Resource Name (ARN) of the Security Hub custom action target.
-	Arn *string `pulumi:"arn"`
-	// The name of the custom action target.
+	Arn         *string `pulumi:"arn"`
 	Description *string `pulumi:"description"`
-	// The ID for the custom action target.
-	Identifier *string `pulumi:"identifier"`
-	// The description for the custom action target.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Identifier  *string `pulumi:"identifier"`
+	Name        *string `pulumi:"name"`
+	Region      *string `pulumi:"region"`
 }
 
 type ActionTargetState struct {
-	// Amazon Resource Name (ARN) of the Security Hub custom action target.
-	Arn pulumi.StringPtrInput
-	// The name of the custom action target.
+	Arn         pulumi.StringPtrInput
 	Description pulumi.StringPtrInput
-	// The ID for the custom action target.
-	Identifier pulumi.StringPtrInput
-	// The description for the custom action target.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Identifier  pulumi.StringPtrInput
+	Name        pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
 }
 
 func (ActionTargetState) ElementType() reflect.Type {
@@ -136,26 +78,18 @@ func (ActionTargetState) ElementType() reflect.Type {
 }
 
 type actionTargetArgs struct {
-	// The name of the custom action target.
-	Description string `pulumi:"description"`
-	// The ID for the custom action target.
-	Identifier string `pulumi:"identifier"`
-	// The description for the custom action target.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Description string  `pulumi:"description"`
+	Identifier  string  `pulumi:"identifier"`
+	Name        *string `pulumi:"name"`
+	Region      *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ActionTarget resource.
 type ActionTargetArgs struct {
-	// The name of the custom action target.
 	Description pulumi.StringInput
-	// The ID for the custom action target.
-	Identifier pulumi.StringInput
-	// The description for the custom action target.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Identifier  pulumi.StringInput
+	Name        pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
 }
 
 func (ActionTargetArgs) ElementType() reflect.Type {
@@ -245,27 +179,22 @@ func (o ActionTargetOutput) ToActionTargetOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Security Hub custom action target.
 func (o ActionTargetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionTarget) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name of the custom action target.
 func (o ActionTargetOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionTarget) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// The ID for the custom action target.
 func (o ActionTargetOutput) Identifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionTarget) pulumi.StringOutput { return v.Identifier }).(pulumi.StringOutput)
 }
 
-// The description for the custom action target.
 func (o ActionTargetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionTarget) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ActionTargetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionTarget) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

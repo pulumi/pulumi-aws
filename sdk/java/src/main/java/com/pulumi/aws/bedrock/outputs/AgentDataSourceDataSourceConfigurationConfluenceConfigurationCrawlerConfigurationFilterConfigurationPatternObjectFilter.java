@@ -11,21 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter {
-    /**
-     * @return The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-     * 
-     * Each filter object should contain the following configuration:
-     * 
-     */
     private @Nullable List<AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter> filters;
 
     private AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter() {}
-    /**
-     * @return The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-     * 
-     * Each filter object should contain the following configuration:
-     * 
-     */
     public List<AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }

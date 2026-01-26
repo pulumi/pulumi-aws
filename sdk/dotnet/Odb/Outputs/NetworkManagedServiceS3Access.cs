@@ -15,13 +15,7 @@ namespace Pulumi.Aws.Odb.Outputs
     {
         public readonly string DomainName;
         public readonly ImmutableArray<string> Ipv4Addresses;
-        /// <summary>
-        /// Specifies the endpoint policy for Amazon S3 access from the ODB network.
-        /// </summary>
         public readonly string S3PolicyDocument;
-        /// <summary>
-        /// The status of the network resource.
-        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

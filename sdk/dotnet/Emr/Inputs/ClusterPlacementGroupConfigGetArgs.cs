@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Emr.Inputs
 
     public sealed class ClusterPlacementGroupConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Role of the instance in the cluster. Valid Values: `MASTER`, `CORE`, `TASK`.
-        /// </summary>
         [Input("instanceRole", required: true)]
         public Input<string> InstanceRole { get; set; } = null!;
 
-        /// <summary>
-        /// EC2 Placement Group strategy associated with instance role. Valid Values: `SPREAD`, `PARTITION`, `CLUSTER`, `NONE`.
-        /// </summary>
         [Input("placementStrategy")]
         public Input<string>? PlacementStrategy { get; set; }
 

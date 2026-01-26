@@ -15,17 +15,9 @@ public final class AgentcoreGatewayTargetTargetConfigurationArgs extends com.pul
 
     public static final AgentcoreGatewayTargetTargetConfigurationArgs Empty = new AgentcoreGatewayTargetTargetConfigurationArgs();
 
-    /**
-     * Model Context Protocol (MCP) configuration. See `mcp` below.
-     * 
-     */
     @Import(name="mcp")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpArgs> mcp;
 
-    /**
-     * @return Model Context Protocol (MCP) configuration. See `mcp` below.
-     * 
-     */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpArgs>> mcp() {
         return Optional.ofNullable(this.mcp);
     }
@@ -54,23 +46,11 @@ public final class AgentcoreGatewayTargetTargetConfigurationArgs extends com.pul
             $ = new AgentcoreGatewayTargetTargetConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param mcp Model Context Protocol (MCP) configuration. See `mcp` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mcp(@Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpArgs> mcp) {
             $.mcp = mcp;
             return this;
         }
 
-        /**
-         * @param mcp Model Context Protocol (MCP) configuration. See `mcp` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mcp(AgentcoreGatewayTargetTargetConfigurationMcpArgs mcp) {
             return mcp(Output.of(mcp));
         }

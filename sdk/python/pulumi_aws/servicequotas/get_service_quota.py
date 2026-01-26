@@ -68,33 +68,21 @@ class GetServiceQuotaResult:
     @_builtins.property
     @pulumi.getter
     def adjustable(self) -> _builtins.bool:
-        """
-        Whether the service quota is adjustable.
-        """
         return pulumi.get(self, "adjustable")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the service quota.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> _builtins.float:
-        """
-        Default value of the service quota.
-        """
         return pulumi.get(self, "default_value")
 
     @_builtins.property
     @pulumi.getter(name="globalQuota")
     def global_quota(self) -> _builtins.bool:
-        """
-        Whether the service quota is global for the AWS account.
-        """
         return pulumi.get(self, "global_quota")
 
     @_builtins.property
@@ -128,25 +116,16 @@ class GetServiceQuotaResult:
     @_builtins.property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> _builtins.str:
-        """
-        Name of the service.
-        """
         return pulumi.get(self, "service_name")
 
     @_builtins.property
     @pulumi.getter(name="usageMetrics")
     def usage_metrics(self) -> Sequence['outputs.GetServiceQuotaUsageMetricResult']:
-        """
-        Information about the measurement.
-        """
         return pulumi.get(self, "usage_metrics")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.float:
-        """
-        Current value of the service quota.
-        """
         return pulumi.get(self, "value")
 
 
@@ -176,29 +155,7 @@ def get_service_quota(quota_code: Optional[_builtins.str] = None,
                       service_code: Optional[_builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceQuotaResult:
     """
-    Retrieve information about a Service Quota.
-
-    > **NOTE:** Global quotas apply to all AWS regions, but can only be accessed in `us-east-1` in the Commercial partition or `us-gov-west-1` in the GovCloud partition. In other regions, the AWS API will return the error `The request failed because the specified service does not exist.`
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    by_quota_code = aws.servicequotas.get_service_quota(quota_code="L-F678F1CE",
-        service_code="vpc")
-    by_quota_name = aws.servicequotas.get_service_quota(quota_name="VPCs per Region",
-        service_code="vpc")
-    ```
-
-
-    :param _builtins.str quota_code: Quota code within the service. When configured, the data source directly looks up the service quota. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quota_code` or `quota_name` must be specified.
-    :param _builtins.str quota_name: Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quota_name` or `quota_code` must be specified.
-           
-           > *NOTE:* Either `quota_code` or `quota_name` must be configured.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str service_code: Service code for the quota. Available values can be found with the `servicequotas_get_service` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['quotaCode'] = quota_code
@@ -227,29 +184,7 @@ def get_service_quota_output(quota_code: Optional[pulumi.Input[Optional[_builtin
                              service_code: Optional[pulumi.Input[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceQuotaResult]:
     """
-    Retrieve information about a Service Quota.
-
-    > **NOTE:** Global quotas apply to all AWS regions, but can only be accessed in `us-east-1` in the Commercial partition or `us-gov-west-1` in the GovCloud partition. In other regions, the AWS API will return the error `The request failed because the specified service does not exist.`
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    by_quota_code = aws.servicequotas.get_service_quota(quota_code="L-F678F1CE",
-        service_code="vpc")
-    by_quota_name = aws.servicequotas.get_service_quota(quota_name="VPCs per Region",
-        service_code="vpc")
-    ```
-
-
-    :param _builtins.str quota_code: Quota code within the service. When configured, the data source directly looks up the service quota. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quota_code` or `quota_name` must be specified.
-    :param _builtins.str quota_name: Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quota_name` or `quota_code` must be specified.
-           
-           > *NOTE:* Either `quota_code` or `quota_name` must be configured.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str service_code: Service code for the quota. Available values can be found with the `servicequotas_get_service` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['quotaCode'] = quota_code

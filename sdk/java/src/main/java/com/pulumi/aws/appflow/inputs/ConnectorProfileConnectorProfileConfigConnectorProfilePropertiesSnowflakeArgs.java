@@ -16,17 +16,9 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
 
     public static final ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs();
 
-    /**
-     * The name of the account.
-     * 
-     */
     @Import(name="accountName")
     private @Nullable Output<String> accountName;
 
-    /**
-     * @return The name of the account.
-     * 
-     */
     public Optional<Output<String>> accountName() {
         return Optional.ofNullable(this.accountName);
     }
@@ -52,49 +44,23 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         return Optional.ofNullable(this.privateLinkServiceName);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `&lt;Database&gt;.&lt;Schema&gt;.&lt;Stage Name&gt;`.
-     * 
-     */
     @Import(name="stage", required=true)
     private Output<String> stage;
 
-    /**
-     * @return Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `&lt;Database&gt;.&lt;Schema&gt;.&lt;Stage Name&gt;`.
-     * 
-     */
     public Output<String> stage() {
         return this.stage;
     }
 
-    /**
-     * The name of the Snowflake warehouse.
-     * 
-     */
     @Import(name="warehouse", required=true)
     private Output<String> warehouse;
 
-    /**
-     * @return The name of the Snowflake warehouse.
-     * 
-     */
     public Output<String> warehouse() {
         return this.warehouse;
     }
@@ -129,23 +95,11 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             $ = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountName The name of the account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountName(@Nullable Output<String> accountName) {
             $.accountName = accountName;
             return this;
         }
 
-        /**
-         * @param accountName The name of the account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountName(String accountName) {
             return accountName(Output.of(accountName));
         }
@@ -177,67 +131,29 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             return privateLinkServiceName(Output.of(privateLinkServiceName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param stage Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `&lt;Database&gt;.&lt;Schema&gt;.&lt;Stage Name&gt;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stage(Output<String> stage) {
             $.stage = stage;
             return this;
         }
 
-        /**
-         * @param stage Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `&lt;Database&gt;.&lt;Schema&gt;.&lt;Stage Name&gt;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stage(String stage) {
             return stage(Output.of(stage));
         }
 
-        /**
-         * @param warehouse The name of the Snowflake warehouse.
-         * 
-         * @return builder
-         * 
-         */
         public Builder warehouse(Output<String> warehouse) {
             $.warehouse = warehouse;
             return this;
         }
 
-        /**
-         * @param warehouse The name of the Snowflake warehouse.
-         * 
-         * @return builder
-         * 
-         */
         public Builder warehouse(String warehouse) {
             return warehouse(Output.of(warehouse));
         }

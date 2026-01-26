@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Fsx.Inputs
 
     public sealed class OpenZfsVolumeNfsExportsClientConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
-        /// </summary>
         [Input("clients", required: true)]
         public Input<string> Clients { get; set; } = null!;
 
         [Input("options", required: true)]
         private InputList<string>? _options;
-
-        /// <summary>
-        /// The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `Crossmount` and `Sync` are used by default.
-        /// </summary>
         public InputList<string> Options
         {
             get => _options ?? (_options = new InputList<string>());

@@ -83,81 +83,51 @@ class GetFleetResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Fleet.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="baseCapacity")
     def base_capacity(self) -> _builtins.int:
-        """
-        Number of machines allocated to the ﬂeet.
-        """
         return pulumi.get(self, "base_capacity")
 
     @_builtins.property
     @pulumi.getter(name="computeConfigurations")
     def compute_configurations(self) -> Sequence['outputs.GetFleetComputeConfigurationResult']:
-        """
-        Compute configuration of the compute fleet.
-        """
         return pulumi.get(self, "compute_configurations")
 
     @_builtins.property
     @pulumi.getter(name="computeType")
     def compute_type(self) -> _builtins.str:
-        """
-        Compute resources the compute fleet uses.
-        """
         return pulumi.get(self, "compute_type")
 
     @_builtins.property
     @pulumi.getter
     def created(self) -> _builtins.str:
-        """
-        Creation time of the fleet.
-        """
         return pulumi.get(self, "created")
 
     @_builtins.property
     @pulumi.getter(name="environmentType")
     def environment_type(self) -> _builtins.str:
-        """
-        Environment type of the compute fleet.
-        """
         return pulumi.get(self, "environment_type")
 
     @_builtins.property
     @pulumi.getter(name="fleetServiceRole")
     def fleet_service_role(self) -> _builtins.str:
-        """
-        The service role associated with the compute fleet.
-        """
         return pulumi.get(self, "fleet_service_role")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        ARN of the Fleet.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="imageId")
     def image_id(self) -> _builtins.str:
-        """
-        The Amazon Machine Image (AMI) of the compute fleet.
-        """
         return pulumi.get(self, "image_id")
 
     @_builtins.property
     @pulumi.getter(name="lastModified")
     def last_modified(self) -> _builtins.str:
-        """
-        Last modification time of the fleet.
-        """
         return pulumi.get(self, "last_modified")
 
     @_builtins.property
@@ -168,9 +138,6 @@ class GetFleetResult:
     @_builtins.property
     @pulumi.getter(name="overflowBehavior")
     def overflow_behavior(self) -> _builtins.str:
-        """
-        Overflow behavior for compute fleet.
-        """
         return pulumi.get(self, "overflow_behavior")
 
     @_builtins.property
@@ -181,33 +148,21 @@ class GetFleetResult:
     @_builtins.property
     @pulumi.getter(name="scalingConfigurations")
     def scaling_configurations(self) -> Sequence['outputs.GetFleetScalingConfigurationResult']:
-        """
-        Nested attribute containing information about the scaling configuration.
-        """
         return pulumi.get(self, "scaling_configurations")
 
     @_builtins.property
     @pulumi.getter
     def statuses(self) -> Sequence['outputs.GetFleetStatusResult']:
-        """
-        Nested attribute containing information about the current status of the fleet.
-        """
         return pulumi.get(self, "statuses")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Mapping of Key-Value tags for the resource.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="vpcConfigs")
     def vpc_configs(self) -> Sequence['outputs.GetFleetVpcConfigResult']:
-        """
-        Nested attribute containing information about the VPC configuration.
-        """
         return pulumi.get(self, "vpc_configs")
 
 
@@ -241,44 +196,7 @@ def get_fleet(name: Optional[_builtins.str] = None,
               tags: Optional[Mapping[str, _builtins.str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFleetResult:
     """
-    Retrieve information about an CodeBuild Fleet.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test_fleet = aws.codebuild.Fleet("test",
-        base_capacity=2,
-        compute_type="BUILD_GENERAL1_SMALL",
-        environment_type="LINUX_CONTAINER",
-        name="full-example-codebuild-fleet",
-        overflow_behavior="QUEUE",
-        scaling_configuration={
-            "max_capacity": 5,
-            "scaling_type": "TARGET_TRACKING_SCALING",
-            "target_tracking_scaling_configs": [{
-                "metric_type": "FLEET_UTILIZATION_RATE",
-                "target_value": 97.5,
-            }],
-        })
-    test = aws.codebuild.get_fleet_output(name=test_fleet.name)
-    ```
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.codebuild.get_fleet(name="my-codebuild-fleet-name")
-    ```
-
-
-    :param _builtins.str name: Fleet name.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Mapping of Key-Value tags for the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -310,44 +228,7 @@ def get_fleet_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFleetResult]:
     """
-    Retrieve information about an CodeBuild Fleet.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test_fleet = aws.codebuild.Fleet("test",
-        base_capacity=2,
-        compute_type="BUILD_GENERAL1_SMALL",
-        environment_type="LINUX_CONTAINER",
-        name="full-example-codebuild-fleet",
-        overflow_behavior="QUEUE",
-        scaling_configuration={
-            "max_capacity": 5,
-            "scaling_type": "TARGET_TRACKING_SCALING",
-            "target_tracking_scaling_configs": [{
-                "metric_type": "FLEET_UTILIZATION_RATE",
-                "target_value": 97.5,
-            }],
-        })
-    test = aws.codebuild.get_fleet_output(name=test_fleet.name)
-    ```
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.codebuild.get_fleet(name="my-codebuild-fleet-name")
-    ```
-
-
-    :param _builtins.str name: Fleet name.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Mapping of Key-Value tags for the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

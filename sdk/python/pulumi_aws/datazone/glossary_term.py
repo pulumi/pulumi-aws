@@ -32,16 +32,6 @@ class GlossaryTermArgs:
                  timeouts: Optional[pulumi.Input['GlossaryTermTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a GlossaryTerm resource.
-        :param pulumi.Input[_builtins.str] glossary_identifier: Identifier of glossary.
-        :param pulumi.Input[_builtins.str] domain_identifier: Identifier of domain.
-        :param pulumi.Input[_builtins.str] long_description: Long description of entry.
-        :param pulumi.Input[_builtins.str] name: Name of glossary term.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] short_description: Short description of entry.
-        :param pulumi.Input[_builtins.str] status: If glossary term is ENABLED or DISABLED.
-        :param pulumi.Input['GlossaryTermTermRelationsArgs'] term_relations: Object classifying the term relations through the following attributes:
         """
         pulumi.set(__self__, "glossary_identifier", glossary_identifier)
         if domain_identifier is not None:
@@ -64,9 +54,6 @@ class GlossaryTermArgs:
     @_builtins.property
     @pulumi.getter(name="glossaryIdentifier")
     def glossary_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of glossary.
-        """
         return pulumi.get(self, "glossary_identifier")
 
     @glossary_identifier.setter
@@ -76,9 +63,6 @@ class GlossaryTermArgs:
     @_builtins.property
     @pulumi.getter(name="domainIdentifier")
     def domain_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of domain.
-        """
         return pulumi.get(self, "domain_identifier")
 
     @domain_identifier.setter
@@ -88,9 +72,6 @@ class GlossaryTermArgs:
     @_builtins.property
     @pulumi.getter(name="longDescription")
     def long_description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Long description of entry.
-        """
         return pulumi.get(self, "long_description")
 
     @long_description.setter
@@ -100,11 +81,6 @@ class GlossaryTermArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of glossary term.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -114,9 +90,6 @@ class GlossaryTermArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -126,9 +99,6 @@ class GlossaryTermArgs:
     @_builtins.property
     @pulumi.getter(name="shortDescription")
     def short_description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Short description of entry.
-        """
         return pulumi.get(self, "short_description")
 
     @short_description.setter
@@ -138,9 +108,6 @@ class GlossaryTermArgs:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        If glossary term is ENABLED or DISABLED.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -150,9 +117,6 @@ class GlossaryTermArgs:
     @_builtins.property
     @pulumi.getter(name="termRelations")
     def term_relations(self) -> Optional[pulumi.Input['GlossaryTermTermRelationsArgs']]:
-        """
-        Object classifying the term relations through the following attributes:
-        """
         return pulumi.get(self, "term_relations")
 
     @term_relations.setter
@@ -185,18 +149,6 @@ class _GlossaryTermState:
                  timeouts: Optional[pulumi.Input['GlossaryTermTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering GlossaryTerm resources.
-        :param pulumi.Input[_builtins.str] created_at: Time of glossary term creation.
-        :param pulumi.Input[_builtins.str] created_by: Creator of glossary term.
-        :param pulumi.Input[_builtins.str] domain_identifier: Identifier of domain.
-        :param pulumi.Input[_builtins.str] glossary_identifier: Identifier of glossary.
-        :param pulumi.Input[_builtins.str] long_description: Long description of entry.
-        :param pulumi.Input[_builtins.str] name: Name of glossary term.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] short_description: Short description of entry.
-        :param pulumi.Input[_builtins.str] status: If glossary term is ENABLED or DISABLED.
-        :param pulumi.Input['GlossaryTermTermRelationsArgs'] term_relations: Object classifying the term relations through the following attributes:
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -224,9 +176,6 @@ class _GlossaryTermState:
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Time of glossary term creation.
-        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -236,9 +185,6 @@ class _GlossaryTermState:
     @_builtins.property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creator of glossary term.
-        """
         return pulumi.get(self, "created_by")
 
     @created_by.setter
@@ -248,9 +194,6 @@ class _GlossaryTermState:
     @_builtins.property
     @pulumi.getter(name="domainIdentifier")
     def domain_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of domain.
-        """
         return pulumi.get(self, "domain_identifier")
 
     @domain_identifier.setter
@@ -260,9 +203,6 @@ class _GlossaryTermState:
     @_builtins.property
     @pulumi.getter(name="glossaryIdentifier")
     def glossary_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of glossary.
-        """
         return pulumi.get(self, "glossary_identifier")
 
     @glossary_identifier.setter
@@ -272,9 +212,6 @@ class _GlossaryTermState:
     @_builtins.property
     @pulumi.getter(name="longDescription")
     def long_description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Long description of entry.
-        """
         return pulumi.get(self, "long_description")
 
     @long_description.setter
@@ -284,11 +221,6 @@ class _GlossaryTermState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of glossary term.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -298,9 +230,6 @@ class _GlossaryTermState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -310,9 +239,6 @@ class _GlossaryTermState:
     @_builtins.property
     @pulumi.getter(name="shortDescription")
     def short_description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Short description of entry.
-        """
         return pulumi.get(self, "short_description")
 
     @short_description.setter
@@ -322,9 +248,6 @@ class _GlossaryTermState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        If glossary term is ENABLED or DISABLED.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -334,9 +257,6 @@ class _GlossaryTermState:
     @_builtins.property
     @pulumi.getter(name="termRelations")
     def term_relations(self) -> Optional[pulumi.Input['GlossaryTermTermRelationsArgs']]:
-        """
-        Object classifying the term relations through the following attributes:
-        """
         return pulumi.get(self, "term_relations")
 
     @term_relations.setter
@@ -370,100 +290,9 @@ class GlossaryTerm(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['GlossaryTermTimeoutsArgs', 'GlossaryTermTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS DataZone Glossary Term.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.iam.Role("example",
-            name="example",
-            assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [
-                    {
-                        "Action": [
-                            "sts:AssumeRole",
-                            "sts:TagSession",
-                        ],
-                        "Effect": "Allow",
-                        "Principal": {
-                            "Service": "datazone.amazonaws.com",
-                        },
-                    },
-                    {
-                        "Action": [
-                            "sts:AssumeRole",
-                            "sts:TagSession",
-                        ],
-                        "Effect": "Allow",
-                        "Principal": {
-                            "Service": "cloudformation.amazonaws.com",
-                        },
-                    },
-                ],
-            }),
-            inline_policies=[{
-                "name": "example",
-                "policy": json.dumps({
-                    "Version": "2012-10-17",
-                    "Statement": [{
-                        "Action": [
-                            "datazone:*",
-                            "ram:*",
-                            "sso:*",
-                            "kms:*",
-                        ],
-                        "Effect": "Allow",
-                        "Resource": "*",
-                    }],
-                }),
-            }])
-        example_domain = aws.datazone.Domain("example",
-            name="example_name",
-            domain_execution_role=example.arn)
-        example_security_group = aws.ec2.SecurityGroup("example", name="example_name")
-        example_project = aws.datazone.Project("example",
-            domain_identifier=example_domain.id,
-            glossary_terms=["2N8w6XJCwZf"],
-            name="example",
-            skip_deletion_check=True)
-        example_glossary = aws.datazone.Glossary("example",
-            description="description",
-            name="example",
-            owning_project_identifier=example_project.id,
-            status="ENABLED",
-            domain_identifier=example_project.domain_identifier)
-        example_glossary_term = aws.datazone.GlossaryTerm("example",
-            domain_identifier=example_domain.id,
-            glossary_identifier=example_glossary.id,
-            name="example",
-            status="ENABLED")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DataZone Glossary Term using a comma-delimited string combining the `domain_identifier`, `id`, and the `glossary_identifier`. For example:
-
-        ```sh
-        $ pulumi import aws:datazone/glossaryTerm:GlossaryTerm example domain-id,glossary-term-id,glossary-id
-        ```
-
+        Create a GlossaryTerm resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] domain_identifier: Identifier of domain.
-        :param pulumi.Input[_builtins.str] glossary_identifier: Identifier of glossary.
-        :param pulumi.Input[_builtins.str] long_description: Long description of entry.
-        :param pulumi.Input[_builtins.str] name: Name of glossary term.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] short_description: Short description of entry.
-        :param pulumi.Input[_builtins.str] status: If glossary term is ENABLED or DISABLED.
-        :param pulumi.Input[Union['GlossaryTermTermRelationsArgs', 'GlossaryTermTermRelationsArgsDict']] term_relations: Object classifying the term relations through the following attributes:
         """
         ...
     @overload
@@ -472,88 +301,7 @@ class GlossaryTerm(pulumi.CustomResource):
                  args: GlossaryTermArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS DataZone Glossary Term.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.iam.Role("example",
-            name="example",
-            assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [
-                    {
-                        "Action": [
-                            "sts:AssumeRole",
-                            "sts:TagSession",
-                        ],
-                        "Effect": "Allow",
-                        "Principal": {
-                            "Service": "datazone.amazonaws.com",
-                        },
-                    },
-                    {
-                        "Action": [
-                            "sts:AssumeRole",
-                            "sts:TagSession",
-                        ],
-                        "Effect": "Allow",
-                        "Principal": {
-                            "Service": "cloudformation.amazonaws.com",
-                        },
-                    },
-                ],
-            }),
-            inline_policies=[{
-                "name": "example",
-                "policy": json.dumps({
-                    "Version": "2012-10-17",
-                    "Statement": [{
-                        "Action": [
-                            "datazone:*",
-                            "ram:*",
-                            "sso:*",
-                            "kms:*",
-                        ],
-                        "Effect": "Allow",
-                        "Resource": "*",
-                    }],
-                }),
-            }])
-        example_domain = aws.datazone.Domain("example",
-            name="example_name",
-            domain_execution_role=example.arn)
-        example_security_group = aws.ec2.SecurityGroup("example", name="example_name")
-        example_project = aws.datazone.Project("example",
-            domain_identifier=example_domain.id,
-            glossary_terms=["2N8w6XJCwZf"],
-            name="example",
-            skip_deletion_check=True)
-        example_glossary = aws.datazone.Glossary("example",
-            description="description",
-            name="example",
-            owning_project_identifier=example_project.id,
-            status="ENABLED",
-            domain_identifier=example_project.domain_identifier)
-        example_glossary_term = aws.datazone.GlossaryTerm("example",
-            domain_identifier=example_domain.id,
-            glossary_identifier=example_glossary.id,
-            name="example",
-            status="ENABLED")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DataZone Glossary Term using a comma-delimited string combining the `domain_identifier`, `id`, and the `glossary_identifier`. For example:
-
-        ```sh
-        $ pulumi import aws:datazone/glossaryTerm:GlossaryTerm example domain-id,glossary-term-id,glossary-id
-        ```
-
+        Create a GlossaryTerm resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param GlossaryTermArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -628,18 +376,6 @@ class GlossaryTerm(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] created_at: Time of glossary term creation.
-        :param pulumi.Input[_builtins.str] created_by: Creator of glossary term.
-        :param pulumi.Input[_builtins.str] domain_identifier: Identifier of domain.
-        :param pulumi.Input[_builtins.str] glossary_identifier: Identifier of glossary.
-        :param pulumi.Input[_builtins.str] long_description: Long description of entry.
-        :param pulumi.Input[_builtins.str] name: Name of glossary term.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] short_description: Short description of entry.
-        :param pulumi.Input[_builtins.str] status: If glossary term is ENABLED or DISABLED.
-        :param pulumi.Input[Union['GlossaryTermTermRelationsArgs', 'GlossaryTermTermRelationsArgsDict']] term_relations: Object classifying the term relations through the following attributes:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -661,83 +397,51 @@ class GlossaryTerm(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        Time of glossary term creation.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> pulumi.Output[_builtins.str]:
-        """
-        Creator of glossary term.
-        """
         return pulumi.get(self, "created_by")
 
     @_builtins.property
     @pulumi.getter(name="domainIdentifier")
     def domain_identifier(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Identifier of domain.
-        """
         return pulumi.get(self, "domain_identifier")
 
     @_builtins.property
     @pulumi.getter(name="glossaryIdentifier")
     def glossary_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of glossary.
-        """
         return pulumi.get(self, "glossary_identifier")
 
     @_builtins.property
     @pulumi.getter(name="longDescription")
     def long_description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Long description of entry.
-        """
         return pulumi.get(self, "long_description")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of glossary term.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="shortDescription")
     def short_description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Short description of entry.
-        """
         return pulumi.get(self, "short_description")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        If glossary term is ENABLED or DISABLED.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="termRelations")
     def term_relations(self) -> pulumi.Output[Optional['outputs.GlossaryTermTermRelations']]:
-        """
-        Object classifying the term relations through the following attributes:
-        """
         return pulumi.get(self, "term_relations")
 
     @_builtins.property

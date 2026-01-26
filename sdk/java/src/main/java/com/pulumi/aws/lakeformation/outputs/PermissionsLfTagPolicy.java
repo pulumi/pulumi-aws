@@ -14,45 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PermissionsLfTagPolicy {
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     private @Nullable String catalogId;
-    /**
-     * @return A list of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
-     * 
-     * The following argument is optional:
-     * 
-     */
     private List<PermissionsLfTagPolicyExpression> expressions;
-    /**
-     * @return The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
-     * 
-     */
     private String resourceType;
 
     private PermissionsLfTagPolicy() {}
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     public Optional<String> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
-    /**
-     * @return A list of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
-     * 
-     * The following argument is optional:
-     * 
-     */
     public List<PermissionsLfTagPolicyExpression> expressions() {
         return this.expressions;
     }
-    /**
-     * @return The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
-     * 
-     */
     public String resourceType() {
         return this.resourceType;
     }

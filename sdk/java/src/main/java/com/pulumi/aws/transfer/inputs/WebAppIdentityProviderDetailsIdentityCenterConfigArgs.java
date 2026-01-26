@@ -22,32 +22,16 @@ public final class WebAppIdentityProviderDetailsIdentityCenterConfigArgs extends
         return Optional.ofNullable(this.applicationArn);
     }
 
-    /**
-     * ARN of the IAM Identity Center used for the web app.
-     * 
-     */
     @Import(name="instanceArn")
     private @Nullable Output<String> instanceArn;
 
-    /**
-     * @return ARN of the IAM Identity Center used for the web app.
-     * 
-     */
     public Optional<Output<String>> instanceArn() {
         return Optional.ofNullable(this.instanceArn);
     }
 
-    /**
-     * ARN of an identity bearer role for your web app.
-     * 
-     */
     @Import(name="role")
     private @Nullable Output<String> role;
 
-    /**
-     * @return ARN of an identity bearer role for your web app.
-     * 
-     */
     public Optional<Output<String>> role() {
         return Optional.ofNullable(this.role);
     }
@@ -87,44 +71,20 @@ public final class WebAppIdentityProviderDetailsIdentityCenterConfigArgs extends
             return applicationArn(Output.of(applicationArn));
         }
 
-        /**
-         * @param instanceArn ARN of the IAM Identity Center used for the web app.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceArn(@Nullable Output<String> instanceArn) {
             $.instanceArn = instanceArn;
             return this;
         }
 
-        /**
-         * @param instanceArn ARN of the IAM Identity Center used for the web app.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceArn(String instanceArn) {
             return instanceArn(Output.of(instanceArn));
         }
 
-        /**
-         * @param role ARN of an identity bearer role for your web app.
-         * 
-         * @return builder
-         * 
-         */
         public Builder role(@Nullable Output<String> role) {
             $.role = role;
             return this;
         }
 
-        /**
-         * @param role ARN of an identity bearer role for your web app.
-         * 
-         * @return builder
-         * 
-         */
         public Builder role(String role) {
             return role(Output.of(role));
         }

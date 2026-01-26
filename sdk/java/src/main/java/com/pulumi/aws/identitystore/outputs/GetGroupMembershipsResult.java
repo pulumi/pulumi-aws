@@ -12,40 +12,20 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGroupMembershipsResult {
-    /**
-     * @return Group identifier.
-     * 
-     */
     private String groupId;
-    /**
-     * @return A list of group membership objects. See `groupMemberships` below.
-     * 
-     */
     private List<GetGroupMembershipsGroupMembership> groupMemberships;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Identity store identifier.
-     * 
-     */
     private String identityStoreId;
     private String region;
 
     private GetGroupMembershipsResult() {}
-    /**
-     * @return Group identifier.
-     * 
-     */
     public String groupId() {
         return this.groupId;
     }
-    /**
-     * @return A list of group membership objects. See `groupMemberships` below.
-     * 
-     */
     public List<GetGroupMembershipsGroupMembership> groupMemberships() {
         return this.groupMemberships;
     }
@@ -56,10 +36,6 @@ public final class GetGroupMembershipsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Identity store identifier.
-     * 
-     */
     public String identityStoreId() {
         return this.identityStoreId;
     }

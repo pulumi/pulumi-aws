@@ -18,10 +18,6 @@ public final class GetLifecyclePolicyDocumentResult {
      * 
      */
     private String id;
-    /**
-     * @return The above arguments serialized as a standard JSON policy document.
-     * 
-     */
     private String json;
     private @Nullable List<GetLifecyclePolicyDocumentRule> rules;
 
@@ -33,10 +29,6 @@ public final class GetLifecyclePolicyDocumentResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The above arguments serialized as a standard JSON policy document.
-     * 
-     */
     public String json() {
         return this.json;
     }

@@ -11,53 +11,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDomainCognitoOption {
-    /**
-     * @return Enabled disabled toggle for off-peak update window
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return Cognito Identity pool used by the domain.
-     * 
-     */
     private String identityPoolId;
-    /**
-     * @return IAM Role with the AmazonOpenSearchServiceCognitoAccess policy attached.
-     * 
-     */
     private String roleArn;
-    /**
-     * @return Cognito User pool used by the domain.
-     * 
-     */
     private String userPoolId;
 
     private GetDomainCognitoOption() {}
-    /**
-     * @return Enabled disabled toggle for off-peak update window
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return Cognito Identity pool used by the domain.
-     * 
-     */
     public String identityPoolId() {
         return this.identityPoolId;
     }
-    /**
-     * @return IAM Role with the AmazonOpenSearchServiceCognitoAccess policy attached.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
-    /**
-     * @return Cognito User pool used by the domain.
-     * 
-     */
     public String userPoolId() {
         return this.userPoolId;
     }

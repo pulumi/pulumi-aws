@@ -4,45 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage an S3 Access Grants instance resource policy.
- * Use a resource policy to manage cross-account access to your S3 Access Grants instance.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3control.AccessGrantsInstance("example", {});
- * const exampleAccessGrantsInstanceResourcePolicy = new aws.s3control.AccessGrantsInstanceResourcePolicy("example", {policy: pulumi.interpolate`{
- *   \"Version\": \"2012-10-17\",
- *   \"Id\": \"S3AccessGrantsPolicy\",
- *   \"Statement\": [{
- *     \"Sid\": \"AllowAccessToS3AccessGrants\",
- *     \"Effect\": \"Allow\",
- *     \"Principal\": {
- *       \"AWS\": \"123456789456\"
- *     },
- *     \"Action\": [
- *       \"s3:ListAccessGrants\",
- *       \"s3:ListAccessGrantsLocations\",
- *       \"s3:GetDataAccess\"
- *     ],
- *     \"Resource\": \"${example.accessGrantsInstanceArn}\"
- *   }]
- * }
- * `});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import S3 Access Grants instance resource policies using the `account_id`. For example:
- *
- * ```sh
- * $ pulumi import aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy example 123456789012
- * ```
- */
 export class AccessGrantsInstanceResourcePolicy extends pulumi.CustomResource {
     /**
      * Get an existing AccessGrantsInstanceResourcePolicy resource's state with the given name, ID, and optional extra
@@ -72,13 +33,7 @@ export class AccessGrantsInstanceResourcePolicy extends pulumi.CustomResource {
     }
 
     declare public readonly accountId: pulumi.Output<string>;
-    /**
-     * The policy document.
-     */
     declare public readonly policy: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -116,13 +71,7 @@ export class AccessGrantsInstanceResourcePolicy extends pulumi.CustomResource {
  */
 export interface AccessGrantsInstanceResourcePolicyState {
     accountId?: pulumi.Input<string>;
-    /**
-     * The policy document.
-     */
     policy?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -131,12 +80,6 @@ export interface AccessGrantsInstanceResourcePolicyState {
  */
 export interface AccessGrantsInstanceResourcePolicyArgs {
     accountId?: pulumi.Input<string>;
-    /**
-     * The policy document.
-     */
     policy: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

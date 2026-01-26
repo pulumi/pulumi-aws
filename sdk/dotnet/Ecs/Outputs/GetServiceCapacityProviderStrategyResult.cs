@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class GetServiceCapacityProviderStrategyResult
     {
-        /// <summary>
-        /// Number of tasks using the specified capacity provider
-        /// </summary>
         public readonly int Base;
-        /// <summary>
-        /// Name of the capacity provider
-        /// </summary>
         public readonly string CapacityProvider;
-        /// <summary>
-        /// Relative percentage of total tasks to launch
-        /// </summary>
         public readonly int Weight;
 
         [OutputConstructor]

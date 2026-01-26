@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentFlowDefinitionNodeOutputGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A name for the flow.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

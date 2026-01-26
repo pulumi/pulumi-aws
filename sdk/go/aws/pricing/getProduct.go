@@ -11,98 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get the pricing information of all products in AWS.
-// This data source is only available in a us-east-1 or ap-south-1 provider.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/pricing"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := pricing.GetProduct(ctx, &pricing.GetProductArgs{
-//				ServiceCode: "AmazonEC2",
-//				Filters: []pricing.GetProductFilter{
-//					{
-//						Field: "instanceType",
-//						Value: "c5.xlarge",
-//					},
-//					{
-//						Field: "operatingSystem",
-//						Value: "Linux",
-//					},
-//					{
-//						Field: "location",
-//						Value: "US East (N. Virginia)",
-//					},
-//					{
-//						Field: "preInstalledSw",
-//						Value: "NA",
-//					},
-//					{
-//						Field: "licenseModel",
-//						Value: "No License required",
-//					},
-//					{
-//						Field: "tenancy",
-//						Value: "Shared",
-//					},
-//					{
-//						Field: "capacitystatus",
-//						Value: "Used",
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/pricing"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := pricing.GetProduct(ctx, &pricing.GetProductArgs{
-//				ServiceCode: "AmazonRedshift",
-//				Filters: []pricing.GetProductFilter{
-//					{
-//						Field: "instanceType",
-//						Value: "ds1.xlarge",
-//					},
-//					{
-//						Field: "location",
-//						Value: "US East (N. Virginia)",
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetProduct(ctx *pulumi.Context, args *GetProductArgs, opts ...pulumi.InvokeOption) (*GetProductResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetProductResult
@@ -115,18 +23,15 @@ func GetProduct(ctx *pulumi.Context, args *GetProductArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getProduct.
 type GetProductArgs struct {
-	// List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
-	Filters []GetProductFilter `pulumi:"filters"`
-	// Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
-	ServiceCode string `pulumi:"serviceCode"`
+	Filters     []GetProductFilter `pulumi:"filters"`
+	ServiceCode string             `pulumi:"serviceCode"`
 }
 
 // A collection of values returned by getProduct.
 type GetProductResult struct {
 	Filters []GetProductFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Set to the product returned from the API.
+	Id          string `pulumi:"id"`
 	Result      string `pulumi:"result"`
 	ServiceCode string `pulumi:"serviceCode"`
 }
@@ -142,10 +47,8 @@ func GetProductOutput(ctx *pulumi.Context, args GetProductOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getProduct.
 type GetProductOutputArgs struct {
-	// List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
-	Filters GetProductFilterArrayInput `pulumi:"filters"`
-	// Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
-	ServiceCode pulumi.StringInput `pulumi:"serviceCode"`
+	Filters     GetProductFilterArrayInput `pulumi:"filters"`
+	ServiceCode pulumi.StringInput         `pulumi:"serviceCode"`
 }
 
 func (GetProductOutputArgs) ElementType() reflect.Type {
@@ -176,7 +79,6 @@ func (o GetProductResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProductResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Set to the product returned from the API.
 func (o GetProductResultOutput) Result() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProductResult) string { return v.Result }).(pulumi.StringOutput)
 }

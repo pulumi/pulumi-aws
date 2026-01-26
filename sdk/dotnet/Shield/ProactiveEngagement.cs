@@ -9,112 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Shield
 {
-    /// <summary>
-    /// Resource for managing a AWS Shield Proactive Engagement.
-    /// Proactive engagement authorizes the Shield Response Team (SRT) to use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleRole = new Aws.Iam.Role("example", new()
-    ///     {
-    ///         Name = "example-role",
-    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Sid"] = "",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Service"] = "drt.shield.amazonaws.com",
-    ///                     },
-    ///                     ["Action"] = "sts:AssumeRole",
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    ///     var exampleDrtAccessRoleArnAssociation = new Aws.Shield.DrtAccessRoleArnAssociation("example", new()
-    ///     {
-    ///         RoleArn = exampleRole.Arn,
-    ///     });
-    /// 
-    ///     var example = new Aws.Shield.ProactiveEngagement("example", new()
-    ///     {
-    ///         Enabled = true,
-    ///         EmergencyContacts = new[]
-    ///         {
-    ///             new Aws.Shield.Inputs.ProactiveEngagementEmergencyContactArgs
-    ///             {
-    ///                 ContactNotes = "Notes",
-    ///                 EmailAddress = "contact1@example.com",
-    ///                 PhoneNumber = "+12358132134",
-    ///             },
-    ///             new Aws.Shield.Inputs.ProactiveEngagementEmergencyContactArgs
-    ///             {
-    ///                 ContactNotes = "Notes 2",
-    ///                 EmailAddress = "contact2@example.com",
-    ///                 PhoneNumber = "+12358132134",
-    ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleDrtAccessRoleArnAssociation,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("example", new()
-    ///     {
-    ///         Role = exampleRole.Name,
-    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy",
-    ///     });
-    /// 
-    ///     var exampleProtectionGroup = new Aws.Shield.ProtectionGroup("example", new()
-    ///     {
-    ///         ProtectionGroupId = "example",
-    ///         Aggregation = "MAX",
-    ///         Pattern = "ALL",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Shield proactive engagement using the AWS account ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:shield/proactiveEngagement:ProactiveEngagement example 123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:shield/proactiveEngagement:ProactiveEngagement")]
     public partial class ProactiveEngagement : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `EmergencyContacts`.
-        /// </summary>
         [Output("emergencyContacts")]
         public Output<ImmutableArray<Outputs.ProactiveEngagementEmergencyContact>> EmergencyContacts { get; private set; } = null!;
 
-        /// <summary>
-        /// Boolean value indicating if Proactive Engagement should be enabled or not.
-        /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
 
@@ -166,19 +66,12 @@ namespace Pulumi.Aws.Shield
     {
         [Input("emergencyContacts")]
         private InputList<Inputs.ProactiveEngagementEmergencyContactArgs>? _emergencyContacts;
-
-        /// <summary>
-        /// One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `EmergencyContacts`.
-        /// </summary>
         public InputList<Inputs.ProactiveEngagementEmergencyContactArgs> EmergencyContacts
         {
             get => _emergencyContacts ?? (_emergencyContacts = new InputList<Inputs.ProactiveEngagementEmergencyContactArgs>());
             set => _emergencyContacts = value;
         }
 
-        /// <summary>
-        /// Boolean value indicating if Proactive Engagement should be enabled or not.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
@@ -192,19 +85,12 @@ namespace Pulumi.Aws.Shield
     {
         [Input("emergencyContacts")]
         private InputList<Inputs.ProactiveEngagementEmergencyContactGetArgs>? _emergencyContacts;
-
-        /// <summary>
-        /// One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `EmergencyContacts`.
-        /// </summary>
         public InputList<Inputs.ProactiveEngagementEmergencyContactGetArgs> EmergencyContacts
         {
             get => _emergencyContacts ?? (_emergencyContacts = new InputList<Inputs.ProactiveEngagementEmergencyContactGetArgs>());
             set => _emergencyContacts = value;
         }
 
-        /// <summary>
-        /// Boolean value indicating if Proactive Engagement should be enabled or not.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

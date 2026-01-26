@@ -13,13 +13,7 @@ namespace Pulumi.Aws.FinSpace.Outputs
     [OutputType]
     public sealed class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode
     {
-        /// <summary>
-        /// ICMP code. A value of `-1` means all codes for the specified ICMP type.
-        /// </summary>
         public readonly int Code;
-        /// <summary>
-        /// ICMP type. A value of `-1` means all types.
-        /// </summary>
         public readonly int Type;
 
         [OutputConstructor]

@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings {
-    /**
-     * @return If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
-     * 
-     */
     private @Nullable String ocrLanguage;
-    /**
-     * @return When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
-     * 
-     */
     private @Nullable Integer pid;
 
     private ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings() {}
-    /**
-     * @return If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
-     * 
-     */
     public Optional<String> ocrLanguage() {
         return Optional.ofNullable(this.ocrLanguage);
     }
-    /**
-     * @return When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
-     * 
-     */
     public Optional<Integer> pid() {
         return Optional.ofNullable(this.pid);
     }

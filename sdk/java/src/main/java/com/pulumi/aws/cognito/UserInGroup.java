@@ -13,136 +13,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Adds the specified user to the specified group.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cognito.UserPool;
- * import com.pulumi.aws.cognito.UserPoolArgs;
- * import com.pulumi.aws.cognito.inputs.UserPoolPasswordPolicyArgs;
- * import com.pulumi.aws.cognito.User;
- * import com.pulumi.aws.cognito.UserArgs;
- * import com.pulumi.aws.cognito.UserGroup;
- * import com.pulumi.aws.cognito.UserGroupArgs;
- * import com.pulumi.aws.cognito.UserInGroup;
- * import com.pulumi.aws.cognito.UserInGroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new UserPool("example", UserPoolArgs.builder()
- *             .name("example")
- *             .passwordPolicy(UserPoolPasswordPolicyArgs.builder()
- *                 .temporaryPasswordValidityDays(7)
- *                 .minimumLength(6)
- *                 .requireUppercase(false)
- *                 .requireSymbols(false)
- *                 .requireNumbers(false)
- *                 .build())
- *             .build());
- * 
- *         var exampleUser = new User("exampleUser", UserArgs.builder()
- *             .userPoolId(example.id())
- *             .username("example")
- *             .build());
- * 
- *         var exampleUserGroup = new UserGroup("exampleUserGroup", UserGroupArgs.builder()
- *             .userPoolId(example.id())
- *             .name("example")
- *             .build());
- * 
- *         var exampleUserInGroup = new UserInGroup("exampleUserInGroup", UserInGroupArgs.builder()
- *             .userPoolId(example.id())
- *             .groupName(exampleUserGroup.name())
- *             .username(exampleUser.username())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import a Cognito Group User using a comma-delimited string concatenating the `user_pool_id`, `group_name`, and `username` arguments. For example:
- * 
- * ```sh
- * $ pulumi import aws:cognito/userInGroup:UserInGroup example us-east-1_vG78M4goG,example-group,example-user
- * ```
- * 
- */
 @ResourceType(type="aws:cognito/userInGroup:UserInGroup")
 public class UserInGroup extends com.pulumi.resources.CustomResource {
-    /**
-     * The name of the group to which the user is to be added.
-     * 
-     */
     @Export(name="groupName", refs={String.class}, tree="[0]")
     private Output<String> groupName;
 
-    /**
-     * @return The name of the group to which the user is to be added.
-     * 
-     */
     public Output<String> groupName() {
         return this.groupName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The user pool ID of the user and group.
-     * 
-     */
     @Export(name="userPoolId", refs={String.class}, tree="[0]")
     private Output<String> userPoolId;
 
-    /**
-     * @return The user pool ID of the user and group.
-     * 
-     */
     public Output<String> userPoolId() {
         return this.userPoolId;
     }
-    /**
-     * The username of the user to be added to the group.
-     * 
-     */
     @Export(name="username", refs={String.class}, tree="[0]")
     private Output<String> username;
 
-    /**
-     * @return The username of the user to be added to the group.
-     * 
-     */
     public Output<String> username() {
         return this.username;
     }

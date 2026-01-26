@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Iot.Inputs
 
     public sealed class ProvisioningTemplatePreProvisioningHookArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The version of the payload that was sent to the target function. The only valid (and the default) payload version is `"2020-04-01"`.
-        /// </summary>
         [Input("payloadVersion")]
         public Input<string>? PayloadVersion { get; set; }
 
-        /// <summary>
-        /// The ARN of the target function.
-        /// </summary>
         [Input("targetArn", required: true)]
         public Input<string> TargetArn { get; set; } = null!;
 

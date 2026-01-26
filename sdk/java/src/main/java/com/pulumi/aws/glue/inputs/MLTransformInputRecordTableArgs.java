@@ -16,62 +16,30 @@ public final class MLTransformInputRecordTableArgs extends com.pulumi.resources.
 
     public static final MLTransformInputRecordTableArgs Empty = new MLTransformInputRecordTableArgs();
 
-    /**
-     * A unique identifier for the AWS Glue Data Catalog.
-     * 
-     */
     @Import(name="catalogId")
     private @Nullable Output<String> catalogId;
 
-    /**
-     * @return A unique identifier for the AWS Glue Data Catalog.
-     * 
-     */
     public Optional<Output<String>> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
 
-    /**
-     * The name of the connection to the AWS Glue Data Catalog.
-     * 
-     */
     @Import(name="connectionName")
     private @Nullable Output<String> connectionName;
 
-    /**
-     * @return The name of the connection to the AWS Glue Data Catalog.
-     * 
-     */
     public Optional<Output<String>> connectionName() {
         return Optional.ofNullable(this.connectionName);
     }
 
-    /**
-     * A database name in the AWS Glue Data Catalog.
-     * 
-     */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
-    /**
-     * @return A database name in the AWS Glue Data Catalog.
-     * 
-     */
     public Output<String> databaseName() {
         return this.databaseName;
     }
 
-    /**
-     * A table name in the AWS Glue Data Catalog.
-     * 
-     */
     @Import(name="tableName", required=true)
     private Output<String> tableName;
 
-    /**
-     * @return A table name in the AWS Glue Data Catalog.
-     * 
-     */
     public Output<String> tableName() {
         return this.tableName;
     }
@@ -103,86 +71,38 @@ public final class MLTransformInputRecordTableArgs extends com.pulumi.resources.
             $ = new MLTransformInputRecordTableArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param catalogId A unique identifier for the AWS Glue Data Catalog.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(@Nullable Output<String> catalogId) {
             $.catalogId = catalogId;
             return this;
         }
 
-        /**
-         * @param catalogId A unique identifier for the AWS Glue Data Catalog.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(String catalogId) {
             return catalogId(Output.of(catalogId));
         }
 
-        /**
-         * @param connectionName The name of the connection to the AWS Glue Data Catalog.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionName(@Nullable Output<String> connectionName) {
             $.connectionName = connectionName;
             return this;
         }
 
-        /**
-         * @param connectionName The name of the connection to the AWS Glue Data Catalog.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionName(String connectionName) {
             return connectionName(Output.of(connectionName));
         }
 
-        /**
-         * @param databaseName A database name in the AWS Glue Data Catalog.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(Output<String> databaseName) {
             $.databaseName = databaseName;
             return this;
         }
 
-        /**
-         * @param databaseName A database name in the AWS Glue Data Catalog.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
         }
 
-        /**
-         * @param tableName A table name in the AWS Glue Data Catalog.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(Output<String> tableName) {
             $.tableName = tableName;
             return this;
         }
 
-        /**
-         * @param tableName A table name in the AWS Glue Data Catalog.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(String tableName) {
             return tableName(Output.of(tableName));
         }

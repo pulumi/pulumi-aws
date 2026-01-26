@@ -69,17 +69,9 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosof
         return Optional.ofNullable(this.clientSecretWo);
     }
 
-    /**
-     * OAuth discovery configuration. See `oauthDiscovery` below.
-     * 
-     */
     @Import(name="oauthDiscoveries")
     private @Nullable Output<List<AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArgs>> oauthDiscoveries;
 
-    /**
-     * @return OAuth discovery configuration. See `oauthDiscovery` below.
-     * 
-     */
     public Optional<Output<List<AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArgs>>> oauthDiscoveries() {
         return Optional.ofNullable(this.oauthDiscoveries);
     }
@@ -182,33 +174,15 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosof
             return clientSecretWo(Output.of(clientSecretWo));
         }
 
-        /**
-         * @param oauthDiscoveries OAuth discovery configuration. See `oauthDiscovery` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oauthDiscoveries(@Nullable Output<List<AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArgs>> oauthDiscoveries) {
             $.oauthDiscoveries = oauthDiscoveries;
             return this;
         }
 
-        /**
-         * @param oauthDiscoveries OAuth discovery configuration. See `oauthDiscovery` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oauthDiscoveries(List<AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArgs> oauthDiscoveries) {
             return oauthDiscoveries(Output.of(oauthDiscoveries));
         }
 
-        /**
-         * @param oauthDiscoveries OAuth discovery configuration. See `oauthDiscovery` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oauthDiscoveries(AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArgs... oauthDiscoveries) {
             return oauthDiscoveries(List.of(oauthDiscoveries));
         }

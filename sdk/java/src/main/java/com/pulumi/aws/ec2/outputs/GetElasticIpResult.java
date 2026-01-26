@@ -15,220 +15,84 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetElasticIpResult {
     private String arn;
-    /**
-     * @return ID representing the association of the address with an instance in a VPC.
-     * 
-     */
     private String associationId;
-    /**
-     * @return Carrier IP address.
-     * 
-     */
     private String carrierIp;
-    /**
-     * @return Customer Owned IP.
-     * 
-     */
     private String customerOwnedIp;
-    /**
-     * @return The ID of a Customer Owned IP Pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
-     * 
-     */
     private String customerOwnedIpv4Pool;
-    /**
-     * @return Whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
-     * 
-     */
     private String domain;
     private @Nullable List<GetElasticIpFilter> filters;
-    /**
-     * @return If VPC Elastic IP, the allocation identifier. If EC2-Classic Elastic IP, the public IP address.
-     * 
-     */
     private String id;
-    /**
-     * @return ID of the instance that the address is associated with (if any).
-     * 
-     */
     private String instanceId;
-    /**
-     * @return The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
-     * 
-     */
     private String ipamPoolId;
-    /**
-     * @return The ID of the network interface.
-     * 
-     */
     private String networkInterfaceId;
-    /**
-     * @return The ID of the AWS account that owns the network interface.
-     * 
-     */
     private String networkInterfaceOwnerId;
-    /**
-     * @return Private DNS associated with the Elastic IP address.
-     * 
-     */
     private String privateDns;
-    /**
-     * @return Private IP address associated with the Elastic IP address.
-     * 
-     */
     private String privateIp;
-    /**
-     * @return The DNS pointer (PTR) record for the IP address.
-     * 
-     */
     private String ptrRecord;
-    /**
-     * @return Public DNS associated with the Elastic IP address.
-     * 
-     */
     private String publicDns;
-    /**
-     * @return Public IP address of Elastic IP.
-     * 
-     */
     private String publicIp;
-    /**
-     * @return ID of an address pool.
-     * 
-     */
     private String publicIpv4Pool;
     private String region;
-    /**
-     * @return Key-value map of tags associated with Elastic IP.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetElasticIpResult() {}
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return ID representing the association of the address with an instance in a VPC.
-     * 
-     */
     public String associationId() {
         return this.associationId;
     }
-    /**
-     * @return Carrier IP address.
-     * 
-     */
     public String carrierIp() {
         return this.carrierIp;
     }
-    /**
-     * @return Customer Owned IP.
-     * 
-     */
     public String customerOwnedIp() {
         return this.customerOwnedIp;
     }
-    /**
-     * @return The ID of a Customer Owned IP Pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
-     * 
-     */
     public String customerOwnedIpv4Pool() {
         return this.customerOwnedIpv4Pool;
     }
-    /**
-     * @return Whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
-     * 
-     */
     public String domain() {
         return this.domain;
     }
     public List<GetElasticIpFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
-    /**
-     * @return If VPC Elastic IP, the allocation identifier. If EC2-Classic Elastic IP, the public IP address.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return ID of the instance that the address is associated with (if any).
-     * 
-     */
     public String instanceId() {
         return this.instanceId;
     }
-    /**
-     * @return The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
-     * 
-     */
     public String ipamPoolId() {
         return this.ipamPoolId;
     }
-    /**
-     * @return The ID of the network interface.
-     * 
-     */
     public String networkInterfaceId() {
         return this.networkInterfaceId;
     }
-    /**
-     * @return The ID of the AWS account that owns the network interface.
-     * 
-     */
     public String networkInterfaceOwnerId() {
         return this.networkInterfaceOwnerId;
     }
-    /**
-     * @return Private DNS associated with the Elastic IP address.
-     * 
-     */
     public String privateDns() {
         return this.privateDns;
     }
-    /**
-     * @return Private IP address associated with the Elastic IP address.
-     * 
-     */
     public String privateIp() {
         return this.privateIp;
     }
-    /**
-     * @return The DNS pointer (PTR) record for the IP address.
-     * 
-     */
     public String ptrRecord() {
         return this.ptrRecord;
     }
-    /**
-     * @return Public DNS associated with the Elastic IP address.
-     * 
-     */
     public String publicDns() {
         return this.publicDns;
     }
-    /**
-     * @return Public IP address of Elastic IP.
-     * 
-     */
     public String publicIp() {
         return this.publicIp;
     }
-    /**
-     * @return ID of an address pool.
-     * 
-     */
     public String publicIpv4Pool() {
         return this.publicIpv4Pool;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Key-value map of tags associated with Elastic IP.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

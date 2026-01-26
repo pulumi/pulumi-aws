@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
-        /// </summary>
         public readonly string? CrossAccountModelRegisterRoleArn;
-        /// <summary>
-        /// Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
-        /// </summary>
         public readonly string? Status;
 
         [OutputConstructor]

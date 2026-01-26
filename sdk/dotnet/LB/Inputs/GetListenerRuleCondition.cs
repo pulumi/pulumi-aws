@@ -14,11 +14,6 @@ namespace Pulumi.Aws.LB.Inputs
     {
         [Input("hostHeaders")]
         private List<Inputs.GetListenerRuleConditionHostHeaderArgs>? _hostHeaders;
-
-        /// <summary>
-        /// Host header patterns to match.
-        /// Detailed below.
-        /// </summary>
         public List<Inputs.GetListenerRuleConditionHostHeaderArgs> HostHeaders
         {
             get => _hostHeaders ?? (_hostHeaders = new List<Inputs.GetListenerRuleConditionHostHeaderArgs>());
@@ -27,11 +22,6 @@ namespace Pulumi.Aws.LB.Inputs
 
         [Input("httpHeaders")]
         private List<Inputs.GetListenerRuleConditionHttpHeaderArgs>? _httpHeaders;
-
-        /// <summary>
-        /// HTTP header and values to match.
-        /// Detailed below.
-        /// </summary>
         public List<Inputs.GetListenerRuleConditionHttpHeaderArgs> HttpHeaders
         {
             get => _httpHeaders ?? (_httpHeaders = new List<Inputs.GetListenerRuleConditionHttpHeaderArgs>());
@@ -40,10 +30,6 @@ namespace Pulumi.Aws.LB.Inputs
 
         [Input("httpRequestMethods")]
         private List<Inputs.GetListenerRuleConditionHttpRequestMethodArgs>? _httpRequestMethods;
-
-        /// <summary>
-        /// Contains a single attribute `Values`, which contains a set of HTTP request methods.
-        /// </summary>
         public List<Inputs.GetListenerRuleConditionHttpRequestMethodArgs> HttpRequestMethods
         {
             get => _httpRequestMethods ?? (_httpRequestMethods = new List<Inputs.GetListenerRuleConditionHttpRequestMethodArgs>());
@@ -52,11 +38,6 @@ namespace Pulumi.Aws.LB.Inputs
 
         [Input("pathPatterns")]
         private List<Inputs.GetListenerRuleConditionPathPatternArgs>? _pathPatterns;
-
-        /// <summary>
-        /// Path patterns to compare against the request URL.
-        /// Detailed below.
-        /// </summary>
         public List<Inputs.GetListenerRuleConditionPathPatternArgs> PathPatterns
         {
             get => _pathPatterns ?? (_pathPatterns = new List<Inputs.GetListenerRuleConditionPathPatternArgs>());
@@ -65,11 +46,6 @@ namespace Pulumi.Aws.LB.Inputs
 
         [Input("queryStrings")]
         private List<Inputs.GetListenerRuleConditionQueryStringArgs>? _queryStrings;
-
-        /// <summary>
-        /// Query string parameters to match.
-        /// Detailed below.
-        /// </summary>
         public List<Inputs.GetListenerRuleConditionQueryStringArgs> QueryStrings
         {
             get => _queryStrings ?? (_queryStrings = new List<Inputs.GetListenerRuleConditionQueryStringArgs>());
@@ -78,10 +54,6 @@ namespace Pulumi.Aws.LB.Inputs
 
         [Input("sourceIps")]
         private List<Inputs.GetListenerRuleConditionSourceIpArgs>? _sourceIps;
-
-        /// <summary>
-        /// Contains a single attribute `Values`, which contains a set of source IPs in CIDR notation.
-        /// </summary>
         public List<Inputs.GetListenerRuleConditionSourceIpArgs> SourceIps
         {
             get => _sourceIps ?? (_sourceIps = new List<Inputs.GetListenerRuleConditionSourceIpArgs>());

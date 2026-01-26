@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Chime.Inputs
 
     public sealed class SdkvoiceGlobalSettingsVoiceConnectorArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The S3 bucket that stores the Voice Connector's call detail records.
-        /// </summary>
         [Input("cdrBucket")]
         public Input<string>? CdrBucket { get; set; }
 

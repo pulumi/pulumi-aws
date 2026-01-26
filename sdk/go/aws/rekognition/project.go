@@ -11,92 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Rekognition Project.
-//
-// ## Example Usage
-//
-// ### Content Moderation
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rekognition"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rekognition.NewProject(ctx, "example", &rekognition.ProjectArgs{
-//				Name:       pulumi.String("example-project"),
-//				AutoUpdate: pulumi.String("ENABLED"),
-//				Feature:    pulumi.String("CONTENT_MODERATION"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Custom Labels
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rekognition"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rekognition.NewProject(ctx, "example", &rekognition.ProjectArgs{
-//				Name:    pulumi.String("example-project"),
-//				Feature: pulumi.String("CUSTOM_LABELS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Rekognition Project using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:rekognition/project:Project example project-id-12345678
-// ```
 type Project struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Project.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
-	AutoUpdate pulumi.StringOutput `pulumi:"autoUpdate"`
-	// Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
-	Feature pulumi.StringPtrOutput `pulumi:"feature"`
-	// Desired name of the project.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput   `pulumi:"tagsAll"`
-	Timeouts ProjectTimeoutsPtrOutput `pulumi:"timeouts"`
+	Arn        pulumi.StringOutput      `pulumi:"arn"`
+	AutoUpdate pulumi.StringOutput      `pulumi:"autoUpdate"`
+	Feature    pulumi.StringPtrOutput   `pulumi:"feature"`
+	Name       pulumi.StringOutput      `pulumi:"name"`
+	Region     pulumi.StringOutput      `pulumi:"region"`
+	Tags       pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll    pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	Timeouts   ProjectTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewProject registers a new resource with the given unique name, arguments, and options.
@@ -129,43 +54,25 @@ func GetProject(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Project resources.
 type projectState struct {
-	// ARN of the Project.
-	Arn *string `pulumi:"arn"`
-	// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
-	AutoUpdate *string `pulumi:"autoUpdate"`
-	// Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
-	Feature *string `pulumi:"feature"`
-	// Desired name of the project.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string `pulumi:"tagsAll"`
-	Timeouts *ProjectTimeouts  `pulumi:"timeouts"`
+	Arn        *string           `pulumi:"arn"`
+	AutoUpdate *string           `pulumi:"autoUpdate"`
+	Feature    *string           `pulumi:"feature"`
+	Name       *string           `pulumi:"name"`
+	Region     *string           `pulumi:"region"`
+	Tags       map[string]string `pulumi:"tags"`
+	TagsAll    map[string]string `pulumi:"tagsAll"`
+	Timeouts   *ProjectTimeouts  `pulumi:"timeouts"`
 }
 
 type ProjectState struct {
-	// ARN of the Project.
-	Arn pulumi.StringPtrInput
-	// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
+	Arn        pulumi.StringPtrInput
 	AutoUpdate pulumi.StringPtrInput
-	// Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
-	Feature pulumi.StringPtrInput
-	// Desired name of the project.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts ProjectTimeoutsPtrInput
+	Feature    pulumi.StringPtrInput
+	Name       pulumi.StringPtrInput
+	Region     pulumi.StringPtrInput
+	Tags       pulumi.StringMapInput
+	TagsAll    pulumi.StringMapInput
+	Timeouts   ProjectTimeoutsPtrInput
 }
 
 func (ProjectState) ElementType() reflect.Type {
@@ -173,36 +80,22 @@ func (ProjectState) ElementType() reflect.Type {
 }
 
 type projectArgs struct {
-	// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
-	AutoUpdate *string `pulumi:"autoUpdate"`
-	// Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
-	Feature *string `pulumi:"feature"`
-	// Desired name of the project.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string `pulumi:"tags"`
-	Timeouts *ProjectTimeouts  `pulumi:"timeouts"`
+	AutoUpdate *string           `pulumi:"autoUpdate"`
+	Feature    *string           `pulumi:"feature"`
+	Name       *string           `pulumi:"name"`
+	Region     *string           `pulumi:"region"`
+	Tags       map[string]string `pulumi:"tags"`
+	Timeouts   *ProjectTimeouts  `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a Project resource.
 type ProjectArgs struct {
-	// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
 	AutoUpdate pulumi.StringPtrInput
-	// Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
-	Feature pulumi.StringPtrInput
-	// Desired name of the project.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts ProjectTimeoutsPtrInput
+	Feature    pulumi.StringPtrInput
+	Name       pulumi.StringPtrInput
+	Region     pulumi.StringPtrInput
+	Tags       pulumi.StringMapInput
+	Timeouts   ProjectTimeoutsPtrInput
 }
 
 func (ProjectArgs) ElementType() reflect.Type {
@@ -292,39 +185,30 @@ func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOu
 	return o
 }
 
-// ARN of the Project.
 func (o ProjectOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
 func (o ProjectOutput) AutoUpdate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.AutoUpdate }).(pulumi.StringOutput)
 }
 
-// Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
 func (o ProjectOutput) Feature() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.Feature }).(pulumi.StringPtrOutput)
 }
 
-// Desired name of the project.
-//
-// The following arguments are optional:
 func (o ProjectOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ProjectOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ProjectOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ProjectOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.TimestreamQuery.Inputs
 
     public sealed class ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Type for the dimension. Valid value: `VARCHAR`.
-        /// </summary>
         [Input("dimensionValueType", required: true)]
         public Input<string> DimensionValueType { get; set; } = null!;
 
-        /// <summary>
-        /// Column name from query result.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

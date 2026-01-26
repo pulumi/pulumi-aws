@@ -19,156 +19,72 @@ public final class DeviceArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DeviceArgs Empty = new DeviceArgs();
 
-    /**
-     * AWS location of the device. Documented below.
-     * 
-     */
     @Import(name="awsLocation")
     private @Nullable Output<DeviceAwsLocationArgs> awsLocation;
 
-    /**
-     * @return AWS location of the device. Documented below.
-     * 
-     */
     public Optional<Output<DeviceAwsLocationArgs>> awsLocation() {
         return Optional.ofNullable(this.awsLocation);
     }
 
-    /**
-     * Description of the device.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the device.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * ID of the global network.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="globalNetworkId", required=true)
     private Output<String> globalNetworkId;
 
-    /**
-     * @return ID of the global network.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> globalNetworkId() {
         return this.globalNetworkId;
     }
 
-    /**
-     * Location of the device. Documented below.
-     * 
-     */
     @Import(name="location")
     private @Nullable Output<DeviceLocationArgs> location;
 
-    /**
-     * @return Location of the device. Documented below.
-     * 
-     */
     public Optional<Output<DeviceLocationArgs>> location() {
         return Optional.ofNullable(this.location);
     }
 
-    /**
-     * Model of device.
-     * 
-     */
     @Import(name="model")
     private @Nullable Output<String> model;
 
-    /**
-     * @return Model of device.
-     * 
-     */
     public Optional<Output<String>> model() {
         return Optional.ofNullable(this.model);
     }
 
-    /**
-     * Serial number of the device.
-     * 
-     */
     @Import(name="serialNumber")
     private @Nullable Output<String> serialNumber;
 
-    /**
-     * @return Serial number of the device.
-     * 
-     */
     public Optional<Output<String>> serialNumber() {
         return Optional.ofNullable(this.serialNumber);
     }
 
-    /**
-     * ID of the site.
-     * 
-     */
     @Import(name="siteId")
     private @Nullable Output<String> siteId;
 
-    /**
-     * @return ID of the site.
-     * 
-     */
     public Optional<Output<String>> siteId() {
         return Optional.ofNullable(this.siteId);
     }
 
-    /**
-     * Key-value tags for the device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Type of device.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return Type of device.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
 
-    /**
-     * Vendor of the device.
-     * 
-     */
     @Import(name="vendor")
     private @Nullable Output<String> vendor;
 
-    /**
-     * @return Vendor of the device.
-     * 
-     */
     public Optional<Output<String>> vendor() {
         return Optional.ofNullable(this.vendor);
     }
@@ -206,216 +122,92 @@ public final class DeviceArgs extends com.pulumi.resources.ResourceArgs {
             $ = new DeviceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param awsLocation AWS location of the device. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsLocation(@Nullable Output<DeviceAwsLocationArgs> awsLocation) {
             $.awsLocation = awsLocation;
             return this;
         }
 
-        /**
-         * @param awsLocation AWS location of the device. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsLocation(DeviceAwsLocationArgs awsLocation) {
             return awsLocation(Output.of(awsLocation));
         }
 
-        /**
-         * @param description Description of the device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param globalNetworkId ID of the global network.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNetworkId(Output<String> globalNetworkId) {
             $.globalNetworkId = globalNetworkId;
             return this;
         }
 
-        /**
-         * @param globalNetworkId ID of the global network.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNetworkId(String globalNetworkId) {
             return globalNetworkId(Output.of(globalNetworkId));
         }
 
-        /**
-         * @param location Location of the device. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder location(@Nullable Output<DeviceLocationArgs> location) {
             $.location = location;
             return this;
         }
 
-        /**
-         * @param location Location of the device. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder location(DeviceLocationArgs location) {
             return location(Output.of(location));
         }
 
-        /**
-         * @param model Model of device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder model(@Nullable Output<String> model) {
             $.model = model;
             return this;
         }
 
-        /**
-         * @param model Model of device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder model(String model) {
             return model(Output.of(model));
         }
 
-        /**
-         * @param serialNumber Serial number of the device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serialNumber(@Nullable Output<String> serialNumber) {
             $.serialNumber = serialNumber;
             return this;
         }
 
-        /**
-         * @param serialNumber Serial number of the device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serialNumber(String serialNumber) {
             return serialNumber(Output.of(serialNumber));
         }
 
-        /**
-         * @param siteId ID of the site.
-         * 
-         * @return builder
-         * 
-         */
         public Builder siteId(@Nullable Output<String> siteId) {
             $.siteId = siteId;
             return this;
         }
 
-        /**
-         * @param siteId ID of the site.
-         * 
-         * @return builder
-         * 
-         */
         public Builder siteId(String siteId) {
             return siteId(Output.of(siteId));
         }
 
-        /**
-         * @param tags Key-value tags for the device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value tags for the device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param type Type of device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
-        /**
-         * @param vendor Vendor of the device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vendor(@Nullable Output<String> vendor) {
             $.vendor = vendor;
             return this;
         }
 
-        /**
-         * @param vendor Vendor of the device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vendor(String vendor) {
             return vendor(Output.of(vendor));
         }

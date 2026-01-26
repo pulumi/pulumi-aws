@@ -11,75 +11,12 @@ namespace Pulumi.Aws.Vpc
 {
     public static class GetSecurityGroupRule
     {
-        /// <summary>
-        /// `aws.vpc.getSecurityGroupRule` provides details about a specific security group rule.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Vpc.GetSecurityGroupRule.Invoke(new()
-        ///     {
-        ///         SecurityGroupRuleId = securityGroupRuleId,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetSecurityGroupRuleResult> InvokeAsync(GetSecurityGroupRuleArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityGroupRuleResult>("aws:vpc/getSecurityGroupRule:getSecurityGroupRule", args ?? new GetSecurityGroupRuleArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// `aws.vpc.getSecurityGroupRule` provides details about a specific security group rule.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Vpc.GetSecurityGroupRule.Invoke(new()
-        ///     {
-        ///         SecurityGroupRuleId = securityGroupRuleId,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetSecurityGroupRuleResult> Invoke(GetSecurityGroupRuleInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityGroupRuleResult>("aws:vpc/getSecurityGroupRule:getSecurityGroupRule", args ?? new GetSecurityGroupRuleInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// `aws.vpc.getSecurityGroupRule` provides details about a specific security group rule.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Vpc.GetSecurityGroupRule.Invoke(new()
-        ///     {
-        ///         SecurityGroupRuleId = securityGroupRuleId,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetSecurityGroupRuleResult> Invoke(GetSecurityGroupRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityGroupRuleResult>("aws:vpc/getSecurityGroupRule:getSecurityGroupRule", args ?? new GetSecurityGroupRuleInvokeArgs(), options.WithDefaults());
     }
@@ -89,29 +26,15 @@ namespace Pulumi.Aws.Vpc
     {
         [Input("filters")]
         private List<Inputs.GetSecurityGroupRuleFilterArgs>? _filters;
-
-        /// <summary>
-        /// Configuration block(s) for filtering. Detailed below.
-        /// 
-        /// The arguments of this data source act as filters for querying the available
-        /// security group rules. The given filters must match exactly one security group rule
-        /// whose data will be exported as attributes.
-        /// </summary>
         public List<Inputs.GetSecurityGroupRuleFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetSecurityGroupRuleFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// ID of the security group rule to select.
-        /// </summary>
         [Input("securityGroupRuleId")]
         public string? SecurityGroupRuleId { get; set; }
 
@@ -125,29 +48,15 @@ namespace Pulumi.Aws.Vpc
     {
         [Input("filters")]
         private InputList<Inputs.GetSecurityGroupRuleFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// Configuration block(s) for filtering. Detailed below.
-        /// 
-        /// The arguments of this data source act as filters for querying the available
-        /// security group rules. The given filters must match exactly one security group rule
-        /// whose data will be exported as attributes.
-        /// </summary>
         public InputList<Inputs.GetSecurityGroupRuleFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetSecurityGroupRuleFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID of the security group rule to select.
-        /// </summary>
         [Input("securityGroupRuleId")]
         public Input<string>? SecurityGroupRuleId { get; set; }
 
@@ -161,57 +70,21 @@ namespace Pulumi.Aws.Vpc
     [OutputType]
     public sealed class GetSecurityGroupRuleResult
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the security group rule.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// The destination IPv4 CIDR range.
-        /// </summary>
         public readonly string CidrIpv4;
-        /// <summary>
-        /// The destination IPv6 CIDR range.
-        /// </summary>
         public readonly string CidrIpv6;
-        /// <summary>
-        /// The security group rule description.
-        /// </summary>
         public readonly string Description;
         public readonly ImmutableArray<Outputs.GetSecurityGroupRuleFilterResult> Filters;
-        /// <summary>
-        /// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
-        /// </summary>
         public readonly int FromPort;
         public readonly string Id;
-        /// <summary>
-        /// The IP protocol name or number. Use `-1` to specify all protocols.
-        /// </summary>
         public readonly string IpProtocol;
-        /// <summary>
-        /// Indicates whether the security group rule is an outbound rule.
-        /// </summary>
         public readonly bool IsEgress;
-        /// <summary>
-        /// The ID of the destination prefix list.
-        /// </summary>
         public readonly string PrefixListId;
-        /// <summary>
-        /// The destination security group that is referenced in the rule.
-        /// </summary>
         public readonly string ReferencedSecurityGroupId;
         public readonly string Region;
-        /// <summary>
-        /// The ID of the security group.
-        /// </summary>
         public readonly string SecurityGroupId;
         public readonly string SecurityGroupRuleId;
-        /// <summary>
-        /// A map of tags assigned to the resource.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// (Optional) The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
-        /// </summary>
         public readonly int ToPort;
 
         [OutputConstructor]

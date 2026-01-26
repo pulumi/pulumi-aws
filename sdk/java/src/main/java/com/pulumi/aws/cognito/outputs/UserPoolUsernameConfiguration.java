@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserPoolUsernameConfiguration {
-    /**
-     * @return Whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
-     * 
-     */
     private @Nullable Boolean caseSensitive;
 
     private UserPoolUsernameConfiguration() {}
-    /**
-     * @return Whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
-     * 
-     */
     public Optional<Boolean> caseSensitive() {
         return Optional.ofNullable(this.caseSensitive);
     }

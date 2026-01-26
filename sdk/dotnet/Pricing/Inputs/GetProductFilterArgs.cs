@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Pricing.Inputs
 
     public sealed class GetProductFilterInputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Product attribute name that you want to filter on.
-        /// </summary>
         [Input("field", required: true)]
         public Input<string> Field { get; set; } = null!;
 
-        /// <summary>
-        /// Product attribute value that you want to filter on.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

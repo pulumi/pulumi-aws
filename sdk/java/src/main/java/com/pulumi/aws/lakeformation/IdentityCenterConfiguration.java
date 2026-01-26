@@ -13,135 +13,51 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages an AWS Lake Formation Identity Center Configuration.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
- * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
- * import com.pulumi.aws.lakeformation.IdentityCenterConfiguration;
- * import com.pulumi.aws.lakeformation.IdentityCenterConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
- *             .build());
- * 
- *         final var identityCenterInstanceArn = example.arns()[0];
- * 
- *         var exampleIdentityCenterConfiguration = new IdentityCenterConfiguration("exampleIdentityCenterConfiguration", IdentityCenterConfigurationArgs.builder()
- *             .instanceArn(identityCenterInstanceArn)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Lake Formation Identity Center Configuration using the `catalog_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:lakeformation/identityCenterConfiguration:IdentityCenterConfiguration example 123456789012
- * ```
- * 
- */
 @ResourceType(type="aws:lakeformation/identityCenterConfiguration:IdentityCenterConfiguration")
 public class IdentityCenterConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Lake Formation applicated integrated with IAM Identity Center.
-     * 
-     */
     @Export(name="applicationArn", refs={String.class}, tree="[0]")
     private Output<String> applicationArn;
 
-    /**
-     * @return ARN of the Lake Formation applicated integrated with IAM Identity Center.
-     * 
-     */
     public Output<String> applicationArn() {
         return this.applicationArn;
     }
     /**
-     * Identifier for the Data Catalog.
-     * By default, the account ID.
+     * The ID of the Data Catalog.
      * 
      */
     @Export(name="catalogId", refs={String.class}, tree="[0]")
     private Output<String> catalogId;
 
     /**
-     * @return Identifier for the Data Catalog.
-     * By default, the account ID.
+     * @return The ID of the Data Catalog.
      * 
      */
     public Output<String> catalogId() {
         return this.catalogId;
     }
     /**
-     * ARN of the IAM Identity Center Instance to associate.
-     * 
-     * The following arguments are optional:
+     * The ARN of the Identity Center instance.
      * 
      */
     @Export(name="instanceArn", refs={String.class}, tree="[0]")
     private Output<String> instanceArn;
 
     /**
-     * @return ARN of the IAM Identity Center Instance to associate.
-     * 
-     * The following arguments are optional:
+     * @return The ARN of the Identity Center instance.
      * 
      */
     public Output<String> instanceArn() {
         return this.instanceArn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * ARN of the Resource Access Manager (RAM) resource share.
-     * 
-     */
     @Export(name="resourceShare", refs={String.class}, tree="[0]")
     private Output<String> resourceShare;
 
-    /**
-     * @return ARN of the Resource Access Manager (RAM) resource share.
-     * 
-     */
     public Output<String> resourceShare() {
         return this.resourceShare;
     }

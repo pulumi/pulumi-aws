@@ -14,69 +14,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RouteSpecGrpcRouteRetryPolicy {
-    /**
-     * @return List of gRPC retry events.
-     * Valid values: `cancelled`, `deadline-exceeded`, `internal`, `resource-exhausted`, `unavailable`.
-     * 
-     */
     private @Nullable List<String> grpcRetryEvents;
-    /**
-     * @return List of HTTP retry events.
-     * Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-     * 
-     */
     private @Nullable List<String> httpRetryEvents;
-    /**
-     * @return Maximum number of retries.
-     * 
-     */
     private Integer maxRetries;
-    /**
-     * @return Per-retry timeout.
-     * 
-     */
     private RouteSpecGrpcRouteRetryPolicyPerRetryTimeout perRetryTimeout;
-    /**
-     * @return List of TCP retry events. The only valid value is `connection-error`.
-     * 
-     */
     private @Nullable List<String> tcpRetryEvents;
 
     private RouteSpecGrpcRouteRetryPolicy() {}
-    /**
-     * @return List of gRPC retry events.
-     * Valid values: `cancelled`, `deadline-exceeded`, `internal`, `resource-exhausted`, `unavailable`.
-     * 
-     */
     public List<String> grpcRetryEvents() {
         return this.grpcRetryEvents == null ? List.of() : this.grpcRetryEvents;
     }
-    /**
-     * @return List of HTTP retry events.
-     * Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-     * 
-     */
     public List<String> httpRetryEvents() {
         return this.httpRetryEvents == null ? List.of() : this.httpRetryEvents;
     }
-    /**
-     * @return Maximum number of retries.
-     * 
-     */
     public Integer maxRetries() {
         return this.maxRetries;
     }
-    /**
-     * @return Per-retry timeout.
-     * 
-     */
     public RouteSpecGrpcRouteRetryPolicyPerRetryTimeout perRetryTimeout() {
         return this.perRetryTimeout;
     }
-    /**
-     * @return List of TCP retry events. The only valid value is `connection-error`.
-     * 
-     */
     public List<String> tcpRetryEvents() {
         return this.tcpRetryEvents == null ? List.of() : this.tcpRetryEvents;
     }

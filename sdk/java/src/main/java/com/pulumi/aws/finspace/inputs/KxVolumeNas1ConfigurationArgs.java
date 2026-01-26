@@ -15,32 +15,16 @@ public final class KxVolumeNas1ConfigurationArgs extends com.pulumi.resources.Re
 
     public static final KxVolumeNas1ConfigurationArgs Empty = new KxVolumeNas1ConfigurationArgs();
 
-    /**
-     * The size of the network attached storage.
-     * 
-     */
     @Import(name="size", required=true)
     private Output<Integer> size;
 
-    /**
-     * @return The size of the network attached storage.
-     * 
-     */
     public Output<Integer> size() {
         return this.size;
     }
 
-    /**
-     * The type of the network attached storage.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return The type of the network attached storage.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -70,44 +54,20 @@ public final class KxVolumeNas1ConfigurationArgs extends com.pulumi.resources.Re
             $ = new KxVolumeNas1ConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param size The size of the network attached storage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder size(Output<Integer> size) {
             $.size = size;
             return this;
         }
 
-        /**
-         * @param size The size of the network attached storage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder size(Integer size) {
             return size(Output.of(size));
         }
 
-        /**
-         * @param type The type of the network attached storage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of the network attached storage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

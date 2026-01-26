@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Connect.Inputs
     {
         [Input("phoneConfigs")]
         private InputList<Inputs.QuickConnectQuickConnectConfigPhoneConfigGetArgs>? _phoneConfigs;
-
-        /// <summary>
-        /// Specifies the phone configuration of the Quick Connect. This is required only if `QuickConnectType` is `PHONE_NUMBER`. The `PhoneConfig` block is documented below.
-        /// </summary>
         public InputList<Inputs.QuickConnectQuickConnectConfigPhoneConfigGetArgs> PhoneConfigs
         {
             get => _phoneConfigs ?? (_phoneConfigs = new InputList<Inputs.QuickConnectQuickConnectConfigPhoneConfigGetArgs>());
@@ -26,28 +22,17 @@ namespace Pulumi.Aws.Connect.Inputs
 
         [Input("queueConfigs")]
         private InputList<Inputs.QuickConnectQuickConnectConfigQueueConfigGetArgs>? _queueConfigs;
-
-        /// <summary>
-        /// Specifies the queue configuration of the Quick Connect. This is required only if `QuickConnectType` is `QUEUE`. The `QueueConfig` block is documented below.
-        /// </summary>
         public InputList<Inputs.QuickConnectQuickConnectConfigQueueConfigGetArgs> QueueConfigs
         {
             get => _queueConfigs ?? (_queueConfigs = new InputList<Inputs.QuickConnectQuickConnectConfigQueueConfigGetArgs>());
             set => _queueConfigs = value;
         }
 
-        /// <summary>
-        /// Specifies the configuration type of the quick connect. valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
-        /// </summary>
         [Input("quickConnectType", required: true)]
         public Input<string> QuickConnectType { get; set; } = null!;
 
         [Input("userConfigs")]
         private InputList<Inputs.QuickConnectQuickConnectConfigUserConfigGetArgs>? _userConfigs;
-
-        /// <summary>
-        /// Specifies the user configuration of the Quick Connect. This is required only if `QuickConnectType` is `USER`. The `UserConfig` block is documented below.
-        /// </summary>
         public InputList<Inputs.QuickConnectQuickConnectConfigUserConfigGetArgs> UserConfigs
         {
             get => _userConfigs ?? (_userConfigs = new InputList<Inputs.QuickConnectQuickConnectConfigUserConfigGetArgs>());

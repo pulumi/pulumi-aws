@@ -15,40 +15,16 @@ public final class XssMatchSetXssMatchTupleArgs extends com.pulumi.resources.Res
 
     public static final XssMatchSetXssMatchTupleArgs Empty = new XssMatchSetXssMatchTupleArgs();
 
-    /**
-     * Specifies where in a web request to look for cross-site scripting attacks.
-     * 
-     */
     @Import(name="fieldToMatch", required=true)
     private Output<XssMatchSetXssMatchTupleFieldToMatchArgs> fieldToMatch;
 
-    /**
-     * @return Specifies where in a web request to look for cross-site scripting attacks.
-     * 
-     */
     public Output<XssMatchSetXssMatchTupleFieldToMatchArgs> fieldToMatch() {
         return this.fieldToMatch;
     }
 
-    /**
-     * Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-     * If you specify a transformation, AWS WAF performs the transformation on `targetString` before inspecting a request for a match.
-     * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
-     * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_XssMatchTuple.html#WAF-Type-XssMatchTuple-TextTransformation)
-     * for all supported values.
-     * 
-     */
     @Import(name="textTransformation", required=true)
     private Output<String> textTransformation;
 
-    /**
-     * @return Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-     * If you specify a transformation, AWS WAF performs the transformation on `targetString` before inspecting a request for a match.
-     * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
-     * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_XssMatchTuple.html#WAF-Type-XssMatchTuple-TextTransformation)
-     * for all supported values.
-     * 
-     */
     public Output<String> textTransformation() {
         return this.textTransformation;
     }
@@ -78,52 +54,20 @@ public final class XssMatchSetXssMatchTupleArgs extends com.pulumi.resources.Res
             $ = new XssMatchSetXssMatchTupleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fieldToMatch Specifies where in a web request to look for cross-site scripting attacks.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldToMatch(Output<XssMatchSetXssMatchTupleFieldToMatchArgs> fieldToMatch) {
             $.fieldToMatch = fieldToMatch;
             return this;
         }
 
-        /**
-         * @param fieldToMatch Specifies where in a web request to look for cross-site scripting attacks.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldToMatch(XssMatchSetXssMatchTupleFieldToMatchArgs fieldToMatch) {
             return fieldToMatch(Output.of(fieldToMatch));
         }
 
-        /**
-         * @param textTransformation Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-         * If you specify a transformation, AWS WAF performs the transformation on `targetString` before inspecting a request for a match.
-         * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
-         * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_XssMatchTuple.html#WAF-Type-XssMatchTuple-TextTransformation)
-         * for all supported values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformation(Output<String> textTransformation) {
             $.textTransformation = textTransformation;
             return this;
         }
 
-        /**
-         * @param textTransformation Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-         * If you specify a transformation, AWS WAF performs the transformation on `targetString` before inspecting a request for a match.
-         * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
-         * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_XssMatchTuple.html#WAF-Type-XssMatchTuple-TextTransformation)
-         * for all supported values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformation(String textTransformation) {
             return textTransformation(Output.of(textTransformation));
         }

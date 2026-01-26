@@ -11,75 +11,12 @@ namespace Pulumi.Aws.Acmpca
 {
     public static class GetCertificateAuthority
     {
-        /// <summary>
-        /// Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Acmpca.GetCertificateAuthority.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetCertificateAuthorityResult> InvokeAsync(GetCertificateAuthorityArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateAuthorityResult>("aws:acmpca/getCertificateAuthority:getCertificateAuthority", args ?? new GetCertificateAuthorityArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Acmpca.GetCertificateAuthority.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetCertificateAuthorityResult> Invoke(GetCertificateAuthorityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateAuthorityResult>("aws:acmpca/getCertificateAuthority:getCertificateAuthority", args ?? new GetCertificateAuthorityInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Acmpca.GetCertificateAuthority.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetCertificateAuthorityResult> Invoke(GetCertificateAuthorityInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateAuthorityResult>("aws:acmpca/getCertificateAuthority:getCertificateAuthority", args ?? new GetCertificateAuthorityInvokeArgs(), options.WithDefaults());
     }
@@ -87,24 +24,14 @@ namespace Pulumi.Aws.Acmpca
 
     public sealed class GetCertificateAuthorityArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the certificate authority.
-        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Key-value map of user-defined tags that are attached to the certificate authority.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -119,24 +46,14 @@ namespace Pulumi.Aws.Acmpca
 
     public sealed class GetCertificateAuthorityInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the certificate authority.
-        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of user-defined tags that are attached to the certificate authority.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -154,55 +71,22 @@ namespace Pulumi.Aws.Acmpca
     public sealed class GetCertificateAuthorityResult
     {
         public readonly string Arn;
-        /// <summary>
-        /// Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
-        /// </summary>
         public readonly string Certificate;
-        /// <summary>
-        /// Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
-        /// </summary>
         public readonly string CertificateChain;
-        /// <summary>
-        /// The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
-        /// </summary>
         public readonly string CertificateSigningRequest;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string KeyStorageSecurityStandard;
-        /// <summary>
-        /// Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-        /// </summary>
         public readonly string NotAfter;
-        /// <summary>
-        /// Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-        /// </summary>
         public readonly string NotBefore;
         public readonly string Region;
-        /// <summary>
-        /// Nested attribute containing revocation configuration.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetCertificateAuthorityRevocationConfigurationResult> RevocationConfigurations;
-        /// <summary>
-        /// Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
-        /// </summary>
         public readonly string Serial;
-        /// <summary>
-        /// Status of the certificate authority.
-        /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// Key-value map of user-defined tags that are attached to the certificate authority.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// Type of the certificate authority.
-        /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly.
-        /// </summary>
         public readonly string UsageMode;
 
         [OutputConstructor]

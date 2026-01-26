@@ -13,102 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.organizations.OrganizationsFunctions;
- * import com.pulumi.aws.organizations.OrganizationalUnit;
- * import com.pulumi.aws.organizations.OrganizationalUnitArgs;
- * import com.pulumi.aws.organizations.Tag;
- * import com.pulumi.aws.organizations.TagArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
- * 
- *         var exampleOrganizationalUnit = new OrganizationalUnit("exampleOrganizationalUnit", OrganizationalUnitArgs.builder()
- *             .name("ExampleOU")
- *             .parentId(example.roots()[0].id())
- *             .build());
- * 
- *         var exampleTag = new Tag("exampleTag", TagArgs.builder()
- *             .resourceId(exampleOrganizationalUnit.id())
- *             .key("ExampleKey")
- *             .value("ExampleValue")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_organizations_tag` using the Organizations resource identifier and key, separated by a comma (`,`). For example:
- * 
- * ```sh
- * $ pulumi import aws:organizations/tag:Tag example ou-1234567,ExampleKey
- * ```
- * 
- */
 @ResourceType(type="aws:organizations/tag:Tag")
 public class Tag extends com.pulumi.resources.CustomResource {
-    /**
-     * Tag name.
-     * 
-     */
     @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
-    /**
-     * @return Tag name.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
-    /**
-     * Id of the Organizations resource to tag.
-     * 
-     */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
-    /**
-     * @return Id of the Organizations resource to tag.
-     * 
-     */
     public Output<String> resourceId() {
         return this.resourceId;
     }
-    /**
-     * Tag value.
-     * 
-     */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
-    /**
-     * @return Tag value.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }

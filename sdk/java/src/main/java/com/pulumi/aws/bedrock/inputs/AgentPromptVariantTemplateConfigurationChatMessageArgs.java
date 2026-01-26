@@ -17,32 +17,16 @@ public final class AgentPromptVariantTemplateConfigurationChatMessageArgs extend
 
     public static final AgentPromptVariantTemplateConfigurationChatMessageArgs Empty = new AgentPromptVariantTemplateConfigurationChatMessageArgs();
 
-    /**
-     * Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
-     * 
-     */
     @Import(name="content")
     private @Nullable Output<AgentPromptVariantTemplateConfigurationChatMessageContentArgs> content;
 
-    /**
-     * @return Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
-     * 
-     */
     public Optional<Output<AgentPromptVariantTemplateConfigurationChatMessageContentArgs>> content() {
         return Optional.ofNullable(this.content);
     }
 
-    /**
-     * The role that the message belongs to.
-     * 
-     */
     @Import(name="role", required=true)
     private Output<String> role;
 
-    /**
-     * @return The role that the message belongs to.
-     * 
-     */
     public Output<String> role() {
         return this.role;
     }
@@ -72,44 +56,20 @@ public final class AgentPromptVariantTemplateConfigurationChatMessageArgs extend
             $ = new AgentPromptVariantTemplateConfigurationChatMessageArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param content Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder content(@Nullable Output<AgentPromptVariantTemplateConfigurationChatMessageContentArgs> content) {
             $.content = content;
             return this;
         }
 
-        /**
-         * @param content Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder content(AgentPromptVariantTemplateConfigurationChatMessageContentArgs content) {
             return content(Output.of(content));
         }
 
-        /**
-         * @param role The role that the message belongs to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder role(Output<String> role) {
             $.role = role;
             return this;
         }
 
-        /**
-         * @param role The role that the message belongs to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder role(String role) {
             return role(Output.of(role));
         }

@@ -7,47 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AWS App Mesh gateway route resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appmesh.GatewayRoute("example", {
- *     name: "example-gateway-route",
- *     meshName: "example-service-mesh",
- *     virtualGatewayName: exampleAwsAppmeshVirtualGateway.name,
- *     spec: {
- *         httpRoute: {
- *             action: {
- *                 target: {
- *                     virtualService: {
- *                         virtualServiceName: exampleAwsAppmeshVirtualService.name,
- *                     },
- *                 },
- *             },
- *             match: {
- *                 prefix: "/",
- *             },
- *         },
- *     },
- *     tags: {
- *         Environment: "test",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import App Mesh gateway routes using `mesh_name` and `virtual_gateway_name` together with the gateway route's `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:appmesh/gatewayRoute:GatewayRoute example mesh/gw1/example-gateway-route
- * ```
- */
 export class GatewayRoute extends pulumi.CustomResource {
     /**
      * Get an existing GatewayRoute resource's state with the given name, ID, and optional extra
@@ -76,53 +35,17 @@ export class GatewayRoute extends pulumi.CustomResource {
         return obj['__pulumiType'] === GatewayRoute.__pulumiType;
     }
 
-    /**
-     * ARN of the gateway route.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Creation date of the gateway route.
-     */
     declare public /*out*/ readonly createdDate: pulumi.Output<string>;
-    /**
-     * Last update date of the gateway route.
-     */
     declare public /*out*/ readonly lastUpdatedDate: pulumi.Output<string>;
-    /**
-     * Name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
-     */
     declare public readonly meshName: pulumi.Output<string>;
-    /**
-     * AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-     */
     declare public readonly meshOwner: pulumi.Output<string>;
-    /**
-     * Name to use for the gateway route. Must be between 1 and 255 characters in length.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Resource owner's AWS account ID.
-     */
     declare public /*out*/ readonly resourceOwner: pulumi.Output<string>;
-    /**
-     * Gateway route specification to apply.
-     */
     declare public readonly spec: pulumi.Output<outputs.appmesh.GatewayRouteSpec>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
-     */
     declare public readonly virtualGatewayName: pulumi.Output<string>;
 
     /**
@@ -183,53 +106,17 @@ export class GatewayRoute extends pulumi.CustomResource {
  * Input properties used for looking up and filtering GatewayRoute resources.
  */
 export interface GatewayRouteState {
-    /**
-     * ARN of the gateway route.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Creation date of the gateway route.
-     */
     createdDate?: pulumi.Input<string>;
-    /**
-     * Last update date of the gateway route.
-     */
     lastUpdatedDate?: pulumi.Input<string>;
-    /**
-     * Name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
-     */
     meshName?: pulumi.Input<string>;
-    /**
-     * AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-     */
     meshOwner?: pulumi.Input<string>;
-    /**
-     * Name to use for the gateway route. Must be between 1 and 255 characters in length.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Resource owner's AWS account ID.
-     */
     resourceOwner?: pulumi.Input<string>;
-    /**
-     * Gateway route specification to apply.
-     */
     spec?: pulumi.Input<inputs.appmesh.GatewayRouteSpec>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
-     */
     virtualGatewayName?: pulumi.Input<string>;
 }
 
@@ -237,32 +124,11 @@ export interface GatewayRouteState {
  * The set of arguments for constructing a GatewayRoute resource.
  */
 export interface GatewayRouteArgs {
-    /**
-     * Name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
-     */
     meshName: pulumi.Input<string>;
-    /**
-     * AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-     */
     meshOwner?: pulumi.Input<string>;
-    /**
-     * Name to use for the gateway route. Must be between 1 and 255 characters in length.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Gateway route specification to apply.
-     */
     spec: pulumi.Input<inputs.appmesh.GatewayRouteSpec>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
-     */
     virtualGatewayName: pulumi.Input<string>;
 }

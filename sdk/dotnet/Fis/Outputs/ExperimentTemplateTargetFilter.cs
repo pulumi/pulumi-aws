@@ -13,15 +13,7 @@ namespace Pulumi.Aws.Fis.Outputs
     [OutputType]
     public sealed class ExperimentTemplateTargetFilter
     {
-        /// <summary>
-        /// Attribute path for the filter.
-        /// </summary>
         public readonly string Path;
-        /// <summary>
-        /// Set of attribute values for the filter.
-        /// 
-        /// &gt; **NOTE:** Values specified in a `Filter` are joined with an `OR` clause, while values across multiple `Filter` blocks are joined with an `AND` clause. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters).
-        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

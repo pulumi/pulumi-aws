@@ -12,15 +12,9 @@ namespace Pulumi.Aws.NetworkManager.Inputs
 
     public sealed class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleInputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Defines the match conditions and actions for the rule. Detailed below.
-        /// </summary>
         [Input("ruleDefinition", required: true)]
         public Input<Inputs.GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionInputArgs> RuleDefinition { get; set; } = null!;
 
-        /// <summary>
-        /// Priority number for the rule within the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
-        /// </summary>
         [Input("ruleNumber", required: true)]
         public Input<int> RuleNumber { get; set; } = null!;
 

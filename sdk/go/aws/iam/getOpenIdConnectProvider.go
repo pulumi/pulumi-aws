@@ -11,59 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This data source can be used to fetch information about a specific
-// IAM OpenID Connect provider. By using this data source, you can retrieve the
-// the resource information by either its `arn` or `url`.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.LookupOpenIdConnectProvider(ctx, &iam.LookupOpenIdConnectProviderArgs{
-//				Arn: pulumi.StringRef("arn:aws:iam::123456789012:oidc-provider/accounts.google.com"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.LookupOpenIdConnectProvider(ctx, &iam.LookupOpenIdConnectProviderArgs{
-//				Url: pulumi.StringRef("https://accounts.google.com"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupOpenIdConnectProvider(ctx *pulumi.Context, args *LookupOpenIdConnectProviderArgs, opts ...pulumi.InvokeOption) (*LookupOpenIdConnectProviderResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOpenIdConnectProviderResult
@@ -76,26 +23,20 @@ func LookupOpenIdConnectProvider(ctx *pulumi.Context, args *LookupOpenIdConnectP
 
 // A collection of arguments for invoking getOpenIdConnectProvider.
 type LookupOpenIdConnectProviderArgs struct {
-	// ARN of the OpenID Connect provider.
-	Arn *string `pulumi:"arn"`
-	// Map of resource tags for the IAM OIDC provider.
+	Arn  *string           `pulumi:"arn"`
 	Tags map[string]string `pulumi:"tags"`
-	// URL of the OpenID Connect provider.
-	Url *string `pulumi:"url"`
+	Url  *string           `pulumi:"url"`
 }
 
 // A collection of values returned by getOpenIdConnectProvider.
 type LookupOpenIdConnectProviderResult struct {
-	Arn string `pulumi:"arn"`
-	// List of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the clientId parameter on OAuth requests.)
+	Arn           string   `pulumi:"arn"`
 	ClientIdLists []string `pulumi:"clientIdLists"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Map of resource tags for the IAM OIDC provider.
-	Tags map[string]string `pulumi:"tags"`
-	// List of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
-	ThumbprintLists []string `pulumi:"thumbprintLists"`
-	Url             string   `pulumi:"url"`
+	Id              string            `pulumi:"id"`
+	Tags            map[string]string `pulumi:"tags"`
+	ThumbprintLists []string          `pulumi:"thumbprintLists"`
+	Url             string            `pulumi:"url"`
 }
 
 func LookupOpenIdConnectProviderOutput(ctx *pulumi.Context, args LookupOpenIdConnectProviderOutputArgs, opts ...pulumi.InvokeOption) LookupOpenIdConnectProviderResultOutput {
@@ -109,12 +50,9 @@ func LookupOpenIdConnectProviderOutput(ctx *pulumi.Context, args LookupOpenIdCon
 
 // A collection of arguments for invoking getOpenIdConnectProvider.
 type LookupOpenIdConnectProviderOutputArgs struct {
-	// ARN of the OpenID Connect provider.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// Map of resource tags for the IAM OIDC provider.
+	Arn  pulumi.StringPtrInput `pulumi:"arn"`
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// URL of the OpenID Connect provider.
-	Url pulumi.StringPtrInput `pulumi:"url"`
+	Url  pulumi.StringPtrInput `pulumi:"url"`
 }
 
 func (LookupOpenIdConnectProviderOutputArgs) ElementType() reflect.Type {
@@ -140,7 +78,6 @@ func (o LookupOpenIdConnectProviderResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOpenIdConnectProviderResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// List of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the clientId parameter on OAuth requests.)
 func (o LookupOpenIdConnectProviderResultOutput) ClientIdLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupOpenIdConnectProviderResult) []string { return v.ClientIdLists }).(pulumi.StringArrayOutput)
 }
@@ -150,12 +87,10 @@ func (o LookupOpenIdConnectProviderResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOpenIdConnectProviderResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Map of resource tags for the IAM OIDC provider.
 func (o LookupOpenIdConnectProviderResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupOpenIdConnectProviderResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// List of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
 func (o LookupOpenIdConnectProviderResultOutput) ThumbprintLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupOpenIdConnectProviderResult) []string { return v.ThumbprintLists }).(pulumi.StringArrayOutput)
 }

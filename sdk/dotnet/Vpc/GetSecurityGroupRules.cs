@@ -11,105 +11,12 @@ namespace Pulumi.Aws.Vpc
 {
     public static class GetSecurityGroupRules
     {
-        /// <summary>
-        /// This resource can be useful for getting back a set of security group rule IDs.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Vpc.GetSecurityGroupRules.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Vpc.Inputs.GetSecurityGroupRulesFilterInputArgs
-        ///             {
-        ///                 Name = "group-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     securityGroupId,
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetSecurityGroupRulesResult> InvokeAsync(GetSecurityGroupRulesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityGroupRulesResult>("aws:vpc/getSecurityGroupRules:getSecurityGroupRules", args ?? new GetSecurityGroupRulesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// This resource can be useful for getting back a set of security group rule IDs.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Vpc.GetSecurityGroupRules.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Vpc.Inputs.GetSecurityGroupRulesFilterInputArgs
-        ///             {
-        ///                 Name = "group-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     securityGroupId,
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetSecurityGroupRulesResult> Invoke(GetSecurityGroupRulesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityGroupRulesResult>("aws:vpc/getSecurityGroupRules:getSecurityGroupRules", args ?? new GetSecurityGroupRulesInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// This resource can be useful for getting back a set of security group rule IDs.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Vpc.GetSecurityGroupRules.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Vpc.Inputs.GetSecurityGroupRulesFilterInputArgs
-        ///             {
-        ///                 Name = "group-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     securityGroupId,
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetSecurityGroupRulesResult> Invoke(GetSecurityGroupRulesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityGroupRulesResult>("aws:vpc/getSecurityGroupRules:getSecurityGroupRules", args ?? new GetSecurityGroupRulesInvokeArgs(), options.WithDefaults());
     }
@@ -119,29 +26,17 @@ namespace Pulumi.Aws.Vpc
     {
         [Input("filters")]
         private List<Inputs.GetSecurityGroupRulesFilterArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// </summary>
         public List<Inputs.GetSecurityGroupRulesFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetSecurityGroupRulesFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired security group rule.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -158,29 +53,17 @@ namespace Pulumi.Aws.Vpc
     {
         [Input("filters")]
         private InputList<Inputs.GetSecurityGroupRulesFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// </summary>
         public InputList<Inputs.GetSecurityGroupRulesFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetSecurityGroupRulesFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired security group rule.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -199,9 +82,6 @@ namespace Pulumi.Aws.Vpc
     {
         public readonly ImmutableArray<Outputs.GetSecurityGroupRulesFilterResult> Filters;
         public readonly string Id;
-        /// <summary>
-        /// List of all the security group rule IDs found.
-        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string Region;
         public readonly ImmutableDictionary<string, string>? Tags;

@@ -11,81 +11,12 @@ namespace Pulumi.Aws.GuardDuty
 {
     public static class GetFindingIds
     {
-        /// <summary>
-        /// Data source for managing an AWS GuardDuty Finding Ids.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.GuardDuty.GetFindingIds.Invoke(new()
-        ///     {
-        ///         DetectorId = exampleAwsGuarddutyDetector.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetFindingIdsResult> InvokeAsync(GetFindingIdsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFindingIdsResult>("aws:guardduty/getFindingIds:getFindingIds", args ?? new GetFindingIdsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS GuardDuty Finding Ids.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.GuardDuty.GetFindingIds.Invoke(new()
-        ///     {
-        ///         DetectorId = exampleAwsGuarddutyDetector.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetFindingIdsResult> Invoke(GetFindingIdsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFindingIdsResult>("aws:guardduty/getFindingIds:getFindingIds", args ?? new GetFindingIdsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS GuardDuty Finding Ids.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.GuardDuty.GetFindingIds.Invoke(new()
-        ///     {
-        ///         DetectorId = exampleAwsGuarddutyDetector.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetFindingIdsResult> Invoke(GetFindingIdsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFindingIdsResult>("aws:guardduty/getFindingIds:getFindingIds", args ?? new GetFindingIdsInvokeArgs(), options.WithDefaults());
     }
@@ -93,15 +24,9 @@ namespace Pulumi.Aws.GuardDuty
 
     public sealed class GetFindingIdsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the GuardDuty detector.
-        /// </summary>
         [Input("detectorId", required: true)]
         public string DetectorId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -113,15 +38,9 @@ namespace Pulumi.Aws.GuardDuty
 
     public sealed class GetFindingIdsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the GuardDuty detector.
-        /// </summary>
         [Input("detectorId", required: true)]
         public Input<string> DetectorId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -136,13 +55,7 @@ namespace Pulumi.Aws.GuardDuty
     public sealed class GetFindingIdsResult
     {
         public readonly string DetectorId;
-        /// <summary>
-        /// A list of finding IDs for the specified detector.
-        /// </summary>
         public readonly ImmutableArray<string> FindingIds;
-        /// <summary>
-        /// Indicates whether findings are present for the specified detector.
-        /// </summary>
         public readonly bool HasFindings;
         public readonly string Id;
         public readonly string Region;

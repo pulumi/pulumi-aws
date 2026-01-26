@@ -26,221 +26,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainDefaultUserSettings {
-    /**
-     * @return Indicates whether auto-mounting of an EFS volume is supported for the user profile. The `DefaultAsDomain` value is only supported for user profiles. Do not use the `DefaultAsDomain` value when setting this parameter for a domain. Valid values are: `Enabled`, `Disabled`, and `DefaultAsDomain`.
-     * 
-     */
     private @Nullable String autoMountHomeEfs;
-    /**
-     * @return The Canvas app settings. See `canvasAppSettings` Block below.
-     * 
-     */
     private @Nullable DomainDefaultUserSettingsCanvasAppSettings canvasAppSettings;
-    /**
-     * @return The Code Editor application settings. See `codeEditorAppSettings` Block below.
-     * 
-     */
     private @Nullable DomainDefaultUserSettingsCodeEditorAppSettings codeEditorAppSettings;
-    /**
-     * @return The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See `customFileSystemConfig` Block below.
-     * 
-     */
     private @Nullable List<DomainDefaultUserSettingsCustomFileSystemConfig> customFileSystemConfigs;
-    /**
-     * @return Details about the POSIX identity that is used for file system operations. See `customPosixUserConfig` Block below.
-     * 
-     */
     private @Nullable DomainDefaultUserSettingsCustomPosixUserConfig customPosixUserConfig;
-    /**
-     * @return The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
-     * 
-     */
     private @Nullable String defaultLandingUri;
-    /**
-     * @return The execution role ARN for the user.
-     * 
-     */
     private String executionRole;
-    /**
-     * @return The settings for the JupyterLab application. See `jupyterLabAppSettings` Block below.
-     * 
-     */
     private @Nullable DomainDefaultUserSettingsJupyterLabAppSettings jupyterLabAppSettings;
-    /**
-     * @return The Jupyter server&#39;s app settings. See `jupyterServerAppSettings` Block below.
-     * 
-     */
     private @Nullable DomainDefaultUserSettingsJupyterServerAppSettings jupyterServerAppSettings;
-    /**
-     * @return The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
-     * 
-     */
     private @Nullable DomainDefaultUserSettingsKernelGatewayAppSettings kernelGatewayAppSettings;
-    /**
-     * @return The RSession app settings. See `rSessionAppSettings` Block below.
-     * 
-     */
     private @Nullable DomainDefaultUserSettingsRSessionAppSettings rSessionAppSettings;
-    /**
-     * @return A collection of settings that configure user interaction with the RStudioServerPro app. See `rStudioServerProAppSettings` Block below.
-     * 
-     */
     private @Nullable DomainDefaultUserSettingsRStudioServerProAppSettings rStudioServerProAppSettings;
-    /**
-     * @return A list of security group IDs that will be attached to the user.
-     * 
-     */
     private @Nullable List<String> securityGroups;
-    /**
-     * @return The sharing settings. See `sharingSettings` Block below.
-     * 
-     */
     private @Nullable DomainDefaultUserSettingsSharingSettings sharingSettings;
-    /**
-     * @return The storage settings for a private space. See `spaceStorageSettings` Block below.
-     * 
-     */
     private @Nullable DomainDefaultUserSettingsSpaceStorageSettings spaceStorageSettings;
-    /**
-     * @return Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     private @Nullable String studioWebPortal;
-    /**
-     * @return The Studio Web Portal settings. See `studioWebPortalSettings` Block below.
-     * 
-     */
     private @Nullable DomainDefaultUserSettingsStudioWebPortalSettings studioWebPortalSettings;
-    /**
-     * @return The TensorBoard app settings. See `tensorBoardAppSettings` Block below.
-     * 
-     */
     private @Nullable DomainDefaultUserSettingsTensorBoardAppSettings tensorBoardAppSettings;
 
     private DomainDefaultUserSettings() {}
-    /**
-     * @return Indicates whether auto-mounting of an EFS volume is supported for the user profile. The `DefaultAsDomain` value is only supported for user profiles. Do not use the `DefaultAsDomain` value when setting this parameter for a domain. Valid values are: `Enabled`, `Disabled`, and `DefaultAsDomain`.
-     * 
-     */
     public Optional<String> autoMountHomeEfs() {
         return Optional.ofNullable(this.autoMountHomeEfs);
     }
-    /**
-     * @return The Canvas app settings. See `canvasAppSettings` Block below.
-     * 
-     */
     public Optional<DomainDefaultUserSettingsCanvasAppSettings> canvasAppSettings() {
         return Optional.ofNullable(this.canvasAppSettings);
     }
-    /**
-     * @return The Code Editor application settings. See `codeEditorAppSettings` Block below.
-     * 
-     */
     public Optional<DomainDefaultUserSettingsCodeEditorAppSettings> codeEditorAppSettings() {
         return Optional.ofNullable(this.codeEditorAppSettings);
     }
-    /**
-     * @return The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See `customFileSystemConfig` Block below.
-     * 
-     */
     public List<DomainDefaultUserSettingsCustomFileSystemConfig> customFileSystemConfigs() {
         return this.customFileSystemConfigs == null ? List.of() : this.customFileSystemConfigs;
     }
-    /**
-     * @return Details about the POSIX identity that is used for file system operations. See `customPosixUserConfig` Block below.
-     * 
-     */
     public Optional<DomainDefaultUserSettingsCustomPosixUserConfig> customPosixUserConfig() {
         return Optional.ofNullable(this.customPosixUserConfig);
     }
-    /**
-     * @return The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
-     * 
-     */
     public Optional<String> defaultLandingUri() {
         return Optional.ofNullable(this.defaultLandingUri);
     }
-    /**
-     * @return The execution role ARN for the user.
-     * 
-     */
     public String executionRole() {
         return this.executionRole;
     }
-    /**
-     * @return The settings for the JupyterLab application. See `jupyterLabAppSettings` Block below.
-     * 
-     */
     public Optional<DomainDefaultUserSettingsJupyterLabAppSettings> jupyterLabAppSettings() {
         return Optional.ofNullable(this.jupyterLabAppSettings);
     }
-    /**
-     * @return The Jupyter server&#39;s app settings. See `jupyterServerAppSettings` Block below.
-     * 
-     */
     public Optional<DomainDefaultUserSettingsJupyterServerAppSettings> jupyterServerAppSettings() {
         return Optional.ofNullable(this.jupyterServerAppSettings);
     }
-    /**
-     * @return The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
-     * 
-     */
     public Optional<DomainDefaultUserSettingsKernelGatewayAppSettings> kernelGatewayAppSettings() {
         return Optional.ofNullable(this.kernelGatewayAppSettings);
     }
-    /**
-     * @return The RSession app settings. See `rSessionAppSettings` Block below.
-     * 
-     */
     public Optional<DomainDefaultUserSettingsRSessionAppSettings> rSessionAppSettings() {
         return Optional.ofNullable(this.rSessionAppSettings);
     }
-    /**
-     * @return A collection of settings that configure user interaction with the RStudioServerPro app. See `rStudioServerProAppSettings` Block below.
-     * 
-     */
     public Optional<DomainDefaultUserSettingsRStudioServerProAppSettings> rStudioServerProAppSettings() {
         return Optional.ofNullable(this.rStudioServerProAppSettings);
     }
-    /**
-     * @return A list of security group IDs that will be attached to the user.
-     * 
-     */
     public List<String> securityGroups() {
         return this.securityGroups == null ? List.of() : this.securityGroups;
     }
-    /**
-     * @return The sharing settings. See `sharingSettings` Block below.
-     * 
-     */
     public Optional<DomainDefaultUserSettingsSharingSettings> sharingSettings() {
         return Optional.ofNullable(this.sharingSettings);
     }
-    /**
-     * @return The storage settings for a private space. See `spaceStorageSettings` Block below.
-     * 
-     */
     public Optional<DomainDefaultUserSettingsSpaceStorageSettings> spaceStorageSettings() {
         return Optional.ofNullable(this.spaceStorageSettings);
     }
-    /**
-     * @return Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     public Optional<String> studioWebPortal() {
         return Optional.ofNullable(this.studioWebPortal);
     }
-    /**
-     * @return The Studio Web Portal settings. See `studioWebPortalSettings` Block below.
-     * 
-     */
     public Optional<DomainDefaultUserSettingsStudioWebPortalSettings> studioWebPortalSettings() {
         return Optional.ofNullable(this.studioWebPortalSettings);
     }
-    /**
-     * @return The TensorBoard app settings. See `tensorBoardAppSettings` Block below.
-     * 
-     */
     public Optional<DomainDefaultUserSettingsTensorBoardAppSettings> tensorBoardAppSettings() {
         return Optional.ofNullable(this.tensorBoardAppSettings);
     }

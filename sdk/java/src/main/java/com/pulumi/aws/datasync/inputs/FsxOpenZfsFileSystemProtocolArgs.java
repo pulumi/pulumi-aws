@@ -14,17 +14,9 @@ public final class FsxOpenZfsFileSystemProtocolArgs extends com.pulumi.resources
 
     public static final FsxOpenZfsFileSystemProtocolArgs Empty = new FsxOpenZfsFileSystemProtocolArgs();
 
-    /**
-     * Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
-     * 
-     */
     @Import(name="nfs", required=true)
     private Output<FsxOpenZfsFileSystemProtocolNfsArgs> nfs;
 
-    /**
-     * @return Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
-     * 
-     */
     public Output<FsxOpenZfsFileSystemProtocolNfsArgs> nfs() {
         return this.nfs;
     }
@@ -53,23 +45,11 @@ public final class FsxOpenZfsFileSystemProtocolArgs extends com.pulumi.resources
             $ = new FsxOpenZfsFileSystemProtocolArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param nfs Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nfs(Output<FsxOpenZfsFileSystemProtocolNfsArgs> nfs) {
             $.nfs = nfs;
             return this;
         }
 
-        /**
-         * @param nfs Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nfs(FsxOpenZfsFileSystemProtocolNfsArgs nfs) {
             return nfs(Output.of(nfs));
         }

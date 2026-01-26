@@ -13,17 +13,8 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeader
     {
-        /// <summary>
-        /// Values in the response header with the specified name that indicate a failed login attempt.
-        /// </summary>
         public readonly ImmutableArray<string> FailureValues;
-        /// <summary>
-        /// The name of the header to use.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Values in the response header with the specified name that indicate a successful login attempt.
-        /// </summary>
         public readonly ImmutableArray<string> SuccessValues;
 
         [OutputConstructor]

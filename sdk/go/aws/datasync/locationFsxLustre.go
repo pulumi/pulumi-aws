@@ -12,65 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS DataSync FSx Lustre Location.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datasync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datasync.NewLocationFsxLustre(ctx, "example", &datasync.LocationFsxLustreArgs{
-//				FsxFilesystemArn: pulumi.Any(exampleAwsFsxLustreFileSystem.Arn),
-//				SecurityGroupArns: pulumi.StringArray{
-//					exampleAwsSecurityGroup.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_datasync_location_fsx_lustre_file_system` using the `DataSync-ARN#FSx-Lustre-ARN`. For example:
-//
-// ```sh
-// $ pulumi import aws:datasync/locationFsxLustre:LocationFsxLustre example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:476956259333:file-system/fs-08e04cd442c1bb94a
-// ```
 type LocationFsxLustre struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the DataSync Location.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The time that the FSx for Lustre location was created.
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// The Amazon Resource Name (ARN) for the FSx for Lustre file system.
-	FsxFilesystemArn pulumi.StringOutput `pulumi:"fsxFilesystemArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
+	Arn               pulumi.StringOutput      `pulumi:"arn"`
+	CreationTime      pulumi.StringOutput      `pulumi:"creationTime"`
+	FsxFilesystemArn  pulumi.StringOutput      `pulumi:"fsxFilesystemArn"`
+	Region            pulumi.StringOutput      `pulumi:"region"`
 	SecurityGroupArns pulumi.StringArrayOutput `pulumi:"securityGroupArns"`
-	// Subdirectory to perform actions as source or destination.
-	Subdirectory pulumi.StringOutput `pulumi:"subdirectory"`
-	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The URL of the FSx for Lustre location that was described.
-	Uri pulumi.StringOutput `pulumi:"uri"`
+	Subdirectory      pulumi.StringOutput      `pulumi:"subdirectory"`
+	Tags              pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll           pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	Uri               pulumi.StringOutput      `pulumi:"uri"`
 }
 
 // NewLocationFsxLustre registers a new resource with the given unique name, arguments, and options.
@@ -109,45 +62,27 @@ func GetLocationFsxLustre(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LocationFsxLustre resources.
 type locationFsxLustreState struct {
-	// Amazon Resource Name (ARN) of the DataSync Location.
-	Arn *string `pulumi:"arn"`
-	// The time that the FSx for Lustre location was created.
-	CreationTime *string `pulumi:"creationTime"`
-	// The Amazon Resource Name (ARN) for the FSx for Lustre file system.
-	FsxFilesystemArn *string `pulumi:"fsxFilesystemArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
-	SecurityGroupArns []string `pulumi:"securityGroupArns"`
-	// Subdirectory to perform actions as source or destination.
-	Subdirectory *string `pulumi:"subdirectory"`
-	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The URL of the FSx for Lustre location that was described.
-	Uri *string `pulumi:"uri"`
+	Arn               *string           `pulumi:"arn"`
+	CreationTime      *string           `pulumi:"creationTime"`
+	FsxFilesystemArn  *string           `pulumi:"fsxFilesystemArn"`
+	Region            *string           `pulumi:"region"`
+	SecurityGroupArns []string          `pulumi:"securityGroupArns"`
+	Subdirectory      *string           `pulumi:"subdirectory"`
+	Tags              map[string]string `pulumi:"tags"`
+	TagsAll           map[string]string `pulumi:"tagsAll"`
+	Uri               *string           `pulumi:"uri"`
 }
 
 type LocationFsxLustreState struct {
-	// Amazon Resource Name (ARN) of the DataSync Location.
-	Arn pulumi.StringPtrInput
-	// The time that the FSx for Lustre location was created.
-	CreationTime pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the FSx for Lustre file system.
-	FsxFilesystemArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
+	Arn               pulumi.StringPtrInput
+	CreationTime      pulumi.StringPtrInput
+	FsxFilesystemArn  pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
 	SecurityGroupArns pulumi.StringArrayInput
-	// Subdirectory to perform actions as source or destination.
-	Subdirectory pulumi.StringPtrInput
-	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The URL of the FSx for Lustre location that was described.
-	Uri pulumi.StringPtrInput
+	Subdirectory      pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	TagsAll           pulumi.StringMapInput
+	Uri               pulumi.StringPtrInput
 }
 
 func (LocationFsxLustreState) ElementType() reflect.Type {
@@ -155,30 +90,20 @@ func (LocationFsxLustreState) ElementType() reflect.Type {
 }
 
 type locationFsxLustreArgs struct {
-	// The Amazon Resource Name (ARN) for the FSx for Lustre file system.
-	FsxFilesystemArn string `pulumi:"fsxFilesystemArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
-	SecurityGroupArns []string `pulumi:"securityGroupArns"`
-	// Subdirectory to perform actions as source or destination.
-	Subdirectory *string `pulumi:"subdirectory"`
-	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	FsxFilesystemArn  string            `pulumi:"fsxFilesystemArn"`
+	Region            *string           `pulumi:"region"`
+	SecurityGroupArns []string          `pulumi:"securityGroupArns"`
+	Subdirectory      *string           `pulumi:"subdirectory"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LocationFsxLustre resource.
 type LocationFsxLustreArgs struct {
-	// The Amazon Resource Name (ARN) for the FSx for Lustre file system.
-	FsxFilesystemArn pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
+	FsxFilesystemArn  pulumi.StringInput
+	Region            pulumi.StringPtrInput
 	SecurityGroupArns pulumi.StringArrayInput
-	// Subdirectory to perform actions as source or destination.
-	Subdirectory pulumi.StringPtrInput
-	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Subdirectory      pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (LocationFsxLustreArgs) ElementType() reflect.Type {
@@ -268,47 +193,38 @@ func (o LocationFsxLustreOutput) ToLocationFsxLustreOutputWithContext(ctx contex
 	return o
 }
 
-// Amazon Resource Name (ARN) of the DataSync Location.
 func (o LocationFsxLustreOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationFsxLustre) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The time that the FSx for Lustre location was created.
 func (o LocationFsxLustreOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationFsxLustre) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) for the FSx for Lustre file system.
 func (o LocationFsxLustreOutput) FsxFilesystemArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationFsxLustre) pulumi.StringOutput { return v.FsxFilesystemArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LocationFsxLustreOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationFsxLustre) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
 func (o LocationFsxLustreOutput) SecurityGroupArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LocationFsxLustre) pulumi.StringArrayOutput { return v.SecurityGroupArns }).(pulumi.StringArrayOutput)
 }
 
-// Subdirectory to perform actions as source or destination.
 func (o LocationFsxLustreOutput) Subdirectory() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationFsxLustre) pulumi.StringOutput { return v.Subdirectory }).(pulumi.StringOutput)
 }
 
-// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o LocationFsxLustreOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LocationFsxLustre) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o LocationFsxLustreOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LocationFsxLustre) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The URL of the FSx for Lustre location that was described.
 func (o LocationFsxLustreOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationFsxLustre) pulumi.StringOutput { return v.Uri }).(pulumi.StringOutput)
 }

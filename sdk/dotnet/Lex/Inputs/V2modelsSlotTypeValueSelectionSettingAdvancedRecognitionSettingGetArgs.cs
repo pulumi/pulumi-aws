@@ -12,10 +12,6 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Enables using the slot values as a custom vocabulary for recognizing user utterances.
-        /// Valid value is `UseSlotValuesAsCustomVocabulary`.
-        /// </summary>
         [Input("audioRecognitionStrategy")]
         public Input<string>? AudioRecognitionStrategy { get; set; }
 

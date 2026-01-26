@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Batch Scheduling Policy data source allows access to details of a specific Scheduling Policy within AWS Batch.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/batch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := batch.LookupSchedulingPolicy(ctx, &batch.LookupSchedulingPolicyArgs{
-//				Arn: "arn:aws:batch:us-east-1:012345678910:scheduling-policy/example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupSchedulingPolicy(ctx *pulumi.Context, args *LookupSchedulingPolicyArgs, opts ...pulumi.InvokeOption) (*LookupSchedulingPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSchedulingPolicyResult
@@ -50,12 +23,9 @@ func LookupSchedulingPolicy(ctx *pulumi.Context, args *LookupSchedulingPolicyArg
 
 // A collection of arguments for invoking getSchedulingPolicy.
 type LookupSchedulingPolicyArgs struct {
-	// ARN of the scheduling policy.
-	Arn string `pulumi:"arn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags
-	Tags map[string]string `pulumi:"tags"`
+	Arn    string            `pulumi:"arn"`
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getSchedulingPolicy.
@@ -63,12 +33,10 @@ type LookupSchedulingPolicyResult struct {
 	Arn               string                               `pulumi:"arn"`
 	FairSharePolicies []GetSchedulingPolicyFairSharePolicy `pulumi:"fairSharePolicies"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Name of the scheduling policy.
-	Name   string `pulumi:"name"`
-	Region string `pulumi:"region"`
-	// Key-value map of resource tags
-	Tags map[string]string `pulumi:"tags"`
+	Id     string            `pulumi:"id"`
+	Name   string            `pulumi:"name"`
+	Region string            `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 func LookupSchedulingPolicyOutput(ctx *pulumi.Context, args LookupSchedulingPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupSchedulingPolicyResultOutput {
@@ -82,12 +50,9 @@ func LookupSchedulingPolicyOutput(ctx *pulumi.Context, args LookupSchedulingPoli
 
 // A collection of arguments for invoking getSchedulingPolicy.
 type LookupSchedulingPolicyOutputArgs struct {
-	// ARN of the scheduling policy.
-	Arn pulumi.StringInput `pulumi:"arn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Arn    pulumi.StringInput    `pulumi:"arn"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Key-value map of resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupSchedulingPolicyOutputArgs) ElementType() reflect.Type {
@@ -122,7 +87,6 @@ func (o LookupSchedulingPolicyResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSchedulingPolicyResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Name of the scheduling policy.
 func (o LookupSchedulingPolicyResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSchedulingPolicyResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -131,7 +95,6 @@ func (o LookupSchedulingPolicyResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSchedulingPolicyResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags
 func (o LookupSchedulingPolicyResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupSchedulingPolicyResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

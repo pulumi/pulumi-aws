@@ -9,58 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ServiceCatalog
 {
-    /// <summary>
-    /// Manages a Service Catalog Budget Resource Association.
-    /// 
-    /// &gt; **Tip:** A "resource" is either a Service Catalog portfolio or product.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ServiceCatalog.BudgetResourceAssociation("example", new()
-    ///     {
-    ///         BudgetName = "budget-pjtvyakdlyo3m",
-    ///         ResourceId = "prod-dnigbtea24ste",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_servicecatalog_budget_resource_association` using the budget name and resource ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation example budget-pjtvyakdlyo3m:prod-dnigbtea24ste
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation")]
     public partial class BudgetResourceAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Budget name.
-        /// </summary>
         [Output("budgetName")]
         public Output<string> BudgetName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Resource identifier.
-        /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 
@@ -110,21 +67,12 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class BudgetResourceAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Budget name.
-        /// </summary>
         [Input("budgetName", required: true)]
         public Input<string> BudgetName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Resource identifier.
-        /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
 
@@ -136,21 +84,12 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class BudgetResourceAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Budget name.
-        /// </summary>
         [Input("budgetName")]
         public Input<string>? BudgetName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Resource identifier.
-        /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
 

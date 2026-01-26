@@ -13,175 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages an association with WAF Regional Web ACL.
- * 
- * &gt; **Note:** An Application Load Balancer can only be associated with one WAF Regional WebACL.
- * 
- * ## Example Usage
- * 
- * ### Application Load Balancer Association
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.wafregional.IpSet;
- * import com.pulumi.aws.wafregional.IpSetArgs;
- * import com.pulumi.aws.wafregional.inputs.IpSetIpSetDescriptorArgs;
- * import com.pulumi.aws.wafregional.Rule;
- * import com.pulumi.aws.wafregional.RuleArgs;
- * import com.pulumi.aws.wafregional.inputs.RulePredicateArgs;
- * import com.pulumi.aws.wafregional.WebAcl;
- * import com.pulumi.aws.wafregional.WebAclArgs;
- * import com.pulumi.aws.wafregional.inputs.WebAclDefaultActionArgs;
- * import com.pulumi.aws.wafregional.inputs.WebAclRuleArgs;
- * import com.pulumi.aws.wafregional.inputs.WebAclRuleActionArgs;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
- * import com.pulumi.aws.ec2.Subnet;
- * import com.pulumi.aws.ec2.SubnetArgs;
- * import com.pulumi.aws.alb.LoadBalancer;
- * import com.pulumi.aws.alb.LoadBalancerArgs;
- * import com.pulumi.aws.wafregional.WebAclAssociation;
- * import com.pulumi.aws.wafregional.WebAclAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var ipset = new IpSet("ipset", IpSetArgs.builder()
- *             .name("tfIPSet")
- *             .ipSetDescriptors(IpSetIpSetDescriptorArgs.builder()
- *                 .type("IPV4")
- *                 .value("192.0.7.0/24")
- *                 .build())
- *             .build());
- * 
- *         var foo = new Rule("foo", RuleArgs.builder()
- *             .name("tfWAFRule")
- *             .metricName("tfWAFRule")
- *             .predicates(RulePredicateArgs.builder()
- *                 .dataId(ipset.id())
- *                 .negated(false)
- *                 .type("IPMatch")
- *                 .build())
- *             .build());
- * 
- *         var fooWebAcl = new WebAcl("fooWebAcl", WebAclArgs.builder()
- *             .name("foo")
- *             .metricName("foo")
- *             .defaultAction(WebAclDefaultActionArgs.builder()
- *                 .type("ALLOW")
- *                 .build())
- *             .rules(WebAclRuleArgs.builder()
- *                 .action(WebAclRuleActionArgs.builder()
- *                     .type("BLOCK")
- *                     .build())
- *                 .priority(1)
- *                 .ruleId(foo.id())
- *                 .build())
- *             .build());
- * 
- *         var fooVpc = new Vpc("fooVpc", VpcArgs.builder()
- *             .cidrBlock("10.1.0.0/16")
- *             .build());
- * 
- *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
- *             .build());
- * 
- *         var fooSubnet = new Subnet("fooSubnet", SubnetArgs.builder()
- *             .vpcId(fooVpc.id())
- *             .cidrBlock("10.1.1.0/24")
- *             .availabilityZone(available.names()[0])
- *             .build());
- * 
- *         var bar = new Subnet("bar", SubnetArgs.builder()
- *             .vpcId(fooVpc.id())
- *             .cidrBlock("10.1.2.0/24")
- *             .availabilityZone(available.names()[1])
- *             .build());
- * 
- *         var fooLoadBalancer = new LoadBalancer("fooLoadBalancer", LoadBalancerArgs.builder()
- *             .internal(true)
- *             .subnets(            
- *                 fooSubnet.id(),
- *                 bar.id())
- *             .build());
- * 
- *         var fooWebAclAssociation = new WebAclAssociation("fooWebAclAssociation", WebAclAssociationArgs.builder()
- *             .resourceArn(fooLoadBalancer.arn())
- *             .webAclId(fooWebAcl.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import WAF Regional Web ACL Association using their `web_acl_id:resource_arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:wafregional/webAclAssociation:WebAclAssociation foo web_acl_id:resource_arn
- * ```
- * 
- */
 @ResourceType(type="aws:wafregional/webAclAssociation:WebAclAssociation")
 public class WebAclAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
-     * 
-     */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
-    /**
-     * @return ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
-    /**
-     * The ID of the WAF Regional WebACL to create an association.
-     * 
-     */
     @Export(name="webAclId", refs={String.class}, tree="[0]")
     private Output<String> webAclId;
 
-    /**
-     * @return The ID of the WAF Regional WebACL to create an association.
-     * 
-     */
     public Output<String> webAclId() {
         return this.webAclId;
     }

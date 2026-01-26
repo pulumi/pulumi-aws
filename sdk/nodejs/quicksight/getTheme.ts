@@ -7,22 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing an AWS QuickSight Theme.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.quicksight.getTheme({
- *     themeId: "example",
- * });
- * ```
- */
 export function getTheme(args: GetThemeArgs, opts?: pulumi.InvokeOptions): Promise<GetThemeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:quicksight/getTheme:getTheme", {
@@ -38,19 +22,8 @@ export function getTheme(args: GetThemeArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetThemeArgs {
     awsAccountId?: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tags?: {[key: string]: string};
-    /**
-     * Identifier of the theme.
-     *
-     * The following arguments are optional:
-     */
     themeId: string;
 }
 
@@ -58,74 +31,25 @@ export interface GetThemeArgs {
  * A collection of values returned by getTheme.
  */
 export interface GetThemeResult {
-    /**
-     * ARN of the theme.
-     */
     readonly arn: string;
     readonly awsAccountId: string;
-    /**
-     * The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight.
-     */
     readonly baseThemeId: string;
-    /**
-     * The theme configuration, which contains the theme display properties. See configuration.
-     */
     readonly configurations: outputs.quicksight.GetThemeConfiguration[];
-    /**
-     * The time that the theme was created.
-     */
     readonly createdTime: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * The time that the theme was last updated.
-     */
     readonly lastUpdatedTime: string;
-    /**
-     * Display name of the theme.
-     */
     readonly name: string;
-    /**
-     * A set of resource permissions on the theme. See permissions.
-     */
     readonly permissions: outputs.quicksight.GetThemePermission[];
     readonly region: string;
-    /**
-     * The theme creation status.
-     */
     readonly status: string;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     readonly tags: {[key: string]: string};
     readonly themeId: string;
-    /**
-     * A description of the current theme version being created/updated.
-     */
     readonly versionDescription: string;
-    /**
-     * The version number of the theme version.
-     */
     readonly versionNumber: number;
 }
-/**
- * Data source for managing an AWS QuickSight Theme.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.quicksight.getTheme({
- *     themeId: "example",
- * });
- * ```
- */
 export function getThemeOutput(args: GetThemeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetThemeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:quicksight/getTheme:getTheme", {
@@ -141,18 +65,7 @@ export function getThemeOutput(args: GetThemeOutputArgs, opts?: pulumi.InvokeOut
  */
 export interface GetThemeOutputArgs {
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Identifier of the theme.
-     *
-     * The following arguments are optional:
-     */
     themeId: pulumi.Input<string>;
 }

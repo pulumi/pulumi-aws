@@ -18,77 +18,37 @@ public final class AnalyticsConfigurationArgs extends com.pulumi.resources.Resou
 
     public static final AnalyticsConfigurationArgs Empty = new AnalyticsConfigurationArgs();
 
-    /**
-     * Name of the bucket this analytics configuration is associated with.
-     * 
-     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
-    /**
-     * @return Name of the bucket this analytics configuration is associated with.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
-    /**
-     * Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
-     * 
-     */
     @Import(name="filter")
     private @Nullable Output<AnalyticsConfigurationFilterArgs> filter;
 
-    /**
-     * @return Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
-     * 
-     */
     public Optional<Output<AnalyticsConfigurationFilterArgs>> filter() {
         return Optional.ofNullable(this.filter);
     }
 
-    /**
-     * Unique identifier of the analytics configuration for the bucket.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Unique identifier of the analytics configuration for the bucket.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Configuration for the analytics data export (documented below).
-     * 
-     */
     @Import(name="storageClassAnalysis")
     private @Nullable Output<AnalyticsConfigurationStorageClassAnalysisArgs> storageClassAnalysis;
 
-    /**
-     * @return Configuration for the analytics data export (documented below).
-     * 
-     */
     public Optional<Output<AnalyticsConfigurationStorageClassAnalysisArgs>> storageClassAnalysis() {
         return Optional.ofNullable(this.storageClassAnalysis);
     }
@@ -121,107 +81,47 @@ public final class AnalyticsConfigurationArgs extends com.pulumi.resources.Resou
             $ = new AnalyticsConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket Name of the bucket this analytics configuration is associated with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket Name of the bucket this analytics configuration is associated with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param filter Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder filter(@Nullable Output<AnalyticsConfigurationFilterArgs> filter) {
             $.filter = filter;
             return this;
         }
 
-        /**
-         * @param filter Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder filter(AnalyticsConfigurationFilterArgs filter) {
             return filter(Output.of(filter));
         }
 
-        /**
-         * @param name Unique identifier of the analytics configuration for the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Unique identifier of the analytics configuration for the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param storageClassAnalysis Configuration for the analytics data export (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageClassAnalysis(@Nullable Output<AnalyticsConfigurationStorageClassAnalysisArgs> storageClassAnalysis) {
             $.storageClassAnalysis = storageClassAnalysis;
             return this;
         }
 
-        /**
-         * @param storageClassAnalysis Configuration for the analytics data export (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageClassAnalysis(AnalyticsConfigurationStorageClassAnalysisArgs storageClassAnalysis) {
             return storageClassAnalysis(Output.of(storageClassAnalysis));
         }

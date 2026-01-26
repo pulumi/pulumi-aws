@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Dlm.Outputs
     [OutputType]
     public sealed class LifecyclePolicyPolicyDetailsExclusions
     {
-        /// <summary>
-        /// Indicates whether to exclude volumes that are attached to instances as the boot volume. To exclude boot volumes, specify `True`.
-        /// </summary>
         public readonly bool? ExcludeBootVolumes;
-        /// <summary>
-        /// Map specifies whether to exclude volumes that have specific tags.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? ExcludeTags;
-        /// <summary>
-        /// List specifies the volume types to exclude.
-        /// </summary>
         public readonly ImmutableArray<string> ExcludeVolumeTypes;
 
         [OutputConstructor]

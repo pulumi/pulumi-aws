@@ -16,69 +16,36 @@ public final class CiphertextState extends com.pulumi.resources.ResourceArgs {
 
     public static final CiphertextState Empty = new CiphertextState();
 
-    /**
-     * Base64 encoded ciphertext
-     * 
-     */
     @Import(name="ciphertextBlob")
     private @Nullable Output<String> ciphertextBlob;
 
-    /**
-     * @return Base64 encoded ciphertext
-     * 
-     */
     public Optional<Output<String>> ciphertextBlob() {
         return Optional.ofNullable(this.ciphertextBlob);
     }
 
-    /**
-     * An optional mapping that makes up the encryption context.
-     * 
-     */
     @Import(name="context")
     private @Nullable Output<Map<String,String>> context;
 
-    /**
-     * @return An optional mapping that makes up the encryption context.
-     * 
-     */
     public Optional<Output<Map<String,String>>> context() {
         return Optional.ofNullable(this.context);
     }
 
-    /**
-     * Globally unique key ID for the customer master key.
-     * 
-     */
     @Import(name="keyId")
     private @Nullable Output<String> keyId;
 
-    /**
-     * @return Globally unique key ID for the customer master key.
-     * 
-     */
     public Optional<Output<String>> keyId() {
         return Optional.ofNullable(this.keyId);
     }
 
-    /**
-     * Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-     * 
-     */
     @Import(name="plaintext")
     private @Nullable Output<String> plaintext;
 
-    /**
-     * @return Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-     * 
-     */
     public Optional<Output<String>> plaintext() {
         return Optional.ofNullable(this.plaintext);
     }
 
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
      * 
      */
     @Import(name="plaintextWo")
@@ -86,39 +53,22 @@ public final class CiphertextState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
      * 
      */
     public Optional<Output<String>> plaintextWo() {
         return Optional.ofNullable(this.plaintextWo);
     }
 
-    /**
-     * Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
-     * 
-     */
     @Import(name="plaintextWoVersion")
     private @Nullable Output<String> plaintextWoVersion;
 
-    /**
-     * @return Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
-     * 
-     */
     public Optional<Output<String>> plaintextWoVersion() {
         return Optional.ofNullable(this.plaintextWoVersion);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -153,93 +103,44 @@ public final class CiphertextState extends com.pulumi.resources.ResourceArgs {
             $ = new CiphertextState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ciphertextBlob Base64 encoded ciphertext
-         * 
-         * @return builder
-         * 
-         */
         public Builder ciphertextBlob(@Nullable Output<String> ciphertextBlob) {
             $.ciphertextBlob = ciphertextBlob;
             return this;
         }
 
-        /**
-         * @param ciphertextBlob Base64 encoded ciphertext
-         * 
-         * @return builder
-         * 
-         */
         public Builder ciphertextBlob(String ciphertextBlob) {
             return ciphertextBlob(Output.of(ciphertextBlob));
         }
 
-        /**
-         * @param context An optional mapping that makes up the encryption context.
-         * 
-         * @return builder
-         * 
-         */
         public Builder context(@Nullable Output<Map<String,String>> context) {
             $.context = context;
             return this;
         }
 
-        /**
-         * @param context An optional mapping that makes up the encryption context.
-         * 
-         * @return builder
-         * 
-         */
         public Builder context(Map<String,String> context) {
             return context(Output.of(context));
         }
 
-        /**
-         * @param keyId Globally unique key ID for the customer master key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyId(@Nullable Output<String> keyId) {
             $.keyId = keyId;
             return this;
         }
 
-        /**
-         * @param keyId Globally unique key ID for the customer master key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyId(String keyId) {
             return keyId(Output.of(keyId));
         }
 
-        /**
-         * @param plaintext Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-         * 
-         * @return builder
-         * 
-         */
         public Builder plaintext(@Nullable Output<String> plaintext) {
             $.plaintext = plaintext;
             return this;
         }
 
-        /**
-         * @param plaintext Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-         * 
-         * @return builder
-         * 
-         */
         public Builder plaintext(String plaintext) {
             return plaintext(Output.of(plaintext));
         }
 
         /**
          * @param plaintextWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
          * 
          * @return builder
          * 
@@ -251,7 +152,6 @@ public final class CiphertextState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param plaintextWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
          * 
          * @return builder
          * 
@@ -260,44 +160,20 @@ public final class CiphertextState extends com.pulumi.resources.ResourceArgs {
             return plaintextWo(Output.of(plaintextWo));
         }
 
-        /**
-         * @param plaintextWoVersion Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder plaintextWoVersion(@Nullable Output<String> plaintextWoVersion) {
             $.plaintextWoVersion = plaintextWoVersion;
             return this;
         }
 
-        /**
-         * @param plaintextWoVersion Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder plaintextWoVersion(String plaintextWoVersion) {
             return plaintextWoVersion(Output.of(plaintextWoVersion));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

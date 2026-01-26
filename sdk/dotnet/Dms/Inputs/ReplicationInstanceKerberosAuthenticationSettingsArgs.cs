@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Dms.Inputs
 
     public sealed class ReplicationInstanceKerberosAuthenticationSettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the IAM role that grants AWS DMS access to the secret containing key cache file for the Kerberos authentication.
-        /// </summary>
         [Input("keyCacheSecretIamArn", required: true)]
         public Input<string> KeyCacheSecretIamArn { get; set; } = null!;
 
-        /// <summary>
-        /// Secret ID that stores the key cache file required for Kerberos authentication.
-        /// </summary>
         [Input("keyCacheSecretId", required: true)]
         public Input<string> KeyCacheSecretId { get; set; } = null!;
 
-        /// <summary>
-        /// Contents of krb5 configuration file required for Kerberos authentication.
-        /// </summary>
         [Input("krb5FileContents", required: true)]
         public Input<string> Krb5FileContents { get; set; } = null!;
 

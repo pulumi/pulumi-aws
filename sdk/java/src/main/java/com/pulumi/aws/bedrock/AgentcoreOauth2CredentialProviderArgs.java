@@ -17,66 +17,30 @@ public final class AgentcoreOauth2CredentialProviderArgs extends com.pulumi.reso
 
     public static final AgentcoreOauth2CredentialProviderArgs Empty = new AgentcoreOauth2CredentialProviderArgs();
 
-    /**
-     * Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
-     * 
-     */
     @Import(name="credentialProviderVendor", required=true)
     private Output<String> credentialProviderVendor;
 
-    /**
-     * @return Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
-     * 
-     */
     public Output<String> credentialProviderVendor() {
         return this.credentialProviderVendor;
     }
 
-    /**
-     * Name of the OAuth2 credential provider.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the OAuth2 credential provider.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="oauth2ProviderConfig")
     private @Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs> oauth2ProviderConfig;
 
-    /**
-     * @return OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs>> oauth2ProviderConfig() {
         return Optional.ofNullable(this.oauth2ProviderConfig);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -108,90 +72,38 @@ public final class AgentcoreOauth2CredentialProviderArgs extends com.pulumi.reso
             $ = new AgentcoreOauth2CredentialProviderArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param credentialProviderVendor Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder credentialProviderVendor(Output<String> credentialProviderVendor) {
             $.credentialProviderVendor = credentialProviderVendor;
             return this;
         }
 
-        /**
-         * @param credentialProviderVendor Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder credentialProviderVendor(String credentialProviderVendor) {
             return credentialProviderVendor(Output.of(credentialProviderVendor));
         }
 
-        /**
-         * @param name Name of the OAuth2 credential provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the OAuth2 credential provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param oauth2ProviderConfig OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` below.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder oauth2ProviderConfig(@Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs> oauth2ProviderConfig) {
             $.oauth2ProviderConfig = oauth2ProviderConfig;
             return this;
         }
 
-        /**
-         * @param oauth2ProviderConfig OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` below.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder oauth2ProviderConfig(AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs oauth2ProviderConfig) {
             return oauth2ProviderConfig(Output.of(oauth2ProviderConfig));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

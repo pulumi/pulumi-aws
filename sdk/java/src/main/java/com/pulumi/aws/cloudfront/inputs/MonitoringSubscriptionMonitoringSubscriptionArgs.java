@@ -14,17 +14,9 @@ public final class MonitoringSubscriptionMonitoringSubscriptionArgs extends com.
 
     public static final MonitoringSubscriptionMonitoringSubscriptionArgs Empty = new MonitoringSubscriptionMonitoringSubscriptionArgs();
 
-    /**
-     * A subscription configuration for additional CloudWatch metrics. See below.
-     * 
-     */
     @Import(name="realtimeMetricsSubscriptionConfig", required=true)
     private Output<MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs> realtimeMetricsSubscriptionConfig;
 
-    /**
-     * @return A subscription configuration for additional CloudWatch metrics. See below.
-     * 
-     */
     public Output<MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs> realtimeMetricsSubscriptionConfig() {
         return this.realtimeMetricsSubscriptionConfig;
     }
@@ -53,23 +45,11 @@ public final class MonitoringSubscriptionMonitoringSubscriptionArgs extends com.
             $ = new MonitoringSubscriptionMonitoringSubscriptionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param realtimeMetricsSubscriptionConfig A subscription configuration for additional CloudWatch metrics. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder realtimeMetricsSubscriptionConfig(Output<MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs> realtimeMetricsSubscriptionConfig) {
             $.realtimeMetricsSubscriptionConfig = realtimeMetricsSubscriptionConfig;
             return this;
         }
 
-        /**
-         * @param realtimeMetricsSubscriptionConfig A subscription configuration for additional CloudWatch metrics. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder realtimeMetricsSubscriptionConfig(MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs realtimeMetricsSubscriptionConfig) {
             return realtimeMetricsSubscriptionConfig(Output.of(realtimeMetricsSubscriptionConfig));
         }

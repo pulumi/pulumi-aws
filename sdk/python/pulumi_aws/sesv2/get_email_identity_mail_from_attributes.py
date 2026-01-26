@@ -46,9 +46,6 @@ class GetEmailIdentityMailFromAttributesResult:
     @_builtins.property
     @pulumi.getter(name="behaviorOnMxFailure")
     def behavior_on_mx_failure(self) -> _builtins.str:
-        """
-        The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
-        """
         return pulumi.get(self, "behavior_on_mx_failure")
 
     @_builtins.property
@@ -67,9 +64,6 @@ class GetEmailIdentityMailFromAttributesResult:
     @_builtins.property
     @pulumi.getter(name="mailFromDomain")
     def mail_from_domain(self) -> _builtins.str:
-        """
-        The custom MAIL FROM domain that you want the verified identity to use.
-        """
         return pulumi.get(self, "mail_from_domain")
 
     @_builtins.property
@@ -95,23 +89,7 @@ def get_email_identity_mail_from_attributes(email_identity: Optional[_builtins.s
                                             region: Optional[_builtins.str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEmailIdentityMailFromAttributesResult:
     """
-    Data source for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.sesv2.get_email_identity(email_identity="example.com")
-    example_get_email_identity_mail_from_attributes = aws.sesv2.get_email_identity_mail_from_attributes(email_identity=example.email_identity)
-    ```
-
-
-    :param _builtins.str email_identity: The name of the email identity.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['emailIdentity'] = email_identity
@@ -129,23 +107,7 @@ def get_email_identity_mail_from_attributes_output(email_identity: Optional[pulu
                                                    region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEmailIdentityMailFromAttributesResult]:
     """
-    Data source for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.sesv2.get_email_identity(email_identity="example.com")
-    example_get_email_identity_mail_from_attributes = aws.sesv2.get_email_identity_mail_from_attributes(email_identity=example.email_identity)
-    ```
-
-
-    :param _builtins.str email_identity: The name of the email identity.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['emailIdentity'] = email_identity

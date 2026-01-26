@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether the user can interrupt a speech response from Amazon Lex.
-        /// </summary>
         [Input("allowInterrupt")]
         public Input<bool>? AllowInterrupt { get; set; }
 
         [Input("messageGroups")]
         private InputList<Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupGetArgs>? _messageGroups;
-
-        /// <summary>
-        /// Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `MessageGroup`.
-        /// </summary>
         public InputList<Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupGetArgs> MessageGroups
         {
             get => _messageGroups ?? (_messageGroups = new InputList<Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupGetArgs>());

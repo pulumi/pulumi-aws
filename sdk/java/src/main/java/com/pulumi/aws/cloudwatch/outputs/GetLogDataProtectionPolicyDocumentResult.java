@@ -22,10 +22,6 @@ public final class GetLogDataProtectionPolicyDocumentResult {
      * 
      */
     private String id;
-    /**
-     * @return Standard JSON policy document rendered based on the arguments above.
-     * 
-     */
     private String json;
     private String name;
     private List<GetLogDataProtectionPolicyDocumentStatement> statements;
@@ -45,10 +41,6 @@ public final class GetLogDataProtectionPolicyDocumentResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Standard JSON policy document rendered based on the arguments above.
-     * 
-     */
     public String json() {
         return this.json;
     }

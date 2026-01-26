@@ -20,47 +20,23 @@ public final class ExportExportArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ExportExportArgs Empty = new ExportExportArgs();
 
-    /**
-     * Data query for this specific data export. See the `dataQuery` argument reference below.
-     * 
-     */
     @Import(name="dataQueries")
     private @Nullable Output<List<ExportExportDataQueryArgs>> dataQueries;
 
-    /**
-     * @return Data query for this specific data export. See the `dataQuery` argument reference below.
-     * 
-     */
     public Optional<Output<List<ExportExportDataQueryArgs>>> dataQueries() {
         return Optional.ofNullable(this.dataQueries);
     }
 
-    /**
-     * Description for this specific data export.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description for this specific data export.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Destination configuration for this specific data export. See the `destinationConfigurations` argument reference below.
-     * 
-     */
     @Import(name="destinationConfigurations")
     private @Nullable Output<List<ExportExportDestinationConfigurationArgs>> destinationConfigurations;
 
-    /**
-     * @return Destination configuration for this specific data export. See the `destinationConfigurations` argument reference below.
-     * 
-     */
     public Optional<Output<List<ExportExportDestinationConfigurationArgs>>> destinationConfigurations() {
         return Optional.ofNullable(this.destinationConfigurations);
     }
@@ -72,32 +48,16 @@ public final class ExportExportArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.exportArn);
     }
 
-    /**
-     * Name of this specific data export.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of this specific data export.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refreshCadence` argument reference below.
-     * 
-     */
     @Import(name="refreshCadences")
     private @Nullable Output<List<ExportExportRefreshCadenceArgs>> refreshCadences;
 
-    /**
-     * @return Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refreshCadence` argument reference below.
-     * 
-     */
     public Optional<Output<List<ExportExportRefreshCadenceArgs>>> refreshCadences() {
         return Optional.ofNullable(this.refreshCadences);
     }
@@ -131,85 +91,37 @@ public final class ExportExportArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ExportExportArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dataQueries Data query for this specific data export. See the `dataQuery` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataQueries(@Nullable Output<List<ExportExportDataQueryArgs>> dataQueries) {
             $.dataQueries = dataQueries;
             return this;
         }
 
-        /**
-         * @param dataQueries Data query for this specific data export. See the `dataQuery` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataQueries(List<ExportExportDataQueryArgs> dataQueries) {
             return dataQueries(Output.of(dataQueries));
         }
 
-        /**
-         * @param dataQueries Data query for this specific data export. See the `dataQuery` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataQueries(ExportExportDataQueryArgs... dataQueries) {
             return dataQueries(List.of(dataQueries));
         }
 
-        /**
-         * @param description Description for this specific data export.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description for this specific data export.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param destinationConfigurations Destination configuration for this specific data export. See the `destinationConfigurations` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationConfigurations(@Nullable Output<List<ExportExportDestinationConfigurationArgs>> destinationConfigurations) {
             $.destinationConfigurations = destinationConfigurations;
             return this;
         }
 
-        /**
-         * @param destinationConfigurations Destination configuration for this specific data export. See the `destinationConfigurations` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationConfigurations(List<ExportExportDestinationConfigurationArgs> destinationConfigurations) {
             return destinationConfigurations(Output.of(destinationConfigurations));
         }
 
-        /**
-         * @param destinationConfigurations Destination configuration for this specific data export. See the `destinationConfigurations` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationConfigurations(ExportExportDestinationConfigurationArgs... destinationConfigurations) {
             return destinationConfigurations(List.of(destinationConfigurations));
         }
@@ -223,54 +135,24 @@ public final class ExportExportArgs extends com.pulumi.resources.ResourceArgs {
             return exportArn(Output.of(exportArn));
         }
 
-        /**
-         * @param name Name of this specific data export.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of this specific data export.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param refreshCadences Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refreshCadence` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder refreshCadences(@Nullable Output<List<ExportExportRefreshCadenceArgs>> refreshCadences) {
             $.refreshCadences = refreshCadences;
             return this;
         }
 
-        /**
-         * @param refreshCadences Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refreshCadence` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder refreshCadences(List<ExportExportRefreshCadenceArgs> refreshCadences) {
             return refreshCadences(Output.of(refreshCadences));
         }
 
-        /**
-         * @param refreshCadences Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refreshCadence` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder refreshCadences(ExportExportRefreshCadenceArgs... refreshCadences) {
             return refreshCadences(List.of(refreshCadences));
         }

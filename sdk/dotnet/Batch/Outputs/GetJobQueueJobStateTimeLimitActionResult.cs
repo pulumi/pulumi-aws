@@ -16,9 +16,6 @@ namespace Pulumi.Aws.Batch.Outputs
         public readonly string Action;
         public readonly int MaxTimeSeconds;
         public readonly string Reason;
-        /// <summary>
-        /// Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
-        /// </summary>
         public readonly string State;
 
         [OutputConstructor]

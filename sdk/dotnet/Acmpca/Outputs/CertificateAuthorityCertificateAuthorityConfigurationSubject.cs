@@ -13,57 +13,18 @@ namespace Pulumi.Aws.Acmpca.Outputs
     [OutputType]
     public sealed class CertificateAuthorityCertificateAuthorityConfigurationSubject
     {
-        /// <summary>
-        /// Fully qualified domain name (FQDN) associated with the certificate subject. Must be less than or equal to 64 characters in length.
-        /// </summary>
         public readonly string? CommonName;
-        /// <summary>
-        /// Two digit code that specifies the country in which the certificate subject located. Must be less than or equal to 2 characters in length.
-        /// </summary>
         public readonly string? Country;
-        /// <summary>
-        /// Disambiguating information for the certificate subject. Must be less than or equal to 64 characters in length.
-        /// </summary>
         public readonly string? DistinguishedNameQualifier;
-        /// <summary>
-        /// Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third. Must be less than or equal to 3 characters in length.
-        /// </summary>
         public readonly string? GenerationQualifier;
-        /// <summary>
-        /// First name. Must be less than or equal to 16 characters in length.
-        /// </summary>
         public readonly string? GivenName;
-        /// <summary>
-        /// Concatenation that typically contains the first letter of the `GivenName`, the first letter of the middle name if one exists, and the first letter of the `Surname`. Must be less than or equal to 5 characters in length.
-        /// </summary>
         public readonly string? Initials;
-        /// <summary>
-        /// Locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
-        /// </summary>
         public readonly string? Locality;
-        /// <summary>
-        /// Legal name of the organization with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
-        /// </summary>
         public readonly string? Organization;
-        /// <summary>
-        /// Subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
-        /// </summary>
         public readonly string? OrganizationalUnit;
-        /// <summary>
-        /// Typically a shortened version of a longer `GivenName`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza. Must be less than or equal to 128 characters in length.
-        /// </summary>
         public readonly string? Pseudonym;
-        /// <summary>
-        /// State in which the subject of the certificate is located. Must be less than or equal to 128 characters in length.
-        /// </summary>
         public readonly string? State;
-        /// <summary>
-        /// Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first. Must be less than or equal to 40 characters in length.
-        /// </summary>
         public readonly string? Surname;
-        /// <summary>
-        /// Title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
-        /// </summary>
         public readonly string? Title;
 
         [OutputConstructor]

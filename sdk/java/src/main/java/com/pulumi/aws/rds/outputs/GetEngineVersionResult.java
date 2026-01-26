@@ -15,22 +15,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEngineVersionResult {
-    /**
-     * @return Default character set for new instances of the engine version.
-     * 
-     */
     private String defaultCharacterSet;
     private @Nullable Boolean defaultOnly;
     private String engine;
-    /**
-     * @return Description of the engine.
-     * 
-     */
     private String engineDescription;
-    /**
-     * @return Set of log types that the engine version has available for export to CloudWatch Logs.
-     * 
-     */
     private List<String> exportableLogTypes;
     private @Nullable List<GetEngineVersionFilter> filters;
     private @Nullable Boolean hasMajorTarget;
@@ -47,103 +35,27 @@ public final class GetEngineVersionResult {
     private @Nullable List<String> preferredUpgradeTargets;
     private @Nullable List<String> preferredVersions;
     private String region;
-    /**
-     * @return Status of the engine version, either `available` or `deprecated`.
-     * 
-     */
     private String status;
-    /**
-     * @return Set of character sets supported by th engine version.
-     * 
-     */
     private List<String> supportedCharacterSets;
-    /**
-     * @return Set of features supported by the engine version.
-     * 
-     */
     private List<String> supportedFeatureNames;
-    /**
-     * @return Set of supported engine version modes.
-     * 
-     */
     private List<String> supportedModes;
-    /**
-     * @return Set of the time zones supported by the engine version.
-     * 
-     */
     private List<String> supportedTimezones;
-    /**
-     * @return Whether the certificates can be rotated without restarting the Aurora instance.
-     * 
-     */
     private Boolean supportsCertificateRotationWithoutRestart;
-    /**
-     * @return Whether you can use Aurora global databases with the engine version.
-     * 
-     */
     private Boolean supportsGlobalDatabases;
-    /**
-     * @return Whether the engine version supports integrations with other AWS services.
-     * 
-     */
     private Boolean supportsIntegrations;
-    /**
-     * @return Whether the engine version supports Aurora Limitless Database.
-     * 
-     */
     private Boolean supportsLimitlessDatabase;
-    /**
-     * @return Whether the engine version supports local write forwarding or not.
-     * 
-     */
     private Boolean supportsLocalWriteForwarding;
-    /**
-     * @return Whether the engine version supports exporting the log types specified by `exportableLogTypes` to CloudWatch Logs.
-     * 
-     */
     private Boolean supportsLogExportsToCloudwatch;
-    /**
-     * @return Whether you can use Aurora parallel query with the engine version.
-     * 
-     */
     private Boolean supportsParallelQuery;
-    /**
-     * @return Whether the engine version supports read replicas.
-     * 
-     */
     private Boolean supportsReadReplica;
-    /**
-     * @return Set of versions that are valid major version upgrades for the engine version.
-     * 
-     */
     private List<String> validMajorTargets;
-    /**
-     * @return Set of versions that are valid minor version upgrades for the engine version.
-     * 
-     */
     private List<String> validMinorTargets;
-    /**
-     * @return Set of versions that are valid major or minor upgrades for the engine version.
-     * 
-     */
     private List<String> validUpgradeTargets;
     private String version;
-    /**
-     * @return Complete engine version.
-     * 
-     */
     private String versionActual;
-    /**
-     * @return Description of the engine version.
-     * 
-     */
     private String versionDescription;
 
     private GetEngineVersionResult() {}
-    /**
-     * @return Default character set for new instances of the engine version.
-     * 
-     */
     public String defaultCharacterSet() {
         return this.defaultCharacterSet;
     }
@@ -153,17 +65,9 @@ public final class GetEngineVersionResult {
     public String engine() {
         return this.engine;
     }
-    /**
-     * @return Description of the engine.
-     * 
-     */
     public String engineDescription() {
         return this.engineDescription;
     }
-    /**
-     * @return Set of log types that the engine version has available for export to CloudWatch Logs.
-     * 
-     */
     public List<String> exportableLogTypes() {
         return this.exportableLogTypes;
     }
@@ -204,132 +108,60 @@ public final class GetEngineVersionResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Status of the engine version, either `available` or `deprecated`.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Set of character sets supported by th engine version.
-     * 
-     */
     public List<String> supportedCharacterSets() {
         return this.supportedCharacterSets;
     }
-    /**
-     * @return Set of features supported by the engine version.
-     * 
-     */
     public List<String> supportedFeatureNames() {
         return this.supportedFeatureNames;
     }
-    /**
-     * @return Set of supported engine version modes.
-     * 
-     */
     public List<String> supportedModes() {
         return this.supportedModes;
     }
-    /**
-     * @return Set of the time zones supported by the engine version.
-     * 
-     */
     public List<String> supportedTimezones() {
         return this.supportedTimezones;
     }
-    /**
-     * @return Whether the certificates can be rotated without restarting the Aurora instance.
-     * 
-     */
     public Boolean supportsCertificateRotationWithoutRestart() {
         return this.supportsCertificateRotationWithoutRestart;
     }
-    /**
-     * @return Whether you can use Aurora global databases with the engine version.
-     * 
-     */
     public Boolean supportsGlobalDatabases() {
         return this.supportsGlobalDatabases;
     }
-    /**
-     * @return Whether the engine version supports integrations with other AWS services.
-     * 
-     */
     public Boolean supportsIntegrations() {
         return this.supportsIntegrations;
     }
-    /**
-     * @return Whether the engine version supports Aurora Limitless Database.
-     * 
-     */
     public Boolean supportsLimitlessDatabase() {
         return this.supportsLimitlessDatabase;
     }
-    /**
-     * @return Whether the engine version supports local write forwarding or not.
-     * 
-     */
     public Boolean supportsLocalWriteForwarding() {
         return this.supportsLocalWriteForwarding;
     }
-    /**
-     * @return Whether the engine version supports exporting the log types specified by `exportableLogTypes` to CloudWatch Logs.
-     * 
-     */
     public Boolean supportsLogExportsToCloudwatch() {
         return this.supportsLogExportsToCloudwatch;
     }
-    /**
-     * @return Whether you can use Aurora parallel query with the engine version.
-     * 
-     */
     public Boolean supportsParallelQuery() {
         return this.supportsParallelQuery;
     }
-    /**
-     * @return Whether the engine version supports read replicas.
-     * 
-     */
     public Boolean supportsReadReplica() {
         return this.supportsReadReplica;
     }
-    /**
-     * @return Set of versions that are valid major version upgrades for the engine version.
-     * 
-     */
     public List<String> validMajorTargets() {
         return this.validMajorTargets;
     }
-    /**
-     * @return Set of versions that are valid minor version upgrades for the engine version.
-     * 
-     */
     public List<String> validMinorTargets() {
         return this.validMinorTargets;
     }
-    /**
-     * @return Set of versions that are valid major or minor upgrades for the engine version.
-     * 
-     */
     public List<String> validUpgradeTargets() {
         return this.validUpgradeTargets;
     }
     public String version() {
         return this.version;
     }
-    /**
-     * @return Complete engine version.
-     * 
-     */
     public String versionActual() {
         return this.versionActual;
     }
-    /**
-     * @return Description of the engine version.
-     * 
-     */
     public String versionDescription() {
         return this.versionDescription;
     }

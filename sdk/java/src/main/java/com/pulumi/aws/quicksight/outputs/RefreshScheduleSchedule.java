@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RefreshScheduleSchedule {
-    /**
-     * @return The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
-     * 
-     */
     private String refreshType;
-    /**
-     * @return The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
-     * 
-     */
     private @Nullable RefreshScheduleScheduleScheduleFrequency scheduleFrequency;
-    /**
-     * @return Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
-     * 
-     */
     private @Nullable String startAfterDateTime;
 
     private RefreshScheduleSchedule() {}
-    /**
-     * @return The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
-     * 
-     */
     public String refreshType() {
         return this.refreshType;
     }
-    /**
-     * @return The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
-     * 
-     */
     public Optional<RefreshScheduleScheduleScheduleFrequency> scheduleFrequency() {
         return Optional.ofNullable(this.scheduleFrequency);
     }
-    /**
-     * @return Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
-     * 
-     */
     public Optional<String> startAfterDateTime() {
         return Optional.ofNullable(this.startAfterDateTime);
     }

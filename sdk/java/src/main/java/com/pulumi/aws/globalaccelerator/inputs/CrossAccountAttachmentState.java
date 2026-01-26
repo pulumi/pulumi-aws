@@ -18,126 +18,58 @@ public final class CrossAccountAttachmentState extends com.pulumi.resources.Reso
 
     public static final CrossAccountAttachmentState Empty = new CrossAccountAttachmentState();
 
-    /**
-     * ARN of the Cross Account Attachment.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the Cross Account Attachment.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Creation Time when the Cross Account Attachment.
-     * 
-     */
     @Import(name="createdTime")
     private @Nullable Output<String> createdTime;
 
-    /**
-     * @return Creation Time when the Cross Account Attachment.
-     * 
-     */
     public Optional<Output<String>> createdTime() {
         return Optional.ofNullable(this.createdTime);
     }
 
-    /**
-     * Last modified time of the Cross Account Attachment.
-     * 
-     */
     @Import(name="lastModifiedTime")
     private @Nullable Output<String> lastModifiedTime;
 
-    /**
-     * @return Last modified time of the Cross Account Attachment.
-     * 
-     */
     public Optional<Output<String>> lastModifiedTime() {
         return Optional.ofNullable(this.lastModifiedTime);
     }
 
-    /**
-     * Name of the Cross Account Attachment.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the Cross Account Attachment.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * List of AWS account IDs that are allowed to associate resources with the accelerator.
-     * 
-     */
     @Import(name="principals")
     private @Nullable Output<List<String>> principals;
 
-    /**
-     * @return List of AWS account IDs that are allowed to associate resources with the accelerator.
-     * 
-     */
     public Optional<Output<List<String>>> principals() {
         return Optional.ofNullable(this.principals);
     }
 
-    /**
-     * List of resources to be associated with the accelerator.
-     * 
-     */
     @Import(name="resources")
     private @Nullable Output<List<CrossAccountAttachmentResourceArgs>> resources;
 
-    /**
-     * @return List of resources to be associated with the accelerator.
-     * 
-     */
     public Optional<Output<List<CrossAccountAttachmentResourceArgs>>> resources() {
         return Optional.ofNullable(this.resources);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -173,194 +105,82 @@ public final class CrossAccountAttachmentState extends com.pulumi.resources.Reso
             $ = new CrossAccountAttachmentState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the Cross Account Attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the Cross Account Attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param createdTime Creation Time when the Cross Account Attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdTime(@Nullable Output<String> createdTime) {
             $.createdTime = createdTime;
             return this;
         }
 
-        /**
-         * @param createdTime Creation Time when the Cross Account Attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdTime(String createdTime) {
             return createdTime(Output.of(createdTime));
         }
 
-        /**
-         * @param lastModifiedTime Last modified time of the Cross Account Attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lastModifiedTime(@Nullable Output<String> lastModifiedTime) {
             $.lastModifiedTime = lastModifiedTime;
             return this;
         }
 
-        /**
-         * @param lastModifiedTime Last modified time of the Cross Account Attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lastModifiedTime(String lastModifiedTime) {
             return lastModifiedTime(Output.of(lastModifiedTime));
         }
 
-        /**
-         * @param name Name of the Cross Account Attachment.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the Cross Account Attachment.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param principals List of AWS account IDs that are allowed to associate resources with the accelerator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principals(@Nullable Output<List<String>> principals) {
             $.principals = principals;
             return this;
         }
 
-        /**
-         * @param principals List of AWS account IDs that are allowed to associate resources with the accelerator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principals(List<String> principals) {
             return principals(Output.of(principals));
         }
 
-        /**
-         * @param principals List of AWS account IDs that are allowed to associate resources with the accelerator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principals(String... principals) {
             return principals(List.of(principals));
         }
 
-        /**
-         * @param resources List of resources to be associated with the accelerator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resources(@Nullable Output<List<CrossAccountAttachmentResourceArgs>> resources) {
             $.resources = resources;
             return this;
         }
 
-        /**
-         * @param resources List of resources to be associated with the accelerator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resources(List<CrossAccountAttachmentResourceArgs> resources) {
             return resources(Output.of(resources));
         }
 
-        /**
-         * @param resources List of resources to be associated with the accelerator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resources(CrossAccountAttachmentResourceArgs... resources) {
             return resources(List.of(resources));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

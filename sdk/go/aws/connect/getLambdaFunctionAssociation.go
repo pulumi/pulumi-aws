@@ -11,34 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about a specific Connect Lambda Function Association.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.LookupLambdaFunctionAssociation(ctx, &connect.LookupLambdaFunctionAssociationArgs{
-//				FunctionArn: "arn:aws:lambda:us-west-2:123456789123:function:abcdefg",
-//				InstanceId:  "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupLambdaFunctionAssociation(ctx *pulumi.Context, args *LookupLambdaFunctionAssociationArgs, opts ...pulumi.InvokeOption) (*LookupLambdaFunctionAssociationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLambdaFunctionAssociationResult
@@ -51,12 +23,9 @@ func LookupLambdaFunctionAssociation(ctx *pulumi.Context, args *LookupLambdaFunc
 
 // A collection of arguments for invoking getLambdaFunctionAssociation.
 type LookupLambdaFunctionAssociationArgs struct {
-	// ARN of the Lambda Function, omitting any version or alias qualifier.
-	FunctionArn string `pulumi:"functionArn"`
-	// Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-	InstanceId string `pulumi:"instanceId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	FunctionArn string  `pulumi:"functionArn"`
+	InstanceId  string  `pulumi:"instanceId"`
+	Region      *string `pulumi:"region"`
 }
 
 // A collection of values returned by getLambdaFunctionAssociation.
@@ -79,12 +48,9 @@ func LookupLambdaFunctionAssociationOutput(ctx *pulumi.Context, args LookupLambd
 
 // A collection of arguments for invoking getLambdaFunctionAssociation.
 type LookupLambdaFunctionAssociationOutputArgs struct {
-	// ARN of the Lambda Function, omitting any version or alias qualifier.
-	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
-	// Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-	InstanceId pulumi.StringInput `pulumi:"instanceId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	FunctionArn pulumi.StringInput    `pulumi:"functionArn"`
+	InstanceId  pulumi.StringInput    `pulumi:"instanceId"`
+	Region      pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupLambdaFunctionAssociationOutputArgs) ElementType() reflect.Type {

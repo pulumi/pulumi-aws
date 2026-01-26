@@ -24,9 +24,6 @@ class AuthenticationProfileArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AuthenticationProfile resource.
-        :param pulumi.Input[_builtins.str] authentication_profile_content: The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
-        :param pulumi.Input[_builtins.str] authentication_profile_name: The name of the authentication profile.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "authentication_profile_content", authentication_profile_content)
         pulumi.set(__self__, "authentication_profile_name", authentication_profile_name)
@@ -36,9 +33,6 @@ class AuthenticationProfileArgs:
     @_builtins.property
     @pulumi.getter(name="authenticationProfileContent")
     def authentication_profile_content(self) -> pulumi.Input[_builtins.str]:
-        """
-        The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
-        """
         return pulumi.get(self, "authentication_profile_content")
 
     @authentication_profile_content.setter
@@ -48,9 +42,6 @@ class AuthenticationProfileArgs:
     @_builtins.property
     @pulumi.getter(name="authenticationProfileName")
     def authentication_profile_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the authentication profile.
-        """
         return pulumi.get(self, "authentication_profile_name")
 
     @authentication_profile_name.setter
@@ -60,9 +51,6 @@ class AuthenticationProfileArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -78,9 +66,6 @@ class _AuthenticationProfileState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AuthenticationProfile resources.
-        :param pulumi.Input[_builtins.str] authentication_profile_content: The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
-        :param pulumi.Input[_builtins.str] authentication_profile_name: The name of the authentication profile.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if authentication_profile_content is not None:
             pulumi.set(__self__, "authentication_profile_content", authentication_profile_content)
@@ -92,9 +77,6 @@ class _AuthenticationProfileState:
     @_builtins.property
     @pulumi.getter(name="authenticationProfileContent")
     def authentication_profile_content(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
-        """
         return pulumi.get(self, "authentication_profile_content")
 
     @authentication_profile_content.setter
@@ -104,9 +86,6 @@ class _AuthenticationProfileState:
     @_builtins.property
     @pulumi.getter(name="authenticationProfileName")
     def authentication_profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the authentication profile.
-        """
         return pulumi.get(self, "authentication_profile_name")
 
     @authentication_profile_name.setter
@@ -116,9 +95,6 @@ class _AuthenticationProfileState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -137,37 +113,9 @@ class AuthenticationProfile(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Creates a Redshift authentication profile
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.redshift.AuthenticationProfile("example",
-            authentication_profile_name="example",
-            authentication_profile_content=json.dumps({
-                "AllowDBUserOverride": "1",
-                "Client_ID": "ExampleClientID",
-                "App_ID": "example",
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Redshift Authentication by `authentication_profile_name`. For example:
-
-        ```sh
-        $ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
-        ```
-
+        Create a AuthenticationProfile resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] authentication_profile_content: The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
-        :param pulumi.Input[_builtins.str] authentication_profile_name: The name of the authentication profile.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -176,32 +124,7 @@ class AuthenticationProfile(pulumi.CustomResource):
                  args: AuthenticationProfileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a Redshift authentication profile
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.redshift.AuthenticationProfile("example",
-            authentication_profile_name="example",
-            authentication_profile_content=json.dumps({
-                "AllowDBUserOverride": "1",
-                "Client_ID": "ExampleClientID",
-                "App_ID": "example",
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Redshift Authentication by `authentication_profile_name`. For example:
-
-        ```sh
-        $ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
-        ```
-
+        Create a AuthenticationProfile resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AuthenticationProfileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -256,9 +179,6 @@ class AuthenticationProfile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] authentication_profile_content: The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
-        :param pulumi.Input[_builtins.str] authentication_profile_name: The name of the authentication profile.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -272,24 +192,15 @@ class AuthenticationProfile(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="authenticationProfileContent")
     def authentication_profile_content(self) -> pulumi.Output[_builtins.str]:
-        """
-        The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
-        """
         return pulumi.get(self, "authentication_profile_content")
 
     @_builtins.property
     @pulumi.getter(name="authenticationProfileName")
     def authentication_profile_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the authentication profile.
-        """
         return pulumi.get(self, "authentication_profile_name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

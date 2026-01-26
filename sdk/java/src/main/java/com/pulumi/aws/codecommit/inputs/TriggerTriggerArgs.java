@@ -17,77 +17,37 @@ public final class TriggerTriggerArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final TriggerTriggerArgs Empty = new TriggerTriggerArgs();
 
-    /**
-     * The branches that will be included in the trigger configuration. If no branches   are specified, the trigger will apply to all branches.
-     * 
-     */
     @Import(name="branches")
     private @Nullable Output<List<String>> branches;
 
-    /**
-     * @return The branches that will be included in the trigger configuration. If no branches   are specified, the trigger will apply to all branches.
-     * 
-     */
     public Optional<Output<List<String>>> branches() {
         return Optional.ofNullable(this.branches);
     }
 
-    /**
-     * Any custom data associated with the trigger that will be included in the information sent to the target of the trigger.
-     * 
-     */
     @Import(name="customData")
     private @Nullable Output<String> customData;
 
-    /**
-     * @return Any custom data associated with the trigger that will be included in the information sent to the target of the trigger.
-     * 
-     */
     public Optional<Output<String>> customData() {
         return Optional.ofNullable(this.customData);
     }
 
-    /**
-     * The ARN of the resource that is the target for a trigger. For example, the ARN of a topic in Amazon Simple Notification Service (SNS).
-     * 
-     */
     @Import(name="destinationArn", required=true)
     private Output<String> destinationArn;
 
-    /**
-     * @return The ARN of the resource that is the target for a trigger. For example, the ARN of a topic in Amazon Simple Notification Service (SNS).
-     * 
-     */
     public Output<String> destinationArn() {
         return this.destinationArn;
     }
 
-    /**
-     * The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS). If no events are specified, the trigger will run for all repository events. Event types include: `all`, `updateReference`, `createReference`, `deleteReference`.
-     * 
-     */
     @Import(name="events", required=true)
     private Output<List<String>> events;
 
-    /**
-     * @return The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS). If no events are specified, the trigger will run for all repository events. Event types include: `all`, `updateReference`, `createReference`, `deleteReference`.
-     * 
-     */
     public Output<List<String>> events() {
         return this.events;
     }
 
-    /**
-     * The name of the trigger.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the trigger.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -120,127 +80,55 @@ public final class TriggerTriggerArgs extends com.pulumi.resources.ResourceArgs 
             $ = new TriggerTriggerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param branches The branches that will be included in the trigger configuration. If no branches   are specified, the trigger will apply to all branches.
-         * 
-         * @return builder
-         * 
-         */
         public Builder branches(@Nullable Output<List<String>> branches) {
             $.branches = branches;
             return this;
         }
 
-        /**
-         * @param branches The branches that will be included in the trigger configuration. If no branches   are specified, the trigger will apply to all branches.
-         * 
-         * @return builder
-         * 
-         */
         public Builder branches(List<String> branches) {
             return branches(Output.of(branches));
         }
 
-        /**
-         * @param branches The branches that will be included in the trigger configuration. If no branches   are specified, the trigger will apply to all branches.
-         * 
-         * @return builder
-         * 
-         */
         public Builder branches(String... branches) {
             return branches(List.of(branches));
         }
 
-        /**
-         * @param customData Any custom data associated with the trigger that will be included in the information sent to the target of the trigger.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customData(@Nullable Output<String> customData) {
             $.customData = customData;
             return this;
         }
 
-        /**
-         * @param customData Any custom data associated with the trigger that will be included in the information sent to the target of the trigger.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customData(String customData) {
             return customData(Output.of(customData));
         }
 
-        /**
-         * @param destinationArn The ARN of the resource that is the target for a trigger. For example, the ARN of a topic in Amazon Simple Notification Service (SNS).
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationArn(Output<String> destinationArn) {
             $.destinationArn = destinationArn;
             return this;
         }
 
-        /**
-         * @param destinationArn The ARN of the resource that is the target for a trigger. For example, the ARN of a topic in Amazon Simple Notification Service (SNS).
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationArn(String destinationArn) {
             return destinationArn(Output.of(destinationArn));
         }
 
-        /**
-         * @param events The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS). If no events are specified, the trigger will run for all repository events. Event types include: `all`, `updateReference`, `createReference`, `deleteReference`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder events(Output<List<String>> events) {
             $.events = events;
             return this;
         }
 
-        /**
-         * @param events The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS). If no events are specified, the trigger will run for all repository events. Event types include: `all`, `updateReference`, `createReference`, `deleteReference`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder events(List<String> events) {
             return events(Output.of(events));
         }
 
-        /**
-         * @param events The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS). If no events are specified, the trigger will run for all repository events. Event types include: `all`, `updateReference`, `createReference`, `deleteReference`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder events(String... events) {
             return events(List.of(events));
         }
 
-        /**
-         * @param name The name of the trigger.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the trigger.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

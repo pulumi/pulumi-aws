@@ -9,160 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3
 {
-    /// <summary>
-    /// Provides a S3 bucket server-side encryption configuration resource.
-    /// 
-    /// &gt; **NOTE:** Destroying an `aws.s3.BucketServerSideEncryptionConfiguration` resource resets the bucket to [Amazon S3 bucket default encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-encryption-faq.html).
-    /// 
-    /// &gt; **NOTE:** Starting in March 2026, Amazon S3 will automatically block server-side encryption with customer-provided keys (SSE-C) for all new buckets. Use the `BlockedEncryptionTypes` argument to manage this behavior. For more information, see the [SSE-C changes FAQ](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-s3-c-encryption-setting-faq.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var mykey = new Aws.Kms.Key("mykey", new()
-    ///     {
-    ///         Description = "This key is used to encrypt bucket objects",
-    ///         DeletionWindowInDays = 10,
-    ///     });
-    /// 
-    ///     var mybucket = new Aws.S3.Bucket("mybucket", new()
-    ///     {
-    ///         BucketName = "mybucket",
-    ///     });
-    /// 
-    ///     var example = new Aws.S3.BucketServerSideEncryptionConfiguration("example", new()
-    ///     {
-    ///         Bucket = mybucket.Id,
-    ///         Rules = new[]
-    ///         {
-    ///             new Aws.S3.Inputs.BucketServerSideEncryptionConfigurationRuleArgs
-    ///             {
-    ///                 ApplyServerSideEncryptionByDefault = new Aws.S3.Inputs.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs
-    ///                 {
-    ///                     KmsMasterKeyId = mykey.Arn,
-    ///                     SseAlgorithm = "aws:kms",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Blocking SSE-C Uploads
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var mykey = new Aws.Kms.Key("mykey", new()
-    ///     {
-    ///         Description = "This key is used to encrypt bucket objects",
-    ///         DeletionWindowInDays = 10,
-    ///     });
-    /// 
-    ///     var mybucket = new Aws.S3.Bucket("mybucket", new()
-    ///     {
-    ///         BucketName = "mybucket",
-    ///     });
-    /// 
-    ///     var example = new Aws.S3.BucketServerSideEncryptionConfiguration("example", new()
-    ///     {
-    ///         Bucket = mybucket.Id,
-    ///         Rules = new[]
-    ///         {
-    ///             new Aws.S3.Inputs.BucketServerSideEncryptionConfigurationRuleArgs
-    ///             {
-    ///                 ApplyServerSideEncryptionByDefault = new Aws.S3.Inputs.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs
-    ///                 {
-    ///                     KmsMasterKeyId = mykey.Arn,
-    ///                     SseAlgorithm = "aws:kms",
-    ///                 },
-    ///                 BucketKeyEnabled = true,
-    ///                 BlockedEncryptionTypes = new[]
-    ///                 {
-    ///                     "SSE-C",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// * `bucket` (String) S3 bucket name.
-    /// 
-    /// #### Optional
-    /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
-    /// 
-    /// * `expected_bucket_owner` (String) Account ID of the expected bucket owner.
-    /// 
-    /// * `region` (String) Region where this resource is managed.
-    /// 
-    /// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-    /// 
-    /// terraform
-    /// 
-    /// import {
-    /// 
-    ///   to = aws_s3_bucket_server_side_encryption_configuration.example
-    /// 
-    ///   id = "bucket-name,123456789012"
-    /// 
-    /// }
-    /// 
-    /// **Using `pulumi import` to import** S3 bucket server-side encryption configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
-    /// 
-    /// If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
-    /// 
-    /// % pulumi import aws_s3_bucket_server_side_encryption_configuration.example bucket-name
-    /// 
-    /// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-    /// 
-    /// % pulumi import aws_s3_bucket_server_side_encryption_configuration.example bucket-name,123456789012
-    /// </summary>
     [AwsResourceType("aws:s3/bucketServerSideEncryptionConfiguration:BucketServerSideEncryptionConfiguration")]
     public partial class BucketServerSideEncryptionConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ID (name) of the bucket.
-        /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
-        /// <summary>
-        /// Account ID of the expected bucket owner.
-        /// </summary>
         [Output("expectedBucketOwner")]
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
-        /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.BucketServerSideEncryptionConfigurationRule>> Rules { get; private set; } = null!;
 
@@ -216,30 +74,17 @@ namespace Pulumi.Aws.S3
 
     public sealed class BucketServerSideEncryptionConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID (name) of the bucket.
-        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
-        /// <summary>
-        /// Account ID of the expected bucket owner.
-        /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("rules", required: true)]
         private InputList<Inputs.BucketServerSideEncryptionConfigurationRuleArgs>? _rules;
-
-        /// <summary>
-        /// Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
-        /// </summary>
         public InputList<Inputs.BucketServerSideEncryptionConfigurationRuleArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<Inputs.BucketServerSideEncryptionConfigurationRuleArgs>());
@@ -254,30 +99,17 @@ namespace Pulumi.Aws.S3
 
     public sealed class BucketServerSideEncryptionConfigurationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID (name) of the bucket.
-        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
-        /// <summary>
-        /// Account ID of the expected bucket owner.
-        /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("rules")]
         private InputList<Inputs.BucketServerSideEncryptionConfigurationRuleGetArgs>? _rules;
-
-        /// <summary>
-        /// Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
-        /// </summary>
         public InputList<Inputs.BucketServerSideEncryptionConfigurationRuleGetArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<Inputs.BucketServerSideEncryptionConfigurationRuleGetArgs>());

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CodeDeploy.Outputs
     [OutputType]
     public sealed class DeploymentGroupLoadBalancerInfo
     {
-        /// <summary>
-        /// The Classic Elastic Load Balancer to use in a deployment. Conflicts with `TargetGroupInfo` and `TargetGroupPairInfo`.
-        /// </summary>
         public readonly ImmutableArray<Outputs.DeploymentGroupLoadBalancerInfoElbInfo> ElbInfos;
-        /// <summary>
-        /// The (Application/Network Load Balancer) target group to use in a deployment. Conflicts with `ElbInfo` and `TargetGroupPairInfo`.
-        /// </summary>
         public readonly ImmutableArray<Outputs.DeploymentGroupLoadBalancerInfoTargetGroupInfo> TargetGroupInfos;
-        /// <summary>
-        /// The (Application/Network Load Balancer) target group pair to use in a deployment. Conflicts with `ElbInfo` and `TargetGroupInfo`.
-        /// </summary>
         public readonly Outputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfo? TargetGroupPairInfo;
 
         [OutputConstructor]

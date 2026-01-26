@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TaskSetServiceRegistries {
-    /**
-     * @return The container name value, already specified in the task definition, to be used for your service discovery service.
-     * 
-     */
     private @Nullable String containerName;
-    /**
-     * @return The port value, already specified in the task definition, to be used for your service discovery service.
-     * 
-     */
     private @Nullable Integer containerPort;
-    /**
-     * @return The port value used if your Service Discovery service specified an SRV record.
-     * 
-     */
     private @Nullable Integer port;
-    /**
-     * @return The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`aws.servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
-     * 
-     */
     private String registryArn;
 
     private TaskSetServiceRegistries() {}
-    /**
-     * @return The container name value, already specified in the task definition, to be used for your service discovery service.
-     * 
-     */
     public Optional<String> containerName() {
         return Optional.ofNullable(this.containerName);
     }
-    /**
-     * @return The port value, already specified in the task definition, to be used for your service discovery service.
-     * 
-     */
     public Optional<Integer> containerPort() {
         return Optional.ofNullable(this.containerPort);
     }
-    /**
-     * @return The port value used if your Service Discovery service specified an SRV record.
-     * 
-     */
     public Optional<Integer> port() {
         return Optional.ofNullable(this.port);
     }
-    /**
-     * @return The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`aws.servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
-     * 
-     */
     public String registryArn() {
         return this.registryArn;
     }

@@ -15,32 +15,16 @@ public final class GetResourcePlainArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetResourcePlainArgs Empty = new GetResourcePlainArgs();
 
-    /**
-     * ARN of the resource, an S3 path.
-     * 
-     */
     @Import(name="arn", required=true)
     private String arn;
 
-    /**
-     * @return ARN of the resource, an S3 path.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -70,23 +54,11 @@ public final class GetResourcePlainArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetResourcePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the resource, an S3 path.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

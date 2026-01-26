@@ -14,18 +14,9 @@ namespace Pulumi.Aws.Ecs.Outputs
     public sealed class ExpressGatewayServicePrimaryContainer
     {
         public readonly ImmutableArray<Outputs.ExpressGatewayServicePrimaryContainerAwsLogsConfiguration> AwsLogsConfigurations;
-        /// <summary>
-        /// Command to run in the container. Overrides the default command from the Docker image.
-        /// </summary>
         public readonly ImmutableArray<string> Commands;
-        /// <summary>
-        /// Port on which the container listens for connections.
-        /// </summary>
         public readonly int? ContainerPort;
         public readonly ImmutableArray<Outputs.ExpressGatewayServicePrimaryContainerEnvironment> Environments;
-        /// <summary>
-        /// Docker image to use for the container.
-        /// </summary>
         public readonly string Image;
         public readonly Outputs.ExpressGatewayServicePrimaryContainerRepositoryCredentials? RepositoryCredentials;
         public readonly ImmutableArray<Outputs.ExpressGatewayServicePrimaryContainerSecret> Secrets;

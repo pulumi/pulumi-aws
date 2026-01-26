@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SchedulingPolicyFairSharePolicyShareDistribution {
-    /**
-     * @return A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-     * 
-     */
     private String shareIdentifier;
-    /**
-     * @return The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-     * 
-     */
     private @Nullable Double weightFactor;
 
     private SchedulingPolicyFairSharePolicyShareDistribution() {}
-    /**
-     * @return A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-     * 
-     */
     public String shareIdentifier() {
         return this.shareIdentifier;
     }
-    /**
-     * @return The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-     * 
-     */
     public Optional<Double> weightFactor() {
         return Optional.ofNullable(this.weightFactor);
     }

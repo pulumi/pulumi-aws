@@ -29,14 +29,6 @@ class ConnectAttachmentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConnectAttachment resource.
-        :param pulumi.Input[_builtins.str] core_network_id: ID of a core network where you want to create the attachment.
-        :param pulumi.Input[_builtins.str] edge_location: Region where the edge is located.
-        :param pulumi.Input['ConnectAttachmentOptionsArgs'] options: Options block. See options for more information.
-        :param pulumi.Input[_builtins.str] transport_attachment_id: ID of the attachment between the two connections.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "core_network_id", core_network_id)
         pulumi.set(__self__, "edge_location", edge_location)
@@ -50,9 +42,6 @@ class ConnectAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="coreNetworkId")
     def core_network_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of a core network where you want to create the attachment.
-        """
         return pulumi.get(self, "core_network_id")
 
     @core_network_id.setter
@@ -62,9 +51,6 @@ class ConnectAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="edgeLocation")
     def edge_location(self) -> pulumi.Input[_builtins.str]:
-        """
-        Region where the edge is located.
-        """
         return pulumi.get(self, "edge_location")
 
     @edge_location.setter
@@ -74,9 +60,6 @@ class ConnectAttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def options(self) -> pulumi.Input['ConnectAttachmentOptionsArgs']:
-        """
-        Options block. See options for more information.
-        """
         return pulumi.get(self, "options")
 
     @options.setter
@@ -86,11 +69,6 @@ class ConnectAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="transportAttachmentId")
     def transport_attachment_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the attachment between the two connections.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "transport_attachment_id")
 
     @transport_attachment_id.setter
@@ -100,9 +78,6 @@ class ConnectAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="routingPolicyLabel")
     def routing_policy_label(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-        """
         return pulumi.get(self, "routing_policy_label")
 
     @routing_policy_label.setter
@@ -112,9 +87,6 @@ class ConnectAttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -143,24 +115,6 @@ class _ConnectAttachmentState:
                  transport_attachment_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ConnectAttachment resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the attachment.
-        :param pulumi.Input[_builtins.str] attachment_id: ID of the attachment.
-        :param pulumi.Input[_builtins.int] attachment_policy_rule_number: Policy rule number associated with the attachment.
-        :param pulumi.Input[_builtins.str] attachment_type: Type of attachment.
-        :param pulumi.Input[_builtins.str] core_network_arn: ARN of a core network.
-        :param pulumi.Input[_builtins.str] core_network_id: ID of a core network where you want to create the attachment.
-        :param pulumi.Input[_builtins.str] edge_location: Region where the edge is located.
-        :param pulumi.Input['ConnectAttachmentOptionsArgs'] options: Options block. See options for more information.
-        :param pulumi.Input[_builtins.str] owner_account_id: ID of the attachment account owner.
-        :param pulumi.Input[_builtins.str] resource_arn: Attachment resource ARN.
-        :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-        :param pulumi.Input[_builtins.str] segment_name: Name of the segment attachment.
-        :param pulumi.Input[_builtins.str] state: State of the attachment.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] transport_attachment_id: ID of the attachment between the two connections.
-               
-               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -198,9 +152,6 @@ class _ConnectAttachmentState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the attachment.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -210,9 +161,6 @@ class _ConnectAttachmentState:
     @_builtins.property
     @pulumi.getter(name="attachmentId")
     def attachment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the attachment.
-        """
         return pulumi.get(self, "attachment_id")
 
     @attachment_id.setter
@@ -222,9 +170,6 @@ class _ConnectAttachmentState:
     @_builtins.property
     @pulumi.getter(name="attachmentPolicyRuleNumber")
     def attachment_policy_rule_number(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Policy rule number associated with the attachment.
-        """
         return pulumi.get(self, "attachment_policy_rule_number")
 
     @attachment_policy_rule_number.setter
@@ -234,9 +179,6 @@ class _ConnectAttachmentState:
     @_builtins.property
     @pulumi.getter(name="attachmentType")
     def attachment_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of attachment.
-        """
         return pulumi.get(self, "attachment_type")
 
     @attachment_type.setter
@@ -246,9 +188,6 @@ class _ConnectAttachmentState:
     @_builtins.property
     @pulumi.getter(name="coreNetworkArn")
     def core_network_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of a core network.
-        """
         return pulumi.get(self, "core_network_arn")
 
     @core_network_arn.setter
@@ -258,9 +197,6 @@ class _ConnectAttachmentState:
     @_builtins.property
     @pulumi.getter(name="coreNetworkId")
     def core_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of a core network where you want to create the attachment.
-        """
         return pulumi.get(self, "core_network_id")
 
     @core_network_id.setter
@@ -270,9 +206,6 @@ class _ConnectAttachmentState:
     @_builtins.property
     @pulumi.getter(name="edgeLocation")
     def edge_location(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where the edge is located.
-        """
         return pulumi.get(self, "edge_location")
 
     @edge_location.setter
@@ -282,9 +215,6 @@ class _ConnectAttachmentState:
     @_builtins.property
     @pulumi.getter
     def options(self) -> Optional[pulumi.Input['ConnectAttachmentOptionsArgs']]:
-        """
-        Options block. See options for more information.
-        """
         return pulumi.get(self, "options")
 
     @options.setter
@@ -294,9 +224,6 @@ class _ConnectAttachmentState:
     @_builtins.property
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the attachment account owner.
-        """
         return pulumi.get(self, "owner_account_id")
 
     @owner_account_id.setter
@@ -306,9 +233,6 @@ class _ConnectAttachmentState:
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Attachment resource ARN.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -318,9 +242,6 @@ class _ConnectAttachmentState:
     @_builtins.property
     @pulumi.getter(name="routingPolicyLabel")
     def routing_policy_label(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-        """
         return pulumi.get(self, "routing_policy_label")
 
     @routing_policy_label.setter
@@ -330,9 +251,6 @@ class _ConnectAttachmentState:
     @_builtins.property
     @pulumi.getter(name="segmentName")
     def segment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the segment attachment.
-        """
         return pulumi.get(self, "segment_name")
 
     @segment_name.setter
@@ -342,9 +260,6 @@ class _ConnectAttachmentState:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        State of the attachment.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -354,9 +269,6 @@ class _ConnectAttachmentState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -366,9 +278,6 @@ class _ConnectAttachmentState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -378,11 +287,6 @@ class _ConnectAttachmentState:
     @_builtins.property
     @pulumi.getter(name="transportAttachmentId")
     def transport_attachment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the attachment between the two connections.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "transport_attachment_id")
 
     @transport_attachment_id.setter
@@ -404,75 +308,9 @@ class ConnectAttachment(pulumi.CustomResource):
                  transport_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an AWS Network Manager Connect Attachment.
-
-        Use this resource to create a Connect attachment in AWS Network Manager. Connect attachments enable you to connect your on-premises networks to your core network through a VPC or Transit Gateway attachment.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.VpcAttachment("example",
-            subnet_arns=[__item["arn"] for __item in example_aws_subnet],
-            core_network_id=example_awscc_networkmanager_core_network["id"],
-            vpc_arn=example_aws_vpc["arn"])
-        example_connect_attachment = aws.networkmanager.ConnectAttachment("example",
-            core_network_id=example_awscc_networkmanager_core_network["id"],
-            transport_attachment_id=example.id,
-            edge_location=example.edge_location,
-            options={
-                "protocol": "GRE",
-            })
-        ```
-
-        ### Usage with attachment accepter
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.VpcAttachment("example",
-            subnet_arns=[__item["arn"] for __item in example_aws_subnet],
-            core_network_id=example_awscc_networkmanager_core_network["id"],
-            vpc_arn=example_aws_vpc["arn"])
-        example_attachment_accepter = aws.networkmanager.AttachmentAccepter("example",
-            attachment_id=example.id,
-            attachment_type=example.attachment_type)
-        example_connect_attachment = aws.networkmanager.ConnectAttachment("example",
-            core_network_id=example_awscc_networkmanager_core_network["id"],
-            transport_attachment_id=example.id,
-            edge_location=example.edge_location,
-            options={
-                "protocol": "GRE",
-            },
-            opts = pulumi.ResourceOptions(depends_on=[example_attachment_accepter]))
-        example2 = aws.networkmanager.AttachmentAccepter("example2",
-            attachment_id=example_connect_attachment.id,
-            attachment_type=example_connect_attachment.attachment_type)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_networkmanager_connect_attachment` using the attachment ID. For example:
-
-        ```sh
-        $ pulumi import aws:networkmanager/connectAttachment:ConnectAttachment example attachment-0f8fa60d2238d1bd8
-        ```
-
+        Create a ConnectAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] core_network_id: ID of a core network where you want to create the attachment.
-        :param pulumi.Input[_builtins.str] edge_location: Region where the edge is located.
-        :param pulumi.Input[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict']] options: Options block. See options for more information.
-        :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] transport_attachment_id: ID of the attachment between the two connections.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -481,65 +319,7 @@ class ConnectAttachment(pulumi.CustomResource):
                  args: ConnectAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS Network Manager Connect Attachment.
-
-        Use this resource to create a Connect attachment in AWS Network Manager. Connect attachments enable you to connect your on-premises networks to your core network through a VPC or Transit Gateway attachment.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.VpcAttachment("example",
-            subnet_arns=[__item["arn"] for __item in example_aws_subnet],
-            core_network_id=example_awscc_networkmanager_core_network["id"],
-            vpc_arn=example_aws_vpc["arn"])
-        example_connect_attachment = aws.networkmanager.ConnectAttachment("example",
-            core_network_id=example_awscc_networkmanager_core_network["id"],
-            transport_attachment_id=example.id,
-            edge_location=example.edge_location,
-            options={
-                "protocol": "GRE",
-            })
-        ```
-
-        ### Usage with attachment accepter
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.VpcAttachment("example",
-            subnet_arns=[__item["arn"] for __item in example_aws_subnet],
-            core_network_id=example_awscc_networkmanager_core_network["id"],
-            vpc_arn=example_aws_vpc["arn"])
-        example_attachment_accepter = aws.networkmanager.AttachmentAccepter("example",
-            attachment_id=example.id,
-            attachment_type=example.attachment_type)
-        example_connect_attachment = aws.networkmanager.ConnectAttachment("example",
-            core_network_id=example_awscc_networkmanager_core_network["id"],
-            transport_attachment_id=example.id,
-            edge_location=example.edge_location,
-            options={
-                "protocol": "GRE",
-            },
-            opts = pulumi.ResourceOptions(depends_on=[example_attachment_accepter]))
-        example2 = aws.networkmanager.AttachmentAccepter("example2",
-            attachment_id=example_connect_attachment.id,
-            attachment_type=example_connect_attachment.attachment_type)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_networkmanager_connect_attachment` using the attachment ID. For example:
-
-        ```sh
-        $ pulumi import aws:networkmanager/connectAttachment:ConnectAttachment example attachment-0f8fa60d2238d1bd8
-        ```
-
+        Create a ConnectAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ConnectAttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -627,24 +407,6 @@ class ConnectAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the attachment.
-        :param pulumi.Input[_builtins.str] attachment_id: ID of the attachment.
-        :param pulumi.Input[_builtins.int] attachment_policy_rule_number: Policy rule number associated with the attachment.
-        :param pulumi.Input[_builtins.str] attachment_type: Type of attachment.
-        :param pulumi.Input[_builtins.str] core_network_arn: ARN of a core network.
-        :param pulumi.Input[_builtins.str] core_network_id: ID of a core network where you want to create the attachment.
-        :param pulumi.Input[_builtins.str] edge_location: Region where the edge is located.
-        :param pulumi.Input[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict']] options: Options block. See options for more information.
-        :param pulumi.Input[_builtins.str] owner_account_id: ID of the attachment account owner.
-        :param pulumi.Input[_builtins.str] resource_arn: Attachment resource ARN.
-        :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-        :param pulumi.Input[_builtins.str] segment_name: Name of the segment attachment.
-        :param pulumi.Input[_builtins.str] state: State of the attachment.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] transport_attachment_id: ID of the attachment between the two connections.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -671,130 +433,80 @@ class ConnectAttachment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the attachment.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="attachmentId")
     def attachment_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the attachment.
-        """
         return pulumi.get(self, "attachment_id")
 
     @_builtins.property
     @pulumi.getter(name="attachmentPolicyRuleNumber")
     def attachment_policy_rule_number(self) -> pulumi.Output[_builtins.int]:
-        """
-        Policy rule number associated with the attachment.
-        """
         return pulumi.get(self, "attachment_policy_rule_number")
 
     @_builtins.property
     @pulumi.getter(name="attachmentType")
     def attachment_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of attachment.
-        """
         return pulumi.get(self, "attachment_type")
 
     @_builtins.property
     @pulumi.getter(name="coreNetworkArn")
     def core_network_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of a core network.
-        """
         return pulumi.get(self, "core_network_arn")
 
     @_builtins.property
     @pulumi.getter(name="coreNetworkId")
     def core_network_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of a core network where you want to create the attachment.
-        """
         return pulumi.get(self, "core_network_id")
 
     @_builtins.property
     @pulumi.getter(name="edgeLocation")
     def edge_location(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where the edge is located.
-        """
         return pulumi.get(self, "edge_location")
 
     @_builtins.property
     @pulumi.getter
     def options(self) -> pulumi.Output['outputs.ConnectAttachmentOptions']:
-        """
-        Options block. See options for more information.
-        """
         return pulumi.get(self, "options")
 
     @_builtins.property
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the attachment account owner.
-        """
         return pulumi.get(self, "owner_account_id")
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Attachment resource ARN.
-        """
         return pulumi.get(self, "resource_arn")
 
     @_builtins.property
     @pulumi.getter(name="routingPolicyLabel")
     def routing_policy_label(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-        """
         return pulumi.get(self, "routing_policy_label")
 
     @_builtins.property
     @pulumi.getter(name="segmentName")
     def segment_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the segment attachment.
-        """
         return pulumi.get(self, "segment_name")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[_builtins.str]:
-        """
-        State of the attachment.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="transportAttachmentId")
     def transport_attachment_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the attachment between the two connections.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "transport_attachment_id")
 

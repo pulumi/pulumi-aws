@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppSync.Outputs
     [OutputType]
     public sealed class ChannelNamespaceHandlerConfigsOnPublishIntegration
     {
-        /// <summary>
-        /// Unique name of the data source that has been configured on the API.
-        /// </summary>
         public readonly string DataSourceName;
-        /// <summary>
-        /// Configuration for a Lambda data source. See Lambda Config below.
-        /// </summary>
         public readonly Outputs.ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig? LambdaConfig;
 
         [OutputConstructor]

@@ -12,69 +12,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceNetworkResult {
-    /**
-     * @return ARN of the Service Network.
-     * 
-     */
     private String arn;
-    /**
-     * @return Authentication type for the service network. Either `NONE` or `AWS_IAM`.
-     * 
-     */
     private String authType;
-    /**
-     * @return Date and time the service network was created.
-     * 
-     */
     private String createdAt;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Date and time the service network was last updated.
-     * 
-     */
     private String lastUpdatedAt;
-    /**
-     * @return Name of the service network.
-     * 
-     */
     private String name;
-    /**
-     * @return Number of services associated with this service network.
-     * 
-     */
     private Integer numberOfAssociatedServices;
-    /**
-     * @return Number of VPCs associated with this service network.
-     * 
-     */
     private Integer numberOfAssociatedVpcs;
     private String region;
     private String serviceNetworkIdentifier;
     private Map<String,String> tags;
 
     private GetServiceNetworkResult() {}
-    /**
-     * @return ARN of the Service Network.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Authentication type for the service network. Either `NONE` or `AWS_IAM`.
-     * 
-     */
     public String authType() {
         return this.authType;
     }
-    /**
-     * @return Date and time the service network was created.
-     * 
-     */
     public String createdAt() {
         return this.createdAt;
     }
@@ -85,31 +45,15 @@ public final class GetServiceNetworkResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Date and time the service network was last updated.
-     * 
-     */
     public String lastUpdatedAt() {
         return this.lastUpdatedAt;
     }
-    /**
-     * @return Name of the service network.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Number of services associated with this service network.
-     * 
-     */
     public Integer numberOfAssociatedServices() {
         return this.numberOfAssociatedServices;
     }
-    /**
-     * @return Number of VPCs associated with this service network.
-     * 
-     */
     public Integer numberOfAssociatedVpcs() {
         return this.numberOfAssociatedVpcs;
     }

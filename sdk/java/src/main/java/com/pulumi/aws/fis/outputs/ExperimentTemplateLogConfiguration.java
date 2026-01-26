@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ExperimentTemplateLogConfiguration {
-    /**
-     * @return The configuration for experiment logging to Amazon CloudWatch Logs. See below.
-     * 
-     */
     private @Nullable ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration cloudwatchLogsConfiguration;
-    /**
-     * @return The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
-     * 
-     */
     private Integer logSchemaVersion;
-    /**
-     * @return The configuration for experiment logging to Amazon S3. See below.
-     * 
-     */
     private @Nullable ExperimentTemplateLogConfigurationS3Configuration s3Configuration;
 
     private ExperimentTemplateLogConfiguration() {}
-    /**
-     * @return The configuration for experiment logging to Amazon CloudWatch Logs. See below.
-     * 
-     */
     public Optional<ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration> cloudwatchLogsConfiguration() {
         return Optional.ofNullable(this.cloudwatchLogsConfiguration);
     }
-    /**
-     * @return The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
-     * 
-     */
     public Integer logSchemaVersion() {
         return this.logSchemaVersion;
     }
-    /**
-     * @return The configuration for experiment logging to Amazon S3. See below.
-     * 
-     */
     public Optional<ExperimentTemplateLogConfigurationS3Configuration> s3Configuration() {
         return Optional.ofNullable(this.s3Configuration);
     }

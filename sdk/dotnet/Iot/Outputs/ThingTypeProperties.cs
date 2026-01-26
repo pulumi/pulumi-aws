@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Iot.Outputs
     [OutputType]
     public sealed class ThingTypeProperties
     {
-        /// <summary>
-        /// The description of the thing type.
-        /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// A list of searchable thing attribute names.
-        /// </summary>
         public readonly ImmutableArray<string> SearchableAttributes;
 
         [OutputConstructor]

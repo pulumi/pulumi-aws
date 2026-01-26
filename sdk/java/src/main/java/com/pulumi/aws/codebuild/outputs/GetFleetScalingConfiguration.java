@@ -13,53 +13,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFleetScalingConfiguration {
-    /**
-     * @return The desired number of instances in the ﬂeet when auto-scaling.
-     * 
-     */
     private Integer desiredCapacity;
-    /**
-     * @return The maximum number of instances in the ﬂeet when auto-scaling.
-     * 
-     */
     private Integer maxCapacity;
-    /**
-     * @return The scaling type for a compute fleet.
-     * 
-     */
     private String scalingType;
-    /**
-     * @return Nested attribute containing information about thresholds when new instance is auto-scaled into the compute fleet.
-     * 
-     */
     private List<GetFleetScalingConfigurationTargetTrackingScalingConfig> targetTrackingScalingConfigs;
 
     private GetFleetScalingConfiguration() {}
-    /**
-     * @return The desired number of instances in the ﬂeet when auto-scaling.
-     * 
-     */
     public Integer desiredCapacity() {
         return this.desiredCapacity;
     }
-    /**
-     * @return The maximum number of instances in the ﬂeet when auto-scaling.
-     * 
-     */
     public Integer maxCapacity() {
         return this.maxCapacity;
     }
-    /**
-     * @return The scaling type for a compute fleet.
-     * 
-     */
     public String scalingType() {
         return this.scalingType;
     }
-    /**
-     * @return Nested attribute containing information about thresholds when new instance is auto-scaled into the compute fleet.
-     * 
-     */
     public List<GetFleetScalingConfigurationTargetTrackingScalingConfig> targetTrackingScalingConfigs() {
         return this.targetTrackingScalingConfigs;
     }

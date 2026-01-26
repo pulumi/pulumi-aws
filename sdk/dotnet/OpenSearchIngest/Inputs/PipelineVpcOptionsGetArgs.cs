@@ -14,10 +14,6 @@ namespace Pulumi.Aws.OpenSearchIngest.Inputs
     {
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
-
-        /// <summary>
-        /// A list of security groups associated with the VPC endpoint.
-        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
@@ -26,19 +22,12 @@ namespace Pulumi.Aws.OpenSearchIngest.Inputs
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// A list of subnet IDs associated with the VPC endpoint.
-        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
             set => _subnetIds = value;
         }
 
-        /// <summary>
-        /// Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
-        /// </summary>
         [Input("vpcEndpointManagement")]
         public Input<string>? VpcEndpointManagement { get; set; }
 

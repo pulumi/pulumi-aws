@@ -14,32 +14,16 @@ import java.util.Objects;
 @CustomType
 public final class CapacityProviderCapacityProviderScalingConfig {
     private Integer maxVcpuCount;
-    /**
-     * @return The scaling mode for the Capacity Provider. Valid values are `AUTO` and `MANUAL`. Defaults to `AUTO`.
-     * 
-     */
     private String scalingMode;
-    /**
-     * @return List of scaling policies. See Scaling Policies below.
-     * 
-     */
     private List<CapacityProviderCapacityProviderScalingConfigScalingPolicy> scalingPolicies;
 
     private CapacityProviderCapacityProviderScalingConfig() {}
     public Integer maxVcpuCount() {
         return this.maxVcpuCount;
     }
-    /**
-     * @return The scaling mode for the Capacity Provider. Valid values are `AUTO` and `MANUAL`. Defaults to `AUTO`.
-     * 
-     */
     public String scalingMode() {
         return this.scalingMode;
     }
-    /**
-     * @return List of scaling policies. See Scaling Policies below.
-     * 
-     */
     public List<CapacityProviderCapacityProviderScalingConfigScalingPolicy> scalingPolicies() {
         return this.scalingPolicies;
     }

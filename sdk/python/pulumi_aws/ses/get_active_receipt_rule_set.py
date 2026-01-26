@@ -43,9 +43,6 @@ class GetActiveReceiptRuleSetResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        SES receipt rule set ARN.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -64,9 +61,6 @@ class GetActiveReceiptRuleSetResult:
     @_builtins.property
     @pulumi.getter(name="ruleSetName")
     def rule_set_name(self) -> _builtins.str:
-        """
-        Name of the rule set
-        """
         return pulumi.get(self, "rule_set_name")
 
 
@@ -85,19 +79,7 @@ class AwaitableGetActiveReceiptRuleSetResult(GetActiveReceiptRuleSetResult):
 def get_active_receipt_rule_set(region: Optional[_builtins.str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActiveReceiptRuleSetResult:
     """
-    Retrieve the active SES receipt rule set
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    main = aws.ses.get_active_receipt_rule_set()
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -112,19 +94,7 @@ def get_active_receipt_rule_set(region: Optional[_builtins.str] = None,
 def get_active_receipt_rule_set_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActiveReceiptRuleSetResult]:
     """
-    Retrieve the active SES receipt rule set
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    main = aws.ses.get_active_receipt_rule_set()
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

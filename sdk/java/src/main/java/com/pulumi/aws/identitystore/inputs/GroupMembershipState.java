@@ -15,77 +15,37 @@ public final class GroupMembershipState extends com.pulumi.resources.ResourceArg
 
     public static final GroupMembershipState Empty = new GroupMembershipState();
 
-    /**
-     * The identifier for a group in the Identity Store.
-     * 
-     */
     @Import(name="groupId")
     private @Nullable Output<String> groupId;
 
-    /**
-     * @return The identifier for a group in the Identity Store.
-     * 
-     */
     public Optional<Output<String>> groupId() {
         return Optional.ofNullable(this.groupId);
     }
 
-    /**
-     * Identity Store ID associated with the Single Sign-On Instance.
-     * 
-     */
     @Import(name="identityStoreId")
     private @Nullable Output<String> identityStoreId;
 
-    /**
-     * @return Identity Store ID associated with the Single Sign-On Instance.
-     * 
-     */
     public Optional<Output<String>> identityStoreId() {
         return Optional.ofNullable(this.identityStoreId);
     }
 
-    /**
-     * The identifier for a user in the Identity Store.
-     * 
-     */
     @Import(name="memberId")
     private @Nullable Output<String> memberId;
 
-    /**
-     * @return The identifier for a user in the Identity Store.
-     * 
-     */
     public Optional<Output<String>> memberId() {
         return Optional.ofNullable(this.memberId);
     }
 
-    /**
-     * The identifier of the newly created group membership in the Identity Store.
-     * 
-     */
     @Import(name="membershipId")
     private @Nullable Output<String> membershipId;
 
-    /**
-     * @return The identifier of the newly created group membership in the Identity Store.
-     * 
-     */
     public Optional<Output<String>> membershipId() {
         return Optional.ofNullable(this.membershipId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -118,107 +78,47 @@ public final class GroupMembershipState extends com.pulumi.resources.ResourceArg
             $ = new GroupMembershipState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param groupId The identifier for a group in the Identity Store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupId(@Nullable Output<String> groupId) {
             $.groupId = groupId;
             return this;
         }
 
-        /**
-         * @param groupId The identifier for a group in the Identity Store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupId(String groupId) {
             return groupId(Output.of(groupId));
         }
 
-        /**
-         * @param identityStoreId Identity Store ID associated with the Single Sign-On Instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityStoreId(@Nullable Output<String> identityStoreId) {
             $.identityStoreId = identityStoreId;
             return this;
         }
 
-        /**
-         * @param identityStoreId Identity Store ID associated with the Single Sign-On Instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityStoreId(String identityStoreId) {
             return identityStoreId(Output.of(identityStoreId));
         }
 
-        /**
-         * @param memberId The identifier for a user in the Identity Store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memberId(@Nullable Output<String> memberId) {
             $.memberId = memberId;
             return this;
         }
 
-        /**
-         * @param memberId The identifier for a user in the Identity Store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memberId(String memberId) {
             return memberId(Output.of(memberId));
         }
 
-        /**
-         * @param membershipId The identifier of the newly created group membership in the Identity Store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder membershipId(@Nullable Output<String> membershipId) {
             $.membershipId = membershipId;
             return this;
         }
 
-        /**
-         * @param membershipId The identifier of the newly created group membership in the Identity Store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder membershipId(String membershipId) {
             return membershipId(Output.of(membershipId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

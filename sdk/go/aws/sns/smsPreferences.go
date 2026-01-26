@@ -11,52 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a way to set SNS SMS preferences.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sns"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sns.NewSmsPreferences(ctx, "update_sms_prefs", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// You cannot import the SMS preferences.
 type SmsPreferences struct {
 	pulumi.CustomResourceState
 
-	// A string, such as your business brand, that is displayed as the sender on the receiving device.
-	DefaultSenderId pulumi.StringPtrOutput `pulumi:"defaultSenderId"`
-	// The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
-	DefaultSmsType pulumi.StringPtrOutput `pulumi:"defaultSmsType"`
-	// The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
-	DeliveryStatusIamRoleArn pulumi.StringPtrOutput `pulumi:"deliveryStatusIamRoleArn"`
-	// The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
+	DefaultSenderId                   pulumi.StringPtrOutput `pulumi:"defaultSenderId"`
+	DefaultSmsType                    pulumi.StringPtrOutput `pulumi:"defaultSmsType"`
+	DeliveryStatusIamRoleArn          pulumi.StringPtrOutput `pulumi:"deliveryStatusIamRoleArn"`
 	DeliveryStatusSuccessSamplingRate pulumi.StringPtrOutput `pulumi:"deliveryStatusSuccessSamplingRate"`
-	// The maximum amount in USD that you are willing to spend each month to send SMS messages.
-	MonthlySpendLimit pulumi.IntOutput `pulumi:"monthlySpendLimit"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
-	UsageReportS3Bucket pulumi.StringPtrOutput `pulumi:"usageReportS3Bucket"`
+	MonthlySpendLimit                 pulumi.IntOutput       `pulumi:"monthlySpendLimit"`
+	Region                            pulumi.StringOutput    `pulumi:"region"`
+	UsageReportS3Bucket               pulumi.StringPtrOutput `pulumi:"usageReportS3Bucket"`
 }
 
 // NewSmsPreferences registers a new resource with the given unique name, arguments, and options.
@@ -89,37 +53,23 @@ func GetSmsPreferences(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SmsPreferences resources.
 type smsPreferencesState struct {
-	// A string, such as your business brand, that is displayed as the sender on the receiving device.
-	DefaultSenderId *string `pulumi:"defaultSenderId"`
-	// The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
-	DefaultSmsType *string `pulumi:"defaultSmsType"`
-	// The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
-	DeliveryStatusIamRoleArn *string `pulumi:"deliveryStatusIamRoleArn"`
-	// The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
+	DefaultSenderId                   *string `pulumi:"defaultSenderId"`
+	DefaultSmsType                    *string `pulumi:"defaultSmsType"`
+	DeliveryStatusIamRoleArn          *string `pulumi:"deliveryStatusIamRoleArn"`
 	DeliveryStatusSuccessSamplingRate *string `pulumi:"deliveryStatusSuccessSamplingRate"`
-	// The maximum amount in USD that you are willing to spend each month to send SMS messages.
-	MonthlySpendLimit *int `pulumi:"monthlySpendLimit"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
-	UsageReportS3Bucket *string `pulumi:"usageReportS3Bucket"`
+	MonthlySpendLimit                 *int    `pulumi:"monthlySpendLimit"`
+	Region                            *string `pulumi:"region"`
+	UsageReportS3Bucket               *string `pulumi:"usageReportS3Bucket"`
 }
 
 type SmsPreferencesState struct {
-	// A string, such as your business brand, that is displayed as the sender on the receiving device.
-	DefaultSenderId pulumi.StringPtrInput
-	// The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
-	DefaultSmsType pulumi.StringPtrInput
-	// The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
-	DeliveryStatusIamRoleArn pulumi.StringPtrInput
-	// The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
+	DefaultSenderId                   pulumi.StringPtrInput
+	DefaultSmsType                    pulumi.StringPtrInput
+	DeliveryStatusIamRoleArn          pulumi.StringPtrInput
 	DeliveryStatusSuccessSamplingRate pulumi.StringPtrInput
-	// The maximum amount in USD that you are willing to spend each month to send SMS messages.
-	MonthlySpendLimit pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
-	UsageReportS3Bucket pulumi.StringPtrInput
+	MonthlySpendLimit                 pulumi.IntPtrInput
+	Region                            pulumi.StringPtrInput
+	UsageReportS3Bucket               pulumi.StringPtrInput
 }
 
 func (SmsPreferencesState) ElementType() reflect.Type {
@@ -127,38 +77,24 @@ func (SmsPreferencesState) ElementType() reflect.Type {
 }
 
 type smsPreferencesArgs struct {
-	// A string, such as your business brand, that is displayed as the sender on the receiving device.
-	DefaultSenderId *string `pulumi:"defaultSenderId"`
-	// The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
-	DefaultSmsType *string `pulumi:"defaultSmsType"`
-	// The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
-	DeliveryStatusIamRoleArn *string `pulumi:"deliveryStatusIamRoleArn"`
-	// The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
+	DefaultSenderId                   *string `pulumi:"defaultSenderId"`
+	DefaultSmsType                    *string `pulumi:"defaultSmsType"`
+	DeliveryStatusIamRoleArn          *string `pulumi:"deliveryStatusIamRoleArn"`
 	DeliveryStatusSuccessSamplingRate *string `pulumi:"deliveryStatusSuccessSamplingRate"`
-	// The maximum amount in USD that you are willing to spend each month to send SMS messages.
-	MonthlySpendLimit *int `pulumi:"monthlySpendLimit"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
-	UsageReportS3Bucket *string `pulumi:"usageReportS3Bucket"`
+	MonthlySpendLimit                 *int    `pulumi:"monthlySpendLimit"`
+	Region                            *string `pulumi:"region"`
+	UsageReportS3Bucket               *string `pulumi:"usageReportS3Bucket"`
 }
 
 // The set of arguments for constructing a SmsPreferences resource.
 type SmsPreferencesArgs struct {
-	// A string, such as your business brand, that is displayed as the sender on the receiving device.
-	DefaultSenderId pulumi.StringPtrInput
-	// The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
-	DefaultSmsType pulumi.StringPtrInput
-	// The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
-	DeliveryStatusIamRoleArn pulumi.StringPtrInput
-	// The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
+	DefaultSenderId                   pulumi.StringPtrInput
+	DefaultSmsType                    pulumi.StringPtrInput
+	DeliveryStatusIamRoleArn          pulumi.StringPtrInput
 	DeliveryStatusSuccessSamplingRate pulumi.StringPtrInput
-	// The maximum amount in USD that you are willing to spend each month to send SMS messages.
-	MonthlySpendLimit pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
-	UsageReportS3Bucket pulumi.StringPtrInput
+	MonthlySpendLimit                 pulumi.IntPtrInput
+	Region                            pulumi.StringPtrInput
+	UsageReportS3Bucket               pulumi.StringPtrInput
 }
 
 func (SmsPreferencesArgs) ElementType() reflect.Type {
@@ -248,37 +184,30 @@ func (o SmsPreferencesOutput) ToSmsPreferencesOutputWithContext(ctx context.Cont
 	return o
 }
 
-// A string, such as your business brand, that is displayed as the sender on the receiving device.
 func (o SmsPreferencesOutput) DefaultSenderId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SmsPreferences) pulumi.StringPtrOutput { return v.DefaultSenderId }).(pulumi.StringPtrOutput)
 }
 
-// The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
 func (o SmsPreferencesOutput) DefaultSmsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SmsPreferences) pulumi.StringPtrOutput { return v.DefaultSmsType }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
 func (o SmsPreferencesOutput) DeliveryStatusIamRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SmsPreferences) pulumi.StringPtrOutput { return v.DeliveryStatusIamRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
 func (o SmsPreferencesOutput) DeliveryStatusSuccessSamplingRate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SmsPreferences) pulumi.StringPtrOutput { return v.DeliveryStatusSuccessSamplingRate }).(pulumi.StringPtrOutput)
 }
 
-// The maximum amount in USD that you are willing to spend each month to send SMS messages.
 func (o SmsPreferencesOutput) MonthlySpendLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v *SmsPreferences) pulumi.IntOutput { return v.MonthlySpendLimit }).(pulumi.IntOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SmsPreferencesOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SmsPreferences) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
 func (o SmsPreferencesOutput) UsageReportS3Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SmsPreferences) pulumi.StringPtrOutput { return v.UsageReportS3Bucket }).(pulumi.StringPtrOutput)
 }

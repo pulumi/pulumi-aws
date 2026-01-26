@@ -17,36 +17,16 @@ public final class EndpointServicePrivateDnsVerificationState extends com.pulumi
 
     public static final EndpointServicePrivateDnsVerificationState Empty = new EndpointServicePrivateDnsVerificationState();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID of the endpoint service.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="serviceId")
     private @Nullable Output<String> serviceId;
 
-    /**
-     * @return ID of the endpoint service.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> serviceId() {
         return Optional.ofNullable(this.serviceId);
     }
@@ -58,17 +38,9 @@ public final class EndpointServicePrivateDnsVerificationState extends com.pulumi
         return Optional.ofNullable(this.timeouts);
     }
 
-    /**
-     * Whether to wait until the endpoint service returns a `Verified` status for the configured private DNS name.
-     * 
-     */
     @Import(name="waitForVerification")
     private @Nullable Output<Boolean> waitForVerification;
 
-    /**
-     * @return Whether to wait until the endpoint service returns a `Verified` status for the configured private DNS name.
-     * 
-     */
     public Optional<Output<Boolean>> waitForVerification() {
         return Optional.ofNullable(this.waitForVerification);
     }
@@ -100,48 +72,20 @@ public final class EndpointServicePrivateDnsVerificationState extends com.pulumi
             $ = new EndpointServicePrivateDnsVerificationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param serviceId ID of the endpoint service.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceId(@Nullable Output<String> serviceId) {
             $.serviceId = serviceId;
             return this;
         }
 
-        /**
-         * @param serviceId ID of the endpoint service.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceId(String serviceId) {
             return serviceId(Output.of(serviceId));
         }
@@ -155,23 +99,11 @@ public final class EndpointServicePrivateDnsVerificationState extends com.pulumi
             return timeouts(Output.of(timeouts));
         }
 
-        /**
-         * @param waitForVerification Whether to wait until the endpoint service returns a `Verified` status for the configured private DNS name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder waitForVerification(@Nullable Output<Boolean> waitForVerification) {
             $.waitForVerification = waitForVerification;
             return this;
         }
 
-        /**
-         * @param waitForVerification Whether to wait until the endpoint service returns a `Verified` status for the configured private DNS name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder waitForVerification(Boolean waitForVerification) {
             return waitForVerification(Output.of(waitForVerification));
         }

@@ -15,32 +15,16 @@ public final class GetLocationPlainArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetLocationPlainArgs Empty = new GetLocationPlainArgs();
 
-    /**
-     * Code for the location to retrieve.
-     * 
-     */
     @Import(name="locationCode", required=true)
     private String locationCode;
 
-    /**
-     * @return Code for the location to retrieve.
-     * 
-     */
     public String locationCode() {
         return this.locationCode;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -70,23 +54,11 @@ public final class GetLocationPlainArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetLocationPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param locationCode Code for the location to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder locationCode(String locationCode) {
             $.locationCode = locationCode;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

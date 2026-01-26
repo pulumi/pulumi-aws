@@ -13,11 +13,6 @@ namespace Pulumi.Aws.DataZone.Outputs
     [OutputType]
     public sealed class FormTypeModel
     {
-        /// <summary>
-        /// Smithy document that indicates the model of the API. Must be between the lengths 1 and 100,000 and be encoded as a smithy document.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public readonly string Smithy;
 
         [OutputConstructor]

@@ -12,142 +12,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates an Amazon CloudFront distribution tenant.
-//
-// Distribution tenants allow you to create isolated configurations within a multi-tenant CloudFront distribution. Each tenant can have its own domains, customizations, and parameters while sharing the underlying distribution infrastructure.
-//
-// For information about CloudFront distribution tenants, see the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-tenants.html).
-//
-// ## Example Usage
-//
-// ### Basic Distribution Tenant
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.NewDistributionTenant(ctx, "example", &cloudfront.DistributionTenantArgs{
-//				Name:           pulumi.String("example-tenant"),
-//				DistributionId: pulumi.Any(exampleAwsCloudfrontMultitenantDistribution.Id),
-//				Enabled:        pulumi.Bool(true),
-//				Domains: cloudfront.DistributionTenantDomainArray{
-//					&cloudfront.DistributionTenantDomainArgs{
-//						Domain: pulumi.String("tenant.example.com"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Distribution Tenant with Customizations
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.NewDistributionTenant(ctx, "example", &cloudfront.DistributionTenantArgs{
-//				Name:           pulumi.String("example-tenant"),
-//				DistributionId: pulumi.Any(exampleAwsCloudfrontMultitenantDistribution.Id),
-//				Enabled:        pulumi.Bool(false),
-//				Domains: cloudfront.DistributionTenantDomainArray{
-//					&cloudfront.DistributionTenantDomainArgs{
-//						Domain: pulumi.String("tenant.example.com"),
-//					},
-//				},
-//				Customizations: &cloudfront.DistributionTenantCustomizationsArgs{
-//					GeoRestriction: &cloudfront.DistributionTenantCustomizationsGeoRestrictionArgs{
-//						RestrictionType: pulumi.String("whitelist"),
-//						Locations: pulumi.StringArray{
-//							pulumi.String("US"),
-//							pulumi.String("CA"),
-//						},
-//					},
-//					Certificate: &cloudfront.DistributionTenantCustomizationsCertificateArgs{
-//						Arn: pulumi.Any(tenantCert.Arn),
-//					},
-//					WebAcl: &cloudfront.DistributionTenantCustomizationsWebAclArgs{
-//						Action: pulumi.String("override"),
-//						Arn:    pulumi.Any(tenantWaf.Arn),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("production"),
-//					"Tenant":      pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CloudFront Distribution Tenants using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:cloudfront/distributionTenant:DistributionTenant example TENANT123EXAMPLE
-// ```
 type DistributionTenant struct {
 	pulumi.CustomResourceState
 
-	// ARN of the distribution tenant.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// ID of the connection group for the distribution tenant. If not specified, CloudFront uses the default connection group.
-	ConnectionGroupId pulumi.StringOutput `pulumi:"connectionGroupId"`
-	// Customizations for the distribution tenant (maximum one).
-	Customizations DistributionTenantCustomizationsPtrOutput `pulumi:"customizations"`
-	// ID of the multi-tenant distribution.
-	DistributionId pulumi.StringOutput `pulumi:"distributionId"`
-	// Set of domains associated with the distribution tenant.
-	Domains DistributionTenantDomainArrayOutput `pulumi:"domains"`
-	// Whether the distribution tenant is enabled to serve traffic. Defaults to `true`.
-	Enabled pulumi.BoolOutput `pulumi:"enabled"`
-	// Current version of the distribution tenant.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Managed certificate request for CloudFront managed ACM certificate (maximum one).
+	Arn                       pulumi.StringOutput                                  `pulumi:"arn"`
+	ConnectionGroupId         pulumi.StringOutput                                  `pulumi:"connectionGroupId"`
+	Customizations            DistributionTenantCustomizationsPtrOutput            `pulumi:"customizations"`
+	DistributionId            pulumi.StringOutput                                  `pulumi:"distributionId"`
+	Domains                   DistributionTenantDomainArrayOutput                  `pulumi:"domains"`
+	Enabled                   pulumi.BoolOutput                                    `pulumi:"enabled"`
+	Etag                      pulumi.StringOutput                                  `pulumi:"etag"`
 	ManagedCertificateRequest DistributionTenantManagedCertificateRequestPtrOutput `pulumi:"managedCertificateRequest"`
-	// Name of the distribution tenant.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Set of parameter values for the distribution tenant.
-	Parameters DistributionTenantParameterArrayOutput `pulumi:"parameters"`
-	// Current status of the distribution tenant.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput              `pulumi:"tagsAll"`
-	Timeouts DistributionTenantTimeoutsPtrOutput `pulumi:"timeouts"`
-	// If enabled, the resource will wait for the distribution tenant status to change from `InProgress` to `Deployed`. Setting this to `false` will skip the process. Default: `true`.
-	WaitForDeployment pulumi.BoolOutput `pulumi:"waitForDeployment"`
+	Name                      pulumi.StringOutput                                  `pulumi:"name"`
+	Parameters                DistributionTenantParameterArrayOutput               `pulumi:"parameters"`
+	Status                    pulumi.StringOutput                                  `pulumi:"status"`
+	Tags                      pulumi.StringMapOutput                               `pulumi:"tags"`
+	TagsAll                   pulumi.StringMapOutput                               `pulumi:"tagsAll"`
+	Timeouts                  DistributionTenantTimeoutsPtrOutput                  `pulumi:"timeouts"`
+	WaitForDeployment         pulumi.BoolOutput                                    `pulumi:"waitForDeployment"`
 }
 
 // NewDistributionTenant registers a new resource with the given unique name, arguments, and options.
@@ -183,67 +65,39 @@ func GetDistributionTenant(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DistributionTenant resources.
 type distributionTenantState struct {
-	// ARN of the distribution tenant.
-	Arn *string `pulumi:"arn"`
-	// ID of the connection group for the distribution tenant. If not specified, CloudFront uses the default connection group.
-	ConnectionGroupId *string `pulumi:"connectionGroupId"`
-	// Customizations for the distribution tenant (maximum one).
-	Customizations *DistributionTenantCustomizations `pulumi:"customizations"`
-	// ID of the multi-tenant distribution.
-	DistributionId *string `pulumi:"distributionId"`
-	// Set of domains associated with the distribution tenant.
-	Domains []DistributionTenantDomain `pulumi:"domains"`
-	// Whether the distribution tenant is enabled to serve traffic. Defaults to `true`.
-	Enabled *bool `pulumi:"enabled"`
-	// Current version of the distribution tenant.
-	Etag *string `pulumi:"etag"`
-	// Managed certificate request for CloudFront managed ACM certificate (maximum one).
+	Arn                       *string                                      `pulumi:"arn"`
+	ConnectionGroupId         *string                                      `pulumi:"connectionGroupId"`
+	Customizations            *DistributionTenantCustomizations            `pulumi:"customizations"`
+	DistributionId            *string                                      `pulumi:"distributionId"`
+	Domains                   []DistributionTenantDomain                   `pulumi:"domains"`
+	Enabled                   *bool                                        `pulumi:"enabled"`
+	Etag                      *string                                      `pulumi:"etag"`
 	ManagedCertificateRequest *DistributionTenantManagedCertificateRequest `pulumi:"managedCertificateRequest"`
-	// Name of the distribution tenant.
-	Name *string `pulumi:"name"`
-	// Set of parameter values for the distribution tenant.
-	Parameters []DistributionTenantParameter `pulumi:"parameters"`
-	// Current status of the distribution tenant.
-	Status *string `pulumi:"status"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string           `pulumi:"tagsAll"`
-	Timeouts *DistributionTenantTimeouts `pulumi:"timeouts"`
-	// If enabled, the resource will wait for the distribution tenant status to change from `InProgress` to `Deployed`. Setting this to `false` will skip the process. Default: `true`.
-	WaitForDeployment *bool `pulumi:"waitForDeployment"`
+	Name                      *string                                      `pulumi:"name"`
+	Parameters                []DistributionTenantParameter                `pulumi:"parameters"`
+	Status                    *string                                      `pulumi:"status"`
+	Tags                      map[string]string                            `pulumi:"tags"`
+	TagsAll                   map[string]string                            `pulumi:"tagsAll"`
+	Timeouts                  *DistributionTenantTimeouts                  `pulumi:"timeouts"`
+	WaitForDeployment         *bool                                        `pulumi:"waitForDeployment"`
 }
 
 type DistributionTenantState struct {
-	// ARN of the distribution tenant.
-	Arn pulumi.StringPtrInput
-	// ID of the connection group for the distribution tenant. If not specified, CloudFront uses the default connection group.
-	ConnectionGroupId pulumi.StringPtrInput
-	// Customizations for the distribution tenant (maximum one).
-	Customizations DistributionTenantCustomizationsPtrInput
-	// ID of the multi-tenant distribution.
-	DistributionId pulumi.StringPtrInput
-	// Set of domains associated with the distribution tenant.
-	Domains DistributionTenantDomainArrayInput
-	// Whether the distribution tenant is enabled to serve traffic. Defaults to `true`.
-	Enabled pulumi.BoolPtrInput
-	// Current version of the distribution tenant.
-	Etag pulumi.StringPtrInput
-	// Managed certificate request for CloudFront managed ACM certificate (maximum one).
+	Arn                       pulumi.StringPtrInput
+	ConnectionGroupId         pulumi.StringPtrInput
+	Customizations            DistributionTenantCustomizationsPtrInput
+	DistributionId            pulumi.StringPtrInput
+	Domains                   DistributionTenantDomainArrayInput
+	Enabled                   pulumi.BoolPtrInput
+	Etag                      pulumi.StringPtrInput
 	ManagedCertificateRequest DistributionTenantManagedCertificateRequestPtrInput
-	// Name of the distribution tenant.
-	Name pulumi.StringPtrInput
-	// Set of parameter values for the distribution tenant.
-	Parameters DistributionTenantParameterArrayInput
-	// Current status of the distribution tenant.
-	Status pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts DistributionTenantTimeoutsPtrInput
-	// If enabled, the resource will wait for the distribution tenant status to change from `InProgress` to `Deployed`. Setting this to `false` will skip the process. Default: `true`.
-	WaitForDeployment pulumi.BoolPtrInput
+	Name                      pulumi.StringPtrInput
+	Parameters                DistributionTenantParameterArrayInput
+	Status                    pulumi.StringPtrInput
+	Tags                      pulumi.StringMapInput
+	TagsAll                   pulumi.StringMapInput
+	Timeouts                  DistributionTenantTimeoutsPtrInput
+	WaitForDeployment         pulumi.BoolPtrInput
 }
 
 func (DistributionTenantState) ElementType() reflect.Type {
@@ -251,52 +105,32 @@ func (DistributionTenantState) ElementType() reflect.Type {
 }
 
 type distributionTenantArgs struct {
-	// ID of the connection group for the distribution tenant. If not specified, CloudFront uses the default connection group.
-	ConnectionGroupId *string `pulumi:"connectionGroupId"`
-	// Customizations for the distribution tenant (maximum one).
-	Customizations *DistributionTenantCustomizations `pulumi:"customizations"`
-	// ID of the multi-tenant distribution.
-	DistributionId string `pulumi:"distributionId"`
-	// Set of domains associated with the distribution tenant.
-	Domains []DistributionTenantDomain `pulumi:"domains"`
-	// Whether the distribution tenant is enabled to serve traffic. Defaults to `true`.
-	Enabled *bool `pulumi:"enabled"`
-	// Managed certificate request for CloudFront managed ACM certificate (maximum one).
+	ConnectionGroupId         *string                                      `pulumi:"connectionGroupId"`
+	Customizations            *DistributionTenantCustomizations            `pulumi:"customizations"`
+	DistributionId            string                                       `pulumi:"distributionId"`
+	Domains                   []DistributionTenantDomain                   `pulumi:"domains"`
+	Enabled                   *bool                                        `pulumi:"enabled"`
 	ManagedCertificateRequest *DistributionTenantManagedCertificateRequest `pulumi:"managedCertificateRequest"`
-	// Name of the distribution tenant.
-	Name *string `pulumi:"name"`
-	// Set of parameter values for the distribution tenant.
-	Parameters []DistributionTenantParameter `pulumi:"parameters"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string           `pulumi:"tags"`
-	Timeouts *DistributionTenantTimeouts `pulumi:"timeouts"`
-	// If enabled, the resource will wait for the distribution tenant status to change from `InProgress` to `Deployed`. Setting this to `false` will skip the process. Default: `true`.
-	WaitForDeployment *bool `pulumi:"waitForDeployment"`
+	Name                      *string                                      `pulumi:"name"`
+	Parameters                []DistributionTenantParameter                `pulumi:"parameters"`
+	Tags                      map[string]string                            `pulumi:"tags"`
+	Timeouts                  *DistributionTenantTimeouts                  `pulumi:"timeouts"`
+	WaitForDeployment         *bool                                        `pulumi:"waitForDeployment"`
 }
 
 // The set of arguments for constructing a DistributionTenant resource.
 type DistributionTenantArgs struct {
-	// ID of the connection group for the distribution tenant. If not specified, CloudFront uses the default connection group.
-	ConnectionGroupId pulumi.StringPtrInput
-	// Customizations for the distribution tenant (maximum one).
-	Customizations DistributionTenantCustomizationsPtrInput
-	// ID of the multi-tenant distribution.
-	DistributionId pulumi.StringInput
-	// Set of domains associated with the distribution tenant.
-	Domains DistributionTenantDomainArrayInput
-	// Whether the distribution tenant is enabled to serve traffic. Defaults to `true`.
-	Enabled pulumi.BoolPtrInput
-	// Managed certificate request for CloudFront managed ACM certificate (maximum one).
+	ConnectionGroupId         pulumi.StringPtrInput
+	Customizations            DistributionTenantCustomizationsPtrInput
+	DistributionId            pulumi.StringInput
+	Domains                   DistributionTenantDomainArrayInput
+	Enabled                   pulumi.BoolPtrInput
 	ManagedCertificateRequest DistributionTenantManagedCertificateRequestPtrInput
-	// Name of the distribution tenant.
-	Name pulumi.StringPtrInput
-	// Set of parameter values for the distribution tenant.
-	Parameters DistributionTenantParameterArrayInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts DistributionTenantTimeoutsPtrInput
-	// If enabled, the resource will wait for the distribution tenant status to change from `InProgress` to `Deployed`. Setting this to `false` will skip the process. Default: `true`.
-	WaitForDeployment pulumi.BoolPtrInput
+	Name                      pulumi.StringPtrInput
+	Parameters                DistributionTenantParameterArrayInput
+	Tags                      pulumi.StringMapInput
+	Timeouts                  DistributionTenantTimeoutsPtrInput
+	WaitForDeployment         pulumi.BoolPtrInput
 }
 
 func (DistributionTenantArgs) ElementType() reflect.Type {
@@ -386,69 +220,56 @@ func (o DistributionTenantOutput) ToDistributionTenantOutputWithContext(ctx cont
 	return o
 }
 
-// ARN of the distribution tenant.
 func (o DistributionTenantOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DistributionTenant) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// ID of the connection group for the distribution tenant. If not specified, CloudFront uses the default connection group.
 func (o DistributionTenantOutput) ConnectionGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DistributionTenant) pulumi.StringOutput { return v.ConnectionGroupId }).(pulumi.StringOutput)
 }
 
-// Customizations for the distribution tenant (maximum one).
 func (o DistributionTenantOutput) Customizations() DistributionTenantCustomizationsPtrOutput {
 	return o.ApplyT(func(v *DistributionTenant) DistributionTenantCustomizationsPtrOutput { return v.Customizations }).(DistributionTenantCustomizationsPtrOutput)
 }
 
-// ID of the multi-tenant distribution.
 func (o DistributionTenantOutput) DistributionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DistributionTenant) pulumi.StringOutput { return v.DistributionId }).(pulumi.StringOutput)
 }
 
-// Set of domains associated with the distribution tenant.
 func (o DistributionTenantOutput) Domains() DistributionTenantDomainArrayOutput {
 	return o.ApplyT(func(v *DistributionTenant) DistributionTenantDomainArrayOutput { return v.Domains }).(DistributionTenantDomainArrayOutput)
 }
 
-// Whether the distribution tenant is enabled to serve traffic. Defaults to `true`.
 func (o DistributionTenantOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *DistributionTenant) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Current version of the distribution tenant.
 func (o DistributionTenantOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *DistributionTenant) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
-// Managed certificate request for CloudFront managed ACM certificate (maximum one).
 func (o DistributionTenantOutput) ManagedCertificateRequest() DistributionTenantManagedCertificateRequestPtrOutput {
 	return o.ApplyT(func(v *DistributionTenant) DistributionTenantManagedCertificateRequestPtrOutput {
 		return v.ManagedCertificateRequest
 	}).(DistributionTenantManagedCertificateRequestPtrOutput)
 }
 
-// Name of the distribution tenant.
 func (o DistributionTenantOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DistributionTenant) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Set of parameter values for the distribution tenant.
 func (o DistributionTenantOutput) Parameters() DistributionTenantParameterArrayOutput {
 	return o.ApplyT(func(v *DistributionTenant) DistributionTenantParameterArrayOutput { return v.Parameters }).(DistributionTenantParameterArrayOutput)
 }
 
-// Current status of the distribution tenant.
 func (o DistributionTenantOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *DistributionTenant) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DistributionTenantOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DistributionTenant) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DistributionTenantOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DistributionTenant) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -457,7 +278,6 @@ func (o DistributionTenantOutput) Timeouts() DistributionTenantTimeoutsPtrOutput
 	return o.ApplyT(func(v *DistributionTenant) DistributionTenantTimeoutsPtrOutput { return v.Timeouts }).(DistributionTenantTimeoutsPtrOutput)
 }
 
-// If enabled, the resource will wait for the distribution tenant status to change from `InProgress` to `Deployed`. Setting this to `false` will skip the process. Default: `true`.
 func (o DistributionTenantOutput) WaitForDeployment() pulumi.BoolOutput {
 	return o.ApplyT(func(v *DistributionTenant) pulumi.BoolOutput { return v.WaitForDeployment }).(pulumi.BoolOutput)
 }

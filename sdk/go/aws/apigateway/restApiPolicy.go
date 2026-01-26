@@ -12,97 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an API Gateway REST API Policy.
-//
-// > **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2 resources.
-//
-// ## Example Usage
-//
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigateway"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testRestApi, err := apigateway.NewRestApi(ctx, "test", &apigateway.RestApiArgs{
-//				Name: pulumi.String("example-rest-api"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			test := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("AWS"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("*"),
-//								},
-//							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("execute-api:Invoke"),
-//						},
-//						Resources: pulumi.StringArray{
-//							testRestApi.ExecutionArn.ApplyT(func(executionArn string) (string, error) {
-//								return fmt.Sprintf("%v/*", executionArn), nil
-//							}).(pulumi.StringOutput),
-//						},
-//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
-//							&iam.GetPolicyDocumentStatementConditionArgs{
-//								Test:     pulumi.String("IpAddress"),
-//								Variable: pulumi.String("aws:SourceIp"),
-//								Values: pulumi.StringArray{
-//									pulumi.String("123.123.123.123/32"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			_, err = apigateway.NewRestApiPolicy(ctx, "test", &apigateway.RestApiPolicyArgs{
-//				RestApiId: testRestApi.ID(),
-//				Policy: pulumi.String(test.ApplyT(func(test iam.GetPolicyDocumentResult) (*string, error) {
-//					return &test.Json, nil
-//				}).(pulumi.StringPtrOutput)),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_api_gateway_rest_api_policy` using the REST API ID. For example:
-//
-// ```sh
-// $ pulumi import aws:apigateway/restApiPolicy:RestApiPolicy example 12345abcde
-// ```
 type RestApiPolicy struct {
 	pulumi.CustomResourceState
 
-	// JSON formatted policy document that controls access to the API Gateway.
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ID of the REST API.
+	Policy    pulumi.StringOutput `pulumi:"policy"`
+	Region    pulumi.StringOutput `pulumi:"region"`
 	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
 }
 
@@ -142,20 +56,14 @@ func GetRestApiPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RestApiPolicy resources.
 type restApiPolicyState struct {
-	// JSON formatted policy document that controls access to the API Gateway.
-	Policy *string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID of the REST API.
+	Policy    *string `pulumi:"policy"`
+	Region    *string `pulumi:"region"`
 	RestApiId *string `pulumi:"restApiId"`
 }
 
 type RestApiPolicyState struct {
-	// JSON formatted policy document that controls access to the API Gateway.
-	Policy pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ID of the REST API.
+	Policy    pulumi.StringPtrInput
+	Region    pulumi.StringPtrInput
 	RestApiId pulumi.StringPtrInput
 }
 
@@ -164,21 +72,15 @@ func (RestApiPolicyState) ElementType() reflect.Type {
 }
 
 type restApiPolicyArgs struct {
-	// JSON formatted policy document that controls access to the API Gateway.
-	Policy string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID of the REST API.
-	RestApiId string `pulumi:"restApiId"`
+	Policy    string  `pulumi:"policy"`
+	Region    *string `pulumi:"region"`
+	RestApiId string  `pulumi:"restApiId"`
 }
 
 // The set of arguments for constructing a RestApiPolicy resource.
 type RestApiPolicyArgs struct {
-	// JSON formatted policy document that controls access to the API Gateway.
-	Policy pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ID of the REST API.
+	Policy    pulumi.StringInput
+	Region    pulumi.StringPtrInput
 	RestApiId pulumi.StringInput
 }
 
@@ -269,17 +171,14 @@ func (o RestApiPolicyOutput) ToRestApiPolicyOutputWithContext(ctx context.Contex
 	return o
 }
 
-// JSON formatted policy document that controls access to the API Gateway.
 func (o RestApiPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestApiPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RestApiPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestApiPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ID of the REST API.
 func (o RestApiPolicyOutput) RestApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestApiPolicy) pulumi.StringOutput { return v.RestApiId }).(pulumi.StringOutput)
 }

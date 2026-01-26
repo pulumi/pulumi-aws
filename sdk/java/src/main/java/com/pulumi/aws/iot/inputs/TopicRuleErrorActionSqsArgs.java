@@ -15,47 +15,23 @@ public final class TopicRuleErrorActionSqsArgs extends com.pulumi.resources.Reso
 
     public static final TopicRuleErrorActionSqsArgs Empty = new TopicRuleErrorActionSqsArgs();
 
-    /**
-     * The URL of the Amazon SQS queue.
-     * 
-     */
     @Import(name="queueUrl", required=true)
     private Output<String> queueUrl;
 
-    /**
-     * @return The URL of the Amazon SQS queue.
-     * 
-     */
     public Output<String> queueUrl() {
         return this.queueUrl;
     }
 
-    /**
-     * The ARN of the IAM role that grants access.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return The ARN of the IAM role that grants access.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
 
-    /**
-     * Specifies whether to use Base64 encoding.
-     * 
-     */
     @Import(name="useBase64", required=true)
     private Output<Boolean> useBase64;
 
-    /**
-     * @return Specifies whether to use Base64 encoding.
-     * 
-     */
     public Output<Boolean> useBase64() {
         return this.useBase64;
     }
@@ -86,65 +62,29 @@ public final class TopicRuleErrorActionSqsArgs extends com.pulumi.resources.Reso
             $ = new TopicRuleErrorActionSqsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param queueUrl The URL of the Amazon SQS queue.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queueUrl(Output<String> queueUrl) {
             $.queueUrl = queueUrl;
             return this;
         }
 
-        /**
-         * @param queueUrl The URL of the Amazon SQS queue.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queueUrl(String queueUrl) {
             return queueUrl(Output.of(queueUrl));
         }
 
-        /**
-         * @param roleArn The ARN of the IAM role that grants access.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The ARN of the IAM role that grants access.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param useBase64 Specifies whether to use Base64 encoding.
-         * 
-         * @return builder
-         * 
-         */
         public Builder useBase64(Output<Boolean> useBase64) {
             $.useBase64 = useBase64;
             return this;
         }
 
-        /**
-         * @param useBase64 Specifies whether to use Base64 encoding.
-         * 
-         * @return builder
-         * 
-         */
         public Builder useBase64(Boolean useBase64) {
             return useBase64(Output.of(useBase64));
         }

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchCondition {
-    /**
-     * @return Expression string that is evaluated.
-     * 
-     */
     private String expressionString;
 
     private V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchCondition() {}
-    /**
-     * @return Expression string that is evaluated.
-     * 
-     */
     public String expressionString() {
         return this.expressionString;
     }

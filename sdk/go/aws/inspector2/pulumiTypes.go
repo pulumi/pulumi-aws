@@ -14,98 +14,52 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type FilterFilterCriteria struct {
-	// (Optional) The AWS account ID in which the finding was generated. Documented below.
-	AwsAccountIds []FilterFilterCriteriaAwsAccountId `pulumi:"awsAccountIds"`
-	// (Optional) The project name in a code repository. Documented below.
-	CodeRepositoryProjectNames []FilterFilterCriteriaCodeRepositoryProjectName `pulumi:"codeRepositoryProjectNames"`
-	// (Optional) The repository provider type (such as GitHub, GitLab, etc.) Documented below.
-	CodeRepositoryProviderTypes []FilterFilterCriteriaCodeRepositoryProviderType `pulumi:"codeRepositoryProviderTypes"`
-	// (Optional) The ID of the component. Documented below.
-	CodeVulnerabilityDetectorNames []FilterFilterCriteriaCodeVulnerabilityDetectorName `pulumi:"codeVulnerabilityDetectorNames"`
-	// (Optional) The ID of the component. Documented below.
-	CodeVulnerabilityDetectorTags []FilterFilterCriteriaCodeVulnerabilityDetectorTag `pulumi:"codeVulnerabilityDetectorTags"`
-	// (Optional) The ID of the component. Documented below.
-	CodeVulnerabilityFilePaths []FilterFilterCriteriaCodeVulnerabilityFilePath `pulumi:"codeVulnerabilityFilePaths"`
-	// (Optional) The ID of the component. Documented below.
-	ComponentIds []FilterFilterCriteriaComponentId `pulumi:"componentIds"`
-	// (Optional) The type of the component. Documented below.
-	ComponentTypes []FilterFilterCriteriaComponentType `pulumi:"componentTypes"`
-	// (Optional) The ID of the Amazon Machine Image (AMI). Documented below.
-	Ec2InstanceImageIds []FilterFilterCriteriaEc2InstanceImageId `pulumi:"ec2InstanceImageIds"`
-	// (Optional) The ID of the subnet. Documented below.
-	Ec2InstanceSubnetIds []FilterFilterCriteriaEc2InstanceSubnetId `pulumi:"ec2InstanceSubnetIds"`
-	// (Optional) The ID of the VPC. Documented below.
-	Ec2InstanceVpcIds []FilterFilterCriteriaEc2InstanceVpcId `pulumi:"ec2InstanceVpcIds"`
-	// (Optional) The architecture of the ECR image. Documented below.
-	EcrImageArchitectures []FilterFilterCriteriaEcrImageArchitecture `pulumi:"ecrImageArchitectures"`
-	// (Optional) The SHA256 hash of the ECR image. Documented below.
-	EcrImageHashes []FilterFilterCriteriaEcrImageHash `pulumi:"ecrImageHashes"`
-	// (Optional)  The number of the ECR images in use. Documented below.
-	EcrImageInUseCounts []FilterFilterCriteriaEcrImageInUseCount `pulumi:"ecrImageInUseCounts"`
-	// (Optional) The date range when an ECR image was last used in an ECS cluster task or EKS cluster pod. Documented below.
-	EcrImageLastInUseAts []FilterFilterCriteriaEcrImageLastInUseAt `pulumi:"ecrImageLastInUseAts"`
-	// (Optional) The date range when the image was pushed. Documented below.
-	EcrImagePushedAts []FilterFilterCriteriaEcrImagePushedAt `pulumi:"ecrImagePushedAts"`
-	// (Optional) The registry of the ECR image. Documented below.
-	EcrImageRegistries []FilterFilterCriteriaEcrImageRegistry `pulumi:"ecrImageRegistries"`
-	// (Optional) The name of the ECR repository. Documented below.
-	EcrImageRepositoryNames []FilterFilterCriteriaEcrImageRepositoryName `pulumi:"ecrImageRepositoryNames"`
-	// (Optional) The tags associated with the ECR image. Documented below.
-	EcrImageTags []FilterFilterCriteriaEcrImageTag `pulumi:"ecrImageTags"`
-	// (Optional) EPSS (Exploit Prediction Scoring System) Score of the finding. Documented below.
-	EpssScores []FilterFilterCriteriaEpssScore `pulumi:"epssScores"`
-	// (Optional) Availability of exploits. Documented below.
-	ExploitAvailables []FilterFilterCriteriaExploitAvailable `pulumi:"exploitAvailables"`
-	// (Optional) The ARN of the finding. Documented below.
-	FindingArns []FilterFilterCriteriaFindingArn `pulumi:"findingArns"`
-	// (Optional) The status of the finding. Documented below.
-	FindingStatuses []FilterFilterCriteriaFindingStatus `pulumi:"findingStatuses"`
-	// (Optional) The type of the finding. Documented below.
-	FindingTypes []FilterFilterCriteriaFindingType `pulumi:"findingTypes"`
-	// (Optional) When the finding was first observed. Documented below.
-	FirstObservedAts []FilterFilterCriteriaFirstObservedAt `pulumi:"firstObservedAts"`
-	// (Optional) Availability of the fix. Documented below.
-	FixAvailables []FilterFilterCriteriaFixAvailable `pulumi:"fixAvailables"`
-	// (Optional) The Inspector score given to the finding. Documented below.
-	InspectorScores []FilterFilterCriteriaInspectorScore `pulumi:"inspectorScores"`
-	// (Optional) Lambda execution role ARN. Documented below.
+	AwsAccountIds                   []FilterFilterCriteriaAwsAccountId                   `pulumi:"awsAccountIds"`
+	CodeRepositoryProjectNames      []FilterFilterCriteriaCodeRepositoryProjectName      `pulumi:"codeRepositoryProjectNames"`
+	CodeRepositoryProviderTypes     []FilterFilterCriteriaCodeRepositoryProviderType     `pulumi:"codeRepositoryProviderTypes"`
+	CodeVulnerabilityDetectorNames  []FilterFilterCriteriaCodeVulnerabilityDetectorName  `pulumi:"codeVulnerabilityDetectorNames"`
+	CodeVulnerabilityDetectorTags   []FilterFilterCriteriaCodeVulnerabilityDetectorTag   `pulumi:"codeVulnerabilityDetectorTags"`
+	CodeVulnerabilityFilePaths      []FilterFilterCriteriaCodeVulnerabilityFilePath      `pulumi:"codeVulnerabilityFilePaths"`
+	ComponentIds                    []FilterFilterCriteriaComponentId                    `pulumi:"componentIds"`
+	ComponentTypes                  []FilterFilterCriteriaComponentType                  `pulumi:"componentTypes"`
+	Ec2InstanceImageIds             []FilterFilterCriteriaEc2InstanceImageId             `pulumi:"ec2InstanceImageIds"`
+	Ec2InstanceSubnetIds            []FilterFilterCriteriaEc2InstanceSubnetId            `pulumi:"ec2InstanceSubnetIds"`
+	Ec2InstanceVpcIds               []FilterFilterCriteriaEc2InstanceVpcId               `pulumi:"ec2InstanceVpcIds"`
+	EcrImageArchitectures           []FilterFilterCriteriaEcrImageArchitecture           `pulumi:"ecrImageArchitectures"`
+	EcrImageHashes                  []FilterFilterCriteriaEcrImageHash                   `pulumi:"ecrImageHashes"`
+	EcrImageInUseCounts             []FilterFilterCriteriaEcrImageInUseCount             `pulumi:"ecrImageInUseCounts"`
+	EcrImageLastInUseAts            []FilterFilterCriteriaEcrImageLastInUseAt            `pulumi:"ecrImageLastInUseAts"`
+	EcrImagePushedAts               []FilterFilterCriteriaEcrImagePushedAt               `pulumi:"ecrImagePushedAts"`
+	EcrImageRegistries              []FilterFilterCriteriaEcrImageRegistry               `pulumi:"ecrImageRegistries"`
+	EcrImageRepositoryNames         []FilterFilterCriteriaEcrImageRepositoryName         `pulumi:"ecrImageRepositoryNames"`
+	EcrImageTags                    []FilterFilterCriteriaEcrImageTag                    `pulumi:"ecrImageTags"`
+	EpssScores                      []FilterFilterCriteriaEpssScore                      `pulumi:"epssScores"`
+	ExploitAvailables               []FilterFilterCriteriaExploitAvailable               `pulumi:"exploitAvailables"`
+	FindingArns                     []FilterFilterCriteriaFindingArn                     `pulumi:"findingArns"`
+	FindingStatuses                 []FilterFilterCriteriaFindingStatus                  `pulumi:"findingStatuses"`
+	FindingTypes                    []FilterFilterCriteriaFindingType                    `pulumi:"findingTypes"`
+	FirstObservedAts                []FilterFilterCriteriaFirstObservedAt                `pulumi:"firstObservedAts"`
+	FixAvailables                   []FilterFilterCriteriaFixAvailable                   `pulumi:"fixAvailables"`
+	InspectorScores                 []FilterFilterCriteriaInspectorScore                 `pulumi:"inspectorScores"`
 	LambdaFunctionExecutionRoleArns []FilterFilterCriteriaLambdaFunctionExecutionRoleArn `pulumi:"lambdaFunctionExecutionRoleArns"`
-	// (Optional) Last modified timestamp of the lambda function. Documented below.
-	LambdaFunctionLastModifiedAts []FilterFilterCriteriaLambdaFunctionLastModifiedAt `pulumi:"lambdaFunctionLastModifiedAts"`
-	// (Optional) Lambda function layers. Documented below.
-	LambdaFunctionLayers []FilterFilterCriteriaLambdaFunctionLayer `pulumi:"lambdaFunctionLayers"`
-	// (Optional) Lambda function name. Documented below.
-	LambdaFunctionNames []FilterFilterCriteriaLambdaFunctionName `pulumi:"lambdaFunctionNames"`
-	// (Optional) Lambda function runtime. Documented below.
-	LambdaFunctionRuntimes []FilterFilterCriteriaLambdaFunctionRuntime `pulumi:"lambdaFunctionRuntimes"`
-	// (Optional) When the finding was last observed. Documented below.
-	LastObservedAts []FilterFilterCriteriaLastObservedAt `pulumi:"lastObservedAts"`
-	// (Optional) The network protocol of the finding. Documented below.
-	NetworkProtocols []FilterFilterCriteriaNetworkProtocol `pulumi:"networkProtocols"`
-	// (Optional) The port range of the finding. Documented below.
-	PortRanges []FilterFilterCriteriaPortRange `pulumi:"portRanges"`
-	// (Optional) Related vulnerabilities. Documented below.
-	RelatedVulnerabilities []FilterFilterCriteriaRelatedVulnerability `pulumi:"relatedVulnerabilities"`
-	// (Optional) The ID of the resource. Documented below.
-	ResourceIds []FilterFilterCriteriaResourceId `pulumi:"resourceIds"`
-	// (Optional) The tags of the resource. Documented below.
-	ResourceTags []FilterFilterCriteriaResourceTag `pulumi:"resourceTags"`
-	// (Optional) The type of the resource. Documented below.
-	ResourceTypes []FilterFilterCriteriaResourceType `pulumi:"resourceTypes"`
-	// (Optional) The severity of the finding. Documented below.
-	Severities []FilterFilterCriteriaSeverity `pulumi:"severities"`
-	// (Optional) The title of the finding. Documented below.
-	Titles []FilterFilterCriteriaTitle `pulumi:"titles"`
-	// (Optional) When the finding was last updated. Documented below.
-	UpdatedAts []FilterFilterCriteriaUpdatedAt `pulumi:"updatedAts"`
-	// (Optional) The severity as reported by the vendor. Documented below.
-	VendorSeverities []FilterFilterCriteriaVendorSeverity `pulumi:"vendorSeverities"`
-	// (Optional) The ID of the vulnerability. Documented below.
-	VulnerabilityIds []FilterFilterCriteriaVulnerabilityId `pulumi:"vulnerabilityIds"`
-	// (Optional) The source of the vulnerability. Documented below.
-	VulnerabilitySources []FilterFilterCriteriaVulnerabilitySource `pulumi:"vulnerabilitySources"`
-	// (Optional) Details about vulnerable packages. Documented below.
-	VulnerablePackages []FilterFilterCriteriaVulnerablePackage `pulumi:"vulnerablePackages"`
+	LambdaFunctionLastModifiedAts   []FilterFilterCriteriaLambdaFunctionLastModifiedAt   `pulumi:"lambdaFunctionLastModifiedAts"`
+	LambdaFunctionLayers            []FilterFilterCriteriaLambdaFunctionLayer            `pulumi:"lambdaFunctionLayers"`
+	LambdaFunctionNames             []FilterFilterCriteriaLambdaFunctionName             `pulumi:"lambdaFunctionNames"`
+	LambdaFunctionRuntimes          []FilterFilterCriteriaLambdaFunctionRuntime          `pulumi:"lambdaFunctionRuntimes"`
+	LastObservedAts                 []FilterFilterCriteriaLastObservedAt                 `pulumi:"lastObservedAts"`
+	NetworkProtocols                []FilterFilterCriteriaNetworkProtocol                `pulumi:"networkProtocols"`
+	PortRanges                      []FilterFilterCriteriaPortRange                      `pulumi:"portRanges"`
+	RelatedVulnerabilities          []FilterFilterCriteriaRelatedVulnerability           `pulumi:"relatedVulnerabilities"`
+	ResourceIds                     []FilterFilterCriteriaResourceId                     `pulumi:"resourceIds"`
+	ResourceTags                    []FilterFilterCriteriaResourceTag                    `pulumi:"resourceTags"`
+	ResourceTypes                   []FilterFilterCriteriaResourceType                   `pulumi:"resourceTypes"`
+	Severities                      []FilterFilterCriteriaSeverity                       `pulumi:"severities"`
+	Titles                          []FilterFilterCriteriaTitle                          `pulumi:"titles"`
+	UpdatedAts                      []FilterFilterCriteriaUpdatedAt                      `pulumi:"updatedAts"`
+	VendorSeverities                []FilterFilterCriteriaVendorSeverity                 `pulumi:"vendorSeverities"`
+	VulnerabilityIds                []FilterFilterCriteriaVulnerabilityId                `pulumi:"vulnerabilityIds"`
+	VulnerabilitySources            []FilterFilterCriteriaVulnerabilitySource            `pulumi:"vulnerabilitySources"`
+	VulnerablePackages              []FilterFilterCriteriaVulnerablePackage              `pulumi:"vulnerablePackages"`
 }
 
 // FilterFilterCriteriaInput is an input type that accepts FilterFilterCriteriaArgs and FilterFilterCriteriaOutput values.
@@ -120,98 +74,52 @@ type FilterFilterCriteriaInput interface {
 }
 
 type FilterFilterCriteriaArgs struct {
-	// (Optional) The AWS account ID in which the finding was generated. Documented below.
-	AwsAccountIds FilterFilterCriteriaAwsAccountIdArrayInput `pulumi:"awsAccountIds"`
-	// (Optional) The project name in a code repository. Documented below.
-	CodeRepositoryProjectNames FilterFilterCriteriaCodeRepositoryProjectNameArrayInput `pulumi:"codeRepositoryProjectNames"`
-	// (Optional) The repository provider type (such as GitHub, GitLab, etc.) Documented below.
-	CodeRepositoryProviderTypes FilterFilterCriteriaCodeRepositoryProviderTypeArrayInput `pulumi:"codeRepositoryProviderTypes"`
-	// (Optional) The ID of the component. Documented below.
-	CodeVulnerabilityDetectorNames FilterFilterCriteriaCodeVulnerabilityDetectorNameArrayInput `pulumi:"codeVulnerabilityDetectorNames"`
-	// (Optional) The ID of the component. Documented below.
-	CodeVulnerabilityDetectorTags FilterFilterCriteriaCodeVulnerabilityDetectorTagArrayInput `pulumi:"codeVulnerabilityDetectorTags"`
-	// (Optional) The ID of the component. Documented below.
-	CodeVulnerabilityFilePaths FilterFilterCriteriaCodeVulnerabilityFilePathArrayInput `pulumi:"codeVulnerabilityFilePaths"`
-	// (Optional) The ID of the component. Documented below.
-	ComponentIds FilterFilterCriteriaComponentIdArrayInput `pulumi:"componentIds"`
-	// (Optional) The type of the component. Documented below.
-	ComponentTypes FilterFilterCriteriaComponentTypeArrayInput `pulumi:"componentTypes"`
-	// (Optional) The ID of the Amazon Machine Image (AMI). Documented below.
-	Ec2InstanceImageIds FilterFilterCriteriaEc2InstanceImageIdArrayInput `pulumi:"ec2InstanceImageIds"`
-	// (Optional) The ID of the subnet. Documented below.
-	Ec2InstanceSubnetIds FilterFilterCriteriaEc2InstanceSubnetIdArrayInput `pulumi:"ec2InstanceSubnetIds"`
-	// (Optional) The ID of the VPC. Documented below.
-	Ec2InstanceVpcIds FilterFilterCriteriaEc2InstanceVpcIdArrayInput `pulumi:"ec2InstanceVpcIds"`
-	// (Optional) The architecture of the ECR image. Documented below.
-	EcrImageArchitectures FilterFilterCriteriaEcrImageArchitectureArrayInput `pulumi:"ecrImageArchitectures"`
-	// (Optional) The SHA256 hash of the ECR image. Documented below.
-	EcrImageHashes FilterFilterCriteriaEcrImageHashArrayInput `pulumi:"ecrImageHashes"`
-	// (Optional)  The number of the ECR images in use. Documented below.
-	EcrImageInUseCounts FilterFilterCriteriaEcrImageInUseCountArrayInput `pulumi:"ecrImageInUseCounts"`
-	// (Optional) The date range when an ECR image was last used in an ECS cluster task or EKS cluster pod. Documented below.
-	EcrImageLastInUseAts FilterFilterCriteriaEcrImageLastInUseAtArrayInput `pulumi:"ecrImageLastInUseAts"`
-	// (Optional) The date range when the image was pushed. Documented below.
-	EcrImagePushedAts FilterFilterCriteriaEcrImagePushedAtArrayInput `pulumi:"ecrImagePushedAts"`
-	// (Optional) The registry of the ECR image. Documented below.
-	EcrImageRegistries FilterFilterCriteriaEcrImageRegistryArrayInput `pulumi:"ecrImageRegistries"`
-	// (Optional) The name of the ECR repository. Documented below.
-	EcrImageRepositoryNames FilterFilterCriteriaEcrImageRepositoryNameArrayInput `pulumi:"ecrImageRepositoryNames"`
-	// (Optional) The tags associated with the ECR image. Documented below.
-	EcrImageTags FilterFilterCriteriaEcrImageTagArrayInput `pulumi:"ecrImageTags"`
-	// (Optional) EPSS (Exploit Prediction Scoring System) Score of the finding. Documented below.
-	EpssScores FilterFilterCriteriaEpssScoreArrayInput `pulumi:"epssScores"`
-	// (Optional) Availability of exploits. Documented below.
-	ExploitAvailables FilterFilterCriteriaExploitAvailableArrayInput `pulumi:"exploitAvailables"`
-	// (Optional) The ARN of the finding. Documented below.
-	FindingArns FilterFilterCriteriaFindingArnArrayInput `pulumi:"findingArns"`
-	// (Optional) The status of the finding. Documented below.
-	FindingStatuses FilterFilterCriteriaFindingStatusArrayInput `pulumi:"findingStatuses"`
-	// (Optional) The type of the finding. Documented below.
-	FindingTypes FilterFilterCriteriaFindingTypeArrayInput `pulumi:"findingTypes"`
-	// (Optional) When the finding was first observed. Documented below.
-	FirstObservedAts FilterFilterCriteriaFirstObservedAtArrayInput `pulumi:"firstObservedAts"`
-	// (Optional) Availability of the fix. Documented below.
-	FixAvailables FilterFilterCriteriaFixAvailableArrayInput `pulumi:"fixAvailables"`
-	// (Optional) The Inspector score given to the finding. Documented below.
-	InspectorScores FilterFilterCriteriaInspectorScoreArrayInput `pulumi:"inspectorScores"`
-	// (Optional) Lambda execution role ARN. Documented below.
+	AwsAccountIds                   FilterFilterCriteriaAwsAccountIdArrayInput                   `pulumi:"awsAccountIds"`
+	CodeRepositoryProjectNames      FilterFilterCriteriaCodeRepositoryProjectNameArrayInput      `pulumi:"codeRepositoryProjectNames"`
+	CodeRepositoryProviderTypes     FilterFilterCriteriaCodeRepositoryProviderTypeArrayInput     `pulumi:"codeRepositoryProviderTypes"`
+	CodeVulnerabilityDetectorNames  FilterFilterCriteriaCodeVulnerabilityDetectorNameArrayInput  `pulumi:"codeVulnerabilityDetectorNames"`
+	CodeVulnerabilityDetectorTags   FilterFilterCriteriaCodeVulnerabilityDetectorTagArrayInput   `pulumi:"codeVulnerabilityDetectorTags"`
+	CodeVulnerabilityFilePaths      FilterFilterCriteriaCodeVulnerabilityFilePathArrayInput      `pulumi:"codeVulnerabilityFilePaths"`
+	ComponentIds                    FilterFilterCriteriaComponentIdArrayInput                    `pulumi:"componentIds"`
+	ComponentTypes                  FilterFilterCriteriaComponentTypeArrayInput                  `pulumi:"componentTypes"`
+	Ec2InstanceImageIds             FilterFilterCriteriaEc2InstanceImageIdArrayInput             `pulumi:"ec2InstanceImageIds"`
+	Ec2InstanceSubnetIds            FilterFilterCriteriaEc2InstanceSubnetIdArrayInput            `pulumi:"ec2InstanceSubnetIds"`
+	Ec2InstanceVpcIds               FilterFilterCriteriaEc2InstanceVpcIdArrayInput               `pulumi:"ec2InstanceVpcIds"`
+	EcrImageArchitectures           FilterFilterCriteriaEcrImageArchitectureArrayInput           `pulumi:"ecrImageArchitectures"`
+	EcrImageHashes                  FilterFilterCriteriaEcrImageHashArrayInput                   `pulumi:"ecrImageHashes"`
+	EcrImageInUseCounts             FilterFilterCriteriaEcrImageInUseCountArrayInput             `pulumi:"ecrImageInUseCounts"`
+	EcrImageLastInUseAts            FilterFilterCriteriaEcrImageLastInUseAtArrayInput            `pulumi:"ecrImageLastInUseAts"`
+	EcrImagePushedAts               FilterFilterCriteriaEcrImagePushedAtArrayInput               `pulumi:"ecrImagePushedAts"`
+	EcrImageRegistries              FilterFilterCriteriaEcrImageRegistryArrayInput               `pulumi:"ecrImageRegistries"`
+	EcrImageRepositoryNames         FilterFilterCriteriaEcrImageRepositoryNameArrayInput         `pulumi:"ecrImageRepositoryNames"`
+	EcrImageTags                    FilterFilterCriteriaEcrImageTagArrayInput                    `pulumi:"ecrImageTags"`
+	EpssScores                      FilterFilterCriteriaEpssScoreArrayInput                      `pulumi:"epssScores"`
+	ExploitAvailables               FilterFilterCriteriaExploitAvailableArrayInput               `pulumi:"exploitAvailables"`
+	FindingArns                     FilterFilterCriteriaFindingArnArrayInput                     `pulumi:"findingArns"`
+	FindingStatuses                 FilterFilterCriteriaFindingStatusArrayInput                  `pulumi:"findingStatuses"`
+	FindingTypes                    FilterFilterCriteriaFindingTypeArrayInput                    `pulumi:"findingTypes"`
+	FirstObservedAts                FilterFilterCriteriaFirstObservedAtArrayInput                `pulumi:"firstObservedAts"`
+	FixAvailables                   FilterFilterCriteriaFixAvailableArrayInput                   `pulumi:"fixAvailables"`
+	InspectorScores                 FilterFilterCriteriaInspectorScoreArrayInput                 `pulumi:"inspectorScores"`
 	LambdaFunctionExecutionRoleArns FilterFilterCriteriaLambdaFunctionExecutionRoleArnArrayInput `pulumi:"lambdaFunctionExecutionRoleArns"`
-	// (Optional) Last modified timestamp of the lambda function. Documented below.
-	LambdaFunctionLastModifiedAts FilterFilterCriteriaLambdaFunctionLastModifiedAtArrayInput `pulumi:"lambdaFunctionLastModifiedAts"`
-	// (Optional) Lambda function layers. Documented below.
-	LambdaFunctionLayers FilterFilterCriteriaLambdaFunctionLayerArrayInput `pulumi:"lambdaFunctionLayers"`
-	// (Optional) Lambda function name. Documented below.
-	LambdaFunctionNames FilterFilterCriteriaLambdaFunctionNameArrayInput `pulumi:"lambdaFunctionNames"`
-	// (Optional) Lambda function runtime. Documented below.
-	LambdaFunctionRuntimes FilterFilterCriteriaLambdaFunctionRuntimeArrayInput `pulumi:"lambdaFunctionRuntimes"`
-	// (Optional) When the finding was last observed. Documented below.
-	LastObservedAts FilterFilterCriteriaLastObservedAtArrayInput `pulumi:"lastObservedAts"`
-	// (Optional) The network protocol of the finding. Documented below.
-	NetworkProtocols FilterFilterCriteriaNetworkProtocolArrayInput `pulumi:"networkProtocols"`
-	// (Optional) The port range of the finding. Documented below.
-	PortRanges FilterFilterCriteriaPortRangeArrayInput `pulumi:"portRanges"`
-	// (Optional) Related vulnerabilities. Documented below.
-	RelatedVulnerabilities FilterFilterCriteriaRelatedVulnerabilityArrayInput `pulumi:"relatedVulnerabilities"`
-	// (Optional) The ID of the resource. Documented below.
-	ResourceIds FilterFilterCriteriaResourceIdArrayInput `pulumi:"resourceIds"`
-	// (Optional) The tags of the resource. Documented below.
-	ResourceTags FilterFilterCriteriaResourceTagArrayInput `pulumi:"resourceTags"`
-	// (Optional) The type of the resource. Documented below.
-	ResourceTypes FilterFilterCriteriaResourceTypeArrayInput `pulumi:"resourceTypes"`
-	// (Optional) The severity of the finding. Documented below.
-	Severities FilterFilterCriteriaSeverityArrayInput `pulumi:"severities"`
-	// (Optional) The title of the finding. Documented below.
-	Titles FilterFilterCriteriaTitleArrayInput `pulumi:"titles"`
-	// (Optional) When the finding was last updated. Documented below.
-	UpdatedAts FilterFilterCriteriaUpdatedAtArrayInput `pulumi:"updatedAts"`
-	// (Optional) The severity as reported by the vendor. Documented below.
-	VendorSeverities FilterFilterCriteriaVendorSeverityArrayInput `pulumi:"vendorSeverities"`
-	// (Optional) The ID of the vulnerability. Documented below.
-	VulnerabilityIds FilterFilterCriteriaVulnerabilityIdArrayInput `pulumi:"vulnerabilityIds"`
-	// (Optional) The source of the vulnerability. Documented below.
-	VulnerabilitySources FilterFilterCriteriaVulnerabilitySourceArrayInput `pulumi:"vulnerabilitySources"`
-	// (Optional) Details about vulnerable packages. Documented below.
-	VulnerablePackages FilterFilterCriteriaVulnerablePackageArrayInput `pulumi:"vulnerablePackages"`
+	LambdaFunctionLastModifiedAts   FilterFilterCriteriaLambdaFunctionLastModifiedAtArrayInput   `pulumi:"lambdaFunctionLastModifiedAts"`
+	LambdaFunctionLayers            FilterFilterCriteriaLambdaFunctionLayerArrayInput            `pulumi:"lambdaFunctionLayers"`
+	LambdaFunctionNames             FilterFilterCriteriaLambdaFunctionNameArrayInput             `pulumi:"lambdaFunctionNames"`
+	LambdaFunctionRuntimes          FilterFilterCriteriaLambdaFunctionRuntimeArrayInput          `pulumi:"lambdaFunctionRuntimes"`
+	LastObservedAts                 FilterFilterCriteriaLastObservedAtArrayInput                 `pulumi:"lastObservedAts"`
+	NetworkProtocols                FilterFilterCriteriaNetworkProtocolArrayInput                `pulumi:"networkProtocols"`
+	PortRanges                      FilterFilterCriteriaPortRangeArrayInput                      `pulumi:"portRanges"`
+	RelatedVulnerabilities          FilterFilterCriteriaRelatedVulnerabilityArrayInput           `pulumi:"relatedVulnerabilities"`
+	ResourceIds                     FilterFilterCriteriaResourceIdArrayInput                     `pulumi:"resourceIds"`
+	ResourceTags                    FilterFilterCriteriaResourceTagArrayInput                    `pulumi:"resourceTags"`
+	ResourceTypes                   FilterFilterCriteriaResourceTypeArrayInput                   `pulumi:"resourceTypes"`
+	Severities                      FilterFilterCriteriaSeverityArrayInput                       `pulumi:"severities"`
+	Titles                          FilterFilterCriteriaTitleArrayInput                          `pulumi:"titles"`
+	UpdatedAts                      FilterFilterCriteriaUpdatedAtArrayInput                      `pulumi:"updatedAts"`
+	VendorSeverities                FilterFilterCriteriaVendorSeverityArrayInput                 `pulumi:"vendorSeverities"`
+	VulnerabilityIds                FilterFilterCriteriaVulnerabilityIdArrayInput                `pulumi:"vulnerabilityIds"`
+	VulnerabilitySources            FilterFilterCriteriaVulnerabilitySourceArrayInput            `pulumi:"vulnerabilitySources"`
+	VulnerablePackages              FilterFilterCriteriaVulnerablePackageArrayInput              `pulumi:"vulnerablePackages"`
 }
 
 func (FilterFilterCriteriaArgs) ElementType() reflect.Type {
@@ -265,254 +173,208 @@ func (o FilterFilterCriteriaOutput) ToFilterFilterCriteriaOutputWithContext(ctx 
 	return o
 }
 
-// (Optional) The AWS account ID in which the finding was generated. Documented below.
 func (o FilterFilterCriteriaOutput) AwsAccountIds() FilterFilterCriteriaAwsAccountIdArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaAwsAccountId { return v.AwsAccountIds }).(FilterFilterCriteriaAwsAccountIdArrayOutput)
 }
 
-// (Optional) The project name in a code repository. Documented below.
 func (o FilterFilterCriteriaOutput) CodeRepositoryProjectNames() FilterFilterCriteriaCodeRepositoryProjectNameArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaCodeRepositoryProjectName {
 		return v.CodeRepositoryProjectNames
 	}).(FilterFilterCriteriaCodeRepositoryProjectNameArrayOutput)
 }
 
-// (Optional) The repository provider type (such as GitHub, GitLab, etc.) Documented below.
 func (o FilterFilterCriteriaOutput) CodeRepositoryProviderTypes() FilterFilterCriteriaCodeRepositoryProviderTypeArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaCodeRepositoryProviderType {
 		return v.CodeRepositoryProviderTypes
 	}).(FilterFilterCriteriaCodeRepositoryProviderTypeArrayOutput)
 }
 
-// (Optional) The ID of the component. Documented below.
 func (o FilterFilterCriteriaOutput) CodeVulnerabilityDetectorNames() FilterFilterCriteriaCodeVulnerabilityDetectorNameArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaCodeVulnerabilityDetectorName {
 		return v.CodeVulnerabilityDetectorNames
 	}).(FilterFilterCriteriaCodeVulnerabilityDetectorNameArrayOutput)
 }
 
-// (Optional) The ID of the component. Documented below.
 func (o FilterFilterCriteriaOutput) CodeVulnerabilityDetectorTags() FilterFilterCriteriaCodeVulnerabilityDetectorTagArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaCodeVulnerabilityDetectorTag {
 		return v.CodeVulnerabilityDetectorTags
 	}).(FilterFilterCriteriaCodeVulnerabilityDetectorTagArrayOutput)
 }
 
-// (Optional) The ID of the component. Documented below.
 func (o FilterFilterCriteriaOutput) CodeVulnerabilityFilePaths() FilterFilterCriteriaCodeVulnerabilityFilePathArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaCodeVulnerabilityFilePath {
 		return v.CodeVulnerabilityFilePaths
 	}).(FilterFilterCriteriaCodeVulnerabilityFilePathArrayOutput)
 }
 
-// (Optional) The ID of the component. Documented below.
 func (o FilterFilterCriteriaOutput) ComponentIds() FilterFilterCriteriaComponentIdArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaComponentId { return v.ComponentIds }).(FilterFilterCriteriaComponentIdArrayOutput)
 }
 
-// (Optional) The type of the component. Documented below.
 func (o FilterFilterCriteriaOutput) ComponentTypes() FilterFilterCriteriaComponentTypeArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaComponentType { return v.ComponentTypes }).(FilterFilterCriteriaComponentTypeArrayOutput)
 }
 
-// (Optional) The ID of the Amazon Machine Image (AMI). Documented below.
 func (o FilterFilterCriteriaOutput) Ec2InstanceImageIds() FilterFilterCriteriaEc2InstanceImageIdArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaEc2InstanceImageId { return v.Ec2InstanceImageIds }).(FilterFilterCriteriaEc2InstanceImageIdArrayOutput)
 }
 
-// (Optional) The ID of the subnet. Documented below.
 func (o FilterFilterCriteriaOutput) Ec2InstanceSubnetIds() FilterFilterCriteriaEc2InstanceSubnetIdArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaEc2InstanceSubnetId { return v.Ec2InstanceSubnetIds }).(FilterFilterCriteriaEc2InstanceSubnetIdArrayOutput)
 }
 
-// (Optional) The ID of the VPC. Documented below.
 func (o FilterFilterCriteriaOutput) Ec2InstanceVpcIds() FilterFilterCriteriaEc2InstanceVpcIdArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaEc2InstanceVpcId { return v.Ec2InstanceVpcIds }).(FilterFilterCriteriaEc2InstanceVpcIdArrayOutput)
 }
 
-// (Optional) The architecture of the ECR image. Documented below.
 func (o FilterFilterCriteriaOutput) EcrImageArchitectures() FilterFilterCriteriaEcrImageArchitectureArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaEcrImageArchitecture {
 		return v.EcrImageArchitectures
 	}).(FilterFilterCriteriaEcrImageArchitectureArrayOutput)
 }
 
-// (Optional) The SHA256 hash of the ECR image. Documented below.
 func (o FilterFilterCriteriaOutput) EcrImageHashes() FilterFilterCriteriaEcrImageHashArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaEcrImageHash { return v.EcrImageHashes }).(FilterFilterCriteriaEcrImageHashArrayOutput)
 }
 
-// (Optional)  The number of the ECR images in use. Documented below.
 func (o FilterFilterCriteriaOutput) EcrImageInUseCounts() FilterFilterCriteriaEcrImageInUseCountArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaEcrImageInUseCount { return v.EcrImageInUseCounts }).(FilterFilterCriteriaEcrImageInUseCountArrayOutput)
 }
 
-// (Optional) The date range when an ECR image was last used in an ECS cluster task or EKS cluster pod. Documented below.
 func (o FilterFilterCriteriaOutput) EcrImageLastInUseAts() FilterFilterCriteriaEcrImageLastInUseAtArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaEcrImageLastInUseAt { return v.EcrImageLastInUseAts }).(FilterFilterCriteriaEcrImageLastInUseAtArrayOutput)
 }
 
-// (Optional) The date range when the image was pushed. Documented below.
 func (o FilterFilterCriteriaOutput) EcrImagePushedAts() FilterFilterCriteriaEcrImagePushedAtArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaEcrImagePushedAt { return v.EcrImagePushedAts }).(FilterFilterCriteriaEcrImagePushedAtArrayOutput)
 }
 
-// (Optional) The registry of the ECR image. Documented below.
 func (o FilterFilterCriteriaOutput) EcrImageRegistries() FilterFilterCriteriaEcrImageRegistryArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaEcrImageRegistry { return v.EcrImageRegistries }).(FilterFilterCriteriaEcrImageRegistryArrayOutput)
 }
 
-// (Optional) The name of the ECR repository. Documented below.
 func (o FilterFilterCriteriaOutput) EcrImageRepositoryNames() FilterFilterCriteriaEcrImageRepositoryNameArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaEcrImageRepositoryName {
 		return v.EcrImageRepositoryNames
 	}).(FilterFilterCriteriaEcrImageRepositoryNameArrayOutput)
 }
 
-// (Optional) The tags associated with the ECR image. Documented below.
 func (o FilterFilterCriteriaOutput) EcrImageTags() FilterFilterCriteriaEcrImageTagArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaEcrImageTag { return v.EcrImageTags }).(FilterFilterCriteriaEcrImageTagArrayOutput)
 }
 
-// (Optional) EPSS (Exploit Prediction Scoring System) Score of the finding. Documented below.
 func (o FilterFilterCriteriaOutput) EpssScores() FilterFilterCriteriaEpssScoreArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaEpssScore { return v.EpssScores }).(FilterFilterCriteriaEpssScoreArrayOutput)
 }
 
-// (Optional) Availability of exploits. Documented below.
 func (o FilterFilterCriteriaOutput) ExploitAvailables() FilterFilterCriteriaExploitAvailableArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaExploitAvailable { return v.ExploitAvailables }).(FilterFilterCriteriaExploitAvailableArrayOutput)
 }
 
-// (Optional) The ARN of the finding. Documented below.
 func (o FilterFilterCriteriaOutput) FindingArns() FilterFilterCriteriaFindingArnArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaFindingArn { return v.FindingArns }).(FilterFilterCriteriaFindingArnArrayOutput)
 }
 
-// (Optional) The status of the finding. Documented below.
 func (o FilterFilterCriteriaOutput) FindingStatuses() FilterFilterCriteriaFindingStatusArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaFindingStatus { return v.FindingStatuses }).(FilterFilterCriteriaFindingStatusArrayOutput)
 }
 
-// (Optional) The type of the finding. Documented below.
 func (o FilterFilterCriteriaOutput) FindingTypes() FilterFilterCriteriaFindingTypeArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaFindingType { return v.FindingTypes }).(FilterFilterCriteriaFindingTypeArrayOutput)
 }
 
-// (Optional) When the finding was first observed. Documented below.
 func (o FilterFilterCriteriaOutput) FirstObservedAts() FilterFilterCriteriaFirstObservedAtArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaFirstObservedAt { return v.FirstObservedAts }).(FilterFilterCriteriaFirstObservedAtArrayOutput)
 }
 
-// (Optional) Availability of the fix. Documented below.
 func (o FilterFilterCriteriaOutput) FixAvailables() FilterFilterCriteriaFixAvailableArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaFixAvailable { return v.FixAvailables }).(FilterFilterCriteriaFixAvailableArrayOutput)
 }
 
-// (Optional) The Inspector score given to the finding. Documented below.
 func (o FilterFilterCriteriaOutput) InspectorScores() FilterFilterCriteriaInspectorScoreArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaInspectorScore { return v.InspectorScores }).(FilterFilterCriteriaInspectorScoreArrayOutput)
 }
 
-// (Optional) Lambda execution role ARN. Documented below.
 func (o FilterFilterCriteriaOutput) LambdaFunctionExecutionRoleArns() FilterFilterCriteriaLambdaFunctionExecutionRoleArnArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaLambdaFunctionExecutionRoleArn {
 		return v.LambdaFunctionExecutionRoleArns
 	}).(FilterFilterCriteriaLambdaFunctionExecutionRoleArnArrayOutput)
 }
 
-// (Optional) Last modified timestamp of the lambda function. Documented below.
 func (o FilterFilterCriteriaOutput) LambdaFunctionLastModifiedAts() FilterFilterCriteriaLambdaFunctionLastModifiedAtArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaLambdaFunctionLastModifiedAt {
 		return v.LambdaFunctionLastModifiedAts
 	}).(FilterFilterCriteriaLambdaFunctionLastModifiedAtArrayOutput)
 }
 
-// (Optional) Lambda function layers. Documented below.
 func (o FilterFilterCriteriaOutput) LambdaFunctionLayers() FilterFilterCriteriaLambdaFunctionLayerArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaLambdaFunctionLayer { return v.LambdaFunctionLayers }).(FilterFilterCriteriaLambdaFunctionLayerArrayOutput)
 }
 
-// (Optional) Lambda function name. Documented below.
 func (o FilterFilterCriteriaOutput) LambdaFunctionNames() FilterFilterCriteriaLambdaFunctionNameArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaLambdaFunctionName { return v.LambdaFunctionNames }).(FilterFilterCriteriaLambdaFunctionNameArrayOutput)
 }
 
-// (Optional) Lambda function runtime. Documented below.
 func (o FilterFilterCriteriaOutput) LambdaFunctionRuntimes() FilterFilterCriteriaLambdaFunctionRuntimeArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaLambdaFunctionRuntime {
 		return v.LambdaFunctionRuntimes
 	}).(FilterFilterCriteriaLambdaFunctionRuntimeArrayOutput)
 }
 
-// (Optional) When the finding was last observed. Documented below.
 func (o FilterFilterCriteriaOutput) LastObservedAts() FilterFilterCriteriaLastObservedAtArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaLastObservedAt { return v.LastObservedAts }).(FilterFilterCriteriaLastObservedAtArrayOutput)
 }
 
-// (Optional) The network protocol of the finding. Documented below.
 func (o FilterFilterCriteriaOutput) NetworkProtocols() FilterFilterCriteriaNetworkProtocolArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaNetworkProtocol { return v.NetworkProtocols }).(FilterFilterCriteriaNetworkProtocolArrayOutput)
 }
 
-// (Optional) The port range of the finding. Documented below.
 func (o FilterFilterCriteriaOutput) PortRanges() FilterFilterCriteriaPortRangeArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaPortRange { return v.PortRanges }).(FilterFilterCriteriaPortRangeArrayOutput)
 }
 
-// (Optional) Related vulnerabilities. Documented below.
 func (o FilterFilterCriteriaOutput) RelatedVulnerabilities() FilterFilterCriteriaRelatedVulnerabilityArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaRelatedVulnerability {
 		return v.RelatedVulnerabilities
 	}).(FilterFilterCriteriaRelatedVulnerabilityArrayOutput)
 }
 
-// (Optional) The ID of the resource. Documented below.
 func (o FilterFilterCriteriaOutput) ResourceIds() FilterFilterCriteriaResourceIdArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaResourceId { return v.ResourceIds }).(FilterFilterCriteriaResourceIdArrayOutput)
 }
 
-// (Optional) The tags of the resource. Documented below.
 func (o FilterFilterCriteriaOutput) ResourceTags() FilterFilterCriteriaResourceTagArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaResourceTag { return v.ResourceTags }).(FilterFilterCriteriaResourceTagArrayOutput)
 }
 
-// (Optional) The type of the resource. Documented below.
 func (o FilterFilterCriteriaOutput) ResourceTypes() FilterFilterCriteriaResourceTypeArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaResourceType { return v.ResourceTypes }).(FilterFilterCriteriaResourceTypeArrayOutput)
 }
 
-// (Optional) The severity of the finding. Documented below.
 func (o FilterFilterCriteriaOutput) Severities() FilterFilterCriteriaSeverityArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaSeverity { return v.Severities }).(FilterFilterCriteriaSeverityArrayOutput)
 }
 
-// (Optional) The title of the finding. Documented below.
 func (o FilterFilterCriteriaOutput) Titles() FilterFilterCriteriaTitleArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaTitle { return v.Titles }).(FilterFilterCriteriaTitleArrayOutput)
 }
 
-// (Optional) When the finding was last updated. Documented below.
 func (o FilterFilterCriteriaOutput) UpdatedAts() FilterFilterCriteriaUpdatedAtArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaUpdatedAt { return v.UpdatedAts }).(FilterFilterCriteriaUpdatedAtArrayOutput)
 }
 
-// (Optional) The severity as reported by the vendor. Documented below.
 func (o FilterFilterCriteriaOutput) VendorSeverities() FilterFilterCriteriaVendorSeverityArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaVendorSeverity { return v.VendorSeverities }).(FilterFilterCriteriaVendorSeverityArrayOutput)
 }
 
-// (Optional) The ID of the vulnerability. Documented below.
 func (o FilterFilterCriteriaOutput) VulnerabilityIds() FilterFilterCriteriaVulnerabilityIdArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaVulnerabilityId { return v.VulnerabilityIds }).(FilterFilterCriteriaVulnerabilityIdArrayOutput)
 }
 
-// (Optional) The source of the vulnerability. Documented below.
 func (o FilterFilterCriteriaOutput) VulnerabilitySources() FilterFilterCriteriaVulnerabilitySourceArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaVulnerabilitySource { return v.VulnerabilitySources }).(FilterFilterCriteriaVulnerabilitySourceArrayOutput)
 }
 
-// (Optional) Details about vulnerable packages. Documented below.
 func (o FilterFilterCriteriaOutput) VulnerablePackages() FilterFilterCriteriaVulnerablePackageArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaVulnerablePackage { return v.VulnerablePackages }).(FilterFilterCriteriaVulnerablePackageArrayOutput)
 }
@@ -538,10 +400,8 @@ func (o FilterFilterCriteriaArrayOutput) Index(i pulumi.IntInput) FilterFilterCr
 }
 
 type FilterFilterCriteriaAwsAccountId struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaAwsAccountIdInput is an input type that accepts FilterFilterCriteriaAwsAccountIdArgs and FilterFilterCriteriaAwsAccountIdOutput values.
@@ -556,10 +416,8 @@ type FilterFilterCriteriaAwsAccountIdInput interface {
 }
 
 type FilterFilterCriteriaAwsAccountIdArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaAwsAccountIdArgs) ElementType() reflect.Type {
@@ -613,12 +471,10 @@ func (o FilterFilterCriteriaAwsAccountIdOutput) ToFilterFilterCriteriaAwsAccount
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaAwsAccountIdOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaAwsAccountId) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaAwsAccountIdOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaAwsAccountId) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -644,10 +500,8 @@ func (o FilterFilterCriteriaAwsAccountIdArrayOutput) Index(i pulumi.IntInput) Fi
 }
 
 type FilterFilterCriteriaCodeRepositoryProjectName struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaCodeRepositoryProjectNameInput is an input type that accepts FilterFilterCriteriaCodeRepositoryProjectNameArgs and FilterFilterCriteriaCodeRepositoryProjectNameOutput values.
@@ -662,10 +516,8 @@ type FilterFilterCriteriaCodeRepositoryProjectNameInput interface {
 }
 
 type FilterFilterCriteriaCodeRepositoryProjectNameArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaCodeRepositoryProjectNameArgs) ElementType() reflect.Type {
@@ -719,12 +571,10 @@ func (o FilterFilterCriteriaCodeRepositoryProjectNameOutput) ToFilterFilterCrite
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaCodeRepositoryProjectNameOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaCodeRepositoryProjectName) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaCodeRepositoryProjectNameOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaCodeRepositoryProjectName) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -750,10 +600,8 @@ func (o FilterFilterCriteriaCodeRepositoryProjectNameArrayOutput) Index(i pulumi
 }
 
 type FilterFilterCriteriaCodeRepositoryProviderType struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaCodeRepositoryProviderTypeInput is an input type that accepts FilterFilterCriteriaCodeRepositoryProviderTypeArgs and FilterFilterCriteriaCodeRepositoryProviderTypeOutput values.
@@ -768,10 +616,8 @@ type FilterFilterCriteriaCodeRepositoryProviderTypeInput interface {
 }
 
 type FilterFilterCriteriaCodeRepositoryProviderTypeArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaCodeRepositoryProviderTypeArgs) ElementType() reflect.Type {
@@ -825,12 +671,10 @@ func (o FilterFilterCriteriaCodeRepositoryProviderTypeOutput) ToFilterFilterCrit
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaCodeRepositoryProviderTypeOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaCodeRepositoryProviderType) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaCodeRepositoryProviderTypeOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaCodeRepositoryProviderType) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -856,10 +700,8 @@ func (o FilterFilterCriteriaCodeRepositoryProviderTypeArrayOutput) Index(i pulum
 }
 
 type FilterFilterCriteriaCodeVulnerabilityDetectorName struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaCodeVulnerabilityDetectorNameInput is an input type that accepts FilterFilterCriteriaCodeVulnerabilityDetectorNameArgs and FilterFilterCriteriaCodeVulnerabilityDetectorNameOutput values.
@@ -874,10 +716,8 @@ type FilterFilterCriteriaCodeVulnerabilityDetectorNameInput interface {
 }
 
 type FilterFilterCriteriaCodeVulnerabilityDetectorNameArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaCodeVulnerabilityDetectorNameArgs) ElementType() reflect.Type {
@@ -931,12 +771,10 @@ func (o FilterFilterCriteriaCodeVulnerabilityDetectorNameOutput) ToFilterFilterC
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaCodeVulnerabilityDetectorNameOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaCodeVulnerabilityDetectorName) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaCodeVulnerabilityDetectorNameOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaCodeVulnerabilityDetectorName) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -962,10 +800,8 @@ func (o FilterFilterCriteriaCodeVulnerabilityDetectorNameArrayOutput) Index(i pu
 }
 
 type FilterFilterCriteriaCodeVulnerabilityDetectorTag struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaCodeVulnerabilityDetectorTagInput is an input type that accepts FilterFilterCriteriaCodeVulnerabilityDetectorTagArgs and FilterFilterCriteriaCodeVulnerabilityDetectorTagOutput values.
@@ -980,10 +816,8 @@ type FilterFilterCriteriaCodeVulnerabilityDetectorTagInput interface {
 }
 
 type FilterFilterCriteriaCodeVulnerabilityDetectorTagArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaCodeVulnerabilityDetectorTagArgs) ElementType() reflect.Type {
@@ -1037,12 +871,10 @@ func (o FilterFilterCriteriaCodeVulnerabilityDetectorTagOutput) ToFilterFilterCr
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaCodeVulnerabilityDetectorTagOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaCodeVulnerabilityDetectorTag) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaCodeVulnerabilityDetectorTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaCodeVulnerabilityDetectorTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1068,10 +900,8 @@ func (o FilterFilterCriteriaCodeVulnerabilityDetectorTagArrayOutput) Index(i pul
 }
 
 type FilterFilterCriteriaCodeVulnerabilityFilePath struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaCodeVulnerabilityFilePathInput is an input type that accepts FilterFilterCriteriaCodeVulnerabilityFilePathArgs and FilterFilterCriteriaCodeVulnerabilityFilePathOutput values.
@@ -1086,10 +916,8 @@ type FilterFilterCriteriaCodeVulnerabilityFilePathInput interface {
 }
 
 type FilterFilterCriteriaCodeVulnerabilityFilePathArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaCodeVulnerabilityFilePathArgs) ElementType() reflect.Type {
@@ -1143,12 +971,10 @@ func (o FilterFilterCriteriaCodeVulnerabilityFilePathOutput) ToFilterFilterCrite
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaCodeVulnerabilityFilePathOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaCodeVulnerabilityFilePath) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaCodeVulnerabilityFilePathOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaCodeVulnerabilityFilePath) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1174,10 +1000,8 @@ func (o FilterFilterCriteriaCodeVulnerabilityFilePathArrayOutput) Index(i pulumi
 }
 
 type FilterFilterCriteriaComponentId struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaComponentIdInput is an input type that accepts FilterFilterCriteriaComponentIdArgs and FilterFilterCriteriaComponentIdOutput values.
@@ -1192,10 +1016,8 @@ type FilterFilterCriteriaComponentIdInput interface {
 }
 
 type FilterFilterCriteriaComponentIdArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaComponentIdArgs) ElementType() reflect.Type {
@@ -1249,12 +1071,10 @@ func (o FilterFilterCriteriaComponentIdOutput) ToFilterFilterCriteriaComponentId
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaComponentIdOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaComponentId) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaComponentIdOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaComponentId) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1280,10 +1100,8 @@ func (o FilterFilterCriteriaComponentIdArrayOutput) Index(i pulumi.IntInput) Fil
 }
 
 type FilterFilterCriteriaComponentType struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaComponentTypeInput is an input type that accepts FilterFilterCriteriaComponentTypeArgs and FilterFilterCriteriaComponentTypeOutput values.
@@ -1298,10 +1116,8 @@ type FilterFilterCriteriaComponentTypeInput interface {
 }
 
 type FilterFilterCriteriaComponentTypeArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaComponentTypeArgs) ElementType() reflect.Type {
@@ -1355,12 +1171,10 @@ func (o FilterFilterCriteriaComponentTypeOutput) ToFilterFilterCriteriaComponent
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaComponentTypeOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaComponentType) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaComponentTypeOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaComponentType) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1386,10 +1200,8 @@ func (o FilterFilterCriteriaComponentTypeArrayOutput) Index(i pulumi.IntInput) F
 }
 
 type FilterFilterCriteriaEc2InstanceImageId struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaEc2InstanceImageIdInput is an input type that accepts FilterFilterCriteriaEc2InstanceImageIdArgs and FilterFilterCriteriaEc2InstanceImageIdOutput values.
@@ -1404,10 +1216,8 @@ type FilterFilterCriteriaEc2InstanceImageIdInput interface {
 }
 
 type FilterFilterCriteriaEc2InstanceImageIdArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaEc2InstanceImageIdArgs) ElementType() reflect.Type {
@@ -1461,12 +1271,10 @@ func (o FilterFilterCriteriaEc2InstanceImageIdOutput) ToFilterFilterCriteriaEc2I
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaEc2InstanceImageIdOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaEc2InstanceImageId) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaEc2InstanceImageIdOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaEc2InstanceImageId) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1492,10 +1300,8 @@ func (o FilterFilterCriteriaEc2InstanceImageIdArrayOutput) Index(i pulumi.IntInp
 }
 
 type FilterFilterCriteriaEc2InstanceSubnetId struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaEc2InstanceSubnetIdInput is an input type that accepts FilterFilterCriteriaEc2InstanceSubnetIdArgs and FilterFilterCriteriaEc2InstanceSubnetIdOutput values.
@@ -1510,10 +1316,8 @@ type FilterFilterCriteriaEc2InstanceSubnetIdInput interface {
 }
 
 type FilterFilterCriteriaEc2InstanceSubnetIdArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaEc2InstanceSubnetIdArgs) ElementType() reflect.Type {
@@ -1567,12 +1371,10 @@ func (o FilterFilterCriteriaEc2InstanceSubnetIdOutput) ToFilterFilterCriteriaEc2
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaEc2InstanceSubnetIdOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaEc2InstanceSubnetId) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaEc2InstanceSubnetIdOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaEc2InstanceSubnetId) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1598,10 +1400,8 @@ func (o FilterFilterCriteriaEc2InstanceSubnetIdArrayOutput) Index(i pulumi.IntIn
 }
 
 type FilterFilterCriteriaEc2InstanceVpcId struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaEc2InstanceVpcIdInput is an input type that accepts FilterFilterCriteriaEc2InstanceVpcIdArgs and FilterFilterCriteriaEc2InstanceVpcIdOutput values.
@@ -1616,10 +1416,8 @@ type FilterFilterCriteriaEc2InstanceVpcIdInput interface {
 }
 
 type FilterFilterCriteriaEc2InstanceVpcIdArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaEc2InstanceVpcIdArgs) ElementType() reflect.Type {
@@ -1673,12 +1471,10 @@ func (o FilterFilterCriteriaEc2InstanceVpcIdOutput) ToFilterFilterCriteriaEc2Ins
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaEc2InstanceVpcIdOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaEc2InstanceVpcId) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaEc2InstanceVpcIdOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaEc2InstanceVpcId) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1704,10 +1500,8 @@ func (o FilterFilterCriteriaEc2InstanceVpcIdArrayOutput) Index(i pulumi.IntInput
 }
 
 type FilterFilterCriteriaEcrImageArchitecture struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaEcrImageArchitectureInput is an input type that accepts FilterFilterCriteriaEcrImageArchitectureArgs and FilterFilterCriteriaEcrImageArchitectureOutput values.
@@ -1722,10 +1516,8 @@ type FilterFilterCriteriaEcrImageArchitectureInput interface {
 }
 
 type FilterFilterCriteriaEcrImageArchitectureArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaEcrImageArchitectureArgs) ElementType() reflect.Type {
@@ -1779,12 +1571,10 @@ func (o FilterFilterCriteriaEcrImageArchitectureOutput) ToFilterFilterCriteriaEc
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaEcrImageArchitectureOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaEcrImageArchitecture) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaEcrImageArchitectureOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaEcrImageArchitecture) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1810,10 +1600,8 @@ func (o FilterFilterCriteriaEcrImageArchitectureArrayOutput) Index(i pulumi.IntI
 }
 
 type FilterFilterCriteriaEcrImageHash struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaEcrImageHashInput is an input type that accepts FilterFilterCriteriaEcrImageHashArgs and FilterFilterCriteriaEcrImageHashOutput values.
@@ -1828,10 +1616,8 @@ type FilterFilterCriteriaEcrImageHashInput interface {
 }
 
 type FilterFilterCriteriaEcrImageHashArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaEcrImageHashArgs) ElementType() reflect.Type {
@@ -1885,12 +1671,10 @@ func (o FilterFilterCriteriaEcrImageHashOutput) ToFilterFilterCriteriaEcrImageHa
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaEcrImageHashOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaEcrImageHash) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaEcrImageHashOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaEcrImageHash) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1916,9 +1700,7 @@ func (o FilterFilterCriteriaEcrImageHashArrayOutput) Index(i pulumi.IntInput) Fi
 }
 
 type FilterFilterCriteriaEcrImageInUseCount struct {
-	// (Optional) Lower bound of the range, inclusive.
 	LowerInclusive float64 `pulumi:"lowerInclusive"`
-	// (Optional) Upper bound of the range, inclusive.
 	UpperInclusive float64 `pulumi:"upperInclusive"`
 }
 
@@ -1934,9 +1716,7 @@ type FilterFilterCriteriaEcrImageInUseCountInput interface {
 }
 
 type FilterFilterCriteriaEcrImageInUseCountArgs struct {
-	// (Optional) Lower bound of the range, inclusive.
 	LowerInclusive pulumi.Float64Input `pulumi:"lowerInclusive"`
-	// (Optional) Upper bound of the range, inclusive.
 	UpperInclusive pulumi.Float64Input `pulumi:"upperInclusive"`
 }
 
@@ -1991,12 +1771,10 @@ func (o FilterFilterCriteriaEcrImageInUseCountOutput) ToFilterFilterCriteriaEcrI
 	return o
 }
 
-// (Optional) Lower bound of the range, inclusive.
 func (o FilterFilterCriteriaEcrImageInUseCountOutput) LowerInclusive() pulumi.Float64Output {
 	return o.ApplyT(func(v FilterFilterCriteriaEcrImageInUseCount) float64 { return v.LowerInclusive }).(pulumi.Float64Output)
 }
 
-// (Optional) Upper bound of the range, inclusive.
 func (o FilterFilterCriteriaEcrImageInUseCountOutput) UpperInclusive() pulumi.Float64Output {
 	return o.ApplyT(func(v FilterFilterCriteriaEcrImageInUseCount) float64 { return v.UpperInclusive }).(pulumi.Float64Output)
 }
@@ -2022,9 +1800,7 @@ func (o FilterFilterCriteriaEcrImageInUseCountArrayOutput) Index(i pulumi.IntInp
 }
 
 type FilterFilterCriteriaEcrImageLastInUseAt struct {
-	// (Required) The end of the port range, inclusive.
-	EndInclusive *string `pulumi:"endInclusive"`
-	// (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
+	EndInclusive   *string `pulumi:"endInclusive"`
 	StartInclusive *string `pulumi:"startInclusive"`
 }
 
@@ -2040,9 +1816,7 @@ type FilterFilterCriteriaEcrImageLastInUseAtInput interface {
 }
 
 type FilterFilterCriteriaEcrImageLastInUseAtArgs struct {
-	// (Required) The end of the port range, inclusive.
-	EndInclusive pulumi.StringPtrInput `pulumi:"endInclusive"`
-	// (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
+	EndInclusive   pulumi.StringPtrInput `pulumi:"endInclusive"`
 	StartInclusive pulumi.StringPtrInput `pulumi:"startInclusive"`
 }
 
@@ -2097,12 +1871,10 @@ func (o FilterFilterCriteriaEcrImageLastInUseAtOutput) ToFilterFilterCriteriaEcr
 	return o
 }
 
-// (Required) The end of the port range, inclusive.
 func (o FilterFilterCriteriaEcrImageLastInUseAtOutput) EndInclusive() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaEcrImageLastInUseAt) *string { return v.EndInclusive }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
 func (o FilterFilterCriteriaEcrImageLastInUseAtOutput) StartInclusive() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaEcrImageLastInUseAt) *string { return v.StartInclusive }).(pulumi.StringPtrOutput)
 }
@@ -2128,9 +1900,7 @@ func (o FilterFilterCriteriaEcrImageLastInUseAtArrayOutput) Index(i pulumi.IntIn
 }
 
 type FilterFilterCriteriaEcrImagePushedAt struct {
-	// (Required) The end of the port range, inclusive.
-	EndInclusive *string `pulumi:"endInclusive"`
-	// (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
+	EndInclusive   *string `pulumi:"endInclusive"`
 	StartInclusive *string `pulumi:"startInclusive"`
 }
 
@@ -2146,9 +1916,7 @@ type FilterFilterCriteriaEcrImagePushedAtInput interface {
 }
 
 type FilterFilterCriteriaEcrImagePushedAtArgs struct {
-	// (Required) The end of the port range, inclusive.
-	EndInclusive pulumi.StringPtrInput `pulumi:"endInclusive"`
-	// (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
+	EndInclusive   pulumi.StringPtrInput `pulumi:"endInclusive"`
 	StartInclusive pulumi.StringPtrInput `pulumi:"startInclusive"`
 }
 
@@ -2203,12 +1971,10 @@ func (o FilterFilterCriteriaEcrImagePushedAtOutput) ToFilterFilterCriteriaEcrIma
 	return o
 }
 
-// (Required) The end of the port range, inclusive.
 func (o FilterFilterCriteriaEcrImagePushedAtOutput) EndInclusive() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaEcrImagePushedAt) *string { return v.EndInclusive }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
 func (o FilterFilterCriteriaEcrImagePushedAtOutput) StartInclusive() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaEcrImagePushedAt) *string { return v.StartInclusive }).(pulumi.StringPtrOutput)
 }
@@ -2234,10 +2000,8 @@ func (o FilterFilterCriteriaEcrImagePushedAtArrayOutput) Index(i pulumi.IntInput
 }
 
 type FilterFilterCriteriaEcrImageRegistry struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaEcrImageRegistryInput is an input type that accepts FilterFilterCriteriaEcrImageRegistryArgs and FilterFilterCriteriaEcrImageRegistryOutput values.
@@ -2252,10 +2016,8 @@ type FilterFilterCriteriaEcrImageRegistryInput interface {
 }
 
 type FilterFilterCriteriaEcrImageRegistryArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaEcrImageRegistryArgs) ElementType() reflect.Type {
@@ -2309,12 +2071,10 @@ func (o FilterFilterCriteriaEcrImageRegistryOutput) ToFilterFilterCriteriaEcrIma
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaEcrImageRegistryOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaEcrImageRegistry) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaEcrImageRegistryOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaEcrImageRegistry) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2340,10 +2100,8 @@ func (o FilterFilterCriteriaEcrImageRegistryArrayOutput) Index(i pulumi.IntInput
 }
 
 type FilterFilterCriteriaEcrImageRepositoryName struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaEcrImageRepositoryNameInput is an input type that accepts FilterFilterCriteriaEcrImageRepositoryNameArgs and FilterFilterCriteriaEcrImageRepositoryNameOutput values.
@@ -2358,10 +2116,8 @@ type FilterFilterCriteriaEcrImageRepositoryNameInput interface {
 }
 
 type FilterFilterCriteriaEcrImageRepositoryNameArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaEcrImageRepositoryNameArgs) ElementType() reflect.Type {
@@ -2415,12 +2171,10 @@ func (o FilterFilterCriteriaEcrImageRepositoryNameOutput) ToFilterFilterCriteria
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaEcrImageRepositoryNameOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaEcrImageRepositoryName) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaEcrImageRepositoryNameOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaEcrImageRepositoryName) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2446,10 +2200,8 @@ func (o FilterFilterCriteriaEcrImageRepositoryNameArrayOutput) Index(i pulumi.In
 }
 
 type FilterFilterCriteriaEcrImageTag struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaEcrImageTagInput is an input type that accepts FilterFilterCriteriaEcrImageTagArgs and FilterFilterCriteriaEcrImageTagOutput values.
@@ -2464,10 +2216,8 @@ type FilterFilterCriteriaEcrImageTagInput interface {
 }
 
 type FilterFilterCriteriaEcrImageTagArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaEcrImageTagArgs) ElementType() reflect.Type {
@@ -2521,12 +2271,10 @@ func (o FilterFilterCriteriaEcrImageTagOutput) ToFilterFilterCriteriaEcrImageTag
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaEcrImageTagOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaEcrImageTag) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaEcrImageTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaEcrImageTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2552,9 +2300,7 @@ func (o FilterFilterCriteriaEcrImageTagArrayOutput) Index(i pulumi.IntInput) Fil
 }
 
 type FilterFilterCriteriaEpssScore struct {
-	// (Optional) Lower bound of the range, inclusive.
 	LowerInclusive float64 `pulumi:"lowerInclusive"`
-	// (Optional) Upper bound of the range, inclusive.
 	UpperInclusive float64 `pulumi:"upperInclusive"`
 }
 
@@ -2570,9 +2316,7 @@ type FilterFilterCriteriaEpssScoreInput interface {
 }
 
 type FilterFilterCriteriaEpssScoreArgs struct {
-	// (Optional) Lower bound of the range, inclusive.
 	LowerInclusive pulumi.Float64Input `pulumi:"lowerInclusive"`
-	// (Optional) Upper bound of the range, inclusive.
 	UpperInclusive pulumi.Float64Input `pulumi:"upperInclusive"`
 }
 
@@ -2627,12 +2371,10 @@ func (o FilterFilterCriteriaEpssScoreOutput) ToFilterFilterCriteriaEpssScoreOutp
 	return o
 }
 
-// (Optional) Lower bound of the range, inclusive.
 func (o FilterFilterCriteriaEpssScoreOutput) LowerInclusive() pulumi.Float64Output {
 	return o.ApplyT(func(v FilterFilterCriteriaEpssScore) float64 { return v.LowerInclusive }).(pulumi.Float64Output)
 }
 
-// (Optional) Upper bound of the range, inclusive.
 func (o FilterFilterCriteriaEpssScoreOutput) UpperInclusive() pulumi.Float64Output {
 	return o.ApplyT(func(v FilterFilterCriteriaEpssScore) float64 { return v.UpperInclusive }).(pulumi.Float64Output)
 }
@@ -2658,10 +2400,8 @@ func (o FilterFilterCriteriaEpssScoreArrayOutput) Index(i pulumi.IntInput) Filte
 }
 
 type FilterFilterCriteriaExploitAvailable struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaExploitAvailableInput is an input type that accepts FilterFilterCriteriaExploitAvailableArgs and FilterFilterCriteriaExploitAvailableOutput values.
@@ -2676,10 +2416,8 @@ type FilterFilterCriteriaExploitAvailableInput interface {
 }
 
 type FilterFilterCriteriaExploitAvailableArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaExploitAvailableArgs) ElementType() reflect.Type {
@@ -2733,12 +2471,10 @@ func (o FilterFilterCriteriaExploitAvailableOutput) ToFilterFilterCriteriaExploi
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaExploitAvailableOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaExploitAvailable) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaExploitAvailableOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaExploitAvailable) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2764,10 +2500,8 @@ func (o FilterFilterCriteriaExploitAvailableArrayOutput) Index(i pulumi.IntInput
 }
 
 type FilterFilterCriteriaFindingArn struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaFindingArnInput is an input type that accepts FilterFilterCriteriaFindingArnArgs and FilterFilterCriteriaFindingArnOutput values.
@@ -2782,10 +2516,8 @@ type FilterFilterCriteriaFindingArnInput interface {
 }
 
 type FilterFilterCriteriaFindingArnArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaFindingArnArgs) ElementType() reflect.Type {
@@ -2839,12 +2571,10 @@ func (o FilterFilterCriteriaFindingArnOutput) ToFilterFilterCriteriaFindingArnOu
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaFindingArnOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaFindingArn) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaFindingArnOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaFindingArn) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2870,10 +2600,8 @@ func (o FilterFilterCriteriaFindingArnArrayOutput) Index(i pulumi.IntInput) Filt
 }
 
 type FilterFilterCriteriaFindingStatus struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaFindingStatusInput is an input type that accepts FilterFilterCriteriaFindingStatusArgs and FilterFilterCriteriaFindingStatusOutput values.
@@ -2888,10 +2616,8 @@ type FilterFilterCriteriaFindingStatusInput interface {
 }
 
 type FilterFilterCriteriaFindingStatusArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaFindingStatusArgs) ElementType() reflect.Type {
@@ -2945,12 +2671,10 @@ func (o FilterFilterCriteriaFindingStatusOutput) ToFilterFilterCriteriaFindingSt
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaFindingStatusOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaFindingStatus) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaFindingStatusOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaFindingStatus) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2976,10 +2700,8 @@ func (o FilterFilterCriteriaFindingStatusArrayOutput) Index(i pulumi.IntInput) F
 }
 
 type FilterFilterCriteriaFindingType struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaFindingTypeInput is an input type that accepts FilterFilterCriteriaFindingTypeArgs and FilterFilterCriteriaFindingTypeOutput values.
@@ -2994,10 +2716,8 @@ type FilterFilterCriteriaFindingTypeInput interface {
 }
 
 type FilterFilterCriteriaFindingTypeArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaFindingTypeArgs) ElementType() reflect.Type {
@@ -3051,12 +2771,10 @@ func (o FilterFilterCriteriaFindingTypeOutput) ToFilterFilterCriteriaFindingType
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaFindingTypeOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaFindingType) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaFindingTypeOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaFindingType) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -3082,9 +2800,7 @@ func (o FilterFilterCriteriaFindingTypeArrayOutput) Index(i pulumi.IntInput) Fil
 }
 
 type FilterFilterCriteriaFirstObservedAt struct {
-	// (Required) The end of the port range, inclusive.
-	EndInclusive *string `pulumi:"endInclusive"`
-	// (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
+	EndInclusive   *string `pulumi:"endInclusive"`
 	StartInclusive *string `pulumi:"startInclusive"`
 }
 
@@ -3100,9 +2816,7 @@ type FilterFilterCriteriaFirstObservedAtInput interface {
 }
 
 type FilterFilterCriteriaFirstObservedAtArgs struct {
-	// (Required) The end of the port range, inclusive.
-	EndInclusive pulumi.StringPtrInput `pulumi:"endInclusive"`
-	// (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
+	EndInclusive   pulumi.StringPtrInput `pulumi:"endInclusive"`
 	StartInclusive pulumi.StringPtrInput `pulumi:"startInclusive"`
 }
 
@@ -3157,12 +2871,10 @@ func (o FilterFilterCriteriaFirstObservedAtOutput) ToFilterFilterCriteriaFirstOb
 	return o
 }
 
-// (Required) The end of the port range, inclusive.
 func (o FilterFilterCriteriaFirstObservedAtOutput) EndInclusive() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaFirstObservedAt) *string { return v.EndInclusive }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
 func (o FilterFilterCriteriaFirstObservedAtOutput) StartInclusive() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaFirstObservedAt) *string { return v.StartInclusive }).(pulumi.StringPtrOutput)
 }
@@ -3188,10 +2900,8 @@ func (o FilterFilterCriteriaFirstObservedAtArrayOutput) Index(i pulumi.IntInput)
 }
 
 type FilterFilterCriteriaFixAvailable struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaFixAvailableInput is an input type that accepts FilterFilterCriteriaFixAvailableArgs and FilterFilterCriteriaFixAvailableOutput values.
@@ -3206,10 +2916,8 @@ type FilterFilterCriteriaFixAvailableInput interface {
 }
 
 type FilterFilterCriteriaFixAvailableArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaFixAvailableArgs) ElementType() reflect.Type {
@@ -3263,12 +2971,10 @@ func (o FilterFilterCriteriaFixAvailableOutput) ToFilterFilterCriteriaFixAvailab
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaFixAvailableOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaFixAvailable) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaFixAvailableOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaFixAvailable) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -3294,9 +3000,7 @@ func (o FilterFilterCriteriaFixAvailableArrayOutput) Index(i pulumi.IntInput) Fi
 }
 
 type FilterFilterCriteriaInspectorScore struct {
-	// (Optional) Lower bound of the range, inclusive.
 	LowerInclusive float64 `pulumi:"lowerInclusive"`
-	// (Optional) Upper bound of the range, inclusive.
 	UpperInclusive float64 `pulumi:"upperInclusive"`
 }
 
@@ -3312,9 +3016,7 @@ type FilterFilterCriteriaInspectorScoreInput interface {
 }
 
 type FilterFilterCriteriaInspectorScoreArgs struct {
-	// (Optional) Lower bound of the range, inclusive.
 	LowerInclusive pulumi.Float64Input `pulumi:"lowerInclusive"`
-	// (Optional) Upper bound of the range, inclusive.
 	UpperInclusive pulumi.Float64Input `pulumi:"upperInclusive"`
 }
 
@@ -3369,12 +3071,10 @@ func (o FilterFilterCriteriaInspectorScoreOutput) ToFilterFilterCriteriaInspecto
 	return o
 }
 
-// (Optional) Lower bound of the range, inclusive.
 func (o FilterFilterCriteriaInspectorScoreOutput) LowerInclusive() pulumi.Float64Output {
 	return o.ApplyT(func(v FilterFilterCriteriaInspectorScore) float64 { return v.LowerInclusive }).(pulumi.Float64Output)
 }
 
-// (Optional) Upper bound of the range, inclusive.
 func (o FilterFilterCriteriaInspectorScoreOutput) UpperInclusive() pulumi.Float64Output {
 	return o.ApplyT(func(v FilterFilterCriteriaInspectorScore) float64 { return v.UpperInclusive }).(pulumi.Float64Output)
 }
@@ -3400,10 +3100,8 @@ func (o FilterFilterCriteriaInspectorScoreArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type FilterFilterCriteriaLambdaFunctionExecutionRoleArn struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaLambdaFunctionExecutionRoleArnInput is an input type that accepts FilterFilterCriteriaLambdaFunctionExecutionRoleArnArgs and FilterFilterCriteriaLambdaFunctionExecutionRoleArnOutput values.
@@ -3418,10 +3116,8 @@ type FilterFilterCriteriaLambdaFunctionExecutionRoleArnInput interface {
 }
 
 type FilterFilterCriteriaLambdaFunctionExecutionRoleArnArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaLambdaFunctionExecutionRoleArnArgs) ElementType() reflect.Type {
@@ -3475,12 +3171,10 @@ func (o FilterFilterCriteriaLambdaFunctionExecutionRoleArnOutput) ToFilterFilter
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaLambdaFunctionExecutionRoleArnOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaLambdaFunctionExecutionRoleArn) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaLambdaFunctionExecutionRoleArnOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaLambdaFunctionExecutionRoleArn) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -3506,9 +3200,7 @@ func (o FilterFilterCriteriaLambdaFunctionExecutionRoleArnArrayOutput) Index(i p
 }
 
 type FilterFilterCriteriaLambdaFunctionLastModifiedAt struct {
-	// (Required) The end of the port range, inclusive.
-	EndInclusive *string `pulumi:"endInclusive"`
-	// (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
+	EndInclusive   *string `pulumi:"endInclusive"`
 	StartInclusive *string `pulumi:"startInclusive"`
 }
 
@@ -3524,9 +3216,7 @@ type FilterFilterCriteriaLambdaFunctionLastModifiedAtInput interface {
 }
 
 type FilterFilterCriteriaLambdaFunctionLastModifiedAtArgs struct {
-	// (Required) The end of the port range, inclusive.
-	EndInclusive pulumi.StringPtrInput `pulumi:"endInclusive"`
-	// (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
+	EndInclusive   pulumi.StringPtrInput `pulumi:"endInclusive"`
 	StartInclusive pulumi.StringPtrInput `pulumi:"startInclusive"`
 }
 
@@ -3581,12 +3271,10 @@ func (o FilterFilterCriteriaLambdaFunctionLastModifiedAtOutput) ToFilterFilterCr
 	return o
 }
 
-// (Required) The end of the port range, inclusive.
 func (o FilterFilterCriteriaLambdaFunctionLastModifiedAtOutput) EndInclusive() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaLambdaFunctionLastModifiedAt) *string { return v.EndInclusive }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
 func (o FilterFilterCriteriaLambdaFunctionLastModifiedAtOutput) StartInclusive() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaLambdaFunctionLastModifiedAt) *string { return v.StartInclusive }).(pulumi.StringPtrOutput)
 }
@@ -3612,10 +3300,8 @@ func (o FilterFilterCriteriaLambdaFunctionLastModifiedAtArrayOutput) Index(i pul
 }
 
 type FilterFilterCriteriaLambdaFunctionLayer struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaLambdaFunctionLayerInput is an input type that accepts FilterFilterCriteriaLambdaFunctionLayerArgs and FilterFilterCriteriaLambdaFunctionLayerOutput values.
@@ -3630,10 +3316,8 @@ type FilterFilterCriteriaLambdaFunctionLayerInput interface {
 }
 
 type FilterFilterCriteriaLambdaFunctionLayerArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaLambdaFunctionLayerArgs) ElementType() reflect.Type {
@@ -3687,12 +3371,10 @@ func (o FilterFilterCriteriaLambdaFunctionLayerOutput) ToFilterFilterCriteriaLam
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaLambdaFunctionLayerOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaLambdaFunctionLayer) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaLambdaFunctionLayerOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaLambdaFunctionLayer) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -3718,10 +3400,8 @@ func (o FilterFilterCriteriaLambdaFunctionLayerArrayOutput) Index(i pulumi.IntIn
 }
 
 type FilterFilterCriteriaLambdaFunctionName struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaLambdaFunctionNameInput is an input type that accepts FilterFilterCriteriaLambdaFunctionNameArgs and FilterFilterCriteriaLambdaFunctionNameOutput values.
@@ -3736,10 +3416,8 @@ type FilterFilterCriteriaLambdaFunctionNameInput interface {
 }
 
 type FilterFilterCriteriaLambdaFunctionNameArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaLambdaFunctionNameArgs) ElementType() reflect.Type {
@@ -3793,12 +3471,10 @@ func (o FilterFilterCriteriaLambdaFunctionNameOutput) ToFilterFilterCriteriaLamb
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaLambdaFunctionNameOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaLambdaFunctionName) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaLambdaFunctionNameOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaLambdaFunctionName) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -3824,10 +3500,8 @@ func (o FilterFilterCriteriaLambdaFunctionNameArrayOutput) Index(i pulumi.IntInp
 }
 
 type FilterFilterCriteriaLambdaFunctionRuntime struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaLambdaFunctionRuntimeInput is an input type that accepts FilterFilterCriteriaLambdaFunctionRuntimeArgs and FilterFilterCriteriaLambdaFunctionRuntimeOutput values.
@@ -3842,10 +3516,8 @@ type FilterFilterCriteriaLambdaFunctionRuntimeInput interface {
 }
 
 type FilterFilterCriteriaLambdaFunctionRuntimeArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaLambdaFunctionRuntimeArgs) ElementType() reflect.Type {
@@ -3899,12 +3571,10 @@ func (o FilterFilterCriteriaLambdaFunctionRuntimeOutput) ToFilterFilterCriteriaL
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaLambdaFunctionRuntimeOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaLambdaFunctionRuntime) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaLambdaFunctionRuntimeOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaLambdaFunctionRuntime) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -3930,9 +3600,7 @@ func (o FilterFilterCriteriaLambdaFunctionRuntimeArrayOutput) Index(i pulumi.Int
 }
 
 type FilterFilterCriteriaLastObservedAt struct {
-	// (Required) The end of the port range, inclusive.
-	EndInclusive *string `pulumi:"endInclusive"`
-	// (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
+	EndInclusive   *string `pulumi:"endInclusive"`
 	StartInclusive *string `pulumi:"startInclusive"`
 }
 
@@ -3948,9 +3616,7 @@ type FilterFilterCriteriaLastObservedAtInput interface {
 }
 
 type FilterFilterCriteriaLastObservedAtArgs struct {
-	// (Required) The end of the port range, inclusive.
-	EndInclusive pulumi.StringPtrInput `pulumi:"endInclusive"`
-	// (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
+	EndInclusive   pulumi.StringPtrInput `pulumi:"endInclusive"`
 	StartInclusive pulumi.StringPtrInput `pulumi:"startInclusive"`
 }
 
@@ -4005,12 +3671,10 @@ func (o FilterFilterCriteriaLastObservedAtOutput) ToFilterFilterCriteriaLastObse
 	return o
 }
 
-// (Required) The end of the port range, inclusive.
 func (o FilterFilterCriteriaLastObservedAtOutput) EndInclusive() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaLastObservedAt) *string { return v.EndInclusive }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
 func (o FilterFilterCriteriaLastObservedAtOutput) StartInclusive() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaLastObservedAt) *string { return v.StartInclusive }).(pulumi.StringPtrOutput)
 }
@@ -4036,10 +3700,8 @@ func (o FilterFilterCriteriaLastObservedAtArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type FilterFilterCriteriaNetworkProtocol struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaNetworkProtocolInput is an input type that accepts FilterFilterCriteriaNetworkProtocolArgs and FilterFilterCriteriaNetworkProtocolOutput values.
@@ -4054,10 +3716,8 @@ type FilterFilterCriteriaNetworkProtocolInput interface {
 }
 
 type FilterFilterCriteriaNetworkProtocolArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaNetworkProtocolArgs) ElementType() reflect.Type {
@@ -4111,12 +3771,10 @@ func (o FilterFilterCriteriaNetworkProtocolOutput) ToFilterFilterCriteriaNetwork
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaNetworkProtocolOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaNetworkProtocol) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaNetworkProtocolOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaNetworkProtocol) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -4142,10 +3800,8 @@ func (o FilterFilterCriteriaNetworkProtocolArrayOutput) Index(i pulumi.IntInput)
 }
 
 type FilterFilterCriteriaPortRange struct {
-	// (Required) The beginning of the port range, inclusive.
 	BeginInclusive int `pulumi:"beginInclusive"`
-	// (Required) The end of the port range, inclusive.
-	EndInclusive int `pulumi:"endInclusive"`
+	EndInclusive   int `pulumi:"endInclusive"`
 }
 
 // FilterFilterCriteriaPortRangeInput is an input type that accepts FilterFilterCriteriaPortRangeArgs and FilterFilterCriteriaPortRangeOutput values.
@@ -4160,10 +3816,8 @@ type FilterFilterCriteriaPortRangeInput interface {
 }
 
 type FilterFilterCriteriaPortRangeArgs struct {
-	// (Required) The beginning of the port range, inclusive.
 	BeginInclusive pulumi.IntInput `pulumi:"beginInclusive"`
-	// (Required) The end of the port range, inclusive.
-	EndInclusive pulumi.IntInput `pulumi:"endInclusive"`
+	EndInclusive   pulumi.IntInput `pulumi:"endInclusive"`
 }
 
 func (FilterFilterCriteriaPortRangeArgs) ElementType() reflect.Type {
@@ -4217,12 +3871,10 @@ func (o FilterFilterCriteriaPortRangeOutput) ToFilterFilterCriteriaPortRangeOutp
 	return o
 }
 
-// (Required) The beginning of the port range, inclusive.
 func (o FilterFilterCriteriaPortRangeOutput) BeginInclusive() pulumi.IntOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaPortRange) int { return v.BeginInclusive }).(pulumi.IntOutput)
 }
 
-// (Required) The end of the port range, inclusive.
 func (o FilterFilterCriteriaPortRangeOutput) EndInclusive() pulumi.IntOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaPortRange) int { return v.EndInclusive }).(pulumi.IntOutput)
 }
@@ -4248,10 +3900,8 @@ func (o FilterFilterCriteriaPortRangeArrayOutput) Index(i pulumi.IntInput) Filte
 }
 
 type FilterFilterCriteriaRelatedVulnerability struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaRelatedVulnerabilityInput is an input type that accepts FilterFilterCriteriaRelatedVulnerabilityArgs and FilterFilterCriteriaRelatedVulnerabilityOutput values.
@@ -4266,10 +3916,8 @@ type FilterFilterCriteriaRelatedVulnerabilityInput interface {
 }
 
 type FilterFilterCriteriaRelatedVulnerabilityArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaRelatedVulnerabilityArgs) ElementType() reflect.Type {
@@ -4323,12 +3971,10 @@ func (o FilterFilterCriteriaRelatedVulnerabilityOutput) ToFilterFilterCriteriaRe
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaRelatedVulnerabilityOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaRelatedVulnerability) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaRelatedVulnerabilityOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaRelatedVulnerability) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -4354,10 +4000,8 @@ func (o FilterFilterCriteriaRelatedVulnerabilityArrayOutput) Index(i pulumi.IntI
 }
 
 type FilterFilterCriteriaResourceId struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaResourceIdInput is an input type that accepts FilterFilterCriteriaResourceIdArgs and FilterFilterCriteriaResourceIdOutput values.
@@ -4372,10 +4016,8 @@ type FilterFilterCriteriaResourceIdInput interface {
 }
 
 type FilterFilterCriteriaResourceIdArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaResourceIdArgs) ElementType() reflect.Type {
@@ -4429,12 +4071,10 @@ func (o FilterFilterCriteriaResourceIdOutput) ToFilterFilterCriteriaResourceIdOu
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaResourceIdOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaResourceId) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaResourceIdOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaResourceId) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -4460,12 +4100,9 @@ func (o FilterFilterCriteriaResourceIdArrayOutput) Index(i pulumi.IntInput) Filt
 }
 
 type FilterFilterCriteriaResourceTag struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The key to filter on.
-	Key string `pulumi:"key"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Key        string `pulumi:"key"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaResourceTagInput is an input type that accepts FilterFilterCriteriaResourceTagArgs and FilterFilterCriteriaResourceTagOutput values.
@@ -4480,12 +4117,9 @@ type FilterFilterCriteriaResourceTagInput interface {
 }
 
 type FilterFilterCriteriaResourceTagArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The key to filter on.
-	Key pulumi.StringInput `pulumi:"key"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Key        pulumi.StringInput `pulumi:"key"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaResourceTagArgs) ElementType() reflect.Type {
@@ -4539,17 +4173,14 @@ func (o FilterFilterCriteriaResourceTagOutput) ToFilterFilterCriteriaResourceTag
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaResourceTagOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaResourceTag) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The key to filter on.
 func (o FilterFilterCriteriaResourceTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaResourceTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaResourceTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaResourceTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -4575,10 +4206,8 @@ func (o FilterFilterCriteriaResourceTagArrayOutput) Index(i pulumi.IntInput) Fil
 }
 
 type FilterFilterCriteriaResourceType struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaResourceTypeInput is an input type that accepts FilterFilterCriteriaResourceTypeArgs and FilterFilterCriteriaResourceTypeOutput values.
@@ -4593,10 +4222,8 @@ type FilterFilterCriteriaResourceTypeInput interface {
 }
 
 type FilterFilterCriteriaResourceTypeArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaResourceTypeArgs) ElementType() reflect.Type {
@@ -4650,12 +4277,10 @@ func (o FilterFilterCriteriaResourceTypeOutput) ToFilterFilterCriteriaResourceTy
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaResourceTypeOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaResourceType) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaResourceTypeOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaResourceType) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -4681,10 +4306,8 @@ func (o FilterFilterCriteriaResourceTypeArrayOutput) Index(i pulumi.IntInput) Fi
 }
 
 type FilterFilterCriteriaSeverity struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaSeverityInput is an input type that accepts FilterFilterCriteriaSeverityArgs and FilterFilterCriteriaSeverityOutput values.
@@ -4699,10 +4322,8 @@ type FilterFilterCriteriaSeverityInput interface {
 }
 
 type FilterFilterCriteriaSeverityArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaSeverityArgs) ElementType() reflect.Type {
@@ -4756,12 +4377,10 @@ func (o FilterFilterCriteriaSeverityOutput) ToFilterFilterCriteriaSeverityOutput
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaSeverityOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaSeverity) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaSeverityOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaSeverity) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -4787,10 +4406,8 @@ func (o FilterFilterCriteriaSeverityArrayOutput) Index(i pulumi.IntInput) Filter
 }
 
 type FilterFilterCriteriaTitle struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaTitleInput is an input type that accepts FilterFilterCriteriaTitleArgs and FilterFilterCriteriaTitleOutput values.
@@ -4805,10 +4422,8 @@ type FilterFilterCriteriaTitleInput interface {
 }
 
 type FilterFilterCriteriaTitleArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaTitleArgs) ElementType() reflect.Type {
@@ -4862,12 +4477,10 @@ func (o FilterFilterCriteriaTitleOutput) ToFilterFilterCriteriaTitleOutputWithCo
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaTitleOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaTitle) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaTitleOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaTitle) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -4893,9 +4506,7 @@ func (o FilterFilterCriteriaTitleArrayOutput) Index(i pulumi.IntInput) FilterFil
 }
 
 type FilterFilterCriteriaUpdatedAt struct {
-	// (Required) The end of the port range, inclusive.
-	EndInclusive *string `pulumi:"endInclusive"`
-	// (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
+	EndInclusive   *string `pulumi:"endInclusive"`
 	StartInclusive *string `pulumi:"startInclusive"`
 }
 
@@ -4911,9 +4522,7 @@ type FilterFilterCriteriaUpdatedAtInput interface {
 }
 
 type FilterFilterCriteriaUpdatedAtArgs struct {
-	// (Required) The end of the port range, inclusive.
-	EndInclusive pulumi.StringPtrInput `pulumi:"endInclusive"`
-	// (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
+	EndInclusive   pulumi.StringPtrInput `pulumi:"endInclusive"`
 	StartInclusive pulumi.StringPtrInput `pulumi:"startInclusive"`
 }
 
@@ -4968,12 +4577,10 @@ func (o FilterFilterCriteriaUpdatedAtOutput) ToFilterFilterCriteriaUpdatedAtOutp
 	return o
 }
 
-// (Required) The end of the port range, inclusive.
 func (o FilterFilterCriteriaUpdatedAtOutput) EndInclusive() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaUpdatedAt) *string { return v.EndInclusive }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) Start of the date range in RFC 3339 format, inclusive. Set the timezone to UTC.
 func (o FilterFilterCriteriaUpdatedAtOutput) StartInclusive() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaUpdatedAt) *string { return v.StartInclusive }).(pulumi.StringPtrOutput)
 }
@@ -4999,10 +4606,8 @@ func (o FilterFilterCriteriaUpdatedAtArrayOutput) Index(i pulumi.IntInput) Filte
 }
 
 type FilterFilterCriteriaVendorSeverity struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaVendorSeverityInput is an input type that accepts FilterFilterCriteriaVendorSeverityArgs and FilterFilterCriteriaVendorSeverityOutput values.
@@ -5017,10 +4622,8 @@ type FilterFilterCriteriaVendorSeverityInput interface {
 }
 
 type FilterFilterCriteriaVendorSeverityArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaVendorSeverityArgs) ElementType() reflect.Type {
@@ -5074,12 +4677,10 @@ func (o FilterFilterCriteriaVendorSeverityOutput) ToFilterFilterCriteriaVendorSe
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaVendorSeverityOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaVendorSeverity) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaVendorSeverityOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaVendorSeverity) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -5105,10 +4706,8 @@ func (o FilterFilterCriteriaVendorSeverityArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type FilterFilterCriteriaVulnerabilityId struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaVulnerabilityIdInput is an input type that accepts FilterFilterCriteriaVulnerabilityIdArgs and FilterFilterCriteriaVulnerabilityIdOutput values.
@@ -5123,10 +4722,8 @@ type FilterFilterCriteriaVulnerabilityIdInput interface {
 }
 
 type FilterFilterCriteriaVulnerabilityIdArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaVulnerabilityIdArgs) ElementType() reflect.Type {
@@ -5180,12 +4777,10 @@ func (o FilterFilterCriteriaVulnerabilityIdOutput) ToFilterFilterCriteriaVulnera
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaVulnerabilityIdOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaVulnerabilityId) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaVulnerabilityIdOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaVulnerabilityId) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -5211,10 +4806,8 @@ func (o FilterFilterCriteriaVulnerabilityIdArrayOutput) Index(i pulumi.IntInput)
 }
 
 type FilterFilterCriteriaVulnerabilitySource struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaVulnerabilitySourceInput is an input type that accepts FilterFilterCriteriaVulnerabilitySourceArgs and FilterFilterCriteriaVulnerabilitySourceOutput values.
@@ -5229,10 +4822,8 @@ type FilterFilterCriteriaVulnerabilitySourceInput interface {
 }
 
 type FilterFilterCriteriaVulnerabilitySourceArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaVulnerabilitySourceArgs) ElementType() reflect.Type {
@@ -5286,12 +4877,10 @@ func (o FilterFilterCriteriaVulnerabilitySourceOutput) ToFilterFilterCriteriaVul
 	return o
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaVulnerabilitySourceOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaVulnerabilitySource) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaVulnerabilitySourceOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaVulnerabilitySource) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -5317,22 +4906,14 @@ func (o FilterFilterCriteriaVulnerabilitySourceArrayOutput) Index(i pulumi.IntIn
 }
 
 type FilterFilterCriteriaVulnerablePackage struct {
-	// (Optional) The architecture of the package. Documented below.
-	Architecture *FilterFilterCriteriaVulnerablePackageArchitecture `pulumi:"architecture"`
-	// (Optional) The epoch of the package. Documented below.
-	Epoches []FilterFilterCriteriaVulnerablePackageEpoch `pulumi:"epoches"`
-	// (Optional) The name of the package. Documented below.
-	FilePath *FilterFilterCriteriaVulnerablePackageFilePath `pulumi:"filePath"`
-	// Name of the filter.
-	Name *FilterFilterCriteriaVulnerablePackageName `pulumi:"name"`
-	// (Optional) The release of the package. Documented below.
-	Release *FilterFilterCriteriaVulnerablePackageRelease `pulumi:"release"`
-	// (Optional) The ARN of the package's source lambda layer. Documented below.
+	Architecture         *FilterFilterCriteriaVulnerablePackageArchitecture         `pulumi:"architecture"`
+	Epoches              []FilterFilterCriteriaVulnerablePackageEpoch               `pulumi:"epoches"`
+	FilePath             *FilterFilterCriteriaVulnerablePackageFilePath             `pulumi:"filePath"`
+	Name                 *FilterFilterCriteriaVulnerablePackageName                 `pulumi:"name"`
+	Release              *FilterFilterCriteriaVulnerablePackageRelease              `pulumi:"release"`
 	SourceLambdaLayerArn *FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArn `pulumi:"sourceLambdaLayerArn"`
-	// (Optional) The source layer hash of the package. Documented below.
-	SourceLayerHash *FilterFilterCriteriaVulnerablePackageSourceLayerHash `pulumi:"sourceLayerHash"`
-	// (Optional) The version of the package. Documented below.
-	Version *FilterFilterCriteriaVulnerablePackageVersion `pulumi:"version"`
+	SourceLayerHash      *FilterFilterCriteriaVulnerablePackageSourceLayerHash      `pulumi:"sourceLayerHash"`
+	Version              *FilterFilterCriteriaVulnerablePackageVersion              `pulumi:"version"`
 }
 
 // FilterFilterCriteriaVulnerablePackageInput is an input type that accepts FilterFilterCriteriaVulnerablePackageArgs and FilterFilterCriteriaVulnerablePackageOutput values.
@@ -5347,22 +4928,14 @@ type FilterFilterCriteriaVulnerablePackageInput interface {
 }
 
 type FilterFilterCriteriaVulnerablePackageArgs struct {
-	// (Optional) The architecture of the package. Documented below.
-	Architecture FilterFilterCriteriaVulnerablePackageArchitecturePtrInput `pulumi:"architecture"`
-	// (Optional) The epoch of the package. Documented below.
-	Epoches FilterFilterCriteriaVulnerablePackageEpochArrayInput `pulumi:"epoches"`
-	// (Optional) The name of the package. Documented below.
-	FilePath FilterFilterCriteriaVulnerablePackageFilePathPtrInput `pulumi:"filePath"`
-	// Name of the filter.
-	Name FilterFilterCriteriaVulnerablePackageNamePtrInput `pulumi:"name"`
-	// (Optional) The release of the package. Documented below.
-	Release FilterFilterCriteriaVulnerablePackageReleasePtrInput `pulumi:"release"`
-	// (Optional) The ARN of the package's source lambda layer. Documented below.
+	Architecture         FilterFilterCriteriaVulnerablePackageArchitecturePtrInput         `pulumi:"architecture"`
+	Epoches              FilterFilterCriteriaVulnerablePackageEpochArrayInput              `pulumi:"epoches"`
+	FilePath             FilterFilterCriteriaVulnerablePackageFilePathPtrInput             `pulumi:"filePath"`
+	Name                 FilterFilterCriteriaVulnerablePackageNamePtrInput                 `pulumi:"name"`
+	Release              FilterFilterCriteriaVulnerablePackageReleasePtrInput              `pulumi:"release"`
 	SourceLambdaLayerArn FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnPtrInput `pulumi:"sourceLambdaLayerArn"`
-	// (Optional) The source layer hash of the package. Documented below.
-	SourceLayerHash FilterFilterCriteriaVulnerablePackageSourceLayerHashPtrInput `pulumi:"sourceLayerHash"`
-	// (Optional) The version of the package. Documented below.
-	Version FilterFilterCriteriaVulnerablePackageVersionPtrInput `pulumi:"version"`
+	SourceLayerHash      FilterFilterCriteriaVulnerablePackageSourceLayerHashPtrInput      `pulumi:"sourceLayerHash"`
+	Version              FilterFilterCriteriaVulnerablePackageVersionPtrInput              `pulumi:"version"`
 }
 
 func (FilterFilterCriteriaVulnerablePackageArgs) ElementType() reflect.Type {
@@ -5416,56 +4989,48 @@ func (o FilterFilterCriteriaVulnerablePackageOutput) ToFilterFilterCriteriaVulne
 	return o
 }
 
-// (Optional) The architecture of the package. Documented below.
 func (o FilterFilterCriteriaVulnerablePackageOutput) Architecture() FilterFilterCriteriaVulnerablePackageArchitecturePtrOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaVulnerablePackage) *FilterFilterCriteriaVulnerablePackageArchitecture {
 		return v.Architecture
 	}).(FilterFilterCriteriaVulnerablePackageArchitecturePtrOutput)
 }
 
-// (Optional) The epoch of the package. Documented below.
 func (o FilterFilterCriteriaVulnerablePackageOutput) Epoches() FilterFilterCriteriaVulnerablePackageEpochArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaVulnerablePackage) []FilterFilterCriteriaVulnerablePackageEpoch {
 		return v.Epoches
 	}).(FilterFilterCriteriaVulnerablePackageEpochArrayOutput)
 }
 
-// (Optional) The name of the package. Documented below.
 func (o FilterFilterCriteriaVulnerablePackageOutput) FilePath() FilterFilterCriteriaVulnerablePackageFilePathPtrOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaVulnerablePackage) *FilterFilterCriteriaVulnerablePackageFilePath {
 		return v.FilePath
 	}).(FilterFilterCriteriaVulnerablePackageFilePathPtrOutput)
 }
 
-// Name of the filter.
 func (o FilterFilterCriteriaVulnerablePackageOutput) Name() FilterFilterCriteriaVulnerablePackageNamePtrOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaVulnerablePackage) *FilterFilterCriteriaVulnerablePackageName {
 		return v.Name
 	}).(FilterFilterCriteriaVulnerablePackageNamePtrOutput)
 }
 
-// (Optional) The release of the package. Documented below.
 func (o FilterFilterCriteriaVulnerablePackageOutput) Release() FilterFilterCriteriaVulnerablePackageReleasePtrOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaVulnerablePackage) *FilterFilterCriteriaVulnerablePackageRelease {
 		return v.Release
 	}).(FilterFilterCriteriaVulnerablePackageReleasePtrOutput)
 }
 
-// (Optional) The ARN of the package's source lambda layer. Documented below.
 func (o FilterFilterCriteriaVulnerablePackageOutput) SourceLambdaLayerArn() FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnPtrOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaVulnerablePackage) *FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArn {
 		return v.SourceLambdaLayerArn
 	}).(FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnPtrOutput)
 }
 
-// (Optional) The source layer hash of the package. Documented below.
 func (o FilterFilterCriteriaVulnerablePackageOutput) SourceLayerHash() FilterFilterCriteriaVulnerablePackageSourceLayerHashPtrOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaVulnerablePackage) *FilterFilterCriteriaVulnerablePackageSourceLayerHash {
 		return v.SourceLayerHash
 	}).(FilterFilterCriteriaVulnerablePackageSourceLayerHashPtrOutput)
 }
 
-// (Optional) The version of the package. Documented below.
 func (o FilterFilterCriteriaVulnerablePackageOutput) Version() FilterFilterCriteriaVulnerablePackageVersionPtrOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaVulnerablePackage) *FilterFilterCriteriaVulnerablePackageVersion {
 		return v.Version
@@ -5493,10 +5058,8 @@ func (o FilterFilterCriteriaVulnerablePackageArrayOutput) Index(i pulumi.IntInpu
 }
 
 type FilterFilterCriteriaVulnerablePackageArchitecture struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaVulnerablePackageArchitectureInput is an input type that accepts FilterFilterCriteriaVulnerablePackageArchitectureArgs and FilterFilterCriteriaVulnerablePackageArchitectureOutput values.
@@ -5511,10 +5074,8 @@ type FilterFilterCriteriaVulnerablePackageArchitectureInput interface {
 }
 
 type FilterFilterCriteriaVulnerablePackageArchitectureArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaVulnerablePackageArchitectureArgs) ElementType() reflect.Type {
@@ -5594,12 +5155,10 @@ func (o FilterFilterCriteriaVulnerablePackageArchitectureOutput) ToFilterFilterC
 	}).(FilterFilterCriteriaVulnerablePackageArchitecturePtrOutput)
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaVulnerablePackageArchitectureOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaVulnerablePackageArchitecture) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaVulnerablePackageArchitectureOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaVulnerablePackageArchitecture) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -5628,7 +5187,6 @@ func (o FilterFilterCriteriaVulnerablePackageArchitecturePtrOutput) Elem() Filte
 	}).(FilterFilterCriteriaVulnerablePackageArchitectureOutput)
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaVulnerablePackageArchitecturePtrOutput) Comparison() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FilterFilterCriteriaVulnerablePackageArchitecture) *string {
 		if v == nil {
@@ -5638,7 +5196,6 @@ func (o FilterFilterCriteriaVulnerablePackageArchitecturePtrOutput) Comparison()
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaVulnerablePackageArchitecturePtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FilterFilterCriteriaVulnerablePackageArchitecture) *string {
 		if v == nil {
@@ -5649,9 +5206,7 @@ func (o FilterFilterCriteriaVulnerablePackageArchitecturePtrOutput) Value() pulu
 }
 
 type FilterFilterCriteriaVulnerablePackageEpoch struct {
-	// (Optional) Lower bound of the range, inclusive.
 	LowerInclusive float64 `pulumi:"lowerInclusive"`
-	// (Optional) Upper bound of the range, inclusive.
 	UpperInclusive float64 `pulumi:"upperInclusive"`
 }
 
@@ -5667,9 +5222,7 @@ type FilterFilterCriteriaVulnerablePackageEpochInput interface {
 }
 
 type FilterFilterCriteriaVulnerablePackageEpochArgs struct {
-	// (Optional) Lower bound of the range, inclusive.
 	LowerInclusive pulumi.Float64Input `pulumi:"lowerInclusive"`
-	// (Optional) Upper bound of the range, inclusive.
 	UpperInclusive pulumi.Float64Input `pulumi:"upperInclusive"`
 }
 
@@ -5724,12 +5277,10 @@ func (o FilterFilterCriteriaVulnerablePackageEpochOutput) ToFilterFilterCriteria
 	return o
 }
 
-// (Optional) Lower bound of the range, inclusive.
 func (o FilterFilterCriteriaVulnerablePackageEpochOutput) LowerInclusive() pulumi.Float64Output {
 	return o.ApplyT(func(v FilterFilterCriteriaVulnerablePackageEpoch) float64 { return v.LowerInclusive }).(pulumi.Float64Output)
 }
 
-// (Optional) Upper bound of the range, inclusive.
 func (o FilterFilterCriteriaVulnerablePackageEpochOutput) UpperInclusive() pulumi.Float64Output {
 	return o.ApplyT(func(v FilterFilterCriteriaVulnerablePackageEpoch) float64 { return v.UpperInclusive }).(pulumi.Float64Output)
 }
@@ -5755,10 +5306,8 @@ func (o FilterFilterCriteriaVulnerablePackageEpochArrayOutput) Index(i pulumi.In
 }
 
 type FilterFilterCriteriaVulnerablePackageFilePath struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaVulnerablePackageFilePathInput is an input type that accepts FilterFilterCriteriaVulnerablePackageFilePathArgs and FilterFilterCriteriaVulnerablePackageFilePathOutput values.
@@ -5773,10 +5322,8 @@ type FilterFilterCriteriaVulnerablePackageFilePathInput interface {
 }
 
 type FilterFilterCriteriaVulnerablePackageFilePathArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaVulnerablePackageFilePathArgs) ElementType() reflect.Type {
@@ -5856,12 +5403,10 @@ func (o FilterFilterCriteriaVulnerablePackageFilePathOutput) ToFilterFilterCrite
 	}).(FilterFilterCriteriaVulnerablePackageFilePathPtrOutput)
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaVulnerablePackageFilePathOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaVulnerablePackageFilePath) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaVulnerablePackageFilePathOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaVulnerablePackageFilePath) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -5890,7 +5435,6 @@ func (o FilterFilterCriteriaVulnerablePackageFilePathPtrOutput) Elem() FilterFil
 	}).(FilterFilterCriteriaVulnerablePackageFilePathOutput)
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaVulnerablePackageFilePathPtrOutput) Comparison() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FilterFilterCriteriaVulnerablePackageFilePath) *string {
 		if v == nil {
@@ -5900,7 +5444,6 @@ func (o FilterFilterCriteriaVulnerablePackageFilePathPtrOutput) Comparison() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaVulnerablePackageFilePathPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FilterFilterCriteriaVulnerablePackageFilePath) *string {
 		if v == nil {
@@ -5911,10 +5454,8 @@ func (o FilterFilterCriteriaVulnerablePackageFilePathPtrOutput) Value() pulumi.S
 }
 
 type FilterFilterCriteriaVulnerablePackageName struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaVulnerablePackageNameInput is an input type that accepts FilterFilterCriteriaVulnerablePackageNameArgs and FilterFilterCriteriaVulnerablePackageNameOutput values.
@@ -5929,10 +5470,8 @@ type FilterFilterCriteriaVulnerablePackageNameInput interface {
 }
 
 type FilterFilterCriteriaVulnerablePackageNameArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaVulnerablePackageNameArgs) ElementType() reflect.Type {
@@ -6012,12 +5551,10 @@ func (o FilterFilterCriteriaVulnerablePackageNameOutput) ToFilterFilterCriteriaV
 	}).(FilterFilterCriteriaVulnerablePackageNamePtrOutput)
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaVulnerablePackageNameOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaVulnerablePackageName) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaVulnerablePackageNameOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaVulnerablePackageName) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -6046,7 +5583,6 @@ func (o FilterFilterCriteriaVulnerablePackageNamePtrOutput) Elem() FilterFilterC
 	}).(FilterFilterCriteriaVulnerablePackageNameOutput)
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaVulnerablePackageNamePtrOutput) Comparison() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FilterFilterCriteriaVulnerablePackageName) *string {
 		if v == nil {
@@ -6056,7 +5592,6 @@ func (o FilterFilterCriteriaVulnerablePackageNamePtrOutput) Comparison() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaVulnerablePackageNamePtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FilterFilterCriteriaVulnerablePackageName) *string {
 		if v == nil {
@@ -6067,10 +5602,8 @@ func (o FilterFilterCriteriaVulnerablePackageNamePtrOutput) Value() pulumi.Strin
 }
 
 type FilterFilterCriteriaVulnerablePackageRelease struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaVulnerablePackageReleaseInput is an input type that accepts FilterFilterCriteriaVulnerablePackageReleaseArgs and FilterFilterCriteriaVulnerablePackageReleaseOutput values.
@@ -6085,10 +5618,8 @@ type FilterFilterCriteriaVulnerablePackageReleaseInput interface {
 }
 
 type FilterFilterCriteriaVulnerablePackageReleaseArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaVulnerablePackageReleaseArgs) ElementType() reflect.Type {
@@ -6168,12 +5699,10 @@ func (o FilterFilterCriteriaVulnerablePackageReleaseOutput) ToFilterFilterCriter
 	}).(FilterFilterCriteriaVulnerablePackageReleasePtrOutput)
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaVulnerablePackageReleaseOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaVulnerablePackageRelease) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaVulnerablePackageReleaseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaVulnerablePackageRelease) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -6202,7 +5731,6 @@ func (o FilterFilterCriteriaVulnerablePackageReleasePtrOutput) Elem() FilterFilt
 	}).(FilterFilterCriteriaVulnerablePackageReleaseOutput)
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaVulnerablePackageReleasePtrOutput) Comparison() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FilterFilterCriteriaVulnerablePackageRelease) *string {
 		if v == nil {
@@ -6212,7 +5740,6 @@ func (o FilterFilterCriteriaVulnerablePackageReleasePtrOutput) Comparison() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaVulnerablePackageReleasePtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FilterFilterCriteriaVulnerablePackageRelease) *string {
 		if v == nil {
@@ -6223,10 +5750,8 @@ func (o FilterFilterCriteriaVulnerablePackageReleasePtrOutput) Value() pulumi.St
 }
 
 type FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArn struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnInput is an input type that accepts FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnArgs and FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnOutput values.
@@ -6241,10 +5766,8 @@ type FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnInput interface {
 }
 
 type FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnArgs) ElementType() reflect.Type {
@@ -6324,12 +5847,10 @@ func (o FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnOutput) ToFilte
 	}).(FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnPtrOutput)
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArn) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArn) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -6358,7 +5879,6 @@ func (o FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnPtrOutput) Elem
 	}).(FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnOutput)
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnPtrOutput) Comparison() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArn) *string {
 		if v == nil {
@@ -6368,7 +5888,6 @@ func (o FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnPtrOutput) Comp
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArn) *string {
 		if v == nil {
@@ -6379,10 +5898,8 @@ func (o FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnPtrOutput) Valu
 }
 
 type FilterFilterCriteriaVulnerablePackageSourceLayerHash struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaVulnerablePackageSourceLayerHashInput is an input type that accepts FilterFilterCriteriaVulnerablePackageSourceLayerHashArgs and FilterFilterCriteriaVulnerablePackageSourceLayerHashOutput values.
@@ -6397,10 +5914,8 @@ type FilterFilterCriteriaVulnerablePackageSourceLayerHashInput interface {
 }
 
 type FilterFilterCriteriaVulnerablePackageSourceLayerHashArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaVulnerablePackageSourceLayerHashArgs) ElementType() reflect.Type {
@@ -6480,12 +5995,10 @@ func (o FilterFilterCriteriaVulnerablePackageSourceLayerHashOutput) ToFilterFilt
 	}).(FilterFilterCriteriaVulnerablePackageSourceLayerHashPtrOutput)
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaVulnerablePackageSourceLayerHashOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaVulnerablePackageSourceLayerHash) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaVulnerablePackageSourceLayerHashOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaVulnerablePackageSourceLayerHash) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -6514,7 +6027,6 @@ func (o FilterFilterCriteriaVulnerablePackageSourceLayerHashPtrOutput) Elem() Fi
 	}).(FilterFilterCriteriaVulnerablePackageSourceLayerHashOutput)
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaVulnerablePackageSourceLayerHashPtrOutput) Comparison() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FilterFilterCriteriaVulnerablePackageSourceLayerHash) *string {
 		if v == nil {
@@ -6524,7 +6036,6 @@ func (o FilterFilterCriteriaVulnerablePackageSourceLayerHashPtrOutput) Compariso
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaVulnerablePackageSourceLayerHashPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FilterFilterCriteriaVulnerablePackageSourceLayerHash) *string {
 		if v == nil {
@@ -6535,10 +6046,8 @@ func (o FilterFilterCriteriaVulnerablePackageSourceLayerHashPtrOutput) Value() p
 }
 
 type FilterFilterCriteriaVulnerablePackageVersion struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison string `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value string `pulumi:"value"`
+	Value      string `pulumi:"value"`
 }
 
 // FilterFilterCriteriaVulnerablePackageVersionInput is an input type that accepts FilterFilterCriteriaVulnerablePackageVersionArgs and FilterFilterCriteriaVulnerablePackageVersionOutput values.
@@ -6553,10 +6062,8 @@ type FilterFilterCriteriaVulnerablePackageVersionInput interface {
 }
 
 type FilterFilterCriteriaVulnerablePackageVersionArgs struct {
-	// (Required) The comparison operator. Valid values: `EQUALS`.
 	Comparison pulumi.StringInput `pulumi:"comparison"`
-	// (Required) The value to filter on.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput `pulumi:"value"`
 }
 
 func (FilterFilterCriteriaVulnerablePackageVersionArgs) ElementType() reflect.Type {
@@ -6636,12 +6143,10 @@ func (o FilterFilterCriteriaVulnerablePackageVersionOutput) ToFilterFilterCriter
 	}).(FilterFilterCriteriaVulnerablePackageVersionPtrOutput)
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaVulnerablePackageVersionOutput) Comparison() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaVulnerablePackageVersion) string { return v.Comparison }).(pulumi.StringOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaVulnerablePackageVersionOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFilterCriteriaVulnerablePackageVersion) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -6670,7 +6175,6 @@ func (o FilterFilterCriteriaVulnerablePackageVersionPtrOutput) Elem() FilterFilt
 	}).(FilterFilterCriteriaVulnerablePackageVersionOutput)
 }
 
-// (Required) The comparison operator. Valid values: `EQUALS`.
 func (o FilterFilterCriteriaVulnerablePackageVersionPtrOutput) Comparison() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FilterFilterCriteriaVulnerablePackageVersion) *string {
 		if v == nil {
@@ -6680,7 +6184,6 @@ func (o FilterFilterCriteriaVulnerablePackageVersionPtrOutput) Comparison() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Required) The value to filter on.
 func (o FilterFilterCriteriaVulnerablePackageVersionPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FilterFilterCriteriaVulnerablePackageVersion) *string {
 		if v == nil {
@@ -6691,16 +6194,11 @@ func (o FilterFilterCriteriaVulnerablePackageVersionPtrOutput) Value() pulumi.St
 }
 
 type OrganizationConfigurationAutoEnable struct {
-	// Whether code repository scans are automatically enabled for new members of your Amazon Inspector organization.
 	CodeRepository *bool `pulumi:"codeRepository"`
-	// Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
-	Ec2 bool `pulumi:"ec2"`
-	// Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
-	Ecr bool `pulumi:"ecr"`
-	// Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
-	Lambda *bool `pulumi:"lambda"`
-	// Whether AWS Lambda code scans are automatically enabled for new members of your Amazon Inspector organization. **Note:** Lambda code scanning requires Lambda standard scanning to be activated. Consequently, if you are setting this argument to `true`, you must also set the `lambda` argument to `true`. See [Scanning AWS Lambda functions with Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/scanning-lambda.html#lambda-code-scans) for more information.
-	LambdaCode *bool `pulumi:"lambdaCode"`
+	Ec2            bool  `pulumi:"ec2"`
+	Ecr            bool  `pulumi:"ecr"`
+	Lambda         *bool `pulumi:"lambda"`
+	LambdaCode     *bool `pulumi:"lambdaCode"`
 }
 
 // OrganizationConfigurationAutoEnableInput is an input type that accepts OrganizationConfigurationAutoEnableArgs and OrganizationConfigurationAutoEnableOutput values.
@@ -6715,16 +6213,11 @@ type OrganizationConfigurationAutoEnableInput interface {
 }
 
 type OrganizationConfigurationAutoEnableArgs struct {
-	// Whether code repository scans are automatically enabled for new members of your Amazon Inspector organization.
 	CodeRepository pulumi.BoolPtrInput `pulumi:"codeRepository"`
-	// Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
-	Ec2 pulumi.BoolInput `pulumi:"ec2"`
-	// Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
-	Ecr pulumi.BoolInput `pulumi:"ecr"`
-	// Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
-	Lambda pulumi.BoolPtrInput `pulumi:"lambda"`
-	// Whether AWS Lambda code scans are automatically enabled for new members of your Amazon Inspector organization. **Note:** Lambda code scanning requires Lambda standard scanning to be activated. Consequently, if you are setting this argument to `true`, you must also set the `lambda` argument to `true`. See [Scanning AWS Lambda functions with Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/scanning-lambda.html#lambda-code-scans) for more information.
-	LambdaCode pulumi.BoolPtrInput `pulumi:"lambdaCode"`
+	Ec2            pulumi.BoolInput    `pulumi:"ec2"`
+	Ecr            pulumi.BoolInput    `pulumi:"ecr"`
+	Lambda         pulumi.BoolPtrInput `pulumi:"lambda"`
+	LambdaCode     pulumi.BoolPtrInput `pulumi:"lambdaCode"`
 }
 
 func (OrganizationConfigurationAutoEnableArgs) ElementType() reflect.Type {
@@ -6804,27 +6297,22 @@ func (o OrganizationConfigurationAutoEnableOutput) ToOrganizationConfigurationAu
 	}).(OrganizationConfigurationAutoEnablePtrOutput)
 }
 
-// Whether code repository scans are automatically enabled for new members of your Amazon Inspector organization.
 func (o OrganizationConfigurationAutoEnableOutput) CodeRepository() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrganizationConfigurationAutoEnable) *bool { return v.CodeRepository }).(pulumi.BoolPtrOutput)
 }
 
-// Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
 func (o OrganizationConfigurationAutoEnableOutput) Ec2() pulumi.BoolOutput {
 	return o.ApplyT(func(v OrganizationConfigurationAutoEnable) bool { return v.Ec2 }).(pulumi.BoolOutput)
 }
 
-// Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
 func (o OrganizationConfigurationAutoEnableOutput) Ecr() pulumi.BoolOutput {
 	return o.ApplyT(func(v OrganizationConfigurationAutoEnable) bool { return v.Ecr }).(pulumi.BoolOutput)
 }
 
-// Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
 func (o OrganizationConfigurationAutoEnableOutput) Lambda() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrganizationConfigurationAutoEnable) *bool { return v.Lambda }).(pulumi.BoolPtrOutput)
 }
 
-// Whether AWS Lambda code scans are automatically enabled for new members of your Amazon Inspector organization. **Note:** Lambda code scanning requires Lambda standard scanning to be activated. Consequently, if you are setting this argument to `true`, you must also set the `lambda` argument to `true`. See [Scanning AWS Lambda functions with Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/scanning-lambda.html#lambda-code-scans) for more information.
 func (o OrganizationConfigurationAutoEnableOutput) LambdaCode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrganizationConfigurationAutoEnable) *bool { return v.LambdaCode }).(pulumi.BoolPtrOutput)
 }
@@ -6853,7 +6341,6 @@ func (o OrganizationConfigurationAutoEnablePtrOutput) Elem() OrganizationConfigu
 	}).(OrganizationConfigurationAutoEnableOutput)
 }
 
-// Whether code repository scans are automatically enabled for new members of your Amazon Inspector organization.
 func (o OrganizationConfigurationAutoEnablePtrOutput) CodeRepository() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrganizationConfigurationAutoEnable) *bool {
 		if v == nil {
@@ -6863,7 +6350,6 @@ func (o OrganizationConfigurationAutoEnablePtrOutput) CodeRepository() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
 func (o OrganizationConfigurationAutoEnablePtrOutput) Ec2() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrganizationConfigurationAutoEnable) *bool {
 		if v == nil {
@@ -6873,7 +6359,6 @@ func (o OrganizationConfigurationAutoEnablePtrOutput) Ec2() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
 func (o OrganizationConfigurationAutoEnablePtrOutput) Ecr() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrganizationConfigurationAutoEnable) *bool {
 		if v == nil {
@@ -6883,7 +6368,6 @@ func (o OrganizationConfigurationAutoEnablePtrOutput) Ecr() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
 func (o OrganizationConfigurationAutoEnablePtrOutput) Lambda() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrganizationConfigurationAutoEnable) *bool {
 		if v == nil {
@@ -6893,7 +6377,6 @@ func (o OrganizationConfigurationAutoEnablePtrOutput) Lambda() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Whether AWS Lambda code scans are automatically enabled for new members of your Amazon Inspector organization. **Note:** Lambda code scanning requires Lambda standard scanning to be activated. Consequently, if you are setting this argument to `true`, you must also set the `lambda` argument to `true`. See [Scanning AWS Lambda functions with Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/scanning-lambda.html#lambda-code-scans) for more information.
 func (o OrganizationConfigurationAutoEnablePtrOutput) LambdaCode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrganizationConfigurationAutoEnable) *bool {
 		if v == nil {

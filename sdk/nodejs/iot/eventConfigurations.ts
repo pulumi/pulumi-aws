@@ -4,40 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages IoT event configurations.
- *
- * > **NOTE:** Deleting this resource does not disable the event configurations, the resource in simply removed from state instead.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.iot.EventConfigurations("example", {eventConfigurations: {
- *     THING: true,
- *     THING_GROUP: false,
- *     THING_TYPE: false,
- *     THING_GROUP_MEMBERSHIP: false,
- *     THING_GROUP_HIERARCHY: false,
- *     THING_TYPE_ASSOCIATION: false,
- *     JOB: false,
- *     JOB_EXECUTION: false,
- *     POLICY: false,
- *     CERTIFICATE: true,
- *     CA_CERTIFICATE: false,
- * }});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import IoT Event Configurations using the AWS Region. For example:
- *
- * ```sh
- * $ pulumi import aws:iot/eventConfigurations:EventConfigurations example us-west-2
- * ```
- */
 export class EventConfigurations extends pulumi.CustomResource {
     /**
      * Get an existing EventConfigurations resource's state with the given name, ID, and optional extra
@@ -66,13 +32,7 @@ export class EventConfigurations extends pulumi.CustomResource {
         return obj['__pulumiType'] === EventConfigurations.__pulumiType;
     }
 
-    /**
-     * Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
-     */
     declare public readonly eventConfigurations: pulumi.Output<{[key: string]: boolean}>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -107,13 +67,7 @@ export class EventConfigurations extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EventConfigurations resources.
  */
 export interface EventConfigurationsState {
-    /**
-     * Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
-     */
     eventConfigurations?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -121,12 +75,6 @@ export interface EventConfigurationsState {
  * The set of arguments for constructing a EventConfigurations resource.
  */
 export interface EventConfigurationsArgs {
-    /**
-     * Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
-     */
     eventConfigurations: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

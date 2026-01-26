@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ApplicationAttachmentsConfiguration struct {
-	// Status information about whether file upload functionality is activated or deactivated for your end user. Valid values are `ENABLED` and `DISABLED`.
+	// Status information about whether file upload functionality is activated or deactivated for your end user.
 	AttachmentsControlMode string `pulumi:"attachmentsControlMode"`
 }
 
@@ -30,7 +30,7 @@ type ApplicationAttachmentsConfigurationInput interface {
 }
 
 type ApplicationAttachmentsConfigurationArgs struct {
-	// Status information about whether file upload functionality is activated or deactivated for your end user. Valid values are `ENABLED` and `DISABLED`.
+	// Status information about whether file upload functionality is activated or deactivated for your end user.
 	AttachmentsControlMode pulumi.StringInput `pulumi:"attachmentsControlMode"`
 }
 
@@ -111,7 +111,7 @@ func (o ApplicationAttachmentsConfigurationOutput) ToApplicationAttachmentsConfi
 	}).(ApplicationAttachmentsConfigurationPtrOutput)
 }
 
-// Status information about whether file upload functionality is activated or deactivated for your end user. Valid values are `ENABLED` and `DISABLED`.
+// Status information about whether file upload functionality is activated or deactivated for your end user.
 func (o ApplicationAttachmentsConfigurationOutput) AttachmentsControlMode() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationAttachmentsConfiguration) string { return v.AttachmentsControlMode }).(pulumi.StringOutput)
 }
@@ -140,7 +140,7 @@ func (o ApplicationAttachmentsConfigurationPtrOutput) Elem() ApplicationAttachme
 	}).(ApplicationAttachmentsConfigurationOutput)
 }
 
-// Status information about whether file upload functionality is activated or deactivated for your end user. Valid values are `ENABLED` and `DISABLED`.
+// Status information about whether file upload functionality is activated or deactivated for your end user.
 func (o ApplicationAttachmentsConfigurationPtrOutput) AttachmentsControlMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationAttachmentsConfiguration) *string {
 		if v == nil {
@@ -151,7 +151,7 @@ func (o ApplicationAttachmentsConfigurationPtrOutput) AttachmentsControlMode() p
 }
 
 type ApplicationEncryptionConfiguration struct {
-	// Identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn't support asymmetric keys.
+	// The identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn't support asymmetric keys.
 	KmsKeyId string `pulumi:"kmsKeyId"`
 }
 
@@ -167,7 +167,7 @@ type ApplicationEncryptionConfigurationInput interface {
 }
 
 type ApplicationEncryptionConfigurationArgs struct {
-	// Identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn't support asymmetric keys.
+	// The identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn't support asymmetric keys.
 	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 }
 
@@ -248,7 +248,7 @@ func (o ApplicationEncryptionConfigurationOutput) ToApplicationEncryptionConfigu
 	}).(ApplicationEncryptionConfigurationPtrOutput)
 }
 
-// Identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn't support asymmetric keys.
+// The identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn't support asymmetric keys.
 func (o ApplicationEncryptionConfigurationOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationEncryptionConfiguration) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
@@ -277,7 +277,7 @@ func (o ApplicationEncryptionConfigurationPtrOutput) Elem() ApplicationEncryptio
 	}).(ApplicationEncryptionConfigurationOutput)
 }
 
-// Identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn't support asymmetric keys.
+// The identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn't support asymmetric keys.
 func (o ApplicationEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationEncryptionConfiguration) *string {
 		if v == nil {

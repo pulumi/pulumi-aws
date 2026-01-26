@@ -13,83 +13,36 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetQuicksightUserResult {
-    /**
-     * @return The active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.
-     * 
-     */
     private Boolean active;
-    /**
-     * @return The Amazon Resource Name (ARN) for the user.
-     * 
-     */
     private String arn;
     private String awsAccountId;
-    /**
-     * @return The custom permissions profile associated with this user.
-     * 
-     */
     private String customPermissionsName;
-    /**
-     * @return The user&#39;s email address.
-     * 
-     */
     private String email;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return The type of identity authentication used by the user.
-     * 
-     */
     private String identityType;
     private @Nullable String namespace;
-    /**
-     * @return The principal ID of the user.
-     * 
-     */
     private String principalId;
     private String region;
     private String userName;
-    /**
-     * @return The Amazon QuickSight role for the user. The user role can be one of the following:.
-     * - `READER`: A user who has read-only access to dashboards.
-     * - `AUTHOR`: A user who can create data sources, datasets, analyzes, and dashboards.
-     * - `ADMIN`: A user who is an author, who can also manage Amazon QuickSight settings.
-     * 
-     */
     private String userRole;
 
     private GetQuicksightUserResult() {}
-    /**
-     * @return The active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.
-     * 
-     */
     public Boolean active() {
         return this.active;
     }
-    /**
-     * @return The Amazon Resource Name (ARN) for the user.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
     public String awsAccountId() {
         return this.awsAccountId;
     }
-    /**
-     * @return The custom permissions profile associated with this user.
-     * 
-     */
     public String customPermissionsName() {
         return this.customPermissionsName;
     }
-    /**
-     * @return The user&#39;s email address.
-     * 
-     */
     public String email() {
         return this.email;
     }
@@ -100,20 +53,12 @@ public final class GetQuicksightUserResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The type of identity authentication used by the user.
-     * 
-     */
     public String identityType() {
         return this.identityType;
     }
     public Optional<String> namespace() {
         return Optional.ofNullable(this.namespace);
     }
-    /**
-     * @return The principal ID of the user.
-     * 
-     */
     public String principalId() {
         return this.principalId;
     }
@@ -123,13 +68,6 @@ public final class GetQuicksightUserResult {
     public String userName() {
         return this.userName;
     }
-    /**
-     * @return The Amazon QuickSight role for the user. The user role can be one of the following:.
-     * - `READER`: A user who has read-only access to dashboards.
-     * - `AUTHOR`: A user who can create data sources, datasets, analyzes, and dashboards.
-     * - `ADMIN`: A user who is an author, who can also manage Amazon QuickSight settings.
-     * 
-     */
     public String userRole() {
         return this.userRole;
     }

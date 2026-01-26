@@ -21,32 +21,16 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsN
         return this.cbetCheckDigitString;
     }
 
-    /**
-     * Determines the method of CBET insertion mode when prior encoding is detected on the same layer.
-     * 
-     */
     @Import(name="cbetStepaside", required=true)
     private Output<String> cbetStepaside;
 
-    /**
-     * @return Determines the method of CBET insertion mode when prior encoding is detected on the same layer.
-     * 
-     */
     public Output<String> cbetStepaside() {
         return this.cbetStepaside;
     }
 
-    /**
-     * CBET source ID to use in the watermark.
-     * 
-     */
     @Import(name="csid", required=true)
     private Output<String> csid;
 
-    /**
-     * @return CBET source ID to use in the watermark.
-     * 
-     */
     public Output<String> csid() {
         return this.csid;
     }
@@ -86,44 +70,20 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsN
             return cbetCheckDigitString(Output.of(cbetCheckDigitString));
         }
 
-        /**
-         * @param cbetStepaside Determines the method of CBET insertion mode when prior encoding is detected on the same layer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cbetStepaside(Output<String> cbetStepaside) {
             $.cbetStepaside = cbetStepaside;
             return this;
         }
 
-        /**
-         * @param cbetStepaside Determines the method of CBET insertion mode when prior encoding is detected on the same layer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cbetStepaside(String cbetStepaside) {
             return cbetStepaside(Output.of(cbetStepaside));
         }
 
-        /**
-         * @param csid CBET source ID to use in the watermark.
-         * 
-         * @return builder
-         * 
-         */
         public Builder csid(Output<String> csid) {
             $.csid = csid;
             return this;
         }
 
-        /**
-         * @param csid CBET source ID to use in the watermark.
-         * 
-         * @return builder
-         * 
-         */
         public Builder csid(String csid) {
             return csid(Output.of(csid));
         }

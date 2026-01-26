@@ -9,114 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Backup
 {
-    /// <summary>
-    /// Provides an AWS Backup vault notifications resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testTopic = new Aws.Sns.Topic("test", new()
-    ///     {
-    ///         Name = "backup-vault-events",
-    ///     });
-    /// 
-    ///     var test = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         PolicyId = "__default_policy_ID",
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "SNS:Publish",
-    ///                 },
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "backup.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     testTopic.Arn,
-    ///                 },
-    ///                 Sid = "__default_statement_ID",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var testTopicPolicy = new Aws.Sns.TopicPolicy("test", new()
-    ///     {
-    ///         Arn = testTopic.Arn,
-    ///         Policy = test.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var testVaultNotifications = new Aws.Backup.VaultNotifications("test", new()
-    ///     {
-    ///         BackupVaultName = "example_backup_vault",
-    ///         SnsTopicArn = testTopic.Arn,
-    ///         BackupVaultEvents = new[]
-    ///         {
-    ///             "BACKUP_JOB_STARTED",
-    ///             "RESTORE_JOB_COMPLETED",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Backup vault notifications using the `name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:backup/vaultNotifications:VaultNotifications")]
     public partial class VaultNotifications : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the vault.
-        /// </summary>
         [Output("backupVaultArn")]
         public Output<string> BackupVaultArn { get; private set; } = null!;
 
-        /// <summary>
-        /// An array of events that indicate the status of jobs to back up resources to the backup vault.
-        /// </summary>
         [Output("backupVaultEvents")]
         public Output<ImmutableArray<string>> BackupVaultEvents { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the backup vault to add notifications for.
-        /// </summary>
         [Output("backupVaultName")]
         public Output<string> BackupVaultName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
-        /// </summary>
         [Output("snsTopicArn")]
         public Output<string> SnsTopicArn { get; private set; } = null!;
 
@@ -168,31 +75,18 @@ namespace Pulumi.Aws.Backup
     {
         [Input("backupVaultEvents", required: true)]
         private InputList<string>? _backupVaultEvents;
-
-        /// <summary>
-        /// An array of events that indicate the status of jobs to back up resources to the backup vault.
-        /// </summary>
         public InputList<string> BackupVaultEvents
         {
             get => _backupVaultEvents ?? (_backupVaultEvents = new InputList<string>());
             set => _backupVaultEvents = value;
         }
 
-        /// <summary>
-        /// Name of the backup vault to add notifications for.
-        /// </summary>
         [Input("backupVaultName", required: true)]
         public Input<string> BackupVaultName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
-        /// </summary>
         [Input("snsTopicArn", required: true)]
         public Input<string> SnsTopicArn { get; set; } = null!;
 
@@ -204,39 +98,23 @@ namespace Pulumi.Aws.Backup
 
     public sealed class VaultNotificationsState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the vault.
-        /// </summary>
         [Input("backupVaultArn")]
         public Input<string>? BackupVaultArn { get; set; }
 
         [Input("backupVaultEvents")]
         private InputList<string>? _backupVaultEvents;
-
-        /// <summary>
-        /// An array of events that indicate the status of jobs to back up resources to the backup vault.
-        /// </summary>
         public InputList<string> BackupVaultEvents
         {
             get => _backupVaultEvents ?? (_backupVaultEvents = new InputList<string>());
             set => _backupVaultEvents = value;
         }
 
-        /// <summary>
-        /// Name of the backup vault to add notifications for.
-        /// </summary>
         [Input("backupVaultName")]
         public Input<string>? BackupVaultName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
-        /// </summary>
         [Input("snsTopicArn")]
         public Input<string>? SnsTopicArn { get; set; }
 

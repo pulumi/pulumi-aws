@@ -12,21 +12,12 @@ namespace Pulumi.Aws.EmrServerless.Inputs
 
     public sealed class ApplicationMaximumCapacityGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The maximum allowed CPU for an application.
-        /// </summary>
         [Input("cpu", required: true)]
         public Input<string> Cpu { get; set; } = null!;
 
-        /// <summary>
-        /// The maximum allowed disk for an application.
-        /// </summary>
         [Input("disk")]
         public Input<string>? Disk { get; set; }
 
-        /// <summary>
-        /// The maximum allowed resources for an application.
-        /// </summary>
         [Input("memory", required: true)]
         public Input<string> Memory { get; set; } = null!;
 

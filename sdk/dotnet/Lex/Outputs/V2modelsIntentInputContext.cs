@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsIntentInputContext
     {
-        /// <summary>
-        /// Name of the context.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

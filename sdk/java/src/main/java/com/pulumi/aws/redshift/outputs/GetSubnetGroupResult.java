@@ -12,15 +12,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSubnetGroupResult {
-    /**
-     * @return ARN of the Redshift Subnet Group name.
-     * 
-     */
     private String arn;
-    /**
-     * @return Description of the Redshift Subnet group.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -29,29 +21,13 @@ public final class GetSubnetGroupResult {
     private String id;
     private String name;
     private String region;
-    /**
-     * @return An array of VPC subnet IDs.
-     * 
-     */
     private List<String> subnetIds;
-    /**
-     * @return Tags associated to the Subnet Group
-     * 
-     */
     private Map<String,String> tags;
 
     private GetSubnetGroupResult() {}
-    /**
-     * @return ARN of the Redshift Subnet Group name.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Description of the Redshift Subnet group.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -68,17 +44,9 @@ public final class GetSubnetGroupResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return An array of VPC subnet IDs.
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }
-    /**
-     * @return Tags associated to the Subnet Group
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

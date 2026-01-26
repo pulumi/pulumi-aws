@@ -15,32 +15,16 @@ public final class GetSupportedInstanceTypesPlainArgs extends com.pulumi.resourc
 
     public static final GetSupportedInstanceTypesPlainArgs Empty = new GetSupportedInstanceTypesPlainArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
-     * 
-     */
     @Import(name="releaseLabel", required=true)
     private String releaseLabel;
 
-    /**
-     * @return Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
-     * 
-     */
     public String releaseLabel() {
         return this.releaseLabel;
     }
@@ -70,23 +54,11 @@ public final class GetSupportedInstanceTypesPlainArgs extends com.pulumi.resourc
             $ = new GetSupportedInstanceTypesPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param releaseLabel Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder releaseLabel(String releaseLabel) {
             $.releaseLabel = releaseLabel;
             return this;

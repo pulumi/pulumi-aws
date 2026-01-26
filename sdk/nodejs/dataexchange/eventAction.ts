@@ -7,44 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Data Exchange Event Action.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.dataexchange.EventAction("example", {
- *     event: {
- *         revisionPublished: {
- *             dataSetId: exampleAwsDataexchangeDataSet.id,
- *         },
- *     },
- *     action: {
- *         exportRevisionToS3: {
- *             revisionDestination: {
- *                 bucket: exampleAwsS3Bucket.bucket,
- *                 keyPattern: "${Revision.CreatedAt}/${Asset.Name}",
- *             },
- *             encryption: {
- *                 type: "aws:kms",
- *                 kmsKeyArn: exampleAwsKmsKey.arn,
- *             },
- *         },
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Data Exchange Event Action using the id. For example:
- *
- * ```sh
- * $ pulumi import aws:dataexchange/eventAction:EventAction example example-event-action-id
- * ```
- */
 export class EventAction extends pulumi.CustomResource {
     /**
      * Get an existing EventAction resource's state with the given name, ID, and optional extra
@@ -73,31 +35,11 @@ export class EventAction extends pulumi.CustomResource {
         return obj['__pulumiType'] === EventAction.__pulumiType;
     }
 
-    /**
-     * Describes the action to take.
-     * Described in `action` Configuration Block below.
-     */
     declare public readonly action: pulumi.Output<outputs.dataexchange.EventActionAction | undefined>;
-    /**
-     * Amazon Resource Name (ARN) of the event action.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Date and time when the resource was created.
-     */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
-    /**
-     * Describes the event that triggers the `action`.
-     * Described in `event` Configuration Block below.
-     */
     declare public readonly event: pulumi.Output<outputs.dataexchange.EventActionEvent | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Data and time when the resource was last updated.
-     */
     declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
@@ -137,31 +79,11 @@ export class EventAction extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EventAction resources.
  */
 export interface EventActionState {
-    /**
-     * Describes the action to take.
-     * Described in `action` Configuration Block below.
-     */
     action?: pulumi.Input<inputs.dataexchange.EventActionAction>;
-    /**
-     * Amazon Resource Name (ARN) of the event action.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Date and time when the resource was created.
-     */
     createdAt?: pulumi.Input<string>;
-    /**
-     * Describes the event that triggers the `action`.
-     * Described in `event` Configuration Block below.
-     */
     event?: pulumi.Input<inputs.dataexchange.EventActionEvent>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Data and time when the resource was last updated.
-     */
     updatedAt?: pulumi.Input<string>;
 }
 
@@ -169,18 +91,7 @@ export interface EventActionState {
  * The set of arguments for constructing a EventAction resource.
  */
 export interface EventActionArgs {
-    /**
-     * Describes the action to take.
-     * Described in `action` Configuration Block below.
-     */
     action?: pulumi.Input<inputs.dataexchange.EventActionAction>;
-    /**
-     * Describes the event that triggers the `action`.
-     * Described in `event` Configuration Block below.
-     */
     event?: pulumi.Input<inputs.dataexchange.EventActionEvent>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

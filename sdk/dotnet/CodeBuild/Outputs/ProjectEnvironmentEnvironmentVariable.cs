@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     [OutputType]
     public sealed class ProjectEnvironmentEnvironmentVariable
     {
-        /// <summary>
-        /// Environment variable's name or key.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
-        /// </summary>
         public readonly string? Type;
-        /// <summary>
-        /// Environment variable's value.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing AWS Service Catalog AppRegistry Attribute Group Associations.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicecatalog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.GetAppregistryAttributeGroupAssociations(ctx, &servicecatalog.GetAppregistryAttributeGroupAssociationsArgs{
-//				Id: pulumi.StringRef("12456778723424sdffsdfsdq34,12234t3564dsfsdf34asff4ww3"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetAppregistryAttributeGroupAssociations(ctx *pulumi.Context, args *GetAppregistryAttributeGroupAssociationsArgs, opts ...pulumi.InvokeOption) (*GetAppregistryAttributeGroupAssociationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAppregistryAttributeGroupAssociationsResult
@@ -52,18 +23,13 @@ func GetAppregistryAttributeGroupAssociations(ctx *pulumi.Context, args *GetAppr
 
 // A collection of arguments for invoking getAppregistryAttributeGroupAssociations.
 type GetAppregistryAttributeGroupAssociationsArgs struct {
-	// ID of the application to which attribute groups are associated.
-	Id *string `pulumi:"id"`
-	// Name of the application to which attribute groups are associated.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// > Exactly one of `id`or `name` must be set.
+	Id     *string `pulumi:"id"`
+	Name   *string `pulumi:"name"`
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getAppregistryAttributeGroupAssociations.
 type GetAppregistryAttributeGroupAssociationsResult struct {
-	// Set of attribute group IDs this application is associated with.
 	AttributeGroupIds []string `pulumi:"attributeGroupIds"`
 	Id                *string  `pulumi:"id"`
 	Name              *string  `pulumi:"name"`
@@ -81,12 +47,8 @@ func GetAppregistryAttributeGroupAssociationsOutput(ctx *pulumi.Context, args Ge
 
 // A collection of arguments for invoking getAppregistryAttributeGroupAssociations.
 type GetAppregistryAttributeGroupAssociationsOutputArgs struct {
-	// ID of the application to which attribute groups are associated.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Name of the application to which attribute groups are associated.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// > Exactly one of `id`or `name` must be set.
+	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -109,7 +71,6 @@ func (o GetAppregistryAttributeGroupAssociationsResultOutput) ToGetAppregistryAt
 	return o
 }
 
-// Set of attribute group IDs this application is associated with.
 func (o GetAppregistryAttributeGroupAssociationsResultOutput) AttributeGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAppregistryAttributeGroupAssociationsResult) []string { return v.AttributeGroupIds }).(pulumi.StringArrayOutput)
 }

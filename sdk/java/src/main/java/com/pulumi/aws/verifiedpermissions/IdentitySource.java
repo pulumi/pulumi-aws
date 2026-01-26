@@ -15,203 +15,29 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Verified Permissions Identity Source.
- * 
- * ## Example Usage
- * 
- * ### Cognito User Pool Configuration Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.verifiedpermissions.PolicyStore;
- * import com.pulumi.aws.verifiedpermissions.PolicyStoreArgs;
- * import com.pulumi.aws.verifiedpermissions.inputs.PolicyStoreValidationSettingsArgs;
- * import com.pulumi.aws.cognito.UserPool;
- * import com.pulumi.aws.cognito.UserPoolArgs;
- * import com.pulumi.aws.cognito.UserPoolClient;
- * import com.pulumi.aws.cognito.UserPoolClientArgs;
- * import com.pulumi.aws.verifiedpermissions.IdentitySource;
- * import com.pulumi.aws.verifiedpermissions.IdentitySourceArgs;
- * import com.pulumi.aws.verifiedpermissions.inputs.IdentitySourceConfigurationArgs;
- * import com.pulumi.aws.verifiedpermissions.inputs.IdentitySourceConfigurationCognitoUserPoolConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new PolicyStore("example", PolicyStoreArgs.builder()
- *             .validationSettings(PolicyStoreValidationSettingsArgs.builder()
- *                 .mode("STRICT")
- *                 .build())
- *             .build());
- * 
- *         var exampleUserPool = new UserPool("exampleUserPool", UserPoolArgs.builder()
- *             .name("example")
- *             .build());
- * 
- *         var exampleUserPoolClient = new UserPoolClient("exampleUserPoolClient", UserPoolClientArgs.builder()
- *             .name("example")
- *             .userPoolId(exampleUserPool.id())
- *             .explicitAuthFlows("ADMIN_NO_SRP_AUTH")
- *             .build());
- * 
- *         var exampleIdentitySource = new IdentitySource("exampleIdentitySource", IdentitySourceArgs.builder()
- *             .policyStoreId(example.id())
- *             .configuration(IdentitySourceConfigurationArgs.builder()
- *                 .cognitoUserPoolConfiguration(IdentitySourceConfigurationCognitoUserPoolConfigurationArgs.builder()
- *                     .userPoolArn(exampleUserPool.arn())
- *                     .clientIds(exampleUserPoolClient.id())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### OpenID Connect Configuration Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.verifiedpermissions.PolicyStore;
- * import com.pulumi.aws.verifiedpermissions.PolicyStoreArgs;
- * import com.pulumi.aws.verifiedpermissions.inputs.PolicyStoreValidationSettingsArgs;
- * import com.pulumi.aws.verifiedpermissions.IdentitySource;
- * import com.pulumi.aws.verifiedpermissions.IdentitySourceArgs;
- * import com.pulumi.aws.verifiedpermissions.inputs.IdentitySourceConfigurationArgs;
- * import com.pulumi.aws.verifiedpermissions.inputs.IdentitySourceConfigurationOpenIdConnectConfigurationArgs;
- * import com.pulumi.aws.verifiedpermissions.inputs.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs;
- * import com.pulumi.aws.verifiedpermissions.inputs.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs;
- * import com.pulumi.aws.verifiedpermissions.inputs.IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new PolicyStore("example", PolicyStoreArgs.builder()
- *             .validationSettings(PolicyStoreValidationSettingsArgs.builder()
- *                 .mode("STRICT")
- *                 .build())
- *             .build());
- * 
- *         var exampleIdentitySource = new IdentitySource("exampleIdentitySource", IdentitySourceArgs.builder()
- *             .policyStoreId(example.id())
- *             .configuration(IdentitySourceConfigurationArgs.builder()
- *                 .openIdConnectConfiguration(IdentitySourceConfigurationOpenIdConnectConfigurationArgs.builder()
- *                     .issuer("https://auth.example.com")
- *                     .tokenSelection(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs.builder()
- *                         .accessTokenOnly(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs.builder()
- *                             .audiences("https://myapp.example.com")
- *                             .principalIdClaim("sub")
- *                             .build())
- *                         .build())
- *                     .entityIdPrefix("MyOIDCProvider")
- *                     .groupConfiguration(IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs.builder()
- *                         .groupClaim("groups")
- *                         .groupEntityType("MyCorp::UserGroup")
- *                         .build())
- *                     .build())
- *                 .build())
- *             .principalEntityType("MyCorp::User")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Verified Permissions Identity Source using the `policy_store_id:identity_source_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:verifiedpermissions/identitySource:IdentitySource example policy-store-id-12345678:identity-source-id-12345678
- * ```
- * 
- */
 @ResourceType(type="aws:verifiedpermissions/identitySource:IdentitySource")
 public class IdentitySource extends com.pulumi.resources.CustomResource {
-    /**
-     * Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
-     * 
-     */
     @Export(name="configuration", refs={IdentitySourceConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ IdentitySourceConfiguration> configuration;
 
-    /**
-     * @return Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
-     * 
-     */
     public Output<Optional<IdentitySourceConfiguration>> configuration() {
         return Codegen.optional(this.configuration);
     }
-    /**
-     * Specifies the ID of the policy store in which you want to store this identity source.
-     * 
-     */
     @Export(name="policyStoreId", refs={String.class}, tree="[0]")
     private Output<String> policyStoreId;
 
-    /**
-     * @return Specifies the ID of the policy store in which you want to store this identity source.
-     * 
-     */
     public Output<String> policyStoreId() {
         return this.policyStoreId;
     }
-    /**
-     * Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
-     * 
-     */
     @Export(name="principalEntityType", refs={String.class}, tree="[0]")
     private Output<String> principalEntityType;
 
-    /**
-     * @return Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
-     * 
-     */
     public Output<String> principalEntityType() {
         return this.principalEntityType;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

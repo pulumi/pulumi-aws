@@ -15,47 +15,23 @@ public final class ClusterClusterNodeArgs extends com.pulumi.resources.ResourceA
 
     public static final ClusterClusterNodeArgs Empty = new ClusterClusterNodeArgs();
 
-    /**
-     * Whether the node is a leader node or a compute node
-     * 
-     */
     @Import(name="nodeRole")
     private @Nullable Output<String> nodeRole;
 
-    /**
-     * @return Whether the node is a leader node or a compute node
-     * 
-     */
     public Optional<Output<String>> nodeRole() {
         return Optional.ofNullable(this.nodeRole);
     }
 
-    /**
-     * The private IP address of a node within a cluster
-     * 
-     */
     @Import(name="privateIpAddress")
     private @Nullable Output<String> privateIpAddress;
 
-    /**
-     * @return The private IP address of a node within a cluster
-     * 
-     */
     public Optional<Output<String>> privateIpAddress() {
         return Optional.ofNullable(this.privateIpAddress);
     }
 
-    /**
-     * The public IP address of a node within a cluster
-     * 
-     */
     @Import(name="publicIpAddress")
     private @Nullable Output<String> publicIpAddress;
 
-    /**
-     * @return The public IP address of a node within a cluster
-     * 
-     */
     public Optional<Output<String>> publicIpAddress() {
         return Optional.ofNullable(this.publicIpAddress);
     }
@@ -86,65 +62,29 @@ public final class ClusterClusterNodeArgs extends com.pulumi.resources.ResourceA
             $ = new ClusterClusterNodeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param nodeRole Whether the node is a leader node or a compute node
-         * 
-         * @return builder
-         * 
-         */
         public Builder nodeRole(@Nullable Output<String> nodeRole) {
             $.nodeRole = nodeRole;
             return this;
         }
 
-        /**
-         * @param nodeRole Whether the node is a leader node or a compute node
-         * 
-         * @return builder
-         * 
-         */
         public Builder nodeRole(String nodeRole) {
             return nodeRole(Output.of(nodeRole));
         }
 
-        /**
-         * @param privateIpAddress The private IP address of a node within a cluster
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateIpAddress(@Nullable Output<String> privateIpAddress) {
             $.privateIpAddress = privateIpAddress;
             return this;
         }
 
-        /**
-         * @param privateIpAddress The private IP address of a node within a cluster
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateIpAddress(String privateIpAddress) {
             return privateIpAddress(Output.of(privateIpAddress));
         }
 
-        /**
-         * @param publicIpAddress The public IP address of a node within a cluster
-         * 
-         * @return builder
-         * 
-         */
         public Builder publicIpAddress(@Nullable Output<String> publicIpAddress) {
             $.publicIpAddress = publicIpAddress;
             return this;
         }
 
-        /**
-         * @param publicIpAddress The public IP address of a node within a cluster
-         * 
-         * @return builder
-         * 
-         */
         public Builder publicIpAddress(String publicIpAddress) {
             return publicIpAddress(Output.of(publicIpAddress));
         }

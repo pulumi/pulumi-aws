@@ -12,15 +12,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsAvailBlankingGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Blanking image to be used. See Avail Blanking Image for more details.
-        /// </summary>
         [Input("availBlankingImage")]
         public Input<Inputs.ChannelEncoderSettingsAvailBlankingAvailBlankingImageGetArgs>? AvailBlankingImage { get; set; }
 
-        /// <summary>
-        /// When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 

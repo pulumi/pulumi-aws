@@ -17,32 +17,16 @@ public final class ApplicationInitialCapacityInitialCapacityConfigArgs extends c
 
     public static final ApplicationInitialCapacityInitialCapacityConfigArgs Empty = new ApplicationInitialCapacityInitialCapacityConfigArgs();
 
-    /**
-     * The resource configuration of the initial capacity configuration.
-     * 
-     */
     @Import(name="workerConfiguration")
     private @Nullable Output<ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs> workerConfiguration;
 
-    /**
-     * @return The resource configuration of the initial capacity configuration.
-     * 
-     */
     public Optional<Output<ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs>> workerConfiguration() {
         return Optional.ofNullable(this.workerConfiguration);
     }
 
-    /**
-     * The number of workers in the initial capacity configuration.
-     * 
-     */
     @Import(name="workerCount", required=true)
     private Output<Integer> workerCount;
 
-    /**
-     * @return The number of workers in the initial capacity configuration.
-     * 
-     */
     public Output<Integer> workerCount() {
         return this.workerCount;
     }
@@ -72,44 +56,20 @@ public final class ApplicationInitialCapacityInitialCapacityConfigArgs extends c
             $ = new ApplicationInitialCapacityInitialCapacityConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param workerConfiguration The resource configuration of the initial capacity configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workerConfiguration(@Nullable Output<ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs> workerConfiguration) {
             $.workerConfiguration = workerConfiguration;
             return this;
         }
 
-        /**
-         * @param workerConfiguration The resource configuration of the initial capacity configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workerConfiguration(ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs workerConfiguration) {
             return workerConfiguration(Output.of(workerConfiguration));
         }
 
-        /**
-         * @param workerCount The number of workers in the initial capacity configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workerCount(Output<Integer> workerCount) {
             $.workerCount = workerCount;
             return this;
         }
 
-        /**
-         * @param workerCount The number of workers in the initial capacity configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workerCount(Integer workerCount) {
             return workerCount(Output.of(workerCount));
         }

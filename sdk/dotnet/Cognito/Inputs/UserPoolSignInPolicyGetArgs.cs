@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Cognito.Inputs
     {
         [Input("allowedFirstAuthFactors")]
         private InputList<string>? _allowedFirstAuthFactors;
-
-        /// <summary>
-        /// The sign in methods your user pool supports as the first factor. This is a list of strings, allowed values are `PASSWORD`, `EMAIL_OTP`, `SMS_OTP`, and `WEB_AUTHN`.
-        /// </summary>
         public InputList<string> AllowedFirstAuthFactors
         {
             get => _allowedFirstAuthFactors ?? (_allowedFirstAuthFactors = new InputList<string>());

@@ -4,39 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a DMS (Data Migration Service) event subscription resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.dms.EventSubscription("example", {
- *     enabled: true,
- *     eventCategories: [
- *         "creation",
- *         "failure",
- *     ],
- *     name: "my-favorite-event-subscription",
- *     snsTopicArn: exampleAwsSnsTopic.arn,
- *     sourceIds: [exampleAwsDmsReplicationTask.replicationTaskId],
- *     sourceType: "replication-task",
- *     tags: {
- *         Name: "example",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import event subscriptions using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
- * ```
- */
 export class EventSubscription extends pulumi.CustomResource {
     /**
      * Get an existing EventSubscription resource's state with the given name, ID, and optional extra
@@ -65,45 +32,15 @@ export class EventSubscription extends pulumi.CustomResource {
         return obj['__pulumiType'] === EventSubscription.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the DMS Event Subscription.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Whether the event subscription should be enabled.
-     */
     declare public readonly enabled: pulumi.Output<boolean | undefined>;
-    /**
-     * List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
-     */
     declare public readonly eventCategories: pulumi.Output<string[]>;
-    /**
-     * Name of event subscription.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * SNS topic arn to send events on.
-     */
     declare public readonly snsTopicArn: pulumi.Output<string>;
-    /**
-     * Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
-     */
     declare public readonly sourceIds: pulumi.Output<string[] | undefined>;
-    /**
-     * Type of source for events. Valid values: `replication-instance` or `replication-task`
-     */
     declare public readonly sourceType: pulumi.Output<string>;
-    /**
-     * Map of resource tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -160,45 +97,15 @@ export class EventSubscription extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EventSubscription resources.
  */
 export interface EventSubscriptionState {
-    /**
-     * Amazon Resource Name (ARN) of the DMS Event Subscription.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Whether the event subscription should be enabled.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
-     */
     eventCategories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Name of event subscription.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * SNS topic arn to send events on.
-     */
     snsTopicArn?: pulumi.Input<string>;
-    /**
-     * Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
-     */
     sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Type of source for events. Valid values: `replication-instance` or `replication-task`
-     */
     sourceType?: pulumi.Input<string>;
-    /**
-     * Map of resource tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -206,36 +113,12 @@ export interface EventSubscriptionState {
  * The set of arguments for constructing a EventSubscription resource.
  */
 export interface EventSubscriptionArgs {
-    /**
-     * Whether the event subscription should be enabled.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
-     */
     eventCategories: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Name of event subscription.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * SNS topic arn to send events on.
-     */
     snsTopicArn: pulumi.Input<string>;
-    /**
-     * Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
-     */
     sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Type of source for events. Valid values: `replication-instance` or `replication-task`
-     */
     sourceType: pulumi.Input<string>;
-    /**
-     * Map of resource tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLogDataProtectionPolicyDocumentStatementOperationAudit {
-    /**
-     * @return Configures destinations to send audit findings to.
-     * 
-     */
     private GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination findingsDestination;
 
     private GetLogDataProtectionPolicyDocumentStatementOperationAudit() {}
-    /**
-     * @return Configures destinations to send audit findings to.
-     * 
-     */
     public GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination findingsDestination() {
         return this.findingsDestination;
     }

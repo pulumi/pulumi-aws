@@ -14,13 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type DataProtectionSettingsInlineRedactionConfiguration struct {
-	// The global confidence level for the inline redaction configuration. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
-	GlobalConfidenceLevel *int `pulumi:"globalConfidenceLevel"`
-	// The global enforced URL configuration for the inline redaction configuration.
-	GlobalEnforcedUrls []string `pulumi:"globalEnforcedUrls"`
-	// The global exempt URL configuration for the inline redaction configuration.
-	GlobalExemptUrls []string `pulumi:"globalExemptUrls"`
-	// The inline redaction patterns to be enabled for the inline redaction configuration. Detailed below.
+	GlobalConfidenceLevel   *int                                                                       `pulumi:"globalConfidenceLevel"`
+	GlobalEnforcedUrls      []string                                                                   `pulumi:"globalEnforcedUrls"`
+	GlobalExemptUrls        []string                                                                   `pulumi:"globalExemptUrls"`
 	InlineRedactionPatterns []DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern `pulumi:"inlineRedactionPatterns"`
 }
 
@@ -36,13 +32,9 @@ type DataProtectionSettingsInlineRedactionConfigurationInput interface {
 }
 
 type DataProtectionSettingsInlineRedactionConfigurationArgs struct {
-	// The global confidence level for the inline redaction configuration. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
-	GlobalConfidenceLevel pulumi.IntPtrInput `pulumi:"globalConfidenceLevel"`
-	// The global enforced URL configuration for the inline redaction configuration.
-	GlobalEnforcedUrls pulumi.StringArrayInput `pulumi:"globalEnforcedUrls"`
-	// The global exempt URL configuration for the inline redaction configuration.
-	GlobalExemptUrls pulumi.StringArrayInput `pulumi:"globalExemptUrls"`
-	// The inline redaction patterns to be enabled for the inline redaction configuration. Detailed below.
+	GlobalConfidenceLevel   pulumi.IntPtrInput                                                                 `pulumi:"globalConfidenceLevel"`
+	GlobalEnforcedUrls      pulumi.StringArrayInput                                                            `pulumi:"globalEnforcedUrls"`
+	GlobalExemptUrls        pulumi.StringArrayInput                                                            `pulumi:"globalExemptUrls"`
 	InlineRedactionPatterns DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayInput `pulumi:"inlineRedactionPatterns"`
 }
 
@@ -123,22 +115,18 @@ func (o DataProtectionSettingsInlineRedactionConfigurationOutput) ToDataProtecti
 	}).(DataProtectionSettingsInlineRedactionConfigurationPtrOutput)
 }
 
-// The global confidence level for the inline redaction configuration. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
 func (o DataProtectionSettingsInlineRedactionConfigurationOutput) GlobalConfidenceLevel() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfiguration) *int { return v.GlobalConfidenceLevel }).(pulumi.IntPtrOutput)
 }
 
-// The global enforced URL configuration for the inline redaction configuration.
 func (o DataProtectionSettingsInlineRedactionConfigurationOutput) GlobalEnforcedUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfiguration) []string { return v.GlobalEnforcedUrls }).(pulumi.StringArrayOutput)
 }
 
-// The global exempt URL configuration for the inline redaction configuration.
 func (o DataProtectionSettingsInlineRedactionConfigurationOutput) GlobalExemptUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfiguration) []string { return v.GlobalExemptUrls }).(pulumi.StringArrayOutput)
 }
 
-// The inline redaction patterns to be enabled for the inline redaction configuration. Detailed below.
 func (o DataProtectionSettingsInlineRedactionConfigurationOutput) InlineRedactionPatterns() DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayOutput {
 	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfiguration) []DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern {
 		return v.InlineRedactionPatterns
@@ -169,7 +157,6 @@ func (o DataProtectionSettingsInlineRedactionConfigurationPtrOutput) Elem() Data
 	}).(DataProtectionSettingsInlineRedactionConfigurationOutput)
 }
 
-// The global confidence level for the inline redaction configuration. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
 func (o DataProtectionSettingsInlineRedactionConfigurationPtrOutput) GlobalConfidenceLevel() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataProtectionSettingsInlineRedactionConfiguration) *int {
 		if v == nil {
@@ -179,7 +166,6 @@ func (o DataProtectionSettingsInlineRedactionConfigurationPtrOutput) GlobalConfi
 	}).(pulumi.IntPtrOutput)
 }
 
-// The global enforced URL configuration for the inline redaction configuration.
 func (o DataProtectionSettingsInlineRedactionConfigurationPtrOutput) GlobalEnforcedUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataProtectionSettingsInlineRedactionConfiguration) []string {
 		if v == nil {
@@ -189,7 +175,6 @@ func (o DataProtectionSettingsInlineRedactionConfigurationPtrOutput) GlobalEnfor
 	}).(pulumi.StringArrayOutput)
 }
 
-// The global exempt URL configuration for the inline redaction configuration.
 func (o DataProtectionSettingsInlineRedactionConfigurationPtrOutput) GlobalExemptUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataProtectionSettingsInlineRedactionConfiguration) []string {
 		if v == nil {
@@ -199,7 +184,6 @@ func (o DataProtectionSettingsInlineRedactionConfigurationPtrOutput) GlobalExemp
 	}).(pulumi.StringArrayOutput)
 }
 
-// The inline redaction patterns to be enabled for the inline redaction configuration. Detailed below.
 func (o DataProtectionSettingsInlineRedactionConfigurationPtrOutput) InlineRedactionPatterns() DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayOutput {
 	return o.ApplyT(func(v *DataProtectionSettingsInlineRedactionConfiguration) []DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern {
 		if v == nil {
@@ -210,17 +194,11 @@ func (o DataProtectionSettingsInlineRedactionConfigurationPtrOutput) InlineRedac
 }
 
 type DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern struct {
-	// The built-in pattern from the list of preconfigured patterns. Either a `customPattern` or `builtInPatternId` is required.
-	BuiltInPatternId *string `pulumi:"builtInPatternId"`
-	// The confidence level for inline redaction pattern. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
-	ConfidenceLevel *int `pulumi:"confidenceLevel"`
-	// The configuration for a custom pattern. Either a `customPattern` or `builtInPatternId` is required. Detailed below.
-	CustomPattern *DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern `pulumi:"customPattern"`
-	// The enforced URL configuration for the inline redaction pattern.
-	EnforcedUrls []string `pulumi:"enforcedUrls"`
-	// The exempt URL configuration for the inline redaction pattern.
-	ExemptUrls []string `pulumi:"exemptUrls"`
-	// The redaction placeholder that will replace the redacted text in session. Detailed below.
+	BuiltInPatternId      *string                                                                                        `pulumi:"builtInPatternId"`
+	ConfidenceLevel       *int                                                                                           `pulumi:"confidenceLevel"`
+	CustomPattern         *DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern         `pulumi:"customPattern"`
+	EnforcedUrls          []string                                                                                       `pulumi:"enforcedUrls"`
+	ExemptUrls            []string                                                                                       `pulumi:"exemptUrls"`
 	RedactionPlaceHolders []DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolder `pulumi:"redactionPlaceHolders"`
 }
 
@@ -236,17 +214,11 @@ type DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternInp
 }
 
 type DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs struct {
-	// The built-in pattern from the list of preconfigured patterns. Either a `customPattern` or `builtInPatternId` is required.
-	BuiltInPatternId pulumi.StringPtrInput `pulumi:"builtInPatternId"`
-	// The confidence level for inline redaction pattern. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
-	ConfidenceLevel pulumi.IntPtrInput `pulumi:"confidenceLevel"`
-	// The configuration for a custom pattern. Either a `customPattern` or `builtInPatternId` is required. Detailed below.
-	CustomPattern DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrInput `pulumi:"customPattern"`
-	// The enforced URL configuration for the inline redaction pattern.
-	EnforcedUrls pulumi.StringArrayInput `pulumi:"enforcedUrls"`
-	// The exempt URL configuration for the inline redaction pattern.
-	ExemptUrls pulumi.StringArrayInput `pulumi:"exemptUrls"`
-	// The redaction placeholder that will replace the redacted text in session. Detailed below.
+	BuiltInPatternId      pulumi.StringPtrInput                                                                                  `pulumi:"builtInPatternId"`
+	ConfidenceLevel       pulumi.IntPtrInput                                                                                     `pulumi:"confidenceLevel"`
+	CustomPattern         DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrInput          `pulumi:"customPattern"`
+	EnforcedUrls          pulumi.StringArrayInput                                                                                `pulumi:"enforcedUrls"`
+	ExemptUrls            pulumi.StringArrayInput                                                                                `pulumi:"exemptUrls"`
 	RedactionPlaceHolders DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArrayInput `pulumi:"redactionPlaceHolders"`
 }
 
@@ -301,42 +273,36 @@ func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern
 	return o
 }
 
-// The built-in pattern from the list of preconfigured patterns. Either a `customPattern` or `builtInPatternId` is required.
 func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutput) BuiltInPatternId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern) *string {
 		return v.BuiltInPatternId
 	}).(pulumi.StringPtrOutput)
 }
 
-// The confidence level for inline redaction pattern. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
 func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutput) ConfidenceLevel() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern) *int {
 		return v.ConfidenceLevel
 	}).(pulumi.IntPtrOutput)
 }
 
-// The configuration for a custom pattern. Either a `customPattern` or `builtInPatternId` is required. Detailed below.
 func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutput) CustomPattern() DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput {
 	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern) *DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern {
 		return v.CustomPattern
 	}).(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput)
 }
 
-// The enforced URL configuration for the inline redaction pattern.
 func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutput) EnforcedUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern) []string {
 		return v.EnforcedUrls
 	}).(pulumi.StringArrayOutput)
 }
 
-// The exempt URL configuration for the inline redaction pattern.
 func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutput) ExemptUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern) []string {
 		return v.ExemptUrls
 	}).(pulumi.StringArrayOutput)
 }
 
-// The redaction placeholder that will replace the redacted text in session. Detailed below.
 func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutput) RedactionPlaceHolders() DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArrayOutput {
 	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern) []DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolder {
 		return v.RedactionPlaceHolders
@@ -364,14 +330,10 @@ func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern
 }
 
 type DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern struct {
-	// The keyword regex for the customer pattern.
-	KeywordRegex *string `pulumi:"keywordRegex"`
-	// The pattern description for the customer pattern.
+	KeywordRegex       *string `pulumi:"keywordRegex"`
 	PatternDescription *string `pulumi:"patternDescription"`
-	// The pattern name for the custom pattern.
-	PatternName string `pulumi:"patternName"`
-	// The pattern regex for the customer pattern. The format must follow JavaScript regex format.
-	PatternRegex string `pulumi:"patternRegex"`
+	PatternName        string  `pulumi:"patternName"`
+	PatternRegex       string  `pulumi:"patternRegex"`
 }
 
 // DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternInput is an input type that accepts DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs and DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutput values.
@@ -386,14 +348,10 @@ type DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCus
 }
 
 type DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs struct {
-	// The keyword regex for the customer pattern.
-	KeywordRegex pulumi.StringPtrInput `pulumi:"keywordRegex"`
-	// The pattern description for the customer pattern.
+	KeywordRegex       pulumi.StringPtrInput `pulumi:"keywordRegex"`
 	PatternDescription pulumi.StringPtrInput `pulumi:"patternDescription"`
-	// The pattern name for the custom pattern.
-	PatternName pulumi.StringInput `pulumi:"patternName"`
-	// The pattern regex for the customer pattern. The format must follow JavaScript regex format.
-	PatternRegex pulumi.StringInput `pulumi:"patternRegex"`
+	PatternName        pulumi.StringInput    `pulumi:"patternName"`
+	PatternRegex       pulumi.StringInput    `pulumi:"patternRegex"`
 }
 
 func (DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs) ElementType() reflect.Type {
@@ -473,28 +431,24 @@ func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern
 	}).(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput)
 }
 
-// The keyword regex for the customer pattern.
 func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutput) KeywordRegex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern) *string {
 		return v.KeywordRegex
 	}).(pulumi.StringPtrOutput)
 }
 
-// The pattern description for the customer pattern.
 func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutput) PatternDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern) *string {
 		return v.PatternDescription
 	}).(pulumi.StringPtrOutput)
 }
 
-// The pattern name for the custom pattern.
 func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutput) PatternName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern) string {
 		return v.PatternName
 	}).(pulumi.StringOutput)
 }
 
-// The pattern regex for the customer pattern. The format must follow JavaScript regex format.
 func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutput) PatternRegex() pulumi.StringOutput {
 	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern) string {
 		return v.PatternRegex
@@ -525,7 +479,6 @@ func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern
 	}).(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutput)
 }
 
-// The keyword regex for the customer pattern.
 func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput) KeywordRegex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern) *string {
 		if v == nil {
@@ -535,7 +488,6 @@ func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern
 	}).(pulumi.StringPtrOutput)
 }
 
-// The pattern description for the customer pattern.
 func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput) PatternDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern) *string {
 		if v == nil {
@@ -545,7 +497,6 @@ func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern
 	}).(pulumi.StringPtrOutput)
 }
 
-// The pattern name for the custom pattern.
 func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput) PatternName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern) *string {
 		if v == nil {
@@ -555,7 +506,6 @@ func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern
 	}).(pulumi.StringPtrOutput)
 }
 
-// The pattern regex for the customer pattern. The format must follow JavaScript regex format.
 func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput) PatternRegex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern) *string {
 		if v == nil {
@@ -566,10 +516,8 @@ func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern
 }
 
 type DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolder struct {
-	// The redaction placeholder text that will replace the redacted text in session for the custom text redaction placeholder type.
 	RedactionPlaceHolderText *string `pulumi:"redactionPlaceHolderText"`
-	// The redaction placeholder type that will replace the redacted text in session. Currently, only `CustomText` is supported.
-	RedactionPlaceHolderType string `pulumi:"redactionPlaceHolderType"`
+	RedactionPlaceHolderType string  `pulumi:"redactionPlaceHolderType"`
 }
 
 // DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderInput is an input type that accepts DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs and DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderOutput values.
@@ -584,10 +532,8 @@ type DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRed
 }
 
 type DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs struct {
-	// The redaction placeholder text that will replace the redacted text in session for the custom text redaction placeholder type.
 	RedactionPlaceHolderText pulumi.StringPtrInput `pulumi:"redactionPlaceHolderText"`
-	// The redaction placeholder type that will replace the redacted text in session. Currently, only `CustomText` is supported.
-	RedactionPlaceHolderType pulumi.StringInput `pulumi:"redactionPlaceHolderType"`
+	RedactionPlaceHolderType pulumi.StringInput    `pulumi:"redactionPlaceHolderType"`
 }
 
 func (DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs) ElementType() reflect.Type {
@@ -641,14 +587,12 @@ func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern
 	return o
 }
 
-// The redaction placeholder text that will replace the redacted text in session for the custom text redaction placeholder type.
 func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderOutput) RedactionPlaceHolderText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolder) *string {
 		return v.RedactionPlaceHolderText
 	}).(pulumi.StringPtrOutput)
 }
 
-// The redaction placeholder type that will replace the redacted text in session. Currently, only `CustomText` is supported.
 func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderOutput) RedactionPlaceHolderType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolder) string {
 		return v.RedactionPlaceHolderType
@@ -676,10 +620,8 @@ func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern
 }
 
 type IpAccessSettingsIpRule struct {
-	// The description of the IP access settings.
 	Description *string `pulumi:"description"`
-	// The IP range of the IP rule.
-	IpRange string `pulumi:"ipRange"`
+	IpRange     string  `pulumi:"ipRange"`
 }
 
 // IpAccessSettingsIpRuleInput is an input type that accepts IpAccessSettingsIpRuleArgs and IpAccessSettingsIpRuleOutput values.
@@ -694,10 +636,8 @@ type IpAccessSettingsIpRuleInput interface {
 }
 
 type IpAccessSettingsIpRuleArgs struct {
-	// The description of the IP access settings.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The IP range of the IP rule.
-	IpRange pulumi.StringInput `pulumi:"ipRange"`
+	IpRange     pulumi.StringInput    `pulumi:"ipRange"`
 }
 
 func (IpAccessSettingsIpRuleArgs) ElementType() reflect.Type {
@@ -751,12 +691,10 @@ func (o IpAccessSettingsIpRuleOutput) ToIpAccessSettingsIpRuleOutputWithContext(
 	return o
 }
 
-// The description of the IP access settings.
 func (o IpAccessSettingsIpRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IpAccessSettingsIpRule) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The IP range of the IP rule.
 func (o IpAccessSettingsIpRuleOutput) IpRange() pulumi.StringOutput {
 	return o.ApplyT(func(v IpAccessSettingsIpRule) string { return v.IpRange }).(pulumi.StringOutput)
 }
@@ -957,10 +895,8 @@ func (o PortalTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type SessionLoggerEventFilter struct {
-	// Block that specifies to monitor all events. Set to `{}` to monitor all events.
-	All *SessionLoggerEventFilterAll `pulumi:"all"`
-	// List of specific events to monitor. Valid values include session events like `SessionStart`, `SessionEnd`, etc.
-	Includes []string `pulumi:"includes"`
+	All      *SessionLoggerEventFilterAll `pulumi:"all"`
+	Includes []string                     `pulumi:"includes"`
 }
 
 // SessionLoggerEventFilterInput is an input type that accepts SessionLoggerEventFilterArgs and SessionLoggerEventFilterOutput values.
@@ -975,10 +911,8 @@ type SessionLoggerEventFilterInput interface {
 }
 
 type SessionLoggerEventFilterArgs struct {
-	// Block that specifies to monitor all events. Set to `{}` to monitor all events.
-	All SessionLoggerEventFilterAllPtrInput `pulumi:"all"`
-	// List of specific events to monitor. Valid values include session events like `SessionStart`, `SessionEnd`, etc.
-	Includes pulumi.StringArrayInput `pulumi:"includes"`
+	All      SessionLoggerEventFilterAllPtrInput `pulumi:"all"`
+	Includes pulumi.StringArrayInput             `pulumi:"includes"`
 }
 
 func (SessionLoggerEventFilterArgs) ElementType() reflect.Type {
@@ -1058,12 +992,10 @@ func (o SessionLoggerEventFilterOutput) ToSessionLoggerEventFilterPtrOutputWithC
 	}).(SessionLoggerEventFilterPtrOutput)
 }
 
-// Block that specifies to monitor all events. Set to `{}` to monitor all events.
 func (o SessionLoggerEventFilterOutput) All() SessionLoggerEventFilterAllPtrOutput {
 	return o.ApplyT(func(v SessionLoggerEventFilter) *SessionLoggerEventFilterAll { return v.All }).(SessionLoggerEventFilterAllPtrOutput)
 }
 
-// List of specific events to monitor. Valid values include session events like `SessionStart`, `SessionEnd`, etc.
 func (o SessionLoggerEventFilterOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SessionLoggerEventFilter) []string { return v.Includes }).(pulumi.StringArrayOutput)
 }
@@ -1092,7 +1024,6 @@ func (o SessionLoggerEventFilterPtrOutput) Elem() SessionLoggerEventFilterOutput
 	}).(SessionLoggerEventFilterOutput)
 }
 
-// Block that specifies to monitor all events. Set to `{}` to monitor all events.
 func (o SessionLoggerEventFilterPtrOutput) All() SessionLoggerEventFilterAllPtrOutput {
 	return o.ApplyT(func(v *SessionLoggerEventFilter) *SessionLoggerEventFilterAll {
 		if v == nil {
@@ -1102,7 +1033,6 @@ func (o SessionLoggerEventFilterPtrOutput) All() SessionLoggerEventFilterAllPtrO
 	}).(SessionLoggerEventFilterAllPtrOutput)
 }
 
-// List of specific events to monitor. Valid values include session events like `SessionStart`, `SessionEnd`, etc.
 func (o SessionLoggerEventFilterPtrOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SessionLoggerEventFilter) []string {
 		if v == nil {
@@ -1231,7 +1161,6 @@ func (o SessionLoggerEventFilterAllPtrOutput) Elem() SessionLoggerEventFilterAll
 }
 
 type SessionLoggerLogConfiguration struct {
-	// Configuration block for S3 log delivery. See S3 Configuration below.
 	S3 *SessionLoggerLogConfigurationS3 `pulumi:"s3"`
 }
 
@@ -1247,7 +1176,6 @@ type SessionLoggerLogConfigurationInput interface {
 }
 
 type SessionLoggerLogConfigurationArgs struct {
-	// Configuration block for S3 log delivery. See S3 Configuration below.
 	S3 SessionLoggerLogConfigurationS3PtrInput `pulumi:"s3"`
 }
 
@@ -1328,7 +1256,6 @@ func (o SessionLoggerLogConfigurationOutput) ToSessionLoggerLogConfigurationPtrO
 	}).(SessionLoggerLogConfigurationPtrOutput)
 }
 
-// Configuration block for S3 log delivery. See S3 Configuration below.
 func (o SessionLoggerLogConfigurationOutput) S3() SessionLoggerLogConfigurationS3PtrOutput {
 	return o.ApplyT(func(v SessionLoggerLogConfiguration) *SessionLoggerLogConfigurationS3 { return v.S3 }).(SessionLoggerLogConfigurationS3PtrOutput)
 }
@@ -1357,7 +1284,6 @@ func (o SessionLoggerLogConfigurationPtrOutput) Elem() SessionLoggerLogConfigura
 	}).(SessionLoggerLogConfigurationOutput)
 }
 
-// Configuration block for S3 log delivery. See S3 Configuration below.
 func (o SessionLoggerLogConfigurationPtrOutput) S3() SessionLoggerLogConfigurationS3PtrOutput {
 	return o.ApplyT(func(v *SessionLoggerLogConfiguration) *SessionLoggerLogConfigurationS3 {
 		if v == nil {
@@ -1368,16 +1294,11 @@ func (o SessionLoggerLogConfigurationPtrOutput) S3() SessionLoggerLogConfigurati
 }
 
 type SessionLoggerLogConfigurationS3 struct {
-	// S3 bucket name where logs are delivered.
-	Bucket string `pulumi:"bucket"`
-	// Expected bucket owner of the target S3 bucket.
-	BucketOwner *string `pulumi:"bucketOwner"`
-	// Folder structure that defines the organizational structure for log files in S3. Valid values: `FlatStructure`, `DateBasedStructure`.
-	FolderStructure string `pulumi:"folderStructure"`
-	// S3 path prefix that determines where log files are stored.
-	KeyPrefix *string `pulumi:"keyPrefix"`
-	// Format of the log file written to S3. Valid values: `Json`, `Parquet`.
-	LogFileFormat string `pulumi:"logFileFormat"`
+	Bucket          string  `pulumi:"bucket"`
+	BucketOwner     *string `pulumi:"bucketOwner"`
+	FolderStructure string  `pulumi:"folderStructure"`
+	KeyPrefix       *string `pulumi:"keyPrefix"`
+	LogFileFormat   string  `pulumi:"logFileFormat"`
 }
 
 // SessionLoggerLogConfigurationS3Input is an input type that accepts SessionLoggerLogConfigurationS3Args and SessionLoggerLogConfigurationS3Output values.
@@ -1392,16 +1313,11 @@ type SessionLoggerLogConfigurationS3Input interface {
 }
 
 type SessionLoggerLogConfigurationS3Args struct {
-	// S3 bucket name where logs are delivered.
-	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// Expected bucket owner of the target S3 bucket.
-	BucketOwner pulumi.StringPtrInput `pulumi:"bucketOwner"`
-	// Folder structure that defines the organizational structure for log files in S3. Valid values: `FlatStructure`, `DateBasedStructure`.
-	FolderStructure pulumi.StringInput `pulumi:"folderStructure"`
-	// S3 path prefix that determines where log files are stored.
-	KeyPrefix pulumi.StringPtrInput `pulumi:"keyPrefix"`
-	// Format of the log file written to S3. Valid values: `Json`, `Parquet`.
-	LogFileFormat pulumi.StringInput `pulumi:"logFileFormat"`
+	Bucket          pulumi.StringInput    `pulumi:"bucket"`
+	BucketOwner     pulumi.StringPtrInput `pulumi:"bucketOwner"`
+	FolderStructure pulumi.StringInput    `pulumi:"folderStructure"`
+	KeyPrefix       pulumi.StringPtrInput `pulumi:"keyPrefix"`
+	LogFileFormat   pulumi.StringInput    `pulumi:"logFileFormat"`
 }
 
 func (SessionLoggerLogConfigurationS3Args) ElementType() reflect.Type {
@@ -1481,27 +1397,22 @@ func (o SessionLoggerLogConfigurationS3Output) ToSessionLoggerLogConfigurationS3
 	}).(SessionLoggerLogConfigurationS3PtrOutput)
 }
 
-// S3 bucket name where logs are delivered.
 func (o SessionLoggerLogConfigurationS3Output) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v SessionLoggerLogConfigurationS3) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// Expected bucket owner of the target S3 bucket.
 func (o SessionLoggerLogConfigurationS3Output) BucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SessionLoggerLogConfigurationS3) *string { return v.BucketOwner }).(pulumi.StringPtrOutput)
 }
 
-// Folder structure that defines the organizational structure for log files in S3. Valid values: `FlatStructure`, `DateBasedStructure`.
 func (o SessionLoggerLogConfigurationS3Output) FolderStructure() pulumi.StringOutput {
 	return o.ApplyT(func(v SessionLoggerLogConfigurationS3) string { return v.FolderStructure }).(pulumi.StringOutput)
 }
 
-// S3 path prefix that determines where log files are stored.
 func (o SessionLoggerLogConfigurationS3Output) KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SessionLoggerLogConfigurationS3) *string { return v.KeyPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Format of the log file written to S3. Valid values: `Json`, `Parquet`.
 func (o SessionLoggerLogConfigurationS3Output) LogFileFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v SessionLoggerLogConfigurationS3) string { return v.LogFileFormat }).(pulumi.StringOutput)
 }
@@ -1530,7 +1441,6 @@ func (o SessionLoggerLogConfigurationS3PtrOutput) Elem() SessionLoggerLogConfigu
 	}).(SessionLoggerLogConfigurationS3Output)
 }
 
-// S3 bucket name where logs are delivered.
 func (o SessionLoggerLogConfigurationS3PtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SessionLoggerLogConfigurationS3) *string {
 		if v == nil {
@@ -1540,7 +1450,6 @@ func (o SessionLoggerLogConfigurationS3PtrOutput) Bucket() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Expected bucket owner of the target S3 bucket.
 func (o SessionLoggerLogConfigurationS3PtrOutput) BucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SessionLoggerLogConfigurationS3) *string {
 		if v == nil {
@@ -1550,7 +1459,6 @@ func (o SessionLoggerLogConfigurationS3PtrOutput) BucketOwner() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Folder structure that defines the organizational structure for log files in S3. Valid values: `FlatStructure`, `DateBasedStructure`.
 func (o SessionLoggerLogConfigurationS3PtrOutput) FolderStructure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SessionLoggerLogConfigurationS3) *string {
 		if v == nil {
@@ -1560,7 +1468,6 @@ func (o SessionLoggerLogConfigurationS3PtrOutput) FolderStructure() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// S3 path prefix that determines where log files are stored.
 func (o SessionLoggerLogConfigurationS3PtrOutput) KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SessionLoggerLogConfigurationS3) *string {
 		if v == nil {
@@ -1570,7 +1477,6 @@ func (o SessionLoggerLogConfigurationS3PtrOutput) KeyPrefix() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Format of the log file written to S3. Valid values: `Json`, `Parquet`.
 func (o SessionLoggerLogConfigurationS3PtrOutput) LogFileFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SessionLoggerLogConfigurationS3) *string {
 		if v == nil {
@@ -1581,18 +1487,12 @@ func (o SessionLoggerLogConfigurationS3PtrOutput) LogFileFormat() pulumi.StringP
 }
 
 type TrustStoreCertificate struct {
-	// Certificate body in PEM format.
-	Body string `pulumi:"body"`
-	// Certificate issuer.
-	Issuer *string `pulumi:"issuer"`
-	// Date and time when the certificate expires in RFC3339 format.
-	NotValidAfter *string `pulumi:"notValidAfter"`
-	// Date and time when the certificate becomes valid in RFC3339 format.
+	Body           string  `pulumi:"body"`
+	Issuer         *string `pulumi:"issuer"`
+	NotValidAfter  *string `pulumi:"notValidAfter"`
 	NotValidBefore *string `pulumi:"notValidBefore"`
-	// Certificate subject.
-	Subject *string `pulumi:"subject"`
-	// Certificate thumbprint.
-	Thumbprint *string `pulumi:"thumbprint"`
+	Subject        *string `pulumi:"subject"`
+	Thumbprint     *string `pulumi:"thumbprint"`
 }
 
 // TrustStoreCertificateInput is an input type that accepts TrustStoreCertificateArgs and TrustStoreCertificateOutput values.
@@ -1607,18 +1507,12 @@ type TrustStoreCertificateInput interface {
 }
 
 type TrustStoreCertificateArgs struct {
-	// Certificate body in PEM format.
-	Body pulumi.StringInput `pulumi:"body"`
-	// Certificate issuer.
-	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
-	// Date and time when the certificate expires in RFC3339 format.
-	NotValidAfter pulumi.StringPtrInput `pulumi:"notValidAfter"`
-	// Date and time when the certificate becomes valid in RFC3339 format.
+	Body           pulumi.StringInput    `pulumi:"body"`
+	Issuer         pulumi.StringPtrInput `pulumi:"issuer"`
+	NotValidAfter  pulumi.StringPtrInput `pulumi:"notValidAfter"`
 	NotValidBefore pulumi.StringPtrInput `pulumi:"notValidBefore"`
-	// Certificate subject.
-	Subject pulumi.StringPtrInput `pulumi:"subject"`
-	// Certificate thumbprint.
-	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
+	Subject        pulumi.StringPtrInput `pulumi:"subject"`
+	Thumbprint     pulumi.StringPtrInput `pulumi:"thumbprint"`
 }
 
 func (TrustStoreCertificateArgs) ElementType() reflect.Type {
@@ -1672,32 +1566,26 @@ func (o TrustStoreCertificateOutput) ToTrustStoreCertificateOutputWithContext(ct
 	return o
 }
 
-// Certificate body in PEM format.
 func (o TrustStoreCertificateOutput) Body() pulumi.StringOutput {
 	return o.ApplyT(func(v TrustStoreCertificate) string { return v.Body }).(pulumi.StringOutput)
 }
 
-// Certificate issuer.
 func (o TrustStoreCertificateOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustStoreCertificate) *string { return v.Issuer }).(pulumi.StringPtrOutput)
 }
 
-// Date and time when the certificate expires in RFC3339 format.
 func (o TrustStoreCertificateOutput) NotValidAfter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustStoreCertificate) *string { return v.NotValidAfter }).(pulumi.StringPtrOutput)
 }
 
-// Date and time when the certificate becomes valid in RFC3339 format.
 func (o TrustStoreCertificateOutput) NotValidBefore() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustStoreCertificate) *string { return v.NotValidBefore }).(pulumi.StringPtrOutput)
 }
 
-// Certificate subject.
 func (o TrustStoreCertificateOutput) Subject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustStoreCertificate) *string { return v.Subject }).(pulumi.StringPtrOutput)
 }
 
-// Certificate thumbprint.
 func (o TrustStoreCertificateOutput) Thumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustStoreCertificate) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
 }
@@ -1723,9 +1611,7 @@ func (o TrustStoreCertificateArrayOutput) Index(i pulumi.IntInput) TrustStoreCer
 }
 
 type UserSettingsCookieSynchronizationConfiguration struct {
-	// List of cookie specifications that are allowed to be synchronized to the remote browser.
 	Allowlists []UserSettingsCookieSynchronizationConfigurationAllowlist `pulumi:"allowlists"`
-	// List of cookie specifications that are blocked from being synchronized to the remote browser.
 	Blocklists []UserSettingsCookieSynchronizationConfigurationBlocklist `pulumi:"blocklists"`
 }
 
@@ -1741,9 +1627,7 @@ type UserSettingsCookieSynchronizationConfigurationInput interface {
 }
 
 type UserSettingsCookieSynchronizationConfigurationArgs struct {
-	// List of cookie specifications that are allowed to be synchronized to the remote browser.
 	Allowlists UserSettingsCookieSynchronizationConfigurationAllowlistArrayInput `pulumi:"allowlists"`
-	// List of cookie specifications that are blocked from being synchronized to the remote browser.
 	Blocklists UserSettingsCookieSynchronizationConfigurationBlocklistArrayInput `pulumi:"blocklists"`
 }
 
@@ -1824,14 +1708,12 @@ func (o UserSettingsCookieSynchronizationConfigurationOutput) ToUserSettingsCook
 	}).(UserSettingsCookieSynchronizationConfigurationPtrOutput)
 }
 
-// List of cookie specifications that are allowed to be synchronized to the remote browser.
 func (o UserSettingsCookieSynchronizationConfigurationOutput) Allowlists() UserSettingsCookieSynchronizationConfigurationAllowlistArrayOutput {
 	return o.ApplyT(func(v UserSettingsCookieSynchronizationConfiguration) []UserSettingsCookieSynchronizationConfigurationAllowlist {
 		return v.Allowlists
 	}).(UserSettingsCookieSynchronizationConfigurationAllowlistArrayOutput)
 }
 
-// List of cookie specifications that are blocked from being synchronized to the remote browser.
 func (o UserSettingsCookieSynchronizationConfigurationOutput) Blocklists() UserSettingsCookieSynchronizationConfigurationBlocklistArrayOutput {
 	return o.ApplyT(func(v UserSettingsCookieSynchronizationConfiguration) []UserSettingsCookieSynchronizationConfigurationBlocklist {
 		return v.Blocklists
@@ -1862,7 +1744,6 @@ func (o UserSettingsCookieSynchronizationConfigurationPtrOutput) Elem() UserSett
 	}).(UserSettingsCookieSynchronizationConfigurationOutput)
 }
 
-// List of cookie specifications that are allowed to be synchronized to the remote browser.
 func (o UserSettingsCookieSynchronizationConfigurationPtrOutput) Allowlists() UserSettingsCookieSynchronizationConfigurationAllowlistArrayOutput {
 	return o.ApplyT(func(v *UserSettingsCookieSynchronizationConfiguration) []UserSettingsCookieSynchronizationConfigurationAllowlist {
 		if v == nil {
@@ -1872,7 +1753,6 @@ func (o UserSettingsCookieSynchronizationConfigurationPtrOutput) Allowlists() Us
 	}).(UserSettingsCookieSynchronizationConfigurationAllowlistArrayOutput)
 }
 
-// List of cookie specifications that are blocked from being synchronized to the remote browser.
 func (o UserSettingsCookieSynchronizationConfigurationPtrOutput) Blocklists() UserSettingsCookieSynchronizationConfigurationBlocklistArrayOutput {
 	return o.ApplyT(func(v *UserSettingsCookieSynchronizationConfiguration) []UserSettingsCookieSynchronizationConfigurationBlocklist {
 		if v == nil {
@@ -1883,12 +1763,9 @@ func (o UserSettingsCookieSynchronizationConfigurationPtrOutput) Blocklists() Us
 }
 
 type UserSettingsCookieSynchronizationConfigurationAllowlist struct {
-	// Domain of the cookie.
-	Domain string `pulumi:"domain"`
-	// Name of the cookie.
-	Name *string `pulumi:"name"`
-	// Path of the cookie.
-	Path *string `pulumi:"path"`
+	Domain string  `pulumi:"domain"`
+	Name   *string `pulumi:"name"`
+	Path   *string `pulumi:"path"`
 }
 
 // UserSettingsCookieSynchronizationConfigurationAllowlistInput is an input type that accepts UserSettingsCookieSynchronizationConfigurationAllowlistArgs and UserSettingsCookieSynchronizationConfigurationAllowlistOutput values.
@@ -1903,12 +1780,9 @@ type UserSettingsCookieSynchronizationConfigurationAllowlistInput interface {
 }
 
 type UserSettingsCookieSynchronizationConfigurationAllowlistArgs struct {
-	// Domain of the cookie.
-	Domain pulumi.StringInput `pulumi:"domain"`
-	// Name of the cookie.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Path of the cookie.
-	Path pulumi.StringPtrInput `pulumi:"path"`
+	Domain pulumi.StringInput    `pulumi:"domain"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Path   pulumi.StringPtrInput `pulumi:"path"`
 }
 
 func (UserSettingsCookieSynchronizationConfigurationAllowlistArgs) ElementType() reflect.Type {
@@ -1962,17 +1836,14 @@ func (o UserSettingsCookieSynchronizationConfigurationAllowlistOutput) ToUserSet
 	return o
 }
 
-// Domain of the cookie.
 func (o UserSettingsCookieSynchronizationConfigurationAllowlistOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v UserSettingsCookieSynchronizationConfigurationAllowlist) string { return v.Domain }).(pulumi.StringOutput)
 }
 
-// Name of the cookie.
 func (o UserSettingsCookieSynchronizationConfigurationAllowlistOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserSettingsCookieSynchronizationConfigurationAllowlist) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Path of the cookie.
 func (o UserSettingsCookieSynchronizationConfigurationAllowlistOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserSettingsCookieSynchronizationConfigurationAllowlist) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -1998,12 +1869,9 @@ func (o UserSettingsCookieSynchronizationConfigurationAllowlistArrayOutput) Inde
 }
 
 type UserSettingsCookieSynchronizationConfigurationBlocklist struct {
-	// Domain of the cookie.
-	Domain string `pulumi:"domain"`
-	// Name of the cookie.
-	Name *string `pulumi:"name"`
-	// Path of the cookie.
-	Path *string `pulumi:"path"`
+	Domain string  `pulumi:"domain"`
+	Name   *string `pulumi:"name"`
+	Path   *string `pulumi:"path"`
 }
 
 // UserSettingsCookieSynchronizationConfigurationBlocklistInput is an input type that accepts UserSettingsCookieSynchronizationConfigurationBlocklistArgs and UserSettingsCookieSynchronizationConfigurationBlocklistOutput values.
@@ -2018,12 +1886,9 @@ type UserSettingsCookieSynchronizationConfigurationBlocklistInput interface {
 }
 
 type UserSettingsCookieSynchronizationConfigurationBlocklistArgs struct {
-	// Domain of the cookie.
-	Domain pulumi.StringInput `pulumi:"domain"`
-	// Name of the cookie.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Path of the cookie.
-	Path pulumi.StringPtrInput `pulumi:"path"`
+	Domain pulumi.StringInput    `pulumi:"domain"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Path   pulumi.StringPtrInput `pulumi:"path"`
 }
 
 func (UserSettingsCookieSynchronizationConfigurationBlocklistArgs) ElementType() reflect.Type {
@@ -2077,17 +1942,14 @@ func (o UserSettingsCookieSynchronizationConfigurationBlocklistOutput) ToUserSet
 	return o
 }
 
-// Domain of the cookie.
 func (o UserSettingsCookieSynchronizationConfigurationBlocklistOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v UserSettingsCookieSynchronizationConfigurationBlocklist) string { return v.Domain }).(pulumi.StringOutput)
 }
 
-// Name of the cookie.
 func (o UserSettingsCookieSynchronizationConfigurationBlocklistOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserSettingsCookieSynchronizationConfigurationBlocklist) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Path of the cookie.
 func (o UserSettingsCookieSynchronizationConfigurationBlocklistOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserSettingsCookieSynchronizationConfigurationBlocklist) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -2113,14 +1975,10 @@ func (o UserSettingsCookieSynchronizationConfigurationBlocklistArrayOutput) Inde
 }
 
 type UserSettingsToolbarConfiguration struct {
-	// List of toolbar items to be hidden.
-	HiddenToolbarItems []string `pulumi:"hiddenToolbarItems"`
-	// Maximum display resolution that is allowed for the session.
-	MaxDisplayResolution *string `pulumi:"maxDisplayResolution"`
-	// Type of toolbar displayed during the session.
-	ToolbarType *string `pulumi:"toolbarType"`
-	// Visual mode of the toolbar.
-	VisualMode *string `pulumi:"visualMode"`
+	HiddenToolbarItems   []string `pulumi:"hiddenToolbarItems"`
+	MaxDisplayResolution *string  `pulumi:"maxDisplayResolution"`
+	ToolbarType          *string  `pulumi:"toolbarType"`
+	VisualMode           *string  `pulumi:"visualMode"`
 }
 
 // UserSettingsToolbarConfigurationInput is an input type that accepts UserSettingsToolbarConfigurationArgs and UserSettingsToolbarConfigurationOutput values.
@@ -2135,14 +1993,10 @@ type UserSettingsToolbarConfigurationInput interface {
 }
 
 type UserSettingsToolbarConfigurationArgs struct {
-	// List of toolbar items to be hidden.
-	HiddenToolbarItems pulumi.StringArrayInput `pulumi:"hiddenToolbarItems"`
-	// Maximum display resolution that is allowed for the session.
-	MaxDisplayResolution pulumi.StringPtrInput `pulumi:"maxDisplayResolution"`
-	// Type of toolbar displayed during the session.
-	ToolbarType pulumi.StringPtrInput `pulumi:"toolbarType"`
-	// Visual mode of the toolbar.
-	VisualMode pulumi.StringPtrInput `pulumi:"visualMode"`
+	HiddenToolbarItems   pulumi.StringArrayInput `pulumi:"hiddenToolbarItems"`
+	MaxDisplayResolution pulumi.StringPtrInput   `pulumi:"maxDisplayResolution"`
+	ToolbarType          pulumi.StringPtrInput   `pulumi:"toolbarType"`
+	VisualMode           pulumi.StringPtrInput   `pulumi:"visualMode"`
 }
 
 func (UserSettingsToolbarConfigurationArgs) ElementType() reflect.Type {
@@ -2222,22 +2076,18 @@ func (o UserSettingsToolbarConfigurationOutput) ToUserSettingsToolbarConfigurati
 	}).(UserSettingsToolbarConfigurationPtrOutput)
 }
 
-// List of toolbar items to be hidden.
 func (o UserSettingsToolbarConfigurationOutput) HiddenToolbarItems() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserSettingsToolbarConfiguration) []string { return v.HiddenToolbarItems }).(pulumi.StringArrayOutput)
 }
 
-// Maximum display resolution that is allowed for the session.
 func (o UserSettingsToolbarConfigurationOutput) MaxDisplayResolution() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserSettingsToolbarConfiguration) *string { return v.MaxDisplayResolution }).(pulumi.StringPtrOutput)
 }
 
-// Type of toolbar displayed during the session.
 func (o UserSettingsToolbarConfigurationOutput) ToolbarType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserSettingsToolbarConfiguration) *string { return v.ToolbarType }).(pulumi.StringPtrOutput)
 }
 
-// Visual mode of the toolbar.
 func (o UserSettingsToolbarConfigurationOutput) VisualMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserSettingsToolbarConfiguration) *string { return v.VisualMode }).(pulumi.StringPtrOutput)
 }
@@ -2266,7 +2116,6 @@ func (o UserSettingsToolbarConfigurationPtrOutput) Elem() UserSettingsToolbarCon
 	}).(UserSettingsToolbarConfigurationOutput)
 }
 
-// List of toolbar items to be hidden.
 func (o UserSettingsToolbarConfigurationPtrOutput) HiddenToolbarItems() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserSettingsToolbarConfiguration) []string {
 		if v == nil {
@@ -2276,7 +2125,6 @@ func (o UserSettingsToolbarConfigurationPtrOutput) HiddenToolbarItems() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
-// Maximum display resolution that is allowed for the session.
 func (o UserSettingsToolbarConfigurationPtrOutput) MaxDisplayResolution() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserSettingsToolbarConfiguration) *string {
 		if v == nil {
@@ -2286,7 +2134,6 @@ func (o UserSettingsToolbarConfigurationPtrOutput) MaxDisplayResolution() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of toolbar displayed during the session.
 func (o UserSettingsToolbarConfigurationPtrOutput) ToolbarType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserSettingsToolbarConfiguration) *string {
 		if v == nil {
@@ -2296,7 +2143,6 @@ func (o UserSettingsToolbarConfigurationPtrOutput) ToolbarType() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Visual mode of the toolbar.
 func (o UserSettingsToolbarConfigurationPtrOutput) VisualMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserSettingsToolbarConfiguration) *string {
 		if v == nil {

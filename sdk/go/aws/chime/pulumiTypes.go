@@ -14,7 +14,6 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type SdkvoiceGlobalSettingsVoiceConnector struct {
-	// The S3 bucket that stores the Voice Connector's call detail records.
 	CdrBucket *string `pulumi:"cdrBucket"`
 }
 
@@ -30,7 +29,6 @@ type SdkvoiceGlobalSettingsVoiceConnectorInput interface {
 }
 
 type SdkvoiceGlobalSettingsVoiceConnectorArgs struct {
-	// The S3 bucket that stores the Voice Connector's call detail records.
 	CdrBucket pulumi.StringPtrInput `pulumi:"cdrBucket"`
 }
 
@@ -111,7 +109,6 @@ func (o SdkvoiceGlobalSettingsVoiceConnectorOutput) ToSdkvoiceGlobalSettingsVoic
 	}).(SdkvoiceGlobalSettingsVoiceConnectorPtrOutput)
 }
 
-// The S3 bucket that stores the Voice Connector's call detail records.
 func (o SdkvoiceGlobalSettingsVoiceConnectorOutput) CdrBucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SdkvoiceGlobalSettingsVoiceConnector) *string { return v.CdrBucket }).(pulumi.StringPtrOutput)
 }
@@ -140,7 +137,6 @@ func (o SdkvoiceGlobalSettingsVoiceConnectorPtrOutput) Elem() SdkvoiceGlobalSett
 	}).(SdkvoiceGlobalSettingsVoiceConnectorOutput)
 }
 
-// The S3 bucket that stores the Voice Connector's call detail records.
 func (o SdkvoiceGlobalSettingsVoiceConnectorPtrOutput) CdrBucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SdkvoiceGlobalSettingsVoiceConnector) *string {
 		if v == nil {
@@ -151,7 +147,6 @@ func (o SdkvoiceGlobalSettingsVoiceConnectorPtrOutput) CdrBucket() pulumi.String
 }
 
 type SdkvoiceSipMediaApplicationEndpoints struct {
-	// Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
 	LambdaArn string `pulumi:"lambdaArn"`
 }
 
@@ -167,7 +162,6 @@ type SdkvoiceSipMediaApplicationEndpointsInput interface {
 }
 
 type SdkvoiceSipMediaApplicationEndpointsArgs struct {
-	// Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
 	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
 }
 
@@ -248,7 +242,6 @@ func (o SdkvoiceSipMediaApplicationEndpointsOutput) ToSdkvoiceSipMediaApplicatio
 	}).(SdkvoiceSipMediaApplicationEndpointsPtrOutput)
 }
 
-// Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
 func (o SdkvoiceSipMediaApplicationEndpointsOutput) LambdaArn() pulumi.StringOutput {
 	return o.ApplyT(func(v SdkvoiceSipMediaApplicationEndpoints) string { return v.LambdaArn }).(pulumi.StringOutput)
 }
@@ -277,7 +270,6 @@ func (o SdkvoiceSipMediaApplicationEndpointsPtrOutput) Elem() SdkvoiceSipMediaAp
 	}).(SdkvoiceSipMediaApplicationEndpointsOutput)
 }
 
-// Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
 func (o SdkvoiceSipMediaApplicationEndpointsPtrOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SdkvoiceSipMediaApplicationEndpoints) *string {
 		if v == nil {
@@ -288,11 +280,8 @@ func (o SdkvoiceSipMediaApplicationEndpointsPtrOutput) LambdaArn() pulumi.String
 }
 
 type SdkvoiceSipRuleTargetApplication struct {
-	// The AWS Region of the target application.
-	AwsRegion string `pulumi:"awsRegion"`
-	// Priority of the SIP media application in the target list.
-	Priority int `pulumi:"priority"`
-	// The SIP media application ID.
+	AwsRegion             string `pulumi:"awsRegion"`
+	Priority              int    `pulumi:"priority"`
 	SipMediaApplicationId string `pulumi:"sipMediaApplicationId"`
 }
 
@@ -308,11 +297,8 @@ type SdkvoiceSipRuleTargetApplicationInput interface {
 }
 
 type SdkvoiceSipRuleTargetApplicationArgs struct {
-	// The AWS Region of the target application.
-	AwsRegion pulumi.StringInput `pulumi:"awsRegion"`
-	// Priority of the SIP media application in the target list.
-	Priority pulumi.IntInput `pulumi:"priority"`
-	// The SIP media application ID.
+	AwsRegion             pulumi.StringInput `pulumi:"awsRegion"`
+	Priority              pulumi.IntInput    `pulumi:"priority"`
 	SipMediaApplicationId pulumi.StringInput `pulumi:"sipMediaApplicationId"`
 }
 
@@ -367,17 +353,14 @@ func (o SdkvoiceSipRuleTargetApplicationOutput) ToSdkvoiceSipRuleTargetApplicati
 	return o
 }
 
-// The AWS Region of the target application.
 func (o SdkvoiceSipRuleTargetApplicationOutput) AwsRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v SdkvoiceSipRuleTargetApplication) string { return v.AwsRegion }).(pulumi.StringOutput)
 }
 
-// Priority of the SIP media application in the target list.
 func (o SdkvoiceSipRuleTargetApplicationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v SdkvoiceSipRuleTargetApplication) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// The SIP media application ID.
 func (o SdkvoiceSipRuleTargetApplicationOutput) SipMediaApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v SdkvoiceSipRuleTargetApplication) string { return v.SipMediaApplicationId }).(pulumi.StringOutput)
 }
@@ -403,9 +386,6 @@ func (o SdkvoiceSipRuleTargetApplicationArrayOutput) Index(i pulumi.IntInput) Sd
 }
 
 type SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration struct {
-	// ARN for KMS Key.
-	//
-	// The following arguments are optional:
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
 }
 
@@ -421,9 +401,6 @@ type SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationInput interface 
 }
 
 type SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs struct {
-	// ARN for KMS Key.
-	//
-	// The following arguments are optional:
 	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
 }
 
@@ -504,9 +481,6 @@ func (o SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput) ToSdk
 	}).(SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput)
 }
 
-// ARN for KMS Key.
-//
-// The following arguments are optional:
 func (o SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration) string { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
@@ -535,9 +509,6 @@ func (o SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput) El
 	}).(SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput)
 }
 
-// ARN for KMS Key.
-//
-// The following arguments are optional:
 func (o SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration) *string {
 		if v == nil {
@@ -548,9 +519,7 @@ func (o SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput) Km
 }
 
 type VoiceConnectorGroupConnector struct {
-	// The priority associated with the Amazon Chime Voice Connector, with 1 being the highest priority. Higher priority Amazon Chime Voice Connectors are attempted first.
-	Priority int `pulumi:"priority"`
-	// The Amazon Chime Voice Connector ID.
+	Priority         int    `pulumi:"priority"`
 	VoiceConnectorId string `pulumi:"voiceConnectorId"`
 }
 
@@ -566,9 +535,7 @@ type VoiceConnectorGroupConnectorInput interface {
 }
 
 type VoiceConnectorGroupConnectorArgs struct {
-	// The priority associated with the Amazon Chime Voice Connector, with 1 being the highest priority. Higher priority Amazon Chime Voice Connectors are attempted first.
-	Priority pulumi.IntInput `pulumi:"priority"`
-	// The Amazon Chime Voice Connector ID.
+	Priority         pulumi.IntInput    `pulumi:"priority"`
 	VoiceConnectorId pulumi.StringInput `pulumi:"voiceConnectorId"`
 }
 
@@ -623,12 +590,10 @@ func (o VoiceConnectorGroupConnectorOutput) ToVoiceConnectorGroupConnectorOutput
 	return o
 }
 
-// The priority associated with the Amazon Chime Voice Connector, with 1 being the highest priority. Higher priority Amazon Chime Voice Connectors are attempted first.
 func (o VoiceConnectorGroupConnectorOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v VoiceConnectorGroupConnector) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// The Amazon Chime Voice Connector ID.
 func (o VoiceConnectorGroupConnectorOutput) VoiceConnectorId() pulumi.StringOutput {
 	return o.ApplyT(func(v VoiceConnectorGroupConnector) string { return v.VoiceConnectorId }).(pulumi.StringOutput)
 }
@@ -654,16 +619,11 @@ func (o VoiceConnectorGroupConnectorArrayOutput) Index(i pulumi.IntInput) VoiceC
 }
 
 type VoiceConnectorOriginationRoute struct {
-	// The FQDN or IP address to contact for origination traffic.
-	Host string `pulumi:"host"`
-	// The designated origination route port. Defaults to `5060`.
-	Port *int `pulumi:"port"`
-	// The priority associated with the host, with 1 being the highest priority. Higher priority hosts are attempted first.
-	Priority int `pulumi:"priority"`
-	// The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.
+	Host     string `pulumi:"host"`
+	Port     *int   `pulumi:"port"`
+	Priority int    `pulumi:"priority"`
 	Protocol string `pulumi:"protocol"`
-	// The weight associated with the host. If hosts are equal in priority, calls are redistributed among them based on their relative weight.
-	Weight int `pulumi:"weight"`
+	Weight   int    `pulumi:"weight"`
 }
 
 // VoiceConnectorOriginationRouteInput is an input type that accepts VoiceConnectorOriginationRouteArgs and VoiceConnectorOriginationRouteOutput values.
@@ -678,16 +638,11 @@ type VoiceConnectorOriginationRouteInput interface {
 }
 
 type VoiceConnectorOriginationRouteArgs struct {
-	// The FQDN or IP address to contact for origination traffic.
-	Host pulumi.StringInput `pulumi:"host"`
-	// The designated origination route port. Defaults to `5060`.
-	Port pulumi.IntPtrInput `pulumi:"port"`
-	// The priority associated with the host, with 1 being the highest priority. Higher priority hosts are attempted first.
-	Priority pulumi.IntInput `pulumi:"priority"`
-	// The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.
+	Host     pulumi.StringInput `pulumi:"host"`
+	Port     pulumi.IntPtrInput `pulumi:"port"`
+	Priority pulumi.IntInput    `pulumi:"priority"`
 	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// The weight associated with the host. If hosts are equal in priority, calls are redistributed among them based on their relative weight.
-	Weight pulumi.IntInput `pulumi:"weight"`
+	Weight   pulumi.IntInput    `pulumi:"weight"`
 }
 
 func (VoiceConnectorOriginationRouteArgs) ElementType() reflect.Type {
@@ -741,27 +696,22 @@ func (o VoiceConnectorOriginationRouteOutput) ToVoiceConnectorOriginationRouteOu
 	return o
 }
 
-// The FQDN or IP address to contact for origination traffic.
 func (o VoiceConnectorOriginationRouteOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v VoiceConnectorOriginationRoute) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// The designated origination route port. Defaults to `5060`.
 func (o VoiceConnectorOriginationRouteOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VoiceConnectorOriginationRoute) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// The priority associated with the host, with 1 being the highest priority. Higher priority hosts are attempted first.
 func (o VoiceConnectorOriginationRouteOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v VoiceConnectorOriginationRoute) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.
 func (o VoiceConnectorOriginationRouteOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v VoiceConnectorOriginationRoute) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// The weight associated with the host. If hosts are equal in priority, calls are redistributed among them based on their relative weight.
 func (o VoiceConnectorOriginationRouteOutput) Weight() pulumi.IntOutput {
 	return o.ApplyT(func(v VoiceConnectorOriginationRoute) int { return v.Weight }).(pulumi.IntOutput)
 }
@@ -787,10 +737,8 @@ func (o VoiceConnectorOriginationRouteArrayOutput) Index(i pulumi.IntInput) Voic
 }
 
 type VoiceConnectorStreamingMediaInsightsConfiguration struct {
-	// The media insights configuration that will be invoked by the Voice Connector.
 	ConfigurationArn *string `pulumi:"configurationArn"`
-	// When `true`, the media insights configuration is not enabled. Defaults to `false`.
-	Disabled *bool `pulumi:"disabled"`
+	Disabled         *bool   `pulumi:"disabled"`
 }
 
 // VoiceConnectorStreamingMediaInsightsConfigurationInput is an input type that accepts VoiceConnectorStreamingMediaInsightsConfigurationArgs and VoiceConnectorStreamingMediaInsightsConfigurationOutput values.
@@ -805,10 +753,8 @@ type VoiceConnectorStreamingMediaInsightsConfigurationInput interface {
 }
 
 type VoiceConnectorStreamingMediaInsightsConfigurationArgs struct {
-	// The media insights configuration that will be invoked by the Voice Connector.
 	ConfigurationArn pulumi.StringPtrInput `pulumi:"configurationArn"`
-	// When `true`, the media insights configuration is not enabled. Defaults to `false`.
-	Disabled pulumi.BoolPtrInput `pulumi:"disabled"`
+	Disabled         pulumi.BoolPtrInput   `pulumi:"disabled"`
 }
 
 func (VoiceConnectorStreamingMediaInsightsConfigurationArgs) ElementType() reflect.Type {
@@ -888,12 +834,10 @@ func (o VoiceConnectorStreamingMediaInsightsConfigurationOutput) ToVoiceConnecto
 	}).(VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput)
 }
 
-// The media insights configuration that will be invoked by the Voice Connector.
 func (o VoiceConnectorStreamingMediaInsightsConfigurationOutput) ConfigurationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VoiceConnectorStreamingMediaInsightsConfiguration) *string { return v.ConfigurationArn }).(pulumi.StringPtrOutput)
 }
 
-// When `true`, the media insights configuration is not enabled. Defaults to `false`.
 func (o VoiceConnectorStreamingMediaInsightsConfigurationOutput) Disabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VoiceConnectorStreamingMediaInsightsConfiguration) *bool { return v.Disabled }).(pulumi.BoolPtrOutput)
 }
@@ -922,7 +866,6 @@ func (o VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput) Elem() Voice
 	}).(VoiceConnectorStreamingMediaInsightsConfigurationOutput)
 }
 
-// The media insights configuration that will be invoked by the Voice Connector.
 func (o VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput) ConfigurationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VoiceConnectorStreamingMediaInsightsConfiguration) *string {
 		if v == nil {
@@ -932,7 +875,6 @@ func (o VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput) Configuratio
 	}).(pulumi.StringPtrOutput)
 }
 
-// When `true`, the media insights configuration is not enabled. Defaults to `false`.
 func (o VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput) Disabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VoiceConnectorStreamingMediaInsightsConfiguration) *bool {
 		if v == nil {
@@ -943,9 +885,7 @@ func (o VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput) Disabled() p
 }
 
 type VoiceConnectorTerminationCredentialsCredential struct {
-	// RFC2617 compliant password associated with the SIP credentials.
 	Password string `pulumi:"password"`
-	// RFC2617 compliant username associated with the SIP credentials.
 	Username string `pulumi:"username"`
 }
 
@@ -961,9 +901,7 @@ type VoiceConnectorTerminationCredentialsCredentialInput interface {
 }
 
 type VoiceConnectorTerminationCredentialsCredentialArgs struct {
-	// RFC2617 compliant password associated with the SIP credentials.
 	Password pulumi.StringInput `pulumi:"password"`
-	// RFC2617 compliant username associated with the SIP credentials.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -1018,12 +956,10 @@ func (o VoiceConnectorTerminationCredentialsCredentialOutput) ToVoiceConnectorTe
 	return o
 }
 
-// RFC2617 compliant password associated with the SIP credentials.
 func (o VoiceConnectorTerminationCredentialsCredentialOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v VoiceConnectorTerminationCredentialsCredential) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// RFC2617 compliant username associated with the SIP credentials.
 func (o VoiceConnectorTerminationCredentialsCredentialOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v VoiceConnectorTerminationCredentialsCredential) string { return v.Username }).(pulumi.StringOutput)
 }

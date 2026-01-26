@@ -12,18 +12,12 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentFlowDefinitionNodeInputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// How input data flows between iterations in a DoWhile loop.
-        /// </summary>
         [Input("category")]
         public Input<string>? Category { get; set; }
 
         [Input("expression", required: true)]
         public Input<string> Expression { get; set; } = null!;
 
-        /// <summary>
-        /// A name for the flow.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

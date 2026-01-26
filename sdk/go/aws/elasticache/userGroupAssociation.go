@@ -12,87 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Associate an existing ElastiCache user and an existing user group.
-//
-// > Pulumi will detect changes in the `elasticache.UserGroup` since `elasticache.UserGroupAssociation` changes the user IDs associated with the user group. You can ignore these changes with the `lifecycle` `ignoreChanges` meta argument as shown in the example.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticache"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_default, err := elasticache.NewUser(ctx, "default", &elasticache.UserArgs{
-//				UserId:       pulumi.String("defaultUserID"),
-//				UserName:     pulumi.String("default"),
-//				AccessString: pulumi.String("on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember"),
-//				Engine:       pulumi.String("REDIS"),
-//				Passwords: pulumi.StringArray{
-//					pulumi.String("password123456789"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := elasticache.NewUserGroup(ctx, "example", &elasticache.UserGroupArgs{
-//				Engine:      pulumi.String("REDIS"),
-//				UserGroupId: pulumi.String("userGroupId"),
-//				UserIds: pulumi.StringArray{
-//					_default.UserId,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleUser, err := elasticache.NewUser(ctx, "example", &elasticache.UserArgs{
-//				UserId:       pulumi.String("exampleUserID"),
-//				UserName:     pulumi.String("exampleuser"),
-//				AccessString: pulumi.String("on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember"),
-//				Engine:       pulumi.String("REDIS"),
-//				Passwords: pulumi.StringArray{
-//					pulumi.String("password123456789"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elasticache.NewUserGroupAssociation(ctx, "example", &elasticache.UserGroupAssociationArgs{
-//				UserGroupId: example.UserGroupId,
-//				UserId:      exampleUser.UserId,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import ElastiCache user group associations using the `user_group_id` and `user_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:elasticache/userGroupAssociation:UserGroupAssociation example userGoupId1,userId
-// ```
 type UserGroupAssociation struct {
 	pulumi.CustomResourceState
 
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ID of the user group.
+	Region      pulumi.StringOutput `pulumi:"region"`
 	UserGroupId pulumi.StringOutput `pulumi:"userGroupId"`
-	// ID of the user to associated with the user group.
-	UserId pulumi.StringOutput `pulumi:"userId"`
+	UserId      pulumi.StringOutput `pulumi:"userId"`
 }
 
 // NewUserGroupAssociation registers a new resource with the given unique name, arguments, and options.
@@ -131,21 +56,15 @@ func GetUserGroupAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserGroupAssociation resources.
 type userGroupAssociationState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID of the user group.
+	Region      *string `pulumi:"region"`
 	UserGroupId *string `pulumi:"userGroupId"`
-	// ID of the user to associated with the user group.
-	UserId *string `pulumi:"userId"`
+	UserId      *string `pulumi:"userId"`
 }
 
 type UserGroupAssociationState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ID of the user group.
+	Region      pulumi.StringPtrInput
 	UserGroupId pulumi.StringPtrInput
-	// ID of the user to associated with the user group.
-	UserId pulumi.StringPtrInput
+	UserId      pulumi.StringPtrInput
 }
 
 func (UserGroupAssociationState) ElementType() reflect.Type {
@@ -153,22 +72,16 @@ func (UserGroupAssociationState) ElementType() reflect.Type {
 }
 
 type userGroupAssociationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID of the user group.
-	UserGroupId string `pulumi:"userGroupId"`
-	// ID of the user to associated with the user group.
-	UserId string `pulumi:"userId"`
+	Region      *string `pulumi:"region"`
+	UserGroupId string  `pulumi:"userGroupId"`
+	UserId      string  `pulumi:"userId"`
 }
 
 // The set of arguments for constructing a UserGroupAssociation resource.
 type UserGroupAssociationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ID of the user group.
+	Region      pulumi.StringPtrInput
 	UserGroupId pulumi.StringInput
-	// ID of the user to associated with the user group.
-	UserId pulumi.StringInput
+	UserId      pulumi.StringInput
 }
 
 func (UserGroupAssociationArgs) ElementType() reflect.Type {
@@ -258,17 +171,14 @@ func (o UserGroupAssociationOutput) ToUserGroupAssociationOutputWithContext(ctx 
 	return o
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o UserGroupAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserGroupAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ID of the user group.
 func (o UserGroupAssociationOutput) UserGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserGroupAssociation) pulumi.StringOutput { return v.UserGroupId }).(pulumi.StringOutput)
 }
 
-// ID of the user to associated with the user group.
 func (o UserGroupAssociationOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserGroupAssociation) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
 }

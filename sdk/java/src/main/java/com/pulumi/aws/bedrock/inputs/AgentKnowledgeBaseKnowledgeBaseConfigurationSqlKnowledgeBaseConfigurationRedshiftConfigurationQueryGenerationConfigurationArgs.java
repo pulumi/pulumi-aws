@@ -16,32 +16,16 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
 
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs();
 
-    /**
-     * Time after which query generation will time out.
-     * 
-     */
     @Import(name="executionTimeoutSeconds")
     private @Nullable Output<Integer> executionTimeoutSeconds;
 
-    /**
-     * @return Time after which query generation will time out.
-     * 
-     */
     public Optional<Output<Integer>> executionTimeoutSeconds() {
         return Optional.ofNullable(this.executionTimeoutSeconds);
     }
 
-    /**
-     * Configurations for context to use during query generation. See `generationContext` block for details.
-     * 
-     */
     @Import(name="generationContext")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs> generationContext;
 
-    /**
-     * @return Configurations for context to use during query generation. See `generationContext` block for details.
-     * 
-     */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs>> generationContext() {
         return Optional.ofNullable(this.generationContext);
     }
@@ -71,44 +55,20 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
             $ = new AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param executionTimeoutSeconds Time after which query generation will time out.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executionTimeoutSeconds(@Nullable Output<Integer> executionTimeoutSeconds) {
             $.executionTimeoutSeconds = executionTimeoutSeconds;
             return this;
         }
 
-        /**
-         * @param executionTimeoutSeconds Time after which query generation will time out.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executionTimeoutSeconds(Integer executionTimeoutSeconds) {
             return executionTimeoutSeconds(Output.of(executionTimeoutSeconds));
         }
 
-        /**
-         * @param generationContext Configurations for context to use during query generation. See `generationContext` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder generationContext(@Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs> generationContext) {
             $.generationContext = generationContext;
             return this;
         }
 
-        /**
-         * @param generationContext Configurations for context to use during query generation. See `generationContext` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder generationContext(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs generationContext) {
             return generationContext(Output.of(generationContext));
         }

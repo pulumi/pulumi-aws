@@ -89,49 +89,31 @@ class GetDomainNameResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the found custom domain name.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> _builtins.str:
-        """
-        ARN for an AWS-managed certificate that is used by edge-optimized endpoint for this domain name.
-        """
         return pulumi.get(self, "certificate_arn")
 
     @_builtins.property
     @pulumi.getter(name="certificateName")
     def certificate_name(self) -> _builtins.str:
-        """
-        Name of the certificate that is used by edge-optimized endpoint for this domain name.
-        """
         return pulumi.get(self, "certificate_name")
 
     @_builtins.property
     @pulumi.getter(name="certificateUploadDate")
     def certificate_upload_date(self) -> _builtins.str:
-        """
-        Upload date associated with the domain certificate.
-        """
         return pulumi.get(self, "certificate_upload_date")
 
     @_builtins.property
     @pulumi.getter(name="cloudfrontDomainName")
     def cloudfront_domain_name(self) -> _builtins.str:
-        """
-        Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
-        """
         return pulumi.get(self, "cloudfront_domain_name")
 
     @_builtins.property
     @pulumi.getter(name="cloudfrontZoneId")
     def cloudfront_zone_id(self) -> _builtins.str:
-        """
-        For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
-        """
         return pulumi.get(self, "cloudfront_zone_id")
 
     @_builtins.property
@@ -147,17 +129,11 @@ class GetDomainNameResult:
     @_builtins.property
     @pulumi.getter(name="endpointAccessMode")
     def endpoint_access_mode(self) -> _builtins.str:
-        """
-        (Optional) Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`.
-        """
         return pulumi.get(self, "endpoint_access_mode")
 
     @_builtins.property
     @pulumi.getter(name="endpointConfigurations")
     def endpoint_configurations(self) -> Sequence['outputs.GetDomainNameEndpointConfigurationResult']:
-        """
-        List of objects with the endpoint configuration of this domain name.
-        """
         return pulumi.get(self, "endpoint_configurations")
 
     @_builtins.property
@@ -171,9 +147,6 @@ class GetDomainNameResult:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> _builtins.str:
-        """
-        A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
@@ -184,49 +157,31 @@ class GetDomainNameResult:
     @_builtins.property
     @pulumi.getter(name="regionalCertificateArn")
     def regional_certificate_arn(self) -> _builtins.str:
-        """
-        ARN for an AWS-managed certificate that is used for validating the regional domain name.
-        """
         return pulumi.get(self, "regional_certificate_arn")
 
     @_builtins.property
     @pulumi.getter(name="regionalCertificateName")
     def regional_certificate_name(self) -> _builtins.str:
-        """
-        User-friendly name of the certificate that is used by regional endpoint for this domain name.
-        """
         return pulumi.get(self, "regional_certificate_name")
 
     @_builtins.property
     @pulumi.getter(name="regionalDomainName")
     def regional_domain_name(self) -> _builtins.str:
-        """
-        Hostname for the custom domain's regional endpoint.
-        """
         return pulumi.get(self, "regional_domain_name")
 
     @_builtins.property
     @pulumi.getter(name="regionalZoneId")
     def regional_zone_id(self) -> _builtins.str:
-        """
-        Hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
-        """
         return pulumi.get(self, "regional_zone_id")
 
     @_builtins.property
     @pulumi.getter(name="securityPolicy")
     def security_policy(self) -> _builtins.str:
-        """
-        Security policy for the domain name.
-        """
         return pulumi.get(self, "security_policy")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value map of tags for the resource.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -263,22 +218,7 @@ def get_domain_name(domain_name: Optional[_builtins.str] = None,
                     tags: Optional[Mapping[str, _builtins.str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainNameResult:
     """
-    Use this data source to get the custom domain name for use with AWS API Gateway.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.apigateway.get_domain_name(domain_name="api.example.com")
-    ```
-
-
-    :param _builtins.str domain_name: Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
-    :param _builtins.str domain_name_id: The identifier for the domain name resource. Supported only for private custom domain names.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of tags for the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['domainName'] = domain_name
@@ -314,22 +254,7 @@ def get_domain_name_output(domain_name: Optional[pulumi.Input[_builtins.str]] = 
                            tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainNameResult]:
     """
-    Use this data source to get the custom domain name for use with AWS API Gateway.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.apigateway.get_domain_name(domain_name="api.example.com")
-    ```
-
-
-    :param _builtins.str domain_name: Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
-    :param _builtins.str domain_name_id: The identifier for the domain name resource. Supported only for private custom domain names.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of tags for the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['domainName'] = domain_name

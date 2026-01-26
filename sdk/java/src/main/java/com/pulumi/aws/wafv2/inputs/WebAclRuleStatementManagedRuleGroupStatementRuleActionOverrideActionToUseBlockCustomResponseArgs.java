@@ -19,47 +19,23 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
 
     public static final WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseArgs();
 
-    /**
-     * References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `customResponseBody` block of this resource.
-     * 
-     */
     @Import(name="customResponseBodyKey")
     private @Nullable Output<String> customResponseBodyKey;
 
-    /**
-     * @return References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `customResponseBody` block of this resource.
-     * 
-     */
     public Optional<Output<String>> customResponseBodyKey() {
         return Optional.ofNullable(this.customResponseBodyKey);
     }
 
-    /**
-     * The HTTP status code to return to the client.
-     * 
-     */
     @Import(name="responseCode", required=true)
     private Output<Integer> responseCode;
 
-    /**
-     * @return The HTTP status code to return to the client.
-     * 
-     */
     public Output<Integer> responseCode() {
         return this.responseCode;
     }
 
-    /**
-     * The `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
-     * 
-     */
     @Import(name="responseHeaders")
     private @Nullable Output<List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs>> responseHeaders;
 
-    /**
-     * @return The `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
-     * 
-     */
     public Optional<Output<List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs>>> responseHeaders() {
         return Optional.ofNullable(this.responseHeaders);
     }
@@ -90,75 +66,33 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
             $ = new WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customResponseBodyKey References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `customResponseBody` block of this resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customResponseBodyKey(@Nullable Output<String> customResponseBodyKey) {
             $.customResponseBodyKey = customResponseBodyKey;
             return this;
         }
 
-        /**
-         * @param customResponseBodyKey References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `customResponseBody` block of this resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customResponseBodyKey(String customResponseBodyKey) {
             return customResponseBodyKey(Output.of(customResponseBodyKey));
         }
 
-        /**
-         * @param responseCode The HTTP status code to return to the client.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responseCode(Output<Integer> responseCode) {
             $.responseCode = responseCode;
             return this;
         }
 
-        /**
-         * @param responseCode The HTTP status code to return to the client.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responseCode(Integer responseCode) {
             return responseCode(Output.of(responseCode));
         }
 
-        /**
-         * @param responseHeaders The `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responseHeaders(@Nullable Output<List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs>> responseHeaders) {
             $.responseHeaders = responseHeaders;
             return this;
         }
 
-        /**
-         * @param responseHeaders The `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responseHeaders(List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs> responseHeaders) {
             return responseHeaders(Output.of(responseHeaders));
         }
 
-        /**
-         * @param responseHeaders The `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responseHeaders(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs... responseHeaders) {
             return responseHeaders(List.of(responseHeaders));
         }

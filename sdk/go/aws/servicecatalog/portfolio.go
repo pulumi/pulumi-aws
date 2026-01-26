@@ -12,60 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to create a Service Catalog Portfolio.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicecatalog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.NewPortfolio(ctx, "portfolio", &servicecatalog.PortfolioArgs{
-//				Name:         pulumi.String("My App Portfolio"),
-//				Description:  pulumi.String("List of my organizations apps"),
-//				ProviderName: pulumi.String("Brett"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Service Catalog Portfolios using the Service Catalog Portfolio `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:servicecatalog/portfolio:Portfolio testfolio port-12344321
-// ```
 type Portfolio struct {
 	pulumi.CustomResourceState
 
-	Arn         pulumi.StringOutput `pulumi:"arn"`
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// Description of the portfolio
-	Description pulumi.StringOutput `pulumi:"description"`
-	// The name of the portfolio.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Name of the person or organization who owns the portfolio.
-	ProviderName pulumi.StringOutput `pulumi:"providerName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn          pulumi.StringOutput    `pulumi:"arn"`
+	CreatedTime  pulumi.StringOutput    `pulumi:"createdTime"`
+	Description  pulumi.StringOutput    `pulumi:"description"`
+	Name         pulumi.StringOutput    `pulumi:"name"`
+	ProviderName pulumi.StringOutput    `pulumi:"providerName"`
+	Region       pulumi.StringOutput    `pulumi:"region"`
+	Tags         pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll      pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewPortfolio registers a new resource with the given unique name, arguments, and options.
@@ -101,37 +58,25 @@ func GetPortfolio(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Portfolio resources.
 type portfolioState struct {
-	Arn         *string `pulumi:"arn"`
-	CreatedTime *string `pulumi:"createdTime"`
-	// Description of the portfolio
-	Description *string `pulumi:"description"`
-	// The name of the portfolio.
-	Name *string `pulumi:"name"`
-	// Name of the person or organization who owns the portfolio.
-	ProviderName *string `pulumi:"providerName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn          *string           `pulumi:"arn"`
+	CreatedTime  *string           `pulumi:"createdTime"`
+	Description  *string           `pulumi:"description"`
+	Name         *string           `pulumi:"name"`
+	ProviderName *string           `pulumi:"providerName"`
+	Region       *string           `pulumi:"region"`
+	Tags         map[string]string `pulumi:"tags"`
+	TagsAll      map[string]string `pulumi:"tagsAll"`
 }
 
 type PortfolioState struct {
-	Arn         pulumi.StringPtrInput
-	CreatedTime pulumi.StringPtrInput
-	// Description of the portfolio
-	Description pulumi.StringPtrInput
-	// The name of the portfolio.
-	Name pulumi.StringPtrInput
-	// Name of the person or organization who owns the portfolio.
+	Arn          pulumi.StringPtrInput
+	CreatedTime  pulumi.StringPtrInput
+	Description  pulumi.StringPtrInput
+	Name         pulumi.StringPtrInput
 	ProviderName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Region       pulumi.StringPtrInput
+	Tags         pulumi.StringMapInput
+	TagsAll      pulumi.StringMapInput
 }
 
 func (PortfolioState) ElementType() reflect.Type {
@@ -139,30 +84,20 @@ func (PortfolioState) ElementType() reflect.Type {
 }
 
 type portfolioArgs struct {
-	// Description of the portfolio
-	Description *string `pulumi:"description"`
-	// The name of the portfolio.
-	Name *string `pulumi:"name"`
-	// Name of the person or organization who owns the portfolio.
-	ProviderName string `pulumi:"providerName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Description  *string           `pulumi:"description"`
+	Name         *string           `pulumi:"name"`
+	ProviderName string            `pulumi:"providerName"`
+	Region       *string           `pulumi:"region"`
+	Tags         map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Portfolio resource.
 type PortfolioArgs struct {
-	// Description of the portfolio
-	Description pulumi.StringPtrInput
-	// The name of the portfolio.
-	Name pulumi.StringPtrInput
-	// Name of the person or organization who owns the portfolio.
+	Description  pulumi.StringPtrInput
+	Name         pulumi.StringPtrInput
 	ProviderName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Region       pulumi.StringPtrInput
+	Tags         pulumi.StringMapInput
 }
 
 func (PortfolioArgs) ElementType() reflect.Type {
@@ -260,32 +195,26 @@ func (o PortfolioOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portfolio) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// Description of the portfolio
 func (o PortfolioOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portfolio) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// The name of the portfolio.
 func (o PortfolioOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portfolio) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Name of the person or organization who owns the portfolio.
 func (o PortfolioOutput) ProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portfolio) pulumi.StringOutput { return v.ProviderName }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PortfolioOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portfolio) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o PortfolioOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Portfolio) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o PortfolioOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Portfolio) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

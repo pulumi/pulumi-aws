@@ -11,105 +11,12 @@ namespace Pulumi.Aws.Outposts
 {
     public static class GetOutpostInstanceType
     {
-        /// <summary>
-        /// Information about single Outpost Instance Type.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Outposts.GetOutpostInstanceType.Invoke(new()
-        ///     {
-        ///         Arn = exampleAwsOutpostsOutpost.Arn,
-        ///         PreferredInstanceTypes = new[]
-        ///         {
-        ///             "m5.large",
-        ///             "m5.4xlarge",
-        ///         },
-        ///     });
-        /// 
-        ///     var exampleEc2Instance = new Aws.Index.Ec2Instance("example", new()
-        ///     {
-        ///         InstanceType = example.Apply(getOutpostInstanceTypeResult =&gt; getOutpostInstanceTypeResult.InstanceType),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetOutpostInstanceTypeResult> InvokeAsync(GetOutpostInstanceTypeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOutpostInstanceTypeResult>("aws:outposts/getOutpostInstanceType:getOutpostInstanceType", args ?? new GetOutpostInstanceTypeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Information about single Outpost Instance Type.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Outposts.GetOutpostInstanceType.Invoke(new()
-        ///     {
-        ///         Arn = exampleAwsOutpostsOutpost.Arn,
-        ///         PreferredInstanceTypes = new[]
-        ///         {
-        ///             "m5.large",
-        ///             "m5.4xlarge",
-        ///         },
-        ///     });
-        /// 
-        ///     var exampleEc2Instance = new Aws.Index.Ec2Instance("example", new()
-        ///     {
-        ///         InstanceType = example.Apply(getOutpostInstanceTypeResult =&gt; getOutpostInstanceTypeResult.InstanceType),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetOutpostInstanceTypeResult> Invoke(GetOutpostInstanceTypeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOutpostInstanceTypeResult>("aws:outposts/getOutpostInstanceType:getOutpostInstanceType", args ?? new GetOutpostInstanceTypeInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Information about single Outpost Instance Type.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Outposts.GetOutpostInstanceType.Invoke(new()
-        ///     {
-        ///         Arn = exampleAwsOutpostsOutpost.Arn,
-        ///         PreferredInstanceTypes = new[]
-        ///         {
-        ///             "m5.large",
-        ///             "m5.4xlarge",
-        ///         },
-        ///     });
-        /// 
-        ///     var exampleEc2Instance = new Aws.Index.Ec2Instance("example", new()
-        ///     {
-        ///         InstanceType = example.Apply(getOutpostInstanceTypeResult =&gt; getOutpostInstanceTypeResult.InstanceType),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetOutpostInstanceTypeResult> Invoke(GetOutpostInstanceTypeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOutpostInstanceTypeResult>("aws:outposts/getOutpostInstanceType:getOutpostInstanceType", args ?? new GetOutpostInstanceTypeInvokeArgs(), options.WithDefaults());
     }
@@ -117,35 +24,20 @@ namespace Pulumi.Aws.Outposts
 
     public sealed class GetOutpostInstanceTypeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Outpost ARN.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
-        /// <summary>
-        /// Desired instance type. Conflicts with `PreferredInstanceTypes`.
-        /// </summary>
         [Input("instanceType")]
         public string? InstanceType { get; set; }
 
         [Input("preferredInstanceTypes")]
         private List<string>? _preferredInstanceTypes;
-
-        /// <summary>
-        /// Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `InstanceType`.
-        /// </summary>
         public List<string> PreferredInstanceTypes
         {
             get => _preferredInstanceTypes ?? (_preferredInstanceTypes = new List<string>());
             set => _preferredInstanceTypes = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -157,35 +49,20 @@ namespace Pulumi.Aws.Outposts
 
     public sealed class GetOutpostInstanceTypeInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Outpost ARN.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
-        /// <summary>
-        /// Desired instance type. Conflicts with `PreferredInstanceTypes`.
-        /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
 
         [Input("preferredInstanceTypes")]
         private InputList<string>? _preferredInstanceTypes;
-
-        /// <summary>
-        /// Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `InstanceType`.
-        /// </summary>
         public InputList<string> PreferredInstanceTypes
         {
             get => _preferredInstanceTypes ?? (_preferredInstanceTypes = new InputList<string>());
             set => _preferredInstanceTypes = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

@@ -11,204 +11,12 @@ namespace Pulumi.Aws.Route53
 {
     public static class GetResolverRules
     {
-        /// <summary>
-        /// `aws.route53.getResolverRules` provides details about a set of Route53 Resolver rules.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Retrieving the default resolver rule
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetResolverRules.Invoke(new()
-        ///     {
-        ///         OwnerId = "Route 53 Resolver",
-        ///         RuleType = "RECURSIVE",
-        ///         ShareStatus = "NOT_SHARED",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Retrieving forward rules shared with me
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetResolverRules.Invoke(new()
-        ///     {
-        ///         RuleType = "FORWARD",
-        ///         ShareStatus = "SHARED_WITH_ME",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Retrieving rules by name regex
-        /// 
-        /// Resolver rules whose name contains `Abc`.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetResolverRules.Invoke(new()
-        ///     {
-        ///         NameRegex = ".*abc.*",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetResolverRulesResult> InvokeAsync(GetResolverRulesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResolverRulesResult>("aws:route53/getResolverRules:getResolverRules", args ?? new GetResolverRulesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// `aws.route53.getResolverRules` provides details about a set of Route53 Resolver rules.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Retrieving the default resolver rule
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetResolverRules.Invoke(new()
-        ///     {
-        ///         OwnerId = "Route 53 Resolver",
-        ///         RuleType = "RECURSIVE",
-        ///         ShareStatus = "NOT_SHARED",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Retrieving forward rules shared with me
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetResolverRules.Invoke(new()
-        ///     {
-        ///         RuleType = "FORWARD",
-        ///         ShareStatus = "SHARED_WITH_ME",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Retrieving rules by name regex
-        /// 
-        /// Resolver rules whose name contains `Abc`.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetResolverRules.Invoke(new()
-        ///     {
-        ///         NameRegex = ".*abc.*",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetResolverRulesResult> Invoke(GetResolverRulesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverRulesResult>("aws:route53/getResolverRules:getResolverRules", args ?? new GetResolverRulesInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// `aws.route53.getResolverRules` provides details about a set of Route53 Resolver rules.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Retrieving the default resolver rule
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetResolverRules.Invoke(new()
-        ///     {
-        ///         OwnerId = "Route 53 Resolver",
-        ///         RuleType = "RECURSIVE",
-        ///         ShareStatus = "NOT_SHARED",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Retrieving forward rules shared with me
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetResolverRules.Invoke(new()
-        ///     {
-        ///         RuleType = "FORWARD",
-        ///         ShareStatus = "SHARED_WITH_ME",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Retrieving rules by name regex
-        /// 
-        /// Resolver rules whose name contains `Abc`.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetResolverRules.Invoke(new()
-        ///     {
-        ///         NameRegex = ".*abc.*",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetResolverRulesResult> Invoke(GetResolverRulesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverRulesResult>("aws:route53/getResolverRules:getResolverRules", args ?? new GetResolverRulesInvokeArgs(), options.WithDefaults());
     }
@@ -216,41 +24,21 @@ namespace Pulumi.Aws.Route53
 
     public sealed class GetResolverRulesArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Regex string to filter resolver rule names.
-        /// The filtering is done locally, so could have a performance impact if the result is large.
-        /// This argument should be used along with other arguments to limit the number of results returned.
-        /// </summary>
         [Input("nameRegex")]
         public string? NameRegex { get; set; }
 
-        /// <summary>
-        /// When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
-        /// </summary>
         [Input("ownerId")]
         public string? OwnerId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// ID of the outbound resolver endpoint for the desired resolver rules.
-        /// </summary>
         [Input("resolverEndpointId")]
         public string? ResolverEndpointId { get; set; }
 
-        /// <summary>
-        /// Rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
-        /// </summary>
         [Input("ruleType")]
         public string? RuleType { get; set; }
 
-        /// <summary>
-        /// Whether the desired resolver rules are shared and, if so, whether the current account is sharing the rules with another account, or another account is sharing the rules with the current account. Valid values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
-        /// </summary>
         [Input("shareStatus")]
         public string? ShareStatus { get; set; }
 
@@ -262,41 +50,21 @@ namespace Pulumi.Aws.Route53
 
     public sealed class GetResolverRulesInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Regex string to filter resolver rule names.
-        /// The filtering is done locally, so could have a performance impact if the result is large.
-        /// This argument should be used along with other arguments to limit the number of results returned.
-        /// </summary>
         [Input("nameRegex")]
         public Input<string>? NameRegex { get; set; }
 
-        /// <summary>
-        /// When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
-        /// </summary>
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID of the outbound resolver endpoint for the desired resolver rules.
-        /// </summary>
         [Input("resolverEndpointId")]
         public Input<string>? ResolverEndpointId { get; set; }
 
-        /// <summary>
-        /// Rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
-        /// </summary>
         [Input("ruleType")]
         public Input<string>? RuleType { get; set; }
 
-        /// <summary>
-        /// Whether the desired resolver rules are shared and, if so, whether the current account is sharing the rules with another account, or another account is sharing the rules with the current account. Valid values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
-        /// </summary>
         [Input("shareStatus")]
         public Input<string>? ShareStatus { get; set; }
 
@@ -318,9 +86,6 @@ namespace Pulumi.Aws.Route53
         public readonly string? OwnerId;
         public readonly string Region;
         public readonly string? ResolverEndpointId;
-        /// <summary>
-        /// IDs of the matched resolver rules.
-        /// </summary>
         public readonly ImmutableArray<string> ResolverRuleIds;
         public readonly string? RuleType;
         public readonly string? ShareStatus;

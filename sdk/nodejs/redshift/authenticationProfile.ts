@@ -4,33 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Creates a Redshift authentication profile
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.redshift.AuthenticationProfile("example", {
- *     authenticationProfileName: "example",
- *     authenticationProfileContent: JSON.stringify({
- *         AllowDBUserOverride: "1",
- *         Client_ID: "ExampleClientID",
- *         App_ID: "example",
- *     }),
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Redshift Authentication by `authentication_profile_name`. For example:
- *
- * ```sh
- * $ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
- * ```
- */
 export class AuthenticationProfile extends pulumi.CustomResource {
     /**
      * Get an existing AuthenticationProfile resource's state with the given name, ID, and optional extra
@@ -59,17 +32,8 @@ export class AuthenticationProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === AuthenticationProfile.__pulumiType;
     }
 
-    /**
-     * The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
-     */
     declare public readonly authenticationProfileContent: pulumi.Output<string>;
-    /**
-     * The name of the authentication profile.
-     */
     declare public readonly authenticationProfileName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -109,17 +73,8 @@ export class AuthenticationProfile extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AuthenticationProfile resources.
  */
 export interface AuthenticationProfileState {
-    /**
-     * The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
-     */
     authenticationProfileContent?: pulumi.Input<string>;
-    /**
-     * The name of the authentication profile.
-     */
     authenticationProfileName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -127,16 +82,7 @@ export interface AuthenticationProfileState {
  * The set of arguments for constructing a AuthenticationProfile resource.
  */
 export interface AuthenticationProfileArgs {
-    /**
-     * The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
-     */
     authenticationProfileContent: pulumi.Input<string>;
-    /**
-     * The name of the authentication profile.
-     */
     authenticationProfileName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

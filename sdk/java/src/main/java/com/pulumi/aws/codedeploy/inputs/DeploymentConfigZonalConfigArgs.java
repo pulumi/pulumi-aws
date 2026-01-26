@@ -16,47 +16,23 @@ public final class DeploymentConfigZonalConfigArgs extends com.pulumi.resources.
 
     public static final DeploymentConfigZonalConfigArgs Empty = new DeploymentConfigZonalConfigArgs();
 
-    /**
-     * The period of time, in seconds, that CodeDeploy must wait after completing a deployment to the first Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the second Availability Zone. If you don&#39;t specify a value for `firstZoneMonitorDurationInSeconds`, then CodeDeploy uses the `monitorDurationInSeconds` value for the first Availability Zone.
-     * 
-     */
     @Import(name="firstZoneMonitorDurationInSeconds")
     private @Nullable Output<Integer> firstZoneMonitorDurationInSeconds;
 
-    /**
-     * @return The period of time, in seconds, that CodeDeploy must wait after completing a deployment to the first Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the second Availability Zone. If you don&#39;t specify a value for `firstZoneMonitorDurationInSeconds`, then CodeDeploy uses the `monitorDurationInSeconds` value for the first Availability Zone.
-     * 
-     */
     public Optional<Output<Integer>> firstZoneMonitorDurationInSeconds() {
         return Optional.ofNullable(this.firstZoneMonitorDurationInSeconds);
     }
 
-    /**
-     * The number or percentage of instances that must remain available per Availability Zone during a deployment. If you don&#39;t specify a value under `minimumHealthyHostsPerZone`, then CodeDeploy uses a default value of 0 percent. This block is more documented below.
-     * 
-     */
     @Import(name="minimumHealthyHostsPerZone")
     private @Nullable Output<DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs> minimumHealthyHostsPerZone;
 
-    /**
-     * @return The number or percentage of instances that must remain available per Availability Zone during a deployment. If you don&#39;t specify a value under `minimumHealthyHostsPerZone`, then CodeDeploy uses a default value of 0 percent. This block is more documented below.
-     * 
-     */
     public Optional<Output<DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs>> minimumHealthyHostsPerZone() {
         return Optional.ofNullable(this.minimumHealthyHostsPerZone);
     }
 
-    /**
-     * The period of time, in seconds, that CodeDeploy must wait after completing a deployment to an Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the next Availability Zone. If you don&#39;t specify a `monitorDurationInSeconds`, CodeDeploy starts deploying to the next Availability Zone immediately.
-     * 
-     */
     @Import(name="monitorDurationInSeconds")
     private @Nullable Output<Integer> monitorDurationInSeconds;
 
-    /**
-     * @return The period of time, in seconds, that CodeDeploy must wait after completing a deployment to an Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the next Availability Zone. If you don&#39;t specify a `monitorDurationInSeconds`, CodeDeploy starts deploying to the next Availability Zone immediately.
-     * 
-     */
     public Optional<Output<Integer>> monitorDurationInSeconds() {
         return Optional.ofNullable(this.monitorDurationInSeconds);
     }
@@ -87,65 +63,29 @@ public final class DeploymentConfigZonalConfigArgs extends com.pulumi.resources.
             $ = new DeploymentConfigZonalConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param firstZoneMonitorDurationInSeconds The period of time, in seconds, that CodeDeploy must wait after completing a deployment to the first Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the second Availability Zone. If you don&#39;t specify a value for `firstZoneMonitorDurationInSeconds`, then CodeDeploy uses the `monitorDurationInSeconds` value for the first Availability Zone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firstZoneMonitorDurationInSeconds(@Nullable Output<Integer> firstZoneMonitorDurationInSeconds) {
             $.firstZoneMonitorDurationInSeconds = firstZoneMonitorDurationInSeconds;
             return this;
         }
 
-        /**
-         * @param firstZoneMonitorDurationInSeconds The period of time, in seconds, that CodeDeploy must wait after completing a deployment to the first Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the second Availability Zone. If you don&#39;t specify a value for `firstZoneMonitorDurationInSeconds`, then CodeDeploy uses the `monitorDurationInSeconds` value for the first Availability Zone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firstZoneMonitorDurationInSeconds(Integer firstZoneMonitorDurationInSeconds) {
             return firstZoneMonitorDurationInSeconds(Output.of(firstZoneMonitorDurationInSeconds));
         }
 
-        /**
-         * @param minimumHealthyHostsPerZone The number or percentage of instances that must remain available per Availability Zone during a deployment. If you don&#39;t specify a value under `minimumHealthyHostsPerZone`, then CodeDeploy uses a default value of 0 percent. This block is more documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minimumHealthyHostsPerZone(@Nullable Output<DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs> minimumHealthyHostsPerZone) {
             $.minimumHealthyHostsPerZone = minimumHealthyHostsPerZone;
             return this;
         }
 
-        /**
-         * @param minimumHealthyHostsPerZone The number or percentage of instances that must remain available per Availability Zone during a deployment. If you don&#39;t specify a value under `minimumHealthyHostsPerZone`, then CodeDeploy uses a default value of 0 percent. This block is more documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minimumHealthyHostsPerZone(DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs minimumHealthyHostsPerZone) {
             return minimumHealthyHostsPerZone(Output.of(minimumHealthyHostsPerZone));
         }
 
-        /**
-         * @param monitorDurationInSeconds The period of time, in seconds, that CodeDeploy must wait after completing a deployment to an Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the next Availability Zone. If you don&#39;t specify a `monitorDurationInSeconds`, CodeDeploy starts deploying to the next Availability Zone immediately.
-         * 
-         * @return builder
-         * 
-         */
         public Builder monitorDurationInSeconds(@Nullable Output<Integer> monitorDurationInSeconds) {
             $.monitorDurationInSeconds = monitorDurationInSeconds;
             return this;
         }
 
-        /**
-         * @param monitorDurationInSeconds The period of time, in seconds, that CodeDeploy must wait after completing a deployment to an Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the next Availability Zone. If you don&#39;t specify a `monitorDurationInSeconds`, CodeDeploy starts deploying to the next Availability Zone immediately.
-         * 
-         * @return builder
-         * 
-         */
         public Builder monitorDurationInSeconds(Integer monitorDurationInSeconds) {
             return monitorDurationInSeconds(Output.of(monitorDurationInSeconds));
         }

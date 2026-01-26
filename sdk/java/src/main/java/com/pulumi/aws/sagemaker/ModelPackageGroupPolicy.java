@@ -13,114 +13,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a SageMaker AI Model Package Group Policy resource.
- * 
- * ## Example Usage
- * 
- * ### Basic usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.sagemaker.ModelPackageGroup;
- * import com.pulumi.aws.sagemaker.ModelPackageGroupArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.sagemaker.ModelPackageGroupPolicy;
- * import com.pulumi.aws.sagemaker.ModelPackageGroupPolicyArgs;
- * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.JsondecodeArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         var exampleModelPackageGroup = new ModelPackageGroup("exampleModelPackageGroup", ModelPackageGroupArgs.builder()
- *             .modelPackageGroupName("example")
- *             .build());
- * 
- *         final var example = exampleModelPackageGroup.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid("AddPermModelPackageGroup")
- *                 .actions(                
- *                     "sagemaker:DescribeModelPackage",
- *                     "sagemaker:ListModelPackages")
- *                 .resources(_arn)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .identifiers(current.accountId())
- *                     .type("AWS")
- *                     .build())
- *                 .build())
- *             .build()));
- * 
- *         var exampleModelPackageGroupPolicy = new ModelPackageGroupPolicy("exampleModelPackageGroupPolicy", ModelPackageGroupPolicyArgs.builder()
- *             .modelPackageGroupName(exampleModelPackageGroup.modelPackageGroupName())
- *             .resourcePolicy(StdFunctions.jsondecode(JsondecodeArgs.builder()
- *                 .input(example.json())
- *                 .build()).applyValue(_invoke -> serializeJson(
- *                 _invoke.result())))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import SageMaker AI Model Package Groups using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy example example
- * ```
- * 
- */
 @ResourceType(type="aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy")
 public class ModelPackageGroupPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The name of the model package group.
-     * 
-     */
     @Export(name="modelPackageGroupName", refs={String.class}, tree="[0]")
     private Output<String> modelPackageGroupName;
 
-    /**
-     * @return The name of the model package group.
-     * 
-     */
     public Output<String> modelPackageGroupName() {
         return this.modelPackageGroupName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

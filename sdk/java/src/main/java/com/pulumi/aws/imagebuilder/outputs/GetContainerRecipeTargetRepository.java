@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetContainerRecipeTargetRepository {
-    /**
-     * @return Name of the container repository where the output container image is stored. The name is prefixed by the repository location.
-     * 
-     */
     private String repositoryName;
-    /**
-     * @return Service in which this image is registered.
-     * 
-     */
     private String service;
 
     private GetContainerRecipeTargetRepository() {}
-    /**
-     * @return Name of the container repository where the output container image is stored. The name is prefixed by the repository location.
-     * 
-     */
     public String repositoryName() {
         return this.repositoryName;
     }
-    /**
-     * @return Service in which this image is registered.
-     * 
-     */
     public String service() {
         return this.service;
     }

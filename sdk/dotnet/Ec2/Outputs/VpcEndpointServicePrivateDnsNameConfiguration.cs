@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class VpcEndpointServicePrivateDnsNameConfiguration
     {
-        /// <summary>
-        /// Name of the record subdomain the service provider needs to create.
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `Verified`.
-        /// </summary>
         public readonly string? State;
-        /// <summary>
-        /// Endpoint service verification type, for example `TXT`.
-        /// </summary>
         public readonly string? Type;
-        /// <summary>
-        /// Value the service provider adds to the private DNS name domain record before verification.
-        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

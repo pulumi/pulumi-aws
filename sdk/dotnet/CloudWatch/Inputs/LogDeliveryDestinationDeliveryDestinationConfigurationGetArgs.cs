@@ -12,9 +12,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class LogDeliveryDestinationDeliveryDestinationConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the AWS destination that this delivery destination represents. Required when `DeliveryDestinationConfiguration` is specified.
-        /// </summary>
         [Input("destinationResourceArn")]
         public Input<string>? DestinationResourceArn { get; set; }
 

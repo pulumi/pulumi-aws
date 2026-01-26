@@ -10,77 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEventBusesEventBus {
-    /**
-     * @return The ARN of the event bus.
-     * 
-     */
     private String arn;
-    /**
-     * @return The time the event bus was created.
-     * 
-     */
     private String creationTime;
-    /**
-     * @return The event bus description.
-     * 
-     */
     private String description;
-    /**
-     * @return The time the event bus was last modified.
-     * 
-     */
     private String lastModifiedTime;
-    /**
-     * @return The name of the event bus.
-     * 
-     */
     private String name;
-    /**
-     * @return The permissions policy of the event bus, describing which other AWS accounts can write events to this event bus.
-     * 
-     */
     private String policy;
 
     private GetEventBusesEventBus() {}
-    /**
-     * @return The ARN of the event bus.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The time the event bus was created.
-     * 
-     */
     public String creationTime() {
         return this.creationTime;
     }
-    /**
-     * @return The event bus description.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return The time the event bus was last modified.
-     * 
-     */
     public String lastModifiedTime() {
         return this.lastModifiedTime;
     }
-    /**
-     * @return The name of the event bus.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The permissions policy of the event bus, describing which other AWS accounts can write events to this event bus.
-     * 
-     */
     public String policy() {
         return this.policy;
     }

@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ListenerRuleActionJwtValidation {
-    /**
-     * @return Repeatable configuration block for additional claims to validate.
-     * 
-     */
     private @Nullable List<ListenerRuleActionJwtValidationAdditionalClaim> additionalClaims;
-    /**
-     * @return Issuer of the JWT.
-     * 
-     */
     private String issuer;
-    /**
-     * @return JSON Web Key Set (JWKS) endpoint. This endpoint contains JSON Web Keys (JWK) that are used to validate signatures from the provider. This must be a full URL, including the HTTPS protocol, the domain, and the path.
-     * 
-     */
     private String jwksEndpoint;
 
     private ListenerRuleActionJwtValidation() {}
-    /**
-     * @return Repeatable configuration block for additional claims to validate.
-     * 
-     */
     public List<ListenerRuleActionJwtValidationAdditionalClaim> additionalClaims() {
         return this.additionalClaims == null ? List.of() : this.additionalClaims;
     }
-    /**
-     * @return Issuer of the JWT.
-     * 
-     */
     public String issuer() {
         return this.issuer;
     }
-    /**
-     * @return JSON Web Key Set (JWKS) endpoint. This endpoint contains JSON Web Keys (JWK) that are used to validate signatures from the provider. This must be a full URL, including the HTTPS protocol, the domain, and the path.
-     * 
-     */
     public String jwksEndpoint() {
         return this.jwksEndpoint;
     }

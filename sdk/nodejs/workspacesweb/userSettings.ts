@@ -7,104 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS WorkSpaces Web User Settings resource. Once associated with a web portal, user settings control how users can transfer data between a streaming session and their local devices.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.workspacesweb.UserSettings("example", {
- *     copyAllowed: "Enabled",
- *     downloadAllowed: "Enabled",
- *     pasteAllowed: "Enabled",
- *     printAllowed: "Enabled",
- *     uploadAllowed: "Enabled",
- * });
- * ```
- *
- * ### With Toolbar Configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.workspacesweb.UserSettings("example", {
- *     copyAllowed: "Enabled",
- *     downloadAllowed: "Enabled",
- *     pasteAllowed: "Enabled",
- *     printAllowed: "Enabled",
- *     uploadAllowed: "Enabled",
- *     toolbarConfiguration: {
- *         toolbarType: "Docked",
- *         visualMode: "Dark",
- *         hiddenToolbarItems: [
- *             "Webcam",
- *             "Microphone",
- *         ],
- *     },
- * });
- * ```
- *
- * ### Complete Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.kms.Key("example", {
- *     description: "KMS key for WorkSpaces Web User Settings",
- *     deletionWindowInDays: 7,
- * });
- * const exampleUserSettings = new aws.workspacesweb.UserSettings("example", {
- *     copyAllowed: "Enabled",
- *     downloadAllowed: "Enabled",
- *     pasteAllowed: "Enabled",
- *     printAllowed: "Enabled",
- *     uploadAllowed: "Enabled",
- *     deepLinkAllowed: "Enabled",
- *     disconnectTimeoutInMinutes: 30,
- *     idleDisconnectTimeoutInMinutes: 15,
- *     customerManagedKey: example.arn,
- *     additionalEncryptionContext: {
- *         Environment: "Production",
- *     },
- *     toolbarConfiguration: {
- *         toolbarType: "Docked",
- *         visualMode: "Dark",
- *         hiddenToolbarItems: [
- *             "Webcam",
- *             "Microphone",
- *         ],
- *         maxDisplayResolution: "size1920X1080",
- *     },
- *     cookieSynchronizationConfiguration: {
- *         allowlists: [{
- *             domain: "example.com",
- *             path: "/path",
- *         }],
- *         blocklists: [{
- *             domain: "blocked.com",
- *         }],
- *     },
- *     tags: {
- *         Name: "example-user-settings",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import WorkSpaces Web User Settings using the `user_settings_arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:workspacesweb/userSettings:UserSettings example arn:aws:workspacesweb:us-west-2:123456789012:usersettings/abcdef12345
- * ```
- */
 export class UserSettings extends pulumi.CustomResource {
     /**
      * Get an existing UserSettings resource's state with the given name, ID, and optional extra
@@ -133,75 +35,22 @@ export class UserSettings extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserSettings.__pulumiType;
     }
 
-    /**
-     * Additional encryption context for the user settings.
-     */
     declare public readonly additionalEncryptionContext: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * List of web portal ARNs to associate with the user settings.
-     */
     declare public /*out*/ readonly associatedPortalArns: pulumi.Output<string[]>;
-    /**
-     * Configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser. Detailed below.
-     */
     declare public readonly cookieSynchronizationConfiguration: pulumi.Output<outputs.workspacesweb.UserSettingsCookieSynchronizationConfiguration | undefined>;
-    /**
-     * Specifies whether the user can copy text from the streaming session to the local device. Valid values are `Enabled` or `Disabled`.
-     */
     declare public readonly copyAllowed: pulumi.Output<string>;
-    /**
-     * ARN of the customer managed KMS key.
-     */
     declare public readonly customerManagedKey: pulumi.Output<string | undefined>;
-    /**
-     * Specifies whether the user can use deep links that open automatically when connecting to a session. Valid values are `Enabled` or `Disabled`.
-     */
     declare public readonly deepLinkAllowed: pulumi.Output<string>;
-    /**
-     * Amount of time that a streaming session remains active after users disconnect. Value must be between 1 and 600 minutes.
-     */
     declare public readonly disconnectTimeoutInMinutes: pulumi.Output<number | undefined>;
-    /**
-     * Specifies whether the user can download files from the streaming session to the local device. Valid values are `Enabled` or `Disabled`.
-     */
     declare public readonly downloadAllowed: pulumi.Output<string>;
-    /**
-     * Amount of time that users can be idle before they are disconnected from their streaming session. Value must be between 0 and 60 minutes.
-     */
     declare public readonly idleDisconnectTimeoutInMinutes: pulumi.Output<number | undefined>;
-    /**
-     * Specifies whether the user can paste text from the local device to the streaming session. Valid values are `Enabled` or `Disabled`.
-     */
     declare public readonly pasteAllowed: pulumi.Output<string>;
-    /**
-     * Specifies whether the user can print to the local device. Valid values are `Enabled` or `Disabled`.
-     */
     declare public readonly printAllowed: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Configuration of the toolbar. Detailed below.
-     */
     declare public readonly toolbarConfiguration: pulumi.Output<outputs.workspacesweb.UserSettingsToolbarConfiguration | undefined>;
-    /**
-     * Specifies whether the user can upload files from the local device to the streaming session. Valid values are `Enabled` or `Disabled`.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly uploadAllowed: pulumi.Output<string>;
-    /**
-     * ARN of the user settings resource.
-     */
     declare public /*out*/ readonly userSettingsArn: pulumi.Output<string>;
 
     /**
@@ -280,75 +129,22 @@ export class UserSettings extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserSettings resources.
  */
 export interface UserSettingsState {
-    /**
-     * Additional encryption context for the user settings.
-     */
     additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * List of web portal ARNs to associate with the user settings.
-     */
     associatedPortalArns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser. Detailed below.
-     */
     cookieSynchronizationConfiguration?: pulumi.Input<inputs.workspacesweb.UserSettingsCookieSynchronizationConfiguration>;
-    /**
-     * Specifies whether the user can copy text from the streaming session to the local device. Valid values are `Enabled` or `Disabled`.
-     */
     copyAllowed?: pulumi.Input<string>;
-    /**
-     * ARN of the customer managed KMS key.
-     */
     customerManagedKey?: pulumi.Input<string>;
-    /**
-     * Specifies whether the user can use deep links that open automatically when connecting to a session. Valid values are `Enabled` or `Disabled`.
-     */
     deepLinkAllowed?: pulumi.Input<string>;
-    /**
-     * Amount of time that a streaming session remains active after users disconnect. Value must be between 1 and 600 minutes.
-     */
     disconnectTimeoutInMinutes?: pulumi.Input<number>;
-    /**
-     * Specifies whether the user can download files from the streaming session to the local device. Valid values are `Enabled` or `Disabled`.
-     */
     downloadAllowed?: pulumi.Input<string>;
-    /**
-     * Amount of time that users can be idle before they are disconnected from their streaming session. Value must be between 0 and 60 minutes.
-     */
     idleDisconnectTimeoutInMinutes?: pulumi.Input<number>;
-    /**
-     * Specifies whether the user can paste text from the local device to the streaming session. Valid values are `Enabled` or `Disabled`.
-     */
     pasteAllowed?: pulumi.Input<string>;
-    /**
-     * Specifies whether the user can print to the local device. Valid values are `Enabled` or `Disabled`.
-     */
     printAllowed?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Configuration of the toolbar. Detailed below.
-     */
     toolbarConfiguration?: pulumi.Input<inputs.workspacesweb.UserSettingsToolbarConfiguration>;
-    /**
-     * Specifies whether the user can upload files from the local device to the streaming session. Valid values are `Enabled` or `Disabled`.
-     *
-     * The following arguments are optional:
-     */
     uploadAllowed?: pulumi.Input<string>;
-    /**
-     * ARN of the user settings resource.
-     */
     userSettingsArn?: pulumi.Input<string>;
 }
 
@@ -356,62 +152,18 @@ export interface UserSettingsState {
  * The set of arguments for constructing a UserSettings resource.
  */
 export interface UserSettingsArgs {
-    /**
-     * Additional encryption context for the user settings.
-     */
     additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser. Detailed below.
-     */
     cookieSynchronizationConfiguration?: pulumi.Input<inputs.workspacesweb.UserSettingsCookieSynchronizationConfiguration>;
-    /**
-     * Specifies whether the user can copy text from the streaming session to the local device. Valid values are `Enabled` or `Disabled`.
-     */
     copyAllowed: pulumi.Input<string>;
-    /**
-     * ARN of the customer managed KMS key.
-     */
     customerManagedKey?: pulumi.Input<string>;
-    /**
-     * Specifies whether the user can use deep links that open automatically when connecting to a session. Valid values are `Enabled` or `Disabled`.
-     */
     deepLinkAllowed?: pulumi.Input<string>;
-    /**
-     * Amount of time that a streaming session remains active after users disconnect. Value must be between 1 and 600 minutes.
-     */
     disconnectTimeoutInMinutes?: pulumi.Input<number>;
-    /**
-     * Specifies whether the user can download files from the streaming session to the local device. Valid values are `Enabled` or `Disabled`.
-     */
     downloadAllowed: pulumi.Input<string>;
-    /**
-     * Amount of time that users can be idle before they are disconnected from their streaming session. Value must be between 0 and 60 minutes.
-     */
     idleDisconnectTimeoutInMinutes?: pulumi.Input<number>;
-    /**
-     * Specifies whether the user can paste text from the local device to the streaming session. Valid values are `Enabled` or `Disabled`.
-     */
     pasteAllowed: pulumi.Input<string>;
-    /**
-     * Specifies whether the user can print to the local device. Valid values are `Enabled` or `Disabled`.
-     */
     printAllowed: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Configuration of the toolbar. Detailed below.
-     */
     toolbarConfiguration?: pulumi.Input<inputs.workspacesweb.UserSettingsToolbarConfiguration>;
-    /**
-     * Specifies whether the user can upload files from the local device to the streaming session. Valid values are `Enabled` or `Disabled`.
-     *
-     * The following arguments are optional:
-     */
     uploadAllowed: pulumi.Input<string>;
 }

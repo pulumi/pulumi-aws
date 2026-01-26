@@ -12,82 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Authorizes the Shield Response Team (SRT) using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks.
-// For more information see [Configure AWS SRT Support](https://docs.aws.amazon.com/waf/latest/developerguide/authorize-srt.html)
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/shield"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Sid":    "",
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": "drt.shield.amazonaws.com",
-//						},
-//						"Action": "sts:AssumeRole",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				Name:             pulumi.String("example-role"),
-//				AssumeRolePolicy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = shield.NewDrtAccessRoleArnAssociation(ctx, "example", &shield.DrtAccessRoleArnAssociationArgs{
-//				RoleArn: exampleRole.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
-//				Role:      exampleRole.Name,
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Shield DRT access role ARN association using the AWS account ID. For example:
-//
-// ```sh
-// $ pulumi import aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation example 123456789012
-// ```
 type DrtAccessRoleArnAssociation struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
 	RoleArn  pulumi.StringOutput                          `pulumi:"roleArn"`
 	Timeouts DrtAccessRoleArnAssociationTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -125,13 +52,11 @@ func GetDrtAccessRoleArnAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DrtAccessRoleArnAssociation resources.
 type drtAccessRoleArnAssociationState struct {
-	// The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
 	RoleArn  *string                              `pulumi:"roleArn"`
 	Timeouts *DrtAccessRoleArnAssociationTimeouts `pulumi:"timeouts"`
 }
 
 type DrtAccessRoleArnAssociationState struct {
-	// The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
 	RoleArn  pulumi.StringPtrInput
 	Timeouts DrtAccessRoleArnAssociationTimeoutsPtrInput
 }
@@ -141,14 +66,12 @@ func (DrtAccessRoleArnAssociationState) ElementType() reflect.Type {
 }
 
 type drtAccessRoleArnAssociationArgs struct {
-	// The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
 	RoleArn  string                               `pulumi:"roleArn"`
 	Timeouts *DrtAccessRoleArnAssociationTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a DrtAccessRoleArnAssociation resource.
 type DrtAccessRoleArnAssociationArgs struct {
-	// The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
 	RoleArn  pulumi.StringInput
 	Timeouts DrtAccessRoleArnAssociationTimeoutsPtrInput
 }
@@ -240,7 +163,6 @@ func (o DrtAccessRoleArnAssociationOutput) ToDrtAccessRoleArnAssociationOutputWi
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
 func (o DrtAccessRoleArnAssociationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DrtAccessRoleArnAssociation) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }

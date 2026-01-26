@@ -15,83 +15,37 @@ public final class LoadBalancerHealthCheckArgs extends com.pulumi.resources.Reso
 
     public static final LoadBalancerHealthCheckArgs Empty = new LoadBalancerHealthCheckArgs();
 
-    /**
-     * The number of checks before the instance is declared healthy.
-     * 
-     */
     @Import(name="healthyThreshold", required=true)
     private Output<Integer> healthyThreshold;
 
-    /**
-     * @return The number of checks before the instance is declared healthy.
-     * 
-     */
     public Output<Integer> healthyThreshold() {
         return this.healthyThreshold;
     }
 
-    /**
-     * The interval between checks.
-     * 
-     */
     @Import(name="interval", required=true)
     private Output<Integer> interval;
 
-    /**
-     * @return The interval between checks.
-     * 
-     */
     public Output<Integer> interval() {
         return this.interval;
     }
 
-    /**
-     * The target of the check. Valid pattern is &#34;${PROTOCOL}:${PORT}${PATH}&#34;, where PROTOCOL
-     * values are:
-     * * `HTTP`, `HTTPS` - PORT and PATH are required
-     * * `TCP`, `SSL` - PORT is required, PATH is not supported
-     * 
-     */
     @Import(name="target", required=true)
     private Output<String> target;
 
-    /**
-     * @return The target of the check. Valid pattern is &#34;${PROTOCOL}:${PORT}${PATH}&#34;, where PROTOCOL
-     * values are:
-     * * `HTTP`, `HTTPS` - PORT and PATH are required
-     * * `TCP`, `SSL` - PORT is required, PATH is not supported
-     * 
-     */
     public Output<String> target() {
         return this.target;
     }
 
-    /**
-     * The length of time before the check times out.
-     * 
-     */
     @Import(name="timeout", required=true)
     private Output<Integer> timeout;
 
-    /**
-     * @return The length of time before the check times out.
-     * 
-     */
     public Output<Integer> timeout() {
         return this.timeout;
     }
 
-    /**
-     * The number of checks before the instance is declared unhealthy.
-     * 
-     */
     @Import(name="unhealthyThreshold", required=true)
     private Output<Integer> unhealthyThreshold;
 
-    /**
-     * @return The number of checks before the instance is declared unhealthy.
-     * 
-     */
     public Output<Integer> unhealthyThreshold() {
         return this.unhealthyThreshold;
     }
@@ -124,113 +78,47 @@ public final class LoadBalancerHealthCheckArgs extends com.pulumi.resources.Reso
             $ = new LoadBalancerHealthCheckArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param healthyThreshold The number of checks before the instance is declared healthy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthyThreshold(Output<Integer> healthyThreshold) {
             $.healthyThreshold = healthyThreshold;
             return this;
         }
 
-        /**
-         * @param healthyThreshold The number of checks before the instance is declared healthy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthyThreshold(Integer healthyThreshold) {
             return healthyThreshold(Output.of(healthyThreshold));
         }
 
-        /**
-         * @param interval The interval between checks.
-         * 
-         * @return builder
-         * 
-         */
         public Builder interval(Output<Integer> interval) {
             $.interval = interval;
             return this;
         }
 
-        /**
-         * @param interval The interval between checks.
-         * 
-         * @return builder
-         * 
-         */
         public Builder interval(Integer interval) {
             return interval(Output.of(interval));
         }
 
-        /**
-         * @param target The target of the check. Valid pattern is &#34;${PROTOCOL}:${PORT}${PATH}&#34;, where PROTOCOL
-         * values are:
-         * * `HTTP`, `HTTPS` - PORT and PATH are required
-         * * `TCP`, `SSL` - PORT is required, PATH is not supported
-         * 
-         * @return builder
-         * 
-         */
         public Builder target(Output<String> target) {
             $.target = target;
             return this;
         }
 
-        /**
-         * @param target The target of the check. Valid pattern is &#34;${PROTOCOL}:${PORT}${PATH}&#34;, where PROTOCOL
-         * values are:
-         * * `HTTP`, `HTTPS` - PORT and PATH are required
-         * * `TCP`, `SSL` - PORT is required, PATH is not supported
-         * 
-         * @return builder
-         * 
-         */
         public Builder target(String target) {
             return target(Output.of(target));
         }
 
-        /**
-         * @param timeout The length of time before the check times out.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeout(Output<Integer> timeout) {
             $.timeout = timeout;
             return this;
         }
 
-        /**
-         * @param timeout The length of time before the check times out.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeout(Integer timeout) {
             return timeout(Output.of(timeout));
         }
 
-        /**
-         * @param unhealthyThreshold The number of checks before the instance is declared unhealthy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unhealthyThreshold(Output<Integer> unhealthyThreshold) {
             $.unhealthyThreshold = unhealthyThreshold;
             return this;
         }
 
-        /**
-         * @param unhealthyThreshold The number of checks before the instance is declared unhealthy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unhealthyThreshold(Integer unhealthyThreshold) {
             return unhealthyThreshold(Output.of(unhealthyThreshold));
         }

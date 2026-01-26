@@ -55,25 +55,16 @@ class GetIpSetResult:
     @_builtins.property
     @pulumi.getter
     def addresses(self) -> Sequence[_builtins.str]:
-        """
-        An array of strings that specifies zero or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
-        """
         return pulumi.get(self, "addresses")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the entity.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the set that helps with identification.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -87,9 +78,6 @@ class GetIpSetResult:
     @_builtins.property
     @pulumi.getter(name="ipAddressVersion")
     def ip_address_version(self) -> _builtins.str:
-        """
-        IP address version of the set.
-        """
         return pulumi.get(self, "ip_address_version")
 
     @_builtins.property
@@ -129,22 +117,7 @@ def get_ip_set(name: Optional[_builtins.str] = None,
                scope: Optional[_builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpSetResult:
     """
-    Retrieves the summary of a WAFv2 IP Set.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.wafv2.get_ip_set(name="some-ip-set",
-        scope="REGIONAL")
-    ```
-
-
-    :param _builtins.str name: Name of the WAFv2 IP Set.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -167,22 +140,7 @@ def get_ip_set_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                       scope: Optional[pulumi.Input[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpSetResult]:
     """
-    Retrieves the summary of a WAFv2 IP Set.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.wafv2.get_ip_set(name="some-ip-set",
-        scope="REGIONAL")
-    ```
-
-
-    :param _builtins.str name: Name of the WAFv2 IP Set.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

@@ -13,22 +13,9 @@ namespace Pulumi.Aws.Synthetics.Outputs
     [OutputType]
     public sealed class GetRuntimeVersionsRuntimeVersionResult
     {
-        /// <summary>
-        /// Date of deprecation if the runtme version is deprecated.
-        /// </summary>
         public readonly string DeprecationDate;
-        /// <summary>
-        /// Description of the runtime version, created by Amazon.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// Date that the runtime version was released.
-        /// </summary>
         public readonly string ReleaseDate;
-        /// <summary>
-        /// Name of the runtime version.
-        /// For a list of valid runtime versions, see [Canary Runtime Versions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html).
-        /// </summary>
         public readonly string VersionName;
 
         [OutputConstructor]

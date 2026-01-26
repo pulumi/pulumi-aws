@@ -38,23 +38,6 @@ class ContainerRecipeArgs:
                  working_directory: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ContainerRecipe resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentArgs']]] components: Ordered configuration block(s) with components for the container recipe. Detailed below.
-        :param pulumi.Input[_builtins.str] container_type: The type of the container to create. Valid values: `DOCKER`.
-        :param pulumi.Input[_builtins.str] parent_image: The base image for the container recipe.
-        :param pulumi.Input['ContainerRecipeTargetRepositoryArgs'] target_repository: The destination repository for the container image. Detailed below.
-        :param pulumi.Input[_builtins.str] version: Version of the container recipe.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] description: The description of the container recipe.
-        :param pulumi.Input[_builtins.str] dockerfile_template_data: The Dockerfile template used to build the image as an inline data blob.
-        :param pulumi.Input[_builtins.str] dockerfile_template_uri: The Amazon S3 URI for the Dockerfile that will be used to build the container image.
-        :param pulumi.Input['ContainerRecipeInstanceConfigurationArgs'] instance_configuration: Configuration block used to configure an instance for building and testing container images. Detailed below.
-        :param pulumi.Input[_builtins.str] kms_key_id: The KMS key used to encrypt the container image.
-        :param pulumi.Input[_builtins.str] name: The name of the container recipe.
-        :param pulumi.Input[_builtins.str] platform_override: Specifies the operating system platform when you use a custom base image.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] working_directory: The working directory to be used during build and test workflows.
         """
         pulumi.set(__self__, "components", components)
         pulumi.set(__self__, "container_type", container_type)
@@ -85,9 +68,6 @@ class ContainerRecipeArgs:
     @_builtins.property
     @pulumi.getter
     def components(self) -> pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentArgs']]]:
-        """
-        Ordered configuration block(s) with components for the container recipe. Detailed below.
-        """
         return pulumi.get(self, "components")
 
     @components.setter
@@ -97,9 +77,6 @@ class ContainerRecipeArgs:
     @_builtins.property
     @pulumi.getter(name="containerType")
     def container_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of the container to create. Valid values: `DOCKER`.
-        """
         return pulumi.get(self, "container_type")
 
     @container_type.setter
@@ -109,9 +86,6 @@ class ContainerRecipeArgs:
     @_builtins.property
     @pulumi.getter(name="parentImage")
     def parent_image(self) -> pulumi.Input[_builtins.str]:
-        """
-        The base image for the container recipe.
-        """
         return pulumi.get(self, "parent_image")
 
     @parent_image.setter
@@ -121,9 +95,6 @@ class ContainerRecipeArgs:
     @_builtins.property
     @pulumi.getter(name="targetRepository")
     def target_repository(self) -> pulumi.Input['ContainerRecipeTargetRepositoryArgs']:
-        """
-        The destination repository for the container image. Detailed below.
-        """
         return pulumi.get(self, "target_repository")
 
     @target_repository.setter
@@ -133,11 +104,6 @@ class ContainerRecipeArgs:
     @_builtins.property
     @pulumi.getter
     def version(self) -> pulumi.Input[_builtins.str]:
-        """
-        Version of the container recipe.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -147,9 +113,6 @@ class ContainerRecipeArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the container recipe.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -159,9 +122,6 @@ class ContainerRecipeArgs:
     @_builtins.property
     @pulumi.getter(name="dockerfileTemplateData")
     def dockerfile_template_data(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Dockerfile template used to build the image as an inline data blob.
-        """
         return pulumi.get(self, "dockerfile_template_data")
 
     @dockerfile_template_data.setter
@@ -171,9 +131,6 @@ class ContainerRecipeArgs:
     @_builtins.property
     @pulumi.getter(name="dockerfileTemplateUri")
     def dockerfile_template_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon S3 URI for the Dockerfile that will be used to build the container image.
-        """
         return pulumi.get(self, "dockerfile_template_uri")
 
     @dockerfile_template_uri.setter
@@ -183,9 +140,6 @@ class ContainerRecipeArgs:
     @_builtins.property
     @pulumi.getter(name="instanceConfiguration")
     def instance_configuration(self) -> Optional[pulumi.Input['ContainerRecipeInstanceConfigurationArgs']]:
-        """
-        Configuration block used to configure an instance for building and testing container images. Detailed below.
-        """
         return pulumi.get(self, "instance_configuration")
 
     @instance_configuration.setter
@@ -195,9 +149,6 @@ class ContainerRecipeArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The KMS key used to encrypt the container image.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -207,9 +158,6 @@ class ContainerRecipeArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the container recipe.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -219,9 +167,6 @@ class ContainerRecipeArgs:
     @_builtins.property
     @pulumi.getter(name="platformOverride")
     def platform_override(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the operating system platform when you use a custom base image.
-        """
         return pulumi.get(self, "platform_override")
 
     @platform_override.setter
@@ -231,9 +176,6 @@ class ContainerRecipeArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -243,9 +185,6 @@ class ContainerRecipeArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -255,9 +194,6 @@ class ContainerRecipeArgs:
     @_builtins.property
     @pulumi.getter(name="workingDirectory")
     def working_directory(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The working directory to be used during build and test workflows.
-        """
         return pulumi.get(self, "working_directory")
 
     @working_directory.setter
@@ -291,29 +227,6 @@ class _ContainerRecipeState:
                  working_directory: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ContainerRecipe resources.
-        :param pulumi.Input[_builtins.str] arn: (Required) Amazon Resource Name (ARN) of the container recipe.
-        :param pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentArgs']]] components: Ordered configuration block(s) with components for the container recipe. Detailed below.
-        :param pulumi.Input[_builtins.str] container_type: The type of the container to create. Valid values: `DOCKER`.
-        :param pulumi.Input[_builtins.str] date_created: Date the container recipe was created.
-        :param pulumi.Input[_builtins.str] description: The description of the container recipe.
-        :param pulumi.Input[_builtins.str] dockerfile_template_data: The Dockerfile template used to build the image as an inline data blob.
-        :param pulumi.Input[_builtins.str] dockerfile_template_uri: The Amazon S3 URI for the Dockerfile that will be used to build the container image.
-        :param pulumi.Input[_builtins.bool] encrypted: A flag that indicates if the target container is encrypted.
-        :param pulumi.Input['ContainerRecipeInstanceConfigurationArgs'] instance_configuration: Configuration block used to configure an instance for building and testing container images. Detailed below.
-        :param pulumi.Input[_builtins.str] kms_key_id: The KMS key used to encrypt the container image.
-        :param pulumi.Input[_builtins.str] name: The name of the container recipe.
-        :param pulumi.Input[_builtins.str] owner: Owner of the container recipe.
-        :param pulumi.Input[_builtins.str] parent_image: The base image for the container recipe.
-        :param pulumi.Input[_builtins.str] platform: Platform of the container recipe.
-        :param pulumi.Input[_builtins.str] platform_override: Specifies the operating system platform when you use a custom base image.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['ContainerRecipeTargetRepositoryArgs'] target_repository: The destination repository for the container image. Detailed below.
-        :param pulumi.Input[_builtins.str] version: Version of the container recipe.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] working_directory: The working directory to be used during build and test workflows.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -361,9 +274,6 @@ class _ContainerRecipeState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (Required) Amazon Resource Name (ARN) of the container recipe.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -373,9 +283,6 @@ class _ContainerRecipeState:
     @_builtins.property
     @pulumi.getter
     def components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentArgs']]]]:
-        """
-        Ordered configuration block(s) with components for the container recipe. Detailed below.
-        """
         return pulumi.get(self, "components")
 
     @components.setter
@@ -385,9 +292,6 @@ class _ContainerRecipeState:
     @_builtins.property
     @pulumi.getter(name="containerType")
     def container_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of the container to create. Valid values: `DOCKER`.
-        """
         return pulumi.get(self, "container_type")
 
     @container_type.setter
@@ -397,9 +301,6 @@ class _ContainerRecipeState:
     @_builtins.property
     @pulumi.getter(name="dateCreated")
     def date_created(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date the container recipe was created.
-        """
         return pulumi.get(self, "date_created")
 
     @date_created.setter
@@ -409,9 +310,6 @@ class _ContainerRecipeState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the container recipe.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -421,9 +319,6 @@ class _ContainerRecipeState:
     @_builtins.property
     @pulumi.getter(name="dockerfileTemplateData")
     def dockerfile_template_data(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Dockerfile template used to build the image as an inline data blob.
-        """
         return pulumi.get(self, "dockerfile_template_data")
 
     @dockerfile_template_data.setter
@@ -433,9 +328,6 @@ class _ContainerRecipeState:
     @_builtins.property
     @pulumi.getter(name="dockerfileTemplateUri")
     def dockerfile_template_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon S3 URI for the Dockerfile that will be used to build the container image.
-        """
         return pulumi.get(self, "dockerfile_template_uri")
 
     @dockerfile_template_uri.setter
@@ -445,9 +337,6 @@ class _ContainerRecipeState:
     @_builtins.property
     @pulumi.getter
     def encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A flag that indicates if the target container is encrypted.
-        """
         return pulumi.get(self, "encrypted")
 
     @encrypted.setter
@@ -457,9 +346,6 @@ class _ContainerRecipeState:
     @_builtins.property
     @pulumi.getter(name="instanceConfiguration")
     def instance_configuration(self) -> Optional[pulumi.Input['ContainerRecipeInstanceConfigurationArgs']]:
-        """
-        Configuration block used to configure an instance for building and testing container images. Detailed below.
-        """
         return pulumi.get(self, "instance_configuration")
 
     @instance_configuration.setter
@@ -469,9 +355,6 @@ class _ContainerRecipeState:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The KMS key used to encrypt the container image.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -481,9 +364,6 @@ class _ContainerRecipeState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the container recipe.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -493,9 +373,6 @@ class _ContainerRecipeState:
     @_builtins.property
     @pulumi.getter
     def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Owner of the container recipe.
-        """
         return pulumi.get(self, "owner")
 
     @owner.setter
@@ -505,9 +382,6 @@ class _ContainerRecipeState:
     @_builtins.property
     @pulumi.getter(name="parentImage")
     def parent_image(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The base image for the container recipe.
-        """
         return pulumi.get(self, "parent_image")
 
     @parent_image.setter
@@ -517,9 +391,6 @@ class _ContainerRecipeState:
     @_builtins.property
     @pulumi.getter
     def platform(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Platform of the container recipe.
-        """
         return pulumi.get(self, "platform")
 
     @platform.setter
@@ -529,9 +400,6 @@ class _ContainerRecipeState:
     @_builtins.property
     @pulumi.getter(name="platformOverride")
     def platform_override(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the operating system platform when you use a custom base image.
-        """
         return pulumi.get(self, "platform_override")
 
     @platform_override.setter
@@ -541,9 +409,6 @@ class _ContainerRecipeState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -553,9 +418,6 @@ class _ContainerRecipeState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -565,9 +427,6 @@ class _ContainerRecipeState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -577,9 +436,6 @@ class _ContainerRecipeState:
     @_builtins.property
     @pulumi.getter(name="targetRepository")
     def target_repository(self) -> Optional[pulumi.Input['ContainerRecipeTargetRepositoryArgs']]:
-        """
-        The destination repository for the container image. Detailed below.
-        """
         return pulumi.get(self, "target_repository")
 
     @target_repository.setter
@@ -589,11 +445,6 @@ class _ContainerRecipeState:
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Version of the container recipe.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -603,9 +454,6 @@ class _ContainerRecipeState:
     @_builtins.property
     @pulumi.getter(name="workingDirectory")
     def working_directory(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The working directory to be used during build and test workflows.
-        """
         return pulumi.get(self, "working_directory")
 
     @working_directory.setter
@@ -636,73 +484,9 @@ class ContainerRecipe(pulumi.CustomResource):
                  working_directory: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an Image Builder Container Recipe.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.imagebuilder.ContainerRecipe("example",
-            name="example",
-            version="1.0.0",
-            container_type="DOCKER",
-            parent_image="arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
-            target_repository={
-                "repository_name": example_aws_ecr_repository["name"],
-                "service": "ECR",
-            },
-            components=[{
-                "component_arn": example_aws_imagebuilder_component["arn"],
-                "parameters": [
-                    {
-                        "name": "Parameter1",
-                        "value": "Value1",
-                    },
-                    {
-                        "name": "Parameter2",
-                        "value": "Value2",
-                    },
-                ],
-            }],
-            dockerfile_template_data=\"\"\"FROM {{{ imagebuilder:parentImage }}}
-        {{{ imagebuilder:environments }}}
-        {{{ imagebuilder:components }}}
-        \"\"\")
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Image Builder container recipe.
-
-        Using `pulumi import`, import `aws_imagebuilder_container_recipe` resources using the Amazon Resource Name (ARN). For example:
-
-        % pulumi import aws_imagebuilder_container_recipe.example arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0
-
+        Create a ContainerRecipe resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerRecipeComponentArgs', 'ContainerRecipeComponentArgsDict']]]] components: Ordered configuration block(s) with components for the container recipe. Detailed below.
-        :param pulumi.Input[_builtins.str] container_type: The type of the container to create. Valid values: `DOCKER`.
-        :param pulumi.Input[_builtins.str] description: The description of the container recipe.
-        :param pulumi.Input[_builtins.str] dockerfile_template_data: The Dockerfile template used to build the image as an inline data blob.
-        :param pulumi.Input[_builtins.str] dockerfile_template_uri: The Amazon S3 URI for the Dockerfile that will be used to build the container image.
-        :param pulumi.Input[Union['ContainerRecipeInstanceConfigurationArgs', 'ContainerRecipeInstanceConfigurationArgsDict']] instance_configuration: Configuration block used to configure an instance for building and testing container images. Detailed below.
-        :param pulumi.Input[_builtins.str] kms_key_id: The KMS key used to encrypt the container image.
-        :param pulumi.Input[_builtins.str] name: The name of the container recipe.
-        :param pulumi.Input[_builtins.str] parent_image: The base image for the container recipe.
-        :param pulumi.Input[_builtins.str] platform_override: Specifies the operating system platform when you use a custom base image.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['ContainerRecipeTargetRepositoryArgs', 'ContainerRecipeTargetRepositoryArgsDict']] target_repository: The destination repository for the container image. Detailed below.
-        :param pulumi.Input[_builtins.str] version: Version of the container recipe.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] working_directory: The working directory to be used during build and test workflows.
         """
         ...
     @overload
@@ -711,54 +495,7 @@ class ContainerRecipe(pulumi.CustomResource):
                  args: ContainerRecipeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Image Builder Container Recipe.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.imagebuilder.ContainerRecipe("example",
-            name="example",
-            version="1.0.0",
-            container_type="DOCKER",
-            parent_image="arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
-            target_repository={
-                "repository_name": example_aws_ecr_repository["name"],
-                "service": "ECR",
-            },
-            components=[{
-                "component_arn": example_aws_imagebuilder_component["arn"],
-                "parameters": [
-                    {
-                        "name": "Parameter1",
-                        "value": "Value1",
-                    },
-                    {
-                        "name": "Parameter2",
-                        "value": "Value2",
-                    },
-                ],
-            }],
-            dockerfile_template_data=\"\"\"FROM {{{ imagebuilder:parentImage }}}
-        {{{ imagebuilder:environments }}}
-        {{{ imagebuilder:components }}}
-        \"\"\")
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Image Builder container recipe.
-
-        Using `pulumi import`, import `aws_imagebuilder_container_recipe` resources using the Amazon Resource Name (ARN). For example:
-
-        % pulumi import aws_imagebuilder_container_recipe.example arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0
-
+        Create a ContainerRecipe resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ContainerRecipeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -867,29 +604,6 @@ class ContainerRecipe(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: (Required) Amazon Resource Name (ARN) of the container recipe.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerRecipeComponentArgs', 'ContainerRecipeComponentArgsDict']]]] components: Ordered configuration block(s) with components for the container recipe. Detailed below.
-        :param pulumi.Input[_builtins.str] container_type: The type of the container to create. Valid values: `DOCKER`.
-        :param pulumi.Input[_builtins.str] date_created: Date the container recipe was created.
-        :param pulumi.Input[_builtins.str] description: The description of the container recipe.
-        :param pulumi.Input[_builtins.str] dockerfile_template_data: The Dockerfile template used to build the image as an inline data blob.
-        :param pulumi.Input[_builtins.str] dockerfile_template_uri: The Amazon S3 URI for the Dockerfile that will be used to build the container image.
-        :param pulumi.Input[_builtins.bool] encrypted: A flag that indicates if the target container is encrypted.
-        :param pulumi.Input[Union['ContainerRecipeInstanceConfigurationArgs', 'ContainerRecipeInstanceConfigurationArgsDict']] instance_configuration: Configuration block used to configure an instance for building and testing container images. Detailed below.
-        :param pulumi.Input[_builtins.str] kms_key_id: The KMS key used to encrypt the container image.
-        :param pulumi.Input[_builtins.str] name: The name of the container recipe.
-        :param pulumi.Input[_builtins.str] owner: Owner of the container recipe.
-        :param pulumi.Input[_builtins.str] parent_image: The base image for the container recipe.
-        :param pulumi.Input[_builtins.str] platform: Platform of the container recipe.
-        :param pulumi.Input[_builtins.str] platform_override: Specifies the operating system platform when you use a custom base image.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['ContainerRecipeTargetRepositoryArgs', 'ContainerRecipeTargetRepositoryArgsDict']] target_repository: The destination repository for the container image. Detailed below.
-        :param pulumi.Input[_builtins.str] version: Version of the container recipe.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] working_directory: The working directory to be used during build and test workflows.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -921,170 +635,105 @@ class ContainerRecipe(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        (Required) Amazon Resource Name (ARN) of the container recipe.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def components(self) -> pulumi.Output[Sequence['outputs.ContainerRecipeComponent']]:
-        """
-        Ordered configuration block(s) with components for the container recipe. Detailed below.
-        """
         return pulumi.get(self, "components")
 
     @_builtins.property
     @pulumi.getter(name="containerType")
     def container_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of the container to create. Valid values: `DOCKER`.
-        """
         return pulumi.get(self, "container_type")
 
     @_builtins.property
     @pulumi.getter(name="dateCreated")
     def date_created(self) -> pulumi.Output[_builtins.str]:
-        """
-        Date the container recipe was created.
-        """
         return pulumi.get(self, "date_created")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The description of the container recipe.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="dockerfileTemplateData")
     def dockerfile_template_data(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Dockerfile template used to build the image as an inline data blob.
-        """
         return pulumi.get(self, "dockerfile_template_data")
 
     @_builtins.property
     @pulumi.getter(name="dockerfileTemplateUri")
     def dockerfile_template_uri(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The Amazon S3 URI for the Dockerfile that will be used to build the container image.
-        """
         return pulumi.get(self, "dockerfile_template_uri")
 
     @_builtins.property
     @pulumi.getter
     def encrypted(self) -> pulumi.Output[_builtins.bool]:
-        """
-        A flag that indicates if the target container is encrypted.
-        """
         return pulumi.get(self, "encrypted")
 
     @_builtins.property
     @pulumi.getter(name="instanceConfiguration")
     def instance_configuration(self) -> pulumi.Output[Optional['outputs.ContainerRecipeInstanceConfiguration']]:
-        """
-        Configuration block used to configure an instance for building and testing container images. Detailed below.
-        """
         return pulumi.get(self, "instance_configuration")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The KMS key used to encrypt the container image.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the container recipe.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def owner(self) -> pulumi.Output[_builtins.str]:
-        """
-        Owner of the container recipe.
-        """
         return pulumi.get(self, "owner")
 
     @_builtins.property
     @pulumi.getter(name="parentImage")
     def parent_image(self) -> pulumi.Output[_builtins.str]:
-        """
-        The base image for the container recipe.
-        """
         return pulumi.get(self, "parent_image")
 
     @_builtins.property
     @pulumi.getter
     def platform(self) -> pulumi.Output[_builtins.str]:
-        """
-        Platform of the container recipe.
-        """
         return pulumi.get(self, "platform")
 
     @_builtins.property
     @pulumi.getter(name="platformOverride")
     def platform_override(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Specifies the operating system platform when you use a custom base image.
-        """
         return pulumi.get(self, "platform_override")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="targetRepository")
     def target_repository(self) -> pulumi.Output['outputs.ContainerRecipeTargetRepository']:
-        """
-        The destination repository for the container image. Detailed below.
-        """
         return pulumi.get(self, "target_repository")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> pulumi.Output[_builtins.str]:
-        """
-        Version of the container recipe.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "version")
 
     @_builtins.property
     @pulumi.getter(name="workingDirectory")
     def working_directory(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The working directory to be used during build and test workflows.
-        """
         return pulumi.get(self, "working_directory")
 

@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketLoggingTargetObjectKeyFormat {
-    /**
-     * @return Partitioned S3 key for log objects, in the form `[targetPrefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. Conflicts with `simplePrefix`. See below.
-     * 
-     */
     private @Nullable BucketLoggingTargetObjectKeyFormatPartitionedPrefix partitionedPrefix;
-    /**
-     * @return Use the simple format for S3 keys for log objects, in the form `[targetPrefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. To use, set `simplePrefix {}`. Conflicts with `partitionedPrefix`.
-     * 
-     */
     private @Nullable BucketLoggingTargetObjectKeyFormatSimplePrefix simplePrefix;
 
     private BucketLoggingTargetObjectKeyFormat() {}
-    /**
-     * @return Partitioned S3 key for log objects, in the form `[targetPrefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. Conflicts with `simplePrefix`. See below.
-     * 
-     */
     public Optional<BucketLoggingTargetObjectKeyFormatPartitionedPrefix> partitionedPrefix() {
         return Optional.ofNullable(this.partitionedPrefix);
     }
-    /**
-     * @return Use the simple format for S3 keys for log objects, in the form `[targetPrefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. To use, set `simplePrefix {}`. Conflicts with `partitionedPrefix`.
-     * 
-     */
     public Optional<BucketLoggingTargetObjectKeyFormatSimplePrefix> simplePrefix() {
         return Optional.ofNullable(this.simplePrefix);
     }

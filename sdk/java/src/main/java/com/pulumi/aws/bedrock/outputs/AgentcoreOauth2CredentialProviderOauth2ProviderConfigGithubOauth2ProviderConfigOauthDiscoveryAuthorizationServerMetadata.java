@@ -11,53 +11,21 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
-    /**
-     * @return OAuth2 authorization endpoint URL.
-     * 
-     */
     private String authorizationEndpoint;
-    /**
-     * @return OAuth2 authorization server issuer identifier.
-     * 
-     */
     private String issuer;
-    /**
-     * @return Set of OAuth2 response types supported by the authorization server.
-     * 
-     */
     private List<String> responseTypes;
-    /**
-     * @return OAuth2 token endpoint URL.
-     * 
-     */
     private String tokenEndpoint;
 
     private AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata() {}
-    /**
-     * @return OAuth2 authorization endpoint URL.
-     * 
-     */
     public String authorizationEndpoint() {
         return this.authorizationEndpoint;
     }
-    /**
-     * @return OAuth2 authorization server issuer identifier.
-     * 
-     */
     public String issuer() {
         return this.issuer;
     }
-    /**
-     * @return Set of OAuth2 response types supported by the authorization server.
-     * 
-     */
     public List<String> responseTypes() {
         return this.responseTypes;
     }
-    /**
-     * @return OAuth2 token endpoint URL.
-     * 
-     */
     public String tokenEndpoint() {
         return this.tokenEndpoint;
     }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSetColumnLevelPermissionRule
     {
-        /// <summary>
-        /// An array of column names.
-        /// </summary>
         public readonly ImmutableArray<string> ColumnNames;
-        /// <summary>
-        /// An array of ARNs for Amazon QuickSight users or groups.
-        /// </summary>
         public readonly ImmutableArray<string> Principals;
 
         [OutputConstructor]

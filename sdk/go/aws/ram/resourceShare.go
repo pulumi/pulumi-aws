@@ -11,62 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Resource Access Manager (RAM) Resource Share. To associate principals with the share, see the `ram.PrincipalAssociation` resource. To associate resources with the share, see the `ram.ResourceAssociation` resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ram"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ram.NewResourceShare(ctx, "example", &ram.ResourceShareArgs{
-//				Name:                    pulumi.String("example"),
-//				AllowExternalPrincipals: pulumi.Bool(true),
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("Production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import resource shares using the `arn` of the resource share. For example:
-//
-// ```sh
-// $ pulumi import aws:ram/resourceShare:ResourceShare example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12
-// ```
 type ResourceShare struct {
 	pulumi.CustomResourceState
 
-	// Indicates whether principals outside your organization can be associated with a resource share.
-	AllowExternalPrincipals pulumi.BoolPtrOutput `pulumi:"allowExternalPrincipals"`
-	// The Amazon Resource Name (ARN) of the resource share.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of the resource share.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
-	PermissionArns pulumi.StringArrayOutput `pulumi:"permissionArns"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	AllowExternalPrincipals pulumi.BoolPtrOutput     `pulumi:"allowExternalPrincipals"`
+	Arn                     pulumi.StringOutput      `pulumi:"arn"`
+	Name                    pulumi.StringOutput      `pulumi:"name"`
+	PermissionArns          pulumi.StringArrayOutput `pulumi:"permissionArns"`
+	Region                  pulumi.StringOutput      `pulumi:"region"`
+	Tags                    pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll                 pulumi.StringMapOutput   `pulumi:"tagsAll"`
 }
 
 // NewResourceShare registers a new resource with the given unique name, arguments, and options.
@@ -99,37 +53,23 @@ func GetResourceShare(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourceShare resources.
 type resourceShareState struct {
-	// Indicates whether principals outside your organization can be associated with a resource share.
-	AllowExternalPrincipals *bool `pulumi:"allowExternalPrincipals"`
-	// The Amazon Resource Name (ARN) of the resource share.
-	Arn *string `pulumi:"arn"`
-	// The name of the resource share.
-	Name *string `pulumi:"name"`
-	// Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
-	PermissionArns []string `pulumi:"permissionArns"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	AllowExternalPrincipals *bool             `pulumi:"allowExternalPrincipals"`
+	Arn                     *string           `pulumi:"arn"`
+	Name                    *string           `pulumi:"name"`
+	PermissionArns          []string          `pulumi:"permissionArns"`
+	Region                  *string           `pulumi:"region"`
+	Tags                    map[string]string `pulumi:"tags"`
+	TagsAll                 map[string]string `pulumi:"tagsAll"`
 }
 
 type ResourceShareState struct {
-	// Indicates whether principals outside your organization can be associated with a resource share.
 	AllowExternalPrincipals pulumi.BoolPtrInput
-	// The Amazon Resource Name (ARN) of the resource share.
-	Arn pulumi.StringPtrInput
-	// The name of the resource share.
-	Name pulumi.StringPtrInput
-	// Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
-	PermissionArns pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Arn                     pulumi.StringPtrInput
+	Name                    pulumi.StringPtrInput
+	PermissionArns          pulumi.StringArrayInput
+	Region                  pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
+	TagsAll                 pulumi.StringMapInput
 }
 
 func (ResourceShareState) ElementType() reflect.Type {
@@ -137,30 +77,20 @@ func (ResourceShareState) ElementType() reflect.Type {
 }
 
 type resourceShareArgs struct {
-	// Indicates whether principals outside your organization can be associated with a resource share.
-	AllowExternalPrincipals *bool `pulumi:"allowExternalPrincipals"`
-	// The name of the resource share.
-	Name *string `pulumi:"name"`
-	// Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
-	PermissionArns []string `pulumi:"permissionArns"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	AllowExternalPrincipals *bool             `pulumi:"allowExternalPrincipals"`
+	Name                    *string           `pulumi:"name"`
+	PermissionArns          []string          `pulumi:"permissionArns"`
+	Region                  *string           `pulumi:"region"`
+	Tags                    map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResourceShare resource.
 type ResourceShareArgs struct {
-	// Indicates whether principals outside your organization can be associated with a resource share.
 	AllowExternalPrincipals pulumi.BoolPtrInput
-	// The name of the resource share.
-	Name pulumi.StringPtrInput
-	// Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
-	PermissionArns pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name                    pulumi.StringPtrInput
+	PermissionArns          pulumi.StringArrayInput
+	Region                  pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
 }
 
 func (ResourceShareArgs) ElementType() reflect.Type {
@@ -250,37 +180,30 @@ func (o ResourceShareOutput) ToResourceShareOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Indicates whether principals outside your organization can be associated with a resource share.
 func (o ResourceShareOutput) AllowExternalPrincipals() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResourceShare) pulumi.BoolPtrOutput { return v.AllowExternalPrincipals }).(pulumi.BoolPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the resource share.
 func (o ResourceShareOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceShare) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name of the resource share.
 func (o ResourceShareOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceShare) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
 func (o ResourceShareOutput) PermissionArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceShare) pulumi.StringArrayOutput { return v.PermissionArns }).(pulumi.StringArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResourceShareOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceShare) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ResourceShareOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResourceShare) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ResourceShareOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResourceShare) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

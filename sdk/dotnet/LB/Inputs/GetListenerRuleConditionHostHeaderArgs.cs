@@ -14,10 +14,6 @@ namespace Pulumi.Aws.LB.Inputs
     {
         [Input("regexValues", required: true)]
         private InputList<string>? _regexValues;
-
-        /// <summary>
-        /// Set of regular expressions to compare against the request URL.
-        /// </summary>
         public InputList<string> RegexValues
         {
             get => _regexValues ?? (_regexValues = new InputList<string>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.LB.Inputs
 
         [Input("values", required: true)]
         private InputList<string>? _values;
-
-        /// <summary>
-        /// Set of `Key`-`Value` pairs indicating the query string parameters to match.
-        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

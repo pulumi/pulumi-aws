@@ -74,17 +74,11 @@ class GetDistributionTenantResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN (Amazon Resource Name) for the distribution tenant.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="connectionGroupId")
     def connection_group_id(self) -> _builtins.str:
-        """
-        The CloudFront connection group the tenant is associated with.
-        """
         return pulumi.get(self, "connection_group_id")
 
     @_builtins.property
@@ -95,9 +89,6 @@ class GetDistributionTenantResult:
     @_builtins.property
     @pulumi.getter(name="distributionId")
     def distribution_id(self) -> _builtins.str:
-        """
-        The ID of the CloudFront distribution the tenant is associated with.
-        """
         return pulumi.get(self, "distribution_id")
 
     @_builtins.property
@@ -108,26 +99,16 @@ class GetDistributionTenantResult:
     @_builtins.property
     @pulumi.getter
     def domains(self) -> Sequence['outputs.GetDistributionTenantDomainResult']:
-        """
-        List of domains for the distribution tenant.
-        """
         return pulumi.get(self, "domains")
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
-        """
-        Whether the distribution tenant is enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter
     def etag(self) -> _builtins.str:
-        """
-        Current version of the distribution tenant's information. For example:
-        `E2QWRUHAPOMQZL`.
-        """
         return pulumi.get(self, "etag")
 
     @_builtins.property
@@ -153,11 +134,6 @@ class GetDistributionTenantResult:
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Current status of the distribution tenant. `Deployed` if the
-        distribution tenant's information is fully propagated throughout the Amazon
-        CloudFront system.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
@@ -194,21 +170,7 @@ def get_distribution_tenant(arn: Optional[_builtins.str] = None,
                             name: Optional[_builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDistributionTenantResult:
     """
-    Use this data source to retrieve information about a CloudFront distribution tenant.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.cloudfront.get_distribution_tenant(id="EDFDVBD632BHDS5")
-    ```
-
-
-    :param _builtins.str arn: ARN (Amazon Resource Name) for the distribution tenant.
-    :param _builtins.str domain: An associated domain of the distribution tenant. Exactly one of `id` or `domain` must be specified.
-    :param _builtins.str id: Identifier for the distribution tenant. For example: `EDFDVBD632BHDS5`. Exactly one of `id` or `domain` must be specified.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -239,21 +201,7 @@ def get_distribution_tenant_output(arn: Optional[pulumi.Input[Optional[_builtins
                                    name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDistributionTenantResult]:
     """
-    Use this data source to retrieve information about a CloudFront distribution tenant.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.cloudfront.get_distribution_tenant(id="EDFDVBD632BHDS5")
-    ```
-
-
-    :param _builtins.str arn: ARN (Amazon Resource Name) for the distribution tenant.
-    :param _builtins.str domain: An associated domain of the distribution tenant. Exactly one of `id` or `domain` must be specified.
-    :param _builtins.str id: Identifier for the distribution tenant. For example: `EDFDVBD632BHDS5`. Exactly one of `id` or `domain` must be specified.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

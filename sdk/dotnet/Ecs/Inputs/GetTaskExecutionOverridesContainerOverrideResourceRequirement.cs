@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The type of resource to assign to a container. Valid values are `GPU`.
-        /// </summary>
         [Input("type", required: true)]
         public string Type { get; set; } = null!;
 
-        /// <summary>
-        /// The value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on.
-        /// </summary>
         [Input("value", required: true)]
         public string Value { get; set; } = null!;
 

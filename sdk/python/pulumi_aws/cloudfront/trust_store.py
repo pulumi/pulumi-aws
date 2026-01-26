@@ -27,11 +27,6 @@ class TrustStoreArgs:
                  timeouts: Optional[pulumi.Input['TrustStoreTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a TrustStore resource.
-        :param pulumi.Input['TrustStoreCaCertificatesBundleSourceArgs'] ca_certificates_bundle_source: Configuration block for the CA certificates bundle source. See `ca_certificates_bundle_source` below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] name: Name of the trust store. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if ca_certificates_bundle_source is not None:
             pulumi.set(__self__, "ca_certificates_bundle_source", ca_certificates_bundle_source)
@@ -45,11 +40,6 @@ class TrustStoreArgs:
     @_builtins.property
     @pulumi.getter(name="caCertificatesBundleSource")
     def ca_certificates_bundle_source(self) -> Optional[pulumi.Input['TrustStoreCaCertificatesBundleSourceArgs']]:
-        """
-        Configuration block for the CA certificates bundle source. See `ca_certificates_bundle_source` below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "ca_certificates_bundle_source")
 
     @ca_certificates_bundle_source.setter
@@ -59,9 +49,6 @@ class TrustStoreArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the trust store. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -71,9 +58,6 @@ class TrustStoreArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -103,15 +87,6 @@ class _TrustStoreState:
                  timeouts: Optional[pulumi.Input['TrustStoreTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering TrustStore resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the trust store.
-        :param pulumi.Input['TrustStoreCaCertificatesBundleSourceArgs'] ca_certificates_bundle_source: Configuration block for the CA certificates bundle source. See `ca_certificates_bundle_source` below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] etag: ETag of the trust store.
-        :param pulumi.Input[_builtins.str] name: Name of the trust store. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.int] number_of_ca_certificates: Number of CA certificates in the trust store.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -133,9 +108,6 @@ class _TrustStoreState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the trust store.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -145,11 +117,6 @@ class _TrustStoreState:
     @_builtins.property
     @pulumi.getter(name="caCertificatesBundleSource")
     def ca_certificates_bundle_source(self) -> Optional[pulumi.Input['TrustStoreCaCertificatesBundleSourceArgs']]:
-        """
-        Configuration block for the CA certificates bundle source. See `ca_certificates_bundle_source` below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "ca_certificates_bundle_source")
 
     @ca_certificates_bundle_source.setter
@@ -159,9 +126,6 @@ class _TrustStoreState:
     @_builtins.property
     @pulumi.getter
     def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ETag of the trust store.
-        """
         return pulumi.get(self, "etag")
 
     @etag.setter
@@ -171,9 +135,6 @@ class _TrustStoreState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the trust store. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -183,9 +144,6 @@ class _TrustStoreState:
     @_builtins.property
     @pulumi.getter(name="numberOfCaCertificates")
     def number_of_ca_certificates(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of CA certificates in the trust store.
-        """
         return pulumi.get(self, "number_of_ca_certificates")
 
     @number_of_ca_certificates.setter
@@ -195,9 +153,6 @@ class _TrustStoreState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -207,9 +162,6 @@ class _TrustStoreState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -238,60 +190,9 @@ class TrustStore(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['TrustStoreTimeoutsArgs', 'TrustStoreTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Manages an AWS CloudFront Trust Store.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudfront.TrustStore("example",
-            name="example-trust-store",
-            ca_certificates_bundle_source={
-                "ca_certificates_bundle_s3_location": {
-                    "bucket": "example-bucket",
-                    "key": "ca-certificates.pem",
-                    "region": "us-east-1",
-                },
-            })
-        ```
-
-        ### With S3 Object Version
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudfront.TrustStore("example",
-            name="example-trust-store",
-            ca_certificates_bundle_source={
-                "ca_certificates_bundle_s3_location": {
-                    "bucket": "example-bucket",
-                    "key": "ca-certificates.pem",
-                    "region": "us-east-1",
-                    "version": "abc123",
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudFront Trust Store using the trust store ID. For example:
-
-        ```sh
-        $ pulumi import aws:cloudfront/trustStore:TrustStore example ts_12abcXYZhA4Q6RS6tuvW5Xy0ZZZ
-        ```
-
+        Create a TrustStore resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TrustStoreCaCertificatesBundleSourceArgs', 'TrustStoreCaCertificatesBundleSourceArgsDict']] ca_certificates_bundle_source: Configuration block for the CA certificates bundle source. See `ca_certificates_bundle_source` below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] name: Name of the trust store. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -300,53 +201,7 @@ class TrustStore(pulumi.CustomResource):
                  args: Optional[TrustStoreArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS CloudFront Trust Store.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudfront.TrustStore("example",
-            name="example-trust-store",
-            ca_certificates_bundle_source={
-                "ca_certificates_bundle_s3_location": {
-                    "bucket": "example-bucket",
-                    "key": "ca-certificates.pem",
-                    "region": "us-east-1",
-                },
-            })
-        ```
-
-        ### With S3 Object Version
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudfront.TrustStore("example",
-            name="example-trust-store",
-            ca_certificates_bundle_source={
-                "ca_certificates_bundle_s3_location": {
-                    "bucket": "example-bucket",
-                    "key": "ca-certificates.pem",
-                    "region": "us-east-1",
-                    "version": "abc123",
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudFront Trust Store using the trust store ID. For example:
-
-        ```sh
-        $ pulumi import aws:cloudfront/trustStore:TrustStore example ts_12abcXYZhA4Q6RS6tuvW5Xy0ZZZ
-        ```
-
+        Create a TrustStore resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TrustStoreArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -408,15 +263,6 @@ class TrustStore(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the trust store.
-        :param pulumi.Input[Union['TrustStoreCaCertificatesBundleSourceArgs', 'TrustStoreCaCertificatesBundleSourceArgsDict']] ca_certificates_bundle_source: Configuration block for the CA certificates bundle source. See `ca_certificates_bundle_source` below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] etag: ETag of the trust store.
-        :param pulumi.Input[_builtins.str] name: Name of the trust store. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.int] number_of_ca_certificates: Number of CA certificates in the trust store.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -435,59 +281,36 @@ class TrustStore(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the trust store.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="caCertificatesBundleSource")
     def ca_certificates_bundle_source(self) -> pulumi.Output[Optional['outputs.TrustStoreCaCertificatesBundleSource']]:
-        """
-        Configuration block for the CA certificates bundle source. See `ca_certificates_bundle_source` below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "ca_certificates_bundle_source")
 
     @_builtins.property
     @pulumi.getter
     def etag(self) -> pulumi.Output[_builtins.str]:
-        """
-        ETag of the trust store.
-        """
         return pulumi.get(self, "etag")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the trust store. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="numberOfCaCertificates")
     def number_of_ca_certificates(self) -> pulumi.Output[_builtins.int]:
-        """
-        Number of CA certificates in the trust store.
-        """
         return pulumi.get(self, "number_of_ca_certificates")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property

@@ -71,9 +71,6 @@ class GetPermissionSetResult:
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the Permission Set.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -102,25 +99,16 @@ class GetPermissionSetResult:
     @_builtins.property
     @pulumi.getter(name="relayState")
     def relay_state(self) -> _builtins.str:
-        """
-        Relay state URL used to redirect users within the application during the federation authentication process.
-        """
         return pulumi.get(self, "relay_state")
 
     @_builtins.property
     @pulumi.getter(name="sessionDuration")
     def session_duration(self) -> _builtins.str:
-        """
-        Length of time that the application user sessions are valid in the ISO-8601 standard.
-        """
         return pulumi.get(self, "session_duration")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value map of resource tags.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -149,28 +137,7 @@ def get_permission_set(arn: Optional[_builtins.str] = None,
                        tags: Optional[Mapping[str, _builtins.str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPermissionSetResult:
     """
-    Use this data source to get a Single Sign-On (SSO) Permission Set.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssoadmin.get_instances()
-    example_get_permission_set = aws.ssoadmin.get_permission_set(instance_arn=example.arns[0],
-        name="Example")
-    pulumi.export("arn", example_get_permission_set.arn)
-    ```
-
-
-    :param _builtins.str arn: ARN of the permission set.
-    :param _builtins.str instance_arn: ARN of the SSO Instance associated with the permission set.
-    :param _builtins.str name: Name of the SSO Permission Set.
-           
-           > **NOTE:** Either `arn` or `name` must be configured.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -199,28 +166,7 @@ def get_permission_set_output(arn: Optional[pulumi.Input[Optional[_builtins.str]
                               tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPermissionSetResult]:
     """
-    Use this data source to get a Single Sign-On (SSO) Permission Set.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssoadmin.get_instances()
-    example_get_permission_set = aws.ssoadmin.get_permission_set(instance_arn=example.arns[0],
-        name="Example")
-    pulumi.export("arn", example_get_permission_set.arn)
-    ```
-
-
-    :param _builtins.str arn: ARN of the permission set.
-    :param _builtins.str instance_arn: ARN of the SSO Instance associated with the permission set.
-    :param _builtins.str name: Name of the SSO Permission Set.
-           
-           > **NOTE:** Either `arn` or `name` must be configured.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

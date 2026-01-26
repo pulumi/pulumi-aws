@@ -13,93 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Associates a single SCRAM secret with a Managed Streaming for Kafka (MSK) cluster.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.msk.SingleScramSecretAssociation;
- * import com.pulumi.aws.msk.SingleScramSecretAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new SingleScramSecretAssociation("example", SingleScramSecretAssociationArgs.builder()
- *             .clusterArn(exampleAwsMskCluster.arn())
- *             .secretArn(exampleAwsSecretsmanagerSecret.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import an MSK SCRAM Secret Association using the `cluster_arn` and `secret_arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:msk/singleScramSecretAssociation:SingleScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3,arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
- * ```
- * 
- */
 @ResourceType(type="aws:msk/singleScramSecretAssociation:SingleScramSecretAssociation")
 public class SingleScramSecretAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the MSK cluster.
-     * 
-     */
     @Export(name="clusterArn", refs={String.class}, tree="[0]")
     private Output<String> clusterArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the MSK cluster.
-     * 
-     */
     public Output<String> clusterArn() {
         return this.clusterArn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * AWS Secrets Manager secret ARN.
-     * 
-     */
     @Export(name="secretArn", refs={String.class}, tree="[0]")
     private Output<String> secretArn;
 
-    /**
-     * @return AWS Secrets Manager secret ARN.
-     * 
-     */
     public Output<String> secretArn() {
         return this.secretArn;
     }

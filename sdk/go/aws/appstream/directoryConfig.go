@@ -12,67 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AppStream Directory Config.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appstream"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appstream.NewDirectoryConfig(ctx, "example", &appstream.DirectoryConfigArgs{
-//				DirectoryName: pulumi.String("NAME OF DIRECTORY"),
-//				OrganizationalUnitDistinguishedNames: pulumi.StringArray{
-//					pulumi.String("DISTINGUISHED NAME"),
-//				},
-//				ServiceAccountCredentials: &appstream.DirectoryConfigServiceAccountCredentialsArgs{
-//					AccountName:     pulumi.String("NAME OF ACCOUNT"),
-//					AccountPassword: pulumi.String("PASSWORD OF ACCOUNT"),
-//				},
-//				CertificateBasedAuthProperties: &appstream.DirectoryConfigCertificateBasedAuthPropertiesArgs{
-//					CertificateAuthorityArn: pulumi.String("ARN OF CERTIFICATE AUTHORITY"),
-//					Status:                  pulumi.String("STATUS OF CERTIFICATE BASED AUTHENTICATION"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_appstream_directory_config` using the id. For example:
-//
-// ```sh
-// $ pulumi import aws:appstream/directoryConfig:DirectoryConfig example directoryNameExample
-// ```
 type DirectoryConfig struct {
 	pulumi.CustomResourceState
 
-	// Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificateBasedAuthProperties` below.
-	CertificateBasedAuthProperties DirectoryConfigCertificateBasedAuthPropertiesPtrOutput `pulumi:"certificateBasedAuthProperties"`
-	// Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// Fully qualified name of the directory.
-	DirectoryName pulumi.StringOutput `pulumi:"directoryName"`
-	// Distinguished names of the organizational units for computer accounts.
-	OrganizationalUnitDistinguishedNames pulumi.StringArrayOutput `pulumi:"organizationalUnitDistinguishedNames"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
-	ServiceAccountCredentials DirectoryConfigServiceAccountCredentialsOutput `pulumi:"serviceAccountCredentials"`
+	CertificateBasedAuthProperties       DirectoryConfigCertificateBasedAuthPropertiesPtrOutput `pulumi:"certificateBasedAuthProperties"`
+	CreatedTime                          pulumi.StringOutput                                    `pulumi:"createdTime"`
+	DirectoryName                        pulumi.StringOutput                                    `pulumi:"directoryName"`
+	OrganizationalUnitDistinguishedNames pulumi.StringArrayOutput                               `pulumi:"organizationalUnitDistinguishedNames"`
+	Region                               pulumi.StringOutput                                    `pulumi:"region"`
+	ServiceAccountCredentials            DirectoryConfigServiceAccountCredentialsOutput         `pulumi:"serviceAccountCredentials"`
 }
 
 // NewDirectoryConfig registers a new resource with the given unique name, arguments, and options.
@@ -114,33 +62,21 @@ func GetDirectoryConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DirectoryConfig resources.
 type directoryConfigState struct {
-	// Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificateBasedAuthProperties` below.
-	CertificateBasedAuthProperties *DirectoryConfigCertificateBasedAuthProperties `pulumi:"certificateBasedAuthProperties"`
-	// Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
-	CreatedTime *string `pulumi:"createdTime"`
-	// Fully qualified name of the directory.
-	DirectoryName *string `pulumi:"directoryName"`
-	// Distinguished names of the organizational units for computer accounts.
-	OrganizationalUnitDistinguishedNames []string `pulumi:"organizationalUnitDistinguishedNames"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
-	ServiceAccountCredentials *DirectoryConfigServiceAccountCredentials `pulumi:"serviceAccountCredentials"`
+	CertificateBasedAuthProperties       *DirectoryConfigCertificateBasedAuthProperties `pulumi:"certificateBasedAuthProperties"`
+	CreatedTime                          *string                                        `pulumi:"createdTime"`
+	DirectoryName                        *string                                        `pulumi:"directoryName"`
+	OrganizationalUnitDistinguishedNames []string                                       `pulumi:"organizationalUnitDistinguishedNames"`
+	Region                               *string                                        `pulumi:"region"`
+	ServiceAccountCredentials            *DirectoryConfigServiceAccountCredentials      `pulumi:"serviceAccountCredentials"`
 }
 
 type DirectoryConfigState struct {
-	// Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificateBasedAuthProperties` below.
-	CertificateBasedAuthProperties DirectoryConfigCertificateBasedAuthPropertiesPtrInput
-	// Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
-	CreatedTime pulumi.StringPtrInput
-	// Fully qualified name of the directory.
-	DirectoryName pulumi.StringPtrInput
-	// Distinguished names of the organizational units for computer accounts.
+	CertificateBasedAuthProperties       DirectoryConfigCertificateBasedAuthPropertiesPtrInput
+	CreatedTime                          pulumi.StringPtrInput
+	DirectoryName                        pulumi.StringPtrInput
 	OrganizationalUnitDistinguishedNames pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
-	ServiceAccountCredentials DirectoryConfigServiceAccountCredentialsPtrInput
+	Region                               pulumi.StringPtrInput
+	ServiceAccountCredentials            DirectoryConfigServiceAccountCredentialsPtrInput
 }
 
 func (DirectoryConfigState) ElementType() reflect.Type {
@@ -148,30 +84,20 @@ func (DirectoryConfigState) ElementType() reflect.Type {
 }
 
 type directoryConfigArgs struct {
-	// Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificateBasedAuthProperties` below.
-	CertificateBasedAuthProperties *DirectoryConfigCertificateBasedAuthProperties `pulumi:"certificateBasedAuthProperties"`
-	// Fully qualified name of the directory.
-	DirectoryName string `pulumi:"directoryName"`
-	// Distinguished names of the organizational units for computer accounts.
-	OrganizationalUnitDistinguishedNames []string `pulumi:"organizationalUnitDistinguishedNames"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
-	ServiceAccountCredentials DirectoryConfigServiceAccountCredentials `pulumi:"serviceAccountCredentials"`
+	CertificateBasedAuthProperties       *DirectoryConfigCertificateBasedAuthProperties `pulumi:"certificateBasedAuthProperties"`
+	DirectoryName                        string                                         `pulumi:"directoryName"`
+	OrganizationalUnitDistinguishedNames []string                                       `pulumi:"organizationalUnitDistinguishedNames"`
+	Region                               *string                                        `pulumi:"region"`
+	ServiceAccountCredentials            DirectoryConfigServiceAccountCredentials       `pulumi:"serviceAccountCredentials"`
 }
 
 // The set of arguments for constructing a DirectoryConfig resource.
 type DirectoryConfigArgs struct {
-	// Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificateBasedAuthProperties` below.
-	CertificateBasedAuthProperties DirectoryConfigCertificateBasedAuthPropertiesPtrInput
-	// Fully qualified name of the directory.
-	DirectoryName pulumi.StringInput
-	// Distinguished names of the organizational units for computer accounts.
+	CertificateBasedAuthProperties       DirectoryConfigCertificateBasedAuthPropertiesPtrInput
+	DirectoryName                        pulumi.StringInput
 	OrganizationalUnitDistinguishedNames pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
-	ServiceAccountCredentials DirectoryConfigServiceAccountCredentialsInput
+	Region                               pulumi.StringPtrInput
+	ServiceAccountCredentials            DirectoryConfigServiceAccountCredentialsInput
 }
 
 func (DirectoryConfigArgs) ElementType() reflect.Type {
@@ -261,34 +187,28 @@ func (o DirectoryConfigOutput) ToDirectoryConfigOutputWithContext(ctx context.Co
 	return o
 }
 
-// Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificateBasedAuthProperties` below.
 func (o DirectoryConfigOutput) CertificateBasedAuthProperties() DirectoryConfigCertificateBasedAuthPropertiesPtrOutput {
 	return o.ApplyT(func(v *DirectoryConfig) DirectoryConfigCertificateBasedAuthPropertiesPtrOutput {
 		return v.CertificateBasedAuthProperties
 	}).(DirectoryConfigCertificateBasedAuthPropertiesPtrOutput)
 }
 
-// Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
 func (o DirectoryConfigOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryConfig) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// Fully qualified name of the directory.
 func (o DirectoryConfigOutput) DirectoryName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryConfig) pulumi.StringOutput { return v.DirectoryName }).(pulumi.StringOutput)
 }
 
-// Distinguished names of the organizational units for computer accounts.
 func (o DirectoryConfigOutput) OrganizationalUnitDistinguishedNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DirectoryConfig) pulumi.StringArrayOutput { return v.OrganizationalUnitDistinguishedNames }).(pulumi.StringArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DirectoryConfigOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
 func (o DirectoryConfigOutput) ServiceAccountCredentials() DirectoryConfigServiceAccountCredentialsOutput {
 	return o.ApplyT(func(v *DirectoryConfig) DirectoryConfigServiceAccountCredentialsOutput {
 		return v.ServiceAccountCredentials

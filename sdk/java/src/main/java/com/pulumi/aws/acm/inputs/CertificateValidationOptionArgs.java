@@ -14,32 +14,16 @@ public final class CertificateValidationOptionArgs extends com.pulumi.resources.
 
     public static final CertificateValidationOptionArgs Empty = new CertificateValidationOptionArgs();
 
-    /**
-     * Fully qualified domain name (FQDN) in the certificate.
-     * 
-     */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
-    /**
-     * @return Fully qualified domain name (FQDN) in the certificate.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
 
-    /**
-     * Domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domainName` value or a superdomain of the `domainName` value. For example, if you request a certificate for `&#34;testing.example.com&#34;`, you can specify `&#34;example.com&#34;` for this value.
-     * 
-     */
     @Import(name="validationDomain", required=true)
     private Output<String> validationDomain;
 
-    /**
-     * @return Domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domainName` value or a superdomain of the `domainName` value. For example, if you request a certificate for `&#34;testing.example.com&#34;`, you can specify `&#34;example.com&#34;` for this value.
-     * 
-     */
     public Output<String> validationDomain() {
         return this.validationDomain;
     }
@@ -69,44 +53,20 @@ public final class CertificateValidationOptionArgs extends com.pulumi.resources.
             $ = new CertificateValidationOptionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domainName Fully qualified domain name (FQDN) in the certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
-        /**
-         * @param domainName Fully qualified domain name (FQDN) in the certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
-        /**
-         * @param validationDomain Domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domainName` value or a superdomain of the `domainName` value. For example, if you request a certificate for `&#34;testing.example.com&#34;`, you can specify `&#34;example.com&#34;` for this value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder validationDomain(Output<String> validationDomain) {
             $.validationDomain = validationDomain;
             return this;
         }
 
-        /**
-         * @param validationDomain Domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domainName` value or a superdomain of the `domainName` value. For example, if you request a certificate for `&#34;testing.example.com&#34;`, you can specify `&#34;example.com&#34;` for this value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder validationDomain(String validationDomain) {
             return validationDomain(Output.of(validationDomain));
         }

@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeader {
-    /**
-     * @return Name of the HTTP header to match.
-     * 
-     */
     private String name;
-    /**
-     * @return Configuration block for header value matching criteria. See below.
-     * 
-     */
     private ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValue value;
 
     private ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeader() {}
-    /**
-     * @return Name of the HTTP header to match.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Configuration block for header value matching criteria. See below.
-     * 
-     */
     public ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValue value() {
         return this.value;
     }

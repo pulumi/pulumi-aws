@@ -13,90 +13,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages the default App Runner auto scaling configuration.
- * When creating or updating this resource the existing default auto scaling configuration will be set to non-default automatically.
- * When creating or updating this resource the configuration is automatically assigned as the default to the new services you create in the future. The new default designation doesn&#39;t affect the associations that were previously set for existing services.
- * Each account can have only one default auto scaling configuration per Region.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apprunner.AutoScalingConfigurationVersion;
- * import com.pulumi.aws.apprunner.AutoScalingConfigurationVersionArgs;
- * import com.pulumi.aws.apprunner.DefaultAutoScalingConfigurationVersion;
- * import com.pulumi.aws.apprunner.DefaultAutoScalingConfigurationVersionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AutoScalingConfigurationVersion("example", AutoScalingConfigurationVersionArgs.builder()
- *             .autoScalingConfigurationName("example")
- *             .maxConcurrency(50)
- *             .maxSize(10)
- *             .minSize(2)
- *             .build());
- * 
- *         var exampleDefaultAutoScalingConfigurationVersion = new DefaultAutoScalingConfigurationVersion("exampleDefaultAutoScalingConfigurationVersion", DefaultAutoScalingConfigurationVersionArgs.builder()
- *             .autoScalingConfigurationArn(example.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import App Runner default auto scaling configurations using the current Region. For example:
- * 
- * ```sh
- * $ pulumi import aws:apprunner/defaultAutoScalingConfigurationVersion:DefaultAutoScalingConfigurationVersion example us-west-2
- * ```
- * 
- */
 @ResourceType(type="aws:apprunner/defaultAutoScalingConfigurationVersion:DefaultAutoScalingConfigurationVersion")
 public class DefaultAutoScalingConfigurationVersion extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the App Runner auto scaling configuration that you want to set as the default.
-     * 
-     */
     @Export(name="autoScalingConfigurationArn", refs={String.class}, tree="[0]")
     private Output<String> autoScalingConfigurationArn;
 
-    /**
-     * @return The ARN of the App Runner auto scaling configuration that you want to set as the default.
-     * 
-     */
     public Output<String> autoScalingConfigurationArn() {
         return this.autoScalingConfigurationArn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

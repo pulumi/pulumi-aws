@@ -11,83 +11,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS Billing View.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/billing"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := billing.NewView(ctx, "example", &billing.ViewArgs{
-//				Name:        pulumi.String("example"),
-//				Description: pulumi.String("example description"),
-//				SourceViews: pulumi.StringArray{
-//					pulumi.String("arn:aws:billing::123456789012:billingview/example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Billing View using the `arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:billing/view:View example arn:aws:billing::123456789012:billing-view/example
-// ```
 type View struct {
 	pulumi.CustomResourceState
 
-	// ARN of the View.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Type of billing group. Valid values are PRIMARY|BILLING_GROUP|CUSTOM.
-	BillingViewType pulumi.StringOutput `pulumi:"billingViewType"`
-	// Timestamp when the billing view was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
-	DataFilterExpression ViewDataFilterExpressionPtrOutput `pulumi:"dataFilterExpression"`
-	// Number of billing views that use this billing view as a source.
-	DerivedViewCount pulumi.IntOutput `pulumi:"derivedViewCount"`
-	// Description of the custom billing view.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Name of the custom billing view to be created.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Account owner of the billing view.
-	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
-	// AWS account ID that owns the source billing view, if this is a derived billing view.
-	SourceAccountId pulumi.StringOutput `pulumi:"sourceAccountId"`
-	// Number of source views associated with this billing view.
-	SourceViewCount pulumi.IntOutput `pulumi:"sourceViewCount"`
-	// List of ARNs of the source data views for the custom billing view.
-	//
-	// The following arguments are optional:
-	SourceViews pulumi.StringArrayOutput `pulumi:"sourceViews"`
-	// List of key value map specifying tags associated to the billing view being created.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// List of key value map specifying tags associated to the billing view.
-	TagsAll  pulumi.StringMapOutput `pulumi:"tagsAll"`
-	Timeouts ViewTimeoutsPtrOutput  `pulumi:"timeouts"`
-	// Time when the billing view was last updated.
-	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
-	// Timestamp of when the billing view definition was last updated.
-	ViewDefinitionLastUpdatedAt pulumi.StringOutput `pulumi:"viewDefinitionLastUpdatedAt"`
+	Arn                         pulumi.StringOutput               `pulumi:"arn"`
+	BillingViewType             pulumi.StringOutput               `pulumi:"billingViewType"`
+	CreatedAt                   pulumi.StringOutput               `pulumi:"createdAt"`
+	DataFilterExpression        ViewDataFilterExpressionPtrOutput `pulumi:"dataFilterExpression"`
+	DerivedViewCount            pulumi.IntOutput                  `pulumi:"derivedViewCount"`
+	Description                 pulumi.StringPtrOutput            `pulumi:"description"`
+	Name                        pulumi.StringOutput               `pulumi:"name"`
+	OwnerAccountId              pulumi.StringOutput               `pulumi:"ownerAccountId"`
+	SourceAccountId             pulumi.StringOutput               `pulumi:"sourceAccountId"`
+	SourceViewCount             pulumi.IntOutput                  `pulumi:"sourceViewCount"`
+	SourceViews                 pulumi.StringArrayOutput          `pulumi:"sourceViews"`
+	Tags                        pulumi.StringMapOutput            `pulumi:"tags"`
+	TagsAll                     pulumi.StringMapOutput            `pulumi:"tagsAll"`
+	Timeouts                    ViewTimeoutsPtrOutput             `pulumi:"timeouts"`
+	UpdatedAt                   pulumi.StringOutput               `pulumi:"updatedAt"`
+	ViewDefinitionLastUpdatedAt pulumi.StringOutput               `pulumi:"viewDefinitionLastUpdatedAt"`
 }
 
 // NewView registers a new resource with the given unique name, arguments, and options.
@@ -120,74 +62,40 @@ func GetView(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering View resources.
 type viewState struct {
-	// ARN of the View.
-	Arn *string `pulumi:"arn"`
-	// Type of billing group. Valid values are PRIMARY|BILLING_GROUP|CUSTOM.
-	BillingViewType *string `pulumi:"billingViewType"`
-	// Timestamp when the billing view was created.
-	CreatedAt *string `pulumi:"createdAt"`
-	// Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
-	DataFilterExpression *ViewDataFilterExpression `pulumi:"dataFilterExpression"`
-	// Number of billing views that use this billing view as a source.
-	DerivedViewCount *int `pulumi:"derivedViewCount"`
-	// Description of the custom billing view.
-	Description *string `pulumi:"description"`
-	// Name of the custom billing view to be created.
-	Name *string `pulumi:"name"`
-	// Account owner of the billing view.
-	OwnerAccountId *string `pulumi:"ownerAccountId"`
-	// AWS account ID that owns the source billing view, if this is a derived billing view.
-	SourceAccountId *string `pulumi:"sourceAccountId"`
-	// Number of source views associated with this billing view.
-	SourceViewCount *int `pulumi:"sourceViewCount"`
-	// List of ARNs of the source data views for the custom billing view.
-	//
-	// The following arguments are optional:
-	SourceViews []string `pulumi:"sourceViews"`
-	// List of key value map specifying tags associated to the billing view being created.
-	Tags map[string]string `pulumi:"tags"`
-	// List of key value map specifying tags associated to the billing view.
-	TagsAll  map[string]string `pulumi:"tagsAll"`
-	Timeouts *ViewTimeouts     `pulumi:"timeouts"`
-	// Time when the billing view was last updated.
-	UpdatedAt *string `pulumi:"updatedAt"`
-	// Timestamp of when the billing view definition was last updated.
-	ViewDefinitionLastUpdatedAt *string `pulumi:"viewDefinitionLastUpdatedAt"`
+	Arn                         *string                   `pulumi:"arn"`
+	BillingViewType             *string                   `pulumi:"billingViewType"`
+	CreatedAt                   *string                   `pulumi:"createdAt"`
+	DataFilterExpression        *ViewDataFilterExpression `pulumi:"dataFilterExpression"`
+	DerivedViewCount            *int                      `pulumi:"derivedViewCount"`
+	Description                 *string                   `pulumi:"description"`
+	Name                        *string                   `pulumi:"name"`
+	OwnerAccountId              *string                   `pulumi:"ownerAccountId"`
+	SourceAccountId             *string                   `pulumi:"sourceAccountId"`
+	SourceViewCount             *int                      `pulumi:"sourceViewCount"`
+	SourceViews                 []string                  `pulumi:"sourceViews"`
+	Tags                        map[string]string         `pulumi:"tags"`
+	TagsAll                     map[string]string         `pulumi:"tagsAll"`
+	Timeouts                    *ViewTimeouts             `pulumi:"timeouts"`
+	UpdatedAt                   *string                   `pulumi:"updatedAt"`
+	ViewDefinitionLastUpdatedAt *string                   `pulumi:"viewDefinitionLastUpdatedAt"`
 }
 
 type ViewState struct {
-	// ARN of the View.
-	Arn pulumi.StringPtrInput
-	// Type of billing group. Valid values are PRIMARY|BILLING_GROUP|CUSTOM.
-	BillingViewType pulumi.StringPtrInput
-	// Timestamp when the billing view was created.
-	CreatedAt pulumi.StringPtrInput
-	// Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
-	DataFilterExpression ViewDataFilterExpressionPtrInput
-	// Number of billing views that use this billing view as a source.
-	DerivedViewCount pulumi.IntPtrInput
-	// Description of the custom billing view.
-	Description pulumi.StringPtrInput
-	// Name of the custom billing view to be created.
-	Name pulumi.StringPtrInput
-	// Account owner of the billing view.
-	OwnerAccountId pulumi.StringPtrInput
-	// AWS account ID that owns the source billing view, if this is a derived billing view.
-	SourceAccountId pulumi.StringPtrInput
-	// Number of source views associated with this billing view.
-	SourceViewCount pulumi.IntPtrInput
-	// List of ARNs of the source data views for the custom billing view.
-	//
-	// The following arguments are optional:
-	SourceViews pulumi.StringArrayInput
-	// List of key value map specifying tags associated to the billing view being created.
-	Tags pulumi.StringMapInput
-	// List of key value map specifying tags associated to the billing view.
-	TagsAll  pulumi.StringMapInput
-	Timeouts ViewTimeoutsPtrInput
-	// Time when the billing view was last updated.
-	UpdatedAt pulumi.StringPtrInput
-	// Timestamp of when the billing view definition was last updated.
+	Arn                         pulumi.StringPtrInput
+	BillingViewType             pulumi.StringPtrInput
+	CreatedAt                   pulumi.StringPtrInput
+	DataFilterExpression        ViewDataFilterExpressionPtrInput
+	DerivedViewCount            pulumi.IntPtrInput
+	Description                 pulumi.StringPtrInput
+	Name                        pulumi.StringPtrInput
+	OwnerAccountId              pulumi.StringPtrInput
+	SourceAccountId             pulumi.StringPtrInput
+	SourceViewCount             pulumi.IntPtrInput
+	SourceViews                 pulumi.StringArrayInput
+	Tags                        pulumi.StringMapInput
+	TagsAll                     pulumi.StringMapInput
+	Timeouts                    ViewTimeoutsPtrInput
+	UpdatedAt                   pulumi.StringPtrInput
 	ViewDefinitionLastUpdatedAt pulumi.StringPtrInput
 }
 
@@ -196,36 +104,22 @@ func (ViewState) ElementType() reflect.Type {
 }
 
 type viewArgs struct {
-	// Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
 	DataFilterExpression *ViewDataFilterExpression `pulumi:"dataFilterExpression"`
-	// Description of the custom billing view.
-	Description *string `pulumi:"description"`
-	// Name of the custom billing view to be created.
-	Name *string `pulumi:"name"`
-	// List of ARNs of the source data views for the custom billing view.
-	//
-	// The following arguments are optional:
-	SourceViews []string `pulumi:"sourceViews"`
-	// List of key value map specifying tags associated to the billing view being created.
-	Tags     map[string]string `pulumi:"tags"`
-	Timeouts *ViewTimeouts     `pulumi:"timeouts"`
+	Description          *string                   `pulumi:"description"`
+	Name                 *string                   `pulumi:"name"`
+	SourceViews          []string                  `pulumi:"sourceViews"`
+	Tags                 map[string]string         `pulumi:"tags"`
+	Timeouts             *ViewTimeouts             `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a View resource.
 type ViewArgs struct {
-	// Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
 	DataFilterExpression ViewDataFilterExpressionPtrInput
-	// Description of the custom billing view.
-	Description pulumi.StringPtrInput
-	// Name of the custom billing view to be created.
-	Name pulumi.StringPtrInput
-	// List of ARNs of the source data views for the custom billing view.
-	//
-	// The following arguments are optional:
-	SourceViews pulumi.StringArrayInput
-	// List of key value map specifying tags associated to the billing view being created.
-	Tags     pulumi.StringMapInput
-	Timeouts ViewTimeoutsPtrInput
+	Description          pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
+	SourceViews          pulumi.StringArrayInput
+	Tags                 pulumi.StringMapInput
+	Timeouts             ViewTimeoutsPtrInput
 }
 
 func (ViewArgs) ElementType() reflect.Type {
@@ -315,69 +209,54 @@ func (o ViewOutput) ToViewOutputWithContext(ctx context.Context) ViewOutput {
 	return o
 }
 
-// ARN of the View.
 func (o ViewOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Type of billing group. Valid values are PRIMARY|BILLING_GROUP|CUSTOM.
 func (o ViewOutput) BillingViewType() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.BillingViewType }).(pulumi.StringOutput)
 }
 
-// Timestamp when the billing view was created.
 func (o ViewOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
 func (o ViewOutput) DataFilterExpression() ViewDataFilterExpressionPtrOutput {
 	return o.ApplyT(func(v *View) ViewDataFilterExpressionPtrOutput { return v.DataFilterExpression }).(ViewDataFilterExpressionPtrOutput)
 }
 
-// Number of billing views that use this billing view as a source.
 func (o ViewOutput) DerivedViewCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *View) pulumi.IntOutput { return v.DerivedViewCount }).(pulumi.IntOutput)
 }
 
-// Description of the custom billing view.
 func (o ViewOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *View) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Name of the custom billing view to be created.
 func (o ViewOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Account owner of the billing view.
 func (o ViewOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
 }
 
-// AWS account ID that owns the source billing view, if this is a derived billing view.
 func (o ViewOutput) SourceAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.SourceAccountId }).(pulumi.StringOutput)
 }
 
-// Number of source views associated with this billing view.
 func (o ViewOutput) SourceViewCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *View) pulumi.IntOutput { return v.SourceViewCount }).(pulumi.IntOutput)
 }
 
-// List of ARNs of the source data views for the custom billing view.
-//
-// The following arguments are optional:
 func (o ViewOutput) SourceViews() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *View) pulumi.StringArrayOutput { return v.SourceViews }).(pulumi.StringArrayOutput)
 }
 
-// List of key value map specifying tags associated to the billing view being created.
 func (o ViewOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *View) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// List of key value map specifying tags associated to the billing view.
 func (o ViewOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *View) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -386,12 +265,10 @@ func (o ViewOutput) Timeouts() ViewTimeoutsPtrOutput {
 	return o.ApplyT(func(v *View) ViewTimeoutsPtrOutput { return v.Timeouts }).(ViewTimeoutsPtrOutput)
 }
 
-// Time when the billing view was last updated.
 func (o ViewOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
-// Timestamp of when the billing view definition was last updated.
 func (o ViewOutput) ViewDefinitionLastUpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.ViewDefinitionLastUpdatedAt }).(pulumi.StringOutput)
 }

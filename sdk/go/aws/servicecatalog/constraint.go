@@ -12,80 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Service Catalog Constraint.
-//
-// > **NOTE:** This resource does not associate a Service Catalog product and portfolio. However, the product and portfolio must be associated (see the `servicecatalog.ProductPortfolioAssociation` resource) prior to creating a constraint or you will receive an error.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicecatalog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"RoleArn": "arn:aws:iam::123456789012:role/LaunchRole",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = servicecatalog.NewConstraint(ctx, "example", &servicecatalog.ConstraintArgs{
-//				Description: pulumi.String("Back off, man. I'm a scientist."),
-//				PortfolioId: pulumi.Any(exampleAwsServicecatalogPortfolio.Id),
-//				ProductId:   pulumi.Any(exampleAwsServicecatalogProduct.Id),
-//				Type:        pulumi.String("LAUNCH"),
-//				Parameters:  pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_servicecatalog_constraint` using the constraint ID. For example:
-//
-// ```sh
-// $ pulumi import aws:servicecatalog/constraint:Constraint example cons-nmdkb6cgxfcrs
-// ```
 type Constraint struct {
 	pulumi.CustomResourceState
 
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage pulumi.StringPtrOutput `pulumi:"acceptLanguage"`
-	// Description of the constraint.
-	Description pulumi.StringOutput `pulumi:"description"`
-	// Owner of the constraint.
-	Owner pulumi.StringOutput `pulumi:"owner"`
-	// Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
-	Parameters pulumi.StringOutput `pulumi:"parameters"`
-	// Portfolio identifier.
-	PortfolioId pulumi.StringOutput `pulumi:"portfolioId"`
-	// Product identifier.
-	ProductId pulumi.StringOutput `pulumi:"productId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
-	//
-	// The following arguments are optional:
-	Type pulumi.StringOutput `pulumi:"type"`
+	Description    pulumi.StringOutput    `pulumi:"description"`
+	Owner          pulumi.StringOutput    `pulumi:"owner"`
+	Parameters     pulumi.StringOutput    `pulumi:"parameters"`
+	PortfolioId    pulumi.StringOutput    `pulumi:"portfolioId"`
+	ProductId      pulumi.StringOutput    `pulumi:"productId"`
+	Region         pulumi.StringOutput    `pulumi:"region"`
+	Status         pulumi.StringOutput    `pulumi:"status"`
+	Type           pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewConstraint registers a new resource with the given unique name, arguments, and options.
@@ -130,47 +68,27 @@ func GetConstraint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Constraint resources.
 type constraintState struct {
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage *string `pulumi:"acceptLanguage"`
-	// Description of the constraint.
-	Description *string `pulumi:"description"`
-	// Owner of the constraint.
-	Owner *string `pulumi:"owner"`
-	// Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
-	Parameters *string `pulumi:"parameters"`
-	// Portfolio identifier.
-	PortfolioId *string `pulumi:"portfolioId"`
-	// Product identifier.
-	ProductId *string `pulumi:"productId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	Status *string `pulumi:"status"`
-	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
-	//
-	// The following arguments are optional:
-	Type *string `pulumi:"type"`
+	Description    *string `pulumi:"description"`
+	Owner          *string `pulumi:"owner"`
+	Parameters     *string `pulumi:"parameters"`
+	PortfolioId    *string `pulumi:"portfolioId"`
+	ProductId      *string `pulumi:"productId"`
+	Region         *string `pulumi:"region"`
+	Status         *string `pulumi:"status"`
+	Type           *string `pulumi:"type"`
 }
 
 type ConstraintState struct {
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage pulumi.StringPtrInput
-	// Description of the constraint.
-	Description pulumi.StringPtrInput
-	// Owner of the constraint.
-	Owner pulumi.StringPtrInput
-	// Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
-	Parameters pulumi.StringPtrInput
-	// Portfolio identifier.
-	PortfolioId pulumi.StringPtrInput
-	// Product identifier.
-	ProductId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	Status pulumi.StringPtrInput
-	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
-	//
-	// The following arguments are optional:
-	Type pulumi.StringPtrInput
+	Description    pulumi.StringPtrInput
+	Owner          pulumi.StringPtrInput
+	Parameters     pulumi.StringPtrInput
+	PortfolioId    pulumi.StringPtrInput
+	ProductId      pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
+	Status         pulumi.StringPtrInput
+	Type           pulumi.StringPtrInput
 }
 
 func (ConstraintState) ElementType() reflect.Type {
@@ -178,42 +96,24 @@ func (ConstraintState) ElementType() reflect.Type {
 }
 
 type constraintArgs struct {
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage *string `pulumi:"acceptLanguage"`
-	// Description of the constraint.
-	Description *string `pulumi:"description"`
-	// Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
-	Parameters string `pulumi:"parameters"`
-	// Portfolio identifier.
-	PortfolioId string `pulumi:"portfolioId"`
-	// Product identifier.
-	ProductId string `pulumi:"productId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
-	//
-	// The following arguments are optional:
-	Type string `pulumi:"type"`
+	Description    *string `pulumi:"description"`
+	Parameters     string  `pulumi:"parameters"`
+	PortfolioId    string  `pulumi:"portfolioId"`
+	ProductId      string  `pulumi:"productId"`
+	Region         *string `pulumi:"region"`
+	Type           string  `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Constraint resource.
 type ConstraintArgs struct {
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage pulumi.StringPtrInput
-	// Description of the constraint.
-	Description pulumi.StringPtrInput
-	// Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
-	Parameters pulumi.StringInput
-	// Portfolio identifier.
-	PortfolioId pulumi.StringInput
-	// Product identifier.
-	ProductId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
-	//
-	// The following arguments are optional:
-	Type pulumi.StringInput
+	Description    pulumi.StringPtrInput
+	Parameters     pulumi.StringInput
+	PortfolioId    pulumi.StringInput
+	ProductId      pulumi.StringInput
+	Region         pulumi.StringPtrInput
+	Type           pulumi.StringInput
 }
 
 func (ConstraintArgs) ElementType() reflect.Type {
@@ -303,37 +203,30 @@ func (o ConstraintOutput) ToConstraintOutputWithContext(ctx context.Context) Con
 	return o
 }
 
-// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 func (o ConstraintOutput) AcceptLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Constraint) pulumi.StringPtrOutput { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
 }
 
-// Description of the constraint.
 func (o ConstraintOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *Constraint) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// Owner of the constraint.
 func (o ConstraintOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v *Constraint) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
 }
 
-// Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
 func (o ConstraintOutput) Parameters() pulumi.StringOutput {
 	return o.ApplyT(func(v *Constraint) pulumi.StringOutput { return v.Parameters }).(pulumi.StringOutput)
 }
 
-// Portfolio identifier.
 func (o ConstraintOutput) PortfolioId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Constraint) pulumi.StringOutput { return v.PortfolioId }).(pulumi.StringOutput)
 }
 
-// Product identifier.
 func (o ConstraintOutput) ProductId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Constraint) pulumi.StringOutput { return v.ProductId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ConstraintOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Constraint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -342,9 +235,6 @@ func (o ConstraintOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Constraint) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
-//
-// The following arguments are optional:
 func (o ConstraintOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Constraint) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

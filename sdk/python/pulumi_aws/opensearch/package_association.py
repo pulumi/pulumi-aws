@@ -24,9 +24,6 @@ class PackageAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PackageAssociation resource.
-        :param pulumi.Input[_builtins.str] domain_name: Name of the domain to associate the package with.
-        :param pulumi.Input[_builtins.str] package_id: Internal ID of the package to associate with a domain.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "package_id", package_id)
@@ -36,9 +33,6 @@ class PackageAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the domain to associate the package with.
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -48,9 +42,6 @@ class PackageAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="packageId")
     def package_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Internal ID of the package to associate with a domain.
-        """
         return pulumi.get(self, "package_id")
 
     @package_id.setter
@@ -60,9 +51,6 @@ class PackageAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -79,9 +67,6 @@ class _PackageAssociationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PackageAssociation resources.
-        :param pulumi.Input[_builtins.str] domain_name: Name of the domain to associate the package with.
-        :param pulumi.Input[_builtins.str] package_id: Internal ID of the package to associate with a domain.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
@@ -95,9 +80,6 @@ class _PackageAssociationState:
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the domain to associate the package with.
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -107,9 +89,6 @@ class _PackageAssociationState:
     @_builtins.property
     @pulumi.getter(name="packageId")
     def package_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Internal ID of the package to associate with a domain.
-        """
         return pulumi.get(self, "package_id")
 
     @package_id.setter
@@ -128,9 +107,6 @@ class _PackageAssociationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -149,39 +125,9 @@ class PackageAssociation(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an AWS Opensearch Package Association.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        my_domain = aws.opensearch.Domain("my_domain",
-            domain_name="my-opensearch-domain",
-            engine_version="Elasticsearch_7.10",
-            cluster_config={
-                "instance_type": "r4.large.search",
-            })
-        example = aws.opensearch.Package("example",
-            package_name="example-txt",
-            package_source={
-                "s3_bucket_name": my_opensearch_packages["bucket"],
-                "s3_key": example_aws_s3_object["key"],
-            },
-            package_type="TXT-DICTIONARY")
-        example_package_association = aws.opensearch.PackageAssociation("example",
-            package_id=example.id,
-            domain_name=my_domain.domain_name)
-        ```
-
+        Create a PackageAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] domain_name: Name of the domain to associate the package with.
-        :param pulumi.Input[_builtins.str] package_id: Internal ID of the package to associate with a domain.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -190,34 +136,7 @@ class PackageAssociation(pulumi.CustomResource):
                  args: PackageAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS Opensearch Package Association.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        my_domain = aws.opensearch.Domain("my_domain",
-            domain_name="my-opensearch-domain",
-            engine_version="Elasticsearch_7.10",
-            cluster_config={
-                "instance_type": "r4.large.search",
-            })
-        example = aws.opensearch.Package("example",
-            package_name="example-txt",
-            package_source={
-                "s3_bucket_name": my_opensearch_packages["bucket"],
-                "s3_key": example_aws_s3_object["key"],
-            },
-            package_type="TXT-DICTIONARY")
-        example_package_association = aws.opensearch.PackageAssociation("example",
-            package_id=example.id,
-            domain_name=my_domain.domain_name)
-        ```
-
+        Create a PackageAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PackageAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -274,9 +193,6 @@ class PackageAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] domain_name: Name of the domain to associate the package with.
-        :param pulumi.Input[_builtins.str] package_id: Internal ID of the package to associate with a domain.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -291,17 +207,11 @@ class PackageAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the domain to associate the package with.
-        """
         return pulumi.get(self, "domain_name")
 
     @_builtins.property
     @pulumi.getter(name="packageId")
     def package_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Internal ID of the package to associate with a domain.
-        """
         return pulumi.get(self, "package_id")
 
     @_builtins.property
@@ -312,8 +222,5 @@ class PackageAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

@@ -15,47 +15,23 @@ public final class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefres
 
     public static final DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgs Empty = new DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgs();
 
-    /**
-     * The name of the lookback window column.
-     * 
-     */
     @Import(name="columnName", required=true)
     private Output<String> columnName;
 
-    /**
-     * @return The name of the lookback window column.
-     * 
-     */
     public Output<String> columnName() {
         return this.columnName;
     }
 
-    /**
-     * The lookback window column size.
-     * 
-     */
     @Import(name="size", required=true)
     private Output<Integer> size;
 
-    /**
-     * @return The lookback window column size.
-     * 
-     */
     public Output<Integer> size() {
         return this.size;
     }
 
-    /**
-     * The size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
-     * 
-     */
     @Import(name="sizeUnit", required=true)
     private Output<String> sizeUnit;
 
-    /**
-     * @return The size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
-     * 
-     */
     public Output<String> sizeUnit() {
         return this.sizeUnit;
     }
@@ -86,65 +62,29 @@ public final class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefres
             $ = new DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param columnName The name of the lookback window column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnName(Output<String> columnName) {
             $.columnName = columnName;
             return this;
         }
 
-        /**
-         * @param columnName The name of the lookback window column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnName(String columnName) {
             return columnName(Output.of(columnName));
         }
 
-        /**
-         * @param size The lookback window column size.
-         * 
-         * @return builder
-         * 
-         */
         public Builder size(Output<Integer> size) {
             $.size = size;
             return this;
         }
 
-        /**
-         * @param size The lookback window column size.
-         * 
-         * @return builder
-         * 
-         */
         public Builder size(Integer size) {
             return size(Output.of(size));
         }
 
-        /**
-         * @param sizeUnit The size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sizeUnit(Output<String> sizeUnit) {
             $.sizeUnit = sizeUnit;
             return this;
         }
 
-        /**
-         * @param sizeUnit The size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sizeUnit(String sizeUnit) {
             return sizeUnit(Output.of(sizeUnit));
         }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension
     {
-        /// <summary>
-        /// The string value to use in the custom metric dimension.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

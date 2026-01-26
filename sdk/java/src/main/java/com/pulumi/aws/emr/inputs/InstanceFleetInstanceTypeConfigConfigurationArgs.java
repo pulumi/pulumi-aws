@@ -16,32 +16,16 @@ public final class InstanceFleetInstanceTypeConfigConfigurationArgs extends com.
 
     public static final InstanceFleetInstanceTypeConfigConfigurationArgs Empty = new InstanceFleetInstanceTypeConfigConfigurationArgs();
 
-    /**
-     * The classification within a configuration.
-     * 
-     */
     @Import(name="classification")
     private @Nullable Output<String> classification;
 
-    /**
-     * @return The classification within a configuration.
-     * 
-     */
     public Optional<Output<String>> classification() {
         return Optional.ofNullable(this.classification);
     }
 
-    /**
-     * A map of properties specified within a configuration classification
-     * 
-     */
     @Import(name="properties")
     private @Nullable Output<Map<String,String>> properties;
 
-    /**
-     * @return A map of properties specified within a configuration classification
-     * 
-     */
     public Optional<Output<Map<String,String>>> properties() {
         return Optional.ofNullable(this.properties);
     }
@@ -71,44 +55,20 @@ public final class InstanceFleetInstanceTypeConfigConfigurationArgs extends com.
             $ = new InstanceFleetInstanceTypeConfigConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param classification The classification within a configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder classification(@Nullable Output<String> classification) {
             $.classification = classification;
             return this;
         }
 
-        /**
-         * @param classification The classification within a configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder classification(String classification) {
             return classification(Output.of(classification));
         }
 
-        /**
-         * @param properties A map of properties specified within a configuration classification
-         * 
-         * @return builder
-         * 
-         */
         public Builder properties(@Nullable Output<Map<String,String>> properties) {
             $.properties = properties;
             return this;
         }
 
-        /**
-         * @param properties A map of properties specified within a configuration classification
-         * 
-         * @return builder
-         * 
-         */
         public Builder properties(Map<String,String> properties) {
             return properties(Output.of(properties));
         }

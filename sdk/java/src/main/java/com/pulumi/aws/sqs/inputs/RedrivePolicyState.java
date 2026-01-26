@@ -15,47 +15,23 @@ public final class RedrivePolicyState extends com.pulumi.resources.ResourceArgs 
 
     public static final RedrivePolicyState Empty = new RedrivePolicyState();
 
-    /**
-     * The URL of the SQS Queue to which to attach the policy
-     * 
-     */
     @Import(name="queueUrl")
     private @Nullable Output<String> queueUrl;
 
-    /**
-     * @return The URL of the SQS Queue to which to attach the policy
-     * 
-     */
     public Optional<Output<String>> queueUrl() {
         return Optional.ofNullable(this.queueUrl);
     }
 
-    /**
-     * The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
-     * 
-     */
     @Import(name="redrivePolicy")
     private @Nullable Output<String> redrivePolicy;
 
-    /**
-     * @return The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
-     * 
-     */
     public Optional<Output<String>> redrivePolicy() {
         return Optional.ofNullable(this.redrivePolicy);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -86,65 +62,29 @@ public final class RedrivePolicyState extends com.pulumi.resources.ResourceArgs 
             $ = new RedrivePolicyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param queueUrl The URL of the SQS Queue to which to attach the policy
-         * 
-         * @return builder
-         * 
-         */
         public Builder queueUrl(@Nullable Output<String> queueUrl) {
             $.queueUrl = queueUrl;
             return this;
         }
 
-        /**
-         * @param queueUrl The URL of the SQS Queue to which to attach the policy
-         * 
-         * @return builder
-         * 
-         */
         public Builder queueUrl(String queueUrl) {
             return queueUrl(Output.of(queueUrl));
         }
 
-        /**
-         * @param redrivePolicy The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder redrivePolicy(@Nullable Output<String> redrivePolicy) {
             $.redrivePolicy = redrivePolicy;
             return this;
         }
 
-        /**
-         * @param redrivePolicy The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder redrivePolicy(String redrivePolicy) {
             return redrivePolicy(Output.of(redrivePolicy));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

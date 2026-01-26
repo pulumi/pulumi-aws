@@ -16,47 +16,23 @@ public final class ZoneAssociationArgs extends com.pulumi.resources.ResourceArgs
 
     public static final ZoneAssociationArgs Empty = new ZoneAssociationArgs();
 
-    /**
-     * The VPC to associate with the private hosted zone.
-     * 
-     */
     @Import(name="vpcId", required=true)
     private Output<String> vpcId;
 
-    /**
-     * @return The VPC to associate with the private hosted zone.
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }
 
-    /**
-     * The VPC&#39;s region. Defaults to the region of the AWS provider.
-     * 
-     */
     @Import(name="vpcRegion")
     private @Nullable Output<String> vpcRegion;
 
-    /**
-     * @return The VPC&#39;s region. Defaults to the region of the AWS provider.
-     * 
-     */
     public Optional<Output<String>> vpcRegion() {
         return Optional.ofNullable(this.vpcRegion);
     }
 
-    /**
-     * The private hosted zone to associate.
-     * 
-     */
     @Import(name="zoneId", required=true)
     private Output<String> zoneId;
 
-    /**
-     * @return The private hosted zone to associate.
-     * 
-     */
     public Output<String> zoneId() {
         return this.zoneId;
     }
@@ -87,65 +63,29 @@ public final class ZoneAssociationArgs extends com.pulumi.resources.ResourceArgs
             $ = new ZoneAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param vpcId The VPC to associate with the private hosted zone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId The VPC to associate with the private hosted zone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }
 
-        /**
-         * @param vpcRegion The VPC&#39;s region. Defaults to the region of the AWS provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcRegion(@Nullable Output<String> vpcRegion) {
             $.vpcRegion = vpcRegion;
             return this;
         }
 
-        /**
-         * @param vpcRegion The VPC&#39;s region. Defaults to the region of the AWS provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcRegion(String vpcRegion) {
             return vpcRegion(Output.of(vpcRegion));
         }
 
-        /**
-         * @param zoneId The private hosted zone to associate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder zoneId(Output<String> zoneId) {
             $.zoneId = zoneId;
             return this;
         }
 
-        /**
-         * @param zoneId The private hosted zone to associate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder zoneId(String zoneId) {
             return zoneId(Output.of(zoneId));
         }

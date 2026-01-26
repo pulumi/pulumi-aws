@@ -16,36 +16,16 @@ public final class GetListenerRuleActionForward extends com.pulumi.resources.Inv
 
     public static final GetListenerRuleActionForward Empty = new GetListenerRuleActionForward();
 
-    /**
-     * Target group stickiness for the rule.
-     * Detailed below.
-     * 
-     */
     @Import(name="stickinesses")
     private @Nullable List<GetListenerRuleActionForwardStickiness> stickinesses;
 
-    /**
-     * @return Target group stickiness for the rule.
-     * Detailed below.
-     * 
-     */
     public Optional<List<GetListenerRuleActionForwardStickiness>> stickinesses() {
         return Optional.ofNullable(this.stickinesses);
     }
 
-    /**
-     * Set of target groups for the action.
-     * Detailed below.
-     * 
-     */
     @Import(name="targetGroups")
     private @Nullable List<GetListenerRuleActionForwardTargetGroup> targetGroups;
 
-    /**
-     * @return Set of target groups for the action.
-     * Detailed below.
-     * 
-     */
     public Optional<List<GetListenerRuleActionForwardTargetGroup>> targetGroups() {
         return Optional.ofNullable(this.targetGroups);
     }
@@ -75,48 +55,20 @@ public final class GetListenerRuleActionForward extends com.pulumi.resources.Inv
             $ = new GetListenerRuleActionForward(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param stickinesses Target group stickiness for the rule.
-         * Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stickinesses(@Nullable List<GetListenerRuleActionForwardStickiness> stickinesses) {
             $.stickinesses = stickinesses;
             return this;
         }
 
-        /**
-         * @param stickinesses Target group stickiness for the rule.
-         * Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stickinesses(GetListenerRuleActionForwardStickiness... stickinesses) {
             return stickinesses(List.of(stickinesses));
         }
 
-        /**
-         * @param targetGroups Set of target groups for the action.
-         * Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetGroups(@Nullable List<GetListenerRuleActionForwardTargetGroup> targetGroups) {
             $.targetGroups = targetGroups;
             return this;
         }
 
-        /**
-         * @param targetGroups Set of target groups for the action.
-         * Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetGroups(GetListenerRuleActionForwardTargetGroup... targetGroups) {
             return targetGroups(List.of(targetGroups));
         }

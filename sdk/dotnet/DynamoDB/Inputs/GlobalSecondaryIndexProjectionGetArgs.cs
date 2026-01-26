@@ -14,21 +14,12 @@ namespace Pulumi.Aws.DynamoDB.Inputs
     {
         [Input("nonKeyAttributes")]
         private InputList<string>? _nonKeyAttributes;
-
-        /// <summary>
-        /// Specifies which additional attributes to include in the index.
-        /// Only valid when `ProjectionType` is `INCLUDE`.`
-        /// </summary>
         public InputList<string> NonKeyAttributes
         {
             get => _nonKeyAttributes ?? (_nonKeyAttributes = new InputList<string>());
             set => _nonKeyAttributes = value;
         }
 
-        /// <summary>
-        /// The set of attributes represented in the index.
-        /// One of `ALL`, `INCLUDE`, or `KEYS_ONLY`.
-        /// </summary>
         [Input("projectionType", required: true)]
         public Input<string> ProjectionType { get; set; } = null!;
 

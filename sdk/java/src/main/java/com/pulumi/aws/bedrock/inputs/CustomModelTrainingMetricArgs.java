@@ -14,17 +14,9 @@ public final class CustomModelTrainingMetricArgs extends com.pulumi.resources.Re
 
     public static final CustomModelTrainingMetricArgs Empty = new CustomModelTrainingMetricArgs();
 
-    /**
-     * Loss metric associated with the customization job.
-     * 
-     */
     @Import(name="trainingLoss", required=true)
     private Output<Double> trainingLoss;
 
-    /**
-     * @return Loss metric associated with the customization job.
-     * 
-     */
     public Output<Double> trainingLoss() {
         return this.trainingLoss;
     }
@@ -53,23 +45,11 @@ public final class CustomModelTrainingMetricArgs extends com.pulumi.resources.Re
             $ = new CustomModelTrainingMetricArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param trainingLoss Loss metric associated with the customization job.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trainingLoss(Output<Double> trainingLoss) {
             $.trainingLoss = trainingLoss;
             return this;
         }
 
-        /**
-         * @param trainingLoss Loss metric associated with the customization job.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trainingLoss(Double trainingLoss) {
             return trainingLoss(Output.of(trainingLoss));
         }

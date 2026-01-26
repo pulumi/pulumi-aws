@@ -12,30 +12,17 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class ServiceServiceConnectConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to use Service Connect with this service.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
-        /// <summary>
-        /// Log configuration for the container. See below.
-        /// </summary>
         [Input("logConfiguration")]
         public Input<Inputs.ServiceServiceConnectConfigurationLogConfigurationGetArgs>? LogConfiguration { get; set; }
 
-        /// <summary>
-        /// Namespace name or ARN of the `aws.servicediscovery.HttpNamespace` for use with Service Connect.
-        /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
 
         [Input("services")]
         private InputList<Inputs.ServiceServiceConnectConfigurationServiceGetArgs>? _services;
-
-        /// <summary>
-        /// List of Service Connect service objects. See below.
-        /// </summary>
         public InputList<Inputs.ServiceServiceConnectConfigurationServiceGetArgs> Services
         {
             get => _services ?? (_services = new InputList<Inputs.ServiceServiceConnectConfigurationServiceGetArgs>());

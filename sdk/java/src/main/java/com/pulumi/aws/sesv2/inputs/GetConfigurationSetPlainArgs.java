@@ -16,47 +16,23 @@ public final class GetConfigurationSetPlainArgs extends com.pulumi.resources.Inv
 
     public static final GetConfigurationSetPlainArgs Empty = new GetConfigurationSetPlainArgs();
 
-    /**
-     * The name of the configuration set.
-     * 
-     */
     @Import(name="configurationSetName", required=true)
     private String configurationSetName;
 
-    /**
-     * @return The name of the configuration set.
-     * 
-     */
     public String configurationSetName() {
         return this.configurationSetName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags for the container recipe.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Key-value map of resource tags for the container recipe.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -87,34 +63,16 @@ public final class GetConfigurationSetPlainArgs extends com.pulumi.resources.Inv
             $ = new GetConfigurationSetPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param configurationSetName The name of the configuration set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationSetName(String configurationSetName) {
             $.configurationSetName = configurationSetName;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags for the container recipe.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

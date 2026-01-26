@@ -17,62 +17,30 @@ public final class ClusterRestoreToPointInTimeArgs extends com.pulumi.resources.
 
     public static final ClusterRestoreToPointInTimeArgs Empty = new ClusterRestoreToPointInTimeArgs();
 
-    /**
-     * The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
-     * 
-     */
     @Import(name="restoreToTime")
     private @Nullable Output<String> restoreToTime;
 
-    /**
-     * @return The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
-     * 
-     */
     public Optional<Output<String>> restoreToTime() {
         return Optional.ofNullable(this.restoreToTime);
     }
 
-    /**
-     * The type of restore to be performed. Valid values are `full-copy`, `copy-on-write`.
-     * 
-     */
     @Import(name="restoreType")
     private @Nullable Output<String> restoreType;
 
-    /**
-     * @return The type of restore to be performed. Valid values are `full-copy`, `copy-on-write`.
-     * 
-     */
     public Optional<Output<String>> restoreType() {
         return Optional.ofNullable(this.restoreType);
     }
 
-    /**
-     * The identifier of the source DB cluster from which to restore. Must match the identifier of an existing DB cluster.
-     * 
-     */
     @Import(name="sourceClusterIdentifier", required=true)
     private Output<String> sourceClusterIdentifier;
 
-    /**
-     * @return The identifier of the source DB cluster from which to restore. Must match the identifier of an existing DB cluster.
-     * 
-     */
     public Output<String> sourceClusterIdentifier() {
         return this.sourceClusterIdentifier;
     }
 
-    /**
-     * A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreToTime`.
-     * 
-     */
     @Import(name="useLatestRestorableTime")
     private @Nullable Output<Boolean> useLatestRestorableTime;
 
-    /**
-     * @return A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreToTime`.
-     * 
-     */
     public Optional<Output<Boolean>> useLatestRestorableTime() {
         return Optional.ofNullable(this.useLatestRestorableTime);
     }
@@ -104,86 +72,38 @@ public final class ClusterRestoreToPointInTimeArgs extends com.pulumi.resources.
             $ = new ClusterRestoreToPointInTimeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param restoreToTime The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restoreToTime(@Nullable Output<String> restoreToTime) {
             $.restoreToTime = restoreToTime;
             return this;
         }
 
-        /**
-         * @param restoreToTime The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restoreToTime(String restoreToTime) {
             return restoreToTime(Output.of(restoreToTime));
         }
 
-        /**
-         * @param restoreType The type of restore to be performed. Valid values are `full-copy`, `copy-on-write`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restoreType(@Nullable Output<String> restoreType) {
             $.restoreType = restoreType;
             return this;
         }
 
-        /**
-         * @param restoreType The type of restore to be performed. Valid values are `full-copy`, `copy-on-write`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restoreType(String restoreType) {
             return restoreType(Output.of(restoreType));
         }
 
-        /**
-         * @param sourceClusterIdentifier The identifier of the source DB cluster from which to restore. Must match the identifier of an existing DB cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceClusterIdentifier(Output<String> sourceClusterIdentifier) {
             $.sourceClusterIdentifier = sourceClusterIdentifier;
             return this;
         }
 
-        /**
-         * @param sourceClusterIdentifier The identifier of the source DB cluster from which to restore. Must match the identifier of an existing DB cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceClusterIdentifier(String sourceClusterIdentifier) {
             return sourceClusterIdentifier(Output.of(sourceClusterIdentifier));
         }
 
-        /**
-         * @param useLatestRestorableTime A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreToTime`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder useLatestRestorableTime(@Nullable Output<Boolean> useLatestRestorableTime) {
             $.useLatestRestorableTime = useLatestRestorableTime;
             return this;
         }
 
-        /**
-         * @param useLatestRestorableTime A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreToTime`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder useLatestRestorableTime(Boolean useLatestRestorableTime) {
             return useLatestRestorableTime(Output.of(useLatestRestorableTime));
         }

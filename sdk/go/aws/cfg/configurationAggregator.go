@@ -11,138 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS Config Configuration Aggregator
-//
-// ## Example Usage
-//
-// ### Account Based Aggregation
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cfg"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cfg.NewConfigurationAggregator(ctx, "account", &cfg.ConfigurationAggregatorArgs{
-//				Name: pulumi.String("example"),
-//				AccountAggregationSource: &cfg.ConfigurationAggregatorAccountAggregationSourceArgs{
-//					AccountIds: pulumi.StringArray{
-//						pulumi.String("123456789012"),
-//					},
-//					Regions: pulumi.StringArray{
-//						pulumi.String("us-west-2"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Organization Based Aggregation
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cfg"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"config.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			organizationRole, err := iam.NewRole(ctx, "organization", &iam.RoleArgs{
-//				Name:             pulumi.String("example"),
-//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			organizationRolePolicyAttachment, err := iam.NewRolePolicyAttachment(ctx, "organization", &iam.RolePolicyAttachmentArgs{
-//				Role:      organizationRole.Name,
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cfg.NewConfigurationAggregator(ctx, "organization", &cfg.ConfigurationAggregatorArgs{
-//				Name: pulumi.String("example"),
-//				OrganizationAggregationSource: &cfg.ConfigurationAggregatorOrganizationAggregationSourceArgs{
-//					AllRegions: pulumi.Bool(true),
-//					RoleArn:    organizationRole.Arn,
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				organizationRolePolicyAttachment,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Configuration Aggregators using the name. For example:
-//
-// ```sh
-// $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
-// ```
 type ConfigurationAggregator struct {
 	pulumi.CustomResourceState
 
-	// The account(s) to aggregate config data from as documented below.
-	AccountAggregationSource ConfigurationAggregatorAccountAggregationSourcePtrOutput `pulumi:"accountAggregationSource"`
-	// The ARN of the aggregator
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of the configuration aggregator.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The organization to aggregate config data from as documented below.
+	AccountAggregationSource      ConfigurationAggregatorAccountAggregationSourcePtrOutput      `pulumi:"accountAggregationSource"`
+	Arn                           pulumi.StringOutput                                           `pulumi:"arn"`
+	Name                          pulumi.StringOutput                                           `pulumi:"name"`
 	OrganizationAggregationSource ConfigurationAggregatorOrganizationAggregationSourcePtrOutput `pulumi:"organizationAggregationSource"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Region                        pulumi.StringOutput                                           `pulumi:"region"`
+	Tags                          pulumi.StringMapOutput                                        `pulumi:"tags"`
+	TagsAll                       pulumi.StringMapOutput                                        `pulumi:"tagsAll"`
 }
 
 // NewConfigurationAggregator registers a new resource with the given unique name, arguments, and options.
@@ -175,41 +53,23 @@ func GetConfigurationAggregator(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConfigurationAggregator resources.
 type configurationAggregatorState struct {
-	// The account(s) to aggregate config data from as documented below.
-	AccountAggregationSource *ConfigurationAggregatorAccountAggregationSource `pulumi:"accountAggregationSource"`
-	// The ARN of the aggregator
-	Arn *string `pulumi:"arn"`
-	// The name of the configuration aggregator.
-	Name *string `pulumi:"name"`
-	// The organization to aggregate config data from as documented below.
+	AccountAggregationSource      *ConfigurationAggregatorAccountAggregationSource      `pulumi:"accountAggregationSource"`
+	Arn                           *string                                               `pulumi:"arn"`
+	Name                          *string                                               `pulumi:"name"`
 	OrganizationAggregationSource *ConfigurationAggregatorOrganizationAggregationSource `pulumi:"organizationAggregationSource"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Region                        *string                                               `pulumi:"region"`
+	Tags                          map[string]string                                     `pulumi:"tags"`
+	TagsAll                       map[string]string                                     `pulumi:"tagsAll"`
 }
 
 type ConfigurationAggregatorState struct {
-	// The account(s) to aggregate config data from as documented below.
-	AccountAggregationSource ConfigurationAggregatorAccountAggregationSourcePtrInput
-	// The ARN of the aggregator
-	Arn pulumi.StringPtrInput
-	// The name of the configuration aggregator.
-	Name pulumi.StringPtrInput
-	// The organization to aggregate config data from as documented below.
+	AccountAggregationSource      ConfigurationAggregatorAccountAggregationSourcePtrInput
+	Arn                           pulumi.StringPtrInput
+	Name                          pulumi.StringPtrInput
 	OrganizationAggregationSource ConfigurationAggregatorOrganizationAggregationSourcePtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Region                        pulumi.StringPtrInput
+	Tags                          pulumi.StringMapInput
+	TagsAll                       pulumi.StringMapInput
 }
 
 func (ConfigurationAggregatorState) ElementType() reflect.Type {
@@ -217,34 +77,20 @@ func (ConfigurationAggregatorState) ElementType() reflect.Type {
 }
 
 type configurationAggregatorArgs struct {
-	// The account(s) to aggregate config data from as documented below.
-	AccountAggregationSource *ConfigurationAggregatorAccountAggregationSource `pulumi:"accountAggregationSource"`
-	// The name of the configuration aggregator.
-	Name *string `pulumi:"name"`
-	// The organization to aggregate config data from as documented below.
+	AccountAggregationSource      *ConfigurationAggregatorAccountAggregationSource      `pulumi:"accountAggregationSource"`
+	Name                          *string                                               `pulumi:"name"`
 	OrganizationAggregationSource *ConfigurationAggregatorOrganizationAggregationSource `pulumi:"organizationAggregationSource"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
-	Tags map[string]string `pulumi:"tags"`
+	Region                        *string                                               `pulumi:"region"`
+	Tags                          map[string]string                                     `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ConfigurationAggregator resource.
 type ConfigurationAggregatorArgs struct {
-	// The account(s) to aggregate config data from as documented below.
-	AccountAggregationSource ConfigurationAggregatorAccountAggregationSourcePtrInput
-	// The name of the configuration aggregator.
-	Name pulumi.StringPtrInput
-	// The organization to aggregate config data from as documented below.
+	AccountAggregationSource      ConfigurationAggregatorAccountAggregationSourcePtrInput
+	Name                          pulumi.StringPtrInput
 	OrganizationAggregationSource ConfigurationAggregatorOrganizationAggregationSourcePtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
-	Tags pulumi.StringMapInput
+	Region                        pulumi.StringPtrInput
+	Tags                          pulumi.StringMapInput
 }
 
 func (ConfigurationAggregatorArgs) ElementType() reflect.Type {
@@ -334,43 +180,34 @@ func (o ConfigurationAggregatorOutput) ToConfigurationAggregatorOutputWithContex
 	return o
 }
 
-// The account(s) to aggregate config data from as documented below.
 func (o ConfigurationAggregatorOutput) AccountAggregationSource() ConfigurationAggregatorAccountAggregationSourcePtrOutput {
 	return o.ApplyT(func(v *ConfigurationAggregator) ConfigurationAggregatorAccountAggregationSourcePtrOutput {
 		return v.AccountAggregationSource
 	}).(ConfigurationAggregatorAccountAggregationSourcePtrOutput)
 }
 
-// The ARN of the aggregator
 func (o ConfigurationAggregatorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationAggregator) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name of the configuration aggregator.
 func (o ConfigurationAggregatorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationAggregator) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The organization to aggregate config data from as documented below.
 func (o ConfigurationAggregatorOutput) OrganizationAggregationSource() ConfigurationAggregatorOrganizationAggregationSourcePtrOutput {
 	return o.ApplyT(func(v *ConfigurationAggregator) ConfigurationAggregatorOrganizationAggregationSourcePtrOutput {
 		return v.OrganizationAggregationSource
 	}).(ConfigurationAggregatorOrganizationAggregationSourcePtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ConfigurationAggregatorOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationAggregator) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-//
-// Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
 func (o ConfigurationAggregatorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConfigurationAggregator) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ConfigurationAggregatorOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConfigurationAggregator) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -14,10 +14,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSecurityGroupsResult {
-    /**
-     * @return ARNs of the matched security groups.
-     * 
-     */
     private List<String> arns;
     private @Nullable List<GetSecurityGroupsFilter> filters;
     /**
@@ -25,24 +21,12 @@ public final class GetSecurityGroupsResult {
      * 
      */
     private String id;
-    /**
-     * @return IDs of the matches security groups.
-     * 
-     */
     private List<String> ids;
     private String region;
     private Map<String,String> tags;
-    /**
-     * @return VPC IDs of the matched security groups. The data source&#39;s tag or filter *will span VPCs* unless the `vpc-id` filter is also used.
-     * 
-     */
     private List<String> vpcIds;
 
     private GetSecurityGroupsResult() {}
-    /**
-     * @return ARNs of the matched security groups.
-     * 
-     */
     public List<String> arns() {
         return this.arns;
     }
@@ -56,10 +40,6 @@ public final class GetSecurityGroupsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return IDs of the matches security groups.
-     * 
-     */
     public List<String> ids() {
         return this.ids;
     }
@@ -69,10 +49,6 @@ public final class GetSecurityGroupsResult {
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return VPC IDs of the matched security groups. The data source&#39;s tag or filter *will span VPCs* unless the `vpc-id` filter is also used.
-     * 
-     */
     public List<String> vpcIds() {
         return this.vpcIds;
     }

@@ -15,129 +15,35 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Verified Permissions Policy.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.verifiedpermissions.Policy;
- * import com.pulumi.aws.verifiedpermissions.PolicyArgs;
- * import com.pulumi.aws.verifiedpermissions.inputs.PolicyDefinitionArgs;
- * import com.pulumi.aws.verifiedpermissions.inputs.PolicyDefinitionStaticArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new Policy("test", PolicyArgs.builder()
- *             .policyStoreId(testAwsVerifiedpermissionsPolicyStore.id())
- *             .definition(PolicyDefinitionArgs.builder()
- *                 .static_(PolicyDefinitionStaticArgs.builder()
- *                     .statement("permit (principal, action == Action::\"view\", resource in Album:: \"test_album\");")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Verified Permissions Policy using the `policy_id,policy_store_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:verifiedpermissions/policy:Policy example policy-id-12345678,policy-store-id-12345678
- * ```
- * 
- */
 @ResourceType(type="aws:verifiedpermissions/policy:Policy")
 public class Policy extends com.pulumi.resources.CustomResource {
-    /**
-     * The date the policy was created.
-     * 
-     */
     @Export(name="createdDate", refs={String.class}, tree="[0]")
     private Output<String> createdDate;
 
-    /**
-     * @return The date the policy was created.
-     * 
-     */
     public Output<String> createdDate() {
         return this.createdDate;
     }
-    /**
-     * The definition of the policy. See Definition below.
-     * 
-     */
     @Export(name="definition", refs={PolicyDefinition.class}, tree="[0]")
     private Output</* @Nullable */ PolicyDefinition> definition;
 
-    /**
-     * @return The definition of the policy. See Definition below.
-     * 
-     */
     public Output<Optional<PolicyDefinition>> definition() {
         return Codegen.optional(this.definition);
     }
-    /**
-     * The Policy ID of the policy.
-     * 
-     */
     @Export(name="policyId", refs={String.class}, tree="[0]")
     private Output<String> policyId;
 
-    /**
-     * @return The Policy ID of the policy.
-     * 
-     */
     public Output<String> policyId() {
         return this.policyId;
     }
-    /**
-     * The Policy Store ID of the policy store.
-     * 
-     */
     @Export(name="policyStoreId", refs={String.class}, tree="[0]")
     private Output<String> policyStoreId;
 
-    /**
-     * @return The Policy Store ID of the policy store.
-     * 
-     */
     public Output<String> policyStoreId() {
         return this.policyStoreId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

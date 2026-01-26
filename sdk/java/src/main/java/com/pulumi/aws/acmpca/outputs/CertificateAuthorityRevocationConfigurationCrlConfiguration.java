@@ -13,65 +13,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CertificateAuthorityRevocationConfigurationCrlConfiguration {
-    /**
-     * @return Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don&#39;t want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
-     * 
-     */
     private @Nullable String customCname;
-    /**
-     * @return Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return Number of days until a certificate expires. Must be between 1 and 5000.
-     * 
-     */
     private @Nullable Integer expirationInDays;
-    /**
-     * @return Name of the S3 bucket that contains the CRL. If you do not provide a value for the `customCname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be between 3 and 255 characters in length.
-     * 
-     */
     private @Nullable String s3BucketName;
-    /**
-     * @return Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. Defaults to `PUBLIC_READ`.
-     * 
-     */
     private @Nullable String s3ObjectAcl;
 
     private CertificateAuthorityRevocationConfigurationCrlConfiguration() {}
-    /**
-     * @return Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don&#39;t want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
-     * 
-     */
     public Optional<String> customCname() {
         return Optional.ofNullable(this.customCname);
     }
-    /**
-     * @return Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return Number of days until a certificate expires. Must be between 1 and 5000.
-     * 
-     */
     public Optional<Integer> expirationInDays() {
         return Optional.ofNullable(this.expirationInDays);
     }
-    /**
-     * @return Name of the S3 bucket that contains the CRL. If you do not provide a value for the `customCname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be between 3 and 255 characters in length.
-     * 
-     */
     public Optional<String> s3BucketName() {
         return Optional.ofNullable(this.s3BucketName);
     }
-    /**
-     * @return Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. Defaults to `PUBLIC_READ`.
-     * 
-     */
     public Optional<String> s3ObjectAcl() {
         return Optional.ofNullable(this.s3ObjectAcl);
     }

@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirehoseDeliveryStreamMskSourceConfiguration {
-    /**
-     * @return The authentication configuration of the Amazon MSK cluster. See `authenticationConfiguration` block below for details.
-     * 
-     */
     private FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration authenticationConfiguration;
-    /**
-     * @return The ARN of the Amazon MSK cluster.
-     * 
-     */
     private String mskClusterArn;
-    /**
-     * @return The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. If you want to create a Firehose stream with Earliest start position set the `readFromTimestamp` parameter to Epoch (1970-01-01T00:00:00Z).
-     * 
-     */
     private @Nullable String readFromTimestamp;
-    /**
-     * @return The topic name within the Amazon MSK cluster.
-     * 
-     */
     private String topicName;
 
     private FirehoseDeliveryStreamMskSourceConfiguration() {}
-    /**
-     * @return The authentication configuration of the Amazon MSK cluster. See `authenticationConfiguration` block below for details.
-     * 
-     */
     public FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration authenticationConfiguration() {
         return this.authenticationConfiguration;
     }
-    /**
-     * @return The ARN of the Amazon MSK cluster.
-     * 
-     */
     public String mskClusterArn() {
         return this.mskClusterArn;
     }
-    /**
-     * @return The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. If you want to create a Firehose stream with Earliest start position set the `readFromTimestamp` parameter to Epoch (1970-01-01T00:00:00Z).
-     * 
-     */
     public Optional<String> readFromTimestamp() {
         return Optional.ofNullable(this.readFromTimestamp);
     }
-    /**
-     * @return The topic name within the Amazon MSK cluster.
-     * 
-     */
     public String topicName() {
         return this.topicName;
     }

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AppCacheConfig {
-    /**
-     * @return Type of cache configuration to use for an Amplify app. Valid values: `AMPLIFY_MANAGED`, `AMPLIFY_MANAGED_NO_COOKIES`.
-     * 
-     */
     private String type;
 
     private AppCacheConfig() {}
-    /**
-     * @return Type of cache configuration to use for an Amplify app. Valid values: `AMPLIFY_MANAGED`, `AMPLIFY_MANAGED_NO_COOKIES`.
-     * 
-     */
     public String type() {
         return this.type;
     }

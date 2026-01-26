@@ -9,68 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SesV2
 {
-    /// <summary>
-    /// Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SesV2.EmailIdentity("example", new()
-    ///     {
-    ///         EmailIdentityDetails = "example.com",
-    ///     });
-    /// 
-    ///     var exampleEmailIdentityMailFromAttributes = new Aws.SesV2.EmailIdentityMailFromAttributes("example", new()
-    ///     {
-    ///         EmailIdentity = example.EmailIdentityDetails,
-    ///         BehaviorOnMxFailure = "REJECT_MESSAGE",
-    ///         MailFromDomain = example.EmailIdentityDetails.Apply(emailIdentity =&gt; $"subdomain.{emailIdentity}"),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Mail From Attributes using the `email_identity`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes example example.com
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes")]
     public partial class EmailIdentityMailFromAttributes : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
-        /// </summary>
         [Output("behaviorOnMxFailure")]
         public Output<string?> BehaviorOnMxFailure { get; private set; } = null!;
 
-        /// <summary>
-        /// The verified email identity.
-        /// </summary>
         [Output("emailIdentity")]
         public Output<string> EmailIdentity { get; private set; } = null!;
 
-        /// <summary>
-        /// The custom MAIL FROM domain that you want the verified identity to use. Required if `BehaviorOnMxFailure` is `REJECT_MESSAGE`.
-        /// </summary>
         [Output("mailFromDomain")]
         public Output<string?> MailFromDomain { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -120,27 +70,15 @@ namespace Pulumi.Aws.SesV2
 
     public sealed class EmailIdentityMailFromAttributesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
-        /// </summary>
         [Input("behaviorOnMxFailure")]
         public Input<string>? BehaviorOnMxFailure { get; set; }
 
-        /// <summary>
-        /// The verified email identity.
-        /// </summary>
         [Input("emailIdentity", required: true)]
         public Input<string> EmailIdentity { get; set; } = null!;
 
-        /// <summary>
-        /// The custom MAIL FROM domain that you want the verified identity to use. Required if `BehaviorOnMxFailure` is `REJECT_MESSAGE`.
-        /// </summary>
         [Input("mailFromDomain")]
         public Input<string>? MailFromDomain { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -152,27 +90,15 @@ namespace Pulumi.Aws.SesV2
 
     public sealed class EmailIdentityMailFromAttributesState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
-        /// </summary>
         [Input("behaviorOnMxFailure")]
         public Input<string>? BehaviorOnMxFailure { get; set; }
 
-        /// <summary>
-        /// The verified email identity.
-        /// </summary>
         [Input("emailIdentity")]
         public Input<string>? EmailIdentity { get; set; }
 
-        /// <summary>
-        /// The custom MAIL FROM domain that you want the verified identity to use. Required if `BehaviorOnMxFailure` is `REJECT_MESSAGE`.
-        /// </summary>
         [Input("mailFromDomain")]
         public Input<string>? MailFromDomain { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

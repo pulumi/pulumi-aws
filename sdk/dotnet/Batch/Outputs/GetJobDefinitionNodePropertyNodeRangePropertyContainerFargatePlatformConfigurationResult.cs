@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Batch.Outputs
     [OutputType]
     public sealed class GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationResult
     {
-        /// <summary>
-        /// The AWS Fargate platform version where the jobs are running. A platform version is specified only for jobs that are running on Fargate resources.
-        /// </summary>
         public readonly string PlatformVersion;
 
         [OutputConstructor]

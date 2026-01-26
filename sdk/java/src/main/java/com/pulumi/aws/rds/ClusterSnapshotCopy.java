@@ -19,223 +19,71 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an RDS database cluster snapshot copy. For managing RDS database instance snapshot copies, see the `aws.rds.SnapshotCopy` resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.rds.Cluster;
- * import com.pulumi.aws.rds.ClusterArgs;
- * import com.pulumi.aws.rds.ClusterSnapshot;
- * import com.pulumi.aws.rds.ClusterSnapshotArgs;
- * import com.pulumi.aws.rds.ClusterSnapshotCopy;
- * import com.pulumi.aws.rds.ClusterSnapshotCopyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Cluster("example", ClusterArgs.builder()
- *             .clusterIdentifier("aurora-cluster-demo")
- *             .databaseName("test")
- *             .engine("aurora-mysql")
- *             .masterUsername("tfacctest")
- *             .masterPassword("avoid-plaintext-passwords")
- *             .skipFinalSnapshot(true)
- *             .build());
- * 
- *         var exampleClusterSnapshot = new ClusterSnapshot("exampleClusterSnapshot", ClusterSnapshotArgs.builder()
- *             .dbClusterIdentifier(example.clusterIdentifier())
- *             .dbClusterSnapshotIdentifier("example")
- *             .build());
- * 
- *         var exampleClusterSnapshotCopy = new ClusterSnapshotCopy("exampleClusterSnapshotCopy", ClusterSnapshotCopyArgs.builder()
- *             .sourceDbClusterSnapshotIdentifier(exampleClusterSnapshot.dbClusterSnapshotArn())
- *             .targetDbClusterSnapshotIdentifier("example-copy")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_rds_cluster_snapshot_copy` using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:rds/clusterSnapshotCopy:ClusterSnapshotCopy example my-snapshot
- * ```
- * 
- */
 @ResourceType(type="aws:rds/clusterSnapshotCopy:ClusterSnapshotCopy")
 public class ClusterSnapshotCopy extends com.pulumi.resources.CustomResource {
-    /**
-     * Specifies the allocated storage size in gigabytes (GB).
-     * 
-     */
     @Export(name="allocatedStorage", refs={Integer.class}, tree="[0]")
     private Output<Integer> allocatedStorage;
 
-    /**
-     * @return Specifies the allocated storage size in gigabytes (GB).
-     * 
-     */
     public Output<Integer> allocatedStorage() {
         return this.allocatedStorage;
     }
-    /**
-     * Whether to copy existing tags. Defaults to `false`.
-     * 
-     */
     @Export(name="copyTags", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> copyTags;
 
-    /**
-     * @return Whether to copy existing tags. Defaults to `false`.
-     * 
-     */
     public Output<Optional<Boolean>> copyTags() {
         return Codegen.optional(this.copyTags);
     }
-    /**
-     * The Amazon Resource Name (ARN) for the DB cluster snapshot.
-     * 
-     */
     @Export(name="dbClusterSnapshotArn", refs={String.class}, tree="[0]")
     private Output<String> dbClusterSnapshotArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) for the DB cluster snapshot.
-     * 
-     */
     public Output<String> dbClusterSnapshotArn() {
         return this.dbClusterSnapshotArn;
     }
-    /**
-     * The Destination region to place snapshot copy.
-     * 
-     */
     @Export(name="destinationRegion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> destinationRegion;
 
-    /**
-     * @return The Destination region to place snapshot copy.
-     * 
-     */
     public Output<Optional<String>> destinationRegion() {
         return Codegen.optional(this.destinationRegion);
     }
-    /**
-     * Specifies the name of the database engine.
-     * 
-     */
     @Export(name="engine", refs={String.class}, tree="[0]")
     private Output<String> engine;
 
-    /**
-     * @return Specifies the name of the database engine.
-     * 
-     */
     public Output<String> engine() {
         return this.engine;
     }
-    /**
-     * Specifies the version of the database engine.
-     * 
-     */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
-    /**
-     * @return Specifies the version of the database engine.
-     * 
-     */
     public Output<String> engineVersion() {
         return this.engineVersion;
     }
-    /**
-     * KMS key ID.
-     * 
-     */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyId;
 
-    /**
-     * @return KMS key ID.
-     * 
-     */
     public Output<Optional<String>> kmsKeyId() {
         return Codegen.optional(this.kmsKeyId);
     }
-    /**
-     * License model information for the restored DB instance.
-     * 
-     */
     @Export(name="licenseModel", refs={String.class}, tree="[0]")
     private Output<String> licenseModel;
 
-    /**
-     * @return License model information for the restored DB instance.
-     * 
-     */
     public Output<String> licenseModel() {
         return this.licenseModel;
     }
-    /**
-     * URL that contains a Signature Version 4 signed request.
-     * 
-     */
     @Export(name="presignedUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> presignedUrl;
 
-    /**
-     * @return URL that contains a Signature Version 4 signed request.
-     * 
-     */
     public Output<Optional<String>> presignedUrl() {
         return Codegen.optional(this.presignedUrl);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
-     * 
-     */
     @Export(name="sharedAccounts", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sharedAccounts;
 
-    /**
-     * @return List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
-     * 
-     */
     public Output<Optional<List<String>>> sharedAccounts() {
         return Codegen.optional(this.sharedAccounts);
     }
@@ -245,91 +93,39 @@ public class ClusterSnapshotCopy extends com.pulumi.resources.CustomResource {
     public Output<String> snapshotType() {
         return this.snapshotType;
     }
-    /**
-     * Identifier of the source snapshot.
-     * 
-     */
     @Export(name="sourceDbClusterSnapshotIdentifier", refs={String.class}, tree="[0]")
     private Output<String> sourceDbClusterSnapshotIdentifier;
 
-    /**
-     * @return Identifier of the source snapshot.
-     * 
-     */
     public Output<String> sourceDbClusterSnapshotIdentifier() {
         return this.sourceDbClusterSnapshotIdentifier;
     }
-    /**
-     * Specifies whether the DB cluster snapshot is encrypted.
-     * 
-     */
     @Export(name="storageEncrypted", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> storageEncrypted;
 
-    /**
-     * @return Specifies whether the DB cluster snapshot is encrypted.
-     * 
-     */
     public Output<Boolean> storageEncrypted() {
         return this.storageEncrypted;
     }
-    /**
-     * Specifies the storage type associated with DB cluster snapshot.
-     * 
-     */
     @Export(name="storageType", refs={String.class}, tree="[0]")
     private Output<String> storageType;
 
-    /**
-     * @return Specifies the storage type associated with DB cluster snapshot.
-     * 
-     */
     public Output<String> storageType() {
         return this.storageType;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Identifier for the snapshot.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="targetDbClusterSnapshotIdentifier", refs={String.class}, tree="[0]")
     private Output<String> targetDbClusterSnapshotIdentifier;
 
-    /**
-     * @return Identifier for the snapshot.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> targetDbClusterSnapshotIdentifier() {
         return this.targetDbClusterSnapshotIdentifier;
     }
@@ -339,17 +135,9 @@ public class ClusterSnapshotCopy extends com.pulumi.resources.CustomResource {
     public Output<Optional<ClusterSnapshotCopyTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * Provides the VPC ID associated with the DB cluster snapshot.
-     * 
-     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
-    /**
-     * @return Provides the VPC ID associated with the DB cluster snapshot.
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }

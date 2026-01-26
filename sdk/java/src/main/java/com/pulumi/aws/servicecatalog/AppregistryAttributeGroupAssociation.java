@@ -13,73 +13,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Service Catalog AppRegistry Attribute Group Association.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.servicecatalog.AppregistryApplication;
- * import com.pulumi.aws.servicecatalog.AppregistryApplicationArgs;
- * import com.pulumi.aws.servicecatalog.AppregistryAttributeGroup;
- * import com.pulumi.aws.servicecatalog.AppregistryAttributeGroupArgs;
- * import com.pulumi.aws.servicecatalog.AppregistryAttributeGroupAssociation;
- * import com.pulumi.aws.servicecatalog.AppregistryAttributeGroupAssociationArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AppregistryApplication("example", AppregistryApplicationArgs.builder()
- *             .name("example-app")
- *             .build());
- * 
- *         var exampleAppregistryAttributeGroup = new AppregistryAttributeGroup("exampleAppregistryAttributeGroup", AppregistryAttributeGroupArgs.builder()
- *             .name("example")
- *             .description("example description")
- *             .attributes(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("app", "exampleapp"),
- *                     jsonProperty("group", "examplegroup")
- *                 )))
- *             .build());
- * 
- *         var exampleAppregistryAttributeGroupAssociation = new AppregistryAttributeGroupAssociation("exampleAppregistryAttributeGroupAssociation", AppregistryAttributeGroupAssociationArgs.builder()
- *             .applicationId(example.id())
- *             .attributeGroupId(exampleAppregistryAttributeGroup.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Service Catalog AppRegistry Attribute Group Association using `application_id` and `attribute_group_id` arguments separated by a comma (`,`). For example:
- * 
- * ```sh
- * $ pulumi import aws:servicecatalog/appregistryAttributeGroupAssociation:AppregistryAttributeGroupAssociation example 12456778723424sdffsdfsdq34,12234t3564dsfsdf34asff4ww3
- * ```
- * 
- */
 @ResourceType(type="aws:servicecatalog/appregistryAttributeGroupAssociation:AppregistryAttributeGroupAssociation")
 public class AppregistryAttributeGroupAssociation extends com.pulumi.resources.CustomResource {
     /**
@@ -110,17 +43,9 @@ public class AppregistryAttributeGroupAssociation extends com.pulumi.resources.C
     public Output<String> attributeGroupId() {
         return this.attributeGroupId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

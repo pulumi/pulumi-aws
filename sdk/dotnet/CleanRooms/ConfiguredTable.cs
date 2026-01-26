@@ -9,129 +9,39 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CleanRooms
 {
-    /// <summary>
-    /// Provides a AWS Clean Rooms configured table. Configured tables are used to represent references to existing tables in the AWS Glue Data Catalog.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Configured table with tags
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testConfiguredTable = new Aws.CleanRooms.ConfiguredTable("test_configured_table", new()
-    ///     {
-    ///         Name = "pulumi-example-table",
-    ///         Description = "I made this table with Pulumi!",
-    ///         AnalysisMethod = "DIRECT_QUERY",
-    ///         AllowedColumns = new[]
-    ///         {
-    ///             "column1",
-    ///             "column2",
-    ///             "column3",
-    ///         },
-    ///         TableReference = new Aws.CleanRooms.Inputs.ConfiguredTableTableReferenceArgs
-    ///         {
-    ///             DatabaseName = "example_database",
-    ///             TableName = "example_table",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Project", "Pulumi" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// * `id` - (String) ID of the cleanrooms configured table.
-    /// 
-    /// #### Optional
-    /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
-    /// 
-    /// * `region` (String) Region where this resource is managed.
-    /// 
-    /// Using `pulumi import`, import `aws_cleanrooms_configured_table` using the `id`. For example:
-    /// 
-    /// % pulumi import aws_cleanrooms_configured_table.table 1234abcd-12ab-34cd-56ef-1234567890ab
-    /// </summary>
     [AwsResourceType("aws:cleanrooms/configuredTable:ConfiguredTable")]
     public partial class ConfiguredTable : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The columns of the references table which will be included in the configured table.
-        /// </summary>
         [Output("allowedColumns")]
         public Output<ImmutableArray<string>> AllowedColumns { get; private set; } = null!;
 
-        /// <summary>
-        /// The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
-        /// </summary>
         [Output("analysisMethod")]
         public Output<string> AnalysisMethod { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the configured table.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The date and time the configured table was created.
-        /// </summary>
         [Output("createTime")]
         public Output<string> CreateTime { get; private set; } = null!;
 
-        /// <summary>
-        /// A description for the configured table.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the configured table.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// A reference to the AWS Glue table which will be used to create the configured table.
-        /// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-        /// * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
-        /// </summary>
         [Output("tableReference")]
         public Output<Outputs.ConfiguredTableTableReference> TableReference { get; private set; } = null!;
 
-        /// <summary>
-        /// Key value pairs which tag the configured table.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The date and time the configured table was last updated.
-        /// </summary>
         [Output("updateTime")]
         public Output<string> UpdateTime { get; private set; } = null!;
 
@@ -183,54 +93,29 @@ namespace Pulumi.Aws.CleanRooms
     {
         [Input("allowedColumns", required: true)]
         private InputList<string>? _allowedColumns;
-
-        /// <summary>
-        /// The columns of the references table which will be included in the configured table.
-        /// </summary>
         public InputList<string> AllowedColumns
         {
             get => _allowedColumns ?? (_allowedColumns = new InputList<string>());
             set => _allowedColumns = value;
         }
 
-        /// <summary>
-        /// The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
-        /// </summary>
         [Input("analysisMethod", required: true)]
         public Input<string> AnalysisMethod { get; set; } = null!;
 
-        /// <summary>
-        /// A description for the configured table.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The name of the configured table.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// A reference to the AWS Glue table which will be used to create the configured table.
-        /// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-        /// * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
-        /// </summary>
         [Input("tableReference", required: true)]
         public Input<Inputs.ConfiguredTableTableReferenceArgs> TableReference { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key value pairs which tag the configured table.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -247,66 +132,35 @@ namespace Pulumi.Aws.CleanRooms
     {
         [Input("allowedColumns")]
         private InputList<string>? _allowedColumns;
-
-        /// <summary>
-        /// The columns of the references table which will be included in the configured table.
-        /// </summary>
         public InputList<string> AllowedColumns
         {
             get => _allowedColumns ?? (_allowedColumns = new InputList<string>());
             set => _allowedColumns = value;
         }
 
-        /// <summary>
-        /// The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
-        /// </summary>
         [Input("analysisMethod")]
         public Input<string>? AnalysisMethod { get; set; }
 
-        /// <summary>
-        /// The ARN of the configured table.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The date and time the configured table was created.
-        /// </summary>
         [Input("createTime")]
         public Input<string>? CreateTime { get; set; }
 
-        /// <summary>
-        /// A description for the configured table.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The name of the configured table.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// A reference to the AWS Glue table which will be used to create the configured table.
-        /// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-        /// * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
-        /// </summary>
         [Input("tableReference")]
         public Input<Inputs.ConfiguredTableTableReferenceGetArgs>? TableReference { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key value pairs which tag the configured table.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -321,9 +175,6 @@ namespace Pulumi.Aws.CleanRooms
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The date and time the configured table was last updated.
-        /// </summary>
         [Input("updateTime")]
         public Input<string>? UpdateTime { get; set; }
 

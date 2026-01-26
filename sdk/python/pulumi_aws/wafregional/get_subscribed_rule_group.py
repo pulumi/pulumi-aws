@@ -81,36 +81,7 @@ def get_subscribed_rule_group(metric_name: Optional[_builtins.str] = None,
                               region: Optional[_builtins.str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubscribedRuleGroupResult:
     """
-    `wafregional_get_subscribed_rule_group` retrieves information about a Managed WAF Rule Group from AWS Marketplace for use in WAF Regional (needs to be subscribed to first).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    by_name = aws.wafregional.get_subscribed_rule_group(name="F5 Bot Detection Signatures For AWS WAF")
-    by_metric_name = aws.wafregional.get_subscribed_rule_group(metric_name="F5BotDetectionSignatures")
-    acl = aws.wafregional.WebAcl("acl", rules=[
-        {
-            "priority": 1,
-            "rule_id": by_name.id,
-            "type": "GROUP",
-        },
-        {
-            "priority": 2,
-            "rule_id": by_metric_name.id,
-            "type": "GROUP",
-        },
-    ])
-    ```
-
-
-    :param _builtins.str metric_name: Name of the WAF rule group.
-           
-           At least one of `name` or `metric_name` must be configured.
-    :param _builtins.str name: Name of the WAF rule group.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['metricName'] = metric_name
@@ -129,36 +100,7 @@ def get_subscribed_rule_group_output(metric_name: Optional[pulumi.Input[Optional
                                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubscribedRuleGroupResult]:
     """
-    `wafregional_get_subscribed_rule_group` retrieves information about a Managed WAF Rule Group from AWS Marketplace for use in WAF Regional (needs to be subscribed to first).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    by_name = aws.wafregional.get_subscribed_rule_group(name="F5 Bot Detection Signatures For AWS WAF")
-    by_metric_name = aws.wafregional.get_subscribed_rule_group(metric_name="F5BotDetectionSignatures")
-    acl = aws.wafregional.WebAcl("acl", rules=[
-        {
-            "priority": 1,
-            "rule_id": by_name.id,
-            "type": "GROUP",
-        },
-        {
-            "priority": 2,
-            "rule_id": by_metric_name.id,
-            "type": "GROUP",
-        },
-    ])
-    ```
-
-
-    :param _builtins.str metric_name: Name of the WAF rule group.
-           
-           At least one of `name` or `metric_name` must be configured.
-    :param _builtins.str name: Name of the WAF rule group.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['metricName'] = metric_name

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentPromptVariantGenAiResource
     {
-        /// <summary>
-        /// Specifies an Amazon Bedrock agent with which to use the prompt. See Agent Configuration for more information.
-        /// </summary>
         public readonly Outputs.AgentPromptVariantGenAiResourceAgent? Agent;
 
         [OutputConstructor]

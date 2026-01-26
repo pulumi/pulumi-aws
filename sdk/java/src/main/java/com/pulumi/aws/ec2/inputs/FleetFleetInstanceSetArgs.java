@@ -16,62 +16,30 @@ public final class FleetFleetInstanceSetArgs extends com.pulumi.resources.Resour
 
     public static final FleetFleetInstanceSetArgs Empty = new FleetFleetInstanceSetArgs();
 
-    /**
-     * The IDs of the instances.
-     * 
-     */
     @Import(name="instanceIds")
     private @Nullable Output<List<String>> instanceIds;
 
-    /**
-     * @return The IDs of the instances.
-     * 
-     */
     public Optional<Output<List<String>>> instanceIds() {
         return Optional.ofNullable(this.instanceIds);
     }
 
-    /**
-     * The instance type.
-     * 
-     */
     @Import(name="instanceType")
     private @Nullable Output<String> instanceType;
 
-    /**
-     * @return The instance type.
-     * 
-     */
     public Optional<Output<String>> instanceType() {
         return Optional.ofNullable(this.instanceType);
     }
 
-    /**
-     * Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
-     * 
-     */
     @Import(name="lifecycle")
     private @Nullable Output<String> lifecycle;
 
-    /**
-     * @return Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
-     * 
-     */
     public Optional<Output<String>> lifecycle() {
         return Optional.ofNullable(this.lifecycle);
     }
 
-    /**
-     * The value is `Windows` for Windows instances. Otherwise, the value is blank.
-     * 
-     */
     @Import(name="platform")
     private @Nullable Output<String> platform;
 
-    /**
-     * @return The value is `Windows` for Windows instances. Otherwise, the value is blank.
-     * 
-     */
     public Optional<Output<String>> platform() {
         return Optional.ofNullable(this.platform);
     }
@@ -103,96 +71,42 @@ public final class FleetFleetInstanceSetArgs extends com.pulumi.resources.Resour
             $ = new FleetFleetInstanceSetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param instanceIds The IDs of the instances.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceIds(@Nullable Output<List<String>> instanceIds) {
             $.instanceIds = instanceIds;
             return this;
         }
 
-        /**
-         * @param instanceIds The IDs of the instances.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceIds(List<String> instanceIds) {
             return instanceIds(Output.of(instanceIds));
         }
 
-        /**
-         * @param instanceIds The IDs of the instances.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceIds(String... instanceIds) {
             return instanceIds(List.of(instanceIds));
         }
 
-        /**
-         * @param instanceType The instance type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceType(@Nullable Output<String> instanceType) {
             $.instanceType = instanceType;
             return this;
         }
 
-        /**
-         * @param instanceType The instance type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceType(String instanceType) {
             return instanceType(Output.of(instanceType));
         }
 
-        /**
-         * @param lifecycle Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lifecycle(@Nullable Output<String> lifecycle) {
             $.lifecycle = lifecycle;
             return this;
         }
 
-        /**
-         * @param lifecycle Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lifecycle(String lifecycle) {
             return lifecycle(Output.of(lifecycle));
         }
 
-        /**
-         * @param platform The value is `Windows` for Windows instances. Otherwise, the value is blank.
-         * 
-         * @return builder
-         * 
-         */
         public Builder platform(@Nullable Output<String> platform) {
             $.platform = platform;
             return this;
         }
 
-        /**
-         * @param platform The value is `Windows` for Windows instances. Otherwise, the value is blank.
-         * 
-         * @return builder
-         * 
-         */
         public Builder platform(String platform) {
             return platform(Output.of(platform));
         }

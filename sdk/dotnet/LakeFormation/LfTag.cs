@@ -9,65 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LakeFormation
 {
-    /// <summary>
-    /// Creates an LF-Tag with the specified name and values. Each key must have at least one value. The maximum number of values permitted is 1000.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.LakeFormation.LfTag("example", new()
-    ///     {
-    ///         Key = "module",
-    ///         Values = new[]
-    ///         {
-    ///             "Orders",
-    ///             "Sales",
-    ///             "Customers",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Lake Formation LF-Tags using the `catalog_id:key`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:lakeformation/lfTag:LfTag example 123456789012:some_key
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:lakeformation/lfTag:LfTag")]
     public partial class LfTag : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
-        /// </summary>
         [Output("catalogId")]
         public Output<string> CatalogId { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-name for the tag.
-        /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// List of possible values an attribute can take.
-        /// </summary>
         [Output("values")]
         public Output<ImmutableArray<string>> Values { get; private set; } = null!;
 
@@ -117,30 +70,17 @@ namespace Pulumi.Aws.LakeFormation
 
     public sealed class LfTagArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
-        /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
 
-        /// <summary>
-        /// Key-name for the tag.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("values", required: true)]
         private InputList<string>? _values;
-
-        /// <summary>
-        /// List of possible values an attribute can take.
-        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());
@@ -155,30 +95,17 @@ namespace Pulumi.Aws.LakeFormation
 
     public sealed class LfTagState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
-        /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
 
-        /// <summary>
-        /// Key-name for the tag.
-        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("values")]
         private InputList<string>? _values;
-
-        /// <summary>
-        /// List of possible values an attribute can take.
-        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

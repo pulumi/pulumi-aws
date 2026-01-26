@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing AWS Cognito IDP (Identity Provider) User Groups.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cognito"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cognito.GetUserGroups(ctx, &cognito.GetUserGroupsArgs{
-//				UserPoolId: "us-west-2_aaaaaaaaa",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetUserGroups(ctx *pulumi.Context, args *GetUserGroupsArgs, opts ...pulumi.InvokeOption) (*GetUserGroupsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetUserGroupsResult
@@ -52,20 +23,16 @@ func GetUserGroups(ctx *pulumi.Context, args *GetUserGroupsArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getUserGroups.
 type GetUserGroupsArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// User pool the client belongs to.
-	UserPoolId string `pulumi:"userPoolId"`
+	Region     *string `pulumi:"region"`
+	UserPoolId string  `pulumi:"userPoolId"`
 }
 
 // A collection of values returned by getUserGroups.
 type GetUserGroupsResult struct {
-	// List of groups. See `groups` below.
-	Groups []GetUserGroupsGroup `pulumi:"groups"`
-	// User pool identifier.
-	Id         string `pulumi:"id"`
-	Region     string `pulumi:"region"`
-	UserPoolId string `pulumi:"userPoolId"`
+	Groups     []GetUserGroupsGroup `pulumi:"groups"`
+	Id         string               `pulumi:"id"`
+	Region     string               `pulumi:"region"`
+	UserPoolId string               `pulumi:"userPoolId"`
 }
 
 func GetUserGroupsOutput(ctx *pulumi.Context, args GetUserGroupsOutputArgs, opts ...pulumi.InvokeOption) GetUserGroupsResultOutput {
@@ -79,10 +46,8 @@ func GetUserGroupsOutput(ctx *pulumi.Context, args GetUserGroupsOutputArgs, opts
 
 // A collection of arguments for invoking getUserGroups.
 type GetUserGroupsOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// User pool the client belongs to.
-	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
+	UserPoolId pulumi.StringInput    `pulumi:"userPoolId"`
 }
 
 func (GetUserGroupsOutputArgs) ElementType() reflect.Type {
@@ -104,12 +69,10 @@ func (o GetUserGroupsResultOutput) ToGetUserGroupsResultOutputWithContext(ctx co
 	return o
 }
 
-// List of groups. See `groups` below.
 func (o GetUserGroupsResultOutput) Groups() GetUserGroupsGroupArrayOutput {
 	return o.ApplyT(func(v GetUserGroupsResult) []GetUserGroupsGroup { return v.Groups }).(GetUserGroupsGroupArrayOutput)
 }
 
-// User pool identifier.
 func (o GetUserGroupsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserGroupsResult) string { return v.Id }).(pulumi.StringOutput)
 }

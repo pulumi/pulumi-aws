@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class SigningJobDestination {
-    /**
-     * @return A configuration block describing the S3 Destination object: See S3 Destination below for details.
-     * 
-     */
     private SigningJobDestinationS3 s3;
 
     private SigningJobDestination() {}
-    /**
-     * @return A configuration block describing the S3 Destination object: See S3 Destination below for details.
-     * 
-     */
     public SigningJobDestinationS3 s3() {
         return this.s3;
     }

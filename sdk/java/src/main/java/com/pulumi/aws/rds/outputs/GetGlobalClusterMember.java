@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGlobalClusterMember {
-    /**
-     * @return Amazon Resource Name (ARN) of member DB Cluster
-     * 
-     */
     private String dbClusterArn;
-    /**
-     * @return Whether the member is the primary DB Cluster
-     * 
-     */
     private Boolean isWriter;
 
     private GetGlobalClusterMember() {}
-    /**
-     * @return Amazon Resource Name (ARN) of member DB Cluster
-     * 
-     */
     public String dbClusterArn() {
         return this.dbClusterArn;
     }
-    /**
-     * @return Whether the member is the primary DB Cluster
-     * 
-     */
     public Boolean isWriter() {
         return this.isWriter;
     }

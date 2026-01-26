@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class KxClusterCode {
-    /**
-     * @return Unique name for the S3 bucket.
-     * 
-     */
     private String s3Bucket;
-    /**
-     * @return Full S3 path (excluding bucket) to the .zip file that contains the code to be loaded onto the cluster when it’s started.
-     * 
-     */
     private String s3Key;
-    /**
-     * @return Version of an S3 Object.
-     * 
-     */
     private @Nullable String s3ObjectVersion;
 
     private KxClusterCode() {}
-    /**
-     * @return Unique name for the S3 bucket.
-     * 
-     */
     public String s3Bucket() {
         return this.s3Bucket;
     }
-    /**
-     * @return Full S3 path (excluding bucket) to the .zip file that contains the code to be loaded onto the cluster when it’s started.
-     * 
-     */
     public String s3Key() {
         return this.s3Key;
     }
-    /**
-     * @return Version of an S3 Object.
-     * 
-     */
     public Optional<String> s3ObjectVersion() {
         return Optional.ofNullable(this.s3ObjectVersion);
     }

@@ -31,14 +31,6 @@ class KeyArgs:
                  timeouts: Optional[pulumi.Input['KeyTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Key resource.
-        :param pulumi.Input[_builtins.bool] exportable: Whether the key is exportable from the service.
-        :param pulumi.Input[_builtins.bool] enabled: Whether to enable the key.
-        :param pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeArgs']]] key_attributes: Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] key_check_value_algorithm: Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "exportable", exportable)
         if deletion_window_in_days is not None:
@@ -59,9 +51,6 @@ class KeyArgs:
     @_builtins.property
     @pulumi.getter
     def exportable(self) -> pulumi.Input[_builtins.bool]:
-        """
-        Whether the key is exportable from the service.
-        """
         return pulumi.get(self, "exportable")
 
     @exportable.setter
@@ -80,9 +69,6 @@ class KeyArgs:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable the key.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -92,11 +78,6 @@ class KeyArgs:
     @_builtins.property
     @pulumi.getter(name="keyAttributes")
     def key_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeArgs']]]]:
-        """
-        Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "key_attributes")
 
     @key_attributes.setter
@@ -106,9 +87,6 @@ class KeyArgs:
     @_builtins.property
     @pulumi.getter(name="keyCheckValueAlgorithm")
     def key_check_value_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
-        """
         return pulumi.get(self, "key_check_value_algorithm")
 
     @key_check_value_algorithm.setter
@@ -118,9 +96,6 @@ class KeyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -130,9 +105,6 @@ class KeyArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -167,19 +139,6 @@ class _KeyState:
                  timeouts: Optional[pulumi.Input['KeyTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Key resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the key.
-        :param pulumi.Input[_builtins.bool] enabled: Whether to enable the key.
-        :param pulumi.Input[_builtins.bool] exportable: Whether the key is exportable from the service.
-        :param pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeArgs']]] key_attributes: Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] key_check_value: Key check value (KCV) is used to check if all parties holding a given key have the same key or to detect that a key has changed.
-        :param pulumi.Input[_builtins.str] key_check_value_algorithm: Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
-        :param pulumi.Input[_builtins.str] key_origin: Source of the key material.
-        :param pulumi.Input[_builtins.str] key_state: State of key that is being created or deleted.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -211,9 +170,6 @@ class _KeyState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the key.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -232,9 +188,6 @@ class _KeyState:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to enable the key.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -244,9 +197,6 @@ class _KeyState:
     @_builtins.property
     @pulumi.getter
     def exportable(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the key is exportable from the service.
-        """
         return pulumi.get(self, "exportable")
 
     @exportable.setter
@@ -256,11 +206,6 @@ class _KeyState:
     @_builtins.property
     @pulumi.getter(name="keyAttributes")
     def key_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeArgs']]]]:
-        """
-        Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "key_attributes")
 
     @key_attributes.setter
@@ -270,9 +215,6 @@ class _KeyState:
     @_builtins.property
     @pulumi.getter(name="keyCheckValue")
     def key_check_value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Key check value (KCV) is used to check if all parties holding a given key have the same key or to detect that a key has changed.
-        """
         return pulumi.get(self, "key_check_value")
 
     @key_check_value.setter
@@ -282,9 +224,6 @@ class _KeyState:
     @_builtins.property
     @pulumi.getter(name="keyCheckValueAlgorithm")
     def key_check_value_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
-        """
         return pulumi.get(self, "key_check_value_algorithm")
 
     @key_check_value_algorithm.setter
@@ -294,9 +233,6 @@ class _KeyState:
     @_builtins.property
     @pulumi.getter(name="keyOrigin")
     def key_origin(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Source of the key material.
-        """
         return pulumi.get(self, "key_origin")
 
     @key_origin.setter
@@ -306,9 +242,6 @@ class _KeyState:
     @_builtins.property
     @pulumi.getter(name="keyState")
     def key_state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        State of key that is being created or deleted.
-        """
         return pulumi.get(self, "key_state")
 
     @key_state.setter
@@ -318,9 +251,6 @@ class _KeyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -330,9 +260,6 @@ class _KeyState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -342,9 +269,6 @@ class _KeyState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -377,53 +301,9 @@ class Key(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['KeyTimeoutsArgs', 'KeyTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Payment Cryptography Control Plane Key.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.paymentcryptography.Key("test",
-            exportable=True,
-            key_attributes=[{
-                "key_algorithm": "TDES_3KEY",
-                "key_class": "SYMMETRIC_KEY",
-                "key_usage": "TR31_P0_PIN_ENCRYPTION_KEY",
-                "key_modes_of_uses": [{
-                    "decrypt": True,
-                    "encrypt": True,
-                    "wrap": True,
-                    "unwrap": True,
-                }],
-            }])
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Payment Cryptography key.
-
-        Using `pulumi import`, import Payment Cryptography Control Plane Key using the `arn:aws:payment-cryptography:us-east-1:123456789012:key/qtbojf64yshyvyzf`. For example:
-
-        % pulumi import aws_paymentcryptography_key.example arn:aws:payment-cryptography:us-east-1:123456789012:key/qtbojf64yshyvyzf
-
+        Create a Key resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] enabled: Whether to enable the key.
-        :param pulumi.Input[_builtins.bool] exportable: Whether the key is exportable from the service.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['KeyKeyAttributeArgs', 'KeyKeyAttributeArgsDict']]]] key_attributes: Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] key_check_value_algorithm: Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -432,43 +312,7 @@ class Key(pulumi.CustomResource):
                  args: KeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Payment Cryptography Control Plane Key.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.paymentcryptography.Key("test",
-            exportable=True,
-            key_attributes=[{
-                "key_algorithm": "TDES_3KEY",
-                "key_class": "SYMMETRIC_KEY",
-                "key_usage": "TR31_P0_PIN_ENCRYPTION_KEY",
-                "key_modes_of_uses": [{
-                    "decrypt": True,
-                    "encrypt": True,
-                    "wrap": True,
-                    "unwrap": True,
-                }],
-            }])
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Payment Cryptography key.
-
-        Using `pulumi import`, import Payment Cryptography Control Plane Key using the `arn:aws:payment-cryptography:us-east-1:123456789012:key/qtbojf64yshyvyzf`. For example:
-
-        % pulumi import aws_paymentcryptography_key.example arn:aws:payment-cryptography:us-east-1:123456789012:key/qtbojf64yshyvyzf
-
+        Create a Key resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param KeyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -546,19 +390,6 @@ class Key(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the key.
-        :param pulumi.Input[_builtins.bool] enabled: Whether to enable the key.
-        :param pulumi.Input[_builtins.bool] exportable: Whether the key is exportable from the service.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['KeyKeyAttributeArgs', 'KeyKeyAttributeArgsDict']]]] key_attributes: Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] key_check_value: Key check value (KCV) is used to check if all parties holding a given key have the same key or to detect that a key has changed.
-        :param pulumi.Input[_builtins.str] key_check_value_algorithm: Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
-        :param pulumi.Input[_builtins.str] key_origin: Source of the key material.
-        :param pulumi.Input[_builtins.str] key_state: State of key that is being created or deleted.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -582,9 +413,6 @@ class Key(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the key.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -595,83 +423,51 @@ class Key(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether to enable the key.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter
     def exportable(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether the key is exportable from the service.
-        """
         return pulumi.get(self, "exportable")
 
     @_builtins.property
     @pulumi.getter(name="keyAttributes")
     def key_attributes(self) -> pulumi.Output[Optional[Sequence['outputs.KeyKeyAttribute']]]:
-        """
-        Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "key_attributes")
 
     @_builtins.property
     @pulumi.getter(name="keyCheckValue")
     def key_check_value(self) -> pulumi.Output[_builtins.str]:
-        """
-        Key check value (KCV) is used to check if all parties holding a given key have the same key or to detect that a key has changed.
-        """
         return pulumi.get(self, "key_check_value")
 
     @_builtins.property
     @pulumi.getter(name="keyCheckValueAlgorithm")
     def key_check_value_algorithm(self) -> pulumi.Output[_builtins.str]:
-        """
-        Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
-        """
         return pulumi.get(self, "key_check_value_algorithm")
 
     @_builtins.property
     @pulumi.getter(name="keyOrigin")
     def key_origin(self) -> pulumi.Output[_builtins.str]:
-        """
-        Source of the key material.
-        """
         return pulumi.get(self, "key_origin")
 
     @_builtins.property
     @pulumi.getter(name="keyState")
     def key_state(self) -> pulumi.Output[_builtins.str]:
-        """
-        State of key that is being created or deleted.
-        """
         return pulumi.get(self, "key_state")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property

@@ -30,17 +30,9 @@ public final class RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgs extends
         return Optional.ofNullable(this.accessPointArn);
     }
 
-    /**
-     * A block specifying the source bucket for the asset. This block supports the following:
-     * 
-     */
     @Import(name="assetSource")
     private @Nullable Output<RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgs> assetSource;
 
-    /**
-     * @return A block specifying the source bucket for the asset. This block supports the following:
-     * 
-     */
     public Optional<Output<RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgs>> assetSource() {
         return Optional.ofNullable(this.assetSource);
     }
@@ -89,23 +81,11 @@ public final class RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgs extends
             return accessPointArn(Output.of(accessPointArn));
         }
 
-        /**
-         * @param assetSource A block specifying the source bucket for the asset. This block supports the following:
-         * 
-         * @return builder
-         * 
-         */
         public Builder assetSource(@Nullable Output<RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgs> assetSource) {
             $.assetSource = assetSource;
             return this;
         }
 
-        /**
-         * @param assetSource A block specifying the source bucket for the asset. This block supports the following:
-         * 
-         * @return builder
-         * 
-         */
         public Builder assetSource(RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgs assetSource) {
             return assetSource(Output.of(assetSource));
         }

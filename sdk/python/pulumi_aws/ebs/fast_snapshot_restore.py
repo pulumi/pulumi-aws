@@ -27,9 +27,6 @@ class FastSnapshotRestoreArgs:
                  timeouts: Optional[pulumi.Input['FastSnapshotRestoreTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a FastSnapshotRestore resource.
-        :param pulumi.Input[_builtins.str] availability_zone: Availability zone in which to enable fast snapshot restores.
-        :param pulumi.Input[_builtins.str] snapshot_id: ID of the snapshot.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "availability_zone", availability_zone)
         pulumi.set(__self__, "snapshot_id", snapshot_id)
@@ -41,9 +38,6 @@ class FastSnapshotRestoreArgs:
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Input[_builtins.str]:
-        """
-        Availability zone in which to enable fast snapshot restores.
-        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -53,9 +47,6 @@ class FastSnapshotRestoreArgs:
     @_builtins.property
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the snapshot.
-        """
         return pulumi.get(self, "snapshot_id")
 
     @snapshot_id.setter
@@ -65,9 +56,6 @@ class FastSnapshotRestoreArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -94,10 +82,6 @@ class _FastSnapshotRestoreState:
                  timeouts: Optional[pulumi.Input['FastSnapshotRestoreTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering FastSnapshotRestore resources.
-        :param pulumi.Input[_builtins.str] availability_zone: Availability zone in which to enable fast snapshot restores.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] snapshot_id: ID of the snapshot.
-        :param pulumi.Input[_builtins.str] state: State of fast snapshot restores. Valid values are `enabling`, `optimizing`, `enabled`, `disabling`, `disabled`.
         """
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
@@ -113,9 +97,6 @@ class _FastSnapshotRestoreState:
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Availability zone in which to enable fast snapshot restores.
-        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -125,9 +106,6 @@ class _FastSnapshotRestoreState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -137,9 +115,6 @@ class _FastSnapshotRestoreState:
     @_builtins.property
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the snapshot.
-        """
         return pulumi.get(self, "snapshot_id")
 
     @snapshot_id.setter
@@ -149,9 +124,6 @@ class _FastSnapshotRestoreState:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        State of fast snapshot restores. Valid values are `enabling`, `optimizing`, `enabled`, `disabling`, `disabled`.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -180,34 +152,9 @@ class FastSnapshotRestore(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['FastSnapshotRestoreTimeoutsArgs', 'FastSnapshotRestoreTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an EBS (Elastic Block Storage) Fast Snapshot Restore.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ebs.FastSnapshotRestore("example",
-            availability_zone="us-west-2a",
-            snapshot_id=example_aws_ebs_snapshot["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import EC2 (Elastic Compute Cloud) EBS Fast Snapshot Restore using the `availability_zone` and `snapshot_id` separated by `,`. For example:
-
-        ```sh
-        $ pulumi import aws:ebs/fastSnapshotRestore:FastSnapshotRestore example us-west-2a,snap-abcdef123456
-        ```
-
+        Create a FastSnapshotRestore resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] availability_zone: Availability zone in which to enable fast snapshot restores.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] snapshot_id: ID of the snapshot.
         """
         ...
     @overload
@@ -216,29 +163,7 @@ class FastSnapshotRestore(pulumi.CustomResource):
                  args: FastSnapshotRestoreArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an EBS (Elastic Block Storage) Fast Snapshot Restore.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ebs.FastSnapshotRestore("example",
-            availability_zone="us-west-2a",
-            snapshot_id=example_aws_ebs_snapshot["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import EC2 (Elastic Compute Cloud) EBS Fast Snapshot Restore using the `availability_zone` and `snapshot_id` separated by `,`. For example:
-
-        ```sh
-        $ pulumi import aws:ebs/fastSnapshotRestore:FastSnapshotRestore example us-west-2a,snap-abcdef123456
-        ```
-
+        Create a FastSnapshotRestore resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param FastSnapshotRestoreArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -298,10 +223,6 @@ class FastSnapshotRestore(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] availability_zone: Availability zone in which to enable fast snapshot restores.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] snapshot_id: ID of the snapshot.
-        :param pulumi.Input[_builtins.str] state: State of fast snapshot restores. Valid values are `enabling`, `optimizing`, `enabled`, `disabling`, `disabled`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -317,33 +238,21 @@ class FastSnapshotRestore(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[_builtins.str]:
-        """
-        Availability zone in which to enable fast snapshot restores.
-        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the snapshot.
-        """
         return pulumi.get(self, "snapshot_id")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[_builtins.str]:
-        """
-        State of fast snapshot restores. Valid values are `enabling`, `optimizing`, `enabled`, `disabling`, `disabled`.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property

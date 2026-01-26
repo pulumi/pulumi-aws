@@ -43,9 +43,6 @@ class GetInstancesResult:
     @_builtins.property
     @pulumi.getter
     def arns(self) -> Sequence[_builtins.str]:
-        """
-        Set of Amazon Resource Names (ARNs) of the SSO Instances.
-        """
         return pulumi.get(self, "arns")
 
     @_builtins.property
@@ -59,9 +56,6 @@ class GetInstancesResult:
     @_builtins.property
     @pulumi.getter(name="identityStoreIds")
     def identity_store_ids(self) -> Sequence[_builtins.str]:
-        """
-        Set of identifiers of the identity stores connected to the SSO Instances.
-        """
         return pulumi.get(self, "identity_store_ids")
 
     @_builtins.property
@@ -85,21 +79,7 @@ class AwaitableGetInstancesResult(GetInstancesResult):
 def get_instances(region: Optional[_builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstancesResult:
     """
-    Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssoadmin.get_instances()
-    pulumi.export("arn", example.arns[0])
-    pulumi.export("identityStoreId", example.identity_store_ids[0])
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -114,21 +94,7 @@ def get_instances(region: Optional[_builtins.str] = None,
 def get_instances_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstancesResult]:
     """
-    Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssoadmin.get_instances()
-    pulumi.export("arn", example.arns[0])
-    pulumi.export("identityStoreId", example.identity_store_ids[0])
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

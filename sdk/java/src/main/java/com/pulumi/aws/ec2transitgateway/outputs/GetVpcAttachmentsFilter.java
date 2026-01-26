@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVpcAttachmentsFilter {
-    /**
-     * @return Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayVpcAttachments.html)
-     * 
-     */
     private String name;
-    /**
-     * @return List of one or more values for the filter.
-     * 
-     */
     private List<String> values;
 
     private GetVpcAttachmentsFilter() {}
-    /**
-     * @return Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayVpcAttachments.html)
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return List of one or more values for the filter.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

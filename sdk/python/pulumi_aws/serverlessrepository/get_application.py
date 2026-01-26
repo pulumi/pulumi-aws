@@ -55,9 +55,6 @@ class GetApplicationResult:
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> _builtins.str:
-        """
-        ARN of the application.
-        """
         return pulumi.get(self, "application_id")
 
     @_builtins.property
@@ -71,9 +68,6 @@ class GetApplicationResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the application.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -84,9 +78,6 @@ class GetApplicationResult:
     @_builtins.property
     @pulumi.getter(name="requiredCapabilities")
     def required_capabilities(self) -> Sequence[_builtins.str]:
-        """
-        A list of capabilities describing the permissions needed to deploy the application.
-        """
         return pulumi.get(self, "required_capabilities")
 
     @_builtins.property
@@ -97,17 +88,11 @@ class GetApplicationResult:
     @_builtins.property
     @pulumi.getter(name="sourceCodeUrl")
     def source_code_url(self) -> _builtins.str:
-        """
-        URL pointing to the source code of the application version.
-        """
         return pulumi.get(self, "source_code_url")
 
     @_builtins.property
     @pulumi.getter(name="templateUrl")
     def template_url(self) -> _builtins.str:
-        """
-        URL pointing to the Cloud Formation template for the application version.
-        """
         return pulumi.get(self, "template_url")
 
 
@@ -132,26 +117,7 @@ def get_application(application_id: Optional[_builtins.str] = None,
                     semantic_version: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
-    Use this data source to get information about an AWS Serverless Application Repository application. For example, this can be used to determine the required `capabilities` for an application.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.serverlessrepository.get_application(application_id="arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication")
-    example_cloud_formation_stack = aws.serverlessrepository.CloudFormationStack("example",
-        name="Example",
-        application_id=example.application_id,
-        semantic_version=example.semantic_version,
-        capabilities=example.required_capabilities)
-    ```
-
-
-    :param _builtins.str application_id: ARN of the application.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str semantic_version: Requested version of the application. By default, retrieves the latest version.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['applicationId'] = application_id
@@ -174,26 +140,7 @@ def get_application_output(application_id: Optional[pulumi.Input[_builtins.str]]
                            semantic_version: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
-    Use this data source to get information about an AWS Serverless Application Repository application. For example, this can be used to determine the required `capabilities` for an application.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.serverlessrepository.get_application(application_id="arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication")
-    example_cloud_formation_stack = aws.serverlessrepository.CloudFormationStack("example",
-        name="Example",
-        application_id=example.application_id,
-        semantic_version=example.semantic_version,
-        capabilities=example.required_capabilities)
-    ```
-
-
-    :param _builtins.str application_id: ARN of the application.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str semantic_version: Requested version of the application. By default, retrieves the latest version.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['applicationId'] = application_id

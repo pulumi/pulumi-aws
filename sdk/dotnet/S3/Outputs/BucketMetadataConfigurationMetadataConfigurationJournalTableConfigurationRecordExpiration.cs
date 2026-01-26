@@ -13,13 +13,7 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpiration
     {
-        /// <summary>
-        /// Number of days to retain journal table records.
-        /// </summary>
         public readonly int? Days;
-        /// <summary>
-        /// Whether journal table record expiration is enabled or disabled. Valid values: `ENABLED`, `DISABLED`.
-        /// </summary>
         public readonly string Expiration;
 
         [OutputConstructor]

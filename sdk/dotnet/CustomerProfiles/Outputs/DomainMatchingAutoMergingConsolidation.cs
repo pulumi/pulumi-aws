@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CustomerProfiles.Outputs
     [OutputType]
     public sealed class DomainMatchingAutoMergingConsolidation
     {
-        /// <summary>
-        /// A list of matching criteria.
-        /// </summary>
         public readonly ImmutableArray<ImmutableArray<string>> MatchingAttributesLists;
 
         [OutputConstructor]

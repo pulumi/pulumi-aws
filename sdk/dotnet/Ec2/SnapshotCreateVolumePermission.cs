@@ -9,57 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Adds permission to create volumes off of a given EBS Snapshot.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ebs.Volume("example", new()
-    ///     {
-    ///         AvailabilityZone = "us-west-2a",
-    ///         Size = 40,
-    ///     });
-    /// 
-    ///     var exampleSnapshot = new Aws.Ebs.Snapshot("example_snapshot", new()
-    ///     {
-    ///         VolumeId = example.Id,
-    ///     });
-    /// 
-    ///     var examplePerm = new Aws.Ec2.SnapshotCreateVolumePermission("example_perm", new()
-    ///     {
-    ///         SnapshotId = exampleSnapshot.Id,
-    ///         AccountId = "12345678",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission")]
     public partial class SnapshotCreateVolumePermission : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
-        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// A snapshot ID
-        /// </summary>
         [Output("snapshotId")]
         public Output<string> SnapshotId { get; private set; } = null!;
 
@@ -109,21 +67,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class SnapshotCreateVolumePermissionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
-        /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// A snapshot ID
-        /// </summary>
         [Input("snapshotId", required: true)]
         public Input<string> SnapshotId { get; set; } = null!;
 
@@ -135,21 +84,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class SnapshotCreateVolumePermissionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
-        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// A snapshot ID
-        /// </summary>
         [Input("snapshotId")]
         public Input<string>? SnapshotId { get; set; }
 

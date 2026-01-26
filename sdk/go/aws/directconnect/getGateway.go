@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieve information about a Direct Connect Gateway.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directconnect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directconnect.LookupGateway(ctx, &directconnect.LookupGatewayArgs{
-//				Name: "example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupGateway(ctx *pulumi.Context, args *LookupGatewayArgs, opts ...pulumi.InvokeOption) (*LookupGatewayResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGatewayResult
@@ -50,25 +23,19 @@ func LookupGateway(ctx *pulumi.Context, args *LookupGatewayArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getGateway.
 type LookupGatewayArgs struct {
-	// Name of the gateway to retrieve.
-	Name string `pulumi:"name"`
-	// A map of tags assigned to the gateway.
+	Name string            `pulumi:"name"`
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getGateway.
 type LookupGatewayResult struct {
-	// ASN on the Amazon side of the connection.
 	AmazonSideAsn string `pulumi:"amazonSideAsn"`
-	// ARN of the gateway.
-	Arn string `pulumi:"arn"`
+	Arn           string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
-	// AWS Account ID of the gateway.
-	OwnerAccountId string `pulumi:"ownerAccountId"`
-	// A map of tags assigned to the gateway.
-	Tags map[string]string `pulumi:"tags"`
+	Id             string            `pulumi:"id"`
+	Name           string            `pulumi:"name"`
+	OwnerAccountId string            `pulumi:"ownerAccountId"`
+	Tags           map[string]string `pulumi:"tags"`
 }
 
 func LookupGatewayOutput(ctx *pulumi.Context, args LookupGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupGatewayResultOutput {
@@ -82,9 +49,7 @@ func LookupGatewayOutput(ctx *pulumi.Context, args LookupGatewayOutputArgs, opts
 
 // A collection of arguments for invoking getGateway.
 type LookupGatewayOutputArgs struct {
-	// Name of the gateway to retrieve.
-	Name pulumi.StringInput `pulumi:"name"`
-	// A map of tags assigned to the gateway.
+	Name pulumi.StringInput    `pulumi:"name"`
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -107,12 +72,10 @@ func (o LookupGatewayResultOutput) ToLookupGatewayResultOutputWithContext(ctx co
 	return o
 }
 
-// ASN on the Amazon side of the connection.
 func (o LookupGatewayResultOutput) AmazonSideAsn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGatewayResult) string { return v.AmazonSideAsn }).(pulumi.StringOutput)
 }
 
-// ARN of the gateway.
 func (o LookupGatewayResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGatewayResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -126,12 +89,10 @@ func (o LookupGatewayResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGatewayResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// AWS Account ID of the gateway.
 func (o LookupGatewayResultOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGatewayResult) string { return v.OwnerAccountId }).(pulumi.StringOutput)
 }
 
-// A map of tags assigned to the gateway.
 func (o LookupGatewayResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupGatewayResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

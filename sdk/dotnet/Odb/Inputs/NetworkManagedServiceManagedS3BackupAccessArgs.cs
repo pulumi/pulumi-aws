@@ -20,9 +20,6 @@ namespace Pulumi.Aws.Odb.Inputs
             set => _ipv4Addresses = value;
         }
 
-        /// <summary>
-        /// The status of the network resource.
-        /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 

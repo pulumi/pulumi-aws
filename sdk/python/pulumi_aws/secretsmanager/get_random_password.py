@@ -107,9 +107,6 @@ class GetRandomPasswordResult:
     @_builtins.property
     @pulumi.getter(name="randomPassword")
     def random_password(self) -> _builtins.str:
-        """
-        Random password.
-        """
         return pulumi.get(self, "random_password")
 
     @_builtins.property
@@ -153,28 +150,7 @@ def get_random_password(exclude_characters: Optional[_builtins.str] = None,
                         require_each_included_type: Optional[_builtins.bool] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRandomPasswordResult:
     """
-    Generate a random password.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.secretsmanager.get_random_password(password_length=50,
-        exclude_numbers=True)
-    ```
-
-
-    :param _builtins.str exclude_characters: String of the characters that you don't want in the password.
-    :param _builtins.bool exclude_lowercase: Specifies whether to exclude lowercase letters from the password.
-    :param _builtins.bool exclude_numbers: Specifies whether to exclude numbers from the password.
-    :param _builtins.bool exclude_punctuation: Specifies whether to exclude the following punctuation characters from the password: ``! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~ .``
-    :param _builtins.bool exclude_uppercase: Specifies whether to exclude uppercase letters from the password.
-    :param _builtins.bool include_space: Specifies whether to include the space character.
-    :param _builtins.int password_length: Length of the password.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.bool require_each_included_type: Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['excludeCharacters'] = exclude_characters
@@ -212,28 +188,7 @@ def get_random_password_output(exclude_characters: Optional[pulumi.Input[Optiona
                                require_each_included_type: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRandomPasswordResult]:
     """
-    Generate a random password.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.secretsmanager.get_random_password(password_length=50,
-        exclude_numbers=True)
-    ```
-
-
-    :param _builtins.str exclude_characters: String of the characters that you don't want in the password.
-    :param _builtins.bool exclude_lowercase: Specifies whether to exclude lowercase letters from the password.
-    :param _builtins.bool exclude_numbers: Specifies whether to exclude numbers from the password.
-    :param _builtins.bool exclude_punctuation: Specifies whether to exclude the following punctuation characters from the password: ``! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~ .``
-    :param _builtins.bool exclude_uppercase: Specifies whether to exclude uppercase letters from the password.
-    :param _builtins.bool include_space: Specifies whether to include the space character.
-    :param _builtins.int password_length: Length of the password.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.bool require_each_included_type: Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['excludeCharacters'] = exclude_characters

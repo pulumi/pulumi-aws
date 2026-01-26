@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class InstanceStorageConfigStorageConfigKinesisFirehoseConfig {
-    /**
-     * @return The Amazon Resource Name (ARN) of the delivery stream.
-     * 
-     */
     private String firehoseArn;
 
     private InstanceStorageConfigStorageConfigKinesisFirehoseConfig() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the delivery stream.
-     * 
-     */
     public String firehoseArn() {
         return this.firehoseArn;
     }

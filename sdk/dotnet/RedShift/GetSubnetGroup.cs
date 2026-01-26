@@ -11,75 +11,12 @@ namespace Pulumi.Aws.RedShift
 {
     public static class GetSubnetGroup
     {
-        /// <summary>
-        /// Provides details about a specific redshift subnet group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.RedShift.GetSubnetGroup.Invoke(new()
-        ///     {
-        ///         Name = exampleAwsRedshiftSubnetGroup.Name,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetSubnetGroupResult> InvokeAsync(GetSubnetGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubnetGroupResult>("aws:redshift/getSubnetGroup:getSubnetGroup", args ?? new GetSubnetGroupArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about a specific redshift subnet group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.RedShift.GetSubnetGroup.Invoke(new()
-        ///     {
-        ///         Name = exampleAwsRedshiftSubnetGroup.Name,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetSubnetGroupResult> Invoke(GetSubnetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubnetGroupResult>("aws:redshift/getSubnetGroup:getSubnetGroup", args ?? new GetSubnetGroupInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about a specific redshift subnet group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.RedShift.GetSubnetGroup.Invoke(new()
-        ///     {
-        ///         Name = exampleAwsRedshiftSubnetGroup.Name,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetSubnetGroupResult> Invoke(GetSubnetGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubnetGroupResult>("aws:redshift/getSubnetGroup:getSubnetGroup", args ?? new GetSubnetGroupInvokeArgs(), options.WithDefaults());
     }
@@ -87,24 +24,14 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class GetSubnetGroupArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the cluster subnet group for which information is requested.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Tags associated to the Subnet Group
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -119,24 +46,14 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class GetSubnetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the cluster subnet group for which information is requested.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags associated to the Subnet Group
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -153,13 +70,7 @@ namespace Pulumi.Aws.RedShift
     [OutputType]
     public sealed class GetSubnetGroupResult
     {
-        /// <summary>
-        /// ARN of the Redshift Subnet Group name.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Description of the Redshift Subnet group.
-        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -167,13 +78,7 @@ namespace Pulumi.Aws.RedShift
         public readonly string Id;
         public readonly string Name;
         public readonly string Region;
-        /// <summary>
-        /// An array of VPC subnet IDs.
-        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
-        /// <summary>
-        /// Tags associated to the Subnet Group
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

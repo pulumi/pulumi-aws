@@ -13,56 +13,11 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an IAM Security Token Service Preferences resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.SecurityTokenServicePreferences;
- * import com.pulumi.aws.iam.SecurityTokenServicePreferencesArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new SecurityTokenServicePreferences("example", SecurityTokenServicePreferencesArgs.builder()
- *             .globalEndpointTokenVersion("v2Token")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:iam/securityTokenServicePreferences:SecurityTokenServicePreferences")
 public class SecurityTokenServicePreferences extends com.pulumi.resources.CustomResource {
-    /**
-     * The version of the STS global endpoint token. Valid values: `v1Token`, `v2Token`.
-     * 
-     */
     @Export(name="globalEndpointTokenVersion", refs={String.class}, tree="[0]")
     private Output<String> globalEndpointTokenVersion;
 
-    /**
-     * @return The version of the STS global endpoint token. Valid values: `v1Token`, `v2Token`.
-     * 
-     */
     public Output<String> globalEndpointTokenVersion() {
         return this.globalEndpointTokenVersion;
     }

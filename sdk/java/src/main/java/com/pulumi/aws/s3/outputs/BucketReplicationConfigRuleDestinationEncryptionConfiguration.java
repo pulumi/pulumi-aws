@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class BucketReplicationConfigRuleDestinationEncryptionConfiguration {
-    /**
-     * @return ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
-     * 
-     */
     private String replicaKmsKeyId;
 
     private BucketReplicationConfigRuleDestinationEncryptionConfiguration() {}
-    /**
-     * @return ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
-     * 
-     */
     public String replicaKmsKeyId() {
         return this.replicaKmsKeyId;
     }

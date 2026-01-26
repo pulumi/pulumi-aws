@@ -22,111 +22,51 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final RuleArgs Empty = new RuleArgs();
 
-    /**
-     * Retention rule description.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Retention rule description.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `excludeResourceTags` below.
-     * 
-     */
     @Import(name="excludeResourceTags")
     private @Nullable Output<List<RuleExcludeResourceTagArgs>> excludeResourceTags;
 
-    /**
-     * @return Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `excludeResourceTags` below.
-     * 
-     */
     public Optional<Output<List<RuleExcludeResourceTagArgs>>> excludeResourceTags() {
         return Optional.ofNullable(this.excludeResourceTags);
     }
 
-    /**
-     * Information about the retention rule lock configuration. See `lockConfiguration` below.
-     * 
-     */
     @Import(name="lockConfiguration")
     private @Nullable Output<RuleLockConfigurationArgs> lockConfiguration;
 
-    /**
-     * @return Information about the retention rule lock configuration. See `lockConfiguration` below.
-     * 
-     */
     public Optional<Output<RuleLockConfigurationArgs>> lockConfiguration() {
         return Optional.ofNullable(this.lockConfiguration);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
-     * 
-     */
     @Import(name="resourceTags")
     private @Nullable Output<List<RuleResourceTagArgs>> resourceTags;
 
-    /**
-     * @return Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
-     * 
-     */
     public Optional<Output<List<RuleResourceTagArgs>>> resourceTags() {
         return Optional.ofNullable(this.resourceTags);
     }
 
-    /**
-     * Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
-     * 
-     */
     @Import(name="resourceType", required=true)
     private Output<String> resourceType;
 
-    /**
-     * @return Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
-     * 
-     */
     public Output<String> resourceType() {
         return this.resourceType;
     }
 
-    /**
-     * Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="retentionPeriod", required=true)
     private Output<RuleRetentionPeriodArgs> retentionPeriod;
 
-    /**
-     * @return Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<RuleRetentionPeriodArgs> retentionPeriod() {
         return this.retentionPeriod;
     }
@@ -169,173 +109,73 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
             $ = new RuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description Retention rule description.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Retention rule description.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param excludeResourceTags Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `excludeResourceTags` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludeResourceTags(@Nullable Output<List<RuleExcludeResourceTagArgs>> excludeResourceTags) {
             $.excludeResourceTags = excludeResourceTags;
             return this;
         }
 
-        /**
-         * @param excludeResourceTags Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `excludeResourceTags` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludeResourceTags(List<RuleExcludeResourceTagArgs> excludeResourceTags) {
             return excludeResourceTags(Output.of(excludeResourceTags));
         }
 
-        /**
-         * @param excludeResourceTags Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `excludeResourceTags` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludeResourceTags(RuleExcludeResourceTagArgs... excludeResourceTags) {
             return excludeResourceTags(List.of(excludeResourceTags));
         }
 
-        /**
-         * @param lockConfiguration Information about the retention rule lock configuration. See `lockConfiguration` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lockConfiguration(@Nullable Output<RuleLockConfigurationArgs> lockConfiguration) {
             $.lockConfiguration = lockConfiguration;
             return this;
         }
 
-        /**
-         * @param lockConfiguration Information about the retention rule lock configuration. See `lockConfiguration` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lockConfiguration(RuleLockConfigurationArgs lockConfiguration) {
             return lockConfiguration(Output.of(lockConfiguration));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceTags Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTags(@Nullable Output<List<RuleResourceTagArgs>> resourceTags) {
             $.resourceTags = resourceTags;
             return this;
         }
 
-        /**
-         * @param resourceTags Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTags(List<RuleResourceTagArgs> resourceTags) {
             return resourceTags(Output.of(resourceTags));
         }
 
-        /**
-         * @param resourceTags Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTags(RuleResourceTagArgs... resourceTags) {
             return resourceTags(List.of(resourceTags));
         }
 
-        /**
-         * @param resourceType Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceType(Output<String> resourceType) {
             $.resourceType = resourceType;
             return this;
         }
 
-        /**
-         * @param resourceType Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceType(String resourceType) {
             return resourceType(Output.of(resourceType));
         }
 
-        /**
-         * @param retentionPeriod Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder retentionPeriod(Output<RuleRetentionPeriodArgs> retentionPeriod) {
             $.retentionPeriod = retentionPeriod;
             return this;
         }
 
-        /**
-         * @param retentionPeriod Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder retentionPeriod(RuleRetentionPeriodArgs retentionPeriod) {
             return retentionPeriod(Output.of(retentionPeriod));
         }

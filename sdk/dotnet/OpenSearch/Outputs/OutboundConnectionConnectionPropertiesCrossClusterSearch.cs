@@ -13,9 +13,6 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class OutboundConnectionConnectionPropertiesCrossClusterSearch
     {
-        /// <summary>
-        /// Skips unavailable clusters and can only be used for cross-cluster searches. Accepted values are `ENABLED` or `DISABLED`.
-        /// </summary>
         public readonly string? SkipUnavailable;
 
         [OutputConstructor]

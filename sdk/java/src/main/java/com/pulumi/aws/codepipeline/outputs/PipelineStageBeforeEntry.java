@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class PipelineStageBeforeEntry {
-    /**
-     * @return The conditions that are configured as entry condition. Defined as a `condition` block below.
-     * 
-     */
     private PipelineStageBeforeEntryCondition condition;
 
     private PipelineStageBeforeEntry() {}
-    /**
-     * @return The conditions that are configured as entry condition. Defined as a `condition` block below.
-     * 
-     */
     public PipelineStageBeforeEntryCondition condition() {
         return this.condition;
     }

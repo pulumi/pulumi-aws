@@ -16,47 +16,23 @@ public final class PolicyTableAssociationArgs extends com.pulumi.resources.Resou
 
     public static final PolicyTableAssociationArgs Empty = new PolicyTableAssociationArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Identifier of EC2 Transit Gateway Attachment.
-     * 
-     */
     @Import(name="transitGatewayAttachmentId", required=true)
     private Output<String> transitGatewayAttachmentId;
 
-    /**
-     * @return Identifier of EC2 Transit Gateway Attachment.
-     * 
-     */
     public Output<String> transitGatewayAttachmentId() {
         return this.transitGatewayAttachmentId;
     }
 
-    /**
-     * Identifier of EC2 Transit Gateway Policy Table.
-     * 
-     */
     @Import(name="transitGatewayPolicyTableId", required=true)
     private Output<String> transitGatewayPolicyTableId;
 
-    /**
-     * @return Identifier of EC2 Transit Gateway Policy Table.
-     * 
-     */
     public Output<String> transitGatewayPolicyTableId() {
         return this.transitGatewayPolicyTableId;
     }
@@ -87,65 +63,29 @@ public final class PolicyTableAssociationArgs extends com.pulumi.resources.Resou
             $ = new PolicyTableAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param transitGatewayAttachmentId Identifier of EC2 Transit Gateway Attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayAttachmentId(Output<String> transitGatewayAttachmentId) {
             $.transitGatewayAttachmentId = transitGatewayAttachmentId;
             return this;
         }
 
-        /**
-         * @param transitGatewayAttachmentId Identifier of EC2 Transit Gateway Attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayAttachmentId(String transitGatewayAttachmentId) {
             return transitGatewayAttachmentId(Output.of(transitGatewayAttachmentId));
         }
 
-        /**
-         * @param transitGatewayPolicyTableId Identifier of EC2 Transit Gateway Policy Table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayPolicyTableId(Output<String> transitGatewayPolicyTableId) {
             $.transitGatewayPolicyTableId = transitGatewayPolicyTableId;
             return this;
         }
 
-        /**
-         * @param transitGatewayPolicyTableId Identifier of EC2 Transit Gateway Policy Table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayPolicyTableId(String transitGatewayPolicyTableId) {
             return transitGatewayPolicyTableId(Output.of(transitGatewayPolicyTableId));
         }

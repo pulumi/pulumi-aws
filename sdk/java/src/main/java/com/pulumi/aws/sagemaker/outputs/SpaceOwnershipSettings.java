@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class SpaceOwnershipSettings {
-    /**
-     * @return The user profile who is the owner of the private space.
-     * 
-     */
     private String ownerUserProfileName;
 
     private SpaceOwnershipSettings() {}
-    /**
-     * @return The user profile who is the owner of the private space.
-     * 
-     */
     public String ownerUserProfileName() {
         return this.ownerUserProfileName;
     }

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Custom handling for challenge requests. See below.
-        /// </summary>
         [Input("customRequestHandling")]
         public Input<Inputs.WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseChallengeCustomRequestHandlingGetArgs>? CustomRequestHandling { get; set; }
 

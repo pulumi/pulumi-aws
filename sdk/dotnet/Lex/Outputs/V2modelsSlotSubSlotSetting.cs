@@ -13,14 +13,7 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsSlotSubSlotSetting
     {
-        /// <summary>
-        /// Expression text for defining the constituent sub slots in the composite slot using logical `AND` and `OR` operators.
-        /// </summary>
         public readonly string? Expression;
-        /// <summary>
-        /// Specifications for the constituent sub slots of a composite slot.
-        /// See the `SlotSpecification` argument reference below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsSlotSubSlotSettingSlotSpecification> SlotSpecifications;
 
         [OutputConstructor]

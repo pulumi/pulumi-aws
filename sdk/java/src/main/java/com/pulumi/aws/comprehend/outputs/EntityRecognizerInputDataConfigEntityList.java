@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class EntityRecognizerInputDataConfigEntityList {
-    /**
-     * @return Location of entity list.
-     * 
-     */
     private String s3Uri;
 
     private EntityRecognizerInputDataConfigEntityList() {}
-    /**
-     * @return Location of entity list.
-     * 
-     */
     public String s3Uri() {
         return this.s3Uri;
     }

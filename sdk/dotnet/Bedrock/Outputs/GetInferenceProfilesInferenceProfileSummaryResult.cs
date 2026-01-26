@@ -13,41 +13,14 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class GetInferenceProfilesInferenceProfileSummaryResult
     {
-        /// <summary>
-        /// Time at which the inference profile was created.
-        /// </summary>
         public readonly string CreatedAt;
-        /// <summary>
-        /// Description of the inference profile.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the inference profile.
-        /// </summary>
         public readonly string InferenceProfileArn;
-        /// <summary>
-        /// Unique identifier of the inference profile.
-        /// </summary>
         public readonly string InferenceProfileId;
-        /// <summary>
-        /// Name of the inference profile.
-        /// </summary>
         public readonly string InferenceProfileName;
-        /// <summary>
-        /// List of information about each model in the inference profile. See `Models` Block.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetInferenceProfilesInferenceProfileSummaryModelResult> Models;
-        /// <summary>
-        /// Status of the inference profile. `ACTIVE` means that the inference profile is available to use.
-        /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// Filters for inference profiles that match the type you specify. Valid values are: `SYSTEM_DEFINED`, `APPLICATION`.
-        /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Time at which the inference profile was last updated.
-        /// </summary>
         public readonly string UpdatedAt;
 
         [OutputConstructor]

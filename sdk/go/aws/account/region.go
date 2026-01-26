@@ -12,53 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Enable (Opt-In) or Disable (Opt-Out) a particular Region for an AWS account.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/account"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := account.NewRegion(ctx, "example", &account.RegionArgs{
-//				RegionName: pulumi.String("ap-southeast-3"),
-//				Enabled:    pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`. For example:
-//
-// ```sh
-// $ pulumi import aws:account/region:Region example ap-southeast-3
-// ```
 type Region struct {
 	pulumi.CustomResourceState
 
-	// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted. To use this parameter, the caller must be an identity in the organization's management account or a delegated administrator account. The specified account ID must also be a member account in the same organization. The organization must have all features enabled, and the organization must have trusted access enabled for the Account Management service, and optionally a delegated admin account assigned.
-	AccountId pulumi.StringPtrOutput `pulumi:"accountId"`
-	// Whether the region is enabled.
-	Enabled pulumi.BoolOutput `pulumi:"enabled"`
-	// The region opt status.
-	OptStatus pulumi.StringOutput `pulumi:"optStatus"`
-	// The region name to manage.
-	RegionName pulumi.StringOutput `pulumi:"regionName"`
+	AccountId  pulumi.StringPtrOutput `pulumi:"accountId"`
+	Enabled    pulumi.BoolOutput      `pulumi:"enabled"`
+	OptStatus  pulumi.StringOutput    `pulumi:"optStatus"`
+	RegionName pulumi.StringOutput    `pulumi:"regionName"`
 }
 
 // NewRegion registers a new resource with the given unique name, arguments, and options.
@@ -97,24 +57,16 @@ func GetRegion(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Region resources.
 type regionState struct {
-	// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted. To use this parameter, the caller must be an identity in the organization's management account or a delegated administrator account. The specified account ID must also be a member account in the same organization. The organization must have all features enabled, and the organization must have trusted access enabled for the Account Management service, and optionally a delegated admin account assigned.
-	AccountId *string `pulumi:"accountId"`
-	// Whether the region is enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// The region opt status.
-	OptStatus *string `pulumi:"optStatus"`
-	// The region name to manage.
+	AccountId  *string `pulumi:"accountId"`
+	Enabled    *bool   `pulumi:"enabled"`
+	OptStatus  *string `pulumi:"optStatus"`
 	RegionName *string `pulumi:"regionName"`
 }
 
 type RegionState struct {
-	// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted. To use this parameter, the caller must be an identity in the organization's management account or a delegated administrator account. The specified account ID must also be a member account in the same organization. The organization must have all features enabled, and the organization must have trusted access enabled for the Account Management service, and optionally a delegated admin account assigned.
-	AccountId pulumi.StringPtrInput
-	// Whether the region is enabled.
-	Enabled pulumi.BoolPtrInput
-	// The region opt status.
-	OptStatus pulumi.StringPtrInput
-	// The region name to manage.
+	AccountId  pulumi.StringPtrInput
+	Enabled    pulumi.BoolPtrInput
+	OptStatus  pulumi.StringPtrInput
 	RegionName pulumi.StringPtrInput
 }
 
@@ -123,21 +75,15 @@ func (RegionState) ElementType() reflect.Type {
 }
 
 type regionArgs struct {
-	// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted. To use this parameter, the caller must be an identity in the organization's management account or a delegated administrator account. The specified account ID must also be a member account in the same organization. The organization must have all features enabled, and the organization must have trusted access enabled for the Account Management service, and optionally a delegated admin account assigned.
-	AccountId *string `pulumi:"accountId"`
-	// Whether the region is enabled.
-	Enabled bool `pulumi:"enabled"`
-	// The region name to manage.
-	RegionName string `pulumi:"regionName"`
+	AccountId  *string `pulumi:"accountId"`
+	Enabled    bool    `pulumi:"enabled"`
+	RegionName string  `pulumi:"regionName"`
 }
 
 // The set of arguments for constructing a Region resource.
 type RegionArgs struct {
-	// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted. To use this parameter, the caller must be an identity in the organization's management account or a delegated administrator account. The specified account ID must also be a member account in the same organization. The organization must have all features enabled, and the organization must have trusted access enabled for the Account Management service, and optionally a delegated admin account assigned.
-	AccountId pulumi.StringPtrInput
-	// Whether the region is enabled.
-	Enabled pulumi.BoolInput
-	// The region name to manage.
+	AccountId  pulumi.StringPtrInput
+	Enabled    pulumi.BoolInput
 	RegionName pulumi.StringInput
 }
 
@@ -228,22 +174,18 @@ func (o RegionOutput) ToRegionOutputWithContext(ctx context.Context) RegionOutpu
 	return o
 }
 
-// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted. To use this parameter, the caller must be an identity in the organization's management account or a delegated administrator account. The specified account ID must also be a member account in the same organization. The organization must have all features enabled, and the organization must have trusted access enabled for the Account Management service, and optionally a delegated admin account assigned.
 func (o RegionOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Region) pulumi.StringPtrOutput { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
-// Whether the region is enabled.
 func (o RegionOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Region) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// The region opt status.
 func (o RegionOutput) OptStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Region) pulumi.StringOutput { return v.OptStatus }).(pulumi.StringOutput)
 }
 
-// The region name to manage.
 func (o RegionOutput) RegionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Region) pulumi.StringOutput { return v.RegionName }).(pulumi.StringOutput)
 }

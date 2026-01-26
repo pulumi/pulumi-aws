@@ -10,15 +10,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInstanceProfileResult {
-    /**
-     * @return ARN.
-     * 
-     */
     private String arn;
-    /**
-     * @return String representation of the date the instance profile was created.
-     * 
-     */
     private String createDate;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -26,39 +18,15 @@ public final class GetInstanceProfileResult {
      */
     private String id;
     private String name;
-    /**
-     * @return Path to the instance profile.
-     * 
-     */
     private String path;
-    /**
-     * @return Role ARN associated with this instance profile.
-     * 
-     */
     private String roleArn;
-    /**
-     * @return Role ID associated with this instance profile.
-     * 
-     */
     private String roleId;
-    /**
-     * @return Role name associated with this instance profile.
-     * 
-     */
     private String roleName;
 
     private GetInstanceProfileResult() {}
-    /**
-     * @return ARN.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return String representation of the date the instance profile was created.
-     * 
-     */
     public String createDate() {
         return this.createDate;
     }
@@ -72,31 +40,15 @@ public final class GetInstanceProfileResult {
     public String name() {
         return this.name;
     }
-    /**
-     * @return Path to the instance profile.
-     * 
-     */
     public String path() {
         return this.path;
     }
-    /**
-     * @return Role ARN associated with this instance profile.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
-    /**
-     * @return Role ID associated with this instance profile.
-     * 
-     */
     public String roleId() {
         return this.roleId;
     }
-    /**
-     * @return Role name associated with this instance profile.
-     * 
-     */
     public String roleName() {
         return this.roleName;
     }

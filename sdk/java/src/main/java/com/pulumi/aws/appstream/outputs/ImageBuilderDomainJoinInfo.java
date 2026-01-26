@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ImageBuilderDomainJoinInfo {
-    /**
-     * @return Fully qualified name of the directory (for example, corp.example.com).
-     * 
-     */
     private @Nullable String directoryName;
-    /**
-     * @return Distinguished name of the organizational unit for computer accounts.
-     * 
-     */
     private @Nullable String organizationalUnitDistinguishedName;
 
     private ImageBuilderDomainJoinInfo() {}
-    /**
-     * @return Fully qualified name of the directory (for example, corp.example.com).
-     * 
-     */
     public Optional<String> directoryName() {
         return Optional.ofNullable(this.directoryName);
     }
-    /**
-     * @return Distinguished name of the organizational unit for computer accounts.
-     * 
-     */
     public Optional<String> organizationalUnitDistinguishedName() {
         return Optional.ofNullable(this.organizationalUnitDistinguishedName);
     }

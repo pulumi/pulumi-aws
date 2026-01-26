@@ -16,47 +16,23 @@ public final class AuthorizeVpcEndpointAccessArgs extends com.pulumi.resources.R
 
     public static final AuthorizeVpcEndpointAccessArgs Empty = new AuthorizeVpcEndpointAccessArgs();
 
-    /**
-     * AWS account ID to grant access to.
-     * 
-     */
     @Import(name="account", required=true)
     private Output<String> account;
 
-    /**
-     * @return AWS account ID to grant access to.
-     * 
-     */
     public Output<String> account() {
         return this.account;
     }
 
-    /**
-     * Name of OpenSearch Service domain to provide access to.
-     * 
-     */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
-    /**
-     * @return Name of OpenSearch Service domain to provide access to.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -87,65 +63,29 @@ public final class AuthorizeVpcEndpointAccessArgs extends com.pulumi.resources.R
             $ = new AuthorizeVpcEndpointAccessArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param account AWS account ID to grant access to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder account(Output<String> account) {
             $.account = account;
             return this;
         }
 
-        /**
-         * @param account AWS account ID to grant access to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder account(String account) {
             return account(Output.of(account));
         }
 
-        /**
-         * @param domainName Name of OpenSearch Service domain to provide access to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
-        /**
-         * @param domainName Name of OpenSearch Service domain to provide access to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

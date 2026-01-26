@@ -45,13 +45,6 @@ class TriggerTrigger(dict):
                  name: _builtins.str,
                  branches: Optional[Sequence[_builtins.str]] = None,
                  custom_data: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str destination_arn: The ARN of the resource that is the target for a trigger. For example, the ARN of a topic in Amazon Simple Notification Service (SNS).
-        :param Sequence[_builtins.str] events: The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS). If no events are specified, the trigger will run for all repository events. Event types include: `all`, `updateReference`, `createReference`, `deleteReference`.
-        :param _builtins.str name: The name of the trigger.
-        :param Sequence[_builtins.str] branches: The branches that will be included in the trigger configuration. If no branches   are specified, the trigger will apply to all branches.
-        :param _builtins.str custom_data: Any custom data associated with the trigger that will be included in the information sent to the target of the trigger.
-        """
         pulumi.set(__self__, "destination_arn", destination_arn)
         pulumi.set(__self__, "events", events)
         pulumi.set(__self__, "name", name)
@@ -63,41 +56,26 @@ class TriggerTrigger(dict):
     @_builtins.property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> _builtins.str:
-        """
-        The ARN of the resource that is the target for a trigger. For example, the ARN of a topic in Amazon Simple Notification Service (SNS).
-        """
         return pulumi.get(self, "destination_arn")
 
     @_builtins.property
     @pulumi.getter
     def events(self) -> Sequence[_builtins.str]:
-        """
-        The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS). If no events are specified, the trigger will run for all repository events. Event types include: `all`, `updateReference`, `createReference`, `deleteReference`.
-        """
         return pulumi.get(self, "events")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the trigger.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def branches(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The branches that will be included in the trigger configuration. If no branches   are specified, the trigger will apply to all branches.
-        """
         return pulumi.get(self, "branches")
 
     @_builtins.property
     @pulumi.getter(name="customData")
     def custom_data(self) -> Optional[_builtins.str]:
-        """
-        Any custom data associated with the trigger that will be included in the information sent to the target of the trigger.
-        """
         return pulumi.get(self, "custom_data")
 
 

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CostExplorer.Outputs
     [OutputType]
     public sealed class GetTagsSortByResult
     {
-        /// <summary>
-        /// key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
-        /// </summary>
         public readonly string? Key;
-        /// <summary>
-        /// order that's used to sort the data. Valid values are: `ASCENDING`,  `DESCENDING`.
-        /// </summary>
         public readonly string? SortOrder;
 
         [OutputConstructor]

@@ -12,152 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Single Sign-On (SSO) Account Assignment resource
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/identitystore"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleGetPermissionSet, err := ssoadmin.LookupPermissionSet(ctx, &ssoadmin.LookupPermissionSetArgs{
-//				InstanceArn: example.Arns[0],
-//				Name:        pulumi.StringRef("AWSReadOnlyAccess"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleGetGroup, err := identitystore.LookupGroup(ctx, &identitystore.LookupGroupArgs{
-//				IdentityStoreId: example.IdentityStoreIds[0],
-//				AlternateIdentifier: identitystore.GetGroupAlternateIdentifier{
-//					UniqueAttribute: identitystore.GetGroupAlternateIdentifierUniqueAttribute{
-//						AttributePath:  "DisplayName",
-//						AttributeValue: "ExampleGroup",
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssoadmin.NewAccountAssignment(ctx, "example", &ssoadmin.AccountAssignmentArgs{
-//				InstanceArn:      pulumi.String(example.Arns[0]),
-//				PermissionSetArn: pulumi.String(exampleGetPermissionSet.Arn),
-//				PrincipalId:      pulumi.String(exampleGetGroup.GroupId),
-//				PrincipalType:    pulumi.String("GROUP"),
-//				TargetId:         pulumi.String("123456789012"),
-//				TargetType:       pulumi.String("AWS_ACCOUNT"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Managed Policy Attachment
-//
-// > Because destruction of a managed policy attachment resource also re-provisions the associated permission set to all accounts, explicitly indicating the dependency with the account assignment resource via the `dependsOn` meta argument is necessary to ensure proper deletion order when these resources are used together.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/identitystore"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			examplePermissionSet, err := ssoadmin.NewPermissionSet(ctx, "example", &ssoadmin.PermissionSetArgs{
-//				Name:        pulumi.String("Example"),
-//				InstanceArn: pulumi.String(example.Arns[0]),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleGroup, err := identitystore.NewGroup(ctx, "example", &identitystore.GroupArgs{
-//				IdentityStoreId: pulumi.String(example.IdentityStoreIds[0]),
-//				DisplayName:     pulumi.String("Admin"),
-//				Description:     pulumi.String("Admin Group"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccountAssignment, err := ssoadmin.NewAccountAssignment(ctx, "example", &ssoadmin.AccountAssignmentArgs{
-//				InstanceArn:      pulumi.String(example.Arns[0]),
-//				PermissionSetArn: examplePermissionSet.Arn,
-//				PrincipalId:      exampleGroup.GroupId,
-//				PrincipalType:    pulumi.String("GROUP"),
-//				TargetId:         pulumi.String("123456789012"),
-//				TargetType:       pulumi.String("AWS_ACCOUNT"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssoadmin.NewManagedPolicyAttachment(ctx, "example", &ssoadmin.ManagedPolicyAttachmentArgs{
-//				InstanceArn:      pulumi.String(example.Arns[0]),
-//				ManagedPolicyArn: pulumi.String("arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup"),
-//				PermissionSetArn: examplePermissionSet.Arn,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAccountAssignment,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SSO Account Assignments using the `principal_id`, `principal_type`, `target_id`, `target_type`, `permission_set_arn`, `instance_arn` separated by commas (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:ssoadmin/accountAssignment:AccountAssignment example f81d4fae-7dec-11d0-a765-00a0c91e6bf6,GROUP,1234567890,AWS_ACCOUNT,arn:aws:sso:::permissionSet/ssoins-0123456789abcdef/ps-0123456789abcdef,arn:aws:sso:::instance/ssoins-0123456789abcdef
-// ```
 type AccountAssignment struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the SSO Instance.
-	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
-	// The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+	InstanceArn      pulumi.StringOutput `pulumi:"instanceArn"`
 	PermissionSetArn pulumi.StringOutput `pulumi:"permissionSetArn"`
-	// An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
-	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
-	// The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
-	PrincipalType pulumi.StringOutput `pulumi:"principalType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// An AWS account identifier, typically a 10-12 digit string.
-	TargetId pulumi.StringOutput `pulumi:"targetId"`
-	// The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
-	TargetType pulumi.StringOutput `pulumi:"targetType"`
+	PrincipalId      pulumi.StringOutput `pulumi:"principalId"`
+	PrincipalType    pulumi.StringOutput `pulumi:"principalType"`
+	Region           pulumi.StringOutput `pulumi:"region"`
+	TargetId         pulumi.StringOutput `pulumi:"targetId"`
+	TargetType       pulumi.StringOutput `pulumi:"targetType"`
 }
 
 // NewAccountAssignment registers a new resource with the given unique name, arguments, and options.
@@ -208,37 +72,23 @@ func GetAccountAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccountAssignment resources.
 type accountAssignmentState struct {
-	// The Amazon Resource Name (ARN) of the SSO Instance.
-	InstanceArn *string `pulumi:"instanceArn"`
-	// The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+	InstanceArn      *string `pulumi:"instanceArn"`
 	PermissionSetArn *string `pulumi:"permissionSetArn"`
-	// An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
-	PrincipalId *string `pulumi:"principalId"`
-	// The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
-	PrincipalType *string `pulumi:"principalType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// An AWS account identifier, typically a 10-12 digit string.
-	TargetId *string `pulumi:"targetId"`
-	// The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
-	TargetType *string `pulumi:"targetType"`
+	PrincipalId      *string `pulumi:"principalId"`
+	PrincipalType    *string `pulumi:"principalType"`
+	Region           *string `pulumi:"region"`
+	TargetId         *string `pulumi:"targetId"`
+	TargetType       *string `pulumi:"targetType"`
 }
 
 type AccountAssignmentState struct {
-	// The Amazon Resource Name (ARN) of the SSO Instance.
-	InstanceArn pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+	InstanceArn      pulumi.StringPtrInput
 	PermissionSetArn pulumi.StringPtrInput
-	// An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
-	PrincipalId pulumi.StringPtrInput
-	// The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
-	PrincipalType pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// An AWS account identifier, typically a 10-12 digit string.
-	TargetId pulumi.StringPtrInput
-	// The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
-	TargetType pulumi.StringPtrInput
+	PrincipalId      pulumi.StringPtrInput
+	PrincipalType    pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
+	TargetId         pulumi.StringPtrInput
+	TargetType       pulumi.StringPtrInput
 }
 
 func (AccountAssignmentState) ElementType() reflect.Type {
@@ -246,38 +96,24 @@ func (AccountAssignmentState) ElementType() reflect.Type {
 }
 
 type accountAssignmentArgs struct {
-	// The Amazon Resource Name (ARN) of the SSO Instance.
-	InstanceArn string `pulumi:"instanceArn"`
-	// The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
-	PermissionSetArn string `pulumi:"permissionSetArn"`
-	// An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
-	PrincipalId string `pulumi:"principalId"`
-	// The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
-	PrincipalType string `pulumi:"principalType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// An AWS account identifier, typically a 10-12 digit string.
-	TargetId string `pulumi:"targetId"`
-	// The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
-	TargetType string `pulumi:"targetType"`
+	InstanceArn      string  `pulumi:"instanceArn"`
+	PermissionSetArn string  `pulumi:"permissionSetArn"`
+	PrincipalId      string  `pulumi:"principalId"`
+	PrincipalType    string  `pulumi:"principalType"`
+	Region           *string `pulumi:"region"`
+	TargetId         string  `pulumi:"targetId"`
+	TargetType       string  `pulumi:"targetType"`
 }
 
 // The set of arguments for constructing a AccountAssignment resource.
 type AccountAssignmentArgs struct {
-	// The Amazon Resource Name (ARN) of the SSO Instance.
-	InstanceArn pulumi.StringInput
-	// The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+	InstanceArn      pulumi.StringInput
 	PermissionSetArn pulumi.StringInput
-	// An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
-	PrincipalId pulumi.StringInput
-	// The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
-	PrincipalType pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// An AWS account identifier, typically a 10-12 digit string.
-	TargetId pulumi.StringInput
-	// The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
-	TargetType pulumi.StringInput
+	PrincipalId      pulumi.StringInput
+	PrincipalType    pulumi.StringInput
+	Region           pulumi.StringPtrInput
+	TargetId         pulumi.StringInput
+	TargetType       pulumi.StringInput
 }
 
 func (AccountAssignmentArgs) ElementType() reflect.Type {
@@ -367,37 +203,30 @@ func (o AccountAssignmentOutput) ToAccountAssignmentOutputWithContext(ctx contex
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the SSO Instance.
 func (o AccountAssignmentOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountAssignment) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
 func (o AccountAssignmentOutput) PermissionSetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountAssignment) pulumi.StringOutput { return v.PermissionSetArn }).(pulumi.StringOutput)
 }
 
-// An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
 func (o AccountAssignmentOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountAssignment) pulumi.StringOutput { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
 func (o AccountAssignmentOutput) PrincipalType() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountAssignment) pulumi.StringOutput { return v.PrincipalType }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AccountAssignmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountAssignment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// An AWS account identifier, typically a 10-12 digit string.
 func (o AccountAssignmentOutput) TargetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountAssignment) pulumi.StringOutput { return v.TargetId }).(pulumi.StringOutput)
 }
 
-// The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
 func (o AccountAssignmentOutput) TargetType() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountAssignment) pulumi.StringOutput { return v.TargetType }).(pulumi.StringOutput)
 }

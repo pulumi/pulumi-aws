@@ -16,32 +16,16 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
 
     public static final StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs Empty = new StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs();
 
-    /**
-     * Whether prefix-level storage metrics are enabled.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Whether prefix-level storage metrics are enabled.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * Selection criteria. See Selection Criteria below for more details.
-     * 
-     */
     @Import(name="selectionCriteria")
     private @Nullable Output<StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs> selectionCriteria;
 
-    /**
-     * @return Selection criteria. See Selection Criteria below for more details.
-     * 
-     */
     public Optional<Output<StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs>> selectionCriteria() {
         return Optional.ofNullable(this.selectionCriteria);
     }
@@ -71,44 +55,20 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
             $ = new StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Whether prefix-level storage metrics are enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether prefix-level storage metrics are enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param selectionCriteria Selection criteria. See Selection Criteria below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder selectionCriteria(@Nullable Output<StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs> selectionCriteria) {
             $.selectionCriteria = selectionCriteria;
             return this;
         }
 
-        /**
-         * @param selectionCriteria Selection criteria. See Selection Criteria below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder selectionCriteria(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs selectionCriteria) {
             return selectionCriteria(Output.of(selectionCriteria));
         }

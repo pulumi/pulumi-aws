@@ -17,65 +17,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipelineStage {
-    /**
-     * @return The action(s) to include in the stage. Defined as an `action` block below
-     * 
-     */
     private List<PipelineStageAction> actions;
-    /**
-     * @return The method to use when a stage allows entry. For example, configuring this field for conditions will allow entry to the stage when the conditions are met.
-     * 
-     */
     private @Nullable PipelineStageBeforeEntry beforeEntry;
-    /**
-     * @return The name of the stage.
-     * 
-     */
     private String name;
-    /**
-     * @return The method to use when a stage has not completed successfully. For example, configuring this field for rollback will roll back a failed stage automatically to the last successful pipeline execution in the stage.
-     * 
-     */
     private @Nullable PipelineStageOnFailure onFailure;
-    /**
-     * @return The method to use when a stage has succeeded. For example, configuring this field for conditions will allow the stage to succeed when the conditions are met.
-     * 
-     */
     private @Nullable PipelineStageOnSuccess onSuccess;
 
     private PipelineStage() {}
-    /**
-     * @return The action(s) to include in the stage. Defined as an `action` block below
-     * 
-     */
     public List<PipelineStageAction> actions() {
         return this.actions;
     }
-    /**
-     * @return The method to use when a stage allows entry. For example, configuring this field for conditions will allow entry to the stage when the conditions are met.
-     * 
-     */
     public Optional<PipelineStageBeforeEntry> beforeEntry() {
         return Optional.ofNullable(this.beforeEntry);
     }
-    /**
-     * @return The name of the stage.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The method to use when a stage has not completed successfully. For example, configuring this field for rollback will roll back a failed stage automatically to the last successful pipeline execution in the stage.
-     * 
-     */
     public Optional<PipelineStageOnFailure> onFailure() {
         return Optional.ofNullable(this.onFailure);
     }
-    /**
-     * @return The method to use when a stage has succeeded. For example, configuring this field for conditions will allow the stage to succeed when the conditions are met.
-     * 
-     */
     public Optional<PipelineStageOnSuccess> onSuccess() {
         return Optional.ofNullable(this.onSuccess);
     }

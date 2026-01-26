@@ -11,184 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a FSx Backup resource.
-//
-// ## Lustre Example
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/fsx"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLustreFileSystem, err := fsx.NewLustreFileSystem(ctx, "example", &fsx.LustreFileSystemArgs{
-//				StorageCapacity:          pulumi.Int(1200),
-//				SubnetIds:                pulumi.Any(exampleAwsSubnet.Id),
-//				DeploymentType:           pulumi.String("PERSISTENT_1"),
-//				PerUnitStorageThroughput: pulumi.Int(50),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = fsx.NewBackup(ctx, "example", &fsx.BackupArgs{
-//				FileSystemId: exampleLustreFileSystem.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Windows Example
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/fsx"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleWindowsFileSystem, err := fsx.NewWindowsFileSystem(ctx, "example", &fsx.WindowsFileSystemArgs{
-//				ActiveDirectoryId: pulumi.Any(eample.Id),
-//				SkipFinalBackup:   pulumi.Bool(true),
-//				StorageCapacity:   pulumi.Int(32),
-//				SubnetIds: pulumi.StringArray{
-//					example1.Id,
-//				},
-//				ThroughputCapacity: pulumi.Int(8),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = fsx.NewBackup(ctx, "example", &fsx.BackupArgs{
-//				FileSystemId: exampleWindowsFileSystem.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## ONTAP Example
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/fsx"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleOntapVolume, err := fsx.NewOntapVolume(ctx, "example", &fsx.OntapVolumeArgs{
-//				Name:                     pulumi.String("example"),
-//				JunctionPath:             pulumi.String("/example"),
-//				SizeInMegabytes:          pulumi.Int(1024),
-//				StorageEfficiencyEnabled: pulumi.Bool(true),
-//				StorageVirtualMachineId:  pulumi.Any(test.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = fsx.NewBackup(ctx, "example", &fsx.BackupArgs{
-//				VolumeId: exampleOntapVolume.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## OpenZFS Example
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/fsx"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleOpenZfsFileSystem, err := fsx.NewOpenZfsFileSystem(ctx, "example", &fsx.OpenZfsFileSystemArgs{
-//				StorageCapacity: pulumi.Int(64),
-//				SubnetIds: pulumi.StringArray{
-//					exampleAwsSubnet.Id,
-//				},
-//				DeploymentType:     pulumi.String("SINGLE_AZ_1"),
-//				ThroughputCapacity: pulumi.Int(64),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = fsx.NewBackup(ctx, "example", &fsx.BackupArgs{
-//				FileSystemId: exampleOpenZfsFileSystem.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import FSx Backups using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:fsx/backup:Backup example fs-543ab12b1ca672f33
-// ```
 type Backup struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name of the backup.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
+	Arn          pulumi.StringOutput    `pulumi:"arn"`
 	FileSystemId pulumi.StringPtrOutput `pulumi:"fileSystemId"`
-	// The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
-	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
-	// AWS account identifier that created the file system.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The type of the file system backup.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The ID of the volume to back up. Required if backing up a ONTAP Volume.
-	//
-	// Note - One of `fileSystemId` or `volumeId` can be specified. `fileSystemId` is used for Lustre and Windows, `volumeId` is used for ONTAP.
-	VolumeId pulumi.StringPtrOutput `pulumi:"volumeId"`
+	KmsKeyId     pulumi.StringOutput    `pulumi:"kmsKeyId"`
+	OwnerId      pulumi.StringOutput    `pulumi:"ownerId"`
+	Region       pulumi.StringOutput    `pulumi:"region"`
+	Tags         pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll      pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Type         pulumi.StringOutput    `pulumi:"type"`
+	VolumeId     pulumi.StringPtrOutput `pulumi:"volumeId"`
 }
 
 // NewBackup registers a new resource with the given unique name, arguments, and options.
@@ -221,49 +55,27 @@ func GetBackup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Backup resources.
 type backupState struct {
-	// Amazon Resource Name of the backup.
-	Arn *string `pulumi:"arn"`
-	// The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
-	FileSystemId *string `pulumi:"fileSystemId"`
-	// The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// AWS account identifier that created the file system.
-	OwnerId *string `pulumi:"ownerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The type of the file system backup.
-	Type *string `pulumi:"type"`
-	// The ID of the volume to back up. Required if backing up a ONTAP Volume.
-	//
-	// Note - One of `fileSystemId` or `volumeId` can be specified. `fileSystemId` is used for Lustre and Windows, `volumeId` is used for ONTAP.
-	VolumeId *string `pulumi:"volumeId"`
+	Arn          *string           `pulumi:"arn"`
+	FileSystemId *string           `pulumi:"fileSystemId"`
+	KmsKeyId     *string           `pulumi:"kmsKeyId"`
+	OwnerId      *string           `pulumi:"ownerId"`
+	Region       *string           `pulumi:"region"`
+	Tags         map[string]string `pulumi:"tags"`
+	TagsAll      map[string]string `pulumi:"tagsAll"`
+	Type         *string           `pulumi:"type"`
+	VolumeId     *string           `pulumi:"volumeId"`
 }
 
 type BackupState struct {
-	// Amazon Resource Name of the backup.
-	Arn pulumi.StringPtrInput
-	// The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
+	Arn          pulumi.StringPtrInput
 	FileSystemId pulumi.StringPtrInput
-	// The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
-	KmsKeyId pulumi.StringPtrInput
-	// AWS account identifier that created the file system.
-	OwnerId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The type of the file system backup.
-	Type pulumi.StringPtrInput
-	// The ID of the volume to back up. Required if backing up a ONTAP Volume.
-	//
-	// Note - One of `fileSystemId` or `volumeId` can be specified. `fileSystemId` is used for Lustre and Windows, `volumeId` is used for ONTAP.
-	VolumeId pulumi.StringPtrInput
+	KmsKeyId     pulumi.StringPtrInput
+	OwnerId      pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
+	Tags         pulumi.StringMapInput
+	TagsAll      pulumi.StringMapInput
+	Type         pulumi.StringPtrInput
+	VolumeId     pulumi.StringPtrInput
 }
 
 func (BackupState) ElementType() reflect.Type {
@@ -271,30 +83,18 @@ func (BackupState) ElementType() reflect.Type {
 }
 
 type backupArgs struct {
-	// The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
-	FileSystemId *string `pulumi:"fileSystemId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-	Tags map[string]string `pulumi:"tags"`
-	// The ID of the volume to back up. Required if backing up a ONTAP Volume.
-	//
-	// Note - One of `fileSystemId` or `volumeId` can be specified. `fileSystemId` is used for Lustre and Windows, `volumeId` is used for ONTAP.
-	VolumeId *string `pulumi:"volumeId"`
+	FileSystemId *string           `pulumi:"fileSystemId"`
+	Region       *string           `pulumi:"region"`
+	Tags         map[string]string `pulumi:"tags"`
+	VolumeId     *string           `pulumi:"volumeId"`
 }
 
 // The set of arguments for constructing a Backup resource.
 type BackupArgs struct {
-	// The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
 	FileSystemId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-	Tags pulumi.StringMapInput
-	// The ID of the volume to back up. Required if backing up a ONTAP Volume.
-	//
-	// Note - One of `fileSystemId` or `volumeId` can be specified. `fileSystemId` is used for Lustre and Windows, `volumeId` is used for ONTAP.
-	VolumeId pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
+	Tags         pulumi.StringMapInput
+	VolumeId     pulumi.StringPtrInput
 }
 
 func (BackupArgs) ElementType() reflect.Type {
@@ -384,49 +184,38 @@ func (o BackupOutput) ToBackupOutputWithContext(ctx context.Context) BackupOutpu
 	return o
 }
 
-// Amazon Resource Name of the backup.
 func (o BackupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Backup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
 func (o BackupOutput) FileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Backup) pulumi.StringPtrOutput { return v.FileSystemId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
 func (o BackupOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Backup) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// AWS account identifier that created the file system.
 func (o BackupOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Backup) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BackupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Backup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 func (o BackupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Backup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o BackupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Backup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The type of the file system backup.
 func (o BackupOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Backup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// The ID of the volume to back up. Required if backing up a ONTAP Volume.
-//
-// Note - One of `fileSystemId` or `volumeId` can be specified. `fileSystemId` is used for Lustre and Windows, `volumeId` is used for ONTAP.
 func (o BackupOutput) VolumeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Backup) pulumi.StringPtrOutput { return v.VolumeId }).(pulumi.StringPtrOutput)
 }

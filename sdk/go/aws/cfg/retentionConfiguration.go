@@ -12,51 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage the AWS Config retention configuration.
-// The retention configuration defines the number of days that AWS Config stores historical information.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cfg"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cfg.NewRetentionConfiguration(ctx, "example", &cfg.RetentionConfigurationArgs{
-//				RetentionPeriodInDays: pulumi.Int(90),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import the AWS Config retention configuration using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:cfg/retentionConfiguration:RetentionConfiguration example default
-// ```
 type RetentionConfiguration struct {
 	pulumi.CustomResourceState
 
-	// The name of the retention configuration object. The object is always named **default**.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The number of days AWS Config stores historical information.
-	RetentionPeriodInDays pulumi.IntOutput `pulumi:"retentionPeriodInDays"`
+	Name                  pulumi.StringOutput `pulumi:"name"`
+	Region                pulumi.StringOutput `pulumi:"region"`
+	RetentionPeriodInDays pulumi.IntOutput    `pulumi:"retentionPeriodInDays"`
 }
 
 // NewRetentionConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -92,20 +53,14 @@ func GetRetentionConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RetentionConfiguration resources.
 type retentionConfigurationState struct {
-	// The name of the retention configuration object. The object is always named **default**.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The number of days AWS Config stores historical information.
-	RetentionPeriodInDays *int `pulumi:"retentionPeriodInDays"`
+	Name                  *string `pulumi:"name"`
+	Region                *string `pulumi:"region"`
+	RetentionPeriodInDays *int    `pulumi:"retentionPeriodInDays"`
 }
 
 type RetentionConfigurationState struct {
-	// The name of the retention configuration object. The object is always named **default**.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The number of days AWS Config stores historical information.
+	Name                  pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
 	RetentionPeriodInDays pulumi.IntPtrInput
 }
 
@@ -114,17 +69,13 @@ func (RetentionConfigurationState) ElementType() reflect.Type {
 }
 
 type retentionConfigurationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The number of days AWS Config stores historical information.
-	RetentionPeriodInDays int `pulumi:"retentionPeriodInDays"`
+	Region                *string `pulumi:"region"`
+	RetentionPeriodInDays int     `pulumi:"retentionPeriodInDays"`
 }
 
 // The set of arguments for constructing a RetentionConfiguration resource.
 type RetentionConfigurationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The number of days AWS Config stores historical information.
+	Region                pulumi.StringPtrInput
 	RetentionPeriodInDays pulumi.IntInput
 }
 
@@ -215,17 +166,14 @@ func (o RetentionConfigurationOutput) ToRetentionConfigurationOutputWithContext(
 	return o
 }
 
-// The name of the retention configuration object. The object is always named **default**.
 func (o RetentionConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RetentionConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RetentionConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RetentionConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The number of days AWS Config stores historical information.
 func (o RetentionConfigurationOutput) RetentionPeriodInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *RetentionConfiguration) pulumi.IntOutput { return v.RetentionPeriodInDays }).(pulumi.IntOutput)
 }

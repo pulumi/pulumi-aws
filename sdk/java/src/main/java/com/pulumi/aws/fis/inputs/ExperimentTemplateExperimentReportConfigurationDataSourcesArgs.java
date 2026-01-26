@@ -16,17 +16,9 @@ public final class ExperimentTemplateExperimentReportConfigurationDataSourcesArg
 
     public static final ExperimentTemplateExperimentReportConfigurationDataSourcesArgs Empty = new ExperimentTemplateExperimentReportConfigurationDataSourcesArgs();
 
-    /**
-     * The data sources for the experiment report. See below.
-     * 
-     */
     @Import(name="cloudwatchDashboards")
     private @Nullable Output<List<ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs>> cloudwatchDashboards;
 
-    /**
-     * @return The data sources for the experiment report. See below.
-     * 
-     */
     public Optional<Output<List<ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs>>> cloudwatchDashboards() {
         return Optional.ofNullable(this.cloudwatchDashboards);
     }
@@ -55,33 +47,15 @@ public final class ExperimentTemplateExperimentReportConfigurationDataSourcesArg
             $ = new ExperimentTemplateExperimentReportConfigurationDataSourcesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cloudwatchDashboards The data sources for the experiment report. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchDashboards(@Nullable Output<List<ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs>> cloudwatchDashboards) {
             $.cloudwatchDashboards = cloudwatchDashboards;
             return this;
         }
 
-        /**
-         * @param cloudwatchDashboards The data sources for the experiment report. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchDashboards(List<ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs> cloudwatchDashboards) {
             return cloudwatchDashboards(Output.of(cloudwatchDashboards));
         }
 
-        /**
-         * @param cloudwatchDashboards The data sources for the experiment report. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchDashboards(ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs... cloudwatchDashboards) {
             return cloudwatchDashboards(List.of(cloudwatchDashboards));
         }

@@ -13,31 +13,11 @@ namespace Pulumi.Aws.LakeFormation.Outputs
     [OutputType]
     public sealed class ResourceLfTagsTableWithColumns
     {
-        /// <summary>
-        /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        /// </summary>
         public readonly string? CatalogId;
-        /// <summary>
-        /// Set of column names for the table.
-        /// </summary>
         public readonly ImmutableArray<string> ColumnNames;
-        /// <summary>
-        /// Name of the database for the table with columns resource. Unique to the Data Catalog.
-        /// </summary>
         public readonly string DatabaseName;
-        /// <summary>
-        /// Set of column names for the table to exclude. If `ExcludedColumnNames` is included, `Wildcard` must be set to `True` to avoid the provider reporting a difference.
-        /// </summary>
         public readonly ImmutableArray<string> ExcludedColumnNames;
-        /// <summary>
-        /// Name of the table resource.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Whether to use a column wildcard. If `ExcludedColumnNames` is included, `Wildcard` must be set to `True` to avoid the provider reporting a difference.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public readonly bool? Wildcard;
 
         [OutputConstructor]

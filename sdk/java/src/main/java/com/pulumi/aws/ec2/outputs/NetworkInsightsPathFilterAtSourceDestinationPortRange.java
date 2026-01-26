@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class NetworkInsightsPathFilterAtSourceDestinationPortRange {
-    /**
-     * @return The first port in the range.
-     * 
-     */
     private @Nullable Integer fromPort;
-    /**
-     * @return The last port in the range.
-     * 
-     */
     private @Nullable Integer toPort;
 
     private NetworkInsightsPathFilterAtSourceDestinationPortRange() {}
-    /**
-     * @return The first port in the range.
-     * 
-     */
     public Optional<Integer> fromPort() {
         return Optional.ofNullable(this.fromPort);
     }
-    /**
-     * @return The last port in the range.
-     * 
-     */
     public Optional<Integer> toPort() {
         return Optional.ofNullable(this.toPort);
     }

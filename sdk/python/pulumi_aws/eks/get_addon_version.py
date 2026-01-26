@@ -77,9 +77,6 @@ class GetAddonVersionResult:
     @_builtins.property
     @pulumi.getter
     def version(self) -> _builtins.str:
-        """
-        Version of the EKS add-on.
-        """
         return pulumi.get(self, "version")
 
 
@@ -103,33 +100,7 @@ def get_addon_version(addon_name: Optional[_builtins.str] = None,
                       region: Optional[_builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAddonVersionResult:
     """
-    Retrieve information about a specific EKS add-on version compatible with an EKS cluster version.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    default = aws.eks.get_addon_version(addon_name="vpc-cni",
-        kubernetes_version=example["version"])
-    latest = aws.eks.get_addon_version(addon_name="vpc-cni",
-        kubernetes_version=example["version"],
-        most_recent=True)
-    vpc_cni = aws.eks.Addon("vpc_cni",
-        cluster_name=example["name"],
-        addon_name="vpc-cni",
-        addon_version=latest.version)
-    pulumi.export("default", default.version)
-    pulumi.export("latest", latest.version)
-    ```
-
-
-    :param _builtins.str addon_name: Name of the EKS add-on. The name must match one of
-           the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
-    :param _builtins.str kubernetes_version: Version of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
-    :param _builtins.bool most_recent: Determines if the most recent or default version of the addon should be returned.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['addonName'] = addon_name
@@ -152,33 +123,7 @@ def get_addon_version_output(addon_name: Optional[pulumi.Input[_builtins.str]] =
                              region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAddonVersionResult]:
     """
-    Retrieve information about a specific EKS add-on version compatible with an EKS cluster version.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    default = aws.eks.get_addon_version(addon_name="vpc-cni",
-        kubernetes_version=example["version"])
-    latest = aws.eks.get_addon_version(addon_name="vpc-cni",
-        kubernetes_version=example["version"],
-        most_recent=True)
-    vpc_cni = aws.eks.Addon("vpc_cni",
-        cluster_name=example["name"],
-        addon_name="vpc-cni",
-        addon_version=latest.version)
-    pulumi.export("default", default.version)
-    pulumi.export("latest", latest.version)
-    ```
-
-
-    :param _builtins.str addon_name: Name of the EKS add-on. The name must match one of
-           the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
-    :param _builtins.str kubernetes_version: Version of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
-    :param _builtins.bool most_recent: Determines if the most recent or default version of the addon should be returned.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['addonName'] = addon_name

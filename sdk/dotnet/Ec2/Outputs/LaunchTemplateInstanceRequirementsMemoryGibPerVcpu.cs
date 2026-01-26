@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class LaunchTemplateInstanceRequirementsMemoryGibPerVcpu
     {
-        /// <summary>
-        /// Maximum. May be a decimal number, e.g. `0.5`.
-        /// </summary>
         public readonly double? Max;
-        /// <summary>
-        /// Minimum. May be a decimal number, e.g. `0.5`.
-        /// </summary>
         public readonly double? Min;
 
         [OutputConstructor]

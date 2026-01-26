@@ -14,22 +14,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEngineVersionResult {
-    /**
-     * @return Default character set for the engine version.
-     * 
-     */
     private String defaultCharacterSet;
     private @Nullable Boolean defaultOnly;
     private @Nullable String engine;
-    /**
-     * @return Description of the database engine.
-     * 
-     */
     private String engineDescription;
-    /**
-     * @return Set of log types that the database engine has available for export to CloudWatch Logs.
-     * 
-     */
     private List<String> exportableLogTypes;
     private @Nullable Boolean hasMajorTarget;
     private @Nullable Boolean hasMinorTarget;
@@ -44,63 +32,19 @@ public final class GetEngineVersionResult {
     private @Nullable List<String> preferredUpgradeTargets;
     private @Nullable List<String> preferredVersions;
     private String region;
-    /**
-     * @return Set of character sets supported by this engine version.
-     * 
-     */
     private List<String> supportedCharacterSets;
-    /**
-     * @return Set of time zones supported by this engine.
-     * 
-     */
     private List<String> supportedTimezones;
-    /**
-     * @return Whether the engine version supports global databases.
-     * 
-     */
     private Boolean supportsGlobalDatabases;
-    /**
-     * @return Whether the engine version supports exporting the log types specified by `exportableLogTypes` to CloudWatch Logs.
-     * 
-     */
     private Boolean supportsLogExportsToCloudwatch;
-    /**
-     * @return Whether the database engine version supports read replicas.
-     * 
-     */
     private Boolean supportsReadReplica;
-    /**
-     * @return Set of valid major engine versions that this version can be upgraded to.
-     * 
-     */
     private List<String> validMajorTargets;
-    /**
-     * @return Set of valid minor engine versions that this version can be upgraded to.
-     * 
-     */
     private List<String> validMinorTargets;
-    /**
-     * @return Set of engine versions that this database engine version can be upgraded to.
-     * 
-     */
     private List<String> validUpgradeTargets;
     private String version;
-    /**
-     * @return Actual engine version returned by the API.
-     * 
-     */
     private String versionActual;
-    /**
-     * @return Description of the database engine version.
-     * 
-     */
     private String versionDescription;
 
     private GetEngineVersionResult() {}
-    /**
-     * @return Default character set for the engine version.
-     * 
-     */
     public String defaultCharacterSet() {
         return this.defaultCharacterSet;
     }
@@ -110,17 +54,9 @@ public final class GetEngineVersionResult {
     public Optional<String> engine() {
         return Optional.ofNullable(this.engine);
     }
-    /**
-     * @return Description of the database engine.
-     * 
-     */
     public String engineDescription() {
         return this.engineDescription;
     }
-    /**
-     * @return Set of log types that the database engine has available for export to CloudWatch Logs.
-     * 
-     */
     public List<String> exportableLogTypes() {
         return this.exportableLogTypes;
     }
@@ -155,76 +91,36 @@ public final class GetEngineVersionResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Set of character sets supported by this engine version.
-     * 
-     */
     public List<String> supportedCharacterSets() {
         return this.supportedCharacterSets;
     }
-    /**
-     * @return Set of time zones supported by this engine.
-     * 
-     */
     public List<String> supportedTimezones() {
         return this.supportedTimezones;
     }
-    /**
-     * @return Whether the engine version supports global databases.
-     * 
-     */
     public Boolean supportsGlobalDatabases() {
         return this.supportsGlobalDatabases;
     }
-    /**
-     * @return Whether the engine version supports exporting the log types specified by `exportableLogTypes` to CloudWatch Logs.
-     * 
-     */
     public Boolean supportsLogExportsToCloudwatch() {
         return this.supportsLogExportsToCloudwatch;
     }
-    /**
-     * @return Whether the database engine version supports read replicas.
-     * 
-     */
     public Boolean supportsReadReplica() {
         return this.supportsReadReplica;
     }
-    /**
-     * @return Set of valid major engine versions that this version can be upgraded to.
-     * 
-     */
     public List<String> validMajorTargets() {
         return this.validMajorTargets;
     }
-    /**
-     * @return Set of valid minor engine versions that this version can be upgraded to.
-     * 
-     */
     public List<String> validMinorTargets() {
         return this.validMinorTargets;
     }
-    /**
-     * @return Set of engine versions that this database engine version can be upgraded to.
-     * 
-     */
     public List<String> validUpgradeTargets() {
         return this.validUpgradeTargets;
     }
     public String version() {
         return this.version;
     }
-    /**
-     * @return Actual engine version returned by the API.
-     * 
-     */
     public String versionActual() {
         return this.versionActual;
     }
-    /**
-     * @return Description of the database engine version.
-     * 
-     */
     public String versionDescription() {
         return this.versionDescription;
     }

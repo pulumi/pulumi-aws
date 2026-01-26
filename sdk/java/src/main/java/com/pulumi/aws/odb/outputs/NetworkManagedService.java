@@ -18,19 +18,9 @@ public final class NetworkManagedService {
     private List<NetworkManagedServiceManagedS3BackupAccess> managedS3BackupAccesses;
     private List<String> managedServiceIpv4Cidrs;
     private String resourceGatewayArn;
-    /**
-     * @return Specifies the configuration for Amazon S3 access from the ODB network.
-     * 
-     */
     private List<NetworkManagedServiceS3Access> s3Accesses;
     private String serviceNetworkArn;
     private List<NetworkManagedServiceServiceNetworkEndpoint> serviceNetworkEndpoints;
-    /**
-     * @return Specifies the configuration for Zero-ETL access from the ODB network.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private List<NetworkManagedServiceZeroEtlAccess> zeroEtlAccesses;
 
     private NetworkManagedService() {}
@@ -43,10 +33,6 @@ public final class NetworkManagedService {
     public String resourceGatewayArn() {
         return this.resourceGatewayArn;
     }
-    /**
-     * @return Specifies the configuration for Amazon S3 access from the ODB network.
-     * 
-     */
     public List<NetworkManagedServiceS3Access> s3Accesses() {
         return this.s3Accesses;
     }
@@ -56,12 +42,6 @@ public final class NetworkManagedService {
     public List<NetworkManagedServiceServiceNetworkEndpoint> serviceNetworkEndpoints() {
         return this.serviceNetworkEndpoints;
     }
-    /**
-     * @return Specifies the configuration for Zero-ETL access from the ODB network.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public List<NetworkManagedServiceZeroEtlAccess> zeroEtlAccesses() {
         return this.zeroEtlAccesses;
     }

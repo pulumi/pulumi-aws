@@ -13,25 +13,10 @@ namespace Pulumi.Aws.AutoScalingPlans.Outputs
     [OutputType]
     public sealed class ScalingPlanScalingInstructionCustomizedLoadMetricSpecification
     {
-        /// <summary>
-        /// Dimensions of the metric.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? Dimensions;
-        /// <summary>
-        /// Name of the metric.
-        /// </summary>
         public readonly string MetricName;
-        /// <summary>
-        /// Namespace of the metric.
-        /// </summary>
         public readonly string Namespace;
-        /// <summary>
-        /// Statistic of the metric. Currently, the value must always be `Sum`.
-        /// </summary>
         public readonly string Statistic;
-        /// <summary>
-        /// Unit of the metric.
-        /// </summary>
         public readonly string? Unit;
 
         [OutputConstructor]

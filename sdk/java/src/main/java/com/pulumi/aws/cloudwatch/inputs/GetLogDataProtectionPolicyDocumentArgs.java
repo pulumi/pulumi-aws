@@ -33,40 +33,16 @@ public final class GetLogDataProtectionPolicyDocumentArgs extends com.pulumi.res
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The name of the data protection policy document.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the data protection policy document.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Configures the data protection policy.
-     * 
-     * &gt; There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="statements", required=true)
     private Output<List<GetLogDataProtectionPolicyDocumentStatementArgs>> statements;
 
-    /**
-     * @return Configures the data protection policy.
-     * 
-     * &gt; There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<List<GetLogDataProtectionPolicyDocumentStatementArgs>> statements() {
         return this.statements;
     }
@@ -124,66 +100,24 @@ public final class GetLogDataProtectionPolicyDocumentArgs extends com.pulumi.res
             return description(Output.of(description));
         }
 
-        /**
-         * @param name The name of the data protection policy document.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the data protection policy document.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param statements Configures the data protection policy.
-         * 
-         * &gt; There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder statements(Output<List<GetLogDataProtectionPolicyDocumentStatementArgs>> statements) {
             $.statements = statements;
             return this;
         }
 
-        /**
-         * @param statements Configures the data protection policy.
-         * 
-         * &gt; There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder statements(List<GetLogDataProtectionPolicyDocumentStatementArgs> statements) {
             return statements(Output.of(statements));
         }
 
-        /**
-         * @param statements Configures the data protection policy.
-         * 
-         * &gt; There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder statements(GetLogDataProtectionPolicyDocumentStatementArgs... statements) {
             return statements(List.of(statements));
         }

@@ -12,24 +12,14 @@ namespace Pulumi.Aws.SsmIncidents.Inputs
 
     public sealed class ResponsePlanIncidentTemplateGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A string used to stop Incident Manager from creating multiple incident records for the same incident.
-        /// </summary>
         [Input("dedupeString")]
         public Input<string>? DedupeString { get; set; }
 
-        /// <summary>
-        /// The impact value of a generated incident. The following values are supported:
-        /// </summary>
         [Input("impact", required: true)]
         public Input<int> Impact { get; set; } = null!;
 
         [Input("incidentTags")]
         private InputMap<string>? _incidentTags;
-
-        /// <summary>
-        /// The tags assigned to an incident template. When an incident starts, Incident Manager assigns the tags specified in the template to the incident.
-        /// </summary>
         public InputMap<string> IncidentTags
         {
             get => _incidentTags ?? (_incidentTags = new InputMap<string>());
@@ -38,25 +28,15 @@ namespace Pulumi.Aws.SsmIncidents.Inputs
 
         [Input("notificationTargets")]
         private InputList<Inputs.ResponsePlanIncidentTemplateNotificationTargetGetArgs>? _notificationTargets;
-
-        /// <summary>
-        /// The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `NotificationTarget` configuration block supports the following argument:
-        /// </summary>
         public InputList<Inputs.ResponsePlanIncidentTemplateNotificationTargetGetArgs> NotificationTargets
         {
             get => _notificationTargets ?? (_notificationTargets = new InputList<Inputs.ResponsePlanIncidentTemplateNotificationTargetGetArgs>());
             set => _notificationTargets = value;
         }
 
-        /// <summary>
-        /// The summary of an incident.
-        /// </summary>
         [Input("summary")]
         public Input<string>? Summary { get; set; }
 
-        /// <summary>
-        /// The title of a generated incident.
-        /// </summary>
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;
 

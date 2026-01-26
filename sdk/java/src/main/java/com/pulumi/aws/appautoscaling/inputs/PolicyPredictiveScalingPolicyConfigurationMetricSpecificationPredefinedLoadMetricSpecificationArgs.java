@@ -16,32 +16,16 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
 
     public static final PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs Empty = new PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs();
 
-    /**
-     * Metric type.
-     * 
-     */
     @Import(name="predefinedMetricType", required=true)
     private Output<String> predefinedMetricType;
 
-    /**
-     * @return Metric type.
-     * 
-     */
     public Output<String> predefinedMetricType() {
         return this.predefinedMetricType;
     }
 
-    /**
-     * Label that uniquely identifies a target group.
-     * 
-     */
     @Import(name="resourceLabel")
     private @Nullable Output<String> resourceLabel;
 
-    /**
-     * @return Label that uniquely identifies a target group.
-     * 
-     */
     public Optional<Output<String>> resourceLabel() {
         return Optional.ofNullable(this.resourceLabel);
     }
@@ -71,44 +55,20 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
             $ = new PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param predefinedMetricType Metric type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder predefinedMetricType(Output<String> predefinedMetricType) {
             $.predefinedMetricType = predefinedMetricType;
             return this;
         }
 
-        /**
-         * @param predefinedMetricType Metric type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder predefinedMetricType(String predefinedMetricType) {
             return predefinedMetricType(Output.of(predefinedMetricType));
         }
 
-        /**
-         * @param resourceLabel Label that uniquely identifies a target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceLabel(@Nullable Output<String> resourceLabel) {
             $.resourceLabel = resourceLabel;
             return this;
         }
 
-        /**
-         * @param resourceLabel Label that uniquely identifies a target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceLabel(String resourceLabel) {
             return resourceLabel(Output.of(resourceLabel));
         }

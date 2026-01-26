@@ -61,25 +61,16 @@ class GetStateMachineResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        Set to the arn of the state function.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> _builtins.str:
-        """
-        Date the state machine was created.
-        """
         return pulumi.get(self, "creation_date")
 
     @_builtins.property
     @pulumi.getter
     def definition(self) -> _builtins.str:
-        """
-        Set to the state machine definition.
-        """
         return pulumi.get(self, "definition")
 
     @_builtins.property
@@ -108,25 +99,16 @@ class GetStateMachineResult:
     @_builtins.property
     @pulumi.getter(name="revisionId")
     def revision_id(self) -> _builtins.str:
-        """
-        The revision identifier for the state machine.
-        """
         return pulumi.get(self, "revision_id")
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
-        """
-        Set to the role_arn used by the state function.
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Set to the current status of the state machine.
-        """
         return pulumi.get(self, "status")
 
 
@@ -152,22 +134,7 @@ def get_state_machine(name: Optional[_builtins.str] = None,
                       region: Optional[_builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStateMachineResult:
     """
-    Use this data source to get the ARN of a State Machine in AWS Step
-    Function (SFN). By using this data source, you can reference a
-    state machine without having to hard code the ARNs as input.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.sfn.get_state_machine(name="an_example_sfn_name")
-    ```
-
-
-    :param _builtins.str name: Friendly name of the state machine to match.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -190,22 +157,7 @@ def get_state_machine_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                              region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStateMachineResult]:
     """
-    Use this data source to get the ARN of a State Machine in AWS Step
-    Function (SFN). By using this data source, you can reference a
-    state machine without having to hard code the ARNs as input.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.sfn.get_state_machine(name="an_example_sfn_name")
-    ```
-
-
-    :param _builtins.str name: Friendly name of the state machine to match.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

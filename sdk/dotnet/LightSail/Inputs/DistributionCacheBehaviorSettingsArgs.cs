@@ -13,49 +13,49 @@ namespace Pulumi.Aws.LightSail.Inputs
     public sealed class DistributionCacheBehaviorSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// HTTP methods that are processed and forwarded to the distribution's origin.
+        /// The HTTP methods that are processed and forwarded to the distribution's origin.
         /// </summary>
         [Input("allowedHttpMethods")]
         public Input<string>? AllowedHttpMethods { get; set; }
 
         /// <summary>
-        /// HTTP method responses that are cached by your distribution.
+        /// The HTTP method responses that are cached by your distribution.
         /// </summary>
         [Input("cachedHttpMethods")]
         public Input<string>? CachedHttpMethods { get; set; }
 
         /// <summary>
-        /// Default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
+        /// The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
         /// </summary>
         [Input("defaultTtl")]
         public Input<int>? DefaultTtl { get; set; }
 
         /// <summary>
-        /// Cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. See below.
+        /// An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded.
         /// </summary>
         [Input("forwardedCookies")]
         public Input<Inputs.DistributionCacheBehaviorSettingsForwardedCookiesArgs>? ForwardedCookies { get; set; }
 
         /// <summary>
-        /// Headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. See below.
+        /// An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded.
         /// </summary>
         [Input("forwardedHeaders")]
         public Input<Inputs.DistributionCacheBehaviorSettingsForwardedHeadersArgs>? ForwardedHeaders { get; set; }
 
         /// <summary>
-        /// Query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. See below.
+        /// An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded.
         /// </summary>
         [Input("forwardedQueryStrings")]
         public Input<Inputs.DistributionCacheBehaviorSettingsForwardedQueryStringsArgs>? ForwardedQueryStrings { get; set; }
 
         /// <summary>
-        /// Maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+        /// The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
         /// </summary>
         [Input("maximumTtl")]
         public Input<int>? MaximumTtl { get; set; }
 
         /// <summary>
-        /// Minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+        /// The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
         /// </summary>
         [Input("minimumTtl")]
         public Input<int>? MinimumTtl { get; set; }

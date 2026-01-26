@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class ListenerDefaultActionJwtValidationAdditionalClaim {
-    /**
-     * @return Format of the claim value. Valid values are `single-string`, `string-array` and `space-separated-values`.
-     * 
-     */
     private String format;
-    /**
-     * @return Name of the claim to validate. `exp`, `iss`, `nbf`, or `iat` cannot be specified because they are validated by default.
-     * 
-     */
     private String name;
-    /**
-     * @return List of expected values of the claim.
-     * 
-     */
     private List<String> values;
 
     private ListenerDefaultActionJwtValidationAdditionalClaim() {}
-    /**
-     * @return Format of the claim value. Valid values are `single-string`, `string-array` and `space-separated-values`.
-     * 
-     */
     public String format() {
         return this.format;
     }
-    /**
-     * @return Name of the claim to validate. `exp`, `iss`, `nbf`, or `iat` cannot be specified because they are validated by default.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return List of expected values of the claim.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

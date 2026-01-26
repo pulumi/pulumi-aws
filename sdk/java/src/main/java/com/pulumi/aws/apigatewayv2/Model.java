@@ -14,150 +14,41 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an Amazon API Gateway Version 2 [model](https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-models).
- * 
- * ## Example Usage
- * 
- * ### Basic
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigatewayv2.Model;
- * import com.pulumi.aws.apigatewayv2.ModelArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Model("example", ModelArgs.builder()
- *             .apiId(exampleAwsApigatewayv2Api.id())
- *             .contentType("application/json")
- *             .name("example")
- *             .schema(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("$schema", "http://json-schema.org/draft-04/schema#"),
- *                     jsonProperty("title", "ExampleModel"),
- *                     jsonProperty("type", "object"),
- *                     jsonProperty("properties", jsonObject(
- *                         jsonProperty("id", jsonObject(
- *                             jsonProperty("type", "string")
- *                         ))
- *                     ))
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_apigatewayv2_model` using the API identifier and model identifier. For example:
- * 
- * ```sh
- * $ pulumi import aws:apigatewayv2/model:Model example aabbccddee/1122334
- * ```
- * 
- */
 @ResourceType(type="aws:apigatewayv2/model:Model")
 public class Model extends com.pulumi.resources.CustomResource {
-    /**
-     * API identifier.
-     * 
-     */
     @Export(name="apiId", refs={String.class}, tree="[0]")
     private Output<String> apiId;
 
-    /**
-     * @return API identifier.
-     * 
-     */
     public Output<String> apiId() {
         return this.apiId;
     }
-    /**
-     * The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
-     * 
-     */
     @Export(name="contentType", refs={String.class}, tree="[0]")
     private Output<String> contentType;
 
-    /**
-     * @return The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
-     * 
-     */
     public Output<String> contentType() {
         return this.contentType;
     }
-    /**
-     * Description of the model. Must be between 1 and 128 characters in length.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the model. Must be between 1 and 128 characters in length.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
-     * 
-     */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
-    /**
-     * @return Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
-     * 
-     */
     public Output<String> schema() {
         return this.schema;
     }

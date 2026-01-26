@@ -26,9 +26,6 @@ MYPY = False
 if not MYPY:
     class MapConfigurationArgsDict(TypedDict):
         style: pulumi.Input[_builtins.str]
-        """
-        Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
-        """
 elif False:
     MapConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -36,17 +33,11 @@ elif False:
 class MapConfigurationArgs:
     def __init__(__self__, *,
                  style: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] style: Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
-        """
         pulumi.set(__self__, "style", style)
 
     @_builtins.property
     @pulumi.getter
     def style(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
-        """
         return pulumi.get(self, "style")
 
     @style.setter
@@ -57,9 +48,6 @@ class MapConfigurationArgs:
 if not MYPY:
     class PlaceIndexDataSourceConfigurationArgsDict(TypedDict):
         intended_use: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
-        """
 elif False:
     PlaceIndexDataSourceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -67,18 +55,12 @@ elif False:
 class PlaceIndexDataSourceConfigurationArgs:
     def __init__(__self__, *,
                  intended_use: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] intended_use: Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
-        """
         if intended_use is not None:
             pulumi.set(__self__, "intended_use", intended_use)
 
     @_builtins.property
     @pulumi.getter(name="intendedUse")
     def intended_use(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
-        """
         return pulumi.get(self, "intended_use")
 
     @intended_use.setter

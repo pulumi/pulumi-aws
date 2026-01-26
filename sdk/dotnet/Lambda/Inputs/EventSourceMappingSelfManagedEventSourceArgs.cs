@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Lambda.Inputs
     {
         [Input("endpoints", required: true)]
         private InputMap<string>? _endpoints;
-
-        /// <summary>
-        /// Map of endpoints for the self managed source. For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
-        /// </summary>
         public InputMap<string> Endpoints
         {
             get => _endpoints ?? (_endpoints = new InputMap<string>());

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
 
     public sealed class FirewallAvailabilityZoneMappingGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the Availability Zone where the firewall endpoint is located..
-        /// </summary>
         [Input("availabilityZoneId", required: true)]
         public Input<string> AvailabilityZoneId { get; set; } = null!;
 

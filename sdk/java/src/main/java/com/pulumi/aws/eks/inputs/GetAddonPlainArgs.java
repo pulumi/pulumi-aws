@@ -16,49 +16,23 @@ public final class GetAddonPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetAddonPlainArgs Empty = new GetAddonPlainArgs();
 
-    /**
-     * Name of the EKS add-on. The name must match one of
-     * the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
-     * 
-     */
     @Import(name="addonName", required=true)
     private String addonName;
 
-    /**
-     * @return Name of the EKS add-on. The name must match one of
-     * the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
-     * 
-     */
     public String addonName() {
         return this.addonName;
     }
 
-    /**
-     * Name of the EKS Cluster.
-     * 
-     */
     @Import(name="clusterName", required=true)
     private String clusterName;
 
-    /**
-     * @return Name of the EKS Cluster.
-     * 
-     */
     public String clusterName() {
         return this.clusterName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -97,35 +71,16 @@ public final class GetAddonPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetAddonPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param addonName Name of the EKS add-on. The name must match one of
-         * the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder addonName(String addonName) {
             $.addonName = addonName;
             return this;
         }
 
-        /**
-         * @param clusterName Name of the EKS Cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterName(String clusterName) {
             $.clusterName = clusterName;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

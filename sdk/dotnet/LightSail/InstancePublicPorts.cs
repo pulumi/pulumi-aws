@@ -9,94 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LightSail
 {
-    /// <summary>
-    /// Manages public ports for a Lightsail instance. Use this resource to open ports for a specific Amazon Lightsail instance and specify the IP addresses allowed to connect to the instance through the ports and the protocol.
-    /// 
-    /// &gt; See [What is Amazon Lightsail?](https://lightsail.aws.amazon.com/ls/docs/getting-started/article/what-is-amazon-lightsail) for more information.
-    /// 
-    /// &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var available = Aws.GetAvailabilityZones.Invoke(new()
-    ///     {
-    ///         State = "available",
-    ///         Filters = new[]
-    ///         {
-    ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
-    ///             {
-    ///                 Name = "opt-in-status",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "opt-in-not-required",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var example = new Aws.LightSail.Instance("example", new()
-    ///     {
-    ///         Name = "example-instance",
-    ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
-    ///         BlueprintId = "amazon_linux_2",
-    ///         BundleId = "nano_3_0",
-    ///     });
-    /// 
-    ///     var exampleInstancePublicPorts = new Aws.LightSail.InstancePublicPorts("example", new()
-    ///     {
-    ///         InstanceName = example.Name,
-    ///         PortInfos = new[]
-    ///         {
-    ///             new Aws.LightSail.Inputs.InstancePublicPortsPortInfoArgs
-    ///             {
-    ///                 Protocol = "tcp",
-    ///                 FromPort = 80,
-    ///                 ToPort = 80,
-    ///             },
-    ///             new Aws.LightSail.Inputs.InstancePublicPortsPortInfoArgs
-    ///             {
-    ///                 Protocol = "tcp",
-    ///                 FromPort = 443,
-    ///                 ToPort = 443,
-    ///                 Cidrs = new[]
-    ///                 {
-    ///                     "192.168.1.0/24",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:lightsail/instancePublicPorts:InstancePublicPorts")]
     public partial class InstancePublicPorts : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Name of the instance for which to open ports.
-        /// </summary>
         [Output("instanceName")]
         public Output<string> InstanceName { get; private set; } = null!;
 
-        /// <summary>
-        /// Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `PortInfo` Block for details.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("portInfos")]
         public Output<ImmutableArray<Outputs.InstancePublicPortsPortInfo>> PortInfos { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -146,29 +67,17 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class InstancePublicPortsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the instance for which to open ports.
-        /// </summary>
         [Input("instanceName", required: true)]
         public Input<string> InstanceName { get; set; } = null!;
 
         [Input("portInfos", required: true)]
         private InputList<Inputs.InstancePublicPortsPortInfoArgs>? _portInfos;
-
-        /// <summary>
-        /// Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `PortInfo` Block for details.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public InputList<Inputs.InstancePublicPortsPortInfoArgs> PortInfos
         {
             get => _portInfos ?? (_portInfos = new InputList<Inputs.InstancePublicPortsPortInfoArgs>());
             set => _portInfos = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -180,29 +89,17 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class InstancePublicPortsState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the instance for which to open ports.
-        /// </summary>
         [Input("instanceName")]
         public Input<string>? InstanceName { get; set; }
 
         [Input("portInfos")]
         private InputList<Inputs.InstancePublicPortsPortInfoGetArgs>? _portInfos;
-
-        /// <summary>
-        /// Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `PortInfo` Block for details.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public InputList<Inputs.InstancePublicPortsPortInfoGetArgs> PortInfos
         {
             get => _portInfos ?? (_portInfos = new InputList<Inputs.InstancePublicPortsPortInfoGetArgs>());
             set => _portInfos = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

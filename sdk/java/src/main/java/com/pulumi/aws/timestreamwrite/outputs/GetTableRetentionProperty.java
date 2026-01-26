@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTableRetentionProperty {
-    /**
-     * @return Duration in days in which the data must be stored in magnetic store.
-     * 
-     */
     private Integer magneticStoreRetentionPeriodInDays;
-    /**
-     * @return Duration in hours in which the data must be stored in memory store.
-     * 
-     */
     private Integer memoryStoreRetentionPeriodInHours;
 
     private GetTableRetentionProperty() {}
-    /**
-     * @return Duration in days in which the data must be stored in magnetic store.
-     * 
-     */
     public Integer magneticStoreRetentionPeriodInDays() {
         return this.magneticStoreRetentionPeriodInDays;
     }
-    /**
-     * @return Duration in hours in which the data must be stored in memory store.
-     * 
-     */
     public Integer memoryStoreRetentionPeriodInHours() {
         return this.memoryStoreRetentionPeriodInHours;
     }

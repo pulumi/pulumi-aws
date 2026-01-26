@@ -19,23 +19,11 @@ public final class GetReplicationSubnetGroupResult {
     private String id;
     private String region;
     private String replicationSubnetGroupArn;
-    /**
-     * @return Description for the subnet group.
-     * 
-     */
     private String replicationSubnetGroupDescription;
     private String replicationSubnetGroupId;
     private String subnetGroupStatus;
-    /**
-     * @return List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
-     * 
-     */
     private List<String> subnetIds;
     private Map<String,String> tags;
-    /**
-     * @return The ID of the VPC the subnet group is in.
-     * 
-     */
     private String vpcId;
 
     private GetReplicationSubnetGroupResult() {}
@@ -52,10 +40,6 @@ public final class GetReplicationSubnetGroupResult {
     public String replicationSubnetGroupArn() {
         return this.replicationSubnetGroupArn;
     }
-    /**
-     * @return Description for the subnet group.
-     * 
-     */
     public String replicationSubnetGroupDescription() {
         return this.replicationSubnetGroupDescription;
     }
@@ -65,20 +49,12 @@ public final class GetReplicationSubnetGroupResult {
     public String subnetGroupStatus() {
         return this.subnetGroupStatus;
     }
-    /**
-     * @return List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return The ID of the VPC the subnet group is in.
-     * 
-     */
     public String vpcId() {
         return this.vpcId;
     }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.EmrServerless.Outputs
     [OutputType]
     public sealed class ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration
     {
-        /// <summary>
-        /// Enables managed log persistence for monitoring logs.
-        /// </summary>
         public readonly bool? Enabled;
-        /// <summary>
-        /// The KMS key ARN to encrypt the logs stored in managed persistence.
-        /// </summary>
         public readonly string? EncryptionKeyArn;
 
         [OutputConstructor]

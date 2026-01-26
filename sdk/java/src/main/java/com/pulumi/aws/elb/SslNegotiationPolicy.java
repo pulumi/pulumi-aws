@@ -19,187 +19,41 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a load balancer SSL negotiation policy, which allows an ELB to control the ciphers and protocols that are supported during SSL negotiations between a client and a load balancer.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.elb.LoadBalancer;
- * import com.pulumi.aws.elb.LoadBalancerArgs;
- * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
- * import com.pulumi.aws.elb.SslNegotiationPolicy;
- * import com.pulumi.aws.elb.SslNegotiationPolicyArgs;
- * import com.pulumi.aws.elb.inputs.SslNegotiationPolicyAttributeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var lb = new LoadBalancer("lb", LoadBalancerArgs.builder()
- *             .name("test-lb")
- *             .availabilityZones("us-east-1a")
- *             .listeners(LoadBalancerListenerArgs.builder()
- *                 .instancePort(8000)
- *                 .instanceProtocol("https")
- *                 .lbPort(443)
- *                 .lbProtocol("https")
- *                 .sslCertificateId("arn:aws:iam::123456789012:server-certificate/certName")
- *                 .build())
- *             .build());
- * 
- *         var foo = new SslNegotiationPolicy("foo", SslNegotiationPolicyArgs.builder()
- *             .name("foo-policy")
- *             .loadBalancer(lb.id())
- *             .lbPort(443)
- *             .attributes(            
- *                 SslNegotiationPolicyAttributeArgs.builder()
- *                     .name("Protocol-TLSv1")
- *                     .value("false")
- *                     .build(),
- *                 SslNegotiationPolicyAttributeArgs.builder()
- *                     .name("Protocol-TLSv1.1")
- *                     .value("false")
- *                     .build(),
- *                 SslNegotiationPolicyAttributeArgs.builder()
- *                     .name("Protocol-TLSv1.2")
- *                     .value("true")
- *                     .build(),
- *                 SslNegotiationPolicyAttributeArgs.builder()
- *                     .name("Server-Defined-Cipher-Order")
- *                     .value("true")
- *                     .build(),
- *                 SslNegotiationPolicyAttributeArgs.builder()
- *                     .name("ECDHE-RSA-AES128-GCM-SHA256")
- *                     .value("true")
- *                     .build(),
- *                 SslNegotiationPolicyAttributeArgs.builder()
- *                     .name("AES128-GCM-SHA256")
- *                     .value("true")
- *                     .build(),
- *                 SslNegotiationPolicyAttributeArgs.builder()
- *                     .name("EDH-RSA-DES-CBC3-SHA")
- *                     .value("false")
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:elb/sslNegotiationPolicy:SslNegotiationPolicy")
 public class SslNegotiationPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * An SSL Negotiation policy attribute. Each has two properties:
-     * 
-     */
     @Export(name="attributes", refs={List.class,SslNegotiationPolicyAttribute.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SslNegotiationPolicyAttribute>> attributes;
 
-    /**
-     * @return An SSL Negotiation policy attribute. Each has two properties:
-     * 
-     */
     public Output<Optional<List<SslNegotiationPolicyAttribute>>> attributes() {
         return Codegen.optional(this.attributes);
     }
-    /**
-     * The load balancer port to which the policy
-     * should be applied. This must be an active listener on the load
-     * balancer.
-     * 
-     */
     @Export(name="lbPort", refs={Integer.class}, tree="[0]")
     private Output<Integer> lbPort;
 
-    /**
-     * @return The load balancer port to which the policy
-     * should be applied. This must be an active listener on the load
-     * balancer.
-     * 
-     */
     public Output<Integer> lbPort() {
         return this.lbPort;
     }
-    /**
-     * The load balancer to which the policy
-     * should be attached.
-     * 
-     */
     @Export(name="loadBalancer", refs={String.class}, tree="[0]")
     private Output<String> loadBalancer;
 
-    /**
-     * @return The load balancer to which the policy
-     * should be attached.
-     * 
-     */
     public Output<String> loadBalancer() {
         return this.loadBalancer;
     }
-    /**
-     * The name of the SSL negotiation policy.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the SSL negotiation policy.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-     * 
-     * To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
-     * 
-     * &gt; **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
-     * 
-     */
     @Export(name="triggers", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> triggers;
 
-    /**
-     * @return Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-     * 
-     * To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
-     * 
-     * &gt; **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
-     * 
-     */
     public Output<Optional<Map<String,String>>> triggers() {
         return Codegen.optional(this.triggers);
     }

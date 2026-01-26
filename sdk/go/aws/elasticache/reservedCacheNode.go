@@ -12,94 +12,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an ElastiCache Reserved Cache Node.
-//
-// > **NOTE:** Once created, a reservation is valid for the `duration` of the provided `offeringId` and cannot be deleted. Performing a `destroy` will only remove the resource from state. For more information see [ElastiCache Reserved Nodes Documentation](https://aws.amazon.com/elasticache/reserved-cache-nodes/) and [PurchaseReservedCacheNodesOffering](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_PurchaseReservedCacheNodesOffering.html).
-//
-// > **NOTE:** Due to the expense of testing this resource, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticache"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := elasticache.GetReservedCacheNodeOffering(ctx, &elasticache.GetReservedCacheNodeOfferingArgs{
-//				CacheNodeType:      "cache.t4g.small",
-//				Duration:           "P1Y",
-//				OfferingType:       "No Upfront",
-//				ProductDescription: "redis",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elasticache.NewReservedCacheNode(ctx, "example", &elasticache.ReservedCacheNodeArgs{
-//				ReservedCacheNodesOfferingId: pulumi.String(example.OfferingId),
-//				Id:                           "optionalCustomReservationID",
-//				CacheNodeCount:               pulumi.Int(3),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import ElastiCache Reserved Cache Node using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:elasticache/reservedCacheNode:ReservedCacheNode example CustomReservationID
-// ```
 type ReservedCacheNode struct {
 	pulumi.CustomResourceState
 
-	// ARN for the reserved cache node.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Number of cache node instances to reserve.
-	// Default value is `1`.
-	CacheNodeCount pulumi.IntOutput `pulumi:"cacheNodeCount"`
-	// Node type for the reserved cache nodes.
-	CacheNodeType pulumi.StringOutput `pulumi:"cacheNodeType"`
-	// Duration of the reservation as an RFC3339 duration.
-	Duration pulumi.StringOutput `pulumi:"duration"`
-	// Fixed price charged for this reserved cache node.
-	FixedPrice pulumi.Float64Output `pulumi:"fixedPrice"`
-	// Offering type of this reserved cache node.
-	OfferingType pulumi.StringOutput `pulumi:"offeringType"`
-	// Engine type for the reserved cache node.
-	ProductDescription pulumi.StringOutput `pulumi:"productDescription"`
-	// Recurring price charged to run this reserved cache node.
-	RecurringCharges ReservedCacheNodeRecurringChargeArrayOutput `pulumi:"recurringCharges"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ID of the reserved cache node offering to purchase.
-	// To determine an `reservedCacheNodesOfferingId`, see the `elasticache.getReservedCacheNodeOffering` data source.
-	//
-	// The following arguments are optional:
-	ReservedCacheNodesOfferingId pulumi.StringOutput `pulumi:"reservedCacheNodesOfferingId"`
-	// Time the reservation started.
-	StartTime pulumi.StringOutput `pulumi:"startTime"`
-	// State of the reserved cache node.
-	State pulumi.StringOutput `pulumi:"state"`
-	// Map of tags to assign to the reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput             `pulumi:"tagsAll"`
-	Timeouts ReservedCacheNodeTimeoutsPtrOutput `pulumi:"timeouts"`
-	// Hourly price charged for this reserved cache node.
-	UsagePrice pulumi.Float64Output `pulumi:"usagePrice"`
+	Arn                          pulumi.StringOutput                         `pulumi:"arn"`
+	CacheNodeCount               pulumi.IntOutput                            `pulumi:"cacheNodeCount"`
+	CacheNodeType                pulumi.StringOutput                         `pulumi:"cacheNodeType"`
+	Duration                     pulumi.StringOutput                         `pulumi:"duration"`
+	FixedPrice                   pulumi.Float64Output                        `pulumi:"fixedPrice"`
+	OfferingType                 pulumi.StringOutput                         `pulumi:"offeringType"`
+	ProductDescription           pulumi.StringOutput                         `pulumi:"productDescription"`
+	RecurringCharges             ReservedCacheNodeRecurringChargeArrayOutput `pulumi:"recurringCharges"`
+	Region                       pulumi.StringOutput                         `pulumi:"region"`
+	ReservedCacheNodesOfferingId pulumi.StringOutput                         `pulumi:"reservedCacheNodesOfferingId"`
+	StartTime                    pulumi.StringOutput                         `pulumi:"startTime"`
+	State                        pulumi.StringOutput                         `pulumi:"state"`
+	Tags                         pulumi.StringMapOutput                      `pulumi:"tags"`
+	TagsAll                      pulumi.StringMapOutput                      `pulumi:"tagsAll"`
+	Timeouts                     ReservedCacheNodeTimeoutsPtrOutput          `pulumi:"timeouts"`
+	UsagePrice                   pulumi.Float64Output                        `pulumi:"usagePrice"`
 }
 
 // NewReservedCacheNode registers a new resource with the given unique name, arguments, and options.
@@ -135,79 +66,41 @@ func GetReservedCacheNode(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReservedCacheNode resources.
 type reservedCacheNodeState struct {
-	// ARN for the reserved cache node.
-	Arn *string `pulumi:"arn"`
-	// Number of cache node instances to reserve.
-	// Default value is `1`.
-	CacheNodeCount *int `pulumi:"cacheNodeCount"`
-	// Node type for the reserved cache nodes.
-	CacheNodeType *string `pulumi:"cacheNodeType"`
-	// Duration of the reservation as an RFC3339 duration.
-	Duration *string `pulumi:"duration"`
-	// Fixed price charged for this reserved cache node.
-	FixedPrice *float64 `pulumi:"fixedPrice"`
-	// Offering type of this reserved cache node.
-	OfferingType *string `pulumi:"offeringType"`
-	// Engine type for the reserved cache node.
-	ProductDescription *string `pulumi:"productDescription"`
-	// Recurring price charged to run this reserved cache node.
-	RecurringCharges []ReservedCacheNodeRecurringCharge `pulumi:"recurringCharges"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID of the reserved cache node offering to purchase.
-	// To determine an `reservedCacheNodesOfferingId`, see the `elasticache.getReservedCacheNodeOffering` data source.
-	//
-	// The following arguments are optional:
-	ReservedCacheNodesOfferingId *string `pulumi:"reservedCacheNodesOfferingId"`
-	// Time the reservation started.
-	StartTime *string `pulumi:"startTime"`
-	// State of the reserved cache node.
-	State *string `pulumi:"state"`
-	// Map of tags to assign to the reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string          `pulumi:"tagsAll"`
-	Timeouts *ReservedCacheNodeTimeouts `pulumi:"timeouts"`
-	// Hourly price charged for this reserved cache node.
-	UsagePrice *float64 `pulumi:"usagePrice"`
+	Arn                          *string                            `pulumi:"arn"`
+	CacheNodeCount               *int                               `pulumi:"cacheNodeCount"`
+	CacheNodeType                *string                            `pulumi:"cacheNodeType"`
+	Duration                     *string                            `pulumi:"duration"`
+	FixedPrice                   *float64                           `pulumi:"fixedPrice"`
+	OfferingType                 *string                            `pulumi:"offeringType"`
+	ProductDescription           *string                            `pulumi:"productDescription"`
+	RecurringCharges             []ReservedCacheNodeRecurringCharge `pulumi:"recurringCharges"`
+	Region                       *string                            `pulumi:"region"`
+	ReservedCacheNodesOfferingId *string                            `pulumi:"reservedCacheNodesOfferingId"`
+	StartTime                    *string                            `pulumi:"startTime"`
+	State                        *string                            `pulumi:"state"`
+	Tags                         map[string]string                  `pulumi:"tags"`
+	TagsAll                      map[string]string                  `pulumi:"tagsAll"`
+	Timeouts                     *ReservedCacheNodeTimeouts         `pulumi:"timeouts"`
+	UsagePrice                   *float64                           `pulumi:"usagePrice"`
 }
 
 type ReservedCacheNodeState struct {
-	// ARN for the reserved cache node.
-	Arn pulumi.StringPtrInput
-	// Number of cache node instances to reserve.
-	// Default value is `1`.
-	CacheNodeCount pulumi.IntPtrInput
-	// Node type for the reserved cache nodes.
-	CacheNodeType pulumi.StringPtrInput
-	// Duration of the reservation as an RFC3339 duration.
-	Duration pulumi.StringPtrInput
-	// Fixed price charged for this reserved cache node.
-	FixedPrice pulumi.Float64PtrInput
-	// Offering type of this reserved cache node.
-	OfferingType pulumi.StringPtrInput
-	// Engine type for the reserved cache node.
-	ProductDescription pulumi.StringPtrInput
-	// Recurring price charged to run this reserved cache node.
-	RecurringCharges ReservedCacheNodeRecurringChargeArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ID of the reserved cache node offering to purchase.
-	// To determine an `reservedCacheNodesOfferingId`, see the `elasticache.getReservedCacheNodeOffering` data source.
-	//
-	// The following arguments are optional:
+	Arn                          pulumi.StringPtrInput
+	CacheNodeCount               pulumi.IntPtrInput
+	CacheNodeType                pulumi.StringPtrInput
+	Duration                     pulumi.StringPtrInput
+	FixedPrice                   pulumi.Float64PtrInput
+	OfferingType                 pulumi.StringPtrInput
+	ProductDescription           pulumi.StringPtrInput
+	RecurringCharges             ReservedCacheNodeRecurringChargeArrayInput
+	Region                       pulumi.StringPtrInput
 	ReservedCacheNodesOfferingId pulumi.StringPtrInput
-	// Time the reservation started.
-	StartTime pulumi.StringPtrInput
-	// State of the reserved cache node.
-	State pulumi.StringPtrInput
-	// Map of tags to assign to the reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts ReservedCacheNodeTimeoutsPtrInput
-	// Hourly price charged for this reserved cache node.
-	UsagePrice pulumi.Float64PtrInput
+	StartTime                    pulumi.StringPtrInput
+	State                        pulumi.StringPtrInput
+	Tags                         pulumi.StringMapInput
+	TagsAll                      pulumi.StringMapInput
+	Timeouts                     ReservedCacheNodeTimeoutsPtrInput
+	UsagePrice                   pulumi.Float64PtrInput
 }
 
 func (ReservedCacheNodeState) ElementType() reflect.Type {
@@ -215,36 +108,20 @@ func (ReservedCacheNodeState) ElementType() reflect.Type {
 }
 
 type reservedCacheNodeArgs struct {
-	// Number of cache node instances to reserve.
-	// Default value is `1`.
-	CacheNodeCount *int `pulumi:"cacheNodeCount"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID of the reserved cache node offering to purchase.
-	// To determine an `reservedCacheNodesOfferingId`, see the `elasticache.getReservedCacheNodeOffering` data source.
-	//
-	// The following arguments are optional:
-	ReservedCacheNodesOfferingId string `pulumi:"reservedCacheNodesOfferingId"`
-	// Map of tags to assign to the reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string          `pulumi:"tags"`
-	Timeouts *ReservedCacheNodeTimeouts `pulumi:"timeouts"`
+	CacheNodeCount               *int                       `pulumi:"cacheNodeCount"`
+	Region                       *string                    `pulumi:"region"`
+	ReservedCacheNodesOfferingId string                     `pulumi:"reservedCacheNodesOfferingId"`
+	Tags                         map[string]string          `pulumi:"tags"`
+	Timeouts                     *ReservedCacheNodeTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a ReservedCacheNode resource.
 type ReservedCacheNodeArgs struct {
-	// Number of cache node instances to reserve.
-	// Default value is `1`.
-	CacheNodeCount pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ID of the reserved cache node offering to purchase.
-	// To determine an `reservedCacheNodesOfferingId`, see the `elasticache.getReservedCacheNodeOffering` data source.
-	//
-	// The following arguments are optional:
+	CacheNodeCount               pulumi.IntPtrInput
+	Region                       pulumi.StringPtrInput
 	ReservedCacheNodesOfferingId pulumi.StringInput
-	// Map of tags to assign to the reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts ReservedCacheNodeTimeoutsPtrInput
+	Tags                         pulumi.StringMapInput
+	Timeouts                     ReservedCacheNodeTimeoutsPtrInput
 }
 
 func (ReservedCacheNodeArgs) ElementType() reflect.Type {
@@ -334,76 +211,58 @@ func (o ReservedCacheNodeOutput) ToReservedCacheNodeOutputWithContext(ctx contex
 	return o
 }
 
-// ARN for the reserved cache node.
 func (o ReservedCacheNodeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReservedCacheNode) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Number of cache node instances to reserve.
-// Default value is `1`.
 func (o ReservedCacheNodeOutput) CacheNodeCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *ReservedCacheNode) pulumi.IntOutput { return v.CacheNodeCount }).(pulumi.IntOutput)
 }
 
-// Node type for the reserved cache nodes.
 func (o ReservedCacheNodeOutput) CacheNodeType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReservedCacheNode) pulumi.StringOutput { return v.CacheNodeType }).(pulumi.StringOutput)
 }
 
-// Duration of the reservation as an RFC3339 duration.
 func (o ReservedCacheNodeOutput) Duration() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReservedCacheNode) pulumi.StringOutput { return v.Duration }).(pulumi.StringOutput)
 }
 
-// Fixed price charged for this reserved cache node.
 func (o ReservedCacheNodeOutput) FixedPrice() pulumi.Float64Output {
 	return o.ApplyT(func(v *ReservedCacheNode) pulumi.Float64Output { return v.FixedPrice }).(pulumi.Float64Output)
 }
 
-// Offering type of this reserved cache node.
 func (o ReservedCacheNodeOutput) OfferingType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReservedCacheNode) pulumi.StringOutput { return v.OfferingType }).(pulumi.StringOutput)
 }
 
-// Engine type for the reserved cache node.
 func (o ReservedCacheNodeOutput) ProductDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReservedCacheNode) pulumi.StringOutput { return v.ProductDescription }).(pulumi.StringOutput)
 }
 
-// Recurring price charged to run this reserved cache node.
 func (o ReservedCacheNodeOutput) RecurringCharges() ReservedCacheNodeRecurringChargeArrayOutput {
 	return o.ApplyT(func(v *ReservedCacheNode) ReservedCacheNodeRecurringChargeArrayOutput { return v.RecurringCharges }).(ReservedCacheNodeRecurringChargeArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ReservedCacheNodeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReservedCacheNode) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ID of the reserved cache node offering to purchase.
-// To determine an `reservedCacheNodesOfferingId`, see the `elasticache.getReservedCacheNodeOffering` data source.
-//
-// The following arguments are optional:
 func (o ReservedCacheNodeOutput) ReservedCacheNodesOfferingId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReservedCacheNode) pulumi.StringOutput { return v.ReservedCacheNodesOfferingId }).(pulumi.StringOutput)
 }
 
-// Time the reservation started.
 func (o ReservedCacheNodeOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReservedCacheNode) pulumi.StringOutput { return v.StartTime }).(pulumi.StringOutput)
 }
 
-// State of the reserved cache node.
 func (o ReservedCacheNodeOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReservedCacheNode) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ReservedCacheNodeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReservedCacheNode) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ReservedCacheNodeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReservedCacheNode) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -412,7 +271,6 @@ func (o ReservedCacheNodeOutput) Timeouts() ReservedCacheNodeTimeoutsPtrOutput {
 	return o.ApplyT(func(v *ReservedCacheNode) ReservedCacheNodeTimeoutsPtrOutput { return v.Timeouts }).(ReservedCacheNodeTimeoutsPtrOutput)
 }
 
-// Hourly price charged for this reserved cache node.
 func (o ReservedCacheNodeOutput) UsagePrice() pulumi.Float64Output {
 	return o.ApplyT(func(v *ReservedCacheNode) pulumi.Float64Output { return v.UsagePrice }).(pulumi.Float64Output)
 }

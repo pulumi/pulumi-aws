@@ -14,11 +14,8 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AcceleratorAttributes struct {
-	// Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
-	FlowLogsEnabled *bool `pulumi:"flowLogsEnabled"`
-	// The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
+	FlowLogsEnabled  *bool   `pulumi:"flowLogsEnabled"`
 	FlowLogsS3Bucket *string `pulumi:"flowLogsS3Bucket"`
-	// The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
 	FlowLogsS3Prefix *string `pulumi:"flowLogsS3Prefix"`
 }
 
@@ -34,11 +31,8 @@ type AcceleratorAttributesInput interface {
 }
 
 type AcceleratorAttributesArgs struct {
-	// Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
-	FlowLogsEnabled pulumi.BoolPtrInput `pulumi:"flowLogsEnabled"`
-	// The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
+	FlowLogsEnabled  pulumi.BoolPtrInput   `pulumi:"flowLogsEnabled"`
 	FlowLogsS3Bucket pulumi.StringPtrInput `pulumi:"flowLogsS3Bucket"`
-	// The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
 	FlowLogsS3Prefix pulumi.StringPtrInput `pulumi:"flowLogsS3Prefix"`
 }
 
@@ -119,17 +113,14 @@ func (o AcceleratorAttributesOutput) ToAcceleratorAttributesPtrOutputWithContext
 	}).(AcceleratorAttributesPtrOutput)
 }
 
-// Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
 func (o AcceleratorAttributesOutput) FlowLogsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AcceleratorAttributes) *bool { return v.FlowLogsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
 func (o AcceleratorAttributesOutput) FlowLogsS3Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AcceleratorAttributes) *string { return v.FlowLogsS3Bucket }).(pulumi.StringPtrOutput)
 }
 
-// The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
 func (o AcceleratorAttributesOutput) FlowLogsS3Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AcceleratorAttributes) *string { return v.FlowLogsS3Prefix }).(pulumi.StringPtrOutput)
 }
@@ -158,7 +149,6 @@ func (o AcceleratorAttributesPtrOutput) Elem() AcceleratorAttributesOutput {
 	}).(AcceleratorAttributesOutput)
 }
 
-// Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
 func (o AcceleratorAttributesPtrOutput) FlowLogsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AcceleratorAttributes) *bool {
 		if v == nil {
@@ -168,7 +158,6 @@ func (o AcceleratorAttributesPtrOutput) FlowLogsEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
 func (o AcceleratorAttributesPtrOutput) FlowLogsS3Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AcceleratorAttributes) *string {
 		if v == nil {
@@ -178,7 +167,6 @@ func (o AcceleratorAttributesPtrOutput) FlowLogsS3Bucket() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
 func (o AcceleratorAttributesPtrOutput) FlowLogsS3Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AcceleratorAttributes) *string {
 		if v == nil {
@@ -189,10 +177,8 @@ func (o AcceleratorAttributesPtrOutput) FlowLogsS3Prefix() pulumi.StringPtrOutpu
 }
 
 type AcceleratorIpSet struct {
-	// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
 	IpAddresses []string `pulumi:"ipAddresses"`
-	// The type of IP addresses included in this IP set.
-	IpFamily *string `pulumi:"ipFamily"`
+	IpFamily    *string  `pulumi:"ipFamily"`
 }
 
 // AcceleratorIpSetInput is an input type that accepts AcceleratorIpSetArgs and AcceleratorIpSetOutput values.
@@ -207,10 +193,8 @@ type AcceleratorIpSetInput interface {
 }
 
 type AcceleratorIpSetArgs struct {
-	// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
 	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
-	// The type of IP addresses included in this IP set.
-	IpFamily pulumi.StringPtrInput `pulumi:"ipFamily"`
+	IpFamily    pulumi.StringPtrInput   `pulumi:"ipFamily"`
 }
 
 func (AcceleratorIpSetArgs) ElementType() reflect.Type {
@@ -264,12 +248,10 @@ func (o AcceleratorIpSetOutput) ToAcceleratorIpSetOutputWithContext(ctx context.
 	return o
 }
 
-// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
 func (o AcceleratorIpSetOutput) IpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AcceleratorIpSet) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
 }
 
-// The type of IP addresses included in this IP set.
 func (o AcceleratorIpSetOutput) IpFamily() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AcceleratorIpSet) *string { return v.IpFamily }).(pulumi.StringPtrOutput)
 }
@@ -295,12 +277,9 @@ func (o AcceleratorIpSetArrayOutput) Index(i pulumi.IntInput) AcceleratorIpSetOu
 }
 
 type CrossAccountAttachmentResource struct {
-	// IP address range, in CIDR format, that is specified as resource.
-	CidrBlock *string `pulumi:"cidrBlock"`
-	// The endpoint ID for the endpoint that is specified as a AWS resource.
+	CidrBlock  *string `pulumi:"cidrBlock"`
 	EndpointId *string `pulumi:"endpointId"`
-	// The AWS Region where a shared endpoint resource is located.
-	Region *string `pulumi:"region"`
+	Region     *string `pulumi:"region"`
 }
 
 // CrossAccountAttachmentResourceInput is an input type that accepts CrossAccountAttachmentResourceArgs and CrossAccountAttachmentResourceOutput values.
@@ -315,12 +294,9 @@ type CrossAccountAttachmentResourceInput interface {
 }
 
 type CrossAccountAttachmentResourceArgs struct {
-	// IP address range, in CIDR format, that is specified as resource.
-	CidrBlock pulumi.StringPtrInput `pulumi:"cidrBlock"`
-	// The endpoint ID for the endpoint that is specified as a AWS resource.
+	CidrBlock  pulumi.StringPtrInput `pulumi:"cidrBlock"`
 	EndpointId pulumi.StringPtrInput `pulumi:"endpointId"`
-	// The AWS Region where a shared endpoint resource is located.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (CrossAccountAttachmentResourceArgs) ElementType() reflect.Type {
@@ -374,17 +350,14 @@ func (o CrossAccountAttachmentResourceOutput) ToCrossAccountAttachmentResourceOu
 	return o
 }
 
-// IP address range, in CIDR format, that is specified as resource.
 func (o CrossAccountAttachmentResourceOutput) CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrossAccountAttachmentResource) *string { return v.CidrBlock }).(pulumi.StringPtrOutput)
 }
 
-// The endpoint ID for the endpoint that is specified as a AWS resource.
 func (o CrossAccountAttachmentResourceOutput) EndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrossAccountAttachmentResource) *string { return v.EndpointId }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region where a shared endpoint resource is located.
 func (o CrossAccountAttachmentResourceOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrossAccountAttachmentResource) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
@@ -410,11 +383,8 @@ func (o CrossAccountAttachmentResourceArrayOutput) Index(i pulumi.IntInput) Cros
 }
 
 type CustomRoutingAcceleratorAttributes struct {
-	// Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
-	FlowLogsEnabled *bool `pulumi:"flowLogsEnabled"`
-	// The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
+	FlowLogsEnabled  *bool   `pulumi:"flowLogsEnabled"`
 	FlowLogsS3Bucket *string `pulumi:"flowLogsS3Bucket"`
-	// The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
 	FlowLogsS3Prefix *string `pulumi:"flowLogsS3Prefix"`
 }
 
@@ -430,11 +400,8 @@ type CustomRoutingAcceleratorAttributesInput interface {
 }
 
 type CustomRoutingAcceleratorAttributesArgs struct {
-	// Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
-	FlowLogsEnabled pulumi.BoolPtrInput `pulumi:"flowLogsEnabled"`
-	// The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
+	FlowLogsEnabled  pulumi.BoolPtrInput   `pulumi:"flowLogsEnabled"`
 	FlowLogsS3Bucket pulumi.StringPtrInput `pulumi:"flowLogsS3Bucket"`
-	// The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
 	FlowLogsS3Prefix pulumi.StringPtrInput `pulumi:"flowLogsS3Prefix"`
 }
 
@@ -515,17 +482,14 @@ func (o CustomRoutingAcceleratorAttributesOutput) ToCustomRoutingAcceleratorAttr
 	}).(CustomRoutingAcceleratorAttributesPtrOutput)
 }
 
-// Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
 func (o CustomRoutingAcceleratorAttributesOutput) FlowLogsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CustomRoutingAcceleratorAttributes) *bool { return v.FlowLogsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
 func (o CustomRoutingAcceleratorAttributesOutput) FlowLogsS3Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomRoutingAcceleratorAttributes) *string { return v.FlowLogsS3Bucket }).(pulumi.StringPtrOutput)
 }
 
-// The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
 func (o CustomRoutingAcceleratorAttributesOutput) FlowLogsS3Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomRoutingAcceleratorAttributes) *string { return v.FlowLogsS3Prefix }).(pulumi.StringPtrOutput)
 }
@@ -554,7 +518,6 @@ func (o CustomRoutingAcceleratorAttributesPtrOutput) Elem() CustomRoutingAcceler
 	}).(CustomRoutingAcceleratorAttributesOutput)
 }
 
-// Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
 func (o CustomRoutingAcceleratorAttributesPtrOutput) FlowLogsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CustomRoutingAcceleratorAttributes) *bool {
 		if v == nil {
@@ -564,7 +527,6 @@ func (o CustomRoutingAcceleratorAttributesPtrOutput) FlowLogsEnabled() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
 func (o CustomRoutingAcceleratorAttributesPtrOutput) FlowLogsS3Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomRoutingAcceleratorAttributes) *string {
 		if v == nil {
@@ -574,7 +536,6 @@ func (o CustomRoutingAcceleratorAttributesPtrOutput) FlowLogsS3Bucket() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
 func (o CustomRoutingAcceleratorAttributesPtrOutput) FlowLogsS3Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomRoutingAcceleratorAttributes) *string {
 		if v == nil {
@@ -585,10 +546,8 @@ func (o CustomRoutingAcceleratorAttributesPtrOutput) FlowLogsS3Prefix() pulumi.S
 }
 
 type CustomRoutingAcceleratorIpSet struct {
-	// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
 	IpAddresses []string `pulumi:"ipAddresses"`
-	// The type of IP addresses included in this IP set.
-	IpFamily *string `pulumi:"ipFamily"`
+	IpFamily    *string  `pulumi:"ipFamily"`
 }
 
 // CustomRoutingAcceleratorIpSetInput is an input type that accepts CustomRoutingAcceleratorIpSetArgs and CustomRoutingAcceleratorIpSetOutput values.
@@ -603,10 +562,8 @@ type CustomRoutingAcceleratorIpSetInput interface {
 }
 
 type CustomRoutingAcceleratorIpSetArgs struct {
-	// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
 	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
-	// The type of IP addresses included in this IP set.
-	IpFamily pulumi.StringPtrInput `pulumi:"ipFamily"`
+	IpFamily    pulumi.StringPtrInput   `pulumi:"ipFamily"`
 }
 
 func (CustomRoutingAcceleratorIpSetArgs) ElementType() reflect.Type {
@@ -660,12 +617,10 @@ func (o CustomRoutingAcceleratorIpSetOutput) ToCustomRoutingAcceleratorIpSetOutp
 	return o
 }
 
-// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
 func (o CustomRoutingAcceleratorIpSetOutput) IpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CustomRoutingAcceleratorIpSet) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
 }
 
-// The type of IP addresses included in this IP set.
 func (o CustomRoutingAcceleratorIpSetOutput) IpFamily() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomRoutingAcceleratorIpSet) *string { return v.IpFamily }).(pulumi.StringPtrOutput)
 }
@@ -691,12 +646,9 @@ func (o CustomRoutingAcceleratorIpSetArrayOutput) Index(i pulumi.IntInput) Custo
 }
 
 type CustomRoutingEndpointGroupDestinationConfiguration struct {
-	// The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-	FromPort int `pulumi:"fromPort"`
-	// The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `"TCP"` or `"UDP"`.
+	FromPort  int      `pulumi:"fromPort"`
 	Protocols []string `pulumi:"protocols"`
-	// The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-	ToPort int `pulumi:"toPort"`
+	ToPort    int      `pulumi:"toPort"`
 }
 
 // CustomRoutingEndpointGroupDestinationConfigurationInput is an input type that accepts CustomRoutingEndpointGroupDestinationConfigurationArgs and CustomRoutingEndpointGroupDestinationConfigurationOutput values.
@@ -711,12 +663,9 @@ type CustomRoutingEndpointGroupDestinationConfigurationInput interface {
 }
 
 type CustomRoutingEndpointGroupDestinationConfigurationArgs struct {
-	// The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-	FromPort pulumi.IntInput `pulumi:"fromPort"`
-	// The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `"TCP"` or `"UDP"`.
+	FromPort  pulumi.IntInput         `pulumi:"fromPort"`
 	Protocols pulumi.StringArrayInput `pulumi:"protocols"`
-	// The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-	ToPort pulumi.IntInput `pulumi:"toPort"`
+	ToPort    pulumi.IntInput         `pulumi:"toPort"`
 }
 
 func (CustomRoutingEndpointGroupDestinationConfigurationArgs) ElementType() reflect.Type {
@@ -770,17 +719,14 @@ func (o CustomRoutingEndpointGroupDestinationConfigurationOutput) ToCustomRoutin
 	return o
 }
 
-// The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
 func (o CustomRoutingEndpointGroupDestinationConfigurationOutput) FromPort() pulumi.IntOutput {
 	return o.ApplyT(func(v CustomRoutingEndpointGroupDestinationConfiguration) int { return v.FromPort }).(pulumi.IntOutput)
 }
 
-// The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `"TCP"` or `"UDP"`.
 func (o CustomRoutingEndpointGroupDestinationConfigurationOutput) Protocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CustomRoutingEndpointGroupDestinationConfiguration) []string { return v.Protocols }).(pulumi.StringArrayOutput)
 }
 
-// The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
 func (o CustomRoutingEndpointGroupDestinationConfigurationOutput) ToPort() pulumi.IntOutput {
 	return o.ApplyT(func(v CustomRoutingEndpointGroupDestinationConfiguration) int { return v.ToPort }).(pulumi.IntOutput)
 }
@@ -806,7 +752,6 @@ func (o CustomRoutingEndpointGroupDestinationConfigurationArrayOutput) Index(i p
 }
 
 type CustomRoutingEndpointGroupEndpointConfiguration struct {
-	// An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.
 	EndpointId *string `pulumi:"endpointId"`
 }
 
@@ -822,7 +767,6 @@ type CustomRoutingEndpointGroupEndpointConfigurationInput interface {
 }
 
 type CustomRoutingEndpointGroupEndpointConfigurationArgs struct {
-	// An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.
 	EndpointId pulumi.StringPtrInput `pulumi:"endpointId"`
 }
 
@@ -877,7 +821,6 @@ func (o CustomRoutingEndpointGroupEndpointConfigurationOutput) ToCustomRoutingEn
 	return o
 }
 
-// An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.
 func (o CustomRoutingEndpointGroupEndpointConfigurationOutput) EndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomRoutingEndpointGroupEndpointConfiguration) *string { return v.EndpointId }).(pulumi.StringPtrOutput)
 }
@@ -903,10 +846,8 @@ func (o CustomRoutingEndpointGroupEndpointConfigurationArrayOutput) Index(i pulu
 }
 
 type CustomRoutingListenerPortRange struct {
-	// The first port in the range of ports, inclusive.
 	FromPort *int `pulumi:"fromPort"`
-	// The last port in the range of ports, inclusive.
-	ToPort *int `pulumi:"toPort"`
+	ToPort   *int `pulumi:"toPort"`
 }
 
 // CustomRoutingListenerPortRangeInput is an input type that accepts CustomRoutingListenerPortRangeArgs and CustomRoutingListenerPortRangeOutput values.
@@ -921,10 +862,8 @@ type CustomRoutingListenerPortRangeInput interface {
 }
 
 type CustomRoutingListenerPortRangeArgs struct {
-	// The first port in the range of ports, inclusive.
 	FromPort pulumi.IntPtrInput `pulumi:"fromPort"`
-	// The last port in the range of ports, inclusive.
-	ToPort pulumi.IntPtrInput `pulumi:"toPort"`
+	ToPort   pulumi.IntPtrInput `pulumi:"toPort"`
 }
 
 func (CustomRoutingListenerPortRangeArgs) ElementType() reflect.Type {
@@ -978,12 +917,10 @@ func (o CustomRoutingListenerPortRangeOutput) ToCustomRoutingListenerPortRangeOu
 	return o
 }
 
-// The first port in the range of ports, inclusive.
 func (o CustomRoutingListenerPortRangeOutput) FromPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CustomRoutingListenerPortRange) *int { return v.FromPort }).(pulumi.IntPtrOutput)
 }
 
-// The last port in the range of ports, inclusive.
 func (o CustomRoutingListenerPortRangeOutput) ToPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CustomRoutingListenerPortRange) *int { return v.ToPort }).(pulumi.IntPtrOutput)
 }
@@ -1009,15 +946,10 @@ func (o CustomRoutingListenerPortRangeArrayOutput) Index(i pulumi.IntInput) Cust
 }
 
 type EndpointGroupEndpointConfiguration struct {
-	// An ARN of an exposed cross-account attachment. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html) for more details.
-	AttachmentArn *string `pulumi:"attachmentArn"`
-	// Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html) for more details. The default value is `false`.
-	// **Note:** When client IP address preservation is enabled, the Global Accelerator service creates an EC2 Security Group in the VPC named `GlobalAccelerator` that must be deleted (potentially outside of the provider) before the VPC will successfully delete. If this EC2 Security Group is not deleted, the provider will retry the VPC deletion for a few minutes before reporting a `DependencyViolation` error. This cannot be resolved by re-running the provider.
-	ClientIpPreservationEnabled *bool `pulumi:"clientIpPreservationEnabled"`
-	// An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
-	EndpointId *string `pulumi:"endpointId"`
-	// The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
-	Weight *int `pulumi:"weight"`
+	AttachmentArn               *string `pulumi:"attachmentArn"`
+	ClientIpPreservationEnabled *bool   `pulumi:"clientIpPreservationEnabled"`
+	EndpointId                  *string `pulumi:"endpointId"`
+	Weight                      *int    `pulumi:"weight"`
 }
 
 // EndpointGroupEndpointConfigurationInput is an input type that accepts EndpointGroupEndpointConfigurationArgs and EndpointGroupEndpointConfigurationOutput values.
@@ -1032,15 +964,10 @@ type EndpointGroupEndpointConfigurationInput interface {
 }
 
 type EndpointGroupEndpointConfigurationArgs struct {
-	// An ARN of an exposed cross-account attachment. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html) for more details.
-	AttachmentArn pulumi.StringPtrInput `pulumi:"attachmentArn"`
-	// Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html) for more details. The default value is `false`.
-	// **Note:** When client IP address preservation is enabled, the Global Accelerator service creates an EC2 Security Group in the VPC named `GlobalAccelerator` that must be deleted (potentially outside of the provider) before the VPC will successfully delete. If this EC2 Security Group is not deleted, the provider will retry the VPC deletion for a few minutes before reporting a `DependencyViolation` error. This cannot be resolved by re-running the provider.
-	ClientIpPreservationEnabled pulumi.BoolPtrInput `pulumi:"clientIpPreservationEnabled"`
-	// An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
-	EndpointId pulumi.StringPtrInput `pulumi:"endpointId"`
-	// The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
-	Weight pulumi.IntPtrInput `pulumi:"weight"`
+	AttachmentArn               pulumi.StringPtrInput `pulumi:"attachmentArn"`
+	ClientIpPreservationEnabled pulumi.BoolPtrInput   `pulumi:"clientIpPreservationEnabled"`
+	EndpointId                  pulumi.StringPtrInput `pulumi:"endpointId"`
+	Weight                      pulumi.IntPtrInput    `pulumi:"weight"`
 }
 
 func (EndpointGroupEndpointConfigurationArgs) ElementType() reflect.Type {
@@ -1094,23 +1021,18 @@ func (o EndpointGroupEndpointConfigurationOutput) ToEndpointGroupEndpointConfigu
 	return o
 }
 
-// An ARN of an exposed cross-account attachment. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html) for more details.
 func (o EndpointGroupEndpointConfigurationOutput) AttachmentArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointGroupEndpointConfiguration) *string { return v.AttachmentArn }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html) for more details. The default value is `false`.
-// **Note:** When client IP address preservation is enabled, the Global Accelerator service creates an EC2 Security Group in the VPC named `GlobalAccelerator` that must be deleted (potentially outside of the provider) before the VPC will successfully delete. If this EC2 Security Group is not deleted, the provider will retry the VPC deletion for a few minutes before reporting a `DependencyViolation` error. This cannot be resolved by re-running the provider.
 func (o EndpointGroupEndpointConfigurationOutput) ClientIpPreservationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointGroupEndpointConfiguration) *bool { return v.ClientIpPreservationEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
 func (o EndpointGroupEndpointConfigurationOutput) EndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointGroupEndpointConfiguration) *string { return v.EndpointId }).(pulumi.StringPtrOutput)
 }
 
-// The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
 func (o EndpointGroupEndpointConfigurationOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointGroupEndpointConfiguration) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
@@ -1136,9 +1058,7 @@ func (o EndpointGroupEndpointConfigurationArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type EndpointGroupPortOverride struct {
-	// The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
 	EndpointPort int `pulumi:"endpointPort"`
-	// The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
 	ListenerPort int `pulumi:"listenerPort"`
 }
 
@@ -1154,9 +1074,7 @@ type EndpointGroupPortOverrideInput interface {
 }
 
 type EndpointGroupPortOverrideArgs struct {
-	// The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
 	EndpointPort pulumi.IntInput `pulumi:"endpointPort"`
-	// The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
 	ListenerPort pulumi.IntInput `pulumi:"listenerPort"`
 }
 
@@ -1211,12 +1129,10 @@ func (o EndpointGroupPortOverrideOutput) ToEndpointGroupPortOverrideOutputWithCo
 	return o
 }
 
-// The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
 func (o EndpointGroupPortOverrideOutput) EndpointPort() pulumi.IntOutput {
 	return o.ApplyT(func(v EndpointGroupPortOverride) int { return v.EndpointPort }).(pulumi.IntOutput)
 }
 
-// The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
 func (o EndpointGroupPortOverrideOutput) ListenerPort() pulumi.IntOutput {
 	return o.ApplyT(func(v EndpointGroupPortOverride) int { return v.ListenerPort }).(pulumi.IntOutput)
 }
@@ -1242,10 +1158,8 @@ func (o EndpointGroupPortOverrideArrayOutput) Index(i pulumi.IntInput) EndpointG
 }
 
 type ListenerPortRange struct {
-	// The first port in the range of ports, inclusive.
 	FromPort *int `pulumi:"fromPort"`
-	// The last port in the range of ports, inclusive.
-	ToPort *int `pulumi:"toPort"`
+	ToPort   *int `pulumi:"toPort"`
 }
 
 // ListenerPortRangeInput is an input type that accepts ListenerPortRangeArgs and ListenerPortRangeOutput values.
@@ -1260,10 +1174,8 @@ type ListenerPortRangeInput interface {
 }
 
 type ListenerPortRangeArgs struct {
-	// The first port in the range of ports, inclusive.
 	FromPort pulumi.IntPtrInput `pulumi:"fromPort"`
-	// The last port in the range of ports, inclusive.
-	ToPort pulumi.IntPtrInput `pulumi:"toPort"`
+	ToPort   pulumi.IntPtrInput `pulumi:"toPort"`
 }
 
 func (ListenerPortRangeArgs) ElementType() reflect.Type {
@@ -1317,12 +1229,10 @@ func (o ListenerPortRangeOutput) ToListenerPortRangeOutputWithContext(ctx contex
 	return o
 }
 
-// The first port in the range of ports, inclusive.
 func (o ListenerPortRangeOutput) FromPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ListenerPortRange) *int { return v.FromPort }).(pulumi.IntPtrOutput)
 }
 
-// The last port in the range of ports, inclusive.
 func (o ListenerPortRangeOutput) ToPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ListenerPortRange) *int { return v.ToPort }).(pulumi.IntPtrOutput)
 }

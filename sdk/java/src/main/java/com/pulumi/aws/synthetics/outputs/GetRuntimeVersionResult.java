@@ -13,55 +13,23 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRuntimeVersionResult {
-    /**
-     * @return Date of deprecation if the runtme version is deprecated.
-     * 
-     */
     private String deprecationDate;
-    /**
-     * @return Description of the runtime version, created by Amazon.
-     * 
-     */
     private String description;
-    /**
-     * @return Name of the runtime version. For a list of valid runtime versions, see [Canary Runtime Versions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html).
-     * 
-     */
     private String id;
     private @Nullable Boolean latest;
     private String prefix;
     private String region;
-    /**
-     * @return Date that the runtime version was released.
-     * 
-     */
     private String releaseDate;
     private @Nullable String version;
-    /**
-     * @return Name of the runtime version. For a list of valid runtime versions, see [Canary Runtime Versions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html).
-     * 
-     */
     private String versionName;
 
     private GetRuntimeVersionResult() {}
-    /**
-     * @return Date of deprecation if the runtme version is deprecated.
-     * 
-     */
     public String deprecationDate() {
         return this.deprecationDate;
     }
-    /**
-     * @return Description of the runtime version, created by Amazon.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Name of the runtime version. For a list of valid runtime versions, see [Canary Runtime Versions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html).
-     * 
-     */
     public String id() {
         return this.id;
     }
@@ -74,20 +42,12 @@ public final class GetRuntimeVersionResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Date that the runtime version was released.
-     * 
-     */
     public String releaseDate() {
         return this.releaseDate;
     }
     public Optional<String> version() {
         return Optional.ofNullable(this.version);
     }
-    /**
-     * @return Name of the runtime version. For a list of valid runtime versions, see [Canary Runtime Versions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html).
-     * 
-     */
     public String versionName() {
         return this.versionName;
     }

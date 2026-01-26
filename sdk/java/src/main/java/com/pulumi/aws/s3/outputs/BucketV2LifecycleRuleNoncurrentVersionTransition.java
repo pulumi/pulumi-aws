@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketV2LifecycleRuleNoncurrentVersionTransition {
-    /**
-     * @return Specifies the number of days noncurrent object versions transition.
-     * 
-     */
     private @Nullable Integer days;
-    /**
-     * @return Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
-     * 
-     */
     private String storageClass;
 
     private BucketV2LifecycleRuleNoncurrentVersionTransition() {}
-    /**
-     * @return Specifies the number of days noncurrent object versions transition.
-     * 
-     */
     public Optional<Integer> days() {
         return Optional.ofNullable(this.days);
     }
-    /**
-     * @return Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
-     * 
-     */
     public String storageClass() {
         return this.storageClass;
     }

@@ -16,32 +16,16 @@ public final class DataSetColumnLevelPermissionRuleArgs extends com.pulumi.resou
 
     public static final DataSetColumnLevelPermissionRuleArgs Empty = new DataSetColumnLevelPermissionRuleArgs();
 
-    /**
-     * An array of column names.
-     * 
-     */
     @Import(name="columnNames")
     private @Nullable Output<List<String>> columnNames;
 
-    /**
-     * @return An array of column names.
-     * 
-     */
     public Optional<Output<List<String>>> columnNames() {
         return Optional.ofNullable(this.columnNames);
     }
 
-    /**
-     * An array of ARNs for Amazon QuickSight users or groups.
-     * 
-     */
     @Import(name="principals")
     private @Nullable Output<List<String>> principals;
 
-    /**
-     * @return An array of ARNs for Amazon QuickSight users or groups.
-     * 
-     */
     public Optional<Output<List<String>>> principals() {
         return Optional.ofNullable(this.principals);
     }
@@ -71,64 +55,28 @@ public final class DataSetColumnLevelPermissionRuleArgs extends com.pulumi.resou
             $ = new DataSetColumnLevelPermissionRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param columnNames An array of column names.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnNames(@Nullable Output<List<String>> columnNames) {
             $.columnNames = columnNames;
             return this;
         }
 
-        /**
-         * @param columnNames An array of column names.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnNames(List<String> columnNames) {
             return columnNames(Output.of(columnNames));
         }
 
-        /**
-         * @param columnNames An array of column names.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnNames(String... columnNames) {
             return columnNames(List.of(columnNames));
         }
 
-        /**
-         * @param principals An array of ARNs for Amazon QuickSight users or groups.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principals(@Nullable Output<List<String>> principals) {
             $.principals = principals;
             return this;
         }
 
-        /**
-         * @param principals An array of ARNs for Amazon QuickSight users or groups.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principals(List<String> principals) {
             return principals(Output.of(principals));
         }
 
-        /**
-         * @param principals An array of ARNs for Amazon QuickSight users or groups.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principals(String... principals) {
             return principals(List.of(principals));
         }

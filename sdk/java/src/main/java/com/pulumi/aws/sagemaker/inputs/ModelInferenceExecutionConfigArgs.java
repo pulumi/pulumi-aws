@@ -14,17 +14,9 @@ public final class ModelInferenceExecutionConfigArgs extends com.pulumi.resource
 
     public static final ModelInferenceExecutionConfigArgs Empty = new ModelInferenceExecutionConfigArgs();
 
-    /**
-     * How containers in a multi-container are run. Allowed values are: `Serial` and `Direct`.
-     * 
-     */
     @Import(name="mode", required=true)
     private Output<String> mode;
 
-    /**
-     * @return How containers in a multi-container are run. Allowed values are: `Serial` and `Direct`.
-     * 
-     */
     public Output<String> mode() {
         return this.mode;
     }
@@ -53,23 +45,11 @@ public final class ModelInferenceExecutionConfigArgs extends com.pulumi.resource
             $ = new ModelInferenceExecutionConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param mode How containers in a multi-container are run. Allowed values are: `Serial` and `Direct`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mode(Output<String> mode) {
             $.mode = mode;
             return this;
         }
 
-        /**
-         * @param mode How containers in a multi-container are run. Allowed values are: `Serial` and `Direct`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mode(String mode) {
             return mode(Output.of(mode));
         }

@@ -11,281 +11,97 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CustomPermissionsCapabilities {
-    /**
-     * @return The ability to add or run anomaly detection. Valid values: `DENY`.
-     * 
-     */
     private @Nullable String addOrRunAnomalyDetectionForAnalyses;
-    /**
-     * @return The ability to create and update email reports. Valid values: `DENY`.
-     * 
-     */
     private @Nullable String createAndUpdateDashboardEmailReports;
-    /**
-     * @return The ability to create and update data sources. Valid values: `DENY`.
-     * 
-     */
     private @Nullable String createAndUpdateDataSources;
-    /**
-     * @return The ability to create and update datasets. Valid values: `DENY`.
-     * 
-     */
     private @Nullable String createAndUpdateDatasets;
-    /**
-     * @return The ability to export to create and update themes. Valid values: `DENY`.
-     * 
-     */
     private @Nullable String createAndUpdateThemes;
-    /**
-     * @return The ability to create and update threshold alerts. Valid values: `DENY`.
-     * 
-     */
     private @Nullable String createAndUpdateThresholdAlerts;
-    /**
-     * @return The ability to create shared folders. Valid values: `DENY`.
-     * 
-     */
     private @Nullable String createSharedFolders;
-    /**
-     * @return The ability to create a SPICE dataset. Valid values: `DENY`.
-     * 
-     */
     private @Nullable String createSpiceDataset;
-    /**
-     * @return The ability to export to CSV files from the UI. Valid values: `DENY`.
-     * 
-     */
     private @Nullable String exportToCsv;
-    /**
-     * @return The ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
-     * 
-     */
     private @Nullable String exportToCsvInScheduledReports;
-    /**
-     * @return The ability to export to Excel files from the UI. Valid values: `DENY`.
-     * 
-     */
     private @Nullable String exportToExcel;
-    /**
-     * @return The ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
-     * 
-     */
     private @Nullable String exportToExcelInScheduledReports;
-    /**
-     * @return The ability to export to PDF files from the UI. Valid values: `DENY`.
-     * 
-     */
     private @Nullable String exportToPdf;
-    /**
-     * @return The ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
-     * 
-     */
     private @Nullable String exportToPdfInScheduledReports;
-    /**
-     * @return The ability to include content in scheduled email reports. Valid values: `DENY`.
-     * 
-     */
     private @Nullable String includeContentInScheduledReportsEmail;
-    /**
-     * @return The ability to print reports. Valid values: `DENY`.
-     * 
-     */
     private @Nullable String printReports;
-    /**
-     * @return The ability to rename shared folders. Valid values: `DENY`.
-     * 
-     */
     private @Nullable String renameSharedFolders;
-    /**
-     * @return The ability to share analyses. Valid values: `DENY`.
-     * 
-     */
     private @Nullable String shareAnalyses;
-    /**
-     * @return The ability to share dashboards. Valid values: `DENY`.
-     * 
-     */
     private @Nullable String shareDashboards;
-    /**
-     * @return The ability to share data sources. Valid values: `DENY`.
-     * 
-     */
     private @Nullable String shareDataSources;
-    /**
-     * @return The ability to share datasets. Valid values: `DENY`.
-     * 
-     */
     private @Nullable String shareDatasets;
-    /**
-     * @return The ability to subscribe to email reports. Valid values: `DENY`.
-     * 
-     */
     private @Nullable String subscribeDashboardEmailReports;
-    /**
-     * @return The ability to view account SPICE capacity. Valid values: `DENY`.
-     * 
-     */
     private @Nullable String viewAccountSpiceCapacity;
 
     private CustomPermissionsCapabilities() {}
-    /**
-     * @return The ability to add or run anomaly detection. Valid values: `DENY`.
-     * 
-     */
     public Optional<String> addOrRunAnomalyDetectionForAnalyses() {
         return Optional.ofNullable(this.addOrRunAnomalyDetectionForAnalyses);
     }
-    /**
-     * @return The ability to create and update email reports. Valid values: `DENY`.
-     * 
-     */
     public Optional<String> createAndUpdateDashboardEmailReports() {
         return Optional.ofNullable(this.createAndUpdateDashboardEmailReports);
     }
-    /**
-     * @return The ability to create and update data sources. Valid values: `DENY`.
-     * 
-     */
     public Optional<String> createAndUpdateDataSources() {
         return Optional.ofNullable(this.createAndUpdateDataSources);
     }
-    /**
-     * @return The ability to create and update datasets. Valid values: `DENY`.
-     * 
-     */
     public Optional<String> createAndUpdateDatasets() {
         return Optional.ofNullable(this.createAndUpdateDatasets);
     }
-    /**
-     * @return The ability to export to create and update themes. Valid values: `DENY`.
-     * 
-     */
     public Optional<String> createAndUpdateThemes() {
         return Optional.ofNullable(this.createAndUpdateThemes);
     }
-    /**
-     * @return The ability to create and update threshold alerts. Valid values: `DENY`.
-     * 
-     */
     public Optional<String> createAndUpdateThresholdAlerts() {
         return Optional.ofNullable(this.createAndUpdateThresholdAlerts);
     }
-    /**
-     * @return The ability to create shared folders. Valid values: `DENY`.
-     * 
-     */
     public Optional<String> createSharedFolders() {
         return Optional.ofNullable(this.createSharedFolders);
     }
-    /**
-     * @return The ability to create a SPICE dataset. Valid values: `DENY`.
-     * 
-     */
     public Optional<String> createSpiceDataset() {
         return Optional.ofNullable(this.createSpiceDataset);
     }
-    /**
-     * @return The ability to export to CSV files from the UI. Valid values: `DENY`.
-     * 
-     */
     public Optional<String> exportToCsv() {
         return Optional.ofNullable(this.exportToCsv);
     }
-    /**
-     * @return The ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
-     * 
-     */
     public Optional<String> exportToCsvInScheduledReports() {
         return Optional.ofNullable(this.exportToCsvInScheduledReports);
     }
-    /**
-     * @return The ability to export to Excel files from the UI. Valid values: `DENY`.
-     * 
-     */
     public Optional<String> exportToExcel() {
         return Optional.ofNullable(this.exportToExcel);
     }
-    /**
-     * @return The ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
-     * 
-     */
     public Optional<String> exportToExcelInScheduledReports() {
         return Optional.ofNullable(this.exportToExcelInScheduledReports);
     }
-    /**
-     * @return The ability to export to PDF files from the UI. Valid values: `DENY`.
-     * 
-     */
     public Optional<String> exportToPdf() {
         return Optional.ofNullable(this.exportToPdf);
     }
-    /**
-     * @return The ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
-     * 
-     */
     public Optional<String> exportToPdfInScheduledReports() {
         return Optional.ofNullable(this.exportToPdfInScheduledReports);
     }
-    /**
-     * @return The ability to include content in scheduled email reports. Valid values: `DENY`.
-     * 
-     */
     public Optional<String> includeContentInScheduledReportsEmail() {
         return Optional.ofNullable(this.includeContentInScheduledReportsEmail);
     }
-    /**
-     * @return The ability to print reports. Valid values: `DENY`.
-     * 
-     */
     public Optional<String> printReports() {
         return Optional.ofNullable(this.printReports);
     }
-    /**
-     * @return The ability to rename shared folders. Valid values: `DENY`.
-     * 
-     */
     public Optional<String> renameSharedFolders() {
         return Optional.ofNullable(this.renameSharedFolders);
     }
-    /**
-     * @return The ability to share analyses. Valid values: `DENY`.
-     * 
-     */
     public Optional<String> shareAnalyses() {
         return Optional.ofNullable(this.shareAnalyses);
     }
-    /**
-     * @return The ability to share dashboards. Valid values: `DENY`.
-     * 
-     */
     public Optional<String> shareDashboards() {
         return Optional.ofNullable(this.shareDashboards);
     }
-    /**
-     * @return The ability to share data sources. Valid values: `DENY`.
-     * 
-     */
     public Optional<String> shareDataSources() {
         return Optional.ofNullable(this.shareDataSources);
     }
-    /**
-     * @return The ability to share datasets. Valid values: `DENY`.
-     * 
-     */
     public Optional<String> shareDatasets() {
         return Optional.ofNullable(this.shareDatasets);
     }
-    /**
-     * @return The ability to subscribe to email reports. Valid values: `DENY`.
-     * 
-     */
     public Optional<String> subscribeDashboardEmailReports() {
         return Optional.ofNullable(this.subscribeDashboardEmailReports);
     }
-    /**
-     * @return The ability to view account SPICE capacity. Valid values: `DENY`.
-     * 
-     */
     public Optional<String> viewAccountSpiceCapacity() {
         return Optional.ofNullable(this.viewAccountSpiceCapacity);
     }

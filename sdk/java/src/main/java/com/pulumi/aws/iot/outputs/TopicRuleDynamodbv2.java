@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TopicRuleDynamodbv2 {
-    /**
-     * @return Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
-     * 
-     */
     private @Nullable TopicRuleDynamodbv2PutItem putItem;
-    /**
-     * @return The ARN of the IAM role that grants access to the DynamoDB table.
-     * 
-     */
     private String roleArn;
 
     private TopicRuleDynamodbv2() {}
-    /**
-     * @return Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
-     * 
-     */
     public Optional<TopicRuleDynamodbv2PutItem> putItem() {
         return Optional.ofNullable(this.putItem);
     }
-    /**
-     * @return The ARN of the IAM role that grants access to the DynamoDB table.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }

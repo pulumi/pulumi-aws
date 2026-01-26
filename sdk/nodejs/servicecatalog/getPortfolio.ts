@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides information for a Service Catalog Portfolio.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const portfolio = aws.servicecatalog.getPortfolio({
- *     id: "port-07052002",
- * });
- * ```
- */
 export function getPortfolio(args: GetPortfolioArgs, opts?: pulumi.InvokeOptions): Promise<GetPortfolioResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:servicecatalog/getPortfolio:getPortfolio", {
@@ -32,23 +18,9 @@ export function getPortfolio(args: GetPortfolioArgs, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getPortfolio.
  */
 export interface GetPortfolioArgs {
-    /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     */
     acceptLanguage?: string;
-    /**
-     * Portfolio identifier.
-     *
-     * The following arguments are optional:
-     */
     id: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Tags applied to the portfolio.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -57,47 +29,15 @@ export interface GetPortfolioArgs {
  */
 export interface GetPortfolioResult {
     readonly acceptLanguage?: string;
-    /**
-     * Portfolio ARN.
-     */
     readonly arn: string;
-    /**
-     * Time the portfolio was created.
-     */
     readonly createdTime: string;
-    /**
-     * Description of the portfolio
-     */
     readonly description: string;
     readonly id: string;
-    /**
-     * Portfolio name.
-     */
     readonly name: string;
-    /**
-     * Name of the person or organization who owns the portfolio.
-     */
     readonly providerName: string;
     readonly region: string;
-    /**
-     * Tags applied to the portfolio.
-     */
     readonly tags: {[key: string]: string};
 }
-/**
- * Provides information for a Service Catalog Portfolio.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const portfolio = aws.servicecatalog.getPortfolio({
- *     id: "port-07052002",
- * });
- * ```
- */
 export function getPortfolioOutput(args: GetPortfolioOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPortfolioResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:servicecatalog/getPortfolio:getPortfolio", {
@@ -112,22 +52,8 @@ export function getPortfolioOutput(args: GetPortfolioOutputArgs, opts?: pulumi.I
  * A collection of arguments for invoking getPortfolio.
  */
 export interface GetPortfolioOutputArgs {
-    /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     */
     acceptLanguage?: pulumi.Input<string>;
-    /**
-     * Portfolio identifier.
-     *
-     * The following arguments are optional:
-     */
     id: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Tags applied to the portfolio.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

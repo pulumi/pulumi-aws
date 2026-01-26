@@ -14,19 +14,12 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
     {
         [Input("containerTags")]
         private InputList<string>? _containerTags;
-
-        /// <summary>
-        /// Set of tags for Image Builder to apply to the output container image that that Amazon Inspector scans.
-        /// </summary>
         public InputList<string> ContainerTags
         {
             get => _containerTags ?? (_containerTags = new InputList<string>());
             set => _containerTags = value;
         }
 
-        /// <summary>
-        /// The name of the container repository that Amazon Inspector scans to identify findings for your container images.
-        /// </summary>
         [Input("repositoryName")]
         public Input<string>? RepositoryName { get; set; }
 

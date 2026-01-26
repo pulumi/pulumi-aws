@@ -17,47 +17,23 @@ public final class LogTransformerState extends com.pulumi.resources.ResourceArgs
 
     public static final LogTransformerState Empty = new LogTransformerState();
 
-    /**
-     * Log group ARN to set the transformer for.
-     * 
-     */
     @Import(name="logGroupArn")
     private @Nullable Output<String> logGroupArn;
 
-    /**
-     * @return Log group ARN to set the transformer for.
-     * 
-     */
     public Optional<Output<String>> logGroupArn() {
         return Optional.ofNullable(this.logGroupArn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Specifies the configuration of the transformer. You must include at least one configuration, and 20 at most. See `transformerConfig` below for details.
-     * 
-     */
     @Import(name="transformerConfigs")
     private @Nullable Output<List<LogTransformerTransformerConfigArgs>> transformerConfigs;
 
-    /**
-     * @return Specifies the configuration of the transformer. You must include at least one configuration, and 20 at most. See `transformerConfig` below for details.
-     * 
-     */
     public Optional<Output<List<LogTransformerTransformerConfigArgs>>> transformerConfigs() {
         return Optional.ofNullable(this.transformerConfigs);
     }
@@ -88,75 +64,33 @@ public final class LogTransformerState extends com.pulumi.resources.ResourceArgs
             $ = new LogTransformerState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param logGroupArn Log group ARN to set the transformer for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupArn(@Nullable Output<String> logGroupArn) {
             $.logGroupArn = logGroupArn;
             return this;
         }
 
-        /**
-         * @param logGroupArn Log group ARN to set the transformer for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupArn(String logGroupArn) {
             return logGroupArn(Output.of(logGroupArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param transformerConfigs Specifies the configuration of the transformer. You must include at least one configuration, and 20 at most. See `transformerConfig` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transformerConfigs(@Nullable Output<List<LogTransformerTransformerConfigArgs>> transformerConfigs) {
             $.transformerConfigs = transformerConfigs;
             return this;
         }
 
-        /**
-         * @param transformerConfigs Specifies the configuration of the transformer. You must include at least one configuration, and 20 at most. See `transformerConfig` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transformerConfigs(List<LogTransformerTransformerConfigArgs> transformerConfigs) {
             return transformerConfigs(Output.of(transformerConfigs));
         }
 
-        /**
-         * @param transformerConfigs Specifies the configuration of the transformer. You must include at least one configuration, and 20 at most. See `transformerConfig` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transformerConfigs(LogTransformerTransformerConfigArgs... transformerConfigs) {
             return transformerConfigs(List.of(transformerConfigs));
         }

@@ -58,9 +58,6 @@ class GetVpcIpamPoolsResult:
     @_builtins.property
     @pulumi.getter(name="ipamPools")
     def ipam_pools(self) -> Sequence['outputs.GetVpcIpamPoolsIpamPoolResult']:
-        """
-        List of IPAM pools and their attributes. See below for details
-        """
         return pulumi.get(self, "ipam_pools")
 
     @_builtins.property
@@ -85,35 +82,7 @@ def get_vpc_ipam_pools(filters: Optional[Sequence[Union['GetVpcIpamPoolsFilterAr
                        region: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcIpamPoolsResult:
     """
-    `ec2_get_vpc_ipam_pools` provides details about IPAM pools.
-
-    This resource can prove useful when IPAM pools are created in another root
-    module and you need the pool ids as input variables. For example, pools
-    can be shared via RAM and used to create vpcs with CIDRs from that pool.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_vpc_ipam_pools(filters=[
-        {
-            "name": "description",
-            "values": ["*test*"],
-        },
-        {
-            "name": "address-family",
-            "values": ["ipv4"],
-        },
-    ])
-    ```
-
-
-    :param Sequence[Union['GetVpcIpamPoolsFilterArgs', 'GetVpcIpamPoolsFilterArgsDict']] filters: Custom filter block as described below.
-           
-           The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -130,35 +99,7 @@ def get_vpc_ipam_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[U
                               region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcIpamPoolsResult]:
     """
-    `ec2_get_vpc_ipam_pools` provides details about IPAM pools.
-
-    This resource can prove useful when IPAM pools are created in another root
-    module and you need the pool ids as input variables. For example, pools
-    can be shared via RAM and used to create vpcs with CIDRs from that pool.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_vpc_ipam_pools(filters=[
-        {
-            "name": "description",
-            "values": ["*test*"],
-        },
-        {
-            "name": "address-family",
-            "values": ["ipv4"],
-        },
-    ])
-    ```
-
-
-    :param Sequence[Union['GetVpcIpamPoolsFilterArgs', 'GetVpcIpamPoolsFilterArgsDict']] filters: Custom filter block as described below.
-           
-           The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

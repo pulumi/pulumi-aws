@@ -24,9 +24,6 @@ class AvailabilityZoneGroupArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AvailabilityZoneGroup resource.
-        :param pulumi.Input[_builtins.str] group_name: Name of the Availability Zone Group.
-        :param pulumi.Input[_builtins.str] opt_in_status: Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "group_name", group_name)
         pulumi.set(__self__, "opt_in_status", opt_in_status)
@@ -36,9 +33,6 @@ class AvailabilityZoneGroupArgs:
     @_builtins.property
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Availability Zone Group.
-        """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
@@ -48,9 +42,6 @@ class AvailabilityZoneGroupArgs:
     @_builtins.property
     @pulumi.getter(name="optInStatus")
     def opt_in_status(self) -> pulumi.Input[_builtins.str]:
-        """
-        Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
-        """
         return pulumi.get(self, "opt_in_status")
 
     @opt_in_status.setter
@@ -60,9 +51,6 @@ class AvailabilityZoneGroupArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -78,9 +66,6 @@ class _AvailabilityZoneGroupState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AvailabilityZoneGroup resources.
-        :param pulumi.Input[_builtins.str] group_name: Name of the Availability Zone Group.
-        :param pulumi.Input[_builtins.str] opt_in_status: Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if group_name is not None:
             pulumi.set(__self__, "group_name", group_name)
@@ -92,9 +77,6 @@ class _AvailabilityZoneGroupState:
     @_builtins.property
     @pulumi.getter(name="groupName")
     def group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Availability Zone Group.
-        """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
@@ -104,9 +86,6 @@ class _AvailabilityZoneGroupState:
     @_builtins.property
     @pulumi.getter(name="optInStatus")
     def opt_in_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
-        """
         return pulumi.get(self, "opt_in_status")
 
     @opt_in_status.setter
@@ -116,9 +95,6 @@ class _AvailabilityZoneGroupState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -137,34 +113,9 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an EC2 Availability Zone Group, such as updating its opt-in status.
-
-        > **NOTE:** This is an advanced resource. The provider will automatically assume management of the EC2 Availability Zone Group without import and perform no actions on removal from configuration.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.AvailabilityZoneGroup("example",
-            group_name="us-west-2-lax-1",
-            opt_in_status="opted-in")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import EC2 Availability Zone Groups using the group name. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup example us-west-2-lax-1
-        ```
-
+        Create a AvailabilityZoneGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] group_name: Name of the Availability Zone Group.
-        :param pulumi.Input[_builtins.str] opt_in_status: Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -173,29 +124,7 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
                  args: AvailabilityZoneGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an EC2 Availability Zone Group, such as updating its opt-in status.
-
-        > **NOTE:** This is an advanced resource. The provider will automatically assume management of the EC2 Availability Zone Group without import and perform no actions on removal from configuration.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.AvailabilityZoneGroup("example",
-            group_name="us-west-2-lax-1",
-            opt_in_status="opted-in")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import EC2 Availability Zone Groups using the group name. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup example us-west-2-lax-1
-        ```
-
+        Create a AvailabilityZoneGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AvailabilityZoneGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -250,9 +179,6 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] group_name: Name of the Availability Zone Group.
-        :param pulumi.Input[_builtins.str] opt_in_status: Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -266,24 +192,15 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the Availability Zone Group.
-        """
         return pulumi.get(self, "group_name")
 
     @_builtins.property
     @pulumi.getter(name="optInStatus")
     def opt_in_status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
-        """
         return pulumi.get(self, "opt_in_status")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

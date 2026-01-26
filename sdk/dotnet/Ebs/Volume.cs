@@ -9,146 +9,57 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ebs
 {
-    /// <summary>
-    /// Manages a single EBS volume.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ebs.Volume("example", new()
-    ///     {
-    ///         AvailabilityZone = "us-west-2a",
-    ///         Size = 40,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "HelloWorld" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import EBS Volumes using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ebs/volume:Volume")]
     public partial class Volume : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Availability zone where the EBS volume will exist.
-        /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
 
-        /// <summary>
-        /// Timestamp when volume creation was initiated.
-        /// </summary>
         [Output("createTime")]
         public Output<string> CreateTime { get; private set; } = null!;
 
-        /// <summary>
-        /// If true, the disk will be encrypted.
-        /// </summary>
         [Output("encrypted")]
         public Output<bool> Encrypted { get; private set; } = null!;
 
-        /// <summary>
-        /// If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
-        /// </summary>
         [Output("finalSnapshot")]
         public Output<bool?> FinalSnapshot { get; private set; } = null!;
 
-        /// <summary>
-        /// Amount of IOPS to provision for the disk. Only valid for `Type` of `Io1`, `Io2` or `Gp3`.
-        /// </summary>
         [Output("iops")]
         public Output<int> Iops { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN for the KMS encryption key. When specifying `KmsKeyId`, `Encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
-        /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `Io1` and `Io2` volumes.
-        /// </summary>
         [Output("multiAttachEnabled")]
         public Output<bool?> MultiAttachEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Outpost.
-        /// </summary>
         [Output("outpostArn")]
         public Output<string?> OutpostArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Size of the drive in GiBs.
-        /// </summary>
         [Output("size")]
         public Output<int> Size { get; private set; } = null!;
 
-        /// <summary>
-        /// A snapshot to base the EBS volume off of.
-        /// </summary>
         [Output("snapshotId")]
         public Output<string> SnapshotId { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Throughput that the volume supports, in MiB/s. Only valid for `Type` of `Gp3`.
-        /// </summary>
         [Output("throughput")]
         public Output<int> Throughput { get; private set; } = null!;
 
-        /// <summary>
-        /// Type of EBS volume. Can be `Standard`, `Gp2`, `Gp3`, `Io1`, `Io2`, `Sc1` or `St1` (Default: `Gp2`).
-        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
-        /// <summary>
-        /// EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `SnapshotId` is specified.
-        /// 
-        /// &gt; **NOTE:** At least one of `Size` or `SnapshotId` is required.
-        /// 
-        /// &gt; **NOTE:** When changing the `Size`, `Iops` or `Type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
-        /// </summary>
         [Output("volumeInitializationRate")]
         public Output<int?> VolumeInitializationRate { get; private set; } = null!;
 
@@ -198,97 +109,50 @@ namespace Pulumi.Aws.Ebs
 
     public sealed class VolumeArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Availability zone where the EBS volume will exist.
-        /// </summary>
         [Input("availabilityZone", required: true)]
         public Input<string> AvailabilityZone { get; set; } = null!;
 
-        /// <summary>
-        /// If true, the disk will be encrypted.
-        /// </summary>
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
 
-        /// <summary>
-        /// If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
-        /// </summary>
         [Input("finalSnapshot")]
         public Input<bool>? FinalSnapshot { get; set; }
 
-        /// <summary>
-        /// Amount of IOPS to provision for the disk. Only valid for `Type` of `Io1`, `Io2` or `Gp3`.
-        /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }
 
-        /// <summary>
-        /// ARN for the KMS encryption key. When specifying `KmsKeyId`, `Encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        /// <summary>
-        /// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `Io1` and `Io2` volumes.
-        /// </summary>
         [Input("multiAttachEnabled")]
         public Input<bool>? MultiAttachEnabled { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Outpost.
-        /// </summary>
         [Input("outpostArn")]
         public Input<string>? OutpostArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Size of the drive in GiBs.
-        /// </summary>
         [Input("size")]
         public Input<int>? Size { get; set; }
 
-        /// <summary>
-        /// A snapshot to base the EBS volume off of.
-        /// </summary>
         [Input("snapshotId")]
         public Input<string>? SnapshotId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Throughput that the volume supports, in MiB/s. Only valid for `Type` of `Gp3`.
-        /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
 
-        /// <summary>
-        /// Type of EBS volume. Can be `Standard`, `Gp2`, `Gp3`, `Io1`, `Io2`, `Sc1` or `St1` (Default: `Gp2`).
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `SnapshotId` is specified.
-        /// 
-        /// &gt; **NOTE:** At least one of `Size` or `SnapshotId` is required.
-        /// 
-        /// &gt; **NOTE:** When changing the `Size`, `Iops` or `Type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
-        /// </summary>
         [Input("volumeInitializationRate")]
         public Input<int>? VolumeInitializationRate { get; set; }
 
@@ -300,84 +164,44 @@ namespace Pulumi.Aws.Ebs
 
     public sealed class VolumeState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Availability zone where the EBS volume will exist.
-        /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
-        /// <summary>
-        /// Timestamp when volume creation was initiated.
-        /// </summary>
         [Input("createTime")]
         public Input<string>? CreateTime { get; set; }
 
-        /// <summary>
-        /// If true, the disk will be encrypted.
-        /// </summary>
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
 
-        /// <summary>
-        /// If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
-        /// </summary>
         [Input("finalSnapshot")]
         public Input<bool>? FinalSnapshot { get; set; }
 
-        /// <summary>
-        /// Amount of IOPS to provision for the disk. Only valid for `Type` of `Io1`, `Io2` or `Gp3`.
-        /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }
 
-        /// <summary>
-        /// ARN for the KMS encryption key. When specifying `KmsKeyId`, `Encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        /// <summary>
-        /// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `Io1` and `Io2` volumes.
-        /// </summary>
         [Input("multiAttachEnabled")]
         public Input<bool>? MultiAttachEnabled { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Outpost.
-        /// </summary>
         [Input("outpostArn")]
         public Input<string>? OutpostArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Size of the drive in GiBs.
-        /// </summary>
         [Input("size")]
         public Input<int>? Size { get; set; }
 
-        /// <summary>
-        /// A snapshot to base the EBS volume off of.
-        /// </summary>
         [Input("snapshotId")]
         public Input<string>? SnapshotId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -386,35 +210,18 @@ namespace Pulumi.Aws.Ebs
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// Throughput that the volume supports, in MiB/s. Only valid for `Type` of `Gp3`.
-        /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
 
-        /// <summary>
-        /// Type of EBS volume. Can be `Standard`, `Gp2`, `Gp3`, `Io1`, `Io2`, `Sc1` or `St1` (Default: `Gp2`).
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `SnapshotId` is specified.
-        /// 
-        /// &gt; **NOTE:** At least one of `Size` or `SnapshotId` is required.
-        /// 
-        /// &gt; **NOTE:** When changing the `Size`, `Iops` or `Type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
-        /// </summary>
         [Input("volumeInitializationRate")]
         public Input<int>? VolumeInitializationRate { get; set; }
 

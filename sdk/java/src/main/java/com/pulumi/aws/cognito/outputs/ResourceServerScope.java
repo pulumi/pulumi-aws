@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ResourceServerScope {
-    /**
-     * @return The scope description.
-     * 
-     */
     private String scopeDescription;
-    /**
-     * @return The scope name.
-     * 
-     */
     private String scopeName;
 
     private ResourceServerScope() {}
-    /**
-     * @return The scope description.
-     * 
-     */
     public String scopeDescription() {
         return this.scopeDescription;
     }
-    /**
-     * @return The scope name.
-     * 
-     */
     public String scopeName() {
         return this.scopeName;
     }

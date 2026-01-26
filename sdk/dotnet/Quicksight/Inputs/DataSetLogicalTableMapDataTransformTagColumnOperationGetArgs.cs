@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class DataSetLogicalTableMapDataTransformTagColumnOperationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Column name.
-        /// </summary>
         [Input("columnName", required: true)]
         public Input<string> ColumnName { get; set; } = null!;
 
         [Input("tags", required: true)]
         private InputList<Inputs.DataSetLogicalTableMapDataTransformTagColumnOperationTagGetArgs>? _tags;
-
-        /// <summary>
-        /// The dataset column tag, currently only used for geospatial type tagging. See tags.
-        /// </summary>
         public InputList<Inputs.DataSetLogicalTableMapDataTransformTagColumnOperationTagGetArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.DataSetLogicalTableMapDataTransformTagColumnOperationTagGetArgs>());

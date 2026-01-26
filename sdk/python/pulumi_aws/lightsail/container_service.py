@@ -31,16 +31,6 @@ class ContainerServiceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ContainerService resource.
-        :param pulumi.Input[_builtins.str] power: Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
-        :param pulumi.Input[_builtins.int] scale: Scale specification for the container service. The scale specifies the allocated compute nodes of the container service.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] is_disabled: Whether to disable the container service. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] name: Name of the container service. Names must be of length 1 to 63, and be unique within each AWS Region in your Lightsail account.
-        :param pulumi.Input['ContainerServicePrivateRegistryAccessArgs'] private_registry_access: Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
-        :param pulumi.Input['ContainerServicePublicDomainNamesArgs'] public_domain_names: Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don't specify public domain names, then you can use the default domain of the container service. See below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "power", power)
         pulumi.set(__self__, "scale", scale)
@@ -60,9 +50,6 @@ class ContainerServiceArgs:
     @_builtins.property
     @pulumi.getter
     def power(self) -> pulumi.Input[_builtins.str]:
-        """
-        Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
-        """
         return pulumi.get(self, "power")
 
     @power.setter
@@ -72,11 +59,6 @@ class ContainerServiceArgs:
     @_builtins.property
     @pulumi.getter
     def scale(self) -> pulumi.Input[_builtins.int]:
-        """
-        Scale specification for the container service. The scale specifies the allocated compute nodes of the container service.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "scale")
 
     @scale.setter
@@ -86,9 +68,6 @@ class ContainerServiceArgs:
     @_builtins.property
     @pulumi.getter(name="isDisabled")
     def is_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to disable the container service. Defaults to `false`.
-        """
         return pulumi.get(self, "is_disabled")
 
     @is_disabled.setter
@@ -98,9 +77,6 @@ class ContainerServiceArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the container service. Names must be of length 1 to 63, and be unique within each AWS Region in your Lightsail account.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -110,9 +86,6 @@ class ContainerServiceArgs:
     @_builtins.property
     @pulumi.getter(name="privateRegistryAccess")
     def private_registry_access(self) -> Optional[pulumi.Input['ContainerServicePrivateRegistryAccessArgs']]:
-        """
-        Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
-        """
         return pulumi.get(self, "private_registry_access")
 
     @private_registry_access.setter
@@ -122,9 +95,6 @@ class ContainerServiceArgs:
     @_builtins.property
     @pulumi.getter(name="publicDomainNames")
     def public_domain_names(self) -> Optional[pulumi.Input['ContainerServicePublicDomainNamesArgs']]:
-        """
-        Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don't specify public domain names, then you can use the default domain of the container service. See below.
-        """
         return pulumi.get(self, "public_domain_names")
 
     @public_domain_names.setter
@@ -134,9 +104,6 @@ class ContainerServiceArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -146,9 +113,6 @@ class ContainerServiceArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -179,26 +143,6 @@ class _ContainerServiceState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ContainerService resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the container service.
-        :param pulumi.Input[_builtins.str] availability_zone: Availability Zone. Follows the format us-east-2a (case-sensitive).
-        :param pulumi.Input[_builtins.str] created_at: Date and time when the container service was created.
-        :param pulumi.Input[_builtins.bool] is_disabled: Whether to disable the container service. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] name: Name of the container service. Names must be of length 1 to 63, and be unique within each AWS Region in your Lightsail account.
-        :param pulumi.Input[_builtins.str] power: Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
-        :param pulumi.Input[_builtins.str] power_id: Power ID of the container service.
-        :param pulumi.Input[_builtins.str] principal_arn: Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
-        :param pulumi.Input[_builtins.str] private_domain_name: Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
-        :param pulumi.Input['ContainerServicePrivateRegistryAccessArgs'] private_registry_access: Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
-        :param pulumi.Input['ContainerServicePublicDomainNamesArgs'] public_domain_names: Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don't specify public domain names, then you can use the default domain of the container service. See below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_type: Lightsail resource type of the container service (i.e., ContainerService).
-        :param pulumi.Input[_builtins.int] scale: Scale specification for the container service. The scale specifies the allocated compute nodes of the container service.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] state: Current state of the container service.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] url: Publicly accessible URL of the container service. If no public endpoint is specified in the currentDeployment, this URL returns a 404 response.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -240,9 +184,6 @@ class _ContainerServiceState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the container service.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -252,9 +193,6 @@ class _ContainerServiceState:
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Availability Zone. Follows the format us-east-2a (case-sensitive).
-        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -264,9 +202,6 @@ class _ContainerServiceState:
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date and time when the container service was created.
-        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -276,9 +211,6 @@ class _ContainerServiceState:
     @_builtins.property
     @pulumi.getter(name="isDisabled")
     def is_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to disable the container service. Defaults to `false`.
-        """
         return pulumi.get(self, "is_disabled")
 
     @is_disabled.setter
@@ -288,9 +220,6 @@ class _ContainerServiceState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the container service. Names must be of length 1 to 63, and be unique within each AWS Region in your Lightsail account.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -300,9 +229,6 @@ class _ContainerServiceState:
     @_builtins.property
     @pulumi.getter
     def power(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
-        """
         return pulumi.get(self, "power")
 
     @power.setter
@@ -312,9 +238,6 @@ class _ContainerServiceState:
     @_builtins.property
     @pulumi.getter(name="powerId")
     def power_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Power ID of the container service.
-        """
         return pulumi.get(self, "power_id")
 
     @power_id.setter
@@ -324,9 +247,6 @@ class _ContainerServiceState:
     @_builtins.property
     @pulumi.getter(name="principalArn")
     def principal_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
-        """
         return pulumi.get(self, "principal_arn")
 
     @principal_arn.setter
@@ -336,9 +256,6 @@ class _ContainerServiceState:
     @_builtins.property
     @pulumi.getter(name="privateDomainName")
     def private_domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
-        """
         return pulumi.get(self, "private_domain_name")
 
     @private_domain_name.setter
@@ -348,9 +265,6 @@ class _ContainerServiceState:
     @_builtins.property
     @pulumi.getter(name="privateRegistryAccess")
     def private_registry_access(self) -> Optional[pulumi.Input['ContainerServicePrivateRegistryAccessArgs']]:
-        """
-        Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
-        """
         return pulumi.get(self, "private_registry_access")
 
     @private_registry_access.setter
@@ -360,9 +274,6 @@ class _ContainerServiceState:
     @_builtins.property
     @pulumi.getter(name="publicDomainNames")
     def public_domain_names(self) -> Optional[pulumi.Input['ContainerServicePublicDomainNamesArgs']]:
-        """
-        Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don't specify public domain names, then you can use the default domain of the container service. See below.
-        """
         return pulumi.get(self, "public_domain_names")
 
     @public_domain_names.setter
@@ -372,9 +283,6 @@ class _ContainerServiceState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -384,9 +292,6 @@ class _ContainerServiceState:
     @_builtins.property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Lightsail resource type of the container service (i.e., ContainerService).
-        """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
@@ -396,11 +301,6 @@ class _ContainerServiceState:
     @_builtins.property
     @pulumi.getter
     def scale(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Scale specification for the container service. The scale specifies the allocated compute nodes of the container service.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "scale")
 
     @scale.setter
@@ -410,9 +310,6 @@ class _ContainerServiceState:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Current state of the container service.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -422,9 +319,6 @@ class _ContainerServiceState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -434,9 +328,6 @@ class _ContainerServiceState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -446,9 +337,6 @@ class _ContainerServiceState:
     @_builtins.property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Publicly accessible URL of the container service. If no public endpoint is specified in the currentDeployment, this URL returns a 404 response.
-        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -472,92 +360,9 @@ class ContainerService(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Manages a Lightsail container service. Use this resource to create and manage a scalable compute and networking platform for deploying, running, and managing containerized applications in Lightsail.
-
-        > **Note:** For more information about the AWS Regions in which you can create Amazon Lightsail container services, see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail).
-
-        > **NOTE:** You must create and validate an SSL/TLS certificate before you can use `public_domain_names` with your container service. For more information, see [Enabling and managing custom domains for your Amazon Lightsail container services](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-container-services-certificates).
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lightsail.ContainerService("example",
-            name="container-service-1",
-            power="nano",
-            scale=1,
-            is_disabled=False,
-            tags={
-                "foo1": "bar1",
-                "foo2": "",
-            })
-        ```
-
-        ### Public Domain Names
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lightsail.ContainerService("example", public_domain_names={
-            "certificates": [{
-                "certificate_name": "example-certificate",
-                "domain_names": ["www.example.com"],
-            }],
-        })
-        ```
-
-        ### Private Registry Access
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_container_service = aws.lightsail.ContainerService("example", private_registry_access={
-            "ecr_image_puller_role": {
-                "is_active": True,
-            },
-        })
-        example = example_container_service.private_registry_access.apply(lambda private_registry_access: aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": [private_registry_access.ecr_image_puller_role.principal_arn],
-            }],
-            "actions": [
-                "ecr:BatchGetImage",
-                "ecr:GetDownloadUrlForLayer",
-            ],
-        }]))
-        example_repository_policy = aws.ecr.RepositoryPolicy("example",
-            repository=example_aws_ecr_repository["name"],
-            policy=example.json)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Lightsail Container Service using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:lightsail/containerService:ContainerService example container-service-1
-        ```
-
+        Create a ContainerService resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] is_disabled: Whether to disable the container service. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] name: Name of the container service. Names must be of length 1 to 63, and be unique within each AWS Region in your Lightsail account.
-        :param pulumi.Input[_builtins.str] power: Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
-        :param pulumi.Input[Union['ContainerServicePrivateRegistryAccessArgs', 'ContainerServicePrivateRegistryAccessArgsDict']] private_registry_access: Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
-        :param pulumi.Input[Union['ContainerServicePublicDomainNamesArgs', 'ContainerServicePublicDomainNamesArgsDict']] public_domain_names: Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don't specify public domain names, then you can use the default domain of the container service. See below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] scale: Scale specification for the container service. The scale specifies the allocated compute nodes of the container service.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -566,80 +371,7 @@ class ContainerService(pulumi.CustomResource):
                  args: ContainerServiceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Lightsail container service. Use this resource to create and manage a scalable compute and networking platform for deploying, running, and managing containerized applications in Lightsail.
-
-        > **Note:** For more information about the AWS Regions in which you can create Amazon Lightsail container services, see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail).
-
-        > **NOTE:** You must create and validate an SSL/TLS certificate before you can use `public_domain_names` with your container service. For more information, see [Enabling and managing custom domains for your Amazon Lightsail container services](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-container-services-certificates).
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lightsail.ContainerService("example",
-            name="container-service-1",
-            power="nano",
-            scale=1,
-            is_disabled=False,
-            tags={
-                "foo1": "bar1",
-                "foo2": "",
-            })
-        ```
-
-        ### Public Domain Names
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lightsail.ContainerService("example", public_domain_names={
-            "certificates": [{
-                "certificate_name": "example-certificate",
-                "domain_names": ["www.example.com"],
-            }],
-        })
-        ```
-
-        ### Private Registry Access
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_container_service = aws.lightsail.ContainerService("example", private_registry_access={
-            "ecr_image_puller_role": {
-                "is_active": True,
-            },
-        })
-        example = example_container_service.private_registry_access.apply(lambda private_registry_access: aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": [private_registry_access.ecr_image_puller_role.principal_arn],
-            }],
-            "actions": [
-                "ecr:BatchGetImage",
-                "ecr:GetDownloadUrlForLayer",
-            ],
-        }]))
-        example_repository_policy = aws.ecr.RepositoryPolicy("example",
-            repository=example_aws_ecr_repository["name"],
-            policy=example.json)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Lightsail Container Service using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:lightsail/containerService:ContainerService example container-service-1
-        ```
-
+        Create a ContainerService resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ContainerServiceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -729,26 +461,6 @@ class ContainerService(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the container service.
-        :param pulumi.Input[_builtins.str] availability_zone: Availability Zone. Follows the format us-east-2a (case-sensitive).
-        :param pulumi.Input[_builtins.str] created_at: Date and time when the container service was created.
-        :param pulumi.Input[_builtins.bool] is_disabled: Whether to disable the container service. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] name: Name of the container service. Names must be of length 1 to 63, and be unique within each AWS Region in your Lightsail account.
-        :param pulumi.Input[_builtins.str] power: Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
-        :param pulumi.Input[_builtins.str] power_id: Power ID of the container service.
-        :param pulumi.Input[_builtins.str] principal_arn: Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
-        :param pulumi.Input[_builtins.str] private_domain_name: Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
-        :param pulumi.Input[Union['ContainerServicePrivateRegistryAccessArgs', 'ContainerServicePrivateRegistryAccessArgsDict']] private_registry_access: Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
-        :param pulumi.Input[Union['ContainerServicePublicDomainNamesArgs', 'ContainerServicePublicDomainNamesArgsDict']] public_domain_names: Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don't specify public domain names, then you can use the default domain of the container service. See below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_type: Lightsail resource type of the container service (i.e., ContainerService).
-        :param pulumi.Input[_builtins.int] scale: Scale specification for the container service. The scale specifies the allocated compute nodes of the container service.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] state: Current state of the container service.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] url: Publicly accessible URL of the container service. If no public endpoint is specified in the currentDeployment, this URL returns a 404 response.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -777,146 +489,90 @@ class ContainerService(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the container service.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[_builtins.str]:
-        """
-        Availability Zone. Follows the format us-east-2a (case-sensitive).
-        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        Date and time when the container service was created.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter(name="isDisabled")
     def is_disabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether to disable the container service. Defaults to `false`.
-        """
         return pulumi.get(self, "is_disabled")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the container service. Names must be of length 1 to 63, and be unique within each AWS Region in your Lightsail account.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def power(self) -> pulumi.Output[_builtins.str]:
-        """
-        Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
-        """
         return pulumi.get(self, "power")
 
     @_builtins.property
     @pulumi.getter(name="powerId")
     def power_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Power ID of the container service.
-        """
         return pulumi.get(self, "power_id")
 
     @_builtins.property
     @pulumi.getter(name="principalArn")
     def principal_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
-        """
         return pulumi.get(self, "principal_arn")
 
     @_builtins.property
     @pulumi.getter(name="privateDomainName")
     def private_domain_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
-        """
         return pulumi.get(self, "private_domain_name")
 
     @_builtins.property
     @pulumi.getter(name="privateRegistryAccess")
     def private_registry_access(self) -> pulumi.Output['outputs.ContainerServicePrivateRegistryAccess']:
-        """
-        Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
-        """
         return pulumi.get(self, "private_registry_access")
 
     @_builtins.property
     @pulumi.getter(name="publicDomainNames")
     def public_domain_names(self) -> pulumi.Output[Optional['outputs.ContainerServicePublicDomainNames']]:
-        """
-        Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don't specify public domain names, then you can use the default domain of the container service. See below.
-        """
         return pulumi.get(self, "public_domain_names")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Lightsail resource type of the container service (i.e., ContainerService).
-        """
         return pulumi.get(self, "resource_type")
 
     @_builtins.property
     @pulumi.getter
     def scale(self) -> pulumi.Output[_builtins.int]:
-        """
-        Scale specification for the container service. The scale specifies the allocated compute nodes of the container service.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "scale")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[_builtins.str]:
-        """
-        Current state of the container service.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def url(self) -> pulumi.Output[_builtins.str]:
-        """
-        Publicly accessible URL of the container service. If no public endpoint is specified in the currentDeployment, this URL returns a 404 response.
-        """
         return pulumi.get(self, "url")
 

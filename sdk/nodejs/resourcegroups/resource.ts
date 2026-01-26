@@ -4,38 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Resource Groups Resource.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.DedicatedHost("example", {
- *     instanceFamily: "t3",
- *     availabilityZone: "us-east-1a",
- *     hostRecovery: "off",
- *     autoPlacement: "on",
- * });
- * const exampleGroup = new aws.resourcegroups.Group("example", {name: "example"});
- * const exampleResource = new aws.resourcegroups.Resource("example", {
- *     groupArn: exampleGroup.arn,
- *     resourceArn: example.arn,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import an AWS Resource Groups Resource using `group_arn` and `resource_arn`, separated by a comma (`,`). For example:
- *
- * ```sh
- * $ pulumi import aws:resourcegroups/resource:Resource example arn:aws:resource-groups:us-west-2:012345678901:group/example,arn:aws:lambda:us-west-2:012345678901:function:example
- * ```
- */
 export class Resource extends pulumi.CustomResource {
     /**
      * Get an existing Resource resource's state with the given name, ID, and optional extra
@@ -64,21 +32,9 @@ export class Resource extends pulumi.CustomResource {
         return obj['__pulumiType'] === Resource.__pulumiType;
     }
 
-    /**
-     * Name or ARN of the resource group to add resources to.
-     */
     declare public readonly groupArn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ARN of the resource to be added to the group.
-     */
     declare public readonly resourceArn: pulumi.Output<string>;
-    /**
-     * The resource type of a resource, such as `AWS::EC2::Instance`.
-     */
     declare public /*out*/ readonly resourceType: pulumi.Output<string>;
 
     /**
@@ -120,21 +76,9 @@ export class Resource extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Resource resources.
  */
 export interface ResourceState {
-    /**
-     * Name or ARN of the resource group to add resources to.
-     */
     groupArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the resource to be added to the group.
-     */
     resourceArn?: pulumi.Input<string>;
-    /**
-     * The resource type of a resource, such as `AWS::EC2::Instance`.
-     */
     resourceType?: pulumi.Input<string>;
 }
 
@@ -142,16 +86,7 @@ export interface ResourceState {
  * The set of arguments for constructing a Resource resource.
  */
 export interface ResourceArgs {
-    /**
-     * Name or ARN of the resource group to add resources to.
-     */
     groupArn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the resource to be added to the group.
-     */
     resourceArn: pulumi.Input<string>;
 }

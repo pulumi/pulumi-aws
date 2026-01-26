@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination {
-    /**
-     * @return The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
-     * 
-     */
     private String deliveryStreamArn;
-    /**
-     * @return The Amazon Resource Name (ARN) of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
-     * 
-     */
     private String iamRoleArn;
 
     private ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
-     * 
-     */
     public String deliveryStreamArn() {
         return this.deliveryStreamArn;
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
-     * 
-     */
     public String iamRoleArn() {
         return this.iamRoleArn;
     }

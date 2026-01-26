@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The replacement strategy to use. Only available for fleets of `Type` set to `Maintain`. Valid values: `Launch`.
-        /// </summary>
         [Input("replacementStrategy")]
         public Input<string>? ReplacementStrategy { get; set; }
 

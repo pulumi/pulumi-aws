@@ -18,96 +18,44 @@ public final class LbArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final LbArgs Empty = new LbArgs();
 
-    /**
-     * Health check path of the load balancer. Default value `/`.
-     * 
-     */
     @Import(name="healthCheckPath")
     private @Nullable Output<String> healthCheckPath;
 
-    /**
-     * @return Health check path of the load balancer. Default value `/`.
-     * 
-     */
     public Optional<Output<String>> healthCheckPath() {
         return Optional.ofNullable(this.healthCheckPath);
     }
 
-    /**
-     * Instance port the load balancer will connect to.
-     * 
-     */
     @Import(name="instancePort", required=true)
     private Output<Integer> instancePort;
 
-    /**
-     * @return Instance port the load balancer will connect to.
-     * 
-     */
     public Output<Integer> instancePort() {
         return this.instancePort;
     }
 
-    /**
-     * IP address type of the load balancer. Valid values: `dualstack`, `ipv4`. Default value `dualstack`.
-     * 
-     */
     @Import(name="ipAddressType")
     private @Nullable Output<String> ipAddressType;
 
-    /**
-     * @return IP address type of the load balancer. Valid values: `dualstack`, `ipv4`. Default value `dualstack`.
-     * 
-     */
     public Optional<Output<String>> ipAddressType() {
         return Optional.ofNullable(this.ipAddressType);
     }
 
-    /**
-     * Name of the Lightsail load balancer.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the Lightsail load balancer.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -141,132 +89,56 @@ public final class LbArgs extends com.pulumi.resources.ResourceArgs {
             $ = new LbArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param healthCheckPath Health check path of the load balancer. Default value `/`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthCheckPath(@Nullable Output<String> healthCheckPath) {
             $.healthCheckPath = healthCheckPath;
             return this;
         }
 
-        /**
-         * @param healthCheckPath Health check path of the load balancer. Default value `/`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthCheckPath(String healthCheckPath) {
             return healthCheckPath(Output.of(healthCheckPath));
         }
 
-        /**
-         * @param instancePort Instance port the load balancer will connect to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instancePort(Output<Integer> instancePort) {
             $.instancePort = instancePort;
             return this;
         }
 
-        /**
-         * @param instancePort Instance port the load balancer will connect to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instancePort(Integer instancePort) {
             return instancePort(Output.of(instancePort));
         }
 
-        /**
-         * @param ipAddressType IP address type of the load balancer. Valid values: `dualstack`, `ipv4`. Default value `dualstack`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddressType(@Nullable Output<String> ipAddressType) {
             $.ipAddressType = ipAddressType;
             return this;
         }
 
-        /**
-         * @param ipAddressType IP address type of the load balancer. Valid values: `dualstack`, `ipv4`. Default value `dualstack`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddressType(String ipAddressType) {
             return ipAddressType(Output.of(ipAddressType));
         }
 
-        /**
-         * @param name Name of the Lightsail load balancer.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the Lightsail load balancer.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

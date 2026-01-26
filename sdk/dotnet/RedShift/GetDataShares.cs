@@ -11,72 +11,12 @@ namespace Pulumi.Aws.RedShift
 {
     public static class GetDataShares
     {
-        /// <summary>
-        /// Data source for managing AWS Redshift Data Shares.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.RedShift.GetDataShares.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetDataSharesResult> InvokeAsync(GetDataSharesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataSharesResult>("aws:redshift/getDataShares:getDataShares", args ?? new GetDataSharesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing AWS Redshift Data Shares.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.RedShift.GetDataShares.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetDataSharesResult> Invoke(GetDataSharesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataSharesResult>("aws:redshift/getDataShares:getDataShares", args ?? new GetDataSharesInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing AWS Redshift Data Shares.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.RedShift.GetDataShares.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetDataSharesResult> Invoke(GetDataSharesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataSharesResult>("aws:redshift/getDataShares:getDataShares", args ?? new GetDataSharesInvokeArgs(), options.WithDefaults());
     }
@@ -84,9 +24,6 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class GetDataSharesArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -98,9 +35,6 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class GetDataSharesInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -114,13 +48,7 @@ namespace Pulumi.Aws.RedShift
     [OutputType]
     public sealed class GetDataSharesResult
     {
-        /// <summary>
-        /// An array of all data shares in the current region. See `DataShares` below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDataSharesDataShareResult> DataShares;
-        /// <summary>
-        /// AWS region.
-        /// </summary>
         public readonly string Id;
         public readonly string Region;
 

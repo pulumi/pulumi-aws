@@ -7,42 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Resource Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.resourcegroups.Group("test", {
- *     name: "test-group",
- *     resourceQuery: {
- *         query: `{
- *   \\"ResourceTypeFilters\\": [
- *     \\"AWS::EC2::Instance\\"
- *   ],
- *   \\"TagFilters\\": [
- *     {
- *       \\"Key\\": \\"Stage\\",
- *       \\"Values\\": [\\"Test\\"]
- *     }
- *   ]
- * }
- * `,
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import resource groups using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:resourcegroups/group:Group foo resource-group-name
- * ```
- */
 export class Group extends pulumi.CustomResource {
     /**
      * Get an existing Group resource's state with the given name, ID, and optional extra
@@ -71,37 +35,13 @@ export class Group extends pulumi.CustomResource {
         return obj['__pulumiType'] === Group.__pulumiType;
     }
 
-    /**
-     * The ARN assigned by AWS for this resource group.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
-     */
     declare public readonly configurations: pulumi.Output<outputs.resourcegroups.GroupConfiguration[] | undefined>;
-    /**
-     * A description of the resource group.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A `resourceQuery` block. Resource queries are documented below.
-     */
     declare public readonly resourceQuery: pulumi.Output<outputs.resourcegroups.GroupResourceQuery | undefined>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -145,37 +85,13 @@ export class Group extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Group resources.
  */
 export interface GroupState {
-    /**
-     * The ARN assigned by AWS for this resource group.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
-     */
     configurations?: pulumi.Input<pulumi.Input<inputs.resourcegroups.GroupConfiguration>[]>;
-    /**
-     * A description of the resource group.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A `resourceQuery` block. Resource queries are documented below.
-     */
     resourceQuery?: pulumi.Input<inputs.resourcegroups.GroupResourceQuery>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -183,28 +99,10 @@ export interface GroupState {
  * The set of arguments for constructing a Group resource.
  */
 export interface GroupArgs {
-    /**
-     * A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
-     */
     configurations?: pulumi.Input<pulumi.Input<inputs.resourcegroups.GroupConfiguration>[]>;
-    /**
-     * A description of the resource group.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A `resourceQuery` block. Resource queries are documented below.
-     */
     resourceQuery?: pulumi.Input<inputs.resourcegroups.GroupResourceQuery>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

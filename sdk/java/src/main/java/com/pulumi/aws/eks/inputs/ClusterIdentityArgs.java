@@ -16,17 +16,9 @@ public final class ClusterIdentityArgs extends com.pulumi.resources.ResourceArgs
 
     public static final ClusterIdentityArgs Empty = new ClusterIdentityArgs();
 
-    /**
-     * Nested block containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
-     * 
-     */
     @Import(name="oidcs")
     private @Nullable Output<List<ClusterIdentityOidcArgs>> oidcs;
 
-    /**
-     * @return Nested block containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
-     * 
-     */
     public Optional<Output<List<ClusterIdentityOidcArgs>>> oidcs() {
         return Optional.ofNullable(this.oidcs);
     }
@@ -55,33 +47,15 @@ public final class ClusterIdentityArgs extends com.pulumi.resources.ResourceArgs
             $ = new ClusterIdentityArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param oidcs Nested block containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oidcs(@Nullable Output<List<ClusterIdentityOidcArgs>> oidcs) {
             $.oidcs = oidcs;
             return this;
         }
 
-        /**
-         * @param oidcs Nested block containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oidcs(List<ClusterIdentityOidcArgs> oidcs) {
             return oidcs(Output.of(oidcs));
         }
 
-        /**
-         * @param oidcs Nested block containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oidcs(ClusterIdentityOidcArgs... oidcs) {
             return oidcs(List.of(oidcs));
         }

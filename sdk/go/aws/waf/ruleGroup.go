@@ -12,73 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a WAF Rule Group Resource
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/waf"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := waf.NewRule(ctx, "example", &waf.RuleArgs{
-//				Name:       pulumi.String("example"),
-//				MetricName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = waf.NewRuleGroup(ctx, "example", &waf.RuleGroupArgs{
-//				Name:       pulumi.String("example"),
-//				MetricName: pulumi.String("example"),
-//				ActivatedRules: waf.RuleGroupActivatedRuleArray{
-//					&waf.RuleGroupActivatedRuleArgs{
-//						Action: &waf.RuleGroupActivatedRuleActionArgs{
-//							Type: pulumi.String("COUNT"),
-//						},
-//						Priority: pulumi.Int(50),
-//						RuleId:   example.ID(),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import WAF Rule Group using the id. For example:
-//
-// ```sh
-// $ pulumi import aws:waf/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-// ```
 type RuleGroup struct {
 	pulumi.CustomResourceState
 
-	// A list of activated rules, see below
 	ActivatedRules RuleGroupActivatedRuleArrayOutput `pulumi:"activatedRules"`
-	// The ARN of the WAF rule group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A friendly name for the metrics from the rule group
-	MetricName pulumi.StringOutput `pulumi:"metricName"`
-	// Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn            pulumi.StringOutput               `pulumi:"arn"`
+	MetricName     pulumi.StringOutput               `pulumi:"metricName"`
+	Name           pulumi.StringOutput               `pulumi:"name"`
+	Tags           pulumi.StringMapOutput            `pulumi:"tags"`
+	TagsAll        pulumi.StringMapOutput            `pulumi:"tagsAll"`
 }
 
 // NewRuleGroup registers a new resource with the given unique name, arguments, and options.
@@ -114,33 +56,21 @@ func GetRuleGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RuleGroup resources.
 type ruleGroupState struct {
-	// A list of activated rules, see below
 	ActivatedRules []RuleGroupActivatedRule `pulumi:"activatedRules"`
-	// The ARN of the WAF rule group.
-	Arn *string `pulumi:"arn"`
-	// A friendly name for the metrics from the rule group
-	MetricName *string `pulumi:"metricName"`
-	// Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name *string `pulumi:"name"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn            *string                  `pulumi:"arn"`
+	MetricName     *string                  `pulumi:"metricName"`
+	Name           *string                  `pulumi:"name"`
+	Tags           map[string]string        `pulumi:"tags"`
+	TagsAll        map[string]string        `pulumi:"tagsAll"`
 }
 
 type RuleGroupState struct {
-	// A list of activated rules, see below
 	ActivatedRules RuleGroupActivatedRuleArrayInput
-	// The ARN of the WAF rule group.
-	Arn pulumi.StringPtrInput
-	// A friendly name for the metrics from the rule group
-	MetricName pulumi.StringPtrInput
-	// Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Arn            pulumi.StringPtrInput
+	MetricName     pulumi.StringPtrInput
+	Name           pulumi.StringPtrInput
+	Tags           pulumi.StringMapInput
+	TagsAll        pulumi.StringMapInput
 }
 
 func (RuleGroupState) ElementType() reflect.Type {
@@ -148,26 +78,18 @@ func (RuleGroupState) ElementType() reflect.Type {
 }
 
 type ruleGroupArgs struct {
-	// A list of activated rules, see below
 	ActivatedRules []RuleGroupActivatedRule `pulumi:"activatedRules"`
-	// A friendly name for the metrics from the rule group
-	MetricName string `pulumi:"metricName"`
-	// Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name *string `pulumi:"name"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	MetricName     string                   `pulumi:"metricName"`
+	Name           *string                  `pulumi:"name"`
+	Tags           map[string]string        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RuleGroup resource.
 type RuleGroupArgs struct {
-	// A list of activated rules, see below
 	ActivatedRules RuleGroupActivatedRuleArrayInput
-	// A friendly name for the metrics from the rule group
-	MetricName pulumi.StringInput
-	// Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	MetricName     pulumi.StringInput
+	Name           pulumi.StringPtrInput
+	Tags           pulumi.StringMapInput
 }
 
 func (RuleGroupArgs) ElementType() reflect.Type {
@@ -257,32 +179,26 @@ func (o RuleGroupOutput) ToRuleGroupOutputWithContext(ctx context.Context) RuleG
 	return o
 }
 
-// A list of activated rules, see below
 func (o RuleGroupOutput) ActivatedRules() RuleGroupActivatedRuleArrayOutput {
 	return o.ApplyT(func(v *RuleGroup) RuleGroupActivatedRuleArrayOutput { return v.ActivatedRules }).(RuleGroupActivatedRuleArrayOutput)
 }
 
-// The ARN of the WAF rule group.
 func (o RuleGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A friendly name for the metrics from the rule group
 func (o RuleGroupOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.MetricName }).(pulumi.StringOutput)
 }
 
-// Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 func (o RuleGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RuleGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RuleGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

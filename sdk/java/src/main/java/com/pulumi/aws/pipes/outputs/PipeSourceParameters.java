@@ -18,101 +18,37 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipeSourceParameters {
-    /**
-     * @return The parameters for using an Active MQ broker as a source. Detailed below.
-     * 
-     */
     private @Nullable PipeSourceParametersActivemqBrokerParameters activemqBrokerParameters;
-    /**
-     * @return The parameters for using a DynamoDB stream as a source.  Detailed below.
-     * 
-     */
     private @Nullable PipeSourceParametersDynamodbStreamParameters dynamodbStreamParameters;
-    /**
-     * @return The collection of event patterns used to [filter events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-filtering.html). Detailed below.
-     * 
-     */
     private @Nullable PipeSourceParametersFilterCriteria filterCriteria;
-    /**
-     * @return The parameters for using a Kinesis stream as a source. Detailed below.
-     * 
-     */
     private @Nullable PipeSourceParametersKinesisStreamParameters kinesisStreamParameters;
-    /**
-     * @return The parameters for using an MSK stream as a source. Detailed below.
-     * 
-     */
     private @Nullable PipeSourceParametersManagedStreamingKafkaParameters managedStreamingKafkaParameters;
-    /**
-     * @return The parameters for using a Rabbit MQ broker as a source. Detailed below.
-     * 
-     */
     private @Nullable PipeSourceParametersRabbitmqBrokerParameters rabbitmqBrokerParameters;
-    /**
-     * @return The parameters for using a self-managed Apache Kafka stream as a source. Detailed below.
-     * 
-     */
     private @Nullable PipeSourceParametersSelfManagedKafkaParameters selfManagedKafkaParameters;
-    /**
-     * @return The parameters for using a Amazon SQS stream as a source. Detailed below.
-     * 
-     */
     private @Nullable PipeSourceParametersSqsQueueParameters sqsQueueParameters;
 
     private PipeSourceParameters() {}
-    /**
-     * @return The parameters for using an Active MQ broker as a source. Detailed below.
-     * 
-     */
     public Optional<PipeSourceParametersActivemqBrokerParameters> activemqBrokerParameters() {
         return Optional.ofNullable(this.activemqBrokerParameters);
     }
-    /**
-     * @return The parameters for using a DynamoDB stream as a source.  Detailed below.
-     * 
-     */
     public Optional<PipeSourceParametersDynamodbStreamParameters> dynamodbStreamParameters() {
         return Optional.ofNullable(this.dynamodbStreamParameters);
     }
-    /**
-     * @return The collection of event patterns used to [filter events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-filtering.html). Detailed below.
-     * 
-     */
     public Optional<PipeSourceParametersFilterCriteria> filterCriteria() {
         return Optional.ofNullable(this.filterCriteria);
     }
-    /**
-     * @return The parameters for using a Kinesis stream as a source. Detailed below.
-     * 
-     */
     public Optional<PipeSourceParametersKinesisStreamParameters> kinesisStreamParameters() {
         return Optional.ofNullable(this.kinesisStreamParameters);
     }
-    /**
-     * @return The parameters for using an MSK stream as a source. Detailed below.
-     * 
-     */
     public Optional<PipeSourceParametersManagedStreamingKafkaParameters> managedStreamingKafkaParameters() {
         return Optional.ofNullable(this.managedStreamingKafkaParameters);
     }
-    /**
-     * @return The parameters for using a Rabbit MQ broker as a source. Detailed below.
-     * 
-     */
     public Optional<PipeSourceParametersRabbitmqBrokerParameters> rabbitmqBrokerParameters() {
         return Optional.ofNullable(this.rabbitmqBrokerParameters);
     }
-    /**
-     * @return The parameters for using a self-managed Apache Kafka stream as a source. Detailed below.
-     * 
-     */
     public Optional<PipeSourceParametersSelfManagedKafkaParameters> selfManagedKafkaParameters() {
         return Optional.ofNullable(this.selfManagedKafkaParameters);
     }
-    /**
-     * @return The parameters for using a Amazon SQS stream as a source. Detailed below.
-     * 
-     */
     public Optional<PipeSourceParametersSqsQueueParameters> sqsQueueParameters() {
         return Optional.ofNullable(this.sqsQueueParameters);
     }

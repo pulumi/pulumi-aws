@@ -15,47 +15,23 @@ public final class RecordGeolocationRoutingPolicyArgs extends com.pulumi.resourc
 
     public static final RecordGeolocationRoutingPolicyArgs Empty = new RecordGeolocationRoutingPolicyArgs();
 
-    /**
-     * A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
-     * 
-     */
     @Import(name="continent")
     private @Nullable Output<String> continent;
 
-    /**
-     * @return A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
-     * 
-     */
     public Optional<Output<String>> continent() {
         return Optional.ofNullable(this.continent);
     }
 
-    /**
-     * A two-character country code or `*` to indicate a default resource record set.
-     * 
-     */
     @Import(name="country")
     private @Nullable Output<String> country;
 
-    /**
-     * @return A two-character country code or `*` to indicate a default resource record set.
-     * 
-     */
     public Optional<Output<String>> country() {
         return Optional.ofNullable(this.country);
     }
 
-    /**
-     * A subdivision code for a country.
-     * 
-     */
     @Import(name="subdivision")
     private @Nullable Output<String> subdivision;
 
-    /**
-     * @return A subdivision code for a country.
-     * 
-     */
     public Optional<Output<String>> subdivision() {
         return Optional.ofNullable(this.subdivision);
     }
@@ -86,65 +62,29 @@ public final class RecordGeolocationRoutingPolicyArgs extends com.pulumi.resourc
             $ = new RecordGeolocationRoutingPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param continent A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder continent(@Nullable Output<String> continent) {
             $.continent = continent;
             return this;
         }
 
-        /**
-         * @param continent A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder continent(String continent) {
             return continent(Output.of(continent));
         }
 
-        /**
-         * @param country A two-character country code or `*` to indicate a default resource record set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder country(@Nullable Output<String> country) {
             $.country = country;
             return this;
         }
 
-        /**
-         * @param country A two-character country code or `*` to indicate a default resource record set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder country(String country) {
             return country(Output.of(country));
         }
 
-        /**
-         * @param subdivision A subdivision code for a country.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subdivision(@Nullable Output<String> subdivision) {
             $.subdivision = subdivision;
             return this;
         }
 
-        /**
-         * @param subdivision A subdivision code for a country.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subdivision(String subdivision) {
             return subdivision(Output.of(subdivision));
         }

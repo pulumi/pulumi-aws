@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class JobTemplateJobTemplateDataConfigurationOverrides {
-    /**
-     * @return The configurations for the application running by the job run.
-     * 
-     */
     private @Nullable List<JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration> applicationConfigurations;
-    /**
-     * @return The configurations for monitoring.
-     * 
-     */
     private @Nullable JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration monitoringConfiguration;
 
     private JobTemplateJobTemplateDataConfigurationOverrides() {}
-    /**
-     * @return The configurations for the application running by the job run.
-     * 
-     */
     public List<JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration> applicationConfigurations() {
         return this.applicationConfigurations == null ? List.of() : this.applicationConfigurations;
     }
-    /**
-     * @return The configurations for monitoring.
-     * 
-     */
     public Optional<JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration> monitoringConfiguration() {
         return Optional.ofNullable(this.monitoringConfiguration);
     }

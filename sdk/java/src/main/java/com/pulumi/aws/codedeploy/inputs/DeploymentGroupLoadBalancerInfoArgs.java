@@ -18,47 +18,23 @@ public final class DeploymentGroupLoadBalancerInfoArgs extends com.pulumi.resour
 
     public static final DeploymentGroupLoadBalancerInfoArgs Empty = new DeploymentGroupLoadBalancerInfoArgs();
 
-    /**
-     * The Classic Elastic Load Balancer to use in a deployment. Conflicts with `targetGroupInfo` and `targetGroupPairInfo`.
-     * 
-     */
     @Import(name="elbInfos")
     private @Nullable Output<List<DeploymentGroupLoadBalancerInfoElbInfoArgs>> elbInfos;
 
-    /**
-     * @return The Classic Elastic Load Balancer to use in a deployment. Conflicts with `targetGroupInfo` and `targetGroupPairInfo`.
-     * 
-     */
     public Optional<Output<List<DeploymentGroupLoadBalancerInfoElbInfoArgs>>> elbInfos() {
         return Optional.ofNullable(this.elbInfos);
     }
 
-    /**
-     * The (Application/Network Load Balancer) target group to use in a deployment. Conflicts with `elbInfo` and `targetGroupPairInfo`.
-     * 
-     */
     @Import(name="targetGroupInfos")
     private @Nullable Output<List<DeploymentGroupLoadBalancerInfoTargetGroupInfoArgs>> targetGroupInfos;
 
-    /**
-     * @return The (Application/Network Load Balancer) target group to use in a deployment. Conflicts with `elbInfo` and `targetGroupPairInfo`.
-     * 
-     */
     public Optional<Output<List<DeploymentGroupLoadBalancerInfoTargetGroupInfoArgs>>> targetGroupInfos() {
         return Optional.ofNullable(this.targetGroupInfos);
     }
 
-    /**
-     * The (Application/Network Load Balancer) target group pair to use in a deployment. Conflicts with `elbInfo` and `targetGroupInfo`.
-     * 
-     */
     @Import(name="targetGroupPairInfo")
     private @Nullable Output<DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs> targetGroupPairInfo;
 
-    /**
-     * @return The (Application/Network Load Balancer) target group pair to use in a deployment. Conflicts with `elbInfo` and `targetGroupInfo`.
-     * 
-     */
     public Optional<Output<DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs>> targetGroupPairInfo() {
         return Optional.ofNullable(this.targetGroupPairInfo);
     }
@@ -89,85 +65,37 @@ public final class DeploymentGroupLoadBalancerInfoArgs extends com.pulumi.resour
             $ = new DeploymentGroupLoadBalancerInfoArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param elbInfos The Classic Elastic Load Balancer to use in a deployment. Conflicts with `targetGroupInfo` and `targetGroupPairInfo`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder elbInfos(@Nullable Output<List<DeploymentGroupLoadBalancerInfoElbInfoArgs>> elbInfos) {
             $.elbInfos = elbInfos;
             return this;
         }
 
-        /**
-         * @param elbInfos The Classic Elastic Load Balancer to use in a deployment. Conflicts with `targetGroupInfo` and `targetGroupPairInfo`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder elbInfos(List<DeploymentGroupLoadBalancerInfoElbInfoArgs> elbInfos) {
             return elbInfos(Output.of(elbInfos));
         }
 
-        /**
-         * @param elbInfos The Classic Elastic Load Balancer to use in a deployment. Conflicts with `targetGroupInfo` and `targetGroupPairInfo`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder elbInfos(DeploymentGroupLoadBalancerInfoElbInfoArgs... elbInfos) {
             return elbInfos(List.of(elbInfos));
         }
 
-        /**
-         * @param targetGroupInfos The (Application/Network Load Balancer) target group to use in a deployment. Conflicts with `elbInfo` and `targetGroupPairInfo`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetGroupInfos(@Nullable Output<List<DeploymentGroupLoadBalancerInfoTargetGroupInfoArgs>> targetGroupInfos) {
             $.targetGroupInfos = targetGroupInfos;
             return this;
         }
 
-        /**
-         * @param targetGroupInfos The (Application/Network Load Balancer) target group to use in a deployment. Conflicts with `elbInfo` and `targetGroupPairInfo`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetGroupInfos(List<DeploymentGroupLoadBalancerInfoTargetGroupInfoArgs> targetGroupInfos) {
             return targetGroupInfos(Output.of(targetGroupInfos));
         }
 
-        /**
-         * @param targetGroupInfos The (Application/Network Load Balancer) target group to use in a deployment. Conflicts with `elbInfo` and `targetGroupPairInfo`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetGroupInfos(DeploymentGroupLoadBalancerInfoTargetGroupInfoArgs... targetGroupInfos) {
             return targetGroupInfos(List.of(targetGroupInfos));
         }
 
-        /**
-         * @param targetGroupPairInfo The (Application/Network Load Balancer) target group pair to use in a deployment. Conflicts with `elbInfo` and `targetGroupInfo`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetGroupPairInfo(@Nullable Output<DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs> targetGroupPairInfo) {
             $.targetGroupPairInfo = targetGroupPairInfo;
             return this;
         }
 
-        /**
-         * @param targetGroupPairInfo The (Application/Network Load Balancer) target group pair to use in a deployment. Conflicts with `elbInfo` and `targetGroupInfo`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetGroupPairInfo(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs targetGroupPairInfo) {
             return targetGroupPairInfo(Output.of(targetGroupPairInfo));
         }

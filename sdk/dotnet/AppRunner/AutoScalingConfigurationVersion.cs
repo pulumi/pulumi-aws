@@ -9,64 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AppRunner
 {
-    /// <summary>
-    /// Manages an App Runner AutoScaling Configuration Version.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppRunner.AutoScalingConfigurationVersion("example", new()
-    ///     {
-    ///         AutoScalingConfigurationName = "example",
-    ///         MaxConcurrency = 50,
-    ///         MaxSize = 10,
-    ///         MinSize = 2,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "example-apprunner-autoscaling" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the App Runner auto scaling configuration version.
-    /// 
-    /// Using `pulumi import`, import App Runner AutoScaling Configuration Versions using the `arn`. For example:
-    /// 
-    /// % pulumi import aws_apprunner_auto_scaling_configuration_version.example "arn:aws:apprunner:us-east-1:1234567890:autoscalingconfiguration/example/1/69bdfe0115224b0db49398b7beb68e0f
-    /// </summary>
     [AwsResourceType("aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion")]
     public partial class AutoScalingConfigurationVersion : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of this auto scaling configuration version.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the auto scaling configuration.
-        /// </summary>
         [Output("autoScalingConfigurationName")]
         public Output<string> AutoScalingConfigurationName { get; private set; } = null!;
 
-        /// <summary>
-        /// The revision of this auto scaling configuration.
-        /// </summary>
         [Output("autoScalingConfigurationRevision")]
         public Output<int> AutoScalingConfigurationRevision { get; private set; } = null!;
 
@@ -76,51 +27,27 @@ namespace Pulumi.Aws.AppRunner
         [Output("isDefault")]
         public Output<bool> IsDefault { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether the auto scaling configuration has the highest `AutoScalingConfigurationRevision` among all configurations that share the same `AutoScalingConfigurationName`.
-        /// </summary>
         [Output("latest")]
         public Output<bool> Latest { get; private set; } = null!;
 
-        /// <summary>
-        /// Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
-        /// </summary>
         [Output("maxConcurrency")]
         public Output<int?> MaxConcurrency { get; private set; } = null!;
 
-        /// <summary>
-        /// Maximal number of instances that App Runner provisions for your service.
-        /// </summary>
         [Output("maxSize")]
         public Output<int?> MaxSize { get; private set; } = null!;
 
-        /// <summary>
-        /// Minimal number of instances that App Runner provisions for your service.
-        /// </summary>
         [Output("minSize")]
         public Output<int?> MinSize { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -170,42 +97,23 @@ namespace Pulumi.Aws.AppRunner
 
     public sealed class AutoScalingConfigurationVersionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the auto scaling configuration.
-        /// </summary>
         [Input("autoScalingConfigurationName", required: true)]
         public Input<string> AutoScalingConfigurationName { get; set; } = null!;
 
-        /// <summary>
-        /// Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
-        /// </summary>
         [Input("maxConcurrency")]
         public Input<int>? MaxConcurrency { get; set; }
 
-        /// <summary>
-        /// Maximal number of instances that App Runner provisions for your service.
-        /// </summary>
         [Input("maxSize")]
         public Input<int>? MaxSize { get; set; }
 
-        /// <summary>
-        /// Minimal number of instances that App Runner provisions for your service.
-        /// </summary>
         [Input("minSize")]
         public Input<int>? MinSize { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -220,21 +128,12 @@ namespace Pulumi.Aws.AppRunner
 
     public sealed class AutoScalingConfigurationVersionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of this auto scaling configuration version.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Name of the auto scaling configuration.
-        /// </summary>
         [Input("autoScalingConfigurationName")]
         public Input<string>? AutoScalingConfigurationName { get; set; }
 
-        /// <summary>
-        /// The revision of this auto scaling configuration.
-        /// </summary>
         [Input("autoScalingConfigurationRevision")]
         public Input<int>? AutoScalingConfigurationRevision { get; set; }
 
@@ -244,48 +143,26 @@ namespace Pulumi.Aws.AppRunner
         [Input("isDefault")]
         public Input<bool>? IsDefault { get; set; }
 
-        /// <summary>
-        /// Whether the auto scaling configuration has the highest `AutoScalingConfigurationRevision` among all configurations that share the same `AutoScalingConfigurationName`.
-        /// </summary>
         [Input("latest")]
         public Input<bool>? Latest { get; set; }
 
-        /// <summary>
-        /// Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
-        /// </summary>
         [Input("maxConcurrency")]
         public Input<int>? MaxConcurrency { get; set; }
 
-        /// <summary>
-        /// Maximal number of instances that App Runner provisions for your service.
-        /// </summary>
         [Input("maxSize")]
         public Input<int>? MaxSize { get; set; }
 
-        /// <summary>
-        /// Minimal number of instances that App Runner provisions for your service.
-        /// </summary>
         [Input("minSize")]
         public Input<int>? MinSize { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -294,10 +171,6 @@ namespace Pulumi.Aws.AppRunner
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

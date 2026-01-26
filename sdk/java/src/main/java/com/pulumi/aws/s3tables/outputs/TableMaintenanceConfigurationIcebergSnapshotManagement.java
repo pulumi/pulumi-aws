@@ -11,33 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class TableMaintenanceConfigurationIcebergSnapshotManagement {
-    /**
-     * @return Settings object for snapshot management.
-     * See `iceberg_snapshot_management.settings` below.
-     * 
-     */
     private TableMaintenanceConfigurationIcebergSnapshotManagementSettings settings;
-    /**
-     * @return Whether the configuration is enabled.
-     * Valid values are `enabled` and `disabled`.
-     * 
-     */
     private String status;
 
     private TableMaintenanceConfigurationIcebergSnapshotManagement() {}
-    /**
-     * @return Settings object for snapshot management.
-     * See `iceberg_snapshot_management.settings` below.
-     * 
-     */
     public TableMaintenanceConfigurationIcebergSnapshotManagementSettings settings() {
         return this.settings;
     }
-    /**
-     * @return Whether the configuration is enabled.
-     * Valid values are `enabled` and `disabled`.
-     * 
-     */
     public String status() {
         return this.status;
     }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class GetTaskDefinitionRuntimePlatformResult
     {
-        /// <summary>
-        /// Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
-        /// </summary>
         public readonly string CpuArchitecture;
-        /// <summary>
-        /// If the `RequiresCompatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
-        /// </summary>
         public readonly string OperatingSystemFamily;
 
         [OutputConstructor]

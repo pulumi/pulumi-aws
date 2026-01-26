@@ -29,13 +29,6 @@ class ProjectArgs:
                  timeouts: Optional[pulumi.Input['ProjectTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Project resource.
-        :param pulumi.Input[_builtins.str] auto_update: Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
-        :param pulumi.Input[_builtins.str] feature: Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
-        :param pulumi.Input[_builtins.str] name: Desired name of the project.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if auto_update is not None:
             pulumi.set(__self__, "auto_update", auto_update)
@@ -53,9 +46,6 @@ class ProjectArgs:
     @_builtins.property
     @pulumi.getter(name="autoUpdate")
     def auto_update(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
-        """
         return pulumi.get(self, "auto_update")
 
     @auto_update.setter
@@ -65,9 +55,6 @@ class ProjectArgs:
     @_builtins.property
     @pulumi.getter
     def feature(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
-        """
         return pulumi.get(self, "feature")
 
     @feature.setter
@@ -77,11 +64,6 @@ class ProjectArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Desired name of the project.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -91,9 +73,6 @@ class ProjectArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -103,9 +82,6 @@ class ProjectArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -135,15 +111,6 @@ class _ProjectState:
                  timeouts: Optional[pulumi.Input['ProjectTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Project resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Project.
-        :param pulumi.Input[_builtins.str] auto_update: Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
-        :param pulumi.Input[_builtins.str] feature: Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
-        :param pulumi.Input[_builtins.str] name: Desired name of the project.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -165,9 +132,6 @@ class _ProjectState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Project.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -177,9 +141,6 @@ class _ProjectState:
     @_builtins.property
     @pulumi.getter(name="autoUpdate")
     def auto_update(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
-        """
         return pulumi.get(self, "auto_update")
 
     @auto_update.setter
@@ -189,9 +150,6 @@ class _ProjectState:
     @_builtins.property
     @pulumi.getter
     def feature(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
-        """
         return pulumi.get(self, "feature")
 
     @feature.setter
@@ -201,11 +159,6 @@ class _ProjectState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Desired name of the project.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -215,9 +168,6 @@ class _ProjectState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -227,9 +177,6 @@ class _ProjectState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -239,9 +186,6 @@ class _ProjectState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -272,50 +216,9 @@ class Project(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['ProjectTimeoutsArgs', 'ProjectTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Rekognition Project.
-
-        ## Example Usage
-
-        ### Content Moderation
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rekognition.Project("example",
-            name="example-project",
-            auto_update="ENABLED",
-            feature="CONTENT_MODERATION")
-        ```
-
-        ### Custom Labels
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rekognition.Project("example",
-            name="example-project",
-            feature="CUSTOM_LABELS")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Rekognition Project using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:rekognition/project:Project example project-id-12345678
-        ```
-
+        Create a Project resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] auto_update: Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
-        :param pulumi.Input[_builtins.str] feature: Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
-        :param pulumi.Input[_builtins.str] name: Desired name of the project.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -324,41 +227,7 @@ class Project(pulumi.CustomResource):
                  args: Optional[ProjectArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Rekognition Project.
-
-        ## Example Usage
-
-        ### Content Moderation
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rekognition.Project("example",
-            name="example-project",
-            auto_update="ENABLED",
-            feature="CONTENT_MODERATION")
-        ```
-
-        ### Custom Labels
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rekognition.Project("example",
-            name="example-project",
-            feature="CUSTOM_LABELS")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Rekognition Project using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:rekognition/project:Project example project-id-12345678
-        ```
-
+        Create a Project resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -422,15 +291,6 @@ class Project(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Project.
-        :param pulumi.Input[_builtins.str] auto_update: Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
-        :param pulumi.Input[_builtins.str] feature: Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
-        :param pulumi.Input[_builtins.str] name: Desired name of the project.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -449,59 +309,36 @@ class Project(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Project.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="autoUpdate")
     def auto_update(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
-        """
         return pulumi.get(self, "auto_update")
 
     @_builtins.property
     @pulumi.getter
     def feature(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
-        """
         return pulumi.get(self, "feature")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Desired name of the project.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property

@@ -11,207 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an [AWS AppSync Event API](https://docs.aws.amazon.com/appsync/latest/eventapi/event-api-concepts.html#API). Event APIs enable real-time subscriptions and event-driven communication in AppSync applications.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appsync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appsync.NewApi(ctx, "example", &appsync.ApiArgs{
-//				Name: pulumi.String("example-event-api"),
-//				EventConfig: &appsync.ApiEventConfigArgs{
-//					AuthProviders: appsync.ApiEventConfigAuthProviderArray{
-//						&appsync.ApiEventConfigAuthProviderArgs{
-//							AuthType: pulumi.String("API_KEY"),
-//						},
-//					},
-//					ConnectionAuthModes: appsync.ApiEventConfigConnectionAuthModeArray{
-//						&appsync.ApiEventConfigConnectionAuthModeArgs{
-//							AuthType: pulumi.String("API_KEY"),
-//						},
-//					},
-//					DefaultPublishAuthModes: appsync.ApiEventConfigDefaultPublishAuthModeArray{
-//						&appsync.ApiEventConfigDefaultPublishAuthModeArgs{
-//							AuthType: pulumi.String("API_KEY"),
-//						},
-//					},
-//					DefaultSubscribeAuthModes: appsync.ApiEventConfigDefaultSubscribeAuthModeArray{
-//						&appsync.ApiEventConfigDefaultSubscribeAuthModeArgs{
-//							AuthType: pulumi.String("API_KEY"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Cognito Authentication
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appsync"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cognito"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
-//				Name: pulumi.String("example-user-pool"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appsync.NewApi(ctx, "example", &appsync.ApiArgs{
-//				Name: pulumi.String("example-event-api"),
-//				EventConfig: &appsync.ApiEventConfigArgs{
-//					AuthProviders: appsync.ApiEventConfigAuthProviderArray{
-//						&appsync.ApiEventConfigAuthProviderArgs{
-//							AuthType: pulumi.String("AMAZON_COGNITO_USER_POOLS"),
-//							CognitoConfig: &appsync.ApiEventConfigAuthProviderCognitoConfigArgs{
-//								UserPoolId: example.ID(),
-//								AwsRegion:  pulumi.String(current.Name),
-//							},
-//						},
-//					},
-//					ConnectionAuthModes: appsync.ApiEventConfigConnectionAuthModeArray{
-//						&appsync.ApiEventConfigConnectionAuthModeArgs{
-//							AuthType: pulumi.String("AMAZON_COGNITO_USER_POOLS"),
-//						},
-//					},
-//					DefaultPublishAuthModes: appsync.ApiEventConfigDefaultPublishAuthModeArray{
-//						&appsync.ApiEventConfigDefaultPublishAuthModeArgs{
-//							AuthType: pulumi.String("AMAZON_COGNITO_USER_POOLS"),
-//						},
-//					},
-//					DefaultSubscribeAuthModes: appsync.ApiEventConfigDefaultSubscribeAuthModeArray{
-//						&appsync.ApiEventConfigDefaultSubscribeAuthModeArgs{
-//							AuthType: pulumi.String("AMAZON_COGNITO_USER_POOLS"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Lambda Authorizer
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appsync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appsync.NewApi(ctx, "example", &appsync.ApiArgs{
-//				Name: pulumi.String("example-event-api"),
-//				EventConfig: &appsync.ApiEventConfigArgs{
-//					AuthProviders: appsync.ApiEventConfigAuthProviderArray{
-//						&appsync.ApiEventConfigAuthProviderArgs{
-//							AuthType: pulumi.String("AWS_LAMBDA"),
-//							LambdaAuthorizerConfig: &appsync.ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs{
-//								AuthorizerUri:                pulumi.Any(exampleAwsLambdaFunction.Arn),
-//								AuthorizerResultTtlInSeconds: pulumi.Int(300),
-//							},
-//						},
-//					},
-//					ConnectionAuthModes: appsync.ApiEventConfigConnectionAuthModeArray{
-//						&appsync.ApiEventConfigConnectionAuthModeArgs{
-//							AuthType: pulumi.String("AWS_LAMBDA"),
-//						},
-//					},
-//					DefaultPublishAuthModes: appsync.ApiEventConfigDefaultPublishAuthModeArray{
-//						&appsync.ApiEventConfigDefaultPublishAuthModeArgs{
-//							AuthType: pulumi.String("AWS_LAMBDA"),
-//						},
-//					},
-//					DefaultSubscribeAuthModes: appsync.ApiEventConfigDefaultSubscribeAuthModeArray{
-//						&appsync.ApiEventConfigDefaultSubscribeAuthModeArgs{
-//							AuthType: pulumi.String("AWS_LAMBDA"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import AppSync Event API using the `api_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:appsync/api:Api example example-api-id
-// ```
 type Api struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Event API.
-	ApiArn pulumi.StringOutput `pulumi:"apiArn"`
-	// ID of the Event API.
-	ApiId pulumi.StringOutput `pulumi:"apiId"`
-	// DNS configuration for the Event API.
-	Dns pulumi.StringMapOutput `pulumi:"dns"`
-	// Configuration for the Event API. See Event Config below.
-	EventConfig ApiEventConfigPtrOutput `pulumi:"eventConfig"`
-	// Name of the Event API.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Contact information for the owner of the Event API.
-	OwnerContact pulumi.StringPtrOutput `pulumi:"ownerContact"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// ARN of the associated WAF web ACL.
-	WafWebAclArn pulumi.StringOutput `pulumi:"wafWebAclArn"`
-	XrayEnabled  pulumi.BoolOutput   `pulumi:"xrayEnabled"`
+	ApiArn       pulumi.StringOutput     `pulumi:"apiArn"`
+	ApiId        pulumi.StringOutput     `pulumi:"apiId"`
+	Dns          pulumi.StringMapOutput  `pulumi:"dns"`
+	EventConfig  ApiEventConfigPtrOutput `pulumi:"eventConfig"`
+	Name         pulumi.StringOutput     `pulumi:"name"`
+	OwnerContact pulumi.StringPtrOutput  `pulumi:"ownerContact"`
+	Region       pulumi.StringOutput     `pulumi:"region"`
+	Tags         pulumi.StringMapOutput  `pulumi:"tags"`
+	TagsAll      pulumi.StringMapOutput  `pulumi:"tagsAll"`
+	WafWebAclArn pulumi.StringOutput     `pulumi:"wafWebAclArn"`
+	XrayEnabled  pulumi.BoolOutput       `pulumi:"xrayEnabled"`
 }
 
 // NewApi registers a new resource with the given unique name, arguments, and options.
@@ -244,53 +57,29 @@ func GetApi(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Api resources.
 type apiState struct {
-	// ARN of the Event API.
-	ApiArn *string `pulumi:"apiArn"`
-	// ID of the Event API.
-	ApiId *string `pulumi:"apiId"`
-	// DNS configuration for the Event API.
-	Dns map[string]string `pulumi:"dns"`
-	// Configuration for the Event API. See Event Config below.
-	EventConfig *ApiEventConfig `pulumi:"eventConfig"`
-	// Name of the Event API.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Contact information for the owner of the Event API.
-	OwnerContact *string `pulumi:"ownerContact"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// ARN of the associated WAF web ACL.
-	WafWebAclArn *string `pulumi:"wafWebAclArn"`
-	XrayEnabled  *bool   `pulumi:"xrayEnabled"`
+	ApiArn       *string           `pulumi:"apiArn"`
+	ApiId        *string           `pulumi:"apiId"`
+	Dns          map[string]string `pulumi:"dns"`
+	EventConfig  *ApiEventConfig   `pulumi:"eventConfig"`
+	Name         *string           `pulumi:"name"`
+	OwnerContact *string           `pulumi:"ownerContact"`
+	Region       *string           `pulumi:"region"`
+	Tags         map[string]string `pulumi:"tags"`
+	TagsAll      map[string]string `pulumi:"tagsAll"`
+	WafWebAclArn *string           `pulumi:"wafWebAclArn"`
+	XrayEnabled  *bool             `pulumi:"xrayEnabled"`
 }
 
 type ApiState struct {
-	// ARN of the Event API.
-	ApiArn pulumi.StringPtrInput
-	// ID of the Event API.
-	ApiId pulumi.StringPtrInput
-	// DNS configuration for the Event API.
-	Dns pulumi.StringMapInput
-	// Configuration for the Event API. See Event Config below.
-	EventConfig ApiEventConfigPtrInput
-	// Name of the Event API.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Contact information for the owner of the Event API.
+	ApiArn       pulumi.StringPtrInput
+	ApiId        pulumi.StringPtrInput
+	Dns          pulumi.StringMapInput
+	EventConfig  ApiEventConfigPtrInput
+	Name         pulumi.StringPtrInput
 	OwnerContact pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// ARN of the associated WAF web ACL.
+	Region       pulumi.StringPtrInput
+	Tags         pulumi.StringMapInput
+	TagsAll      pulumi.StringMapInput
 	WafWebAclArn pulumi.StringPtrInput
 	XrayEnabled  pulumi.BoolPtrInput
 }
@@ -300,34 +89,20 @@ func (ApiState) ElementType() reflect.Type {
 }
 
 type apiArgs struct {
-	// Configuration for the Event API. See Event Config below.
-	EventConfig *ApiEventConfig `pulumi:"eventConfig"`
-	// Name of the Event API.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Contact information for the owner of the Event API.
-	OwnerContact *string `pulumi:"ownerContact"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	EventConfig  *ApiEventConfig   `pulumi:"eventConfig"`
+	Name         *string           `pulumi:"name"`
+	OwnerContact *string           `pulumi:"ownerContact"`
+	Region       *string           `pulumi:"region"`
+	Tags         map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Api resource.
 type ApiArgs struct {
-	// Configuration for the Event API. See Event Config below.
-	EventConfig ApiEventConfigPtrInput
-	// Name of the Event API.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Contact information for the owner of the Event API.
+	EventConfig  ApiEventConfigPtrInput
+	Name         pulumi.StringPtrInput
 	OwnerContact pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Region       pulumi.StringPtrInput
+	Tags         pulumi.StringMapInput
 }
 
 func (ApiArgs) ElementType() reflect.Type {
@@ -417,54 +192,42 @@ func (o ApiOutput) ToApiOutputWithContext(ctx context.Context) ApiOutput {
 	return o
 }
 
-// ARN of the Event API.
 func (o ApiOutput) ApiArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.ApiArn }).(pulumi.StringOutput)
 }
 
-// ID of the Event API.
 func (o ApiOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
-// DNS configuration for the Event API.
 func (o ApiOutput) Dns() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringMapOutput { return v.Dns }).(pulumi.StringMapOutput)
 }
 
-// Configuration for the Event API. See Event Config below.
 func (o ApiOutput) EventConfig() ApiEventConfigPtrOutput {
 	return o.ApplyT(func(v *Api) ApiEventConfigPtrOutput { return v.EventConfig }).(ApiEventConfigPtrOutput)
 }
 
-// Name of the Event API.
-//
-// The following arguments are optional:
 func (o ApiOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Contact information for the owner of the Event API.
 func (o ApiOutput) OwnerContact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringPtrOutput { return v.OwnerContact }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ApiOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ApiOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ApiOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// ARN of the associated WAF web ACL.
 func (o ApiOutput) WafWebAclArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.WafWebAclArn }).(pulumi.StringOutput)
 }

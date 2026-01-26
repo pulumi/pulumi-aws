@@ -11,75 +11,12 @@ namespace Pulumi.Aws.CloudFront
 {
     public static class GetConnectionGroup
     {
-        /// <summary>
-        /// Use this data source to retrieve information about a CloudFront connection group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.CloudFront.GetConnectionGroup.Invoke(new()
-        ///     {
-        ///         Id = "EDFDVBD632BHDS5",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetConnectionGroupResult> InvokeAsync(GetConnectionGroupArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionGroupResult>("aws:cloudfront/getConnectionGroup:getConnectionGroup", args ?? new GetConnectionGroupArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to retrieve information about a CloudFront connection group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.CloudFront.GetConnectionGroup.Invoke(new()
-        ///     {
-        ///         Id = "EDFDVBD632BHDS5",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetConnectionGroupResult> Invoke(GetConnectionGroupInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionGroupResult>("aws:cloudfront/getConnectionGroup:getConnectionGroup", args ?? new GetConnectionGroupInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to retrieve information about a CloudFront connection group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.CloudFront.GetConnectionGroup.Invoke(new()
-        ///     {
-        ///         Id = "EDFDVBD632BHDS5",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetConnectionGroupResult> Invoke(GetConnectionGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionGroupResult>("aws:cloudfront/getConnectionGroup:getConnectionGroup", args ?? new GetConnectionGroupInvokeArgs(), options.WithDefaults());
     }
@@ -87,15 +24,9 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class GetConnectionGroupArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Identifier for the connection group. For example: `EDFDVBD632BHDS5`. Exactly one of `Id` or `RoutingEndpoint` must be specified.
-        /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
-        /// <summary>
-        /// Routing endpoint for the connection group. For example: `d111111abcdef8.cloudfront.net`. Exactly one of `Id` or `RoutingEndpoint` must be specified.
-        /// </summary>
         [Input("routingEndpoint")]
         public string? RoutingEndpoint { get; set; }
 
@@ -107,15 +38,9 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class GetConnectionGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Identifier for the connection group. For example: `EDFDVBD632BHDS5`. Exactly one of `Id` or `RoutingEndpoint` must be specified.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// Routing endpoint for the connection group. For example: `d111111abcdef8.cloudfront.net`. Exactly one of `Id` or `RoutingEndpoint` must be specified.
-        /// </summary>
         [Input("routingEndpoint")]
         public Input<string>? RoutingEndpoint { get; set; }
 
@@ -129,43 +54,16 @@ namespace Pulumi.Aws.CloudFront
     [OutputType]
     public sealed class GetConnectionGroupResult
     {
-        /// <summary>
-        /// ID of the anycast IP list associated with this connection group, if any.
-        /// </summary>
         public readonly string AnycastIpListId;
-        /// <summary>
-        /// ARN (Amazon Resource Name) for the connection group.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Whether the connection group is enabled.
-        /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// Current version of the connection group's information. For example:
-        /// `E2QWRUHAPOMQZL`.
-        /// </summary>
         public readonly string Etag;
         public readonly string Id;
         public readonly bool Ipv6Enabled;
-        /// <summary>
-        /// Whether the connection group is the default connection group for the distribution tenants.
-        /// </summary>
         public readonly bool IsDefault;
-        /// <summary>
-        /// Date and time the connection group was last modified.
-        /// </summary>
         public readonly string LastModifiedTime;
-        /// <summary>
-        /// name of the connection group.
-        /// </summary>
         public readonly string Name;
         public readonly string RoutingEndpoint;
-        /// <summary>
-        /// Current status of the connection group. `Deployed` if the
-        /// connection group's information is fully propagated throughout the Amazon
-        /// CloudFront system.
-        /// </summary>
         public readonly string Status;
         public readonly ImmutableDictionary<string, string> Tags;
 

@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class LaunchScheduledSplitsConfig {
-    /**
-     * @return One or up to six blocks that define the traffic allocation percentages among the feature variations during each step of the launch. This also defines the start time of each step. Detailed below.
-     * 
-     */
     private List<LaunchScheduledSplitsConfigStep> steps;
 
     private LaunchScheduledSplitsConfig() {}
-    /**
-     * @return One or up to six blocks that define the traffic allocation percentages among the feature variations during each step of the launch. This also defines the start time of each step. Detailed below.
-     * 
-     */
     public List<LaunchScheduledSplitsConfigStep> steps() {
         return this.steps;
     }

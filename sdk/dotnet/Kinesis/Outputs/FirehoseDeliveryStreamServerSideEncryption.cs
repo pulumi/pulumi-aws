@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Kinesis.Outputs
     [OutputType]
     public sealed class FirehoseDeliveryStreamServerSideEncryption
     {
-        /// <summary>
-        /// Whether to enable encryption at rest. Default is `False`.
-        /// </summary>
         public readonly bool? Enabled;
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the encryption key. Required when `KeyType` is `CUSTOMER_MANAGED_CMK`.
-        /// </summary>
         public readonly string? KeyArn;
-        /// <summary>
-        /// Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
-        /// </summary>
         public readonly string? KeyType;
 
         [OutputConstructor]

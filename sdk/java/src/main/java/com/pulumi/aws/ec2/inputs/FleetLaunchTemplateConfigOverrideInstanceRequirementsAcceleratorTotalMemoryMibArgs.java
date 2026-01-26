@@ -15,32 +15,16 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsAccelera
 
     public static final FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs Empty = new FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs();
 
-    /**
-     * The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
-     * 
-     */
     @Import(name="max")
     private @Nullable Output<Integer> max;
 
-    /**
-     * @return The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
-     * 
-     */
     public Optional<Output<Integer>> max() {
         return Optional.ofNullable(this.max);
     }
 
-    /**
-     * The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
-     * 
-     */
     @Import(name="min")
     private @Nullable Output<Integer> min;
 
-    /**
-     * @return The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
-     * 
-     */
     public Optional<Output<Integer>> min() {
         return Optional.ofNullable(this.min);
     }
@@ -70,44 +54,20 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsAccelera
             $ = new FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param max The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder max(@Nullable Output<Integer> max) {
             $.max = max;
             return this;
         }
 
-        /**
-         * @param max The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder max(Integer max) {
             return max(Output.of(max));
         }
 
-        /**
-         * @param min The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder min(@Nullable Output<Integer> min) {
             $.min = min;
             return this;
         }
 
-        /**
-         * @param min The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder min(Integer min) {
             return min(Output.of(min));
         }

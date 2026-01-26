@@ -14,19 +14,12 @@ namespace Pulumi.Aws.EmrContainers.Inputs
     {
         [Input("applicationConfigurations")]
         private InputList<Inputs.JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs>? _applicationConfigurations;
-
-        /// <summary>
-        /// The configurations for the application running by the job run.
-        /// </summary>
         public InputList<Inputs.JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs> ApplicationConfigurations
         {
             get => _applicationConfigurations ?? (_applicationConfigurations = new InputList<Inputs.JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs>());
             set => _applicationConfigurations = value;
         }
 
-        /// <summary>
-        /// The configurations for monitoring.
-        /// </summary>
         [Input("monitoringConfiguration")]
         public Input<Inputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs>? MonitoringConfiguration { get; set; }
 

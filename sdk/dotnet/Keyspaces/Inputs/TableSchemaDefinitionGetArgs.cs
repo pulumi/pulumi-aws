@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Keyspaces.Inputs
     {
         [Input("clusteringKeys")]
         private InputList<Inputs.TableSchemaDefinitionClusteringKeyGetArgs>? _clusteringKeys;
-
-        /// <summary>
-        /// The columns that are part of the clustering key of the table.
-        /// </summary>
         public InputList<Inputs.TableSchemaDefinitionClusteringKeyGetArgs> ClusteringKeys
         {
             get => _clusteringKeys ?? (_clusteringKeys = new InputList<Inputs.TableSchemaDefinitionClusteringKeyGetArgs>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.Keyspaces.Inputs
 
         [Input("columns", required: true)]
         private InputList<Inputs.TableSchemaDefinitionColumnGetArgs>? _columns;
-
-        /// <summary>
-        /// The regular columns of the table.
-        /// </summary>
         public InputList<Inputs.TableSchemaDefinitionColumnGetArgs> Columns
         {
             get => _columns ?? (_columns = new InputList<Inputs.TableSchemaDefinitionColumnGetArgs>());
@@ -38,10 +30,6 @@ namespace Pulumi.Aws.Keyspaces.Inputs
 
         [Input("partitionKeys", required: true)]
         private InputList<Inputs.TableSchemaDefinitionPartitionKeyGetArgs>? _partitionKeys;
-
-        /// <summary>
-        /// The columns that are part of the partition key of the table .
-        /// </summary>
         public InputList<Inputs.TableSchemaDefinitionPartitionKeyGetArgs> PartitionKeys
         {
             get => _partitionKeys ?? (_partitionKeys = new InputList<Inputs.TableSchemaDefinitionPartitionKeyGetArgs>());
@@ -50,10 +38,6 @@ namespace Pulumi.Aws.Keyspaces.Inputs
 
         [Input("staticColumns")]
         private InputList<Inputs.TableSchemaDefinitionStaticColumnGetArgs>? _staticColumns;
-
-        /// <summary>
-        /// The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
-        /// </summary>
         public InputList<Inputs.TableSchemaDefinitionStaticColumnGetArgs> StaticColumns
         {
             get => _staticColumns ?? (_staticColumns = new InputList<Inputs.TableSchemaDefinitionStaticColumnGetArgs>());

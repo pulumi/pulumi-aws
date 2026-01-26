@@ -22,139 +22,37 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.odb.CloudVmCluster;
- * import com.pulumi.aws.odb.CloudVmClusterArgs;
- * import com.pulumi.aws.odb.inputs.CloudVmClusterDataCollectionOptionsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var withMinimumParameter = new CloudVmCluster("withMinimumParameter", CloudVmClusterArgs.builder()
- *             .displayName("my_vm_cluster")
- *             .cloudExadataInfrastructureId("<aws_odb_cloud_exadata_infrastructure_id>")
- *             .cpuCoreCount(6)
- *             .giVersion("23.0.0.0")
- *             .hostnamePrefix("apollo12")
- *             .sshPublicKeys("public-ssh-key")
- *             .odbNetworkId("<aws_odb_network_id>")
- *             .isLocalBackupEnabled(true)
- *             .isSparseDiskgroupEnabled(true)
- *             .licenseModel("LICENSE_INCLUDED")
- *             .dataStorageSizeInTbs(20.0)
- *             .dbServers(            
- *                 "db-server-1",
- *                 "db-server-2")
- *             .dbNodeStorageSizeInGbs(120)
- *             .memorySizeInGbs(60)
- *             .dataCollectionOptions(CloudVmClusterDataCollectionOptionsArgs.builder()
- *                 .isDiagnosticsEventsEnabled(false)
- *                 .isHealthMonitoringEnabled(false)
- *                 .isIncidentLogsEnabled(false)
- *                 .build())
- *             .build());
- * 
- *         var withAllParameters = new CloudVmCluster("withAllParameters", CloudVmClusterArgs.builder()
- *             .displayName("my_vm_cluster")
- *             .cloudExadataInfrastructureId("<aws_odb_cloud_exadata_infrastructure_id>")
- *             .cpuCoreCount(6)
- *             .giVersion("23.0.0.0")
- *             .hostnamePrefix("apollo12")
- *             .sshPublicKeys("my-ssh-key")
- *             .odbNetworkId("<aws_odb_network_id>")
- *             .isLocalBackupEnabled(true)
- *             .isSparseDiskgroupEnabled(true)
- *             .licenseModel("LICENSE_INCLUDED")
- *             .dataStorageSizeInTbs(20.0)
- *             .dbServers(            
- *                 "my-dbserver-1",
- *                 "my-db-server-2")
- *             .dbNodeStorageSizeInGbs(120)
- *             .memorySizeInGbs(60)
- *             .clusterName("julia-13")
- *             .timezone("UTC")
- *             .scanListenerPortTcp(1521)
- *             .tags(Map.of("env", "dev"))
- *             .dataCollectionOptions(CloudVmClusterDataCollectionOptionsArgs.builder()
- *                 .isDiagnosticsEventsEnabled(true)
- *                 .isHealthMonitoringEnabled(true)
- *                 .isIncidentLogsEnabled(true)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import cloud vm cluster using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:odb/cloudVmCluster:CloudVmCluster example example
- * ```
- * 
- */
 @ResourceType(type="aws:odb/cloudVmCluster:CloudVmCluster")
 public class CloudVmCluster extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) for the cloud vm cluster.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) for the cloud vm cluster.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
      * 
      */
     @Export(name="cloudExadataInfrastructureArn", refs={String.class}, tree="[0]")
     private Output<String> cloudExadataInfrastructureArn;
 
     /**
-     * @return The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * @return The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
      * 
      */
     public Output<String> cloudExadataInfrastructureArn() {
         return this.cloudExadataInfrastructureArn;
     }
     /**
-     * The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
      * 
      */
     @Export(name="cloudExadataInfrastructureId", refs={String.class}, tree="[0]")
     private Output<String> cloudExadataInfrastructureId;
 
     /**
-     * @return The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * @return The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
      * 
      */
     public Output<String> cloudExadataInfrastructureId() {
@@ -217,14 +115,14 @@ public class CloudVmCluster extends com.pulumi.resources.CustomResource {
         return this.createdAt;
     }
     /**
-     * The set of preferences for the various diagnostic collection options for the VM cluster.
+     * The set of preferences for the various diagnostic collection options for the VM cluster. Changing this will create a new resource.
      * 
      */
     @Export(name="dataCollectionOptions", refs={CloudVmClusterDataCollectionOptions.class}, tree="[0]")
     private Output</* @Nullable */ CloudVmClusterDataCollectionOptions> dataCollectionOptions;
 
     /**
-     * @return The set of preferences for the various diagnostic collection options for the VM cluster.
+     * @return The set of preferences for the various diagnostic collection options for the VM cluster. Changing this will create a new resource.
      * 
      */
     public Output<Optional<CloudVmClusterDataCollectionOptions>> dataCollectionOptions() {
@@ -233,16 +131,12 @@ public class CloudVmCluster extends com.pulumi.resources.CustomResource {
     /**
      * The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="dataStorageSizeInTbs", refs={Double.class}, tree="[0]")
     private Output<Double> dataStorageSizeInTbs;
 
     /**
      * @return The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<Double> dataStorageSizeInTbs() {
@@ -278,7 +172,6 @@ public class CloudVmCluster extends com.pulumi.resources.CustomResource {
     }
     /**
      * The type of redundancy for the VM cluster: NORMAL (2-way) or HIGH (3-way).
-     * * `AttrDomain` - The domain name associated with the VM cluster.
      * 
      */
     @Export(name="diskRedundancy", refs={String.class}, tree="[0]")
@@ -286,21 +179,20 @@ public class CloudVmCluster extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The type of redundancy for the VM cluster: NORMAL (2-way) or HIGH (3-way).
-     * * `AttrDomain` - The domain name associated with the VM cluster.
      * 
      */
     public Output<String> diskRedundancy() {
         return this.diskRedundancy;
     }
     /**
-     * A user-friendly name for the VM cluster. Changing this will create a new resource.
+     * A user-friendly name for the VM cluster. This member is required. Changing this will create a new resource.
      * 
      */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
-     * @return A user-friendly name for the VM cluster. Changing this will create a new resource.
+     * @return A user-friendly name for the VM cluster. This member is required. Changing this will create a new resource.
      * 
      */
     public Output<String> displayName() {
@@ -321,14 +213,14 @@ public class CloudVmCluster extends com.pulumi.resources.CustomResource {
         return this.domain;
     }
     /**
-     * A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
+     * A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 This member is required. Changing this will create a new resource.
      * 
      */
     @Export(name="giVersion", refs={String.class}, tree="[0]")
     private Output<String> giVersion;
 
     /**
-     * @return A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
+     * @return A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 This member is required. Changing this will create a new resource.
      * 
      */
     public Output<String> giVersion() {
@@ -349,14 +241,14 @@ public class CloudVmCluster extends com.pulumi.resources.CustomResource {
         return this.giVersionComputed;
     }
     /**
-     * The host name prefix for the VM cluster. Constraints: - Can&#39;t be &#34;localhost&#34; or &#34;hostname&#34;. - Can&#39;t contain &#34;-version&#34;. - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
+     * The host name prefix for the VM cluster. Constraints: - Can&#39;t be &#34;localhost&#34; or &#34;hostname&#34;. - Can&#39;t contain &#34;-version&#34;. - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
      * 
      */
     @Export(name="hostnamePrefix", refs={String.class}, tree="[0]")
     private Output<String> hostnamePrefix;
 
     /**
-     * @return The host name prefix for the VM cluster. Constraints: - Can&#39;t be &#34;localhost&#34; or &#34;hostname&#34;. - Can&#39;t contain &#34;-version&#34;. - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
+     * @return The host name prefix for the VM cluster. Constraints: - Can&#39;t be &#34;localhost&#34; or &#34;hostname&#34;. - Can&#39;t contain &#34;-version&#34;. - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
      * 
      */
     public Output<String> hostnamePrefix() {
@@ -531,28 +423,28 @@ public class CloudVmCluster extends com.pulumi.resources.CustomResource {
         return this.ocid;
     }
     /**
-     * The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
      * 
      */
     @Export(name="odbNetworkArn", refs={String.class}, tree="[0]")
     private Output<String> odbNetworkArn;
 
     /**
-     * @return The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * @return The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
      * 
      */
     public Output<String> odbNetworkArn() {
         return this.odbNetworkArn;
     }
     /**
-     * The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
      * 
      */
     @Export(name="odbNetworkId", refs={String.class}, tree="[0]")
     private Output<String> odbNetworkId;
 
     /**
-     * @return The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * @return The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
      * 
      */
     public Output<String> odbNetworkId() {
@@ -572,17 +464,9 @@ public class CloudVmCluster extends com.pulumi.resources.CustomResource {
     public Output<Double> percentProgress() {
         return this.percentProgress;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
@@ -629,14 +513,14 @@ public class CloudVmCluster extends com.pulumi.resources.CustomResource {
         return this.scanIpIds;
     }
     /**
-     * The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999, except 2484, 6100, 6200, 7060, 7070, 7085, and 7879. Default: 1521. Changing this will create a new resource.
+     * The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999 with the following exceptions: 2484 , 6100 , 6200 , 7060, 7070 , 7085 , and 7879Default: 1521. Changing this will create a new resource.
      * 
      */
     @Export(name="scanListenerPortTcp", refs={Integer.class}, tree="[0]")
     private Output<Integer> scanListenerPortTcp;
 
     /**
-     * @return The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999, except 2484, 6100, 6200, 7060, 7070, 7085, and 7879. Default: 1521. Changing this will create a new resource.
+     * @return The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999 with the following exceptions: 2484 , 6100 , 6200 , 7060, 7070 , 7085 , and 7879Default: 1521. Changing this will create a new resource.
      * 
      */
     public Output<Integer> scanListenerPortTcp() {
@@ -657,14 +541,14 @@ public class CloudVmCluster extends com.pulumi.resources.CustomResource {
         return this.shape;
     }
     /**
-     * The public key portion of one or more key pairs used for SSH access to the VM cluster. Changing this will create a new resource.
+     * The public key portion of one or more key pairs used for SSH access to the VM cluster. This member is required. Changing this will create a new resource.
      * 
      */
     @Export(name="sshPublicKeys", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> sshPublicKeys;
 
     /**
-     * @return The public key portion of one or more key pairs used for SSH access to the VM cluster. Changing this will create a new resource.
+     * @return The public key portion of one or more key pairs used for SSH access to the VM cluster. This member is required. Changing this will create a new resource.
      * 
      */
     public Output<List<String>> sshPublicKeys() {
@@ -726,31 +610,15 @@ public class CloudVmCluster extends com.pulumi.resources.CustomResource {
     public Output<String> systemVersion() {
         return this.systemVersion;
     }
-    /**
-     * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * The combined set of user-defined and provider-defined tags.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return The combined set of user-defined and provider-defined tags.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

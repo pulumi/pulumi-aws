@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS Timestream Write Database.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/timestreamwrite"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := timestreamwrite.LookupDatabase(ctx, &timestreamwrite.LookupDatabaseArgs{
-//				Name: "database-example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDatabaseResult
@@ -52,27 +23,21 @@ func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulum
 
 // A collection of arguments for invoking getDatabase.
 type LookupDatabaseArgs struct {
-	Name string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   string  `pulumi:"name"`
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getDatabase.
 type LookupDatabaseResult struct {
-	// The ARN that uniquely identifies this database.
-	Arn string `pulumi:"arn"`
-	// Creation time of database.
+	Arn         string `pulumi:"arn"`
 	CreatedTime string `pulumi:"createdTime"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The ARN of the KMS key used to encrypt the data stored in the database.
-	KmsKeyId string `pulumi:"kmsKeyId"`
-	// Last time database was updated.
+	Id              string `pulumi:"id"`
+	KmsKeyId        string `pulumi:"kmsKeyId"`
 	LastUpdatedTime string `pulumi:"lastUpdatedTime"`
 	Name            string `pulumi:"name"`
 	Region          string `pulumi:"region"`
-	// Total number of tables in the Timestream database.
-	TableCount int `pulumi:"tableCount"`
+	TableCount      int    `pulumi:"tableCount"`
 }
 
 func LookupDatabaseOutput(ctx *pulumi.Context, args LookupDatabaseOutputArgs, opts ...pulumi.InvokeOption) LookupDatabaseResultOutput {
@@ -86,8 +51,7 @@ func LookupDatabaseOutput(ctx *pulumi.Context, args LookupDatabaseOutputArgs, op
 
 // A collection of arguments for invoking getDatabase.
 type LookupDatabaseOutputArgs struct {
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringInput    `pulumi:"name"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -110,12 +74,10 @@ func (o LookupDatabaseResultOutput) ToLookupDatabaseResultOutputWithContext(ctx 
 	return o
 }
 
-// The ARN that uniquely identifies this database.
 func (o LookupDatabaseResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Creation time of database.
 func (o LookupDatabaseResultOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) string { return v.CreatedTime }).(pulumi.StringOutput)
 }
@@ -125,12 +87,10 @@ func (o LookupDatabaseResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The ARN of the KMS key used to encrypt the data stored in the database.
 func (o LookupDatabaseResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// Last time database was updated.
 func (o LookupDatabaseResultOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) string { return v.LastUpdatedTime }).(pulumi.StringOutput)
 }
@@ -143,7 +103,6 @@ func (o LookupDatabaseResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Total number of tables in the Timestream database.
 func (o LookupDatabaseResultOutput) TableCount() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) int { return v.TableCount }).(pulumi.IntOutput)
 }

@@ -29,12 +29,6 @@ class CloudFormationTypeArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CloudFormationType resource.
-        :param pulumi.Input[_builtins.str] schema_handler_package: URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
-        :param pulumi.Input[_builtins.str] type_name: CloudFormation Type name. For example, `ExampleCompany::ExampleService::ExampleResource`.
-        :param pulumi.Input[_builtins.str] execution_role_arn: Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
-        :param pulumi.Input['CloudFormationTypeLoggingConfigArgs'] logging_config: Configuration block containing logging configuration.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] type: CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
         """
         pulumi.set(__self__, "schema_handler_package", schema_handler_package)
         pulumi.set(__self__, "type_name", type_name)
@@ -50,9 +44,6 @@ class CloudFormationTypeArgs:
     @_builtins.property
     @pulumi.getter(name="schemaHandlerPackage")
     def schema_handler_package(self) -> pulumi.Input[_builtins.str]:
-        """
-        URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
-        """
         return pulumi.get(self, "schema_handler_package")
 
     @schema_handler_package.setter
@@ -62,9 +53,6 @@ class CloudFormationTypeArgs:
     @_builtins.property
     @pulumi.getter(name="typeName")
     def type_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        CloudFormation Type name. For example, `ExampleCompany::ExampleService::ExampleResource`.
-        """
         return pulumi.get(self, "type_name")
 
     @type_name.setter
@@ -74,9 +62,6 @@ class CloudFormationTypeArgs:
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
-        """
         return pulumi.get(self, "execution_role_arn")
 
     @execution_role_arn.setter
@@ -86,9 +71,6 @@ class CloudFormationTypeArgs:
     @_builtins.property
     @pulumi.getter(name="loggingConfig")
     def logging_config(self) -> Optional[pulumi.Input['CloudFormationTypeLoggingConfigArgs']]:
-        """
-        Configuration block containing logging configuration.
-        """
         return pulumi.get(self, "logging_config")
 
     @logging_config.setter
@@ -98,9 +80,6 @@ class CloudFormationTypeArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -110,9 +89,6 @@ class CloudFormationTypeArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -143,24 +119,6 @@ class _CloudFormationTypeState:
                  visibility: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CloudFormationType resources.
-        :param pulumi.Input[_builtins.str] arn: (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `type_arn`.
-        :param pulumi.Input[_builtins.str] default_version_id: Identifier of the CloudFormation Type default version.
-        :param pulumi.Input[_builtins.str] deprecated_status: Deprecation status of the version.
-        :param pulumi.Input[_builtins.str] description: Description of the version.
-        :param pulumi.Input[_builtins.str] documentation_url: URL of the documentation for the CloudFormation Type.
-        :param pulumi.Input[_builtins.str] execution_role_arn: Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
-        :param pulumi.Input[_builtins.bool] is_default_version: Whether the CloudFormation Type version is the default version.
-        :param pulumi.Input['CloudFormationTypeLoggingConfigArgs'] logging_config: Configuration block containing logging configuration.
-        :param pulumi.Input[_builtins.str] provisioning_type: Provisioning behavior of the CloudFormation Type.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] schema: JSON document of the CloudFormation Type schema.
-        :param pulumi.Input[_builtins.str] schema_handler_package: URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
-        :param pulumi.Input[_builtins.str] source_url: URL of the source code for the CloudFormation Type.
-        :param pulumi.Input[_builtins.str] type: CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
-        :param pulumi.Input[_builtins.str] type_arn: (Optional) Amazon Resource Name (ARN) of the CloudFormation Type. See also `arn`.
-        :param pulumi.Input[_builtins.str] type_name: CloudFormation Type name. For example, `ExampleCompany::ExampleService::ExampleResource`.
-        :param pulumi.Input[_builtins.str] version_id: (Optional) Identifier of the CloudFormation Type version.
-        :param pulumi.Input[_builtins.str] visibility: Scope of the CloudFormation Type.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -202,9 +160,6 @@ class _CloudFormationTypeState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `type_arn`.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -214,9 +169,6 @@ class _CloudFormationTypeState:
     @_builtins.property
     @pulumi.getter(name="defaultVersionId")
     def default_version_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the CloudFormation Type default version.
-        """
         return pulumi.get(self, "default_version_id")
 
     @default_version_id.setter
@@ -226,9 +178,6 @@ class _CloudFormationTypeState:
     @_builtins.property
     @pulumi.getter(name="deprecatedStatus")
     def deprecated_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Deprecation status of the version.
-        """
         return pulumi.get(self, "deprecated_status")
 
     @deprecated_status.setter
@@ -238,9 +187,6 @@ class _CloudFormationTypeState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the version.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -250,9 +196,6 @@ class _CloudFormationTypeState:
     @_builtins.property
     @pulumi.getter(name="documentationUrl")
     def documentation_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        URL of the documentation for the CloudFormation Type.
-        """
         return pulumi.get(self, "documentation_url")
 
     @documentation_url.setter
@@ -262,9 +205,6 @@ class _CloudFormationTypeState:
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
-        """
         return pulumi.get(self, "execution_role_arn")
 
     @execution_role_arn.setter
@@ -274,9 +214,6 @@ class _CloudFormationTypeState:
     @_builtins.property
     @pulumi.getter(name="isDefaultVersion")
     def is_default_version(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the CloudFormation Type version is the default version.
-        """
         return pulumi.get(self, "is_default_version")
 
     @is_default_version.setter
@@ -286,9 +223,6 @@ class _CloudFormationTypeState:
     @_builtins.property
     @pulumi.getter(name="loggingConfig")
     def logging_config(self) -> Optional[pulumi.Input['CloudFormationTypeLoggingConfigArgs']]:
-        """
-        Configuration block containing logging configuration.
-        """
         return pulumi.get(self, "logging_config")
 
     @logging_config.setter
@@ -298,9 +232,6 @@ class _CloudFormationTypeState:
     @_builtins.property
     @pulumi.getter(name="provisioningType")
     def provisioning_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Provisioning behavior of the CloudFormation Type.
-        """
         return pulumi.get(self, "provisioning_type")
 
     @provisioning_type.setter
@@ -310,9 +241,6 @@ class _CloudFormationTypeState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -322,9 +250,6 @@ class _CloudFormationTypeState:
     @_builtins.property
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        JSON document of the CloudFormation Type schema.
-        """
         return pulumi.get(self, "schema")
 
     @schema.setter
@@ -334,9 +259,6 @@ class _CloudFormationTypeState:
     @_builtins.property
     @pulumi.getter(name="schemaHandlerPackage")
     def schema_handler_package(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
-        """
         return pulumi.get(self, "schema_handler_package")
 
     @schema_handler_package.setter
@@ -346,9 +268,6 @@ class _CloudFormationTypeState:
     @_builtins.property
     @pulumi.getter(name="sourceUrl")
     def source_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        URL of the source code for the CloudFormation Type.
-        """
         return pulumi.get(self, "source_url")
 
     @source_url.setter
@@ -358,9 +277,6 @@ class _CloudFormationTypeState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -370,9 +286,6 @@ class _CloudFormationTypeState:
     @_builtins.property
     @pulumi.getter(name="typeArn")
     def type_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (Optional) Amazon Resource Name (ARN) of the CloudFormation Type. See also `arn`.
-        """
         return pulumi.get(self, "type_arn")
 
     @type_arn.setter
@@ -382,9 +295,6 @@ class _CloudFormationTypeState:
     @_builtins.property
     @pulumi.getter(name="typeName")
     def type_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        CloudFormation Type name. For example, `ExampleCompany::ExampleService::ExampleResource`.
-        """
         return pulumi.get(self, "type_name")
 
     @type_name.setter
@@ -394,9 +304,6 @@ class _CloudFormationTypeState:
     @_builtins.property
     @pulumi.getter(name="versionId")
     def version_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (Optional) Identifier of the CloudFormation Type version.
-        """
         return pulumi.get(self, "version_id")
 
     @version_id.setter
@@ -406,9 +313,6 @@ class _CloudFormationTypeState:
     @_builtins.property
     @pulumi.getter
     def visibility(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Scope of the CloudFormation Type.
-        """
         return pulumi.get(self, "visibility")
 
     @visibility.setter
@@ -430,24 +334,9 @@ class CloudFormationType(pulumi.CustomResource):
                  type_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages a version of a CloudFormation Type.
-
-        ## Import
-
-        Using `pulumi import`, import `aws_cloudformation_type` using the type version Amazon Resource Name (ARN). For example:
-
-        ```sh
-        $ pulumi import aws:cloudformation/cloudFormationType:CloudFormationType example arn:aws:cloudformation:us-east-1:123456789012:type/resource/ExampleCompany-ExampleService-ExampleType/1
-        ```
-
+        Create a CloudFormationType resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] execution_role_arn: Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
-        :param pulumi.Input[Union['CloudFormationTypeLoggingConfigArgs', 'CloudFormationTypeLoggingConfigArgsDict']] logging_config: Configuration block containing logging configuration.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] schema_handler_package: URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
-        :param pulumi.Input[_builtins.str] type: CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
-        :param pulumi.Input[_builtins.str] type_name: CloudFormation Type name. For example, `ExampleCompany::ExampleService::ExampleResource`.
         """
         ...
     @overload
@@ -456,16 +345,7 @@ class CloudFormationType(pulumi.CustomResource):
                  args: CloudFormationTypeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a version of a CloudFormation Type.
-
-        ## Import
-
-        Using `pulumi import`, import `aws_cloudformation_type` using the type version Amazon Resource Name (ARN). For example:
-
-        ```sh
-        $ pulumi import aws:cloudformation/cloudFormationType:CloudFormationType example arn:aws:cloudformation:us-east-1:123456789012:type/resource/ExampleCompany-ExampleService-ExampleType/1
-        ```
-
+        Create a CloudFormationType resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CloudFormationTypeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -553,24 +433,6 @@ class CloudFormationType(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `type_arn`.
-        :param pulumi.Input[_builtins.str] default_version_id: Identifier of the CloudFormation Type default version.
-        :param pulumi.Input[_builtins.str] deprecated_status: Deprecation status of the version.
-        :param pulumi.Input[_builtins.str] description: Description of the version.
-        :param pulumi.Input[_builtins.str] documentation_url: URL of the documentation for the CloudFormation Type.
-        :param pulumi.Input[_builtins.str] execution_role_arn: Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
-        :param pulumi.Input[_builtins.bool] is_default_version: Whether the CloudFormation Type version is the default version.
-        :param pulumi.Input[Union['CloudFormationTypeLoggingConfigArgs', 'CloudFormationTypeLoggingConfigArgsDict']] logging_config: Configuration block containing logging configuration.
-        :param pulumi.Input[_builtins.str] provisioning_type: Provisioning behavior of the CloudFormation Type.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] schema: JSON document of the CloudFormation Type schema.
-        :param pulumi.Input[_builtins.str] schema_handler_package: URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
-        :param pulumi.Input[_builtins.str] source_url: URL of the source code for the CloudFormation Type.
-        :param pulumi.Input[_builtins.str] type: CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
-        :param pulumi.Input[_builtins.str] type_arn: (Optional) Amazon Resource Name (ARN) of the CloudFormation Type. See also `arn`.
-        :param pulumi.Input[_builtins.str] type_name: CloudFormation Type name. For example, `ExampleCompany::ExampleService::ExampleResource`.
-        :param pulumi.Input[_builtins.str] version_id: (Optional) Identifier of the CloudFormation Type version.
-        :param pulumi.Input[_builtins.str] visibility: Scope of the CloudFormation Type.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -599,144 +461,90 @@ class CloudFormationType(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `type_arn`.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="defaultVersionId")
     def default_version_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of the CloudFormation Type default version.
-        """
         return pulumi.get(self, "default_version_id")
 
     @_builtins.property
     @pulumi.getter(name="deprecatedStatus")
     def deprecated_status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Deprecation status of the version.
-        """
         return pulumi.get(self, "deprecated_status")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:
-        """
-        Description of the version.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="documentationUrl")
     def documentation_url(self) -> pulumi.Output[_builtins.str]:
-        """
-        URL of the documentation for the CloudFormation Type.
-        """
         return pulumi.get(self, "documentation_url")
 
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
-        """
         return pulumi.get(self, "execution_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="isDefaultVersion")
     def is_default_version(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether the CloudFormation Type version is the default version.
-        """
         return pulumi.get(self, "is_default_version")
 
     @_builtins.property
     @pulumi.getter(name="loggingConfig")
     def logging_config(self) -> pulumi.Output[Optional['outputs.CloudFormationTypeLoggingConfig']]:
-        """
-        Configuration block containing logging configuration.
-        """
         return pulumi.get(self, "logging_config")
 
     @_builtins.property
     @pulumi.getter(name="provisioningType")
     def provisioning_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Provisioning behavior of the CloudFormation Type.
-        """
         return pulumi.get(self, "provisioning_type")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def schema(self) -> pulumi.Output[_builtins.str]:
-        """
-        JSON document of the CloudFormation Type schema.
-        """
         return pulumi.get(self, "schema")
 
     @_builtins.property
     @pulumi.getter(name="schemaHandlerPackage")
     def schema_handler_package(self) -> pulumi.Output[_builtins.str]:
-        """
-        URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
-        """
         return pulumi.get(self, "schema_handler_package")
 
     @_builtins.property
     @pulumi.getter(name="sourceUrl")
     def source_url(self) -> pulumi.Output[_builtins.str]:
-        """
-        URL of the source code for the CloudFormation Type.
-        """
         return pulumi.get(self, "source_url")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="typeArn")
     def type_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        (Optional) Amazon Resource Name (ARN) of the CloudFormation Type. See also `arn`.
-        """
         return pulumi.get(self, "type_arn")
 
     @_builtins.property
     @pulumi.getter(name="typeName")
     def type_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        CloudFormation Type name. For example, `ExampleCompany::ExampleService::ExampleResource`.
-        """
         return pulumi.get(self, "type_name")
 
     @_builtins.property
     @pulumi.getter(name="versionId")
     def version_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        (Optional) Identifier of the CloudFormation Type version.
-        """
         return pulumi.get(self, "version_id")
 
     @_builtins.property
     @pulumi.getter
     def visibility(self) -> pulumi.Output[_builtins.str]:
-        """
-        Scope of the CloudFormation Type.
-        """
         return pulumi.get(self, "visibility")
 

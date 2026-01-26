@@ -14,17 +14,9 @@ public final class ClusterEncryptionConfigProviderArgs extends com.pulumi.resour
 
     public static final ClusterEncryptionConfigProviderArgs Empty = new ClusterEncryptionConfigProviderArgs();
 
-    /**
-     * ARN of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
-     * 
-     */
     @Import(name="keyArn", required=true)
     private Output<String> keyArn;
 
-    /**
-     * @return ARN of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
-     * 
-     */
     public Output<String> keyArn() {
         return this.keyArn;
     }
@@ -53,23 +45,11 @@ public final class ClusterEncryptionConfigProviderArgs extends com.pulumi.resour
             $ = new ClusterEncryptionConfigProviderArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param keyArn ARN of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyArn(Output<String> keyArn) {
             $.keyArn = keyArn;
             return this;
         }
 
-        /**
-         * @param keyArn ARN of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyArn(String keyArn) {
             return keyArn(Output.of(keyArn));
         }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy
     {
-        /// <summary>
-        /// The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
-        /// </summary>
         public readonly string ContentSecurityPolicy;
-        /// <summary>
-        /// Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
-        /// </summary>
         public readonly bool Override;
 
         [OutputConstructor]

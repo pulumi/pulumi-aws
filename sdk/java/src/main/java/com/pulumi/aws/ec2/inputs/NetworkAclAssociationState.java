@@ -15,47 +15,23 @@ public final class NetworkAclAssociationState extends com.pulumi.resources.Resou
 
     public static final NetworkAclAssociationState Empty = new NetworkAclAssociationState();
 
-    /**
-     * The ID of the network ACL.
-     * 
-     */
     @Import(name="networkAclId")
     private @Nullable Output<String> networkAclId;
 
-    /**
-     * @return The ID of the network ACL.
-     * 
-     */
     public Optional<Output<String>> networkAclId() {
         return Optional.ofNullable(this.networkAclId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ID of the associated Subnet.
-     * 
-     */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
-    /**
-     * @return The ID of the associated Subnet.
-     * 
-     */
     public Optional<Output<String>> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }
@@ -86,65 +62,29 @@ public final class NetworkAclAssociationState extends com.pulumi.resources.Resou
             $ = new NetworkAclAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param networkAclId The ID of the network ACL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkAclId(@Nullable Output<String> networkAclId) {
             $.networkAclId = networkAclId;
             return this;
         }
 
-        /**
-         * @param networkAclId The ID of the network ACL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkAclId(String networkAclId) {
             return networkAclId(Output.of(networkAclId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param subnetId The ID of the associated Subnet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(@Nullable Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
-        /**
-         * @param subnetId The ID of the associated Subnet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }

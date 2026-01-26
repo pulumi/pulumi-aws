@@ -28,13 +28,6 @@ class TargetGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a TargetGroup resource.
-        :param pulumi.Input[_builtins.str] type: The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
-               
-               The following arguments are optional:
-        :param pulumi.Input['TargetGroupConfigArgs'] config: The target group configuration.
-        :param pulumi.Input[_builtins.str] name: The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "type", type)
         if config is not None:
@@ -49,11 +42,6 @@ class TargetGroupArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -63,9 +51,6 @@ class TargetGroupArgs:
     @_builtins.property
     @pulumi.getter
     def config(self) -> Optional[pulumi.Input['TargetGroupConfigArgs']]:
-        """
-        The target group configuration.
-        """
         return pulumi.get(self, "config")
 
     @config.setter
@@ -75,9 +60,6 @@ class TargetGroupArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -87,9 +69,6 @@ class TargetGroupArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -99,9 +78,6 @@ class TargetGroupArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -122,16 +98,6 @@ class _TargetGroupState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TargetGroup resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the target group.
-        :param pulumi.Input['TargetGroupConfigArgs'] config: The target group configuration.
-        :param pulumi.Input[_builtins.str] name: The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: Status of the target group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
-               
-               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -153,9 +119,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the target group.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -165,9 +128,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter
     def config(self) -> Optional[pulumi.Input['TargetGroupConfigArgs']]:
-        """
-        The target group configuration.
-        """
         return pulumi.get(self, "config")
 
     @config.setter
@@ -177,9 +137,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -189,9 +146,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -201,9 +155,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of the target group.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -213,9 +164,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -225,9 +173,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -237,11 +182,6 @@ class _TargetGroupState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -262,107 +202,9 @@ class TargetGroup(pulumi.CustomResource):
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS VPC Lattice Target Group.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpclattice.TargetGroup("example",
-            name="example",
-            type="INSTANCE",
-            config={
-                "vpc_identifier": example_aws_vpc["id"],
-                "port": 443,
-                "protocol": "HTTPS",
-            })
-        ```
-
-        ### Basic usage with Health check
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpclattice.TargetGroup("example",
-            name="example",
-            type="IP",
-            config={
-                "vpc_identifier": example_aws_vpc["id"],
-                "ip_address_type": "IPV4",
-                "port": 443,
-                "protocol": "HTTPS",
-                "protocol_version": "HTTP1",
-                "health_check": {
-                    "enabled": True,
-                    "health_check_interval_seconds": 20,
-                    "health_check_timeout_seconds": 10,
-                    "healthy_threshold_count": 7,
-                    "unhealthy_threshold_count": 3,
-                    "matcher": {
-                        "value": "200-299",
-                    },
-                    "path": "/instance",
-                    "port": 80,
-                    "protocol": "HTTP",
-                    "protocol_version": "HTTP1",
-                },
-            })
-        ```
-
-        ### ALB
-
-        If the type is ALB, `health_check` block is not supported.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpclattice.TargetGroup("example",
-            name="example",
-            type="ALB",
-            config={
-                "vpc_identifier": example_aws_vpc["id"],
-                "port": 443,
-                "protocol": "HTTPS",
-                "protocol_version": "HTTP1",
-            })
-        ```
-
-        ### Lambda
-
-        If the type is Lambda, `config` block is not supported.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpclattice.TargetGroup("example",
-            name="example",
-            type="LAMBDA")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import VPC Lattice Target Group using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:vpclattice/targetGroup:TargetGroup example tg-0c11d4dc16ed96bdb
-        ```
-
+        Create a TargetGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TargetGroupConfigArgs', 'TargetGroupConfigArgsDict']] config: The target group configuration.
-        :param pulumi.Input[_builtins.str] name: The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] type: The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -371,98 +213,7 @@ class TargetGroup(pulumi.CustomResource):
                  args: TargetGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS VPC Lattice Target Group.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpclattice.TargetGroup("example",
-            name="example",
-            type="INSTANCE",
-            config={
-                "vpc_identifier": example_aws_vpc["id"],
-                "port": 443,
-                "protocol": "HTTPS",
-            })
-        ```
-
-        ### Basic usage with Health check
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpclattice.TargetGroup("example",
-            name="example",
-            type="IP",
-            config={
-                "vpc_identifier": example_aws_vpc["id"],
-                "ip_address_type": "IPV4",
-                "port": 443,
-                "protocol": "HTTPS",
-                "protocol_version": "HTTP1",
-                "health_check": {
-                    "enabled": True,
-                    "health_check_interval_seconds": 20,
-                    "health_check_timeout_seconds": 10,
-                    "healthy_threshold_count": 7,
-                    "unhealthy_threshold_count": 3,
-                    "matcher": {
-                        "value": "200-299",
-                    },
-                    "path": "/instance",
-                    "port": 80,
-                    "protocol": "HTTP",
-                    "protocol_version": "HTTP1",
-                },
-            })
-        ```
-
-        ### ALB
-
-        If the type is ALB, `health_check` block is not supported.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpclattice.TargetGroup("example",
-            name="example",
-            type="ALB",
-            config={
-                "vpc_identifier": example_aws_vpc["id"],
-                "port": 443,
-                "protocol": "HTTPS",
-                "protocol_version": "HTTP1",
-            })
-        ```
-
-        ### Lambda
-
-        If the type is Lambda, `config` block is not supported.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpclattice.TargetGroup("example",
-            name="example",
-            type="LAMBDA")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import VPC Lattice Target Group using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:vpclattice/targetGroup:TargetGroup example tg-0c11d4dc16ed96bdb
-        ```
-
+        Create a TargetGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TargetGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -527,16 +278,6 @@ class TargetGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the target group.
-        :param pulumi.Input[Union['TargetGroupConfigArgs', 'TargetGroupConfigArgsDict']] config: The target group configuration.
-        :param pulumi.Input[_builtins.str] name: The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: Status of the target group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -555,66 +296,40 @@ class TargetGroup(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the target group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def config(self) -> pulumi.Output[Optional['outputs.TargetGroupConfig']]:
-        """
-        The target group configuration.
-        """
         return pulumi.get(self, "config")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Status of the target group.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "type")
 

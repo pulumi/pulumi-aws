@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CodePipeline.Outputs
     [OutputType]
     public sealed class PipelineStageBeforeEntryCondition
     {
-        /// <summary>
-        /// The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
-        /// </summary>
         public readonly string? Result;
-        /// <summary>
-        /// The rules that make up the condition. Defined as a `Rule` block below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.PipelineStageBeforeEntryConditionRule> Rules;
 
         [OutputConstructor]

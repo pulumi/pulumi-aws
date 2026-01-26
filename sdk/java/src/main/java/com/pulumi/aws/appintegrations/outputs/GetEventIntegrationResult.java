@@ -13,25 +13,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEventIntegrationResult {
-    /**
-     * @return The ARN of the AppIntegrations Event Integration.
-     * 
-     */
     private String arn;
-    /**
-     * @return The description of the Event Integration.
-     * 
-     */
     private String description;
-    /**
-     * @return A block that defines the configuration information for the event filter. The Event Filter block is documented below.
-     * 
-     */
     private List<GetEventIntegrationEventFilter> eventFilters;
-    /**
-     * @return The EventBridge bus.
-     * 
-     */
     private String eventbridgeBus;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -40,38 +24,18 @@ public final class GetEventIntegrationResult {
     private String id;
     private String name;
     private String region;
-    /**
-     * @return Metadata that you can assign to help organize the report plans you create.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetEventIntegrationResult() {}
-    /**
-     * @return The ARN of the AppIntegrations Event Integration.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The description of the Event Integration.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return A block that defines the configuration information for the event filter. The Event Filter block is documented below.
-     * 
-     */
     public List<GetEventIntegrationEventFilter> eventFilters() {
         return this.eventFilters;
     }
-    /**
-     * @return The EventBridge bus.
-     * 
-     */
     public String eventbridgeBus() {
         return this.eventbridgeBus;
     }
@@ -88,10 +52,6 @@ public final class GetEventIntegrationResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Metadata that you can assign to help organize the report plans you create.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

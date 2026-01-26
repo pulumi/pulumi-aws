@@ -13,9 +13,6 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class LoadBalancerIpamPools
     {
-        /// <summary>
-        /// The ID of the IPv4 IPAM pool.
-        /// </summary>
         public readonly string Ipv4IpamPoolId;
 
         [OutputConstructor]

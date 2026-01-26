@@ -19,117 +19,51 @@ public final class GetListenerRulePlainArgs extends com.pulumi.resources.InvokeA
 
     public static final GetListenerRulePlainArgs Empty = new GetListenerRulePlainArgs();
 
-    /**
-     * List of actions associated with the rule, sorted by `order`.
-     * Detailed below.
-     * 
-     */
     @Import(name="actions")
     private @Nullable List<GetListenerRuleAction> actions;
 
-    /**
-     * @return List of actions associated with the rule, sorted by `order`.
-     * Detailed below.
-     * 
-     */
     public Optional<List<GetListenerRuleAction>> actions() {
         return Optional.ofNullable(this.actions);
     }
 
-    /**
-     * ARN of the Listener Rule.
-     * Either `arn` or `listenerArn` must be set.
-     * 
-     */
     @Import(name="arn")
     private @Nullable String arn;
 
-    /**
-     * @return ARN of the Listener Rule.
-     * Either `arn` or `listenerArn` must be set.
-     * 
-     */
     public Optional<String> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Set of conditions associated with the rule.
-     * Detailed below.
-     * 
-     */
     @Import(name="conditions")
     private @Nullable List<GetListenerRuleCondition> conditions;
 
-    /**
-     * @return Set of conditions associated with the rule.
-     * Detailed below.
-     * 
-     */
     public Optional<List<GetListenerRuleCondition>> conditions() {
         return Optional.ofNullable(this.conditions);
     }
 
-    /**
-     * ARN of the associated Listener.
-     * Either `arn` or `listenerArn` must be set.
-     * 
-     */
     @Import(name="listenerArn")
     private @Nullable String listenerArn;
 
-    /**
-     * @return ARN of the associated Listener.
-     * Either `arn` or `listenerArn` must be set.
-     * 
-     */
     public Optional<String> listenerArn() {
         return Optional.ofNullable(this.listenerArn);
     }
 
-    /**
-     * Priority of the Listener Rule within the Listener.
-     * Must be set if `listenerArn` is set, otherwise must not be set.
-     * 
-     */
     @Import(name="priority")
     private @Nullable Integer priority;
 
-    /**
-     * @return Priority of the Listener Rule within the Listener.
-     * Must be set if `listenerArn` is set, otherwise must not be set.
-     * 
-     */
     public Optional<Integer> priority() {
         return Optional.ofNullable(this.priority);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Block for transform to apply to requests that match this rule. Detailed below.
-     * 
-     */
     @Import(name="transforms")
     private @Nullable List<GetListenerRuleTransform> transforms;
 
-    /**
-     * @return Block for transform to apply to requests that match this rule. Detailed below.
-     * 
-     */
     public Optional<List<GetListenerRuleTransform>> transforms() {
         return Optional.ofNullable(this.transforms);
     }
@@ -164,116 +98,49 @@ public final class GetListenerRulePlainArgs extends com.pulumi.resources.InvokeA
             $ = new GetListenerRulePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param actions List of actions associated with the rule, sorted by `order`.
-         * Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actions(@Nullable List<GetListenerRuleAction> actions) {
             $.actions = actions;
             return this;
         }
 
-        /**
-         * @param actions List of actions associated with the rule, sorted by `order`.
-         * Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actions(GetListenerRuleAction... actions) {
             return actions(List.of(actions));
         }
 
-        /**
-         * @param arn ARN of the Listener Rule.
-         * Either `arn` or `listenerArn` must be set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable String arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param conditions Set of conditions associated with the rule.
-         * Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditions(@Nullable List<GetListenerRuleCondition> conditions) {
             $.conditions = conditions;
             return this;
         }
 
-        /**
-         * @param conditions Set of conditions associated with the rule.
-         * Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditions(GetListenerRuleCondition... conditions) {
             return conditions(List.of(conditions));
         }
 
-        /**
-         * @param listenerArn ARN of the associated Listener.
-         * Either `arn` or `listenerArn` must be set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder listenerArn(@Nullable String listenerArn) {
             $.listenerArn = listenerArn;
             return this;
         }
 
-        /**
-         * @param priority Priority of the Listener Rule within the Listener.
-         * Must be set if `listenerArn` is set, otherwise must not be set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder priority(@Nullable Integer priority) {
             $.priority = priority;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param transforms Block for transform to apply to requests that match this rule. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transforms(@Nullable List<GetListenerRuleTransform> transforms) {
             $.transforms = transforms;
             return this;
         }
 
-        /**
-         * @param transforms Block for transform to apply to requests that match this rule. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transforms(GetListenerRuleTransform... transforms) {
             return transforms(List.of(transforms));
         }

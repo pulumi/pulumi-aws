@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Msk.Outputs
     [OutputType]
     public sealed class ReplicatorReplicationInfoListConsumerGroupReplication
     {
-        /// <summary>
-        /// List of regular expression patterns indicating the consumer groups that should not be replicated.
-        /// </summary>
         public readonly ImmutableArray<string> ConsumerGroupsToExcludes;
-        /// <summary>
-        /// List of regular expression patterns indicating the consumer groups to copy.
-        /// </summary>
         public readonly ImmutableArray<string> ConsumerGroupsToReplicates;
-        /// <summary>
-        /// Whether to periodically check for new consumer groups.
-        /// </summary>
         public readonly bool? DetectAndCopyNewConsumerGroups;
-        /// <summary>
-        /// Whether to periodically write the translated offsets to __consumer_offsets topic in target cluster.
-        /// </summary>
         public readonly bool? SynchroniseConsumerGroupOffsets;
 
         [OutputConstructor]

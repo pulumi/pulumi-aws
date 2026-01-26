@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class ContinuousDeploymentPolicyStagingDistributionDnsNames
     {
-        /// <summary>
-        /// A list of CloudFront domain names for the staging distribution.
-        /// </summary>
         public readonly ImmutableArray<string> Items;
-        /// <summary>
-        /// Number of CloudFront domain names in the staging distribution.
-        /// </summary>
         public readonly int Quantity;
 
         [OutputConstructor]

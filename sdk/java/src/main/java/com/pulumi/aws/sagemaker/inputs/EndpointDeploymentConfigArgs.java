@@ -17,47 +17,23 @@ public final class EndpointDeploymentConfigArgs extends com.pulumi.resources.Res
 
     public static final EndpointDeploymentConfigArgs Empty = new EndpointDeploymentConfigArgs();
 
-    /**
-     * Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
-     * 
-     */
     @Import(name="autoRollbackConfiguration")
     private @Nullable Output<EndpointDeploymentConfigAutoRollbackConfigurationArgs> autoRollbackConfiguration;
 
-    /**
-     * @return Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
-     * 
-     */
     public Optional<Output<EndpointDeploymentConfigAutoRollbackConfigurationArgs>> autoRollbackConfiguration() {
         return Optional.ofNullable(this.autoRollbackConfiguration);
     }
 
-    /**
-     * Update policy for a blue/green deployment. If this update policy is specified, SageMaker AI creates a new fleet during the deployment while maintaining the old fleet. SageMaker AI flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker AI uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
-     * 
-     */
     @Import(name="blueGreenUpdatePolicy")
     private @Nullable Output<EndpointDeploymentConfigBlueGreenUpdatePolicyArgs> blueGreenUpdatePolicy;
 
-    /**
-     * @return Update policy for a blue/green deployment. If this update policy is specified, SageMaker AI creates a new fleet during the deployment while maintaining the old fleet. SageMaker AI flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker AI uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
-     * 
-     */
     public Optional<Output<EndpointDeploymentConfigBlueGreenUpdatePolicyArgs>> blueGreenUpdatePolicy() {
         return Optional.ofNullable(this.blueGreenUpdatePolicy);
     }
 
-    /**
-     * Specifies a rolling deployment strategy for updating a SageMaker AI endpoint. See Rolling Update Policy.
-     * 
-     */
     @Import(name="rollingUpdatePolicy")
     private @Nullable Output<EndpointDeploymentConfigRollingUpdatePolicyArgs> rollingUpdatePolicy;
 
-    /**
-     * @return Specifies a rolling deployment strategy for updating a SageMaker AI endpoint. See Rolling Update Policy.
-     * 
-     */
     public Optional<Output<EndpointDeploymentConfigRollingUpdatePolicyArgs>> rollingUpdatePolicy() {
         return Optional.ofNullable(this.rollingUpdatePolicy);
     }
@@ -88,65 +64,29 @@ public final class EndpointDeploymentConfigArgs extends com.pulumi.resources.Res
             $ = new EndpointDeploymentConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param autoRollbackConfiguration Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoRollbackConfiguration(@Nullable Output<EndpointDeploymentConfigAutoRollbackConfigurationArgs> autoRollbackConfiguration) {
             $.autoRollbackConfiguration = autoRollbackConfiguration;
             return this;
         }
 
-        /**
-         * @param autoRollbackConfiguration Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoRollbackConfiguration(EndpointDeploymentConfigAutoRollbackConfigurationArgs autoRollbackConfiguration) {
             return autoRollbackConfiguration(Output.of(autoRollbackConfiguration));
         }
 
-        /**
-         * @param blueGreenUpdatePolicy Update policy for a blue/green deployment. If this update policy is specified, SageMaker AI creates a new fleet during the deployment while maintaining the old fleet. SageMaker AI flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker AI uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
-         * 
-         * @return builder
-         * 
-         */
         public Builder blueGreenUpdatePolicy(@Nullable Output<EndpointDeploymentConfigBlueGreenUpdatePolicyArgs> blueGreenUpdatePolicy) {
             $.blueGreenUpdatePolicy = blueGreenUpdatePolicy;
             return this;
         }
 
-        /**
-         * @param blueGreenUpdatePolicy Update policy for a blue/green deployment. If this update policy is specified, SageMaker AI creates a new fleet during the deployment while maintaining the old fleet. SageMaker AI flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker AI uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
-         * 
-         * @return builder
-         * 
-         */
         public Builder blueGreenUpdatePolicy(EndpointDeploymentConfigBlueGreenUpdatePolicyArgs blueGreenUpdatePolicy) {
             return blueGreenUpdatePolicy(Output.of(blueGreenUpdatePolicy));
         }
 
-        /**
-         * @param rollingUpdatePolicy Specifies a rolling deployment strategy for updating a SageMaker AI endpoint. See Rolling Update Policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rollingUpdatePolicy(@Nullable Output<EndpointDeploymentConfigRollingUpdatePolicyArgs> rollingUpdatePolicy) {
             $.rollingUpdatePolicy = rollingUpdatePolicy;
             return this;
         }
 
-        /**
-         * @param rollingUpdatePolicy Specifies a rolling deployment strategy for updating a SageMaker AI endpoint. See Rolling Update Policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rollingUpdatePolicy(EndpointDeploymentConfigRollingUpdatePolicyArgs rollingUpdatePolicy) {
             return rollingUpdatePolicy(Output.of(rollingUpdatePolicy));
         }

@@ -19,10 +19,6 @@ public final class GetPlanResult {
      */
     private String id;
     private String region;
-    /**
-     * @return List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
-     * 
-     */
     private List<GetPlanStage> stages;
 
     private GetPlanResult() {}
@@ -39,10 +35,6 @@ public final class GetPlanResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
-     * 
-     */
     public List<GetPlanStage> stages() {
         return this.stages;
     }

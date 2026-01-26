@@ -39,10 +39,8 @@ class CloudExadataInfrastructureArgs:
         :param pulumi.Input[_builtins.int] compute_count: The number of compute instances that the Exadata infrastructure is located
         :param pulumi.Input[_builtins.str] database_server_type: The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
         :param pulumi.Input['CloudExadataInfrastructureMaintenanceWindowArgs'] maintenance_window: The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] storage_count: TThe number of storage servers that are activated for the Exadata infrastructure
         :param pulumi.Input[_builtins.str] storage_server_type: The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "availability_zone_id", availability_zone_id)
         pulumi.set(__self__, "display_name", display_name)
@@ -152,9 +150,6 @@ class CloudExadataInfrastructureArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -188,9 +183,6 @@ class CloudExadataInfrastructureArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -253,39 +245,42 @@ class _CloudExadataInfrastructureState:
                  total_storage_size_in_gbs: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering CloudExadataInfrastructure resources.
-        :param pulumi.Input[_builtins.int] activated_storage_count: The number of storage servers requested for the Exadata infrastructure.
-        :param pulumi.Input[_builtins.int] additional_storage_count: The number of storage servers requested for the Exadata infrastructure.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Exadata infrastructure.
-        :param pulumi.Input[_builtins.int] available_storage_size_in_gbs: The amount of available storage, in gigabytes (GB), for the Exadata infrastructure.
+        :param pulumi.Input[_builtins.int] activated_storage_count: The number of storage servers requested for the Exadata infrastructure
+        :param pulumi.Input[_builtins.int] additional_storage_count: The number of storage servers requested for the Exadata infrastructure
+        :param pulumi.Input[_builtins.int] available_storage_size_in_gbs: The amount of available storage, in gigabytes (GB), for the Exadata infrastructure
         :param pulumi.Input[_builtins.int] compute_count: The number of compute instances that the Exadata infrastructure is located
-        :param pulumi.Input[_builtins.str] compute_model: The OCI model compute model used when you create or clone an instance: ECPU or OCPU.
-        :param pulumi.Input[_builtins.int] cpu_count: The total number of CPU cores that are allocated to the Exadata infrastructure.
+        :param pulumi.Input[_builtins.str] compute_model: The OCI model compute model used when you create or clone an
+                 instance: ECPU or OCPU. An ECPU is an abstracted measure of
+                compute resources. ECPUs are based on the number of cores
+                elastically allocated from a pool of compute and storage servers.
+                 An OCPU is a legacy physical measure of compute resources. OCPUs
+                are based on the physical core of a processor with
+                 hyper-threading enabled.
+        :param pulumi.Input[_builtins.int] cpu_count: The total number of CPU cores that are allocated to the Exadata infrastructure
         :param pulumi.Input[_builtins.str] created_at: The time when the Exadata infrastructure was created.
-        :param pulumi.Input[_builtins.float] data_storage_size_in_tbs: The size of the Exadata infrastructure's data disk group, in terabytes (TB).
+        :param pulumi.Input[_builtins.float] data_storage_size_in_tbs: The size of the Exadata infrastructure's data disk group, in terabytes (TB)
         :param pulumi.Input[_builtins.str] database_server_type: The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
-        :param pulumi.Input[_builtins.int] db_node_storage_size_in_gbs: The size of the Exadata infrastructure's local node storage, in gigabytes (GB).
-        :param pulumi.Input[_builtins.str] db_server_version: The software version of the database servers (dom0) in the Exadata infrastructure.
-        :param pulumi.Input[_builtins.str] last_maintenance_run_id: The Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure.
+        :param pulumi.Input[_builtins.int] db_node_storage_size_in_gbs: The size of the Exadata infrastructure's local node storage, in gigabytes (GB)
+        :param pulumi.Input[_builtins.str] db_server_version: The software version of the database servers (dom0) in the Exadata infrastructure
+        :param pulumi.Input[_builtins.str] last_maintenance_run_id: The Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure
         :param pulumi.Input['CloudExadataInfrastructureMaintenanceWindowArgs'] maintenance_window: The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window
-        :param pulumi.Input[_builtins.int] max_cpu_count: The total number of CPU cores available on the Exadata infrastructure.
-        :param pulumi.Input[_builtins.float] max_data_storage_in_tbs: The total amount of data disk group storage, in terabytes (TB), that's available on the Exadata infrastructure.
-        :param pulumi.Input[_builtins.int] max_db_node_storage_size_in_gbs: The total amount of local node storage, in gigabytes (GB), that's available on the Exadata infrastructure.
-        :param pulumi.Input[_builtins.int] max_memory_in_gbs: The total amount of memory in gigabytes (GB) available on the Exadata infrastructure.
+        :param pulumi.Input[_builtins.int] max_cpu_count: The total number of CPU cores available on the Exadata infrastructure
+        :param pulumi.Input[_builtins.float] max_data_storage_in_tbs: The total amount of data disk group storage, in terabytes (TB), that's available on the Exadata infrastructure
+        :param pulumi.Input[_builtins.int] max_db_node_storage_size_in_gbs: The total amount of local node storage, in gigabytes (GB), that's available on the Exadata infrastructure
+        :param pulumi.Input[_builtins.int] max_memory_in_gbs: The total amount of memory in gigabytes (GB) available on the Exadata infrastructure
         :param pulumi.Input[_builtins.int] memory_size_in_gbs: The amount of memory, in gigabytes (GB), that's allocated on the Exadata infrastructure
-        :param pulumi.Input[_builtins.str] monthly_db_server_version: The monthly software version of the database servers in the Exadata infrastructure.
-        :param pulumi.Input[_builtins.str] monthly_storage_server_version: The monthly software version of the storage servers installed on the Exadata infrastructure.
-        :param pulumi.Input[_builtins.str] next_maintenance_run_id: The OCID of the next maintenance run for the Exadata infrastructure.
-        :param pulumi.Input[_builtins.str] oci_resource_anchor_name: The name of the OCI resource anchor for the Exadata infrastructure.
+        :param pulumi.Input[_builtins.str] monthly_db_server_version: The monthly software version of the database servers in the Exadata infrastructure
+        :param pulumi.Input[_builtins.str] monthly_storage_server_version: The monthly software version of the storage servers installed on the Exadata infrastructure
+        :param pulumi.Input[_builtins.str] next_maintenance_run_id: The OCID of the next maintenance run for the Exadata infrastructure
+        :param pulumi.Input[_builtins.str] oci_resource_anchor_name: The name of the OCI resource anchor for the Exadata infrastructure
         :param pulumi.Input[_builtins.str] oci_url: The HTTPS link to the Exadata infrastructure in OCI
-        :param pulumi.Input[_builtins.str] ocid: The OCID of the Exadata infrastructure.
-        :param pulumi.Input[_builtins.float] percent_progress: The amount of progress made on the current operation on the Exadata infrastructure, expressed as a percentage.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: The current status of the Exadata infrastructure.
-        :param pulumi.Input[_builtins.str] status_reason: Additional information about the status of the Exadata infrastructure.
+        :param pulumi.Input[_builtins.str] ocid: The OCID of the Exadata infrastructure
+        :param pulumi.Input[_builtins.float] percent_progress: The amount of progress made on the current operation on the Exadata infrastructure, expressed as a percentage
+        :param pulumi.Input[_builtins.str] status: The current status of the Exadata infrastructure
+        :param pulumi.Input[_builtins.str] status_reason: Additional information about the status of the Exadata infrastructure
         :param pulumi.Input[_builtins.int] storage_count: TThe number of storage servers that are activated for the Exadata infrastructure
         :param pulumi.Input[_builtins.str] storage_server_type: The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
         :param pulumi.Input[_builtins.str] storage_server_version: The software version of the storage servers on the Exadata infrastructure.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.int] total_storage_size_in_gbs: The total amount of storage, in gigabytes (GB), on the Exadata infrastructure.
         """
         if activated_storage_count is not None:
@@ -375,7 +370,7 @@ class _CloudExadataInfrastructureState:
     @pulumi.getter(name="activatedStorageCount")
     def activated_storage_count(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The number of storage servers requested for the Exadata infrastructure.
+        The number of storage servers requested for the Exadata infrastructure
         """
         return pulumi.get(self, "activated_storage_count")
 
@@ -387,7 +382,7 @@ class _CloudExadataInfrastructureState:
     @pulumi.getter(name="additionalStorageCount")
     def additional_storage_count(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The number of storage servers requested for the Exadata infrastructure.
+        The number of storage servers requested for the Exadata infrastructure
         """
         return pulumi.get(self, "additional_storage_count")
 
@@ -398,9 +393,6 @@ class _CloudExadataInfrastructureState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the Exadata infrastructure.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -429,7 +421,7 @@ class _CloudExadataInfrastructureState:
     @pulumi.getter(name="availableStorageSizeInGbs")
     def available_storage_size_in_gbs(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The amount of available storage, in gigabytes (GB), for the Exadata infrastructure.
+        The amount of available storage, in gigabytes (GB), for the Exadata infrastructure
         """
         return pulumi.get(self, "available_storage_size_in_gbs")
 
@@ -453,7 +445,13 @@ class _CloudExadataInfrastructureState:
     @pulumi.getter(name="computeModel")
     def compute_model(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The OCI model compute model used when you create or clone an instance: ECPU or OCPU.
+        The OCI model compute model used when you create or clone an
+          instance: ECPU or OCPU. An ECPU is an abstracted measure of
+         compute resources. ECPUs are based on the number of cores
+         elastically allocated from a pool of compute and storage servers.
+          An OCPU is a legacy physical measure of compute resources. OCPUs
+         are based on the physical core of a processor with
+          hyper-threading enabled.
         """
         return pulumi.get(self, "compute_model")
 
@@ -465,7 +463,7 @@ class _CloudExadataInfrastructureState:
     @pulumi.getter(name="cpuCount")
     def cpu_count(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The total number of CPU cores that are allocated to the Exadata infrastructure.
+        The total number of CPU cores that are allocated to the Exadata infrastructure
         """
         return pulumi.get(self, "cpu_count")
 
@@ -498,7 +496,7 @@ class _CloudExadataInfrastructureState:
     @pulumi.getter(name="dataStorageSizeInTbs")
     def data_storage_size_in_tbs(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
-        The size of the Exadata infrastructure's data disk group, in terabytes (TB).
+        The size of the Exadata infrastructure's data disk group, in terabytes (TB)
         """
         return pulumi.get(self, "data_storage_size_in_tbs")
 
@@ -522,7 +520,7 @@ class _CloudExadataInfrastructureState:
     @pulumi.getter(name="dbNodeStorageSizeInGbs")
     def db_node_storage_size_in_gbs(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The size of the Exadata infrastructure's local node storage, in gigabytes (GB).
+        The size of the Exadata infrastructure's local node storage, in gigabytes (GB)
         """
         return pulumi.get(self, "db_node_storage_size_in_gbs")
 
@@ -534,7 +532,7 @@ class _CloudExadataInfrastructureState:
     @pulumi.getter(name="dbServerVersion")
     def db_server_version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The software version of the database servers (dom0) in the Exadata infrastructure.
+        The software version of the database servers (dom0) in the Exadata infrastructure
         """
         return pulumi.get(self, "db_server_version")
 
@@ -555,7 +553,7 @@ class _CloudExadataInfrastructureState:
     @pulumi.getter(name="lastMaintenanceRunId")
     def last_maintenance_run_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure.
+        The Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure
         """
         return pulumi.get(self, "last_maintenance_run_id")
 
@@ -579,7 +577,7 @@ class _CloudExadataInfrastructureState:
     @pulumi.getter(name="maxCpuCount")
     def max_cpu_count(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The total number of CPU cores available on the Exadata infrastructure.
+        The total number of CPU cores available on the Exadata infrastructure
         """
         return pulumi.get(self, "max_cpu_count")
 
@@ -591,7 +589,7 @@ class _CloudExadataInfrastructureState:
     @pulumi.getter(name="maxDataStorageInTbs")
     def max_data_storage_in_tbs(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
-        The total amount of data disk group storage, in terabytes (TB), that's available on the Exadata infrastructure.
+        The total amount of data disk group storage, in terabytes (TB), that's available on the Exadata infrastructure
         """
         return pulumi.get(self, "max_data_storage_in_tbs")
 
@@ -603,7 +601,7 @@ class _CloudExadataInfrastructureState:
     @pulumi.getter(name="maxDbNodeStorageSizeInGbs")
     def max_db_node_storage_size_in_gbs(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The total amount of local node storage, in gigabytes (GB), that's available on the Exadata infrastructure.
+        The total amount of local node storage, in gigabytes (GB), that's available on the Exadata infrastructure
         """
         return pulumi.get(self, "max_db_node_storage_size_in_gbs")
 
@@ -615,7 +613,7 @@ class _CloudExadataInfrastructureState:
     @pulumi.getter(name="maxMemoryInGbs")
     def max_memory_in_gbs(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The total amount of memory in gigabytes (GB) available on the Exadata infrastructure.
+        The total amount of memory in gigabytes (GB) available on the Exadata infrastructure
         """
         return pulumi.get(self, "max_memory_in_gbs")
 
@@ -639,7 +637,7 @@ class _CloudExadataInfrastructureState:
     @pulumi.getter(name="monthlyDbServerVersion")
     def monthly_db_server_version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The monthly software version of the database servers in the Exadata infrastructure.
+        The monthly software version of the database servers in the Exadata infrastructure
         """
         return pulumi.get(self, "monthly_db_server_version")
 
@@ -651,7 +649,7 @@ class _CloudExadataInfrastructureState:
     @pulumi.getter(name="monthlyStorageServerVersion")
     def monthly_storage_server_version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The monthly software version of the storage servers installed on the Exadata infrastructure.
+        The monthly software version of the storage servers installed on the Exadata infrastructure
         """
         return pulumi.get(self, "monthly_storage_server_version")
 
@@ -663,7 +661,7 @@ class _CloudExadataInfrastructureState:
     @pulumi.getter(name="nextMaintenanceRunId")
     def next_maintenance_run_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The OCID of the next maintenance run for the Exadata infrastructure.
+        The OCID of the next maintenance run for the Exadata infrastructure
         """
         return pulumi.get(self, "next_maintenance_run_id")
 
@@ -675,7 +673,7 @@ class _CloudExadataInfrastructureState:
     @pulumi.getter(name="ociResourceAnchorName")
     def oci_resource_anchor_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the OCI resource anchor for the Exadata infrastructure.
+        The name of the OCI resource anchor for the Exadata infrastructure
         """
         return pulumi.get(self, "oci_resource_anchor_name")
 
@@ -699,7 +697,7 @@ class _CloudExadataInfrastructureState:
     @pulumi.getter
     def ocid(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The OCID of the Exadata infrastructure.
+        The OCID of the Exadata infrastructure
         """
         return pulumi.get(self, "ocid")
 
@@ -711,7 +709,7 @@ class _CloudExadataInfrastructureState:
     @pulumi.getter(name="percentProgress")
     def percent_progress(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
-        The amount of progress made on the current operation on the Exadata infrastructure, expressed as a percentage.
+        The amount of progress made on the current operation on the Exadata infrastructure, expressed as a percentage
         """
         return pulumi.get(self, "percent_progress")
 
@@ -722,9 +720,6 @@ class _CloudExadataInfrastructureState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -744,7 +739,7 @@ class _CloudExadataInfrastructureState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The current status of the Exadata infrastructure.
+        The current status of the Exadata infrastructure
         """
         return pulumi.get(self, "status")
 
@@ -756,7 +751,7 @@ class _CloudExadataInfrastructureState:
     @pulumi.getter(name="statusReason")
     def status_reason(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Additional information about the status of the Exadata infrastructure.
+        Additional information about the status of the Exadata infrastructure
         """
         return pulumi.get(self, "status_reason")
 
@@ -803,9 +798,6 @@ class _CloudExadataInfrastructureState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -864,27 +856,14 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['CloudExadataInfrastructureTimeoutsArgs', 'CloudExadataInfrastructureTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing exadata infrastructure resource in AWS for Oracle Database@AWS.
-
-        ## Example Usage
-
-        ## Import
-
-        Using `pulumi import`, import Exadata Infrastructure using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:odb/cloudExadataInfrastructure:CloudExadataInfrastructure example example
-        ```
-
+        Create a CloudExadataInfrastructure resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] compute_count: The number of compute instances that the Exadata infrastructure is located
         :param pulumi.Input[_builtins.str] database_server_type: The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
         :param pulumi.Input[Union['CloudExadataInfrastructureMaintenanceWindowArgs', 'CloudExadataInfrastructureMaintenanceWindowArgsDict']] maintenance_window: The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] storage_count: TThe number of storage servers that are activated for the Exadata infrastructure
         :param pulumi.Input[_builtins.str] storage_server_type: The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -893,18 +872,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
                  args: CloudExadataInfrastructureArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing exadata infrastructure resource in AWS for Oracle Database@AWS.
-
-        ## Example Usage
-
-        ## Import
-
-        Using `pulumi import`, import Exadata Infrastructure using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:odb/cloudExadataInfrastructure:CloudExadataInfrastructure example example
-        ```
-
+        Create a CloudExadataInfrastructure resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CloudExadataInfrastructureArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1047,39 +1015,42 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] activated_storage_count: The number of storage servers requested for the Exadata infrastructure.
-        :param pulumi.Input[_builtins.int] additional_storage_count: The number of storage servers requested for the Exadata infrastructure.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Exadata infrastructure.
-        :param pulumi.Input[_builtins.int] available_storage_size_in_gbs: The amount of available storage, in gigabytes (GB), for the Exadata infrastructure.
+        :param pulumi.Input[_builtins.int] activated_storage_count: The number of storage servers requested for the Exadata infrastructure
+        :param pulumi.Input[_builtins.int] additional_storage_count: The number of storage servers requested for the Exadata infrastructure
+        :param pulumi.Input[_builtins.int] available_storage_size_in_gbs: The amount of available storage, in gigabytes (GB), for the Exadata infrastructure
         :param pulumi.Input[_builtins.int] compute_count: The number of compute instances that the Exadata infrastructure is located
-        :param pulumi.Input[_builtins.str] compute_model: The OCI model compute model used when you create or clone an instance: ECPU or OCPU.
-        :param pulumi.Input[_builtins.int] cpu_count: The total number of CPU cores that are allocated to the Exadata infrastructure.
+        :param pulumi.Input[_builtins.str] compute_model: The OCI model compute model used when you create or clone an
+                 instance: ECPU or OCPU. An ECPU is an abstracted measure of
+                compute resources. ECPUs are based on the number of cores
+                elastically allocated from a pool of compute and storage servers.
+                 An OCPU is a legacy physical measure of compute resources. OCPUs
+                are based on the physical core of a processor with
+                 hyper-threading enabled.
+        :param pulumi.Input[_builtins.int] cpu_count: The total number of CPU cores that are allocated to the Exadata infrastructure
         :param pulumi.Input[_builtins.str] created_at: The time when the Exadata infrastructure was created.
-        :param pulumi.Input[_builtins.float] data_storage_size_in_tbs: The size of the Exadata infrastructure's data disk group, in terabytes (TB).
+        :param pulumi.Input[_builtins.float] data_storage_size_in_tbs: The size of the Exadata infrastructure's data disk group, in terabytes (TB)
         :param pulumi.Input[_builtins.str] database_server_type: The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
-        :param pulumi.Input[_builtins.int] db_node_storage_size_in_gbs: The size of the Exadata infrastructure's local node storage, in gigabytes (GB).
-        :param pulumi.Input[_builtins.str] db_server_version: The software version of the database servers (dom0) in the Exadata infrastructure.
-        :param pulumi.Input[_builtins.str] last_maintenance_run_id: The Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure.
+        :param pulumi.Input[_builtins.int] db_node_storage_size_in_gbs: The size of the Exadata infrastructure's local node storage, in gigabytes (GB)
+        :param pulumi.Input[_builtins.str] db_server_version: The software version of the database servers (dom0) in the Exadata infrastructure
+        :param pulumi.Input[_builtins.str] last_maintenance_run_id: The Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure
         :param pulumi.Input[Union['CloudExadataInfrastructureMaintenanceWindowArgs', 'CloudExadataInfrastructureMaintenanceWindowArgsDict']] maintenance_window: The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window
-        :param pulumi.Input[_builtins.int] max_cpu_count: The total number of CPU cores available on the Exadata infrastructure.
-        :param pulumi.Input[_builtins.float] max_data_storage_in_tbs: The total amount of data disk group storage, in terabytes (TB), that's available on the Exadata infrastructure.
-        :param pulumi.Input[_builtins.int] max_db_node_storage_size_in_gbs: The total amount of local node storage, in gigabytes (GB), that's available on the Exadata infrastructure.
-        :param pulumi.Input[_builtins.int] max_memory_in_gbs: The total amount of memory in gigabytes (GB) available on the Exadata infrastructure.
+        :param pulumi.Input[_builtins.int] max_cpu_count: The total number of CPU cores available on the Exadata infrastructure
+        :param pulumi.Input[_builtins.float] max_data_storage_in_tbs: The total amount of data disk group storage, in terabytes (TB), that's available on the Exadata infrastructure
+        :param pulumi.Input[_builtins.int] max_db_node_storage_size_in_gbs: The total amount of local node storage, in gigabytes (GB), that's available on the Exadata infrastructure
+        :param pulumi.Input[_builtins.int] max_memory_in_gbs: The total amount of memory in gigabytes (GB) available on the Exadata infrastructure
         :param pulumi.Input[_builtins.int] memory_size_in_gbs: The amount of memory, in gigabytes (GB), that's allocated on the Exadata infrastructure
-        :param pulumi.Input[_builtins.str] monthly_db_server_version: The monthly software version of the database servers in the Exadata infrastructure.
-        :param pulumi.Input[_builtins.str] monthly_storage_server_version: The monthly software version of the storage servers installed on the Exadata infrastructure.
-        :param pulumi.Input[_builtins.str] next_maintenance_run_id: The OCID of the next maintenance run for the Exadata infrastructure.
-        :param pulumi.Input[_builtins.str] oci_resource_anchor_name: The name of the OCI resource anchor for the Exadata infrastructure.
+        :param pulumi.Input[_builtins.str] monthly_db_server_version: The monthly software version of the database servers in the Exadata infrastructure
+        :param pulumi.Input[_builtins.str] monthly_storage_server_version: The monthly software version of the storage servers installed on the Exadata infrastructure
+        :param pulumi.Input[_builtins.str] next_maintenance_run_id: The OCID of the next maintenance run for the Exadata infrastructure
+        :param pulumi.Input[_builtins.str] oci_resource_anchor_name: The name of the OCI resource anchor for the Exadata infrastructure
         :param pulumi.Input[_builtins.str] oci_url: The HTTPS link to the Exadata infrastructure in OCI
-        :param pulumi.Input[_builtins.str] ocid: The OCID of the Exadata infrastructure.
-        :param pulumi.Input[_builtins.float] percent_progress: The amount of progress made on the current operation on the Exadata infrastructure, expressed as a percentage.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: The current status of the Exadata infrastructure.
-        :param pulumi.Input[_builtins.str] status_reason: Additional information about the status of the Exadata infrastructure.
+        :param pulumi.Input[_builtins.str] ocid: The OCID of the Exadata infrastructure
+        :param pulumi.Input[_builtins.float] percent_progress: The amount of progress made on the current operation on the Exadata infrastructure, expressed as a percentage
+        :param pulumi.Input[_builtins.str] status: The current status of the Exadata infrastructure
+        :param pulumi.Input[_builtins.str] status_reason: Additional information about the status of the Exadata infrastructure
         :param pulumi.Input[_builtins.int] storage_count: TThe number of storage servers that are activated for the Exadata infrastructure
         :param pulumi.Input[_builtins.str] storage_server_type: The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
         :param pulumi.Input[_builtins.str] storage_server_version: The software version of the storage servers on the Exadata infrastructure.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.int] total_storage_size_in_gbs: The total amount of storage, in gigabytes (GB), on the Exadata infrastructure.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1133,7 +1104,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter(name="activatedStorageCount")
     def activated_storage_count(self) -> pulumi.Output[_builtins.int]:
         """
-        The number of storage servers requested for the Exadata infrastructure.
+        The number of storage servers requested for the Exadata infrastructure
         """
         return pulumi.get(self, "activated_storage_count")
 
@@ -1141,16 +1112,13 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter(name="additionalStorageCount")
     def additional_storage_count(self) -> pulumi.Output[_builtins.int]:
         """
-        The number of storage servers requested for the Exadata infrastructure.
+        The number of storage servers requested for the Exadata infrastructure
         """
         return pulumi.get(self, "additional_storage_count")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the Exadata infrastructure.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -1167,7 +1135,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter(name="availableStorageSizeInGbs")
     def available_storage_size_in_gbs(self) -> pulumi.Output[_builtins.int]:
         """
-        The amount of available storage, in gigabytes (GB), for the Exadata infrastructure.
+        The amount of available storage, in gigabytes (GB), for the Exadata infrastructure
         """
         return pulumi.get(self, "available_storage_size_in_gbs")
 
@@ -1183,7 +1151,13 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter(name="computeModel")
     def compute_model(self) -> pulumi.Output[_builtins.str]:
         """
-        The OCI model compute model used when you create or clone an instance: ECPU or OCPU.
+        The OCI model compute model used when you create or clone an
+          instance: ECPU or OCPU. An ECPU is an abstracted measure of
+         compute resources. ECPUs are based on the number of cores
+         elastically allocated from a pool of compute and storage servers.
+          An OCPU is a legacy physical measure of compute resources. OCPUs
+         are based on the physical core of a processor with
+          hyper-threading enabled.
         """
         return pulumi.get(self, "compute_model")
 
@@ -1191,7 +1165,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter(name="cpuCount")
     def cpu_count(self) -> pulumi.Output[_builtins.int]:
         """
-        The total number of CPU cores that are allocated to the Exadata infrastructure.
+        The total number of CPU cores that are allocated to the Exadata infrastructure
         """
         return pulumi.get(self, "cpu_count")
 
@@ -1212,7 +1186,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter(name="dataStorageSizeInTbs")
     def data_storage_size_in_tbs(self) -> pulumi.Output[_builtins.float]:
         """
-        The size of the Exadata infrastructure's data disk group, in terabytes (TB).
+        The size of the Exadata infrastructure's data disk group, in terabytes (TB)
         """
         return pulumi.get(self, "data_storage_size_in_tbs")
 
@@ -1228,7 +1202,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter(name="dbNodeStorageSizeInGbs")
     def db_node_storage_size_in_gbs(self) -> pulumi.Output[_builtins.int]:
         """
-        The size of the Exadata infrastructure's local node storage, in gigabytes (GB).
+        The size of the Exadata infrastructure's local node storage, in gigabytes (GB)
         """
         return pulumi.get(self, "db_node_storage_size_in_gbs")
 
@@ -1236,7 +1210,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter(name="dbServerVersion")
     def db_server_version(self) -> pulumi.Output[_builtins.str]:
         """
-        The software version of the database servers (dom0) in the Exadata infrastructure.
+        The software version of the database servers (dom0) in the Exadata infrastructure
         """
         return pulumi.get(self, "db_server_version")
 
@@ -1249,7 +1223,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter(name="lastMaintenanceRunId")
     def last_maintenance_run_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure.
+        The Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure
         """
         return pulumi.get(self, "last_maintenance_run_id")
 
@@ -1265,7 +1239,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter(name="maxCpuCount")
     def max_cpu_count(self) -> pulumi.Output[_builtins.int]:
         """
-        The total number of CPU cores available on the Exadata infrastructure.
+        The total number of CPU cores available on the Exadata infrastructure
         """
         return pulumi.get(self, "max_cpu_count")
 
@@ -1273,7 +1247,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter(name="maxDataStorageInTbs")
     def max_data_storage_in_tbs(self) -> pulumi.Output[_builtins.float]:
         """
-        The total amount of data disk group storage, in terabytes (TB), that's available on the Exadata infrastructure.
+        The total amount of data disk group storage, in terabytes (TB), that's available on the Exadata infrastructure
         """
         return pulumi.get(self, "max_data_storage_in_tbs")
 
@@ -1281,7 +1255,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter(name="maxDbNodeStorageSizeInGbs")
     def max_db_node_storage_size_in_gbs(self) -> pulumi.Output[_builtins.int]:
         """
-        The total amount of local node storage, in gigabytes (GB), that's available on the Exadata infrastructure.
+        The total amount of local node storage, in gigabytes (GB), that's available on the Exadata infrastructure
         """
         return pulumi.get(self, "max_db_node_storage_size_in_gbs")
 
@@ -1289,7 +1263,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter(name="maxMemoryInGbs")
     def max_memory_in_gbs(self) -> pulumi.Output[_builtins.int]:
         """
-        The total amount of memory in gigabytes (GB) available on the Exadata infrastructure.
+        The total amount of memory in gigabytes (GB) available on the Exadata infrastructure
         """
         return pulumi.get(self, "max_memory_in_gbs")
 
@@ -1305,7 +1279,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter(name="monthlyDbServerVersion")
     def monthly_db_server_version(self) -> pulumi.Output[_builtins.str]:
         """
-        The monthly software version of the database servers in the Exadata infrastructure.
+        The monthly software version of the database servers in the Exadata infrastructure
         """
         return pulumi.get(self, "monthly_db_server_version")
 
@@ -1313,7 +1287,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter(name="monthlyStorageServerVersion")
     def monthly_storage_server_version(self) -> pulumi.Output[_builtins.str]:
         """
-        The monthly software version of the storage servers installed on the Exadata infrastructure.
+        The monthly software version of the storage servers installed on the Exadata infrastructure
         """
         return pulumi.get(self, "monthly_storage_server_version")
 
@@ -1321,7 +1295,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter(name="nextMaintenanceRunId")
     def next_maintenance_run_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The OCID of the next maintenance run for the Exadata infrastructure.
+        The OCID of the next maintenance run for the Exadata infrastructure
         """
         return pulumi.get(self, "next_maintenance_run_id")
 
@@ -1329,7 +1303,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter(name="ociResourceAnchorName")
     def oci_resource_anchor_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the OCI resource anchor for the Exadata infrastructure.
+        The name of the OCI resource anchor for the Exadata infrastructure
         """
         return pulumi.get(self, "oci_resource_anchor_name")
 
@@ -1345,7 +1319,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter
     def ocid(self) -> pulumi.Output[_builtins.str]:
         """
-        The OCID of the Exadata infrastructure.
+        The OCID of the Exadata infrastructure
         """
         return pulumi.get(self, "ocid")
 
@@ -1353,16 +1327,13 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter(name="percentProgress")
     def percent_progress(self) -> pulumi.Output[_builtins.float]:
         """
-        The amount of progress made on the current operation on the Exadata infrastructure, expressed as a percentage.
+        The amount of progress made on the current operation on the Exadata infrastructure, expressed as a percentage
         """
         return pulumi.get(self, "percent_progress")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
@@ -1374,7 +1345,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
         """
-        The current status of the Exadata infrastructure.
+        The current status of the Exadata infrastructure
         """
         return pulumi.get(self, "status")
 
@@ -1382,7 +1353,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter(name="statusReason")
     def status_reason(self) -> pulumi.Output[_builtins.str]:
         """
-        Additional information about the status of the Exadata infrastructure.
+        Additional information about the status of the Exadata infrastructure
         """
         return pulumi.get(self, "status_reason")
 
@@ -1413,9 +1384,6 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property

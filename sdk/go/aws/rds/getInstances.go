@@ -11,70 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for listing RDS Database Instances.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.GetInstances(ctx, &rds.GetInstancesArgs{
-//				Filters: []rds.GetInstancesFilter{
-//					{
-//						Name: "db-instance-id",
-//						Values: []string{
-//							"my-database-id",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Using tags
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.GetInstances(ctx, &rds.GetInstancesArgs{
-//				Tags: map[string]interface{}{
-//					"Env": "test",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetInstances(ctx *pulumi.Context, args *GetInstancesArgs, opts ...pulumi.InvokeOption) (*GetInstancesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetInstancesResult
@@ -87,22 +23,17 @@ func GetInstances(ctx *pulumi.Context, args *GetInstancesArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getInstances.
 type GetInstancesArgs struct {
-	// Configuration block(s) used to filter instances with AWS supported attributes, such as `engine`, `db-cluster-id` or `db-instance-id` for example. Detailed below.
 	Filters []GetInstancesFilter `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match a pair on the desired instances.
-	Tags map[string]string `pulumi:"tags"`
+	Region  *string              `pulumi:"region"`
+	Tags    map[string]string    `pulumi:"tags"`
 }
 
 // A collection of values returned by getInstances.
 type GetInstancesResult struct {
 	Filters []GetInstancesFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// ARNs of the matched RDS instances.
-	InstanceArns []string `pulumi:"instanceArns"`
-	// Identifiers of the matched RDS instances.
+	Id                  string            `pulumi:"id"`
+	InstanceArns        []string          `pulumi:"instanceArns"`
 	InstanceIdentifiers []string          `pulumi:"instanceIdentifiers"`
 	Region              string            `pulumi:"region"`
 	Tags                map[string]string `pulumi:"tags"`
@@ -119,12 +50,9 @@ func GetInstancesOutput(ctx *pulumi.Context, args GetInstancesOutputArgs, opts .
 
 // A collection of arguments for invoking getInstances.
 type GetInstancesOutputArgs struct {
-	// Configuration block(s) used to filter instances with AWS supported attributes, such as `engine`, `db-cluster-id` or `db-instance-id` for example. Detailed below.
 	Filters GetInstancesFilterArrayInput `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match a pair on the desired instances.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Region  pulumi.StringPtrInput        `pulumi:"region"`
+	Tags    pulumi.StringMapInput        `pulumi:"tags"`
 }
 
 func (GetInstancesOutputArgs) ElementType() reflect.Type {
@@ -155,12 +83,10 @@ func (o GetInstancesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstancesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// ARNs of the matched RDS instances.
 func (o GetInstancesResultOutput) InstanceArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetInstancesResult) []string { return v.InstanceArns }).(pulumi.StringArrayOutput)
 }
 
-// Identifiers of the matched RDS instances.
 func (o GetInstancesResultOutput) InstanceIdentifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetInstancesResult) []string { return v.InstanceIdentifiers }).(pulumi.StringArrayOutput)
 }

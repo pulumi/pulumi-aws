@@ -14,10 +14,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
     {
         [Input("definitions", required: true)]
         private InputList<string>? _definitions;
-
-        /// <summary>
-        /// Set of port ranges.
-        /// </summary>
         public InputList<string> Definitions
         {
             get => _definitions ?? (_definitions = new InputList<string>());

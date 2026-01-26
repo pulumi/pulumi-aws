@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Athena.Inputs
 
     public sealed class WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogTypeArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Type of worker to deliver logs to CloudWatch (for example, `SPARK_DRIVER` and `SPARK_EXECUTOR`).
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<string>? _values;
-
-        /// <summary>
-        /// List of log types to be delivered to CloudWatch (for example, `STDOUT` and `STDERR`).
-        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

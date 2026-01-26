@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WorkteamWorkerAccessConfiguration {
-    /**
-     * @return Defines any Amazon S3 resource constraints. see S3 Presign details below.
-     * 
-     */
     private @Nullable WorkteamWorkerAccessConfigurationS3Presign s3Presign;
 
     private WorkteamWorkerAccessConfiguration() {}
-    /**
-     * @return Defines any Amazon S3 resource constraints. see S3 Presign details below.
-     * 
-     */
     public Optional<WorkteamWorkerAccessConfigurationS3Presign> s3Presign() {
         return Optional.ofNullable(this.s3Presign);
     }

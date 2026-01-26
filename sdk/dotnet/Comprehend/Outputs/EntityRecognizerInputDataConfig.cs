@@ -13,40 +13,11 @@ namespace Pulumi.Aws.Comprehend.Outputs
     [OutputType]
     public sealed class EntityRecognizerInputDataConfig
     {
-        /// <summary>
-        /// Specifies location of the document annotation data.
-        /// See the `Annotations` Configuration Block section below.
-        /// One of `Annotations` or `EntityList` is required.
-        /// </summary>
         public readonly Outputs.EntityRecognizerInputDataConfigAnnotations? Annotations;
-        /// <summary>
-        /// List of training datasets produced by Amazon SageMaker AI Ground Truth.
-        /// Used if `DataFormat` is `AUGMENTED_MANIFEST`.
-        /// See the `AugmentedManifests` Configuration Block section below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.EntityRecognizerInputDataConfigAugmentedManifest> AugmentedManifests;
-        /// <summary>
-        /// The format for the training data.
-        /// One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
-        /// </summary>
         public readonly string? DataFormat;
-        /// <summary>
-        /// Specifies a collection of training documents.
-        /// Used if `DataFormat` is `COMPREHEND_CSV`.
-        /// See the `Documents` Configuration Block section below.
-        /// </summary>
         public readonly Outputs.EntityRecognizerInputDataConfigDocuments? Documents;
-        /// <summary>
-        /// Specifies location of the entity list data.
-        /// See the `EntityList` Configuration Block section below.
-        /// One of `EntityList` or `Annotations` is required.
-        /// </summary>
         public readonly Outputs.EntityRecognizerInputDataConfigEntityList? EntityList;
-        /// <summary>
-        /// Set of entity types to be recognized.
-        /// Has a maximum of 25 items.
-        /// See the `EntityTypes` Configuration Block section below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.EntityRecognizerInputDataConfigEntityType> EntityTypes;
 
         [OutputConstructor]

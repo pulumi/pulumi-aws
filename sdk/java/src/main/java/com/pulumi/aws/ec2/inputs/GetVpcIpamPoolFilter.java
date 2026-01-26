@@ -14,32 +14,16 @@ public final class GetVpcIpamPoolFilter extends com.pulumi.resources.InvokeArgs 
 
     public static final GetVpcIpamPoolFilter Empty = new GetVpcIpamPoolFilter();
 
-    /**
-     * The name of the filter. Filter names are case-sensitive.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return The name of the filter. Filter names are case-sensitive.
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * The filter values. Filter values are case-sensitive.
-     * 
-     */
     @Import(name="values", required=true)
     private List<String> values;
 
-    /**
-     * @return The filter values. Filter values are case-sensitive.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }
@@ -69,34 +53,16 @@ public final class GetVpcIpamPoolFilter extends com.pulumi.resources.InvokeArgs 
             $ = new GetVpcIpamPoolFilter(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of the filter. Filter names are case-sensitive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param values The filter values. Filter values are case-sensitive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values The filter values. Filter values are case-sensitive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

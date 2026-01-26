@@ -14,25 +14,15 @@ namespace Pulumi.Aws.VerifiedPermissions.Inputs
     {
         [Input("clientIds")]
         private InputList<string>? _clientIds;
-
-        /// <summary>
-        /// The unique application client IDs that are associated with the specified Amazon Cognito user pool.
-        /// </summary>
         public InputList<string> ClientIds
         {
             get => _clientIds ?? (_clientIds = new InputList<string>());
             set => _clientIds = value;
         }
 
-        /// <summary>
-        /// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
-        /// </summary>
         [Input("groupConfiguration")]
         public Input<Inputs.IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs>? GroupConfiguration { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
-        /// </summary>
         [Input("userPoolArn", required: true)]
         public Input<string> UserPoolArn { get; set; } = null!;
 

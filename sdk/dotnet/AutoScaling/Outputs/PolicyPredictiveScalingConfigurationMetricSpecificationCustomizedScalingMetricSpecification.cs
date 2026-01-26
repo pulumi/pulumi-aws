@@ -13,9 +13,6 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     [OutputType]
     public sealed class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification
     {
-        /// <summary>
-        /// List of up to 10 structures that defines custom scaling metric in predictive scaling policy
-        /// </summary>
         public readonly ImmutableArray<Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery> MetricDataQueries;
 
         [OutputConstructor]

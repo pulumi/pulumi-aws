@@ -17,140 +17,50 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirehoseDeliveryStreamSplunkConfiguration {
-    /**
-     * @return Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
-     * 
-     */
     private @Nullable Integer bufferingInterval;
-    /**
-     * @return Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
-     * 
-     */
     private @Nullable Integer bufferingSize;
-    /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
-     * 
-     */
     private @Nullable FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
-    /**
-     * @return The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
-     * 
-     */
     private @Nullable Integer hecAcknowledgmentTimeout;
-    /**
-     * @return The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
-     * 
-     */
     private String hecEndpoint;
-    /**
-     * @return The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
-     * 
-     */
     private @Nullable String hecEndpointType;
-    /**
-     * @return The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secretsManagerConfiguration` is not provided.
-     * 
-     */
     private @Nullable String hecToken;
-    /**
-     * @return The data processing configuration.  See `processingConfiguration` block below for details.
-     * 
-     */
     private @Nullable FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration processingConfiguration;
-    /**
-     * @return After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
-     * 
-     */
     private @Nullable Integer retryDuration;
-    /**
-     * @return Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
-     * `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `hecToken` is not provided.
-     * 
-     */
     private @Nullable String s3BackupMode;
-    /**
-     * @return The S3 Configuration. See `s3Configuration` block below for details.
-     * 
-     */
     private FirehoseDeliveryStreamSplunkConfigurationS3Configuration s3Configuration;
     private @Nullable FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration secretsManagerConfiguration;
 
     private FirehoseDeliveryStreamSplunkConfiguration() {}
-    /**
-     * @return Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
-     * 
-     */
     public Optional<Integer> bufferingInterval() {
         return Optional.ofNullable(this.bufferingInterval);
     }
-    /**
-     * @return Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
-     * 
-     */
     public Optional<Integer> bufferingSize() {
         return Optional.ofNullable(this.bufferingSize);
     }
-    /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
-     * 
-     */
     public Optional<FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {
         return Optional.ofNullable(this.cloudwatchLoggingOptions);
     }
-    /**
-     * @return The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
-     * 
-     */
     public Optional<Integer> hecAcknowledgmentTimeout() {
         return Optional.ofNullable(this.hecAcknowledgmentTimeout);
     }
-    /**
-     * @return The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
-     * 
-     */
     public String hecEndpoint() {
         return this.hecEndpoint;
     }
-    /**
-     * @return The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
-     * 
-     */
     public Optional<String> hecEndpointType() {
         return Optional.ofNullable(this.hecEndpointType);
     }
-    /**
-     * @return The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secretsManagerConfiguration` is not provided.
-     * 
-     */
     public Optional<String> hecToken() {
         return Optional.ofNullable(this.hecToken);
     }
-    /**
-     * @return The data processing configuration.  See `processingConfiguration` block below for details.
-     * 
-     */
     public Optional<FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration> processingConfiguration() {
         return Optional.ofNullable(this.processingConfiguration);
     }
-    /**
-     * @return After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
-     * 
-     */
     public Optional<Integer> retryDuration() {
         return Optional.ofNullable(this.retryDuration);
     }
-    /**
-     * @return Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
-     * `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `hecToken` is not provided.
-     * 
-     */
     public Optional<String> s3BackupMode() {
         return Optional.ofNullable(this.s3BackupMode);
     }
-    /**
-     * @return The S3 Configuration. See `s3Configuration` block below for details.
-     * 
-     */
     public FirehoseDeliveryStreamSplunkConfigurationS3Configuration s3Configuration() {
         return this.s3Configuration;
     }

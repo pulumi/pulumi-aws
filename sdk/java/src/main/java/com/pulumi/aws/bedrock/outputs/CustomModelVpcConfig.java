@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class CustomModelVpcConfig {
-    /**
-     * @return VPC configuration security group IDs.
-     * 
-     */
     private List<String> securityGroupIds;
-    /**
-     * @return VPC configuration subnets.
-     * 
-     */
     private List<String> subnetIds;
 
     private CustomModelVpcConfig() {}
-    /**
-     * @return VPC configuration security group IDs.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds;
     }
-    /**
-     * @return VPC configuration subnets.
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }

@@ -16,65 +16,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecification {
-    /**
-     * @return Whether the user can interrupt a speech prompt attempt from the bot.
-     * 
-     */
     private @Nullable Boolean allowInterrupt;
-    /**
-     * @return Configuration block for the allowed input types of the prompt attempt. See `allowedInputTypes`.
-     * 
-     */
     private V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes allowedInputTypes;
-    /**
-     * @return Configuration block for settings on audio and DTMF input. See `audioAndDtmfInputSpecification`.
-     * 
-     */
     private @Nullable V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification audioAndDtmfInputSpecification;
-    /**
-     * @return Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-     * 
-     */
     private String mapBlockKey;
-    /**
-     * @return Configuration block for the settings on text input. See `textInputSpecification`.
-     * 
-     */
     private @Nullable V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification textInputSpecification;
 
     private V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecification() {}
-    /**
-     * @return Whether the user can interrupt a speech prompt attempt from the bot.
-     * 
-     */
     public Optional<Boolean> allowInterrupt() {
         return Optional.ofNullable(this.allowInterrupt);
     }
-    /**
-     * @return Configuration block for the allowed input types of the prompt attempt. See `allowedInputTypes`.
-     * 
-     */
     public V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes allowedInputTypes() {
         return this.allowedInputTypes;
     }
-    /**
-     * @return Configuration block for settings on audio and DTMF input. See `audioAndDtmfInputSpecification`.
-     * 
-     */
     public Optional<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification> audioAndDtmfInputSpecification() {
         return Optional.ofNullable(this.audioAndDtmfInputSpecification);
     }
-    /**
-     * @return Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-     * 
-     */
     public String mapBlockKey() {
         return this.mapBlockKey;
     }
-    /**
-     * @return Configuration block for the settings on text input. See `textInputSpecification`.
-     * 
-     */
     public Optional<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification> textInputSpecification() {
         return Optional.ofNullable(this.textInputSpecification);
     }

@@ -12,218 +12,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CloudWatch Evidently Feature resource.
-//
-// > **Warning:** This resource is deprecated. Use [AWS AppConfig feature flags](https://aws.amazon.com/blogs/mt/using-aws-appconfig-feature-flags/) instead.
-//
-// ## Example Usage
-//
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/evidently"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := evidently.NewFeature(ctx, "example", &evidently.FeatureArgs{
-//				Name:        pulumi.String("example"),
-//				Project:     pulumi.Any(exampleAwsEvidentlyProject.Name),
-//				Description: pulumi.String("example description"),
-//				Variations: evidently.FeatureVariationArray{
-//					&evidently.FeatureVariationArgs{
-//						Name: pulumi.String("Variation1"),
-//						Value: &evidently.FeatureVariationValueArgs{
-//							StringValue: pulumi.String("example"),
-//						},
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Key1": pulumi.String("example Feature"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With default variation
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/evidently"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := evidently.NewFeature(ctx, "example", &evidently.FeatureArgs{
-//				Name:             pulumi.String("example"),
-//				Project:          pulumi.Any(exampleAwsEvidentlyProject.Name),
-//				DefaultVariation: pulumi.String("Variation2"),
-//				Variations: evidently.FeatureVariationArray{
-//					&evidently.FeatureVariationArgs{
-//						Name: pulumi.String("Variation1"),
-//						Value: &evidently.FeatureVariationValueArgs{
-//							StringValue: pulumi.String("exampleval1"),
-//						},
-//					},
-//					&evidently.FeatureVariationArgs{
-//						Name: pulumi.String("Variation2"),
-//						Value: &evidently.FeatureVariationValueArgs{
-//							StringValue: pulumi.String("exampleval2"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With entity overrides
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/evidently"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := evidently.NewFeature(ctx, "example", &evidently.FeatureArgs{
-//				Name:    pulumi.String("example"),
-//				Project: pulumi.Any(exampleAwsEvidentlyProject.Name),
-//				EntityOverrides: pulumi.StringMap{
-//					"test1": pulumi.String("Variation1"),
-//				},
-//				Variations: evidently.FeatureVariationArray{
-//					&evidently.FeatureVariationArgs{
-//						Name: pulumi.String("Variation1"),
-//						Value: &evidently.FeatureVariationValueArgs{
-//							StringValue: pulumi.String("exampleval1"),
-//						},
-//					},
-//					&evidently.FeatureVariationArgs{
-//						Name: pulumi.String("Variation2"),
-//						Value: &evidently.FeatureVariationValueArgs{
-//							StringValue: pulumi.String("exampleval2"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With evaluation strategy
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/evidently"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := evidently.NewFeature(ctx, "example", &evidently.FeatureArgs{
-//				Name:               pulumi.String("example"),
-//				Project:            pulumi.Any(exampleAwsEvidentlyProject.Name),
-//				EvaluationStrategy: pulumi.String("ALL_RULES"),
-//				EntityOverrides: pulumi.StringMap{
-//					"test1": pulumi.String("Variation1"),
-//				},
-//				Variations: evidently.FeatureVariationArray{
-//					&evidently.FeatureVariationArgs{
-//						Name: pulumi.String("Variation1"),
-//						Value: &evidently.FeatureVariationValueArgs{
-//							StringValue: pulumi.String("exampleval1"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CloudWatch Evidently Feature using the feature `name` and `name` or `arn` of the hosting CloudWatch Evidently Project separated by a `:`. For example:
-//
-// ```sh
-// $ pulumi import aws:evidently/feature:Feature example exampleFeatureName:arn:aws:evidently:us-east-1:123456789012:project/example
-// ```
 type Feature struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the feature.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The date and time that the feature is created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `defaultVariation`, the first variation listed in the `variations` structure is used as the default variation.
-	DefaultVariation pulumi.StringOutput `pulumi:"defaultVariation"`
-	// Specifies the description of the feature.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
-	EntityOverrides pulumi.StringMapOutput `pulumi:"entityOverrides"`
-	// One or more blocks that define the evaluation rules for the feature. Detailed below
-	EvaluationRules FeatureEvaluationRuleArrayOutput `pulumi:"evaluationRules"`
-	// Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
-	EvaluationStrategy pulumi.StringOutput `pulumi:"evaluationStrategy"`
-	// The date and time that the feature was most recently updated.
-	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
-	// The name for the new feature. Minimum length of `1`. Maximum length of `127`.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The name or ARN of the project that is to contain the new feature.
-	Project pulumi.StringOutput `pulumi:"project"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The current state of the feature. Valid values are `AVAILABLE` and `UPDATING`.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Tags to apply to the feature. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Defines the type of value used to define the different feature variations. Valid Values: `STRING`, `LONG`, `DOUBLE`, `BOOLEAN`.
-	ValueType pulumi.StringOutput `pulumi:"valueType"`
-	// One or more blocks that contain the configuration of the feature's different variations. Detailed below
-	Variations FeatureVariationArrayOutput `pulumi:"variations"`
+	Arn                pulumi.StringOutput              `pulumi:"arn"`
+	CreatedTime        pulumi.StringOutput              `pulumi:"createdTime"`
+	DefaultVariation   pulumi.StringOutput              `pulumi:"defaultVariation"`
+	Description        pulumi.StringPtrOutput           `pulumi:"description"`
+	EntityOverrides    pulumi.StringMapOutput           `pulumi:"entityOverrides"`
+	EvaluationRules    FeatureEvaluationRuleArrayOutput `pulumi:"evaluationRules"`
+	EvaluationStrategy pulumi.StringOutput              `pulumi:"evaluationStrategy"`
+	LastUpdatedTime    pulumi.StringOutput              `pulumi:"lastUpdatedTime"`
+	Name               pulumi.StringOutput              `pulumi:"name"`
+	Project            pulumi.StringOutput              `pulumi:"project"`
+	Region             pulumi.StringOutput              `pulumi:"region"`
+	Status             pulumi.StringOutput              `pulumi:"status"`
+	Tags               pulumi.StringMapOutput           `pulumi:"tags"`
+	TagsAll            pulumi.StringMapOutput           `pulumi:"tagsAll"`
+	ValueType          pulumi.StringOutput              `pulumi:"valueType"`
+	Variations         FeatureVariationArrayOutput      `pulumi:"variations"`
 }
 
 // NewFeature registers a new resource with the given unique name, arguments, and options.
@@ -262,73 +69,41 @@ func GetFeature(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Feature resources.
 type featureState struct {
-	// The ARN of the feature.
-	Arn *string `pulumi:"arn"`
-	// The date and time that the feature is created.
-	CreatedTime *string `pulumi:"createdTime"`
-	// The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `defaultVariation`, the first variation listed in the `variations` structure is used as the default variation.
-	DefaultVariation *string `pulumi:"defaultVariation"`
-	// Specifies the description of the feature.
-	Description *string `pulumi:"description"`
-	// Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
-	EntityOverrides map[string]string `pulumi:"entityOverrides"`
-	// One or more blocks that define the evaluation rules for the feature. Detailed below
-	EvaluationRules []FeatureEvaluationRule `pulumi:"evaluationRules"`
-	// Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
-	EvaluationStrategy *string `pulumi:"evaluationStrategy"`
-	// The date and time that the feature was most recently updated.
-	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	// The name for the new feature. Minimum length of `1`. Maximum length of `127`.
-	Name *string `pulumi:"name"`
-	// The name or ARN of the project that is to contain the new feature.
-	Project *string `pulumi:"project"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The current state of the feature. Valid values are `AVAILABLE` and `UPDATING`.
-	Status *string `pulumi:"status"`
-	// Tags to apply to the feature. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Defines the type of value used to define the different feature variations. Valid Values: `STRING`, `LONG`, `DOUBLE`, `BOOLEAN`.
-	ValueType *string `pulumi:"valueType"`
-	// One or more blocks that contain the configuration of the feature's different variations. Detailed below
-	Variations []FeatureVariation `pulumi:"variations"`
+	Arn                *string                 `pulumi:"arn"`
+	CreatedTime        *string                 `pulumi:"createdTime"`
+	DefaultVariation   *string                 `pulumi:"defaultVariation"`
+	Description        *string                 `pulumi:"description"`
+	EntityOverrides    map[string]string       `pulumi:"entityOverrides"`
+	EvaluationRules    []FeatureEvaluationRule `pulumi:"evaluationRules"`
+	EvaluationStrategy *string                 `pulumi:"evaluationStrategy"`
+	LastUpdatedTime    *string                 `pulumi:"lastUpdatedTime"`
+	Name               *string                 `pulumi:"name"`
+	Project            *string                 `pulumi:"project"`
+	Region             *string                 `pulumi:"region"`
+	Status             *string                 `pulumi:"status"`
+	Tags               map[string]string       `pulumi:"tags"`
+	TagsAll            map[string]string       `pulumi:"tagsAll"`
+	ValueType          *string                 `pulumi:"valueType"`
+	Variations         []FeatureVariation      `pulumi:"variations"`
 }
 
 type FeatureState struct {
-	// The ARN of the feature.
-	Arn pulumi.StringPtrInput
-	// The date and time that the feature is created.
-	CreatedTime pulumi.StringPtrInput
-	// The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `defaultVariation`, the first variation listed in the `variations` structure is used as the default variation.
-	DefaultVariation pulumi.StringPtrInput
-	// Specifies the description of the feature.
-	Description pulumi.StringPtrInput
-	// Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
-	EntityOverrides pulumi.StringMapInput
-	// One or more blocks that define the evaluation rules for the feature. Detailed below
-	EvaluationRules FeatureEvaluationRuleArrayInput
-	// Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
+	Arn                pulumi.StringPtrInput
+	CreatedTime        pulumi.StringPtrInput
+	DefaultVariation   pulumi.StringPtrInput
+	Description        pulumi.StringPtrInput
+	EntityOverrides    pulumi.StringMapInput
+	EvaluationRules    FeatureEvaluationRuleArrayInput
 	EvaluationStrategy pulumi.StringPtrInput
-	// The date and time that the feature was most recently updated.
-	LastUpdatedTime pulumi.StringPtrInput
-	// The name for the new feature. Minimum length of `1`. Maximum length of `127`.
-	Name pulumi.StringPtrInput
-	// The name or ARN of the project that is to contain the new feature.
-	Project pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The current state of the feature. Valid values are `AVAILABLE` and `UPDATING`.
-	Status pulumi.StringPtrInput
-	// Tags to apply to the feature. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Defines the type of value used to define the different feature variations. Valid Values: `STRING`, `LONG`, `DOUBLE`, `BOOLEAN`.
-	ValueType pulumi.StringPtrInput
-	// One or more blocks that contain the configuration of the feature's different variations. Detailed below
-	Variations FeatureVariationArrayInput
+	LastUpdatedTime    pulumi.StringPtrInput
+	Name               pulumi.StringPtrInput
+	Project            pulumi.StringPtrInput
+	Region             pulumi.StringPtrInput
+	Status             pulumi.StringPtrInput
+	Tags               pulumi.StringMapInput
+	TagsAll            pulumi.StringMapInput
+	ValueType          pulumi.StringPtrInput
+	Variations         FeatureVariationArrayInput
 }
 
 func (FeatureState) ElementType() reflect.Type {
@@ -336,46 +111,28 @@ func (FeatureState) ElementType() reflect.Type {
 }
 
 type featureArgs struct {
-	// The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `defaultVariation`, the first variation listed in the `variations` structure is used as the default variation.
-	DefaultVariation *string `pulumi:"defaultVariation"`
-	// Specifies the description of the feature.
-	Description *string `pulumi:"description"`
-	// Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
-	EntityOverrides map[string]string `pulumi:"entityOverrides"`
-	// Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
-	EvaluationStrategy *string `pulumi:"evaluationStrategy"`
-	// The name for the new feature. Minimum length of `1`. Maximum length of `127`.
-	Name *string `pulumi:"name"`
-	// The name or ARN of the project that is to contain the new feature.
-	Project string `pulumi:"project"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Tags to apply to the feature. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// One or more blocks that contain the configuration of the feature's different variations. Detailed below
-	Variations []FeatureVariation `pulumi:"variations"`
+	DefaultVariation   *string            `pulumi:"defaultVariation"`
+	Description        *string            `pulumi:"description"`
+	EntityOverrides    map[string]string  `pulumi:"entityOverrides"`
+	EvaluationStrategy *string            `pulumi:"evaluationStrategy"`
+	Name               *string            `pulumi:"name"`
+	Project            string             `pulumi:"project"`
+	Region             *string            `pulumi:"region"`
+	Tags               map[string]string  `pulumi:"tags"`
+	Variations         []FeatureVariation `pulumi:"variations"`
 }
 
 // The set of arguments for constructing a Feature resource.
 type FeatureArgs struct {
-	// The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `defaultVariation`, the first variation listed in the `variations` structure is used as the default variation.
-	DefaultVariation pulumi.StringPtrInput
-	// Specifies the description of the feature.
-	Description pulumi.StringPtrInput
-	// Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
-	EntityOverrides pulumi.StringMapInput
-	// Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
+	DefaultVariation   pulumi.StringPtrInput
+	Description        pulumi.StringPtrInput
+	EntityOverrides    pulumi.StringMapInput
 	EvaluationStrategy pulumi.StringPtrInput
-	// The name for the new feature. Minimum length of `1`. Maximum length of `127`.
-	Name pulumi.StringPtrInput
-	// The name or ARN of the project that is to contain the new feature.
-	Project pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Tags to apply to the feature. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// One or more blocks that contain the configuration of the feature's different variations. Detailed below
-	Variations FeatureVariationArrayInput
+	Name               pulumi.StringPtrInput
+	Project            pulumi.StringInput
+	Region             pulumi.StringPtrInput
+	Tags               pulumi.StringMapInput
+	Variations         FeatureVariationArrayInput
 }
 
 func (FeatureArgs) ElementType() reflect.Type {
@@ -465,82 +222,66 @@ func (o FeatureOutput) ToFeatureOutputWithContext(ctx context.Context) FeatureOu
 	return o
 }
 
-// The ARN of the feature.
 func (o FeatureOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Feature) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The date and time that the feature is created.
 func (o FeatureOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Feature) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `defaultVariation`, the first variation listed in the `variations` structure is used as the default variation.
 func (o FeatureOutput) DefaultVariation() pulumi.StringOutput {
 	return o.ApplyT(func(v *Feature) pulumi.StringOutput { return v.DefaultVariation }).(pulumi.StringOutput)
 }
 
-// Specifies the description of the feature.
 func (o FeatureOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Feature) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
 func (o FeatureOutput) EntityOverrides() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Feature) pulumi.StringMapOutput { return v.EntityOverrides }).(pulumi.StringMapOutput)
 }
 
-// One or more blocks that define the evaluation rules for the feature. Detailed below
 func (o FeatureOutput) EvaluationRules() FeatureEvaluationRuleArrayOutput {
 	return o.ApplyT(func(v *Feature) FeatureEvaluationRuleArrayOutput { return v.EvaluationRules }).(FeatureEvaluationRuleArrayOutput)
 }
 
-// Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
 func (o FeatureOutput) EvaluationStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Feature) pulumi.StringOutput { return v.EvaluationStrategy }).(pulumi.StringOutput)
 }
 
-// The date and time that the feature was most recently updated.
 func (o FeatureOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Feature) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
 }
 
-// The name for the new feature. Minimum length of `1`. Maximum length of `127`.
 func (o FeatureOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Feature) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name or ARN of the project that is to contain the new feature.
 func (o FeatureOutput) Project() pulumi.StringOutput {
 	return o.ApplyT(func(v *Feature) pulumi.StringOutput { return v.Project }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o FeatureOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Feature) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The current state of the feature. Valid values are `AVAILABLE` and `UPDATING`.
 func (o FeatureOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Feature) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Tags to apply to the feature. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o FeatureOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Feature) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o FeatureOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Feature) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Defines the type of value used to define the different feature variations. Valid Values: `STRING`, `LONG`, `DOUBLE`, `BOOLEAN`.
 func (o FeatureOutput) ValueType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Feature) pulumi.StringOutput { return v.ValueType }).(pulumi.StringOutput)
 }
 
-// One or more blocks that contain the configuration of the feature's different variations. Detailed below
 func (o FeatureOutput) Variations() FeatureVariationArrayOutput {
 	return o.ApplyT(func(v *Feature) FeatureVariationArrayOutput { return v.Variations }).(FeatureVariationArrayOutput)
 }

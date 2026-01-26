@@ -15,41 +15,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FrameworkControl {
-    /**
-     * @return One or more input parameter blocks. An example of a control with two parameters is: &#34;backup plan frequency is at least daily and the retention period is at least 1 year&#34;. The first parameter is daily. The second parameter is 1 year. Detailed below.
-     * 
-     */
     private @Nullable List<FrameworkControlInputParameter> inputParameters;
-    /**
-     * @return The name of a control. This name is between 1 and 256 characters.
-     * 
-     */
     private String name;
-    /**
-     * @return The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
-     * 
-     */
     private @Nullable FrameworkControlScope scope;
 
     private FrameworkControl() {}
-    /**
-     * @return One or more input parameter blocks. An example of a control with two parameters is: &#34;backup plan frequency is at least daily and the retention period is at least 1 year&#34;. The first parameter is daily. The second parameter is 1 year. Detailed below.
-     * 
-     */
     public List<FrameworkControlInputParameter> inputParameters() {
         return this.inputParameters == null ? List.of() : this.inputParameters;
     }
-    /**
-     * @return The name of a control. This name is between 1 and 256 characters.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
-     * 
-     */
     public Optional<FrameworkControlScope> scope() {
         return Optional.ofNullable(this.scope);
     }

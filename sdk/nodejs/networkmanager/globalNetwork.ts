@@ -4,28 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Network Manager Global Network.
- *
- * Use this resource to create and manage a global network, which is a single private network that acts as the high-level container for your network objects.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkmanager.GlobalNetwork("example", {description: "example"});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_networkmanager_global_network` using the global network ID. For example:
- *
- * ```sh
- * $ pulumi import aws:networkmanager/globalNetwork:GlobalNetwork example global-network-0d47f6t230mz46dy4
- * ```
- */
 export class GlobalNetwork extends pulumi.CustomResource {
     /**
      * Get an existing GlobalNetwork resource's state with the given name, ID, and optional extra
@@ -54,21 +32,9 @@ export class GlobalNetwork extends pulumi.CustomResource {
         return obj['__pulumiType'] === GlobalNetwork.__pulumiType;
     }
 
-    /**
-     * Global Network ARN.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Description of the Global Network.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Key-value tags for the Global Network. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -104,21 +70,9 @@ export class GlobalNetwork extends pulumi.CustomResource {
  * Input properties used for looking up and filtering GlobalNetwork resources.
  */
 export interface GlobalNetworkState {
-    /**
-     * Global Network ARN.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Description of the Global Network.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Key-value tags for the Global Network. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -126,12 +80,6 @@ export interface GlobalNetworkState {
  * The set of arguments for constructing a GlobalNetwork resource.
  */
 export interface GlobalNetworkArgs {
-    /**
-     * Description of the Global Network.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Key-value tags for the Global Network. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

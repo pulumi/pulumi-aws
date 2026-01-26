@@ -14,17 +14,9 @@ public final class GetOrganizationalUnitDescendantAccountsArgs extends com.pulum
 
     public static final GetOrganizationalUnitDescendantAccountsArgs Empty = new GetOrganizationalUnitDescendantAccountsArgs();
 
-    /**
-     * The parent ID of the accounts.
-     * 
-     */
     @Import(name="parentId", required=true)
     private Output<String> parentId;
 
-    /**
-     * @return The parent ID of the accounts.
-     * 
-     */
     public Output<String> parentId() {
         return this.parentId;
     }
@@ -53,23 +45,11 @@ public final class GetOrganizationalUnitDescendantAccountsArgs extends com.pulum
             $ = new GetOrganizationalUnitDescendantAccountsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param parentId The parent ID of the accounts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parentId(Output<String> parentId) {
             $.parentId = parentId;
             return this;
         }
 
-        /**
-         * @param parentId The parent ID of the accounts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parentId(String parentId) {
             return parentId(Output.of(parentId));
         }

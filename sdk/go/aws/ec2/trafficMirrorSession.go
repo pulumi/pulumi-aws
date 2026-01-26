@@ -12,90 +12,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Traffic mirror session.\
-// Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
-//
-// ## Example Usage
-//
-// # To create a basic traffic mirror session
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			filter, err := ec2.NewTrafficMirrorFilter(ctx, "filter", &ec2.TrafficMirrorFilterArgs{
-//				Description: pulumi.String("traffic mirror filter - example"),
-//				NetworkServices: pulumi.StringArray{
-//					pulumi.String("amazon-dns"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			target, err := ec2.NewTrafficMirrorTarget(ctx, "target", &ec2.TrafficMirrorTargetArgs{
-//				NetworkLoadBalancerArn: pulumi.Any(lb.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewTrafficMirrorSession(ctx, "session", &ec2.TrafficMirrorSessionArgs{
-//				Description:           pulumi.String("traffic mirror session - example"),
-//				NetworkInterfaceId:    pulumi.Any(test.PrimaryNetworkInterfaceId),
-//				SessionNumber:         pulumi.Int(1),
-//				TrafficMirrorFilterId: filter.ID(),
-//				TrafficMirrorTargetId: target.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import traffic mirror sessions using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e
-// ```
 type TrafficMirrorSession struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the traffic mirror session.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A description of the traffic mirror session.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// ID of the source network interface. Not all network interfaces are eligible as mirror sources. On EC2 instances only nitro based instances support mirroring.
-	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
-	// The AWS account ID of the session owner.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
-	PacketLength pulumi.IntOutput `pulumi:"packetLength"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
-	SessionNumber pulumi.IntOutput `pulumi:"sessionNumber"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// ID of the traffic mirror filter to be used
-	TrafficMirrorFilterId pulumi.StringOutput `pulumi:"trafficMirrorFilterId"`
-	// ID of the traffic mirror target to be used
-	TrafficMirrorTargetId pulumi.StringOutput `pulumi:"trafficMirrorTargetId"`
-	// The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
-	VirtualNetworkId pulumi.IntOutput `pulumi:"virtualNetworkId"`
+	Arn                   pulumi.StringOutput    `pulumi:"arn"`
+	Description           pulumi.StringPtrOutput `pulumi:"description"`
+	NetworkInterfaceId    pulumi.StringOutput    `pulumi:"networkInterfaceId"`
+	OwnerId               pulumi.StringOutput    `pulumi:"ownerId"`
+	PacketLength          pulumi.IntOutput       `pulumi:"packetLength"`
+	Region                pulumi.StringOutput    `pulumi:"region"`
+	SessionNumber         pulumi.IntOutput       `pulumi:"sessionNumber"`
+	Tags                  pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll               pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TrafficMirrorFilterId pulumi.StringOutput    `pulumi:"trafficMirrorFilterId"`
+	TrafficMirrorTargetId pulumi.StringOutput    `pulumi:"trafficMirrorTargetId"`
+	VirtualNetworkId      pulumi.IntOutput       `pulumi:"virtualNetworkId"`
 }
 
 // NewTrafficMirrorSession registers a new resource with the given unique name, arguments, and options.
@@ -140,57 +71,33 @@ func GetTrafficMirrorSession(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TrafficMirrorSession resources.
 type trafficMirrorSessionState struct {
-	// The ARN of the traffic mirror session.
-	Arn *string `pulumi:"arn"`
-	// A description of the traffic mirror session.
-	Description *string `pulumi:"description"`
-	// ID of the source network interface. Not all network interfaces are eligible as mirror sources. On EC2 instances only nitro based instances support mirroring.
-	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
-	// The AWS account ID of the session owner.
-	OwnerId *string `pulumi:"ownerId"`
-	// The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
-	PacketLength *int `pulumi:"packetLength"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
-	SessionNumber *int `pulumi:"sessionNumber"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// ID of the traffic mirror filter to be used
-	TrafficMirrorFilterId *string `pulumi:"trafficMirrorFilterId"`
-	// ID of the traffic mirror target to be used
-	TrafficMirrorTargetId *string `pulumi:"trafficMirrorTargetId"`
-	// The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
-	VirtualNetworkId *int `pulumi:"virtualNetworkId"`
+	Arn                   *string           `pulumi:"arn"`
+	Description           *string           `pulumi:"description"`
+	NetworkInterfaceId    *string           `pulumi:"networkInterfaceId"`
+	OwnerId               *string           `pulumi:"ownerId"`
+	PacketLength          *int              `pulumi:"packetLength"`
+	Region                *string           `pulumi:"region"`
+	SessionNumber         *int              `pulumi:"sessionNumber"`
+	Tags                  map[string]string `pulumi:"tags"`
+	TagsAll               map[string]string `pulumi:"tagsAll"`
+	TrafficMirrorFilterId *string           `pulumi:"trafficMirrorFilterId"`
+	TrafficMirrorTargetId *string           `pulumi:"trafficMirrorTargetId"`
+	VirtualNetworkId      *int              `pulumi:"virtualNetworkId"`
 }
 
 type TrafficMirrorSessionState struct {
-	// The ARN of the traffic mirror session.
-	Arn pulumi.StringPtrInput
-	// A description of the traffic mirror session.
-	Description pulumi.StringPtrInput
-	// ID of the source network interface. Not all network interfaces are eligible as mirror sources. On EC2 instances only nitro based instances support mirroring.
-	NetworkInterfaceId pulumi.StringPtrInput
-	// The AWS account ID of the session owner.
-	OwnerId pulumi.StringPtrInput
-	// The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
-	PacketLength pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
-	SessionNumber pulumi.IntPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// ID of the traffic mirror filter to be used
+	Arn                   pulumi.StringPtrInput
+	Description           pulumi.StringPtrInput
+	NetworkInterfaceId    pulumi.StringPtrInput
+	OwnerId               pulumi.StringPtrInput
+	PacketLength          pulumi.IntPtrInput
+	Region                pulumi.StringPtrInput
+	SessionNumber         pulumi.IntPtrInput
+	Tags                  pulumi.StringMapInput
+	TagsAll               pulumi.StringMapInput
 	TrafficMirrorFilterId pulumi.StringPtrInput
-	// ID of the traffic mirror target to be used
 	TrafficMirrorTargetId pulumi.StringPtrInput
-	// The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
-	VirtualNetworkId pulumi.IntPtrInput
+	VirtualNetworkId      pulumi.IntPtrInput
 }
 
 func (TrafficMirrorSessionState) ElementType() reflect.Type {
@@ -198,46 +105,28 @@ func (TrafficMirrorSessionState) ElementType() reflect.Type {
 }
 
 type trafficMirrorSessionArgs struct {
-	// A description of the traffic mirror session.
-	Description *string `pulumi:"description"`
-	// ID of the source network interface. Not all network interfaces are eligible as mirror sources. On EC2 instances only nitro based instances support mirroring.
-	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
-	// The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
-	PacketLength *int `pulumi:"packetLength"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
-	SessionNumber int `pulumi:"sessionNumber"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// ID of the traffic mirror filter to be used
-	TrafficMirrorFilterId string `pulumi:"trafficMirrorFilterId"`
-	// ID of the traffic mirror target to be used
-	TrafficMirrorTargetId string `pulumi:"trafficMirrorTargetId"`
-	// The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
-	VirtualNetworkId *int `pulumi:"virtualNetworkId"`
+	Description           *string           `pulumi:"description"`
+	NetworkInterfaceId    string            `pulumi:"networkInterfaceId"`
+	PacketLength          *int              `pulumi:"packetLength"`
+	Region                *string           `pulumi:"region"`
+	SessionNumber         int               `pulumi:"sessionNumber"`
+	Tags                  map[string]string `pulumi:"tags"`
+	TrafficMirrorFilterId string            `pulumi:"trafficMirrorFilterId"`
+	TrafficMirrorTargetId string            `pulumi:"trafficMirrorTargetId"`
+	VirtualNetworkId      *int              `pulumi:"virtualNetworkId"`
 }
 
 // The set of arguments for constructing a TrafficMirrorSession resource.
 type TrafficMirrorSessionArgs struct {
-	// A description of the traffic mirror session.
-	Description pulumi.StringPtrInput
-	// ID of the source network interface. Not all network interfaces are eligible as mirror sources. On EC2 instances only nitro based instances support mirroring.
-	NetworkInterfaceId pulumi.StringInput
-	// The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
-	PacketLength pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
-	SessionNumber pulumi.IntInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// ID of the traffic mirror filter to be used
+	Description           pulumi.StringPtrInput
+	NetworkInterfaceId    pulumi.StringInput
+	PacketLength          pulumi.IntPtrInput
+	Region                pulumi.StringPtrInput
+	SessionNumber         pulumi.IntInput
+	Tags                  pulumi.StringMapInput
 	TrafficMirrorFilterId pulumi.StringInput
-	// ID of the traffic mirror target to be used
 	TrafficMirrorTargetId pulumi.StringInput
-	// The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
-	VirtualNetworkId pulumi.IntPtrInput
+	VirtualNetworkId      pulumi.IntPtrInput
 }
 
 func (TrafficMirrorSessionArgs) ElementType() reflect.Type {
@@ -327,62 +216,50 @@ func (o TrafficMirrorSessionOutput) ToTrafficMirrorSessionOutputWithContext(ctx 
 	return o
 }
 
-// The ARN of the traffic mirror session.
 func (o TrafficMirrorSessionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrafficMirrorSession) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A description of the traffic mirror session.
 func (o TrafficMirrorSessionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrafficMirrorSession) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// ID of the source network interface. Not all network interfaces are eligible as mirror sources. On EC2 instances only nitro based instances support mirroring.
 func (o TrafficMirrorSessionOutput) NetworkInterfaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrafficMirrorSession) pulumi.StringOutput { return v.NetworkInterfaceId }).(pulumi.StringOutput)
 }
 
-// The AWS account ID of the session owner.
 func (o TrafficMirrorSessionOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrafficMirrorSession) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
 func (o TrafficMirrorSessionOutput) PacketLength() pulumi.IntOutput {
 	return o.ApplyT(func(v *TrafficMirrorSession) pulumi.IntOutput { return v.PacketLength }).(pulumi.IntOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TrafficMirrorSessionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrafficMirrorSession) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
 func (o TrafficMirrorSessionOutput) SessionNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v *TrafficMirrorSession) pulumi.IntOutput { return v.SessionNumber }).(pulumi.IntOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o TrafficMirrorSessionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TrafficMirrorSession) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o TrafficMirrorSessionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TrafficMirrorSession) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// ID of the traffic mirror filter to be used
 func (o TrafficMirrorSessionOutput) TrafficMirrorFilterId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrafficMirrorSession) pulumi.StringOutput { return v.TrafficMirrorFilterId }).(pulumi.StringOutput)
 }
 
-// ID of the traffic mirror target to be used
 func (o TrafficMirrorSessionOutput) TrafficMirrorTargetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrafficMirrorSession) pulumi.StringOutput { return v.TrafficMirrorTargetId }).(pulumi.StringOutput)
 }
 
-// The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
 func (o TrafficMirrorSessionOutput) VirtualNetworkId() pulumi.IntOutput {
 	return o.ApplyT(func(v *TrafficMirrorSession) pulumi.IntOutput { return v.VirtualNetworkId }).(pulumi.IntOutput)
 }

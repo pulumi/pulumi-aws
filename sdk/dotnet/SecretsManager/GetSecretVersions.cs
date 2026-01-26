@@ -24,22 +24,12 @@ namespace Pulumi.Aws.SecretsManager
 
     public sealed class GetSecretVersionsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// If true, all deprecated secret versions are included in the response.
-        /// If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `False`.
-        /// </summary>
         [Input("includeDeprecated")]
         public bool? IncludeDeprecated { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
-        /// </summary>
         [Input("secretId", required: true)]
         public string SecretId { get; set; } = null!;
 
@@ -51,22 +41,12 @@ namespace Pulumi.Aws.SecretsManager
 
     public sealed class GetSecretVersionsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// If true, all deprecated secret versions are included in the response.
-        /// If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `False`.
-        /// </summary>
         [Input("includeDeprecated")]
         public Input<bool>? IncludeDeprecated { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
-        /// </summary>
         [Input("secretId", required: true)]
         public Input<string> SecretId { get; set; } = null!;
 
@@ -80,9 +60,6 @@ namespace Pulumi.Aws.SecretsManager
     [OutputType]
     public sealed class GetSecretVersionsResult
     {
-        /// <summary>
-        /// ARN of the secret.
-        /// </summary>
         public readonly string Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -92,9 +69,6 @@ namespace Pulumi.Aws.SecretsManager
         public readonly string Name;
         public readonly string Region;
         public readonly string SecretId;
-        /// <summary>
-        /// List of the versions of the secret. Attributes are specified below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetSecretVersionsVersionResult> Versions;
 
         [OutputConstructor]

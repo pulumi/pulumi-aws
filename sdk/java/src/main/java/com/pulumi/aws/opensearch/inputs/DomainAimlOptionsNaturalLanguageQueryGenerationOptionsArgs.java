@@ -15,17 +15,9 @@ public final class DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs ex
 
     public static final DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs Empty = new DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs();
 
-    /**
-     * The desired state of the natural language query generation feature. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     @Import(name="desiredState")
     private @Nullable Output<String> desiredState;
 
-    /**
-     * @return The desired state of the natural language query generation feature. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     public Optional<Output<String>> desiredState() {
         return Optional.ofNullable(this.desiredState);
     }
@@ -54,23 +46,11 @@ public final class DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs ex
             $ = new DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param desiredState The desired state of the natural language query generation feature. Valid values are `ENABLED` and `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder desiredState(@Nullable Output<String> desiredState) {
             $.desiredState = desiredState;
             return this;
         }
 
-        /**
-         * @param desiredState The desired state of the natural language query generation feature. Valid values are `ENABLED` and `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder desiredState(String desiredState) {
             return desiredState(Output.of(desiredState));
         }

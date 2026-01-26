@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class CatalogTableStorageDescriptorColumn
     {
-        /// <summary>
-        /// Free-form text comment.
-        /// </summary>
         public readonly string? Comment;
-        /// <summary>
-        /// Name of the Column.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Key-value pairs defining properties associated with the column.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? Parameters;
-        /// <summary>
-        /// Datatype of data in the Column.
-        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

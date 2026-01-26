@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RecorderRecordingModeRecordingModeOverride {
-    /**
-     * @return A description you provide of the override.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return The recording frequency for the resources in the override block. `CONTINUOUS` or `DAILY`.
-     * 
-     */
     private String recordingFrequency;
-    /**
-     * @return A list that specifies the types of AWS resources for which the override applies to.  See [restrictions in the AWS Docs](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingModeOverride.html)
-     * 
-     */
     private List<String> resourceTypes;
 
     private RecorderRecordingModeRecordingModeOverride() {}
-    /**
-     * @return A description you provide of the override.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return The recording frequency for the resources in the override block. `CONTINUOUS` or `DAILY`.
-     * 
-     */
     public String recordingFrequency() {
         return this.recordingFrequency;
     }
-    /**
-     * @return A list that specifies the types of AWS resources for which the override applies to.  See [restrictions in the AWS Docs](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingModeOverride.html)
-     * 
-     */
     public List<String> resourceTypes() {
         return this.resourceTypes;
     }

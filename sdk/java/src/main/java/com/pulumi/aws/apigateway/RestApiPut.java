@@ -17,156 +17,35 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigateway.RestApiPut;
- * import com.pulumi.aws.apigateway.RestApiPutArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RestApiPut("example", RestApiPutArgs.builder()
- *             .body(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("swagger", "2.0"),
- *                     jsonProperty("info", jsonObject(
- *                         jsonProperty("title", "Example API"),
- *                         jsonProperty("version", "v1")
- *                     )),
- *                     jsonProperty("schemes", jsonArray("https")),
- *                     jsonProperty("paths", jsonObject(
- *                         jsonProperty("/example", jsonObject(
- *                             jsonProperty("get", jsonObject(
- *                                 jsonProperty("responses", jsonObject(
- *                                     jsonProperty("200", jsonObject(
- *                                         jsonProperty("description", "OK")
- *                                     ))
- *                                 )),
- *                                 jsonProperty("x-amazon-apigateway-integration", jsonObject(
- *                                     jsonProperty("httpMethod", "GET"),
- *                                     jsonProperty("type", "HTTP"),
- *                                     jsonProperty("responses", jsonObject(
- *                                         jsonProperty("default", jsonObject(
- *                                             jsonProperty("statusCode", 200)
- *                                         ))
- *                                     )),
- *                                     jsonProperty("uri", "https://api.example.com/")
- *                                 ))
- *                             ))
- *                         ))
- *                     ))
- *                 )))
- *             .failOnWarnings(true)
- *             .restApiId(exampleAwsApiGatewayRestApi.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import API Gateway REST API Put using the `rest_api_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:apigateway/restApiPut:RestApiPut example import-id-12345678
- * ```
- * 
- */
 @ResourceType(type="aws:apigateway/restApiPut:RestApiPut")
 public class RestApiPut extends com.pulumi.resources.CustomResource {
-    /**
-     * PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
-     * 
-     */
     @Export(name="body", refs={String.class}, tree="[0]")
     private Output<String> body;
 
-    /**
-     * @return PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
-     * 
-     */
     public Output<String> body() {
         return this.body;
     }
-    /**
-     * Whether to rollback the API update when a warning is encountered. The default value is `false`.
-     * 
-     */
     @Export(name="failOnWarnings", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> failOnWarnings;
 
-    /**
-     * @return Whether to rollback the API update when a warning is encountered. The default value is `false`.
-     * 
-     */
     public Output<Boolean> failOnWarnings() {
         return this.failOnWarnings;
     }
-    /**
-     * Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = &#34;documentation&#34;`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
-     * 
-     */
     @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
-    /**
-     * @return Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = &#34;documentation&#34;`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
-     * 
-     */
     public Output<Optional<Map<String,String>>> parameters() {
         return Codegen.optional(this.parameters);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Identifier of the associated REST API.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="restApiId", refs={String.class}, tree="[0]")
     private Output<String> restApiId;
 
-    /**
-     * @return Identifier of the associated REST API.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> restApiId() {
         return this.restApiId;
     }
@@ -176,17 +55,9 @@ public class RestApiPut extends com.pulumi.resources.CustomResource {
     public Output<Optional<RestApiPutTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * Map of arbitrary keys and values that, when changed, will trigger a redeployment. To force a redeployment without changing these keys/values, use the `-replace` option with `pulumi preview` or `pulumi up`.
-     * 
-     */
     @Export(name="triggers", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> triggers;
 
-    /**
-     * @return Map of arbitrary keys and values that, when changed, will trigger a redeployment. To force a redeployment without changing these keys/values, use the `-replace` option with `pulumi preview` or `pulumi up`.
-     * 
-     */
     public Output<Optional<Map<String,String>>> triggers() {
         return Codegen.optional(this.triggers);
     }

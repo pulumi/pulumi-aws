@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class DistributionTenantParameter
     {
-        /// <summary>
-        /// Name of the distribution tenant.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Value of the parameter.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

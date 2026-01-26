@@ -18,47 +18,23 @@ public final class FrameworkControlSetArgs extends com.pulumi.resources.Resource
 
     public static final FrameworkControlSetArgs Empty = new FrameworkControlSetArgs();
 
-    /**
-     * Configuration block(s) for the controls within the control set. See `controls` Block below for details.
-     * 
-     */
     @Import(name="controls")
     private @Nullable Output<List<FrameworkControlSetControlArgs>> controls;
 
-    /**
-     * @return Configuration block(s) for the controls within the control set. See `controls` Block below for details.
-     * 
-     */
     public Optional<Output<List<FrameworkControlSetControlArgs>>> controls() {
         return Optional.ofNullable(this.controls);
     }
 
-    /**
-     * Unique identifier for the framework.
-     * 
-     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
-    /**
-     * @return Unique identifier for the framework.
-     * 
-     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * Name of the control set.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the control set.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -89,75 +65,33 @@ public final class FrameworkControlSetArgs extends com.pulumi.resources.Resource
             $ = new FrameworkControlSetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param controls Configuration block(s) for the controls within the control set. See `controls` Block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder controls(@Nullable Output<List<FrameworkControlSetControlArgs>> controls) {
             $.controls = controls;
             return this;
         }
 
-        /**
-         * @param controls Configuration block(s) for the controls within the control set. See `controls` Block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder controls(List<FrameworkControlSetControlArgs> controls) {
             return controls(Output.of(controls));
         }
 
-        /**
-         * @param controls Configuration block(s) for the controls within the control set. See `controls` Block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder controls(FrameworkControlSetControlArgs... controls) {
             return controls(List.of(controls));
         }
 
-        /**
-         * @param id Unique identifier for the framework.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id Unique identifier for the framework.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param name Name of the control set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the control set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

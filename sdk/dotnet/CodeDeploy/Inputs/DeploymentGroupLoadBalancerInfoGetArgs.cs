@@ -14,10 +14,6 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
     {
         [Input("elbInfos")]
         private InputList<Inputs.DeploymentGroupLoadBalancerInfoElbInfoGetArgs>? _elbInfos;
-
-        /// <summary>
-        /// The Classic Elastic Load Balancer to use in a deployment. Conflicts with `TargetGroupInfo` and `TargetGroupPairInfo`.
-        /// </summary>
         public InputList<Inputs.DeploymentGroupLoadBalancerInfoElbInfoGetArgs> ElbInfos
         {
             get => _elbInfos ?? (_elbInfos = new InputList<Inputs.DeploymentGroupLoadBalancerInfoElbInfoGetArgs>());
@@ -26,19 +22,12 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
 
         [Input("targetGroupInfos")]
         private InputList<Inputs.DeploymentGroupLoadBalancerInfoTargetGroupInfoGetArgs>? _targetGroupInfos;
-
-        /// <summary>
-        /// The (Application/Network Load Balancer) target group to use in a deployment. Conflicts with `ElbInfo` and `TargetGroupPairInfo`.
-        /// </summary>
         public InputList<Inputs.DeploymentGroupLoadBalancerInfoTargetGroupInfoGetArgs> TargetGroupInfos
         {
             get => _targetGroupInfos ?? (_targetGroupInfos = new InputList<Inputs.DeploymentGroupLoadBalancerInfoTargetGroupInfoGetArgs>());
             set => _targetGroupInfos = value;
         }
 
-        /// <summary>
-        /// The (Application/Network Load Balancer) target group pair to use in a deployment. Conflicts with `ElbInfo` and `TargetGroupInfo`.
-        /// </summary>
         [Input("targetGroupPairInfo")]
         public Input<Inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoGetArgs>? TargetGroupPairInfo { get; set; }
 

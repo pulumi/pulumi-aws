@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreGatewayProtocolConfigurationMcp
     {
-        /// <summary>
-        /// Instructions for the MCP protocol configuration.
-        /// </summary>
         public readonly string? Instructions;
-        /// <summary>
-        /// Search type for MCP. Valid values: `SEMANTIC`.
-        /// </summary>
         public readonly string? SearchType;
-        /// <summary>
-        /// Set of supported MCP protocol versions.
-        /// </summary>
         public readonly ImmutableArray<string> SupportedVersions;
 
         [OutputConstructor]

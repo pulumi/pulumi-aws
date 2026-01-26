@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The CodeCommit Repository data source allows the ARN, Repository ID, Repository URL for HTTP and Repository URL for SSH to be retrieved for an CodeCommit repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codecommit"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codecommit.LookupRepository(ctx, &codecommit.LookupRepositoryArgs{
-//				RepositoryName: "MyTestRepository",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRepository(ctx *pulumi.Context, args *LookupRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRepositoryResult
@@ -50,26 +23,19 @@ func LookupRepository(ctx *pulumi.Context, args *LookupRepositoryArgs, opts ...p
 
 // A collection of arguments for invoking getRepository.
 type LookupRepositoryArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Name for the repository. This needs to be less than 100 characters.
-	RepositoryName string `pulumi:"repositoryName"`
+	Region         *string `pulumi:"region"`
+	RepositoryName string  `pulumi:"repositoryName"`
 }
 
 // A collection of values returned by getRepository.
 type LookupRepositoryResult struct {
-	// ARN of the repository.
-	Arn string `pulumi:"arn"`
-	// URL to use for cloning the repository over HTTPS.
+	Arn          string `pulumi:"arn"`
 	CloneUrlHttp string `pulumi:"cloneUrlHttp"`
-	// URL to use for cloning the repository over SSH.
-	CloneUrlSsh string `pulumi:"cloneUrlSsh"`
+	CloneUrlSsh  string `pulumi:"cloneUrlSsh"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The ID of the encryption key.
-	KmsKeyId string `pulumi:"kmsKeyId"`
-	Region   string `pulumi:"region"`
-	// ID of the repository.
+	Id             string `pulumi:"id"`
+	KmsKeyId       string `pulumi:"kmsKeyId"`
+	Region         string `pulumi:"region"`
 	RepositoryId   string `pulumi:"repositoryId"`
 	RepositoryName string `pulumi:"repositoryName"`
 }
@@ -85,10 +51,8 @@ func LookupRepositoryOutput(ctx *pulumi.Context, args LookupRepositoryOutputArgs
 
 // A collection of arguments for invoking getRepository.
 type LookupRepositoryOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Name for the repository. This needs to be less than 100 characters.
-	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
+	Region         pulumi.StringPtrInput `pulumi:"region"`
+	RepositoryName pulumi.StringInput    `pulumi:"repositoryName"`
 }
 
 func (LookupRepositoryOutputArgs) ElementType() reflect.Type {
@@ -110,17 +74,14 @@ func (o LookupRepositoryResultOutput) ToLookupRepositoryResultOutputWithContext(
 	return o
 }
 
-// ARN of the repository.
 func (o LookupRepositoryResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// URL to use for cloning the repository over HTTPS.
 func (o LookupRepositoryResultOutput) CloneUrlHttp() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.CloneUrlHttp }).(pulumi.StringOutput)
 }
 
-// URL to use for cloning the repository over SSH.
 func (o LookupRepositoryResultOutput) CloneUrlSsh() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.CloneUrlSsh }).(pulumi.StringOutput)
 }
@@ -130,7 +91,6 @@ func (o LookupRepositoryResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The ID of the encryption key.
 func (o LookupRepositoryResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
@@ -139,7 +99,6 @@ func (o LookupRepositoryResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// ID of the repository.
 func (o LookupRepositoryResultOutput) RepositoryId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.RepositoryId }).(pulumi.StringOutput)
 }

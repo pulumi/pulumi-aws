@@ -11,20 +11,12 @@ import java.util.Objects;
 @CustomType
 public final class GetDistributionTenantCustomizationWebAcl {
     private String action;
-    /**
-     * @return ARN (Amazon Resource Name) for the distribution tenant.
-     * 
-     */
     private String arn;
 
     private GetDistributionTenantCustomizationWebAcl() {}
     public String action() {
         return this.action;
     }
-    /**
-     * @return ARN (Amazon Resource Name) for the distribution tenant.
-     * 
-     */
     public String arn() {
         return this.arn;
     }

@@ -14,10 +14,8 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type DirectoryConfigCertificateBasedAuthProperties struct {
-	// The ARN of the AWS Certificate Manager Private CA resource.
 	CertificateAuthorityArn *string `pulumi:"certificateAuthorityArn"`
-	// The status of the certificate-based authentication properties. Valid values - ["DISABLED", "ENABLED", "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK"].
-	Status *string `pulumi:"status"`
+	Status                  *string `pulumi:"status"`
 }
 
 // DirectoryConfigCertificateBasedAuthPropertiesInput is an input type that accepts DirectoryConfigCertificateBasedAuthPropertiesArgs and DirectoryConfigCertificateBasedAuthPropertiesOutput values.
@@ -32,10 +30,8 @@ type DirectoryConfigCertificateBasedAuthPropertiesInput interface {
 }
 
 type DirectoryConfigCertificateBasedAuthPropertiesArgs struct {
-	// The ARN of the AWS Certificate Manager Private CA resource.
 	CertificateAuthorityArn pulumi.StringPtrInput `pulumi:"certificateAuthorityArn"`
-	// The status of the certificate-based authentication properties. Valid values - ["DISABLED", "ENABLED", "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK"].
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Status                  pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (DirectoryConfigCertificateBasedAuthPropertiesArgs) ElementType() reflect.Type {
@@ -115,12 +111,10 @@ func (o DirectoryConfigCertificateBasedAuthPropertiesOutput) ToDirectoryConfigCe
 	}).(DirectoryConfigCertificateBasedAuthPropertiesPtrOutput)
 }
 
-// The ARN of the AWS Certificate Manager Private CA resource.
 func (o DirectoryConfigCertificateBasedAuthPropertiesOutput) CertificateAuthorityArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DirectoryConfigCertificateBasedAuthProperties) *string { return v.CertificateAuthorityArn }).(pulumi.StringPtrOutput)
 }
 
-// The status of the certificate-based authentication properties. Valid values - ["DISABLED", "ENABLED", "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK"].
 func (o DirectoryConfigCertificateBasedAuthPropertiesOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DirectoryConfigCertificateBasedAuthProperties) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -149,7 +143,6 @@ func (o DirectoryConfigCertificateBasedAuthPropertiesPtrOutput) Elem() Directory
 	}).(DirectoryConfigCertificateBasedAuthPropertiesOutput)
 }
 
-// The ARN of the AWS Certificate Manager Private CA resource.
 func (o DirectoryConfigCertificateBasedAuthPropertiesPtrOutput) CertificateAuthorityArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DirectoryConfigCertificateBasedAuthProperties) *string {
 		if v == nil {
@@ -159,7 +152,6 @@ func (o DirectoryConfigCertificateBasedAuthPropertiesPtrOutput) CertificateAutho
 	}).(pulumi.StringPtrOutput)
 }
 
-// The status of the certificate-based authentication properties. Valid values - ["DISABLED", "ENABLED", "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK"].
 func (o DirectoryConfigCertificateBasedAuthPropertiesPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DirectoryConfigCertificateBasedAuthProperties) *string {
 		if v == nil {
@@ -170,9 +162,7 @@ func (o DirectoryConfigCertificateBasedAuthPropertiesPtrOutput) Status() pulumi.
 }
 
 type DirectoryConfigServiceAccountCredentials struct {
-	// User name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
-	AccountName string `pulumi:"accountName"`
-	// Password for the account.
+	AccountName     string `pulumi:"accountName"`
 	AccountPassword string `pulumi:"accountPassword"`
 }
 
@@ -188,9 +178,7 @@ type DirectoryConfigServiceAccountCredentialsInput interface {
 }
 
 type DirectoryConfigServiceAccountCredentialsArgs struct {
-	// User name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
-	AccountName pulumi.StringInput `pulumi:"accountName"`
-	// Password for the account.
+	AccountName     pulumi.StringInput `pulumi:"accountName"`
 	AccountPassword pulumi.StringInput `pulumi:"accountPassword"`
 }
 
@@ -271,12 +259,10 @@ func (o DirectoryConfigServiceAccountCredentialsOutput) ToDirectoryConfigService
 	}).(DirectoryConfigServiceAccountCredentialsPtrOutput)
 }
 
-// User name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
 func (o DirectoryConfigServiceAccountCredentialsOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v DirectoryConfigServiceAccountCredentials) string { return v.AccountName }).(pulumi.StringOutput)
 }
 
-// Password for the account.
 func (o DirectoryConfigServiceAccountCredentialsOutput) AccountPassword() pulumi.StringOutput {
 	return o.ApplyT(func(v DirectoryConfigServiceAccountCredentials) string { return v.AccountPassword }).(pulumi.StringOutput)
 }
@@ -305,7 +291,6 @@ func (o DirectoryConfigServiceAccountCredentialsPtrOutput) Elem() DirectoryConfi
 	}).(DirectoryConfigServiceAccountCredentialsOutput)
 }
 
-// User name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
 func (o DirectoryConfigServiceAccountCredentialsPtrOutput) AccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DirectoryConfigServiceAccountCredentials) *string {
 		if v == nil {
@@ -315,7 +300,6 @@ func (o DirectoryConfigServiceAccountCredentialsPtrOutput) AccountName() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Password for the account.
 func (o DirectoryConfigServiceAccountCredentialsPtrOutput) AccountPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DirectoryConfigServiceAccountCredentials) *string {
 		if v == nil {
@@ -326,16 +310,11 @@ func (o DirectoryConfigServiceAccountCredentialsPtrOutput) AccountPassword() pul
 }
 
 type FleetComputeCapacity struct {
-	// Number of currently available instances that can be used to stream sessions.
-	Available *int `pulumi:"available"`
-	// Desired number of streaming instances.
+	Available        *int `pulumi:"available"`
 	DesiredInstances *int `pulumi:"desiredInstances"`
-	// Desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.
-	DesiredSessions *int `pulumi:"desiredSessions"`
-	// Number of instances in use for streaming.
-	InUse *int `pulumi:"inUse"`
-	// Total number of simultaneous streaming instances that are running.
-	Running *int `pulumi:"running"`
+	DesiredSessions  *int `pulumi:"desiredSessions"`
+	InUse            *int `pulumi:"inUse"`
+	Running          *int `pulumi:"running"`
 }
 
 // FleetComputeCapacityInput is an input type that accepts FleetComputeCapacityArgs and FleetComputeCapacityOutput values.
@@ -350,16 +329,11 @@ type FleetComputeCapacityInput interface {
 }
 
 type FleetComputeCapacityArgs struct {
-	// Number of currently available instances that can be used to stream sessions.
-	Available pulumi.IntPtrInput `pulumi:"available"`
-	// Desired number of streaming instances.
+	Available        pulumi.IntPtrInput `pulumi:"available"`
 	DesiredInstances pulumi.IntPtrInput `pulumi:"desiredInstances"`
-	// Desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.
-	DesiredSessions pulumi.IntPtrInput `pulumi:"desiredSessions"`
-	// Number of instances in use for streaming.
-	InUse pulumi.IntPtrInput `pulumi:"inUse"`
-	// Total number of simultaneous streaming instances that are running.
-	Running pulumi.IntPtrInput `pulumi:"running"`
+	DesiredSessions  pulumi.IntPtrInput `pulumi:"desiredSessions"`
+	InUse            pulumi.IntPtrInput `pulumi:"inUse"`
+	Running          pulumi.IntPtrInput `pulumi:"running"`
 }
 
 func (FleetComputeCapacityArgs) ElementType() reflect.Type {
@@ -439,27 +413,22 @@ func (o FleetComputeCapacityOutput) ToFleetComputeCapacityPtrOutputWithContext(c
 	}).(FleetComputeCapacityPtrOutput)
 }
 
-// Number of currently available instances that can be used to stream sessions.
 func (o FleetComputeCapacityOutput) Available() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetComputeCapacity) *int { return v.Available }).(pulumi.IntPtrOutput)
 }
 
-// Desired number of streaming instances.
 func (o FleetComputeCapacityOutput) DesiredInstances() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetComputeCapacity) *int { return v.DesiredInstances }).(pulumi.IntPtrOutput)
 }
 
-// Desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.
 func (o FleetComputeCapacityOutput) DesiredSessions() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetComputeCapacity) *int { return v.DesiredSessions }).(pulumi.IntPtrOutput)
 }
 
-// Number of instances in use for streaming.
 func (o FleetComputeCapacityOutput) InUse() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetComputeCapacity) *int { return v.InUse }).(pulumi.IntPtrOutput)
 }
 
-// Total number of simultaneous streaming instances that are running.
 func (o FleetComputeCapacityOutput) Running() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetComputeCapacity) *int { return v.Running }).(pulumi.IntPtrOutput)
 }
@@ -488,7 +457,6 @@ func (o FleetComputeCapacityPtrOutput) Elem() FleetComputeCapacityOutput {
 	}).(FleetComputeCapacityOutput)
 }
 
-// Number of currently available instances that can be used to stream sessions.
 func (o FleetComputeCapacityPtrOutput) Available() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetComputeCapacity) *int {
 		if v == nil {
@@ -498,7 +466,6 @@ func (o FleetComputeCapacityPtrOutput) Available() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Desired number of streaming instances.
 func (o FleetComputeCapacityPtrOutput) DesiredInstances() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetComputeCapacity) *int {
 		if v == nil {
@@ -508,7 +475,6 @@ func (o FleetComputeCapacityPtrOutput) DesiredInstances() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.
 func (o FleetComputeCapacityPtrOutput) DesiredSessions() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetComputeCapacity) *int {
 		if v == nil {
@@ -518,7 +484,6 @@ func (o FleetComputeCapacityPtrOutput) DesiredSessions() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Number of instances in use for streaming.
 func (o FleetComputeCapacityPtrOutput) InUse() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetComputeCapacity) *int {
 		if v == nil {
@@ -528,7 +493,6 @@ func (o FleetComputeCapacityPtrOutput) InUse() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Total number of simultaneous streaming instances that are running.
 func (o FleetComputeCapacityPtrOutput) Running() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetComputeCapacity) *int {
 		if v == nil {
@@ -539,9 +503,7 @@ func (o FleetComputeCapacityPtrOutput) Running() pulumi.IntPtrOutput {
 }
 
 type FleetDomainJoinInfo struct {
-	// Fully qualified name of the directory (for example, corp.example.com).
-	DirectoryName *string `pulumi:"directoryName"`
-	// Distinguished name of the organizational unit for computer accounts.
+	DirectoryName                       *string `pulumi:"directoryName"`
 	OrganizationalUnitDistinguishedName *string `pulumi:"organizationalUnitDistinguishedName"`
 }
 
@@ -557,9 +519,7 @@ type FleetDomainJoinInfoInput interface {
 }
 
 type FleetDomainJoinInfoArgs struct {
-	// Fully qualified name of the directory (for example, corp.example.com).
-	DirectoryName pulumi.StringPtrInput `pulumi:"directoryName"`
-	// Distinguished name of the organizational unit for computer accounts.
+	DirectoryName                       pulumi.StringPtrInput `pulumi:"directoryName"`
 	OrganizationalUnitDistinguishedName pulumi.StringPtrInput `pulumi:"organizationalUnitDistinguishedName"`
 }
 
@@ -640,12 +600,10 @@ func (o FleetDomainJoinInfoOutput) ToFleetDomainJoinInfoPtrOutputWithContext(ctx
 	}).(FleetDomainJoinInfoPtrOutput)
 }
 
-// Fully qualified name of the directory (for example, corp.example.com).
 func (o FleetDomainJoinInfoOutput) DirectoryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FleetDomainJoinInfo) *string { return v.DirectoryName }).(pulumi.StringPtrOutput)
 }
 
-// Distinguished name of the organizational unit for computer accounts.
 func (o FleetDomainJoinInfoOutput) OrganizationalUnitDistinguishedName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FleetDomainJoinInfo) *string { return v.OrganizationalUnitDistinguishedName }).(pulumi.StringPtrOutput)
 }
@@ -674,7 +632,6 @@ func (o FleetDomainJoinInfoPtrOutput) Elem() FleetDomainJoinInfoOutput {
 	}).(FleetDomainJoinInfoOutput)
 }
 
-// Fully qualified name of the directory (for example, corp.example.com).
 func (o FleetDomainJoinInfoPtrOutput) DirectoryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FleetDomainJoinInfo) *string {
 		if v == nil {
@@ -684,7 +641,6 @@ func (o FleetDomainJoinInfoPtrOutput) DirectoryName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Distinguished name of the organizational unit for computer accounts.
 func (o FleetDomainJoinInfoPtrOutput) OrganizationalUnitDistinguishedName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FleetDomainJoinInfo) *string {
 		if v == nil {
@@ -695,10 +651,8 @@ func (o FleetDomainJoinInfoPtrOutput) OrganizationalUnitDistinguishedName() pulu
 }
 
 type FleetVpcConfig struct {
-	// Identifiers of the security groups for the fleet or image builder.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
-	SubnetIds []string `pulumi:"subnetIds"`
+	SubnetIds        []string `pulumi:"subnetIds"`
 }
 
 // FleetVpcConfigInput is an input type that accepts FleetVpcConfigArgs and FleetVpcConfigOutput values.
@@ -713,10 +667,8 @@ type FleetVpcConfigInput interface {
 }
 
 type FleetVpcConfigArgs struct {
-	// Identifiers of the security groups for the fleet or image builder.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
-	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
 }
 
 func (FleetVpcConfigArgs) ElementType() reflect.Type {
@@ -796,12 +748,10 @@ func (o FleetVpcConfigOutput) ToFleetVpcConfigPtrOutputWithContext(ctx context.C
 	}).(FleetVpcConfigPtrOutput)
 }
 
-// Identifiers of the security groups for the fleet or image builder.
 func (o FleetVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FleetVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
 func (o FleetVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FleetVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -830,7 +780,6 @@ func (o FleetVpcConfigPtrOutput) Elem() FleetVpcConfigOutput {
 	}).(FleetVpcConfigOutput)
 }
 
-// Identifiers of the security groups for the fleet or image builder.
 func (o FleetVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FleetVpcConfig) []string {
 		if v == nil {
@@ -840,7 +789,6 @@ func (o FleetVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
 func (o FleetVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FleetVpcConfig) []string {
 		if v == nil {
@@ -851,10 +799,8 @@ func (o FleetVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 }
 
 type ImageBuilderAccessEndpoint struct {
-	// Type of interface endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html).
-	EndpointType string `pulumi:"endpointType"`
-	// Identifier (ID) of the interface VPC endpoint.
-	VpceId *string `pulumi:"vpceId"`
+	EndpointType string  `pulumi:"endpointType"`
+	VpceId       *string `pulumi:"vpceId"`
 }
 
 // ImageBuilderAccessEndpointInput is an input type that accepts ImageBuilderAccessEndpointArgs and ImageBuilderAccessEndpointOutput values.
@@ -869,10 +815,8 @@ type ImageBuilderAccessEndpointInput interface {
 }
 
 type ImageBuilderAccessEndpointArgs struct {
-	// Type of interface endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html).
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// Identifier (ID) of the interface VPC endpoint.
-	VpceId pulumi.StringPtrInput `pulumi:"vpceId"`
+	EndpointType pulumi.StringInput    `pulumi:"endpointType"`
+	VpceId       pulumi.StringPtrInput `pulumi:"vpceId"`
 }
 
 func (ImageBuilderAccessEndpointArgs) ElementType() reflect.Type {
@@ -926,12 +870,10 @@ func (o ImageBuilderAccessEndpointOutput) ToImageBuilderAccessEndpointOutputWith
 	return o
 }
 
-// Type of interface endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html).
 func (o ImageBuilderAccessEndpointOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageBuilderAccessEndpoint) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// Identifier (ID) of the interface VPC endpoint.
 func (o ImageBuilderAccessEndpointOutput) VpceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageBuilderAccessEndpoint) *string { return v.VpceId }).(pulumi.StringPtrOutput)
 }
@@ -957,9 +899,7 @@ func (o ImageBuilderAccessEndpointArrayOutput) Index(i pulumi.IntInput) ImageBui
 }
 
 type ImageBuilderDomainJoinInfo struct {
-	// Fully qualified name of the directory (for example, corp.example.com).
-	DirectoryName *string `pulumi:"directoryName"`
-	// Distinguished name of the organizational unit for computer accounts.
+	DirectoryName                       *string `pulumi:"directoryName"`
 	OrganizationalUnitDistinguishedName *string `pulumi:"organizationalUnitDistinguishedName"`
 }
 
@@ -975,9 +915,7 @@ type ImageBuilderDomainJoinInfoInput interface {
 }
 
 type ImageBuilderDomainJoinInfoArgs struct {
-	// Fully qualified name of the directory (for example, corp.example.com).
-	DirectoryName pulumi.StringPtrInput `pulumi:"directoryName"`
-	// Distinguished name of the organizational unit for computer accounts.
+	DirectoryName                       pulumi.StringPtrInput `pulumi:"directoryName"`
 	OrganizationalUnitDistinguishedName pulumi.StringPtrInput `pulumi:"organizationalUnitDistinguishedName"`
 }
 
@@ -1058,12 +996,10 @@ func (o ImageBuilderDomainJoinInfoOutput) ToImageBuilderDomainJoinInfoPtrOutputW
 	}).(ImageBuilderDomainJoinInfoPtrOutput)
 }
 
-// Fully qualified name of the directory (for example, corp.example.com).
 func (o ImageBuilderDomainJoinInfoOutput) DirectoryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageBuilderDomainJoinInfo) *string { return v.DirectoryName }).(pulumi.StringPtrOutput)
 }
 
-// Distinguished name of the organizational unit for computer accounts.
 func (o ImageBuilderDomainJoinInfoOutput) OrganizationalUnitDistinguishedName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageBuilderDomainJoinInfo) *string { return v.OrganizationalUnitDistinguishedName }).(pulumi.StringPtrOutput)
 }
@@ -1092,7 +1028,6 @@ func (o ImageBuilderDomainJoinInfoPtrOutput) Elem() ImageBuilderDomainJoinInfoOu
 	}).(ImageBuilderDomainJoinInfoOutput)
 }
 
-// Fully qualified name of the directory (for example, corp.example.com).
 func (o ImageBuilderDomainJoinInfoPtrOutput) DirectoryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageBuilderDomainJoinInfo) *string {
 		if v == nil {
@@ -1102,7 +1037,6 @@ func (o ImageBuilderDomainJoinInfoPtrOutput) DirectoryName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Distinguished name of the organizational unit for computer accounts.
 func (o ImageBuilderDomainJoinInfoPtrOutput) OrganizationalUnitDistinguishedName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageBuilderDomainJoinInfo) *string {
 		if v == nil {
@@ -1113,10 +1047,8 @@ func (o ImageBuilderDomainJoinInfoPtrOutput) OrganizationalUnitDistinguishedName
 }
 
 type ImageBuilderVpcConfig struct {
-	// Identifiers of the security groups for the image builder or image builder.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// Identifier of the subnet to which a network interface is attached from the image builder instance.
-	SubnetIds []string `pulumi:"subnetIds"`
+	SubnetIds        []string `pulumi:"subnetIds"`
 }
 
 // ImageBuilderVpcConfigInput is an input type that accepts ImageBuilderVpcConfigArgs and ImageBuilderVpcConfigOutput values.
@@ -1131,10 +1063,8 @@ type ImageBuilderVpcConfigInput interface {
 }
 
 type ImageBuilderVpcConfigArgs struct {
-	// Identifiers of the security groups for the image builder or image builder.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// Identifier of the subnet to which a network interface is attached from the image builder instance.
-	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
 }
 
 func (ImageBuilderVpcConfigArgs) ElementType() reflect.Type {
@@ -1214,12 +1144,10 @@ func (o ImageBuilderVpcConfigOutput) ToImageBuilderVpcConfigPtrOutputWithContext
 	}).(ImageBuilderVpcConfigPtrOutput)
 }
 
-// Identifiers of the security groups for the image builder or image builder.
 func (o ImageBuilderVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ImageBuilderVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// Identifier of the subnet to which a network interface is attached from the image builder instance.
 func (o ImageBuilderVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ImageBuilderVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -1248,7 +1176,6 @@ func (o ImageBuilderVpcConfigPtrOutput) Elem() ImageBuilderVpcConfigOutput {
 	}).(ImageBuilderVpcConfigOutput)
 }
 
-// Identifiers of the security groups for the image builder or image builder.
 func (o ImageBuilderVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ImageBuilderVpcConfig) []string {
 		if v == nil {
@@ -1258,7 +1185,6 @@ func (o ImageBuilderVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// Identifier of the subnet to which a network interface is attached from the image builder instance.
 func (o ImageBuilderVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ImageBuilderVpcConfig) []string {
 		if v == nil {
@@ -1269,11 +1195,8 @@ func (o ImageBuilderVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 }
 
 type StackAccessEndpoint struct {
-	// Type of the interface endpoint.
-	// See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
-	EndpointType string `pulumi:"endpointType"`
-	// ID of the VPC in which the interface endpoint is used.
-	VpceId *string `pulumi:"vpceId"`
+	EndpointType string  `pulumi:"endpointType"`
+	VpceId       *string `pulumi:"vpceId"`
 }
 
 // StackAccessEndpointInput is an input type that accepts StackAccessEndpointArgs and StackAccessEndpointOutput values.
@@ -1288,11 +1211,8 @@ type StackAccessEndpointInput interface {
 }
 
 type StackAccessEndpointArgs struct {
-	// Type of the interface endpoint.
-	// See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// ID of the VPC in which the interface endpoint is used.
-	VpceId pulumi.StringPtrInput `pulumi:"vpceId"`
+	EndpointType pulumi.StringInput    `pulumi:"endpointType"`
+	VpceId       pulumi.StringPtrInput `pulumi:"vpceId"`
 }
 
 func (StackAccessEndpointArgs) ElementType() reflect.Type {
@@ -1346,13 +1266,10 @@ func (o StackAccessEndpointOutput) ToStackAccessEndpointOutputWithContext(ctx co
 	return o
 }
 
-// Type of the interface endpoint.
-// See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
 func (o StackAccessEndpointOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v StackAccessEndpoint) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// ID of the VPC in which the interface endpoint is used.
 func (o StackAccessEndpointOutput) VpceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StackAccessEndpoint) *string { return v.VpceId }).(pulumi.StringPtrOutput)
 }
@@ -1378,11 +1295,7 @@ func (o StackAccessEndpointArrayOutput) Index(i pulumi.IntInput) StackAccessEndp
 }
 
 type StackApplicationSettings struct {
-	// Whether application settings should be persisted.
-	Enabled bool `pulumi:"enabled"`
-	// Name of the settings group.
-	// Required when `enabled` is `true`.
-	// Can be up to 100 characters.
+	Enabled       bool    `pulumi:"enabled"`
 	SettingsGroup *string `pulumi:"settingsGroup"`
 }
 
@@ -1398,11 +1311,7 @@ type StackApplicationSettingsInput interface {
 }
 
 type StackApplicationSettingsArgs struct {
-	// Whether application settings should be persisted.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Name of the settings group.
-	// Required when `enabled` is `true`.
-	// Can be up to 100 characters.
+	Enabled       pulumi.BoolInput      `pulumi:"enabled"`
 	SettingsGroup pulumi.StringPtrInput `pulumi:"settingsGroup"`
 }
 
@@ -1483,14 +1392,10 @@ func (o StackApplicationSettingsOutput) ToStackApplicationSettingsPtrOutputWithC
 	}).(StackApplicationSettingsPtrOutput)
 }
 
-// Whether application settings should be persisted.
 func (o StackApplicationSettingsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v StackApplicationSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Name of the settings group.
-// Required when `enabled` is `true`.
-// Can be up to 100 characters.
 func (o StackApplicationSettingsOutput) SettingsGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StackApplicationSettings) *string { return v.SettingsGroup }).(pulumi.StringPtrOutput)
 }
@@ -1519,7 +1424,6 @@ func (o StackApplicationSettingsPtrOutput) Elem() StackApplicationSettingsOutput
 	}).(StackApplicationSettingsOutput)
 }
 
-// Whether application settings should be persisted.
 func (o StackApplicationSettingsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StackApplicationSettings) *bool {
 		if v == nil {
@@ -1529,9 +1433,6 @@ func (o StackApplicationSettingsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Name of the settings group.
-// Required when `enabled` is `true`.
-// Can be up to 100 characters.
 func (o StackApplicationSettingsPtrOutput) SettingsGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StackApplicationSettings) *string {
 		if v == nil {
@@ -1542,13 +1443,9 @@ func (o StackApplicationSettingsPtrOutput) SettingsGroup() pulumi.StringPtrOutpu
 }
 
 type StackStorageConnector struct {
-	// Type of storage connector.
-	// Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
-	ConnectorType string `pulumi:"connectorType"`
-	// Names of the domains for the account.
-	Domains []string `pulumi:"domains"`
-	// ARN of the storage connector.
-	ResourceIdentifier *string `pulumi:"resourceIdentifier"`
+	ConnectorType      string   `pulumi:"connectorType"`
+	Domains            []string `pulumi:"domains"`
+	ResourceIdentifier *string  `pulumi:"resourceIdentifier"`
 }
 
 // StackStorageConnectorInput is an input type that accepts StackStorageConnectorArgs and StackStorageConnectorOutput values.
@@ -1563,13 +1460,9 @@ type StackStorageConnectorInput interface {
 }
 
 type StackStorageConnectorArgs struct {
-	// Type of storage connector.
-	// Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
-	ConnectorType pulumi.StringInput `pulumi:"connectorType"`
-	// Names of the domains for the account.
-	Domains pulumi.StringArrayInput `pulumi:"domains"`
-	// ARN of the storage connector.
-	ResourceIdentifier pulumi.StringPtrInput `pulumi:"resourceIdentifier"`
+	ConnectorType      pulumi.StringInput      `pulumi:"connectorType"`
+	Domains            pulumi.StringArrayInput `pulumi:"domains"`
+	ResourceIdentifier pulumi.StringPtrInput   `pulumi:"resourceIdentifier"`
 }
 
 func (StackStorageConnectorArgs) ElementType() reflect.Type {
@@ -1623,18 +1516,14 @@ func (o StackStorageConnectorOutput) ToStackStorageConnectorOutputWithContext(ct
 	return o
 }
 
-// Type of storage connector.
-// Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
 func (o StackStorageConnectorOutput) ConnectorType() pulumi.StringOutput {
 	return o.ApplyT(func(v StackStorageConnector) string { return v.ConnectorType }).(pulumi.StringOutput)
 }
 
-// Names of the domains for the account.
 func (o StackStorageConnectorOutput) Domains() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StackStorageConnector) []string { return v.Domains }).(pulumi.StringArrayOutput)
 }
 
-// ARN of the storage connector.
 func (o StackStorageConnectorOutput) ResourceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StackStorageConnector) *string { return v.ResourceIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -1660,8 +1549,6 @@ func (o StackStorageConnectorArrayOutput) Index(i pulumi.IntInput) StackStorageC
 }
 
 type StackStreamingExperienceSettings struct {
-	// The preferred protocol that you want to use while streaming your application.
-	// Valid values are `TCP` and `UDP`.
 	PreferredProtocol *string `pulumi:"preferredProtocol"`
 }
 
@@ -1677,8 +1564,6 @@ type StackStreamingExperienceSettingsInput interface {
 }
 
 type StackStreamingExperienceSettingsArgs struct {
-	// The preferred protocol that you want to use while streaming your application.
-	// Valid values are `TCP` and `UDP`.
 	PreferredProtocol pulumi.StringPtrInput `pulumi:"preferredProtocol"`
 }
 
@@ -1759,8 +1644,6 @@ func (o StackStreamingExperienceSettingsOutput) ToStackStreamingExperienceSettin
 	}).(StackStreamingExperienceSettingsPtrOutput)
 }
 
-// The preferred protocol that you want to use while streaming your application.
-// Valid values are `TCP` and `UDP`.
 func (o StackStreamingExperienceSettingsOutput) PreferredProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StackStreamingExperienceSettings) *string { return v.PreferredProtocol }).(pulumi.StringPtrOutput)
 }
@@ -1789,8 +1672,6 @@ func (o StackStreamingExperienceSettingsPtrOutput) Elem() StackStreamingExperien
 	}).(StackStreamingExperienceSettingsOutput)
 }
 
-// The preferred protocol that you want to use while streaming your application.
-// Valid values are `TCP` and `UDP`.
 func (o StackStreamingExperienceSettingsPtrOutput) PreferredProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StackStreamingExperienceSettings) *string {
 		if v == nil {
@@ -1801,11 +1682,7 @@ func (o StackStreamingExperienceSettingsPtrOutput) PreferredProtocol() pulumi.St
 }
 
 type StackUserSetting struct {
-	// Action that is enabled or disabled.
-	// Valid values are `AUTO_TIME_ZONE_REDIRECTION`, `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`, `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, or `PRINTING_TO_LOCAL_DEVICE`.
-	Action string `pulumi:"action"`
-	// Whether the action is enabled or disabled.
-	// Valid values are `ENABLED` or `DISABLED`.
+	Action     string `pulumi:"action"`
 	Permission string `pulumi:"permission"`
 }
 
@@ -1821,11 +1698,7 @@ type StackUserSettingInput interface {
 }
 
 type StackUserSettingArgs struct {
-	// Action that is enabled or disabled.
-	// Valid values are `AUTO_TIME_ZONE_REDIRECTION`, `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`, `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, or `PRINTING_TO_LOCAL_DEVICE`.
-	Action pulumi.StringInput `pulumi:"action"`
-	// Whether the action is enabled or disabled.
-	// Valid values are `ENABLED` or `DISABLED`.
+	Action     pulumi.StringInput `pulumi:"action"`
 	Permission pulumi.StringInput `pulumi:"permission"`
 }
 
@@ -1880,14 +1753,10 @@ func (o StackUserSettingOutput) ToStackUserSettingOutputWithContext(ctx context.
 	return o
 }
 
-// Action that is enabled or disabled.
-// Valid values are `AUTO_TIME_ZONE_REDIRECTION`, `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`, `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, or `PRINTING_TO_LOCAL_DEVICE`.
 func (o StackUserSettingOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v StackUserSetting) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// Whether the action is enabled or disabled.
-// Valid values are `ENABLED` or `DISABLED`.
 func (o StackUserSettingOutput) Permission() pulumi.StringOutput {
 	return o.ApplyT(func(v StackUserSetting) string { return v.Permission }).(pulumi.StringOutput)
 }
@@ -1913,38 +1782,21 @@ func (o StackUserSettingArrayOutput) Index(i pulumi.IntInput) StackUserSettingOu
 }
 
 type GetImageApplication struct {
-	// The app block ARN of the application.
-	AppBlockArn string `pulumi:"appBlockArn"`
-	// ARN of the image being searched for. Cannot be used with `nameRegex` or `name`.
-	Arn string `pulumi:"arn"`
-	// Time at which this image was created.
-	CreatedTime string `pulumi:"createdTime"`
-	// Description of image.
-	Description string `pulumi:"description"`
-	// Image name to display.
-	DisplayName string `pulumi:"displayName"`
-	// Bool based on if the application is enabled.
-	Enabled bool `pulumi:"enabled"`
-	// A list named iconS3Location that contains the following:
-	IconS3Locations []GetImageApplicationIconS3Location `pulumi:"iconS3Locations"`
-	// URL of the application icon. This URL may be time-limited.
-	IconUrl string `pulumi:"iconUrl"`
-	// List of the instance families of the application.
-	InstanceFamilies []string `pulumi:"instanceFamilies"`
-	// Arguments that are passed to the application at it's launch.
-	LaunchParameters string `pulumi:"launchParameters"`
-	// Path to the application's excecutable in the instance.
-	LaunchPath string `pulumi:"launchPath"`
-	// String to string map that contains additional attributes used to describe the application.
-	// * `Name` - Name of the application.
-	Metadata map[string]string `pulumi:"metadata"`
-	// Name of the image being searched for. Cannot be used with `nameRegex` or `arn`.
-	Name string `pulumi:"name"`
-	// Array of strings describing the platforms on which the application can run.
-	// Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
-	Platforms []string `pulumi:"platforms"`
-	// Working directory for the application.
-	WorkingDirectory string `pulumi:"workingDirectory"`
+	AppBlockArn      string                              `pulumi:"appBlockArn"`
+	Arn              string                              `pulumi:"arn"`
+	CreatedTime      string                              `pulumi:"createdTime"`
+	Description      string                              `pulumi:"description"`
+	DisplayName      string                              `pulumi:"displayName"`
+	Enabled          bool                                `pulumi:"enabled"`
+	IconS3Locations  []GetImageApplicationIconS3Location `pulumi:"iconS3Locations"`
+	IconUrl          string                              `pulumi:"iconUrl"`
+	InstanceFamilies []string                            `pulumi:"instanceFamilies"`
+	LaunchParameters string                              `pulumi:"launchParameters"`
+	LaunchPath       string                              `pulumi:"launchPath"`
+	Metadata         map[string]string                   `pulumi:"metadata"`
+	Name             string                              `pulumi:"name"`
+	Platforms        []string                            `pulumi:"platforms"`
+	WorkingDirectory string                              `pulumi:"workingDirectory"`
 }
 
 // GetImageApplicationInput is an input type that accepts GetImageApplicationArgs and GetImageApplicationOutput values.
@@ -1959,38 +1811,21 @@ type GetImageApplicationInput interface {
 }
 
 type GetImageApplicationArgs struct {
-	// The app block ARN of the application.
-	AppBlockArn pulumi.StringInput `pulumi:"appBlockArn"`
-	// ARN of the image being searched for. Cannot be used with `nameRegex` or `name`.
-	Arn pulumi.StringInput `pulumi:"arn"`
-	// Time at which this image was created.
-	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
-	// Description of image.
-	Description pulumi.StringInput `pulumi:"description"`
-	// Image name to display.
-	DisplayName pulumi.StringInput `pulumi:"displayName"`
-	// Bool based on if the application is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// A list named iconS3Location that contains the following:
-	IconS3Locations GetImageApplicationIconS3LocationArrayInput `pulumi:"iconS3Locations"`
-	// URL of the application icon. This URL may be time-limited.
-	IconUrl pulumi.StringInput `pulumi:"iconUrl"`
-	// List of the instance families of the application.
-	InstanceFamilies pulumi.StringArrayInput `pulumi:"instanceFamilies"`
-	// Arguments that are passed to the application at it's launch.
-	LaunchParameters pulumi.StringInput `pulumi:"launchParameters"`
-	// Path to the application's excecutable in the instance.
-	LaunchPath pulumi.StringInput `pulumi:"launchPath"`
-	// String to string map that contains additional attributes used to describe the application.
-	// * `Name` - Name of the application.
-	Metadata pulumi.StringMapInput `pulumi:"metadata"`
-	// Name of the image being searched for. Cannot be used with `nameRegex` or `arn`.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Array of strings describing the platforms on which the application can run.
-	// Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
-	Platforms pulumi.StringArrayInput `pulumi:"platforms"`
-	// Working directory for the application.
-	WorkingDirectory pulumi.StringInput `pulumi:"workingDirectory"`
+	AppBlockArn      pulumi.StringInput                          `pulumi:"appBlockArn"`
+	Arn              pulumi.StringInput                          `pulumi:"arn"`
+	CreatedTime      pulumi.StringInput                          `pulumi:"createdTime"`
+	Description      pulumi.StringInput                          `pulumi:"description"`
+	DisplayName      pulumi.StringInput                          `pulumi:"displayName"`
+	Enabled          pulumi.BoolInput                            `pulumi:"enabled"`
+	IconS3Locations  GetImageApplicationIconS3LocationArrayInput `pulumi:"iconS3Locations"`
+	IconUrl          pulumi.StringInput                          `pulumi:"iconUrl"`
+	InstanceFamilies pulumi.StringArrayInput                     `pulumi:"instanceFamilies"`
+	LaunchParameters pulumi.StringInput                          `pulumi:"launchParameters"`
+	LaunchPath       pulumi.StringInput                          `pulumi:"launchPath"`
+	Metadata         pulumi.StringMapInput                       `pulumi:"metadata"`
+	Name             pulumi.StringInput                          `pulumi:"name"`
+	Platforms        pulumi.StringArrayInput                     `pulumi:"platforms"`
+	WorkingDirectory pulumi.StringInput                          `pulumi:"workingDirectory"`
 }
 
 func (GetImageApplicationArgs) ElementType() reflect.Type {
@@ -2044,79 +1879,62 @@ func (o GetImageApplicationOutput) ToGetImageApplicationOutputWithContext(ctx co
 	return o
 }
 
-// The app block ARN of the application.
 func (o GetImageApplicationOutput) AppBlockArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageApplication) string { return v.AppBlockArn }).(pulumi.StringOutput)
 }
 
-// ARN of the image being searched for. Cannot be used with `nameRegex` or `name`.
 func (o GetImageApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageApplication) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Time at which this image was created.
 func (o GetImageApplicationOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageApplication) string { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// Description of image.
 func (o GetImageApplicationOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageApplication) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Image name to display.
 func (o GetImageApplicationOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageApplication) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// Bool based on if the application is enabled.
 func (o GetImageApplicationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetImageApplication) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// A list named iconS3Location that contains the following:
 func (o GetImageApplicationOutput) IconS3Locations() GetImageApplicationIconS3LocationArrayOutput {
 	return o.ApplyT(func(v GetImageApplication) []GetImageApplicationIconS3Location { return v.IconS3Locations }).(GetImageApplicationIconS3LocationArrayOutput)
 }
 
-// URL of the application icon. This URL may be time-limited.
 func (o GetImageApplicationOutput) IconUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageApplication) string { return v.IconUrl }).(pulumi.StringOutput)
 }
 
-// List of the instance families of the application.
 func (o GetImageApplicationOutput) InstanceFamilies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetImageApplication) []string { return v.InstanceFamilies }).(pulumi.StringArrayOutput)
 }
 
-// Arguments that are passed to the application at it's launch.
 func (o GetImageApplicationOutput) LaunchParameters() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageApplication) string { return v.LaunchParameters }).(pulumi.StringOutput)
 }
 
-// Path to the application's excecutable in the instance.
 func (o GetImageApplicationOutput) LaunchPath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageApplication) string { return v.LaunchPath }).(pulumi.StringOutput)
 }
 
-// String to string map that contains additional attributes used to describe the application.
-// * `Name` - Name of the application.
 func (o GetImageApplicationOutput) Metadata() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetImageApplication) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
 }
 
-// Name of the image being searched for. Cannot be used with `nameRegex` or `arn`.
 func (o GetImageApplicationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageApplication) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Array of strings describing the platforms on which the application can run.
-// Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
 func (o GetImageApplicationOutput) Platforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetImageApplication) []string { return v.Platforms }).(pulumi.StringArrayOutput)
 }
 
-// Working directory for the application.
 func (o GetImageApplicationOutput) WorkingDirectory() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageApplication) string { return v.WorkingDirectory }).(pulumi.StringOutput)
 }
@@ -2142,10 +1960,8 @@ func (o GetImageApplicationArrayOutput) Index(i pulumi.IntInput) GetImageApplica
 }
 
 type GetImageApplicationIconS3Location struct {
-	// S3 bucket of the S3 object.
 	S3Bucket string `pulumi:"s3Bucket"`
-	// S3 key of the S3 object.
-	S3Key string `pulumi:"s3Key"`
+	S3Key    string `pulumi:"s3Key"`
 }
 
 // GetImageApplicationIconS3LocationInput is an input type that accepts GetImageApplicationIconS3LocationArgs and GetImageApplicationIconS3LocationOutput values.
@@ -2160,10 +1976,8 @@ type GetImageApplicationIconS3LocationInput interface {
 }
 
 type GetImageApplicationIconS3LocationArgs struct {
-	// S3 bucket of the S3 object.
 	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
-	// S3 key of the S3 object.
-	S3Key pulumi.StringInput `pulumi:"s3Key"`
+	S3Key    pulumi.StringInput `pulumi:"s3Key"`
 }
 
 func (GetImageApplicationIconS3LocationArgs) ElementType() reflect.Type {
@@ -2217,12 +2031,10 @@ func (o GetImageApplicationIconS3LocationOutput) ToGetImageApplicationIconS3Loca
 	return o
 }
 
-// S3 bucket of the S3 object.
 func (o GetImageApplicationIconS3LocationOutput) S3Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageApplicationIconS3Location) string { return v.S3Bucket }).(pulumi.StringOutput)
 }
 
-// S3 key of the S3 object.
 func (o GetImageApplicationIconS3LocationOutput) S3Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageApplicationIconS3Location) string { return v.S3Key }).(pulumi.StringOutput)
 }
@@ -2248,9 +2060,7 @@ func (o GetImageApplicationIconS3LocationArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetImageImagePermission struct {
-	// Boolean indicating if the image can be used for a fleet.
-	AllowFleet bool `pulumi:"allowFleet"`
-	// indicated whether the image can be used for an image builder.
+	AllowFleet        bool `pulumi:"allowFleet"`
 	AllowImageBuilder bool `pulumi:"allowImageBuilder"`
 }
 
@@ -2266,9 +2076,7 @@ type GetImageImagePermissionInput interface {
 }
 
 type GetImageImagePermissionArgs struct {
-	// Boolean indicating if the image can be used for a fleet.
-	AllowFleet pulumi.BoolInput `pulumi:"allowFleet"`
-	// indicated whether the image can be used for an image builder.
+	AllowFleet        pulumi.BoolInput `pulumi:"allowFleet"`
 	AllowImageBuilder pulumi.BoolInput `pulumi:"allowImageBuilder"`
 }
 
@@ -2323,12 +2131,10 @@ func (o GetImageImagePermissionOutput) ToGetImageImagePermissionOutputWithContex
 	return o
 }
 
-// Boolean indicating if the image can be used for a fleet.
 func (o GetImageImagePermissionOutput) AllowFleet() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetImageImagePermission) bool { return v.AllowFleet }).(pulumi.BoolOutput)
 }
 
-// indicated whether the image can be used for an image builder.
 func (o GetImageImagePermissionOutput) AllowImageBuilder() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetImageImagePermission) bool { return v.AllowImageBuilder }).(pulumi.BoolOutput)
 }

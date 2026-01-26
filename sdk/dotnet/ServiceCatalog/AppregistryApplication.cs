@@ -9,107 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ServiceCatalog
 {
-    /// <summary>
-    /// Resource for managing an AWS Service Catalog AppRegistry Application.
-    /// 
-    /// &gt; An AWS Service Catalog AppRegistry Application is displayed in the AWS Console under "MyApplications".
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ServiceCatalog.AppregistryApplication("example", new()
-    ///     {
-    ///         Name = "example-app",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Connecting Resources
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ServiceCatalog.AppregistryApplication("example", new()
-    ///     {
-    ///         Name = "example-app",
-    ///     });
-    /// 
-    ///     var bucket = new Aws.S3.Bucket("bucket", new()
-    ///     {
-    ///         BucketName = "example-bucket",
-    ///         Tags = example.ApplicationTag,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import AWS Service Catalog AppRegistry Application using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:servicecatalog/appregistryApplication:AppregistryApplication example application-id-12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:servicecatalog/appregistryApplication:AppregistryApplication")]
     public partial class AppregistryApplication : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `Tags` argument of another resource, or merged into a map of existing tags.
-        /// </summary>
         [Output("applicationTag")]
         public Output<ImmutableDictionary<string, string>> ApplicationTag { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN (Amazon Resource Name) of the application.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the application.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the application. The name must be unique within an AWS region.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the Application. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -159,32 +79,17 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class AppregistryApplicationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of the application.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name of the application. The name must be unique within an AWS region.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags assigned to the Application. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -201,48 +106,26 @@ namespace Pulumi.Aws.ServiceCatalog
     {
         [Input("applicationTag")]
         private InputMap<string>? _applicationTag;
-
-        /// <summary>
-        /// A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `Tags` argument of another resource, or merged into a map of existing tags.
-        /// </summary>
         public InputMap<string> ApplicationTag
         {
             get => _applicationTag ?? (_applicationTag = new InputMap<string>());
             set => _applicationTag = value;
         }
 
-        /// <summary>
-        /// ARN (Amazon Resource Name) of the application.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Description of the application.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name of the application. The name must be unique within an AWS region.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags assigned to the Application. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -251,10 +134,6 @@ namespace Pulumi.Aws.ServiceCatalog
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

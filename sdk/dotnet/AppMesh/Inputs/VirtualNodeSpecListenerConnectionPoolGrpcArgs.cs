@@ -12,9 +12,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class VirtualNodeSpecListenerConnectionPoolGrpcArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
-        /// </summary>
         [Input("maxRequests", required: true)]
         public Input<int> MaxRequests { get; set; } = null!;
 

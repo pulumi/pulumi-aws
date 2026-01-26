@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ListenerRuleTransformHostHeaderRewriteConfig {
-    /**
-     * @return Block for host header rewrite configuration. Only one block is accepted. See Rewrite Blocks below.
-     * 
-     */
     private @Nullable ListenerRuleTransformHostHeaderRewriteConfigRewrite rewrite;
 
     private ListenerRuleTransformHostHeaderRewriteConfig() {}
-    /**
-     * @return Block for host header rewrite configuration. Only one block is accepted. See Rewrite Blocks below.
-     * 
-     */
     public Optional<ListenerRuleTransformHostHeaderRewriteConfigRewrite> rewrite() {
         return Optional.ofNullable(this.rewrite);
     }

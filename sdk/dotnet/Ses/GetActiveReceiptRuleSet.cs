@@ -11,66 +11,12 @@ namespace Pulumi.Aws.Ses
 {
     public static class GetActiveReceiptRuleSet
     {
-        /// <summary>
-        /// Retrieve the active SES receipt rule set
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var main = Aws.Ses.GetActiveReceiptRuleSet.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetActiveReceiptRuleSetResult> InvokeAsync(GetActiveReceiptRuleSetArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActiveReceiptRuleSetResult>("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", args ?? new GetActiveReceiptRuleSetArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve the active SES receipt rule set
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var main = Aws.Ses.GetActiveReceiptRuleSet.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetActiveReceiptRuleSetResult> Invoke(GetActiveReceiptRuleSetInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActiveReceiptRuleSetResult>("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", args ?? new GetActiveReceiptRuleSetInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve the active SES receipt rule set
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var main = Aws.Ses.GetActiveReceiptRuleSet.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetActiveReceiptRuleSetResult> Invoke(GetActiveReceiptRuleSetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetActiveReceiptRuleSetResult>("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", args ?? new GetActiveReceiptRuleSetInvokeArgs(), options.WithDefaults());
     }
@@ -78,9 +24,6 @@ namespace Pulumi.Aws.Ses
 
     public sealed class GetActiveReceiptRuleSetArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -92,9 +35,6 @@ namespace Pulumi.Aws.Ses
 
     public sealed class GetActiveReceiptRuleSetInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -108,18 +48,12 @@ namespace Pulumi.Aws.Ses
     [OutputType]
     public sealed class GetActiveReceiptRuleSetResult
     {
-        /// <summary>
-        /// SES receipt rule set ARN.
-        /// </summary>
         public readonly string Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string Region;
-        /// <summary>
-        /// Name of the rule set
-        /// </summary>
         public readonly string RuleSetName;
 
         [OutputConstructor]

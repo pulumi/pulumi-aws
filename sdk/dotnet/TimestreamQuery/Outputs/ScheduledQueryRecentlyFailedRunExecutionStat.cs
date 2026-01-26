@@ -13,29 +13,11 @@ namespace Pulumi.Aws.TimestreamQuery.Outputs
     [OutputType]
     public sealed class ScheduledQueryRecentlyFailedRunExecutionStat
     {
-        /// <summary>
-        /// Bytes metered for a single scheduled query run.
-        /// </summary>
         public readonly int? BytesMetered;
-        /// <summary>
-        /// Bytes scanned for a single scheduled query run.
-        /// </summary>
         public readonly int? CumulativeBytesScanned;
-        /// <summary>
-        /// Data writes metered for records ingested in a single scheduled query run.
-        /// </summary>
         public readonly int? DataWrites;
-        /// <summary>
-        /// Total time, measured in milliseconds, that was needed for the scheduled query run to complete.
-        /// </summary>
         public readonly int? ExecutionTimeInMillis;
-        /// <summary>
-        /// Number of rows present in the output from running a query before ingestion to destination data source.
-        /// </summary>
         public readonly int? QueryResultRows;
-        /// <summary>
-        /// Number of records ingested for a single scheduled query run.
-        /// </summary>
         public readonly int? RecordsIngested;
 
         [OutputConstructor]

@@ -15,9 +15,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         [Input("resourceAssociationArn")]
         public Input<string>? ResourceAssociationArn { get; set; }
 
-        /// <summary>
-        /// ARN of the Amazon VPC Lattice resource configuration for the resource endpoint.
-        /// </summary>
         [Input("resourceConfigurationArn", required: true)]
         public Input<string> ResourceConfigurationArn { get; set; } = null!;
 

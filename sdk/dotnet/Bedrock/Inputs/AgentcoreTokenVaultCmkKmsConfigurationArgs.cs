@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreTokenVaultCmkKmsConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Type of KMS key. Valid values: `CustomerManagedKey`, `ServiceManagedKey`.
-        /// </summary>
         [Input("keyType", required: true)]
         public Input<string> KeyType { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of the KMS key.
-        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 

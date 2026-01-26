@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt
     {
-        /// <summary>
-        /// Instructions for interpreting the contents of the document.
-        /// </summary>
         public readonly string ParsingPromptString;
 
         [OutputConstructor]

@@ -15,24 +15,14 @@ namespace Pulumi.Aws.Athena.Inputs
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
-        /// </summary>
         [Input("logGroup")]
         public Input<string>? LogGroup { get; set; }
 
-        /// <summary>
-        /// Prefix for the CloudWatch log stream name.
-        /// </summary>
         [Input("logStreamNamePrefix")]
         public Input<string>? LogStreamNamePrefix { get; set; }
 
         [Input("logTypes")]
         private InputList<Inputs.WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogTypeGetArgs>? _logTypes;
-
-        /// <summary>
-        /// Repeatable block defining log types to be delivered to CloudWatch.
-        /// </summary>
         public InputList<Inputs.WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogTypeGetArgs> LogTypes
         {
             get => _logTypes ?? (_logTypes = new InputList<Inputs.WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogTypeGetArgs>());

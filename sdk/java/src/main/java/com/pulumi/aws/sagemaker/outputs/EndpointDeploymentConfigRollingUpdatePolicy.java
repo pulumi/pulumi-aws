@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EndpointDeploymentConfigRollingUpdatePolicy {
-    /**
-     * @return Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5% to 50% of the variant&#39;s total instance count. See Maximum Batch Size.
-     * 
-     */
     private EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize maximumBatchSize;
-    /**
-     * @return The time limit for the total deployment. Exceeding this limit causes a timeout. Valid values are between `600` and `14400`.
-     * 
-     */
     private @Nullable Integer maximumExecutionTimeoutInSeconds;
-    /**
-     * @return Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
-     * 
-     */
     private @Nullable EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize rollbackMaximumBatchSize;
-    /**
-     * @return The length of the baking period, during which SageMaker AI monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
-     * 
-     */
     private Integer waitIntervalInSeconds;
 
     private EndpointDeploymentConfigRollingUpdatePolicy() {}
-    /**
-     * @return Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5% to 50% of the variant&#39;s total instance count. See Maximum Batch Size.
-     * 
-     */
     public EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize maximumBatchSize() {
         return this.maximumBatchSize;
     }
-    /**
-     * @return The time limit for the total deployment. Exceeding this limit causes a timeout. Valid values are between `600` and `14400`.
-     * 
-     */
     public Optional<Integer> maximumExecutionTimeoutInSeconds() {
         return Optional.ofNullable(this.maximumExecutionTimeoutInSeconds);
     }
-    /**
-     * @return Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
-     * 
-     */
     public Optional<EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize> rollbackMaximumBatchSize() {
         return Optional.ofNullable(this.rollbackMaximumBatchSize);
     }
-    /**
-     * @return The length of the baking period, during which SageMaker AI monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
-     * 
-     */
     public Integer waitIntervalInSeconds() {
         return this.waitIntervalInSeconds;
     }

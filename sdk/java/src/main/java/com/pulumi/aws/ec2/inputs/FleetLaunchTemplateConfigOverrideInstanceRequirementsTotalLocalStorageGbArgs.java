@@ -15,32 +15,16 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLoc
 
     public static final FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs Empty = new FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs();
 
-    /**
-     * The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
-     * 
-     */
     @Import(name="max")
     private @Nullable Output<Double> max;
 
-    /**
-     * @return The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
-     * 
-     */
     public Optional<Output<Double>> max() {
         return Optional.ofNullable(this.max);
     }
 
-    /**
-     * The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
-     * 
-     */
     @Import(name="min")
     private @Nullable Output<Double> min;
 
-    /**
-     * @return The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
-     * 
-     */
     public Optional<Output<Double>> min() {
         return Optional.ofNullable(this.min);
     }
@@ -70,44 +54,20 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLoc
             $ = new FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param max The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder max(@Nullable Output<Double> max) {
             $.max = max;
             return this;
         }
 
-        /**
-         * @param max The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder max(Double max) {
             return max(Output.of(max));
         }
 
-        /**
-         * @param min The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder min(@Nullable Output<Double> min) {
             $.min = min;
             return this;
         }
 
-        /**
-         * @param min The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder min(Double min) {
             return min(Output.of(min));
         }

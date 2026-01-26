@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipelineTriggerGitConfigurationPushTags {
-    /**
-     * @return A list of patterns of Git tags that, when pushed, are to be excluded from starting the pipeline.
-     * 
-     */
     private @Nullable List<String> excludes;
-    /**
-     * @return A list of patterns of Git tags that, when pushed, are to be included as criteria that starts the pipeline.
-     * 
-     */
     private @Nullable List<String> includes;
 
     private PipelineTriggerGitConfigurationPushTags() {}
-    /**
-     * @return A list of patterns of Git tags that, when pushed, are to be excluded from starting the pipeline.
-     * 
-     */
     public List<String> excludes() {
         return this.excludes == null ? List.of() : this.excludes;
     }
-    /**
-     * @return A list of patterns of Git tags that, when pushed, are to be included as criteria that starts the pipeline.
-     * 
-     */
     public List<String> includes() {
         return this.includes == null ? List.of() : this.includes;
     }

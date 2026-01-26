@@ -14,62 +14,30 @@ public final class GetMountTargetPlainArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetMountTargetPlainArgs Empty = new GetMountTargetPlainArgs();
 
-    /**
-     * ID or ARN of the access point whose mount target that you want to find. It must be included if a `fileSystemId` and `mountTargetId` are not included.
-     * 
-     */
     @Import(name="accessPointId")
     private @Nullable String accessPointId;
 
-    /**
-     * @return ID or ARN of the access point whose mount target that you want to find. It must be included if a `fileSystemId` and `mountTargetId` are not included.
-     * 
-     */
     public Optional<String> accessPointId() {
         return Optional.ofNullable(this.accessPointId);
     }
 
-    /**
-     * ID or ARN of the file system whose mount target that you want to find. It must be included if an `accessPointId` and `mountTargetId` are not included.
-     * 
-     */
     @Import(name="fileSystemId")
     private @Nullable String fileSystemId;
 
-    /**
-     * @return ID or ARN of the file system whose mount target that you want to find. It must be included if an `accessPointId` and `mountTargetId` are not included.
-     * 
-     */
     public Optional<String> fileSystemId() {
         return Optional.ofNullable(this.fileSystemId);
     }
 
-    /**
-     * ID or ARN of the mount target that you want to find. It must be included in your request if an `accessPointId` and `fileSystemId` are not included.
-     * 
-     */
     @Import(name="mountTargetId")
     private @Nullable String mountTargetId;
 
-    /**
-     * @return ID or ARN of the mount target that you want to find. It must be included in your request if an `accessPointId` and `fileSystemId` are not included.
-     * 
-     */
     public Optional<String> mountTargetId() {
         return Optional.ofNullable(this.mountTargetId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -101,45 +69,21 @@ public final class GetMountTargetPlainArgs extends com.pulumi.resources.InvokeAr
             $ = new GetMountTargetPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessPointId ID or ARN of the access point whose mount target that you want to find. It must be included if a `fileSystemId` and `mountTargetId` are not included.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessPointId(@Nullable String accessPointId) {
             $.accessPointId = accessPointId;
             return this;
         }
 
-        /**
-         * @param fileSystemId ID or ARN of the file system whose mount target that you want to find. It must be included if an `accessPointId` and `mountTargetId` are not included.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileSystemId(@Nullable String fileSystemId) {
             $.fileSystemId = fileSystemId;
             return this;
         }
 
-        /**
-         * @param mountTargetId ID or ARN of the mount target that you want to find. It must be included in your request if an `accessPointId` and `fileSystemId` are not included.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mountTargetId(@Nullable String mountTargetId) {
             $.mountTargetId = mountTargetId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

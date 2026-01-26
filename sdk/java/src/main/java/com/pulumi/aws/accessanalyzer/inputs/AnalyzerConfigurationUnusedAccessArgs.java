@@ -16,32 +16,16 @@ public final class AnalyzerConfigurationUnusedAccessArgs extends com.pulumi.reso
 
     public static final AnalyzerConfigurationUnusedAccessArgs Empty = new AnalyzerConfigurationUnusedAccessArgs();
 
-    /**
-     * Information about analysis rules for the analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule. See `analysisRule` Block for Unused Access Analyzer for details.
-     * 
-     */
     @Import(name="analysisRule")
     private @Nullable Output<AnalyzerConfigurationUnusedAccessAnalysisRuleArgs> analysisRule;
 
-    /**
-     * @return Information about analysis rules for the analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule. See `analysisRule` Block for Unused Access Analyzer for details.
-     * 
-     */
     public Optional<Output<AnalyzerConfigurationUnusedAccessAnalysisRuleArgs>> analysisRule() {
         return Optional.ofNullable(this.analysisRule);
     }
 
-    /**
-     * Specified access age in days for which to generate findings for unused access.
-     * 
-     */
     @Import(name="unusedAccessAge")
     private @Nullable Output<Integer> unusedAccessAge;
 
-    /**
-     * @return Specified access age in days for which to generate findings for unused access.
-     * 
-     */
     public Optional<Output<Integer>> unusedAccessAge() {
         return Optional.ofNullable(this.unusedAccessAge);
     }
@@ -71,44 +55,20 @@ public final class AnalyzerConfigurationUnusedAccessArgs extends com.pulumi.reso
             $ = new AnalyzerConfigurationUnusedAccessArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param analysisRule Information about analysis rules for the analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule. See `analysisRule` Block for Unused Access Analyzer for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder analysisRule(@Nullable Output<AnalyzerConfigurationUnusedAccessAnalysisRuleArgs> analysisRule) {
             $.analysisRule = analysisRule;
             return this;
         }
 
-        /**
-         * @param analysisRule Information about analysis rules for the analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule. See `analysisRule` Block for Unused Access Analyzer for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder analysisRule(AnalyzerConfigurationUnusedAccessAnalysisRuleArgs analysisRule) {
             return analysisRule(Output.of(analysisRule));
         }
 
-        /**
-         * @param unusedAccessAge Specified access age in days for which to generate findings for unused access.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unusedAccessAge(@Nullable Output<Integer> unusedAccessAge) {
             $.unusedAccessAge = unusedAccessAge;
             return this;
         }
 
-        /**
-         * @param unusedAccessAge Specified access age in days for which to generate findings for unused access.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unusedAccessAge(Integer unusedAccessAge) {
             return unusedAccessAge(Output.of(unusedAccessAge));
         }

@@ -19,107 +19,51 @@ public final class HubArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final HubArgs Empty = new HubArgs();
 
-    /**
-     * A description of the hub.
-     * 
-     */
     @Import(name="hubDescription", required=true)
     private Output<String> hubDescription;
 
-    /**
-     * @return A description of the hub.
-     * 
-     */
     public Output<String> hubDescription() {
         return this.hubDescription;
     }
 
-    /**
-     * The display name of the hub.
-     * 
-     */
     @Import(name="hubDisplayName")
     private @Nullable Output<String> hubDisplayName;
 
-    /**
-     * @return The display name of the hub.
-     * 
-     */
     public Optional<Output<String>> hubDisplayName() {
         return Optional.ofNullable(this.hubDisplayName);
     }
 
-    /**
-     * The name of the hub.
-     * 
-     */
     @Import(name="hubName", required=true)
     private Output<String> hubName;
 
-    /**
-     * @return The name of the hub.
-     * 
-     */
     public Output<String> hubName() {
         return this.hubName;
     }
 
-    /**
-     * The searchable keywords for the hub.
-     * 
-     */
     @Import(name="hubSearchKeywords")
     private @Nullable Output<List<String>> hubSearchKeywords;
 
-    /**
-     * @return The searchable keywords for the hub.
-     * 
-     */
     public Optional<Output<List<String>>> hubSearchKeywords() {
         return Optional.ofNullable(this.hubSearchKeywords);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
-     * 
-     */
     @Import(name="s3StorageConfig")
     private @Nullable Output<HubS3StorageConfigArgs> s3StorageConfig;
 
-    /**
-     * @return The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
-     * 
-     */
     public Optional<Output<HubS3StorageConfigArgs>> s3StorageConfig() {
         return Optional.ofNullable(this.s3StorageConfig);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -154,159 +98,69 @@ public final class HubArgs extends com.pulumi.resources.ResourceArgs {
             $ = new HubArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param hubDescription A description of the hub.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hubDescription(Output<String> hubDescription) {
             $.hubDescription = hubDescription;
             return this;
         }
 
-        /**
-         * @param hubDescription A description of the hub.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hubDescription(String hubDescription) {
             return hubDescription(Output.of(hubDescription));
         }
 
-        /**
-         * @param hubDisplayName The display name of the hub.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hubDisplayName(@Nullable Output<String> hubDisplayName) {
             $.hubDisplayName = hubDisplayName;
             return this;
         }
 
-        /**
-         * @param hubDisplayName The display name of the hub.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hubDisplayName(String hubDisplayName) {
             return hubDisplayName(Output.of(hubDisplayName));
         }
 
-        /**
-         * @param hubName The name of the hub.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hubName(Output<String> hubName) {
             $.hubName = hubName;
             return this;
         }
 
-        /**
-         * @param hubName The name of the hub.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hubName(String hubName) {
             return hubName(Output.of(hubName));
         }
 
-        /**
-         * @param hubSearchKeywords The searchable keywords for the hub.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hubSearchKeywords(@Nullable Output<List<String>> hubSearchKeywords) {
             $.hubSearchKeywords = hubSearchKeywords;
             return this;
         }
 
-        /**
-         * @param hubSearchKeywords The searchable keywords for the hub.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hubSearchKeywords(List<String> hubSearchKeywords) {
             return hubSearchKeywords(Output.of(hubSearchKeywords));
         }
 
-        /**
-         * @param hubSearchKeywords The searchable keywords for the hub.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hubSearchKeywords(String... hubSearchKeywords) {
             return hubSearchKeywords(List.of(hubSearchKeywords));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param s3StorageConfig The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3StorageConfig(@Nullable Output<HubS3StorageConfigArgs> s3StorageConfig) {
             $.s3StorageConfig = s3StorageConfig;
             return this;
         }
 
-        /**
-         * @param s3StorageConfig The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3StorageConfig(HubS3StorageConfigArgs s3StorageConfig) {
             return s3StorageConfig(Output.of(s3StorageConfig));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

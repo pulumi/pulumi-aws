@@ -12,37 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride {
-    /**
-     * @return A list of a list of strings. The list of edges associated with the network function group.
-     * 
-     */
     private @Nullable List<List<String>> edgeSets;
     /**
-     * @return The preferred edge to use.
-     * 
      * @deprecated
      * use_edge is deprecated. Use useEdgeLocation instead.
      * 
      */
     @Deprecated /* use_edge is deprecated. Use useEdgeLocation instead. */
     private @Nullable String useEdge;
-    /**
-     * @return The preferred edge to use.
-     * 
-     */
     private @Nullable String useEdgeLocation;
 
     private GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride() {}
-    /**
-     * @return A list of a list of strings. The list of edges associated with the network function group.
-     * 
-     */
     public List<List<String>> edgeSets() {
         return this.edgeSets == null ? List.of() : this.edgeSets;
     }
     /**
-     * @return The preferred edge to use.
-     * 
      * @deprecated
      * use_edge is deprecated. Use useEdgeLocation instead.
      * 
@@ -51,10 +35,6 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride 
     public Optional<String> useEdge() {
         return Optional.ofNullable(this.useEdge);
     }
-    /**
-     * @return The preferred edge to use.
-     * 
-     */
     public Optional<String> useEdgeLocation() {
         return Optional.ofNullable(this.useEdgeLocation);
     }

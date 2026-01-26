@@ -18,62 +18,30 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AliasArgs Empty = new AliasArgs();
 
-    /**
-     * Description of the alias.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the alias.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Name for the alias you are creating.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name for the alias you are creating.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The StateMachine alias&#39; route configuration settings. Fields documented below
-     * 
-     */
     @Import(name="routingConfigurations", required=true)
     private Output<List<AliasRoutingConfigurationArgs>> routingConfigurations;
 
-    /**
-     * @return The StateMachine alias&#39; route configuration settings. Fields documented below
-     * 
-     */
     public Output<List<AliasRoutingConfigurationArgs>> routingConfigurations() {
         return this.routingConfigurations;
     }
@@ -105,96 +73,42 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
             $ = new AliasArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description Description of the alias.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the alias.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param name Name for the alias you are creating.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name for the alias you are creating.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param routingConfigurations The StateMachine alias&#39; route configuration settings. Fields documented below
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingConfigurations(Output<List<AliasRoutingConfigurationArgs>> routingConfigurations) {
             $.routingConfigurations = routingConfigurations;
             return this;
         }
 
-        /**
-         * @param routingConfigurations The StateMachine alias&#39; route configuration settings. Fields documented below
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingConfigurations(List<AliasRoutingConfigurationArgs> routingConfigurations) {
             return routingConfigurations(Output.of(routingConfigurations));
         }
 
-        /**
-         * @param routingConfigurations The StateMachine alias&#39; route configuration settings. Fields documented below
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingConfigurations(AliasRoutingConfigurationArgs... routingConfigurations) {
             return routingConfigurations(List.of(routingConfigurations));
         }

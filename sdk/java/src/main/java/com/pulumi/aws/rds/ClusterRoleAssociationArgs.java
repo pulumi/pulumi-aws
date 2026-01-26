@@ -16,62 +16,30 @@ public final class ClusterRoleAssociationArgs extends com.pulumi.resources.Resou
 
     public static final ClusterRoleAssociationArgs Empty = new ClusterRoleAssociationArgs();
 
-    /**
-     * DB Cluster Identifier to associate with the IAM Role.
-     * 
-     */
     @Import(name="dbClusterIdentifier", required=true)
     private Output<String> dbClusterIdentifier;
 
-    /**
-     * @return DB Cluster Identifier to associate with the IAM Role.
-     * 
-     */
     public Output<String> dbClusterIdentifier() {
         return this.dbClusterIdentifier;
     }
 
-    /**
-     * Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
-     * 
-     */
     @Import(name="featureName")
     private @Nullable Output<String> featureName;
 
-    /**
-     * @return Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
-     * 
-     */
     public Optional<Output<String>> featureName() {
         return Optional.ofNullable(this.featureName);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
@@ -103,86 +71,38 @@ public final class ClusterRoleAssociationArgs extends com.pulumi.resources.Resou
             $ = new ClusterRoleAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dbClusterIdentifier DB Cluster Identifier to associate with the IAM Role.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbClusterIdentifier(Output<String> dbClusterIdentifier) {
             $.dbClusterIdentifier = dbClusterIdentifier;
             return this;
         }
 
-        /**
-         * @param dbClusterIdentifier DB Cluster Identifier to associate with the IAM Role.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbClusterIdentifier(String dbClusterIdentifier) {
             return dbClusterIdentifier(Output.of(dbClusterIdentifier));
         }
 
-        /**
-         * @param featureName Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder featureName(@Nullable Output<String> featureName) {
             $.featureName = featureName;
             return this;
         }
 
-        /**
-         * @param featureName Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder featureName(String featureName) {
             return featureName(Output.of(featureName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param roleArn Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

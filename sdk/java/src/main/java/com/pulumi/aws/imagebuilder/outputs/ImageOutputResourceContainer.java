@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ImageOutputResourceContainer {
-    /**
-     * @return Set of URIs for created containers.
-     * 
-     */
     private @Nullable List<String> imageUris;
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     private @Nullable String region;
 
     private ImageOutputResourceContainer() {}
-    /**
-     * @return Set of URIs for created containers.
-     * 
-     */
     public List<String> imageUris() {
         return this.imageUris == null ? List.of() : this.imageUris;
     }
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }

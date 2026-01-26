@@ -14,17 +14,9 @@ public final class FirewallAvailabilityZoneMappingArgs extends com.pulumi.resour
 
     public static final FirewallAvailabilityZoneMappingArgs Empty = new FirewallAvailabilityZoneMappingArgs();
 
-    /**
-     * The ID of the Availability Zone where the firewall endpoint is located..
-     * 
-     */
     @Import(name="availabilityZoneId", required=true)
     private Output<String> availabilityZoneId;
 
-    /**
-     * @return The ID of the Availability Zone where the firewall endpoint is located..
-     * 
-     */
     public Output<String> availabilityZoneId() {
         return this.availabilityZoneId;
     }
@@ -53,23 +45,11 @@ public final class FirewallAvailabilityZoneMappingArgs extends com.pulumi.resour
             $ = new FirewallAvailabilityZoneMappingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param availabilityZoneId The ID of the Availability Zone where the firewall endpoint is located..
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZoneId(Output<String> availabilityZoneId) {
             $.availabilityZoneId = availabilityZoneId;
             return this;
         }
 
-        /**
-         * @param availabilityZoneId The ID of the Availability Zone where the firewall endpoint is located..
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZoneId(String availabilityZoneId) {
             return availabilityZoneId(Output.of(availabilityZoneId));
         }

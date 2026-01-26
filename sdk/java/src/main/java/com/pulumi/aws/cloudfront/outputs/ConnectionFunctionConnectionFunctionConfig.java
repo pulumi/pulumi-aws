@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectionFunctionConnectionFunctionConfig {
-    /**
-     * @return Comment to describe the function.
-     * 
-     */
     private String comment;
-    /**
-     * @return Key value store associations. See `keyValueStoreAssociation` below.
-     * 
-     */
     private @Nullable ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociation keyValueStoreAssociation;
-    /**
-     * @return Runtime environment for the function. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
-     * 
-     */
     private String runtime;
 
     private ConnectionFunctionConnectionFunctionConfig() {}
-    /**
-     * @return Comment to describe the function.
-     * 
-     */
     public String comment() {
         return this.comment;
     }
-    /**
-     * @return Key value store associations. See `keyValueStoreAssociation` below.
-     * 
-     */
     public Optional<ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociation> keyValueStoreAssociation() {
         return Optional.ofNullable(this.keyValueStoreAssociation);
     }
-    /**
-     * @return Runtime environment for the function. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
-     * 
-     */
     public String runtime() {
         return this.runtime;
     }

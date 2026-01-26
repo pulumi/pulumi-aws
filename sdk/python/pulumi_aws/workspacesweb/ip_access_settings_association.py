@@ -24,11 +24,6 @@ class IpAccessSettingsAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IpAccessSettingsAssociation resource.
-        :param pulumi.Input[_builtins.str] ip_access_settings_arn: ARN of the IP access settings to associate with the portal. Forces replacement if changed.
-        :param pulumi.Input[_builtins.str] portal_arn: ARN of the portal to associate with the IP access settings. Forces replacement if changed.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "ip_access_settings_arn", ip_access_settings_arn)
         pulumi.set(__self__, "portal_arn", portal_arn)
@@ -38,9 +33,6 @@ class IpAccessSettingsAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="ipAccessSettingsArn")
     def ip_access_settings_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the IP access settings to associate with the portal. Forces replacement if changed.
-        """
         return pulumi.get(self, "ip_access_settings_arn")
 
     @ip_access_settings_arn.setter
@@ -50,11 +42,6 @@ class IpAccessSettingsAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="portalArn")
     def portal_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the portal to associate with the IP access settings. Forces replacement if changed.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "portal_arn")
 
     @portal_arn.setter
@@ -64,9 +51,6 @@ class IpAccessSettingsAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -82,11 +66,6 @@ class _IpAccessSettingsAssociationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IpAccessSettingsAssociation resources.
-        :param pulumi.Input[_builtins.str] ip_access_settings_arn: ARN of the IP access settings to associate with the portal. Forces replacement if changed.
-        :param pulumi.Input[_builtins.str] portal_arn: ARN of the portal to associate with the IP access settings. Forces replacement if changed.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if ip_access_settings_arn is not None:
             pulumi.set(__self__, "ip_access_settings_arn", ip_access_settings_arn)
@@ -98,9 +77,6 @@ class _IpAccessSettingsAssociationState:
     @_builtins.property
     @pulumi.getter(name="ipAccessSettingsArn")
     def ip_access_settings_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IP access settings to associate with the portal. Forces replacement if changed.
-        """
         return pulumi.get(self, "ip_access_settings_arn")
 
     @ip_access_settings_arn.setter
@@ -110,11 +86,6 @@ class _IpAccessSettingsAssociationState:
     @_builtins.property
     @pulumi.getter(name="portalArn")
     def portal_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the portal to associate with the IP access settings. Forces replacement if changed.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "portal_arn")
 
     @portal_arn.setter
@@ -124,9 +95,6 @@ class _IpAccessSettingsAssociationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -145,34 +113,9 @@ class IpAccessSettingsAssociation(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS WorkSpaces Web IP Access Settings Association.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.workspacesweb.Portal("example", display_name="example")
-        example_ip_access_settings = aws.workspacesweb.IpAccessSettings("example",
-            display_name="example",
-            ip_rules=[{
-                "ip_range": "10.0.0.0/16",
-            }])
-        example_ip_access_settings_association = aws.workspacesweb.IpAccessSettingsAssociation("example",
-            ip_access_settings_arn=example_ip_access_settings.ip_access_settings_arn,
-            portal_arn=example.portal_arn)
-        ```
-
+        Create a IpAccessSettingsAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] ip_access_settings_arn: ARN of the IP access settings to associate with the portal. Forces replacement if changed.
-        :param pulumi.Input[_builtins.str] portal_arn: ARN of the portal to associate with the IP access settings. Forces replacement if changed.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -181,27 +124,7 @@ class IpAccessSettingsAssociation(pulumi.CustomResource):
                  args: IpAccessSettingsAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS WorkSpaces Web IP Access Settings Association.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.workspacesweb.Portal("example", display_name="example")
-        example_ip_access_settings = aws.workspacesweb.IpAccessSettings("example",
-            display_name="example",
-            ip_rules=[{
-                "ip_range": "10.0.0.0/16",
-            }])
-        example_ip_access_settings_association = aws.workspacesweb.IpAccessSettingsAssociation("example",
-            ip_access_settings_arn=example_ip_access_settings.ip_access_settings_arn,
-            portal_arn=example.portal_arn)
-        ```
-
+        Create a IpAccessSettingsAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param IpAccessSettingsAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -256,11 +179,6 @@ class IpAccessSettingsAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] ip_access_settings_arn: ARN of the IP access settings to associate with the portal. Forces replacement if changed.
-        :param pulumi.Input[_builtins.str] portal_arn: ARN of the portal to associate with the IP access settings. Forces replacement if changed.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -274,26 +192,15 @@ class IpAccessSettingsAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="ipAccessSettingsArn")
     def ip_access_settings_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the IP access settings to associate with the portal. Forces replacement if changed.
-        """
         return pulumi.get(self, "ip_access_settings_arn")
 
     @_builtins.property
     @pulumi.getter(name="portalArn")
     def portal_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the portal to associate with the IP access settings. Forces replacement if changed.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "portal_arn")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceDnsConfig {
-    /**
-     * @return An array that contains one DnsRecord object for each resource record set. See `dnsRecords` Block for details.
-     * 
-     */
     private List<ServiceDnsConfigDnsRecord> dnsRecords;
-    /**
-     * @return The ID of the namespace to use for DNS configuration.
-     * 
-     */
     private String namespaceId;
-    /**
-     * @return The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
-     * 
-     */
     private @Nullable String routingPolicy;
 
     private ServiceDnsConfig() {}
-    /**
-     * @return An array that contains one DnsRecord object for each resource record set. See `dnsRecords` Block for details.
-     * 
-     */
     public List<ServiceDnsConfigDnsRecord> dnsRecords() {
         return this.dnsRecords;
     }
-    /**
-     * @return The ID of the namespace to use for DNS configuration.
-     * 
-     */
     public String namespaceId() {
         return this.namespaceId;
     }
-    /**
-     * @return The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
-     * 
-     */
     public Optional<String> routingPolicy() {
         return Optional.ofNullable(this.routingPolicy);
     }

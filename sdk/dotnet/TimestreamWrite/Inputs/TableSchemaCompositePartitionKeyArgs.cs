@@ -12,21 +12,12 @@ namespace Pulumi.Aws.TimestreamWrite.Inputs
 
     public sealed class TableSchemaCompositePartitionKeyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
-        /// </summary>
         [Input("enforcementInRecord")]
         public Input<string>? EnforcementInRecord { get; set; }
 
-        /// <summary>
-        /// The name of the attribute used for a dimension key.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

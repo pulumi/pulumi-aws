@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class PipelineArtifactStoreEncryptionKey {
-    /**
-     * @return The KMS key ARN or ID
-     * 
-     */
     private String id;
-    /**
-     * @return The type of key; currently only `KMS` is supported
-     * 
-     */
     private String type;
 
     private PipelineArtifactStoreEncryptionKey() {}
-    /**
-     * @return The KMS key ARN or ID
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return The type of key; currently only `KMS` is supported
-     * 
-     */
     public String type() {
         return this.type;
     }

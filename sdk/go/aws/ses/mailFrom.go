@@ -12,131 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an SES domain MAIL FROM resource.
-//
-// > **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the ses.DomainIdentity resource. To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/dg/mail-from.html) for more information.
-//
-// ## Example Usage
-//
-// ### Domain Identity MAIL FROM
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ses"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Example SES Domain Identity
-//			exampleDomainIdentity, err := ses.NewDomainIdentity(ctx, "example", &ses.DomainIdentityArgs{
-//				Domain: pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := ses.NewMailFrom(ctx, "example", &ses.MailFromArgs{
-//				Domain: exampleDomainIdentity.Domain,
-//				MailFromDomain: exampleDomainIdentity.Domain.ApplyT(func(domain string) (string, error) {
-//					return fmt.Sprintf("bounce.%v", domain), nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// Example Route53 MX record
-//			_, err = route53.NewRecord(ctx, "example_ses_domain_mail_from_mx", &route53.RecordArgs{
-//				ZoneId: pulumi.Any(exampleAwsRoute53Zone.Id),
-//				Name:   example.MailFromDomain,
-//				Type:   pulumi.String(route53.RecordTypeMX),
-//				Ttl:    pulumi.Int(600),
-//				Records: pulumi.StringArray{
-//					pulumi.String("10 feedback-smtp.us-east-1.amazonses.com"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// Example Route53 TXT record for SPF
-//			_, err = route53.NewRecord(ctx, "example_ses_domain_mail_from_txt", &route53.RecordArgs{
-//				ZoneId: pulumi.Any(exampleAwsRoute53Zone.Id),
-//				Name:   example.MailFromDomain,
-//				Type:   pulumi.String(route53.RecordTypeTXT),
-//				Ttl:    pulumi.Int(600),
-//				Records: pulumi.StringArray{
-//					pulumi.String("v=spf1 include:amazonses.com ~all"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Email Identity MAIL FROM
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ses"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Example SES Email Identity
-//			example, err := ses.NewEmailIdentity(ctx, "example", &ses.EmailIdentityArgs{
-//				Email: pulumi.String("user@example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ses.NewMailFrom(ctx, "example", &ses.MailFromArgs{
-//				Domain:         example.Email,
-//				MailFromDomain: pulumi.String("mail.example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import MAIL FROM domain using the `domain` attribute. For example:
-//
-// ```sh
-// $ pulumi import aws:ses/mailFrom:MailFrom example example.com
-// ```
 type MailFrom struct {
 	pulumi.CustomResourceState
 
-	// The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
 	BehaviorOnMxFailure pulumi.StringPtrOutput `pulumi:"behaviorOnMxFailure"`
-	// Verified domain name or email identity to generate DKIM tokens for.
-	Domain pulumi.StringOutput `pulumi:"domain"`
-	// Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
-	//
-	// The following arguments are optional:
-	MailFromDomain pulumi.StringOutput `pulumi:"mailFromDomain"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Domain              pulumi.StringOutput    `pulumi:"domain"`
+	MailFromDomain      pulumi.StringOutput    `pulumi:"mailFromDomain"`
+	Region              pulumi.StringOutput    `pulumi:"region"`
 }
 
 // NewMailFrom registers a new resource with the given unique name, arguments, and options.
@@ -175,29 +57,17 @@ func GetMailFrom(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MailFrom resources.
 type mailFromState struct {
-	// The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
 	BehaviorOnMxFailure *string `pulumi:"behaviorOnMxFailure"`
-	// Verified domain name or email identity to generate DKIM tokens for.
-	Domain *string `pulumi:"domain"`
-	// Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
-	//
-	// The following arguments are optional:
-	MailFromDomain *string `pulumi:"mailFromDomain"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Domain              *string `pulumi:"domain"`
+	MailFromDomain      *string `pulumi:"mailFromDomain"`
+	Region              *string `pulumi:"region"`
 }
 
 type MailFromState struct {
-	// The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
 	BehaviorOnMxFailure pulumi.StringPtrInput
-	// Verified domain name or email identity to generate DKIM tokens for.
-	Domain pulumi.StringPtrInput
-	// Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
-	//
-	// The following arguments are optional:
-	MailFromDomain pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Domain              pulumi.StringPtrInput
+	MailFromDomain      pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
 }
 
 func (MailFromState) ElementType() reflect.Type {
@@ -205,30 +75,18 @@ func (MailFromState) ElementType() reflect.Type {
 }
 
 type mailFromArgs struct {
-	// The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
 	BehaviorOnMxFailure *string `pulumi:"behaviorOnMxFailure"`
-	// Verified domain name or email identity to generate DKIM tokens for.
-	Domain string `pulumi:"domain"`
-	// Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
-	//
-	// The following arguments are optional:
-	MailFromDomain string `pulumi:"mailFromDomain"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Domain              string  `pulumi:"domain"`
+	MailFromDomain      string  `pulumi:"mailFromDomain"`
+	Region              *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a MailFrom resource.
 type MailFromArgs struct {
-	// The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
 	BehaviorOnMxFailure pulumi.StringPtrInput
-	// Verified domain name or email identity to generate DKIM tokens for.
-	Domain pulumi.StringInput
-	// Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
-	//
-	// The following arguments are optional:
-	MailFromDomain pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Domain              pulumi.StringInput
+	MailFromDomain      pulumi.StringInput
+	Region              pulumi.StringPtrInput
 }
 
 func (MailFromArgs) ElementType() reflect.Type {
@@ -318,24 +176,18 @@ func (o MailFromOutput) ToMailFromOutputWithContext(ctx context.Context) MailFro
 	return o
 }
 
-// The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
 func (o MailFromOutput) BehaviorOnMxFailure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MailFrom) pulumi.StringPtrOutput { return v.BehaviorOnMxFailure }).(pulumi.StringPtrOutput)
 }
 
-// Verified domain name or email identity to generate DKIM tokens for.
 func (o MailFromOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v *MailFrom) pulumi.StringOutput { return v.Domain }).(pulumi.StringOutput)
 }
 
-// Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
-//
-// The following arguments are optional:
 func (o MailFromOutput) MailFromDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v *MailFrom) pulumi.StringOutput { return v.MailFromDomain }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MailFromOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MailFrom) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

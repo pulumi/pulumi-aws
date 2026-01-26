@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
-        /// </summary>
         [Input("aggregationType")]
         public Input<string>? AggregationType { get; set; }
 
-        /// <summary>
-        /// The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
-        /// </summary>
         [Input("targetFileSize")]
         public Input<int>? TargetFileSize { get; set; }
 

@@ -15,49 +15,23 @@ public final class InstanceMasterUserSecretArgs extends com.pulumi.resources.Res
 
     public static final InstanceMasterUserSecretArgs Empty = new InstanceMasterUserSecretArgs();
 
-    /**
-     * The ARN for the KMS encryption key. If creating an
-     * encrypted replica, set this to the destination KMS ARN.
-     * 
-     */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
-    /**
-     * @return The ARN for the KMS encryption key. If creating an
-     * encrypted replica, set this to the destination KMS ARN.
-     * 
-     */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the secret.
-     * 
-     */
     @Import(name="secretArn")
     private @Nullable Output<String> secretArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the secret.
-     * 
-     */
     public Optional<Output<String>> secretArn() {
         return Optional.ofNullable(this.secretArn);
     }
 
-    /**
-     * The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
-     * 
-     */
     @Import(name="secretStatus")
     private @Nullable Output<String> secretStatus;
 
-    /**
-     * @return The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
-     * 
-     */
     public Optional<Output<String>> secretStatus() {
         return Optional.ofNullable(this.secretStatus);
     }
@@ -88,67 +62,29 @@ public final class InstanceMasterUserSecretArgs extends com.pulumi.resources.Res
             $ = new InstanceMasterUserSecretArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kmsKeyId The ARN for the KMS encryption key. If creating an
-         * encrypted replica, set this to the destination KMS ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
-        /**
-         * @param kmsKeyId The ARN for the KMS encryption key. If creating an
-         * encrypted replica, set this to the destination KMS ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }
 
-        /**
-         * @param secretArn The Amazon Resource Name (ARN) of the secret.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretArn(@Nullable Output<String> secretArn) {
             $.secretArn = secretArn;
             return this;
         }
 
-        /**
-         * @param secretArn The Amazon Resource Name (ARN) of the secret.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretArn(String secretArn) {
             return secretArn(Output.of(secretArn));
         }
 
-        /**
-         * @param secretStatus The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretStatus(@Nullable Output<String> secretStatus) {
             $.secretStatus = secretStatus;
             return this;
         }
 
-        /**
-         * @param secretStatus The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretStatus(String secretStatus) {
             return secretStatus(Output.of(secretStatus));
         }

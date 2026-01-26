@@ -15,15 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetEngineVersionResult {
     private @Nullable String engine;
-    /**
-     * @return Description of the database engine.
-     * 
-     */
     private String engineDescription;
-    /**
-     * @return Set of log types that the database engine has available for export to CloudWatch Logs.
-     * 
-     */
     private List<String> exportableLogTypes;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -33,38 +25,18 @@ public final class GetEngineVersionResult {
     private String parameterGroupFamily;
     private @Nullable List<String> preferredVersions;
     private String region;
-    /**
-     * @return Indicates whether the engine version supports exporting the log types specified by `exportableLogTypes` to CloudWatch Logs.
-     * 
-     */
     private Boolean supportsLogExportsToCloudwatch;
-    /**
-     * @return A set of engine versions that this database engine version can be upgraded to.
-     * 
-     */
     private List<String> validUpgradeTargets;
     private String version;
-    /**
-     * @return Description of the database engine version.
-     * 
-     */
     private String versionDescription;
 
     private GetEngineVersionResult() {}
     public Optional<String> engine() {
         return Optional.ofNullable(this.engine);
     }
-    /**
-     * @return Description of the database engine.
-     * 
-     */
     public String engineDescription() {
         return this.engineDescription;
     }
-    /**
-     * @return Set of log types that the database engine has available for export to CloudWatch Logs.
-     * 
-     */
     public List<String> exportableLogTypes() {
         return this.exportableLogTypes;
     }
@@ -84,27 +56,15 @@ public final class GetEngineVersionResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Indicates whether the engine version supports exporting the log types specified by `exportableLogTypes` to CloudWatch Logs.
-     * 
-     */
     public Boolean supportsLogExportsToCloudwatch() {
         return this.supportsLogExportsToCloudwatch;
     }
-    /**
-     * @return A set of engine versions that this database engine version can be upgraded to.
-     * 
-     */
     public List<String> validUpgradeTargets() {
         return this.validUpgradeTargets;
     }
     public String version() {
         return this.version;
     }
-    /**
-     * @return Description of the database engine version.
-     * 
-     */
     public String versionDescription() {
         return this.versionDescription;
     }

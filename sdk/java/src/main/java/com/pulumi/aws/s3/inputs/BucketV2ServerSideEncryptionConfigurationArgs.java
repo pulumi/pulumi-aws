@@ -15,17 +15,9 @@ public final class BucketV2ServerSideEncryptionConfigurationArgs extends com.pul
 
     public static final BucketV2ServerSideEncryptionConfigurationArgs Empty = new BucketV2ServerSideEncryptionConfigurationArgs();
 
-    /**
-     * Single object for server-side encryption by default configuration. (documented below)
-     * 
-     */
     @Import(name="rules", required=true)
     private Output<List<BucketV2ServerSideEncryptionConfigurationRuleArgs>> rules;
 
-    /**
-     * @return Single object for server-side encryption by default configuration. (documented below)
-     * 
-     */
     public Output<List<BucketV2ServerSideEncryptionConfigurationRuleArgs>> rules() {
         return this.rules;
     }
@@ -54,33 +46,15 @@ public final class BucketV2ServerSideEncryptionConfigurationArgs extends com.pul
             $ = new BucketV2ServerSideEncryptionConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param rules Single object for server-side encryption by default configuration. (documented below)
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(Output<List<BucketV2ServerSideEncryptionConfigurationRuleArgs>> rules) {
             $.rules = rules;
             return this;
         }
 
-        /**
-         * @param rules Single object for server-side encryption by default configuration. (documented below)
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(List<BucketV2ServerSideEncryptionConfigurationRuleArgs> rules) {
             return rules(Output.of(rules));
         }
 
-        /**
-         * @param rules Single object for server-side encryption by default configuration. (documented below)
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(BucketV2ServerSideEncryptionConfigurationRuleArgs... rules) {
             return rules(List.of(rules));
         }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CustomerProfiles.Outputs
     [OutputType]
     public sealed class DomainRuleBasedMatchingConflictResolution
     {
-        /// <summary>
-        /// How the auto-merging process should resolve conflicts between different profiles. Valid values are `RECENCY` and `SOURCE`
-        /// </summary>
         public readonly string ConflictResolvingModel;
-        /// <summary>
-        /// The `ObjectType` name that is used to resolve profile merging conflicts when choosing `SOURCE` as the `ConflictResolvingModel`.
-        /// </summary>
         public readonly string? SourceName;
 
         [OutputConstructor]

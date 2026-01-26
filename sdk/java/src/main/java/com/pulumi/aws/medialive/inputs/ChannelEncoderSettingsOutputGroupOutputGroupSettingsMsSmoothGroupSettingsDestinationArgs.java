@@ -14,17 +14,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
 
     public static final ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs Empty = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs();
 
-    /**
-     * Reference ID for the destination.
-     * 
-     */
     @Import(name="destinationRefId", required=true)
     private Output<String> destinationRefId;
 
-    /**
-     * @return Reference ID for the destination.
-     * 
-     */
     public Output<String> destinationRefId() {
         return this.destinationRefId;
     }
@@ -53,23 +45,11 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
             $ = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destinationRefId Reference ID for the destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationRefId(Output<String> destinationRefId) {
             $.destinationRefId = destinationRefId;
             return this;
         }
 
-        /**
-         * @param destinationRefId Reference ID for the destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationRefId(String destinationRefId) {
             return destinationRefId(Output.of(destinationRefId));
         }

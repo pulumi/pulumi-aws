@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer
     {
-        /// <summary>
-        /// Set of allowed audience values for JWT token validation.
-        /// </summary>
         public readonly ImmutableArray<string> AllowedAudiences;
-        /// <summary>
-        /// Set of allowed client IDs for JWT token validation.
-        /// </summary>
         public readonly ImmutableArray<string> AllowedClients;
-        /// <summary>
-        /// URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
-        /// </summary>
         public readonly string DiscoveryUrl;
 
         [OutputConstructor]

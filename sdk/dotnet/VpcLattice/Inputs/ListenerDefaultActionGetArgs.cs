@@ -17,12 +17,6 @@ namespace Pulumi.Aws.VpcLattice.Inputs
 
         [Input("forwards")]
         private InputList<Inputs.ListenerDefaultActionForwardGetArgs>? _forwards;
-
-        /// <summary>
-        /// Route requests to one or more target groups. See Forward blocks below.
-        /// 
-        /// &gt; **NOTE:** You must specify exactly one of the following argument blocks: `FixedResponse` or `Forward`.
-        /// </summary>
         public InputList<Inputs.ListenerDefaultActionForwardGetArgs> Forwards
         {
             get => _forwards ?? (_forwards = new InputList<Inputs.ListenerDefaultActionForwardGetArgs>());

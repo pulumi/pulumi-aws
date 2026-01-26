@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration {
-    /**
-     * @return Kinesis Data Stream to deliver results.
-     * 
-     */
     private String insightsTarget;
 
     private MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration() {}
-    /**
-     * @return Kinesis Data Stream to deliver results.
-     * 
-     */
     public String insightsTarget() {
         return this.insightsTarget;
     }

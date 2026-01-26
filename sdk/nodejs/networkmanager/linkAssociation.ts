@@ -4,30 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Network Manager link association. Associates a link to a device. A device can be associated to multiple links and a link can be associated to multiple devices. The device and link must be in the same global network and the same site.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkmanager.LinkAssociation("example", {
- *     globalNetworkId: exampleAwsNetworkmanagerGlobalNetwork.id,
- *     linkId: exampleAwsNetworkmanagerLink.id,
- *     deviceId: exampleAwsNetworkmanagerDevice.id,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_networkmanager_link_association` using the global network ID, link ID and device ID. For example:
- *
- * ```sh
- * $ pulumi import aws:networkmanager/linkAssociation:LinkAssociation example global-network-0d47f6t230mz46dy4,link-444555aaabbb11223,device-07f6fd08867abc123
- * ```
- */
 export class LinkAssociation extends pulumi.CustomResource {
     /**
      * Get an existing LinkAssociation resource's state with the given name, ID, and optional extra
@@ -56,17 +32,8 @@ export class LinkAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === LinkAssociation.__pulumiType;
     }
 
-    /**
-     * ID of the device.
-     */
     declare public readonly deviceId: pulumi.Output<string>;
-    /**
-     * ID of the global network.
-     */
     declare public readonly globalNetworkId: pulumi.Output<string>;
-    /**
-     * ID of the link.
-     */
     declare public readonly linkId: pulumi.Output<string>;
 
     /**
@@ -109,17 +76,8 @@ export class LinkAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LinkAssociation resources.
  */
 export interface LinkAssociationState {
-    /**
-     * ID of the device.
-     */
     deviceId?: pulumi.Input<string>;
-    /**
-     * ID of the global network.
-     */
     globalNetworkId?: pulumi.Input<string>;
-    /**
-     * ID of the link.
-     */
     linkId?: pulumi.Input<string>;
 }
 
@@ -127,16 +85,7 @@ export interface LinkAssociationState {
  * The set of arguments for constructing a LinkAssociation resource.
  */
 export interface LinkAssociationArgs {
-    /**
-     * ID of the device.
-     */
     deviceId: pulumi.Input<string>;
-    /**
-     * ID of the global network.
-     */
     globalNetworkId: pulumi.Input<string>;
-    /**
-     * ID of the link.
-     */
     linkId: pulumi.Input<string>;
 }

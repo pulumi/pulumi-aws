@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Pinpoint.Inputs
 
     public sealed class AppCampaignHookArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Lambda function name or ARN to be called for delivery. Conflicts with `WebUrl`
-        /// </summary>
         [Input("lambdaFunctionName")]
         public Input<string>? LambdaFunctionName { get; set; }
 
-        /// <summary>
-        /// What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.
-        /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
 
-        /// <summary>
-        /// Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `LambdaFunctionName`
-        /// </summary>
         [Input("webUrl")]
         public Input<string>? WebUrl { get; set; }
 

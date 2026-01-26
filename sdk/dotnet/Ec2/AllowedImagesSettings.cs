@@ -9,100 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Provides EC2 allowed images settings for an AWS account. This feature allows you to control which AMIs can be used to launch EC2 instances in your account based on specified criteria.
-    /// 
-    /// For more information about the image criteria that can be set, see the [AWS documentation on Allowed AMIs JSON configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html#allowed-amis-json-configuration).
-    /// 
-    /// &gt; **NOTE:** The AWS API does not delete this resource. When you run `Destroy`, the provider will attempt to disable the setting.
-    /// 
-    /// &gt; **NOTE:** There is only one allowed images settings configuration per AWS account and region. Creating this resource will configure the account-level settings.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Enable with Amazon AMIs only
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.AllowedImagesSettings("example", new()
-    ///     {
-    ///         State = "enabled",
-    ///         ImageCriterions = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.AllowedImagesSettingsImageCriterionArgs
-    ///             {
-    ///                 ImageProviders = new[]
-    ///                 {
-    ///                     "amazon",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Enable audit mode with specific account IDs
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.AllowedImagesSettings("example", new()
-    ///     {
-    ///         State = "audit-mode",
-    ///         ImageCriterions = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.AllowedImagesSettingsImageCriterionArgs
-    ///             {
-    ///                 ImageProviders = new[]
-    ///                 {
-    ///                     "amazon",
-    ///                     "123456789012",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import EC2 allowed images settings. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2/allowedImagesSettings:AllowedImagesSettings example us-east-1
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/allowedImagesSettings:AllowedImagesSettings")]
     public partial class AllowedImagesSettings : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// List of image criteria. Maximum of 10 criterion blocks allowed. See `ImageCriterion` below.
-        /// </summary>
         [Output("imageCriterions")]
         public Output<ImmutableArray<Outputs.AllowedImagesSettingsImageCriterion>> ImageCriterions { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// State of the allowed images settings. Valid values are `Enabled` or `audit-mode`.
-        /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
@@ -154,25 +69,15 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("imageCriterions")]
         private InputList<Inputs.AllowedImagesSettingsImageCriterionArgs>? _imageCriterions;
-
-        /// <summary>
-        /// List of image criteria. Maximum of 10 criterion blocks allowed. See `ImageCriterion` below.
-        /// </summary>
         public InputList<Inputs.AllowedImagesSettingsImageCriterionArgs> ImageCriterions
         {
             get => _imageCriterions ?? (_imageCriterions = new InputList<Inputs.AllowedImagesSettingsImageCriterionArgs>());
             set => _imageCriterions = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// State of the allowed images settings. Valid values are `Enabled` or `audit-mode`.
-        /// </summary>
         [Input("state", required: true)]
         public Input<string> State { get; set; } = null!;
 
@@ -186,25 +91,15 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("imageCriterions")]
         private InputList<Inputs.AllowedImagesSettingsImageCriterionGetArgs>? _imageCriterions;
-
-        /// <summary>
-        /// List of image criteria. Maximum of 10 criterion blocks allowed. See `ImageCriterion` below.
-        /// </summary>
         public InputList<Inputs.AllowedImagesSettingsImageCriterionGetArgs> ImageCriterions
         {
             get => _imageCriterions ?? (_imageCriterions = new InputList<Inputs.AllowedImagesSettingsImageCriterionGetArgs>());
             set => _imageCriterions = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// State of the allowed images settings. Valid values are `Enabled` or `audit-mode`.
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 

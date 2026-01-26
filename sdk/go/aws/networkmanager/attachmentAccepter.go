@@ -12,171 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS Network Manager Attachment Accepter.
-//
-// Use this resource to accept cross-account attachments in AWS Network Manager. When an attachment is created in one account and needs to be accepted by another account that owns the core network, this resource handles the acceptance process.
-//
-// ## Example Usage
-//
-// ### VPC Attachment
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkmanager.NewAttachmentAccepter(ctx, "example", &networkmanager.AttachmentAccepterArgs{
-//				AttachmentId:   pulumi.Any(exampleAwsNetworkmanagerVpcAttachment.Id),
-//				AttachmentType: pulumi.Any(exampleAwsNetworkmanagerVpcAttachment.AttachmentType),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Site-to-Site VPN Attachment
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkmanager.NewAttachmentAccepter(ctx, "example", &networkmanager.AttachmentAccepterArgs{
-//				AttachmentId:   pulumi.Any(exampleAwsNetworkmanagerSiteToSiteVpnAttachment.Id),
-//				AttachmentType: pulumi.Any(exampleAwsNetworkmanagerSiteToSiteVpnAttachment.AttachmentType),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Connect Attachment
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkmanager.NewAttachmentAccepter(ctx, "example", &networkmanager.AttachmentAccepterArgs{
-//				AttachmentId:   pulumi.Any(exampleAwsNetworkmanagerConnectAttachment.Id),
-//				AttachmentType: pulumi.Any(exampleAwsNetworkmanagerConnectAttachment.AttachmentType),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Transit Gateway Route Table Attachment
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkmanager.NewAttachmentAccepter(ctx, "example", &networkmanager.AttachmentAccepterArgs{
-//				AttachmentId:   pulumi.Any(exampleAwsNetworkmanagerTransitGatewayRouteTableAttachment.Id),
-//				AttachmentType: pulumi.Any(exampleAwsNetworkmanagerTransitGatewayRouteTableAttachment.AttachmentType),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Direct Connect Gateway Attachment
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkmanager.NewAttachmentAccepter(ctx, "example", &networkmanager.AttachmentAccepterArgs{
-//				AttachmentId:   pulumi.Any(exampleAwsNetworkmanagerDxGatewayAttachment.Id),
-//				AttachmentType: pulumi.Any(exampleAwsNetworkmanagerDxGatewayAttachment.AttachmentType),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type AttachmentAccepter struct {
 	pulumi.CustomResourceState
 
-	// ID of the attachment.
-	AttachmentId pulumi.StringOutput `pulumi:"attachmentId"`
-	// Policy rule number associated with the attachment.
-	AttachmentPolicyRuleNumber pulumi.IntOutput `pulumi:"attachmentPolicyRuleNumber"`
-	// Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
-	AttachmentType pulumi.StringOutput `pulumi:"attachmentType"`
-	// ARN of the core network.
-	CoreNetworkArn pulumi.StringOutput `pulumi:"coreNetworkArn"`
-	// ID of the core network.
-	CoreNetworkId pulumi.StringOutput `pulumi:"coreNetworkId"`
-	// Region where the edge is located. This is returned for all attachment types except Direct Connect gateway attachments, which instead return `edgeLocations`.
-	EdgeLocation pulumi.StringOutput `pulumi:"edgeLocation"`
-	// Edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edgeLocation`.
-	EdgeLocations pulumi.StringArrayOutput `pulumi:"edgeLocations"`
-	// ID of the attachment account owner.
-	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
-	// Attachment resource ARN.
-	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
-	// Name of the segment attachment.
-	SegmentName pulumi.StringOutput `pulumi:"segmentName"`
-	// State of the attachment.
-	State pulumi.StringOutput `pulumi:"state"`
+	AttachmentId               pulumi.StringOutput      `pulumi:"attachmentId"`
+	AttachmentPolicyRuleNumber pulumi.IntOutput         `pulumi:"attachmentPolicyRuleNumber"`
+	AttachmentType             pulumi.StringOutput      `pulumi:"attachmentType"`
+	CoreNetworkArn             pulumi.StringOutput      `pulumi:"coreNetworkArn"`
+	CoreNetworkId              pulumi.StringOutput      `pulumi:"coreNetworkId"`
+	EdgeLocation               pulumi.StringOutput      `pulumi:"edgeLocation"`
+	EdgeLocations              pulumi.StringArrayOutput `pulumi:"edgeLocations"`
+	OwnerAccountId             pulumi.StringOutput      `pulumi:"ownerAccountId"`
+	ResourceArn                pulumi.StringOutput      `pulumi:"resourceArn"`
+	SegmentName                pulumi.StringOutput      `pulumi:"segmentName"`
+	State                      pulumi.StringOutput      `pulumi:"state"`
 }
 
 // NewAttachmentAccepter registers a new resource with the given unique name, arguments, and options.
@@ -215,53 +64,31 @@ func GetAttachmentAccepter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AttachmentAccepter resources.
 type attachmentAccepterState struct {
-	// ID of the attachment.
-	AttachmentId *string `pulumi:"attachmentId"`
-	// Policy rule number associated with the attachment.
-	AttachmentPolicyRuleNumber *int `pulumi:"attachmentPolicyRuleNumber"`
-	// Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
-	AttachmentType *string `pulumi:"attachmentType"`
-	// ARN of the core network.
-	CoreNetworkArn *string `pulumi:"coreNetworkArn"`
-	// ID of the core network.
-	CoreNetworkId *string `pulumi:"coreNetworkId"`
-	// Region where the edge is located. This is returned for all attachment types except Direct Connect gateway attachments, which instead return `edgeLocations`.
-	EdgeLocation *string `pulumi:"edgeLocation"`
-	// Edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edgeLocation`.
-	EdgeLocations []string `pulumi:"edgeLocations"`
-	// ID of the attachment account owner.
-	OwnerAccountId *string `pulumi:"ownerAccountId"`
-	// Attachment resource ARN.
-	ResourceArn *string `pulumi:"resourceArn"`
-	// Name of the segment attachment.
-	SegmentName *string `pulumi:"segmentName"`
-	// State of the attachment.
-	State *string `pulumi:"state"`
+	AttachmentId               *string  `pulumi:"attachmentId"`
+	AttachmentPolicyRuleNumber *int     `pulumi:"attachmentPolicyRuleNumber"`
+	AttachmentType             *string  `pulumi:"attachmentType"`
+	CoreNetworkArn             *string  `pulumi:"coreNetworkArn"`
+	CoreNetworkId              *string  `pulumi:"coreNetworkId"`
+	EdgeLocation               *string  `pulumi:"edgeLocation"`
+	EdgeLocations              []string `pulumi:"edgeLocations"`
+	OwnerAccountId             *string  `pulumi:"ownerAccountId"`
+	ResourceArn                *string  `pulumi:"resourceArn"`
+	SegmentName                *string  `pulumi:"segmentName"`
+	State                      *string  `pulumi:"state"`
 }
 
 type AttachmentAccepterState struct {
-	// ID of the attachment.
-	AttachmentId pulumi.StringPtrInput
-	// Policy rule number associated with the attachment.
+	AttachmentId               pulumi.StringPtrInput
 	AttachmentPolicyRuleNumber pulumi.IntPtrInput
-	// Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
-	AttachmentType pulumi.StringPtrInput
-	// ARN of the core network.
-	CoreNetworkArn pulumi.StringPtrInput
-	// ID of the core network.
-	CoreNetworkId pulumi.StringPtrInput
-	// Region where the edge is located. This is returned for all attachment types except Direct Connect gateway attachments, which instead return `edgeLocations`.
-	EdgeLocation pulumi.StringPtrInput
-	// Edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edgeLocation`.
-	EdgeLocations pulumi.StringArrayInput
-	// ID of the attachment account owner.
-	OwnerAccountId pulumi.StringPtrInput
-	// Attachment resource ARN.
-	ResourceArn pulumi.StringPtrInput
-	// Name of the segment attachment.
-	SegmentName pulumi.StringPtrInput
-	// State of the attachment.
-	State pulumi.StringPtrInput
+	AttachmentType             pulumi.StringPtrInput
+	CoreNetworkArn             pulumi.StringPtrInput
+	CoreNetworkId              pulumi.StringPtrInput
+	EdgeLocation               pulumi.StringPtrInput
+	EdgeLocations              pulumi.StringArrayInput
+	OwnerAccountId             pulumi.StringPtrInput
+	ResourceArn                pulumi.StringPtrInput
+	SegmentName                pulumi.StringPtrInput
+	State                      pulumi.StringPtrInput
 }
 
 func (AttachmentAccepterState) ElementType() reflect.Type {
@@ -269,17 +96,13 @@ func (AttachmentAccepterState) ElementType() reflect.Type {
 }
 
 type attachmentAccepterArgs struct {
-	// ID of the attachment.
-	AttachmentId string `pulumi:"attachmentId"`
-	// Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
+	AttachmentId   string `pulumi:"attachmentId"`
 	AttachmentType string `pulumi:"attachmentType"`
 }
 
 // The set of arguments for constructing a AttachmentAccepter resource.
 type AttachmentAccepterArgs struct {
-	// ID of the attachment.
-	AttachmentId pulumi.StringInput
-	// Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
+	AttachmentId   pulumi.StringInput
 	AttachmentType pulumi.StringInput
 }
 
@@ -370,57 +193,46 @@ func (o AttachmentAccepterOutput) ToAttachmentAccepterOutputWithContext(ctx cont
 	return o
 }
 
-// ID of the attachment.
 func (o AttachmentAccepterOutput) AttachmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AttachmentAccepter) pulumi.StringOutput { return v.AttachmentId }).(pulumi.StringOutput)
 }
 
-// Policy rule number associated with the attachment.
 func (o AttachmentAccepterOutput) AttachmentPolicyRuleNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v *AttachmentAccepter) pulumi.IntOutput { return v.AttachmentPolicyRuleNumber }).(pulumi.IntOutput)
 }
 
-// Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
 func (o AttachmentAccepterOutput) AttachmentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *AttachmentAccepter) pulumi.StringOutput { return v.AttachmentType }).(pulumi.StringOutput)
 }
 
-// ARN of the core network.
 func (o AttachmentAccepterOutput) CoreNetworkArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AttachmentAccepter) pulumi.StringOutput { return v.CoreNetworkArn }).(pulumi.StringOutput)
 }
 
-// ID of the core network.
 func (o AttachmentAccepterOutput) CoreNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AttachmentAccepter) pulumi.StringOutput { return v.CoreNetworkId }).(pulumi.StringOutput)
 }
 
-// Region where the edge is located. This is returned for all attachment types except Direct Connect gateway attachments, which instead return `edgeLocations`.
 func (o AttachmentAccepterOutput) EdgeLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v *AttachmentAccepter) pulumi.StringOutput { return v.EdgeLocation }).(pulumi.StringOutput)
 }
 
-// Edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edgeLocation`.
 func (o AttachmentAccepterOutput) EdgeLocations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AttachmentAccepter) pulumi.StringArrayOutput { return v.EdgeLocations }).(pulumi.StringArrayOutput)
 }
 
-// ID of the attachment account owner.
 func (o AttachmentAccepterOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AttachmentAccepter) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
 }
 
-// Attachment resource ARN.
 func (o AttachmentAccepterOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AttachmentAccepter) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-// Name of the segment attachment.
 func (o AttachmentAccepterOutput) SegmentName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AttachmentAccepter) pulumi.StringOutput { return v.SegmentName }).(pulumi.StringOutput)
 }
 
-// State of the attachment.
 func (o AttachmentAccepterOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *AttachmentAccepter) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }

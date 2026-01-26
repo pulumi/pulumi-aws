@@ -55,17 +55,11 @@ class GetRegionsResult:
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def names(self) -> Sequence[_builtins.str]:
-        """
-        Names of regions that meets the criteria.
-        """
         return pulumi.get(self, "names")
 
 
@@ -86,45 +80,7 @@ def get_regions(all_regions: Optional[_builtins.bool] = None,
                 id: Optional[_builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegionsResult:
     """
-    Provides information about AWS Regions. Can be used to filter regions i.e., by Opt-In status or only regions enabled for current account. To get details like endpoint and description of each region the data source can be combined with the `get_region` data source.
-
-    ## Example Usage
-
-    Enabled AWS Regions:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_regions()
-    ```
-
-    All the regions regardless of the availability
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_regions(all_regions=True)
-    ```
-
-    To see regions that are filtered by `"not-opted-in"`, the `all_regions` argument needs to be set to `true` or no results will be returned.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_regions(all_regions=True,
-        filters=[{
-            "name": "opt-in-status",
-            "values": ["not-opted-in"],
-        }])
-    ```
-
-
-    :param _builtins.bool all_regions: If true the source will query all regions regardless of availability.
-    :param Sequence[Union['GetRegionsFilterArgs', 'GetRegionsFilterArgsDict']] filters: Configuration block(s) to use as filters. Detailed below.
-    :param _builtins.str id: Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['allRegions'] = all_regions
@@ -143,45 +99,7 @@ def get_regions_output(all_regions: Optional[pulumi.Input[Optional[_builtins.boo
                        id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegionsResult]:
     """
-    Provides information about AWS Regions. Can be used to filter regions i.e., by Opt-In status or only regions enabled for current account. To get details like endpoint and description of each region the data source can be combined with the `get_region` data source.
-
-    ## Example Usage
-
-    Enabled AWS Regions:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_regions()
-    ```
-
-    All the regions regardless of the availability
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_regions(all_regions=True)
-    ```
-
-    To see regions that are filtered by `"not-opted-in"`, the `all_regions` argument needs to be set to `true` or no results will be returned.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_regions(all_regions=True,
-        filters=[{
-            "name": "opt-in-status",
-            "values": ["not-opted-in"],
-        }])
-    ```
-
-
-    :param _builtins.bool all_regions: If true the source will query all regions regardless of availability.
-    :param Sequence[Union['GetRegionsFilterArgs', 'GetRegionsFilterArgsDict']] filters: Configuration block(s) to use as filters. Detailed below.
-    :param _builtins.str id: Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['allRegions'] = all_regions

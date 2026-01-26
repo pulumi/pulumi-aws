@@ -15,53 +15,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicyTargetTrackingConfiguration {
-    /**
-     * @return Customized metric. Conflicts with `predefinedMetricSpecification`.
-     * 
-     */
     private @Nullable PolicyTargetTrackingConfigurationCustomizedMetricSpecification customizedMetricSpecification;
-    /**
-     * @return Whether scale in by the target tracking policy is disabled.
-     * 
-     */
     private @Nullable Boolean disableScaleIn;
-    /**
-     * @return Predefined metric. Conflicts with `customizedMetricSpecification`.
-     * 
-     */
     private @Nullable PolicyTargetTrackingConfigurationPredefinedMetricSpecification predefinedMetricSpecification;
-    /**
-     * @return Target value for the metric.
-     * 
-     */
     private Double targetValue;
 
     private PolicyTargetTrackingConfiguration() {}
-    /**
-     * @return Customized metric. Conflicts with `predefinedMetricSpecification`.
-     * 
-     */
     public Optional<PolicyTargetTrackingConfigurationCustomizedMetricSpecification> customizedMetricSpecification() {
         return Optional.ofNullable(this.customizedMetricSpecification);
     }
-    /**
-     * @return Whether scale in by the target tracking policy is disabled.
-     * 
-     */
     public Optional<Boolean> disableScaleIn() {
         return Optional.ofNullable(this.disableScaleIn);
     }
-    /**
-     * @return Predefined metric. Conflicts with `customizedMetricSpecification`.
-     * 
-     */
     public Optional<PolicyTargetTrackingConfigurationPredefinedMetricSpecification> predefinedMetricSpecification() {
         return Optional.ofNullable(this.predefinedMetricSpecification);
     }
-    /**
-     * @return Target value for the metric.
-     * 
-     */
     public Double targetValue() {
         return this.targetValue;
     }

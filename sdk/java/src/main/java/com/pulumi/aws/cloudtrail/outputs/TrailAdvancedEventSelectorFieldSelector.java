@@ -12,89 +12,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TrailAdvancedEventSelectorFieldSelector {
-    /**
-     * @return A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
-     * 
-     */
     private @Nullable List<String> endsWiths;
-    /**
-     * @return A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
-     * 
-     */
     private @Nullable List<String> equals;
-    /**
-     * @return Field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
-     * 
-     */
     private String field;
-    /**
-     * @return A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
-     * 
-     */
     private @Nullable List<String> notEndsWiths;
-    /**
-     * @return A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.
-     * 
-     */
     private @Nullable List<String> notEquals;
-    /**
-     * @return A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
-     * 
-     */
     private @Nullable List<String> notStartsWiths;
-    /**
-     * @return A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
-     * 
-     */
     private @Nullable List<String> startsWiths;
 
     private TrailAdvancedEventSelectorFieldSelector() {}
-    /**
-     * @return A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
-     * 
-     */
     public List<String> endsWiths() {
         return this.endsWiths == null ? List.of() : this.endsWiths;
     }
-    /**
-     * @return A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
-     * 
-     */
     public List<String> equals_() {
         return this.equals == null ? List.of() : this.equals;
     }
-    /**
-     * @return Field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
-     * 
-     */
     public String field() {
         return this.field;
     }
-    /**
-     * @return A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
-     * 
-     */
     public List<String> notEndsWiths() {
         return this.notEndsWiths == null ? List.of() : this.notEndsWiths;
     }
-    /**
-     * @return A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.
-     * 
-     */
     public List<String> notEquals() {
         return this.notEquals == null ? List.of() : this.notEquals;
     }
-    /**
-     * @return A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
-     * 
-     */
     public List<String> notStartsWiths() {
         return this.notStartsWiths == null ? List.of() : this.notStartsWiths;
     }
-    /**
-     * @return A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
-     * 
-     */
     public List<String> startsWiths() {
         return this.startsWiths == null ? List.of() : this.startsWiths;
     }

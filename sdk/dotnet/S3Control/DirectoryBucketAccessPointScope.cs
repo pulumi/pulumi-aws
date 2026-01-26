@@ -9,93 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3Control
 {
-    /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ### S3 Access Point Scope for a directory bucket in an AWS Local Zone
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var available = Aws.GetAvailabilityZones.Invoke(new()
-    ///     {
-    ///         State = "available",
-    ///     });
-    /// 
-    ///     var example = new Aws.S3.DirectoryBucket("example", new()
-    ///     {
-    ///         Bucket = "example--zoneId--x-s3",
-    ///         Location = new Aws.S3.Inputs.DirectoryBucketLocationArgs
-    ///         {
-    ///             Name = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.ZoneIds[0]),
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleAccessPoint = new Aws.S3.AccessPoint("example", new()
-    ///     {
-    ///         Bucket = example.Id,
-    ///         Name = "example--zoneId--xa-s3",
-    ///     });
-    /// 
-    ///     var exampleDirectoryBucketAccessPointScope = new Aws.S3Control.DirectoryBucketAccessPointScope("example", new()
-    ///     {
-    ///         Name = "example--zoneId--xa-s3",
-    ///         AccountId = "123456789012",
-    ///         Scope = new Aws.S3Control.Inputs.DirectoryBucketAccessPointScopeScopeArgs
-    ///         {
-    ///             Permissions = new[]
-    ///             {
-    ///                 "GetObject",
-    ///                 "ListBucket",
-    ///             },
-    ///             Prefixes = new[]
-    ///             {
-    ///                 "myobject1.csv",
-    ///                 "myobject2*",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Access Point Scope using access point name and AWS account ID separated by a colon (`,`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:s3control/directoryBucketAccessPointScope:DirectoryBucketAccessPointScope example example--zoneid--xa-s3,123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:s3control/directoryBucketAccessPointScope:DirectoryBucketAccessPointScope")]
     public partial class DirectoryBucketAccessPointScope : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The AWS account ID that owns the specified access point.
-        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the access point that you want to apply the scope to.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `Scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
-        /// </summary>
         [Output("scope")]
         public Output<Outputs.DirectoryBucketAccessPointScopeScope?> Scope { get; private set; } = null!;
 
@@ -145,27 +70,15 @@ namespace Pulumi.Aws.S3Control
 
     public sealed class DirectoryBucketAccessPointScopeArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The AWS account ID that owns the specified access point.
-        /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the access point that you want to apply the scope to.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `Scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
-        /// </summary>
         [Input("scope")]
         public Input<Inputs.DirectoryBucketAccessPointScopeScopeArgs>? Scope { get; set; }
 
@@ -177,27 +90,15 @@ namespace Pulumi.Aws.S3Control
 
     public sealed class DirectoryBucketAccessPointScopeState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The AWS account ID that owns the specified access point.
-        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
-        /// <summary>
-        /// The name of the access point that you want to apply the scope to.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `Scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
-        /// </summary>
         [Input("scope")]
         public Input<Inputs.DirectoryBucketAccessPointScopeScopeGetArgs>? Scope { get; set; }
 

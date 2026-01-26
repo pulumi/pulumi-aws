@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSiteLocation {
-    /**
-     * @return Address of the location.
-     * 
-     */
     private String address;
-    /**
-     * @return Latitude of the location.
-     * 
-     */
     private String latitude;
-    /**
-     * @return Longitude of the location.
-     * 
-     */
     private String longitude;
 
     private GetSiteLocation() {}
-    /**
-     * @return Address of the location.
-     * 
-     */
     public String address() {
         return this.address;
     }
-    /**
-     * @return Latitude of the location.
-     * 
-     */
     public String latitude() {
         return this.latitude;
     }
-    /**
-     * @return Longitude of the location.
-     * 
-     */
     public String longitude() {
         return this.longitude;
     }

@@ -12,27 +12,17 @@ namespace Pulumi.Aws.EmrContainers.Inputs
 
     public sealed class JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The entry point of job application.
-        /// </summary>
         [Input("entryPoint", required: true)]
         public Input<string> EntryPoint { get; set; } = null!;
 
         [Input("entryPointArguments")]
         private InputList<string>? _entryPointArguments;
-
-        /// <summary>
-        /// The arguments for job application.
-        /// </summary>
         public InputList<string> EntryPointArguments
         {
             get => _entryPointArguments ?? (_entryPointArguments = new InputList<string>());
             set => _entryPointArguments = value;
         }
 
-        /// <summary>
-        /// The Spark submit parameters that are used for job runs.
-        /// </summary>
         [Input("sparkSubmitParameters")]
         public Input<string>? SparkSubmitParameters { get; set; }
 

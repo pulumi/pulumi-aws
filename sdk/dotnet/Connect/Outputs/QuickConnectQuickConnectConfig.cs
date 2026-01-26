@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Connect.Outputs
     [OutputType]
     public sealed class QuickConnectQuickConnectConfig
     {
-        /// <summary>
-        /// Specifies the phone configuration of the Quick Connect. This is required only if `QuickConnectType` is `PHONE_NUMBER`. The `PhoneConfig` block is documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.QuickConnectQuickConnectConfigPhoneConfig> PhoneConfigs;
-        /// <summary>
-        /// Specifies the queue configuration of the Quick Connect. This is required only if `QuickConnectType` is `QUEUE`. The `QueueConfig` block is documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.QuickConnectQuickConnectConfigQueueConfig> QueueConfigs;
-        /// <summary>
-        /// Specifies the configuration type of the quick connect. valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
-        /// </summary>
         public readonly string QuickConnectType;
-        /// <summary>
-        /// Specifies the user configuration of the Quick Connect. This is required only if `QuickConnectType` is `USER`. The `UserConfig` block is documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.QuickConnectQuickConnectConfigUserConfig> UserConfigs;
 
         [OutputConstructor]

@@ -41,24 +41,6 @@ class FleetArgs:
                  valid_until: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Fleet resource.
-        :param pulumi.Input[Sequence[pulumi.Input['FleetLaunchTemplateConfigArgs']]] launch_template_configs: Nested argument containing EC2 Launch Template configurations. Defined below.
-        :param pulumi.Input['FleetTargetCapacitySpecificationArgs'] target_capacity_specification: Nested argument containing target capacity configurations. Defined below.
-        :param pulumi.Input[_builtins.str] context: Reserved.
-        :param pulumi.Input[_builtins.str] excess_capacity_termination_policy: Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
-        :param pulumi.Input[Sequence[pulumi.Input['FleetFleetInstanceSetArgs']]] fleet_instance_sets: Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
-        :param pulumi.Input[_builtins.str] fleet_state: The state of the EC2 Fleet.
-        :param pulumi.Input[_builtins.float] fulfilled_capacity: The number of units fulfilled by this request compared to the set target capacity.
-        :param pulumi.Input[_builtins.float] fulfilled_on_demand_capacity: The number of units fulfilled by this request compared to the set target On-Demand capacity.
-        :param pulumi.Input['FleetOnDemandOptionsArgs'] on_demand_options: Nested argument containing On-Demand configurations. Defined below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] replace_unhealthy_instances: Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
-        :param pulumi.Input['FleetSpotOptionsArgs'] spot_options: Nested argument containing Spot configurations. Defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.bool] terminate_instances: Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] terminate_instances_with_expiration: Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] type: The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
-        :param pulumi.Input[_builtins.str] valid_from: The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
-        :param pulumi.Input[_builtins.str] valid_until: The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
         """
         pulumi.set(__self__, "launch_template_configs", launch_template_configs)
         pulumi.set(__self__, "target_capacity_specification", target_capacity_specification)
@@ -98,9 +80,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="launchTemplateConfigs")
     def launch_template_configs(self) -> pulumi.Input[Sequence[pulumi.Input['FleetLaunchTemplateConfigArgs']]]:
-        """
-        Nested argument containing EC2 Launch Template configurations. Defined below.
-        """
         return pulumi.get(self, "launch_template_configs")
 
     @launch_template_configs.setter
@@ -110,9 +89,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="targetCapacitySpecification")
     def target_capacity_specification(self) -> pulumi.Input['FleetTargetCapacitySpecificationArgs']:
-        """
-        Nested argument containing target capacity configurations. Defined below.
-        """
         return pulumi.get(self, "target_capacity_specification")
 
     @target_capacity_specification.setter
@@ -122,9 +98,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter
     def context(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Reserved.
-        """
         return pulumi.get(self, "context")
 
     @context.setter
@@ -134,9 +107,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="excessCapacityTerminationPolicy")
     def excess_capacity_termination_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
-        """
         return pulumi.get(self, "excess_capacity_termination_policy")
 
     @excess_capacity_termination_policy.setter
@@ -146,9 +116,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="fleetInstanceSets")
     def fleet_instance_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetFleetInstanceSetArgs']]]]:
-        """
-        Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
-        """
         return pulumi.get(self, "fleet_instance_sets")
 
     @fleet_instance_sets.setter
@@ -158,9 +125,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="fleetState")
     def fleet_state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The state of the EC2 Fleet.
-        """
         return pulumi.get(self, "fleet_state")
 
     @fleet_state.setter
@@ -170,9 +134,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="fulfilledCapacity")
     def fulfilled_capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
-        """
-        The number of units fulfilled by this request compared to the set target capacity.
-        """
         return pulumi.get(self, "fulfilled_capacity")
 
     @fulfilled_capacity.setter
@@ -182,9 +143,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="fulfilledOnDemandCapacity")
     def fulfilled_on_demand_capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
-        """
-        The number of units fulfilled by this request compared to the set target On-Demand capacity.
-        """
         return pulumi.get(self, "fulfilled_on_demand_capacity")
 
     @fulfilled_on_demand_capacity.setter
@@ -194,9 +152,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="onDemandOptions")
     def on_demand_options(self) -> Optional[pulumi.Input['FleetOnDemandOptionsArgs']]:
-        """
-        Nested argument containing On-Demand configurations. Defined below.
-        """
         return pulumi.get(self, "on_demand_options")
 
     @on_demand_options.setter
@@ -206,9 +161,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -218,9 +170,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="replaceUnhealthyInstances")
     def replace_unhealthy_instances(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
-        """
         return pulumi.get(self, "replace_unhealthy_instances")
 
     @replace_unhealthy_instances.setter
@@ -230,9 +179,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="spotOptions")
     def spot_options(self) -> Optional[pulumi.Input['FleetSpotOptionsArgs']]:
-        """
-        Nested argument containing Spot configurations. Defined below.
-        """
         return pulumi.get(self, "spot_options")
 
     @spot_options.setter
@@ -242,9 +188,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -254,9 +197,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="terminateInstances")
     def terminate_instances(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
-        """
         return pulumi.get(self, "terminate_instances")
 
     @terminate_instances.setter
@@ -266,9 +206,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="terminateInstancesWithExpiration")
     def terminate_instances_with_expiration(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
-        """
         return pulumi.get(self, "terminate_instances_with_expiration")
 
     @terminate_instances_with_expiration.setter
@@ -278,9 +215,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -290,9 +224,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="validFrom")
     def valid_from(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
-        """
         return pulumi.get(self, "valid_from")
 
     @valid_from.setter
@@ -302,9 +233,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="validUntil")
     def valid_until(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
-        """
         return pulumi.get(self, "valid_until")
 
     @valid_until.setter
@@ -337,26 +265,6 @@ class _FleetState:
                  valid_until: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Fleet resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the fleet
-        :param pulumi.Input[_builtins.str] context: Reserved.
-        :param pulumi.Input[_builtins.str] excess_capacity_termination_policy: Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
-        :param pulumi.Input[Sequence[pulumi.Input['FleetFleetInstanceSetArgs']]] fleet_instance_sets: Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
-        :param pulumi.Input[_builtins.str] fleet_state: The state of the EC2 Fleet.
-        :param pulumi.Input[_builtins.float] fulfilled_capacity: The number of units fulfilled by this request compared to the set target capacity.
-        :param pulumi.Input[_builtins.float] fulfilled_on_demand_capacity: The number of units fulfilled by this request compared to the set target On-Demand capacity.
-        :param pulumi.Input[Sequence[pulumi.Input['FleetLaunchTemplateConfigArgs']]] launch_template_configs: Nested argument containing EC2 Launch Template configurations. Defined below.
-        :param pulumi.Input['FleetOnDemandOptionsArgs'] on_demand_options: Nested argument containing On-Demand configurations. Defined below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] replace_unhealthy_instances: Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
-        :param pulumi.Input['FleetSpotOptionsArgs'] spot_options: Nested argument containing Spot configurations. Defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['FleetTargetCapacitySpecificationArgs'] target_capacity_specification: Nested argument containing target capacity configurations. Defined below.
-        :param pulumi.Input[_builtins.bool] terminate_instances: Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] terminate_instances_with_expiration: Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] type: The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
-        :param pulumi.Input[_builtins.str] valid_from: The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
-        :param pulumi.Input[_builtins.str] valid_until: The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -402,9 +310,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the fleet
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -414,9 +319,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter
     def context(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Reserved.
-        """
         return pulumi.get(self, "context")
 
     @context.setter
@@ -426,9 +328,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="excessCapacityTerminationPolicy")
     def excess_capacity_termination_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
-        """
         return pulumi.get(self, "excess_capacity_termination_policy")
 
     @excess_capacity_termination_policy.setter
@@ -438,9 +337,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="fleetInstanceSets")
     def fleet_instance_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetFleetInstanceSetArgs']]]]:
-        """
-        Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
-        """
         return pulumi.get(self, "fleet_instance_sets")
 
     @fleet_instance_sets.setter
@@ -450,9 +346,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="fleetState")
     def fleet_state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The state of the EC2 Fleet.
-        """
         return pulumi.get(self, "fleet_state")
 
     @fleet_state.setter
@@ -462,9 +355,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="fulfilledCapacity")
     def fulfilled_capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
-        """
-        The number of units fulfilled by this request compared to the set target capacity.
-        """
         return pulumi.get(self, "fulfilled_capacity")
 
     @fulfilled_capacity.setter
@@ -474,9 +364,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="fulfilledOnDemandCapacity")
     def fulfilled_on_demand_capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
-        """
-        The number of units fulfilled by this request compared to the set target On-Demand capacity.
-        """
         return pulumi.get(self, "fulfilled_on_demand_capacity")
 
     @fulfilled_on_demand_capacity.setter
@@ -486,9 +373,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="launchTemplateConfigs")
     def launch_template_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetLaunchTemplateConfigArgs']]]]:
-        """
-        Nested argument containing EC2 Launch Template configurations. Defined below.
-        """
         return pulumi.get(self, "launch_template_configs")
 
     @launch_template_configs.setter
@@ -498,9 +382,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="onDemandOptions")
     def on_demand_options(self) -> Optional[pulumi.Input['FleetOnDemandOptionsArgs']]:
-        """
-        Nested argument containing On-Demand configurations. Defined below.
-        """
         return pulumi.get(self, "on_demand_options")
 
     @on_demand_options.setter
@@ -510,9 +391,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -522,9 +400,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="replaceUnhealthyInstances")
     def replace_unhealthy_instances(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
-        """
         return pulumi.get(self, "replace_unhealthy_instances")
 
     @replace_unhealthy_instances.setter
@@ -534,9 +409,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="spotOptions")
     def spot_options(self) -> Optional[pulumi.Input['FleetSpotOptionsArgs']]:
-        """
-        Nested argument containing Spot configurations. Defined below.
-        """
         return pulumi.get(self, "spot_options")
 
     @spot_options.setter
@@ -546,9 +418,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -558,9 +427,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -570,9 +436,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="targetCapacitySpecification")
     def target_capacity_specification(self) -> Optional[pulumi.Input['FleetTargetCapacitySpecificationArgs']]:
-        """
-        Nested argument containing target capacity configurations. Defined below.
-        """
         return pulumi.get(self, "target_capacity_specification")
 
     @target_capacity_specification.setter
@@ -582,9 +445,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="terminateInstances")
     def terminate_instances(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
-        """
         return pulumi.get(self, "terminate_instances")
 
     @terminate_instances.setter
@@ -594,9 +454,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="terminateInstancesWithExpiration")
     def terminate_instances_with_expiration(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
-        """
         return pulumi.get(self, "terminate_instances_with_expiration")
 
     @terminate_instances_with_expiration.setter
@@ -606,9 +463,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -618,9 +472,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="validFrom")
     def valid_from(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
-        """
         return pulumi.get(self, "valid_from")
 
     @valid_from.setter
@@ -630,9 +481,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="validUntil")
     def valid_until(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
-        """
         return pulumi.get(self, "valid_until")
 
     @valid_until.setter
@@ -666,55 +514,9 @@ class Fleet(pulumi.CustomResource):
                  valid_until: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a resource to manage EC2 Fleets.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.Fleet("example",
-            launch_template_configs=[{
-                "launch_template_specification": {
-                    "launch_template_id": example_aws_launch_template["id"],
-                    "version": example_aws_launch_template["latestVersion"],
-                },
-            }],
-            target_capacity_specification={
-                "default_target_capacity_type": "spot",
-                "total_target_capacity": 5,
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_ec2_fleet` using the Fleet identifier. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/fleet:Fleet example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
-        ```
-
+        Create a Fleet resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] context: Reserved.
-        :param pulumi.Input[_builtins.str] excess_capacity_termination_policy: Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetFleetInstanceSetArgs', 'FleetFleetInstanceSetArgsDict']]]] fleet_instance_sets: Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
-        :param pulumi.Input[_builtins.str] fleet_state: The state of the EC2 Fleet.
-        :param pulumi.Input[_builtins.float] fulfilled_capacity: The number of units fulfilled by this request compared to the set target capacity.
-        :param pulumi.Input[_builtins.float] fulfilled_on_demand_capacity: The number of units fulfilled by this request compared to the set target On-Demand capacity.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetLaunchTemplateConfigArgs', 'FleetLaunchTemplateConfigArgsDict']]]] launch_template_configs: Nested argument containing EC2 Launch Template configurations. Defined below.
-        :param pulumi.Input[Union['FleetOnDemandOptionsArgs', 'FleetOnDemandOptionsArgsDict']] on_demand_options: Nested argument containing On-Demand configurations. Defined below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] replace_unhealthy_instances: Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
-        :param pulumi.Input[Union['FleetSpotOptionsArgs', 'FleetSpotOptionsArgsDict']] spot_options: Nested argument containing Spot configurations. Defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['FleetTargetCapacitySpecificationArgs', 'FleetTargetCapacitySpecificationArgsDict']] target_capacity_specification: Nested argument containing target capacity configurations. Defined below.
-        :param pulumi.Input[_builtins.bool] terminate_instances: Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] terminate_instances_with_expiration: Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] type: The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
-        :param pulumi.Input[_builtins.str] valid_from: The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
-        :param pulumi.Input[_builtins.str] valid_until: The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
         """
         ...
     @overload
@@ -723,35 +525,7 @@ class Fleet(pulumi.CustomResource):
                  args: FleetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage EC2 Fleets.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.Fleet("example",
-            launch_template_configs=[{
-                "launch_template_specification": {
-                    "launch_template_id": example_aws_launch_template["id"],
-                    "version": example_aws_launch_template["latestVersion"],
-                },
-            }],
-            target_capacity_specification={
-                "default_target_capacity_type": "spot",
-                "total_target_capacity": 5,
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_ec2_fleet` using the Fleet identifier. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/fleet:Fleet example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
-        ```
-
+        Create a Fleet resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param FleetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -855,26 +629,6 @@ class Fleet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the fleet
-        :param pulumi.Input[_builtins.str] context: Reserved.
-        :param pulumi.Input[_builtins.str] excess_capacity_termination_policy: Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetFleetInstanceSetArgs', 'FleetFleetInstanceSetArgsDict']]]] fleet_instance_sets: Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
-        :param pulumi.Input[_builtins.str] fleet_state: The state of the EC2 Fleet.
-        :param pulumi.Input[_builtins.float] fulfilled_capacity: The number of units fulfilled by this request compared to the set target capacity.
-        :param pulumi.Input[_builtins.float] fulfilled_on_demand_capacity: The number of units fulfilled by this request compared to the set target On-Demand capacity.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetLaunchTemplateConfigArgs', 'FleetLaunchTemplateConfigArgsDict']]]] launch_template_configs: Nested argument containing EC2 Launch Template configurations. Defined below.
-        :param pulumi.Input[Union['FleetOnDemandOptionsArgs', 'FleetOnDemandOptionsArgsDict']] on_demand_options: Nested argument containing On-Demand configurations. Defined below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] replace_unhealthy_instances: Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
-        :param pulumi.Input[Union['FleetSpotOptionsArgs', 'FleetSpotOptionsArgsDict']] spot_options: Nested argument containing Spot configurations. Defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['FleetTargetCapacitySpecificationArgs', 'FleetTargetCapacitySpecificationArgsDict']] target_capacity_specification: Nested argument containing target capacity configurations. Defined below.
-        :param pulumi.Input[_builtins.bool] terminate_instances: Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] terminate_instances_with_expiration: Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] type: The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
-        :param pulumi.Input[_builtins.str] valid_from: The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
-        :param pulumi.Input[_builtins.str] valid_until: The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -905,160 +659,100 @@ class Fleet(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the fleet
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def context(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Reserved.
-        """
         return pulumi.get(self, "context")
 
     @_builtins.property
     @pulumi.getter(name="excessCapacityTerminationPolicy")
     def excess_capacity_termination_policy(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
-        """
         return pulumi.get(self, "excess_capacity_termination_policy")
 
     @_builtins.property
     @pulumi.getter(name="fleetInstanceSets")
     def fleet_instance_sets(self) -> pulumi.Output[Sequence['outputs.FleetFleetInstanceSet']]:
-        """
-        Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
-        """
         return pulumi.get(self, "fleet_instance_sets")
 
     @_builtins.property
     @pulumi.getter(name="fleetState")
     def fleet_state(self) -> pulumi.Output[_builtins.str]:
-        """
-        The state of the EC2 Fleet.
-        """
         return pulumi.get(self, "fleet_state")
 
     @_builtins.property
     @pulumi.getter(name="fulfilledCapacity")
     def fulfilled_capacity(self) -> pulumi.Output[_builtins.float]:
-        """
-        The number of units fulfilled by this request compared to the set target capacity.
-        """
         return pulumi.get(self, "fulfilled_capacity")
 
     @_builtins.property
     @pulumi.getter(name="fulfilledOnDemandCapacity")
     def fulfilled_on_demand_capacity(self) -> pulumi.Output[_builtins.float]:
-        """
-        The number of units fulfilled by this request compared to the set target On-Demand capacity.
-        """
         return pulumi.get(self, "fulfilled_on_demand_capacity")
 
     @_builtins.property
     @pulumi.getter(name="launchTemplateConfigs")
     def launch_template_configs(self) -> pulumi.Output[Sequence['outputs.FleetLaunchTemplateConfig']]:
-        """
-        Nested argument containing EC2 Launch Template configurations. Defined below.
-        """
         return pulumi.get(self, "launch_template_configs")
 
     @_builtins.property
     @pulumi.getter(name="onDemandOptions")
     def on_demand_options(self) -> pulumi.Output[Optional['outputs.FleetOnDemandOptions']]:
-        """
-        Nested argument containing On-Demand configurations. Defined below.
-        """
         return pulumi.get(self, "on_demand_options")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="replaceUnhealthyInstances")
     def replace_unhealthy_instances(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
-        """
         return pulumi.get(self, "replace_unhealthy_instances")
 
     @_builtins.property
     @pulumi.getter(name="spotOptions")
     def spot_options(self) -> pulumi.Output[Optional['outputs.FleetSpotOptions']]:
-        """
-        Nested argument containing Spot configurations. Defined below.
-        """
         return pulumi.get(self, "spot_options")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="targetCapacitySpecification")
     def target_capacity_specification(self) -> pulumi.Output['outputs.FleetTargetCapacitySpecification']:
-        """
-        Nested argument containing target capacity configurations. Defined below.
-        """
         return pulumi.get(self, "target_capacity_specification")
 
     @_builtins.property
     @pulumi.getter(name="terminateInstances")
     def terminate_instances(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
-        """
         return pulumi.get(self, "terminate_instances")
 
     @_builtins.property
     @pulumi.getter(name="terminateInstancesWithExpiration")
     def terminate_instances_with_expiration(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
-        """
         return pulumi.get(self, "terminate_instances_with_expiration")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="validFrom")
     def valid_from(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
-        """
         return pulumi.get(self, "valid_from")
 
     @_builtins.property
     @pulumi.getter(name="validUntil")
     def valid_until(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
-        """
         return pulumi.get(self, "valid_until")
 

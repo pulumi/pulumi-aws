@@ -13,28 +13,11 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class GetUserPoolSchemaAttributeResult
     {
-        /// <summary>
-        /// - Data type of the attribute (e.g., string, number).
-        /// </summary>
         public readonly string AttributeDataType;
-        /// <summary>
-        /// - Whether the attribute is for developer use only.
-        /// </summary>
         public readonly bool DeveloperOnlyAttribute;
-        /// <summary>
-        /// - Whether the attribute can be changed after user creation.
-        /// </summary>
         public readonly bool Mutable;
-        /// <summary>
-        /// - Name of the attribute.
-        /// </summary>
         public readonly string Name;
         public readonly ImmutableArray<Outputs.GetUserPoolSchemaAttributeNumberAttributeConstraintResult> NumberAttributeConstraints;
-        /// <summary>
-        /// - Whether the attribute is required during user registration.
-        /// * number_attribute_constraints - Constraints for numeric attributes.
-        /// * string_attribute_constraints - Constraints for string attributes.
-        /// </summary>
         public readonly bool Required;
         public readonly ImmutableArray<Outputs.GetUserPoolSchemaAttributeStringAttributeConstraintResult> StringAttributeConstraints;
 

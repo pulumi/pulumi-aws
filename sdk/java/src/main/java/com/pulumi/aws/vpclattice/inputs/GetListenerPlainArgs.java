@@ -16,62 +16,30 @@ public final class GetListenerPlainArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetListenerPlainArgs Empty = new GetListenerPlainArgs();
 
-    /**
-     * ID or Amazon Resource Name (ARN) of the listener
-     * 
-     */
     @Import(name="listenerIdentifier", required=true)
     private String listenerIdentifier;
 
-    /**
-     * @return ID or Amazon Resource Name (ARN) of the listener
-     * 
-     */
     public String listenerIdentifier() {
         return this.listenerIdentifier;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID or Amazon Resource Name (ARN) of the service network
-     * 
-     */
     @Import(name="serviceIdentifier", required=true)
     private String serviceIdentifier;
 
-    /**
-     * @return ID or Amazon Resource Name (ARN) of the service network
-     * 
-     */
     public String serviceIdentifier() {
         return this.serviceIdentifier;
     }
 
-    /**
-     * List of tags associated with the listener.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return List of tags associated with the listener.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -103,45 +71,21 @@ public final class GetListenerPlainArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetListenerPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param listenerIdentifier ID or Amazon Resource Name (ARN) of the listener
-         * 
-         * @return builder
-         * 
-         */
         public Builder listenerIdentifier(String listenerIdentifier) {
             $.listenerIdentifier = listenerIdentifier;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param serviceIdentifier ID or Amazon Resource Name (ARN) of the service network
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceIdentifier(String serviceIdentifier) {
             $.serviceIdentifier = serviceIdentifier;
             return this;
         }
 
-        /**
-         * @param tags List of tags associated with the listener.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

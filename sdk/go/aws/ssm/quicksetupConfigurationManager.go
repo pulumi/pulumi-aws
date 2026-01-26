@@ -11,41 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS SSM Quick Setup Configuration Manager.
-//
-// ## Example Usage
-//
-// ### Patch Policy Configuration Type
-//
-// ## Import
-//
-// Using `pulumi import`, import SSM Quick Setup Configuration Manager using the `manager_arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:ssm/quicksetupConfigurationManager:QuicksetupConfigurationManager example arn:aws:ssm-quicksetup:us-east-1:012345678901:configuration-manager/abcd-1234
-// ```
 type QuicksetupConfigurationManager struct {
 	pulumi.CustomResourceState
 
-	// Definition of the Quick Setup configuration that the configuration manager deploys. See `configurationDefinition` below.
 	ConfigurationDefinition QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput `pulumi:"configurationDefinition"`
-	// Description of the configuration manager.
-	Description pulumi.StringOutput `pulumi:"description"`
-	// ARN of the Configuration Manager.
-	ManagerArn pulumi.StringOutput `pulumi:"managerArn"`
-	// Configuration manager name.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `statusSummaries` below.
-	StatusSummaries QuicksetupConfigurationManagerStatusSummaryArrayOutput `pulumi:"statusSummaries"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput                          `pulumi:"tagsAll"`
-	Timeouts QuicksetupConfigurationManagerTimeoutsPtrOutput `pulumi:"timeouts"`
+	Description             pulumi.StringOutput                                            `pulumi:"description"`
+	ManagerArn              pulumi.StringOutput                                            `pulumi:"managerArn"`
+	Name                    pulumi.StringOutput                                            `pulumi:"name"`
+	Region                  pulumi.StringOutput                                            `pulumi:"region"`
+	StatusSummaries         QuicksetupConfigurationManagerStatusSummaryArrayOutput         `pulumi:"statusSummaries"`
+	Tags                    pulumi.StringMapOutput                                         `pulumi:"tags"`
+	TagsAll                 pulumi.StringMapOutput                                         `pulumi:"tagsAll"`
+	Timeouts                QuicksetupConfigurationManagerTimeoutsPtrOutput                `pulumi:"timeouts"`
 }
 
 // NewQuicksetupConfigurationManager registers a new resource with the given unique name, arguments, and options.
@@ -78,47 +55,27 @@ func GetQuicksetupConfigurationManager(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering QuicksetupConfigurationManager resources.
 type quicksetupConfigurationManagerState struct {
-	// Definition of the Quick Setup configuration that the configuration manager deploys. See `configurationDefinition` below.
 	ConfigurationDefinition *QuicksetupConfigurationManagerConfigurationDefinition `pulumi:"configurationDefinition"`
-	// Description of the configuration manager.
-	Description *string `pulumi:"description"`
-	// ARN of the Configuration Manager.
-	ManagerArn *string `pulumi:"managerArn"`
-	// Configuration manager name.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `statusSummaries` below.
-	StatusSummaries []QuicksetupConfigurationManagerStatusSummary `pulumi:"statusSummaries"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string                       `pulumi:"tagsAll"`
-	Timeouts *QuicksetupConfigurationManagerTimeouts `pulumi:"timeouts"`
+	Description             *string                                                `pulumi:"description"`
+	ManagerArn              *string                                                `pulumi:"managerArn"`
+	Name                    *string                                                `pulumi:"name"`
+	Region                  *string                                                `pulumi:"region"`
+	StatusSummaries         []QuicksetupConfigurationManagerStatusSummary          `pulumi:"statusSummaries"`
+	Tags                    map[string]string                                      `pulumi:"tags"`
+	TagsAll                 map[string]string                                      `pulumi:"tagsAll"`
+	Timeouts                *QuicksetupConfigurationManagerTimeouts                `pulumi:"timeouts"`
 }
 
 type QuicksetupConfigurationManagerState struct {
-	// Definition of the Quick Setup configuration that the configuration manager deploys. See `configurationDefinition` below.
 	ConfigurationDefinition QuicksetupConfigurationManagerConfigurationDefinitionPtrInput
-	// Description of the configuration manager.
-	Description pulumi.StringPtrInput
-	// ARN of the Configuration Manager.
-	ManagerArn pulumi.StringPtrInput
-	// Configuration manager name.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `statusSummaries` below.
-	StatusSummaries QuicksetupConfigurationManagerStatusSummaryArrayInput
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts QuicksetupConfigurationManagerTimeoutsPtrInput
+	Description             pulumi.StringPtrInput
+	ManagerArn              pulumi.StringPtrInput
+	Name                    pulumi.StringPtrInput
+	Region                  pulumi.StringPtrInput
+	StatusSummaries         QuicksetupConfigurationManagerStatusSummaryArrayInput
+	Tags                    pulumi.StringMapInput
+	TagsAll                 pulumi.StringMapInput
+	Timeouts                QuicksetupConfigurationManagerTimeoutsPtrInput
 }
 
 func (QuicksetupConfigurationManagerState) ElementType() reflect.Type {
@@ -126,36 +83,22 @@ func (QuicksetupConfigurationManagerState) ElementType() reflect.Type {
 }
 
 type quicksetupConfigurationManagerArgs struct {
-	// Definition of the Quick Setup configuration that the configuration manager deploys. See `configurationDefinition` below.
 	ConfigurationDefinition *QuicksetupConfigurationManagerConfigurationDefinition `pulumi:"configurationDefinition"`
-	// Description of the configuration manager.
-	Description *string `pulumi:"description"`
-	// Configuration manager name.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string                       `pulumi:"tags"`
-	Timeouts *QuicksetupConfigurationManagerTimeouts `pulumi:"timeouts"`
+	Description             *string                                                `pulumi:"description"`
+	Name                    *string                                                `pulumi:"name"`
+	Region                  *string                                                `pulumi:"region"`
+	Tags                    map[string]string                                      `pulumi:"tags"`
+	Timeouts                *QuicksetupConfigurationManagerTimeouts                `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a QuicksetupConfigurationManager resource.
 type QuicksetupConfigurationManagerArgs struct {
-	// Definition of the Quick Setup configuration that the configuration manager deploys. See `configurationDefinition` below.
 	ConfigurationDefinition QuicksetupConfigurationManagerConfigurationDefinitionPtrInput
-	// Description of the configuration manager.
-	Description pulumi.StringPtrInput
-	// Configuration manager name.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts QuicksetupConfigurationManagerTimeoutsPtrInput
+	Description             pulumi.StringPtrInput
+	Name                    pulumi.StringPtrInput
+	Region                  pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
+	Timeouts                QuicksetupConfigurationManagerTimeoutsPtrInput
 }
 
 func (QuicksetupConfigurationManagerArgs) ElementType() reflect.Type {
@@ -245,48 +188,38 @@ func (o QuicksetupConfigurationManagerOutput) ToQuicksetupConfigurationManagerOu
 	return o
 }
 
-// Definition of the Quick Setup configuration that the configuration manager deploys. See `configurationDefinition` below.
 func (o QuicksetupConfigurationManagerOutput) ConfigurationDefinition() QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput {
 	return o.ApplyT(func(v *QuicksetupConfigurationManager) QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput {
 		return v.ConfigurationDefinition
 	}).(QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput)
 }
 
-// Description of the configuration manager.
 func (o QuicksetupConfigurationManagerOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *QuicksetupConfigurationManager) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// ARN of the Configuration Manager.
 func (o QuicksetupConfigurationManagerOutput) ManagerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *QuicksetupConfigurationManager) pulumi.StringOutput { return v.ManagerArn }).(pulumi.StringOutput)
 }
 
-// Configuration manager name.
-//
-// The following arguments are optional:
 func (o QuicksetupConfigurationManagerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *QuicksetupConfigurationManager) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o QuicksetupConfigurationManagerOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *QuicksetupConfigurationManager) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `statusSummaries` below.
 func (o QuicksetupConfigurationManagerOutput) StatusSummaries() QuicksetupConfigurationManagerStatusSummaryArrayOutput {
 	return o.ApplyT(func(v *QuicksetupConfigurationManager) QuicksetupConfigurationManagerStatusSummaryArrayOutput {
 		return v.StatusSummaries
 	}).(QuicksetupConfigurationManagerStatusSummaryArrayOutput)
 }
 
-// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o QuicksetupConfigurationManagerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *QuicksetupConfigurationManager) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o QuicksetupConfigurationManagerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *QuicksetupConfigurationManager) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

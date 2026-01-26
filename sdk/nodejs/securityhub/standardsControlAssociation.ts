@@ -4,53 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * ### Basic usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.securityhub.Account("example", {});
- * const cisAwsFoundationsBenchmark = new aws.securityhub.StandardsSubscription("cis_aws_foundations_benchmark", {standardsArn: "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"}, {
- *     dependsOn: [example],
- * });
- * const cisAwsFoundationsBenchmarkDisableIam1 = new aws.securityhub.StandardsControlAssociation("cis_aws_foundations_benchmark_disable_iam_1", {
- *     standardsArn: cisAwsFoundationsBenchmark.standardsArn,
- *     securityControlId: "IAM.1",
- *     associationStatus: "DISABLED",
- *     updatedReason: "Not needed",
- * });
- * ```
- *
- * ## Disabling security control in all standards
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * export = async () => {
- *     const example = new aws.securityhub.Account("example", {});
- *     const iam1 = await aws.securityhub.getStandardsControlAssociations({
- *         securityControlId: "IAM.1",
- *     });
- *     const iam1StandardsControlAssociation: aws.securityhub.StandardsControlAssociation[] = [];
- *     for (const range of std.toset({
- *         input: iam1.standardsControlAssociations.map(__item => __item.standardsArn),
- *     }).result.map((v, k) => ({key: k, value: v}))) {
- *         iam1StandardsControlAssociation.push(new aws.securityhub.StandardsControlAssociation(`iam_1-${range.key}`, {
- *             standardsArn: range.key,
- *             securityControlId: iam1.securityControlId,
- *             associationStatus: "DISABLED",
- *             updatedReason: "Not needed",
- *         }));
- *     }
- * }
- * ```
- */
 export class StandardsControlAssociation extends pulumi.CustomResource {
     /**
      * Get an existing StandardsControlAssociation resource's state with the given name, ID, and optional extra
@@ -79,27 +32,10 @@ export class StandardsControlAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === StandardsControlAssociation.__pulumiType;
     }
 
-    /**
-     * The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
-     */
     declare public readonly associationStatus: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The unique identifier for the security control whose enablement status you want to update.
-     */
     declare public readonly securityControlId: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly standardsArn: pulumi.Output<string>;
-    /**
-     * The reason for updating the control's enablement status in the standard. Required when `associationStatus` is `DISABLED`.
-     */
     declare public readonly updatedReason: pulumi.Output<string | undefined>;
 
     /**
@@ -146,27 +82,10 @@ export class StandardsControlAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering StandardsControlAssociation resources.
  */
 export interface StandardsControlAssociationState {
-    /**
-     * The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
-     */
     associationStatus?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The unique identifier for the security control whose enablement status you want to update.
-     */
     securityControlId?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
-     *
-     * The following arguments are optional:
-     */
     standardsArn?: pulumi.Input<string>;
-    /**
-     * The reason for updating the control's enablement status in the standard. Required when `associationStatus` is `DISABLED`.
-     */
     updatedReason?: pulumi.Input<string>;
 }
 
@@ -174,26 +93,9 @@ export interface StandardsControlAssociationState {
  * The set of arguments for constructing a StandardsControlAssociation resource.
  */
 export interface StandardsControlAssociationArgs {
-    /**
-     * The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
-     */
     associationStatus: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The unique identifier for the security control whose enablement status you want to update.
-     */
     securityControlId: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
-     *
-     * The following arguments are optional:
-     */
     standardsArn: pulumi.Input<string>;
-    /**
-     * The reason for updating the control's enablement status in the standard. Required when `associationStatus` is `DISABLED`.
-     */
     updatedReason?: pulumi.Input<string>;
 }

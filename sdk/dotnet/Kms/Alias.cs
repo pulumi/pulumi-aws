@@ -9,87 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Kms
 {
-    /// <summary>
-    /// Provides an alias for a KMS customer master key. AWS Console enforces 1-to-1 mapping between aliases &amp; keys,
-    /// but API (hence this provider too) allows you to create as many aliases as
-    /// the [account limits](http://docs.aws.amazon.com/kms/latest/developerguide/limits.html) allow you.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var a = new Aws.Kms.Key("a");
-    /// 
-    ///     var aAlias = new Aws.Kms.Alias("a", new()
-    ///     {
-    ///         Name = "alias/my-key-alias",
-    ///         TargetKeyId = a.KeyId,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// * `name` - (String) Name of the KMS key alias.
-    /// 
-    /// #### Optional
-    /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
-    /// 
-    /// * `region` (String) Region where this resource is managed.
-    /// 
-    /// Using `pulumi import`, import KMS aliases using the `name`. For example:
-    /// 
-    /// % pulumi import aws_kms_alias.a alias/my-key-alias
-    /// </summary>
     [AwsResourceType("aws:kms/alias:Alias")]
     public partial class Alias : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the key alias.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Creates an unique alias beginning with the specified prefix.
-        /// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `Name`.
-        /// </summary>
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the target key identifier.
-        /// </summary>
         [Output("targetKeyArn")]
         public Output<string> TargetKeyArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier for the key for which the alias is for, can be either an ARN or key_id.
-        /// </summary>
         [Output("targetKeyId")]
         public Output<string> TargetKeyId { get; private set; } = null!;
 
@@ -139,28 +76,15 @@ namespace Pulumi.Aws.Kms
 
     public sealed class AliasArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Creates an unique alias beginning with the specified prefix.
-        /// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `Name`.
-        /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Identifier for the key for which the alias is for, can be either an ARN or key_id.
-        /// </summary>
         [Input("targetKeyId", required: true)]
         public Input<string> TargetKeyId { get; set; } = null!;
 
@@ -172,40 +96,21 @@ namespace Pulumi.Aws.Kms
 
     public sealed class AliasState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the key alias.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Creates an unique alias beginning with the specified prefix.
-        /// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `Name`.
-        /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the target key identifier.
-        /// </summary>
         [Input("targetKeyArn")]
         public Input<string>? TargetKeyArn { get; set; }
 
-        /// <summary>
-        /// Identifier for the key for which the alias is for, can be either an ARN or key_id.
-        /// </summary>
         [Input("targetKeyId")]
         public Input<string>? TargetKeyId { get; set; }
 

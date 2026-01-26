@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class AutomationRuleCriteriaUpdatedAtDateRange {
-    /**
-     * @return A date range unit for the date filter. Valid values: `DAYS`.
-     * 
-     */
     private String unit;
-    /**
-     * @return A date range value for the date filter, provided as an Integer.
-     * 
-     */
     private Integer value;
 
     private AutomationRuleCriteriaUpdatedAtDateRange() {}
-    /**
-     * @return A date range unit for the date filter. Valid values: `DAYS`.
-     * 
-     */
     public String unit() {
         return this.unit;
     }
-    /**
-     * @return A date range value for the date filter, provided as an Integer.
-     * 
-     */
     public Integer value() {
         return this.value;
     }

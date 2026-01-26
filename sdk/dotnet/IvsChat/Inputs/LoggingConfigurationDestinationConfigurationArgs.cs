@@ -12,21 +12,12 @@ namespace Pulumi.Aws.IvsChat.Inputs
 
     public sealed class LoggingConfigurationDestinationConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
-        /// </summary>
         [Input("cloudwatchLogs")]
         public Input<Inputs.LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs>? CloudwatchLogs { get; set; }
 
-        /// <summary>
-        /// An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
-        /// </summary>
         [Input("firehose")]
         public Input<Inputs.LoggingConfigurationDestinationConfigurationFirehoseArgs>? Firehose { get; set; }
 
-        /// <summary>
-        /// An Amazon S3 destination configuration where chat activity will be logged.
-        /// </summary>
         [Input("s3")]
         public Input<Inputs.LoggingConfigurationDestinationConfigurationS3Args>? S3 { get; set; }
 

@@ -11,81 +11,12 @@ namespace Pulumi.Aws.Kms
 {
     public static class GetAlias
     {
-        /// <summary>
-        /// Use this data source to get the ARN of a KMS key alias.
-        /// By using this data source, you can reference key alias
-        /// without having to hard code the ARN as input.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var s3 = Aws.Kms.GetAlias.Invoke(new()
-        ///     {
-        ///         Name = "alias/aws/s3",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetAliasResult> InvokeAsync(GetAliasArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("aws:kms/getAlias:getAlias", args ?? new GetAliasArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get the ARN of a KMS key alias.
-        /// By using this data source, you can reference key alias
-        /// without having to hard code the ARN as input.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var s3 = Aws.Kms.GetAlias.Invoke(new()
-        ///     {
-        ///         Name = "alias/aws/s3",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAliasResult>("aws:kms/getAlias:getAlias", args ?? new GetAliasInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get the ARN of a KMS key alias.
-        /// By using this data source, you can reference key alias
-        /// without having to hard code the ARN as input.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var s3 = Aws.Kms.GetAlias.Invoke(new()
-        ///     {
-        ///         Name = "alias/aws/s3",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAliasResult>("aws:kms/getAlias:getAlias", args ?? new GetAliasInvokeArgs(), options.WithDefaults());
     }
@@ -93,15 +24,9 @@ namespace Pulumi.Aws.Kms
 
     public sealed class GetAliasArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -113,15 +38,9 @@ namespace Pulumi.Aws.Kms
 
     public sealed class GetAliasInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -135,26 +54,14 @@ namespace Pulumi.Aws.Kms
     [OutputType]
     public sealed class GetAliasResult
     {
-        /// <summary>
-        /// Amazon Resource Name(ARN) of the key alias.
-        /// </summary>
         public readonly string Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Name of the alias
-        /// </summary>
         public readonly string Name;
         public readonly string Region;
-        /// <summary>
-        /// ARN pointed to by the alias.
-        /// </summary>
         public readonly string TargetKeyArn;
-        /// <summary>
-        /// Key identifier pointed to by the alias.
-        /// </summary>
         public readonly string TargetKeyId;
 
         [OutputConstructor]

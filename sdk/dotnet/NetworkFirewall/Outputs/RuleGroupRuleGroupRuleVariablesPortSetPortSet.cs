@@ -13,9 +13,6 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class RuleGroupRuleGroupRuleVariablesPortSetPortSet
     {
-        /// <summary>
-        /// Set of port ranges.
-        /// </summary>
         public readonly ImmutableArray<string> Definitions;
 
         [OutputConstructor]

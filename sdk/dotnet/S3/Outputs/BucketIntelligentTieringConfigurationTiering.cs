@@ -13,13 +13,7 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketIntelligentTieringConfigurationTiering
     {
-        /// <summary>
-        /// S3 Intelligent-Tiering access tier. Valid values: `ARCHIVE_ACCESS`, `DEEP_ARCHIVE_ACCESS`.
-        /// </summary>
         public readonly string AccessTier;
-        /// <summary>
-        /// Number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier.
-        /// </summary>
         public readonly int Days;
 
         [OutputConstructor]

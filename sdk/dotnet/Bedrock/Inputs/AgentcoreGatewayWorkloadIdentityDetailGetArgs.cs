@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreGatewayWorkloadIdentityDetailGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the workload identity.
-        /// </summary>
         [Input("workloadIdentityArn", required: true)]
         public Input<string> WorkloadIdentityArn { get; set; } = null!;
 

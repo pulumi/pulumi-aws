@@ -27,9 +27,6 @@ class RepositoryPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RepositoryPolicy resource.
-        :param pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']] policy: The policy document. This is a JSON formatted string.
-        :param pulumi.Input[_builtins.str] repository: Name of the repository to apply the policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "repository", repository)
@@ -39,9 +36,6 @@ class RepositoryPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']]:
-        """
-        The policy document. This is a JSON formatted string.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -51,9 +45,6 @@ class RepositoryPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def repository(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the repository to apply the policy.
-        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -63,9 +54,6 @@ class RepositoryPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -82,10 +70,6 @@ class _RepositoryPolicyState:
                  repository: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RepositoryPolicy resources.
-        :param pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']] policy: The policy document. This is a JSON formatted string.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] registry_id: The registry ID where the repository was created.
-        :param pulumi.Input[_builtins.str] repository: Name of the repository to apply the policy.
         """
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
@@ -99,9 +83,6 @@ class _RepositoryPolicyState:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']]]:
-        """
-        The policy document. This is a JSON formatted string.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -111,9 +92,6 @@ class _RepositoryPolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -123,9 +101,6 @@ class _RepositoryPolicyState:
     @_builtins.property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The registry ID where the repository was created.
-        """
         return pulumi.get(self, "registry_id")
 
     @registry_id.setter
@@ -135,9 +110,6 @@ class _RepositoryPolicyState:
     @_builtins.property
     @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the repository to apply the policy.
-        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -156,69 +128,9 @@ class RepositoryPolicy(pulumi.CustomResource):
                  repository: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an Elastic Container Registry Repository Policy.
-
-        Note that currently only one policy may be applied to a repository.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_repository = aws.ecr.Repository("example", name="example-repo")
-        example = aws.iam.get_policy_document(statements=[{
-            "sid": "new policy",
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": ["123456789012"],
-            }],
-            "actions": [
-                "ecr:GetDownloadUrlForLayer",
-                "ecr:BatchGetImage",
-                "ecr:BatchCheckLayerAvailability",
-                "ecr:PutImage",
-                "ecr:InitiateLayerUpload",
-                "ecr:UploadLayerPart",
-                "ecr:CompleteLayerUpload",
-                "ecr:DescribeRepositories",
-                "ecr:GetRepositoryPolicy",
-                "ecr:ListImages",
-                "ecr:DeleteRepository",
-                "ecr:BatchDeleteImage",
-                "ecr:SetRepositoryPolicy",
-                "ecr:DeleteRepositoryPolicy",
-            ],
-        }])
-        example_repository_policy = aws.ecr.RepositoryPolicy("example",
-            repository=example_repository.name,
-            policy=example.json)
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `repository` - (String) Name of the ECR repository.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `region` (String) Region where this resource is managed.
-
-        Using `pulumi import`, import ECR Repository Policy using the repository name. For example:
-
-        % pulumi import aws_ecr_repository_policy.example example
-
+        Create a RepositoryPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[_builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] policy: The policy document. This is a JSON formatted string.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] repository: Name of the repository to apply the policy.
         """
         ...
     @overload
@@ -227,64 +139,7 @@ class RepositoryPolicy(pulumi.CustomResource):
                  args: RepositoryPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Elastic Container Registry Repository Policy.
-
-        Note that currently only one policy may be applied to a repository.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_repository = aws.ecr.Repository("example", name="example-repo")
-        example = aws.iam.get_policy_document(statements=[{
-            "sid": "new policy",
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": ["123456789012"],
-            }],
-            "actions": [
-                "ecr:GetDownloadUrlForLayer",
-                "ecr:BatchGetImage",
-                "ecr:BatchCheckLayerAvailability",
-                "ecr:PutImage",
-                "ecr:InitiateLayerUpload",
-                "ecr:UploadLayerPart",
-                "ecr:CompleteLayerUpload",
-                "ecr:DescribeRepositories",
-                "ecr:GetRepositoryPolicy",
-                "ecr:ListImages",
-                "ecr:DeleteRepository",
-                "ecr:BatchDeleteImage",
-                "ecr:SetRepositoryPolicy",
-                "ecr:DeleteRepositoryPolicy",
-            ],
-        }])
-        example_repository_policy = aws.ecr.RepositoryPolicy("example",
-            repository=example_repository.name,
-            policy=example.json)
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `repository` - (String) Name of the ECR repository.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `region` (String) Region where this resource is managed.
-
-        Using `pulumi import`, import ECR Repository Policy using the repository name. For example:
-
-        % pulumi import aws_ecr_repository_policy.example example
-
+        Create a RepositoryPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RepositoryPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -341,10 +196,6 @@ class RepositoryPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[_builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] policy: The policy document. This is a JSON formatted string.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] registry_id: The registry ID where the repository was created.
-        :param pulumi.Input[_builtins.str] repository: Name of the repository to apply the policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -359,32 +210,20 @@ class RepositoryPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:
-        """
-        The policy document. This is a JSON formatted string.
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The registry ID where the repository was created.
-        """
         return pulumi.get(self, "registry_id")
 
     @_builtins.property
     @pulumi.getter
     def repository(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the repository to apply the policy.
-        """
         return pulumi.get(self, "repository")
 

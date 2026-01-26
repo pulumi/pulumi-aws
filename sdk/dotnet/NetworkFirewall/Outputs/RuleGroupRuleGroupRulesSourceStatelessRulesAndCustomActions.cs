@@ -13,13 +13,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions
     {
-        /// <summary>
-        /// Set of configuration blocks containing custom action definitions that are available for use by the set of `stateless rule`. See Custom Action below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction> CustomActions;
-        /// <summary>
-        /// Set of configuration blocks containing the stateless rules for use in the stateless rule group. See Stateless Rule below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule> StatelessRules;
 
         [OutputConstructor]

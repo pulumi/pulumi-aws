@@ -12,65 +12,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WorkspaceWorkspaceProperties {
-    /**
-     * @return The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, and `GRAPHICSPRO_G4DN`.
-     * 
-     */
     private @Nullable String computeTypeName;
-    /**
-     * @return The size of the root volume.
-     * 
-     */
     private @Nullable Integer rootVolumeSizeGib;
-    /**
-     * @return The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
-     * 
-     */
     private @Nullable String runningMode;
-    /**
-     * @return The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
-     * 
-     */
     private @Nullable Integer runningModeAutoStopTimeoutInMinutes;
-    /**
-     * @return The size of the user storage.
-     * 
-     */
     private @Nullable Integer userVolumeSizeGib;
 
     private WorkspaceWorkspaceProperties() {}
-    /**
-     * @return The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, and `GRAPHICSPRO_G4DN`.
-     * 
-     */
     public Optional<String> computeTypeName() {
         return Optional.ofNullable(this.computeTypeName);
     }
-    /**
-     * @return The size of the root volume.
-     * 
-     */
     public Optional<Integer> rootVolumeSizeGib() {
         return Optional.ofNullable(this.rootVolumeSizeGib);
     }
-    /**
-     * @return The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
-     * 
-     */
     public Optional<String> runningMode() {
         return Optional.ofNullable(this.runningMode);
     }
-    /**
-     * @return The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
-     * 
-     */
     public Optional<Integer> runningModeAutoStopTimeoutInMinutes() {
         return Optional.ofNullable(this.runningModeAutoStopTimeoutInMinutes);
     }
-    /**
-     * @return The size of the user storage.
-     * 
-     */
     public Optional<Integer> userVolumeSizeGib() {
         return Optional.ofNullable(this.userVolumeSizeGib);
     }

@@ -18,47 +18,23 @@ public final class VirtualNodeSpecListenerTlsArgs extends com.pulumi.resources.R
 
     public static final VirtualNodeSpecListenerTlsArgs Empty = new VirtualNodeSpecListenerTlsArgs();
 
-    /**
-     * Listener&#39;s TLS certificate.
-     * 
-     */
     @Import(name="certificate", required=true)
     private Output<VirtualNodeSpecListenerTlsCertificateArgs> certificate;
 
-    /**
-     * @return Listener&#39;s TLS certificate.
-     * 
-     */
     public Output<VirtualNodeSpecListenerTlsCertificateArgs> certificate() {
         return this.certificate;
     }
 
-    /**
-     * Listener&#39;s TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
-     * 
-     */
     @Import(name="mode", required=true)
     private Output<String> mode;
 
-    /**
-     * @return Listener&#39;s TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
-     * 
-     */
     public Output<String> mode() {
         return this.mode;
     }
 
-    /**
-     * Listener&#39;s Transport Layer Security (TLS) validation context.
-     * 
-     */
     @Import(name="validation")
     private @Nullable Output<VirtualNodeSpecListenerTlsValidationArgs> validation;
 
-    /**
-     * @return Listener&#39;s Transport Layer Security (TLS) validation context.
-     * 
-     */
     public Optional<Output<VirtualNodeSpecListenerTlsValidationArgs>> validation() {
         return Optional.ofNullable(this.validation);
     }
@@ -89,65 +65,29 @@ public final class VirtualNodeSpecListenerTlsArgs extends com.pulumi.resources.R
             $ = new VirtualNodeSpecListenerTlsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param certificate Listener&#39;s TLS certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificate(Output<VirtualNodeSpecListenerTlsCertificateArgs> certificate) {
             $.certificate = certificate;
             return this;
         }
 
-        /**
-         * @param certificate Listener&#39;s TLS certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificate(VirtualNodeSpecListenerTlsCertificateArgs certificate) {
             return certificate(Output.of(certificate));
         }
 
-        /**
-         * @param mode Listener&#39;s TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mode(Output<String> mode) {
             $.mode = mode;
             return this;
         }
 
-        /**
-         * @param mode Listener&#39;s TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mode(String mode) {
             return mode(Output.of(mode));
         }
 
-        /**
-         * @param validation Listener&#39;s Transport Layer Security (TLS) validation context.
-         * 
-         * @return builder
-         * 
-         */
         public Builder validation(@Nullable Output<VirtualNodeSpecListenerTlsValidationArgs> validation) {
             $.validation = validation;
             return this;
         }
 
-        /**
-         * @param validation Listener&#39;s Transport Layer Security (TLS) validation context.
-         * 
-         * @return builder
-         * 
-         */
         public Builder validation(VirtualNodeSpecListenerTlsValidationArgs validation) {
             return validation(Output.of(validation));
         }

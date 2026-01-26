@@ -16,32 +16,16 @@ public final class AgentFlowDefinitionConnectionConfigurationArgs extends com.pu
 
     public static final AgentFlowDefinitionConnectionConfigurationArgs Empty = new AgentFlowDefinitionConnectionConfigurationArgs();
 
-    /**
-     * The configuration of a connection originating from a Condition node. See Conditional Connection Configuration for more information.
-     * 
-     */
     @Import(name="conditional")
     private @Nullable Output<AgentFlowDefinitionConnectionConfigurationConditionalArgs> conditional;
 
-    /**
-     * @return The configuration of a connection originating from a Condition node. See Conditional Connection Configuration for more information.
-     * 
-     */
     public Optional<Output<AgentFlowDefinitionConnectionConfigurationConditionalArgs>> conditional() {
         return Optional.ofNullable(this.conditional);
     }
 
-    /**
-     * The configuration of a connection originating from a node that isn’t a Condition node. See Data Connection Configuration for more information.
-     * 
-     */
     @Import(name="data")
     private @Nullable Output<AgentFlowDefinitionConnectionConfigurationDataArgs> data;
 
-    /**
-     * @return The configuration of a connection originating from a node that isn’t a Condition node. See Data Connection Configuration for more information.
-     * 
-     */
     public Optional<Output<AgentFlowDefinitionConnectionConfigurationDataArgs>> data() {
         return Optional.ofNullable(this.data);
     }
@@ -71,44 +55,20 @@ public final class AgentFlowDefinitionConnectionConfigurationArgs extends com.pu
             $ = new AgentFlowDefinitionConnectionConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param conditional The configuration of a connection originating from a Condition node. See Conditional Connection Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditional(@Nullable Output<AgentFlowDefinitionConnectionConfigurationConditionalArgs> conditional) {
             $.conditional = conditional;
             return this;
         }
 
-        /**
-         * @param conditional The configuration of a connection originating from a Condition node. See Conditional Connection Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditional(AgentFlowDefinitionConnectionConfigurationConditionalArgs conditional) {
             return conditional(Output.of(conditional));
         }
 
-        /**
-         * @param data The configuration of a connection originating from a node that isn’t a Condition node. See Data Connection Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder data(@Nullable Output<AgentFlowDefinitionConnectionConfigurationDataArgs> data) {
             $.data = data;
             return this;
         }
 
-        /**
-         * @param data The configuration of a connection originating from a node that isn’t a Condition node. See Data Connection Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder data(AgentFlowDefinitionConnectionConfigurationDataArgs data) {
             return data(Output.of(data));
         }

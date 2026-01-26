@@ -9,118 +9,39 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SecurityHub
 {
-    /// <summary>
-    /// Disable/enable Security Hub standards control in the current region.
-    /// 
-    /// The `aws.securityhub.StandardsControl` behaves differently from normal resources, in that
-    /// Pulumi does not _create_ this resource, but instead "adopts" it
-    /// into management. When you _delete_ this resource configuration, Pulumi "abandons" resource as is and just removes it from the state.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SecurityHub.Account("example");
-    /// 
-    ///     var cisAwsFoundationsBenchmark = new Aws.SecurityHub.StandardsSubscription("cis_aws_foundations_benchmark", new()
-    ///     {
-    ///         StandardsArn = "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             example,
-    ///         },
-    ///     });
-    /// 
-    ///     var ensureIamPasswordPolicyPreventsPasswordReuse = new Aws.SecurityHub.StandardsControl("ensure_iam_password_policy_prevents_password_reuse", new()
-    ///     {
-    ///         StandardsControlArn = "arn:aws:securityhub:us-east-1:111111111111:control/cis-aws-foundations-benchmark/v/1.2.0/1.10",
-    ///         ControlStatus = "DISABLED",
-    ///         DisabledReason = "We handle password policies within Okta",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             cisAwsFoundationsBenchmark,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:securityhub/standardsControl:StandardsControl")]
     public partial class StandardsControl : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The identifier of the security standard control.
-        /// </summary>
         [Output("controlId")]
         public Output<string> ControlId { get; private set; } = null!;
 
-        /// <summary>
-        /// The control status could be `ENABLED` or `DISABLED`. You have to specify `DisabledReason` argument for `DISABLED` control status.
-        /// </summary>
         [Output("controlStatus")]
         public Output<string> ControlStatus { get; private set; } = null!;
 
-        /// <summary>
-        /// The date and time that the status of the security standard control was most recently updated.
-        /// </summary>
         [Output("controlStatusUpdatedAt")]
         public Output<string> ControlStatusUpdatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// The standard control longer description. Provides information about what the control is checking for.
-        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// A description of the reason why you are disabling a security standard control. If you specify this attribute, `ControlStatus` will be set to `DISABLED` automatically.
-        /// </summary>
         [Output("disabledReason")]
         public Output<string> DisabledReason { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The list of requirements that are related to this control.
-        /// </summary>
         [Output("relatedRequirements")]
         public Output<ImmutableArray<string>> RelatedRequirements { get; private set; } = null!;
 
-        /// <summary>
-        /// A link to remediation information for the control in the Security Hub user documentation.
-        /// </summary>
         [Output("remediationUrl")]
         public Output<string> RemediationUrl { get; private set; } = null!;
 
-        /// <summary>
-        /// The severity of findings generated from this security standard control.
-        /// </summary>
         [Output("severityRating")]
         public Output<string> SeverityRating { get; private set; } = null!;
 
-        /// <summary>
-        /// The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
-        /// </summary>
         [Output("standardsControlArn")]
         public Output<string> StandardsControlArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The standard control title.
-        /// </summary>
         [Output("title")]
         public Output<string> Title { get; private set; } = null!;
 
@@ -170,27 +91,15 @@ namespace Pulumi.Aws.SecurityHub
 
     public sealed class StandardsControlArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The control status could be `ENABLED` or `DISABLED`. You have to specify `DisabledReason` argument for `DISABLED` control status.
-        /// </summary>
         [Input("controlStatus", required: true)]
         public Input<string> ControlStatus { get; set; } = null!;
 
-        /// <summary>
-        /// A description of the reason why you are disabling a security standard control. If you specify this attribute, `ControlStatus` will be set to `DISABLED` automatically.
-        /// </summary>
         [Input("disabledReason")]
         public Input<string>? DisabledReason { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
-        /// </summary>
         [Input("standardsControlArn", required: true)]
         public Input<string> StandardsControlArn { get; set; } = null!;
 
@@ -202,75 +111,41 @@ namespace Pulumi.Aws.SecurityHub
 
     public sealed class StandardsControlState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The identifier of the security standard control.
-        /// </summary>
         [Input("controlId")]
         public Input<string>? ControlId { get; set; }
 
-        /// <summary>
-        /// The control status could be `ENABLED` or `DISABLED`. You have to specify `DisabledReason` argument for `DISABLED` control status.
-        /// </summary>
         [Input("controlStatus")]
         public Input<string>? ControlStatus { get; set; }
 
-        /// <summary>
-        /// The date and time that the status of the security standard control was most recently updated.
-        /// </summary>
         [Input("controlStatusUpdatedAt")]
         public Input<string>? ControlStatusUpdatedAt { get; set; }
 
-        /// <summary>
-        /// The standard control longer description. Provides information about what the control is checking for.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// A description of the reason why you are disabling a security standard control. If you specify this attribute, `ControlStatus` will be set to `DISABLED` automatically.
-        /// </summary>
         [Input("disabledReason")]
         public Input<string>? DisabledReason { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("relatedRequirements")]
         private InputList<string>? _relatedRequirements;
-
-        /// <summary>
-        /// The list of requirements that are related to this control.
-        /// </summary>
         public InputList<string> RelatedRequirements
         {
             get => _relatedRequirements ?? (_relatedRequirements = new InputList<string>());
             set => _relatedRequirements = value;
         }
 
-        /// <summary>
-        /// A link to remediation information for the control in the Security Hub user documentation.
-        /// </summary>
         [Input("remediationUrl")]
         public Input<string>? RemediationUrl { get; set; }
 
-        /// <summary>
-        /// The severity of findings generated from this security standard control.
-        /// </summary>
         [Input("severityRating")]
         public Input<string>? SeverityRating { get; set; }
 
-        /// <summary>
-        /// The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
-        /// </summary>
         [Input("standardsControlArn")]
         public Input<string>? StandardsControlArn { get; set; }
 
-        /// <summary>
-        /// The standard control title.
-        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 

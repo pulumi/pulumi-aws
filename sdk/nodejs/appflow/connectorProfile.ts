@@ -7,90 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AppFlow connector profile resource.
- *
- * For information about AppFlow flows, see the [Amazon AppFlow API Reference](https://docs.aws.amazon.com/appflow/1.0/APIReference/Welcome.html).
- * For specific information about creating an AppFlow connector profile, see the
- * [CreateConnectorProfile](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html) page in the Amazon AppFlow API Reference.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.iam.getPolicy({
- *     name: "AmazonRedshiftAllCommandsFullAccess",
- * });
- * const exampleRole = new aws.iam.Role("example", {
- *     name: "example_role",
- *     managedPolicyArns: [test.arn],
- *     assumeRolePolicy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: "sts:AssumeRole",
- *             Effect: "Allow",
- *             Sid: "",
- *             Principal: {
- *                 Service: "ec2.amazonaws.com",
- *             },
- *         }],
- *     }),
- * });
- * const exampleBucket = new aws.s3.Bucket("example", {bucket: "example-bucket"});
- * const exampleCluster = new aws.redshift.Cluster("example", {
- *     clusterIdentifier: "example_cluster",
- *     databaseName: "example_db",
- *     masterUsername: "exampleuser",
- *     masterPassword: "examplePassword123!",
- *     nodeType: "dc1.large",
- *     clusterType: "single-node",
- * });
- * const exampleConnectorProfile = new aws.appflow.ConnectorProfile("example", {
- *     name: "example_profile",
- *     connectorType: "Redshift",
- *     connectionMode: "Public",
- *     connectorProfileConfig: {
- *         connectorProfileCredentials: {
- *             redshift: {
- *                 password: exampleCluster.masterPassword,
- *                 username: exampleCluster.masterUsername,
- *             },
- *         },
- *         connectorProfileProperties: {
- *             redshift: {
- *                 bucketName: exampleBucket.name,
- *                 databaseUrl: pulumi.interpolate`jdbc:redshift://${exampleCluster.endpoint}/${exampleCluster.databaseName}`,
- *                 roleArn: exampleRole.arn,
- *             },
- *         },
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * * `name` (String) Name of the Appflow connector profile.
- *
- * #### Optional
- *
- * * `account_id` (String) AWS Account where this resource is managed.
- *
- * * `region` (String) Region where this resource is managed.
- *
- * Using `pulumi import`, import AppFlow Connector Profile using the connector profile `name`. For example:
- *
- * % pulumi import aws_appflow_connector_profile.example example-profile
- *
- * [1]: https://docs.aws.amazon.com/appflow/1.0/APIReference/Welcome.html
- *
- * [2]: https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html
- */
 export class ConnectorProfile extends pulumi.CustomResource {
     /**
      * Get an existing ConnectorProfile resource's state with the given name, ID, and optional extra
@@ -119,39 +35,14 @@ export class ConnectorProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConnectorProfile.__pulumiType;
     }
 
-    /**
-     * ARN of the connector profile.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
-     */
     declare public readonly connectionMode: pulumi.Output<string>;
-    /**
-     * The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
-     */
     declare public readonly connectorLabel: pulumi.Output<string | undefined>;
-    /**
-     * Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
-     */
     declare public readonly connectorProfileConfig: pulumi.Output<outputs.appflow.ConnectorProfileConnectorProfileConfig>;
-    /**
-     * The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
-     */
     declare public readonly connectorType: pulumi.Output<string>;
-    /**
-     * ARN of the connector profile credentials.
-     */
     declare public /*out*/ readonly credentialsArn: pulumi.Output<string>;
-    /**
-     * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
-     */
     declare public readonly kmsArn: pulumi.Output<string>;
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -206,39 +97,14 @@ export class ConnectorProfile extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ConnectorProfile resources.
  */
 export interface ConnectorProfileState {
-    /**
-     * ARN of the connector profile.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
-     */
     connectionMode?: pulumi.Input<string>;
-    /**
-     * The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
-     */
     connectorLabel?: pulumi.Input<string>;
-    /**
-     * Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
-     */
     connectorProfileConfig?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorProfileConfig>;
-    /**
-     * The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
-     */
     connectorType?: pulumi.Input<string>;
-    /**
-     * ARN of the connector profile credentials.
-     */
     credentialsArn?: pulumi.Input<string>;
-    /**
-     * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
-     */
     kmsArn?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -246,30 +112,11 @@ export interface ConnectorProfileState {
  * The set of arguments for constructing a ConnectorProfile resource.
  */
 export interface ConnectorProfileArgs {
-    /**
-     * Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
-     */
     connectionMode: pulumi.Input<string>;
-    /**
-     * The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
-     */
     connectorLabel?: pulumi.Input<string>;
-    /**
-     * Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
-     */
     connectorProfileConfig: pulumi.Input<inputs.appflow.ConnectorProfileConnectorProfileConfig>;
-    /**
-     * The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
-     */
     connectorType: pulumi.Input<string>;
-    /**
-     * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
-     */
     kmsArn?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
-     */
     region?: pulumi.Input<string>;
 }

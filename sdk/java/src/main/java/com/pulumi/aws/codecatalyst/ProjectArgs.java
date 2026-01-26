@@ -16,66 +16,30 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ProjectArgs Empty = new ProjectArgs();
 
-    /**
-     * The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The friendly name of the project that will be displayed to users.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="displayName", required=true)
     private Output<String> displayName;
 
-    /**
-     * @return The friendly name of the project that will be displayed to users.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> displayName() {
         return this.displayName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The name of the space.
-     * 
-     */
     @Import(name="spaceName", required=true)
     private Output<String> spaceName;
 
-    /**
-     * @return The name of the space.
-     * 
-     */
     public Output<String> spaceName() {
         return this.spaceName;
     }
@@ -107,90 +71,38 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ProjectArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param displayName The friendly name of the project that will be displayed to users.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder displayName(Output<String> displayName) {
             $.displayName = displayName;
             return this;
         }
 
-        /**
-         * @param displayName The friendly name of the project that will be displayed to users.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder displayName(String displayName) {
             return displayName(Output.of(displayName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param spaceName The name of the space.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spaceName(Output<String> spaceName) {
             $.spaceName = spaceName;
             return this;
         }
 
-        /**
-         * @param spaceName The name of the space.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spaceName(String spaceName) {
             return spaceName(Output.of(spaceName));
         }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Msk.Outputs
     [OutputType]
     public sealed class ClusterConfigurationInfo
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Revision of the MSK Configuration to use in the cluster.
-        /// </summary>
         public readonly int Revision;
 
         [OutputConstructor]

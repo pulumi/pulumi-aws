@@ -12,63 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a new Amazon Redshift endpoint authorization.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshift"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshift.NewEndpointAuthorization(ctx, "example", &redshift.EndpointAuthorizationArgs{
-//				Account:           pulumi.String("01234567910"),
-//				ClusterIdentifier: pulumi.Any(exampleAwsRedshiftCluster.ClusterIdentifier),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Redshift endpoint authorization using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:redshift/endpointAuthorization:EndpointAuthorization example 01234567910:cluster-example-id
-// ```
 type EndpointAuthorization struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Web Services account ID to grant access to.
-	Account pulumi.StringOutput `pulumi:"account"`
-	// Indicates whether all VPCs in the grantee account are allowed access to the cluster.
-	AllowedAllVpcs pulumi.BoolOutput `pulumi:"allowedAllVpcs"`
-	// The cluster identifier of the cluster to grant access to.
-	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
-	// The number of Redshift-managed VPC endpoints created for the authorization.
-	EndpointCount pulumi.IntOutput `pulumi:"endpointCount"`
-	// Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
-	ForceDelete pulumi.BoolPtrOutput `pulumi:"forceDelete"`
-	// The Amazon Web Services account ID of the grantee of the cluster.
-	Grantee pulumi.StringOutput `pulumi:"grantee"`
-	// The Amazon Web Services account ID of the cluster owner.
-	Grantor pulumi.StringOutput `pulumi:"grantor"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
-	VpcIds pulumi.StringArrayOutput `pulumi:"vpcIds"`
+	Account           pulumi.StringOutput      `pulumi:"account"`
+	AllowedAllVpcs    pulumi.BoolOutput        `pulumi:"allowedAllVpcs"`
+	ClusterIdentifier pulumi.StringOutput      `pulumi:"clusterIdentifier"`
+	EndpointCount     pulumi.IntOutput         `pulumi:"endpointCount"`
+	ForceDelete       pulumi.BoolPtrOutput     `pulumi:"forceDelete"`
+	Grantee           pulumi.StringOutput      `pulumi:"grantee"`
+	Grantor           pulumi.StringOutput      `pulumi:"grantor"`
+	Region            pulumi.StringOutput      `pulumi:"region"`
+	VpcIds            pulumi.StringArrayOutput `pulumi:"vpcIds"`
 }
 
 // NewEndpointAuthorization registers a new resource with the given unique name, arguments, and options.
@@ -107,45 +62,27 @@ func GetEndpointAuthorization(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EndpointAuthorization resources.
 type endpointAuthorizationState struct {
-	// The Amazon Web Services account ID to grant access to.
-	Account *string `pulumi:"account"`
-	// Indicates whether all VPCs in the grantee account are allowed access to the cluster.
-	AllowedAllVpcs *bool `pulumi:"allowedAllVpcs"`
-	// The cluster identifier of the cluster to grant access to.
-	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
-	// The number of Redshift-managed VPC endpoints created for the authorization.
-	EndpointCount *int `pulumi:"endpointCount"`
-	// Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
-	ForceDelete *bool `pulumi:"forceDelete"`
-	// The Amazon Web Services account ID of the grantee of the cluster.
-	Grantee *string `pulumi:"grantee"`
-	// The Amazon Web Services account ID of the cluster owner.
-	Grantor *string `pulumi:"grantor"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
-	VpcIds []string `pulumi:"vpcIds"`
+	Account           *string  `pulumi:"account"`
+	AllowedAllVpcs    *bool    `pulumi:"allowedAllVpcs"`
+	ClusterIdentifier *string  `pulumi:"clusterIdentifier"`
+	EndpointCount     *int     `pulumi:"endpointCount"`
+	ForceDelete       *bool    `pulumi:"forceDelete"`
+	Grantee           *string  `pulumi:"grantee"`
+	Grantor           *string  `pulumi:"grantor"`
+	Region            *string  `pulumi:"region"`
+	VpcIds            []string `pulumi:"vpcIds"`
 }
 
 type EndpointAuthorizationState struct {
-	// The Amazon Web Services account ID to grant access to.
-	Account pulumi.StringPtrInput
-	// Indicates whether all VPCs in the grantee account are allowed access to the cluster.
-	AllowedAllVpcs pulumi.BoolPtrInput
-	// The cluster identifier of the cluster to grant access to.
+	Account           pulumi.StringPtrInput
+	AllowedAllVpcs    pulumi.BoolPtrInput
 	ClusterIdentifier pulumi.StringPtrInput
-	// The number of Redshift-managed VPC endpoints created for the authorization.
-	EndpointCount pulumi.IntPtrInput
-	// Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
-	ForceDelete pulumi.BoolPtrInput
-	// The Amazon Web Services account ID of the grantee of the cluster.
-	Grantee pulumi.StringPtrInput
-	// The Amazon Web Services account ID of the cluster owner.
-	Grantor pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
-	VpcIds pulumi.StringArrayInput
+	EndpointCount     pulumi.IntPtrInput
+	ForceDelete       pulumi.BoolPtrInput
+	Grantee           pulumi.StringPtrInput
+	Grantor           pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
+	VpcIds            pulumi.StringArrayInput
 }
 
 func (EndpointAuthorizationState) ElementType() reflect.Type {
@@ -153,30 +90,20 @@ func (EndpointAuthorizationState) ElementType() reflect.Type {
 }
 
 type endpointAuthorizationArgs struct {
-	// The Amazon Web Services account ID to grant access to.
-	Account string `pulumi:"account"`
-	// The cluster identifier of the cluster to grant access to.
-	ClusterIdentifier string `pulumi:"clusterIdentifier"`
-	// Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
-	ForceDelete *bool `pulumi:"forceDelete"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
-	VpcIds []string `pulumi:"vpcIds"`
+	Account           string   `pulumi:"account"`
+	ClusterIdentifier string   `pulumi:"clusterIdentifier"`
+	ForceDelete       *bool    `pulumi:"forceDelete"`
+	Region            *string  `pulumi:"region"`
+	VpcIds            []string `pulumi:"vpcIds"`
 }
 
 // The set of arguments for constructing a EndpointAuthorization resource.
 type EndpointAuthorizationArgs struct {
-	// The Amazon Web Services account ID to grant access to.
-	Account pulumi.StringInput
-	// The cluster identifier of the cluster to grant access to.
+	Account           pulumi.StringInput
 	ClusterIdentifier pulumi.StringInput
-	// Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
-	ForceDelete pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
-	VpcIds pulumi.StringArrayInput
+	ForceDelete       pulumi.BoolPtrInput
+	Region            pulumi.StringPtrInput
+	VpcIds            pulumi.StringArrayInput
 }
 
 func (EndpointAuthorizationArgs) ElementType() reflect.Type {
@@ -266,47 +193,38 @@ func (o EndpointAuthorizationOutput) ToEndpointAuthorizationOutputWithContext(ct
 	return o
 }
 
-// The Amazon Web Services account ID to grant access to.
 func (o EndpointAuthorizationOutput) Account() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointAuthorization) pulumi.StringOutput { return v.Account }).(pulumi.StringOutput)
 }
 
-// Indicates whether all VPCs in the grantee account are allowed access to the cluster.
 func (o EndpointAuthorizationOutput) AllowedAllVpcs() pulumi.BoolOutput {
 	return o.ApplyT(func(v *EndpointAuthorization) pulumi.BoolOutput { return v.AllowedAllVpcs }).(pulumi.BoolOutput)
 }
 
-// The cluster identifier of the cluster to grant access to.
 func (o EndpointAuthorizationOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointAuthorization) pulumi.StringOutput { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
 
-// The number of Redshift-managed VPC endpoints created for the authorization.
 func (o EndpointAuthorizationOutput) EndpointCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *EndpointAuthorization) pulumi.IntOutput { return v.EndpointCount }).(pulumi.IntOutput)
 }
 
-// Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
 func (o EndpointAuthorizationOutput) ForceDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointAuthorization) pulumi.BoolPtrOutput { return v.ForceDelete }).(pulumi.BoolPtrOutput)
 }
 
-// The Amazon Web Services account ID of the grantee of the cluster.
 func (o EndpointAuthorizationOutput) Grantee() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointAuthorization) pulumi.StringOutput { return v.Grantee }).(pulumi.StringOutput)
 }
 
-// The Amazon Web Services account ID of the cluster owner.
 func (o EndpointAuthorizationOutput) Grantor() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointAuthorization) pulumi.StringOutput { return v.Grantor }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EndpointAuthorizationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointAuthorization) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
 func (o EndpointAuthorizationOutput) VpcIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EndpointAuthorization) pulumi.StringArrayOutput { return v.VpcIds }).(pulumi.StringArrayOutput)
 }

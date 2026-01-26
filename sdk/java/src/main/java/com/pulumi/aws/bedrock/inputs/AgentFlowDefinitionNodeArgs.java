@@ -20,77 +20,37 @@ public final class AgentFlowDefinitionNodeArgs extends com.pulumi.resources.Reso
 
     public static final AgentFlowDefinitionNodeArgs Empty = new AgentFlowDefinitionNodeArgs();
 
-    /**
-     * Contains configurations for the node. See Node Configuration for more information.
-     * 
-     */
     @Import(name="configuration")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationArgs> configuration;
 
-    /**
-     * @return Contains configurations for the node. See Node Configuration for more information.
-     * 
-     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationArgs>> configuration() {
         return Optional.ofNullable(this.configuration);
     }
 
-    /**
-     * A list of objects containing information about an input into the node. See Node Input for more information.
-     * 
-     */
     @Import(name="inputs")
     private @Nullable Output<List<AgentFlowDefinitionNodeInputArgs>> inputs;
 
-    /**
-     * @return A list of objects containing information about an input into the node. See Node Input for more information.
-     * 
-     */
     public Optional<Output<List<AgentFlowDefinitionNodeInputArgs>>> inputs() {
         return Optional.ofNullable(this.inputs);
     }
 
-    /**
-     * A name for the node.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return A name for the node.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * A list of objects containing information about an output from the node. See Node Output for more information.
-     * 
-     */
     @Import(name="outputs")
     private @Nullable Output<List<AgentFlowDefinitionNodeOutputArgs>> outputs;
 
-    /**
-     * @return A list of objects containing information about an output from the node. See Node Output for more information.
-     * 
-     */
     public Optional<Output<List<AgentFlowDefinitionNodeOutputArgs>>> outputs() {
         return Optional.ofNullable(this.outputs);
     }
 
-    /**
-     * The type of node. This value must match the name of the key that you provide in the configuration. Valid values: `Agent`, `Collector`, `Condition`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return The type of node. This value must match the name of the key that you provide in the configuration. Valid values: `Agent`, `Collector`, `Condition`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -123,127 +83,55 @@ public final class AgentFlowDefinitionNodeArgs extends com.pulumi.resources.Reso
             $ = new AgentFlowDefinitionNodeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param configuration Contains configurations for the node. See Node Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configuration(@Nullable Output<AgentFlowDefinitionNodeConfigurationArgs> configuration) {
             $.configuration = configuration;
             return this;
         }
 
-        /**
-         * @param configuration Contains configurations for the node. See Node Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configuration(AgentFlowDefinitionNodeConfigurationArgs configuration) {
             return configuration(Output.of(configuration));
         }
 
-        /**
-         * @param inputs A list of objects containing information about an input into the node. See Node Input for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputs(@Nullable Output<List<AgentFlowDefinitionNodeInputArgs>> inputs) {
             $.inputs = inputs;
             return this;
         }
 
-        /**
-         * @param inputs A list of objects containing information about an input into the node. See Node Input for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputs(List<AgentFlowDefinitionNodeInputArgs> inputs) {
             return inputs(Output.of(inputs));
         }
 
-        /**
-         * @param inputs A list of objects containing information about an input into the node. See Node Input for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputs(AgentFlowDefinitionNodeInputArgs... inputs) {
             return inputs(List.of(inputs));
         }
 
-        /**
-         * @param name A name for the node.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name A name for the node.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param outputs A list of objects containing information about an output from the node. See Node Output for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputs(@Nullable Output<List<AgentFlowDefinitionNodeOutputArgs>> outputs) {
             $.outputs = outputs;
             return this;
         }
 
-        /**
-         * @param outputs A list of objects containing information about an output from the node. See Node Output for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputs(List<AgentFlowDefinitionNodeOutputArgs> outputs) {
             return outputs(Output.of(outputs));
         }
 
-        /**
-         * @param outputs A list of objects containing information about an output from the node. See Node Output for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputs(AgentFlowDefinitionNodeOutputArgs... outputs) {
             return outputs(List.of(outputs));
         }
 
-        /**
-         * @param type The type of node. This value must match the name of the key that you provide in the configuration. Valid values: `Agent`, `Collector`, `Condition`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of node. This value must match the name of the key that you provide in the configuration. Valid values: `Agent`, `Collector`, `Condition`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

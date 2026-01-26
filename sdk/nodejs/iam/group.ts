@@ -4,31 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an IAM group.
- *
- * > **NOTE on user management:** Using `aws.iam.GroupMembership` or `aws.iam.UserGroupMembership` resources in addition to manually managing user/group membership using the console may lead to configuration drift or conflicts. For this reason, it's recommended to either manage membership entirely with the provider or entirely within the AWS console.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const developers = new aws.iam.Group("developers", {
- *     name: "developers",
- *     path: "/users/",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import IAM Groups using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:iam/group:Group developers developers
- * ```
- */
 export class Group extends pulumi.CustomResource {
     /**
      * Get an existing Group resource's state with the given name, ID, and optional extra
@@ -57,21 +32,9 @@ export class Group extends pulumi.CustomResource {
         return obj['__pulumiType'] === Group.__pulumiType;
     }
 
-    /**
-     * The ARN assigned by AWS for this group.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Path in which to create the group.
-     */
     declare public readonly path: pulumi.Output<string | undefined>;
-    /**
-     * The [unique ID][1] assigned by AWS.
-     */
     declare public /*out*/ readonly uniqueId: pulumi.Output<string>;
 
     /**
@@ -107,21 +70,9 @@ export class Group extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Group resources.
  */
 export interface GroupState {
-    /**
-     * The ARN assigned by AWS for this group.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Path in which to create the group.
-     */
     path?: pulumi.Input<string>;
-    /**
-     * The [unique ID][1] assigned by AWS.
-     */
     uniqueId?: pulumi.Input<string>;
 }
 
@@ -129,12 +80,6 @@ export interface GroupState {
  * The set of arguments for constructing a Group resource.
  */
 export interface GroupArgs {
-    /**
-     * The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Path in which to create the group.
-     */
     path?: pulumi.Input<string>;
 }

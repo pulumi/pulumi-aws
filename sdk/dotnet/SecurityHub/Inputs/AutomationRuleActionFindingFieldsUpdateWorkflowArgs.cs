@@ -12,9 +12,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
     public sealed class AutomationRuleActionFindingFieldsUpdateWorkflowArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The status of the investigation into the finding. The allowed values are the following `NEW`, `NOTIFIED`, `RESOLVED` and `SUPPRESSED`.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

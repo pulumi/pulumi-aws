@@ -16,53 +16,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceServiceConnectConfiguration {
-    /**
-     * @return Whether to use Service Connect with this service.
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return Log configuration for the container. See below.
-     * 
-     */
     private @Nullable ServiceServiceConnectConfigurationLogConfiguration logConfiguration;
-    /**
-     * @return Namespace name or ARN of the `aws.servicediscovery.HttpNamespace` for use with Service Connect.
-     * 
-     */
     private @Nullable String namespace;
-    /**
-     * @return List of Service Connect service objects. See below.
-     * 
-     */
     private @Nullable List<ServiceServiceConnectConfigurationService> services;
 
     private ServiceServiceConnectConfiguration() {}
-    /**
-     * @return Whether to use Service Connect with this service.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return Log configuration for the container. See below.
-     * 
-     */
     public Optional<ServiceServiceConnectConfigurationLogConfiguration> logConfiguration() {
         return Optional.ofNullable(this.logConfiguration);
     }
-    /**
-     * @return Namespace name or ARN of the `aws.servicediscovery.HttpNamespace` for use with Service Connect.
-     * 
-     */
     public Optional<String> namespace() {
         return Optional.ofNullable(this.namespace);
     }
-    /**
-     * @return List of Service Connect service objects. See below.
-     * 
-     */
     public List<ServiceServiceConnectConfigurationService> services() {
         return this.services == null ? List.of() : this.services;
     }

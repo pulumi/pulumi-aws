@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
     public sealed class FilterFilterCriteriaResourceTagArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// (Required) The comparison operator. Valid values: `EQUALS`.
-        /// </summary>
         [Input("comparison", required: true)]
         public Input<string> Comparison { get; set; } = null!;
 
-        /// <summary>
-        /// (Required) The key to filter on.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        /// <summary>
-        /// (Required) The value to filter on.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

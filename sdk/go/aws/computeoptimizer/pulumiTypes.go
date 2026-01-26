@@ -170,7 +170,6 @@ func (o EnrollmentStatusTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type RecommendationPreferencesExternalMetricsPreference struct {
-	// The source options for external metrics preferences. Valid values: `Datadog`, `Dynatrace`, `NewRelic`, `Instana`.
 	Source string `pulumi:"source"`
 }
 
@@ -186,7 +185,6 @@ type RecommendationPreferencesExternalMetricsPreferenceInput interface {
 }
 
 type RecommendationPreferencesExternalMetricsPreferenceArgs struct {
-	// The source options for external metrics preferences. Valid values: `Datadog`, `Dynatrace`, `NewRelic`, `Instana`.
 	Source pulumi.StringInput `pulumi:"source"`
 }
 
@@ -267,7 +265,6 @@ func (o RecommendationPreferencesExternalMetricsPreferenceOutput) ToRecommendati
 	}).(RecommendationPreferencesExternalMetricsPreferencePtrOutput)
 }
 
-// The source options for external metrics preferences. Valid values: `Datadog`, `Dynatrace`, `NewRelic`, `Instana`.
 func (o RecommendationPreferencesExternalMetricsPreferenceOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendationPreferencesExternalMetricsPreference) string { return v.Source }).(pulumi.StringOutput)
 }
@@ -296,7 +293,6 @@ func (o RecommendationPreferencesExternalMetricsPreferencePtrOutput) Elem() Reco
 	}).(RecommendationPreferencesExternalMetricsPreferenceOutput)
 }
 
-// The source options for external metrics preferences. Valid values: `Datadog`, `Dynatrace`, `NewRelic`, `Instana`.
 func (o RecommendationPreferencesExternalMetricsPreferencePtrOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecommendationPreferencesExternalMetricsPreference) *string {
 		if v == nil {
@@ -307,9 +303,7 @@ func (o RecommendationPreferencesExternalMetricsPreferencePtrOutput) Source() pu
 }
 
 type RecommendationPreferencesPreferredResource struct {
-	// The preferred resource type values to exclude from the recommendation candidates. If this isn’t specified, all supported resources are included by default.
 	ExcludeLists []string `pulumi:"excludeLists"`
-	// The preferred resource type values to include in the recommendation candidates. You can specify the exact resource type value, such as `"m5.large"`, or use wild card expressions, such as `"m5"`. If this isn’t specified, all supported resources are included by default.
 	IncludeLists []string `pulumi:"includeLists"`
 	Name         string   `pulumi:"name"`
 }
@@ -326,9 +320,7 @@ type RecommendationPreferencesPreferredResourceInput interface {
 }
 
 type RecommendationPreferencesPreferredResourceArgs struct {
-	// The preferred resource type values to exclude from the recommendation candidates. If this isn’t specified, all supported resources are included by default.
 	ExcludeLists pulumi.StringArrayInput `pulumi:"excludeLists"`
-	// The preferred resource type values to include in the recommendation candidates. You can specify the exact resource type value, such as `"m5.large"`, or use wild card expressions, such as `"m5"`. If this isn’t specified, all supported resources are included by default.
 	IncludeLists pulumi.StringArrayInput `pulumi:"includeLists"`
 	Name         pulumi.StringInput      `pulumi:"name"`
 }
@@ -384,12 +376,10 @@ func (o RecommendationPreferencesPreferredResourceOutput) ToRecommendationPrefer
 	return o
 }
 
-// The preferred resource type values to exclude from the recommendation candidates. If this isn’t specified, all supported resources are included by default.
 func (o RecommendationPreferencesPreferredResourceOutput) ExcludeLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RecommendationPreferencesPreferredResource) []string { return v.ExcludeLists }).(pulumi.StringArrayOutput)
 }
 
-// The preferred resource type values to include in the recommendation candidates. You can specify the exact resource type value, such as `"m5.large"`, or use wild card expressions, such as `"m5"`. If this isn’t specified, all supported resources are included by default.
 func (o RecommendationPreferencesPreferredResourceOutput) IncludeLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RecommendationPreferencesPreferredResource) []string { return v.IncludeLists }).(pulumi.StringArrayOutput)
 }
@@ -419,9 +409,7 @@ func (o RecommendationPreferencesPreferredResourceArrayOutput) Index(i pulumi.In
 }
 
 type RecommendationPreferencesScope struct {
-	// The name of the scope. Valid values: `Organization`, `AccountId`, `ResourceArn`.
-	Name string `pulumi:"name"`
-	// The value of the scope. `ALL_ACCOUNTS` for `Organization` scopes, AWS account ID for `AccountId` scopes, ARN of an EC2 instance or an Auto Scaling group for `ResourceArn` scopes.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -437,9 +425,7 @@ type RecommendationPreferencesScopeInput interface {
 }
 
 type RecommendationPreferencesScopeArgs struct {
-	// The name of the scope. Valid values: `Organization`, `AccountId`, `ResourceArn`.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The value of the scope. `ALL_ACCOUNTS` for `Organization` scopes, AWS account ID for `AccountId` scopes, ARN of an EC2 instance or an Auto Scaling group for `ResourceArn` scopes.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -520,12 +506,10 @@ func (o RecommendationPreferencesScopeOutput) ToRecommendationPreferencesScopePt
 	}).(RecommendationPreferencesScopePtrOutput)
 }
 
-// The name of the scope. Valid values: `Organization`, `AccountId`, `ResourceArn`.
 func (o RecommendationPreferencesScopeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendationPreferencesScope) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of the scope. `ALL_ACCOUNTS` for `Organization` scopes, AWS account ID for `AccountId` scopes, ARN of an EC2 instance or an Auto Scaling group for `ResourceArn` scopes.
 func (o RecommendationPreferencesScopeOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendationPreferencesScope) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -554,7 +538,6 @@ func (o RecommendationPreferencesScopePtrOutput) Elem() RecommendationPreference
 	}).(RecommendationPreferencesScopeOutput)
 }
 
-// The name of the scope. Valid values: `Organization`, `AccountId`, `ResourceArn`.
 func (o RecommendationPreferencesScopePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecommendationPreferencesScope) *string {
 		if v == nil {
@@ -564,7 +547,6 @@ func (o RecommendationPreferencesScopePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value of the scope. `ALL_ACCOUNTS` for `Organization` scopes, AWS account ID for `AccountId` scopes, ARN of an EC2 instance or an Auto Scaling group for `ResourceArn` scopes.
 func (o RecommendationPreferencesScopePtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecommendationPreferencesScope) *string {
 		if v == nil {
@@ -575,9 +557,7 @@ func (o RecommendationPreferencesScopePtrOutput) Value() pulumi.StringPtrOutput 
 }
 
 type RecommendationPreferencesUtilizationPreference struct {
-	// The name of the resource utilization metric name to customize. Valid values: `CpuUtilization`, `MemoryUtilization`.
-	MetricName string `pulumi:"metricName"`
-	// The parameters to set when customizing the resource utilization thresholds.
+	MetricName       string                                                          `pulumi:"metricName"`
 	MetricParameters *RecommendationPreferencesUtilizationPreferenceMetricParameters `pulumi:"metricParameters"`
 }
 
@@ -593,9 +573,7 @@ type RecommendationPreferencesUtilizationPreferenceInput interface {
 }
 
 type RecommendationPreferencesUtilizationPreferenceArgs struct {
-	// The name of the resource utilization metric name to customize. Valid values: `CpuUtilization`, `MemoryUtilization`.
-	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// The parameters to set when customizing the resource utilization thresholds.
+	MetricName       pulumi.StringInput                                                     `pulumi:"metricName"`
 	MetricParameters RecommendationPreferencesUtilizationPreferenceMetricParametersPtrInput `pulumi:"metricParameters"`
 }
 
@@ -650,12 +628,10 @@ func (o RecommendationPreferencesUtilizationPreferenceOutput) ToRecommendationPr
 	return o
 }
 
-// The name of the resource utilization metric name to customize. Valid values: `CpuUtilization`, `MemoryUtilization`.
 func (o RecommendationPreferencesUtilizationPreferenceOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendationPreferencesUtilizationPreference) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
-// The parameters to set when customizing the resource utilization thresholds.
 func (o RecommendationPreferencesUtilizationPreferenceOutput) MetricParameters() RecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput {
 	return o.ApplyT(func(v RecommendationPreferencesUtilizationPreference) *RecommendationPreferencesUtilizationPreferenceMetricParameters {
 		return v.MetricParameters
@@ -683,9 +659,7 @@ func (o RecommendationPreferencesUtilizationPreferenceArrayOutput) Index(i pulum
 }
 
 type RecommendationPreferencesUtilizationPreferenceMetricParameters struct {
-	// The headroom value in percentage used for the specified metric parameter. Valid values: `PERCENT_30`, `PERCENT_20`, `PERCENT_10`, `PERCENT_0`.
-	Headroom string `pulumi:"headroom"`
-	// The threshold value used for the specified metric parameter. You can only specify the threshold value for CPU utilization. Valid values: `P90`, `P95`, `P99_5`.
+	Headroom  string  `pulumi:"headroom"`
 	Threshold *string `pulumi:"threshold"`
 }
 
@@ -701,9 +675,7 @@ type RecommendationPreferencesUtilizationPreferenceMetricParametersInput interfa
 }
 
 type RecommendationPreferencesUtilizationPreferenceMetricParametersArgs struct {
-	// The headroom value in percentage used for the specified metric parameter. Valid values: `PERCENT_30`, `PERCENT_20`, `PERCENT_10`, `PERCENT_0`.
-	Headroom pulumi.StringInput `pulumi:"headroom"`
-	// The threshold value used for the specified metric parameter. You can only specify the threshold value for CPU utilization. Valid values: `P90`, `P95`, `P99_5`.
+	Headroom  pulumi.StringInput    `pulumi:"headroom"`
 	Threshold pulumi.StringPtrInput `pulumi:"threshold"`
 }
 
@@ -784,12 +756,10 @@ func (o RecommendationPreferencesUtilizationPreferenceMetricParametersOutput) To
 	}).(RecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput)
 }
 
-// The headroom value in percentage used for the specified metric parameter. Valid values: `PERCENT_30`, `PERCENT_20`, `PERCENT_10`, `PERCENT_0`.
 func (o RecommendationPreferencesUtilizationPreferenceMetricParametersOutput) Headroom() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendationPreferencesUtilizationPreferenceMetricParameters) string { return v.Headroom }).(pulumi.StringOutput)
 }
 
-// The threshold value used for the specified metric parameter. You can only specify the threshold value for CPU utilization. Valid values: `P90`, `P95`, `P99_5`.
 func (o RecommendationPreferencesUtilizationPreferenceMetricParametersOutput) Threshold() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecommendationPreferencesUtilizationPreferenceMetricParameters) *string { return v.Threshold }).(pulumi.StringPtrOutput)
 }
@@ -818,7 +788,6 @@ func (o RecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput)
 	}).(RecommendationPreferencesUtilizationPreferenceMetricParametersOutput)
 }
 
-// The headroom value in percentage used for the specified metric parameter. Valid values: `PERCENT_30`, `PERCENT_20`, `PERCENT_10`, `PERCENT_0`.
 func (o RecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput) Headroom() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecommendationPreferencesUtilizationPreferenceMetricParameters) *string {
 		if v == nil {
@@ -828,7 +797,6 @@ func (o RecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// The threshold value used for the specified metric parameter. You can only specify the threshold value for CPU utilization. Valid values: `P90`, `P95`, `P99_5`.
 func (o RecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput) Threshold() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecommendationPreferencesUtilizationPreferenceMetricParameters) *string {
 		if v == nil {

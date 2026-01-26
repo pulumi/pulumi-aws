@@ -13,18 +13,9 @@ namespace Pulumi.Aws.TimestreamWrite.Outputs
     [OutputType]
     public sealed class GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationResult
     {
-        /// <summary>
-        /// Name of S3 bucket.
-        /// </summary>
         public readonly string BucketName;
         public readonly string EncryptionOption;
-        /// <summary>
-        /// AWS KMS key ID for S3 location with AWS maanged key.
-        /// </summary>
         public readonly string KmsKeyId;
-        /// <summary>
-        /// Object key preview for S3 location.
-        /// </summary>
         public readonly string ObjectKeyPrefix;
 
         [OutputConstructor]

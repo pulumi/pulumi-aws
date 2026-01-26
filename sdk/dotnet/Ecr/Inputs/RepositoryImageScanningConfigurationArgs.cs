@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Ecr.Inputs
 
     public sealed class RepositoryImageScanningConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
-        /// </summary>
         [Input("scanOnPush", required: true)]
         public Input<bool> ScanOnPush { get; set; } = null!;
 

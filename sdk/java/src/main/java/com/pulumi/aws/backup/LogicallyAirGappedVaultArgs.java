@@ -19,92 +19,44 @@ public final class LogicallyAirGappedVaultArgs extends com.pulumi.resources.Reso
 
     public static final LogicallyAirGappedVaultArgs Empty = new LogicallyAirGappedVaultArgs();
 
-    /**
-     * The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
-     * 
-     */
     @Import(name="encryptionKeyArn")
     private @Nullable Output<String> encryptionKeyArn;
 
-    /**
-     * @return The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
-     * 
-     */
     public Optional<Output<String>> encryptionKeyArn() {
         return Optional.ofNullable(this.encryptionKeyArn);
     }
 
-    /**
-     * Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-     * 
-     */
     @Import(name="maxRetentionDays", required=true)
     private Output<Integer> maxRetentionDays;
 
-    /**
-     * @return Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-     * 
-     */
     public Output<Integer> maxRetentionDays() {
         return this.maxRetentionDays;
     }
 
-    /**
-     * Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-     * 
-     */
     @Import(name="minRetentionDays", required=true)
     private Output<Integer> minRetentionDays;
 
-    /**
-     * @return Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-     * 
-     */
     public Output<Integer> minRetentionDays() {
         return this.minRetentionDays;
     }
 
-    /**
-     * Name of the Logically Air Gapped Backup Vault to create.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the Logically Air Gapped Backup Vault to create.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Metadata that you can assign to help organize the resources that you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Metadata that you can assign to help organize the resources that you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -146,128 +98,56 @@ public final class LogicallyAirGappedVaultArgs extends com.pulumi.resources.Reso
             $ = new LogicallyAirGappedVaultArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param encryptionKeyArn The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionKeyArn(@Nullable Output<String> encryptionKeyArn) {
             $.encryptionKeyArn = encryptionKeyArn;
             return this;
         }
 
-        /**
-         * @param encryptionKeyArn The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionKeyArn(String encryptionKeyArn) {
             return encryptionKeyArn(Output.of(encryptionKeyArn));
         }
 
-        /**
-         * @param maxRetentionDays Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxRetentionDays(Output<Integer> maxRetentionDays) {
             $.maxRetentionDays = maxRetentionDays;
             return this;
         }
 
-        /**
-         * @param maxRetentionDays Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxRetentionDays(Integer maxRetentionDays) {
             return maxRetentionDays(Output.of(maxRetentionDays));
         }
 
-        /**
-         * @param minRetentionDays Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minRetentionDays(Output<Integer> minRetentionDays) {
             $.minRetentionDays = minRetentionDays;
             return this;
         }
 
-        /**
-         * @param minRetentionDays Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minRetentionDays(Integer minRetentionDays) {
             return minRetentionDays(Output.of(minRetentionDays));
         }
 
-        /**
-         * @param name Name of the Logically Air Gapped Backup Vault to create.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the Logically Air Gapped Backup Vault to create.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Metadata that you can assign to help organize the resources that you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Metadata that you can assign to help organize the resources that you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

@@ -9,213 +9,42 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DataZone
 {
-    /// <summary>
-    /// Resource for managing an AWS DataZone Form Type.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var domainExecutionRole = new Aws.Iam.Role("domain_execution_role", new()
-    ///     {
-    ///         Name = "example-role",
-    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Action"] = new[]
-    ///                     {
-    ///                         "sts:AssumeRole",
-    ///                         "sts:TagSession",
-    ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Service"] = "datazone.amazonaws.com",
-    ///                     },
-    ///                 },
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Action"] = new[]
-    ///                     {
-    ///                         "sts:AssumeRole",
-    ///                         "sts:TagSession",
-    ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Service"] = "cloudformation.amazonaws.com",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }),
-    ///         InlinePolicies = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.RoleInlinePolicyArgs
-    ///             {
-    ///                 Name = "example-policy",
-    ///                 Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Version"] = "2012-10-17",
-    ///                     ["Statement"] = new[]
-    ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["Action"] = new[]
-    ///                             {
-    ///                                 "datazone:*",
-    ///                                 "ram:*",
-    ///                                 "sso:*",
-    ///                                 "kms:*",
-    ///                             },
-    ///                             ["Effect"] = "Allow",
-    ///                             ["Resource"] = "*",
-    ///                         },
-    ///                     },
-    ///                 }),
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var test = new Aws.DataZone.Domain("test", new()
-    ///     {
-    ///         Name = "example",
-    ///         DomainExecutionRole = domainExecutionRole.Arn,
-    ///     });
-    /// 
-    ///     var testSecurityGroup = new Aws.Ec2.SecurityGroup("test", new()
-    ///     {
-    ///         Name = "example",
-    ///     });
-    /// 
-    ///     var testProject = new Aws.DataZone.Project("test", new()
-    ///     {
-    ///         DomainIdentifier = test.Id,
-    ///         GlossaryTerms = new[]
-    ///         {
-    ///             "2N8w6XJCwZf",
-    ///         },
-    ///         Name = "example name",
-    ///         Description = "desc",
-    ///         SkipDeletionCheck = true,
-    ///     });
-    /// 
-    ///     var testFormType = new Aws.DataZone.FormType("test", new()
-    ///     {
-    ///         Description = "desc",
-    ///         Name = "SageMakerModelFormType",
-    ///         DomainIdentifier = test.Id,
-    ///         OwningProjectIdentifier = testProject.Id,
-    ///         Status = "DISABLED",
-    ///         Model = new Aws.DataZone.Inputs.FormTypeModelArgs
-    ///         {
-    ///             Smithy = @"\tstructure SageMakerModelFormType {
-    /// \t\t\t@required
-    /// \t\t\t@amazon.datazone#searchable
-    /// \t\t\tmodelName: String
-    /// 
-    /// \t\t\t@required
-    /// \t\t\tmodelArn: String
-    /// 
-    /// \t\t\t@required
-    /// \t\t\tcreationTime: String
-    /// \t\t\t}
-    /// ",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import DataZone Form Type using a comma separated value of `domain_identifier`,`name`,`revision`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:datazone/formType:FormType example domain_identifier,name,revision
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:datazone/formType:FormType")]
     public partial class FormType : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Creation time of the Form Type.
-        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// Creator of the Form Type.
-        /// </summary>
         [Output("createdBy")]
         public Output<string> CreatedBy { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of form type. Must have a length of between 1 and 2048 characters.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of the domain.
-        /// </summary>
         [Output("domainIdentifier")]
         public Output<string> DomainIdentifier { get; private set; } = null!;
 
         [Output("imports")]
         public Output<ImmutableArray<Outputs.FormTypeImport>> Imports { get; private set; } = null!;
 
-        /// <summary>
-        /// Object of the model of the form type that contains the following attributes.
-        /// </summary>
         [Output("model")]
         public Output<Outputs.FormTypeModel?> Model { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the form type. Must be the name of the structure in smithy document.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Origin domain id of the Form Type.
-        /// </summary>
         [Output("originDomainId")]
         public Output<string> OriginDomainId { get; private set; } = null!;
 
-        /// <summary>
-        /// Origin project id of the Form Type.
-        /// </summary>
         [Output("originProjectId")]
         public Output<string> OriginProjectId { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
-        /// </summary>
         [Output("owningProjectIdentifier")]
         public Output<string> OwningProjectIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Revision of the Form Type.
-        /// </summary>
         [Output("revision")]
         public Output<string> Revision { get; private set; } = null!;
 
@@ -271,39 +100,21 @@ namespace Pulumi.Aws.DataZone
 
     public sealed class FormTypeArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of form type. Must have a length of between 1 and 2048 characters.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Identifier of the domain.
-        /// </summary>
         [Input("domainIdentifier", required: true)]
         public Input<string> DomainIdentifier { get; set; } = null!;
 
-        /// <summary>
-        /// Object of the model of the form type that contains the following attributes.
-        /// </summary>
         [Input("model")]
         public Input<Inputs.FormTypeModelArgs>? Model { get; set; }
 
-        /// <summary>
-        /// Name of the form type. Must be the name of the structure in smithy document.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
-        /// </summary>
         [Input("owningProjectIdentifier", required: true)]
         public Input<string> OwningProjectIdentifier { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -321,27 +132,15 @@ namespace Pulumi.Aws.DataZone
 
     public sealed class FormTypeState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Creation time of the Form Type.
-        /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
-        /// <summary>
-        /// Creator of the Form Type.
-        /// </summary>
         [Input("createdBy")]
         public Input<string>? CreatedBy { get; set; }
 
-        /// <summary>
-        /// Description of form type. Must have a length of between 1 and 2048 characters.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Identifier of the domain.
-        /// </summary>
         [Input("domainIdentifier")]
         public Input<string>? DomainIdentifier { get; set; }
 
@@ -353,45 +152,24 @@ namespace Pulumi.Aws.DataZone
             set => _imports = value;
         }
 
-        /// <summary>
-        /// Object of the model of the form type that contains the following attributes.
-        /// </summary>
         [Input("model")]
         public Input<Inputs.FormTypeModelGetArgs>? Model { get; set; }
 
-        /// <summary>
-        /// Name of the form type. Must be the name of the structure in smithy document.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Origin domain id of the Form Type.
-        /// </summary>
         [Input("originDomainId")]
         public Input<string>? OriginDomainId { get; set; }
 
-        /// <summary>
-        /// Origin project id of the Form Type.
-        /// </summary>
         [Input("originProjectId")]
         public Input<string>? OriginProjectId { get; set; }
 
-        /// <summary>
-        /// Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
-        /// </summary>
         [Input("owningProjectIdentifier")]
         public Input<string>? OwningProjectIdentifier { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Revision of the Form Type.
-        /// </summary>
         [Input("revision")]
         public Input<string>? Revision { get; set; }
 

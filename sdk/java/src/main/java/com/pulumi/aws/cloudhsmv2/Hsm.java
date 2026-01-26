@@ -13,175 +13,53 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Creates an HSM module in Amazon CloudHSM v2 cluster.
- * 
- * ## Example Usage
- * 
- * The following example below creates an HSM module in CloudHSM cluster.
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudhsmv2.Cloudhsmv2Functions;
- * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
- * import com.pulumi.aws.cloudhsmv2.Hsm;
- * import com.pulumi.aws.cloudhsmv2.HsmArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var cluster = Cloudhsmv2Functions.getCluster(GetClusterArgs.builder()
- *             .clusterId(cloudhsmClusterId)
- *             .build());
- * 
- *         var cloudhsmV2Hsm = new Hsm("cloudhsmV2Hsm", HsmArgs.builder()
- *             .subnetId(cluster.subnetIds()[0])
- *             .clusterId(cluster.clusterId())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import HSM modules using their HSM ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
- * ```
- * 
- */
 @ResourceType(type="aws:cloudhsmv2/hsm:Hsm")
 public class Hsm extends com.pulumi.resources.CustomResource {
-    /**
-     * The IDs of AZ in which HSM module will be located. Conflicts with `subnetId`.
-     * 
-     */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
-    /**
-     * @return The IDs of AZ in which HSM module will be located. Conflicts with `subnetId`.
-     * 
-     */
     public Output<String> availabilityZone() {
         return this.availabilityZone;
     }
-    /**
-     * The ID of Cloud HSM v2 cluster to which HSM will be added.
-     * 
-     */
     @Export(name="clusterId", refs={String.class}, tree="[0]")
     private Output<String> clusterId;
 
-    /**
-     * @return The ID of Cloud HSM v2 cluster to which HSM will be added.
-     * 
-     */
     public Output<String> clusterId() {
         return this.clusterId;
     }
-    /**
-     * The id of the ENI interface allocated for HSM module.
-     * 
-     */
     @Export(name="hsmEniId", refs={String.class}, tree="[0]")
     private Output<String> hsmEniId;
 
-    /**
-     * @return The id of the ENI interface allocated for HSM module.
-     * 
-     */
     public Output<String> hsmEniId() {
         return this.hsmEniId;
     }
-    /**
-     * The id of the HSM module.
-     * 
-     */
     @Export(name="hsmId", refs={String.class}, tree="[0]")
     private Output<String> hsmId;
 
-    /**
-     * @return The id of the HSM module.
-     * 
-     */
     public Output<String> hsmId() {
         return this.hsmId;
     }
-    /**
-     * The state of the HSM module.
-     * 
-     */
     @Export(name="hsmState", refs={String.class}, tree="[0]")
     private Output<String> hsmState;
 
-    /**
-     * @return The state of the HSM module.
-     * 
-     */
     public Output<String> hsmState() {
         return this.hsmState;
     }
-    /**
-     * The IP address of HSM module. Must be within the CIDR of selected subnet.
-     * 
-     * &gt; **NOTE:** Either `subnetId` or `availabilityZone` must be specified.
-     * 
-     */
     @Export(name="ipAddress", refs={String.class}, tree="[0]")
     private Output<String> ipAddress;
 
-    /**
-     * @return The IP address of HSM module. Must be within the CIDR of selected subnet.
-     * 
-     * &gt; **NOTE:** Either `subnetId` or `availabilityZone` must be specified.
-     * 
-     */
     public Output<String> ipAddress() {
         return this.ipAddress;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The ID of subnet in which HSM module will be located. Conflicts with `availabilityZone`.
-     * 
-     */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
-    /**
-     * @return The ID of subnet in which HSM module will be located. Conflicts with `availabilityZone`.
-     * 
-     */
     public Output<String> subnetId() {
         return this.subnetId;
     }

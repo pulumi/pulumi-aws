@@ -15,62 +15,30 @@ public final class NodeGroupNodeRepairConfigNodeRepairConfigOverrideArgs extends
 
     public static final NodeGroupNodeRepairConfigNodeRepairConfigOverrideArgs Empty = new NodeGroupNodeRepairConfigNodeRepairConfigOverrideArgs();
 
-    /**
-     * Minimum time in minutes to wait before attempting to repair a node with the specified `nodeMonitoringCondition` and `nodeUnhealthyReason`.
-     * 
-     */
     @Import(name="minRepairWaitTimeMins", required=true)
     private Output<Integer> minRepairWaitTimeMins;
 
-    /**
-     * @return Minimum time in minutes to wait before attempting to repair a node with the specified `nodeMonitoringCondition` and `nodeUnhealthyReason`.
-     * 
-     */
     public Output<Integer> minRepairWaitTimeMins() {
         return this.minRepairWaitTimeMins;
     }
 
-    /**
-     * Unhealthy condition reported by the node monitoring agent that this override applies to.
-     * 
-     */
     @Import(name="nodeMonitoringCondition", required=true)
     private Output<String> nodeMonitoringCondition;
 
-    /**
-     * @return Unhealthy condition reported by the node monitoring agent that this override applies to.
-     * 
-     */
     public Output<String> nodeMonitoringCondition() {
         return this.nodeMonitoringCondition;
     }
 
-    /**
-     * Reason reported by the node monitoring agent that this override applies to.
-     * 
-     */
     @Import(name="nodeUnhealthyReason", required=true)
     private Output<String> nodeUnhealthyReason;
 
-    /**
-     * @return Reason reported by the node monitoring agent that this override applies to.
-     * 
-     */
     public Output<String> nodeUnhealthyReason() {
         return this.nodeUnhealthyReason;
     }
 
-    /**
-     * Repair action to take for nodes when all of the specified conditions are met. Valid values are defined by the EKS API.
-     * 
-     */
     @Import(name="repairAction", required=true)
     private Output<String> repairAction;
 
-    /**
-     * @return Repair action to take for nodes when all of the specified conditions are met. Valid values are defined by the EKS API.
-     * 
-     */
     public Output<String> repairAction() {
         return this.repairAction;
     }
@@ -102,86 +70,38 @@ public final class NodeGroupNodeRepairConfigNodeRepairConfigOverrideArgs extends
             $ = new NodeGroupNodeRepairConfigNodeRepairConfigOverrideArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param minRepairWaitTimeMins Minimum time in minutes to wait before attempting to repair a node with the specified `nodeMonitoringCondition` and `nodeUnhealthyReason`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minRepairWaitTimeMins(Output<Integer> minRepairWaitTimeMins) {
             $.minRepairWaitTimeMins = minRepairWaitTimeMins;
             return this;
         }
 
-        /**
-         * @param minRepairWaitTimeMins Minimum time in minutes to wait before attempting to repair a node with the specified `nodeMonitoringCondition` and `nodeUnhealthyReason`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minRepairWaitTimeMins(Integer minRepairWaitTimeMins) {
             return minRepairWaitTimeMins(Output.of(minRepairWaitTimeMins));
         }
 
-        /**
-         * @param nodeMonitoringCondition Unhealthy condition reported by the node monitoring agent that this override applies to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nodeMonitoringCondition(Output<String> nodeMonitoringCondition) {
             $.nodeMonitoringCondition = nodeMonitoringCondition;
             return this;
         }
 
-        /**
-         * @param nodeMonitoringCondition Unhealthy condition reported by the node monitoring agent that this override applies to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nodeMonitoringCondition(String nodeMonitoringCondition) {
             return nodeMonitoringCondition(Output.of(nodeMonitoringCondition));
         }
 
-        /**
-         * @param nodeUnhealthyReason Reason reported by the node monitoring agent that this override applies to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nodeUnhealthyReason(Output<String> nodeUnhealthyReason) {
             $.nodeUnhealthyReason = nodeUnhealthyReason;
             return this;
         }
 
-        /**
-         * @param nodeUnhealthyReason Reason reported by the node monitoring agent that this override applies to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nodeUnhealthyReason(String nodeUnhealthyReason) {
             return nodeUnhealthyReason(Output.of(nodeUnhealthyReason));
         }
 
-        /**
-         * @param repairAction Repair action to take for nodes when all of the specified conditions are met. Valid values are defined by the EKS API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repairAction(Output<String> repairAction) {
             $.repairAction = repairAction;
             return this;
         }
 
-        /**
-         * @param repairAction Repair action to take for nodes when all of the specified conditions are met. Valid values are defined by the EKS API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repairAction(String repairAction) {
             return repairAction(Output.of(repairAction));
         }

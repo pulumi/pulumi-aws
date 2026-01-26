@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualClusterContainerProviderInfoEksInfo {
-    /**
-     * @return The namespace where the EMR Containers cluster is running
-     * 
-     */
     private String namespace;
 
     private GetVirtualClusterContainerProviderInfoEksInfo() {}
-    /**
-     * @return The namespace where the EMR Containers cluster is running
-     * 
-     */
     public String namespace() {
         return this.namespace;
     }

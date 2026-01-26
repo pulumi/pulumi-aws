@@ -73,17 +73,11 @@ class GetAddonResult:
     @_builtins.property
     @pulumi.getter(name="addonVersion")
     def addon_version(self) -> _builtins.str:
-        """
-        Version of EKS add-on.
-        """
         return pulumi.get(self, "addon_version")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the EKS add-on.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -94,17 +88,11 @@ class GetAddonResult:
     @_builtins.property
     @pulumi.getter(name="configurationValues")
     def configuration_values(self) -> _builtins.str:
-        """
-        Configuration values for the addon with a single JSON string.
-        """
         return pulumi.get(self, "configuration_values")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> _builtins.str:
-        """
-        Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
@@ -118,17 +106,11 @@ class GetAddonResult:
     @_builtins.property
     @pulumi.getter(name="modifiedAt")
     def modified_at(self) -> _builtins.str:
-        """
-        Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
-        """
         return pulumi.get(self, "modified_at")
 
     @_builtins.property
     @pulumi.getter(name="podIdentityAssociations")
     def pod_identity_associations(self) -> Sequence['outputs.GetAddonPodIdentityAssociationResult']:
-        """
-        Pod identity association for the EKS add-on.
-        """
         return pulumi.get(self, "pod_identity_associations")
 
     @_builtins.property
@@ -139,10 +121,6 @@ class GetAddonResult:
     @_builtins.property
     @pulumi.getter(name="serviceAccountRoleArn")
     def service_account_role_arn(self) -> _builtins.str:
-        """
-        ARN of IAM role used for EKS add-on. If value is empty -
-        then add-on uses the IAM role assigned to the EKS Cluster node.
-        """
         return pulumi.get(self, "service_account_role_arn")
 
     @_builtins.property
@@ -177,24 +155,7 @@ def get_addon(addon_name: Optional[_builtins.str] = None,
               tags: Optional[Mapping[str, _builtins.str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAddonResult:
     """
-    Retrieve information about an EKS add-on.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.eks.get_addon(addon_name="vpc-cni",
-        cluster_name=example_aws_eks_cluster["name"])
-    pulumi.export("eksAddonOutputs", example_aws_eks_addon)
-    ```
-
-
-    :param _builtins.str addon_name: Name of the EKS add-on. The name must match one of
-           the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
-    :param _builtins.str cluster_name: Name of the EKS Cluster.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['addonName'] = addon_name
@@ -223,24 +184,7 @@ def get_addon_output(addon_name: Optional[pulumi.Input[_builtins.str]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAddonResult]:
     """
-    Retrieve information about an EKS add-on.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.eks.get_addon(addon_name="vpc-cni",
-        cluster_name=example_aws_eks_cluster["name"])
-    pulumi.export("eksAddonOutputs", example_aws_eks_addon)
-    ```
-
-
-    :param _builtins.str addon_name: Name of the EKS add-on. The name must match one of
-           the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
-    :param _builtins.str cluster_name: Name of the EKS Cluster.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['addonName'] = addon_name

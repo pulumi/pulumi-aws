@@ -9,141 +9,42 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.M2
 {
-    /// <summary>
-    /// Resource for managing an [AWS Mainframe Modernization Application](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.M2.Application("example", new()
-    ///     {
-    ///         Name = "Example",
-    ///         EngineType = "bluage",
-    ///         Definition = new Aws.M2.Inputs.ApplicationDefinitionArgs
-    ///         {
-    ///             Content = @$"{{
-    ///   \""definition\"": {{
-    ///     \""listeners\"": [
-    ///       {{
-    ///         \""port\"": 8196,
-    ///         \""type\"": \""http\""
-    ///       }}
-    ///     ],
-    ///     \""ba-application\"": {{
-    ///       \""app-location\"": \""{s3_source}/PlanetsDemo-v1.zip\""
-    ///     }}
-    ///   }},
-    ///   \""source-locations\"": [
-    ///     {{
-    ///       \""source-id\"": \""s3-source\"",
-    ///       \""source-type\"": \""s3\"",
-    ///       \""properties\"": {{
-    ///         \""s3-bucket\"": \""example-bucket\"",
-    ///         \""s3-key-prefix\"": \""v1\""
-    ///       }}
-    ///     }}
-    ///   ],
-    ///   \""template-version\"": \""2.0\""
-    /// }}
-    /// 
-    /// ",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Mainframe Modernization Application using the `01234567890abcdef012345678`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:m2/application:Application example 01234567890abcdef012345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:m2/application:Application")]
     public partial class Application : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Id of the Application.
-        /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the Application.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Current version of the application deployed.
-        /// </summary>
         [Output("currentVersion")]
         public Output<int> CurrentVersion { get; private set; } = null!;
 
-        /// <summary>
-        /// The application definition for this application. You can specify either inline JSON or an S3 bucket location.
-        /// </summary>
         [Output("definition")]
         public Output<Outputs.ApplicationDefinition?> Definition { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the application.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Engine type must be `microfocus | bluage`.
-        /// </summary>
         [Output("engineType")]
         public Output<string> EngineType { get; private set; } = null!;
 
-        /// <summary>
-        /// KMS Key to use for the Application.
-        /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
-        /// <summary>
-        /// Unique identifier of the application.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of role for application to use to access AWS resources.
-        /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -196,56 +97,29 @@ namespace Pulumi.Aws.M2
 
     public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The application definition for this application. You can specify either inline JSON or an S3 bucket location.
-        /// </summary>
         [Input("definition")]
         public Input<Inputs.ApplicationDefinitionArgs>? Definition { get; set; }
 
-        /// <summary>
-        /// Description of the application.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Engine type must be `microfocus | bluage`.
-        /// </summary>
         [Input("engineType", required: true)]
         public Input<string> EngineType { get; set; } = null!;
 
-        /// <summary>
-        /// KMS Key to use for the Application.
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        /// <summary>
-        /// Unique identifier of the application.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of role for application to use to access AWS resources.
-        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -263,74 +137,38 @@ namespace Pulumi.Aws.M2
 
     public sealed class ApplicationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Id of the Application.
-        /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
 
-        /// <summary>
-        /// ARN of the Application.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Current version of the application deployed.
-        /// </summary>
         [Input("currentVersion")]
         public Input<int>? CurrentVersion { get; set; }
 
-        /// <summary>
-        /// The application definition for this application. You can specify either inline JSON or an S3 bucket location.
-        /// </summary>
         [Input("definition")]
         public Input<Inputs.ApplicationDefinitionGetArgs>? Definition { get; set; }
 
-        /// <summary>
-        /// Description of the application.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Engine type must be `microfocus | bluage`.
-        /// </summary>
         [Input("engineType")]
         public Input<string>? EngineType { get; set; }
 
-        /// <summary>
-        /// KMS Key to use for the Application.
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        /// <summary>
-        /// Unique identifier of the application.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of role for application to use to access AWS resources.
-        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -339,10 +177,6 @@ namespace Pulumi.Aws.M2
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

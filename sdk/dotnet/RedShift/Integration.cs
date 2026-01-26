@@ -9,235 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.RedShift
 {
-    /// <summary>
-    /// Resource for managing a DynamoDB zero-ETL integration or S3 event integration with Amazon Redshift. You can refer to the [User Guide](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/RedshiftforDynamoDB-zero-etl.html) for a DynamoDB zero-ETL integration or the [User Guide](https://docs.aws.amazon.com/redshift/latest/dg/loading-data-copy-job.html) for a S3 event integration.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DynamoDB.Table("example", new()
-    ///     {
-    ///         Name = "dynamodb-table-example",
-    ///         ReadCapacity = 1,
-    ///         WriteCapacity = 1,
-    ///         HashKey = "example",
-    ///         Attributes = new[]
-    ///         {
-    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
-    ///             {
-    ///                 Name = "example",
-    ///                 Type = "S",
-    ///             },
-    ///         },
-    ///         PointInTimeRecovery = new Aws.DynamoDB.Inputs.TablePointInTimeRecoveryArgs
-    ///         {
-    ///             Enabled = true,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleNamespace = new Aws.RedshiftServerless.Namespace("example", new()
-    ///     {
-    ///         NamespaceName = "redshift-example",
-    ///     });
-    /// 
-    ///     var exampleWorkgroup = new Aws.RedshiftServerless.Workgroup("example", new()
-    ///     {
-    ///         NamespaceName = exampleNamespace.NamespaceName,
-    ///         WorkgroupName = "example-workgroup",
-    ///         BaseCapacity = 8,
-    ///         PubliclyAccessible = false,
-    ///         SubnetIds = new[]
-    ///         {
-    ///             example1.Id,
-    ///             example2.Id,
-    ///             example3.Id,
-    ///         },
-    ///         ConfigParameters = new[]
-    ///         {
-    ///             new Aws.RedshiftServerless.Inputs.WorkgroupConfigParameterArgs
-    ///             {
-    ///                 ParameterKey = "enable_case_sensitive_identifier",
-    ///                 ParameterValue = "true",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleIntegration = new Aws.RedShift.Integration("example", new()
-    ///     {
-    ///         IntegrationName = "example",
-    ///         SourceArn = example.Arn,
-    ///         TargetArn = exampleNamespace.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Use own KMS key
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var example = new Aws.Kms.Key("example", new()
-    ///     {
-    ///         Description = "example",
-    ///         DeletionWindowInDays = 10,
-    ///     });
-    /// 
-    ///     var exampleKeyPolicy = new Aws.Kms.KeyPolicy("example", new()
-    ///     {
-    ///         KeyId = example.Id,
-    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2008-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["AWS"] = $"arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
-    ///                     },
-    ///                     ["Action"] = "kms:*",
-    ///                     ["Resource"] = "*",
-    ///                 },
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Service"] = "redshift.amazonaws.com",
-    ///                     },
-    ///                     ["Action"] = new[]
-    ///                     {
-    ///                         "kms:Decrypt",
-    ///                         "kms:CreateGrant",
-    ///                     },
-    ///                     ["Resource"] = "*",
-    ///                     ["Condition"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["StringEquals"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["aws:SourceAccount"] = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///                         },
-    ///                         ["ArnEquals"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["aws:SourceArn"] = $"arn:aws:redshift:*:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:integration:*",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    ///     var exampleIntegration = new Aws.RedShift.Integration("example", new()
-    ///     {
-    ///         IntegrationName = "example",
-    ///         SourceArn = exampleAwsDynamodbTable.Arn,
-    ///         TargetArn = exampleAwsRedshiftserverlessNamespace.Arn,
-    ///         KmsKeyId = example.Arn,
-    ///         AdditionalEncryptionContext = 
-    ///         {
-    ///             { "example", "test" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Redshift Integration using the `arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:redshift/integration:Integration example arn:aws:redshift:us-west-2:123456789012:integration:abcdefgh-0000-1111-2222-123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:redshift/integration:Integration")]
     public partial class Integration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Set of non-secret key–value pairs that contains additional contextual information about the data.
-        /// For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
-        /// You can only include this parameter if you specify the `KmsKeyId` parameter.
-        /// </summary>
         [Output("additionalEncryptionContext")]
         public Output<ImmutableDictionary<string, string>?> AdditionalEncryptionContext { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the Integration.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the integration.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the integration.
-        /// </summary>
         [Output("integrationName")]
         public Output<string> IntegrationName { get; private set; } = null!;
 
-        /// <summary>
-        /// KMS key identifier for the key to use to encrypt the integration.
-        /// If you don't specify an encryption key, Redshift uses a default AWS owned key.
-        /// You can only include this parameter if `SourceArn` references a DynamoDB table.
-        /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the database to use as the source for replication. You can specify a DynamoDB table or an S3 bucket.
-        /// </summary>
         [Output("sourceArn")]
         public Output<string> SourceArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/redshift/create-integration.html).
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the Redshift data warehouse to use as the target for replication.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("targetArn")]
         public Output<string> TargetArn { get; private set; } = null!;
 
@@ -292,69 +93,35 @@ namespace Pulumi.Aws.RedShift
     {
         [Input("additionalEncryptionContext")]
         private InputMap<string>? _additionalEncryptionContext;
-
-        /// <summary>
-        /// Set of non-secret key–value pairs that contains additional contextual information about the data.
-        /// For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
-        /// You can only include this parameter if you specify the `KmsKeyId` parameter.
-        /// </summary>
         public InputMap<string> AdditionalEncryptionContext
         {
             get => _additionalEncryptionContext ?? (_additionalEncryptionContext = new InputMap<string>());
             set => _additionalEncryptionContext = value;
         }
 
-        /// <summary>
-        /// Description of the integration.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name of the integration.
-        /// </summary>
         [Input("integrationName", required: true)]
         public Input<string> IntegrationName { get; set; } = null!;
 
-        /// <summary>
-        /// KMS key identifier for the key to use to encrypt the integration.
-        /// If you don't specify an encryption key, Redshift uses a default AWS owned key.
-        /// You can only include this parameter if `SourceArn` references a DynamoDB table.
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the database to use as the source for replication. You can specify a DynamoDB table or an S3 bucket.
-        /// </summary>
         [Input("sourceArn", required: true)]
         public Input<string> SourceArn { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/redshift/create-integration.html).
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// ARN of the Redshift data warehouse to use as the target for replication.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("targetArn", required: true)]
         public Input<string> TargetArn { get; set; } = null!;
 
@@ -371,64 +138,32 @@ namespace Pulumi.Aws.RedShift
     {
         [Input("additionalEncryptionContext")]
         private InputMap<string>? _additionalEncryptionContext;
-
-        /// <summary>
-        /// Set of non-secret key–value pairs that contains additional contextual information about the data.
-        /// For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
-        /// You can only include this parameter if you specify the `KmsKeyId` parameter.
-        /// </summary>
         public InputMap<string> AdditionalEncryptionContext
         {
             get => _additionalEncryptionContext ?? (_additionalEncryptionContext = new InputMap<string>());
             set => _additionalEncryptionContext = value;
         }
 
-        /// <summary>
-        /// ARN of the Integration.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Description of the integration.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name of the integration.
-        /// </summary>
         [Input("integrationName")]
         public Input<string>? IntegrationName { get; set; }
 
-        /// <summary>
-        /// KMS key identifier for the key to use to encrypt the integration.
-        /// If you don't specify an encryption key, Redshift uses a default AWS owned key.
-        /// You can only include this parameter if `SourceArn` references a DynamoDB table.
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the database to use as the source for replication. You can specify a DynamoDB table or an S3 bucket.
-        /// </summary>
         [Input("sourceArn")]
         public Input<string>? SourceArn { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/redshift/create-integration.html).
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -437,21 +172,12 @@ namespace Pulumi.Aws.RedShift
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// ARN of the Redshift data warehouse to use as the target for replication.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("targetArn")]
         public Input<string>? TargetArn { get; set; }
 

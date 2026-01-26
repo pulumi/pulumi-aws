@@ -15,17 +15,9 @@ public final class ConfigurationSetEventDestinationEventDestinationCloudWatchDes
 
     public static final ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs Empty = new ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs();
 
-    /**
-     * An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimensionConfiguration` Block for details.
-     * 
-     */
     @Import(name="dimensionConfigurations", required=true)
     private Output<List<ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs>> dimensionConfigurations;
 
-    /**
-     * @return An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimensionConfiguration` Block for details.
-     * 
-     */
     public Output<List<ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs>> dimensionConfigurations() {
         return this.dimensionConfigurations;
     }
@@ -54,33 +46,15 @@ public final class ConfigurationSetEventDestinationEventDestinationCloudWatchDes
             $ = new ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dimensionConfigurations An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimensionConfiguration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimensionConfigurations(Output<List<ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs>> dimensionConfigurations) {
             $.dimensionConfigurations = dimensionConfigurations;
             return this;
         }
 
-        /**
-         * @param dimensionConfigurations An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimensionConfiguration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimensionConfigurations(List<ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs> dimensionConfigurations) {
             return dimensionConfigurations(Output.of(dimensionConfigurations));
         }
 
-        /**
-         * @param dimensionConfigurations An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimensionConfiguration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimensionConfigurations(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs... dimensionConfigurations) {
             return dimensionConfigurations(List.of(dimensionConfigurations));
         }

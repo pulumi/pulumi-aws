@@ -12,41 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDomainAutoTuneOption {
-    /**
-     * @return The Auto-Tune desired state for the domain.
-     * 
-     */
     private String desiredState;
-    /**
-     * @return A list of the nested configurations for the Auto-Tune maintenance windows of the domain.
-     * 
-     */
     private List<GetDomainAutoTuneOptionMaintenanceSchedule> maintenanceSchedules;
-    /**
-     * @return Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
-     * 
-     */
     private String rollbackOnDisable;
 
     private GetDomainAutoTuneOption() {}
-    /**
-     * @return The Auto-Tune desired state for the domain.
-     * 
-     */
     public String desiredState() {
         return this.desiredState;
     }
-    /**
-     * @return A list of the nested configurations for the Auto-Tune maintenance windows of the domain.
-     * 
-     */
     public List<GetDomainAutoTuneOptionMaintenanceSchedule> maintenanceSchedules() {
         return this.maintenanceSchedules;
     }
-    /**
-     * @return Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
-     * 
-     */
     public String rollbackOnDisable() {
         return this.rollbackOnDisable;
     }

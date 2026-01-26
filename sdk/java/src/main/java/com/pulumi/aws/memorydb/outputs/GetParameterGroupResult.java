@@ -13,62 +13,26 @@ import java.util.Objects;
 
 @CustomType
 public final class GetParameterGroupResult {
-    /**
-     * @return ARN of the parameter group.
-     * 
-     */
     private String arn;
-    /**
-     * @return Description of the parameter group.
-     * 
-     */
     private String description;
-    /**
-     * @return Engine version that the parameter group can be used with.
-     * 
-     */
     private String family;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Name of the parameter.
-     * 
-     */
     private String name;
-    /**
-     * @return Set of user-defined MemoryDB parameters applied by the parameter group.
-     * 
-     */
     private List<GetParameterGroupParameter> parameters;
     private String region;
-    /**
-     * @return Map of tags assigned to the parameter group.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetParameterGroupResult() {}
-    /**
-     * @return ARN of the parameter group.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Description of the parameter group.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Engine version that the parameter group can be used with.
-     * 
-     */
     public String family() {
         return this.family;
     }
@@ -79,27 +43,15 @@ public final class GetParameterGroupResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Name of the parameter.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Set of user-defined MemoryDB parameters applied by the parameter group.
-     * 
-     */
     public List<GetParameterGroupParameter> parameters() {
         return this.parameters;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Map of tags assigned to the parameter group.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

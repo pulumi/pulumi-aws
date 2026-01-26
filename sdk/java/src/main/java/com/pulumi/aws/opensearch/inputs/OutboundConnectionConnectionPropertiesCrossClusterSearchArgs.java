@@ -15,17 +15,9 @@ public final class OutboundConnectionConnectionPropertiesCrossClusterSearchArgs 
 
     public static final OutboundConnectionConnectionPropertiesCrossClusterSearchArgs Empty = new OutboundConnectionConnectionPropertiesCrossClusterSearchArgs();
 
-    /**
-     * Skips unavailable clusters and can only be used for cross-cluster searches. Accepted values are `ENABLED` or `DISABLED`.
-     * 
-     */
     @Import(name="skipUnavailable")
     private @Nullable Output<String> skipUnavailable;
 
-    /**
-     * @return Skips unavailable clusters and can only be used for cross-cluster searches. Accepted values are `ENABLED` or `DISABLED`.
-     * 
-     */
     public Optional<Output<String>> skipUnavailable() {
         return Optional.ofNullable(this.skipUnavailable);
     }
@@ -54,23 +46,11 @@ public final class OutboundConnectionConnectionPropertiesCrossClusterSearchArgs 
             $ = new OutboundConnectionConnectionPropertiesCrossClusterSearchArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param skipUnavailable Skips unavailable clusters and can only be used for cross-cluster searches. Accepted values are `ENABLED` or `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skipUnavailable(@Nullable Output<String> skipUnavailable) {
             $.skipUnavailable = skipUnavailable;
             return this;
         }
 
-        /**
-         * @param skipUnavailable Skips unavailable clusters and can only be used for cross-cluster searches. Accepted values are `ENABLED` or `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skipUnavailable(String skipUnavailable) {
             return skipUnavailable(Output.of(skipUnavailable));
         }

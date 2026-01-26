@@ -7,32 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS AppSync Source API Association.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.appsync.SourceApiAssociation("test", {
- *     description: "My source API Merged",
- *     mergedApiId: "gzos6bteufdunffzzifiowisoe",
- *     sourceApiId: "fzzifiowisoegzos6bteufdunf",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import AppSync Source API Association using the `association_id` and `merged_api_id` separated by `,`. For example:
- *
- * ```sh
- * $ pulumi import aws:appsync/sourceApiAssociation:SourceApiAssociation example gzos6bteufdunffzzifiowisoe,243685a0-9347-4a1a-89c1-9b57dea01e31
- * ```
- */
 export class SourceApiAssociation extends pulumi.CustomResource {
     /**
      * Get an existing SourceApiAssociation resource's state with the given name, ID, and optional extra
@@ -61,38 +35,14 @@ export class SourceApiAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === SourceApiAssociation.__pulumiType;
     }
 
-    /**
-     * ARN of the Source API Association.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * ID of the Source API Association.
-     */
     declare public /*out*/ readonly associationId: pulumi.Output<string>;
-    /**
-     * Description of the source API being merged.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * ARN of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
-     */
     declare public readonly mergedApiArn: pulumi.Output<string>;
-    /**
-     * ID of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
-     */
     declare public readonly mergedApiId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
-     */
     declare public readonly sourceApiArn: pulumi.Output<string>;
     declare public readonly sourceApiAssociationConfigs: pulumi.Output<outputs.appsync.SourceApiAssociationSourceApiAssociationConfig[]>;
-    /**
-     * ID of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
-     */
     declare public readonly sourceApiId: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.appsync.SourceApiAssociationTimeouts | undefined>;
 
@@ -141,38 +91,14 @@ export class SourceApiAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SourceApiAssociation resources.
  */
 export interface SourceApiAssociationState {
-    /**
-     * ARN of the Source API Association.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * ID of the Source API Association.
-     */
     associationId?: pulumi.Input<string>;
-    /**
-     * Description of the source API being merged.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * ARN of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
-     */
     mergedApiArn?: pulumi.Input<string>;
-    /**
-     * ID of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
-     */
     mergedApiId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
-     */
     sourceApiArn?: pulumi.Input<string>;
     sourceApiAssociationConfigs?: pulumi.Input<pulumi.Input<inputs.appsync.SourceApiAssociationSourceApiAssociationConfig>[]>;
-    /**
-     * ID of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
-     */
     sourceApiId?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.appsync.SourceApiAssociationTimeouts>;
 }
@@ -181,30 +107,12 @@ export interface SourceApiAssociationState {
  * The set of arguments for constructing a SourceApiAssociation resource.
  */
 export interface SourceApiAssociationArgs {
-    /**
-     * Description of the source API being merged.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * ARN of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
-     */
     mergedApiArn?: pulumi.Input<string>;
-    /**
-     * ID of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
-     */
     mergedApiId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
-     */
     sourceApiArn?: pulumi.Input<string>;
     sourceApiAssociationConfigs?: pulumi.Input<pulumi.Input<inputs.appsync.SourceApiAssociationSourceApiAssociationConfig>[]>;
-    /**
-     * ID of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
-     */
     sourceApiId?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.appsync.SourceApiAssociationTimeouts>;
 }

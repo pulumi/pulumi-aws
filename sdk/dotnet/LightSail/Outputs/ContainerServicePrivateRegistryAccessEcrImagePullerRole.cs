@@ -13,13 +13,7 @@ namespace Pulumi.Aws.LightSail.Outputs
     [OutputType]
     public sealed class ContainerServicePrivateRegistryAccessEcrImagePullerRole
     {
-        /// <summary>
-        /// Whether to activate the role. Defaults to `False`.
-        /// </summary>
         public readonly bool? IsActive;
-        /// <summary>
-        /// Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
-        /// </summary>
         public readonly string? PrincipalArn;
 
         [OutputConstructor]

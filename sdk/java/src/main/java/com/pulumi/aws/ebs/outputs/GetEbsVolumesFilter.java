@@ -11,107 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEbsVolumesFilter {
-    /**
-     * @return Name of the field to filter by, as defined by
-     * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
-     * For example, if matching against the `size` filter, use:
-     * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ebs.EbsFunctions;
-     * import com.pulumi.aws.ebs.inputs.GetEbsVolumesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var tenOrTwentyGbVolumes = EbsFunctions.getEbsVolumes(GetEbsVolumesArgs.builder()
-     *             .filters(GetEbsVolumesFilterArgs.builder()
-     *                 .name("size")
-     *                 .values(                
-     *                     "10",
-     *                     "20")
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * 
-     */
     private String name;
-    /**
-     * @return Set of values that are accepted for the given field.
-     * EBS Volume IDs will be selected if any one of the given values match.
-     * 
-     */
     private List<String> values;
 
     private GetEbsVolumesFilter() {}
-    /**
-     * @return Name of the field to filter by, as defined by
-     * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
-     * For example, if matching against the `size` filter, use:
-     * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ebs.EbsFunctions;
-     * import com.pulumi.aws.ebs.inputs.GetEbsVolumesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var tenOrTwentyGbVolumes = EbsFunctions.getEbsVolumes(GetEbsVolumesArgs.builder()
-     *             .filters(GetEbsVolumesFilterArgs.builder()
-     *                 .name("size")
-     *                 .values(                
-     *                     "10",
-     *                     "20")
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Set of values that are accepted for the given field.
-     * EBS Volume IDs will be selected if any one of the given values match.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

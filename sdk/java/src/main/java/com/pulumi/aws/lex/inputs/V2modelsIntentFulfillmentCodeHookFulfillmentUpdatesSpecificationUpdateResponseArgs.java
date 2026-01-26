@@ -19,47 +19,23 @@ public final class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificat
 
     public static final V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseArgs Empty = new V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseArgs();
 
-    /**
-     * Whether the user can interrupt the start message while it is playing.
-     * 
-     */
     @Import(name="allowInterrupt")
     private @Nullable Output<Boolean> allowInterrupt;
 
-    /**
-     * @return Whether the user can interrupt the start message while it is playing.
-     * 
-     */
     public Optional<Output<Boolean>> allowInterrupt() {
         return Optional.ofNullable(this.allowInterrupt);
     }
 
-    /**
-     * Frequency that a message is sent to the user. When the period ends, Amazon Lex chooses a message from the message groups and plays it to the user. If the fulfillment Lambda returns before the first period ends, an update message is not played to the user.
-     * 
-     */
     @Import(name="frequencyInSeconds", required=true)
     private Output<Integer> frequencyInSeconds;
 
-    /**
-     * @return Frequency that a message is sent to the user. When the period ends, Amazon Lex chooses a message from the message groups and plays it to the user. If the fulfillment Lambda returns before the first period ends, an update message is not played to the user.
-     * 
-     */
     public Output<Integer> frequencyInSeconds() {
         return this.frequencyInSeconds;
     }
 
-    /**
-     * Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `messageGroup`.
-     * 
-     */
     @Import(name="messageGroups")
     private @Nullable Output<List<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupArgs>> messageGroups;
 
-    /**
-     * @return Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `messageGroup`.
-     * 
-     */
     public Optional<Output<List<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupArgs>>> messageGroups() {
         return Optional.ofNullable(this.messageGroups);
     }
@@ -90,75 +66,33 @@ public final class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificat
             $ = new V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allowInterrupt Whether the user can interrupt the start message while it is playing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowInterrupt(@Nullable Output<Boolean> allowInterrupt) {
             $.allowInterrupt = allowInterrupt;
             return this;
         }
 
-        /**
-         * @param allowInterrupt Whether the user can interrupt the start message while it is playing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowInterrupt(Boolean allowInterrupt) {
             return allowInterrupt(Output.of(allowInterrupt));
         }
 
-        /**
-         * @param frequencyInSeconds Frequency that a message is sent to the user. When the period ends, Amazon Lex chooses a message from the message groups and plays it to the user. If the fulfillment Lambda returns before the first period ends, an update message is not played to the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder frequencyInSeconds(Output<Integer> frequencyInSeconds) {
             $.frequencyInSeconds = frequencyInSeconds;
             return this;
         }
 
-        /**
-         * @param frequencyInSeconds Frequency that a message is sent to the user. When the period ends, Amazon Lex chooses a message from the message groups and plays it to the user. If the fulfillment Lambda returns before the first period ends, an update message is not played to the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder frequencyInSeconds(Integer frequencyInSeconds) {
             return frequencyInSeconds(Output.of(frequencyInSeconds));
         }
 
-        /**
-         * @param messageGroups Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `messageGroup`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messageGroups(@Nullable Output<List<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupArgs>> messageGroups) {
             $.messageGroups = messageGroups;
             return this;
         }
 
-        /**
-         * @param messageGroups Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `messageGroup`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messageGroups(List<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupArgs> messageGroups) {
             return messageGroups(Output.of(messageGroups));
         }
 
-        /**
-         * @param messageGroups Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `messageGroup`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messageGroups(V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupArgs... messageGroups) {
             return messageGroups(List.of(messageGroups));
         }

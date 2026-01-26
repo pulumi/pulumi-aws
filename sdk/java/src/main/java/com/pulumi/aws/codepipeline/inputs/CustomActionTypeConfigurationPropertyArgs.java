@@ -17,107 +17,51 @@ public final class CustomActionTypeConfigurationPropertyArgs extends com.pulumi.
 
     public static final CustomActionTypeConfigurationPropertyArgs Empty = new CustomActionTypeConfigurationPropertyArgs();
 
-    /**
-     * The description of the action configuration property.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return The description of the action configuration property.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Whether the configuration property is a key.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<Boolean> key;
 
-    /**
-     * @return Whether the configuration property is a key.
-     * 
-     */
     public Output<Boolean> key() {
         return this.key;
     }
 
-    /**
-     * The name of the action configuration property.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the action configuration property.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Indicates that the property will be used in conjunction with PollForJobs.
-     * 
-     */
     @Import(name="queryable")
     private @Nullable Output<Boolean> queryable;
 
-    /**
-     * @return Indicates that the property will be used in conjunction with PollForJobs.
-     * 
-     */
     public Optional<Output<Boolean>> queryable() {
         return Optional.ofNullable(this.queryable);
     }
 
-    /**
-     * Whether the configuration property is a required value.
-     * 
-     */
     @Import(name="required", required=true)
     private Output<Boolean> required;
 
-    /**
-     * @return Whether the configuration property is a required value.
-     * 
-     */
     public Output<Boolean> required() {
         return this.required;
     }
 
-    /**
-     * Whether the configuration property is secret.
-     * 
-     */
     @Import(name="secret", required=true)
     private Output<Boolean> secret;
 
-    /**
-     * @return Whether the configuration property is secret.
-     * 
-     */
     public Output<Boolean> secret() {
         return this.secret;
     }
 
-    /**
-     * The type of the configuration property. Valid values: `String`, `Number`, `Boolean`
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return The type of the configuration property. Valid values: `String`, `Number`, `Boolean`
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -152,149 +96,65 @@ public final class CustomActionTypeConfigurationPropertyArgs extends com.pulumi.
             $ = new CustomActionTypeConfigurationPropertyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description The description of the action configuration property.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description The description of the action configuration property.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param key Whether the configuration property is a key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<Boolean> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key Whether the configuration property is a key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Boolean key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param name The name of the action configuration property.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the action configuration property.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param queryable Indicates that the property will be used in conjunction with PollForJobs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryable(@Nullable Output<Boolean> queryable) {
             $.queryable = queryable;
             return this;
         }
 
-        /**
-         * @param queryable Indicates that the property will be used in conjunction with PollForJobs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryable(Boolean queryable) {
             return queryable(Output.of(queryable));
         }
 
-        /**
-         * @param required Whether the configuration property is a required value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder required(Output<Boolean> required) {
             $.required = required;
             return this;
         }
 
-        /**
-         * @param required Whether the configuration property is a required value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder required(Boolean required) {
             return required(Output.of(required));
         }
 
-        /**
-         * @param secret Whether the configuration property is secret.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secret(Output<Boolean> secret) {
             $.secret = secret;
             return this;
         }
 
-        /**
-         * @param secret Whether the configuration property is secret.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secret(Boolean secret) {
             return secret(Output.of(secret));
         }
 
-        /**
-         * @param type The type of the configuration property. Valid values: `String`, `Number`, `Boolean`
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of the configuration property. Valid values: `String`, `Number`, `Boolean`
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

@@ -12,180 +12,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing a QuickSight Dashboard.
-//
-// ## Example Usage
-//
-// ### From Source Template
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewDashboard(ctx, "example", &quicksight.DashboardArgs{
-//				DashboardId:        pulumi.String("example-id"),
-//				Name:               pulumi.String("example-name"),
-//				VersionDescription: pulumi.String("version"),
-//				SourceEntity: &quicksight.DashboardSourceEntityArgs{
-//					SourceTemplate: &quicksight.DashboardSourceEntitySourceTemplateArgs{
-//						Arn: pulumi.Any(source.Arn),
-//						DataSetReferences: quicksight.DashboardSourceEntitySourceTemplateDataSetReferenceArray{
-//							&quicksight.DashboardSourceEntitySourceTemplateDataSetReferenceArgs{
-//								DataSetArn:         pulumi.Any(dataset.Arn),
-//								DataSetPlaceholder: pulumi.String("1"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Definition
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewDashboard(ctx, "example", &quicksight.DashboardArgs{
-//				DashboardId:        pulumi.String("example-id"),
-//				Name:               pulumi.String("example-name"),
-//				VersionDescription: pulumi.String("version"),
-//				Definition: map[string]interface{}{
-//					"dataSetIdentifiersDeclarations": []map[string]interface{}{
-//						map[string]interface{}{
-//							"dataSetArn": dataset.Arn,
-//							"identifier": "1",
-//						},
-//					},
-//					"sheets": []map[string]interface{}{
-//						map[string]interface{}{
-//							"title":   "Example",
-//							"sheetId": "Example1",
-//							"visuals": []map[string]interface{}{
-//								map[string]interface{}{
-//									"lineChartVisual": map[string]interface{}{
-//										"visualId": "LineChart",
-//										"title": map[string]interface{}{
-//											"formatText": map[string]interface{}{
-//												"plainText": "Line Chart Example",
-//											},
-//										},
-//										"chartConfiguration": map[string]interface{}{
-//											"fieldWells": map[string]interface{}{
-//												"lineChartAggregatedFieldWells": map[string]interface{}{
-//													"categories": []map[string]interface{}{
-//														map[string]interface{}{
-//															"categoricalDimensionField": map[string]interface{}{
-//																"fieldId": "1",
-//																"column": map[string]interface{}{
-//																	"dataSetIdentifier": "1",
-//																	"columnName":        "Column1",
-//																},
-//															},
-//														},
-//													},
-//													"values": []map[string]interface{}{
-//														map[string]interface{}{
-//															"categoricalMeasureField": map[string]interface{}{
-//																"fieldId": "2",
-//																"column": map[string]interface{}{
-//																	"dataSetIdentifier": "1",
-//																	"columnName":        "Column1",
-//																},
-//																"aggregationFunction": "COUNT",
-//															},
-//														},
-//													},
-//												},
-//											},
-//										},
-//									},
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import a QuickSight Dashboard using the AWS account ID and dashboard ID separated by a comma (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:quicksight/dashboard:Dashboard example 123456789012,example-id
-// ```
 type Dashboard struct {
 	pulumi.CustomResourceState
 
-	// ARN of the dashboard.
-	Arn          pulumi.StringOutput `pulumi:"arn"`
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// The time that the dashboard was created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// Identifier for the dashboard.
-	DashboardId pulumi.StringOutput `pulumi:"dashboardId"`
-	// Options for publishing the dashboard. See dashboard_publish_options.
+	Arn                     pulumi.StringOutput                    `pulumi:"arn"`
+	AwsAccountId            pulumi.StringOutput                    `pulumi:"awsAccountId"`
+	CreatedTime             pulumi.StringOutput                    `pulumi:"createdTime"`
+	DashboardId             pulumi.StringOutput                    `pulumi:"dashboardId"`
 	DashboardPublishOptions DashboardDashboardPublishOptionsOutput `pulumi:"dashboardPublishOptions"`
 	LastPublishedTime       pulumi.StringOutput                    `pulumi:"lastPublishedTime"`
-	// The time that the dashboard was last updated.
-	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
-	// Display name for the dashboard.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
-	Parameters DashboardParametersOutput `pulumi:"parameters"`
-	// A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
-	Permissions DashboardPermissionArrayOutput `pulumi:"permissions"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
-	SourceEntity DashboardSourceEntityPtrOutput `pulumi:"sourceEntity"`
-	// Amazon Resource Name (ARN) of a template that was used to create this dashboard.
-	SourceEntityArn pulumi.StringOutput `pulumi:"sourceEntityArn"`
-	// The dashboard creation status.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
-	ThemeArn pulumi.StringPtrOutput `pulumi:"themeArn"`
-	// A description of the current dashboard version being created/updated.
-	//
-	// The following arguments are optional:
-	VersionDescription pulumi.StringOutput `pulumi:"versionDescription"`
-	// The version number of the dashboard version.
-	VersionNumber pulumi.IntOutput `pulumi:"versionNumber"`
+	LastUpdatedTime         pulumi.StringOutput                    `pulumi:"lastUpdatedTime"`
+	Name                    pulumi.StringOutput                    `pulumi:"name"`
+	Parameters              DashboardParametersOutput              `pulumi:"parameters"`
+	Permissions             DashboardPermissionArrayOutput         `pulumi:"permissions"`
+	Region                  pulumi.StringOutput                    `pulumi:"region"`
+	SourceEntity            DashboardSourceEntityPtrOutput         `pulumi:"sourceEntity"`
+	SourceEntityArn         pulumi.StringOutput                    `pulumi:"sourceEntityArn"`
+	Status                  pulumi.StringOutput                    `pulumi:"status"`
+	Tags                    pulumi.StringMapOutput                 `pulumi:"tags"`
+	TagsAll                 pulumi.StringMapOutput                 `pulumi:"tagsAll"`
+	ThemeArn                pulumi.StringPtrOutput                 `pulumi:"themeArn"`
+	VersionDescription      pulumi.StringOutput                    `pulumi:"versionDescription"`
+	VersionNumber           pulumi.IntOutput                       `pulumi:"versionNumber"`
 }
 
 // NewDashboard registers a new resource with the given unique name, arguments, and options.
@@ -224,85 +72,47 @@ func GetDashboard(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Dashboard resources.
 type dashboardState struct {
-	// ARN of the dashboard.
-	Arn          *string `pulumi:"arn"`
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// The time that the dashboard was created.
-	CreatedTime *string `pulumi:"createdTime"`
-	// Identifier for the dashboard.
-	DashboardId *string `pulumi:"dashboardId"`
-	// Options for publishing the dashboard. See dashboard_publish_options.
+	Arn                     *string                           `pulumi:"arn"`
+	AwsAccountId            *string                           `pulumi:"awsAccountId"`
+	CreatedTime             *string                           `pulumi:"createdTime"`
+	DashboardId             *string                           `pulumi:"dashboardId"`
 	DashboardPublishOptions *DashboardDashboardPublishOptions `pulumi:"dashboardPublishOptions"`
 	LastPublishedTime       *string                           `pulumi:"lastPublishedTime"`
-	// The time that the dashboard was last updated.
-	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	// Display name for the dashboard.
-	Name *string `pulumi:"name"`
-	// The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
-	Parameters *DashboardParameters `pulumi:"parameters"`
-	// A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
-	Permissions []DashboardPermission `pulumi:"permissions"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
-	SourceEntity *DashboardSourceEntity `pulumi:"sourceEntity"`
-	// Amazon Resource Name (ARN) of a template that was used to create this dashboard.
-	SourceEntityArn *string `pulumi:"sourceEntityArn"`
-	// The dashboard creation status.
-	Status *string `pulumi:"status"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
-	ThemeArn *string `pulumi:"themeArn"`
-	// A description of the current dashboard version being created/updated.
-	//
-	// The following arguments are optional:
-	VersionDescription *string `pulumi:"versionDescription"`
-	// The version number of the dashboard version.
-	VersionNumber *int `pulumi:"versionNumber"`
+	LastUpdatedTime         *string                           `pulumi:"lastUpdatedTime"`
+	Name                    *string                           `pulumi:"name"`
+	Parameters              *DashboardParameters              `pulumi:"parameters"`
+	Permissions             []DashboardPermission             `pulumi:"permissions"`
+	Region                  *string                           `pulumi:"region"`
+	SourceEntity            *DashboardSourceEntity            `pulumi:"sourceEntity"`
+	SourceEntityArn         *string                           `pulumi:"sourceEntityArn"`
+	Status                  *string                           `pulumi:"status"`
+	Tags                    map[string]string                 `pulumi:"tags"`
+	TagsAll                 map[string]string                 `pulumi:"tagsAll"`
+	ThemeArn                *string                           `pulumi:"themeArn"`
+	VersionDescription      *string                           `pulumi:"versionDescription"`
+	VersionNumber           *int                              `pulumi:"versionNumber"`
 }
 
 type DashboardState struct {
-	// ARN of the dashboard.
-	Arn          pulumi.StringPtrInput
-	AwsAccountId pulumi.StringPtrInput
-	// The time that the dashboard was created.
-	CreatedTime pulumi.StringPtrInput
-	// Identifier for the dashboard.
-	DashboardId pulumi.StringPtrInput
-	// Options for publishing the dashboard. See dashboard_publish_options.
+	Arn                     pulumi.StringPtrInput
+	AwsAccountId            pulumi.StringPtrInput
+	CreatedTime             pulumi.StringPtrInput
+	DashboardId             pulumi.StringPtrInput
 	DashboardPublishOptions DashboardDashboardPublishOptionsPtrInput
 	LastPublishedTime       pulumi.StringPtrInput
-	// The time that the dashboard was last updated.
-	LastUpdatedTime pulumi.StringPtrInput
-	// Display name for the dashboard.
-	Name pulumi.StringPtrInput
-	// The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
-	Parameters DashboardParametersPtrInput
-	// A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
-	Permissions DashboardPermissionArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
-	SourceEntity DashboardSourceEntityPtrInput
-	// Amazon Resource Name (ARN) of a template that was used to create this dashboard.
-	SourceEntityArn pulumi.StringPtrInput
-	// The dashboard creation status.
-	Status pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
-	ThemeArn pulumi.StringPtrInput
-	// A description of the current dashboard version being created/updated.
-	//
-	// The following arguments are optional:
-	VersionDescription pulumi.StringPtrInput
-	// The version number of the dashboard version.
-	VersionNumber pulumi.IntPtrInput
+	LastUpdatedTime         pulumi.StringPtrInput
+	Name                    pulumi.StringPtrInput
+	Parameters              DashboardParametersPtrInput
+	Permissions             DashboardPermissionArrayInput
+	Region                  pulumi.StringPtrInput
+	SourceEntity            DashboardSourceEntityPtrInput
+	SourceEntityArn         pulumi.StringPtrInput
+	Status                  pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
+	TagsAll                 pulumi.StringMapInput
+	ThemeArn                pulumi.StringPtrInput
+	VersionDescription      pulumi.StringPtrInput
+	VersionNumber           pulumi.IntPtrInput
 }
 
 func (DashboardState) ElementType() reflect.Type {
@@ -310,56 +120,32 @@ func (DashboardState) ElementType() reflect.Type {
 }
 
 type dashboardArgs struct {
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Identifier for the dashboard.
-	DashboardId string `pulumi:"dashboardId"`
-	// Options for publishing the dashboard. See dashboard_publish_options.
+	AwsAccountId            *string                           `pulumi:"awsAccountId"`
+	DashboardId             string                            `pulumi:"dashboardId"`
 	DashboardPublishOptions *DashboardDashboardPublishOptions `pulumi:"dashboardPublishOptions"`
-	// Display name for the dashboard.
-	Name *string `pulumi:"name"`
-	// The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
-	Parameters *DashboardParameters `pulumi:"parameters"`
-	// A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
-	Permissions []DashboardPermission `pulumi:"permissions"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
-	SourceEntity *DashboardSourceEntity `pulumi:"sourceEntity"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
-	ThemeArn *string `pulumi:"themeArn"`
-	// A description of the current dashboard version being created/updated.
-	//
-	// The following arguments are optional:
-	VersionDescription string `pulumi:"versionDescription"`
+	Name                    *string                           `pulumi:"name"`
+	Parameters              *DashboardParameters              `pulumi:"parameters"`
+	Permissions             []DashboardPermission             `pulumi:"permissions"`
+	Region                  *string                           `pulumi:"region"`
+	SourceEntity            *DashboardSourceEntity            `pulumi:"sourceEntity"`
+	Tags                    map[string]string                 `pulumi:"tags"`
+	ThemeArn                *string                           `pulumi:"themeArn"`
+	VersionDescription      string                            `pulumi:"versionDescription"`
 }
 
 // The set of arguments for constructing a Dashboard resource.
 type DashboardArgs struct {
-	AwsAccountId pulumi.StringPtrInput
-	// Identifier for the dashboard.
-	DashboardId pulumi.StringInput
-	// Options for publishing the dashboard. See dashboard_publish_options.
+	AwsAccountId            pulumi.StringPtrInput
+	DashboardId             pulumi.StringInput
 	DashboardPublishOptions DashboardDashboardPublishOptionsPtrInput
-	// Display name for the dashboard.
-	Name pulumi.StringPtrInput
-	// The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
-	Parameters DashboardParametersPtrInput
-	// A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
-	Permissions DashboardPermissionArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
-	SourceEntity DashboardSourceEntityPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
-	ThemeArn pulumi.StringPtrInput
-	// A description of the current dashboard version being created/updated.
-	//
-	// The following arguments are optional:
-	VersionDescription pulumi.StringInput
+	Name                    pulumi.StringPtrInput
+	Parameters              DashboardParametersPtrInput
+	Permissions             DashboardPermissionArrayInput
+	Region                  pulumi.StringPtrInput
+	SourceEntity            DashboardSourceEntityPtrInput
+	Tags                    pulumi.StringMapInput
+	ThemeArn                pulumi.StringPtrInput
+	VersionDescription      pulumi.StringInput
 }
 
 func (DashboardArgs) ElementType() reflect.Type {
@@ -449,7 +235,6 @@ func (o DashboardOutput) ToDashboardOutputWithContext(ctx context.Context) Dashb
 	return o
 }
 
-// ARN of the dashboard.
 func (o DashboardOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -458,17 +243,14 @@ func (o DashboardOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// The time that the dashboard was created.
 func (o DashboardOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// Identifier for the dashboard.
 func (o DashboardOutput) DashboardId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.DashboardId }).(pulumi.StringOutput)
 }
 
-// Options for publishing the dashboard. See dashboard_publish_options.
 func (o DashboardOutput) DashboardPublishOptions() DashboardDashboardPublishOptionsOutput {
 	return o.ApplyT(func(v *Dashboard) DashboardDashboardPublishOptionsOutput { return v.DashboardPublishOptions }).(DashboardDashboardPublishOptionsOutput)
 }
@@ -477,69 +259,54 @@ func (o DashboardOutput) LastPublishedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.LastPublishedTime }).(pulumi.StringOutput)
 }
 
-// The time that the dashboard was last updated.
 func (o DashboardOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
 }
 
-// Display name for the dashboard.
 func (o DashboardOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
 func (o DashboardOutput) Parameters() DashboardParametersOutput {
 	return o.ApplyT(func(v *Dashboard) DashboardParametersOutput { return v.Parameters }).(DashboardParametersOutput)
 }
 
-// A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
 func (o DashboardOutput) Permissions() DashboardPermissionArrayOutput {
 	return o.ApplyT(func(v *Dashboard) DashboardPermissionArrayOutput { return v.Permissions }).(DashboardPermissionArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DashboardOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 func (o DashboardOutput) SourceEntity() DashboardSourceEntityPtrOutput {
 	return o.ApplyT(func(v *Dashboard) DashboardSourceEntityPtrOutput { return v.SourceEntity }).(DashboardSourceEntityPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of a template that was used to create this dashboard.
 func (o DashboardOutput) SourceEntityArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.SourceEntityArn }).(pulumi.StringOutput)
 }
 
-// The dashboard creation status.
 func (o DashboardOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DashboardOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DashboardOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
 func (o DashboardOutput) ThemeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringPtrOutput { return v.ThemeArn }).(pulumi.StringPtrOutput)
 }
 
-// A description of the current dashboard version being created/updated.
-//
-// The following arguments are optional:
 func (o DashboardOutput) VersionDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.VersionDescription }).(pulumi.StringOutput)
 }
 
-// The version number of the dashboard version.
 func (o DashboardOutput) VersionNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.IntOutput { return v.VersionNumber }).(pulumi.IntOutput)
 }

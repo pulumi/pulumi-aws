@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ResponsePlanActionSsmAutomationParameter {
-    /**
-     * @return The name of parameter.
-     * 
-     */
     private String name;
-    /**
-     * @return The values for the associated parameter name.
-     * 
-     */
     private List<String> values;
 
     private ResponsePlanActionSsmAutomationParameter() {}
-    /**
-     * @return The name of parameter.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The values for the associated parameter name.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

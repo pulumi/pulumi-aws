@@ -21,152 +21,72 @@ public final class ChannelInputAttachmentInputSettingsArgs extends com.pulumi.re
 
     public static final ChannelInputAttachmentInputSettingsArgs Empty = new ChannelInputAttachmentInputSettingsArgs();
 
-    /**
-     * Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
-     * 
-     */
     @Import(name="audioSelectors")
     private @Nullable Output<List<ChannelInputAttachmentInputSettingsAudioSelectorArgs>> audioSelectors;
 
-    /**
-     * @return Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
-     * 
-     */
     public Optional<Output<List<ChannelInputAttachmentInputSettingsAudioSelectorArgs>>> audioSelectors() {
         return Optional.ofNullable(this.audioSelectors);
     }
 
-    /**
-     * Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
-     * 
-     */
     @Import(name="captionSelectors")
     private @Nullable Output<List<ChannelInputAttachmentInputSettingsCaptionSelectorArgs>> captionSelectors;
 
-    /**
-     * @return Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
-     * 
-     */
     public Optional<Output<List<ChannelInputAttachmentInputSettingsCaptionSelectorArgs>>> captionSelectors() {
         return Optional.ofNullable(this.captionSelectors);
     }
 
-    /**
-     * Enable or disable the deblock filter when filtering.
-     * 
-     */
     @Import(name="deblockFilter")
     private @Nullable Output<String> deblockFilter;
 
-    /**
-     * @return Enable or disable the deblock filter when filtering.
-     * 
-     */
     public Optional<Output<String>> deblockFilter() {
         return Optional.ofNullable(this.deblockFilter);
     }
 
-    /**
-     * Enable or disable the denoise filter when filtering.
-     * 
-     */
     @Import(name="denoiseFilter")
     private @Nullable Output<String> denoiseFilter;
 
-    /**
-     * @return Enable or disable the denoise filter when filtering.
-     * 
-     */
     public Optional<Output<String>> denoiseFilter() {
         return Optional.ofNullable(this.denoiseFilter);
     }
 
-    /**
-     * Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
-     * 
-     */
     @Import(name="filterStrength")
     private @Nullable Output<Integer> filterStrength;
 
-    /**
-     * @return Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
-     * 
-     */
     public Optional<Output<Integer>> filterStrength() {
         return Optional.ofNullable(this.filterStrength);
     }
 
-    /**
-     * Turns on the filter for the input.
-     * 
-     */
     @Import(name="inputFilter")
     private @Nullable Output<String> inputFilter;
 
-    /**
-     * @return Turns on the filter for the input.
-     * 
-     */
     public Optional<Output<String>> inputFilter() {
         return Optional.ofNullable(this.inputFilter);
     }
 
-    /**
-     * Input settings. See Network Input Settings for more details.
-     * 
-     */
     @Import(name="networkInputSettings")
     private @Nullable Output<ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs> networkInputSettings;
 
-    /**
-     * @return Input settings. See Network Input Settings for more details.
-     * 
-     */
     public Optional<Output<ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs>> networkInputSettings() {
         return Optional.ofNullable(this.networkInputSettings);
     }
 
-    /**
-     * PID from which to read SCTE-35 messages.
-     * 
-     */
     @Import(name="scte35Pid")
     private @Nullable Output<Integer> scte35Pid;
 
-    /**
-     * @return PID from which to read SCTE-35 messages.
-     * 
-     */
     public Optional<Output<Integer>> scte35Pid() {
         return Optional.ofNullable(this.scte35Pid);
     }
 
-    /**
-     * Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
-     * 
-     */
     @Import(name="smpte2038DataPreference")
     private @Nullable Output<String> smpte2038DataPreference;
 
-    /**
-     * @return Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
-     * 
-     */
     public Optional<Output<String>> smpte2038DataPreference() {
         return Optional.ofNullable(this.smpte2038DataPreference);
     }
 
-    /**
-     * Loop input if it is a file.
-     * 
-     */
     @Import(name="sourceEndBehavior")
     private @Nullable Output<String> sourceEndBehavior;
 
-    /**
-     * @return Loop input if it is a file.
-     * 
-     */
     public Optional<Output<String>> sourceEndBehavior() {
         return Optional.ofNullable(this.sourceEndBehavior);
     }
@@ -212,232 +132,100 @@ public final class ChannelInputAttachmentInputSettingsArgs extends com.pulumi.re
             $ = new ChannelInputAttachmentInputSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param audioSelectors Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audioSelectors(@Nullable Output<List<ChannelInputAttachmentInputSettingsAudioSelectorArgs>> audioSelectors) {
             $.audioSelectors = audioSelectors;
             return this;
         }
 
-        /**
-         * @param audioSelectors Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audioSelectors(List<ChannelInputAttachmentInputSettingsAudioSelectorArgs> audioSelectors) {
             return audioSelectors(Output.of(audioSelectors));
         }
 
-        /**
-         * @param audioSelectors Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audioSelectors(ChannelInputAttachmentInputSettingsAudioSelectorArgs... audioSelectors) {
             return audioSelectors(List.of(audioSelectors));
         }
 
-        /**
-         * @param captionSelectors Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder captionSelectors(@Nullable Output<List<ChannelInputAttachmentInputSettingsCaptionSelectorArgs>> captionSelectors) {
             $.captionSelectors = captionSelectors;
             return this;
         }
 
-        /**
-         * @param captionSelectors Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder captionSelectors(List<ChannelInputAttachmentInputSettingsCaptionSelectorArgs> captionSelectors) {
             return captionSelectors(Output.of(captionSelectors));
         }
 
-        /**
-         * @param captionSelectors Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder captionSelectors(ChannelInputAttachmentInputSettingsCaptionSelectorArgs... captionSelectors) {
             return captionSelectors(List.of(captionSelectors));
         }
 
-        /**
-         * @param deblockFilter Enable or disable the deblock filter when filtering.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deblockFilter(@Nullable Output<String> deblockFilter) {
             $.deblockFilter = deblockFilter;
             return this;
         }
 
-        /**
-         * @param deblockFilter Enable or disable the deblock filter when filtering.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deblockFilter(String deblockFilter) {
             return deblockFilter(Output.of(deblockFilter));
         }
 
-        /**
-         * @param denoiseFilter Enable or disable the denoise filter when filtering.
-         * 
-         * @return builder
-         * 
-         */
         public Builder denoiseFilter(@Nullable Output<String> denoiseFilter) {
             $.denoiseFilter = denoiseFilter;
             return this;
         }
 
-        /**
-         * @param denoiseFilter Enable or disable the denoise filter when filtering.
-         * 
-         * @return builder
-         * 
-         */
         public Builder denoiseFilter(String denoiseFilter) {
             return denoiseFilter(Output.of(denoiseFilter));
         }
 
-        /**
-         * @param filterStrength Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
-         * 
-         * @return builder
-         * 
-         */
         public Builder filterStrength(@Nullable Output<Integer> filterStrength) {
             $.filterStrength = filterStrength;
             return this;
         }
 
-        /**
-         * @param filterStrength Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
-         * 
-         * @return builder
-         * 
-         */
         public Builder filterStrength(Integer filterStrength) {
             return filterStrength(Output.of(filterStrength));
         }
 
-        /**
-         * @param inputFilter Turns on the filter for the input.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputFilter(@Nullable Output<String> inputFilter) {
             $.inputFilter = inputFilter;
             return this;
         }
 
-        /**
-         * @param inputFilter Turns on the filter for the input.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputFilter(String inputFilter) {
             return inputFilter(Output.of(inputFilter));
         }
 
-        /**
-         * @param networkInputSettings Input settings. See Network Input Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInputSettings(@Nullable Output<ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs> networkInputSettings) {
             $.networkInputSettings = networkInputSettings;
             return this;
         }
 
-        /**
-         * @param networkInputSettings Input settings. See Network Input Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInputSettings(ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs networkInputSettings) {
             return networkInputSettings(Output.of(networkInputSettings));
         }
 
-        /**
-         * @param scte35Pid PID from which to read SCTE-35 messages.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scte35Pid(@Nullable Output<Integer> scte35Pid) {
             $.scte35Pid = scte35Pid;
             return this;
         }
 
-        /**
-         * @param scte35Pid PID from which to read SCTE-35 messages.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scte35Pid(Integer scte35Pid) {
             return scte35Pid(Output.of(scte35Pid));
         }
 
-        /**
-         * @param smpte2038DataPreference Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
-         * 
-         * @return builder
-         * 
-         */
         public Builder smpte2038DataPreference(@Nullable Output<String> smpte2038DataPreference) {
             $.smpte2038DataPreference = smpte2038DataPreference;
             return this;
         }
 
-        /**
-         * @param smpte2038DataPreference Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
-         * 
-         * @return builder
-         * 
-         */
         public Builder smpte2038DataPreference(String smpte2038DataPreference) {
             return smpte2038DataPreference(Output.of(smpte2038DataPreference));
         }
 
-        /**
-         * @param sourceEndBehavior Loop input if it is a file.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceEndBehavior(@Nullable Output<String> sourceEndBehavior) {
             $.sourceEndBehavior = sourceEndBehavior;
             return this;
         }
 
-        /**
-         * @param sourceEndBehavior Loop input if it is a file.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceEndBehavior(String sourceEndBehavior) {
             return sourceEndBehavior(Output.of(sourceEndBehavior));
         }

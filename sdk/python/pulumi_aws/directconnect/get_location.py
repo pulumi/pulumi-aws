@@ -52,25 +52,16 @@ class GetLocationResult:
     @_builtins.property
     @pulumi.getter(name="availableMacsecPortSpeeds")
     def available_macsec_port_speeds(self) -> Sequence[_builtins.str]:
-        """
-        The available MAC Security (MACsec) port speeds for the location.
-        """
         return pulumi.get(self, "available_macsec_port_speeds")
 
     @_builtins.property
     @pulumi.getter(name="availablePortSpeeds")
     def available_port_speeds(self) -> Sequence[_builtins.str]:
-        """
-        The available port speeds for the location.
-        """
         return pulumi.get(self, "available_port_speeds")
 
     @_builtins.property
     @pulumi.getter(name="availableProviders")
     def available_providers(self) -> Sequence[_builtins.str]:
-        """
-        Names of the service providers for the location.
-        """
         return pulumi.get(self, "available_providers")
 
     @_builtins.property
@@ -89,9 +80,6 @@ class GetLocationResult:
     @_builtins.property
     @pulumi.getter(name="locationName")
     def location_name(self) -> _builtins.str:
-        """
-        Name of the location. This includes the name of the colocation partner and the physical site of the building.
-        """
         return pulumi.get(self, "location_name")
 
     @_builtins.property
@@ -119,23 +107,7 @@ def get_location(location_code: Optional[_builtins.str] = None,
                  region: Optional[_builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocationResult:
     """
-    Retrieve information about a specific AWS Direct Connect location in the current AWS Region.
-    These are the locations that can be specified when configuring `directconnect.Connection` or `directconnect.LinkAggregationGroup` resources.
-
-    > **Note:** This data source is different from the `directconnect_get_locations` data source which retrieves information about all the AWS Direct Connect locations in the current AWS Region.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.directconnect.get_location(location_code="CS32A-24FL")
-    ```
-
-
-    :param _builtins.str location_code: Code for the location to retrieve.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['locationCode'] = location_code
@@ -155,23 +127,7 @@ def get_location_output(location_code: Optional[pulumi.Input[_builtins.str]] = N
                         region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationResult]:
     """
-    Retrieve information about a specific AWS Direct Connect location in the current AWS Region.
-    These are the locations that can be specified when configuring `directconnect.Connection` or `directconnect.LinkAggregationGroup` resources.
-
-    > **Note:** This data source is different from the `directconnect_get_locations` data source which retrieves information about all the AWS Direct Connect locations in the current AWS Region.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.directconnect.get_location(location_code="CS32A-24FL")
-    ```
-
-
-    :param _builtins.str location_code: Code for the location to retrieve.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['locationCode'] = location_code

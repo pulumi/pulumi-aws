@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class PolicyDefinitionTemplateLinkedResource {
-    /**
-     * @return The entity ID of the resource.
-     * 
-     */
     private String entityId;
-    /**
-     * @return The entity type of the resource.
-     * 
-     */
     private String entityType;
 
     private PolicyDefinitionTemplateLinkedResource() {}
-    /**
-     * @return The entity ID of the resource.
-     * 
-     */
     public String entityId() {
         return this.entityId;
     }
-    /**
-     * @return The entity type of the resource.
-     * 
-     */
     public String entityType() {
         return this.entityType;
     }

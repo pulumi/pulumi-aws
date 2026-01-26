@@ -199,12 +199,6 @@ class MembershipDefaultResultConfiguration(dict):
     def __init__(__self__, *,
                  output_configuration: Optional['outputs.MembershipDefaultResultConfigurationOutputConfiguration'] = None,
                  role_arn: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str role_arn: The ARN of the IAM role which will be used to create the membership.
-               - `output_configuration.s3.bucket` - (Required) - The name of the S3 bucket where the query results will be stored.
-               - `output_configuration.s3.result_format` - (Required) - The format of the query results. Valid values are `PARQUET` and `CSV`.
-               - `output_configuration.s3.key_prefix` - (Optional) - The prefix used for the query results.
-        """
         if output_configuration is not None:
             pulumi.set(__self__, "output_configuration", output_configuration)
         if role_arn is not None:
@@ -218,12 +212,6 @@ class MembershipDefaultResultConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[_builtins.str]:
-        """
-        The ARN of the IAM role which will be used to create the membership.
-        - `output_configuration.s3.bucket` - (Required) - The name of the S3 bucket where the query results will be stored.
-        - `output_configuration.s3.result_format` - (Required) - The format of the query results. Valid values are `PARQUET` and `CSV`.
-        - `output_configuration.s3.key_prefix` - (Optional) - The prefix used for the query results.
-        """
         return pulumi.get(self, "role_arn")
 
 
@@ -337,17 +325,11 @@ class MembershipPaymentConfigurationQueryCompute(dict):
 
     def __init__(__self__, *,
                  is_responsible: _builtins.bool):
-        """
-        :param _builtins.bool is_responsible: Indicates whether the collaboration member has accepted to pay for query compute costs.
-        """
         pulumi.set(__self__, "is_responsible", is_responsible)
 
     @_builtins.property
     @pulumi.getter(name="isResponsible")
     def is_responsible(self) -> _builtins.bool:
-        """
-        Indicates whether the collaboration member has accepted to pay for query compute costs.
-        """
         return pulumi.get(self, "is_responsible")
 
 

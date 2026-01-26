@@ -12,67 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AppStream user.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appstream"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appstream.NewUser(ctx, "example", &appstream.UserArgs{
-//				AuthenticationType: pulumi.String("USERPOOL"),
-//				UserName:           pulumi.String("EMAIL"),
-//				FirstName:          pulumi.String("FIRST NAME"),
-//				LastName:           pulumi.String("LAST NAME"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_appstream_user` using the `user_name` and `authentication_type` separated by a slash (`/`). For example:
-//
-// ```sh
-// $ pulumi import aws:appstream/user:User example UserName/AuthenticationType
-// ```
 type User struct {
 	pulumi.CustomResourceState
 
-	// ARN of the appstream user.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
-	AuthenticationType pulumi.StringOutput `pulumi:"authenticationType"`
-	// Date and time, in UTC and extended RFC 3339 format, when the user was created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// Whether the user in the user pool is enabled.
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// First name, or given name, of the user.
-	FirstName pulumi.StringPtrOutput `pulumi:"firstName"`
-	// Last name, or surname, of the user.
-	LastName pulumi.StringPtrOutput `pulumi:"lastName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Send an email notification.
-	SendEmailNotification pulumi.BoolPtrOutput `pulumi:"sendEmailNotification"`
-	// Email address of the user.
-	//
-	// The following arguments are optional:
-	UserName pulumi.StringOutput `pulumi:"userName"`
+	Arn                   pulumi.StringOutput    `pulumi:"arn"`
+	AuthenticationType    pulumi.StringOutput    `pulumi:"authenticationType"`
+	CreatedTime           pulumi.StringOutput    `pulumi:"createdTime"`
+	Enabled               pulumi.BoolPtrOutput   `pulumi:"enabled"`
+	FirstName             pulumi.StringPtrOutput `pulumi:"firstName"`
+	LastName              pulumi.StringPtrOutput `pulumi:"lastName"`
+	Region                pulumi.StringOutput    `pulumi:"region"`
+	SendEmailNotification pulumi.BoolPtrOutput   `pulumi:"sendEmailNotification"`
+	UserName              pulumi.StringOutput    `pulumi:"userName"`
 }
 
 // NewUser registers a new resource with the given unique name, arguments, and options.
@@ -111,49 +62,27 @@ func GetUser(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering User resources.
 type userState struct {
-	// ARN of the appstream user.
-	Arn *string `pulumi:"arn"`
-	// Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
-	AuthenticationType *string `pulumi:"authenticationType"`
-	// Date and time, in UTC and extended RFC 3339 format, when the user was created.
-	CreatedTime *string `pulumi:"createdTime"`
-	// Whether the user in the user pool is enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// First name, or given name, of the user.
-	FirstName *string `pulumi:"firstName"`
-	// Last name, or surname, of the user.
-	LastName *string `pulumi:"lastName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Send an email notification.
-	SendEmailNotification *bool `pulumi:"sendEmailNotification"`
-	// Email address of the user.
-	//
-	// The following arguments are optional:
-	UserName *string `pulumi:"userName"`
+	Arn                   *string `pulumi:"arn"`
+	AuthenticationType    *string `pulumi:"authenticationType"`
+	CreatedTime           *string `pulumi:"createdTime"`
+	Enabled               *bool   `pulumi:"enabled"`
+	FirstName             *string `pulumi:"firstName"`
+	LastName              *string `pulumi:"lastName"`
+	Region                *string `pulumi:"region"`
+	SendEmailNotification *bool   `pulumi:"sendEmailNotification"`
+	UserName              *string `pulumi:"userName"`
 }
 
 type UserState struct {
-	// ARN of the appstream user.
-	Arn pulumi.StringPtrInput
-	// Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
-	AuthenticationType pulumi.StringPtrInput
-	// Date and time, in UTC and extended RFC 3339 format, when the user was created.
-	CreatedTime pulumi.StringPtrInput
-	// Whether the user in the user pool is enabled.
-	Enabled pulumi.BoolPtrInput
-	// First name, or given name, of the user.
-	FirstName pulumi.StringPtrInput
-	// Last name, or surname, of the user.
-	LastName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Send an email notification.
+	Arn                   pulumi.StringPtrInput
+	AuthenticationType    pulumi.StringPtrInput
+	CreatedTime           pulumi.StringPtrInput
+	Enabled               pulumi.BoolPtrInput
+	FirstName             pulumi.StringPtrInput
+	LastName              pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
 	SendEmailNotification pulumi.BoolPtrInput
-	// Email address of the user.
-	//
-	// The following arguments are optional:
-	UserName pulumi.StringPtrInput
+	UserName              pulumi.StringPtrInput
 }
 
 func (UserState) ElementType() reflect.Type {
@@ -161,42 +90,24 @@ func (UserState) ElementType() reflect.Type {
 }
 
 type userArgs struct {
-	// Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
-	AuthenticationType string `pulumi:"authenticationType"`
-	// Whether the user in the user pool is enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// First name, or given name, of the user.
-	FirstName *string `pulumi:"firstName"`
-	// Last name, or surname, of the user.
-	LastName *string `pulumi:"lastName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Send an email notification.
-	SendEmailNotification *bool `pulumi:"sendEmailNotification"`
-	// Email address of the user.
-	//
-	// The following arguments are optional:
-	UserName string `pulumi:"userName"`
+	AuthenticationType    string  `pulumi:"authenticationType"`
+	Enabled               *bool   `pulumi:"enabled"`
+	FirstName             *string `pulumi:"firstName"`
+	LastName              *string `pulumi:"lastName"`
+	Region                *string `pulumi:"region"`
+	SendEmailNotification *bool   `pulumi:"sendEmailNotification"`
+	UserName              string  `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
-	// Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
-	AuthenticationType pulumi.StringInput
-	// Whether the user in the user pool is enabled.
-	Enabled pulumi.BoolPtrInput
-	// First name, or given name, of the user.
-	FirstName pulumi.StringPtrInput
-	// Last name, or surname, of the user.
-	LastName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Send an email notification.
+	AuthenticationType    pulumi.StringInput
+	Enabled               pulumi.BoolPtrInput
+	FirstName             pulumi.StringPtrInput
+	LastName              pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
 	SendEmailNotification pulumi.BoolPtrInput
-	// Email address of the user.
-	//
-	// The following arguments are optional:
-	UserName pulumi.StringInput
+	UserName              pulumi.StringInput
 }
 
 func (UserArgs) ElementType() reflect.Type {
@@ -286,49 +197,38 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
 }
 
-// ARN of the appstream user.
 func (o UserOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
 func (o UserOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.AuthenticationType }).(pulumi.StringOutput)
 }
 
-// Date and time, in UTC and extended RFC 3339 format, when the user was created.
 func (o UserOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// Whether the user in the user pool is enabled.
 func (o UserOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// First name, or given name, of the user.
 func (o UserOutput) FirstName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.FirstName }).(pulumi.StringPtrOutput)
 }
 
-// Last name, or surname, of the user.
 func (o UserOutput) LastName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.LastName }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o UserOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Send an email notification.
 func (o UserOutput) SendEmailNotification() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.SendEmailNotification }).(pulumi.BoolPtrOutput)
 }
 
-// Email address of the user.
-//
-// The following arguments are optional:
 func (o UserOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
 }

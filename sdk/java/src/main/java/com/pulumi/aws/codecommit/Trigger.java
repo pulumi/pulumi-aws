@@ -15,110 +15,29 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Provides a CodeCommit Trigger Resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.codecommit.Repository;
- * import com.pulumi.aws.codecommit.RepositoryArgs;
- * import com.pulumi.aws.codecommit.Trigger;
- * import com.pulumi.aws.codecommit.TriggerArgs;
- * import com.pulumi.aws.codecommit.inputs.TriggerTriggerArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new Repository("test", RepositoryArgs.builder()
- *             .repositoryName("test")
- *             .build());
- * 
- *         var testTrigger = new Trigger("testTrigger", TriggerArgs.builder()
- *             .repositoryName(test.repositoryName())
- *             .triggers(TriggerTriggerArgs.builder()
- *                 .name("all")
- *                 .events("all")
- *                 .destinationArn(testAwsSnsTopic.arn())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:codecommit/trigger:Trigger")
 public class Trigger extends com.pulumi.resources.CustomResource {
-    /**
-     * System-generated unique identifier.
-     * 
-     */
     @Export(name="configurationId", refs={String.class}, tree="[0]")
     private Output<String> configurationId;
 
-    /**
-     * @return System-generated unique identifier.
-     * 
-     */
     public Output<String> configurationId() {
         return this.configurationId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The name for the repository. This needs to be less than 100 characters.
-     * 
-     */
     @Export(name="repositoryName", refs={String.class}, tree="[0]")
     private Output<String> repositoryName;
 
-    /**
-     * @return The name for the repository. This needs to be less than 100 characters.
-     * 
-     */
     public Output<String> repositoryName() {
         return this.repositoryName;
     }
-    /**
-     * The name of the trigger.
-     * 
-     */
     @Export(name="triggers", refs={List.class,TriggerTrigger.class}, tree="[0,1]")
     private Output<List<TriggerTrigger>> triggers;
 
-    /**
-     * @return The name of the trigger.
-     * 
-     */
     public Output<List<TriggerTrigger>> triggers() {
         return this.triggers;
     }

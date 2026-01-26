@@ -13,21 +13,9 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBody
     {
-        /// <summary>
-        /// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
-        /// </summary>
         public readonly string? InvalidFallbackBehavior;
-        /// <summary>
-        /// The patterns to look for in the JSON body. You must specify exactly one setting: either `All` or `IncludedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
-        /// </summary>
         public readonly Outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern MatchPattern;
-        /// <summary>
-        /// The parts of the JSON to match against using the `MatchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
-        /// </summary>
         public readonly string MatchScope;
-        /// <summary>
-        /// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
-        /// </summary>
         public readonly string? OversizeHandling;
 
         [OutputConstructor]

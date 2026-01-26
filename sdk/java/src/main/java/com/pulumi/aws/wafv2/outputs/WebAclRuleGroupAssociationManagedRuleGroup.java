@@ -20,17 +20,17 @@ public final class WebAclRuleGroupAssociationManagedRuleGroup {
      */
     private String name;
     /**
-     * @return Override actions for specific rules within the rule group. See below.
+     * @return Action settings to use in place of rule actions configured inside the rule group. You can specify up to 100 overrides.
      * 
      */
     private @Nullable List<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverride> ruleActionOverrides;
     /**
-     * @return Name of the managed rule group vendor. For AWS managed rule groups, this is `AWS`.
+     * @return Name of the managed rule group vendor.
      * 
      */
     private String vendorName;
     /**
-     * @return Version of the managed rule group. If not specified, the default version is used.
+     * @return Version of the managed rule group. Omit this to use the default version.
      * 
      */
     private @Nullable String version;
@@ -44,21 +44,21 @@ public final class WebAclRuleGroupAssociationManagedRuleGroup {
         return this.name;
     }
     /**
-     * @return Override actions for specific rules within the rule group. See below.
+     * @return Action settings to use in place of rule actions configured inside the rule group. You can specify up to 100 overrides.
      * 
      */
     public List<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverride> ruleActionOverrides() {
         return this.ruleActionOverrides == null ? List.of() : this.ruleActionOverrides;
     }
     /**
-     * @return Name of the managed rule group vendor. For AWS managed rule groups, this is `AWS`.
+     * @return Name of the managed rule group vendor.
      * 
      */
     public String vendorName() {
         return this.vendorName;
     }
     /**
-     * @return Version of the managed rule group. If not specified, the default version is used.
+     * @return Version of the managed rule group. Omit this to use the default version.
      * 
      */
     public Optional<String> version() {

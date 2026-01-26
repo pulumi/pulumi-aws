@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreTokenVaultCmkKmsConfiguration
     {
-        /// <summary>
-        /// Type of KMS key. Valid values: `CustomerManagedKey`, `ServiceManagedKey`.
-        /// </summary>
         public readonly string KeyType;
-        /// <summary>
-        /// ARN of the KMS key.
-        /// </summary>
         public readonly string? KmsKeyArn;
 
         [OutputConstructor]

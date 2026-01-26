@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class ServiceServiceConnectConfigurationServiceTimeout
     {
-        /// <summary>
-        /// Amount of time in seconds a connection will stay active while idle. A value of 0 can be set to disable idleTimeout.
-        /// </summary>
         public readonly int? IdleTimeoutSeconds;
-        /// <summary>
-        /// Amount of time in seconds for the upstream to respond with a complete response per request. A value of 0 can be set to disable perRequestTimeout. Can only be set when appProtocol isn't TCP.
-        /// </summary>
         public readonly int? PerRequestTimeoutSeconds;
 
         [OutputConstructor]

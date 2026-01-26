@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementRuleGroupReferenceStatement {
-    /**
-     * @return The Amazon Resource Name (ARN) of the `aws.wafv2.RuleGroup` resource.
-     * 
-     */
     private String arn;
-    /**
-     * @return Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
-     * 
-     */
     private @Nullable List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride> ruleActionOverrides;
 
     private WebAclRuleStatementRuleGroupReferenceStatement() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the `aws.wafv2.RuleGroup` resource.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
-     * 
-     */
     public List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride> ruleActionOverrides() {
         return this.ruleActionOverrides == null ? List.of() : this.ruleActionOverrides;
     }

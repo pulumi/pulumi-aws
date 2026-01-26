@@ -52,17 +52,11 @@ class GetSubnetGroupResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Redshift Subnet Group name.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the Redshift Subnet group.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -86,17 +80,11 @@ class GetSubnetGroupResult:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[_builtins.str]:
-        """
-        An array of VPC subnet IDs.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Tags associated to the Subnet Group
-        """
         return pulumi.get(self, "tags")
 
 
@@ -120,21 +108,7 @@ def get_subnet_group(name: Optional[_builtins.str] = None,
                      tags: Optional[Mapping[str, _builtins.str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubnetGroupResult:
     """
-    Provides details about a specific redshift subnet group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.redshift.get_subnet_group(name=example_aws_redshift_subnet_group["name"])
-    ```
-
-
-    :param _builtins.str name: Name of the cluster subnet group for which information is requested.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Tags associated to the Subnet Group
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -156,21 +130,7 @@ def get_subnet_group_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubnetGroupResult]:
     """
-    Provides details about a specific redshift subnet group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.redshift.get_subnet_group(name=example_aws_redshift_subnet_group["name"])
-    ```
-
-
-    :param _builtins.str name: Name of the cluster subnet group for which information is requested.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Tags associated to the Subnet Group
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

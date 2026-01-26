@@ -15,17 +15,9 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
 
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs();
 
-    /**
-     * List of names of the tables to use.
-     * 
-     */
     @Import(name="tableNames", required=true)
     private Output<List<String>> tableNames;
 
-    /**
-     * @return List of names of the tables to use.
-     * 
-     */
     public Output<List<String>> tableNames() {
         return this.tableNames;
     }
@@ -54,33 +46,15 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
             $ = new AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param tableNames List of names of the tables to use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableNames(Output<List<String>> tableNames) {
             $.tableNames = tableNames;
             return this;
         }
 
-        /**
-         * @param tableNames List of names of the tables to use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableNames(List<String> tableNames) {
             return tableNames(Output.of(tableNames));
         }
 
-        /**
-         * @param tableNames List of names of the tables to use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableNames(String... tableNames) {
             return tableNames(List.of(tableNames));
         }

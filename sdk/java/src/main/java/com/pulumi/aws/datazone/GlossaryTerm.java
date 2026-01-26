@@ -16,280 +16,65 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS DataZone Glossary Term.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.inputs.RoleInlinePolicyArgs;
- * import com.pulumi.aws.datazone.Domain;
- * import com.pulumi.aws.datazone.DomainArgs;
- * import com.pulumi.aws.ec2.SecurityGroup;
- * import com.pulumi.aws.ec2.SecurityGroupArgs;
- * import com.pulumi.aws.datazone.Project;
- * import com.pulumi.aws.datazone.ProjectArgs;
- * import com.pulumi.aws.datazone.Glossary;
- * import com.pulumi.aws.datazone.GlossaryArgs;
- * import com.pulumi.aws.datazone.GlossaryTerm;
- * import com.pulumi.aws.datazone.GlossaryTermArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Role("example", RoleArgs.builder()
- *             .name("example")
- *             .assumeRolePolicy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Version", "2012-10-17"),
- *                     jsonProperty("Statement", jsonArray(
- *                         jsonObject(
- *                             jsonProperty("Action", jsonArray(
- *                                 "sts:AssumeRole", 
- *                                 "sts:TagSession"
- *                             )),
- *                             jsonProperty("Effect", "Allow"),
- *                             jsonProperty("Principal", jsonObject(
- *                                 jsonProperty("Service", "datazone.amazonaws.com")
- *                             ))
- *                         ), 
- *                         jsonObject(
- *                             jsonProperty("Action", jsonArray(
- *                                 "sts:AssumeRole", 
- *                                 "sts:TagSession"
- *                             )),
- *                             jsonProperty("Effect", "Allow"),
- *                             jsonProperty("Principal", jsonObject(
- *                                 jsonProperty("Service", "cloudformation.amazonaws.com")
- *                             ))
- *                         )
- *                     ))
- *                 )))
- *             .inlinePolicies(RoleInlinePolicyArgs.builder()
- *                 .name("example")
- *                 .policy(serializeJson(
- *                     jsonObject(
- *                         jsonProperty("Version", "2012-10-17"),
- *                         jsonProperty("Statement", jsonArray(jsonObject(
- *                             jsonProperty("Action", jsonArray(
- *                                 "datazone:*", 
- *                                 "ram:*", 
- *                                 "sso:*", 
- *                                 "kms:*"
- *                             )),
- *                             jsonProperty("Effect", "Allow"),
- *                             jsonProperty("Resource", "*")
- *                         )))
- *                     )))
- *                 .build())
- *             .build());
- * 
- *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
- *             .name("example_name")
- *             .domainExecutionRole(example.arn())
- *             .build());
- * 
- *         var exampleSecurityGroup = new SecurityGroup("exampleSecurityGroup", SecurityGroupArgs.builder()
- *             .name("example_name")
- *             .build());
- * 
- *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()
- *             .domainIdentifier(exampleDomain.id())
- *             .glossaryTerms("2N8w6XJCwZf")
- *             .name("example")
- *             .skipDeletionCheck(true)
- *             .build());
- * 
- *         var exampleGlossary = new Glossary("exampleGlossary", GlossaryArgs.builder()
- *             .description("description")
- *             .name("example")
- *             .owningProjectIdentifier(exampleProject.id())
- *             .status("ENABLED")
- *             .domainIdentifier(exampleProject.domainIdentifier())
- *             .build());
- * 
- *         var exampleGlossaryTerm = new GlossaryTerm("exampleGlossaryTerm", GlossaryTermArgs.builder()
- *             .domainIdentifier(exampleDomain.id())
- *             .glossaryIdentifier(exampleGlossary.id())
- *             .name("example")
- *             .status("ENABLED")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import DataZone Glossary Term using a comma-delimited string combining the `domain_identifier`, `id`, and the `glossary_identifier`. For example:
- * 
- * ```sh
- * $ pulumi import aws:datazone/glossaryTerm:GlossaryTerm example domain-id,glossary-term-id,glossary-id
- * ```
- * 
- */
 @ResourceType(type="aws:datazone/glossaryTerm:GlossaryTerm")
 public class GlossaryTerm extends com.pulumi.resources.CustomResource {
-    /**
-     * Time of glossary term creation.
-     * 
-     */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
-    /**
-     * @return Time of glossary term creation.
-     * 
-     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
-    /**
-     * Creator of glossary term.
-     * 
-     */
     @Export(name="createdBy", refs={String.class}, tree="[0]")
     private Output<String> createdBy;
 
-    /**
-     * @return Creator of glossary term.
-     * 
-     */
     public Output<String> createdBy() {
         return this.createdBy;
     }
-    /**
-     * Identifier of domain.
-     * 
-     */
     @Export(name="domainIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> domainIdentifier;
 
-    /**
-     * @return Identifier of domain.
-     * 
-     */
     public Output<Optional<String>> domainIdentifier() {
         return Codegen.optional(this.domainIdentifier);
     }
-    /**
-     * Identifier of glossary.
-     * 
-     */
     @Export(name="glossaryIdentifier", refs={String.class}, tree="[0]")
     private Output<String> glossaryIdentifier;
 
-    /**
-     * @return Identifier of glossary.
-     * 
-     */
     public Output<String> glossaryIdentifier() {
         return this.glossaryIdentifier;
     }
-    /**
-     * Long description of entry.
-     * 
-     */
     @Export(name="longDescription", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> longDescription;
 
-    /**
-     * @return Long description of entry.
-     * 
-     */
     public Output<Optional<String>> longDescription() {
         return Codegen.optional(this.longDescription);
     }
-    /**
-     * Name of glossary term.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of glossary term.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Short description of entry.
-     * 
-     */
     @Export(name="shortDescription", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> shortDescription;
 
-    /**
-     * @return Short description of entry.
-     * 
-     */
     public Output<Optional<String>> shortDescription() {
         return Codegen.optional(this.shortDescription);
     }
-    /**
-     * If glossary term is ENABLED or DISABLED.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
-    /**
-     * @return If glossary term is ENABLED or DISABLED.
-     * 
-     */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
-    /**
-     * Object classifying the term relations through the following attributes:
-     * 
-     */
     @Export(name="termRelations", refs={GlossaryTermTermRelations.class}, tree="[0]")
     private Output</* @Nullable */ GlossaryTermTermRelations> termRelations;
 
-    /**
-     * @return Object classifying the term relations through the following attributes:
-     * 
-     */
     public Output<Optional<GlossaryTermTermRelations>> termRelations() {
         return Codegen.optional(this.termRelations);
     }

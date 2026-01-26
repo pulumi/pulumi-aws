@@ -15,198 +15,41 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS User Notifications Notification Configuration.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.notifications.NotificationConfiguration;
- * import com.pulumi.aws.notifications.NotificationConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new NotificationConfiguration("example", NotificationConfigurationArgs.builder()
- *             .name("example")
- *             .description("Example notification configuration")
- *             .tags(Map.ofEntries(
- *                 Map.entry("Environment", "production"),
- *                 Map.entry("Project", "example")
- *             ))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### With Aggregation Duration
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.notifications.NotificationConfiguration;
- * import com.pulumi.aws.notifications.NotificationConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new NotificationConfiguration("example", NotificationConfigurationArgs.builder()
- *             .name("example-aggregation")
- *             .description("Example notification configuration with aggregation")
- *             .aggregationDuration("SHORT")
- *             .tags(Map.ofEntries(
- *                 Map.entry("Environment", "production"),
- *                 Map.entry("Project", "example")
- *             ))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import User Notifications Notification Configuration using the `arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:notifications/notificationConfiguration:NotificationConfiguration example arn:aws:notifications::123456789012:configuration/abcdef1234567890abcdef1234567890
- * ```
- * 
- */
 @ResourceType(type="aws:notifications/notificationConfiguration:NotificationConfiguration")
 public class NotificationConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * Aggregation preference of the NotificationConfiguration. Valid values: `LONG` (
-     * aggregate notifications for 12 hours), `SHORT` (aggregate notifications for 5 minutes), `NONE` (don&#39;t aggregate
-     * notifications). Default: `NONE`.
-     * 
-     */
     @Export(name="aggregationDuration", refs={String.class}, tree="[0]")
     private Output<String> aggregationDuration;
 
-    /**
-     * @return Aggregation preference of the NotificationConfiguration. Valid values: `LONG` (
-     * aggregate notifications for 12 hours), `SHORT` (aggregate notifications for 5 minutes), `NONE` (don&#39;t aggregate
-     * notifications). Default: `NONE`.
-     * 
-     */
     public Output<String> aggregationDuration() {
         return this.aggregationDuration;
     }
-    /**
-     * Amazon Resource Name (ARN) of the NotificationConfiguration.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the NotificationConfiguration.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Description of the NotificationConfiguration. Length constraints: Minimum length of 0,
-     * maximum length of 256.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
-    /**
-     * @return Description of the NotificationConfiguration. Length constraints: Minimum length of 0,
-     * maximum length of 256.
-     * 
-     */
     public Output<String> description() {
         return this.description;
     }
-    /**
-     * Name of the NotificationConfiguration. Supports RFC 3986&#39;s unreserved characters. Length
-     * constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_\-]+`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the NotificationConfiguration. Supports RFC 3986&#39;s unreserved characters. Length
-     * constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_\-]+`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Map of tags to assign to the resource. A tag is a string-to-string map of key-value pairs. If
-     * configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those
-     * defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. A tag is a string-to-string map of key-value pairs. If
-     * configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those
-     * defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags`
-     * configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags`
-     * configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

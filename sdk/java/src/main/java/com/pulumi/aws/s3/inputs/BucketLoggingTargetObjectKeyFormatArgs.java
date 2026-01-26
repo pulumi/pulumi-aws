@@ -16,32 +16,16 @@ public final class BucketLoggingTargetObjectKeyFormatArgs extends com.pulumi.res
 
     public static final BucketLoggingTargetObjectKeyFormatArgs Empty = new BucketLoggingTargetObjectKeyFormatArgs();
 
-    /**
-     * Partitioned S3 key for log objects, in the form `[targetPrefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. Conflicts with `simplePrefix`. See below.
-     * 
-     */
     @Import(name="partitionedPrefix")
     private @Nullable Output<BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs> partitionedPrefix;
 
-    /**
-     * @return Partitioned S3 key for log objects, in the form `[targetPrefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. Conflicts with `simplePrefix`. See below.
-     * 
-     */
     public Optional<Output<BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs>> partitionedPrefix() {
         return Optional.ofNullable(this.partitionedPrefix);
     }
 
-    /**
-     * Use the simple format for S3 keys for log objects, in the form `[targetPrefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. To use, set `simplePrefix {}`. Conflicts with `partitionedPrefix`.
-     * 
-     */
     @Import(name="simplePrefix")
     private @Nullable Output<BucketLoggingTargetObjectKeyFormatSimplePrefixArgs> simplePrefix;
 
-    /**
-     * @return Use the simple format for S3 keys for log objects, in the form `[targetPrefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. To use, set `simplePrefix {}`. Conflicts with `partitionedPrefix`.
-     * 
-     */
     public Optional<Output<BucketLoggingTargetObjectKeyFormatSimplePrefixArgs>> simplePrefix() {
         return Optional.ofNullable(this.simplePrefix);
     }
@@ -71,44 +55,20 @@ public final class BucketLoggingTargetObjectKeyFormatArgs extends com.pulumi.res
             $ = new BucketLoggingTargetObjectKeyFormatArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param partitionedPrefix Partitioned S3 key for log objects, in the form `[targetPrefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. Conflicts with `simplePrefix`. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder partitionedPrefix(@Nullable Output<BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs> partitionedPrefix) {
             $.partitionedPrefix = partitionedPrefix;
             return this;
         }
 
-        /**
-         * @param partitionedPrefix Partitioned S3 key for log objects, in the form `[targetPrefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. Conflicts with `simplePrefix`. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder partitionedPrefix(BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs partitionedPrefix) {
             return partitionedPrefix(Output.of(partitionedPrefix));
         }
 
-        /**
-         * @param simplePrefix Use the simple format for S3 keys for log objects, in the form `[targetPrefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. To use, set `simplePrefix {}`. Conflicts with `partitionedPrefix`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder simplePrefix(@Nullable Output<BucketLoggingTargetObjectKeyFormatSimplePrefixArgs> simplePrefix) {
             $.simplePrefix = simplePrefix;
             return this;
         }
 
-        /**
-         * @param simplePrefix Use the simple format for S3 keys for log objects, in the form `[targetPrefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. To use, set `simplePrefix {}`. Conflicts with `partitionedPrefix`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder simplePrefix(BucketLoggingTargetObjectKeyFormatSimplePrefixArgs simplePrefix) {
             return simplePrefix(Output.of(simplePrefix));
         }

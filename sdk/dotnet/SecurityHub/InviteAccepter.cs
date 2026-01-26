@@ -9,72 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SecurityHub
 {
-    /// <summary>
-    /// &gt; **Note:** AWS accounts can only be associated with a single Security Hub master account. Destroying this resource will disassociate the member account from the master account.
-    /// 
-    /// Accepts a Security Hub invitation.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SecurityHub.Account("example");
-    /// 
-    ///     var exampleMember = new Aws.SecurityHub.Member("example", new()
-    ///     {
-    ///         AccountId = "123456789012",
-    ///         Email = "example@example.com",
-    ///         Invite = true,
-    ///     });
-    /// 
-    ///     var invitee = new Aws.SecurityHub.Account("invitee");
-    /// 
-    ///     var inviteeInviteAccepter = new Aws.SecurityHub.InviteAccepter("invitee", new()
-    ///     {
-    ///         MasterId = exampleMember.MasterId,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             invitee,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Security Hub invite acceptance using the account ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:securityhub/inviteAccepter:InviteAccepter")]
     public partial class InviteAccepter : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ID of the invitation.
-        /// </summary>
         [Output("invitationId")]
         public Output<string> InvitationId { get; private set; } = null!;
 
-        /// <summary>
-        /// The account ID of the master Security Hub account whose invitation you're accepting.
-        /// </summary>
         [Output("masterId")]
         public Output<string> MasterId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -124,15 +67,9 @@ namespace Pulumi.Aws.SecurityHub
 
     public sealed class InviteAccepterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The account ID of the master Security Hub account whose invitation you're accepting.
-        /// </summary>
         [Input("masterId", required: true)]
         public Input<string> MasterId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -144,21 +81,12 @@ namespace Pulumi.Aws.SecurityHub
 
     public sealed class InviteAccepterState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the invitation.
-        /// </summary>
         [Input("invitationId")]
         public Input<string>? InvitationId { get; set; }
 
-        /// <summary>
-        /// The account ID of the master Security Hub account whose invitation you're accepting.
-        /// </summary>
         [Input("masterId")]
         public Input<string>? MasterId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

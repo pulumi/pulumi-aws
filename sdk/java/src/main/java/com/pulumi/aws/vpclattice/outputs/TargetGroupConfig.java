@@ -13,89 +13,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TargetGroupConfig {
-    /**
-     * @return The health check configuration.
-     * 
-     */
     private @Nullable TargetGroupConfigHealthCheck healthCheck;
-    /**
-     * @return The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
-     * 
-     */
     private @Nullable String ipAddressType;
-    /**
-     * @return The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
-     * 
-     */
     private @Nullable String lambdaEventStructureVersion;
-    /**
-     * @return The port on which the targets are listening.
-     * 
-     */
     private @Nullable Integer port;
-    /**
-     * @return The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
-     * 
-     */
     private @Nullable String protocol;
-    /**
-     * @return The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
-     * 
-     */
     private @Nullable String protocolVersion;
-    /**
-     * @return The ID of the VPC.
-     * 
-     */
     private @Nullable String vpcIdentifier;
 
     private TargetGroupConfig() {}
-    /**
-     * @return The health check configuration.
-     * 
-     */
     public Optional<TargetGroupConfigHealthCheck> healthCheck() {
         return Optional.ofNullable(this.healthCheck);
     }
-    /**
-     * @return The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
-     * 
-     */
     public Optional<String> ipAddressType() {
         return Optional.ofNullable(this.ipAddressType);
     }
-    /**
-     * @return The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
-     * 
-     */
     public Optional<String> lambdaEventStructureVersion() {
         return Optional.ofNullable(this.lambdaEventStructureVersion);
     }
-    /**
-     * @return The port on which the targets are listening.
-     * 
-     */
     public Optional<Integer> port() {
         return Optional.ofNullable(this.port);
     }
-    /**
-     * @return The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
-     * 
-     */
     public Optional<String> protocol() {
         return Optional.ofNullable(this.protocol);
     }
-    /**
-     * @return The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
-     * 
-     */
     public Optional<String> protocolVersion() {
         return Optional.ofNullable(this.protocolVersion);
     }
-    /**
-     * @return The ID of the VPC.
-     * 
-     */
     public Optional<String> vpcIdentifier() {
         return Optional.ofNullable(this.vpcIdentifier);
     }

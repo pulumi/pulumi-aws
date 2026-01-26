@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Lambda.Inputs
     {
         [Input("allowedInstanceTypes", required: true)]
         private InputList<string>? _allowedInstanceTypes;
-
-        /// <summary>
-        /// List of allowed instance types.
-        /// </summary>
         public InputList<string> AllowedInstanceTypes
         {
             get => _allowedInstanceTypes ?? (_allowedInstanceTypes = new InputList<string>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.Lambda.Inputs
 
         [Input("architectures", required: true)]
         private InputList<string>? _architectures;
-
-        /// <summary>
-        /// List of CPU architectures. Valid values are `X86_64` and `ARM64`.
-        /// </summary>
         public InputList<string> Architectures
         {
             get => _architectures ?? (_architectures = new InputList<string>());
@@ -38,10 +30,6 @@ namespace Pulumi.Aws.Lambda.Inputs
 
         [Input("excludedInstanceTypes", required: true)]
         private InputList<string>? _excludedInstanceTypes;
-
-        /// <summary>
-        /// List of excluded instance types.
-        /// </summary>
         public InputList<string> ExcludedInstanceTypes
         {
             get => _excludedInstanceTypes ?? (_excludedInstanceTypes = new InputList<string>());

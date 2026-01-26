@@ -17,62 +17,30 @@ public final class GetEnvironmentBlueprintArgs extends com.pulumi.resources.Invo
 
     public static final GetEnvironmentBlueprintArgs Empty = new GetEnvironmentBlueprintArgs();
 
-    /**
-     * ID of the domain.
-     * 
-     */
     @Import(name="domainId", required=true)
     private Output<String> domainId;
 
-    /**
-     * @return ID of the domain.
-     * 
-     */
     public Output<String> domainId() {
         return this.domainId;
     }
 
-    /**
-     * Whether the blueprint is managed by Amazon DataZone.
-     * 
-     */
     @Import(name="managed", required=true)
     private Output<Boolean> managed;
 
-    /**
-     * @return Whether the blueprint is managed by Amazon DataZone.
-     * 
-     */
     public Output<Boolean> managed() {
         return this.managed;
     }
 
-    /**
-     * Name of the blueprint.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the blueprint.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -104,86 +72,38 @@ public final class GetEnvironmentBlueprintArgs extends com.pulumi.resources.Invo
             $ = new GetEnvironmentBlueprintArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domainId ID of the domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainId(Output<String> domainId) {
             $.domainId = domainId;
             return this;
         }
 
-        /**
-         * @param domainId ID of the domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainId(String domainId) {
             return domainId(Output.of(domainId));
         }
 
-        /**
-         * @param managed Whether the blueprint is managed by Amazon DataZone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managed(Output<Boolean> managed) {
             $.managed = managed;
             return this;
         }
 
-        /**
-         * @param managed Whether the blueprint is managed by Amazon DataZone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managed(Boolean managed) {
             return managed(Output.of(managed));
         }
 
-        /**
-         * @param name Name of the blueprint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the blueprint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

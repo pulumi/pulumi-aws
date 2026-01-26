@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get a list of brokers that a client application can use to bootstrap.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/msk"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := msk.GetBootstrapBrokers(ctx, &msk.GetBootstrapBrokersArgs{
-//				ClusterArn: exampleAwsMskCluster.Arn,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetBootstrapBrokers(ctx *pulumi.Context, args *GetBootstrapBrokersArgs, opts ...pulumi.InvokeOption) (*GetBootstrapBrokersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetBootstrapBrokersResult
@@ -50,35 +23,23 @@ func GetBootstrapBrokers(ctx *pulumi.Context, args *GetBootstrapBrokersArgs, opt
 
 // A collection of arguments for invoking getBootstrapBrokers.
 type GetBootstrapBrokersArgs struct {
-	// ARN of the cluster the nodes belong to.
-	ClusterArn string `pulumi:"clusterArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	ClusterArn string  `pulumi:"clusterArn"`
+	Region     *string `pulumi:"region"`
 }
 
 // A collection of values returned by getBootstrapBrokers.
 type GetBootstrapBrokersResult struct {
-	// Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster.
-	BootstrapBrokers string `pulumi:"bootstrapBrokers"`
-	// One or more DNS names (or IP addresses) and SASL IAM port pairs.
-	BootstrapBrokersPublicSaslIam string `pulumi:"bootstrapBrokersPublicSaslIam"`
-	// One or more DNS names (or IP addresses) and SASL SCRAM port pairs.
-	BootstrapBrokersPublicSaslScram string `pulumi:"bootstrapBrokersPublicSaslScram"`
-	// One or more DNS names (or IP addresses) and TLS port pairs.
-	BootstrapBrokersPublicTls string `pulumi:"bootstrapBrokersPublicTls"`
-	// One or more DNS names (or IP addresses) and SASL IAM port pairs.
-	BootstrapBrokersSaslIam string `pulumi:"bootstrapBrokersSaslIam"`
-	// One or more DNS names (or IP addresses) and SASL SCRAM port pairs.
-	BootstrapBrokersSaslScram string `pulumi:"bootstrapBrokersSaslScram"`
-	// One or more DNS names (or IP addresses) and TLS port pairs.
-	BootstrapBrokersTls string `pulumi:"bootstrapBrokersTls"`
-	// A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity.
-	BootstrapBrokersVpcConnectivitySaslIam string `pulumi:"bootstrapBrokersVpcConnectivitySaslIam"`
-	// A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity.
+	BootstrapBrokers                         string `pulumi:"bootstrapBrokers"`
+	BootstrapBrokersPublicSaslIam            string `pulumi:"bootstrapBrokersPublicSaslIam"`
+	BootstrapBrokersPublicSaslScram          string `pulumi:"bootstrapBrokersPublicSaslScram"`
+	BootstrapBrokersPublicTls                string `pulumi:"bootstrapBrokersPublicTls"`
+	BootstrapBrokersSaslIam                  string `pulumi:"bootstrapBrokersSaslIam"`
+	BootstrapBrokersSaslScram                string `pulumi:"bootstrapBrokersSaslScram"`
+	BootstrapBrokersTls                      string `pulumi:"bootstrapBrokersTls"`
+	BootstrapBrokersVpcConnectivitySaslIam   string `pulumi:"bootstrapBrokersVpcConnectivitySaslIam"`
 	BootstrapBrokersVpcConnectivitySaslScram string `pulumi:"bootstrapBrokersVpcConnectivitySaslScram"`
-	// A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity.
-	BootstrapBrokersVpcConnectivityTls string `pulumi:"bootstrapBrokersVpcConnectivityTls"`
-	ClusterArn                         string `pulumi:"clusterArn"`
+	BootstrapBrokersVpcConnectivityTls       string `pulumi:"bootstrapBrokersVpcConnectivityTls"`
+	ClusterArn                               string `pulumi:"clusterArn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string `pulumi:"id"`
 	Region string `pulumi:"region"`
@@ -95,10 +56,8 @@ func GetBootstrapBrokersOutput(ctx *pulumi.Context, args GetBootstrapBrokersOutp
 
 // A collection of arguments for invoking getBootstrapBrokers.
 type GetBootstrapBrokersOutputArgs struct {
-	// ARN of the cluster the nodes belong to.
-	ClusterArn pulumi.StringInput `pulumi:"clusterArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	ClusterArn pulumi.StringInput    `pulumi:"clusterArn"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetBootstrapBrokersOutputArgs) ElementType() reflect.Type {
@@ -120,52 +79,42 @@ func (o GetBootstrapBrokersResultOutput) ToGetBootstrapBrokersResultOutputWithCo
 	return o
 }
 
-// Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster.
 func (o GetBootstrapBrokersResultOutput) BootstrapBrokers() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBootstrapBrokersResult) string { return v.BootstrapBrokers }).(pulumi.StringOutput)
 }
 
-// One or more DNS names (or IP addresses) and SASL IAM port pairs.
 func (o GetBootstrapBrokersResultOutput) BootstrapBrokersPublicSaslIam() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBootstrapBrokersResult) string { return v.BootstrapBrokersPublicSaslIam }).(pulumi.StringOutput)
 }
 
-// One or more DNS names (or IP addresses) and SASL SCRAM port pairs.
 func (o GetBootstrapBrokersResultOutput) BootstrapBrokersPublicSaslScram() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBootstrapBrokersResult) string { return v.BootstrapBrokersPublicSaslScram }).(pulumi.StringOutput)
 }
 
-// One or more DNS names (or IP addresses) and TLS port pairs.
 func (o GetBootstrapBrokersResultOutput) BootstrapBrokersPublicTls() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBootstrapBrokersResult) string { return v.BootstrapBrokersPublicTls }).(pulumi.StringOutput)
 }
 
-// One or more DNS names (or IP addresses) and SASL IAM port pairs.
 func (o GetBootstrapBrokersResultOutput) BootstrapBrokersSaslIam() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBootstrapBrokersResult) string { return v.BootstrapBrokersSaslIam }).(pulumi.StringOutput)
 }
 
-// One or more DNS names (or IP addresses) and SASL SCRAM port pairs.
 func (o GetBootstrapBrokersResultOutput) BootstrapBrokersSaslScram() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBootstrapBrokersResult) string { return v.BootstrapBrokersSaslScram }).(pulumi.StringOutput)
 }
 
-// One or more DNS names (or IP addresses) and TLS port pairs.
 func (o GetBootstrapBrokersResultOutput) BootstrapBrokersTls() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBootstrapBrokersResult) string { return v.BootstrapBrokersTls }).(pulumi.StringOutput)
 }
 
-// A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity.
 func (o GetBootstrapBrokersResultOutput) BootstrapBrokersVpcConnectivitySaslIam() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBootstrapBrokersResult) string { return v.BootstrapBrokersVpcConnectivitySaslIam }).(pulumi.StringOutput)
 }
 
-// A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity.
 func (o GetBootstrapBrokersResultOutput) BootstrapBrokersVpcConnectivitySaslScram() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBootstrapBrokersResult) string { return v.BootstrapBrokersVpcConnectivitySaslScram }).(pulumi.StringOutput)
 }
 
-// A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity.
 func (o GetBootstrapBrokersResultOutput) BootstrapBrokersVpcConnectivityTls() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBootstrapBrokersResult) string { return v.BootstrapBrokersVpcConnectivityTls }).(pulumi.StringOutput)
 }

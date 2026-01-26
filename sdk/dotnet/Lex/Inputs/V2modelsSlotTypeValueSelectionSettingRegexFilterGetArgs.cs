@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsSlotTypeValueSelectionSettingRegexFilterGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A regular expression used to validate the value of a slot.
-        /// </summary>
         [Input("pattern", required: true)]
         public Input<string> Pattern { get; set; } = null!;
 

@@ -14,32 +14,16 @@ public final class SelectionConditionStringLikeArgs extends com.pulumi.resources
 
     public static final SelectionConditionStringLikeArgs Empty = new SelectionConditionStringLikeArgs();
 
-    /**
-     * Key for the filter.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return Key for the filter.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * Value for the filter.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return Value for the filter.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -69,44 +53,20 @@ public final class SelectionConditionStringLikeArgs extends com.pulumi.resources
             $ = new SelectionConditionStringLikeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key Key for the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key Key for the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param value Value for the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Value for the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

@@ -13,52 +13,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages the custom permissions profile for a user.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.quicksight.UserCustomPermission;
- * import com.pulumi.aws.quicksight.UserCustomPermissionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new UserCustomPermission("example", UserCustomPermissionArgs.builder()
- *             .userName(exampleAwsQuicksightUser.userName())
- *             .customPermissionsName(exampleAwsQuicksightCustomPermissions.customPermissionsName())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import QuickSight user custom permissions using a comma-delimited string combining the `aws_account_id`, `namespace`, and `user_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:quicksight/userCustomPermission:UserCustomPermission example 012345678901,default,user1
- * ```
- * 
- */
 @ResourceType(type="aws:quicksight/userCustomPermission:UserCustomPermission")
 public class UserCustomPermission extends com.pulumi.resources.CustomResource {
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
@@ -67,63 +21,27 @@ public class UserCustomPermission extends com.pulumi.resources.CustomResource {
     public Output<String> awsAccountId() {
         return this.awsAccountId;
     }
-    /**
-     * Custom permissions profile name.
-     * 
-     */
     @Export(name="customPermissionsName", refs={String.class}, tree="[0]")
     private Output<String> customPermissionsName;
 
-    /**
-     * @return Custom permissions profile name.
-     * 
-     */
     public Output<String> customPermissionsName() {
         return this.customPermissionsName;
     }
-    /**
-     * Namespace that the user belongs to. Defaults to `default`.
-     * 
-     */
     @Export(name="namespace", refs={String.class}, tree="[0]")
     private Output<String> namespace;
 
-    /**
-     * @return Namespace that the user belongs to. Defaults to `default`.
-     * 
-     */
     public Output<String> namespace() {
         return this.namespace;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Username of the user.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
-    /**
-     * @return Username of the user.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> userName() {
         return this.userName;
     }

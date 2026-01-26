@@ -12,65 +12,25 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDomainEbsOption {
-    /**
-     * @return Whether EBS volumes are attached to data nodes in the domain.
-     * 
-     */
     private Boolean ebsEnabled;
-    /**
-     * @return The baseline input/output (I/O) performance of EBS volumes attached to data nodes.
-     * 
-     */
     private Integer iops;
-    /**
-     * @return The throughput (in MiB/s) of the EBS volumes attached to data nodes.
-     * 
-     */
     private Integer throughput;
-    /**
-     * @return The size of EBS volumes attached to data nodes (in GB).
-     * 
-     */
     private Integer volumeSize;
-    /**
-     * @return The type of EBS volumes attached to data nodes.
-     * 
-     */
     private String volumeType;
 
     private GetDomainEbsOption() {}
-    /**
-     * @return Whether EBS volumes are attached to data nodes in the domain.
-     * 
-     */
     public Boolean ebsEnabled() {
         return this.ebsEnabled;
     }
-    /**
-     * @return The baseline input/output (I/O) performance of EBS volumes attached to data nodes.
-     * 
-     */
     public Integer iops() {
         return this.iops;
     }
-    /**
-     * @return The throughput (in MiB/s) of the EBS volumes attached to data nodes.
-     * 
-     */
     public Integer throughput() {
         return this.throughput;
     }
-    /**
-     * @return The size of EBS volumes attached to data nodes (in GB).
-     * 
-     */
     public Integer volumeSize() {
         return this.volumeSize;
     }
-    /**
-     * @return The type of EBS volumes attached to data nodes.
-     * 
-     */
     public String volumeType() {
         return this.volumeType;
     }

@@ -10,10 +10,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDefaultScraperConfigurationResult {
-    /**
-     * @return The configuration file.
-     * 
-     */
     private String configuration;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -23,10 +19,6 @@ public final class GetDefaultScraperConfigurationResult {
     private String region;
 
     private GetDefaultScraperConfigurationResult() {}
-    /**
-     * @return The configuration file.
-     * 
-     */
     public String configuration() {
         return this.configuration;
     }

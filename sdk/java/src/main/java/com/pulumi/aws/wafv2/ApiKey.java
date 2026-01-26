@@ -14,105 +14,51 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AWS WAFv2 API Key resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.wafv2.ApiKey;
- * import com.pulumi.aws.wafv2.ApiKeyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ApiKey("example", ApiKeyArgs.builder()
- *             .scope("REGIONAL")
- *             .tokenDomains("example.com")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import WAFv2 API Key using `api_key,scope`. For example:
- * 
- * ```sh
- * $ pulumi import aws:wafv2/apiKey:ApiKey example a1b2c3d4-5678-90ab-cdef-EXAMPLE11111,REGIONAL
- * ```
- * 
- */
 @ResourceType(type="aws:wafv2/apiKey:ApiKey")
 public class ApiKey extends com.pulumi.resources.CustomResource {
     /**
-     * The generated API key. This value is sensitive.
+     * The API key value. This is sensitive and not included in responses.
      * 
      */
     @Export(name="apiKey", refs={String.class}, tree="[0]")
     private Output<String> apiKey;
 
     /**
-     * @return The generated API key. This value is sensitive.
+     * @return The API key value. This is sensitive and not included in responses.
      * 
      */
     public Output<String> apiKey() {
         return this.apiKey;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
     /**
-     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. Changing this forces a new resource to be created. **NOTE:** WAFv2 API Keys deployed for `CLOUDFRONT` must be created within the `us-east-1` region.
+     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are CLOUDFRONT or REGIONAL.
      * 
      */
     @Export(name="scope", refs={String.class}, tree="[0]")
     private Output<String> scope;
 
     /**
-     * @return Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. Changing this forces a new resource to be created. **NOTE:** WAFv2 API Keys deployed for `CLOUDFRONT` must be created within the `us-east-1` region.
+     * @return Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are CLOUDFRONT or REGIONAL.
      * 
      */
     public Output<String> scope() {
         return this.scope;
     }
     /**
-     * The domains that you want to be able to use the API key with, for example `example.com`. You can specify up to 5 domains. Changing this forces a new resource to be created.
+     * The domains that you want to be able to use the API key with, for example example.com. Maximum of 5 domains.
      * 
      */
     @Export(name="tokenDomains", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> tokenDomains;
 
     /**
-     * @return The domains that you want to be able to use the API key with, for example `example.com`. You can specify up to 5 domains. Changing this forces a new resource to be created.
+     * @return The domains that you want to be able to use the API key with, for example example.com. Maximum of 5 domains.
      * 
      */
     public Output<List<String>> tokenDomains() {

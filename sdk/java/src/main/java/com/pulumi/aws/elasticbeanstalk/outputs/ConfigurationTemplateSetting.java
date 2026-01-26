@@ -12,20 +12,12 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConfigurationTemplateSetting {
-    /**
-     * @return A unique name for this Template.
-     * 
-     */
     private String name;
     private String namespace;
     private @Nullable String resource;
     private String value;
 
     private ConfigurationTemplateSetting() {}
-    /**
-     * @return A unique name for this Template.
-     * 
-     */
     public String name() {
         return this.name;
     }

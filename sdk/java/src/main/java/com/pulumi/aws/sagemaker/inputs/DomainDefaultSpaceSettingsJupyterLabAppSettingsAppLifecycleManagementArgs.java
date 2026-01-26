@@ -15,17 +15,9 @@ public final class DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleMa
 
     public static final DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs Empty = new DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs();
 
-    /**
-     * Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
-     * 
-     */
     @Import(name="idleSettings")
     private @Nullable Output<DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs> idleSettings;
 
-    /**
-     * @return Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
-     * 
-     */
     public Optional<Output<DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs>> idleSettings() {
         return Optional.ofNullable(this.idleSettings);
     }
@@ -54,23 +46,11 @@ public final class DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleMa
             $ = new DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param idleSettings Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idleSettings(@Nullable Output<DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs> idleSettings) {
             $.idleSettings = idleSettings;
             return this;
         }
 
-        /**
-         * @param idleSettings Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idleSettings(DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs idleSettings) {
             return idleSettings(Output.of(idleSettings));
         }

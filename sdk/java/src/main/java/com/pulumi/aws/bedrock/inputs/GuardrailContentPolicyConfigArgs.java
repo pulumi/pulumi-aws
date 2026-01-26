@@ -17,34 +17,16 @@ public final class GuardrailContentPolicyConfigArgs extends com.pulumi.resources
 
     public static final GuardrailContentPolicyConfigArgs Empty = new GuardrailContentPolicyConfigArgs();
 
-    /**
-     * Set of content filter configs in content policy.
-     * See Filters Config for more information.
-     * 
-     */
     @Import(name="filtersConfigs")
     private @Nullable Output<List<GuardrailContentPolicyConfigFiltersConfigArgs>> filtersConfigs;
 
-    /**
-     * @return Set of content filter configs in content policy.
-     * See Filters Config for more information.
-     * 
-     */
     public Optional<Output<List<GuardrailContentPolicyConfigFiltersConfigArgs>>> filtersConfigs() {
         return Optional.ofNullable(this.filtersConfigs);
     }
 
-    /**
-     * Configuration block for the content policy tier. See Tier Config for more information.
-     * 
-     */
     @Import(name="tierConfigs")
     private @Nullable Output<List<GuardrailContentPolicyConfigTierConfigArgs>> tierConfigs;
 
-    /**
-     * @return Configuration block for the content policy tier. See Tier Config for more information.
-     * 
-     */
     public Optional<Output<List<GuardrailContentPolicyConfigTierConfigArgs>>> tierConfigs() {
         return Optional.ofNullable(this.tierConfigs);
     }
@@ -74,67 +56,28 @@ public final class GuardrailContentPolicyConfigArgs extends com.pulumi.resources
             $ = new GuardrailContentPolicyConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filtersConfigs Set of content filter configs in content policy.
-         * See Filters Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filtersConfigs(@Nullable Output<List<GuardrailContentPolicyConfigFiltersConfigArgs>> filtersConfigs) {
             $.filtersConfigs = filtersConfigs;
             return this;
         }
 
-        /**
-         * @param filtersConfigs Set of content filter configs in content policy.
-         * See Filters Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filtersConfigs(List<GuardrailContentPolicyConfigFiltersConfigArgs> filtersConfigs) {
             return filtersConfigs(Output.of(filtersConfigs));
         }
 
-        /**
-         * @param filtersConfigs Set of content filter configs in content policy.
-         * See Filters Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filtersConfigs(GuardrailContentPolicyConfigFiltersConfigArgs... filtersConfigs) {
             return filtersConfigs(List.of(filtersConfigs));
         }
 
-        /**
-         * @param tierConfigs Configuration block for the content policy tier. See Tier Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tierConfigs(@Nullable Output<List<GuardrailContentPolicyConfigTierConfigArgs>> tierConfigs) {
             $.tierConfigs = tierConfigs;
             return this;
         }
 
-        /**
-         * @param tierConfigs Configuration block for the content policy tier. See Tier Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tierConfigs(List<GuardrailContentPolicyConfigTierConfigArgs> tierConfigs) {
             return tierConfigs(Output.of(tierConfigs));
         }
 
-        /**
-         * @param tierConfigs Configuration block for the content policy tier. See Tier Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tierConfigs(GuardrailContentPolicyConfigTierConfigArgs... tierConfigs) {
             return tierConfigs(List.of(tierConfigs));
         }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.ComputeOptimizer.Outputs
     [OutputType]
     public sealed class RecommendationPreferencesScope
     {
-        /// <summary>
-        /// The name of the scope. Valid values: `Organization`, `AccountId`, `ResourceArn`.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The value of the scope. `ALL_ACCOUNTS` for `Organization` scopes, AWS account ID for `AccountId` scopes, ARN of an EC2 instance or an Auto Scaling group for `ResourceArn` scopes.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

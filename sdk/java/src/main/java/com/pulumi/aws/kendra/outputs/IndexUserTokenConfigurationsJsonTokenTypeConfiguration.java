@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class IndexUserTokenConfigurationsJsonTokenTypeConfiguration {
-    /**
-     * @return The group attribute field. Minimum length of 1. Maximum length of 2048.
-     * 
-     */
     private String groupAttributeField;
-    /**
-     * @return The user name attribute field. Minimum length of 1. Maximum length of 2048.
-     * 
-     */
     private String userNameAttributeField;
 
     private IndexUserTokenConfigurationsJsonTokenTypeConfiguration() {}
-    /**
-     * @return The group attribute field. Minimum length of 1. Maximum length of 2048.
-     * 
-     */
     public String groupAttributeField() {
         return this.groupAttributeField;
     }
-    /**
-     * @return The user name attribute field. Minimum length of 1. Maximum length of 2048.
-     * 
-     */
     public String userNameAttributeField() {
         return this.userNameAttributeField;
     }

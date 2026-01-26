@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FunctionSyncConfigLambdaConflictHandlerConfig {
-    /**
-     * @return ARN for the Lambda function to use as the Conflict Handler.
-     * 
-     */
     private @Nullable String lambdaConflictHandlerArn;
 
     private FunctionSyncConfigLambdaConflictHandlerConfig() {}
-    /**
-     * @return ARN for the Lambda function to use as the Conflict Handler.
-     * 
-     */
     public Optional<String> lambdaConflictHandlerArn() {
         return Optional.ofNullable(this.lambdaConflictHandlerArn);
     }

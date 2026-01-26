@@ -16,122 +16,58 @@ public final class GetTrafficPolicyDocumentRuleLocationArgs extends com.pulumi.r
 
     public static final GetTrafficPolicyDocumentRuleLocationArgs Empty = new GetTrafficPolicyDocumentRuleLocationArgs();
 
-    /**
-     * Value of a continent.
-     * 
-     */
     @Import(name="continent")
     private @Nullable Output<String> continent;
 
-    /**
-     * @return Value of a continent.
-     * 
-     */
     public Optional<Output<String>> continent() {
         return Optional.ofNullable(this.continent);
     }
 
-    /**
-     * Value of a country.
-     * 
-     */
     @Import(name="country")
     private @Nullable Output<String> country;
 
-    /**
-     * @return Value of a country.
-     * 
-     */
     public Optional<Output<String>> country() {
         return Optional.ofNullable(this.country);
     }
 
-    /**
-     * References to an endpoint.
-     * 
-     */
     @Import(name="endpointReference")
     private @Nullable Output<String> endpointReference;
 
-    /**
-     * @return References to an endpoint.
-     * 
-     */
     public Optional<Output<String>> endpointReference() {
         return Optional.ofNullable(this.endpointReference);
     }
 
-    /**
-     * Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-     * 
-     */
     @Import(name="evaluateTargetHealth")
     private @Nullable Output<Boolean> evaluateTargetHealth;
 
-    /**
-     * @return Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-     * 
-     */
     public Optional<Output<Boolean>> evaluateTargetHealth() {
         return Optional.ofNullable(this.evaluateTargetHealth);
     }
 
-    /**
-     * If you want to associate a health check with the endpoint or rule.
-     * 
-     */
     @Import(name="healthCheck")
     private @Nullable Output<String> healthCheck;
 
-    /**
-     * @return If you want to associate a health check with the endpoint or rule.
-     * 
-     */
     public Optional<Output<String>> healthCheck() {
         return Optional.ofNullable(this.healthCheck);
     }
 
-    /**
-     * Indicates whether this set of values represents the default location.
-     * 
-     */
     @Import(name="isDefault")
     private @Nullable Output<Boolean> isDefault;
 
-    /**
-     * @return Indicates whether this set of values represents the default location.
-     * 
-     */
     public Optional<Output<Boolean>> isDefault() {
         return Optional.ofNullable(this.isDefault);
     }
 
-    /**
-     * References to a rule.
-     * 
-     */
     @Import(name="ruleReference")
     private @Nullable Output<String> ruleReference;
 
-    /**
-     * @return References to a rule.
-     * 
-     */
     public Optional<Output<String>> ruleReference() {
         return Optional.ofNullable(this.ruleReference);
     }
 
-    /**
-     * Value of a subdivision.
-     * 
-     */
     @Import(name="subdivision")
     private @Nullable Output<String> subdivision;
 
-    /**
-     * @return Value of a subdivision.
-     * 
-     */
     public Optional<Output<String>> subdivision() {
         return Optional.ofNullable(this.subdivision);
     }
@@ -167,170 +103,74 @@ public final class GetTrafficPolicyDocumentRuleLocationArgs extends com.pulumi.r
             $ = new GetTrafficPolicyDocumentRuleLocationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param continent Value of a continent.
-         * 
-         * @return builder
-         * 
-         */
         public Builder continent(@Nullable Output<String> continent) {
             $.continent = continent;
             return this;
         }
 
-        /**
-         * @param continent Value of a continent.
-         * 
-         * @return builder
-         * 
-         */
         public Builder continent(String continent) {
             return continent(Output.of(continent));
         }
 
-        /**
-         * @param country Value of a country.
-         * 
-         * @return builder
-         * 
-         */
         public Builder country(@Nullable Output<String> country) {
             $.country = country;
             return this;
         }
 
-        /**
-         * @param country Value of a country.
-         * 
-         * @return builder
-         * 
-         */
         public Builder country(String country) {
             return country(Output.of(country));
         }
 
-        /**
-         * @param endpointReference References to an endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointReference(@Nullable Output<String> endpointReference) {
             $.endpointReference = endpointReference;
             return this;
         }
 
-        /**
-         * @param endpointReference References to an endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointReference(String endpointReference) {
             return endpointReference(Output.of(endpointReference));
         }
 
-        /**
-         * @param evaluateTargetHealth Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-         * 
-         * @return builder
-         * 
-         */
         public Builder evaluateTargetHealth(@Nullable Output<Boolean> evaluateTargetHealth) {
             $.evaluateTargetHealth = evaluateTargetHealth;
             return this;
         }
 
-        /**
-         * @param evaluateTargetHealth Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-         * 
-         * @return builder
-         * 
-         */
         public Builder evaluateTargetHealth(Boolean evaluateTargetHealth) {
             return evaluateTargetHealth(Output.of(evaluateTargetHealth));
         }
 
-        /**
-         * @param healthCheck If you want to associate a health check with the endpoint or rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthCheck(@Nullable Output<String> healthCheck) {
             $.healthCheck = healthCheck;
             return this;
         }
 
-        /**
-         * @param healthCheck If you want to associate a health check with the endpoint or rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthCheck(String healthCheck) {
             return healthCheck(Output.of(healthCheck));
         }
 
-        /**
-         * @param isDefault Indicates whether this set of values represents the default location.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isDefault(@Nullable Output<Boolean> isDefault) {
             $.isDefault = isDefault;
             return this;
         }
 
-        /**
-         * @param isDefault Indicates whether this set of values represents the default location.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isDefault(Boolean isDefault) {
             return isDefault(Output.of(isDefault));
         }
 
-        /**
-         * @param ruleReference References to a rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleReference(@Nullable Output<String> ruleReference) {
             $.ruleReference = ruleReference;
             return this;
         }
 
-        /**
-         * @param ruleReference References to a rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleReference(String ruleReference) {
             return ruleReference(Output.of(ruleReference));
         }
 
-        /**
-         * @param subdivision Value of a subdivision.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subdivision(@Nullable Output<String> subdivision) {
             $.subdivision = subdivision;
             return this;
         }
 
-        /**
-         * @param subdivision Value of a subdivision.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subdivision(String subdivision) {
             return subdivision(Output.of(subdivision));
         }

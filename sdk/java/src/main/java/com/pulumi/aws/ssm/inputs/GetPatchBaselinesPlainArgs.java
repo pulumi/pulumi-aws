@@ -17,47 +17,23 @@ public final class GetPatchBaselinesPlainArgs extends com.pulumi.resources.Invok
 
     public static final GetPatchBaselinesPlainArgs Empty = new GetPatchBaselinesPlainArgs();
 
-    /**
-     * Only return baseline identities where `defaultBaseline` is `true`.
-     * 
-     */
     @Import(name="defaultBaselines")
     private @Nullable Boolean defaultBaselines;
 
-    /**
-     * @return Only return baseline identities where `defaultBaseline` is `true`.
-     * 
-     */
     public Optional<Boolean> defaultBaselines() {
         return Optional.ofNullable(this.defaultBaselines);
     }
 
-    /**
-     * Key-value pairs used to filter the results. See `filter` below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetPatchBaselinesFilter> filters;
 
-    /**
-     * @return Key-value pairs used to filter the results. See `filter` below.
-     * 
-     */
     public Optional<List<GetPatchBaselinesFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -88,44 +64,20 @@ public final class GetPatchBaselinesPlainArgs extends com.pulumi.resources.Invok
             $ = new GetPatchBaselinesPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param defaultBaselines Only return baseline identities where `defaultBaseline` is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultBaselines(@Nullable Boolean defaultBaselines) {
             $.defaultBaselines = defaultBaselines;
             return this;
         }
 
-        /**
-         * @param filters Key-value pairs used to filter the results. See `filter` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetPatchBaselinesFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Key-value pairs used to filter the results. See `filter` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetPatchBaselinesFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

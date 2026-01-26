@@ -15,21 +15,9 @@ public final class LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpe
 
     public static final LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs Empty = new LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs();
 
-    /**
-     * Whether to enable UDP traffic optimization through ENA Express. Requires `enaSrdEnabled` to be `true`.
-     * 
-     * NOTE: ENA Express requires [specific instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html#ena-express-requirements) and minimum bandwidth of 25 Gbps.
-     * 
-     */
     @Import(name="enaSrdUdpEnabled")
     private @Nullable Output<Boolean> enaSrdUdpEnabled;
 
-    /**
-     * @return Whether to enable UDP traffic optimization through ENA Express. Requires `enaSrdEnabled` to be `true`.
-     * 
-     * NOTE: ENA Express requires [specific instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html#ena-express-requirements) and minimum bandwidth of 25 Gbps.
-     * 
-     */
     public Optional<Output<Boolean>> enaSrdUdpEnabled() {
         return Optional.ofNullable(this.enaSrdUdpEnabled);
     }
@@ -58,27 +46,11 @@ public final class LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpe
             $ = new LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enaSrdUdpEnabled Whether to enable UDP traffic optimization through ENA Express. Requires `enaSrdEnabled` to be `true`.
-         * 
-         * NOTE: ENA Express requires [specific instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html#ena-express-requirements) and minimum bandwidth of 25 Gbps.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enaSrdUdpEnabled(@Nullable Output<Boolean> enaSrdUdpEnabled) {
             $.enaSrdUdpEnabled = enaSrdUdpEnabled;
             return this;
         }
 
-        /**
-         * @param enaSrdUdpEnabled Whether to enable UDP traffic optimization through ENA Express. Requires `enaSrdEnabled` to be `true`.
-         * 
-         * NOTE: ENA Express requires [specific instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html#ena-express-requirements) and minimum bandwidth of 25 Gbps.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enaSrdUdpEnabled(Boolean enaSrdUdpEnabled) {
             return enaSrdUdpEnabled(Output.of(enaSrdUdpEnabled));
         }

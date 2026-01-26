@@ -15,32 +15,16 @@ public final class ViewDataFilterExpressionDimensionsArgs extends com.pulumi.res
 
     public static final ViewDataFilterExpressionDimensionsArgs Empty = new ViewDataFilterExpressionDimensionsArgs();
 
-    /**
-     * Key of the dimension. Possible values are `LINKED_ACCOUNT`.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return Key of the dimension. Possible values are `LINKED_ACCOUNT`.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * List of metadata values that you can use to filter and group your results.
-     * 
-     */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
-    /**
-     * @return List of metadata values that you can use to filter and group your results.
-     * 
-     */
     public Output<List<String>> values() {
         return this.values;
     }
@@ -70,54 +54,24 @@ public final class ViewDataFilterExpressionDimensionsArgs extends com.pulumi.res
             $ = new ViewDataFilterExpressionDimensionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key Key of the dimension. Possible values are `LINKED_ACCOUNT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key Key of the dimension. Possible values are `LINKED_ACCOUNT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param values List of metadata values that you can use to filter and group your results.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values List of metadata values that you can use to filter and group your results.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
-        /**
-         * @param values List of metadata values that you can use to filter and group your results.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

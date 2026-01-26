@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreGatewayTargetCredentialProviderConfigurationApiKey {
-    /**
-     * @return Location where the API key credential is provided. Valid values: `HEADER`, `QUERY_PARAMETER`.
-     * 
-     */
     private @Nullable String credentialLocation;
-    /**
-     * @return Name of the parameter containing the API key credential.
-     * 
-     */
     private @Nullable String credentialParameterName;
-    /**
-     * @return Prefix to add to the API key credential value.
-     * 
-     */
     private @Nullable String credentialPrefix;
-    /**
-     * @return ARN of the OIDC provider for API key authentication.
-     * 
-     */
     private String providerArn;
 
     private AgentcoreGatewayTargetCredentialProviderConfigurationApiKey() {}
-    /**
-     * @return Location where the API key credential is provided. Valid values: `HEADER`, `QUERY_PARAMETER`.
-     * 
-     */
     public Optional<String> credentialLocation() {
         return Optional.ofNullable(this.credentialLocation);
     }
-    /**
-     * @return Name of the parameter containing the API key credential.
-     * 
-     */
     public Optional<String> credentialParameterName() {
         return Optional.ofNullable(this.credentialParameterName);
     }
-    /**
-     * @return Prefix to add to the API key credential value.
-     * 
-     */
     public Optional<String> credentialPrefix() {
         return Optional.ofNullable(this.credentialPrefix);
     }
-    /**
-     * @return ARN of the OIDC provider for API key authentication.
-     * 
-     */
     public String providerArn() {
         return this.providerArn;
     }

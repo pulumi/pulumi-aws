@@ -7,34 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a SageMaker AI Device Fleet resource.
- *
- * ## Example Usage
- *
- * ### Basic usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sagemaker.DeviceFleet("example", {
- *     deviceFleetName: "example",
- *     roleArn: test.arn,
- *     outputConfig: {
- *         s3OutputLocation: `s3://${exampleAwsS3Bucket.bucket}/prefix/`,
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import SageMaker AI Device Fleets using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet
- * ```
- */
 export class DeviceFleet extends pulumi.CustomResource {
     /**
      * Get an existing DeviceFleet resource's state with the given name, ID, and optional extra
@@ -63,42 +35,15 @@ export class DeviceFleet extends pulumi.CustomResource {
         return obj['__pulumiType'] === DeviceFleet.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * A description of the fleet.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * The name of the Device Fleet (must be unique).
-     */
     declare public readonly deviceFleetName: pulumi.Output<string>;
-    /**
-     * Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: "SageMakerEdge-{DeviceFleetName}".
-     */
     declare public readonly enableIotRoleAlias: pulumi.Output<boolean | undefined>;
     declare public /*out*/ readonly iotRoleAlias: pulumi.Output<string>;
-    /**
-     * Specifies details about the repository. see Output Config details below.
-     */
     declare public readonly outputConfig: pulumi.Output<outputs.sagemaker.DeviceFleetOutputConfig>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
-     */
     declare public readonly roleArn: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -155,42 +100,15 @@ export class DeviceFleet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DeviceFleet resources.
  */
 export interface DeviceFleetState {
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * A description of the fleet.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The name of the Device Fleet (must be unique).
-     */
     deviceFleetName?: pulumi.Input<string>;
-    /**
-     * Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: "SageMakerEdge-{DeviceFleetName}".
-     */
     enableIotRoleAlias?: pulumi.Input<boolean>;
     iotRoleAlias?: pulumi.Input<string>;
-    /**
-     * Specifies details about the repository. see Output Config details below.
-     */
     outputConfig?: pulumi.Input<inputs.sagemaker.DeviceFleetOutputConfig>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
-     */
     roleArn?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -198,32 +116,11 @@ export interface DeviceFleetState {
  * The set of arguments for constructing a DeviceFleet resource.
  */
 export interface DeviceFleetArgs {
-    /**
-     * A description of the fleet.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The name of the Device Fleet (must be unique).
-     */
     deviceFleetName: pulumi.Input<string>;
-    /**
-     * Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: "SageMakerEdge-{DeviceFleetName}".
-     */
     enableIotRoleAlias?: pulumi.Input<boolean>;
-    /**
-     * Specifies details about the repository. see Output Config details below.
-     */
     outputConfig: pulumi.Input<inputs.sagemaker.DeviceFleetOutputConfig>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
-     */
     roleArn: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

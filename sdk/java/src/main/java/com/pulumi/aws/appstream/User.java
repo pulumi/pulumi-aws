@@ -15,183 +15,59 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AppStream user.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appstream.User;
- * import com.pulumi.aws.appstream.UserArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new User("example", UserArgs.builder()
- *             .authenticationType("USERPOOL")
- *             .userName("EMAIL")
- *             .firstName("FIRST NAME")
- *             .lastName("LAST NAME")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_appstream_user` using the `user_name` and `authentication_type` separated by a slash (`/`). For example:
- * 
- * ```sh
- * $ pulumi import aws:appstream/user:User example UserName/AuthenticationType
- * ```
- * 
- */
 @ResourceType(type="aws:appstream/user:User")
 public class User extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the appstream user.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the appstream user.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
-     * 
-     */
     @Export(name="authenticationType", refs={String.class}, tree="[0]")
     private Output<String> authenticationType;
 
-    /**
-     * @return Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
-     * 
-     */
     public Output<String> authenticationType() {
         return this.authenticationType;
     }
-    /**
-     * Date and time, in UTC and extended RFC 3339 format, when the user was created.
-     * 
-     */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
-    /**
-     * @return Date and time, in UTC and extended RFC 3339 format, when the user was created.
-     * 
-     */
     public Output<String> createdTime() {
         return this.createdTime;
     }
-    /**
-     * Whether the user in the user pool is enabled.
-     * 
-     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
-    /**
-     * @return Whether the user in the user pool is enabled.
-     * 
-     */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
-    /**
-     * First name, or given name, of the user.
-     * 
-     */
     @Export(name="firstName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> firstName;
 
-    /**
-     * @return First name, or given name, of the user.
-     * 
-     */
     public Output<Optional<String>> firstName() {
         return Codegen.optional(this.firstName);
     }
-    /**
-     * Last name, or surname, of the user.
-     * 
-     */
     @Export(name="lastName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> lastName;
 
-    /**
-     * @return Last name, or surname, of the user.
-     * 
-     */
     public Output<Optional<String>> lastName() {
         return Codegen.optional(this.lastName);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Send an email notification.
-     * 
-     */
     @Export(name="sendEmailNotification", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sendEmailNotification;
 
-    /**
-     * @return Send an email notification.
-     * 
-     */
     public Output<Optional<Boolean>> sendEmailNotification() {
         return Codegen.optional(this.sendEmailNotification);
     }
-    /**
-     * Email address of the user.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
-    /**
-     * @return Email address of the user.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> userName() {
         return this.userName;
     }

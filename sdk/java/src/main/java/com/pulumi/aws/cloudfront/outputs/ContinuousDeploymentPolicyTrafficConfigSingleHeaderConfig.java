@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig {
-    /**
-     * @return Request header name to send to the staging distribution. The header must contain the prefix `aws-cf-cd-`.
-     * 
-     */
     private String header;
-    /**
-     * @return Request header value.
-     * 
-     */
     private String value;
 
     private ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig() {}
-    /**
-     * @return Request header name to send to the staging distribution. The header must contain the prefix `aws-cf-cd-`.
-     * 
-     */
     public String header() {
         return this.header;
     }
-    /**
-     * @return Request header value.
-     * 
-     */
     public String value() {
         return this.value;
     }

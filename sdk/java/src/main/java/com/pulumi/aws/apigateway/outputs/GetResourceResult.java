@@ -15,16 +15,8 @@ public final class GetResourceResult {
      * 
      */
     private String id;
-    /**
-     * @return Set to the ID of the parent Resource.
-     * 
-     */
     private String parentId;
     private String path;
-    /**
-     * @return Set to the path relative to the parent Resource.
-     * 
-     */
     private String pathPart;
     private String region;
     private String restApiId;
@@ -37,20 +29,12 @@ public final class GetResourceResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Set to the ID of the parent Resource.
-     * 
-     */
     public String parentId() {
         return this.parentId;
     }
     public String path() {
         return this.path;
     }
-    /**
-     * @return Set to the path relative to the parent Resource.
-     * 
-     */
     public String pathPart() {
         return this.pathPart;
     }

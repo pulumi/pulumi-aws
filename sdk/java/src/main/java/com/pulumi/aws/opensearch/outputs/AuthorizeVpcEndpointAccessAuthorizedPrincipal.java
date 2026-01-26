@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class AuthorizeVpcEndpointAccessAuthorizedPrincipal {
-    /**
-     * @return IAM principal that is allowed to access to the domain.
-     * 
-     */
     private String principal;
-    /**
-     * @return Type of principal.
-     * 
-     */
     private String principalType;
 
     private AuthorizeVpcEndpointAccessAuthorizedPrincipal() {}
-    /**
-     * @return IAM principal that is allowed to access to the domain.
-     * 
-     */
     public String principal() {
         return this.principal;
     }
-    /**
-     * @return Type of principal.
-     * 
-     */
     public String principalType() {
         return this.principalType;
     }

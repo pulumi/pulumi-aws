@@ -18,92 +18,44 @@ public final class CapacityProviderArgs extends com.pulumi.resources.ResourceArg
 
     public static final CapacityProviderArgs Empty = new CapacityProviderArgs();
 
-    /**
-     * Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
-     * 
-     */
     @Import(name="autoScalingGroupProvider")
     private @Nullable Output<CapacityProviderAutoScalingGroupProviderArgs> autoScalingGroupProvider;
 
-    /**
-     * @return Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
-     * 
-     */
     public Optional<Output<CapacityProviderAutoScalingGroupProviderArgs>> autoScalingGroupProvider() {
         return Optional.ofNullable(this.autoScalingGroupProvider);
     }
 
-    /**
-     * Name of the ECS cluster. Required when using `managedInstancesProvider`. Must not be set when using `autoScalingGroupProvider`.
-     * 
-     */
     @Import(name="cluster")
     private @Nullable Output<String> cluster;
 
-    /**
-     * @return Name of the ECS cluster. Required when using `managedInstancesProvider`. Must not be set when using `autoScalingGroupProvider`.
-     * 
-     */
     public Optional<Output<String>> cluster() {
         return Optional.ofNullable(this.cluster);
     }
 
-    /**
-     * Configuration block for the managed instances provider. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
-     * 
-     */
     @Import(name="managedInstancesProvider")
     private @Nullable Output<CapacityProviderManagedInstancesProviderArgs> managedInstancesProvider;
 
-    /**
-     * @return Configuration block for the managed instances provider. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
-     * 
-     */
     public Optional<Output<CapacityProviderManagedInstancesProviderArgs>> managedInstancesProvider() {
         return Optional.ofNullable(this.managedInstancesProvider);
     }
 
-    /**
-     * Name of the capacity provider.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the capacity provider.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -137,128 +89,56 @@ public final class CapacityProviderArgs extends com.pulumi.resources.ResourceArg
             $ = new CapacityProviderArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param autoScalingGroupProvider Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoScalingGroupProvider(@Nullable Output<CapacityProviderAutoScalingGroupProviderArgs> autoScalingGroupProvider) {
             $.autoScalingGroupProvider = autoScalingGroupProvider;
             return this;
         }
 
-        /**
-         * @param autoScalingGroupProvider Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoScalingGroupProvider(CapacityProviderAutoScalingGroupProviderArgs autoScalingGroupProvider) {
             return autoScalingGroupProvider(Output.of(autoScalingGroupProvider));
         }
 
-        /**
-         * @param cluster Name of the ECS cluster. Required when using `managedInstancesProvider`. Must not be set when using `autoScalingGroupProvider`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cluster(@Nullable Output<String> cluster) {
             $.cluster = cluster;
             return this;
         }
 
-        /**
-         * @param cluster Name of the ECS cluster. Required when using `managedInstancesProvider`. Must not be set when using `autoScalingGroupProvider`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cluster(String cluster) {
             return cluster(Output.of(cluster));
         }
 
-        /**
-         * @param managedInstancesProvider Configuration block for the managed instances provider. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedInstancesProvider(@Nullable Output<CapacityProviderManagedInstancesProviderArgs> managedInstancesProvider) {
             $.managedInstancesProvider = managedInstancesProvider;
             return this;
         }
 
-        /**
-         * @param managedInstancesProvider Configuration block for the managed instances provider. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedInstancesProvider(CapacityProviderManagedInstancesProviderArgs managedInstancesProvider) {
             return managedInstancesProvider(Output.of(managedInstancesProvider));
         }
 
-        /**
-         * @param name Name of the capacity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the capacity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

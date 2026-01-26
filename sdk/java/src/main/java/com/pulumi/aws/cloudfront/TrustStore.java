@@ -18,206 +18,47 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an AWS CloudFront Trust Store.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudfront.TrustStore;
- * import com.pulumi.aws.cloudfront.TrustStoreArgs;
- * import com.pulumi.aws.cloudfront.inputs.TrustStoreCaCertificatesBundleSourceArgs;
- * import com.pulumi.aws.cloudfront.inputs.TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new TrustStore("example", TrustStoreArgs.builder()
- *             .name("example-trust-store")
- *             .caCertificatesBundleSource(TrustStoreCaCertificatesBundleSourceArgs.builder()
- *                 .caCertificatesBundleS3Location(TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs.builder()
- *                     .bucket("example-bucket")
- *                     .key("ca-certificates.pem")
- *                     .region("us-east-1")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### With S3 Object Version
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudfront.TrustStore;
- * import com.pulumi.aws.cloudfront.TrustStoreArgs;
- * import com.pulumi.aws.cloudfront.inputs.TrustStoreCaCertificatesBundleSourceArgs;
- * import com.pulumi.aws.cloudfront.inputs.TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new TrustStore("example", TrustStoreArgs.builder()
- *             .name("example-trust-store")
- *             .caCertificatesBundleSource(TrustStoreCaCertificatesBundleSourceArgs.builder()
- *                 .caCertificatesBundleS3Location(TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs.builder()
- *                     .bucket("example-bucket")
- *                     .key("ca-certificates.pem")
- *                     .region("us-east-1")
- *                     .version("abc123")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import CloudFront Trust Store using the trust store ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:cloudfront/trustStore:TrustStore example ts_12abcXYZhA4Q6RS6tuvW5Xy0ZZZ
- * ```
- * 
- */
 @ResourceType(type="aws:cloudfront/trustStore:TrustStore")
 public class TrustStore extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the trust store.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the trust store.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Configuration block for the CA certificates bundle source. See `caCertificatesBundleSource` below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="caCertificatesBundleSource", refs={TrustStoreCaCertificatesBundleSource.class}, tree="[0]")
     private Output</* @Nullable */ TrustStoreCaCertificatesBundleSource> caCertificatesBundleSource;
 
-    /**
-     * @return Configuration block for the CA certificates bundle source. See `caCertificatesBundleSource` below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Optional<TrustStoreCaCertificatesBundleSource>> caCertificatesBundleSource() {
         return Codegen.optional(this.caCertificatesBundleSource);
     }
-    /**
-     * ETag of the trust store.
-     * 
-     */
     @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
-    /**
-     * @return ETag of the trust store.
-     * 
-     */
     public Output<String> etag() {
         return this.etag;
     }
-    /**
-     * Name of the trust store. Changing this forces a new resource to be created.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the trust store. Changing this forces a new resource to be created.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Number of CA certificates in the trust store.
-     * 
-     */
     @Export(name="numberOfCaCertificates", refs={Integer.class}, tree="[0]")
     private Output<Integer> numberOfCaCertificates;
 
-    /**
-     * @return Number of CA certificates in the trust store.
-     * 
-     */
     public Output<Integer> numberOfCaCertificates() {
         return this.numberOfCaCertificates;
     }
-    /**
-     * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

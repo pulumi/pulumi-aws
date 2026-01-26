@@ -18,107 +18,51 @@ public final class GetDevEnvironmentPlainArgs extends com.pulumi.resources.Invok
 
     public static final GetDevEnvironmentPlainArgs Empty = new GetDevEnvironmentPlainArgs();
 
-    /**
-     * The user-specified alias for the Dev Environment.
-     * 
-     */
     @Import(name="alias")
     private @Nullable String alias;
 
-    /**
-     * @return The user-specified alias for the Dev Environment.
-     * 
-     */
     public Optional<String> alias() {
         return Optional.ofNullable(this.alias);
     }
 
-    /**
-     * The system-generated unique ID of the user who created the Dev Environment.
-     * 
-     */
     @Import(name="creatorId")
     private @Nullable String creatorId;
 
-    /**
-     * @return The system-generated unique ID of the user who created the Dev Environment.
-     * 
-     */
     public Optional<String> creatorId() {
         return Optional.ofNullable(this.creatorId);
     }
 
-    /**
-     * - (Required) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
-     * 
-     */
     @Import(name="envId", required=true)
     private String envId;
 
-    /**
-     * @return - (Required) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
-     * 
-     */
     public String envId() {
         return this.envId;
     }
 
-    /**
-     * The name of the project in the space.
-     * 
-     */
     @Import(name="projectName", required=true)
     private String projectName;
 
-    /**
-     * @return The name of the project in the space.
-     * 
-     */
     public String projectName() {
         return this.projectName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The source repository that contains the branch to clone into the Dev Environment.
-     * 
-     */
     @Import(name="repositories")
     private @Nullable List<GetDevEnvironmentRepository> repositories;
 
-    /**
-     * @return The source repository that contains the branch to clone into the Dev Environment.
-     * 
-     */
     public Optional<List<GetDevEnvironmentRepository>> repositories() {
         return Optional.ofNullable(this.repositories);
     }
 
-    /**
-     * The name of the space.
-     * 
-     */
     @Import(name="spaceName", required=true)
     private String spaceName;
 
-    /**
-     * @return The name of the space.
-     * 
-     */
     public String spaceName() {
         return this.spaceName;
     }
@@ -161,88 +105,40 @@ public final class GetDevEnvironmentPlainArgs extends com.pulumi.resources.Invok
             $ = new GetDevEnvironmentPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param alias The user-specified alias for the Dev Environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alias(@Nullable String alias) {
             $.alias = alias;
             return this;
         }
 
-        /**
-         * @param creatorId The system-generated unique ID of the user who created the Dev Environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder creatorId(@Nullable String creatorId) {
             $.creatorId = creatorId;
             return this;
         }
 
-        /**
-         * @param envId - (Required) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder envId(String envId) {
             $.envId = envId;
             return this;
         }
 
-        /**
-         * @param projectName The name of the project in the space.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectName(String projectName) {
             $.projectName = projectName;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param repositories The source repository that contains the branch to clone into the Dev Environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositories(@Nullable List<GetDevEnvironmentRepository> repositories) {
             $.repositories = repositories;
             return this;
         }
 
-        /**
-         * @param repositories The source repository that contains the branch to clone into the Dev Environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositories(GetDevEnvironmentRepository... repositories) {
             return repositories(List.of(repositories));
         }
 
-        /**
-         * @param spaceName The name of the space.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spaceName(String spaceName) {
             $.spaceName = spaceName;
             return this;

@@ -16,47 +16,23 @@ public final class ServiceSettingArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final ServiceSettingArgs Empty = new ServiceSettingArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
-     * 
-     */
     @Import(name="settingId", required=true)
     private Output<String> settingId;
 
-    /**
-     * @return ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
-     * 
-     */
     public Output<String> settingId() {
         return this.settingId;
     }
 
-    /**
-     * Value of the service setting.
-     * 
-     */
     @Import(name="settingValue", required=true)
     private Output<String> settingValue;
 
-    /**
-     * @return Value of the service setting.
-     * 
-     */
     public Output<String> settingValue() {
         return this.settingValue;
     }
@@ -87,65 +63,29 @@ public final class ServiceSettingArgs extends com.pulumi.resources.ResourceArgs 
             $ = new ServiceSettingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param settingId ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
-         * 
-         * @return builder
-         * 
-         */
         public Builder settingId(Output<String> settingId) {
             $.settingId = settingId;
             return this;
         }
 
-        /**
-         * @param settingId ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
-         * 
-         * @return builder
-         * 
-         */
         public Builder settingId(String settingId) {
             return settingId(Output.of(settingId));
         }
 
-        /**
-         * @param settingValue Value of the service setting.
-         * 
-         * @return builder
-         * 
-         */
         public Builder settingValue(Output<String> settingValue) {
             $.settingValue = settingValue;
             return this;
         }
 
-        /**
-         * @param settingValue Value of the service setting.
-         * 
-         * @return builder
-         * 
-         */
         public Builder settingValue(String settingValue) {
             return settingValue(Output.of(settingValue));
         }

@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings {
-    /**
-     * @return Html Motion Graphics Settings.
-     * 
-     */
     private @Nullable ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings htmlMotionGraphicsSettings;
 
     private ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings() {}
-    /**
-     * @return Html Motion Graphics Settings.
-     * 
-     */
     public Optional<ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings> htmlMotionGraphicsSettings() {
         return Optional.ofNullable(this.htmlMotionGraphicsSettings);
     }

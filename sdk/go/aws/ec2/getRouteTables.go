@@ -11,59 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
-//
-// ## Example Usage
-//
-// The following adds a route for a particular cidr block to every (private
-// kops) route table in a specified vpc to use a particular vpc peering
-// connection.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			rts, err := ec2.GetRouteTables(ctx, &ec2.GetRouteTablesArgs{
-//				VpcId: pulumi.StringRef(vpcId),
-//				Filters: []ec2.GetRouteTablesFilter{
-//					{
-//						Name: "tag:kubernetes.io/kops/role",
-//						Values: []string{
-//							"private*",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			var r []*ec2.Route
-//			for index := 0; index < int(len(rts.Ids)); index++ {
-//				key0 := index
-//				val0 := index
-//				__res, err := ec2.NewRoute(ctx, fmt.Sprintf("r-%v", key0), &ec2.RouteArgs{
-//					RouteTableId:           pulumi.String(rts.Ids[val0]),
-//					DestinationCidrBlock:   pulumi.String("10.0.0.0/22"),
-//					VpcPeeringConnectionId: pulumi.String("pcx-0e9a7a9ecd137dc54"),
-//				})
-//				if err != nil {
-//					return err
-//				}
-//				r = append(r, __res)
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetRouteTables(ctx *pulumi.Context, args *GetRouteTablesArgs, opts ...pulumi.InvokeOption) (*GetRouteTablesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRouteTablesResult
@@ -76,23 +23,17 @@ func GetRouteTables(ctx *pulumi.Context, args *GetRouteTablesArgs, opts ...pulum
 
 // A collection of arguments for invoking getRouteTables.
 type GetRouteTablesArgs struct {
-	// Custom filter block as described below.
 	Filters []GetRouteTablesFilter `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired route tables.
-	Tags map[string]string `pulumi:"tags"`
-	// VPC ID that you want to filter from.
-	VpcId *string `pulumi:"vpcId"`
+	Region  *string                `pulumi:"region"`
+	Tags    map[string]string      `pulumi:"tags"`
+	VpcId   *string                `pulumi:"vpcId"`
 }
 
 // A collection of values returned by getRouteTables.
 type GetRouteTablesResult struct {
 	Filters []GetRouteTablesFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// List of all the route table ids found.
+	Id     string            `pulumi:"id"`
 	Ids    []string          `pulumi:"ids"`
 	Region string            `pulumi:"region"`
 	Tags   map[string]string `pulumi:"tags"`
@@ -110,15 +51,10 @@ func GetRouteTablesOutput(ctx *pulumi.Context, args GetRouteTablesOutputArgs, op
 
 // A collection of arguments for invoking getRouteTables.
 type GetRouteTablesOutputArgs struct {
-	// Custom filter block as described below.
 	Filters GetRouteTablesFilterArrayInput `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired route tables.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// VPC ID that you want to filter from.
-	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
+	Region  pulumi.StringPtrInput          `pulumi:"region"`
+	Tags    pulumi.StringMapInput          `pulumi:"tags"`
+	VpcId   pulumi.StringPtrInput          `pulumi:"vpcId"`
 }
 
 func (GetRouteTablesOutputArgs) ElementType() reflect.Type {
@@ -149,7 +85,6 @@ func (o GetRouteTablesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTablesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of all the route table ids found.
 func (o GetRouteTablesResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetRouteTablesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

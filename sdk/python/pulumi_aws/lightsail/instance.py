@@ -33,18 +33,6 @@ class InstanceArgs:
                  user_data: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Instance resource.
-        :param pulumi.Input[_builtins.str] availability_zone: Availability Zone in which to create your instance. A list of available zones can be obtained using the AWS CLI command: [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
-        :param pulumi.Input[_builtins.str] blueprint_id: ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
-        :param pulumi.Input[_builtins.str] bundle_id: Bundle of specification information. A list of available bundle IDs can be obtained using the AWS CLI command: [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
-        :param pulumi.Input['InstanceAddOnArgs'] add_on: Add-on configuration for the instance. See below.
-        :param pulumi.Input[_builtins.str] ip_address_type: IP address type of the Lightsail Instance. Valid values: `dualstack`, `ipv4`, `ipv6`. Default: `dualstack`.
-        :param pulumi.Input[_builtins.str] key_pair_name: Name of your key pair. Created in the Lightsail console (cannot use `ec2.KeyPair` at this time).
-        :param pulumi.Input[_builtins.str] name: Name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] user_data: Single lined launch script as a string to configure server with additional user data.
         """
         pulumi.set(__self__, "availability_zone", availability_zone)
         pulumi.set(__self__, "blueprint_id", blueprint_id)
@@ -67,9 +55,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Input[_builtins.str]:
-        """
-        Availability Zone in which to create your instance. A list of available zones can be obtained using the AWS CLI command: [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
-        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -79,9 +64,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="blueprintId")
     def blueprint_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
-        """
         return pulumi.get(self, "blueprint_id")
 
     @blueprint_id.setter
@@ -91,9 +73,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="bundleId")
     def bundle_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Bundle of specification information. A list of available bundle IDs can be obtained using the AWS CLI command: [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
-        """
         return pulumi.get(self, "bundle_id")
 
     @bundle_id.setter
@@ -103,9 +82,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="addOn")
     def add_on(self) -> Optional[pulumi.Input['InstanceAddOnArgs']]:
-        """
-        Add-on configuration for the instance. See below.
-        """
         return pulumi.get(self, "add_on")
 
     @add_on.setter
@@ -115,9 +91,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        IP address type of the Lightsail Instance. Valid values: `dualstack`, `ipv4`, `ipv6`. Default: `dualstack`.
-        """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
@@ -127,9 +100,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="keyPairName")
     def key_pair_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of your key pair. Created in the Lightsail console (cannot use `ec2.KeyPair` at this time).
-        """
         return pulumi.get(self, "key_pair_name")
 
     @key_pair_name.setter
@@ -139,11 +109,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -153,9 +118,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -165,9 +127,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -177,9 +136,6 @@ class InstanceArgs:
     @_builtins.property
     @pulumi.getter(name="userData")
     def user_data(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Single lined launch script as a string to configure server with additional user data.
-        """
         return pulumi.get(self, "user_data")
 
     @user_data.setter
@@ -212,28 +168,6 @@ class _InstanceState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Instance resources.
-        :param pulumi.Input['InstanceAddOnArgs'] add_on: Add-on configuration for the instance. See below.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Lightsail instance (matches `id`).
-        :param pulumi.Input[_builtins.str] availability_zone: Availability Zone in which to create your instance. A list of available zones can be obtained using the AWS CLI command: [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
-        :param pulumi.Input[_builtins.str] blueprint_id: ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
-        :param pulumi.Input[_builtins.str] bundle_id: Bundle of specification information. A list of available bundle IDs can be obtained using the AWS CLI command: [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
-        :param pulumi.Input[_builtins.int] cpu_count: Number of vCPUs the instance has.
-        :param pulumi.Input[_builtins.str] created_at: Timestamp when the instance was created.
-        :param pulumi.Input[_builtins.str] ip_address_type: IP address type of the Lightsail Instance. Valid values: `dualstack`, `ipv4`, `ipv6`. Default: `dualstack`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ipv6_addresses: List of IPv6 addresses for the Lightsail instance.
-        :param pulumi.Input[_builtins.bool] is_static_ip: Whether this instance has a static IP assigned to it.
-        :param pulumi.Input[_builtins.str] key_pair_name: Name of your key pair. Created in the Lightsail console (cannot use `ec2.KeyPair` at this time).
-        :param pulumi.Input[_builtins.str] name: Name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] private_ip_address: Private IP address of the instance.
-        :param pulumi.Input[_builtins.str] public_ip_address: Public IP address of the instance.
-        :param pulumi.Input[_builtins.float] ram_size: Amount of RAM in GB on the instance (e.g., 1.0).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] user_data: Single lined launch script as a string to configure server with additional user data.
-        :param pulumi.Input[_builtins.str] username: User name for connecting to the instance (e.g., ec2-user).
         """
         if add_on is not None:
             pulumi.set(__self__, "add_on", add_on)
@@ -279,9 +213,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="addOn")
     def add_on(self) -> Optional[pulumi.Input['InstanceAddOnArgs']]:
-        """
-        Add-on configuration for the instance. See below.
-        """
         return pulumi.get(self, "add_on")
 
     @add_on.setter
@@ -291,9 +222,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Lightsail instance (matches `id`).
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -303,9 +231,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Availability Zone in which to create your instance. A list of available zones can be obtained using the AWS CLI command: [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
-        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -315,9 +240,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="blueprintId")
     def blueprint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
-        """
         return pulumi.get(self, "blueprint_id")
 
     @blueprint_id.setter
@@ -327,9 +249,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="bundleId")
     def bundle_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Bundle of specification information. A list of available bundle IDs can be obtained using the AWS CLI command: [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
-        """
         return pulumi.get(self, "bundle_id")
 
     @bundle_id.setter
@@ -339,9 +258,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="cpuCount")
     def cpu_count(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of vCPUs the instance has.
-        """
         return pulumi.get(self, "cpu_count")
 
     @cpu_count.setter
@@ -351,9 +267,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Timestamp when the instance was created.
-        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -363,9 +276,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        IP address type of the Lightsail Instance. Valid values: `dualstack`, `ipv4`, `ipv6`. Default: `dualstack`.
-        """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
@@ -375,9 +285,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="ipv6Addresses")
     def ipv6_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of IPv6 addresses for the Lightsail instance.
-        """
         return pulumi.get(self, "ipv6_addresses")
 
     @ipv6_addresses.setter
@@ -387,9 +294,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="isStaticIp")
     def is_static_ip(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether this instance has a static IP assigned to it.
-        """
         return pulumi.get(self, "is_static_ip")
 
     @is_static_ip.setter
@@ -399,9 +303,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="keyPairName")
     def key_pair_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of your key pair. Created in the Lightsail console (cannot use `ec2.KeyPair` at this time).
-        """
         return pulumi.get(self, "key_pair_name")
 
     @key_pair_name.setter
@@ -411,11 +312,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -425,9 +321,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Private IP address of the instance.
-        """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
@@ -437,9 +330,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="publicIpAddress")
     def public_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Public IP address of the instance.
-        """
         return pulumi.get(self, "public_ip_address")
 
     @public_ip_address.setter
@@ -449,9 +339,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="ramSize")
     def ram_size(self) -> Optional[pulumi.Input[_builtins.float]]:
-        """
-        Amount of RAM in GB on the instance (e.g., 1.0).
-        """
         return pulumi.get(self, "ram_size")
 
     @ram_size.setter
@@ -461,9 +348,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -473,9 +357,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -485,9 +366,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -497,9 +375,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="userData")
     def user_data(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Single lined launch script as a string to configure server with additional user data.
-        """
         return pulumi.get(self, "user_data")
 
     @user_data.setter
@@ -509,9 +384,6 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        User name for connecting to the instance (e.g., ec2-user).
-        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -537,88 +409,9 @@ class Instance(pulumi.CustomResource):
                  user_data: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages a Lightsail Instance. Use this resource to create easy virtual private servers with custom software already setup.
-
-        > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lightsail.Instance("example",
-            name="example",
-            availability_zone="us-east-1b",
-            blueprint_id="amazon_linux_2",
-            bundle_id="nano_3_0",
-            key_pair_name="some_key_name",
-            tags={
-                "foo": "bar",
-            })
-        ```
-
-        ### Example With User Data
-
-        Lightsail user data is handled differently than EC2 user data. Lightsail user data only accepts a single lined string. The below example shows installing apache and creating the index page.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lightsail.Instance("example",
-            name="example",
-            availability_zone="us-east-1b",
-            blueprint_id="amazon_linux_2",
-            bundle_id="nano_3_0",
-            user_data="sudo yum install -y httpd && sudo systemctl start httpd && sudo systemctl enable httpd && echo '<h1>Deployed via Pulumi</h1>' | sudo tee /var/www/html/index.html")
-        ```
-
-        ### Enable Auto Snapshots
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lightsail.Instance("example",
-            name="example",
-            availability_zone="us-east-1b",
-            blueprint_id="amazon_linux_2",
-            bundle_id="nano_3_0",
-            add_on={
-                "type": "AutoSnapshot",
-                "snapshot_time": "06:00",
-                "status": "Enabled",
-            },
-            tags={
-                "foo": "bar",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Lightsail Instances using their name. For example:
-
-        ```sh
-        $ pulumi import aws:lightsail/instance:Instance example 'example'
-        ```
-
+        Create a Instance resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['InstanceAddOnArgs', 'InstanceAddOnArgsDict']] add_on: Add-on configuration for the instance. See below.
-        :param pulumi.Input[_builtins.str] availability_zone: Availability Zone in which to create your instance. A list of available zones can be obtained using the AWS CLI command: [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
-        :param pulumi.Input[_builtins.str] blueprint_id: ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
-        :param pulumi.Input[_builtins.str] bundle_id: Bundle of specification information. A list of available bundle IDs can be obtained using the AWS CLI command: [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
-        :param pulumi.Input[_builtins.str] ip_address_type: IP address type of the Lightsail Instance. Valid values: `dualstack`, `ipv4`, `ipv6`. Default: `dualstack`.
-        :param pulumi.Input[_builtins.str] key_pair_name: Name of your key pair. Created in the Lightsail console (cannot use `ec2.KeyPair` at this time).
-        :param pulumi.Input[_builtins.str] name: Name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] user_data: Single lined launch script as a string to configure server with additional user data.
         """
         ...
     @overload
@@ -627,74 +420,7 @@ class Instance(pulumi.CustomResource):
                  args: InstanceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Lightsail Instance. Use this resource to create easy virtual private servers with custom software already setup.
-
-        > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lightsail.Instance("example",
-            name="example",
-            availability_zone="us-east-1b",
-            blueprint_id="amazon_linux_2",
-            bundle_id="nano_3_0",
-            key_pair_name="some_key_name",
-            tags={
-                "foo": "bar",
-            })
-        ```
-
-        ### Example With User Data
-
-        Lightsail user data is handled differently than EC2 user data. Lightsail user data only accepts a single lined string. The below example shows installing apache and creating the index page.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lightsail.Instance("example",
-            name="example",
-            availability_zone="us-east-1b",
-            blueprint_id="amazon_linux_2",
-            bundle_id="nano_3_0",
-            user_data="sudo yum install -y httpd && sudo systemctl start httpd && sudo systemctl enable httpd && echo '<h1>Deployed via Pulumi</h1>' | sudo tee /var/www/html/index.html")
-        ```
-
-        ### Enable Auto Snapshots
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lightsail.Instance("example",
-            name="example",
-            availability_zone="us-east-1b",
-            blueprint_id="amazon_linux_2",
-            bundle_id="nano_3_0",
-            add_on={
-                "type": "AutoSnapshot",
-                "snapshot_time": "06:00",
-                "status": "Enabled",
-            },
-            tags={
-                "foo": "bar",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Lightsail Instances using their name. For example:
-
-        ```sh
-        $ pulumi import aws:lightsail/instance:Instance example 'example'
-        ```
-
+        Create a Instance resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param InstanceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -792,28 +518,6 @@ class Instance(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['InstanceAddOnArgs', 'InstanceAddOnArgsDict']] add_on: Add-on configuration for the instance. See below.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Lightsail instance (matches `id`).
-        :param pulumi.Input[_builtins.str] availability_zone: Availability Zone in which to create your instance. A list of available zones can be obtained using the AWS CLI command: [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
-        :param pulumi.Input[_builtins.str] blueprint_id: ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
-        :param pulumi.Input[_builtins.str] bundle_id: Bundle of specification information. A list of available bundle IDs can be obtained using the AWS CLI command: [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
-        :param pulumi.Input[_builtins.int] cpu_count: Number of vCPUs the instance has.
-        :param pulumi.Input[_builtins.str] created_at: Timestamp when the instance was created.
-        :param pulumi.Input[_builtins.str] ip_address_type: IP address type of the Lightsail Instance. Valid values: `dualstack`, `ipv4`, `ipv6`. Default: `dualstack`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ipv6_addresses: List of IPv6 addresses for the Lightsail instance.
-        :param pulumi.Input[_builtins.bool] is_static_ip: Whether this instance has a static IP assigned to it.
-        :param pulumi.Input[_builtins.str] key_pair_name: Name of your key pair. Created in the Lightsail console (cannot use `ec2.KeyPair` at this time).
-        :param pulumi.Input[_builtins.str] name: Name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] private_ip_address: Private IP address of the instance.
-        :param pulumi.Input[_builtins.str] public_ip_address: Public IP address of the instance.
-        :param pulumi.Input[_builtins.float] ram_size: Amount of RAM in GB on the instance (e.g., 1.0).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] user_data: Single lined launch script as a string to configure server with additional user data.
-        :param pulumi.Input[_builtins.str] username: User name for connecting to the instance (e.g., ec2-user).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -844,162 +548,100 @@ class Instance(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="addOn")
     def add_on(self) -> pulumi.Output[Optional['outputs.InstanceAddOn']]:
-        """
-        Add-on configuration for the instance. See below.
-        """
         return pulumi.get(self, "add_on")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Lightsail instance (matches `id`).
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[_builtins.str]:
-        """
-        Availability Zone in which to create your instance. A list of available zones can be obtained using the AWS CLI command: [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
-        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
     @pulumi.getter(name="blueprintId")
     def blueprint_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
-        """
         return pulumi.get(self, "blueprint_id")
 
     @_builtins.property
     @pulumi.getter(name="bundleId")
     def bundle_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Bundle of specification information. A list of available bundle IDs can be obtained using the AWS CLI command: [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
-        """
         return pulumi.get(self, "bundle_id")
 
     @_builtins.property
     @pulumi.getter(name="cpuCount")
     def cpu_count(self) -> pulumi.Output[_builtins.int]:
-        """
-        Number of vCPUs the instance has.
-        """
         return pulumi.get(self, "cpu_count")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        Timestamp when the instance was created.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        IP address type of the Lightsail Instance. Valid values: `dualstack`, `ipv4`, `ipv6`. Default: `dualstack`.
-        """
         return pulumi.get(self, "ip_address_type")
 
     @_builtins.property
     @pulumi.getter(name="ipv6Addresses")
     def ipv6_addresses(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        List of IPv6 addresses for the Lightsail instance.
-        """
         return pulumi.get(self, "ipv6_addresses")
 
     @_builtins.property
     @pulumi.getter(name="isStaticIp")
     def is_static_ip(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether this instance has a static IP assigned to it.
-        """
         return pulumi.get(self, "is_static_ip")
 
     @_builtins.property
     @pulumi.getter(name="keyPairName")
     def key_pair_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Name of your key pair. Created in the Lightsail console (cannot use `ec2.KeyPair` at this time).
-        """
         return pulumi.get(self, "key_pair_name")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> pulumi.Output[_builtins.str]:
-        """
-        Private IP address of the instance.
-        """
         return pulumi.get(self, "private_ip_address")
 
     @_builtins.property
     @pulumi.getter(name="publicIpAddress")
     def public_ip_address(self) -> pulumi.Output[_builtins.str]:
-        """
-        Public IP address of the instance.
-        """
         return pulumi.get(self, "public_ip_address")
 
     @_builtins.property
     @pulumi.getter(name="ramSize")
     def ram_size(self) -> pulumi.Output[_builtins.float]:
-        """
-        Amount of RAM in GB on the instance (e.g., 1.0).
-        """
         return pulumi.get(self, "ram_size")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="userData")
     def user_data(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Single lined launch script as a string to configure server with additional user data.
-        """
         return pulumi.get(self, "user_data")
 
     @_builtins.property
     @pulumi.getter
     def username(self) -> pulumi.Output[_builtins.str]:
-        """
-        User name for connecting to the instance (e.g., ec2-user).
-        """
         return pulumi.get(self, "username")
 

@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRecordsResourceRecordSetAliasTarget {
-    /**
-     * @return Target DNS name.
-     * 
-     */
     private String dnsName;
-    /**
-     * @return Whether an alias resource record set inherits the health of the referenced AWS resource.
-     * 
-     */
     private Boolean evaluateTargetHealth;
-    /**
-     * @return Target hosted zone ID.
-     * 
-     */
     private String hostedZoneId;
 
     private GetRecordsResourceRecordSetAliasTarget() {}
-    /**
-     * @return Target DNS name.
-     * 
-     */
     public String dnsName() {
         return this.dnsName;
     }
-    /**
-     * @return Whether an alias resource record set inherits the health of the referenced AWS resource.
-     * 
-     */
     public Boolean evaluateTargetHealth() {
         return this.evaluateTargetHealth;
     }
-    /**
-     * @return Target hosted zone ID.
-     * 
-     */
     public String hostedZoneId() {
         return this.hostedZoneId;
     }

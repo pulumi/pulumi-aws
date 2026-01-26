@@ -11,65 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an GameLift Script resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/gamelift"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := gamelift.NewScript(ctx, "example", &gamelift.ScriptArgs{
-//				Name: pulumi.String("example-script"),
-//				StorageLocation: &gamelift.ScriptStorageLocationArgs{
-//					Bucket:  pulumi.Any(exampleAwsS3Bucket.Id),
-//					Key:     pulumi.Any(exampleAwsS3Object.Key),
-//					RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import GameLift Scripts using the ID. For example:
-//
-// ```sh
-// $ pulumi import aws:gamelift/script:Script example <script-id>
-// ```
 type Script struct {
 	pulumi.CustomResourceState
 
-	// GameLift Script ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Name of the script
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Information indicating where your game script files are stored. See below.
+	Arn             pulumi.StringOutput         `pulumi:"arn"`
+	Name            pulumi.StringOutput         `pulumi:"name"`
+	Region          pulumi.StringOutput         `pulumi:"region"`
 	StorageLocation ScriptStorageLocationOutput `pulumi:"storageLocation"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Version that is associated with this script.
-	Version pulumi.StringPtrOutput `pulumi:"version"`
-	// A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
-	ZipFile pulumi.StringPtrOutput `pulumi:"zipFile"`
+	Tags            pulumi.StringMapOutput      `pulumi:"tags"`
+	TagsAll         pulumi.StringMapOutput      `pulumi:"tagsAll"`
+	Version         pulumi.StringPtrOutput      `pulumi:"version"`
+	ZipFile         pulumi.StringPtrOutput      `pulumi:"zipFile"`
 }
 
 // NewScript registers a new resource with the given unique name, arguments, and options.
@@ -102,41 +54,25 @@ func GetScript(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Script resources.
 type scriptState struct {
-	// GameLift Script ARN.
-	Arn *string `pulumi:"arn"`
-	// Name of the script
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Information indicating where your game script files are stored. See below.
+	Arn             *string                `pulumi:"arn"`
+	Name            *string                `pulumi:"name"`
+	Region          *string                `pulumi:"region"`
 	StorageLocation *ScriptStorageLocation `pulumi:"storageLocation"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Version that is associated with this script.
-	Version *string `pulumi:"version"`
-	// A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
-	ZipFile *string `pulumi:"zipFile"`
+	Tags            map[string]string      `pulumi:"tags"`
+	TagsAll         map[string]string      `pulumi:"tagsAll"`
+	Version         *string                `pulumi:"version"`
+	ZipFile         *string                `pulumi:"zipFile"`
 }
 
 type ScriptState struct {
-	// GameLift Script ARN.
-	Arn pulumi.StringPtrInput
-	// Name of the script
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Information indicating where your game script files are stored. See below.
+	Arn             pulumi.StringPtrInput
+	Name            pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
 	StorageLocation ScriptStorageLocationPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Version that is associated with this script.
-	Version pulumi.StringPtrInput
-	// A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
-	ZipFile pulumi.StringPtrInput
+	Tags            pulumi.StringMapInput
+	TagsAll         pulumi.StringMapInput
+	Version         pulumi.StringPtrInput
+	ZipFile         pulumi.StringPtrInput
 }
 
 func (ScriptState) ElementType() reflect.Type {
@@ -144,34 +80,22 @@ func (ScriptState) ElementType() reflect.Type {
 }
 
 type scriptArgs struct {
-	// Name of the script
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Information indicating where your game script files are stored. See below.
+	Name            *string                `pulumi:"name"`
+	Region          *string                `pulumi:"region"`
 	StorageLocation *ScriptStorageLocation `pulumi:"storageLocation"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Version that is associated with this script.
-	Version *string `pulumi:"version"`
-	// A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
-	ZipFile *string `pulumi:"zipFile"`
+	Tags            map[string]string      `pulumi:"tags"`
+	Version         *string                `pulumi:"version"`
+	ZipFile         *string                `pulumi:"zipFile"`
 }
 
 // The set of arguments for constructing a Script resource.
 type ScriptArgs struct {
-	// Name of the script
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Information indicating where your game script files are stored. See below.
+	Name            pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
 	StorageLocation ScriptStorageLocationPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Version that is associated with this script.
-	Version pulumi.StringPtrInput
-	// A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
-	ZipFile pulumi.StringPtrInput
+	Tags            pulumi.StringMapInput
+	Version         pulumi.StringPtrInput
+	ZipFile         pulumi.StringPtrInput
 }
 
 func (ScriptArgs) ElementType() reflect.Type {
@@ -261,42 +185,34 @@ func (o ScriptOutput) ToScriptOutputWithContext(ctx context.Context) ScriptOutpu
 	return o
 }
 
-// GameLift Script ARN.
 func (o ScriptOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Script) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name of the script
 func (o ScriptOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Script) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ScriptOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Script) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Information indicating where your game script files are stored. See below.
 func (o ScriptOutput) StorageLocation() ScriptStorageLocationOutput {
 	return o.ApplyT(func(v *Script) ScriptStorageLocationOutput { return v.StorageLocation }).(ScriptStorageLocationOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ScriptOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Script) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ScriptOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Script) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Version that is associated with this script.
 func (o ScriptOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Script) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
 }
 
-// A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
 func (o ScriptOutput) ZipFile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Script) pulumi.StringPtrOutput { return v.ZipFile }).(pulumi.StringPtrOutput)
 }

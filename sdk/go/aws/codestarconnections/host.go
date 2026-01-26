@@ -12,65 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CodeStar Host.
-//
-// > **NOTE:** The `codestarconnections.Host` resource is created in the state `PENDING`. Authentication with the host provider must be completed in the AWS Console. For more information visit [Set up a pending host](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-host-setup.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codestarconnections"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codestarconnections.NewHost(ctx, "example", &codestarconnections.HostArgs{
-//				Name:             pulumi.String("example-host"),
-//				ProviderEndpoint: pulumi.String("https://example.com"),
-//				ProviderType:     pulumi.String("GitHubEnterpriseServer"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the CodeStar connections host.
-//
-// Using `pulumi import`, import CodeStar Host using the ARN. For example:
-//
-// % pulumi import aws_codestarconnections_host.example-host arn:aws:codestar-connections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448
 type Host struct {
 	pulumi.CustomResourceState
 
-	// The CodeStar Host ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of the host to be created. The name must be unique in the calling AWS account.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The endpoint of the infrastructure to be represented by the host after it is created.
-	ProviderEndpoint pulumi.StringOutput `pulumi:"providerEndpoint"`
-	// The name of the external provider where your third-party code repository is configured.
-	ProviderType pulumi.StringOutput `pulumi:"providerType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The CodeStar Host status. Possible values are `PENDING`, `AVAILABLE`, `VPC_CONFIG_DELETING`, `VPC_CONFIG_INITIALIZING`, and `VPC_CONFIG_FAILED_INITIALIZATION`.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
+	Arn              pulumi.StringOutput           `pulumi:"arn"`
+	Name             pulumi.StringOutput           `pulumi:"name"`
+	ProviderEndpoint pulumi.StringOutput           `pulumi:"providerEndpoint"`
+	ProviderType     pulumi.StringOutput           `pulumi:"providerType"`
+	Region           pulumi.StringOutput           `pulumi:"region"`
+	Status           pulumi.StringOutput           `pulumi:"status"`
 	VpcConfiguration HostVpcConfigurationPtrOutput `pulumi:"vpcConfiguration"`
 }
 
@@ -110,36 +60,22 @@ func GetHost(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Host resources.
 type hostState struct {
-	// The CodeStar Host ARN.
-	Arn *string `pulumi:"arn"`
-	// The name of the host to be created. The name must be unique in the calling AWS account.
-	Name *string `pulumi:"name"`
-	// The endpoint of the infrastructure to be represented by the host after it is created.
-	ProviderEndpoint *string `pulumi:"providerEndpoint"`
-	// The name of the external provider where your third-party code repository is configured.
-	ProviderType *string `pulumi:"providerType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The CodeStar Host status. Possible values are `PENDING`, `AVAILABLE`, `VPC_CONFIG_DELETING`, `VPC_CONFIG_INITIALIZING`, and `VPC_CONFIG_FAILED_INITIALIZATION`.
-	Status *string `pulumi:"status"`
-	// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
+	Arn              *string               `pulumi:"arn"`
+	Name             *string               `pulumi:"name"`
+	ProviderEndpoint *string               `pulumi:"providerEndpoint"`
+	ProviderType     *string               `pulumi:"providerType"`
+	Region           *string               `pulumi:"region"`
+	Status           *string               `pulumi:"status"`
 	VpcConfiguration *HostVpcConfiguration `pulumi:"vpcConfiguration"`
 }
 
 type HostState struct {
-	// The CodeStar Host ARN.
-	Arn pulumi.StringPtrInput
-	// The name of the host to be created. The name must be unique in the calling AWS account.
-	Name pulumi.StringPtrInput
-	// The endpoint of the infrastructure to be represented by the host after it is created.
+	Arn              pulumi.StringPtrInput
+	Name             pulumi.StringPtrInput
 	ProviderEndpoint pulumi.StringPtrInput
-	// The name of the external provider where your third-party code repository is configured.
-	ProviderType pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The CodeStar Host status. Possible values are `PENDING`, `AVAILABLE`, `VPC_CONFIG_DELETING`, `VPC_CONFIG_INITIALIZING`, and `VPC_CONFIG_FAILED_INITIALIZATION`.
-	Status pulumi.StringPtrInput
-	// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
+	ProviderType     pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
+	Status           pulumi.StringPtrInput
 	VpcConfiguration HostVpcConfigurationPtrInput
 }
 
@@ -148,29 +84,19 @@ func (HostState) ElementType() reflect.Type {
 }
 
 type hostArgs struct {
-	// The name of the host to be created. The name must be unique in the calling AWS account.
-	Name *string `pulumi:"name"`
-	// The endpoint of the infrastructure to be represented by the host after it is created.
-	ProviderEndpoint string `pulumi:"providerEndpoint"`
-	// The name of the external provider where your third-party code repository is configured.
-	ProviderType string `pulumi:"providerType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
+	Name             *string               `pulumi:"name"`
+	ProviderEndpoint string                `pulumi:"providerEndpoint"`
+	ProviderType     string                `pulumi:"providerType"`
+	Region           *string               `pulumi:"region"`
 	VpcConfiguration *HostVpcConfiguration `pulumi:"vpcConfiguration"`
 }
 
 // The set of arguments for constructing a Host resource.
 type HostArgs struct {
-	// The name of the host to be created. The name must be unique in the calling AWS account.
-	Name pulumi.StringPtrInput
-	// The endpoint of the infrastructure to be represented by the host after it is created.
+	Name             pulumi.StringPtrInput
 	ProviderEndpoint pulumi.StringInput
-	// The name of the external provider where your third-party code repository is configured.
-	ProviderType pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
+	ProviderType     pulumi.StringInput
+	Region           pulumi.StringPtrInput
 	VpcConfiguration HostVpcConfigurationPtrInput
 }
 
@@ -261,37 +187,30 @@ func (o HostOutput) ToHostOutputWithContext(ctx context.Context) HostOutput {
 	return o
 }
 
-// The CodeStar Host ARN.
 func (o HostOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Host) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name of the host to be created. The name must be unique in the calling AWS account.
 func (o HostOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Host) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The endpoint of the infrastructure to be represented by the host after it is created.
 func (o HostOutput) ProviderEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Host) pulumi.StringOutput { return v.ProviderEndpoint }).(pulumi.StringOutput)
 }
 
-// The name of the external provider where your third-party code repository is configured.
 func (o HostOutput) ProviderType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Host) pulumi.StringOutput { return v.ProviderType }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o HostOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Host) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The CodeStar Host status. Possible values are `PENDING`, `AVAILABLE`, `VPC_CONFIG_DELETING`, `VPC_CONFIG_INITIALIZING`, and `VPC_CONFIG_FAILED_INITIALIZATION`.
 func (o HostOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Host) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
 func (o HostOutput) VpcConfiguration() HostVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v *Host) HostVpcConfigurationPtrOutput { return v.VpcConfiguration }).(HostVpcConfigurationPtrOutput)
 }

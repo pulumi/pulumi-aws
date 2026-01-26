@@ -30,15 +30,6 @@ class DeploymentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Deployment resource.
-        :param pulumi.Input[_builtins.str] application_id: Application ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[_builtins.str] configuration_profile_id: Configuration profile ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[_builtins.str] configuration_version: Configuration version to deploy. Can be at most 1024 characters.
-        :param pulumi.Input[_builtins.str] deployment_strategy_id: Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
-        :param pulumi.Input[_builtins.str] environment_id: Environment ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[_builtins.str] description: Description of the deployment. Can be at most 1024 characters.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "configuration_profile_id", configuration_profile_id)
@@ -57,9 +48,6 @@ class DeploymentArgs:
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Application ID. Must be between 4 and 7 characters in length.
-        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -69,9 +57,6 @@ class DeploymentArgs:
     @_builtins.property
     @pulumi.getter(name="configurationProfileId")
     def configuration_profile_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Configuration profile ID. Must be between 4 and 7 characters in length.
-        """
         return pulumi.get(self, "configuration_profile_id")
 
     @configuration_profile_id.setter
@@ -81,9 +66,6 @@ class DeploymentArgs:
     @_builtins.property
     @pulumi.getter(name="configurationVersion")
     def configuration_version(self) -> pulumi.Input[_builtins.str]:
-        """
-        Configuration version to deploy. Can be at most 1024 characters.
-        """
         return pulumi.get(self, "configuration_version")
 
     @configuration_version.setter
@@ -93,9 +75,6 @@ class DeploymentArgs:
     @_builtins.property
     @pulumi.getter(name="deploymentStrategyId")
     def deployment_strategy_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
-        """
         return pulumi.get(self, "deployment_strategy_id")
 
     @deployment_strategy_id.setter
@@ -105,9 +84,6 @@ class DeploymentArgs:
     @_builtins.property
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Environment ID. Must be between 4 and 7 characters in length.
-        """
         return pulumi.get(self, "environment_id")
 
     @environment_id.setter
@@ -117,9 +93,6 @@ class DeploymentArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the deployment. Can be at most 1024 characters.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -129,9 +102,6 @@ class DeploymentArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
-        """
         return pulumi.get(self, "kms_key_identifier")
 
     @kms_key_identifier.setter
@@ -141,9 +111,6 @@ class DeploymentArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -153,9 +120,6 @@ class DeploymentArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -182,20 +146,6 @@ class _DeploymentState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Deployment resources.
-        :param pulumi.Input[_builtins.str] application_id: Application ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[_builtins.str] arn: ARN of the AppConfig Deployment.
-        :param pulumi.Input[_builtins.str] configuration_profile_id: Configuration profile ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[_builtins.str] configuration_version: Configuration version to deploy. Can be at most 1024 characters.
-        :param pulumi.Input[_builtins.int] deployment_number: Deployment number.
-        :param pulumi.Input[_builtins.str] deployment_strategy_id: Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
-        :param pulumi.Input[_builtins.str] description: Description of the deployment. Can be at most 1024 characters.
-        :param pulumi.Input[_builtins.str] environment_id: Environment ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt configuration data.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] state: State of the deployment.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if application_id is not None:
             pulumi.set(__self__, "application_id", application_id)
@@ -229,9 +179,6 @@ class _DeploymentState:
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Application ID. Must be between 4 and 7 characters in length.
-        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -241,9 +188,6 @@ class _DeploymentState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the AppConfig Deployment.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -253,9 +197,6 @@ class _DeploymentState:
     @_builtins.property
     @pulumi.getter(name="configurationProfileId")
     def configuration_profile_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Configuration profile ID. Must be between 4 and 7 characters in length.
-        """
         return pulumi.get(self, "configuration_profile_id")
 
     @configuration_profile_id.setter
@@ -265,9 +206,6 @@ class _DeploymentState:
     @_builtins.property
     @pulumi.getter(name="configurationVersion")
     def configuration_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Configuration version to deploy. Can be at most 1024 characters.
-        """
         return pulumi.get(self, "configuration_version")
 
     @configuration_version.setter
@@ -277,9 +215,6 @@ class _DeploymentState:
     @_builtins.property
     @pulumi.getter(name="deploymentNumber")
     def deployment_number(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Deployment number.
-        """
         return pulumi.get(self, "deployment_number")
 
     @deployment_number.setter
@@ -289,9 +224,6 @@ class _DeploymentState:
     @_builtins.property
     @pulumi.getter(name="deploymentStrategyId")
     def deployment_strategy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
-        """
         return pulumi.get(self, "deployment_strategy_id")
 
     @deployment_strategy_id.setter
@@ -301,9 +233,6 @@ class _DeploymentState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the deployment. Can be at most 1024 characters.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -313,9 +242,6 @@ class _DeploymentState:
     @_builtins.property
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Environment ID. Must be between 4 and 7 characters in length.
-        """
         return pulumi.get(self, "environment_id")
 
     @environment_id.setter
@@ -325,9 +251,6 @@ class _DeploymentState:
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the KMS key used to encrypt configuration data.
-        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -337,9 +260,6 @@ class _DeploymentState:
     @_builtins.property
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
-        """
         return pulumi.get(self, "kms_key_identifier")
 
     @kms_key_identifier.setter
@@ -349,9 +269,6 @@ class _DeploymentState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -361,9 +278,6 @@ class _DeploymentState:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        State of the deployment.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -373,9 +287,6 @@ class _DeploymentState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -385,9 +296,6 @@ class _DeploymentState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -412,46 +320,9 @@ class Deployment(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides an AppConfig Deployment resource for an `appconfig.Application` resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appconfig.Deployment("example",
-            application_id=example_aws_appconfig_application["id"],
-            configuration_profile_id=example_aws_appconfig_configuration_profile["configurationProfileId"],
-            configuration_version=example_aws_appconfig_hosted_configuration_version["versionNumber"],
-            deployment_strategy_id=example_aws_appconfig_deployment_strategy["id"],
-            description="My example deployment",
-            environment_id=example_aws_appconfig_environment["environmentId"],
-            kms_key_identifier=example_aws_kms_key["arn"],
-            tags={
-                "Type": "AppConfig Deployment",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AppConfig Deployments using the application ID, environment ID, and deployment number separated by a slash (`/`). For example:
-
-        ```sh
-        $ pulumi import aws:appconfig/deployment:Deployment example 71abcde/11xxxxx/1
-        ```
-
+        Create a Deployment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_id: Application ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[_builtins.str] configuration_profile_id: Configuration profile ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[_builtins.str] configuration_version: Configuration version to deploy. Can be at most 1024 characters.
-        :param pulumi.Input[_builtins.str] deployment_strategy_id: Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
-        :param pulumi.Input[_builtins.str] description: Description of the deployment. Can be at most 1024 characters.
-        :param pulumi.Input[_builtins.str] environment_id: Environment ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -460,35 +331,7 @@ class Deployment(pulumi.CustomResource):
                  args: DeploymentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AppConfig Deployment resource for an `appconfig.Application` resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appconfig.Deployment("example",
-            application_id=example_aws_appconfig_application["id"],
-            configuration_profile_id=example_aws_appconfig_configuration_profile["configurationProfileId"],
-            configuration_version=example_aws_appconfig_hosted_configuration_version["versionNumber"],
-            deployment_strategy_id=example_aws_appconfig_deployment_strategy["id"],
-            description="My example deployment",
-            environment_id=example_aws_appconfig_environment["environmentId"],
-            kms_key_identifier=example_aws_kms_key["arn"],
-            tags={
-                "Type": "AppConfig Deployment",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AppConfig Deployments using the application ID, environment ID, and deployment number separated by a slash (`/`). For example:
-
-        ```sh
-        $ pulumi import aws:appconfig/deployment:Deployment example 71abcde/11xxxxx/1
-        ```
-
+        Create a Deployment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -577,20 +420,6 @@ class Deployment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_id: Application ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[_builtins.str] arn: ARN of the AppConfig Deployment.
-        :param pulumi.Input[_builtins.str] configuration_profile_id: Configuration profile ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[_builtins.str] configuration_version: Configuration version to deploy. Can be at most 1024 characters.
-        :param pulumi.Input[_builtins.int] deployment_number: Deployment number.
-        :param pulumi.Input[_builtins.str] deployment_strategy_id: Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
-        :param pulumi.Input[_builtins.str] description: Description of the deployment. Can be at most 1024 characters.
-        :param pulumi.Input[_builtins.str] environment_id: Environment ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt configuration data.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] state: State of the deployment.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -615,112 +444,70 @@ class Deployment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Application ID. Must be between 4 and 7 characters in length.
-        """
         return pulumi.get(self, "application_id")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the AppConfig Deployment.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="configurationProfileId")
     def configuration_profile_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Configuration profile ID. Must be between 4 and 7 characters in length.
-        """
         return pulumi.get(self, "configuration_profile_id")
 
     @_builtins.property
     @pulumi.getter(name="configurationVersion")
     def configuration_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        Configuration version to deploy. Can be at most 1024 characters.
-        """
         return pulumi.get(self, "configuration_version")
 
     @_builtins.property
     @pulumi.getter(name="deploymentNumber")
     def deployment_number(self) -> pulumi.Output[_builtins.int]:
-        """
-        Deployment number.
-        """
         return pulumi.get(self, "deployment_number")
 
     @_builtins.property
     @pulumi.getter(name="deploymentStrategyId")
     def deployment_strategy_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
-        """
         return pulumi.get(self, "deployment_strategy_id")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the deployment. Can be at most 1024 characters.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Environment ID. Must be between 4 and 7 characters in length.
-        """
         return pulumi.get(self, "environment_id")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the KMS key used to encrypt configuration data.
-        """
         return pulumi.get(self, "kms_key_arn")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
-        """
         return pulumi.get(self, "kms_key_identifier")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[_builtins.str]:
-        """
-        State of the deployment.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

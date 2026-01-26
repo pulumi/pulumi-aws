@@ -13,29 +13,11 @@ namespace Pulumi.Aws.Odb.Outputs
     [OutputType]
     public sealed class GetCloudExadataInfrastructuresCloudExadataInfrastructureResult
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the Exadata infrastructure.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// The display name of the Exadata infrastructure.
-        /// </summary>
         public readonly string DisplayName;
-        /// <summary>
-        /// The unique identifier of the Exadata infrastructure.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The name of the OCI resource anchor for the Exadata infrastructure.
-        /// </summary>
         public readonly string OciResourceAnchorName;
-        /// <summary>
-        /// The HTTPS link to the Exadata infrastructure in OCI.
-        /// </summary>
         public readonly string OciUrl;
-        /// <summary>
-        /// The OCID of the Exadata infrastructure in OCI.
-        /// </summary>
         public readonly string Ocid;
 
         [OutputConstructor]

@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings {
-    /**
-     * @return The frequency at which to capture frames for inclusion in the output.
-     * 
-     */
     private @Nullable Integer captureInterval;
-    /**
-     * @return Unit for the frame capture interval.
-     * 
-     */
     private @Nullable String captureIntervalUnits;
 
     private ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings() {}
-    /**
-     * @return The frequency at which to capture frames for inclusion in the output.
-     * 
-     */
     public Optional<Integer> captureInterval() {
         return Optional.ofNullable(this.captureInterval);
     }
-    /**
-     * @return Unit for the frame capture interval.
-     * 
-     */
     public Optional<String> captureIntervalUnits() {
         return Optional.ofNullable(this.captureIntervalUnits);
     }

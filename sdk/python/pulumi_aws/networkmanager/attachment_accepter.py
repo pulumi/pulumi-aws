@@ -23,8 +23,6 @@ class AttachmentAccepterArgs:
                  attachment_type: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a AttachmentAccepter resource.
-        :param pulumi.Input[_builtins.str] attachment_id: ID of the attachment.
-        :param pulumi.Input[_builtins.str] attachment_type: Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
         """
         pulumi.set(__self__, "attachment_id", attachment_id)
         pulumi.set(__self__, "attachment_type", attachment_type)
@@ -32,9 +30,6 @@ class AttachmentAccepterArgs:
     @_builtins.property
     @pulumi.getter(name="attachmentId")
     def attachment_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the attachment.
-        """
         return pulumi.get(self, "attachment_id")
 
     @attachment_id.setter
@@ -44,9 +39,6 @@ class AttachmentAccepterArgs:
     @_builtins.property
     @pulumi.getter(name="attachmentType")
     def attachment_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
-        """
         return pulumi.get(self, "attachment_type")
 
     @attachment_type.setter
@@ -70,17 +62,6 @@ class _AttachmentAccepterState:
                  state: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AttachmentAccepter resources.
-        :param pulumi.Input[_builtins.str] attachment_id: ID of the attachment.
-        :param pulumi.Input[_builtins.int] attachment_policy_rule_number: Policy rule number associated with the attachment.
-        :param pulumi.Input[_builtins.str] attachment_type: Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
-        :param pulumi.Input[_builtins.str] core_network_arn: ARN of the core network.
-        :param pulumi.Input[_builtins.str] core_network_id: ID of the core network.
-        :param pulumi.Input[_builtins.str] edge_location: Region where the edge is located. This is returned for all attachment types except Direct Connect gateway attachments, which instead return `edge_locations`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] edge_locations: Edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`.
-        :param pulumi.Input[_builtins.str] owner_account_id: ID of the attachment account owner.
-        :param pulumi.Input[_builtins.str] resource_arn: Attachment resource ARN.
-        :param pulumi.Input[_builtins.str] segment_name: Name of the segment attachment.
-        :param pulumi.Input[_builtins.str] state: State of the attachment.
         """
         if attachment_id is not None:
             pulumi.set(__self__, "attachment_id", attachment_id)
@@ -108,9 +89,6 @@ class _AttachmentAccepterState:
     @_builtins.property
     @pulumi.getter(name="attachmentId")
     def attachment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the attachment.
-        """
         return pulumi.get(self, "attachment_id")
 
     @attachment_id.setter
@@ -120,9 +98,6 @@ class _AttachmentAccepterState:
     @_builtins.property
     @pulumi.getter(name="attachmentPolicyRuleNumber")
     def attachment_policy_rule_number(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Policy rule number associated with the attachment.
-        """
         return pulumi.get(self, "attachment_policy_rule_number")
 
     @attachment_policy_rule_number.setter
@@ -132,9 +107,6 @@ class _AttachmentAccepterState:
     @_builtins.property
     @pulumi.getter(name="attachmentType")
     def attachment_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
-        """
         return pulumi.get(self, "attachment_type")
 
     @attachment_type.setter
@@ -144,9 +116,6 @@ class _AttachmentAccepterState:
     @_builtins.property
     @pulumi.getter(name="coreNetworkArn")
     def core_network_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the core network.
-        """
         return pulumi.get(self, "core_network_arn")
 
     @core_network_arn.setter
@@ -156,9 +125,6 @@ class _AttachmentAccepterState:
     @_builtins.property
     @pulumi.getter(name="coreNetworkId")
     def core_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the core network.
-        """
         return pulumi.get(self, "core_network_id")
 
     @core_network_id.setter
@@ -168,9 +134,6 @@ class _AttachmentAccepterState:
     @_builtins.property
     @pulumi.getter(name="edgeLocation")
     def edge_location(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where the edge is located. This is returned for all attachment types except Direct Connect gateway attachments, which instead return `edge_locations`.
-        """
         return pulumi.get(self, "edge_location")
 
     @edge_location.setter
@@ -180,9 +143,6 @@ class _AttachmentAccepterState:
     @_builtins.property
     @pulumi.getter(name="edgeLocations")
     def edge_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`.
-        """
         return pulumi.get(self, "edge_locations")
 
     @edge_locations.setter
@@ -192,9 +152,6 @@ class _AttachmentAccepterState:
     @_builtins.property
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the attachment account owner.
-        """
         return pulumi.get(self, "owner_account_id")
 
     @owner_account_id.setter
@@ -204,9 +161,6 @@ class _AttachmentAccepterState:
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Attachment resource ARN.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -216,9 +170,6 @@ class _AttachmentAccepterState:
     @_builtins.property
     @pulumi.getter(name="segmentName")
     def segment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the segment attachment.
-        """
         return pulumi.get(self, "segment_name")
 
     @segment_name.setter
@@ -228,9 +179,6 @@ class _AttachmentAccepterState:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        State of the attachment.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -248,71 +196,9 @@ class AttachmentAccepter(pulumi.CustomResource):
                  attachment_type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an AWS Network Manager Attachment Accepter.
-
-        Use this resource to accept cross-account attachments in AWS Network Manager. When an attachment is created in one account and needs to be accepted by another account that owns the core network, this resource handles the acceptance process.
-
-        ## Example Usage
-
-        ### VPC Attachment
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.AttachmentAccepter("example",
-            attachment_id=example_aws_networkmanager_vpc_attachment["id"],
-            attachment_type=example_aws_networkmanager_vpc_attachment["attachmentType"])
-        ```
-
-        ### Site-to-Site VPN Attachment
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.AttachmentAccepter("example",
-            attachment_id=example_aws_networkmanager_site_to_site_vpn_attachment["id"],
-            attachment_type=example_aws_networkmanager_site_to_site_vpn_attachment["attachmentType"])
-        ```
-
-        ### Connect Attachment
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.AttachmentAccepter("example",
-            attachment_id=example_aws_networkmanager_connect_attachment["id"],
-            attachment_type=example_aws_networkmanager_connect_attachment["attachmentType"])
-        ```
-
-        ### Transit Gateway Route Table Attachment
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.AttachmentAccepter("example",
-            attachment_id=example_aws_networkmanager_transit_gateway_route_table_attachment["id"],
-            attachment_type=example_aws_networkmanager_transit_gateway_route_table_attachment["attachmentType"])
-        ```
-
-        ### Direct Connect Gateway Attachment
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.AttachmentAccepter("example",
-            attachment_id=example_aws_networkmanager_dx_gateway_attachment["id"],
-            attachment_type=example_aws_networkmanager_dx_gateway_attachment["attachmentType"])
-        ```
-
+        Create a AttachmentAccepter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] attachment_id: ID of the attachment.
-        :param pulumi.Input[_builtins.str] attachment_type: Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
         """
         ...
     @overload
@@ -321,67 +207,7 @@ class AttachmentAccepter(pulumi.CustomResource):
                  args: AttachmentAccepterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS Network Manager Attachment Accepter.
-
-        Use this resource to accept cross-account attachments in AWS Network Manager. When an attachment is created in one account and needs to be accepted by another account that owns the core network, this resource handles the acceptance process.
-
-        ## Example Usage
-
-        ### VPC Attachment
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.AttachmentAccepter("example",
-            attachment_id=example_aws_networkmanager_vpc_attachment["id"],
-            attachment_type=example_aws_networkmanager_vpc_attachment["attachmentType"])
-        ```
-
-        ### Site-to-Site VPN Attachment
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.AttachmentAccepter("example",
-            attachment_id=example_aws_networkmanager_site_to_site_vpn_attachment["id"],
-            attachment_type=example_aws_networkmanager_site_to_site_vpn_attachment["attachmentType"])
-        ```
-
-        ### Connect Attachment
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.AttachmentAccepter("example",
-            attachment_id=example_aws_networkmanager_connect_attachment["id"],
-            attachment_type=example_aws_networkmanager_connect_attachment["attachmentType"])
-        ```
-
-        ### Transit Gateway Route Table Attachment
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.AttachmentAccepter("example",
-            attachment_id=example_aws_networkmanager_transit_gateway_route_table_attachment["id"],
-            attachment_type=example_aws_networkmanager_transit_gateway_route_table_attachment["attachmentType"])
-        ```
-
-        ### Direct Connect Gateway Attachment
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.AttachmentAccepter("example",
-            attachment_id=example_aws_networkmanager_dx_gateway_attachment["id"],
-            attachment_type=example_aws_networkmanager_dx_gateway_attachment["attachmentType"])
-        ```
-
+        Create a AttachmentAccepter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AttachmentAccepterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -451,17 +277,6 @@ class AttachmentAccepter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] attachment_id: ID of the attachment.
-        :param pulumi.Input[_builtins.int] attachment_policy_rule_number: Policy rule number associated with the attachment.
-        :param pulumi.Input[_builtins.str] attachment_type: Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
-        :param pulumi.Input[_builtins.str] core_network_arn: ARN of the core network.
-        :param pulumi.Input[_builtins.str] core_network_id: ID of the core network.
-        :param pulumi.Input[_builtins.str] edge_location: Region where the edge is located. This is returned for all attachment types except Direct Connect gateway attachments, which instead return `edge_locations`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] edge_locations: Edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`.
-        :param pulumi.Input[_builtins.str] owner_account_id: ID of the attachment account owner.
-        :param pulumi.Input[_builtins.str] resource_arn: Attachment resource ARN.
-        :param pulumi.Input[_builtins.str] segment_name: Name of the segment attachment.
-        :param pulumi.Input[_builtins.str] state: State of the attachment.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -483,88 +298,55 @@ class AttachmentAccepter(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="attachmentId")
     def attachment_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the attachment.
-        """
         return pulumi.get(self, "attachment_id")
 
     @_builtins.property
     @pulumi.getter(name="attachmentPolicyRuleNumber")
     def attachment_policy_rule_number(self) -> pulumi.Output[_builtins.int]:
-        """
-        Policy rule number associated with the attachment.
-        """
         return pulumi.get(self, "attachment_policy_rule_number")
 
     @_builtins.property
     @pulumi.getter(name="attachmentType")
     def attachment_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
-        """
         return pulumi.get(self, "attachment_type")
 
     @_builtins.property
     @pulumi.getter(name="coreNetworkArn")
     def core_network_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the core network.
-        """
         return pulumi.get(self, "core_network_arn")
 
     @_builtins.property
     @pulumi.getter(name="coreNetworkId")
     def core_network_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the core network.
-        """
         return pulumi.get(self, "core_network_id")
 
     @_builtins.property
     @pulumi.getter(name="edgeLocation")
     def edge_location(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where the edge is located. This is returned for all attachment types except Direct Connect gateway attachments, which instead return `edge_locations`.
-        """
         return pulumi.get(self, "edge_location")
 
     @_builtins.property
     @pulumi.getter(name="edgeLocations")
     def edge_locations(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        Edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`.
-        """
         return pulumi.get(self, "edge_locations")
 
     @_builtins.property
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the attachment account owner.
-        """
         return pulumi.get(self, "owner_account_id")
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Attachment resource ARN.
-        """
         return pulumi.get(self, "resource_arn")
 
     @_builtins.property
     @pulumi.getter(name="segmentName")
     def segment_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the segment attachment.
-        """
         return pulumi.get(self, "segment_name")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[_builtins.str]:
-        """
-        State of the attachment.
-        """
         return pulumi.get(self, "state")
 

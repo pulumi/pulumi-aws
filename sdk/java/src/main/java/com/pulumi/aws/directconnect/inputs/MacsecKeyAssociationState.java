@@ -15,111 +15,51 @@ public final class MacsecKeyAssociationState extends com.pulumi.resources.Resour
 
     public static final MacsecKeyAssociationState Empty = new MacsecKeyAssociationState();
 
-    /**
-     * The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
-     * 
-     */
     @Import(name="cak")
     private @Nullable Output<String> cak;
 
-    /**
-     * @return The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
-     * 
-     */
     public Optional<Output<String>> cak() {
         return Optional.ofNullable(this.cak);
     }
 
-    /**
-     * The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
-     * 
-     */
     @Import(name="ckn")
     private @Nullable Output<String> ckn;
 
-    /**
-     * @return The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
-     * 
-     */
     public Optional<Output<String>> ckn() {
         return Optional.ofNullable(this.ckn);
     }
 
-    /**
-     * The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
-     * 
-     */
     @Import(name="connectionId")
     private @Nullable Output<String> connectionId;
 
-    /**
-     * @return The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
-     * 
-     */
     public Optional<Output<String>> connectionId() {
         return Optional.ofNullable(this.connectionId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
-     * 
-     * &gt; **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
-     * 
-     */
     @Import(name="secretArn")
     private @Nullable Output<String> secretArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
-     * 
-     * &gt; **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
-     * 
-     */
     public Optional<Output<String>> secretArn() {
         return Optional.ofNullable(this.secretArn);
     }
 
-    /**
-     * The date in UTC format that the MAC Security (MACsec) secret key takes effect.
-     * 
-     */
     @Import(name="startOn")
     private @Nullable Output<String> startOn;
 
-    /**
-     * @return The date in UTC format that the MAC Security (MACsec) secret key takes effect.
-     * 
-     */
     public Optional<Output<String>> startOn() {
         return Optional.ofNullable(this.startOn);
     }
 
-    /**
-     * The state of the MAC Security (MACsec) secret key. The possible values are: associating, associated, disassociating, disassociated. See [MacSecKey](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_MacSecKey.html#DX-Type-MacSecKey-state) for descriptions of each state.
-     * 
-     */
     @Import(name="state")
     private @Nullable Output<String> state;
 
-    /**
-     * @return The state of the MAC Security (MACsec) secret key. The possible values are: associating, associated, disassociating, disassociated. See [MacSecKey](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_MacSecKey.html#DX-Type-MacSecKey-state) for descriptions of each state.
-     * 
-     */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
     }
@@ -154,153 +94,65 @@ public final class MacsecKeyAssociationState extends com.pulumi.resources.Resour
             $ = new MacsecKeyAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cak The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cak(@Nullable Output<String> cak) {
             $.cak = cak;
             return this;
         }
 
-        /**
-         * @param cak The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cak(String cak) {
             return cak(Output.of(cak));
         }
 
-        /**
-         * @param ckn The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ckn(@Nullable Output<String> ckn) {
             $.ckn = ckn;
             return this;
         }
 
-        /**
-         * @param ckn The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ckn(String ckn) {
             return ckn(Output.of(ckn));
         }
 
-        /**
-         * @param connectionId The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionId(@Nullable Output<String> connectionId) {
             $.connectionId = connectionId;
             return this;
         }
 
-        /**
-         * @param connectionId The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionId(String connectionId) {
             return connectionId(Output.of(connectionId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param secretArn The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
-         * 
-         * &gt; **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretArn(@Nullable Output<String> secretArn) {
             $.secretArn = secretArn;
             return this;
         }
 
-        /**
-         * @param secretArn The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
-         * 
-         * &gt; **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretArn(String secretArn) {
             return secretArn(Output.of(secretArn));
         }
 
-        /**
-         * @param startOn The date in UTC format that the MAC Security (MACsec) secret key takes effect.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startOn(@Nullable Output<String> startOn) {
             $.startOn = startOn;
             return this;
         }
 
-        /**
-         * @param startOn The date in UTC format that the MAC Security (MACsec) secret key takes effect.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startOn(String startOn) {
             return startOn(Output.of(startOn));
         }
 
-        /**
-         * @param state The state of the MAC Security (MACsec) secret key. The possible values are: associating, associated, disassociating, disassociated. See [MacSecKey](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_MacSecKey.html#DX-Type-MacSecKey-state) for descriptions of each state.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(@Nullable Output<String> state) {
             $.state = state;
             return this;
         }
 
-        /**
-         * @param state The state of the MAC Security (MACsec) secret key. The possible values are: associating, associated, disassociating, disassociated. See [MacSecKey](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_MacSecKey.html#DX-Type-MacSecKey-state) for descriptions of each state.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(String state) {
             return state(Output.of(state));
         }

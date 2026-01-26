@@ -9,86 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Efs
 {
-    /// <summary>
-    /// Provides an Elastic File System (EFS) access point.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Efs.AccessPoint("test", new()
-    ///     {
-    ///         FileSystemId = foo.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import the EFS access points using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:efs/accessPoint:AccessPoint test fsap-52a643fb
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:efs/accessPoint:AccessPoint")]
     public partial class AccessPoint : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the access point.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the file system.
-        /// </summary>
         [Output("fileSystemArn")]
         public Output<string> FileSystemArn { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the file system for which the access point is intended.
-        /// </summary>
         [Output("fileSystemId")]
         public Output<string> FileSystemId { get; private set; } = null!;
 
         [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
 
-        /// <summary>
-        /// Operating system user and group applied to all file system requests made using the access point. Detailed below.
-        /// </summary>
         [Output("posixUser")]
         public Output<Outputs.AccessPointPosixUser?> PosixUser { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
-        /// </summary>
         [Output("rootDirectory")]
         public Output<Outputs.AccessPointRootDirectory> RootDirectory { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -138,36 +85,20 @@ namespace Pulumi.Aws.Efs
 
     public sealed class AccessPointArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the file system for which the access point is intended.
-        /// </summary>
         [Input("fileSystemId", required: true)]
         public Input<string> FileSystemId { get; set; } = null!;
 
-        /// <summary>
-        /// Operating system user and group applied to all file system requests made using the access point. Detailed below.
-        /// </summary>
         [Input("posixUser")]
         public Input<Inputs.AccessPointPosixUserArgs>? PosixUser { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
-        /// </summary>
         [Input("rootDirectory")]
         public Input<Inputs.AccessPointRootDirectoryArgs>? RootDirectory { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -182,51 +113,29 @@ namespace Pulumi.Aws.Efs
 
     public sealed class AccessPointState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the access point.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// ARN of the file system.
-        /// </summary>
         [Input("fileSystemArn")]
         public Input<string>? FileSystemArn { get; set; }
 
-        /// <summary>
-        /// ID of the file system for which the access point is intended.
-        /// </summary>
         [Input("fileSystemId")]
         public Input<string>? FileSystemId { get; set; }
 
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
 
-        /// <summary>
-        /// Operating system user and group applied to all file system requests made using the access point. Detailed below.
-        /// </summary>
         [Input("posixUser")]
         public Input<Inputs.AccessPointPosixUserGetArgs>? PosixUser { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
-        /// </summary>
         [Input("rootDirectory")]
         public Input<Inputs.AccessPointRootDirectoryGetArgs>? RootDirectory { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -235,10 +144,6 @@ namespace Pulumi.Aws.Efs
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

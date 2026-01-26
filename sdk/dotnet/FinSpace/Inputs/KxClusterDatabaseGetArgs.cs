@@ -14,31 +14,18 @@ namespace Pulumi.Aws.FinSpace.Inputs
     {
         [Input("cacheConfigurations")]
         private InputList<Inputs.KxClusterDatabaseCacheConfigurationGetArgs>? _cacheConfigurations;
-
-        /// <summary>
-        /// Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
-        /// </summary>
         public InputList<Inputs.KxClusterDatabaseCacheConfigurationGetArgs> CacheConfigurations
         {
             get => _cacheConfigurations ?? (_cacheConfigurations = new InputList<Inputs.KxClusterDatabaseCacheConfigurationGetArgs>());
             set => _cacheConfigurations = value;
         }
 
-        /// <summary>
-        /// A unique identifier of the changeset that is associated with the cluster.
-        /// </summary>
         [Input("changesetId")]
         public Input<string>? ChangesetId { get; set; }
 
-        /// <summary>
-        /// Name of the KX database.
-        /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `Lifecycle` `IgnoreChanges` for database to prevent any undesirable behaviors.
-        /// </summary>
         [Input("dataviewName")]
         public Input<string>? DataviewName { get; set; }
 

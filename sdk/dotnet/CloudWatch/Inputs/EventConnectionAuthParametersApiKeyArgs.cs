@@ -12,18 +12,11 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class EventConnectionAuthParametersApiKeyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Header Name.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         [Input("value", required: true)]
         private Input<string>? _value;
-
-        /// <summary>
-        /// Header Value. Created and stored in AWS Secrets Manager.
-        /// </summary>
         public Input<string>? Value
         {
             get => _value;

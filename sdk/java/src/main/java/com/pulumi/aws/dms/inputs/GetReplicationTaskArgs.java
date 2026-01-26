@@ -17,32 +17,16 @@ public final class GetReplicationTaskArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetReplicationTaskArgs Empty = new GetReplicationTaskArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The replication task identifier.
-     * 
-     */
     @Import(name="replicationTaskId", required=true)
     private Output<String> replicationTaskId;
 
-    /**
-     * @return The replication task identifier.
-     * 
-     */
     public Output<String> replicationTaskId() {
         return this.replicationTaskId;
     }
@@ -80,44 +64,20 @@ public final class GetReplicationTaskArgs extends com.pulumi.resources.InvokeArg
             $ = new GetReplicationTaskArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param replicationTaskId The replication task identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationTaskId(Output<String> replicationTaskId) {
             $.replicationTaskId = replicationTaskId;
             return this;
         }
 
-        /**
-         * @param replicationTaskId The replication task identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationTaskId(String replicationTaskId) {
             return replicationTaskId(Output.of(replicationTaskId));
         }

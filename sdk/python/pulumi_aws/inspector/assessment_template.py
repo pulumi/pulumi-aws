@@ -30,13 +30,6 @@ class AssessmentTemplateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AssessmentTemplate resource.
-        :param pulumi.Input[_builtins.int] duration: The duration of the inspector run.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rules_package_arns: The rules to be used during the run.
-        :param pulumi.Input[_builtins.str] target_arn: The assessment target ARN to attach the template to.
-        :param pulumi.Input[Sequence[pulumi.Input['AssessmentTemplateEventSubscriptionArgs']]] event_subscriptions: A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
-        :param pulumi.Input[_builtins.str] name: The name of the assessment template.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "duration", duration)
         pulumi.set(__self__, "rules_package_arns", rules_package_arns)
@@ -53,9 +46,6 @@ class AssessmentTemplateArgs:
     @_builtins.property
     @pulumi.getter
     def duration(self) -> pulumi.Input[_builtins.int]:
-        """
-        The duration of the inspector run.
-        """
         return pulumi.get(self, "duration")
 
     @duration.setter
@@ -65,9 +55,6 @@ class AssessmentTemplateArgs:
     @_builtins.property
     @pulumi.getter(name="rulesPackageArns")
     def rules_package_arns(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        The rules to be used during the run.
-        """
         return pulumi.get(self, "rules_package_arns")
 
     @rules_package_arns.setter
@@ -77,9 +64,6 @@ class AssessmentTemplateArgs:
     @_builtins.property
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The assessment target ARN to attach the template to.
-        """
         return pulumi.get(self, "target_arn")
 
     @target_arn.setter
@@ -89,9 +73,6 @@ class AssessmentTemplateArgs:
     @_builtins.property
     @pulumi.getter(name="eventSubscriptions")
     def event_subscriptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentTemplateEventSubscriptionArgs']]]]:
-        """
-        A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
-        """
         return pulumi.get(self, "event_subscriptions")
 
     @event_subscriptions.setter
@@ -101,9 +82,6 @@ class AssessmentTemplateArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the assessment template.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -113,9 +91,6 @@ class AssessmentTemplateArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -125,9 +100,6 @@ class AssessmentTemplateArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -149,15 +121,6 @@ class _AssessmentTemplateState:
                  target_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AssessmentTemplate resources.
-        :param pulumi.Input[_builtins.str] arn: The template assessment ARN.
-        :param pulumi.Input[_builtins.int] duration: The duration of the inspector run.
-        :param pulumi.Input[Sequence[pulumi.Input['AssessmentTemplateEventSubscriptionArgs']]] event_subscriptions: A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
-        :param pulumi.Input[_builtins.str] name: The name of the assessment template.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rules_package_arns: The rules to be used during the run.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] target_arn: The assessment target ARN to attach the template to.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -181,9 +144,6 @@ class _AssessmentTemplateState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The template assessment ARN.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -193,9 +153,6 @@ class _AssessmentTemplateState:
     @_builtins.property
     @pulumi.getter
     def duration(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The duration of the inspector run.
-        """
         return pulumi.get(self, "duration")
 
     @duration.setter
@@ -205,9 +162,6 @@ class _AssessmentTemplateState:
     @_builtins.property
     @pulumi.getter(name="eventSubscriptions")
     def event_subscriptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentTemplateEventSubscriptionArgs']]]]:
-        """
-        A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
-        """
         return pulumi.get(self, "event_subscriptions")
 
     @event_subscriptions.setter
@@ -217,9 +171,6 @@ class _AssessmentTemplateState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the assessment template.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -229,9 +180,6 @@ class _AssessmentTemplateState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -241,9 +189,6 @@ class _AssessmentTemplateState:
     @_builtins.property
     @pulumi.getter(name="rulesPackageArns")
     def rules_package_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The rules to be used during the run.
-        """
         return pulumi.get(self, "rules_package_arns")
 
     @rules_package_arns.setter
@@ -253,9 +198,6 @@ class _AssessmentTemplateState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -265,9 +207,6 @@ class _AssessmentTemplateState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -277,9 +216,6 @@ class _AssessmentTemplateState:
     @_builtins.property
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The assessment target ARN to attach the template to.
-        """
         return pulumi.get(self, "target_arn")
 
     @target_arn.setter
@@ -302,51 +238,9 @@ class AssessmentTemplate(pulumi.CustomResource):
                  target_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an Inspector Classic Assessment Template
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.inspector.AssessmentTemplate("example",
-            name="example",
-            target_arn=example_aws_inspector_assessment_target["arn"],
-            duration=3600,
-            rules_package_arns=[
-                "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p",
-                "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc",
-                "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
-                "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD",
-            ],
-            event_subscriptions=[{
-                "event": "ASSESSMENT_RUN_COMPLETED",
-                "topic_arn": example_aws_sns_topic["arn"],
-            }])
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Inspector assessment template.
-
-        Using `pulumi import`, import `aws_inspector_assessment_template` using the template assessment ARN. For example:
-
-        % pulumi import aws_inspector_assessment_template.example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
-
+        Create a AssessmentTemplate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] duration: The duration of the inspector run.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AssessmentTemplateEventSubscriptionArgs', 'AssessmentTemplateEventSubscriptionArgsDict']]]] event_subscriptions: A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
-        :param pulumi.Input[_builtins.str] name: The name of the assessment template.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rules_package_arns: The rules to be used during the run.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] target_arn: The assessment target ARN to attach the template to.
         """
         ...
     @overload
@@ -355,42 +249,7 @@ class AssessmentTemplate(pulumi.CustomResource):
                  args: AssessmentTemplateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Inspector Classic Assessment Template
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.inspector.AssessmentTemplate("example",
-            name="example",
-            target_arn=example_aws_inspector_assessment_target["arn"],
-            duration=3600,
-            rules_package_arns=[
-                "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p",
-                "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc",
-                "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
-                "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD",
-            ],
-            event_subscriptions=[{
-                "event": "ASSESSMENT_RUN_COMPLETED",
-                "topic_arn": example_aws_sns_topic["arn"],
-            }])
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Inspector assessment template.
-
-        Using `pulumi import`, import `aws_inspector_assessment_template` using the template assessment ARN. For example:
-
-        % pulumi import aws_inspector_assessment_template.example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
-
+        Create a AssessmentTemplate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AssessmentTemplateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -463,15 +322,6 @@ class AssessmentTemplate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The template assessment ARN.
-        :param pulumi.Input[_builtins.int] duration: The duration of the inspector run.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AssessmentTemplateEventSubscriptionArgs', 'AssessmentTemplateEventSubscriptionArgsDict']]]] event_subscriptions: A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
-        :param pulumi.Input[_builtins.str] name: The name of the assessment template.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rules_package_arns: The rules to be used during the run.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] target_arn: The assessment target ARN to attach the template to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -491,72 +341,45 @@ class AssessmentTemplate(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The template assessment ARN.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def duration(self) -> pulumi.Output[_builtins.int]:
-        """
-        The duration of the inspector run.
-        """
         return pulumi.get(self, "duration")
 
     @_builtins.property
     @pulumi.getter(name="eventSubscriptions")
     def event_subscriptions(self) -> pulumi.Output[Optional[Sequence['outputs.AssessmentTemplateEventSubscription']]]:
-        """
-        A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
-        """
         return pulumi.get(self, "event_subscriptions")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the assessment template.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="rulesPackageArns")
     def rules_package_arns(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        The rules to be used during the run.
-        """
         return pulumi.get(self, "rules_package_arns")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The assessment target ARN to attach the template to.
-        """
         return pulumi.get(self, "target_arn")
 

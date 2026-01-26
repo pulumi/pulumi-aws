@@ -12,89 +12,37 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAuthorizerResult {
-    /**
-     * @return ARN of the API Gateway Authorizer.
-     * 
-     */
     private String arn;
-    /**
-     * @return Credentials required for the authorizer.
-     * 
-     */
     private String authorizerCredentials;
     private String authorizerId;
-    /**
-     * @return TTL of cached authorizer results in seconds.
-     * 
-     */
     private Integer authorizerResultTtlInSeconds;
-    /**
-     * @return Authorizer&#39;s Uniform Resource Identifier (URI).
-     * 
-     */
     private String authorizerUri;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Source of the identity in an incoming request.
-     * 
-     */
     private String identitySource;
-    /**
-     * @return Validation expression for the incoming identity.
-     * 
-     */
     private String identityValidationExpression;
-    /**
-     * @return Name of the authorizer.
-     * 
-     */
     private String name;
-    /**
-     * @return List of the Amazon Cognito user pool ARNs.
-     * 
-     */
     private List<String> providerArns;
     private String region;
     private String restApiId;
-    /**
-     * @return Type of the authorizer.
-     * 
-     */
     private String type;
 
     private GetAuthorizerResult() {}
-    /**
-     * @return ARN of the API Gateway Authorizer.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Credentials required for the authorizer.
-     * 
-     */
     public String authorizerCredentials() {
         return this.authorizerCredentials;
     }
     public String authorizerId() {
         return this.authorizerId;
     }
-    /**
-     * @return TTL of cached authorizer results in seconds.
-     * 
-     */
     public Integer authorizerResultTtlInSeconds() {
         return this.authorizerResultTtlInSeconds;
     }
-    /**
-     * @return Authorizer&#39;s Uniform Resource Identifier (URI).
-     * 
-     */
     public String authorizerUri() {
         return this.authorizerUri;
     }
@@ -105,31 +53,15 @@ public final class GetAuthorizerResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Source of the identity in an incoming request.
-     * 
-     */
     public String identitySource() {
         return this.identitySource;
     }
-    /**
-     * @return Validation expression for the incoming identity.
-     * 
-     */
     public String identityValidationExpression() {
         return this.identityValidationExpression;
     }
-    /**
-     * @return Name of the authorizer.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return List of the Amazon Cognito user pool ARNs.
-     * 
-     */
     public List<String> providerArns() {
         return this.providerArns;
     }
@@ -139,10 +71,6 @@ public final class GetAuthorizerResult {
     public String restApiId() {
         return this.restApiId;
     }
-    /**
-     * @return Type of the authorizer.
-     * 
-     */
     public String type() {
         return this.type;
     }

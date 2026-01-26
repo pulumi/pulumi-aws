@@ -19,100 +19,44 @@ public final class GetKeyPairArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetKeyPairArgs Empty = new GetKeyPairArgs();
 
-    /**
-     * Custom filter block as described below.
-     * 
-     * The arguments of this data source act as filters for querying the available
-     * Key Pairs. The given filters must match exactly one Key Pair
-     * whose data will be exported as attributes.
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<GetKeyPairFilterArgs>> filters;
 
-    /**
-     * @return Custom filter block as described below.
-     * 
-     * The arguments of this data source act as filters for querying the available
-     * Key Pairs. The given filters must match exactly one Key Pair
-     * whose data will be exported as attributes.
-     * 
-     */
     public Optional<Output<List<GetKeyPairFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Whether to include the public key material in the response.
-     * 
-     */
     @Import(name="includePublicKey")
     private @Nullable Output<Boolean> includePublicKey;
 
-    /**
-     * @return Whether to include the public key material in the response.
-     * 
-     */
     public Optional<Output<Boolean>> includePublicKey() {
         return Optional.ofNullable(this.includePublicKey);
     }
 
-    /**
-     * Key Pair name.
-     * 
-     */
     @Import(name="keyName")
     private @Nullable Output<String> keyName;
 
-    /**
-     * @return Key Pair name.
-     * 
-     */
     public Optional<Output<String>> keyName() {
         return Optional.ofNullable(this.keyName);
     }
 
-    /**
-     * Key Pair ID.
-     * 
-     */
     @Import(name="keyPairId")
     private @Nullable Output<String> keyPairId;
 
-    /**
-     * @return Key Pair ID.
-     * 
-     */
     public Optional<Output<String>> keyPairId() {
         return Optional.ofNullable(this.keyPairId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Any tags assigned to the Key Pair.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Any tags assigned to the Key Pair.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -146,150 +90,60 @@ public final class GetKeyPairArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetKeyPairArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * The arguments of this data source act as filters for querying the available
-         * Key Pairs. The given filters must match exactly one Key Pair
-         * whose data will be exported as attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<GetKeyPairFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * The arguments of this data source act as filters for querying the available
-         * Key Pairs. The given filters must match exactly one Key Pair
-         * whose data will be exported as attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<GetKeyPairFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * The arguments of this data source act as filters for querying the available
-         * Key Pairs. The given filters must match exactly one Key Pair
-         * whose data will be exported as attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetKeyPairFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param includePublicKey Whether to include the public key material in the response.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includePublicKey(@Nullable Output<Boolean> includePublicKey) {
             $.includePublicKey = includePublicKey;
             return this;
         }
 
-        /**
-         * @param includePublicKey Whether to include the public key material in the response.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includePublicKey(Boolean includePublicKey) {
             return includePublicKey(Output.of(includePublicKey));
         }
 
-        /**
-         * @param keyName Key Pair name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyName(@Nullable Output<String> keyName) {
             $.keyName = keyName;
             return this;
         }
 
-        /**
-         * @param keyName Key Pair name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyName(String keyName) {
             return keyName(Output.of(keyName));
         }
 
-        /**
-         * @param keyPairId Key Pair ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyPairId(@Nullable Output<String> keyPairId) {
             $.keyPairId = keyPairId;
             return this;
         }
 
-        /**
-         * @param keyPairId Key Pair ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyPairId(String keyPairId) {
             return keyPairId(Output.of(keyPairId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Any tags assigned to the Key Pair.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Any tags assigned to the Key Pair.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

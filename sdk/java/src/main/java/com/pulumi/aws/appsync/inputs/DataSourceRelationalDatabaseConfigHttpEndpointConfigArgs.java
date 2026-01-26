@@ -16,77 +16,37 @@ public final class DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs exte
 
     public static final DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs Empty = new DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs();
 
-    /**
-     * AWS secret store ARN for database credentials.
-     * 
-     */
     @Import(name="awsSecretStoreArn", required=true)
     private Output<String> awsSecretStoreArn;
 
-    /**
-     * @return AWS secret store ARN for database credentials.
-     * 
-     */
     public Output<String> awsSecretStoreArn() {
         return this.awsSecretStoreArn;
     }
 
-    /**
-     * Logical database name.
-     * 
-     */
     @Import(name="databaseName")
     private @Nullable Output<String> databaseName;
 
-    /**
-     * @return Logical database name.
-     * 
-     */
     public Optional<Output<String>> databaseName() {
         return Optional.ofNullable(this.databaseName);
     }
 
-    /**
-     * Amazon RDS cluster identifier.
-     * 
-     */
     @Import(name="dbClusterIdentifier", required=true)
     private Output<String> dbClusterIdentifier;
 
-    /**
-     * @return Amazon RDS cluster identifier.
-     * 
-     */
     public Output<String> dbClusterIdentifier() {
         return this.dbClusterIdentifier;
     }
 
-    /**
-     * AWS Region for RDS HTTP endpoint. Defaults to current region.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return AWS Region for RDS HTTP endpoint. Defaults to current region.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Logical schema name.
-     * 
-     */
     @Import(name="schema")
     private @Nullable Output<String> schema;
 
-    /**
-     * @return Logical schema name.
-     * 
-     */
     public Optional<Output<String>> schema() {
         return Optional.ofNullable(this.schema);
     }
@@ -119,107 +79,47 @@ public final class DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs exte
             $ = new DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param awsSecretStoreArn AWS secret store ARN for database credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsSecretStoreArn(Output<String> awsSecretStoreArn) {
             $.awsSecretStoreArn = awsSecretStoreArn;
             return this;
         }
 
-        /**
-         * @param awsSecretStoreArn AWS secret store ARN for database credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsSecretStoreArn(String awsSecretStoreArn) {
             return awsSecretStoreArn(Output.of(awsSecretStoreArn));
         }
 
-        /**
-         * @param databaseName Logical database name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(@Nullable Output<String> databaseName) {
             $.databaseName = databaseName;
             return this;
         }
 
-        /**
-         * @param databaseName Logical database name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
         }
 
-        /**
-         * @param dbClusterIdentifier Amazon RDS cluster identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbClusterIdentifier(Output<String> dbClusterIdentifier) {
             $.dbClusterIdentifier = dbClusterIdentifier;
             return this;
         }
 
-        /**
-         * @param dbClusterIdentifier Amazon RDS cluster identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbClusterIdentifier(String dbClusterIdentifier) {
             return dbClusterIdentifier(Output.of(dbClusterIdentifier));
         }
 
-        /**
-         * @param region AWS Region for RDS HTTP endpoint. Defaults to current region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region AWS Region for RDS HTTP endpoint. Defaults to current region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param schema Logical schema name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schema(@Nullable Output<String> schema) {
             $.schema = schema;
             return this;
         }
 
-        /**
-         * @param schema Logical schema name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schema(String schema) {
             return schema(Output.of(schema));
         }

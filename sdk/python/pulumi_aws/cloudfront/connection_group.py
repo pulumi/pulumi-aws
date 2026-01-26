@@ -30,11 +30,6 @@ class ConnectionGroupArgs:
                  wait_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ConnectionGroup resource.
-        :param pulumi.Input[_builtins.str] anycast_ip_list_id: ID of the associated Anycast IP List. `ipv6_enabled` must not be set to `true` in order to set this argument
-        :param pulumi.Input[_builtins.bool] enabled: Whether the connection group is enabled. Default is `true`.
-        :param pulumi.Input[_builtins.bool] ipv6_enabled: Whether IPv6 is enabled for the connection group. Default is `false`.
-        :param pulumi.Input[_builtins.str] name: Name of the connection group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if anycast_ip_list_id is not None:
             pulumi.set(__self__, "anycast_ip_list_id", anycast_ip_list_id)
@@ -54,9 +49,6 @@ class ConnectionGroupArgs:
     @_builtins.property
     @pulumi.getter(name="anycastIpListId")
     def anycast_ip_list_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the associated Anycast IP List. `ipv6_enabled` must not be set to `true` in order to set this argument
-        """
         return pulumi.get(self, "anycast_ip_list_id")
 
     @anycast_ip_list_id.setter
@@ -66,9 +58,6 @@ class ConnectionGroupArgs:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the connection group is enabled. Default is `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -78,9 +67,6 @@ class ConnectionGroupArgs:
     @_builtins.property
     @pulumi.getter(name="ipv6Enabled")
     def ipv6_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether IPv6 is enabled for the connection group. Default is `false`.
-        """
         return pulumi.get(self, "ipv6_enabled")
 
     @ipv6_enabled.setter
@@ -90,9 +76,6 @@ class ConnectionGroupArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the connection group.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -102,9 +85,6 @@ class ConnectionGroupArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -149,18 +129,6 @@ class _ConnectionGroupState:
                  wait_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ConnectionGroup resources.
-        :param pulumi.Input[_builtins.str] anycast_ip_list_id: ID of the associated Anycast IP List. `ipv6_enabled` must not be set to `true` in order to set this argument
-        :param pulumi.Input[_builtins.str] arn: ARN of the connection group.
-        :param pulumi.Input[_builtins.bool] enabled: Whether the connection group is enabled. Default is `true`.
-        :param pulumi.Input[_builtins.str] etag: Current version of the connection group.
-        :param pulumi.Input[_builtins.bool] ipv6_enabled: Whether IPv6 is enabled for the connection group. Default is `false`.
-        :param pulumi.Input[_builtins.bool] is_default: Whether the connection group is the default connection group for the distribution tenants.
-        :param pulumi.Input[_builtins.str] last_modified_time: Date and time when the connection group was last modified.
-        :param pulumi.Input[_builtins.str] name: Name of the connection group.
-        :param pulumi.Input[_builtins.str] routing_endpoint: The routing endpoint (also known as the DNS name) that is assigned to the connection group, such as d111111abcdef8.cloudfront.net.
-        :param pulumi.Input[_builtins.str] status: Current status of the connection group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if anycast_ip_list_id is not None:
             pulumi.set(__self__, "anycast_ip_list_id", anycast_ip_list_id)
@@ -194,9 +162,6 @@ class _ConnectionGroupState:
     @_builtins.property
     @pulumi.getter(name="anycastIpListId")
     def anycast_ip_list_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the associated Anycast IP List. `ipv6_enabled` must not be set to `true` in order to set this argument
-        """
         return pulumi.get(self, "anycast_ip_list_id")
 
     @anycast_ip_list_id.setter
@@ -206,9 +171,6 @@ class _ConnectionGroupState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the connection group.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -218,9 +180,6 @@ class _ConnectionGroupState:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the connection group is enabled. Default is `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -230,9 +189,6 @@ class _ConnectionGroupState:
     @_builtins.property
     @pulumi.getter
     def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Current version of the connection group.
-        """
         return pulumi.get(self, "etag")
 
     @etag.setter
@@ -242,9 +198,6 @@ class _ConnectionGroupState:
     @_builtins.property
     @pulumi.getter(name="ipv6Enabled")
     def ipv6_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether IPv6 is enabled for the connection group. Default is `false`.
-        """
         return pulumi.get(self, "ipv6_enabled")
 
     @ipv6_enabled.setter
@@ -254,9 +207,6 @@ class _ConnectionGroupState:
     @_builtins.property
     @pulumi.getter(name="isDefault")
     def is_default(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the connection group is the default connection group for the distribution tenants.
-        """
         return pulumi.get(self, "is_default")
 
     @is_default.setter
@@ -266,9 +216,6 @@ class _ConnectionGroupState:
     @_builtins.property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date and time when the connection group was last modified.
-        """
         return pulumi.get(self, "last_modified_time")
 
     @last_modified_time.setter
@@ -278,9 +225,6 @@ class _ConnectionGroupState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the connection group.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -290,9 +234,6 @@ class _ConnectionGroupState:
     @_builtins.property
     @pulumi.getter(name="routingEndpoint")
     def routing_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The routing endpoint (also known as the DNS name) that is assigned to the connection group, such as d111111abcdef8.cloudfront.net.
-        """
         return pulumi.get(self, "routing_endpoint")
 
     @routing_endpoint.setter
@@ -302,9 +243,6 @@ class _ConnectionGroupState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Current status of the connection group.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -314,9 +252,6 @@ class _ConnectionGroupState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -326,9 +261,6 @@ class _ConnectionGroupState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -369,37 +301,9 @@ class ConnectionGroup(pulumi.CustomResource):
                  wait_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        Creates an Amazon CloudFront Connection Group.
-
-        For information about CloudFront Connection Groups, see the [AWS CloudFormation Documentation](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-connectiongroup.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudfront.ConnectionGroup("example",
-            name="example",
-            enabled=True,
-            ipv6_enabled=True)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudFront Connection Groups using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:cloudfront/connectionGroup:ConnectionGroup example CGROUP123EXAMPLE
-        ```
-
+        Create a ConnectionGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] anycast_ip_list_id: ID of the associated Anycast IP List. `ipv6_enabled` must not be set to `true` in order to set this argument
-        :param pulumi.Input[_builtins.bool] enabled: Whether the connection group is enabled. Default is `true`.
-        :param pulumi.Input[_builtins.bool] ipv6_enabled: Whether IPv6 is enabled for the connection group. Default is `false`.
-        :param pulumi.Input[_builtins.str] name: Name of the connection group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -408,30 +312,7 @@ class ConnectionGroup(pulumi.CustomResource):
                  args: Optional[ConnectionGroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates an Amazon CloudFront Connection Group.
-
-        For information about CloudFront Connection Groups, see the [AWS CloudFormation Documentation](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-connectiongroup.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudfront.ConnectionGroup("example",
-            name="example",
-            enabled=True,
-            ipv6_enabled=True)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudFront Connection Groups using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:cloudfront/connectionGroup:ConnectionGroup example CGROUP123EXAMPLE
-        ```
-
+        Create a ConnectionGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ConnectionGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -508,18 +389,6 @@ class ConnectionGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] anycast_ip_list_id: ID of the associated Anycast IP List. `ipv6_enabled` must not be set to `true` in order to set this argument
-        :param pulumi.Input[_builtins.str] arn: ARN of the connection group.
-        :param pulumi.Input[_builtins.bool] enabled: Whether the connection group is enabled. Default is `true`.
-        :param pulumi.Input[_builtins.str] etag: Current version of the connection group.
-        :param pulumi.Input[_builtins.bool] ipv6_enabled: Whether IPv6 is enabled for the connection group. Default is `false`.
-        :param pulumi.Input[_builtins.bool] is_default: Whether the connection group is the default connection group for the distribution tenants.
-        :param pulumi.Input[_builtins.str] last_modified_time: Date and time when the connection group was last modified.
-        :param pulumi.Input[_builtins.str] name: Name of the connection group.
-        :param pulumi.Input[_builtins.str] routing_endpoint: The routing endpoint (also known as the DNS name) that is assigned to the connection group, such as d111111abcdef8.cloudfront.net.
-        :param pulumi.Input[_builtins.str] status: Current status of the connection group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -544,97 +413,61 @@ class ConnectionGroup(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="anycastIpListId")
     def anycast_ip_list_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ID of the associated Anycast IP List. `ipv6_enabled` must not be set to `true` in order to set this argument
-        """
         return pulumi.get(self, "anycast_ip_list_id")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the connection group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether the connection group is enabled. Default is `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter
     def etag(self) -> pulumi.Output[_builtins.str]:
-        """
-        Current version of the connection group.
-        """
         return pulumi.get(self, "etag")
 
     @_builtins.property
     @pulumi.getter(name="ipv6Enabled")
     def ipv6_enabled(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether IPv6 is enabled for the connection group. Default is `false`.
-        """
         return pulumi.get(self, "ipv6_enabled")
 
     @_builtins.property
     @pulumi.getter(name="isDefault")
     def is_default(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether the connection group is the default connection group for the distribution tenants.
-        """
         return pulumi.get(self, "is_default")
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        Date and time when the connection group was last modified.
-        """
         return pulumi.get(self, "last_modified_time")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the connection group.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="routingEndpoint")
     def routing_endpoint(self) -> pulumi.Output[_builtins.str]:
-        """
-        The routing endpoint (also known as the DNS name) that is assigned to the connection group, such as d111111abcdef8.cloudfront.net.
-        """
         return pulumi.get(self, "routing_endpoint")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Current status of the connection group.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property

@@ -12,143 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provisions a CIDR from an IPAM address pool.
-//
-// > **NOTE:** Provisioning Public IPv4 or Public IPv6 require [steps outside the scope of this resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#prepare-for-byoip). The resource accepts `message` and `signature` as part of the `cidrAuthorizationContext` attribute but those must be generated ahead of time. Public IPv6 CIDRs that are provisioned into a Pool with `publiclyAdvertisable = true` and all public IPv4 CIDRs also require creating a Route Origin Authorization (ROA) object in your Regional Internet Registry (RIR).
-//
-// > **NOTE:** In order to deprovision CIDRs all Allocations must be released. Allocations created by a VPC take up to 30 minutes to be released. However, for IPAM to properly manage the removal of allocation records created by VPCs and other resources, you must [grant it permissions](https://docs.aws.amazon.com/vpc/latest/ipam/choose-single-user-or-orgs-ipam.html) in
-// either a single account or organizationally. If you are unable to deprovision a cidr after waiting over 30 minutes, you may be missing the Service Linked Role.
-//
-// ## Example Usage
-//
-// Basic usage:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := ec2.NewVpcIpam(ctx, "example", &ec2.VpcIpamArgs{
-//				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
-//					&ec2.VpcIpamOperatingRegionArgs{
-//						RegionName: pulumi.String(current.Region),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpcIpamPool, err := ec2.NewVpcIpamPool(ctx, "example", &ec2.VpcIpamPoolArgs{
-//				AddressFamily: pulumi.String("ipv4"),
-//				IpamScopeId:   example.PrivateDefaultScopeId,
-//				Locale:        pulumi.String(current.Region),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVpcIpamPoolCidr(ctx, "example", &ec2.VpcIpamPoolCidrArgs{
-//				IpamPoolId: exampleVpcIpamPool.ID(),
-//				Cidr:       pulumi.String("172.20.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// Provision Public IPv6 Pool CIDRs:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := ec2.NewVpcIpam(ctx, "example", &ec2.VpcIpamArgs{
-//				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
-//					&ec2.VpcIpamOperatingRegionArgs{
-//						RegionName: pulumi.String(current.Region),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			ipv6TestPublic, err := ec2.NewVpcIpamPool(ctx, "ipv6_test_public", &ec2.VpcIpamPoolArgs{
-//				AddressFamily:        pulumi.String("ipv6"),
-//				IpamScopeId:          example.PublicDefaultScopeId,
-//				Locale:               pulumi.String("us-east-1"),
-//				Description:          pulumi.String("public ipv6"),
-//				PubliclyAdvertisable: pulumi.Bool(false),
-//				PublicIpSource:       pulumi.String("amazon"),
-//				AwsService:           pulumi.String("ec2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVpcIpamPoolCidr(ctx, "ipv6_test_public", &ec2.VpcIpamPoolCidrArgs{
-//				IpamPoolId:    ipv6TestPublic.ID(),
-//				NetmaskLength: pulumi.Int(52),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import IPAMs using the `<cidr>_<ipam-pool-id>`. For example:
-//
-// __NOTE:__ Do not use the IPAM Pool Cidr ID as this was introduced after the resource already existed.
-//
-// ```sh
-// $ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.20.0.0/24_ipam-pool-0e634f5a1517cccdc
-// ```
 type VpcIpamPoolCidr struct {
 	pulumi.CustomResourceState
 
-	// The CIDR you want to assign to the pool. Conflicts with `netmaskLength`.
-	Cidr pulumi.StringOutput `pulumi:"cidr"`
-	// A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidrAuthorizationContext for more information.
+	Cidr                     pulumi.StringOutput                              `pulumi:"cidr"`
 	CidrAuthorizationContext VpcIpamPoolCidrCidrAuthorizationContextPtrOutput `pulumi:"cidrAuthorizationContext"`
-	// The unique ID generated by AWS for the pool cidr. Typically this is the resource `id` but this attribute was added to the API calls after the fact and is therefore not used as the resource id.
-	IpamPoolCidrId pulumi.StringOutput `pulumi:"ipamPoolCidrId"`
-	// The ID of the pool to which you want to assign a CIDR.
-	IpamPoolId pulumi.StringOutput `pulumi:"ipamPoolId"`
-	// If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
-	NetmaskLength pulumi.IntOutput `pulumi:"netmaskLength"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	IpamPoolCidrId           pulumi.StringOutput                              `pulumi:"ipamPoolCidrId"`
+	IpamPoolId               pulumi.StringOutput                              `pulumi:"ipamPoolId"`
+	NetmaskLength            pulumi.IntOutput                                 `pulumi:"netmaskLength"`
+	Region                   pulumi.StringOutput                              `pulumi:"region"`
 }
 
 // NewVpcIpamPoolCidr registers a new resource with the given unique name, arguments, and options.
@@ -184,33 +56,21 @@ func GetVpcIpamPoolCidr(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcIpamPoolCidr resources.
 type vpcIpamPoolCidrState struct {
-	// The CIDR you want to assign to the pool. Conflicts with `netmaskLength`.
-	Cidr *string `pulumi:"cidr"`
-	// A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidrAuthorizationContext for more information.
+	Cidr                     *string                                  `pulumi:"cidr"`
 	CidrAuthorizationContext *VpcIpamPoolCidrCidrAuthorizationContext `pulumi:"cidrAuthorizationContext"`
-	// The unique ID generated by AWS for the pool cidr. Typically this is the resource `id` but this attribute was added to the API calls after the fact and is therefore not used as the resource id.
-	IpamPoolCidrId *string `pulumi:"ipamPoolCidrId"`
-	// The ID of the pool to which you want to assign a CIDR.
-	IpamPoolId *string `pulumi:"ipamPoolId"`
-	// If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
-	NetmaskLength *int `pulumi:"netmaskLength"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	IpamPoolCidrId           *string                                  `pulumi:"ipamPoolCidrId"`
+	IpamPoolId               *string                                  `pulumi:"ipamPoolId"`
+	NetmaskLength            *int                                     `pulumi:"netmaskLength"`
+	Region                   *string                                  `pulumi:"region"`
 }
 
 type VpcIpamPoolCidrState struct {
-	// The CIDR you want to assign to the pool. Conflicts with `netmaskLength`.
-	Cidr pulumi.StringPtrInput
-	// A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidrAuthorizationContext for more information.
+	Cidr                     pulumi.StringPtrInput
 	CidrAuthorizationContext VpcIpamPoolCidrCidrAuthorizationContextPtrInput
-	// The unique ID generated by AWS for the pool cidr. Typically this is the resource `id` but this attribute was added to the API calls after the fact and is therefore not used as the resource id.
-	IpamPoolCidrId pulumi.StringPtrInput
-	// The ID of the pool to which you want to assign a CIDR.
-	IpamPoolId pulumi.StringPtrInput
-	// If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
-	NetmaskLength pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	IpamPoolCidrId           pulumi.StringPtrInput
+	IpamPoolId               pulumi.StringPtrInput
+	NetmaskLength            pulumi.IntPtrInput
+	Region                   pulumi.StringPtrInput
 }
 
 func (VpcIpamPoolCidrState) ElementType() reflect.Type {
@@ -218,30 +78,20 @@ func (VpcIpamPoolCidrState) ElementType() reflect.Type {
 }
 
 type vpcIpamPoolCidrArgs struct {
-	// The CIDR you want to assign to the pool. Conflicts with `netmaskLength`.
-	Cidr *string `pulumi:"cidr"`
-	// A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidrAuthorizationContext for more information.
+	Cidr                     *string                                  `pulumi:"cidr"`
 	CidrAuthorizationContext *VpcIpamPoolCidrCidrAuthorizationContext `pulumi:"cidrAuthorizationContext"`
-	// The ID of the pool to which you want to assign a CIDR.
-	IpamPoolId string `pulumi:"ipamPoolId"`
-	// If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
-	NetmaskLength *int `pulumi:"netmaskLength"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	IpamPoolId               string                                   `pulumi:"ipamPoolId"`
+	NetmaskLength            *int                                     `pulumi:"netmaskLength"`
+	Region                   *string                                  `pulumi:"region"`
 }
 
 // The set of arguments for constructing a VpcIpamPoolCidr resource.
 type VpcIpamPoolCidrArgs struct {
-	// The CIDR you want to assign to the pool. Conflicts with `netmaskLength`.
-	Cidr pulumi.StringPtrInput
-	// A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidrAuthorizationContext for more information.
+	Cidr                     pulumi.StringPtrInput
 	CidrAuthorizationContext VpcIpamPoolCidrCidrAuthorizationContextPtrInput
-	// The ID of the pool to which you want to assign a CIDR.
-	IpamPoolId pulumi.StringInput
-	// If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
-	NetmaskLength pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	IpamPoolId               pulumi.StringInput
+	NetmaskLength            pulumi.IntPtrInput
+	Region                   pulumi.StringPtrInput
 }
 
 func (VpcIpamPoolCidrArgs) ElementType() reflect.Type {
@@ -331,34 +181,28 @@ func (o VpcIpamPoolCidrOutput) ToVpcIpamPoolCidrOutputWithContext(ctx context.Co
 	return o
 }
 
-// The CIDR you want to assign to the pool. Conflicts with `netmaskLength`.
 func (o VpcIpamPoolCidrOutput) Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidr) pulumi.StringOutput { return v.Cidr }).(pulumi.StringOutput)
 }
 
-// A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidrAuthorizationContext for more information.
 func (o VpcIpamPoolCidrOutput) CidrAuthorizationContext() VpcIpamPoolCidrCidrAuthorizationContextPtrOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidr) VpcIpamPoolCidrCidrAuthorizationContextPtrOutput {
 		return v.CidrAuthorizationContext
 	}).(VpcIpamPoolCidrCidrAuthorizationContextPtrOutput)
 }
 
-// The unique ID generated by AWS for the pool cidr. Typically this is the resource `id` but this attribute was added to the API calls after the fact and is therefore not used as the resource id.
 func (o VpcIpamPoolCidrOutput) IpamPoolCidrId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidr) pulumi.StringOutput { return v.IpamPoolCidrId }).(pulumi.StringOutput)
 }
 
-// The ID of the pool to which you want to assign a CIDR.
 func (o VpcIpamPoolCidrOutput) IpamPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidr) pulumi.StringOutput { return v.IpamPoolId }).(pulumi.StringOutput)
 }
 
-// If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
 func (o VpcIpamPoolCidrOutput) NetmaskLength() pulumi.IntOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidr) pulumi.IntOutput { return v.NetmaskLength }).(pulumi.IntOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpcIpamPoolCidrOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidr) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

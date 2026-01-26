@@ -12,68 +12,28 @@ import java.util.Objects;
 @CustomType
 public final class GetDirectoryConnectSetting {
     private List<String> availabilityZones;
-    /**
-     * @return IP addresses of the AD Connector servers.
-     * 
-     */
     private List<String> connectIps;
-    /**
-     * @return DNS IP addresses of the domain to connect to.
-     * 
-     */
     private List<String> customerDnsIps;
-    /**
-     * @return Username corresponding to the password provided.
-     * 
-     */
     private String customerUsername;
-    /**
-     * @return Identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
-     * 
-     */
     private List<String> subnetIds;
-    /**
-     * @return ID of the VPC that the connector is in.
-     * 
-     */
     private String vpcId;
 
     private GetDirectoryConnectSetting() {}
     public List<String> availabilityZones() {
         return this.availabilityZones;
     }
-    /**
-     * @return IP addresses of the AD Connector servers.
-     * 
-     */
     public List<String> connectIps() {
         return this.connectIps;
     }
-    /**
-     * @return DNS IP addresses of the domain to connect to.
-     * 
-     */
     public List<String> customerDnsIps() {
         return this.customerDnsIps;
     }
-    /**
-     * @return Username corresponding to the password provided.
-     * 
-     */
     public String customerUsername() {
         return this.customerUsername;
     }
-    /**
-     * @return Identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }
-    /**
-     * @return ID of the VPC that the connector is in.
-     * 
-     */
     public String vpcId() {
         return this.vpcId;
     }

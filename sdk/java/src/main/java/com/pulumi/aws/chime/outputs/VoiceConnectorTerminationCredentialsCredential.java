@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class VoiceConnectorTerminationCredentialsCredential {
-    /**
-     * @return RFC2617 compliant password associated with the SIP credentials.
-     * 
-     */
     private String password;
-    /**
-     * @return RFC2617 compliant username associated with the SIP credentials.
-     * 
-     */
     private String username;
 
     private VoiceConnectorTerminationCredentialsCredential() {}
-    /**
-     * @return RFC2617 compliant password associated with the SIP credentials.
-     * 
-     */
     public String password() {
         return this.password;
     }
-    /**
-     * @return RFC2617 compliant username associated with the SIP credentials.
-     * 
-     */
     public String username() {
         return this.username;
     }

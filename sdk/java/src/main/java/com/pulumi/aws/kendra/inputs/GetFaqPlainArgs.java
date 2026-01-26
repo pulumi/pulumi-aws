@@ -16,62 +16,30 @@ public final class GetFaqPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetFaqPlainArgs Empty = new GetFaqPlainArgs();
 
-    /**
-     * Identifier of the FAQ.
-     * 
-     */
     @Import(name="faqId", required=true)
     private String faqId;
 
-    /**
-     * @return Identifier of the FAQ.
-     * 
-     */
     public String faqId() {
         return this.faqId;
     }
 
-    /**
-     * Identifier of the index that contains the FAQ.
-     * 
-     */
     @Import(name="indexId", required=true)
     private String indexId;
 
-    /**
-     * @return Identifier of the index that contains the FAQ.
-     * 
-     */
     public String indexId() {
         return this.indexId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Metadata that helps organize the FAQs you create.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Metadata that helps organize the FAQs you create.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -103,45 +71,21 @@ public final class GetFaqPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetFaqPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param faqId Identifier of the FAQ.
-         * 
-         * @return builder
-         * 
-         */
         public Builder faqId(String faqId) {
             $.faqId = faqId;
             return this;
         }
 
-        /**
-         * @param indexId Identifier of the index that contains the FAQ.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexId(String indexId) {
             $.indexId = indexId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Metadata that helps organize the FAQs you create.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

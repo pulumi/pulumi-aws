@@ -14,32 +14,16 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
 
     public static final ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs Empty = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs();
 
-    /**
-     * Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
-     * 
-     */
     @Import(name="groupId", required=true)
     private Output<String> groupId;
 
-    /**
-     * @return Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
-     * 
-     */
     public Output<String> groupId() {
         return this.groupId;
     }
 
-    /**
-     * Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -69,44 +53,20 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
             $ = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param groupId Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupId(Output<String> groupId) {
             $.groupId = groupId;
             return this;
         }
 
-        /**
-         * @param groupId Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupId(String groupId) {
             return groupId(Output.of(groupId));
         }
 
-        /**
-         * @param name Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

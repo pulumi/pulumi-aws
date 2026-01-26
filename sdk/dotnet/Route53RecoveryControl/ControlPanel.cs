@@ -9,86 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Route53RecoveryControl
 {
-    /// <summary>
-    /// Provides an AWS Route 53 Recovery Control Config Control Panel.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Route53RecoveryControl.ControlPanel("example", new()
-    ///     {
-    ///         Name = "balmorhea",
-    ///         ClusterArn = "arn:aws:route53-recovery-control::123456789012:cluster/8d47920e-d789-437d-803a-2dcc4b204393",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Route53 Recovery Control Config Control Panel using the control panel arn. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:route53recoverycontrol/controlPanel:ControlPanel mypanel arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:route53recoverycontrol/controlPanel:ControlPanel")]
     public partial class ControlPanel : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the control panel.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the cluster in which this control panel will reside.
-        /// </summary>
         [Output("clusterArn")]
         public Output<string> ClusterArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether a control panel is default.
-        /// </summary>
         [Output("defaultControlPanel")]
         public Output<bool> DefaultControlPanel { get; private set; } = null!;
 
-        /// <summary>
-        /// Name describing the control panel.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Number routing controls in a control panel.
-        /// </summary>
         [Output("routingControlCount")]
         public Output<int> RoutingControlCount { get; private set; } = null!;
 
-        /// <summary>
-        /// Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -138,26 +82,14 @@ namespace Pulumi.Aws.Route53RecoveryControl
 
     public sealed class ControlPanelArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the cluster in which this control panel will reside.
-        /// </summary>
         [Input("clusterArn", required: true)]
         public Input<string> ClusterArn { get; set; } = null!;
 
-        /// <summary>
-        /// Name describing the control panel.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -172,50 +104,26 @@ namespace Pulumi.Aws.Route53RecoveryControl
 
     public sealed class ControlPanelState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the control panel.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// ARN of the cluster in which this control panel will reside.
-        /// </summary>
         [Input("clusterArn")]
         public Input<string>? ClusterArn { get; set; }
 
-        /// <summary>
-        /// Whether a control panel is default.
-        /// </summary>
         [Input("defaultControlPanel")]
         public Input<bool>? DefaultControlPanel { get; set; }
 
-        /// <summary>
-        /// Name describing the control panel.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Number routing controls in a control panel.
-        /// </summary>
         [Input("routingControlCount")]
         public Input<int>? RoutingControlCount { get; set; }
 
-        /// <summary>
-        /// Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -224,10 +132,6 @@ namespace Pulumi.Aws.Route53RecoveryControl
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -11,53 +11,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CertificateDomainValidationOption {
-    /**
-     * @return Fully qualified domain name (FQDN) in the certificate.
-     * 
-     */
     private @Nullable String domainName;
-    /**
-     * @return The name of the DNS record to create to validate the certificate
-     * 
-     */
     private @Nullable String resourceRecordName;
-    /**
-     * @return The type of DNS record to create
-     * 
-     */
     private @Nullable String resourceRecordType;
-    /**
-     * @return The value the DNS record needs to have
-     * 
-     */
     private @Nullable String resourceRecordValue;
 
     private CertificateDomainValidationOption() {}
-    /**
-     * @return Fully qualified domain name (FQDN) in the certificate.
-     * 
-     */
     public Optional<String> domainName() {
         return Optional.ofNullable(this.domainName);
     }
-    /**
-     * @return The name of the DNS record to create to validate the certificate
-     * 
-     */
     public Optional<String> resourceRecordName() {
         return Optional.ofNullable(this.resourceRecordName);
     }
-    /**
-     * @return The type of DNS record to create
-     * 
-     */
     public Optional<String> resourceRecordType() {
         return Optional.ofNullable(this.resourceRecordType);
     }
-    /**
-     * @return The value the DNS record needs to have
-     * 
-     */
     public Optional<String> resourceRecordValue() {
         return Optional.ofNullable(this.resourceRecordValue);
     }

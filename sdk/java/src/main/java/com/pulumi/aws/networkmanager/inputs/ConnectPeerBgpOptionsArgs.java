@@ -15,17 +15,9 @@ public final class ConnectPeerBgpOptionsArgs extends com.pulumi.resources.Resour
 
     public static final ConnectPeerBgpOptionsArgs Empty = new ConnectPeerBgpOptionsArgs();
 
-    /**
-     * Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
-     * 
-     */
     @Import(name="peerAsn")
     private @Nullable Output<String> peerAsn;
 
-    /**
-     * @return Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
-     * 
-     */
     public Optional<Output<String>> peerAsn() {
         return Optional.ofNullable(this.peerAsn);
     }
@@ -54,23 +46,11 @@ public final class ConnectPeerBgpOptionsArgs extends com.pulumi.resources.Resour
             $ = new ConnectPeerBgpOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param peerAsn Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
-         * 
-         * @return builder
-         * 
-         */
         public Builder peerAsn(@Nullable Output<String> peerAsn) {
             $.peerAsn = peerAsn;
             return this;
         }
 
-        /**
-         * @param peerAsn Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
-         * 
-         * @return builder
-         * 
-         */
         public Builder peerAsn(String peerAsn) {
             return peerAsn(Output.of(peerAsn));
         }

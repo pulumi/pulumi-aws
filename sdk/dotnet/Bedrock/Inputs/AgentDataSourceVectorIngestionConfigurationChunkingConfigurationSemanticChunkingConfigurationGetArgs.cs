@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The dissimilarity threshold for splitting chunks.
-        /// </summary>
         [Input("breakpointPercentileThreshold", required: true)]
         public Input<int> BreakpointPercentileThreshold { get; set; } = null!;
 
-        /// <summary>
-        /// The buffer size.
-        /// </summary>
         [Input("bufferSize", required: true)]
         public Input<int> BufferSize { get; set; } = null!;
 
-        /// <summary>
-        /// The maximum number of tokens a chunk can contain.
-        /// </summary>
         [Input("maxToken", required: true)]
         public Input<int> MaxToken { get; set; } = null!;
 

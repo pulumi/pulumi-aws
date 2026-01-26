@@ -10,77 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserName {
-    /**
-     * @return The family name of the user.
-     * 
-     */
     private String familyName;
-    /**
-     * @return The name that is typically displayed when the name is shown for display.
-     * 
-     */
     private String formatted;
-    /**
-     * @return The given name of the user.
-     * 
-     */
     private String givenName;
-    /**
-     * @return The honorific prefix of the user.
-     * 
-     */
     private String honorificPrefix;
-    /**
-     * @return The honorific suffix of the user.
-     * 
-     */
     private String honorificSuffix;
-    /**
-     * @return The middle name of the user.
-     * 
-     */
     private String middleName;
 
     private GetUserName() {}
-    /**
-     * @return The family name of the user.
-     * 
-     */
     public String familyName() {
         return this.familyName;
     }
-    /**
-     * @return The name that is typically displayed when the name is shown for display.
-     * 
-     */
     public String formatted() {
         return this.formatted;
     }
-    /**
-     * @return The given name of the user.
-     * 
-     */
     public String givenName() {
         return this.givenName;
     }
-    /**
-     * @return The honorific prefix of the user.
-     * 
-     */
     public String honorificPrefix() {
         return this.honorificPrefix;
     }
-    /**
-     * @return The honorific suffix of the user.
-     * 
-     */
     public String honorificSuffix() {
         return this.honorificSuffix;
     }
-    /**
-     * @return The middle name of the user.
-     * 
-     */
     public String middleName() {
         return this.middleName;
     }

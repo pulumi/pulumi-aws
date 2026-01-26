@@ -29,13 +29,6 @@ class S3AccessPointAttachmentArgs:
                  timeouts: Optional[pulumi.Input['S3AccessPointAttachmentTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a S3AccessPointAttachment resource.
-        :param pulumi.Input[_builtins.str] type: Type of S3 access point. Valid values: `OpenZFS`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] name: Name of the S3 access point.
-        :param pulumi.Input['S3AccessPointAttachmentOpenzfsConfigurationArgs'] openzfs_configuration: Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfs_configuration` Block for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['S3AccessPointAttachmentS3AccessPointArgs'] s3_access_point: S3 access point configuration. See `s3_access_point` Block for details.
         """
         pulumi.set(__self__, "type", type)
         if name is not None:
@@ -52,11 +45,6 @@ class S3AccessPointAttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Type of S3 access point. Valid values: `OpenZFS`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -66,9 +54,6 @@ class S3AccessPointAttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the S3 access point.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -78,9 +63,6 @@ class S3AccessPointAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="openzfsConfiguration")
     def openzfs_configuration(self) -> Optional[pulumi.Input['S3AccessPointAttachmentOpenzfsConfigurationArgs']]:
-        """
-        Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfs_configuration` Block for details.
-        """
         return pulumi.get(self, "openzfs_configuration")
 
     @openzfs_configuration.setter
@@ -90,9 +72,6 @@ class S3AccessPointAttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -102,9 +81,6 @@ class S3AccessPointAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="s3AccessPoint")
     def s3_access_point(self) -> Optional[pulumi.Input['S3AccessPointAttachmentS3AccessPointArgs']]:
-        """
-        S3 access point configuration. See `s3_access_point` Block for details.
-        """
         return pulumi.get(self, "s3_access_point")
 
     @s3_access_point.setter
@@ -134,15 +110,6 @@ class _S3AccessPointAttachmentState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering S3AccessPointAttachment resources.
-        :param pulumi.Input[_builtins.str] name: Name of the S3 access point.
-        :param pulumi.Input['S3AccessPointAttachmentOpenzfsConfigurationArgs'] openzfs_configuration: Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfs_configuration` Block for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['S3AccessPointAttachmentS3AccessPointArgs'] s3_access_point: S3 access point configuration. See `s3_access_point` Block for details.
-        :param pulumi.Input[_builtins.str] s3_access_point_alias: S3 access point's alias.
-        :param pulumi.Input[_builtins.str] s3_access_point_arn: S3 access point's ARN.
-        :param pulumi.Input[_builtins.str] type: Type of S3 access point. Valid values: `OpenZFS`.
-               
-               The following arguments are optional:
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -164,9 +131,6 @@ class _S3AccessPointAttachmentState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the S3 access point.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -176,9 +140,6 @@ class _S3AccessPointAttachmentState:
     @_builtins.property
     @pulumi.getter(name="openzfsConfiguration")
     def openzfs_configuration(self) -> Optional[pulumi.Input['S3AccessPointAttachmentOpenzfsConfigurationArgs']]:
-        """
-        Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfs_configuration` Block for details.
-        """
         return pulumi.get(self, "openzfs_configuration")
 
     @openzfs_configuration.setter
@@ -188,9 +149,6 @@ class _S3AccessPointAttachmentState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -200,9 +158,6 @@ class _S3AccessPointAttachmentState:
     @_builtins.property
     @pulumi.getter(name="s3AccessPoint")
     def s3_access_point(self) -> Optional[pulumi.Input['S3AccessPointAttachmentS3AccessPointArgs']]:
-        """
-        S3 access point configuration. See `s3_access_point` Block for details.
-        """
         return pulumi.get(self, "s3_access_point")
 
     @s3_access_point.setter
@@ -212,9 +167,6 @@ class _S3AccessPointAttachmentState:
     @_builtins.property
     @pulumi.getter(name="s3AccessPointAlias")
     def s3_access_point_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        S3 access point's alias.
-        """
         return pulumi.get(self, "s3_access_point_alias")
 
     @s3_access_point_alias.setter
@@ -224,9 +176,6 @@ class _S3AccessPointAttachmentState:
     @_builtins.property
     @pulumi.getter(name="s3AccessPointArn")
     def s3_access_point_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        S3 access point's ARN.
-        """
         return pulumi.get(self, "s3_access_point_arn")
 
     @s3_access_point_arn.setter
@@ -245,11 +194,6 @@ class _S3AccessPointAttachmentState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of S3 access point. Valid values: `OpenZFS`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -271,46 +215,9 @@ class S3AccessPointAttachment(pulumi.CustomResource):
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an Amazon FSx S3 Access Point attachment.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.fsx.S3AccessPointAttachment("example",
-            name="example-attachment",
-            type="OPENZFS",
-            openzfs_configuration={
-                "volume_id": example_aws_fsx_openzfs_volume["id"],
-                "file_system_identity": {
-                    "type": "POSIX",
-                    "posix_user": {
-                        "uid": 1001,
-                        "gid": 1001,
-                    },
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import FSx S3 Access Point attachments using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:fsx/s3AccessPointAttachment:S3AccessPointAttachment example example-attachment
-        ```
-
+        Create a S3AccessPointAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: Name of the S3 access point.
-        :param pulumi.Input[Union['S3AccessPointAttachmentOpenzfsConfigurationArgs', 'S3AccessPointAttachmentOpenzfsConfigurationArgsDict']] openzfs_configuration: Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfs_configuration` Block for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['S3AccessPointAttachmentS3AccessPointArgs', 'S3AccessPointAttachmentS3AccessPointArgsDict']] s3_access_point: S3 access point configuration. See `s3_access_point` Block for details.
-        :param pulumi.Input[_builtins.str] type: Type of S3 access point. Valid values: `OpenZFS`.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -319,37 +226,7 @@ class S3AccessPointAttachment(pulumi.CustomResource):
                  args: S3AccessPointAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Amazon FSx S3 Access Point attachment.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.fsx.S3AccessPointAttachment("example",
-            name="example-attachment",
-            type="OPENZFS",
-            openzfs_configuration={
-                "volume_id": example_aws_fsx_openzfs_volume["id"],
-                "file_system_identity": {
-                    "type": "POSIX",
-                    "posix_user": {
-                        "uid": 1001,
-                        "gid": 1001,
-                    },
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import FSx S3 Access Point attachments using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:fsx/s3AccessPointAttachment:S3AccessPointAttachment example example-attachment
-        ```
-
+        Create a S3AccessPointAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param S3AccessPointAttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -415,15 +292,6 @@ class S3AccessPointAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: Name of the S3 access point.
-        :param pulumi.Input[Union['S3AccessPointAttachmentOpenzfsConfigurationArgs', 'S3AccessPointAttachmentOpenzfsConfigurationArgsDict']] openzfs_configuration: Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfs_configuration` Block for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['S3AccessPointAttachmentS3AccessPointArgs', 'S3AccessPointAttachmentS3AccessPointArgsDict']] s3_access_point: S3 access point configuration. See `s3_access_point` Block for details.
-        :param pulumi.Input[_builtins.str] s3_access_point_alias: S3 access point's alias.
-        :param pulumi.Input[_builtins.str] s3_access_point_arn: S3 access point's ARN.
-        :param pulumi.Input[_builtins.str] type: Type of S3 access point. Valid values: `OpenZFS`.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -442,49 +310,31 @@ class S3AccessPointAttachment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the S3 access point.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="openzfsConfiguration")
     def openzfs_configuration(self) -> pulumi.Output[Optional['outputs.S3AccessPointAttachmentOpenzfsConfiguration']]:
-        """
-        Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfs_configuration` Block for details.
-        """
         return pulumi.get(self, "openzfs_configuration")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="s3AccessPoint")
     def s3_access_point(self) -> pulumi.Output[Optional['outputs.S3AccessPointAttachmentS3AccessPoint']]:
-        """
-        S3 access point configuration. See `s3_access_point` Block for details.
-        """
         return pulumi.get(self, "s3_access_point")
 
     @_builtins.property
     @pulumi.getter(name="s3AccessPointAlias")
     def s3_access_point_alias(self) -> pulumi.Output[_builtins.str]:
-        """
-        S3 access point's alias.
-        """
         return pulumi.get(self, "s3_access_point_alias")
 
     @_builtins.property
     @pulumi.getter(name="s3AccessPointArn")
     def s3_access_point_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        S3 access point's ARN.
-        """
         return pulumi.get(self, "s3_access_point_arn")
 
     @_builtins.property
@@ -495,10 +345,5 @@ class S3AccessPointAttachment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of S3 access point. Valid values: `OpenZFS`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "type")
 

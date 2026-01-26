@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration
     {
-        /// <summary>
-        /// Configurations for a knowledge base connected to an Amazon Redshift database. See `RedshiftConfiguration` block for details.
-        /// </summary>
         public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration? RedshiftConfiguration;
-        /// <summary>
-        /// Type of SQL database to connect to the knowledge base. Valid values: `REDSHIFT`.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

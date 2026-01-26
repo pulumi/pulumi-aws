@@ -14,14 +14,10 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type KeyKeyAttribute struct {
-	// Key algorithm to be use during creation of an AWS Payment Cryptography key.
-	KeyAlgorithm string `pulumi:"keyAlgorithm"`
-	// Type of AWS Payment Cryptography key to create.
-	KeyClass string `pulumi:"keyClass"`
-	// List of cryptographic operations that you can perform using the key.
+	KeyAlgorithm   string                         `pulumi:"keyAlgorithm"`
+	KeyClass       string                         `pulumi:"keyClass"`
 	KeyModesOfUses []KeyKeyAttributeKeyModesOfUse `pulumi:"keyModesOfUses"`
-	// Cryptographic usage of an AWS Payment Cryptography key as defined in section A.5.2 of the TR-31 spec.
-	KeyUsage string `pulumi:"keyUsage"`
+	KeyUsage       string                         `pulumi:"keyUsage"`
 }
 
 // KeyKeyAttributeInput is an input type that accepts KeyKeyAttributeArgs and KeyKeyAttributeOutput values.
@@ -36,14 +32,10 @@ type KeyKeyAttributeInput interface {
 }
 
 type KeyKeyAttributeArgs struct {
-	// Key algorithm to be use during creation of an AWS Payment Cryptography key.
-	KeyAlgorithm pulumi.StringInput `pulumi:"keyAlgorithm"`
-	// Type of AWS Payment Cryptography key to create.
-	KeyClass pulumi.StringInput `pulumi:"keyClass"`
-	// List of cryptographic operations that you can perform using the key.
+	KeyAlgorithm   pulumi.StringInput                     `pulumi:"keyAlgorithm"`
+	KeyClass       pulumi.StringInput                     `pulumi:"keyClass"`
 	KeyModesOfUses KeyKeyAttributeKeyModesOfUseArrayInput `pulumi:"keyModesOfUses"`
-	// Cryptographic usage of an AWS Payment Cryptography key as defined in section A.5.2 of the TR-31 spec.
-	KeyUsage pulumi.StringInput `pulumi:"keyUsage"`
+	KeyUsage       pulumi.StringInput                     `pulumi:"keyUsage"`
 }
 
 func (KeyKeyAttributeArgs) ElementType() reflect.Type {
@@ -97,22 +89,18 @@ func (o KeyKeyAttributeOutput) ToKeyKeyAttributeOutputWithContext(ctx context.Co
 	return o
 }
 
-// Key algorithm to be use during creation of an AWS Payment Cryptography key.
 func (o KeyKeyAttributeOutput) KeyAlgorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyKeyAttribute) string { return v.KeyAlgorithm }).(pulumi.StringOutput)
 }
 
-// Type of AWS Payment Cryptography key to create.
 func (o KeyKeyAttributeOutput) KeyClass() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyKeyAttribute) string { return v.KeyClass }).(pulumi.StringOutput)
 }
 
-// List of cryptographic operations that you can perform using the key.
 func (o KeyKeyAttributeOutput) KeyModesOfUses() KeyKeyAttributeKeyModesOfUseArrayOutput {
 	return o.ApplyT(func(v KeyKeyAttribute) []KeyKeyAttributeKeyModesOfUse { return v.KeyModesOfUses }).(KeyKeyAttributeKeyModesOfUseArrayOutput)
 }
 
-// Cryptographic usage of an AWS Payment Cryptography key as defined in section A.5.2 of the TR-31 spec.
 func (o KeyKeyAttributeOutput) KeyUsage() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyKeyAttribute) string { return v.KeyUsage }).(pulumi.StringOutput)
 }
@@ -138,24 +126,15 @@ func (o KeyKeyAttributeArrayOutput) Index(i pulumi.IntInput) KeyKeyAttributeOutp
 }
 
 type KeyKeyAttributeKeyModesOfUse struct {
-	// Whether an AWS Payment Cryptography key can be used to decrypt data.
-	Decrypt *bool `pulumi:"decrypt"`
-	// Whether an AWS Payment Cryptography key can be used to derive new keys.
-	DeriveKey *bool `pulumi:"deriveKey"`
-	// Whether an AWS Payment Cryptography key can be used to encrypt data.
-	Encrypt *bool `pulumi:"encrypt"`
-	// Whether an AWS Payment Cryptography key can be used to generate and verify other card and PIN verification keys.
-	Generate *bool `pulumi:"generate"`
-	// Whether an AWS Payment Cryptography key has no special restrictions other than the restrictions implied by KeyUsage.
+	Decrypt        *bool `pulumi:"decrypt"`
+	DeriveKey      *bool `pulumi:"deriveKey"`
+	Encrypt        *bool `pulumi:"encrypt"`
+	Generate       *bool `pulumi:"generate"`
 	NoRestrictions *bool `pulumi:"noRestrictions"`
-	// Whether an AWS Payment Cryptography key can be used for signing.
-	Sign *bool `pulumi:"sign"`
-	// Whether an AWS Payment Cryptography key can be used to unwrap other keys.
-	Unwrap *bool `pulumi:"unwrap"`
-	// Whether an AWS Payment Cryptography key can be used to verify signatures.
-	Verify *bool `pulumi:"verify"`
-	// Whether an AWS Payment Cryptography key can be used to wrap other keys.
-	Wrap *bool `pulumi:"wrap"`
+	Sign           *bool `pulumi:"sign"`
+	Unwrap         *bool `pulumi:"unwrap"`
+	Verify         *bool `pulumi:"verify"`
+	Wrap           *bool `pulumi:"wrap"`
 }
 
 // KeyKeyAttributeKeyModesOfUseInput is an input type that accepts KeyKeyAttributeKeyModesOfUseArgs and KeyKeyAttributeKeyModesOfUseOutput values.
@@ -170,24 +149,15 @@ type KeyKeyAttributeKeyModesOfUseInput interface {
 }
 
 type KeyKeyAttributeKeyModesOfUseArgs struct {
-	// Whether an AWS Payment Cryptography key can be used to decrypt data.
-	Decrypt pulumi.BoolPtrInput `pulumi:"decrypt"`
-	// Whether an AWS Payment Cryptography key can be used to derive new keys.
-	DeriveKey pulumi.BoolPtrInput `pulumi:"deriveKey"`
-	// Whether an AWS Payment Cryptography key can be used to encrypt data.
-	Encrypt pulumi.BoolPtrInput `pulumi:"encrypt"`
-	// Whether an AWS Payment Cryptography key can be used to generate and verify other card and PIN verification keys.
-	Generate pulumi.BoolPtrInput `pulumi:"generate"`
-	// Whether an AWS Payment Cryptography key has no special restrictions other than the restrictions implied by KeyUsage.
+	Decrypt        pulumi.BoolPtrInput `pulumi:"decrypt"`
+	DeriveKey      pulumi.BoolPtrInput `pulumi:"deriveKey"`
+	Encrypt        pulumi.BoolPtrInput `pulumi:"encrypt"`
+	Generate       pulumi.BoolPtrInput `pulumi:"generate"`
 	NoRestrictions pulumi.BoolPtrInput `pulumi:"noRestrictions"`
-	// Whether an AWS Payment Cryptography key can be used for signing.
-	Sign pulumi.BoolPtrInput `pulumi:"sign"`
-	// Whether an AWS Payment Cryptography key can be used to unwrap other keys.
-	Unwrap pulumi.BoolPtrInput `pulumi:"unwrap"`
-	// Whether an AWS Payment Cryptography key can be used to verify signatures.
-	Verify pulumi.BoolPtrInput `pulumi:"verify"`
-	// Whether an AWS Payment Cryptography key can be used to wrap other keys.
-	Wrap pulumi.BoolPtrInput `pulumi:"wrap"`
+	Sign           pulumi.BoolPtrInput `pulumi:"sign"`
+	Unwrap         pulumi.BoolPtrInput `pulumi:"unwrap"`
+	Verify         pulumi.BoolPtrInput `pulumi:"verify"`
+	Wrap           pulumi.BoolPtrInput `pulumi:"wrap"`
 }
 
 func (KeyKeyAttributeKeyModesOfUseArgs) ElementType() reflect.Type {
@@ -241,47 +211,38 @@ func (o KeyKeyAttributeKeyModesOfUseOutput) ToKeyKeyAttributeKeyModesOfUseOutput
 	return o
 }
 
-// Whether an AWS Payment Cryptography key can be used to decrypt data.
 func (o KeyKeyAttributeKeyModesOfUseOutput) Decrypt() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KeyKeyAttributeKeyModesOfUse) *bool { return v.Decrypt }).(pulumi.BoolPtrOutput)
 }
 
-// Whether an AWS Payment Cryptography key can be used to derive new keys.
 func (o KeyKeyAttributeKeyModesOfUseOutput) DeriveKey() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KeyKeyAttributeKeyModesOfUse) *bool { return v.DeriveKey }).(pulumi.BoolPtrOutput)
 }
 
-// Whether an AWS Payment Cryptography key can be used to encrypt data.
 func (o KeyKeyAttributeKeyModesOfUseOutput) Encrypt() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KeyKeyAttributeKeyModesOfUse) *bool { return v.Encrypt }).(pulumi.BoolPtrOutput)
 }
 
-// Whether an AWS Payment Cryptography key can be used to generate and verify other card and PIN verification keys.
 func (o KeyKeyAttributeKeyModesOfUseOutput) Generate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KeyKeyAttributeKeyModesOfUse) *bool { return v.Generate }).(pulumi.BoolPtrOutput)
 }
 
-// Whether an AWS Payment Cryptography key has no special restrictions other than the restrictions implied by KeyUsage.
 func (o KeyKeyAttributeKeyModesOfUseOutput) NoRestrictions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KeyKeyAttributeKeyModesOfUse) *bool { return v.NoRestrictions }).(pulumi.BoolPtrOutput)
 }
 
-// Whether an AWS Payment Cryptography key can be used for signing.
 func (o KeyKeyAttributeKeyModesOfUseOutput) Sign() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KeyKeyAttributeKeyModesOfUse) *bool { return v.Sign }).(pulumi.BoolPtrOutput)
 }
 
-// Whether an AWS Payment Cryptography key can be used to unwrap other keys.
 func (o KeyKeyAttributeKeyModesOfUseOutput) Unwrap() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KeyKeyAttributeKeyModesOfUse) *bool { return v.Unwrap }).(pulumi.BoolPtrOutput)
 }
 
-// Whether an AWS Payment Cryptography key can be used to verify signatures.
 func (o KeyKeyAttributeKeyModesOfUseOutput) Verify() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KeyKeyAttributeKeyModesOfUse) *bool { return v.Verify }).(pulumi.BoolPtrOutput)
 }
 
-// Whether an AWS Payment Cryptography key can be used to wrap other keys.
 func (o KeyKeyAttributeKeyModesOfUseOutput) Wrap() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KeyKeyAttributeKeyModesOfUse) *bool { return v.Wrap }).(pulumi.BoolPtrOutput)
 }

@@ -12,64 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Assigns a static reverse DNS record to an Elastic IP addresses. See [Using reverse DNS for email applications](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ec2.NewEip(ctx, "example", &ec2.EipArgs{
-//				Domain: pulumi.String("vpc"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleRecord, err := route53.NewRecord(ctx, "example", &route53.RecordArgs{
-//				ZoneId: pulumi.Any(main.ZoneId),
-//				Name:   pulumi.String("reverse"),
-//				Type:   pulumi.String(route53.RecordTypeA),
-//				Records: pulumi.StringArray{
-//					example.PublicIp,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewEipDomainName(ctx, "example", &ec2.EipDomainNameArgs{
-//				AllocationId: example.AllocationId,
-//				DomainName:   exampleRecord.Fqdn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type EipDomainName struct {
 	pulumi.CustomResourceState
 
-	// The allocation ID.
-	AllocationId pulumi.StringOutput `pulumi:"allocationId"`
-	// The domain name to modify for the IP address.
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// The DNS pointer (PTR) record for the IP address.
-	PtrRecord pulumi.StringOutput `pulumi:"ptrRecord"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringOutput            `pulumi:"region"`
-	Timeouts EipDomainNameTimeoutsPtrOutput `pulumi:"timeouts"`
+	AllocationId pulumi.StringOutput            `pulumi:"allocationId"`
+	DomainName   pulumi.StringOutput            `pulumi:"domainName"`
+	PtrRecord    pulumi.StringOutput            `pulumi:"ptrRecord"`
+	Region       pulumi.StringOutput            `pulumi:"region"`
+	Timeouts     EipDomainNameTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewEipDomainName registers a new resource with the given unique name, arguments, and options.
@@ -108,27 +58,19 @@ func GetEipDomainName(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EipDomainName resources.
 type eipDomainNameState struct {
-	// The allocation ID.
-	AllocationId *string `pulumi:"allocationId"`
-	// The domain name to modify for the IP address.
-	DomainName *string `pulumi:"domainName"`
-	// The DNS pointer (PTR) record for the IP address.
-	PtrRecord *string `pulumi:"ptrRecord"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   *string                `pulumi:"region"`
-	Timeouts *EipDomainNameTimeouts `pulumi:"timeouts"`
+	AllocationId *string                `pulumi:"allocationId"`
+	DomainName   *string                `pulumi:"domainName"`
+	PtrRecord    *string                `pulumi:"ptrRecord"`
+	Region       *string                `pulumi:"region"`
+	Timeouts     *EipDomainNameTimeouts `pulumi:"timeouts"`
 }
 
 type EipDomainNameState struct {
-	// The allocation ID.
 	AllocationId pulumi.StringPtrInput
-	// The domain name to modify for the IP address.
-	DomainName pulumi.StringPtrInput
-	// The DNS pointer (PTR) record for the IP address.
-	PtrRecord pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringPtrInput
-	Timeouts EipDomainNameTimeoutsPtrInput
+	DomainName   pulumi.StringPtrInput
+	PtrRecord    pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
+	Timeouts     EipDomainNameTimeoutsPtrInput
 }
 
 func (EipDomainNameState) ElementType() reflect.Type {
@@ -136,24 +78,18 @@ func (EipDomainNameState) ElementType() reflect.Type {
 }
 
 type eipDomainNameArgs struct {
-	// The allocation ID.
-	AllocationId string `pulumi:"allocationId"`
-	// The domain name to modify for the IP address.
-	DomainName string `pulumi:"domainName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   *string                `pulumi:"region"`
-	Timeouts *EipDomainNameTimeouts `pulumi:"timeouts"`
+	AllocationId string                 `pulumi:"allocationId"`
+	DomainName   string                 `pulumi:"domainName"`
+	Region       *string                `pulumi:"region"`
+	Timeouts     *EipDomainNameTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a EipDomainName resource.
 type EipDomainNameArgs struct {
-	// The allocation ID.
 	AllocationId pulumi.StringInput
-	// The domain name to modify for the IP address.
-	DomainName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringPtrInput
-	Timeouts EipDomainNameTimeoutsPtrInput
+	DomainName   pulumi.StringInput
+	Region       pulumi.StringPtrInput
+	Timeouts     EipDomainNameTimeoutsPtrInput
 }
 
 func (EipDomainNameArgs) ElementType() reflect.Type {
@@ -243,22 +179,18 @@ func (o EipDomainNameOutput) ToEipDomainNameOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The allocation ID.
 func (o EipDomainNameOutput) AllocationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EipDomainName) pulumi.StringOutput { return v.AllocationId }).(pulumi.StringOutput)
 }
 
-// The domain name to modify for the IP address.
 func (o EipDomainNameOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EipDomainName) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// The DNS pointer (PTR) record for the IP address.
 func (o EipDomainNameOutput) PtrRecord() pulumi.StringOutput {
 	return o.ApplyT(func(v *EipDomainName) pulumi.StringOutput { return v.PtrRecord }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EipDomainNameOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EipDomainName) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

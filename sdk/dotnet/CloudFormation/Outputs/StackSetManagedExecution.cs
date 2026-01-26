@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudFormation.Outputs
     [OutputType]
     public sealed class StackSetManagedExecution
     {
-        /// <summary>
-        /// When set to true, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order. Default is false.
-        /// </summary>
         public readonly bool? Active;
 
         [OutputConstructor]

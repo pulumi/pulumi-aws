@@ -17,36 +17,16 @@ public final class V2modelsSlotTypeSlotTypeValueArgs extends com.pulumi.resource
 
     public static final V2modelsSlotTypeSlotTypeValueArgs Empty = new V2modelsSlotTypeSlotTypeValueArgs();
 
-    /**
-     * Value of the slot type entry.
-     * See `sampleValue` argument reference below.
-     * 
-     */
     @Import(name="sampleValues")
     private @Nullable Output<List<V2modelsSlotTypeSlotTypeValueSampleValueArgs>> sampleValues;
 
-    /**
-     * @return Value of the slot type entry.
-     * See `sampleValue` argument reference below.
-     * 
-     */
     public Optional<Output<List<V2modelsSlotTypeSlotTypeValueSampleValueArgs>>> sampleValues() {
         return Optional.ofNullable(this.sampleValues);
     }
 
-    /**
-     * A list of additional values related to the slot type entry.
-     * See `synonyms` argument reference below.
-     * 
-     */
     @Import(name="synonyms")
     private @Nullable Output<List<V2modelsSlotTypeSlotTypeValueSynonymArgs>> synonyms;
 
-    /**
-     * @return A list of additional values related to the slot type entry.
-     * See `synonyms` argument reference below.
-     * 
-     */
     public Optional<Output<List<V2modelsSlotTypeSlotTypeValueSynonymArgs>>> synonyms() {
         return Optional.ofNullable(this.synonyms);
     }
@@ -76,70 +56,28 @@ public final class V2modelsSlotTypeSlotTypeValueArgs extends com.pulumi.resource
             $ = new V2modelsSlotTypeSlotTypeValueArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param sampleValues Value of the slot type entry.
-         * See `sampleValue` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sampleValues(@Nullable Output<List<V2modelsSlotTypeSlotTypeValueSampleValueArgs>> sampleValues) {
             $.sampleValues = sampleValues;
             return this;
         }
 
-        /**
-         * @param sampleValues Value of the slot type entry.
-         * See `sampleValue` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sampleValues(List<V2modelsSlotTypeSlotTypeValueSampleValueArgs> sampleValues) {
             return sampleValues(Output.of(sampleValues));
         }
 
-        /**
-         * @param sampleValues Value of the slot type entry.
-         * See `sampleValue` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sampleValues(V2modelsSlotTypeSlotTypeValueSampleValueArgs... sampleValues) {
             return sampleValues(List.of(sampleValues));
         }
 
-        /**
-         * @param synonyms A list of additional values related to the slot type entry.
-         * See `synonyms` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder synonyms(@Nullable Output<List<V2modelsSlotTypeSlotTypeValueSynonymArgs>> synonyms) {
             $.synonyms = synonyms;
             return this;
         }
 
-        /**
-         * @param synonyms A list of additional values related to the slot type entry.
-         * See `synonyms` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder synonyms(List<V2modelsSlotTypeSlotTypeValueSynonymArgs> synonyms) {
             return synonyms(Output.of(synonyms));
         }
 
-        /**
-         * @param synonyms A list of additional values related to the slot type entry.
-         * See `synonyms` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder synonyms(V2modelsSlotTypeSlotTypeValueSynonymArgs... synonyms) {
             return synonyms(List.of(synonyms));
         }

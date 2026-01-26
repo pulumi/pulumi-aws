@@ -14,32 +14,16 @@ public final class GetOrganizationalUnitArgs extends com.pulumi.resources.Invoke
 
     public static final GetOrganizationalUnitArgs Empty = new GetOrganizationalUnitArgs();
 
-    /**
-     * Name of the organizational unit
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the organizational unit
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Parent ID of the organizational unit.
-     * 
-     */
     @Import(name="parentId", required=true)
     private Output<String> parentId;
 
-    /**
-     * @return Parent ID of the organizational unit.
-     * 
-     */
     public Output<String> parentId() {
         return this.parentId;
     }
@@ -69,44 +53,20 @@ public final class GetOrganizationalUnitArgs extends com.pulumi.resources.Invoke
             $ = new GetOrganizationalUnitArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the organizational unit
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the organizational unit
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param parentId Parent ID of the organizational unit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parentId(Output<String> parentId) {
             $.parentId = parentId;
             return this;
         }
 
-        /**
-         * @param parentId Parent ID of the organizational unit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parentId(String parentId) {
             return parentId(Output.of(parentId));
         }

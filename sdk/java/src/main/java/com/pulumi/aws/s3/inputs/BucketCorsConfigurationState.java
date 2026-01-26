@@ -17,62 +17,30 @@ public final class BucketCorsConfigurationState extends com.pulumi.resources.Res
 
     public static final BucketCorsConfigurationState Empty = new BucketCorsConfigurationState();
 
-    /**
-     * Name of the bucket.
-     * 
-     */
     @Import(name="bucket")
     private @Nullable Output<String> bucket;
 
-    /**
-     * @return Name of the bucket.
-     * 
-     */
     public Optional<Output<String>> bucket() {
         return Optional.ofNullable(this.bucket);
     }
 
-    /**
-     * Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
-     * 
-     */
     @Import(name="corsRules")
     private @Nullable Output<List<BucketCorsConfigurationCorsRuleArgs>> corsRules;
 
-    /**
-     * @return Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
-     * 
-     */
     public Optional<Output<List<BucketCorsConfigurationCorsRuleArgs>>> corsRules() {
         return Optional.ofNullable(this.corsRules);
     }
 
-    /**
-     * Account ID of the expected bucket owner.
-     * 
-     */
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
-    /**
-     * @return Account ID of the expected bucket owner.
-     * 
-     */
     public Optional<Output<String>> expectedBucketOwner() {
         return Optional.ofNullable(this.expectedBucketOwner);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -104,96 +72,42 @@ public final class BucketCorsConfigurationState extends com.pulumi.resources.Res
             $ = new BucketCorsConfigurationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket Name of the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(@Nullable Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket Name of the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param corsRules Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
-         * 
-         * @return builder
-         * 
-         */
         public Builder corsRules(@Nullable Output<List<BucketCorsConfigurationCorsRuleArgs>> corsRules) {
             $.corsRules = corsRules;
             return this;
         }
 
-        /**
-         * @param corsRules Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
-         * 
-         * @return builder
-         * 
-         */
         public Builder corsRules(List<BucketCorsConfigurationCorsRuleArgs> corsRules) {
             return corsRules(Output.of(corsRules));
         }
 
-        /**
-         * @param corsRules Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
-         * 
-         * @return builder
-         * 
-         */
         public Builder corsRules(BucketCorsConfigurationCorsRuleArgs... corsRules) {
             return corsRules(List.of(corsRules));
         }
 
-        /**
-         * @param expectedBucketOwner Account ID of the expected bucket owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expectedBucketOwner(@Nullable Output<String> expectedBucketOwner) {
             $.expectedBucketOwner = expectedBucketOwner;
             return this;
         }
 
-        /**
-         * @param expectedBucketOwner Account ID of the expected bucket owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expectedBucketOwner(String expectedBucketOwner) {
             return expectedBucketOwner(Output.of(expectedBucketOwner));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

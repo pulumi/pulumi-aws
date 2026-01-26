@@ -14,32 +14,16 @@ public final class AccessGrantGranteeArgs extends com.pulumi.resources.ResourceA
 
     public static final AccessGrantGranteeArgs Empty = new AccessGrantGranteeArgs();
 
-    /**
-     * Grantee identifier.
-     * 
-     */
     @Import(name="granteeIdentifier", required=true)
     private Output<String> granteeIdentifier;
 
-    /**
-     * @return Grantee identifier.
-     * 
-     */
     public Output<String> granteeIdentifier() {
         return this.granteeIdentifier;
     }
 
-    /**
-     * Grantee types. Valid values: `DIRECTORY_USER`, `DIRECTORY_GROUP`, `IAM`.
-     * 
-     */
     @Import(name="granteeType", required=true)
     private Output<String> granteeType;
 
-    /**
-     * @return Grantee types. Valid values: `DIRECTORY_USER`, `DIRECTORY_GROUP`, `IAM`.
-     * 
-     */
     public Output<String> granteeType() {
         return this.granteeType;
     }
@@ -69,44 +53,20 @@ public final class AccessGrantGranteeArgs extends com.pulumi.resources.ResourceA
             $ = new AccessGrantGranteeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param granteeIdentifier Grantee identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder granteeIdentifier(Output<String> granteeIdentifier) {
             $.granteeIdentifier = granteeIdentifier;
             return this;
         }
 
-        /**
-         * @param granteeIdentifier Grantee identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder granteeIdentifier(String granteeIdentifier) {
             return granteeIdentifier(Output.of(granteeIdentifier));
         }
 
-        /**
-         * @param granteeType Grantee types. Valid values: `DIRECTORY_USER`, `DIRECTORY_GROUP`, `IAM`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder granteeType(Output<String> granteeType) {
             $.granteeType = granteeType;
             return this;
         }
 
-        /**
-         * @param granteeType Grantee types. Valid values: `DIRECTORY_USER`, `DIRECTORY_GROUP`, `IAM`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder granteeType(String granteeType) {
             return granteeType(Output.of(granteeType));
         }

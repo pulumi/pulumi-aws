@@ -16,32 +16,16 @@ public final class CentralizationRuleForOrganizationRuleDestinationDestinationLo
 
     public static final CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs Empty = new CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs();
 
-    /**
-     * Configuration block for backup settings. See `backupConfiguration` below.
-     * 
-     */
     @Import(name="backupConfiguration")
     private @Nullable Output<CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs> backupConfiguration;
 
-    /**
-     * @return Configuration block for backup settings. See `backupConfiguration` below.
-     * 
-     */
     public Optional<Output<CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs>> backupConfiguration() {
         return Optional.ofNullable(this.backupConfiguration);
     }
 
-    /**
-     * Configuration block for logs encryption settings. See `logsEncryptionConfiguration` below.
-     * 
-     */
     @Import(name="logsEncryptionConfiguration")
     private @Nullable Output<CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs> logsEncryptionConfiguration;
 
-    /**
-     * @return Configuration block for logs encryption settings. See `logsEncryptionConfiguration` below.
-     * 
-     */
     public Optional<Output<CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs>> logsEncryptionConfiguration() {
         return Optional.ofNullable(this.logsEncryptionConfiguration);
     }
@@ -71,44 +55,20 @@ public final class CentralizationRuleForOrganizationRuleDestinationDestinationLo
             $ = new CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param backupConfiguration Configuration block for backup settings. See `backupConfiguration` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder backupConfiguration(@Nullable Output<CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs> backupConfiguration) {
             $.backupConfiguration = backupConfiguration;
             return this;
         }
 
-        /**
-         * @param backupConfiguration Configuration block for backup settings. See `backupConfiguration` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder backupConfiguration(CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs backupConfiguration) {
             return backupConfiguration(Output.of(backupConfiguration));
         }
 
-        /**
-         * @param logsEncryptionConfiguration Configuration block for logs encryption settings. See `logsEncryptionConfiguration` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logsEncryptionConfiguration(@Nullable Output<CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs> logsEncryptionConfiguration) {
             $.logsEncryptionConfiguration = logsEncryptionConfiguration;
             return this;
         }
 
-        /**
-         * @param logsEncryptionConfiguration Configuration block for logs encryption settings. See `logsEncryptionConfiguration` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logsEncryptionConfiguration(CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs logsEncryptionConfiguration) {
             return logsEncryptionConfiguration(Output.of(logsEncryptionConfiguration));
         }

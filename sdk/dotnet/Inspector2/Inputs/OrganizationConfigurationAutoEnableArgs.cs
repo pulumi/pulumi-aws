@@ -12,33 +12,18 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
     public sealed class OrganizationConfigurationAutoEnableArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether code repository scans are automatically enabled for new members of your Amazon Inspector organization.
-        /// </summary>
         [Input("codeRepository")]
         public Input<bool>? CodeRepository { get; set; }
 
-        /// <summary>
-        /// Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
-        /// </summary>
         [Input("ec2", required: true)]
         public Input<bool> Ec2 { get; set; } = null!;
 
-        /// <summary>
-        /// Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
-        /// </summary>
         [Input("ecr", required: true)]
         public Input<bool> Ecr { get; set; } = null!;
 
-        /// <summary>
-        /// Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
-        /// </summary>
         [Input("lambda")]
         public Input<bool>? Lambda { get; set; }
 
-        /// <summary>
-        /// Whether AWS Lambda code scans are automatically enabled for new members of your Amazon Inspector organization. **Note:** Lambda code scanning requires Lambda standard scanning to be activated. Consequently, if you are setting this argument to `True`, you must also set the `Lambda` argument to `True`. See [Scanning AWS Lambda functions with Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/scanning-lambda.html#lambda-code-scans) for more information.
-        /// </summary>
         [Input("lambdaCode")]
         public Input<bool>? LambdaCode { get; set; }
 

@@ -15,185 +15,47 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a VPC Endpoint connection notification resource.
- * Connection notifications notify subscribers of VPC Endpoint events.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.sns.Topic;
- * import com.pulumi.aws.sns.TopicArgs;
- * import com.pulumi.aws.ec2.VpcEndpointService;
- * import com.pulumi.aws.ec2.VpcEndpointServiceArgs;
- * import com.pulumi.aws.ec2.VpcEndpointConnectionNotification;
- * import com.pulumi.aws.ec2.VpcEndpointConnectionNotificationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var topic = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("vpce.amazonaws.com")
- *                     .build())
- *                 .actions("SNS:Publish")
- *                 .resources("arn:aws:sns:*:*:vpce-notification-topic")
- *                 .build())
- *             .build());
- * 
- *         var topicTopic = new Topic("topicTopic", TopicArgs.builder()
- *             .name("vpce-notification-topic")
- *             .policy(topic.json())
- *             .build());
- * 
- *         var foo = new VpcEndpointService("foo", VpcEndpointServiceArgs.builder()
- *             .acceptanceRequired(false)
- *             .networkLoadBalancerArns(test.arn())
- *             .build());
- * 
- *         var fooVpcEndpointConnectionNotification = new VpcEndpointConnectionNotification("fooVpcEndpointConnectionNotification", VpcEndpointConnectionNotificationArgs.builder()
- *             .vpcEndpointServiceId(foo.id())
- *             .connectionNotificationArn(topicTopic.arn())
- *             .connectionEvents(            
- *                 "Accept",
- *                 "Reject")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import VPC Endpoint connection notifications using the VPC endpoint connection notification `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification foo vpce-nfn-09e6ed3b4efba2263
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification")
 public class VpcEndpointConnectionNotification extends com.pulumi.resources.CustomResource {
-    /**
-     * One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
-     * 
-     * &gt; **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
-     * 
-     */
     @Export(name="connectionEvents", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> connectionEvents;
 
-    /**
-     * @return One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
-     * 
-     * &gt; **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
-     * 
-     */
     public Output<List<String>> connectionEvents() {
         return this.connectionEvents;
     }
-    /**
-     * The ARN of the SNS topic for the notifications.
-     * 
-     */
     @Export(name="connectionNotificationArn", refs={String.class}, tree="[0]")
     private Output<String> connectionNotificationArn;
 
-    /**
-     * @return The ARN of the SNS topic for the notifications.
-     * 
-     */
     public Output<String> connectionNotificationArn() {
         return this.connectionNotificationArn;
     }
-    /**
-     * The type of notification.
-     * 
-     */
     @Export(name="notificationType", refs={String.class}, tree="[0]")
     private Output<String> notificationType;
 
-    /**
-     * @return The type of notification.
-     * 
-     */
     public Output<String> notificationType() {
         return this.notificationType;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The state of the notification.
-     * 
-     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
-    /**
-     * @return The state of the notification.
-     * 
-     */
     public Output<String> state() {
         return this.state;
     }
-    /**
-     * The ID of the VPC Endpoint to receive notifications for.
-     * 
-     */
     @Export(name="vpcEndpointId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vpcEndpointId;
 
-    /**
-     * @return The ID of the VPC Endpoint to receive notifications for.
-     * 
-     */
     public Output<Optional<String>> vpcEndpointId() {
         return Codegen.optional(this.vpcEndpointId);
     }
-    /**
-     * The ID of the VPC Endpoint Service to receive notifications for.
-     * 
-     */
     @Export(name="vpcEndpointServiceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vpcEndpointServiceId;
 
-    /**
-     * @return The ID of the VPC Endpoint Service to receive notifications for.
-     * 
-     */
     public Output<Optional<String>> vpcEndpointServiceId() {
         return Codegen.optional(this.vpcEndpointServiceId);
     }

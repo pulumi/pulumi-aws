@@ -71,25 +71,16 @@ class GetUserResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the User.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="directoryUserId")
     def directory_user_id(self) -> _builtins.str:
-        """
-        The identifier of the user account in the directory used for identity management.
-        """
         return pulumi.get(self, "directory_user_id")
 
     @_builtins.property
     @pulumi.getter(name="hierarchyGroupId")
     def hierarchy_group_id(self) -> _builtins.str:
-        """
-        The identifier of the hierarchy group for the user.
-        """
         return pulumi.get(self, "hierarchy_group_id")
 
     @_builtins.property
@@ -103,17 +94,11 @@ class GetUserResult:
     @_builtins.property
     @pulumi.getter(name="identityInfos")
     def identity_infos(self) -> Sequence['outputs.GetUserIdentityInfoResult']:
-        """
-        A block that contains information about the identity of the user. Documented below.
-        """
         return pulumi.get(self, "identity_infos")
 
     @_builtins.property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> _builtins.str:
-        """
-        Specifies the identifier of the hosting Amazon Connect Instance.
-        """
         return pulumi.get(self, "instance_id")
 
     @_builtins.property
@@ -124,9 +109,6 @@ class GetUserResult:
     @_builtins.property
     @pulumi.getter(name="phoneConfigs")
     def phone_configs(self) -> Sequence['outputs.GetUserPhoneConfigResult']:
-        """
-        A block that contains information about the phone settings for the user. Documented below.
-        """
         return pulumi.get(self, "phone_configs")
 
     @_builtins.property
@@ -137,25 +119,16 @@ class GetUserResult:
     @_builtins.property
     @pulumi.getter(name="routingProfileId")
     def routing_profile_id(self) -> _builtins.str:
-        """
-        The identifier of the routing profile for the user.
-        """
         return pulumi.get(self, "routing_profile_id")
 
     @_builtins.property
     @pulumi.getter(name="securityProfileIds")
     def security_profile_ids(self) -> Sequence[_builtins.str]:
-        """
-        A list of identifiers for the security profiles for the user.
-        """
         return pulumi.get(self, "security_profile_ids")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        A map of tags to assign to the User.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -192,38 +165,7 @@ def get_user(instance_id: Optional[_builtins.str] = None,
              user_id: Optional[_builtins.str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
-    Provides details about a specific Amazon Connect User.
-
-    ## Example Usage
-
-    By `name`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_user(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="Example")
-    ```
-
-    By `user_id`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_user(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        user_id="cccccccc-bbbb-cccc-dddd-111111111111")
-    ```
-
-
-    :param _builtins.str instance_id: Reference to the hosting Amazon Connect Instance
-    :param _builtins.str name: Returns information on a specific User by name
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: A map of tags to assign to the User.
-    :param _builtins.str user_id: Returns information on a specific User by User id
-           
-           > **NOTE:** `instance_id` and one of either `name` or `user_id` is required.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id
@@ -255,38 +197,7 @@ def get_user_output(instance_id: Optional[pulumi.Input[_builtins.str]] = None,
                     user_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
-    Provides details about a specific Amazon Connect User.
-
-    ## Example Usage
-
-    By `name`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_user(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="Example")
-    ```
-
-    By `user_id`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_user(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        user_id="cccccccc-bbbb-cccc-dddd-111111111111")
-    ```
-
-
-    :param _builtins.str instance_id: Reference to the hosting Amazon Connect Instance
-    :param _builtins.str name: Returns information on a specific User by name
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: A map of tags to assign to the User.
-    :param _builtins.str user_id: Returns information on a specific User by User id
-           
-           > **NOTE:** `instance_id` and one of either `name` or `user_id` is required.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id

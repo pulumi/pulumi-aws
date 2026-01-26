@@ -11,72 +11,12 @@ namespace Pulumi.Aws.Ecr
 {
     public static class GetRepositories
     {
-        /// <summary>
-        /// Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ecr.GetRepositories.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetRepositoriesResult> InvokeAsync(GetRepositoriesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoriesResult>("aws:ecr/getRepositories:getRepositories", args ?? new GetRepositoriesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ecr.GetRepositories.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetRepositoriesResult> Invoke(GetRepositoriesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoriesResult>("aws:ecr/getRepositories:getRepositories", args ?? new GetRepositoriesInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ecr.GetRepositories.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetRepositoriesResult> Invoke(GetRepositoriesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoriesResult>("aws:ecr/getRepositories:getRepositories", args ?? new GetRepositoriesInvokeArgs(), options.WithDefaults());
     }
@@ -84,9 +24,6 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class GetRepositoriesArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -98,9 +35,6 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class GetRepositoriesInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -114,13 +48,7 @@ namespace Pulumi.Aws.Ecr
     [OutputType]
     public sealed class GetRepositoriesResult
     {
-        /// <summary>
-        /// AWS Region.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// A list if AWS Elastic Container Registries for the region.
-        /// </summary>
         public readonly ImmutableArray<string> Names;
         public readonly string Region;
 

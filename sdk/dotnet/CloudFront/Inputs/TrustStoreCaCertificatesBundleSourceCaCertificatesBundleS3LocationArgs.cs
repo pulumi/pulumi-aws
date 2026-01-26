@@ -12,27 +12,15 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// S3 bucket name containing the CA certificates bundle.
-        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
-        /// <summary>
-        /// S3 object key for the CA certificates bundle.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        /// <summary>
-        /// AWS region of the S3 bucket.
-        /// </summary>
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
 
-        /// <summary>
-        /// S3 object version ID for the CA certificates bundle.
-        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

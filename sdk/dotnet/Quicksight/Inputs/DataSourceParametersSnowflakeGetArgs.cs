@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class DataSourceParametersSnowflakeGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The database to which to connect.
-        /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
-        /// <summary>
-        /// The host to which to connect.
-        /// </summary>
         [Input("host", required: true)]
         public Input<string> Host { get; set; } = null!;
 
-        /// <summary>
-        /// The warehouse to which to connect.
-        /// </summary>
         [Input("warehouse", required: true)]
         public Input<string> Warehouse { get; set; } = null!;
 

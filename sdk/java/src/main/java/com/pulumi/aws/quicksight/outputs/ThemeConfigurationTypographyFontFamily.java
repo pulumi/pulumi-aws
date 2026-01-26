@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ThemeConfigurationTypographyFontFamily {
-    /**
-     * @return Font family name.
-     * 
-     */
     private @Nullable String fontFamily;
 
     private ThemeConfigurationTypographyFontFamily() {}
-    /**
-     * @return Font family name.
-     * 
-     */
     public Optional<String> fontFamily() {
         return Optional.ofNullable(this.fontFamily);
     }

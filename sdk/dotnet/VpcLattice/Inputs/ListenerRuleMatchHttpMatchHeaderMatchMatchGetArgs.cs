@@ -12,22 +12,12 @@ namespace Pulumi.Aws.VpcLattice.Inputs
 
     public sealed class ListenerRuleMatchHttpMatchHeaderMatchMatchGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies a contains type match.
-        /// </summary>
         [Input("contains")]
         public Input<string>? Contains { get; set; }
 
-        /// <summary>
-        /// Specifies an exact type match.
-        /// </summary>
         [Input("exact")]
         public Input<string>? Exact { get; set; }
 
-        /// <summary>
-        /// Specifies a prefix type match.
-        /// Matches the value with the prefix.
-        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 

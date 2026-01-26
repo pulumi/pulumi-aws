@@ -22,7 +22,6 @@ class EnrollmentStatusArgs:
                  include_member_accounts: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a EnrollmentStatus resource.
-        :param pulumi.Input[_builtins.bool] include_member_accounts: Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
         """
         if include_member_accounts is not None:
             pulumi.set(__self__, "include_member_accounts", include_member_accounts)
@@ -30,9 +29,6 @@ class EnrollmentStatusArgs:
     @_builtins.property
     @pulumi.getter(name="includeMemberAccounts")
     def include_member_accounts(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
-        """
         return pulumi.get(self, "include_member_accounts")
 
     @include_member_accounts.setter
@@ -47,7 +43,6 @@ class _EnrollmentStatusState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EnrollmentStatus resources.
-        :param pulumi.Input[_builtins.bool] include_member_accounts: Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
         """
         if include_member_accounts is not None:
             pulumi.set(__self__, "include_member_accounts", include_member_accounts)
@@ -57,9 +52,6 @@ class _EnrollmentStatusState:
     @_builtins.property
     @pulumi.getter(name="includeMemberAccounts")
     def include_member_accounts(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
-        """
         return pulumi.get(self, "include_member_accounts")
 
     @include_member_accounts.setter
@@ -85,41 +77,9 @@ class EnrollmentStatus(pulumi.CustomResource):
                  include_member_accounts: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        Resource for managing AWS Cost Optimization Hub Enrollment Status.
-
-        > **TIP:** The Cost Optimization Hub only has a `us-east-1` endpoint. However, you can access the service globally with the AWS Provider from other regions. Other tools, such as the [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cost-optimization-hub/index.html), may require you to specify the `us-east-1` region when using the service.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.costoptimizationhub.EnrollmentStatus("example")
-        ```
-
-        ### Usage with all the arguments
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.costoptimizationhub.EnrollmentStatus("example", include_member_accounts=True)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Cost Optimization Hub Enrollment Status using your AWS account ID. For example:
-
-        ```sh
-        $ pulumi import aws:costoptimizationhub/enrollmentStatus:EnrollmentStatus example 111222333444
-        ```
-
+        Create a EnrollmentStatus resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] include_member_accounts: Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
         """
         ...
     @overload
@@ -128,38 +88,7 @@ class EnrollmentStatus(pulumi.CustomResource):
                  args: Optional[EnrollmentStatusArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing AWS Cost Optimization Hub Enrollment Status.
-
-        > **TIP:** The Cost Optimization Hub only has a `us-east-1` endpoint. However, you can access the service globally with the AWS Provider from other regions. Other tools, such as the [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cost-optimization-hub/index.html), may require you to specify the `us-east-1` region when using the service.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.costoptimizationhub.EnrollmentStatus("example")
-        ```
-
-        ### Usage with all the arguments
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.costoptimizationhub.EnrollmentStatus("example", include_member_accounts=True)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Cost Optimization Hub Enrollment Status using your AWS account ID. For example:
-
-        ```sh
-        $ pulumi import aws:costoptimizationhub/enrollmentStatus:EnrollmentStatus example 111222333444
-        ```
-
+        Create a EnrollmentStatus resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EnrollmentStatusArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -206,7 +135,6 @@ class EnrollmentStatus(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] include_member_accounts: Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -219,9 +147,6 @@ class EnrollmentStatus(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="includeMemberAccounts")
     def include_member_accounts(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
-        """
         return pulumi.get(self, "include_member_accounts")
 
     @_builtins.property

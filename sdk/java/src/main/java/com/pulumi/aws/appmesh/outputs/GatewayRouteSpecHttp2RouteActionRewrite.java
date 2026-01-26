@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GatewayRouteSpecHttp2RouteActionRewrite {
-    /**
-     * @return Host name to rewrite.
-     * 
-     */
     private @Nullable GatewayRouteSpecHttp2RouteActionRewriteHostname hostname;
-    /**
-     * @return Exact path to rewrite.
-     * 
-     */
     private @Nullable GatewayRouteSpecHttp2RouteActionRewritePath path;
-    /**
-     * @return Specified beginning characters to rewrite.
-     * 
-     */
     private @Nullable GatewayRouteSpecHttp2RouteActionRewritePrefix prefix;
 
     private GatewayRouteSpecHttp2RouteActionRewrite() {}
-    /**
-     * @return Host name to rewrite.
-     * 
-     */
     public Optional<GatewayRouteSpecHttp2RouteActionRewriteHostname> hostname() {
         return Optional.ofNullable(this.hostname);
     }
-    /**
-     * @return Exact path to rewrite.
-     * 
-     */
     public Optional<GatewayRouteSpecHttp2RouteActionRewritePath> path() {
         return Optional.ofNullable(this.path);
     }
-    /**
-     * @return Specified beginning characters to rewrite.
-     * 
-     */
     public Optional<GatewayRouteSpecHttp2RouteActionRewritePrefix> prefix() {
         return Optional.ofNullable(this.prefix);
     }

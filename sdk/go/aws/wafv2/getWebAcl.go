@@ -11,7 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieves the summary of a WAFv2 Web ACL.
 func LookupWebAcl(ctx *pulumi.Context, args *LookupWebAclArgs, opts ...pulumi.InvokeOption) (*LookupWebAclResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWebAclResult
@@ -24,21 +23,15 @@ func LookupWebAcl(ctx *pulumi.Context, args *LookupWebAclArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getWebAcl.
 type LookupWebAclArgs struct {
-	// Name of the WAFv2 Web ACL. Exactly one of `name` or `resourceArn` must be specified.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, or AWS Amplify application. Exactly one of `name` or `resourceArn` must be specified.
+	Name        *string `pulumi:"name"`
+	Region      *string `pulumi:"region"`
 	ResourceArn *string `pulumi:"resourceArn"`
-	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-	Scope string `pulumi:"scope"`
+	Scope       string  `pulumi:"scope"`
 }
 
 // A collection of values returned by getWebAcl.
 type LookupWebAclResult struct {
-	// ARN of the entity.
-	Arn string `pulumi:"arn"`
-	// Description of the WebACL that helps with identification.
+	Arn         string `pulumi:"arn"`
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id          string  `pulumi:"id"`
@@ -59,14 +52,10 @@ func LookupWebAclOutput(ctx *pulumi.Context, args LookupWebAclOutputArgs, opts .
 
 // A collection of arguments for invoking getWebAcl.
 type LookupWebAclOutputArgs struct {
-	// Name of the WAFv2 Web ACL. Exactly one of `name` or `resourceArn` must be specified.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, or AWS Amplify application. Exactly one of `name` or `resourceArn` must be specified.
+	Name        pulumi.StringPtrInput `pulumi:"name"`
+	Region      pulumi.StringPtrInput `pulumi:"region"`
 	ResourceArn pulumi.StringPtrInput `pulumi:"resourceArn"`
-	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-	Scope pulumi.StringInput `pulumi:"scope"`
+	Scope       pulumi.StringInput    `pulumi:"scope"`
 }
 
 func (LookupWebAclOutputArgs) ElementType() reflect.Type {
@@ -88,12 +77,10 @@ func (o LookupWebAclResultOutput) ToLookupWebAclResultOutputWithContext(ctx cont
 	return o
 }
 
-// ARN of the entity.
 func (o LookupWebAclResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWebAclResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description of the WebACL that helps with identification.
 func (o LookupWebAclResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWebAclResult) string { return v.Description }).(pulumi.StringOutput)
 }

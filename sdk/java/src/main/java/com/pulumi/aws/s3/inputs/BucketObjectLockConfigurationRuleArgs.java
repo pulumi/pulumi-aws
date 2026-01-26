@@ -14,17 +14,9 @@ public final class BucketObjectLockConfigurationRuleArgs extends com.pulumi.reso
 
     public static final BucketObjectLockConfigurationRuleArgs Empty = new BucketObjectLockConfigurationRuleArgs();
 
-    /**
-     * Configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket. See below.
-     * 
-     */
     @Import(name="defaultRetention", required=true)
     private Output<BucketObjectLockConfigurationRuleDefaultRetentionArgs> defaultRetention;
 
-    /**
-     * @return Configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket. See below.
-     * 
-     */
     public Output<BucketObjectLockConfigurationRuleDefaultRetentionArgs> defaultRetention() {
         return this.defaultRetention;
     }
@@ -53,23 +45,11 @@ public final class BucketObjectLockConfigurationRuleArgs extends com.pulumi.reso
             $ = new BucketObjectLockConfigurationRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param defaultRetention Configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultRetention(Output<BucketObjectLockConfigurationRuleDefaultRetentionArgs> defaultRetention) {
             $.defaultRetention = defaultRetention;
             return this;
         }
 
-        /**
-         * @param defaultRetention Configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultRetention(BucketObjectLockConfigurationRuleDefaultRetentionArgs defaultRetention) {
             return defaultRetention(Output.of(defaultRetention));
         }

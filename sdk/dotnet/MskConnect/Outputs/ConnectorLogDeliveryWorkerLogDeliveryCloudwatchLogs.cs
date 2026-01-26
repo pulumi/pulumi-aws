@@ -13,13 +13,7 @@ namespace Pulumi.Aws.MskConnect.Outputs
     [OutputType]
     public sealed class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs
     {
-        /// <summary>
-        /// Whether log delivery to Amazon CloudWatch Logs is enabled.
-        /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// The name of the CloudWatch log group that is the destination for log delivery.
-        /// </summary>
         public readonly string? LogGroup;
 
         [OutputConstructor]

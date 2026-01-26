@@ -9,62 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Notifications
 {
-    /// <summary>
-    /// Resource for managing an AWS User Notifications Channel Association. This resource associates a channel (such as an email contact) with a notification configuration.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Notifications.NotificationConfiguration("example", new()
-    ///     {
-    ///         Name = "example-notification-config",
-    ///         Description = "Example notification configuration",
-    ///     });
-    /// 
-    ///     var exampleContactsEmailContact = new Aws.Notifications.ContactsEmailContact("example", new()
-    ///     {
-    ///         Name = "example-contact",
-    ///         EmailAddress = "example@example.com",
-    ///     });
-    /// 
-    ///     var exampleChannelAssociation = new Aws.Notifications.ChannelAssociation("example", new()
-    ///     {
-    ///         Arn = exampleContactsEmailContact.Arn,
-    ///         NotificationConfigurationArn = example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import User Notifications Channel Association using the `notification_configuration_arn,channel_arn` format. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:notifications/channelAssociation:ChannelAssociation example arn:aws:notifications:us-west-2:123456789012:configuration:example-notification-config,arn:aws:notificationscontacts:us-west-2:123456789012:emailcontact:example-contact
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:notifications/channelAssociation:ChannelAssociation")]
     public partial class ChannelAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$`.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the notification configuration to associate the channel with.
-        /// </summary>
         [Output("notificationConfigurationArn")]
         public Output<string> NotificationConfigurationArn { get; private set; } = null!;
 
@@ -114,15 +64,9 @@ namespace Pulumi.Aws.Notifications
 
     public sealed class ChannelAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$`.
-        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of the notification configuration to associate the channel with.
-        /// </summary>
         [Input("notificationConfigurationArn", required: true)]
         public Input<string> NotificationConfigurationArn { get; set; } = null!;
 
@@ -134,15 +78,9 @@ namespace Pulumi.Aws.Notifications
 
     public sealed class ChannelAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$`.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// ARN of the notification configuration to associate the channel with.
-        /// </summary>
         [Input("notificationConfigurationArn")]
         public Input<string>? NotificationConfigurationArn { get; set; }
 

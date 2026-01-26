@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS CloudWatch Contributor Insight Rule.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.cloudwatch.ContributorInsightRule("test", {
- *     ruleName: "testing",
- *     ruleState: "ENABLED",
- *     ruleDefinition: "{\"Schema\":{\"Name\":\"CloudWatchLogRule\",\"Version\":1},\"AggregateOn\":\"Count\",\"Contribution\":{\"Filters\":[{\"In\":[\"some-keyword\"],\"Match\":\"$.message\"}],\"Keys\":[\"$.country\"]},\"LogFormat\":\"JSON\",\"LogGroupNames\":[\"/aws/lambda/api-prod\"]}",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import CloudWatch Contributor Insight Rule using the `rule_name`. For example:
- *
- * ```sh
- * $ pulumi import aws:cloudwatch/contributorInsightRule:ContributorInsightRule example contributor_insight_rule-name
- * ```
- */
 export class ContributorInsightRule extends pulumi.CustomResource {
     /**
      * Get an existing ContributorInsightRule resource's state with the given name, ID, and optional extra
@@ -58,27 +32,10 @@ export class ContributorInsightRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === ContributorInsightRule.__pulumiType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ARN of the Contributor Insight Rule.
-     */
     declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
-    /**
-     * Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
-     */
     declare public readonly ruleDefinition: pulumi.Output<string>;
-    /**
-     * Unique name of the rule.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly ruleName: pulumi.Output<string>;
-    /**
-     * State of the rule. Valid values are `ENABLED` and `DISABLED`.
-     */
     declare public readonly ruleState: pulumi.Output<string | undefined>;
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
@@ -128,27 +85,10 @@ export class ContributorInsightRule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ContributorInsightRule resources.
  */
 export interface ContributorInsightRuleState {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the Contributor Insight Rule.
-     */
     resourceArn?: pulumi.Input<string>;
-    /**
-     * Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
-     */
     ruleDefinition?: pulumi.Input<string>;
-    /**
-     * Unique name of the rule.
-     *
-     * The following arguments are optional:
-     */
     ruleName?: pulumi.Input<string>;
-    /**
-     * State of the rule. Valid values are `ENABLED` and `DISABLED`.
-     */
     ruleState?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -158,23 +98,9 @@ export interface ContributorInsightRuleState {
  * The set of arguments for constructing a ContributorInsightRule resource.
  */
 export interface ContributorInsightRuleArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
-     */
     ruleDefinition: pulumi.Input<string>;
-    /**
-     * Unique name of the rule.
-     *
-     * The following arguments are optional:
-     */
     ruleName: pulumi.Input<string>;
-    /**
-     * State of the rule. Valid values are `ENABLED` and `DISABLED`.
-     */
     ruleState?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

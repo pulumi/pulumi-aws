@@ -65,9 +65,6 @@ class GetLinkResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the link.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -81,33 +78,21 @@ class GetLinkResult:
     @_builtins.property
     @pulumi.getter
     def label(self) -> _builtins.str:
-        """
-        Label that is assigned to this link.
-        """
         return pulumi.get(self, "label")
 
     @_builtins.property
     @pulumi.getter(name="labelTemplate")
     def label_template(self) -> _builtins.str:
-        """
-        Human-readable name used to identify this source account when you are viewing data from it in the monitoring account.
-        """
         return pulumi.get(self, "label_template")
 
     @_builtins.property
     @pulumi.getter(name="linkConfigurations")
     def link_configurations(self) -> Sequence['outputs.GetLinkLinkConfigurationResult']:
-        """
-        Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
-        """
         return pulumi.get(self, "link_configurations")
 
     @_builtins.property
     @pulumi.getter(name="linkId")
     def link_id(self) -> _builtins.str:
-        """
-        ID string that AWS generated as part of the link ARN.
-        """
         return pulumi.get(self, "link_id")
 
     @_builtins.property
@@ -123,17 +108,11 @@ class GetLinkResult:
     @_builtins.property
     @pulumi.getter(name="resourceTypes")
     def resource_types(self) -> Sequence[_builtins.str]:
-        """
-        Types of data that the source account shares with the monitoring account.
-        """
         return pulumi.get(self, "resource_types")
 
     @_builtins.property
     @pulumi.getter(name="sinkArn")
     def sink_arn(self) -> _builtins.str:
-        """
-        ARN of the sink that is used for this link.
-        """
         return pulumi.get(self, "sink_arn")
 
     @_builtins.property
@@ -166,22 +145,7 @@ def get_link(link_identifier: Optional[_builtins.str] = None,
              tags: Optional[Mapping[str, _builtins.str]] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkResult:
     """
-    Data source for managing an AWS CloudWatch Observability Access Manager Link.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.oam.get_link(link_identifier="arn:aws:oam:us-west-1:111111111111:link/abcd1234-a123-456a-a12b-a123b456c789")
-    ```
-
-
-    :param _builtins.str link_identifier: ARN of the link.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['linkIdentifier'] = link_identifier
@@ -207,22 +171,7 @@ def get_link_output(link_identifier: Optional[pulumi.Input[_builtins.str]] = Non
                     tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinkResult]:
     """
-    Data source for managing an AWS CloudWatch Observability Access Manager Link.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.oam.get_link(link_identifier="arn:aws:oam:us-west-1:111111111111:link/abcd1234-a123-456a-a12b-a123b456c789")
-    ```
-
-
-    :param _builtins.str link_identifier: ARN of the link.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['linkIdentifier'] = link_identifier

@@ -18,10 +18,6 @@ import javax.annotation.Nullable;
 public final class GetPrincipalPolicySimulationInvokeResult {
     private List<String> actionNames;
     private @Nullable List<String> additionalPoliciesJsons;
-    /**
-     * @return `true` if all of the simulation results have decision &#34;allowed&#34;, or `false` otherwise.
-     * 
-     */
     private Boolean allAllowed;
     private @Nullable String callerArn;
     private @Nullable List<GetPrincipalPolicySimulationContext> contexts;
@@ -32,10 +28,6 @@ public final class GetPrincipalPolicySimulationInvokeResult {
     private @Nullable String resourceHandlingOption;
     private @Nullable String resourceOwnerAccountId;
     private @Nullable String resourcePolicyJson;
-    /**
-     * @return A set of result objects, one for each of the simulated requests, with the following nested attributes:
-     * 
-     */
     private List<GetPrincipalPolicySimulationResult> results;
 
     private GetPrincipalPolicySimulationInvokeResult() {}
@@ -45,10 +37,6 @@ public final class GetPrincipalPolicySimulationInvokeResult {
     public List<String> additionalPoliciesJsons() {
         return this.additionalPoliciesJsons == null ? List.of() : this.additionalPoliciesJsons;
     }
-    /**
-     * @return `true` if all of the simulation results have decision &#34;allowed&#34;, or `false` otherwise.
-     * 
-     */
     public Boolean allAllowed() {
         return this.allAllowed;
     }
@@ -79,10 +67,6 @@ public final class GetPrincipalPolicySimulationInvokeResult {
     public Optional<String> resourcePolicyJson() {
         return Optional.ofNullable(this.resourcePolicyJson);
     }
-    /**
-     * @return A set of result objects, one for each of the simulated requests, with the following nested attributes:
-     * 
-     */
     public List<GetPrincipalPolicySimulationResult> results() {
         return this.results;
     }

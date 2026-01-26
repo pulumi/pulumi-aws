@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclCustomResponseBody {
-    /**
-     * @return Payload of the custom response.
-     * 
-     */
     private String content;
-    /**
-     * @return Type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
-     * 
-     */
     private String contentType;
-    /**
-     * @return Unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the `customResponse` block.
-     * 
-     */
     private String key;
 
     private WebAclCustomResponseBody() {}
-    /**
-     * @return Payload of the custom response.
-     * 
-     */
     public String content() {
         return this.content;
     }
-    /**
-     * @return Type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
-     * 
-     */
     public String contentType() {
         return this.contentType;
     }
-    /**
-     * @return Unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the `customResponse` block.
-     * 
-     */
     public String key() {
         return this.key;
     }

@@ -13,21 +13,9 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration
     {
-        /// <summary>
-        /// Configuration state of the inventory table, indicating whether the inventory table is enabled or disabled. Valid values: `ENABLED`, `DISABLED`.
-        /// </summary>
         public readonly string ConfigurationState;
-        /// <summary>
-        /// Encryption configuration for the inventory table. See `EncryptionConfiguration` Block for details.
-        /// </summary>
         public readonly Outputs.BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationEncryptionConfiguration? EncryptionConfiguration;
-        /// <summary>
-        /// Inventory table ARN.
-        /// </summary>
         public readonly string? TableArn;
-        /// <summary>
-        /// Inventory table name.
-        /// </summary>
         public readonly string? TableName;
 
         [OutputConstructor]

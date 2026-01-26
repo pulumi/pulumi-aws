@@ -13,9 +13,6 @@ namespace Pulumi.Aws.DataExchange.Outputs
     [OutputType]
     public sealed class RevisionAssetsAssetImportAssetsFromS3
     {
-        /// <summary>
-        /// A block specifying the source bucket and key for the asset. This block supports the following:
-        /// </summary>
         public readonly Outputs.RevisionAssetsAssetImportAssetsFromS3AssetSource? AssetSource;
 
         [OutputConstructor]

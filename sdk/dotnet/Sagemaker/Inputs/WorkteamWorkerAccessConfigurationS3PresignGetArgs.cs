@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class WorkteamWorkerAccessConfigurationS3PresignGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Use this parameter to specify the allowed request source. Possible sources are either SourceIp or VpcSourceIp. see IAM Policy Constraints details below.
-        /// </summary>
         [Input("iamPolicyConstraints")]
         public Input<Inputs.WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsGetArgs>? IamPolicyConstraints { get; set; }
 

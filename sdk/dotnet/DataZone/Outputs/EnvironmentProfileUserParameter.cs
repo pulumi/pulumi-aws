@@ -13,13 +13,7 @@ namespace Pulumi.Aws.DataZone.Outputs
     [OutputType]
     public sealed class EnvironmentProfileUserParameter
     {
-        /// <summary>
-        /// Name of the environment profile parameter.
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// Value of the environment profile parameter.
-        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainDomainSettingsRStudioServerProDomainSettings {
-    /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
-     * 
-     */
     private @Nullable DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec defaultResourceSpec;
-    /**
-     * @return The ARN of the execution role for the RStudioServerPro Domain-level app.
-     * 
-     */
     private String domainExecutionRoleArn;
-    /**
-     * @return A URL pointing to an RStudio Connect server.
-     * 
-     */
     private @Nullable String rStudioConnectUrl;
-    /**
-     * @return A URL pointing to an RStudio Package Manager server.
-     * 
-     */
     private @Nullable String rStudioPackageManagerUrl;
 
     private DomainDomainSettingsRStudioServerProDomainSettings() {}
-    /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
-     * 
-     */
     public Optional<DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec> defaultResourceSpec() {
         return Optional.ofNullable(this.defaultResourceSpec);
     }
-    /**
-     * @return The ARN of the execution role for the RStudioServerPro Domain-level app.
-     * 
-     */
     public String domainExecutionRoleArn() {
         return this.domainExecutionRoleArn;
     }
-    /**
-     * @return A URL pointing to an RStudio Connect server.
-     * 
-     */
     public Optional<String> rStudioConnectUrl() {
         return Optional.ofNullable(this.rStudioConnectUrl);
     }
-    /**
-     * @return A URL pointing to an RStudio Package Manager server.
-     * 
-     */
     public Optional<String> rStudioPackageManagerUrl() {
         return Optional.ofNullable(this.rStudioPackageManagerUrl);
     }

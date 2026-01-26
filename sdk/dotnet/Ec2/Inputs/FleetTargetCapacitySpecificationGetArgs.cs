@@ -12,34 +12,18 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class FleetTargetCapacitySpecificationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Default target capacity type. Valid values: `on-demand`, `Spot`.
-        /// </summary>
         [Input("defaultTargetCapacityType", required: true)]
         public Input<string> DefaultTargetCapacityType { get; set; } = null!;
 
-        /// <summary>
-        /// The number of On-Demand units to request.
-        /// </summary>
         [Input("onDemandTargetCapacity")]
         public Input<int>? OnDemandTargetCapacity { get; set; }
 
-        /// <summary>
-        /// The number of Spot units to request.
-        /// </summary>
         [Input("spotTargetCapacity")]
         public Input<int>? SpotTargetCapacity { get; set; }
 
-        /// <summary>
-        /// The unit for the target capacity.
-        /// If you specify `TargetCapacityUnitType`, `InstanceRequirements` must be specified.
-        /// </summary>
         [Input("targetCapacityUnitType")]
         public Input<string>? TargetCapacityUnitType { get; set; }
 
-        /// <summary>
-        /// The number of units to request, filled using `DefaultTargetCapacityType`.
-        /// </summary>
         [Input("totalTargetCapacity", required: true)]
         public Input<int> TotalTargetCapacity { get; set; } = null!;
 

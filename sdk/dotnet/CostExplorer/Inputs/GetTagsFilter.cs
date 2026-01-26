@@ -14,49 +14,29 @@ namespace Pulumi.Aws.CostExplorer.Inputs
     {
         [Input("ands")]
         private List<Inputs.GetTagsFilterAndArgs>? _ands;
-
-        /// <summary>
-        /// Return results that match both `Dimension` objects.
-        /// </summary>
         public List<Inputs.GetTagsFilterAndArgs> Ands
         {
             get => _ands ?? (_ands = new List<Inputs.GetTagsFilterAndArgs>());
             set => _ands = value;
         }
 
-        /// <summary>
-        /// Configuration block for the filter that's based on `CostCategory` values. See `CostCategory` block below for details.
-        /// </summary>
         [Input("costCategory")]
         public Inputs.GetTagsFilterCostCategoryArgs? CostCategory { get; set; }
 
-        /// <summary>
-        /// Configuration block for the specific `Dimension` to use for `Expression`. See `Dimension` block below for details.
-        /// </summary>
         [Input("dimension")]
         public Inputs.GetTagsFilterDimensionArgs? Dimension { get; set; }
 
-        /// <summary>
-        /// Return results that match both `Dimension` object.
-        /// </summary>
         [Input("not")]
         public Inputs.GetTagsFilterNotArgs? Not { get; set; }
 
         [Input("ors")]
         private List<Inputs.GetTagsFilterOrArgs>? _ors;
-
-        /// <summary>
-        /// Return results that match both `Dimension` object.
-        /// </summary>
         public List<Inputs.GetTagsFilterOrArgs> Ors
         {
             get => _ors ?? (_ors = new List<Inputs.GetTagsFilterOrArgs>());
             set => _ors = value;
         }
 
-        /// <summary>
-        /// Tags that match your request.
-        /// </summary>
         [Input("tags")]
         public Inputs.GetTagsFilterTagsArgs? Tags { get; set; }
 

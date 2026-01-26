@@ -15,9 +15,6 @@ namespace Pulumi.Aws.DataExchange.Outputs
     {
         public readonly string? AccessPointAlias;
         public readonly string? AccessPointArn;
-        /// <summary>
-        /// A block specifying the source bucket for the asset. This block supports the following:
-        /// </summary>
         public readonly Outputs.RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource? AssetSource;
 
         [OutputConstructor]

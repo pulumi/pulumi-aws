@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ContactsRotationRecurrenceWeeklySetting {
-    /**
-     * @return (Required) The day of the week when the shift coverage occurs.
-     * 
-     */
     private String dayOfWeek;
-    /**
-     * @return (Required) The hand off time. See Hand Off Time for more details.
-     * 
-     */
     private @Nullable ContactsRotationRecurrenceWeeklySettingHandOffTime handOffTime;
 
     private ContactsRotationRecurrenceWeeklySetting() {}
-    /**
-     * @return (Required) The day of the week when the shift coverage occurs.
-     * 
-     */
     public String dayOfWeek() {
         return this.dayOfWeek;
     }
-    /**
-     * @return (Required) The hand off time. See Hand Off Time for more details.
-     * 
-     */
     public Optional<ContactsRotationRecurrenceWeeklySettingHandOffTime> handOffTime() {
         return Optional.ofNullable(this.handOffTime);
     }

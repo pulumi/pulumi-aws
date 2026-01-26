@@ -17,128 +17,44 @@ import java.util.Objects;
 @CustomType
 public final class GetImageResult {
     private String arn;
-    /**
-     * @return Build version ARN of the image. This will always have the `#.#.#/#` suffix.
-     * 
-     */
     private String buildVersionArn;
-    /**
-     * @return ARN of the container recipe.
-     * 
-     */
     private String containerRecipeArn;
-    /**
-     * @return Date the image was created.
-     * 
-     */
     private String dateCreated;
-    /**
-     * @return ARN of the Image Builder Distribution Configuration.
-     * 
-     */
     private String distributionConfigurationArn;
-    /**
-     * @return Whether additional information about the image being created is collected.
-     * 
-     */
     private Boolean enhancedImageMetadataEnabled;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return ARN of the image recipe.
-     * 
-     */
     private String imageRecipeArn;
-    /**
-     * @return List of an object with image scanning configuration fields.
-     * 
-     */
     private List<GetImageImageScanningConfiguration> imageScanningConfigurations;
-    /**
-     * @return List of an object with image tests configuration.
-     * 
-     */
     private List<GetImageImageTestsConfiguration> imageTestsConfigurations;
-    /**
-     * @return ARN of the Image Builder Infrastructure Configuration.
-     * 
-     */
     private String infrastructureConfigurationArn;
-    /**
-     * @return Name of the AMI.
-     * 
-     */
     private String name;
-    /**
-     * @return Operating System version of the image.
-     * 
-     */
     private String osVersion;
-    /**
-     * @return List of objects with resources created by the image.
-     * 
-     */
     private List<GetImageOutputResource> outputResources;
-    /**
-     * @return Platform of the image.
-     * 
-     */
     private String platform;
-    /**
-     * @return Region of the container image.
-     * 
-     */
     private String region;
-    /**
-     * @return Key-value map of resource tags for the image.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Version of the image.
-     * 
-     */
     private String version;
 
     private GetImageResult() {}
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Build version ARN of the image. This will always have the `#.#.#/#` suffix.
-     * 
-     */
     public String buildVersionArn() {
         return this.buildVersionArn;
     }
-    /**
-     * @return ARN of the container recipe.
-     * 
-     */
     public String containerRecipeArn() {
         return this.containerRecipeArn;
     }
-    /**
-     * @return Date the image was created.
-     * 
-     */
     public String dateCreated() {
         return this.dateCreated;
     }
-    /**
-     * @return ARN of the Image Builder Distribution Configuration.
-     * 
-     */
     public String distributionConfigurationArn() {
         return this.distributionConfigurationArn;
     }
-    /**
-     * @return Whether additional information about the image being created is collected.
-     * 
-     */
     public Boolean enhancedImageMetadataEnabled() {
         return this.enhancedImageMetadataEnabled;
     }
@@ -149,80 +65,36 @@ public final class GetImageResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return ARN of the image recipe.
-     * 
-     */
     public String imageRecipeArn() {
         return this.imageRecipeArn;
     }
-    /**
-     * @return List of an object with image scanning configuration fields.
-     * 
-     */
     public List<GetImageImageScanningConfiguration> imageScanningConfigurations() {
         return this.imageScanningConfigurations;
     }
-    /**
-     * @return List of an object with image tests configuration.
-     * 
-     */
     public List<GetImageImageTestsConfiguration> imageTestsConfigurations() {
         return this.imageTestsConfigurations;
     }
-    /**
-     * @return ARN of the Image Builder Infrastructure Configuration.
-     * 
-     */
     public String infrastructureConfigurationArn() {
         return this.infrastructureConfigurationArn;
     }
-    /**
-     * @return Name of the AMI.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Operating System version of the image.
-     * 
-     */
     public String osVersion() {
         return this.osVersion;
     }
-    /**
-     * @return List of objects with resources created by the image.
-     * 
-     */
     public List<GetImageOutputResource> outputResources() {
         return this.outputResources;
     }
-    /**
-     * @return Platform of the image.
-     * 
-     */
     public String platform() {
         return this.platform;
     }
-    /**
-     * @return Region of the container image.
-     * 
-     */
     public String region() {
         return this.region;
     }
-    /**
-     * @return Key-value map of resource tags for the image.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Version of the image.
-     * 
-     */
     public String version() {
         return this.version;
     }

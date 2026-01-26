@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetListenerRuleConditionSourceIp {
-    /**
-     * @return Set of `key`-`value` pairs indicating the query string parameters to match.
-     * 
-     */
     private List<String> values;
 
     private GetListenerRuleConditionSourceIp() {}
-    /**
-     * @return Set of `key`-`value` pairs indicating the query string parameters to match.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

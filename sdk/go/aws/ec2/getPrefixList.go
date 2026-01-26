@@ -11,99 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// `ec2.getPrefixList` provides details about a specific AWS prefix list (PL)
-// in the current region.
-//
-// This can be used both to validate a prefix list given in a variable
-// and to obtain the CIDR blocks (IP address ranges) for the associated
-// AWS service. The latter may be useful e.g., for adding network ACL
-// rules.
-//
-// The ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			privateS3VpcEndpoint, err := ec2.NewVpcEndpoint(ctx, "private_s3", &ec2.VpcEndpointArgs{
-//				VpcId:       pulumi.Any(foo.Id),
-//				ServiceName: pulumi.String("com.amazonaws.us-west-2.s3"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			privateS3 := ec2.GetPrefixListOutput(ctx, ec2.GetPrefixListOutputArgs{
-//				PrefixListId: privateS3VpcEndpoint.PrefixListId,
-//			}, nil)
-//			bar, err := ec2.NewNetworkAcl(ctx, "bar", &ec2.NetworkAclArgs{
-//				VpcId: pulumi.Any(foo.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewNetworkAclRule(ctx, "private_s3", &ec2.NetworkAclRuleArgs{
-//				NetworkAclId: bar.ID(),
-//				RuleNumber:   pulumi.Int(200),
-//				Egress:       pulumi.Bool(false),
-//				Protocol:     pulumi.String("tcp"),
-//				RuleAction:   pulumi.String("allow"),
-//				CidrBlock: pulumi.String(privateS3.ApplyT(func(privateS3 ec2.GetPrefixListResult) (*string, error) {
-//					return &privateS3.CidrBlocks[0], nil
-//				}).(pulumi.StringPtrOutput)),
-//				FromPort: pulumi.Int(443),
-//				ToPort:   pulumi.Int(443),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Filter
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetPrefixList(ctx, &ec2.GetPrefixListArgs{
-//				Filters: []ec2.GetPrefixListFilter{
-//					{
-//						Name: "prefix-list-id",
-//						Values: []string{
-//							"pl-68a54001",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetPrefixList(ctx *pulumi.Context, args *GetPrefixListArgs, opts ...pulumi.InvokeOption) (*GetPrefixListResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPrefixListResult
@@ -116,28 +23,18 @@ func GetPrefixList(ctx *pulumi.Context, args *GetPrefixListArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getPrefixList.
 type GetPrefixListArgs struct {
-	// Configuration block(s) for filtering. Detailed below.
-	//
-	// The arguments of this data source act as filters for querying the available
-	// prefix lists. The given filters must match exactly one prefix list
-	// whose data will be exported as attributes.
-	Filters []GetPrefixListFilter `pulumi:"filters"`
-	// Name of the prefix list to select.
-	Name *string `pulumi:"name"`
-	// ID of the prefix list to select.
-	PrefixListId *string `pulumi:"prefixListId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Filters      []GetPrefixListFilter `pulumi:"filters"`
+	Name         *string               `pulumi:"name"`
+	PrefixListId *string               `pulumi:"prefixListId"`
+	Region       *string               `pulumi:"region"`
 }
 
 // A collection of values returned by getPrefixList.
 type GetPrefixListResult struct {
-	// List of CIDR blocks for the AWS service associated with the prefix list.
 	CidrBlocks []string              `pulumi:"cidrBlocks"`
 	Filters    []GetPrefixListFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Name of the selected prefix list.
+	Id           string  `pulumi:"id"`
 	Name         string  `pulumi:"name"`
 	PrefixListId *string `pulumi:"prefixListId"`
 	Region       string  `pulumi:"region"`
@@ -154,18 +51,10 @@ func GetPrefixListOutput(ctx *pulumi.Context, args GetPrefixListOutputArgs, opts
 
 // A collection of arguments for invoking getPrefixList.
 type GetPrefixListOutputArgs struct {
-	// Configuration block(s) for filtering. Detailed below.
-	//
-	// The arguments of this data source act as filters for querying the available
-	// prefix lists. The given filters must match exactly one prefix list
-	// whose data will be exported as attributes.
-	Filters GetPrefixListFilterArrayInput `pulumi:"filters"`
-	// Name of the prefix list to select.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// ID of the prefix list to select.
-	PrefixListId pulumi.StringPtrInput `pulumi:"prefixListId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Filters      GetPrefixListFilterArrayInput `pulumi:"filters"`
+	Name         pulumi.StringPtrInput         `pulumi:"name"`
+	PrefixListId pulumi.StringPtrInput         `pulumi:"prefixListId"`
+	Region       pulumi.StringPtrInput         `pulumi:"region"`
 }
 
 func (GetPrefixListOutputArgs) ElementType() reflect.Type {
@@ -187,7 +76,6 @@ func (o GetPrefixListResultOutput) ToGetPrefixListResultOutputWithContext(ctx co
 	return o
 }
 
-// List of CIDR blocks for the AWS service associated with the prefix list.
 func (o GetPrefixListResultOutput) CidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPrefixListResult) []string { return v.CidrBlocks }).(pulumi.StringArrayOutput)
 }
@@ -201,7 +89,6 @@ func (o GetPrefixListResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrefixListResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Name of the selected prefix list.
 func (o GetPrefixListResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrefixListResult) string { return v.Name }).(pulumi.StringOutput)
 }

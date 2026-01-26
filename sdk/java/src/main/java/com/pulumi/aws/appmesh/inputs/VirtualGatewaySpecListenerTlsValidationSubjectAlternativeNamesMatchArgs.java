@@ -15,17 +15,9 @@ public final class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeName
 
     public static final VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgs Empty = new VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgs();
 
-    /**
-     * Values sent must match the specified values exactly.
-     * 
-     */
     @Import(name="exacts", required=true)
     private Output<List<String>> exacts;
 
-    /**
-     * @return Values sent must match the specified values exactly.
-     * 
-     */
     public Output<List<String>> exacts() {
         return this.exacts;
     }
@@ -54,33 +46,15 @@ public final class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeName
             $ = new VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param exacts Values sent must match the specified values exactly.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exacts(Output<List<String>> exacts) {
             $.exacts = exacts;
             return this;
         }
 
-        /**
-         * @param exacts Values sent must match the specified values exactly.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exacts(List<String> exacts) {
             return exacts(Output.of(exacts));
         }
 
-        /**
-         * @param exacts Values sent must match the specified values exactly.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exacts(String... exacts) {
             return exacts(List.of(exacts));
         }

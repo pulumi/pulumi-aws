@@ -16,32 +16,16 @@ public final class FleetScalingConfigurationTargetTrackingScalingConfigArgs exte
 
     public static final FleetScalingConfigurationTargetTrackingScalingConfigArgs Empty = new FleetScalingConfigurationTargetTrackingScalingConfigArgs();
 
-    /**
-     * Metric type to determine auto-scaling. Valid value: `FLEET_UTILIZATION_RATE`.
-     * 
-     */
     @Import(name="metricType")
     private @Nullable Output<String> metricType;
 
-    /**
-     * @return Metric type to determine auto-scaling. Valid value: `FLEET_UTILIZATION_RATE`.
-     * 
-     */
     public Optional<Output<String>> metricType() {
         return Optional.ofNullable(this.metricType);
     }
 
-    /**
-     * Value of metricType when to start scaling.
-     * 
-     */
     @Import(name="targetValue")
     private @Nullable Output<Double> targetValue;
 
-    /**
-     * @return Value of metricType when to start scaling.
-     * 
-     */
     public Optional<Output<Double>> targetValue() {
         return Optional.ofNullable(this.targetValue);
     }
@@ -71,44 +55,20 @@ public final class FleetScalingConfigurationTargetTrackingScalingConfigArgs exte
             $ = new FleetScalingConfigurationTargetTrackingScalingConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param metricType Metric type to determine auto-scaling. Valid value: `FLEET_UTILIZATION_RATE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricType(@Nullable Output<String> metricType) {
             $.metricType = metricType;
             return this;
         }
 
-        /**
-         * @param metricType Metric type to determine auto-scaling. Valid value: `FLEET_UTILIZATION_RATE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricType(String metricType) {
             return metricType(Output.of(metricType));
         }
 
-        /**
-         * @param targetValue Value of metricType when to start scaling.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetValue(@Nullable Output<Double> targetValue) {
             $.targetValue = targetValue;
             return this;
         }
 
-        /**
-         * @param targetValue Value of metricType when to start scaling.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetValue(Double targetValue) {
             return targetValue(Output.of(targetValue));
         }

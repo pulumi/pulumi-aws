@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Connect.Inputs
 
     public sealed class InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the delivery stream.
-        /// </summary>
         [Input("firehoseArn", required: true)]
         public Input<string> FirehoseArn { get; set; } = null!;
 

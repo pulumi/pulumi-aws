@@ -9,74 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ses
 {
-    /// <summary>
-    /// Represents a successful verification of an SES domain identity.
-    /// 
-    /// Most commonly, this resource is used together with `aws.route53.Record` and
-    /// `aws.ses.DomainIdentity` to request an SES domain identity,
-    /// deploy the required DNS verification records, and wait for verification to complete.
-    /// 
-    /// &gt; **WARNING:** This resource implements a part of the verification workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ses.DomainIdentity("example", new()
-    ///     {
-    ///         Domain = "example.com",
-    ///     });
-    /// 
-    ///     var exampleAmazonsesVerificationRecord = new Aws.Route53.Record("example_amazonses_verification_record", new()
-    ///     {
-    ///         ZoneId = exampleAwsRoute53Zone.ZoneId,
-    ///         Name = example.Domain.Apply(domain =&gt; $"_amazonses.{domain}"),
-    ///         Type = Aws.Route53.RecordType.TXT,
-    ///         Ttl = 600,
-    ///         Records = new[]
-    ///         {
-    ///             example.VerificationToken,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleVerification = new Aws.Ses.DomainIdentityVerification("example_verification", new()
-    ///     {
-    ///         Domain = example.Domain,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleAmazonsesVerificationRecord,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ses/domainIdentityVerification:DomainIdentityVerification")]
     public partial class DomainIdentityVerification : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the domain identity.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The domain name of the SES domain identity to verify.
-        /// </summary>
         [Output("domain")]
         public Output<string> Domain { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -126,15 +67,9 @@ namespace Pulumi.Aws.Ses
 
     public sealed class DomainIdentityVerificationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The domain name of the SES domain identity to verify.
-        /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -146,21 +81,12 @@ namespace Pulumi.Aws.Ses
 
     public sealed class DomainIdentityVerificationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the domain identity.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The domain name of the SES domain identity to verify.
-        /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

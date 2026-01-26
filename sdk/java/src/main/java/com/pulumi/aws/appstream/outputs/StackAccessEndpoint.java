@@ -12,31 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class StackAccessEndpoint {
-    /**
-     * @return Type of the interface endpoint.
-     * See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
-     * 
-     */
     private String endpointType;
-    /**
-     * @return ID of the VPC in which the interface endpoint is used.
-     * 
-     */
     private @Nullable String vpceId;
 
     private StackAccessEndpoint() {}
-    /**
-     * @return Type of the interface endpoint.
-     * See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
-     * 
-     */
     public String endpointType() {
         return this.endpointType;
     }
-    /**
-     * @return ID of the VPC in which the interface endpoint is used.
-     * 
-     */
     public Optional<String> vpceId() {
         return Optional.ofNullable(this.vpceId);
     }

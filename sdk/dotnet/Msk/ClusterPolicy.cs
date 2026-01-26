@@ -9,92 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Msk
 {
-    /// <summary>
-    /// Resource for managing an AWS Managed Streaming for Kafka Cluster Policy.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var currentGetPartition = Aws.GetPartition.Invoke();
-    /// 
-    ///     var example = new Aws.Msk.ClusterPolicy("example", new()
-    ///     {
-    ///         ClusterArn = exampleAwsMskCluster.Arn,
-    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Sid"] = "ExampleMskClusterPolicy",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["AWS"] = Output.Tuple(currentGetPartition, current).Apply(values =&gt;
-    ///                         {
-    ///                             var currentGetPartition = values.Item1;
-    ///                             var current = values.Item2;
-    ///                             return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root";
-    ///                         }),
-    ///                     },
-    ///                     ["Action"] = new[]
-    ///                     {
-    ///                         "kafka:Describe*",
-    ///                         "kafka:Get*",
-    ///                         "kafka:CreateVpcConnection",
-    ///                         "kafka:GetBootstrapBrokers",
-    ///                     },
-    ///                     ["Resource"] = exampleAwsMskCluster.Arn,
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Managed Streaming for Kafka Cluster Policy using the `cluster_arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:msk/clusterPolicy:ClusterPolicy example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:msk/clusterPolicy:ClusterPolicy")]
     public partial class ClusterPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
-        /// </summary>
         [Output("clusterArn")]
         public Output<string> ClusterArn { get; private set; } = null!;
 
         [Output("currentVersion")]
         public Output<string> CurrentVersion { get; private set; } = null!;
 
-        /// <summary>
-        /// Resource policy for cluster.
-        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -144,21 +70,12 @@ namespace Pulumi.Aws.Msk
 
     public sealed class ClusterPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
-        /// </summary>
         [Input("clusterArn", required: true)]
         public Input<string> ClusterArn { get; set; } = null!;
 
-        /// <summary>
-        /// Resource policy for cluster.
-        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -170,24 +87,15 @@ namespace Pulumi.Aws.Msk
 
     public sealed class ClusterPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
-        /// </summary>
         [Input("clusterArn")]
         public Input<string>? ClusterArn { get; set; }
 
         [Input("currentVersion")]
         public Input<string>? CurrentVersion { get; set; }
 
-        /// <summary>
-        /// Resource policy for cluster.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

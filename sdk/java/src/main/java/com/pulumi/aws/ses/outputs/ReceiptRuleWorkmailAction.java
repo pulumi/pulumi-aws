@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ReceiptRuleWorkmailAction {
-    /**
-     * @return The ARN of the WorkMail organization
-     * 
-     */
     private String organizationArn;
-    /**
-     * @return The position of the action in the receipt rule
-     * 
-     */
     private Integer position;
-    /**
-     * @return The ARN of an SNS topic to notify
-     * 
-     */
     private @Nullable String topicArn;
 
     private ReceiptRuleWorkmailAction() {}
-    /**
-     * @return The ARN of the WorkMail organization
-     * 
-     */
     public String organizationArn() {
         return this.organizationArn;
     }
-    /**
-     * @return The position of the action in the receipt rule
-     * 
-     */
     public Integer position() {
         return this.position;
     }
-    /**
-     * @return The ARN of an SNS topic to notify
-     * 
-     */
     public Optional<String> topicArn() {
         return Optional.ofNullable(this.topicArn);
     }

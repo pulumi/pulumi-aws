@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCostCategoryRuleInheritedValue {
-    /**
-     * @return Key to extract cost category values.
-     * 
-     */
     private String dimensionKey;
-    /**
-     * @return Name of the dimension that&#39;s used to group costs. If you specify `LINKED_ACCOUNT_NAME`, the cost category value is based on account name. If you specify `TAG`, the cost category value will be based on the value of the specified tag key. Valid values are `LINKED_ACCOUNT_NAME`, `TAG`
-     * 
-     */
     private String dimensionName;
 
     private GetCostCategoryRuleInheritedValue() {}
-    /**
-     * @return Key to extract cost category values.
-     * 
-     */
     public String dimensionKey() {
         return this.dimensionKey;
     }
-    /**
-     * @return Name of the dimension that&#39;s used to group costs. If you specify `LINKED_ACCOUNT_NAME`, the cost category value is based on account name. If you specify `TAG`, the cost category value will be based on the value of the specified tag key. Valid values are `LINKED_ACCOUNT_NAME`, `TAG`
-     * 
-     */
     public String dimensionName() {
         return this.dimensionName;
     }

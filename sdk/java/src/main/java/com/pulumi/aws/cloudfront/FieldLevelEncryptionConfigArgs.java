@@ -18,47 +18,23 @@ public final class FieldLevelEncryptionConfigArgs extends com.pulumi.resources.R
 
     public static final FieldLevelEncryptionConfigArgs Empty = new FieldLevelEncryptionConfigArgs();
 
-    /**
-     * An optional comment about the Field Level Encryption Config.
-     * 
-     */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
-    /**
-     * @return An optional comment about the Field Level Encryption Config.
-     * 
-     */
     public Optional<Output<String>> comment() {
         return Optional.ofNullable(this.comment);
     }
 
-    /**
-     * Content Type Profile Config specifies when to forward content if a content type isn&#39;t recognized and profiles to use as by default in a request if a query argument doesn&#39;t specify a profile to use.
-     * 
-     */
     @Import(name="contentTypeProfileConfig", required=true)
     private Output<FieldLevelEncryptionConfigContentTypeProfileConfigArgs> contentTypeProfileConfig;
 
-    /**
-     * @return Content Type Profile Config specifies when to forward content if a content type isn&#39;t recognized and profiles to use as by default in a request if a query argument doesn&#39;t specify a profile to use.
-     * 
-     */
     public Output<FieldLevelEncryptionConfigContentTypeProfileConfigArgs> contentTypeProfileConfig() {
         return this.contentTypeProfileConfig;
     }
 
-    /**
-     * Query Arg Profile Config that specifies when to forward content if a profile isn&#39;t found and the profile that can be provided as a query argument in a request.
-     * 
-     */
     @Import(name="queryArgProfileConfig", required=true)
     private Output<FieldLevelEncryptionConfigQueryArgProfileConfigArgs> queryArgProfileConfig;
 
-    /**
-     * @return Query Arg Profile Config that specifies when to forward content if a profile isn&#39;t found and the profile that can be provided as a query argument in a request.
-     * 
-     */
     public Output<FieldLevelEncryptionConfigQueryArgProfileConfigArgs> queryArgProfileConfig() {
         return this.queryArgProfileConfig;
     }
@@ -89,65 +65,29 @@ public final class FieldLevelEncryptionConfigArgs extends com.pulumi.resources.R
             $ = new FieldLevelEncryptionConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param comment An optional comment about the Field Level Encryption Config.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(@Nullable Output<String> comment) {
             $.comment = comment;
             return this;
         }
 
-        /**
-         * @param comment An optional comment about the Field Level Encryption Config.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
         }
 
-        /**
-         * @param contentTypeProfileConfig Content Type Profile Config specifies when to forward content if a content type isn&#39;t recognized and profiles to use as by default in a request if a query argument doesn&#39;t specify a profile to use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contentTypeProfileConfig(Output<FieldLevelEncryptionConfigContentTypeProfileConfigArgs> contentTypeProfileConfig) {
             $.contentTypeProfileConfig = contentTypeProfileConfig;
             return this;
         }
 
-        /**
-         * @param contentTypeProfileConfig Content Type Profile Config specifies when to forward content if a content type isn&#39;t recognized and profiles to use as by default in a request if a query argument doesn&#39;t specify a profile to use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contentTypeProfileConfig(FieldLevelEncryptionConfigContentTypeProfileConfigArgs contentTypeProfileConfig) {
             return contentTypeProfileConfig(Output.of(contentTypeProfileConfig));
         }
 
-        /**
-         * @param queryArgProfileConfig Query Arg Profile Config that specifies when to forward content if a profile isn&#39;t found and the profile that can be provided as a query argument in a request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryArgProfileConfig(Output<FieldLevelEncryptionConfigQueryArgProfileConfigArgs> queryArgProfileConfig) {
             $.queryArgProfileConfig = queryArgProfileConfig;
             return this;
         }
 
-        /**
-         * @param queryArgProfileConfig Query Arg Profile Config that specifies when to forward content if a profile isn&#39;t found and the profile that can be provided as a query argument in a request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryArgProfileConfig(FieldLevelEncryptionConfigQueryArgProfileConfigArgs queryArgProfileConfig) {
             return queryArgProfileConfig(Output.of(queryArgProfileConfig));
         }

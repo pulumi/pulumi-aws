@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreBrowserRecordingS3LocationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the S3 bucket where recordings are stored.
-        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
-        /// <summary>
-        /// S3 key prefix for recording files.
-        /// </summary>
         [Input("prefix", required: true)]
         public Input<string> Prefix { get; set; } = null!;
 

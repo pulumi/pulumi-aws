@@ -87,41 +87,26 @@ class GetJobDefinitionResult:
     @_builtins.property
     @pulumi.getter(name="containerOrchestrationType")
     def container_orchestration_type(self) -> _builtins.str:
-        """
-        The orchestration type of the compute environment.
-        """
         return pulumi.get(self, "container_orchestration_type")
 
     @_builtins.property
     @pulumi.getter(name="eksProperties")
     def eks_properties(self) -> Sequence['outputs.GetJobDefinitionEksPropertyResult']:
-        """
-        An object with various properties that are specific to Amazon EKS based jobs. This must not be specified for Amazon ECS based job definitions.
-        """
         return pulumi.get(self, "eks_properties")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        The ARN
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
-        """
-        The name of the volume.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="nodeProperties")
     def node_properties(self) -> Sequence['outputs.GetJobDefinitionNodePropertyResult']:
-        """
-        An object with various properties specific to multi-node parallel jobs. If you specify node properties for a job, it becomes a multi-node parallel job. For more information, see Multi-node Parallel Jobs in the AWS Batch User Guide. If the job definition's type parameter is container, then you must specify either containerProperties or nodeProperties.
-        """
         return pulumi.get(self, "node_properties")
 
     @_builtins.property
@@ -132,9 +117,6 @@ class GetJobDefinitionResult:
     @_builtins.property
     @pulumi.getter(name="retryStrategies")
     def retry_strategies(self) -> Sequence['outputs.GetJobDefinitionRetryStrategyResult']:
-        """
-        The retry strategy to use for failed jobs that are submitted with this job definition. Any retry strategy that's specified during a SubmitJob operation overrides the retry strategy defined here. If a job is terminated due to a timeout, it isn't retried.
-        """
         return pulumi.get(self, "retry_strategies")
 
     @_builtins.property
@@ -145,9 +127,6 @@ class GetJobDefinitionResult:
     @_builtins.property
     @pulumi.getter(name="schedulingPriority")
     def scheduling_priority(self) -> _builtins.int:
-        """
-        The scheduling priority for jobs that are submitted with this job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
-        """
         return pulumi.get(self, "scheduling_priority")
 
     @_builtins.property
@@ -163,17 +142,11 @@ class GetJobDefinitionResult:
     @_builtins.property
     @pulumi.getter
     def timeouts(self) -> Sequence['outputs.GetJobDefinitionTimeoutResult']:
-        """
-        The timeout configuration for jobs that are submitted with this job definition, after which AWS Batch terminates your jobs if they have not finished. If a job is terminated due to a timeout, it isn't retried. The minimum value for the timeout is 60 seconds.
-        """
         return pulumi.get(self, "timeouts")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        The type of resource to assign to a container. The supported resources include `GPU`, `MEMORY`, and `VCPU`.
-        """
         return pulumi.get(self, "type")
 
 
@@ -207,35 +180,7 @@ def get_job_definition(arn: Optional[_builtins.str] = None,
                        status: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobDefinitionResult:
     """
-    Data source for managing an AWS Batch Job Definition.
-
-    ## Example Usage
-
-    ### Lookup via Arn
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    arn = aws.batch.get_job_definition(arn="arn:aws:batch:us-east-1:012345678910:job-definition/example")
-    ```
-
-    ### Lookup via Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    name = aws.batch.get_job_definition(name="example",
-        revision=2)
-    ```
-
-
-    :param _builtins.str arn: ARN of the Job Definition. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
-    :param _builtins.str name: The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.int revision: The revision of the job definition.
-    :param _builtins.str status: The status of the job definition.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -269,35 +214,7 @@ def get_job_definition_output(arn: Optional[pulumi.Input[Optional[_builtins.str]
                               status: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobDefinitionResult]:
     """
-    Data source for managing an AWS Batch Job Definition.
-
-    ## Example Usage
-
-    ### Lookup via Arn
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    arn = aws.batch.get_job_definition(arn="arn:aws:batch:us-east-1:012345678910:job-definition/example")
-    ```
-
-    ### Lookup via Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    name = aws.batch.get_job_definition(name="example",
-        revision=2)
-    ```
-
-
-    :param _builtins.str arn: ARN of the Job Definition. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
-    :param _builtins.str name: The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.int revision: The revision of the job definition.
-    :param _builtins.str status: The status of the job definition.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

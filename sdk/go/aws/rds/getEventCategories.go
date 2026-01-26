@@ -11,59 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// List the event categories of all the RDS resources.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := rds.GetEventCategories(ctx, &rds.GetEventCategoriesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("example", example.EventCategories)
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// List the event categories specific to the RDS resource `db-snapshot`.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := rds.GetEventCategories(ctx, &rds.GetEventCategoriesArgs{
-//				SourceType: pulumi.StringRef("db-snapshot"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("example", example.EventCategories)
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetEventCategories(ctx *pulumi.Context, args *GetEventCategoriesArgs, opts ...pulumi.InvokeOption) (*GetEventCategoriesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEventCategoriesResult
@@ -76,15 +23,12 @@ func GetEventCategories(ctx *pulumi.Context, args *GetEventCategoriesArgs, opts 
 
 // A collection of arguments for invoking getEventCategories.
 type GetEventCategoriesArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
+	Region     *string `pulumi:"region"`
 	SourceType *string `pulumi:"sourceType"`
 }
 
 // A collection of values returned by getEventCategories.
 type GetEventCategoriesResult struct {
-	// List of the event categories.
 	EventCategories []string `pulumi:"eventCategories"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string  `pulumi:"id"`
@@ -103,9 +47,7 @@ func GetEventCategoriesOutput(ctx *pulumi.Context, args GetEventCategoriesOutput
 
 // A collection of arguments for invoking getEventCategories.
 type GetEventCategoriesOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 	SourceType pulumi.StringPtrInput `pulumi:"sourceType"`
 }
 
@@ -128,7 +70,6 @@ func (o GetEventCategoriesResultOutput) ToGetEventCategoriesResultOutputWithCont
 	return o
 }
 
-// List of the event categories.
 func (o GetEventCategoriesResultOutput) EventCategories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetEventCategoriesResult) []string { return v.EventCategories }).(pulumi.StringArrayOutput)
 }

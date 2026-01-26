@@ -13,13 +13,7 @@ namespace Pulumi.Aws.ElastiCache.Outputs
     [OutputType]
     public sealed class GetServerlessCacheCacheUsageLimitsEcpuPerSecondResult
     {
-        /// <summary>
-        /// The maximum number of ECPUs the cache can consume per second.
-        /// </summary>
         public readonly int Maximum;
-        /// <summary>
-        /// The minimum number of ECPUs the cache can consume per second.
-        /// </summary>
         public readonly int Minimum;
 
         [OutputConstructor]

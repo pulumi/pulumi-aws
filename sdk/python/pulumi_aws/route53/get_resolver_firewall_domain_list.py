@@ -67,33 +67,21 @@ class GetResolverFirewallDomainListResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the firewall domain list.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> _builtins.str:
-        """
-        The date and time that the domain list was created, in Unix time format and Coordinated Universal Time (UTC).
-        """
         return pulumi.get(self, "creation_time")
 
     @_builtins.property
     @pulumi.getter(name="creatorRequestId")
     def creator_request_id(self) -> _builtins.str:
-        """
-        A unique string defined by you to identify the request.
-        """
         return pulumi.get(self, "creator_request_id")
 
     @_builtins.property
     @pulumi.getter(name="domainCount")
     def domain_count(self) -> _builtins.int:
-        """
-        The number of domain names that are specified in the domain list.
-        """
         return pulumi.get(self, "domain_count")
 
     @_builtins.property
@@ -112,25 +100,16 @@ class GetResolverFirewallDomainListResult:
     @_builtins.property
     @pulumi.getter(name="managedOwnerName")
     def managed_owner_name(self) -> _builtins.str:
-        """
-        The owner of the list, used only for lists that are not managed by you.
-        """
         return pulumi.get(self, "managed_owner_name")
 
     @_builtins.property
     @pulumi.getter(name="modificationTime")
     def modification_time(self) -> _builtins.str:
-        """
-        The date and time that the domain list was last modified, in Unix time format and Coordinated Universal Time (UTC).
-        """
         return pulumi.get(self, "modification_time")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the domain list.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -141,17 +120,11 @@ class GetResolverFirewallDomainListResult:
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        The status of the domain list.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> _builtins.str:
-        """
-        Additional information about the status of the list, if available.
-        """
         return pulumi.get(self, "status_message")
 
 
@@ -179,24 +152,7 @@ def get_resolver_firewall_domain_list(firewall_domain_list_id: Optional[_builtin
                                       region: Optional[_builtins.str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResolverFirewallDomainListResult:
     """
-    `route53.ResolverFirewallDomainList` Retrieves the specified firewall domain list.
-
-    This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall domain list.
-
-    ## Example Usage
-
-    The following example shows how to get a firewall domain list from its ID.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_resolver_firewall_domain_list(firewall_domain_list_id="rslvr-fdl-example")
-    ```
-
-
-    :param _builtins.str firewall_domain_list_id: The ID of the domain list.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['firewallDomainListId'] = firewall_domain_list_id
@@ -221,24 +177,7 @@ def get_resolver_firewall_domain_list_output(firewall_domain_list_id: Optional[p
                                              region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverFirewallDomainListResult]:
     """
-    `route53.ResolverFirewallDomainList` Retrieves the specified firewall domain list.
-
-    This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall domain list.
-
-    ## Example Usage
-
-    The following example shows how to get a firewall domain list from its ID.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_resolver_firewall_domain_list(firewall_domain_list_id="rslvr-fdl-example")
-    ```
-
-
-    :param _builtins.str firewall_domain_list_id: The ID of the domain list.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['firewallDomainListId'] = firewall_domain_list_id

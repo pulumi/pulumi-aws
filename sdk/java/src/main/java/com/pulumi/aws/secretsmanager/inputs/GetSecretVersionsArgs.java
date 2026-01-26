@@ -17,49 +17,23 @@ public final class GetSecretVersionsArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetSecretVersionsArgs Empty = new GetSecretVersionsArgs();
 
-    /**
-     * If true, all deprecated secret versions are included in the response.
-     * If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
-     * 
-     */
     @Import(name="includeDeprecated")
     private @Nullable Output<Boolean> includeDeprecated;
 
-    /**
-     * @return If true, all deprecated secret versions are included in the response.
-     * If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
-     * 
-     */
     public Optional<Output<Boolean>> includeDeprecated() {
         return Optional.ofNullable(this.includeDeprecated);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
-     * 
-     */
     @Import(name="secretId", required=true)
     private Output<String> secretId;
 
-    /**
-     * @return Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
-     * 
-     */
     public Output<String> secretId() {
         return this.secretId;
     }
@@ -90,67 +64,29 @@ public final class GetSecretVersionsArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetSecretVersionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param includeDeprecated If true, all deprecated secret versions are included in the response.
-         * If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeDeprecated(@Nullable Output<Boolean> includeDeprecated) {
             $.includeDeprecated = includeDeprecated;
             return this;
         }
 
-        /**
-         * @param includeDeprecated If true, all deprecated secret versions are included in the response.
-         * If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeDeprecated(Boolean includeDeprecated) {
             return includeDeprecated(Output.of(includeDeprecated));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param secretId Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretId(Output<String> secretId) {
             $.secretId = secretId;
             return this;
         }
 
-        /**
-         * @param secretId Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretId(String secretId) {
             return secretId(Output.of(secretId));
         }

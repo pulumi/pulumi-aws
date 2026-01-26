@@ -25,10 +25,6 @@ class UsagePlanKeyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UsagePlanKey resource.
-        :param pulumi.Input[_builtins.str] key_id: Identifier of the API key resource.
-        :param pulumi.Input[_builtins.str] key_type: Type of the API key resource. Currently, the valid key type is API_KEY.
-        :param pulumi.Input[_builtins.str] usage_plan_id: Id of the usage plan resource representing to associate the key to.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "key_id", key_id)
         pulumi.set(__self__, "key_type", key_type)
@@ -39,9 +35,6 @@ class UsagePlanKeyArgs:
     @_builtins.property
     @pulumi.getter(name="keyId")
     def key_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of the API key resource.
-        """
         return pulumi.get(self, "key_id")
 
     @key_id.setter
@@ -51,9 +44,6 @@ class UsagePlanKeyArgs:
     @_builtins.property
     @pulumi.getter(name="keyType")
     def key_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Type of the API key resource. Currently, the valid key type is API_KEY.
-        """
         return pulumi.get(self, "key_type")
 
     @key_type.setter
@@ -63,9 +53,6 @@ class UsagePlanKeyArgs:
     @_builtins.property
     @pulumi.getter(name="usagePlanId")
     def usage_plan_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Id of the usage plan resource representing to associate the key to.
-        """
         return pulumi.get(self, "usage_plan_id")
 
     @usage_plan_id.setter
@@ -75,9 +62,6 @@ class UsagePlanKeyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -96,12 +80,6 @@ class _UsagePlanKeyState:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UsagePlanKey resources.
-        :param pulumi.Input[_builtins.str] key_id: Identifier of the API key resource.
-        :param pulumi.Input[_builtins.str] key_type: Type of the API key resource. Currently, the valid key type is API_KEY.
-        :param pulumi.Input[_builtins.str] name: Name of a usage plan key.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] usage_plan_id: Id of the usage plan resource representing to associate the key to.
-        :param pulumi.Input[_builtins.str] value: Value of a usage plan key.
         """
         if key_id is not None:
             pulumi.set(__self__, "key_id", key_id)
@@ -119,9 +97,6 @@ class _UsagePlanKeyState:
     @_builtins.property
     @pulumi.getter(name="keyId")
     def key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the API key resource.
-        """
         return pulumi.get(self, "key_id")
 
     @key_id.setter
@@ -131,9 +106,6 @@ class _UsagePlanKeyState:
     @_builtins.property
     @pulumi.getter(name="keyType")
     def key_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of the API key resource. Currently, the valid key type is API_KEY.
-        """
         return pulumi.get(self, "key_type")
 
     @key_type.setter
@@ -143,9 +115,6 @@ class _UsagePlanKeyState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of a usage plan key.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -155,9 +124,6 @@ class _UsagePlanKeyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -167,9 +133,6 @@ class _UsagePlanKeyState:
     @_builtins.property
     @pulumi.getter(name="usagePlanId")
     def usage_plan_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Id of the usage plan resource representing to associate the key to.
-        """
         return pulumi.get(self, "usage_plan_id")
 
     @usage_plan_id.setter
@@ -179,9 +142,6 @@ class _UsagePlanKeyState:
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Value of a usage plan key.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -201,43 +161,9 @@ class UsagePlanKey(pulumi.CustomResource):
                  usage_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an API Gateway Usage Plan Key.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.apigateway.RestApi("test", name="MyDemoAPI")
-        # ...
-        myusageplan = aws.apigateway.UsagePlan("myusageplan",
-            name="my_usage_plan",
-            api_stages=[{
-                "api_id": test.id,
-                "stage": foo["stageName"],
-            }])
-        mykey = aws.apigateway.ApiKey("mykey", name="my_key")
-        main = aws.apigateway.UsagePlanKey("main",
-            key_id=mykey.id,
-            key_type="API_KEY",
-            usage_plan_id=myusageplan.id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AWS API Gateway Usage Plan Key using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`. For example:
-
-        ```sh
-        $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
-        ```
-
+        Create a UsagePlanKey resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] key_id: Identifier of the API key resource.
-        :param pulumi.Input[_builtins.str] key_type: Type of the API key resource. Currently, the valid key type is API_KEY.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] usage_plan_id: Id of the usage plan resource representing to associate the key to.
         """
         ...
     @overload
@@ -246,37 +172,7 @@ class UsagePlanKey(pulumi.CustomResource):
                  args: UsagePlanKeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an API Gateway Usage Plan Key.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.apigateway.RestApi("test", name="MyDemoAPI")
-        # ...
-        myusageplan = aws.apigateway.UsagePlan("myusageplan",
-            name="my_usage_plan",
-            api_stages=[{
-                "api_id": test.id,
-                "stage": foo["stageName"],
-            }])
-        mykey = aws.apigateway.ApiKey("mykey", name="my_key")
-        main = aws.apigateway.UsagePlanKey("main",
-            key_id=mykey.id,
-            key_type="API_KEY",
-            usage_plan_id=myusageplan.id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AWS API Gateway Usage Plan Key using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`. For example:
-
-        ```sh
-        $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
-        ```
-
+        Create a UsagePlanKey resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UsagePlanKeyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -340,12 +236,6 @@ class UsagePlanKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] key_id: Identifier of the API key resource.
-        :param pulumi.Input[_builtins.str] key_type: Type of the API key resource. Currently, the valid key type is API_KEY.
-        :param pulumi.Input[_builtins.str] name: Name of a usage plan key.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] usage_plan_id: Id of the usage plan resource representing to associate the key to.
-        :param pulumi.Input[_builtins.str] value: Value of a usage plan key.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -362,48 +252,30 @@ class UsagePlanKey(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="keyId")
     def key_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of the API key resource.
-        """
         return pulumi.get(self, "key_id")
 
     @_builtins.property
     @pulumi.getter(name="keyType")
     def key_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of the API key resource. Currently, the valid key type is API_KEY.
-        """
         return pulumi.get(self, "key_type")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of a usage plan key.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="usagePlanId")
     def usage_plan_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Id of the usage plan resource representing to associate the key to.
-        """
         return pulumi.get(self, "usage_plan_id")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Output[_builtins.str]:
-        """
-        Value of a usage plan key.
-        """
         return pulumi.get(self, "value")
 

@@ -11,87 +11,12 @@ namespace Pulumi.Aws.NetworkManager
 {
     public static class GetDevices
     {
-        /// <summary>
-        /// Provides details about existing Network Manager devices.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.NetworkManager.GetDevices.Invoke(new()
-        ///     {
-        ///         GlobalNetworkId = globalNetworkId,
-        ///         Tags = 
-        ///         {
-        ///             { "Env", "test" },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetDevicesResult> InvokeAsync(GetDevicesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDevicesResult>("aws:networkmanager/getDevices:getDevices", args ?? new GetDevicesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about existing Network Manager devices.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.NetworkManager.GetDevices.Invoke(new()
-        ///     {
-        ///         GlobalNetworkId = globalNetworkId,
-        ///         Tags = 
-        ///         {
-        ///             { "Env", "test" },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetDevicesResult> Invoke(GetDevicesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevicesResult>("aws:networkmanager/getDevices:getDevices", args ?? new GetDevicesInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about existing Network Manager devices.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.NetworkManager.GetDevices.Invoke(new()
-        ///     {
-        ///         GlobalNetworkId = globalNetworkId,
-        ///         Tags = 
-        ///         {
-        ///             { "Env", "test" },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetDevicesResult> Invoke(GetDevicesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevicesResult>("aws:networkmanager/getDevices:getDevices", args ?? new GetDevicesInvokeArgs(), options.WithDefaults());
     }
@@ -99,24 +24,14 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class GetDevicesArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the Global Network of the devices to retrieve.
-        /// </summary>
         [Input("globalNetworkId", required: true)]
         public string GlobalNetworkId { get; set; } = null!;
 
-        /// <summary>
-        /// ID of the site of the devices to retrieve.
-        /// </summary>
         [Input("siteId")]
         public string? SiteId { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Restricts the list to the devices with these tags.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -131,24 +46,14 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class GetDevicesInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the Global Network of the devices to retrieve.
-        /// </summary>
         [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
 
-        /// <summary>
-        /// ID of the site of the devices to retrieve.
-        /// </summary>
         [Input("siteId")]
         public Input<string>? SiteId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Restricts the list to the devices with these tags.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -170,9 +75,6 @@ namespace Pulumi.Aws.NetworkManager
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// IDs of the devices.
-        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string? SiteId;
         public readonly ImmutableDictionary<string, string>? Tags;

@@ -13,125 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Lightsail Load Balancer Attachment. Use this resource to attach Lightsail instances to a load balancer for distributing traffic across multiple instances.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
- * import com.pulumi.aws.lightsail.Lb;
- * import com.pulumi.aws.lightsail.LbArgs;
- * import com.pulumi.aws.lightsail.Instance;
- * import com.pulumi.aws.lightsail.InstanceArgs;
- * import com.pulumi.aws.lightsail.LbAttachment;
- * import com.pulumi.aws.lightsail.LbAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
- *             .state("available")
- *             .filters(GetAvailabilityZonesFilterArgs.builder()
- *                 .name("opt-in-status")
- *                 .values("opt-in-not-required")
- *                 .build())
- *             .build());
- * 
- *         var example = new Lb("example", LbArgs.builder()
- *             .name("example-load-balancer")
- *             .healthCheckPath("/")
- *             .instancePort(80)
- *             .tags(Map.of("foo", "bar"))
- *             .build());
- * 
- *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()
- *             .name("example-instance")
- *             .availabilityZone(available.names()[0])
- *             .blueprintId("amazon_linux_2")
- *             .bundleId("nano_3_0")
- *             .build());
- * 
- *         var exampleLbAttachment = new LbAttachment("exampleLbAttachment", LbAttachmentArgs.builder()
- *             .lbName(example.name())
- *             .instanceName(exampleInstance.name())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For example:
- * 
- * ```sh
- * $ pulumi import aws:lightsail/lbAttachment:LbAttachment example example-load-balancer,example-instance
- * ```
- * 
- */
 @ResourceType(type="aws:lightsail/lbAttachment:LbAttachment")
 public class LbAttachment extends com.pulumi.resources.CustomResource {
-    /**
-     * Name of the instance to attach to the load balancer.
-     * 
-     */
     @Export(name="instanceName", refs={String.class}, tree="[0]")
     private Output<String> instanceName;
 
-    /**
-     * @return Name of the instance to attach to the load balancer.
-     * 
-     */
     public Output<String> instanceName() {
         return this.instanceName;
     }
-    /**
-     * Name of the Lightsail load balancer.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="lbName", refs={String.class}, tree="[0]")
     private Output<String> lbName;
 
-    /**
-     * @return Name of the Lightsail load balancer.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> lbName() {
         return this.lbName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

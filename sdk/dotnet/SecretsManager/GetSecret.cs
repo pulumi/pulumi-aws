@@ -11,135 +11,12 @@ namespace Pulumi.Aws.SecretsManager
 {
     public static class GetSecret
     {
-        /// <summary>
-        /// Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### ARN
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var by_arn = Aws.SecretsManager.GetSecret.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Name
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var by_name = Aws.SecretsManager.GetSecret.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("aws:secretsmanager/getSecret:getSecret", args ?? new GetSecretArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### ARN
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var by_arn = Aws.SecretsManager.GetSecret.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Name
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var by_name = Aws.SecretsManager.GetSecret.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretResult>("aws:secretsmanager/getSecret:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### ARN
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var by_arn = Aws.SecretsManager.GetSecret.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Name
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var by_name = Aws.SecretsManager.GetSecret.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretResult>("aws:secretsmanager/getSecret:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());
     }
@@ -147,30 +24,17 @@ namespace Pulumi.Aws.SecretsManager
 
     public sealed class GetSecretArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the secret to retrieve.
-        /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
 
-        /// <summary>
-        /// Name of the secret to retrieve.
-        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Tags of the secret.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -185,30 +49,17 @@ namespace Pulumi.Aws.SecretsManager
 
     public sealed class GetSecretInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the secret to retrieve.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Name of the secret to retrieve.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags of the secret.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -225,39 +76,18 @@ namespace Pulumi.Aws.SecretsManager
     [OutputType]
     public sealed class GetSecretResult
     {
-        /// <summary>
-        /// ARN of the secret.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Created date of the secret in UTC.
-        /// </summary>
         public readonly string CreatedDate;
-        /// <summary>
-        /// Description of the secret.
-        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
-        /// </summary>
         public readonly string KmsKeyId;
-        /// <summary>
-        /// Last updated date of the secret in UTC.
-        /// </summary>
         public readonly string LastChangedDate;
         public readonly string Name;
-        /// <summary>
-        /// Resource-based policy document that's attached to the secret.
-        /// </summary>
         public readonly string Policy;
         public readonly string Region;
-        /// <summary>
-        /// Tags of the secret.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

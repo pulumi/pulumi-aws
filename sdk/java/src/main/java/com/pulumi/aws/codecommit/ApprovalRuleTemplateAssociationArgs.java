@@ -16,47 +16,23 @@ public final class ApprovalRuleTemplateAssociationArgs extends com.pulumi.resour
 
     public static final ApprovalRuleTemplateAssociationArgs Empty = new ApprovalRuleTemplateAssociationArgs();
 
-    /**
-     * The name for the approval rule template.
-     * 
-     */
     @Import(name="approvalRuleTemplateName", required=true)
     private Output<String> approvalRuleTemplateName;
 
-    /**
-     * @return The name for the approval rule template.
-     * 
-     */
     public Output<String> approvalRuleTemplateName() {
         return this.approvalRuleTemplateName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The name of the repository that you want to associate with the template.
-     * 
-     */
     @Import(name="repositoryName", required=true)
     private Output<String> repositoryName;
 
-    /**
-     * @return The name of the repository that you want to associate with the template.
-     * 
-     */
     public Output<String> repositoryName() {
         return this.repositoryName;
     }
@@ -87,65 +63,29 @@ public final class ApprovalRuleTemplateAssociationArgs extends com.pulumi.resour
             $ = new ApprovalRuleTemplateAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param approvalRuleTemplateName The name for the approval rule template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder approvalRuleTemplateName(Output<String> approvalRuleTemplateName) {
             $.approvalRuleTemplateName = approvalRuleTemplateName;
             return this;
         }
 
-        /**
-         * @param approvalRuleTemplateName The name for the approval rule template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder approvalRuleTemplateName(String approvalRuleTemplateName) {
             return approvalRuleTemplateName(Output.of(approvalRuleTemplateName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param repositoryName The name of the repository that you want to associate with the template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryName(Output<String> repositoryName) {
             $.repositoryName = repositoryName;
             return this;
         }
 
-        /**
-         * @param repositoryName The name of the repository that you want to associate with the template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryName(String repositoryName) {
             return repositoryName(Output.of(repositoryName));
         }

@@ -16,142 +16,23 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS DevOps Guru Notification Channel.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.devopsguru.NotificationChannel;
- * import com.pulumi.aws.devopsguru.NotificationChannelArgs;
- * import com.pulumi.aws.devopsguru.inputs.NotificationChannelSnsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new NotificationChannel("example", NotificationChannelArgs.builder()
- *             .sns(NotificationChannelSnsArgs.builder()
- *                 .topicArn(exampleAwsSnsTopic.arn())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Filters
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.devopsguru.NotificationChannel;
- * import com.pulumi.aws.devopsguru.NotificationChannelArgs;
- * import com.pulumi.aws.devopsguru.inputs.NotificationChannelSnsArgs;
- * import com.pulumi.aws.devopsguru.inputs.NotificationChannelFiltersArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new NotificationChannel("example", NotificationChannelArgs.builder()
- *             .sns(NotificationChannelSnsArgs.builder()
- *                 .topicArn(exampleAwsSnsTopic.arn())
- *                 .build())
- *             .filters(NotificationChannelFiltersArgs.builder()
- *                 .messageTypes("NEW_INSIGHT")
- *                 .severities("HIGH")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import DevOps Guru Notification Channel using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:devopsguru/notificationChannel:NotificationChannel example id-12345678
- * ```
- * 
- */
 @ResourceType(type="aws:devopsguru/notificationChannel:NotificationChannel")
 public class NotificationChannel extends com.pulumi.resources.CustomResource {
-    /**
-     * Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
-     * 
-     */
     @Export(name="filters", refs={NotificationChannelFilters.class}, tree="[0]")
     private Output</* @Nullable */ NotificationChannelFilters> filters;
 
-    /**
-     * @return Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
-     * 
-     */
     public Output<Optional<NotificationChannelFilters>> filters() {
         return Codegen.optional(this.filters);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * SNS noficiation channel configurations. See the `sns` argument reference below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="sns", refs={NotificationChannelSns.class}, tree="[0]")
     private Output</* @Nullable */ NotificationChannelSns> sns;
 
-    /**
-     * @return SNS noficiation channel configurations. See the `sns` argument reference below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Optional<NotificationChannelSns>> sns() {
         return Codegen.optional(this.sns);
     }

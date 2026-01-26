@@ -7,20 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing AWS SSO Admin Application Providers.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssoadmin.getApplicationProviders({});
- * ```
- */
 export function getApplicationProviders(args?: GetApplicationProvidersArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationProvidersResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -33,9 +19,6 @@ export function getApplicationProviders(args?: GetApplicationProvidersArgs, opts
  * A collection of arguments for invoking getApplicationProviders.
  */
 export interface GetApplicationProvidersArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -43,30 +26,10 @@ export interface GetApplicationProvidersArgs {
  * A collection of values returned by getApplicationProviders.
  */
 export interface GetApplicationProvidersResult {
-    /**
-     * A list of application providers available in the current region. See `applicationProviders` below.
-     */
     readonly applicationProviders: outputs.ssoadmin.GetApplicationProvidersApplicationProvider[];
-    /**
-     * AWS region.
-     */
     readonly id: string;
     readonly region: string;
 }
-/**
- * Data source for managing AWS SSO Admin Application Providers.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssoadmin.getApplicationProviders({});
- * ```
- */
 export function getApplicationProvidersOutput(args?: GetApplicationProvidersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationProvidersResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -79,8 +42,5 @@ export function getApplicationProvidersOutput(args?: GetApplicationProvidersOutp
  * A collection of arguments for invoking getApplicationProviders.
  */
 export interface GetApplicationProvidersOutputArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

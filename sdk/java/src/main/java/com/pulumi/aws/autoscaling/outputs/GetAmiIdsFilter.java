@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAmiIdsFilter {
-    /**
-     * @return Name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:&lt;tag name&gt;`
-     * 
-     */
     private String name;
-    /**
-     * @return Value of the filter.
-     * 
-     */
     private List<String> values;
 
     private GetAmiIdsFilter() {}
-    /**
-     * @return Name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:&lt;tag name&gt;`
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Value of the filter.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

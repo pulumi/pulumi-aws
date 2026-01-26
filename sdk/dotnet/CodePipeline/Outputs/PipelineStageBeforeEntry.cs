@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CodePipeline.Outputs
     [OutputType]
     public sealed class PipelineStageBeforeEntry
     {
-        /// <summary>
-        /// The conditions that are configured as entry condition. Defined as a `Condition` block below.
-        /// </summary>
         public readonly Outputs.PipelineStageBeforeEntryCondition Condition;
 
         [OutputConstructor]

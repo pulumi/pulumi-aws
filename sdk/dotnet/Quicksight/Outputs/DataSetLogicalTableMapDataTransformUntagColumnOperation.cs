@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSetLogicalTableMapDataTransformUntagColumnOperation
     {
-        /// <summary>
-        /// Column name.
-        /// </summary>
         public readonly string ColumnName;
-        /// <summary>
-        /// The column tags to remove from this column.
-        /// </summary>
         public readonly ImmutableArray<string> TagNames;
 
         [OutputConstructor]

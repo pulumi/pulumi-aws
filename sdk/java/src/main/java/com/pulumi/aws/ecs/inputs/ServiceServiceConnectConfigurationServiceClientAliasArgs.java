@@ -19,47 +19,23 @@ public final class ServiceServiceConnectConfigurationServiceClientAliasArgs exte
 
     public static final ServiceServiceConnectConfigurationServiceClientAliasArgs Empty = new ServiceServiceConnectConfigurationServiceClientAliasArgs();
 
-    /**
-     * Name that you use in the applications of client tasks to connect to this service.
-     * 
-     */
     @Import(name="dnsName")
     private @Nullable Output<String> dnsName;
 
-    /**
-     * @return Name that you use in the applications of client tasks to connect to this service.
-     * 
-     */
     public Optional<Output<String>> dnsName() {
         return Optional.ofNullable(this.dnsName);
     }
 
-    /**
-     * Listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
-     * 
-     */
     @Import(name="port", required=true)
     private Output<Integer> port;
 
-    /**
-     * @return Listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
-     * 
-     */
     public Output<Integer> port() {
         return this.port;
     }
 
-    /**
-     * Configuration block for test traffic routing rules. See below.
-     * 
-     */
     @Import(name="testTrafficRules")
     private @Nullable Output<List<ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgs>> testTrafficRules;
 
-    /**
-     * @return Configuration block for test traffic routing rules. See below.
-     * 
-     */
     public Optional<Output<List<ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgs>>> testTrafficRules() {
         return Optional.ofNullable(this.testTrafficRules);
     }
@@ -90,75 +66,33 @@ public final class ServiceServiceConnectConfigurationServiceClientAliasArgs exte
             $ = new ServiceServiceConnectConfigurationServiceClientAliasArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dnsName Name that you use in the applications of client tasks to connect to this service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsName(@Nullable Output<String> dnsName) {
             $.dnsName = dnsName;
             return this;
         }
 
-        /**
-         * @param dnsName Name that you use in the applications of client tasks to connect to this service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsName(String dnsName) {
             return dnsName(Output.of(dnsName));
         }
 
-        /**
-         * @param port Listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(Output<Integer> port) {
             $.port = port;
             return this;
         }
 
-        /**
-         * @param port Listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(Integer port) {
             return port(Output.of(port));
         }
 
-        /**
-         * @param testTrafficRules Configuration block for test traffic routing rules. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder testTrafficRules(@Nullable Output<List<ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgs>> testTrafficRules) {
             $.testTrafficRules = testTrafficRules;
             return this;
         }
 
-        /**
-         * @param testTrafficRules Configuration block for test traffic routing rules. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder testTrafficRules(List<ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgs> testTrafficRules) {
             return testTrafficRules(Output.of(testTrafficRules));
         }
 
-        /**
-         * @param testTrafficRules Configuration block for test traffic routing rules. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder testTrafficRules(ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleArgs... testTrafficRules) {
             return testTrafficRules(List.of(testTrafficRules));
         }

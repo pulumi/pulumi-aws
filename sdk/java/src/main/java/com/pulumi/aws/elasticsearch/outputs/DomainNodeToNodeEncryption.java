@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class DomainNodeToNodeEncryption {
-    /**
-     * @return Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearchVersion` of `6.0` or greater.
-     * 
-     */
     private Boolean enabled;
 
     private DomainNodeToNodeEncryption() {}
-    /**
-     * @return Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearchVersion` of `6.0` or greater.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }

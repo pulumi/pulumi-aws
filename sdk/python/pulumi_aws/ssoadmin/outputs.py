@@ -55,10 +55,6 @@ class ApplicationPortalOptions(dict):
     def __init__(__self__, *,
                  sign_in_options: Optional['outputs.ApplicationPortalOptionsSignInOptions'] = None,
                  visibility: Optional[_builtins.str] = None):
-        """
-        :param 'ApplicationPortalOptionsSignInOptionsArgs' sign_in_options: Sign-in options for the access portal. See `sign_in_options` below.
-        :param _builtins.str visibility: Indicates whether this application is visible in the access portal. Valid values are `ENABLED` and `DISABLED`.
-        """
         if sign_in_options is not None:
             pulumi.set(__self__, "sign_in_options", sign_in_options)
         if visibility is not None:
@@ -67,17 +63,11 @@ class ApplicationPortalOptions(dict):
     @_builtins.property
     @pulumi.getter(name="signInOptions")
     def sign_in_options(self) -> Optional['outputs.ApplicationPortalOptionsSignInOptions']:
-        """
-        Sign-in options for the access portal. See `sign_in_options` below.
-        """
         return pulumi.get(self, "sign_in_options")
 
     @_builtins.property
     @pulumi.getter
     def visibility(self) -> Optional[_builtins.str]:
-        """
-        Indicates whether this application is visible in the access portal. Valid values are `ENABLED` and `DISABLED`.
-        """
         return pulumi.get(self, "visibility")
 
 
@@ -103,13 +93,6 @@ class ApplicationPortalOptionsSignInOptions(dict):
     def __init__(__self__, *,
                  origin: _builtins.str,
                  application_url: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str origin: Determines how IAM Identity Center navigates the user to the target application.
-               Valid values are `APPLICATION` and `IDENTITY_CENTER`.
-               If `APPLICATION` is set, IAM Identity Center redirects the customer to the configured `application_url`.
-               If `IDENTITY_CENTER` is set, IAM Identity Center uses SAML identity-provider initiated authentication to sign the customer directly into a SAML-based application.
-        :param _builtins.str application_url: URL that accepts authentication requests for an application.
-        """
         pulumi.set(__self__, "origin", origin)
         if application_url is not None:
             pulumi.set(__self__, "application_url", application_url)
@@ -117,20 +100,11 @@ class ApplicationPortalOptionsSignInOptions(dict):
     @_builtins.property
     @pulumi.getter
     def origin(self) -> _builtins.str:
-        """
-        Determines how IAM Identity Center navigates the user to the target application.
-        Valid values are `APPLICATION` and `IDENTITY_CENTER`.
-        If `APPLICATION` is set, IAM Identity Center redirects the customer to the configured `application_url`.
-        If `IDENTITY_CENTER` is set, IAM Identity Center uses SAML identity-provider initiated authentication to sign the customer directly into a SAML-based application.
-        """
         return pulumi.get(self, "origin")
 
     @_builtins.property
     @pulumi.getter(name="applicationUrl")
     def application_url(self) -> Optional[_builtins.str]:
-        """
-        URL that accepts authentication requests for an application.
-        """
         return pulumi.get(self, "application_url")
 
 
@@ -139,10 +113,6 @@ class CustomerManagedPolicyAttachmentCustomerManagedPolicyReference(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  path: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str name: Name of the customer managed IAM Policy to be attached.
-        :param _builtins.str path: The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
-        """
         pulumi.set(__self__, "name", name)
         if path is not None:
             pulumi.set(__self__, "path", path)
@@ -150,17 +120,11 @@ class CustomerManagedPolicyAttachmentCustomerManagedPolicyReference(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the customer managed IAM Policy to be attached.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def path(self) -> Optional[_builtins.str]:
-        """
-        The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
-        """
         return pulumi.get(self, "path")
 
 
@@ -169,27 +133,17 @@ class InstanceAccessControlAttributesAttribute(dict):
     def __init__(__self__, *,
                  key: _builtins.str,
                  values: Sequence['outputs.InstanceAccessControlAttributesAttributeValue']):
-        """
-        :param _builtins.str key: The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
-        :param Sequence['InstanceAccessControlAttributesAttributeValueArgs'] values: The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> _builtins.str:
-        """
-        The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
-        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence['outputs.InstanceAccessControlAttributesAttributeValue']:
-        """
-        The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
-        """
         return pulumi.get(self, "values")
 
 
@@ -197,17 +151,11 @@ class InstanceAccessControlAttributesAttribute(dict):
 class InstanceAccessControlAttributesAttributeValue(dict):
     def __init__(__self__, *,
                  sources: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] sources: The identity source to use when mapping a specified attribute to AWS SSO.
-        """
         pulumi.set(__self__, "sources", sources)
 
     @_builtins.property
     @pulumi.getter
     def sources(self) -> Sequence[_builtins.str]:
-        """
-        The identity source to use when mapping a specified attribute to AWS SSO.
-        """
         return pulumi.get(self, "sources")
 
 
@@ -235,10 +183,6 @@ class PermissionsBoundaryAttachmentPermissionsBoundary(dict):
     def __init__(__self__, *,
                  customer_managed_policy_reference: Optional['outputs.PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference'] = None,
                  managed_policy_arn: Optional[_builtins.str] = None):
-        """
-        :param 'PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs' customer_managed_policy_reference: Specifies the name and path of a customer managed policy. See below.
-        :param _builtins.str managed_policy_arn: AWS-managed IAM policy ARN to use as the permissions boundary.
-        """
         if customer_managed_policy_reference is not None:
             pulumi.set(__self__, "customer_managed_policy_reference", customer_managed_policy_reference)
         if managed_policy_arn is not None:
@@ -247,17 +191,11 @@ class PermissionsBoundaryAttachmentPermissionsBoundary(dict):
     @_builtins.property
     @pulumi.getter(name="customerManagedPolicyReference")
     def customer_managed_policy_reference(self) -> Optional['outputs.PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference']:
-        """
-        Specifies the name and path of a customer managed policy. See below.
-        """
         return pulumi.get(self, "customer_managed_policy_reference")
 
     @_builtins.property
     @pulumi.getter(name="managedPolicyArn")
     def managed_policy_arn(self) -> Optional[_builtins.str]:
-        """
-        AWS-managed IAM policy ARN to use as the permissions boundary.
-        """
         return pulumi.get(self, "managed_policy_arn")
 
 
@@ -266,10 +204,6 @@ class PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyRefer
     def __init__(__self__, *,
                  name: _builtins.str,
                  path: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str name: Name of the customer managed IAM Policy to be attached.
-        :param _builtins.str path: The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
-        """
         pulumi.set(__self__, "name", name)
         if path is not None:
             pulumi.set(__self__, "path", path)
@@ -277,17 +211,11 @@ class PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyRefer
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the customer managed IAM Policy to be attached.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def path(self) -> Optional[_builtins.str]:
-        """
-        The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
-        """
         return pulumi.get(self, "path")
 
 
@@ -312,18 +240,12 @@ class TrustedTokenIssuerTrustedTokenIssuerConfiguration(dict):
 
     def __init__(__self__, *,
                  oidc_jwt_configuration: Optional['outputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration'] = None):
-        """
-        :param 'TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs' oidc_jwt_configuration: A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
-        """
         if oidc_jwt_configuration is not None:
             pulumi.set(__self__, "oidc_jwt_configuration", oidc_jwt_configuration)
 
     @_builtins.property
     @pulumi.getter(name="oidcJwtConfiguration")
     def oidc_jwt_configuration(self) -> Optional['outputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration']:
-        """
-        A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
-        """
         return pulumi.get(self, "oidc_jwt_configuration")
 
 
@@ -357,12 +279,6 @@ class TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration(dict
                  identity_store_attribute_path: _builtins.str,
                  issuer_url: _builtins.str,
                  jwks_retrieval_option: _builtins.str):
-        """
-        :param _builtins.str claim_attribute_path: Specifies the path of the source attribute in the JWT from the trusted token issuer.
-        :param _builtins.str identity_store_attribute_path: Specifies path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by this JMESPath expression is compared against the attribute mapped by `claim_attribute_path` when a trusted token issuer token is exchanged for an IAM Identity Center token.
-        :param _builtins.str issuer_url: Specifies the URL that IAM Identity Center uses for OpenID Discovery. OpenID Discovery is used to obtain the information required to verify the tokens that the trusted token issuer generates.
-        :param _builtins.str jwks_retrieval_option: The method that the trusted token issuer can use to retrieve the JSON Web Key Set used to verify a JWT. Valid values are `OPEN_ID_DISCOVERY`
-        """
         pulumi.set(__self__, "claim_attribute_path", claim_attribute_path)
         pulumi.set(__self__, "identity_store_attribute_path", identity_store_attribute_path)
         pulumi.set(__self__, "issuer_url", issuer_url)
@@ -371,33 +287,21 @@ class TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration(dict
     @_builtins.property
     @pulumi.getter(name="claimAttributePath")
     def claim_attribute_path(self) -> _builtins.str:
-        """
-        Specifies the path of the source attribute in the JWT from the trusted token issuer.
-        """
         return pulumi.get(self, "claim_attribute_path")
 
     @_builtins.property
     @pulumi.getter(name="identityStoreAttributePath")
     def identity_store_attribute_path(self) -> _builtins.str:
-        """
-        Specifies path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by this JMESPath expression is compared against the attribute mapped by `claim_attribute_path` when a trusted token issuer token is exchanged for an IAM Identity Center token.
-        """
         return pulumi.get(self, "identity_store_attribute_path")
 
     @_builtins.property
     @pulumi.getter(name="issuerUrl")
     def issuer_url(self) -> _builtins.str:
-        """
-        Specifies the URL that IAM Identity Center uses for OpenID Discovery. OpenID Discovery is used to obtain the information required to verify the tokens that the trusted token issuer generates.
-        """
         return pulumi.get(self, "issuer_url")
 
     @_builtins.property
     @pulumi.getter(name="jwksRetrievalOption")
     def jwks_retrieval_option(self) -> _builtins.str:
-        """
-        The method that the trusted token issuer can use to retrieve the JSON Web Key Set used to verify a JWT. Valid values are `OPEN_ID_DISCOVERY`
-        """
         return pulumi.get(self, "jwks_retrieval_option")
 
 
@@ -407,11 +311,6 @@ class GetApplicationAssignmentsApplicationAssignmentResult(dict):
                  application_arn: _builtins.str,
                  principal_id: _builtins.str,
                  principal_type: _builtins.str):
-        """
-        :param _builtins.str application_arn: ARN of the application.
-        :param _builtins.str principal_id: An identifier for an object in IAM Identity Center, such as a user or group.
-        :param _builtins.str principal_type: Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-        """
         pulumi.set(__self__, "application_arn", application_arn)
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "principal_type", principal_type)
@@ -419,25 +318,16 @@ class GetApplicationAssignmentsApplicationAssignmentResult(dict):
     @_builtins.property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> _builtins.str:
-        """
-        ARN of the application.
-        """
         return pulumi.get(self, "application_arn")
 
     @_builtins.property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> _builtins.str:
-        """
-        An identifier for an object in IAM Identity Center, such as a user or group.
-        """
         return pulumi.get(self, "principal_id")
 
     @_builtins.property
     @pulumi.getter(name="principalType")
     def principal_type(self) -> _builtins.str:
-        """
-        Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-        """
         return pulumi.get(self, "principal_type")
 
 
@@ -485,11 +375,6 @@ class GetApplicationProvidersApplicationProviderResult(dict):
                  application_provider_arn: _builtins.str,
                  display_datas: Sequence['outputs.GetApplicationProvidersApplicationProviderDisplayDataResult'],
                  federation_protocol: _builtins.str):
-        """
-        :param _builtins.str application_provider_arn: ARN of the application provider.
-        :param Sequence['GetApplicationProvidersApplicationProviderDisplayDataArgs'] display_datas: An object describing how IAM Identity Center represents the application provider in the portal. See `display_data` below.
-        :param _builtins.str federation_protocol: Protocol that the application provider uses to perform federation. Valid values are `SAML` and `OAUTH`.
-        """
         pulumi.set(__self__, "application_provider_arn", application_provider_arn)
         pulumi.set(__self__, "display_datas", display_datas)
         pulumi.set(__self__, "federation_protocol", federation_protocol)
@@ -497,25 +382,16 @@ class GetApplicationProvidersApplicationProviderResult(dict):
     @_builtins.property
     @pulumi.getter(name="applicationProviderArn")
     def application_provider_arn(self) -> _builtins.str:
-        """
-        ARN of the application provider.
-        """
         return pulumi.get(self, "application_provider_arn")
 
     @_builtins.property
     @pulumi.getter(name="displayDatas")
     def display_datas(self) -> Sequence['outputs.GetApplicationProvidersApplicationProviderDisplayDataResult']:
-        """
-        An object describing how IAM Identity Center represents the application provider in the portal. See `display_data` below.
-        """
         return pulumi.get(self, "display_datas")
 
     @_builtins.property
     @pulumi.getter(name="federationProtocol")
     def federation_protocol(self) -> _builtins.str:
-        """
-        Protocol that the application provider uses to perform federation. Valid values are `SAML` and `OAUTH`.
-        """
         return pulumi.get(self, "federation_protocol")
 
 
@@ -525,11 +401,6 @@ class GetApplicationProvidersApplicationProviderDisplayDataResult(dict):
                  description: _builtins.str,
                  display_name: _builtins.str,
                  icon_url: _builtins.str):
-        """
-        :param _builtins.str description: Description of the application provider.
-        :param _builtins.str display_name: Name of the application provider.
-        :param _builtins.str icon_url: URL that points to an icon that represents the application provider.
-        """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "icon_url", icon_url)
@@ -537,25 +408,16 @@ class GetApplicationProvidersApplicationProviderDisplayDataResult(dict):
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the application provider.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> _builtins.str:
-        """
-        Name of the application provider.
-        """
         return pulumi.get(self, "display_name")
 
     @_builtins.property
     @pulumi.getter(name="iconUrl")
     def icon_url(self) -> _builtins.str:
-        """
-        URL that points to an icon that represents the application provider.
-        """
         return pulumi.get(self, "icon_url")
 
 
@@ -565,11 +427,6 @@ class GetPrincipalApplicationAssignmentsApplicationAssignmentResult(dict):
                  application_arn: _builtins.str,
                  principal_id: _builtins.str,
                  principal_type: _builtins.str):
-        """
-        :param _builtins.str application_arn: ARN of the application.
-        :param _builtins.str principal_id: An identifier for an object in IAM Identity Center, such as a user or group.
-        :param _builtins.str principal_type: Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-        """
         pulumi.set(__self__, "application_arn", application_arn)
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "principal_type", principal_type)
@@ -577,25 +434,16 @@ class GetPrincipalApplicationAssignmentsApplicationAssignmentResult(dict):
     @_builtins.property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> _builtins.str:
-        """
-        ARN of the application.
-        """
         return pulumi.get(self, "application_arn")
 
     @_builtins.property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> _builtins.str:
-        """
-        An identifier for an object in IAM Identity Center, such as a user or group.
-        """
         return pulumi.get(self, "principal_id")
 
     @_builtins.property
     @pulumi.getter(name="principalType")
     def principal_type(self) -> _builtins.str:
-        """
-        Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-        """
         return pulumi.get(self, "principal_type")
 
 

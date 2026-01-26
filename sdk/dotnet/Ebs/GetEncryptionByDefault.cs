@@ -11,66 +11,12 @@ namespace Pulumi.Aws.Ebs
 {
     public static class GetEncryptionByDefault
     {
-        /// <summary>
-        /// Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Aws.Ebs.GetEncryptionByDefault.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetEncryptionByDefaultResult> InvokeAsync(GetEncryptionByDefaultArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEncryptionByDefaultResult>("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", args ?? new GetEncryptionByDefaultArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Aws.Ebs.GetEncryptionByDefault.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetEncryptionByDefaultResult> Invoke(GetEncryptionByDefaultInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEncryptionByDefaultResult>("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", args ?? new GetEncryptionByDefaultInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Aws.Ebs.GetEncryptionByDefault.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetEncryptionByDefaultResult> Invoke(GetEncryptionByDefaultInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEncryptionByDefaultResult>("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", args ?? new GetEncryptionByDefaultInvokeArgs(), options.WithDefaults());
     }
@@ -78,9 +24,6 @@ namespace Pulumi.Aws.Ebs
 
     public sealed class GetEncryptionByDefaultArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -92,9 +35,6 @@ namespace Pulumi.Aws.Ebs
 
     public sealed class GetEncryptionByDefaultInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -108,9 +48,6 @@ namespace Pulumi.Aws.Ebs
     [OutputType]
     public sealed class GetEncryptionByDefaultResult
     {
-        /// <summary>
-        /// Whether or not default EBS encryption is enabled. Returns as `True` or `False`.
-        /// </summary>
         public readonly bool Enabled;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

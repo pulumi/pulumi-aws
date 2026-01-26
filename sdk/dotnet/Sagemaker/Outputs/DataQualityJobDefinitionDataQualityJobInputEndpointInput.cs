@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class DataQualityJobDefinitionDataQualityJobInputEndpointInput
     {
-        /// <summary>
-        /// An endpoint in customer's account which has `DataCaptureConfig` enabled.
-        /// </summary>
         public readonly string EndpointName;
-        /// <summary>
-        /// Path to the filesystem where the endpoint data is available to the container. Defaults to `/opt/ml/processing/input`.
-        /// </summary>
         public readonly string? LocalPath;
-        /// <summary>
-        /// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defaults to `FullyReplicated`. Valid values are `FullyReplicated` or `ShardedByS3Key`
-        /// </summary>
         public readonly string? S3DataDistributionType;
-        /// <summary>
-        /// Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job. `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File`.  Valid values are `Pipe` or `File`
-        /// </summary>
         public readonly string? S3InputMode;
 
         [OutputConstructor]

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class CatalogTableOpenTableFormatInput {
-    /**
-     * @return Configuration block for iceberg table config. See `icebergInput` below.
-     * 
-     */
     private CatalogTableOpenTableFormatInputIcebergInput icebergInput;
 
     private CatalogTableOpenTableFormatInput() {}
-    /**
-     * @return Configuration block for iceberg table config. See `icebergInput` below.
-     * 
-     */
     public CatalogTableOpenTableFormatInputIcebergInput icebergInput() {
         return this.icebergInput;
     }

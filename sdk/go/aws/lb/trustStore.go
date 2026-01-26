@@ -12,88 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a ELBv2 Trust Store for use with Application Load Balancer Listener resources.
-//
-// ## Example Usage
-//
-// ### Trust Store Load Balancer Listener
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := lb.NewTrustStore(ctx, "test", &lb.TrustStoreArgs{
-//				Name:                         pulumi.String("tf-example-lb-ts"),
-//				CaCertificatesBundleS3Bucket: pulumi.String("..."),
-//				CaCertificatesBundleS3Key:    pulumi.String("..."),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lb.NewListener(ctx, "example", &lb.ListenerArgs{
-//				LoadBalancerArn: pulumi.Any(exampleAwsLb.Id),
-//				DefaultActions: lb.ListenerDefaultActionArray{
-//					&lb.ListenerDefaultActionArgs{
-//						TargetGroupArn: pulumi.Any(exampleAwsLbTargetGroup.Id),
-//						Type:           pulumi.String("forward"),
-//					},
-//				},
-//				MutualAuthentication: &lb.ListenerMutualAuthenticationArgs{
-//					Mode:          pulumi.String("verify"),
-//					TrustStoreArn: test.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the trust store.
-//
-// Using `pulumi import`, import Target Groups using their ARN. For example:
-//
-// % pulumi import aws_lb_trust_store.example arn:aws:elasticloadbalancing:us-west-2:187416307283:truststore/my-trust-store/20cfe21448b66314
 type TrustStore struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Trust Store (matches `id`).
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// ARN suffix for use with CloudWatch Metrics.
-	ArnSuffix pulumi.StringOutput `pulumi:"arnSuffix"`
-	// S3 Bucket name holding the client certificate CA bundle.
-	CaCertificatesBundleS3Bucket pulumi.StringOutput `pulumi:"caCertificatesBundleS3Bucket"`
-	// S3 object key holding the client certificate CA bundle.
-	CaCertificatesBundleS3Key pulumi.StringOutput `pulumi:"caCertificatesBundleS3Key"`
-	// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+	Arn                                 pulumi.StringOutput    `pulumi:"arn"`
+	ArnSuffix                           pulumi.StringOutput    `pulumi:"arnSuffix"`
+	CaCertificatesBundleS3Bucket        pulumi.StringOutput    `pulumi:"caCertificatesBundleS3Bucket"`
+	CaCertificatesBundleS3Key           pulumi.StringOutput    `pulumi:"caCertificatesBundleS3Key"`
 	CaCertificatesBundleS3ObjectVersion pulumi.StringPtrOutput `pulumi:"caCertificatesBundleS3ObjectVersion"`
-	// Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Name                                pulumi.StringOutput    `pulumi:"name"`
+	NamePrefix                          pulumi.StringOutput    `pulumi:"namePrefix"`
+	Region                              pulumi.StringOutput    `pulumi:"region"`
+	Tags                                pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll                             pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewTrustStore registers a new resource with the given unique name, arguments, and options.
@@ -132,49 +63,29 @@ func GetTrustStore(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TrustStore resources.
 type trustStoreState struct {
-	// ARN of the Trust Store (matches `id`).
-	Arn *string `pulumi:"arn"`
-	// ARN suffix for use with CloudWatch Metrics.
-	ArnSuffix *string `pulumi:"arnSuffix"`
-	// S3 Bucket name holding the client certificate CA bundle.
-	CaCertificatesBundleS3Bucket *string `pulumi:"caCertificatesBundleS3Bucket"`
-	// S3 object key holding the client certificate CA bundle.
-	CaCertificatesBundleS3Key *string `pulumi:"caCertificatesBundleS3Key"`
-	// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
-	CaCertificatesBundleS3ObjectVersion *string `pulumi:"caCertificatesBundleS3ObjectVersion"`
-	// Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                                 *string           `pulumi:"arn"`
+	ArnSuffix                           *string           `pulumi:"arnSuffix"`
+	CaCertificatesBundleS3Bucket        *string           `pulumi:"caCertificatesBundleS3Bucket"`
+	CaCertificatesBundleS3Key           *string           `pulumi:"caCertificatesBundleS3Key"`
+	CaCertificatesBundleS3ObjectVersion *string           `pulumi:"caCertificatesBundleS3ObjectVersion"`
+	Name                                *string           `pulumi:"name"`
+	NamePrefix                          *string           `pulumi:"namePrefix"`
+	Region                              *string           `pulumi:"region"`
+	Tags                                map[string]string `pulumi:"tags"`
+	TagsAll                             map[string]string `pulumi:"tagsAll"`
 }
 
 type TrustStoreState struct {
-	// ARN of the Trust Store (matches `id`).
-	Arn pulumi.StringPtrInput
-	// ARN suffix for use with CloudWatch Metrics.
-	ArnSuffix pulumi.StringPtrInput
-	// S3 Bucket name holding the client certificate CA bundle.
-	CaCertificatesBundleS3Bucket pulumi.StringPtrInput
-	// S3 object key holding the client certificate CA bundle.
-	CaCertificatesBundleS3Key pulumi.StringPtrInput
-	// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+	Arn                                 pulumi.StringPtrInput
+	ArnSuffix                           pulumi.StringPtrInput
+	CaCertificatesBundleS3Bucket        pulumi.StringPtrInput
+	CaCertificatesBundleS3Key           pulumi.StringPtrInput
 	CaCertificatesBundleS3ObjectVersion pulumi.StringPtrInput
-	// Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-	NamePrefix pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Name                                pulumi.StringPtrInput
+	NamePrefix                          pulumi.StringPtrInput
+	Region                              pulumi.StringPtrInput
+	Tags                                pulumi.StringMapInput
+	TagsAll                             pulumi.StringMapInput
 }
 
 func (TrustStoreState) ElementType() reflect.Type {
@@ -182,38 +93,24 @@ func (TrustStoreState) ElementType() reflect.Type {
 }
 
 type trustStoreArgs struct {
-	// S3 Bucket name holding the client certificate CA bundle.
-	CaCertificatesBundleS3Bucket string `pulumi:"caCertificatesBundleS3Bucket"`
-	// S3 object key holding the client certificate CA bundle.
-	CaCertificatesBundleS3Key string `pulumi:"caCertificatesBundleS3Key"`
-	// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
-	CaCertificatesBundleS3ObjectVersion *string `pulumi:"caCertificatesBundleS3ObjectVersion"`
-	// Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	CaCertificatesBundleS3Bucket        string            `pulumi:"caCertificatesBundleS3Bucket"`
+	CaCertificatesBundleS3Key           string            `pulumi:"caCertificatesBundleS3Key"`
+	CaCertificatesBundleS3ObjectVersion *string           `pulumi:"caCertificatesBundleS3ObjectVersion"`
+	Name                                *string           `pulumi:"name"`
+	NamePrefix                          *string           `pulumi:"namePrefix"`
+	Region                              *string           `pulumi:"region"`
+	Tags                                map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a TrustStore resource.
 type TrustStoreArgs struct {
-	// S3 Bucket name holding the client certificate CA bundle.
-	CaCertificatesBundleS3Bucket pulumi.StringInput
-	// S3 object key holding the client certificate CA bundle.
-	CaCertificatesBundleS3Key pulumi.StringInput
-	// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+	CaCertificatesBundleS3Bucket        pulumi.StringInput
+	CaCertificatesBundleS3Key           pulumi.StringInput
 	CaCertificatesBundleS3ObjectVersion pulumi.StringPtrInput
-	// Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-	NamePrefix pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name                                pulumi.StringPtrInput
+	NamePrefix                          pulumi.StringPtrInput
+	Region                              pulumi.StringPtrInput
+	Tags                                pulumi.StringMapInput
 }
 
 func (TrustStoreArgs) ElementType() reflect.Type {
@@ -303,52 +200,42 @@ func (o TrustStoreOutput) ToTrustStoreOutputWithContext(ctx context.Context) Tru
 	return o
 }
 
-// ARN of the Trust Store (matches `id`).
 func (o TrustStoreOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustStore) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// ARN suffix for use with CloudWatch Metrics.
 func (o TrustStoreOutput) ArnSuffix() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustStore) pulumi.StringOutput { return v.ArnSuffix }).(pulumi.StringOutput)
 }
 
-// S3 Bucket name holding the client certificate CA bundle.
 func (o TrustStoreOutput) CaCertificatesBundleS3Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustStore) pulumi.StringOutput { return v.CaCertificatesBundleS3Bucket }).(pulumi.StringOutput)
 }
 
-// S3 object key holding the client certificate CA bundle.
 func (o TrustStoreOutput) CaCertificatesBundleS3Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustStore) pulumi.StringOutput { return v.CaCertificatesBundleS3Key }).(pulumi.StringOutput)
 }
 
-// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
 func (o TrustStoreOutput) CaCertificatesBundleS3ObjectVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustStore) pulumi.StringPtrOutput { return v.CaCertificatesBundleS3ObjectVersion }).(pulumi.StringPtrOutput)
 }
 
-// Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
 func (o TrustStoreOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustStore) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
 func (o TrustStoreOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustStore) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TrustStoreOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustStore) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o TrustStoreOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TrustStore) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o TrustStoreOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TrustStore) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -12,71 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS AppFabric Ingestion Destination.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appfabric"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appfabric.NewIngestionDestination(ctx, "example", &appfabric.IngestionDestinationArgs{
-//				AppBundleArn: pulumi.Any(exampleAwsAppfabricAppBundle.Arn),
-//				IngestionArn: pulumi.Any(exampleAwsAppfabricIngestion.Arn),
-//				ProcessingConfiguration: &appfabric.IngestionDestinationProcessingConfigurationArgs{
-//					AuditLog: &appfabric.IngestionDestinationProcessingConfigurationAuditLogArgs{
-//						Format: pulumi.String("json"),
-//						Schema: pulumi.String("raw"),
-//					},
-//				},
-//				DestinationConfiguration: &appfabric.IngestionDestinationDestinationConfigurationArgs{
-//					AuditLog: &appfabric.IngestionDestinationDestinationConfigurationAuditLogArgs{
-//						Destination: &appfabric.IngestionDestinationDestinationConfigurationAuditLogDestinationArgs{
-//							S3Bucket: &appfabric.IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs{
-//								BucketName: pulumi.Any(exampleAwsS3Bucket.Bucket),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type IngestionDestination struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the app bundle to use for the request.
-	AppBundleArn pulumi.StringOutput `pulumi:"appBundleArn"`
-	// ARN of the Ingestion Destination.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Contains information about the destination of ingested data.
+	AppBundleArn             pulumi.StringOutput                                   `pulumi:"appBundleArn"`
+	Arn                      pulumi.StringOutput                                   `pulumi:"arn"`
 	DestinationConfiguration IngestionDestinationDestinationConfigurationPtrOutput `pulumi:"destinationConfiguration"`
-	// The Amazon Resource Name (ARN) of the ingestion to use for the request.
-	IngestionArn pulumi.StringOutput `pulumi:"ingestionArn"`
-	// Contains information about how ingested data is processed.
-	ProcessingConfiguration IngestionDestinationProcessingConfigurationPtrOutput `pulumi:"processingConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput                `pulumi:"tagsAll"`
-	Timeouts IngestionDestinationTimeoutsPtrOutput `pulumi:"timeouts"`
+	IngestionArn             pulumi.StringOutput                                   `pulumi:"ingestionArn"`
+	ProcessingConfiguration  IngestionDestinationProcessingConfigurationPtrOutput  `pulumi:"processingConfiguration"`
+	Region                   pulumi.StringOutput                                   `pulumi:"region"`
+	Tags                     pulumi.StringMapOutput                                `pulumi:"tags"`
+	TagsAll                  pulumi.StringMapOutput                                `pulumi:"tagsAll"`
+	Timeouts                 IngestionDestinationTimeoutsPtrOutput                 `pulumi:"timeouts"`
 }
 
 // NewIngestionDestination registers a new resource with the given unique name, arguments, and options.
@@ -115,43 +62,27 @@ func GetIngestionDestination(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IngestionDestination resources.
 type ingestionDestinationState struct {
-	// The Amazon Resource Name (ARN) of the app bundle to use for the request.
-	AppBundleArn *string `pulumi:"appBundleArn"`
-	// ARN of the Ingestion Destination.
-	Arn *string `pulumi:"arn"`
-	// Contains information about the destination of ingested data.
+	AppBundleArn             *string                                       `pulumi:"appBundleArn"`
+	Arn                      *string                                       `pulumi:"arn"`
 	DestinationConfiguration *IngestionDestinationDestinationConfiguration `pulumi:"destinationConfiguration"`
-	// The Amazon Resource Name (ARN) of the ingestion to use for the request.
-	IngestionArn *string `pulumi:"ingestionArn"`
-	// Contains information about how ingested data is processed.
-	ProcessingConfiguration *IngestionDestinationProcessingConfiguration `pulumi:"processingConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string             `pulumi:"tagsAll"`
-	Timeouts *IngestionDestinationTimeouts `pulumi:"timeouts"`
+	IngestionArn             *string                                       `pulumi:"ingestionArn"`
+	ProcessingConfiguration  *IngestionDestinationProcessingConfiguration  `pulumi:"processingConfiguration"`
+	Region                   *string                                       `pulumi:"region"`
+	Tags                     map[string]string                             `pulumi:"tags"`
+	TagsAll                  map[string]string                             `pulumi:"tagsAll"`
+	Timeouts                 *IngestionDestinationTimeouts                 `pulumi:"timeouts"`
 }
 
 type IngestionDestinationState struct {
-	// The Amazon Resource Name (ARN) of the app bundle to use for the request.
-	AppBundleArn pulumi.StringPtrInput
-	// ARN of the Ingestion Destination.
-	Arn pulumi.StringPtrInput
-	// Contains information about the destination of ingested data.
+	AppBundleArn             pulumi.StringPtrInput
+	Arn                      pulumi.StringPtrInput
 	DestinationConfiguration IngestionDestinationDestinationConfigurationPtrInput
-	// The Amazon Resource Name (ARN) of the ingestion to use for the request.
-	IngestionArn pulumi.StringPtrInput
-	// Contains information about how ingested data is processed.
-	ProcessingConfiguration IngestionDestinationProcessingConfigurationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts IngestionDestinationTimeoutsPtrInput
+	IngestionArn             pulumi.StringPtrInput
+	ProcessingConfiguration  IngestionDestinationProcessingConfigurationPtrInput
+	Region                   pulumi.StringPtrInput
+	Tags                     pulumi.StringMapInput
+	TagsAll                  pulumi.StringMapInput
+	Timeouts                 IngestionDestinationTimeoutsPtrInput
 }
 
 func (IngestionDestinationState) ElementType() reflect.Type {
@@ -159,36 +90,24 @@ func (IngestionDestinationState) ElementType() reflect.Type {
 }
 
 type ingestionDestinationArgs struct {
-	// The Amazon Resource Name (ARN) of the app bundle to use for the request.
-	AppBundleArn string `pulumi:"appBundleArn"`
-	// Contains information about the destination of ingested data.
+	AppBundleArn             string                                        `pulumi:"appBundleArn"`
 	DestinationConfiguration *IngestionDestinationDestinationConfiguration `pulumi:"destinationConfiguration"`
-	// The Amazon Resource Name (ARN) of the ingestion to use for the request.
-	IngestionArn string `pulumi:"ingestionArn"`
-	// Contains information about how ingested data is processed.
-	ProcessingConfiguration *IngestionDestinationProcessingConfiguration `pulumi:"processingConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string             `pulumi:"tags"`
-	Timeouts *IngestionDestinationTimeouts `pulumi:"timeouts"`
+	IngestionArn             string                                        `pulumi:"ingestionArn"`
+	ProcessingConfiguration  *IngestionDestinationProcessingConfiguration  `pulumi:"processingConfiguration"`
+	Region                   *string                                       `pulumi:"region"`
+	Tags                     map[string]string                             `pulumi:"tags"`
+	Timeouts                 *IngestionDestinationTimeouts                 `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a IngestionDestination resource.
 type IngestionDestinationArgs struct {
-	// The Amazon Resource Name (ARN) of the app bundle to use for the request.
-	AppBundleArn pulumi.StringInput
-	// Contains information about the destination of ingested data.
+	AppBundleArn             pulumi.StringInput
 	DestinationConfiguration IngestionDestinationDestinationConfigurationPtrInput
-	// The Amazon Resource Name (ARN) of the ingestion to use for the request.
-	IngestionArn pulumi.StringInput
-	// Contains information about how ingested data is processed.
-	ProcessingConfiguration IngestionDestinationProcessingConfigurationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts IngestionDestinationTimeoutsPtrInput
+	IngestionArn             pulumi.StringInput
+	ProcessingConfiguration  IngestionDestinationProcessingConfigurationPtrInput
+	Region                   pulumi.StringPtrInput
+	Tags                     pulumi.StringMapInput
+	Timeouts                 IngestionDestinationTimeoutsPtrInput
 }
 
 func (IngestionDestinationArgs) ElementType() reflect.Type {
@@ -278,46 +197,38 @@ func (o IngestionDestinationOutput) ToIngestionDestinationOutputWithContext(ctx 
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the app bundle to use for the request.
 func (o IngestionDestinationOutput) AppBundleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IngestionDestination) pulumi.StringOutput { return v.AppBundleArn }).(pulumi.StringOutput)
 }
 
-// ARN of the Ingestion Destination.
 func (o IngestionDestinationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IngestionDestination) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Contains information about the destination of ingested data.
 func (o IngestionDestinationOutput) DestinationConfiguration() IngestionDestinationDestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v *IngestionDestination) IngestionDestinationDestinationConfigurationPtrOutput {
 		return v.DestinationConfiguration
 	}).(IngestionDestinationDestinationConfigurationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the ingestion to use for the request.
 func (o IngestionDestinationOutput) IngestionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IngestionDestination) pulumi.StringOutput { return v.IngestionArn }).(pulumi.StringOutput)
 }
 
-// Contains information about how ingested data is processed.
 func (o IngestionDestinationOutput) ProcessingConfiguration() IngestionDestinationProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v *IngestionDestination) IngestionDestinationProcessingConfigurationPtrOutput {
 		return v.ProcessingConfiguration
 	}).(IngestionDestinationProcessingConfigurationPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o IngestionDestinationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *IngestionDestination) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o IngestionDestinationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IngestionDestination) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o IngestionDestinationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IngestionDestination) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

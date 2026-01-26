@@ -7,23 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing an AWS Audit Manager Framework.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.auditmanager.getFramework({
- *     name: "Essential Eight",
- *     frameworkType: "Standard",
- * });
- * ```
- */
 export function getFramework(args: GetFrameworkArgs, opts?: pulumi.InvokeOptions): Promise<GetFrameworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:auditmanager/getFramework:getFramework", {
@@ -38,13 +21,7 @@ export function getFramework(args: GetFrameworkArgs, opts?: pulumi.InvokeOptions
  */
 export interface GetFrameworkArgs {
     frameworkType: string;
-    /**
-     * Name of the framework.
-     */
     name: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -62,23 +39,6 @@ export interface GetFrameworkResult {
     readonly region: string;
     readonly tags: {[key: string]: string};
 }
-/**
- * Data source for managing an AWS Audit Manager Framework.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.auditmanager.getFramework({
- *     name: "Essential Eight",
- *     frameworkType: "Standard",
- * });
- * ```
- */
 export function getFrameworkOutput(args: GetFrameworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFrameworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:auditmanager/getFramework:getFramework", {
@@ -93,12 +53,6 @@ export function getFrameworkOutput(args: GetFrameworkOutputArgs, opts?: pulumi.I
  */
 export interface GetFrameworkOutputArgs {
     frameworkType: pulumi.Input<string>;
-    /**
-     * Name of the framework.
-     */
     name: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

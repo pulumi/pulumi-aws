@@ -13,66 +13,22 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DocumentClassifierInputDataConfig {
-    /**
-     * @return List of training datasets produced by Amazon SageMaker AI Ground Truth.
-     * Used if `dataFormat` is `AUGMENTED_MANIFEST`.
-     * See the `augmentedManifests` Configuration Block section below.
-     * 
-     */
     private @Nullable List<DocumentClassifierInputDataConfigAugmentedManifest> augmentedManifests;
-    /**
-     * @return The format for the training data.
-     * One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
-     * 
-     */
     private @Nullable String dataFormat;
-    /**
-     * @return Delimiter between labels when training a multi-label classifier.
-     * Valid values are `|`, `~`, `!`, `{@literal @}`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `&gt;`, `?`, `/`, `&lt;space&gt;`, and `&lt;tab&gt;`.
-     * Default is `|`.
-     * 
-     */
     private @Nullable String labelDelimiter;
-    /**
-     * @return Location of training documents.
-     * Used if `dataFormat` is `COMPREHEND_CSV`.
-     * 
-     */
     private @Nullable String s3Uri;
     private @Nullable String testS3Uri;
 
     private DocumentClassifierInputDataConfig() {}
-    /**
-     * @return List of training datasets produced by Amazon SageMaker AI Ground Truth.
-     * Used if `dataFormat` is `AUGMENTED_MANIFEST`.
-     * See the `augmentedManifests` Configuration Block section below.
-     * 
-     */
     public List<DocumentClassifierInputDataConfigAugmentedManifest> augmentedManifests() {
         return this.augmentedManifests == null ? List.of() : this.augmentedManifests;
     }
-    /**
-     * @return The format for the training data.
-     * One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
-     * 
-     */
     public Optional<String> dataFormat() {
         return Optional.ofNullable(this.dataFormat);
     }
-    /**
-     * @return Delimiter between labels when training a multi-label classifier.
-     * Valid values are `|`, `~`, `!`, `{@literal @}`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `&gt;`, `?`, `/`, `&lt;space&gt;`, and `&lt;tab&gt;`.
-     * Default is `|`.
-     * 
-     */
     public Optional<String> labelDelimiter() {
         return Optional.ofNullable(this.labelDelimiter);
     }
-    /**
-     * @return Location of training documents.
-     * Used if `dataFormat` is `COMPREHEND_CSV`.
-     * 
-     */
     public Optional<String> s3Uri() {
         return Optional.ofNullable(this.s3Uri);
     }

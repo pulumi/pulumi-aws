@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IdentitySourceConfiguration {
-    /**
-     * @return Specifies the configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
-     * 
-     */
     private @Nullable IdentitySourceConfigurationCognitoUserPoolConfiguration cognitoUserPoolConfiguration;
-    /**
-     * @return Specifies the configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
-     * 
-     */
     private @Nullable IdentitySourceConfigurationOpenIdConnectConfiguration openIdConnectConfiguration;
 
     private IdentitySourceConfiguration() {}
-    /**
-     * @return Specifies the configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
-     * 
-     */
     public Optional<IdentitySourceConfigurationCognitoUserPoolConfiguration> cognitoUserPoolConfiguration() {
         return Optional.ofNullable(this.cognitoUserPoolConfiguration);
     }
-    /**
-     * @return Specifies the configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
-     * 
-     */
     public Optional<IdentitySourceConfigurationOpenIdConnectConfiguration> openIdConnectConfiguration() {
         return Optional.ofNullable(this.openIdConnectConfiguration);
     }

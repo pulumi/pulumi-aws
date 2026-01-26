@@ -19,32 +19,16 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettings {
-    /**
-     * @return Archive group settings. See Archive Group Settings for more details.
-     * 
-     */
     private @Nullable List<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting> archiveGroupSettings;
     private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings frameCaptureGroupSettings;
     private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings hlsGroupSettings;
-    /**
-     * @return Media package group settings. See Media Package Group Settings for more details.
-     * 
-     */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettings mediaPackageGroupSettings;
     private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings msSmoothGroupSettings;
     private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettings multiplexGroupSettings;
-    /**
-     * @return RTMP group settings. See RTMP Group Settings for more details.
-     * 
-     */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings rtmpGroupSettings;
     private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettings udpGroupSettings;
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettings() {}
-    /**
-     * @return Archive group settings. See Archive Group Settings for more details.
-     * 
-     */
     public List<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting> archiveGroupSettings() {
         return this.archiveGroupSettings == null ? List.of() : this.archiveGroupSettings;
     }
@@ -54,10 +38,6 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettings {
     public Optional<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings> hlsGroupSettings() {
         return Optional.ofNullable(this.hlsGroupSettings);
     }
-    /**
-     * @return Media package group settings. See Media Package Group Settings for more details.
-     * 
-     */
     public Optional<ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettings> mediaPackageGroupSettings() {
         return Optional.ofNullable(this.mediaPackageGroupSettings);
     }
@@ -67,10 +47,6 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettings {
     public Optional<ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettings> multiplexGroupSettings() {
         return Optional.ofNullable(this.multiplexGroupSettings);
     }
-    /**
-     * @return RTMP group settings. See RTMP Group Settings for more details.
-     * 
-     */
     public Optional<ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings> rtmpGroupSettings() {
         return Optional.ofNullable(this.rtmpGroupSettings);
     }

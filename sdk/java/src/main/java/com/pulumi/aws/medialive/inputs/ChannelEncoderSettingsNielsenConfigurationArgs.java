@@ -15,32 +15,16 @@ public final class ChannelEncoderSettingsNielsenConfigurationArgs extends com.pu
 
     public static final ChannelEncoderSettingsNielsenConfigurationArgs Empty = new ChannelEncoderSettingsNielsenConfigurationArgs();
 
-    /**
-     * Enter the Distributor ID assigned to your organization by Nielsen.
-     * 
-     */
     @Import(name="distributorId")
     private @Nullable Output<String> distributorId;
 
-    /**
-     * @return Enter the Distributor ID assigned to your organization by Nielsen.
-     * 
-     */
     public Optional<Output<String>> distributorId() {
         return Optional.ofNullable(this.distributorId);
     }
 
-    /**
-     * Enables Nielsen PCM to ID3 tagging.
-     * 
-     */
     @Import(name="nielsenPcmToId3Tagging")
     private @Nullable Output<String> nielsenPcmToId3Tagging;
 
-    /**
-     * @return Enables Nielsen PCM to ID3 tagging.
-     * 
-     */
     public Optional<Output<String>> nielsenPcmToId3Tagging() {
         return Optional.ofNullable(this.nielsenPcmToId3Tagging);
     }
@@ -70,44 +54,20 @@ public final class ChannelEncoderSettingsNielsenConfigurationArgs extends com.pu
             $ = new ChannelEncoderSettingsNielsenConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param distributorId Enter the Distributor ID assigned to your organization by Nielsen.
-         * 
-         * @return builder
-         * 
-         */
         public Builder distributorId(@Nullable Output<String> distributorId) {
             $.distributorId = distributorId;
             return this;
         }
 
-        /**
-         * @param distributorId Enter the Distributor ID assigned to your organization by Nielsen.
-         * 
-         * @return builder
-         * 
-         */
         public Builder distributorId(String distributorId) {
             return distributorId(Output.of(distributorId));
         }
 
-        /**
-         * @param nielsenPcmToId3Tagging Enables Nielsen PCM to ID3 tagging.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nielsenPcmToId3Tagging(@Nullable Output<String> nielsenPcmToId3Tagging) {
             $.nielsenPcmToId3Tagging = nielsenPcmToId3Tagging;
             return this;
         }
 
-        /**
-         * @param nielsenPcmToId3Tagging Enables Nielsen PCM to ID3 tagging.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nielsenPcmToId3Tagging(String nielsenPcmToId3Tagging) {
             return nielsenPcmToId3Tagging(Output.of(nielsenPcmToId3Tagging));
         }

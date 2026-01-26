@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec
     {
-        /// <summary>
-        /// The instance type.
-        /// </summary>
         public readonly string? InstanceType;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-        /// </summary>
         public readonly string? LifecycleConfigArn;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
-        /// </summary>
         public readonly string? SagemakerImageArn;
-        /// <summary>
-        /// The SageMaker AI Image Version Alias.
-        /// </summary>
         public readonly string? SagemakerImageVersionAlias;
-        /// <summary>
-        /// The ARN of the image version created on the instance.
-        /// </summary>
         public readonly string? SagemakerImageVersionArn;
 
         [OutputConstructor]

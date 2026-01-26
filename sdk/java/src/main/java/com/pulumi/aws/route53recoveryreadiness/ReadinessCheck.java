@@ -15,125 +15,35 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AWS Route 53 Recovery Readiness Readiness Check.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.route53recoveryreadiness.ReadinessCheck;
- * import com.pulumi.aws.route53recoveryreadiness.ReadinessCheckArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ReadinessCheck("example", ReadinessCheckArgs.builder()
- *             .readinessCheckName(my_cw_alarm_check)
- *             .resourceSetName(my_cw_alarm_set)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Route53 Recovery Readiness readiness checks using the readiness check name. For example:
- * 
- * ```sh
- * $ pulumi import aws:route53recoveryreadiness/readinessCheck:ReadinessCheck my-cw-alarm-check example
- * ```
- * 
- */
 @ResourceType(type="aws:route53recoveryreadiness/readinessCheck:ReadinessCheck")
 public class ReadinessCheck extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the readiness_check
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the readiness_check
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Unique name describing the readiness check.
-     * 
-     */
     @Export(name="readinessCheckName", refs={String.class}, tree="[0]")
     private Output<String> readinessCheckName;
 
-    /**
-     * @return Unique name describing the readiness check.
-     * 
-     */
     public Output<String> readinessCheckName() {
         return this.readinessCheckName;
     }
-    /**
-     * Name describing the resource set that will be monitored for readiness.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="resourceSetName", refs={String.class}, tree="[0]")
     private Output<String> resourceSetName;
 
-    /**
-     * @return Name describing the resource set that will be monitored for readiness.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> resourceSetName() {
         return this.resourceSetName;
     }
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

@@ -15,32 +15,16 @@ public final class LogTransformerTransformerConfigParseJsonArgs extends com.pulu
 
     public static final LogTransformerTransformerConfigParseJsonArgs Empty = new LogTransformerTransformerConfigParseJsonArgs();
 
-    /**
-     * Specifies the location to put the parsed key value pair into. If omitted, it will be placed under the root node.
-     * 
-     */
     @Import(name="destination")
     private @Nullable Output<String> destination;
 
-    /**
-     * @return Specifies the location to put the parsed key value pair into. If omitted, it will be placed under the root node.
-     * 
-     */
     public Optional<Output<String>> destination() {
         return Optional.ofNullable(this.destination);
     }
 
-    /**
-     * Specifies the path to the field in the log event that will be parsed. Defaults to `{@literal @}message`.
-     * 
-     */
     @Import(name="source")
     private @Nullable Output<String> source;
 
-    /**
-     * @return Specifies the path to the field in the log event that will be parsed. Defaults to `{@literal @}message`.
-     * 
-     */
     public Optional<Output<String>> source() {
         return Optional.ofNullable(this.source);
     }
@@ -70,44 +54,20 @@ public final class LogTransformerTransformerConfigParseJsonArgs extends com.pulu
             $ = new LogTransformerTransformerConfigParseJsonArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destination Specifies the location to put the parsed key value pair into. If omitted, it will be placed under the root node.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(@Nullable Output<String> destination) {
             $.destination = destination;
             return this;
         }
 
-        /**
-         * @param destination Specifies the location to put the parsed key value pair into. If omitted, it will be placed under the root node.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(String destination) {
             return destination(Output.of(destination));
         }
 
-        /**
-         * @param source Specifies the path to the field in the log event that will be parsed. Defaults to `{@literal @}message`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(@Nullable Output<String> source) {
             $.source = source;
             return this;
         }
 
-        /**
-         * @param source Specifies the path to the field in the log event that will be parsed. Defaults to `{@literal @}message`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(String source) {
             return source(Output.of(source));
         }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCount
     {
-        /// <summary>
-        /// Custom handling for counted requests. See below.
-        /// </summary>
         public readonly Outputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandling? CustomRequestHandling;
 
         [OutputConstructor]

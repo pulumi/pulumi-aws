@@ -59,25 +59,16 @@ class GetVirtualClusterResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the cluster.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="containerProviders")
     def container_providers(self) -> Sequence['outputs.GetVirtualClusterContainerProviderResult']:
-        """
-        Nested attribute containing information about the underlying container provider (EKS cluster) for your EMR Containers cluster.
-        """
         return pulumi.get(self, "container_providers")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> _builtins.str:
-        """
-        Unix epoch time stamp in seconds for when the cluster was created.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
@@ -91,9 +82,6 @@ class GetVirtualClusterResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the cluster.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -104,17 +92,11 @@ class GetVirtualClusterResult:
     @_builtins.property
     @pulumi.getter
     def state(self) -> _builtins.str:
-        """
-        Status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value mapping of resource tags.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -145,23 +127,7 @@ def get_virtual_cluster(region: Optional[_builtins.str] = None,
                         virtual_cluster_id: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualClusterResult:
     """
-    Retrieve information about an EMR Containers (EMR on EKS) Virtual Cluster.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.emrcontainers.get_virtual_cluster(virtual_cluster_id="example id")
-    pulumi.export("name", example.name)
-    pulumi.export("arn", example.arn)
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value mapping of resource tags.
-    :param _builtins.str virtual_cluster_id: ID of the cluster.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -185,23 +151,7 @@ def get_virtual_cluster_output(region: Optional[pulumi.Input[Optional[_builtins.
                                virtual_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualClusterResult]:
     """
-    Retrieve information about an EMR Containers (EMR on EKS) Virtual Cluster.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.emrcontainers.get_virtual_cluster(virtual_cluster_id="example id")
-    pulumi.export("name", example.name)
-    pulumi.export("arn", example.arn)
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value mapping of resource tags.
-    :param _builtins.str virtual_cluster_id: ID of the cluster.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
